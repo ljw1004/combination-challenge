@@ -1,9 +1,9 @@
 import type {Box,Pose,Vec} from './geometric-materials-geometry.ts';
 export type Optical='clear'|'opaque'|'reflecting'|'diffuse';
 export interface Surface {rigidity:'rigid'|'flexible'|'moldable';optical:Optical;permeability:'porous'|'watertight';recording:'none'|'temporary'|'durable'}
-export interface Observation {id:string;subject:string;center:Vec;heading:Vec;target:Vec;front:Vec;lens:string;plate:string;boundaries:{part:string;surface:Surface;box:Box}[];intervention:number}
+export interface Observation {id:string;subject:string;center:Vec;heading:Vec;target:Vec;front:Vec;lens:string;plate:string;focalBoundaries:{part:string;surface:Surface;box:Box}[];boundaries:{part:string;surface:Surface;box:Box}[];intervention:number}
 export interface MaterialEvent {id:string;kind:'fit'|'service'|'impression'|'copy';intervention:number;surface:Surface;sourcePart?:string;sourceObject?:string;records?:Observation[];profile?:string;contact?:{materialPart:string;toolPart:string;toolTranslation:Vec}}
-export interface Part {id:string;kind:string;pose:Pose;parent?:string;hinge?:{pivot:Vec;axis:'x'|'y'|'z'};surface:Surface;profile:string;shapes:Box[];records:Observation[];events:MaterialEvent[];sample?:string;activeFit?:string}
+export interface Part {id:string;kind:string;pose:Pose;parent?:string;attachmentPart?:string;hinge?:{pivot:Vec;axis:'x'|'y'|'z'};surface:Surface;profile:string;shapes:Box[];records:Observation[];events:MaterialEvent[];sample?:string;activeFit?:string}
 export interface Assembly {id:string;design:string;parts:Part[];pose:Pose}
 export interface Design {id:string;label:string;parts:Part[];source:'canonical'|'player'}
 export interface Link {a:string;b:string;channel:'water'|'power'|'light'}
