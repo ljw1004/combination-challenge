@@ -1,0 +1,32 @@
+/** Prospective finite geometry screen, NOT a playable core or an enjoyment result. */
+import assert from 'node:assert/strict';
+import {createHash} from 'node:crypto';
+import {mkdirSync,readFileSync,writeFileSync} from 'node:fs';
+import {pathToFileURL} from 'node:url';
+type Cell=[number,number];type Heading='east'|'north';
+const eq=(a:Cell,b:Cell)=>a[0]===b[0]&&a[1]===b[1];
+const targets=[{id:'A',cell:[5,1] as Cell,front:'west'},{id:'B',cell:[2,-2] as Cell,front:'south'}];
+const tap:Cell=[0,1],center:Cell=[2,1];
+const commonFront=(p:Cell)=>p[1]===1&&p[0]<5&&p[0]===2&&p[1]>-2;
+const plate=(p:Cell,h:Heading):Cell=>h==='east'?[p[0]-1,p[1]]:[p[0],p[1]+1];
+const body=(p:Cell,h:Heading):Cell[]=>[p,plate(p,h)];
+const onPath=(c:Cell)=>c[1]===0&&c[0]>=-1&&c[0]<=4;
+const between=(c:Cell,a:Cell,b:Cell)=>a[0]===b[0]?c[0]===a[0]&&c[1]>Math.min(a[1],b[1])&&c[1]<Math.max(a[1],b[1]):c[1]===a[1]&&c[0]>Math.min(a[0],b[0])&&c[0]<Math.max(a[0],b[0]);
+function pose(garden:Cell,h:Heading,extraBodies:Cell[]=[]){const camera=body(center,h),subject=targets[h==='east'?0:1]!;const collision=camera.some(c=>[garden,tap,...extraBodies].some(p=>eq(c,p)))||extraBodies.some(p=>eq(p,garden));const blocked=[garden,...extraBodies].some(c=>between(c,center,subject.cell));return {heading:h,camera,collision,frontOn:commonFront(center),rayBlocked:blocked,accessBlocked:[garden,...camera,...extraBodies].some(onPath),works:!collision&&!blocked&&![garden,...camera,...extraBodies].some(onPath)};}
+const service=(garden:Cell,connected=true,covered=true)=>({garden,connected,covered,growing:connected&&covered&&!eq(garden,tap)&&!onPath(garden)});
+function endpoint(garden:Cell){const east=pose(garden,'east'),north=pose(garden,'north'),g=service(garden);return {gardenService:g,east,north,all:g.growing&&east.works&&north.works};}
+export function runArrangementScreen(directory='results/observatory-arrangement-screen'){
+ const initial:Cell=[1,1],side:Cell=[1,3],near:Cell=[2,2];
+ const centers:Cell[]=[];for(let x=-2;x<=6;x++)for(let y=-3;y<=4;y++)if(commonFront([x,y]))centers.push([x,y]);assert.deepEqual(centers,[center]);
+ const initialResult=endpoint(initial),nearResult=endpoint(near),sideResult=endpoint(side);assert.equal(initialResult.east.works,false);assert.equal(initialResult.north.works,true);assert.equal(nearResult.east.works,true);assert.equal(nearResult.north.works,false);assert.equal(sideResult.all,true);
+ const examined:ReturnType<typeof endpoint>[]=[];for(let x=0;x<=3;x++)for(let y=1;y<=4;y++)examined.push(endpoint([x,y]));
+ // Unit roof flap: actual vertex geometry before/after rotation about seam x=1.5, z=1.5.
+ const roof=[[1.5,.5,1.5],[2.5,.5,1.5],[2.5,1.5,1.5],[1.5,1.5,1.5]];
+ const folded=roof.map(([x,y,z])=>[1.5,y,z!-(x!-1.5)]);assert.deepEqual(folded,[[1.5,.5,1.5],[1.5,.5,.5],[1.5,1.5,.5],[1.5,1.5,1.5]]);
+ const distance=(a:number[],b:number[])=>Math.hypot(...a.map((n,i)=>n-b[i]!));assert.equal(distance(roof[0]!,roof[1]!),distance(folded[0]!,folded[1]!));assert.equal(distance(roof[1]!,roof[2]!),distance(folded[1]!,folded[2]!));
+ // A connected rigid camera subtree rotates; it does not become one cell.
+ const rigid:Cell[]=[[0,0],[1,0]],rotated=rigid.map(([x,y]):Cell=>[-y,x]);assert.equal(new Set(rotated.map(String)).size,2);
+ const dualPlate=[center,plate(center,'east'),plate(center,'north')];assert.equal(new Set(dualPlate.map(String)).size,3);assert.ok(dualPlate.every(c=>!eq(c,side)&&!onPath(c)));
+ const result={kind:'Source-exposed prospective coordinate/pose screen; not existing game replay, complete core, player, or fun evidence',createdAt:new Date().toISOString(),rules:{floor:'unbounded supported integer-cell apron; fixed tap and targets are site features',targets,tap,publicAccess:{y:0,xRange:[-1,4]},lensPlateSeparation:1,rootAndPlate:'opaque solid unit bodies; their cell volumes overlap at lens height',roof:'clear boundary above root; hinge preserves one-unit panel dimensions; no sweep simulation',water:'unlimited real tap; moving clears connection and requires reconnect; no cost inferred here',copies:'unlimited, preserve geometry, no identity restriction',replacement:'allowed; no every-intervention service constraint',calibration:'front-on cardinal images of A and B from same optical center; no original-camera identity'},centers,controls:{initial:initialResult,nearRelocation:nearResult,rigidSideRelocation:sideResult,wholeReplacement:sideResult,staticFutureReady:sideResult,clearOrCopiedLampAddition:{result:'does not remove initial root/plate occupancy; no light-source restriction imposed'},foldRoofOnly:{roof,folded,rootCell:initial,eastStillBlocked:!initialResult.east.works},outsideCameras:{examinedOpticalCenters:72,passingCenters:centers},alternativeDualPlateCamera:{cells:dualPlate,sideGarden:side,accepted:true,meaning:'one rotating lens plus two recording planes can use both headings without whole-camera rotation; parts still occupy real cells'},richScaffold:{garden:side,camera:dualPlate,endpoint:sideResult.all,meaning:'joint static multi-service answer is legal; not a forced reversible inheritance dilemma'},oldUtility:{construction:'cart + hinge + camera, three original selected combinations; no extra geometry clicks implied',rigidBodyBefore:rigid,afterExternalHingeRotation:rotated,occupiedCells:2,legacyFoldedBoundingBox:[1,1],meaning:'new hypothetical physical rule changes transport fit, not automatically construction count'}},finiteEnumeration:{gardenPositionsExamined:examined.length,validForBoth:examined.filter(x=>x.all).map(x=>x.gardenService.garden),results:examined},scope:{notTested:['complete material assembly construction costs','hinge continuous sweeps','all possible alternative optics/focal lengths','new complete station routes','player experience'],finding:'Real but small arrangement consequence. Rigid relocation/replacement/static joint scaffold survive; no essential hinge use, option-loss or long-game result.'},sourceHash:createHash('sha256').update(readFileSync('experiments/observatory-arrangement-screen.ts')).digest('hex')};mkdirSync(directory,{recursive:true});writeFileSync(`${directory}/screen.json`,JSON.stringify(result,null,2)+'\n');return result;
+}
+if(process.argv[1]&&import.meta.url===pathToFileURL(process.argv[1]).href){const r=runArrangementScreen(process.argv[2]);console.log(JSON.stringify({centers:r.centers,validGardenPositions:r.finiteEnumeration.validForBoth,controls:Object.fromEntries(Object.entries(r.controls).map(([k,v])=>[k,'all'in v?v.all:'see evidence'])),finding:r.scope.finding},null,2));}
