@@ -1,0 +1,184 @@
+{
+  "kind": "Paper selections, not executable engine transitions",
+  "acceptedCountClaim": 33,
+  "verification": "Manual law/geometry reasoning only; independent review pending",
+  "route": [
+    {
+      "selection": 1,
+      "action": "L frame + clear-panel",
+      "paperConsequence": "clear roof capability"
+    },
+    {
+      "selection": 2,
+      "action": "L tray + seed",
+      "paperConsequence": "rootbed capability"
+    },
+    {
+      "selection": 3,
+      "action": "L solar-cell + frame",
+      "paperConsequence": "solar panel capability"
+    },
+    {
+      "selection": 4,
+      "action": "L solar-panel + solar-panel",
+      "paperConsequence": "opposed twin-array capability"
+    },
+    {
+      "selection": 5,
+      "action": "L wire + heater",
+      "paperConsequence": "powered-heater capability"
+    },
+    {
+      "selection": 6,
+      "action": "L tray + mesh",
+      "paperConsequence": "filter capability"
+    },
+    {
+      "selection": 7,
+      "action": "L filter + heater",
+      "paperConsequence": "heated separator capability"
+    },
+    {
+      "selection": 8,
+      "action": "L frame + clay",
+      "paperConsequence": "workbench capability"
+    },
+    {
+      "selection": 9,
+      "action": "L signal-receiver + signal-emitter",
+      "paperConsequence": "relay capability"
+    },
+    {
+      "selection": 10,
+      "action": "L frame + signal-emitter",
+      "paperConsequence": "beacon capability"
+    },
+    {
+      "selection": 11,
+      "action": "P twin-array at `(0,8)` as `power`",
+      "paperConsequence": "panels at0,8 and1,8; both sky directions clear"
+    },
+    {
+      "selection": 12,
+      "action": "P powered-heater at `(7,6)` as `melt`",
+      "paperConsequence": "east face contacts west face of ice at8,6"
+    },
+    {
+      "selection": 13,
+      "action": "C power \u2192 melt, power",
+      "paperConsequence": "warmth reaches actual ice; dirty water exists"
+    },
+    {
+      "selection": 14,
+      "action": "P heated separator at `(9,6)` as `clean`",
+      "paperConsequence": "filter at9,6, heater at10,6; separate from ice and melt"
+    },
+    {
+      "selection": 15,
+      "action": "C ice \u2192 clean, water",
+      "paperConsequence": "actual dirty input"
+    },
+    {
+      "selection": 16,
+      "action": "C power \u2192 clean, power",
+      "paperConsequence": "actual clean output"
+    },
+    {
+      "selection": 17,
+      "action": "P clear roof at `(0,7)` as `home-roof`",
+      "paperConsequence": "canopy over0,7 and1,7"
+    },
+    {
+      "selection": 18,
+      "action": "P rootbed at `(0,7)` as `garden`",
+      "paperConsequence": "actual root fits below roof"
+    },
+    {
+      "selection": 19,
+      "action": "C clean \u2192 garden, water",
+      "paperConsequence": "actual clean supply"
+    },
+    {
+      "selection": 20,
+      "action": "P powered-heater at `(0,6)` as `garden-heat`",
+      "paperConsequence": "touches garden north/south without blocking its east/west sky rays"
+    },
+    {
+      "selection": 21,
+      "action": "Join garden + garden-heat",
+      "paperConsequence": "actual positive-area face contact; no remote heat link"
+    },
+    {
+      "selection": 22,
+      "action": "C power \u2192 garden-heat, power",
+      "paperConsequence": "actual joined heater warms bed"
+    },
+    {
+      "selection": 23,
+      "action": "P clear roof at `(9,2)` as `work-roof`",
+      "paperConsequence": "canopy over9,2 and10,2; leaves the x8 signal corridor clear"
+    },
+    {
+      "selection": 24,
+      "action": "P workbench at `(9,2)` as `bench`",
+      "paperConsequence": "dry protected work space"
+    },
+    {
+      "selection": 25,
+      "action": "P powered-heater at `(10,2)` as `work-heat`",
+      "paperConsequence": "under spare work-roof cell"
+    },
+    {
+      "selection": 26,
+      "action": "Join bench + work-heat",
+      "paperConsequence": "actual positive-area face contact"
+    },
+    {
+      "selection": 27,
+      "action": "C power \u2192 work-heat, power",
+      "paperConsequence": "actual warm dry working assembly"
+    },
+    {
+      "selection": 28,
+      "action": "P beacon at `(0,0)` as `origin`",
+      "paperConsequence": "origin below wall's west side"
+    },
+    {
+      "selection": 29,
+      "action": "C power \u2192 origin, power",
+      "paperConsequence": "actual live signal source"
+    },
+    {
+      "selection": 30,
+      "action": "P relay at `(0,4)` as `north`",
+      "paperConsequence": "receiver0,4; emitter1,4; above wall's north edge"
+    },
+    {
+      "selection": 31,
+      "action": "C power \u2192 north, power",
+      "paperConsequence": "origin's north-facing ray reaches receiver0,4"
+    },
+    {
+      "selection": 32,
+      "action": "P relay at `(7,4)` as `ridge`",
+      "paperConsequence": "receiver7,4; emitter8,4"
+    },
+    {
+      "selection": 33,
+      "action": "C power \u2192 ridge, power",
+      "paperConsequence": "emitter1,4 reaches receiver7,4 above wall"
+    }
+  ],
+  "prospectivePlacementCorrection": {
+    "17": "roof at (0,7)",
+    "18": "garden at (0,7)",
+    "note": "Final route already uses these corrected positions; initial candidate described separately, not counted as played actions."
+  },
+  "completeCatalogueCount": 23,
+  "excluded": [
+    "optional mobility",
+    "unused recipes",
+    "queries",
+    "automatic service propagation"
+  ]
+}

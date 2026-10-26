@@ -1,0 +1,89 @@
+{
+  "unitBodyInteriorsOverlap": false,
+  "faceContacts": [
+    [
+      "solar-east",
+      "solar-west"
+    ],
+    [
+      "filter",
+      "heater"
+    ],
+    [
+      "heater",
+      "ice"
+    ],
+    [
+      "garden",
+      "heater"
+    ],
+    [
+      "bench",
+      "garden"
+    ]
+  ],
+  "skyRows": {
+    "garden": 7,
+    "solar": 10,
+    "wallNorthernLimit": 3.5,
+    "gardenOtherBodiesOnRow": [],
+    "outwardSolarBodiesAhead": []
+  },
+  "signalSegments": [
+    {
+      "fromPort": [
+        8.5,
+        4,
+        0.5
+      ],
+      "toReceiver": [
+        12,
+        4,
+        0.5
+      ],
+      "wallIntersection": false,
+      "otherOpaqueBodyIntersection": false
+    },
+    {
+      "fromPort": [
+        8,
+        3.5,
+        0.5
+      ],
+      "toReceiver": [
+        8,
+        0,
+        0.5
+      ],
+      "wallIntersection": false,
+      "otherOpaqueBodyIntersection": false
+    }
+  ],
+  "warmthGraph": [
+    "powered separator heater7,6 \u2192 face-contact ice8,6",
+    "heater7,6 \u2014 joined garden7,7 \u2014 joined bench7,8"
+  ],
+  "waterGraph": [
+    "actual warmed ice \u2192 actual powered separator \u2192 garden"
+  ],
+  "powerGraph": [
+    "west/east twin output \u2192 separator",
+    "west/east twin output \u2192 origin"
+  ],
+  "roof": {
+    "canopyHeight": 1.5,
+    "coveredCenters": [
+      [
+        7,
+        7
+      ],
+      [
+        7,
+        8
+      ]
+    ],
+    "supportCoordinateLimit": "Exact support lines are not supplied by paper sheet; do not claim full 3D proof."
+  },
+  "baselineRouteAssessment": "Original33/23 route retains clear intended rays and genuine warmth connections; nonminimal. Origin at8,4 alone removes two relay placements, two power links and relay discovery, yielding28/19 before sharing other services.",
+  "scope": "Manually specified ray segments and elementary unit-footprint overlap arithmetic only. No engine acceptance/status/preview/replay result asserted."
+}

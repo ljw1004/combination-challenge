@@ -1,0 +1,266 @@
+{
+  "kind": "Independently derived paper construction, NOT executed engine transitions or observed player choices",
+  "ordinarySelections": 20,
+  "completeCatalogueSelections": 12,
+  "optimalityClaim": false,
+  "countClasses": {
+    "learn": 8,
+    "place": 6,
+    "connect": 4,
+    "join": 2
+  },
+  "route": [
+    {
+      "class": "learn",
+      "operands": [
+        "frame",
+        "clear-panel"
+      ],
+      "result": "roof",
+      "selection": 1
+    },
+    {
+      "class": "learn",
+      "operands": [
+        "tray",
+        "seed"
+      ],
+      "result": "rootbed",
+      "selection": 2
+    },
+    {
+      "class": "learn",
+      "operands": [
+        "solar-cell",
+        "frame"
+      ],
+      "result": "solar-panel",
+      "selection": 3
+    },
+    {
+      "class": "learn",
+      "operands": [
+        "solar-panel",
+        "solar-panel"
+      ],
+      "result": "twin-array",
+      "selection": 4
+    },
+    {
+      "class": "learn",
+      "operands": [
+        "tray",
+        "mesh"
+      ],
+      "result": "filter",
+      "selection": 5
+    },
+    {
+      "class": "learn",
+      "operands": [
+        "filter",
+        "heater"
+      ],
+      "result": "heated-separator",
+      "selection": 6
+    },
+    {
+      "class": "learn",
+      "operands": [
+        "frame",
+        "clay"
+      ],
+      "result": "workbench",
+      "selection": 7
+    },
+    {
+      "class": "learn",
+      "operands": [
+        "frame",
+        "signal-emitter"
+      ],
+      "result": "beacon",
+      "selection": 8
+    },
+    {
+      "class": "place",
+      "design": "twin-array",
+      "object": "power",
+      "anchor": [
+        0,
+        10
+      ],
+      "parts": [
+        {
+          "kind": "panel",
+          "center": [
+            0,
+            10
+          ],
+          "faces": "west"
+        },
+        {
+          "kind": "panel",
+          "center": [
+            1,
+            10
+          ],
+          "faces": "east"
+        }
+      ],
+      "selection": 9
+    },
+    {
+      "class": "place",
+      "design": "heated-separator",
+      "object": "clean-and-melt",
+      "anchor": [
+        6,
+        6
+      ],
+      "parts": [
+        {
+          "kind": "filter",
+          "center": [
+            6,
+            6
+          ]
+        },
+        {
+          "kind": "heater",
+          "center": [
+            7,
+            6
+          ]
+        }
+      ],
+      "selection": 10
+    },
+    {
+      "class": "connect",
+      "channel": "power",
+      "from": "power",
+      "to": "clean-and-melt",
+      "effect": "Actual heater at7,6 touches fixed ice8,6 and powers separation.",
+      "selection": 11
+    },
+    {
+      "class": "connect",
+      "channel": "water",
+      "from": "fixed-ice",
+      "to": "clean-and-melt",
+      "selection": 12
+    },
+    {
+      "class": "place",
+      "design": "roof",
+      "object": "shared-roof",
+      "anchor": [
+        7,
+        7
+      ],
+      "rotation": "quarter-turn +z: local+x becomes world+y",
+      "coveredCenters": [
+        [
+          7,
+          7
+        ],
+        [
+          7,
+          8
+        ]
+      ],
+      "selection": 13
+    },
+    {
+      "class": "place",
+      "design": "rootbed",
+      "object": "garden",
+      "anchor": [
+        7,
+        7
+      ],
+      "selection": 14
+    },
+    {
+      "class": "connect",
+      "channel": "water",
+      "from": "clean-and-melt",
+      "to": "garden",
+      "selection": 15
+    },
+    {
+      "class": "join",
+      "objects": [
+        "clean-and-melt",
+        "garden"
+      ],
+      "actualParts": [
+        "heater at7,6",
+        "garden at7,7"
+      ],
+      "contact": "shared north/south face",
+      "selection": 16
+    },
+    {
+      "class": "place",
+      "design": "workbench",
+      "object": "bench",
+      "anchor": [
+        7,
+        8
+      ],
+      "selection": 17
+    },
+    {
+      "class": "join",
+      "objects": [
+        "clean-and-melt+garden",
+        "bench"
+      ],
+      "actualParts": [
+        "garden at7,7",
+        "bench at7,8"
+      ],
+      "contact": "shared north/south face; one joined heated assembly",
+      "selection": 18
+    },
+    {
+      "class": "place",
+      "design": "beacon",
+      "object": "origin",
+      "anchor": [
+        8,
+        4
+      ],
+      "selection": 19
+    },
+    {
+      "class": "connect",
+      "channel": "power",
+      "from": "power",
+      "to": "origin",
+      "selection": 20
+    }
+  ],
+  "assumptions": [
+    "Uses declared canonical functions only, not ambiguous bare primitive equivalence.",
+    "Complete pose permits rotating two-cell roof to cover successive y cells.",
+    "Powered separator heater has ordinary heater warmth and face-contact ice effect; no role-exclusive heater exception exists.",
+    "Heater warms all useful parts in its connected joined assembly, as written.",
+    "Abstract unlimited-branch power/water links may cross terrain and remain after unrelated joins.",
+    "Body/ray checks use supplied one-cell footprints and intended opaque-body/clear-overhead-roof geometry; exact heights/support coordinates require further formalization."
+  ],
+  "sourceReferences": [
+    {
+      "path": "docs/mars-whole-game-paper-screen.md",
+      "bytes": 15215,
+      "sha256": "cd3bb630109261bcd59ce2c690658462e0a4d27553d28bdae222f95be5ae706f"
+    },
+    {
+      "path": "results/mars-whole-game-paper-screen/ordinary-paper-route.json",
+      "bytes": 5343,
+      "sha256": "0b5e0a5f175b390b03408c363e94647e9b06d5ed8955d262f007d7f98f284f37"
+    }
+  ]
+}
