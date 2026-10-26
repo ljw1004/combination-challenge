@@ -71,3 +71,7 @@ Root identified that the first location still required premature scrolling and t
 - First output avoids the *imminent* capsule even if the player moved its parent before combining. Reviewer found and builder fixed this additional edge case.
 
 Final Site-checkout results: **18 independent tests pass; 25 total staged-UX tests pass; full `npm test` passes 30/30; `npm run build` passes (TypeScript + Vite).** Final independent tests copied into Site. Browser-verification limits above remain unchanged.
+
+## Subsequent owner check: known-result hint regression
+
+After the initial independent review, the parent found that already-produced recipes still outlined partners although this UX version deliberately keeps one token per design. The hint now labels the known result and suppresses the actionable outline; recipe information remains visible. A new synthetic-handler regression passes alongside all prior tests (31 total Site tests). This additional check is parent-authored, not a claim of independent or actual-browser verification. No model state or saved progress changed.
