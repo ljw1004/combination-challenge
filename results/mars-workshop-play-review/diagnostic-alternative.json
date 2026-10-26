@@ -1,0 +1,157 @@
+{
+  "kind": "reviewer-only source-informed counterfactual, not player evidence or optimality proof",
+  "branchAfterSeq": 54,
+  "actions": [
+    {
+      "action": {
+        "type": "combine",
+        "a": "o:1",
+        "b": "o:1",
+        "context": {
+          "operation": "fold"
+        }
+      },
+      "beforeHash": "2113dc864a441f7f23421184db7f58072fe001e46c6b1d9370dcc96de59e105e",
+      "afterHash": "a9c3930e7c3616ca6a147abaf5dec490605430070b96d8d303d8c34fad7997ab",
+      "response": [
+        "o:1 fold."
+      ],
+      "goals": [
+        {
+          "id": "carry",
+          "title": "Carry the existing garden",
+          "rows": [
+            "day"
+          ],
+          "requirement": "The actual initial garden object from start reaches destination with its living rootbed identity retained and its enclosure, illumination and clean-water supply functioning. A fresh copy at destination is not movement of that garden.",
+          "map": "arch",
+          "checks": {
+            "the original garden object reaches destination": false,
+            "that same garden grows there in every row": false
+          },
+          "current": false,
+          "achieved": false,
+          "firstIntervention": null
+        },
+        {
+          "id": "deploy-recover",
+          "title": "Deploy then recover",
+          "rows": [
+            "day"
+          ],
+          "requirement": "A mobile assembly has actually supplied a span across gap-west–gap-east and traveled through the low arch, and now stands at gap-east or destination while a real usable gap crossing remains. Leaving another physical span copy is legal; an absent span cannot support the gap.",
+          "map": "arch",
+          "checks": {
+            "a mobile object that actually spanned the gap is now at gap-east or destination": false,
+            "an unfolded actual span still supports the gap": true
+          },
+          "current": false,
+          "achieved": false,
+          "firstIntervention": null
+        }
+      ]
+    },
+    {
+      "action": {
+        "type": "combine",
+        "a": "o:1",
+        "b": "place:destination",
+        "context": {
+          "via": [
+            "low-west"
+          ]
+        }
+      },
+      "beforeHash": "a9c3930e7c3616ca6a147abaf5dec490605430070b96d8d303d8c34fad7997ab",
+      "afterHash": "4d6cc4f3037c86e038be6766212db4e8e9ae4dae88f5dcf0e049d13c0e815d09",
+      "response": [
+        "o:1 moved intact via gap-west → low-east → low-west → low-east → gap-west → gap-east → approach → destination; external interfaces detached."
+      ],
+      "goals": [
+        {
+          "id": "carry",
+          "title": "Carry the existing garden",
+          "rows": [
+            "day"
+          ],
+          "requirement": "The actual initial garden object from start reaches destination with its living rootbed identity retained and its enclosure, illumination and clean-water supply functioning. A fresh copy at destination is not movement of that garden.",
+          "map": "arch",
+          "checks": {
+            "the original garden object reaches destination": true,
+            "that same garden grows there in every row": false
+          },
+          "current": false,
+          "achieved": false,
+          "firstIntervention": null
+        },
+        {
+          "id": "deploy-recover",
+          "title": "Deploy then recover",
+          "rows": [
+            "day"
+          ],
+          "requirement": "A mobile assembly has actually supplied a span across gap-west–gap-east and traveled through the low arch, and now stands at gap-east or destination while a real usable gap crossing remains. Leaving another physical span copy is legal; an absent span cannot support the gap.",
+          "map": "arch",
+          "checks": {
+            "a mobile object that actually spanned the gap is now at gap-east or destination": true,
+            "an unfolded actual span still supports the gap": true
+          },
+          "current": true,
+          "achieved": true,
+          "firstIntervention": 41
+        }
+      ]
+    },
+    {
+      "action": {
+        "type": "combine",
+        "a": "o:1",
+        "b": "o:1",
+        "context": {
+          "operation": "close"
+        }
+      },
+      "beforeHash": "4d6cc4f3037c86e038be6766212db4e8e9ae4dae88f5dcf0e049d13c0e815d09",
+      "afterHash": "ab1776aacf9ef1ca01ddb5d92520b8750404e2b3da7c228b59e5c6b8754d5fc1",
+      "response": [
+        "o:1 close."
+      ],
+      "goals": [
+        {
+          "id": "carry",
+          "title": "Carry the existing garden",
+          "rows": [
+            "day"
+          ],
+          "requirement": "The actual initial garden object from start reaches destination with its living rootbed identity retained and its enclosure, illumination and clean-water supply functioning. A fresh copy at destination is not movement of that garden.",
+          "map": "arch",
+          "checks": {
+            "the original garden object reaches destination": true,
+            "that same garden grows there in every row": true
+          },
+          "current": true,
+          "achieved": true,
+          "firstIntervention": 42
+        },
+        {
+          "id": "deploy-recover",
+          "title": "Deploy then recover",
+          "rows": [
+            "day"
+          ],
+          "requirement": "A mobile assembly has actually supplied a span across gap-west–gap-east and traveled through the low arch, and now stands at gap-east or destination while a real usable gap crossing remains. Leaving another physical span copy is legal; an absent span cannot support the gap.",
+          "map": "arch",
+          "checks": {
+            "a mobile object that actually spanned the gap is now at gap-east or destination": true,
+            "an unfolded actual span still supports the gap": true
+          },
+          "current": true,
+          "achieved": true,
+          "firstIntervention": 41
+        }
+      ]
+    }
+  ],
+  "archInterventions": 11,
+  "playedArchInterventions": 13
+}
