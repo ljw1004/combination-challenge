@@ -35,3 +35,8 @@ The owner set the destination: logical combination play judged fun, lasting abou
 Mars Progressive Camp1 source/protocol published before fresh play (307106eded87acc192b8ca8a9d16423768d7e3a0). Fresh raw9-event pilot and exact assignment published at ac0dc90c2cdb8d5a68ec89bc14d87359f605c8f5. Independent review confirms five real combines and retained shell usefulness, with evidence limits. Current complete suite189 tests and TypeScript pass.
 
 Continue now toward the full target: multi-scenario whole-object campaign design is underway; docs/long-play-evaluation-protocol.md defines replicated neutral long plays, sparse checkpoints, actual decision counting and independent skeptical review. Do not stop at this microtrial or await optional feedback. Parent owns GitHub publication; no changes to Clio or unto.me.
+
+
+## Active full-scale build: 15:06 UTC
+
+Final proposal: docs/full-length-campaign-proposal.md. Mars Workshop uses15 primitives +27 unique canonical composites, twelve finite jobs on six retained maps, four work families and bounded toy laws. The171–219 prospective action estimate is unproved and must be replaced by actual traces. Core engine/content, compact public CLI/capture adapter and independent shortcut review are in progress in separate new files. Do not stop at internal small-map milestones. First complete all12 jobs, run ordinary/complete/whole-assembly shortcut witnesses and verification, freeze/publish, then use the prospective long-play cohort. Preserve shorter valid solutions and report any scope failure honestly.

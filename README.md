@@ -1,5 +1,7 @@
 # Combination Challenge
 
+Active destination: about200 player decisions judged fun across a logical combination campaign. The [Mars Workshop proposal](docs/full-length-campaign-proposal.md) specifies a new42-concept, twelve-job candidate; implementation and independent shortcut checks are underway. The [long-play protocol](docs/long-play-evaluation-protocol.md) defines prospective evaluation. This is not yet a demonstrated full-length game.
+
 Current design criteria: [What is fun? revision 9](docs/what-is-fun.md), including clear progress, comfortable routine and stage-sensitive interpretation. [Doctrine recovery status](docs/doctrine-recovery-2026-10-26.md) distinguishes exact recovered revisions from reconstructed supporting text.
 
 Current continuation: [research checkpoint](docs/research-checkpoint-2026-10-26.md), [recovery and fresh verification](docs/recovery-verification-2026-10-26.md), and [active handoff](handoff.md). The owner has requested continuous autonomous experimentation and publication. Clear progress and comfortable routine are legitimate; not every action needs a dilemma. Historical experiments below retain their original conditions.
