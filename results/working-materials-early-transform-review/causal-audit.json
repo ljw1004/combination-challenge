@@ -1,0 +1,2721 @@
+{
+  "optics": {
+    "initialCamera": {
+      "id": "o:29",
+      "initialKey": "survey-camera",
+      "design": "camera",
+      "root": {
+        "id": "p:30",
+        "kind": "assembly",
+        "label": "camera",
+        "children": [
+          {
+            "relation": "attach",
+            "part": {
+              "id": "p:31",
+              "kind": "lens",
+              "label": "lens",
+              "children": [],
+              "pose": "closed",
+              "facing": "east",
+              "events": [],
+              "originKey": "survey-camera"
+            }
+          },
+          {
+            "relation": "attach",
+            "part": {
+              "id": "p:32",
+              "kind": "record-plate",
+              "label": "record-plate",
+              "children": [],
+              "pose": "closed",
+              "facing": "east",
+              "surface": {
+                "rigidity": "rigid",
+                "optical": "opaque",
+                "permeability": "watertight",
+                "recording": "durable"
+              },
+              "form": {
+                "opening": "closed",
+                "edges": [
+                  "north",
+                  "south"
+                ],
+                "face": "east"
+              },
+              "events": [],
+              "originKey": "survey-camera"
+            }
+          }
+        ],
+        "pose": "closed",
+        "facing": "east",
+        "events": [],
+        "originKey": "survey-camera"
+      },
+      "place": "survey-window",
+      "records": [],
+      "samples": [],
+      "history": {
+        "places": [
+          "survey-window"
+        ],
+        "spanned": []
+      }
+    },
+    "rigidClear": {
+      "id": "o:82",
+      "design": "assembly:1",
+      "root": {
+        "id": "p:83",
+        "kind": "material",
+        "label": "clear-cast",
+        "children": [],
+        "pose": "closed",
+        "facing": "east",
+        "events": [],
+        "surface": {
+          "rigidity": "rigid",
+          "optical": "clear",
+          "permeability": "watertight",
+          "recording": "none"
+        },
+        "form": {
+          "opening": "closed",
+          "edges": [
+            "north",
+            "south"
+          ],
+          "face": "east"
+        },
+        "provenance": [
+          {
+            "id": "transform:84",
+            "recipe": "fuse",
+            "intervention": 3,
+            "inputs": [
+              {
+                "id": "p:83",
+                "kind": "sand",
+                "label": "sand",
+                "eventIds": []
+              },
+              {
+                "id": "p:79",
+                "kind": "solar-cell",
+                "label": "solar-cell",
+                "eventIds": []
+              },
+              {
+                "id": "p:80",
+                "kind": "cable",
+                "label": "cable",
+                "eventIds": []
+              },
+              {
+                "id": "p:81",
+                "kind": "heater",
+                "label": "heater",
+                "eventIds": []
+              }
+            ],
+            "sources": [
+              "sun:day:survey-window"
+            ]
+          }
+        ]
+      },
+      "place": "survey-window",
+      "records": [],
+      "samples": [],
+      "history": {
+        "places": [
+          "survey-window"
+        ],
+        "spanned": []
+      }
+    },
+    "observation": {
+      "id": "o:82",
+      "design": "assembly:2",
+      "root": {
+        "id": "p:85",
+        "kind": "assembly",
+        "label": "assembly",
+        "children": [
+          {
+            "relation": "attach",
+            "part": {
+              "id": "p:83",
+              "kind": "material",
+              "label": "clear-cast",
+              "children": [],
+              "pose": "closed",
+              "facing": "east",
+              "events": [],
+              "surface": {
+                "rigidity": "rigid",
+                "optical": "clear",
+                "permeability": "watertight",
+                "recording": "none"
+              },
+              "form": {
+                "opening": "closed",
+                "edges": [
+                  "north",
+                  "south"
+                ],
+                "face": "east"
+              },
+              "provenance": [
+                {
+                  "id": "transform:84",
+                  "recipe": "fuse",
+                  "intervention": 3,
+                  "inputs": [
+                    {
+                      "id": "p:83",
+                      "kind": "sand",
+                      "label": "sand",
+                      "eventIds": []
+                    },
+                    {
+                      "id": "p:79",
+                      "kind": "solar-cell",
+                      "label": "solar-cell",
+                      "eventIds": []
+                    },
+                    {
+                      "id": "p:80",
+                      "kind": "cable",
+                      "label": "cable",
+                      "eventIds": []
+                    },
+                    {
+                      "id": "p:81",
+                      "kind": "heater",
+                      "label": "heater",
+                      "eventIds": []
+                    }
+                  ],
+                  "sources": [
+                    "sun:day:survey-window"
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "relation": "inside",
+            "part": {
+              "id": "p:30",
+              "kind": "assembly",
+              "label": "camera",
+              "children": [
+                {
+                  "relation": "attach",
+                  "part": {
+                    "id": "p:31",
+                    "kind": "lens",
+                    "label": "lens",
+                    "children": [],
+                    "pose": "closed",
+                    "facing": "east",
+                    "events": [],
+                    "originKey": "survey-camera"
+                  }
+                },
+                {
+                  "relation": "attach",
+                  "part": {
+                    "id": "p:32",
+                    "kind": "record-plate",
+                    "label": "record-plate",
+                    "children": [],
+                    "pose": "closed",
+                    "facing": "east",
+                    "surface": {
+                      "rigidity": "rigid",
+                      "optical": "opaque",
+                      "permeability": "watertight",
+                      "recording": "durable"
+                    },
+                    "form": {
+                      "opening": "closed",
+                      "edges": [
+                        "north",
+                        "south"
+                      ],
+                      "face": "east"
+                    },
+                    "events": [],
+                    "originKey": "survey-camera"
+                  }
+                }
+              ],
+              "pose": "closed",
+              "facing": "east",
+              "events": [],
+              "originKey": "survey-camera"
+            }
+          }
+        ],
+        "pose": "closed",
+        "facing": "east"
+      },
+      "place": "survey-window",
+      "records": [
+        {
+          "id": "record:86",
+          "subject": "place:beacon",
+          "viewpoint": "survey-window",
+          "camera": "o:82",
+          "row": "day",
+          "source": [
+            "sun:day:beacon"
+          ],
+          "intervention": 5,
+          "viewLenses": [
+            {
+              "id": "p:31",
+              "originKey": "survey-camera"
+            }
+          ],
+          "viewSurfaces": [
+            {
+              "id": "p:83",
+              "surface": {
+                "rigidity": "rigid",
+                "optical": "clear",
+                "permeability": "watertight",
+                "recording": "none"
+              },
+              "form": {
+                "opening": "closed",
+                "edges": [
+                  "north",
+                  "south"
+                ],
+                "face": "east"
+              }
+            }
+          ]
+        }
+      ],
+      "samples": [],
+      "history": {
+        "places": [
+          "survey-window"
+        ],
+        "spanned": []
+      },
+      "members": [
+        {
+          "id": "o:82",
+          "root": "p:85"
+        },
+        {
+          "id": "o:29",
+          "initialKey": "survey-camera",
+          "root": "p:30"
+        }
+      ],
+      "recordCarriers": [
+        {
+          "record": "record:86",
+          "part": "p:32"
+        }
+      ]
+    },
+    "travelled": {
+      "id": "o:87",
+      "design": "assembly:4",
+      "root": {
+        "id": "p:88",
+        "kind": "assembly",
+        "label": "clear-shell",
+        "children": [
+          {
+            "relation": "attach",
+            "part": {
+              "id": "p:89",
+              "kind": "frame",
+              "label": "frame",
+              "children": [],
+              "pose": "closed",
+              "facing": "east",
+              "surface": {
+                "rigidity": "rigid",
+                "optical": "opaque",
+                "permeability": "porous",
+                "recording": "none"
+              },
+              "form": {
+                "opening": "open",
+                "edges": [
+                  "north",
+                  "south"
+                ],
+                "face": "east"
+              },
+              "events": []
+            }
+          },
+          {
+            "relation": "attach",
+            "part": {
+              "id": "p:90",
+              "kind": "clear-film",
+              "label": "clear-film",
+              "children": [],
+              "pose": "closed",
+              "facing": "east",
+              "surface": {
+                "rigidity": "flexible",
+                "optical": "clear",
+                "permeability": "watertight",
+                "recording": "none"
+              },
+              "form": {
+                "opening": "closed",
+                "edges": [
+                  "north",
+                  "south"
+                ],
+                "face": "east"
+              },
+              "events": []
+            }
+          },
+          {
+            "relation": "inside",
+            "part": {
+              "id": "p:85",
+              "kind": "assembly",
+              "label": "assembly",
+              "children": [
+                {
+                  "relation": "attach",
+                  "part": {
+                    "id": "p:83",
+                    "kind": "material",
+                    "label": "clear-cast",
+                    "children": [],
+                    "pose": "closed",
+                    "facing": "east",
+                    "events": [],
+                    "surface": {
+                      "rigidity": "rigid",
+                      "optical": "clear",
+                      "permeability": "watertight",
+                      "recording": "none"
+                    },
+                    "form": {
+                      "opening": "closed",
+                      "edges": [
+                        "north",
+                        "south"
+                      ],
+                      "face": "east"
+                    },
+                    "provenance": [
+                      {
+                        "id": "transform:84",
+                        "recipe": "fuse",
+                        "intervention": 3,
+                        "inputs": [
+                          {
+                            "id": "p:83",
+                            "kind": "sand",
+                            "label": "sand",
+                            "eventIds": []
+                          },
+                          {
+                            "id": "p:79",
+                            "kind": "solar-cell",
+                            "label": "solar-cell",
+                            "eventIds": []
+                          },
+                          {
+                            "id": "p:80",
+                            "kind": "cable",
+                            "label": "cable",
+                            "eventIds": []
+                          },
+                          {
+                            "id": "p:81",
+                            "kind": "heater",
+                            "label": "heater",
+                            "eventIds": []
+                          }
+                        ],
+                        "sources": [
+                          "sun:day:survey-window"
+                        ]
+                      }
+                    ]
+                  }
+                },
+                {
+                  "relation": "inside",
+                  "part": {
+                    "id": "p:30",
+                    "kind": "assembly",
+                    "label": "camera",
+                    "children": [
+                      {
+                        "relation": "attach",
+                        "part": {
+                          "id": "p:31",
+                          "kind": "lens",
+                          "label": "lens",
+                          "children": [],
+                          "pose": "closed",
+                          "facing": "east",
+                          "events": [],
+                          "originKey": "survey-camera"
+                        }
+                      },
+                      {
+                        "relation": "attach",
+                        "part": {
+                          "id": "p:32",
+                          "kind": "record-plate",
+                          "label": "record-plate",
+                          "children": [],
+                          "pose": "closed",
+                          "facing": "east",
+                          "surface": {
+                            "rigidity": "rigid",
+                            "optical": "opaque",
+                            "permeability": "watertight",
+                            "recording": "durable"
+                          },
+                          "form": {
+                            "opening": "closed",
+                            "edges": [
+                              "north",
+                              "south"
+                            ],
+                            "face": "east"
+                          },
+                          "events": [],
+                          "originKey": "survey-camera"
+                        }
+                      }
+                    ],
+                    "pose": "closed",
+                    "facing": "east",
+                    "events": [],
+                    "originKey": "survey-camera"
+                  }
+                }
+              ],
+              "pose": "closed",
+              "facing": "east"
+            }
+          },
+          {
+            "relation": "attach",
+            "part": {
+              "id": "p:91",
+              "kind": "wheels",
+              "label": "wheels",
+              "children": [],
+              "pose": "closed",
+              "facing": "east",
+              "events": []
+            }
+          }
+        ],
+        "pose": "closed",
+        "facing": "east",
+        "events": []
+      },
+      "place": "wet-station",
+      "records": [
+        {
+          "id": "record:86",
+          "subject": "place:beacon",
+          "viewpoint": "survey-window",
+          "camera": "o:82",
+          "row": "day",
+          "source": [
+            "sun:day:beacon"
+          ],
+          "intervention": 5,
+          "viewLenses": [
+            {
+              "id": "p:31",
+              "originKey": "survey-camera"
+            }
+          ],
+          "viewSurfaces": [
+            {
+              "id": "p:83",
+              "surface": {
+                "rigidity": "rigid",
+                "optical": "clear",
+                "permeability": "watertight",
+                "recording": "none"
+              },
+              "form": {
+                "opening": "closed",
+                "edges": [
+                  "north",
+                  "south"
+                ],
+                "face": "east"
+              }
+            }
+          ]
+        }
+      ],
+      "samples": [],
+      "history": {
+        "places": [
+          "survey-window",
+          "wet-station"
+        ],
+        "spanned": []
+      },
+      "members": [
+        {
+          "id": "o:87",
+          "root": "p:88"
+        },
+        {
+          "id": "o:82",
+          "root": "p:85"
+        },
+        {
+          "id": "o:29",
+          "initialKey": "survey-camera",
+          "root": "p:30"
+        }
+      ],
+      "recordCarriers": [
+        {
+          "record": "record:86",
+          "part": "p:32"
+        }
+      ]
+    },
+    "diffuser": {
+      "id": "o:92",
+      "design": "assembly:6",
+      "root": {
+        "id": "p:102",
+        "kind": "assembly",
+        "label": "assembly",
+        "children": [
+          {
+            "relation": "attach",
+            "part": {
+              "id": "p:93",
+              "kind": "material",
+              "label": "diffuser",
+              "children": [],
+              "pose": "closed",
+              "facing": "east",
+              "surface": {
+                "rigidity": "rigid",
+                "optical": "diffuse",
+                "permeability": "watertight",
+                "recording": "none"
+              },
+              "form": {
+                "opening": "closed",
+                "edges": [
+                  "north",
+                  "south"
+                ],
+                "face": "east"
+              },
+              "events": [],
+              "provenance": [
+                {
+                  "id": "transform:94",
+                  "recipe": "frost",
+                  "intervention": 10,
+                  "inputs": [
+                    {
+                      "id": "p:93",
+                      "kind": "material",
+                      "label": "clear-cast",
+                      "surface": {
+                        "rigidity": "rigid",
+                        "optical": "clear",
+                        "permeability": "watertight",
+                        "recording": "none"
+                      },
+                      "form": {
+                        "opening": "closed",
+                        "edges": [
+                          "north",
+                          "south"
+                        ],
+                        "face": "east"
+                      },
+                      "eventIds": []
+                    },
+                    {
+                      "id": "design",
+                      "kind": "mesh",
+                      "label": "mesh",
+                      "surface": {
+                        "rigidity": "flexible",
+                        "optical": "clear",
+                        "permeability": "porous",
+                        "recording": "none"
+                      },
+                      "form": {
+                        "opening": "open",
+                        "edges": [
+                          "north",
+                          "south"
+                        ],
+                        "face": "east"
+                      },
+                      "eventIds": []
+                    }
+                  ],
+                  "sources": []
+                }
+              ]
+            }
+          },
+          {
+            "relation": "inside",
+            "part": {
+              "id": "p:99",
+              "kind": "assembly",
+              "label": "rootbed",
+              "children": [
+                {
+                  "relation": "attach",
+                  "part": {
+                    "id": "p:100",
+                    "kind": "tray",
+                    "label": "tray",
+                    "children": [],
+                    "pose": "closed",
+                    "facing": "east",
+                    "surface": {
+                      "rigidity": "rigid",
+                      "optical": "opaque",
+                      "permeability": "watertight",
+                      "recording": "none"
+                    },
+                    "form": {
+                      "opening": "closed",
+                      "edges": [
+                        "north",
+                        "south"
+                      ],
+                      "face": "east"
+                    },
+                    "events": []
+                  }
+                },
+                {
+                  "relation": "attach",
+                  "part": {
+                    "id": "p:101",
+                    "kind": "seed",
+                    "label": "seed",
+                    "children": [],
+                    "pose": "closed",
+                    "facing": "east",
+                    "events": []
+                  }
+                }
+              ],
+              "pose": "closed",
+              "facing": "east",
+              "events": []
+            }
+          }
+        ],
+        "pose": "closed",
+        "facing": "east"
+      },
+      "place": "shade-bed",
+      "records": [],
+      "samples": [],
+      "history": {
+        "places": [
+          "shade-bed"
+        ],
+        "spanned": []
+      }
+    },
+    "bareFoil": {
+      "id": "o:103",
+      "design": "assembly:7",
+      "root": {
+        "id": "p:104",
+        "kind": "foil",
+        "label": "foil",
+        "children": [],
+        "pose": "closed",
+        "facing": "west",
+        "surface": {
+          "rigidity": "flexible",
+          "optical": "reflecting",
+          "permeability": "watertight",
+          "recording": "none"
+        },
+        "form": {
+          "opening": "closed",
+          "edges": [
+            "north",
+            "south"
+          ],
+          "face": "east"
+        },
+        "events": []
+      },
+      "place": "mirror-perch",
+      "records": [],
+      "samples": [],
+      "history": {
+        "places": [
+          "mirror-perch"
+        ],
+        "spanned": []
+      }
+    },
+    "supportedFoil": {
+      "id": "o:103",
+      "design": "assembly:8",
+      "root": {
+        "id": "p:106",
+        "kind": "assembly",
+        "label": "assembly",
+        "children": [
+          {
+            "relation": "attach",
+            "part": {
+              "id": "p:104",
+              "kind": "foil",
+              "label": "foil",
+              "children": [],
+              "pose": "closed",
+              "facing": "west",
+              "surface": {
+                "rigidity": "flexible",
+                "optical": "reflecting",
+                "permeability": "watertight",
+                "recording": "none"
+              },
+              "form": {
+                "opening": "closed",
+                "edges": [
+                  "north",
+                  "south"
+                ],
+                "face": "east"
+              },
+              "events": []
+            }
+          },
+          {
+            "relation": "attach",
+            "part": {
+              "id": "p:105",
+              "kind": "frame",
+              "label": "frame",
+              "children": [],
+              "pose": "closed",
+              "facing": "east",
+              "surface": {
+                "rigidity": "rigid",
+                "optical": "opaque",
+                "permeability": "porous",
+                "recording": "none"
+              },
+              "form": {
+                "opening": "open",
+                "edges": [
+                  "north",
+                  "south"
+                ],
+                "face": "east"
+              },
+              "events": []
+            }
+          }
+        ],
+        "pose": "closed",
+        "facing": "west"
+      },
+      "place": "mirror-perch",
+      "records": [],
+      "samples": [],
+      "history": {
+        "places": [
+          "mirror-perch"
+        ],
+        "spanned": []
+      }
+    },
+    "beforeLinkRows": [
+      {
+        "row": "day",
+        "object": {
+          "id": "o:92",
+          "place": "shade-bed",
+          "parts": [
+            {
+              "id": "p:93",
+              "kind": "material",
+              "surface": {
+                "rigidity": "rigid",
+                "optical": "diffuse",
+                "permeability": "watertight",
+                "recording": "none"
+              },
+              "form": {
+                "opening": "closed",
+                "edges": [
+                  "north",
+                  "south"
+                ],
+                "face": "east"
+              },
+              "faithful": true,
+              "diffuse": false,
+              "wet": false,
+              "lit": false,
+              "enclosed": false,
+              "dustProtected": false,
+              "air": true,
+              "source": []
+            },
+            {
+              "id": "p:100",
+              "kind": "tray",
+              "surface": {
+                "rigidity": "rigid",
+                "optical": "opaque",
+                "permeability": "watertight",
+                "recording": "none"
+              },
+              "form": {
+                "opening": "closed",
+                "edges": [
+                  "north",
+                  "south"
+                ],
+                "face": "east"
+              },
+              "faithful": false,
+              "diffuse": true,
+              "wet": false,
+              "lit": false,
+              "enclosed": true,
+              "dustProtected": true,
+              "air": false,
+              "source": []
+            },
+            {
+              "id": "p:101",
+              "kind": "seed",
+              "faithful": false,
+              "diffuse": true,
+              "wet": false,
+              "lit": false,
+              "enclosed": true,
+              "dustProtected": true,
+              "air": false,
+              "source": []
+            }
+          ],
+          "power": [],
+          "light": [],
+          "warm": false,
+          "water": "clean",
+          "waterSources": [
+            "water:shade-bed"
+          ],
+          "growing": false,
+          "drying": false,
+          "darkProtected": false,
+          "camera": false,
+          "sampleSupport": false,
+          "enclosed": true,
+          "dustProtected": true,
+          "lit": false,
+          "shape": {
+            "height": 2,
+            "width": 1,
+            "mobile": false,
+            "folded": false
+          }
+        }
+      }
+    ],
+    "afterLinkRows": [
+      {
+        "row": "day",
+        "object": {
+          "id": "o:92",
+          "place": "shade-bed",
+          "parts": [
+            {
+              "id": "p:93",
+              "kind": "material",
+              "surface": {
+                "rigidity": "rigid",
+                "optical": "diffuse",
+                "permeability": "watertight",
+                "recording": "none"
+              },
+              "form": {
+                "opening": "closed",
+                "edges": [
+                  "north",
+                  "south"
+                ],
+                "face": "east"
+              },
+              "faithful": true,
+              "diffuse": false,
+              "wet": false,
+              "lit": true,
+              "enclosed": false,
+              "dustProtected": false,
+              "air": true,
+              "source": [
+                "sun:day:mirror-perch"
+              ]
+            },
+            {
+              "id": "p:100",
+              "kind": "tray",
+              "surface": {
+                "rigidity": "rigid",
+                "optical": "opaque",
+                "permeability": "watertight",
+                "recording": "none"
+              },
+              "form": {
+                "opening": "closed",
+                "edges": [
+                  "north",
+                  "south"
+                ],
+                "face": "east"
+              },
+              "faithful": false,
+              "diffuse": true,
+              "wet": false,
+              "lit": true,
+              "enclosed": true,
+              "dustProtected": true,
+              "air": false,
+              "source": [
+                "sun:day:mirror-perch"
+              ]
+            },
+            {
+              "id": "p:101",
+              "kind": "seed",
+              "faithful": false,
+              "diffuse": true,
+              "wet": false,
+              "lit": true,
+              "enclosed": true,
+              "dustProtected": true,
+              "air": false,
+              "source": [
+                "sun:day:mirror-perch"
+              ]
+            }
+          ],
+          "power": [],
+          "light": [],
+          "warm": false,
+          "water": "clean",
+          "waterSources": [
+            "water:shade-bed"
+          ],
+          "growing": true,
+          "drying": false,
+          "darkProtected": false,
+          "camera": false,
+          "sampleSupport": false,
+          "enclosed": true,
+          "dustProtected": true,
+          "lit": true,
+          "shape": {
+            "height": 2,
+            "width": 1,
+            "mobile": false,
+            "folded": false
+          }
+        }
+      }
+    ],
+    "prematureGoals": [
+      {
+        "map": "optics",
+        "id": "supporting-window",
+        "mode": "achievement",
+        "current": false,
+        "achieved": true,
+        "satisfied": true,
+        "firstIntervention": 5
+      },
+      {
+        "map": "optics",
+        "id": "diffuse-growth",
+        "mode": "current",
+        "current": false,
+        "achieved": false,
+        "satisfied": false,
+        "firstIntervention": null
+      },
+      {
+        "map": "optics",
+        "id": "reflected-service",
+        "mode": "current",
+        "current": false,
+        "achieved": false,
+        "satisfied": false,
+        "firstIntervention": null
+      },
+      {
+        "map": "optics",
+        "id": "wrapped-instrument",
+        "mode": "current",
+        "current": true,
+        "achieved": true,
+        "satisfied": true,
+        "firstIntervention": 9
+      }
+    ],
+    "actualBoundaryGoals": [
+      {
+        "map": "optics",
+        "id": "supporting-window",
+        "mode": "achievement",
+        "current": false,
+        "achieved": true,
+        "satisfied": true,
+        "firstIntervention": 5
+      },
+      {
+        "map": "optics",
+        "id": "diffuse-growth",
+        "mode": "current",
+        "current": true,
+        "achieved": true,
+        "satisfied": true,
+        "firstIntervention": 16
+      },
+      {
+        "map": "optics",
+        "id": "reflected-service",
+        "mode": "current",
+        "current": true,
+        "achieved": true,
+        "satisfied": true,
+        "firstIntervention": 16
+      },
+      {
+        "map": "optics",
+        "id": "wrapped-instrument",
+        "mode": "current",
+        "current": true,
+        "achieved": true,
+        "satisfied": true,
+        "firstIntervention": 9
+      }
+    ]
+  },
+  "forms": {
+    "initialClay": {
+      "id": "o:33",
+      "initialKey": "original-clay",
+      "design": "clay",
+      "root": {
+        "id": "p:34",
+        "kind": "clay",
+        "label": "clay",
+        "children": [],
+        "pose": "closed",
+        "facing": "east",
+        "surface": {
+          "rigidity": "rigid",
+          "optical": "opaque",
+          "permeability": "porous",
+          "recording": "none"
+        },
+        "events": [],
+        "originKey": "original-clay"
+      },
+      "place": "spring",
+      "records": [],
+      "samples": [],
+      "history": {
+        "places": [
+          "spring"
+        ],
+        "spanned": []
+      }
+    },
+    "softTrial": {
+      "id": "o:33",
+      "initialKey": "original-clay",
+      "design": "assembly:11",
+      "root": {
+        "id": "p:116",
+        "kind": "assembly",
+        "label": "assembly",
+        "children": [
+          {
+            "relation": "attach",
+            "part": {
+              "id": "p:34",
+              "kind": "material",
+              "label": "soft-form",
+              "children": [],
+              "pose": "closed",
+              "facing": "east",
+              "surface": {
+                "rigidity": "moldable",
+                "optical": "opaque",
+                "permeability": "porous",
+                "recording": "temporary"
+              },
+              "events": [
+                {
+                  "id": "impression:117",
+                  "kind": "impression",
+                  "subject": "place:opening",
+                  "sourceRecords": [],
+                  "intervention": 21,
+                  "surface": {
+                    "rigidity": "moldable",
+                    "optical": "opaque",
+                    "permeability": "porous",
+                    "recording": "temporary"
+                  },
+                  "form": {
+                    "opening": "open",
+                    "edges": [
+                      "north",
+                      "east"
+                    ],
+                    "face": "west"
+                  }
+                },
+                {
+                  "id": "fit:119",
+                  "kind": "fit",
+                  "subject": "place:opening",
+                  "sourcePart": "p:34",
+                  "sourceRecords": [],
+                  "intervention": 22,
+                  "surface": {
+                    "rigidity": "moldable",
+                    "optical": "opaque",
+                    "permeability": "porous",
+                    "recording": "temporary"
+                  },
+                  "form": {
+                    "opening": "open",
+                    "edges": [
+                      "north",
+                      "east"
+                    ],
+                    "face": "west"
+                  }
+                }
+              ],
+              "originKey": "original-clay",
+              "form": {
+                "opening": "open",
+                "edges": [
+                  "north",
+                  "east"
+                ],
+                "face": "west"
+              },
+              "provenance": [
+                {
+                  "id": "transform:108",
+                  "recipe": "wet-clay",
+                  "intervention": 17,
+                  "inputs": [
+                    {
+                      "id": "p:34",
+                      "kind": "clay",
+                      "label": "clay",
+                      "surface": {
+                        "rigidity": "rigid",
+                        "optical": "opaque",
+                        "permeability": "porous",
+                        "recording": "none"
+                      },
+                      "eventIds": []
+                    }
+                  ],
+                  "sources": [
+                    "water:spring"
+                  ]
+                },
+                {
+                  "id": "transform:118",
+                  "recipe": "take-form",
+                  "intervention": 21,
+                  "inputs": [
+                    {
+                      "id": "p:34",
+                      "kind": "material",
+                      "label": "soft-clay",
+                      "surface": {
+                        "rigidity": "moldable",
+                        "optical": "opaque",
+                        "permeability": "porous",
+                        "recording": "temporary"
+                      },
+                      "form": {
+                        "opening": "open",
+                        "edges": [
+                          "north",
+                          "south"
+                        ],
+                        "face": "east"
+                      },
+                      "eventIds": []
+                    }
+                  ],
+                  "sources": []
+                }
+              ]
+            }
+          },
+          {
+            "relation": "attach",
+            "part": {
+              "id": "p:113",
+              "kind": "assembly",
+              "label": "cart",
+              "children": [
+                {
+                  "relation": "attach",
+                  "part": {
+                    "id": "p:114",
+                    "kind": "frame",
+                    "label": "frame",
+                    "children": [],
+                    "pose": "closed",
+                    "facing": "east",
+                    "surface": {
+                      "rigidity": "rigid",
+                      "optical": "opaque",
+                      "permeability": "porous",
+                      "recording": "none"
+                    },
+                    "form": {
+                      "opening": "open",
+                      "edges": [
+                        "north",
+                        "south"
+                      ],
+                      "face": "east"
+                    },
+                    "events": []
+                  }
+                },
+                {
+                  "relation": "attach",
+                  "part": {
+                    "id": "p:115",
+                    "kind": "wheels",
+                    "label": "wheels",
+                    "children": [],
+                    "pose": "closed",
+                    "facing": "east",
+                    "events": []
+                  }
+                }
+              ],
+              "pose": "closed",
+              "facing": "east",
+              "events": []
+            }
+          }
+        ],
+        "pose": "closed",
+        "facing": "east"
+      },
+      "place": "opening",
+      "records": [],
+      "samples": [],
+      "history": {
+        "places": [
+          "spring",
+          "opening"
+        ],
+        "spanned": []
+      }
+    },
+    "fired": {
+      "id": "o:33",
+      "initialKey": "original-clay",
+      "design": "assembly:12",
+      "root": {
+        "id": "p:116",
+        "kind": "assembly",
+        "label": "assembly",
+        "children": [
+          {
+            "relation": "attach",
+            "part": {
+              "id": "p:34",
+              "kind": "material",
+              "label": "fired-form",
+              "children": [],
+              "pose": "closed",
+              "facing": "east",
+              "surface": {
+                "rigidity": "rigid",
+                "optical": "opaque",
+                "permeability": "porous",
+                "recording": "durable"
+              },
+              "events": [
+                {
+                  "id": "impression:117",
+                  "kind": "impression",
+                  "subject": "place:opening",
+                  "sourceRecords": [],
+                  "intervention": 21,
+                  "surface": {
+                    "rigidity": "moldable",
+                    "optical": "opaque",
+                    "permeability": "porous",
+                    "recording": "temporary"
+                  },
+                  "form": {
+                    "opening": "open",
+                    "edges": [
+                      "north",
+                      "east"
+                    ],
+                    "face": "west"
+                  }
+                },
+                {
+                  "id": "fit:119",
+                  "kind": "fit",
+                  "subject": "place:opening",
+                  "sourcePart": "p:34",
+                  "sourceRecords": [],
+                  "intervention": 22,
+                  "surface": {
+                    "rigidity": "moldable",
+                    "optical": "opaque",
+                    "permeability": "porous",
+                    "recording": "temporary"
+                  },
+                  "form": {
+                    "opening": "open",
+                    "edges": [
+                      "north",
+                      "east"
+                    ],
+                    "face": "west"
+                  }
+                }
+              ],
+              "originKey": "original-clay",
+              "form": {
+                "opening": "open",
+                "edges": [
+                  "north",
+                  "east"
+                ],
+                "face": "west"
+              },
+              "provenance": [
+                {
+                  "id": "transform:108",
+                  "recipe": "wet-clay",
+                  "intervention": 17,
+                  "inputs": [
+                    {
+                      "id": "p:34",
+                      "kind": "clay",
+                      "label": "clay",
+                      "surface": {
+                        "rigidity": "rigid",
+                        "optical": "opaque",
+                        "permeability": "porous",
+                        "recording": "none"
+                      },
+                      "eventIds": []
+                    }
+                  ],
+                  "sources": [
+                    "water:spring"
+                  ]
+                },
+                {
+                  "id": "transform:118",
+                  "recipe": "take-form",
+                  "intervention": 21,
+                  "inputs": [
+                    {
+                      "id": "p:34",
+                      "kind": "material",
+                      "label": "soft-clay",
+                      "surface": {
+                        "rigidity": "moldable",
+                        "optical": "opaque",
+                        "permeability": "porous",
+                        "recording": "temporary"
+                      },
+                      "form": {
+                        "opening": "open",
+                        "edges": [
+                          "north",
+                          "south"
+                        ],
+                        "face": "east"
+                      },
+                      "eventIds": []
+                    }
+                  ],
+                  "sources": []
+                },
+                {
+                  "id": "transform:126",
+                  "recipe": "fire",
+                  "intervention": 24,
+                  "inputs": [
+                    {
+                      "id": "p:34",
+                      "kind": "material",
+                      "label": "soft-form",
+                      "surface": {
+                        "rigidity": "moldable",
+                        "optical": "opaque",
+                        "permeability": "porous",
+                        "recording": "temporary"
+                      },
+                      "form": {
+                        "opening": "open",
+                        "edges": [
+                          "north",
+                          "east"
+                        ],
+                        "face": "west"
+                      },
+                      "eventIds": [
+                        "impression:117",
+                        "fit:119"
+                      ]
+                    },
+                    {
+                      "id": "p:123",
+                      "kind": "solar-cell",
+                      "label": "solar-cell",
+                      "eventIds": []
+                    },
+                    {
+                      "id": "p:124",
+                      "kind": "cable",
+                      "label": "cable",
+                      "eventIds": []
+                    },
+                    {
+                      "id": "p:125",
+                      "kind": "heater",
+                      "label": "heater",
+                      "eventIds": []
+                    }
+                  ],
+                  "sources": [
+                    "sun:day:opening"
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "relation": "attach",
+            "part": {
+              "id": "p:113",
+              "kind": "assembly",
+              "label": "cart",
+              "children": [
+                {
+                  "relation": "attach",
+                  "part": {
+                    "id": "p:114",
+                    "kind": "frame",
+                    "label": "frame",
+                    "children": [],
+                    "pose": "closed",
+                    "facing": "east",
+                    "surface": {
+                      "rigidity": "rigid",
+                      "optical": "opaque",
+                      "permeability": "porous",
+                      "recording": "none"
+                    },
+                    "form": {
+                      "opening": "open",
+                      "edges": [
+                        "north",
+                        "south"
+                      ],
+                      "face": "east"
+                    },
+                    "events": []
+                  }
+                },
+                {
+                  "relation": "attach",
+                  "part": {
+                    "id": "p:115",
+                    "kind": "wheels",
+                    "label": "wheels",
+                    "children": [],
+                    "pose": "closed",
+                    "facing": "east",
+                    "events": []
+                  }
+                }
+              ],
+              "pose": "closed",
+              "facing": "east",
+              "events": []
+            }
+          }
+        ],
+        "pose": "closed",
+        "facing": "east"
+      },
+      "place": "opening",
+      "records": [],
+      "samples": [],
+      "history": {
+        "places": [
+          "spring",
+          "opening"
+        ],
+        "spanned": []
+      }
+    },
+    "returned": {
+      "id": "o:33",
+      "initialKey": "original-clay",
+      "design": "assembly:14",
+      "root": {
+        "id": "p:116",
+        "kind": "assembly",
+        "label": "assembly",
+        "children": [
+          {
+            "relation": "attach",
+            "part": {
+              "id": "p:34",
+              "kind": "material",
+              "label": "fired-form",
+              "children": [],
+              "pose": "closed",
+              "facing": "east",
+              "surface": {
+                "rigidity": "rigid",
+                "optical": "opaque",
+                "permeability": "porous",
+                "recording": "durable"
+              },
+              "events": [
+                {
+                  "id": "impression:117",
+                  "kind": "impression",
+                  "subject": "place:opening",
+                  "sourceRecords": [],
+                  "intervention": 21,
+                  "surface": {
+                    "rigidity": "moldable",
+                    "optical": "opaque",
+                    "permeability": "porous",
+                    "recording": "temporary"
+                  },
+                  "form": {
+                    "opening": "open",
+                    "edges": [
+                      "north",
+                      "east"
+                    ],
+                    "face": "west"
+                  }
+                },
+                {
+                  "id": "fit:119",
+                  "kind": "fit",
+                  "subject": "place:opening",
+                  "sourcePart": "p:34",
+                  "sourceRecords": [],
+                  "intervention": 22,
+                  "surface": {
+                    "rigidity": "moldable",
+                    "optical": "opaque",
+                    "permeability": "porous",
+                    "recording": "temporary"
+                  },
+                  "form": {
+                    "opening": "open",
+                    "edges": [
+                      "north",
+                      "east"
+                    ],
+                    "face": "west"
+                  }
+                }
+              ],
+              "originKey": "original-clay",
+              "form": {
+                "opening": "open",
+                "edges": [
+                  "north",
+                  "east"
+                ],
+                "face": "west"
+              },
+              "provenance": [
+                {
+                  "id": "transform:108",
+                  "recipe": "wet-clay",
+                  "intervention": 17,
+                  "inputs": [
+                    {
+                      "id": "p:34",
+                      "kind": "clay",
+                      "label": "clay",
+                      "surface": {
+                        "rigidity": "rigid",
+                        "optical": "opaque",
+                        "permeability": "porous",
+                        "recording": "none"
+                      },
+                      "eventIds": []
+                    }
+                  ],
+                  "sources": [
+                    "water:spring"
+                  ]
+                },
+                {
+                  "id": "transform:118",
+                  "recipe": "take-form",
+                  "intervention": 21,
+                  "inputs": [
+                    {
+                      "id": "p:34",
+                      "kind": "material",
+                      "label": "soft-clay",
+                      "surface": {
+                        "rigidity": "moldable",
+                        "optical": "opaque",
+                        "permeability": "porous",
+                        "recording": "temporary"
+                      },
+                      "form": {
+                        "opening": "open",
+                        "edges": [
+                          "north",
+                          "south"
+                        ],
+                        "face": "east"
+                      },
+                      "eventIds": []
+                    }
+                  ],
+                  "sources": []
+                },
+                {
+                  "id": "transform:126",
+                  "recipe": "fire",
+                  "intervention": 24,
+                  "inputs": [
+                    {
+                      "id": "p:34",
+                      "kind": "material",
+                      "label": "soft-form",
+                      "surface": {
+                        "rigidity": "moldable",
+                        "optical": "opaque",
+                        "permeability": "porous",
+                        "recording": "temporary"
+                      },
+                      "form": {
+                        "opening": "open",
+                        "edges": [
+                          "north",
+                          "east"
+                        ],
+                        "face": "west"
+                      },
+                      "eventIds": [
+                        "impression:117",
+                        "fit:119"
+                      ]
+                    },
+                    {
+                      "id": "p:123",
+                      "kind": "solar-cell",
+                      "label": "solar-cell",
+                      "eventIds": []
+                    },
+                    {
+                      "id": "p:124",
+                      "kind": "cable",
+                      "label": "cable",
+                      "eventIds": []
+                    },
+                    {
+                      "id": "p:125",
+                      "kind": "heater",
+                      "label": "heater",
+                      "eventIds": []
+                    }
+                  ],
+                  "sources": [
+                    "sun:day:opening"
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "relation": "attach",
+            "part": {
+              "id": "p:113",
+              "kind": "assembly",
+              "label": "cart",
+              "children": [
+                {
+                  "relation": "attach",
+                  "part": {
+                    "id": "p:114",
+                    "kind": "frame",
+                    "label": "frame",
+                    "children": [],
+                    "pose": "closed",
+                    "facing": "east",
+                    "surface": {
+                      "rigidity": "rigid",
+                      "optical": "opaque",
+                      "permeability": "porous",
+                      "recording": "none"
+                    },
+                    "form": {
+                      "opening": "open",
+                      "edges": [
+                        "north",
+                        "south"
+                      ],
+                      "face": "east"
+                    },
+                    "events": []
+                  }
+                },
+                {
+                  "relation": "attach",
+                  "part": {
+                    "id": "p:115",
+                    "kind": "wheels",
+                    "label": "wheels",
+                    "children": [],
+                    "pose": "closed",
+                    "facing": "east",
+                    "events": []
+                  }
+                }
+              ],
+              "pose": "closed",
+              "facing": "east",
+              "events": []
+            }
+          },
+          {
+            "relation": "attach",
+            "part": {
+              "id": "p:139",
+              "kind": "hinge",
+              "label": "hinge",
+              "children": [],
+              "pose": "closed",
+              "facing": "east",
+              "events": []
+            }
+          }
+        ],
+        "pose": "folded",
+        "facing": "east"
+      },
+      "place": "collection",
+      "records": [],
+      "samples": [],
+      "history": {
+        "places": [
+          "spring",
+          "opening",
+          "drain",
+          "basin",
+          "paper-slot",
+          "low-mouth",
+          "low-exit",
+          "collection"
+        ],
+        "spanned": []
+      }
+    },
+    "openCopy": {
+      "id": "o:127",
+      "design": "assembly:12",
+      "root": {
+        "id": "p:128",
+        "kind": "assembly",
+        "label": "assembly",
+        "children": [
+          {
+            "relation": "attach",
+            "part": {
+              "id": "p:129",
+              "kind": "material",
+              "label": "fired-form",
+              "children": [],
+              "pose": "closed",
+              "facing": "east",
+              "surface": {
+                "rigidity": "rigid",
+                "optical": "opaque",
+                "permeability": "porous",
+                "recording": "durable"
+              },
+              "events": [
+                {
+                  "id": "fit:140",
+                  "kind": "fit",
+                  "subject": "place:drain",
+                  "sourcePart": "p:129",
+                  "sourceRecords": [],
+                  "intervention": 31,
+                  "surface": {
+                    "rigidity": "rigid",
+                    "optical": "opaque",
+                    "permeability": "porous",
+                    "recording": "durable"
+                  },
+                  "form": {
+                    "opening": "open",
+                    "edges": [
+                      "north",
+                      "east"
+                    ],
+                    "face": "west"
+                  }
+                }
+              ],
+              "form": {
+                "opening": "open",
+                "edges": [
+                  "north",
+                  "east"
+                ],
+                "face": "west"
+              },
+              "provenance": [
+                {
+                  "id": "transform:108",
+                  "recipe": "wet-clay",
+                  "intervention": 17,
+                  "inputs": [
+                    {
+                      "id": "p:34",
+                      "kind": "clay",
+                      "label": "clay",
+                      "surface": {
+                        "rigidity": "rigid",
+                        "optical": "opaque",
+                        "permeability": "porous",
+                        "recording": "none"
+                      },
+                      "eventIds": []
+                    }
+                  ],
+                  "sources": [
+                    "water:spring"
+                  ]
+                },
+                {
+                  "id": "transform:118",
+                  "recipe": "take-form",
+                  "intervention": 21,
+                  "inputs": [
+                    {
+                      "id": "p:34",
+                      "kind": "material",
+                      "label": "soft-clay",
+                      "surface": {
+                        "rigidity": "moldable",
+                        "optical": "opaque",
+                        "permeability": "porous",
+                        "recording": "temporary"
+                      },
+                      "form": {
+                        "opening": "open",
+                        "edges": [
+                          "north",
+                          "south"
+                        ],
+                        "face": "east"
+                      },
+                      "eventIds": []
+                    }
+                  ],
+                  "sources": []
+                },
+                {
+                  "id": "transform:126",
+                  "recipe": "fire",
+                  "intervention": 24,
+                  "inputs": [
+                    {
+                      "id": "p:34",
+                      "kind": "material",
+                      "label": "soft-form",
+                      "surface": {
+                        "rigidity": "moldable",
+                        "optical": "opaque",
+                        "permeability": "porous",
+                        "recording": "temporary"
+                      },
+                      "form": {
+                        "opening": "open",
+                        "edges": [
+                          "north",
+                          "east"
+                        ],
+                        "face": "west"
+                      },
+                      "eventIds": [
+                        "impression:117",
+                        "fit:119"
+                      ]
+                    },
+                    {
+                      "id": "p:123",
+                      "kind": "solar-cell",
+                      "label": "solar-cell",
+                      "eventIds": []
+                    },
+                    {
+                      "id": "p:124",
+                      "kind": "cable",
+                      "label": "cable",
+                      "eventIds": []
+                    },
+                    {
+                      "id": "p:125",
+                      "kind": "heater",
+                      "label": "heater",
+                      "eventIds": []
+                    }
+                  ],
+                  "sources": [
+                    "sun:day:opening"
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "relation": "attach",
+            "part": {
+              "id": "p:130",
+              "kind": "assembly",
+              "label": "cart",
+              "children": [
+                {
+                  "relation": "attach",
+                  "part": {
+                    "id": "p:131",
+                    "kind": "frame",
+                    "label": "frame",
+                    "children": [],
+                    "pose": "closed",
+                    "facing": "east",
+                    "surface": {
+                      "rigidity": "rigid",
+                      "optical": "opaque",
+                      "permeability": "porous",
+                      "recording": "none"
+                    },
+                    "form": {
+                      "opening": "open",
+                      "edges": [
+                        "north",
+                        "south"
+                      ],
+                      "face": "east"
+                    },
+                    "events": []
+                  }
+                },
+                {
+                  "relation": "attach",
+                  "part": {
+                    "id": "p:132",
+                    "kind": "wheels",
+                    "label": "wheels",
+                    "children": [],
+                    "pose": "closed",
+                    "facing": "east",
+                    "events": []
+                  }
+                }
+              ],
+              "pose": "closed",
+              "facing": "east",
+              "events": []
+            }
+          }
+        ],
+        "pose": "closed",
+        "facing": "east",
+        "events": []
+      },
+      "place": "drain",
+      "records": [],
+      "samples": [],
+      "history": {
+        "places": [
+          "drain"
+        ],
+        "spanned": []
+      }
+    },
+    "linedCopy": {
+      "id": "o:133",
+      "design": "assembly:15",
+      "root": {
+        "id": "p:134",
+        "kind": "assembly",
+        "label": "assembly",
+        "children": [
+          {
+            "relation": "attach",
+            "part": {
+              "id": "p:135",
+              "kind": "material",
+              "label": "lined-form",
+              "children": [],
+              "pose": "closed",
+              "facing": "east",
+              "surface": {
+                "rigidity": "rigid",
+                "optical": "opaque",
+                "permeability": "watertight",
+                "recording": "durable"
+              },
+              "events": [
+                {
+                  "id": "fit:142",
+                  "kind": "fit",
+                  "subject": "place:basin",
+                  "sourcePart": "p:135",
+                  "sourceRecords": [],
+                  "intervention": 33,
+                  "surface": {
+                    "rigidity": "rigid",
+                    "optical": "opaque",
+                    "permeability": "watertight",
+                    "recording": "durable"
+                  },
+                  "form": {
+                    "opening": "open",
+                    "edges": [
+                      "north",
+                      "east"
+                    ],
+                    "face": "west"
+                  }
+                }
+              ],
+              "form": {
+                "opening": "open",
+                "edges": [
+                  "north",
+                  "east"
+                ],
+                "face": "west"
+              },
+              "provenance": [
+                {
+                  "id": "transform:108",
+                  "recipe": "wet-clay",
+                  "intervention": 17,
+                  "inputs": [
+                    {
+                      "id": "p:34",
+                      "kind": "clay",
+                      "label": "clay",
+                      "surface": {
+                        "rigidity": "rigid",
+                        "optical": "opaque",
+                        "permeability": "porous",
+                        "recording": "none"
+                      },
+                      "eventIds": []
+                    }
+                  ],
+                  "sources": [
+                    "water:spring"
+                  ]
+                },
+                {
+                  "id": "transform:118",
+                  "recipe": "take-form",
+                  "intervention": 21,
+                  "inputs": [
+                    {
+                      "id": "p:34",
+                      "kind": "material",
+                      "label": "soft-clay",
+                      "surface": {
+                        "rigidity": "moldable",
+                        "optical": "opaque",
+                        "permeability": "porous",
+                        "recording": "temporary"
+                      },
+                      "form": {
+                        "opening": "open",
+                        "edges": [
+                          "north",
+                          "south"
+                        ],
+                        "face": "east"
+                      },
+                      "eventIds": []
+                    }
+                  ],
+                  "sources": []
+                },
+                {
+                  "id": "transform:126",
+                  "recipe": "fire",
+                  "intervention": 24,
+                  "inputs": [
+                    {
+                      "id": "p:34",
+                      "kind": "material",
+                      "label": "soft-form",
+                      "surface": {
+                        "rigidity": "moldable",
+                        "optical": "opaque",
+                        "permeability": "porous",
+                        "recording": "temporary"
+                      },
+                      "form": {
+                        "opening": "open",
+                        "edges": [
+                          "north",
+                          "east"
+                        ],
+                        "face": "west"
+                      },
+                      "eventIds": [
+                        "impression:117",
+                        "fit:119"
+                      ]
+                    },
+                    {
+                      "id": "p:123",
+                      "kind": "solar-cell",
+                      "label": "solar-cell",
+                      "eventIds": []
+                    },
+                    {
+                      "id": "p:124",
+                      "kind": "cable",
+                      "label": "cable",
+                      "eventIds": []
+                    },
+                    {
+                      "id": "p:125",
+                      "kind": "heater",
+                      "label": "heater",
+                      "eventIds": []
+                    }
+                  ],
+                  "sources": [
+                    "sun:day:opening"
+                  ]
+                },
+                {
+                  "id": "transform:141",
+                  "recipe": "line",
+                  "intervention": 32,
+                  "inputs": [
+                    {
+                      "id": "p:135",
+                      "kind": "material",
+                      "label": "fired-form",
+                      "surface": {
+                        "rigidity": "rigid",
+                        "optical": "opaque",
+                        "permeability": "porous",
+                        "recording": "durable"
+                      },
+                      "form": {
+                        "opening": "open",
+                        "edges": [
+                          "north",
+                          "east"
+                        ],
+                        "face": "west"
+                      },
+                      "eventIds": []
+                    },
+                    {
+                      "id": "design",
+                      "kind": "clear-film",
+                      "label": "clear-film",
+                      "surface": {
+                        "rigidity": "flexible",
+                        "optical": "clear",
+                        "permeability": "watertight",
+                        "recording": "none"
+                      },
+                      "form": {
+                        "opening": "closed",
+                        "edges": [
+                          "north",
+                          "south"
+                        ],
+                        "face": "east"
+                      },
+                      "eventIds": []
+                    }
+                  ],
+                  "sources": []
+                }
+              ]
+            }
+          },
+          {
+            "relation": "attach",
+            "part": {
+              "id": "p:136",
+              "kind": "assembly",
+              "label": "cart",
+              "children": [
+                {
+                  "relation": "attach",
+                  "part": {
+                    "id": "p:137",
+                    "kind": "frame",
+                    "label": "frame",
+                    "children": [],
+                    "pose": "closed",
+                    "facing": "east",
+                    "surface": {
+                      "rigidity": "rigid",
+                      "optical": "opaque",
+                      "permeability": "porous",
+                      "recording": "none"
+                    },
+                    "form": {
+                      "opening": "open",
+                      "edges": [
+                        "north",
+                        "south"
+                      ],
+                      "face": "east"
+                    },
+                    "events": []
+                  }
+                },
+                {
+                  "relation": "attach",
+                  "part": {
+                    "id": "p:138",
+                    "kind": "wheels",
+                    "label": "wheels",
+                    "children": [],
+                    "pose": "closed",
+                    "facing": "east",
+                    "events": []
+                  }
+                }
+              ],
+              "pose": "closed",
+              "facing": "east",
+              "events": []
+            }
+          }
+        ],
+        "pose": "closed",
+        "facing": "east",
+        "events": []
+      },
+      "place": "basin",
+      "records": [],
+      "samples": [],
+      "history": {
+        "places": [
+          "basin"
+        ],
+        "spanned": []
+      }
+    },
+    "initialMaster": {
+      "id": "o:35",
+      "initialKey": "mesh-master",
+      "design": "mesh",
+      "root": {
+        "id": "p:36",
+        "kind": "mesh",
+        "label": "mesh",
+        "children": [],
+        "pose": "closed",
+        "facing": "east",
+        "surface": {
+          "rigidity": "flexible",
+          "optical": "clear",
+          "permeability": "porous",
+          "recording": "none"
+        },
+        "form": {
+          "opening": "closed",
+          "edges": [
+            "east",
+            "west"
+          ],
+          "face": "north"
+        },
+        "events": [],
+        "originKey": "mesh-master"
+      },
+      "place": "casting-bay",
+      "records": [],
+      "samples": [],
+      "history": {
+        "places": [
+          "casting-bay"
+        ],
+        "spanned": []
+      }
+    },
+    "sheet": {
+      "id": "o:146",
+      "design": "assembly:17",
+      "root": {
+        "id": "p:147",
+        "kind": "material",
+        "label": "record-sheet",
+        "children": [],
+        "pose": "closed",
+        "facing": "east",
+        "surface": {
+          "rigidity": "flexible",
+          "optical": "diffuse",
+          "permeability": "porous",
+          "recording": "temporary"
+        },
+        "form": {
+          "opening": "closed",
+          "edges": [
+            "east",
+            "west"
+          ],
+          "face": "north"
+        },
+        "events": [],
+        "provenance": [
+          {
+            "id": "transform:148",
+            "recipe": "sheet",
+            "intervention": 35,
+            "inputs": [
+              {
+                "id": "p:147",
+                "kind": "material",
+                "label": "pulp",
+                "surface": {
+                  "rigidity": "moldable",
+                  "optical": "diffuse",
+                  "permeability": "porous",
+                  "recording": "temporary"
+                },
+                "form": {
+                  "opening": "open",
+                  "edges": [
+                    "north",
+                    "south"
+                  ],
+                  "face": "east"
+                },
+                "eventIds": []
+              },
+              {
+                "id": "p:36",
+                "kind": "mesh",
+                "label": "mesh",
+                "surface": {
+                  "rigidity": "flexible",
+                  "optical": "clear",
+                  "permeability": "porous",
+                  "recording": "none"
+                },
+                "form": {
+                  "opening": "closed",
+                  "edges": [
+                    "east",
+                    "west"
+                  ],
+                  "face": "north"
+                },
+                "eventIds": []
+              }
+            ],
+            "sources": []
+          }
+        ]
+      },
+      "place": "casting-bay",
+      "records": [],
+      "samples": [],
+      "history": {
+        "places": [
+          "casting-bay"
+        ],
+        "spanned": []
+      }
+    },
+    "returnedMaster": {
+      "id": "o:35",
+      "initialKey": "mesh-master",
+      "design": "assembly:18",
+      "root": {
+        "id": "p:152",
+        "kind": "assembly",
+        "label": "assembly",
+        "children": [
+          {
+            "relation": "attach",
+            "part": {
+              "id": "p:36",
+              "kind": "mesh",
+              "label": "mesh",
+              "children": [],
+              "pose": "closed",
+              "facing": "east",
+              "surface": {
+                "rigidity": "flexible",
+                "optical": "clear",
+                "permeability": "porous",
+                "recording": "none"
+              },
+              "form": {
+                "opening": "closed",
+                "edges": [
+                  "east",
+                  "west"
+                ],
+                "face": "north"
+              },
+              "events": [],
+              "originKey": "mesh-master"
+            }
+          },
+          {
+            "relation": "attach",
+            "part": {
+              "id": "p:149",
+              "kind": "assembly",
+              "label": "cart",
+              "children": [
+                {
+                  "relation": "attach",
+                  "part": {
+                    "id": "p:150",
+                    "kind": "frame",
+                    "label": "frame",
+                    "children": [],
+                    "pose": "closed",
+                    "facing": "east",
+                    "surface": {
+                      "rigidity": "rigid",
+                      "optical": "opaque",
+                      "permeability": "porous",
+                      "recording": "none"
+                    },
+                    "form": {
+                      "opening": "open",
+                      "edges": [
+                        "north",
+                        "south"
+                      ],
+                      "face": "east"
+                    },
+                    "events": []
+                  }
+                },
+                {
+                  "relation": "attach",
+                  "part": {
+                    "id": "p:151",
+                    "kind": "wheels",
+                    "label": "wheels",
+                    "children": [],
+                    "pose": "closed",
+                    "facing": "east",
+                    "events": []
+                  }
+                }
+              ],
+              "pose": "closed",
+              "facing": "east",
+              "events": []
+            }
+          }
+        ],
+        "pose": "closed",
+        "facing": "east"
+      },
+      "place": "tool-rack",
+      "records": [],
+      "samples": [],
+      "history": {
+        "places": [
+          "casting-bay",
+          "tool-rack"
+        ],
+        "spanned": []
+      }
+    },
+    "sheetCopy": {
+      "id": "o:153",
+      "design": "assembly:17",
+      "root": {
+        "id": "p:154",
+        "kind": "material",
+        "label": "record-sheet",
+        "children": [],
+        "pose": "closed",
+        "facing": "east",
+        "surface": {
+          "rigidity": "flexible",
+          "optical": "diffuse",
+          "permeability": "porous",
+          "recording": "temporary"
+        },
+        "form": {
+          "opening": "closed",
+          "edges": [
+            "east",
+            "west"
+          ],
+          "face": "north"
+        },
+        "events": [
+          {
+            "id": "fit:155",
+            "kind": "fit",
+            "subject": "place:paper-slot",
+            "sourcePart": "p:154",
+            "sourceRecords": [],
+            "intervention": 39,
+            "surface": {
+              "rigidity": "flexible",
+              "optical": "diffuse",
+              "permeability": "porous",
+              "recording": "temporary"
+            },
+            "form": {
+              "opening": "closed",
+              "edges": [
+                "east",
+                "west"
+              ],
+              "face": "north"
+            }
+          }
+        ],
+        "provenance": [
+          {
+            "id": "transform:148",
+            "recipe": "sheet",
+            "intervention": 35,
+            "inputs": [
+              {
+                "id": "p:147",
+                "kind": "material",
+                "label": "pulp",
+                "surface": {
+                  "rigidity": "moldable",
+                  "optical": "diffuse",
+                  "permeability": "porous",
+                  "recording": "temporary"
+                },
+                "form": {
+                  "opening": "open",
+                  "edges": [
+                    "north",
+                    "south"
+                  ],
+                  "face": "east"
+                },
+                "eventIds": []
+              },
+              {
+                "id": "p:36",
+                "kind": "mesh",
+                "label": "mesh",
+                "surface": {
+                  "rigidity": "flexible",
+                  "optical": "clear",
+                  "permeability": "porous",
+                  "recording": "none"
+                },
+                "form": {
+                  "opening": "closed",
+                  "edges": [
+                    "east",
+                    "west"
+                  ],
+                  "face": "north"
+                },
+                "eventIds": []
+              }
+            ],
+            "sources": []
+          }
+        ]
+      },
+      "place": "paper-slot",
+      "records": [],
+      "samples": [],
+      "history": {
+        "places": [
+          "paper-slot"
+        ],
+        "spanned": []
+      }
+    }
+  }
+}
