@@ -1,0 +1,38 @@
+# Geometric Materials — public candidate guide
+
+This is an independent new version. Two complete projects share the same laws from their initial states: a materials station and a conservatory/observatory. All goals and laws are inspectable. There are no finite stocks, hidden recipes, mandatory original IDs, route microgestures, or action quotas. You can finish or stop whenever you choose.
+
+Run `node experiments/geometric-materials-play.ts inspect SESSION cli` for exact command syntax. `goals` shows the current project's complete requirements; `campaign` shows both. `select SESSION station|conservatory` changes boards without a game intervention. `catalogue` indexes every public section; `catalogue SESSION all` returns all. `sections` and `chunk` provide lossless numbered pages, including every law and dimension. Full details are not silently omitted. Default actions show changed objects and goal changes rather than all unchanged goal cards. Captures retain exact displayed bytes and full public sources separately.
+
+## Actions and complete poses
+
+The CLI accepts omitted `type` under `combine`/`preview`, normalizing it to `combine`. Exact submitted text and normalized engine action are both captured. A conflicting explicit type is rejected. A selection is JSON `{ "type":"combine", "a":"operand", "b":"operand", "context":{...} }`. The public `preview` command forecasts the exact result without committing it. Known named pairs synthesize a canonical design; otherwise instantiate or attach actual constituents. A learned design is an inexhaustible capability, not a finite owned stock.
+
+* Combine a known design with `place:floor`, operation `move`, and `at:[x,y,z]` to instantiate it. Move an actual `o:N` the same way. Optional `rotation` is a right-handed cardinal 3×3 matrix. One selected complete placement counts once, not per coordinate.
+* `attach` joins actual assemblies, or an actual assembly and a known design. The second actual assembly retains its existing pose unless a complete `at` pose is supplied. A design operand is instantiated at the supplied pose. The result must physically touch and avoid collision. `parent` optionally selects the host part; `hinge` optionally declares a real pivot/axis in that parent's local coordinates. `detach` selects an actual nonroot subtree. `discard` removes a selected actual assembly; replacement is legal.
+* `hinge` rotates the selected actually hinged subtree by integer `quarter` turns about its disclosed parent-coordinate axis and pivot. It does not shrink unrelated parts. Moves and hinge checks validate endpoints only, not a continuous sweep.
+* `observe` combines an actual instrument with `target:ID`. `transmit` combines actual recorded assembly with `place:receiver` or an actual receiving record plate selected by `toolPart`. Observation ray geometry is real; record transmission is an abstract nonblocking data service, not a second optical ray simulation.
+* `connect` selects an actual receiving assembly and a source (`place:tap` or another actual assembly), with channel `water`, `power` or `light`. Water receivers need an actual tube constituent. These links are explicitly abstract interfaces, not collision-checked pipes or wires. Moving an endpoint breaks its links. No tile wiring is required.
+* `transform` selects actual material `part`, a compatible catalyst/tool and a disclosed `recipe`. Actual tools use `toolPart`, never their host's identity. The selected local material and actual tool must currently share positive-area face contact; remote objects and unrelated host parts cannot substitute. A complete `at`/`rotation` can place the material assembly in that same transformation selection. Inexhaustible primitive catalyst capabilities are hand tools; actual site water requires local contact. `fit` seats an actual local matching surface at a disclosed site. `sample` takes an actual tray/site contact sample.
+
+## Geometry, support and optics
+
+Units: x east, y south, z up. Root trays, lenses and recording plates are actual unit cube bodies. Thin roofs and frame struts have zero thickness as an explicit geometric abstraction. Distinct solids cannot overlap; panels cannot cut their interiors. Touching faces and coplanar thin laminates are legal. Every shape must connect through actual geometric contact to the unbounded supported z=0 apron. The apron has no inventory or object cap.
+
+A lens looks along its local +x. Its optical center is the unit body's center; the actual plate center must be exactly one unit behind, with its local +x recording normal pointing in the same direction as the lens. The subject must lie on the front-on cardinal ray with its front facing the lens. Only the selected lens and its selected recording plate are excluded from occlusion; opaque/diffuse/reflective siblings still block. Every faithful record freezes actual center, heading, target front, lens/plate IDs and intervening clear surfaces. Copies and replacement cameras may establish the same common-center comparison; there is no camera-ID requirement.
+
+Supported clear roofs above an actual root protect against falling dust/rain and admit daylight. This is overhead protection, NOT an assertion of sealed enclosure or all-direction weather protection. Open-sided roofs do not seal air: clear and porous roofs both allow side ventilation. Their actual optical properties determine daylight; a clear alternative specimen shelter is legal. No new scattering law is simulated. Whole handling is intentionally simplified relative to the frozen old game: no repeated cart attachment is required, but actual extent, support and collision remain.
+
+## Material identity and record copying
+
+All processes, input properties and geometry are public in the catalogue. Design copies preserve material and geometry but clear all actual observations, contact samples, histories and active seats. Physical impressions/copies retain actual selected source observations, never the identity of an unrelated containing host or receiver. A real mesh template supplies its actual local shape dimensions, in the receiving material's local orientation; its host identity is not substituted for the selected part.
+
+Wet-display mounts actually wet the local record surface; a copy remains readable there only when locally durable and watertight. Overhead protection does not cancel mounting contact. The dry working bench accepts any readable real copy, including cheap porous temporary material.
+
+Station continuity is event-linked, not a named original quota: a player-chosen moldable porous surface must genuinely feed a growing bed before that same local material is made into a durable watertight recorded artifact. A replacement can keep supplying water. A historical fitting stamp alone is not useful service. Copying that design does not copy its earned history.
+
+## Purpose and valid short alternatives
+
+The station's two parallel-front subjects permit independent freely chosen optical centers. The conservatory's two perpendicular fronts call for images from one actual center so their bearings can be compared. The initial useful garden occupies a later recording-plane cell. Moving it sideways, replacing it, arranging a rich scaffold, or using sequential cameras are legal; no hinge demonstration is required. All exact targets, approaches and public cards are disclosed.
+
+The complete project is finite. Nothing requires a particular number of selections, repeated demonstrations, or every offered mechanism. A short completion is valid. This candidate is under mechanical evaluation; previous games' counts or enjoyment are not transferred to it.
