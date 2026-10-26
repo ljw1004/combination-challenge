@@ -1,0 +1,35 @@
+{
+  "at": "2026-10-26T21:42:03.002Z",
+  "kind": "source-exposed fixed target fixture, not integrated engine or player",
+  "sourceHashes": {
+    "experiments/geometric-materials-engine.ts": "bfd42e457716596e0fb7cf42b453a49563ecd1daee91bdf31df1680eafe0144b",
+    "experiments/geometric-materials-types.ts": "4818500e553c3ff7e7a9ec9ba145eab19a94cd9bafa8699a513e2e6dcfa49e3d",
+    "experiments/geometric-materials-content.ts": "2b8d98e7b728079772d1d9240b89a995fae851451ba20a43690a4c3dc58e9598",
+    "experiments/geometric-materials-geometry.ts": "2d8b0c97f88730934f17118e228fd65bb73de4f4b5c7972611067747e89d2c8c"
+  },
+  "counts": {
+    "singleRotating": {
+      "accepted": 4,
+      "rejected": 0
+    },
+    "fixedOppositePlates": {
+      "accepted": 4,
+      "rejected": 2
+    },
+    "coincidentCameras": {
+      "accepted": 1,
+      "rejected": 1
+    },
+    "separateOutwardCameras": {
+      "accepted": 4,
+      "rejected": 0
+    }
+  },
+  "findings": [
+    "Whole camera rotation makes both opposed observations from the same center.",
+    "Two fixed opposing opaque plates block both tested incoming views.",
+    "Coincident camera bodies collide.",
+    "Separate outward-facing fixed cameras produce both observations from different centers; remains lawful where common-center service is not required."
+  ],
+  "limitations": "One explicit center/fixture and construction classes; no global impossibility, learning value or length proof. Historical observations are not simultaneous current views."
+}
