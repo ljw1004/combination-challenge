@@ -1,0 +1,295 @@
+{
+  "schema": 1,
+  "id": "rooted-headwaters-5-random",
+  "build": "0.4.0",
+  "data": "watershed-1",
+  "scenario": "headwaters",
+  "seed": 5,
+  "rules": "rooted",
+  "player": "random",
+  "condition": "public observation; one-step exact previews for greedy/goal",
+  "offerOrder": "normal",
+  "observationVersion": "public-1",
+  "actionBudget": 8,
+  "decisions": [
+    {
+      "turn": 0,
+      "before": "6266e5f6",
+      "offers": [
+        "mix-clay",
+        "grow-reeds",
+        "grow-grove",
+        "cut-channel",
+        "dig-basin",
+        "fuse-glass",
+        "boil-steam"
+      ],
+      "action": {
+        "type": "deploy",
+        "concept": "soil",
+        "at": {
+          "row": 1,
+          "col": 0
+        }
+      },
+      "events": [
+        {
+          "kind": "placement",
+          "text": "Placed Earth.",
+          "at": {
+            "row": 1,
+            "col": 0
+          },
+          "concept": "soil"
+        },
+        {
+          "kind": "weather",
+          "text": "Rain arrives: north 1, middle 0, south 0."
+        },
+        {
+          "kind": "damage",
+          "text": "Hamlet took 1 flood damage.",
+          "amount": 1
+        }
+      ],
+      "after": "3772acb2",
+      "damage": [
+        1,
+        0
+      ]
+    },
+    {
+      "turn": 1,
+      "before": "3772acb2",
+      "offers": [
+        "mix-clay",
+        "grow-reeds",
+        "grow-grove",
+        "cut-channel",
+        "dig-basin",
+        "fuse-glass",
+        "boil-steam"
+      ],
+      "action": {
+        "type": "deploy",
+        "concept": "stone",
+        "at": {
+          "row": 0,
+          "col": 0
+        }
+      },
+      "events": [
+        {
+          "kind": "placement",
+          "text": "Placed Stone.",
+          "at": {
+            "row": 0,
+            "col": 0
+          },
+          "concept": "stone"
+        },
+        {
+          "kind": "weather",
+          "text": "Rain arrives: north 2, middle 0, south 0."
+        },
+        {
+          "kind": "flow",
+          "text": "Stone absorbed 1.",
+          "at": {
+            "row": 0,
+            "col": 0
+          },
+          "amount": 1,
+          "concept": "stone"
+        },
+        {
+          "kind": "damage",
+          "text": "Hamlet took 1 flood damage.",
+          "amount": 1
+        }
+      ],
+      "after": "4b009cbb",
+      "damage": [
+        1,
+        0
+      ]
+    },
+    {
+      "turn": 2,
+      "before": "4b009cbb",
+      "offers": [
+        "mix-clay",
+        "grow-reeds",
+        "grow-grove",
+        "cut-channel",
+        "dig-basin",
+        "fuse-glass",
+        "boil-steam"
+      ],
+      "action": {
+        "type": "deploy",
+        "concept": "stone",
+        "at": {
+          "row": 2,
+          "col": 0
+        }
+      },
+      "events": [
+        {
+          "kind": "placement",
+          "text": "Placed Stone.",
+          "at": {
+            "row": 2,
+            "col": 0
+          },
+          "concept": "stone"
+        },
+        {
+          "kind": "weather",
+          "text": "Rain arrives: north 2, middle 0, south 0."
+        },
+        {
+          "kind": "flow",
+          "text": "Stone absorbed 1.",
+          "at": {
+            "row": 0,
+            "col": 0
+          },
+          "amount": 1,
+          "concept": "stone"
+        },
+        {
+          "kind": "damage",
+          "text": "Hamlet took 1 flood damage.",
+          "amount": 1
+        }
+      ],
+      "after": "2567900f",
+      "damage": [
+        1,
+        0
+      ]
+    },
+    {
+      "turn": 3,
+      "before": "2567900f",
+      "offers": [
+        "mix-clay",
+        "grow-reeds",
+        "grow-grove",
+        "cut-channel",
+        "dig-basin",
+        "fuse-glass",
+        "boil-steam"
+      ],
+      "action": {
+        "type": "deploy",
+        "concept": "heat",
+        "at": {
+          "row": 1,
+          "col": 0
+        }
+      },
+      "events": [
+        {
+          "kind": "placement",
+          "text": "Heat can evaporate 2 incoming water here this pulse.",
+          "at": {
+            "row": 1,
+            "col": 0
+          },
+          "concept": "heat"
+        },
+        {
+          "kind": "weather",
+          "text": "Rain arrives: north 3, middle 1, south 0."
+        },
+        {
+          "kind": "flow",
+          "text": "Stone absorbed 1.",
+          "at": {
+            "row": 0,
+            "col": 0
+          },
+          "amount": 1,
+          "concept": "stone"
+        },
+        {
+          "kind": "destroyed",
+          "text": "Stone washed away. The concept stays known.",
+          "at": {
+            "row": 0,
+            "col": 0
+          },
+          "concept": "stone"
+        },
+        {
+          "kind": "flow",
+          "text": "Evaporated 1 water.",
+          "at": {
+            "row": 1,
+            "col": 0
+          },
+          "amount": 1
+        },
+        {
+          "kind": "damage",
+          "text": "Hamlet took 2 flood damage.",
+          "amount": 2
+        }
+      ],
+      "after": "5b9f7db2",
+      "damage": [
+        2,
+        0
+      ]
+    },
+    {
+      "turn": 4,
+      "before": "5b9f7db2",
+      "offers": [
+        "mix-clay",
+        "grow-reeds",
+        "grow-grove",
+        "cut-channel",
+        "dig-basin",
+        "fuse-glass",
+        "boil-steam"
+      ],
+      "action": {
+        "type": "wait"
+      },
+      "events": [
+        {
+          "kind": "weather",
+          "text": "Rain arrives: north 3, middle 1, south 0."
+        },
+        {
+          "kind": "flow",
+          "text": "Earth absorbed 1.",
+          "at": {
+            "row": 1,
+            "col": 0
+          },
+          "amount": 1,
+          "concept": "soil"
+        },
+        {
+          "kind": "damage",
+          "text": "Hamlet took 3 flood damage.",
+          "amount": 3
+        },
+        {
+          "kind": "outcome",
+          "text": "A bank gave way. Branch from an earlier decision or try a different plan."
+        }
+      ],
+      "after": "e17f9ee4",
+      "damage": [
+        3,
+        0
+      ]
+    }
+  ],
+  "outcome": "lost"
+}

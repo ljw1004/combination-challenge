@@ -1,0 +1,566 @@
+{
+  "schema": 1,
+  "id": "breathing-headwaters-12-goal",
+  "build": "0.4.0",
+  "data": "watershed-1",
+  "scenario": "headwaters",
+  "seed": 12,
+  "rules": "breathing",
+  "player": "goal",
+  "condition": "public observation; one-step exact previews for greedy/goal",
+  "offerOrder": "normal",
+  "observationVersion": "public-1",
+  "actionBudget": 10,
+  "decisions": [
+    {
+      "turn": 0,
+      "before": "19ef8385",
+      "offers": [
+        "mix-clay",
+        "grow-reeds",
+        "grow-grove",
+        "cut-channel",
+        "dig-basin",
+        "fuse-glass",
+        "boil-steam"
+      ],
+      "action": {
+        "type": "discover",
+        "recipe": "grow-grove",
+        "at": {
+          "row": 0,
+          "col": 0
+        }
+      },
+      "events": [
+        {
+          "kind": "discovery",
+          "text": "Established Grove. It stays available.",
+          "concept": "grove"
+        },
+        {
+          "kind": "placement",
+          "text": "Placed Grove.",
+          "at": {
+            "row": 0,
+            "col": 0
+          },
+          "concept": "grove"
+        },
+        {
+          "kind": "weather",
+          "text": "Preparation: the rain has not arrived."
+        },
+        {
+          "kind": "growth",
+          "text": "The grove takes root. It absorbs water from the next pulse.",
+          "at": {
+            "row": 0,
+            "col": 0
+          },
+          "concept": "grove"
+        }
+      ],
+      "after": "64830542",
+      "damage": [
+        0,
+        0
+      ]
+    },
+    {
+      "turn": 1,
+      "before": "64830542",
+      "offers": [
+        "mix-clay",
+        "grow-reeds",
+        "cut-channel",
+        "dig-basin",
+        "fuse-glass",
+        "boil-steam"
+      ],
+      "action": {
+        "type": "deploy",
+        "concept": "grove",
+        "at": {
+          "row": 0,
+          "col": 1
+        }
+      },
+      "events": [
+        {
+          "kind": "placement",
+          "text": "Placed Grove.",
+          "at": {
+            "row": 0,
+            "col": 1
+          },
+          "concept": "grove"
+        },
+        {
+          "kind": "weather",
+          "text": "Preparation: the rain has not arrived."
+        },
+        {
+          "kind": "growth",
+          "text": "The grove takes root. It absorbs water from the next pulse.",
+          "at": {
+            "row": 0,
+            "col": 1
+          },
+          "concept": "grove"
+        }
+      ],
+      "after": "bb52b491",
+      "damage": [
+        0,
+        0
+      ]
+    },
+    {
+      "turn": 2,
+      "before": "bb52b491",
+      "offers": [
+        "mix-clay",
+        "grow-reeds",
+        "cut-channel",
+        "dig-basin",
+        "fuse-glass",
+        "boil-steam"
+      ],
+      "action": {
+        "type": "deploy",
+        "concept": "grove",
+        "at": {
+          "row": 0,
+          "col": 2
+        }
+      },
+      "events": [
+        {
+          "kind": "placement",
+          "text": "Placed Grove.",
+          "at": {
+            "row": 0,
+            "col": 2
+          },
+          "concept": "grove"
+        },
+        {
+          "kind": "weather",
+          "text": "Rain arrives: north 1, middle 0, south 0."
+        },
+        {
+          "kind": "flow",
+          "text": "Grove absorbed 1.",
+          "at": {
+            "row": 0,
+            "col": 0
+          },
+          "amount": 1,
+          "concept": "grove"
+        },
+        {
+          "kind": "growth",
+          "text": "The grove takes root. It absorbs water from the next pulse.",
+          "at": {
+            "row": 0,
+            "col": 2
+          },
+          "concept": "grove"
+        }
+      ],
+      "after": "2d732459",
+      "damage": [
+        0,
+        0
+      ]
+    },
+    {
+      "turn": 3,
+      "before": "2d732459",
+      "offers": [
+        "mix-clay",
+        "grow-reeds",
+        "cut-channel",
+        "dig-basin",
+        "fuse-glass",
+        "boil-steam"
+      ],
+      "action": {
+        "type": "deploy",
+        "concept": "grove",
+        "at": {
+          "row": 1,
+          "col": 0
+        }
+      },
+      "events": [
+        {
+          "kind": "placement",
+          "text": "Placed Grove.",
+          "at": {
+            "row": 1,
+            "col": 0
+          },
+          "concept": "grove"
+        },
+        {
+          "kind": "weather",
+          "text": "Rain arrives: north 2, middle 0, south 0."
+        },
+        {
+          "kind": "flow",
+          "text": "Grove absorbed 2.",
+          "at": {
+            "row": 0,
+            "col": 0
+          },
+          "amount": 2,
+          "concept": "grove"
+        },
+        {
+          "kind": "growth",
+          "text": "The grove takes root. It absorbs water from the next pulse.",
+          "at": {
+            "row": 1,
+            "col": 0
+          },
+          "concept": "grove"
+        }
+      ],
+      "after": "d6671b7a",
+      "damage": [
+        0,
+        0
+      ]
+    },
+    {
+      "turn": 4,
+      "before": "d6671b7a",
+      "offers": [
+        "mix-clay",
+        "grow-reeds",
+        "cut-channel",
+        "dig-basin",
+        "fuse-glass",
+        "boil-steam"
+      ],
+      "action": {
+        "type": "deploy",
+        "concept": "grove",
+        "at": {
+          "row": 1,
+          "col": 1
+        }
+      },
+      "events": [
+        {
+          "kind": "placement",
+          "text": "Placed Grove.",
+          "at": {
+            "row": 1,
+            "col": 1
+          },
+          "concept": "grove"
+        },
+        {
+          "kind": "weather",
+          "text": "Rain arrives: north 2, middle 0, south 0."
+        },
+        {
+          "kind": "flow",
+          "text": "Grove absorbed 2.",
+          "at": {
+            "row": 0,
+            "col": 0
+          },
+          "amount": 2,
+          "concept": "grove"
+        },
+        {
+          "kind": "growth",
+          "text": "The grove takes root. It absorbs water from the next pulse.",
+          "at": {
+            "row": 1,
+            "col": 1
+          },
+          "concept": "grove"
+        }
+      ],
+      "after": "396b3cfe",
+      "damage": [
+        0,
+        0
+      ]
+    },
+    {
+      "turn": 5,
+      "before": "396b3cfe",
+      "offers": [
+        "mix-clay",
+        "grow-reeds",
+        "cut-channel",
+        "dig-basin",
+        "fuse-glass",
+        "boil-steam"
+      ],
+      "action": {
+        "type": "discover",
+        "recipe": "cut-channel",
+        "at": {
+          "row": 2,
+          "col": 0
+        }
+      },
+      "events": [
+        {
+          "kind": "discovery",
+          "text": "Established Channel. It stays available.",
+          "concept": "channel"
+        },
+        {
+          "kind": "placement",
+          "text": "Placed Channel.",
+          "at": {
+            "row": 2,
+            "col": 0
+          },
+          "concept": "channel"
+        },
+        {
+          "kind": "weather",
+          "text": "Rain arrives: north 3, middle 1, south 0."
+        },
+        {
+          "kind": "flow",
+          "text": "Grove absorbed 2.",
+          "at": {
+            "row": 0,
+            "col": 0
+          },
+          "amount": 2,
+          "concept": "grove"
+        },
+        {
+          "kind": "flow",
+          "text": "Grove absorbed 1.",
+          "at": {
+            "row": 1,
+            "col": 0
+          },
+          "amount": 1,
+          "concept": "grove"
+        },
+        {
+          "kind": "flow",
+          "text": "Grove absorbed 1.",
+          "at": {
+            "row": 0,
+            "col": 1
+          },
+          "amount": 1,
+          "concept": "grove"
+        }
+      ],
+      "after": "24cc5520",
+      "damage": [
+        0,
+        0
+      ]
+    },
+    {
+      "turn": 6,
+      "before": "24cc5520",
+      "offers": [
+        "mix-clay",
+        "grow-reeds",
+        "dig-basin",
+        "fuse-glass",
+        "boil-steam"
+      ],
+      "action": {
+        "type": "deploy",
+        "concept": "channel",
+        "at": {
+          "row": 2,
+          "col": 1
+        }
+      },
+      "events": [
+        {
+          "kind": "placement",
+          "text": "Placed Channel.",
+          "at": {
+            "row": 2,
+            "col": 1
+          },
+          "concept": "channel"
+        },
+        {
+          "kind": "weather",
+          "text": "Rain arrives: north 3, middle 1, south 0."
+        },
+        {
+          "kind": "flow",
+          "text": "Grove absorbed 2.",
+          "at": {
+            "row": 0,
+            "col": 0
+          },
+          "amount": 2,
+          "concept": "grove"
+        },
+        {
+          "kind": "flow",
+          "text": "Grove absorbed 1.",
+          "at": {
+            "row": 1,
+            "col": 0
+          },
+          "amount": 1,
+          "concept": "grove"
+        },
+        {
+          "kind": "flow",
+          "text": "Grove absorbed 1.",
+          "at": {
+            "row": 0,
+            "col": 1
+          },
+          "amount": 1,
+          "concept": "grove"
+        }
+      ],
+      "after": "3e18f114",
+      "damage": [
+        0,
+        0
+      ]
+    },
+    {
+      "turn": 7,
+      "before": "3e18f114",
+      "offers": [
+        "mix-clay",
+        "grow-reeds",
+        "dig-basin",
+        "fuse-glass",
+        "boil-steam"
+      ],
+      "action": {
+        "type": "deploy",
+        "concept": "channel",
+        "at": {
+          "row": 2,
+          "col": 2
+        }
+      },
+      "events": [
+        {
+          "kind": "placement",
+          "text": "Placed Channel.",
+          "at": {
+            "row": 2,
+            "col": 2
+          },
+          "concept": "channel"
+        },
+        {
+          "kind": "weather",
+          "text": "Rain arrives: north 2, middle 0, south 0."
+        },
+        {
+          "kind": "flow",
+          "text": "Grove absorbed 2.",
+          "at": {
+            "row": 0,
+            "col": 0
+          },
+          "amount": 2,
+          "concept": "grove"
+        }
+      ],
+      "after": "e1763b05",
+      "damage": [
+        0,
+        0
+      ]
+    },
+    {
+      "turn": 8,
+      "before": "e1763b05",
+      "offers": [
+        "mix-clay",
+        "grow-reeds",
+        "dig-basin",
+        "fuse-glass",
+        "boil-steam"
+      ],
+      "action": {
+        "type": "discover",
+        "recipe": "fuse-glass"
+      },
+      "events": [
+        {
+          "kind": "discovery",
+          "text": "Established Glass. It stays available.",
+          "concept": "glass"
+        },
+        {
+          "kind": "weather",
+          "text": "Rain arrives: north 1, middle 0, south 0."
+        },
+        {
+          "kind": "flow",
+          "text": "Grove absorbed 1.",
+          "at": {
+            "row": 0,
+            "col": 0
+          },
+          "amount": 1,
+          "concept": "grove"
+        }
+      ],
+      "after": "e182cc5c",
+      "damage": [
+        0,
+        0
+      ]
+    },
+    {
+      "turn": 9,
+      "before": "e182cc5c",
+      "offers": [
+        "mix-clay",
+        "grow-reeds",
+        "dig-basin",
+        "boil-steam"
+      ],
+      "action": {
+        "type": "discover",
+        "recipe": "mix-clay"
+      },
+      "events": [
+        {
+          "kind": "discovery",
+          "text": "Established Clay. It stays available.",
+          "concept": "clay"
+        },
+        {
+          "kind": "weather",
+          "text": "Rain arrives: north 0, middle 0, south 0."
+        },
+        {
+          "kind": "outcome",
+          "text": "The rain passes. Both places are standing."
+        }
+      ],
+      "after": "8434db2a",
+      "damage": [
+        0,
+        0
+      ]
+    }
+  ],
+  "outcome": "won"
+}

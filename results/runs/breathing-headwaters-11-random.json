@@ -1,0 +1,582 @@
+{
+  "schema": 1,
+  "id": "breathing-headwaters-11-random",
+  "build": "0.4.0",
+  "data": "watershed-1",
+  "scenario": "headwaters",
+  "seed": 11,
+  "rules": "breathing",
+  "player": "random",
+  "condition": "public observation; one-step exact previews for greedy/goal",
+  "offerOrder": "normal",
+  "observationVersion": "public-1",
+  "actionBudget": 10,
+  "decisions": [
+    {
+      "turn": 0,
+      "before": "e341b3e2",
+      "offers": [
+        "mix-clay",
+        "grow-reeds",
+        "grow-grove",
+        "cut-channel",
+        "dig-basin",
+        "fuse-glass",
+        "boil-steam"
+      ],
+      "action": {
+        "type": "deploy",
+        "concept": "stone",
+        "at": {
+          "row": 1,
+          "col": 2
+        }
+      },
+      "events": [
+        {
+          "kind": "placement",
+          "text": "Placed Stone.",
+          "at": {
+            "row": 1,
+            "col": 2
+          },
+          "concept": "stone"
+        },
+        {
+          "kind": "weather",
+          "text": "Preparation: the rain has not arrived."
+        }
+      ],
+      "after": "4536fbc8",
+      "damage": [
+        0,
+        0
+      ]
+    },
+    {
+      "turn": 1,
+      "before": "4536fbc8",
+      "offers": [
+        "mix-clay",
+        "grow-reeds",
+        "grow-grove",
+        "cut-channel",
+        "dig-basin",
+        "fuse-glass",
+        "boil-steam"
+      ],
+      "action": {
+        "type": "deploy",
+        "concept": "heat",
+        "at": {
+          "row": 1,
+          "col": 0
+        }
+      },
+      "events": [
+        {
+          "kind": "placement",
+          "text": "Heat can evaporate 2 incoming water here this pulse.",
+          "at": {
+            "row": 1,
+            "col": 0
+          },
+          "concept": "heat"
+        },
+        {
+          "kind": "weather",
+          "text": "Preparation: the rain has not arrived."
+        }
+      ],
+      "after": "89719eb2",
+      "damage": [
+        0,
+        0
+      ]
+    },
+    {
+      "turn": 2,
+      "before": "89719eb2",
+      "offers": [
+        "mix-clay",
+        "grow-reeds",
+        "grow-grove",
+        "cut-channel",
+        "dig-basin",
+        "fuse-glass",
+        "boil-steam"
+      ],
+      "action": {
+        "type": "wait"
+      },
+      "events": [
+        {
+          "kind": "weather",
+          "text": "Rain arrives: north 1, middle 0, south 0."
+        },
+        {
+          "kind": "damage",
+          "text": "Hamlet took 1 flood damage.",
+          "amount": 1
+        }
+      ],
+      "after": "4f2f7ee9",
+      "damage": [
+        1,
+        0
+      ]
+    },
+    {
+      "turn": 3,
+      "before": "4f2f7ee9",
+      "offers": [
+        "mix-clay",
+        "grow-reeds",
+        "grow-grove",
+        "cut-channel",
+        "dig-basin",
+        "fuse-glass",
+        "boil-steam"
+      ],
+      "action": {
+        "type": "discover",
+        "recipe": "mix-clay",
+        "at": {
+          "row": 1,
+          "col": 1
+        }
+      },
+      "events": [
+        {
+          "kind": "discovery",
+          "text": "Established Clay. It stays available.",
+          "concept": "clay"
+        },
+        {
+          "kind": "placement",
+          "text": "Placed Clay.",
+          "at": {
+            "row": 1,
+            "col": 1
+          },
+          "concept": "clay"
+        },
+        {
+          "kind": "weather",
+          "text": "Rain arrives: north 2, middle 0, south 0."
+        },
+        {
+          "kind": "damage",
+          "text": "Hamlet took 2 flood damage.",
+          "amount": 2
+        }
+      ],
+      "after": "323f2513",
+      "damage": [
+        2,
+        0
+      ]
+    },
+    {
+      "turn": 4,
+      "before": "323f2513",
+      "offers": [
+        "fire-brick",
+        "grow-reeds",
+        "grow-grove",
+        "cut-channel",
+        "dig-basin",
+        "fuse-glass",
+        "boil-steam",
+        "stone-levee"
+      ],
+      "action": {
+        "type": "discover",
+        "recipe": "grow-reeds",
+        "at": {
+          "row": 0,
+          "col": 2
+        }
+      },
+      "events": [
+        {
+          "kind": "discovery",
+          "text": "Established Reeds. It stays available.",
+          "concept": "reeds"
+        },
+        {
+          "kind": "placement",
+          "text": "Placed Reeds.",
+          "at": {
+            "row": 0,
+            "col": 2
+          },
+          "concept": "reeds"
+        },
+        {
+          "kind": "weather",
+          "text": "Rain arrives: north 2, middle 0, south 0."
+        },
+        {
+          "kind": "flow",
+          "text": "Reeds absorbed 1.",
+          "at": {
+            "row": 0,
+            "col": 2
+          },
+          "amount": 1,
+          "concept": "reeds"
+        },
+        {
+          "kind": "damage",
+          "text": "Hamlet took 1 flood damage.",
+          "amount": 1
+        }
+      ],
+      "after": "e24eb3c1",
+      "damage": [
+        1,
+        0
+      ]
+    },
+    {
+      "turn": 5,
+      "before": "e24eb3c1",
+      "offers": [
+        "fire-brick",
+        "grow-grove",
+        "cut-channel",
+        "dig-basin",
+        "fuse-glass",
+        "boil-steam",
+        "plant-grove",
+        "stone-levee"
+      ],
+      "action": {
+        "type": "discover",
+        "recipe": "cut-channel",
+        "at": {
+          "row": 0,
+          "col": 2
+        }
+      },
+      "events": [
+        {
+          "kind": "discovery",
+          "text": "Established Channel. It stays available.",
+          "concept": "channel"
+        },
+        {
+          "kind": "placement",
+          "text": "Placed Channel in place of Reeds.",
+          "at": {
+            "row": 0,
+            "col": 2
+          },
+          "concept": "channel"
+        },
+        {
+          "kind": "weather",
+          "text": "Rain arrives: north 3, middle 1, south 0."
+        },
+        {
+          "kind": "flow",
+          "text": "Clay absorbed 1.",
+          "at": {
+            "row": 1,
+            "col": 1
+          },
+          "amount": 1,
+          "concept": "clay"
+        },
+        {
+          "kind": "flow",
+          "text": "Channel sent 2 south.",
+          "at": {
+            "row": 0,
+            "col": 2
+          },
+          "amount": 2,
+          "concept": "channel"
+        },
+        {
+          "kind": "flow",
+          "text": "Stone absorbed 1.",
+          "at": {
+            "row": 1,
+            "col": 2
+          },
+          "amount": 1,
+          "concept": "stone"
+        },
+        {
+          "kind": "damage",
+          "text": "Hamlet took 1 flood damage.",
+          "amount": 1
+        },
+        {
+          "kind": "damage",
+          "text": "Orchard took 1 flood damage.",
+          "amount": 1
+        }
+      ],
+      "after": "f2dd39f5",
+      "damage": [
+        1,
+        1
+      ]
+    },
+    {
+      "turn": 6,
+      "before": "f2dd39f5",
+      "offers": [
+        "fire-brick",
+        "grow-grove",
+        "dig-basin",
+        "fuse-glass",
+        "boil-steam",
+        "plant-grove",
+        "stone-levee"
+      ],
+      "action": {
+        "type": "discover",
+        "recipe": "boil-steam"
+      },
+      "events": [
+        {
+          "kind": "discovery",
+          "text": "Established Steam. It stays available.",
+          "concept": "steam"
+        },
+        {
+          "kind": "weather",
+          "text": "Rain arrives: north 3, middle 1, south 0."
+        },
+        {
+          "kind": "flow",
+          "text": "Clay absorbed 1.",
+          "at": {
+            "row": 1,
+            "col": 1
+          },
+          "amount": 1,
+          "concept": "clay"
+        },
+        {
+          "kind": "flow",
+          "text": "Channel sent 2 south.",
+          "at": {
+            "row": 0,
+            "col": 2
+          },
+          "amount": 2,
+          "concept": "channel"
+        },
+        {
+          "kind": "flow",
+          "text": "Stone absorbed 1.",
+          "at": {
+            "row": 1,
+            "col": 2
+          },
+          "amount": 1,
+          "concept": "stone"
+        },
+        {
+          "kind": "damage",
+          "text": "Hamlet took 1 flood damage.",
+          "amount": 1
+        },
+        {
+          "kind": "damage",
+          "text": "Orchard took 1 flood damage.",
+          "amount": 1
+        }
+      ],
+      "after": "8cbae2b5",
+      "damage": [
+        1,
+        1
+      ]
+    },
+    {
+      "turn": 7,
+      "before": "8cbae2b5",
+      "offers": [
+        "fire-brick",
+        "grow-grove",
+        "dig-basin",
+        "fuse-glass",
+        "plant-grove",
+        "stone-levee"
+      ],
+      "action": {
+        "type": "discover",
+        "recipe": "plant-grove",
+        "at": {
+          "row": 2,
+          "col": 0
+        }
+      },
+      "events": [
+        {
+          "kind": "discovery",
+          "text": "Established Grove. It stays available.",
+          "concept": "grove"
+        },
+        {
+          "kind": "placement",
+          "text": "Placed Grove.",
+          "at": {
+            "row": 2,
+            "col": 0
+          },
+          "concept": "grove"
+        },
+        {
+          "kind": "weather",
+          "text": "Rain arrives: north 2, middle 0, south 0."
+        },
+        {
+          "kind": "growth",
+          "text": "The grove takes root. It absorbs water from the next pulse.",
+          "at": {
+            "row": 2,
+            "col": 0
+          },
+          "concept": "grove"
+        },
+        {
+          "kind": "flow",
+          "text": "Channel sent 2 south.",
+          "at": {
+            "row": 0,
+            "col": 2
+          },
+          "amount": 2,
+          "concept": "channel"
+        },
+        {
+          "kind": "flow",
+          "text": "Stone absorbed 1.",
+          "at": {
+            "row": 1,
+            "col": 2
+          },
+          "amount": 1,
+          "concept": "stone"
+        },
+        {
+          "kind": "destroyed",
+          "text": "Stone washed away. The concept stays known.",
+          "at": {
+            "row": 1,
+            "col": 2
+          },
+          "concept": "stone"
+        },
+        {
+          "kind": "damage",
+          "text": "Orchard took 1 flood damage.",
+          "amount": 1
+        }
+      ],
+      "after": "1138014a",
+      "damage": [
+        0,
+        1
+      ]
+    },
+    {
+      "turn": 8,
+      "before": "1138014a",
+      "offers": [
+        "fire-brick",
+        "dig-basin",
+        "fuse-glass",
+        "stone-levee"
+      ],
+      "action": {
+        "type": "deploy",
+        "concept": "stone",
+        "at": {
+          "row": 0,
+          "col": 2
+        }
+      },
+      "events": [
+        {
+          "kind": "placement",
+          "text": "Placed Stone in place of Channel.",
+          "at": {
+            "row": 0,
+            "col": 2
+          },
+          "concept": "stone"
+        },
+        {
+          "kind": "weather",
+          "text": "Rain arrives: north 1, middle 0, south 0."
+        },
+        {
+          "kind": "flow",
+          "text": "Stone absorbed 1.",
+          "at": {
+            "row": 0,
+            "col": 2
+          },
+          "amount": 1,
+          "concept": "stone"
+        }
+      ],
+      "after": "d9c30138",
+      "damage": [
+        0,
+        0
+      ]
+    },
+    {
+      "turn": 9,
+      "before": "d9c30138",
+      "offers": [
+        "fire-brick",
+        "dig-basin",
+        "fuse-glass",
+        "stone-levee"
+      ],
+      "action": {
+        "type": "deploy",
+        "concept": "heat",
+        "at": {
+          "row": 0,
+          "col": 0
+        }
+      },
+      "events": [
+        {
+          "kind": "placement",
+          "text": "Heat can evaporate 2 incoming water here this pulse.",
+          "at": {
+            "row": 0,
+            "col": 0
+          },
+          "concept": "heat"
+        },
+        {
+          "kind": "weather",
+          "text": "Rain arrives: north 0, middle 0, south 0."
+        },
+        {
+          "kind": "outcome",
+          "text": "The rain passes. Both places are standing."
+        }
+      ],
+      "after": "9dd84267",
+      "damage": [
+        0,
+        0
+      ]
+    }
+  ],
+  "outcome": "won"
+}

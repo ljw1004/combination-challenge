@@ -1,0 +1,617 @@
+{
+  "schema": 1,
+  "id": "rooted-confluence-307-goal",
+  "build": "0.4.0",
+  "data": "watershed-1",
+  "scenario": "confluence",
+  "seed": 307,
+  "rules": "rooted",
+  "player": "goal",
+  "condition": "public observation; one-step exact previews for greedy/goal",
+  "offerOrder": "normal",
+  "observationVersion": "public-1",
+  "actionBudget": 9,
+  "decisions": [
+    {
+      "turn": 0,
+      "before": "b0266b66",
+      "offers": [
+        "mix-clay",
+        "grow-reeds",
+        "grow-grove",
+        "cut-channel",
+        "dig-basin",
+        "fuse-glass",
+        "boil-steam"
+      ],
+      "action": {
+        "type": "discover",
+        "recipe": "cut-channel",
+        "at": {
+          "row": 1,
+          "col": 0
+        }
+      },
+      "events": [
+        {
+          "kind": "discovery",
+          "text": "Established Channel. It stays available.",
+          "concept": "channel"
+        },
+        {
+          "kind": "placement",
+          "text": "Placed Channel.",
+          "at": {
+            "row": 1,
+            "col": 0
+          },
+          "concept": "channel"
+        },
+        {
+          "kind": "weather",
+          "text": "Rain arrives: north 1, middle 1, south 0."
+        },
+        {
+          "kind": "flow",
+          "text": "Channel sent 1 south.",
+          "at": {
+            "row": 1,
+            "col": 0
+          },
+          "amount": 1,
+          "concept": "channel"
+        },
+        {
+          "kind": "damage",
+          "text": "Village took 1 flood damage.",
+          "amount": 1
+        }
+      ],
+      "after": "df60e5fc",
+      "damage": [
+        1,
+        0
+      ]
+    },
+    {
+      "turn": 1,
+      "before": "df60e5fc",
+      "offers": [
+        "mix-clay",
+        "grow-reeds",
+        "grow-grove",
+        "dig-basin",
+        "fuse-glass",
+        "boil-steam"
+      ],
+      "action": {
+        "type": "deploy",
+        "concept": "channel",
+        "at": {
+          "row": 0,
+          "col": 0
+        }
+      },
+      "events": [
+        {
+          "kind": "placement",
+          "text": "Placed Channel.",
+          "at": {
+            "row": 0,
+            "col": 0
+          },
+          "concept": "channel"
+        },
+        {
+          "kind": "weather",
+          "text": "Rain arrives: north 2, middle 0, south 0."
+        },
+        {
+          "kind": "flow",
+          "text": "Channel sent 2 south.",
+          "at": {
+            "row": 0,
+            "col": 0
+          },
+          "amount": 2,
+          "concept": "channel"
+        },
+        {
+          "kind": "flow",
+          "text": "Channel sent 2 south.",
+          "at": {
+            "row": 1,
+            "col": 0
+          },
+          "amount": 2,
+          "concept": "channel"
+        }
+      ],
+      "after": "794e7eb9",
+      "damage": [
+        0,
+        0
+      ]
+    },
+    {
+      "turn": 2,
+      "before": "794e7eb9",
+      "offers": [
+        "mix-clay",
+        "grow-reeds",
+        "grow-grove",
+        "dig-basin",
+        "fuse-glass",
+        "boil-steam"
+      ],
+      "action": {
+        "type": "discover",
+        "recipe": "dig-basin",
+        "at": {
+          "row": 1,
+          "col": 2
+        }
+      },
+      "events": [
+        {
+          "kind": "discovery",
+          "text": "Established Basin. It stays available.",
+          "concept": "basin"
+        },
+        {
+          "kind": "placement",
+          "text": "Placed Basin.",
+          "at": {
+            "row": 1,
+            "col": 2
+          },
+          "concept": "basin"
+        },
+        {
+          "kind": "weather",
+          "text": "Rain arrives: north 3, middle 3, south 0."
+        },
+        {
+          "kind": "flow",
+          "text": "Channel sent 2 south.",
+          "at": {
+            "row": 0,
+            "col": 0
+          },
+          "amount": 2,
+          "concept": "channel"
+        },
+        {
+          "kind": "flow",
+          "text": "Channel sent 2 south.",
+          "at": {
+            "row": 1,
+            "col": 0
+          },
+          "amount": 2,
+          "concept": "channel"
+        },
+        {
+          "kind": "storage",
+          "text": "Basin stored 3; 1 space remains.",
+          "at": {
+            "row": 1,
+            "col": 2
+          },
+          "amount": 3,
+          "concept": "basin"
+        },
+        {
+          "kind": "damage",
+          "text": "Village took 1 flood damage.",
+          "amount": 1
+        }
+      ],
+      "after": "b6586c21",
+      "damage": [
+        1,
+        0
+      ]
+    },
+    {
+      "turn": 3,
+      "before": "b6586c21",
+      "offers": [
+        "mix-clay",
+        "grow-reeds",
+        "grow-grove",
+        "fuse-glass",
+        "boil-steam"
+      ],
+      "action": {
+        "type": "deploy",
+        "concept": "channel",
+        "at": {
+          "row": 1,
+          "col": 2
+        }
+      },
+      "events": [
+        {
+          "kind": "placement",
+          "text": "Placed Channel in place of Basin.",
+          "at": {
+            "row": 1,
+            "col": 2
+          },
+          "concept": "channel"
+        },
+        {
+          "kind": "weather",
+          "text": "Rain arrives: north 1, middle 3, south 0."
+        },
+        {
+          "kind": "flow",
+          "text": "Channel sent 1 south.",
+          "at": {
+            "row": 0,
+            "col": 0
+          },
+          "amount": 1,
+          "concept": "channel"
+        },
+        {
+          "kind": "flow",
+          "text": "Channel sent 2 south.",
+          "at": {
+            "row": 1,
+            "col": 0
+          },
+          "amount": 2,
+          "concept": "channel"
+        },
+        {
+          "kind": "flow",
+          "text": "Channel sent 2 south.",
+          "at": {
+            "row": 1,
+            "col": 2
+          },
+          "amount": 2,
+          "concept": "channel"
+        }
+      ],
+      "after": "a2f97ac6",
+      "damage": [
+        0,
+        0
+      ]
+    },
+    {
+      "turn": 4,
+      "before": "a2f97ac6",
+      "offers": [
+        "mix-clay",
+        "grow-reeds",
+        "grow-grove",
+        "fuse-glass",
+        "boil-steam"
+      ],
+      "action": {
+        "type": "discover",
+        "recipe": "mix-clay",
+        "at": {
+          "row": 0,
+          "col": 1
+        }
+      },
+      "events": [
+        {
+          "kind": "discovery",
+          "text": "Established Clay. It stays available.",
+          "concept": "clay"
+        },
+        {
+          "kind": "placement",
+          "text": "Placed Clay.",
+          "at": {
+            "row": 0,
+            "col": 1
+          },
+          "concept": "clay"
+        },
+        {
+          "kind": "weather",
+          "text": "Rain arrives: north 4, middle 2, south 0."
+        },
+        {
+          "kind": "flow",
+          "text": "Channel sent 2 south.",
+          "at": {
+            "row": 0,
+            "col": 0
+          },
+          "amount": 2,
+          "concept": "channel"
+        },
+        {
+          "kind": "flow",
+          "text": "Channel sent 2 south.",
+          "at": {
+            "row": 1,
+            "col": 0
+          },
+          "amount": 2,
+          "concept": "channel"
+        },
+        {
+          "kind": "flow",
+          "text": "Clay absorbed 2.",
+          "at": {
+            "row": 0,
+            "col": 1
+          },
+          "amount": 2,
+          "concept": "clay"
+        },
+        {
+          "kind": "flow",
+          "text": "Channel sent 2 south.",
+          "at": {
+            "row": 1,
+            "col": 2
+          },
+          "amount": 2,
+          "concept": "channel"
+        }
+      ],
+      "after": "e78cfab0",
+      "damage": [
+        0,
+        0
+      ]
+    },
+    {
+      "turn": 5,
+      "before": "e78cfab0",
+      "offers": [
+        "fire-brick",
+        "grow-reeds",
+        "grow-grove",
+        "fuse-glass",
+        "boil-steam",
+        "stone-levee"
+      ],
+      "action": {
+        "type": "discover",
+        "recipe": "stone-levee",
+        "at": {
+          "row": 1,
+          "col": 2
+        }
+      },
+      "events": [
+        {
+          "kind": "discovery",
+          "text": "Established Levee. It stays available.",
+          "concept": "levee"
+        },
+        {
+          "kind": "placement",
+          "text": "Placed Levee in place of Channel.",
+          "at": {
+            "row": 1,
+            "col": 2
+          },
+          "concept": "levee"
+        },
+        {
+          "kind": "weather",
+          "text": "Rain arrives: north 2, middle 3, south 0."
+        },
+        {
+          "kind": "flow",
+          "text": "Channel sent 2 south.",
+          "at": {
+            "row": 0,
+            "col": 0
+          },
+          "amount": 2,
+          "concept": "channel"
+        },
+        {
+          "kind": "flow",
+          "text": "Channel sent 2 south.",
+          "at": {
+            "row": 1,
+            "col": 0
+          },
+          "amount": 2,
+          "concept": "channel"
+        },
+        {
+          "kind": "flow",
+          "text": "Levee sent 3 south.",
+          "at": {
+            "row": 1,
+            "col": 2
+          },
+          "amount": 3,
+          "concept": "levee"
+        }
+      ],
+      "after": "56de9752",
+      "damage": [
+        0,
+        0
+      ]
+    },
+    {
+      "turn": 6,
+      "before": "56de9752",
+      "offers": [
+        "fire-brick",
+        "grow-reeds",
+        "grow-grove",
+        "fuse-glass",
+        "boil-steam"
+      ],
+      "action": {
+        "type": "deploy",
+        "concept": "levee",
+        "at": {
+          "row": 0,
+          "col": 2
+        }
+      },
+      "events": [
+        {
+          "kind": "placement",
+          "text": "Placed Levee.",
+          "at": {
+            "row": 0,
+            "col": 2
+          },
+          "concept": "levee"
+        },
+        {
+          "kind": "weather",
+          "text": "Rain arrives: north 2, middle 1, south 0."
+        },
+        {
+          "kind": "flow",
+          "text": "Channel sent 2 south.",
+          "at": {
+            "row": 0,
+            "col": 0
+          },
+          "amount": 2,
+          "concept": "channel"
+        },
+        {
+          "kind": "flow",
+          "text": "Channel sent 2 south.",
+          "at": {
+            "row": 1,
+            "col": 0
+          },
+          "amount": 2,
+          "concept": "channel"
+        },
+        {
+          "kind": "flow",
+          "text": "Levee sent 1 south.",
+          "at": {
+            "row": 1,
+            "col": 2
+          },
+          "amount": 1,
+          "concept": "levee"
+        }
+      ],
+      "after": "e4664f2a",
+      "damage": [
+        0,
+        0
+      ]
+    },
+    {
+      "turn": 7,
+      "before": "e4664f2a",
+      "offers": [
+        "fire-brick",
+        "grow-reeds",
+        "grow-grove",
+        "fuse-glass",
+        "boil-steam"
+      ],
+      "action": {
+        "type": "deploy",
+        "concept": "levee",
+        "at": {
+          "row": 0,
+          "col": 1
+        }
+      },
+      "events": [
+        {
+          "kind": "placement",
+          "text": "Placed Levee in place of Clay.",
+          "at": {
+            "row": 0,
+            "col": 1
+          },
+          "concept": "levee"
+        },
+        {
+          "kind": "weather",
+          "text": "Rain arrives: north 1, middle 1, south 0."
+        },
+        {
+          "kind": "flow",
+          "text": "Channel sent 1 south.",
+          "at": {
+            "row": 0,
+            "col": 0
+          },
+          "amount": 1,
+          "concept": "channel"
+        },
+        {
+          "kind": "flow",
+          "text": "Channel sent 2 south.",
+          "at": {
+            "row": 1,
+            "col": 0
+          },
+          "amount": 2,
+          "concept": "channel"
+        }
+      ],
+      "after": "87601457",
+      "damage": [
+        0,
+        0
+      ]
+    },
+    {
+      "turn": 8,
+      "before": "87601457",
+      "offers": [
+        "fire-brick",
+        "grow-reeds",
+        "grow-grove",
+        "fuse-glass",
+        "boil-steam"
+      ],
+      "action": {
+        "type": "deploy",
+        "concept": "levee",
+        "at": {
+          "row": 2,
+          "col": 0
+        }
+      },
+      "events": [
+        {
+          "kind": "placement",
+          "text": "Placed Levee.",
+          "at": {
+            "row": 2,
+            "col": 0
+          },
+          "concept": "levee"
+        },
+        {
+          "kind": "weather",
+          "text": "Rain arrives: north 0, middle 0, south 0."
+        },
+        {
+          "kind": "outcome",
+          "text": "The rain passes. Both places are standing."
+        }
+      ],
+      "after": "d9e2f26a",
+      "damage": [
+        0,
+        0
+      ]
+    }
+  ],
+  "outcome": "won"
+}

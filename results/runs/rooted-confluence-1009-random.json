@@ -1,0 +1,383 @@
+{
+  "schema": 1,
+  "id": "rooted-confluence-1009-random",
+  "build": "0.4.0",
+  "data": "watershed-1",
+  "scenario": "confluence",
+  "seed": 1009,
+  "rules": "rooted",
+  "player": "random",
+  "condition": "public observation; one-step exact previews for greedy/goal",
+  "offerOrder": "normal",
+  "observationVersion": "public-1",
+  "actionBudget": 9,
+  "decisions": [
+    {
+      "turn": 0,
+      "before": "c000425a",
+      "offers": [
+        "mix-clay",
+        "grow-reeds",
+        "grow-grove",
+        "cut-channel",
+        "dig-basin",
+        "fuse-glass",
+        "boil-steam"
+      ],
+      "action": {
+        "type": "discover",
+        "recipe": "boil-steam",
+        "at": {
+          "row": 1,
+          "col": 2
+        }
+      },
+      "events": [
+        {
+          "kind": "discovery",
+          "text": "Established Steam. It stays available.",
+          "concept": "steam"
+        },
+        {
+          "kind": "placement",
+          "text": "Steam can evaporate 4 incoming water here this pulse.",
+          "at": {
+            "row": 1,
+            "col": 2
+          },
+          "concept": "steam"
+        },
+        {
+          "kind": "weather",
+          "text": "Rain arrives: north 1, middle 1, south 0."
+        },
+        {
+          "kind": "flow",
+          "text": "Evaporated 1 water.",
+          "at": {
+            "row": 1,
+            "col": 2
+          },
+          "amount": 1
+        },
+        {
+          "kind": "damage",
+          "text": "Village took 1 flood damage.",
+          "amount": 1
+        }
+      ],
+      "after": "3b2e9056",
+      "damage": [
+        1,
+        0
+      ]
+    },
+    {
+      "turn": 1,
+      "before": "3b2e9056",
+      "offers": [
+        "mix-clay",
+        "grow-reeds",
+        "grow-grove",
+        "cut-channel",
+        "dig-basin",
+        "fuse-glass"
+      ],
+      "action": {
+        "type": "deploy",
+        "concept": "stone",
+        "at": {
+          "row": 0,
+          "col": 2
+        }
+      },
+      "events": [
+        {
+          "kind": "placement",
+          "text": "Placed Stone.",
+          "at": {
+            "row": 0,
+            "col": 2
+          },
+          "concept": "stone"
+        },
+        {
+          "kind": "weather",
+          "text": "Rain arrives: north 2, middle 1, south 0."
+        },
+        {
+          "kind": "flow",
+          "text": "Stone absorbed 1.",
+          "at": {
+            "row": 0,
+            "col": 2
+          },
+          "amount": 1,
+          "concept": "stone"
+        },
+        {
+          "kind": "damage",
+          "text": "Village took 1 flood damage.",
+          "amount": 1
+        },
+        {
+          "kind": "damage",
+          "text": "Mill took 1 flood damage.",
+          "amount": 1
+        }
+      ],
+      "after": "49b5870d",
+      "damage": [
+        1,
+        1
+      ]
+    },
+    {
+      "turn": 2,
+      "before": "49b5870d",
+      "offers": [
+        "mix-clay",
+        "grow-reeds",
+        "grow-grove",
+        "cut-channel",
+        "dig-basin",
+        "fuse-glass"
+      ],
+      "action": {
+        "type": "deploy",
+        "concept": "stone",
+        "at": {
+          "row": 2,
+          "col": 2
+        }
+      },
+      "events": [
+        {
+          "kind": "placement",
+          "text": "Placed Stone.",
+          "at": {
+            "row": 2,
+            "col": 2
+          },
+          "concept": "stone"
+        },
+        {
+          "kind": "weather",
+          "text": "Rain arrives: north 3, middle 2, south 0."
+        },
+        {
+          "kind": "flow",
+          "text": "Stone absorbed 1.",
+          "at": {
+            "row": 0,
+            "col": 2
+          },
+          "amount": 1,
+          "concept": "stone"
+        },
+        {
+          "kind": "damage",
+          "text": "Village took 2 flood damage.",
+          "amount": 2
+        },
+        {
+          "kind": "damage",
+          "text": "Mill took 2 flood damage.",
+          "amount": 2
+        }
+      ],
+      "after": "6f61871b",
+      "damage": [
+        2,
+        2
+      ]
+    },
+    {
+      "turn": 3,
+      "before": "6f61871b",
+      "offers": [
+        "mix-clay",
+        "grow-reeds",
+        "grow-grove",
+        "cut-channel",
+        "dig-basin",
+        "fuse-glass"
+      ],
+      "action": {
+        "type": "deploy",
+        "concept": "heat",
+        "at": {
+          "row": 1,
+          "col": 2
+        }
+      },
+      "events": [
+        {
+          "kind": "placement",
+          "text": "Heat can evaporate 2 incoming water here this pulse.",
+          "at": {
+            "row": 1,
+            "col": 2
+          },
+          "concept": "heat"
+        },
+        {
+          "kind": "weather",
+          "text": "Rain arrives: north 2, middle 3, south 0."
+        },
+        {
+          "kind": "flow",
+          "text": "Stone absorbed 1.",
+          "at": {
+            "row": 0,
+            "col": 2
+          },
+          "amount": 1,
+          "concept": "stone"
+        },
+        {
+          "kind": "destroyed",
+          "text": "Stone washed away. The concept stays known.",
+          "at": {
+            "row": 0,
+            "col": 2
+          },
+          "concept": "stone"
+        },
+        {
+          "kind": "flow",
+          "text": "Evaporated 2 water.",
+          "at": {
+            "row": 1,
+            "col": 2
+          },
+          "amount": 2
+        },
+        {
+          "kind": "damage",
+          "text": "Village took 1 flood damage.",
+          "amount": 1
+        },
+        {
+          "kind": "damage",
+          "text": "Mill took 1 flood damage.",
+          "amount": 1
+        }
+      ],
+      "after": "29129e37",
+      "damage": [
+        1,
+        1
+      ]
+    },
+    {
+      "turn": 4,
+      "before": "29129e37",
+      "offers": [
+        "mix-clay",
+        "grow-reeds",
+        "grow-grove",
+        "cut-channel",
+        "dig-basin",
+        "fuse-glass"
+      ],
+      "action": {
+        "type": "deploy",
+        "concept": "steam",
+        "at": {
+          "row": 0,
+          "col": 2
+        }
+      },
+      "events": [
+        {
+          "kind": "placement",
+          "text": "Steam can evaporate 4 incoming water here this pulse.",
+          "at": {
+            "row": 0,
+            "col": 2
+          },
+          "concept": "steam"
+        },
+        {
+          "kind": "weather",
+          "text": "Rain arrives: north 2, middle 2, south 0."
+        },
+        {
+          "kind": "flow",
+          "text": "Evaporated 2 water.",
+          "at": {
+            "row": 0,
+            "col": 2
+          },
+          "amount": 2
+        },
+        {
+          "kind": "damage",
+          "text": "Mill took 2 flood damage.",
+          "amount": 2
+        }
+      ],
+      "after": "83df0c1b",
+      "damage": [
+        0,
+        2
+      ]
+    },
+    {
+      "turn": 5,
+      "before": "83df0c1b",
+      "offers": [
+        "mix-clay",
+        "grow-reeds",
+        "grow-grove",
+        "cut-channel",
+        "dig-basin",
+        "fuse-glass"
+      ],
+      "action": {
+        "type": "deploy",
+        "concept": "steam",
+        "at": {
+          "row": 2,
+          "col": 2
+        }
+      },
+      "events": [
+        {
+          "kind": "placement",
+          "text": "Steam can evaporate 4 incoming water here this pulse.",
+          "at": {
+            "row": 2,
+            "col": 2
+          },
+          "concept": "steam"
+        },
+        {
+          "kind": "weather",
+          "text": "Rain arrives: north 3, middle 2, south 0."
+        },
+        {
+          "kind": "damage",
+          "text": "Village took 3 flood damage.",
+          "amount": 3
+        },
+        {
+          "kind": "damage",
+          "text": "Mill took 2 flood damage.",
+          "amount": 2
+        },
+        {
+          "kind": "outcome",
+          "text": "A bank gave way. Branch from an earlier decision or try a different plan."
+        }
+      ],
+      "after": "efcf1f02",
+      "damage": [
+        3,
+        2
+      ]
+    }
+  ],
+  "outcome": "lost"
+}

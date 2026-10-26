@@ -1,0 +1,519 @@
+{
+  "schema": 1,
+  "id": "rooted-headwaters-9-goal",
+  "build": "0.4.0",
+  "data": "watershed-1",
+  "scenario": "headwaters",
+  "seed": 9,
+  "rules": "rooted",
+  "player": "goal",
+  "condition": "public observation; one-step exact previews for greedy/goal",
+  "offerOrder": "normal",
+  "observationVersion": "public-1",
+  "actionBudget": 8,
+  "decisions": [
+    {
+      "turn": 0,
+      "before": "40ded0c2",
+      "offers": [
+        "mix-clay",
+        "grow-reeds",
+        "grow-grove",
+        "cut-channel",
+        "dig-basin",
+        "fuse-glass",
+        "boil-steam"
+      ],
+      "action": {
+        "type": "discover",
+        "recipe": "mix-clay",
+        "at": {
+          "row": 0,
+          "col": 0
+        }
+      },
+      "events": [
+        {
+          "kind": "discovery",
+          "text": "Established Clay. It stays available.",
+          "concept": "clay"
+        },
+        {
+          "kind": "placement",
+          "text": "Placed Clay.",
+          "at": {
+            "row": 0,
+            "col": 0
+          },
+          "concept": "clay"
+        },
+        {
+          "kind": "weather",
+          "text": "Rain arrives: north 1, middle 0, south 0."
+        },
+        {
+          "kind": "flow",
+          "text": "Clay absorbed 1.",
+          "at": {
+            "row": 0,
+            "col": 0
+          },
+          "amount": 1,
+          "concept": "clay"
+        }
+      ],
+      "after": "2e4c899c",
+      "damage": [
+        0,
+        0
+      ]
+    },
+    {
+      "turn": 1,
+      "before": "2e4c899c",
+      "offers": [
+        "fire-brick",
+        "grow-reeds",
+        "grow-grove",
+        "cut-channel",
+        "dig-basin",
+        "fuse-glass",
+        "boil-steam",
+        "stone-levee"
+      ],
+      "action": {
+        "type": "discover",
+        "recipe": "stone-levee",
+        "at": {
+          "row": 0,
+          "col": 1
+        }
+      },
+      "events": [
+        {
+          "kind": "discovery",
+          "text": "Established Levee. It stays available.",
+          "concept": "levee"
+        },
+        {
+          "kind": "placement",
+          "text": "Placed Levee.",
+          "at": {
+            "row": 0,
+            "col": 1
+          },
+          "concept": "levee"
+        },
+        {
+          "kind": "weather",
+          "text": "Rain arrives: north 2, middle 0, south 0."
+        },
+        {
+          "kind": "flow",
+          "text": "Clay absorbed 2.",
+          "at": {
+            "row": 0,
+            "col": 0
+          },
+          "amount": 2,
+          "concept": "clay"
+        },
+        {
+          "kind": "destroyed",
+          "text": "Clay washed away. The concept stays known.",
+          "at": {
+            "row": 0,
+            "col": 0
+          },
+          "concept": "clay"
+        }
+      ],
+      "after": "88d29f6f",
+      "damage": [
+        0,
+        0
+      ]
+    },
+    {
+      "turn": 2,
+      "before": "88d29f6f",
+      "offers": [
+        "fire-brick",
+        "grow-reeds",
+        "grow-grove",
+        "cut-channel",
+        "dig-basin",
+        "fuse-glass",
+        "boil-steam"
+      ],
+      "action": {
+        "type": "deploy",
+        "concept": "levee",
+        "at": {
+          "row": 1,
+          "col": 1
+        }
+      },
+      "events": [
+        {
+          "kind": "placement",
+          "text": "Placed Levee.",
+          "at": {
+            "row": 1,
+            "col": 1
+          },
+          "concept": "levee"
+        },
+        {
+          "kind": "weather",
+          "text": "Rain arrives: north 2, middle 0, south 0."
+        },
+        {
+          "kind": "flow",
+          "text": "Levee sent 2 south.",
+          "at": {
+            "row": 0,
+            "col": 1
+          },
+          "amount": 2,
+          "concept": "levee"
+        },
+        {
+          "kind": "flow",
+          "text": "Levee sent 2 south.",
+          "at": {
+            "row": 1,
+            "col": 1
+          },
+          "amount": 2,
+          "concept": "levee"
+        }
+      ],
+      "after": "112d0526",
+      "damage": [
+        0,
+        0
+      ]
+    },
+    {
+      "turn": 3,
+      "before": "112d0526",
+      "offers": [
+        "fire-brick",
+        "grow-reeds",
+        "grow-grove",
+        "cut-channel",
+        "dig-basin",
+        "fuse-glass",
+        "boil-steam"
+      ],
+      "action": {
+        "type": "deploy",
+        "concept": "levee",
+        "at": {
+          "row": 1,
+          "col": 0
+        }
+      },
+      "events": [
+        {
+          "kind": "placement",
+          "text": "Placed Levee.",
+          "at": {
+            "row": 1,
+            "col": 0
+          },
+          "concept": "levee"
+        },
+        {
+          "kind": "weather",
+          "text": "Rain arrives: north 3, middle 1, south 0."
+        },
+        {
+          "kind": "flow",
+          "text": "Levee sent 1 south.",
+          "at": {
+            "row": 1,
+            "col": 0
+          },
+          "amount": 1,
+          "concept": "levee"
+        },
+        {
+          "kind": "flow",
+          "text": "Levee sent 3 south.",
+          "at": {
+            "row": 0,
+            "col": 1
+          },
+          "amount": 3,
+          "concept": "levee"
+        },
+        {
+          "kind": "flow",
+          "text": "Levee sent 3 south.",
+          "at": {
+            "row": 1,
+            "col": 1
+          },
+          "amount": 3,
+          "concept": "levee"
+        }
+      ],
+      "after": "5f2b665e",
+      "damage": [
+        0,
+        0
+      ]
+    },
+    {
+      "turn": 4,
+      "before": "5f2b665e",
+      "offers": [
+        "fire-brick",
+        "grow-reeds",
+        "grow-grove",
+        "cut-channel",
+        "dig-basin",
+        "fuse-glass",
+        "boil-steam"
+      ],
+      "action": {
+        "type": "deploy",
+        "concept": "levee",
+        "at": {
+          "row": 0,
+          "col": 0
+        }
+      },
+      "events": [
+        {
+          "kind": "placement",
+          "text": "Placed Levee.",
+          "at": {
+            "row": 0,
+            "col": 0
+          },
+          "concept": "levee"
+        },
+        {
+          "kind": "weather",
+          "text": "Rain arrives: north 3, middle 1, south 0."
+        },
+        {
+          "kind": "flow",
+          "text": "Levee sent 3 south.",
+          "at": {
+            "row": 0,
+            "col": 0
+          },
+          "amount": 3,
+          "concept": "levee"
+        },
+        {
+          "kind": "flow",
+          "text": "Levee sent 3 south.",
+          "at": {
+            "row": 1,
+            "col": 0
+          },
+          "amount": 3,
+          "concept": "levee"
+        },
+        {
+          "kind": "flow",
+          "text": "Levee sent 1 south.",
+          "at": {
+            "row": 1,
+            "col": 1
+          },
+          "amount": 1,
+          "concept": "levee"
+        }
+      ],
+      "after": "85e7a47f",
+      "damage": [
+        0,
+        0
+      ]
+    },
+    {
+      "turn": 5,
+      "before": "85e7a47f",
+      "offers": [
+        "fire-brick",
+        "grow-reeds",
+        "grow-grove",
+        "cut-channel",
+        "dig-basin",
+        "fuse-glass",
+        "boil-steam"
+      ],
+      "action": {
+        "type": "deploy",
+        "concept": "levee",
+        "at": {
+          "row": 0,
+          "col": 2
+        }
+      },
+      "events": [
+        {
+          "kind": "placement",
+          "text": "Placed Levee.",
+          "at": {
+            "row": 0,
+            "col": 2
+          },
+          "concept": "levee"
+        },
+        {
+          "kind": "weather",
+          "text": "Rain arrives: north 2, middle 0, south 0."
+        },
+        {
+          "kind": "flow",
+          "text": "Levee sent 2 south.",
+          "at": {
+            "row": 0,
+            "col": 0
+          },
+          "amount": 2,
+          "concept": "levee"
+        },
+        {
+          "kind": "flow",
+          "text": "Levee sent 2 south.",
+          "at": {
+            "row": 1,
+            "col": 0
+          },
+          "amount": 2,
+          "concept": "levee"
+        }
+      ],
+      "after": "09d25f79",
+      "damage": [
+        0,
+        0
+      ]
+    },
+    {
+      "turn": 6,
+      "before": "09d25f79",
+      "offers": [
+        "fire-brick",
+        "grow-reeds",
+        "grow-grove",
+        "cut-channel",
+        "dig-basin",
+        "fuse-glass",
+        "boil-steam"
+      ],
+      "action": {
+        "type": "deploy",
+        "concept": "levee",
+        "at": {
+          "row": 2,
+          "col": 0
+        }
+      },
+      "events": [
+        {
+          "kind": "placement",
+          "text": "Placed Levee.",
+          "at": {
+            "row": 2,
+            "col": 0
+          },
+          "concept": "levee"
+        },
+        {
+          "kind": "weather",
+          "text": "Rain arrives: north 1, middle 0, south 0."
+        },
+        {
+          "kind": "flow",
+          "text": "Levee sent 1 south.",
+          "at": {
+            "row": 0,
+            "col": 0
+          },
+          "amount": 1,
+          "concept": "levee"
+        },
+        {
+          "kind": "flow",
+          "text": "Levee sent 1 south.",
+          "at": {
+            "row": 1,
+            "col": 0
+          },
+          "amount": 1,
+          "concept": "levee"
+        },
+        {
+          "kind": "flow",
+          "text": "Levee sent 1 to sea.",
+          "at": {
+            "row": 2,
+            "col": 0
+          },
+          "amount": 1,
+          "concept": "levee"
+        }
+      ],
+      "after": "cf56636a",
+      "damage": [
+        0,
+        0
+      ]
+    },
+    {
+      "turn": 7,
+      "before": "cf56636a",
+      "offers": [
+        "fire-brick",
+        "grow-reeds",
+        "grow-grove",
+        "cut-channel",
+        "dig-basin",
+        "fuse-glass",
+        "boil-steam"
+      ],
+      "action": {
+        "type": "deploy",
+        "concept": "levee",
+        "at": {
+          "row": 2,
+          "col": 1
+        }
+      },
+      "events": [
+        {
+          "kind": "placement",
+          "text": "Placed Levee.",
+          "at": {
+            "row": 2,
+            "col": 1
+          },
+          "concept": "levee"
+        },
+        {
+          "kind": "weather",
+          "text": "Rain arrives: north 0, middle 0, south 0."
+        },
+        {
+          "kind": "outcome",
+          "text": "The rain passes. Both places are standing."
+        }
+      ],
+      "after": "dd10e802",
+      "damage": [
+        0,
+        0
+      ]
+    }
+  ],
+  "outcome": "won"
+}

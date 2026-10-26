@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Combination stories</title>
+<style>body{max-width:780px;margin:40px auto;padding:0 22px;background:#faf8f1;color:#2e3937;font:18px/1.65 Georgia,serif}nav,button,summary,.small{font:14px/1.5 system-ui,sans-serif}nav{display:flex;gap:20px}h1{font-size:34px;line-height:1.2;margin:30px 0 10px}h2{font-size:20px;margin-top:30px}button{padding:10px 14px;margin:5px 8px 5px 0;cursor:pointer;border:1px solid #b5beb3;border-radius:5px;background:#f1f3e9;color:inherit}button:hover{background:#e2ead7}button:disabled{opacity:.4}article{padding:15px 0;border-bottom:1px solid #e1e1d6}article .small{color:#788171}details{margin-top:24px}summary{cursor:pointer}li{margin:12px 0}.small{color:#68736a}pre{font:12px/1.5 monospace;white-space:pre-wrap}#error{color:#923f30}a{color:#526e57}#controls{padding:10px 0 20px}</style>
+<nav><a href="/bell">The Bell Orchard</a><a href="/mneme">Mneme</a></nav>
+<h1 id="title">Loading…</h1><p class="small" id="version"></p><section id="story" aria-live="polite"></section>
+<p id="goal"></p><h2 id="combine-title">Combine</h2><div id="controls"></div><p id="error" role="alert"></p>
+<details><summary>Known combinations and their effects</summary><ul id="recipes"></ul></details>
+<details><summary>How this world works</summary><ul id="rules"></ul></details>
+<details><summary>Current world</summary><pre id="world"></pre></details>
+<p><button id="restart">Start again</button><button id="download">Download this run</button></p>
+<p class="small">A text reader for the logical prototype. Sessions stay in this local server’s memory; Download saves your run only when you choose.</p>
+<script>
+let session=null,observation=null,busy=false;
+const $=id=>document.getElementById(id);
+const pretty=value=>String(value).replaceAll('-',' ').replace(/^./,c=>c.toUpperCase());
+function paragraph(parent,text,small=false){if(!text)return;const p=document.createElement('p');p.textContent=typeof text==='string'?text:JSON.stringify(text);if(small)p.className='small';parent.append(p);}
+function response(o){const out=[];if(Array.isArray(o.response))out.push(...o.response);if(o.lastResponse){for(const key of ['worldResponse','actorResponse','renewedPossibility','text','response'])if(o.lastResponse[key])out.push(o.lastResponse[key]);}if(o.ending&&typeof o.ending==='string')out.push(o.ending);return [...new Set(out)];}
+function label(id,o){const c=(o.concepts||[]).find(c=>c.id===id);return c?.name||pretty(c?.label||id);}
+function pairName(a,o){return a.type==='finish'?'Leave the valley here':`${label(a.a,o)} + ${label(a.b,o)}${a.at?' · toward the '+a.at:''}`;}
+function list(id,items,format){$(id).replaceChildren();for(const item of items||[]){const li=document.createElement('li');li.textContent=format(item);$(id).append(li);}}
+function render(o,action){
+ observation=o;$('title').textContent=o.title||(session.game.startsWith('mneme')?'Mneme':'The Bell Orchard');$('version').textContent=o.version+' · logical story prototype';
+ const article=document.createElement('article');if(action)paragraph(article,pairName(action,o),true);else paragraph(article,o.opening||o.beginning);
+ for(const text of response(o))paragraph(article,text);if(!action&&response(o).length===0&&o.mneme?.line)paragraph(article,'“'+o.mneme.line+'”');
+ if(article.textContent)$('story').append(article);
+ $('goal').textContent=o.safeStoppingPoint||o.baselineAchieved?'The orchard is free. You may stop here; any further combination is optional.':o.initialIntention||o.goal||'';
+ $('controls').replaceChildren();const actions=o.legalActions||[];
+ for(const a of actions){const button=document.createElement('button');button.textContent=pairName(a,o);button.onclick=()=>act(a);const r=(o.recipes||[]).find(r=>(r.a===a.a&&r.b===a.b)||(r.a===a.b&&r.b===a.a));button.title=r?.effect||r?.function||r?.meaning||'';$('controls').append(button);}
+ $('combine-title').textContent=actions.length?'Combine':'A stopping point';
+ list('recipes',o.recipes,r=>`${label(r.a,o)} + ${label(r.b,o)}: ${r.effect||r.function||r.meaning||''}${r.immediateConsequence?' '+r.immediateConsequence:''}`);
+ list('rules',o.rules,r=>r);$('world').textContent=JSON.stringify({world:o.world,character:o.mneme||o.actor,forms:o.forms},null,2);
+}
+async function start(){busy=true;$('error').textContent='';$('story').replaceChildren();try{const r=await fetch('/api/start?path='+encodeURIComponent(location.pathname));session=await r.json();if(!r.ok)throw Error(session.error);render(session.observation);}catch(e){$('error').textContent=e.message;}finally{busy=false;}}
+async function act(action){if(busy)return;busy=true;$('error').textContent='';for(const b of $('controls').querySelectorAll('button'))b.disabled=true;try{const r=await fetch('/api/act?id='+encodeURIComponent(session.id),{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(action)});const data=await r.json();if(!r.ok)throw Error(data.error);render(data.observation,action);}catch(e){$('error').textContent=e.message;for(const b of $('controls').querySelectorAll('button'))b.disabled=false;}finally{busy=false;}}
+$('restart').onclick=start;$('download').onclick=async()=>{if(!session)return;const r=await fetch('/api/run?id='+encodeURIComponent(session.id));const blob=new Blob([await r.text()],{type:'application/json'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download=session.game+'-run.json';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);};start();
+</script></html>

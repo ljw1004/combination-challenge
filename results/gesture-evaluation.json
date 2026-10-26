@@ -1,0 +1,210 @@
+{
+  "grader": "gesture-evidence-1",
+  "reports": [
+    {
+      "id": "touch-a",
+      "interface": "contact-1 (inferred from saved screens; original capture lacked interface field)",
+      "commands": 13,
+      "mixes": 4,
+      "newConcepts": 4,
+      "reusedPreviousPhysicalResult": 2,
+      "mixtures": [
+        {
+          "decision": 0,
+          "inputs": [
+            "soil",
+            "water"
+          ],
+          "output": "clay",
+          "position": {
+            "x": 0.62,
+            "y": 0.48
+          }
+        },
+        {
+          "decision": 1,
+          "inputs": [
+            "heat",
+            "clay"
+          ],
+          "output": "brick",
+          "position": {
+            "x": 0.62,
+            "y": 0.48
+          }
+        },
+        {
+          "decision": 2,
+          "inputs": [
+            "water",
+            "brick"
+          ],
+          "output": "channel",
+          "position": {
+            "x": 0.62,
+            "y": 0.48
+          }
+        },
+        {
+          "decision": 4,
+          "inputs": [
+            "seed",
+            "soil"
+          ],
+          "output": "grove",
+          "position": {
+            "x": 0.34,
+            "y": 0.32
+          }
+        }
+      ],
+      "recordedFusionEvents": 4,
+      "recordedContactPreviews": 4,
+      "dropOutsideWorkspace": 1,
+      "replay": "pass",
+      "source": "results/gesture-players/touch-a/run.json",
+      "screenCommands": "results/gesture-players/touch-a/commands.json",
+      "cards": [
+        {
+          "criterion": "player-performed-combination",
+          "status": "support",
+          "claim": "Real pointer/key command captures and matching ingredient fusion events; not output-menu selection.",
+          "limitation": "Instruction-based isolation. Event counts alone do not prove satisfying handling."
+        },
+        {
+          "criterion": "result-can-be-reused",
+          "status": "support",
+          "claim": "2 mixtures use the preceding actual result object.",
+          "limitation": "Reuse may be rote; the count is continuity evidence, not strategic depth."
+        },
+        {
+          "criterion": "surrounding-challenge",
+          "status": "unknown",
+          "claim": "This table intentionally isolates handling; no completion challenge is currently present."
+        },
+        {
+          "criterion": "human-visceral-enjoyment",
+          "status": "unknown",
+          "claim": "Agents and screenshots cannot establish physical satisfaction for a person."
+        }
+      ]
+    },
+    {
+      "id": "touch-b",
+      "interface": "contact-2",
+      "commands": 13,
+      "mixes": 4,
+      "newConcepts": 4,
+      "reusedPreviousPhysicalResult": 2,
+      "mixtures": [
+        {
+          "decision": 0,
+          "inputs": [
+            "soil",
+            "water"
+          ],
+          "output": "clay",
+          "position": {
+            "x": 0.62,
+            "y": 0.48
+          }
+        },
+        {
+          "decision": 1,
+          "inputs": [
+            "heat",
+            "clay"
+          ],
+          "output": "brick",
+          "position": {
+            "x": 0.93,
+            "y": 0.7137462235649547
+          }
+        },
+        {
+          "decision": 2,
+          "inputs": [
+            "water",
+            "brick"
+          ],
+          "output": "channel",
+          "position": {
+            "x": 0.93,
+            "y": 0.23187311178247735
+          }
+        },
+        {
+          "decision": 5,
+          "inputs": [
+            "clay",
+            "brick"
+          ],
+          "output": "levee",
+          "position": {
+            "x": 0.93,
+            "y": 0.7016616314199395
+          }
+        }
+      ],
+      "recordedFusionEvents": 4,
+      "recordedContactPreviews": 4,
+      "dropOutsideWorkspace": 3,
+      "replay": "pass",
+      "source": "results/gesture-players/touch-b/run.json",
+      "screenCommands": "results/gesture-players/touch-b/commands.json",
+      "cards": [
+        {
+          "criterion": "player-performed-combination",
+          "status": "support",
+          "claim": "Real pointer/key command captures and matching ingredient fusion events; not output-menu selection.",
+          "limitation": "Instruction-based isolation. Event counts alone do not prove satisfying handling."
+        },
+        {
+          "criterion": "result-can-be-reused",
+          "status": "support",
+          "claim": "2 mixtures use the preceding actual result object.",
+          "limitation": "Reuse may be rote; the count is continuity evidence, not strategic depth."
+        },
+        {
+          "criterion": "surrounding-challenge",
+          "status": "unknown",
+          "claim": "This table intentionally isolates handling; no completion challenge is currently present."
+        },
+        {
+          "criterion": "human-visceral-enjoyment",
+          "status": "unknown",
+          "claim": "Agents and screenshots cannot establish physical satisfaction for a person."
+        }
+      ]
+    }
+  ],
+  "humanReview": {
+    "source": "Direct owner feedback in this conversation after using the new table",
+    "people": 1,
+    "recruitedStudy": false,
+    "feedback": [
+      {
+        "feature": "hover reveals compatible partners and results",
+        "judgment": "positive",
+        "reportedBenefit": "Removes the low-level search for an authored ontology and makes possibilities available for informed play."
+      },
+      {
+        "feature": "results appear on other icons",
+        "judgment": "minor confusion",
+        "priority": "Owner explicitly deferred small placement details."
+      },
+      {
+        "principle": "Every legal combination/result may be inspectable; intellectual or skill challenge belongs above that information.",
+        "judgment": "explicit design requirement"
+      }
+    ]
+  },
+  "disagreement": {
+    "agentReport": "touch-a found pervasive result labels too directive and later play rote.",
+    "humanReport": "Owner found those same hover results enabling and wanted to retain them.",
+    "decision": "Preserve hover partner/result disclosure. Cancel its queued removal. Fix specific false affordances separately.",
+    "limitation": "One owner review is not a population preference or complete-game enjoyment validation."
+  },
+  "nextGate": "With combinations inspectable, test a surrounding challenge that still requires a worthwhile decision or skill. Keep the actual combining gesture as the player action.",
+  "forbiddenInference": "More fusions, discoveries, pointer motion, model praise or passing browser tests do not establish fun."
+}

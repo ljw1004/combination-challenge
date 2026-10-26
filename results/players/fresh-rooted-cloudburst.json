@@ -1,0 +1,601 @@
+{
+  "schema": 1,
+  "id": "rooted-cloudburst-7-fresh-rooted-cloudburst",
+  "build": "0.4.0",
+  "data": "watershed-1",
+  "scenario": "cloudburst",
+  "seed": 7,
+  "rules": "rooted",
+  "player": "fresh-rooted-cloudburst",
+  "condition": "fresh agent; annotated; instruction-based isolation; model inherited gpt-6.1-sol",
+  "offerOrder": "normal",
+  "observationVersion": "public-1",
+  "actionBudget": 9,
+  "decisions": [
+    {
+      "turn": 0,
+      "before": "a5cd8636",
+      "offers": [
+        "mix-clay",
+        "grow-reeds",
+        "grow-grove",
+        "cut-channel",
+        "dig-basin",
+        "fuse-glass",
+        "boil-steam"
+      ],
+      "action": {
+        "type": "discover",
+        "recipe": "dig-basin",
+        "at": {
+          "row": 0,
+          "col": 0
+        }
+      },
+      "annotation": {
+        "objective": "Catch the first two north pulses while preparing a permanent defence.",
+        "expectedEffect": "Basin stores the first north water, with three capacity left.",
+        "expectedDamage": [
+          0,
+          0
+        ],
+        "confidence": 0.9
+      },
+      "events": [
+        {
+          "kind": "discovery",
+          "text": "Established Basin. It stays available.",
+          "concept": "basin"
+        },
+        {
+          "kind": "placement",
+          "text": "Placed Basin.",
+          "at": {
+            "row": 0,
+            "col": 0
+          },
+          "concept": "basin"
+        },
+        {
+          "kind": "weather",
+          "text": "Rain arrives: north 1, middle 0, south 0."
+        },
+        {
+          "kind": "storage",
+          "text": "Basin stored 1; 3 space remains.",
+          "at": {
+            "row": 0,
+            "col": 0
+          },
+          "amount": 1,
+          "concept": "basin"
+        }
+      ],
+      "after": "56a2f797",
+      "damage": [
+        0,
+        0
+      ]
+    },
+    {
+      "turn": 1,
+      "before": "56a2f797",
+      "offers": [
+        "mix-clay",
+        "grow-reeds",
+        "grow-grove",
+        "cut-channel",
+        "fuse-glass",
+        "boil-steam"
+      ],
+      "action": {
+        "type": "discover",
+        "recipe": "grow-grove",
+        "at": {
+          "row": 0,
+          "col": 2
+        }
+      },
+      "annotation": {
+        "objective": "Establish lasting north absorption while the basin covers its growth pulse.",
+        "expectedEffect": "Basin fills; grove matures protected downstream.",
+        "expectedDamage": [
+          0,
+          0
+        ],
+        "confidence": 0.95
+      },
+      "events": [
+        {
+          "kind": "discovery",
+          "text": "Established Grove. It stays available.",
+          "concept": "grove"
+        },
+        {
+          "kind": "placement",
+          "text": "Placed Grove.",
+          "at": {
+            "row": 0,
+            "col": 2
+          },
+          "concept": "grove"
+        },
+        {
+          "kind": "weather",
+          "text": "Rain arrives: north 3, middle 0, south 0."
+        },
+        {
+          "kind": "storage",
+          "text": "Basin stored 3; 0 space remains.",
+          "at": {
+            "row": 0,
+            "col": 0
+          },
+          "amount": 3,
+          "concept": "basin"
+        },
+        {
+          "kind": "growth",
+          "text": "The grove takes root. It absorbs water from the next pulse.",
+          "at": {
+            "row": 0,
+            "col": 2
+          },
+          "concept": "grove"
+        }
+      ],
+      "after": "aae23118",
+      "damage": [
+        0,
+        0
+      ]
+    },
+    {
+      "turn": 2,
+      "before": "aae23118",
+      "offers": [
+        "mix-clay",
+        "grow-reeds",
+        "cut-channel",
+        "fuse-glass",
+        "boil-steam"
+      ],
+      "action": {
+        "type": "discover",
+        "recipe": "mix-clay",
+        "at": {
+          "row": 0,
+          "col": 0
+        }
+      },
+      "annotation": {
+        "objective": "Handle the north peak without spending health while keeping the mature grove.",
+        "expectedEffect": "Clay replaces the full basin and absorbs three; the grove absorbs the last north water.",
+        "expectedDamage": [
+          0,
+          1
+        ],
+        "confidence": 0.95
+      },
+      "events": [
+        {
+          "kind": "discovery",
+          "text": "Established Clay. It stays available.",
+          "concept": "clay"
+        },
+        {
+          "kind": "placement",
+          "text": "Placed Clay in place of Basin.",
+          "at": {
+            "row": 0,
+            "col": 0
+          },
+          "concept": "clay"
+        },
+        {
+          "kind": "weather",
+          "text": "Rain arrives: north 4, middle 1, south 0."
+        },
+        {
+          "kind": "flow",
+          "text": "Clay absorbed 3.",
+          "at": {
+            "row": 0,
+            "col": 0
+          },
+          "amount": 3,
+          "concept": "clay"
+        },
+        {
+          "kind": "destroyed",
+          "text": "Clay washed away. The concept stays known.",
+          "at": {
+            "row": 0,
+            "col": 0
+          },
+          "concept": "clay"
+        },
+        {
+          "kind": "flow",
+          "text": "Grove absorbed 1.",
+          "at": {
+            "row": 0,
+            "col": 2
+          },
+          "amount": 1,
+          "concept": "grove"
+        },
+        {
+          "kind": "damage",
+          "text": "Gardens took 1 flood damage.",
+          "amount": 1
+        }
+      ],
+      "after": "262970e3",
+      "damage": [
+        0,
+        1
+      ]
+    },
+    {
+      "turn": 3,
+      "before": "262970e3",
+      "offers": [
+        "fire-brick",
+        "grow-reeds",
+        "cut-channel",
+        "fuse-glass",
+        "boil-steam",
+        "stone-levee"
+      ],
+      "action": {
+        "type": "discover",
+        "recipe": "stone-levee",
+        "at": {
+          "row": 1,
+          "col": 1
+        }
+      },
+      "annotation": {
+        "objective": "Give the Gardens immediate lasting protection by diverting water into the unused outlet lane.",
+        "expectedEffect": "Levee diverts the middle pulse safely south; the mature north grove lets one through.",
+        "expectedDamage": [
+          1,
+          0
+        ],
+        "confidence": 0.9
+      },
+      "events": [
+        {
+          "kind": "discovery",
+          "text": "Established Levee. It stays available.",
+          "concept": "levee"
+        },
+        {
+          "kind": "placement",
+          "text": "Placed Levee.",
+          "at": {
+            "row": 1,
+            "col": 1
+          },
+          "concept": "levee"
+        },
+        {
+          "kind": "weather",
+          "text": "Rain arrives: north 3, middle 1, south 0."
+        },
+        {
+          "kind": "flow",
+          "text": "Levee sent 1 south.",
+          "at": {
+            "row": 1,
+            "col": 1
+          },
+          "amount": 1,
+          "concept": "levee"
+        },
+        {
+          "kind": "flow",
+          "text": "Grove absorbed 2.",
+          "at": {
+            "row": 0,
+            "col": 2
+          },
+          "amount": 2,
+          "concept": "grove"
+        },
+        {
+          "kind": "damage",
+          "text": "Workshop took 1 flood damage.",
+          "amount": 1
+        }
+      ],
+      "after": "17dd8078",
+      "damage": [
+        1,
+        0
+      ]
+    },
+    {
+      "turn": 4,
+      "before": "17dd8078",
+      "offers": [
+        "fire-brick",
+        "grow-reeds",
+        "cut-channel",
+        "fuse-glass",
+        "boil-steam"
+      ],
+      "action": {
+        "type": "discover",
+        "recipe": "grow-reeds",
+        "at": {
+          "row": 1,
+          "col": 2
+        }
+      },
+      "annotation": {
+        "objective": "Cover the single water that will overtop the middle levee at its forecast peak.",
+        "expectedEffect": "Downstream reeds persist behind the levee; this pulse is entirely diverted before reaching them.",
+        "expectedDamage": [
+          0,
+          0
+        ],
+        "confidence": 0.98
+      },
+      "events": [
+        {
+          "kind": "discovery",
+          "text": "Established Reeds. It stays available.",
+          "concept": "reeds"
+        },
+        {
+          "kind": "placement",
+          "text": "Placed Reeds.",
+          "at": {
+            "row": 1,
+            "col": 2
+          },
+          "concept": "reeds"
+        },
+        {
+          "kind": "weather",
+          "text": "Rain arrives: north 1, middle 3, south 0."
+        },
+        {
+          "kind": "flow",
+          "text": "Levee sent 3 south.",
+          "at": {
+            "row": 1,
+            "col": 1
+          },
+          "amount": 3,
+          "concept": "levee"
+        },
+        {
+          "kind": "flow",
+          "text": "Grove absorbed 1.",
+          "at": {
+            "row": 0,
+            "col": 2
+          },
+          "amount": 1,
+          "concept": "grove"
+        }
+      ],
+      "after": "74a80e19",
+      "damage": [
+        0,
+        0
+      ]
+    },
+    {
+      "turn": 5,
+      "before": "74a80e19",
+      "offers": [
+        "fire-brick",
+        "cut-channel",
+        "fuse-glass",
+        "boil-steam"
+      ],
+      "action": {
+        "type": "wait"
+      },
+      "annotation": {
+        "objective": "Let the established defences handle the peak without unnecessary replacement.",
+        "expectedEffect": "Grove absorbs north two; levee diverts middle three and rooted reeds absorb the last one.",
+        "expectedDamage": [
+          0,
+          0
+        ],
+        "confidence": 0.98
+      },
+      "events": [
+        {
+          "kind": "weather",
+          "text": "Rain arrives: north 2, middle 4, south 0."
+        },
+        {
+          "kind": "flow",
+          "text": "Levee sent 3 south.",
+          "at": {
+            "row": 1,
+            "col": 1
+          },
+          "amount": 3,
+          "concept": "levee"
+        },
+        {
+          "kind": "flow",
+          "text": "Grove absorbed 2.",
+          "at": {
+            "row": 0,
+            "col": 2
+          },
+          "amount": 2,
+          "concept": "grove"
+        },
+        {
+          "kind": "flow",
+          "text": "Reeds absorbed 1.",
+          "at": {
+            "row": 1,
+            "col": 2
+          },
+          "amount": 1,
+          "concept": "reeds"
+        }
+      ],
+      "after": "241fa209",
+      "damage": [
+        0,
+        0
+      ]
+    },
+    {
+      "turn": 6,
+      "before": "241fa209",
+      "offers": [
+        "fire-brick",
+        "cut-channel",
+        "fuse-glass",
+        "boil-steam"
+      ],
+      "action": {
+        "type": "wait"
+      },
+      "annotation": {
+        "objective": "Maintain the solved defence through the declining storm.",
+        "expectedEffect": "Grove absorbs north two and the levee diverts all middle water; reeds remain unused.",
+        "expectedDamage": [
+          0,
+          0
+        ],
+        "confidence": 0.99
+      },
+      "events": [
+        {
+          "kind": "weather",
+          "text": "Rain arrives: north 2, middle 3, south 0."
+        },
+        {
+          "kind": "flow",
+          "text": "Levee sent 3 south.",
+          "at": {
+            "row": 1,
+            "col": 1
+          },
+          "amount": 3,
+          "concept": "levee"
+        },
+        {
+          "kind": "flow",
+          "text": "Grove absorbed 2.",
+          "at": {
+            "row": 0,
+            "col": 2
+          },
+          "amount": 2,
+          "concept": "grove"
+        }
+      ],
+      "after": "531889dd",
+      "damage": [
+        0,
+        0
+      ]
+    },
+    {
+      "turn": 7,
+      "before": "531889dd",
+      "offers": [
+        "fire-brick",
+        "cut-channel",
+        "fuse-glass",
+        "boil-steam"
+      ],
+      "action": {
+        "type": "wait"
+      },
+      "annotation": {
+        "objective": "Finish the last wet pulse without disturbing working structures.",
+        "expectedEffect": "Grove absorbs one north and levee diverts two middle; no damage.",
+        "expectedDamage": [
+          0,
+          0
+        ],
+        "confidence": 0.99
+      },
+      "events": [
+        {
+          "kind": "weather",
+          "text": "Rain arrives: north 1, middle 2, south 0."
+        },
+        {
+          "kind": "flow",
+          "text": "Levee sent 2 south.",
+          "at": {
+            "row": 1,
+            "col": 1
+          },
+          "amount": 2,
+          "concept": "levee"
+        },
+        {
+          "kind": "flow",
+          "text": "Grove absorbed 1.",
+          "at": {
+            "row": 0,
+            "col": 2
+          },
+          "amount": 1,
+          "concept": "grove"
+        }
+      ],
+      "after": "66f76eb5",
+      "damage": [
+        0,
+        0
+      ]
+    },
+    {
+      "turn": 8,
+      "before": "66f76eb5",
+      "offers": [
+        "fire-brick",
+        "cut-channel",
+        "fuse-glass",
+        "boil-steam"
+      ],
+      "action": {
+        "type": "wait"
+      },
+      "annotation": {
+        "objective": "Conclude the finite storm.",
+        "expectedEffect": "Dry final pulse; both assets survive at six health.",
+        "expectedDamage": [
+          0,
+          0
+        ],
+        "confidence": 1
+      },
+      "events": [
+        {
+          "kind": "weather",
+          "text": "Rain arrives: north 0, middle 0, south 0."
+        },
+        {
+          "kind": "outcome",
+          "text": "The rain passes. Both places are standing."
+        }
+      ],
+      "after": "2a35c4f3",
+      "damage": [
+        0,
+        0
+      ]
+    }
+  ],
+  "outcome": "won",
+  "model": "gpt-6.1-sol (inherited)"
+}

@@ -1,0 +1,924 @@
+{
+  "schema": 1,
+  "id": "logic-shape-a",
+  "game": "forms",
+  "version": "logical-forms-1",
+  "scenario": "the-key",
+  "seed": 1,
+  "condition": "fresh-abstract-player",
+  "initialObservation": {
+    "game": "forms",
+    "scenario": "the-key",
+    "status": "playing",
+    "goal": {
+      "description": "Create a form exactly matching this target, allowing rotation but not reflection.",
+      "cells": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          0,
+          4
+        ]
+      ],
+      "rows": [
+        "##.",
+        "###",
+        "##.",
+        "##.",
+        "#.."
+      ]
+    },
+    "concepts": [
+      {
+        "id": "n1",
+        "name": "Green bar",
+        "cells": [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            1
+          ]
+        ],
+        "rows": [
+          "#",
+          "#"
+        ]
+      },
+      {
+        "id": "n2",
+        "name": "Lilac bar",
+        "cells": [
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            0
+          ]
+        ],
+        "rows": [
+          "##"
+        ]
+      },
+      {
+        "id": "n3",
+        "name": "Amber corner",
+        "cells": [
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            0,
+            1
+          ]
+        ],
+        "rows": [
+          "##",
+          "#."
+        ]
+      },
+      {
+        "id": "n4",
+        "name": "Blue corner",
+        "cells": [
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            0,
+            1
+          ]
+        ],
+        "rows": [
+          "##",
+          "#."
+        ]
+      }
+    ],
+    "rules": [
+      "Combining is the union of two rigid shapes. They must touch along at least one edge and may not overlap.",
+      "Both parent concepts remain forever. A new shape becomes a reusable concept. Mistakes spend nothing; set them aside and use the parents again.",
+      "Turn either shape clockwise before combining. Then shift A by (dx,dy) relative to the top-left square-grid origin of B. Negative offsets are allowed.",
+      "There is one concept per established geometry up to rotation. Repeating a known result creates no duplicate. The four starting colored concepts are distinct reusable sources.",
+      "A concept cannot combine with itself. Different existing concepts may be reused indefinitely. No move count, piece stock or time limit exists.",
+      "All union rules and results are public. Optional preview gives the exact immediate union. Your task is global geometric composition."
+    ],
+    "actionSchema": {
+      "type": "combine",
+      "a": "n1",
+      "b": "n2",
+      "turnA": "0–3; default0",
+      "turnB": "0–3; default0",
+      "dx": "integer",
+      "dy": "integer"
+    },
+    "lastConsequence": ""
+  },
+  "decisions": [
+    {
+      "index": 0,
+      "action": {
+        "type": "combine",
+        "a": "n2",
+        "b": "n3",
+        "turnA": 0,
+        "turnB": 0,
+        "dx": 1,
+        "dy": 1
+      },
+      "prediction": {
+        "rows": [
+          "##.",
+          "###"
+        ],
+        "intendedSubstructure": "The top two rows of the key."
+      },
+      "before": "8f1bfe1a",
+      "after": "95b012c9",
+      "observation": {
+        "game": "forms",
+        "scenario": "the-key",
+        "status": "playing",
+        "goal": {
+          "description": "Create a form exactly matching this target, allowing rotation but not reflection.",
+          "cells": [
+            [
+              0,
+              0
+            ],
+            [
+              1,
+              0
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              2,
+              1
+            ],
+            [
+              0,
+              2
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              0,
+              3
+            ],
+            [
+              1,
+              3
+            ],
+            [
+              0,
+              4
+            ]
+          ],
+          "rows": [
+            "##.",
+            "###",
+            "##.",
+            "##.",
+            "#.."
+          ]
+        },
+        "concepts": [
+          {
+            "id": "n1",
+            "name": "Green bar",
+            "cells": [
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                1
+              ]
+            ],
+            "rows": [
+              "#",
+              "#"
+            ]
+          },
+          {
+            "id": "n2",
+            "name": "Lilac bar",
+            "cells": [
+              [
+                0,
+                0
+              ],
+              [
+                1,
+                0
+              ]
+            ],
+            "rows": [
+              "##"
+            ]
+          },
+          {
+            "id": "n3",
+            "name": "Amber corner",
+            "cells": [
+              [
+                0,
+                0
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                0,
+                1
+              ]
+            ],
+            "rows": [
+              "##",
+              "#."
+            ]
+          },
+          {
+            "id": "n4",
+            "name": "Blue corner",
+            "cells": [
+              [
+                0,
+                0
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                0,
+                1
+              ]
+            ],
+            "rows": [
+              "##",
+              "#."
+            ]
+          },
+          {
+            "id": "n5",
+            "name": "5-square form",
+            "cells": [
+              [
+                0,
+                0
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                0,
+                1
+              ],
+              [
+                1,
+                1
+              ],
+              [
+                2,
+                1
+              ]
+            ],
+            "rows": [
+              "##.",
+              "###"
+            ]
+          }
+        ],
+        "rules": [
+          "Combining is the union of two rigid shapes. They must touch along at least one edge and may not overlap.",
+          "Both parent concepts remain forever. A new shape becomes a reusable concept. Mistakes spend nothing; set them aside and use the parents again.",
+          "Turn either shape clockwise before combining. Then shift A by (dx,dy) relative to the top-left square-grid origin of B. Negative offsets are allowed.",
+          "There is one concept per established geometry up to rotation. Repeating a known result creates no duplicate. The four starting colored concepts are distinct reusable sources.",
+          "A concept cannot combine with itself. Different existing concepts may be reused indefinitely. No move count, piece stock or time limit exists.",
+          "All union rules and results are public. Optional preview gives the exact immediate union. Your task is global geometric composition."
+        ],
+        "actionSchema": {
+          "type": "combine",
+          "a": "n1",
+          "b": "n2",
+          "turnA": "0–3; default0",
+          "turnB": "0–3; default0",
+          "dx": "integer",
+          "dy": "integer"
+        },
+        "lastConsequence": "5-square form. The ingredients remain."
+      }
+    },
+    {
+      "index": 1,
+      "action": {
+        "type": "combine",
+        "a": "n2",
+        "b": "n5",
+        "turnA": 0,
+        "turnB": 0,
+        "dx": 0,
+        "dy": 2
+      },
+      "prediction": {
+        "rows": [
+          "##.",
+          "###",
+          "##."
+        ],
+        "intendedSubstructure": "The upper seven squares, leaving one corner at the bottom."
+      },
+      "before": "95b012c9",
+      "after": "273531f9",
+      "observation": {
+        "game": "forms",
+        "scenario": "the-key",
+        "status": "playing",
+        "goal": {
+          "description": "Create a form exactly matching this target, allowing rotation but not reflection.",
+          "cells": [
+            [
+              0,
+              0
+            ],
+            [
+              1,
+              0
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              2,
+              1
+            ],
+            [
+              0,
+              2
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              0,
+              3
+            ],
+            [
+              1,
+              3
+            ],
+            [
+              0,
+              4
+            ]
+          ],
+          "rows": [
+            "##.",
+            "###",
+            "##.",
+            "##.",
+            "#.."
+          ]
+        },
+        "concepts": [
+          {
+            "id": "n1",
+            "name": "Green bar",
+            "cells": [
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                1
+              ]
+            ],
+            "rows": [
+              "#",
+              "#"
+            ]
+          },
+          {
+            "id": "n2",
+            "name": "Lilac bar",
+            "cells": [
+              [
+                0,
+                0
+              ],
+              [
+                1,
+                0
+              ]
+            ],
+            "rows": [
+              "##"
+            ]
+          },
+          {
+            "id": "n3",
+            "name": "Amber corner",
+            "cells": [
+              [
+                0,
+                0
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                0,
+                1
+              ]
+            ],
+            "rows": [
+              "##",
+              "#."
+            ]
+          },
+          {
+            "id": "n4",
+            "name": "Blue corner",
+            "cells": [
+              [
+                0,
+                0
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                0,
+                1
+              ]
+            ],
+            "rows": [
+              "##",
+              "#."
+            ]
+          },
+          {
+            "id": "n5",
+            "name": "5-square form",
+            "cells": [
+              [
+                0,
+                0
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                0,
+                1
+              ],
+              [
+                1,
+                1
+              ],
+              [
+                2,
+                1
+              ]
+            ],
+            "rows": [
+              "##.",
+              "###"
+            ]
+          },
+          {
+            "id": "n6",
+            "name": "7-square form",
+            "cells": [
+              [
+                0,
+                0
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                0,
+                1
+              ],
+              [
+                1,
+                1
+              ],
+              [
+                2,
+                1
+              ],
+              [
+                0,
+                2
+              ],
+              [
+                1,
+                2
+              ]
+            ],
+            "rows": [
+              "##.",
+              "###",
+              "##."
+            ]
+          }
+        ],
+        "rules": [
+          "Combining is the union of two rigid shapes. They must touch along at least one edge and may not overlap.",
+          "Both parent concepts remain forever. A new shape becomes a reusable concept. Mistakes spend nothing; set them aside and use the parents again.",
+          "Turn either shape clockwise before combining. Then shift A by (dx,dy) relative to the top-left square-grid origin of B. Negative offsets are allowed.",
+          "There is one concept per established geometry up to rotation. Repeating a known result creates no duplicate. The four starting colored concepts are distinct reusable sources.",
+          "A concept cannot combine with itself. Different existing concepts may be reused indefinitely. No move count, piece stock or time limit exists.",
+          "All union rules and results are public. Optional preview gives the exact immediate union. Your task is global geometric composition."
+        ],
+        "actionSchema": {
+          "type": "combine",
+          "a": "n1",
+          "b": "n2",
+          "turnA": "0–3; default0",
+          "turnB": "0–3; default0",
+          "dx": "integer",
+          "dy": "integer"
+        },
+        "lastConsequence": "7-square form. The ingredients remain."
+      }
+    },
+    {
+      "index": 2,
+      "action": {
+        "type": "combine",
+        "a": "n3",
+        "b": "n6",
+        "turnA": 0,
+        "turnB": 0,
+        "dx": 0,
+        "dy": 3
+      },
+      "prediction": {
+        "rows": [
+          "##.",
+          "###",
+          "##.",
+          "##.",
+          "#.."
+        ],
+        "expectedResult": "Goal complete."
+      },
+      "before": "273531f9",
+      "after": "7e0d1d26",
+      "observation": {
+        "game": "forms",
+        "scenario": "the-key",
+        "status": "won",
+        "goal": {
+          "description": "Create a form exactly matching this target, allowing rotation but not reflection.",
+          "cells": [
+            [
+              0,
+              0
+            ],
+            [
+              1,
+              0
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              2,
+              1
+            ],
+            [
+              0,
+              2
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              0,
+              3
+            ],
+            [
+              1,
+              3
+            ],
+            [
+              0,
+              4
+            ]
+          ],
+          "rows": [
+            "##.",
+            "###",
+            "##.",
+            "##.",
+            "#.."
+          ]
+        },
+        "concepts": [
+          {
+            "id": "n1",
+            "name": "Green bar",
+            "cells": [
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                1
+              ]
+            ],
+            "rows": [
+              "#",
+              "#"
+            ]
+          },
+          {
+            "id": "n2",
+            "name": "Lilac bar",
+            "cells": [
+              [
+                0,
+                0
+              ],
+              [
+                1,
+                0
+              ]
+            ],
+            "rows": [
+              "##"
+            ]
+          },
+          {
+            "id": "n3",
+            "name": "Amber corner",
+            "cells": [
+              [
+                0,
+                0
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                0,
+                1
+              ]
+            ],
+            "rows": [
+              "##",
+              "#."
+            ]
+          },
+          {
+            "id": "n4",
+            "name": "Blue corner",
+            "cells": [
+              [
+                0,
+                0
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                0,
+                1
+              ]
+            ],
+            "rows": [
+              "##",
+              "#."
+            ]
+          },
+          {
+            "id": "n5",
+            "name": "5-square form",
+            "cells": [
+              [
+                0,
+                0
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                0,
+                1
+              ],
+              [
+                1,
+                1
+              ],
+              [
+                2,
+                1
+              ]
+            ],
+            "rows": [
+              "##.",
+              "###"
+            ]
+          },
+          {
+            "id": "n6",
+            "name": "7-square form",
+            "cells": [
+              [
+                0,
+                0
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                0,
+                1
+              ],
+              [
+                1,
+                1
+              ],
+              [
+                2,
+                1
+              ],
+              [
+                0,
+                2
+              ],
+              [
+                1,
+                2
+              ]
+            ],
+            "rows": [
+              "##.",
+              "###",
+              "##."
+            ]
+          },
+          {
+            "id": "n7",
+            "name": "10-square form",
+            "cells": [
+              [
+                0,
+                0
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                0,
+                1
+              ],
+              [
+                1,
+                1
+              ],
+              [
+                2,
+                1
+              ],
+              [
+                0,
+                2
+              ],
+              [
+                1,
+                2
+              ],
+              [
+                0,
+                3
+              ],
+              [
+                1,
+                3
+              ],
+              [
+                0,
+                4
+              ]
+            ],
+            "rows": [
+              "##.",
+              "###",
+              "##.",
+              "##.",
+              "#.."
+            ]
+          }
+        ],
+        "rules": [
+          "Combining is the union of two rigid shapes. They must touch along at least one edge and may not overlap.",
+          "Both parent concepts remain forever. A new shape becomes a reusable concept. Mistakes spend nothing; set them aside and use the parents again.",
+          "Turn either shape clockwise before combining. Then shift A by (dx,dy) relative to the top-left square-grid origin of B. Negative offsets are allowed.",
+          "There is one concept per established geometry up to rotation. Repeating a known result creates no duplicate. The four starting colored concepts are distinct reusable sources.",
+          "A concept cannot combine with itself. Different existing concepts may be reused indefinitely. No move count, piece stock or time limit exists.",
+          "All union rules and results are public. Optional preview gives the exact immediate union. Your task is global geometric composition."
+        ],
+        "actionSchema": {
+          "type": "combine",
+          "a": "n1",
+          "b": "n2",
+          "turnA": "0–3; default0",
+          "turnB": "0–3; default0",
+          "dx": "integer",
+          "dy": "integer"
+        },
+        "lastConsequence": "The key. That is the shape."
+      }
+    }
+  ],
+  "attempts": []
+}

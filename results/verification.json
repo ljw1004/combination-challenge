@@ -1,0 +1,3912 @@
+{
+  "build": "0.4.0",
+  "data": "watershed-1",
+  "condition": "Mechanical verification. Planner has the complete transition model. A winning trace is a reachability witness; a planner loss does not prove unreachability. No enjoyment conclusion.",
+  "shallowScope": "Every legal two-action sequence from seed 1 of all three scenarios and four historical rules versions.",
+  "checkedTransitions": 64227,
+  "exhaustive": [
+    {
+      "scenario": "headwaters",
+      "rules": "separate",
+      "firstActions": 35,
+      "secondActions": 1275,
+      "distinctAfterTwo": 607
+    },
+    {
+      "scenario": "headwaters",
+      "rules": "field",
+      "firstActions": 89,
+      "secondActions": 8160,
+      "distinctAfterTwo": 4467
+    },
+    {
+      "scenario": "headwaters",
+      "rules": "rooted",
+      "firstActions": 89,
+      "secondActions": 8160,
+      "distinctAfterTwo": 4588
+    },
+    {
+      "scenario": "headwaters",
+      "rules": "breathing",
+      "firstActions": 89,
+      "secondActions": 8160,
+      "distinctAfterTwo": 4678
+    },
+    {
+      "scenario": "confluence",
+      "rules": "separate",
+      "firstActions": 32,
+      "secondActions": 1068,
+      "distinctAfterTwo": 530
+    },
+    {
+      "scenario": "confluence",
+      "rules": "field",
+      "firstActions": 80,
+      "secondActions": 6588,
+      "distinctAfterTwo": 3755
+    },
+    {
+      "scenario": "confluence",
+      "rules": "rooted",
+      "firstActions": 80,
+      "secondActions": 6588,
+      "distinctAfterTwo": 3917
+    },
+    {
+      "scenario": "confluence",
+      "rules": "breathing",
+      "firstActions": 80,
+      "secondActions": 6588,
+      "distinctAfterTwo": 3756
+    },
+    {
+      "scenario": "cloudburst",
+      "rules": "separate",
+      "firstActions": 29,
+      "secondActions": 879,
+      "distinctAfterTwo": 455
+    },
+    {
+      "scenario": "cloudburst",
+      "rules": "field",
+      "firstActions": 71,
+      "secondActions": 5184,
+      "distinctAfterTwo": 2911
+    },
+    {
+      "scenario": "cloudburst",
+      "rules": "rooted",
+      "firstActions": 71,
+      "secondActions": 5184,
+      "distinctAfterTwo": 2961
+    },
+    {
+      "scenario": "cloudburst",
+      "rules": "breathing",
+      "firstActions": 71,
+      "secondActions": 5184,
+      "distinctAfterTwo": 2936
+    }
+  ],
+  "witnessScope": "Shipped rules: all scenarios, seeds 1–12. Historical rules: each scenario at seed 1.",
+  "shippedWitnesses": {
+    "wins": 36,
+    "n": 36
+  },
+  "unresolvedWitnessSearches": [
+    {
+      "scenario": "confluence",
+      "rules": "separate",
+      "seed": 1
+    }
+  ],
+  "witnesses": [
+    {
+      "scenario": "headwaters",
+      "rules": "separate",
+      "seed": 1,
+      "status": "won",
+      "health": [
+        6,
+        7
+      ],
+      "turns": 8,
+      "discoveries": 0,
+      "finalHash": "6c96ede7",
+      "actions": [
+        {
+          "type": "deploy",
+          "concept": "stone",
+          "at": {
+            "row": 0,
+            "col": 0
+          }
+        },
+        {
+          "type": "deploy",
+          "concept": "stone",
+          "at": {
+            "row": 0,
+            "col": 1
+          }
+        },
+        {
+          "type": "deploy",
+          "concept": "stone",
+          "at": {
+            "row": 0,
+            "col": 2
+          }
+        },
+        {
+          "type": "deploy",
+          "concept": "stone",
+          "at": {
+            "row": 0,
+            "col": 0
+          }
+        },
+        {
+          "type": "deploy",
+          "concept": "soil",
+          "at": {
+            "row": 1,
+            "col": 0
+          }
+        },
+        {
+          "type": "deploy",
+          "concept": "stone",
+          "at": {
+            "row": 0,
+            "col": 1
+          }
+        },
+        {
+          "type": "deploy",
+          "concept": "soil",
+          "at": {
+            "row": 0,
+            "col": 2
+          }
+        },
+        {
+          "type": "deploy",
+          "concept": "soil",
+          "at": {
+            "row": 0,
+            "col": 0
+          }
+        }
+      ]
+    },
+    {
+      "scenario": "headwaters",
+      "rules": "field",
+      "seed": 1,
+      "status": "won",
+      "health": [
+        7,
+        7
+      ],
+      "turns": 8,
+      "discoveries": 4,
+      "finalHash": "ce61306f",
+      "actions": [
+        {
+          "type": "discover",
+          "recipe": "dig-basin",
+          "at": {
+            "row": 0,
+            "col": 1
+          }
+        },
+        {
+          "type": "discover",
+          "recipe": "grow-grove",
+          "at": {
+            "row": 0,
+            "col": 0
+          }
+        },
+        {
+          "type": "deploy",
+          "concept": "grove",
+          "at": {
+            "row": 1,
+            "col": 0
+          }
+        },
+        {
+          "type": "deploy",
+          "concept": "grove",
+          "at": {
+            "row": 0,
+            "col": 2
+          }
+        },
+        {
+          "type": "deploy",
+          "concept": "grove",
+          "at": {
+            "row": 0,
+            "col": 1
+          }
+        },
+        {
+          "type": "discover",
+          "recipe": "mix-clay",
+          "at": {
+            "row": 1,
+            "col": 1
+          }
+        },
+        {
+          "type": "discover",
+          "recipe": "stone-levee",
+          "at": {
+            "row": 2,
+            "col": 0
+          }
+        },
+        {
+          "type": "deploy",
+          "concept": "levee",
+          "at": {
+            "row": 2,
+            "col": 1
+          }
+        }
+      ]
+    },
+    {
+      "scenario": "headwaters",
+      "rules": "rooted",
+      "seed": 1,
+      "status": "won",
+      "health": [
+        6,
+        7
+      ],
+      "turns": 8,
+      "discoveries": 3,
+      "finalHash": "3715b09c",
+      "actions": [
+        {
+          "type": "discover",
+          "recipe": "grow-grove",
+          "at": {
+            "row": 0,
+            "col": 0
+          }
+        },
+        {
+          "type": "deploy",
+          "concept": "grove",
+          "at": {
+            "row": 0,
+            "col": 1
+          }
+        },
+        {
+          "type": "deploy",
+          "concept": "grove",
+          "at": {
+            "row": 1,
+            "col": 0
+          }
+        },
+        {
+          "type": "deploy",
+          "concept": "grove",
+          "at": {
+            "row": 0,
+            "col": 2
+          }
+        },
+        {
+          "type": "discover",
+          "recipe": "mix-clay",
+          "at": {
+            "row": 1,
+            "col": 1
+          }
+        },
+        {
+          "type": "discover",
+          "recipe": "stone-levee",
+          "at": {
+            "row": 2,
+            "col": 0
+          }
+        },
+        {
+          "type": "deploy",
+          "concept": "levee",
+          "at": {
+            "row": 2,
+            "col": 1
+          }
+        },
+        {
+          "type": "deploy",
+          "concept": "levee",
+          "at": {
+            "row": 2,
+            "col": 2
+          }
+        }
+      ]
+    },
+    {
+      "scenario": "headwaters",
+      "rules": "rooted",
+      "seed": 2,
+      "status": "won",
+      "health": [
+        6,
+        7
+      ],
+      "turns": 8,
+      "discoveries": 3,
+      "finalHash": "562cfc25",
+      "actions": [
+        {
+          "type": "discover",
+          "recipe": "grow-grove",
+          "at": {
+            "row": 0,
+            "col": 0
+          }
+        },
+        {
+          "type": "deploy",
+          "concept": "grove",
+          "at": {
+            "row": 0,
+            "col": 1
+          }
+        },
+        {
+          "type": "deploy",
+          "concept": "grove",
+          "at": {
+            "row": 1,
+            "col": 0
+          }
+        },
+        {
+          "type": "deploy",
+          "concept": "grove",
+          "at": {
+            "row": 0,
+            "col": 2
+          }
+        },
+        {
+          "type": "discover",
+          "recipe": "mix-clay",
+          "at": {
+            "row": 1,
+            "col": 1
+          }
+        },
+        {
+          "type": "discover",
+          "recipe": "stone-levee",
+          "at": {
+            "row": 2,
+            "col": 0
+          }
+        },
+        {
+          "type": "deploy",
+          "concept": "levee",
+          "at": {
+            "row": 2,
+            "col": 1
+          }
+        },
+        {
+          "type": "deploy",
+          "concept": "levee",
+          "at": {
+            "row": 2,
+            "col": 2
+          }
+        }
+      ]
+    },
+    {
+      "scenario": "headwaters",
+      "rules": "rooted",
+      "seed": 3,
+      "status": "won",
+      "health": [
+        6,
+        7
+      ],
+      "turns": 8,
+      "discoveries": 3,
+      "finalHash": "bf710d9c",
+      "actions": [
+        {
+          "type": "discover",
+          "recipe": "grow-grove",
+          "at": {
+            "row": 0,
+            "col": 0
+          }
+        },
+        {
+          "type": "deploy",
+          "concept": "grove",
+          "at": {
+            "row": 0,
+            "col": 1
+          }
+        },
+        {
+          "type": "deploy",
+          "concept": "grove",
+          "at": {
+            "row": 1,
+            "col": 0
+          }
+        },
+        {
+          "type": "deploy",
+          "concept": "grove",
+          "at": {
+            "row": 0,
+            "col": 2
+          }
+        },
+        {
+          "type": "discover",
+          "recipe": "mix-clay",
+          "at": {
+            "row": 1,
+            "col": 1
+          }
+        },
+        {
+          "type": "discover",
+          "recipe": "stone-levee",
+          "at": {
+            "row": 2,
+            "col": 0
+          }
+        },
+        {
+          "type": "deploy",
+          "concept": "levee",
+          "at": {
+            "row": 2,
+            "col": 1
+          }
+        },
+        {
+          "type": "deploy",
+          "concept": "levee",
+          "at": {
+            "row": 2,
+            "col": 2
+          }
+        }
+      ]
+    },
+    {
+      "scenario": "headwaters",
+      "rules": "rooted",
+      "seed": 4,
+      "status": "won",
+      "health": [
+        6,
+        7
+      ],
+      "turns": 8,
+      "discoveries": 3,
+      "finalHash": "15744cd7",
+      "actions": [
+        {
+          "type": "discover",
+          "recipe": "grow-grove",
+          "at": {
+            "row": 0,
+            "col": 0
+          }
+        },
+        {
+          "type": "deploy",
+          "concept": "grove",
+          "at": {
+            "row": 0,
+            "col": 1
+          }
+        },
+        {
+          "type": "deploy",
+          "concept": "grove",
+          "at": {
+            "row": 1,
+            "col": 0
+          }
+        },
+        {
+          "type": "deploy",
+          "concept": "grove",
+          "at": {
+            "row": 0,
+            "col": 2
+          }
+        },
+        {
+          "type": "discover",
+          "recipe": "mix-clay",
+          "at": {
+            "row": 1,
+            "col": 1
+          }
+        },
+        {
+          "type": "discover",
+          "recipe": "stone-levee",
+          "at": {
+            "row": 2,
+            "col": 0
+          }
+        },
+        {
+          "type": "deploy",
+          "concept": "levee",
+          "at": {
+            "row": 2,
+            "col": 1
+          }
+        },
+        {
+          "type": "deploy",
+          "concept": "levee",
+          "at": {
+            "row": 2,
+            "col": 2
+          }
+        }
+      ]
+    },
+    {
+      "scenario": "headwaters",
+      "rules": "rooted",
+      "seed": 5,
+      "status": "won",
+      "health": [
+        6,
+        7
+      ],
+      "turns": 8,
+      "discoveries": 3,
+      "finalHash": "c7915d2e",
+      "actions": [
+        {
+          "type": "discover",
+          "recipe": "grow-grove",
+          "at": {
+            "row": 0,
+            "col": 0
+          }
+        },
+        {
+          "type": "deploy",
+          "concept": "grove",
+          "at": {
+            "row": 0,
+            "col": 1
+          }
+        },
+        {
+          "type": "deploy",
+          "concept": "grove",
+          "at": {
+            "row": 1,
+            "col": 0
+          }
+        },
+        {
+          "type": "deploy",
+          "concept": "grove",
+          "at": {
+            "row": 0,
+            "col": 2
+          }
+        },
+        {
+          "type": "discover",
+          "recipe": "mix-clay",
+          "at": {
+            "row": 1,
+            "col": 1
+          }
+        },
+        {
+          "type": "discover",
+          "recipe": "stone-levee",
+          "at": {
+            "row": 2,
+            "col": 0
+          }
+        },
+        {
+          "type": "deploy",
+          "concept": "levee",
+          "at": {
+            "row": 2,
+            "col": 1
+          }
+        },
+        {
+          "type": "deploy",
+          "concept": "levee",
+          "at": {
+            "row": 2,
+            "col": 2
+          }
+        }
+      ]
+    },
+    {
+      "scenario": "headwaters",
+      "rules": "rooted",
+      "seed": 6,
+      "status": "won",
+      "health": [
+        6,
+        7
+      ],
+      "turns": 8,
+      "discoveries": 3,
+      "finalHash": "c6e2b24d",
+      "actions": [
+        {
+          "type": "discover",
+          "recipe": "grow-grove",
+          "at": {
+            "row": 0,
+            "col": 0
+          }
+        },
+        {
+          "type": "deploy",
+          "concept": "grove",
+          "at": {
+            "row": 0,
+            "col": 1
+          }
+        },
+        {
+          "type": "deploy",
+          "concept": "grove",
+          "at": {
+            "row": 1,
+            "col": 0
+          }
+        },
+        {
+          "type": "deploy",
+          "concept": "grove",
+          "at": {
+            "row": 0,
+            "col": 2
+          }
+        },
+        {
+          "type": "discover",
+          "recipe": "mix-clay",
+          "at": {
+            "row": 1,
+            "col": 1
+          }
+        },
+        {
+          "type": "discover",
+          "recipe": "stone-levee",
+          "at": {
+            "row": 2,
+            "col": 0
+          }
+        },
+        {
+          "type": "deploy",
+          "concept": "levee",
+          "at": {
+            "row": 2,
+            "col": 1
+          }
+        },
+        {
+          "type": "deploy",
+          "concept": "levee",
+          "at": {
+            "row": 2,
+            "col": 2
+          }
+        }
+      ]
+    },
+    {
+      "scenario": "headwaters",
+      "rules": "rooted",
+      "seed": 7,
+      "status": "won",
+      "health": [
+        6,
+        7
+      ],
+      "turns": 8,
+      "discoveries": 3,
+      "finalHash": "ed667b9c",
+      "actions": [
+        {
+          "type": "discover",
+          "recipe": "grow-grove",
+          "at": {
+            "row": 0,
+            "col": 0
+          }
+        },
+        {
+          "type": "deploy",
+          "concept": "grove",
+          "at": {
+            "row": 0,
+            "col": 1
+          }
+        },
+        {
+          "type": "deploy",
+          "concept": "grove",
+          "at": {
+            "row": 1,
+            "col": 0
+          }
+        },
+        {
+          "type": "deploy",
+          "concept": "grove",
+          "at": {
+            "row": 0,
+            "col": 2
+          }
+        },
+        {
+          "type": "discover",
+          "recipe": "mix-clay",
+          "at": {
+            "row": 1,
+            "col": 1
+          }
+        },
+        {
+          "type": "discover",
+          "recipe": "stone-levee",
+          "at": {
+            "row": 2,
+            "col": 0
+          }
+        },
+        {
+          "type": "deploy",
+          "concept": "levee",
+          "at": {
+            "row": 2,
+            "col": 1
+          }
+        },
+        {
+          "type": "deploy",
+          "concept": "levee",
+          "at": {
+            "row": 2,
+            "col": 2
+          }
+        }
+      ]
+    },
+    {
+      "scenario": "headwaters",
+      "rules": "rooted",
+      "seed": 8,
+      "status": "won",
+      "health": [
+        6,
+        7
+      ],
+      "turns": 8,
+      "discoveries": 3,
+      "finalHash": "10087ab3",
+      "actions": [
+        {
+          "type": "discover",
+          "recipe": "grow-grove",
+          "at": {
+            "row": 0,
+            "col": 0
+          }
+        },
+        {
+          "type": "deploy",
+          "concept": "grove",
+          "at": {
+            "row": 0,
+            "col": 1
+          }
+        },
+        {
+          "type": "deploy",
+          "concept": "grove",
+          "at": {
+            "row": 1,
+            "col": 0
+          }
+        },
+        {
+          "type": "deploy",
+          "concept": "grove",
+          "at": {
+            "row": 0,
+            "col": 2
+          }
+        },
+        {
+          "type": "discover",
+          "recipe": "mix-clay",
+          "at": {
+            "row": 1,
+            "col": 1
+          }
+        },
+        {
+          "type": "discover",
+          "recipe": "stone-levee",
+          "at": {
+            "row": 2,
+            "col": 0
+          }
+        },
+        {
+          "type": "deploy",
+          "concept": "levee",
+          "at": {
+            "row": 2,
+            "col": 1
+          }
+        },
+        {
+          "type": "deploy",
+          "concept": "levee",
+          "at": {
+            "row": 2,
+            "col": 2
+          }
+        }
+      ]
+    },
+    {
+      "scenario": "headwaters",
+      "rules": "rooted",
+      "seed": 9,
+      "status": "won",
+      "health": [
+        6,
+        7
+      ],
+      "turns": 8,
+      "discoveries": 3,
+      "finalHash": "739c8ffa",
+      "actions": [
+        {
+          "type": "discover",
+          "recipe": "grow-grove",
+          "at": {
+            "row": 0,
+            "col": 0
+          }
+        },
+        {
+          "type": "deploy",
+          "concept": "grove",
+          "at": {
+            "row": 0,
+            "col": 1
+          }
+        },
+        {
+          "type": "deploy",
+          "concept": "grove",
+          "at": {
+            "row": 1,
+            "col": 0
+          }
+        },
+        {
+          "type": "deploy",
+          "concept": "grove",
+          "at": {
+            "row": 0,
+            "col": 2
+          }
+        },
+        {
+          "type": "discover",
+          "recipe": "mix-clay",
+          "at": {
+            "row": 1,
+            "col": 1
+          }
+        },
+        {
+          "type": "discover",
+          "recipe": "stone-levee",
+          "at": {
+            "row": 2,
+            "col": 0
+          }
+        },
+        {
+          "type": "deploy",
+          "concept": "levee",
+          "at": {
+            "row": 2,
+            "col": 1
+          }
+        },
+        {
+          "type": "deploy",
+          "concept": "levee",
+          "at": {
+            "row": 2,
+            "col": 2
+          }
+        }
+      ]
+    },
+    {
+      "scenario": "headwaters",
+      "rules": "rooted",
+      "seed": 10,
+      "status": "won",
+      "health": [
+        6,
+        7
+      ],
+      "turns": 8,
+      "discoveries": 3,
+      "finalHash": "4991f410",
+      "actions": [
+        {
+          "type": "discover",
+          "recipe": "grow-grove",
+          "at": {
+            "row": 0,
+            "col": 0
+          }
+        },
+        {
+          "type": "deploy",
+          "concept": "grove",
+          "at": {
+            "row": 0,
+            "col": 1
+          }
+        },
+        {
+          "type": "deploy",
+          "concept": "grove",
+          "at": {
+            "row": 1,
+            "col": 0
+          }
+        },
+        {
+          "type": "deploy",
+          "concept": "grove",
+          "at": {
+            "row": 0,
+            "col": 2
+          }
+        },
+        {
+          "type": "discover",
+          "recipe": "mix-clay",
+          "at": {
+            "row": 1,
+            "col": 1
+          }
+        },
+        {
+          "type": "discover",
+          "recipe": "stone-levee",
+          "at": {
+            "row": 2,
+            "col": 0
+          }
+        },
+        {
+          "type": "deploy",
+          "concept": "levee",
+          "at": {
+            "row": 2,
+            "col": 1
+          }
+        },
+        {
+          "type": "deploy",
+          "concept": "levee",
+          "at": {
+            "row": 2,
+            "col": 2
+          }
+        }
+      ]
+    },
+    {
+      "scenario": "headwaters",
+      "rules": "rooted",
+      "seed": 11,
+      "status": "won",
+      "health": [
+        6,
+        7
+      ],
+      "turns": 8,
+      "discoveries": 3,
+      "finalHash": "38e230b5",
+      "actions": [
+        {
+          "type": "discover",
+          "recipe": "grow-grove",
+          "at": {
+            "row": 0,
+            "col": 0
+          }
+        },
+        {
+          "type": "deploy",
+          "concept": "grove",
+          "at": {
+            "row": 0,
+            "col": 1
+          }
+        },
+        {
+          "type": "deploy",
+          "concept": "grove",
+          "at": {
+            "row": 1,
+            "col": 0
+          }
+        },
+        {
+          "type": "deploy",
+          "concept": "grove",
+          "at": {
+            "row": 0,
+            "col": 2
+          }
+        },
+        {
+          "type": "discover",
+          "recipe": "mix-clay",
+          "at": {
+            "row": 1,
+            "col": 1
+          }
+        },
+        {
+          "type": "discover",
+          "recipe": "stone-levee",
+          "at": {
+            "row": 2,
+            "col": 0
+          }
+        },
+        {
+          "type": "deploy",
+          "concept": "levee",
+          "at": {
+            "row": 2,
+            "col": 1
+          }
+        },
+        {
+          "type": "deploy",
+          "concept": "levee",
+          "at": {
+            "row": 2,
+            "col": 2
+          }
+        }
+      ]
+    },
+    {
+      "scenario": "headwaters",
+      "rules": "rooted",
+      "seed": 12,
+      "status": "won",
+      "health": [
+        6,
+        7
+      ],
+      "turns": 8,
+      "discoveries": 3,
+      "finalHash": "a950aba2",
+      "actions": [
+        {
+          "type": "discover",
+          "recipe": "grow-grove",
+          "at": {
+            "row": 0,
+            "col": 0
+          }
+        },
+        {
+          "type": "deploy",
+          "concept": "grove",
+          "at": {
+            "row": 0,
+            "col": 1
+          }
+        },
+        {
+          "type": "deploy",
+          "concept": "grove",
+          "at": {
+            "row": 1,
+            "col": 0
+          }
+        },
+        {
+          "type": "deploy",
+          "concept": "grove",
+          "at": {
+            "row": 0,
+            "col": 2
+          }
+        },
+        {
+          "type": "discover",
+          "recipe": "mix-clay",
+          "at": {
+            "row": 1,
+            "col": 1
+          }
+        },
+        {
+          "type": "discover",
+          "recipe": "stone-levee",
+          "at": {
+            "row": 2,
+            "col": 0
+          }
+        },
+        {
+          "type": "deploy",
+          "concept": "levee",
+          "at": {
+            "row": 2,
+            "col": 1
+          }
+        },
+        {
+          "type": "deploy",
+          "concept": "levee",
+          "at": {
+            "row": 2,
+            "col": 2
+          }
+        }
+      ]
+    },
+    {
+      "scenario": "headwaters",
+      "rules": "breathing",
+      "seed": 1,
+      "status": "won",
+      "health": [
+        7,
+        7
+      ],
+      "turns": 10,
+      "discoveries": 4,
+      "finalHash": "d972daf4",
+      "actions": [
+        {
+          "type": "discover",
+          "recipe": "grow-grove",
+          "at": {
+            "row": 0,
+            "col": 0
+          }
+        },
+        {
+          "type": "discover",
+          "recipe": "mix-clay",
+          "at": {
+            "row": 0,
+            "col": 1
+          }
+        },
+        {
+          "type": "discover",
+          "recipe": "stone-levee",
+          "at": {
+            "row": 0,
+            "col": 2
+          }
+        },
+        {
+          "type": "deploy",
+          "concept": "levee",
+          "at": {
+            "row": 1,
+            "col": 0
+          }
+        },
+        {
+          "type": "deploy",
+          "concept": "levee",
+          "at": {
+            "row": 1,
+            "col": 1
+          }
+        },
+        {
+          "type": "deploy",
+          "concept": "levee",
+          "at": {
+            "row": 0,
+            "col": 1
+          }
+        },
+        {
+          "type": "deploy",
+          "concept": "levee",
+          "at": {
+            "row": 2,
+            "col": 0
+          }
+        },
+        {
+          "type": "deploy",
+          "concept": "levee",
+          "at": {
+            "row": 2,
+            "col": 1
+          }
+        },
+        {
+          "type": "deploy",
+          "concept": "levee",
+          "at": {
+            "row": 2,
+            "col": 2
+          }
+        },
+        {
+          "type": "discover",
+          "recipe": "fire-brick"
+        }
+      ]
+    },
+    {
+      "scenario": "confluence",
+      "rules": "separate",
+      "seed": 1,
+      "status": "lost",
+      "health": [
+        5,
+        0
+      ],
+      "turns": 6,
+      "discoveries": 0,
+      "finalHash": "d4172932",
+      "actions": [
+        {
+          "type": "deploy",
+          "concept": "stone",
+          "at": {
+            "row": 0,
+            "col": 0
+          }
+        },
+        {
+          "type": "deploy",
+          "concept": "stone",
+          "at": {
+            "row": 0,
+            "col": 1
+          }
+        },
+        {
+          "type": "deploy",
+          "concept": "stone",
+          "at": {
+            "row": 0,
+            "col": 2
+          }
+        },
+        {
+          "type": "deploy",
+          "concept": "stone",
+          "at": {
+            "row": 1,
+            "col": 0
+          }
+        },
+        {
+          "type": "deploy",
+          "concept": "soil",
+          "at": {
+            "row": 0,
+            "col": 0
+          }
+        },
+        {
+          "type": "deploy",
+          "concept": "soil",
+          "at": {
+            "row": 1,
+            "col": 2
+          }
+        }
+      ]
+    },
+    {
+      "scenario": "confluence",
+      "rules": "field",
+      "seed": 1,
+      "status": "won",
+      "health": [
+        6,
+        6
+      ],
+      "turns": 9,
+      "discoveries": 4,
+      "finalHash": "d39ac276",
+      "actions": [
+        {
+          "type": "discover",
+          "recipe": "grow-grove",
+          "at": {
+            "row": 0,
+            "col": 0
+          }
+        },
+        {
+          "type": "discover",
+          "recipe": "cut-channel",
+          "at": {
+            "row": 1,
+            "col": 0
+          }
+        },
+        {
+          "type": "deploy",
+          "concept": "grove",
+          "at": {
+            "row": 1,
+            "col": 2
+          }
+        },
+        {
+          "type": "discover",
+          "recipe": "mix-clay",
+          "at": {
+            "row": 0,
+            "col": 2
+          }
+        },
+        {
+          "type": "discover",
+          "recipe": "stone-levee",
+          "at": {
+            "row": 0,
+            "col": 1
+          }
+        },
+        {
+          "type": "deploy",
+          "concept": "levee",
+          "at": {
+            "row": 0,
+            "col": 2
+          }
+        },
+        {
+          "type": "deploy",
+          "concept": "levee",
+          "at": {
+            "row": 2,
+            "col": 0
+          }
+        },
+        {
+          "type": "deploy",
+          "concept": "levee",
+          "at": {
+            "row": 2,
+            "col": 1
+          }
+        },
+        {
+          "type": "deploy",
+          "concept": "levee",
+          "at": {
+            "row": 2,
+            "col": 2
+          }
+        }
+      ]
+    },
+    {
+      "scenario": "confluence",
+      "rules": "rooted",
+      "seed": 1,
+      "status": "won",
+      "health": [
+        6,
+        6
+      ],
+      "turns": 9,
+      "discoveries": 4,
+      "finalHash": "333b9adb",
+      "actions": [
+        {
+          "type": "discover",
+          "recipe": "grow-grove",
+          "at": {
+            "row": 0,
+            "col": 0
+          }
+        },
+        {
+          "type": "discover",
+          "recipe": "cut-channel",
+          "at": {
+            "row": 1,
+            "col": 0
+          }
+        },
+        {
+          "type": "deploy",
+          "concept": "grove",
+          "at": {
+            "row": 1,
+            "col": 2
+          }
+        },
+        {
+          "type": "discover",
+          "recipe": "mix-clay",
+          "at": {
+            "row": 0,
+            "col": 2
+          }
+        },
+        {
+          "type": "discover",
+          "recipe": "stone-levee",
+          "at": {
+            "row": 0,
+            "col": 1
+          }
+        },
+        {
+          "type": "deploy",
+          "concept": "levee",
+          "at": {
+            "row": 0,
+            "col": 2
+          }
+        },
+        {
+          "type": "deploy",
+          "concept": "levee",
+          "at": {
+            "row": 2,
+            "col": 0
+          }
+        },
+        {
+          "type": "deploy",
+          "concept": "levee",
+          "at": {
+            "row": 2,
+            "col": 1
+          }
+        },
+        {
+          "type": "deploy",
+          "concept": "levee",
+          "at": {
+            "row": 2,
+            "col": 2
+          }
+        }
+      ]
+    },
+    {
+      "scenario": "confluence",
+      "rules": "rooted",
+      "seed": 2,
+      "status": "won",
+      "health": [
+        6,
+        6
+      ],
+      "turns": 9,
+      "discoveries": 4,
+      "finalHash": "26bf85c6",
+      "actions": [
+        {
+          "type": "discover",
+          "recipe": "grow-grove",
+          "at": {
+            "row": 0,
+            "col": 0
+          }
+        },
+        {
+          "type": "discover",
+          "recipe": "cut-channel",
+          "at": {
+            "row": 1,
+            "col": 0
+          }
+        },
+        {
+          "type": "deploy",
+          "concept": "grove",
+          "at": {
+            "row": 0,
+            "col": 1
+          }
+        },
+        {
+          "type": "discover",
+          "recipe": "mix-clay",
+          "at": {
+            "row": 1,
+            "col": 2
+          }
+        },
+        {
+          "type": "discover",
+          "recipe": "stone-levee",
+          "at": {
+            "row": 0,
+            "col": 2
+          }
+        },
+        {
+          "type": "deploy",
+          "concept": "levee",
+          "at": {
+            "row": 1,
+            "col": 2
+          }
+        },
+        {
+          "type": "deploy",
+          "concept": "levee",
+          "at": {
+            "row": 2,
+            "col": 0
+          }
+        },
+        {
+          "type": "deploy",
+          "concept": "levee",
+          "at": {
+            "row": 2,
+            "col": 1
+          }
+        },
+        {
+          "type": "deploy",
+          "concept": "levee",
+          "at": {
+            "row": 2,
+            "col": 2
+          }
+        }
+      ]
+    },
+    {
+      "scenario": "confluence",
+      "rules": "rooted",
+      "seed": 3,
+      "status": "won",
+      "health": [
+        6,
+        6
+      ],
+      "turns": 9,
+      "discoveries": 4,
+      "finalHash": "9d5b2e7a",
+      "actions": [
+        {
+          "type": "discover",
+          "recipe": "grow-grove",
+          "at": {
+            "row": 0,
+            "col": 0
+          }
+        },
+        {
+          "type": "discover",
+          "recipe": "cut-channel",
+          "at": {
+            "row": 1,
+            "col": 0
+          }
+        },
+        {
+          "type": "discover",
+          "recipe": "mix-clay",
+          "at": {
+            "row": 0,
+            "col": 2
+          }
+        },
+        {
+          "type": "discover",
+          "recipe": "stone-levee",
+          "at": {
+            "row": 1,
+            "col": 2
+          }
+        },
+        {
+          "type": "deploy",
+          "concept": "levee",
+          "at": {
+            "row": 0,
+            "col": 1
+          }
+        },
+        {
+          "type": "deploy",
+          "concept": "levee",
+          "at": {
+            "row": 0,
+            "col": 2
+          }
+        },
+        {
+          "type": "deploy",
+          "concept": "levee",
+          "at": {
+            "row": 2,
+            "col": 0
+          }
+        },
+        {
+          "type": "deploy",
+          "concept": "levee",
+          "at": {
+            "row": 2,
+            "col": 1
+          }
+        },
+        {
+          "type": "deploy",
+          "concept": "levee",
+          "at": {
+            "row": 2,
+            "col": 2
+          }
+        }
+      ]
+    },
+    {
+      "scenario": "confluence",
+      "rules": "rooted",
+      "seed": 4,
+      "status": "won",
+      "health": [
+        6,
+        6
+      ],
+      "turns": 9,
+      "discoveries": 4,
+      "finalHash": "a1582791",
+      "actions": [
+        {
+          "type": "discover",
+          "recipe": "grow-grove",
+          "at": {
+            "row": 0,
+            "col": 0
+          }
+        },
+        {
+          "type": "discover",
+          "recipe": "cut-channel",
+          "at": {
+            "row": 1,
+            "col": 0
+          }
+        },
+        {
+          "type": "discover",
+          "recipe": "mix-clay",
+          "at": {
+            "row": 0,
+            "col": 2
+          }
+        },
+        {
+          "type": "discover",
+          "recipe": "stone-levee",
+          "at": {
+            "row": 1,
+            "col": 2
+          }
+        },
+        {
+          "type": "deploy",
+          "concept": "levee",
+          "at": {
+            "row": 0,
+            "col": 1
+          }
+        },
+        {
+          "type": "deploy",
+          "concept": "levee",
+          "at": {
+            "row": 0,
+            "col": 2
+          }
+        },
+        {
+          "type": "deploy",
+          "concept": "levee",
+          "at": {
+            "row": 2,
+            "col": 0
+          }
+        },
+        {
+          "type": "deploy",
+          "concept": "levee",
+          "at": {
+            "row": 2,
+            "col": 1
+          }
+        },
+        {
+          "type": "deploy",
+          "concept": "levee",
+          "at": {
+            "row": 2,
+            "col": 2
+          }
+        }
+      ]
+    },
+    {
+      "scenario": "confluence",
+      "rules": "rooted",
+      "seed": 5,
+      "status": "won",
+      "health": [
+        6,
+        6
+      ],
+      "turns": 9,
+      "discoveries": 4,
+      "finalHash": "c542a1aa",
+      "actions": [
+        {
+          "type": "discover",
+          "recipe": "grow-grove",
+          "at": {
+            "row": 0,
+            "col": 0
+          }
+        },
+        {
+          "type": "discover",
+          "recipe": "cut-channel",
+          "at": {
+            "row": 1,
+            "col": 0
+          }
+        },
+        {
+          "type": "discover",
+          "recipe": "mix-clay",
+          "at": {
+            "row": 0,
+            "col": 2
+          }
+        },
+        {
+          "type": "discover",
+          "recipe": "stone-levee",
+          "at": {
+            "row": 1,
+            "col": 2
+          }
+        },
+        {
+          "type": "deploy",
+          "concept": "levee",
+          "at": {
+            "row": 0,
+            "col": 1
+          }
+        },
+        {
+          "type": "deploy",
+          "concept": "levee",
+          "at": {
+            "row": 0,
+            "col": 2
+          }
+        },
+        {
+          "type": "deploy",
+          "concept": "levee",
+          "at": {
+            "row": 2,
+            "col": 0
+          }
+        },
+        {
+          "type": "deploy",
+          "concept": "levee",
+          "at": {
+            "row": 2,
+            "col": 1
+          }
+        },
+        {
+          "type": "deploy",
+          "concept": "levee",
+          "at": {
+            "row": 2,
+            "col": 2
+          }
+        }
+      ]
+    },
+    {
+      "scenario": "confluence",
+      "rules": "rooted",
+      "seed": 6,
+      "status": "won",
+      "health": [
+        6,
+        6
+      ],
+      "turns": 9,
+      "discoveries": 4,
+      "finalHash": "6b4936ab",
+      "actions": [
+        {
+          "type": "discover",
+          "recipe": "grow-grove",
+          "at": {
+            "row": 0,
+            "col": 0
+          }
+        },
+        {
+          "type": "discover",
+          "recipe": "cut-channel",
+          "at": {
+            "row": 1,
+            "col": 0
+          }
+        },
+        {
+          "type": "discover",
+          "recipe": "mix-clay",
+          "at": {
+            "row": 0,
+            "col": 2
+          }
+        },
+        {
+          "type": "discover",
+          "recipe": "stone-levee",
+          "at": {
+            "row": 1,
+            "col": 2
+          }
+        },
+        {
+          "type": "deploy",
+          "concept": "levee",
+          "at": {
+            "row": 0,
+            "col": 1
+          }
+        },
+        {
+          "type": "deploy",
+          "concept": "levee",
+          "at": {
+            "row": 0,
+            "col": 2
+          }
+        },
+        {
+          "type": "deploy",
+          "concept": "levee",
+          "at": {
+            "row": 2,
+            "col": 0
+          }
+        },
+        {
+          "type": "deploy",
+          "concept": "levee",
+          "at": {
+            "row": 2,
+            "col": 1
+          }
+        },
+        {
+          "type": "deploy",
+          "concept": "levee",
+          "at": {
+            "row": 2,
+            "col": 2
+          }
+        }
+      ]
+    },
+    {
+      "scenario": "confluence",
+      "rules": "rooted",
+      "seed": 7,
+      "status": "won",
+      "health": [
+        6,
+        6
+      ],
+      "turns": 9,
+      "discoveries": 4,
+      "finalHash": "d53e5dbc",
+      "actions": [
+        {
+          "type": "discover",
+          "recipe": "grow-grove",
+          "at": {
+            "row": 0,
+            "col": 0
+          }
+        },
+        {
+          "type": "discover",
+          "recipe": "cut-channel",
+          "at": {
+            "row": 1,
+            "col": 0
+          }
+        },
+        {
+          "type": "discover",
+          "recipe": "mix-clay",
+          "at": {
+            "row": 0,
+            "col": 2
+          }
+        },
+        {
+          "type": "discover",
+          "recipe": "stone-levee",
+          "at": {
+            "row": 1,
+            "col": 2
+          }
+        },
+        {
+          "type": "deploy",
+          "concept": "levee",
+          "at": {
+            "row": 0,
+            "col": 1
+          }
+        },
+        {
+          "type": "deploy",
+          "concept": "levee",
+          "at": {
+            "row": 0,
+            "col": 2
+          }
+        },
+        {
+          "type": "deploy",
+          "concept": "levee",
+          "at": {
+            "row": 2,
+            "col": 0
+          }
+        },
+        {
+          "type": "deploy",
+          "concept": "levee",
+          "at": {
+            "row": 2,
+            "col": 1
+          }
+        },
+        {
+          "type": "deploy",
+          "concept": "levee",
+          "at": {
+            "row": 2,
+            "col": 2
+          }
+        }
+      ]
+    },
+    {
+      "scenario": "confluence",
+      "rules": "rooted",
+      "seed": 8,
+      "status": "won",
+      "health": [
+        6,
+        6
+      ],
+      "turns": 9,
+      "discoveries": 4,
+      "finalHash": "d97afdad",
+      "actions": [
+        {
+          "type": "discover",
+          "recipe": "grow-grove",
+          "at": {
+            "row": 0,
+            "col": 0
+          }
+        },
+        {
+          "type": "discover",
+          "recipe": "cut-channel",
+          "at": {
+            "row": 1,
+            "col": 0
+          }
+        },
+        {
+          "type": "discover",
+          "recipe": "mix-clay",
+          "at": {
+            "row": 0,
+            "col": 2
+          }
+        },
+        {
+          "type": "discover",
+          "recipe": "stone-levee",
+          "at": {
+            "row": 1,
+            "col": 2
+          }
+        },
+        {
+          "type": "deploy",
+          "concept": "levee",
+          "at": {
+            "row": 0,
+            "col": 1
+          }
+        },
+        {
+          "type": "deploy",
+          "concept": "levee",
+          "at": {
+            "row": 0,
+            "col": 2
+          }
+        },
+        {
+          "type": "deploy",
+          "concept": "levee",
+          "at": {
+            "row": 2,
+            "col": 0
+          }
+        },
+        {
+          "type": "deploy",
+          "concept": "levee",
+          "at": {
+            "row": 2,
+            "col": 1
+          }
+        },
+        {
+          "type": "deploy",
+          "concept": "levee",
+          "at": {
+            "row": 2,
+            "col": 2
+          }
+        }
+      ]
+    },
+    {
+      "scenario": "confluence",
+      "rules": "rooted",
+      "seed": 9,
+      "status": "won",
+      "health": [
+        6,
+        6
+      ],
+      "turns": 9,
+      "discoveries": 4,
+      "finalHash": "283bb238",
+      "actions": [
+        {
+          "type": "discover",
+          "recipe": "grow-grove",
+          "at": {
+            "row": 0,
+            "col": 0
+          }
+        },
+        {
+          "type": "discover",
+          "recipe": "cut-channel",
+          "at": {
+            "row": 1,
+            "col": 0
+          }
+        },
+        {
+          "type": "discover",
+          "recipe": "mix-clay",
+          "at": {
+            "row": 0,
+            "col": 2
+          }
+        },
+        {
+          "type": "discover",
+          "recipe": "stone-levee",
+          "at": {
+            "row": 1,
+            "col": 2
+          }
+        },
+        {
+          "type": "deploy",
+          "concept": "levee",
+          "at": {
+            "row": 0,
+            "col": 1
+          }
+        },
+        {
+          "type": "deploy",
+          "concept": "levee",
+          "at": {
+            "row": 0,
+            "col": 2
+          }
+        },
+        {
+          "type": "deploy",
+          "concept": "levee",
+          "at": {
+            "row": 2,
+            "col": 0
+          }
+        },
+        {
+          "type": "deploy",
+          "concept": "levee",
+          "at": {
+            "row": 2,
+            "col": 1
+          }
+        },
+        {
+          "type": "deploy",
+          "concept": "levee",
+          "at": {
+            "row": 2,
+            "col": 2
+          }
+        }
+      ]
+    },
+    {
+      "scenario": "confluence",
+      "rules": "rooted",
+      "seed": 10,
+      "status": "won",
+      "health": [
+        6,
+        6
+      ],
+      "turns": 9,
+      "discoveries": 4,
+      "finalHash": "67eaa3bd",
+      "actions": [
+        {
+          "type": "discover",
+          "recipe": "grow-grove",
+          "at": {
+            "row": 0,
+            "col": 0
+          }
+        },
+        {
+          "type": "discover",
+          "recipe": "cut-channel",
+          "at": {
+            "row": 1,
+            "col": 0
+          }
+        },
+        {
+          "type": "deploy",
+          "concept": "grove",
+          "at": {
+            "row": 1,
+            "col": 2
+          }
+        },
+        {
+          "type": "discover",
+          "recipe": "mix-clay",
+          "at": {
+            "row": 0,
+            "col": 2
+          }
+        },
+        {
+          "type": "discover",
+          "recipe": "stone-levee",
+          "at": {
+            "row": 0,
+            "col": 1
+          }
+        },
+        {
+          "type": "deploy",
+          "concept": "levee",
+          "at": {
+            "row": 0,
+            "col": 2
+          }
+        },
+        {
+          "type": "deploy",
+          "concept": "levee",
+          "at": {
+            "row": 2,
+            "col": 0
+          }
+        },
+        {
+          "type": "deploy",
+          "concept": "levee",
+          "at": {
+            "row": 2,
+            "col": 1
+          }
+        },
+        {
+          "type": "deploy",
+          "concept": "levee",
+          "at": {
+            "row": 2,
+            "col": 2
+          }
+        }
+      ]
+    },
+    {
+      "scenario": "confluence",
+      "rules": "rooted",
+      "seed": 11,
+      "status": "won",
+      "health": [
+        6,
+        6
+      ],
+      "turns": 9,
+      "discoveries": 4,
+      "finalHash": "5ce07b9a",
+      "actions": [
+        {
+          "type": "discover",
+          "recipe": "grow-grove",
+          "at": {
+            "row": 0,
+            "col": 0
+          }
+        },
+        {
+          "type": "discover",
+          "recipe": "cut-channel",
+          "at": {
+            "row": 1,
+            "col": 0
+          }
+        },
+        {
+          "type": "deploy",
+          "concept": "grove",
+          "at": {
+            "row": 0,
+            "col": 1
+          }
+        },
+        {
+          "type": "discover",
+          "recipe": "mix-clay",
+          "at": {
+            "row": 1,
+            "col": 2
+          }
+        },
+        {
+          "type": "discover",
+          "recipe": "stone-levee",
+          "at": {
+            "row": 0,
+            "col": 2
+          }
+        },
+        {
+          "type": "deploy",
+          "concept": "levee",
+          "at": {
+            "row": 1,
+            "col": 2
+          }
+        },
+        {
+          "type": "deploy",
+          "concept": "levee",
+          "at": {
+            "row": 2,
+            "col": 0
+          }
+        },
+        {
+          "type": "deploy",
+          "concept": "levee",
+          "at": {
+            "row": 2,
+            "col": 1
+          }
+        },
+        {
+          "type": "deploy",
+          "concept": "levee",
+          "at": {
+            "row": 2,
+            "col": 2
+          }
+        }
+      ]
+    },
+    {
+      "scenario": "confluence",
+      "rules": "rooted",
+      "seed": 12,
+      "status": "won",
+      "health": [
+        6,
+        6
+      ],
+      "turns": 9,
+      "discoveries": 4,
+      "finalHash": "4d487f5b",
+      "actions": [
+        {
+          "type": "discover",
+          "recipe": "grow-grove",
+          "at": {
+            "row": 0,
+            "col": 0
+          }
+        },
+        {
+          "type": "deploy",
+          "concept": "grove",
+          "at": {
+            "row": 1,
+            "col": 0
+          }
+        },
+        {
+          "type": "discover",
+          "recipe": "cut-channel",
+          "at": {
+            "row": 1,
+            "col": 2
+          }
+        },
+        {
+          "type": "discover",
+          "recipe": "mix-clay",
+          "at": {
+            "row": 0,
+            "col": 2
+          }
+        },
+        {
+          "type": "discover",
+          "recipe": "stone-levee",
+          "at": {
+            "row": 0,
+            "col": 1
+          }
+        },
+        {
+          "type": "deploy",
+          "concept": "levee",
+          "at": {
+            "row": 0,
+            "col": 2
+          }
+        },
+        {
+          "type": "deploy",
+          "concept": "levee",
+          "at": {
+            "row": 2,
+            "col": 0
+          }
+        },
+        {
+          "type": "deploy",
+          "concept": "levee",
+          "at": {
+            "row": 2,
+            "col": 1
+          }
+        },
+        {
+          "type": "deploy",
+          "concept": "levee",
+          "at": {
+            "row": 2,
+            "col": 2
+          }
+        }
+      ]
+    },
+    {
+      "scenario": "confluence",
+      "rules": "breathing",
+      "seed": 1,
+      "status": "won",
+      "health": [
+        7,
+        7
+      ],
+      "turns": 11,
+      "discoveries": 5,
+      "finalHash": "0f7d00fd",
+      "actions": [
+        {
+          "type": "discover",
+          "recipe": "grow-grove",
+          "at": {
+            "row": 0,
+            "col": 0
+          }
+        },
+        {
+          "type": "deploy",
+          "concept": "grove",
+          "at": {
+            "row": 1,
+            "col": 0
+          }
+        },
+        {
+          "type": "discover",
+          "recipe": "mix-clay",
+          "at": {
+            "row": 0,
+            "col": 1
+          }
+        },
+        {
+          "type": "discover",
+          "recipe": "stone-levee",
+          "at": {
+            "row": 1,
+            "col": 2
+          }
+        },
+        {
+          "type": "deploy",
+          "concept": "levee",
+          "at": {
+            "row": 0,
+            "col": 2
+          }
+        },
+        {
+          "type": "deploy",
+          "concept": "levee",
+          "at": {
+            "row": 0,
+            "col": 1
+          }
+        },
+        {
+          "type": "deploy",
+          "concept": "levee",
+          "at": {
+            "row": 2,
+            "col": 0
+          }
+        },
+        {
+          "type": "deploy",
+          "concept": "levee",
+          "at": {
+            "row": 2,
+            "col": 1
+          }
+        },
+        {
+          "type": "deploy",
+          "concept": "levee",
+          "at": {
+            "row": 2,
+            "col": 2
+          }
+        },
+        {
+          "type": "discover",
+          "recipe": "fire-brick"
+        },
+        {
+          "type": "discover",
+          "recipe": "grow-reeds"
+        }
+      ]
+    },
+    {
+      "scenario": "cloudburst",
+      "rules": "separate",
+      "seed": 1,
+      "status": "won",
+      "health": [
+        1,
+        1
+      ],
+      "turns": 9,
+      "discoveries": 0,
+      "finalHash": "13130394",
+      "actions": [
+        {
+          "type": "deploy",
+          "concept": "stone",
+          "at": {
+            "row": 0,
+            "col": 0
+          }
+        },
+        {
+          "type": "deploy",
+          "concept": "soil",
+          "at": {
+            "row": 0,
+            "col": 2
+          }
+        },
+        {
+          "type": "deploy",
+          "concept": "stone",
+          "at": {
+            "row": 1,
+            "col": 2
+          }
+        },
+        {
+          "type": "deploy",
+          "concept": "soil",
+          "at": {
+            "row": 0,
+            "col": 0
+          }
+        },
+        {
+          "type": "deploy",
+          "concept": "stone",
+          "at": {
+            "row": 1,
+            "col": 1
+          }
+        },
+        {
+          "type": "deploy",
+          "concept": "soil",
+          "at": {
+            "row": 0,
+            "col": 0
+          }
+        },
+        {
+          "type": "deploy",
+          "concept": "stone",
+          "at": {
+            "row": 0,
+            "col": 0
+          }
+        },
+        {
+          "type": "deploy",
+          "concept": "soil",
+          "at": {
+            "row": 1,
+            "col": 1
+          }
+        },
+        {
+          "type": "deploy",
+          "concept": "soil",
+          "at": {
+            "row": 1,
+            "col": 1
+          }
+        }
+      ]
+    },
+    {
+      "scenario": "cloudburst",
+      "rules": "field",
+      "seed": 1,
+      "status": "won",
+      "health": [
+        6,
+        7
+      ],
+      "turns": 9,
+      "discoveries": 5,
+      "finalHash": "94f62905",
+      "actions": [
+        {
+          "type": "discover",
+          "recipe": "grow-grove",
+          "at": {
+            "row": 0,
+            "col": 0
+          }
+        },
+        {
+          "type": "discover",
+          "recipe": "dig-basin",
+          "at": {
+            "row": 0,
+            "col": 2
+          }
+        },
+        {
+          "type": "discover",
+          "recipe": "cut-channel",
+          "at": {
+            "row": 1,
+            "col": 1
+          }
+        },
+        {
+          "type": "discover",
+          "recipe": "mix-clay",
+          "at": {
+            "row": 1,
+            "col": 2
+          }
+        },
+        {
+          "type": "discover",
+          "recipe": "stone-levee",
+          "at": {
+            "row": 0,
+            "col": 2
+          }
+        },
+        {
+          "type": "deploy",
+          "concept": "levee",
+          "at": {
+            "row": 1,
+            "col": 2
+          }
+        },
+        {
+          "type": "deploy",
+          "concept": "levee",
+          "at": {
+            "row": 2,
+            "col": 0
+          }
+        },
+        {
+          "type": "deploy",
+          "concept": "levee",
+          "at": {
+            "row": 2,
+            "col": 1
+          }
+        },
+        {
+          "type": "deploy",
+          "concept": "levee",
+          "at": {
+            "row": 2,
+            "col": 2
+          }
+        }
+      ]
+    },
+    {
+      "scenario": "cloudburst",
+      "rules": "rooted",
+      "seed": 1,
+      "status": "won",
+      "health": [
+        6,
+        7
+      ],
+      "turns": 9,
+      "discoveries": 5,
+      "finalHash": "c30d0cfc",
+      "actions": [
+        {
+          "type": "discover",
+          "recipe": "grow-grove",
+          "at": {
+            "row": 0,
+            "col": 0
+          }
+        },
+        {
+          "type": "discover",
+          "recipe": "dig-basin",
+          "at": {
+            "row": 0,
+            "col": 2
+          }
+        },
+        {
+          "type": "discover",
+          "recipe": "cut-channel",
+          "at": {
+            "row": 1,
+            "col": 1
+          }
+        },
+        {
+          "type": "discover",
+          "recipe": "mix-clay",
+          "at": {
+            "row": 1,
+            "col": 2
+          }
+        },
+        {
+          "type": "discover",
+          "recipe": "stone-levee",
+          "at": {
+            "row": 0,
+            "col": 2
+          }
+        },
+        {
+          "type": "deploy",
+          "concept": "levee",
+          "at": {
+            "row": 1,
+            "col": 2
+          }
+        },
+        {
+          "type": "deploy",
+          "concept": "levee",
+          "at": {
+            "row": 2,
+            "col": 0
+          }
+        },
+        {
+          "type": "deploy",
+          "concept": "levee",
+          "at": {
+            "row": 2,
+            "col": 1
+          }
+        },
+        {
+          "type": "deploy",
+          "concept": "levee",
+          "at": {
+            "row": 2,
+            "col": 2
+          }
+        }
+      ]
+    },
+    {
+      "scenario": "cloudburst",
+      "rules": "rooted",
+      "seed": 2,
+      "status": "won",
+      "health": [
+        6,
+        7
+      ],
+      "turns": 9,
+      "discoveries": 4,
+      "finalHash": "58ab208f",
+      "actions": [
+        {
+          "type": "discover",
+          "recipe": "grow-grove",
+          "at": {
+            "row": 0,
+            "col": 0
+          }
+        },
+        {
+          "type": "discover",
+          "recipe": "dig-basin",
+          "at": {
+            "row": 0,
+            "col": 2
+          }
+        },
+        {
+          "type": "deploy",
+          "concept": "grove",
+          "at": {
+            "row": 1,
+            "col": 1
+          }
+        },
+        {
+          "type": "deploy",
+          "concept": "grove",
+          "at": {
+            "row": 1,
+            "col": 2
+          }
+        },
+        {
+          "type": "discover",
+          "recipe": "mix-clay",
+          "at": {
+            "row": 0,
+            "col": 2
+          }
+        },
+        {
+          "type": "discover",
+          "recipe": "stone-levee",
+          "at": {
+            "row": 2,
+            "col": 0
+          }
+        },
+        {
+          "type": "deploy",
+          "concept": "levee",
+          "at": {
+            "row": 2,
+            "col": 1
+          }
+        },
+        {
+          "type": "deploy",
+          "concept": "levee",
+          "at": {
+            "row": 2,
+            "col": 2
+          }
+        },
+        {
+          "type": "deploy",
+          "concept": "levee",
+          "at": {
+            "row": 0,
+            "col": 2
+          }
+        }
+      ]
+    },
+    {
+      "scenario": "cloudburst",
+      "rules": "rooted",
+      "seed": 3,
+      "status": "won",
+      "health": [
+        6,
+        7
+      ],
+      "turns": 9,
+      "discoveries": 5,
+      "finalHash": "765db667",
+      "actions": [
+        {
+          "type": "discover",
+          "recipe": "grow-grove",
+          "at": {
+            "row": 0,
+            "col": 0
+          }
+        },
+        {
+          "type": "discover",
+          "recipe": "dig-basin",
+          "at": {
+            "row": 0,
+            "col": 2
+          }
+        },
+        {
+          "type": "discover",
+          "recipe": "cut-channel",
+          "at": {
+            "row": 1,
+            "col": 1
+          }
+        },
+        {
+          "type": "deploy",
+          "concept": "grove",
+          "at": {
+            "row": 1,
+            "col": 2
+          }
+        },
+        {
+          "type": "discover",
+          "recipe": "mix-clay",
+          "at": {
+            "row": 0,
+            "col": 2
+          }
+        },
+        {
+          "type": "discover",
+          "recipe": "stone-levee",
+          "at": {
+            "row": 2,
+            "col": 0
+          }
+        },
+        {
+          "type": "deploy",
+          "concept": "levee",
+          "at": {
+            "row": 2,
+            "col": 1
+          }
+        },
+        {
+          "type": "deploy",
+          "concept": "levee",
+          "at": {
+            "row": 2,
+            "col": 2
+          }
+        },
+        {
+          "type": "deploy",
+          "concept": "levee",
+          "at": {
+            "row": 1,
+            "col": 1
+          }
+        }
+      ]
+    },
+    {
+      "scenario": "cloudburst",
+      "rules": "rooted",
+      "seed": 4,
+      "status": "won",
+      "health": [
+        6,
+        7
+      ],
+      "turns": 9,
+      "discoveries": 5,
+      "finalHash": "d82e08ac",
+      "actions": [
+        {
+          "type": "discover",
+          "recipe": "grow-grove",
+          "at": {
+            "row": 0,
+            "col": 0
+          }
+        },
+        {
+          "type": "discover",
+          "recipe": "dig-basin",
+          "at": {
+            "row": 0,
+            "col": 2
+          }
+        },
+        {
+          "type": "discover",
+          "recipe": "cut-channel",
+          "at": {
+            "row": 1,
+            "col": 1
+          }
+        },
+        {
+          "type": "deploy",
+          "concept": "grove",
+          "at": {
+            "row": 1,
+            "col": 2
+          }
+        },
+        {
+          "type": "discover",
+          "recipe": "mix-clay",
+          "at": {
+            "row": 0,
+            "col": 2
+          }
+        },
+        {
+          "type": "discover",
+          "recipe": "stone-levee",
+          "at": {
+            "row": 2,
+            "col": 0
+          }
+        },
+        {
+          "type": "deploy",
+          "concept": "levee",
+          "at": {
+            "row": 2,
+            "col": 1
+          }
+        },
+        {
+          "type": "deploy",
+          "concept": "levee",
+          "at": {
+            "row": 2,
+            "col": 2
+          }
+        },
+        {
+          "type": "deploy",
+          "concept": "levee",
+          "at": {
+            "row": 1,
+            "col": 1
+          }
+        }
+      ]
+    },
+    {
+      "scenario": "cloudburst",
+      "rules": "rooted",
+      "seed": 5,
+      "status": "won",
+      "health": [
+        6,
+        7
+      ],
+      "turns": 9,
+      "discoveries": 5,
+      "finalHash": "66b22675",
+      "actions": [
+        {
+          "type": "discover",
+          "recipe": "grow-grove",
+          "at": {
+            "row": 0,
+            "col": 0
+          }
+        },
+        {
+          "type": "discover",
+          "recipe": "dig-basin",
+          "at": {
+            "row": 0,
+            "col": 2
+          }
+        },
+        {
+          "type": "discover",
+          "recipe": "cut-channel",
+          "at": {
+            "row": 1,
+            "col": 1
+          }
+        },
+        {
+          "type": "deploy",
+          "concept": "grove",
+          "at": {
+            "row": 1,
+            "col": 2
+          }
+        },
+        {
+          "type": "discover",
+          "recipe": "mix-clay",
+          "at": {
+            "row": 0,
+            "col": 2
+          }
+        },
+        {
+          "type": "discover",
+          "recipe": "stone-levee",
+          "at": {
+            "row": 2,
+            "col": 0
+          }
+        },
+        {
+          "type": "deploy",
+          "concept": "levee",
+          "at": {
+            "row": 2,
+            "col": 1
+          }
+        },
+        {
+          "type": "deploy",
+          "concept": "levee",
+          "at": {
+            "row": 2,
+            "col": 2
+          }
+        },
+        {
+          "type": "deploy",
+          "concept": "levee",
+          "at": {
+            "row": 1,
+            "col": 1
+          }
+        }
+      ]
+    },
+    {
+      "scenario": "cloudburst",
+      "rules": "rooted",
+      "seed": 6,
+      "status": "won",
+      "health": [
+        6,
+        7
+      ],
+      "turns": 9,
+      "discoveries": 5,
+      "finalHash": "60a6e75a",
+      "actions": [
+        {
+          "type": "discover",
+          "recipe": "grow-grove",
+          "at": {
+            "row": 0,
+            "col": 0
+          }
+        },
+        {
+          "type": "discover",
+          "recipe": "dig-basin",
+          "at": {
+            "row": 0,
+            "col": 2
+          }
+        },
+        {
+          "type": "discover",
+          "recipe": "cut-channel",
+          "at": {
+            "row": 1,
+            "col": 1
+          }
+        },
+        {
+          "type": "deploy",
+          "concept": "grove",
+          "at": {
+            "row": 1,
+            "col": 2
+          }
+        },
+        {
+          "type": "discover",
+          "recipe": "mix-clay",
+          "at": {
+            "row": 0,
+            "col": 2
+          }
+        },
+        {
+          "type": "discover",
+          "recipe": "stone-levee",
+          "at": {
+            "row": 2,
+            "col": 0
+          }
+        },
+        {
+          "type": "deploy",
+          "concept": "levee",
+          "at": {
+            "row": 2,
+            "col": 1
+          }
+        },
+        {
+          "type": "deploy",
+          "concept": "levee",
+          "at": {
+            "row": 2,
+            "col": 2
+          }
+        },
+        {
+          "type": "deploy",
+          "concept": "levee",
+          "at": {
+            "row": 1,
+            "col": 1
+          }
+        }
+      ]
+    },
+    {
+      "scenario": "cloudburst",
+      "rules": "rooted",
+      "seed": 7,
+      "status": "won",
+      "health": [
+        6,
+        7
+      ],
+      "turns": 9,
+      "discoveries": 5,
+      "finalHash": "c784c2c3",
+      "actions": [
+        {
+          "type": "discover",
+          "recipe": "grow-grove",
+          "at": {
+            "row": 0,
+            "col": 0
+          }
+        },
+        {
+          "type": "discover",
+          "recipe": "dig-basin",
+          "at": {
+            "row": 0,
+            "col": 2
+          }
+        },
+        {
+          "type": "discover",
+          "recipe": "cut-channel",
+          "at": {
+            "row": 1,
+            "col": 1
+          }
+        },
+        {
+          "type": "deploy",
+          "concept": "grove",
+          "at": {
+            "row": 1,
+            "col": 2
+          }
+        },
+        {
+          "type": "discover",
+          "recipe": "mix-clay",
+          "at": {
+            "row": 0,
+            "col": 2
+          }
+        },
+        {
+          "type": "discover",
+          "recipe": "stone-levee",
+          "at": {
+            "row": 2,
+            "col": 0
+          }
+        },
+        {
+          "type": "deploy",
+          "concept": "levee",
+          "at": {
+            "row": 2,
+            "col": 1
+          }
+        },
+        {
+          "type": "deploy",
+          "concept": "levee",
+          "at": {
+            "row": 2,
+            "col": 2
+          }
+        },
+        {
+          "type": "deploy",
+          "concept": "levee",
+          "at": {
+            "row": 1,
+            "col": 1
+          }
+        }
+      ]
+    },
+    {
+      "scenario": "cloudburst",
+      "rules": "rooted",
+      "seed": 8,
+      "status": "won",
+      "health": [
+        6,
+        7
+      ],
+      "turns": 9,
+      "discoveries": 5,
+      "finalHash": "fbe8beb8",
+      "actions": [
+        {
+          "type": "discover",
+          "recipe": "grow-grove",
+          "at": {
+            "row": 0,
+            "col": 0
+          }
+        },
+        {
+          "type": "discover",
+          "recipe": "dig-basin",
+          "at": {
+            "row": 0,
+            "col": 2
+          }
+        },
+        {
+          "type": "discover",
+          "recipe": "cut-channel",
+          "at": {
+            "row": 1,
+            "col": 1
+          }
+        },
+        {
+          "type": "deploy",
+          "concept": "grove",
+          "at": {
+            "row": 1,
+            "col": 2
+          }
+        },
+        {
+          "type": "discover",
+          "recipe": "mix-clay",
+          "at": {
+            "row": 0,
+            "col": 2
+          }
+        },
+        {
+          "type": "discover",
+          "recipe": "stone-levee",
+          "at": {
+            "row": 2,
+            "col": 0
+          }
+        },
+        {
+          "type": "deploy",
+          "concept": "levee",
+          "at": {
+            "row": 2,
+            "col": 1
+          }
+        },
+        {
+          "type": "deploy",
+          "concept": "levee",
+          "at": {
+            "row": 2,
+            "col": 2
+          }
+        },
+        {
+          "type": "deploy",
+          "concept": "levee",
+          "at": {
+            "row": 1,
+            "col": 1
+          }
+        }
+      ]
+    },
+    {
+      "scenario": "cloudburst",
+      "rules": "rooted",
+      "seed": 9,
+      "status": "won",
+      "health": [
+        6,
+        7
+      ],
+      "turns": 9,
+      "discoveries": 5,
+      "finalHash": "b82fd9c5",
+      "actions": [
+        {
+          "type": "discover",
+          "recipe": "grow-grove",
+          "at": {
+            "row": 0,
+            "col": 0
+          }
+        },
+        {
+          "type": "discover",
+          "recipe": "dig-basin",
+          "at": {
+            "row": 0,
+            "col": 2
+          }
+        },
+        {
+          "type": "discover",
+          "recipe": "cut-channel",
+          "at": {
+            "row": 1,
+            "col": 1
+          }
+        },
+        {
+          "type": "deploy",
+          "concept": "grove",
+          "at": {
+            "row": 1,
+            "col": 2
+          }
+        },
+        {
+          "type": "discover",
+          "recipe": "mix-clay",
+          "at": {
+            "row": 0,
+            "col": 2
+          }
+        },
+        {
+          "type": "discover",
+          "recipe": "stone-levee",
+          "at": {
+            "row": 2,
+            "col": 0
+          }
+        },
+        {
+          "type": "deploy",
+          "concept": "levee",
+          "at": {
+            "row": 2,
+            "col": 1
+          }
+        },
+        {
+          "type": "deploy",
+          "concept": "levee",
+          "at": {
+            "row": 2,
+            "col": 2
+          }
+        },
+        {
+          "type": "deploy",
+          "concept": "levee",
+          "at": {
+            "row": 1,
+            "col": 1
+          }
+        }
+      ]
+    },
+    {
+      "scenario": "cloudburst",
+      "rules": "rooted",
+      "seed": 10,
+      "status": "won",
+      "health": [
+        6,
+        7
+      ],
+      "turns": 9,
+      "discoveries": 5,
+      "finalHash": "f4eaade8",
+      "actions": [
+        {
+          "type": "discover",
+          "recipe": "grow-grove",
+          "at": {
+            "row": 0,
+            "col": 0
+          }
+        },
+        {
+          "type": "discover",
+          "recipe": "dig-basin",
+          "at": {
+            "row": 0,
+            "col": 2
+          }
+        },
+        {
+          "type": "discover",
+          "recipe": "cut-channel",
+          "at": {
+            "row": 1,
+            "col": 1
+          }
+        },
+        {
+          "type": "discover",
+          "recipe": "mix-clay",
+          "at": {
+            "row": 1,
+            "col": 2
+          }
+        },
+        {
+          "type": "discover",
+          "recipe": "stone-levee",
+          "at": {
+            "row": 0,
+            "col": 2
+          }
+        },
+        {
+          "type": "deploy",
+          "concept": "levee",
+          "at": {
+            "row": 1,
+            "col": 2
+          }
+        },
+        {
+          "type": "deploy",
+          "concept": "levee",
+          "at": {
+            "row": 2,
+            "col": 0
+          }
+        },
+        {
+          "type": "deploy",
+          "concept": "levee",
+          "at": {
+            "row": 2,
+            "col": 1
+          }
+        },
+        {
+          "type": "deploy",
+          "concept": "levee",
+          "at": {
+            "row": 2,
+            "col": 2
+          }
+        }
+      ]
+    },
+    {
+      "scenario": "cloudburst",
+      "rules": "rooted",
+      "seed": 11,
+      "status": "won",
+      "health": [
+        7,
+        7
+      ],
+      "turns": 9,
+      "discoveries": 6,
+      "finalHash": "859d9bba",
+      "actions": [
+        {
+          "type": "discover",
+          "recipe": "dig-basin",
+          "at": {
+            "row": 0,
+            "col": 0
+          }
+        },
+        {
+          "type": "discover",
+          "recipe": "grow-grove",
+          "at": {
+            "row": 1,
+            "col": 1
+          }
+        },
+        {
+          "type": "discover",
+          "recipe": "boil-steam",
+          "at": {
+            "row": 0,
+            "col": 0
+          }
+        },
+        {
+          "type": "deploy",
+          "concept": "basin",
+          "at": {
+            "row": 0,
+            "col": 2
+          }
+        },
+        {
+          "type": "discover",
+          "recipe": "cut-channel",
+          "at": {
+            "row": 1,
+            "col": 2
+          }
+        },
+        {
+          "type": "discover",
+          "recipe": "mix-clay",
+          "at": {
+            "row": 0,
+            "col": 0
+          }
+        },
+        {
+          "type": "discover",
+          "recipe": "stone-levee",
+          "at": {
+            "row": 0,
+            "col": 2
+          }
+        },
+        {
+          "type": "deploy",
+          "concept": "levee",
+          "at": {
+            "row": 2,
+            "col": 0
+          }
+        },
+        {
+          "type": "deploy",
+          "concept": "levee",
+          "at": {
+            "row": 2,
+            "col": 1
+          }
+        }
+      ]
+    },
+    {
+      "scenario": "cloudburst",
+      "rules": "rooted",
+      "seed": 12,
+      "status": "won",
+      "health": [
+        6,
+        7
+      ],
+      "turns": 9,
+      "discoveries": 5,
+      "finalHash": "02a752bf",
+      "actions": [
+        {
+          "type": "discover",
+          "recipe": "grow-grove",
+          "at": {
+            "row": 0,
+            "col": 0
+          }
+        },
+        {
+          "type": "discover",
+          "recipe": "dig-basin",
+          "at": {
+            "row": 0,
+            "col": 2
+          }
+        },
+        {
+          "type": "discover",
+          "recipe": "cut-channel",
+          "at": {
+            "row": 1,
+            "col": 1
+          }
+        },
+        {
+          "type": "deploy",
+          "concept": "grove",
+          "at": {
+            "row": 1,
+            "col": 2
+          }
+        },
+        {
+          "type": "discover",
+          "recipe": "mix-clay",
+          "at": {
+            "row": 0,
+            "col": 2
+          }
+        },
+        {
+          "type": "discover",
+          "recipe": "stone-levee",
+          "at": {
+            "row": 2,
+            "col": 0
+          }
+        },
+        {
+          "type": "deploy",
+          "concept": "levee",
+          "at": {
+            "row": 2,
+            "col": 1
+          }
+        },
+        {
+          "type": "deploy",
+          "concept": "levee",
+          "at": {
+            "row": 2,
+            "col": 2
+          }
+        },
+        {
+          "type": "deploy",
+          "concept": "levee",
+          "at": {
+            "row": 1,
+            "col": 1
+          }
+        }
+      ]
+    },
+    {
+      "scenario": "cloudburst",
+      "rules": "breathing",
+      "seed": 1,
+      "status": "won",
+      "health": [
+        7,
+        7
+      ],
+      "turns": 11,
+      "discoveries": 6,
+      "finalHash": "df36ed58",
+      "actions": [
+        {
+          "type": "discover",
+          "recipe": "grow-grove",
+          "at": {
+            "row": 0,
+            "col": 0
+          }
+        },
+        {
+          "type": "deploy",
+          "concept": "grove",
+          "at": {
+            "row": 0,
+            "col": 2
+          }
+        },
+        {
+          "type": "discover",
+          "recipe": "mix-clay",
+          "at": {
+            "row": 1,
+            "col": 1
+          }
+        },
+        {
+          "type": "discover",
+          "recipe": "stone-levee",
+          "at": {
+            "row": 1,
+            "col": 2
+          }
+        },
+        {
+          "type": "deploy",
+          "concept": "levee",
+          "at": {
+            "row": 1,
+            "col": 1
+          }
+        },
+        {
+          "type": "deploy",
+          "concept": "levee",
+          "at": {
+            "row": 2,
+            "col": 0
+          }
+        },
+        {
+          "type": "deploy",
+          "concept": "levee",
+          "at": {
+            "row": 2,
+            "col": 1
+          }
+        },
+        {
+          "type": "discover",
+          "recipe": "cut-channel",
+          "at": {
+            "row": 1,
+            "col": 1
+          }
+        },
+        {
+          "type": "deploy",
+          "concept": "levee",
+          "at": {
+            "row": 2,
+            "col": 2
+          }
+        },
+        {
+          "type": "discover",
+          "recipe": "fire-brick"
+        },
+        {
+          "type": "discover",
+          "recipe": "grow-reeds"
+        }
+      ]
+    }
+  ],
+  "limitations": [
+    "Two-turn enumeration cannot prove absence of deeper transition bugs.",
+    "Witnesses cover a finite seed set, not every uint32 seed.",
+    "Historical solver losses are unresolved searches, not evidence of unavoidable losses.",
+    "This validates rules and replay; human readability and enjoyment need separate evidence."
+  ]
+}

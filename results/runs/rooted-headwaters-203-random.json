@@ -1,0 +1,356 @@
+{
+  "schema": 1,
+  "id": "rooted-headwaters-203-random",
+  "build": "0.4.0",
+  "data": "watershed-1",
+  "scenario": "headwaters",
+  "seed": 203,
+  "rules": "rooted",
+  "player": "random",
+  "condition": "public observation; one-step exact previews for greedy/goal",
+  "offerOrder": "normal",
+  "observationVersion": "public-1",
+  "actionBudget": 8,
+  "decisions": [
+    {
+      "turn": 0,
+      "before": "7a780e9a",
+      "offers": [
+        "mix-clay",
+        "grow-reeds",
+        "grow-grove",
+        "cut-channel",
+        "dig-basin",
+        "fuse-glass",
+        "boil-steam"
+      ],
+      "action": {
+        "type": "discover",
+        "recipe": "mix-clay",
+        "at": {
+          "row": 0,
+          "col": 2
+        }
+      },
+      "events": [
+        {
+          "kind": "discovery",
+          "text": "Established Clay. It stays available.",
+          "concept": "clay"
+        },
+        {
+          "kind": "placement",
+          "text": "Placed Clay.",
+          "at": {
+            "row": 0,
+            "col": 2
+          },
+          "concept": "clay"
+        },
+        {
+          "kind": "weather",
+          "text": "Rain arrives: north 1, middle 0, south 0."
+        },
+        {
+          "kind": "flow",
+          "text": "Clay absorbed 1.",
+          "at": {
+            "row": 0,
+            "col": 2
+          },
+          "amount": 1,
+          "concept": "clay"
+        }
+      ],
+      "after": "db5ed2f0",
+      "damage": [
+        0,
+        0
+      ]
+    },
+    {
+      "turn": 1,
+      "before": "db5ed2f0",
+      "offers": [
+        "fire-brick",
+        "grow-reeds",
+        "grow-grove",
+        "cut-channel",
+        "dig-basin",
+        "fuse-glass",
+        "boil-steam",
+        "stone-levee"
+      ],
+      "action": {
+        "type": "discover",
+        "recipe": "grow-reeds",
+        "at": {
+          "row": 0,
+          "col": 1
+        }
+      },
+      "events": [
+        {
+          "kind": "discovery",
+          "text": "Established Reeds. It stays available.",
+          "concept": "reeds"
+        },
+        {
+          "kind": "placement",
+          "text": "Placed Reeds.",
+          "at": {
+            "row": 0,
+            "col": 1
+          },
+          "concept": "reeds"
+        },
+        {
+          "kind": "weather",
+          "text": "Rain arrives: north 2, middle 0, south 0."
+        },
+        {
+          "kind": "flow",
+          "text": "Reeds absorbed 1.",
+          "at": {
+            "row": 0,
+            "col": 1
+          },
+          "amount": 1,
+          "concept": "reeds"
+        },
+        {
+          "kind": "flow",
+          "text": "Clay absorbed 1.",
+          "at": {
+            "row": 0,
+            "col": 2
+          },
+          "amount": 1,
+          "concept": "clay"
+        }
+      ],
+      "after": "ac2d2e7d",
+      "damage": [
+        0,
+        0
+      ]
+    },
+    {
+      "turn": 2,
+      "before": "ac2d2e7d",
+      "offers": [
+        "fire-brick",
+        "grow-grove",
+        "cut-channel",
+        "dig-basin",
+        "fuse-glass",
+        "boil-steam",
+        "plant-grove",
+        "stone-levee"
+      ],
+      "action": {
+        "type": "discover",
+        "recipe": "cut-channel",
+        "at": {
+          "row": 0,
+          "col": 0
+        }
+      },
+      "events": [
+        {
+          "kind": "discovery",
+          "text": "Established Channel. It stays available.",
+          "concept": "channel"
+        },
+        {
+          "kind": "placement",
+          "text": "Placed Channel.",
+          "at": {
+            "row": 0,
+            "col": 0
+          },
+          "concept": "channel"
+        },
+        {
+          "kind": "weather",
+          "text": "Rain arrives: north 2, middle 0, south 0."
+        },
+        {
+          "kind": "flow",
+          "text": "Channel sent 2 south.",
+          "at": {
+            "row": 0,
+            "col": 0
+          },
+          "amount": 2,
+          "concept": "channel"
+        },
+        {
+          "kind": "damage",
+          "text": "Orchard took 2 flood damage.",
+          "amount": 2
+        }
+      ],
+      "after": "b3a3ee4a",
+      "damage": [
+        0,
+        2
+      ]
+    },
+    {
+      "turn": 3,
+      "before": "b3a3ee4a",
+      "offers": [
+        "fire-brick",
+        "grow-grove",
+        "dig-basin",
+        "fuse-glass",
+        "boil-steam",
+        "plant-grove",
+        "stone-levee"
+      ],
+      "action": {
+        "type": "discover",
+        "recipe": "dig-basin",
+        "at": {
+          "row": 2,
+          "col": 2
+        }
+      },
+      "events": [
+        {
+          "kind": "discovery",
+          "text": "Established Basin. It stays available.",
+          "concept": "basin"
+        },
+        {
+          "kind": "placement",
+          "text": "Placed Basin.",
+          "at": {
+            "row": 2,
+            "col": 2
+          },
+          "concept": "basin"
+        },
+        {
+          "kind": "weather",
+          "text": "Rain arrives: north 3, middle 1, south 0."
+        },
+        {
+          "kind": "flow",
+          "text": "Channel sent 2 south.",
+          "at": {
+            "row": 0,
+            "col": 0
+          },
+          "amount": 2,
+          "concept": "channel"
+        },
+        {
+          "kind": "flow",
+          "text": "Reeds absorbed 1.",
+          "at": {
+            "row": 0,
+            "col": 1
+          },
+          "amount": 1,
+          "concept": "reeds"
+        },
+        {
+          "kind": "damage",
+          "text": "Orchard took 3 flood damage.",
+          "amount": 3
+        }
+      ],
+      "after": "0b19054c",
+      "damage": [
+        0,
+        3
+      ]
+    },
+    {
+      "turn": 4,
+      "before": "0b19054c",
+      "offers": [
+        "fire-brick",
+        "grow-grove",
+        "fuse-glass",
+        "boil-steam",
+        "plant-grove",
+        "stone-levee"
+      ],
+      "action": {
+        "type": "discover",
+        "recipe": "plant-grove",
+        "at": {
+          "row": 1,
+          "col": 1
+        }
+      },
+      "events": [
+        {
+          "kind": "discovery",
+          "text": "Established Grove. It stays available.",
+          "concept": "grove"
+        },
+        {
+          "kind": "placement",
+          "text": "Placed Grove.",
+          "at": {
+            "row": 1,
+            "col": 1
+          },
+          "concept": "grove"
+        },
+        {
+          "kind": "weather",
+          "text": "Rain arrives: north 3, middle 1, south 0."
+        },
+        {
+          "kind": "flow",
+          "text": "Channel sent 2 south.",
+          "at": {
+            "row": 0,
+            "col": 0
+          },
+          "amount": 2,
+          "concept": "channel"
+        },
+        {
+          "kind": "flow",
+          "text": "Reeds absorbed 1.",
+          "at": {
+            "row": 0,
+            "col": 1
+          },
+          "amount": 1,
+          "concept": "reeds"
+        },
+        {
+          "kind": "growth",
+          "text": "The grove takes root. It absorbs water from the next pulse.",
+          "at": {
+            "row": 1,
+            "col": 1
+          },
+          "concept": "grove"
+        },
+        {
+          "kind": "damage",
+          "text": "Orchard took 3 flood damage.",
+          "amount": 3
+        },
+        {
+          "kind": "outcome",
+          "text": "A bank gave way. Branch from an earlier decision or try a different plan."
+        }
+      ],
+      "after": "1edd6781",
+      "damage": [
+        0,
+        3
+      ]
+    }
+  ],
+  "outcome": "lost"
+}

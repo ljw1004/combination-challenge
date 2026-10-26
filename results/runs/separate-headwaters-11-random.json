@@ -1,0 +1,188 @@
+{
+  "schema": 1,
+  "id": "separate-headwaters-11-random",
+  "build": "0.4.0",
+  "data": "watershed-1",
+  "scenario": "headwaters",
+  "seed": 11,
+  "rules": "separate",
+  "player": "random",
+  "condition": "public observation; one-step exact previews for greedy/goal",
+  "offerOrder": "normal",
+  "observationVersion": "public-1",
+  "actionBudget": 8,
+  "decisions": [
+    {
+      "turn": 0,
+      "before": "8bd5f623",
+      "offers": [
+        "mix-clay",
+        "grow-reeds",
+        "grow-grove",
+        "cut-channel",
+        "dig-basin",
+        "fuse-glass",
+        "boil-steam"
+      ],
+      "action": {
+        "type": "deploy",
+        "concept": "heat",
+        "at": {
+          "row": 1,
+          "col": 1
+        }
+      },
+      "events": [
+        {
+          "kind": "placement",
+          "text": "Heat can evaporate 2 incoming water here this pulse.",
+          "at": {
+            "row": 1,
+            "col": 1
+          },
+          "concept": "heat"
+        },
+        {
+          "kind": "weather",
+          "text": "Rain arrives: north 1, middle 0, south 0."
+        },
+        {
+          "kind": "damage",
+          "text": "Hamlet took 1 flood damage.",
+          "amount": 1
+        }
+      ],
+      "after": "2cb7a60f",
+      "damage": [
+        1,
+        0
+      ]
+    },
+    {
+      "turn": 1,
+      "before": "2cb7a60f",
+      "offers": [
+        "mix-clay",
+        "grow-reeds",
+        "grow-grove",
+        "cut-channel",
+        "dig-basin",
+        "fuse-glass",
+        "boil-steam"
+      ],
+      "action": {
+        "type": "deploy",
+        "concept": "heat",
+        "at": {
+          "row": 2,
+          "col": 1
+        }
+      },
+      "events": [
+        {
+          "kind": "placement",
+          "text": "Heat can evaporate 2 incoming water here this pulse.",
+          "at": {
+            "row": 2,
+            "col": 1
+          },
+          "concept": "heat"
+        },
+        {
+          "kind": "weather",
+          "text": "Rain arrives: north 2, middle 0, south 0."
+        },
+        {
+          "kind": "damage",
+          "text": "Hamlet took 2 flood damage.",
+          "amount": 2
+        }
+      ],
+      "after": "a2241558",
+      "damage": [
+        2,
+        0
+      ]
+    },
+    {
+      "turn": 2,
+      "before": "a2241558",
+      "offers": [
+        "mix-clay",
+        "grow-reeds",
+        "grow-grove",
+        "cut-channel",
+        "dig-basin",
+        "fuse-glass",
+        "boil-steam"
+      ],
+      "action": {
+        "type": "wait"
+      },
+      "events": [
+        {
+          "kind": "weather",
+          "text": "Rain arrives: north 2, middle 0, south 0."
+        },
+        {
+          "kind": "damage",
+          "text": "Hamlet took 2 flood damage.",
+          "amount": 2
+        }
+      ],
+      "after": "1339f481",
+      "damage": [
+        2,
+        0
+      ]
+    },
+    {
+      "turn": 3,
+      "before": "1339f481",
+      "offers": [
+        "mix-clay",
+        "grow-reeds",
+        "grow-grove",
+        "cut-channel",
+        "dig-basin",
+        "fuse-glass",
+        "boil-steam"
+      ],
+      "action": {
+        "type": "discover",
+        "recipe": "grow-grove"
+      },
+      "events": [
+        {
+          "kind": "discovery",
+          "text": "Established Grove. It stays available.",
+          "concept": "grove"
+        },
+        {
+          "kind": "weather",
+          "text": "Rain arrives: north 3, middle 1, south 0."
+        },
+        {
+          "kind": "damage",
+          "text": "Hamlet took 3 flood damage.",
+          "amount": 3
+        },
+        {
+          "kind": "damage",
+          "text": "Orchard took 1 flood damage.",
+          "amount": 1
+        },
+        {
+          "kind": "outcome",
+          "text": "A bank gave way. Branch from an earlier decision or try a different plan."
+        }
+      ],
+      "after": "9d2e8912",
+      "damage": [
+        3,
+        1
+      ]
+    }
+  ],
+  "outcome": "lost"
+}

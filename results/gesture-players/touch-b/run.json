@@ -1,0 +1,352 @@
+{
+  "schema": 1,
+  "version": "hands-1",
+  "uiVersion": "contact-2",
+  "id": "table-1792958642450",
+  "decisions": [
+    {
+      "index": 0,
+      "action": {
+        "type": "mix",
+        "first": "piece-1",
+        "second": "piece-2"
+      },
+      "before": "72f7d784",
+      "after": "4f229415"
+    },
+    {
+      "index": 1,
+      "action": {
+        "type": "mix-from-shelf",
+        "concept": "heat",
+        "target": "piece-3",
+        "at": {
+          "x": 0.93,
+          "y": 0.7137462235649547
+        }
+      },
+      "before": "4f229415",
+      "after": "949f13b8"
+    },
+    {
+      "index": 2,
+      "action": {
+        "type": "mix-from-shelf",
+        "concept": "water",
+        "target": "piece-4",
+        "at": {
+          "x": 0.93,
+          "y": 0.23187311178247735
+        }
+      },
+      "before": "949f13b8",
+      "after": "8aba01c4"
+    },
+    {
+      "index": 3,
+      "action": {
+        "type": "move",
+        "piece": "piece-5",
+        "x": 0.48735723350253807,
+        "y": 0.4705438066465257
+      },
+      "before": "8aba01c4",
+      "after": "f1523930"
+    },
+    {
+      "index": 4,
+      "action": {
+        "type": "take",
+        "concept": "brick",
+        "x": 0.34,
+        "y": 0.32
+      },
+      "before": "f1523930",
+      "after": "2fd9e13b"
+    },
+    {
+      "index": 5,
+      "action": {
+        "type": "mix-from-shelf",
+        "concept": "clay",
+        "target": "piece-6",
+        "at": {
+          "x": 0.93,
+          "y": 0.7016616314199395
+        }
+      },
+      "before": "2fd9e13b",
+      "after": "5a5ec884"
+    },
+    {
+      "index": 6,
+      "action": {
+        "type": "move",
+        "piece": "piece-7",
+        "x": 0.6132455583756345,
+        "y": 0.4705438066465257
+      },
+      "before": "5a5ec884",
+      "after": "a31516a1"
+    }
+  ],
+  "interactions": [
+    {
+      "kind": "drag-start",
+      "source": "piece",
+      "concept": "soil",
+      "pieceId": "piece-1",
+      "pointerType": "mouse",
+      "uiVersion": "contact-2",
+      "decisionIndex": 0,
+      "at": 5875
+    },
+    {
+      "kind": "contact-preview",
+      "inputs": [
+        "soil",
+        "water"
+      ],
+      "result": "clay",
+      "targetId": "piece-2",
+      "uiVersion": "contact-2",
+      "decisionIndex": 0,
+      "at": 6092
+    },
+    {
+      "kind": "drop",
+      "source": "piece",
+      "concept": "soil",
+      "pieceId": "piece-1",
+      "targetId": "piece-2",
+      "targetShelf": null,
+      "pointerType": "mouse",
+      "inWorkspace": true,
+      "uiVersion": "contact-2",
+      "decisionIndex": 0,
+      "at": 6313
+    },
+    {
+      "kind": "fusion",
+      "inputs": [
+        "soil",
+        "water"
+      ],
+      "targetId": "piece-2",
+      "method": "pointer",
+      "uiVersion": "contact-2",
+      "decisionIndex": 0,
+      "at": 6315
+    },
+    {
+      "kind": "drag-start",
+      "source": "piece",
+      "concept": "clay",
+      "pieceId": "piece-3",
+      "pointerType": "mouse",
+      "uiVersion": "contact-2",
+      "decisionIndex": 1,
+      "at": 16813
+    },
+    {
+      "kind": "contact-preview",
+      "inputs": [
+        "clay",
+        "heat"
+      ],
+      "result": "brick",
+      "targetSource": "shelf",
+      "targetConcept": "heat",
+      "uiVersion": "contact-2",
+      "decisionIndex": 1,
+      "at": 16958
+    },
+    {
+      "kind": "drop",
+      "source": "piece",
+      "concept": "clay",
+      "pieceId": "piece-3",
+      "targetId": null,
+      "targetShelf": "heat",
+      "pointerType": "mouse",
+      "inWorkspace": false,
+      "uiVersion": "contact-2",
+      "decisionIndex": 1,
+      "at": 21038
+    },
+    {
+      "kind": "fusion",
+      "inputs": [
+        "clay",
+        "heat"
+      ],
+      "targetId": "piece-3",
+      "method": "pointer",
+      "uiVersion": "contact-2",
+      "decisionIndex": 1,
+      "at": 21040
+    },
+    {
+      "kind": "drag-start",
+      "source": "piece",
+      "concept": "brick",
+      "pieceId": "piece-4",
+      "pointerType": "mouse",
+      "uiVersion": "contact-2",
+      "decisionIndex": 2,
+      "at": 28624
+    },
+    {
+      "kind": "contact-preview",
+      "inputs": [
+        "brick",
+        "water"
+      ],
+      "result": "channel",
+      "targetSource": "shelf",
+      "targetConcept": "water",
+      "uiVersion": "contact-2",
+      "decisionIndex": 2,
+      "at": 28858
+    },
+    {
+      "kind": "drop",
+      "source": "piece",
+      "concept": "brick",
+      "pieceId": "piece-4",
+      "targetId": null,
+      "targetShelf": "water",
+      "pointerType": "mouse",
+      "inWorkspace": false,
+      "uiVersion": "contact-2",
+      "decisionIndex": 2,
+      "at": 29033
+    },
+    {
+      "kind": "fusion",
+      "inputs": [
+        "brick",
+        "water"
+      ],
+      "targetId": "piece-4",
+      "method": "pointer",
+      "uiVersion": "contact-2",
+      "decisionIndex": 2,
+      "at": 29034
+    },
+    {
+      "kind": "drag-start",
+      "source": "piece",
+      "concept": "channel",
+      "pieceId": "piece-5",
+      "pointerType": "mouse",
+      "uiVersion": "contact-2",
+      "decisionIndex": 3,
+      "at": 38640
+    },
+    {
+      "kind": "drop",
+      "source": "piece",
+      "concept": "channel",
+      "pieceId": "piece-5",
+      "targetId": null,
+      "targetShelf": null,
+      "pointerType": "mouse",
+      "inWorkspace": true,
+      "uiVersion": "contact-2",
+      "decisionIndex": 3,
+      "at": 39047
+    },
+    {
+      "kind": "tap-activate",
+      "source": "shelf",
+      "concept": "brick",
+      "pieceId": null,
+      "uiVersion": "contact-2",
+      "decisionIndex": 4,
+      "at": 48455
+    },
+    {
+      "kind": "drag-start",
+      "source": "piece",
+      "concept": "brick",
+      "pieceId": "piece-6",
+      "pointerType": "mouse",
+      "uiVersion": "contact-2",
+      "decisionIndex": 5,
+      "at": 54423
+    },
+    {
+      "kind": "contact-preview",
+      "inputs": [
+        "brick",
+        "clay"
+      ],
+      "result": "levee",
+      "targetSource": "shelf",
+      "targetConcept": "clay",
+      "uiVersion": "contact-2",
+      "decisionIndex": 5,
+      "at": 54656
+    },
+    {
+      "kind": "drop",
+      "source": "piece",
+      "concept": "brick",
+      "pieceId": "piece-6",
+      "targetId": null,
+      "targetShelf": "clay",
+      "pointerType": "mouse",
+      "inWorkspace": false,
+      "uiVersion": "contact-2",
+      "decisionIndex": 5,
+      "at": 54827
+    },
+    {
+      "kind": "fusion",
+      "inputs": [
+        "brick",
+        "clay"
+      ],
+      "targetId": "piece-6",
+      "method": "pointer",
+      "uiVersion": "contact-2",
+      "decisionIndex": 5,
+      "at": 54831
+    },
+    {
+      "kind": "drag-start",
+      "source": "piece",
+      "concept": "levee",
+      "pieceId": "piece-7",
+      "pointerType": "mouse",
+      "uiVersion": "contact-2",
+      "decisionIndex": 6,
+      "at": 71255
+    },
+    {
+      "kind": "drop",
+      "source": "piece",
+      "concept": "levee",
+      "pieceId": "piece-7",
+      "targetId": null,
+      "targetShelf": null,
+      "pointerType": "mouse",
+      "inWorkspace": true,
+      "uiVersion": "contact-2",
+      "decisionIndex": 6,
+      "at": 76749
+    },
+    {
+      "kind": "separate",
+      "inputs": [
+        "levee",
+        "channel"
+      ],
+      "reason": "no-reaction",
+      "uiVersion": "contact-2",
+      "decisionIndex": 6,
+      "at": 76750
+    }
+  ]
+}

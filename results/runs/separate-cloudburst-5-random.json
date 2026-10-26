@@ -1,0 +1,228 @@
+{
+  "schema": 1,
+  "id": "separate-cloudburst-5-random",
+  "build": "0.4.0",
+  "data": "watershed-1",
+  "scenario": "cloudburst",
+  "seed": 5,
+  "rules": "separate",
+  "player": "random",
+  "condition": "public observation; one-step exact previews for greedy/goal",
+  "offerOrder": "normal",
+  "observationVersion": "public-1",
+  "actionBudget": 9,
+  "decisions": [
+    {
+      "turn": 0,
+      "before": "fea01904",
+      "offers": [
+        "mix-clay",
+        "grow-reeds",
+        "grow-grove",
+        "cut-channel",
+        "dig-basin",
+        "fuse-glass",
+        "boil-steam"
+      ],
+      "action": {
+        "type": "deploy",
+        "concept": "stone",
+        "at": {
+          "row": 2,
+          "col": 2
+        }
+      },
+      "events": [
+        {
+          "kind": "placement",
+          "text": "Placed Stone.",
+          "at": {
+            "row": 2,
+            "col": 2
+          },
+          "concept": "stone"
+        },
+        {
+          "kind": "weather",
+          "text": "Rain arrives: north 1, middle 0, south 0."
+        },
+        {
+          "kind": "damage",
+          "text": "Workshop took 1 flood damage.",
+          "amount": 1
+        }
+      ],
+      "after": "5f6f049f",
+      "damage": [
+        1,
+        0
+      ]
+    },
+    {
+      "turn": 1,
+      "before": "5f6f049f",
+      "offers": [
+        "mix-clay",
+        "grow-reeds",
+        "grow-grove",
+        "cut-channel",
+        "dig-basin",
+        "fuse-glass",
+        "boil-steam"
+      ],
+      "action": {
+        "type": "deploy",
+        "concept": "heat",
+        "at": {
+          "row": 0,
+          "col": 2
+        }
+      },
+      "events": [
+        {
+          "kind": "placement",
+          "text": "Heat can evaporate 2 incoming water here this pulse.",
+          "at": {
+            "row": 0,
+            "col": 2
+          },
+          "concept": "heat"
+        },
+        {
+          "kind": "weather",
+          "text": "Rain arrives: north 3, middle 0, south 0."
+        },
+        {
+          "kind": "flow",
+          "text": "Evaporated 2 water.",
+          "at": {
+            "row": 0,
+            "col": 2
+          },
+          "amount": 2
+        },
+        {
+          "kind": "damage",
+          "text": "Workshop took 1 flood damage.",
+          "amount": 1
+        }
+      ],
+      "after": "d8327180",
+      "damage": [
+        1,
+        0
+      ]
+    },
+    {
+      "turn": 2,
+      "before": "d8327180",
+      "offers": [
+        "mix-clay",
+        "grow-reeds",
+        "grow-grove",
+        "cut-channel",
+        "dig-basin",
+        "fuse-glass",
+        "boil-steam"
+      ],
+      "action": {
+        "type": "deploy",
+        "concept": "heat",
+        "at": {
+          "row": 1,
+          "col": 2
+        }
+      },
+      "events": [
+        {
+          "kind": "placement",
+          "text": "Heat can evaporate 2 incoming water here this pulse.",
+          "at": {
+            "row": 1,
+            "col": 2
+          },
+          "concept": "heat"
+        },
+        {
+          "kind": "weather",
+          "text": "Rain arrives: north 3, middle 1, south 0."
+        },
+        {
+          "kind": "flow",
+          "text": "Evaporated 1 water.",
+          "at": {
+            "row": 1,
+            "col": 2
+          },
+          "amount": 1
+        },
+        {
+          "kind": "damage",
+          "text": "Workshop took 3 flood damage.",
+          "amount": 3
+        }
+      ],
+      "after": "c0f0b42f",
+      "damage": [
+        3,
+        0
+      ]
+    },
+    {
+      "turn": 3,
+      "before": "c0f0b42f",
+      "offers": [
+        "mix-clay",
+        "grow-reeds",
+        "grow-grove",
+        "cut-channel",
+        "dig-basin",
+        "fuse-glass",
+        "boil-steam"
+      ],
+      "action": {
+        "type": "deploy",
+        "concept": "heat",
+        "at": {
+          "row": 2,
+          "col": 1
+        }
+      },
+      "events": [
+        {
+          "kind": "placement",
+          "text": "Heat can evaporate 2 incoming water here this pulse.",
+          "at": {
+            "row": 2,
+            "col": 1
+          },
+          "concept": "heat"
+        },
+        {
+          "kind": "weather",
+          "text": "Rain arrives: north 4, middle 1, south 0."
+        },
+        {
+          "kind": "damage",
+          "text": "Workshop took 4 flood damage.",
+          "amount": 4
+        },
+        {
+          "kind": "damage",
+          "text": "Gardens took 1 flood damage.",
+          "amount": 1
+        },
+        {
+          "kind": "outcome",
+          "text": "A bank gave way. Branch from an earlier decision or try a different plan."
+        }
+      ],
+      "after": "1ec54e83",
+      "damage": [
+        4,
+        1
+      ]
+    }
+  ],
+  "outcome": "lost"
+}

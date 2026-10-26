@@ -1,0 +1,864 @@
+{
+  "schema": 1,
+  "id": "fun-mneme-1",
+  "game": "mneme",
+  "version": "mneme-1",
+  "scenario": "orchard",
+  "seed": 0,
+  "condition": "fresh-doctrine5",
+  "protocolVersion": "logical-cli-4",
+  "startedAt": "2026-10-25T22:58:31.439Z",
+  "initialObservation": {
+    "version": "mneme-1",
+    "scenario": "orchard",
+    "status": "playing",
+    "phase": "holding",
+    "opening": "The orchard stands at the instant before its first fruit. Mneme has remembered it so completely that nothing can become otherwise. “I saved it,” says the keeper. “Nothing I love will be lost.”",
+    "goal": "Release the orchard from being held unchanged. A released orchard is a complete baseline win; answering what this does to Mneme is optional.",
+    "rules": [
+      "Combine means bring two faculties into a new relationship. Each result becomes a law in this world, and Mneme responds using the purpose he currently understands.",
+      "Every initial concept is inexhaustible. Both parents remain known. No materials, action credits, deadline, waiting phase or score exists.",
+      "All recipes, their meanings, their world conditions and their immediate consequences are public. The uncertainty is what you want to make of them, not which pair the author secretly permits.",
+      "Unqualified History does not automatically teach openness. Mneme first uses it to collect every version. Doubt makes a remembered past leave an unwritten future.",
+      "Distance leaves a missed first experience. Forgetting loses the keeper’s old identity. Open History retains him and admits a singular ending. These changes are not undone by collecting another safeguard.",
+      "After release, Mneme no longer imposes a total account of the world. The old argument is settled; optional combinations use the relationship that actually released him. Their new concerns arise from that same consequence.",
+      "You may stop immediately at baselineAchieved. Optional combinations are never needed to validate that win. A finished optional ending is another explicit stopping point."
+    ],
+    "concepts": [
+      {
+        "id": "memory",
+        "name": "Memory"
+      },
+      {
+        "id": "change",
+        "name": "Change"
+      },
+      {
+        "id": "distance",
+        "name": "Distance"
+      },
+      {
+        "id": "forgetting",
+        "name": "Forgetting"
+      },
+      {
+        "id": "doubt",
+        "name": "Doubt"
+      },
+      {
+        "id": "voice",
+        "name": "Voice"
+      },
+      {
+        "id": "seed",
+        "name": "Seed"
+      }
+    ],
+    "world": {
+      "orchardMoving": false,
+      "galleryExists": false,
+      "unwrittenFuture": false,
+      "firstPetalEnded": false,
+      "unseenFirstFruit": false,
+      "oldIdentityLost": false,
+      "newLife": false,
+      "publicSong": false,
+      "correspondence": false,
+      "sanctuary": false,
+      "chosenNewName": false,
+      "wildGarden": false
+    },
+    "mneme": {
+      "identity": "Mneme",
+      "role": "keeper of the perfect instant",
+      "desire": "Nothing I love must be lost.",
+      "line": "I saved it. Nothing I love will be lost."
+    },
+    "recipes": [
+      {
+        "a": "memory",
+        "b": "change",
+        "out": "history",
+        "name": "History",
+        "meaning": "Arrange remembered versions into a before and an after.",
+        "immediateConsequence": "Mneme applies his old wish to the new invention: he preserves every version as another gallery. The orchard gains a past but cannot yet become an unrecorded future.",
+        "worldCondition": {
+          "phases": [
+            "holding"
+          ],
+          "route": "any"
+        },
+        "availableNow": true
+      },
+      {
+        "a": "history",
+        "b": "doubt",
+        "out": "open-history",
+        "name": "Open history",
+        "meaning": "A remembered past no longer claims to contain every possible future.",
+        "immediateConsequence": "Mneme can no longer hold the unwritten next moment. The orchard moves. Its first petal ends; Mneme retains his identity and the memory of that singular loss.",
+        "worldCondition": {
+          "phases": [
+            "gallery"
+          ],
+          "route": "any"
+        },
+        "availableNow": false
+      },
+      {
+        "a": "memory",
+        "b": "distance",
+        "out": "witness",
+        "name": "Witness",
+        "meaning": "Remember something without occupying it.",
+        "immediateConsequence": "Mneme becomes a witness outside the orchard. Growth resumes while he is looking away: the first new fruit leaves an unfillable gap in his own experience.",
+        "worldCondition": {
+          "phases": [
+            "holding",
+            "gallery"
+          ],
+          "route": "any"
+        },
+        "availableNow": true
+      },
+      {
+        "a": "memory",
+        "b": "forgetting",
+        "out": "renewal",
+        "name": "Renewal",
+        "meaning": "Release the old account, including the keeper who defined himself through it.",
+        "immediateConsequence": "The orchard moves. Mneme’s old name and vow are lost. An unnamed presence remains, free to begin without that identity.",
+        "worldCondition": {
+          "phases": [
+            "holding",
+            "gallery"
+          ],
+          "route": "any"
+        },
+        "availableNow": true
+      },
+      {
+        "a": "open-history",
+        "b": "seed",
+        "out": "legacy",
+        "name": "Legacy",
+        "meaning": "Let what ends become the beginning of something distinct.",
+        "immediateConsequence": "A new sapling grows from the fallen petal. It does not restore the first flower. Mneme becomes a keeper of beginnings.",
+        "worldCondition": {
+          "phases": [
+            "released"
+          ],
+          "route": "history"
+        },
+        "availableNow": false
+      },
+      {
+        "a": "open-history",
+        "b": "voice",
+        "out": "elegy",
+        "name": "Elegy",
+        "meaning": "Give an ending a voice without reversing it.",
+        "immediateConsequence": "Mneme sings the first petal’s name. The orchard keeps moving; the loss becomes public memory rather than a thing held still.",
+        "worldCondition": {
+          "phases": [
+            "released"
+          ],
+          "route": "history"
+        },
+        "availableNow": false
+      },
+      {
+        "a": "witness",
+        "b": "voice",
+        "out": "correspondence",
+        "name": "Correspondence",
+        "meaning": "Let the observed world answer its observer.",
+        "immediateConsequence": "Voices choose what to tell Mneme. He participates as a listener. The missed first fruit remains missed; communication does not make him omniscient.",
+        "worldCondition": {
+          "phases": [
+            "released"
+          ],
+          "route": "witness"
+        },
+        "availableNow": false
+      },
+      {
+        "a": "witness",
+        "b": "seed",
+        "out": "sanctuary",
+        "name": "Sanctuary",
+        "meaning": "Make a place for lives that need not all be recorded.",
+        "immediateConsequence": "Mneme tends a threshold garden. Some flowers stay beyond his record. His distance becomes care rather than ownership.",
+        "worldCondition": {
+          "phases": [
+            "released"
+          ],
+          "route": "witness"
+        },
+        "availableNow": false
+      },
+      {
+        "a": "renewal",
+        "b": "voice",
+        "out": "new-name",
+        "name": "A new name",
+        "meaning": "An unclaimed voice can name itself.",
+        "immediateConsequence": "The presence chooses Interval. This does not recover Mneme. A new person can answer the orchard.",
+        "worldCondition": {
+          "phases": [
+            "released"
+          ],
+          "route": "renewal"
+        },
+        "availableNow": false
+      },
+      {
+        "a": "renewal",
+        "b": "seed",
+        "out": "wild-garden",
+        "name": "Wild garden",
+        "meaning": "Allow beginnings that do not belong to an author.",
+        "immediateConsequence": "Uncatalogued life grows around the unnamed presence. No keeper claims its names. The old identity remains gone.",
+        "worldCondition": {
+          "phases": [
+            "released"
+          ],
+          "route": "renewal"
+        },
+        "availableNow": false
+      }
+    ],
+    "actionSchema": {
+      "type": "combine",
+      "a": "known concept id",
+      "b": "known concept id; either order"
+    },
+    "legalActions": [
+      {
+        "type": "combine",
+        "a": "memory",
+        "b": "change"
+      },
+      {
+        "type": "combine",
+        "a": "memory",
+        "b": "distance"
+      },
+      {
+        "type": "combine",
+        "a": "memory",
+        "b": "forgetting"
+      }
+    ],
+    "baselineAchieved": false,
+    "safeStoppingPoint": false,
+    "finished": false,
+    "optionalPursuit": null,
+    "lastResponse": null
+  },
+  "decisions": [
+    {
+      "index": 0,
+      "action": {
+        "type": "combine",
+        "a": "memory",
+        "b": "change"
+      },
+      "prediction": {
+        "episode": "fun-mneme-1",
+        "intention": "Let Mneme remain himself and come to accept change",
+        "expected": "History creates a gallery but does not release the orchard yet",
+        "alternative": "Witness would release growth through distance but Mneme would miss its first fruit"
+      },
+      "atMs": 10424,
+      "phase": "assigned",
+      "before": "551c4b65",
+      "after": "082e0c46",
+      "observation": {
+        "version": "mneme-1",
+        "scenario": "orchard",
+        "status": "playing",
+        "phase": "gallery",
+        "opening": "The orchard stands at the instant before its first fruit. Mneme has remembered it so completely that nothing can become otherwise. “I saved it,” says the keeper. “Nothing I love will be lost.”",
+        "goal": "Release the orchard from being held unchanged. A released orchard is a complete baseline win; answering what this does to Mneme is optional.",
+        "rules": [
+          "Combine means bring two faculties into a new relationship. Each result becomes a law in this world, and Mneme responds using the purpose he currently understands.",
+          "Every initial concept is inexhaustible. Both parents remain known. No materials, action credits, deadline, waiting phase or score exists.",
+          "All recipes, their meanings, their world conditions and their immediate consequences are public. The uncertainty is what you want to make of them, not which pair the author secretly permits.",
+          "Unqualified History does not automatically teach openness. Mneme first uses it to collect every version. Doubt makes a remembered past leave an unwritten future.",
+          "Distance leaves a missed first experience. Forgetting loses the keeper’s old identity. Open History retains him and admits a singular ending. These changes are not undone by collecting another safeguard.",
+          "After release, Mneme no longer imposes a total account of the world. The old argument is settled; optional combinations use the relationship that actually released him. Their new concerns arise from that same consequence.",
+          "You may stop immediately at baselineAchieved. Optional combinations are never needed to validate that win. A finished optional ending is another explicit stopping point."
+        ],
+        "concepts": [
+          {
+            "id": "memory",
+            "name": "Memory"
+          },
+          {
+            "id": "change",
+            "name": "Change"
+          },
+          {
+            "id": "distance",
+            "name": "Distance"
+          },
+          {
+            "id": "forgetting",
+            "name": "Forgetting"
+          },
+          {
+            "id": "doubt",
+            "name": "Doubt"
+          },
+          {
+            "id": "voice",
+            "name": "Voice"
+          },
+          {
+            "id": "seed",
+            "name": "Seed"
+          },
+          {
+            "id": "history",
+            "name": "History"
+          }
+        ],
+        "world": {
+          "orchardMoving": false,
+          "galleryExists": true,
+          "unwrittenFuture": false,
+          "firstPetalEnded": false,
+          "unseenFirstFruit": false,
+          "oldIdentityLost": false,
+          "newLife": false,
+          "publicSong": false,
+          "correspondence": false,
+          "sanctuary": false,
+          "chosenNewName": false,
+          "wildGarden": false
+        },
+        "mneme": {
+          "identity": "Mneme",
+          "role": "curator of every version",
+          "desire": "If every version can be kept, no version need end.",
+          "line": "Now I can keep every version."
+        },
+        "recipes": [
+          {
+            "a": "memory",
+            "b": "change",
+            "out": "history",
+            "name": "History",
+            "meaning": "Arrange remembered versions into a before and an after.",
+            "immediateConsequence": "Mneme applies his old wish to the new invention: he preserves every version as another gallery. The orchard gains a past but cannot yet become an unrecorded future.",
+            "worldCondition": {
+              "phases": [
+                "holding"
+              ],
+              "route": "any"
+            },
+            "availableNow": false
+          },
+          {
+            "a": "history",
+            "b": "doubt",
+            "out": "open-history",
+            "name": "Open history",
+            "meaning": "A remembered past no longer claims to contain every possible future.",
+            "immediateConsequence": "Mneme can no longer hold the unwritten next moment. The orchard moves. Its first petal ends; Mneme retains his identity and the memory of that singular loss.",
+            "worldCondition": {
+              "phases": [
+                "gallery"
+              ],
+              "route": "any"
+            },
+            "availableNow": true
+          },
+          {
+            "a": "memory",
+            "b": "distance",
+            "out": "witness",
+            "name": "Witness",
+            "meaning": "Remember something without occupying it.",
+            "immediateConsequence": "Mneme becomes a witness outside the orchard. Growth resumes while he is looking away: the first new fruit leaves an unfillable gap in his own experience.",
+            "worldCondition": {
+              "phases": [
+                "holding",
+                "gallery"
+              ],
+              "route": "any"
+            },
+            "availableNow": true
+          },
+          {
+            "a": "memory",
+            "b": "forgetting",
+            "out": "renewal",
+            "name": "Renewal",
+            "meaning": "Release the old account, including the keeper who defined himself through it.",
+            "immediateConsequence": "The orchard moves. Mneme’s old name and vow are lost. An unnamed presence remains, free to begin without that identity.",
+            "worldCondition": {
+              "phases": [
+                "holding",
+                "gallery"
+              ],
+              "route": "any"
+            },
+            "availableNow": true
+          },
+          {
+            "a": "open-history",
+            "b": "seed",
+            "out": "legacy",
+            "name": "Legacy",
+            "meaning": "Let what ends become the beginning of something distinct.",
+            "immediateConsequence": "A new sapling grows from the fallen petal. It does not restore the first flower. Mneme becomes a keeper of beginnings.",
+            "worldCondition": {
+              "phases": [
+                "released"
+              ],
+              "route": "history"
+            },
+            "availableNow": false
+          },
+          {
+            "a": "open-history",
+            "b": "voice",
+            "out": "elegy",
+            "name": "Elegy",
+            "meaning": "Give an ending a voice without reversing it.",
+            "immediateConsequence": "Mneme sings the first petal’s name. The orchard keeps moving; the loss becomes public memory rather than a thing held still.",
+            "worldCondition": {
+              "phases": [
+                "released"
+              ],
+              "route": "history"
+            },
+            "availableNow": false
+          },
+          {
+            "a": "witness",
+            "b": "voice",
+            "out": "correspondence",
+            "name": "Correspondence",
+            "meaning": "Let the observed world answer its observer.",
+            "immediateConsequence": "Voices choose what to tell Mneme. He participates as a listener. The missed first fruit remains missed; communication does not make him omniscient.",
+            "worldCondition": {
+              "phases": [
+                "released"
+              ],
+              "route": "witness"
+            },
+            "availableNow": false
+          },
+          {
+            "a": "witness",
+            "b": "seed",
+            "out": "sanctuary",
+            "name": "Sanctuary",
+            "meaning": "Make a place for lives that need not all be recorded.",
+            "immediateConsequence": "Mneme tends a threshold garden. Some flowers stay beyond his record. His distance becomes care rather than ownership.",
+            "worldCondition": {
+              "phases": [
+                "released"
+              ],
+              "route": "witness"
+            },
+            "availableNow": false
+          },
+          {
+            "a": "renewal",
+            "b": "voice",
+            "out": "new-name",
+            "name": "A new name",
+            "meaning": "An unclaimed voice can name itself.",
+            "immediateConsequence": "The presence chooses Interval. This does not recover Mneme. A new person can answer the orchard.",
+            "worldCondition": {
+              "phases": [
+                "released"
+              ],
+              "route": "renewal"
+            },
+            "availableNow": false
+          },
+          {
+            "a": "renewal",
+            "b": "seed",
+            "out": "wild-garden",
+            "name": "Wild garden",
+            "meaning": "Allow beginnings that do not belong to an author.",
+            "immediateConsequence": "Uncatalogued life grows around the unnamed presence. No keeper claims its names. The old identity remains gone.",
+            "worldCondition": {
+              "phases": [
+                "released"
+              ],
+              "route": "renewal"
+            },
+            "availableNow": false
+          }
+        ],
+        "actionSchema": {
+          "type": "combine",
+          "a": "known concept id",
+          "b": "known concept id; either order"
+        },
+        "legalActions": [
+          {
+            "type": "combine",
+            "a": "history",
+            "b": "doubt"
+          },
+          {
+            "type": "combine",
+            "a": "memory",
+            "b": "distance"
+          },
+          {
+            "type": "combine",
+            "a": "memory",
+            "b": "forgetting"
+          }
+        ],
+        "baselineAchieved": false,
+        "safeStoppingPoint": false,
+        "finished": false,
+        "optionalPursuit": null,
+        "lastResponse": {
+          "action": {
+            "type": "combine",
+            "a": "memory",
+            "b": "change"
+          },
+          "invention": "history",
+          "worldResponse": "A thousand earlier orchards unfold behind this one. Each is complete. The first fruit still cannot fall.",
+          "actorResponse": "Mneme walks from panel to panel, carefully closing each door. He has used your invention to extend his original purpose.",
+          "renewedPossibility": "History exists now. Can a remembered past leave something genuinely unwritten?"
+        }
+      }
+    },
+    {
+      "index": 1,
+      "action": {
+        "type": "combine",
+        "a": "history",
+        "b": "doubt"
+      },
+      "prediction": {
+        "episode": "fun-mneme-1",
+        "intention": "Finish the planned release by letting the future stay unwritten",
+        "expected": "The orchard moves and Mneme remembers the first petal ending",
+        "alternative": "Witness remains available, but I still prefer presence with accepted loss"
+      },
+      "atMs": 14070,
+      "phase": "assigned",
+      "before": "082e0c46",
+      "after": "eb715511",
+      "observation": {
+        "version": "mneme-1",
+        "scenario": "orchard",
+        "status": "won",
+        "phase": "released",
+        "opening": "The orchard stands at the instant before its first fruit. Mneme has remembered it so completely that nothing can become otherwise. “I saved it,” says the keeper. “Nothing I love will be lost.”",
+        "goal": "Release the orchard from being held unchanged. A released orchard is a complete baseline win; answering what this does to Mneme is optional.",
+        "rules": [
+          "Combine means bring two faculties into a new relationship. Each result becomes a law in this world, and Mneme responds using the purpose he currently understands.",
+          "Every initial concept is inexhaustible. Both parents remain known. No materials, action credits, deadline, waiting phase or score exists.",
+          "All recipes, their meanings, their world conditions and their immediate consequences are public. The uncertainty is what you want to make of them, not which pair the author secretly permits.",
+          "Unqualified History does not automatically teach openness. Mneme first uses it to collect every version. Doubt makes a remembered past leave an unwritten future.",
+          "Distance leaves a missed first experience. Forgetting loses the keeper’s old identity. Open History retains him and admits a singular ending. These changes are not undone by collecting another safeguard.",
+          "After release, Mneme no longer imposes a total account of the world. The old argument is settled; optional combinations use the relationship that actually released him. Their new concerns arise from that same consequence.",
+          "You may stop immediately at baselineAchieved. Optional combinations are never needed to validate that win. A finished optional ending is another explicit stopping point."
+        ],
+        "concepts": [
+          {
+            "id": "memory",
+            "name": "Memory"
+          },
+          {
+            "id": "change",
+            "name": "Change"
+          },
+          {
+            "id": "distance",
+            "name": "Distance"
+          },
+          {
+            "id": "forgetting",
+            "name": "Forgetting"
+          },
+          {
+            "id": "doubt",
+            "name": "Doubt"
+          },
+          {
+            "id": "voice",
+            "name": "Voice"
+          },
+          {
+            "id": "seed",
+            "name": "Seed"
+          },
+          {
+            "id": "history",
+            "name": "History"
+          },
+          {
+            "id": "open-history",
+            "name": "Open history"
+          }
+        ],
+        "world": {
+          "orchardMoving": true,
+          "galleryExists": true,
+          "unwrittenFuture": true,
+          "firstPetalEnded": true,
+          "unseenFirstFruit": false,
+          "oldIdentityLost": false,
+          "newLife": false,
+          "publicSong": false,
+          "correspondence": false,
+          "sanctuary": false,
+          "chosenNewName": false,
+          "wildGarden": false
+        },
+        "mneme": {
+          "identity": "Mneme",
+          "role": "witness to an ending",
+          "desire": "Understand what can matter when it cannot be kept unchanged.",
+          "line": "I cannot keep it. Will that make it meaningless?"
+        },
+        "recipes": [
+          {
+            "a": "memory",
+            "b": "change",
+            "out": "history",
+            "name": "History",
+            "meaning": "Arrange remembered versions into a before and an after.",
+            "immediateConsequence": "Mneme applies his old wish to the new invention: he preserves every version as another gallery. The orchard gains a past but cannot yet become an unrecorded future.",
+            "worldCondition": {
+              "phases": [
+                "holding"
+              ],
+              "route": "any"
+            },
+            "availableNow": false
+          },
+          {
+            "a": "history",
+            "b": "doubt",
+            "out": "open-history",
+            "name": "Open history",
+            "meaning": "A remembered past no longer claims to contain every possible future.",
+            "immediateConsequence": "Mneme can no longer hold the unwritten next moment. The orchard moves. Its first petal ends; Mneme retains his identity and the memory of that singular loss.",
+            "worldCondition": {
+              "phases": [
+                "gallery"
+              ],
+              "route": "any"
+            },
+            "availableNow": false
+          },
+          {
+            "a": "memory",
+            "b": "distance",
+            "out": "witness",
+            "name": "Witness",
+            "meaning": "Remember something without occupying it.",
+            "immediateConsequence": "Mneme becomes a witness outside the orchard. Growth resumes while he is looking away: the first new fruit leaves an unfillable gap in his own experience.",
+            "worldCondition": {
+              "phases": [
+                "holding",
+                "gallery"
+              ],
+              "route": "any"
+            },
+            "availableNow": false
+          },
+          {
+            "a": "memory",
+            "b": "forgetting",
+            "out": "renewal",
+            "name": "Renewal",
+            "meaning": "Release the old account, including the keeper who defined himself through it.",
+            "immediateConsequence": "The orchard moves. Mneme’s old name and vow are lost. An unnamed presence remains, free to begin without that identity.",
+            "worldCondition": {
+              "phases": [
+                "holding",
+                "gallery"
+              ],
+              "route": "any"
+            },
+            "availableNow": false
+          },
+          {
+            "a": "open-history",
+            "b": "seed",
+            "out": "legacy",
+            "name": "Legacy",
+            "meaning": "Let what ends become the beginning of something distinct.",
+            "immediateConsequence": "A new sapling grows from the fallen petal. It does not restore the first flower. Mneme becomes a keeper of beginnings.",
+            "worldCondition": {
+              "phases": [
+                "released"
+              ],
+              "route": "history"
+            },
+            "availableNow": true
+          },
+          {
+            "a": "open-history",
+            "b": "voice",
+            "out": "elegy",
+            "name": "Elegy",
+            "meaning": "Give an ending a voice without reversing it.",
+            "immediateConsequence": "Mneme sings the first petal’s name. The orchard keeps moving; the loss becomes public memory rather than a thing held still.",
+            "worldCondition": {
+              "phases": [
+                "released"
+              ],
+              "route": "history"
+            },
+            "availableNow": true
+          },
+          {
+            "a": "witness",
+            "b": "voice",
+            "out": "correspondence",
+            "name": "Correspondence",
+            "meaning": "Let the observed world answer its observer.",
+            "immediateConsequence": "Voices choose what to tell Mneme. He participates as a listener. The missed first fruit remains missed; communication does not make him omniscient.",
+            "worldCondition": {
+              "phases": [
+                "released"
+              ],
+              "route": "witness"
+            },
+            "availableNow": false
+          },
+          {
+            "a": "witness",
+            "b": "seed",
+            "out": "sanctuary",
+            "name": "Sanctuary",
+            "meaning": "Make a place for lives that need not all be recorded.",
+            "immediateConsequence": "Mneme tends a threshold garden. Some flowers stay beyond his record. His distance becomes care rather than ownership.",
+            "worldCondition": {
+              "phases": [
+                "released"
+              ],
+              "route": "witness"
+            },
+            "availableNow": false
+          },
+          {
+            "a": "renewal",
+            "b": "voice",
+            "out": "new-name",
+            "name": "A new name",
+            "meaning": "An unclaimed voice can name itself.",
+            "immediateConsequence": "The presence chooses Interval. This does not recover Mneme. A new person can answer the orchard.",
+            "worldCondition": {
+              "phases": [
+                "released"
+              ],
+              "route": "renewal"
+            },
+            "availableNow": false
+          },
+          {
+            "a": "renewal",
+            "b": "seed",
+            "out": "wild-garden",
+            "name": "Wild garden",
+            "meaning": "Allow beginnings that do not belong to an author.",
+            "immediateConsequence": "Uncatalogued life grows around the unnamed presence. No keeper claims its names. The old identity remains gone.",
+            "worldCondition": {
+              "phases": [
+                "released"
+              ],
+              "route": "renewal"
+            },
+            "availableNow": false
+          }
+        ],
+        "actionSchema": {
+          "type": "combine",
+          "a": "known concept id",
+          "b": "known concept id; either order"
+        },
+        "legalActions": [
+          {
+            "type": "combine",
+            "a": "open-history",
+            "b": "seed"
+          },
+          {
+            "type": "combine",
+            "a": "open-history",
+            "b": "voice"
+          }
+        ],
+        "baselineAchieved": true,
+        "safeStoppingPoint": true,
+        "finished": false,
+        "optionalPursuit": {
+          "reason": "Understand what can matter when it cannot be kept unchanged.",
+          "actions": [
+            {
+              "type": "combine",
+              "a": "open-history",
+              "b": "seed"
+            },
+            {
+              "type": "combine",
+              "a": "open-history",
+              "b": "voice"
+            }
+          ],
+          "mayStopWithoutIt": true
+        },
+        "lastResponse": {
+          "action": {
+            "type": "combine",
+            "a": "history",
+            "b": "doubt"
+          },
+          "invention": "open-history",
+          "worldResponse": "You leave one page unwritten. Mneme reaches to copy it and finds nothing to hold. The first fruit falls; the first petal ends.",
+          "actorResponse": "He remembers the petal exactly, but he cannot give that instant back to it.",
+          "renewedPossibility": "You may leave the orchard free. Or answer this new grief: can an ending become a beginning, or become a song?"
+        }
+      }
+    }
+  ],
+  "attempts": [],
+  "previews": [],
+  "checkpoints": [
+    {
+      "decisionIndex": 2,
+      "reason": "Assigned exposure complete; stopping is a valid result."
+    }
+  ],
+  "report": {
+    "scope": "AI player account, not evidence of human enjoyment",
+    "experienceAcrossTime": [
+      "Initially I compared preserving Mneme through accepted loss, distancing him, and dissolving his identity. I preferred remaining present as himself.",
+      "History confirmed its public consequence. Once that route was chosen, combining History with Doubt was execution of my initial plan, not a fresh decision.",
+      "The released orchard felt like sufficient closure. I appreciated the unwritten page and Mneme being unable to give the petal its instant back, but felt no need to enact a further epilogue."
+    ],
+    "noticedWorldAndCharacter": "Mneme interprets a new faculty through his existing wish: History becomes more control before Doubt changes his relationship to the future. That is the most specific and coherent character behavior here, although it was already disclosed before action.",
+    "renewedIntentionOrClosure": {
+      "state": "satisfied closure",
+      "intention": "Leave the orchard moving and Mneme himself, accepting an irreversible ending.",
+      "optionalActions": 0,
+      "reasonForStopping": "The optional endings read as known thematic statements; I did not have a live question whose answer required another action."
+    },
+    "meaningfulConceptOrPassage": "He remembers the petal exactly, but he cannot give that instant back to it. This makes memory distinct from possession, and gives the release a cost without erasing the keeper.",
+    "repetitionAndAutomation": "There was no repeated chore in two actions. Automatic execution after choosing the History route would lose little further decision making; it would mainly remove the pacing of witnessing Mneme extend his old purpose and then confront its limit.",
+    "furtherProjectSource": "The game supplied the question of answering grief, along with Legacy and Elegy. I did not generate a further project of my own.",
+    "cleverChoice": "Low: all consequences were explicit and the two-step plan was straightforward. My route was a value preference, not a discovered tactic.",
+    "storyAppreciation": "Positive: coherent tension between preserving something and allowing it to live; the character response gave the combination a concrete significance.",
+    "wantingMore": "Low at this stopping point. I do not infer wanting more from story appreciation or from having optional actions available."
+  }
+}

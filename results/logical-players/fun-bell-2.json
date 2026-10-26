@@ -1,0 +1,1455 @@
+{
+  "schema": 1,
+  "id": "fun-bell-2",
+  "game": "bell2",
+  "version": "bell-orchard-2",
+  "scenario": "the-bell-orchard",
+  "seed": 0,
+  "condition": "experienced-after-fun-bell-1",
+  "protocolVersion": "logical-cli-5",
+  "startedAt": "2026-10-25T23:18:28.682Z",
+  "initialObservation": {
+    "version": "bell-orchard-2",
+    "scenario": "the-bell-orchard",
+    "title": "The Bell Orchard — two joined names",
+    "status": "playing",
+    "beginning": "After the rain, a flooded orchard, a village and a drowned city share one valley. Mara, once a child of that city, lives beside the survivors’ orchard.",
+    "initialIntention": "Let the orchard breathe again.",
+    "world": {
+      "river": "orchard",
+      "orchardSafe": false,
+      "villageSafe": true,
+      "riverContact": true,
+      "exactNames": false,
+      "protectedNames": false,
+      "precisePublicVoices": false,
+      "livingMemory": false,
+      "publicFragments": false,
+      "newGarden": false
+    },
+    "forms": {
+      "bell": "hidden",
+      "bank": "open",
+      "earthCourse": "orchard"
+    },
+    "rules": [
+      "All combinations and their causal effects are public. These are invented laws of this valley, not historical or hydrological claims.",
+      "Earth gives water a course. A precise name spoken aloud calls the river toward its listeners. A solid bank blocks that pull but cuts river contact. Living roots can hold the water gently while transforming exact voices into growing patterns.",
+      "Concept capabilities remain known and inexhaustible. No material stocks, action credits, player clock, production wait or upkeep exist.",
+      "The historical bell and its names are properties of this one world. Knowing the concept bell does not copy a past world state. Rooting or sealing that particular memory changes what it can become.",
+      "A world response happens after each combination and then rests. Flooded places do not suffer an invisible damage tick while you think.",
+      "Saving the orchard is the initial intention. The invitations arising from what you make are optional; they are not a score checklist. You may finish once the orchard is clear, and the ending records the valley you leave.",
+      "A story discovery is different from recipe legality. Every combination, its prerequisites and functional world effects are public; an unperformed discovery does not print its exact new passage in advance.",
+      "Air can reveal spoken exchanges, Stone the ordering of a record, and Seed living relationships. These ways of knowing also transform the original memory according to the public laws.",
+      "Facts already learned stay learned. Changing the bell or its memory does not erase what Mara, the village or the player has already discovered."
+    ],
+    "concepts": [
+      {
+        "id": "earth",
+        "label": "earth"
+      },
+      {
+        "id": "water",
+        "label": "water"
+      },
+      {
+        "id": "air",
+        "label": "air"
+      },
+      {
+        "id": "seed",
+        "label": "seed"
+      },
+      {
+        "id": "stone",
+        "label": "stone"
+      }
+    ],
+    "recipes": [
+      {
+        "a": "earth",
+        "b": "water",
+        "at": [
+          "hollow",
+          "orchard",
+          "village"
+        ],
+        "requires": "No living or root-shaped anchor already fixes the river in the hollow.",
+        "effect": "Open one river course. Water leaves the other courses. Flow through the hollow exposes the buried bell. A chorus can call water away from the course unless a bank prevents it."
+      },
+      {
+        "a": "bell",
+        "b": "air",
+        "requires": "An exposed name-bearing bell.",
+        "effect": "Make every original name audible in the village. In this world water follows a precise name spoken aloud, so the river turns toward the village.",
+        "wayOfKnowing": "Hear the people’s voices and the relationships between their spoken words. Exact dialogue is revealed only by committing."
+      },
+      {
+        "a": "bell",
+        "b": "stone",
+        "requires": "An exposed or sounding name-bearing bell.",
+        "effect": "Close the original names in a stone archive. They become protected and exact, but silent. This form cannot be reopened by the available processes.",
+        "wayOfKnowing": "Preserve and inspect the ordering of the inscribed record. Exact findings are revealed only by committing."
+      },
+      {
+        "a": "bell",
+        "b": "seed",
+        "requires": "An exposed or sounding name-bearing bell.",
+        "effect": "Translate names into a listening grove. Roots anchor the river in the hollow. Living patterns preserve relationships, but the original exact names are irreversibly changed.",
+        "wayOfKnowing": "See lives interpreted as growing relationships. This will not be an exact spoken or written account."
+      },
+      {
+        "a": "earth",
+        "b": "chorus",
+        "requires": "A public chorus and an open village bank.",
+        "effect": "Raise a bank against the name-following river. The village becomes dry and can still hear exact voices, but loses contact with the river."
+      },
+      {
+        "a": "seed",
+        "b": "wall",
+        "requires": "A solid village bank.",
+        "effect": "Grow porous arches through the bank. Gentle water reconnects the village. The roots take the precise voices into a living reed song; only fragments remain audible."
+      },
+      {
+        "a": "air",
+        "b": "grove",
+        "requires": "A living listening grove; no village garden yet.",
+        "effect": "Carry descendants of the listening grove into the village. A new garden shares living memory; this cannot restore the original exact names."
+      },
+      {
+        "a": "stone",
+        "b": "grove",
+        "requires": "A living listening grove.",
+        "effect": "Fix its leaf patterns as a stone garden. The transformed memory becomes durable but ceases growing. Original names do not return."
+      }
+    ],
+    "actionSchema": {
+      "combine": {
+        "type": "combine",
+        "a": "concept id",
+        "b": "concept id",
+        "at": "Only earth+water takes hollow, orchard or village"
+      },
+      "finish": {
+        "type": "finish",
+        "intention": "Optional short description of the world you choose to leave"
+      }
+    },
+    "legalActions": [
+      {
+        "type": "combine",
+        "a": "earth",
+        "b": "water",
+        "at": "hollow"
+      },
+      {
+        "type": "combine",
+        "a": "earth",
+        "b": "water",
+        "at": "village"
+      }
+    ],
+    "previews": [
+      {
+        "action": {
+          "type": "combine",
+          "a": "earth",
+          "b": "water",
+          "at": "hollow"
+        },
+        "world": {
+          "river": "hollow",
+          "orchardSafe": true,
+          "villageSafe": true,
+          "riverContact": true,
+          "exactNames": true,
+          "protectedNames": false,
+          "precisePublicVoices": false,
+          "livingMemory": false,
+          "publicFragments": false,
+          "newGarden": false
+        },
+        "forms": {
+          "bell": "exposed",
+          "bank": "open",
+          "earthCourse": "hollow"
+        },
+        "status": "playing",
+        "newConcepts": [
+          "bell",
+          "channel"
+        ],
+        "discovery": "If the bell is still hidden, the exposed object can reveal a new story question.",
+        "disclosure": "All functional state effects are shown. Exact new narrative passages and story findings arrive only after commitment."
+      },
+      {
+        "action": {
+          "type": "combine",
+          "a": "earth",
+          "b": "water",
+          "at": "village"
+        },
+        "world": {
+          "river": "village",
+          "orchardSafe": true,
+          "villageSafe": false,
+          "riverContact": false,
+          "exactNames": false,
+          "protectedNames": false,
+          "precisePublicVoices": false,
+          "livingMemory": false,
+          "publicFragments": false,
+          "newGarden": false
+        },
+        "forms": {
+          "bell": "hidden",
+          "bank": "open",
+          "earthCourse": "village"
+        },
+        "status": "playing",
+        "newConcepts": [
+          "channel"
+        ],
+        "disclosure": "All functional state effects are shown. Exact new narrative passages and story findings arrive only after commitment."
+      }
+    ],
+    "knownStoryFacts": [],
+    "openQuestions": [],
+    "invitations": [
+      {
+        "project": "Let the orchard breathe.",
+        "arisesFrom": "Water stands among the roots."
+      }
+    ],
+    "response": [
+      "Rain has ended. Water still stands among the orchard roots. Across the valley Mara waits by the village windows. She was a child when the old city drowned; this orchard grew on the bank where the survivors arrived.",
+      "Your first intention is to let the orchard breathe. There is no obligation to turn the whole valley into a project."
+    ]
+  },
+  "decisions": [
+    {
+      "index": 0,
+      "action": {
+        "type": "combine",
+        "a": "earth",
+        "b": "water",
+        "at": "hollow"
+      },
+      "atMs": 4424,
+      "phase": "assigned",
+      "before": "0ee8c4cb",
+      "after": "c7eb28fc",
+      "observation": {
+        "version": "bell-orchard-2",
+        "scenario": "the-bell-orchard",
+        "title": "The Bell Orchard — two joined names",
+        "status": "playing",
+        "beginning": "After the rain, a flooded orchard, a village and a drowned city share one valley. Mara, once a child of that city, lives beside the survivors’ orchard.",
+        "initialIntention": "Let the orchard breathe again.",
+        "world": {
+          "river": "hollow",
+          "orchardSafe": true,
+          "villageSafe": true,
+          "riverContact": true,
+          "exactNames": true,
+          "protectedNames": false,
+          "precisePublicVoices": false,
+          "livingMemory": false,
+          "publicFragments": false,
+          "newGarden": false
+        },
+        "forms": {
+          "bell": "exposed",
+          "bank": "open",
+          "earthCourse": "hollow"
+        },
+        "rules": [
+          "All combinations and their causal effects are public. These are invented laws of this valley, not historical or hydrological claims.",
+          "Earth gives water a course. A precise name spoken aloud calls the river toward its listeners. A solid bank blocks that pull but cuts river contact. Living roots can hold the water gently while transforming exact voices into growing patterns.",
+          "Concept capabilities remain known and inexhaustible. No material stocks, action credits, player clock, production wait or upkeep exist.",
+          "The historical bell and its names are properties of this one world. Knowing the concept bell does not copy a past world state. Rooting or sealing that particular memory changes what it can become.",
+          "A world response happens after each combination and then rests. Flooded places do not suffer an invisible damage tick while you think.",
+          "Saving the orchard is the initial intention. The invitations arising from what you make are optional; they are not a score checklist. You may finish once the orchard is clear, and the ending records the valley you leave.",
+          "A story discovery is different from recipe legality. Every combination, its prerequisites and functional world effects are public; an unperformed discovery does not print its exact new passage in advance.",
+          "Air can reveal spoken exchanges, Stone the ordering of a record, and Seed living relationships. These ways of knowing also transform the original memory according to the public laws.",
+          "Facts already learned stay learned. Changing the bell or its memory does not erase what Mara, the village or the player has already discovered."
+        ],
+        "concepts": [
+          {
+            "id": "earth",
+            "label": "earth"
+          },
+          {
+            "id": "water",
+            "label": "water"
+          },
+          {
+            "id": "air",
+            "label": "air"
+          },
+          {
+            "id": "seed",
+            "label": "seed"
+          },
+          {
+            "id": "stone",
+            "label": "stone"
+          },
+          {
+            "id": "bell",
+            "label": "bell"
+          },
+          {
+            "id": "channel",
+            "label": "channel"
+          }
+        ],
+        "recipes": [
+          {
+            "a": "earth",
+            "b": "water",
+            "at": [
+              "hollow",
+              "orchard",
+              "village"
+            ],
+            "requires": "No living or root-shaped anchor already fixes the river in the hollow.",
+            "effect": "Open one river course. Water leaves the other courses. Flow through the hollow exposes the buried bell. A chorus can call water away from the course unless a bank prevents it."
+          },
+          {
+            "a": "bell",
+            "b": "air",
+            "requires": "An exposed name-bearing bell.",
+            "effect": "Make every original name audible in the village. In this world water follows a precise name spoken aloud, so the river turns toward the village.",
+            "wayOfKnowing": "Hear the people’s voices and the relationships between their spoken words. Exact dialogue is revealed only by committing."
+          },
+          {
+            "a": "bell",
+            "b": "stone",
+            "requires": "An exposed or sounding name-bearing bell.",
+            "effect": "Close the original names in a stone archive. They become protected and exact, but silent. This form cannot be reopened by the available processes.",
+            "wayOfKnowing": "Preserve and inspect the ordering of the inscribed record. Exact findings are revealed only by committing."
+          },
+          {
+            "a": "bell",
+            "b": "seed",
+            "requires": "An exposed or sounding name-bearing bell.",
+            "effect": "Translate names into a listening grove. Roots anchor the river in the hollow. Living patterns preserve relationships, but the original exact names are irreversibly changed.",
+            "wayOfKnowing": "See lives interpreted as growing relationships. This will not be an exact spoken or written account."
+          },
+          {
+            "a": "earth",
+            "b": "chorus",
+            "requires": "A public chorus and an open village bank.",
+            "effect": "Raise a bank against the name-following river. The village becomes dry and can still hear exact voices, but loses contact with the river."
+          },
+          {
+            "a": "seed",
+            "b": "wall",
+            "requires": "A solid village bank.",
+            "effect": "Grow porous arches through the bank. Gentle water reconnects the village. The roots take the precise voices into a living reed song; only fragments remain audible."
+          },
+          {
+            "a": "air",
+            "b": "grove",
+            "requires": "A living listening grove; no village garden yet.",
+            "effect": "Carry descendants of the listening grove into the village. A new garden shares living memory; this cannot restore the original exact names."
+          },
+          {
+            "a": "stone",
+            "b": "grove",
+            "requires": "A living listening grove.",
+            "effect": "Fix its leaf patterns as a stone garden. The transformed memory becomes durable but ceases growing. Original names do not return."
+          }
+        ],
+        "actionSchema": {
+          "combine": {
+            "type": "combine",
+            "a": "concept id",
+            "b": "concept id",
+            "at": "Only earth+water takes hollow, orchard or village"
+          },
+          "finish": {
+            "type": "finish",
+            "intention": "Optional short description of the world you choose to leave"
+          }
+        },
+        "legalActions": [
+          {
+            "type": "combine",
+            "a": "earth",
+            "b": "water",
+            "at": "orchard"
+          },
+          {
+            "type": "combine",
+            "a": "earth",
+            "b": "water",
+            "at": "village"
+          },
+          {
+            "type": "combine",
+            "a": "bell",
+            "b": "air"
+          },
+          {
+            "type": "combine",
+            "a": "bell",
+            "b": "stone"
+          },
+          {
+            "type": "combine",
+            "a": "bell",
+            "b": "seed"
+          },
+          {
+            "type": "finish"
+          }
+        ],
+        "previews": [
+          {
+            "action": {
+              "type": "combine",
+              "a": "earth",
+              "b": "water",
+              "at": "orchard"
+            },
+            "world": {
+              "river": "orchard",
+              "orchardSafe": false,
+              "villageSafe": true,
+              "riverContact": true,
+              "exactNames": true,
+              "protectedNames": false,
+              "precisePublicVoices": false,
+              "livingMemory": false,
+              "publicFragments": false,
+              "newGarden": false
+            },
+            "forms": {
+              "bell": "exposed",
+              "bank": "open",
+              "earthCourse": "orchard"
+            },
+            "status": "playing",
+            "newConcepts": [],
+            "disclosure": "All functional state effects are shown. Exact new narrative passages and story findings arrive only after commitment."
+          },
+          {
+            "action": {
+              "type": "combine",
+              "a": "earth",
+              "b": "water",
+              "at": "village"
+            },
+            "world": {
+              "river": "village",
+              "orchardSafe": true,
+              "villageSafe": false,
+              "riverContact": false,
+              "exactNames": true,
+              "protectedNames": false,
+              "precisePublicVoices": false,
+              "livingMemory": false,
+              "publicFragments": false,
+              "newGarden": false
+            },
+            "forms": {
+              "bell": "exposed",
+              "bank": "open",
+              "earthCourse": "village"
+            },
+            "status": "playing",
+            "newConcepts": [],
+            "disclosure": "All functional state effects are shown. Exact new narrative passages and story findings arrive only after commitment."
+          },
+          {
+            "action": {
+              "type": "combine",
+              "a": "bell",
+              "b": "air"
+            },
+            "world": {
+              "river": "village",
+              "orchardSafe": true,
+              "villageSafe": false,
+              "riverContact": false,
+              "exactNames": true,
+              "protectedNames": false,
+              "precisePublicVoices": true,
+              "livingMemory": false,
+              "publicFragments": false,
+              "newGarden": false
+            },
+            "forms": {
+              "bell": "chorus",
+              "bank": "open",
+              "earthCourse": "hollow"
+            },
+            "status": "playing",
+            "newConcepts": [
+              "chorus"
+            ],
+            "discovery": "Hear the people’s voices and the relationships between their spoken words. Exact dialogue is revealed only by committing.",
+            "disclosure": "All functional state effects are shown. Exact new narrative passages and story findings arrive only after commitment."
+          },
+          {
+            "action": {
+              "type": "combine",
+              "a": "bell",
+              "b": "stone"
+            },
+            "world": {
+              "river": "hollow",
+              "orchardSafe": true,
+              "villageSafe": true,
+              "riverContact": true,
+              "exactNames": true,
+              "protectedNames": true,
+              "precisePublicVoices": false,
+              "livingMemory": false,
+              "publicFragments": false,
+              "newGarden": false
+            },
+            "forms": {
+              "bell": "archive",
+              "bank": "open",
+              "earthCourse": "hollow"
+            },
+            "status": "playing",
+            "newConcepts": [
+              "archive"
+            ],
+            "discovery": "Preserve and inspect the ordering of the inscribed record. Exact findings are revealed only by committing.",
+            "disclosure": "All functional state effects are shown. Exact new narrative passages and story findings arrive only after commitment."
+          },
+          {
+            "action": {
+              "type": "combine",
+              "a": "bell",
+              "b": "seed"
+            },
+            "world": {
+              "river": "hollow",
+              "orchardSafe": true,
+              "villageSafe": true,
+              "riverContact": true,
+              "exactNames": false,
+              "protectedNames": false,
+              "precisePublicVoices": false,
+              "livingMemory": true,
+              "publicFragments": false,
+              "newGarden": false
+            },
+            "forms": {
+              "bell": "grove",
+              "bank": "open",
+              "earthCourse": "hollow"
+            },
+            "status": "playing",
+            "newConcepts": [
+              "grove"
+            ],
+            "discovery": "See lives interpreted as growing relationships. This will not be an exact spoken or written account.",
+            "disclosure": "All functional state effects are shown. Exact new narrative passages and story findings arrive only after commitment."
+          }
+        ],
+        "knownStoryFacts": [
+          {
+            "id": "paired-names",
+            "fact": "On the exposed bell, Anwen’s name is joined to Rook’s by a cast line. Anwen was Mara’s mother. Mara was taught that Rook closed the city gate and abandoned the people behind it."
+          }
+        ],
+        "openQuestions": [
+          "Why are Mara’s mother Anwen and the gatekeeper Rook joined on the bell? The known transformations offer different ways of finding out; none is compulsory."
+        ],
+        "invitations": [
+          {
+            "project": "Decide what form the city’s memory should take—or leave the bell quietly in the hollow.",
+            "arisesFrom": "Your river course exposed a name-bearing bell."
+          },
+          {
+            "project": "Leave the valley here, if this is a world you want to have made.",
+            "arisesFrom": "Your initial intention is accomplished. Further pursuit is optional."
+          }
+        ],
+        "response": [
+          "Water withdraws from the orchard roots and enters the hollow. A copper bell rises through the silt. Under its lip are the names of the drowned city. It is not an alarm: held close, it whispers each person once.",
+          "Mara comes to the cleared orchard. She recognizes Anwen, her mother, on the bell—and beside it, Rook. A line cast into the metal joins their names.",
+          "“They told me Rook shut the gate and left us,” she says. “Why would my mother’s name be joined to his?” She leaves the question beside the quiet bell. You can leave it there too."
+        ]
+      }
+    },
+    {
+      "index": 1,
+      "action": {
+        "type": "combine",
+        "a": "bell",
+        "b": "air"
+      },
+      "atMs": 26163,
+      "phase": "elective",
+      "before": "c7eb28fc",
+      "after": "ca24aaf4",
+      "observation": {
+        "version": "bell-orchard-2",
+        "scenario": "the-bell-orchard",
+        "title": "The Bell Orchard — two joined names",
+        "status": "playing",
+        "beginning": "After the rain, a flooded orchard, a village and a drowned city share one valley. Mara, once a child of that city, lives beside the survivors’ orchard.",
+        "initialIntention": "Let the orchard breathe again.",
+        "world": {
+          "river": "village",
+          "orchardSafe": true,
+          "villageSafe": false,
+          "riverContact": false,
+          "exactNames": true,
+          "protectedNames": false,
+          "precisePublicVoices": true,
+          "livingMemory": false,
+          "publicFragments": false,
+          "newGarden": false
+        },
+        "forms": {
+          "bell": "chorus",
+          "bank": "open",
+          "earthCourse": "hollow"
+        },
+        "rules": [
+          "All combinations and their causal effects are public. These are invented laws of this valley, not historical or hydrological claims.",
+          "Earth gives water a course. A precise name spoken aloud calls the river toward its listeners. A solid bank blocks that pull but cuts river contact. Living roots can hold the water gently while transforming exact voices into growing patterns.",
+          "Concept capabilities remain known and inexhaustible. No material stocks, action credits, player clock, production wait or upkeep exist.",
+          "The historical bell and its names are properties of this one world. Knowing the concept bell does not copy a past world state. Rooting or sealing that particular memory changes what it can become.",
+          "A world response happens after each combination and then rests. Flooded places do not suffer an invisible damage tick while you think.",
+          "Saving the orchard is the initial intention. The invitations arising from what you make are optional; they are not a score checklist. You may finish once the orchard is clear, and the ending records the valley you leave.",
+          "A story discovery is different from recipe legality. Every combination, its prerequisites and functional world effects are public; an unperformed discovery does not print its exact new passage in advance.",
+          "Air can reveal spoken exchanges, Stone the ordering of a record, and Seed living relationships. These ways of knowing also transform the original memory according to the public laws.",
+          "Facts already learned stay learned. Changing the bell or its memory does not erase what Mara, the village or the player has already discovered."
+        ],
+        "concepts": [
+          {
+            "id": "earth",
+            "label": "earth"
+          },
+          {
+            "id": "water",
+            "label": "water"
+          },
+          {
+            "id": "air",
+            "label": "air"
+          },
+          {
+            "id": "seed",
+            "label": "seed"
+          },
+          {
+            "id": "stone",
+            "label": "stone"
+          },
+          {
+            "id": "bell",
+            "label": "bell"
+          },
+          {
+            "id": "channel",
+            "label": "channel"
+          },
+          {
+            "id": "chorus",
+            "label": "chorus"
+          }
+        ],
+        "recipes": [
+          {
+            "a": "earth",
+            "b": "water",
+            "at": [
+              "hollow",
+              "orchard",
+              "village"
+            ],
+            "requires": "No living or root-shaped anchor already fixes the river in the hollow.",
+            "effect": "Open one river course. Water leaves the other courses. Flow through the hollow exposes the buried bell. A chorus can call water away from the course unless a bank prevents it."
+          },
+          {
+            "a": "bell",
+            "b": "air",
+            "requires": "An exposed name-bearing bell.",
+            "effect": "Make every original name audible in the village. In this world water follows a precise name spoken aloud, so the river turns toward the village.",
+            "wayOfKnowing": "Hear the people’s voices and the relationships between their spoken words. Exact dialogue is revealed only by committing."
+          },
+          {
+            "a": "bell",
+            "b": "stone",
+            "requires": "An exposed or sounding name-bearing bell.",
+            "effect": "Close the original names in a stone archive. They become protected and exact, but silent. This form cannot be reopened by the available processes.",
+            "wayOfKnowing": "Preserve and inspect the ordering of the inscribed record. Exact findings are revealed only by committing."
+          },
+          {
+            "a": "bell",
+            "b": "seed",
+            "requires": "An exposed or sounding name-bearing bell.",
+            "effect": "Translate names into a listening grove. Roots anchor the river in the hollow. Living patterns preserve relationships, but the original exact names are irreversibly changed.",
+            "wayOfKnowing": "See lives interpreted as growing relationships. This will not be an exact spoken or written account."
+          },
+          {
+            "a": "earth",
+            "b": "chorus",
+            "requires": "A public chorus and an open village bank.",
+            "effect": "Raise a bank against the name-following river. The village becomes dry and can still hear exact voices, but loses contact with the river."
+          },
+          {
+            "a": "seed",
+            "b": "wall",
+            "requires": "A solid village bank.",
+            "effect": "Grow porous arches through the bank. Gentle water reconnects the village. The roots take the precise voices into a living reed song; only fragments remain audible."
+          },
+          {
+            "a": "air",
+            "b": "grove",
+            "requires": "A living listening grove; no village garden yet.",
+            "effect": "Carry descendants of the listening grove into the village. A new garden shares living memory; this cannot restore the original exact names."
+          },
+          {
+            "a": "stone",
+            "b": "grove",
+            "requires": "A living listening grove.",
+            "effect": "Fix its leaf patterns as a stone garden. The transformed memory becomes durable but ceases growing. Original names do not return."
+          }
+        ],
+        "actionSchema": {
+          "combine": {
+            "type": "combine",
+            "a": "concept id",
+            "b": "concept id",
+            "at": "Only earth+water takes hollow, orchard or village"
+          },
+          "finish": {
+            "type": "finish",
+            "intention": "Optional short description of the world you choose to leave"
+          }
+        },
+        "legalActions": [
+          {
+            "type": "combine",
+            "a": "earth",
+            "b": "water",
+            "at": "orchard"
+          },
+          {
+            "type": "combine",
+            "a": "earth",
+            "b": "water",
+            "at": "village"
+          },
+          {
+            "type": "combine",
+            "a": "bell",
+            "b": "stone"
+          },
+          {
+            "type": "combine",
+            "a": "bell",
+            "b": "seed"
+          },
+          {
+            "type": "combine",
+            "a": "earth",
+            "b": "chorus"
+          },
+          {
+            "type": "finish"
+          }
+        ],
+        "previews": [
+          {
+            "action": {
+              "type": "combine",
+              "a": "earth",
+              "b": "water",
+              "at": "orchard"
+            },
+            "world": {
+              "river": "village",
+              "orchardSafe": true,
+              "villageSafe": false,
+              "riverContact": false,
+              "exactNames": true,
+              "protectedNames": false,
+              "precisePublicVoices": true,
+              "livingMemory": false,
+              "publicFragments": false,
+              "newGarden": false
+            },
+            "forms": {
+              "bell": "chorus",
+              "bank": "open",
+              "earthCourse": "orchard"
+            },
+            "status": "playing",
+            "newConcepts": [],
+            "disclosure": "All functional state effects are shown. Exact new narrative passages and story findings arrive only after commitment."
+          },
+          {
+            "action": {
+              "type": "combine",
+              "a": "earth",
+              "b": "water",
+              "at": "village"
+            },
+            "world": {
+              "river": "village",
+              "orchardSafe": true,
+              "villageSafe": false,
+              "riverContact": false,
+              "exactNames": true,
+              "protectedNames": false,
+              "precisePublicVoices": true,
+              "livingMemory": false,
+              "publicFragments": false,
+              "newGarden": false
+            },
+            "forms": {
+              "bell": "chorus",
+              "bank": "open",
+              "earthCourse": "village"
+            },
+            "status": "playing",
+            "newConcepts": [],
+            "disclosure": "All functional state effects are shown. Exact new narrative passages and story findings arrive only after commitment."
+          },
+          {
+            "action": {
+              "type": "combine",
+              "a": "bell",
+              "b": "stone"
+            },
+            "world": {
+              "river": "hollow",
+              "orchardSafe": true,
+              "villageSafe": true,
+              "riverContact": true,
+              "exactNames": true,
+              "protectedNames": true,
+              "precisePublicVoices": false,
+              "livingMemory": false,
+              "publicFragments": false,
+              "newGarden": false
+            },
+            "forms": {
+              "bell": "archive",
+              "bank": "open",
+              "earthCourse": "hollow"
+            },
+            "status": "playing",
+            "newConcepts": [
+              "archive"
+            ],
+            "discovery": "Preserve and inspect the ordering of the inscribed record. Exact findings are revealed only by committing.",
+            "disclosure": "All functional state effects are shown. Exact new narrative passages and story findings arrive only after commitment."
+          },
+          {
+            "action": {
+              "type": "combine",
+              "a": "bell",
+              "b": "seed"
+            },
+            "world": {
+              "river": "hollow",
+              "orchardSafe": true,
+              "villageSafe": true,
+              "riverContact": true,
+              "exactNames": false,
+              "protectedNames": false,
+              "precisePublicVoices": false,
+              "livingMemory": true,
+              "publicFragments": false,
+              "newGarden": false
+            },
+            "forms": {
+              "bell": "grove",
+              "bank": "open",
+              "earthCourse": "hollow"
+            },
+            "status": "playing",
+            "newConcepts": [
+              "grove"
+            ],
+            "discovery": "See lives interpreted as growing relationships. This will not be an exact spoken or written account.",
+            "disclosure": "All functional state effects are shown. Exact new narrative passages and story findings arrive only after commitment."
+          },
+          {
+            "action": {
+              "type": "combine",
+              "a": "earth",
+              "b": "chorus"
+            },
+            "world": {
+              "river": "hollow",
+              "orchardSafe": true,
+              "villageSafe": true,
+              "riverContact": false,
+              "exactNames": true,
+              "protectedNames": false,
+              "precisePublicVoices": true,
+              "livingMemory": false,
+              "publicFragments": false,
+              "newGarden": false
+            },
+            "forms": {
+              "bell": "chorus",
+              "bank": "wall",
+              "earthCourse": "hollow"
+            },
+            "status": "playing",
+            "newConcepts": [
+              "wall"
+            ],
+            "disclosure": "All functional state effects are shown. Exact new narrative passages and story findings arrive only after commitment."
+          }
+        ],
+        "knownStoryFacts": [
+          {
+            "id": "paired-names",
+            "fact": "On the exposed bell, Anwen’s name is joined to Rook’s by a cast line. Anwen was Mara’s mother. Mara was taught that Rook closed the city gate and abandoned the people behind it."
+          },
+          {
+            "id": "last-crossing",
+            "fact": "The voices speak to one another: Rook is holding the south ferry rope, Anwen the north. They send the children across first. One of those children is Mara. The gate closed against the river, not against the escaping children."
+          }
+        ],
+        "openQuestions": [
+          "You know more about the crossing now. What form should that knowledge take in the valley, if you want to pursue it further?"
+        ],
+        "invitations": [
+          {
+            "project": "Find a way for the village to live beside what you made.",
+            "arisesFrom": "The public voices drew the river toward its listeners."
+          },
+          {
+            "project": "Leave the valley here, if this is a world you want to have made.",
+            "arisesFrom": "Your initial intention is accomplished. Further pursuit is optional."
+          }
+        ],
+        "response": [
+          "Air enters the bell. Every village window answers with a name no living mouth remembers. The river turns toward those voices. Water rises over the village doorsteps; the orchard stays clear.",
+          "“South rope holding,” says Rook. “North rope holding,” answers Anwen. Then, together: “The children first.” Mara hears her own name among the passengers. The closing gate was turned against the river; two people held the crossing open.",
+          "At the village windows, the old story of abandonment gives way to the sound of people helping one another. Now the same voices are calling water over those doorsteps. What you learned remains true while you decide what to make of that consequence."
+        ]
+      }
+    },
+    {
+      "index": 2,
+      "action": {
+        "type": "combine",
+        "a": "bell",
+        "b": "stone"
+      },
+      "atMs": 39204,
+      "phase": "elective",
+      "before": "ca24aaf4",
+      "after": "2ccb27bc",
+      "observation": {
+        "version": "bell-orchard-2",
+        "scenario": "the-bell-orchard",
+        "title": "The Bell Orchard — two joined names",
+        "status": "playing",
+        "beginning": "After the rain, a flooded orchard, a village and a drowned city share one valley. Mara, once a child of that city, lives beside the survivors’ orchard.",
+        "initialIntention": "Let the orchard breathe again.",
+        "world": {
+          "river": "hollow",
+          "orchardSafe": true,
+          "villageSafe": true,
+          "riverContact": true,
+          "exactNames": true,
+          "protectedNames": true,
+          "precisePublicVoices": false,
+          "livingMemory": false,
+          "publicFragments": false,
+          "newGarden": false
+        },
+        "forms": {
+          "bell": "archive",
+          "bank": "open",
+          "earthCourse": "hollow"
+        },
+        "rules": [
+          "All combinations and their causal effects are public. These are invented laws of this valley, not historical or hydrological claims.",
+          "Earth gives water a course. A precise name spoken aloud calls the river toward its listeners. A solid bank blocks that pull but cuts river contact. Living roots can hold the water gently while transforming exact voices into growing patterns.",
+          "Concept capabilities remain known and inexhaustible. No material stocks, action credits, player clock, production wait or upkeep exist.",
+          "The historical bell and its names are properties of this one world. Knowing the concept bell does not copy a past world state. Rooting or sealing that particular memory changes what it can become.",
+          "A world response happens after each combination and then rests. Flooded places do not suffer an invisible damage tick while you think.",
+          "Saving the orchard is the initial intention. The invitations arising from what you make are optional; they are not a score checklist. You may finish once the orchard is clear, and the ending records the valley you leave.",
+          "A story discovery is different from recipe legality. Every combination, its prerequisites and functional world effects are public; an unperformed discovery does not print its exact new passage in advance.",
+          "Air can reveal spoken exchanges, Stone the ordering of a record, and Seed living relationships. These ways of knowing also transform the original memory according to the public laws.",
+          "Facts already learned stay learned. Changing the bell or its memory does not erase what Mara, the village or the player has already discovered."
+        ],
+        "concepts": [
+          {
+            "id": "earth",
+            "label": "earth"
+          },
+          {
+            "id": "water",
+            "label": "water"
+          },
+          {
+            "id": "air",
+            "label": "air"
+          },
+          {
+            "id": "seed",
+            "label": "seed"
+          },
+          {
+            "id": "stone",
+            "label": "stone"
+          },
+          {
+            "id": "bell",
+            "label": "bell"
+          },
+          {
+            "id": "channel",
+            "label": "channel"
+          },
+          {
+            "id": "chorus",
+            "label": "chorus"
+          },
+          {
+            "id": "archive",
+            "label": "archive"
+          }
+        ],
+        "recipes": [
+          {
+            "a": "earth",
+            "b": "water",
+            "at": [
+              "hollow",
+              "orchard",
+              "village"
+            ],
+            "requires": "No living or root-shaped anchor already fixes the river in the hollow.",
+            "effect": "Open one river course. Water leaves the other courses. Flow through the hollow exposes the buried bell. A chorus can call water away from the course unless a bank prevents it."
+          },
+          {
+            "a": "bell",
+            "b": "air",
+            "requires": "An exposed name-bearing bell.",
+            "effect": "Make every original name audible in the village. In this world water follows a precise name spoken aloud, so the river turns toward the village.",
+            "wayOfKnowing": "Hear the people’s voices and the relationships between their spoken words. Exact dialogue is revealed only by committing."
+          },
+          {
+            "a": "bell",
+            "b": "stone",
+            "requires": "An exposed or sounding name-bearing bell.",
+            "effect": "Close the original names in a stone archive. They become protected and exact, but silent. This form cannot be reopened by the available processes.",
+            "wayOfKnowing": "Preserve and inspect the ordering of the inscribed record. Exact findings are revealed only by committing."
+          },
+          {
+            "a": "bell",
+            "b": "seed",
+            "requires": "An exposed or sounding name-bearing bell.",
+            "effect": "Translate names into a listening grove. Roots anchor the river in the hollow. Living patterns preserve relationships, but the original exact names are irreversibly changed.",
+            "wayOfKnowing": "See lives interpreted as growing relationships. This will not be an exact spoken or written account."
+          },
+          {
+            "a": "earth",
+            "b": "chorus",
+            "requires": "A public chorus and an open village bank.",
+            "effect": "Raise a bank against the name-following river. The village becomes dry and can still hear exact voices, but loses contact with the river."
+          },
+          {
+            "a": "seed",
+            "b": "wall",
+            "requires": "A solid village bank.",
+            "effect": "Grow porous arches through the bank. Gentle water reconnects the village. The roots take the precise voices into a living reed song; only fragments remain audible."
+          },
+          {
+            "a": "air",
+            "b": "grove",
+            "requires": "A living listening grove; no village garden yet.",
+            "effect": "Carry descendants of the listening grove into the village. A new garden shares living memory; this cannot restore the original exact names."
+          },
+          {
+            "a": "stone",
+            "b": "grove",
+            "requires": "A living listening grove.",
+            "effect": "Fix its leaf patterns as a stone garden. The transformed memory becomes durable but ceases growing. Original names do not return."
+          }
+        ],
+        "actionSchema": {
+          "combine": {
+            "type": "combine",
+            "a": "concept id",
+            "b": "concept id",
+            "at": "Only earth+water takes hollow, orchard or village"
+          },
+          "finish": {
+            "type": "finish",
+            "intention": "Optional short description of the world you choose to leave"
+          }
+        },
+        "legalActions": [
+          {
+            "type": "combine",
+            "a": "earth",
+            "b": "water",
+            "at": "orchard"
+          },
+          {
+            "type": "combine",
+            "a": "earth",
+            "b": "water",
+            "at": "village"
+          },
+          {
+            "type": "finish"
+          }
+        ],
+        "previews": [
+          {
+            "action": {
+              "type": "combine",
+              "a": "earth",
+              "b": "water",
+              "at": "orchard"
+            },
+            "world": {
+              "river": "orchard",
+              "orchardSafe": false,
+              "villageSafe": true,
+              "riverContact": true,
+              "exactNames": true,
+              "protectedNames": true,
+              "precisePublicVoices": false,
+              "livingMemory": false,
+              "publicFragments": false,
+              "newGarden": false
+            },
+            "forms": {
+              "bell": "archive",
+              "bank": "open",
+              "earthCourse": "orchard"
+            },
+            "status": "playing",
+            "newConcepts": [],
+            "disclosure": "All functional state effects are shown. Exact new narrative passages and story findings arrive only after commitment."
+          },
+          {
+            "action": {
+              "type": "combine",
+              "a": "earth",
+              "b": "water",
+              "at": "village"
+            },
+            "world": {
+              "river": "village",
+              "orchardSafe": true,
+              "villageSafe": false,
+              "riverContact": false,
+              "exactNames": true,
+              "protectedNames": true,
+              "precisePublicVoices": false,
+              "livingMemory": false,
+              "publicFragments": false,
+              "newGarden": false
+            },
+            "forms": {
+              "bell": "archive",
+              "bank": "open",
+              "earthCourse": "village"
+            },
+            "status": "playing",
+            "newConcepts": [],
+            "disclosure": "All functional state effects are shown. Exact new narrative passages and story findings arrive only after commitment."
+          }
+        ],
+        "knownStoryFacts": [
+          {
+            "id": "paired-names",
+            "fact": "On the exposed bell, Anwen’s name is joined to Rook’s by a cast line. Anwen was Mara’s mother. Mara was taught that Rook closed the city gate and abandoned the people behind it."
+          },
+          {
+            "id": "last-crossing",
+            "fact": "The voices speak to one another: Rook is holding the south ferry rope, Anwen the north. They send the children across first. One of those children is Mara. The gate closed against the river, not against the escaping children."
+          },
+          {
+            "id": "ordered-record",
+            "fact": "The stone impression separates two kinds of names: those who held the ferry line and those who crossed. Anwen and Rook held its two ends; Mara is recorded among the children who crossed. The bell was not simply a list of the dead."
+          }
+        ],
+        "openQuestions": [
+          "You know more about the crossing now. What form should that knowledge take in the valley, if you want to pursue it further?"
+        ],
+        "invitations": [
+          {
+            "project": "Leave the valley here, if this is a world you want to have made.",
+            "arisesFrom": "Your initial intention is accomplished. Further pursuit is optional."
+          }
+        ],
+        "response": [
+          "Stone closes around the bell without altering a single name. The exact record is protected now. The voices cease. Water returns to its earth course; the city is no longer audible from the village windows.",
+          "Before the stone closes, its impression makes the inscription’s ordering legible. Anwen and Rook are at opposite ends of one ferry line. Below them are the names of children who crossed, including Mara. The bell was never only a list of the dead.",
+          "Mara traces the two ends of the line. “They held it together.” The exact record will stay here, even though the village will not hear the original voices from its windows."
+        ]
+      }
+    },
+    {
+      "index": 3,
+      "action": {
+        "type": "finish",
+        "intention": "Leave both settlements safe beside the river, with the exact crossing record protected and the story of Anwen and Rook corrected."
+      },
+      "atMs": 56984,
+      "phase": "elective",
+      "before": "2ccb27bc",
+      "after": "0ff28a84",
+      "observation": {
+        "version": "bell-orchard-2",
+        "scenario": "the-bell-orchard",
+        "title": "The Bell Orchard — two joined names",
+        "status": "won",
+        "beginning": "After the rain, a flooded orchard, a village and a drowned city share one valley. Mara, once a child of that city, lives beside the survivors’ orchard.",
+        "initialIntention": "Let the orchard breathe again.",
+        "world": {
+          "river": "hollow",
+          "orchardSafe": true,
+          "villageSafe": true,
+          "riverContact": true,
+          "exactNames": true,
+          "protectedNames": true,
+          "precisePublicVoices": false,
+          "livingMemory": false,
+          "publicFragments": false,
+          "newGarden": false
+        },
+        "forms": {
+          "bell": "archive",
+          "bank": "open",
+          "earthCourse": "hollow"
+        },
+        "rules": [
+          "All combinations and their causal effects are public. These are invented laws of this valley, not historical or hydrological claims.",
+          "Earth gives water a course. A precise name spoken aloud calls the river toward its listeners. A solid bank blocks that pull but cuts river contact. Living roots can hold the water gently while transforming exact voices into growing patterns.",
+          "Concept capabilities remain known and inexhaustible. No material stocks, action credits, player clock, production wait or upkeep exist.",
+          "The historical bell and its names are properties of this one world. Knowing the concept bell does not copy a past world state. Rooting or sealing that particular memory changes what it can become.",
+          "A world response happens after each combination and then rests. Flooded places do not suffer an invisible damage tick while you think.",
+          "Saving the orchard is the initial intention. The invitations arising from what you make are optional; they are not a score checklist. You may finish once the orchard is clear, and the ending records the valley you leave.",
+          "A story discovery is different from recipe legality. Every combination, its prerequisites and functional world effects are public; an unperformed discovery does not print its exact new passage in advance.",
+          "Air can reveal spoken exchanges, Stone the ordering of a record, and Seed living relationships. These ways of knowing also transform the original memory according to the public laws.",
+          "Facts already learned stay learned. Changing the bell or its memory does not erase what Mara, the village or the player has already discovered."
+        ],
+        "concepts": [
+          {
+            "id": "earth",
+            "label": "earth"
+          },
+          {
+            "id": "water",
+            "label": "water"
+          },
+          {
+            "id": "air",
+            "label": "air"
+          },
+          {
+            "id": "seed",
+            "label": "seed"
+          },
+          {
+            "id": "stone",
+            "label": "stone"
+          },
+          {
+            "id": "bell",
+            "label": "bell"
+          },
+          {
+            "id": "channel",
+            "label": "channel"
+          },
+          {
+            "id": "chorus",
+            "label": "chorus"
+          },
+          {
+            "id": "archive",
+            "label": "archive"
+          }
+        ],
+        "recipes": [
+          {
+            "a": "earth",
+            "b": "water",
+            "at": [
+              "hollow",
+              "orchard",
+              "village"
+            ],
+            "requires": "No living or root-shaped anchor already fixes the river in the hollow.",
+            "effect": "Open one river course. Water leaves the other courses. Flow through the hollow exposes the buried bell. A chorus can call water away from the course unless a bank prevents it."
+          },
+          {
+            "a": "bell",
+            "b": "air",
+            "requires": "An exposed name-bearing bell.",
+            "effect": "Make every original name audible in the village. In this world water follows a precise name spoken aloud, so the river turns toward the village.",
+            "wayOfKnowing": "Hear the people’s voices and the relationships between their spoken words. Exact dialogue is revealed only by committing."
+          },
+          {
+            "a": "bell",
+            "b": "stone",
+            "requires": "An exposed or sounding name-bearing bell.",
+            "effect": "Close the original names in a stone archive. They become protected and exact, but silent. This form cannot be reopened by the available processes.",
+            "wayOfKnowing": "Preserve and inspect the ordering of the inscribed record. Exact findings are revealed only by committing."
+          },
+          {
+            "a": "bell",
+            "b": "seed",
+            "requires": "An exposed or sounding name-bearing bell.",
+            "effect": "Translate names into a listening grove. Roots anchor the river in the hollow. Living patterns preserve relationships, but the original exact names are irreversibly changed.",
+            "wayOfKnowing": "See lives interpreted as growing relationships. This will not be an exact spoken or written account."
+          },
+          {
+            "a": "earth",
+            "b": "chorus",
+            "requires": "A public chorus and an open village bank.",
+            "effect": "Raise a bank against the name-following river. The village becomes dry and can still hear exact voices, but loses contact with the river."
+          },
+          {
+            "a": "seed",
+            "b": "wall",
+            "requires": "A solid village bank.",
+            "effect": "Grow porous arches through the bank. Gentle water reconnects the village. The roots take the precise voices into a living reed song; only fragments remain audible."
+          },
+          {
+            "a": "air",
+            "b": "grove",
+            "requires": "A living listening grove; no village garden yet.",
+            "effect": "Carry descendants of the listening grove into the village. A new garden shares living memory; this cannot restore the original exact names."
+          },
+          {
+            "a": "stone",
+            "b": "grove",
+            "requires": "A living listening grove.",
+            "effect": "Fix its leaf patterns as a stone garden. The transformed memory becomes durable but ceases growing. Original names do not return."
+          }
+        ],
+        "actionSchema": {
+          "combine": {
+            "type": "combine",
+            "a": "concept id",
+            "b": "concept id",
+            "at": "Only earth+water takes hollow, orchard or village"
+          },
+          "finish": {
+            "type": "finish",
+            "intention": "Optional short description of the world you choose to leave"
+          }
+        },
+        "legalActions": [],
+        "previews": [],
+        "knownStoryFacts": [
+          {
+            "id": "paired-names",
+            "fact": "On the exposed bell, Anwen’s name is joined to Rook’s by a cast line. Anwen was Mara’s mother. Mara was taught that Rook closed the city gate and abandoned the people behind it."
+          },
+          {
+            "id": "last-crossing",
+            "fact": "The voices speak to one another: Rook is holding the south ferry rope, Anwen the north. They send the children across first. One of those children is Mara. The gate closed against the river, not against the escaping children."
+          },
+          {
+            "id": "ordered-record",
+            "fact": "The stone impression separates two kinds of names: those who held the ferry line and those who crossed. Anwen and Rook held its two ends; Mara is recorded among the children who crossed. The bell was not simply a list of the dead."
+          }
+        ],
+        "openQuestions": [
+          "You know more about the crossing now. What form should that knowledge take in the valley, if you want to pursue it further?"
+        ],
+        "invitations": [
+          {
+            "project": "Leave the valley here, if this is a world you want to have made.",
+            "arisesFrom": "Your initial intention is accomplished. Further pursuit is optional."
+          }
+        ],
+        "response": [
+          "The orchard breathes. The village doorsteps are dry. People can approach the river. The exact names rest protected in silent stone. Mara and the village have heard a part of the crossing that their old story left out."
+        ],
+        "ending": "The orchard breathes. The village doorsteps are dry. People can approach the river. The exact names rest protected in silent stone. Mara and the village have heard a part of the crossing that their old story left out."
+      }
+    }
+  ],
+  "attempts": [],
+  "previews": [],
+  "checkpoints": [
+    {
+      "decisionIndex": 1,
+      "reason": "Assigned exposure complete; stopping is a valid result."
+    }
+  ],
+  "continuations": [
+    {
+      "decisionIndex": 1,
+      "intention": "Hear the spoken context behind the joined names of Anwen and Rook, then decide how to leave the valley.",
+      "source": "elicited under test prompt; the world supplied the question and I adopted it",
+      "recordedAt": "2026-10-25T23:18:52.063Z"
+    }
+  ],
+  "continuation": {
+    "decisionIndex": 1,
+    "intention": "Hear the spoken context behind the joined names of Anwen and Rook, then decide how to leave the valley.",
+    "source": "elicited under test prompt; the world supplied the question and I adopted it",
+    "recordedAt": "2026-10-25T23:18:52.063Z"
+  },
+  "report": {
+    "perspective": "AI player account only; no claim about human enjoyment",
+    "experienceSequence": [
+      "Recognized the familiar safe hollow diversion and performed it without new mechanical uncertainty.",
+      "Reached the required checkpoint after clearing the orchard.",
+      "The joined names and apparent contradiction in the story of Rook gave me a specific reason to continue.",
+      "Declared continuation and chose air for spoken context, accepting the publicly known temporary flood.",
+      "The exchange answered my question: Anwen and Rook held the crossing while the children escaped.",
+      "Chose stone to preserve an exact record and restore safety and river contact.",
+      "Finished after two optional combinations because the adopted question was answered and the valley was in a satisfactory state."
+    ],
+    "noticedResponses": [
+      "The cast line joins the name of a survivor mother to a person accused of abandonment.",
+      "The voices address each other and name Mara among the children, giving the revelation a specific human connection.",
+      "The archive distinguishes the people holding the ferry from those crossing; it is not only a list of the dead.",
+      "Previously learned facts remain known after the bell is sealed, so the village retains the correction without continuing to hear the original voices."
+    ],
+    "narrativeQuestion": "Why are Anwen and Rook joined if Rook abandoned the city?",
+    "passageThatMattered": "South rope holding / North rope holding / The children first. The paired voices make the joined inscription intelligible and connect the answer to Mara.",
+    "appreciation": "The relation among the cast line, ferry rope and two people acting together gives the imagery coherence. This is story appreciation.",
+    "curiosity": "I wanted the answer to one concrete contradiction. I chose spoken context over the other offered methods of knowing. That curiosity ended when the exchange answered it.",
+    "behavior": {
+      "checkpointReached": true,
+      "continued": true,
+      "optionalCombinations": 2,
+      "sequence": [
+        "bell + air",
+        "bell + stone"
+      ],
+      "allFunctionalOutcomesExpected": true,
+      "noExhaustiveExploration": true
+    },
+    "intentionSource": "The world supplied the question and methods. I adopted the question as a reason to act; I did not invent an independent project or continue just to cover the revision. The test prompt elicited a decision about continuation but did not require it.",
+    "comparisonWithQuietClosure": "In fun-bell-1 I had no reason to disturb exact private memory once both places were safe. Here a particular unresolved history gave me that reason. The revision changed my continuation behavior, while the safe initial combination remained just as obvious.",
+    "logicalChallenge": "Low. I selected an interpretation method and a final memory form, but did not need to infer hidden causal rules or solve a difficult sequence. Air can supply its answer before stone repairs the flood, and learned facts persist. For my goal this makes hear-then-seal straightforward. The loss of ongoing voices mattered as a chosen value, but it did not block retaining the discovered truth.",
+    "meaningfulRepetition": {
+      "scale": "0 none to 4 strong; AI stated willingness",
+      "sameInstanceAgain": 0,
+      "repeatInitialDiversionForItself": 0,
+      "alternateMethodForKnownQuestion": 1,
+      "newQuestionWithConsequentialMethods": 2,
+      "explanation": "Replaying the same answer would mainly be rereading. I have mild comparative interest in another interpretation, but no current project strong enough to restart for it."
+    },
+    "automaticResolutionLoss": "Automatically diverting the river would lose little challenge. Automatically choosing air then stone would remove authorship over what form of knowledge and final memory to keep, but much of the value I pursued could still be delivered as a written story. This play does not establish durable fun in repeated combinations.",
+    "actualStoppingReason": "The specific adopted mystery was answered; the exact record was protected; both places were safe and river contact restored. I did not want more recipe completion or another memory transformation.",
+    "wantToDiscoverNext": "No further question in this instance currently motivates action."
+  }
+}

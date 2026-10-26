@@ -1,0 +1,4693 @@
+{
+  "schema": 1,
+  "id": "fun-frontier-interest-1",
+  "game": "frontier",
+  "version": "frontier-2",
+  "scenario": "crossings",
+  "seed": 0,
+  "condition": "fresh-elective-primitive-interest",
+  "protocolVersion": "logical-cli-5",
+  "startedAt": "2026-10-26T01:13:09.333Z",
+  "initialObservation": {
+    "version": "frontier-2",
+    "scenario": "crossings",
+    "time": 0,
+    "status": "playing",
+    "columns": "ABCDEFGHIJK",
+    "rows": [
+      {
+        "row": 1,
+        "cells": ".. .. .. .. .. ## .. .. .. .. .."
+      },
+      {
+        "row": 2,
+        "cells": ".. .. .. .. ~~ ## .. .. .. .. .."
+      },
+      {
+        "row": 3,
+        "cells": ".. bR .. .. ~~ .. ~~ .. .. aR .."
+      },
+      {
+        "row": 4,
+        "cells": ".. bF .. .. ~~ ## ~~ .. .. aF .."
+      },
+      {
+        "row": 5,
+        "cells": ".. bS .. ## .. .. .. ## .. aS .."
+      },
+      {
+        "row": 6,
+        "cells": ".. bR .. .. ~~ ## ~~ .. .. aR .."
+      },
+      {
+        "row": 7,
+        "cells": ".. bF .. .. ~~ .. ~~ .. .. aF .."
+      },
+      {
+        "row": 8,
+        "cells": ".. .. .. .. ~~ ## .. .. .. .. .."
+      },
+      {
+        "row": 9,
+        "cells": ".. .. .. .. .. ## .. .. .. .. .."
+      }
+    ],
+    "legend": "b blue / a amber; R root F flame S shell; ## stone ~~ water .. ground. Direction N/E/S/W. Compact trail tuple: [place,lineage+kind,exits,history,closed,contact-lineages]. Tips: lineage:place:incoming-heading:path. Complete values can be requested with full=true.",
+    "counterpart": {
+      "plan": {
+        "type": "combine",
+        "a": "flame",
+        "b": "straight",
+        "at": "J5",
+        "toward": "E"
+      },
+      "purpose": "form a living circuit",
+      "cherished": []
+    },
+    "tips": [
+      "blue:B3:E:fork",
+      "blue:B5:E:fork",
+      "blue:B7:E:fork",
+      "amber:J3:W:fork",
+      "amber:J5:W:fork",
+      "amber:J7:W:fork"
+    ],
+    "terrain": {
+      "water": [
+        "E2",
+        "E3",
+        "G3",
+        "E4",
+        "G4",
+        "E6",
+        "G6",
+        "E7",
+        "G7",
+        "E8"
+      ],
+      "stone": [
+        "F1",
+        "F2",
+        "F4",
+        "D5",
+        "H5",
+        "F6",
+        "F8",
+        "F9"
+      ]
+    },
+    "trails": [
+      [
+        "B3",
+        "br",
+        "E",
+        "E",
+        "",
+        ""
+      ],
+      [
+        "J3",
+        "ar",
+        "W",
+        "W",
+        "",
+        ""
+      ],
+      [
+        "B4",
+        "bf",
+        "E",
+        "E",
+        "",
+        ""
+      ],
+      [
+        "J4",
+        "af",
+        "W",
+        "W",
+        "",
+        ""
+      ],
+      [
+        "B5",
+        "bs",
+        "E",
+        "E",
+        "",
+        ""
+      ],
+      [
+        "J5",
+        "as",
+        "W",
+        "W",
+        "",
+        ""
+      ],
+      [
+        "B6",
+        "br",
+        "E",
+        "E",
+        "",
+        ""
+      ],
+      [
+        "J6",
+        "ar",
+        "W",
+        "W",
+        "",
+        ""
+      ],
+      [
+        "B7",
+        "bf",
+        "E",
+        "E",
+        "",
+        ""
+      ],
+      [
+        "J7",
+        "af",
+        "W",
+        "W",
+        "",
+        ""
+      ]
+    ],
+    "availability": {
+      "places": [
+        "B2",
+        "A3",
+        "B3",
+        "C3",
+        "A4",
+        "B4",
+        "C4",
+        "A5",
+        "B5",
+        "C5",
+        "A6",
+        "B6",
+        "C6",
+        "A7",
+        "B7",
+        "C7",
+        "B8"
+      ],
+      "flameOnly": [],
+      "memoryRoot": [
+        "B3",
+        "B4",
+        "B5",
+        "B6",
+        "B7"
+      ],
+      "memoryShell": [
+        "B3",
+        "B4",
+        "B5",
+        "B6",
+        "B7"
+      ],
+      "reopen": []
+    },
+    "changes": [],
+    "outcome": {
+      "terminal": false,
+      "goal": false,
+      "dimensions": {
+        "blueReach": 5,
+        "amberReach": 5,
+        "blueTips": 3,
+        "amberTips": 3,
+        "contactPlaces": 0,
+        "connectedEasternReach": 0,
+        "livingCircuit": 0,
+        "homeCircuitEasternReach": 0
+      },
+      "circuits": [],
+      "direction": {
+        "blueReach": "descriptive",
+        "amberReach": "descriptive",
+        "blueTips": "descriptive",
+        "amberTips": "descriptive",
+        "contactPlaces": "descriptive",
+        "connectedEasternReach": "descriptive",
+        "livingCircuit": "descriptive",
+        "homeCircuitEasternReach": "higher (initial aim)"
+      },
+      "stopping": "Finish is always available. The initial invitation is one connected blue construction containing B5, column I or farther, and a living circuit in that same component; coexistence, conquest or quiet isolation are optional projects."
+    },
+    "inspect": "Public CLI: rules SESSION; actions SESSION [JSON_FILTER]; preview SESSION JSON_ACTION. The other lineage’s announced action is part of the public state."
+  },
+  "decisions": [
+    {
+      "index": 0,
+      "action": {
+        "type": "combine",
+        "a": "flame",
+        "b": "straight",
+        "at": "C5",
+        "toward": "E"
+      },
+      "prediction": {
+        "episode": "central-bridge",
+        "intention": "Create a direct connected passage from our shell home across the two stone gates toward the other lineage.",
+        "expected": "Flame passes D5 and H5; amber may defend the far end. I want to see whether the bridge becomes a shared boundary.",
+        "alternative": "The open northern and southern passes would avoid stone, but the direct bridge appeals as a stable central feature."
+      },
+      "atMs": 21226,
+      "phase": "assigned",
+      "before": "36c422a0",
+      "after": "300fa802",
+      "observation": {
+        "version": "frontier-2",
+        "scenario": "crossings",
+        "time": 1,
+        "status": "playing",
+        "columns": "ABCDEFGHIJK",
+        "rows": [
+          {
+            "row": 1,
+            "cells": ".. .. .. .. .. ## .. .. .. .. .."
+          },
+          {
+            "row": 2,
+            "cells": ".. .. .. .. ~~ ## .. .. .. .. .."
+          },
+          {
+            "row": 3,
+            "cells": ".. bR bR .. ~~ .. ~~ .. aR aR .."
+          },
+          {
+            "row": 4,
+            "cells": ".. bF .. .. ~~ ## ~~ .. .. aF .."
+          },
+          {
+            "row": 5,
+            "cells": ".. bS bF bF .. .. .. ## .. aF aF"
+          },
+          {
+            "row": 6,
+            "cells": ".. bR .. .. ~~ ## ~~ .. .. aR .."
+          },
+          {
+            "row": 7,
+            "cells": ".. bF bF .. ~~ .. ~~ .. aF aF .."
+          },
+          {
+            "row": 8,
+            "cells": ".. .. .. .. ~~ ## .. .. .. .. .."
+          },
+          {
+            "row": 9,
+            "cells": ".. .. .. .. .. ## .. .. .. .. .."
+          }
+        ],
+        "legend": "b blue / a amber; R root F flame S shell; ## stone ~~ water .. ground. Direction N/E/S/W. Compact trail tuple: [place,lineage+kind,exits,history,closed,contact-lineages]. Tips: lineage:place:incoming-heading:path. Complete values can be requested with full=true.",
+        "counterpart": {
+          "plan": {
+            "type": "combine",
+            "a": "memory",
+            "b": "root",
+            "at": "J5"
+          },
+          "purpose": "form a living circuit",
+          "cherished": []
+        },
+        "tips": [
+          "amber:I3:W:fork",
+          "amber:I7:W:fork",
+          "amber:K5:E:straight",
+          "blue:C3:E:fork",
+          "blue:C5:E:fork",
+          "blue:C7:E:fork",
+          "blue:D5:E:straight"
+        ],
+        "terrain": {
+          "water": [
+            "E2",
+            "E3",
+            "G3",
+            "E4",
+            "G4",
+            "E6",
+            "G6",
+            "E7",
+            "G7",
+            "E8"
+          ],
+          "stone": [
+            "F1",
+            "F2",
+            "F4",
+            "D5",
+            "H5",
+            "F6",
+            "F8",
+            "F9"
+          ]
+        },
+        "trails": [
+          [
+            "B3",
+            "br",
+            "E",
+            "E",
+            "",
+            ""
+          ],
+          [
+            "C3",
+            "br",
+            "NS",
+            "E",
+            "",
+            ""
+          ],
+          [
+            "I3",
+            "ar",
+            "NS",
+            "W",
+            "",
+            ""
+          ],
+          [
+            "J3",
+            "ar",
+            "W",
+            "W",
+            "",
+            ""
+          ],
+          [
+            "B4",
+            "bf",
+            "E",
+            "E",
+            "",
+            ""
+          ],
+          [
+            "J4",
+            "af",
+            "W",
+            "W",
+            "",
+            ""
+          ],
+          [
+            "B5",
+            "bs",
+            "E",
+            "E",
+            "",
+            ""
+          ],
+          [
+            "C5",
+            "bf",
+            "E",
+            "E",
+            "",
+            ""
+          ],
+          [
+            "D5",
+            "bf",
+            "E",
+            "E",
+            "",
+            ""
+          ],
+          [
+            "J5",
+            "af",
+            "E",
+            "EW",
+            "",
+            ""
+          ],
+          [
+            "K5",
+            "af",
+            "E",
+            "E",
+            "",
+            ""
+          ],
+          [
+            "B6",
+            "br",
+            "E",
+            "E",
+            "",
+            ""
+          ],
+          [
+            "J6",
+            "ar",
+            "W",
+            "W",
+            "",
+            ""
+          ],
+          [
+            "B7",
+            "bf",
+            "E",
+            "E",
+            "",
+            ""
+          ],
+          [
+            "C7",
+            "bf",
+            "NS",
+            "E",
+            "",
+            ""
+          ],
+          [
+            "I7",
+            "af",
+            "NS",
+            "W",
+            "",
+            ""
+          ],
+          [
+            "J7",
+            "af",
+            "W",
+            "W",
+            "",
+            ""
+          ]
+        ],
+        "availability": {
+          "places": [
+            "B2",
+            "C2",
+            "A3",
+            "B3",
+            "C3",
+            "D3",
+            "A4",
+            "B4",
+            "C4",
+            "D4",
+            "A5",
+            "B5",
+            "C5",
+            "D5",
+            "E5",
+            "A6",
+            "B6",
+            "C6",
+            "D6",
+            "A7",
+            "B7",
+            "C7",
+            "D7",
+            "B8",
+            "C8"
+          ],
+          "flameOnly": [
+            "D5"
+          ],
+          "memoryRoot": [
+            "B3",
+            "C3",
+            "B4",
+            "B5",
+            "C5",
+            "D5",
+            "B6",
+            "B7",
+            "C7"
+          ],
+          "memoryShell": [
+            "B3",
+            "C3",
+            "B4",
+            "B5",
+            "C5",
+            "D5",
+            "B6",
+            "B7",
+            "C7"
+          ],
+          "reopen": []
+        },
+        "changes": [
+          {
+            "kind": "combine",
+            "at": "C5",
+            "lineage": "blue"
+          },
+          {
+            "kind": "combine",
+            "at": "J5",
+            "lineage": "amber"
+          },
+          {
+            "kind": "grow",
+            "at": "C3",
+            "lineage": "blue",
+            "from": "B3"
+          },
+          {
+            "kind": "grow",
+            "at": "C7",
+            "lineage": "blue",
+            "from": "B7"
+          },
+          {
+            "kind": "grow",
+            "at": "I3",
+            "lineage": "amber",
+            "from": "J3"
+          },
+          {
+            "kind": "grow",
+            "at": "I7",
+            "lineage": "amber",
+            "from": "J7"
+          },
+          {
+            "kind": "grow",
+            "at": "D5",
+            "lineage": "blue",
+            "from": "C5"
+          },
+          {
+            "kind": "grow",
+            "at": "K5",
+            "lineage": "amber",
+            "from": "J5"
+          }
+        ],
+        "outcome": {
+          "terminal": false,
+          "goal": false,
+          "dimensions": {
+            "blueReach": 9,
+            "amberReach": 8,
+            "blueTips": 4,
+            "amberTips": 3,
+            "contactPlaces": 0,
+            "connectedEasternReach": 0,
+            "livingCircuit": 0,
+            "homeCircuitEasternReach": 0
+          },
+          "circuits": [],
+          "direction": {
+            "blueReach": "descriptive",
+            "amberReach": "descriptive",
+            "blueTips": "descriptive",
+            "amberTips": "descriptive",
+            "contactPlaces": "descriptive",
+            "connectedEasternReach": "descriptive",
+            "livingCircuit": "descriptive",
+            "homeCircuitEasternReach": "higher (initial aim)"
+          },
+          "stopping": "Finish is always available. The initial invitation is one connected blue construction containing B5, column I or farther, and a living circuit in that same component; coexistence, conquest or quiet isolation are optional projects."
+        },
+        "inspect": "Public CLI: rules SESSION; actions SESSION [JSON_FILTER]; preview SESSION JSON_ACTION. The other lineage’s announced action is part of the public state."
+      }
+    },
+    {
+      "index": 1,
+      "action": {
+        "type": "combine",
+        "a": "flame",
+        "b": "right",
+        "at": "C4",
+        "toward": "N"
+      },
+      "prediction": {
+        "episode": "home-loop",
+        "intention": "Give the bridge a small circulating hearth beside home while its leading flame continues east.",
+        "expected": "A right-turning flame should walk C4-D4-D5-C5. Existing exits may need adjustment before it can close.",
+        "alternative": "I could keep placing at the front, but I care more about the bridge having a living home end."
+      },
+      "atMs": 49431,
+      "phase": "assigned",
+      "before": "300fa802",
+      "after": "f4aa54fd",
+      "observation": {
+        "version": "frontier-2",
+        "scenario": "crossings",
+        "time": 2,
+        "status": "playing",
+        "columns": "ABCDEFGHIJK",
+        "rows": [
+          {
+            "row": 1,
+            "cells": ".. .. .. .. .. ## .. .. .. .. .."
+          },
+          {
+            "row": 2,
+            "cells": ".. .. bR .. ~~ ## .. .. aR .. .."
+          },
+          {
+            "row": 3,
+            "cells": ".. bR bR .. ~~ .. ~~ .. aR aR .."
+          },
+          {
+            "row": 4,
+            "cells": ".. bF bF bF ~~ ## ~~ .. aR aF .."
+          },
+          {
+            "row": 5,
+            "cells": ".. bS bF bF bF .. .. ## aR aR aF"
+          },
+          {
+            "row": 6,
+            "cells": ".. bR bF .. ~~ ## ~~ .. aF aR .."
+          },
+          {
+            "row": 7,
+            "cells": ".. bF bF .. ~~ .. ~~ .. aF aF .."
+          },
+          {
+            "row": 8,
+            "cells": ".. .. bF .. ~~ ## .. .. aF .. .."
+          },
+          {
+            "row": 9,
+            "cells": ".. .. .. .. .. ## .. .. .. .. .."
+          }
+        ],
+        "legend": "b blue / a amber; R root F flame S shell; ## stone ~~ water .. ground. Direction N/E/S/W. Compact trail tuple: [place,lineage+kind,exits,history,closed,contact-lineages]. Tips: lineage:place:incoming-heading:path. Complete values can be requested with full=true.",
+        "counterpart": {
+          "plan": {
+            "type": "combine",
+            "a": "flame",
+            "b": "straight",
+            "at": "I5",
+            "toward": "W"
+          },
+          "purpose": "form a living circuit",
+          "cherished": []
+        },
+        "tips": [
+          "amber:I2:N:fork",
+          "amber:I4:S:fork",
+          "amber:I5:W:straight",
+          "amber:I6:N:fork",
+          "amber:I8:S:fork",
+          "amber:K5:E:straight",
+          "blue:C2:N:fork",
+          "blue:C4:S:fork",
+          "blue:C6:N:fork",
+          "blue:C8:S:fork",
+          "blue:D4:E:right",
+          "blue:D5:E:fork",
+          "blue:E5:E:straight"
+        ],
+        "terrain": {
+          "water": [
+            "E2",
+            "E3",
+            "G3",
+            "E4",
+            "G4",
+            "E6",
+            "G6",
+            "E7",
+            "G7",
+            "E8"
+          ],
+          "stone": [
+            "F1",
+            "F2",
+            "F4",
+            "D5",
+            "H5",
+            "F6",
+            "F8",
+            "F9"
+          ]
+        },
+        "trails": [
+          [
+            "C2",
+            "br",
+            "EW",
+            "N",
+            "",
+            ""
+          ],
+          [
+            "I2",
+            "ar",
+            "EW",
+            "N",
+            "",
+            ""
+          ],
+          [
+            "B3",
+            "br",
+            "E",
+            "E",
+            "",
+            ""
+          ],
+          [
+            "C3",
+            "br",
+            "NS",
+            "E",
+            "",
+            ""
+          ],
+          [
+            "I3",
+            "ar",
+            "NS",
+            "W",
+            "",
+            ""
+          ],
+          [
+            "J3",
+            "ar",
+            "W",
+            "W",
+            "",
+            ""
+          ],
+          [
+            "B4",
+            "bf",
+            "E",
+            "E",
+            "",
+            ""
+          ],
+          [
+            "C4",
+            "bf",
+            "E",
+            "NS",
+            "",
+            ""
+          ],
+          [
+            "D4",
+            "bf",
+            "S",
+            "E",
+            "",
+            ""
+          ],
+          [
+            "I4",
+            "ar",
+            "EW",
+            "S",
+            "",
+            ""
+          ],
+          [
+            "J4",
+            "af",
+            "W",
+            "W",
+            "",
+            ""
+          ],
+          [
+            "B5",
+            "bs",
+            "E",
+            "E",
+            "",
+            ""
+          ],
+          [
+            "C5",
+            "bf",
+            "E",
+            "E",
+            "",
+            ""
+          ],
+          [
+            "D5",
+            "bf",
+            "E",
+            "E",
+            "",
+            ""
+          ],
+          [
+            "E5",
+            "bf",
+            "E",
+            "E",
+            "",
+            ""
+          ],
+          [
+            "I5",
+            "ar",
+            "W",
+            "W",
+            "",
+            ""
+          ],
+          [
+            "J5",
+            "ar",
+            "EW",
+            "EW",
+            "",
+            ""
+          ],
+          [
+            "K5",
+            "af",
+            "E",
+            "E",
+            "",
+            ""
+          ],
+          [
+            "B6",
+            "br",
+            "E",
+            "E",
+            "",
+            ""
+          ],
+          [
+            "C6",
+            "bf",
+            "EW",
+            "N",
+            "",
+            ""
+          ],
+          [
+            "I6",
+            "af",
+            "EW",
+            "N",
+            "",
+            ""
+          ],
+          [
+            "J6",
+            "ar",
+            "W",
+            "W",
+            "",
+            ""
+          ],
+          [
+            "B7",
+            "bf",
+            "E",
+            "E",
+            "",
+            ""
+          ],
+          [
+            "C7",
+            "bf",
+            "NS",
+            "E",
+            "",
+            ""
+          ],
+          [
+            "I7",
+            "af",
+            "NS",
+            "W",
+            "",
+            ""
+          ],
+          [
+            "J7",
+            "af",
+            "W",
+            "W",
+            "",
+            ""
+          ],
+          [
+            "C8",
+            "bf",
+            "EW",
+            "S",
+            "",
+            ""
+          ],
+          [
+            "I8",
+            "af",
+            "EW",
+            "S",
+            "",
+            ""
+          ]
+        ],
+        "availability": {
+          "places": [
+            "C1",
+            "B2",
+            "C2",
+            "D2",
+            "A3",
+            "B3",
+            "C3",
+            "D3",
+            "A4",
+            "B4",
+            "C4",
+            "D4",
+            "E4",
+            "A5",
+            "B5",
+            "C5",
+            "D5",
+            "E5",
+            "F5",
+            "A6",
+            "B6",
+            "C6",
+            "D6",
+            "E6",
+            "A7",
+            "B7",
+            "C7",
+            "D7",
+            "B8",
+            "C8",
+            "D8",
+            "C9"
+          ],
+          "flameOnly": [
+            "D5"
+          ],
+          "memoryRoot": [
+            "C2",
+            "B3",
+            "C3",
+            "B4",
+            "C4",
+            "D4",
+            "B5",
+            "C5",
+            "D5",
+            "E5",
+            "B6",
+            "C6",
+            "B7",
+            "C7",
+            "C8"
+          ],
+          "memoryShell": [
+            "C2",
+            "B3",
+            "C3",
+            "B4",
+            "C4",
+            "D4",
+            "B5",
+            "C5",
+            "D5",
+            "E5",
+            "B6",
+            "C6",
+            "B7",
+            "C7",
+            "C8"
+          ],
+          "reopen": []
+        },
+        "changes": [
+          {
+            "kind": "combine",
+            "at": "C4",
+            "lineage": "blue"
+          },
+          {
+            "kind": "combine",
+            "at": "J5",
+            "lineage": "amber"
+          },
+          {
+            "kind": "grow",
+            "at": "I2",
+            "lineage": "amber",
+            "from": "I3"
+          },
+          {
+            "kind": "grow",
+            "at": "I4",
+            "lineage": "amber",
+            "from": "I3"
+          },
+          {
+            "kind": "grow",
+            "at": "I6",
+            "lineage": "amber",
+            "from": "I7"
+          },
+          {
+            "kind": "grow",
+            "at": "I8",
+            "lineage": "amber",
+            "from": "I7"
+          },
+          {
+            "kind": "grow",
+            "at": "C2",
+            "lineage": "blue",
+            "from": "C3"
+          },
+          {
+            "kind": "grow",
+            "at": "C6",
+            "lineage": "blue",
+            "from": "C7"
+          },
+          {
+            "kind": "grow",
+            "at": "C8",
+            "lineage": "blue",
+            "from": "C7"
+          },
+          {
+            "kind": "grow",
+            "at": "E5",
+            "lineage": "blue",
+            "from": "D5"
+          },
+          {
+            "kind": "grow",
+            "at": "D4",
+            "lineage": "blue",
+            "from": "C4"
+          },
+          {
+            "kind": "grow",
+            "at": "I5",
+            "lineage": "amber",
+            "from": "J5"
+          }
+        ],
+        "outcome": {
+          "terminal": false,
+          "goal": false,
+          "dimensions": {
+            "blueReach": 15,
+            "amberReach": 13,
+            "blueTips": 7,
+            "amberTips": 6,
+            "contactPlaces": 0,
+            "connectedEasternReach": 0,
+            "livingCircuit": 0,
+            "homeCircuitEasternReach": 0
+          },
+          "circuits": [],
+          "direction": {
+            "blueReach": "descriptive",
+            "amberReach": "descriptive",
+            "blueTips": "descriptive",
+            "amberTips": "descriptive",
+            "contactPlaces": "descriptive",
+            "connectedEasternReach": "descriptive",
+            "livingCircuit": "descriptive",
+            "homeCircuitEasternReach": "higher (initial aim)"
+          },
+          "stopping": "Finish is always available. The initial invitation is one connected blue construction containing B5, column I or farther, and a living circuit in that same component; coexistence, conquest or quiet isolation are optional projects."
+        },
+        "inspect": "Public CLI: rules SESSION; actions SESSION [JSON_FILTER]; preview SESSION JSON_ACTION. The other lineage’s announced action is part of the public state."
+      }
+    },
+    {
+      "index": 2,
+      "action": {
+        "type": "combine",
+        "a": "flame",
+        "b": "right",
+        "at": "D5",
+        "toward": "S"
+      },
+      "prediction": {
+        "episode": "home-loop",
+        "expected": "Turn the hearth return west through the stone gate, retaining the earlier flame beyond it."
+      },
+      "atMs": 58287,
+      "phase": "assigned",
+      "before": "f4aa54fd",
+      "after": "c5157c78",
+      "observation": {
+        "version": "frontier-2",
+        "scenario": "crossings",
+        "time": 3,
+        "status": "playing",
+        "columns": "ABCDEFGHIJK",
+        "rows": [
+          {
+            "row": 1,
+            "cells": ".. .. .. .. .. ## .. .. .. .. .."
+          },
+          {
+            "row": 2,
+            "cells": ".. bR bR bR ~~ ## .. aR aR aR .."
+          },
+          {
+            "row": 3,
+            "cells": ".. bR bR .. ~~ .. ~~ .. aR aR .."
+          },
+          {
+            "row": 4,
+            "cells": ".. bF bF bF ~~ ## ~~ aR aR aF .."
+          },
+          {
+            "row": 5,
+            "cells": ".. bS bF bF bF bF .. aF aF aR aF"
+          },
+          {
+            "row": 6,
+            "cells": ".. bR bF bF ~~ ## ~~ aF aF aR .."
+          },
+          {
+            "row": 7,
+            "cells": ".. bF bF .. ~~ .. ~~ .. aF aF .."
+          },
+          {
+            "row": 8,
+            "cells": ".. bF bF bF ~~ ## .. aF aF aF .."
+          },
+          {
+            "row": 9,
+            "cells": ".. .. .. .. .. ## .. .. .. .. .."
+          }
+        ],
+        "legend": "b blue / a amber; R root F flame S shell; ## stone ~~ water .. ground. Direction N/E/S/W. Compact trail tuple: [place,lineage+kind,exits,history,closed,contact-lineages]. Tips: lineage:place:incoming-heading:path. Complete values can be requested with full=true.",
+        "counterpart": {
+          "plan": {
+            "type": "combine",
+            "a": "flame",
+            "b": "straight",
+            "at": "J4",
+            "toward": "E"
+          },
+          "purpose": "extend while keeping remembered circuit",
+          "cherished": [
+            "I2",
+            "I3",
+            "J2",
+            "J3"
+          ]
+        },
+        "tips": [
+          "amber:H2:W:fork",
+          "amber:H4:W:fork",
+          "amber:H5:W:straight",
+          "amber:H6:W:fork",
+          "amber:H8:W:fork",
+          "amber:J2:E:fork",
+          "amber:J4:E:fork",
+          "amber:J6:E:fork",
+          "amber:J8:E:fork",
+          "amber:K5:E:straight",
+          "blue:B2:W:fork",
+          "blue:B6:W:fork",
+          "blue:B8:W:fork",
+          "blue:C5:W:right",
+          "blue:D2:E:fork",
+          "blue:D4:E:fork",
+          "blue:D5:S:right",
+          "blue:D6:E:fork",
+          "blue:D8:E:fork",
+          "blue:F5:E:straight"
+        ],
+        "terrain": {
+          "water": [
+            "E2",
+            "E3",
+            "G3",
+            "E4",
+            "G4",
+            "E6",
+            "G6",
+            "E7",
+            "G7",
+            "E8"
+          ],
+          "stone": [
+            "F1",
+            "F2",
+            "F4",
+            "D5",
+            "H5",
+            "F6",
+            "F8",
+            "F9"
+          ]
+        },
+        "trails": [
+          [
+            "B2",
+            "br",
+            "NS",
+            "W",
+            "",
+            ""
+          ],
+          [
+            "C2",
+            "br",
+            "EW",
+            "N",
+            "",
+            ""
+          ],
+          [
+            "D2",
+            "br",
+            "NS",
+            "E",
+            "",
+            ""
+          ],
+          [
+            "H2",
+            "ar",
+            "NS",
+            "W",
+            "",
+            ""
+          ],
+          [
+            "I2",
+            "ar",
+            "EW",
+            "N",
+            "",
+            ""
+          ],
+          [
+            "J2",
+            "ar",
+            "NS",
+            "E",
+            "",
+            ""
+          ],
+          [
+            "B3",
+            "br",
+            "E",
+            "E",
+            "",
+            ""
+          ],
+          [
+            "C3",
+            "br",
+            "NS",
+            "E",
+            "",
+            ""
+          ],
+          [
+            "I3",
+            "ar",
+            "NS",
+            "W",
+            "",
+            ""
+          ],
+          [
+            "J3",
+            "ar",
+            "W",
+            "W",
+            "",
+            ""
+          ],
+          [
+            "B4",
+            "bf",
+            "E",
+            "E",
+            "",
+            ""
+          ],
+          [
+            "C4",
+            "bf",
+            "E",
+            "NS",
+            "",
+            ""
+          ],
+          [
+            "D4",
+            "bf",
+            "S",
+            "E",
+            "",
+            ""
+          ],
+          [
+            "H4",
+            "ar",
+            "NS",
+            "W",
+            "",
+            ""
+          ],
+          [
+            "I4",
+            "ar",
+            "EW",
+            "S",
+            "",
+            ""
+          ],
+          [
+            "J4",
+            "af",
+            "W",
+            "EW",
+            "",
+            ""
+          ],
+          [
+            "B5",
+            "bs",
+            "E",
+            "E",
+            "",
+            ""
+          ],
+          [
+            "C5",
+            "bf",
+            "E",
+            "EW",
+            "",
+            ""
+          ],
+          [
+            "D5",
+            "bf",
+            "W",
+            "ES",
+            "",
+            ""
+          ],
+          [
+            "E5",
+            "bf",
+            "E",
+            "E",
+            "",
+            ""
+          ],
+          [
+            "F5",
+            "bf",
+            "E",
+            "E",
+            "",
+            ""
+          ],
+          [
+            "H5",
+            "af",
+            "W",
+            "W",
+            "",
+            ""
+          ],
+          [
+            "I5",
+            "af",
+            "W",
+            "W",
+            "",
+            ""
+          ],
+          [
+            "J5",
+            "ar",
+            "EW",
+            "EW",
+            "",
+            ""
+          ],
+          [
+            "K5",
+            "af",
+            "E",
+            "E",
+            "",
+            ""
+          ],
+          [
+            "B6",
+            "br",
+            "E",
+            "EW",
+            "",
+            ""
+          ],
+          [
+            "C6",
+            "bf",
+            "EW",
+            "N",
+            "",
+            ""
+          ],
+          [
+            "D6",
+            "bf",
+            "NS",
+            "E",
+            "",
+            ""
+          ],
+          [
+            "H6",
+            "af",
+            "NS",
+            "W",
+            "",
+            ""
+          ],
+          [
+            "I6",
+            "af",
+            "EW",
+            "N",
+            "",
+            ""
+          ],
+          [
+            "J6",
+            "ar",
+            "W",
+            "EW",
+            "",
+            ""
+          ],
+          [
+            "B7",
+            "bf",
+            "E",
+            "E",
+            "",
+            ""
+          ],
+          [
+            "C7",
+            "bf",
+            "NS",
+            "E",
+            "",
+            ""
+          ],
+          [
+            "I7",
+            "af",
+            "NS",
+            "W",
+            "",
+            ""
+          ],
+          [
+            "J7",
+            "af",
+            "W",
+            "W",
+            "",
+            ""
+          ],
+          [
+            "B8",
+            "bf",
+            "NS",
+            "W",
+            "",
+            ""
+          ],
+          [
+            "C8",
+            "bf",
+            "EW",
+            "S",
+            "",
+            ""
+          ],
+          [
+            "D8",
+            "bf",
+            "NS",
+            "E",
+            "",
+            ""
+          ],
+          [
+            "H8",
+            "af",
+            "NS",
+            "W",
+            "",
+            ""
+          ],
+          [
+            "I8",
+            "af",
+            "EW",
+            "S",
+            "",
+            ""
+          ],
+          [
+            "J8",
+            "af",
+            "NS",
+            "E",
+            "",
+            ""
+          ]
+        ],
+        "availability": {
+          "places": [
+            "B1",
+            "C1",
+            "D1",
+            "A2",
+            "B2",
+            "C2",
+            "D2",
+            "E2",
+            "A3",
+            "B3",
+            "C3",
+            "D3",
+            "A4",
+            "B4",
+            "C4",
+            "D4",
+            "E4",
+            "F4",
+            "A5",
+            "B5",
+            "C5",
+            "D5",
+            "E5",
+            "F5",
+            "G5",
+            "A6",
+            "B6",
+            "C6",
+            "D6",
+            "E6",
+            "F6",
+            "A7",
+            "B7",
+            "C7",
+            "D7",
+            "A8",
+            "B8",
+            "C8",
+            "D8",
+            "E8",
+            "B9",
+            "C9",
+            "D9"
+          ],
+          "flameOnly": [
+            "F4",
+            "D5",
+            "F6"
+          ],
+          "memoryRoot": [
+            "B2",
+            "C2",
+            "D2",
+            "B3",
+            "C3",
+            "B4",
+            "C4",
+            "D4",
+            "B5",
+            "C5",
+            "D5",
+            "E5",
+            "F5",
+            "B6",
+            "C6",
+            "D6",
+            "B7",
+            "C7",
+            "B8",
+            "C8",
+            "D8"
+          ],
+          "memoryShell": [
+            "B2",
+            "C2",
+            "D2",
+            "B3",
+            "C3",
+            "B4",
+            "C4",
+            "D4",
+            "B5",
+            "C5",
+            "D5",
+            "E5",
+            "F5",
+            "B6",
+            "C6",
+            "D6",
+            "B7",
+            "C7",
+            "B8",
+            "C8",
+            "D8"
+          ],
+          "reopen": []
+        },
+        "changes": [
+          {
+            "kind": "combine",
+            "at": "D5",
+            "lineage": "blue"
+          },
+          {
+            "kind": "combine",
+            "at": "I5",
+            "lineage": "amber"
+          },
+          {
+            "kind": "grow",
+            "at": "J2",
+            "lineage": "amber",
+            "from": "I2"
+          },
+          {
+            "kind": "grow",
+            "at": "H2",
+            "lineage": "amber",
+            "from": "I2"
+          },
+          {
+            "kind": "grow",
+            "at": "H4",
+            "lineage": "amber",
+            "from": "I4"
+          },
+          {
+            "kind": "grow",
+            "at": "H6",
+            "lineage": "amber",
+            "from": "I6"
+          },
+          {
+            "kind": "grow",
+            "at": "J8",
+            "lineage": "amber",
+            "from": "I8"
+          },
+          {
+            "kind": "grow",
+            "at": "H8",
+            "lineage": "amber",
+            "from": "I8"
+          },
+          {
+            "kind": "grow",
+            "at": "D2",
+            "lineage": "blue",
+            "from": "C2"
+          },
+          {
+            "kind": "grow",
+            "at": "B2",
+            "lineage": "blue",
+            "from": "C2"
+          },
+          {
+            "kind": "grow",
+            "at": "D6",
+            "lineage": "blue",
+            "from": "C6"
+          },
+          {
+            "kind": "grow",
+            "at": "D8",
+            "lineage": "blue",
+            "from": "C8"
+          },
+          {
+            "kind": "grow",
+            "at": "B8",
+            "lineage": "blue",
+            "from": "C8"
+          },
+          {
+            "kind": "grow",
+            "at": "F5",
+            "lineage": "blue",
+            "from": "E5"
+          },
+          {
+            "kind": "grow",
+            "at": "H5",
+            "lineage": "amber",
+            "from": "I5"
+          }
+        ],
+        "outcome": {
+          "terminal": false,
+          "goal": false,
+          "dimensions": {
+            "blueReach": 21,
+            "amberReach": 20,
+            "blueTips": 10,
+            "amberTips": 10,
+            "contactPlaces": 0,
+            "connectedEasternReach": 0,
+            "livingCircuit": 1,
+            "homeCircuitEasternReach": 0
+          },
+          "circuits": [
+            [
+              "B2",
+              "B3",
+              "C2",
+              "C3"
+            ],
+            [
+              "B7",
+              "B8",
+              "C7",
+              "C8"
+            ]
+          ],
+          "direction": {
+            "blueReach": "descriptive",
+            "amberReach": "descriptive",
+            "blueTips": "descriptive",
+            "amberTips": "descriptive",
+            "contactPlaces": "descriptive",
+            "connectedEasternReach": "descriptive",
+            "livingCircuit": "descriptive",
+            "homeCircuitEasternReach": "higher (initial aim)"
+          },
+          "stopping": "Finish is always available. The initial invitation is one connected blue construction containing B5, column I or farther, and a living circuit in that same component; coexistence, conquest or quiet isolation are optional projects."
+        },
+        "inspect": "Public CLI: rules SESSION; actions SESSION [JSON_FILTER]; preview SESSION JSON_ACTION. The other lineage’s announced action is part of the public state."
+      }
+    },
+    {
+      "index": 3,
+      "action": {
+        "type": "combine",
+        "a": "flame",
+        "b": "right",
+        "at": "C5",
+        "toward": "W"
+      },
+      "prediction": {
+        "episode": "home-loop",
+        "expected": "Close the four-place clockwise hearth. Meanwhile the equal flame fronts should halt at G5, leaving a central meeting boundary.",
+        "alternative": "I could put Shell at the front to defeat their flame, but completing the hearth matters first."
+      },
+      "atMs": 74233,
+      "phase": "assigned",
+      "before": "c5157c78",
+      "after": "be0e85c0",
+      "observation": {
+        "version": "frontier-2",
+        "scenario": "crossings",
+        "time": 4,
+        "status": "playing",
+        "columns": "ABCDEFGHIJK",
+        "rows": [
+          {
+            "row": 1,
+            "cells": ".. bR .. bR .. ## .. aR .. aR .."
+          },
+          {
+            "row": 2,
+            "cells": ".. bR bR bR ~~ ## .. aR aR aR .."
+          },
+          {
+            "row": 3,
+            "cells": ".. bR bR bR ~~ .. ~~ aR aR aR .."
+          },
+          {
+            "row": 4,
+            "cells": ".. bF bF bF ~~ ## ~~ aR aR aF aF"
+          },
+          {
+            "row": 5,
+            "cells": ".. bS bF bF bF bF .. aF aF aR aF"
+          },
+          {
+            "row": 6,
+            "cells": ".. bR bF bF ~~ ## ~~ aF aF aR .."
+          },
+          {
+            "row": 7,
+            "cells": ".. bF bF bF ~~ .. ~~ aF aF aF .."
+          },
+          {
+            "row": 8,
+            "cells": ".. bF bF bF ~~ ## .. aF aF aF .."
+          },
+          {
+            "row": 9,
+            "cells": ".. bF .. bF .. ## .. aF .. aF .."
+          }
+        ],
+        "legend": "b blue / a amber; R root F flame S shell; ## stone ~~ water .. ground. Direction N/E/S/W. Compact trail tuple: [place,lineage+kind,exits,history,closed,contact-lineages]. Tips: lineage:place:incoming-heading:path. Complete values can be requested with full=true.",
+        "counterpart": {
+          "plan": {
+            "type": "combine",
+            "a": "flame",
+            "b": "straight",
+            "at": "J6",
+            "toward": "E"
+          },
+          "purpose": "extend while keeping remembered circuit",
+          "cherished": [
+            "I2",
+            "I3",
+            "J2",
+            "J3"
+          ]
+        },
+        "tips": [
+          "amber:H1:N:fork",
+          "amber:H3:N:fork",
+          "amber:H3:S:fork",
+          "amber:H5:N:fork",
+          "amber:H7:N:fork",
+          "amber:H7:S:fork",
+          "amber:H9:S:fork",
+          "amber:J1:N:fork",
+          "amber:J3:S:fork",
+          "amber:J6:E:fork",
+          "amber:J7:N:fork",
+          "amber:J9:S:fork",
+          "amber:K4:E:straight",
+          "amber:K5:E:straight",
+          "blue:B1:N:fork",
+          "blue:B3:S:fork",
+          "blue:B6:W:fork",
+          "blue:B7:N:fork",
+          "blue:B9:S:fork",
+          "blue:C4:N:right",
+          "blue:C5:W:right",
+          "blue:D1:N:fork",
+          "blue:D3:S:fork",
+          "blue:D5:N:fork",
+          "blue:D5:S:fork",
+          "blue:D7:N:fork",
+          "blue:D7:S:fork",
+          "blue:D9:S:fork"
+        ],
+        "terrain": {
+          "water": [
+            "E2",
+            "E3",
+            "G3",
+            "E4",
+            "G4",
+            "E6",
+            "G6",
+            "E7",
+            "G7",
+            "E8"
+          ],
+          "stone": [
+            "F1",
+            "F2",
+            "F4",
+            "D5",
+            "H5",
+            "F6",
+            "F8",
+            "F9"
+          ]
+        },
+        "trails": [
+          [
+            "B1",
+            "br",
+            "EW",
+            "N",
+            "",
+            ""
+          ],
+          [
+            "D1",
+            "br",
+            "EW",
+            "N",
+            "",
+            ""
+          ],
+          [
+            "H1",
+            "ar",
+            "EW",
+            "N",
+            "",
+            ""
+          ],
+          [
+            "J1",
+            "ar",
+            "EW",
+            "N",
+            "",
+            ""
+          ],
+          [
+            "B2",
+            "br",
+            "NS",
+            "W",
+            "",
+            ""
+          ],
+          [
+            "C2",
+            "br",
+            "EW",
+            "N",
+            "",
+            ""
+          ],
+          [
+            "D2",
+            "br",
+            "NS",
+            "E",
+            "",
+            ""
+          ],
+          [
+            "H2",
+            "ar",
+            "NS",
+            "W",
+            "",
+            ""
+          ],
+          [
+            "I2",
+            "ar",
+            "EW",
+            "N",
+            "",
+            ""
+          ],
+          [
+            "J2",
+            "ar",
+            "NS",
+            "E",
+            "",
+            ""
+          ],
+          [
+            "B3",
+            "br",
+            "E",
+            "ES",
+            "",
+            ""
+          ],
+          [
+            "C3",
+            "br",
+            "NS",
+            "E",
+            "",
+            ""
+          ],
+          [
+            "D3",
+            "br",
+            "EW",
+            "S",
+            "",
+            ""
+          ],
+          [
+            "H3",
+            "ar",
+            "EW",
+            "NS",
+            "",
+            ""
+          ],
+          [
+            "I3",
+            "ar",
+            "NS",
+            "W",
+            "",
+            ""
+          ],
+          [
+            "J3",
+            "ar",
+            "W",
+            "SW",
+            "",
+            ""
+          ],
+          [
+            "B4",
+            "bf",
+            "E",
+            "E",
+            "",
+            ""
+          ],
+          [
+            "C4",
+            "bf",
+            "E",
+            "NS",
+            "",
+            ""
+          ],
+          [
+            "D4",
+            "bf",
+            "S",
+            "E",
+            "",
+            ""
+          ],
+          [
+            "H4",
+            "ar",
+            "NS",
+            "W",
+            "",
+            ""
+          ],
+          [
+            "I4",
+            "ar",
+            "EW",
+            "S",
+            "",
+            ""
+          ],
+          [
+            "J4",
+            "af",
+            "E",
+            "EW",
+            "",
+            ""
+          ],
+          [
+            "K4",
+            "af",
+            "E",
+            "E",
+            "",
+            ""
+          ],
+          [
+            "B5",
+            "bs",
+            "E",
+            "E",
+            "",
+            ""
+          ],
+          [
+            "C5",
+            "bf",
+            "N",
+            "EW",
+            "",
+            ""
+          ],
+          [
+            "D5",
+            "bf",
+            "W",
+            "NES",
+            "",
+            ""
+          ],
+          [
+            "E5",
+            "bf",
+            "E",
+            "E",
+            "",
+            ""
+          ],
+          [
+            "F5",
+            "bf",
+            "E",
+            "E",
+            "",
+            ""
+          ],
+          [
+            "G5",
+            "-",
+            "",
+            "EW",
+            "",
+            "amber/blue"
+          ],
+          [
+            "H5",
+            "af",
+            "W",
+            "NW",
+            "",
+            ""
+          ],
+          [
+            "I5",
+            "af",
+            "W",
+            "W",
+            "",
+            ""
+          ],
+          [
+            "J5",
+            "ar",
+            "EW",
+            "EW",
+            "",
+            ""
+          ],
+          [
+            "K5",
+            "af",
+            "E",
+            "E",
+            "",
+            ""
+          ],
+          [
+            "B6",
+            "br",
+            "E",
+            "EW",
+            "",
+            ""
+          ],
+          [
+            "C6",
+            "bf",
+            "EW",
+            "N",
+            "",
+            ""
+          ],
+          [
+            "D6",
+            "bf",
+            "NS",
+            "E",
+            "",
+            ""
+          ],
+          [
+            "H6",
+            "af",
+            "NS",
+            "W",
+            "",
+            ""
+          ],
+          [
+            "I6",
+            "af",
+            "EW",
+            "N",
+            "",
+            ""
+          ],
+          [
+            "J6",
+            "ar",
+            "W",
+            "EW",
+            "",
+            ""
+          ],
+          [
+            "B7",
+            "bf",
+            "E",
+            "NE",
+            "",
+            ""
+          ],
+          [
+            "C7",
+            "bf",
+            "NS",
+            "E",
+            "",
+            ""
+          ],
+          [
+            "D7",
+            "bf",
+            "EW",
+            "NS",
+            "",
+            ""
+          ],
+          [
+            "H7",
+            "af",
+            "EW",
+            "NS",
+            "",
+            ""
+          ],
+          [
+            "I7",
+            "af",
+            "NS",
+            "W",
+            "",
+            ""
+          ],
+          [
+            "J7",
+            "af",
+            "W",
+            "NW",
+            "",
+            ""
+          ],
+          [
+            "B8",
+            "bf",
+            "NS",
+            "W",
+            "",
+            ""
+          ],
+          [
+            "C8",
+            "bf",
+            "EW",
+            "S",
+            "",
+            ""
+          ],
+          [
+            "D8",
+            "bf",
+            "NS",
+            "E",
+            "",
+            ""
+          ],
+          [
+            "H8",
+            "af",
+            "NS",
+            "W",
+            "",
+            ""
+          ],
+          [
+            "I8",
+            "af",
+            "EW",
+            "S",
+            "",
+            ""
+          ],
+          [
+            "J8",
+            "af",
+            "NS",
+            "E",
+            "",
+            ""
+          ],
+          [
+            "B9",
+            "bf",
+            "EW",
+            "S",
+            "",
+            ""
+          ],
+          [
+            "D9",
+            "bf",
+            "EW",
+            "S",
+            "",
+            ""
+          ],
+          [
+            "H9",
+            "af",
+            "EW",
+            "S",
+            "",
+            ""
+          ],
+          [
+            "J9",
+            "af",
+            "EW",
+            "S",
+            "",
+            ""
+          ]
+        ],
+        "availability": {
+          "places": [
+            "A1",
+            "B1",
+            "C1",
+            "D1",
+            "E1",
+            "A2",
+            "B2",
+            "C2",
+            "D2",
+            "E2",
+            "A3",
+            "B3",
+            "C3",
+            "D3",
+            "E3",
+            "A4",
+            "B4",
+            "C4",
+            "D4",
+            "E4",
+            "F4",
+            "A5",
+            "B5",
+            "C5",
+            "D5",
+            "E5",
+            "F5",
+            "G5",
+            "A6",
+            "B6",
+            "C6",
+            "D6",
+            "E6",
+            "F6",
+            "A7",
+            "B7",
+            "C7",
+            "D7",
+            "E7",
+            "A8",
+            "B8",
+            "C8",
+            "D8",
+            "E8",
+            "A9",
+            "B9",
+            "C9",
+            "D9",
+            "E9"
+          ],
+          "flameOnly": [
+            "F4",
+            "D5",
+            "F6"
+          ],
+          "memoryRoot": [
+            "B1",
+            "D1",
+            "B2",
+            "C2",
+            "D2",
+            "B3",
+            "C3",
+            "D3",
+            "B4",
+            "C4",
+            "D4",
+            "B5",
+            "C5",
+            "D5",
+            "E5",
+            "F5",
+            "B6",
+            "C6",
+            "D6",
+            "B7",
+            "C7",
+            "D7",
+            "B8",
+            "C8",
+            "D8",
+            "B9",
+            "D9"
+          ],
+          "memoryShell": [
+            "B1",
+            "D1",
+            "B2",
+            "C2",
+            "D2",
+            "B3",
+            "C3",
+            "D3",
+            "B4",
+            "C4",
+            "D4",
+            "B5",
+            "C5",
+            "D5",
+            "E5",
+            "F5",
+            "B6",
+            "C6",
+            "D6",
+            "B7",
+            "C7",
+            "D7",
+            "B8",
+            "C8",
+            "D8",
+            "B9",
+            "D9"
+          ],
+          "reopen": []
+        },
+        "changes": [
+          {
+            "kind": "combine",
+            "at": "C5",
+            "lineage": "blue"
+          },
+          {
+            "kind": "combine",
+            "at": "J4",
+            "lineage": "amber"
+          },
+          {
+            "kind": "grow",
+            "at": "H1",
+            "lineage": "amber",
+            "from": "H2"
+          },
+          {
+            "kind": "grow",
+            "at": "H3",
+            "lineage": "amber",
+            "from": "H2"
+          },
+          {
+            "kind": "scar",
+            "at": "G5"
+          },
+          {
+            "kind": "grow",
+            "at": "H7",
+            "lineage": "amber",
+            "from": "H6"
+          },
+          {
+            "kind": "grow",
+            "at": "H9",
+            "lineage": "amber",
+            "from": "H8"
+          },
+          {
+            "kind": "grow",
+            "at": "J1",
+            "lineage": "amber",
+            "from": "J2"
+          },
+          {
+            "kind": "grow",
+            "at": "J9",
+            "lineage": "amber",
+            "from": "J8"
+          },
+          {
+            "kind": "grow",
+            "at": "B1",
+            "lineage": "blue",
+            "from": "B2"
+          },
+          {
+            "kind": "grow",
+            "at": "B9",
+            "lineage": "blue",
+            "from": "B8"
+          },
+          {
+            "kind": "grow",
+            "at": "D1",
+            "lineage": "blue",
+            "from": "D2"
+          },
+          {
+            "kind": "grow",
+            "at": "D3",
+            "lineage": "blue",
+            "from": "D2"
+          },
+          {
+            "kind": "grow",
+            "at": "D7",
+            "lineage": "blue",
+            "from": "D6"
+          },
+          {
+            "kind": "grow",
+            "at": "D9",
+            "lineage": "blue",
+            "from": "D8"
+          },
+          {
+            "kind": "grow",
+            "at": "K4",
+            "lineage": "amber",
+            "from": "J4"
+          }
+        ],
+        "outcome": {
+          "terminal": false,
+          "goal": false,
+          "dimensions": {
+            "blueReach": 27,
+            "amberReach": 27,
+            "blueTips": 14,
+            "amberTips": 14,
+            "contactPlaces": 1,
+            "connectedEasternReach": 0,
+            "livingCircuit": 1,
+            "homeCircuitEasternReach": 0
+          },
+          "circuits": [
+            [
+              "C4",
+              "C5",
+              "D4",
+              "D5"
+            ],
+            [
+              "B2",
+              "B3",
+              "C2",
+              "C3",
+              "D2",
+              "D3"
+            ],
+            [
+              "B7",
+              "B8",
+              "C6",
+              "C7",
+              "C8",
+              "D6",
+              "D7",
+              "D8"
+            ]
+          ],
+          "direction": {
+            "blueReach": "descriptive",
+            "amberReach": "descriptive",
+            "blueTips": "descriptive",
+            "amberTips": "descriptive",
+            "contactPlaces": "descriptive",
+            "connectedEasternReach": "descriptive",
+            "livingCircuit": "descriptive",
+            "homeCircuitEasternReach": "higher (initial aim)"
+          },
+          "stopping": "Finish is always available. The initial invitation is one connected blue construction containing B5, column I or farther, and a living circuit in that same component; coexistence, conquest or quiet isolation are optional projects."
+        },
+        "inspect": "Public CLI: rules SESSION; actions SESSION [JSON_FILTER]; preview SESSION JSON_ACTION. The other lineage’s announced action is part of the public state."
+      }
+    },
+    {
+      "index": 4,
+      "action": {
+        "type": "combine",
+        "a": "memory",
+        "b": "shell",
+        "at": "F5"
+      },
+      "prediction": {
+        "episode": "boundary-coda",
+        "expected": "The remembered eastward passage becomes a closed edge toward the shared G5 scar. The hearth remains alive.",
+        "alternative": "Rekindling the bridge with a winning type would turn the meeting into conquest; I choose closure."
+      },
+      "atMs": 131389,
+      "phase": "elective",
+      "before": "be0e85c0",
+      "after": "fe0c9a9b",
+      "observation": {
+        "version": "frontier-2",
+        "scenario": "crossings",
+        "time": 5,
+        "status": "playing",
+        "columns": "ABCDEFGHIJK",
+        "rows": [
+          {
+            "row": 1,
+            "cells": "bR bR bR bR bR ## aR aR aR aR aR"
+          },
+          {
+            "row": 2,
+            "cells": ".. bR bR bR ~~ ## .. aR aR aR .."
+          },
+          {
+            "row": 3,
+            "cells": ".. bR bR bR bR .. aR aR aR aR .."
+          },
+          {
+            "row": 4,
+            "cells": ".. bF bF bF ~~ ## ~~ aR aR aF aF"
+          },
+          {
+            "row": 5,
+            "cells": ".. bS bF bF bF bF aF aF aF aR aF"
+          },
+          {
+            "row": 6,
+            "cells": ".. bR bF bF ~~ ## ~~ aF aF aF aF"
+          },
+          {
+            "row": 7,
+            "cells": ".. bF bF bF bS .. aS aF aF aF .."
+          },
+          {
+            "row": 8,
+            "cells": ".. bF bF bF ~~ ## .. aF aF aF .."
+          },
+          {
+            "row": 9,
+            "cells": "bF bF bF bF bF ## aF aF aF aF aF"
+          }
+        ],
+        "legend": "b blue / a amber; R root F flame S shell; ## stone ~~ water .. ground. Direction N/E/S/W. Compact trail tuple: [place,lineage+kind,exits,history,closed,contact-lineages]. Tips: lineage:place:incoming-heading:path. Complete values can be requested with full=true.",
+        "counterpart": {
+          "plan": {
+            "type": "combine",
+            "a": "shell",
+            "b": "straight",
+            "at": "G5",
+            "toward": "W"
+          },
+          "purpose": "extend while keeping remembered circuit",
+          "cherished": [
+            "I2",
+            "I3",
+            "J2",
+            "J3"
+          ]
+        },
+        "tips": [
+          "amber:G1:W:fork",
+          "amber:G3:W:fork",
+          "amber:G5:W:fork",
+          "amber:G7:W:fork",
+          "amber:G9:W:fork",
+          "amber:I1:E:fork",
+          "amber:I1:W:fork",
+          "amber:I3:E:fork",
+          "amber:I3:W:fork",
+          "amber:I7:E:fork",
+          "amber:I7:W:fork",
+          "amber:I9:E:fork",
+          "amber:I9:W:fork",
+          "amber:K1:E:fork",
+          "amber:K4:E:straight",
+          "amber:K5:E:straight",
+          "amber:K6:E:straight",
+          "amber:K9:E:fork",
+          "blue:A1:W:fork",
+          "blue:A9:W:fork",
+          "blue:B6:W:fork",
+          "blue:C1:E:fork",
+          "blue:C1:W:fork",
+          "blue:C3:E:fork",
+          "blue:C3:W:fork",
+          "blue:C4:N:right",
+          "blue:C5:W:fork",
+          "blue:C7:E:fork",
+          "blue:C7:W:fork",
+          "blue:C9:E:fork",
+          "blue:C9:W:fork",
+          "blue:D4:E:right",
+          "blue:E1:E:fork",
+          "blue:E3:E:fork",
+          "blue:E7:E:fork",
+          "blue:E9:E:fork"
+        ],
+        "terrain": {
+          "water": [
+            "E2",
+            "E3",
+            "G3",
+            "E4",
+            "G4",
+            "E6",
+            "G6",
+            "E7",
+            "G7",
+            "E8"
+          ],
+          "stone": [
+            "F1",
+            "F2",
+            "F4",
+            "D5",
+            "H5",
+            "F6",
+            "F8",
+            "F9"
+          ]
+        },
+        "trails": [
+          [
+            "A1",
+            "br",
+            "NS",
+            "W",
+            "",
+            ""
+          ],
+          [
+            "B1",
+            "br",
+            "EW",
+            "N",
+            "",
+            ""
+          ],
+          [
+            "C1",
+            "br",
+            "NS",
+            "EW",
+            "",
+            ""
+          ],
+          [
+            "D1",
+            "br",
+            "EW",
+            "N",
+            "",
+            ""
+          ],
+          [
+            "E1",
+            "br",
+            "NS",
+            "E",
+            "",
+            ""
+          ],
+          [
+            "G1",
+            "ar",
+            "NS",
+            "W",
+            "",
+            ""
+          ],
+          [
+            "H1",
+            "ar",
+            "EW",
+            "N",
+            "",
+            ""
+          ],
+          [
+            "I1",
+            "ar",
+            "NS",
+            "EW",
+            "",
+            ""
+          ],
+          [
+            "J1",
+            "ar",
+            "EW",
+            "N",
+            "",
+            ""
+          ],
+          [
+            "K1",
+            "ar",
+            "NS",
+            "E",
+            "",
+            ""
+          ],
+          [
+            "B2",
+            "br",
+            "NS",
+            "W",
+            "",
+            ""
+          ],
+          [
+            "C2",
+            "br",
+            "EW",
+            "N",
+            "",
+            ""
+          ],
+          [
+            "D2",
+            "br",
+            "NS",
+            "E",
+            "",
+            ""
+          ],
+          [
+            "H2",
+            "ar",
+            "NS",
+            "W",
+            "",
+            ""
+          ],
+          [
+            "I2",
+            "ar",
+            "EW",
+            "N",
+            "",
+            ""
+          ],
+          [
+            "J2",
+            "ar",
+            "NS",
+            "E",
+            "",
+            ""
+          ],
+          [
+            "B3",
+            "br",
+            "E",
+            "ES",
+            "",
+            ""
+          ],
+          [
+            "C3",
+            "br",
+            "NS",
+            "EW",
+            "",
+            ""
+          ],
+          [
+            "D3",
+            "br",
+            "EW",
+            "S",
+            "",
+            ""
+          ],
+          [
+            "E3",
+            "br",
+            "EW",
+            "NE",
+            "",
+            ""
+          ],
+          [
+            "G3",
+            "ar",
+            "EW",
+            "SW",
+            "",
+            ""
+          ],
+          [
+            "H3",
+            "ar",
+            "EW",
+            "NS",
+            "",
+            ""
+          ],
+          [
+            "I3",
+            "ar",
+            "NS",
+            "EW",
+            "",
+            ""
+          ],
+          [
+            "J3",
+            "ar",
+            "W",
+            "SW",
+            "",
+            ""
+          ],
+          [
+            "B4",
+            "bf",
+            "E",
+            "E",
+            "",
+            ""
+          ],
+          [
+            "C4",
+            "bf",
+            "E",
+            "NS",
+            "",
+            ""
+          ],
+          [
+            "D4",
+            "bf",
+            "S",
+            "E",
+            "",
+            ""
+          ],
+          [
+            "H4",
+            "ar",
+            "NS",
+            "W",
+            "",
+            ""
+          ],
+          [
+            "I4",
+            "ar",
+            "EW",
+            "S",
+            "",
+            ""
+          ],
+          [
+            "J4",
+            "af",
+            "E",
+            "EW",
+            "",
+            ""
+          ],
+          [
+            "K4",
+            "af",
+            "E",
+            "E",
+            "",
+            ""
+          ],
+          [
+            "B5",
+            "bs",
+            "E",
+            "E",
+            "",
+            ""
+          ],
+          [
+            "C5",
+            "bf",
+            "N",
+            "EW",
+            "",
+            ""
+          ],
+          [
+            "D5",
+            "bf",
+            "W",
+            "NES",
+            "",
+            ""
+          ],
+          [
+            "E5",
+            "bf",
+            "E",
+            "E",
+            "",
+            ""
+          ],
+          [
+            "F5",
+            "bf",
+            "E",
+            "E",
+            "E",
+            ""
+          ],
+          [
+            "G5",
+            "af",
+            "NS",
+            "EW",
+            "",
+            "amber/blue"
+          ],
+          [
+            "H5",
+            "af",
+            "W",
+            "NW",
+            "",
+            ""
+          ],
+          [
+            "I5",
+            "af",
+            "W",
+            "W",
+            "",
+            ""
+          ],
+          [
+            "J5",
+            "ar",
+            "EW",
+            "EW",
+            "",
+            ""
+          ],
+          [
+            "K5",
+            "af",
+            "E",
+            "E",
+            "",
+            ""
+          ],
+          [
+            "B6",
+            "br",
+            "E",
+            "EW",
+            "",
+            ""
+          ],
+          [
+            "C6",
+            "bf",
+            "EW",
+            "N",
+            "",
+            ""
+          ],
+          [
+            "D6",
+            "bf",
+            "NS",
+            "E",
+            "",
+            ""
+          ],
+          [
+            "H6",
+            "af",
+            "NS",
+            "W",
+            "",
+            ""
+          ],
+          [
+            "I6",
+            "af",
+            "EW",
+            "N",
+            "",
+            ""
+          ],
+          [
+            "J6",
+            "af",
+            "E",
+            "EW",
+            "",
+            ""
+          ],
+          [
+            "K6",
+            "af",
+            "E",
+            "E",
+            "",
+            ""
+          ],
+          [
+            "B7",
+            "bf",
+            "E",
+            "NE",
+            "",
+            ""
+          ],
+          [
+            "C7",
+            "bf",
+            "NS",
+            "EW",
+            "",
+            ""
+          ],
+          [
+            "D7",
+            "bf",
+            "EW",
+            "NS",
+            "",
+            ""
+          ],
+          [
+            "E7",
+            "bs",
+            "NS",
+            "E",
+            "",
+            ""
+          ],
+          [
+            "G7",
+            "as",
+            "NS",
+            "W",
+            "",
+            ""
+          ],
+          [
+            "H7",
+            "af",
+            "EW",
+            "NS",
+            "",
+            ""
+          ],
+          [
+            "I7",
+            "af",
+            "NS",
+            "EW",
+            "",
+            ""
+          ],
+          [
+            "J7",
+            "af",
+            "W",
+            "NW",
+            "",
+            ""
+          ],
+          [
+            "B8",
+            "bf",
+            "NS",
+            "W",
+            "",
+            ""
+          ],
+          [
+            "C8",
+            "bf",
+            "EW",
+            "S",
+            "",
+            ""
+          ],
+          [
+            "D8",
+            "bf",
+            "NS",
+            "E",
+            "",
+            ""
+          ],
+          [
+            "H8",
+            "af",
+            "NS",
+            "W",
+            "",
+            ""
+          ],
+          [
+            "I8",
+            "af",
+            "EW",
+            "S",
+            "",
+            ""
+          ],
+          [
+            "J8",
+            "af",
+            "NS",
+            "E",
+            "",
+            ""
+          ],
+          [
+            "A9",
+            "bf",
+            "NS",
+            "W",
+            "",
+            ""
+          ],
+          [
+            "B9",
+            "bf",
+            "EW",
+            "S",
+            "",
+            ""
+          ],
+          [
+            "C9",
+            "bf",
+            "NS",
+            "EW",
+            "",
+            ""
+          ],
+          [
+            "D9",
+            "bf",
+            "EW",
+            "S",
+            "",
+            ""
+          ],
+          [
+            "E9",
+            "bf",
+            "NS",
+            "E",
+            "",
+            ""
+          ],
+          [
+            "G9",
+            "af",
+            "NS",
+            "W",
+            "",
+            ""
+          ],
+          [
+            "H9",
+            "af",
+            "EW",
+            "S",
+            "",
+            ""
+          ],
+          [
+            "I9",
+            "af",
+            "NS",
+            "EW",
+            "",
+            ""
+          ],
+          [
+            "J9",
+            "af",
+            "EW",
+            "S",
+            "",
+            ""
+          ],
+          [
+            "K9",
+            "af",
+            "NS",
+            "E",
+            "",
+            ""
+          ]
+        ],
+        "availability": {
+          "places": [
+            "A1",
+            "B1",
+            "C1",
+            "D1",
+            "E1",
+            "F1",
+            "A2",
+            "B2",
+            "C2",
+            "D2",
+            "E2",
+            "A3",
+            "B3",
+            "C3",
+            "D3",
+            "E3",
+            "F3",
+            "A4",
+            "B4",
+            "C4",
+            "D4",
+            "E4",
+            "F4",
+            "A5",
+            "B5",
+            "C5",
+            "D5",
+            "E5",
+            "F5",
+            "A6",
+            "B6",
+            "C6",
+            "D6",
+            "E6",
+            "F6",
+            "A7",
+            "B7",
+            "C7",
+            "D7",
+            "E7",
+            "F7",
+            "A8",
+            "B8",
+            "C8",
+            "D8",
+            "E8",
+            "A9",
+            "B9",
+            "C9",
+            "D9",
+            "E9",
+            "F9"
+          ],
+          "flameOnly": [
+            "F1",
+            "F4",
+            "D5",
+            "F6",
+            "F9"
+          ],
+          "memoryRoot": [
+            "A1",
+            "B1",
+            "C1",
+            "D1",
+            "E1",
+            "B2",
+            "C2",
+            "D2",
+            "B3",
+            "C3",
+            "D3",
+            "E3",
+            "B4",
+            "C4",
+            "D4",
+            "B5",
+            "C5",
+            "D5",
+            "E5",
+            "F5",
+            "B6",
+            "C6",
+            "D6",
+            "B7",
+            "C7",
+            "D7",
+            "E7",
+            "B8",
+            "C8",
+            "D8",
+            "A9",
+            "B9",
+            "C9",
+            "D9",
+            "E9"
+          ],
+          "memoryShell": [
+            "A1",
+            "B1",
+            "C1",
+            "D1",
+            "E1",
+            "B2",
+            "C2",
+            "D2",
+            "B3",
+            "C3",
+            "D3",
+            "E3",
+            "B4",
+            "C4",
+            "D4",
+            "B5",
+            "C5",
+            "D5",
+            "E5",
+            "B6",
+            "C6",
+            "D6",
+            "B7",
+            "C7",
+            "D7",
+            "E7",
+            "B8",
+            "C8",
+            "D8",
+            "A9",
+            "B9",
+            "C9",
+            "D9",
+            "E9"
+          ],
+          "reopen": [
+            "F5"
+          ]
+        },
+        "changes": [
+          {
+            "kind": "combine",
+            "at": "F5",
+            "lineage": "blue"
+          },
+          {
+            "kind": "combine",
+            "at": "J6",
+            "lineage": "amber"
+          },
+          {
+            "kind": "grow",
+            "at": "I1",
+            "lineage": "amber",
+            "from": "H1"
+          },
+          {
+            "kind": "grow",
+            "at": "G1",
+            "lineage": "amber",
+            "from": "H1"
+          },
+          {
+            "kind": "grow",
+            "at": "G3",
+            "lineage": "amber",
+            "from": "H3"
+          },
+          {
+            "kind": "grow",
+            "at": "G5",
+            "lineage": "amber",
+            "from": "H5"
+          },
+          {
+            "kind": "grow",
+            "at": "G7",
+            "lineage": "amber",
+            "from": "H7"
+          },
+          {
+            "kind": "grow",
+            "at": "I9",
+            "lineage": "amber",
+            "from": "H9"
+          },
+          {
+            "kind": "grow",
+            "at": "G9",
+            "lineage": "amber",
+            "from": "H9"
+          },
+          {
+            "kind": "grow",
+            "at": "K1",
+            "lineage": "amber",
+            "from": "J1"
+          },
+          {
+            "kind": "grow",
+            "at": "K9",
+            "lineage": "amber",
+            "from": "J9"
+          },
+          {
+            "kind": "grow",
+            "at": "C1",
+            "lineage": "blue",
+            "from": "B1"
+          },
+          {
+            "kind": "grow",
+            "at": "A1",
+            "lineage": "blue",
+            "from": "B1"
+          },
+          {
+            "kind": "grow",
+            "at": "C9",
+            "lineage": "blue",
+            "from": "B9"
+          },
+          {
+            "kind": "grow",
+            "at": "A9",
+            "lineage": "blue",
+            "from": "B9"
+          },
+          {
+            "kind": "grow",
+            "at": "E1",
+            "lineage": "blue",
+            "from": "D1"
+          },
+          {
+            "kind": "grow",
+            "at": "E3",
+            "lineage": "blue",
+            "from": "D3"
+          },
+          {
+            "kind": "grow",
+            "at": "E7",
+            "lineage": "blue",
+            "from": "D7"
+          },
+          {
+            "kind": "grow",
+            "at": "E9",
+            "lineage": "blue",
+            "from": "D9"
+          },
+          {
+            "kind": "grow",
+            "at": "K6",
+            "lineage": "amber",
+            "from": "J6"
+          }
+        ],
+        "outcome": {
+          "terminal": false,
+          "goal": false,
+          "dimensions": {
+            "blueReach": 35,
+            "amberReach": 37,
+            "blueTips": 18,
+            "amberTips": 18,
+            "contactPlaces": 1,
+            "connectedEasternReach": 0,
+            "livingCircuit": 1,
+            "homeCircuitEasternReach": 0
+          },
+          "circuits": [
+            [
+              "C4",
+              "C5",
+              "D4",
+              "D5"
+            ],
+            [
+              "B1",
+              "B2",
+              "B3",
+              "C1",
+              "C2",
+              "C3",
+              "D1",
+              "D2",
+              "D3"
+            ],
+            [
+              "B7",
+              "B8",
+              "B9",
+              "C6",
+              "C7",
+              "C8",
+              "C9",
+              "D6",
+              "D7",
+              "D8",
+              "D9"
+            ]
+          ],
+          "direction": {
+            "blueReach": "descriptive",
+            "amberReach": "descriptive",
+            "blueTips": "descriptive",
+            "amberTips": "descriptive",
+            "contactPlaces": "descriptive",
+            "connectedEasternReach": "descriptive",
+            "livingCircuit": "descriptive",
+            "homeCircuitEasternReach": "higher (initial aim)"
+          },
+          "stopping": "Finish is always available. The initial invitation is one connected blue construction containing B5, column I or farther, and a living circuit in that same component; coexistence, conquest or quiet isolation are optional projects."
+        },
+        "inspect": "Public CLI: rules SESSION; actions SESSION [JSON_FILTER]; preview SESSION JSON_ACTION. The other lineage’s announced action is part of the public state."
+      }
+    },
+    {
+      "index": 5,
+      "action": {
+        "type": "finish"
+      },
+      "prediction": {
+        "episode": "boundary-coda",
+        "intention": "Leave the world with the home hearth alive and the central approach deliberately closed.",
+        "expected": "End without advancing another beat. Amber now occupies the old scar and announces Shell westward; the F5-G5 edge is closed."
+      },
+      "atMs": 138899,
+      "phase": "elective",
+      "before": "fe0c9a9b",
+      "after": "33c0d576",
+      "observation": {
+        "version": "frontier-2",
+        "scenario": "crossings",
+        "time": 5,
+        "status": "ended",
+        "columns": "ABCDEFGHIJK",
+        "rows": [
+          {
+            "row": 1,
+            "cells": "bR bR bR bR bR ## aR aR aR aR aR"
+          },
+          {
+            "row": 2,
+            "cells": ".. bR bR bR ~~ ## .. aR aR aR .."
+          },
+          {
+            "row": 3,
+            "cells": ".. bR bR bR bR .. aR aR aR aR .."
+          },
+          {
+            "row": 4,
+            "cells": ".. bF bF bF ~~ ## ~~ aR aR aF aF"
+          },
+          {
+            "row": 5,
+            "cells": ".. bS bF bF bF bF aF aF aF aR aF"
+          },
+          {
+            "row": 6,
+            "cells": ".. bR bF bF ~~ ## ~~ aF aF aF aF"
+          },
+          {
+            "row": 7,
+            "cells": ".. bF bF bF bS .. aS aF aF aF .."
+          },
+          {
+            "row": 8,
+            "cells": ".. bF bF bF ~~ ## .. aF aF aF .."
+          },
+          {
+            "row": 9,
+            "cells": "bF bF bF bF bF ## aF aF aF aF aF"
+          }
+        ],
+        "legend": "b blue / a amber; R root F flame S shell; ## stone ~~ water .. ground. Direction N/E/S/W. Compact trail tuple: [place,lineage+kind,exits,history,closed,contact-lineages]. Tips: lineage:place:incoming-heading:path. Complete values can be requested with full=true.",
+        "counterpart": {
+          "plan": {
+            "type": "combine",
+            "a": "shell",
+            "b": "straight",
+            "at": "G5",
+            "toward": "W"
+          },
+          "purpose": "extend while keeping remembered circuit",
+          "cherished": [
+            "I2",
+            "I3",
+            "J2",
+            "J3"
+          ]
+        },
+        "tips": [
+          "amber:G1:W:fork",
+          "amber:G3:W:fork",
+          "amber:G5:W:fork",
+          "amber:G7:W:fork",
+          "amber:G9:W:fork",
+          "amber:I1:E:fork",
+          "amber:I1:W:fork",
+          "amber:I3:E:fork",
+          "amber:I3:W:fork",
+          "amber:I7:E:fork",
+          "amber:I7:W:fork",
+          "amber:I9:E:fork",
+          "amber:I9:W:fork",
+          "amber:K1:E:fork",
+          "amber:K4:E:straight",
+          "amber:K5:E:straight",
+          "amber:K6:E:straight",
+          "amber:K9:E:fork",
+          "blue:A1:W:fork",
+          "blue:A9:W:fork",
+          "blue:B6:W:fork",
+          "blue:C1:E:fork",
+          "blue:C1:W:fork",
+          "blue:C3:E:fork",
+          "blue:C3:W:fork",
+          "blue:C4:N:right",
+          "blue:C5:W:fork",
+          "blue:C7:E:fork",
+          "blue:C7:W:fork",
+          "blue:C9:E:fork",
+          "blue:C9:W:fork",
+          "blue:D4:E:right",
+          "blue:E1:E:fork",
+          "blue:E3:E:fork",
+          "blue:E7:E:fork",
+          "blue:E9:E:fork"
+        ],
+        "terrain": {
+          "water": [
+            "E2",
+            "E3",
+            "G3",
+            "E4",
+            "G4",
+            "E6",
+            "G6",
+            "E7",
+            "G7",
+            "E8"
+          ],
+          "stone": [
+            "F1",
+            "F2",
+            "F4",
+            "D5",
+            "H5",
+            "F6",
+            "F8",
+            "F9"
+          ]
+        },
+        "trails": [
+          [
+            "A1",
+            "br",
+            "NS",
+            "W",
+            "",
+            ""
+          ],
+          [
+            "B1",
+            "br",
+            "EW",
+            "N",
+            "",
+            ""
+          ],
+          [
+            "C1",
+            "br",
+            "NS",
+            "EW",
+            "",
+            ""
+          ],
+          [
+            "D1",
+            "br",
+            "EW",
+            "N",
+            "",
+            ""
+          ],
+          [
+            "E1",
+            "br",
+            "NS",
+            "E",
+            "",
+            ""
+          ],
+          [
+            "G1",
+            "ar",
+            "NS",
+            "W",
+            "",
+            ""
+          ],
+          [
+            "H1",
+            "ar",
+            "EW",
+            "N",
+            "",
+            ""
+          ],
+          [
+            "I1",
+            "ar",
+            "NS",
+            "EW",
+            "",
+            ""
+          ],
+          [
+            "J1",
+            "ar",
+            "EW",
+            "N",
+            "",
+            ""
+          ],
+          [
+            "K1",
+            "ar",
+            "NS",
+            "E",
+            "",
+            ""
+          ],
+          [
+            "B2",
+            "br",
+            "NS",
+            "W",
+            "",
+            ""
+          ],
+          [
+            "C2",
+            "br",
+            "EW",
+            "N",
+            "",
+            ""
+          ],
+          [
+            "D2",
+            "br",
+            "NS",
+            "E",
+            "",
+            ""
+          ],
+          [
+            "H2",
+            "ar",
+            "NS",
+            "W",
+            "",
+            ""
+          ],
+          [
+            "I2",
+            "ar",
+            "EW",
+            "N",
+            "",
+            ""
+          ],
+          [
+            "J2",
+            "ar",
+            "NS",
+            "E",
+            "",
+            ""
+          ],
+          [
+            "B3",
+            "br",
+            "E",
+            "ES",
+            "",
+            ""
+          ],
+          [
+            "C3",
+            "br",
+            "NS",
+            "EW",
+            "",
+            ""
+          ],
+          [
+            "D3",
+            "br",
+            "EW",
+            "S",
+            "",
+            ""
+          ],
+          [
+            "E3",
+            "br",
+            "EW",
+            "NE",
+            "",
+            ""
+          ],
+          [
+            "G3",
+            "ar",
+            "EW",
+            "SW",
+            "",
+            ""
+          ],
+          [
+            "H3",
+            "ar",
+            "EW",
+            "NS",
+            "",
+            ""
+          ],
+          [
+            "I3",
+            "ar",
+            "NS",
+            "EW",
+            "",
+            ""
+          ],
+          [
+            "J3",
+            "ar",
+            "W",
+            "SW",
+            "",
+            ""
+          ],
+          [
+            "B4",
+            "bf",
+            "E",
+            "E",
+            "",
+            ""
+          ],
+          [
+            "C4",
+            "bf",
+            "E",
+            "NS",
+            "",
+            ""
+          ],
+          [
+            "D4",
+            "bf",
+            "S",
+            "E",
+            "",
+            ""
+          ],
+          [
+            "H4",
+            "ar",
+            "NS",
+            "W",
+            "",
+            ""
+          ],
+          [
+            "I4",
+            "ar",
+            "EW",
+            "S",
+            "",
+            ""
+          ],
+          [
+            "J4",
+            "af",
+            "E",
+            "EW",
+            "",
+            ""
+          ],
+          [
+            "K4",
+            "af",
+            "E",
+            "E",
+            "",
+            ""
+          ],
+          [
+            "B5",
+            "bs",
+            "E",
+            "E",
+            "",
+            ""
+          ],
+          [
+            "C5",
+            "bf",
+            "N",
+            "EW",
+            "",
+            ""
+          ],
+          [
+            "D5",
+            "bf",
+            "W",
+            "NES",
+            "",
+            ""
+          ],
+          [
+            "E5",
+            "bf",
+            "E",
+            "E",
+            "",
+            ""
+          ],
+          [
+            "F5",
+            "bf",
+            "E",
+            "E",
+            "E",
+            ""
+          ],
+          [
+            "G5",
+            "af",
+            "NS",
+            "EW",
+            "",
+            "amber/blue"
+          ],
+          [
+            "H5",
+            "af",
+            "W",
+            "NW",
+            "",
+            ""
+          ],
+          [
+            "I5",
+            "af",
+            "W",
+            "W",
+            "",
+            ""
+          ],
+          [
+            "J5",
+            "ar",
+            "EW",
+            "EW",
+            "",
+            ""
+          ],
+          [
+            "K5",
+            "af",
+            "E",
+            "E",
+            "",
+            ""
+          ],
+          [
+            "B6",
+            "br",
+            "E",
+            "EW",
+            "",
+            ""
+          ],
+          [
+            "C6",
+            "bf",
+            "EW",
+            "N",
+            "",
+            ""
+          ],
+          [
+            "D6",
+            "bf",
+            "NS",
+            "E",
+            "",
+            ""
+          ],
+          [
+            "H6",
+            "af",
+            "NS",
+            "W",
+            "",
+            ""
+          ],
+          [
+            "I6",
+            "af",
+            "EW",
+            "N",
+            "",
+            ""
+          ],
+          [
+            "J6",
+            "af",
+            "E",
+            "EW",
+            "",
+            ""
+          ],
+          [
+            "K6",
+            "af",
+            "E",
+            "E",
+            "",
+            ""
+          ],
+          [
+            "B7",
+            "bf",
+            "E",
+            "NE",
+            "",
+            ""
+          ],
+          [
+            "C7",
+            "bf",
+            "NS",
+            "EW",
+            "",
+            ""
+          ],
+          [
+            "D7",
+            "bf",
+            "EW",
+            "NS",
+            "",
+            ""
+          ],
+          [
+            "E7",
+            "bs",
+            "NS",
+            "E",
+            "",
+            ""
+          ],
+          [
+            "G7",
+            "as",
+            "NS",
+            "W",
+            "",
+            ""
+          ],
+          [
+            "H7",
+            "af",
+            "EW",
+            "NS",
+            "",
+            ""
+          ],
+          [
+            "I7",
+            "af",
+            "NS",
+            "EW",
+            "",
+            ""
+          ],
+          [
+            "J7",
+            "af",
+            "W",
+            "NW",
+            "",
+            ""
+          ],
+          [
+            "B8",
+            "bf",
+            "NS",
+            "W",
+            "",
+            ""
+          ],
+          [
+            "C8",
+            "bf",
+            "EW",
+            "S",
+            "",
+            ""
+          ],
+          [
+            "D8",
+            "bf",
+            "NS",
+            "E",
+            "",
+            ""
+          ],
+          [
+            "H8",
+            "af",
+            "NS",
+            "W",
+            "",
+            ""
+          ],
+          [
+            "I8",
+            "af",
+            "EW",
+            "S",
+            "",
+            ""
+          ],
+          [
+            "J8",
+            "af",
+            "NS",
+            "E",
+            "",
+            ""
+          ],
+          [
+            "A9",
+            "bf",
+            "NS",
+            "W",
+            "",
+            ""
+          ],
+          [
+            "B9",
+            "bf",
+            "EW",
+            "S",
+            "",
+            ""
+          ],
+          [
+            "C9",
+            "bf",
+            "NS",
+            "EW",
+            "",
+            ""
+          ],
+          [
+            "D9",
+            "bf",
+            "EW",
+            "S",
+            "",
+            ""
+          ],
+          [
+            "E9",
+            "bf",
+            "NS",
+            "E",
+            "",
+            ""
+          ],
+          [
+            "G9",
+            "af",
+            "NS",
+            "W",
+            "",
+            ""
+          ],
+          [
+            "H9",
+            "af",
+            "EW",
+            "S",
+            "",
+            ""
+          ],
+          [
+            "I9",
+            "af",
+            "NS",
+            "EW",
+            "",
+            ""
+          ],
+          [
+            "J9",
+            "af",
+            "EW",
+            "S",
+            "",
+            ""
+          ],
+          [
+            "K9",
+            "af",
+            "NS",
+            "E",
+            "",
+            ""
+          ]
+        ],
+        "availability": {
+          "places": [
+            "A1",
+            "B1",
+            "C1",
+            "D1",
+            "E1",
+            "F1",
+            "A2",
+            "B2",
+            "C2",
+            "D2",
+            "E2",
+            "A3",
+            "B3",
+            "C3",
+            "D3",
+            "E3",
+            "F3",
+            "A4",
+            "B4",
+            "C4",
+            "D4",
+            "E4",
+            "F4",
+            "A5",
+            "B5",
+            "C5",
+            "D5",
+            "E5",
+            "F5",
+            "A6",
+            "B6",
+            "C6",
+            "D6",
+            "E6",
+            "F6",
+            "A7",
+            "B7",
+            "C7",
+            "D7",
+            "E7",
+            "F7",
+            "A8",
+            "B8",
+            "C8",
+            "D8",
+            "E8",
+            "A9",
+            "B9",
+            "C9",
+            "D9",
+            "E9",
+            "F9"
+          ],
+          "flameOnly": [
+            "F1",
+            "F4",
+            "D5",
+            "F6",
+            "F9"
+          ],
+          "memoryRoot": [
+            "A1",
+            "B1",
+            "C1",
+            "D1",
+            "E1",
+            "B2",
+            "C2",
+            "D2",
+            "B3",
+            "C3",
+            "D3",
+            "E3",
+            "B4",
+            "C4",
+            "D4",
+            "B5",
+            "C5",
+            "D5",
+            "E5",
+            "F5",
+            "B6",
+            "C6",
+            "D6",
+            "B7",
+            "C7",
+            "D7",
+            "E7",
+            "B8",
+            "C8",
+            "D8",
+            "A9",
+            "B9",
+            "C9",
+            "D9",
+            "E9"
+          ],
+          "memoryShell": [
+            "A1",
+            "B1",
+            "C1",
+            "D1",
+            "E1",
+            "B2",
+            "C2",
+            "D2",
+            "B3",
+            "C3",
+            "D3",
+            "E3",
+            "B4",
+            "C4",
+            "D4",
+            "B5",
+            "C5",
+            "D5",
+            "E5",
+            "B6",
+            "C6",
+            "D6",
+            "B7",
+            "C7",
+            "D7",
+            "E7",
+            "B8",
+            "C8",
+            "D8",
+            "A9",
+            "B9",
+            "C9",
+            "D9",
+            "E9"
+          ],
+          "reopen": [
+            "F5"
+          ]
+        },
+        "changes": [],
+        "outcome": {
+          "terminal": true,
+          "goal": false,
+          "dimensions": {
+            "blueReach": 35,
+            "amberReach": 37,
+            "blueTips": 18,
+            "amberTips": 18,
+            "contactPlaces": 1,
+            "connectedEasternReach": 0,
+            "livingCircuit": 1,
+            "homeCircuitEasternReach": 0
+          },
+          "circuits": [
+            [
+              "C4",
+              "C5",
+              "D4",
+              "D5"
+            ],
+            [
+              "B1",
+              "B2",
+              "B3",
+              "C1",
+              "C2",
+              "C3",
+              "D1",
+              "D2",
+              "D3"
+            ],
+            [
+              "B7",
+              "B8",
+              "B9",
+              "C6",
+              "C7",
+              "C8",
+              "C9",
+              "D6",
+              "D7",
+              "D8",
+              "D9"
+            ]
+          ],
+          "direction": {
+            "blueReach": "descriptive",
+            "amberReach": "descriptive",
+            "blueTips": "descriptive",
+            "amberTips": "descriptive",
+            "contactPlaces": "descriptive",
+            "connectedEasternReach": "descriptive",
+            "livingCircuit": "descriptive",
+            "homeCircuitEasternReach": "higher (initial aim)"
+          },
+          "stopping": "Finish is always available. The initial invitation is one connected blue construction containing B5, column I or farther, and a living circuit in that same component; coexistence, conquest or quiet isolation are optional projects."
+        },
+        "inspect": "Public CLI: rules SESSION; actions SESSION [JSON_FILTER]; preview SESSION JSON_ACTION. The other lineage’s announced action is part of the public state."
+      }
+    }
+  ],
+  "attempts": [],
+  "previews": [],
+  "checkpoints": [
+    {
+      "decisionIndex": 4,
+      "reason": "The home hearth circulates, and the bridge met amber in an equal flame collision at G5. This is a consequential response and a natural first resolution."
+    }
+  ],
+  "continuations": [
+    {
+      "decisionIndex": 4,
+      "intention": "Close the remembered eastward edge at F5 as a deliberate boundary before the shared scar, then finish.",
+      "source": "elicited under test prompt",
+      "recordedAt": "2026-10-26T01:15:13.168Z"
+    }
+  ],
+  "queries": [
+    {
+      "decisionIndex": 0,
+      "kind": "rules",
+      "phase": "assigned",
+      "recordedAt": "2026-10-26T01:13:11.578Z"
+    }
+  ],
+  "notes": [
+    {
+      "decisionIndex": 4,
+      "account": {
+        "experience": "I chose a direct flame bridge and then a small hearth beside home. Planning the four directed corners was the thoughtful part. The automatic outer forks also made circuits without my help, so merely getting a circuit feels too easy as a general objective.",
+        "noticedResponses": "Amber sent flame back along the same row. At time 4 the equal fronts vanished into a shared scar at G5 just as my home loop closed.",
+        "narrativeOrConceptThatMattered": "D5 began as a stone gate on the bridge and became the west-turning return of the home hearth. G5 changed from empty crossing to evidence of a failed meeting.",
+        "closure": "The hearth project is resolved; the central bridge is a terminated encounter. I have no present desire to conquer the amber side.",
+        "renewedIntention": "I do want one coda: use the remembered eastward passage at F5 to close the approach to G5, making the failed meeting an intentional boundary. Then leave this world.",
+        "repetition": "The large automatic spread is already harder to inspect than the chosen four-place construction. I do not want to shepherd every branch.",
+        "wantAnother": "Not another general expansion run right now.",
+        "actualContinuationReason": "A single specific coda to give the central collision a chosen ending, rather than pursuing the invitation metric."
+      },
+      "recordedAt": "2026-10-26T01:15:12.573Z"
+    }
+  ],
+  "continuation": {
+    "decisionIndex": 4,
+    "intention": "Close the remembered eastward edge at F5 as a deliberate boundary before the shared scar, then finish.",
+    "source": "elicited under test prompt",
+    "recordedAt": "2026-10-26T01:15:13.168Z"
+  },
+  "report": {
+    "experience": "This AI protocol account had a short satisfying construction episode, followed by a chosen quiet ending. It is not evidence of human fun or human play duration.",
+    "counts": {
+      "combinations": 5,
+      "waits": 0,
+      "finish": 1,
+      "experiencedEpisodes": 3,
+      "initialExposureCombinations": 4,
+      "electiveCombinations": 1
+    },
+    "chosenProjects": [
+      "A flame bridge from the home shell through D5 toward the east",
+      "A clockwise four-place home hearth C4-D4-D5-C5",
+      "A remembered boundary at F5 after the central meeting failed"
+    ],
+    "noticedResponses": "The counterpart built its own circuit and sent flame west down the central row. Equal opposing flames made a shared G5 scar at time 4. At time 5 amber grew onto that scar and announced a Shell continuation west, while my remembered east edge at F5 was closed. I ended before seeing that announced action execute.",
+    "narrativeOrConceptThatMattered": "D5 was first a stone bridge gate, then became the west-turning corner of my hearth. F5 was first the leading bridge path, then its remembered movement became the deliberate boundary beside the old contact. G5 retained both lineages in its history even after amber occupied it.",
+    "strongestEpisode": "Closing the C4-D4-D5-C5 hearth at the same beat that the outward bridge met amber and stopped. The local creation succeeded while the outward invitation failed; that made a specific place worth leaving as it was.",
+    "thoughtful": "I had to account for persistent friendly exits while arranging the ring; a right-turning seed alone would not overwrite the earlier eastward exits. Reusing the existing stone gate kept the ring connected to home.",
+    "routineOrWeak": "The automatic initial forks produced several other circuits with no deliberate work, reducing the value of simply earning a living-circuit indicator. Branch growth rapidly produced a large board whose generic spread did not matter to my project. I felt no desire to manage all branches or alternate winning types until conquest.",
+    "unclear": "I understood the exit rules better through the first few visible transitions. I did not evaluate long-run boundary stability or whether amber would eventually route around it.",
+    "closure": "I finished at time 5 with the chosen home hearth alive, the approach to G5 closed, and the supplied eastern-reach invitation unmet. A terminated encounter was a valid ending for this project.",
+    "renewedIntention": "After the first checkpoint I chose one specific coda, closing the remembered F5 east edge, and then carried out the planned finish. I have no further current project in this world.",
+    "repetition": "No repeated wait or type-counter cycle was needed. I stopped before expansion and response management became the reason to continue.",
+    "wantAnother": "Not another expansion run immediately. A scenario with a reason to shape one shared boundary or place could interest me more than broader reach.",
+    "actualContinuationReason": "One voluntary coda gave the failed central meeting an intentional boundary. I did not continue for the initial metric, command allowance, or to tour features.",
+    "actualStopReason": "The hearth and boundary were complete enough, and I preferred that quiet closure over inventing a conquest problem.",
+    "claimLimit": "AI isolated public-interface play report; subjective language describes this protocol account, not measured human enjoyment."
+  }
+}

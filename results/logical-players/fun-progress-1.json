@@ -1,0 +1,2196 @@
+{
+  "schema": 1,
+  "id": "fun-progress-1",
+  "game": "progression",
+  "version": "logical-progression-1",
+  "scenario": "sequence",
+  "seed": 0,
+  "condition": "fresh-doctrine-pass",
+  "protocolVersion": "logical-cli-3",
+  "startedAt": "2026-10-25T22:39:05.284Z",
+  "initialObservation": {
+    "version": "logical-progression-1",
+    "status": "playing",
+    "stage": 1,
+    "completed": [],
+    "goal": "Create the required accepting condition for each stage. All goals are public; established conditions remain useful across stages.",
+    "rules": [
+      "A case is a possible set of present supports A–D. Its required acceptance is a public goal constraint. This is a construction puzzle, not a claim about how real societies should judge evidence.",
+      "Every concept is a condition: the cases it accepts. ALL accepts exactly the intersection of two inputs; EITHER accepts exactly their union.",
+      "Establish a condition that accepts every required-accept case and rejects every required-reject case. All sixteen cases and every immediate combination consequence are inspectable.",
+      "Both inputs and every discovery remain. Equal resulting conditions reuse the same concept. There are no resource stocks, action quotas, gate limits or deadlines.",
+      "A–D and the possible worlds mean exactly the same thing at every stage. Only the required judgments change.",
+      "A matching condition automatically completes a stage and opens the next. Every earlier condition remains. A condition already established also satisfies a later stage without rebuilding.",
+      "No verbal decomposition or target formula is supplied. The complete public case constraints specify the goal; ALL/EITHER and all combination results remain explicit."
+    ],
+    "actionSchema": {
+      "type": "combine",
+      "op": [
+        "all",
+        "either"
+      ],
+      "a": "current concept id",
+      "b": "current concept id"
+    },
+    "cases": [
+      {
+        "id": "case-1",
+        "signals": {
+          "A": false,
+          "B": false,
+          "C": false,
+          "D": false
+        },
+        "required": "reject"
+      },
+      {
+        "id": "case-2",
+        "signals": {
+          "A": true,
+          "B": false,
+          "C": false,
+          "D": false
+        },
+        "required": "reject"
+      },
+      {
+        "id": "case-3",
+        "signals": {
+          "A": false,
+          "B": true,
+          "C": false,
+          "D": false
+        },
+        "required": "reject"
+      },
+      {
+        "id": "case-4",
+        "signals": {
+          "A": true,
+          "B": true,
+          "C": false,
+          "D": false
+        },
+        "required": "accept"
+      },
+      {
+        "id": "case-5",
+        "signals": {
+          "A": false,
+          "B": false,
+          "C": true,
+          "D": false
+        },
+        "required": "reject"
+      },
+      {
+        "id": "case-6",
+        "signals": {
+          "A": true,
+          "B": false,
+          "C": true,
+          "D": false
+        },
+        "required": "reject"
+      },
+      {
+        "id": "case-7",
+        "signals": {
+          "A": false,
+          "B": true,
+          "C": true,
+          "D": false
+        },
+        "required": "reject"
+      },
+      {
+        "id": "case-8",
+        "signals": {
+          "A": true,
+          "B": true,
+          "C": true,
+          "D": false
+        },
+        "required": "accept"
+      },
+      {
+        "id": "case-9",
+        "signals": {
+          "A": false,
+          "B": false,
+          "C": false,
+          "D": true
+        },
+        "required": "reject"
+      },
+      {
+        "id": "case-10",
+        "signals": {
+          "A": true,
+          "B": false,
+          "C": false,
+          "D": true
+        },
+        "required": "reject"
+      },
+      {
+        "id": "case-11",
+        "signals": {
+          "A": false,
+          "B": true,
+          "C": false,
+          "D": true
+        },
+        "required": "reject"
+      },
+      {
+        "id": "case-12",
+        "signals": {
+          "A": true,
+          "B": true,
+          "C": false,
+          "D": true
+        },
+        "required": "accept"
+      },
+      {
+        "id": "case-13",
+        "signals": {
+          "A": false,
+          "B": false,
+          "C": true,
+          "D": true
+        },
+        "required": "accept"
+      },
+      {
+        "id": "case-14",
+        "signals": {
+          "A": true,
+          "B": false,
+          "C": true,
+          "D": true
+        },
+        "required": "accept"
+      },
+      {
+        "id": "case-15",
+        "signals": {
+          "A": false,
+          "B": true,
+          "C": true,
+          "D": true
+        },
+        "required": "accept"
+      },
+      {
+        "id": "case-16",
+        "signals": {
+          "A": true,
+          "B": true,
+          "C": true,
+          "D": true
+        },
+        "required": "accept"
+      }
+    ],
+    "caseOrder": [
+      "case-1",
+      "case-2",
+      "case-3",
+      "case-4",
+      "case-5",
+      "case-6",
+      "case-7",
+      "case-8",
+      "case-9",
+      "case-10",
+      "case-11",
+      "case-12",
+      "case-13",
+      "case-14",
+      "case-15",
+      "case-16"
+    ],
+    "concepts": [
+      {
+        "id": "A",
+        "label": "A",
+        "accepts": "0101010101010101"
+      },
+      {
+        "id": "B",
+        "label": "B",
+        "accepts": "0011001100110011"
+      },
+      {
+        "id": "C",
+        "label": "C",
+        "accepts": "0000111100001111"
+      },
+      {
+        "id": "D",
+        "label": "D",
+        "accepts": "0000000011111111"
+      }
+    ],
+    "active": null,
+    "message": "",
+    "allGoals": [
+      {
+        "stage": 1,
+        "acceptCases": [
+          "case-4",
+          "case-8",
+          "case-12",
+          "case-13",
+          "case-14",
+          "case-15",
+          "case-16"
+        ]
+      },
+      {
+        "stage": 2,
+        "acceptCases": [
+          "case-4",
+          "case-8",
+          "case-12",
+          "case-14",
+          "case-16"
+        ]
+      },
+      {
+        "stage": 3,
+        "acceptCases": [
+          "case-4",
+          "case-7",
+          "case-8",
+          "case-12",
+          "case-13",
+          "case-14",
+          "case-15",
+          "case-16"
+        ]
+      }
+    ]
+  },
+  "decisions": [
+    {
+      "index": 0,
+      "action": {
+        "type": "combine",
+        "op": "all",
+        "a": "A",
+        "b": "B"
+      },
+      "prediction": {
+        "episode": "paired-supports",
+        "kind": "construction",
+        "question": "Can two paired conditions cover exactly the first stage cases?",
+        "expectedEffect": "Create the A-and-B branch, which appears useful in all three public goals."
+      },
+      "atMs": 9275,
+      "before": "6562fd02",
+      "after": "f668beb6",
+      "observation": {
+        "version": "logical-progression-1",
+        "status": "playing",
+        "stage": 1,
+        "completed": [],
+        "goal": "Create the required accepting condition for each stage. All goals are public; established conditions remain useful across stages.",
+        "rules": [
+          "A case is a possible set of present supports A–D. Its required acceptance is a public goal constraint. This is a construction puzzle, not a claim about how real societies should judge evidence.",
+          "Every concept is a condition: the cases it accepts. ALL accepts exactly the intersection of two inputs; EITHER accepts exactly their union.",
+          "Establish a condition that accepts every required-accept case and rejects every required-reject case. All sixteen cases and every immediate combination consequence are inspectable.",
+          "Both inputs and every discovery remain. Equal resulting conditions reuse the same concept. There are no resource stocks, action quotas, gate limits or deadlines.",
+          "A–D and the possible worlds mean exactly the same thing at every stage. Only the required judgments change.",
+          "A matching condition automatically completes a stage and opens the next. Every earlier condition remains. A condition already established also satisfies a later stage without rebuilding.",
+          "No verbal decomposition or target formula is supplied. The complete public case constraints specify the goal; ALL/EITHER and all combination results remain explicit."
+        ],
+        "actionSchema": {
+          "type": "combine",
+          "op": [
+            "all",
+            "either"
+          ],
+          "a": "current concept id",
+          "b": "current concept id"
+        },
+        "cases": [
+          {
+            "id": "case-1",
+            "signals": {
+              "A": false,
+              "B": false,
+              "C": false,
+              "D": false
+            },
+            "required": "reject"
+          },
+          {
+            "id": "case-2",
+            "signals": {
+              "A": true,
+              "B": false,
+              "C": false,
+              "D": false
+            },
+            "required": "reject"
+          },
+          {
+            "id": "case-3",
+            "signals": {
+              "A": false,
+              "B": true,
+              "C": false,
+              "D": false
+            },
+            "required": "reject"
+          },
+          {
+            "id": "case-4",
+            "signals": {
+              "A": true,
+              "B": true,
+              "C": false,
+              "D": false
+            },
+            "required": "accept"
+          },
+          {
+            "id": "case-5",
+            "signals": {
+              "A": false,
+              "B": false,
+              "C": true,
+              "D": false
+            },
+            "required": "reject"
+          },
+          {
+            "id": "case-6",
+            "signals": {
+              "A": true,
+              "B": false,
+              "C": true,
+              "D": false
+            },
+            "required": "reject"
+          },
+          {
+            "id": "case-7",
+            "signals": {
+              "A": false,
+              "B": true,
+              "C": true,
+              "D": false
+            },
+            "required": "reject"
+          },
+          {
+            "id": "case-8",
+            "signals": {
+              "A": true,
+              "B": true,
+              "C": true,
+              "D": false
+            },
+            "required": "accept"
+          },
+          {
+            "id": "case-9",
+            "signals": {
+              "A": false,
+              "B": false,
+              "C": false,
+              "D": true
+            },
+            "required": "reject"
+          },
+          {
+            "id": "case-10",
+            "signals": {
+              "A": true,
+              "B": false,
+              "C": false,
+              "D": true
+            },
+            "required": "reject"
+          },
+          {
+            "id": "case-11",
+            "signals": {
+              "A": false,
+              "B": true,
+              "C": false,
+              "D": true
+            },
+            "required": "reject"
+          },
+          {
+            "id": "case-12",
+            "signals": {
+              "A": true,
+              "B": true,
+              "C": false,
+              "D": true
+            },
+            "required": "accept"
+          },
+          {
+            "id": "case-13",
+            "signals": {
+              "A": false,
+              "B": false,
+              "C": true,
+              "D": true
+            },
+            "required": "accept"
+          },
+          {
+            "id": "case-14",
+            "signals": {
+              "A": true,
+              "B": false,
+              "C": true,
+              "D": true
+            },
+            "required": "accept"
+          },
+          {
+            "id": "case-15",
+            "signals": {
+              "A": false,
+              "B": true,
+              "C": true,
+              "D": true
+            },
+            "required": "accept"
+          },
+          {
+            "id": "case-16",
+            "signals": {
+              "A": true,
+              "B": true,
+              "C": true,
+              "D": true
+            },
+            "required": "accept"
+          }
+        ],
+        "caseOrder": [
+          "case-1",
+          "case-2",
+          "case-3",
+          "case-4",
+          "case-5",
+          "case-6",
+          "case-7",
+          "case-8",
+          "case-9",
+          "case-10",
+          "case-11",
+          "case-12",
+          "case-13",
+          "case-14",
+          "case-15",
+          "case-16"
+        ],
+        "concepts": [
+          {
+            "id": "A",
+            "label": "A",
+            "accepts": "0101010101010101"
+          },
+          {
+            "id": "B",
+            "label": "B",
+            "accepts": "0011001100110011"
+          },
+          {
+            "id": "C",
+            "label": "C",
+            "accepts": "0000111100001111"
+          },
+          {
+            "id": "D",
+            "label": "D",
+            "accepts": "0000000011111111"
+          },
+          {
+            "id": "condition:0001000100010001",
+            "label": "(A AND B)",
+            "accepts": "0001000100010001"
+          }
+        ],
+        "active": "condition:0001000100010001",
+        "message": "(A AND B) established.",
+        "allGoals": [
+          {
+            "stage": 1,
+            "acceptCases": [
+              "case-4",
+              "case-8",
+              "case-12",
+              "case-13",
+              "case-14",
+              "case-15",
+              "case-16"
+            ]
+          },
+          {
+            "stage": 2,
+            "acceptCases": [
+              "case-4",
+              "case-8",
+              "case-12",
+              "case-14",
+              "case-16"
+            ]
+          },
+          {
+            "stage": 3,
+            "acceptCases": [
+              "case-4",
+              "case-7",
+              "case-8",
+              "case-12",
+              "case-13",
+              "case-14",
+              "case-15",
+              "case-16"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "index": 1,
+      "action": {
+        "type": "combine",
+        "op": "all",
+        "a": "C",
+        "b": "D"
+      },
+      "prediction": {
+        "episode": "paired-supports",
+        "kind": "execution",
+        "expectedEffect": "Create the C-and-D branch of the same construction plan."
+      },
+      "atMs": 16982,
+      "before": "f668beb6",
+      "after": "19fb8af1",
+      "observation": {
+        "version": "logical-progression-1",
+        "status": "playing",
+        "stage": 1,
+        "completed": [],
+        "goal": "Create the required accepting condition for each stage. All goals are public; established conditions remain useful across stages.",
+        "rules": [
+          "A case is a possible set of present supports A–D. Its required acceptance is a public goal constraint. This is a construction puzzle, not a claim about how real societies should judge evidence.",
+          "Every concept is a condition: the cases it accepts. ALL accepts exactly the intersection of two inputs; EITHER accepts exactly their union.",
+          "Establish a condition that accepts every required-accept case and rejects every required-reject case. All sixteen cases and every immediate combination consequence are inspectable.",
+          "Both inputs and every discovery remain. Equal resulting conditions reuse the same concept. There are no resource stocks, action quotas, gate limits or deadlines.",
+          "A–D and the possible worlds mean exactly the same thing at every stage. Only the required judgments change.",
+          "A matching condition automatically completes a stage and opens the next. Every earlier condition remains. A condition already established also satisfies a later stage without rebuilding.",
+          "No verbal decomposition or target formula is supplied. The complete public case constraints specify the goal; ALL/EITHER and all combination results remain explicit."
+        ],
+        "actionSchema": {
+          "type": "combine",
+          "op": [
+            "all",
+            "either"
+          ],
+          "a": "current concept id",
+          "b": "current concept id"
+        },
+        "cases": [
+          {
+            "id": "case-1",
+            "signals": {
+              "A": false,
+              "B": false,
+              "C": false,
+              "D": false
+            },
+            "required": "reject"
+          },
+          {
+            "id": "case-2",
+            "signals": {
+              "A": true,
+              "B": false,
+              "C": false,
+              "D": false
+            },
+            "required": "reject"
+          },
+          {
+            "id": "case-3",
+            "signals": {
+              "A": false,
+              "B": true,
+              "C": false,
+              "D": false
+            },
+            "required": "reject"
+          },
+          {
+            "id": "case-4",
+            "signals": {
+              "A": true,
+              "B": true,
+              "C": false,
+              "D": false
+            },
+            "required": "accept"
+          },
+          {
+            "id": "case-5",
+            "signals": {
+              "A": false,
+              "B": false,
+              "C": true,
+              "D": false
+            },
+            "required": "reject"
+          },
+          {
+            "id": "case-6",
+            "signals": {
+              "A": true,
+              "B": false,
+              "C": true,
+              "D": false
+            },
+            "required": "reject"
+          },
+          {
+            "id": "case-7",
+            "signals": {
+              "A": false,
+              "B": true,
+              "C": true,
+              "D": false
+            },
+            "required": "reject"
+          },
+          {
+            "id": "case-8",
+            "signals": {
+              "A": true,
+              "B": true,
+              "C": true,
+              "D": false
+            },
+            "required": "accept"
+          },
+          {
+            "id": "case-9",
+            "signals": {
+              "A": false,
+              "B": false,
+              "C": false,
+              "D": true
+            },
+            "required": "reject"
+          },
+          {
+            "id": "case-10",
+            "signals": {
+              "A": true,
+              "B": false,
+              "C": false,
+              "D": true
+            },
+            "required": "reject"
+          },
+          {
+            "id": "case-11",
+            "signals": {
+              "A": false,
+              "B": true,
+              "C": false,
+              "D": true
+            },
+            "required": "reject"
+          },
+          {
+            "id": "case-12",
+            "signals": {
+              "A": true,
+              "B": true,
+              "C": false,
+              "D": true
+            },
+            "required": "accept"
+          },
+          {
+            "id": "case-13",
+            "signals": {
+              "A": false,
+              "B": false,
+              "C": true,
+              "D": true
+            },
+            "required": "accept"
+          },
+          {
+            "id": "case-14",
+            "signals": {
+              "A": true,
+              "B": false,
+              "C": true,
+              "D": true
+            },
+            "required": "accept"
+          },
+          {
+            "id": "case-15",
+            "signals": {
+              "A": false,
+              "B": true,
+              "C": true,
+              "D": true
+            },
+            "required": "accept"
+          },
+          {
+            "id": "case-16",
+            "signals": {
+              "A": true,
+              "B": true,
+              "C": true,
+              "D": true
+            },
+            "required": "accept"
+          }
+        ],
+        "caseOrder": [
+          "case-1",
+          "case-2",
+          "case-3",
+          "case-4",
+          "case-5",
+          "case-6",
+          "case-7",
+          "case-8",
+          "case-9",
+          "case-10",
+          "case-11",
+          "case-12",
+          "case-13",
+          "case-14",
+          "case-15",
+          "case-16"
+        ],
+        "concepts": [
+          {
+            "id": "A",
+            "label": "A",
+            "accepts": "0101010101010101"
+          },
+          {
+            "id": "B",
+            "label": "B",
+            "accepts": "0011001100110011"
+          },
+          {
+            "id": "C",
+            "label": "C",
+            "accepts": "0000111100001111"
+          },
+          {
+            "id": "D",
+            "label": "D",
+            "accepts": "0000000011111111"
+          },
+          {
+            "id": "condition:0001000100010001",
+            "label": "(A AND B)",
+            "accepts": "0001000100010001"
+          },
+          {
+            "id": "condition:0000000000001111",
+            "label": "(C AND D)",
+            "accepts": "0000000000001111"
+          }
+        ],
+        "active": "condition:0000000000001111",
+        "message": "(C AND D) established.",
+        "allGoals": [
+          {
+            "stage": 1,
+            "acceptCases": [
+              "case-4",
+              "case-8",
+              "case-12",
+              "case-13",
+              "case-14",
+              "case-15",
+              "case-16"
+            ]
+          },
+          {
+            "stage": 2,
+            "acceptCases": [
+              "case-4",
+              "case-8",
+              "case-12",
+              "case-14",
+              "case-16"
+            ]
+          },
+          {
+            "stage": 3,
+            "acceptCases": [
+              "case-4",
+              "case-7",
+              "case-8",
+              "case-12",
+              "case-13",
+              "case-14",
+              "case-15",
+              "case-16"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "index": 2,
+      "action": {
+        "type": "combine",
+        "op": "either",
+        "a": "condition:0001000100010001",
+        "b": "condition:0000000000001111"
+      },
+      "prediction": {
+        "episode": "paired-supports",
+        "kind": "execution",
+        "expectedEffect": "Unite the two sufficient pairs to satisfy stage one."
+      },
+      "atMs": 20563,
+      "before": "19fb8af1",
+      "after": "1065af6c",
+      "observation": {
+        "version": "logical-progression-1",
+        "status": "playing",
+        "stage": 2,
+        "completed": [
+          {
+            "stage": 1,
+            "winner": "condition:0001000100011111",
+            "atCombination": 3
+          }
+        ],
+        "goal": "Create the required accepting condition for each stage. All goals are public; established conditions remain useful across stages.",
+        "rules": [
+          "A case is a possible set of present supports A–D. Its required acceptance is a public goal constraint. This is a construction puzzle, not a claim about how real societies should judge evidence.",
+          "Every concept is a condition: the cases it accepts. ALL accepts exactly the intersection of two inputs; EITHER accepts exactly their union.",
+          "Establish a condition that accepts every required-accept case and rejects every required-reject case. All sixteen cases and every immediate combination consequence are inspectable.",
+          "Both inputs and every discovery remain. Equal resulting conditions reuse the same concept. There are no resource stocks, action quotas, gate limits or deadlines.",
+          "A–D and the possible worlds mean exactly the same thing at every stage. Only the required judgments change.",
+          "A matching condition automatically completes a stage and opens the next. Every earlier condition remains. A condition already established also satisfies a later stage without rebuilding.",
+          "No verbal decomposition or target formula is supplied. The complete public case constraints specify the goal; ALL/EITHER and all combination results remain explicit."
+        ],
+        "actionSchema": {
+          "type": "combine",
+          "op": [
+            "all",
+            "either"
+          ],
+          "a": "current concept id",
+          "b": "current concept id"
+        },
+        "cases": [
+          {
+            "id": "case-1",
+            "signals": {
+              "A": false,
+              "B": false,
+              "C": false,
+              "D": false
+            },
+            "required": "reject"
+          },
+          {
+            "id": "case-2",
+            "signals": {
+              "A": true,
+              "B": false,
+              "C": false,
+              "D": false
+            },
+            "required": "reject"
+          },
+          {
+            "id": "case-3",
+            "signals": {
+              "A": false,
+              "B": true,
+              "C": false,
+              "D": false
+            },
+            "required": "reject"
+          },
+          {
+            "id": "case-4",
+            "signals": {
+              "A": true,
+              "B": true,
+              "C": false,
+              "D": false
+            },
+            "required": "accept"
+          },
+          {
+            "id": "case-5",
+            "signals": {
+              "A": false,
+              "B": false,
+              "C": true,
+              "D": false
+            },
+            "required": "reject"
+          },
+          {
+            "id": "case-6",
+            "signals": {
+              "A": true,
+              "B": false,
+              "C": true,
+              "D": false
+            },
+            "required": "reject"
+          },
+          {
+            "id": "case-7",
+            "signals": {
+              "A": false,
+              "B": true,
+              "C": true,
+              "D": false
+            },
+            "required": "reject"
+          },
+          {
+            "id": "case-8",
+            "signals": {
+              "A": true,
+              "B": true,
+              "C": true,
+              "D": false
+            },
+            "required": "accept"
+          },
+          {
+            "id": "case-9",
+            "signals": {
+              "A": false,
+              "B": false,
+              "C": false,
+              "D": true
+            },
+            "required": "reject"
+          },
+          {
+            "id": "case-10",
+            "signals": {
+              "A": true,
+              "B": false,
+              "C": false,
+              "D": true
+            },
+            "required": "reject"
+          },
+          {
+            "id": "case-11",
+            "signals": {
+              "A": false,
+              "B": true,
+              "C": false,
+              "D": true
+            },
+            "required": "reject"
+          },
+          {
+            "id": "case-12",
+            "signals": {
+              "A": true,
+              "B": true,
+              "C": false,
+              "D": true
+            },
+            "required": "accept"
+          },
+          {
+            "id": "case-13",
+            "signals": {
+              "A": false,
+              "B": false,
+              "C": true,
+              "D": true
+            },
+            "required": "reject"
+          },
+          {
+            "id": "case-14",
+            "signals": {
+              "A": true,
+              "B": false,
+              "C": true,
+              "D": true
+            },
+            "required": "accept"
+          },
+          {
+            "id": "case-15",
+            "signals": {
+              "A": false,
+              "B": true,
+              "C": true,
+              "D": true
+            },
+            "required": "reject"
+          },
+          {
+            "id": "case-16",
+            "signals": {
+              "A": true,
+              "B": true,
+              "C": true,
+              "D": true
+            },
+            "required": "accept"
+          }
+        ],
+        "caseOrder": [
+          "case-1",
+          "case-2",
+          "case-3",
+          "case-4",
+          "case-5",
+          "case-6",
+          "case-7",
+          "case-8",
+          "case-9",
+          "case-10",
+          "case-11",
+          "case-12",
+          "case-13",
+          "case-14",
+          "case-15",
+          "case-16"
+        ],
+        "concepts": [
+          {
+            "id": "A",
+            "label": "A",
+            "accepts": "0101010101010101"
+          },
+          {
+            "id": "B",
+            "label": "B",
+            "accepts": "0011001100110011"
+          },
+          {
+            "id": "C",
+            "label": "C",
+            "accepts": "0000111100001111"
+          },
+          {
+            "id": "D",
+            "label": "D",
+            "accepts": "0000000011111111"
+          },
+          {
+            "id": "condition:0001000100010001",
+            "label": "(A AND B)",
+            "accepts": "0001000100010001"
+          },
+          {
+            "id": "condition:0000000000001111",
+            "label": "(C AND D)",
+            "accepts": "0000000000001111"
+          },
+          {
+            "id": "condition:0001000100011111",
+            "label": "((A AND B) OR (C AND D))",
+            "accepts": "0001000100011111"
+          }
+        ],
+        "active": "condition:0001000100011111",
+        "message": "((A AND B) OR (C AND D)) established.",
+        "allGoals": [
+          {
+            "stage": 1,
+            "acceptCases": [
+              "case-4",
+              "case-8",
+              "case-12",
+              "case-13",
+              "case-14",
+              "case-15",
+              "case-16"
+            ]
+          },
+          {
+            "stage": 2,
+            "acceptCases": [
+              "case-4",
+              "case-8",
+              "case-12",
+              "case-14",
+              "case-16"
+            ]
+          },
+          {
+            "stage": 3,
+            "acceptCases": [
+              "case-4",
+              "case-7",
+              "case-8",
+              "case-12",
+              "case-13",
+              "case-14",
+              "case-15",
+              "case-16"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "index": 3,
+      "action": {
+        "type": "combine",
+        "op": "all",
+        "a": "condition:0001000100011111",
+        "b": "A"
+      },
+      "prediction": {
+        "episode": "refine-condition",
+        "kind": "construction",
+        "question": "Can the first completed condition be refined directly instead of reconstructing its branches?",
+        "expectedEffect": "Requiring A removes cases 13 and 15 while preserving every stage-two acceptance.",
+        "alternative": "Build A AND C AND D, then unite that with A AND B.",
+        "tradeoff": "The direct refinement expresses the change with one action; the branch construction is longer but equivalent."
+      },
+      "atMs": 31911,
+      "before": "1065af6c",
+      "after": "8640f9df",
+      "observation": {
+        "version": "logical-progression-1",
+        "status": "playing",
+        "stage": 3,
+        "completed": [
+          {
+            "stage": 1,
+            "winner": "condition:0001000100011111",
+            "atCombination": 3
+          },
+          {
+            "stage": 2,
+            "winner": "condition:0001000100010101",
+            "atCombination": 4
+          }
+        ],
+        "goal": "Create the required accepting condition for each stage. All goals are public; established conditions remain useful across stages.",
+        "rules": [
+          "A case is a possible set of present supports A–D. Its required acceptance is a public goal constraint. This is a construction puzzle, not a claim about how real societies should judge evidence.",
+          "Every concept is a condition: the cases it accepts. ALL accepts exactly the intersection of two inputs; EITHER accepts exactly their union.",
+          "Establish a condition that accepts every required-accept case and rejects every required-reject case. All sixteen cases and every immediate combination consequence are inspectable.",
+          "Both inputs and every discovery remain. Equal resulting conditions reuse the same concept. There are no resource stocks, action quotas, gate limits or deadlines.",
+          "A–D and the possible worlds mean exactly the same thing at every stage. Only the required judgments change.",
+          "A matching condition automatically completes a stage and opens the next. Every earlier condition remains. A condition already established also satisfies a later stage without rebuilding.",
+          "No verbal decomposition or target formula is supplied. The complete public case constraints specify the goal; ALL/EITHER and all combination results remain explicit."
+        ],
+        "actionSchema": {
+          "type": "combine",
+          "op": [
+            "all",
+            "either"
+          ],
+          "a": "current concept id",
+          "b": "current concept id"
+        },
+        "cases": [
+          {
+            "id": "case-1",
+            "signals": {
+              "A": false,
+              "B": false,
+              "C": false,
+              "D": false
+            },
+            "required": "reject"
+          },
+          {
+            "id": "case-2",
+            "signals": {
+              "A": true,
+              "B": false,
+              "C": false,
+              "D": false
+            },
+            "required": "reject"
+          },
+          {
+            "id": "case-3",
+            "signals": {
+              "A": false,
+              "B": true,
+              "C": false,
+              "D": false
+            },
+            "required": "reject"
+          },
+          {
+            "id": "case-4",
+            "signals": {
+              "A": true,
+              "B": true,
+              "C": false,
+              "D": false
+            },
+            "required": "accept"
+          },
+          {
+            "id": "case-5",
+            "signals": {
+              "A": false,
+              "B": false,
+              "C": true,
+              "D": false
+            },
+            "required": "reject"
+          },
+          {
+            "id": "case-6",
+            "signals": {
+              "A": true,
+              "B": false,
+              "C": true,
+              "D": false
+            },
+            "required": "reject"
+          },
+          {
+            "id": "case-7",
+            "signals": {
+              "A": false,
+              "B": true,
+              "C": true,
+              "D": false
+            },
+            "required": "accept"
+          },
+          {
+            "id": "case-8",
+            "signals": {
+              "A": true,
+              "B": true,
+              "C": true,
+              "D": false
+            },
+            "required": "accept"
+          },
+          {
+            "id": "case-9",
+            "signals": {
+              "A": false,
+              "B": false,
+              "C": false,
+              "D": true
+            },
+            "required": "reject"
+          },
+          {
+            "id": "case-10",
+            "signals": {
+              "A": true,
+              "B": false,
+              "C": false,
+              "D": true
+            },
+            "required": "reject"
+          },
+          {
+            "id": "case-11",
+            "signals": {
+              "A": false,
+              "B": true,
+              "C": false,
+              "D": true
+            },
+            "required": "reject"
+          },
+          {
+            "id": "case-12",
+            "signals": {
+              "A": true,
+              "B": true,
+              "C": false,
+              "D": true
+            },
+            "required": "accept"
+          },
+          {
+            "id": "case-13",
+            "signals": {
+              "A": false,
+              "B": false,
+              "C": true,
+              "D": true
+            },
+            "required": "accept"
+          },
+          {
+            "id": "case-14",
+            "signals": {
+              "A": true,
+              "B": false,
+              "C": true,
+              "D": true
+            },
+            "required": "accept"
+          },
+          {
+            "id": "case-15",
+            "signals": {
+              "A": false,
+              "B": true,
+              "C": true,
+              "D": true
+            },
+            "required": "accept"
+          },
+          {
+            "id": "case-16",
+            "signals": {
+              "A": true,
+              "B": true,
+              "C": true,
+              "D": true
+            },
+            "required": "accept"
+          }
+        ],
+        "caseOrder": [
+          "case-1",
+          "case-2",
+          "case-3",
+          "case-4",
+          "case-5",
+          "case-6",
+          "case-7",
+          "case-8",
+          "case-9",
+          "case-10",
+          "case-11",
+          "case-12",
+          "case-13",
+          "case-14",
+          "case-15",
+          "case-16"
+        ],
+        "concepts": [
+          {
+            "id": "A",
+            "label": "A",
+            "accepts": "0101010101010101"
+          },
+          {
+            "id": "B",
+            "label": "B",
+            "accepts": "0011001100110011"
+          },
+          {
+            "id": "C",
+            "label": "C",
+            "accepts": "0000111100001111"
+          },
+          {
+            "id": "D",
+            "label": "D",
+            "accepts": "0000000011111111"
+          },
+          {
+            "id": "condition:0001000100010001",
+            "label": "(A AND B)",
+            "accepts": "0001000100010001"
+          },
+          {
+            "id": "condition:0000000000001111",
+            "label": "(C AND D)",
+            "accepts": "0000000000001111"
+          },
+          {
+            "id": "condition:0001000100011111",
+            "label": "((A AND B) OR (C AND D))",
+            "accepts": "0001000100011111"
+          },
+          {
+            "id": "condition:0001000100010101",
+            "label": "(((A AND B) OR (C AND D)) AND A)",
+            "accepts": "0001000100010101"
+          }
+        ],
+        "active": "condition:0001000100010101",
+        "message": "(((A AND B) OR (C AND D)) AND A) established.",
+        "allGoals": [
+          {
+            "stage": 1,
+            "acceptCases": [
+              "case-4",
+              "case-8",
+              "case-12",
+              "case-13",
+              "case-14",
+              "case-15",
+              "case-16"
+            ]
+          },
+          {
+            "stage": 2,
+            "acceptCases": [
+              "case-4",
+              "case-8",
+              "case-12",
+              "case-14",
+              "case-16"
+            ]
+          },
+          {
+            "stage": 3,
+            "acceptCases": [
+              "case-4",
+              "case-7",
+              "case-8",
+              "case-12",
+              "case-13",
+              "case-14",
+              "case-15",
+              "case-16"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "index": 4,
+      "action": {
+        "type": "combine",
+        "op": "all",
+        "a": "B",
+        "b": "C"
+      },
+      "prediction": {
+        "episode": "extend-condition",
+        "kind": "construction",
+        "question": "Can one extra sufficient pair extend the first condition to the final goal?",
+        "expectedEffect": "B AND C adds case 7; its other accepted cases already belong to the stage-one condition."
+      },
+      "atMs": 38898,
+      "before": "8640f9df",
+      "after": "0b76836b",
+      "observation": {
+        "version": "logical-progression-1",
+        "status": "playing",
+        "stage": 3,
+        "completed": [
+          {
+            "stage": 1,
+            "winner": "condition:0001000100011111",
+            "atCombination": 3
+          },
+          {
+            "stage": 2,
+            "winner": "condition:0001000100010101",
+            "atCombination": 4
+          }
+        ],
+        "goal": "Create the required accepting condition for each stage. All goals are public; established conditions remain useful across stages.",
+        "rules": [
+          "A case is a possible set of present supports A–D. Its required acceptance is a public goal constraint. This is a construction puzzle, not a claim about how real societies should judge evidence.",
+          "Every concept is a condition: the cases it accepts. ALL accepts exactly the intersection of two inputs; EITHER accepts exactly their union.",
+          "Establish a condition that accepts every required-accept case and rejects every required-reject case. All sixteen cases and every immediate combination consequence are inspectable.",
+          "Both inputs and every discovery remain. Equal resulting conditions reuse the same concept. There are no resource stocks, action quotas, gate limits or deadlines.",
+          "A–D and the possible worlds mean exactly the same thing at every stage. Only the required judgments change.",
+          "A matching condition automatically completes a stage and opens the next. Every earlier condition remains. A condition already established also satisfies a later stage without rebuilding.",
+          "No verbal decomposition or target formula is supplied. The complete public case constraints specify the goal; ALL/EITHER and all combination results remain explicit."
+        ],
+        "actionSchema": {
+          "type": "combine",
+          "op": [
+            "all",
+            "either"
+          ],
+          "a": "current concept id",
+          "b": "current concept id"
+        },
+        "cases": [
+          {
+            "id": "case-1",
+            "signals": {
+              "A": false,
+              "B": false,
+              "C": false,
+              "D": false
+            },
+            "required": "reject"
+          },
+          {
+            "id": "case-2",
+            "signals": {
+              "A": true,
+              "B": false,
+              "C": false,
+              "D": false
+            },
+            "required": "reject"
+          },
+          {
+            "id": "case-3",
+            "signals": {
+              "A": false,
+              "B": true,
+              "C": false,
+              "D": false
+            },
+            "required": "reject"
+          },
+          {
+            "id": "case-4",
+            "signals": {
+              "A": true,
+              "B": true,
+              "C": false,
+              "D": false
+            },
+            "required": "accept"
+          },
+          {
+            "id": "case-5",
+            "signals": {
+              "A": false,
+              "B": false,
+              "C": true,
+              "D": false
+            },
+            "required": "reject"
+          },
+          {
+            "id": "case-6",
+            "signals": {
+              "A": true,
+              "B": false,
+              "C": true,
+              "D": false
+            },
+            "required": "reject"
+          },
+          {
+            "id": "case-7",
+            "signals": {
+              "A": false,
+              "B": true,
+              "C": true,
+              "D": false
+            },
+            "required": "accept"
+          },
+          {
+            "id": "case-8",
+            "signals": {
+              "A": true,
+              "B": true,
+              "C": true,
+              "D": false
+            },
+            "required": "accept"
+          },
+          {
+            "id": "case-9",
+            "signals": {
+              "A": false,
+              "B": false,
+              "C": false,
+              "D": true
+            },
+            "required": "reject"
+          },
+          {
+            "id": "case-10",
+            "signals": {
+              "A": true,
+              "B": false,
+              "C": false,
+              "D": true
+            },
+            "required": "reject"
+          },
+          {
+            "id": "case-11",
+            "signals": {
+              "A": false,
+              "B": true,
+              "C": false,
+              "D": true
+            },
+            "required": "reject"
+          },
+          {
+            "id": "case-12",
+            "signals": {
+              "A": true,
+              "B": true,
+              "C": false,
+              "D": true
+            },
+            "required": "accept"
+          },
+          {
+            "id": "case-13",
+            "signals": {
+              "A": false,
+              "B": false,
+              "C": true,
+              "D": true
+            },
+            "required": "accept"
+          },
+          {
+            "id": "case-14",
+            "signals": {
+              "A": true,
+              "B": false,
+              "C": true,
+              "D": true
+            },
+            "required": "accept"
+          },
+          {
+            "id": "case-15",
+            "signals": {
+              "A": false,
+              "B": true,
+              "C": true,
+              "D": true
+            },
+            "required": "accept"
+          },
+          {
+            "id": "case-16",
+            "signals": {
+              "A": true,
+              "B": true,
+              "C": true,
+              "D": true
+            },
+            "required": "accept"
+          }
+        ],
+        "caseOrder": [
+          "case-1",
+          "case-2",
+          "case-3",
+          "case-4",
+          "case-5",
+          "case-6",
+          "case-7",
+          "case-8",
+          "case-9",
+          "case-10",
+          "case-11",
+          "case-12",
+          "case-13",
+          "case-14",
+          "case-15",
+          "case-16"
+        ],
+        "concepts": [
+          {
+            "id": "A",
+            "label": "A",
+            "accepts": "0101010101010101"
+          },
+          {
+            "id": "B",
+            "label": "B",
+            "accepts": "0011001100110011"
+          },
+          {
+            "id": "C",
+            "label": "C",
+            "accepts": "0000111100001111"
+          },
+          {
+            "id": "D",
+            "label": "D",
+            "accepts": "0000000011111111"
+          },
+          {
+            "id": "condition:0001000100010001",
+            "label": "(A AND B)",
+            "accepts": "0001000100010001"
+          },
+          {
+            "id": "condition:0000000000001111",
+            "label": "(C AND D)",
+            "accepts": "0000000000001111"
+          },
+          {
+            "id": "condition:0001000100011111",
+            "label": "((A AND B) OR (C AND D))",
+            "accepts": "0001000100011111"
+          },
+          {
+            "id": "condition:0001000100010101",
+            "label": "(((A AND B) OR (C AND D)) AND A)",
+            "accepts": "0001000100010101"
+          },
+          {
+            "id": "condition:0000001100000011",
+            "label": "(B AND C)",
+            "accepts": "0000001100000011"
+          }
+        ],
+        "active": "condition:0000001100000011",
+        "message": "(B AND C) established.",
+        "allGoals": [
+          {
+            "stage": 1,
+            "acceptCases": [
+              "case-4",
+              "case-8",
+              "case-12",
+              "case-13",
+              "case-14",
+              "case-15",
+              "case-16"
+            ]
+          },
+          {
+            "stage": 2,
+            "acceptCases": [
+              "case-4",
+              "case-8",
+              "case-12",
+              "case-14",
+              "case-16"
+            ]
+          },
+          {
+            "stage": 3,
+            "acceptCases": [
+              "case-4",
+              "case-7",
+              "case-8",
+              "case-12",
+              "case-13",
+              "case-14",
+              "case-15",
+              "case-16"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "index": 5,
+      "action": {
+        "type": "combine",
+        "op": "either",
+        "a": "condition:0001000100011111",
+        "b": "condition:0000001100000011"
+      },
+      "prediction": {
+        "episode": "extend-condition",
+        "kind": "execution",
+        "expectedEffect": "Unite the new sufficient pair with the first condition and complete the final stage."
+      },
+      "atMs": 43019,
+      "before": "0b76836b",
+      "after": "9b0f8fb0",
+      "observation": {
+        "version": "logical-progression-1",
+        "status": "won",
+        "stage": 3,
+        "completed": [
+          {
+            "stage": 1,
+            "winner": "condition:0001000100011111",
+            "atCombination": 3
+          },
+          {
+            "stage": 2,
+            "winner": "condition:0001000100010101",
+            "atCombination": 4
+          },
+          {
+            "stage": 3,
+            "winner": "condition:0001001100011111",
+            "atCombination": 6
+          }
+        ],
+        "goal": "Create the required accepting condition for each stage. All goals are public; established conditions remain useful across stages.",
+        "rules": [
+          "A case is a possible set of present supports A–D. Its required acceptance is a public goal constraint. This is a construction puzzle, not a claim about how real societies should judge evidence.",
+          "Every concept is a condition: the cases it accepts. ALL accepts exactly the intersection of two inputs; EITHER accepts exactly their union.",
+          "Establish a condition that accepts every required-accept case and rejects every required-reject case. All sixteen cases and every immediate combination consequence are inspectable.",
+          "Both inputs and every discovery remain. Equal resulting conditions reuse the same concept. There are no resource stocks, action quotas, gate limits or deadlines.",
+          "A–D and the possible worlds mean exactly the same thing at every stage. Only the required judgments change.",
+          "A matching condition automatically completes a stage and opens the next. Every earlier condition remains. A condition already established also satisfies a later stage without rebuilding.",
+          "No verbal decomposition or target formula is supplied. The complete public case constraints specify the goal; ALL/EITHER and all combination results remain explicit."
+        ],
+        "actionSchema": {
+          "type": "combine",
+          "op": [
+            "all",
+            "either"
+          ],
+          "a": "current concept id",
+          "b": "current concept id"
+        },
+        "cases": [
+          {
+            "id": "case-1",
+            "signals": {
+              "A": false,
+              "B": false,
+              "C": false,
+              "D": false
+            },
+            "required": "reject"
+          },
+          {
+            "id": "case-2",
+            "signals": {
+              "A": true,
+              "B": false,
+              "C": false,
+              "D": false
+            },
+            "required": "reject"
+          },
+          {
+            "id": "case-3",
+            "signals": {
+              "A": false,
+              "B": true,
+              "C": false,
+              "D": false
+            },
+            "required": "reject"
+          },
+          {
+            "id": "case-4",
+            "signals": {
+              "A": true,
+              "B": true,
+              "C": false,
+              "D": false
+            },
+            "required": "accept"
+          },
+          {
+            "id": "case-5",
+            "signals": {
+              "A": false,
+              "B": false,
+              "C": true,
+              "D": false
+            },
+            "required": "reject"
+          },
+          {
+            "id": "case-6",
+            "signals": {
+              "A": true,
+              "B": false,
+              "C": true,
+              "D": false
+            },
+            "required": "reject"
+          },
+          {
+            "id": "case-7",
+            "signals": {
+              "A": false,
+              "B": true,
+              "C": true,
+              "D": false
+            },
+            "required": "accept"
+          },
+          {
+            "id": "case-8",
+            "signals": {
+              "A": true,
+              "B": true,
+              "C": true,
+              "D": false
+            },
+            "required": "accept"
+          },
+          {
+            "id": "case-9",
+            "signals": {
+              "A": false,
+              "B": false,
+              "C": false,
+              "D": true
+            },
+            "required": "reject"
+          },
+          {
+            "id": "case-10",
+            "signals": {
+              "A": true,
+              "B": false,
+              "C": false,
+              "D": true
+            },
+            "required": "reject"
+          },
+          {
+            "id": "case-11",
+            "signals": {
+              "A": false,
+              "B": true,
+              "C": false,
+              "D": true
+            },
+            "required": "reject"
+          },
+          {
+            "id": "case-12",
+            "signals": {
+              "A": true,
+              "B": true,
+              "C": false,
+              "D": true
+            },
+            "required": "accept"
+          },
+          {
+            "id": "case-13",
+            "signals": {
+              "A": false,
+              "B": false,
+              "C": true,
+              "D": true
+            },
+            "required": "accept"
+          },
+          {
+            "id": "case-14",
+            "signals": {
+              "A": true,
+              "B": false,
+              "C": true,
+              "D": true
+            },
+            "required": "accept"
+          },
+          {
+            "id": "case-15",
+            "signals": {
+              "A": false,
+              "B": true,
+              "C": true,
+              "D": true
+            },
+            "required": "accept"
+          },
+          {
+            "id": "case-16",
+            "signals": {
+              "A": true,
+              "B": true,
+              "C": true,
+              "D": true
+            },
+            "required": "accept"
+          }
+        ],
+        "caseOrder": [
+          "case-1",
+          "case-2",
+          "case-3",
+          "case-4",
+          "case-5",
+          "case-6",
+          "case-7",
+          "case-8",
+          "case-9",
+          "case-10",
+          "case-11",
+          "case-12",
+          "case-13",
+          "case-14",
+          "case-15",
+          "case-16"
+        ],
+        "concepts": [
+          {
+            "id": "A",
+            "label": "A",
+            "accepts": "0101010101010101"
+          },
+          {
+            "id": "B",
+            "label": "B",
+            "accepts": "0011001100110011"
+          },
+          {
+            "id": "C",
+            "label": "C",
+            "accepts": "0000111100001111"
+          },
+          {
+            "id": "D",
+            "label": "D",
+            "accepts": "0000000011111111"
+          },
+          {
+            "id": "condition:0001000100010001",
+            "label": "(A AND B)",
+            "accepts": "0001000100010001"
+          },
+          {
+            "id": "condition:0000000000001111",
+            "label": "(C AND D)",
+            "accepts": "0000000000001111"
+          },
+          {
+            "id": "condition:0001000100011111",
+            "label": "((A AND B) OR (C AND D))",
+            "accepts": "0001000100011111"
+          },
+          {
+            "id": "condition:0001000100010101",
+            "label": "(((A AND B) OR (C AND D)) AND A)",
+            "accepts": "0001000100010101"
+          },
+          {
+            "id": "condition:0000001100000011",
+            "label": "(B AND C)",
+            "accepts": "0000001100000011"
+          },
+          {
+            "id": "condition:0001001100011111",
+            "label": "(((A AND B) OR (C AND D)) OR (B AND C))",
+            "accepts": "0001001100011111"
+          }
+        ],
+        "active": "condition:0001001100011111",
+        "message": "(((A AND B) OR (C AND D)) OR (B AND C)) established.",
+        "allGoals": [
+          {
+            "stage": 1,
+            "acceptCases": [
+              "case-4",
+              "case-8",
+              "case-12",
+              "case-13",
+              "case-14",
+              "case-15",
+              "case-16"
+            ]
+          },
+          {
+            "stage": 2,
+            "acceptCases": [
+              "case-4",
+              "case-8",
+              "case-12",
+              "case-14",
+              "case-16"
+            ]
+          },
+          {
+            "stage": 3,
+            "acceptCases": [
+              "case-4",
+              "case-7",
+              "case-8",
+              "case-12",
+              "case-13",
+              "case-14",
+              "case-15",
+              "case-16"
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "attempts": [],
+  "previews": [],
+  "report": {
+    "episodes": [
+      {
+        "id": "paired-supports",
+        "from": 0,
+        "to": 2,
+        "kind": "construction",
+        "question": "Which small sufficient conditions reproduce the first case table?",
+        "value": "A modest recognition puzzle: identify AB and CD, then unite them. Once recognized before action 0, the remaining actions were straightforward execution."
+      },
+      {
+        "id": "refine-condition",
+        "from": 3,
+        "to": 3,
+        "kind": "construction",
+        "question": "Can the earlier whole condition be refined directly?",
+        "value": "The strongest moment: requiring A on the stage-one result completed stage two immediately. Reuse mattered to the construction, and recognizing it felt more satisfying than rebuilding the branches."
+      },
+      {
+        "id": "extend-condition",
+        "from": 4,
+        "to": 5,
+        "kind": "construction",
+        "question": "What extra sufficient pair adds the newly accepted case without adding rejected cases?",
+        "value": "A clear but easy transfer: BC could extend the earlier stage-one condition. This was a new use of an existing concept, though the pattern was already familiar."
+      }
+    ],
+    "repetition": [
+      {
+        "from": 1,
+        "to": 2,
+        "judgment": "neutral",
+        "why": "These two commitments simply carried out the already recognized first-stage construction. They were brief and gave tangible completion, with no new decision.",
+        "automaticResolutionLoss": "Automating these two actions after choosing the complete formula would lose the direct assembly interaction but little further reasoning."
+      },
+      {
+        "from": 3,
+        "to": 3,
+        "judgment": "valued",
+        "why": "The same AND operator had a new purpose: refining an established whole condition instead of making an initial pair.",
+        "automaticResolutionLoss": "Automatically identifying and applying the refinement would remove the main recognition payoff of stage two."
+      },
+      {
+        "from": 4,
+        "to": 5,
+        "judgment": "neutral",
+        "why": "The extension required another pair and union, now a familiar pattern. It remained short, but did not create a difficult new problem.",
+        "automaticResolutionLoss": "Automatic execution after choosing BC would remove little reasoning; automatic selection of BC would remove the remaining puzzle."
+      }
+    ],
+    "choiceExamples": [
+      {
+        "decision": "Intersect the entire stage-one result with A.",
+        "alternative": "Make A AND C AND D, then union it with A AND B.",
+        "reason": "The whole-condition refinement was simpler and preserved the required AB cases. This was an expression/construction choice rather than a consequential strategic tradeoff; both routes could succeed without penalty."
+      }
+    ],
+    "wantAnother": {
+      "answer": "Yes, selectively.",
+      "what": "I would try one more level where existing composite conditions can be reused in a less immediately obvious way. More case tables differing by one simple pair would probably become routine."
+    },
+    "overall": "AI player report, not evidence of human enjoyment. Won all three stages in six commitments (actions 0–5), without failed actions or previews. Positive: explicit consequences, no arbitrary recipe guessing, inexhaustible concepts, and a real payoff for transforming a prior construction. Negative: all three public goals were readily recognizable Boolean patterns; after each recognition, most commitments were execution. I encountered construction and a small expression optimization, but no strategic tension, competing consequences, or sustained uncertainty. Mildly satisfying as a short logic exercise; not yet a compelling universe-creation game."
+  }
+}

@@ -1,0 +1,1741 @@
+{
+  "schema": 1,
+  "id": "fun-field-1",
+  "game": "field",
+  "version": "field-1",
+  "scenario": "unfinished-valley",
+  "seed": 0,
+  "condition": "fresh-primitive-only",
+  "protocolVersion": "logical-cli-5",
+  "startedAt": "2026-10-26T00:25:00.576Z",
+  "initialObservation": {
+    "version": "field-1",
+    "scenario": "unfinished-valley",
+    "status": "playing",
+    "initialAim": {
+      "place": "orchard",
+      "condition": "flooded=false"
+    },
+    "board": {
+      "places": [
+        {
+          "id": "spring",
+          "position": [
+            2,
+            0
+          ],
+          "form": "raw",
+          "charter": "unassigned",
+          "purpose": "none",
+          "binding": false,
+          "grown": false,
+          "records": [],
+          "water": 2,
+          "coveredWater": 0,
+          "flooded": true,
+          "contact": false,
+          "life": false,
+          "seeds": false,
+          "origins": [],
+          "authority": "none"
+        },
+        {
+          "id": "orchard",
+          "position": [
+            0,
+            1
+          ],
+          "form": "raw",
+          "charter": "unassigned",
+          "purpose": "none",
+          "binding": false,
+          "grown": false,
+          "records": [],
+          "water": 2,
+          "coveredWater": 0,
+          "flooded": true,
+          "contact": false,
+          "life": false,
+          "seeds": false,
+          "origins": [],
+          "authority": "none"
+        },
+        {
+          "id": "hollow",
+          "position": [
+            3,
+            1
+          ],
+          "form": "raw",
+          "charter": "unassigned",
+          "purpose": "none",
+          "binding": false,
+          "grown": false,
+          "records": [],
+          "water": 0,
+          "coveredWater": 0,
+          "flooded": false,
+          "contact": false,
+          "life": false,
+          "seeds": false,
+          "origins": [],
+          "authority": "none"
+        },
+        {
+          "id": "village",
+          "position": [
+            0,
+            2
+          ],
+          "form": "raw",
+          "charter": "unassigned",
+          "purpose": "none",
+          "binding": false,
+          "grown": false,
+          "records": [],
+          "water": 0,
+          "coveredWater": 0,
+          "flooded": false,
+          "contact": false,
+          "life": false,
+          "seeds": false,
+          "origins": [],
+          "authority": "none"
+        },
+        {
+          "id": "marsh",
+          "position": [
+            4,
+            2
+          ],
+          "form": "raw",
+          "charter": "unassigned",
+          "purpose": "none",
+          "binding": false,
+          "grown": false,
+          "records": [],
+          "water": 0,
+          "coveredWater": 0,
+          "flooded": false,
+          "contact": false,
+          "life": false,
+          "seeds": false,
+          "origins": [],
+          "authority": "none"
+        },
+        {
+          "id": "kiln",
+          "position": [
+            1,
+            3
+          ],
+          "form": "raw",
+          "charter": "unassigned",
+          "purpose": "none",
+          "binding": false,
+          "grown": false,
+          "records": [],
+          "water": 0,
+          "coveredWater": 0,
+          "flooded": false,
+          "contact": false,
+          "life": false,
+          "seeds": false,
+          "origins": [],
+          "authority": "none"
+        },
+        {
+          "id": "archive",
+          "position": [
+            4,
+            3
+          ],
+          "form": "raw",
+          "charter": "unassigned",
+          "purpose": "none",
+          "binding": false,
+          "grown": false,
+          "records": [],
+          "water": 0,
+          "coveredWater": 0,
+          "flooded": false,
+          "contact": false,
+          "life": false,
+          "seeds": false,
+          "origins": [],
+          "authority": "none"
+        },
+        {
+          "id": "meeting",
+          "position": [
+            2,
+            4
+          ],
+          "form": "raw",
+          "charter": "unassigned",
+          "purpose": "none",
+          "binding": false,
+          "grown": false,
+          "records": [],
+          "water": 0,
+          "coveredWater": 0,
+          "flooded": false,
+          "contact": false,
+          "life": false,
+          "seeds": false,
+          "origins": [],
+          "authority": "none"
+        }
+      ],
+      "links": [
+        {
+          "id": "spring-orchard",
+          "a": "spring",
+          "b": "orchard",
+          "form": "canal",
+          "downhill": [
+            "spring",
+            "orchard"
+          ]
+        },
+        {
+          "id": "spring-hollow",
+          "a": "spring",
+          "b": "hollow",
+          "form": "closed",
+          "downhill": [
+            "spring",
+            "hollow"
+          ]
+        },
+        {
+          "id": "spring-marsh",
+          "a": "spring",
+          "b": "marsh",
+          "form": "closed",
+          "downhill": [
+            "spring",
+            "marsh"
+          ]
+        },
+        {
+          "id": "orchard-village",
+          "a": "orchard",
+          "b": "village",
+          "form": "closed",
+          "downhill": [
+            "orchard",
+            "village"
+          ]
+        },
+        {
+          "id": "orchard-kiln",
+          "a": "orchard",
+          "b": "kiln",
+          "form": "closed",
+          "downhill": [
+            "orchard",
+            "kiln"
+          ]
+        },
+        {
+          "id": "hollow-marsh",
+          "a": "hollow",
+          "b": "marsh",
+          "form": "closed",
+          "downhill": [
+            "hollow",
+            "marsh"
+          ]
+        },
+        {
+          "id": "hollow-village",
+          "a": "hollow",
+          "b": "village",
+          "form": "closed",
+          "downhill": [
+            "hollow",
+            "village"
+          ]
+        },
+        {
+          "id": "hollow-meeting",
+          "a": "hollow",
+          "b": "meeting",
+          "form": "closed",
+          "downhill": [
+            "hollow",
+            "meeting"
+          ]
+        },
+        {
+          "id": "marsh-kiln",
+          "a": "marsh",
+          "b": "kiln",
+          "form": "closed",
+          "downhill": [
+            "marsh",
+            "kiln"
+          ]
+        },
+        {
+          "id": "marsh-archive",
+          "a": "marsh",
+          "b": "archive",
+          "form": "closed",
+          "downhill": [
+            "marsh",
+            "archive"
+          ]
+        },
+        {
+          "id": "kiln-meeting",
+          "a": "kiln",
+          "b": "meeting",
+          "form": "closed",
+          "downhill": [
+            "kiln",
+            "meeting"
+          ]
+        },
+        {
+          "id": "archive-meeting",
+          "a": "archive",
+          "b": "meeting",
+          "form": "closed",
+          "downhill": [
+            "archive",
+            "meeting"
+          ]
+        },
+        {
+          "id": "village-meeting",
+          "a": "village",
+          "b": "meeting",
+          "form": "closed",
+          "downhill": [
+            "village",
+            "meeting"
+          ]
+        },
+        {
+          "id": "village-archive",
+          "a": "village",
+          "b": "archive",
+          "form": "closed",
+          "downhill": [
+            "village",
+            "archive"
+          ]
+        }
+      ],
+      "avatars": [
+        {
+          "id": "mneme",
+          "home": "archive",
+          "intent": "remember",
+          "mode": "unassigned",
+          "accepted": false,
+          "compelled": false,
+          "policy": "initial",
+          "ownAct": false,
+          "received": [],
+          "memory": {
+            "exposureOrFlood": false,
+            "compulsion": false,
+            "protection": false
+          }
+        },
+        {
+          "id": "judge",
+          "home": "meeting",
+          "intent": "judge",
+          "mode": "unassigned",
+          "accepted": false,
+          "compelled": false,
+          "policy": "initial",
+          "ownAct": false,
+          "received": [],
+          "memory": {
+            "exposureOrFlood": false,
+            "compulsion": false,
+            "protection": false
+          }
+        },
+        {
+          "id": "maker",
+          "home": "kiln",
+          "intent": "free",
+          "mode": "unassigned",
+          "accepted": false,
+          "compelled": false,
+          "policy": "initial",
+          "ownAct": false,
+          "received": [],
+          "memory": {
+            "exposureOrFlood": false,
+            "compulsion": false,
+            "protection": false
+          }
+        }
+      ]
+    },
+    "capabilities": [
+      "earth",
+      "water",
+      "air",
+      "seed",
+      "stone",
+      "heat",
+      "channel",
+      "place"
+    ],
+    "capabilityPhase": "matter",
+    "conditions": [],
+    "availability": [
+      {
+        "at": "spring-orchard",
+        "count": 3
+      },
+      {
+        "at": "spring-hollow",
+        "count": 3
+      },
+      {
+        "at": "spring-marsh",
+        "count": 3
+      },
+      {
+        "at": "orchard-village",
+        "count": 3
+      },
+      {
+        "at": "orchard-kiln",
+        "count": 3
+      },
+      {
+        "at": "hollow-marsh",
+        "count": 3
+      },
+      {
+        "at": "hollow-village",
+        "count": 3
+      },
+      {
+        "at": "hollow-meeting",
+        "count": 3
+      },
+      {
+        "at": "marsh-kiln",
+        "count": 3
+      },
+      {
+        "at": "marsh-archive",
+        "count": 3
+      },
+      {
+        "at": "kiln-meeting",
+        "count": 3
+      },
+      {
+        "at": "archive-meeting",
+        "count": 3
+      },
+      {
+        "at": "village-meeting",
+        "count": 3
+      },
+      {
+        "at": "village-archive",
+        "count": 3
+      },
+      {
+        "at": "spring",
+        "count": 3
+      },
+      {
+        "at": "orchard",
+        "count": 3
+      },
+      {
+        "at": "hollow",
+        "count": 2
+      },
+      {
+        "at": "village",
+        "count": 2
+      },
+      {
+        "at": "marsh",
+        "count": 2
+      },
+      {
+        "at": "kiln",
+        "count": 2
+      },
+      {
+        "at": "archive",
+        "count": 2
+      },
+      {
+        "at": "meeting",
+        "count": 2
+      }
+    ],
+    "response": {
+      "places": [],
+      "links": [],
+      "avatars": [],
+      "capabilities": [],
+      "conditions": [],
+      "status": "playing"
+    },
+    "actionSchema": {
+      "type": "combine",
+      "a": "concept",
+      "b": "concept",
+      "at": "place or link; omitted for avatar",
+      "mode": "institution / revisable / binding / invite / bind when applicable",
+      "intent": "avatar purpose"
+    },
+    "inspect": "Public rules SESSION; all actions SESSION [JSON_FILTER]; single-action preview SESSION JSON_ACTION. No authored scenes or character dialogue are part of this observation."
+  },
+  "decisions": [
+    {
+      "index": 0,
+      "action": {
+        "type": "combine",
+        "a": "seed",
+        "b": "water",
+        "at": "orchard"
+      },
+      "prediction": {
+        "episode": "living-orchard",
+        "intention": "Make the orchard safe by turning its floodwater into living growth, keeping the river present instead of blocking it.",
+        "expected": "The orchard becomes a grove, strong water becomes gentle, flooding stops, and life awakens."
+      },
+      "atMs": 9691,
+      "phase": "assigned",
+      "before": "810b30f4",
+      "after": "ececdd90",
+      "observation": {
+        "version": "field-1",
+        "scenario": "unfinished-valley",
+        "status": "playing",
+        "initialAim": {
+          "place": "orchard",
+          "condition": "flooded=false"
+        },
+        "board": {
+          "places": [
+            {
+              "id": "spring",
+              "position": [
+                2,
+                0
+              ],
+              "form": "raw",
+              "charter": "unassigned",
+              "purpose": "none",
+              "binding": false,
+              "grown": false,
+              "records": [],
+              "water": 2,
+              "coveredWater": 0,
+              "flooded": true,
+              "contact": false,
+              "life": false,
+              "seeds": false,
+              "origins": [],
+              "authority": "none"
+            },
+            {
+              "id": "orchard",
+              "position": [
+                0,
+                1
+              ],
+              "form": "grove",
+              "charter": "unassigned",
+              "purpose": "none",
+              "binding": false,
+              "grown": true,
+              "records": [],
+              "water": 1,
+              "coveredWater": 0,
+              "flooded": false,
+              "contact": true,
+              "life": true,
+              "seeds": true,
+              "origins": [],
+              "authority": "none"
+            },
+            {
+              "id": "hollow",
+              "position": [
+                3,
+                1
+              ],
+              "form": "raw",
+              "charter": "unassigned",
+              "purpose": "none",
+              "binding": false,
+              "grown": false,
+              "records": [],
+              "water": 0,
+              "coveredWater": 0,
+              "flooded": false,
+              "contact": false,
+              "life": false,
+              "seeds": false,
+              "origins": [],
+              "authority": "none"
+            },
+            {
+              "id": "village",
+              "position": [
+                0,
+                2
+              ],
+              "form": "raw",
+              "charter": "unassigned",
+              "purpose": "none",
+              "binding": false,
+              "grown": false,
+              "records": [],
+              "water": 0,
+              "coveredWater": 0,
+              "flooded": false,
+              "contact": false,
+              "life": false,
+              "seeds": false,
+              "origins": [],
+              "authority": "none"
+            },
+            {
+              "id": "marsh",
+              "position": [
+                4,
+                2
+              ],
+              "form": "raw",
+              "charter": "unassigned",
+              "purpose": "none",
+              "binding": false,
+              "grown": false,
+              "records": [],
+              "water": 0,
+              "coveredWater": 0,
+              "flooded": false,
+              "contact": false,
+              "life": false,
+              "seeds": false,
+              "origins": [],
+              "authority": "none"
+            },
+            {
+              "id": "kiln",
+              "position": [
+                1,
+                3
+              ],
+              "form": "raw",
+              "charter": "unassigned",
+              "purpose": "none",
+              "binding": false,
+              "grown": false,
+              "records": [],
+              "water": 0,
+              "coveredWater": 0,
+              "flooded": false,
+              "contact": false,
+              "life": false,
+              "seeds": false,
+              "origins": [],
+              "authority": "none"
+            },
+            {
+              "id": "archive",
+              "position": [
+                4,
+                3
+              ],
+              "form": "raw",
+              "charter": "unassigned",
+              "purpose": "none",
+              "binding": false,
+              "grown": false,
+              "records": [],
+              "water": 0,
+              "coveredWater": 0,
+              "flooded": false,
+              "contact": false,
+              "life": false,
+              "seeds": false,
+              "origins": [],
+              "authority": "none"
+            },
+            {
+              "id": "meeting",
+              "position": [
+                2,
+                4
+              ],
+              "form": "raw",
+              "charter": "unassigned",
+              "purpose": "none",
+              "binding": false,
+              "grown": false,
+              "records": [],
+              "water": 0,
+              "coveredWater": 0,
+              "flooded": false,
+              "contact": false,
+              "life": false,
+              "seeds": false,
+              "origins": [],
+              "authority": "none"
+            }
+          ],
+          "links": [
+            {
+              "id": "spring-orchard",
+              "a": "spring",
+              "b": "orchard",
+              "form": "canal",
+              "downhill": [
+                "spring",
+                "orchard"
+              ]
+            },
+            {
+              "id": "spring-hollow",
+              "a": "spring",
+              "b": "hollow",
+              "form": "closed",
+              "downhill": [
+                "spring",
+                "hollow"
+              ]
+            },
+            {
+              "id": "spring-marsh",
+              "a": "spring",
+              "b": "marsh",
+              "form": "closed",
+              "downhill": [
+                "spring",
+                "marsh"
+              ]
+            },
+            {
+              "id": "orchard-village",
+              "a": "orchard",
+              "b": "village",
+              "form": "closed",
+              "downhill": [
+                "orchard",
+                "village"
+              ]
+            },
+            {
+              "id": "orchard-kiln",
+              "a": "orchard",
+              "b": "kiln",
+              "form": "closed",
+              "downhill": [
+                "orchard",
+                "kiln"
+              ]
+            },
+            {
+              "id": "hollow-marsh",
+              "a": "hollow",
+              "b": "marsh",
+              "form": "closed",
+              "downhill": [
+                "hollow",
+                "marsh"
+              ]
+            },
+            {
+              "id": "hollow-village",
+              "a": "hollow",
+              "b": "village",
+              "form": "closed",
+              "downhill": [
+                "hollow",
+                "village"
+              ]
+            },
+            {
+              "id": "hollow-meeting",
+              "a": "hollow",
+              "b": "meeting",
+              "form": "closed",
+              "downhill": [
+                "hollow",
+                "meeting"
+              ]
+            },
+            {
+              "id": "marsh-kiln",
+              "a": "marsh",
+              "b": "kiln",
+              "form": "closed",
+              "downhill": [
+                "marsh",
+                "kiln"
+              ]
+            },
+            {
+              "id": "marsh-archive",
+              "a": "marsh",
+              "b": "archive",
+              "form": "closed",
+              "downhill": [
+                "marsh",
+                "archive"
+              ]
+            },
+            {
+              "id": "kiln-meeting",
+              "a": "kiln",
+              "b": "meeting",
+              "form": "closed",
+              "downhill": [
+                "kiln",
+                "meeting"
+              ]
+            },
+            {
+              "id": "archive-meeting",
+              "a": "archive",
+              "b": "meeting",
+              "form": "closed",
+              "downhill": [
+                "archive",
+                "meeting"
+              ]
+            },
+            {
+              "id": "village-meeting",
+              "a": "village",
+              "b": "meeting",
+              "form": "closed",
+              "downhill": [
+                "village",
+                "meeting"
+              ]
+            },
+            {
+              "id": "village-archive",
+              "a": "village",
+              "b": "archive",
+              "form": "closed",
+              "downhill": [
+                "village",
+                "archive"
+              ]
+            }
+          ],
+          "avatars": [
+            {
+              "id": "mneme",
+              "home": "archive",
+              "intent": "remember",
+              "mode": "unassigned",
+              "accepted": false,
+              "compelled": false,
+              "policy": "initial",
+              "ownAct": false,
+              "received": [],
+              "memory": {
+                "exposureOrFlood": false,
+                "compulsion": false,
+                "protection": false
+              }
+            },
+            {
+              "id": "judge",
+              "home": "meeting",
+              "intent": "judge",
+              "mode": "unassigned",
+              "accepted": false,
+              "compelled": false,
+              "policy": "initial",
+              "ownAct": false,
+              "received": [],
+              "memory": {
+                "exposureOrFlood": false,
+                "compulsion": false,
+                "protection": false
+              }
+            },
+            {
+              "id": "maker",
+              "home": "kiln",
+              "intent": "free",
+              "mode": "unassigned",
+              "accepted": false,
+              "compelled": false,
+              "policy": "initial",
+              "ownAct": false,
+              "received": [],
+              "memory": {
+                "exposureOrFlood": false,
+                "compulsion": false,
+                "protection": false
+              }
+            }
+          ]
+        },
+        "capabilities": [
+          "earth",
+          "water",
+          "air",
+          "seed",
+          "stone",
+          "heat",
+          "channel",
+          "place",
+          "life",
+          "freedom"
+        ],
+        "capabilityPhase": "life",
+        "conditions": [
+          "first-growth",
+          "phase-life"
+        ],
+        "availability": [
+          {
+            "at": "spring-orchard",
+            "count": 4
+          },
+          {
+            "at": "spring-hollow",
+            "count": 4
+          },
+          {
+            "at": "spring-marsh",
+            "count": 4
+          },
+          {
+            "at": "orchard-village",
+            "count": 4
+          },
+          {
+            "at": "orchard-kiln",
+            "count": 4
+          },
+          {
+            "at": "hollow-marsh",
+            "count": 4
+          },
+          {
+            "at": "hollow-village",
+            "count": 4
+          },
+          {
+            "at": "hollow-meeting",
+            "count": 4
+          },
+          {
+            "at": "marsh-kiln",
+            "count": 4
+          },
+          {
+            "at": "marsh-archive",
+            "count": 4
+          },
+          {
+            "at": "kiln-meeting",
+            "count": 4
+          },
+          {
+            "at": "archive-meeting",
+            "count": 4
+          },
+          {
+            "at": "village-meeting",
+            "count": 4
+          },
+          {
+            "at": "village-archive",
+            "count": 4
+          },
+          {
+            "at": "spring",
+            "count": 3
+          },
+          {
+            "at": "orchard",
+            "count": 3
+          },
+          {
+            "at": "hollow",
+            "count": 2
+          },
+          {
+            "at": "village",
+            "count": 2
+          },
+          {
+            "at": "marsh",
+            "count": 2
+          },
+          {
+            "at": "kiln",
+            "count": 2
+          },
+          {
+            "at": "archive",
+            "count": 2
+          },
+          {
+            "at": "meeting",
+            "count": 2
+          }
+        ],
+        "response": {
+          "places": [
+            {
+              "id": "orchard",
+              "before": {
+                "id": "orchard",
+                "position": [
+                  0,
+                  1
+                ],
+                "form": "raw",
+                "charter": "unassigned",
+                "purpose": "none",
+                "binding": false,
+                "grown": false,
+                "records": [],
+                "water": 2,
+                "coveredWater": 0,
+                "flooded": true,
+                "contact": false,
+                "life": false,
+                "seeds": false,
+                "origins": [],
+                "authority": "none"
+              },
+              "after": {
+                "id": "orchard",
+                "position": [
+                  0,
+                  1
+                ],
+                "form": "grove",
+                "charter": "unassigned",
+                "purpose": "none",
+                "binding": false,
+                "grown": true,
+                "records": [],
+                "water": 1,
+                "coveredWater": 0,
+                "flooded": false,
+                "contact": true,
+                "life": true,
+                "seeds": true,
+                "origins": [],
+                "authority": "none"
+              }
+            }
+          ],
+          "links": [],
+          "avatars": [],
+          "capabilities": [
+            "life",
+            "freedom"
+          ],
+          "conditions": [
+            "first-growth",
+            "phase-life"
+          ],
+          "status": "playing"
+        },
+        "actionSchema": {
+          "type": "combine",
+          "a": "concept",
+          "b": "concept",
+          "at": "place or link; omitted for avatar",
+          "mode": "institution / revisable / binding / invite / bind when applicable",
+          "intent": "avatar purpose"
+        },
+        "inspect": "Public rules SESSION; all actions SESSION [JSON_FILTER]; single-action preview SESSION JSON_ACTION. No authored scenes or character dialogue are part of this observation."
+      }
+    },
+    {
+      "index": 1,
+      "action": {
+        "type": "combine",
+        "a": "seed",
+        "b": "channel",
+        "at": "orchard-village"
+      },
+      "prediction": {
+        "episode": "living-connection",
+        "intention": "Carry orchard water and seeds into the village.",
+        "expected": "A reed link carries gentle water and seeds; perhaps the raw village takes root, or it becomes ready for a grove.",
+        "alternative": "A canal carries water but no seeds, so it would not test descent."
+      },
+      "atMs": 36372,
+      "phase": "elective",
+      "before": "ececdd90",
+      "after": "28af8508",
+      "observation": {
+        "version": "field-1",
+        "scenario": "unfinished-valley",
+        "status": "playing",
+        "initialAim": {
+          "place": "orchard",
+          "condition": "flooded=false"
+        },
+        "board": {
+          "places": [
+            {
+              "id": "spring",
+              "position": [
+                2,
+                0
+              ],
+              "form": "raw",
+              "charter": "unassigned",
+              "purpose": "none",
+              "binding": false,
+              "grown": false,
+              "records": [],
+              "water": 2,
+              "coveredWater": 0,
+              "flooded": true,
+              "contact": false,
+              "life": false,
+              "seeds": false,
+              "origins": [],
+              "authority": "none"
+            },
+            {
+              "id": "orchard",
+              "position": [
+                0,
+                1
+              ],
+              "form": "grove",
+              "charter": "unassigned",
+              "purpose": "none",
+              "binding": false,
+              "grown": true,
+              "records": [],
+              "water": 1,
+              "coveredWater": 0,
+              "flooded": false,
+              "contact": true,
+              "life": true,
+              "seeds": true,
+              "origins": [],
+              "authority": "none"
+            },
+            {
+              "id": "hollow",
+              "position": [
+                3,
+                1
+              ],
+              "form": "raw",
+              "charter": "unassigned",
+              "purpose": "none",
+              "binding": false,
+              "grown": false,
+              "records": [],
+              "water": 0,
+              "coveredWater": 0,
+              "flooded": false,
+              "contact": false,
+              "life": false,
+              "seeds": false,
+              "origins": [],
+              "authority": "none"
+            },
+            {
+              "id": "village",
+              "position": [
+                0,
+                2
+              ],
+              "form": "raw",
+              "charter": "unassigned",
+              "purpose": "none",
+              "binding": false,
+              "grown": true,
+              "records": [],
+              "water": 1,
+              "coveredWater": 0,
+              "flooded": false,
+              "contact": true,
+              "life": true,
+              "seeds": true,
+              "origins": [],
+              "authority": "none"
+            },
+            {
+              "id": "marsh",
+              "position": [
+                4,
+                2
+              ],
+              "form": "raw",
+              "charter": "unassigned",
+              "purpose": "none",
+              "binding": false,
+              "grown": false,
+              "records": [],
+              "water": 0,
+              "coveredWater": 0,
+              "flooded": false,
+              "contact": false,
+              "life": false,
+              "seeds": false,
+              "origins": [],
+              "authority": "none"
+            },
+            {
+              "id": "kiln",
+              "position": [
+                1,
+                3
+              ],
+              "form": "raw",
+              "charter": "unassigned",
+              "purpose": "none",
+              "binding": false,
+              "grown": false,
+              "records": [],
+              "water": 0,
+              "coveredWater": 0,
+              "flooded": false,
+              "contact": false,
+              "life": false,
+              "seeds": false,
+              "origins": [],
+              "authority": "none"
+            },
+            {
+              "id": "archive",
+              "position": [
+                4,
+                3
+              ],
+              "form": "raw",
+              "charter": "unassigned",
+              "purpose": "none",
+              "binding": false,
+              "grown": false,
+              "records": [],
+              "water": 0,
+              "coveredWater": 0,
+              "flooded": false,
+              "contact": false,
+              "life": false,
+              "seeds": false,
+              "origins": [],
+              "authority": "none"
+            },
+            {
+              "id": "meeting",
+              "position": [
+                2,
+                4
+              ],
+              "form": "raw",
+              "charter": "unassigned",
+              "purpose": "none",
+              "binding": false,
+              "grown": false,
+              "records": [],
+              "water": 0,
+              "coveredWater": 0,
+              "flooded": false,
+              "contact": false,
+              "life": false,
+              "seeds": false,
+              "origins": [],
+              "authority": "none"
+            }
+          ],
+          "links": [
+            {
+              "id": "spring-orchard",
+              "a": "spring",
+              "b": "orchard",
+              "form": "canal",
+              "downhill": [
+                "spring",
+                "orchard"
+              ]
+            },
+            {
+              "id": "spring-hollow",
+              "a": "spring",
+              "b": "hollow",
+              "form": "closed",
+              "downhill": [
+                "spring",
+                "hollow"
+              ]
+            },
+            {
+              "id": "spring-marsh",
+              "a": "spring",
+              "b": "marsh",
+              "form": "closed",
+              "downhill": [
+                "spring",
+                "marsh"
+              ]
+            },
+            {
+              "id": "orchard-village",
+              "a": "orchard",
+              "b": "village",
+              "form": "reed",
+              "downhill": [
+                "orchard",
+                "village"
+              ]
+            },
+            {
+              "id": "orchard-kiln",
+              "a": "orchard",
+              "b": "kiln",
+              "form": "closed",
+              "downhill": [
+                "orchard",
+                "kiln"
+              ]
+            },
+            {
+              "id": "hollow-marsh",
+              "a": "hollow",
+              "b": "marsh",
+              "form": "closed",
+              "downhill": [
+                "hollow",
+                "marsh"
+              ]
+            },
+            {
+              "id": "hollow-village",
+              "a": "hollow",
+              "b": "village",
+              "form": "closed",
+              "downhill": [
+                "hollow",
+                "village"
+              ]
+            },
+            {
+              "id": "hollow-meeting",
+              "a": "hollow",
+              "b": "meeting",
+              "form": "closed",
+              "downhill": [
+                "hollow",
+                "meeting"
+              ]
+            },
+            {
+              "id": "marsh-kiln",
+              "a": "marsh",
+              "b": "kiln",
+              "form": "closed",
+              "downhill": [
+                "marsh",
+                "kiln"
+              ]
+            },
+            {
+              "id": "marsh-archive",
+              "a": "marsh",
+              "b": "archive",
+              "form": "closed",
+              "downhill": [
+                "marsh",
+                "archive"
+              ]
+            },
+            {
+              "id": "kiln-meeting",
+              "a": "kiln",
+              "b": "meeting",
+              "form": "closed",
+              "downhill": [
+                "kiln",
+                "meeting"
+              ]
+            },
+            {
+              "id": "archive-meeting",
+              "a": "archive",
+              "b": "meeting",
+              "form": "closed",
+              "downhill": [
+                "archive",
+                "meeting"
+              ]
+            },
+            {
+              "id": "village-meeting",
+              "a": "village",
+              "b": "meeting",
+              "form": "closed",
+              "downhill": [
+                "village",
+                "meeting"
+              ]
+            },
+            {
+              "id": "village-archive",
+              "a": "village",
+              "b": "archive",
+              "form": "closed",
+              "downhill": [
+                "village",
+                "archive"
+              ]
+            }
+          ],
+          "avatars": [
+            {
+              "id": "mneme",
+              "home": "archive",
+              "intent": "remember",
+              "mode": "unassigned",
+              "accepted": false,
+              "compelled": false,
+              "policy": "initial",
+              "ownAct": false,
+              "received": [],
+              "memory": {
+                "exposureOrFlood": false,
+                "compulsion": false,
+                "protection": false
+              }
+            },
+            {
+              "id": "judge",
+              "home": "meeting",
+              "intent": "judge",
+              "mode": "unassigned",
+              "accepted": false,
+              "compelled": false,
+              "policy": "initial",
+              "ownAct": false,
+              "received": [],
+              "memory": {
+                "exposureOrFlood": false,
+                "compulsion": false,
+                "protection": false
+              }
+            },
+            {
+              "id": "maker",
+              "home": "kiln",
+              "intent": "free",
+              "mode": "unassigned",
+              "accepted": false,
+              "compelled": false,
+              "policy": "initial",
+              "ownAct": false,
+              "received": [],
+              "memory": {
+                "exposureOrFlood": false,
+                "compulsion": false,
+                "protection": false
+              }
+            }
+          ]
+        },
+        "capabilities": [
+          "earth",
+          "water",
+          "air",
+          "seed",
+          "stone",
+          "heat",
+          "channel",
+          "place",
+          "life",
+          "freedom"
+        ],
+        "capabilityPhase": "life",
+        "conditions": [
+          "first-growth",
+          "phase-life",
+          "first-descendant"
+        ],
+        "availability": [
+          {
+            "at": "spring-orchard",
+            "count": 4
+          },
+          {
+            "at": "spring-hollow",
+            "count": 4
+          },
+          {
+            "at": "spring-marsh",
+            "count": 4
+          },
+          {
+            "at": "orchard-village",
+            "count": 4
+          },
+          {
+            "at": "orchard-kiln",
+            "count": 4
+          },
+          {
+            "at": "hollow-marsh",
+            "count": 4
+          },
+          {
+            "at": "hollow-village",
+            "count": 4
+          },
+          {
+            "at": "hollow-meeting",
+            "count": 4
+          },
+          {
+            "at": "marsh-kiln",
+            "count": 4
+          },
+          {
+            "at": "marsh-archive",
+            "count": 4
+          },
+          {
+            "at": "kiln-meeting",
+            "count": 4
+          },
+          {
+            "at": "archive-meeting",
+            "count": 4
+          },
+          {
+            "at": "village-meeting",
+            "count": 4
+          },
+          {
+            "at": "village-archive",
+            "count": 4
+          },
+          {
+            "at": "spring",
+            "count": 3
+          },
+          {
+            "at": "orchard",
+            "count": 3
+          },
+          {
+            "at": "hollow",
+            "count": 2
+          },
+          {
+            "at": "village",
+            "count": 3
+          },
+          {
+            "at": "marsh",
+            "count": 2
+          },
+          {
+            "at": "kiln",
+            "count": 2
+          },
+          {
+            "at": "archive",
+            "count": 2
+          },
+          {
+            "at": "meeting",
+            "count": 2
+          }
+        ],
+        "response": {
+          "places": [
+            {
+              "id": "village",
+              "before": {
+                "id": "village",
+                "position": [
+                  0,
+                  2
+                ],
+                "form": "raw",
+                "charter": "unassigned",
+                "purpose": "none",
+                "binding": false,
+                "grown": false,
+                "records": [],
+                "water": 0,
+                "coveredWater": 0,
+                "flooded": false,
+                "contact": false,
+                "life": false,
+                "seeds": false,
+                "origins": [],
+                "authority": "none"
+              },
+              "after": {
+                "id": "village",
+                "position": [
+                  0,
+                  2
+                ],
+                "form": "raw",
+                "charter": "unassigned",
+                "purpose": "none",
+                "binding": false,
+                "grown": true,
+                "records": [],
+                "water": 1,
+                "coveredWater": 0,
+                "flooded": false,
+                "contact": true,
+                "life": true,
+                "seeds": true,
+                "origins": [],
+                "authority": "none"
+              }
+            }
+          ],
+          "links": [
+            {
+              "id": "orchard-village",
+              "before": {
+                "id": "orchard-village",
+                "a": "orchard",
+                "b": "village",
+                "form": "closed",
+                "downhill": [
+                  "orchard",
+                  "village"
+                ]
+              },
+              "after": {
+                "id": "orchard-village",
+                "a": "orchard",
+                "b": "village",
+                "form": "reed",
+                "downhill": [
+                  "orchard",
+                  "village"
+                ]
+              }
+            }
+          ],
+          "avatars": [],
+          "capabilities": [],
+          "conditions": [
+            "first-descendant"
+          ],
+          "status": "playing"
+        },
+        "actionSchema": {
+          "type": "combine",
+          "a": "concept",
+          "b": "concept",
+          "at": "place or link; omitted for avatar",
+          "mode": "institution / revisable / binding / invite / bind when applicable",
+          "intent": "avatar purpose"
+        },
+        "inspect": "Public rules SESSION; all actions SESSION [JSON_FILTER]; single-action preview SESSION JSON_ACTION. No authored scenes or character dialogue are part of this observation."
+      }
+    }
+  ],
+  "attempts": [],
+  "previews": [],
+  "checkpoints": [
+    {
+      "decisionIndex": 1,
+      "reason": "The orchard is safe and alive after one combination; the initial aim has been met."
+    },
+    {
+      "decisionIndex": 2,
+      "reason": "The orchard is safe and has now seeded living village ground. My self-chosen extension is complete; stopping here feels like closure."
+    }
+  ],
+  "continuations": [
+    {
+      "decisionIndex": 1,
+      "intention": "Let the orchard become the source of new life at the village; I want to see whether its seeds and gentle water can make a descendant.",
+      "source": "elicited under test prompt",
+      "recordedAt": "2026-10-26T00:25:31.551Z"
+    }
+  ],
+  "queries": [
+    {
+      "decisionIndex": 0,
+      "kind": "rules",
+      "phase": "assigned",
+      "recordedAt": "2026-10-26T00:25:04.079Z"
+    }
+  ],
+  "notes": [
+    {
+      "decisionIndex": 1,
+      "account": {
+        "checkpoint": 1,
+        "valued": "Turning danger into life in one combination gave a clean sense of creation. I preferred it to merely cutting the canal or shielding the orchard.",
+        "challenge": "The immediate aim was easy: grove clearly supplied safety plus contact and growth, without a relevant cost in this board.",
+        "causes": "The water2 to water1 and flooded false changes followed the grove rule directly.",
+        "continuation": "I want to connect the new living orchard to the village and see whether it can produce a descendant. This is a small self-chosen extension, not a need to finish all phases."
+      },
+      "recordedAt": "2026-10-26T00:25:24.593Z"
+    },
+    {
+      "decisionIndex": 2,
+      "account": {
+        "checkpoint": 2,
+        "worldResponse": "The raw village became grown, alive, seeded and in gentle river contact merely from a reed connection to the orchard. I did not have to individually plant it.",
+        "oldConstructionUsedDifferently": "The orchard grove first solved a local flood; then it became the source of a descendant at another place.",
+        "causesAndHistory": "I can follow canal to grove to reed to village from the board and immediate before/after response. The grown flag on a still-raw village shows a lasting difference from a place form; first-descendant records that an event occurred, though the board does not label its parent.",
+        "unclear": "The rules mention an awakened bell without placing a bell or explaining its awakening in the visible state. I did not pursue that since my chosen extension is complete.",
+        "routine": "The grove was a clear local winner for the initial aim. The reed was also a clear choice once I wanted seeds and water together. These were constructive choices, not difficult tradeoffs.",
+        "valued": "I liked creating a source that acted beyond the spot I touched. The second response added more agency and connectedness than simply making every place a grove.",
+        "stoppingReason": "The safe living orchard and its living neighbor make a finished small creation. Further progression exists, but I have no unresolved intention that makes me want another action right now.",
+        "nextAttempt": "No immediate next attempt. If I returned, the unexplained bell and exact-versus-living testimony would be the questions, not a desire to complete every feature.",
+        "distinction": "Appreciation and closure are present. This short play does not establish sustained challenge or strong continued interest. This is an AI protocol account, not a human fun claim."
+      },
+      "recordedAt": "2026-10-26T00:26:05.734Z"
+    }
+  ],
+  "continuation": {
+    "decisionIndex": 1,
+    "intention": "Let the orchard become the source of new life at the village; I want to see whether its seeds and gentle water can make a descendant.",
+    "source": "elicited under test prompt",
+    "recordedAt": "2026-10-26T00:25:31.551Z"
+  },
+  "report": {
+    "session": "fun-field-1",
+    "interventions": 2,
+    "assignedInterventions": 1,
+    "electiveInterventions": 1,
+    "checkpoints": 2,
+    "continuations": 1,
+    "previews": 0,
+    "initialAimMet": true,
+    "mainExperience": "One grove made the flooded orchard safe, alive and in river contact. Elective reed connection let that old grove seed a raw village, turning a local solution into a source.",
+    "decisions": "Two informed constructive decisions with obvious best fits for my intentions; no hard tradeoff or surprise setback.",
+    "responseMattered": "The village took root by connected propagation without another place construction.",
+    "causality": "Direct water and seed causes were clear in the board and deltas. Persistent grown state and first-descendant preserve some history but not parent identity. Bell awakening was unclear.",
+    "stopping": "Voluntary closure after completing a self-chosen living connection. Appreciated the creation, but no further goal currently pulls me. Did not stop due to a budget or an assumption that the assigned task required stopping.",
+    "wouldAttemptNext": "Nothing immediately; if revisiting, investigate bell awakening or testimony transformations.",
+    "funEvidenceBoundary": "AI player protocol behavior; appreciation and closure are distinct from demonstrated sustained challenge or continued interest."
+  }
+}

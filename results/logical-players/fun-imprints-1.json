@@ -1,0 +1,3621 @@
+{
+  "schema": 1,
+  "id": "fun-imprints-1",
+  "game": "imprints",
+  "version": "imprints-1",
+  "scenario": "board",
+  "seed": 0,
+  "condition": "fresh-primitive-only",
+  "protocolVersion": "logical-cli-5",
+  "startedAt": "2026-10-26T00:34:13.503Z",
+  "initialObservation": {
+    "version": "imprints-1",
+    "scenario": "board",
+    "status": "playing",
+    "time": 1,
+    "goal": "Let each walker encounter the other mark and bring it home. Further constructions are optional.",
+    "board": [
+      {
+        "at": "A1",
+        "terrain": "stone",
+        "route": "split",
+        "reeds": false,
+        "imprint": "A",
+        "beacon": false,
+        "water": "strong",
+        "exact": "A",
+        "fragment": "—",
+        "flooded": false
+      },
+      {
+        "at": "B1",
+        "terrain": "soil",
+        "route": "east",
+        "reeds": false,
+        "imprint": "—",
+        "beacon": false,
+        "water": "strong",
+        "exact": "A",
+        "fragment": "—",
+        "flooded": true
+      },
+      {
+        "at": "C1",
+        "terrain": "clay",
+        "route": "south",
+        "reeds": false,
+        "imprint": "—",
+        "beacon": false,
+        "water": "strong",
+        "exact": "A",
+        "fragment": "—",
+        "flooded": true
+      },
+      {
+        "at": "A2",
+        "terrain": "soil",
+        "route": "east",
+        "reeds": false,
+        "imprint": "—",
+        "beacon": false,
+        "water": "strong",
+        "exact": "A",
+        "fragment": "—",
+        "flooded": true
+      },
+      {
+        "at": "B2",
+        "terrain": "stone",
+        "route": "east",
+        "reeds": false,
+        "imprint": "A",
+        "beacon": false,
+        "water": "strong",
+        "exact": "A",
+        "fragment": "—",
+        "flooded": false
+      },
+      {
+        "at": "C2",
+        "terrain": "soil",
+        "route": "south",
+        "reeds": false,
+        "imprint": "—",
+        "beacon": false,
+        "water": "strong",
+        "exact": "A",
+        "fragment": "—",
+        "flooded": true
+      },
+      {
+        "at": "A3",
+        "terrain": "clay",
+        "route": "east",
+        "reeds": false,
+        "imprint": "—",
+        "beacon": false,
+        "water": "dry",
+        "exact": "—",
+        "fragment": "—",
+        "flooded": false
+      },
+      {
+        "at": "B3",
+        "terrain": "soil",
+        "route": "east",
+        "reeds": false,
+        "imprint": "—",
+        "beacon": false,
+        "water": "dry",
+        "exact": "—",
+        "fragment": "—",
+        "flooded": false
+      },
+      {
+        "at": "C3",
+        "terrain": "stone",
+        "route": "closed",
+        "reeds": false,
+        "imprint": "A",
+        "beacon": false,
+        "water": "strong",
+        "exact": "A",
+        "fragment": "—",
+        "flooded": false
+      }
+    ],
+    "avatars": [
+      {
+        "id": "blue",
+        "at": "A1",
+        "home": "A1",
+        "carried": "A",
+        "mode": "seek",
+        "returned": false
+      },
+      {
+        "id": "amber",
+        "at": "C3",
+        "home": "C3",
+        "carried": "B",
+        "mode": "seek",
+        "returned": false
+      }
+    ],
+    "response": [],
+    "actionSchema": {
+      "type": "combine",
+      "a": "item",
+      "b": "item",
+      "at": "cell ID",
+      "toward": "Earth+Water only: east/south/split/closed"
+    },
+    "legalActions": [
+      {
+        "type": "combine",
+        "a": "earth",
+        "b": "water",
+        "at": "A1",
+        "toward": "east"
+      },
+      {
+        "type": "combine",
+        "a": "earth",
+        "b": "water",
+        "at": "A1",
+        "toward": "south"
+      },
+      {
+        "type": "combine",
+        "a": "earth",
+        "b": "water",
+        "at": "A1",
+        "toward": "closed"
+      },
+      {
+        "type": "combine",
+        "a": "air",
+        "b": "voice",
+        "at": "A1"
+      },
+      {
+        "type": "combine",
+        "a": "heat",
+        "b": "voice",
+        "at": "A1"
+      },
+      {
+        "type": "combine",
+        "a": "earth",
+        "b": "water",
+        "at": "B1",
+        "toward": "south"
+      },
+      {
+        "type": "combine",
+        "a": "earth",
+        "b": "water",
+        "at": "B1",
+        "toward": "split"
+      },
+      {
+        "type": "combine",
+        "a": "earth",
+        "b": "water",
+        "at": "B1",
+        "toward": "closed"
+      },
+      {
+        "type": "combine",
+        "a": "seed",
+        "b": "water",
+        "at": "B1"
+      },
+      {
+        "type": "combine",
+        "a": "air",
+        "b": "voice",
+        "at": "B1"
+      },
+      {
+        "type": "combine",
+        "a": "earth",
+        "b": "water",
+        "at": "C1",
+        "toward": "closed"
+      },
+      {
+        "type": "combine",
+        "a": "seed",
+        "b": "water",
+        "at": "C1"
+      },
+      {
+        "type": "combine",
+        "a": "heat",
+        "b": "earth",
+        "at": "C1"
+      },
+      {
+        "type": "combine",
+        "a": "air",
+        "b": "voice",
+        "at": "C1"
+      },
+      {
+        "type": "combine",
+        "a": "earth",
+        "b": "water",
+        "at": "A2",
+        "toward": "south"
+      },
+      {
+        "type": "combine",
+        "a": "earth",
+        "b": "water",
+        "at": "A2",
+        "toward": "split"
+      },
+      {
+        "type": "combine",
+        "a": "earth",
+        "b": "water",
+        "at": "A2",
+        "toward": "closed"
+      },
+      {
+        "type": "combine",
+        "a": "seed",
+        "b": "water",
+        "at": "A2"
+      },
+      {
+        "type": "combine",
+        "a": "air",
+        "b": "voice",
+        "at": "A2"
+      },
+      {
+        "type": "combine",
+        "a": "earth",
+        "b": "water",
+        "at": "B2",
+        "toward": "south"
+      },
+      {
+        "type": "combine",
+        "a": "earth",
+        "b": "water",
+        "at": "B2",
+        "toward": "split"
+      },
+      {
+        "type": "combine",
+        "a": "earth",
+        "b": "water",
+        "at": "B2",
+        "toward": "closed"
+      },
+      {
+        "type": "combine",
+        "a": "air",
+        "b": "voice",
+        "at": "B2"
+      },
+      {
+        "type": "combine",
+        "a": "earth",
+        "b": "water",
+        "at": "C2",
+        "toward": "closed"
+      },
+      {
+        "type": "combine",
+        "a": "seed",
+        "b": "water",
+        "at": "C2"
+      },
+      {
+        "type": "combine",
+        "a": "air",
+        "b": "voice",
+        "at": "C2"
+      },
+      {
+        "type": "combine",
+        "a": "earth",
+        "b": "water",
+        "at": "A3",
+        "toward": "closed"
+      },
+      {
+        "type": "combine",
+        "a": "heat",
+        "b": "earth",
+        "at": "A3"
+      },
+      {
+        "type": "combine",
+        "a": "earth",
+        "b": "water",
+        "at": "B3",
+        "toward": "closed"
+      },
+      {
+        "type": "combine",
+        "a": "stone",
+        "b": "voice",
+        "at": "C3"
+      },
+      {
+        "type": "combine",
+        "a": "air",
+        "b": "voice",
+        "at": "C3"
+      }
+    ],
+    "placeAvailability": [
+      {
+        "at": "A1",
+        "pairs": [
+          {
+            "a": "earth",
+            "b": "water",
+            "toward": "east"
+          },
+          {
+            "a": "earth",
+            "b": "water",
+            "toward": "south"
+          },
+          {
+            "a": "earth",
+            "b": "water",
+            "toward": "closed"
+          },
+          {
+            "a": "air",
+            "b": "voice"
+          },
+          {
+            "a": "heat",
+            "b": "voice"
+          }
+        ]
+      },
+      {
+        "at": "B1",
+        "pairs": [
+          {
+            "a": "earth",
+            "b": "water",
+            "toward": "south"
+          },
+          {
+            "a": "earth",
+            "b": "water",
+            "toward": "split"
+          },
+          {
+            "a": "earth",
+            "b": "water",
+            "toward": "closed"
+          },
+          {
+            "a": "seed",
+            "b": "water"
+          },
+          {
+            "a": "air",
+            "b": "voice"
+          }
+        ]
+      },
+      {
+        "at": "C1",
+        "pairs": [
+          {
+            "a": "earth",
+            "b": "water",
+            "toward": "closed"
+          },
+          {
+            "a": "seed",
+            "b": "water"
+          },
+          {
+            "a": "heat",
+            "b": "earth"
+          },
+          {
+            "a": "air",
+            "b": "voice"
+          }
+        ]
+      },
+      {
+        "at": "A2",
+        "pairs": [
+          {
+            "a": "earth",
+            "b": "water",
+            "toward": "south"
+          },
+          {
+            "a": "earth",
+            "b": "water",
+            "toward": "split"
+          },
+          {
+            "a": "earth",
+            "b": "water",
+            "toward": "closed"
+          },
+          {
+            "a": "seed",
+            "b": "water"
+          },
+          {
+            "a": "air",
+            "b": "voice"
+          }
+        ]
+      },
+      {
+        "at": "B2",
+        "pairs": [
+          {
+            "a": "earth",
+            "b": "water",
+            "toward": "south"
+          },
+          {
+            "a": "earth",
+            "b": "water",
+            "toward": "split"
+          },
+          {
+            "a": "earth",
+            "b": "water",
+            "toward": "closed"
+          },
+          {
+            "a": "air",
+            "b": "voice"
+          }
+        ]
+      },
+      {
+        "at": "C2",
+        "pairs": [
+          {
+            "a": "earth",
+            "b": "water",
+            "toward": "closed"
+          },
+          {
+            "a": "seed",
+            "b": "water"
+          },
+          {
+            "a": "air",
+            "b": "voice"
+          }
+        ]
+      },
+      {
+        "at": "A3",
+        "pairs": [
+          {
+            "a": "earth",
+            "b": "water",
+            "toward": "closed"
+          },
+          {
+            "a": "heat",
+            "b": "earth"
+          }
+        ]
+      },
+      {
+        "at": "B3",
+        "pairs": [
+          {
+            "a": "earth",
+            "b": "water",
+            "toward": "closed"
+          }
+        ]
+      },
+      {
+        "at": "C3",
+        "pairs": [
+          {
+            "a": "stone",
+            "b": "voice"
+          },
+          {
+            "a": "air",
+            "b": "voice"
+          }
+        ]
+      }
+    ],
+    "inspect": "Use rules SESSION and actions SESSION [JSON_FILTER] in the public CLI. Every current pair and place catalyst is available."
+  },
+  "decisions": [
+    {
+      "index": 0,
+      "action": {
+        "type": "combine",
+        "a": "stone",
+        "b": "voice",
+        "at": "C3"
+      },
+      "prediction": {
+        "episode": "introduce-B",
+        "intention": "Give the blue walker a public B to seek, starting from the amber walker at home.",
+        "expected": "C3 retains B. The walker routes remain blocked until I soften the central flooded corridor.",
+        "alternatives": [
+          "Root A2 first to let amber fetch A before blue has a destination."
+        ]
+      },
+      "atMs": 20322,
+      "phase": "assigned",
+      "before": "061d25e1",
+      "after": "0fbb328e",
+      "observation": {
+        "version": "imprints-1",
+        "scenario": "board",
+        "status": "playing",
+        "time": 1,
+        "goal": "Let each walker encounter the other mark and bring it home. Further constructions are optional.",
+        "board": [
+          {
+            "at": "A1",
+            "terrain": "stone",
+            "route": "split",
+            "reeds": false,
+            "imprint": "A",
+            "beacon": false,
+            "water": "strong",
+            "exact": "A",
+            "fragment": "—",
+            "flooded": false
+          },
+          {
+            "at": "B1",
+            "terrain": "soil",
+            "route": "east",
+            "reeds": false,
+            "imprint": "—",
+            "beacon": false,
+            "water": "strong",
+            "exact": "A",
+            "fragment": "—",
+            "flooded": true
+          },
+          {
+            "at": "C1",
+            "terrain": "clay",
+            "route": "south",
+            "reeds": false,
+            "imprint": "—",
+            "beacon": false,
+            "water": "strong",
+            "exact": "A",
+            "fragment": "—",
+            "flooded": true
+          },
+          {
+            "at": "A2",
+            "terrain": "soil",
+            "route": "east",
+            "reeds": false,
+            "imprint": "—",
+            "beacon": false,
+            "water": "strong",
+            "exact": "A",
+            "fragment": "—",
+            "flooded": true
+          },
+          {
+            "at": "B2",
+            "terrain": "stone",
+            "route": "east",
+            "reeds": false,
+            "imprint": "A",
+            "beacon": false,
+            "water": "strong",
+            "exact": "A",
+            "fragment": "—",
+            "flooded": false
+          },
+          {
+            "at": "C2",
+            "terrain": "soil",
+            "route": "south",
+            "reeds": false,
+            "imprint": "—",
+            "beacon": false,
+            "water": "strong",
+            "exact": "A",
+            "fragment": "—",
+            "flooded": true
+          },
+          {
+            "at": "A3",
+            "terrain": "clay",
+            "route": "east",
+            "reeds": false,
+            "imprint": "—",
+            "beacon": false,
+            "water": "dry",
+            "exact": "—",
+            "fragment": "—",
+            "flooded": false
+          },
+          {
+            "at": "B3",
+            "terrain": "soil",
+            "route": "east",
+            "reeds": false,
+            "imprint": "—",
+            "beacon": false,
+            "water": "dry",
+            "exact": "—",
+            "fragment": "—",
+            "flooded": false
+          },
+          {
+            "at": "C3",
+            "terrain": "stone",
+            "route": "closed",
+            "reeds": false,
+            "imprint": "A+B",
+            "beacon": false,
+            "water": "strong",
+            "exact": "A",
+            "fragment": "—",
+            "flooded": false
+          }
+        ],
+        "avatars": [
+          {
+            "id": "blue",
+            "at": "A1",
+            "home": "A1",
+            "carried": "A",
+            "mode": "seek",
+            "returned": false
+          },
+          {
+            "id": "amber",
+            "at": "C3",
+            "home": "C3",
+            "carried": "B",
+            "mode": "seek",
+            "returned": false
+          }
+        ],
+        "response": [
+          {
+            "kind": "combine",
+            "at": "C3",
+            "before": {
+              "id": "C3",
+              "x": 2,
+              "y": 2,
+              "terrain": "stone",
+              "route": "closed",
+              "fired": false,
+              "rooted": false,
+              "memory": 1,
+              "beacon": false
+            },
+            "after": {
+              "id": "C3",
+              "x": 2,
+              "y": 2,
+              "terrain": "stone",
+              "route": "closed",
+              "fired": false,
+              "rooted": false,
+              "memory": 3,
+              "beacon": false
+            }
+          }
+        ],
+        "actionSchema": {
+          "type": "combine",
+          "a": "item",
+          "b": "item",
+          "at": "cell ID",
+          "toward": "Earth+Water only: east/south/split/closed"
+        },
+        "legalActions": [
+          {
+            "type": "combine",
+            "a": "earth",
+            "b": "water",
+            "at": "A1",
+            "toward": "east"
+          },
+          {
+            "type": "combine",
+            "a": "earth",
+            "b": "water",
+            "at": "A1",
+            "toward": "south"
+          },
+          {
+            "type": "combine",
+            "a": "earth",
+            "b": "water",
+            "at": "A1",
+            "toward": "closed"
+          },
+          {
+            "type": "combine",
+            "a": "air",
+            "b": "voice",
+            "at": "A1"
+          },
+          {
+            "type": "combine",
+            "a": "heat",
+            "b": "voice",
+            "at": "A1"
+          },
+          {
+            "type": "combine",
+            "a": "earth",
+            "b": "water",
+            "at": "B1",
+            "toward": "south"
+          },
+          {
+            "type": "combine",
+            "a": "earth",
+            "b": "water",
+            "at": "B1",
+            "toward": "split"
+          },
+          {
+            "type": "combine",
+            "a": "earth",
+            "b": "water",
+            "at": "B1",
+            "toward": "closed"
+          },
+          {
+            "type": "combine",
+            "a": "seed",
+            "b": "water",
+            "at": "B1"
+          },
+          {
+            "type": "combine",
+            "a": "air",
+            "b": "voice",
+            "at": "B1"
+          },
+          {
+            "type": "combine",
+            "a": "earth",
+            "b": "water",
+            "at": "C1",
+            "toward": "closed"
+          },
+          {
+            "type": "combine",
+            "a": "seed",
+            "b": "water",
+            "at": "C1"
+          },
+          {
+            "type": "combine",
+            "a": "heat",
+            "b": "earth",
+            "at": "C1"
+          },
+          {
+            "type": "combine",
+            "a": "air",
+            "b": "voice",
+            "at": "C1"
+          },
+          {
+            "type": "combine",
+            "a": "earth",
+            "b": "water",
+            "at": "A2",
+            "toward": "south"
+          },
+          {
+            "type": "combine",
+            "a": "earth",
+            "b": "water",
+            "at": "A2",
+            "toward": "split"
+          },
+          {
+            "type": "combine",
+            "a": "earth",
+            "b": "water",
+            "at": "A2",
+            "toward": "closed"
+          },
+          {
+            "type": "combine",
+            "a": "seed",
+            "b": "water",
+            "at": "A2"
+          },
+          {
+            "type": "combine",
+            "a": "air",
+            "b": "voice",
+            "at": "A2"
+          },
+          {
+            "type": "combine",
+            "a": "earth",
+            "b": "water",
+            "at": "B2",
+            "toward": "south"
+          },
+          {
+            "type": "combine",
+            "a": "earth",
+            "b": "water",
+            "at": "B2",
+            "toward": "split"
+          },
+          {
+            "type": "combine",
+            "a": "earth",
+            "b": "water",
+            "at": "B2",
+            "toward": "closed"
+          },
+          {
+            "type": "combine",
+            "a": "air",
+            "b": "voice",
+            "at": "B2"
+          },
+          {
+            "type": "combine",
+            "a": "earth",
+            "b": "water",
+            "at": "C2",
+            "toward": "closed"
+          },
+          {
+            "type": "combine",
+            "a": "seed",
+            "b": "water",
+            "at": "C2"
+          },
+          {
+            "type": "combine",
+            "a": "air",
+            "b": "voice",
+            "at": "C2"
+          },
+          {
+            "type": "combine",
+            "a": "earth",
+            "b": "water",
+            "at": "A3",
+            "toward": "closed"
+          },
+          {
+            "type": "combine",
+            "a": "heat",
+            "b": "earth",
+            "at": "A3"
+          },
+          {
+            "type": "combine",
+            "a": "earth",
+            "b": "water",
+            "at": "B3",
+            "toward": "closed"
+          },
+          {
+            "type": "combine",
+            "a": "air",
+            "b": "voice",
+            "at": "C3"
+          },
+          {
+            "type": "combine",
+            "a": "heat",
+            "b": "voice",
+            "at": "C3"
+          }
+        ],
+        "placeAvailability": [
+          {
+            "at": "A1",
+            "pairs": [
+              {
+                "a": "earth",
+                "b": "water",
+                "toward": "east"
+              },
+              {
+                "a": "earth",
+                "b": "water",
+                "toward": "south"
+              },
+              {
+                "a": "earth",
+                "b": "water",
+                "toward": "closed"
+              },
+              {
+                "a": "air",
+                "b": "voice"
+              },
+              {
+                "a": "heat",
+                "b": "voice"
+              }
+            ]
+          },
+          {
+            "at": "B1",
+            "pairs": [
+              {
+                "a": "earth",
+                "b": "water",
+                "toward": "south"
+              },
+              {
+                "a": "earth",
+                "b": "water",
+                "toward": "split"
+              },
+              {
+                "a": "earth",
+                "b": "water",
+                "toward": "closed"
+              },
+              {
+                "a": "seed",
+                "b": "water"
+              },
+              {
+                "a": "air",
+                "b": "voice"
+              }
+            ]
+          },
+          {
+            "at": "C1",
+            "pairs": [
+              {
+                "a": "earth",
+                "b": "water",
+                "toward": "closed"
+              },
+              {
+                "a": "seed",
+                "b": "water"
+              },
+              {
+                "a": "heat",
+                "b": "earth"
+              },
+              {
+                "a": "air",
+                "b": "voice"
+              }
+            ]
+          },
+          {
+            "at": "A2",
+            "pairs": [
+              {
+                "a": "earth",
+                "b": "water",
+                "toward": "south"
+              },
+              {
+                "a": "earth",
+                "b": "water",
+                "toward": "split"
+              },
+              {
+                "a": "earth",
+                "b": "water",
+                "toward": "closed"
+              },
+              {
+                "a": "seed",
+                "b": "water"
+              },
+              {
+                "a": "air",
+                "b": "voice"
+              }
+            ]
+          },
+          {
+            "at": "B2",
+            "pairs": [
+              {
+                "a": "earth",
+                "b": "water",
+                "toward": "south"
+              },
+              {
+                "a": "earth",
+                "b": "water",
+                "toward": "split"
+              },
+              {
+                "a": "earth",
+                "b": "water",
+                "toward": "closed"
+              },
+              {
+                "a": "air",
+                "b": "voice"
+              }
+            ]
+          },
+          {
+            "at": "C2",
+            "pairs": [
+              {
+                "a": "earth",
+                "b": "water",
+                "toward": "closed"
+              },
+              {
+                "a": "seed",
+                "b": "water"
+              },
+              {
+                "a": "air",
+                "b": "voice"
+              }
+            ]
+          },
+          {
+            "at": "A3",
+            "pairs": [
+              {
+                "a": "earth",
+                "b": "water",
+                "toward": "closed"
+              },
+              {
+                "a": "heat",
+                "b": "earth"
+              }
+            ]
+          },
+          {
+            "at": "B3",
+            "pairs": [
+              {
+                "a": "earth",
+                "b": "water",
+                "toward": "closed"
+              }
+            ]
+          },
+          {
+            "at": "C3",
+            "pairs": [
+              {
+                "a": "air",
+                "b": "voice"
+              },
+              {
+                "a": "heat",
+                "b": "voice"
+              }
+            ]
+          }
+        ],
+        "inspect": "Use rules SESSION and actions SESSION [JSON_FILTER] in the public CLI. Every current pair and place catalyst is available."
+      }
+    },
+    {
+      "index": 1,
+      "action": {
+        "type": "combine",
+        "a": "air",
+        "b": "voice",
+        "at": "C3"
+      },
+      "prediction": {
+        "episode": "introduce-B",
+        "intention": "Publish the stored B.",
+        "expected": "C3 becomes a public A+B source but blue still cannot cross flooded A2 or B1."
+      },
+      "atMs": 25923,
+      "phase": "assigned",
+      "before": "0fbb328e",
+      "after": "cd4ed986",
+      "observation": {
+        "version": "imprints-1",
+        "scenario": "board",
+        "status": "playing",
+        "time": 3,
+        "goal": "Let each walker encounter the other mark and bring it home. Further constructions are optional.",
+        "board": [
+          {
+            "at": "A1",
+            "terrain": "stone",
+            "route": "split",
+            "reeds": false,
+            "imprint": "A",
+            "beacon": false,
+            "water": "strong",
+            "exact": "A",
+            "fragment": "—",
+            "flooded": false
+          },
+          {
+            "at": "B1",
+            "terrain": "soil",
+            "route": "east",
+            "reeds": false,
+            "imprint": "—",
+            "beacon": false,
+            "water": "strong",
+            "exact": "A",
+            "fragment": "—",
+            "flooded": true
+          },
+          {
+            "at": "C1",
+            "terrain": "clay",
+            "route": "south",
+            "reeds": false,
+            "imprint": "—",
+            "beacon": false,
+            "water": "strong",
+            "exact": "A",
+            "fragment": "—",
+            "flooded": true
+          },
+          {
+            "at": "A2",
+            "terrain": "soil",
+            "route": "east",
+            "reeds": false,
+            "imprint": "—",
+            "beacon": false,
+            "water": "strong",
+            "exact": "A",
+            "fragment": "—",
+            "flooded": true
+          },
+          {
+            "at": "B2",
+            "terrain": "stone",
+            "route": "east",
+            "reeds": false,
+            "imprint": "A",
+            "beacon": false,
+            "water": "strong",
+            "exact": "A",
+            "fragment": "—",
+            "flooded": false
+          },
+          {
+            "at": "C2",
+            "terrain": "soil",
+            "route": "south",
+            "reeds": false,
+            "imprint": "—",
+            "beacon": false,
+            "water": "strong",
+            "exact": "A",
+            "fragment": "—",
+            "flooded": true
+          },
+          {
+            "at": "A3",
+            "terrain": "clay",
+            "route": "east",
+            "reeds": false,
+            "imprint": "—",
+            "beacon": false,
+            "water": "dry",
+            "exact": "—",
+            "fragment": "—",
+            "flooded": false
+          },
+          {
+            "at": "B3",
+            "terrain": "soil",
+            "route": "east",
+            "reeds": false,
+            "imprint": "—",
+            "beacon": false,
+            "water": "dry",
+            "exact": "—",
+            "fragment": "—",
+            "flooded": false
+          },
+          {
+            "at": "C3",
+            "terrain": "stone",
+            "route": "closed",
+            "reeds": false,
+            "imprint": "A+B",
+            "beacon": true,
+            "water": "strong",
+            "exact": "A+B",
+            "fragment": "—",
+            "flooded": false
+          }
+        ],
+        "avatars": [
+          {
+            "id": "blue",
+            "at": "A1",
+            "home": "A1",
+            "carried": "A",
+            "mode": "seek",
+            "returned": false
+          },
+          {
+            "id": "amber",
+            "at": "C3",
+            "home": "C3",
+            "carried": "A+B",
+            "mode": "nest",
+            "returned": true
+          }
+        ],
+        "response": [
+          {
+            "kind": "combine",
+            "at": "C3",
+            "before": {
+              "id": "C3",
+              "x": 2,
+              "y": 2,
+              "terrain": "stone",
+              "route": "closed",
+              "fired": false,
+              "rooted": false,
+              "memory": 3,
+              "beacon": false
+            },
+            "after": {
+              "id": "C3",
+              "x": 2,
+              "y": 2,
+              "terrain": "stone",
+              "route": "closed",
+              "fired": false,
+              "rooted": false,
+              "memory": 3,
+              "beacon": true
+            }
+          },
+          {
+            "kind": "learn",
+            "at": "C3",
+            "walker": "amber",
+            "after": "A+B"
+          },
+          {
+            "kind": "return-imprint",
+            "at": "C3",
+            "walker": "amber",
+            "after": "A+B"
+          }
+        ],
+        "actionSchema": {
+          "type": "combine",
+          "a": "item",
+          "b": "item",
+          "at": "cell ID",
+          "toward": "Earth+Water only: east/south/split/closed"
+        },
+        "legalActions": [
+          {
+            "type": "combine",
+            "a": "earth",
+            "b": "water",
+            "at": "A1",
+            "toward": "east"
+          },
+          {
+            "type": "combine",
+            "a": "earth",
+            "b": "water",
+            "at": "A1",
+            "toward": "south"
+          },
+          {
+            "type": "combine",
+            "a": "earth",
+            "b": "water",
+            "at": "A1",
+            "toward": "closed"
+          },
+          {
+            "type": "combine",
+            "a": "air",
+            "b": "voice",
+            "at": "A1"
+          },
+          {
+            "type": "combine",
+            "a": "heat",
+            "b": "voice",
+            "at": "A1"
+          },
+          {
+            "type": "combine",
+            "a": "earth",
+            "b": "water",
+            "at": "B1",
+            "toward": "south"
+          },
+          {
+            "type": "combine",
+            "a": "earth",
+            "b": "water",
+            "at": "B1",
+            "toward": "split"
+          },
+          {
+            "type": "combine",
+            "a": "earth",
+            "b": "water",
+            "at": "B1",
+            "toward": "closed"
+          },
+          {
+            "type": "combine",
+            "a": "seed",
+            "b": "water",
+            "at": "B1"
+          },
+          {
+            "type": "combine",
+            "a": "air",
+            "b": "voice",
+            "at": "B1"
+          },
+          {
+            "type": "combine",
+            "a": "earth",
+            "b": "water",
+            "at": "C1",
+            "toward": "closed"
+          },
+          {
+            "type": "combine",
+            "a": "seed",
+            "b": "water",
+            "at": "C1"
+          },
+          {
+            "type": "combine",
+            "a": "heat",
+            "b": "earth",
+            "at": "C1"
+          },
+          {
+            "type": "combine",
+            "a": "air",
+            "b": "voice",
+            "at": "C1"
+          },
+          {
+            "type": "combine",
+            "a": "earth",
+            "b": "water",
+            "at": "A2",
+            "toward": "south"
+          },
+          {
+            "type": "combine",
+            "a": "earth",
+            "b": "water",
+            "at": "A2",
+            "toward": "split"
+          },
+          {
+            "type": "combine",
+            "a": "earth",
+            "b": "water",
+            "at": "A2",
+            "toward": "closed"
+          },
+          {
+            "type": "combine",
+            "a": "seed",
+            "b": "water",
+            "at": "A2"
+          },
+          {
+            "type": "combine",
+            "a": "air",
+            "b": "voice",
+            "at": "A2"
+          },
+          {
+            "type": "combine",
+            "a": "earth",
+            "b": "water",
+            "at": "B2",
+            "toward": "south"
+          },
+          {
+            "type": "combine",
+            "a": "earth",
+            "b": "water",
+            "at": "B2",
+            "toward": "split"
+          },
+          {
+            "type": "combine",
+            "a": "earth",
+            "b": "water",
+            "at": "B2",
+            "toward": "closed"
+          },
+          {
+            "type": "combine",
+            "a": "air",
+            "b": "voice",
+            "at": "B2"
+          },
+          {
+            "type": "combine",
+            "a": "earth",
+            "b": "water",
+            "at": "C2",
+            "toward": "closed"
+          },
+          {
+            "type": "combine",
+            "a": "seed",
+            "b": "water",
+            "at": "C2"
+          },
+          {
+            "type": "combine",
+            "a": "air",
+            "b": "voice",
+            "at": "C2"
+          },
+          {
+            "type": "combine",
+            "a": "earth",
+            "b": "water",
+            "at": "A3",
+            "toward": "closed"
+          },
+          {
+            "type": "combine",
+            "a": "heat",
+            "b": "earth",
+            "at": "A3"
+          },
+          {
+            "type": "combine",
+            "a": "earth",
+            "b": "water",
+            "at": "B3",
+            "toward": "closed"
+          },
+          {
+            "type": "combine",
+            "a": "stone",
+            "b": "air",
+            "at": "C3"
+          },
+          {
+            "type": "combine",
+            "a": "heat",
+            "b": "voice",
+            "at": "C3"
+          }
+        ],
+        "placeAvailability": [
+          {
+            "at": "A1",
+            "pairs": [
+              {
+                "a": "earth",
+                "b": "water",
+                "toward": "east"
+              },
+              {
+                "a": "earth",
+                "b": "water",
+                "toward": "south"
+              },
+              {
+                "a": "earth",
+                "b": "water",
+                "toward": "closed"
+              },
+              {
+                "a": "air",
+                "b": "voice"
+              },
+              {
+                "a": "heat",
+                "b": "voice"
+              }
+            ]
+          },
+          {
+            "at": "B1",
+            "pairs": [
+              {
+                "a": "earth",
+                "b": "water",
+                "toward": "south"
+              },
+              {
+                "a": "earth",
+                "b": "water",
+                "toward": "split"
+              },
+              {
+                "a": "earth",
+                "b": "water",
+                "toward": "closed"
+              },
+              {
+                "a": "seed",
+                "b": "water"
+              },
+              {
+                "a": "air",
+                "b": "voice"
+              }
+            ]
+          },
+          {
+            "at": "C1",
+            "pairs": [
+              {
+                "a": "earth",
+                "b": "water",
+                "toward": "closed"
+              },
+              {
+                "a": "seed",
+                "b": "water"
+              },
+              {
+                "a": "heat",
+                "b": "earth"
+              },
+              {
+                "a": "air",
+                "b": "voice"
+              }
+            ]
+          },
+          {
+            "at": "A2",
+            "pairs": [
+              {
+                "a": "earth",
+                "b": "water",
+                "toward": "south"
+              },
+              {
+                "a": "earth",
+                "b": "water",
+                "toward": "split"
+              },
+              {
+                "a": "earth",
+                "b": "water",
+                "toward": "closed"
+              },
+              {
+                "a": "seed",
+                "b": "water"
+              },
+              {
+                "a": "air",
+                "b": "voice"
+              }
+            ]
+          },
+          {
+            "at": "B2",
+            "pairs": [
+              {
+                "a": "earth",
+                "b": "water",
+                "toward": "south"
+              },
+              {
+                "a": "earth",
+                "b": "water",
+                "toward": "split"
+              },
+              {
+                "a": "earth",
+                "b": "water",
+                "toward": "closed"
+              },
+              {
+                "a": "air",
+                "b": "voice"
+              }
+            ]
+          },
+          {
+            "at": "C2",
+            "pairs": [
+              {
+                "a": "earth",
+                "b": "water",
+                "toward": "closed"
+              },
+              {
+                "a": "seed",
+                "b": "water"
+              },
+              {
+                "a": "air",
+                "b": "voice"
+              }
+            ]
+          },
+          {
+            "at": "A3",
+            "pairs": [
+              {
+                "a": "earth",
+                "b": "water",
+                "toward": "closed"
+              },
+              {
+                "a": "heat",
+                "b": "earth"
+              }
+            ]
+          },
+          {
+            "at": "B3",
+            "pairs": [
+              {
+                "a": "earth",
+                "b": "water",
+                "toward": "closed"
+              }
+            ]
+          },
+          {
+            "at": "C3",
+            "pairs": [
+              {
+                "a": "stone",
+                "b": "air"
+              },
+              {
+                "a": "heat",
+                "b": "voice"
+              }
+            ]
+          }
+        ],
+        "inspect": "Use rules SESSION and actions SESSION [JSON_FILTER] in the public CLI. Every current pair and place catalyst is available."
+      }
+    },
+    {
+      "index": 2,
+      "action": {
+        "type": "combine",
+        "a": "seed",
+        "b": "water",
+        "at": "A2"
+      },
+      "prediction": {
+        "episode": "living-crossing",
+        "intention": "Make a passable crossing out of A1 by softening A2; the existing dry bottom row gives blue access to C3 even if C2 stays flooded.",
+        "expected": "Blue walks through A2 and B2 or A3/B3 to read B at C3, then returns A1. A2 may also seed C2, but the strong input from C1 may prevent that descendant.",
+        "alternatives": [
+          "Redirect A1 south and block the top source branch; that would change more of the world than planting one gateway."
+        ]
+      },
+      "atMs": 33610,
+      "phase": "assigned",
+      "before": "cd4ed986",
+      "after": "9d01d66c",
+      "observation": {
+        "version": "imprints-1",
+        "scenario": "board",
+        "status": "playing",
+        "time": 16,
+        "goal": "Let each walker encounter the other mark and bring it home. Further constructions are optional.",
+        "board": [
+          {
+            "at": "A1",
+            "terrain": "stone",
+            "route": "split",
+            "reeds": false,
+            "imprint": "A+B",
+            "beacon": false,
+            "water": "strong",
+            "exact": "A+B",
+            "fragment": "—",
+            "flooded": false
+          },
+          {
+            "at": "B1",
+            "terrain": "soil",
+            "route": "east",
+            "reeds": false,
+            "imprint": "—",
+            "beacon": false,
+            "water": "strong",
+            "exact": "A+B",
+            "fragment": "—",
+            "flooded": true
+          },
+          {
+            "at": "C1",
+            "terrain": "clay",
+            "route": "south",
+            "reeds": false,
+            "imprint": "—",
+            "beacon": false,
+            "water": "strong",
+            "exact": "A+B",
+            "fragment": "—",
+            "flooded": true
+          },
+          {
+            "at": "A2",
+            "terrain": "soil",
+            "route": "east",
+            "reeds": true,
+            "imprint": "—",
+            "beacon": false,
+            "water": "gentle",
+            "exact": "—",
+            "fragment": "A+B",
+            "flooded": false
+          },
+          {
+            "at": "B2",
+            "terrain": "stone",
+            "route": "east",
+            "reeds": false,
+            "imprint": "A",
+            "beacon": false,
+            "water": "gentle",
+            "exact": "—",
+            "fragment": "A+B",
+            "flooded": false
+          },
+          {
+            "at": "C2",
+            "terrain": "soil",
+            "route": "south",
+            "reeds": false,
+            "imprint": "—",
+            "beacon": false,
+            "water": "strong",
+            "exact": "A+B",
+            "fragment": "A+B",
+            "flooded": true
+          },
+          {
+            "at": "A3",
+            "terrain": "clay",
+            "route": "east",
+            "reeds": false,
+            "imprint": "—",
+            "beacon": false,
+            "water": "dry",
+            "exact": "—",
+            "fragment": "—",
+            "flooded": false
+          },
+          {
+            "at": "B3",
+            "terrain": "soil",
+            "route": "east",
+            "reeds": false,
+            "imprint": "—",
+            "beacon": false,
+            "water": "dry",
+            "exact": "—",
+            "fragment": "—",
+            "flooded": false
+          },
+          {
+            "at": "C3",
+            "terrain": "stone",
+            "route": "closed",
+            "reeds": false,
+            "imprint": "A+B",
+            "beacon": true,
+            "water": "strong",
+            "exact": "A+B",
+            "fragment": "A+B",
+            "flooded": false
+          }
+        ],
+        "avatars": [
+          {
+            "id": "blue",
+            "at": "A1",
+            "home": "A1",
+            "carried": "A+B",
+            "mode": "nest",
+            "returned": true
+          },
+          {
+            "id": "amber",
+            "at": "A1",
+            "home": "C3",
+            "carried": "A+B",
+            "mode": "nest",
+            "returned": true,
+            "target": "A1"
+          }
+        ],
+        "response": [
+          {
+            "kind": "combine",
+            "at": "A2",
+            "before": {
+              "id": "A2",
+              "x": 0,
+              "y": 1,
+              "terrain": "soil",
+              "route": "east",
+              "fired": false,
+              "rooted": false,
+              "memory": 0,
+              "beacon": false
+            },
+            "after": {
+              "id": "A2",
+              "x": 0,
+              "y": 1,
+              "terrain": "soil",
+              "route": "east",
+              "fired": false,
+              "rooted": true,
+              "memory": 0,
+              "beacon": false
+            }
+          },
+          {
+            "kind": "move",
+            "at": "A2",
+            "walker": "blue",
+            "before": "A1",
+            "after": "A2"
+          },
+          {
+            "kind": "move",
+            "at": "B2",
+            "walker": "blue",
+            "before": "A2",
+            "after": "B2"
+          },
+          {
+            "kind": "move",
+            "at": "B3",
+            "walker": "blue",
+            "before": "B2",
+            "after": "B3"
+          },
+          {
+            "kind": "move",
+            "at": "C3",
+            "walker": "blue",
+            "before": "B3",
+            "after": "C3"
+          },
+          {
+            "kind": "learn",
+            "at": "C3",
+            "walker": "blue",
+            "after": "A+B"
+          },
+          {
+            "kind": "move",
+            "at": "B3",
+            "walker": "blue",
+            "before": "C3",
+            "after": "B3"
+          },
+          {
+            "kind": "move",
+            "at": "B2",
+            "walker": "blue",
+            "before": "B3",
+            "after": "B2"
+          },
+          {
+            "kind": "move",
+            "at": "A2",
+            "walker": "blue",
+            "before": "B2",
+            "after": "A2"
+          },
+          {
+            "kind": "move",
+            "at": "A1",
+            "walker": "blue",
+            "before": "A2",
+            "after": "A1"
+          },
+          {
+            "kind": "return-imprint",
+            "at": "A1",
+            "walker": "blue",
+            "after": "A+B"
+          },
+          {
+            "kind": "nest-move",
+            "at": "B3",
+            "walker": "amber",
+            "before": "C3",
+            "after": "B3"
+          },
+          {
+            "kind": "nest-move",
+            "at": "B2",
+            "walker": "amber",
+            "before": "B3",
+            "after": "B2"
+          },
+          {
+            "kind": "nest-move",
+            "at": "A2",
+            "walker": "amber",
+            "before": "B2",
+            "after": "A2"
+          },
+          {
+            "kind": "nest-move",
+            "at": "A1",
+            "walker": "amber",
+            "before": "A2",
+            "after": "A1"
+          }
+        ],
+        "actionSchema": {
+          "type": "combine",
+          "a": "item",
+          "b": "item",
+          "at": "cell ID",
+          "toward": "Earth+Water only: east/south/split/closed"
+        },
+        "legalActions": [
+          {
+            "type": "combine",
+            "a": "earth",
+            "b": "water",
+            "at": "A1",
+            "toward": "east"
+          },
+          {
+            "type": "combine",
+            "a": "earth",
+            "b": "water",
+            "at": "A1",
+            "toward": "south"
+          },
+          {
+            "type": "combine",
+            "a": "earth",
+            "b": "water",
+            "at": "A1",
+            "toward": "closed"
+          },
+          {
+            "type": "combine",
+            "a": "air",
+            "b": "voice",
+            "at": "A1"
+          },
+          {
+            "type": "combine",
+            "a": "heat",
+            "b": "voice",
+            "at": "A1"
+          },
+          {
+            "type": "combine",
+            "a": "earth",
+            "b": "water",
+            "at": "B1",
+            "toward": "south"
+          },
+          {
+            "type": "combine",
+            "a": "earth",
+            "b": "water",
+            "at": "B1",
+            "toward": "split"
+          },
+          {
+            "type": "combine",
+            "a": "earth",
+            "b": "water",
+            "at": "B1",
+            "toward": "closed"
+          },
+          {
+            "type": "combine",
+            "a": "seed",
+            "b": "water",
+            "at": "B1"
+          },
+          {
+            "type": "combine",
+            "a": "air",
+            "b": "voice",
+            "at": "B1"
+          },
+          {
+            "type": "combine",
+            "a": "earth",
+            "b": "water",
+            "at": "C1",
+            "toward": "closed"
+          },
+          {
+            "type": "combine",
+            "a": "seed",
+            "b": "water",
+            "at": "C1"
+          },
+          {
+            "type": "combine",
+            "a": "heat",
+            "b": "earth",
+            "at": "C1"
+          },
+          {
+            "type": "combine",
+            "a": "air",
+            "b": "voice",
+            "at": "C1"
+          },
+          {
+            "type": "combine",
+            "a": "earth",
+            "b": "water",
+            "at": "A2",
+            "toward": "south"
+          },
+          {
+            "type": "combine",
+            "a": "earth",
+            "b": "water",
+            "at": "A2",
+            "toward": "split"
+          },
+          {
+            "type": "combine",
+            "a": "earth",
+            "b": "water",
+            "at": "A2",
+            "toward": "closed"
+          },
+          {
+            "type": "combine",
+            "a": "air",
+            "b": "voice",
+            "at": "A2"
+          },
+          {
+            "type": "combine",
+            "a": "heat",
+            "b": "water",
+            "at": "A2"
+          },
+          {
+            "type": "combine",
+            "a": "earth",
+            "b": "water",
+            "at": "B2",
+            "toward": "south"
+          },
+          {
+            "type": "combine",
+            "a": "earth",
+            "b": "water",
+            "at": "B2",
+            "toward": "split"
+          },
+          {
+            "type": "combine",
+            "a": "earth",
+            "b": "water",
+            "at": "B2",
+            "toward": "closed"
+          },
+          {
+            "type": "combine",
+            "a": "air",
+            "b": "voice",
+            "at": "B2"
+          },
+          {
+            "type": "combine",
+            "a": "heat",
+            "b": "voice",
+            "at": "B2"
+          },
+          {
+            "type": "combine",
+            "a": "earth",
+            "b": "water",
+            "at": "C2",
+            "toward": "closed"
+          },
+          {
+            "type": "combine",
+            "a": "seed",
+            "b": "water",
+            "at": "C2"
+          },
+          {
+            "type": "combine",
+            "a": "air",
+            "b": "voice",
+            "at": "C2"
+          },
+          {
+            "type": "combine",
+            "a": "earth",
+            "b": "water",
+            "at": "A3",
+            "toward": "closed"
+          },
+          {
+            "type": "combine",
+            "a": "heat",
+            "b": "earth",
+            "at": "A3"
+          },
+          {
+            "type": "combine",
+            "a": "earth",
+            "b": "water",
+            "at": "B3",
+            "toward": "closed"
+          },
+          {
+            "type": "combine",
+            "a": "stone",
+            "b": "air",
+            "at": "C3"
+          },
+          {
+            "type": "finish"
+          }
+        ],
+        "placeAvailability": [
+          {
+            "at": "A1",
+            "pairs": [
+              {
+                "a": "earth",
+                "b": "water",
+                "toward": "east"
+              },
+              {
+                "a": "earth",
+                "b": "water",
+                "toward": "south"
+              },
+              {
+                "a": "earth",
+                "b": "water",
+                "toward": "closed"
+              },
+              {
+                "a": "air",
+                "b": "voice"
+              },
+              {
+                "a": "heat",
+                "b": "voice"
+              }
+            ]
+          },
+          {
+            "at": "B1",
+            "pairs": [
+              {
+                "a": "earth",
+                "b": "water",
+                "toward": "south"
+              },
+              {
+                "a": "earth",
+                "b": "water",
+                "toward": "split"
+              },
+              {
+                "a": "earth",
+                "b": "water",
+                "toward": "closed"
+              },
+              {
+                "a": "seed",
+                "b": "water"
+              },
+              {
+                "a": "air",
+                "b": "voice"
+              }
+            ]
+          },
+          {
+            "at": "C1",
+            "pairs": [
+              {
+                "a": "earth",
+                "b": "water",
+                "toward": "closed"
+              },
+              {
+                "a": "seed",
+                "b": "water"
+              },
+              {
+                "a": "heat",
+                "b": "earth"
+              },
+              {
+                "a": "air",
+                "b": "voice"
+              }
+            ]
+          },
+          {
+            "at": "A2",
+            "pairs": [
+              {
+                "a": "earth",
+                "b": "water",
+                "toward": "south"
+              },
+              {
+                "a": "earth",
+                "b": "water",
+                "toward": "split"
+              },
+              {
+                "a": "earth",
+                "b": "water",
+                "toward": "closed"
+              },
+              {
+                "a": "air",
+                "b": "voice"
+              },
+              {
+                "a": "heat",
+                "b": "water"
+              }
+            ]
+          },
+          {
+            "at": "B2",
+            "pairs": [
+              {
+                "a": "earth",
+                "b": "water",
+                "toward": "south"
+              },
+              {
+                "a": "earth",
+                "b": "water",
+                "toward": "split"
+              },
+              {
+                "a": "earth",
+                "b": "water",
+                "toward": "closed"
+              },
+              {
+                "a": "air",
+                "b": "voice"
+              },
+              {
+                "a": "heat",
+                "b": "voice"
+              }
+            ]
+          },
+          {
+            "at": "C2",
+            "pairs": [
+              {
+                "a": "earth",
+                "b": "water",
+                "toward": "closed"
+              },
+              {
+                "a": "seed",
+                "b": "water"
+              },
+              {
+                "a": "air",
+                "b": "voice"
+              }
+            ]
+          },
+          {
+            "at": "A3",
+            "pairs": [
+              {
+                "a": "earth",
+                "b": "water",
+                "toward": "closed"
+              },
+              {
+                "a": "heat",
+                "b": "earth"
+              }
+            ]
+          },
+          {
+            "at": "B3",
+            "pairs": [
+              {
+                "a": "earth",
+                "b": "water",
+                "toward": "closed"
+              }
+            ]
+          },
+          {
+            "at": "C3",
+            "pairs": [
+              {
+                "a": "stone",
+                "b": "air"
+              }
+            ]
+          }
+        ],
+        "inspect": "Use rules SESSION and actions SESSION [JSON_FILTER] in the public CLI. Every current pair and place catalyst is available."
+      }
+    },
+    {
+      "index": 3,
+      "action": {
+        "type": "combine",
+        "a": "earth",
+        "b": "water",
+        "at": "B1",
+        "toward": "south"
+      },
+      "prediction": {
+        "episode": "central-meeting",
+        "intention": "Bring exact A+B through B1 to make B2 a shared quiet record.",
+        "expected": "B2 retains A+B. Blue can then settle there. Amber may remain at already satisfactory A1.",
+        "uncertainty": "Rerouting strong flow into B2 will leave C2 strong through its east outlet, so the A2 gateway and bottom route remain important."
+      },
+      "atMs": 83215,
+      "phase": "elective",
+      "before": "9d01d66c",
+      "after": "02d16fd8",
+      "observation": {
+        "version": "imprints-1",
+        "scenario": "board",
+        "status": "playing",
+        "time": 18,
+        "goal": "Let each walker encounter the other mark and bring it home. Further constructions are optional.",
+        "board": [
+          {
+            "at": "A1",
+            "terrain": "stone",
+            "route": "split",
+            "reeds": false,
+            "imprint": "A+B",
+            "beacon": false,
+            "water": "strong",
+            "exact": "A+B",
+            "fragment": "—",
+            "flooded": false
+          },
+          {
+            "at": "B1",
+            "terrain": "soil",
+            "route": "south",
+            "reeds": false,
+            "imprint": "—",
+            "beacon": false,
+            "water": "strong",
+            "exact": "A+B",
+            "fragment": "—",
+            "flooded": true
+          },
+          {
+            "at": "C1",
+            "terrain": "clay",
+            "route": "south",
+            "reeds": false,
+            "imprint": "—",
+            "beacon": false,
+            "water": "dry",
+            "exact": "—",
+            "fragment": "—",
+            "flooded": false
+          },
+          {
+            "at": "A2",
+            "terrain": "soil",
+            "route": "east",
+            "reeds": true,
+            "imprint": "—",
+            "beacon": false,
+            "water": "gentle",
+            "exact": "—",
+            "fragment": "A+B",
+            "flooded": false
+          },
+          {
+            "at": "B2",
+            "terrain": "stone",
+            "route": "east",
+            "reeds": false,
+            "imprint": "A+B",
+            "beacon": false,
+            "water": "strong",
+            "exact": "A+B",
+            "fragment": "A+B",
+            "flooded": false
+          },
+          {
+            "at": "C2",
+            "terrain": "soil",
+            "route": "south",
+            "reeds": false,
+            "imprint": "—",
+            "beacon": false,
+            "water": "strong",
+            "exact": "A+B",
+            "fragment": "A+B",
+            "flooded": true
+          },
+          {
+            "at": "A3",
+            "terrain": "clay",
+            "route": "east",
+            "reeds": false,
+            "imprint": "—",
+            "beacon": false,
+            "water": "dry",
+            "exact": "—",
+            "fragment": "—",
+            "flooded": false
+          },
+          {
+            "at": "B3",
+            "terrain": "soil",
+            "route": "east",
+            "reeds": false,
+            "imprint": "—",
+            "beacon": false,
+            "water": "dry",
+            "exact": "—",
+            "fragment": "—",
+            "flooded": false
+          },
+          {
+            "at": "C3",
+            "terrain": "stone",
+            "route": "closed",
+            "reeds": false,
+            "imprint": "A+B",
+            "beacon": true,
+            "water": "strong",
+            "exact": "A+B",
+            "fragment": "A+B",
+            "flooded": false
+          }
+        ],
+        "avatars": [
+          {
+            "id": "blue",
+            "at": "B2",
+            "home": "A1",
+            "carried": "A+B",
+            "mode": "nest",
+            "returned": true,
+            "target": "B2"
+          },
+          {
+            "id": "amber",
+            "at": "A1",
+            "home": "C3",
+            "carried": "A+B",
+            "mode": "nest",
+            "returned": true,
+            "target": "A1"
+          }
+        ],
+        "response": [
+          {
+            "kind": "combine",
+            "at": "B1",
+            "before": {
+              "id": "B1",
+              "x": 1,
+              "y": 0,
+              "terrain": "soil",
+              "route": "east",
+              "fired": false,
+              "rooted": false,
+              "memory": 0,
+              "beacon": false
+            },
+            "after": {
+              "id": "B1",
+              "x": 1,
+              "y": 0,
+              "terrain": "soil",
+              "route": "south",
+              "fired": false,
+              "rooted": false,
+              "memory": 0,
+              "beacon": false
+            }
+          },
+          {
+            "kind": "imprint",
+            "at": "B2",
+            "before": "A",
+            "after": "A+B"
+          },
+          {
+            "kind": "nest-move",
+            "at": "A2",
+            "walker": "blue",
+            "before": "A1",
+            "after": "A2"
+          },
+          {
+            "kind": "nest-move",
+            "at": "B2",
+            "walker": "blue",
+            "before": "A2",
+            "after": "B2"
+          }
+        ],
+        "actionSchema": {
+          "type": "combine",
+          "a": "item",
+          "b": "item",
+          "at": "cell ID",
+          "toward": "Earth+Water only: east/south/split/closed"
+        },
+        "legalActions": [
+          {
+            "type": "combine",
+            "a": "earth",
+            "b": "water",
+            "at": "A1",
+            "toward": "east"
+          },
+          {
+            "type": "combine",
+            "a": "earth",
+            "b": "water",
+            "at": "A1",
+            "toward": "south"
+          },
+          {
+            "type": "combine",
+            "a": "earth",
+            "b": "water",
+            "at": "A1",
+            "toward": "closed"
+          },
+          {
+            "type": "combine",
+            "a": "air",
+            "b": "voice",
+            "at": "A1"
+          },
+          {
+            "type": "combine",
+            "a": "heat",
+            "b": "voice",
+            "at": "A1"
+          },
+          {
+            "type": "combine",
+            "a": "earth",
+            "b": "water",
+            "at": "B1",
+            "toward": "east"
+          },
+          {
+            "type": "combine",
+            "a": "earth",
+            "b": "water",
+            "at": "B1",
+            "toward": "split"
+          },
+          {
+            "type": "combine",
+            "a": "earth",
+            "b": "water",
+            "at": "B1",
+            "toward": "closed"
+          },
+          {
+            "type": "combine",
+            "a": "seed",
+            "b": "water",
+            "at": "B1"
+          },
+          {
+            "type": "combine",
+            "a": "air",
+            "b": "voice",
+            "at": "B1"
+          },
+          {
+            "type": "combine",
+            "a": "earth",
+            "b": "water",
+            "at": "C1",
+            "toward": "closed"
+          },
+          {
+            "type": "combine",
+            "a": "heat",
+            "b": "earth",
+            "at": "C1"
+          },
+          {
+            "type": "combine",
+            "a": "earth",
+            "b": "water",
+            "at": "A2",
+            "toward": "south"
+          },
+          {
+            "type": "combine",
+            "a": "earth",
+            "b": "water",
+            "at": "A2",
+            "toward": "split"
+          },
+          {
+            "type": "combine",
+            "a": "earth",
+            "b": "water",
+            "at": "A2",
+            "toward": "closed"
+          },
+          {
+            "type": "combine",
+            "a": "air",
+            "b": "voice",
+            "at": "A2"
+          },
+          {
+            "type": "combine",
+            "a": "heat",
+            "b": "water",
+            "at": "A2"
+          },
+          {
+            "type": "combine",
+            "a": "earth",
+            "b": "water",
+            "at": "B2",
+            "toward": "south"
+          },
+          {
+            "type": "combine",
+            "a": "earth",
+            "b": "water",
+            "at": "B2",
+            "toward": "split"
+          },
+          {
+            "type": "combine",
+            "a": "earth",
+            "b": "water",
+            "at": "B2",
+            "toward": "closed"
+          },
+          {
+            "type": "combine",
+            "a": "air",
+            "b": "voice",
+            "at": "B2"
+          },
+          {
+            "type": "combine",
+            "a": "earth",
+            "b": "water",
+            "at": "C2",
+            "toward": "closed"
+          },
+          {
+            "type": "combine",
+            "a": "seed",
+            "b": "water",
+            "at": "C2"
+          },
+          {
+            "type": "combine",
+            "a": "air",
+            "b": "voice",
+            "at": "C2"
+          },
+          {
+            "type": "combine",
+            "a": "earth",
+            "b": "water",
+            "at": "A3",
+            "toward": "closed"
+          },
+          {
+            "type": "combine",
+            "a": "heat",
+            "b": "earth",
+            "at": "A3"
+          },
+          {
+            "type": "combine",
+            "a": "earth",
+            "b": "water",
+            "at": "B3",
+            "toward": "closed"
+          },
+          {
+            "type": "combine",
+            "a": "stone",
+            "b": "air",
+            "at": "C3"
+          },
+          {
+            "type": "finish"
+          }
+        ],
+        "placeAvailability": [
+          {
+            "at": "A1",
+            "pairs": [
+              {
+                "a": "earth",
+                "b": "water",
+                "toward": "east"
+              },
+              {
+                "a": "earth",
+                "b": "water",
+                "toward": "south"
+              },
+              {
+                "a": "earth",
+                "b": "water",
+                "toward": "closed"
+              },
+              {
+                "a": "air",
+                "b": "voice"
+              },
+              {
+                "a": "heat",
+                "b": "voice"
+              }
+            ]
+          },
+          {
+            "at": "B1",
+            "pairs": [
+              {
+                "a": "earth",
+                "b": "water",
+                "toward": "east"
+              },
+              {
+                "a": "earth",
+                "b": "water",
+                "toward": "split"
+              },
+              {
+                "a": "earth",
+                "b": "water",
+                "toward": "closed"
+              },
+              {
+                "a": "seed",
+                "b": "water"
+              },
+              {
+                "a": "air",
+                "b": "voice"
+              }
+            ]
+          },
+          {
+            "at": "C1",
+            "pairs": [
+              {
+                "a": "earth",
+                "b": "water",
+                "toward": "closed"
+              },
+              {
+                "a": "heat",
+                "b": "earth"
+              }
+            ]
+          },
+          {
+            "at": "A2",
+            "pairs": [
+              {
+                "a": "earth",
+                "b": "water",
+                "toward": "south"
+              },
+              {
+                "a": "earth",
+                "b": "water",
+                "toward": "split"
+              },
+              {
+                "a": "earth",
+                "b": "water",
+                "toward": "closed"
+              },
+              {
+                "a": "air",
+                "b": "voice"
+              },
+              {
+                "a": "heat",
+                "b": "water"
+              }
+            ]
+          },
+          {
+            "at": "B2",
+            "pairs": [
+              {
+                "a": "earth",
+                "b": "water",
+                "toward": "south"
+              },
+              {
+                "a": "earth",
+                "b": "water",
+                "toward": "split"
+              },
+              {
+                "a": "earth",
+                "b": "water",
+                "toward": "closed"
+              },
+              {
+                "a": "air",
+                "b": "voice"
+              }
+            ]
+          },
+          {
+            "at": "C2",
+            "pairs": [
+              {
+                "a": "earth",
+                "b": "water",
+                "toward": "closed"
+              },
+              {
+                "a": "seed",
+                "b": "water"
+              },
+              {
+                "a": "air",
+                "b": "voice"
+              }
+            ]
+          },
+          {
+            "at": "A3",
+            "pairs": [
+              {
+                "a": "earth",
+                "b": "water",
+                "toward": "closed"
+              },
+              {
+                "a": "heat",
+                "b": "earth"
+              }
+            ]
+          },
+          {
+            "at": "B3",
+            "pairs": [
+              {
+                "a": "earth",
+                "b": "water",
+                "toward": "closed"
+              }
+            ]
+          },
+          {
+            "at": "C3",
+            "pairs": [
+              {
+                "a": "stone",
+                "b": "air"
+              }
+            ]
+          }
+        ],
+        "inspect": "Use rules SESSION and actions SESSION [JSON_FILTER] in the public CLI. Every current pair and place catalyst is available."
+      }
+    },
+    {
+      "index": 4,
+      "action": {
+        "type": "combine",
+        "a": "air",
+        "b": "voice",
+        "at": "A1"
+      },
+      "prediction": {
+        "episode": "central-meeting",
+        "intention": "Make the old A1 record public so amber relocates to the quiet central record.",
+        "expected": "Amber leaves A1 through the same A2 gateway and joins blue at B2. A1 already emits strong A+B flow, so this should change social use without changing the flood map."
+      },
+      "atMs": 89233,
+      "phase": "elective",
+      "before": "02d16fd8",
+      "after": "c609a710",
+      "observation": {
+        "version": "imprints-1",
+        "scenario": "board",
+        "status": "playing",
+        "time": 20,
+        "goal": "Let each walker encounter the other mark and bring it home. Further constructions are optional.",
+        "board": [
+          {
+            "at": "A1",
+            "terrain": "stone",
+            "route": "split",
+            "reeds": false,
+            "imprint": "A+B",
+            "beacon": true,
+            "water": "strong",
+            "exact": "A+B",
+            "fragment": "—",
+            "flooded": false
+          },
+          {
+            "at": "B1",
+            "terrain": "soil",
+            "route": "south",
+            "reeds": false,
+            "imprint": "—",
+            "beacon": false,
+            "water": "strong",
+            "exact": "A+B",
+            "fragment": "—",
+            "flooded": true
+          },
+          {
+            "at": "C1",
+            "terrain": "clay",
+            "route": "south",
+            "reeds": false,
+            "imprint": "—",
+            "beacon": false,
+            "water": "dry",
+            "exact": "—",
+            "fragment": "—",
+            "flooded": false
+          },
+          {
+            "at": "A2",
+            "terrain": "soil",
+            "route": "east",
+            "reeds": true,
+            "imprint": "—",
+            "beacon": false,
+            "water": "gentle",
+            "exact": "—",
+            "fragment": "A+B",
+            "flooded": false
+          },
+          {
+            "at": "B2",
+            "terrain": "stone",
+            "route": "east",
+            "reeds": false,
+            "imprint": "A+B",
+            "beacon": false,
+            "water": "strong",
+            "exact": "A+B",
+            "fragment": "A+B",
+            "flooded": false
+          },
+          {
+            "at": "C2",
+            "terrain": "soil",
+            "route": "south",
+            "reeds": false,
+            "imprint": "—",
+            "beacon": false,
+            "water": "strong",
+            "exact": "A+B",
+            "fragment": "A+B",
+            "flooded": true
+          },
+          {
+            "at": "A3",
+            "terrain": "clay",
+            "route": "east",
+            "reeds": false,
+            "imprint": "—",
+            "beacon": false,
+            "water": "dry",
+            "exact": "—",
+            "fragment": "—",
+            "flooded": false
+          },
+          {
+            "at": "B3",
+            "terrain": "soil",
+            "route": "east",
+            "reeds": false,
+            "imprint": "—",
+            "beacon": false,
+            "water": "dry",
+            "exact": "—",
+            "fragment": "—",
+            "flooded": false
+          },
+          {
+            "at": "C3",
+            "terrain": "stone",
+            "route": "closed",
+            "reeds": false,
+            "imprint": "A+B",
+            "beacon": true,
+            "water": "strong",
+            "exact": "A+B",
+            "fragment": "A+B",
+            "flooded": false
+          }
+        ],
+        "avatars": [
+          {
+            "id": "blue",
+            "at": "B2",
+            "home": "A1",
+            "carried": "A+B",
+            "mode": "nest",
+            "returned": true,
+            "target": "B2"
+          },
+          {
+            "id": "amber",
+            "at": "B2",
+            "home": "C3",
+            "carried": "A+B",
+            "mode": "nest",
+            "returned": true,
+            "target": "B2"
+          }
+        ],
+        "response": [
+          {
+            "kind": "combine",
+            "at": "A1",
+            "before": {
+              "id": "A1",
+              "x": 0,
+              "y": 0,
+              "terrain": "stone",
+              "route": "split",
+              "fired": false,
+              "rooted": false,
+              "memory": 3,
+              "beacon": false
+            },
+            "after": {
+              "id": "A1",
+              "x": 0,
+              "y": 0,
+              "terrain": "stone",
+              "route": "split",
+              "fired": false,
+              "rooted": false,
+              "memory": 3,
+              "beacon": true
+            }
+          },
+          {
+            "kind": "nest-move",
+            "at": "A2",
+            "walker": "amber",
+            "before": "A1",
+            "after": "A2"
+          },
+          {
+            "kind": "nest-move",
+            "at": "B2",
+            "walker": "amber",
+            "before": "A2",
+            "after": "B2"
+          }
+        ],
+        "actionSchema": {
+          "type": "combine",
+          "a": "item",
+          "b": "item",
+          "at": "cell ID",
+          "toward": "Earth+Water only: east/south/split/closed"
+        },
+        "legalActions": [
+          {
+            "type": "combine",
+            "a": "earth",
+            "b": "water",
+            "at": "A1",
+            "toward": "east"
+          },
+          {
+            "type": "combine",
+            "a": "earth",
+            "b": "water",
+            "at": "A1",
+            "toward": "south"
+          },
+          {
+            "type": "combine",
+            "a": "earth",
+            "b": "water",
+            "at": "A1",
+            "toward": "closed"
+          },
+          {
+            "type": "combine",
+            "a": "stone",
+            "b": "air",
+            "at": "A1"
+          },
+          {
+            "type": "combine",
+            "a": "heat",
+            "b": "voice",
+            "at": "A1"
+          },
+          {
+            "type": "combine",
+            "a": "earth",
+            "b": "water",
+            "at": "B1",
+            "toward": "east"
+          },
+          {
+            "type": "combine",
+            "a": "earth",
+            "b": "water",
+            "at": "B1",
+            "toward": "split"
+          },
+          {
+            "type": "combine",
+            "a": "earth",
+            "b": "water",
+            "at": "B1",
+            "toward": "closed"
+          },
+          {
+            "type": "combine",
+            "a": "seed",
+            "b": "water",
+            "at": "B1"
+          },
+          {
+            "type": "combine",
+            "a": "air",
+            "b": "voice",
+            "at": "B1"
+          },
+          {
+            "type": "combine",
+            "a": "earth",
+            "b": "water",
+            "at": "C1",
+            "toward": "closed"
+          },
+          {
+            "type": "combine",
+            "a": "heat",
+            "b": "earth",
+            "at": "C1"
+          },
+          {
+            "type": "combine",
+            "a": "earth",
+            "b": "water",
+            "at": "A2",
+            "toward": "south"
+          },
+          {
+            "type": "combine",
+            "a": "earth",
+            "b": "water",
+            "at": "A2",
+            "toward": "split"
+          },
+          {
+            "type": "combine",
+            "a": "earth",
+            "b": "water",
+            "at": "A2",
+            "toward": "closed"
+          },
+          {
+            "type": "combine",
+            "a": "air",
+            "b": "voice",
+            "at": "A2"
+          },
+          {
+            "type": "combine",
+            "a": "heat",
+            "b": "water",
+            "at": "A2"
+          },
+          {
+            "type": "combine",
+            "a": "earth",
+            "b": "water",
+            "at": "B2",
+            "toward": "south"
+          },
+          {
+            "type": "combine",
+            "a": "earth",
+            "b": "water",
+            "at": "B2",
+            "toward": "split"
+          },
+          {
+            "type": "combine",
+            "a": "earth",
+            "b": "water",
+            "at": "B2",
+            "toward": "closed"
+          },
+          {
+            "type": "combine",
+            "a": "air",
+            "b": "voice",
+            "at": "B2"
+          },
+          {
+            "type": "combine",
+            "a": "earth",
+            "b": "water",
+            "at": "C2",
+            "toward": "closed"
+          },
+          {
+            "type": "combine",
+            "a": "seed",
+            "b": "water",
+            "at": "C2"
+          },
+          {
+            "type": "combine",
+            "a": "air",
+            "b": "voice",
+            "at": "C2"
+          },
+          {
+            "type": "combine",
+            "a": "earth",
+            "b": "water",
+            "at": "A3",
+            "toward": "closed"
+          },
+          {
+            "type": "combine",
+            "a": "heat",
+            "b": "earth",
+            "at": "A3"
+          },
+          {
+            "type": "combine",
+            "a": "earth",
+            "b": "water",
+            "at": "B3",
+            "toward": "closed"
+          },
+          {
+            "type": "combine",
+            "a": "stone",
+            "b": "air",
+            "at": "C3"
+          },
+          {
+            "type": "finish"
+          }
+        ],
+        "placeAvailability": [
+          {
+            "at": "A1",
+            "pairs": [
+              {
+                "a": "earth",
+                "b": "water",
+                "toward": "east"
+              },
+              {
+                "a": "earth",
+                "b": "water",
+                "toward": "south"
+              },
+              {
+                "a": "earth",
+                "b": "water",
+                "toward": "closed"
+              },
+              {
+                "a": "stone",
+                "b": "air"
+              },
+              {
+                "a": "heat",
+                "b": "voice"
+              }
+            ]
+          },
+          {
+            "at": "B1",
+            "pairs": [
+              {
+                "a": "earth",
+                "b": "water",
+                "toward": "east"
+              },
+              {
+                "a": "earth",
+                "b": "water",
+                "toward": "split"
+              },
+              {
+                "a": "earth",
+                "b": "water",
+                "toward": "closed"
+              },
+              {
+                "a": "seed",
+                "b": "water"
+              },
+              {
+                "a": "air",
+                "b": "voice"
+              }
+            ]
+          },
+          {
+            "at": "C1",
+            "pairs": [
+              {
+                "a": "earth",
+                "b": "water",
+                "toward": "closed"
+              },
+              {
+                "a": "heat",
+                "b": "earth"
+              }
+            ]
+          },
+          {
+            "at": "A2",
+            "pairs": [
+              {
+                "a": "earth",
+                "b": "water",
+                "toward": "south"
+              },
+              {
+                "a": "earth",
+                "b": "water",
+                "toward": "split"
+              },
+              {
+                "a": "earth",
+                "b": "water",
+                "toward": "closed"
+              },
+              {
+                "a": "air",
+                "b": "voice"
+              },
+              {
+                "a": "heat",
+                "b": "water"
+              }
+            ]
+          },
+          {
+            "at": "B2",
+            "pairs": [
+              {
+                "a": "earth",
+                "b": "water",
+                "toward": "south"
+              },
+              {
+                "a": "earth",
+                "b": "water",
+                "toward": "split"
+              },
+              {
+                "a": "earth",
+                "b": "water",
+                "toward": "closed"
+              },
+              {
+                "a": "air",
+                "b": "voice"
+              }
+            ]
+          },
+          {
+            "at": "C2",
+            "pairs": [
+              {
+                "a": "earth",
+                "b": "water",
+                "toward": "closed"
+              },
+              {
+                "a": "seed",
+                "b": "water"
+              },
+              {
+                "a": "air",
+                "b": "voice"
+              }
+            ]
+          },
+          {
+            "at": "A3",
+            "pairs": [
+              {
+                "a": "earth",
+                "b": "water",
+                "toward": "closed"
+              },
+              {
+                "a": "heat",
+                "b": "earth"
+              }
+            ]
+          },
+          {
+            "at": "B3",
+            "pairs": [
+              {
+                "a": "earth",
+                "b": "water",
+                "toward": "closed"
+              }
+            ]
+          },
+          {
+            "at": "C3",
+            "pairs": [
+              {
+                "a": "stone",
+                "b": "air"
+              }
+            ]
+          }
+        ],
+        "inspect": "Use rules SESSION and actions SESSION [JSON_FILTER] in the public CLI. Every current pair and place catalyst is available."
+      }
+    }
+  ],
+  "attempts": [],
+  "previews": [],
+  "checkpoints": [
+    {
+      "decisionIndex": 3,
+      "reason": "Initial aim resolved: both walkers have returned after three interventions. The living A2 crossing enabled the entire exchange."
+    },
+    {
+      "decisionIndex": 5,
+      "reason": "Elective purpose resolved after two further interventions: both walkers now rest together at quiet central B2. Stopping with this arrangement intact."
+    }
+  ],
+  "continuations": [
+    {
+      "decisionIndex": 3,
+      "intention": "Create a quiet A+B record at central B2 and have both walkers settle there.",
+      "source": "elicited under test prompt",
+      "recordedAt": "2026-10-26T00:35:30.669Z"
+    }
+  ],
+  "queries": [
+    {
+      "decisionIndex": 0,
+      "kind": "rules",
+      "phase": "assigned",
+      "recordedAt": "2026-10-26T00:34:16.724Z"
+    }
+  ],
+  "notes": [
+    {
+      "decisionIndex": 3,
+      "account": {
+        "experience": "The initial objective resolved in three deliberate combinations. The strongest response was one planted gateway letting blue complete a visible round trip, depositing B at A1, and amber then choosing A1 as its quiet record. I had expected a useful crossing; the settling behavior gave that same crossing another use.",
+        "uncertainty": "Whether gentle A2 flow could establish C2 despite the competing strong top flow. It could not, but the bottom detour already made the plan work.",
+        "appreciation": "A2 feels like an important place now, rather than an ingredient tally. B2 retaining only A while A+B fragments pass is a legible persistent consequence.",
+        "challenge": "The core aim was easy after reading the public rules. C3 broadcasting let amber learn A at home, which surprised me and reduced the needed journey.",
+        "stopOrContinue": "I want one concrete extra construction: a quiet central A+B record where both walkers settle, rather than leaving blue at its own home and amber at that same home.",
+        "nextWish": "Route exact A+B from A1 through B1 into B2, then make A1 public if necessary to encourage amber toward the central record."
+      },
+      "recordedAt": "2026-10-26T00:35:23.307Z"
+    }
+  ],
+  "continuation": {
+    "decisionIndex": 3,
+    "intention": "Create a quiet A+B record at central B2 and have both walkers settle there.",
+    "source": "elicited under test prompt",
+    "recordedAt": "2026-10-26T00:35:30.669Z"
+  },
+  "report": {
+    "experience": "I used three interventions to complete the initial exchange, then deliberately continued for two more to create a quiet central meeting place. The public rules were sufficient; I did not need hidden recipes or exact previews.",
+    "noticedResponses": [
+      "Recording amber at C3 added B to an existing A record. Broadcasting it let amber learn A at home, an easy shortcut I had not initially noticed.",
+      "Planting A2 opened a dry crossing. Blue made a complete round trip through B2 and the bottom detour, then imprinted B at A1. Amber subsequently walked to that new quiet A+B record.",
+      "A2 fragments did not overwrite B2 memory A. Redirecting exact A+B from B1 south did add B to B2, and blue immediately adopted it as a quiet nest.",
+      "Broadcasting A1 changed its social suitability while leaving the flood map unchanged. Amber left through the original A2 crossing and joined blue at B2."
+    ],
+    "closure": "Both walkers rest at B2 carrying A+B. This is a concrete ending I prefer to the initial goal state, and I am stopping here with five interventions.",
+    "renewedIntention": {
+      "atInitialCheckpoint": "Create a quiet A+B record at B2 and have both walkers settle there.",
+      "resolved": true,
+      "atFinalCheckpoint": null
+    },
+    "repetition": "There was no repeated maintenance or action spam. The five actions had distinct causal roles. After the desired shared place existed, further combinations would mostly be arbitrary exploration for me.",
+    "wantAnother": "I do not want to continue this board now. A substantially different arrangement requiring a new relationship or spatial solution could be worth trying; resetting this exact board would feel routine.",
+    "narrativeOrConceptThatMattered": "A2 became the crossing used first for learning, then returning, then settling. B2 changed from a memory of A to the shared place between two homes. That meaning arose from observed routes and records, not an authored story.",
+    "challenge": "The initial objective was easy once I understood broadcasting and flooding. The continuation tested a small causal plan with uncertain nest persistence, not a hard tradeoff. Most of the satisfaction was choosing an ending and seeing the walkers inhabit it.",
+    "actualContinuationReason": "I had a specific, short construction wish after seeing blue unable to nest at its own home while amber adopted it. I continued for that wish and stopped as soon as it resolved.",
+    "protocolCaveat": "This describes AI task behavior and expressed construction preference, not human fun."
+  }
+}

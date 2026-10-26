@@ -1,0 +1,1037 @@
+{
+  "schema": 1,
+  "id": "fun-council-1",
+  "game": "constitution",
+  "version": "constitution-1",
+  "scenario": "harbor",
+  "seed": 0,
+  "condition": "fresh-doctrine5-static-control",
+  "protocolVersion": "logical-cli-4",
+  "startedAt": "2026-10-25T22:51:24.412Z",
+  "initialObservation": {
+    "version": "constitution-1",
+    "scenario": "harbor",
+    "title": "A harbor that can change",
+    "status": "playing",
+    "goal": [
+      "Complete Harbor bridge",
+      "Keep A habitable in BOTH climates"
+    ],
+    "meaning": "Combine means bind several independent wills into one enduring actor. The question is what to join, what to leave independent, and which purpose should resolve a tie.",
+    "rules": [
+      "All four councils and every discovered council remain available as concepts. There are no material supplies, credits, action limits, deadlines or scores.",
+      "Combining councils binds their CURRENT political groups. All members of a group act together under one policy. Binding is transitive and irreversible inside the encounter; selecting an old ingredient does not detach its members.",
+      "For each announced climate, members vote for their local need. The majority chooses the shared policy. A tie preserves the founding voice’s ORIGINAL first-climate need. In an ordered combine A+B, the current group containing A keeps its founding voice.",
+      "A joint work is completed exactly when both endpoints belong to one binding group. More political union enables more joint works, but a shared policy can mismatch different local needs.",
+      "Policies do not consume anything. A town is protected when its group policy matches its local need for that climate. Both future climate and complete forecasts are public now.",
+      "Combine constitution + world when you choose to seal this arrangement. Both announced climates resolve automatically; no waiting or repeated maintenance is required.",
+      "Meeting the two named encounter requirements wins. There is no single weighted best ending: inspect which works happen and which towns are protected or harmed. More of one benefit can forfeit another.",
+      "These are invented binding-will rules, not a claim that real cooperation must require centralized uniformity. Consultation without binding is deliberately a different tested counterfactual."
+    ],
+    "climates": [
+      {
+        "id": "first-climate",
+        "needs": {
+          "a": "open",
+          "b": "shelter",
+          "c": "open",
+          "d": "shelter"
+        }
+      },
+      {
+        "id": "changed-climate",
+        "needs": {
+          "a": "shelter",
+          "b": "shelter",
+          "c": "open",
+          "d": "open"
+        }
+      }
+    ],
+    "jointWorks": [
+      {
+        "id": "bridge-ab",
+        "name": "Harbor bridge",
+        "ends": [
+          "a",
+          "b"
+        ]
+      },
+      {
+        "id": "observatory-ac",
+        "name": "Shared observatory",
+        "ends": [
+          "a",
+          "c"
+        ]
+      },
+      {
+        "id": "refuge-cd",
+        "name": "Common refuge",
+        "ends": [
+          "c",
+          "d"
+        ]
+      },
+      {
+        "id": "canal-bd",
+        "name": "Storm canal",
+        "ends": [
+          "b",
+          "d"
+        ]
+      }
+    ],
+    "councils": [
+      {
+        "members": [
+          "a"
+        ],
+        "founder": "a"
+      },
+      {
+        "members": [
+          "b"
+        ],
+        "founder": "b"
+      },
+      {
+        "members": [
+          "c"
+        ],
+        "founder": "c"
+      },
+      {
+        "members": [
+          "d"
+        ],
+        "founder": "d"
+      }
+    ],
+    "concepts": [
+      {
+        "members": [
+          "a"
+        ],
+        "founder": "a",
+        "id": "a",
+        "label": "Council A"
+      },
+      {
+        "members": [
+          "b"
+        ],
+        "founder": "b",
+        "id": "b",
+        "label": "Council B"
+      },
+      {
+        "members": [
+          "c"
+        ],
+        "founder": "c",
+        "id": "c",
+        "label": "Council C"
+      },
+      {
+        "members": [
+          "d"
+        ],
+        "founder": "d",
+        "id": "d",
+        "label": "Council D"
+      },
+      {
+        "id": "constitution",
+        "label": "The current binding arrangement"
+      },
+      {
+        "id": "world",
+        "label": "The announced world: seal and resolve"
+      }
+    ],
+    "actionSchema": {
+      "type": "combine",
+      "a": "known council id (founding voice survives)",
+      "b": "known council id; or constitution + world to seal"
+    },
+    "legalActions": [
+      {
+        "type": "combine",
+        "a": "a",
+        "b": "b"
+      },
+      {
+        "type": "combine",
+        "a": "a",
+        "b": "c"
+      },
+      {
+        "type": "combine",
+        "a": "a",
+        "b": "d"
+      },
+      {
+        "type": "combine",
+        "a": "b",
+        "b": "a"
+      },
+      {
+        "type": "combine",
+        "a": "b",
+        "b": "c"
+      },
+      {
+        "type": "combine",
+        "a": "b",
+        "b": "d"
+      },
+      {
+        "type": "combine",
+        "a": "c",
+        "b": "a"
+      },
+      {
+        "type": "combine",
+        "a": "c",
+        "b": "b"
+      },
+      {
+        "type": "combine",
+        "a": "c",
+        "b": "d"
+      },
+      {
+        "type": "combine",
+        "a": "d",
+        "b": "a"
+      },
+      {
+        "type": "combine",
+        "a": "d",
+        "b": "b"
+      },
+      {
+        "type": "combine",
+        "a": "d",
+        "b": "c"
+      },
+      {
+        "type": "combine",
+        "a": "constitution",
+        "b": "world"
+      }
+    ],
+    "consequencesIfSealed": {
+      "success": false,
+      "requirements": [
+        {
+          "requirement": "Complete Harbor bridge",
+          "met": false
+        },
+        {
+          "requirement": "Keep A habitable in BOTH climates",
+          "met": true
+        }
+      ],
+      "works": [
+        {
+          "id": "bridge-ab",
+          "name": "Harbor bridge",
+          "ends": [
+            "a",
+            "b"
+          ],
+          "completed": false
+        },
+        {
+          "id": "observatory-ac",
+          "name": "Shared observatory",
+          "ends": [
+            "a",
+            "c"
+          ],
+          "completed": false
+        },
+        {
+          "id": "refuge-cd",
+          "name": "Common refuge",
+          "ends": [
+            "c",
+            "d"
+          ],
+          "completed": false
+        },
+        {
+          "id": "canal-bd",
+          "name": "Storm canal",
+          "ends": [
+            "b",
+            "d"
+          ],
+          "completed": false
+        }
+      ],
+      "episodes": [
+        {
+          "id": "first-climate",
+          "policies": {
+            "a": "open",
+            "b": "shelter",
+            "c": "open",
+            "d": "shelter"
+          },
+          "protected": [
+            "a",
+            "b",
+            "c",
+            "d"
+          ],
+          "harmed": []
+        },
+        {
+          "id": "changed-climate",
+          "policies": {
+            "a": "shelter",
+            "b": "shelter",
+            "c": "open",
+            "d": "open"
+          },
+          "protected": [
+            "a",
+            "b",
+            "c",
+            "d"
+          ],
+          "harmed": []
+        }
+      ]
+    },
+    "message": "Four independent wills. Every binding and its complete consequences are inspectable."
+  },
+  "decisions": [
+    {
+      "index": 0,
+      "action": {
+        "type": "combine",
+        "a": "a",
+        "b": "b"
+      },
+      "prediction": {
+        "episode": "H1",
+        "kind": "plan",
+        "intention": "Build the bridge with the smallest binding that preserves A through both climates; leave C and D independent.",
+        "expectedEffect": "Bridge completed; B harmed in the first climate, all protected in changed climate.",
+        "alternative": "Add C for the observatory, at the cost of C losing protection in the changed climate."
+      },
+      "atMs": 14498,
+      "phase": "assigned",
+      "before": "c22cd30d",
+      "after": "23a1c596",
+      "observation": {
+        "version": "constitution-1",
+        "scenario": "harbor",
+        "title": "A harbor that can change",
+        "status": "playing",
+        "goal": [
+          "Complete Harbor bridge",
+          "Keep A habitable in BOTH climates"
+        ],
+        "meaning": "Combine means bind several independent wills into one enduring actor. The question is what to join, what to leave independent, and which purpose should resolve a tie.",
+        "rules": [
+          "All four councils and every discovered council remain available as concepts. There are no material supplies, credits, action limits, deadlines or scores.",
+          "Combining councils binds their CURRENT political groups. All members of a group act together under one policy. Binding is transitive and irreversible inside the encounter; selecting an old ingredient does not detach its members.",
+          "For each announced climate, members vote for their local need. The majority chooses the shared policy. A tie preserves the founding voice’s ORIGINAL first-climate need. In an ordered combine A+B, the current group containing A keeps its founding voice.",
+          "A joint work is completed exactly when both endpoints belong to one binding group. More political union enables more joint works, but a shared policy can mismatch different local needs.",
+          "Policies do not consume anything. A town is protected when its group policy matches its local need for that climate. Both future climate and complete forecasts are public now.",
+          "Combine constitution + world when you choose to seal this arrangement. Both announced climates resolve automatically; no waiting or repeated maintenance is required.",
+          "Meeting the two named encounter requirements wins. There is no single weighted best ending: inspect which works happen and which towns are protected or harmed. More of one benefit can forfeit another.",
+          "These are invented binding-will rules, not a claim that real cooperation must require centralized uniformity. Consultation without binding is deliberately a different tested counterfactual."
+        ],
+        "climates": [
+          {
+            "id": "first-climate",
+            "needs": {
+              "a": "open",
+              "b": "shelter",
+              "c": "open",
+              "d": "shelter"
+            }
+          },
+          {
+            "id": "changed-climate",
+            "needs": {
+              "a": "shelter",
+              "b": "shelter",
+              "c": "open",
+              "d": "open"
+            }
+          }
+        ],
+        "jointWorks": [
+          {
+            "id": "bridge-ab",
+            "name": "Harbor bridge",
+            "ends": [
+              "a",
+              "b"
+            ]
+          },
+          {
+            "id": "observatory-ac",
+            "name": "Shared observatory",
+            "ends": [
+              "a",
+              "c"
+            ]
+          },
+          {
+            "id": "refuge-cd",
+            "name": "Common refuge",
+            "ends": [
+              "c",
+              "d"
+            ]
+          },
+          {
+            "id": "canal-bd",
+            "name": "Storm canal",
+            "ends": [
+              "b",
+              "d"
+            ]
+          }
+        ],
+        "councils": [
+          {
+            "members": [
+              "a",
+              "b"
+            ],
+            "founder": "a"
+          },
+          {
+            "members": [
+              "c"
+            ],
+            "founder": "c"
+          },
+          {
+            "members": [
+              "d"
+            ],
+            "founder": "d"
+          }
+        ],
+        "concepts": [
+          {
+            "members": [
+              "a"
+            ],
+            "founder": "a",
+            "id": "a",
+            "label": "Council A"
+          },
+          {
+            "members": [
+              "b"
+            ],
+            "founder": "b",
+            "id": "b",
+            "label": "Council B"
+          },
+          {
+            "members": [
+              "c"
+            ],
+            "founder": "c",
+            "id": "c",
+            "label": "Council C"
+          },
+          {
+            "members": [
+              "d"
+            ],
+            "founder": "d",
+            "id": "d",
+            "label": "Council D"
+          },
+          {
+            "members": [
+              "a",
+              "b"
+            ],
+            "founder": "a",
+            "id": "council:ab:a",
+            "label": "Binding council AB · founding voice A"
+          },
+          {
+            "id": "constitution",
+            "label": "The current binding arrangement"
+          },
+          {
+            "id": "world",
+            "label": "The announced world: seal and resolve"
+          }
+        ],
+        "actionSchema": {
+          "type": "combine",
+          "a": "known council id (founding voice survives)",
+          "b": "known council id; or constitution + world to seal"
+        },
+        "legalActions": [
+          {
+            "type": "combine",
+            "a": "a",
+            "b": "c"
+          },
+          {
+            "type": "combine",
+            "a": "a",
+            "b": "d"
+          },
+          {
+            "type": "combine",
+            "a": "c",
+            "b": "a"
+          },
+          {
+            "type": "combine",
+            "a": "c",
+            "b": "d"
+          },
+          {
+            "type": "combine",
+            "a": "d",
+            "b": "a"
+          },
+          {
+            "type": "combine",
+            "a": "d",
+            "b": "c"
+          },
+          {
+            "type": "combine",
+            "a": "constitution",
+            "b": "world"
+          }
+        ],
+        "consequencesIfSealed": {
+          "success": true,
+          "requirements": [
+            {
+              "requirement": "Complete Harbor bridge",
+              "met": true
+            },
+            {
+              "requirement": "Keep A habitable in BOTH climates",
+              "met": true
+            }
+          ],
+          "works": [
+            {
+              "id": "bridge-ab",
+              "name": "Harbor bridge",
+              "ends": [
+                "a",
+                "b"
+              ],
+              "completed": true
+            },
+            {
+              "id": "observatory-ac",
+              "name": "Shared observatory",
+              "ends": [
+                "a",
+                "c"
+              ],
+              "completed": false
+            },
+            {
+              "id": "refuge-cd",
+              "name": "Common refuge",
+              "ends": [
+                "c",
+                "d"
+              ],
+              "completed": false
+            },
+            {
+              "id": "canal-bd",
+              "name": "Storm canal",
+              "ends": [
+                "b",
+                "d"
+              ],
+              "completed": false
+            }
+          ],
+          "episodes": [
+            {
+              "id": "first-climate",
+              "policies": {
+                "a": "open",
+                "b": "open",
+                "c": "open",
+                "d": "shelter"
+              },
+              "protected": [
+                "a",
+                "c",
+                "d"
+              ],
+              "harmed": [
+                "b"
+              ]
+            },
+            {
+              "id": "changed-climate",
+              "policies": {
+                "a": "shelter",
+                "b": "shelter",
+                "c": "open",
+                "d": "open"
+              },
+              "protected": [
+                "a",
+                "b",
+                "c",
+                "d"
+              ],
+              "harmed": []
+            }
+          ]
+        },
+        "message": "A, B now act as one will. Both ingredient concepts remain known, but binding is transitive and cannot be dissolved inside this encounter. A's original purpose settles ties."
+      }
+    },
+    {
+      "index": 1,
+      "action": {
+        "type": "combine",
+        "a": "constitution",
+        "b": "world"
+      },
+      "prediction": {
+        "episode": "H1",
+        "kind": "resolution",
+        "intention": "Seal the small union and retain the independence of C and D.",
+        "expectedEffect": "The previewed bridge succeeds; B is harmed only in the first climate; the other works remain unbuilt.",
+        "alternative": "A wider union would produce extra works with additional mismatches; I do not value those works enough to choose that ending."
+      },
+      "atMs": 19712,
+      "phase": "assigned",
+      "before": "23a1c596",
+      "after": "8f2dba2f",
+      "observation": {
+        "version": "constitution-1",
+        "scenario": "harbor",
+        "title": "A harbor that can change",
+        "status": "won",
+        "goal": [
+          "Complete Harbor bridge",
+          "Keep A habitable in BOTH climates"
+        ],
+        "meaning": "Combine means bind several independent wills into one enduring actor. The question is what to join, what to leave independent, and which purpose should resolve a tie.",
+        "rules": [
+          "All four councils and every discovered council remain available as concepts. There are no material supplies, credits, action limits, deadlines or scores.",
+          "Combining councils binds their CURRENT political groups. All members of a group act together under one policy. Binding is transitive and irreversible inside the encounter; selecting an old ingredient does not detach its members.",
+          "For each announced climate, members vote for their local need. The majority chooses the shared policy. A tie preserves the founding voice’s ORIGINAL first-climate need. In an ordered combine A+B, the current group containing A keeps its founding voice.",
+          "A joint work is completed exactly when both endpoints belong to one binding group. More political union enables more joint works, but a shared policy can mismatch different local needs.",
+          "Policies do not consume anything. A town is protected when its group policy matches its local need for that climate. Both future climate and complete forecasts are public now.",
+          "Combine constitution + world when you choose to seal this arrangement. Both announced climates resolve automatically; no waiting or repeated maintenance is required.",
+          "Meeting the two named encounter requirements wins. There is no single weighted best ending: inspect which works happen and which towns are protected or harmed. More of one benefit can forfeit another.",
+          "These are invented binding-will rules, not a claim that real cooperation must require centralized uniformity. Consultation without binding is deliberately a different tested counterfactual."
+        ],
+        "climates": [
+          {
+            "id": "first-climate",
+            "needs": {
+              "a": "open",
+              "b": "shelter",
+              "c": "open",
+              "d": "shelter"
+            }
+          },
+          {
+            "id": "changed-climate",
+            "needs": {
+              "a": "shelter",
+              "b": "shelter",
+              "c": "open",
+              "d": "open"
+            }
+          }
+        ],
+        "jointWorks": [
+          {
+            "id": "bridge-ab",
+            "name": "Harbor bridge",
+            "ends": [
+              "a",
+              "b"
+            ]
+          },
+          {
+            "id": "observatory-ac",
+            "name": "Shared observatory",
+            "ends": [
+              "a",
+              "c"
+            ]
+          },
+          {
+            "id": "refuge-cd",
+            "name": "Common refuge",
+            "ends": [
+              "c",
+              "d"
+            ]
+          },
+          {
+            "id": "canal-bd",
+            "name": "Storm canal",
+            "ends": [
+              "b",
+              "d"
+            ]
+          }
+        ],
+        "councils": [
+          {
+            "members": [
+              "a",
+              "b"
+            ],
+            "founder": "a"
+          },
+          {
+            "members": [
+              "c"
+            ],
+            "founder": "c"
+          },
+          {
+            "members": [
+              "d"
+            ],
+            "founder": "d"
+          }
+        ],
+        "concepts": [
+          {
+            "members": [
+              "a"
+            ],
+            "founder": "a",
+            "id": "a",
+            "label": "Council A"
+          },
+          {
+            "members": [
+              "b"
+            ],
+            "founder": "b",
+            "id": "b",
+            "label": "Council B"
+          },
+          {
+            "members": [
+              "c"
+            ],
+            "founder": "c",
+            "id": "c",
+            "label": "Council C"
+          },
+          {
+            "members": [
+              "d"
+            ],
+            "founder": "d",
+            "id": "d",
+            "label": "Council D"
+          },
+          {
+            "members": [
+              "a",
+              "b"
+            ],
+            "founder": "a",
+            "id": "council:ab:a",
+            "label": "Binding council AB · founding voice A"
+          },
+          {
+            "id": "constitution",
+            "label": "The current binding arrangement"
+          },
+          {
+            "id": "world",
+            "label": "The announced world: seal and resolve"
+          }
+        ],
+        "actionSchema": {
+          "type": "combine",
+          "a": "known council id (founding voice survives)",
+          "b": "known council id; or constitution + world to seal"
+        },
+        "legalActions": [],
+        "consequencesIfSealed": {
+          "success": true,
+          "requirements": [
+            {
+              "requirement": "Complete Harbor bridge",
+              "met": true
+            },
+            {
+              "requirement": "Keep A habitable in BOTH climates",
+              "met": true
+            }
+          ],
+          "works": [
+            {
+              "id": "bridge-ab",
+              "name": "Harbor bridge",
+              "ends": [
+                "a",
+                "b"
+              ],
+              "completed": true
+            },
+            {
+              "id": "observatory-ac",
+              "name": "Shared observatory",
+              "ends": [
+                "a",
+                "c"
+              ],
+              "completed": false
+            },
+            {
+              "id": "refuge-cd",
+              "name": "Common refuge",
+              "ends": [
+                "c",
+                "d"
+              ],
+              "completed": false
+            },
+            {
+              "id": "canal-bd",
+              "name": "Storm canal",
+              "ends": [
+                "b",
+                "d"
+              ],
+              "completed": false
+            }
+          ],
+          "episodes": [
+            {
+              "id": "first-climate",
+              "policies": {
+                "a": "open",
+                "b": "open",
+                "c": "open",
+                "d": "shelter"
+              },
+              "protected": [
+                "a",
+                "c",
+                "d"
+              ],
+              "harmed": [
+                "b"
+              ]
+            },
+            {
+              "id": "changed-climate",
+              "policies": {
+                "a": "shelter",
+                "b": "shelter",
+                "c": "open",
+                "d": "open"
+              },
+              "protected": [
+                "a",
+                "b",
+                "c",
+                "d"
+              ],
+              "harmed": []
+            }
+          ]
+        },
+        "message": "The constitution meets the encounter requirements. Its benefits and harms remain visible."
+      }
+    }
+  ],
+  "attempts": [],
+  "previews": [
+    {
+      "decisionIndex": 0,
+      "action": {
+        "type": "combine",
+        "a": "a",
+        "b": "b"
+      },
+      "result": {
+        "status": "playing",
+        "councils": [
+          {
+            "members": [
+              "a",
+              "b"
+            ],
+            "founder": "a"
+          },
+          {
+            "members": [
+              "c"
+            ],
+            "founder": "c"
+          },
+          {
+            "members": [
+              "d"
+            ],
+            "founder": "d"
+          }
+        ],
+        "newConcepts": [
+          {
+            "members": [
+              "a",
+              "b"
+            ],
+            "founder": "a",
+            "id": "council:ab:a",
+            "label": "Binding council AB · founding voice A"
+          }
+        ],
+        "consequencesIfSealed": {
+          "success": true,
+          "requirements": [
+            {
+              "requirement": "Complete Harbor bridge",
+              "met": true
+            },
+            {
+              "requirement": "Keep A habitable in BOTH climates",
+              "met": true
+            }
+          ],
+          "works": [
+            {
+              "id": "bridge-ab",
+              "name": "Harbor bridge",
+              "ends": [
+                "a",
+                "b"
+              ],
+              "completed": true
+            },
+            {
+              "id": "observatory-ac",
+              "name": "Shared observatory",
+              "ends": [
+                "a",
+                "c"
+              ],
+              "completed": false
+            },
+            {
+              "id": "refuge-cd",
+              "name": "Common refuge",
+              "ends": [
+                "c",
+                "d"
+              ],
+              "completed": false
+            },
+            {
+              "id": "canal-bd",
+              "name": "Storm canal",
+              "ends": [
+                "b",
+                "d"
+              ],
+              "completed": false
+            }
+          ],
+          "episodes": [
+            {
+              "id": "first-climate",
+              "policies": {
+                "a": "open",
+                "b": "open",
+                "c": "open",
+                "d": "shelter"
+              },
+              "protected": [
+                "a",
+                "c",
+                "d"
+              ],
+              "harmed": [
+                "b"
+              ]
+            },
+            {
+              "id": "changed-climate",
+              "policies": {
+                "a": "shelter",
+                "b": "shelter",
+                "c": "open",
+                "d": "open"
+              },
+              "protected": [
+                "a",
+                "b",
+                "c",
+                "d"
+              ],
+              "harmed": []
+            }
+          ]
+        },
+        "message": "A, B now act as one will. Both ingredient concepts remain known, but binding is transitive and cannot be dissolved inside this encounter. A's original purpose settles ties."
+      }
+    }
+  ],
+  "checkpoints": [
+    {
+      "decisionIndex": 2,
+      "reason": "Assigned exposure complete; stopping is a valid result."
+    }
+  ],
+  "report": {
+    "evidenceType": "AI player account only; no inference about human fun or motivation",
+    "episodes": [
+      {
+        "id": "H1",
+        "intention": "Build Harbor bridge and preserve A in both climates with the smallest union.",
+        "actions": [
+          "preview a+b",
+          "combine a+b",
+          "combine constitution+world"
+        ],
+        "alternative": "Adding C also builds the observatory but harms C in the changed climate; I left C and D independent.",
+        "expectedResponse": "B is harmed in first climate; everyone is protected in changed climate; bridge is completed.",
+        "noticedResponse": "Exact match to forecast. The irreversible binding and surviving founding voice were stated explicitly, but sealing added no new reaction or information."
+      }
+    ],
+    "worldResponseNoticed": "The bridge existed while B was harmed during the first climate. Both A and B then adopted shelter in the changed climate, showing that the union could change policy by majority even though its tie rule retained an old purpose.",
+    "renewedIntention": null,
+    "closure": "Satisfying as a completed small logic problem. The minimum successful constitution was apparent directly from the initial rules, and one preview confirmed it.",
+    "repetition": {
+      "valued": "None observed beyond the same plan spanning binding and sealing.",
+      "unwanted": "Repeating this settled forecast with more combination commands would be overhead.",
+      "neutral": "The seal command marked acceptance of the consequences; the repeated full state contained no new decision."
+    },
+    "narrativeOrConceptThatMattered": "The enduring founding voice resolving ties against changing local needs was the only distinctive concept. Town letters and names of works gave no additional personal or narrative reason to prefer one harm or work.",
+    "challengeAccount": "There was a real optional tradeoff between extra works and extra harm, but the named goal had an immediate two-command solution. I did not experience pressure to compare the optional outcomes deeply.",
+    "wantAnother": false,
+    "why": "I have closure and no self-generated unresolved question. The preview and resolution exhausted the small puzzle; I would be manufacturing a reason to continue.",
+    "automaticResolutionOfSettledCombines": "After the political arrangement is chosen, automatic climate resolution loses nothing important here. Automatically selecting the initial union would lose the explicit acceptance of B being harmed and the choice to leave C and D independent; automatically executing an already settled plan would lose little beyond that commitment gesture."
+  }
+}

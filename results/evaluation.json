@@ -1,0 +1,541 @@
+{
+  "grader": "evidence-2",
+  "selectedRules": "rooted",
+  "access": "evaluator has implementation and replays; policy/planner access recorded per run",
+  "groups": [
+    {
+      "rules": "breathing",
+      "n": 144,
+      "planner": {
+        "wins": 36,
+        "n": 36,
+        "meanDiscoveries": 5.36,
+        "meanTrailingWaits": 0
+      },
+      "greedy": {
+        "wins": 36,
+        "n": 36
+      },
+      "inventionUse": "inspect practical consequences; discovery counts alone are not support",
+      "pressureDiscrimination": "concern: greedy and bounded planner both saturate; inspect optional goals and shallow strategies",
+      "representativeFailure": "results/runs/breathing-cloudburst-1-random.json"
+    },
+    {
+      "rules": "field",
+      "n": 148,
+      "planner": {
+        "wins": 36,
+        "n": 36,
+        "meanDiscoveries": 4.28,
+        "meanTrailingWaits": 0
+      },
+      "greedy": {
+        "wins": 36,
+        "n": 36
+      },
+      "inventionUse": "inspect practical consequences; discovery counts alone are not support",
+      "pressureDiscrimination": "concern: greedy and bounded planner both saturate; inspect optional goals and shallow strategies",
+      "representativeFailure": "results/runs/field-cloudburst-1-random.json"
+    },
+    {
+      "rules": "rooted",
+      "n": 290,
+      "planner": {
+        "wins": 72,
+        "n": 72,
+        "meanDiscoveries": 3.94,
+        "meanTrailingWaits": 0
+      },
+      "greedy": {
+        "wins": 72,
+        "n": 72
+      },
+      "inventionUse": "inspect practical consequences; discovery counts alone are not support",
+      "pressureDiscrimination": "concern: greedy and bounded planner both saturate; inspect optional goals and shallow strategies",
+      "representativeFailure": "results/runs/rooted-cloudburst-1-random.json"
+    },
+    {
+      "rules": "separate",
+      "n": 145,
+      "planner": {
+        "wins": 32,
+        "n": 36,
+        "meanDiscoveries": 0,
+        "meanTrailingWaits": 0
+      },
+      "greedy": {
+        "wins": 12,
+        "n": 36
+      },
+      "inventionUse": "concern: informed solutions bypass all invention",
+      "pressureDiscrimination": "inspect failure and recovery traces",
+      "representativeFailure": "results/runs/separate-cloudburst-1-goal.json"
+    }
+  ],
+  "blindCoverage": [
+    {
+      "path": "results/players/blind-field-a.json",
+      "id": "field-confluence-4-blind-field-a",
+      "condition": "fresh agent; annotated; instruction-based isolation; model inherited gpt-6.1-sol",
+      "order": "normal",
+      "scenario": "confluence",
+      "seed": 4,
+      "rules": "field",
+      "outcome": "won",
+      "turns": 9,
+      "health": [
+        6,
+        5
+      ],
+      "discoveries": 2,
+      "waits": 5,
+      "trailingWaits": 5,
+      "predictions": {
+        "predictionHits": 9,
+        "predictionMisses": 0,
+        "discoveryEffects": 0,
+        "randomWin": false,
+        "repeatedChangedContexts": 0
+      }
+    },
+    {
+      "path": "results/players/blind-field-b.json",
+      "id": "field-confluence-4-blind-field-b",
+      "condition": "fresh agent; action-only; instruction-based isolation; model inherited gpt-6.1-sol",
+      "order": "reverse",
+      "scenario": "confluence",
+      "seed": 4,
+      "rules": "field",
+      "outcome": "won",
+      "turns": 9,
+      "health": [
+        6,
+        5
+      ],
+      "discoveries": 3,
+      "waits": 5,
+      "trailingWaits": 5,
+      "predictions": {
+        "predictionHits": 0,
+        "predictionMisses": 0,
+        "discoveryEffects": 1,
+        "randomWin": false,
+        "repeatedChangedContexts": 0
+      }
+    },
+    {
+      "path": "results/players/blind-field-c.json",
+      "id": "field-confluence-4-blind-field-c",
+      "condition": "fresh agent; annotated; instruction-based isolation; model inherited gpt-6.1-sol",
+      "order": "reverse",
+      "scenario": "confluence",
+      "seed": 4,
+      "rules": "field",
+      "outcome": "won",
+      "turns": 9,
+      "health": [
+        6,
+        5
+      ],
+      "discoveries": 2,
+      "waits": 5,
+      "trailingWaits": 5,
+      "predictions": {
+        "predictionHits": 9,
+        "predictionMisses": 0,
+        "discoveryEffects": 0,
+        "randomWin": false,
+        "repeatedChangedContexts": 0
+      }
+    },
+    {
+      "path": "results/players/blind-field-d.json",
+      "id": "field-confluence-4-blind-field-d",
+      "condition": "fresh agent; action-only; instruction-based isolation; model inherited gpt-6.1-sol",
+      "order": "normal",
+      "scenario": "confluence",
+      "seed": 4,
+      "rules": "field",
+      "outcome": "won",
+      "turns": 9,
+      "health": [
+        6,
+        5
+      ],
+      "discoveries": 2,
+      "waits": 5,
+      "trailingWaits": 5,
+      "predictions": {
+        "predictionHits": 0,
+        "predictionMisses": 0,
+        "discoveryEffects": 1,
+        "randomWin": false,
+        "repeatedChangedContexts": 1
+      }
+    },
+    {
+      "path": "results/players/blind-separate-a.json",
+      "id": "separate-confluence-4-blind-separate-a",
+      "condition": "fresh agent; annotated; instruction-based isolation; model inherited gpt-6.1-sol",
+      "order": "normal",
+      "scenario": "confluence",
+      "seed": 4,
+      "rules": "separate",
+      "outcome": "won",
+      "turns": 9,
+      "health": [
+        3,
+        3
+      ],
+      "discoveries": 1,
+      "waits": 4,
+      "trailingWaits": 4,
+      "predictions": {
+        "predictionHits": 9,
+        "predictionMisses": 0,
+        "discoveryEffects": 0,
+        "randomWin": false,
+        "repeatedChangedContexts": 2
+      }
+    },
+    {
+      "path": "results/players/fresh-rooted-cloudburst.json",
+      "id": "rooted-cloudburst-7-fresh-rooted-cloudburst",
+      "condition": "fresh agent; annotated; instruction-based isolation; model inherited gpt-6.1-sol",
+      "order": "normal",
+      "scenario": "cloudburst",
+      "seed": 7,
+      "rules": "rooted",
+      "outcome": "won",
+      "turns": 9,
+      "health": [
+        6,
+        6
+      ],
+      "discoveries": 5,
+      "waits": 4,
+      "trailingWaits": 4,
+      "predictions": {
+        "predictionHits": 9,
+        "predictionMisses": 0,
+        "discoveryEffects": 3,
+        "randomWin": false,
+        "repeatedChangedContexts": 0
+      }
+    },
+    {
+      "path": "results/players/trained-rooted-cloudburst.json",
+      "id": "rooted-cloudburst-7-trained-rooted-cloudburst",
+      "condition": "experienced agent; prior game blind-field-a (field/confluence/seed4); annotated; instruction-based isolation; model inherited gpt-6.1-sol",
+      "order": "normal",
+      "scenario": "cloudburst",
+      "seed": 7,
+      "rules": "rooted",
+      "outcome": "won",
+      "turns": 9,
+      "health": [
+        6,
+        6
+      ],
+      "discoveries": 3,
+      "waits": 5,
+      "trailingWaits": 5,
+      "predictions": {
+        "predictionHits": 9,
+        "predictionMisses": 0,
+        "discoveryEffects": 1,
+        "randomWin": false,
+        "repeatedChangedContexts": 0
+      }
+    }
+  ],
+  "cards": [
+    {
+      "criterion": "readable-causality",
+      "status": "support",
+      "measurement": {
+        "checked": 45,
+        "misses": 0
+      },
+      "evidence": [
+        {
+          "runId": "field-confluence-4-blind-field-a",
+          "hits": 9,
+          "misses": 0
+        },
+        {
+          "runId": "field-confluence-4-blind-field-c",
+          "hits": 9,
+          "misses": 0
+        },
+        {
+          "runId": "separate-confluence-4-blind-separate-a",
+          "hits": 9,
+          "misses": 0
+        },
+        {
+          "runId": "rooted-cloudburst-7-fresh-rooted-cloudburst",
+          "hits": 9,
+          "misses": 0
+        },
+        {
+          "runId": "rooted-cloudburst-7-trained-rooted-cloudburst",
+          "hits": 9,
+          "misses": 0
+        }
+      ],
+      "limitation": "CLI rules literacy and damage predictions do not establish human UI clarity or learning."
+    },
+    {
+      "criterion": "viable-alternatives",
+      "status": "support",
+      "evidence": [
+        {
+          "name": "opening-route-or-roots",
+          "winningBranches": [
+            "opening-route-or-roots-grow-north",
+            "opening-route-or-roots-divert-north",
+            "opening-route-or-roots-reed-north"
+          ],
+          "distinctMeasuredConsequences": 3,
+          "hasDistinctViableAlternatives": true
+        },
+        {
+          "name": "temporary-or-growing",
+          "winningBranches": [
+            "temporary-or-growing-clay-relief",
+            "temporary-or-growing-grove-development",
+            "temporary-or-growing-basin-peak"
+          ],
+          "distinctMeasuredConsequences": 3,
+          "hasDistinctViableAlternatives": true
+        },
+        {
+          "name": "blind-player-turn-two",
+          "winningBranches": [
+            "blind-player-turn-two-middle-outlet",
+            "blind-player-turn-two-north-basin",
+            "blind-player-turn-two-wait-too-early"
+          ],
+          "distinctMeasuredConsequences": 3,
+          "hasDistinctViableAlternatives": true
+        }
+      ],
+      "limitation": "Compared actual immediate damage, final health and established capabilities on winning continuations. These differences alone do not demonstrate a worthwhile choice."
+    },
+    {
+      "criterion": "consequential-choice",
+      "status": "unknown",
+      "evidence": [
+        {
+          "name": "opening-route-or-roots",
+          "winningBranches": [
+            "opening-route-or-roots-grow-north",
+            "opening-route-or-roots-divert-north",
+            "opening-route-or-roots-reed-north"
+          ],
+          "distinctMeasuredConsequences": 3,
+          "hasDistinctViableAlternatives": true
+        },
+        {
+          "name": "temporary-or-growing",
+          "winningBranches": [
+            "temporary-or-growing-clay-relief",
+            "temporary-or-growing-grove-development",
+            "temporary-or-growing-basin-peak"
+          ],
+          "distinctMeasuredConsequences": 3,
+          "hasDistinctViableAlternatives": true
+        },
+        {
+          "name": "blind-player-turn-two",
+          "winningBranches": [
+            "blind-player-turn-two-middle-outlet",
+            "blind-player-turn-two-north-basin",
+            "blind-player-turn-two-wait-too-early"
+          ],
+          "distinctMeasuredConsequences": 3,
+          "hasDistinctViableAlternatives": true
+        }
+      ],
+      "limitation": "A reviewer must assess public plausibility, costs, dominance and salience. File existence and distinct states cannot establish worthwhile choices."
+    },
+    {
+      "criterion": "settled-waiting",
+      "status": "concern",
+      "evidence": [
+        {
+          "runId": "field-confluence-4-blind-field-a",
+          "fromTurn": 4,
+          "waits": 5
+        },
+        {
+          "runId": "field-confluence-4-blind-field-b",
+          "fromTurn": 4,
+          "waits": 5
+        },
+        {
+          "runId": "field-confluence-4-blind-field-c",
+          "fromTurn": 4,
+          "waits": 5
+        },
+        {
+          "runId": "field-confluence-4-blind-field-d",
+          "fromTurn": 4,
+          "waits": 5
+        },
+        {
+          "runId": "separate-confluence-4-blind-separate-a",
+          "fromTurn": 5,
+          "waits": 4
+        },
+        {
+          "runId": "rooted-cloudburst-7-fresh-rooted-cloudburst",
+          "fromTurn": 5,
+          "waits": 4
+        },
+        {
+          "runId": "rooted-cloudburst-7-trained-rooted-cloudburst",
+          "fromTurn": 4,
+          "waits": 5
+        }
+      ],
+      "nextChange": "Offer optional acceleration only after simulating all remaining pulses with zero damage; record each actual transition.",
+      "limitation": "This is repeated input after a settled plan, distinct from repair loops. Current traces predate optional acceleration."
+    },
+    {
+      "criterion": "activity-after-solved-survival",
+      "status": "concern",
+      "evidence": [
+        {
+          "runId": "breathing-cloudburst-1-goal",
+          "turn": 9,
+          "additionalActions": 2,
+          "unusedDiscoveries": []
+        },
+        {
+          "runId": "breathing-cloudburst-1-planner",
+          "turn": 5,
+          "additionalActions": 6,
+          "unusedDiscoveries": [
+            {
+              "id": "brick",
+              "turn": 9
+            },
+            {
+              "id": "reeds",
+              "turn": 10
+            }
+          ]
+        },
+        {
+          "runId": "breathing-cloudburst-10-goal",
+          "turn": 9,
+          "additionalActions": 2,
+          "unusedDiscoveries": []
+        },
+        {
+          "runId": "breathing-cloudburst-10-planner",
+          "turn": 5,
+          "additionalActions": 6,
+          "unusedDiscoveries": [
+            {
+              "id": "brick",
+              "turn": 9
+            },
+            {
+              "id": "reeds",
+              "turn": 10
+            }
+          ]
+        },
+        {
+          "runId": "breathing-cloudburst-11-goal",
+          "turn": 4,
+          "additionalActions": 7,
+          "unusedDiscoveries": [
+            {
+              "id": "channel",
+              "turn": 4
+            },
+            {
+              "id": "glass",
+              "turn": 7
+            },
+            {
+              "id": "clay",
+              "turn": 8
+            },
+            {
+              "id": "levee",
+              "turn": 9
+            }
+          ]
+        }
+      ],
+      "limitation": "Further invention may express play or optimize health, but cannot be counted as necessary survival decisions. The solver rewards novelty/stability, so its activity is confounded."
+    },
+    {
+      "criterion": "human-enjoyment",
+      "status": "unknown",
+      "participants": 0,
+      "nextTest": "Compare prewritten grader predictions with 4–6 formative human sessions."
+    }
+  ],
+  "graderFixtures": [
+    {
+      "name": "cosmetic diversity",
+      "expected": "concern",
+      "actual": "concern",
+      "pass": true
+    },
+    {
+      "name": "forced chain",
+      "expected": "concern",
+      "actual": "concern",
+      "pass": true
+    },
+    {
+      "name": "successful maintenance",
+      "expected": "concern",
+      "actual": "concern",
+      "pass": true
+    },
+    {
+      "name": "lucky random win",
+      "expected": "unknown",
+      "actual": "unknown",
+      "pass": true
+    },
+    {
+      "name": "eloquent wrong prediction",
+      "expected": "concern",
+      "actual": "concern",
+      "pass": true
+    },
+    {
+      "name": "unannotated useful invention",
+      "expected": "support",
+      "actual": "support",
+      "pass": true
+    },
+    {
+      "name": "same tool changed contexts",
+      "expected": "unknown",
+      "actual": "unknown",
+      "pass": true
+    },
+    {
+      "name": "many wins no humans",
+      "expected": "unknown",
+      "actual": "unknown",
+      "pass": true
+    }
+  ],
+  "recommendation": "Revise within this small slice. Preserve revealed recipes, permanent access, immediate invention, and exact flow feedback. Challenge dominant grove openings and the weak role of deeper recipes before adding encounters. Human enjoyment remains unknown.",
+  "nextExperiment": {
+    "hypothesis": "A single announced shift in flood timing or a route obstacle changes which established invention is worth using, without requiring recurring repairs.",
+    "falsifier": "The same grove-first script wins every arrangement with no revised decision, or new exceptions cause prediction errors.",
+    "requiredEvidence": "Two defensible openings, one failure with a plausible recovery, and an actual human account of a worthwhile decision."
+  }
+}

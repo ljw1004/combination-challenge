@@ -1,0 +1,634 @@
+{
+  "schema": 1,
+  "id": "separate-confluence-7-planner",
+  "build": "0.4.0",
+  "data": "watershed-1",
+  "scenario": "confluence",
+  "seed": 7,
+  "rules": "separate",
+  "player": "planner",
+  "condition": "privileged beam search, width 6 depth 3",
+  "offerOrder": "normal",
+  "observationVersion": "public-1",
+  "actionBudget": 9,
+  "decisions": [
+    {
+      "turn": 0,
+      "before": "55f68081",
+      "offers": [
+        "mix-clay",
+        "grow-reeds",
+        "grow-grove",
+        "cut-channel",
+        "dig-basin",
+        "fuse-glass",
+        "boil-steam"
+      ],
+      "action": {
+        "type": "deploy",
+        "concept": "stone",
+        "at": {
+          "row": 0,
+          "col": 0
+        }
+      },
+      "events": [
+        {
+          "kind": "placement",
+          "text": "Placed Stone.",
+          "at": {
+            "row": 0,
+            "col": 0
+          },
+          "concept": "stone"
+        },
+        {
+          "kind": "weather",
+          "text": "Rain arrives: north 1, middle 1, south 0."
+        },
+        {
+          "kind": "flow",
+          "text": "Stone absorbed 1.",
+          "at": {
+            "row": 0,
+            "col": 0
+          },
+          "amount": 1,
+          "concept": "stone"
+        },
+        {
+          "kind": "damage",
+          "text": "Mill took 1 flood damage.",
+          "amount": 1
+        }
+      ],
+      "after": "a4d04c81",
+      "damage": [
+        0,
+        1
+      ]
+    },
+    {
+      "turn": 1,
+      "before": "a4d04c81",
+      "offers": [
+        "mix-clay",
+        "grow-reeds",
+        "grow-grove",
+        "cut-channel",
+        "dig-basin",
+        "fuse-glass",
+        "boil-steam"
+      ],
+      "action": {
+        "type": "deploy",
+        "concept": "stone",
+        "at": {
+          "row": 0,
+          "col": 1
+        }
+      },
+      "events": [
+        {
+          "kind": "placement",
+          "text": "Placed Stone.",
+          "at": {
+            "row": 0,
+            "col": 1
+          },
+          "concept": "stone"
+        },
+        {
+          "kind": "weather",
+          "text": "Rain arrives: north 2, middle 1, south 0."
+        },
+        {
+          "kind": "flow",
+          "text": "Stone absorbed 1.",
+          "at": {
+            "row": 0,
+            "col": 0
+          },
+          "amount": 1,
+          "concept": "stone"
+        },
+        {
+          "kind": "flow",
+          "text": "Stone absorbed 1.",
+          "at": {
+            "row": 0,
+            "col": 1
+          },
+          "amount": 1,
+          "concept": "stone"
+        },
+        {
+          "kind": "damage",
+          "text": "Mill took 1 flood damage.",
+          "amount": 1
+        }
+      ],
+      "after": "eac61cd9",
+      "damage": [
+        0,
+        1
+      ]
+    },
+    {
+      "turn": 2,
+      "before": "eac61cd9",
+      "offers": [
+        "mix-clay",
+        "grow-reeds",
+        "grow-grove",
+        "cut-channel",
+        "dig-basin",
+        "fuse-glass",
+        "boil-steam"
+      ],
+      "action": {
+        "type": "deploy",
+        "concept": "stone",
+        "at": {
+          "row": 0,
+          "col": 2
+        }
+      },
+      "events": [
+        {
+          "kind": "placement",
+          "text": "Placed Stone.",
+          "at": {
+            "row": 0,
+            "col": 2
+          },
+          "concept": "stone"
+        },
+        {
+          "kind": "weather",
+          "text": "Rain arrives: north 3, middle 2, south 0."
+        },
+        {
+          "kind": "flow",
+          "text": "Stone absorbed 1.",
+          "at": {
+            "row": 0,
+            "col": 0
+          },
+          "amount": 1,
+          "concept": "stone"
+        },
+        {
+          "kind": "destroyed",
+          "text": "Stone washed away. The concept stays known.",
+          "at": {
+            "row": 0,
+            "col": 0
+          },
+          "concept": "stone"
+        },
+        {
+          "kind": "flow",
+          "text": "Stone absorbed 1.",
+          "at": {
+            "row": 0,
+            "col": 1
+          },
+          "amount": 1,
+          "concept": "stone"
+        },
+        {
+          "kind": "flow",
+          "text": "Stone absorbed 1.",
+          "at": {
+            "row": 0,
+            "col": 2
+          },
+          "amount": 1,
+          "concept": "stone"
+        },
+        {
+          "kind": "damage",
+          "text": "Mill took 2 flood damage.",
+          "amount": 2
+        }
+      ],
+      "after": "f9055760",
+      "damage": [
+        0,
+        2
+      ]
+    },
+    {
+      "turn": 3,
+      "before": "f9055760",
+      "offers": [
+        "mix-clay",
+        "grow-reeds",
+        "grow-grove",
+        "cut-channel",
+        "dig-basin",
+        "fuse-glass",
+        "boil-steam"
+      ],
+      "action": {
+        "type": "deploy",
+        "concept": "soil",
+        "at": {
+          "row": 1,
+          "col": 0
+        }
+      },
+      "events": [
+        {
+          "kind": "placement",
+          "text": "Placed Earth.",
+          "at": {
+            "row": 1,
+            "col": 0
+          },
+          "concept": "soil"
+        },
+        {
+          "kind": "weather",
+          "text": "Rain arrives: north 2, middle 3, south 0."
+        },
+        {
+          "kind": "flow",
+          "text": "Earth absorbed 2.",
+          "at": {
+            "row": 1,
+            "col": 0
+          },
+          "amount": 2,
+          "concept": "soil"
+        },
+        {
+          "kind": "destroyed",
+          "text": "Earth washed away. The concept stays known.",
+          "at": {
+            "row": 1,
+            "col": 0
+          },
+          "concept": "soil"
+        },
+        {
+          "kind": "flow",
+          "text": "Stone absorbed 1.",
+          "at": {
+            "row": 0,
+            "col": 1
+          },
+          "amount": 1,
+          "concept": "stone"
+        },
+        {
+          "kind": "destroyed",
+          "text": "Stone washed away. The concept stays known.",
+          "at": {
+            "row": 0,
+            "col": 1
+          },
+          "concept": "stone"
+        },
+        {
+          "kind": "flow",
+          "text": "Stone absorbed 1.",
+          "at": {
+            "row": 0,
+            "col": 2
+          },
+          "amount": 1,
+          "concept": "stone"
+        },
+        {
+          "kind": "damage",
+          "text": "Mill took 1 flood damage.",
+          "amount": 1
+        }
+      ],
+      "after": "37ddd664",
+      "damage": [
+        0,
+        1
+      ]
+    },
+    {
+      "turn": 4,
+      "before": "37ddd664",
+      "offers": [
+        "mix-clay",
+        "grow-reeds",
+        "grow-grove",
+        "cut-channel",
+        "dig-basin",
+        "fuse-glass",
+        "boil-steam"
+      ],
+      "action": {
+        "type": "deploy",
+        "concept": "soil",
+        "at": {
+          "row": 1,
+          "col": 0
+        }
+      },
+      "events": [
+        {
+          "kind": "placement",
+          "text": "Placed Earth.",
+          "at": {
+            "row": 1,
+            "col": 0
+          },
+          "concept": "soil"
+        },
+        {
+          "kind": "weather",
+          "text": "Rain arrives: north 3, middle 2, south 0."
+        },
+        {
+          "kind": "flow",
+          "text": "Earth absorbed 2.",
+          "at": {
+            "row": 1,
+            "col": 0
+          },
+          "amount": 2,
+          "concept": "soil"
+        },
+        {
+          "kind": "destroyed",
+          "text": "Earth washed away. The concept stays known.",
+          "at": {
+            "row": 1,
+            "col": 0
+          },
+          "concept": "soil"
+        },
+        {
+          "kind": "flow",
+          "text": "Stone absorbed 1.",
+          "at": {
+            "row": 0,
+            "col": 2
+          },
+          "amount": 1,
+          "concept": "stone"
+        },
+        {
+          "kind": "destroyed",
+          "text": "Stone washed away. The concept stays known.",
+          "at": {
+            "row": 0,
+            "col": 2
+          },
+          "concept": "stone"
+        },
+        {
+          "kind": "damage",
+          "text": "Village took 2 flood damage.",
+          "amount": 2
+        }
+      ],
+      "after": "eacd87f3",
+      "damage": [
+        2,
+        0
+      ]
+    },
+    {
+      "turn": 5,
+      "before": "eacd87f3",
+      "offers": [
+        "mix-clay",
+        "grow-reeds",
+        "grow-grove",
+        "cut-channel",
+        "dig-basin",
+        "fuse-glass",
+        "boil-steam"
+      ],
+      "action": {
+        "type": "deploy",
+        "concept": "soil",
+        "at": {
+          "row": 1,
+          "col": 0
+        }
+      },
+      "events": [
+        {
+          "kind": "placement",
+          "text": "Placed Earth.",
+          "at": {
+            "row": 1,
+            "col": 0
+          },
+          "concept": "soil"
+        },
+        {
+          "kind": "weather",
+          "text": "Rain arrives: north 2, middle 3, south 0."
+        },
+        {
+          "kind": "flow",
+          "text": "Earth absorbed 2.",
+          "at": {
+            "row": 1,
+            "col": 0
+          },
+          "amount": 2,
+          "concept": "soil"
+        },
+        {
+          "kind": "destroyed",
+          "text": "Earth washed away. The concept stays known.",
+          "at": {
+            "row": 1,
+            "col": 0
+          },
+          "concept": "soil"
+        },
+        {
+          "kind": "damage",
+          "text": "Village took 2 flood damage.",
+          "amount": 2
+        },
+        {
+          "kind": "damage",
+          "text": "Mill took 1 flood damage.",
+          "amount": 1
+        }
+      ],
+      "after": "d2e0fb45",
+      "damage": [
+        2,
+        1
+      ]
+    },
+    {
+      "turn": 6,
+      "before": "d2e0fb45",
+      "offers": [
+        "mix-clay",
+        "grow-reeds",
+        "grow-grove",
+        "cut-channel",
+        "dig-basin",
+        "fuse-glass",
+        "boil-steam"
+      ],
+      "action": {
+        "type": "deploy",
+        "concept": "stone",
+        "at": {
+          "row": 1,
+          "col": 0
+        }
+      },
+      "events": [
+        {
+          "kind": "placement",
+          "text": "Placed Stone.",
+          "at": {
+            "row": 1,
+            "col": 0
+          },
+          "concept": "stone"
+        },
+        {
+          "kind": "weather",
+          "text": "Rain arrives: north 2, middle 1, south 0."
+        },
+        {
+          "kind": "flow",
+          "text": "Stone absorbed 1.",
+          "at": {
+            "row": 1,
+            "col": 0
+          },
+          "amount": 1,
+          "concept": "stone"
+        },
+        {
+          "kind": "damage",
+          "text": "Village took 2 flood damage.",
+          "amount": 2
+        }
+      ],
+      "after": "6924b29e",
+      "damage": [
+        2,
+        0
+      ]
+    },
+    {
+      "turn": 7,
+      "before": "6924b29e",
+      "offers": [
+        "mix-clay",
+        "grow-reeds",
+        "grow-grove",
+        "cut-channel",
+        "dig-basin",
+        "fuse-glass",
+        "boil-steam"
+      ],
+      "action": {
+        "type": "deploy",
+        "concept": "soil",
+        "at": {
+          "row": 0,
+          "col": 0
+        }
+      },
+      "events": [
+        {
+          "kind": "placement",
+          "text": "Placed Earth.",
+          "at": {
+            "row": 0,
+            "col": 0
+          },
+          "concept": "soil"
+        },
+        {
+          "kind": "weather",
+          "text": "Rain arrives: north 1, middle 1, south 0."
+        },
+        {
+          "kind": "flow",
+          "text": "Earth absorbed 1.",
+          "at": {
+            "row": 0,
+            "col": 0
+          },
+          "amount": 1,
+          "concept": "soil"
+        },
+        {
+          "kind": "flow",
+          "text": "Stone absorbed 1.",
+          "at": {
+            "row": 1,
+            "col": 0
+          },
+          "amount": 1,
+          "concept": "stone"
+        }
+      ],
+      "after": "3a99a188",
+      "damage": [
+        0,
+        0
+      ]
+    },
+    {
+      "turn": 8,
+      "before": "3a99a188",
+      "offers": [
+        "mix-clay",
+        "grow-reeds",
+        "grow-grove",
+        "cut-channel",
+        "dig-basin",
+        "fuse-glass",
+        "boil-steam"
+      ],
+      "action": {
+        "type": "deploy",
+        "concept": "soil",
+        "at": {
+          "row": 0,
+          "col": 1
+        }
+      },
+      "events": [
+        {
+          "kind": "placement",
+          "text": "Placed Earth.",
+          "at": {
+            "row": 0,
+            "col": 1
+          },
+          "concept": "soil"
+        },
+        {
+          "kind": "weather",
+          "text": "Rain arrives: north 0, middle 0, south 0."
+        },
+        {
+          "kind": "outcome",
+          "text": "The rain passes. Both places are standing."
+        }
+      ],
+      "after": "c8a6b187",
+      "damage": [
+        0,
+        0
+      ]
+    }
+  ],
+  "outcome": "won"
+}

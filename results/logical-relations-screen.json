@@ -1,0 +1,1152 @@
+{
+  "version": "relations-1",
+  "hypothesis": "Transparent predicate composition can move difficulty from recipe search to inference about overlapping and independent cases.",
+  "rows": [
+    {
+      "scenario": "echo-left",
+      "independentInputConditions": 4,
+      "allGuardsCorrect": false,
+      "eitherEverySignalCorrect": false,
+      "allKnownAndCorrect": false,
+      "allKnownOrCorrect": false,
+      "blanketErrors": {
+        "all": {
+          "falseAccept": 0,
+          "falseReject": 10
+        },
+        "either": {
+          "falseAccept": 4,
+          "falseReject": 0
+        }
+      },
+      "reachableConditions": 166,
+      "minimumExpressionTreeOperations": 7,
+      "witnessActions": 7,
+      "witness": [
+        {
+          "type": "combine",
+          "op": "all",
+          "a": "A",
+          "b": "D"
+        },
+        {
+          "type": "combine",
+          "op": "all",
+          "a": "E",
+          "b": "F"
+        },
+        {
+          "type": "combine",
+          "op": "either",
+          "a": "condition:0001000100010001",
+          "b": "condition:0000000000001111"
+        },
+        {
+          "type": "combine",
+          "op": "either",
+          "a": "A",
+          "b": "D"
+        },
+        {
+          "type": "combine",
+          "op": "either",
+          "a": "E",
+          "b": "F"
+        },
+        {
+          "type": "combine",
+          "op": "all",
+          "a": "condition:0111011101110111",
+          "b": "condition:0000111111111111"
+        },
+        {
+          "type": "combine",
+          "op": "either",
+          "a": "condition:0001000100011111",
+          "b": "condition:0000011101110111"
+        }
+      ],
+      "replayWon": true,
+      "saturation": {
+        "firstWin": 158,
+        "totalNovelActions": 162,
+        "rounds": 5,
+        "alwaysWins": true
+      },
+      "substitutions": [
+        {
+          "from": "A",
+          "to": "B",
+          "sameJudgment": true
+        },
+        {
+          "from": "A",
+          "to": "C",
+          "sameJudgment": true
+        },
+        {
+          "from": "B",
+          "to": "C",
+          "sameJudgment": true
+        }
+      ],
+      "crossScenario": [
+        {
+          "scenario": "echo-left",
+          "works": true
+        },
+        {
+          "scenario": "echo-right",
+          "works": false
+        },
+        {
+          "scenario": "interleaved",
+          "works": true
+        },
+        {
+          "scenario": "stricter-judgment",
+          "works": false
+        }
+      ],
+      "adaptiveThresholdTemplate": {
+        "won": true,
+        "actions": 7,
+        "requiresContextInference": "Find four distinct source columns; infer the required threshold from the public judgments. Reuse the same symmetric threshold construction after that."
+      },
+      "alternatives": [
+        {
+          "pairing": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "actions": 7,
+          "won": true,
+          "program": [
+            {
+              "type": "combine",
+              "op": "either",
+              "a": "A",
+              "b": "D"
+            },
+            {
+              "type": "combine",
+              "op": "either",
+              "a": "E",
+              "b": "F"
+            },
+            {
+              "type": "combine",
+              "op": "all",
+              "a": "condition:0111011101110111",
+              "b": "condition:0000111111111111"
+            },
+            {
+              "type": "combine",
+              "op": "all",
+              "a": "A",
+              "b": "D"
+            },
+            {
+              "type": "combine",
+              "op": "either",
+              "a": "condition:0000011101110111",
+              "b": "condition:0001000100010001"
+            },
+            {
+              "type": "combine",
+              "op": "all",
+              "a": "E",
+              "b": "F"
+            },
+            {
+              "type": "combine",
+              "op": "either",
+              "a": "condition:0001011101110111",
+              "b": "condition:0000000000001111"
+            }
+          ]
+        },
+        {
+          "pairing": [
+            0,
+            2,
+            1,
+            3
+          ],
+          "actions": 7,
+          "won": true,
+          "program": [
+            {
+              "type": "combine",
+              "op": "either",
+              "a": "A",
+              "b": "E"
+            },
+            {
+              "type": "combine",
+              "op": "either",
+              "a": "D",
+              "b": "F"
+            },
+            {
+              "type": "combine",
+              "op": "all",
+              "a": "condition:0101111101011111",
+              "b": "condition:0011001111111111"
+            },
+            {
+              "type": "combine",
+              "op": "all",
+              "a": "A",
+              "b": "E"
+            },
+            {
+              "type": "combine",
+              "op": "either",
+              "a": "condition:0001001101011111",
+              "b": "condition:0000010100000101"
+            },
+            {
+              "type": "combine",
+              "op": "all",
+              "a": "D",
+              "b": "F"
+            },
+            {
+              "type": "combine",
+              "op": "either",
+              "a": "condition:0001011101011111",
+              "b": "condition:0000000000110011"
+            }
+          ]
+        },
+        {
+          "pairing": [
+            0,
+            3,
+            1,
+            2
+          ],
+          "actions": 7,
+          "won": true,
+          "program": [
+            {
+              "type": "combine",
+              "op": "either",
+              "a": "A",
+              "b": "F"
+            },
+            {
+              "type": "combine",
+              "op": "either",
+              "a": "D",
+              "b": "E"
+            },
+            {
+              "type": "combine",
+              "op": "all",
+              "a": "condition:0101010111111111",
+              "b": "condition:0011111100111111"
+            },
+            {
+              "type": "combine",
+              "op": "all",
+              "a": "A",
+              "b": "F"
+            },
+            {
+              "type": "combine",
+              "op": "either",
+              "a": "condition:0001010100111111",
+              "b": "condition:0000000001010101"
+            },
+            {
+              "type": "combine",
+              "op": "all",
+              "a": "D",
+              "b": "E"
+            },
+            {
+              "type": "combine",
+              "op": "either",
+              "a": "condition:0001010101111111",
+              "b": "condition:0000001100000011"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "scenario": "echo-right",
+      "independentInputConditions": 4,
+      "allGuardsCorrect": false,
+      "eitherEverySignalCorrect": false,
+      "allKnownAndCorrect": false,
+      "allKnownOrCorrect": false,
+      "blanketErrors": {
+        "all": {
+          "falseAccept": 0,
+          "falseReject": 10
+        },
+        "either": {
+          "falseAccept": 4,
+          "falseReject": 0
+        }
+      },
+      "reachableConditions": 166,
+      "minimumExpressionTreeOperations": 7,
+      "witnessActions": 7,
+      "witness": [
+        {
+          "type": "combine",
+          "op": "all",
+          "a": "A",
+          "b": "B"
+        },
+        {
+          "type": "combine",
+          "op": "all",
+          "a": "C",
+          "b": "D"
+        },
+        {
+          "type": "combine",
+          "op": "either",
+          "a": "condition:0001000100010001",
+          "b": "condition:0000000000001111"
+        },
+        {
+          "type": "combine",
+          "op": "either",
+          "a": "A",
+          "b": "B"
+        },
+        {
+          "type": "combine",
+          "op": "either",
+          "a": "C",
+          "b": "D"
+        },
+        {
+          "type": "combine",
+          "op": "all",
+          "a": "condition:0111011101110111",
+          "b": "condition:0000111111111111"
+        },
+        {
+          "type": "combine",
+          "op": "either",
+          "a": "condition:0001000100011111",
+          "b": "condition:0000011101110111"
+        }
+      ],
+      "replayWon": true,
+      "saturation": {
+        "firstWin": 158,
+        "totalNovelActions": 162,
+        "rounds": 5,
+        "alwaysWins": true
+      },
+      "substitutions": [
+        {
+          "from": "D",
+          "to": "E",
+          "sameJudgment": true
+        },
+        {
+          "from": "D",
+          "to": "F",
+          "sameJudgment": true
+        },
+        {
+          "from": "E",
+          "to": "F",
+          "sameJudgment": true
+        }
+      ],
+      "crossScenario": [
+        {
+          "scenario": "echo-left",
+          "works": false
+        },
+        {
+          "scenario": "echo-right",
+          "works": true
+        },
+        {
+          "scenario": "interleaved",
+          "works": false
+        },
+        {
+          "scenario": "stricter-judgment",
+          "works": false
+        }
+      ],
+      "adaptiveThresholdTemplate": {
+        "won": true,
+        "actions": 7,
+        "requiresContextInference": "Find four distinct source columns; infer the required threshold from the public judgments. Reuse the same symmetric threshold construction after that."
+      },
+      "alternatives": [
+        {
+          "pairing": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "actions": 7,
+          "won": true,
+          "program": [
+            {
+              "type": "combine",
+              "op": "either",
+              "a": "A",
+              "b": "B"
+            },
+            {
+              "type": "combine",
+              "op": "either",
+              "a": "C",
+              "b": "D"
+            },
+            {
+              "type": "combine",
+              "op": "all",
+              "a": "condition:0111011101110111",
+              "b": "condition:0000111111111111"
+            },
+            {
+              "type": "combine",
+              "op": "all",
+              "a": "A",
+              "b": "B"
+            },
+            {
+              "type": "combine",
+              "op": "either",
+              "a": "condition:0000011101110111",
+              "b": "condition:0001000100010001"
+            },
+            {
+              "type": "combine",
+              "op": "all",
+              "a": "C",
+              "b": "D"
+            },
+            {
+              "type": "combine",
+              "op": "either",
+              "a": "condition:0001011101110111",
+              "b": "condition:0000000000001111"
+            }
+          ]
+        },
+        {
+          "pairing": [
+            0,
+            2,
+            1,
+            3
+          ],
+          "actions": 7,
+          "won": true,
+          "program": [
+            {
+              "type": "combine",
+              "op": "either",
+              "a": "A",
+              "b": "C"
+            },
+            {
+              "type": "combine",
+              "op": "either",
+              "a": "B",
+              "b": "D"
+            },
+            {
+              "type": "combine",
+              "op": "all",
+              "a": "condition:0101111101011111",
+              "b": "condition:0011001111111111"
+            },
+            {
+              "type": "combine",
+              "op": "all",
+              "a": "A",
+              "b": "C"
+            },
+            {
+              "type": "combine",
+              "op": "either",
+              "a": "condition:0001001101011111",
+              "b": "condition:0000010100000101"
+            },
+            {
+              "type": "combine",
+              "op": "all",
+              "a": "B",
+              "b": "D"
+            },
+            {
+              "type": "combine",
+              "op": "either",
+              "a": "condition:0001011101011111",
+              "b": "condition:0000000000110011"
+            }
+          ]
+        },
+        {
+          "pairing": [
+            0,
+            3,
+            1,
+            2
+          ],
+          "actions": 7,
+          "won": true,
+          "program": [
+            {
+              "type": "combine",
+              "op": "either",
+              "a": "A",
+              "b": "D"
+            },
+            {
+              "type": "combine",
+              "op": "either",
+              "a": "B",
+              "b": "C"
+            },
+            {
+              "type": "combine",
+              "op": "all",
+              "a": "condition:0101010111111111",
+              "b": "condition:0011111100111111"
+            },
+            {
+              "type": "combine",
+              "op": "all",
+              "a": "A",
+              "b": "D"
+            },
+            {
+              "type": "combine",
+              "op": "either",
+              "a": "condition:0001010100111111",
+              "b": "condition:0000000001010101"
+            },
+            {
+              "type": "combine",
+              "op": "all",
+              "a": "B",
+              "b": "C"
+            },
+            {
+              "type": "combine",
+              "op": "either",
+              "a": "condition:0001010101111111",
+              "b": "condition:0000001100000011"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "scenario": "interleaved",
+      "independentInputConditions": 4,
+      "allGuardsCorrect": false,
+      "eitherEverySignalCorrect": false,
+      "allKnownAndCorrect": false,
+      "allKnownOrCorrect": false,
+      "blanketErrors": {
+        "all": {
+          "falseAccept": 0,
+          "falseReject": 10
+        },
+        "either": {
+          "falseAccept": 4,
+          "falseReject": 0
+        }
+      },
+      "reachableConditions": 166,
+      "minimumExpressionTreeOperations": 7,
+      "witnessActions": 7,
+      "witness": [
+        {
+          "type": "combine",
+          "op": "all",
+          "a": "A",
+          "b": "B"
+        },
+        {
+          "type": "combine",
+          "op": "all",
+          "a": "D",
+          "b": "F"
+        },
+        {
+          "type": "combine",
+          "op": "either",
+          "a": "condition:0001000100010001",
+          "b": "condition:0000000000001111"
+        },
+        {
+          "type": "combine",
+          "op": "either",
+          "a": "A",
+          "b": "B"
+        },
+        {
+          "type": "combine",
+          "op": "either",
+          "a": "D",
+          "b": "F"
+        },
+        {
+          "type": "combine",
+          "op": "all",
+          "a": "condition:0111011101110111",
+          "b": "condition:0000111111111111"
+        },
+        {
+          "type": "combine",
+          "op": "either",
+          "a": "condition:0001000100011111",
+          "b": "condition:0000011101110111"
+        }
+      ],
+      "replayWon": true,
+      "saturation": {
+        "firstWin": 158,
+        "totalNovelActions": 162,
+        "rounds": 5,
+        "alwaysWins": true
+      },
+      "substitutions": [
+        {
+          "from": "A",
+          "to": "C",
+          "sameJudgment": true
+        },
+        {
+          "from": "B",
+          "to": "E",
+          "sameJudgment": true
+        }
+      ],
+      "crossScenario": [
+        {
+          "scenario": "echo-left",
+          "works": false
+        },
+        {
+          "scenario": "echo-right",
+          "works": false
+        },
+        {
+          "scenario": "interleaved",
+          "works": true
+        },
+        {
+          "scenario": "stricter-judgment",
+          "works": false
+        }
+      ],
+      "adaptiveThresholdTemplate": {
+        "won": true,
+        "actions": 7,
+        "requiresContextInference": "Find four distinct source columns; infer the required threshold from the public judgments. Reuse the same symmetric threshold construction after that."
+      },
+      "alternatives": [
+        {
+          "pairing": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "actions": 7,
+          "won": true,
+          "program": [
+            {
+              "type": "combine",
+              "op": "either",
+              "a": "A",
+              "b": "B"
+            },
+            {
+              "type": "combine",
+              "op": "either",
+              "a": "D",
+              "b": "F"
+            },
+            {
+              "type": "combine",
+              "op": "all",
+              "a": "condition:0111011101110111",
+              "b": "condition:0000111111111111"
+            },
+            {
+              "type": "combine",
+              "op": "all",
+              "a": "A",
+              "b": "B"
+            },
+            {
+              "type": "combine",
+              "op": "either",
+              "a": "condition:0000011101110111",
+              "b": "condition:0001000100010001"
+            },
+            {
+              "type": "combine",
+              "op": "all",
+              "a": "D",
+              "b": "F"
+            },
+            {
+              "type": "combine",
+              "op": "either",
+              "a": "condition:0001011101110111",
+              "b": "condition:0000000000001111"
+            }
+          ]
+        },
+        {
+          "pairing": [
+            0,
+            2,
+            1,
+            3
+          ],
+          "actions": 7,
+          "won": true,
+          "program": [
+            {
+              "type": "combine",
+              "op": "either",
+              "a": "A",
+              "b": "D"
+            },
+            {
+              "type": "combine",
+              "op": "either",
+              "a": "B",
+              "b": "F"
+            },
+            {
+              "type": "combine",
+              "op": "all",
+              "a": "condition:0101111101011111",
+              "b": "condition:0011001111111111"
+            },
+            {
+              "type": "combine",
+              "op": "all",
+              "a": "A",
+              "b": "D"
+            },
+            {
+              "type": "combine",
+              "op": "either",
+              "a": "condition:0001001101011111",
+              "b": "condition:0000010100000101"
+            },
+            {
+              "type": "combine",
+              "op": "all",
+              "a": "B",
+              "b": "F"
+            },
+            {
+              "type": "combine",
+              "op": "either",
+              "a": "condition:0001011101011111",
+              "b": "condition:0000000000110011"
+            }
+          ]
+        },
+        {
+          "pairing": [
+            0,
+            3,
+            1,
+            2
+          ],
+          "actions": 7,
+          "won": true,
+          "program": [
+            {
+              "type": "combine",
+              "op": "either",
+              "a": "A",
+              "b": "F"
+            },
+            {
+              "type": "combine",
+              "op": "either",
+              "a": "B",
+              "b": "D"
+            },
+            {
+              "type": "combine",
+              "op": "all",
+              "a": "condition:0101010111111111",
+              "b": "condition:0011111100111111"
+            },
+            {
+              "type": "combine",
+              "op": "all",
+              "a": "A",
+              "b": "F"
+            },
+            {
+              "type": "combine",
+              "op": "either",
+              "a": "condition:0001010100111111",
+              "b": "condition:0000000001010101"
+            },
+            {
+              "type": "combine",
+              "op": "all",
+              "a": "B",
+              "b": "D"
+            },
+            {
+              "type": "combine",
+              "op": "either",
+              "a": "condition:0001010101111111",
+              "b": "condition:0000001100000011"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "scenario": "stricter-judgment",
+      "independentInputConditions": 4,
+      "allGuardsCorrect": false,
+      "eitherEverySignalCorrect": false,
+      "allKnownAndCorrect": false,
+      "allKnownOrCorrect": false,
+      "blanketErrors": {
+        "all": {
+          "falseAccept": 0,
+          "falseReject": 4
+        },
+        "either": {
+          "falseAccept": 10,
+          "falseReject": 0
+        }
+      },
+      "reachableConditions": 166,
+      "minimumExpressionTreeOperations": 7,
+      "witnessActions": 7,
+      "witness": [
+        {
+          "type": "combine",
+          "op": "all",
+          "a": "A",
+          "b": "B"
+        },
+        {
+          "type": "combine",
+          "op": "all",
+          "a": "D",
+          "b": "F"
+        },
+        {
+          "type": "combine",
+          "op": "either",
+          "a": "condition:0001000100010001",
+          "b": "condition:0000000000001111"
+        },
+        {
+          "type": "combine",
+          "op": "either",
+          "a": "A",
+          "b": "B"
+        },
+        {
+          "type": "combine",
+          "op": "either",
+          "a": "D",
+          "b": "F"
+        },
+        {
+          "type": "combine",
+          "op": "all",
+          "a": "condition:0111011101110111",
+          "b": "condition:0000111111111111"
+        },
+        {
+          "type": "combine",
+          "op": "all",
+          "a": "condition:0001000100011111",
+          "b": "condition:0000011101110111"
+        }
+      ],
+      "replayWon": true,
+      "saturation": {
+        "firstWin": 157,
+        "totalNovelActions": 162,
+        "rounds": 5,
+        "alwaysWins": true
+      },
+      "substitutions": [
+        {
+          "from": "A",
+          "to": "C",
+          "sameJudgment": true
+        },
+        {
+          "from": "B",
+          "to": "E",
+          "sameJudgment": true
+        }
+      ],
+      "crossScenario": [
+        {
+          "scenario": "echo-left",
+          "works": false
+        },
+        {
+          "scenario": "echo-right",
+          "works": false
+        },
+        {
+          "scenario": "interleaved",
+          "works": false
+        },
+        {
+          "scenario": "stricter-judgment",
+          "works": true
+        }
+      ],
+      "adaptiveThresholdTemplate": {
+        "won": true,
+        "actions": 7,
+        "requiresContextInference": "Find four distinct source columns; infer the required threshold from the public judgments. Reuse the same symmetric threshold construction after that."
+      },
+      "alternatives": [
+        {
+          "pairing": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "actions": 7,
+          "won": true,
+          "program": [
+            {
+              "type": "combine",
+              "op": "all",
+              "a": "A",
+              "b": "B"
+            },
+            {
+              "type": "combine",
+              "op": "all",
+              "a": "D",
+              "b": "F"
+            },
+            {
+              "type": "combine",
+              "op": "either",
+              "a": "condition:0001000100010001",
+              "b": "condition:0000000000001111"
+            },
+            {
+              "type": "combine",
+              "op": "either",
+              "a": "A",
+              "b": "B"
+            },
+            {
+              "type": "combine",
+              "op": "all",
+              "a": "condition:0001000100011111",
+              "b": "condition:0111011101110111"
+            },
+            {
+              "type": "combine",
+              "op": "either",
+              "a": "D",
+              "b": "F"
+            },
+            {
+              "type": "combine",
+              "op": "all",
+              "a": "condition:0001000100010111",
+              "b": "condition:0000111111111111"
+            }
+          ]
+        },
+        {
+          "pairing": [
+            0,
+            2,
+            1,
+            3
+          ],
+          "actions": 7,
+          "won": true,
+          "program": [
+            {
+              "type": "combine",
+              "op": "all",
+              "a": "A",
+              "b": "D"
+            },
+            {
+              "type": "combine",
+              "op": "all",
+              "a": "B",
+              "b": "F"
+            },
+            {
+              "type": "combine",
+              "op": "either",
+              "a": "condition:0000010100000101",
+              "b": "condition:0000000000110011"
+            },
+            {
+              "type": "combine",
+              "op": "either",
+              "a": "A",
+              "b": "D"
+            },
+            {
+              "type": "combine",
+              "op": "all",
+              "a": "condition:0000010100110111",
+              "b": "condition:0101111101011111"
+            },
+            {
+              "type": "combine",
+              "op": "either",
+              "a": "B",
+              "b": "F"
+            },
+            {
+              "type": "combine",
+              "op": "all",
+              "a": "condition:0000010100010111",
+              "b": "condition:0011001111111111"
+            }
+          ]
+        },
+        {
+          "pairing": [
+            0,
+            3,
+            1,
+            2
+          ],
+          "actions": 7,
+          "won": true,
+          "program": [
+            {
+              "type": "combine",
+              "op": "all",
+              "a": "A",
+              "b": "F"
+            },
+            {
+              "type": "combine",
+              "op": "all",
+              "a": "B",
+              "b": "D"
+            },
+            {
+              "type": "combine",
+              "op": "either",
+              "a": "condition:0000000001010101",
+              "b": "condition:0000001100000011"
+            },
+            {
+              "type": "combine",
+              "op": "either",
+              "a": "A",
+              "b": "F"
+            },
+            {
+              "type": "combine",
+              "op": "all",
+              "a": "condition:0000001101010111",
+              "b": "condition:0101010111111111"
+            },
+            {
+              "type": "combine",
+              "op": "either",
+              "a": "B",
+              "b": "D"
+            },
+            {
+              "type": "combine",
+              "op": "all",
+              "a": "condition:0000000101010111",
+              "b": "condition:0011111100111111"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "contextBlindImpossibilityWitness": {
+    "signals": [
+      true,
+      true,
+      true,
+      false,
+      false,
+      false
+    ],
+    "a": {
+      "scenario": "echo-left",
+      "case": "case-2",
+      "required": "reject"
+    },
+    "b": {
+      "scenario": "echo-right",
+      "case": "case-8",
+      "required": "accept"
+    }
+  },
+  "stagedCounterfactual": {
+    "from": "interleaved",
+    "to": "stricter-judgment",
+    "note": "Same signals and cases, changed required judgments. This is an analysis of possible progression, not an implemented automatic campaign.",
+    "firstStageActions": 7,
+    "secondGoalAlreadyPresentAfterIntentionalFirstStage": false,
+    "additionalIntentionalActions": 2,
+    "continuation": [
+      {
+        "type": "combine",
+        "op": "either",
+        "a": "condition:0001000100010001",
+        "b": "condition:0000000000001111"
+      },
+      {
+        "type": "combine",
+        "op": "all",
+        "a": "condition:0000011101110111",
+        "b": "condition:0001000100011111"
+      }
+    ],
+    "replayWon": true,
+    "secondGoalAlreadyPresentAfterFullSaturation": true
+  },
+  "assessment": {
+    "allSafeguardsShortcutRejected": true,
+    "saturationStillUniversal": true,
+    "saturationInterpretation": "Generic exhaustive solvability, not a short winning routine: first win takes157–158 novel actions versus7 intentional actions in this enumeration order.",
+    "commonAdaptiveRoutine": true,
+    "commonAdaptiveRoutineInterpretation": "After identifying the independent columns and required threshold, a symmetric seven-combination construction works in every context. That may be learned abstraction or repetitive ceremony; first-play observation must distinguish them.",
+    "promotion": "Unproven logical construction probe. Survives blanket AND/OR and fixed-expression shortcuts. Requires a fresh player assessment before any fun or progression claim."
+  }
+}

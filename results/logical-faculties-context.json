@@ -1,0 +1,2432 @@
+{
+  "actions": [
+    {
+      "type": "combine",
+      "a": "seed",
+      "b": "water",
+      "at": "B1"
+    },
+    {
+      "type": "combine",
+      "a": "heat",
+      "b": "earth",
+      "at": "C1"
+    },
+    {
+      "type": "combine",
+      "a": "air",
+      "b": "voice",
+      "at": "C1"
+    },
+    {
+      "type": "combine",
+      "a": "stone",
+      "b": "air",
+      "at": "C1"
+    },
+    {
+      "type": "combine",
+      "a": "t3",
+      "b": "memory",
+      "at": "A3"
+    },
+    {
+      "type": "combine",
+      "a": "t4",
+      "b": "memory",
+      "at": "A3"
+    },
+    {
+      "type": "combine",
+      "a": "earth",
+      "b": "water",
+      "at": "E1",
+      "toward": "south"
+    },
+    {
+      "type": "combine",
+      "a": "f1",
+      "b": "f2",
+      "at": "E2"
+    },
+    {
+      "type": "combine",
+      "a": "f3",
+      "b": "maker",
+      "at": "A3"
+    },
+    {
+      "type": "wait"
+    },
+    {
+      "type": "wait"
+    },
+    {
+      "type": "wait"
+    },
+    {
+      "type": "wait"
+    },
+    {
+      "type": "wait"
+    },
+    {
+      "type": "wait"
+    },
+    {
+      "type": "combine",
+      "a": "earth",
+      "b": "water",
+      "at": "E1",
+      "toward": "closed"
+    },
+    {
+      "type": "wait"
+    },
+    {
+      "type": "wait"
+    },
+    {
+      "type": "wait"
+    },
+    {
+      "type": "wait"
+    },
+    {
+      "type": "combine",
+      "a": "earth",
+      "b": "water",
+      "at": "E1",
+      "toward": "south"
+    },
+    {
+      "type": "wait"
+    }
+  ],
+  "wet": [
+    {
+      "time": 9,
+      "maker": {
+        "at": "A3",
+        "faculty": "f3",
+        "binding": {
+          "dx": -2,
+          "dy": 2
+        },
+        "stack": [
+          {
+            "faculty": "f3",
+            "phase": 1,
+            "mode": "closed"
+          }
+        ],
+        "paused": false,
+        "response": "air+voice at A3, from t3"
+      },
+      "events": [
+        {
+          "kind": "install",
+          "at": "A3",
+          "after": "f3"
+        },
+        {
+          "kind": "bind",
+          "actor": "maker",
+          "after": {
+            "dx": -2,
+            "dy": 2,
+            "targets": [
+              {
+                "trace": "t3",
+                "at": "A3",
+                "guard": null
+              },
+              {
+                "trace": "t4",
+                "at": "A3",
+                "guard": "Needs a broadcast to hood."
+              }
+            ],
+            "distance": 0
+          }
+        },
+        {
+          "kind": "physical-combine",
+          "at": "A3",
+          "actor": "maker",
+          "trace": "t6",
+          "before": {
+            "id": "A3",
+            "x": 0,
+            "y": 2,
+            "terrain": "stone",
+            "route": "east",
+            "fired": false,
+            "rooted": false,
+            "memory": 2,
+            "beacon": false,
+            "lastBranch": null
+          },
+          "after": {
+            "id": "A3",
+            "x": 0,
+            "y": 2,
+            "terrain": "stone",
+            "route": "east",
+            "fired": false,
+            "rooted": false,
+            "memory": 2,
+            "beacon": true,
+            "lastBranch": null
+          }
+        },
+        {
+          "kind": "walker-move",
+          "at": "A2",
+          "actor": "blue",
+          "before": "A1",
+          "after": "A2"
+        }
+      ],
+      "A3beacon": true
+    },
+    {
+      "time": 10,
+      "maker": {
+        "at": "A3",
+        "faculty": "f3",
+        "binding": {
+          "dx": -2,
+          "dy": 2
+        },
+        "stack": [
+          {
+            "faculty": "f3",
+            "phase": 2,
+            "mode": "closed"
+          }
+        ],
+        "paused": false,
+        "response": "stone+air at A3, from t4"
+      },
+      "events": [
+        {
+          "kind": "physical-combine",
+          "at": "A3",
+          "actor": "maker",
+          "trace": "t7",
+          "before": {
+            "id": "A3",
+            "x": 0,
+            "y": 2,
+            "terrain": "stone",
+            "route": "east",
+            "fired": false,
+            "rooted": false,
+            "memory": 2,
+            "beacon": true,
+            "lastBranch": null
+          },
+          "after": {
+            "id": "A3",
+            "x": 0,
+            "y": 2,
+            "terrain": "stone",
+            "route": "east",
+            "fired": false,
+            "rooted": false,
+            "memory": 2,
+            "beacon": false,
+            "lastBranch": null
+          }
+        }
+      ],
+      "A3beacon": false
+    },
+    {
+      "time": 11,
+      "maker": {
+        "at": "A3",
+        "faculty": "f3",
+        "binding": {
+          "dx": -2,
+          "dy": 2
+        },
+        "stack": [
+          {
+            "faculty": "f3",
+            "phase": 1,
+            "mode": "closed"
+          }
+        ],
+        "paused": false,
+        "response": "air+voice at A3, from t3"
+      },
+      "events": [
+        {
+          "kind": "physical-combine",
+          "at": "A3",
+          "actor": "maker",
+          "trace": "t6",
+          "before": {
+            "id": "A3",
+            "x": 0,
+            "y": 2,
+            "terrain": "stone",
+            "route": "east",
+            "fired": false,
+            "rooted": false,
+            "memory": 2,
+            "beacon": false,
+            "lastBranch": null
+          },
+          "after": {
+            "id": "A3",
+            "x": 0,
+            "y": 2,
+            "terrain": "stone",
+            "route": "east",
+            "fired": false,
+            "rooted": false,
+            "memory": 2,
+            "beacon": true,
+            "lastBranch": null
+          }
+        },
+        {
+          "kind": "walker-move",
+          "at": "A3",
+          "actor": "blue",
+          "before": "A2",
+          "after": "A3"
+        }
+      ],
+      "A3beacon": true
+    },
+    {
+      "time": 12,
+      "maker": {
+        "at": "A3",
+        "faculty": "f3",
+        "binding": {
+          "dx": -2,
+          "dy": 2
+        },
+        "stack": [
+          {
+            "faculty": "f3",
+            "phase": 2,
+            "mode": "closed"
+          }
+        ],
+        "paused": false,
+        "response": "stone+air at A3, from t4"
+      },
+      "events": [
+        {
+          "kind": "physical-combine",
+          "at": "A3",
+          "actor": "maker",
+          "trace": "t7",
+          "before": {
+            "id": "A3",
+            "x": 0,
+            "y": 2,
+            "terrain": "stone",
+            "route": "east",
+            "fired": false,
+            "rooted": false,
+            "memory": 2,
+            "beacon": true,
+            "lastBranch": null
+          },
+          "after": {
+            "id": "A3",
+            "x": 0,
+            "y": 2,
+            "terrain": "stone",
+            "route": "east",
+            "fired": false,
+            "rooted": false,
+            "memory": 2,
+            "beacon": false,
+            "lastBranch": null
+          }
+        }
+      ],
+      "A3beacon": false
+    },
+    {
+      "time": 13,
+      "maker": {
+        "at": "A3",
+        "faculty": "f3",
+        "binding": {
+          "dx": -2,
+          "dy": 2
+        },
+        "stack": [
+          {
+            "faculty": "f3",
+            "phase": 1,
+            "mode": "closed"
+          }
+        ],
+        "paused": false,
+        "response": "air+voice at A3, from t3"
+      },
+      "events": [
+        {
+          "kind": "physical-combine",
+          "at": "A3",
+          "actor": "maker",
+          "trace": "t6",
+          "before": {
+            "id": "A3",
+            "x": 0,
+            "y": 2,
+            "terrain": "stone",
+            "route": "east",
+            "fired": false,
+            "rooted": false,
+            "memory": 2,
+            "beacon": false,
+            "lastBranch": null
+          },
+          "after": {
+            "id": "A3",
+            "x": 0,
+            "y": 2,
+            "terrain": "stone",
+            "route": "east",
+            "fired": false,
+            "rooted": false,
+            "memory": 2,
+            "beacon": true,
+            "lastBranch": null
+          }
+        },
+        {
+          "kind": "walker-learn",
+          "at": "A3",
+          "actor": "blue",
+          "after": "A+B"
+        }
+      ],
+      "A3beacon": true
+    },
+    {
+      "time": 14,
+      "maker": {
+        "at": "A3",
+        "faculty": "f3",
+        "binding": {
+          "dx": -2,
+          "dy": 2
+        },
+        "stack": [
+          {
+            "faculty": "f3",
+            "phase": 2,
+            "mode": "closed"
+          }
+        ],
+        "paused": false,
+        "response": "stone+air at A3, from t4"
+      },
+      "events": [
+        {
+          "kind": "physical-combine",
+          "at": "A3",
+          "actor": "maker",
+          "trace": "t7",
+          "before": {
+            "id": "A3",
+            "x": 0,
+            "y": 2,
+            "terrain": "stone",
+            "route": "east",
+            "fired": false,
+            "rooted": false,
+            "memory": 2,
+            "beacon": true,
+            "lastBranch": null
+          },
+          "after": {
+            "id": "A3",
+            "x": 0,
+            "y": 2,
+            "terrain": "stone",
+            "route": "east",
+            "fired": false,
+            "rooted": false,
+            "memory": 2,
+            "beacon": false,
+            "lastBranch": null
+          }
+        },
+        {
+          "kind": "walker-move",
+          "at": "A2",
+          "actor": "blue",
+          "before": "A3",
+          "after": "A2"
+        }
+      ],
+      "A3beacon": false
+    }
+  ],
+  "dry": [
+    {
+      "time": 16,
+      "maker": {
+        "at": "A3",
+        "faculty": "f3",
+        "binding": {
+          "dx": -2,
+          "dy": 2
+        },
+        "stack": [
+          {
+            "faculty": "f3",
+            "phase": 2,
+            "mode": "closed"
+          }
+        ],
+        "paused": false,
+        "response": "stone+air at A3, from t4"
+      },
+      "events": [
+        {
+          "kind": "physical-combine",
+          "at": "E1",
+          "actor": "player",
+          "trace": "t8",
+          "before": {
+            "id": "E1",
+            "x": 4,
+            "y": 0,
+            "terrain": "stone",
+            "route": "south",
+            "fired": false,
+            "rooted": false,
+            "memory": 1,
+            "beacon": false,
+            "lastBranch": null
+          },
+          "after": {
+            "id": "E1",
+            "x": 4,
+            "y": 0,
+            "terrain": "stone",
+            "route": "closed",
+            "fired": false,
+            "rooted": false,
+            "memory": 1,
+            "beacon": false,
+            "lastBranch": null
+          }
+        },
+        {
+          "kind": "physical-combine",
+          "at": "A3",
+          "actor": "maker",
+          "trace": "t7",
+          "before": {
+            "id": "A3",
+            "x": 0,
+            "y": 2,
+            "terrain": "stone",
+            "route": "east",
+            "fired": false,
+            "rooted": false,
+            "memory": 2,
+            "beacon": true,
+            "lastBranch": null
+          },
+          "after": {
+            "id": "A3",
+            "x": 0,
+            "y": 2,
+            "terrain": "stone",
+            "route": "east",
+            "fired": false,
+            "rooted": false,
+            "memory": 2,
+            "beacon": false,
+            "lastBranch": null
+          }
+        },
+        {
+          "kind": "walker-return",
+          "at": "A1",
+          "actor": "blue",
+          "after": "A+B"
+        }
+      ],
+      "A3beacon": false
+    },
+    {
+      "time": 17,
+      "maker": {
+        "at": "A3",
+        "faculty": "f3",
+        "binding": null,
+        "stack": [],
+        "paused": false,
+        "response": "procedure complete; next beat considers a new footprint"
+      },
+      "events": [],
+      "A3beacon": false
+    },
+    {
+      "time": 18,
+      "maker": {
+        "at": "A3",
+        "faculty": "f3",
+        "binding": {
+          "dx": -2,
+          "dy": 2
+        },
+        "stack": [
+          {
+            "faculty": "f3",
+            "phase": 0,
+            "mode": "closed"
+          }
+        ],
+        "paused": false,
+        "response": "feedback waits: basin E2 is dry"
+      },
+      "events": [
+        {
+          "kind": "bind",
+          "actor": "maker",
+          "after": {
+            "dx": -2,
+            "dy": 2,
+            "targets": [
+              {
+                "trace": "t3",
+                "at": "A3",
+                "guard": null
+              },
+              {
+                "trace": "t4",
+                "at": "A3",
+                "guard": "Needs a broadcast to hood."
+              }
+            ],
+            "distance": 0
+          }
+        }
+      ],
+      "A3beacon": false
+    },
+    {
+      "time": 19,
+      "maker": {
+        "at": "A3",
+        "faculty": "f3",
+        "binding": {
+          "dx": -2,
+          "dy": 2
+        },
+        "stack": [
+          {
+            "faculty": "f3",
+            "phase": 0,
+            "mode": "closed"
+          }
+        ],
+        "paused": false,
+        "response": "feedback waits: basin E2 is dry"
+      },
+      "events": [],
+      "A3beacon": false
+    }
+  ],
+  "driedState": {
+    "version": "faculties-1",
+    "scenarioId": "workshop",
+    "cells": [
+      {
+        "id": "A1",
+        "x": 0,
+        "y": 0,
+        "terrain": "stone",
+        "route": "east",
+        "fired": false,
+        "rooted": false,
+        "memory": 3,
+        "beacon": false,
+        "lastBranch": null
+      },
+      {
+        "id": "B1",
+        "x": 1,
+        "y": 0,
+        "terrain": "soil",
+        "route": "east",
+        "fired": false,
+        "rooted": true,
+        "memory": 0,
+        "beacon": false,
+        "lastBranch": null
+      },
+      {
+        "id": "C1",
+        "x": 2,
+        "y": 0,
+        "terrain": "clay",
+        "route": "east",
+        "fired": true,
+        "rooted": false,
+        "memory": 0,
+        "beacon": false,
+        "lastBranch": null
+      },
+      {
+        "id": "D1",
+        "x": 3,
+        "y": 0,
+        "terrain": "soil",
+        "route": "east",
+        "fired": false,
+        "rooted": true,
+        "memory": 0,
+        "beacon": false,
+        "lastBranch": null
+      },
+      {
+        "id": "E1",
+        "x": 4,
+        "y": 0,
+        "terrain": "stone",
+        "route": "closed",
+        "fired": false,
+        "rooted": false,
+        "memory": 1,
+        "beacon": false,
+        "lastBranch": null
+      },
+      {
+        "id": "A2",
+        "x": 0,
+        "y": 1,
+        "terrain": "stone",
+        "route": "east",
+        "fired": false,
+        "rooted": false,
+        "memory": 0,
+        "beacon": false,
+        "lastBranch": null
+      },
+      {
+        "id": "B2",
+        "x": 1,
+        "y": 1,
+        "terrain": "soil",
+        "route": "split",
+        "fired": false,
+        "rooted": false,
+        "memory": 0,
+        "beacon": false,
+        "lastBranch": null
+      },
+      {
+        "id": "C2",
+        "x": 2,
+        "y": 1,
+        "terrain": "soil",
+        "route": "east",
+        "fired": false,
+        "rooted": false,
+        "memory": 0,
+        "beacon": false,
+        "lastBranch": null
+      },
+      {
+        "id": "D2",
+        "x": 3,
+        "y": 1,
+        "terrain": "soil",
+        "route": "east",
+        "fired": false,
+        "rooted": false,
+        "memory": 0,
+        "beacon": false,
+        "lastBranch": null
+      },
+      {
+        "id": "E2",
+        "x": 4,
+        "y": 1,
+        "terrain": "stone",
+        "route": "closed",
+        "fired": false,
+        "rooted": false,
+        "memory": 0,
+        "beacon": false,
+        "lastBranch": null
+      },
+      {
+        "id": "A3",
+        "x": 0,
+        "y": 2,
+        "terrain": "stone",
+        "route": "east",
+        "fired": false,
+        "rooted": false,
+        "memory": 2,
+        "beacon": false,
+        "lastBranch": null
+      },
+      {
+        "id": "B3",
+        "x": 1,
+        "y": 2,
+        "terrain": "soil",
+        "route": "east",
+        "fired": false,
+        "rooted": false,
+        "memory": 0,
+        "beacon": false,
+        "lastBranch": null
+      },
+      {
+        "id": "C3",
+        "x": 2,
+        "y": 2,
+        "terrain": "clay",
+        "route": "east",
+        "fired": false,
+        "rooted": false,
+        "memory": 0,
+        "beacon": false,
+        "lastBranch": null
+      },
+      {
+        "id": "D3",
+        "x": 3,
+        "y": 2,
+        "terrain": "soil",
+        "route": "east",
+        "fired": false,
+        "rooted": false,
+        "memory": 0,
+        "beacon": false,
+        "lastBranch": null
+      },
+      {
+        "id": "E3",
+        "x": 4,
+        "y": 2,
+        "terrain": "stone",
+        "route": "closed",
+        "fired": false,
+        "rooted": false,
+        "memory": 2,
+        "beacon": false,
+        "lastBranch": null
+      }
+    ],
+    "field": {
+      "A1": {
+        "water": 2,
+        "exact": 3,
+        "fragment": 0,
+        "seeds": false,
+        "publicExact": 0,
+        "publicFragment": 0,
+        "flooded": false
+      },
+      "B1": {
+        "water": 1,
+        "exact": 0,
+        "fragment": 3,
+        "seeds": true,
+        "publicExact": 0,
+        "publicFragment": 0,
+        "flooded": false
+      },
+      "C1": {
+        "water": 1,
+        "exact": 0,
+        "fragment": 3,
+        "seeds": true,
+        "publicExact": 0,
+        "publicFragment": 0,
+        "flooded": false
+      },
+      "D1": {
+        "water": 1,
+        "exact": 0,
+        "fragment": 3,
+        "seeds": true,
+        "publicExact": 0,
+        "publicFragment": 0,
+        "flooded": false
+      },
+      "E1": {
+        "water": 1,
+        "exact": 0,
+        "fragment": 3,
+        "seeds": true,
+        "publicExact": 0,
+        "publicFragment": 0,
+        "flooded": false
+      },
+      "A2": {
+        "water": 0,
+        "exact": 0,
+        "fragment": 0,
+        "seeds": false,
+        "publicExact": 0,
+        "publicFragment": 0,
+        "flooded": false
+      },
+      "B2": {
+        "water": 0,
+        "exact": 0,
+        "fragment": 0,
+        "seeds": false,
+        "publicExact": 0,
+        "publicFragment": 0,
+        "flooded": false
+      },
+      "C2": {
+        "water": 0,
+        "exact": 0,
+        "fragment": 0,
+        "seeds": false,
+        "publicExact": 0,
+        "publicFragment": 0,
+        "flooded": false
+      },
+      "D2": {
+        "water": 0,
+        "exact": 0,
+        "fragment": 0,
+        "seeds": false,
+        "publicExact": 0,
+        "publicFragment": 0,
+        "flooded": false
+      },
+      "E2": {
+        "water": 0,
+        "exact": 0,
+        "fragment": 0,
+        "seeds": false,
+        "publicExact": 0,
+        "publicFragment": 0,
+        "flooded": false
+      },
+      "A3": {
+        "water": 2,
+        "exact": 2,
+        "fragment": 0,
+        "seeds": false,
+        "publicExact": 0,
+        "publicFragment": 0,
+        "flooded": false
+      },
+      "B3": {
+        "water": 2,
+        "exact": 2,
+        "fragment": 0,
+        "seeds": false,
+        "publicExact": 0,
+        "publicFragment": 0,
+        "flooded": true
+      },
+      "C3": {
+        "water": 2,
+        "exact": 2,
+        "fragment": 0,
+        "seeds": false,
+        "publicExact": 0,
+        "publicFragment": 0,
+        "flooded": true
+      },
+      "D3": {
+        "water": 2,
+        "exact": 2,
+        "fragment": 0,
+        "seeds": false,
+        "publicExact": 0,
+        "publicFragment": 0,
+        "flooded": true
+      },
+      "E3": {
+        "water": 2,
+        "exact": 2,
+        "fragment": 0,
+        "seeds": false,
+        "publicExact": 0,
+        "publicFragment": 0,
+        "flooded": false
+      }
+    },
+    "walkers": [
+      {
+        "id": "blue",
+        "at": "A1",
+        "home": "A1",
+        "carried": 3,
+        "mode": "nest",
+        "returned": true
+      },
+      {
+        "id": "amber",
+        "at": "E3",
+        "home": "E3",
+        "carried": 2,
+        "mode": "seek",
+        "returned": false
+      }
+    ],
+    "maker": {
+      "at": "A3",
+      "faculty": "f3",
+      "binding": {
+        "dx": -2,
+        "dy": 2
+      },
+      "stack": [
+        {
+          "faculty": "f3",
+          "phase": 0,
+          "mode": "closed"
+        }
+      ],
+      "paused": false,
+      "response": "feedback waits: basin E2 is dry"
+    },
+    "traces": [
+      {
+        "id": "t1",
+        "recipe": {
+          "a": "seed",
+          "b": "water",
+          "at": "B1"
+        },
+        "before": {
+          "id": "B1",
+          "x": 1,
+          "y": 0,
+          "terrain": "soil",
+          "route": "east",
+          "fired": false,
+          "rooted": false,
+          "memory": 0,
+          "beacon": false,
+          "lastBranch": null
+        },
+        "after": {
+          "id": "B1",
+          "x": 1,
+          "y": 0,
+          "terrain": "soil",
+          "route": "east",
+          "fired": false,
+          "rooted": true,
+          "memory": 0,
+          "beacon": false,
+          "lastBranch": null
+        },
+        "fieldBefore": {
+          "water": 2,
+          "exact": 1,
+          "fragment": 0,
+          "seeds": false,
+          "publicExact": 0,
+          "publicFragment": 0,
+          "flooded": true
+        },
+        "time": 0,
+        "actor": "player",
+        "parents": []
+      },
+      {
+        "id": "t2",
+        "recipe": {
+          "a": "heat",
+          "b": "earth",
+          "at": "C1"
+        },
+        "before": {
+          "id": "C1",
+          "x": 2,
+          "y": 0,
+          "terrain": "clay",
+          "route": "east",
+          "fired": false,
+          "rooted": false,
+          "memory": 0,
+          "beacon": false,
+          "lastBranch": null
+        },
+        "after": {
+          "id": "C1",
+          "x": 2,
+          "y": 0,
+          "terrain": "clay",
+          "route": "east",
+          "fired": true,
+          "rooted": false,
+          "memory": 0,
+          "beacon": false,
+          "lastBranch": null
+        },
+        "fieldBefore": {
+          "water": 1,
+          "exact": 0,
+          "fragment": 1,
+          "seeds": true,
+          "publicExact": 0,
+          "publicFragment": 0,
+          "flooded": false
+        },
+        "time": 1,
+        "actor": "player",
+        "parents": []
+      },
+      {
+        "id": "t3",
+        "recipe": {
+          "a": "air",
+          "b": "voice",
+          "at": "C1"
+        },
+        "before": {
+          "id": "C1",
+          "x": 2,
+          "y": 0,
+          "terrain": "clay",
+          "route": "east",
+          "fired": true,
+          "rooted": false,
+          "memory": 0,
+          "beacon": false,
+          "lastBranch": null
+        },
+        "after": {
+          "id": "C1",
+          "x": 2,
+          "y": 0,
+          "terrain": "clay",
+          "route": "east",
+          "fired": true,
+          "rooted": false,
+          "memory": 0,
+          "beacon": true,
+          "lastBranch": null
+        },
+        "fieldBefore": {
+          "water": 1,
+          "exact": 0,
+          "fragment": 1,
+          "seeds": true,
+          "publicExact": 0,
+          "publicFragment": 0,
+          "flooded": false
+        },
+        "time": 2,
+        "actor": "player",
+        "parents": []
+      },
+      {
+        "id": "t4",
+        "recipe": {
+          "a": "stone",
+          "b": "air",
+          "at": "C1"
+        },
+        "before": {
+          "id": "C1",
+          "x": 2,
+          "y": 0,
+          "terrain": "clay",
+          "route": "east",
+          "fired": true,
+          "rooted": false,
+          "memory": 0,
+          "beacon": true,
+          "lastBranch": null
+        },
+        "after": {
+          "id": "C1",
+          "x": 2,
+          "y": 0,
+          "terrain": "clay",
+          "route": "east",
+          "fired": true,
+          "rooted": false,
+          "memory": 0,
+          "beacon": false,
+          "lastBranch": null
+        },
+        "fieldBefore": {
+          "water": 1,
+          "exact": 0,
+          "fragment": 1,
+          "seeds": true,
+          "publicExact": 0,
+          "publicFragment": 1,
+          "flooded": false
+        },
+        "time": 3,
+        "actor": "player",
+        "parents": []
+      },
+      {
+        "id": "t5",
+        "recipe": {
+          "a": "earth",
+          "b": "water",
+          "at": "E1",
+          "toward": "south"
+        },
+        "before": {
+          "id": "E1",
+          "x": 4,
+          "y": 0,
+          "terrain": "stone",
+          "route": "closed",
+          "fired": false,
+          "rooted": false,
+          "memory": 1,
+          "beacon": false,
+          "lastBranch": null
+        },
+        "after": {
+          "id": "E1",
+          "x": 4,
+          "y": 0,
+          "terrain": "stone",
+          "route": "south",
+          "fired": false,
+          "rooted": false,
+          "memory": 1,
+          "beacon": false,
+          "lastBranch": null
+        },
+        "fieldBefore": {
+          "water": 1,
+          "exact": 0,
+          "fragment": 1,
+          "seeds": true,
+          "publicExact": 0,
+          "publicFragment": 0,
+          "flooded": false
+        },
+        "time": 6,
+        "actor": "player",
+        "parents": []
+      },
+      {
+        "id": "t6",
+        "recipe": {
+          "a": "air",
+          "b": "voice",
+          "at": "A3"
+        },
+        "before": {
+          "id": "A3",
+          "x": 0,
+          "y": 2,
+          "terrain": "stone",
+          "route": "east",
+          "fired": false,
+          "rooted": false,
+          "memory": 2,
+          "beacon": false,
+          "lastBranch": null
+        },
+        "after": {
+          "id": "A3",
+          "x": 0,
+          "y": 2,
+          "terrain": "stone",
+          "route": "east",
+          "fired": false,
+          "rooted": false,
+          "memory": 2,
+          "beacon": true,
+          "lastBranch": null
+        },
+        "fieldBefore": {
+          "water": 2,
+          "exact": 2,
+          "fragment": 0,
+          "seeds": false,
+          "publicExact": 0,
+          "publicFragment": 0,
+          "flooded": false
+        },
+        "time": 8,
+        "actor": "maker",
+        "parents": [
+          "t3"
+        ],
+        "taughtBy": "t3"
+      },
+      {
+        "id": "t7",
+        "recipe": {
+          "a": "stone",
+          "b": "air",
+          "at": "A3"
+        },
+        "before": {
+          "id": "A3",
+          "x": 0,
+          "y": 2,
+          "terrain": "stone",
+          "route": "east",
+          "fired": false,
+          "rooted": false,
+          "memory": 2,
+          "beacon": true,
+          "lastBranch": null
+        },
+        "after": {
+          "id": "A3",
+          "x": 0,
+          "y": 2,
+          "terrain": "stone",
+          "route": "east",
+          "fired": false,
+          "rooted": false,
+          "memory": 2,
+          "beacon": false,
+          "lastBranch": null
+        },
+        "fieldBefore": {
+          "water": 2,
+          "exact": 2,
+          "fragment": 0,
+          "seeds": false,
+          "publicExact": 2,
+          "publicFragment": 0,
+          "flooded": false
+        },
+        "time": 9,
+        "actor": "maker",
+        "parents": [
+          "t4"
+        ],
+        "taughtBy": "t4"
+      },
+      {
+        "id": "t8",
+        "recipe": {
+          "a": "earth",
+          "b": "water",
+          "at": "E1",
+          "toward": "closed"
+        },
+        "before": {
+          "id": "E1",
+          "x": 4,
+          "y": 0,
+          "terrain": "stone",
+          "route": "south",
+          "fired": false,
+          "rooted": false,
+          "memory": 1,
+          "beacon": false,
+          "lastBranch": null
+        },
+        "after": {
+          "id": "E1",
+          "x": 4,
+          "y": 0,
+          "terrain": "stone",
+          "route": "closed",
+          "fired": false,
+          "rooted": false,
+          "memory": 1,
+          "beacon": false,
+          "lastBranch": null
+        },
+        "fieldBefore": {
+          "water": 1,
+          "exact": 0,
+          "fragment": 1,
+          "seeds": true,
+          "publicExact": 0,
+          "publicFragment": 0,
+          "flooded": false
+        },
+        "time": 15,
+        "actor": "player",
+        "parents": []
+      }
+    ],
+    "faculties": [
+      {
+        "id": "f1",
+        "type": "atom",
+        "trace": "t3",
+        "provenance": [
+          "t3"
+        ]
+      },
+      {
+        "id": "f2",
+        "type": "atom",
+        "trace": "t4",
+        "provenance": [
+          "t4"
+        ]
+      },
+      {
+        "id": "f3",
+        "type": "pair",
+        "a": "f1",
+        "b": "f2",
+        "site": "E2",
+        "provenance": [
+          "t3",
+          "t4"
+        ]
+      }
+    ],
+    "time": 20,
+    "status": "playing",
+    "events": [],
+    "actions": [
+      {
+        "type": "combine",
+        "a": "seed",
+        "b": "water",
+        "at": "B1"
+      },
+      {
+        "type": "combine",
+        "a": "heat",
+        "b": "earth",
+        "at": "C1"
+      },
+      {
+        "type": "combine",
+        "a": "air",
+        "b": "voice",
+        "at": "C1"
+      },
+      {
+        "type": "combine",
+        "a": "stone",
+        "b": "air",
+        "at": "C1"
+      },
+      {
+        "type": "combine",
+        "a": "t3",
+        "b": "memory",
+        "at": "A3"
+      },
+      {
+        "type": "combine",
+        "a": "t4",
+        "b": "memory",
+        "at": "A3"
+      },
+      {
+        "type": "combine",
+        "a": "earth",
+        "b": "water",
+        "at": "E1",
+        "toward": "south"
+      },
+      {
+        "type": "combine",
+        "a": "f1",
+        "b": "f2",
+        "at": "E2"
+      },
+      {
+        "type": "combine",
+        "a": "f3",
+        "b": "maker",
+        "at": "A3"
+      },
+      {
+        "type": "wait"
+      },
+      {
+        "type": "wait"
+      },
+      {
+        "type": "wait"
+      },
+      {
+        "type": "wait"
+      },
+      {
+        "type": "wait"
+      },
+      {
+        "type": "wait"
+      },
+      {
+        "type": "combine",
+        "a": "earth",
+        "b": "water",
+        "at": "E1",
+        "toward": "closed"
+      },
+      {
+        "type": "wait"
+      },
+      {
+        "type": "wait"
+      },
+      {
+        "type": "wait"
+      },
+      {
+        "type": "wait"
+      }
+    ]
+  },
+  "rewetState": {
+    "version": "faculties-1",
+    "scenarioId": "workshop",
+    "cells": [
+      {
+        "id": "A1",
+        "x": 0,
+        "y": 0,
+        "terrain": "stone",
+        "route": "east",
+        "fired": false,
+        "rooted": false,
+        "memory": 3,
+        "beacon": false,
+        "lastBranch": null
+      },
+      {
+        "id": "B1",
+        "x": 1,
+        "y": 0,
+        "terrain": "soil",
+        "route": "east",
+        "fired": false,
+        "rooted": true,
+        "memory": 0,
+        "beacon": false,
+        "lastBranch": null
+      },
+      {
+        "id": "C1",
+        "x": 2,
+        "y": 0,
+        "terrain": "clay",
+        "route": "east",
+        "fired": true,
+        "rooted": false,
+        "memory": 0,
+        "beacon": false,
+        "lastBranch": null
+      },
+      {
+        "id": "D1",
+        "x": 3,
+        "y": 0,
+        "terrain": "soil",
+        "route": "east",
+        "fired": false,
+        "rooted": true,
+        "memory": 0,
+        "beacon": false,
+        "lastBranch": null
+      },
+      {
+        "id": "E1",
+        "x": 4,
+        "y": 0,
+        "terrain": "stone",
+        "route": "south",
+        "fired": false,
+        "rooted": false,
+        "memory": 1,
+        "beacon": false,
+        "lastBranch": null
+      },
+      {
+        "id": "A2",
+        "x": 0,
+        "y": 1,
+        "terrain": "stone",
+        "route": "east",
+        "fired": false,
+        "rooted": false,
+        "memory": 0,
+        "beacon": false,
+        "lastBranch": null
+      },
+      {
+        "id": "B2",
+        "x": 1,
+        "y": 1,
+        "terrain": "soil",
+        "route": "split",
+        "fired": false,
+        "rooted": false,
+        "memory": 0,
+        "beacon": false,
+        "lastBranch": null
+      },
+      {
+        "id": "C2",
+        "x": 2,
+        "y": 1,
+        "terrain": "soil",
+        "route": "east",
+        "fired": false,
+        "rooted": false,
+        "memory": 0,
+        "beacon": false,
+        "lastBranch": null
+      },
+      {
+        "id": "D2",
+        "x": 3,
+        "y": 1,
+        "terrain": "soil",
+        "route": "east",
+        "fired": false,
+        "rooted": false,
+        "memory": 0,
+        "beacon": false,
+        "lastBranch": null
+      },
+      {
+        "id": "E2",
+        "x": 4,
+        "y": 1,
+        "terrain": "stone",
+        "route": "closed",
+        "fired": false,
+        "rooted": false,
+        "memory": 0,
+        "beacon": false,
+        "lastBranch": null
+      },
+      {
+        "id": "A3",
+        "x": 0,
+        "y": 2,
+        "terrain": "stone",
+        "route": "east",
+        "fired": false,
+        "rooted": false,
+        "memory": 2,
+        "beacon": false,
+        "lastBranch": null
+      },
+      {
+        "id": "B3",
+        "x": 1,
+        "y": 2,
+        "terrain": "soil",
+        "route": "east",
+        "fired": false,
+        "rooted": false,
+        "memory": 0,
+        "beacon": false,
+        "lastBranch": null
+      },
+      {
+        "id": "C3",
+        "x": 2,
+        "y": 2,
+        "terrain": "clay",
+        "route": "east",
+        "fired": false,
+        "rooted": false,
+        "memory": 0,
+        "beacon": false,
+        "lastBranch": null
+      },
+      {
+        "id": "D3",
+        "x": 3,
+        "y": 2,
+        "terrain": "soil",
+        "route": "east",
+        "fired": false,
+        "rooted": false,
+        "memory": 0,
+        "beacon": false,
+        "lastBranch": null
+      },
+      {
+        "id": "E3",
+        "x": 4,
+        "y": 2,
+        "terrain": "stone",
+        "route": "closed",
+        "fired": false,
+        "rooted": false,
+        "memory": 2,
+        "beacon": false,
+        "lastBranch": null
+      }
+    ],
+    "field": {
+      "A1": {
+        "water": 2,
+        "exact": 3,
+        "fragment": 0,
+        "seeds": false,
+        "publicExact": 0,
+        "publicFragment": 0,
+        "flooded": false
+      },
+      "B1": {
+        "water": 1,
+        "exact": 0,
+        "fragment": 3,
+        "seeds": true,
+        "publicExact": 0,
+        "publicFragment": 0,
+        "flooded": false
+      },
+      "C1": {
+        "water": 1,
+        "exact": 0,
+        "fragment": 3,
+        "seeds": true,
+        "publicExact": 0,
+        "publicFragment": 0,
+        "flooded": false
+      },
+      "D1": {
+        "water": 1,
+        "exact": 0,
+        "fragment": 3,
+        "seeds": true,
+        "publicExact": 0,
+        "publicFragment": 0,
+        "flooded": false
+      },
+      "E1": {
+        "water": 1,
+        "exact": 0,
+        "fragment": 3,
+        "seeds": true,
+        "publicExact": 0,
+        "publicFragment": 0,
+        "flooded": false
+      },
+      "A2": {
+        "water": 0,
+        "exact": 0,
+        "fragment": 0,
+        "seeds": false,
+        "publicExact": 0,
+        "publicFragment": 0,
+        "flooded": false
+      },
+      "B2": {
+        "water": 0,
+        "exact": 0,
+        "fragment": 0,
+        "seeds": false,
+        "publicExact": 0,
+        "publicFragment": 0,
+        "flooded": false
+      },
+      "C2": {
+        "water": 0,
+        "exact": 0,
+        "fragment": 0,
+        "seeds": false,
+        "publicExact": 0,
+        "publicFragment": 0,
+        "flooded": false
+      },
+      "D2": {
+        "water": 0,
+        "exact": 0,
+        "fragment": 0,
+        "seeds": false,
+        "publicExact": 0,
+        "publicFragment": 0,
+        "flooded": false
+      },
+      "E2": {
+        "water": 1,
+        "exact": 0,
+        "fragment": 3,
+        "seeds": true,
+        "publicExact": 0,
+        "publicFragment": 0,
+        "flooded": false
+      },
+      "A3": {
+        "water": 2,
+        "exact": 2,
+        "fragment": 0,
+        "seeds": false,
+        "publicExact": 0,
+        "publicFragment": 0,
+        "flooded": false
+      },
+      "B3": {
+        "water": 2,
+        "exact": 2,
+        "fragment": 0,
+        "seeds": false,
+        "publicExact": 0,
+        "publicFragment": 0,
+        "flooded": true
+      },
+      "C3": {
+        "water": 2,
+        "exact": 2,
+        "fragment": 0,
+        "seeds": false,
+        "publicExact": 0,
+        "publicFragment": 0,
+        "flooded": true
+      },
+      "D3": {
+        "water": 2,
+        "exact": 2,
+        "fragment": 0,
+        "seeds": false,
+        "publicExact": 0,
+        "publicFragment": 0,
+        "flooded": true
+      },
+      "E3": {
+        "water": 2,
+        "exact": 2,
+        "fragment": 0,
+        "seeds": false,
+        "publicExact": 0,
+        "publicFragment": 0,
+        "flooded": false
+      }
+    },
+    "walkers": [
+      {
+        "id": "blue",
+        "at": "A1",
+        "home": "A1",
+        "carried": 3,
+        "mode": "nest",
+        "returned": true
+      },
+      {
+        "id": "amber",
+        "at": "E3",
+        "home": "E3",
+        "carried": 2,
+        "mode": "seek",
+        "returned": false
+      }
+    ],
+    "maker": {
+      "at": "A3",
+      "faculty": "f3",
+      "binding": {
+        "dx": -2,
+        "dy": 2
+      },
+      "stack": [
+        {
+          "faculty": "f3",
+          "phase": 2,
+          "mode": "closed"
+        }
+      ],
+      "paused": false,
+      "response": "stone+air at A3, from t4"
+    },
+    "traces": [
+      {
+        "id": "t1",
+        "recipe": {
+          "a": "seed",
+          "b": "water",
+          "at": "B1"
+        },
+        "before": {
+          "id": "B1",
+          "x": 1,
+          "y": 0,
+          "terrain": "soil",
+          "route": "east",
+          "fired": false,
+          "rooted": false,
+          "memory": 0,
+          "beacon": false,
+          "lastBranch": null
+        },
+        "after": {
+          "id": "B1",
+          "x": 1,
+          "y": 0,
+          "terrain": "soil",
+          "route": "east",
+          "fired": false,
+          "rooted": true,
+          "memory": 0,
+          "beacon": false,
+          "lastBranch": null
+        },
+        "fieldBefore": {
+          "water": 2,
+          "exact": 1,
+          "fragment": 0,
+          "seeds": false,
+          "publicExact": 0,
+          "publicFragment": 0,
+          "flooded": true
+        },
+        "time": 0,
+        "actor": "player",
+        "parents": []
+      },
+      {
+        "id": "t2",
+        "recipe": {
+          "a": "heat",
+          "b": "earth",
+          "at": "C1"
+        },
+        "before": {
+          "id": "C1",
+          "x": 2,
+          "y": 0,
+          "terrain": "clay",
+          "route": "east",
+          "fired": false,
+          "rooted": false,
+          "memory": 0,
+          "beacon": false,
+          "lastBranch": null
+        },
+        "after": {
+          "id": "C1",
+          "x": 2,
+          "y": 0,
+          "terrain": "clay",
+          "route": "east",
+          "fired": true,
+          "rooted": false,
+          "memory": 0,
+          "beacon": false,
+          "lastBranch": null
+        },
+        "fieldBefore": {
+          "water": 1,
+          "exact": 0,
+          "fragment": 1,
+          "seeds": true,
+          "publicExact": 0,
+          "publicFragment": 0,
+          "flooded": false
+        },
+        "time": 1,
+        "actor": "player",
+        "parents": []
+      },
+      {
+        "id": "t3",
+        "recipe": {
+          "a": "air",
+          "b": "voice",
+          "at": "C1"
+        },
+        "before": {
+          "id": "C1",
+          "x": 2,
+          "y": 0,
+          "terrain": "clay",
+          "route": "east",
+          "fired": true,
+          "rooted": false,
+          "memory": 0,
+          "beacon": false,
+          "lastBranch": null
+        },
+        "after": {
+          "id": "C1",
+          "x": 2,
+          "y": 0,
+          "terrain": "clay",
+          "route": "east",
+          "fired": true,
+          "rooted": false,
+          "memory": 0,
+          "beacon": true,
+          "lastBranch": null
+        },
+        "fieldBefore": {
+          "water": 1,
+          "exact": 0,
+          "fragment": 1,
+          "seeds": true,
+          "publicExact": 0,
+          "publicFragment": 0,
+          "flooded": false
+        },
+        "time": 2,
+        "actor": "player",
+        "parents": []
+      },
+      {
+        "id": "t4",
+        "recipe": {
+          "a": "stone",
+          "b": "air",
+          "at": "C1"
+        },
+        "before": {
+          "id": "C1",
+          "x": 2,
+          "y": 0,
+          "terrain": "clay",
+          "route": "east",
+          "fired": true,
+          "rooted": false,
+          "memory": 0,
+          "beacon": true,
+          "lastBranch": null
+        },
+        "after": {
+          "id": "C1",
+          "x": 2,
+          "y": 0,
+          "terrain": "clay",
+          "route": "east",
+          "fired": true,
+          "rooted": false,
+          "memory": 0,
+          "beacon": false,
+          "lastBranch": null
+        },
+        "fieldBefore": {
+          "water": 1,
+          "exact": 0,
+          "fragment": 1,
+          "seeds": true,
+          "publicExact": 0,
+          "publicFragment": 1,
+          "flooded": false
+        },
+        "time": 3,
+        "actor": "player",
+        "parents": []
+      },
+      {
+        "id": "t5",
+        "recipe": {
+          "a": "earth",
+          "b": "water",
+          "at": "E1",
+          "toward": "south"
+        },
+        "before": {
+          "id": "E1",
+          "x": 4,
+          "y": 0,
+          "terrain": "stone",
+          "route": "closed",
+          "fired": false,
+          "rooted": false,
+          "memory": 1,
+          "beacon": false,
+          "lastBranch": null
+        },
+        "after": {
+          "id": "E1",
+          "x": 4,
+          "y": 0,
+          "terrain": "stone",
+          "route": "south",
+          "fired": false,
+          "rooted": false,
+          "memory": 1,
+          "beacon": false,
+          "lastBranch": null
+        },
+        "fieldBefore": {
+          "water": 1,
+          "exact": 0,
+          "fragment": 1,
+          "seeds": true,
+          "publicExact": 0,
+          "publicFragment": 0,
+          "flooded": false
+        },
+        "time": 6,
+        "actor": "player",
+        "parents": []
+      },
+      {
+        "id": "t6",
+        "recipe": {
+          "a": "air",
+          "b": "voice",
+          "at": "A3"
+        },
+        "before": {
+          "id": "A3",
+          "x": 0,
+          "y": 2,
+          "terrain": "stone",
+          "route": "east",
+          "fired": false,
+          "rooted": false,
+          "memory": 2,
+          "beacon": false,
+          "lastBranch": null
+        },
+        "after": {
+          "id": "A3",
+          "x": 0,
+          "y": 2,
+          "terrain": "stone",
+          "route": "east",
+          "fired": false,
+          "rooted": false,
+          "memory": 2,
+          "beacon": true,
+          "lastBranch": null
+        },
+        "fieldBefore": {
+          "water": 2,
+          "exact": 2,
+          "fragment": 0,
+          "seeds": false,
+          "publicExact": 0,
+          "publicFragment": 0,
+          "flooded": false
+        },
+        "time": 8,
+        "actor": "maker",
+        "parents": [
+          "t3"
+        ],
+        "taughtBy": "t3"
+      },
+      {
+        "id": "t7",
+        "recipe": {
+          "a": "stone",
+          "b": "air",
+          "at": "A3"
+        },
+        "before": {
+          "id": "A3",
+          "x": 0,
+          "y": 2,
+          "terrain": "stone",
+          "route": "east",
+          "fired": false,
+          "rooted": false,
+          "memory": 2,
+          "beacon": true,
+          "lastBranch": null
+        },
+        "after": {
+          "id": "A3",
+          "x": 0,
+          "y": 2,
+          "terrain": "stone",
+          "route": "east",
+          "fired": false,
+          "rooted": false,
+          "memory": 2,
+          "beacon": false,
+          "lastBranch": null
+        },
+        "fieldBefore": {
+          "water": 2,
+          "exact": 2,
+          "fragment": 0,
+          "seeds": false,
+          "publicExact": 2,
+          "publicFragment": 0,
+          "flooded": false
+        },
+        "time": 9,
+        "actor": "maker",
+        "parents": [
+          "t4"
+        ],
+        "taughtBy": "t4"
+      },
+      {
+        "id": "t8",
+        "recipe": {
+          "a": "earth",
+          "b": "water",
+          "at": "E1",
+          "toward": "closed"
+        },
+        "before": {
+          "id": "E1",
+          "x": 4,
+          "y": 0,
+          "terrain": "stone",
+          "route": "south",
+          "fired": false,
+          "rooted": false,
+          "memory": 1,
+          "beacon": false,
+          "lastBranch": null
+        },
+        "after": {
+          "id": "E1",
+          "x": 4,
+          "y": 0,
+          "terrain": "stone",
+          "route": "closed",
+          "fired": false,
+          "rooted": false,
+          "memory": 1,
+          "beacon": false,
+          "lastBranch": null
+        },
+        "fieldBefore": {
+          "water": 1,
+          "exact": 0,
+          "fragment": 1,
+          "seeds": true,
+          "publicExact": 0,
+          "publicFragment": 0,
+          "flooded": false
+        },
+        "time": 15,
+        "actor": "player",
+        "parents": []
+      },
+      {
+        "id": "t9",
+        "recipe": {
+          "a": "earth",
+          "b": "water",
+          "at": "E1",
+          "toward": "south"
+        },
+        "before": {
+          "id": "E1",
+          "x": 4,
+          "y": 0,
+          "terrain": "stone",
+          "route": "closed",
+          "fired": false,
+          "rooted": false,
+          "memory": 1,
+          "beacon": false,
+          "lastBranch": null
+        },
+        "after": {
+          "id": "E1",
+          "x": 4,
+          "y": 0,
+          "terrain": "stone",
+          "route": "south",
+          "fired": false,
+          "rooted": false,
+          "memory": 1,
+          "beacon": false,
+          "lastBranch": null
+        },
+        "fieldBefore": {
+          "water": 1,
+          "exact": 0,
+          "fragment": 3,
+          "seeds": true,
+          "publicExact": 0,
+          "publicFragment": 0,
+          "flooded": false
+        },
+        "time": 20,
+        "actor": "player",
+        "parents": []
+      }
+    ],
+    "faculties": [
+      {
+        "id": "f1",
+        "type": "atom",
+        "trace": "t3",
+        "provenance": [
+          "t3"
+        ]
+      },
+      {
+        "id": "f2",
+        "type": "atom",
+        "trace": "t4",
+        "provenance": [
+          "t4"
+        ]
+      },
+      {
+        "id": "f3",
+        "type": "pair",
+        "a": "f1",
+        "b": "f2",
+        "site": "E2",
+        "provenance": [
+          "t3",
+          "t4"
+        ]
+      }
+    ],
+    "time": 22,
+    "status": "playing",
+    "events": [
+      {
+        "kind": "physical-combine",
+        "at": "A3",
+        "actor": "maker",
+        "trace": "t7",
+        "before": {
+          "id": "A3",
+          "x": 0,
+          "y": 2,
+          "terrain": "stone",
+          "route": "east",
+          "fired": false,
+          "rooted": false,
+          "memory": 2,
+          "beacon": true,
+          "lastBranch": null
+        },
+        "after": {
+          "id": "A3",
+          "x": 0,
+          "y": 2,
+          "terrain": "stone",
+          "route": "east",
+          "fired": false,
+          "rooted": false,
+          "memory": 2,
+          "beacon": false,
+          "lastBranch": null
+        }
+      }
+    ],
+    "actions": [
+      {
+        "type": "combine",
+        "a": "seed",
+        "b": "water",
+        "at": "B1"
+      },
+      {
+        "type": "combine",
+        "a": "heat",
+        "b": "earth",
+        "at": "C1"
+      },
+      {
+        "type": "combine",
+        "a": "air",
+        "b": "voice",
+        "at": "C1"
+      },
+      {
+        "type": "combine",
+        "a": "stone",
+        "b": "air",
+        "at": "C1"
+      },
+      {
+        "type": "combine",
+        "a": "t3",
+        "b": "memory",
+        "at": "A3"
+      },
+      {
+        "type": "combine",
+        "a": "t4",
+        "b": "memory",
+        "at": "A3"
+      },
+      {
+        "type": "combine",
+        "a": "earth",
+        "b": "water",
+        "at": "E1",
+        "toward": "south"
+      },
+      {
+        "type": "combine",
+        "a": "f1",
+        "b": "f2",
+        "at": "E2"
+      },
+      {
+        "type": "combine",
+        "a": "f3",
+        "b": "maker",
+        "at": "A3"
+      },
+      {
+        "type": "wait"
+      },
+      {
+        "type": "wait"
+      },
+      {
+        "type": "wait"
+      },
+      {
+        "type": "wait"
+      },
+      {
+        "type": "wait"
+      },
+      {
+        "type": "wait"
+      },
+      {
+        "type": "combine",
+        "a": "earth",
+        "b": "water",
+        "at": "E1",
+        "toward": "closed"
+      },
+      {
+        "type": "wait"
+      },
+      {
+        "type": "wait"
+      },
+      {
+        "type": "wait"
+      },
+      {
+        "type": "wait"
+      },
+      {
+        "type": "combine",
+        "a": "earth",
+        "b": "water",
+        "at": "E1",
+        "toward": "south"
+      },
+      {
+        "type": "wait"
+      }
+    ]
+  },
+  "summary": {
+    "wetBasinRepeatedPhysicalActs": 6,
+    "dryBasinWait": "feedback waits: basin E2 is dry",
+    "rewetResponse": "stone+air at A3, from t4"
+  }
+}

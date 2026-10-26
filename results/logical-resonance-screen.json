@@ -1,0 +1,3880 @@
+{
+  "version": "resonance-1",
+  "scenario": "shared-garden",
+  "initial": {
+    "status": "playing",
+    "terminal": false,
+    "semanticKey": "{\"version\":\"resonance-1\",\"places\":[{\"id\":\"A1\",\"x\":0,\"y\":0,\"form\":\"conductor\",\"ports\":[\"east\",\"south\"],\"scar\":[\"south\"],\"recovery\":0},{\"id\":\"B1\",\"x\":1,\"y\":0,\"form\":\"conductor\",\"ports\":[\"south\",\"west\"],\"scar\":[\"west\"],\"recovery\":0},{\"id\":\"C1\",\"x\":2,\"y\":0,\"form\":\"soil\",\"ports\":[],\"scar\":[],\"recovery\":0},{\"id\":\"D1\",\"x\":3,\"y\":0,\"form\":\"soil\",\"ports\":[],\"scar\":[],\"recovery\":0},{\"id\":\"A2\",\"x\":0,\"y\":1,\"form\":\"conductor\",\"ports\":[\"north\",\"east\"],\"scar\":[\"east\"],\"recovery\":1},{\"id\":\"B2\",\"x\":1,\"y\":1,\"form\":\"conductor\",\"ports\":[\"north\",\"west\"],\"scar\":[\"north\"],\"recovery\":0},{\"id\":\"C2\",\"x\":2,\"y\":1,\"form\":\"soil\",\"ports\":[],\"scar\":[],\"recovery\":0},{\"id\":\"D2\",\"x\":3,\"y\":1,\"form\":\"soil\",\"ports\":[],\"scar\":[],\"recovery\":0},{\"id\":\"A3\",\"x\":0,\"y\":2,\"form\":\"soil\",\"ports\":[],\"scar\":[],\"recovery\":0},{\"id\":\"B3\",\"x\":1,\"y\":2,\"form\":\"soil\",\"ports\":[],\"scar\":[],\"recovery\":0},{\"id\":\"C3\",\"x\":2,\"y\":2,\"form\":\"soil\",\"ports\":[],\"scar\":[],\"recovery\":0},{\"id\":\"D3\",\"x\":3,\"y\":2,\"form\":\"soil\",\"ports\":[],\"scar\":[],\"recovery\":0}],\"pulses\":[{\"at\":\"A1\",\"polarity\":\"+\",\"ingress\":[\"south\"]}],\"echoes\":[],\"known\":[{\"period\":4,\"entry\":\"south\",\"cells\":[{\"x\":0,\"y\":0,\"ports\":[\"east\",\"south\"],\"recovery\":0},{\"x\":1,\"y\":0,\"ports\":[\"south\",\"west\"],\"recovery\":0},{\"x\":0,\"y\":1,\"ports\":[\"north\",\"east\"],\"recovery\":0},{\"x\":1,\"y\":1,\"ports\":[\"north\",\"west\"],\"recovery\":0}],\"phases\":[{\"recovery\":[0,0,0,1],\"pulses\":[{\"x\":0,\"y\":1,\"polarity\":\"+\",\"ingress\":[\"east\"]}],\"echoes\":[]},{\"recovery\":[0,0,1,0],\"pulses\":[{\"x\":0,\"y\":0,\"polarity\":\"+\",\"ingress\":[\"south\"]}],\"echoes\":[]},{\"recovery\":[1,0,0,0],\"pulses\":[{\"x\":1,\"y\":0,\"polarity\":\"+\",\"ingress\":[\"west\"]}],\"echoes\":[]},{\"recovery\":[0,1,0,0],\"pulses\":[{\"x\":1,\"y\":1,\"polarity\":\"+\",\"ingress\":[\"north\"]}],\"echoes\":[]}],\"id\":\"form-7a8885d2\"}],\"status\":\"playing\"}",
+    "objectives": [
+      {
+        "id": "two-independent-rhythms",
+        "value": 0,
+        "direction": "higher"
+      }
+    ],
+    "properties": {
+      "initialAim": false,
+      "cycles": [
+        {
+          "places": [
+            "A1",
+            "A2",
+            "B1",
+            "B2"
+          ],
+          "period": 4
+        }
+      ],
+      "moving": [
+        "A1"
+      ],
+      "scarred": [
+        "A1",
+        "B1",
+        "A2",
+        "B2"
+      ],
+      "forms": [
+        "form-7a8885d2"
+      ]
+    }
+  },
+  "chain": [
+    {
+      "type": "combine",
+      "a": "earth",
+      "b": "water",
+      "at": "C1",
+      "ports": [
+        "east",
+        "south"
+      ]
+    },
+    {
+      "type": "combine",
+      "a": "earth",
+      "b": "water",
+      "at": "D1",
+      "ports": [
+        "south",
+        "west"
+      ]
+    },
+    {
+      "type": "combine",
+      "a": "earth",
+      "b": "water",
+      "at": "D2",
+      "ports": [
+        "north",
+        "south"
+      ]
+    },
+    {
+      "type": "combine",
+      "a": "earth",
+      "b": "water",
+      "at": "D3",
+      "ports": [
+        "north",
+        "west"
+      ]
+    },
+    {
+      "type": "combine",
+      "a": "earth",
+      "b": "water",
+      "at": "C3",
+      "ports": [
+        "north",
+        "east"
+      ]
+    },
+    {
+      "type": "combine",
+      "a": "earth",
+      "b": "water",
+      "at": "C2",
+      "ports": [
+        "north",
+        "south"
+      ]
+    },
+    {
+      "type": "combine",
+      "a": "air",
+      "b": "water",
+      "at": "C1",
+      "toward": "east"
+    },
+    {
+      "type": "wait",
+      "beats": 6
+    }
+  ],
+  "quiet": {
+    "status": "playing",
+    "terminal": false,
+    "semanticKey": "{\"version\":\"resonance-1\",\"places\":[{\"id\":\"A1\",\"x\":0,\"y\":0,\"form\":\"conductor\",\"ports\":[\"east\",\"south\"],\"scar\":[\"south\"],\"recovery\":1},{\"id\":\"B1\",\"x\":1,\"y\":0,\"form\":\"conductor\",\"ports\":[\"south\",\"west\"],\"scar\":[\"west\"],\"recovery\":0},{\"id\":\"C1\",\"x\":2,\"y\":0,\"form\":\"conductor\",\"ports\":[\"east\",\"south\"],\"scar\":[\"south\"],\"recovery\":1},{\"id\":\"D1\",\"x\":3,\"y\":0,\"form\":\"conductor\",\"ports\":[\"south\",\"west\"],\"scar\":[\"west\"],\"recovery\":0},{\"id\":\"A2\",\"x\":0,\"y\":1,\"form\":\"conductor\",\"ports\":[\"north\",\"east\"],\"scar\":[\"east\"],\"recovery\":0},{\"id\":\"B2\",\"x\":1,\"y\":1,\"form\":\"conductor\",\"ports\":[\"north\",\"west\"],\"scar\":[\"north\"],\"recovery\":0},{\"id\":\"C2\",\"x\":2,\"y\":1,\"form\":\"conductor\",\"ports\":[\"north\",\"south\"],\"scar\":[\"south\"],\"recovery\":0},{\"id\":\"D2\",\"x\":3,\"y\":1,\"form\":\"conductor\",\"ports\":[\"north\",\"south\"],\"scar\":[\"north\"],\"recovery\":0},{\"id\":\"A3\",\"x\":0,\"y\":2,\"form\":\"soil\",\"ports\":[],\"scar\":[],\"recovery\":0},{\"id\":\"B3\",\"x\":1,\"y\":2,\"form\":\"soil\",\"ports\":[],\"scar\":[],\"recovery\":0},{\"id\":\"C3\",\"x\":2,\"y\":2,\"form\":\"conductor\",\"ports\":[\"north\",\"east\"],\"scar\":[\"east\"],\"recovery\":0},{\"id\":\"D3\",\"x\":3,\"y\":2,\"form\":\"conductor\",\"ports\":[\"north\",\"west\"],\"scar\":[\"north\"],\"recovery\":0}],\"pulses\":[{\"at\":\"B1\",\"polarity\":\"+\",\"ingress\":[\"west\"]},{\"at\":\"D1\",\"polarity\":\"-\",\"ingress\":[\"west\"]}],\"echoes\":[],\"known\":[{\"period\":4,\"entry\":\"south\",\"cells\":[{\"x\":0,\"y\":0,\"ports\":[\"east\",\"south\"],\"recovery\":0},{\"x\":1,\"y\":0,\"ports\":[\"south\",\"west\"],\"recovery\":0},{\"x\":0,\"y\":1,\"ports\":[\"north\",\"east\"],\"recovery\":0},{\"x\":1,\"y\":1,\"ports\":[\"north\",\"west\"],\"recovery\":0}],\"phases\":[{\"recovery\":[0,0,0,1],\"pulses\":[{\"x\":0,\"y\":1,\"polarity\":\"+\",\"ingress\":[\"east\"]}],\"echoes\":[]},{\"recovery\":[0,0,1,0],\"pulses\":[{\"x\":0,\"y\":0,\"polarity\":\"+\",\"ingress\":[\"south\"]}],\"echoes\":[]},{\"recovery\":[1,0,0,0],\"pulses\":[{\"x\":1,\"y\":0,\"polarity\":\"+\",\"ingress\":[\"west\"]}],\"echoes\":[]},{\"recovery\":[0,1,0,0],\"pulses\":[{\"x\":1,\"y\":1,\"polarity\":\"+\",\"ingress\":[\"north\"]}],\"echoes\":[]}],\"id\":\"form-7a8885d2\"},{\"period\":6,\"entry\":\"south\",\"cells\":[{\"x\":0,\"y\":0,\"ports\":[\"east\",\"south\"],\"recovery\":0},{\"x\":1,\"y\":0,\"ports\":[\"south\",\"west\"],\"recovery\":0},{\"x\":0,\"y\":1,\"ports\":[\"north\",\"south\"],\"recovery\":0},{\"x\":1,\"y\":1,\"ports\":[\"north\",\"south\"],\"recovery\":0},{\"x\":0,\"y\":2,\"ports\":[\"north\",\"east\"],\"recovery\":0},{\"x\":1,\"y\":2,\"ports\":[\"north\",\"west\"],\"recovery\":0}],\"phases\":[{\"recovery\":[0,0,0,0,0,1],\"pulses\":[{\"x\":0,\"y\":2,\"polarity\":\"-\",\"ingress\":[\"east\"]}],\"echoes\":[]},{\"recovery\":[0,0,0,0,1,0],\"pulses\":[{\"x\":0,\"y\":1,\"polarity\":\"-\",\"ingress\":[\"south\"]}],\"echoes\":[]},{\"recovery\":[0,0,1,0,0,0],\"pulses\":[{\"x\":0,\"y\":0,\"polarity\":\"-\",\"ingress\":[\"south\"]}],\"echoes\":[]},{\"recovery\":[1,0,0,0,0,0],\"pulses\":[{\"x\":1,\"y\":0,\"polarity\":\"-\",\"ingress\":[\"west\"]}],\"echoes\":[]},{\"recovery\":[0,1,0,0,0,0],\"pulses\":[{\"x\":1,\"y\":1,\"polarity\":\"-\",\"ingress\":[\"north\"]}],\"echoes\":[]},{\"recovery\":[0,0,0,1,0,0],\"pulses\":[{\"x\":1,\"y\":2,\"polarity\":\"-\",\"ingress\":[\"north\"]}],\"echoes\":[]}],\"id\":\"form-73914d08\"}],\"status\":\"playing\"}",
+    "objectives": [
+      {
+        "id": "two-independent-rhythms",
+        "value": 1,
+        "direction": "higher"
+      }
+    ],
+    "properties": {
+      "initialAim": true,
+      "cycles": [
+        {
+          "places": [
+            "A1",
+            "A2",
+            "B1",
+            "B2"
+          ],
+          "period": 4
+        },
+        {
+          "places": [
+            "C1",
+            "C2",
+            "C3",
+            "D1",
+            "D2",
+            "D3"
+          ],
+          "period": 6
+        }
+      ],
+      "moving": [
+        "B1",
+        "D1"
+      ],
+      "scarred": [
+        "A1",
+        "B1",
+        "C1",
+        "D1",
+        "A2",
+        "B2",
+        "C2",
+        "D2",
+        "C3",
+        "D3"
+      ],
+      "forms": [
+        "form-7a8885d2",
+        "form-73914d08"
+      ]
+    }
+  },
+  "finish": "won",
+  "purePreview": true,
+  "replayExact": true,
+  "couplings": [
+    {
+      "phase": 0,
+      "joinedFronts": [
+        {
+          "at": "A2",
+          "polarity": "+",
+          "ingress": [
+            "east"
+          ]
+        },
+        {
+          "at": "C2",
+          "polarity": "+",
+          "ingress": [
+            "west"
+          ]
+        },
+        {
+          "at": "D3",
+          "polarity": "-",
+          "ingress": [
+            "north"
+          ]
+        }
+      ],
+      "trace": [
+        {
+          "kind": "passage",
+          "beat": 16,
+          "at": "A1",
+          "from": [
+            "south"
+          ],
+          "polarity": "+"
+        },
+        {
+          "kind": "passage",
+          "beat": 16,
+          "at": "C1",
+          "from": [
+            "south"
+          ],
+          "polarity": "+"
+        },
+        {
+          "kind": "annihilation",
+          "beat": 16,
+          "at": "C3",
+          "from": [
+            "north",
+            "east"
+          ]
+        },
+        {
+          "kind": "passage",
+          "beat": 17,
+          "at": "B1",
+          "from": [
+            "west"
+          ],
+          "polarity": "+"
+        },
+        {
+          "kind": "passage",
+          "beat": 17,
+          "at": "D1",
+          "from": [
+            "west"
+          ],
+          "polarity": "+"
+        },
+        {
+          "kind": "passage",
+          "beat": 18,
+          "at": "B2",
+          "from": [
+            "north"
+          ],
+          "polarity": "+"
+        },
+        {
+          "kind": "passage",
+          "beat": 18,
+          "at": "D2",
+          "from": [
+            "north"
+          ],
+          "polarity": "+"
+        },
+        {
+          "kind": "passage",
+          "beat": 19,
+          "at": "A2",
+          "from": [
+            "east"
+          ],
+          "polarity": "+"
+        },
+        {
+          "kind": "passage",
+          "beat": 19,
+          "at": "C2",
+          "from": [
+            "west"
+          ],
+          "polarity": "+"
+        },
+        {
+          "kind": "passage",
+          "beat": 19,
+          "at": "D3",
+          "from": [
+            "north"
+          ],
+          "polarity": "+"
+        },
+        {
+          "kind": "passage",
+          "beat": 20,
+          "at": "A1",
+          "from": [
+            "south"
+          ],
+          "polarity": "+"
+        },
+        {
+          "kind": "passage",
+          "beat": 20,
+          "at": "C1",
+          "from": [
+            "south"
+          ],
+          "polarity": "+"
+        },
+        {
+          "kind": "coalescence",
+          "beat": 20,
+          "at": "C3",
+          "from": [
+            "north",
+            "east"
+          ],
+          "polarity": "+"
+        },
+        {
+          "kind": "passage",
+          "beat": 21,
+          "at": "B1",
+          "from": [
+            "west"
+          ],
+          "polarity": "+"
+        },
+        {
+          "kind": "passage",
+          "beat": 21,
+          "at": "D1",
+          "from": [
+            "west"
+          ],
+          "polarity": "+"
+        },
+        {
+          "kind": "passage",
+          "beat": 22,
+          "at": "B2",
+          "from": [
+            "north"
+          ],
+          "polarity": "+"
+        },
+        {
+          "kind": "passage",
+          "beat": 22,
+          "at": "D2",
+          "from": [
+            "north"
+          ],
+          "polarity": "+"
+        },
+        {
+          "kind": "passage",
+          "beat": 23,
+          "at": "A2",
+          "from": [
+            "east"
+          ],
+          "polarity": "+"
+        },
+        {
+          "kind": "passage",
+          "beat": 23,
+          "at": "C2",
+          "from": [
+            "west"
+          ],
+          "polarity": "+"
+        },
+        {
+          "kind": "passage",
+          "beat": 23,
+          "at": "D3",
+          "from": [
+            "north"
+          ],
+          "polarity": "+"
+        },
+        {
+          "kind": "passage",
+          "beat": 24,
+          "at": "A1",
+          "from": [
+            "south"
+          ],
+          "polarity": "+"
+        },
+        {
+          "kind": "passage",
+          "beat": 24,
+          "at": "C1",
+          "from": [
+            "south"
+          ],
+          "polarity": "+"
+        },
+        {
+          "kind": "coalescence",
+          "beat": 24,
+          "at": "C3",
+          "from": [
+            "north",
+            "east"
+          ],
+          "polarity": "+"
+        },
+        {
+          "kind": "passage",
+          "beat": 25,
+          "at": "B1",
+          "from": [
+            "west"
+          ],
+          "polarity": "+"
+        },
+        {
+          "kind": "passage",
+          "beat": 25,
+          "at": "D1",
+          "from": [
+            "west"
+          ],
+          "polarity": "+"
+        },
+        {
+          "kind": "passage",
+          "beat": 26,
+          "at": "B2",
+          "from": [
+            "north"
+          ],
+          "polarity": "+"
+        },
+        {
+          "kind": "passage",
+          "beat": 26,
+          "at": "D2",
+          "from": [
+            "north"
+          ],
+          "polarity": "+"
+        },
+        {
+          "kind": "passage",
+          "beat": 27,
+          "at": "A2",
+          "from": [
+            "east"
+          ],
+          "polarity": "+"
+        },
+        {
+          "kind": "passage",
+          "beat": 27,
+          "at": "C2",
+          "from": [
+            "west"
+          ],
+          "polarity": "+"
+        },
+        {
+          "kind": "passage",
+          "beat": 27,
+          "at": "D3",
+          "from": [
+            "north"
+          ],
+          "polarity": "+"
+        },
+        {
+          "kind": "recurring-form",
+          "beat": 27,
+          "detail": "form-c513337: period 4; A1,A2,B1,B2,C1,C2,C3,D1,D2,D3"
+        }
+      ],
+      "outcome": {
+        "status": "playing",
+        "terminal": false,
+        "semanticKey": "{\"version\":\"resonance-1\",\"places\":[{\"id\":\"A1\",\"x\":0,\"y\":0,\"form\":\"conductor\",\"ports\":[\"east\",\"south\"],\"scar\":[\"south\"],\"recovery\":0},{\"id\":\"B1\",\"x\":1,\"y\":0,\"form\":\"conductor\",\"ports\":[\"south\",\"west\"],\"scar\":[\"west\"],\"recovery\":0},{\"id\":\"C1\",\"x\":2,\"y\":0,\"form\":\"conductor\",\"ports\":[\"east\",\"south\"],\"scar\":[\"south\"],\"recovery\":0},{\"id\":\"D1\",\"x\":3,\"y\":0,\"form\":\"conductor\",\"ports\":[\"south\",\"west\"],\"scar\":[\"west\"],\"recovery\":0},{\"id\":\"A2\",\"x\":0,\"y\":1,\"form\":\"conductor\",\"ports\":[\"north\",\"east\"],\"scar\":[\"east\"],\"recovery\":0},{\"id\":\"B2\",\"x\":1,\"y\":1,\"form\":\"conductor\",\"ports\":[\"north\",\"east\",\"west\"],\"scar\":[\"north\"],\"recovery\":1},{\"id\":\"C2\",\"x\":2,\"y\":1,\"form\":\"conductor\",\"ports\":[\"north\",\"south\",\"west\"],\"scar\":[\"west\"],\"recovery\":0},{\"id\":\"D2\",\"x\":3,\"y\":1,\"form\":\"conductor\",\"ports\":[\"north\",\"south\"],\"scar\":[\"north\"],\"recovery\":1},{\"id\":\"A3\",\"x\":0,\"y\":2,\"form\":\"soil\",\"ports\":[],\"scar\":[],\"recovery\":0},{\"id\":\"B3\",\"x\":1,\"y\":2,\"form\":\"soil\",\"ports\":[],\"scar\":[],\"recovery\":0},{\"id\":\"C3\",\"x\":2,\"y\":2,\"form\":\"conductor\",\"ports\":[\"north\",\"east\"],\"scar\":[\"north\",\"east\"],\"recovery\":0},{\"id\":\"D3\",\"x\":3,\"y\":2,\"form\":\"conductor\",\"ports\":[\"north\",\"west\"],\"scar\":[\"north\"],\"recovery\":0}],\"pulses\":[{\"at\":\"A2\",\"polarity\":\"+\",\"ingress\":[\"east\"]},{\"at\":\"C2\",\"polarity\":\"+\",\"ingress\":[\"west\"]},{\"at\":\"D3\",\"polarity\":\"+\",\"ingress\":[\"north\"]}],\"echoes\":[],\"known\":[{\"period\":4,\"entry\":\"south\",\"cells\":[{\"x\":0,\"y\":0,\"ports\":[\"east\",\"south\"],\"recovery\":0},{\"x\":1,\"y\":0,\"ports\":[\"south\",\"west\"],\"recovery\":0},{\"x\":0,\"y\":1,\"ports\":[\"north\",\"east\"],\"recovery\":0},{\"x\":1,\"y\":1,\"ports\":[\"north\",\"west\"],\"recovery\":0}],\"phases\":[{\"recovery\":[0,0,0,1],\"pulses\":[{\"x\":0,\"y\":1,\"polarity\":\"+\",\"ingress\":[\"east\"]}],\"echoes\":[]},{\"recovery\":[0,0,1,0],\"pulses\":[{\"x\":0,\"y\":0,\"polarity\":\"+\",\"ingress\":[\"south\"]}],\"echoes\":[]},{\"recovery\":[1,0,0,0],\"pulses\":[{\"x\":1,\"y\":0,\"polarity\":\"+\",\"ingress\":[\"west\"]}],\"echoes\":[]},{\"recovery\":[0,1,0,0],\"pulses\":[{\"x\":1,\"y\":1,\"polarity\":\"+\",\"ingress\":[\"north\"]}],\"echoes\":[]}],\"id\":\"form-7a8885d2\"},{\"period\":6,\"entry\":\"south\",\"cells\":[{\"x\":0,\"y\":0,\"ports\":[\"east\",\"south\"],\"recovery\":0},{\"x\":1,\"y\":0,\"ports\":[\"south\",\"west\"],\"recovery\":0},{\"x\":0,\"y\":1,\"ports\":[\"north\",\"south\"],\"recovery\":0},{\"x\":1,\"y\":1,\"ports\":[\"north\",\"south\"],\"recovery\":0},{\"x\":0,\"y\":2,\"ports\":[\"north\",\"east\"],\"recovery\":0},{\"x\":1,\"y\":2,\"ports\":[\"north\",\"west\"],\"recovery\":0}],\"phases\":[{\"recovery\":[0,0,0,0,0,1],\"pulses\":[{\"x\":0,\"y\":2,\"polarity\":\"-\",\"ingress\":[\"east\"]}],\"echoes\":[]},{\"recovery\":[0,0,0,0,1,0],\"pulses\":[{\"x\":0,\"y\":1,\"polarity\":\"-\",\"ingress\":[\"south\"]}],\"echoes\":[]},{\"recovery\":[0,0,1,0,0,0],\"pulses\":[{\"x\":0,\"y\":0,\"polarity\":\"-\",\"ingress\":[\"south\"]}],\"echoes\":[]},{\"recovery\":[1,0,0,0,0,0],\"pulses\":[{\"x\":1,\"y\":0,\"polarity\":\"-\",\"ingress\":[\"west\"]}],\"echoes\":[]},{\"recovery\":[0,1,0,0,0,0],\"pulses\":[{\"x\":1,\"y\":1,\"polarity\":\"-\",\"ingress\":[\"north\"]}],\"echoes\":[]},{\"recovery\":[0,0,0,1,0,0],\"pulses\":[{\"x\":1,\"y\":2,\"polarity\":\"-\",\"ingress\":[\"north\"]}],\"echoes\":[]}],\"id\":\"form-73914d08\"},{\"period\":4,\"entry\":\"south\",\"cells\":[{\"x\":0,\"y\":0,\"ports\":[\"east\",\"south\"],\"recovery\":0},{\"x\":1,\"y\":0,\"ports\":[\"south\",\"west\"],\"recovery\":0},{\"x\":0,\"y\":1,\"ports\":[\"north\",\"east\"],\"recovery\":0},{\"x\":1,\"y\":1,\"ports\":[\"north\",\"east\",\"west\"],\"recovery\":0}],\"phases\":[{\"recovery\":[0,0,0,1],\"pulses\":[{\"x\":0,\"y\":1,\"polarity\":\"+\",\"ingress\":[\"east\"]}],\"echoes\":[]},{\"recovery\":[0,0,1,0],\"pulses\":[{\"x\":0,\"y\":0,\"polarity\":\"+\",\"ingress\":[\"south\"]}],\"echoes\":[]},{\"recovery\":[1,0,0,0],\"pulses\":[{\"x\":1,\"y\":0,\"polarity\":\"+\",\"ingress\":[\"west\"]}],\"echoes\":[]},{\"recovery\":[0,1,0,0],\"pulses\":[{\"x\":1,\"y\":1,\"polarity\":\"+\",\"ingress\":[\"north\"]}],\"echoes\":[]}],\"id\":\"form-cf556d8f\"},{\"period\":4,\"entry\":\"south\",\"cells\":[{\"x\":0,\"y\":0,\"ports\":[\"east\",\"south\"],\"recovery\":0},{\"x\":1,\"y\":0,\"ports\":[\"south\",\"west\"],\"recovery\":0},{\"x\":2,\"y\":0,\"ports\":[\"east\",\"south\"],\"recovery\":0},{\"x\":3,\"y\":0,\"ports\":[\"south\",\"west\"],\"recovery\":0},{\"x\":0,\"y\":1,\"ports\":[\"north\",\"east\"],\"recovery\":0},{\"x\":1,\"y\":1,\"ports\":[\"north\",\"east\",\"west\"],\"recovery\":0},{\"x\":2,\"y\":1,\"ports\":[\"north\",\"south\",\"west\"],\"recovery\":0},{\"x\":3,\"y\":1,\"ports\":[\"north\",\"south\"],\"recovery\":0},{\"x\":2,\"y\":2,\"ports\":[\"north\",\"east\"],\"recovery\":0},{\"x\":3,\"y\":2,\"ports\":[\"north\",\"west\"],\"recovery\":0}],\"phases\":[{\"recovery\":[0,0,0,0,0,1,0,1,0,0],\"pulses\":[{\"x\":0,\"y\":1,\"polarity\":\"+\",\"ingress\":[\"east\"]},{\"x\":2,\"y\":1,\"polarity\":\"+\",\"ingress\":[\"west\"]},{\"x\":3,\"y\":2,\"polarity\":\"+\",\"ingress\":[\"north\"]}],\"echoes\":[]},{\"recovery\":[0,0,0,0,1,0,1,0,0,1],\"pulses\":[{\"x\":0,\"y\":0,\"polarity\":\"+\",\"ingress\":[\"south\"]},{\"x\":2,\"y\":0,\"polarity\":\"+\",\"ingress\":[\"south\"]},{\"x\":2,\"y\":2,\"polarity\":\"+\",\"ingress\":[\"north\",\"east\"]}],\"echoes\":[]},{\"recovery\":[1,0,1,0,0,0,0,0,1,0],\"pulses\":[{\"x\":1,\"y\":0,\"polarity\":\"+\",\"ingress\":[\"west\"]},{\"x\":3,\"y\":0,\"polarity\":\"+\",\"ingress\":[\"west\"]}],\"echoes\":[]},{\"recovery\":[0,1,0,1,0,0,0,0,0,0],\"pulses\":[{\"x\":1,\"y\":1,\"polarity\":\"+\",\"ingress\":[\"north\"]},{\"x\":3,\"y\":1,\"polarity\":\"+\",\"ingress\":[\"north\"]}],\"echoes\":[]}],\"id\":\"form-c513337\"}],\"status\":\"playing\"}",
+        "objectives": [
+          {
+            "id": "two-independent-rhythms",
+            "value": 0,
+            "direction": "higher"
+          }
+        ],
+        "properties": {
+          "initialAim": false,
+          "cycles": [
+            {
+              "places": [
+                "A1",
+                "A2",
+                "B1",
+                "B2",
+                "C1",
+                "C2",
+                "C3",
+                "D1",
+                "D2",
+                "D3"
+              ],
+              "period": 4
+            }
+          ],
+          "moving": [
+            "A2",
+            "C2",
+            "D3"
+          ],
+          "scarred": [
+            "A1",
+            "B1",
+            "C1",
+            "D1",
+            "A2",
+            "B2",
+            "C2",
+            "D2",
+            "C3",
+            "D3"
+          ],
+          "forms": [
+            "form-7a8885d2",
+            "form-73914d08",
+            "form-cf556d8f",
+            "form-c513337"
+          ]
+        }
+      }
+    },
+    {
+      "phase": 1,
+      "joinedFronts": [
+        {
+          "at": "A1",
+          "polarity": "+",
+          "ingress": [
+            "south"
+          ]
+        },
+        {
+          "at": "C3",
+          "polarity": "-",
+          "ingress": [
+            "east"
+          ]
+        }
+      ],
+      "trace": [
+        {
+          "kind": "passage",
+          "beat": 17,
+          "at": "B1",
+          "from": [
+            "west"
+          ],
+          "polarity": "+"
+        },
+        {
+          "kind": "passage",
+          "beat": 17,
+          "at": "C2",
+          "from": [
+            "south"
+          ],
+          "polarity": "-"
+        },
+        {
+          "kind": "passage",
+          "beat": 18,
+          "at": "C1",
+          "from": [
+            "south"
+          ],
+          "polarity": "-"
+        },
+        {
+          "kind": "annihilation",
+          "beat": 18,
+          "at": "B2",
+          "from": [
+            "north",
+            "east"
+          ]
+        },
+        {
+          "kind": "passage",
+          "beat": 19,
+          "at": "D1",
+          "from": [
+            "west"
+          ],
+          "polarity": "-"
+        },
+        {
+          "kind": "passage",
+          "beat": 20,
+          "at": "D2",
+          "from": [
+            "north"
+          ],
+          "polarity": "-"
+        },
+        {
+          "kind": "passage",
+          "beat": 21,
+          "at": "D3",
+          "from": [
+            "north"
+          ],
+          "polarity": "-"
+        },
+        {
+          "kind": "passage",
+          "beat": 22,
+          "at": "C3",
+          "from": [
+            "east"
+          ],
+          "polarity": "-"
+        },
+        {
+          "kind": "passage",
+          "beat": 23,
+          "at": "C2",
+          "from": [
+            "south"
+          ],
+          "polarity": "-"
+        },
+        {
+          "kind": "passage",
+          "beat": 24,
+          "at": "C1",
+          "from": [
+            "south"
+          ],
+          "polarity": "-"
+        },
+        {
+          "kind": "passage",
+          "beat": 24,
+          "at": "B2",
+          "from": [
+            "east"
+          ],
+          "polarity": "-"
+        },
+        {
+          "kind": "passage",
+          "beat": 25,
+          "at": "B1",
+          "from": [
+            "south"
+          ],
+          "polarity": "-"
+        },
+        {
+          "kind": "passage",
+          "beat": 25,
+          "at": "D1",
+          "from": [
+            "west"
+          ],
+          "polarity": "-"
+        },
+        {
+          "kind": "passage",
+          "beat": 25,
+          "at": "A2",
+          "from": [
+            "east"
+          ],
+          "polarity": "-"
+        },
+        {
+          "kind": "coalescence",
+          "beat": 26,
+          "at": "A1",
+          "from": [
+            "east",
+            "south"
+          ],
+          "polarity": "-"
+        },
+        {
+          "kind": "passage",
+          "beat": 26,
+          "at": "D2",
+          "from": [
+            "north"
+          ],
+          "polarity": "-"
+        },
+        {
+          "kind": "passage",
+          "beat": 27,
+          "at": "D3",
+          "from": [
+            "north"
+          ],
+          "polarity": "-"
+        },
+        {
+          "kind": "passage",
+          "beat": 28,
+          "at": "C3",
+          "from": [
+            "east"
+          ],
+          "polarity": "-"
+        }
+      ],
+      "outcome": {
+        "status": "playing",
+        "terminal": false,
+        "semanticKey": "{\"version\":\"resonance-1\",\"places\":[{\"id\":\"A1\",\"x\":0,\"y\":0,\"form\":\"conductor\",\"ports\":[\"east\",\"south\"],\"scar\":[\"east\",\"south\"],\"recovery\":0},{\"id\":\"B1\",\"x\":1,\"y\":0,\"form\":\"conductor\",\"ports\":[\"south\",\"west\"],\"scar\":[\"south\"],\"recovery\":0},{\"id\":\"C1\",\"x\":2,\"y\":0,\"form\":\"conductor\",\"ports\":[\"east\",\"south\"],\"scar\":[\"south\"],\"recovery\":0},{\"id\":\"D1\",\"x\":3,\"y\":0,\"form\":\"conductor\",\"ports\":[\"south\",\"west\"],\"scar\":[\"west\"],\"recovery\":0},{\"id\":\"A2\",\"x\":0,\"y\":1,\"form\":\"conductor\",\"ports\":[\"north\",\"east\"],\"scar\":[\"east\"],\"recovery\":0},{\"id\":\"B2\",\"x\":1,\"y\":1,\"form\":\"conductor\",\"ports\":[\"north\",\"east\",\"west\"],\"scar\":[\"east\"],\"recovery\":0},{\"id\":\"C2\",\"x\":2,\"y\":1,\"form\":\"conductor\",\"ports\":[\"north\",\"south\",\"west\"],\"scar\":[\"south\"],\"recovery\":0},{\"id\":\"D2\",\"x\":3,\"y\":1,\"form\":\"conductor\",\"ports\":[\"north\",\"south\"],\"scar\":[\"north\"],\"recovery\":0},{\"id\":\"A3\",\"x\":0,\"y\":2,\"form\":\"soil\",\"ports\":[],\"scar\":[],\"recovery\":0},{\"id\":\"B3\",\"x\":1,\"y\":2,\"form\":\"soil\",\"ports\":[],\"scar\":[],\"recovery\":0},{\"id\":\"C3\",\"x\":2,\"y\":2,\"form\":\"conductor\",\"ports\":[\"north\",\"east\"],\"scar\":[\"east\"],\"recovery\":0},{\"id\":\"D3\",\"x\":3,\"y\":2,\"form\":\"conductor\",\"ports\":[\"north\",\"west\"],\"scar\":[\"north\"],\"recovery\":1}],\"pulses\":[{\"at\":\"C3\",\"polarity\":\"-\",\"ingress\":[\"east\"]}],\"echoes\":[],\"known\":[{\"period\":4,\"entry\":\"south\",\"cells\":[{\"x\":0,\"y\":0,\"ports\":[\"east\",\"south\"],\"recovery\":0},{\"x\":1,\"y\":0,\"ports\":[\"south\",\"west\"],\"recovery\":0},{\"x\":0,\"y\":1,\"ports\":[\"north\",\"east\"],\"recovery\":0},{\"x\":1,\"y\":1,\"ports\":[\"north\",\"west\"],\"recovery\":0}],\"phases\":[{\"recovery\":[0,0,0,1],\"pulses\":[{\"x\":0,\"y\":1,\"polarity\":\"+\",\"ingress\":[\"east\"]}],\"echoes\":[]},{\"recovery\":[0,0,1,0],\"pulses\":[{\"x\":0,\"y\":0,\"polarity\":\"+\",\"ingress\":[\"south\"]}],\"echoes\":[]},{\"recovery\":[1,0,0,0],\"pulses\":[{\"x\":1,\"y\":0,\"polarity\":\"+\",\"ingress\":[\"west\"]}],\"echoes\":[]},{\"recovery\":[0,1,0,0],\"pulses\":[{\"x\":1,\"y\":1,\"polarity\":\"+\",\"ingress\":[\"north\"]}],\"echoes\":[]}],\"id\":\"form-7a8885d2\"},{\"period\":6,\"entry\":\"south\",\"cells\":[{\"x\":0,\"y\":0,\"ports\":[\"east\",\"south\"],\"recovery\":0},{\"x\":1,\"y\":0,\"ports\":[\"south\",\"west\"],\"recovery\":0},{\"x\":0,\"y\":1,\"ports\":[\"north\",\"south\"],\"recovery\":0},{\"x\":1,\"y\":1,\"ports\":[\"north\",\"south\"],\"recovery\":0},{\"x\":0,\"y\":2,\"ports\":[\"north\",\"east\"],\"recovery\":0},{\"x\":1,\"y\":2,\"ports\":[\"north\",\"west\"],\"recovery\":0}],\"phases\":[{\"recovery\":[0,0,0,0,0,1],\"pulses\":[{\"x\":0,\"y\":2,\"polarity\":\"-\",\"ingress\":[\"east\"]}],\"echoes\":[]},{\"recovery\":[0,0,0,0,1,0],\"pulses\":[{\"x\":0,\"y\":1,\"polarity\":\"-\",\"ingress\":[\"south\"]}],\"echoes\":[]},{\"recovery\":[0,0,1,0,0,0],\"pulses\":[{\"x\":0,\"y\":0,\"polarity\":\"-\",\"ingress\":[\"south\"]}],\"echoes\":[]},{\"recovery\":[1,0,0,0,0,0],\"pulses\":[{\"x\":1,\"y\":0,\"polarity\":\"-\",\"ingress\":[\"west\"]}],\"echoes\":[]},{\"recovery\":[0,1,0,0,0,0],\"pulses\":[{\"x\":1,\"y\":1,\"polarity\":\"-\",\"ingress\":[\"north\"]}],\"echoes\":[]},{\"recovery\":[0,0,0,1,0,0],\"pulses\":[{\"x\":1,\"y\":2,\"polarity\":\"-\",\"ingress\":[\"north\"]}],\"echoes\":[]}],\"id\":\"form-73914d08\"},{\"period\":4,\"entry\":\"south\",\"cells\":[{\"x\":0,\"y\":0,\"ports\":[\"east\",\"south\"],\"recovery\":0},{\"x\":1,\"y\":0,\"ports\":[\"south\",\"west\"],\"recovery\":0},{\"x\":0,\"y\":1,\"ports\":[\"north\",\"east\"],\"recovery\":0},{\"x\":1,\"y\":1,\"ports\":[\"north\",\"east\",\"west\"],\"recovery\":0}],\"phases\":[{\"recovery\":[0,0,0,1],\"pulses\":[{\"x\":0,\"y\":1,\"polarity\":\"+\",\"ingress\":[\"east\"]}],\"echoes\":[]},{\"recovery\":[0,0,1,0],\"pulses\":[{\"x\":0,\"y\":0,\"polarity\":\"+\",\"ingress\":[\"south\"]}],\"echoes\":[]},{\"recovery\":[1,0,0,0],\"pulses\":[{\"x\":1,\"y\":0,\"polarity\":\"+\",\"ingress\":[\"west\"]}],\"echoes\":[]},{\"recovery\":[0,1,0,0],\"pulses\":[{\"x\":1,\"y\":1,\"polarity\":\"+\",\"ingress\":[\"north\"]}],\"echoes\":[]}],\"id\":\"form-cf556d8f\"}],\"status\":\"playing\"}",
+        "objectives": [
+          {
+            "id": "two-independent-rhythms",
+            "value": 0,
+            "direction": "higher"
+          }
+        ],
+        "properties": {
+          "initialAim": false,
+          "cycles": [
+            {
+              "places": [
+                "A1",
+                "A2",
+                "B1",
+                "B2",
+                "C1",
+                "C2",
+                "C3",
+                "D1",
+                "D2",
+                "D3"
+              ],
+              "period": 6
+            }
+          ],
+          "moving": [
+            "C3"
+          ],
+          "scarred": [
+            "A1",
+            "B1",
+            "C1",
+            "D1",
+            "A2",
+            "B2",
+            "C2",
+            "D2",
+            "C3",
+            "D3"
+          ],
+          "forms": [
+            "form-7a8885d2",
+            "form-73914d08",
+            "form-cf556d8f"
+          ]
+        }
+      }
+    },
+    {
+      "phase": 2,
+      "joinedFronts": [
+        {
+          "at": "B1",
+          "polarity": "+",
+          "ingress": [
+            "west"
+          ]
+        },
+        {
+          "at": "C2",
+          "polarity": "-",
+          "ingress": [
+            "south"
+          ]
+        }
+      ],
+      "trace": [
+        {
+          "kind": "passage",
+          "beat": 18,
+          "at": "C1",
+          "from": [
+            "south"
+          ],
+          "polarity": "-"
+        },
+        {
+          "kind": "annihilation",
+          "beat": 18,
+          "at": "B2",
+          "from": [
+            "north",
+            "east"
+          ]
+        },
+        {
+          "kind": "passage",
+          "beat": 19,
+          "at": "D1",
+          "from": [
+            "west"
+          ],
+          "polarity": "-"
+        },
+        {
+          "kind": "passage",
+          "beat": 20,
+          "at": "D2",
+          "from": [
+            "north"
+          ],
+          "polarity": "-"
+        },
+        {
+          "kind": "passage",
+          "beat": 21,
+          "at": "D3",
+          "from": [
+            "north"
+          ],
+          "polarity": "-"
+        },
+        {
+          "kind": "passage",
+          "beat": 22,
+          "at": "C3",
+          "from": [
+            "east"
+          ],
+          "polarity": "-"
+        },
+        {
+          "kind": "passage",
+          "beat": 23,
+          "at": "C2",
+          "from": [
+            "south"
+          ],
+          "polarity": "-"
+        },
+        {
+          "kind": "passage",
+          "beat": 24,
+          "at": "C1",
+          "from": [
+            "south"
+          ],
+          "polarity": "-"
+        },
+        {
+          "kind": "passage",
+          "beat": 24,
+          "at": "B2",
+          "from": [
+            "east"
+          ],
+          "polarity": "-"
+        },
+        {
+          "kind": "passage",
+          "beat": 25,
+          "at": "B1",
+          "from": [
+            "south"
+          ],
+          "polarity": "-"
+        },
+        {
+          "kind": "passage",
+          "beat": 25,
+          "at": "D1",
+          "from": [
+            "west"
+          ],
+          "polarity": "-"
+        },
+        {
+          "kind": "passage",
+          "beat": 25,
+          "at": "A2",
+          "from": [
+            "east"
+          ],
+          "polarity": "-"
+        },
+        {
+          "kind": "coalescence",
+          "beat": 26,
+          "at": "A1",
+          "from": [
+            "east",
+            "south"
+          ],
+          "polarity": "-"
+        },
+        {
+          "kind": "passage",
+          "beat": 26,
+          "at": "D2",
+          "from": [
+            "north"
+          ],
+          "polarity": "-"
+        },
+        {
+          "kind": "passage",
+          "beat": 27,
+          "at": "D3",
+          "from": [
+            "north"
+          ],
+          "polarity": "-"
+        },
+        {
+          "kind": "passage",
+          "beat": 28,
+          "at": "C3",
+          "from": [
+            "east"
+          ],
+          "polarity": "-"
+        },
+        {
+          "kind": "passage",
+          "beat": 29,
+          "at": "C2",
+          "from": [
+            "south"
+          ],
+          "polarity": "-"
+        }
+      ],
+      "outcome": {
+        "status": "playing",
+        "terminal": false,
+        "semanticKey": "{\"version\":\"resonance-1\",\"places\":[{\"id\":\"A1\",\"x\":0,\"y\":0,\"form\":\"conductor\",\"ports\":[\"east\",\"south\"],\"scar\":[\"east\",\"south\"],\"recovery\":0},{\"id\":\"B1\",\"x\":1,\"y\":0,\"form\":\"conductor\",\"ports\":[\"south\",\"west\"],\"scar\":[\"south\"],\"recovery\":0},{\"id\":\"C1\",\"x\":2,\"y\":0,\"form\":\"conductor\",\"ports\":[\"east\",\"south\"],\"scar\":[\"south\"],\"recovery\":0},{\"id\":\"D1\",\"x\":3,\"y\":0,\"form\":\"conductor\",\"ports\":[\"south\",\"west\"],\"scar\":[\"west\"],\"recovery\":0},{\"id\":\"A2\",\"x\":0,\"y\":1,\"form\":\"conductor\",\"ports\":[\"north\",\"east\"],\"scar\":[\"east\"],\"recovery\":0},{\"id\":\"B2\",\"x\":1,\"y\":1,\"form\":\"conductor\",\"ports\":[\"north\",\"east\",\"west\"],\"scar\":[\"east\"],\"recovery\":0},{\"id\":\"C2\",\"x\":2,\"y\":1,\"form\":\"conductor\",\"ports\":[\"north\",\"south\",\"west\"],\"scar\":[\"south\"],\"recovery\":0},{\"id\":\"D2\",\"x\":3,\"y\":1,\"form\":\"conductor\",\"ports\":[\"north\",\"south\"],\"scar\":[\"north\"],\"recovery\":0},{\"id\":\"A3\",\"x\":0,\"y\":2,\"form\":\"soil\",\"ports\":[],\"scar\":[],\"recovery\":0},{\"id\":\"B3\",\"x\":1,\"y\":2,\"form\":\"soil\",\"ports\":[],\"scar\":[],\"recovery\":0},{\"id\":\"C3\",\"x\":2,\"y\":2,\"form\":\"conductor\",\"ports\":[\"north\",\"east\"],\"scar\":[\"east\"],\"recovery\":1},{\"id\":\"D3\",\"x\":3,\"y\":2,\"form\":\"conductor\",\"ports\":[\"north\",\"west\"],\"scar\":[\"north\"],\"recovery\":0}],\"pulses\":[{\"at\":\"C2\",\"polarity\":\"-\",\"ingress\":[\"south\"]}],\"echoes\":[],\"known\":[{\"period\":4,\"entry\":\"south\",\"cells\":[{\"x\":0,\"y\":0,\"ports\":[\"east\",\"south\"],\"recovery\":0},{\"x\":1,\"y\":0,\"ports\":[\"south\",\"west\"],\"recovery\":0},{\"x\":0,\"y\":1,\"ports\":[\"north\",\"east\"],\"recovery\":0},{\"x\":1,\"y\":1,\"ports\":[\"north\",\"west\"],\"recovery\":0}],\"phases\":[{\"recovery\":[0,0,0,1],\"pulses\":[{\"x\":0,\"y\":1,\"polarity\":\"+\",\"ingress\":[\"east\"]}],\"echoes\":[]},{\"recovery\":[0,0,1,0],\"pulses\":[{\"x\":0,\"y\":0,\"polarity\":\"+\",\"ingress\":[\"south\"]}],\"echoes\":[]},{\"recovery\":[1,0,0,0],\"pulses\":[{\"x\":1,\"y\":0,\"polarity\":\"+\",\"ingress\":[\"west\"]}],\"echoes\":[]},{\"recovery\":[0,1,0,0],\"pulses\":[{\"x\":1,\"y\":1,\"polarity\":\"+\",\"ingress\":[\"north\"]}],\"echoes\":[]}],\"id\":\"form-7a8885d2\"},{\"period\":6,\"entry\":\"south\",\"cells\":[{\"x\":0,\"y\":0,\"ports\":[\"east\",\"south\"],\"recovery\":0},{\"x\":1,\"y\":0,\"ports\":[\"south\",\"west\"],\"recovery\":0},{\"x\":0,\"y\":1,\"ports\":[\"north\",\"south\"],\"recovery\":0},{\"x\":1,\"y\":1,\"ports\":[\"north\",\"south\"],\"recovery\":0},{\"x\":0,\"y\":2,\"ports\":[\"north\",\"east\"],\"recovery\":0},{\"x\":1,\"y\":2,\"ports\":[\"north\",\"west\"],\"recovery\":0}],\"phases\":[{\"recovery\":[0,0,0,0,0,1],\"pulses\":[{\"x\":0,\"y\":2,\"polarity\":\"-\",\"ingress\":[\"east\"]}],\"echoes\":[]},{\"recovery\":[0,0,0,0,1,0],\"pulses\":[{\"x\":0,\"y\":1,\"polarity\":\"-\",\"ingress\":[\"south\"]}],\"echoes\":[]},{\"recovery\":[0,0,1,0,0,0],\"pulses\":[{\"x\":0,\"y\":0,\"polarity\":\"-\",\"ingress\":[\"south\"]}],\"echoes\":[]},{\"recovery\":[1,0,0,0,0,0],\"pulses\":[{\"x\":1,\"y\":0,\"polarity\":\"-\",\"ingress\":[\"west\"]}],\"echoes\":[]},{\"recovery\":[0,1,0,0,0,0],\"pulses\":[{\"x\":1,\"y\":1,\"polarity\":\"-\",\"ingress\":[\"north\"]}],\"echoes\":[]},{\"recovery\":[0,0,0,1,0,0],\"pulses\":[{\"x\":1,\"y\":2,\"polarity\":\"-\",\"ingress\":[\"north\"]}],\"echoes\":[]}],\"id\":\"form-73914d08\"},{\"period\":4,\"entry\":\"south\",\"cells\":[{\"x\":0,\"y\":0,\"ports\":[\"east\",\"south\"],\"recovery\":0},{\"x\":1,\"y\":0,\"ports\":[\"south\",\"west\"],\"recovery\":0},{\"x\":0,\"y\":1,\"ports\":[\"north\",\"east\"],\"recovery\":0},{\"x\":1,\"y\":1,\"ports\":[\"north\",\"east\",\"west\"],\"recovery\":0}],\"phases\":[{\"recovery\":[0,0,0,1],\"pulses\":[{\"x\":0,\"y\":1,\"polarity\":\"+\",\"ingress\":[\"east\"]}],\"echoes\":[]},{\"recovery\":[0,0,1,0],\"pulses\":[{\"x\":0,\"y\":0,\"polarity\":\"+\",\"ingress\":[\"south\"]}],\"echoes\":[]},{\"recovery\":[1,0,0,0],\"pulses\":[{\"x\":1,\"y\":0,\"polarity\":\"+\",\"ingress\":[\"west\"]}],\"echoes\":[]},{\"recovery\":[0,1,0,0],\"pulses\":[{\"x\":1,\"y\":1,\"polarity\":\"+\",\"ingress\":[\"north\"]}],\"echoes\":[]}],\"id\":\"form-cf556d8f\"}],\"status\":\"playing\"}",
+        "objectives": [
+          {
+            "id": "two-independent-rhythms",
+            "value": 0,
+            "direction": "higher"
+          }
+        ],
+        "properties": {
+          "initialAim": false,
+          "cycles": [
+            {
+              "places": [
+                "A1",
+                "A2",
+                "B1",
+                "B2",
+                "C1",
+                "C2",
+                "C3",
+                "D1",
+                "D2",
+                "D3"
+              ],
+              "period": 6
+            }
+          ],
+          "moving": [
+            "C2"
+          ],
+          "scarred": [
+            "A1",
+            "B1",
+            "C1",
+            "D1",
+            "A2",
+            "B2",
+            "C2",
+            "D2",
+            "C3",
+            "D3"
+          ],
+          "forms": [
+            "form-7a8885d2",
+            "form-73914d08",
+            "form-cf556d8f"
+          ]
+        }
+      }
+    },
+    {
+      "phase": 3,
+      "joinedFronts": [
+        {
+          "at": "C1",
+          "polarity": "-",
+          "ingress": [
+            "south"
+          ]
+        }
+      ],
+      "trace": [
+        {
+          "kind": "passage",
+          "beat": 19,
+          "at": "D1",
+          "from": [
+            "west"
+          ],
+          "polarity": "-"
+        },
+        {
+          "kind": "passage",
+          "beat": 20,
+          "at": "D2",
+          "from": [
+            "north"
+          ],
+          "polarity": "-"
+        },
+        {
+          "kind": "passage",
+          "beat": 21,
+          "at": "D3",
+          "from": [
+            "north"
+          ],
+          "polarity": "-"
+        },
+        {
+          "kind": "passage",
+          "beat": 22,
+          "at": "C3",
+          "from": [
+            "east"
+          ],
+          "polarity": "-"
+        },
+        {
+          "kind": "passage",
+          "beat": 23,
+          "at": "C2",
+          "from": [
+            "south"
+          ],
+          "polarity": "-"
+        },
+        {
+          "kind": "passage",
+          "beat": 24,
+          "at": "C1",
+          "from": [
+            "south"
+          ],
+          "polarity": "-"
+        },
+        {
+          "kind": "passage",
+          "beat": 24,
+          "at": "B2",
+          "from": [
+            "east"
+          ],
+          "polarity": "-"
+        },
+        {
+          "kind": "passage",
+          "beat": 25,
+          "at": "B1",
+          "from": [
+            "south"
+          ],
+          "polarity": "-"
+        },
+        {
+          "kind": "passage",
+          "beat": 25,
+          "at": "D1",
+          "from": [
+            "west"
+          ],
+          "polarity": "-"
+        },
+        {
+          "kind": "passage",
+          "beat": 25,
+          "at": "A2",
+          "from": [
+            "east"
+          ],
+          "polarity": "-"
+        },
+        {
+          "kind": "coalescence",
+          "beat": 26,
+          "at": "A1",
+          "from": [
+            "east",
+            "south"
+          ],
+          "polarity": "-"
+        },
+        {
+          "kind": "passage",
+          "beat": 26,
+          "at": "D2",
+          "from": [
+            "north"
+          ],
+          "polarity": "-"
+        },
+        {
+          "kind": "passage",
+          "beat": 27,
+          "at": "D3",
+          "from": [
+            "north"
+          ],
+          "polarity": "-"
+        },
+        {
+          "kind": "passage",
+          "beat": 28,
+          "at": "C3",
+          "from": [
+            "east"
+          ],
+          "polarity": "-"
+        },
+        {
+          "kind": "passage",
+          "beat": 29,
+          "at": "C2",
+          "from": [
+            "south"
+          ],
+          "polarity": "-"
+        },
+        {
+          "kind": "passage",
+          "beat": 30,
+          "at": "C1",
+          "from": [
+            "south"
+          ],
+          "polarity": "-"
+        },
+        {
+          "kind": "passage",
+          "beat": 30,
+          "at": "B2",
+          "from": [
+            "east"
+          ],
+          "polarity": "-"
+        }
+      ],
+      "outcome": {
+        "status": "playing",
+        "terminal": false,
+        "semanticKey": "{\"version\":\"resonance-1\",\"places\":[{\"id\":\"A1\",\"x\":0,\"y\":0,\"form\":\"conductor\",\"ports\":[\"east\",\"south\"],\"scar\":[\"east\",\"south\"],\"recovery\":0},{\"id\":\"B1\",\"x\":1,\"y\":0,\"form\":\"conductor\",\"ports\":[\"south\",\"west\"],\"scar\":[\"south\"],\"recovery\":0},{\"id\":\"C1\",\"x\":2,\"y\":0,\"form\":\"conductor\",\"ports\":[\"east\",\"south\"],\"scar\":[\"south\"],\"recovery\":0},{\"id\":\"D1\",\"x\":3,\"y\":0,\"form\":\"conductor\",\"ports\":[\"south\",\"west\"],\"scar\":[\"west\"],\"recovery\":0},{\"id\":\"A2\",\"x\":0,\"y\":1,\"form\":\"conductor\",\"ports\":[\"north\",\"east\"],\"scar\":[\"east\"],\"recovery\":0},{\"id\":\"B2\",\"x\":1,\"y\":1,\"form\":\"conductor\",\"ports\":[\"north\",\"east\",\"west\"],\"scar\":[\"east\"],\"recovery\":0},{\"id\":\"C2\",\"x\":2,\"y\":1,\"form\":\"conductor\",\"ports\":[\"north\",\"south\",\"west\"],\"scar\":[\"south\"],\"recovery\":1},{\"id\":\"D2\",\"x\":3,\"y\":1,\"form\":\"conductor\",\"ports\":[\"north\",\"south\"],\"scar\":[\"north\"],\"recovery\":0},{\"id\":\"A3\",\"x\":0,\"y\":2,\"form\":\"soil\",\"ports\":[],\"scar\":[],\"recovery\":0},{\"id\":\"B3\",\"x\":1,\"y\":2,\"form\":\"soil\",\"ports\":[],\"scar\":[],\"recovery\":0},{\"id\":\"C3\",\"x\":2,\"y\":2,\"form\":\"conductor\",\"ports\":[\"north\",\"east\"],\"scar\":[\"east\"],\"recovery\":0},{\"id\":\"D3\",\"x\":3,\"y\":2,\"form\":\"conductor\",\"ports\":[\"north\",\"west\"],\"scar\":[\"north\"],\"recovery\":0}],\"pulses\":[{\"at\":\"B2\",\"polarity\":\"-\",\"ingress\":[\"east\"]},{\"at\":\"C1\",\"polarity\":\"-\",\"ingress\":[\"south\"]}],\"echoes\":[],\"known\":[{\"period\":4,\"entry\":\"south\",\"cells\":[{\"x\":0,\"y\":0,\"ports\":[\"east\",\"south\"],\"recovery\":0},{\"x\":1,\"y\":0,\"ports\":[\"south\",\"west\"],\"recovery\":0},{\"x\":0,\"y\":1,\"ports\":[\"north\",\"east\"],\"recovery\":0},{\"x\":1,\"y\":1,\"ports\":[\"north\",\"west\"],\"recovery\":0}],\"phases\":[{\"recovery\":[0,0,0,1],\"pulses\":[{\"x\":0,\"y\":1,\"polarity\":\"+\",\"ingress\":[\"east\"]}],\"echoes\":[]},{\"recovery\":[0,0,1,0],\"pulses\":[{\"x\":0,\"y\":0,\"polarity\":\"+\",\"ingress\":[\"south\"]}],\"echoes\":[]},{\"recovery\":[1,0,0,0],\"pulses\":[{\"x\":1,\"y\":0,\"polarity\":\"+\",\"ingress\":[\"west\"]}],\"echoes\":[]},{\"recovery\":[0,1,0,0],\"pulses\":[{\"x\":1,\"y\":1,\"polarity\":\"+\",\"ingress\":[\"north\"]}],\"echoes\":[]}],\"id\":\"form-7a8885d2\"},{\"period\":6,\"entry\":\"south\",\"cells\":[{\"x\":0,\"y\":0,\"ports\":[\"east\",\"south\"],\"recovery\":0},{\"x\":1,\"y\":0,\"ports\":[\"south\",\"west\"],\"recovery\":0},{\"x\":0,\"y\":1,\"ports\":[\"north\",\"south\"],\"recovery\":0},{\"x\":1,\"y\":1,\"ports\":[\"north\",\"south\"],\"recovery\":0},{\"x\":0,\"y\":2,\"ports\":[\"north\",\"east\"],\"recovery\":0},{\"x\":1,\"y\":2,\"ports\":[\"north\",\"west\"],\"recovery\":0}],\"phases\":[{\"recovery\":[0,0,0,0,0,1],\"pulses\":[{\"x\":0,\"y\":2,\"polarity\":\"-\",\"ingress\":[\"east\"]}],\"echoes\":[]},{\"recovery\":[0,0,0,0,1,0],\"pulses\":[{\"x\":0,\"y\":1,\"polarity\":\"-\",\"ingress\":[\"south\"]}],\"echoes\":[]},{\"recovery\":[0,0,1,0,0,0],\"pulses\":[{\"x\":0,\"y\":0,\"polarity\":\"-\",\"ingress\":[\"south\"]}],\"echoes\":[]},{\"recovery\":[1,0,0,0,0,0],\"pulses\":[{\"x\":1,\"y\":0,\"polarity\":\"-\",\"ingress\":[\"west\"]}],\"echoes\":[]},{\"recovery\":[0,1,0,0,0,0],\"pulses\":[{\"x\":1,\"y\":1,\"polarity\":\"-\",\"ingress\":[\"north\"]}],\"echoes\":[]},{\"recovery\":[0,0,0,1,0,0],\"pulses\":[{\"x\":1,\"y\":2,\"polarity\":\"-\",\"ingress\":[\"north\"]}],\"echoes\":[]}],\"id\":\"form-73914d08\"},{\"period\":4,\"entry\":\"south\",\"cells\":[{\"x\":0,\"y\":0,\"ports\":[\"east\",\"south\"],\"recovery\":0},{\"x\":1,\"y\":0,\"ports\":[\"south\",\"west\"],\"recovery\":0},{\"x\":0,\"y\":1,\"ports\":[\"north\",\"east\"],\"recovery\":0},{\"x\":1,\"y\":1,\"ports\":[\"north\",\"east\",\"west\"],\"recovery\":0}],\"phases\":[{\"recovery\":[0,0,0,1],\"pulses\":[{\"x\":0,\"y\":1,\"polarity\":\"+\",\"ingress\":[\"east\"]}],\"echoes\":[]},{\"recovery\":[0,0,1,0],\"pulses\":[{\"x\":0,\"y\":0,\"polarity\":\"+\",\"ingress\":[\"south\"]}],\"echoes\":[]},{\"recovery\":[1,0,0,0],\"pulses\":[{\"x\":1,\"y\":0,\"polarity\":\"+\",\"ingress\":[\"west\"]}],\"echoes\":[]},{\"recovery\":[0,1,0,0],\"pulses\":[{\"x\":1,\"y\":1,\"polarity\":\"+\",\"ingress\":[\"north\"]}],\"echoes\":[]}],\"id\":\"form-cf556d8f\"}],\"status\":\"playing\"}",
+        "objectives": [
+          {
+            "id": "two-independent-rhythms",
+            "value": 0,
+            "direction": "higher"
+          }
+        ],
+        "properties": {
+          "initialAim": false,
+          "cycles": [
+            {
+              "places": [
+                "A1",
+                "A2",
+                "B1",
+                "B2",
+                "C1",
+                "C2",
+                "C3",
+                "D1",
+                "D2",
+                "D3"
+              ],
+              "period": 6
+            }
+          ],
+          "moving": [
+            "B2",
+            "C1"
+          ],
+          "scarred": [
+            "A1",
+            "B1",
+            "C1",
+            "D1",
+            "A2",
+            "B2",
+            "C2",
+            "D2",
+            "C3",
+            "D3"
+          ],
+          "forms": [
+            "form-7a8885d2",
+            "form-73914d08",
+            "form-cf556d8f"
+          ]
+        }
+      }
+    },
+    {
+      "phase": 4,
+      "joinedFronts": [
+        {
+          "at": "A2",
+          "polarity": "+",
+          "ingress": [
+            "east"
+          ]
+        },
+        {
+          "at": "D1",
+          "polarity": "-",
+          "ingress": [
+            "west"
+          ]
+        }
+      ],
+      "trace": [
+        {
+          "kind": "passage",
+          "beat": 20,
+          "at": "A1",
+          "from": [
+            "south"
+          ],
+          "polarity": "+"
+        },
+        {
+          "kind": "passage",
+          "beat": 20,
+          "at": "D2",
+          "from": [
+            "north"
+          ],
+          "polarity": "-"
+        },
+        {
+          "kind": "passage",
+          "beat": 21,
+          "at": "B1",
+          "from": [
+            "west"
+          ],
+          "polarity": "+"
+        },
+        {
+          "kind": "passage",
+          "beat": 21,
+          "at": "D3",
+          "from": [
+            "north"
+          ],
+          "polarity": "-"
+        },
+        {
+          "kind": "passage",
+          "beat": 22,
+          "at": "B2",
+          "from": [
+            "north"
+          ],
+          "polarity": "+"
+        },
+        {
+          "kind": "passage",
+          "beat": 22,
+          "at": "C3",
+          "from": [
+            "east"
+          ],
+          "polarity": "-"
+        },
+        {
+          "kind": "passage",
+          "beat": 23,
+          "at": "A2",
+          "from": [
+            "east"
+          ],
+          "polarity": "+"
+        },
+        {
+          "kind": "annihilation",
+          "beat": 23,
+          "at": "C2",
+          "from": [
+            "south",
+            "west"
+          ]
+        },
+        {
+          "kind": "passage",
+          "beat": 24,
+          "at": "A1",
+          "from": [
+            "south"
+          ],
+          "polarity": "+"
+        },
+        {
+          "kind": "passage",
+          "beat": 25,
+          "at": "B1",
+          "from": [
+            "west"
+          ],
+          "polarity": "+"
+        },
+        {
+          "kind": "passage",
+          "beat": 26,
+          "at": "B2",
+          "from": [
+            "north"
+          ],
+          "polarity": "+"
+        },
+        {
+          "kind": "passage",
+          "beat": 27,
+          "at": "A2",
+          "from": [
+            "east"
+          ],
+          "polarity": "+"
+        },
+        {
+          "kind": "passage",
+          "beat": 27,
+          "at": "C2",
+          "from": [
+            "west"
+          ],
+          "polarity": "+"
+        },
+        {
+          "kind": "passage",
+          "beat": 28,
+          "at": "A1",
+          "from": [
+            "south"
+          ],
+          "polarity": "+"
+        },
+        {
+          "kind": "passage",
+          "beat": 28,
+          "at": "C1",
+          "from": [
+            "south"
+          ],
+          "polarity": "+"
+        },
+        {
+          "kind": "passage",
+          "beat": 28,
+          "at": "C3",
+          "from": [
+            "north"
+          ],
+          "polarity": "+"
+        },
+        {
+          "kind": "passage",
+          "beat": 29,
+          "at": "B1",
+          "from": [
+            "west"
+          ],
+          "polarity": "+"
+        },
+        {
+          "kind": "passage",
+          "beat": 29,
+          "at": "D1",
+          "from": [
+            "west"
+          ],
+          "polarity": "+"
+        },
+        {
+          "kind": "passage",
+          "beat": 29,
+          "at": "D3",
+          "from": [
+            "west"
+          ],
+          "polarity": "+"
+        },
+        {
+          "kind": "passage",
+          "beat": 30,
+          "at": "B2",
+          "from": [
+            "north"
+          ],
+          "polarity": "+"
+        },
+        {
+          "kind": "coalescence",
+          "beat": 30,
+          "at": "D2",
+          "from": [
+            "north",
+            "south"
+          ],
+          "polarity": "+"
+        },
+        {
+          "kind": "passage",
+          "beat": 31,
+          "at": "A2",
+          "from": [
+            "east"
+          ],
+          "polarity": "+"
+        },
+        {
+          "kind": "passage",
+          "beat": 31,
+          "at": "C2",
+          "from": [
+            "west"
+          ],
+          "polarity": "+"
+        },
+        {
+          "kind": "recurring-form",
+          "beat": 31,
+          "detail": "form-b184947b: period 4; A1,A2,B1,B2,C1,C2,C3,D1,D2,D3"
+        }
+      ],
+      "outcome": {
+        "status": "playing",
+        "terminal": false,
+        "semanticKey": "{\"version\":\"resonance-1\",\"places\":[{\"id\":\"A1\",\"x\":0,\"y\":0,\"form\":\"conductor\",\"ports\":[\"east\",\"south\"],\"scar\":[\"south\"],\"recovery\":0},{\"id\":\"B1\",\"x\":1,\"y\":0,\"form\":\"conductor\",\"ports\":[\"south\",\"west\"],\"scar\":[\"west\"],\"recovery\":0},{\"id\":\"C1\",\"x\":2,\"y\":0,\"form\":\"conductor\",\"ports\":[\"east\",\"south\"],\"scar\":[\"south\"],\"recovery\":0},{\"id\":\"D1\",\"x\":3,\"y\":0,\"form\":\"conductor\",\"ports\":[\"south\",\"west\"],\"scar\":[\"west\"],\"recovery\":0},{\"id\":\"A2\",\"x\":0,\"y\":1,\"form\":\"conductor\",\"ports\":[\"north\",\"east\"],\"scar\":[\"east\"],\"recovery\":0},{\"id\":\"B2\",\"x\":1,\"y\":1,\"form\":\"conductor\",\"ports\":[\"north\",\"east\",\"west\"],\"scar\":[\"north\"],\"recovery\":1},{\"id\":\"C2\",\"x\":2,\"y\":1,\"form\":\"conductor\",\"ports\":[\"north\",\"south\",\"west\"],\"scar\":[\"west\"],\"recovery\":0},{\"id\":\"D2\",\"x\":3,\"y\":1,\"form\":\"conductor\",\"ports\":[\"north\",\"south\"],\"scar\":[\"north\",\"south\"],\"recovery\":1},{\"id\":\"A3\",\"x\":0,\"y\":2,\"form\":\"soil\",\"ports\":[],\"scar\":[],\"recovery\":0},{\"id\":\"B3\",\"x\":1,\"y\":2,\"form\":\"soil\",\"ports\":[],\"scar\":[],\"recovery\":0},{\"id\":\"C3\",\"x\":2,\"y\":2,\"form\":\"conductor\",\"ports\":[\"north\",\"east\"],\"scar\":[\"north\"],\"recovery\":0},{\"id\":\"D3\",\"x\":3,\"y\":2,\"form\":\"conductor\",\"ports\":[\"north\",\"west\"],\"scar\":[\"west\"],\"recovery\":0}],\"pulses\":[{\"at\":\"A2\",\"polarity\":\"+\",\"ingress\":[\"east\"]},{\"at\":\"C2\",\"polarity\":\"+\",\"ingress\":[\"west\"]}],\"echoes\":[],\"known\":[{\"period\":4,\"entry\":\"south\",\"cells\":[{\"x\":0,\"y\":0,\"ports\":[\"east\",\"south\"],\"recovery\":0},{\"x\":1,\"y\":0,\"ports\":[\"south\",\"west\"],\"recovery\":0},{\"x\":0,\"y\":1,\"ports\":[\"north\",\"east\"],\"recovery\":0},{\"x\":1,\"y\":1,\"ports\":[\"north\",\"west\"],\"recovery\":0}],\"phases\":[{\"recovery\":[0,0,0,1],\"pulses\":[{\"x\":0,\"y\":1,\"polarity\":\"+\",\"ingress\":[\"east\"]}],\"echoes\":[]},{\"recovery\":[0,0,1,0],\"pulses\":[{\"x\":0,\"y\":0,\"polarity\":\"+\",\"ingress\":[\"south\"]}],\"echoes\":[]},{\"recovery\":[1,0,0,0],\"pulses\":[{\"x\":1,\"y\":0,\"polarity\":\"+\",\"ingress\":[\"west\"]}],\"echoes\":[]},{\"recovery\":[0,1,0,0],\"pulses\":[{\"x\":1,\"y\":1,\"polarity\":\"+\",\"ingress\":[\"north\"]}],\"echoes\":[]}],\"id\":\"form-7a8885d2\"},{\"period\":6,\"entry\":\"south\",\"cells\":[{\"x\":0,\"y\":0,\"ports\":[\"east\",\"south\"],\"recovery\":0},{\"x\":1,\"y\":0,\"ports\":[\"south\",\"west\"],\"recovery\":0},{\"x\":0,\"y\":1,\"ports\":[\"north\",\"south\"],\"recovery\":0},{\"x\":1,\"y\":1,\"ports\":[\"north\",\"south\"],\"recovery\":0},{\"x\":0,\"y\":2,\"ports\":[\"north\",\"east\"],\"recovery\":0},{\"x\":1,\"y\":2,\"ports\":[\"north\",\"west\"],\"recovery\":0}],\"phases\":[{\"recovery\":[0,0,0,0,0,1],\"pulses\":[{\"x\":0,\"y\":2,\"polarity\":\"-\",\"ingress\":[\"east\"]}],\"echoes\":[]},{\"recovery\":[0,0,0,0,1,0],\"pulses\":[{\"x\":0,\"y\":1,\"polarity\":\"-\",\"ingress\":[\"south\"]}],\"echoes\":[]},{\"recovery\":[0,0,1,0,0,0],\"pulses\":[{\"x\":0,\"y\":0,\"polarity\":\"-\",\"ingress\":[\"south\"]}],\"echoes\":[]},{\"recovery\":[1,0,0,0,0,0],\"pulses\":[{\"x\":1,\"y\":0,\"polarity\":\"-\",\"ingress\":[\"west\"]}],\"echoes\":[]},{\"recovery\":[0,1,0,0,0,0],\"pulses\":[{\"x\":1,\"y\":1,\"polarity\":\"-\",\"ingress\":[\"north\"]}],\"echoes\":[]},{\"recovery\":[0,0,0,1,0,0],\"pulses\":[{\"x\":1,\"y\":2,\"polarity\":\"-\",\"ingress\":[\"north\"]}],\"echoes\":[]}],\"id\":\"form-73914d08\"},{\"period\":4,\"entry\":\"south\",\"cells\":[{\"x\":0,\"y\":0,\"ports\":[\"east\",\"south\"],\"recovery\":0},{\"x\":1,\"y\":0,\"ports\":[\"south\",\"west\"],\"recovery\":0},{\"x\":0,\"y\":1,\"ports\":[\"north\",\"east\"],\"recovery\":0},{\"x\":1,\"y\":1,\"ports\":[\"north\",\"east\",\"west\"],\"recovery\":0}],\"phases\":[{\"recovery\":[0,0,0,1],\"pulses\":[{\"x\":0,\"y\":1,\"polarity\":\"+\",\"ingress\":[\"east\"]}],\"echoes\":[]},{\"recovery\":[0,0,1,0],\"pulses\":[{\"x\":0,\"y\":0,\"polarity\":\"+\",\"ingress\":[\"south\"]}],\"echoes\":[]},{\"recovery\":[1,0,0,0],\"pulses\":[{\"x\":1,\"y\":0,\"polarity\":\"+\",\"ingress\":[\"west\"]}],\"echoes\":[]},{\"recovery\":[0,1,0,0],\"pulses\":[{\"x\":1,\"y\":1,\"polarity\":\"+\",\"ingress\":[\"north\"]}],\"echoes\":[]}],\"id\":\"form-cf556d8f\"},{\"period\":4,\"entry\":\"south\",\"cells\":[{\"x\":0,\"y\":0,\"ports\":[\"east\",\"south\"],\"recovery\":0},{\"x\":1,\"y\":0,\"ports\":[\"south\",\"west\"],\"recovery\":0},{\"x\":2,\"y\":0,\"ports\":[\"east\",\"south\"],\"recovery\":0},{\"x\":3,\"y\":0,\"ports\":[\"south\",\"west\"],\"recovery\":0},{\"x\":0,\"y\":1,\"ports\":[\"north\",\"east\"],\"recovery\":0},{\"x\":1,\"y\":1,\"ports\":[\"north\",\"east\",\"west\"],\"recovery\":0},{\"x\":2,\"y\":1,\"ports\":[\"north\",\"south\",\"west\"],\"recovery\":0},{\"x\":3,\"y\":1,\"ports\":[\"north\",\"south\"],\"recovery\":0},{\"x\":2,\"y\":2,\"ports\":[\"north\",\"east\"],\"recovery\":0},{\"x\":3,\"y\":2,\"ports\":[\"north\",\"west\"],\"recovery\":0}],\"phases\":[{\"recovery\":[0,0,0,0,0,1,0,1,0,0],\"pulses\":[{\"x\":0,\"y\":1,\"polarity\":\"+\",\"ingress\":[\"east\"]},{\"x\":2,\"y\":1,\"polarity\":\"+\",\"ingress\":[\"west\"]}],\"echoes\":[]},{\"recovery\":[0,0,0,0,1,0,1,0,0,0],\"pulses\":[{\"x\":0,\"y\":0,\"polarity\":\"+\",\"ingress\":[\"south\"]},{\"x\":2,\"y\":0,\"polarity\":\"+\",\"ingress\":[\"south\"]},{\"x\":2,\"y\":2,\"polarity\":\"+\",\"ingress\":[\"north\"]}],\"echoes\":[]},{\"recovery\":[1,0,1,0,0,0,0,0,1,0],\"pulses\":[{\"x\":1,\"y\":0,\"polarity\":\"+\",\"ingress\":[\"west\"]},{\"x\":3,\"y\":0,\"polarity\":\"+\",\"ingress\":[\"west\"]},{\"x\":3,\"y\":2,\"polarity\":\"+\",\"ingress\":[\"west\"]}],\"echoes\":[]},{\"recovery\":[0,1,0,1,0,0,0,0,0,1],\"pulses\":[{\"x\":1,\"y\":1,\"polarity\":\"+\",\"ingress\":[\"north\"]},{\"x\":3,\"y\":1,\"polarity\":\"+\",\"ingress\":[\"north\",\"south\"]}],\"echoes\":[]}],\"id\":\"form-b184947b\"}],\"status\":\"playing\"}",
+        "objectives": [
+          {
+            "id": "two-independent-rhythms",
+            "value": 0,
+            "direction": "higher"
+          }
+        ],
+        "properties": {
+          "initialAim": false,
+          "cycles": [
+            {
+              "places": [
+                "A1",
+                "A2",
+                "B1",
+                "B2",
+                "C1",
+                "C2",
+                "C3",
+                "D1",
+                "D2",
+                "D3"
+              ],
+              "period": 4
+            }
+          ],
+          "moving": [
+            "A2",
+            "C2"
+          ],
+          "scarred": [
+            "A1",
+            "B1",
+            "C1",
+            "D1",
+            "A2",
+            "B2",
+            "C2",
+            "D2",
+            "C3",
+            "D3"
+          ],
+          "forms": [
+            "form-7a8885d2",
+            "form-73914d08",
+            "form-cf556d8f",
+            "form-b184947b"
+          ]
+        }
+      }
+    },
+    {
+      "phase": 5,
+      "joinedFronts": [
+        {
+          "at": "A1",
+          "polarity": "+",
+          "ingress": [
+            "south"
+          ]
+        },
+        {
+          "at": "D2",
+          "polarity": "-",
+          "ingress": [
+            "north"
+          ]
+        }
+      ],
+      "trace": [
+        {
+          "kind": "passage",
+          "beat": 21,
+          "at": "B1",
+          "from": [
+            "west"
+          ],
+          "polarity": "+"
+        },
+        {
+          "kind": "passage",
+          "beat": 21,
+          "at": "D3",
+          "from": [
+            "north"
+          ],
+          "polarity": "-"
+        },
+        {
+          "kind": "passage",
+          "beat": 22,
+          "at": "B2",
+          "from": [
+            "north"
+          ],
+          "polarity": "+"
+        },
+        {
+          "kind": "passage",
+          "beat": 22,
+          "at": "C3",
+          "from": [
+            "east"
+          ],
+          "polarity": "-"
+        },
+        {
+          "kind": "passage",
+          "beat": 23,
+          "at": "A2",
+          "from": [
+            "east"
+          ],
+          "polarity": "+"
+        },
+        {
+          "kind": "annihilation",
+          "beat": 23,
+          "at": "C2",
+          "from": [
+            "south",
+            "west"
+          ]
+        },
+        {
+          "kind": "passage",
+          "beat": 24,
+          "at": "A1",
+          "from": [
+            "south"
+          ],
+          "polarity": "+"
+        },
+        {
+          "kind": "passage",
+          "beat": 25,
+          "at": "B1",
+          "from": [
+            "west"
+          ],
+          "polarity": "+"
+        },
+        {
+          "kind": "passage",
+          "beat": 26,
+          "at": "B2",
+          "from": [
+            "north"
+          ],
+          "polarity": "+"
+        },
+        {
+          "kind": "passage",
+          "beat": 27,
+          "at": "A2",
+          "from": [
+            "east"
+          ],
+          "polarity": "+"
+        },
+        {
+          "kind": "passage",
+          "beat": 27,
+          "at": "C2",
+          "from": [
+            "west"
+          ],
+          "polarity": "+"
+        },
+        {
+          "kind": "passage",
+          "beat": 28,
+          "at": "A1",
+          "from": [
+            "south"
+          ],
+          "polarity": "+"
+        },
+        {
+          "kind": "passage",
+          "beat": 28,
+          "at": "C1",
+          "from": [
+            "south"
+          ],
+          "polarity": "+"
+        },
+        {
+          "kind": "passage",
+          "beat": 28,
+          "at": "C3",
+          "from": [
+            "north"
+          ],
+          "polarity": "+"
+        },
+        {
+          "kind": "passage",
+          "beat": 29,
+          "at": "B1",
+          "from": [
+            "west"
+          ],
+          "polarity": "+"
+        },
+        {
+          "kind": "passage",
+          "beat": 29,
+          "at": "D1",
+          "from": [
+            "west"
+          ],
+          "polarity": "+"
+        },
+        {
+          "kind": "passage",
+          "beat": 29,
+          "at": "D3",
+          "from": [
+            "west"
+          ],
+          "polarity": "+"
+        },
+        {
+          "kind": "passage",
+          "beat": 30,
+          "at": "B2",
+          "from": [
+            "north"
+          ],
+          "polarity": "+"
+        },
+        {
+          "kind": "coalescence",
+          "beat": 30,
+          "at": "D2",
+          "from": [
+            "north",
+            "south"
+          ],
+          "polarity": "+"
+        },
+        {
+          "kind": "passage",
+          "beat": 31,
+          "at": "A2",
+          "from": [
+            "east"
+          ],
+          "polarity": "+"
+        },
+        {
+          "kind": "passage",
+          "beat": 31,
+          "at": "C2",
+          "from": [
+            "west"
+          ],
+          "polarity": "+"
+        },
+        {
+          "kind": "passage",
+          "beat": 32,
+          "at": "A1",
+          "from": [
+            "south"
+          ],
+          "polarity": "+"
+        },
+        {
+          "kind": "passage",
+          "beat": 32,
+          "at": "C1",
+          "from": [
+            "south"
+          ],
+          "polarity": "+"
+        },
+        {
+          "kind": "passage",
+          "beat": 32,
+          "at": "C3",
+          "from": [
+            "north"
+          ],
+          "polarity": "+"
+        },
+        {
+          "kind": "recurring-form",
+          "beat": 32,
+          "detail": "form-b184947b: period 4; A1,A2,B1,B2,C1,C2,C3,D1,D2,D3"
+        }
+      ],
+      "outcome": {
+        "status": "playing",
+        "terminal": false,
+        "semanticKey": "{\"version\":\"resonance-1\",\"places\":[{\"id\":\"A1\",\"x\":0,\"y\":0,\"form\":\"conductor\",\"ports\":[\"east\",\"south\"],\"scar\":[\"south\"],\"recovery\":0},{\"id\":\"B1\",\"x\":1,\"y\":0,\"form\":\"conductor\",\"ports\":[\"south\",\"west\"],\"scar\":[\"west\"],\"recovery\":0},{\"id\":\"C1\",\"x\":2,\"y\":0,\"form\":\"conductor\",\"ports\":[\"east\",\"south\"],\"scar\":[\"south\"],\"recovery\":0},{\"id\":\"D1\",\"x\":3,\"y\":0,\"form\":\"conductor\",\"ports\":[\"south\",\"west\"],\"scar\":[\"west\"],\"recovery\":0},{\"id\":\"A2\",\"x\":0,\"y\":1,\"form\":\"conductor\",\"ports\":[\"north\",\"east\"],\"scar\":[\"east\"],\"recovery\":1},{\"id\":\"B2\",\"x\":1,\"y\":1,\"form\":\"conductor\",\"ports\":[\"north\",\"east\",\"west\"],\"scar\":[\"north\"],\"recovery\":0},{\"id\":\"C2\",\"x\":2,\"y\":1,\"form\":\"conductor\",\"ports\":[\"north\",\"south\",\"west\"],\"scar\":[\"west\"],\"recovery\":1},{\"id\":\"D2\",\"x\":3,\"y\":1,\"form\":\"conductor\",\"ports\":[\"north\",\"south\"],\"scar\":[\"north\",\"south\"],\"recovery\":0},{\"id\":\"A3\",\"x\":0,\"y\":2,\"form\":\"soil\",\"ports\":[],\"scar\":[],\"recovery\":0},{\"id\":\"B3\",\"x\":1,\"y\":2,\"form\":\"soil\",\"ports\":[],\"scar\":[],\"recovery\":0},{\"id\":\"C3\",\"x\":2,\"y\":2,\"form\":\"conductor\",\"ports\":[\"north\",\"east\"],\"scar\":[\"north\"],\"recovery\":0},{\"id\":\"D3\",\"x\":3,\"y\":2,\"form\":\"conductor\",\"ports\":[\"north\",\"west\"],\"scar\":[\"west\"],\"recovery\":0}],\"pulses\":[{\"at\":\"A1\",\"polarity\":\"+\",\"ingress\":[\"south\"]},{\"at\":\"C1\",\"polarity\":\"+\",\"ingress\":[\"south\"]},{\"at\":\"C3\",\"polarity\":\"+\",\"ingress\":[\"north\"]}],\"echoes\":[],\"known\":[{\"period\":4,\"entry\":\"south\",\"cells\":[{\"x\":0,\"y\":0,\"ports\":[\"east\",\"south\"],\"recovery\":0},{\"x\":1,\"y\":0,\"ports\":[\"south\",\"west\"],\"recovery\":0},{\"x\":0,\"y\":1,\"ports\":[\"north\",\"east\"],\"recovery\":0},{\"x\":1,\"y\":1,\"ports\":[\"north\",\"west\"],\"recovery\":0}],\"phases\":[{\"recovery\":[0,0,0,1],\"pulses\":[{\"x\":0,\"y\":1,\"polarity\":\"+\",\"ingress\":[\"east\"]}],\"echoes\":[]},{\"recovery\":[0,0,1,0],\"pulses\":[{\"x\":0,\"y\":0,\"polarity\":\"+\",\"ingress\":[\"south\"]}],\"echoes\":[]},{\"recovery\":[1,0,0,0],\"pulses\":[{\"x\":1,\"y\":0,\"polarity\":\"+\",\"ingress\":[\"west\"]}],\"echoes\":[]},{\"recovery\":[0,1,0,0],\"pulses\":[{\"x\":1,\"y\":1,\"polarity\":\"+\",\"ingress\":[\"north\"]}],\"echoes\":[]}],\"id\":\"form-7a8885d2\"},{\"period\":6,\"entry\":\"south\",\"cells\":[{\"x\":0,\"y\":0,\"ports\":[\"east\",\"south\"],\"recovery\":0},{\"x\":1,\"y\":0,\"ports\":[\"south\",\"west\"],\"recovery\":0},{\"x\":0,\"y\":1,\"ports\":[\"north\",\"south\"],\"recovery\":0},{\"x\":1,\"y\":1,\"ports\":[\"north\",\"south\"],\"recovery\":0},{\"x\":0,\"y\":2,\"ports\":[\"north\",\"east\"],\"recovery\":0},{\"x\":1,\"y\":2,\"ports\":[\"north\",\"west\"],\"recovery\":0}],\"phases\":[{\"recovery\":[0,0,0,0,0,1],\"pulses\":[{\"x\":0,\"y\":2,\"polarity\":\"-\",\"ingress\":[\"east\"]}],\"echoes\":[]},{\"recovery\":[0,0,0,0,1,0],\"pulses\":[{\"x\":0,\"y\":1,\"polarity\":\"-\",\"ingress\":[\"south\"]}],\"echoes\":[]},{\"recovery\":[0,0,1,0,0,0],\"pulses\":[{\"x\":0,\"y\":0,\"polarity\":\"-\",\"ingress\":[\"south\"]}],\"echoes\":[]},{\"recovery\":[1,0,0,0,0,0],\"pulses\":[{\"x\":1,\"y\":0,\"polarity\":\"-\",\"ingress\":[\"west\"]}],\"echoes\":[]},{\"recovery\":[0,1,0,0,0,0],\"pulses\":[{\"x\":1,\"y\":1,\"polarity\":\"-\",\"ingress\":[\"north\"]}],\"echoes\":[]},{\"recovery\":[0,0,0,1,0,0],\"pulses\":[{\"x\":1,\"y\":2,\"polarity\":\"-\",\"ingress\":[\"north\"]}],\"echoes\":[]}],\"id\":\"form-73914d08\"},{\"period\":4,\"entry\":\"south\",\"cells\":[{\"x\":0,\"y\":0,\"ports\":[\"east\",\"south\"],\"recovery\":0},{\"x\":1,\"y\":0,\"ports\":[\"south\",\"west\"],\"recovery\":0},{\"x\":0,\"y\":1,\"ports\":[\"north\",\"east\"],\"recovery\":0},{\"x\":1,\"y\":1,\"ports\":[\"north\",\"east\",\"west\"],\"recovery\":0}],\"phases\":[{\"recovery\":[0,0,0,1],\"pulses\":[{\"x\":0,\"y\":1,\"polarity\":\"+\",\"ingress\":[\"east\"]}],\"echoes\":[]},{\"recovery\":[0,0,1,0],\"pulses\":[{\"x\":0,\"y\":0,\"polarity\":\"+\",\"ingress\":[\"south\"]}],\"echoes\":[]},{\"recovery\":[1,0,0,0],\"pulses\":[{\"x\":1,\"y\":0,\"polarity\":\"+\",\"ingress\":[\"west\"]}],\"echoes\":[]},{\"recovery\":[0,1,0,0],\"pulses\":[{\"x\":1,\"y\":1,\"polarity\":\"+\",\"ingress\":[\"north\"]}],\"echoes\":[]}],\"id\":\"form-cf556d8f\"},{\"period\":4,\"entry\":\"south\",\"cells\":[{\"x\":0,\"y\":0,\"ports\":[\"east\",\"south\"],\"recovery\":0},{\"x\":1,\"y\":0,\"ports\":[\"south\",\"west\"],\"recovery\":0},{\"x\":2,\"y\":0,\"ports\":[\"east\",\"south\"],\"recovery\":0},{\"x\":3,\"y\":0,\"ports\":[\"south\",\"west\"],\"recovery\":0},{\"x\":0,\"y\":1,\"ports\":[\"north\",\"east\"],\"recovery\":0},{\"x\":1,\"y\":1,\"ports\":[\"north\",\"east\",\"west\"],\"recovery\":0},{\"x\":2,\"y\":1,\"ports\":[\"north\",\"south\",\"west\"],\"recovery\":0},{\"x\":3,\"y\":1,\"ports\":[\"north\",\"south\"],\"recovery\":0},{\"x\":2,\"y\":2,\"ports\":[\"north\",\"east\"],\"recovery\":0},{\"x\":3,\"y\":2,\"ports\":[\"north\",\"west\"],\"recovery\":0}],\"phases\":[{\"recovery\":[0,0,0,0,0,1,0,1,0,0],\"pulses\":[{\"x\":0,\"y\":1,\"polarity\":\"+\",\"ingress\":[\"east\"]},{\"x\":2,\"y\":1,\"polarity\":\"+\",\"ingress\":[\"west\"]}],\"echoes\":[]},{\"recovery\":[0,0,0,0,1,0,1,0,0,0],\"pulses\":[{\"x\":0,\"y\":0,\"polarity\":\"+\",\"ingress\":[\"south\"]},{\"x\":2,\"y\":0,\"polarity\":\"+\",\"ingress\":[\"south\"]},{\"x\":2,\"y\":2,\"polarity\":\"+\",\"ingress\":[\"north\"]}],\"echoes\":[]},{\"recovery\":[1,0,1,0,0,0,0,0,1,0],\"pulses\":[{\"x\":1,\"y\":0,\"polarity\":\"+\",\"ingress\":[\"west\"]},{\"x\":3,\"y\":0,\"polarity\":\"+\",\"ingress\":[\"west\"]},{\"x\":3,\"y\":2,\"polarity\":\"+\",\"ingress\":[\"west\"]}],\"echoes\":[]},{\"recovery\":[0,1,0,1,0,0,0,0,0,1],\"pulses\":[{\"x\":1,\"y\":1,\"polarity\":\"+\",\"ingress\":[\"north\"]},{\"x\":3,\"y\":1,\"polarity\":\"+\",\"ingress\":[\"north\",\"south\"]}],\"echoes\":[]}],\"id\":\"form-b184947b\"}],\"status\":\"playing\"}",
+        "objectives": [
+          {
+            "id": "two-independent-rhythms",
+            "value": 0,
+            "direction": "higher"
+          }
+        ],
+        "properties": {
+          "initialAim": false,
+          "cycles": [
+            {
+              "places": [
+                "A1",
+                "A2",
+                "B1",
+                "B2",
+                "C1",
+                "C2",
+                "C3",
+                "D1",
+                "D2",
+                "D3"
+              ],
+              "period": 4
+            }
+          ],
+          "moving": [
+            "A1",
+            "C1",
+            "C3"
+          ],
+          "scarred": [
+            "A1",
+            "B1",
+            "C1",
+            "D1",
+            "A2",
+            "B2",
+            "C2",
+            "D2",
+            "C3",
+            "D3"
+          ],
+          "forms": [
+            "form-7a8885d2",
+            "form-73914d08",
+            "form-cf556d8f",
+            "form-b184947b"
+          ]
+        }
+      }
+    },
+    {
+      "phase": 6,
+      "joinedFronts": [
+        {
+          "at": "B1",
+          "polarity": "+",
+          "ingress": [
+            "west"
+          ]
+        },
+        {
+          "at": "D3",
+          "polarity": "-",
+          "ingress": [
+            "north"
+          ]
+        }
+      ],
+      "trace": [
+        {
+          "kind": "passage",
+          "beat": 22,
+          "at": "B2",
+          "from": [
+            "north"
+          ],
+          "polarity": "+"
+        },
+        {
+          "kind": "passage",
+          "beat": 22,
+          "at": "C3",
+          "from": [
+            "east"
+          ],
+          "polarity": "-"
+        },
+        {
+          "kind": "passage",
+          "beat": 23,
+          "at": "A2",
+          "from": [
+            "east"
+          ],
+          "polarity": "+"
+        },
+        {
+          "kind": "annihilation",
+          "beat": 23,
+          "at": "C2",
+          "from": [
+            "south",
+            "west"
+          ]
+        },
+        {
+          "kind": "passage",
+          "beat": 24,
+          "at": "A1",
+          "from": [
+            "south"
+          ],
+          "polarity": "+"
+        },
+        {
+          "kind": "passage",
+          "beat": 25,
+          "at": "B1",
+          "from": [
+            "west"
+          ],
+          "polarity": "+"
+        },
+        {
+          "kind": "passage",
+          "beat": 26,
+          "at": "B2",
+          "from": [
+            "north"
+          ],
+          "polarity": "+"
+        },
+        {
+          "kind": "passage",
+          "beat": 27,
+          "at": "A2",
+          "from": [
+            "east"
+          ],
+          "polarity": "+"
+        },
+        {
+          "kind": "passage",
+          "beat": 27,
+          "at": "C2",
+          "from": [
+            "west"
+          ],
+          "polarity": "+"
+        },
+        {
+          "kind": "passage",
+          "beat": 28,
+          "at": "A1",
+          "from": [
+            "south"
+          ],
+          "polarity": "+"
+        },
+        {
+          "kind": "passage",
+          "beat": 28,
+          "at": "C1",
+          "from": [
+            "south"
+          ],
+          "polarity": "+"
+        },
+        {
+          "kind": "passage",
+          "beat": 28,
+          "at": "C3",
+          "from": [
+            "north"
+          ],
+          "polarity": "+"
+        },
+        {
+          "kind": "passage",
+          "beat": 29,
+          "at": "B1",
+          "from": [
+            "west"
+          ],
+          "polarity": "+"
+        },
+        {
+          "kind": "passage",
+          "beat": 29,
+          "at": "D1",
+          "from": [
+            "west"
+          ],
+          "polarity": "+"
+        },
+        {
+          "kind": "passage",
+          "beat": 29,
+          "at": "D3",
+          "from": [
+            "west"
+          ],
+          "polarity": "+"
+        },
+        {
+          "kind": "passage",
+          "beat": 30,
+          "at": "B2",
+          "from": [
+            "north"
+          ],
+          "polarity": "+"
+        },
+        {
+          "kind": "coalescence",
+          "beat": 30,
+          "at": "D2",
+          "from": [
+            "north",
+            "south"
+          ],
+          "polarity": "+"
+        },
+        {
+          "kind": "passage",
+          "beat": 31,
+          "at": "A2",
+          "from": [
+            "east"
+          ],
+          "polarity": "+"
+        },
+        {
+          "kind": "passage",
+          "beat": 31,
+          "at": "C2",
+          "from": [
+            "west"
+          ],
+          "polarity": "+"
+        },
+        {
+          "kind": "passage",
+          "beat": 32,
+          "at": "A1",
+          "from": [
+            "south"
+          ],
+          "polarity": "+"
+        },
+        {
+          "kind": "passage",
+          "beat": 32,
+          "at": "C1",
+          "from": [
+            "south"
+          ],
+          "polarity": "+"
+        },
+        {
+          "kind": "passage",
+          "beat": 32,
+          "at": "C3",
+          "from": [
+            "north"
+          ],
+          "polarity": "+"
+        },
+        {
+          "kind": "passage",
+          "beat": 33,
+          "at": "B1",
+          "from": [
+            "west"
+          ],
+          "polarity": "+"
+        },
+        {
+          "kind": "passage",
+          "beat": 33,
+          "at": "D1",
+          "from": [
+            "west"
+          ],
+          "polarity": "+"
+        },
+        {
+          "kind": "passage",
+          "beat": 33,
+          "at": "D3",
+          "from": [
+            "west"
+          ],
+          "polarity": "+"
+        },
+        {
+          "kind": "recurring-form",
+          "beat": 33,
+          "detail": "form-b184947b: period 4; A1,A2,B1,B2,C1,C2,C3,D1,D2,D3"
+        }
+      ],
+      "outcome": {
+        "status": "playing",
+        "terminal": false,
+        "semanticKey": "{\"version\":\"resonance-1\",\"places\":[{\"id\":\"A1\",\"x\":0,\"y\":0,\"form\":\"conductor\",\"ports\":[\"east\",\"south\"],\"scar\":[\"south\"],\"recovery\":1},{\"id\":\"B1\",\"x\":1,\"y\":0,\"form\":\"conductor\",\"ports\":[\"south\",\"west\"],\"scar\":[\"west\"],\"recovery\":0},{\"id\":\"C1\",\"x\":2,\"y\":0,\"form\":\"conductor\",\"ports\":[\"east\",\"south\"],\"scar\":[\"south\"],\"recovery\":1},{\"id\":\"D1\",\"x\":3,\"y\":0,\"form\":\"conductor\",\"ports\":[\"south\",\"west\"],\"scar\":[\"west\"],\"recovery\":0},{\"id\":\"A2\",\"x\":0,\"y\":1,\"form\":\"conductor\",\"ports\":[\"north\",\"east\"],\"scar\":[\"east\"],\"recovery\":0},{\"id\":\"B2\",\"x\":1,\"y\":1,\"form\":\"conductor\",\"ports\":[\"north\",\"east\",\"west\"],\"scar\":[\"north\"],\"recovery\":0},{\"id\":\"C2\",\"x\":2,\"y\":1,\"form\":\"conductor\",\"ports\":[\"north\",\"south\",\"west\"],\"scar\":[\"west\"],\"recovery\":0},{\"id\":\"D2\",\"x\":3,\"y\":1,\"form\":\"conductor\",\"ports\":[\"north\",\"south\"],\"scar\":[\"north\",\"south\"],\"recovery\":0},{\"id\":\"A3\",\"x\":0,\"y\":2,\"form\":\"soil\",\"ports\":[],\"scar\":[],\"recovery\":0},{\"id\":\"B3\",\"x\":1,\"y\":2,\"form\":\"soil\",\"ports\":[],\"scar\":[],\"recovery\":0},{\"id\":\"C3\",\"x\":2,\"y\":2,\"form\":\"conductor\",\"ports\":[\"north\",\"east\"],\"scar\":[\"north\"],\"recovery\":1},{\"id\":\"D3\",\"x\":3,\"y\":2,\"form\":\"conductor\",\"ports\":[\"north\",\"west\"],\"scar\":[\"west\"],\"recovery\":0}],\"pulses\":[{\"at\":\"B1\",\"polarity\":\"+\",\"ingress\":[\"west\"]},{\"at\":\"D1\",\"polarity\":\"+\",\"ingress\":[\"west\"]},{\"at\":\"D3\",\"polarity\":\"+\",\"ingress\":[\"west\"]}],\"echoes\":[],\"known\":[{\"period\":4,\"entry\":\"south\",\"cells\":[{\"x\":0,\"y\":0,\"ports\":[\"east\",\"south\"],\"recovery\":0},{\"x\":1,\"y\":0,\"ports\":[\"south\",\"west\"],\"recovery\":0},{\"x\":0,\"y\":1,\"ports\":[\"north\",\"east\"],\"recovery\":0},{\"x\":1,\"y\":1,\"ports\":[\"north\",\"west\"],\"recovery\":0}],\"phases\":[{\"recovery\":[0,0,0,1],\"pulses\":[{\"x\":0,\"y\":1,\"polarity\":\"+\",\"ingress\":[\"east\"]}],\"echoes\":[]},{\"recovery\":[0,0,1,0],\"pulses\":[{\"x\":0,\"y\":0,\"polarity\":\"+\",\"ingress\":[\"south\"]}],\"echoes\":[]},{\"recovery\":[1,0,0,0],\"pulses\":[{\"x\":1,\"y\":0,\"polarity\":\"+\",\"ingress\":[\"west\"]}],\"echoes\":[]},{\"recovery\":[0,1,0,0],\"pulses\":[{\"x\":1,\"y\":1,\"polarity\":\"+\",\"ingress\":[\"north\"]}],\"echoes\":[]}],\"id\":\"form-7a8885d2\"},{\"period\":6,\"entry\":\"south\",\"cells\":[{\"x\":0,\"y\":0,\"ports\":[\"east\",\"south\"],\"recovery\":0},{\"x\":1,\"y\":0,\"ports\":[\"south\",\"west\"],\"recovery\":0},{\"x\":0,\"y\":1,\"ports\":[\"north\",\"south\"],\"recovery\":0},{\"x\":1,\"y\":1,\"ports\":[\"north\",\"south\"],\"recovery\":0},{\"x\":0,\"y\":2,\"ports\":[\"north\",\"east\"],\"recovery\":0},{\"x\":1,\"y\":2,\"ports\":[\"north\",\"west\"],\"recovery\":0}],\"phases\":[{\"recovery\":[0,0,0,0,0,1],\"pulses\":[{\"x\":0,\"y\":2,\"polarity\":\"-\",\"ingress\":[\"east\"]}],\"echoes\":[]},{\"recovery\":[0,0,0,0,1,0],\"pulses\":[{\"x\":0,\"y\":1,\"polarity\":\"-\",\"ingress\":[\"south\"]}],\"echoes\":[]},{\"recovery\":[0,0,1,0,0,0],\"pulses\":[{\"x\":0,\"y\":0,\"polarity\":\"-\",\"ingress\":[\"south\"]}],\"echoes\":[]},{\"recovery\":[1,0,0,0,0,0],\"pulses\":[{\"x\":1,\"y\":0,\"polarity\":\"-\",\"ingress\":[\"west\"]}],\"echoes\":[]},{\"recovery\":[0,1,0,0,0,0],\"pulses\":[{\"x\":1,\"y\":1,\"polarity\":\"-\",\"ingress\":[\"north\"]}],\"echoes\":[]},{\"recovery\":[0,0,0,1,0,0],\"pulses\":[{\"x\":1,\"y\":2,\"polarity\":\"-\",\"ingress\":[\"north\"]}],\"echoes\":[]}],\"id\":\"form-73914d08\"},{\"period\":4,\"entry\":\"south\",\"cells\":[{\"x\":0,\"y\":0,\"ports\":[\"east\",\"south\"],\"recovery\":0},{\"x\":1,\"y\":0,\"ports\":[\"south\",\"west\"],\"recovery\":0},{\"x\":0,\"y\":1,\"ports\":[\"north\",\"east\"],\"recovery\":0},{\"x\":1,\"y\":1,\"ports\":[\"north\",\"east\",\"west\"],\"recovery\":0}],\"phases\":[{\"recovery\":[0,0,0,1],\"pulses\":[{\"x\":0,\"y\":1,\"polarity\":\"+\",\"ingress\":[\"east\"]}],\"echoes\":[]},{\"recovery\":[0,0,1,0],\"pulses\":[{\"x\":0,\"y\":0,\"polarity\":\"+\",\"ingress\":[\"south\"]}],\"echoes\":[]},{\"recovery\":[1,0,0,0],\"pulses\":[{\"x\":1,\"y\":0,\"polarity\":\"+\",\"ingress\":[\"west\"]}],\"echoes\":[]},{\"recovery\":[0,1,0,0],\"pulses\":[{\"x\":1,\"y\":1,\"polarity\":\"+\",\"ingress\":[\"north\"]}],\"echoes\":[]}],\"id\":\"form-cf556d8f\"},{\"period\":4,\"entry\":\"south\",\"cells\":[{\"x\":0,\"y\":0,\"ports\":[\"east\",\"south\"],\"recovery\":0},{\"x\":1,\"y\":0,\"ports\":[\"south\",\"west\"],\"recovery\":0},{\"x\":2,\"y\":0,\"ports\":[\"east\",\"south\"],\"recovery\":0},{\"x\":3,\"y\":0,\"ports\":[\"south\",\"west\"],\"recovery\":0},{\"x\":0,\"y\":1,\"ports\":[\"north\",\"east\"],\"recovery\":0},{\"x\":1,\"y\":1,\"ports\":[\"north\",\"east\",\"west\"],\"recovery\":0},{\"x\":2,\"y\":1,\"ports\":[\"north\",\"south\",\"west\"],\"recovery\":0},{\"x\":3,\"y\":1,\"ports\":[\"north\",\"south\"],\"recovery\":0},{\"x\":2,\"y\":2,\"ports\":[\"north\",\"east\"],\"recovery\":0},{\"x\":3,\"y\":2,\"ports\":[\"north\",\"west\"],\"recovery\":0}],\"phases\":[{\"recovery\":[0,0,0,0,0,1,0,1,0,0],\"pulses\":[{\"x\":0,\"y\":1,\"polarity\":\"+\",\"ingress\":[\"east\"]},{\"x\":2,\"y\":1,\"polarity\":\"+\",\"ingress\":[\"west\"]}],\"echoes\":[]},{\"recovery\":[0,0,0,0,1,0,1,0,0,0],\"pulses\":[{\"x\":0,\"y\":0,\"polarity\":\"+\",\"ingress\":[\"south\"]},{\"x\":2,\"y\":0,\"polarity\":\"+\",\"ingress\":[\"south\"]},{\"x\":2,\"y\":2,\"polarity\":\"+\",\"ingress\":[\"north\"]}],\"echoes\":[]},{\"recovery\":[1,0,1,0,0,0,0,0,1,0],\"pulses\":[{\"x\":1,\"y\":0,\"polarity\":\"+\",\"ingress\":[\"west\"]},{\"x\":3,\"y\":0,\"polarity\":\"+\",\"ingress\":[\"west\"]},{\"x\":3,\"y\":2,\"polarity\":\"+\",\"ingress\":[\"west\"]}],\"echoes\":[]},{\"recovery\":[0,1,0,1,0,0,0,0,0,1],\"pulses\":[{\"x\":1,\"y\":1,\"polarity\":\"+\",\"ingress\":[\"north\"]},{\"x\":3,\"y\":1,\"polarity\":\"+\",\"ingress\":[\"north\",\"south\"]}],\"echoes\":[]}],\"id\":\"form-b184947b\"}],\"status\":\"playing\"}",
+        "objectives": [
+          {
+            "id": "two-independent-rhythms",
+            "value": 0,
+            "direction": "higher"
+          }
+        ],
+        "properties": {
+          "initialAim": false,
+          "cycles": [
+            {
+              "places": [
+                "A1",
+                "A2",
+                "B1",
+                "B2",
+                "C1",
+                "C2",
+                "C3",
+                "D1",
+                "D2",
+                "D3"
+              ],
+              "period": 4
+            }
+          ],
+          "moving": [
+            "B1",
+            "D1",
+            "D3"
+          ],
+          "scarred": [
+            "A1",
+            "B1",
+            "C1",
+            "D1",
+            "A2",
+            "B2",
+            "C2",
+            "D2",
+            "C3",
+            "D3"
+          ],
+          "forms": [
+            "form-7a8885d2",
+            "form-73914d08",
+            "form-cf556d8f",
+            "form-b184947b"
+          ]
+        }
+      }
+    },
+    {
+      "phase": 7,
+      "joinedFronts": [
+        {
+          "at": "B2",
+          "polarity": "+",
+          "ingress": [
+            "north"
+          ]
+        },
+        {
+          "at": "C3",
+          "polarity": "-",
+          "ingress": [
+            "east"
+          ]
+        }
+      ],
+      "trace": [
+        {
+          "kind": "passage",
+          "beat": 23,
+          "at": "A2",
+          "from": [
+            "east"
+          ],
+          "polarity": "+"
+        },
+        {
+          "kind": "annihilation",
+          "beat": 23,
+          "at": "C2",
+          "from": [
+            "south",
+            "west"
+          ]
+        },
+        {
+          "kind": "passage",
+          "beat": 24,
+          "at": "A1",
+          "from": [
+            "south"
+          ],
+          "polarity": "+"
+        },
+        {
+          "kind": "passage",
+          "beat": 25,
+          "at": "B1",
+          "from": [
+            "west"
+          ],
+          "polarity": "+"
+        },
+        {
+          "kind": "passage",
+          "beat": 26,
+          "at": "B2",
+          "from": [
+            "north"
+          ],
+          "polarity": "+"
+        },
+        {
+          "kind": "passage",
+          "beat": 27,
+          "at": "A2",
+          "from": [
+            "east"
+          ],
+          "polarity": "+"
+        },
+        {
+          "kind": "passage",
+          "beat": 27,
+          "at": "C2",
+          "from": [
+            "west"
+          ],
+          "polarity": "+"
+        },
+        {
+          "kind": "passage",
+          "beat": 28,
+          "at": "A1",
+          "from": [
+            "south"
+          ],
+          "polarity": "+"
+        },
+        {
+          "kind": "passage",
+          "beat": 28,
+          "at": "C1",
+          "from": [
+            "south"
+          ],
+          "polarity": "+"
+        },
+        {
+          "kind": "passage",
+          "beat": 28,
+          "at": "C3",
+          "from": [
+            "north"
+          ],
+          "polarity": "+"
+        },
+        {
+          "kind": "passage",
+          "beat": 29,
+          "at": "B1",
+          "from": [
+            "west"
+          ],
+          "polarity": "+"
+        },
+        {
+          "kind": "passage",
+          "beat": 29,
+          "at": "D1",
+          "from": [
+            "west"
+          ],
+          "polarity": "+"
+        },
+        {
+          "kind": "passage",
+          "beat": 29,
+          "at": "D3",
+          "from": [
+            "west"
+          ],
+          "polarity": "+"
+        },
+        {
+          "kind": "passage",
+          "beat": 30,
+          "at": "B2",
+          "from": [
+            "north"
+          ],
+          "polarity": "+"
+        },
+        {
+          "kind": "coalescence",
+          "beat": 30,
+          "at": "D2",
+          "from": [
+            "north",
+            "south"
+          ],
+          "polarity": "+"
+        },
+        {
+          "kind": "passage",
+          "beat": 31,
+          "at": "A2",
+          "from": [
+            "east"
+          ],
+          "polarity": "+"
+        },
+        {
+          "kind": "passage",
+          "beat": 31,
+          "at": "C2",
+          "from": [
+            "west"
+          ],
+          "polarity": "+"
+        },
+        {
+          "kind": "passage",
+          "beat": 32,
+          "at": "A1",
+          "from": [
+            "south"
+          ],
+          "polarity": "+"
+        },
+        {
+          "kind": "passage",
+          "beat": 32,
+          "at": "C1",
+          "from": [
+            "south"
+          ],
+          "polarity": "+"
+        },
+        {
+          "kind": "passage",
+          "beat": 32,
+          "at": "C3",
+          "from": [
+            "north"
+          ],
+          "polarity": "+"
+        },
+        {
+          "kind": "passage",
+          "beat": 33,
+          "at": "B1",
+          "from": [
+            "west"
+          ],
+          "polarity": "+"
+        },
+        {
+          "kind": "passage",
+          "beat": 33,
+          "at": "D1",
+          "from": [
+            "west"
+          ],
+          "polarity": "+"
+        },
+        {
+          "kind": "passage",
+          "beat": 33,
+          "at": "D3",
+          "from": [
+            "west"
+          ],
+          "polarity": "+"
+        },
+        {
+          "kind": "passage",
+          "beat": 34,
+          "at": "B2",
+          "from": [
+            "north"
+          ],
+          "polarity": "+"
+        },
+        {
+          "kind": "coalescence",
+          "beat": 34,
+          "at": "D2",
+          "from": [
+            "north",
+            "south"
+          ],
+          "polarity": "+"
+        },
+        {
+          "kind": "recurring-form",
+          "beat": 34,
+          "detail": "form-b184947b: period 4; A1,A2,B1,B2,C1,C2,C3,D1,D2,D3"
+        }
+      ],
+      "outcome": {
+        "status": "playing",
+        "terminal": false,
+        "semanticKey": "{\"version\":\"resonance-1\",\"places\":[{\"id\":\"A1\",\"x\":0,\"y\":0,\"form\":\"conductor\",\"ports\":[\"east\",\"south\"],\"scar\":[\"south\"],\"recovery\":0},{\"id\":\"B1\",\"x\":1,\"y\":0,\"form\":\"conductor\",\"ports\":[\"south\",\"west\"],\"scar\":[\"west\"],\"recovery\":1},{\"id\":\"C1\",\"x\":2,\"y\":0,\"form\":\"conductor\",\"ports\":[\"east\",\"south\"],\"scar\":[\"south\"],\"recovery\":0},{\"id\":\"D1\",\"x\":3,\"y\":0,\"form\":\"conductor\",\"ports\":[\"south\",\"west\"],\"scar\":[\"west\"],\"recovery\":1},{\"id\":\"A2\",\"x\":0,\"y\":1,\"form\":\"conductor\",\"ports\":[\"north\",\"east\"],\"scar\":[\"east\"],\"recovery\":0},{\"id\":\"B2\",\"x\":1,\"y\":1,\"form\":\"conductor\",\"ports\":[\"north\",\"east\",\"west\"],\"scar\":[\"north\"],\"recovery\":0},{\"id\":\"C2\",\"x\":2,\"y\":1,\"form\":\"conductor\",\"ports\":[\"north\",\"south\",\"west\"],\"scar\":[\"west\"],\"recovery\":0},{\"id\":\"D2\",\"x\":3,\"y\":1,\"form\":\"conductor\",\"ports\":[\"north\",\"south\"],\"scar\":[\"north\",\"south\"],\"recovery\":0},{\"id\":\"A3\",\"x\":0,\"y\":2,\"form\":\"soil\",\"ports\":[],\"scar\":[],\"recovery\":0},{\"id\":\"B3\",\"x\":1,\"y\":2,\"form\":\"soil\",\"ports\":[],\"scar\":[],\"recovery\":0},{\"id\":\"C3\",\"x\":2,\"y\":2,\"form\":\"conductor\",\"ports\":[\"north\",\"east\"],\"scar\":[\"north\"],\"recovery\":0},{\"id\":\"D3\",\"x\":3,\"y\":2,\"form\":\"conductor\",\"ports\":[\"north\",\"west\"],\"scar\":[\"west\"],\"recovery\":1}],\"pulses\":[{\"at\":\"B2\",\"polarity\":\"+\",\"ingress\":[\"north\"]},{\"at\":\"D2\",\"polarity\":\"+\",\"ingress\":[\"north\",\"south\"]}],\"echoes\":[],\"known\":[{\"period\":4,\"entry\":\"south\",\"cells\":[{\"x\":0,\"y\":0,\"ports\":[\"east\",\"south\"],\"recovery\":0},{\"x\":1,\"y\":0,\"ports\":[\"south\",\"west\"],\"recovery\":0},{\"x\":0,\"y\":1,\"ports\":[\"north\",\"east\"],\"recovery\":0},{\"x\":1,\"y\":1,\"ports\":[\"north\",\"west\"],\"recovery\":0}],\"phases\":[{\"recovery\":[0,0,0,1],\"pulses\":[{\"x\":0,\"y\":1,\"polarity\":\"+\",\"ingress\":[\"east\"]}],\"echoes\":[]},{\"recovery\":[0,0,1,0],\"pulses\":[{\"x\":0,\"y\":0,\"polarity\":\"+\",\"ingress\":[\"south\"]}],\"echoes\":[]},{\"recovery\":[1,0,0,0],\"pulses\":[{\"x\":1,\"y\":0,\"polarity\":\"+\",\"ingress\":[\"west\"]}],\"echoes\":[]},{\"recovery\":[0,1,0,0],\"pulses\":[{\"x\":1,\"y\":1,\"polarity\":\"+\",\"ingress\":[\"north\"]}],\"echoes\":[]}],\"id\":\"form-7a8885d2\"},{\"period\":6,\"entry\":\"south\",\"cells\":[{\"x\":0,\"y\":0,\"ports\":[\"east\",\"south\"],\"recovery\":0},{\"x\":1,\"y\":0,\"ports\":[\"south\",\"west\"],\"recovery\":0},{\"x\":0,\"y\":1,\"ports\":[\"north\",\"south\"],\"recovery\":0},{\"x\":1,\"y\":1,\"ports\":[\"north\",\"south\"],\"recovery\":0},{\"x\":0,\"y\":2,\"ports\":[\"north\",\"east\"],\"recovery\":0},{\"x\":1,\"y\":2,\"ports\":[\"north\",\"west\"],\"recovery\":0}],\"phases\":[{\"recovery\":[0,0,0,0,0,1],\"pulses\":[{\"x\":0,\"y\":2,\"polarity\":\"-\",\"ingress\":[\"east\"]}],\"echoes\":[]},{\"recovery\":[0,0,0,0,1,0],\"pulses\":[{\"x\":0,\"y\":1,\"polarity\":\"-\",\"ingress\":[\"south\"]}],\"echoes\":[]},{\"recovery\":[0,0,1,0,0,0],\"pulses\":[{\"x\":0,\"y\":0,\"polarity\":\"-\",\"ingress\":[\"south\"]}],\"echoes\":[]},{\"recovery\":[1,0,0,0,0,0],\"pulses\":[{\"x\":1,\"y\":0,\"polarity\":\"-\",\"ingress\":[\"west\"]}],\"echoes\":[]},{\"recovery\":[0,1,0,0,0,0],\"pulses\":[{\"x\":1,\"y\":1,\"polarity\":\"-\",\"ingress\":[\"north\"]}],\"echoes\":[]},{\"recovery\":[0,0,0,1,0,0],\"pulses\":[{\"x\":1,\"y\":2,\"polarity\":\"-\",\"ingress\":[\"north\"]}],\"echoes\":[]}],\"id\":\"form-73914d08\"},{\"period\":4,\"entry\":\"south\",\"cells\":[{\"x\":0,\"y\":0,\"ports\":[\"east\",\"south\"],\"recovery\":0},{\"x\":1,\"y\":0,\"ports\":[\"south\",\"west\"],\"recovery\":0},{\"x\":0,\"y\":1,\"ports\":[\"north\",\"east\"],\"recovery\":0},{\"x\":1,\"y\":1,\"ports\":[\"north\",\"east\",\"west\"],\"recovery\":0}],\"phases\":[{\"recovery\":[0,0,0,1],\"pulses\":[{\"x\":0,\"y\":1,\"polarity\":\"+\",\"ingress\":[\"east\"]}],\"echoes\":[]},{\"recovery\":[0,0,1,0],\"pulses\":[{\"x\":0,\"y\":0,\"polarity\":\"+\",\"ingress\":[\"south\"]}],\"echoes\":[]},{\"recovery\":[1,0,0,0],\"pulses\":[{\"x\":1,\"y\":0,\"polarity\":\"+\",\"ingress\":[\"west\"]}],\"echoes\":[]},{\"recovery\":[0,1,0,0],\"pulses\":[{\"x\":1,\"y\":1,\"polarity\":\"+\",\"ingress\":[\"north\"]}],\"echoes\":[]}],\"id\":\"form-cf556d8f\"},{\"period\":4,\"entry\":\"south\",\"cells\":[{\"x\":0,\"y\":0,\"ports\":[\"east\",\"south\"],\"recovery\":0},{\"x\":1,\"y\":0,\"ports\":[\"south\",\"west\"],\"recovery\":0},{\"x\":2,\"y\":0,\"ports\":[\"east\",\"south\"],\"recovery\":0},{\"x\":3,\"y\":0,\"ports\":[\"south\",\"west\"],\"recovery\":0},{\"x\":0,\"y\":1,\"ports\":[\"north\",\"east\"],\"recovery\":0},{\"x\":1,\"y\":1,\"ports\":[\"north\",\"east\",\"west\"],\"recovery\":0},{\"x\":2,\"y\":1,\"ports\":[\"north\",\"south\",\"west\"],\"recovery\":0},{\"x\":3,\"y\":1,\"ports\":[\"north\",\"south\"],\"recovery\":0},{\"x\":2,\"y\":2,\"ports\":[\"north\",\"east\"],\"recovery\":0},{\"x\":3,\"y\":2,\"ports\":[\"north\",\"west\"],\"recovery\":0}],\"phases\":[{\"recovery\":[0,0,0,0,0,1,0,1,0,0],\"pulses\":[{\"x\":0,\"y\":1,\"polarity\":\"+\",\"ingress\":[\"east\"]},{\"x\":2,\"y\":1,\"polarity\":\"+\",\"ingress\":[\"west\"]}],\"echoes\":[]},{\"recovery\":[0,0,0,0,1,0,1,0,0,0],\"pulses\":[{\"x\":0,\"y\":0,\"polarity\":\"+\",\"ingress\":[\"south\"]},{\"x\":2,\"y\":0,\"polarity\":\"+\",\"ingress\":[\"south\"]},{\"x\":2,\"y\":2,\"polarity\":\"+\",\"ingress\":[\"north\"]}],\"echoes\":[]},{\"recovery\":[1,0,1,0,0,0,0,0,1,0],\"pulses\":[{\"x\":1,\"y\":0,\"polarity\":\"+\",\"ingress\":[\"west\"]},{\"x\":3,\"y\":0,\"polarity\":\"+\",\"ingress\":[\"west\"]},{\"x\":3,\"y\":2,\"polarity\":\"+\",\"ingress\":[\"west\"]}],\"echoes\":[]},{\"recovery\":[0,1,0,1,0,0,0,0,0,1],\"pulses\":[{\"x\":1,\"y\":1,\"polarity\":\"+\",\"ingress\":[\"north\"]},{\"x\":3,\"y\":1,\"polarity\":\"+\",\"ingress\":[\"north\",\"south\"]}],\"echoes\":[]}],\"id\":\"form-b184947b\"}],\"status\":\"playing\"}",
+        "objectives": [
+          {
+            "id": "two-independent-rhythms",
+            "value": 0,
+            "direction": "higher"
+          }
+        ],
+        "properties": {
+          "initialAim": false,
+          "cycles": [
+            {
+              "places": [
+                "A1",
+                "A2",
+                "B1",
+                "B2",
+                "C1",
+                "C2",
+                "C3",
+                "D1",
+                "D2",
+                "D3"
+              ],
+              "period": 4
+            }
+          ],
+          "moving": [
+            "B2",
+            "D2"
+          ],
+          "scarred": [
+            "A1",
+            "B1",
+            "C1",
+            "D1",
+            "A2",
+            "B2",
+            "C2",
+            "D2",
+            "C3",
+            "D3"
+          ],
+          "forms": [
+            "form-7a8885d2",
+            "form-73914d08",
+            "form-cf556d8f",
+            "form-b184947b"
+          ]
+        }
+      }
+    },
+    {
+      "phase": 8,
+      "joinedFronts": [
+        {
+          "at": "A2",
+          "polarity": "+",
+          "ingress": [
+            "east"
+          ]
+        }
+      ],
+      "trace": [
+        {
+          "kind": "passage",
+          "beat": 24,
+          "at": "A1",
+          "from": [
+            "south"
+          ],
+          "polarity": "+"
+        },
+        {
+          "kind": "passage",
+          "beat": 25,
+          "at": "B1",
+          "from": [
+            "west"
+          ],
+          "polarity": "+"
+        },
+        {
+          "kind": "passage",
+          "beat": 26,
+          "at": "B2",
+          "from": [
+            "north"
+          ],
+          "polarity": "+"
+        },
+        {
+          "kind": "passage",
+          "beat": 27,
+          "at": "A2",
+          "from": [
+            "east"
+          ],
+          "polarity": "+"
+        },
+        {
+          "kind": "passage",
+          "beat": 27,
+          "at": "C2",
+          "from": [
+            "west"
+          ],
+          "polarity": "+"
+        },
+        {
+          "kind": "passage",
+          "beat": 28,
+          "at": "A1",
+          "from": [
+            "south"
+          ],
+          "polarity": "+"
+        },
+        {
+          "kind": "passage",
+          "beat": 28,
+          "at": "C1",
+          "from": [
+            "south"
+          ],
+          "polarity": "+"
+        },
+        {
+          "kind": "passage",
+          "beat": 28,
+          "at": "C3",
+          "from": [
+            "north"
+          ],
+          "polarity": "+"
+        },
+        {
+          "kind": "passage",
+          "beat": 29,
+          "at": "B1",
+          "from": [
+            "west"
+          ],
+          "polarity": "+"
+        },
+        {
+          "kind": "passage",
+          "beat": 29,
+          "at": "D1",
+          "from": [
+            "west"
+          ],
+          "polarity": "+"
+        },
+        {
+          "kind": "passage",
+          "beat": 29,
+          "at": "D3",
+          "from": [
+            "west"
+          ],
+          "polarity": "+"
+        },
+        {
+          "kind": "passage",
+          "beat": 30,
+          "at": "B2",
+          "from": [
+            "north"
+          ],
+          "polarity": "+"
+        },
+        {
+          "kind": "coalescence",
+          "beat": 30,
+          "at": "D2",
+          "from": [
+            "north",
+            "south"
+          ],
+          "polarity": "+"
+        },
+        {
+          "kind": "passage",
+          "beat": 31,
+          "at": "A2",
+          "from": [
+            "east"
+          ],
+          "polarity": "+"
+        },
+        {
+          "kind": "passage",
+          "beat": 31,
+          "at": "C2",
+          "from": [
+            "west"
+          ],
+          "polarity": "+"
+        },
+        {
+          "kind": "passage",
+          "beat": 32,
+          "at": "A1",
+          "from": [
+            "south"
+          ],
+          "polarity": "+"
+        },
+        {
+          "kind": "passage",
+          "beat": 32,
+          "at": "C1",
+          "from": [
+            "south"
+          ],
+          "polarity": "+"
+        },
+        {
+          "kind": "passage",
+          "beat": 32,
+          "at": "C3",
+          "from": [
+            "north"
+          ],
+          "polarity": "+"
+        },
+        {
+          "kind": "passage",
+          "beat": 33,
+          "at": "B1",
+          "from": [
+            "west"
+          ],
+          "polarity": "+"
+        },
+        {
+          "kind": "passage",
+          "beat": 33,
+          "at": "D1",
+          "from": [
+            "west"
+          ],
+          "polarity": "+"
+        },
+        {
+          "kind": "passage",
+          "beat": 33,
+          "at": "D3",
+          "from": [
+            "west"
+          ],
+          "polarity": "+"
+        },
+        {
+          "kind": "passage",
+          "beat": 34,
+          "at": "B2",
+          "from": [
+            "north"
+          ],
+          "polarity": "+"
+        },
+        {
+          "kind": "coalescence",
+          "beat": 34,
+          "at": "D2",
+          "from": [
+            "north",
+            "south"
+          ],
+          "polarity": "+"
+        },
+        {
+          "kind": "passage",
+          "beat": 35,
+          "at": "A2",
+          "from": [
+            "east"
+          ],
+          "polarity": "+"
+        },
+        {
+          "kind": "passage",
+          "beat": 35,
+          "at": "C2",
+          "from": [
+            "west"
+          ],
+          "polarity": "+"
+        },
+        {
+          "kind": "recurring-form",
+          "beat": 35,
+          "detail": "form-b184947b: period 4; A1,A2,B1,B2,C1,C2,C3,D1,D2,D3"
+        }
+      ],
+      "outcome": {
+        "status": "playing",
+        "terminal": false,
+        "semanticKey": "{\"version\":\"resonance-1\",\"places\":[{\"id\":\"A1\",\"x\":0,\"y\":0,\"form\":\"conductor\",\"ports\":[\"east\",\"south\"],\"scar\":[\"south\"],\"recovery\":0},{\"id\":\"B1\",\"x\":1,\"y\":0,\"form\":\"conductor\",\"ports\":[\"south\",\"west\"],\"scar\":[\"west\"],\"recovery\":0},{\"id\":\"C1\",\"x\":2,\"y\":0,\"form\":\"conductor\",\"ports\":[\"east\",\"south\"],\"scar\":[\"south\"],\"recovery\":0},{\"id\":\"D1\",\"x\":3,\"y\":0,\"form\":\"conductor\",\"ports\":[\"south\",\"west\"],\"scar\":[\"west\"],\"recovery\":0},{\"id\":\"A2\",\"x\":0,\"y\":1,\"form\":\"conductor\",\"ports\":[\"north\",\"east\"],\"scar\":[\"east\"],\"recovery\":0},{\"id\":\"B2\",\"x\":1,\"y\":1,\"form\":\"conductor\",\"ports\":[\"north\",\"east\",\"west\"],\"scar\":[\"north\"],\"recovery\":1},{\"id\":\"C2\",\"x\":2,\"y\":1,\"form\":\"conductor\",\"ports\":[\"north\",\"south\",\"west\"],\"scar\":[\"west\"],\"recovery\":0},{\"id\":\"D2\",\"x\":3,\"y\":1,\"form\":\"conductor\",\"ports\":[\"north\",\"south\"],\"scar\":[\"north\",\"south\"],\"recovery\":1},{\"id\":\"A3\",\"x\":0,\"y\":2,\"form\":\"soil\",\"ports\":[],\"scar\":[],\"recovery\":0},{\"id\":\"B3\",\"x\":1,\"y\":2,\"form\":\"soil\",\"ports\":[],\"scar\":[],\"recovery\":0},{\"id\":\"C3\",\"x\":2,\"y\":2,\"form\":\"conductor\",\"ports\":[\"north\",\"east\"],\"scar\":[\"north\"],\"recovery\":0},{\"id\":\"D3\",\"x\":3,\"y\":2,\"form\":\"conductor\",\"ports\":[\"north\",\"west\"],\"scar\":[\"west\"],\"recovery\":0}],\"pulses\":[{\"at\":\"A2\",\"polarity\":\"+\",\"ingress\":[\"east\"]},{\"at\":\"C2\",\"polarity\":\"+\",\"ingress\":[\"west\"]}],\"echoes\":[],\"known\":[{\"period\":4,\"entry\":\"south\",\"cells\":[{\"x\":0,\"y\":0,\"ports\":[\"east\",\"south\"],\"recovery\":0},{\"x\":1,\"y\":0,\"ports\":[\"south\",\"west\"],\"recovery\":0},{\"x\":0,\"y\":1,\"ports\":[\"north\",\"east\"],\"recovery\":0},{\"x\":1,\"y\":1,\"ports\":[\"north\",\"west\"],\"recovery\":0}],\"phases\":[{\"recovery\":[0,0,0,1],\"pulses\":[{\"x\":0,\"y\":1,\"polarity\":\"+\",\"ingress\":[\"east\"]}],\"echoes\":[]},{\"recovery\":[0,0,1,0],\"pulses\":[{\"x\":0,\"y\":0,\"polarity\":\"+\",\"ingress\":[\"south\"]}],\"echoes\":[]},{\"recovery\":[1,0,0,0],\"pulses\":[{\"x\":1,\"y\":0,\"polarity\":\"+\",\"ingress\":[\"west\"]}],\"echoes\":[]},{\"recovery\":[0,1,0,0],\"pulses\":[{\"x\":1,\"y\":1,\"polarity\":\"+\",\"ingress\":[\"north\"]}],\"echoes\":[]}],\"id\":\"form-7a8885d2\"},{\"period\":6,\"entry\":\"south\",\"cells\":[{\"x\":0,\"y\":0,\"ports\":[\"east\",\"south\"],\"recovery\":0},{\"x\":1,\"y\":0,\"ports\":[\"south\",\"west\"],\"recovery\":0},{\"x\":0,\"y\":1,\"ports\":[\"north\",\"south\"],\"recovery\":0},{\"x\":1,\"y\":1,\"ports\":[\"north\",\"south\"],\"recovery\":0},{\"x\":0,\"y\":2,\"ports\":[\"north\",\"east\"],\"recovery\":0},{\"x\":1,\"y\":2,\"ports\":[\"north\",\"west\"],\"recovery\":0}],\"phases\":[{\"recovery\":[0,0,0,0,0,1],\"pulses\":[{\"x\":0,\"y\":2,\"polarity\":\"-\",\"ingress\":[\"east\"]}],\"echoes\":[]},{\"recovery\":[0,0,0,0,1,0],\"pulses\":[{\"x\":0,\"y\":1,\"polarity\":\"-\",\"ingress\":[\"south\"]}],\"echoes\":[]},{\"recovery\":[0,0,1,0,0,0],\"pulses\":[{\"x\":0,\"y\":0,\"polarity\":\"-\",\"ingress\":[\"south\"]}],\"echoes\":[]},{\"recovery\":[1,0,0,0,0,0],\"pulses\":[{\"x\":1,\"y\":0,\"polarity\":\"-\",\"ingress\":[\"west\"]}],\"echoes\":[]},{\"recovery\":[0,1,0,0,0,0],\"pulses\":[{\"x\":1,\"y\":1,\"polarity\":\"-\",\"ingress\":[\"north\"]}],\"echoes\":[]},{\"recovery\":[0,0,0,1,0,0],\"pulses\":[{\"x\":1,\"y\":2,\"polarity\":\"-\",\"ingress\":[\"north\"]}],\"echoes\":[]}],\"id\":\"form-73914d08\"},{\"period\":4,\"entry\":\"south\",\"cells\":[{\"x\":0,\"y\":0,\"ports\":[\"east\",\"south\"],\"recovery\":0},{\"x\":1,\"y\":0,\"ports\":[\"south\",\"west\"],\"recovery\":0},{\"x\":0,\"y\":1,\"ports\":[\"north\",\"east\"],\"recovery\":0},{\"x\":1,\"y\":1,\"ports\":[\"north\",\"east\",\"west\"],\"recovery\":0}],\"phases\":[{\"recovery\":[0,0,0,1],\"pulses\":[{\"x\":0,\"y\":1,\"polarity\":\"+\",\"ingress\":[\"east\"]}],\"echoes\":[]},{\"recovery\":[0,0,1,0],\"pulses\":[{\"x\":0,\"y\":0,\"polarity\":\"+\",\"ingress\":[\"south\"]}],\"echoes\":[]},{\"recovery\":[1,0,0,0],\"pulses\":[{\"x\":1,\"y\":0,\"polarity\":\"+\",\"ingress\":[\"west\"]}],\"echoes\":[]},{\"recovery\":[0,1,0,0],\"pulses\":[{\"x\":1,\"y\":1,\"polarity\":\"+\",\"ingress\":[\"north\"]}],\"echoes\":[]}],\"id\":\"form-cf556d8f\"},{\"period\":4,\"entry\":\"south\",\"cells\":[{\"x\":0,\"y\":0,\"ports\":[\"east\",\"south\"],\"recovery\":0},{\"x\":1,\"y\":0,\"ports\":[\"south\",\"west\"],\"recovery\":0},{\"x\":2,\"y\":0,\"ports\":[\"east\",\"south\"],\"recovery\":0},{\"x\":3,\"y\":0,\"ports\":[\"south\",\"west\"],\"recovery\":0},{\"x\":0,\"y\":1,\"ports\":[\"north\",\"east\"],\"recovery\":0},{\"x\":1,\"y\":1,\"ports\":[\"north\",\"east\",\"west\"],\"recovery\":0},{\"x\":2,\"y\":1,\"ports\":[\"north\",\"south\",\"west\"],\"recovery\":0},{\"x\":3,\"y\":1,\"ports\":[\"north\",\"south\"],\"recovery\":0},{\"x\":2,\"y\":2,\"ports\":[\"north\",\"east\"],\"recovery\":0},{\"x\":3,\"y\":2,\"ports\":[\"north\",\"west\"],\"recovery\":0}],\"phases\":[{\"recovery\":[0,0,0,0,0,1,0,1,0,0],\"pulses\":[{\"x\":0,\"y\":1,\"polarity\":\"+\",\"ingress\":[\"east\"]},{\"x\":2,\"y\":1,\"polarity\":\"+\",\"ingress\":[\"west\"]}],\"echoes\":[]},{\"recovery\":[0,0,0,0,1,0,1,0,0,0],\"pulses\":[{\"x\":0,\"y\":0,\"polarity\":\"+\",\"ingress\":[\"south\"]},{\"x\":2,\"y\":0,\"polarity\":\"+\",\"ingress\":[\"south\"]},{\"x\":2,\"y\":2,\"polarity\":\"+\",\"ingress\":[\"north\"]}],\"echoes\":[]},{\"recovery\":[1,0,1,0,0,0,0,0,1,0],\"pulses\":[{\"x\":1,\"y\":0,\"polarity\":\"+\",\"ingress\":[\"west\"]},{\"x\":3,\"y\":0,\"polarity\":\"+\",\"ingress\":[\"west\"]},{\"x\":3,\"y\":2,\"polarity\":\"+\",\"ingress\":[\"west\"]}],\"echoes\":[]},{\"recovery\":[0,1,0,1,0,0,0,0,0,1],\"pulses\":[{\"x\":1,\"y\":1,\"polarity\":\"+\",\"ingress\":[\"north\"]},{\"x\":3,\"y\":1,\"polarity\":\"+\",\"ingress\":[\"north\",\"south\"]}],\"echoes\":[]}],\"id\":\"form-b184947b\"}],\"status\":\"playing\"}",
+        "objectives": [
+          {
+            "id": "two-independent-rhythms",
+            "value": 0,
+            "direction": "higher"
+          }
+        ],
+        "properties": {
+          "initialAim": false,
+          "cycles": [
+            {
+              "places": [
+                "A1",
+                "A2",
+                "B1",
+                "B2",
+                "C1",
+                "C2",
+                "C3",
+                "D1",
+                "D2",
+                "D3"
+              ],
+              "period": 4
+            }
+          ],
+          "moving": [
+            "A2",
+            "C2"
+          ],
+          "scarred": [
+            "A1",
+            "B1",
+            "C1",
+            "D1",
+            "A2",
+            "B2",
+            "C2",
+            "D2",
+            "C3",
+            "D3"
+          ],
+          "forms": [
+            "form-7a8885d2",
+            "form-73914d08",
+            "form-cf556d8f",
+            "form-b184947b"
+          ]
+        }
+      }
+    },
+    {
+      "phase": 9,
+      "joinedFronts": [
+        {
+          "at": "A1",
+          "polarity": "+",
+          "ingress": [
+            "south"
+          ]
+        },
+        {
+          "at": "C1",
+          "polarity": "-",
+          "ingress": [
+            "south"
+          ]
+        }
+      ],
+      "trace": [
+        {
+          "kind": "passage",
+          "beat": 25,
+          "at": "B1",
+          "from": [
+            "west"
+          ],
+          "polarity": "+"
+        },
+        {
+          "kind": "passage",
+          "beat": 25,
+          "at": "D1",
+          "from": [
+            "west"
+          ],
+          "polarity": "-"
+        },
+        {
+          "kind": "passage",
+          "beat": 26,
+          "at": "B2",
+          "from": [
+            "north"
+          ],
+          "polarity": "+"
+        },
+        {
+          "kind": "passage",
+          "beat": 26,
+          "at": "D2",
+          "from": [
+            "north"
+          ],
+          "polarity": "-"
+        },
+        {
+          "kind": "passage",
+          "beat": 27,
+          "at": "A2",
+          "from": [
+            "east"
+          ],
+          "polarity": "+"
+        },
+        {
+          "kind": "passage",
+          "beat": 27,
+          "at": "C2",
+          "from": [
+            "west"
+          ],
+          "polarity": "+"
+        },
+        {
+          "kind": "passage",
+          "beat": 27,
+          "at": "D3",
+          "from": [
+            "north"
+          ],
+          "polarity": "-"
+        },
+        {
+          "kind": "passage",
+          "beat": 28,
+          "at": "A1",
+          "from": [
+            "south"
+          ],
+          "polarity": "+"
+        },
+        {
+          "kind": "passage",
+          "beat": 28,
+          "at": "C1",
+          "from": [
+            "south"
+          ],
+          "polarity": "+"
+        },
+        {
+          "kind": "annihilation",
+          "beat": 28,
+          "at": "C3",
+          "from": [
+            "north",
+            "east"
+          ]
+        },
+        {
+          "kind": "passage",
+          "beat": 29,
+          "at": "B1",
+          "from": [
+            "west"
+          ],
+          "polarity": "+"
+        },
+        {
+          "kind": "passage",
+          "beat": 29,
+          "at": "D1",
+          "from": [
+            "west"
+          ],
+          "polarity": "+"
+        },
+        {
+          "kind": "passage",
+          "beat": 30,
+          "at": "B2",
+          "from": [
+            "north"
+          ],
+          "polarity": "+"
+        },
+        {
+          "kind": "passage",
+          "beat": 30,
+          "at": "D2",
+          "from": [
+            "north"
+          ],
+          "polarity": "+"
+        },
+        {
+          "kind": "passage",
+          "beat": 31,
+          "at": "A2",
+          "from": [
+            "east"
+          ],
+          "polarity": "+"
+        },
+        {
+          "kind": "passage",
+          "beat": 31,
+          "at": "C2",
+          "from": [
+            "west"
+          ],
+          "polarity": "+"
+        },
+        {
+          "kind": "passage",
+          "beat": 31,
+          "at": "D3",
+          "from": [
+            "north"
+          ],
+          "polarity": "+"
+        },
+        {
+          "kind": "passage",
+          "beat": 32,
+          "at": "A1",
+          "from": [
+            "south"
+          ],
+          "polarity": "+"
+        },
+        {
+          "kind": "passage",
+          "beat": 32,
+          "at": "C1",
+          "from": [
+            "south"
+          ],
+          "polarity": "+"
+        },
+        {
+          "kind": "coalescence",
+          "beat": 32,
+          "at": "C3",
+          "from": [
+            "north",
+            "east"
+          ],
+          "polarity": "+"
+        },
+        {
+          "kind": "passage",
+          "beat": 33,
+          "at": "B1",
+          "from": [
+            "west"
+          ],
+          "polarity": "+"
+        },
+        {
+          "kind": "passage",
+          "beat": 33,
+          "at": "D1",
+          "from": [
+            "west"
+          ],
+          "polarity": "+"
+        },
+        {
+          "kind": "passage",
+          "beat": 34,
+          "at": "B2",
+          "from": [
+            "north"
+          ],
+          "polarity": "+"
+        },
+        {
+          "kind": "passage",
+          "beat": 34,
+          "at": "D2",
+          "from": [
+            "north"
+          ],
+          "polarity": "+"
+        },
+        {
+          "kind": "passage",
+          "beat": 35,
+          "at": "A2",
+          "from": [
+            "east"
+          ],
+          "polarity": "+"
+        },
+        {
+          "kind": "passage",
+          "beat": 35,
+          "at": "C2",
+          "from": [
+            "west"
+          ],
+          "polarity": "+"
+        },
+        {
+          "kind": "passage",
+          "beat": 35,
+          "at": "D3",
+          "from": [
+            "north"
+          ],
+          "polarity": "+"
+        },
+        {
+          "kind": "passage",
+          "beat": 36,
+          "at": "A1",
+          "from": [
+            "south"
+          ],
+          "polarity": "+"
+        },
+        {
+          "kind": "passage",
+          "beat": 36,
+          "at": "C1",
+          "from": [
+            "south"
+          ],
+          "polarity": "+"
+        },
+        {
+          "kind": "coalescence",
+          "beat": 36,
+          "at": "C3",
+          "from": [
+            "north",
+            "east"
+          ],
+          "polarity": "+"
+        },
+        {
+          "kind": "recurring-form",
+          "beat": 36,
+          "detail": "form-c513337: period 4; A1,A2,B1,B2,C1,C2,C3,D1,D2,D3"
+        }
+      ],
+      "outcome": {
+        "status": "playing",
+        "terminal": false,
+        "semanticKey": "{\"version\":\"resonance-1\",\"places\":[{\"id\":\"A1\",\"x\":0,\"y\":0,\"form\":\"conductor\",\"ports\":[\"east\",\"south\"],\"scar\":[\"south\"],\"recovery\":0},{\"id\":\"B1\",\"x\":1,\"y\":0,\"form\":\"conductor\",\"ports\":[\"south\",\"west\"],\"scar\":[\"west\"],\"recovery\":0},{\"id\":\"C1\",\"x\":2,\"y\":0,\"form\":\"conductor\",\"ports\":[\"east\",\"south\"],\"scar\":[\"south\"],\"recovery\":0},{\"id\":\"D1\",\"x\":3,\"y\":0,\"form\":\"conductor\",\"ports\":[\"south\",\"west\"],\"scar\":[\"west\"],\"recovery\":0},{\"id\":\"A2\",\"x\":0,\"y\":1,\"form\":\"conductor\",\"ports\":[\"north\",\"east\"],\"scar\":[\"east\"],\"recovery\":1},{\"id\":\"B2\",\"x\":1,\"y\":1,\"form\":\"conductor\",\"ports\":[\"north\",\"east\",\"west\"],\"scar\":[\"north\"],\"recovery\":0},{\"id\":\"C2\",\"x\":2,\"y\":1,\"form\":\"conductor\",\"ports\":[\"north\",\"south\",\"west\"],\"scar\":[\"west\"],\"recovery\":1},{\"id\":\"D2\",\"x\":3,\"y\":1,\"form\":\"conductor\",\"ports\":[\"north\",\"south\"],\"scar\":[\"north\"],\"recovery\":0},{\"id\":\"A3\",\"x\":0,\"y\":2,\"form\":\"soil\",\"ports\":[],\"scar\":[],\"recovery\":0},{\"id\":\"B3\",\"x\":1,\"y\":2,\"form\":\"soil\",\"ports\":[],\"scar\":[],\"recovery\":0},{\"id\":\"C3\",\"x\":2,\"y\":2,\"form\":\"conductor\",\"ports\":[\"north\",\"east\"],\"scar\":[\"north\",\"east\"],\"recovery\":0},{\"id\":\"D3\",\"x\":3,\"y\":2,\"form\":\"conductor\",\"ports\":[\"north\",\"west\"],\"scar\":[\"north\"],\"recovery\":1}],\"pulses\":[{\"at\":\"A1\",\"polarity\":\"+\",\"ingress\":[\"south\"]},{\"at\":\"C1\",\"polarity\":\"+\",\"ingress\":[\"south\"]},{\"at\":\"C3\",\"polarity\":\"+\",\"ingress\":[\"north\",\"east\"]}],\"echoes\":[],\"known\":[{\"period\":4,\"entry\":\"south\",\"cells\":[{\"x\":0,\"y\":0,\"ports\":[\"east\",\"south\"],\"recovery\":0},{\"x\":1,\"y\":0,\"ports\":[\"south\",\"west\"],\"recovery\":0},{\"x\":0,\"y\":1,\"ports\":[\"north\",\"east\"],\"recovery\":0},{\"x\":1,\"y\":1,\"ports\":[\"north\",\"west\"],\"recovery\":0}],\"phases\":[{\"recovery\":[0,0,0,1],\"pulses\":[{\"x\":0,\"y\":1,\"polarity\":\"+\",\"ingress\":[\"east\"]}],\"echoes\":[]},{\"recovery\":[0,0,1,0],\"pulses\":[{\"x\":0,\"y\":0,\"polarity\":\"+\",\"ingress\":[\"south\"]}],\"echoes\":[]},{\"recovery\":[1,0,0,0],\"pulses\":[{\"x\":1,\"y\":0,\"polarity\":\"+\",\"ingress\":[\"west\"]}],\"echoes\":[]},{\"recovery\":[0,1,0,0],\"pulses\":[{\"x\":1,\"y\":1,\"polarity\":\"+\",\"ingress\":[\"north\"]}],\"echoes\":[]}],\"id\":\"form-7a8885d2\"},{\"period\":6,\"entry\":\"south\",\"cells\":[{\"x\":0,\"y\":0,\"ports\":[\"east\",\"south\"],\"recovery\":0},{\"x\":1,\"y\":0,\"ports\":[\"south\",\"west\"],\"recovery\":0},{\"x\":0,\"y\":1,\"ports\":[\"north\",\"south\"],\"recovery\":0},{\"x\":1,\"y\":1,\"ports\":[\"north\",\"south\"],\"recovery\":0},{\"x\":0,\"y\":2,\"ports\":[\"north\",\"east\"],\"recovery\":0},{\"x\":1,\"y\":2,\"ports\":[\"north\",\"west\"],\"recovery\":0}],\"phases\":[{\"recovery\":[0,0,0,0,0,1],\"pulses\":[{\"x\":0,\"y\":2,\"polarity\":\"-\",\"ingress\":[\"east\"]}],\"echoes\":[]},{\"recovery\":[0,0,0,0,1,0],\"pulses\":[{\"x\":0,\"y\":1,\"polarity\":\"-\",\"ingress\":[\"south\"]}],\"echoes\":[]},{\"recovery\":[0,0,1,0,0,0],\"pulses\":[{\"x\":0,\"y\":0,\"polarity\":\"-\",\"ingress\":[\"south\"]}],\"echoes\":[]},{\"recovery\":[1,0,0,0,0,0],\"pulses\":[{\"x\":1,\"y\":0,\"polarity\":\"-\",\"ingress\":[\"west\"]}],\"echoes\":[]},{\"recovery\":[0,1,0,0,0,0],\"pulses\":[{\"x\":1,\"y\":1,\"polarity\":\"-\",\"ingress\":[\"north\"]}],\"echoes\":[]},{\"recovery\":[0,0,0,1,0,0],\"pulses\":[{\"x\":1,\"y\":2,\"polarity\":\"-\",\"ingress\":[\"north\"]}],\"echoes\":[]}],\"id\":\"form-73914d08\"},{\"period\":4,\"entry\":\"south\",\"cells\":[{\"x\":0,\"y\":0,\"ports\":[\"east\",\"south\"],\"recovery\":0},{\"x\":1,\"y\":0,\"ports\":[\"south\",\"west\"],\"recovery\":0},{\"x\":0,\"y\":1,\"ports\":[\"north\",\"east\"],\"recovery\":0},{\"x\":1,\"y\":1,\"ports\":[\"north\",\"east\",\"west\"],\"recovery\":0}],\"phases\":[{\"recovery\":[0,0,0,1],\"pulses\":[{\"x\":0,\"y\":1,\"polarity\":\"+\",\"ingress\":[\"east\"]}],\"echoes\":[]},{\"recovery\":[0,0,1,0],\"pulses\":[{\"x\":0,\"y\":0,\"polarity\":\"+\",\"ingress\":[\"south\"]}],\"echoes\":[]},{\"recovery\":[1,0,0,0],\"pulses\":[{\"x\":1,\"y\":0,\"polarity\":\"+\",\"ingress\":[\"west\"]}],\"echoes\":[]},{\"recovery\":[0,1,0,0],\"pulses\":[{\"x\":1,\"y\":1,\"polarity\":\"+\",\"ingress\":[\"north\"]}],\"echoes\":[]}],\"id\":\"form-cf556d8f\"},{\"period\":4,\"entry\":\"south\",\"cells\":[{\"x\":0,\"y\":0,\"ports\":[\"east\",\"south\"],\"recovery\":0},{\"x\":1,\"y\":0,\"ports\":[\"south\",\"west\"],\"recovery\":0},{\"x\":2,\"y\":0,\"ports\":[\"east\",\"south\"],\"recovery\":0},{\"x\":3,\"y\":0,\"ports\":[\"south\",\"west\"],\"recovery\":0},{\"x\":0,\"y\":1,\"ports\":[\"north\",\"east\"],\"recovery\":0},{\"x\":1,\"y\":1,\"ports\":[\"north\",\"east\",\"west\"],\"recovery\":0},{\"x\":2,\"y\":1,\"ports\":[\"north\",\"south\",\"west\"],\"recovery\":0},{\"x\":3,\"y\":1,\"ports\":[\"north\",\"south\"],\"recovery\":0},{\"x\":2,\"y\":2,\"ports\":[\"north\",\"east\"],\"recovery\":0},{\"x\":3,\"y\":2,\"ports\":[\"north\",\"west\"],\"recovery\":0}],\"phases\":[{\"recovery\":[0,0,0,0,0,1,0,1,0,0],\"pulses\":[{\"x\":0,\"y\":1,\"polarity\":\"+\",\"ingress\":[\"east\"]},{\"x\":2,\"y\":1,\"polarity\":\"+\",\"ingress\":[\"west\"]},{\"x\":3,\"y\":2,\"polarity\":\"+\",\"ingress\":[\"north\"]}],\"echoes\":[]},{\"recovery\":[0,0,0,0,1,0,1,0,0,1],\"pulses\":[{\"x\":0,\"y\":0,\"polarity\":\"+\",\"ingress\":[\"south\"]},{\"x\":2,\"y\":0,\"polarity\":\"+\",\"ingress\":[\"south\"]},{\"x\":2,\"y\":2,\"polarity\":\"+\",\"ingress\":[\"north\",\"east\"]}],\"echoes\":[]},{\"recovery\":[1,0,1,0,0,0,0,0,1,0],\"pulses\":[{\"x\":1,\"y\":0,\"polarity\":\"+\",\"ingress\":[\"west\"]},{\"x\":3,\"y\":0,\"polarity\":\"+\",\"ingress\":[\"west\"]}],\"echoes\":[]},{\"recovery\":[0,1,0,1,0,0,0,0,0,0],\"pulses\":[{\"x\":1,\"y\":1,\"polarity\":\"+\",\"ingress\":[\"north\"]},{\"x\":3,\"y\":1,\"polarity\":\"+\",\"ingress\":[\"north\"]}],\"echoes\":[]}],\"id\":\"form-c513337\"}],\"status\":\"playing\"}",
+        "objectives": [
+          {
+            "id": "two-independent-rhythms",
+            "value": 0,
+            "direction": "higher"
+          }
+        ],
+        "properties": {
+          "initialAim": false,
+          "cycles": [
+            {
+              "places": [
+                "A1",
+                "A2",
+                "B1",
+                "B2",
+                "C1",
+                "C2",
+                "C3",
+                "D1",
+                "D2",
+                "D3"
+              ],
+              "period": 4
+            }
+          ],
+          "moving": [
+            "A1",
+            "C1",
+            "C3"
+          ],
+          "scarred": [
+            "A1",
+            "B1",
+            "C1",
+            "D1",
+            "A2",
+            "B2",
+            "C2",
+            "D2",
+            "C3",
+            "D3"
+          ],
+          "forms": [
+            "form-7a8885d2",
+            "form-73914d08",
+            "form-cf556d8f",
+            "form-c513337"
+          ]
+        }
+      }
+    },
+    {
+      "phase": 10,
+      "joinedFronts": [
+        {
+          "at": "B1",
+          "polarity": "+",
+          "ingress": [
+            "west"
+          ]
+        },
+        {
+          "at": "D1",
+          "polarity": "-",
+          "ingress": [
+            "west"
+          ]
+        }
+      ],
+      "trace": [
+        {
+          "kind": "passage",
+          "beat": 26,
+          "at": "B2",
+          "from": [
+            "north"
+          ],
+          "polarity": "+"
+        },
+        {
+          "kind": "passage",
+          "beat": 26,
+          "at": "D2",
+          "from": [
+            "north"
+          ],
+          "polarity": "-"
+        },
+        {
+          "kind": "passage",
+          "beat": 27,
+          "at": "A2",
+          "from": [
+            "east"
+          ],
+          "polarity": "+"
+        },
+        {
+          "kind": "passage",
+          "beat": 27,
+          "at": "C2",
+          "from": [
+            "west"
+          ],
+          "polarity": "+"
+        },
+        {
+          "kind": "passage",
+          "beat": 27,
+          "at": "D3",
+          "from": [
+            "north"
+          ],
+          "polarity": "-"
+        },
+        {
+          "kind": "passage",
+          "beat": 28,
+          "at": "A1",
+          "from": [
+            "south"
+          ],
+          "polarity": "+"
+        },
+        {
+          "kind": "passage",
+          "beat": 28,
+          "at": "C1",
+          "from": [
+            "south"
+          ],
+          "polarity": "+"
+        },
+        {
+          "kind": "annihilation",
+          "beat": 28,
+          "at": "C3",
+          "from": [
+            "north",
+            "east"
+          ]
+        },
+        {
+          "kind": "passage",
+          "beat": 29,
+          "at": "B1",
+          "from": [
+            "west"
+          ],
+          "polarity": "+"
+        },
+        {
+          "kind": "passage",
+          "beat": 29,
+          "at": "D1",
+          "from": [
+            "west"
+          ],
+          "polarity": "+"
+        },
+        {
+          "kind": "passage",
+          "beat": 30,
+          "at": "B2",
+          "from": [
+            "north"
+          ],
+          "polarity": "+"
+        },
+        {
+          "kind": "passage",
+          "beat": 30,
+          "at": "D2",
+          "from": [
+            "north"
+          ],
+          "polarity": "+"
+        },
+        {
+          "kind": "passage",
+          "beat": 31,
+          "at": "A2",
+          "from": [
+            "east"
+          ],
+          "polarity": "+"
+        },
+        {
+          "kind": "passage",
+          "beat": 31,
+          "at": "C2",
+          "from": [
+            "west"
+          ],
+          "polarity": "+"
+        },
+        {
+          "kind": "passage",
+          "beat": 31,
+          "at": "D3",
+          "from": [
+            "north"
+          ],
+          "polarity": "+"
+        },
+        {
+          "kind": "passage",
+          "beat": 32,
+          "at": "A1",
+          "from": [
+            "south"
+          ],
+          "polarity": "+"
+        },
+        {
+          "kind": "passage",
+          "beat": 32,
+          "at": "C1",
+          "from": [
+            "south"
+          ],
+          "polarity": "+"
+        },
+        {
+          "kind": "coalescence",
+          "beat": 32,
+          "at": "C3",
+          "from": [
+            "north",
+            "east"
+          ],
+          "polarity": "+"
+        },
+        {
+          "kind": "passage",
+          "beat": 33,
+          "at": "B1",
+          "from": [
+            "west"
+          ],
+          "polarity": "+"
+        },
+        {
+          "kind": "passage",
+          "beat": 33,
+          "at": "D1",
+          "from": [
+            "west"
+          ],
+          "polarity": "+"
+        },
+        {
+          "kind": "passage",
+          "beat": 34,
+          "at": "B2",
+          "from": [
+            "north"
+          ],
+          "polarity": "+"
+        },
+        {
+          "kind": "passage",
+          "beat": 34,
+          "at": "D2",
+          "from": [
+            "north"
+          ],
+          "polarity": "+"
+        },
+        {
+          "kind": "passage",
+          "beat": 35,
+          "at": "A2",
+          "from": [
+            "east"
+          ],
+          "polarity": "+"
+        },
+        {
+          "kind": "passage",
+          "beat": 35,
+          "at": "C2",
+          "from": [
+            "west"
+          ],
+          "polarity": "+"
+        },
+        {
+          "kind": "passage",
+          "beat": 35,
+          "at": "D3",
+          "from": [
+            "north"
+          ],
+          "polarity": "+"
+        },
+        {
+          "kind": "passage",
+          "beat": 36,
+          "at": "A1",
+          "from": [
+            "south"
+          ],
+          "polarity": "+"
+        },
+        {
+          "kind": "passage",
+          "beat": 36,
+          "at": "C1",
+          "from": [
+            "south"
+          ],
+          "polarity": "+"
+        },
+        {
+          "kind": "coalescence",
+          "beat": 36,
+          "at": "C3",
+          "from": [
+            "north",
+            "east"
+          ],
+          "polarity": "+"
+        },
+        {
+          "kind": "passage",
+          "beat": 37,
+          "at": "B1",
+          "from": [
+            "west"
+          ],
+          "polarity": "+"
+        },
+        {
+          "kind": "passage",
+          "beat": 37,
+          "at": "D1",
+          "from": [
+            "west"
+          ],
+          "polarity": "+"
+        },
+        {
+          "kind": "recurring-form",
+          "beat": 37,
+          "detail": "form-c513337: period 4; A1,A2,B1,B2,C1,C2,C3,D1,D2,D3"
+        }
+      ],
+      "outcome": {
+        "status": "playing",
+        "terminal": false,
+        "semanticKey": "{\"version\":\"resonance-1\",\"places\":[{\"id\":\"A1\",\"x\":0,\"y\":0,\"form\":\"conductor\",\"ports\":[\"east\",\"south\"],\"scar\":[\"south\"],\"recovery\":1},{\"id\":\"B1\",\"x\":1,\"y\":0,\"form\":\"conductor\",\"ports\":[\"south\",\"west\"],\"scar\":[\"west\"],\"recovery\":0},{\"id\":\"C1\",\"x\":2,\"y\":0,\"form\":\"conductor\",\"ports\":[\"east\",\"south\"],\"scar\":[\"south\"],\"recovery\":1},{\"id\":\"D1\",\"x\":3,\"y\":0,\"form\":\"conductor\",\"ports\":[\"south\",\"west\"],\"scar\":[\"west\"],\"recovery\":0},{\"id\":\"A2\",\"x\":0,\"y\":1,\"form\":\"conductor\",\"ports\":[\"north\",\"east\"],\"scar\":[\"east\"],\"recovery\":0},{\"id\":\"B2\",\"x\":1,\"y\":1,\"form\":\"conductor\",\"ports\":[\"north\",\"east\",\"west\"],\"scar\":[\"north\"],\"recovery\":0},{\"id\":\"C2\",\"x\":2,\"y\":1,\"form\":\"conductor\",\"ports\":[\"north\",\"south\",\"west\"],\"scar\":[\"west\"],\"recovery\":0},{\"id\":\"D2\",\"x\":3,\"y\":1,\"form\":\"conductor\",\"ports\":[\"north\",\"south\"],\"scar\":[\"north\"],\"recovery\":0},{\"id\":\"A3\",\"x\":0,\"y\":2,\"form\":\"soil\",\"ports\":[],\"scar\":[],\"recovery\":0},{\"id\":\"B3\",\"x\":1,\"y\":2,\"form\":\"soil\",\"ports\":[],\"scar\":[],\"recovery\":0},{\"id\":\"C3\",\"x\":2,\"y\":2,\"form\":\"conductor\",\"ports\":[\"north\",\"east\"],\"scar\":[\"north\",\"east\"],\"recovery\":1},{\"id\":\"D3\",\"x\":3,\"y\":2,\"form\":\"conductor\",\"ports\":[\"north\",\"west\"],\"scar\":[\"north\"],\"recovery\":0}],\"pulses\":[{\"at\":\"B1\",\"polarity\":\"+\",\"ingress\":[\"west\"]},{\"at\":\"D1\",\"polarity\":\"+\",\"ingress\":[\"west\"]}],\"echoes\":[],\"known\":[{\"period\":4,\"entry\":\"south\",\"cells\":[{\"x\":0,\"y\":0,\"ports\":[\"east\",\"south\"],\"recovery\":0},{\"x\":1,\"y\":0,\"ports\":[\"south\",\"west\"],\"recovery\":0},{\"x\":0,\"y\":1,\"ports\":[\"north\",\"east\"],\"recovery\":0},{\"x\":1,\"y\":1,\"ports\":[\"north\",\"west\"],\"recovery\":0}],\"phases\":[{\"recovery\":[0,0,0,1],\"pulses\":[{\"x\":0,\"y\":1,\"polarity\":\"+\",\"ingress\":[\"east\"]}],\"echoes\":[]},{\"recovery\":[0,0,1,0],\"pulses\":[{\"x\":0,\"y\":0,\"polarity\":\"+\",\"ingress\":[\"south\"]}],\"echoes\":[]},{\"recovery\":[1,0,0,0],\"pulses\":[{\"x\":1,\"y\":0,\"polarity\":\"+\",\"ingress\":[\"west\"]}],\"echoes\":[]},{\"recovery\":[0,1,0,0],\"pulses\":[{\"x\":1,\"y\":1,\"polarity\":\"+\",\"ingress\":[\"north\"]}],\"echoes\":[]}],\"id\":\"form-7a8885d2\"},{\"period\":6,\"entry\":\"south\",\"cells\":[{\"x\":0,\"y\":0,\"ports\":[\"east\",\"south\"],\"recovery\":0},{\"x\":1,\"y\":0,\"ports\":[\"south\",\"west\"],\"recovery\":0},{\"x\":0,\"y\":1,\"ports\":[\"north\",\"south\"],\"recovery\":0},{\"x\":1,\"y\":1,\"ports\":[\"north\",\"south\"],\"recovery\":0},{\"x\":0,\"y\":2,\"ports\":[\"north\",\"east\"],\"recovery\":0},{\"x\":1,\"y\":2,\"ports\":[\"north\",\"west\"],\"recovery\":0}],\"phases\":[{\"recovery\":[0,0,0,0,0,1],\"pulses\":[{\"x\":0,\"y\":2,\"polarity\":\"-\",\"ingress\":[\"east\"]}],\"echoes\":[]},{\"recovery\":[0,0,0,0,1,0],\"pulses\":[{\"x\":0,\"y\":1,\"polarity\":\"-\",\"ingress\":[\"south\"]}],\"echoes\":[]},{\"recovery\":[0,0,1,0,0,0],\"pulses\":[{\"x\":0,\"y\":0,\"polarity\":\"-\",\"ingress\":[\"south\"]}],\"echoes\":[]},{\"recovery\":[1,0,0,0,0,0],\"pulses\":[{\"x\":1,\"y\":0,\"polarity\":\"-\",\"ingress\":[\"west\"]}],\"echoes\":[]},{\"recovery\":[0,1,0,0,0,0],\"pulses\":[{\"x\":1,\"y\":1,\"polarity\":\"-\",\"ingress\":[\"north\"]}],\"echoes\":[]},{\"recovery\":[0,0,0,1,0,0],\"pulses\":[{\"x\":1,\"y\":2,\"polarity\":\"-\",\"ingress\":[\"north\"]}],\"echoes\":[]}],\"id\":\"form-73914d08\"},{\"period\":4,\"entry\":\"south\",\"cells\":[{\"x\":0,\"y\":0,\"ports\":[\"east\",\"south\"],\"recovery\":0},{\"x\":1,\"y\":0,\"ports\":[\"south\",\"west\"],\"recovery\":0},{\"x\":0,\"y\":1,\"ports\":[\"north\",\"east\"],\"recovery\":0},{\"x\":1,\"y\":1,\"ports\":[\"north\",\"east\",\"west\"],\"recovery\":0}],\"phases\":[{\"recovery\":[0,0,0,1],\"pulses\":[{\"x\":0,\"y\":1,\"polarity\":\"+\",\"ingress\":[\"east\"]}],\"echoes\":[]},{\"recovery\":[0,0,1,0],\"pulses\":[{\"x\":0,\"y\":0,\"polarity\":\"+\",\"ingress\":[\"south\"]}],\"echoes\":[]},{\"recovery\":[1,0,0,0],\"pulses\":[{\"x\":1,\"y\":0,\"polarity\":\"+\",\"ingress\":[\"west\"]}],\"echoes\":[]},{\"recovery\":[0,1,0,0],\"pulses\":[{\"x\":1,\"y\":1,\"polarity\":\"+\",\"ingress\":[\"north\"]}],\"echoes\":[]}],\"id\":\"form-cf556d8f\"},{\"period\":4,\"entry\":\"south\",\"cells\":[{\"x\":0,\"y\":0,\"ports\":[\"east\",\"south\"],\"recovery\":0},{\"x\":1,\"y\":0,\"ports\":[\"south\",\"west\"],\"recovery\":0},{\"x\":2,\"y\":0,\"ports\":[\"east\",\"south\"],\"recovery\":0},{\"x\":3,\"y\":0,\"ports\":[\"south\",\"west\"],\"recovery\":0},{\"x\":0,\"y\":1,\"ports\":[\"north\",\"east\"],\"recovery\":0},{\"x\":1,\"y\":1,\"ports\":[\"north\",\"east\",\"west\"],\"recovery\":0},{\"x\":2,\"y\":1,\"ports\":[\"north\",\"south\",\"west\"],\"recovery\":0},{\"x\":3,\"y\":1,\"ports\":[\"north\",\"south\"],\"recovery\":0},{\"x\":2,\"y\":2,\"ports\":[\"north\",\"east\"],\"recovery\":0},{\"x\":3,\"y\":2,\"ports\":[\"north\",\"west\"],\"recovery\":0}],\"phases\":[{\"recovery\":[0,0,0,0,0,1,0,1,0,0],\"pulses\":[{\"x\":0,\"y\":1,\"polarity\":\"+\",\"ingress\":[\"east\"]},{\"x\":2,\"y\":1,\"polarity\":\"+\",\"ingress\":[\"west\"]},{\"x\":3,\"y\":2,\"polarity\":\"+\",\"ingress\":[\"north\"]}],\"echoes\":[]},{\"recovery\":[0,0,0,0,1,0,1,0,0,1],\"pulses\":[{\"x\":0,\"y\":0,\"polarity\":\"+\",\"ingress\":[\"south\"]},{\"x\":2,\"y\":0,\"polarity\":\"+\",\"ingress\":[\"south\"]},{\"x\":2,\"y\":2,\"polarity\":\"+\",\"ingress\":[\"north\",\"east\"]}],\"echoes\":[]},{\"recovery\":[1,0,1,0,0,0,0,0,1,0],\"pulses\":[{\"x\":1,\"y\":0,\"polarity\":\"+\",\"ingress\":[\"west\"]},{\"x\":3,\"y\":0,\"polarity\":\"+\",\"ingress\":[\"west\"]}],\"echoes\":[]},{\"recovery\":[0,1,0,1,0,0,0,0,0,0],\"pulses\":[{\"x\":1,\"y\":1,\"polarity\":\"+\",\"ingress\":[\"north\"]},{\"x\":3,\"y\":1,\"polarity\":\"+\",\"ingress\":[\"north\"]}],\"echoes\":[]}],\"id\":\"form-c513337\"}],\"status\":\"playing\"}",
+        "objectives": [
+          {
+            "id": "two-independent-rhythms",
+            "value": 0,
+            "direction": "higher"
+          }
+        ],
+        "properties": {
+          "initialAim": false,
+          "cycles": [
+            {
+              "places": [
+                "A1",
+                "A2",
+                "B1",
+                "B2",
+                "C1",
+                "C2",
+                "C3",
+                "D1",
+                "D2",
+                "D3"
+              ],
+              "period": 4
+            }
+          ],
+          "moving": [
+            "B1",
+            "D1"
+          ],
+          "scarred": [
+            "A1",
+            "B1",
+            "C1",
+            "D1",
+            "A2",
+            "B2",
+            "C2",
+            "D2",
+            "C3",
+            "D3"
+          ],
+          "forms": [
+            "form-7a8885d2",
+            "form-73914d08",
+            "form-cf556d8f",
+            "form-c513337"
+          ]
+        }
+      }
+    },
+    {
+      "phase": 11,
+      "joinedFronts": [
+        {
+          "at": "B2",
+          "polarity": "+",
+          "ingress": [
+            "north"
+          ]
+        },
+        {
+          "at": "D2",
+          "polarity": "-",
+          "ingress": [
+            "north"
+          ]
+        }
+      ],
+      "trace": [
+        {
+          "kind": "passage",
+          "beat": 27,
+          "at": "A2",
+          "from": [
+            "east"
+          ],
+          "polarity": "+"
+        },
+        {
+          "kind": "passage",
+          "beat": 27,
+          "at": "C2",
+          "from": [
+            "west"
+          ],
+          "polarity": "+"
+        },
+        {
+          "kind": "passage",
+          "beat": 27,
+          "at": "D3",
+          "from": [
+            "north"
+          ],
+          "polarity": "-"
+        },
+        {
+          "kind": "passage",
+          "beat": 28,
+          "at": "A1",
+          "from": [
+            "south"
+          ],
+          "polarity": "+"
+        },
+        {
+          "kind": "passage",
+          "beat": 28,
+          "at": "C1",
+          "from": [
+            "south"
+          ],
+          "polarity": "+"
+        },
+        {
+          "kind": "annihilation",
+          "beat": 28,
+          "at": "C3",
+          "from": [
+            "north",
+            "east"
+          ]
+        },
+        {
+          "kind": "passage",
+          "beat": 29,
+          "at": "B1",
+          "from": [
+            "west"
+          ],
+          "polarity": "+"
+        },
+        {
+          "kind": "passage",
+          "beat": 29,
+          "at": "D1",
+          "from": [
+            "west"
+          ],
+          "polarity": "+"
+        },
+        {
+          "kind": "passage",
+          "beat": 30,
+          "at": "B2",
+          "from": [
+            "north"
+          ],
+          "polarity": "+"
+        },
+        {
+          "kind": "passage",
+          "beat": 30,
+          "at": "D2",
+          "from": [
+            "north"
+          ],
+          "polarity": "+"
+        },
+        {
+          "kind": "passage",
+          "beat": 31,
+          "at": "A2",
+          "from": [
+            "east"
+          ],
+          "polarity": "+"
+        },
+        {
+          "kind": "passage",
+          "beat": 31,
+          "at": "C2",
+          "from": [
+            "west"
+          ],
+          "polarity": "+"
+        },
+        {
+          "kind": "passage",
+          "beat": 31,
+          "at": "D3",
+          "from": [
+            "north"
+          ],
+          "polarity": "+"
+        },
+        {
+          "kind": "passage",
+          "beat": 32,
+          "at": "A1",
+          "from": [
+            "south"
+          ],
+          "polarity": "+"
+        },
+        {
+          "kind": "passage",
+          "beat": 32,
+          "at": "C1",
+          "from": [
+            "south"
+          ],
+          "polarity": "+"
+        },
+        {
+          "kind": "coalescence",
+          "beat": 32,
+          "at": "C3",
+          "from": [
+            "north",
+            "east"
+          ],
+          "polarity": "+"
+        },
+        {
+          "kind": "passage",
+          "beat": 33,
+          "at": "B1",
+          "from": [
+            "west"
+          ],
+          "polarity": "+"
+        },
+        {
+          "kind": "passage",
+          "beat": 33,
+          "at": "D1",
+          "from": [
+            "west"
+          ],
+          "polarity": "+"
+        },
+        {
+          "kind": "passage",
+          "beat": 34,
+          "at": "B2",
+          "from": [
+            "north"
+          ],
+          "polarity": "+"
+        },
+        {
+          "kind": "passage",
+          "beat": 34,
+          "at": "D2",
+          "from": [
+            "north"
+          ],
+          "polarity": "+"
+        },
+        {
+          "kind": "passage",
+          "beat": 35,
+          "at": "A2",
+          "from": [
+            "east"
+          ],
+          "polarity": "+"
+        },
+        {
+          "kind": "passage",
+          "beat": 35,
+          "at": "C2",
+          "from": [
+            "west"
+          ],
+          "polarity": "+"
+        },
+        {
+          "kind": "passage",
+          "beat": 35,
+          "at": "D3",
+          "from": [
+            "north"
+          ],
+          "polarity": "+"
+        },
+        {
+          "kind": "passage",
+          "beat": 36,
+          "at": "A1",
+          "from": [
+            "south"
+          ],
+          "polarity": "+"
+        },
+        {
+          "kind": "passage",
+          "beat": 36,
+          "at": "C1",
+          "from": [
+            "south"
+          ],
+          "polarity": "+"
+        },
+        {
+          "kind": "coalescence",
+          "beat": 36,
+          "at": "C3",
+          "from": [
+            "north",
+            "east"
+          ],
+          "polarity": "+"
+        },
+        {
+          "kind": "passage",
+          "beat": 37,
+          "at": "B1",
+          "from": [
+            "west"
+          ],
+          "polarity": "+"
+        },
+        {
+          "kind": "passage",
+          "beat": 37,
+          "at": "D1",
+          "from": [
+            "west"
+          ],
+          "polarity": "+"
+        },
+        {
+          "kind": "passage",
+          "beat": 38,
+          "at": "B2",
+          "from": [
+            "north"
+          ],
+          "polarity": "+"
+        },
+        {
+          "kind": "passage",
+          "beat": 38,
+          "at": "D2",
+          "from": [
+            "north"
+          ],
+          "polarity": "+"
+        },
+        {
+          "kind": "recurring-form",
+          "beat": 38,
+          "detail": "form-c513337: period 4; A1,A2,B1,B2,C1,C2,C3,D1,D2,D3"
+        }
+      ],
+      "outcome": {
+        "status": "playing",
+        "terminal": false,
+        "semanticKey": "{\"version\":\"resonance-1\",\"places\":[{\"id\":\"A1\",\"x\":0,\"y\":0,\"form\":\"conductor\",\"ports\":[\"east\",\"south\"],\"scar\":[\"south\"],\"recovery\":0},{\"id\":\"B1\",\"x\":1,\"y\":0,\"form\":\"conductor\",\"ports\":[\"south\",\"west\"],\"scar\":[\"west\"],\"recovery\":1},{\"id\":\"C1\",\"x\":2,\"y\":0,\"form\":\"conductor\",\"ports\":[\"east\",\"south\"],\"scar\":[\"south\"],\"recovery\":0},{\"id\":\"D1\",\"x\":3,\"y\":0,\"form\":\"conductor\",\"ports\":[\"south\",\"west\"],\"scar\":[\"west\"],\"recovery\":1},{\"id\":\"A2\",\"x\":0,\"y\":1,\"form\":\"conductor\",\"ports\":[\"north\",\"east\"],\"scar\":[\"east\"],\"recovery\":0},{\"id\":\"B2\",\"x\":1,\"y\":1,\"form\":\"conductor\",\"ports\":[\"north\",\"east\",\"west\"],\"scar\":[\"north\"],\"recovery\":0},{\"id\":\"C2\",\"x\":2,\"y\":1,\"form\":\"conductor\",\"ports\":[\"north\",\"south\",\"west\"],\"scar\":[\"west\"],\"recovery\":0},{\"id\":\"D2\",\"x\":3,\"y\":1,\"form\":\"conductor\",\"ports\":[\"north\",\"south\"],\"scar\":[\"north\"],\"recovery\":0},{\"id\":\"A3\",\"x\":0,\"y\":2,\"form\":\"soil\",\"ports\":[],\"scar\":[],\"recovery\":0},{\"id\":\"B3\",\"x\":1,\"y\":2,\"form\":\"soil\",\"ports\":[],\"scar\":[],\"recovery\":0},{\"id\":\"C3\",\"x\":2,\"y\":2,\"form\":\"conductor\",\"ports\":[\"north\",\"east\"],\"scar\":[\"north\",\"east\"],\"recovery\":0},{\"id\":\"D3\",\"x\":3,\"y\":2,\"form\":\"conductor\",\"ports\":[\"north\",\"west\"],\"scar\":[\"north\"],\"recovery\":0}],\"pulses\":[{\"at\":\"B2\",\"polarity\":\"+\",\"ingress\":[\"north\"]},{\"at\":\"D2\",\"polarity\":\"+\",\"ingress\":[\"north\"]}],\"echoes\":[],\"known\":[{\"period\":4,\"entry\":\"south\",\"cells\":[{\"x\":0,\"y\":0,\"ports\":[\"east\",\"south\"],\"recovery\":0},{\"x\":1,\"y\":0,\"ports\":[\"south\",\"west\"],\"recovery\":0},{\"x\":0,\"y\":1,\"ports\":[\"north\",\"east\"],\"recovery\":0},{\"x\":1,\"y\":1,\"ports\":[\"north\",\"west\"],\"recovery\":0}],\"phases\":[{\"recovery\":[0,0,0,1],\"pulses\":[{\"x\":0,\"y\":1,\"polarity\":\"+\",\"ingress\":[\"east\"]}],\"echoes\":[]},{\"recovery\":[0,0,1,0],\"pulses\":[{\"x\":0,\"y\":0,\"polarity\":\"+\",\"ingress\":[\"south\"]}],\"echoes\":[]},{\"recovery\":[1,0,0,0],\"pulses\":[{\"x\":1,\"y\":0,\"polarity\":\"+\",\"ingress\":[\"west\"]}],\"echoes\":[]},{\"recovery\":[0,1,0,0],\"pulses\":[{\"x\":1,\"y\":1,\"polarity\":\"+\",\"ingress\":[\"north\"]}],\"echoes\":[]}],\"id\":\"form-7a8885d2\"},{\"period\":6,\"entry\":\"south\",\"cells\":[{\"x\":0,\"y\":0,\"ports\":[\"east\",\"south\"],\"recovery\":0},{\"x\":1,\"y\":0,\"ports\":[\"south\",\"west\"],\"recovery\":0},{\"x\":0,\"y\":1,\"ports\":[\"north\",\"south\"],\"recovery\":0},{\"x\":1,\"y\":1,\"ports\":[\"north\",\"south\"],\"recovery\":0},{\"x\":0,\"y\":2,\"ports\":[\"north\",\"east\"],\"recovery\":0},{\"x\":1,\"y\":2,\"ports\":[\"north\",\"west\"],\"recovery\":0}],\"phases\":[{\"recovery\":[0,0,0,0,0,1],\"pulses\":[{\"x\":0,\"y\":2,\"polarity\":\"-\",\"ingress\":[\"east\"]}],\"echoes\":[]},{\"recovery\":[0,0,0,0,1,0],\"pulses\":[{\"x\":0,\"y\":1,\"polarity\":\"-\",\"ingress\":[\"south\"]}],\"echoes\":[]},{\"recovery\":[0,0,1,0,0,0],\"pulses\":[{\"x\":0,\"y\":0,\"polarity\":\"-\",\"ingress\":[\"south\"]}],\"echoes\":[]},{\"recovery\":[1,0,0,0,0,0],\"pulses\":[{\"x\":1,\"y\":0,\"polarity\":\"-\",\"ingress\":[\"west\"]}],\"echoes\":[]},{\"recovery\":[0,1,0,0,0,0],\"pulses\":[{\"x\":1,\"y\":1,\"polarity\":\"-\",\"ingress\":[\"north\"]}],\"echoes\":[]},{\"recovery\":[0,0,0,1,0,0],\"pulses\":[{\"x\":1,\"y\":2,\"polarity\":\"-\",\"ingress\":[\"north\"]}],\"echoes\":[]}],\"id\":\"form-73914d08\"},{\"period\":4,\"entry\":\"south\",\"cells\":[{\"x\":0,\"y\":0,\"ports\":[\"east\",\"south\"],\"recovery\":0},{\"x\":1,\"y\":0,\"ports\":[\"south\",\"west\"],\"recovery\":0},{\"x\":0,\"y\":1,\"ports\":[\"north\",\"east\"],\"recovery\":0},{\"x\":1,\"y\":1,\"ports\":[\"north\",\"east\",\"west\"],\"recovery\":0}],\"phases\":[{\"recovery\":[0,0,0,1],\"pulses\":[{\"x\":0,\"y\":1,\"polarity\":\"+\",\"ingress\":[\"east\"]}],\"echoes\":[]},{\"recovery\":[0,0,1,0],\"pulses\":[{\"x\":0,\"y\":0,\"polarity\":\"+\",\"ingress\":[\"south\"]}],\"echoes\":[]},{\"recovery\":[1,0,0,0],\"pulses\":[{\"x\":1,\"y\":0,\"polarity\":\"+\",\"ingress\":[\"west\"]}],\"echoes\":[]},{\"recovery\":[0,1,0,0],\"pulses\":[{\"x\":1,\"y\":1,\"polarity\":\"+\",\"ingress\":[\"north\"]}],\"echoes\":[]}],\"id\":\"form-cf556d8f\"},{\"period\":4,\"entry\":\"south\",\"cells\":[{\"x\":0,\"y\":0,\"ports\":[\"east\",\"south\"],\"recovery\":0},{\"x\":1,\"y\":0,\"ports\":[\"south\",\"west\"],\"recovery\":0},{\"x\":2,\"y\":0,\"ports\":[\"east\",\"south\"],\"recovery\":0},{\"x\":3,\"y\":0,\"ports\":[\"south\",\"west\"],\"recovery\":0},{\"x\":0,\"y\":1,\"ports\":[\"north\",\"east\"],\"recovery\":0},{\"x\":1,\"y\":1,\"ports\":[\"north\",\"east\",\"west\"],\"recovery\":0},{\"x\":2,\"y\":1,\"ports\":[\"north\",\"south\",\"west\"],\"recovery\":0},{\"x\":3,\"y\":1,\"ports\":[\"north\",\"south\"],\"recovery\":0},{\"x\":2,\"y\":2,\"ports\":[\"north\",\"east\"],\"recovery\":0},{\"x\":3,\"y\":2,\"ports\":[\"north\",\"west\"],\"recovery\":0}],\"phases\":[{\"recovery\":[0,0,0,0,0,1,0,1,0,0],\"pulses\":[{\"x\":0,\"y\":1,\"polarity\":\"+\",\"ingress\":[\"east\"]},{\"x\":2,\"y\":1,\"polarity\":\"+\",\"ingress\":[\"west\"]},{\"x\":3,\"y\":2,\"polarity\":\"+\",\"ingress\":[\"north\"]}],\"echoes\":[]},{\"recovery\":[0,0,0,0,1,0,1,0,0,1],\"pulses\":[{\"x\":0,\"y\":0,\"polarity\":\"+\",\"ingress\":[\"south\"]},{\"x\":2,\"y\":0,\"polarity\":\"+\",\"ingress\":[\"south\"]},{\"x\":2,\"y\":2,\"polarity\":\"+\",\"ingress\":[\"north\",\"east\"]}],\"echoes\":[]},{\"recovery\":[1,0,1,0,0,0,0,0,1,0],\"pulses\":[{\"x\":1,\"y\":0,\"polarity\":\"+\",\"ingress\":[\"west\"]},{\"x\":3,\"y\":0,\"polarity\":\"+\",\"ingress\":[\"west\"]}],\"echoes\":[]},{\"recovery\":[0,1,0,1,0,0,0,0,0,0],\"pulses\":[{\"x\":1,\"y\":1,\"polarity\":\"+\",\"ingress\":[\"north\"]},{\"x\":3,\"y\":1,\"polarity\":\"+\",\"ingress\":[\"north\"]}],\"echoes\":[]}],\"id\":\"form-c513337\"}],\"status\":\"playing\"}",
+        "objectives": [
+          {
+            "id": "two-independent-rhythms",
+            "value": 0,
+            "direction": "higher"
+          }
+        ],
+        "properties": {
+          "initialAim": false,
+          "cycles": [
+            {
+              "places": [
+                "A1",
+                "A2",
+                "B1",
+                "B2",
+                "C1",
+                "C2",
+                "C3",
+                "D1",
+                "D2",
+                "D3"
+              ],
+              "period": 4
+            }
+          ],
+          "moving": [
+            "B2",
+            "D2"
+          ],
+          "scarred": [
+            "A1",
+            "B1",
+            "C1",
+            "D1",
+            "A2",
+            "B2",
+            "C2",
+            "D2",
+            "C3",
+            "D3"
+          ],
+          "forms": [
+            "form-7a8885d2",
+            "form-73914d08",
+            "form-cf556d8f",
+            "form-c513337"
+          ]
+        }
+      }
+    }
+  ],
+  "policyScreen": {
+    "alwaysExpand": {
+      "initialAim": false,
+      "cycles": [],
+      "moving": [
+        "A2",
+        "C2",
+        "D1",
+        "D3"
+      ],
+      "scarred": [
+        "A1",
+        "B1",
+        "C1",
+        "D1",
+        "A2",
+        "B2",
+        "C2",
+        "D2",
+        "A3",
+        "B3",
+        "C3",
+        "D3"
+      ],
+      "forms": [
+        "form-7a8885d2",
+        "form-c547c2b3",
+        "form-27dd2f8d",
+        "form-ffd3ee22",
+        "form-7ff4ed9",
+        "form-a1b00e91",
+        "form-4e7cd2ed"
+      ]
+    },
+    "copyStartingFormWhereEligible": {
+      "initialAim": false,
+      "cycles": [],
+      "moving": [
+        "A1"
+      ],
+      "scarred": [
+        "A1",
+        "B1",
+        "A2",
+        "B2"
+      ],
+      "forms": [
+        "form-7a8885d2"
+      ]
+    },
+    "allDirectedSafeguardsAfterQuiet": {
+      "initialAim": true,
+      "cycles": [
+        {
+          "places": [
+            "A1",
+            "A2",
+            "B1",
+            "B2"
+          ],
+          "period": 4
+        },
+        {
+          "places": [
+            "C1",
+            "C2",
+            "C3",
+            "D1",
+            "D2",
+            "D3"
+          ],
+          "period": 6
+        }
+      ],
+      "moving": [
+        "A2",
+        "C2"
+      ],
+      "scarred": [
+        "A1",
+        "B1",
+        "C1",
+        "D1",
+        "A2",
+        "B2",
+        "C2",
+        "D2",
+        "C3",
+        "D3"
+      ],
+      "forms": [
+        "form-7a8885d2",
+        "form-73914d08"
+      ]
+    },
+    "interpretation": "All directed safeguards preserve the quiet settlement. That is an actual shortcut for a player satisfied with independence, not a failed policy. The model supplies no mechanical obligation or proven desire to couple."
+  },
+  "interpretation": [
+    "This is a mechanical chain, not a player appetite report.",
+    "Quiet independent closure is a supported result. Coupling changes phase/contact but has no extra compulsory reward.",
+    "The first target is a short route construction; whether remembered forms and connected rhythms are worth pursuing remains untested."
+  ]
+}

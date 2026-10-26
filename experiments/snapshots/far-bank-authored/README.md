@@ -1,0 +1,1 @@
+Historical Far Bank prototype, superseded by the owner’s primitive-narrative correction before a completed playtest. The partial inheritance core and authored content are preserved with their Confluence dependencies. This is not the selected game or a tested long campaign.

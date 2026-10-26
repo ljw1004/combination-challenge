@@ -1,0 +1,2878 @@
+{
+  "version": "constitution-1",
+  "hypothesis": "Binding independent wills can create informed, nonresource tradeoffs between joint action, local fit and adaptation to a public change.",
+  "iteration": {
+    "baseline": "Consultation enables the same joint works while every town still follows its local need.",
+    "baselineNondominatedPartitions": [
+      "abcd"
+    ],
+    "baselineConclusion": "All-union dominates every lesser partition. Reject this no-downside version.",
+    "revision": "Binding now means one shared policy per group. Only this causal rule changes; concepts remain inexhaustible and no quota is introduced."
+  },
+  "screens": [
+    {
+      "scenario": "harbor",
+      "reachablePlayingStates": 41,
+      "terminalStates": 41,
+      "viableTerminalStates": 6,
+      "nondominatedDistinctProfiles": 3,
+      "nondominatedWitnesses": [
+        {
+          "path": [
+            {
+              "type": "combine",
+              "a": "a",
+              "b": "b"
+            },
+            {
+              "type": "combine",
+              "a": "constitution",
+              "b": "world"
+            }
+          ],
+          "councils": [
+            {
+              "members": [
+                "a",
+                "b"
+              ],
+              "founder": "a"
+            },
+            {
+              "members": [
+                "c"
+              ],
+              "founder": "c"
+            },
+            {
+              "members": [
+                "d"
+              ],
+              "founder": "d"
+            }
+          ],
+          "outcome": {
+            "terminal": true,
+            "status": "won",
+            "feasible": true,
+            "dimensions": [
+              {
+                "id": "completed-joint-works",
+                "value": 1,
+                "direction": "max"
+              },
+              {
+                "id": "protected-in-first-climate",
+                "value": 3,
+                "direction": "max"
+              },
+              {
+                "id": "protected-in-changed-climate",
+                "value": 4,
+                "direction": "max"
+              }
+            ],
+            "consequences": {
+              "success": true,
+              "requirements": [
+                {
+                  "requirement": "Complete Harbor bridge",
+                  "met": true
+                },
+                {
+                  "requirement": "Keep A habitable in BOTH climates",
+                  "met": true
+                }
+              ],
+              "works": [
+                {
+                  "id": "bridge-ab",
+                  "name": "Harbor bridge",
+                  "ends": [
+                    "a",
+                    "b"
+                  ],
+                  "completed": true
+                },
+                {
+                  "id": "observatory-ac",
+                  "name": "Shared observatory",
+                  "ends": [
+                    "a",
+                    "c"
+                  ],
+                  "completed": false
+                },
+                {
+                  "id": "refuge-cd",
+                  "name": "Common refuge",
+                  "ends": [
+                    "c",
+                    "d"
+                  ],
+                  "completed": false
+                },
+                {
+                  "id": "canal-bd",
+                  "name": "Storm canal",
+                  "ends": [
+                    "b",
+                    "d"
+                  ],
+                  "completed": false
+                }
+              ],
+              "episodes": [
+                {
+                  "id": "first-climate",
+                  "policies": {
+                    "a": "open",
+                    "b": "open",
+                    "c": "open",
+                    "d": "shelter"
+                  },
+                  "protected": [
+                    "a",
+                    "c",
+                    "d"
+                  ],
+                  "harmed": [
+                    "b"
+                  ]
+                },
+                {
+                  "id": "changed-climate",
+                  "policies": {
+                    "a": "shelter",
+                    "b": "shelter",
+                    "c": "open",
+                    "d": "open"
+                  },
+                  "protected": [
+                    "a",
+                    "b",
+                    "c",
+                    "d"
+                  ],
+                  "harmed": []
+                }
+              ]
+            }
+          }
+        },
+        {
+          "path": [
+            {
+              "type": "combine",
+              "a": "a",
+              "b": "c"
+            },
+            {
+              "type": "combine",
+              "a": "b",
+              "b": "a"
+            },
+            {
+              "type": "combine",
+              "a": "constitution",
+              "b": "world"
+            }
+          ],
+          "councils": [
+            {
+              "members": [
+                "a",
+                "b",
+                "c"
+              ],
+              "founder": "b"
+            },
+            {
+              "members": [
+                "d"
+              ],
+              "founder": "d"
+            }
+          ],
+          "outcome": {
+            "terminal": true,
+            "status": "won",
+            "feasible": true,
+            "dimensions": [
+              {
+                "id": "completed-joint-works",
+                "value": 2,
+                "direction": "max"
+              },
+              {
+                "id": "protected-in-first-climate",
+                "value": 3,
+                "direction": "max"
+              },
+              {
+                "id": "protected-in-changed-climate",
+                "value": 3,
+                "direction": "max"
+              }
+            ],
+            "consequences": {
+              "success": true,
+              "requirements": [
+                {
+                  "requirement": "Complete Harbor bridge",
+                  "met": true
+                },
+                {
+                  "requirement": "Keep A habitable in BOTH climates",
+                  "met": true
+                }
+              ],
+              "works": [
+                {
+                  "id": "bridge-ab",
+                  "name": "Harbor bridge",
+                  "ends": [
+                    "a",
+                    "b"
+                  ],
+                  "completed": true
+                },
+                {
+                  "id": "observatory-ac",
+                  "name": "Shared observatory",
+                  "ends": [
+                    "a",
+                    "c"
+                  ],
+                  "completed": true
+                },
+                {
+                  "id": "refuge-cd",
+                  "name": "Common refuge",
+                  "ends": [
+                    "c",
+                    "d"
+                  ],
+                  "completed": false
+                },
+                {
+                  "id": "canal-bd",
+                  "name": "Storm canal",
+                  "ends": [
+                    "b",
+                    "d"
+                  ],
+                  "completed": false
+                }
+              ],
+              "episodes": [
+                {
+                  "id": "first-climate",
+                  "policies": {
+                    "a": "open",
+                    "b": "open",
+                    "c": "open",
+                    "d": "shelter"
+                  },
+                  "protected": [
+                    "a",
+                    "c",
+                    "d"
+                  ],
+                  "harmed": [
+                    "b"
+                  ]
+                },
+                {
+                  "id": "changed-climate",
+                  "policies": {
+                    "a": "shelter",
+                    "b": "shelter",
+                    "c": "shelter",
+                    "d": "open"
+                  },
+                  "protected": [
+                    "a",
+                    "b",
+                    "d"
+                  ],
+                  "harmed": [
+                    "c"
+                  ]
+                }
+              ]
+            }
+          }
+        },
+        {
+          "path": [
+            {
+              "type": "combine",
+              "a": "a",
+              "b": "b"
+            },
+            {
+              "type": "combine",
+              "a": "d",
+              "b": "c"
+            },
+            {
+              "type": "combine",
+              "a": "constitution",
+              "b": "world"
+            }
+          ],
+          "councils": [
+            {
+              "members": [
+                "a",
+                "b"
+              ],
+              "founder": "a"
+            },
+            {
+              "members": [
+                "c",
+                "d"
+              ],
+              "founder": "d"
+            }
+          ],
+          "outcome": {
+            "terminal": true,
+            "status": "won",
+            "feasible": true,
+            "dimensions": [
+              {
+                "id": "completed-joint-works",
+                "value": 2,
+                "direction": "max"
+              },
+              {
+                "id": "protected-in-first-climate",
+                "value": 2,
+                "direction": "max"
+              },
+              {
+                "id": "protected-in-changed-climate",
+                "value": 4,
+                "direction": "max"
+              }
+            ],
+            "consequences": {
+              "success": true,
+              "requirements": [
+                {
+                  "requirement": "Complete Harbor bridge",
+                  "met": true
+                },
+                {
+                  "requirement": "Keep A habitable in BOTH climates",
+                  "met": true
+                }
+              ],
+              "works": [
+                {
+                  "id": "bridge-ab",
+                  "name": "Harbor bridge",
+                  "ends": [
+                    "a",
+                    "b"
+                  ],
+                  "completed": true
+                },
+                {
+                  "id": "observatory-ac",
+                  "name": "Shared observatory",
+                  "ends": [
+                    "a",
+                    "c"
+                  ],
+                  "completed": false
+                },
+                {
+                  "id": "refuge-cd",
+                  "name": "Common refuge",
+                  "ends": [
+                    "c",
+                    "d"
+                  ],
+                  "completed": true
+                },
+                {
+                  "id": "canal-bd",
+                  "name": "Storm canal",
+                  "ends": [
+                    "b",
+                    "d"
+                  ],
+                  "completed": false
+                }
+              ],
+              "episodes": [
+                {
+                  "id": "first-climate",
+                  "policies": {
+                    "a": "open",
+                    "b": "open",
+                    "c": "shelter",
+                    "d": "shelter"
+                  },
+                  "protected": [
+                    "a",
+                    "d"
+                  ],
+                  "harmed": [
+                    "b",
+                    "c"
+                  ]
+                },
+                {
+                  "id": "changed-climate",
+                  "policies": {
+                    "a": "shelter",
+                    "b": "shelter",
+                    "c": "open",
+                    "d": "open"
+                  },
+                  "protected": [
+                    "a",
+                    "b",
+                    "c",
+                    "d"
+                  ],
+                  "harmed": []
+                }
+              ]
+            }
+          }
+        }
+      ],
+      "allUnion": [
+        {
+          "founder": "a",
+          "terminal": true,
+          "status": "lost",
+          "feasible": false,
+          "dimensions": [
+            {
+              "id": "completed-joint-works",
+              "value": 4,
+              "direction": "max"
+            },
+            {
+              "id": "protected-in-first-climate",
+              "value": 2,
+              "direction": "max"
+            },
+            {
+              "id": "protected-in-changed-climate",
+              "value": 2,
+              "direction": "max"
+            }
+          ],
+          "consequences": {
+            "success": false,
+            "requirements": [
+              {
+                "requirement": "Complete Harbor bridge",
+                "met": true
+              },
+              {
+                "requirement": "Keep A habitable in BOTH climates",
+                "met": false
+              }
+            ],
+            "works": [
+              {
+                "id": "bridge-ab",
+                "name": "Harbor bridge",
+                "ends": [
+                  "a",
+                  "b"
+                ],
+                "completed": true
+              },
+              {
+                "id": "observatory-ac",
+                "name": "Shared observatory",
+                "ends": [
+                  "a",
+                  "c"
+                ],
+                "completed": true
+              },
+              {
+                "id": "refuge-cd",
+                "name": "Common refuge",
+                "ends": [
+                  "c",
+                  "d"
+                ],
+                "completed": true
+              },
+              {
+                "id": "canal-bd",
+                "name": "Storm canal",
+                "ends": [
+                  "b",
+                  "d"
+                ],
+                "completed": true
+              }
+            ],
+            "episodes": [
+              {
+                "id": "first-climate",
+                "policies": {
+                  "a": "open",
+                  "b": "open",
+                  "c": "open",
+                  "d": "open"
+                },
+                "protected": [
+                  "a",
+                  "c"
+                ],
+                "harmed": [
+                  "b",
+                  "d"
+                ]
+              },
+              {
+                "id": "changed-climate",
+                "policies": {
+                  "a": "open",
+                  "b": "open",
+                  "c": "open",
+                  "d": "open"
+                },
+                "protected": [
+                  "c",
+                  "d"
+                ],
+                "harmed": [
+                  "a",
+                  "b"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "founder": "d",
+          "terminal": true,
+          "status": "lost",
+          "feasible": false,
+          "dimensions": [
+            {
+              "id": "completed-joint-works",
+              "value": 4,
+              "direction": "max"
+            },
+            {
+              "id": "protected-in-first-climate",
+              "value": 2,
+              "direction": "max"
+            },
+            {
+              "id": "protected-in-changed-climate",
+              "value": 2,
+              "direction": "max"
+            }
+          ],
+          "consequences": {
+            "success": false,
+            "requirements": [
+              {
+                "requirement": "Complete Harbor bridge",
+                "met": true
+              },
+              {
+                "requirement": "Keep A habitable in BOTH climates",
+                "met": false
+              }
+            ],
+            "works": [
+              {
+                "id": "bridge-ab",
+                "name": "Harbor bridge",
+                "ends": [
+                  "a",
+                  "b"
+                ],
+                "completed": true
+              },
+              {
+                "id": "observatory-ac",
+                "name": "Shared observatory",
+                "ends": [
+                  "a",
+                  "c"
+                ],
+                "completed": true
+              },
+              {
+                "id": "refuge-cd",
+                "name": "Common refuge",
+                "ends": [
+                  "c",
+                  "d"
+                ],
+                "completed": true
+              },
+              {
+                "id": "canal-bd",
+                "name": "Storm canal",
+                "ends": [
+                  "b",
+                  "d"
+                ],
+                "completed": true
+              }
+            ],
+            "episodes": [
+              {
+                "id": "first-climate",
+                "policies": {
+                  "a": "shelter",
+                  "b": "shelter",
+                  "c": "shelter",
+                  "d": "shelter"
+                },
+                "protected": [
+                  "b",
+                  "d"
+                ],
+                "harmed": [
+                  "a",
+                  "c"
+                ]
+              },
+              {
+                "id": "changed-climate",
+                "policies": {
+                  "a": "shelter",
+                  "b": "shelter",
+                  "c": "shelter",
+                  "d": "shelter"
+                },
+                "protected": [
+                  "a",
+                  "b"
+                ],
+                "harmed": [
+                  "c",
+                  "d"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "founder": "c",
+          "terminal": true,
+          "status": "lost",
+          "feasible": false,
+          "dimensions": [
+            {
+              "id": "completed-joint-works",
+              "value": 4,
+              "direction": "max"
+            },
+            {
+              "id": "protected-in-first-climate",
+              "value": 2,
+              "direction": "max"
+            },
+            {
+              "id": "protected-in-changed-climate",
+              "value": 2,
+              "direction": "max"
+            }
+          ],
+          "consequences": {
+            "success": false,
+            "requirements": [
+              {
+                "requirement": "Complete Harbor bridge",
+                "met": true
+              },
+              {
+                "requirement": "Keep A habitable in BOTH climates",
+                "met": false
+              }
+            ],
+            "works": [
+              {
+                "id": "bridge-ab",
+                "name": "Harbor bridge",
+                "ends": [
+                  "a",
+                  "b"
+                ],
+                "completed": true
+              },
+              {
+                "id": "observatory-ac",
+                "name": "Shared observatory",
+                "ends": [
+                  "a",
+                  "c"
+                ],
+                "completed": true
+              },
+              {
+                "id": "refuge-cd",
+                "name": "Common refuge",
+                "ends": [
+                  "c",
+                  "d"
+                ],
+                "completed": true
+              },
+              {
+                "id": "canal-bd",
+                "name": "Storm canal",
+                "ends": [
+                  "b",
+                  "d"
+                ],
+                "completed": true
+              }
+            ],
+            "episodes": [
+              {
+                "id": "first-climate",
+                "policies": {
+                  "a": "open",
+                  "b": "open",
+                  "c": "open",
+                  "d": "open"
+                },
+                "protected": [
+                  "a",
+                  "c"
+                ],
+                "harmed": [
+                  "b",
+                  "d"
+                ]
+              },
+              {
+                "id": "changed-climate",
+                "policies": {
+                  "a": "open",
+                  "b": "open",
+                  "c": "open",
+                  "d": "open"
+                },
+                "protected": [
+                  "c",
+                  "d"
+                ],
+                "harmed": [
+                  "a",
+                  "b"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "founder": "b",
+          "terminal": true,
+          "status": "lost",
+          "feasible": false,
+          "dimensions": [
+            {
+              "id": "completed-joint-works",
+              "value": 4,
+              "direction": "max"
+            },
+            {
+              "id": "protected-in-first-climate",
+              "value": 2,
+              "direction": "max"
+            },
+            {
+              "id": "protected-in-changed-climate",
+              "value": 2,
+              "direction": "max"
+            }
+          ],
+          "consequences": {
+            "success": false,
+            "requirements": [
+              {
+                "requirement": "Complete Harbor bridge",
+                "met": true
+              },
+              {
+                "requirement": "Keep A habitable in BOTH climates",
+                "met": false
+              }
+            ],
+            "works": [
+              {
+                "id": "bridge-ab",
+                "name": "Harbor bridge",
+                "ends": [
+                  "a",
+                  "b"
+                ],
+                "completed": true
+              },
+              {
+                "id": "observatory-ac",
+                "name": "Shared observatory",
+                "ends": [
+                  "a",
+                  "c"
+                ],
+                "completed": true
+              },
+              {
+                "id": "refuge-cd",
+                "name": "Common refuge",
+                "ends": [
+                  "c",
+                  "d"
+                ],
+                "completed": true
+              },
+              {
+                "id": "canal-bd",
+                "name": "Storm canal",
+                "ends": [
+                  "b",
+                  "d"
+                ],
+                "completed": true
+              }
+            ],
+            "episodes": [
+              {
+                "id": "first-climate",
+                "policies": {
+                  "a": "shelter",
+                  "b": "shelter",
+                  "c": "shelter",
+                  "d": "shelter"
+                },
+                "protected": [
+                  "b",
+                  "d"
+                ],
+                "harmed": [
+                  "a",
+                  "c"
+                ]
+              },
+              {
+                "id": "changed-climate",
+                "policies": {
+                  "a": "shelter",
+                  "b": "shelter",
+                  "c": "shelter",
+                  "d": "shelter"
+                },
+                "protected": [
+                  "a",
+                  "b"
+                ],
+                "harmed": [
+                  "c",
+                  "d"
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "scenario": "observatory",
+      "reachablePlayingStates": 41,
+      "terminalStates": 41,
+      "viableTerminalStates": 3,
+      "nondominatedDistinctProfiles": 1,
+      "nondominatedWitnesses": [
+        {
+          "path": [
+            {
+              "type": "combine",
+              "a": "a",
+              "b": "c"
+            },
+            {
+              "type": "combine",
+              "a": "b",
+              "b": "a"
+            },
+            {
+              "type": "combine",
+              "a": "constitution",
+              "b": "world"
+            }
+          ],
+          "councils": [
+            {
+              "members": [
+                "a",
+                "b",
+                "c"
+              ],
+              "founder": "b"
+            },
+            {
+              "members": [
+                "d"
+              ],
+              "founder": "d"
+            }
+          ],
+          "outcome": {
+            "terminal": true,
+            "status": "won",
+            "feasible": true,
+            "dimensions": [
+              {
+                "id": "completed-joint-works",
+                "value": 2,
+                "direction": "max"
+              },
+              {
+                "id": "protected-in-first-climate",
+                "value": 3,
+                "direction": "max"
+              },
+              {
+                "id": "protected-in-changed-climate",
+                "value": 3,
+                "direction": "max"
+              }
+            ],
+            "consequences": {
+              "success": true,
+              "requirements": [
+                {
+                  "requirement": "Complete Shared observatory",
+                  "met": true
+                },
+                {
+                  "requirement": "Keep A habitable in BOTH climates",
+                  "met": true
+                }
+              ],
+              "works": [
+                {
+                  "id": "bridge-ab",
+                  "name": "Harbor bridge",
+                  "ends": [
+                    "a",
+                    "b"
+                  ],
+                  "completed": true
+                },
+                {
+                  "id": "observatory-ac",
+                  "name": "Shared observatory",
+                  "ends": [
+                    "a",
+                    "c"
+                  ],
+                  "completed": true
+                },
+                {
+                  "id": "refuge-cd",
+                  "name": "Common refuge",
+                  "ends": [
+                    "c",
+                    "d"
+                  ],
+                  "completed": false
+                },
+                {
+                  "id": "canal-bd",
+                  "name": "Storm canal",
+                  "ends": [
+                    "b",
+                    "d"
+                  ],
+                  "completed": false
+                }
+              ],
+              "episodes": [
+                {
+                  "id": "first-climate",
+                  "policies": {
+                    "a": "open",
+                    "b": "open",
+                    "c": "open",
+                    "d": "shelter"
+                  },
+                  "protected": [
+                    "a",
+                    "c",
+                    "d"
+                  ],
+                  "harmed": [
+                    "b"
+                  ]
+                },
+                {
+                  "id": "changed-climate",
+                  "policies": {
+                    "a": "shelter",
+                    "b": "shelter",
+                    "c": "shelter",
+                    "d": "open"
+                  },
+                  "protected": [
+                    "a",
+                    "b",
+                    "d"
+                  ],
+                  "harmed": [
+                    "c"
+                  ]
+                }
+              ]
+            }
+          }
+        }
+      ],
+      "allUnion": [
+        {
+          "founder": "a",
+          "terminal": true,
+          "status": "lost",
+          "feasible": false,
+          "dimensions": [
+            {
+              "id": "completed-joint-works",
+              "value": 4,
+              "direction": "max"
+            },
+            {
+              "id": "protected-in-first-climate",
+              "value": 2,
+              "direction": "max"
+            },
+            {
+              "id": "protected-in-changed-climate",
+              "value": 2,
+              "direction": "max"
+            }
+          ],
+          "consequences": {
+            "success": false,
+            "requirements": [
+              {
+                "requirement": "Complete Shared observatory",
+                "met": true
+              },
+              {
+                "requirement": "Keep A habitable in BOTH climates",
+                "met": false
+              }
+            ],
+            "works": [
+              {
+                "id": "bridge-ab",
+                "name": "Harbor bridge",
+                "ends": [
+                  "a",
+                  "b"
+                ],
+                "completed": true
+              },
+              {
+                "id": "observatory-ac",
+                "name": "Shared observatory",
+                "ends": [
+                  "a",
+                  "c"
+                ],
+                "completed": true
+              },
+              {
+                "id": "refuge-cd",
+                "name": "Common refuge",
+                "ends": [
+                  "c",
+                  "d"
+                ],
+                "completed": true
+              },
+              {
+                "id": "canal-bd",
+                "name": "Storm canal",
+                "ends": [
+                  "b",
+                  "d"
+                ],
+                "completed": true
+              }
+            ],
+            "episodes": [
+              {
+                "id": "first-climate",
+                "policies": {
+                  "a": "open",
+                  "b": "open",
+                  "c": "open",
+                  "d": "open"
+                },
+                "protected": [
+                  "a",
+                  "c"
+                ],
+                "harmed": [
+                  "b",
+                  "d"
+                ]
+              },
+              {
+                "id": "changed-climate",
+                "policies": {
+                  "a": "open",
+                  "b": "open",
+                  "c": "open",
+                  "d": "open"
+                },
+                "protected": [
+                  "c",
+                  "d"
+                ],
+                "harmed": [
+                  "a",
+                  "b"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "founder": "d",
+          "terminal": true,
+          "status": "lost",
+          "feasible": false,
+          "dimensions": [
+            {
+              "id": "completed-joint-works",
+              "value": 4,
+              "direction": "max"
+            },
+            {
+              "id": "protected-in-first-climate",
+              "value": 2,
+              "direction": "max"
+            },
+            {
+              "id": "protected-in-changed-climate",
+              "value": 2,
+              "direction": "max"
+            }
+          ],
+          "consequences": {
+            "success": false,
+            "requirements": [
+              {
+                "requirement": "Complete Shared observatory",
+                "met": true
+              },
+              {
+                "requirement": "Keep A habitable in BOTH climates",
+                "met": false
+              }
+            ],
+            "works": [
+              {
+                "id": "bridge-ab",
+                "name": "Harbor bridge",
+                "ends": [
+                  "a",
+                  "b"
+                ],
+                "completed": true
+              },
+              {
+                "id": "observatory-ac",
+                "name": "Shared observatory",
+                "ends": [
+                  "a",
+                  "c"
+                ],
+                "completed": true
+              },
+              {
+                "id": "refuge-cd",
+                "name": "Common refuge",
+                "ends": [
+                  "c",
+                  "d"
+                ],
+                "completed": true
+              },
+              {
+                "id": "canal-bd",
+                "name": "Storm canal",
+                "ends": [
+                  "b",
+                  "d"
+                ],
+                "completed": true
+              }
+            ],
+            "episodes": [
+              {
+                "id": "first-climate",
+                "policies": {
+                  "a": "shelter",
+                  "b": "shelter",
+                  "c": "shelter",
+                  "d": "shelter"
+                },
+                "protected": [
+                  "b",
+                  "d"
+                ],
+                "harmed": [
+                  "a",
+                  "c"
+                ]
+              },
+              {
+                "id": "changed-climate",
+                "policies": {
+                  "a": "shelter",
+                  "b": "shelter",
+                  "c": "shelter",
+                  "d": "shelter"
+                },
+                "protected": [
+                  "a",
+                  "b"
+                ],
+                "harmed": [
+                  "c",
+                  "d"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "founder": "c",
+          "terminal": true,
+          "status": "lost",
+          "feasible": false,
+          "dimensions": [
+            {
+              "id": "completed-joint-works",
+              "value": 4,
+              "direction": "max"
+            },
+            {
+              "id": "protected-in-first-climate",
+              "value": 2,
+              "direction": "max"
+            },
+            {
+              "id": "protected-in-changed-climate",
+              "value": 2,
+              "direction": "max"
+            }
+          ],
+          "consequences": {
+            "success": false,
+            "requirements": [
+              {
+                "requirement": "Complete Shared observatory",
+                "met": true
+              },
+              {
+                "requirement": "Keep A habitable in BOTH climates",
+                "met": false
+              }
+            ],
+            "works": [
+              {
+                "id": "bridge-ab",
+                "name": "Harbor bridge",
+                "ends": [
+                  "a",
+                  "b"
+                ],
+                "completed": true
+              },
+              {
+                "id": "observatory-ac",
+                "name": "Shared observatory",
+                "ends": [
+                  "a",
+                  "c"
+                ],
+                "completed": true
+              },
+              {
+                "id": "refuge-cd",
+                "name": "Common refuge",
+                "ends": [
+                  "c",
+                  "d"
+                ],
+                "completed": true
+              },
+              {
+                "id": "canal-bd",
+                "name": "Storm canal",
+                "ends": [
+                  "b",
+                  "d"
+                ],
+                "completed": true
+              }
+            ],
+            "episodes": [
+              {
+                "id": "first-climate",
+                "policies": {
+                  "a": "open",
+                  "b": "open",
+                  "c": "open",
+                  "d": "open"
+                },
+                "protected": [
+                  "a",
+                  "c"
+                ],
+                "harmed": [
+                  "b",
+                  "d"
+                ]
+              },
+              {
+                "id": "changed-climate",
+                "policies": {
+                  "a": "open",
+                  "b": "open",
+                  "c": "open",
+                  "d": "open"
+                },
+                "protected": [
+                  "c",
+                  "d"
+                ],
+                "harmed": [
+                  "a",
+                  "b"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "founder": "b",
+          "terminal": true,
+          "status": "lost",
+          "feasible": false,
+          "dimensions": [
+            {
+              "id": "completed-joint-works",
+              "value": 4,
+              "direction": "max"
+            },
+            {
+              "id": "protected-in-first-climate",
+              "value": 2,
+              "direction": "max"
+            },
+            {
+              "id": "protected-in-changed-climate",
+              "value": 2,
+              "direction": "max"
+            }
+          ],
+          "consequences": {
+            "success": false,
+            "requirements": [
+              {
+                "requirement": "Complete Shared observatory",
+                "met": true
+              },
+              {
+                "requirement": "Keep A habitable in BOTH climates",
+                "met": false
+              }
+            ],
+            "works": [
+              {
+                "id": "bridge-ab",
+                "name": "Harbor bridge",
+                "ends": [
+                  "a",
+                  "b"
+                ],
+                "completed": true
+              },
+              {
+                "id": "observatory-ac",
+                "name": "Shared observatory",
+                "ends": [
+                  "a",
+                  "c"
+                ],
+                "completed": true
+              },
+              {
+                "id": "refuge-cd",
+                "name": "Common refuge",
+                "ends": [
+                  "c",
+                  "d"
+                ],
+                "completed": true
+              },
+              {
+                "id": "canal-bd",
+                "name": "Storm canal",
+                "ends": [
+                  "b",
+                  "d"
+                ],
+                "completed": true
+              }
+            ],
+            "episodes": [
+              {
+                "id": "first-climate",
+                "policies": {
+                  "a": "shelter",
+                  "b": "shelter",
+                  "c": "shelter",
+                  "d": "shelter"
+                },
+                "protected": [
+                  "b",
+                  "d"
+                ],
+                "harmed": [
+                  "a",
+                  "c"
+                ]
+              },
+              {
+                "id": "changed-climate",
+                "policies": {
+                  "a": "shelter",
+                  "b": "shelter",
+                  "c": "shelter",
+                  "d": "shelter"
+                },
+                "protected": [
+                  "a",
+                  "b"
+                ],
+                "harmed": [
+                  "c",
+                  "d"
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "scenario": "refuge",
+      "reachablePlayingStates": 41,
+      "terminalStates": 41,
+      "viableTerminalStates": 8,
+      "nondominatedDistinctProfiles": 4,
+      "nondominatedWitnesses": [
+        {
+          "path": [
+            {
+              "type": "combine",
+              "a": "c",
+              "b": "d"
+            },
+            {
+              "type": "combine",
+              "a": "constitution",
+              "b": "world"
+            }
+          ],
+          "councils": [
+            {
+              "members": [
+                "a"
+              ],
+              "founder": "a"
+            },
+            {
+              "members": [
+                "b"
+              ],
+              "founder": "b"
+            },
+            {
+              "members": [
+                "c",
+                "d"
+              ],
+              "founder": "c"
+            }
+          ],
+          "outcome": {
+            "terminal": true,
+            "status": "won",
+            "feasible": true,
+            "dimensions": [
+              {
+                "id": "completed-joint-works",
+                "value": 1,
+                "direction": "max"
+              },
+              {
+                "id": "protected-in-first-climate",
+                "value": 3,
+                "direction": "max"
+              },
+              {
+                "id": "protected-in-changed-climate",
+                "value": 4,
+                "direction": "max"
+              }
+            ],
+            "consequences": {
+              "success": true,
+              "requirements": [
+                {
+                  "requirement": "Complete Common refuge",
+                  "met": true
+                },
+                {
+                  "requirement": "Keep C habitable in BOTH climates",
+                  "met": true
+                }
+              ],
+              "works": [
+                {
+                  "id": "bridge-ab",
+                  "name": "Harbor bridge",
+                  "ends": [
+                    "a",
+                    "b"
+                  ],
+                  "completed": false
+                },
+                {
+                  "id": "observatory-ac",
+                  "name": "Shared observatory",
+                  "ends": [
+                    "a",
+                    "c"
+                  ],
+                  "completed": false
+                },
+                {
+                  "id": "refuge-cd",
+                  "name": "Common refuge",
+                  "ends": [
+                    "c",
+                    "d"
+                  ],
+                  "completed": true
+                },
+                {
+                  "id": "canal-bd",
+                  "name": "Storm canal",
+                  "ends": [
+                    "b",
+                    "d"
+                  ],
+                  "completed": false
+                }
+              ],
+              "episodes": [
+                {
+                  "id": "first-climate",
+                  "policies": {
+                    "a": "open",
+                    "b": "shelter",
+                    "c": "open",
+                    "d": "open"
+                  },
+                  "protected": [
+                    "a",
+                    "b",
+                    "c"
+                  ],
+                  "harmed": [
+                    "d"
+                  ]
+                },
+                {
+                  "id": "changed-climate",
+                  "policies": {
+                    "a": "shelter",
+                    "b": "shelter",
+                    "c": "open",
+                    "d": "open"
+                  },
+                  "protected": [
+                    "a",
+                    "b",
+                    "c",
+                    "d"
+                  ],
+                  "harmed": []
+                }
+              ]
+            }
+          }
+        },
+        {
+          "path": [
+            {
+              "type": "combine",
+              "a": "b",
+              "b": "a"
+            },
+            {
+              "type": "combine",
+              "a": "c",
+              "b": "d"
+            },
+            {
+              "type": "combine",
+              "a": "constitution",
+              "b": "world"
+            }
+          ],
+          "councils": [
+            {
+              "members": [
+                "a",
+                "b"
+              ],
+              "founder": "b"
+            },
+            {
+              "members": [
+                "c",
+                "d"
+              ],
+              "founder": "c"
+            }
+          ],
+          "outcome": {
+            "terminal": true,
+            "status": "won",
+            "feasible": true,
+            "dimensions": [
+              {
+                "id": "completed-joint-works",
+                "value": 2,
+                "direction": "max"
+              },
+              {
+                "id": "protected-in-first-climate",
+                "value": 2,
+                "direction": "max"
+              },
+              {
+                "id": "protected-in-changed-climate",
+                "value": 4,
+                "direction": "max"
+              }
+            ],
+            "consequences": {
+              "success": true,
+              "requirements": [
+                {
+                  "requirement": "Complete Common refuge",
+                  "met": true
+                },
+                {
+                  "requirement": "Keep C habitable in BOTH climates",
+                  "met": true
+                }
+              ],
+              "works": [
+                {
+                  "id": "bridge-ab",
+                  "name": "Harbor bridge",
+                  "ends": [
+                    "a",
+                    "b"
+                  ],
+                  "completed": true
+                },
+                {
+                  "id": "observatory-ac",
+                  "name": "Shared observatory",
+                  "ends": [
+                    "a",
+                    "c"
+                  ],
+                  "completed": false
+                },
+                {
+                  "id": "refuge-cd",
+                  "name": "Common refuge",
+                  "ends": [
+                    "c",
+                    "d"
+                  ],
+                  "completed": true
+                },
+                {
+                  "id": "canal-bd",
+                  "name": "Storm canal",
+                  "ends": [
+                    "b",
+                    "d"
+                  ],
+                  "completed": false
+                }
+              ],
+              "episodes": [
+                {
+                  "id": "first-climate",
+                  "policies": {
+                    "a": "shelter",
+                    "b": "shelter",
+                    "c": "open",
+                    "d": "open"
+                  },
+                  "protected": [
+                    "b",
+                    "c"
+                  ],
+                  "harmed": [
+                    "a",
+                    "d"
+                  ]
+                },
+                {
+                  "id": "changed-climate",
+                  "policies": {
+                    "a": "shelter",
+                    "b": "shelter",
+                    "c": "open",
+                    "d": "open"
+                  },
+                  "protected": [
+                    "a",
+                    "b",
+                    "c",
+                    "d"
+                  ],
+                  "harmed": []
+                }
+              ]
+            }
+          }
+        },
+        {
+          "path": [
+            {
+              "type": "combine",
+              "a": "a",
+              "b": "d"
+            },
+            {
+              "type": "combine",
+              "a": "c",
+              "b": "a"
+            },
+            {
+              "type": "combine",
+              "a": "constitution",
+              "b": "world"
+            }
+          ],
+          "councils": [
+            {
+              "members": [
+                "a",
+                "c",
+                "d"
+              ],
+              "founder": "c"
+            },
+            {
+              "members": [
+                "b"
+              ],
+              "founder": "b"
+            }
+          ],
+          "outcome": {
+            "terminal": true,
+            "status": "won",
+            "feasible": true,
+            "dimensions": [
+              {
+                "id": "completed-joint-works",
+                "value": 2,
+                "direction": "max"
+              },
+              {
+                "id": "protected-in-first-climate",
+                "value": 3,
+                "direction": "max"
+              },
+              {
+                "id": "protected-in-changed-climate",
+                "value": 3,
+                "direction": "max"
+              }
+            ],
+            "consequences": {
+              "success": true,
+              "requirements": [
+                {
+                  "requirement": "Complete Common refuge",
+                  "met": true
+                },
+                {
+                  "requirement": "Keep C habitable in BOTH climates",
+                  "met": true
+                }
+              ],
+              "works": [
+                {
+                  "id": "bridge-ab",
+                  "name": "Harbor bridge",
+                  "ends": [
+                    "a",
+                    "b"
+                  ],
+                  "completed": false
+                },
+                {
+                  "id": "observatory-ac",
+                  "name": "Shared observatory",
+                  "ends": [
+                    "a",
+                    "c"
+                  ],
+                  "completed": true
+                },
+                {
+                  "id": "refuge-cd",
+                  "name": "Common refuge",
+                  "ends": [
+                    "c",
+                    "d"
+                  ],
+                  "completed": true
+                },
+                {
+                  "id": "canal-bd",
+                  "name": "Storm canal",
+                  "ends": [
+                    "b",
+                    "d"
+                  ],
+                  "completed": false
+                }
+              ],
+              "episodes": [
+                {
+                  "id": "first-climate",
+                  "policies": {
+                    "a": "open",
+                    "b": "shelter",
+                    "c": "open",
+                    "d": "open"
+                  },
+                  "protected": [
+                    "a",
+                    "b",
+                    "c"
+                  ],
+                  "harmed": [
+                    "d"
+                  ]
+                },
+                {
+                  "id": "changed-climate",
+                  "policies": {
+                    "a": "open",
+                    "b": "shelter",
+                    "c": "open",
+                    "d": "open"
+                  },
+                  "protected": [
+                    "b",
+                    "c",
+                    "d"
+                  ],
+                  "harmed": [
+                    "a"
+                  ]
+                }
+              ]
+            }
+          }
+        },
+        {
+          "path": [
+            {
+              "type": "combine",
+              "a": "a",
+              "b": "b"
+            },
+            {
+              "type": "combine",
+              "a": "a",
+              "b": "d"
+            },
+            {
+              "type": "combine",
+              "a": "c",
+              "b": "a"
+            },
+            {
+              "type": "combine",
+              "a": "constitution",
+              "b": "world"
+            }
+          ],
+          "councils": [
+            {
+              "members": [
+                "a",
+                "b",
+                "c",
+                "d"
+              ],
+              "founder": "c"
+            }
+          ],
+          "outcome": {
+            "terminal": true,
+            "status": "won",
+            "feasible": true,
+            "dimensions": [
+              {
+                "id": "completed-joint-works",
+                "value": 4,
+                "direction": "max"
+              },
+              {
+                "id": "protected-in-first-climate",
+                "value": 2,
+                "direction": "max"
+              },
+              {
+                "id": "protected-in-changed-climate",
+                "value": 2,
+                "direction": "max"
+              }
+            ],
+            "consequences": {
+              "success": true,
+              "requirements": [
+                {
+                  "requirement": "Complete Common refuge",
+                  "met": true
+                },
+                {
+                  "requirement": "Keep C habitable in BOTH climates",
+                  "met": true
+                }
+              ],
+              "works": [
+                {
+                  "id": "bridge-ab",
+                  "name": "Harbor bridge",
+                  "ends": [
+                    "a",
+                    "b"
+                  ],
+                  "completed": true
+                },
+                {
+                  "id": "observatory-ac",
+                  "name": "Shared observatory",
+                  "ends": [
+                    "a",
+                    "c"
+                  ],
+                  "completed": true
+                },
+                {
+                  "id": "refuge-cd",
+                  "name": "Common refuge",
+                  "ends": [
+                    "c",
+                    "d"
+                  ],
+                  "completed": true
+                },
+                {
+                  "id": "canal-bd",
+                  "name": "Storm canal",
+                  "ends": [
+                    "b",
+                    "d"
+                  ],
+                  "completed": true
+                }
+              ],
+              "episodes": [
+                {
+                  "id": "first-climate",
+                  "policies": {
+                    "a": "open",
+                    "b": "open",
+                    "c": "open",
+                    "d": "open"
+                  },
+                  "protected": [
+                    "a",
+                    "c"
+                  ],
+                  "harmed": [
+                    "b",
+                    "d"
+                  ]
+                },
+                {
+                  "id": "changed-climate",
+                  "policies": {
+                    "a": "open",
+                    "b": "open",
+                    "c": "open",
+                    "d": "open"
+                  },
+                  "protected": [
+                    "c",
+                    "d"
+                  ],
+                  "harmed": [
+                    "a",
+                    "b"
+                  ]
+                }
+              ]
+            }
+          }
+        }
+      ],
+      "allUnion": [
+        {
+          "founder": "a",
+          "terminal": true,
+          "status": "won",
+          "feasible": true,
+          "dimensions": [
+            {
+              "id": "completed-joint-works",
+              "value": 4,
+              "direction": "max"
+            },
+            {
+              "id": "protected-in-first-climate",
+              "value": 2,
+              "direction": "max"
+            },
+            {
+              "id": "protected-in-changed-climate",
+              "value": 2,
+              "direction": "max"
+            }
+          ],
+          "consequences": {
+            "success": true,
+            "requirements": [
+              {
+                "requirement": "Complete Common refuge",
+                "met": true
+              },
+              {
+                "requirement": "Keep C habitable in BOTH climates",
+                "met": true
+              }
+            ],
+            "works": [
+              {
+                "id": "bridge-ab",
+                "name": "Harbor bridge",
+                "ends": [
+                  "a",
+                  "b"
+                ],
+                "completed": true
+              },
+              {
+                "id": "observatory-ac",
+                "name": "Shared observatory",
+                "ends": [
+                  "a",
+                  "c"
+                ],
+                "completed": true
+              },
+              {
+                "id": "refuge-cd",
+                "name": "Common refuge",
+                "ends": [
+                  "c",
+                  "d"
+                ],
+                "completed": true
+              },
+              {
+                "id": "canal-bd",
+                "name": "Storm canal",
+                "ends": [
+                  "b",
+                  "d"
+                ],
+                "completed": true
+              }
+            ],
+            "episodes": [
+              {
+                "id": "first-climate",
+                "policies": {
+                  "a": "open",
+                  "b": "open",
+                  "c": "open",
+                  "d": "open"
+                },
+                "protected": [
+                  "a",
+                  "c"
+                ],
+                "harmed": [
+                  "b",
+                  "d"
+                ]
+              },
+              {
+                "id": "changed-climate",
+                "policies": {
+                  "a": "open",
+                  "b": "open",
+                  "c": "open",
+                  "d": "open"
+                },
+                "protected": [
+                  "c",
+                  "d"
+                ],
+                "harmed": [
+                  "a",
+                  "b"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "founder": "d",
+          "terminal": true,
+          "status": "lost",
+          "feasible": false,
+          "dimensions": [
+            {
+              "id": "completed-joint-works",
+              "value": 4,
+              "direction": "max"
+            },
+            {
+              "id": "protected-in-first-climate",
+              "value": 2,
+              "direction": "max"
+            },
+            {
+              "id": "protected-in-changed-climate",
+              "value": 2,
+              "direction": "max"
+            }
+          ],
+          "consequences": {
+            "success": false,
+            "requirements": [
+              {
+                "requirement": "Complete Common refuge",
+                "met": true
+              },
+              {
+                "requirement": "Keep C habitable in BOTH climates",
+                "met": false
+              }
+            ],
+            "works": [
+              {
+                "id": "bridge-ab",
+                "name": "Harbor bridge",
+                "ends": [
+                  "a",
+                  "b"
+                ],
+                "completed": true
+              },
+              {
+                "id": "observatory-ac",
+                "name": "Shared observatory",
+                "ends": [
+                  "a",
+                  "c"
+                ],
+                "completed": true
+              },
+              {
+                "id": "refuge-cd",
+                "name": "Common refuge",
+                "ends": [
+                  "c",
+                  "d"
+                ],
+                "completed": true
+              },
+              {
+                "id": "canal-bd",
+                "name": "Storm canal",
+                "ends": [
+                  "b",
+                  "d"
+                ],
+                "completed": true
+              }
+            ],
+            "episodes": [
+              {
+                "id": "first-climate",
+                "policies": {
+                  "a": "shelter",
+                  "b": "shelter",
+                  "c": "shelter",
+                  "d": "shelter"
+                },
+                "protected": [
+                  "b",
+                  "d"
+                ],
+                "harmed": [
+                  "a",
+                  "c"
+                ]
+              },
+              {
+                "id": "changed-climate",
+                "policies": {
+                  "a": "shelter",
+                  "b": "shelter",
+                  "c": "shelter",
+                  "d": "shelter"
+                },
+                "protected": [
+                  "a",
+                  "b"
+                ],
+                "harmed": [
+                  "c",
+                  "d"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "founder": "c",
+          "terminal": true,
+          "status": "won",
+          "feasible": true,
+          "dimensions": [
+            {
+              "id": "completed-joint-works",
+              "value": 4,
+              "direction": "max"
+            },
+            {
+              "id": "protected-in-first-climate",
+              "value": 2,
+              "direction": "max"
+            },
+            {
+              "id": "protected-in-changed-climate",
+              "value": 2,
+              "direction": "max"
+            }
+          ],
+          "consequences": {
+            "success": true,
+            "requirements": [
+              {
+                "requirement": "Complete Common refuge",
+                "met": true
+              },
+              {
+                "requirement": "Keep C habitable in BOTH climates",
+                "met": true
+              }
+            ],
+            "works": [
+              {
+                "id": "bridge-ab",
+                "name": "Harbor bridge",
+                "ends": [
+                  "a",
+                  "b"
+                ],
+                "completed": true
+              },
+              {
+                "id": "observatory-ac",
+                "name": "Shared observatory",
+                "ends": [
+                  "a",
+                  "c"
+                ],
+                "completed": true
+              },
+              {
+                "id": "refuge-cd",
+                "name": "Common refuge",
+                "ends": [
+                  "c",
+                  "d"
+                ],
+                "completed": true
+              },
+              {
+                "id": "canal-bd",
+                "name": "Storm canal",
+                "ends": [
+                  "b",
+                  "d"
+                ],
+                "completed": true
+              }
+            ],
+            "episodes": [
+              {
+                "id": "first-climate",
+                "policies": {
+                  "a": "open",
+                  "b": "open",
+                  "c": "open",
+                  "d": "open"
+                },
+                "protected": [
+                  "a",
+                  "c"
+                ],
+                "harmed": [
+                  "b",
+                  "d"
+                ]
+              },
+              {
+                "id": "changed-climate",
+                "policies": {
+                  "a": "open",
+                  "b": "open",
+                  "c": "open",
+                  "d": "open"
+                },
+                "protected": [
+                  "c",
+                  "d"
+                ],
+                "harmed": [
+                  "a",
+                  "b"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "founder": "b",
+          "terminal": true,
+          "status": "lost",
+          "feasible": false,
+          "dimensions": [
+            {
+              "id": "completed-joint-works",
+              "value": 4,
+              "direction": "max"
+            },
+            {
+              "id": "protected-in-first-climate",
+              "value": 2,
+              "direction": "max"
+            },
+            {
+              "id": "protected-in-changed-climate",
+              "value": 2,
+              "direction": "max"
+            }
+          ],
+          "consequences": {
+            "success": false,
+            "requirements": [
+              {
+                "requirement": "Complete Common refuge",
+                "met": true
+              },
+              {
+                "requirement": "Keep C habitable in BOTH climates",
+                "met": false
+              }
+            ],
+            "works": [
+              {
+                "id": "bridge-ab",
+                "name": "Harbor bridge",
+                "ends": [
+                  "a",
+                  "b"
+                ],
+                "completed": true
+              },
+              {
+                "id": "observatory-ac",
+                "name": "Shared observatory",
+                "ends": [
+                  "a",
+                  "c"
+                ],
+                "completed": true
+              },
+              {
+                "id": "refuge-cd",
+                "name": "Common refuge",
+                "ends": [
+                  "c",
+                  "d"
+                ],
+                "completed": true
+              },
+              {
+                "id": "canal-bd",
+                "name": "Storm canal",
+                "ends": [
+                  "b",
+                  "d"
+                ],
+                "completed": true
+              }
+            ],
+            "episodes": [
+              {
+                "id": "first-climate",
+                "policies": {
+                  "a": "shelter",
+                  "b": "shelter",
+                  "c": "shelter",
+                  "d": "shelter"
+                },
+                "protected": [
+                  "b",
+                  "d"
+                ],
+                "harmed": [
+                  "a",
+                  "c"
+                ]
+              },
+              {
+                "id": "changed-climate",
+                "policies": {
+                  "a": "shelter",
+                  "b": "shelter",
+                  "c": "shelter",
+                  "d": "shelter"
+                },
+                "protected": [
+                  "a",
+                  "b"
+                ],
+                "harmed": [
+                  "c",
+                  "d"
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "onePartitionWinsEveryContext": false,
+  "sharedPartitionCount": 0,
+  "recoverableCommitment": {
+    "mistake": {
+      "action": {
+        "type": "combine",
+        "a": "b",
+        "b": "a"
+      },
+      "outcome": {
+        "terminal": false,
+        "status": "playing",
+        "feasible": false,
+        "dimensions": [
+          {
+            "id": "completed-joint-works",
+            "value": 1,
+            "direction": "max"
+          },
+          {
+            "id": "protected-in-first-climate",
+            "value": 3,
+            "direction": "max"
+          },
+          {
+            "id": "protected-in-changed-climate",
+            "value": 4,
+            "direction": "max"
+          }
+        ],
+        "consequences": {
+          "success": false,
+          "requirements": [
+            {
+              "requirement": "Complete Harbor bridge",
+              "met": true
+            },
+            {
+              "requirement": "Keep A habitable in BOTH climates",
+              "met": false
+            }
+          ],
+          "works": [
+            {
+              "id": "bridge-ab",
+              "name": "Harbor bridge",
+              "ends": [
+                "a",
+                "b"
+              ],
+              "completed": true
+            },
+            {
+              "id": "observatory-ac",
+              "name": "Shared observatory",
+              "ends": [
+                "a",
+                "c"
+              ],
+              "completed": false
+            },
+            {
+              "id": "refuge-cd",
+              "name": "Common refuge",
+              "ends": [
+                "c",
+                "d"
+              ],
+              "completed": false
+            },
+            {
+              "id": "canal-bd",
+              "name": "Storm canal",
+              "ends": [
+                "b",
+                "d"
+              ],
+              "completed": false
+            }
+          ],
+          "episodes": [
+            {
+              "id": "first-climate",
+              "policies": {
+                "a": "shelter",
+                "b": "shelter",
+                "c": "open",
+                "d": "shelter"
+              },
+              "protected": [
+                "b",
+                "c",
+                "d"
+              ],
+              "harmed": [
+                "a"
+              ]
+            },
+            {
+              "id": "changed-climate",
+              "policies": {
+                "a": "shelter",
+                "b": "shelter",
+                "c": "open",
+                "d": "open"
+              },
+              "protected": [
+                "a",
+                "b",
+                "c",
+                "d"
+              ],
+              "harmed": []
+            }
+          ]
+        }
+      }
+    },
+    "repair": {
+      "action": {
+        "type": "combine",
+        "a": "b",
+        "b": "c"
+      },
+      "outcome": {
+        "terminal": false,
+        "status": "playing",
+        "feasible": true,
+        "dimensions": [
+          {
+            "id": "completed-joint-works",
+            "value": 2,
+            "direction": "max"
+          },
+          {
+            "id": "protected-in-first-climate",
+            "value": 3,
+            "direction": "max"
+          },
+          {
+            "id": "protected-in-changed-climate",
+            "value": 3,
+            "direction": "max"
+          }
+        ],
+        "consequences": {
+          "success": true,
+          "requirements": [
+            {
+              "requirement": "Complete Harbor bridge",
+              "met": true
+            },
+            {
+              "requirement": "Keep A habitable in BOTH climates",
+              "met": true
+            }
+          ],
+          "works": [
+            {
+              "id": "bridge-ab",
+              "name": "Harbor bridge",
+              "ends": [
+                "a",
+                "b"
+              ],
+              "completed": true
+            },
+            {
+              "id": "observatory-ac",
+              "name": "Shared observatory",
+              "ends": [
+                "a",
+                "c"
+              ],
+              "completed": true
+            },
+            {
+              "id": "refuge-cd",
+              "name": "Common refuge",
+              "ends": [
+                "c",
+                "d"
+              ],
+              "completed": false
+            },
+            {
+              "id": "canal-bd",
+              "name": "Storm canal",
+              "ends": [
+                "b",
+                "d"
+              ],
+              "completed": false
+            }
+          ],
+          "episodes": [
+            {
+              "id": "first-climate",
+              "policies": {
+                "a": "open",
+                "b": "open",
+                "c": "open",
+                "d": "shelter"
+              },
+              "protected": [
+                "a",
+                "c",
+                "d"
+              ],
+              "harmed": [
+                "b"
+              ]
+            },
+            {
+              "id": "changed-climate",
+              "policies": {
+                "a": "shelter",
+                "b": "shelter",
+                "c": "shelter",
+                "d": "open"
+              },
+              "protected": [
+                "a",
+                "b",
+                "d"
+              ],
+              "harmed": [
+                "c"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "cautiousAlternative": {
+      "action": {
+        "type": "combine",
+        "a": "a",
+        "b": "b"
+      },
+      "outcome": {
+        "terminal": false,
+        "status": "playing",
+        "feasible": true,
+        "dimensions": [
+          {
+            "id": "completed-joint-works",
+            "value": 1,
+            "direction": "max"
+          },
+          {
+            "id": "protected-in-first-climate",
+            "value": 3,
+            "direction": "max"
+          },
+          {
+            "id": "protected-in-changed-climate",
+            "value": 4,
+            "direction": "max"
+          }
+        ],
+        "consequences": {
+          "success": true,
+          "requirements": [
+            {
+              "requirement": "Complete Harbor bridge",
+              "met": true
+            },
+            {
+              "requirement": "Keep A habitable in BOTH climates",
+              "met": true
+            }
+          ],
+          "works": [
+            {
+              "id": "bridge-ab",
+              "name": "Harbor bridge",
+              "ends": [
+                "a",
+                "b"
+              ],
+              "completed": true
+            },
+            {
+              "id": "observatory-ac",
+              "name": "Shared observatory",
+              "ends": [
+                "a",
+                "c"
+              ],
+              "completed": false
+            },
+            {
+              "id": "refuge-cd",
+              "name": "Common refuge",
+              "ends": [
+                "c",
+                "d"
+              ],
+              "completed": false
+            },
+            {
+              "id": "canal-bd",
+              "name": "Storm canal",
+              "ends": [
+                "b",
+                "d"
+              ],
+              "completed": false
+            }
+          ],
+          "episodes": [
+            {
+              "id": "first-climate",
+              "policies": {
+                "a": "open",
+                "b": "open",
+                "c": "open",
+                "d": "shelter"
+              },
+              "protected": [
+                "a",
+                "c",
+                "d"
+              ],
+              "harmed": [
+                "b"
+              ]
+            },
+            {
+              "id": "changed-climate",
+              "policies": {
+                "a": "shelter",
+                "b": "shelter",
+                "c": "open",
+                "d": "open"
+              },
+              "protected": [
+                "a",
+                "b",
+                "c",
+                "d"
+              ],
+              "harmed": []
+            }
+          ]
+        }
+      }
+    },
+    "interpretation": "The wrong founding voice first fails A’s present protection. Adding C restores both stated requirements, but C then loses protection in the changed climate. Recovery is another binding relation, not an extra material payment or an Undo."
+  },
+  "verification": {
+    "immutableInput": true,
+    "exactPreview": true,
+    "parentsRetained": true
+  },
+  "limitations": [
+    "Pareto profiles establish incompatible consequences, not enjoyable decisions.",
+    "There are only four towns and three correlated encounters. Observatory has one viable binding group, so it is a teaching/constraint case rather than an expressive-choice claim.",
+    "An unrestricted federation that coordinates projects while preserving every local policy would dominate this toy operator. The premise is fusion into one will, not all possible political organization.",
+    "No agent or human play evidence is included in this screen.",
+    "Sealing is an endpoint commitment, not an additional interesting synthesis; count it separately in decision-density analysis."
+  ]
+}

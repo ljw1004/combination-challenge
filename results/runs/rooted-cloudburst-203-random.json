@@ -1,0 +1,273 @@
+{
+  "schema": 1,
+  "id": "rooted-cloudburst-203-random",
+  "build": "0.4.0",
+  "data": "watershed-1",
+  "scenario": "cloudburst",
+  "seed": 203,
+  "rules": "rooted",
+  "player": "random",
+  "condition": "public observation; one-step exact previews for greedy/goal",
+  "offerOrder": "normal",
+  "observationVersion": "public-1",
+  "actionBudget": 9,
+  "decisions": [
+    {
+      "turn": 0,
+      "before": "3df8526c",
+      "offers": [
+        "mix-clay",
+        "grow-reeds",
+        "grow-grove",
+        "cut-channel",
+        "dig-basin",
+        "fuse-glass",
+        "boil-steam"
+      ],
+      "action": {
+        "type": "discover",
+        "recipe": "mix-clay",
+        "at": {
+          "row": 1,
+          "col": 1
+        }
+      },
+      "events": [
+        {
+          "kind": "discovery",
+          "text": "Established Clay. It stays available.",
+          "concept": "clay"
+        },
+        {
+          "kind": "placement",
+          "text": "Placed Clay.",
+          "at": {
+            "row": 1,
+            "col": 1
+          },
+          "concept": "clay"
+        },
+        {
+          "kind": "weather",
+          "text": "Rain arrives: north 1, middle 0, south 0."
+        },
+        {
+          "kind": "damage",
+          "text": "Workshop took 1 flood damage.",
+          "amount": 1
+        }
+      ],
+      "after": "2adf9dba",
+      "damage": [
+        1,
+        0
+      ]
+    },
+    {
+      "turn": 1,
+      "before": "2adf9dba",
+      "offers": [
+        "fire-brick",
+        "grow-reeds",
+        "grow-grove",
+        "cut-channel",
+        "dig-basin",
+        "fuse-glass",
+        "boil-steam",
+        "stone-levee"
+      ],
+      "action": {
+        "type": "discover",
+        "recipe": "grow-reeds",
+        "at": {
+          "row": 0,
+          "col": 0
+        }
+      },
+      "events": [
+        {
+          "kind": "discovery",
+          "text": "Established Reeds. It stays available.",
+          "concept": "reeds"
+        },
+        {
+          "kind": "placement",
+          "text": "Placed Reeds.",
+          "at": {
+            "row": 0,
+            "col": 0
+          },
+          "concept": "reeds"
+        },
+        {
+          "kind": "weather",
+          "text": "Rain arrives: north 3, middle 0, south 0."
+        },
+        {
+          "kind": "flow",
+          "text": "Reeds absorbed 1.",
+          "at": {
+            "row": 0,
+            "col": 0
+          },
+          "amount": 1,
+          "concept": "reeds"
+        },
+        {
+          "kind": "damage",
+          "text": "Workshop took 2 flood damage.",
+          "amount": 2
+        }
+      ],
+      "after": "c9651200",
+      "damage": [
+        2,
+        0
+      ]
+    },
+    {
+      "turn": 2,
+      "before": "c9651200",
+      "offers": [
+        "fire-brick",
+        "grow-grove",
+        "cut-channel",
+        "dig-basin",
+        "fuse-glass",
+        "boil-steam",
+        "plant-grove",
+        "stone-levee"
+      ],
+      "action": {
+        "type": "discover",
+        "recipe": "cut-channel"
+      },
+      "events": [
+        {
+          "kind": "discovery",
+          "text": "Established Channel. It stays available.",
+          "concept": "channel"
+        },
+        {
+          "kind": "weather",
+          "text": "Rain arrives: north 3, middle 1, south 0."
+        },
+        {
+          "kind": "flow",
+          "text": "Reeds absorbed 1.",
+          "at": {
+            "row": 0,
+            "col": 0
+          },
+          "amount": 1,
+          "concept": "reeds"
+        },
+        {
+          "kind": "flow",
+          "text": "Clay absorbed 1.",
+          "at": {
+            "row": 1,
+            "col": 1
+          },
+          "amount": 1,
+          "concept": "clay"
+        },
+        {
+          "kind": "damage",
+          "text": "Workshop took 2 flood damage.",
+          "amount": 2
+        }
+      ],
+      "after": "1316db57",
+      "damage": [
+        2,
+        0
+      ]
+    },
+    {
+      "turn": 3,
+      "before": "1316db57",
+      "offers": [
+        "fire-brick",
+        "grow-grove",
+        "dig-basin",
+        "fuse-glass",
+        "boil-steam",
+        "plant-grove",
+        "stone-levee"
+      ],
+      "action": {
+        "type": "discover",
+        "recipe": "dig-basin",
+        "at": {
+          "row": 2,
+          "col": 2
+        }
+      },
+      "events": [
+        {
+          "kind": "discovery",
+          "text": "Established Basin. It stays available.",
+          "concept": "basin"
+        },
+        {
+          "kind": "placement",
+          "text": "Placed Basin.",
+          "at": {
+            "row": 2,
+            "col": 2
+          },
+          "concept": "basin"
+        },
+        {
+          "kind": "weather",
+          "text": "Rain arrives: north 4, middle 1, south 0."
+        },
+        {
+          "kind": "flow",
+          "text": "Reeds absorbed 1.",
+          "at": {
+            "row": 0,
+            "col": 0
+          },
+          "amount": 1,
+          "concept": "reeds"
+        },
+        {
+          "kind": "destroyed",
+          "text": "Reeds was overwhelmed. The concept stays known.",
+          "at": {
+            "row": 0,
+            "col": 0
+          },
+          "concept": "reeds"
+        },
+        {
+          "kind": "flow",
+          "text": "Clay absorbed 1.",
+          "at": {
+            "row": 1,
+            "col": 1
+          },
+          "amount": 1,
+          "concept": "clay"
+        },
+        {
+          "kind": "damage",
+          "text": "Workshop took 3 flood damage.",
+          "amount": 3
+        },
+        {
+          "kind": "outcome",
+          "text": "A bank gave way. Branch from an earlier decision or try a different plan."
+        }
+      ],
+      "after": "59c2e49b",
+      "damage": [
+        3,
+        0
+      ]
+    }
+  ],
+  "outcome": "lost"
+}

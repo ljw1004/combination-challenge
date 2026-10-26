@@ -1,0 +1,410 @@
+{
+  "version": "relations-2",
+  "hypothesis": "Changing composition topology can provide a new inference while shortening execution after the insight.",
+  "rows": [
+    {
+      "scenario": "complete-coalitions",
+      "goal": "Some complete coalitions suffice. An incomplete coalition does not gain the missing relationship merely by collecting an unrelated input. The complete public cases specify which support combinations are sufficient.",
+      "minimalSufficientCases": [
+        [
+          "A",
+          "B"
+        ],
+        [
+          "C",
+          "D"
+        ]
+      ],
+      "requiredAcceptCases": 7,
+      "all": {
+        "correct": false,
+        "falseAccept": 0,
+        "falseReject": 6
+      },
+      "either": {
+        "correct": false,
+        "falseAccept": 8,
+        "falseReject": 0
+      },
+      "reachableConditions": 166,
+      "minimumExpressionTreeOperations": 3,
+      "witnessActions": 3,
+      "witness": [
+        {
+          "type": "combine",
+          "op": "all",
+          "a": "A",
+          "b": "B"
+        },
+        {
+          "type": "combine",
+          "op": "all",
+          "a": "C",
+          "b": "D"
+        },
+        {
+          "type": "combine",
+          "op": "either",
+          "a": "condition:0001000100010001",
+          "b": "condition:0000000000001111"
+        }
+      ],
+      "witnessExpression": {
+        "op": "either",
+        "a": {
+          "op": "all",
+          "a": {
+            "source": "A"
+          },
+          "b": {
+            "source": "B"
+          }
+        },
+        "b": {
+          "op": "all",
+          "a": {
+            "source": "C"
+          },
+          "b": {
+            "source": "D"
+          }
+        }
+      },
+      "replayWon": true,
+      "directDnf": {
+        "actions": 3,
+        "won": true
+      },
+      "saturation": {
+        "firstWin": 46,
+        "novelActions": 162
+      },
+      "crossScenario": [
+        {
+          "scenario": "complete-coalitions",
+          "works": true
+        },
+        {
+          "scenario": "essential-anchor",
+          "works": false
+        },
+        {
+          "scenario": "neighboring-links",
+          "works": false
+        }
+      ],
+      "canonical": "0000001101010111",
+      "dualCanonical": "0000011101110111"
+    },
+    {
+      "scenario": "essential-anchor",
+      "goal": "One input is indispensable. Other inputs provide either direct support or a jointly sufficient substitute. The public cases identify the anchor and these alternative relationships.",
+      "minimalSufficientCases": [
+        [
+          "A",
+          "B"
+        ],
+        [
+          "A",
+          "C",
+          "D"
+        ]
+      ],
+      "requiredAcceptCases": 5,
+      "all": {
+        "correct": false,
+        "falseAccept": 0,
+        "falseReject": 4
+      },
+      "either": {
+        "correct": false,
+        "falseAccept": 10,
+        "falseReject": 0
+      },
+      "reachableConditions": 166,
+      "minimumExpressionTreeOperations": 3,
+      "witnessActions": 3,
+      "witness": [
+        {
+          "type": "combine",
+          "op": "all",
+          "a": "C",
+          "b": "D"
+        },
+        {
+          "type": "combine",
+          "op": "either",
+          "a": "B",
+          "b": "condition:0000000000001111"
+        },
+        {
+          "type": "combine",
+          "op": "all",
+          "a": "A",
+          "b": "condition:0011001100111111"
+        }
+      ],
+      "witnessExpression": {
+        "op": "all",
+        "a": {
+          "source": "A"
+        },
+        "b": {
+          "op": "either",
+          "a": {
+            "source": "B"
+          },
+          "b": {
+            "op": "all",
+            "a": {
+              "source": "C"
+            },
+            "b": {
+              "source": "D"
+            }
+          }
+        }
+      },
+      "replayWon": true,
+      "directDnf": {
+        "actions": 4,
+        "won": true
+      },
+      "saturation": {
+        "firstWin": 66,
+        "novelActions": 162
+      },
+      "crossScenario": [
+        {
+          "scenario": "complete-coalitions",
+          "works": false
+        },
+        {
+          "scenario": "essential-anchor",
+          "works": true
+        },
+        {
+          "scenario": "neighboring-links",
+          "works": false
+        }
+      ],
+      "canonical": "0000000000011111",
+      "dualCanonical": "0000011111111111"
+    },
+    {
+      "scenario": "neighboring-links",
+      "goal": "Some pairs make a sufficient link, while other pairs do not. Any world containing a sufficient link is acceptable. The public cases show every pairing and larger combination.",
+      "minimalSufficientCases": [
+        [
+          "A",
+          "B"
+        ],
+        [
+          "B",
+          "C"
+        ],
+        [
+          "C",
+          "D"
+        ]
+      ],
+      "requiredAcceptCases": 8,
+      "all": {
+        "correct": false,
+        "falseAccept": 0,
+        "falseReject": 7
+      },
+      "either": {
+        "correct": false,
+        "falseAccept": 7,
+        "falseReject": 0
+      },
+      "reachableConditions": 166,
+      "minimumExpressionTreeOperations": 4,
+      "witnessActions": 4,
+      "witness": [
+        {
+          "type": "combine",
+          "op": "all",
+          "a": "A",
+          "b": "B"
+        },
+        {
+          "type": "combine",
+          "op": "either",
+          "a": "B",
+          "b": "D"
+        },
+        {
+          "type": "combine",
+          "op": "all",
+          "a": "C",
+          "b": "condition:0011001111111111"
+        },
+        {
+          "type": "combine",
+          "op": "either",
+          "a": "condition:0001000100010001",
+          "b": "condition:0000001100001111"
+        }
+      ],
+      "witnessExpression": {
+        "op": "either",
+        "a": {
+          "op": "all",
+          "a": {
+            "source": "A"
+          },
+          "b": {
+            "source": "B"
+          }
+        },
+        "b": {
+          "op": "all",
+          "a": {
+            "source": "C"
+          },
+          "b": {
+            "op": "either",
+            "a": {
+              "source": "B"
+            },
+            "b": {
+              "source": "D"
+            }
+          }
+        }
+      },
+      "replayWon": true,
+      "directDnf": {
+        "actions": 5,
+        "won": true
+      },
+      "saturation": {
+        "firstWin": 99,
+        "novelActions": 162
+      },
+      "crossScenario": [
+        {
+          "scenario": "complete-coalitions",
+          "works": false
+        },
+        {
+          "scenario": "essential-anchor",
+          "works": false
+        },
+        {
+          "scenario": "neighboring-links",
+          "works": true
+        }
+      ],
+      "canonical": "0000001101011111",
+      "dualCanonical": "0000001101011111"
+    }
+  ],
+  "equivalence": [
+    {
+      "a": "complete-coalitions",
+      "b": "essential-anchor",
+      "equalUpToRenaming": false,
+      "equalUpToDualityAndRenaming": false
+    },
+    {
+      "a": "complete-coalitions",
+      "b": "neighboring-links",
+      "equalUpToRenaming": false,
+      "equalUpToDualityAndRenaming": false
+    },
+    {
+      "a": "essential-anchor",
+      "b": "neighboring-links",
+      "equalUpToRenaming": false,
+      "equalUpToDualityAndRenaming": false
+    }
+  ],
+  "stages": [
+    {
+      "scenario": "complete-coalitions",
+      "alreadyPresent": false,
+      "additionalActions": 3,
+      "actions": [
+        {
+          "type": "combine",
+          "op": "all",
+          "a": "A",
+          "b": "B"
+        },
+        {
+          "type": "combine",
+          "op": "all",
+          "a": "C",
+          "b": "D"
+        },
+        {
+          "type": "combine",
+          "op": "either",
+          "a": "condition:0001000100010001",
+          "b": "condition:0000000000001111"
+        }
+      ],
+      "won": true
+    },
+    {
+      "scenario": "essential-anchor",
+      "alreadyPresent": false,
+      "additionalActions": 1,
+      "actions": [
+        {
+          "type": "combine",
+          "op": "all",
+          "a": "A",
+          "b": "condition:0001000100011111"
+        }
+      ],
+      "won": true
+    },
+    {
+      "scenario": "neighboring-links",
+      "alreadyPresent": false,
+      "additionalActions": 2,
+      "actions": [
+        {
+          "type": "combine",
+          "op": "all",
+          "a": "B",
+          "b": "C"
+        },
+        {
+          "type": "combine",
+          "op": "either",
+          "a": "condition:0001000100011111",
+          "b": "condition:0000001100000011"
+        }
+      ],
+      "won": true
+    }
+  ],
+  "saturationTransfer": [
+    {
+      "scenario": "complete-coalitions",
+      "alreadyPresent": true
+    },
+    {
+      "scenario": "essential-anchor",
+      "alreadyPresent": true
+    },
+    {
+      "scenario": "neighboring-links",
+      "alreadyPresent": true
+    }
+  ],
+  "assessment": {
+    "structurallyDistinct": true,
+    "allAndEitherShortcutFail": true,
+    "fixedWitnessSolvesEveryContext": false,
+    "genericDnfWorksEverywhere": true,
+    "genericDnfInterpretation": "Reading minimal accepted cases and OR-ing their AND-terms is one universal construction method. Factoring reduces the last two authored witnesses by one action. That method may turn these into worksheets for an experienced player.",
+    "limitation": "These are authored desired relations over a truth table, not a world whose causal relationships change. This screen can support small construction puzzles but cannot establish the intended broader game or human fun.",
+    "promotion": "Await experienced-player comparison; do not add more targets merely because the three relations are algebraically different."
+  }
+}

@@ -1,0 +1,1489 @@
+{
+  "version": "process-1",
+  "hypothesis": "Public causal processes can make order and information loss matter without finite supplies or player-time scarcity. A local plausible improvement may destroy a desired distinction; another imperfect move can remain recoverable.",
+  "rows": [
+    {
+      "id": "first-voice",
+      "raw": [
+        0,
+        1,
+        1,
+        0,
+        2,
+        0
+      ],
+      "target": [
+        0,
+        2,
+        0,
+        0,
+        0,
+        0
+      ],
+      "reachableStates": 47,
+      "witness": [
+        {
+          "type": "combine",
+          "a": "world",
+          "b": "amplify"
+        },
+        {
+          "type": "combine",
+          "a": "world",
+          "b": "remember"
+        },
+        {
+          "type": "combine",
+          "a": "world",
+          "b": "contrast"
+        }
+      ],
+      "witnessWon": true,
+      "openings": [
+        {
+          "action": {
+            "type": "combine",
+            "a": "world",
+            "b": "amplify"
+          },
+          "world": [
+            0,
+            2,
+            2,
+            0,
+            2,
+            0
+          ],
+          "profile": {
+            "retainedTargetSignal": 2,
+            "unwantedSignal": 4,
+            "targetOvershoot": 0,
+            "targetSignal": 2
+          },
+          "canStillReachTarget": true,
+          "continuation": [
+            "remember",
+            "contrast"
+          ]
+        },
+        {
+          "action": {
+            "type": "combine",
+            "a": "world",
+            "b": "sieve"
+          },
+          "world": [
+            0,
+            0,
+            0,
+            0,
+            2,
+            0
+          ],
+          "profile": {
+            "retainedTargetSignal": 0,
+            "unwantedSignal": 2,
+            "targetOvershoot": 0,
+            "targetSignal": 2
+          },
+          "canStillReachTarget": false,
+          "continuation": null
+        },
+        {
+          "action": {
+            "type": "combine",
+            "a": "world",
+            "b": "remember"
+          },
+          "world": [
+            0,
+            1,
+            1,
+            1,
+            2,
+            2
+          ],
+          "profile": {
+            "retainedTargetSignal": 1,
+            "unwantedSignal": 6,
+            "targetOvershoot": 0,
+            "targetSignal": 2
+          },
+          "canStillReachTarget": true,
+          "continuation": [
+            "amplify",
+            "contrast"
+          ]
+        },
+        {
+          "action": {
+            "type": "combine",
+            "a": "world",
+            "b": "settle"
+          },
+          "world": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            0
+          ],
+          "profile": {
+            "retainedTargetSignal": 0,
+            "unwantedSignal": 1,
+            "targetOvershoot": 0,
+            "targetSignal": 2
+          },
+          "canStillReachTarget": false,
+          "continuation": null
+        },
+        {
+          "action": {
+            "type": "combine",
+            "a": "world",
+            "b": "contrast"
+          },
+          "world": [
+            0,
+            1,
+            0,
+            0,
+            2,
+            0
+          ],
+          "profile": {
+            "retainedTargetSignal": 1,
+            "unwantedSignal": 2,
+            "targetOvershoot": 0,
+            "targetSignal": 2
+          },
+          "canStillReachTarget": true,
+          "continuation": [
+            "amplify",
+            "remember",
+            "remember",
+            "contrast"
+          ]
+        }
+      ],
+      "localParetoFrontier": [
+        "amplify",
+        "settle",
+        "contrast"
+      ],
+      "greedy": {
+        "won": false,
+        "trace": [
+          {
+            "action": {
+              "type": "combine",
+              "a": "world",
+              "b": "contrast"
+            },
+            "world": [
+              0,
+              1,
+              0,
+              0,
+              2,
+              0
+            ],
+            "status": "playing"
+          },
+          {
+            "action": {
+              "type": "combine",
+              "a": "world",
+              "b": "amplify"
+            },
+            "world": [
+              0,
+              2,
+              0,
+              0,
+              2,
+              0
+            ],
+            "status": "playing"
+          },
+          {
+            "action": {
+              "type": "combine",
+              "a": "world",
+              "b": "settle"
+            },
+            "world": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "status": "lost"
+          }
+        ]
+      },
+      "noncommutingExamples": [
+        {
+          "first": "amplify",
+          "second": "sieve",
+          "forward": [
+            0,
+            2,
+            2,
+            0,
+            2,
+            0
+          ],
+          "reverse": [
+            0,
+            0,
+            0,
+            0,
+            2,
+            0
+          ]
+        },
+        {
+          "first": "sieve",
+          "second": "amplify",
+          "forward": [
+            0,
+            0,
+            0,
+            0,
+            2,
+            0
+          ],
+          "reverse": [
+            0,
+            2,
+            2,
+            0,
+            2,
+            0
+          ]
+        },
+        {
+          "first": "remember",
+          "second": "settle",
+          "forward": [
+            0,
+            0,
+            1,
+            1,
+            1,
+            2
+          ],
+          "reverse": [
+            0,
+            0,
+            1,
+            1,
+            0,
+            0
+          ]
+        },
+        {
+          "first": "remember",
+          "second": "contrast",
+          "forward": [
+            0,
+            1,
+            0,
+            0,
+            1,
+            0
+          ],
+          "reverse": [
+            0,
+            1,
+            1,
+            0,
+            2,
+            2
+          ]
+        },
+        {
+          "first": "settle",
+          "second": "remember",
+          "forward": [
+            0,
+            0,
+            1,
+            1,
+            0,
+            0
+          ],
+          "reverse": [
+            0,
+            0,
+            1,
+            1,
+            1,
+            2
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sustained-whisper",
+      "raw": [
+        0,
+        1,
+        1,
+        0,
+        2,
+        0
+      ],
+      "target": [
+        0,
+        0,
+        2,
+        0,
+        0,
+        0
+      ],
+      "reachableStates": 47,
+      "witness": [
+        {
+          "type": "combine",
+          "a": "world",
+          "b": "amplify"
+        },
+        {
+          "type": "combine",
+          "a": "world",
+          "b": "settle"
+        }
+      ],
+      "witnessWon": true,
+      "openings": [
+        {
+          "action": {
+            "type": "combine",
+            "a": "world",
+            "b": "amplify"
+          },
+          "world": [
+            0,
+            2,
+            2,
+            0,
+            2,
+            0
+          ],
+          "profile": {
+            "retainedTargetSignal": 2,
+            "unwantedSignal": 4,
+            "targetOvershoot": 0,
+            "targetSignal": 2
+          },
+          "canStillReachTarget": true,
+          "continuation": [
+            "settle"
+          ]
+        },
+        {
+          "action": {
+            "type": "combine",
+            "a": "world",
+            "b": "sieve"
+          },
+          "world": [
+            0,
+            0,
+            0,
+            0,
+            2,
+            0
+          ],
+          "profile": {
+            "retainedTargetSignal": 0,
+            "unwantedSignal": 2,
+            "targetOvershoot": 0,
+            "targetSignal": 2
+          },
+          "canStillReachTarget": false,
+          "continuation": null
+        },
+        {
+          "action": {
+            "type": "combine",
+            "a": "world",
+            "b": "remember"
+          },
+          "world": [
+            0,
+            1,
+            1,
+            1,
+            2,
+            2
+          ],
+          "profile": {
+            "retainedTargetSignal": 1,
+            "unwantedSignal": 6,
+            "targetOvershoot": 0,
+            "targetSignal": 2
+          },
+          "canStillReachTarget": true,
+          "continuation": [
+            "amplify",
+            "settle",
+            "contrast"
+          ]
+        },
+        {
+          "action": {
+            "type": "combine",
+            "a": "world",
+            "b": "settle"
+          },
+          "world": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            0
+          ],
+          "profile": {
+            "retainedTargetSignal": 1,
+            "unwantedSignal": 0,
+            "targetOvershoot": 0,
+            "targetSignal": 2
+          },
+          "canStillReachTarget": true,
+          "continuation": [
+            "amplify"
+          ]
+        },
+        {
+          "action": {
+            "type": "combine",
+            "a": "world",
+            "b": "contrast"
+          },
+          "world": [
+            0,
+            1,
+            0,
+            0,
+            2,
+            0
+          ],
+          "profile": {
+            "retainedTargetSignal": 0,
+            "unwantedSignal": 3,
+            "targetOvershoot": 0,
+            "targetSignal": 2
+          },
+          "canStillReachTarget": true,
+          "continuation": [
+            "amplify",
+            "remember",
+            "remember",
+            "settle",
+            "contrast"
+          ]
+        }
+      ],
+      "localParetoFrontier": [
+        "amplify",
+        "settle"
+      ],
+      "greedy": {
+        "won": true,
+        "trace": [
+          {
+            "action": {
+              "type": "combine",
+              "a": "world",
+              "b": "settle"
+            },
+            "world": [
+              0,
+              0,
+              1,
+              0,
+              0,
+              0
+            ],
+            "status": "playing"
+          },
+          {
+            "action": {
+              "type": "combine",
+              "a": "world",
+              "b": "amplify"
+            },
+            "world": [
+              0,
+              0,
+              2,
+              0,
+              0,
+              0
+            ],
+            "status": "won"
+          }
+        ]
+      },
+      "noncommutingExamples": [
+        {
+          "first": "amplify",
+          "second": "sieve",
+          "forward": [
+            0,
+            2,
+            2,
+            0,
+            2,
+            0
+          ],
+          "reverse": [
+            0,
+            0,
+            0,
+            0,
+            2,
+            0
+          ]
+        },
+        {
+          "first": "sieve",
+          "second": "amplify",
+          "forward": [
+            0,
+            0,
+            0,
+            0,
+            2,
+            0
+          ],
+          "reverse": [
+            0,
+            2,
+            2,
+            0,
+            2,
+            0
+          ]
+        },
+        {
+          "first": "remember",
+          "second": "settle",
+          "forward": [
+            0,
+            0,
+            1,
+            1,
+            1,
+            2
+          ],
+          "reverse": [
+            0,
+            0,
+            1,
+            1,
+            0,
+            0
+          ]
+        },
+        {
+          "first": "remember",
+          "second": "contrast",
+          "forward": [
+            0,
+            1,
+            0,
+            0,
+            1,
+            0
+          ],
+          "reverse": [
+            0,
+            1,
+            1,
+            0,
+            2,
+            2
+          ]
+        },
+        {
+          "first": "settle",
+          "second": "remember",
+          "forward": [
+            0,
+            0,
+            1,
+            1,
+            0,
+            0
+          ],
+          "reverse": [
+            0,
+            0,
+            1,
+            1,
+            1,
+            2
+          ]
+        }
+      ]
+    },
+    {
+      "id": "late-flash",
+      "raw": [
+        0,
+        1,
+        1,
+        0,
+        2,
+        0
+      ],
+      "target": [
+        0,
+        0,
+        0,
+        0,
+        2,
+        0
+      ],
+      "reachableStates": 47,
+      "witness": [
+        {
+          "type": "combine",
+          "a": "world",
+          "b": "sieve"
+        }
+      ],
+      "witnessWon": true,
+      "openings": [
+        {
+          "action": {
+            "type": "combine",
+            "a": "world",
+            "b": "amplify"
+          },
+          "world": [
+            0,
+            2,
+            2,
+            0,
+            2,
+            0
+          ],
+          "profile": {
+            "retainedTargetSignal": 2,
+            "unwantedSignal": 4,
+            "targetOvershoot": 0,
+            "targetSignal": 2
+          },
+          "canStillReachTarget": true,
+          "continuation": [
+            "remember",
+            "settle",
+            "settle",
+            "settle",
+            "contrast"
+          ]
+        },
+        {
+          "action": {
+            "type": "combine",
+            "a": "world",
+            "b": "sieve"
+          },
+          "world": [
+            0,
+            0,
+            0,
+            0,
+            2,
+            0
+          ],
+          "profile": {
+            "retainedTargetSignal": 2,
+            "unwantedSignal": 0,
+            "targetOvershoot": 0,
+            "targetSignal": 2
+          },
+          "canStillReachTarget": true,
+          "continuation": []
+        },
+        {
+          "action": {
+            "type": "combine",
+            "a": "world",
+            "b": "remember"
+          },
+          "world": [
+            0,
+            1,
+            1,
+            1,
+            2,
+            2
+          ],
+          "profile": {
+            "retainedTargetSignal": 2,
+            "unwantedSignal": 5,
+            "targetOvershoot": 0,
+            "targetSignal": 2
+          },
+          "canStillReachTarget": true,
+          "continuation": [
+            "sieve",
+            "contrast"
+          ]
+        },
+        {
+          "action": {
+            "type": "combine",
+            "a": "world",
+            "b": "settle"
+          },
+          "world": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            0
+          ],
+          "profile": {
+            "retainedTargetSignal": 0,
+            "unwantedSignal": 1,
+            "targetOvershoot": 0,
+            "targetSignal": 2
+          },
+          "canStillReachTarget": true,
+          "continuation": [
+            "amplify",
+            "remember",
+            "remember",
+            "settle",
+            "settle"
+          ]
+        },
+        {
+          "action": {
+            "type": "combine",
+            "a": "world",
+            "b": "contrast"
+          },
+          "world": [
+            0,
+            1,
+            0,
+            0,
+            2,
+            0
+          ],
+          "profile": {
+            "retainedTargetSignal": 2,
+            "unwantedSignal": 1,
+            "targetOvershoot": 0,
+            "targetSignal": 2
+          },
+          "canStillReachTarget": true,
+          "continuation": [
+            "sieve"
+          ]
+        }
+      ],
+      "localParetoFrontier": [
+        "sieve"
+      ],
+      "greedy": {
+        "won": true,
+        "trace": [
+          {
+            "action": {
+              "type": "combine",
+              "a": "world",
+              "b": "sieve"
+            },
+            "world": [
+              0,
+              0,
+              0,
+              0,
+              2,
+              0
+            ],
+            "status": "won"
+          }
+        ]
+      },
+      "noncommutingExamples": [
+        {
+          "first": "amplify",
+          "second": "sieve",
+          "forward": [
+            0,
+            2,
+            2,
+            0,
+            2,
+            0
+          ],
+          "reverse": [
+            0,
+            0,
+            0,
+            0,
+            2,
+            0
+          ]
+        },
+        {
+          "first": "sieve",
+          "second": "amplify",
+          "forward": [
+            0,
+            0,
+            0,
+            0,
+            2,
+            0
+          ],
+          "reverse": [
+            0,
+            2,
+            2,
+            0,
+            2,
+            0
+          ]
+        },
+        {
+          "first": "remember",
+          "second": "settle",
+          "forward": [
+            0,
+            0,
+            1,
+            1,
+            1,
+            2
+          ],
+          "reverse": [
+            0,
+            0,
+            1,
+            1,
+            0,
+            0
+          ]
+        },
+        {
+          "first": "remember",
+          "second": "contrast",
+          "forward": [
+            0,
+            1,
+            0,
+            0,
+            1,
+            0
+          ],
+          "reverse": [
+            0,
+            1,
+            1,
+            0,
+            2,
+            2
+          ]
+        },
+        {
+          "first": "settle",
+          "second": "remember",
+          "forward": [
+            0,
+            0,
+            1,
+            1,
+            0,
+            0
+          ],
+          "reverse": [
+            0,
+            0,
+            1,
+            1,
+            1,
+            2
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bridge",
+      "raw": [
+        0,
+        2,
+        0,
+        2,
+        0,
+        0
+      ],
+      "target": [
+        0,
+        0,
+        2,
+        2,
+        2,
+        0
+      ],
+      "reachableStates": 17,
+      "witness": [
+        {
+          "type": "combine",
+          "a": "world",
+          "b": "remember"
+        },
+        {
+          "type": "combine",
+          "a": "world",
+          "b": "settle"
+        }
+      ],
+      "witnessWon": true,
+      "openings": [
+        {
+          "action": {
+            "type": "combine",
+            "a": "world",
+            "b": "remember"
+          },
+          "world": [
+            0,
+            2,
+            2,
+            2,
+            2,
+            0
+          ],
+          "profile": {
+            "retainedTargetSignal": 6,
+            "unwantedSignal": 2,
+            "targetOvershoot": 0,
+            "targetSignal": 6
+          },
+          "canStillReachTarget": true,
+          "continuation": [
+            "settle"
+          ]
+        },
+        {
+          "action": {
+            "type": "combine",
+            "a": "world",
+            "b": "settle"
+          },
+          "world": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "profile": {
+            "retainedTargetSignal": 0,
+            "unwantedSignal": 0,
+            "targetOvershoot": 0,
+            "targetSignal": 6
+          },
+          "canStillReachTarget": false,
+          "continuation": null
+        }
+      ],
+      "localParetoFrontier": [
+        "remember",
+        "settle"
+      ],
+      "greedy": {
+        "won": true,
+        "trace": [
+          {
+            "action": {
+              "type": "combine",
+              "a": "world",
+              "b": "remember"
+            },
+            "world": [
+              0,
+              2,
+              2,
+              2,
+              2,
+              0
+            ],
+            "status": "playing"
+          },
+          {
+            "action": {
+              "type": "combine",
+              "a": "world",
+              "b": "settle"
+            },
+            "world": [
+              0,
+              0,
+              2,
+              2,
+              2,
+              0
+            ],
+            "status": "won"
+          }
+        ]
+      },
+      "noncommutingExamples": [
+        {
+          "first": "remember",
+          "second": "settle",
+          "forward": [
+            0,
+            0,
+            2,
+            2,
+            2,
+            0
+          ],
+          "reverse": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "first": "remember",
+          "second": "contrast",
+          "forward": [
+            0,
+            2,
+            0,
+            0,
+            0,
+            0
+          ],
+          "reverse": [
+            0,
+            2,
+            2,
+            2,
+            2,
+            0
+          ]
+        },
+        {
+          "first": "settle",
+          "second": "remember",
+          "forward": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "reverse": [
+            0,
+            0,
+            2,
+            2,
+            2,
+            0
+          ]
+        },
+        {
+          "first": "contrast",
+          "second": "remember",
+          "forward": [
+            0,
+            2,
+            2,
+            2,
+            2,
+            0
+          ],
+          "reverse": [
+            0,
+            2,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "separate-arrivals",
+      "raw": [
+        0,
+        1,
+        1,
+        0,
+        2,
+        0
+      ],
+      "target": [
+        0,
+        2,
+        0,
+        0,
+        2,
+        0
+      ],
+      "reachableStates": 47,
+      "witness": [
+        {
+          "type": "combine",
+          "a": "world",
+          "b": "amplify"
+        },
+        {
+          "type": "combine",
+          "a": "world",
+          "b": "contrast"
+        }
+      ],
+      "witnessWon": true,
+      "openings": [
+        {
+          "action": {
+            "type": "combine",
+            "a": "world",
+            "b": "amplify"
+          },
+          "world": [
+            0,
+            2,
+            2,
+            0,
+            2,
+            0
+          ],
+          "profile": {
+            "retainedTargetSignal": 4,
+            "unwantedSignal": 2,
+            "targetOvershoot": 0,
+            "targetSignal": 4
+          },
+          "canStillReachTarget": true,
+          "continuation": [
+            "contrast"
+          ]
+        },
+        {
+          "action": {
+            "type": "combine",
+            "a": "world",
+            "b": "sieve"
+          },
+          "world": [
+            0,
+            0,
+            0,
+            0,
+            2,
+            0
+          ],
+          "profile": {
+            "retainedTargetSignal": 2,
+            "unwantedSignal": 0,
+            "targetOvershoot": 0,
+            "targetSignal": 4
+          },
+          "canStillReachTarget": false,
+          "continuation": null
+        },
+        {
+          "action": {
+            "type": "combine",
+            "a": "world",
+            "b": "remember"
+          },
+          "world": [
+            0,
+            1,
+            1,
+            1,
+            2,
+            2
+          ],
+          "profile": {
+            "retainedTargetSignal": 3,
+            "unwantedSignal": 4,
+            "targetOvershoot": 0,
+            "targetSignal": 4
+          },
+          "canStillReachTarget": true,
+          "continuation": [
+            "contrast",
+            "amplify"
+          ]
+        },
+        {
+          "action": {
+            "type": "combine",
+            "a": "world",
+            "b": "settle"
+          },
+          "world": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            0
+          ],
+          "profile": {
+            "retainedTargetSignal": 0,
+            "unwantedSignal": 1,
+            "targetOvershoot": 0,
+            "targetSignal": 4
+          },
+          "canStillReachTarget": false,
+          "continuation": null
+        },
+        {
+          "action": {
+            "type": "combine",
+            "a": "world",
+            "b": "contrast"
+          },
+          "world": [
+            0,
+            1,
+            0,
+            0,
+            2,
+            0
+          ],
+          "profile": {
+            "retainedTargetSignal": 3,
+            "unwantedSignal": 0,
+            "targetOvershoot": 0,
+            "targetSignal": 4
+          },
+          "canStillReachTarget": true,
+          "continuation": [
+            "amplify"
+          ]
+        }
+      ],
+      "localParetoFrontier": [
+        "amplify",
+        "contrast"
+      ],
+      "greedy": {
+        "won": true,
+        "trace": [
+          {
+            "action": {
+              "type": "combine",
+              "a": "world",
+              "b": "contrast"
+            },
+            "world": [
+              0,
+              1,
+              0,
+              0,
+              2,
+              0
+            ],
+            "status": "playing"
+          },
+          {
+            "action": {
+              "type": "combine",
+              "a": "world",
+              "b": "amplify"
+            },
+            "world": [
+              0,
+              2,
+              0,
+              0,
+              2,
+              0
+            ],
+            "status": "won"
+          }
+        ]
+      },
+      "noncommutingExamples": [
+        {
+          "first": "amplify",
+          "second": "sieve",
+          "forward": [
+            0,
+            2,
+            2,
+            0,
+            2,
+            0
+          ],
+          "reverse": [
+            0,
+            0,
+            0,
+            0,
+            2,
+            0
+          ]
+        },
+        {
+          "first": "sieve",
+          "second": "amplify",
+          "forward": [
+            0,
+            0,
+            0,
+            0,
+            2,
+            0
+          ],
+          "reverse": [
+            0,
+            2,
+            2,
+            0,
+            2,
+            0
+          ]
+        },
+        {
+          "first": "remember",
+          "second": "settle",
+          "forward": [
+            0,
+            0,
+            1,
+            1,
+            1,
+            2
+          ],
+          "reverse": [
+            0,
+            0,
+            1,
+            1,
+            0,
+            0
+          ]
+        },
+        {
+          "first": "remember",
+          "second": "contrast",
+          "forward": [
+            0,
+            1,
+            0,
+            0,
+            1,
+            0
+          ],
+          "reverse": [
+            0,
+            1,
+            1,
+            0,
+            2,
+            2
+          ]
+        },
+        {
+          "first": "settle",
+          "second": "remember",
+          "forward": [
+            0,
+            0,
+            1,
+            1,
+            0,
+            0
+          ],
+          "reverse": [
+            0,
+            0,
+            1,
+            1,
+            1,
+            2
+          ]
+        }
+      ]
+    }
+  ],
+  "sharedInputFixedFinalProcessCannotSolveAll": true,
+  "commonTrajectoryVisitingAllSharedTargets": [
+    "amplify",
+    "contrast",
+    "remember",
+    "remember",
+    "contrast",
+    "remember",
+    "settle",
+    "remember",
+    "remember",
+    "settle",
+    "settle"
+  ],
+  "informationLoss": {
+    "sieveFirstForFirstVoice": {
+      "world": [
+        0,
+        0,
+        0,
+        0,
+        2,
+        0
+      ],
+      "targetReachable": false
+    },
+    "contrastFirstRecoverable": {
+      "world": [
+        0,
+        1,
+        0,
+        0,
+        2,
+        0
+      ],
+      "witness": [
+        "amplify",
+        "remember",
+        "remember",
+        "contrast"
+      ]
+    }
+  },
+  "invariants": {
+    "previewAndStepPreserveInput": true,
+    "capabilitiesRemain": true,
+    "allWitnessesReplay": true,
+    "noPlayerBudget": true
+  },
+  "limitations": [
+    "The desired output is exact, so there is one final best result. Local tradeoff profiles do not demonstrate strategic value pluralism.",
+    "This is a short causal transformation puzzle, not signal-processing advice or established human fun.",
+    "Time inside the modeled trace is causal history, not a player deadline; no operation advances a scarce player clock.",
+    "Past world states are not reusable parallel artefacts. Concept capabilities persist, while world transformations can be irreversible.",
+    "Greedy error is an explicitly disclosed diagnostic weight sum, not the player reward or a fun score."
+  ]
+}

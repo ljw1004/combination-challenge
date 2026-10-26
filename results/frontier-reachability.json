@@ -1,0 +1,1121 @@
+{
+  "kind": "privileged mechanical reachability verification; not a player playtest",
+  "version": "frontier-2",
+  "scenario": "crossings",
+  "sourcePath": "experiments/logical-frontier.ts",
+  "sourceHashAlgorithm": "sha256",
+  "sourceHash": "269df58efe1bacc00e022833a5b056082d85a8ee3f828e1e83f96522ecdf2ff6",
+  "verifiedAt": "2026-10-26T01:10:03.918Z",
+  "result": "goal-reachable",
+  "method": "Replay the six-action witness already present in verifyFrontier() against createFrontier() and the unmodified publicly committed amber policy; verify every action appears in frontierActions() and replay is exact.",
+  "actions": [
+    {
+      "type": "combine",
+      "a": "root",
+      "b": "straight",
+      "at": "C4",
+      "toward": "E"
+    },
+    {
+      "type": "combine",
+      "a": "flame",
+      "b": "fork",
+      "at": "E4",
+      "toward": "E"
+    },
+    {
+      "type": "combine",
+      "a": "flame",
+      "b": "straight",
+      "at": "F4",
+      "toward": "E"
+    },
+    {
+      "type": "combine",
+      "a": "shell",
+      "b": "straight",
+      "at": "G5",
+      "toward": "E"
+    },
+    {
+      "type": "combine",
+      "a": "flame",
+      "b": "straight",
+      "at": "G5",
+      "toward": "E"
+    },
+    {
+      "type": "combine",
+      "a": "flame",
+      "b": "straight",
+      "at": "G5",
+      "toward": "E"
+    }
+  ],
+  "firstGoalAt": 6,
+  "outcome": {
+    "terminal": false,
+    "goal": true,
+    "dimensions": {
+      "blueReach": 44,
+      "amberReach": 39,
+      "blueTips": 23,
+      "amberTips": 16,
+      "contactPlaces": 6,
+      "connectedEasternReach": 1,
+      "livingCircuit": 1,
+      "homeCircuitEasternReach": 1
+    },
+    "circuits": [
+      [
+        "A1",
+        "A2",
+        "B1",
+        "B2",
+        "B3",
+        "C1",
+        "C2",
+        "C3",
+        "C4",
+        "D1",
+        "D2",
+        "D3",
+        "D4",
+        "E1",
+        "E2",
+        "E3",
+        "E4"
+      ],
+      [
+        "A8",
+        "A9",
+        "B7",
+        "B8",
+        "B9",
+        "C6",
+        "C7",
+        "C8",
+        "C9",
+        "D6",
+        "D7",
+        "D8",
+        "D9",
+        "E6",
+        "E7",
+        "E8",
+        "E9"
+      ]
+    ],
+    "direction": {
+      "blueReach": "descriptive",
+      "amberReach": "descriptive",
+      "blueTips": "descriptive",
+      "amberTips": "descriptive",
+      "contactPlaces": "descriptive",
+      "connectedEasternReach": "higher (initial aim)",
+      "livingCircuit": "descriptive",
+      "homeCircuitEasternReach": "higher (initial aim)"
+    },
+    "stopping": "Finish is always available. The initial invitation is one connected blue construction containing B5, column I or farther, and a living circuit in that same component; coexistence, conquest or quiet isolation are optional projects."
+  },
+  "semantics": {
+    "goal": "The B5-connected blue component reaches column I or farther, and a living directed circuit belongs to that same connected component.",
+    "strongerRequestedWording": "One directed circuit itself contains B5 and an eastern cell.",
+    "strongerPropertyEstablished": false,
+    "explanation": "The current executable goal is weaker than the stronger requested wording. At the goal witness, the two detected living circuits contain neither B5 nor an eastern cell; they are connected by owned trail to B5 and I5."
+  },
+  "checks": {
+    "startedAtCreateFrontier": true,
+    "activeAmberUnmodified": true,
+    "allActionsListedLegal": true,
+    "replayExact": true,
+    "sourceStableDuringVerification": true,
+    "modelOrCaptureModified": false
+  },
+  "checkpoints": [
+    {
+      "after": 1,
+      "action": {
+        "type": "combine",
+        "a": "root",
+        "b": "straight",
+        "at": "C4",
+        "toward": "E"
+      },
+      "listedLegal": true,
+      "committedCounterpart": {
+        "plan": {
+          "type": "combine",
+          "a": "flame",
+          "b": "straight",
+          "at": "J5",
+          "toward": "E"
+        },
+        "purpose": "form a living circuit",
+        "cherished": []
+      },
+      "events": [
+        {
+          "kind": "combine",
+          "at": "C4",
+          "lineage": "blue",
+          "before": {
+            "id": "C4",
+            "x": 2,
+            "y": 3,
+            "terrain": "ground",
+            "owner": null,
+            "kind": null,
+            "exits": [],
+            "history": [],
+            "contacts": [],
+            "closed": []
+          },
+          "after": {
+            "id": "C4",
+            "x": 2,
+            "y": 3,
+            "terrain": "ground",
+            "owner": "blue",
+            "kind": "root",
+            "exits": [
+              "E"
+            ],
+            "history": [
+              "E"
+            ],
+            "contacts": [],
+            "closed": []
+          }
+        },
+        {
+          "kind": "combine",
+          "at": "J5",
+          "lineage": "amber",
+          "before": {
+            "id": "J5",
+            "x": 9,
+            "y": 4,
+            "terrain": "ground",
+            "owner": "amber",
+            "kind": "shell",
+            "exits": [
+              "W"
+            ],
+            "history": [
+              "W"
+            ],
+            "contacts": [],
+            "closed": []
+          },
+          "after": {
+            "id": "J5",
+            "x": 9,
+            "y": 4,
+            "terrain": "ground",
+            "owner": "amber",
+            "kind": "flame",
+            "exits": [
+              "E"
+            ],
+            "history": [
+              "E",
+              "W"
+            ],
+            "contacts": [],
+            "closed": []
+          }
+        }
+      ],
+      "outcome": {
+        "terminal": false,
+        "goal": false,
+        "dimensions": {
+          "blueReach": 10,
+          "amberReach": 8,
+          "blueTips": 4,
+          "amberTips": 3,
+          "contactPlaces": 0,
+          "connectedEasternReach": 0,
+          "livingCircuit": 0,
+          "homeCircuitEasternReach": 0
+        },
+        "circuits": [],
+        "direction": {
+          "blueReach": "descriptive",
+          "amberReach": "descriptive",
+          "blueTips": "descriptive",
+          "amberTips": "descriptive",
+          "contactPlaces": "descriptive",
+          "connectedEasternReach": "higher (initial aim)",
+          "livingCircuit": "descriptive",
+          "homeCircuitEasternReach": "higher (initial aim)"
+        },
+        "stopping": "Finish is always available. The initial invitation is one connected blue construction containing B5, column I or farther, and a living circuit in that same component; coexistence, conquest or quiet isolation are optional projects."
+      }
+    },
+    {
+      "after": 2,
+      "action": {
+        "type": "combine",
+        "a": "flame",
+        "b": "fork",
+        "at": "E4",
+        "toward": "E"
+      },
+      "listedLegal": true,
+      "committedCounterpart": {
+        "plan": {
+          "type": "combine",
+          "a": "memory",
+          "b": "root",
+          "at": "J5"
+        },
+        "purpose": "form a living circuit",
+        "cherished": []
+      },
+      "events": [
+        {
+          "kind": "combine",
+          "at": "E4",
+          "lineage": "blue",
+          "before": {
+            "id": "E4",
+            "x": 4,
+            "y": 3,
+            "terrain": "water",
+            "owner": null,
+            "kind": null,
+            "exits": [],
+            "history": [],
+            "contacts": [],
+            "closed": []
+          },
+          "after": {
+            "id": "E4",
+            "x": 4,
+            "y": 3,
+            "terrain": "water",
+            "owner": "blue",
+            "kind": "shell",
+            "exits": [
+              "N",
+              "S"
+            ],
+            "history": [
+              "E"
+            ],
+            "contacts": [],
+            "closed": []
+          }
+        },
+        {
+          "kind": "combine",
+          "at": "J5",
+          "lineage": "amber",
+          "before": {
+            "id": "J5",
+            "x": 9,
+            "y": 4,
+            "terrain": "ground",
+            "owner": "amber",
+            "kind": "flame",
+            "exits": [
+              "E"
+            ],
+            "history": [
+              "E",
+              "W"
+            ],
+            "contacts": [],
+            "closed": []
+          },
+          "after": {
+            "id": "J5",
+            "x": 9,
+            "y": 4,
+            "terrain": "ground",
+            "owner": "amber",
+            "kind": "root",
+            "exits": [
+              "E",
+              "W"
+            ],
+            "history": [
+              "E",
+              "W"
+            ],
+            "contacts": [],
+            "closed": []
+          }
+        }
+      ],
+      "outcome": {
+        "terminal": false,
+        "goal": false,
+        "dimensions": {
+          "blueReach": 16,
+          "amberReach": 13,
+          "blueTips": 9,
+          "amberTips": 6,
+          "contactPlaces": 0,
+          "connectedEasternReach": 0,
+          "livingCircuit": 0,
+          "homeCircuitEasternReach": 0
+        },
+        "circuits": [],
+        "direction": {
+          "blueReach": "descriptive",
+          "amberReach": "descriptive",
+          "blueTips": "descriptive",
+          "amberTips": "descriptive",
+          "contactPlaces": "descriptive",
+          "connectedEasternReach": "higher (initial aim)",
+          "livingCircuit": "descriptive",
+          "homeCircuitEasternReach": "higher (initial aim)"
+        },
+        "stopping": "Finish is always available. The initial invitation is one connected blue construction containing B5, column I or farther, and a living circuit in that same component; coexistence, conquest or quiet isolation are optional projects."
+      }
+    },
+    {
+      "after": 3,
+      "action": {
+        "type": "combine",
+        "a": "flame",
+        "b": "straight",
+        "at": "F4",
+        "toward": "E"
+      },
+      "listedLegal": true,
+      "committedCounterpart": {
+        "plan": {
+          "type": "combine",
+          "a": "flame",
+          "b": "straight",
+          "at": "I5",
+          "toward": "W"
+        },
+        "purpose": "form a living circuit",
+        "cherished": []
+      },
+      "events": [
+        {
+          "kind": "combine",
+          "at": "F4",
+          "lineage": "blue",
+          "before": {
+            "id": "F4",
+            "x": 5,
+            "y": 3,
+            "terrain": "stone",
+            "owner": null,
+            "kind": null,
+            "exits": [],
+            "history": [],
+            "contacts": [],
+            "closed": []
+          },
+          "after": {
+            "id": "F4",
+            "x": 5,
+            "y": 3,
+            "terrain": "stone",
+            "owner": "blue",
+            "kind": "flame",
+            "exits": [
+              "E"
+            ],
+            "history": [
+              "E"
+            ],
+            "contacts": [],
+            "closed": []
+          }
+        },
+        {
+          "kind": "combine",
+          "at": "I5",
+          "lineage": "amber",
+          "before": {
+            "id": "I5",
+            "x": 8,
+            "y": 4,
+            "terrain": "ground",
+            "owner": "amber",
+            "kind": "root",
+            "exits": [
+              "W"
+            ],
+            "history": [
+              "W"
+            ],
+            "contacts": [],
+            "closed": []
+          },
+          "after": {
+            "id": "I5",
+            "x": 8,
+            "y": 4,
+            "terrain": "ground",
+            "owner": "amber",
+            "kind": "flame",
+            "exits": [
+              "W"
+            ],
+            "history": [
+              "W"
+            ],
+            "contacts": [],
+            "closed": []
+          }
+        }
+      ],
+      "outcome": {
+        "terminal": false,
+        "goal": false,
+        "dimensions": {
+          "blueReach": 26,
+          "amberReach": 20,
+          "blueTips": 13,
+          "amberTips": 10,
+          "contactPlaces": 0,
+          "connectedEasternReach": 0,
+          "livingCircuit": 1,
+          "homeCircuitEasternReach": 0
+        },
+        "circuits": [
+          [
+            "D3",
+            "D4",
+            "E3",
+            "E4"
+          ],
+          [
+            "B2",
+            "B3",
+            "C2",
+            "C3"
+          ],
+          [
+            "B7",
+            "B8",
+            "C7",
+            "C8"
+          ]
+        ],
+        "direction": {
+          "blueReach": "descriptive",
+          "amberReach": "descriptive",
+          "blueTips": "descriptive",
+          "amberTips": "descriptive",
+          "contactPlaces": "descriptive",
+          "connectedEasternReach": "higher (initial aim)",
+          "livingCircuit": "descriptive",
+          "homeCircuitEasternReach": "higher (initial aim)"
+        },
+        "stopping": "Finish is always available. The initial invitation is one connected blue construction containing B5, column I or farther, and a living circuit in that same component; coexistence, conquest or quiet isolation are optional projects."
+      }
+    },
+    {
+      "after": 4,
+      "action": {
+        "type": "combine",
+        "a": "shell",
+        "b": "straight",
+        "at": "G5",
+        "toward": "E"
+      },
+      "listedLegal": true,
+      "committedCounterpart": {
+        "plan": {
+          "type": "combine",
+          "a": "root",
+          "b": "straight",
+          "at": "H4",
+          "toward": "W"
+        },
+        "purpose": "extend while keeping remembered circuit",
+        "cherished": [
+          "I2",
+          "I3",
+          "J2",
+          "J3"
+        ]
+      },
+      "events": [
+        {
+          "kind": "combine",
+          "at": "G5",
+          "lineage": "blue",
+          "before": {
+            "id": "G5",
+            "x": 6,
+            "y": 4,
+            "terrain": "ground",
+            "owner": null,
+            "kind": null,
+            "exits": [],
+            "history": [],
+            "contacts": [],
+            "closed": []
+          },
+          "after": {
+            "id": "G5",
+            "x": 6,
+            "y": 4,
+            "terrain": "ground",
+            "owner": "blue",
+            "kind": "shell",
+            "exits": [
+              "E"
+            ],
+            "history": [
+              "E"
+            ],
+            "contacts": [],
+            "closed": []
+          }
+        },
+        {
+          "kind": "combine",
+          "at": "H4",
+          "lineage": "amber",
+          "before": {
+            "id": "H4",
+            "x": 7,
+            "y": 3,
+            "terrain": "ground",
+            "owner": "amber",
+            "kind": "root",
+            "exits": [
+              "N",
+              "S"
+            ],
+            "history": [
+              "W"
+            ],
+            "contacts": [],
+            "closed": []
+          },
+          "after": {
+            "id": "H4",
+            "x": 7,
+            "y": 3,
+            "terrain": "ground",
+            "owner": "amber",
+            "kind": "root",
+            "exits": [
+              "W"
+            ],
+            "history": [
+              "W"
+            ],
+            "contacts": [],
+            "closed": []
+          }
+        },
+        {
+          "kind": "convert",
+          "at": "H5",
+          "lineage": "blue",
+          "from": "G5",
+          "before": {
+            "owner": "amber",
+            "kind": "flame",
+            "exits": [
+              "W"
+            ]
+          },
+          "after": {
+            "owner": "blue",
+            "kind": "shell",
+            "exits": [
+              "E"
+            ]
+          }
+        },
+        {
+          "kind": "convert",
+          "at": "G4",
+          "lineage": "amber",
+          "from": "H4",
+          "before": {
+            "owner": "blue",
+            "kind": "shell",
+            "exits": [
+              "E"
+            ]
+          },
+          "after": {
+            "owner": "amber",
+            "kind": "root",
+            "exits": [
+              "S"
+            ]
+          }
+        }
+      ],
+      "outcome": {
+        "terminal": false,
+        "goal": false,
+        "dimensions": {
+          "blueReach": 32,
+          "amberReach": 26,
+          "blueTips": 17,
+          "amberTips": 13,
+          "contactPlaces": 4,
+          "connectedEasternReach": 0,
+          "livingCircuit": 1,
+          "homeCircuitEasternReach": 0
+        },
+        "circuits": [
+          [
+            "D3",
+            "D4",
+            "E3",
+            "E4"
+          ],
+          [
+            "B2",
+            "B3",
+            "C2",
+            "C3"
+          ],
+          [
+            "B7",
+            "B8",
+            "C6",
+            "C7",
+            "C8",
+            "D6",
+            "D7",
+            "D8"
+          ]
+        ],
+        "direction": {
+          "blueReach": "descriptive",
+          "amberReach": "descriptive",
+          "blueTips": "descriptive",
+          "amberTips": "descriptive",
+          "contactPlaces": "descriptive",
+          "connectedEasternReach": "higher (initial aim)",
+          "livingCircuit": "descriptive",
+          "homeCircuitEasternReach": "higher (initial aim)"
+        },
+        "stopping": "Finish is always available. The initial invitation is one connected blue construction containing B5, column I or farther, and a living circuit in that same component; coexistence, conquest or quiet isolation are optional projects."
+      }
+    },
+    {
+      "after": 5,
+      "action": {
+        "type": "combine",
+        "a": "flame",
+        "b": "straight",
+        "at": "G5",
+        "toward": "E"
+      },
+      "listedLegal": true,
+      "committedCounterpart": {
+        "plan": {
+          "type": "combine",
+          "a": "root",
+          "b": "straight",
+          "at": "H4",
+          "toward": "S"
+        },
+        "purpose": "extend while keeping remembered circuit",
+        "cherished": [
+          "I2",
+          "I3",
+          "J2",
+          "J3"
+        ]
+      },
+      "events": [
+        {
+          "kind": "combine",
+          "at": "G5",
+          "lineage": "blue",
+          "before": {
+            "id": "G5",
+            "x": 6,
+            "y": 4,
+            "terrain": "ground",
+            "owner": "blue",
+            "kind": "shell",
+            "exits": [
+              "E"
+            ],
+            "history": [
+              "E",
+              "W"
+            ],
+            "contacts": [
+              "amber",
+              "blue"
+            ],
+            "closed": []
+          },
+          "after": {
+            "id": "G5",
+            "x": 6,
+            "y": 4,
+            "terrain": "ground",
+            "owner": "blue",
+            "kind": "flame",
+            "exits": [
+              "E"
+            ],
+            "history": [
+              "E",
+              "W"
+            ],
+            "contacts": [
+              "amber",
+              "blue"
+            ],
+            "closed": []
+          }
+        },
+        {
+          "kind": "combine",
+          "at": "H4",
+          "lineage": "amber",
+          "before": {
+            "id": "H4",
+            "x": 7,
+            "y": 3,
+            "terrain": "ground",
+            "owner": "amber",
+            "kind": "root",
+            "exits": [
+              "W"
+            ],
+            "history": [
+              "E",
+              "W"
+            ],
+            "contacts": [
+              "amber",
+              "blue"
+            ],
+            "closed": []
+          },
+          "after": {
+            "id": "H4",
+            "x": 7,
+            "y": 3,
+            "terrain": "ground",
+            "owner": "amber",
+            "kind": "root",
+            "exits": [
+              "S"
+            ],
+            "history": [
+              "E",
+              "S",
+              "W"
+            ],
+            "contacts": [
+              "amber",
+              "blue"
+            ],
+            "closed": []
+          }
+        }
+      ],
+      "outcome": {
+        "terminal": false,
+        "goal": false,
+        "dimensions": {
+          "blueReach": 39,
+          "amberReach": 34,
+          "blueTips": 22,
+          "amberTips": 17,
+          "contactPlaces": 4,
+          "connectedEasternReach": 0,
+          "livingCircuit": 1,
+          "homeCircuitEasternReach": 0
+        },
+        "circuits": [
+          [
+            "B1",
+            "B2",
+            "B3",
+            "C1",
+            "C2",
+            "C3",
+            "C4",
+            "D1",
+            "D2",
+            "D3",
+            "D4",
+            "E3",
+            "E4"
+          ],
+          [
+            "B7",
+            "B8",
+            "B9",
+            "C6",
+            "C7",
+            "C8",
+            "C9",
+            "D6",
+            "D7",
+            "D8",
+            "D9"
+          ]
+        ],
+        "direction": {
+          "blueReach": "descriptive",
+          "amberReach": "descriptive",
+          "blueTips": "descriptive",
+          "amberTips": "descriptive",
+          "contactPlaces": "descriptive",
+          "connectedEasternReach": "higher (initial aim)",
+          "livingCircuit": "descriptive",
+          "homeCircuitEasternReach": "higher (initial aim)"
+        },
+        "stopping": "Finish is always available. The initial invitation is one connected blue construction containing B5, column I or farther, and a living circuit in that same component; coexistence, conquest or quiet isolation are optional projects."
+      }
+    },
+    {
+      "after": 6,
+      "action": {
+        "type": "combine",
+        "a": "flame",
+        "b": "straight",
+        "at": "G5",
+        "toward": "E"
+      },
+      "listedLegal": true,
+      "committedCounterpart": {
+        "plan": {
+          "type": "combine",
+          "a": "root",
+          "b": "straight",
+          "at": "H4",
+          "toward": "S"
+        },
+        "purpose": "extend while keeping remembered circuit",
+        "cherished": [
+          "I2",
+          "I3",
+          "J2",
+          "J3"
+        ]
+      },
+      "events": [
+        {
+          "kind": "combine",
+          "at": "G5",
+          "lineage": "blue",
+          "before": {
+            "id": "G5",
+            "x": 6,
+            "y": 4,
+            "terrain": "ground",
+            "owner": "blue",
+            "kind": "flame",
+            "exits": [
+              "E"
+            ],
+            "history": [
+              "E",
+              "S",
+              "W"
+            ],
+            "contacts": [
+              "amber",
+              "blue"
+            ],
+            "closed": []
+          },
+          "after": {
+            "id": "G5",
+            "x": 6,
+            "y": 4,
+            "terrain": "ground",
+            "owner": "blue",
+            "kind": "flame",
+            "exits": [
+              "E"
+            ],
+            "history": [
+              "E",
+              "S",
+              "W"
+            ],
+            "contacts": [
+              "amber",
+              "blue"
+            ],
+            "closed": []
+          }
+        },
+        {
+          "kind": "combine",
+          "at": "H4",
+          "lineage": "amber",
+          "before": {
+            "id": "H4",
+            "x": 7,
+            "y": 3,
+            "terrain": "ground",
+            "owner": "amber",
+            "kind": "root",
+            "exits": [
+              "S"
+            ],
+            "history": [
+              "E",
+              "S",
+              "W"
+            ],
+            "contacts": [
+              "amber",
+              "blue"
+            ],
+            "closed": []
+          },
+          "after": {
+            "id": "H4",
+            "x": 7,
+            "y": 3,
+            "terrain": "ground",
+            "owner": "amber",
+            "kind": "root",
+            "exits": [
+              "S"
+            ],
+            "history": [
+              "E",
+              "S",
+              "W"
+            ],
+            "contacts": [
+              "amber",
+              "blue"
+            ],
+            "closed": []
+          }
+        },
+        {
+          "kind": "convert",
+          "at": "F3",
+          "lineage": "amber",
+          "from": "G3",
+          "before": {
+            "owner": "blue",
+            "kind": "shell",
+            "exits": [
+              "N",
+              "S"
+            ]
+          },
+          "after": {
+            "owner": "amber",
+            "kind": "root",
+            "exits": [
+              "N",
+              "S"
+            ]
+          }
+        },
+        {
+          "kind": "convert",
+          "at": "I5",
+          "lineage": "blue",
+          "from": "H5",
+          "before": {
+            "owner": "amber",
+            "kind": "flame",
+            "exits": [
+              "W"
+            ]
+          },
+          "after": {
+            "owner": "blue",
+            "kind": "shell",
+            "exits": [
+              "E"
+            ]
+          }
+        }
+      ],
+      "outcome": {
+        "terminal": false,
+        "goal": true,
+        "dimensions": {
+          "blueReach": 44,
+          "amberReach": 39,
+          "blueTips": 23,
+          "amberTips": 16,
+          "contactPlaces": 6,
+          "connectedEasternReach": 1,
+          "livingCircuit": 1,
+          "homeCircuitEasternReach": 1
+        },
+        "circuits": [
+          [
+            "A1",
+            "A2",
+            "B1",
+            "B2",
+            "B3",
+            "C1",
+            "C2",
+            "C3",
+            "C4",
+            "D1",
+            "D2",
+            "D3",
+            "D4",
+            "E1",
+            "E2",
+            "E3",
+            "E4"
+          ],
+          [
+            "A8",
+            "A9",
+            "B7",
+            "B8",
+            "B9",
+            "C6",
+            "C7",
+            "C8",
+            "C9",
+            "D6",
+            "D7",
+            "D8",
+            "D9",
+            "E6",
+            "E7",
+            "E8",
+            "E9"
+          ]
+        ],
+        "direction": {
+          "blueReach": "descriptive",
+          "amberReach": "descriptive",
+          "blueTips": "descriptive",
+          "amberTips": "descriptive",
+          "contactPlaces": "descriptive",
+          "connectedEasternReach": "higher (initial aim)",
+          "livingCircuit": "descriptive",
+          "homeCircuitEasternReach": "higher (initial aim)"
+        },
+        "stopping": "Finish is always available. The initial invitation is one connected blue construction containing B5, column I or farther, and a living circuit in that same component; coexistence, conquest or quiet isolation are optional projects."
+      }
+    }
+  ],
+  "limitations": [
+    "This verifies the actual frontierOutcome(state).goal only; it does not prove a single directed circuit includes B5 and column I.",
+    "The witness was supplied by existing verification code, so this is an independent execution check, not an independently discovered player strategy.",
+    "Reachability does not establish fun, difficulty, duration, robustness after the first goal state, or a worthwhile player decision cadence.",
+    "No impossibility, shortest-path, exhaustive-search, or universal-opponent claim is made.",
+    "Cross-agent coordination messages were rejected by automatic tool review; source stability was checked by hashing immediately before and after the replay."
+  ]
+}

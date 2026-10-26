@@ -1,0 +1,6157 @@
+{
+  "experiment": "joinery-production-1",
+  "scope": "Actual joinery-1 engine with unbounded edge joins. Exhaustive normalized first-join geometry and exact remaining-piece tiling; all shipped levels. Implementation access; not blind play or enjoyment evidence.",
+  "normalization": "Translation, global rotation, duplicate shape copies and symmetric offsets collapse to the same multiset of rigid component shapes. Color identities remain in captures, not the feasibility equivalence class. Reflections remain distinct.",
+  "levels": [
+    {
+      "id": "first-join",
+      "target": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          1,
+          2
+        ]
+      ],
+      "stock": [
+        {
+          "id": "part-1",
+          "name": "Amber bar",
+          "cells": [
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              1
+            ]
+          ],
+          "color": "#cb8e66"
+        },
+        {
+          "id": "part-2",
+          "name": "Blue bar",
+          "cells": [
+            [
+              0,
+              0
+            ],
+            [
+              1,
+              0
+            ]
+          ],
+          "color": "#6fa7b0"
+        }
+      ],
+      "reachable": true,
+      "witness": {
+        "schema": 1,
+        "version": "joinery-1",
+        "id": "witness-first-join",
+        "level": "first-join",
+        "player": "privileged mechanical witness",
+        "decisions": [
+          {
+            "index": 0,
+            "action": {
+              "type": "join",
+              "source": {
+                "pieceId": "piece-2"
+              },
+              "targetId": "piece-1",
+              "offset": {
+                "x": 0,
+                "y": 2
+              },
+              "x": 0.4,
+              "y": 0.45
+            },
+            "before": "edf3efac",
+            "after": "11363184"
+          }
+        ],
+        "interactions": []
+      },
+      "normalizedOpeningCount": 6,
+      "viableOpeningCount": 1,
+      "locallyFittingDoomedCount": 0,
+      "branchEvidence": null,
+      "openings": [
+        {
+          "signature": "0,0;0,1;0,2;1,2",
+          "actions": [
+            {
+              "type": "join",
+              "source": {
+                "pieceId": "piece-2"
+              },
+              "targetId": "piece-1",
+              "offset": {
+                "x": -1,
+                "y": -1
+              },
+              "x": 0.4,
+              "y": 0.45
+            }
+          ],
+          "shape": [
+            [
+              0,
+              0
+            ],
+            [
+              1,
+              0
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              1,
+              2
+            ]
+          ],
+          "locallyFits": true,
+          "viable": true
+        },
+        {
+          "signature": "0,0;0,1;1,1;2,1",
+          "actions": [
+            {
+              "type": "join",
+              "source": {
+                "pieceId": "piece-2"
+              },
+              "targetId": "piece-1",
+              "offset": {
+                "x": 0,
+                "y": -1
+              },
+              "x": 0.4,
+              "y": 0.45
+            }
+          ],
+          "shape": [
+            [
+              0,
+              0
+            ],
+            [
+              1,
+              0
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              2
+            ]
+          ],
+          "locallyFits": false,
+          "viable": false
+        },
+        {
+          "signature": "0,0;0,1;0,2;0,3",
+          "actions": [
+            {
+              "type": "rotate",
+              "pieceId": "piece-2"
+            },
+            {
+              "type": "join",
+              "source": {
+                "pieceId": "piece-2"
+              },
+              "targetId": "piece-1",
+              "offset": {
+                "x": 0,
+                "y": -2
+              },
+              "x": 0.4,
+              "y": 0.45
+            }
+          ],
+          "shape": [
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              2
+            ],
+            [
+              0,
+              3
+            ]
+          ],
+          "locallyFits": false,
+          "viable": false
+        },
+        {
+          "signature": "0,0;0,1;1,1;1,2",
+          "actions": [
+            {
+              "type": "rotate",
+              "pieceId": "piece-2"
+            },
+            {
+              "type": "join",
+              "source": {
+                "pieceId": "piece-2"
+              },
+              "targetId": "piece-1",
+              "offset": {
+                "x": -1,
+                "y": -1
+              },
+              "x": 0.4,
+              "y": 0.45
+            }
+          ],
+          "shape": [
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              1,
+              2
+            ]
+          ],
+          "locallyFits": false,
+          "viable": false
+        },
+        {
+          "signature": "0,0;1,0;1,1;2,1",
+          "actions": [
+            {
+              "type": "rotate",
+              "pieceId": "piece-2"
+            },
+            {
+              "type": "join",
+              "source": {
+                "pieceId": "piece-2"
+              },
+              "targetId": "piece-1",
+              "offset": {
+                "x": 1,
+                "y": -1
+              },
+              "x": 0.4,
+              "y": 0.45
+            }
+          ],
+          "shape": [
+            [
+              1,
+              0
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              0,
+              2
+            ]
+          ],
+          "locallyFits": false,
+          "viable": false
+        },
+        {
+          "signature": "0,0;1,0;0,1;1,1",
+          "actions": [
+            {
+              "type": "rotate",
+              "pieceId": "piece-2"
+            },
+            {
+              "type": "join",
+              "source": {
+                "pieceId": "piece-2"
+              },
+              "targetId": "piece-1",
+              "offset": {
+                "x": -1,
+                "y": 0
+              },
+              "x": 0.4,
+              "y": 0.45
+            }
+          ],
+          "shape": [
+            [
+              0,
+              0
+            ],
+            [
+              1,
+              0
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              1
+            ]
+          ],
+          "locallyFits": false,
+          "viable": false
+        }
+      ]
+    },
+    {
+      "id": "the-key",
+      "target": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          0,
+          4
+        ]
+      ],
+      "stock": [
+        {
+          "id": "part-1",
+          "name": "Amber corner",
+          "cells": [
+            [
+              0,
+              0
+            ],
+            [
+              1,
+              0
+            ],
+            [
+              0,
+              1
+            ]
+          ],
+          "color": "#cb8e66"
+        },
+        {
+          "id": "part-2",
+          "name": "Blue corner",
+          "cells": [
+            [
+              0,
+              0
+            ],
+            [
+              1,
+              0
+            ],
+            [
+              0,
+              1
+            ]
+          ],
+          "color": "#6fa7b0"
+        },
+        {
+          "id": "part-3",
+          "name": "Green bar",
+          "cells": [
+            [
+              0,
+              0
+            ],
+            [
+              1,
+              0
+            ]
+          ],
+          "color": "#9aa966"
+        },
+        {
+          "id": "part-4",
+          "name": "Lilac bar",
+          "cells": [
+            [
+              0,
+              0
+            ],
+            [
+              1,
+              0
+            ]
+          ],
+          "color": "#b395bd"
+        }
+      ],
+      "reachable": true,
+      "witness": {
+        "schema": 1,
+        "version": "joinery-1",
+        "id": "witness-the-key",
+        "level": "the-key",
+        "player": "privileged mechanical witness",
+        "decisions": [
+          {
+            "index": 0,
+            "action": {
+              "type": "take",
+              "stockId": "part-3",
+              "x": 0.7,
+              "y": 0.65
+            },
+            "before": "b164e959",
+            "after": "391d4be5"
+          },
+          {
+            "index": 1,
+            "action": {
+              "type": "take",
+              "stockId": "part-4",
+              "x": 0.7,
+              "y": 0.65
+            },
+            "before": "391d4be5",
+            "after": "235499bb"
+          },
+          {
+            "index": 2,
+            "action": {
+              "type": "rotate",
+              "pieceId": "piece-4"
+            },
+            "before": "235499bb",
+            "after": "59812703"
+          },
+          {
+            "index": 3,
+            "action": {
+              "type": "join",
+              "source": {
+                "pieceId": "piece-2"
+              },
+              "targetId": "piece-1",
+              "offset": {
+                "x": 1,
+                "y": -2
+              },
+              "x": 0.4,
+              "y": 0.45
+            },
+            "before": "59812703",
+            "after": "a5084a85"
+          },
+          {
+            "index": 4,
+            "action": {
+              "type": "join",
+              "source": {
+                "pieceId": "piece-3"
+              },
+              "targetId": "piece-5",
+              "offset": {
+                "x": 0,
+                "y": -1
+              },
+              "x": 0.4,
+              "y": 0.45
+            },
+            "before": "a5084a85",
+            "after": "45fe5762"
+          },
+          {
+            "index": 5,
+            "action": {
+              "type": "join",
+              "source": {
+                "pieceId": "piece-4"
+              },
+              "targetId": "piece-6",
+              "offset": {
+                "x": 0,
+                "y": 1
+              },
+              "x": 0.4,
+              "y": 0.45
+            },
+            "before": "45fe5762",
+            "after": "55ef38ca"
+          }
+        ],
+        "interactions": []
+      },
+      "normalizedOpeningCount": 44,
+      "viableOpeningCount": 15,
+      "locallyFittingDoomedCount": 19,
+      "branchEvidence": {
+        "localMeaning": "Opening union fits somewhere in the target, but exact remaining-piece tiling is impossible. This is a diagnostic, not a hidden gameplay rule.",
+        "doomed": {
+          "shape": [
+            [
+              0,
+              0
+            ],
+            [
+              1,
+              0
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              2
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              0,
+              3
+            ]
+          ],
+          "signature": "0,0;0,1|0,0;0,1|0,0;1,0;0,1;0,2;1,2;0,3",
+          "capture": {
+            "schema": 1,
+            "version": "joinery-1",
+            "id": "doomed-the-key",
+            "level": "the-key",
+            "player": "privileged mechanical witness",
+            "decisions": [
+              {
+                "index": 0,
+                "action": {
+                  "type": "join",
+                  "source": {
+                    "pieceId": "piece-2"
+                  },
+                  "targetId": "piece-1",
+                  "offset": {
+                    "x": 0,
+                    "y": -2
+                  },
+                  "x": 0.4,
+                  "y": 0.45
+                },
+                "before": "b164e959",
+                "after": "149d0a82"
+              }
+            ],
+            "interactions": []
+          }
+        },
+        "viable": {
+          "shape": [
+            [
+              1,
+              0
+            ],
+            [
+              2,
+              0
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              0,
+              2
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              0,
+              3
+            ]
+          ],
+          "signature": "0,0;0,1|0,0;0,1|0,0;0,1;1,1;2,1;2,2;3,2",
+          "capture": {
+            "schema": 1,
+            "version": "joinery-1",
+            "id": "viable-the-key",
+            "level": "the-key",
+            "player": "privileged mechanical witness",
+            "decisions": [
+              {
+                "index": 0,
+                "action": {
+                  "type": "join",
+                  "source": {
+                    "pieceId": "piece-2"
+                  },
+                  "targetId": "piece-1",
+                  "offset": {
+                    "x": 1,
+                    "y": -2
+                  },
+                  "x": 0.4,
+                  "y": 0.45
+                },
+                "before": "b164e959",
+                "after": "b249a1ab"
+              }
+            ],
+            "interactions": []
+          },
+          "completion": {
+            "schema": 1,
+            "version": "joinery-1",
+            "id": "viable-completion-the-key",
+            "level": "the-key",
+            "player": "privileged mechanical witness",
+            "decisions": [
+              {
+                "index": 0,
+                "action": {
+                  "type": "join",
+                  "source": {
+                    "pieceId": "piece-2"
+                  },
+                  "targetId": "piece-1",
+                  "offset": {
+                    "x": 1,
+                    "y": -2
+                  },
+                  "x": 0.4,
+                  "y": 0.45
+                },
+                "before": "b164e959",
+                "after": "b249a1ab"
+              },
+              {
+                "index": 1,
+                "action": {
+                  "type": "take",
+                  "stockId": "part-3",
+                  "x": 0.7,
+                  "y": 0.65
+                },
+                "before": "b249a1ab",
+                "after": "0c50f7c4"
+              },
+              {
+                "index": 2,
+                "action": {
+                  "type": "take",
+                  "stockId": "part-4",
+                  "x": 0.7,
+                  "y": 0.65
+                },
+                "before": "0c50f7c4",
+                "after": "a8d3a6f7"
+              },
+              {
+                "index": 3,
+                "action": {
+                  "type": "rotate",
+                  "pieceId": "piece-5"
+                },
+                "before": "a8d3a6f7",
+                "after": "4784c0c7"
+              },
+              {
+                "index": 4,
+                "action": {
+                  "type": "join",
+                  "source": {
+                    "pieceId": "piece-4"
+                  },
+                  "targetId": "piece-3",
+                  "offset": {
+                    "x": 0,
+                    "y": -1
+                  },
+                  "x": 0.4,
+                  "y": 0.45
+                },
+                "before": "4784c0c7",
+                "after": "611ddc31"
+              },
+              {
+                "index": 5,
+                "action": {
+                  "type": "join",
+                  "source": {
+                    "pieceId": "piece-5"
+                  },
+                  "targetId": "piece-6",
+                  "offset": {
+                    "x": 0,
+                    "y": 1
+                  },
+                  "x": 0.4,
+                  "y": 0.45
+                },
+                "before": "611ddc31",
+                "after": "55ef38ca"
+              }
+            ],
+            "interactions": []
+          }
+        },
+        "undoRecovery": {
+          "schema": 1,
+          "version": "joinery-1",
+          "id": "undo-recovery-the-key",
+          "level": "the-key",
+          "player": "privileged mechanical witness",
+          "decisions": [
+            {
+              "index": 0,
+              "action": {
+                "type": "join",
+                "source": {
+                  "pieceId": "piece-2"
+                },
+                "targetId": "piece-1",
+                "offset": {
+                  "x": 0,
+                  "y": -2
+                },
+                "x": 0.4,
+                "y": 0.45
+              },
+              "before": "b164e959",
+              "after": "149d0a82"
+            },
+            {
+              "index": 1,
+              "action": {
+                "type": "undo"
+              },
+              "before": "149d0a82",
+              "after": "b164e959"
+            },
+            {
+              "index": 2,
+              "action": {
+                "type": "take",
+                "stockId": "part-3",
+                "x": 0.7,
+                "y": 0.65
+              },
+              "before": "b164e959",
+              "after": "391d4be5"
+            },
+            {
+              "index": 3,
+              "action": {
+                "type": "take",
+                "stockId": "part-4",
+                "x": 0.7,
+                "y": 0.65
+              },
+              "before": "391d4be5",
+              "after": "235499bb"
+            },
+            {
+              "index": 4,
+              "action": {
+                "type": "rotate",
+                "pieceId": "piece-4"
+              },
+              "before": "235499bb",
+              "after": "59812703"
+            },
+            {
+              "index": 5,
+              "action": {
+                "type": "join",
+                "source": {
+                  "pieceId": "piece-2"
+                },
+                "targetId": "piece-1",
+                "offset": {
+                  "x": 1,
+                  "y": -2
+                },
+                "x": 0.4,
+                "y": 0.45
+              },
+              "before": "59812703",
+              "after": "a5084a85"
+            },
+            {
+              "index": 6,
+              "action": {
+                "type": "join",
+                "source": {
+                  "pieceId": "piece-3"
+                },
+                "targetId": "piece-5",
+                "offset": {
+                  "x": 0,
+                  "y": -1
+                },
+                "x": 0.4,
+                "y": 0.45
+              },
+              "before": "a5084a85",
+              "after": "45fe5762"
+            },
+            {
+              "index": 7,
+              "action": {
+                "type": "join",
+                "source": {
+                  "pieceId": "piece-4"
+                },
+                "targetId": "piece-6",
+                "offset": {
+                  "x": 0,
+                  "y": 1
+                },
+                "x": 0.4,
+                "y": 0.45
+              },
+              "before": "45fe5762",
+              "after": "55ef38ca"
+            }
+          ],
+          "interactions": []
+        },
+        "recoveryScope": "Recovery shown through explicit Undo, not claimed as an irreversible strategic recovery."
+      },
+      "openings": [
+        {
+          "signature": "0,0;0,1|0,0;0,1|0,0;1,0;0,1;0,2;1,2;0,3",
+          "actions": [
+            {
+              "type": "join",
+              "source": {
+                "pieceId": "piece-2"
+              },
+              "targetId": "piece-1",
+              "offset": {
+                "x": 0,
+                "y": -2
+              },
+              "x": 0.4,
+              "y": 0.45
+            }
+          ],
+          "shape": [
+            [
+              0,
+              0
+            ],
+            [
+              1,
+              0
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              2
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              0,
+              3
+            ]
+          ],
+          "locallyFits": true,
+          "viable": false
+        },
+        {
+          "signature": "0,0;0,1|0,0;0,1|0,0;0,1;1,1;2,1;2,2;3,2",
+          "actions": [
+            {
+              "type": "join",
+              "source": {
+                "pieceId": "piece-2"
+              },
+              "targetId": "piece-1",
+              "offset": {
+                "x": 1,
+                "y": -2
+              },
+              "x": 0.4,
+              "y": 0.45
+            }
+          ],
+          "shape": [
+            [
+              1,
+              0
+            ],
+            [
+              2,
+              0
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              0,
+              2
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              0,
+              3
+            ]
+          ],
+          "locallyFits": true,
+          "viable": true
+        },
+        {
+          "signature": "0,0;0,1|0,0;0,1|0,0;1,0;0,1;1,1;2,1;1,2",
+          "actions": [
+            {
+              "type": "join",
+              "source": {
+                "pieceId": "piece-2"
+              },
+              "targetId": "piece-1",
+              "offset": {
+                "x": -1,
+                "y": -1
+              },
+              "x": 0.4,
+              "y": 0.45
+            }
+          ],
+          "shape": [
+            [
+              0,
+              0
+            ],
+            [
+              1,
+              0
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              2,
+              1
+            ],
+            [
+              1,
+              2
+            ]
+          ],
+          "locallyFits": true,
+          "viable": false
+        },
+        {
+          "signature": "0,0;0,1|0,0;0,1|0,0;0,1;1,1;1,2;1,3;2,3",
+          "actions": [
+            {
+              "type": "join",
+              "source": {
+                "pieceId": "piece-2"
+              },
+              "targetId": "piece-1",
+              "offset": {
+                "x": 2,
+                "y": -1
+              },
+              "x": 0.4,
+              "y": 0.45
+            }
+          ],
+          "shape": [
+            [
+              2,
+              0
+            ],
+            [
+              3,
+              0
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              2,
+              1
+            ],
+            [
+              0,
+              2
+            ]
+          ],
+          "locallyFits": false,
+          "viable": false
+        },
+        {
+          "signature": "0,0;0,1|0,0;0,1|0,0;0,1;1,1;0,2;0,3;1,3",
+          "actions": [
+            {
+              "type": "join",
+              "source": {
+                "pieceId": "piece-2"
+              },
+              "targetId": "piece-1",
+              "offset": {
+                "x": -2,
+                "y": 0
+              },
+              "x": 0.4,
+              "y": 0.45
+            }
+          ],
+          "shape": [
+            [
+              0,
+              0
+            ],
+            [
+              1,
+              0
+            ],
+            [
+              2,
+              0
+            ],
+            [
+              3,
+              0
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              2,
+              1
+            ]
+          ],
+          "locallyFits": true,
+          "viable": false
+        },
+        {
+          "signature": "0,0;0,1|0,0;0,1|0,0;1,0;1,1;1,2;2,2;1,3",
+          "actions": [
+            {
+              "type": "rotate",
+              "pieceId": "piece-2"
+            },
+            {
+              "type": "join",
+              "source": {
+                "pieceId": "piece-2"
+              },
+              "targetId": "piece-1",
+              "offset": {
+                "x": -1,
+                "y": -2
+              },
+              "x": 0.4,
+              "y": 0.45
+            }
+          ],
+          "shape": [
+            [
+              0,
+              0
+            ],
+            [
+              1,
+              0
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              2,
+              2
+            ],
+            [
+              1,
+              3
+            ]
+          ],
+          "locallyFits": false,
+          "viable": false
+        },
+        {
+          "signature": "0,0;0,1|0,0;0,1|0,0;1,0;1,1;0,2;1,2;0,3",
+          "actions": [
+            {
+              "type": "rotate",
+              "pieceId": "piece-2"
+            },
+            {
+              "type": "join",
+              "source": {
+                "pieceId": "piece-2"
+              },
+              "targetId": "piece-1",
+              "offset": {
+                "x": 0,
+                "y": -2
+              },
+              "x": 0.4,
+              "y": 0.45
+            }
+          ],
+          "shape": [
+            [
+              0,
+              0
+            ],
+            [
+              1,
+              0
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              0,
+              2
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              0,
+              3
+            ]
+          ],
+          "locallyFits": true,
+          "viable": false
+        },
+        {
+          "signature": "0,0;0,1|0,0;0,1|0,0;1,0;1,1;2,1;3,1;2,2",
+          "actions": [
+            {
+              "type": "rotate",
+              "pieceId": "piece-2"
+            },
+            {
+              "type": "join",
+              "source": {
+                "pieceId": "piece-2"
+              },
+              "targetId": "piece-1",
+              "offset": {
+                "x": -2,
+                "y": -1
+              },
+              "x": 0.4,
+              "y": 0.45
+            }
+          ],
+          "shape": [
+            [
+              0,
+              0
+            ],
+            [
+              1,
+              0
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              2,
+              1
+            ],
+            [
+              3,
+              1
+            ],
+            [
+              2,
+              2
+            ]
+          ],
+          "locallyFits": true,
+          "viable": false
+        },
+        {
+          "signature": "0,0;0,1|0,0;0,1|0,0;1,0;0,1;1,1;1,2;2,2",
+          "actions": [
+            {
+              "type": "rotate",
+              "pieceId": "piece-2"
+            },
+            {
+              "type": "join",
+              "source": {
+                "pieceId": "piece-2"
+              },
+              "targetId": "piece-1",
+              "offset": {
+                "x": 1,
+                "y": -1
+              },
+              "x": 0.4,
+              "y": 0.45
+            }
+          ],
+          "shape": [
+            [
+              1,
+              0
+            ],
+            [
+              2,
+              0
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              2,
+              1
+            ],
+            [
+              0,
+              2
+            ]
+          ],
+          "locallyFits": false,
+          "viable": false
+        },
+        {
+          "signature": "0,0;0,1|0,0;0,1|0,0;0,1;1,1;0,2;1,2;0,3",
+          "actions": [
+            {
+              "type": "rotate",
+              "pieceId": "piece-2"
+            },
+            {
+              "type": "join",
+              "source": {
+                "pieceId": "piece-2"
+              },
+              "targetId": "piece-1",
+              "offset": {
+                "x": -2,
+                "y": 0
+              },
+              "x": 0.4,
+              "y": 0.45
+            }
+          ],
+          "shape": [
+            [
+              0,
+              0
+            ],
+            [
+              1,
+              0
+            ],
+            [
+              2,
+              0
+            ],
+            [
+              3,
+              0
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              2,
+              1
+            ]
+          ],
+          "locallyFits": true,
+          "viable": true
+        },
+        {
+          "signature": "0,0;0,1|0,0;0,1|0,0;1,0;0,1;0,2;0,3;1,3",
+          "actions": [
+            {
+              "type": "rotate",
+              "pieceId": "piece-2"
+            },
+            {
+              "type": "join",
+              "source": {
+                "pieceId": "piece-2"
+              },
+              "targetId": "piece-1",
+              "offset": {
+                "x": 2,
+                "y": 0
+              },
+              "x": 0.4,
+              "y": 0.45
+            }
+          ],
+          "shape": [
+            [
+              0,
+              0
+            ],
+            [
+              1,
+              0
+            ],
+            [
+              2,
+              0
+            ],
+            [
+              3,
+              0
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              3,
+              1
+            ]
+          ],
+          "locallyFits": true,
+          "viable": false
+        },
+        {
+          "signature": "0,0;0,1|0,0;0,1|0,0;0,1;1,1;1,2;2,2;1,3",
+          "actions": [
+            {
+              "type": "rotate",
+              "pieceId": "piece-2"
+            },
+            {
+              "type": "join",
+              "source": {
+                "pieceId": "piece-2"
+              },
+              "targetId": "piece-1",
+              "offset": {
+                "x": -2,
+                "y": 1
+              },
+              "x": 0.4,
+              "y": 0.45
+            }
+          ],
+          "shape": [
+            [
+              2,
+              0
+            ],
+            [
+              3,
+              0
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              2,
+              1
+            ],
+            [
+              1,
+              2
+            ]
+          ],
+          "locallyFits": false,
+          "viable": false
+        },
+        {
+          "signature": "0,0;0,1|0,0;0,1|0,0;0,1;1,1;2,1;1,2;2,2",
+          "actions": [
+            {
+              "type": "rotate",
+              "pieceId": "piece-2"
+            },
+            {
+              "type": "join",
+              "source": {
+                "pieceId": "piece-2"
+              },
+              "targetId": "piece-1",
+              "offset": {
+                "x": 1,
+                "y": 1
+              },
+              "x": 0.4,
+              "y": 0.45
+            }
+          ],
+          "shape": [
+            [
+              0,
+              0
+            ],
+            [
+              1,
+              0
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              2,
+              1
+            ],
+            [
+              2,
+              2
+            ]
+          ],
+          "locallyFits": true,
+          "viable": false
+        },
+        {
+          "signature": "0,0;0,1|0,0;0,1|0,0;0,1;1,1;2,1;3,1;2,2",
+          "actions": [
+            {
+              "type": "rotate",
+              "pieceId": "piece-2"
+            },
+            {
+              "type": "join",
+              "source": {
+                "pieceId": "piece-2"
+              },
+              "targetId": "piece-1",
+              "offset": {
+                "x": -1,
+                "y": 2
+              },
+              "x": 0.4,
+              "y": 0.45
+            }
+          ],
+          "shape": [
+            [
+              1,
+              0
+            ],
+            [
+              2,
+              0
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              0,
+              2
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              1,
+              3
+            ]
+          ],
+          "locallyFits": true,
+          "viable": false
+        },
+        {
+          "signature": "0,0;0,1|0,0;0,1|0,0;0,1;1,1;1,2;0,3;1,3",
+          "actions": [
+            {
+              "type": "rotate",
+              "pieceId": "piece-2"
+            },
+            {
+              "type": "join",
+              "source": {
+                "pieceId": "piece-2"
+              },
+              "targetId": "piece-1",
+              "offset": {
+                "x": 0,
+                "y": 2
+              },
+              "x": 0.4,
+              "y": 0.45
+            }
+          ],
+          "shape": [
+            [
+              0,
+              0
+            ],
+            [
+              1,
+              0
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              2
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              1,
+              3
+            ]
+          ],
+          "locallyFits": true,
+          "viable": true
+        },
+        {
+          "signature": "0,0;0,1|0,0;0,1|1,0;0,1;1,1;1,2;2,2;1,3",
+          "actions": [
+            {
+              "type": "rotate",
+              "pieceId": "piece-2"
+            },
+            {
+              "type": "rotate",
+              "pieceId": "piece-2"
+            },
+            {
+              "type": "join",
+              "source": {
+                "pieceId": "piece-2"
+              },
+              "targetId": "piece-1",
+              "offset": {
+                "x": -1,
+                "y": -2
+              },
+              "x": 0.4,
+              "y": 0.45
+            }
+          ],
+          "shape": [
+            [
+              1,
+              0
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              2,
+              2
+            ],
+            [
+              1,
+              3
+            ]
+          ],
+          "locallyFits": false,
+          "viable": false
+        },
+        {
+          "signature": "0,0;0,1|0,0;0,1|0,0;1,0;2,0;1,1;2,1;3,1",
+          "actions": [
+            {
+              "type": "rotate",
+              "pieceId": "piece-2"
+            },
+            {
+              "type": "rotate",
+              "pieceId": "piece-2"
+            },
+            {
+              "type": "join",
+              "source": {
+                "pieceId": "piece-2"
+              },
+              "targetId": "piece-1",
+              "offset": {
+                "x": 0,
+                "y": -2
+              },
+              "x": 0.4,
+              "y": 0.45
+            }
+          ],
+          "shape": [
+            [
+              1,
+              0
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              0,
+              2
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              0,
+              3
+            ]
+          ],
+          "locallyFits": true,
+          "viable": false
+        },
+        {
+          "signature": "0,0;0,1|0,0;0,1|0,0;1,0;1,1;2,1;2,2;3,2",
+          "actions": [
+            {
+              "type": "rotate",
+              "pieceId": "piece-2"
+            },
+            {
+              "type": "rotate",
+              "pieceId": "piece-2"
+            },
+            {
+              "type": "join",
+              "source": {
+                "pieceId": "piece-2"
+              },
+              "targetId": "piece-1",
+              "offset": {
+                "x": 1,
+                "y": -2
+              },
+              "x": 0.4,
+              "y": 0.45
+            }
+          ],
+          "shape": [
+            [
+              2,
+              0
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              2,
+              1
+            ],
+            [
+              0,
+              2
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              0,
+              3
+            ]
+          ],
+          "locallyFits": false,
+          "viable": false
+        },
+        {
+          "signature": "0,0;0,1|0,0;0,1|1,0;0,1;1,1;2,1;3,1;2,2",
+          "actions": [
+            {
+              "type": "rotate",
+              "pieceId": "piece-2"
+            },
+            {
+              "type": "rotate",
+              "pieceId": "piece-2"
+            },
+            {
+              "type": "join",
+              "source": {
+                "pieceId": "piece-2"
+              },
+              "targetId": "piece-1",
+              "offset": {
+                "x": -2,
+                "y": -1
+              },
+              "x": 0.4,
+              "y": 0.45
+            }
+          ],
+          "shape": [
+            [
+              1,
+              0
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              2,
+              1
+            ],
+            [
+              3,
+              1
+            ],
+            [
+              2,
+              2
+            ]
+          ],
+          "locallyFits": true,
+          "viable": true
+        },
+        {
+          "signature": "0,0;0,1|0,0;0,1|0,0;1,0;1,1;1,2;1,3;2,3",
+          "actions": [
+            {
+              "type": "rotate",
+              "pieceId": "piece-2"
+            },
+            {
+              "type": "rotate",
+              "pieceId": "piece-2"
+            },
+            {
+              "type": "join",
+              "source": {
+                "pieceId": "piece-2"
+              },
+              "targetId": "piece-1",
+              "offset": {
+                "x": 2,
+                "y": -1
+              },
+              "x": 0.4,
+              "y": 0.45
+            }
+          ],
+          "shape": [
+            [
+              3,
+              0
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              2,
+              1
+            ],
+            [
+              3,
+              1
+            ],
+            [
+              0,
+              2
+            ]
+          ],
+          "locallyFits": false,
+          "viable": false
+        },
+        {
+          "signature": "0,0;0,1|0,0;0,1|0,0;0,1;1,1;0,2;1,2;1,3",
+          "actions": [
+            {
+              "type": "rotate",
+              "pieceId": "piece-2"
+            },
+            {
+              "type": "rotate",
+              "pieceId": "piece-2"
+            },
+            {
+              "type": "join",
+              "source": {
+                "pieceId": "piece-2"
+              },
+              "targetId": "piece-1",
+              "offset": {
+                "x": -2,
+                "y": 0
+              },
+              "x": 0.4,
+              "y": 0.45
+            }
+          ],
+          "shape": [
+            [
+              1,
+              0
+            ],
+            [
+              2,
+              0
+            ],
+            [
+              3,
+              0
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              2,
+              1
+            ]
+          ],
+          "locallyFits": true,
+          "viable": false
+        },
+        {
+          "signature": "0,0;0,1|0,0;0,1|0,0;1,0;0,1;1,1;0,2;1,2",
+          "actions": [
+            {
+              "type": "rotate",
+              "pieceId": "piece-2"
+            },
+            {
+              "type": "rotate",
+              "pieceId": "piece-2"
+            },
+            {
+              "type": "join",
+              "source": {
+                "pieceId": "piece-2"
+              },
+              "targetId": "piece-1",
+              "offset": {
+                "x": 1,
+                "y": 0
+              },
+              "x": 0.4,
+              "y": 0.45
+            }
+          ],
+          "shape": [
+            [
+              0,
+              0
+            ],
+            [
+              1,
+              0
+            ],
+            [
+              2,
+              0
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              2,
+              1
+            ]
+          ],
+          "locallyFits": true,
+          "viable": false
+        },
+        {
+          "signature": "0,0;0,1|0,0;0,1|0,0;0,1;1,1;1,2;2,2;2,3",
+          "actions": [
+            {
+              "type": "rotate",
+              "pieceId": "piece-2"
+            },
+            {
+              "type": "rotate",
+              "pieceId": "piece-2"
+            },
+            {
+              "type": "join",
+              "source": {
+                "pieceId": "piece-2"
+              },
+              "targetId": "piece-1",
+              "offset": {
+                "x": -2,
+                "y": 1
+              },
+              "x": 0.4,
+              "y": 0.45
+            }
+          ],
+          "shape": [
+            [
+              2,
+              0
+            ],
+            [
+              3,
+              0
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              2,
+              1
+            ],
+            [
+              0,
+              2
+            ],
+            [
+              1,
+              2
+            ]
+          ],
+          "locallyFits": false,
+          "viable": false
+        },
+        {
+          "signature": "0,0;0,1|0,0;0,1|0,0;0,1;1,1;2,1;3,1;3,2",
+          "actions": [
+            {
+              "type": "rotate",
+              "pieceId": "piece-2"
+            },
+            {
+              "type": "rotate",
+              "pieceId": "piece-2"
+            },
+            {
+              "type": "join",
+              "source": {
+                "pieceId": "piece-2"
+              },
+              "targetId": "piece-1",
+              "offset": {
+                "x": -1,
+                "y": 2
+              },
+              "x": 0.4,
+              "y": 0.45
+            }
+          ],
+          "shape": [
+            [
+              1,
+              0
+            ],
+            [
+              2,
+              0
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              0,
+              3
+            ],
+            [
+              1,
+              3
+            ]
+          ],
+          "locallyFits": false,
+          "viable": false
+        },
+        {
+          "signature": "0,0;0,1|0,0;0,1;1,1|0,0;1,0;1,1;2,1;1,2",
+          "actions": [
+            {
+              "type": "take",
+              "stockId": "part-3",
+              "x": 0.6,
+              "y": 0.6
+            },
+            {
+              "type": "join",
+              "source": {
+                "pieceId": "piece-3"
+              },
+              "targetId": "piece-1",
+              "offset": {
+                "x": -1,
+                "y": -1
+              },
+              "x": 0.4,
+              "y": 0.45
+            }
+          ],
+          "shape": [
+            [
+              0,
+              0
+            ],
+            [
+              1,
+              0
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              2,
+              1
+            ],
+            [
+              1,
+              2
+            ]
+          ],
+          "locallyFits": true,
+          "viable": true
+        },
+        {
+          "signature": "0,0;0,1|0,0;0,1;1,1|0,0;1,0;0,1;1,1;0,2",
+          "actions": [
+            {
+              "type": "take",
+              "stockId": "part-3",
+              "x": 0.6,
+              "y": 0.6
+            },
+            {
+              "type": "join",
+              "source": {
+                "pieceId": "piece-3"
+              },
+              "targetId": "piece-1",
+              "offset": {
+                "x": 0,
+                "y": -1
+              },
+              "x": 0.4,
+              "y": 0.45
+            }
+          ],
+          "shape": [
+            [
+              0,
+              0
+            ],
+            [
+              1,
+              0
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              0,
+              2
+            ]
+          ],
+          "locallyFits": true,
+          "viable": true
+        },
+        {
+          "signature": "0,0;0,1|0,0;0,1;1,1|0,0;0,1;1,1;1,2;2,2",
+          "actions": [
+            {
+              "type": "take",
+              "stockId": "part-3",
+              "x": 0.6,
+              "y": 0.6
+            },
+            {
+              "type": "join",
+              "source": {
+                "pieceId": "piece-3"
+              },
+              "targetId": "piece-1",
+              "offset": {
+                "x": 1,
+                "y": -1
+              },
+              "x": 0.4,
+              "y": 0.45
+            }
+          ],
+          "shape": [
+            [
+              1,
+              0
+            ],
+            [
+              2,
+              0
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              0,
+              2
+            ]
+          ],
+          "locallyFits": true,
+          "viable": false
+        },
+        {
+          "signature": "0,0;0,1|0,0;0,1;1,1|0,0;0,1;1,1;0,2;0,3",
+          "actions": [
+            {
+              "type": "take",
+              "stockId": "part-3",
+              "x": 0.6,
+              "y": 0.6
+            },
+            {
+              "type": "join",
+              "source": {
+                "pieceId": "piece-3"
+              },
+              "targetId": "piece-1",
+              "offset": {
+                "x": -2,
+                "y": 0
+              },
+              "x": 0.4,
+              "y": 0.45
+            }
+          ],
+          "shape": [
+            [
+              0,
+              0
+            ],
+            [
+              1,
+              0
+            ],
+            [
+              2,
+              0
+            ],
+            [
+              3,
+              0
+            ],
+            [
+              2,
+              1
+            ]
+          ],
+          "locallyFits": true,
+          "viable": false
+        },
+        {
+          "signature": "0,0;0,1|0,0;0,1;0,2;0,3;1,3|0,0;0,1;1,1",
+          "actions": [
+            {
+              "type": "take",
+              "stockId": "part-3",
+              "x": 0.6,
+              "y": 0.6
+            },
+            {
+              "type": "join",
+              "source": {
+                "pieceId": "piece-3"
+              },
+              "targetId": "piece-1",
+              "offset": {
+                "x": 2,
+                "y": 0
+              },
+              "x": 0.4,
+              "y": 0.45
+            }
+          ],
+          "shape": [
+            [
+              0,
+              0
+            ],
+            [
+              1,
+              0
+            ],
+            [
+              2,
+              0
+            ],
+            [
+              3,
+              0
+            ],
+            [
+              0,
+              1
+            ]
+          ],
+          "locallyFits": true,
+          "viable": false
+        },
+        {
+          "signature": "0,0;0,1|0,0;0,1;0,2;1,2;1,3|0,0;0,1;1,1",
+          "actions": [
+            {
+              "type": "take",
+              "stockId": "part-3",
+              "x": 0.6,
+              "y": 0.6
+            },
+            {
+              "type": "join",
+              "source": {
+                "pieceId": "piece-3"
+              },
+              "targetId": "piece-1",
+              "offset": {
+                "x": -2,
+                "y": 1
+              },
+              "x": 0.4,
+              "y": 0.45
+            }
+          ],
+          "shape": [
+            [
+              2,
+              0
+            ],
+            [
+              3,
+              0
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              2,
+              1
+            ]
+          ],
+          "locallyFits": true,
+          "viable": true
+        },
+        {
+          "signature": "0,0;0,1|0,0;0,1;1,1|0,0;0,1;1,1;2,1;2,2",
+          "actions": [
+            {
+              "type": "take",
+              "stockId": "part-3",
+              "x": 0.6,
+              "y": 0.6
+            },
+            {
+              "type": "join",
+              "source": {
+                "pieceId": "piece-3"
+              },
+              "targetId": "piece-1",
+              "offset": {
+                "x": -1,
+                "y": 2
+              },
+              "x": 0.4,
+              "y": 0.45
+            }
+          ],
+          "shape": [
+            [
+              1,
+              0
+            ],
+            [
+              2,
+              0
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              0,
+              2
+            ],
+            [
+              1,
+              2
+            ]
+          ],
+          "locallyFits": true,
+          "viable": false
+        },
+        {
+          "signature": "0,0;0,1|0,0;0,1;1,1|0,0;1,0;0,1;0,2;1,2",
+          "actions": [
+            {
+              "type": "take",
+              "stockId": "part-3",
+              "x": 0.6,
+              "y": 0.6
+            },
+            {
+              "type": "join",
+              "source": {
+                "pieceId": "piece-3"
+              },
+              "targetId": "piece-1",
+              "offset": {
+                "x": 0,
+                "y": 2
+              },
+              "x": 0.4,
+              "y": 0.45
+            }
+          ],
+          "shape": [
+            [
+              0,
+              0
+            ],
+            [
+              1,
+              0
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              2
+            ],
+            [
+              1,
+              2
+            ]
+          ],
+          "locallyFits": true,
+          "viable": true
+        },
+        {
+          "signature": "0,0;0,1|0,0;0,1;0,2;1,2;0,3|0,0;0,1;1,1",
+          "actions": [
+            {
+              "type": "take",
+              "stockId": "part-3",
+              "x": 0.6,
+              "y": 0.6
+            },
+            {
+              "type": "rotate",
+              "pieceId": "piece-3"
+            },
+            {
+              "type": "join",
+              "source": {
+                "pieceId": "piece-3"
+              },
+              "targetId": "piece-1",
+              "offset": {
+                "x": 0,
+                "y": -2
+              },
+              "x": 0.4,
+              "y": 0.45
+            }
+          ],
+          "shape": [
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              2
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              0,
+              3
+            ]
+          ],
+          "locallyFits": true,
+          "viable": true
+        },
+        {
+          "signature": "0,0;0,1|0,0;0,1;1,1|0,0;1,0;1,1;2,1;3,1",
+          "actions": [
+            {
+              "type": "take",
+              "stockId": "part-3",
+              "x": 0.6,
+              "y": 0.6
+            },
+            {
+              "type": "rotate",
+              "pieceId": "piece-3"
+            },
+            {
+              "type": "join",
+              "source": {
+                "pieceId": "piece-3"
+              },
+              "targetId": "piece-1",
+              "offset": {
+                "x": 1,
+                "y": -2
+              },
+              "x": 0.4,
+              "y": 0.45
+            }
+          ],
+          "shape": [
+            [
+              1,
+              0
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              0,
+              2
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              0,
+              3
+            ]
+          ],
+          "locallyFits": true,
+          "viable": false
+        },
+        {
+          "signature": "0,0;0,1|0,0;0,1;1,1|0,0;0,1;1,1;2,1;1,2",
+          "actions": [
+            {
+              "type": "take",
+              "stockId": "part-3",
+              "x": 0.6,
+              "y": 0.6
+            },
+            {
+              "type": "rotate",
+              "pieceId": "piece-3"
+            },
+            {
+              "type": "join",
+              "source": {
+                "pieceId": "piece-3"
+              },
+              "targetId": "piece-1",
+              "offset": {
+                "x": -1,
+                "y": -1
+              },
+              "x": 0.4,
+              "y": 0.45
+            }
+          ],
+          "shape": [
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              2,
+              1
+            ],
+            [
+              1,
+              2
+            ]
+          ],
+          "locallyFits": true,
+          "viable": true
+        },
+        {
+          "signature": "0,0;0,1|0,0;0,1;1,1|0,0;1,0;1,1;1,2;2,2",
+          "actions": [
+            {
+              "type": "take",
+              "stockId": "part-3",
+              "x": 0.6,
+              "y": 0.6
+            },
+            {
+              "type": "rotate",
+              "pieceId": "piece-3"
+            },
+            {
+              "type": "join",
+              "source": {
+                "pieceId": "piece-3"
+              },
+              "targetId": "piece-1",
+              "offset": {
+                "x": 2,
+                "y": -1
+              },
+              "x": 0.4,
+              "y": 0.45
+            }
+          ],
+          "shape": [
+            [
+              2,
+              0
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              2,
+              1
+            ],
+            [
+              0,
+              2
+            ]
+          ],
+          "locallyFits": false,
+          "viable": false
+        },
+        {
+          "signature": "0,0;0,1|0,0;0,1;1,1|0,0;0,1;1,1;0,2;1,2",
+          "actions": [
+            {
+              "type": "take",
+              "stockId": "part-3",
+              "x": 0.6,
+              "y": 0.6
+            },
+            {
+              "type": "rotate",
+              "pieceId": "piece-3"
+            },
+            {
+              "type": "join",
+              "source": {
+                "pieceId": "piece-3"
+              },
+              "targetId": "piece-1",
+              "offset": {
+                "x": -1,
+                "y": 0
+              },
+              "x": 0.4,
+              "y": 0.45
+            }
+          ],
+          "shape": [
+            [
+              0,
+              0
+            ],
+            [
+              1,
+              0
+            ],
+            [
+              2,
+              0
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              1
+            ]
+          ],
+          "locallyFits": true,
+          "viable": true
+        },
+        {
+          "signature": "0,0;0,1|0,0;0,1;1,1|0,0;0,1;1,1;2,1;3,1",
+          "actions": [
+            {
+              "type": "take",
+              "stockId": "part-3",
+              "x": 0.6,
+              "y": 0.6
+            },
+            {
+              "type": "rotate",
+              "pieceId": "piece-3"
+            },
+            {
+              "type": "join",
+              "source": {
+                "pieceId": "piece-3"
+              },
+              "targetId": "piece-1",
+              "offset": {
+                "x": 0,
+                "y": 2
+              },
+              "x": 0.4,
+              "y": 0.45
+            }
+          ],
+          "shape": [
+            [
+              0,
+              0
+            ],
+            [
+              1,
+              0
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              2
+            ],
+            [
+              0,
+              3
+            ]
+          ],
+          "locallyFits": true,
+          "viable": false
+        },
+        {
+          "signature": "0,0;0,1;1,1|0,0;0,1;1,1|0,0;1,0;1,1;2,1",
+          "actions": [
+            {
+              "type": "take",
+              "stockId": "part-3",
+              "x": 0.6,
+              "y": 0.6
+            },
+            {
+              "type": "take",
+              "stockId": "part-4",
+              "x": 0.6,
+              "y": 0.6
+            },
+            {
+              "type": "join",
+              "source": {
+                "pieceId": "piece-4"
+              },
+              "targetId": "piece-3",
+              "offset": {
+                "x": -1,
+                "y": -1
+              },
+              "x": 0.4,
+              "y": 0.45
+            }
+          ],
+          "shape": [
+            [
+              0,
+              0
+            ],
+            [
+              1,
+              0
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              2,
+              1
+            ]
+          ],
+          "locallyFits": true,
+          "viable": true
+        },
+        {
+          "signature": "0,0;0,1;1,1|0,0;0,1;1,1|0,0;1,0;0,1;1,1",
+          "actions": [
+            {
+              "type": "take",
+              "stockId": "part-3",
+              "x": 0.6,
+              "y": 0.6
+            },
+            {
+              "type": "take",
+              "stockId": "part-4",
+              "x": 0.6,
+              "y": 0.6
+            },
+            {
+              "type": "join",
+              "source": {
+                "pieceId": "piece-4"
+              },
+              "targetId": "piece-3",
+              "offset": {
+                "x": 0,
+                "y": -1
+              },
+              "x": 0.4,
+              "y": 0.45
+            }
+          ],
+          "shape": [
+            [
+              0,
+              0
+            ],
+            [
+              1,
+              0
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              1
+            ]
+          ],
+          "locallyFits": true,
+          "viable": false
+        },
+        {
+          "signature": "0,0;0,1;1,1|0,0;0,1;1,1|0,0;0,1;1,1;1,2",
+          "actions": [
+            {
+              "type": "take",
+              "stockId": "part-3",
+              "x": 0.6,
+              "y": 0.6
+            },
+            {
+              "type": "take",
+              "stockId": "part-4",
+              "x": 0.6,
+              "y": 0.6
+            },
+            {
+              "type": "join",
+              "source": {
+                "pieceId": "piece-4"
+              },
+              "targetId": "piece-3",
+              "offset": {
+                "x": 1,
+                "y": -1
+              },
+              "x": 0.4,
+              "y": 0.45
+            }
+          ],
+          "shape": [
+            [
+              1,
+              0
+            ],
+            [
+              2,
+              0
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              1
+            ]
+          ],
+          "locallyFits": true,
+          "viable": true
+        },
+        {
+          "signature": "0,0;0,1;0,2;0,3|0,0;0,1;1,1|0,0;0,1;1,1",
+          "actions": [
+            {
+              "type": "take",
+              "stockId": "part-3",
+              "x": 0.6,
+              "y": 0.6
+            },
+            {
+              "type": "take",
+              "stockId": "part-4",
+              "x": 0.6,
+              "y": 0.6
+            },
+            {
+              "type": "join",
+              "source": {
+                "pieceId": "piece-4"
+              },
+              "targetId": "piece-3",
+              "offset": {
+                "x": -2,
+                "y": 0
+              },
+              "x": 0.4,
+              "y": 0.45
+            }
+          ],
+          "shape": [
+            [
+              0,
+              0
+            ],
+            [
+              1,
+              0
+            ],
+            [
+              2,
+              0
+            ],
+            [
+              3,
+              0
+            ]
+          ],
+          "locallyFits": true,
+          "viable": false
+        },
+        {
+          "signature": "0,0;0,1;0,2;1,2|0,0;0,1;1,1|0,0;0,1;1,1",
+          "actions": [
+            {
+              "type": "take",
+              "stockId": "part-3",
+              "x": 0.6,
+              "y": 0.6
+            },
+            {
+              "type": "take",
+              "stockId": "part-4",
+              "x": 0.6,
+              "y": 0.6
+            },
+            {
+              "type": "rotate",
+              "pieceId": "piece-4"
+            },
+            {
+              "type": "join",
+              "source": {
+                "pieceId": "piece-4"
+              },
+              "targetId": "piece-3",
+              "offset": {
+                "x": 0,
+                "y": -2
+              },
+              "x": 0.4,
+              "y": 0.45
+            }
+          ],
+          "shape": [
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              2
+            ],
+            [
+              1,
+              2
+            ]
+          ],
+          "locallyFits": true,
+          "viable": true
+        },
+        {
+          "signature": "0,0;0,1;1,1|0,0;0,1;1,1|0,0;0,1;1,1;2,1",
+          "actions": [
+            {
+              "type": "take",
+              "stockId": "part-3",
+              "x": 0.6,
+              "y": 0.6
+            },
+            {
+              "type": "take",
+              "stockId": "part-4",
+              "x": 0.6,
+              "y": 0.6
+            },
+            {
+              "type": "rotate",
+              "pieceId": "piece-4"
+            },
+            {
+              "type": "join",
+              "source": {
+                "pieceId": "piece-4"
+              },
+              "targetId": "piece-3",
+              "offset": {
+                "x": 1,
+                "y": -2
+              },
+              "x": 0.4,
+              "y": 0.45
+            }
+          ],
+          "shape": [
+            [
+              1,
+              0
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              0,
+              2
+            ],
+            [
+              1,
+              2
+            ]
+          ],
+          "locallyFits": true,
+          "viable": true
+        }
+      ]
+    },
+    {
+      "id": "the-crossing",
+      "target": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          3,
+          0
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          3,
+          2
+        ],
+        [
+          4,
+          2
+        ],
+        [
+          3,
+          3
+        ]
+      ],
+      "stock": [
+        {
+          "id": "part-1",
+          "name": "Amber corner",
+          "cells": [
+            [
+              0,
+              0
+            ],
+            [
+              1,
+              0
+            ],
+            [
+              0,
+              1
+            ]
+          ],
+          "color": "#cb8e66"
+        },
+        {
+          "id": "part-2",
+          "name": "Blue corner",
+          "cells": [
+            [
+              0,
+              0
+            ],
+            [
+              1,
+              0
+            ],
+            [
+              0,
+              1
+            ]
+          ],
+          "color": "#6fa7b0"
+        },
+        {
+          "id": "part-3",
+          "name": "Green bar",
+          "cells": [
+            [
+              0,
+              0
+            ],
+            [
+              1,
+              0
+            ]
+          ],
+          "color": "#9aa966"
+        },
+        {
+          "id": "part-4",
+          "name": "Lilac bar",
+          "cells": [
+            [
+              0,
+              0
+            ],
+            [
+              1,
+              0
+            ]
+          ],
+          "color": "#b395bd"
+        }
+      ],
+      "reachable": true,
+      "witness": {
+        "schema": 1,
+        "version": "joinery-1",
+        "id": "witness-the-crossing",
+        "level": "the-crossing",
+        "player": "privileged mechanical witness",
+        "decisions": [
+          {
+            "index": 0,
+            "action": {
+              "type": "take",
+              "stockId": "part-3",
+              "x": 0.7,
+              "y": 0.65
+            },
+            "before": "edb4a808",
+            "after": "e5eaff4c"
+          },
+          {
+            "index": 1,
+            "action": {
+              "type": "take",
+              "stockId": "part-4",
+              "x": 0.7,
+              "y": 0.65
+            },
+            "before": "e5eaff4c",
+            "after": "00c4e474"
+          },
+          {
+            "index": 2,
+            "action": {
+              "type": "join",
+              "source": {
+                "pieceId": "piece-3"
+              },
+              "targetId": "piece-1",
+              "offset": {
+                "x": -2,
+                "y": 0
+              },
+              "x": 0.4,
+              "y": 0.45
+            },
+            "before": "00c4e474",
+            "after": "645c576e"
+          },
+          {
+            "index": 3,
+            "action": {
+              "type": "join",
+              "source": {
+                "pieceId": "piece-4"
+              },
+              "targetId": "piece-5",
+              "offset": {
+                "x": 1,
+                "y": 2
+              },
+              "x": 0.4,
+              "y": 0.45
+            },
+            "before": "645c576e",
+            "after": "f1551471"
+          },
+          {
+            "index": 4,
+            "action": {
+              "type": "join",
+              "source": {
+                "pieceId": "piece-2"
+              },
+              "targetId": "piece-6",
+              "offset": {
+                "x": 3,
+                "y": 2
+              },
+              "x": 0.4,
+              "y": 0.45
+            },
+            "before": "f1551471",
+            "after": "c9b2fbc1"
+          }
+        ],
+        "interactions": []
+      },
+      "normalizedOpeningCount": 44,
+      "viableOpeningCount": 4,
+      "locallyFittingDoomedCount": 9,
+      "branchEvidence": {
+        "localMeaning": "Opening union fits somewhere in the target, but exact remaining-piece tiling is impossible. This is a diagnostic, not a hidden gameplay rule.",
+        "doomed": {
+          "shape": [
+            [
+              2,
+              0
+            ],
+            [
+              3,
+              0
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              2,
+              1
+            ],
+            [
+              0,
+              2
+            ]
+          ],
+          "signature": "0,0;0,1|0,0;0,1|0,0;0,1;1,1;1,2;1,3;2,3",
+          "capture": {
+            "schema": 1,
+            "version": "joinery-1",
+            "id": "doomed-the-crossing",
+            "level": "the-crossing",
+            "player": "privileged mechanical witness",
+            "decisions": [
+              {
+                "index": 0,
+                "action": {
+                  "type": "join",
+                  "source": {
+                    "pieceId": "piece-2"
+                  },
+                  "targetId": "piece-1",
+                  "offset": {
+                    "x": 2,
+                    "y": -1
+                  },
+                  "x": 0.4,
+                  "y": 0.45
+                },
+                "before": "edb4a808",
+                "after": "3b8e6bda"
+              }
+            ],
+            "interactions": []
+          }
+        },
+        "viable": {
+          "shape": [
+            [
+              1,
+              0
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              2,
+              1
+            ],
+            [
+              3,
+              1
+            ],
+            [
+              2,
+              2
+            ]
+          ],
+          "signature": "0,0;0,1|0,0;0,1|1,0;0,1;1,1;2,1;3,1;2,2",
+          "capture": {
+            "schema": 1,
+            "version": "joinery-1",
+            "id": "viable-the-crossing",
+            "level": "the-crossing",
+            "player": "privileged mechanical witness",
+            "decisions": [
+              {
+                "index": 0,
+                "action": {
+                  "type": "rotate",
+                  "pieceId": "piece-2"
+                },
+                "before": "edb4a808",
+                "after": "408694d1"
+              },
+              {
+                "index": 1,
+                "action": {
+                  "type": "rotate",
+                  "pieceId": "piece-2"
+                },
+                "before": "408694d1",
+                "after": "683096d0"
+              },
+              {
+                "index": 2,
+                "action": {
+                  "type": "join",
+                  "source": {
+                    "pieceId": "piece-2"
+                  },
+                  "targetId": "piece-1",
+                  "offset": {
+                    "x": -2,
+                    "y": -1
+                  },
+                  "x": 0.4,
+                  "y": 0.45
+                },
+                "before": "683096d0",
+                "after": "617d0886"
+              }
+            ],
+            "interactions": []
+          },
+          "completion": {
+            "schema": 1,
+            "version": "joinery-1",
+            "id": "viable-completion-the-crossing",
+            "level": "the-crossing",
+            "player": "privileged mechanical witness",
+            "decisions": [
+              {
+                "index": 0,
+                "action": {
+                  "type": "rotate",
+                  "pieceId": "piece-2"
+                },
+                "before": "edb4a808",
+                "after": "408694d1"
+              },
+              {
+                "index": 1,
+                "action": {
+                  "type": "rotate",
+                  "pieceId": "piece-2"
+                },
+                "before": "408694d1",
+                "after": "683096d0"
+              },
+              {
+                "index": 2,
+                "action": {
+                  "type": "join",
+                  "source": {
+                    "pieceId": "piece-2"
+                  },
+                  "targetId": "piece-1",
+                  "offset": {
+                    "x": -2,
+                    "y": -1
+                  },
+                  "x": 0.4,
+                  "y": 0.45
+                },
+                "before": "683096d0",
+                "after": "617d0886"
+              },
+              {
+                "index": 3,
+                "action": {
+                  "type": "take",
+                  "stockId": "part-3",
+                  "x": 0.7,
+                  "y": 0.65
+                },
+                "before": "617d0886",
+                "after": "6d060e17"
+              },
+              {
+                "index": 4,
+                "action": {
+                  "type": "take",
+                  "stockId": "part-4",
+                  "x": 0.7,
+                  "y": 0.65
+                },
+                "before": "6d060e17",
+                "after": "64060c62"
+              },
+              {
+                "index": 5,
+                "action": {
+                  "type": "join",
+                  "source": {
+                    "pieceId": "piece-5"
+                  },
+                  "targetId": "piece-3",
+                  "offset": {
+                    "x": 1,
+                    "y": -1
+                  },
+                  "x": 0.4,
+                  "y": 0.45
+                },
+                "before": "64060c62",
+                "after": "7ccae638"
+              },
+              {
+                "index": 6,
+                "action": {
+                  "type": "join",
+                  "source": {
+                    "pieceId": "piece-4"
+                  },
+                  "targetId": "piece-6",
+                  "offset": {
+                    "x": -1,
+                    "y": 0
+                  },
+                  "x": 0.4,
+                  "y": 0.45
+                },
+                "before": "7ccae638",
+                "after": "9546dd25"
+              }
+            ],
+            "interactions": []
+          }
+        },
+        "undoRecovery": {
+          "schema": 1,
+          "version": "joinery-1",
+          "id": "undo-recovery-the-crossing",
+          "level": "the-crossing",
+          "player": "privileged mechanical witness",
+          "decisions": [
+            {
+              "index": 0,
+              "action": {
+                "type": "join",
+                "source": {
+                  "pieceId": "piece-2"
+                },
+                "targetId": "piece-1",
+                "offset": {
+                  "x": 2,
+                  "y": -1
+                },
+                "x": 0.4,
+                "y": 0.45
+              },
+              "before": "edb4a808",
+              "after": "3b8e6bda"
+            },
+            {
+              "index": 1,
+              "action": {
+                "type": "undo"
+              },
+              "before": "3b8e6bda",
+              "after": "edb4a808"
+            },
+            {
+              "index": 2,
+              "action": {
+                "type": "take",
+                "stockId": "part-3",
+                "x": 0.7,
+                "y": 0.65
+              },
+              "before": "edb4a808",
+              "after": "e5eaff4c"
+            },
+            {
+              "index": 3,
+              "action": {
+                "type": "take",
+                "stockId": "part-4",
+                "x": 0.7,
+                "y": 0.65
+              },
+              "before": "e5eaff4c",
+              "after": "00c4e474"
+            },
+            {
+              "index": 4,
+              "action": {
+                "type": "join",
+                "source": {
+                  "pieceId": "piece-3"
+                },
+                "targetId": "piece-1",
+                "offset": {
+                  "x": -2,
+                  "y": 0
+                },
+                "x": 0.4,
+                "y": 0.45
+              },
+              "before": "00c4e474",
+              "after": "645c576e"
+            },
+            {
+              "index": 5,
+              "action": {
+                "type": "join",
+                "source": {
+                  "pieceId": "piece-4"
+                },
+                "targetId": "piece-5",
+                "offset": {
+                  "x": 1,
+                  "y": 2
+                },
+                "x": 0.4,
+                "y": 0.45
+              },
+              "before": "645c576e",
+              "after": "f1551471"
+            },
+            {
+              "index": 6,
+              "action": {
+                "type": "join",
+                "source": {
+                  "pieceId": "piece-2"
+                },
+                "targetId": "piece-6",
+                "offset": {
+                  "x": 3,
+                  "y": 2
+                },
+                "x": 0.4,
+                "y": 0.45
+              },
+              "before": "f1551471",
+              "after": "c9b2fbc1"
+            }
+          ],
+          "interactions": []
+        },
+        "recoveryScope": "Recovery shown through explicit Undo, not claimed as an irreversible strategic recovery."
+      },
+      "openings": [
+        {
+          "signature": "0,0;0,1|0,0;0,1|0,0;1,0;0,1;0,2;1,2;0,3",
+          "actions": [
+            {
+              "type": "join",
+              "source": {
+                "pieceId": "piece-2"
+              },
+              "targetId": "piece-1",
+              "offset": {
+                "x": 0,
+                "y": -2
+              },
+              "x": 0.4,
+              "y": 0.45
+            }
+          ],
+          "shape": [
+            [
+              0,
+              0
+            ],
+            [
+              1,
+              0
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              2
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              0,
+              3
+            ]
+          ],
+          "locallyFits": false,
+          "viable": false
+        },
+        {
+          "signature": "0,0;0,1|0,0;0,1|0,0;0,1;1,1;2,1;2,2;3,2",
+          "actions": [
+            {
+              "type": "join",
+              "source": {
+                "pieceId": "piece-2"
+              },
+              "targetId": "piece-1",
+              "offset": {
+                "x": 1,
+                "y": -2
+              },
+              "x": 0.4,
+              "y": 0.45
+            }
+          ],
+          "shape": [
+            [
+              1,
+              0
+            ],
+            [
+              2,
+              0
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              0,
+              2
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              0,
+              3
+            ]
+          ],
+          "locallyFits": false,
+          "viable": false
+        },
+        {
+          "signature": "0,0;0,1|0,0;0,1|0,0;1,0;0,1;1,1;2,1;1,2",
+          "actions": [
+            {
+              "type": "join",
+              "source": {
+                "pieceId": "piece-2"
+              },
+              "targetId": "piece-1",
+              "offset": {
+                "x": -1,
+                "y": -1
+              },
+              "x": 0.4,
+              "y": 0.45
+            }
+          ],
+          "shape": [
+            [
+              0,
+              0
+            ],
+            [
+              1,
+              0
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              2,
+              1
+            ],
+            [
+              1,
+              2
+            ]
+          ],
+          "locallyFits": false,
+          "viable": false
+        },
+        {
+          "signature": "0,0;0,1|0,0;0,1|0,0;0,1;1,1;1,2;1,3;2,3",
+          "actions": [
+            {
+              "type": "join",
+              "source": {
+                "pieceId": "piece-2"
+              },
+              "targetId": "piece-1",
+              "offset": {
+                "x": 2,
+                "y": -1
+              },
+              "x": 0.4,
+              "y": 0.45
+            }
+          ],
+          "shape": [
+            [
+              2,
+              0
+            ],
+            [
+              3,
+              0
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              2,
+              1
+            ],
+            [
+              0,
+              2
+            ]
+          ],
+          "locallyFits": true,
+          "viable": false
+        },
+        {
+          "signature": "0,0;0,1|0,0;0,1|0,0;0,1;1,1;0,2;0,3;1,3",
+          "actions": [
+            {
+              "type": "join",
+              "source": {
+                "pieceId": "piece-2"
+              },
+              "targetId": "piece-1",
+              "offset": {
+                "x": -2,
+                "y": 0
+              },
+              "x": 0.4,
+              "y": 0.45
+            }
+          ],
+          "shape": [
+            [
+              0,
+              0
+            ],
+            [
+              1,
+              0
+            ],
+            [
+              2,
+              0
+            ],
+            [
+              3,
+              0
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              2,
+              1
+            ]
+          ],
+          "locallyFits": false,
+          "viable": false
+        },
+        {
+          "signature": "0,0;0,1|0,0;0,1|0,0;1,0;1,1;1,2;2,2;1,3",
+          "actions": [
+            {
+              "type": "rotate",
+              "pieceId": "piece-2"
+            },
+            {
+              "type": "join",
+              "source": {
+                "pieceId": "piece-2"
+              },
+              "targetId": "piece-1",
+              "offset": {
+                "x": -1,
+                "y": -2
+              },
+              "x": 0.4,
+              "y": 0.45
+            }
+          ],
+          "shape": [
+            [
+              0,
+              0
+            ],
+            [
+              1,
+              0
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              2,
+              2
+            ],
+            [
+              1,
+              3
+            ]
+          ],
+          "locallyFits": false,
+          "viable": false
+        },
+        {
+          "signature": "0,0;0,1|0,0;0,1|0,0;1,0;1,1;0,2;1,2;0,3",
+          "actions": [
+            {
+              "type": "rotate",
+              "pieceId": "piece-2"
+            },
+            {
+              "type": "join",
+              "source": {
+                "pieceId": "piece-2"
+              },
+              "targetId": "piece-1",
+              "offset": {
+                "x": 0,
+                "y": -2
+              },
+              "x": 0.4,
+              "y": 0.45
+            }
+          ],
+          "shape": [
+            [
+              0,
+              0
+            ],
+            [
+              1,
+              0
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              0,
+              2
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              0,
+              3
+            ]
+          ],
+          "locallyFits": false,
+          "viable": false
+        },
+        {
+          "signature": "0,0;0,1|0,0;0,1|0,0;1,0;1,1;2,1;3,1;2,2",
+          "actions": [
+            {
+              "type": "rotate",
+              "pieceId": "piece-2"
+            },
+            {
+              "type": "join",
+              "source": {
+                "pieceId": "piece-2"
+              },
+              "targetId": "piece-1",
+              "offset": {
+                "x": -2,
+                "y": -1
+              },
+              "x": 0.4,
+              "y": 0.45
+            }
+          ],
+          "shape": [
+            [
+              0,
+              0
+            ],
+            [
+              1,
+              0
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              2,
+              1
+            ],
+            [
+              3,
+              1
+            ],
+            [
+              2,
+              2
+            ]
+          ],
+          "locallyFits": false,
+          "viable": false
+        },
+        {
+          "signature": "0,0;0,1|0,0;0,1|0,0;1,0;0,1;1,1;1,2;2,2",
+          "actions": [
+            {
+              "type": "rotate",
+              "pieceId": "piece-2"
+            },
+            {
+              "type": "join",
+              "source": {
+                "pieceId": "piece-2"
+              },
+              "targetId": "piece-1",
+              "offset": {
+                "x": 1,
+                "y": -1
+              },
+              "x": 0.4,
+              "y": 0.45
+            }
+          ],
+          "shape": [
+            [
+              1,
+              0
+            ],
+            [
+              2,
+              0
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              2,
+              1
+            ],
+            [
+              0,
+              2
+            ]
+          ],
+          "locallyFits": false,
+          "viable": false
+        },
+        {
+          "signature": "0,0;0,1|0,0;0,1|0,0;0,1;1,1;0,2;1,2;0,3",
+          "actions": [
+            {
+              "type": "rotate",
+              "pieceId": "piece-2"
+            },
+            {
+              "type": "join",
+              "source": {
+                "pieceId": "piece-2"
+              },
+              "targetId": "piece-1",
+              "offset": {
+                "x": -2,
+                "y": 0
+              },
+              "x": 0.4,
+              "y": 0.45
+            }
+          ],
+          "shape": [
+            [
+              0,
+              0
+            ],
+            [
+              1,
+              0
+            ],
+            [
+              2,
+              0
+            ],
+            [
+              3,
+              0
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              2,
+              1
+            ]
+          ],
+          "locallyFits": false,
+          "viable": false
+        },
+        {
+          "signature": "0,0;0,1|0,0;0,1|0,0;1,0;0,1;0,2;0,3;1,3",
+          "actions": [
+            {
+              "type": "rotate",
+              "pieceId": "piece-2"
+            },
+            {
+              "type": "join",
+              "source": {
+                "pieceId": "piece-2"
+              },
+              "targetId": "piece-1",
+              "offset": {
+                "x": 2,
+                "y": 0
+              },
+              "x": 0.4,
+              "y": 0.45
+            }
+          ],
+          "shape": [
+            [
+              0,
+              0
+            ],
+            [
+              1,
+              0
+            ],
+            [
+              2,
+              0
+            ],
+            [
+              3,
+              0
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              3,
+              1
+            ]
+          ],
+          "locallyFits": false,
+          "viable": false
+        },
+        {
+          "signature": "0,0;0,1|0,0;0,1|0,0;0,1;1,1;1,2;2,2;1,3",
+          "actions": [
+            {
+              "type": "rotate",
+              "pieceId": "piece-2"
+            },
+            {
+              "type": "join",
+              "source": {
+                "pieceId": "piece-2"
+              },
+              "targetId": "piece-1",
+              "offset": {
+                "x": -2,
+                "y": 1
+              },
+              "x": 0.4,
+              "y": 0.45
+            }
+          ],
+          "shape": [
+            [
+              2,
+              0
+            ],
+            [
+              3,
+              0
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              2,
+              1
+            ],
+            [
+              1,
+              2
+            ]
+          ],
+          "locallyFits": false,
+          "viable": false
+        },
+        {
+          "signature": "0,0;0,1|0,0;0,1|0,0;0,1;1,1;2,1;1,2;2,2",
+          "actions": [
+            {
+              "type": "rotate",
+              "pieceId": "piece-2"
+            },
+            {
+              "type": "join",
+              "source": {
+                "pieceId": "piece-2"
+              },
+              "targetId": "piece-1",
+              "offset": {
+                "x": 1,
+                "y": 1
+              },
+              "x": 0.4,
+              "y": 0.45
+            }
+          ],
+          "shape": [
+            [
+              0,
+              0
+            ],
+            [
+              1,
+              0
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              2,
+              1
+            ],
+            [
+              2,
+              2
+            ]
+          ],
+          "locallyFits": false,
+          "viable": false
+        },
+        {
+          "signature": "0,0;0,1|0,0;0,1|0,0;0,1;1,1;2,1;3,1;2,2",
+          "actions": [
+            {
+              "type": "rotate",
+              "pieceId": "piece-2"
+            },
+            {
+              "type": "join",
+              "source": {
+                "pieceId": "piece-2"
+              },
+              "targetId": "piece-1",
+              "offset": {
+                "x": -1,
+                "y": 2
+              },
+              "x": 0.4,
+              "y": 0.45
+            }
+          ],
+          "shape": [
+            [
+              1,
+              0
+            ],
+            [
+              2,
+              0
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              0,
+              2
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              1,
+              3
+            ]
+          ],
+          "locallyFits": false,
+          "viable": false
+        },
+        {
+          "signature": "0,0;0,1|0,0;0,1|0,0;0,1;1,1;1,2;0,3;1,3",
+          "actions": [
+            {
+              "type": "rotate",
+              "pieceId": "piece-2"
+            },
+            {
+              "type": "join",
+              "source": {
+                "pieceId": "piece-2"
+              },
+              "targetId": "piece-1",
+              "offset": {
+                "x": 0,
+                "y": 2
+              },
+              "x": 0.4,
+              "y": 0.45
+            }
+          ],
+          "shape": [
+            [
+              0,
+              0
+            ],
+            [
+              1,
+              0
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              2
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              1,
+              3
+            ]
+          ],
+          "locallyFits": true,
+          "viable": false
+        },
+        {
+          "signature": "0,0;0,1|0,0;0,1|1,0;0,1;1,1;1,2;2,2;1,3",
+          "actions": [
+            {
+              "type": "rotate",
+              "pieceId": "piece-2"
+            },
+            {
+              "type": "rotate",
+              "pieceId": "piece-2"
+            },
+            {
+              "type": "join",
+              "source": {
+                "pieceId": "piece-2"
+              },
+              "targetId": "piece-1",
+              "offset": {
+                "x": -1,
+                "y": -2
+              },
+              "x": 0.4,
+              "y": 0.45
+            }
+          ],
+          "shape": [
+            [
+              1,
+              0
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              2,
+              2
+            ],
+            [
+              1,
+              3
+            ]
+          ],
+          "locallyFits": false,
+          "viable": false
+        },
+        {
+          "signature": "0,0;0,1|0,0;0,1|0,0;1,0;2,0;1,1;2,1;3,1",
+          "actions": [
+            {
+              "type": "rotate",
+              "pieceId": "piece-2"
+            },
+            {
+              "type": "rotate",
+              "pieceId": "piece-2"
+            },
+            {
+              "type": "join",
+              "source": {
+                "pieceId": "piece-2"
+              },
+              "targetId": "piece-1",
+              "offset": {
+                "x": 0,
+                "y": -2
+              },
+              "x": 0.4,
+              "y": 0.45
+            }
+          ],
+          "shape": [
+            [
+              1,
+              0
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              0,
+              2
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              0,
+              3
+            ]
+          ],
+          "locallyFits": false,
+          "viable": false
+        },
+        {
+          "signature": "0,0;0,1|0,0;0,1|0,0;1,0;1,1;2,1;2,2;3,2",
+          "actions": [
+            {
+              "type": "rotate",
+              "pieceId": "piece-2"
+            },
+            {
+              "type": "rotate",
+              "pieceId": "piece-2"
+            },
+            {
+              "type": "join",
+              "source": {
+                "pieceId": "piece-2"
+              },
+              "targetId": "piece-1",
+              "offset": {
+                "x": 1,
+                "y": -2
+              },
+              "x": 0.4,
+              "y": 0.45
+            }
+          ],
+          "shape": [
+            [
+              2,
+              0
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              2,
+              1
+            ],
+            [
+              0,
+              2
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              0,
+              3
+            ]
+          ],
+          "locallyFits": false,
+          "viable": false
+        },
+        {
+          "signature": "0,0;0,1|0,0;0,1|1,0;0,1;1,1;2,1;3,1;2,2",
+          "actions": [
+            {
+              "type": "rotate",
+              "pieceId": "piece-2"
+            },
+            {
+              "type": "rotate",
+              "pieceId": "piece-2"
+            },
+            {
+              "type": "join",
+              "source": {
+                "pieceId": "piece-2"
+              },
+              "targetId": "piece-1",
+              "offset": {
+                "x": -2,
+                "y": -1
+              },
+              "x": 0.4,
+              "y": 0.45
+            }
+          ],
+          "shape": [
+            [
+              1,
+              0
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              2,
+              1
+            ],
+            [
+              3,
+              1
+            ],
+            [
+              2,
+              2
+            ]
+          ],
+          "locallyFits": true,
+          "viable": true
+        },
+        {
+          "signature": "0,0;0,1|0,0;0,1|0,0;1,0;1,1;1,2;1,3;2,3",
+          "actions": [
+            {
+              "type": "rotate",
+              "pieceId": "piece-2"
+            },
+            {
+              "type": "rotate",
+              "pieceId": "piece-2"
+            },
+            {
+              "type": "join",
+              "source": {
+                "pieceId": "piece-2"
+              },
+              "targetId": "piece-1",
+              "offset": {
+                "x": 2,
+                "y": -1
+              },
+              "x": 0.4,
+              "y": 0.45
+            }
+          ],
+          "shape": [
+            [
+              3,
+              0
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              2,
+              1
+            ],
+            [
+              3,
+              1
+            ],
+            [
+              0,
+              2
+            ]
+          ],
+          "locallyFits": false,
+          "viable": false
+        },
+        {
+          "signature": "0,0;0,1|0,0;0,1|0,0;0,1;1,1;0,2;1,2;1,3",
+          "actions": [
+            {
+              "type": "rotate",
+              "pieceId": "piece-2"
+            },
+            {
+              "type": "rotate",
+              "pieceId": "piece-2"
+            },
+            {
+              "type": "join",
+              "source": {
+                "pieceId": "piece-2"
+              },
+              "targetId": "piece-1",
+              "offset": {
+                "x": -2,
+                "y": 0
+              },
+              "x": 0.4,
+              "y": 0.45
+            }
+          ],
+          "shape": [
+            [
+              1,
+              0
+            ],
+            [
+              2,
+              0
+            ],
+            [
+              3,
+              0
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              2,
+              1
+            ]
+          ],
+          "locallyFits": false,
+          "viable": false
+        },
+        {
+          "signature": "0,0;0,1|0,0;0,1|0,0;1,0;0,1;1,1;0,2;1,2",
+          "actions": [
+            {
+              "type": "rotate",
+              "pieceId": "piece-2"
+            },
+            {
+              "type": "rotate",
+              "pieceId": "piece-2"
+            },
+            {
+              "type": "join",
+              "source": {
+                "pieceId": "piece-2"
+              },
+              "targetId": "piece-1",
+              "offset": {
+                "x": 1,
+                "y": 0
+              },
+              "x": 0.4,
+              "y": 0.45
+            }
+          ],
+          "shape": [
+            [
+              0,
+              0
+            ],
+            [
+              1,
+              0
+            ],
+            [
+              2,
+              0
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              2,
+              1
+            ]
+          ],
+          "locallyFits": false,
+          "viable": false
+        },
+        {
+          "signature": "0,0;0,1|0,0;0,1|0,0;0,1;1,1;1,2;2,2;2,3",
+          "actions": [
+            {
+              "type": "rotate",
+              "pieceId": "piece-2"
+            },
+            {
+              "type": "rotate",
+              "pieceId": "piece-2"
+            },
+            {
+              "type": "join",
+              "source": {
+                "pieceId": "piece-2"
+              },
+              "targetId": "piece-1",
+              "offset": {
+                "x": -2,
+                "y": 1
+              },
+              "x": 0.4,
+              "y": 0.45
+            }
+          ],
+          "shape": [
+            [
+              2,
+              0
+            ],
+            [
+              3,
+              0
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              2,
+              1
+            ],
+            [
+              0,
+              2
+            ],
+            [
+              1,
+              2
+            ]
+          ],
+          "locallyFits": false,
+          "viable": false
+        },
+        {
+          "signature": "0,0;0,1|0,0;0,1|0,0;0,1;1,1;2,1;3,1;3,2",
+          "actions": [
+            {
+              "type": "rotate",
+              "pieceId": "piece-2"
+            },
+            {
+              "type": "rotate",
+              "pieceId": "piece-2"
+            },
+            {
+              "type": "join",
+              "source": {
+                "pieceId": "piece-2"
+              },
+              "targetId": "piece-1",
+              "offset": {
+                "x": -1,
+                "y": 2
+              },
+              "x": 0.4,
+              "y": 0.45
+            }
+          ],
+          "shape": [
+            [
+              1,
+              0
+            ],
+            [
+              2,
+              0
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              0,
+              3
+            ],
+            [
+              1,
+              3
+            ]
+          ],
+          "locallyFits": false,
+          "viable": false
+        },
+        {
+          "signature": "0,0;0,1|0,0;0,1;1,1|0,0;1,0;1,1;2,1;1,2",
+          "actions": [
+            {
+              "type": "take",
+              "stockId": "part-3",
+              "x": 0.6,
+              "y": 0.6
+            },
+            {
+              "type": "join",
+              "source": {
+                "pieceId": "piece-3"
+              },
+              "targetId": "piece-1",
+              "offset": {
+                "x": -1,
+                "y": -1
+              },
+              "x": 0.4,
+              "y": 0.45
+            }
+          ],
+          "shape": [
+            [
+              0,
+              0
+            ],
+            [
+              1,
+              0
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              2,
+              1
+            ],
+            [
+              1,
+              2
+            ]
+          ],
+          "locallyFits": false,
+          "viable": false
+        },
+        {
+          "signature": "0,0;0,1|0,0;0,1;1,1|0,0;1,0;0,1;1,1;0,2",
+          "actions": [
+            {
+              "type": "take",
+              "stockId": "part-3",
+              "x": 0.6,
+              "y": 0.6
+            },
+            {
+              "type": "join",
+              "source": {
+                "pieceId": "piece-3"
+              },
+              "targetId": "piece-1",
+              "offset": {
+                "x": 0,
+                "y": -1
+              },
+              "x": 0.4,
+              "y": 0.45
+            }
+          ],
+          "shape": [
+            [
+              0,
+              0
+            ],
+            [
+              1,
+              0
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              0,
+              2
+            ]
+          ],
+          "locallyFits": false,
+          "viable": false
+        },
+        {
+          "signature": "0,0;0,1|0,0;0,1;1,1|0,0;0,1;1,1;1,2;2,2",
+          "actions": [
+            {
+              "type": "take",
+              "stockId": "part-3",
+              "x": 0.6,
+              "y": 0.6
+            },
+            {
+              "type": "join",
+              "source": {
+                "pieceId": "piece-3"
+              },
+              "targetId": "piece-1",
+              "offset": {
+                "x": 1,
+                "y": -1
+              },
+              "x": 0.4,
+              "y": 0.45
+            }
+          ],
+          "shape": [
+            [
+              1,
+              0
+            ],
+            [
+              2,
+              0
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              0,
+              2
+            ]
+          ],
+          "locallyFits": false,
+          "viable": false
+        },
+        {
+          "signature": "0,0;0,1|0,0;0,1;1,1|0,0;0,1;1,1;0,2;0,3",
+          "actions": [
+            {
+              "type": "take",
+              "stockId": "part-3",
+              "x": 0.6,
+              "y": 0.6
+            },
+            {
+              "type": "join",
+              "source": {
+                "pieceId": "piece-3"
+              },
+              "targetId": "piece-1",
+              "offset": {
+                "x": -2,
+                "y": 0
+              },
+              "x": 0.4,
+              "y": 0.45
+            }
+          ],
+          "shape": [
+            [
+              0,
+              0
+            ],
+            [
+              1,
+              0
+            ],
+            [
+              2,
+              0
+            ],
+            [
+              3,
+              0
+            ],
+            [
+              2,
+              1
+            ]
+          ],
+          "locallyFits": true,
+          "viable": true
+        },
+        {
+          "signature": "0,0;0,1|0,0;0,1;0,2;0,3;1,3|0,0;0,1;1,1",
+          "actions": [
+            {
+              "type": "take",
+              "stockId": "part-3",
+              "x": 0.6,
+              "y": 0.6
+            },
+            {
+              "type": "join",
+              "source": {
+                "pieceId": "piece-3"
+              },
+              "targetId": "piece-1",
+              "offset": {
+                "x": 2,
+                "y": 0
+              },
+              "x": 0.4,
+              "y": 0.45
+            }
+          ],
+          "shape": [
+            [
+              0,
+              0
+            ],
+            [
+              1,
+              0
+            ],
+            [
+              2,
+              0
+            ],
+            [
+              3,
+              0
+            ],
+            [
+              0,
+              1
+            ]
+          ],
+          "locallyFits": false,
+          "viable": false
+        },
+        {
+          "signature": "0,0;0,1|0,0;0,1;0,2;1,2;1,3|0,0;0,1;1,1",
+          "actions": [
+            {
+              "type": "take",
+              "stockId": "part-3",
+              "x": 0.6,
+              "y": 0.6
+            },
+            {
+              "type": "join",
+              "source": {
+                "pieceId": "piece-3"
+              },
+              "targetId": "piece-1",
+              "offset": {
+                "x": -2,
+                "y": 1
+              },
+              "x": 0.4,
+              "y": 0.45
+            }
+          ],
+          "shape": [
+            [
+              2,
+              0
+            ],
+            [
+              3,
+              0
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              2,
+              1
+            ]
+          ],
+          "locallyFits": true,
+          "viable": false
+        },
+        {
+          "signature": "0,0;0,1|0,0;0,1;1,1|0,0;0,1;1,1;2,1;2,2",
+          "actions": [
+            {
+              "type": "take",
+              "stockId": "part-3",
+              "x": 0.6,
+              "y": 0.6
+            },
+            {
+              "type": "join",
+              "source": {
+                "pieceId": "piece-3"
+              },
+              "targetId": "piece-1",
+              "offset": {
+                "x": -1,
+                "y": 2
+              },
+              "x": 0.4,
+              "y": 0.45
+            }
+          ],
+          "shape": [
+            [
+              1,
+              0
+            ],
+            [
+              2,
+              0
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              0,
+              2
+            ],
+            [
+              1,
+              2
+            ]
+          ],
+          "locallyFits": true,
+          "viable": true
+        },
+        {
+          "signature": "0,0;0,1|0,0;0,1;1,1|0,0;1,0;0,1;0,2;1,2",
+          "actions": [
+            {
+              "type": "take",
+              "stockId": "part-3",
+              "x": 0.6,
+              "y": 0.6
+            },
+            {
+              "type": "join",
+              "source": {
+                "pieceId": "piece-3"
+              },
+              "targetId": "piece-1",
+              "offset": {
+                "x": 0,
+                "y": 2
+              },
+              "x": 0.4,
+              "y": 0.45
+            }
+          ],
+          "shape": [
+            [
+              0,
+              0
+            ],
+            [
+              1,
+              0
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              2
+            ],
+            [
+              1,
+              2
+            ]
+          ],
+          "locallyFits": true,
+          "viable": false
+        },
+        {
+          "signature": "0,0;0,1|0,0;0,1;0,2;1,2;0,3|0,0;0,1;1,1",
+          "actions": [
+            {
+              "type": "take",
+              "stockId": "part-3",
+              "x": 0.6,
+              "y": 0.6
+            },
+            {
+              "type": "rotate",
+              "pieceId": "piece-3"
+            },
+            {
+              "type": "join",
+              "source": {
+                "pieceId": "piece-3"
+              },
+              "targetId": "piece-1",
+              "offset": {
+                "x": 0,
+                "y": -2
+              },
+              "x": 0.4,
+              "y": 0.45
+            }
+          ],
+          "shape": [
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              2
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              0,
+              3
+            ]
+          ],
+          "locallyFits": false,
+          "viable": false
+        },
+        {
+          "signature": "0,0;0,1|0,0;0,1;1,1|0,0;1,0;1,1;2,1;3,1",
+          "actions": [
+            {
+              "type": "take",
+              "stockId": "part-3",
+              "x": 0.6,
+              "y": 0.6
+            },
+            {
+              "type": "rotate",
+              "pieceId": "piece-3"
+            },
+            {
+              "type": "join",
+              "source": {
+                "pieceId": "piece-3"
+              },
+              "targetId": "piece-1",
+              "offset": {
+                "x": 1,
+                "y": -2
+              },
+              "x": 0.4,
+              "y": 0.45
+            }
+          ],
+          "shape": [
+            [
+              1,
+              0
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              0,
+              2
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              0,
+              3
+            ]
+          ],
+          "locallyFits": false,
+          "viable": false
+        },
+        {
+          "signature": "0,0;0,1|0,0;0,1;1,1|0,0;0,1;1,1;2,1;1,2",
+          "actions": [
+            {
+              "type": "take",
+              "stockId": "part-3",
+              "x": 0.6,
+              "y": 0.6
+            },
+            {
+              "type": "rotate",
+              "pieceId": "piece-3"
+            },
+            {
+              "type": "join",
+              "source": {
+                "pieceId": "piece-3"
+              },
+              "targetId": "piece-1",
+              "offset": {
+                "x": -1,
+                "y": -1
+              },
+              "x": 0.4,
+              "y": 0.45
+            }
+          ],
+          "shape": [
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              2,
+              1
+            ],
+            [
+              1,
+              2
+            ]
+          ],
+          "locallyFits": true,
+          "viable": false
+        },
+        {
+          "signature": "0,0;0,1|0,0;0,1;1,1|0,0;1,0;1,1;1,2;2,2",
+          "actions": [
+            {
+              "type": "take",
+              "stockId": "part-3",
+              "x": 0.6,
+              "y": 0.6
+            },
+            {
+              "type": "rotate",
+              "pieceId": "piece-3"
+            },
+            {
+              "type": "join",
+              "source": {
+                "pieceId": "piece-3"
+              },
+              "targetId": "piece-1",
+              "offset": {
+                "x": 2,
+                "y": -1
+              },
+              "x": 0.4,
+              "y": 0.45
+            }
+          ],
+          "shape": [
+            [
+              2,
+              0
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              2,
+              1
+            ],
+            [
+              0,
+              2
+            ]
+          ],
+          "locallyFits": true,
+          "viable": false
+        },
+        {
+          "signature": "0,0;0,1|0,0;0,1;1,1|0,0;0,1;1,1;0,2;1,2",
+          "actions": [
+            {
+              "type": "take",
+              "stockId": "part-3",
+              "x": 0.6,
+              "y": 0.6
+            },
+            {
+              "type": "rotate",
+              "pieceId": "piece-3"
+            },
+            {
+              "type": "join",
+              "source": {
+                "pieceId": "piece-3"
+              },
+              "targetId": "piece-1",
+              "offset": {
+                "x": -1,
+                "y": 0
+              },
+              "x": 0.4,
+              "y": 0.45
+            }
+          ],
+          "shape": [
+            [
+              0,
+              0
+            ],
+            [
+              1,
+              0
+            ],
+            [
+              2,
+              0
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              1
+            ]
+          ],
+          "locallyFits": false,
+          "viable": false
+        },
+        {
+          "signature": "0,0;0,1|0,0;0,1;1,1|0,0;0,1;1,1;2,1;3,1",
+          "actions": [
+            {
+              "type": "take",
+              "stockId": "part-3",
+              "x": 0.6,
+              "y": 0.6
+            },
+            {
+              "type": "rotate",
+              "pieceId": "piece-3"
+            },
+            {
+              "type": "join",
+              "source": {
+                "pieceId": "piece-3"
+              },
+              "targetId": "piece-1",
+              "offset": {
+                "x": 0,
+                "y": 2
+              },
+              "x": 0.4,
+              "y": 0.45
+            }
+          ],
+          "shape": [
+            [
+              0,
+              0
+            ],
+            [
+              1,
+              0
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              2
+            ],
+            [
+              0,
+              3
+            ]
+          ],
+          "locallyFits": false,
+          "viable": false
+        },
+        {
+          "signature": "0,0;0,1;1,1|0,0;0,1;1,1|0,0;1,0;1,1;2,1",
+          "actions": [
+            {
+              "type": "take",
+              "stockId": "part-3",
+              "x": 0.6,
+              "y": 0.6
+            },
+            {
+              "type": "take",
+              "stockId": "part-4",
+              "x": 0.6,
+              "y": 0.6
+            },
+            {
+              "type": "join",
+              "source": {
+                "pieceId": "piece-4"
+              },
+              "targetId": "piece-3",
+              "offset": {
+                "x": -1,
+                "y": -1
+              },
+              "x": 0.4,
+              "y": 0.45
+            }
+          ],
+          "shape": [
+            [
+              0,
+              0
+            ],
+            [
+              1,
+              0
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              2,
+              1
+            ]
+          ],
+          "locallyFits": false,
+          "viable": false
+        },
+        {
+          "signature": "0,0;0,1;1,1|0,0;0,1;1,1|0,0;1,0;0,1;1,1",
+          "actions": [
+            {
+              "type": "take",
+              "stockId": "part-3",
+              "x": 0.6,
+              "y": 0.6
+            },
+            {
+              "type": "take",
+              "stockId": "part-4",
+              "x": 0.6,
+              "y": 0.6
+            },
+            {
+              "type": "join",
+              "source": {
+                "pieceId": "piece-4"
+              },
+              "targetId": "piece-3",
+              "offset": {
+                "x": 0,
+                "y": -1
+              },
+              "x": 0.4,
+              "y": 0.45
+            }
+          ],
+          "shape": [
+            [
+              0,
+              0
+            ],
+            [
+              1,
+              0
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              1
+            ]
+          ],
+          "locallyFits": false,
+          "viable": false
+        },
+        {
+          "signature": "0,0;0,1;1,1|0,0;0,1;1,1|0,0;0,1;1,1;1,2",
+          "actions": [
+            {
+              "type": "take",
+              "stockId": "part-3",
+              "x": 0.6,
+              "y": 0.6
+            },
+            {
+              "type": "take",
+              "stockId": "part-4",
+              "x": 0.6,
+              "y": 0.6
+            },
+            {
+              "type": "join",
+              "source": {
+                "pieceId": "piece-4"
+              },
+              "targetId": "piece-3",
+              "offset": {
+                "x": 1,
+                "y": -1
+              },
+              "x": 0.4,
+              "y": 0.45
+            }
+          ],
+          "shape": [
+            [
+              1,
+              0
+            ],
+            [
+              2,
+              0
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              1
+            ]
+          ],
+          "locallyFits": true,
+          "viable": false
+        },
+        {
+          "signature": "0,0;0,1;0,2;0,3|0,0;0,1;1,1|0,0;0,1;1,1",
+          "actions": [
+            {
+              "type": "take",
+              "stockId": "part-3",
+              "x": 0.6,
+              "y": 0.6
+            },
+            {
+              "type": "take",
+              "stockId": "part-4",
+              "x": 0.6,
+              "y": 0.6
+            },
+            {
+              "type": "join",
+              "source": {
+                "pieceId": "piece-4"
+              },
+              "targetId": "piece-3",
+              "offset": {
+                "x": -2,
+                "y": 0
+              },
+              "x": 0.4,
+              "y": 0.45
+            }
+          ],
+          "shape": [
+            [
+              0,
+              0
+            ],
+            [
+              1,
+              0
+            ],
+            [
+              2,
+              0
+            ],
+            [
+              3,
+              0
+            ]
+          ],
+          "locallyFits": true,
+          "viable": true
+        },
+        {
+          "signature": "0,0;0,1;0,2;1,2|0,0;0,1;1,1|0,0;0,1;1,1",
+          "actions": [
+            {
+              "type": "take",
+              "stockId": "part-3",
+              "x": 0.6,
+              "y": 0.6
+            },
+            {
+              "type": "take",
+              "stockId": "part-4",
+              "x": 0.6,
+              "y": 0.6
+            },
+            {
+              "type": "rotate",
+              "pieceId": "piece-4"
+            },
+            {
+              "type": "join",
+              "source": {
+                "pieceId": "piece-4"
+              },
+              "targetId": "piece-3",
+              "offset": {
+                "x": 0,
+                "y": -2
+              },
+              "x": 0.4,
+              "y": 0.45
+            }
+          ],
+          "shape": [
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              2
+            ],
+            [
+              1,
+              2
+            ]
+          ],
+          "locallyFits": true,
+          "viable": false
+        },
+        {
+          "signature": "0,0;0,1;1,1|0,0;0,1;1,1|0,0;0,1;1,1;2,1",
+          "actions": [
+            {
+              "type": "take",
+              "stockId": "part-3",
+              "x": 0.6,
+              "y": 0.6
+            },
+            {
+              "type": "take",
+              "stockId": "part-4",
+              "x": 0.6,
+              "y": 0.6
+            },
+            {
+              "type": "rotate",
+              "pieceId": "piece-4"
+            },
+            {
+              "type": "join",
+              "source": {
+                "pieceId": "piece-4"
+              },
+              "targetId": "piece-3",
+              "offset": {
+                "x": 1,
+                "y": -2
+              },
+              "x": 0.4,
+              "y": 0.45
+            }
+          ],
+          "shape": [
+            [
+              1,
+              0
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              0,
+              2
+            ],
+            [
+              1,
+              2
+            ]
+          ],
+          "locallyFits": true,
+          "viable": false
+        }
+      ]
+    }
+  ],
+  "contextReversal": {
+    "sameStock": true,
+    "changedPublicContext": "Only the target silhouette changes.",
+    "a": {
+      "level": "the-key",
+      "preferred": "0,0;0,1|0,0;0,1|0,0;0,1;1,1;2,1;2,2;3,2",
+      "rejected": "0,0;0,1|0,0;0,1;1,1|0,0;0,1;1,1;0,2;0,3",
+      "preferredCapture": {
+        "schema": 1,
+        "version": "joinery-1",
+        "id": "reversal-the-key-preferred",
+        "level": "the-key",
+        "player": "privileged mechanical witness",
+        "decisions": [
+          {
+            "index": 0,
+            "action": {
+              "type": "join",
+              "source": {
+                "pieceId": "piece-2"
+              },
+              "targetId": "piece-1",
+              "offset": {
+                "x": 1,
+                "y": -2
+              },
+              "x": 0.4,
+              "y": 0.45
+            },
+            "before": "b164e959",
+            "after": "b249a1ab"
+          },
+          {
+            "index": 1,
+            "action": {
+              "type": "take",
+              "stockId": "part-3",
+              "x": 0.7,
+              "y": 0.65
+            },
+            "before": "b249a1ab",
+            "after": "0c50f7c4"
+          },
+          {
+            "index": 2,
+            "action": {
+              "type": "take",
+              "stockId": "part-4",
+              "x": 0.7,
+              "y": 0.65
+            },
+            "before": "0c50f7c4",
+            "after": "a8d3a6f7"
+          },
+          {
+            "index": 3,
+            "action": {
+              "type": "rotate",
+              "pieceId": "piece-5"
+            },
+            "before": "a8d3a6f7",
+            "after": "4784c0c7"
+          },
+          {
+            "index": 4,
+            "action": {
+              "type": "join",
+              "source": {
+                "pieceId": "piece-4"
+              },
+              "targetId": "piece-3",
+              "offset": {
+                "x": 0,
+                "y": -1
+              },
+              "x": 0.4,
+              "y": 0.45
+            },
+            "before": "4784c0c7",
+            "after": "611ddc31"
+          },
+          {
+            "index": 5,
+            "action": {
+              "type": "join",
+              "source": {
+                "pieceId": "piece-5"
+              },
+              "targetId": "piece-6",
+              "offset": {
+                "x": 0,
+                "y": 1
+              },
+              "x": 0.4,
+              "y": 0.45
+            },
+            "before": "611ddc31",
+            "after": "55ef38ca"
+          }
+        ],
+        "interactions": []
+      },
+      "rejectedCapture": {
+        "schema": 1,
+        "version": "joinery-1",
+        "id": "reversal-the-key-rejected",
+        "level": "the-key",
+        "player": "privileged mechanical witness",
+        "decisions": [
+          {
+            "index": 0,
+            "action": {
+              "type": "take",
+              "stockId": "part-3",
+              "x": 0.6,
+              "y": 0.6
+            },
+            "before": "b164e959",
+            "after": "89c772bd"
+          },
+          {
+            "index": 1,
+            "action": {
+              "type": "join",
+              "source": {
+                "pieceId": "piece-3"
+              },
+              "targetId": "piece-1",
+              "offset": {
+                "x": -2,
+                "y": 0
+              },
+              "x": 0.4,
+              "y": 0.45
+            },
+            "before": "89c772bd",
+            "after": "16438bea"
+          }
+        ],
+        "interactions": []
+      }
+    },
+    "b": {
+      "level": "the-crossing",
+      "preferred": "0,0;0,1|0,0;0,1;1,1|0,0;0,1;1,1;0,2;0,3",
+      "rejected": "0,0;0,1|0,0;0,1|0,0;0,1;1,1;2,1;2,2;3,2",
+      "preferredCapture": {
+        "schema": 1,
+        "version": "joinery-1",
+        "id": "reversal-the-crossing-preferred",
+        "level": "the-crossing",
+        "player": "privileged mechanical witness",
+        "decisions": [
+          {
+            "index": 0,
+            "action": {
+              "type": "take",
+              "stockId": "part-3",
+              "x": 0.6,
+              "y": 0.6
+            },
+            "before": "edb4a808",
+            "after": "d04e9a3a"
+          },
+          {
+            "index": 1,
+            "action": {
+              "type": "join",
+              "source": {
+                "pieceId": "piece-3"
+              },
+              "targetId": "piece-1",
+              "offset": {
+                "x": -2,
+                "y": 0
+              },
+              "x": 0.4,
+              "y": 0.45
+            },
+            "before": "d04e9a3a",
+            "after": "9c6bbfc5"
+          },
+          {
+            "index": 2,
+            "action": {
+              "type": "take",
+              "stockId": "part-4",
+              "x": 0.7,
+              "y": 0.65
+            },
+            "before": "9c6bbfc5",
+            "after": "92980faa"
+          },
+          {
+            "index": 3,
+            "action": {
+              "type": "join",
+              "source": {
+                "pieceId": "piece-5"
+              },
+              "targetId": "piece-2",
+              "offset": {
+                "x": -2,
+                "y": 0
+              },
+              "x": 0.4,
+              "y": 0.45
+            },
+            "before": "92980faa",
+            "after": "9322fa1f"
+          },
+          {
+            "index": 4,
+            "action": {
+              "type": "join",
+              "source": {
+                "pieceId": "piece-4"
+              },
+              "targetId": "piece-6",
+              "offset": {
+                "x": -1,
+                "y": -2
+              },
+              "x": 0.4,
+              "y": 0.45
+            },
+            "before": "9322fa1f",
+            "after": "51e1915d"
+          }
+        ],
+        "interactions": []
+      },
+      "rejectedCapture": {
+        "schema": 1,
+        "version": "joinery-1",
+        "id": "reversal-the-crossing-rejected",
+        "level": "the-crossing",
+        "player": "privileged mechanical witness",
+        "decisions": [
+          {
+            "index": 0,
+            "action": {
+              "type": "join",
+              "source": {
+                "pieceId": "piece-2"
+              },
+              "targetId": "piece-1",
+              "offset": {
+                "x": 1,
+                "y": -2
+              },
+              "x": 0.4,
+              "y": 0.45
+            },
+            "before": "edb4a808",
+            "after": "4799ed92"
+          }
+        ],
+        "interactions": []
+      }
+    }
+  },
+  "enjoyment": "unknown",
+  "limits": [
+    "Only first-join equivalence classes are enumerated, not all complete colored assemblies or human strategies.",
+    "A local-fit failure establishes remaining-shape planning, not that someone will find it enjoyable.",
+    "Winning witnesses use a privileged exact-cover solver; no interface readability is inferred.",
+    "Undo recovery is handling support, not evidence of a costly strategic rescue."
+  ]
+}

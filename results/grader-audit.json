@@ -1,0 +1,32 @@
+{
+  "from": "evidence-1",
+  "to": "evidence-2",
+  "origin": "Retrospective audit record of issues actually observed in this session. The initial aggregate output was overwritten during iteration and is not preserved byte for byte. This file does not claim to be that original output.",
+  "gameBuild": "0.4.0",
+  "gameData": "watershed-1",
+  "changes": [
+    {
+      "issue": "Aggregate worthwhile-choice support depended only on branches.json existing.",
+      "before": "consequential-choice support whenever a branch results file was present",
+      "after": "Measured distinct winning continuations support viable-alternatives only; worthwhile consequential-choice remains unknown pending evidence review.",
+      "evidence": "docs/decision-review.md card 2 and card 8; experiments/evaluate.ts"
+    },
+    {
+      "issue": "Trailing wait count concealed post-solution construction and novelty.",
+      "before": "rooted-confluence-4-planner trailingWaits=0",
+      "after": "earliestSafeCompletion=4, nonWaitActionsAfterSafeCompletion=5; optional activity cannot count as necessary survival decisions.",
+      "evidence": "results/profiles/rooted-confluence-4-planner.json"
+    },
+    {
+      "issue": "The solver rewards known concepts and stable structures, confounding discovery/activity counts.",
+      "after": "Report unused discoveries plus actions after a simulated safe endpoint. Retain solver reward terms as an explicit coverage-policy limitation, rather than silently retuning it after holdout exposure.",
+      "evidence": "experiments/policies.ts; docs/decision-review.md card 5"
+    },
+    {
+      "issue": "The experienced player's initialization metadata said fresh.",
+      "after": "Condition records prior blind-field-a exposure; actions, hashes and responses unchanged. CLI accepts exposure metadata for new sessions.",
+      "evidence": "results/players/trained-rooted-cloudburst.json"
+    }
+  ],
+  "comparisonRule": "Do not infer improvement from changed rubric outputs alone. Matched game outcomes are computed from unchanged raw action captures; human enjoyment remains unknown."
+}

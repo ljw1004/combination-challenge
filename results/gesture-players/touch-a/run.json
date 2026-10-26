@@ -1,0 +1,263 @@
+{
+  "schema": 1,
+  "version": "hands-1",
+  "id": "table-1792957909876",
+  "decisions": [
+    {
+      "index": 0,
+      "action": {
+        "type": "mix",
+        "first": "piece-1",
+        "second": "piece-2"
+      },
+      "before": "72f7d784",
+      "after": "4f229415"
+    },
+    {
+      "index": 1,
+      "action": {
+        "type": "mix-from-shelf",
+        "concept": "heat",
+        "target": "piece-3"
+      },
+      "before": "4f229415",
+      "after": "31dada09"
+    },
+    {
+      "index": 2,
+      "action": {
+        "type": "mix-from-shelf",
+        "concept": "water",
+        "target": "piece-4"
+      },
+      "before": "31dada09",
+      "after": "16fd03e2"
+    },
+    {
+      "index": 3,
+      "action": {
+        "type": "take",
+        "concept": "soil",
+        "x": 0.34,
+        "y": 0.32
+      },
+      "before": "16fd03e2",
+      "after": "36c9e96d"
+    },
+    {
+      "index": 4,
+      "action": {
+        "type": "mix-from-shelf",
+        "concept": "seed",
+        "target": "piece-6"
+      },
+      "before": "36c9e96d",
+      "after": "78740192"
+    },
+    {
+      "index": 5,
+      "action": {
+        "type": "move",
+        "piece": "piece-7",
+        "x": 0.4940989847715736,
+        "y": 0.4799848942598187
+      },
+      "before": "78740192",
+      "after": "6b48e48e"
+    }
+  ],
+  "interactions": [
+    {
+      "kind": "drag-start",
+      "source": "piece",
+      "concept": "soil",
+      "pieceId": "piece-1",
+      "at": 9522
+    },
+    {
+      "kind": "contact-preview",
+      "inputs": [
+        "soil",
+        "water"
+      ],
+      "result": "clay",
+      "targetId": "piece-2",
+      "at": 9709
+    },
+    {
+      "kind": "drop",
+      "source": "piece",
+      "concept": "soil",
+      "pieceId": "piece-1",
+      "targetId": "piece-2",
+      "inWorkspace": true,
+      "at": 15997
+    },
+    {
+      "kind": "fusion",
+      "inputs": [
+        "soil",
+        "water"
+      ],
+      "targetId": "piece-2",
+      "method": "pointer",
+      "at": 15998
+    },
+    {
+      "kind": "drag-start",
+      "source": "piece",
+      "concept": "clay",
+      "pieceId": "piece-3",
+      "at": 29992
+    },
+    {
+      "kind": "drop",
+      "source": "piece",
+      "concept": "clay",
+      "pieceId": "piece-3",
+      "targetId": null,
+      "inWorkspace": false,
+      "at": 32337
+    },
+    {
+      "kind": "drag-start",
+      "source": "shelf",
+      "concept": "heat",
+      "pieceId": null,
+      "at": 36441
+    },
+    {
+      "kind": "contact-preview",
+      "inputs": [
+        "heat",
+        "clay"
+      ],
+      "result": "brick",
+      "targetId": "piece-3",
+      "at": 36657
+    },
+    {
+      "kind": "drop",
+      "source": "shelf",
+      "concept": "heat",
+      "pieceId": null,
+      "targetId": "piece-3",
+      "inWorkspace": true,
+      "at": 36844
+    },
+    {
+      "kind": "fusion",
+      "inputs": [
+        "heat",
+        "clay"
+      ],
+      "targetId": "piece-3",
+      "method": "pointer",
+      "at": 36845
+    },
+    {
+      "kind": "drag-start",
+      "source": "shelf",
+      "concept": "water",
+      "pieceId": null,
+      "at": 47324
+    },
+    {
+      "kind": "contact-preview",
+      "inputs": [
+        "water",
+        "brick"
+      ],
+      "result": "channel",
+      "targetId": "piece-4",
+      "at": 47541
+    },
+    {
+      "kind": "drop",
+      "source": "shelf",
+      "concept": "water",
+      "pieceId": null,
+      "targetId": "piece-4",
+      "inWorkspace": true,
+      "at": 47730
+    },
+    {
+      "kind": "fusion",
+      "inputs": [
+        "water",
+        "brick"
+      ],
+      "targetId": "piece-4",
+      "method": "pointer",
+      "at": 47732
+    },
+    {
+      "kind": "tap-activate",
+      "source": "shelf",
+      "concept": "soil",
+      "pieceId": null,
+      "at": 60359
+    },
+    {
+      "kind": "drag-start",
+      "source": "shelf",
+      "concept": "seed",
+      "pieceId": null,
+      "at": 66540
+    },
+    {
+      "kind": "contact-preview",
+      "inputs": [
+        "seed",
+        "soil"
+      ],
+      "result": "grove",
+      "targetId": "piece-6",
+      "at": 66774
+    },
+    {
+      "kind": "drop",
+      "source": "shelf",
+      "concept": "seed",
+      "pieceId": null,
+      "targetId": "piece-6",
+      "inWorkspace": true,
+      "at": 66944
+    },
+    {
+      "kind": "fusion",
+      "inputs": [
+        "seed",
+        "soil"
+      ],
+      "targetId": "piece-6",
+      "method": "pointer",
+      "at": 66946
+    },
+    {
+      "kind": "drag-start",
+      "source": "piece",
+      "concept": "grove",
+      "pieceId": "piece-7",
+      "at": 78340
+    },
+    {
+      "kind": "drop",
+      "source": "piece",
+      "concept": "grove",
+      "pieceId": "piece-7",
+      "targetId": null,
+      "inWorkspace": true,
+      "at": 78744
+    },
+    {
+      "kind": "separate",
+      "inputs": [
+        "grove",
+        "channel"
+      ],
+      "reason": "no-reaction",
+      "at": 78744
+    }
+  ]
+}

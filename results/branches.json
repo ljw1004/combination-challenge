@@ -1,0 +1,1143 @@
+{
+  "access": "privileged evaluator; source and transition search visible",
+  "results": [
+    {
+      "name": "opening-route-or-roots",
+      "cue": "Both banks receive rain. A north channel protects immediately but moves its water toward the mill. A grove accepts an initial hit while roots mature.",
+      "turn": 0,
+      "initialHealth": [
+        7,
+        7
+      ],
+      "alternatives": [
+        {
+          "name": "grow-north",
+          "action": {
+            "type": "discover",
+            "recipe": "grow-grove",
+            "at": {
+              "row": 0,
+              "col": 0
+            }
+          },
+          "immediateDamage": [
+            1,
+            1
+          ],
+          "immediateEvents": [
+            {
+              "kind": "discovery",
+              "text": "Established Grove. It stays available.",
+              "concept": "grove"
+            },
+            {
+              "kind": "placement",
+              "text": "Placed Grove.",
+              "at": {
+                "row": 0,
+                "col": 0
+              },
+              "concept": "grove"
+            },
+            {
+              "kind": "weather",
+              "text": "Rain arrives: north 1, middle 1, south 0."
+            },
+            {
+              "kind": "growth",
+              "text": "The grove takes root. It absorbs water from the next pulse.",
+              "at": {
+                "row": 0,
+                "col": 0
+              },
+              "concept": "grove"
+            },
+            {
+              "kind": "damage",
+              "text": "Village took 1 flood damage.",
+              "amount": 1
+            },
+            {
+              "kind": "damage",
+              "text": "Mill took 1 flood damage.",
+              "amount": 1
+            }
+          ],
+          "outcome": "won",
+          "health": [
+            6,
+            6
+          ],
+          "discovered": [
+            "grove",
+            "channel",
+            "clay",
+            "levee"
+          ],
+          "continuation": [
+            {
+              "type": "discover",
+              "recipe": "cut-channel",
+              "at": {
+                "row": 1,
+                "col": 0
+              }
+            },
+            {
+              "type": "discover",
+              "recipe": "mix-clay",
+              "at": {
+                "row": 0,
+                "col": 2
+              }
+            },
+            {
+              "type": "discover",
+              "recipe": "stone-levee",
+              "at": {
+                "row": 1,
+                "col": 2
+              }
+            },
+            {
+              "type": "deploy",
+              "concept": "levee",
+              "at": {
+                "row": 0,
+                "col": 1
+              }
+            },
+            {
+              "type": "deploy",
+              "concept": "levee",
+              "at": {
+                "row": 0,
+                "col": 2
+              }
+            },
+            {
+              "type": "deploy",
+              "concept": "levee",
+              "at": {
+                "row": 2,
+                "col": 0
+              }
+            },
+            {
+              "type": "deploy",
+              "concept": "levee",
+              "at": {
+                "row": 2,
+                "col": 1
+              }
+            },
+            {
+              "type": "deploy",
+              "concept": "levee",
+              "at": {
+                "row": 2,
+                "col": 2
+              }
+            }
+          ],
+          "runId": "opening-route-or-roots-grow-north"
+        },
+        {
+          "name": "divert-north",
+          "action": {
+            "type": "discover",
+            "recipe": "cut-channel",
+            "at": {
+              "row": 0,
+              "col": 0
+            }
+          },
+          "immediateDamage": [
+            0,
+            2
+          ],
+          "immediateEvents": [
+            {
+              "kind": "discovery",
+              "text": "Established Channel. It stays available.",
+              "concept": "channel"
+            },
+            {
+              "kind": "placement",
+              "text": "Placed Channel.",
+              "at": {
+                "row": 0,
+                "col": 0
+              },
+              "concept": "channel"
+            },
+            {
+              "kind": "weather",
+              "text": "Rain arrives: north 1, middle 1, south 0."
+            },
+            {
+              "kind": "flow",
+              "text": "Channel sent 1 south.",
+              "at": {
+                "row": 0,
+                "col": 0
+              },
+              "amount": 1,
+              "concept": "channel"
+            },
+            {
+              "kind": "damage",
+              "text": "Mill took 2 flood damage.",
+              "amount": 2
+            }
+          ],
+          "outcome": "won",
+          "health": [
+            5,
+            2
+          ],
+          "discovered": [
+            "channel",
+            "steam",
+            "basin",
+            "clay",
+            "levee"
+          ],
+          "continuation": [
+            {
+              "type": "discover",
+              "recipe": "boil-steam",
+              "at": {
+                "row": 0,
+                "col": 0
+              }
+            },
+            {
+              "type": "discover",
+              "recipe": "dig-basin",
+              "at": {
+                "row": 1,
+                "col": 0
+              }
+            },
+            {
+              "type": "deploy",
+              "concept": "steam",
+              "at": {
+                "row": 1,
+                "col": 0
+              }
+            },
+            {
+              "type": "deploy",
+              "concept": "steam",
+              "at": {
+                "row": 1,
+                "col": 0
+              }
+            },
+            {
+              "type": "deploy",
+              "concept": "steam",
+              "at": {
+                "row": 1,
+                "col": 0
+              }
+            },
+            {
+              "type": "discover",
+              "recipe": "mix-clay",
+              "at": {
+                "row": 1,
+                "col": 0
+              }
+            },
+            {
+              "type": "discover",
+              "recipe": "stone-levee",
+              "at": {
+                "row": 1,
+                "col": 0
+              }
+            },
+            {
+              "type": "deploy",
+              "concept": "levee",
+              "at": {
+                "row": 2,
+                "col": 0
+              }
+            }
+          ],
+          "runId": "opening-route-or-roots-divert-north"
+        },
+        {
+          "name": "reed-north",
+          "action": {
+            "type": "discover",
+            "recipe": "grow-reeds",
+            "at": {
+              "row": 0,
+              "col": 0
+            }
+          },
+          "immediateDamage": [
+            0,
+            1
+          ],
+          "immediateEvents": [
+            {
+              "kind": "discovery",
+              "text": "Established Reeds. It stays available.",
+              "concept": "reeds"
+            },
+            {
+              "kind": "placement",
+              "text": "Placed Reeds.",
+              "at": {
+                "row": 0,
+                "col": 0
+              },
+              "concept": "reeds"
+            },
+            {
+              "kind": "weather",
+              "text": "Rain arrives: north 1, middle 1, south 0."
+            },
+            {
+              "kind": "flow",
+              "text": "Reeds absorbed 1.",
+              "at": {
+                "row": 0,
+                "col": 0
+              },
+              "amount": 1,
+              "concept": "reeds"
+            },
+            {
+              "kind": "damage",
+              "text": "Mill took 1 flood damage.",
+              "amount": 1
+            }
+          ],
+          "outcome": "won",
+          "health": [
+            5,
+            6
+          ],
+          "discovered": [
+            "reeds",
+            "channel",
+            "grove",
+            "clay",
+            "levee"
+          ],
+          "continuation": [
+            {
+              "type": "discover",
+              "recipe": "cut-channel",
+              "at": {
+                "row": 1,
+                "col": 0
+              }
+            },
+            {
+              "type": "discover",
+              "recipe": "grow-grove",
+              "at": {
+                "row": 0,
+                "col": 1
+              }
+            },
+            {
+              "type": "discover",
+              "recipe": "mix-clay",
+              "at": {
+                "row": 1,
+                "col": 2
+              }
+            },
+            {
+              "type": "discover",
+              "recipe": "stone-levee",
+              "at": {
+                "row": 0,
+                "col": 2
+              }
+            },
+            {
+              "type": "deploy",
+              "concept": "levee",
+              "at": {
+                "row": 1,
+                "col": 2
+              }
+            },
+            {
+              "type": "deploy",
+              "concept": "levee",
+              "at": {
+                "row": 0,
+                "col": 0
+              }
+            },
+            {
+              "type": "deploy",
+              "concept": "levee",
+              "at": {
+                "row": 2,
+                "col": 0
+              }
+            },
+            {
+              "type": "deploy",
+              "concept": "levee",
+              "at": {
+                "row": 2,
+                "col": 1
+              }
+            }
+          ],
+          "runId": "opening-route-or-roots-reed-north"
+        }
+      ]
+    },
+    {
+      "name": "temporary-or-growing",
+      "cue": "The coming north surge can be soaked up immediately by clay; the grove takes one pulse to mature but survives lesser later rain.",
+      "turn": 0,
+      "initialHealth": [
+        7,
+        7
+      ],
+      "alternatives": [
+        {
+          "name": "clay-relief",
+          "action": {
+            "type": "discover",
+            "recipe": "mix-clay",
+            "at": {
+              "row": 0,
+              "col": 0
+            }
+          },
+          "immediateDamage": [
+            0,
+            0
+          ],
+          "immediateEvents": [
+            {
+              "kind": "discovery",
+              "text": "Established Clay. It stays available.",
+              "concept": "clay"
+            },
+            {
+              "kind": "placement",
+              "text": "Placed Clay.",
+              "at": {
+                "row": 0,
+                "col": 0
+              },
+              "concept": "clay"
+            },
+            {
+              "kind": "weather",
+              "text": "Rain arrives: north 1, middle 0, south 0."
+            },
+            {
+              "kind": "flow",
+              "text": "Clay absorbed 1.",
+              "at": {
+                "row": 0,
+                "col": 0
+              },
+              "amount": 1,
+              "concept": "clay"
+            }
+          ],
+          "outcome": "won",
+          "health": [
+            6,
+            7
+          ],
+          "discovered": [
+            "clay",
+            "levee",
+            "basin",
+            "steam",
+            "grove"
+          ],
+          "continuation": [
+            {
+              "type": "discover",
+              "recipe": "stone-levee",
+              "at": {
+                "row": 1,
+                "col": 1
+              }
+            },
+            {
+              "type": "discover",
+              "recipe": "dig-basin",
+              "at": {
+                "row": 0,
+                "col": 0
+              }
+            },
+            {
+              "type": "discover",
+              "recipe": "boil-steam",
+              "at": {
+                "row": 0,
+                "col": 0
+              }
+            },
+            {
+              "type": "discover",
+              "recipe": "grow-grove",
+              "at": {
+                "row": 0,
+                "col": 2
+              }
+            },
+            {
+              "type": "deploy",
+              "concept": "levee",
+              "at": {
+                "row": 1,
+                "col": 2
+              }
+            },
+            {
+              "type": "deploy",
+              "concept": "levee",
+              "at": {
+                "row": 2,
+                "col": 0
+              }
+            },
+            {
+              "type": "deploy",
+              "concept": "levee",
+              "at": {
+                "row": 2,
+                "col": 1
+              }
+            },
+            {
+              "type": "deploy",
+              "concept": "levee",
+              "at": {
+                "row": 2,
+                "col": 2
+              }
+            }
+          ],
+          "runId": "temporary-or-growing-clay-relief"
+        },
+        {
+          "name": "grove-development",
+          "action": {
+            "type": "discover",
+            "recipe": "grow-grove",
+            "at": {
+              "row": 0,
+              "col": 0
+            }
+          },
+          "immediateDamage": [
+            1,
+            0
+          ],
+          "immediateEvents": [
+            {
+              "kind": "discovery",
+              "text": "Established Grove. It stays available.",
+              "concept": "grove"
+            },
+            {
+              "kind": "placement",
+              "text": "Placed Grove.",
+              "at": {
+                "row": 0,
+                "col": 0
+              },
+              "concept": "grove"
+            },
+            {
+              "kind": "weather",
+              "text": "Rain arrives: north 1, middle 0, south 0."
+            },
+            {
+              "kind": "growth",
+              "text": "The grove takes root. It absorbs water from the next pulse.",
+              "at": {
+                "row": 0,
+                "col": 0
+              },
+              "concept": "grove"
+            },
+            {
+              "kind": "damage",
+              "text": "Workshop took 1 flood damage.",
+              "amount": 1
+            }
+          ],
+          "outcome": "won",
+          "health": [
+            6,
+            7
+          ],
+          "discovered": [
+            "grove",
+            "basin",
+            "channel",
+            "clay",
+            "levee"
+          ],
+          "continuation": [
+            {
+              "type": "discover",
+              "recipe": "dig-basin",
+              "at": {
+                "row": 0,
+                "col": 2
+              }
+            },
+            {
+              "type": "discover",
+              "recipe": "cut-channel",
+              "at": {
+                "row": 1,
+                "col": 1
+              }
+            },
+            {
+              "type": "deploy",
+              "concept": "grove",
+              "at": {
+                "row": 1,
+                "col": 2
+              }
+            },
+            {
+              "type": "discover",
+              "recipe": "mix-clay",
+              "at": {
+                "row": 0,
+                "col": 2
+              }
+            },
+            {
+              "type": "discover",
+              "recipe": "stone-levee",
+              "at": {
+                "row": 2,
+                "col": 0
+              }
+            },
+            {
+              "type": "deploy",
+              "concept": "levee",
+              "at": {
+                "row": 2,
+                "col": 1
+              }
+            },
+            {
+              "type": "deploy",
+              "concept": "levee",
+              "at": {
+                "row": 2,
+                "col": 2
+              }
+            },
+            {
+              "type": "deploy",
+              "concept": "levee",
+              "at": {
+                "row": 1,
+                "col": 1
+              }
+            }
+          ],
+          "runId": "temporary-or-growing-grove-development"
+        },
+        {
+          "name": "basin-peak",
+          "action": {
+            "type": "discover",
+            "recipe": "dig-basin",
+            "at": {
+              "row": 0,
+              "col": 0
+            }
+          },
+          "immediateDamage": [
+            0,
+            0
+          ],
+          "immediateEvents": [
+            {
+              "kind": "discovery",
+              "text": "Established Basin. It stays available.",
+              "concept": "basin"
+            },
+            {
+              "kind": "placement",
+              "text": "Placed Basin.",
+              "at": {
+                "row": 0,
+                "col": 0
+              },
+              "concept": "basin"
+            },
+            {
+              "kind": "weather",
+              "text": "Rain arrives: north 1, middle 0, south 0."
+            },
+            {
+              "kind": "storage",
+              "text": "Basin stored 1; 3 space remains.",
+              "at": {
+                "row": 0,
+                "col": 0
+              },
+              "amount": 1,
+              "concept": "basin"
+            }
+          ],
+          "outcome": "won",
+          "health": [
+            7,
+            7
+          ],
+          "discovered": [
+            "basin",
+            "grove",
+            "steam",
+            "channel",
+            "clay",
+            "levee"
+          ],
+          "continuation": [
+            {
+              "type": "discover",
+              "recipe": "grow-grove",
+              "at": {
+                "row": 1,
+                "col": 1
+              }
+            },
+            {
+              "type": "discover",
+              "recipe": "boil-steam",
+              "at": {
+                "row": 0,
+                "col": 0
+              }
+            },
+            {
+              "type": "deploy",
+              "concept": "basin",
+              "at": {
+                "row": 0,
+                "col": 0
+              }
+            },
+            {
+              "type": "discover",
+              "recipe": "cut-channel",
+              "at": {
+                "row": 1,
+                "col": 2
+              }
+            },
+            {
+              "type": "discover",
+              "recipe": "mix-clay",
+              "at": {
+                "row": 0,
+                "col": 0
+              }
+            },
+            {
+              "type": "discover",
+              "recipe": "stone-levee",
+              "at": {
+                "row": 0,
+                "col": 2
+              }
+            },
+            {
+              "type": "deploy",
+              "concept": "levee",
+              "at": {
+                "row": 2,
+                "col": 0
+              }
+            },
+            {
+              "type": "deploy",
+              "concept": "levee",
+              "at": {
+                "row": 2,
+                "col": 1
+              }
+            }
+          ],
+          "runId": "temporary-or-growing-basin-peak"
+        }
+      ]
+    },
+    {
+      "name": "blind-player-turn-two",
+      "cue": "Groves are established in each bank; reinforce northern overflow or establish a middle outlet before diverting more water.",
+      "turn": 2,
+      "initialHealth": [
+        6,
+        5
+      ],
+      "alternatives": [
+        {
+          "name": "middle-outlet",
+          "action": {
+            "type": "discover",
+            "recipe": "cut-channel",
+            "at": {
+              "row": 1,
+              "col": 2
+            }
+          },
+          "immediateDamage": [
+            0,
+            0
+          ],
+          "immediateEvents": [
+            {
+              "kind": "discovery",
+              "text": "Established Channel. It stays available.",
+              "concept": "channel"
+            },
+            {
+              "kind": "placement",
+              "text": "Placed Channel.",
+              "at": {
+                "row": 1,
+                "col": 2
+              },
+              "concept": "channel"
+            },
+            {
+              "kind": "weather",
+              "text": "Rain arrives: north 2, middle 2, south 0."
+            },
+            {
+              "kind": "flow",
+              "text": "Grove absorbed 2.",
+              "at": {
+                "row": 0,
+                "col": 0
+              },
+              "amount": 2,
+              "concept": "grove"
+            },
+            {
+              "kind": "flow",
+              "text": "Grove absorbed 2.",
+              "at": {
+                "row": 1,
+                "col": 0
+              },
+              "amount": 2,
+              "concept": "grove"
+            }
+          ],
+          "outcome": "won",
+          "health": [
+            6,
+            5
+          ],
+          "discovered": [
+            "grove",
+            "channel",
+            "clay",
+            "levee"
+          ],
+          "continuation": [
+            {
+              "type": "discover",
+              "recipe": "mix-clay",
+              "at": {
+                "row": 0,
+                "col": 2
+              }
+            },
+            {
+              "type": "discover",
+              "recipe": "stone-levee",
+              "at": {
+                "row": 0,
+                "col": 1
+              }
+            },
+            {
+              "type": "deploy",
+              "concept": "levee",
+              "at": {
+                "row": 0,
+                "col": 2
+              }
+            },
+            {
+              "type": "deploy",
+              "concept": "levee",
+              "at": {
+                "row": 2,
+                "col": 0
+              }
+            },
+            {
+              "type": "deploy",
+              "concept": "levee",
+              "at": {
+                "row": 2,
+                "col": 1
+              }
+            },
+            {
+              "type": "deploy",
+              "concept": "levee",
+              "at": {
+                "row": 2,
+                "col": 2
+              }
+            }
+          ],
+          "runId": "blind-player-turn-two-middle-outlet"
+        },
+        {
+          "name": "north-basin",
+          "action": {
+            "type": "discover",
+            "recipe": "dig-basin",
+            "at": {
+              "row": 0,
+              "col": 1
+            }
+          },
+          "immediateDamage": [
+            0,
+            0
+          ],
+          "immediateEvents": [
+            {
+              "kind": "discovery",
+              "text": "Established Basin. It stays available.",
+              "concept": "basin"
+            },
+            {
+              "kind": "placement",
+              "text": "Placed Basin.",
+              "at": {
+                "row": 0,
+                "col": 1
+              },
+              "concept": "basin"
+            },
+            {
+              "kind": "weather",
+              "text": "Rain arrives: north 2, middle 2, south 0."
+            },
+            {
+              "kind": "flow",
+              "text": "Grove absorbed 2.",
+              "at": {
+                "row": 0,
+                "col": 0
+              },
+              "amount": 2,
+              "concept": "grove"
+            },
+            {
+              "kind": "flow",
+              "text": "Grove absorbed 2.",
+              "at": {
+                "row": 1,
+                "col": 0
+              },
+              "amount": 2,
+              "concept": "grove"
+            }
+          ],
+          "outcome": "won",
+          "health": [
+            6,
+            5
+          ],
+          "discovered": [
+            "grove",
+            "basin",
+            "channel",
+            "clay",
+            "levee"
+          ],
+          "continuation": [
+            {
+              "type": "discover",
+              "recipe": "cut-channel",
+              "at": {
+                "row": 1,
+                "col": 2
+              }
+            },
+            {
+              "type": "discover",
+              "recipe": "mix-clay",
+              "at": {
+                "row": 0,
+                "col": 2
+              }
+            },
+            {
+              "type": "discover",
+              "recipe": "stone-levee",
+              "at": {
+                "row": 0,
+                "col": 1
+              }
+            },
+            {
+              "type": "deploy",
+              "concept": "levee",
+              "at": {
+                "row": 2,
+                "col": 0
+              }
+            },
+            {
+              "type": "deploy",
+              "concept": "levee",
+              "at": {
+                "row": 2,
+                "col": 1
+              }
+            },
+            {
+              "type": "deploy",
+              "concept": "levee",
+              "at": {
+                "row": 2,
+                "col": 2
+              }
+            }
+          ],
+          "runId": "blind-player-turn-two-north-basin"
+        },
+        {
+          "name": "wait-too-early",
+          "action": {
+            "type": "wait"
+          },
+          "immediateDamage": [
+            0,
+            0
+          ],
+          "immediateEvents": [
+            {
+              "kind": "weather",
+              "text": "Rain arrives: north 2, middle 2, south 0."
+            },
+            {
+              "kind": "flow",
+              "text": "Grove absorbed 2.",
+              "at": {
+                "row": 0,
+                "col": 0
+              },
+              "amount": 2,
+              "concept": "grove"
+            },
+            {
+              "kind": "flow",
+              "text": "Grove absorbed 2.",
+              "at": {
+                "row": 1,
+                "col": 0
+              },
+              "amount": 2,
+              "concept": "grove"
+            }
+          ],
+          "outcome": "won",
+          "health": [
+            5,
+            5
+          ],
+          "discovered": [
+            "grove",
+            "channel",
+            "clay",
+            "levee"
+          ],
+          "continuation": [
+            {
+              "type": "discover",
+              "recipe": "cut-channel",
+              "at": {
+                "row": 1,
+                "col": 2
+              }
+            },
+            {
+              "type": "discover",
+              "recipe": "mix-clay",
+              "at": {
+                "row": 0,
+                "col": 1
+              }
+            },
+            {
+              "type": "discover",
+              "recipe": "stone-levee",
+              "at": {
+                "row": 0,
+                "col": 2
+              }
+            },
+            {
+              "type": "deploy",
+              "concept": "levee",
+              "at": {
+                "row": 0,
+                "col": 1
+              }
+            },
+            {
+              "type": "deploy",
+              "concept": "levee",
+              "at": {
+                "row": 2,
+                "col": 0
+              }
+            },
+            {
+              "type": "deploy",
+              "concept": "levee",
+              "at": {
+                "row": 2,
+                "col": 1
+              }
+            }
+          ],
+          "runId": "blind-player-turn-two-wait-too-early"
+        }
+      ]
+    }
+  ],
+  "limitations": [
+    "A found alternative proves mechanical viability, not that people would consider or enjoy it.",
+    "Distinct outcomes are candidates for consequential choice, not an automatic depth score.",
+    "Continuations are a bounded heuristic; failed search is inconclusive."
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "name": "combination-challenge",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "engines": { "node": ">=22.18.0" },
+  "scripts": {
+    "dev": "vite --host 127.0.0.1",
+    "story": "node experiments/story-server.ts",
+    "build": "tsc --noEmit && vite build",
+    "test": "node --test tests/*.test.ts",
+    "screen": "node experiments/screen.ts",
+    "candidates": "node experiments/candidate-screen.ts",
+    "branches": "node experiments/branches.ts",
+    "evaluate": "node experiments/evaluate.ts",
+    "grade-gestures": "node experiments/grade-gestures.ts",
+    "grade-canvas": "node experiments/grade-constellation.ts",
+    "screen-canvas": "node experiments/constellation-screen.ts",
+    "play": "node experiments/play.ts",
+    "play-logic": "node experiments/logical-play.ts",
+    "evaluate-logic": "node experiments/logical-evaluate.ts",
+    "evaluate-fun": "node experiments/fun-evaluate.ts",
+    "verify": "node experiments/verify.ts",
+    "browser-test": "playwright test"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.64.1",
+    "@types/node": "^25.0.0",
+    "typescript": "7.0.2",
+    "vite": "8.3.5"
+  }
+}

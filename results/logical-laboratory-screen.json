@@ -1,0 +1,1498 @@
+{
+  "version": "logical-laboratory-1",
+  "evidence": "Exact deterministic model runs; no human enjoyment measurement or blind agent play.",
+  "byScenario": [
+    {
+      "scenario": "pair-gates",
+      "worlds": 3,
+      "informedMeanCombinations": 2.3333333333333335,
+      "informedUsefulJointWorlds": 2,
+      "saturationUsefulJointWorlds": 2,
+      "universalMeanCombinations": 3,
+      "universalWorstCombinations": 4,
+      "randomOrderMeanCombinations": 2.6666666666666665
+    },
+    {
+      "scenario": "relays",
+      "worlds": 3,
+      "informedMeanCombinations": 1.6666666666666667,
+      "informedUsefulJointWorlds": 0,
+      "saturationUsefulJointWorlds": 0,
+      "universalMeanCombinations": 1.6666666666666667,
+      "universalWorstCombinations": 2,
+      "randomOrderMeanCombinations": 2.222222222222222
+    },
+    {
+      "scenario": "opposed-gates",
+      "worlds": 3,
+      "informedMeanCombinations": 2.3333333333333335,
+      "informedUsefulJointWorlds": 2,
+      "saturationUsefulJointWorlds": 2,
+      "universalMeanCombinations": 3,
+      "universalWorstCombinations": 4,
+      "randomOrderMeanCombinations": 2.6666666666666665
+    },
+    {
+      "scenario": "one-sided",
+      "worlds": 3,
+      "informedMeanCombinations": 1.6666666666666667,
+      "informedUsefulJointWorlds": 0,
+      "saturationUsefulJointWorlds": 0,
+      "universalMeanCombinations": 1.6666666666666667,
+      "universalWorstCombinations": 2,
+      "randomOrderMeanCombinations": 2.222222222222222
+    }
+  ],
+  "cases": [
+    {
+      "scenario": "pair-gates",
+      "truth": "AND",
+      "seed": 0,
+      "informed": [
+        {
+          "action": {
+            "type": "combine",
+            "a": "probe",
+            "b": "A"
+          },
+          "feedback": "A produced 0. Only AND remains consistent."
+        }
+      ],
+      "informedCombinations": 1,
+      "informedUsefulJoint": false,
+      "schedules": [
+        {
+          "order": [
+            "A",
+            "B",
+            "AB"
+          ],
+          "status": "won",
+          "combinations": 1,
+          "redundantObservations": 0
+        },
+        {
+          "order": [
+            "A",
+            "AB",
+            "B"
+          ],
+          "status": "won",
+          "combinations": 1,
+          "redundantObservations": 0
+        },
+        {
+          "order": [
+            "B",
+            "A",
+            "AB"
+          ],
+          "status": "won",
+          "combinations": 1,
+          "redundantObservations": 0
+        },
+        {
+          "order": [
+            "B",
+            "AB",
+            "A"
+          ],
+          "status": "won",
+          "combinations": 1,
+          "redundantObservations": 0
+        },
+        {
+          "order": [
+            "AB",
+            "A",
+            "B"
+          ],
+          "status": "won",
+          "combinations": 3,
+          "redundantObservations": 0
+        },
+        {
+          "order": [
+            "AB",
+            "B",
+            "A"
+          ],
+          "status": "won",
+          "combinations": 3,
+          "redundantObservations": 0
+        }
+      ],
+      "universal": {
+        "order": [
+          "A",
+          "B",
+          "AB"
+        ],
+        "status": "won",
+        "combinations": 1,
+        "redundantObservations": 0
+      },
+      "saturation": {
+        "combinations": 4,
+        "concepts": 7,
+        "status": "won",
+        "informativeObservations": 1,
+        "redundantObservations": 2,
+        "builtJoint": true,
+        "usefulJoint": false
+      }
+    },
+    {
+      "scenario": "pair-gates",
+      "truth": "OR",
+      "seed": 1,
+      "informed": [
+        {
+          "action": {
+            "type": "combine",
+            "a": "probe",
+            "b": "A"
+          },
+          "feedback": "A produced 1. 2 explanations remain."
+        },
+        {
+          "action": {
+            "type": "combine",
+            "a": "A",
+            "b": "B"
+          },
+          "feedback": "AB is now available: both conditions active simultaneously. A and B remain."
+        },
+        {
+          "action": {
+            "type": "combine",
+            "a": "probe",
+            "b": "AB"
+          },
+          "feedback": "AB produced 1. Only OR remains consistent."
+        }
+      ],
+      "informedCombinations": 3,
+      "informedUsefulJoint": true,
+      "schedules": [
+        {
+          "order": [
+            "A",
+            "B",
+            "AB"
+          ],
+          "status": "won",
+          "combinations": 4,
+          "redundantObservations": 1
+        },
+        {
+          "order": [
+            "A",
+            "AB",
+            "B"
+          ],
+          "status": "won",
+          "combinations": 3,
+          "redundantObservations": 0
+        },
+        {
+          "order": [
+            "B",
+            "A",
+            "AB"
+          ],
+          "status": "won",
+          "combinations": 4,
+          "redundantObservations": 1
+        },
+        {
+          "order": [
+            "B",
+            "AB",
+            "A"
+          ],
+          "status": "won",
+          "combinations": 3,
+          "redundantObservations": 0
+        },
+        {
+          "order": [
+            "AB",
+            "A",
+            "B"
+          ],
+          "status": "won",
+          "combinations": 3,
+          "redundantObservations": 0
+        },
+        {
+          "order": [
+            "AB",
+            "B",
+            "A"
+          ],
+          "status": "won",
+          "combinations": 3,
+          "redundantObservations": 0
+        }
+      ],
+      "universal": {
+        "order": [
+          "A",
+          "B",
+          "AB"
+        ],
+        "status": "won",
+        "combinations": 4,
+        "redundantObservations": 1
+      },
+      "saturation": {
+        "combinations": 4,
+        "concepts": 7,
+        "status": "won",
+        "informativeObservations": 2,
+        "redundantObservations": 1,
+        "builtJoint": true,
+        "usefulJoint": true
+      }
+    },
+    {
+      "scenario": "pair-gates",
+      "truth": "XOR",
+      "seed": 2,
+      "informed": [
+        {
+          "action": {
+            "type": "combine",
+            "a": "probe",
+            "b": "A"
+          },
+          "feedback": "A produced 1. 2 explanations remain."
+        },
+        {
+          "action": {
+            "type": "combine",
+            "a": "A",
+            "b": "B"
+          },
+          "feedback": "AB is now available: both conditions active simultaneously. A and B remain."
+        },
+        {
+          "action": {
+            "type": "combine",
+            "a": "probe",
+            "b": "AB"
+          },
+          "feedback": "AB produced 0. Only XOR remains consistent."
+        }
+      ],
+      "informedCombinations": 3,
+      "informedUsefulJoint": true,
+      "schedules": [
+        {
+          "order": [
+            "A",
+            "B",
+            "AB"
+          ],
+          "status": "won",
+          "combinations": 4,
+          "redundantObservations": 1
+        },
+        {
+          "order": [
+            "A",
+            "AB",
+            "B"
+          ],
+          "status": "won",
+          "combinations": 3,
+          "redundantObservations": 0
+        },
+        {
+          "order": [
+            "B",
+            "A",
+            "AB"
+          ],
+          "status": "won",
+          "combinations": 4,
+          "redundantObservations": 1
+        },
+        {
+          "order": [
+            "B",
+            "AB",
+            "A"
+          ],
+          "status": "won",
+          "combinations": 3,
+          "redundantObservations": 0
+        },
+        {
+          "order": [
+            "AB",
+            "A",
+            "B"
+          ],
+          "status": "won",
+          "combinations": 2,
+          "redundantObservations": 0
+        },
+        {
+          "order": [
+            "AB",
+            "B",
+            "A"
+          ],
+          "status": "won",
+          "combinations": 2,
+          "redundantObservations": 0
+        }
+      ],
+      "universal": {
+        "order": [
+          "A",
+          "B",
+          "AB"
+        ],
+        "status": "won",
+        "combinations": 4,
+        "redundantObservations": 1
+      },
+      "saturation": {
+        "combinations": 4,
+        "concepts": 7,
+        "status": "won",
+        "informativeObservations": 2,
+        "redundantObservations": 1,
+        "builtJoint": true,
+        "usefulJoint": true
+      }
+    },
+    {
+      "scenario": "relays",
+      "truth": "relay-A",
+      "seed": 0,
+      "informed": [
+        {
+          "action": {
+            "type": "combine",
+            "a": "probe",
+            "b": "A"
+          },
+          "feedback": "A produced 1. 2 explanations remain."
+        },
+        {
+          "action": {
+            "type": "combine",
+            "a": "probe",
+            "b": "B"
+          },
+          "feedback": "B produced 0. Only relay-A remains consistent."
+        }
+      ],
+      "informedCombinations": 2,
+      "informedUsefulJoint": false,
+      "schedules": [
+        {
+          "order": [
+            "A",
+            "B",
+            "AB"
+          ],
+          "status": "won",
+          "combinations": 2,
+          "redundantObservations": 0
+        },
+        {
+          "order": [
+            "A",
+            "AB",
+            "B"
+          ],
+          "status": "won",
+          "combinations": 3,
+          "redundantObservations": 0
+        },
+        {
+          "order": [
+            "B",
+            "A",
+            "AB"
+          ],
+          "status": "won",
+          "combinations": 1,
+          "redundantObservations": 0
+        },
+        {
+          "order": [
+            "B",
+            "AB",
+            "A"
+          ],
+          "status": "won",
+          "combinations": 1,
+          "redundantObservations": 0
+        },
+        {
+          "order": [
+            "AB",
+            "A",
+            "B"
+          ],
+          "status": "won",
+          "combinations": 3,
+          "redundantObservations": 0
+        },
+        {
+          "order": [
+            "AB",
+            "B",
+            "A"
+          ],
+          "status": "won",
+          "combinations": 3,
+          "redundantObservations": 0
+        }
+      ],
+      "universal": {
+        "order": [
+          "A",
+          "B",
+          "AB"
+        ],
+        "status": "won",
+        "combinations": 2,
+        "redundantObservations": 0
+      },
+      "saturation": {
+        "combinations": 4,
+        "concepts": 7,
+        "status": "won",
+        "informativeObservations": 2,
+        "redundantObservations": 1,
+        "builtJoint": true,
+        "usefulJoint": false
+      }
+    },
+    {
+      "scenario": "relays",
+      "truth": "relay-B",
+      "seed": 1,
+      "informed": [
+        {
+          "action": {
+            "type": "combine",
+            "a": "probe",
+            "b": "A"
+          },
+          "feedback": "A produced 0. Only relay-B remains consistent."
+        }
+      ],
+      "informedCombinations": 1,
+      "informedUsefulJoint": false,
+      "schedules": [
+        {
+          "order": [
+            "A",
+            "B",
+            "AB"
+          ],
+          "status": "won",
+          "combinations": 1,
+          "redundantObservations": 0
+        },
+        {
+          "order": [
+            "A",
+            "AB",
+            "B"
+          ],
+          "status": "won",
+          "combinations": 1,
+          "redundantObservations": 0
+        },
+        {
+          "order": [
+            "B",
+            "A",
+            "AB"
+          ],
+          "status": "won",
+          "combinations": 2,
+          "redundantObservations": 0
+        },
+        {
+          "order": [
+            "B",
+            "AB",
+            "A"
+          ],
+          "status": "won",
+          "combinations": 3,
+          "redundantObservations": 0
+        },
+        {
+          "order": [
+            "AB",
+            "A",
+            "B"
+          ],
+          "status": "won",
+          "combinations": 3,
+          "redundantObservations": 0
+        },
+        {
+          "order": [
+            "AB",
+            "B",
+            "A"
+          ],
+          "status": "won",
+          "combinations": 3,
+          "redundantObservations": 0
+        }
+      ],
+      "universal": {
+        "order": [
+          "A",
+          "B",
+          "AB"
+        ],
+        "status": "won",
+        "combinations": 1,
+        "redundantObservations": 0
+      },
+      "saturation": {
+        "combinations": 4,
+        "concepts": 7,
+        "status": "won",
+        "informativeObservations": 1,
+        "redundantObservations": 2,
+        "builtJoint": true,
+        "usefulJoint": false
+      }
+    },
+    {
+      "scenario": "relays",
+      "truth": "XOR",
+      "seed": 2,
+      "informed": [
+        {
+          "action": {
+            "type": "combine",
+            "a": "probe",
+            "b": "A"
+          },
+          "feedback": "A produced 1. 2 explanations remain."
+        },
+        {
+          "action": {
+            "type": "combine",
+            "a": "probe",
+            "b": "B"
+          },
+          "feedback": "B produced 1. Only XOR remains consistent."
+        }
+      ],
+      "informedCombinations": 2,
+      "informedUsefulJoint": false,
+      "schedules": [
+        {
+          "order": [
+            "A",
+            "B",
+            "AB"
+          ],
+          "status": "won",
+          "combinations": 2,
+          "redundantObservations": 0
+        },
+        {
+          "order": [
+            "A",
+            "AB",
+            "B"
+          ],
+          "status": "won",
+          "combinations": 3,
+          "redundantObservations": 0
+        },
+        {
+          "order": [
+            "B",
+            "A",
+            "AB"
+          ],
+          "status": "won",
+          "combinations": 2,
+          "redundantObservations": 0
+        },
+        {
+          "order": [
+            "B",
+            "AB",
+            "A"
+          ],
+          "status": "won",
+          "combinations": 3,
+          "redundantObservations": 0
+        },
+        {
+          "order": [
+            "AB",
+            "A",
+            "B"
+          ],
+          "status": "won",
+          "combinations": 2,
+          "redundantObservations": 0
+        },
+        {
+          "order": [
+            "AB",
+            "B",
+            "A"
+          ],
+          "status": "won",
+          "combinations": 2,
+          "redundantObservations": 0
+        }
+      ],
+      "universal": {
+        "order": [
+          "A",
+          "B",
+          "AB"
+        ],
+        "status": "won",
+        "combinations": 2,
+        "redundantObservations": 0
+      },
+      "saturation": {
+        "combinations": 4,
+        "concepts": 7,
+        "status": "won",
+        "informativeObservations": 2,
+        "redundantObservations": 1,
+        "builtJoint": true,
+        "usefulJoint": false
+      }
+    },
+    {
+      "scenario": "opposed-gates",
+      "truth": "NAND",
+      "seed": 0,
+      "informed": [
+        {
+          "action": {
+            "type": "combine",
+            "a": "probe",
+            "b": "A"
+          },
+          "feedback": "A produced 1. Only NAND remains consistent."
+        }
+      ],
+      "informedCombinations": 1,
+      "informedUsefulJoint": false,
+      "schedules": [
+        {
+          "order": [
+            "A",
+            "B",
+            "AB"
+          ],
+          "status": "won",
+          "combinations": 1,
+          "redundantObservations": 0
+        },
+        {
+          "order": [
+            "A",
+            "AB",
+            "B"
+          ],
+          "status": "won",
+          "combinations": 1,
+          "redundantObservations": 0
+        },
+        {
+          "order": [
+            "B",
+            "A",
+            "AB"
+          ],
+          "status": "won",
+          "combinations": 1,
+          "redundantObservations": 0
+        },
+        {
+          "order": [
+            "B",
+            "AB",
+            "A"
+          ],
+          "status": "won",
+          "combinations": 1,
+          "redundantObservations": 0
+        },
+        {
+          "order": [
+            "AB",
+            "A",
+            "B"
+          ],
+          "status": "won",
+          "combinations": 3,
+          "redundantObservations": 0
+        },
+        {
+          "order": [
+            "AB",
+            "B",
+            "A"
+          ],
+          "status": "won",
+          "combinations": 3,
+          "redundantObservations": 0
+        }
+      ],
+      "universal": {
+        "order": [
+          "A",
+          "B",
+          "AB"
+        ],
+        "status": "won",
+        "combinations": 1,
+        "redundantObservations": 0
+      },
+      "saturation": {
+        "combinations": 4,
+        "concepts": 7,
+        "status": "won",
+        "informativeObservations": 1,
+        "redundantObservations": 2,
+        "builtJoint": true,
+        "usefulJoint": false
+      }
+    },
+    {
+      "scenario": "opposed-gates",
+      "truth": "NOR",
+      "seed": 1,
+      "informed": [
+        {
+          "action": {
+            "type": "combine",
+            "a": "probe",
+            "b": "A"
+          },
+          "feedback": "A produced 0. 2 explanations remain."
+        },
+        {
+          "action": {
+            "type": "combine",
+            "a": "A",
+            "b": "B"
+          },
+          "feedback": "AB is now available: both conditions active simultaneously. A and B remain."
+        },
+        {
+          "action": {
+            "type": "combine",
+            "a": "probe",
+            "b": "AB"
+          },
+          "feedback": "AB produced 0. Only NOR remains consistent."
+        }
+      ],
+      "informedCombinations": 3,
+      "informedUsefulJoint": true,
+      "schedules": [
+        {
+          "order": [
+            "A",
+            "B",
+            "AB"
+          ],
+          "status": "won",
+          "combinations": 4,
+          "redundantObservations": 1
+        },
+        {
+          "order": [
+            "A",
+            "AB",
+            "B"
+          ],
+          "status": "won",
+          "combinations": 3,
+          "redundantObservations": 0
+        },
+        {
+          "order": [
+            "B",
+            "A",
+            "AB"
+          ],
+          "status": "won",
+          "combinations": 4,
+          "redundantObservations": 1
+        },
+        {
+          "order": [
+            "B",
+            "AB",
+            "A"
+          ],
+          "status": "won",
+          "combinations": 3,
+          "redundantObservations": 0
+        },
+        {
+          "order": [
+            "AB",
+            "A",
+            "B"
+          ],
+          "status": "won",
+          "combinations": 3,
+          "redundantObservations": 0
+        },
+        {
+          "order": [
+            "AB",
+            "B",
+            "A"
+          ],
+          "status": "won",
+          "combinations": 3,
+          "redundantObservations": 0
+        }
+      ],
+      "universal": {
+        "order": [
+          "A",
+          "B",
+          "AB"
+        ],
+        "status": "won",
+        "combinations": 4,
+        "redundantObservations": 1
+      },
+      "saturation": {
+        "combinations": 4,
+        "concepts": 7,
+        "status": "won",
+        "informativeObservations": 2,
+        "redundantObservations": 1,
+        "builtJoint": true,
+        "usefulJoint": true
+      }
+    },
+    {
+      "scenario": "opposed-gates",
+      "truth": "XNOR",
+      "seed": 2,
+      "informed": [
+        {
+          "action": {
+            "type": "combine",
+            "a": "probe",
+            "b": "A"
+          },
+          "feedback": "A produced 0. 2 explanations remain."
+        },
+        {
+          "action": {
+            "type": "combine",
+            "a": "A",
+            "b": "B"
+          },
+          "feedback": "AB is now available: both conditions active simultaneously. A and B remain."
+        },
+        {
+          "action": {
+            "type": "combine",
+            "a": "probe",
+            "b": "AB"
+          },
+          "feedback": "AB produced 1. Only XNOR remains consistent."
+        }
+      ],
+      "informedCombinations": 3,
+      "informedUsefulJoint": true,
+      "schedules": [
+        {
+          "order": [
+            "A",
+            "B",
+            "AB"
+          ],
+          "status": "won",
+          "combinations": 4,
+          "redundantObservations": 1
+        },
+        {
+          "order": [
+            "A",
+            "AB",
+            "B"
+          ],
+          "status": "won",
+          "combinations": 3,
+          "redundantObservations": 0
+        },
+        {
+          "order": [
+            "B",
+            "A",
+            "AB"
+          ],
+          "status": "won",
+          "combinations": 4,
+          "redundantObservations": 1
+        },
+        {
+          "order": [
+            "B",
+            "AB",
+            "A"
+          ],
+          "status": "won",
+          "combinations": 3,
+          "redundantObservations": 0
+        },
+        {
+          "order": [
+            "AB",
+            "A",
+            "B"
+          ],
+          "status": "won",
+          "combinations": 2,
+          "redundantObservations": 0
+        },
+        {
+          "order": [
+            "AB",
+            "B",
+            "A"
+          ],
+          "status": "won",
+          "combinations": 2,
+          "redundantObservations": 0
+        }
+      ],
+      "universal": {
+        "order": [
+          "A",
+          "B",
+          "AB"
+        ],
+        "status": "won",
+        "combinations": 4,
+        "redundantObservations": 1
+      },
+      "saturation": {
+        "combinations": 4,
+        "concepts": 7,
+        "status": "won",
+        "informativeObservations": 2,
+        "redundantObservations": 1,
+        "builtJoint": true,
+        "usefulJoint": true
+      }
+    },
+    {
+      "scenario": "one-sided",
+      "truth": "A-without-B",
+      "seed": 0,
+      "informed": [
+        {
+          "action": {
+            "type": "combine",
+            "a": "probe",
+            "b": "A"
+          },
+          "feedback": "A produced 1. Only A-without-B remains consistent."
+        }
+      ],
+      "informedCombinations": 1,
+      "informedUsefulJoint": false,
+      "schedules": [
+        {
+          "order": [
+            "A",
+            "B",
+            "AB"
+          ],
+          "status": "won",
+          "combinations": 1,
+          "redundantObservations": 0
+        },
+        {
+          "order": [
+            "A",
+            "AB",
+            "B"
+          ],
+          "status": "won",
+          "combinations": 1,
+          "redundantObservations": 0
+        },
+        {
+          "order": [
+            "B",
+            "A",
+            "AB"
+          ],
+          "status": "won",
+          "combinations": 2,
+          "redundantObservations": 0
+        },
+        {
+          "order": [
+            "B",
+            "AB",
+            "A"
+          ],
+          "status": "won",
+          "combinations": 3,
+          "redundantObservations": 0
+        },
+        {
+          "order": [
+            "AB",
+            "A",
+            "B"
+          ],
+          "status": "won",
+          "combinations": 3,
+          "redundantObservations": 0
+        },
+        {
+          "order": [
+            "AB",
+            "B",
+            "A"
+          ],
+          "status": "won",
+          "combinations": 3,
+          "redundantObservations": 0
+        }
+      ],
+      "universal": {
+        "order": [
+          "A",
+          "B",
+          "AB"
+        ],
+        "status": "won",
+        "combinations": 1,
+        "redundantObservations": 0
+      },
+      "saturation": {
+        "combinations": 4,
+        "concepts": 7,
+        "status": "won",
+        "informativeObservations": 1,
+        "redundantObservations": 2,
+        "builtJoint": true,
+        "usefulJoint": false
+      }
+    },
+    {
+      "scenario": "one-sided",
+      "truth": "B-without-A",
+      "seed": 1,
+      "informed": [
+        {
+          "action": {
+            "type": "combine",
+            "a": "probe",
+            "b": "A"
+          },
+          "feedback": "A produced 0. 2 explanations remain."
+        },
+        {
+          "action": {
+            "type": "combine",
+            "a": "probe",
+            "b": "B"
+          },
+          "feedback": "B produced 1. Only B-without-A remains consistent."
+        }
+      ],
+      "informedCombinations": 2,
+      "informedUsefulJoint": false,
+      "schedules": [
+        {
+          "order": [
+            "A",
+            "B",
+            "AB"
+          ],
+          "status": "won",
+          "combinations": 2,
+          "redundantObservations": 0
+        },
+        {
+          "order": [
+            "A",
+            "AB",
+            "B"
+          ],
+          "status": "won",
+          "combinations": 3,
+          "redundantObservations": 0
+        },
+        {
+          "order": [
+            "B",
+            "A",
+            "AB"
+          ],
+          "status": "won",
+          "combinations": 1,
+          "redundantObservations": 0
+        },
+        {
+          "order": [
+            "B",
+            "AB",
+            "A"
+          ],
+          "status": "won",
+          "combinations": 1,
+          "redundantObservations": 0
+        },
+        {
+          "order": [
+            "AB",
+            "A",
+            "B"
+          ],
+          "status": "won",
+          "combinations": 3,
+          "redundantObservations": 0
+        },
+        {
+          "order": [
+            "AB",
+            "B",
+            "A"
+          ],
+          "status": "won",
+          "combinations": 3,
+          "redundantObservations": 0
+        }
+      ],
+      "universal": {
+        "order": [
+          "A",
+          "B",
+          "AB"
+        ],
+        "status": "won",
+        "combinations": 2,
+        "redundantObservations": 0
+      },
+      "saturation": {
+        "combinations": 4,
+        "concepts": 7,
+        "status": "won",
+        "informativeObservations": 2,
+        "redundantObservations": 1,
+        "builtJoint": true,
+        "usefulJoint": false
+      }
+    },
+    {
+      "scenario": "one-sided",
+      "truth": "AND",
+      "seed": 2,
+      "informed": [
+        {
+          "action": {
+            "type": "combine",
+            "a": "probe",
+            "b": "A"
+          },
+          "feedback": "A produced 0. 2 explanations remain."
+        },
+        {
+          "action": {
+            "type": "combine",
+            "a": "probe",
+            "b": "B"
+          },
+          "feedback": "B produced 0. Only AND remains consistent."
+        }
+      ],
+      "informedCombinations": 2,
+      "informedUsefulJoint": false,
+      "schedules": [
+        {
+          "order": [
+            "A",
+            "B",
+            "AB"
+          ],
+          "status": "won",
+          "combinations": 2,
+          "redundantObservations": 0
+        },
+        {
+          "order": [
+            "A",
+            "AB",
+            "B"
+          ],
+          "status": "won",
+          "combinations": 3,
+          "redundantObservations": 0
+        },
+        {
+          "order": [
+            "B",
+            "A",
+            "AB"
+          ],
+          "status": "won",
+          "combinations": 2,
+          "redundantObservations": 0
+        },
+        {
+          "order": [
+            "B",
+            "AB",
+            "A"
+          ],
+          "status": "won",
+          "combinations": 3,
+          "redundantObservations": 0
+        },
+        {
+          "order": [
+            "AB",
+            "A",
+            "B"
+          ],
+          "status": "won",
+          "combinations": 2,
+          "redundantObservations": 0
+        },
+        {
+          "order": [
+            "AB",
+            "B",
+            "A"
+          ],
+          "status": "won",
+          "combinations": 2,
+          "redundantObservations": 0
+        }
+      ],
+      "universal": {
+        "order": [
+          "A",
+          "B",
+          "AB"
+        ],
+        "status": "won",
+        "combinations": 2,
+        "redundantObservations": 0
+      },
+      "saturation": {
+        "combinations": 4,
+        "concepts": 7,
+        "status": "won",
+        "informativeObservations": 2,
+        "redundantObservations": 1,
+        "builtJoint": true,
+        "usefulJoint": false
+      }
+    }
+  ],
+  "recoveryTrace": [
+    {
+      "action": {
+        "type": "combine",
+        "a": "probe",
+        "b": "A"
+      },
+      "feedback": "A produced 1. 2 explanations remain.",
+      "remaining": [
+        "OR",
+        "XOR"
+      ]
+    },
+    {
+      "action": {
+        "type": "combine",
+        "a": "probe",
+        "b": "B"
+      },
+      "feedback": "B produced 1. 2 explanations remain.",
+      "remaining": [
+        "OR",
+        "XOR"
+      ]
+    },
+    {
+      "action": {
+        "type": "combine",
+        "a": "A",
+        "b": "B"
+      },
+      "feedback": "AB is now available: both conditions active simultaneously. A and B remain.",
+      "remaining": [
+        "OR",
+        "XOR"
+      ]
+    },
+    {
+      "action": {
+        "type": "combine",
+        "a": "probe",
+        "b": "AB"
+      },
+      "feedback": "AB produced 1. Only OR remains consistent.",
+      "remaining": [
+        "OR"
+      ]
+    }
+  ],
+  "richTrialCounterexample": [
+    {
+      "scenario": "pair-gates",
+      "publicForecastSignatures": [
+        {
+          "mechanism": "AND",
+          "values": [
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "mechanism": "OR",
+          "values": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "mechanism": "XOR",
+          "values": [
+            1,
+            1,
+            0
+          ]
+        }
+      ],
+      "oneWholeTableTrialIdentifiesEveryMechanism": true
+    },
+    {
+      "scenario": "relays",
+      "publicForecastSignatures": [
+        {
+          "mechanism": "relay-A",
+          "values": [
+            1,
+            0,
+            1
+          ]
+        },
+        {
+          "mechanism": "relay-B",
+          "values": [
+            0,
+            1,
+            1
+          ]
+        },
+        {
+          "mechanism": "XOR",
+          "values": [
+            1,
+            1,
+            0
+          ]
+        }
+      ],
+      "oneWholeTableTrialIdentifiesEveryMechanism": true
+    },
+    {
+      "scenario": "opposed-gates",
+      "publicForecastSignatures": [
+        {
+          "mechanism": "NAND",
+          "values": [
+            1,
+            1,
+            0
+          ]
+        },
+        {
+          "mechanism": "NOR",
+          "values": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "mechanism": "XNOR",
+          "values": [
+            0,
+            0,
+            1
+          ]
+        }
+      ],
+      "oneWholeTableTrialIdentifiesEveryMechanism": true
+    },
+    {
+      "scenario": "one-sided",
+      "publicForecastSignatures": [
+        {
+          "mechanism": "A-without-B",
+          "values": [
+            1,
+            0,
+            0
+          ]
+        },
+        {
+          "mechanism": "B-without-A",
+          "values": [
+            0,
+            1,
+            0
+          ]
+        },
+        {
+          "mechanism": "AND",
+          "values": [
+            0,
+            0,
+            1
+          ]
+        }
+      ],
+      "oneWholeTableTrialIdentifiesEveryMechanism": true
+    }
+  ],
+  "invariants": {
+    "publicStartsDoNotRevealHiddenMechanism": true,
+    "pureStep": true,
+    "parentsRemain": true,
+    "completedPairDoesNotRepeat": true
+  },
+  "decision": "Playable tutorial candidate only. A single-intervention probe preserves experimental choice, but a fixed A,B,AB routine solves all twelve worlds in at most four combinations. The whole-table variant collapses identification to one probe. No new Boolean construction branch is included."
+}

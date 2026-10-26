@@ -1,0 +1,611 @@
+{
+  "schema": 1,
+  "id": "field-confluence-4-blind-field-c",
+  "build": "0.4.0",
+  "data": "watershed-1",
+  "scenario": "confluence",
+  "seed": 4,
+  "rules": "field",
+  "player": "blind-field-c",
+  "condition": "fresh agent; annotated; instruction-based isolation; model inherited gpt-6.1-sol",
+  "offerOrder": "reverse",
+  "observationVersion": "public-1",
+  "actionBudget": 9,
+  "decisions": [
+    {
+      "turn": 0,
+      "before": "90ee3487",
+      "offers": [
+        "boil-steam",
+        "fuse-glass",
+        "dig-basin",
+        "cut-channel",
+        "grow-grove",
+        "grow-reeds",
+        "mix-clay"
+      ],
+      "action": {
+        "type": "discover",
+        "recipe": "grow-grove",
+        "at": {
+          "row": 0,
+          "col": 0
+        }
+      },
+      "annotation": {
+        "objective": "Establish renewable north defence before heavier rain",
+        "expectedEffect": "Saplings mature; both banks take their one incoming water",
+        "expectedDamage": [
+          1,
+          1
+        ],
+        "confidence": 0.95
+      },
+      "events": [
+        {
+          "kind": "discovery",
+          "text": "Established Grove. It stays available.",
+          "concept": "grove"
+        },
+        {
+          "kind": "placement",
+          "text": "Placed Grove.",
+          "at": {
+            "row": 0,
+            "col": 0
+          },
+          "concept": "grove"
+        },
+        {
+          "kind": "weather",
+          "text": "Rain arrives: north 1, middle 1, south 0."
+        },
+        {
+          "kind": "growth",
+          "text": "The grove takes root. It absorbs water from the next pulse.",
+          "at": {
+            "row": 0,
+            "col": 0
+          },
+          "concept": "grove"
+        },
+        {
+          "kind": "damage",
+          "text": "Village took 1 flood damage.",
+          "amount": 1
+        },
+        {
+          "kind": "damage",
+          "text": "Mill took 1 flood damage.",
+          "amount": 1
+        }
+      ],
+      "after": "aba70fd2",
+      "damage": [
+        1,
+        1
+      ]
+    },
+    {
+      "turn": 1,
+      "before": "aba70fd2",
+      "offers": [
+        "boil-steam",
+        "fuse-glass",
+        "dig-basin",
+        "cut-channel",
+        "grow-reeds",
+        "mix-clay"
+      ],
+      "action": {
+        "type": "deploy",
+        "concept": "grove",
+        "at": {
+          "row": 1,
+          "col": 0
+        }
+      },
+      "annotation": {
+        "objective": "Establish renewable middle defence during light rain",
+        "expectedEffect": "North grove absorbs two; middle saplings mature and let one through",
+        "expectedDamage": [
+          0,
+          1
+        ],
+        "confidence": 0.98
+      },
+      "events": [
+        {
+          "kind": "placement",
+          "text": "Placed Grove.",
+          "at": {
+            "row": 1,
+            "col": 0
+          },
+          "concept": "grove"
+        },
+        {
+          "kind": "weather",
+          "text": "Rain arrives: north 2, middle 1, south 0."
+        },
+        {
+          "kind": "flow",
+          "text": "Grove absorbed 2.",
+          "at": {
+            "row": 0,
+            "col": 0
+          },
+          "amount": 2,
+          "concept": "grove"
+        },
+        {
+          "kind": "growth",
+          "text": "The grove takes root. It absorbs water from the next pulse.",
+          "at": {
+            "row": 1,
+            "col": 0
+          },
+          "concept": "grove"
+        },
+        {
+          "kind": "damage",
+          "text": "Mill took 1 flood damage.",
+          "amount": 1
+        }
+      ],
+      "after": "6d17e3a0",
+      "damage": [
+        0,
+        1
+      ]
+    },
+    {
+      "turn": 2,
+      "before": "6d17e3a0",
+      "offers": [
+        "boil-steam",
+        "fuse-glass",
+        "dig-basin",
+        "cut-channel",
+        "grow-reeds",
+        "mix-clay"
+      ],
+      "action": {
+        "type": "discover",
+        "recipe": "cut-channel",
+        "at": {
+          "row": 1,
+          "col": 2
+        }
+      },
+      "annotation": {
+        "objective": "Prepare safe outlet before diverting north overflow",
+        "expectedEffect": "Existing groves absorb both twos; middle channel is ready for later overflow",
+        "expectedDamage": [
+          0,
+          0
+        ],
+        "confidence": 0.98
+      },
+      "events": [
+        {
+          "kind": "discovery",
+          "text": "Established Channel. It stays available.",
+          "concept": "channel"
+        },
+        {
+          "kind": "placement",
+          "text": "Placed Channel.",
+          "at": {
+            "row": 1,
+            "col": 2
+          },
+          "concept": "channel"
+        },
+        {
+          "kind": "weather",
+          "text": "Rain arrives: north 2, middle 2, south 0."
+        },
+        {
+          "kind": "flow",
+          "text": "Grove absorbed 2.",
+          "at": {
+            "row": 0,
+            "col": 0
+          },
+          "amount": 2,
+          "concept": "grove"
+        },
+        {
+          "kind": "flow",
+          "text": "Grove absorbed 2.",
+          "at": {
+            "row": 1,
+            "col": 0
+          },
+          "amount": 2,
+          "concept": "grove"
+        }
+      ],
+      "after": "dd276dcd",
+      "damage": [
+        0,
+        0
+      ]
+    },
+    {
+      "turn": 3,
+      "before": "dd276dcd",
+      "offers": [
+        "boil-steam",
+        "fuse-glass",
+        "dig-basin",
+        "grow-reeds",
+        "mix-clay"
+      ],
+      "action": {
+        "type": "deploy",
+        "concept": "channel",
+        "at": {
+          "row": 0,
+          "col": 2
+        }
+      },
+      "annotation": {
+        "objective": "Join the northern overflow to the prepared middle outlet",
+        "expectedEffect": "Each grove absorbs two; north channel passes one into middle and middle channel routes both remaining water south",
+        "expectedDamage": [
+          0,
+          0
+        ],
+        "confidence": 0.97
+      },
+      "events": [
+        {
+          "kind": "placement",
+          "text": "Placed Channel.",
+          "at": {
+            "row": 0,
+            "col": 2
+          },
+          "concept": "channel"
+        },
+        {
+          "kind": "weather",
+          "text": "Rain arrives: north 3, middle 3, south 0."
+        },
+        {
+          "kind": "flow",
+          "text": "Grove absorbed 2.",
+          "at": {
+            "row": 0,
+            "col": 0
+          },
+          "amount": 2,
+          "concept": "grove"
+        },
+        {
+          "kind": "flow",
+          "text": "Grove absorbed 2.",
+          "at": {
+            "row": 1,
+            "col": 0
+          },
+          "amount": 2,
+          "concept": "grove"
+        },
+        {
+          "kind": "flow",
+          "text": "Channel sent 1 south.",
+          "at": {
+            "row": 0,
+            "col": 2
+          },
+          "amount": 1,
+          "concept": "channel"
+        },
+        {
+          "kind": "flow",
+          "text": "Channel sent 2 south.",
+          "at": {
+            "row": 1,
+            "col": 2
+          },
+          "amount": 2,
+          "concept": "channel"
+        }
+      ],
+      "after": "15bc630e",
+      "damage": [
+        0,
+        0
+      ]
+    },
+    {
+      "turn": 4,
+      "before": "15bc630e",
+      "offers": [
+        "boil-steam",
+        "fuse-glass",
+        "dig-basin",
+        "grow-reeds",
+        "mix-clay"
+      ],
+      "action": {
+        "type": "wait"
+      },
+      "annotation": {
+        "objective": "Let the completed defence handle the receding storm",
+        "expectedEffect": "Groves absorb two per bank and channels carry the northern extra one to outlet",
+        "expectedDamage": [
+          0,
+          0
+        ],
+        "confidence": 0.99
+      },
+      "events": [
+        {
+          "kind": "weather",
+          "text": "Rain arrives: north 3, middle 2, south 0."
+        },
+        {
+          "kind": "flow",
+          "text": "Grove absorbed 2.",
+          "at": {
+            "row": 0,
+            "col": 0
+          },
+          "amount": 2,
+          "concept": "grove"
+        },
+        {
+          "kind": "flow",
+          "text": "Grove absorbed 2.",
+          "at": {
+            "row": 1,
+            "col": 0
+          },
+          "amount": 2,
+          "concept": "grove"
+        },
+        {
+          "kind": "flow",
+          "text": "Channel sent 1 south.",
+          "at": {
+            "row": 0,
+            "col": 2
+          },
+          "amount": 1,
+          "concept": "channel"
+        },
+        {
+          "kind": "flow",
+          "text": "Channel sent 1 south.",
+          "at": {
+            "row": 1,
+            "col": 2
+          },
+          "amount": 1,
+          "concept": "channel"
+        }
+      ],
+      "after": "5c8a76bd",
+      "damage": [
+        0,
+        0
+      ]
+    },
+    {
+      "turn": 5,
+      "before": "5c8a76bd",
+      "offers": [
+        "boil-steam",
+        "fuse-glass",
+        "dig-basin",
+        "grow-reeds",
+        "mix-clay"
+      ],
+      "action": {
+        "type": "wait"
+      },
+      "annotation": {
+        "objective": "Preserve the established defence through middle peak",
+        "expectedEffect": "North grove absorbs two; middle grove absorbs two and its channel drains the extra one",
+        "expectedDamage": [
+          0,
+          0
+        ],
+        "confidence": 0.99
+      },
+      "events": [
+        {
+          "kind": "weather",
+          "text": "Rain arrives: north 2, middle 3, south 0."
+        },
+        {
+          "kind": "flow",
+          "text": "Grove absorbed 2.",
+          "at": {
+            "row": 0,
+            "col": 0
+          },
+          "amount": 2,
+          "concept": "grove"
+        },
+        {
+          "kind": "flow",
+          "text": "Grove absorbed 2.",
+          "at": {
+            "row": 1,
+            "col": 0
+          },
+          "amount": 2,
+          "concept": "grove"
+        },
+        {
+          "kind": "flow",
+          "text": "Channel sent 1 south.",
+          "at": {
+            "row": 1,
+            "col": 2
+          },
+          "amount": 1,
+          "concept": "channel"
+        }
+      ],
+      "after": "ed93f84c",
+      "damage": [
+        0,
+        0
+      ]
+    },
+    {
+      "turn": 6,
+      "before": "ed93f84c",
+      "offers": [
+        "boil-steam",
+        "fuse-glass",
+        "dig-basin",
+        "grow-reeds",
+        "mix-clay"
+      ],
+      "action": {
+        "type": "wait"
+      },
+      "annotation": {
+        "objective": "Finish safely without redundant building",
+        "expectedEffect": "Both groves absorb all incoming rain",
+        "expectedDamage": [
+          0,
+          0
+        ],
+        "confidence": 1
+      },
+      "events": [
+        {
+          "kind": "weather",
+          "text": "Rain arrives: north 2, middle 1, south 0."
+        },
+        {
+          "kind": "flow",
+          "text": "Grove absorbed 2.",
+          "at": {
+            "row": 0,
+            "col": 0
+          },
+          "amount": 2,
+          "concept": "grove"
+        },
+        {
+          "kind": "flow",
+          "text": "Grove absorbed 1.",
+          "at": {
+            "row": 1,
+            "col": 0
+          },
+          "amount": 1,
+          "concept": "grove"
+        }
+      ],
+      "after": "97e2738b",
+      "damage": [
+        0,
+        0
+      ]
+    },
+    {
+      "turn": 7,
+      "before": "97e2738b",
+      "offers": [
+        "boil-steam",
+        "fuse-glass",
+        "dig-basin",
+        "grow-reeds",
+        "mix-clay"
+      ],
+      "action": {
+        "type": "wait"
+      },
+      "annotation": {
+        "objective": "Complete the harmless final rain",
+        "expectedEffect": "Each grove absorbs its one water",
+        "expectedDamage": [
+          0,
+          0
+        ],
+        "confidence": 1
+      },
+      "events": [
+        {
+          "kind": "weather",
+          "text": "Rain arrives: north 1, middle 1, south 0."
+        },
+        {
+          "kind": "flow",
+          "text": "Grove absorbed 1.",
+          "at": {
+            "row": 0,
+            "col": 0
+          },
+          "amount": 1,
+          "concept": "grove"
+        },
+        {
+          "kind": "flow",
+          "text": "Grove absorbed 1.",
+          "at": {
+            "row": 1,
+            "col": 0
+          },
+          "amount": 1,
+          "concept": "grove"
+        }
+      ],
+      "after": "8ed7d412",
+      "damage": [
+        0,
+        0
+      ]
+    },
+    {
+      "turn": 8,
+      "before": "8ed7d412",
+      "offers": [
+        "boil-steam",
+        "fuse-glass",
+        "dig-basin",
+        "grow-reeds",
+        "mix-clay"
+      ],
+      "action": {
+        "type": "wait"
+      },
+      "annotation": {
+        "objective": "Reach storm end with both settlements standing",
+        "expectedEffect": "No rain; storm ends successfully",
+        "expectedDamage": [
+          0,
+          0
+        ],
+        "confidence": 1
+      },
+      "events": [
+        {
+          "kind": "weather",
+          "text": "Rain arrives: north 0, middle 0, south 0."
+        },
+        {
+          "kind": "outcome",
+          "text": "The rain passes. Both places are standing."
+        }
+      ],
+      "after": "bc2feae3",
+      "damage": [
+        0,
+        0
+      ]
+    }
+  ],
+  "outcome": "won",
+  "model": "gpt-6.1-sol (inherited)"
+}
