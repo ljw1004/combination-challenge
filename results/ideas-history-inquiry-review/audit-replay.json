@@ -1,0 +1,101 @@
+{
+  "id": "ih3-pilot-a",
+  "verified": true,
+  "captureSha256": "6342caef498404793ac76e40f910b3a2f8687210f419938877629bc19db47ec8",
+  "sourceSha256": "6c51ea8b88ffa22b18d4c193bc71e6ea937c273e33698b0436fdb970724e81e4",
+  "eventCount": 10,
+  "finished": true,
+  "counts": {
+    "acceptedCombines": 5,
+    "rejectedCombines": 0,
+    "invalidCommands": 0,
+    "queries": 2,
+    "reports": 1,
+    "administrative": 2
+  },
+  "firstComplete": 7,
+  "final": {
+    "version": "ideas-history-inquiry-3",
+    "title": "Glasshouse inquiry",
+    "problem": "A lamp accompanies the opening of a fictional seedling’s leaves. Do leaves follow light itself, immediate warmth, or warmth that persists after the light? Construct an inquiry that can distinguish the three explicit explanations. There is no hidden correct answer.",
+    "goal": "Make one result/study whose prediction groups each contain only one explanation. Short solutions are welcome. You need not tour all controls, find a secret answer, or take a minimum number of actions.",
+    "complete": true,
+    "moves": 5,
+    "shelf": [
+      {
+        "id": "lamp-test",
+        "kind": "method",
+        "label": "Steady lamp comparison; warmth free"
+      },
+      {
+        "id": "cool",
+        "kind": "tool",
+        "label": "Keep both chambers cool"
+      },
+      {
+        "id": "warm",
+        "kind": "tool",
+        "label": "Keep both chambers warm"
+      },
+      {
+        "id": "pulse",
+        "kind": "tool",
+        "label": "Brief light pulse"
+      },
+      {
+        "id": "steady",
+        "kind": "tool",
+        "label": "Steady light"
+      },
+      {
+        "id": "release",
+        "kind": "tool",
+        "label": "Let chamber warmth respond"
+      },
+      {
+        "id": "observe",
+        "kind": "tool",
+        "label": "Record leaf opening"
+      },
+      {
+        "id": "i8",
+        "kind": "method",
+        "label": "Brief pulse; warmth free"
+      },
+      {
+        "id": "i9",
+        "kind": "method",
+        "label": "Steady lamp; warmth held cool"
+      },
+      {
+        "id": "i10",
+        "kind": "result",
+        "label": "Opening diary: Brief pulse; warmth free"
+      },
+      {
+        "id": "i11",
+        "kind": "result",
+        "label": "Opening diary: Steady lamp; warmth held cool"
+      },
+      {
+        "id": "i12",
+        "kind": "result",
+        "label": "Joint inquiry (2 methods)"
+      }
+    ],
+    "commands": "combine/preview ID {\"a\":\"operand\",\"b\":\"operand\"}; inspect ID [THING|laws|models]; offers ID [THING]; report ID JSON; finish ID"
+  },
+  "reports": [
+    {
+      "index": 8,
+      "type": "report",
+      "report": {
+        "experience": "Clear, compact causal-identifiability puzzle. I understood the needed pair of interventions from the initial laws, checked two previews, then built the joint study in five combinations. It felt more like expressing a solution in an interface than discovering one.",
+        "worthDoing": "Choosing complementary experiments was worthwhile: free warmth after a pulse separates retained heat, while cooling under steady light separates direct light from either heat account. Seeing the joint prediction groups made the logical distinction concrete.",
+        "keep": "Keep explicit competing laws, exact previews, immutable reusable methods, and the honest statement that no secret measurement or correct explanation is being revealed.",
+        "shortenRemoveChange": "Shorten repeated forecast formatting into a compact comparison table. Consider allowing a selected method to enter a study directly, since observing merely materializes already known forecasts; the two observation moves were administrative. Keep the short completion path rather than requiring a tour of redundant controls.",
+        "stoppedBecause": "The two-method study has three singleton prediction groups and the public goal is satisfied. More branches would not improve this solution."
+      }
+    }
+  ]
+}
