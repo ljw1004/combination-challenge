@@ -119,3 +119,21 @@ The screen includes random legal choice, greedy relief, a public-rule heuristic,
 - [PLAYER_PROTOCOL.md](experiments/PLAYER_PROTOCOL.md): reproducible fresh-agent instructions.
 
 Preserve a baseline variant when testing one change. Bump the data/build version when changing replay semantics; old replays deliberately fail validation rather than silently adopting new rules. A clean TypeScript build produces a static `dist/` folder suitable for a local HTTP server. No deployment was requested.
+
+## Full Mars playspace (stable Working Materials V2)
+
+The isolated `mars-play.html` adapter uses the unchanged stable V2 engine: 58 named concepts, 30 source goals, ten compact sites and real contextual operations. Normal onboarding starts with two pieces; actual solar-lead creation introduces its deployment task in a persisted modal. Sites and verified debug checkpoints present relevant working pieces directly—there is no global catalogue picker. Older research interfaces and their browser saves are separate.
+
+Requires Node **22.18+** and the versions pinned in `package-lock.json`:
+
+```sh
+npm ci
+npx tsc -p mars-play.tsconfig.json
+npx vite --config mars-play.vite.config.ts       # open /mars-play.html
+npx vite build --config mars-play.vite.config.ts # ignored dist-mars-play/
+node --test tests/mars-play-*.test.ts
+```
+
+The Mars-specific config does not replace `npm run build` for the older research entry point. In the private hosted Site, `index.html` serves Mars, `ux-lab.html` retains the earlier staged experiment, and `workshop.html` retains the original workshop. Those two debug-link aliases are deployment entry names, not new research-root pages; local equivalents remain `playspace.html` and `checkpoint.html` with their respective Vite configs.
+
+See [coverage and interaction inventory](docs/mars-play-coverage.md) and [independent review and verification limits](docs/mars-play-independent-review.md). Engine/model and synthetic DOM tests are not a native-browser layout, input or accessibility pass. Historical test logs must be interpreted with their recorded UI-version limitations; publication manifests pin exact file hashes rather than treating an old pass as evidence for changed code. No hosting identity or credentials belong in the research publication snapshot.
