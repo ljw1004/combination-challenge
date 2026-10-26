@@ -1,0 +1,543 @@
+{
+  "freeze": {
+    "version": "geometric-materials-1",
+    "status": "First stable mechanical freeze; independent audit and publication required before fresh play",
+    "sources": [
+      {
+        "path": "docs/geometric-materials-content-plan.md",
+        "bytes": 11145,
+        "sha256": "a2a6bc0bc9906fdde70e2eb2bd509179ba10e4fe9d16b0e909bc99f01ca9d3b2",
+        "gitBlobSha1": "a3db309a3b3dc3416a03f181953f70afacf4b4aa"
+      },
+      {
+        "path": "docs/geometric-materials.md",
+        "bytes": 7646,
+        "sha256": "9e0c81c8696c262283897529f7fc55bfe34acdf736a4099e0839250bdfde5cec",
+        "gitBlobSha1": "635e80d6974aa546b0c1b60d99dc78c0d7756136"
+      },
+      {
+        "path": "experiments/geometric-materials-content.ts",
+        "bytes": 13024,
+        "sha256": "07f279b1e3166bd4c803b21509abbdc6f2ff21c44752f71ae18cb7cf03cfb583",
+        "gitBlobSha1": "dd44780c72eb81012d84065225e816e0d957b09a"
+      },
+      {
+        "path": "experiments/geometric-materials-controls.ts",
+        "bytes": 15087,
+        "sha256": "8c3ddf51c0cc2f717383513cecb049356019a7caafc8faf5f8c526b14cadcb3e",
+        "gitBlobSha1": "40ff835c04ef3e2686c2530a98ed4a42dc999971"
+      },
+      {
+        "path": "experiments/geometric-materials-engine.ts",
+        "bytes": 24949,
+        "sha256": "971d172a86b53c6749fe706a350269fad294976e5f0d284144c0a0c07ddd83e9",
+        "gitBlobSha1": "d3448c13de334d8c0faae27b6dd43c1958ff3111"
+      },
+      {
+        "path": "experiments/geometric-materials-geometry.ts",
+        "bytes": 3901,
+        "sha256": "2d8b0c97f88730934f17118e228fd65bb73de4f4b5c7972611067747e89d2c8c",
+        "gitBlobSha1": "60f7da3921f36168376064567ea4e2620f73b5f5"
+      },
+      {
+        "path": "experiments/geometric-materials-play.ts",
+        "bytes": 31816,
+        "sha256": "bdc4e1afa6205700ec4657b63a1f3e3a6e3cdbba53ae30dab384fabf467de7be",
+        "gitBlobSha1": "c750865e04d3980a2d1bdd91d4adb4355410f948"
+      },
+      {
+        "path": "experiments/geometric-materials-types.ts",
+        "bytes": 2536,
+        "sha256": "1accb56852f81b3327d80c08559e93a17e79a9e8bfad3d54b131ecba18b41c61",
+        "gitBlobSha1": "5a7567fe34cd128f9750617bf8c8ec8d38d315e6"
+      },
+      {
+        "path": "tests/geometric-materials-cli.test.ts",
+        "bytes": 4299,
+        "sha256": "4f7dcabe34bcf9a642f0155353424da78bf7e52759f34d3439c7eb020886958e",
+        "gitBlobSha1": "aa853d165799d67f1fbef2d810c14b7421ff941e"
+      },
+      {
+        "path": "tests/geometric-materials.test.ts",
+        "bytes": 10639,
+        "sha256": "9faedf0b90a572acc60b54ad436f803434d8df25e6bcf1441d398b447277ebbe",
+        "gitBlobSha1": "03876704d234923c2bcd898a46565a41ba83db32"
+      }
+    ],
+    "fullAccepted": {
+      "ordinary": 50,
+      "complete": 50,
+      "saved": 43
+    },
+    "newTests": 23,
+    "claims": "Mechanics only; not fun, optimum, or about-200 result"
+  },
+  "results": [
+    {
+      "name": "opaque-focal-path",
+      "accepted": 3,
+      "rejected": 0,
+      "findings": {
+        "camera": {
+          "id": "o:9",
+          "design": "camera",
+          "parts": [
+            {
+              "id": "p:10",
+              "kind": "lens",
+              "pose": {
+                "position": [
+                  0,
+                  0,
+                  0
+                ],
+                "rotation": [
+                  [
+                    1,
+                    0,
+                    0
+                  ],
+                  [
+                    0,
+                    1,
+                    0
+                  ],
+                  [
+                    0,
+                    0,
+                    1
+                  ]
+                ]
+              },
+              "surface": {
+                "rigidity": "flexible",
+                "optical": "clear",
+                "permeability": "watertight",
+                "recording": "none"
+              },
+              "profile": "unit",
+              "shapes": [
+                {
+                  "min": [
+                    -0.5,
+                    -0.5,
+                    0
+                  ],
+                  "max": [
+                    0.5,
+                    0.5,
+                    1
+                  ]
+                }
+              ],
+              "records": [],
+              "events": []
+            },
+            {
+              "id": "p:11",
+              "kind": "record-plate",
+              "pose": {
+                "position": [
+                  -1,
+                  0,
+                  0
+                ],
+                "rotation": [
+                  [
+                    1,
+                    0,
+                    0
+                  ],
+                  [
+                    0,
+                    1,
+                    0
+                  ],
+                  [
+                    0,
+                    0,
+                    1
+                  ]
+                ]
+              },
+              "surface": {
+                "rigidity": "rigid",
+                "optical": "opaque",
+                "permeability": "watertight",
+                "recording": "durable"
+              },
+              "profile": "unit",
+              "shapes": [
+                {
+                  "min": [
+                    -0.5,
+                    -0.5,
+                    0
+                  ],
+                  "max": [
+                    0.5,
+                    0.5,
+                    1
+                  ]
+                }
+              ],
+              "records": [
+                {
+                  "id": "record:14",
+                  "subject": "beacon",
+                  "center": [
+                    2,
+                    1,
+                    0.5
+                  ],
+                  "heading": [
+                    1,
+                    0,
+                    0
+                  ],
+                  "target": [
+                    5,
+                    1,
+                    0.5
+                  ],
+                  "front": [
+                    -1,
+                    0,
+                    0
+                  ],
+                  "lens": "p:10",
+                  "plate": "p:11",
+                  "boundaries": [],
+                  "intervention": 3
+                }
+              ],
+              "events": [],
+              "parent": "p:10"
+            }
+          ],
+          "pose": {
+            "position": [
+              2,
+              1,
+              0
+            ],
+            "rotation": [
+              [
+                1,
+                0,
+                0
+              ],
+              [
+                0,
+                1,
+                0
+              ],
+              [
+                0,
+                0,
+                1
+              ]
+            ]
+          }
+        },
+        "foil": {
+          "id": "o:12",
+          "design": "foil",
+          "parts": [
+            {
+              "id": "p:13",
+              "kind": "foil",
+              "pose": {
+                "position": [
+                  0,
+                  0,
+                  0
+                ],
+                "rotation": [
+                  [
+                    1,
+                    0,
+                    0
+                  ],
+                  [
+                    0,
+                    1,
+                    0
+                  ],
+                  [
+                    0,
+                    0,
+                    1
+                  ]
+                ]
+              },
+              "surface": {
+                "rigidity": "rigid",
+                "optical": "opaque",
+                "permeability": "watertight",
+                "recording": "none"
+              },
+              "profile": "roof-panel",
+              "shapes": [
+                {
+                  "min": [
+                    -0.5,
+                    -0.5,
+                    1.5
+                  ],
+                  "max": [
+                    0.5,
+                    0.5,
+                    1.5
+                  ]
+                }
+              ],
+              "records": [],
+              "events": []
+            }
+          ],
+          "pose": {
+            "position": [
+              0,
+              1,
+              0.5
+            ],
+            "rotation": [
+              [
+                0,
+                0,
+                1
+              ],
+              [
+                0,
+                1,
+                0
+              ],
+              [
+                -1,
+                0,
+                0
+              ]
+            ]
+          }
+        },
+        "cameraGeometry": [
+          {
+            "object": "o:9",
+            "part": "p:10",
+            "kind": "lens",
+            "surface": {
+              "rigidity": "flexible",
+              "optical": "clear",
+              "permeability": "watertight",
+              "recording": "none"
+            },
+            "box": {
+              "min": [
+                1.5,
+                0.5,
+                0
+              ],
+              "max": [
+                2.5,
+                1.5,
+                1
+              ]
+            }
+          },
+          {
+            "object": "o:9",
+            "part": "p:11",
+            "kind": "record-plate",
+            "surface": {
+              "rigidity": "rigid",
+              "optical": "opaque",
+              "permeability": "watertight",
+              "recording": "durable"
+            },
+            "box": {
+              "min": [
+                0.5,
+                0.5,
+                0
+              ],
+              "max": [
+                1.5,
+                1.5,
+                1
+              ]
+            }
+          }
+        ],
+        "foilGeometry": [
+          {
+            "object": "o:12",
+            "part": "p:13",
+            "kind": "foil",
+            "surface": {
+              "rigidity": "rigid",
+              "optical": "opaque",
+              "permeability": "watertight",
+              "recording": "none"
+            },
+            "box": {
+              "min": [
+                1.5,
+                0.5,
+                0
+              ],
+              "max": [
+                1.5,
+                1.5,
+                1
+              ]
+            }
+          }
+        ],
+        "observedDespiteOpaquePanelBetweenLensAndPlate": true,
+        "question": "Target ray alone checked; actual focal-space ray from lens to plate crosses opaque shared-face panel."
+      }
+    },
+    {
+      "name": "front-path-and-normal",
+      "accepted": 9,
+      "rejected": 2,
+      "findings": {
+        "frontOpaqueRejected": true,
+        "frontClearAccepted": true,
+        "wrongPlateNormalRejected": true,
+        "priorRecords": [
+          {
+            "id": "record:16",
+            "subject": "beacon",
+            "center": [
+              2,
+              1,
+              0.5
+            ],
+            "heading": [
+              1,
+              0,
+              0
+            ],
+            "target": [
+              5,
+              1,
+              0.5
+            ],
+            "front": [
+              -1,
+              0,
+              0
+            ],
+            "lens": "p:10",
+            "plate": "p:11",
+            "boundaries": [
+              {
+                "part": "p:15",
+                "surface": {
+                  "rigidity": "flexible",
+                  "optical": "clear",
+                  "permeability": "watertight",
+                  "recording": "none"
+                },
+                "box": {
+                  "min": [
+                    2.5,
+                    0.5,
+                    0
+                  ],
+                  "max": [
+                    2.5,
+                    1.5,
+                    1
+                  ]
+                }
+              }
+            ],
+            "intervention": 5
+          }
+        ]
+      }
+    },
+    {
+      "name": "wet-source-readability",
+      "accepted": 8,
+      "rejected": 0,
+      "findings": {
+        "wetTemporaryCopyGoalFalse": true,
+        "unreadWetSurfaceUsedAsPhysicalSource": true,
+        "unreadWetSurfaceTransmitted": true
+      }
+    },
+    {
+      "name": "rigid-relocation-and-poses",
+      "accepted": 9,
+      "rejected": 2,
+      "findings": {
+        "initialEastBlocked": true,
+        "nearBlocksNorth": true,
+        "sideRelocationWorks": true,
+        "hingeNotNeeded": true,
+        "records": [
+          {
+            "id": "record:12",
+            "subject": "A",
+            "center": [
+              2,
+              1,
+              0.5
+            ],
+            "heading": [
+              1,
+              0,
+              0
+            ],
+            "target": [
+              5,
+              1,
+              0.5
+            ],
+            "front": [
+              -1,
+              0,
+              0
+            ],
+            "lens": "p:10",
+            "plate": "p:11",
+            "boundaries": [],
+            "intervention": 5
+          },
+          {
+            "id": "record:13",
+            "subject": "B",
+            "center": [
+              2,
+              1,
+              0.5
+            ],
+            "heading": [
+              0,
+              -1,
+              0
+            ],
+            "target": [
+              2,
+              -2,
+              0.5
+            ],
+            "front": [
+              0,
+              1,
+              0
+            ],
+            "lens": "p:10",
+            "plate": "p:11",
+            "boundaries": [],
+            "intervention": 9
+          }
+        ]
+      }
+    }
+  ]
+}
