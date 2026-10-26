@@ -1,0 +1,2693 @@
+{
+  "id": "ih3-pilot-a",
+  "sourceHash": "6c51ea8b88ffa22b18d4c193bc71e6ea937c273e33698b0436fdb970724e81e4",
+  "state": {
+    "version": "ideas-history-inquiry-3",
+    "things": [
+      {
+        "kind": "method",
+        "id": "lamp-test",
+        "label": "Steady lamp comparison; warmth free",
+        "pulse": false,
+        "warmth": null,
+        "parents": []
+      },
+      {
+        "kind": "tool",
+        "id": "cool",
+        "label": "Keep both chambers cool",
+        "effect": "Clamp warmth to 0 throughout both trials, blocking current and retained heat."
+      },
+      {
+        "kind": "tool",
+        "id": "warm",
+        "label": "Keep both chambers warm",
+        "effect": "Clamp warmth to 1 throughout both trials, regardless of the lamp."
+      },
+      {
+        "kind": "tool",
+        "id": "pulse",
+        "label": "Brief light pulse",
+        "effect": "Keep the left chamber dark; light the right chamber only in the middle moment. Preserve the existing thermostat setting."
+      },
+      {
+        "kind": "tool",
+        "id": "steady",
+        "label": "Steady light",
+        "effect": "Keep the left chamber dark and the right chamber lit for all three moments. Preserve the existing thermostat setting."
+      },
+      {
+        "kind": "tool",
+        "id": "release",
+        "label": "Let chamber warmth respond",
+        "effect": "Remove the thermostat clamp, allowing warmth to follow each explanation. Preserve the light schedule."
+      },
+      {
+        "kind": "tool",
+        "id": "observe",
+        "label": "Record leaf opening",
+        "effect": "Make a result containing every explanation’s exact opening diary for both chambers. No secret correct explanation is selected."
+      },
+      {
+        "kind": "method",
+        "id": "i8",
+        "label": "Brief pulse; warmth free",
+        "pulse": true,
+        "warmth": null,
+        "parents": [
+          "lamp-test",
+          "pulse"
+        ]
+      },
+      {
+        "kind": "method",
+        "id": "i9",
+        "label": "Steady lamp; warmth held cool",
+        "pulse": false,
+        "warmth": 0,
+        "parents": [
+          "lamp-test",
+          "cool"
+        ]
+      },
+      {
+        "kind": "result",
+        "id": "i10",
+        "label": "Opening diary: Brief pulse; warmth free",
+        "methods": [
+          {
+            "kind": "method",
+            "id": "i8",
+            "label": "Brief pulse; warmth free",
+            "pulse": true,
+            "warmth": null,
+            "parents": [
+              "lamp-test",
+              "pulse"
+            ]
+          }
+        ],
+        "parents": [
+          "i8",
+          "observe"
+        ]
+      },
+      {
+        "kind": "result",
+        "id": "i11",
+        "label": "Opening diary: Steady lamp; warmth held cool",
+        "methods": [
+          {
+            "kind": "method",
+            "id": "i9",
+            "label": "Steady lamp; warmth held cool",
+            "pulse": false,
+            "warmth": 0,
+            "parents": [
+              "lamp-test",
+              "cool"
+            ]
+          }
+        ],
+        "parents": [
+          "i9",
+          "observe"
+        ]
+      },
+      {
+        "kind": "result",
+        "id": "i12",
+        "label": "Joint inquiry (2 methods)",
+        "methods": [
+          {
+            "kind": "method",
+            "id": "i9",
+            "label": "Steady lamp; warmth held cool",
+            "pulse": false,
+            "warmth": 0,
+            "parents": [
+              "lamp-test",
+              "cool"
+            ]
+          },
+          {
+            "kind": "method",
+            "id": "i8",
+            "label": "Brief pulse; warmth free",
+            "pulse": true,
+            "warmth": null,
+            "parents": [
+              "lamp-test",
+              "pulse"
+            ]
+          }
+        ],
+        "parents": [
+          "i10",
+          "i11"
+        ]
+      }
+    ],
+    "moves": 5,
+    "actions": [
+      {
+        "a": "lamp-test",
+        "b": "pulse"
+      },
+      {
+        "a": "lamp-test",
+        "b": "cool"
+      },
+      {
+        "a": "i8",
+        "b": "observe"
+      },
+      {
+        "a": "i9",
+        "b": "observe"
+      },
+      {
+        "a": "i10",
+        "b": "i11"
+      }
+    ]
+  },
+  "events": [
+    {
+      "at": "2026-10-26T18:49:05.594Z",
+      "cmd": "init",
+      "argument": null,
+      "before": {
+        "version": "ideas-history-inquiry-3",
+        "things": [
+          {
+            "kind": "method",
+            "id": "lamp-test",
+            "label": "Steady lamp comparison; warmth free",
+            "pulse": false,
+            "warmth": null,
+            "parents": []
+          },
+          {
+            "kind": "tool",
+            "id": "cool",
+            "label": "Keep both chambers cool",
+            "effect": "Clamp warmth to 0 throughout both trials, blocking current and retained heat."
+          },
+          {
+            "kind": "tool",
+            "id": "warm",
+            "label": "Keep both chambers warm",
+            "effect": "Clamp warmth to 1 throughout both trials, regardless of the lamp."
+          },
+          {
+            "kind": "tool",
+            "id": "pulse",
+            "label": "Brief light pulse",
+            "effect": "Keep the left chamber dark; light the right chamber only in the middle moment. Preserve the existing thermostat setting."
+          },
+          {
+            "kind": "tool",
+            "id": "steady",
+            "label": "Steady light",
+            "effect": "Keep the left chamber dark and the right chamber lit for all three moments. Preserve the existing thermostat setting."
+          },
+          {
+            "kind": "tool",
+            "id": "release",
+            "label": "Let chamber warmth respond",
+            "effect": "Remove the thermostat clamp, allowing warmth to follow each explanation. Preserve the light schedule."
+          },
+          {
+            "kind": "tool",
+            "id": "observe",
+            "label": "Record leaf opening",
+            "effect": "Make a result containing every explanation’s exact opening diary for both chambers. No secret correct explanation is selected."
+          }
+        ],
+        "moves": 0,
+        "actions": []
+      },
+      "after": {
+        "version": "ideas-history-inquiry-3",
+        "things": [
+          {
+            "kind": "method",
+            "id": "lamp-test",
+            "label": "Steady lamp comparison; warmth free",
+            "pulse": false,
+            "warmth": null,
+            "parents": []
+          },
+          {
+            "kind": "tool",
+            "id": "cool",
+            "label": "Keep both chambers cool",
+            "effect": "Clamp warmth to 0 throughout both trials, blocking current and retained heat."
+          },
+          {
+            "kind": "tool",
+            "id": "warm",
+            "label": "Keep both chambers warm",
+            "effect": "Clamp warmth to 1 throughout both trials, regardless of the lamp."
+          },
+          {
+            "kind": "tool",
+            "id": "pulse",
+            "label": "Brief light pulse",
+            "effect": "Keep the left chamber dark; light the right chamber only in the middle moment. Preserve the existing thermostat setting."
+          },
+          {
+            "kind": "tool",
+            "id": "steady",
+            "label": "Steady light",
+            "effect": "Keep the left chamber dark and the right chamber lit for all three moments. Preserve the existing thermostat setting."
+          },
+          {
+            "kind": "tool",
+            "id": "release",
+            "label": "Let chamber warmth respond",
+            "effect": "Remove the thermostat clamp, allowing warmth to follow each explanation. Preserve the light schedule."
+          },
+          {
+            "kind": "tool",
+            "id": "observe",
+            "label": "Record leaf opening",
+            "effect": "Make a result containing every explanation’s exact opening diary for both chambers. No secret correct explanation is selected."
+          }
+        ],
+        "moves": 0,
+        "actions": []
+      },
+      "beforeHash": "ea5de62a7774ac56c3d76d5fa18a7513bbc0b65e46cc9e2610d67ec5ec87b555",
+      "afterHash": "ea5de62a7774ac56c3d76d5fa18a7513bbc0b65e46cc9e2610d67ec5ec87b555",
+      "output": {
+        "version": "ideas-history-inquiry-3",
+        "title": "Glasshouse inquiry",
+        "problem": "A lamp accompanies the opening of a fictional seedling’s leaves. Do leaves follow light itself, immediate warmth, or warmth that persists after the light? Construct an inquiry that can distinguish the three explicit explanations. There is no hidden correct answer.",
+        "goal": "Make one result/study whose prediction groups each contain only one explanation. Short solutions are welcome. You need not tour all controls, find a secret answer, or take a minimum number of actions.",
+        "complete": false,
+        "moves": 0,
+        "shelf": [
+          {
+            "id": "lamp-test",
+            "kind": "method",
+            "label": "Steady lamp comparison; warmth free"
+          },
+          {
+            "id": "cool",
+            "kind": "tool",
+            "label": "Keep both chambers cool"
+          },
+          {
+            "id": "warm",
+            "kind": "tool",
+            "label": "Keep both chambers warm"
+          },
+          {
+            "id": "pulse",
+            "kind": "tool",
+            "label": "Brief light pulse"
+          },
+          {
+            "id": "steady",
+            "kind": "tool",
+            "label": "Steady light"
+          },
+          {
+            "id": "release",
+            "kind": "tool",
+            "label": "Let chamber warmth respond"
+          },
+          {
+            "id": "observe",
+            "kind": "tool",
+            "label": "Record leaf opening"
+          }
+        ],
+        "commands": "combine/preview ID {\"a\":\"operand\",\"b\":\"operand\"}; inspect ID [THING|laws|models]; offers ID [THING]; report ID JSON; finish ID",
+        "laws": {
+          "problem": "A lamp accompanies the opening of a fictional seedling’s leaves. Do leaves follow light itself, immediate warmth, or warmth that persists after the light? Construct an inquiry that can distinguish the three explicit explanations. There is no hidden correct answer.",
+          "trial": "A method compares two chambers over three moments; warmth before the first controlled moment is zero. The reference chamber stays dark. The test chamber is steadily lit or receives a middle-moment pulse. Record leaf opening reads all three moments. Automatic moments are forecasts, not player turns.",
+          "controls": "A method + a control makes a new reusable method. Cool/warm replaces the thermostat setting in the child; release removes it. Pulse/steady changes the lamp schedule. Parents remain unchanged. A clamp overrides retained heat too: cooling changes the causal question rather than automatically improving every method.",
+          "observe": "A method + Record leaf opening produces a forecast-result object. All explanations and exact trajectories are already inspectable. Recording commits your selected method as an operand; it does not reveal a secret measurement.",
+          "study": "Two results combine into a study retaining their methods. It groups explanations that predict identical opening diaries across those methods. Combining a result with itself adds nothing. Signature notation: 0 means closed, 1 open; dark-chamber diary / test-chamber diary; | separates methods.",
+          "goal": "Make one result/study whose prediction groups each contain only one explanation. Short solutions are welcome. You need not tour all controls, find a secret answer, or take a minimum number of actions.",
+          "disclosure": "inspect shows full per-moment light, warmth and opening forecasts; offers shows every legal pair and exact output, including duplicates. Inputs are inexhaustible. There are no inventories, budgets, scores or hidden recipes.",
+          "limits": "These deterministic leaf-opening laws are invented, not real botany or a historical account. Identifiability under toy models does not prove a real causal explanation."
+        },
+        "models": [
+          {
+            "id": "light",
+            "label": "Leaves follow light directly",
+            "law": "Leaves open exactly when the lamp is on. Warmth does not affect opening; uncontrolled chamber warmth follows the current lamp."
+          },
+          {
+            "id": "heat",
+            "label": "Leaves follow immediate warmth",
+            "law": "An uncontrolled chamber is warm exactly when the lamp is on. Leaves open exactly when warm."
+          },
+          {
+            "id": "stored",
+            "label": "Leaves follow retained warmth",
+            "law": "An uncontrolled chamber stays warm while the lamp is on OR was on in the previous moment. Leaves open exactly when warm."
+          }
+        ]
+      }
+    },
+    {
+      "at": "2026-10-26T18:49:08.486Z",
+      "cmd": "preview",
+      "argument": "{\"a\":\"lamp-test\",\"b\":\"pulse\"}",
+      "before": {
+        "version": "ideas-history-inquiry-3",
+        "things": [
+          {
+            "kind": "method",
+            "id": "lamp-test",
+            "label": "Steady lamp comparison; warmth free",
+            "pulse": false,
+            "warmth": null,
+            "parents": []
+          },
+          {
+            "kind": "tool",
+            "id": "cool",
+            "label": "Keep both chambers cool",
+            "effect": "Clamp warmth to 0 throughout both trials, blocking current and retained heat."
+          },
+          {
+            "kind": "tool",
+            "id": "warm",
+            "label": "Keep both chambers warm",
+            "effect": "Clamp warmth to 1 throughout both trials, regardless of the lamp."
+          },
+          {
+            "kind": "tool",
+            "id": "pulse",
+            "label": "Brief light pulse",
+            "effect": "Keep the left chamber dark; light the right chamber only in the middle moment. Preserve the existing thermostat setting."
+          },
+          {
+            "kind": "tool",
+            "id": "steady",
+            "label": "Steady light",
+            "effect": "Keep the left chamber dark and the right chamber lit for all three moments. Preserve the existing thermostat setting."
+          },
+          {
+            "kind": "tool",
+            "id": "release",
+            "label": "Let chamber warmth respond",
+            "effect": "Remove the thermostat clamp, allowing warmth to follow each explanation. Preserve the light schedule."
+          },
+          {
+            "kind": "tool",
+            "id": "observe",
+            "label": "Record leaf opening",
+            "effect": "Make a result containing every explanation’s exact opening diary for both chambers. No secret correct explanation is selected."
+          }
+        ],
+        "moves": 0,
+        "actions": []
+      },
+      "after": {
+        "version": "ideas-history-inquiry-3",
+        "things": [
+          {
+            "kind": "method",
+            "id": "lamp-test",
+            "label": "Steady lamp comparison; warmth free",
+            "pulse": false,
+            "warmth": null,
+            "parents": []
+          },
+          {
+            "kind": "tool",
+            "id": "cool",
+            "label": "Keep both chambers cool",
+            "effect": "Clamp warmth to 0 throughout both trials, blocking current and retained heat."
+          },
+          {
+            "kind": "tool",
+            "id": "warm",
+            "label": "Keep both chambers warm",
+            "effect": "Clamp warmth to 1 throughout both trials, regardless of the lamp."
+          },
+          {
+            "kind": "tool",
+            "id": "pulse",
+            "label": "Brief light pulse",
+            "effect": "Keep the left chamber dark; light the right chamber only in the middle moment. Preserve the existing thermostat setting."
+          },
+          {
+            "kind": "tool",
+            "id": "steady",
+            "label": "Steady light",
+            "effect": "Keep the left chamber dark and the right chamber lit for all three moments. Preserve the existing thermostat setting."
+          },
+          {
+            "kind": "tool",
+            "id": "release",
+            "label": "Let chamber warmth respond",
+            "effect": "Remove the thermostat clamp, allowing warmth to follow each explanation. Preserve the light schedule."
+          },
+          {
+            "kind": "tool",
+            "id": "observe",
+            "label": "Record leaf opening",
+            "effect": "Make a result containing every explanation’s exact opening diary for both chambers. No secret correct explanation is selected."
+          }
+        ],
+        "moves": 0,
+        "actions": []
+      },
+      "beforeHash": "ea5de62a7774ac56c3d76d5fa18a7513bbc0b65e46cc9e2610d67ec5ec87b555",
+      "afterHash": "ea5de62a7774ac56c3d76d5fa18a7513bbc0b65e46cc9e2610d67ec5ec87b555",
+      "output": {
+        "id": "i8",
+        "kind": "method",
+        "label": "Brief pulse; warmth free",
+        "pulse": true,
+        "warmth": "free",
+        "forecasts": [
+          {
+            "explanation": "Leaves follow light directly",
+            "diary": [
+              {
+                "chamber": "dark chamber",
+                "opening": "closed → closed → closed"
+              },
+              {
+                "chamber": "test chamber",
+                "opening": "closed → open → closed"
+              }
+            ]
+          },
+          {
+            "explanation": "Leaves follow immediate warmth",
+            "diary": [
+              {
+                "chamber": "dark chamber",
+                "opening": "closed → closed → closed"
+              },
+              {
+                "chamber": "test chamber",
+                "opening": "closed → open → closed"
+              }
+            ]
+          },
+          {
+            "explanation": "Leaves follow retained warmth",
+            "diary": [
+              {
+                "chamber": "dark chamber",
+                "opening": "closed → closed → closed"
+              },
+              {
+                "chamber": "test chamber",
+                "opening": "closed → open → open"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "at": "2026-10-26T18:49:08.582Z",
+      "cmd": "preview",
+      "argument": "{\"a\":\"lamp-test\",\"b\":\"cool\"}",
+      "before": {
+        "version": "ideas-history-inquiry-3",
+        "things": [
+          {
+            "kind": "method",
+            "id": "lamp-test",
+            "label": "Steady lamp comparison; warmth free",
+            "pulse": false,
+            "warmth": null,
+            "parents": []
+          },
+          {
+            "kind": "tool",
+            "id": "cool",
+            "label": "Keep both chambers cool",
+            "effect": "Clamp warmth to 0 throughout both trials, blocking current and retained heat."
+          },
+          {
+            "kind": "tool",
+            "id": "warm",
+            "label": "Keep both chambers warm",
+            "effect": "Clamp warmth to 1 throughout both trials, regardless of the lamp."
+          },
+          {
+            "kind": "tool",
+            "id": "pulse",
+            "label": "Brief light pulse",
+            "effect": "Keep the left chamber dark; light the right chamber only in the middle moment. Preserve the existing thermostat setting."
+          },
+          {
+            "kind": "tool",
+            "id": "steady",
+            "label": "Steady light",
+            "effect": "Keep the left chamber dark and the right chamber lit for all three moments. Preserve the existing thermostat setting."
+          },
+          {
+            "kind": "tool",
+            "id": "release",
+            "label": "Let chamber warmth respond",
+            "effect": "Remove the thermostat clamp, allowing warmth to follow each explanation. Preserve the light schedule."
+          },
+          {
+            "kind": "tool",
+            "id": "observe",
+            "label": "Record leaf opening",
+            "effect": "Make a result containing every explanation’s exact opening diary for both chambers. No secret correct explanation is selected."
+          }
+        ],
+        "moves": 0,
+        "actions": []
+      },
+      "after": {
+        "version": "ideas-history-inquiry-3",
+        "things": [
+          {
+            "kind": "method",
+            "id": "lamp-test",
+            "label": "Steady lamp comparison; warmth free",
+            "pulse": false,
+            "warmth": null,
+            "parents": []
+          },
+          {
+            "kind": "tool",
+            "id": "cool",
+            "label": "Keep both chambers cool",
+            "effect": "Clamp warmth to 0 throughout both trials, blocking current and retained heat."
+          },
+          {
+            "kind": "tool",
+            "id": "warm",
+            "label": "Keep both chambers warm",
+            "effect": "Clamp warmth to 1 throughout both trials, regardless of the lamp."
+          },
+          {
+            "kind": "tool",
+            "id": "pulse",
+            "label": "Brief light pulse",
+            "effect": "Keep the left chamber dark; light the right chamber only in the middle moment. Preserve the existing thermostat setting."
+          },
+          {
+            "kind": "tool",
+            "id": "steady",
+            "label": "Steady light",
+            "effect": "Keep the left chamber dark and the right chamber lit for all three moments. Preserve the existing thermostat setting."
+          },
+          {
+            "kind": "tool",
+            "id": "release",
+            "label": "Let chamber warmth respond",
+            "effect": "Remove the thermostat clamp, allowing warmth to follow each explanation. Preserve the light schedule."
+          },
+          {
+            "kind": "tool",
+            "id": "observe",
+            "label": "Record leaf opening",
+            "effect": "Make a result containing every explanation’s exact opening diary for both chambers. No secret correct explanation is selected."
+          }
+        ],
+        "moves": 0,
+        "actions": []
+      },
+      "beforeHash": "ea5de62a7774ac56c3d76d5fa18a7513bbc0b65e46cc9e2610d67ec5ec87b555",
+      "afterHash": "ea5de62a7774ac56c3d76d5fa18a7513bbc0b65e46cc9e2610d67ec5ec87b555",
+      "output": {
+        "id": "i8",
+        "kind": "method",
+        "label": "Steady lamp; warmth held cool",
+        "pulse": false,
+        "warmth": 0,
+        "forecasts": [
+          {
+            "explanation": "Leaves follow light directly",
+            "diary": [
+              {
+                "chamber": "dark chamber",
+                "opening": "closed → closed → closed"
+              },
+              {
+                "chamber": "test chamber",
+                "opening": "open → open → open"
+              }
+            ]
+          },
+          {
+            "explanation": "Leaves follow immediate warmth",
+            "diary": [
+              {
+                "chamber": "dark chamber",
+                "opening": "closed → closed → closed"
+              },
+              {
+                "chamber": "test chamber",
+                "opening": "closed → closed → closed"
+              }
+            ]
+          },
+          {
+            "explanation": "Leaves follow retained warmth",
+            "diary": [
+              {
+                "chamber": "dark chamber",
+                "opening": "closed → closed → closed"
+              },
+              {
+                "chamber": "test chamber",
+                "opening": "closed → closed → closed"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "at": "2026-10-26T18:49:12.392Z",
+      "cmd": "combine",
+      "argument": "{\"a\":\"lamp-test\",\"b\":\"pulse\"}",
+      "before": {
+        "version": "ideas-history-inquiry-3",
+        "things": [
+          {
+            "kind": "method",
+            "id": "lamp-test",
+            "label": "Steady lamp comparison; warmth free",
+            "pulse": false,
+            "warmth": null,
+            "parents": []
+          },
+          {
+            "kind": "tool",
+            "id": "cool",
+            "label": "Keep both chambers cool",
+            "effect": "Clamp warmth to 0 throughout both trials, blocking current and retained heat."
+          },
+          {
+            "kind": "tool",
+            "id": "warm",
+            "label": "Keep both chambers warm",
+            "effect": "Clamp warmth to 1 throughout both trials, regardless of the lamp."
+          },
+          {
+            "kind": "tool",
+            "id": "pulse",
+            "label": "Brief light pulse",
+            "effect": "Keep the left chamber dark; light the right chamber only in the middle moment. Preserve the existing thermostat setting."
+          },
+          {
+            "kind": "tool",
+            "id": "steady",
+            "label": "Steady light",
+            "effect": "Keep the left chamber dark and the right chamber lit for all three moments. Preserve the existing thermostat setting."
+          },
+          {
+            "kind": "tool",
+            "id": "release",
+            "label": "Let chamber warmth respond",
+            "effect": "Remove the thermostat clamp, allowing warmth to follow each explanation. Preserve the light schedule."
+          },
+          {
+            "kind": "tool",
+            "id": "observe",
+            "label": "Record leaf opening",
+            "effect": "Make a result containing every explanation’s exact opening diary for both chambers. No secret correct explanation is selected."
+          }
+        ],
+        "moves": 0,
+        "actions": []
+      },
+      "after": {
+        "version": "ideas-history-inquiry-3",
+        "things": [
+          {
+            "kind": "method",
+            "id": "lamp-test",
+            "label": "Steady lamp comparison; warmth free",
+            "pulse": false,
+            "warmth": null,
+            "parents": []
+          },
+          {
+            "kind": "tool",
+            "id": "cool",
+            "label": "Keep both chambers cool",
+            "effect": "Clamp warmth to 0 throughout both trials, blocking current and retained heat."
+          },
+          {
+            "kind": "tool",
+            "id": "warm",
+            "label": "Keep both chambers warm",
+            "effect": "Clamp warmth to 1 throughout both trials, regardless of the lamp."
+          },
+          {
+            "kind": "tool",
+            "id": "pulse",
+            "label": "Brief light pulse",
+            "effect": "Keep the left chamber dark; light the right chamber only in the middle moment. Preserve the existing thermostat setting."
+          },
+          {
+            "kind": "tool",
+            "id": "steady",
+            "label": "Steady light",
+            "effect": "Keep the left chamber dark and the right chamber lit for all three moments. Preserve the existing thermostat setting."
+          },
+          {
+            "kind": "tool",
+            "id": "release",
+            "label": "Let chamber warmth respond",
+            "effect": "Remove the thermostat clamp, allowing warmth to follow each explanation. Preserve the light schedule."
+          },
+          {
+            "kind": "tool",
+            "id": "observe",
+            "label": "Record leaf opening",
+            "effect": "Make a result containing every explanation’s exact opening diary for both chambers. No secret correct explanation is selected."
+          },
+          {
+            "kind": "method",
+            "id": "i8",
+            "label": "Brief pulse; warmth free",
+            "pulse": true,
+            "warmth": null,
+            "parents": [
+              "lamp-test",
+              "pulse"
+            ]
+          }
+        ],
+        "moves": 1,
+        "actions": [
+          {
+            "a": "lamp-test",
+            "b": "pulse"
+          }
+        ]
+      },
+      "beforeHash": "ea5de62a7774ac56c3d76d5fa18a7513bbc0b65e46cc9e2610d67ec5ec87b555",
+      "afterHash": "e302f3e613710e38242ea7ab81017be3bc8c56274c1f4195ea8bba0c695c3e08",
+      "output": {
+        "accepted": true,
+        "created": {
+          "id": "i8",
+          "kind": "method",
+          "label": "Brief pulse; warmth free",
+          "pulse": true,
+          "warmth": "free",
+          "forecasts": [
+            {
+              "explanation": "Leaves follow light directly",
+              "diary": [
+                {
+                  "chamber": "dark chamber",
+                  "opening": "closed → closed → closed"
+                },
+                {
+                  "chamber": "test chamber",
+                  "opening": "closed → open → closed"
+                }
+              ]
+            },
+            {
+              "explanation": "Leaves follow immediate warmth",
+              "diary": [
+                {
+                  "chamber": "dark chamber",
+                  "opening": "closed → closed → closed"
+                },
+                {
+                  "chamber": "test chamber",
+                  "opening": "closed → open → closed"
+                }
+              ]
+            },
+            {
+              "explanation": "Leaves follow retained warmth",
+              "diary": [
+                {
+                  "chamber": "dark chamber",
+                  "opening": "closed → closed → closed"
+                },
+                {
+                  "chamber": "test chamber",
+                  "opening": "closed → open → open"
+                }
+              ]
+            }
+          ]
+        },
+        "complete": false,
+        "moves": 1
+      }
+    },
+    {
+      "at": "2026-10-26T18:49:12.526Z",
+      "cmd": "combine",
+      "argument": "{\"a\":\"lamp-test\",\"b\":\"cool\"}",
+      "before": {
+        "version": "ideas-history-inquiry-3",
+        "things": [
+          {
+            "kind": "method",
+            "id": "lamp-test",
+            "label": "Steady lamp comparison; warmth free",
+            "pulse": false,
+            "warmth": null,
+            "parents": []
+          },
+          {
+            "kind": "tool",
+            "id": "cool",
+            "label": "Keep both chambers cool",
+            "effect": "Clamp warmth to 0 throughout both trials, blocking current and retained heat."
+          },
+          {
+            "kind": "tool",
+            "id": "warm",
+            "label": "Keep both chambers warm",
+            "effect": "Clamp warmth to 1 throughout both trials, regardless of the lamp."
+          },
+          {
+            "kind": "tool",
+            "id": "pulse",
+            "label": "Brief light pulse",
+            "effect": "Keep the left chamber dark; light the right chamber only in the middle moment. Preserve the existing thermostat setting."
+          },
+          {
+            "kind": "tool",
+            "id": "steady",
+            "label": "Steady light",
+            "effect": "Keep the left chamber dark and the right chamber lit for all three moments. Preserve the existing thermostat setting."
+          },
+          {
+            "kind": "tool",
+            "id": "release",
+            "label": "Let chamber warmth respond",
+            "effect": "Remove the thermostat clamp, allowing warmth to follow each explanation. Preserve the light schedule."
+          },
+          {
+            "kind": "tool",
+            "id": "observe",
+            "label": "Record leaf opening",
+            "effect": "Make a result containing every explanation’s exact opening diary for both chambers. No secret correct explanation is selected."
+          },
+          {
+            "kind": "method",
+            "id": "i8",
+            "label": "Brief pulse; warmth free",
+            "pulse": true,
+            "warmth": null,
+            "parents": [
+              "lamp-test",
+              "pulse"
+            ]
+          }
+        ],
+        "moves": 1,
+        "actions": [
+          {
+            "a": "lamp-test",
+            "b": "pulse"
+          }
+        ]
+      },
+      "after": {
+        "version": "ideas-history-inquiry-3",
+        "things": [
+          {
+            "kind": "method",
+            "id": "lamp-test",
+            "label": "Steady lamp comparison; warmth free",
+            "pulse": false,
+            "warmth": null,
+            "parents": []
+          },
+          {
+            "kind": "tool",
+            "id": "cool",
+            "label": "Keep both chambers cool",
+            "effect": "Clamp warmth to 0 throughout both trials, blocking current and retained heat."
+          },
+          {
+            "kind": "tool",
+            "id": "warm",
+            "label": "Keep both chambers warm",
+            "effect": "Clamp warmth to 1 throughout both trials, regardless of the lamp."
+          },
+          {
+            "kind": "tool",
+            "id": "pulse",
+            "label": "Brief light pulse",
+            "effect": "Keep the left chamber dark; light the right chamber only in the middle moment. Preserve the existing thermostat setting."
+          },
+          {
+            "kind": "tool",
+            "id": "steady",
+            "label": "Steady light",
+            "effect": "Keep the left chamber dark and the right chamber lit for all three moments. Preserve the existing thermostat setting."
+          },
+          {
+            "kind": "tool",
+            "id": "release",
+            "label": "Let chamber warmth respond",
+            "effect": "Remove the thermostat clamp, allowing warmth to follow each explanation. Preserve the light schedule."
+          },
+          {
+            "kind": "tool",
+            "id": "observe",
+            "label": "Record leaf opening",
+            "effect": "Make a result containing every explanation’s exact opening diary for both chambers. No secret correct explanation is selected."
+          },
+          {
+            "kind": "method",
+            "id": "i8",
+            "label": "Brief pulse; warmth free",
+            "pulse": true,
+            "warmth": null,
+            "parents": [
+              "lamp-test",
+              "pulse"
+            ]
+          },
+          {
+            "kind": "method",
+            "id": "i9",
+            "label": "Steady lamp; warmth held cool",
+            "pulse": false,
+            "warmth": 0,
+            "parents": [
+              "lamp-test",
+              "cool"
+            ]
+          }
+        ],
+        "moves": 2,
+        "actions": [
+          {
+            "a": "lamp-test",
+            "b": "pulse"
+          },
+          {
+            "a": "lamp-test",
+            "b": "cool"
+          }
+        ]
+      },
+      "beforeHash": "e302f3e613710e38242ea7ab81017be3bc8c56274c1f4195ea8bba0c695c3e08",
+      "afterHash": "4ee1e9bb4bab6636402c3f793d581deece3abf350b1ad62c6ab936174a4d1db1",
+      "output": {
+        "accepted": true,
+        "created": {
+          "id": "i9",
+          "kind": "method",
+          "label": "Steady lamp; warmth held cool",
+          "pulse": false,
+          "warmth": 0,
+          "forecasts": [
+            {
+              "explanation": "Leaves follow light directly",
+              "diary": [
+                {
+                  "chamber": "dark chamber",
+                  "opening": "closed → closed → closed"
+                },
+                {
+                  "chamber": "test chamber",
+                  "opening": "open → open → open"
+                }
+              ]
+            },
+            {
+              "explanation": "Leaves follow immediate warmth",
+              "diary": [
+                {
+                  "chamber": "dark chamber",
+                  "opening": "closed → closed → closed"
+                },
+                {
+                  "chamber": "test chamber",
+                  "opening": "closed → closed → closed"
+                }
+              ]
+            },
+            {
+              "explanation": "Leaves follow retained warmth",
+              "diary": [
+                {
+                  "chamber": "dark chamber",
+                  "opening": "closed → closed → closed"
+                },
+                {
+                  "chamber": "test chamber",
+                  "opening": "closed → closed → closed"
+                }
+              ]
+            }
+          ]
+        },
+        "complete": false,
+        "moves": 2
+      }
+    },
+    {
+      "at": "2026-10-26T18:49:16.041Z",
+      "cmd": "combine",
+      "argument": "{\"a\":\"i8\",\"b\":\"observe\"}",
+      "before": {
+        "version": "ideas-history-inquiry-3",
+        "things": [
+          {
+            "kind": "method",
+            "id": "lamp-test",
+            "label": "Steady lamp comparison; warmth free",
+            "pulse": false,
+            "warmth": null,
+            "parents": []
+          },
+          {
+            "kind": "tool",
+            "id": "cool",
+            "label": "Keep both chambers cool",
+            "effect": "Clamp warmth to 0 throughout both trials, blocking current and retained heat."
+          },
+          {
+            "kind": "tool",
+            "id": "warm",
+            "label": "Keep both chambers warm",
+            "effect": "Clamp warmth to 1 throughout both trials, regardless of the lamp."
+          },
+          {
+            "kind": "tool",
+            "id": "pulse",
+            "label": "Brief light pulse",
+            "effect": "Keep the left chamber dark; light the right chamber only in the middle moment. Preserve the existing thermostat setting."
+          },
+          {
+            "kind": "tool",
+            "id": "steady",
+            "label": "Steady light",
+            "effect": "Keep the left chamber dark and the right chamber lit for all three moments. Preserve the existing thermostat setting."
+          },
+          {
+            "kind": "tool",
+            "id": "release",
+            "label": "Let chamber warmth respond",
+            "effect": "Remove the thermostat clamp, allowing warmth to follow each explanation. Preserve the light schedule."
+          },
+          {
+            "kind": "tool",
+            "id": "observe",
+            "label": "Record leaf opening",
+            "effect": "Make a result containing every explanation’s exact opening diary for both chambers. No secret correct explanation is selected."
+          },
+          {
+            "kind": "method",
+            "id": "i8",
+            "label": "Brief pulse; warmth free",
+            "pulse": true,
+            "warmth": null,
+            "parents": [
+              "lamp-test",
+              "pulse"
+            ]
+          },
+          {
+            "kind": "method",
+            "id": "i9",
+            "label": "Steady lamp; warmth held cool",
+            "pulse": false,
+            "warmth": 0,
+            "parents": [
+              "lamp-test",
+              "cool"
+            ]
+          }
+        ],
+        "moves": 2,
+        "actions": [
+          {
+            "a": "lamp-test",
+            "b": "pulse"
+          },
+          {
+            "a": "lamp-test",
+            "b": "cool"
+          }
+        ]
+      },
+      "after": {
+        "version": "ideas-history-inquiry-3",
+        "things": [
+          {
+            "kind": "method",
+            "id": "lamp-test",
+            "label": "Steady lamp comparison; warmth free",
+            "pulse": false,
+            "warmth": null,
+            "parents": []
+          },
+          {
+            "kind": "tool",
+            "id": "cool",
+            "label": "Keep both chambers cool",
+            "effect": "Clamp warmth to 0 throughout both trials, blocking current and retained heat."
+          },
+          {
+            "kind": "tool",
+            "id": "warm",
+            "label": "Keep both chambers warm",
+            "effect": "Clamp warmth to 1 throughout both trials, regardless of the lamp."
+          },
+          {
+            "kind": "tool",
+            "id": "pulse",
+            "label": "Brief light pulse",
+            "effect": "Keep the left chamber dark; light the right chamber only in the middle moment. Preserve the existing thermostat setting."
+          },
+          {
+            "kind": "tool",
+            "id": "steady",
+            "label": "Steady light",
+            "effect": "Keep the left chamber dark and the right chamber lit for all three moments. Preserve the existing thermostat setting."
+          },
+          {
+            "kind": "tool",
+            "id": "release",
+            "label": "Let chamber warmth respond",
+            "effect": "Remove the thermostat clamp, allowing warmth to follow each explanation. Preserve the light schedule."
+          },
+          {
+            "kind": "tool",
+            "id": "observe",
+            "label": "Record leaf opening",
+            "effect": "Make a result containing every explanation’s exact opening diary for both chambers. No secret correct explanation is selected."
+          },
+          {
+            "kind": "method",
+            "id": "i8",
+            "label": "Brief pulse; warmth free",
+            "pulse": true,
+            "warmth": null,
+            "parents": [
+              "lamp-test",
+              "pulse"
+            ]
+          },
+          {
+            "kind": "method",
+            "id": "i9",
+            "label": "Steady lamp; warmth held cool",
+            "pulse": false,
+            "warmth": 0,
+            "parents": [
+              "lamp-test",
+              "cool"
+            ]
+          },
+          {
+            "kind": "result",
+            "id": "i10",
+            "label": "Opening diary: Brief pulse; warmth free",
+            "methods": [
+              {
+                "kind": "method",
+                "id": "i8",
+                "label": "Brief pulse; warmth free",
+                "pulse": true,
+                "warmth": null,
+                "parents": [
+                  "lamp-test",
+                  "pulse"
+                ]
+              }
+            ],
+            "parents": [
+              "i8",
+              "observe"
+            ]
+          }
+        ],
+        "moves": 3,
+        "actions": [
+          {
+            "a": "lamp-test",
+            "b": "pulse"
+          },
+          {
+            "a": "lamp-test",
+            "b": "cool"
+          },
+          {
+            "a": "i8",
+            "b": "observe"
+          }
+        ]
+      },
+      "beforeHash": "4ee1e9bb4bab6636402c3f793d581deece3abf350b1ad62c6ab936174a4d1db1",
+      "afterHash": "003f692bdccc3543637c5c01b8aaf5ff7462f8b9d21580cf901028575ebae80c",
+      "output": {
+        "accepted": true,
+        "created": {
+          "id": "i10",
+          "kind": "result",
+          "label": "Opening diary: Brief pulse; warmth free",
+          "methods": [
+            "Brief pulse; warmth free"
+          ],
+          "groups": [
+            {
+              "signature": "000/010",
+              "explanations": [
+                "Leaves follow light directly",
+                "Leaves follow immediate warmth"
+              ]
+            },
+            {
+              "signature": "000/011",
+              "explanations": [
+                "Leaves follow retained warmth"
+              ]
+            }
+          ],
+          "distinguishesAll": false
+        },
+        "complete": false,
+        "moves": 3
+      }
+    },
+    {
+      "at": "2026-10-26T18:49:16.149Z",
+      "cmd": "combine",
+      "argument": "{\"a\":\"i9\",\"b\":\"observe\"}",
+      "before": {
+        "version": "ideas-history-inquiry-3",
+        "things": [
+          {
+            "kind": "method",
+            "id": "lamp-test",
+            "label": "Steady lamp comparison; warmth free",
+            "pulse": false,
+            "warmth": null,
+            "parents": []
+          },
+          {
+            "kind": "tool",
+            "id": "cool",
+            "label": "Keep both chambers cool",
+            "effect": "Clamp warmth to 0 throughout both trials, blocking current and retained heat."
+          },
+          {
+            "kind": "tool",
+            "id": "warm",
+            "label": "Keep both chambers warm",
+            "effect": "Clamp warmth to 1 throughout both trials, regardless of the lamp."
+          },
+          {
+            "kind": "tool",
+            "id": "pulse",
+            "label": "Brief light pulse",
+            "effect": "Keep the left chamber dark; light the right chamber only in the middle moment. Preserve the existing thermostat setting."
+          },
+          {
+            "kind": "tool",
+            "id": "steady",
+            "label": "Steady light",
+            "effect": "Keep the left chamber dark and the right chamber lit for all three moments. Preserve the existing thermostat setting."
+          },
+          {
+            "kind": "tool",
+            "id": "release",
+            "label": "Let chamber warmth respond",
+            "effect": "Remove the thermostat clamp, allowing warmth to follow each explanation. Preserve the light schedule."
+          },
+          {
+            "kind": "tool",
+            "id": "observe",
+            "label": "Record leaf opening",
+            "effect": "Make a result containing every explanation’s exact opening diary for both chambers. No secret correct explanation is selected."
+          },
+          {
+            "kind": "method",
+            "id": "i8",
+            "label": "Brief pulse; warmth free",
+            "pulse": true,
+            "warmth": null,
+            "parents": [
+              "lamp-test",
+              "pulse"
+            ]
+          },
+          {
+            "kind": "method",
+            "id": "i9",
+            "label": "Steady lamp; warmth held cool",
+            "pulse": false,
+            "warmth": 0,
+            "parents": [
+              "lamp-test",
+              "cool"
+            ]
+          },
+          {
+            "kind": "result",
+            "id": "i10",
+            "label": "Opening diary: Brief pulse; warmth free",
+            "methods": [
+              {
+                "kind": "method",
+                "id": "i8",
+                "label": "Brief pulse; warmth free",
+                "pulse": true,
+                "warmth": null,
+                "parents": [
+                  "lamp-test",
+                  "pulse"
+                ]
+              }
+            ],
+            "parents": [
+              "i8",
+              "observe"
+            ]
+          }
+        ],
+        "moves": 3,
+        "actions": [
+          {
+            "a": "lamp-test",
+            "b": "pulse"
+          },
+          {
+            "a": "lamp-test",
+            "b": "cool"
+          },
+          {
+            "a": "i8",
+            "b": "observe"
+          }
+        ]
+      },
+      "after": {
+        "version": "ideas-history-inquiry-3",
+        "things": [
+          {
+            "kind": "method",
+            "id": "lamp-test",
+            "label": "Steady lamp comparison; warmth free",
+            "pulse": false,
+            "warmth": null,
+            "parents": []
+          },
+          {
+            "kind": "tool",
+            "id": "cool",
+            "label": "Keep both chambers cool",
+            "effect": "Clamp warmth to 0 throughout both trials, blocking current and retained heat."
+          },
+          {
+            "kind": "tool",
+            "id": "warm",
+            "label": "Keep both chambers warm",
+            "effect": "Clamp warmth to 1 throughout both trials, regardless of the lamp."
+          },
+          {
+            "kind": "tool",
+            "id": "pulse",
+            "label": "Brief light pulse",
+            "effect": "Keep the left chamber dark; light the right chamber only in the middle moment. Preserve the existing thermostat setting."
+          },
+          {
+            "kind": "tool",
+            "id": "steady",
+            "label": "Steady light",
+            "effect": "Keep the left chamber dark and the right chamber lit for all three moments. Preserve the existing thermostat setting."
+          },
+          {
+            "kind": "tool",
+            "id": "release",
+            "label": "Let chamber warmth respond",
+            "effect": "Remove the thermostat clamp, allowing warmth to follow each explanation. Preserve the light schedule."
+          },
+          {
+            "kind": "tool",
+            "id": "observe",
+            "label": "Record leaf opening",
+            "effect": "Make a result containing every explanation’s exact opening diary for both chambers. No secret correct explanation is selected."
+          },
+          {
+            "kind": "method",
+            "id": "i8",
+            "label": "Brief pulse; warmth free",
+            "pulse": true,
+            "warmth": null,
+            "parents": [
+              "lamp-test",
+              "pulse"
+            ]
+          },
+          {
+            "kind": "method",
+            "id": "i9",
+            "label": "Steady lamp; warmth held cool",
+            "pulse": false,
+            "warmth": 0,
+            "parents": [
+              "lamp-test",
+              "cool"
+            ]
+          },
+          {
+            "kind": "result",
+            "id": "i10",
+            "label": "Opening diary: Brief pulse; warmth free",
+            "methods": [
+              {
+                "kind": "method",
+                "id": "i8",
+                "label": "Brief pulse; warmth free",
+                "pulse": true,
+                "warmth": null,
+                "parents": [
+                  "lamp-test",
+                  "pulse"
+                ]
+              }
+            ],
+            "parents": [
+              "i8",
+              "observe"
+            ]
+          },
+          {
+            "kind": "result",
+            "id": "i11",
+            "label": "Opening diary: Steady lamp; warmth held cool",
+            "methods": [
+              {
+                "kind": "method",
+                "id": "i9",
+                "label": "Steady lamp; warmth held cool",
+                "pulse": false,
+                "warmth": 0,
+                "parents": [
+                  "lamp-test",
+                  "cool"
+                ]
+              }
+            ],
+            "parents": [
+              "i9",
+              "observe"
+            ]
+          }
+        ],
+        "moves": 4,
+        "actions": [
+          {
+            "a": "lamp-test",
+            "b": "pulse"
+          },
+          {
+            "a": "lamp-test",
+            "b": "cool"
+          },
+          {
+            "a": "i8",
+            "b": "observe"
+          },
+          {
+            "a": "i9",
+            "b": "observe"
+          }
+        ]
+      },
+      "beforeHash": "003f692bdccc3543637c5c01b8aaf5ff7462f8b9d21580cf901028575ebae80c",
+      "afterHash": "93a89c69211586bdd021dbf4b12b5bebba835f0a734d446f4d683b724fbacdf4",
+      "output": {
+        "accepted": true,
+        "created": {
+          "id": "i11",
+          "kind": "result",
+          "label": "Opening diary: Steady lamp; warmth held cool",
+          "methods": [
+            "Steady lamp; warmth held cool"
+          ],
+          "groups": [
+            {
+              "signature": "000/111",
+              "explanations": [
+                "Leaves follow light directly"
+              ]
+            },
+            {
+              "signature": "000/000",
+              "explanations": [
+                "Leaves follow immediate warmth",
+                "Leaves follow retained warmth"
+              ]
+            }
+          ],
+          "distinguishesAll": false
+        },
+        "complete": false,
+        "moves": 4
+      }
+    },
+    {
+      "at": "2026-10-26T18:49:19.351Z",
+      "cmd": "combine",
+      "argument": "{\"a\":\"i10\",\"b\":\"i11\"}",
+      "before": {
+        "version": "ideas-history-inquiry-3",
+        "things": [
+          {
+            "kind": "method",
+            "id": "lamp-test",
+            "label": "Steady lamp comparison; warmth free",
+            "pulse": false,
+            "warmth": null,
+            "parents": []
+          },
+          {
+            "kind": "tool",
+            "id": "cool",
+            "label": "Keep both chambers cool",
+            "effect": "Clamp warmth to 0 throughout both trials, blocking current and retained heat."
+          },
+          {
+            "kind": "tool",
+            "id": "warm",
+            "label": "Keep both chambers warm",
+            "effect": "Clamp warmth to 1 throughout both trials, regardless of the lamp."
+          },
+          {
+            "kind": "tool",
+            "id": "pulse",
+            "label": "Brief light pulse",
+            "effect": "Keep the left chamber dark; light the right chamber only in the middle moment. Preserve the existing thermostat setting."
+          },
+          {
+            "kind": "tool",
+            "id": "steady",
+            "label": "Steady light",
+            "effect": "Keep the left chamber dark and the right chamber lit for all three moments. Preserve the existing thermostat setting."
+          },
+          {
+            "kind": "tool",
+            "id": "release",
+            "label": "Let chamber warmth respond",
+            "effect": "Remove the thermostat clamp, allowing warmth to follow each explanation. Preserve the light schedule."
+          },
+          {
+            "kind": "tool",
+            "id": "observe",
+            "label": "Record leaf opening",
+            "effect": "Make a result containing every explanation’s exact opening diary for both chambers. No secret correct explanation is selected."
+          },
+          {
+            "kind": "method",
+            "id": "i8",
+            "label": "Brief pulse; warmth free",
+            "pulse": true,
+            "warmth": null,
+            "parents": [
+              "lamp-test",
+              "pulse"
+            ]
+          },
+          {
+            "kind": "method",
+            "id": "i9",
+            "label": "Steady lamp; warmth held cool",
+            "pulse": false,
+            "warmth": 0,
+            "parents": [
+              "lamp-test",
+              "cool"
+            ]
+          },
+          {
+            "kind": "result",
+            "id": "i10",
+            "label": "Opening diary: Brief pulse; warmth free",
+            "methods": [
+              {
+                "kind": "method",
+                "id": "i8",
+                "label": "Brief pulse; warmth free",
+                "pulse": true,
+                "warmth": null,
+                "parents": [
+                  "lamp-test",
+                  "pulse"
+                ]
+              }
+            ],
+            "parents": [
+              "i8",
+              "observe"
+            ]
+          },
+          {
+            "kind": "result",
+            "id": "i11",
+            "label": "Opening diary: Steady lamp; warmth held cool",
+            "methods": [
+              {
+                "kind": "method",
+                "id": "i9",
+                "label": "Steady lamp; warmth held cool",
+                "pulse": false,
+                "warmth": 0,
+                "parents": [
+                  "lamp-test",
+                  "cool"
+                ]
+              }
+            ],
+            "parents": [
+              "i9",
+              "observe"
+            ]
+          }
+        ],
+        "moves": 4,
+        "actions": [
+          {
+            "a": "lamp-test",
+            "b": "pulse"
+          },
+          {
+            "a": "lamp-test",
+            "b": "cool"
+          },
+          {
+            "a": "i8",
+            "b": "observe"
+          },
+          {
+            "a": "i9",
+            "b": "observe"
+          }
+        ]
+      },
+      "after": {
+        "version": "ideas-history-inquiry-3",
+        "things": [
+          {
+            "kind": "method",
+            "id": "lamp-test",
+            "label": "Steady lamp comparison; warmth free",
+            "pulse": false,
+            "warmth": null,
+            "parents": []
+          },
+          {
+            "kind": "tool",
+            "id": "cool",
+            "label": "Keep both chambers cool",
+            "effect": "Clamp warmth to 0 throughout both trials, blocking current and retained heat."
+          },
+          {
+            "kind": "tool",
+            "id": "warm",
+            "label": "Keep both chambers warm",
+            "effect": "Clamp warmth to 1 throughout both trials, regardless of the lamp."
+          },
+          {
+            "kind": "tool",
+            "id": "pulse",
+            "label": "Brief light pulse",
+            "effect": "Keep the left chamber dark; light the right chamber only in the middle moment. Preserve the existing thermostat setting."
+          },
+          {
+            "kind": "tool",
+            "id": "steady",
+            "label": "Steady light",
+            "effect": "Keep the left chamber dark and the right chamber lit for all three moments. Preserve the existing thermostat setting."
+          },
+          {
+            "kind": "tool",
+            "id": "release",
+            "label": "Let chamber warmth respond",
+            "effect": "Remove the thermostat clamp, allowing warmth to follow each explanation. Preserve the light schedule."
+          },
+          {
+            "kind": "tool",
+            "id": "observe",
+            "label": "Record leaf opening",
+            "effect": "Make a result containing every explanation’s exact opening diary for both chambers. No secret correct explanation is selected."
+          },
+          {
+            "kind": "method",
+            "id": "i8",
+            "label": "Brief pulse; warmth free",
+            "pulse": true,
+            "warmth": null,
+            "parents": [
+              "lamp-test",
+              "pulse"
+            ]
+          },
+          {
+            "kind": "method",
+            "id": "i9",
+            "label": "Steady lamp; warmth held cool",
+            "pulse": false,
+            "warmth": 0,
+            "parents": [
+              "lamp-test",
+              "cool"
+            ]
+          },
+          {
+            "kind": "result",
+            "id": "i10",
+            "label": "Opening diary: Brief pulse; warmth free",
+            "methods": [
+              {
+                "kind": "method",
+                "id": "i8",
+                "label": "Brief pulse; warmth free",
+                "pulse": true,
+                "warmth": null,
+                "parents": [
+                  "lamp-test",
+                  "pulse"
+                ]
+              }
+            ],
+            "parents": [
+              "i8",
+              "observe"
+            ]
+          },
+          {
+            "kind": "result",
+            "id": "i11",
+            "label": "Opening diary: Steady lamp; warmth held cool",
+            "methods": [
+              {
+                "kind": "method",
+                "id": "i9",
+                "label": "Steady lamp; warmth held cool",
+                "pulse": false,
+                "warmth": 0,
+                "parents": [
+                  "lamp-test",
+                  "cool"
+                ]
+              }
+            ],
+            "parents": [
+              "i9",
+              "observe"
+            ]
+          },
+          {
+            "kind": "result",
+            "id": "i12",
+            "label": "Joint inquiry (2 methods)",
+            "methods": [
+              {
+                "kind": "method",
+                "id": "i9",
+                "label": "Steady lamp; warmth held cool",
+                "pulse": false,
+                "warmth": 0,
+                "parents": [
+                  "lamp-test",
+                  "cool"
+                ]
+              },
+              {
+                "kind": "method",
+                "id": "i8",
+                "label": "Brief pulse; warmth free",
+                "pulse": true,
+                "warmth": null,
+                "parents": [
+                  "lamp-test",
+                  "pulse"
+                ]
+              }
+            ],
+            "parents": [
+              "i10",
+              "i11"
+            ]
+          }
+        ],
+        "moves": 5,
+        "actions": [
+          {
+            "a": "lamp-test",
+            "b": "pulse"
+          },
+          {
+            "a": "lamp-test",
+            "b": "cool"
+          },
+          {
+            "a": "i8",
+            "b": "observe"
+          },
+          {
+            "a": "i9",
+            "b": "observe"
+          },
+          {
+            "a": "i10",
+            "b": "i11"
+          }
+        ]
+      },
+      "beforeHash": "93a89c69211586bdd021dbf4b12b5bebba835f0a734d446f4d683b724fbacdf4",
+      "afterHash": "21ae026174a0177631a952f8f0a86941f10008b4969747c6c9bf9203e273b635",
+      "output": {
+        "accepted": true,
+        "created": {
+          "id": "i12",
+          "kind": "result",
+          "label": "Joint inquiry (2 methods)",
+          "methods": [
+            "Steady lamp; warmth held cool",
+            "Brief pulse; warmth free"
+          ],
+          "groups": [
+            {
+              "signature": "000/111 | 000/010",
+              "explanations": [
+                "Leaves follow light directly"
+              ]
+            },
+            {
+              "signature": "000/000 | 000/010",
+              "explanations": [
+                "Leaves follow immediate warmth"
+              ]
+            },
+            {
+              "signature": "000/000 | 000/011",
+              "explanations": [
+                "Leaves follow retained warmth"
+              ]
+            }
+          ],
+          "distinguishesAll": true
+        },
+        "complete": true,
+        "moves": 5
+      }
+    },
+    {
+      "at": "2026-10-26T18:49:32.443Z",
+      "cmd": "report",
+      "argument": "{\"experience\":\"Clear, compact causal-identifiability puzzle. I understood the needed pair of interventions from the initial laws, checked two previews, then built the joint study in five combinations. It felt more like expressing a solution in an interface than discovering one.\",\"worthDoing\":\"Choosing complementary experiments was worthwhile: free warmth after a pulse separates retained heat, while cooling under steady light separates direct light from either heat account. Seeing the joint prediction groups made the logical distinction concrete.\",\"keep\":\"Keep explicit competing laws, exact previews, immutable reusable methods, and the honest statement that no secret measurement or correct explanation is being revealed.\",\"shortenRemoveChange\":\"Shorten repeated forecast formatting into a compact comparison table. Consider allowing a selected method to enter a study directly, since observing merely materializes already known forecasts; the two observation moves were administrative. Keep the short completion path rather than requiring a tour of redundant controls.\",\"stoppedBecause\":\"The two-method study has three singleton prediction groups and the public goal is satisfied. More branches would not improve this solution.\"}",
+      "before": {
+        "version": "ideas-history-inquiry-3",
+        "things": [
+          {
+            "kind": "method",
+            "id": "lamp-test",
+            "label": "Steady lamp comparison; warmth free",
+            "pulse": false,
+            "warmth": null,
+            "parents": []
+          },
+          {
+            "kind": "tool",
+            "id": "cool",
+            "label": "Keep both chambers cool",
+            "effect": "Clamp warmth to 0 throughout both trials, blocking current and retained heat."
+          },
+          {
+            "kind": "tool",
+            "id": "warm",
+            "label": "Keep both chambers warm",
+            "effect": "Clamp warmth to 1 throughout both trials, regardless of the lamp."
+          },
+          {
+            "kind": "tool",
+            "id": "pulse",
+            "label": "Brief light pulse",
+            "effect": "Keep the left chamber dark; light the right chamber only in the middle moment. Preserve the existing thermostat setting."
+          },
+          {
+            "kind": "tool",
+            "id": "steady",
+            "label": "Steady light",
+            "effect": "Keep the left chamber dark and the right chamber lit for all three moments. Preserve the existing thermostat setting."
+          },
+          {
+            "kind": "tool",
+            "id": "release",
+            "label": "Let chamber warmth respond",
+            "effect": "Remove the thermostat clamp, allowing warmth to follow each explanation. Preserve the light schedule."
+          },
+          {
+            "kind": "tool",
+            "id": "observe",
+            "label": "Record leaf opening",
+            "effect": "Make a result containing every explanation’s exact opening diary for both chambers. No secret correct explanation is selected."
+          },
+          {
+            "kind": "method",
+            "id": "i8",
+            "label": "Brief pulse; warmth free",
+            "pulse": true,
+            "warmth": null,
+            "parents": [
+              "lamp-test",
+              "pulse"
+            ]
+          },
+          {
+            "kind": "method",
+            "id": "i9",
+            "label": "Steady lamp; warmth held cool",
+            "pulse": false,
+            "warmth": 0,
+            "parents": [
+              "lamp-test",
+              "cool"
+            ]
+          },
+          {
+            "kind": "result",
+            "id": "i10",
+            "label": "Opening diary: Brief pulse; warmth free",
+            "methods": [
+              {
+                "kind": "method",
+                "id": "i8",
+                "label": "Brief pulse; warmth free",
+                "pulse": true,
+                "warmth": null,
+                "parents": [
+                  "lamp-test",
+                  "pulse"
+                ]
+              }
+            ],
+            "parents": [
+              "i8",
+              "observe"
+            ]
+          },
+          {
+            "kind": "result",
+            "id": "i11",
+            "label": "Opening diary: Steady lamp; warmth held cool",
+            "methods": [
+              {
+                "kind": "method",
+                "id": "i9",
+                "label": "Steady lamp; warmth held cool",
+                "pulse": false,
+                "warmth": 0,
+                "parents": [
+                  "lamp-test",
+                  "cool"
+                ]
+              }
+            ],
+            "parents": [
+              "i9",
+              "observe"
+            ]
+          },
+          {
+            "kind": "result",
+            "id": "i12",
+            "label": "Joint inquiry (2 methods)",
+            "methods": [
+              {
+                "kind": "method",
+                "id": "i9",
+                "label": "Steady lamp; warmth held cool",
+                "pulse": false,
+                "warmth": 0,
+                "parents": [
+                  "lamp-test",
+                  "cool"
+                ]
+              },
+              {
+                "kind": "method",
+                "id": "i8",
+                "label": "Brief pulse; warmth free",
+                "pulse": true,
+                "warmth": null,
+                "parents": [
+                  "lamp-test",
+                  "pulse"
+                ]
+              }
+            ],
+            "parents": [
+              "i10",
+              "i11"
+            ]
+          }
+        ],
+        "moves": 5,
+        "actions": [
+          {
+            "a": "lamp-test",
+            "b": "pulse"
+          },
+          {
+            "a": "lamp-test",
+            "b": "cool"
+          },
+          {
+            "a": "i8",
+            "b": "observe"
+          },
+          {
+            "a": "i9",
+            "b": "observe"
+          },
+          {
+            "a": "i10",
+            "b": "i11"
+          }
+        ]
+      },
+      "after": {
+        "version": "ideas-history-inquiry-3",
+        "things": [
+          {
+            "kind": "method",
+            "id": "lamp-test",
+            "label": "Steady lamp comparison; warmth free",
+            "pulse": false,
+            "warmth": null,
+            "parents": []
+          },
+          {
+            "kind": "tool",
+            "id": "cool",
+            "label": "Keep both chambers cool",
+            "effect": "Clamp warmth to 0 throughout both trials, blocking current and retained heat."
+          },
+          {
+            "kind": "tool",
+            "id": "warm",
+            "label": "Keep both chambers warm",
+            "effect": "Clamp warmth to 1 throughout both trials, regardless of the lamp."
+          },
+          {
+            "kind": "tool",
+            "id": "pulse",
+            "label": "Brief light pulse",
+            "effect": "Keep the left chamber dark; light the right chamber only in the middle moment. Preserve the existing thermostat setting."
+          },
+          {
+            "kind": "tool",
+            "id": "steady",
+            "label": "Steady light",
+            "effect": "Keep the left chamber dark and the right chamber lit for all three moments. Preserve the existing thermostat setting."
+          },
+          {
+            "kind": "tool",
+            "id": "release",
+            "label": "Let chamber warmth respond",
+            "effect": "Remove the thermostat clamp, allowing warmth to follow each explanation. Preserve the light schedule."
+          },
+          {
+            "kind": "tool",
+            "id": "observe",
+            "label": "Record leaf opening",
+            "effect": "Make a result containing every explanation’s exact opening diary for both chambers. No secret correct explanation is selected."
+          },
+          {
+            "kind": "method",
+            "id": "i8",
+            "label": "Brief pulse; warmth free",
+            "pulse": true,
+            "warmth": null,
+            "parents": [
+              "lamp-test",
+              "pulse"
+            ]
+          },
+          {
+            "kind": "method",
+            "id": "i9",
+            "label": "Steady lamp; warmth held cool",
+            "pulse": false,
+            "warmth": 0,
+            "parents": [
+              "lamp-test",
+              "cool"
+            ]
+          },
+          {
+            "kind": "result",
+            "id": "i10",
+            "label": "Opening diary: Brief pulse; warmth free",
+            "methods": [
+              {
+                "kind": "method",
+                "id": "i8",
+                "label": "Brief pulse; warmth free",
+                "pulse": true,
+                "warmth": null,
+                "parents": [
+                  "lamp-test",
+                  "pulse"
+                ]
+              }
+            ],
+            "parents": [
+              "i8",
+              "observe"
+            ]
+          },
+          {
+            "kind": "result",
+            "id": "i11",
+            "label": "Opening diary: Steady lamp; warmth held cool",
+            "methods": [
+              {
+                "kind": "method",
+                "id": "i9",
+                "label": "Steady lamp; warmth held cool",
+                "pulse": false,
+                "warmth": 0,
+                "parents": [
+                  "lamp-test",
+                  "cool"
+                ]
+              }
+            ],
+            "parents": [
+              "i9",
+              "observe"
+            ]
+          },
+          {
+            "kind": "result",
+            "id": "i12",
+            "label": "Joint inquiry (2 methods)",
+            "methods": [
+              {
+                "kind": "method",
+                "id": "i9",
+                "label": "Steady lamp; warmth held cool",
+                "pulse": false,
+                "warmth": 0,
+                "parents": [
+                  "lamp-test",
+                  "cool"
+                ]
+              },
+              {
+                "kind": "method",
+                "id": "i8",
+                "label": "Brief pulse; warmth free",
+                "pulse": true,
+                "warmth": null,
+                "parents": [
+                  "lamp-test",
+                  "pulse"
+                ]
+              }
+            ],
+            "parents": [
+              "i10",
+              "i11"
+            ]
+          }
+        ],
+        "moves": 5,
+        "actions": [
+          {
+            "a": "lamp-test",
+            "b": "pulse"
+          },
+          {
+            "a": "lamp-test",
+            "b": "cool"
+          },
+          {
+            "a": "i8",
+            "b": "observe"
+          },
+          {
+            "a": "i9",
+            "b": "observe"
+          },
+          {
+            "a": "i10",
+            "b": "i11"
+          }
+        ]
+      },
+      "beforeHash": "21ae026174a0177631a952f8f0a86941f10008b4969747c6c9bf9203e273b635",
+      "afterHash": "21ae026174a0177631a952f8f0a86941f10008b4969747c6c9bf9203e273b635",
+      "output": {
+        "recorded": {
+          "experience": "Clear, compact causal-identifiability puzzle. I understood the needed pair of interventions from the initial laws, checked two previews, then built the joint study in five combinations. It felt more like expressing a solution in an interface than discovering one.",
+          "worthDoing": "Choosing complementary experiments was worthwhile: free warmth after a pulse separates retained heat, while cooling under steady light separates direct light from either heat account. Seeing the joint prediction groups made the logical distinction concrete.",
+          "keep": "Keep explicit competing laws, exact previews, immutable reusable methods, and the honest statement that no secret measurement or correct explanation is being revealed.",
+          "shortenRemoveChange": "Shorten repeated forecast formatting into a compact comparison table. Consider allowing a selected method to enter a study directly, since observing merely materializes already known forecasts; the two observation moves were administrative. Keep the short completion path rather than requiring a tour of redundant controls.",
+          "stoppedBecause": "The two-method study has three singleton prediction groups and the public goal is satisfied. More branches would not improve this solution."
+        }
+      }
+    },
+    {
+      "at": "2026-10-26T18:49:32.562Z",
+      "cmd": "finish",
+      "argument": null,
+      "before": {
+        "version": "ideas-history-inquiry-3",
+        "things": [
+          {
+            "kind": "method",
+            "id": "lamp-test",
+            "label": "Steady lamp comparison; warmth free",
+            "pulse": false,
+            "warmth": null,
+            "parents": []
+          },
+          {
+            "kind": "tool",
+            "id": "cool",
+            "label": "Keep both chambers cool",
+            "effect": "Clamp warmth to 0 throughout both trials, blocking current and retained heat."
+          },
+          {
+            "kind": "tool",
+            "id": "warm",
+            "label": "Keep both chambers warm",
+            "effect": "Clamp warmth to 1 throughout both trials, regardless of the lamp."
+          },
+          {
+            "kind": "tool",
+            "id": "pulse",
+            "label": "Brief light pulse",
+            "effect": "Keep the left chamber dark; light the right chamber only in the middle moment. Preserve the existing thermostat setting."
+          },
+          {
+            "kind": "tool",
+            "id": "steady",
+            "label": "Steady light",
+            "effect": "Keep the left chamber dark and the right chamber lit for all three moments. Preserve the existing thermostat setting."
+          },
+          {
+            "kind": "tool",
+            "id": "release",
+            "label": "Let chamber warmth respond",
+            "effect": "Remove the thermostat clamp, allowing warmth to follow each explanation. Preserve the light schedule."
+          },
+          {
+            "kind": "tool",
+            "id": "observe",
+            "label": "Record leaf opening",
+            "effect": "Make a result containing every explanation’s exact opening diary for both chambers. No secret correct explanation is selected."
+          },
+          {
+            "kind": "method",
+            "id": "i8",
+            "label": "Brief pulse; warmth free",
+            "pulse": true,
+            "warmth": null,
+            "parents": [
+              "lamp-test",
+              "pulse"
+            ]
+          },
+          {
+            "kind": "method",
+            "id": "i9",
+            "label": "Steady lamp; warmth held cool",
+            "pulse": false,
+            "warmth": 0,
+            "parents": [
+              "lamp-test",
+              "cool"
+            ]
+          },
+          {
+            "kind": "result",
+            "id": "i10",
+            "label": "Opening diary: Brief pulse; warmth free",
+            "methods": [
+              {
+                "kind": "method",
+                "id": "i8",
+                "label": "Brief pulse; warmth free",
+                "pulse": true,
+                "warmth": null,
+                "parents": [
+                  "lamp-test",
+                  "pulse"
+                ]
+              }
+            ],
+            "parents": [
+              "i8",
+              "observe"
+            ]
+          },
+          {
+            "kind": "result",
+            "id": "i11",
+            "label": "Opening diary: Steady lamp; warmth held cool",
+            "methods": [
+              {
+                "kind": "method",
+                "id": "i9",
+                "label": "Steady lamp; warmth held cool",
+                "pulse": false,
+                "warmth": 0,
+                "parents": [
+                  "lamp-test",
+                  "cool"
+                ]
+              }
+            ],
+            "parents": [
+              "i9",
+              "observe"
+            ]
+          },
+          {
+            "kind": "result",
+            "id": "i12",
+            "label": "Joint inquiry (2 methods)",
+            "methods": [
+              {
+                "kind": "method",
+                "id": "i9",
+                "label": "Steady lamp; warmth held cool",
+                "pulse": false,
+                "warmth": 0,
+                "parents": [
+                  "lamp-test",
+                  "cool"
+                ]
+              },
+              {
+                "kind": "method",
+                "id": "i8",
+                "label": "Brief pulse; warmth free",
+                "pulse": true,
+                "warmth": null,
+                "parents": [
+                  "lamp-test",
+                  "pulse"
+                ]
+              }
+            ],
+            "parents": [
+              "i10",
+              "i11"
+            ]
+          }
+        ],
+        "moves": 5,
+        "actions": [
+          {
+            "a": "lamp-test",
+            "b": "pulse"
+          },
+          {
+            "a": "lamp-test",
+            "b": "cool"
+          },
+          {
+            "a": "i8",
+            "b": "observe"
+          },
+          {
+            "a": "i9",
+            "b": "observe"
+          },
+          {
+            "a": "i10",
+            "b": "i11"
+          }
+        ]
+      },
+      "after": {
+        "version": "ideas-history-inquiry-3",
+        "things": [
+          {
+            "kind": "method",
+            "id": "lamp-test",
+            "label": "Steady lamp comparison; warmth free",
+            "pulse": false,
+            "warmth": null,
+            "parents": []
+          },
+          {
+            "kind": "tool",
+            "id": "cool",
+            "label": "Keep both chambers cool",
+            "effect": "Clamp warmth to 0 throughout both trials, blocking current and retained heat."
+          },
+          {
+            "kind": "tool",
+            "id": "warm",
+            "label": "Keep both chambers warm",
+            "effect": "Clamp warmth to 1 throughout both trials, regardless of the lamp."
+          },
+          {
+            "kind": "tool",
+            "id": "pulse",
+            "label": "Brief light pulse",
+            "effect": "Keep the left chamber dark; light the right chamber only in the middle moment. Preserve the existing thermostat setting."
+          },
+          {
+            "kind": "tool",
+            "id": "steady",
+            "label": "Steady light",
+            "effect": "Keep the left chamber dark and the right chamber lit for all three moments. Preserve the existing thermostat setting."
+          },
+          {
+            "kind": "tool",
+            "id": "release",
+            "label": "Let chamber warmth respond",
+            "effect": "Remove the thermostat clamp, allowing warmth to follow each explanation. Preserve the light schedule."
+          },
+          {
+            "kind": "tool",
+            "id": "observe",
+            "label": "Record leaf opening",
+            "effect": "Make a result containing every explanation’s exact opening diary for both chambers. No secret correct explanation is selected."
+          },
+          {
+            "kind": "method",
+            "id": "i8",
+            "label": "Brief pulse; warmth free",
+            "pulse": true,
+            "warmth": null,
+            "parents": [
+              "lamp-test",
+              "pulse"
+            ]
+          },
+          {
+            "kind": "method",
+            "id": "i9",
+            "label": "Steady lamp; warmth held cool",
+            "pulse": false,
+            "warmth": 0,
+            "parents": [
+              "lamp-test",
+              "cool"
+            ]
+          },
+          {
+            "kind": "result",
+            "id": "i10",
+            "label": "Opening diary: Brief pulse; warmth free",
+            "methods": [
+              {
+                "kind": "method",
+                "id": "i8",
+                "label": "Brief pulse; warmth free",
+                "pulse": true,
+                "warmth": null,
+                "parents": [
+                  "lamp-test",
+                  "pulse"
+                ]
+              }
+            ],
+            "parents": [
+              "i8",
+              "observe"
+            ]
+          },
+          {
+            "kind": "result",
+            "id": "i11",
+            "label": "Opening diary: Steady lamp; warmth held cool",
+            "methods": [
+              {
+                "kind": "method",
+                "id": "i9",
+                "label": "Steady lamp; warmth held cool",
+                "pulse": false,
+                "warmth": 0,
+                "parents": [
+                  "lamp-test",
+                  "cool"
+                ]
+              }
+            ],
+            "parents": [
+              "i9",
+              "observe"
+            ]
+          },
+          {
+            "kind": "result",
+            "id": "i12",
+            "label": "Joint inquiry (2 methods)",
+            "methods": [
+              {
+                "kind": "method",
+                "id": "i9",
+                "label": "Steady lamp; warmth held cool",
+                "pulse": false,
+                "warmth": 0,
+                "parents": [
+                  "lamp-test",
+                  "cool"
+                ]
+              },
+              {
+                "kind": "method",
+                "id": "i8",
+                "label": "Brief pulse; warmth free",
+                "pulse": true,
+                "warmth": null,
+                "parents": [
+                  "lamp-test",
+                  "pulse"
+                ]
+              }
+            ],
+            "parents": [
+              "i10",
+              "i11"
+            ]
+          }
+        ],
+        "moves": 5,
+        "actions": [
+          {
+            "a": "lamp-test",
+            "b": "pulse"
+          },
+          {
+            "a": "lamp-test",
+            "b": "cool"
+          },
+          {
+            "a": "i8",
+            "b": "observe"
+          },
+          {
+            "a": "i9",
+            "b": "observe"
+          },
+          {
+            "a": "i10",
+            "b": "i11"
+          }
+        ]
+      },
+      "beforeHash": "21ae026174a0177631a952f8f0a86941f10008b4969747c6c9bf9203e273b635",
+      "afterHash": "21ae026174a0177631a952f8f0a86941f10008b4969747c6c9bf9203e273b635",
+      "output": {
+        "finished": true,
+        "observation": {
+          "version": "ideas-history-inquiry-3",
+          "title": "Glasshouse inquiry",
+          "problem": "A lamp accompanies the opening of a fictional seedling’s leaves. Do leaves follow light itself, immediate warmth, or warmth that persists after the light? Construct an inquiry that can distinguish the three explicit explanations. There is no hidden correct answer.",
+          "goal": "Make one result/study whose prediction groups each contain only one explanation. Short solutions are welcome. You need not tour all controls, find a secret answer, or take a minimum number of actions.",
+          "complete": true,
+          "moves": 5,
+          "shelf": [
+            {
+              "id": "lamp-test",
+              "kind": "method",
+              "label": "Steady lamp comparison; warmth free"
+            },
+            {
+              "id": "cool",
+              "kind": "tool",
+              "label": "Keep both chambers cool"
+            },
+            {
+              "id": "warm",
+              "kind": "tool",
+              "label": "Keep both chambers warm"
+            },
+            {
+              "id": "pulse",
+              "kind": "tool",
+              "label": "Brief light pulse"
+            },
+            {
+              "id": "steady",
+              "kind": "tool",
+              "label": "Steady light"
+            },
+            {
+              "id": "release",
+              "kind": "tool",
+              "label": "Let chamber warmth respond"
+            },
+            {
+              "id": "observe",
+              "kind": "tool",
+              "label": "Record leaf opening"
+            },
+            {
+              "id": "i8",
+              "kind": "method",
+              "label": "Brief pulse; warmth free"
+            },
+            {
+              "id": "i9",
+              "kind": "method",
+              "label": "Steady lamp; warmth held cool"
+            },
+            {
+              "id": "i10",
+              "kind": "result",
+              "label": "Opening diary: Brief pulse; warmth free"
+            },
+            {
+              "id": "i11",
+              "kind": "result",
+              "label": "Opening diary: Steady lamp; warmth held cool"
+            },
+            {
+              "id": "i12",
+              "kind": "result",
+              "label": "Joint inquiry (2 methods)"
+            }
+          ],
+          "commands": "combine/preview ID {\"a\":\"operand\",\"b\":\"operand\"}; inspect ID [THING|laws|models]; offers ID [THING]; report ID JSON; finish ID"
+        }
+      }
+    }
+  ],
+  "finished": true
+}
