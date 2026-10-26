@@ -23,3 +23,8 @@ A retained-camp progression proposal is being prepared. Test whether a clear ope
 No UI work or resource-stock accounting. No claim that agent reports establish human fun or duration. Keep negative results and comfortable routine distinct.
 
 Clio is a separate read-only-code audit; this project's write permission does not authorize changes to Clio or unto.me.
+
+
+## 26 October 2026, 14:41 UTC: explicit target and continuous iteration
+
+The owner set the destination: logical combination play judged fun, lasting about200 player decisions and ideally spanning multiple levels/scenarios. Keep experimenting, evaluating and committing until reaching it. Tiny tests are diagnostic steps, not the completion criterion. Do not pad counts, require each action to be a dilemma, or treat a short valid game as200 decisions. Develop a genuine multi-scenario candidate and test complete sessions with neutral prompts and independent evidence review. Clear progress, mechanics learning and comfortable routine remain legitimate parts of the experience.

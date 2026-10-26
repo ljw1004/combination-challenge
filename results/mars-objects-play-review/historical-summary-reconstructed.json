@@ -1,0 +1,129 @@
+{
+  "recordType": "context-reconstructed historical summary, NOT the original complete verification ledger",
+  "recoverySource": "Retained earlier creation-tool text and emitted verification-summary output in this agent conversation. No session filesystem inspected.",
+  "originalRawCapturesAvailable": false,
+  "currentReplayPerformed": false,
+  "originalCompleteLedgerRecovered": false,
+  "historicalClaimsAreCurrentVerification": false,
+  "warning": "Counts, outcomes and past pass statements below describe the earlier execution. Recovered model source and scripts are not original player captures. Missing state-derived fields and file hashes were not invented.",
+  "originalLedgerPath": "results/mars-objects-play-verification.json",
+  "historicalModel": "mars-objects-1",
+  "historicalProtocol": "mars-objects-cli-1",
+  "retainedOriginalFreezeTime": "2026-10-26T05:30:27.924Z",
+  "historicalSourceHashes": {
+    "experiments/logical-mars-objects.ts": "4347c9f71ae6fe8b6d13f807b63a40bffea7adfc391521d18c3cccb782542f4c",
+    "experiments/mars-objects-play.ts": "c99723f9de14b5c47e32b416966ef2be76532f69a0ef3b67ce3260b4c3be25c4",
+    "tests/mars-objects.test.ts": "177ebe47abad803323666b05a0fb5d7420514fc11801aff56c3759bf4a869e20",
+    "docs/mars-objects-play-protocol.md": "4a4c9154c61bfdf5e8655d0a50969c1897db3e19226dcca2f549aa3e04ab5dc6",
+    "docs/logical-mars-objects.md": "bed2959fe56c76a97bb0c467dcda5b9d4a4571ed2873a4f0b920b57b4286b502",
+    "docs/mars-objects-mechanics-review.md": "09facbd574cd8bd835608779f4ffe157e7769aebc6a938cec50ce4ec76ba853b",
+    "results/mars-objects-preplay/mechanical-screen.json": "45a891ada09e776689645dabefd478156befbfc3fe4c264b8e1c3192834eb212",
+    "results/mars-objects-preplay/full-test.log": "6d894993fdd51aad3c802ebddfc461d5b6882e04b0a13f4b23378e20e1b7520e",
+    "results/mars-objects-review/independent-check.json": "9940a43b13cf696479d0a495d8eda65f83759cb6dd5d1ee1c9827d4dd879d34b",
+    "results/mars-objects-review/independent-probe.mjs": "1cff285515d638e67fe434f455b8657d701890de9830d9676f34d414f67f1e32"
+  },
+  "historicalSessions": [
+    {
+      "id": "fun-mars-ordinary-1",
+      "originalCapturePath": "results/mars-objects-players/fun-mars-ordinary-1.json",
+      "retainedOriginalCaptureSha256": null,
+      "counts": {
+        "combines": 4,
+        "blueprintSynthesis": 2,
+        "knownWholeObjectPlacements": 2,
+        "next": 1,
+        "finish": 1,
+        "checkpoints": 3,
+        "reports": 1,
+        "explicitPreviewCalls": 0,
+        "capturedInvalidActions": 0,
+        "totalRecordedEvents": 11
+      },
+      "goals": [
+        {
+          "scenario": "garden",
+          "status": "won",
+          "combines": 2
+        },
+        {
+          "scenario": "signal",
+          "status": "won",
+          "combines": 2
+        }
+      ],
+      "historicalExactReplayReported": true,
+      "initialKnown": 6,
+      "finalKnown": 8,
+      "finish": {
+        "finished": true,
+        "worldStatus": "won",
+        "stateUnchanged": true
+      }
+    },
+    {
+      "id": "fun-mars-complete-1",
+      "originalCapturePath": "results/mars-objects-players/fun-mars-complete-1.json",
+      "retainedOriginalCaptureSha256": null,
+      "counts": {
+        "combines": 2,
+        "blueprintSynthesis": 0,
+        "knownWholeObjectPlacements": 2,
+        "next": 1,
+        "finish": 1,
+        "checkpoints": 3,
+        "reports": 1,
+        "explicitPreviewCalls": 0,
+        "capturedInvalidActions": 0,
+        "totalRecordedEvents": 9
+      },
+      "goals": [
+        {
+          "scenario": "garden",
+          "status": "won",
+          "combines": 1
+        },
+        {
+          "scenario": "signal",
+          "status": "won",
+          "combines": 1
+        }
+      ],
+      "historicalExactReplayReported": true,
+      "initialKnown": 12,
+      "finalKnown": 12,
+      "finish": {
+        "finished": true,
+        "worldStatus": "won",
+        "stateUnchanged": true
+      }
+    }
+  ],
+  "historicalChecks": {
+    "exactEveryEventReplay": "reported pass in original execution; not currently reproduced",
+    "freezeFilesMatched": 10,
+    "focusedTests": {
+      "passed": 13,
+      "failed": 0
+    },
+    "fullSuite": {
+      "passed": 227,
+      "failed": 0
+    },
+    "typeScriptExitCode": 0,
+    "genericEvaluatorApplied": false
+  },
+  "excludedSmokeCapture": "results/mars-objects-players/reviewer-mars-cli-smoke-1.json",
+  "smokeIsBlindPlay": false,
+  "omissions": [
+    "Original capture file SHA-256 values were not printed/retained; do not substitute state hashes",
+    "Full raw event observations and before/after states",
+    "Full generated source-verification ledger",
+    "Full original test-log bytes"
+  ],
+  "limitations": [
+    "No current replay of either original capture occurred.",
+    "Zero explicit preview calls is not preview-naive play: exact previews were included in all public observations.",
+    "Complete-catalogue actions were placements, not internal synthesis.",
+    "Neither player reused the acquired Clear Shell on Signal or modified the same installed shell."
+  ]
+}

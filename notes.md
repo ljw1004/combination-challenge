@@ -277,3 +277,12 @@ The owner explicitly requested that findings be pushed and experimentation conti
 ### 14:31 UTC: recovered shared-ontology models and current criteria
 
 All four Living Works/Atlas sources and Atlas tests match their original frozen hashes. The recovered sources now pass 20 focused tests and 9,443 fresh mechanical forecasts; baseline+Mars+recovered Living tests pass176 plus TypeScript. Exact doctrine8/9 recovered, with current revision9 active. Supporting documents are separately labeled context-reconstructed where no old hash was retained. Original new player captures are still unavailable; do not claim fresh recreation of old choices. The next retained-camp wrapper is being implemented in separate files and independently reviewed.
+
+
+## 26 October 2026, 14:41 UTC: explicit target and continuous iteration
+
+The owner set the destination: logical combination play judged fun, lasting about200 player decisions and ideally spanning multiple levels/scenarios. Keep experimenting, evaluating and committing until reaching it. Tiny tests are diagnostic steps, not the completion criterion. Do not pad counts, require each action to be a dilemma, or treat a short valid game as200 decisions. Develop a genuine multi-scenario candidate and test complete sessions with neutral prompts and independent evidence review. Clear progress, mechanics learning and comfortable routine remain legitimate parts of the experience.
+
+### 26 October 2026: prospective whole-game evaluation protocol
+
+Added docs/long-play-evaluation-protocol.md for the owner's explicit about-200-decision target, prospectively and without altering frozen tests/evidence. Proposed cohort: two fresh public-only finite-campaign players, one opening/free-choice player, then an independent skeptical reviewer. Players receive no action quota. Count selected game interventions, including obvious familiar combines, separately from thought episodes, automatic beats, navigation and required reporting; preserve valid short solutions. Assigned multi-level coverage may support the target without proving elective appetite. Provisional completion requires replicated played scale, explicit substantial-play appreciation, project fit and independent count/shortcut/padding review, not a fun scalar or unavailable human validation. This document is a protocol, not new play evidence; parent owns candidate integration and publication.
