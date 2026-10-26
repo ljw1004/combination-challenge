@@ -1,0 +1,125 @@
+[
+  {
+    "name": "direct-and-relative",
+    "actions": 7,
+    "findings": {
+      "directAbsoluteHalfTurn": true,
+      "sameRelativeHalfTurnTogglesBothWays": true,
+      "sameActualLensAndCenter": true,
+      "stationaryOtherParts": true,
+      "noRecordsCreated": true
+    }
+  },
+  {
+    "name": "focal-outward-alias-and-history",
+    "actions": 10,
+    "findings": {
+      "exactFreshRecordWitness": true,
+      "duplicateNoveltyIndependent": true,
+      "deepFrozenInputsUntouched": true,
+      "allReturnedNestedWitnessesIndependent": true,
+      "opaqueFocalAndOutwardReject": true,
+      "historicalRecordNotLiveService": true
+    }
+  },
+  {
+    "name": "different-camera-alternative",
+    "actions": 2,
+    "findings": {
+      "explicitTargets": [
+        {
+          "id": "e",
+          "center": [
+            15,
+            10,
+            0.5
+          ],
+          "front": [
+            -1,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "w",
+          "center": [
+            5,
+            10,
+            0.5
+          ],
+          "front": [
+            1,
+            0,
+            0
+          ]
+        }
+      ],
+      "views": [
+        {
+          "object": "o:9",
+          "subject": "e",
+          "center": [
+            12,
+            10,
+            0.5
+          ],
+          "heading": [
+            1,
+            0,
+            0
+          ],
+          "target": [
+            15,
+            10,
+            0.5
+          ],
+          "front": [
+            -1,
+            0,
+            0
+          ],
+          "lens": "p:10",
+          "plate": "p:11",
+          "boundaries": [],
+          "focalBoundaries": []
+        },
+        {
+          "object": "o:12",
+          "subject": "w",
+          "center": [
+            8,
+            10,
+            0.5
+          ],
+          "heading": [
+            -1,
+            0,
+            0
+          ],
+          "target": [
+            5,
+            10,
+            0.5
+          ],
+          "front": [
+            1,
+            0,
+            0
+          ],
+          "lens": "p:13",
+          "plate": "p:14",
+          "boundaries": [],
+          "focalBoundaries": []
+        }
+      ],
+      "staticDifferentCentersLegal": true,
+      "defaultTargetsNotReplaced": true
+    }
+  },
+  {
+    "name": "fresh-pose-obstruction-differential",
+    "cases": 400,
+    "positive": 18,
+    "negative": 382
+  }
+]

@@ -1,0 +1,12 @@
+file:///workspace/shared/combination-challenge/experiments/geometric-materials-live-view-independent.ts:3
+function rig(name       ){let s=E.createGeometricMaterials({catalogue:'complete'});const initial=structuredClone(s),trace      =[];return {get s(){return s},obj(id       ){return s.boards[0] .objects.find(o=>o.id===id) },act(a       ,b       ,context                  ={},accept=true){const action       ={type:'combine',a,b,context},before=s;s=E.stepGeometricMaterials(s,action);assert.equal(s.accepted,accept,s.response.join(';'));assert.deepEqual(E.previewGeometricMaterials(before,action).state,s);trace.push({action,accepted:s.accepted,response:s.response,beforeHash:hash(before),afterHash:hash(s)});return s.boards[0] .objects.at(-1) .id},save(findings        ){let replay=initial;for(const e of trace)replay=E.stepGeometricMaterials(replay,e.action);assert.equal(hash(replay),hash(s));const result={name,initial,trace,final:s,findings};writeFileSync(out+name+'.json',JSON.stringify(result,null,2)+'\n');rows.push({name,actions:trace.length,findings});}};}
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                ^
+
+TypeError: Cannot read properties of undefined (reading 'id')
+    at Object.act (file:///workspace/shared/combination-challenge/experiments/geometric-materials-live-view-independent.ts:3:641)
+    at file:///workspace/shared/combination-challenge/experiments/geometric-materials-live-view-independent.ts:6:337
+    at ModuleJob.run (node:internal/modules/esm/module_job:561:25)
+    at async node:internal/modules/esm/loader:647:26
+    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:101:5)
+
+Node.js v24.22.1
