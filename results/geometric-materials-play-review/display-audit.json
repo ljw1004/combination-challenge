@@ -1,0 +1,935 @@
+{
+  "reviewer": "/root/evaluate_working_materials_campaign/review_a/cli_audit",
+  "scope": "Read-only independent postplay delivered visibility and tap co-location audit; no player follow-up, execution transcript access, engine or capture changes.",
+  "capture": {
+    "path": "results/geometric-materials-players/fun-geometric-materials-v1-campaign-1.jsonl",
+    "sha256": "a2333b3e9fc34ad93980acc638fc2371f44299f7f79f7442484fba8846a7c253",
+    "events": 74
+  },
+  "publicGuide": {
+    "path": "docs/geometric-materials.md",
+    "sha256": "0fbbcb0c23de66c17c89f1f1ba3da811b60ae83df2b3f92f59368e0c64919e6c",
+    "relevantParagraphs": [
+      "* `connect` selects an actual receiving assembly and a source (`place:tap` or another actual assembly), with channel `water`, `power` or `light`. Water receivers need an actual tube constituent. These links are explicitly abstract interfaces, not collision-checked pipes or wires. Moving an endpoint breaks its links. No tile wiring is required.",
+      "* `transform` selects actual material `part`, a compatible catalyst/tool and a disclosed `recipe`. Actual tools use `toolPart`, never their host's identity. The selected local material and actual tool must currently share positive-area face contact; remote objects and unrelated host parts cannot substitute. A complete `at`/`rotation` can place the material assembly in that same transformation selection. Inexhaustible primitive catalyst capabilities are hand tools; actual site water requires local contact. `fit` seats an actual local matching surface at a disclosed site. `sample` takes an actual tray/site contact sample."
+    ],
+    "actualReadingLimit": "Guide availability and report of reading are known; standalone filesystem read is not represented by CLI capture."
+  },
+  "displayFindings": {
+    "catalogueIndexSeq": 3,
+    "catalogueIndex": {
+      "source": "catalogue",
+      "sections": [
+        {
+          "section": "all",
+          "lines": 3078,
+          "sha256": "1e4567e801d912ca56d6b0b8a3339659162976fc351a12d45b3d2f527c4cf125"
+        },
+        {
+          "section": "primitives",
+          "lines": 21,
+          "sha256": "e6c454d8fc767080a9d897836674b03bf4e381958a539d29ed971cc506163cf3"
+        },
+        {
+          "section": "recipes",
+          "lines": 44,
+          "sha256": "2bf5540097621a3c2aaa3379a48a0d75a017c251a79a4836257fafb82e273a17"
+        },
+        {
+          "section": "laws",
+          "lines": 14,
+          "sha256": "4a7367ea2f4ad3612d2976b3358d86386126848e4dc11be52a1dc694ed7e024e"
+        },
+        {
+          "section": "processes",
+          "lines": 56,
+          "sha256": "3135187820e06cec358a78c195a2ffbee335d7b769d5aa10a7a781ce77791c8d"
+        },
+        {
+          "section": "known",
+          "lines": 23,
+          "sha256": "a00a172b8980fce41b7b3f73892ca4915db312e21f4a4681af6ecb69b7010909"
+        },
+        {
+          "section": "designs",
+          "lines": 2590,
+          "sha256": "5d8d6fb406bb703bb0e8a287e743c177aa556b712545ea8b494ee7b5b89a7473"
+        },
+        {
+          "section": "maps",
+          "lines": 328,
+          "sha256": "c8d7ad25c309a4bf7d18327606b4b39703f9c7a9b01809f8e14dc27457519c19"
+        }
+      ],
+      "help": "Read catalogue ID SECTION, or chunk ID SOURCE SECTION START COUNT. No fields are omitted from this index. Chunks are lossless, recorded public queries; use nextStart until null."
+    },
+    "fullSectionsActuallyDelivered": [
+      {
+        "seq": 4,
+        "section": "recipes"
+      },
+      {
+        "seq": 5,
+        "section": "processes"
+      },
+      {
+        "seq": 6,
+        "section": "known"
+      },
+      {
+        "seq": 11,
+        "section": "laws"
+      },
+      {
+        "seq": 22,
+        "section": "primitives"
+      }
+    ],
+    "selectedDesignsDelivered": [
+      {
+        "seq": 8,
+        "id": "shelter"
+      },
+      {
+        "seq": 9,
+        "id": "tube"
+      },
+      {
+        "seq": 10,
+        "id": "clay"
+      }
+    ],
+    "completeGoalCardsAtSeq2": 16,
+    "allDesignsSectionDelivered": false,
+    "entireCatalogueDelivered": false,
+    "initialMapChunk": {
+      "seq": 7,
+      "range": [
+        1,
+        200
+      ],
+      "completeStationMap": true,
+      "conservatoryDetails": "Begins conservatory map and targets; stops mid-B-front vector at line200. Its place/access/initial/goal section is not in this chunk."
+    },
+    "remainingMapChunk": {
+      "seq": 55,
+      "range": [
+        201,
+        328
+      ],
+      "timing": "After station completion checkpoint54 and before conservatory select56"
+    },
+    "mapsExactReconstruction": {
+      "pass": true,
+      "totalLines": 328,
+      "sha256": "c8d7ad25c309a4bf7d18327606b4b39703f9c7a9b01809f8e14dc27457519c19",
+      "noGapOrOverlap": true,
+      "samePublicMapsAtBothEvents": true
+    },
+    "sourceVersusDelivered": [
+      {
+        "seq": 3,
+        "command": "catalogue",
+        "arguments": [],
+        "deliveredBytes": 1381,
+        "deliveredSHA256": "72f0a2e2d19b833bf8abb80bee5120c7ee0e448080e28b98eb1d0fad9591df72",
+        "capturedPublicSourceKeys": [
+          "primitives",
+          "recipes",
+          "laws",
+          "processes",
+          "known",
+          "designs",
+          "maps"
+        ],
+        "fullPublicSourceBytes": 67125,
+        "fullPublicSourceSHA256": "1e4567e801d912ca56d6b0b8a3339659162976fc351a12d45b3d2f527c4cf125",
+        "deliveredIsFullPublicSource": false,
+        "note": "Index or chosen section/chunk delivered; other captured fields not thereby viewed."
+      },
+      {
+        "seq": 4,
+        "command": "catalogue",
+        "arguments": [
+          "recipes"
+        ],
+        "deliveredBytes": 1219,
+        "deliveredSHA256": "2bf5540097621a3c2aaa3379a48a0d75a017c251a79a4836257fafb82e273a17",
+        "capturedPublicSourceKeys": [
+          "primitives",
+          "recipes",
+          "laws",
+          "processes",
+          "known",
+          "designs",
+          "maps"
+        ],
+        "fullPublicSourceBytes": 67125,
+        "fullPublicSourceSHA256": "1e4567e801d912ca56d6b0b8a3339659162976fc351a12d45b3d2f527c4cf125",
+        "deliveredIsFullPublicSource": false,
+        "note": "Index or chosen section/chunk delivered; other captured fields not thereby viewed."
+      },
+      {
+        "seq": 5,
+        "command": "catalogue",
+        "arguments": [
+          "processes"
+        ],
+        "deliveredBytes": 1374,
+        "deliveredSHA256": "3135187820e06cec358a78c195a2ffbee335d7b769d5aa10a7a781ce77791c8d",
+        "capturedPublicSourceKeys": [
+          "primitives",
+          "recipes",
+          "laws",
+          "processes",
+          "known",
+          "designs",
+          "maps"
+        ],
+        "fullPublicSourceBytes": 67125,
+        "fullPublicSourceSHA256": "1e4567e801d912ca56d6b0b8a3339659162976fc351a12d45b3d2f527c4cf125",
+        "deliveredIsFullPublicSource": false,
+        "note": "Index or chosen section/chunk delivered; other captured fields not thereby viewed."
+      },
+      {
+        "seq": 6,
+        "command": "catalogue",
+        "arguments": [
+          "known"
+        ],
+        "deliveredBytes": 249,
+        "deliveredSHA256": "a00a172b8980fce41b7b3f73892ca4915db312e21f4a4681af6ecb69b7010909",
+        "capturedPublicSourceKeys": [
+          "primitives",
+          "recipes",
+          "laws",
+          "processes",
+          "known",
+          "designs",
+          "maps"
+        ],
+        "fullPublicSourceBytes": 67125,
+        "fullPublicSourceSHA256": "1e4567e801d912ca56d6b0b8a3339659162976fc351a12d45b3d2f527c4cf125",
+        "deliveredIsFullPublicSource": false,
+        "note": "Index or chosen section/chunk delivered; other captured fields not thereby viewed."
+      },
+      {
+        "seq": 7,
+        "command": "chunk",
+        "arguments": [
+          "catalogue",
+          "maps",
+          "1",
+          "200"
+        ],
+        "deliveredBytes": 5662,
+        "deliveredSHA256": "8667cca075627ba1e40a6603e20dfa773be3876de8c1841a7928432e95e1eac3",
+        "capturedPublicSourceKeys": [
+          "primitives",
+          "recipes",
+          "laws",
+          "processes",
+          "known",
+          "designs",
+          "maps"
+        ],
+        "fullPublicSourceBytes": 67125,
+        "fullPublicSourceSHA256": "1e4567e801d912ca56d6b0b8a3339659162976fc351a12d45b3d2f527c4cf125",
+        "deliveredIsFullPublicSource": false,
+        "note": "Index or chosen section/chunk delivered; other captured fields not thereby viewed."
+      },
+      {
+        "seq": 11,
+        "command": "catalogue",
+        "arguments": [
+          "laws"
+        ],
+        "deliveredBytes": 3914,
+        "deliveredSHA256": "4a7367ea2f4ad3612d2976b3358d86386126848e4dc11be52a1dc694ed7e024e",
+        "capturedPublicSourceKeys": [
+          "primitives",
+          "recipes",
+          "laws",
+          "processes",
+          "known",
+          "designs",
+          "maps"
+        ],
+        "fullPublicSourceBytes": 67125,
+        "fullPublicSourceSHA256": "1e4567e801d912ca56d6b0b8a3339659162976fc351a12d45b3d2f527c4cf125",
+        "deliveredIsFullPublicSource": false,
+        "note": "Index or chosen section/chunk delivered; other captured fields not thereby viewed."
+      },
+      {
+        "seq": 22,
+        "command": "catalogue",
+        "arguments": [
+          "primitives"
+        ],
+        "deliveredBytes": 223,
+        "deliveredSHA256": "e6c454d8fc767080a9d897836674b03bf4e381958a539d29ed971cc506163cf3",
+        "capturedPublicSourceKeys": [
+          "primitives",
+          "recipes",
+          "laws",
+          "processes",
+          "known",
+          "designs",
+          "maps"
+        ],
+        "fullPublicSourceBytes": 69390,
+        "fullPublicSourceSHA256": "ad92995decc9c4ef69ecb511d9e34c3039d27dd32cf41b42424f5e38c76826e7",
+        "deliveredIsFullPublicSource": false,
+        "note": "Index or chosen section/chunk delivered; other captured fields not thereby viewed."
+      },
+      {
+        "seq": 55,
+        "command": "chunk",
+        "arguments": [
+          "catalogue",
+          "maps",
+          "201",
+          "128"
+        ],
+        "deliveredBytes": 3533,
+        "deliveredSHA256": "6659b5ca5d9a6889c61a676d37417732713e853d438c16ed5dca5208a83291a0",
+        "capturedPublicSourceKeys": [
+          "primitives",
+          "recipes",
+          "laws",
+          "processes",
+          "known",
+          "designs",
+          "maps"
+        ],
+        "fullPublicSourceBytes": 79645,
+        "fullPublicSourceSHA256": "a841d925f2c5f23b52ab50d8d13e0b47c50972e86414f1349017f5254cf0c2a4",
+        "deliveredIsFullPublicSource": false,
+        "note": "Index or chosen section/chunk delivered; other captured fields not thereby viewed."
+      }
+    ],
+    "limits": [
+      "Adapter delivered bytes are independently available and can be checked exactly. They are not an independent transcript of execution-tool display or truncation.",
+      "evidence.publicSource captures the full catalogue even for an index, one section or a chunk. That is not proof the full catalogue was displayed/read.",
+      "No further truncation or filtering can be independently inferred from this capture. The final no-truncation assertion remains a player report, not a verified downstream-rendering fact.",
+      "Reviewer tool output during this audit itself truncated once; it was not player evidence and was followed by focused reads."
+    ]
+  },
+  "tapFinding": {
+    "seq18": {
+      "action": {
+        "a": "o:17",
+        "b": "place:tap",
+        "context": {
+          "operation": "transform",
+          "recipe": "soften",
+          "part": "p:18"
+        }
+      },
+      "accepted": false,
+      "response": [
+        "Incompatible declared material process; inspect processes and selected local tool part."
+      ],
+      "state": {
+        "object": "o:17",
+        "assemblyPosition": [
+          -4,
+          3,
+          0
+        ],
+        "parts": [
+          {
+            "id": "p:18",
+            "kind": "clay",
+            "localPosition": [
+              0,
+              0,
+              0
+            ],
+            "surface": {
+              "rigidity": "rigid",
+              "optical": "opaque",
+              "permeability": "porous",
+              "recording": "temporary"
+            },
+            "activeFit": null
+          }
+        ]
+      }
+    },
+    "tapDefinitionDelivered": {
+      "inSeq7Maps": {
+        "id": "tap",
+        "position": [
+          -5,
+          3,
+          0
+        ],
+        "water": true
+      },
+      "seq23": {
+        "id": "tap",
+        "position": [
+          -5,
+          3,
+          0
+        ],
+        "water": true
+      }
+    },
+    "publicRuleBeforeFailure": {
+      "seq11Law": "Actual physical tool/material operations require the selected actual local surfaces to touch along a face with positive area in the current pose. An optional complete at/rotation moves the material assembly as part of the selected combination. Remote or unrelated host parts cannot substitute. Primitive catalyst capabilities are inexhaustible hand tools; site water, fitting and specimen contact require actual local position.",
+      "seq5Process": {
+        "id": "soften",
+        "input": "clay",
+        "tool": "water",
+        "effect": "moldable porous temporary clay; geometry retained"
+      }
+    },
+    "diagnosticQueries": {
+      "seq21Partners": {
+        "operand": "o:17",
+        "recipes": [],
+        "operations": [
+          "move",
+          "attach",
+          "hinge",
+          "detach",
+          "connect",
+          "observe",
+          "transmit",
+          "transform",
+          "fit",
+          "sample",
+          "discard"
+        ],
+        "processes": [
+          {
+            "id": "soften",
+            "input": "clay",
+            "tool": "water",
+            "effect": "moldable porous temporary clay; geometry retained"
+          },
+          {
+            "id": "fire",
+            "input": "moldable",
+            "tool": "heater",
+            "effect": "rigid porous durable; geometry/events retained"
+          },
+          {
+            "id": "fuse",
+            "input": "sand",
+            "tool": "heater",
+            "effect": "rigid clear watertight durable glass; geometry retained"
+          },
+          {
+            "id": "sheet",
+            "input": "fiber",
+            "tool": "water",
+            "effect": "flexible porous temporary sheet; geometry retained until actual take-form"
+          },
+          {
+            "id": "line",
+            "input": "any surface",
+            "tool": "binder",
+            "effect": "watertight durable; geometry/events retained"
+          },
+          {
+            "id": "laminate",
+            "input": "any surface",
+            "tool": "clear-film",
+            "effect": "watertight durable; geometry/events retained"
+          },
+          {
+            "id": "take-form",
+            "input": "moldable or flexible",
+            "tool": "actual part",
+            "effect": "copies selected actual shapes/profile; records actual source part/object"
+          },
+          {
+            "id": "impress",
+            "input": "recordable",
+            "tool": "actual recorded part",
+            "effect": "physical copies all actual selected-part observations; no receiver identity fallback"
+          },
+          {
+            "id": "relief",
+            "input": "moldable",
+            "tool": "actual relief site",
+            "effect": "records contact impression"
+          }
+        ],
+        "targets": [
+          {
+            "id": "beacon",
+            "center": [
+              5,
+              1,
+              0.5
+            ],
+            "front": [
+              -1,
+              0,
+              0
+            ]
+          },
+          {
+            "id": "far-marker",
+            "center": [
+              5,
+              6,
+              0.5
+            ],
+            "front": [
+              -1,
+              0,
+              0
+            ]
+          }
+        ],
+        "places": [
+          {
+            "id": "working-bench",
+            "position": [
+              1,
+              7,
+              0
+            ]
+          },
+          {
+            "id": "wet-display",
+            "position": [
+              0,
+              7,
+              0
+            ],
+            "wet": true
+          },
+          {
+            "id": "tap",
+            "position": [
+              -5,
+              3,
+              0
+            ],
+            "water": true
+          },
+          {
+            "id": "filter",
+            "position": [
+              -4,
+              3,
+              0
+            ],
+            "outlet": "unit",
+            "profile": "unit"
+          },
+          {
+            "id": "receiver",
+            "position": [
+              -5,
+              5,
+              0
+            ],
+            "receiver": true
+          },
+          {
+            "id": "specimen",
+            "position": [
+              -4,
+              5,
+              0
+            ],
+            "specimen": "table-leaf"
+          },
+          {
+            "id": "relief",
+            "position": [
+              -3,
+              5,
+              0
+            ],
+            "relief": "leaf-relief",
+            "profile": "unit"
+          }
+        ],
+        "known": [
+          "frame",
+          "hinge",
+          "clear-film",
+          "foil",
+          "mesh",
+          "tube",
+          "cable",
+          "solar-cell",
+          "lamp",
+          "heater",
+          "tray",
+          "seed",
+          "wheels",
+          "lens",
+          "record-plate",
+          "sand",
+          "clay",
+          "fiber",
+          "binder",
+          "shelter",
+          "rootbed",
+          "assembly:1"
+        ],
+        "note": "Exact pose-dependent compatibility is the public preview; this list does not hide unsuccessful alternatives."
+      },
+      "seq22Primitives": [
+        "frame",
+        "hinge",
+        "clear-film",
+        "foil",
+        "mesh",
+        "tube",
+        "cable",
+        "solar-cell",
+        "lamp",
+        "heater",
+        "tray",
+        "seed",
+        "wheels",
+        "lens",
+        "record-plate",
+        "sand",
+        "clay",
+        "fiber",
+        "binder"
+      ]
+    },
+    "seq24": {
+      "action": {
+        "a": "o:17",
+        "b": "water",
+        "context": {
+          "operation": "transform",
+          "recipe": "soften",
+          "part": "p:18"
+        }
+      },
+      "accepted": false,
+      "response": [
+        "Unknown catalyst capability."
+      ]
+    },
+    "seq25": {
+      "action": {
+        "a": "o:17",
+        "b": "place:tap",
+        "context": {
+          "operation": "transform",
+          "recipe": "soften",
+          "part": "p:18",
+          "at": [
+            -5,
+            3,
+            0
+          ]
+        }
+      },
+      "acceptedPreview": true,
+      "predictedPosition": [
+        -5,
+        3,
+        0
+      ],
+      "stateHash": "effe81c954d2a9280d124c26cd1974487789b5c579ab811d556680ad6628ee14"
+    },
+    "seq26": {
+      "action": {
+        "a": "o:17",
+        "b": "place:tap",
+        "context": {
+          "operation": "transform",
+          "recipe": "soften",
+          "part": "p:18",
+          "at": [
+            -5,
+            3,
+            0
+          ]
+        }
+      },
+      "accepted": true,
+      "response": [
+        "Accepted transform; exact current goals available."
+      ],
+      "stateHash": "effe81c954d2a9280d124c26cd1974487789b5c579ab811d556680ad6628ee14",
+      "previewAgrees": true
+    },
+    "interpretation": [
+      "At seq18 selected clay p:18 was at [-4,3,0], while tap was [-5,3,0]. It was adjacent by anchor, not co-located. Public guide/law had stated site-water/local-position contact requirements and map exposed tap coordinates.",
+      "Seq18 rejection gave only generic incompatible-process guidance; it did not identify location as the failing precondition. The player request for a clearer co-location diagnostic is supported.",
+      "Process and partners text label the tool category water, while water is absent from primitive/known capability lists. Seq24 tried literal water and was rejected as unknown catalyst. This is a category-versus-valid-operand ambiguity, not a successful hidden alternate recipe.",
+      "The guide says site water requires local contact/position but does not spell out an exact same-coordinate equality example for the tap. Do not overstate disclosure as an explicit co-location equation; conversely the locality principle was not hidden.",
+      "Seq25 supplies at:[-5,3,0] in the same transform, previews success, then seq26 commits the same selection with matching predicted state hash. The player recovered through public inspection/preview, without source or operator repair represented here.",
+      "This supports a weak rejection diagnostic/clarity issue, not evidence of a broken transformation or a technical interruption."
+    ]
+  },
+  "finalReportVerbatim": {
+    "question": "How was the experience as a whole? What would you keep, shorten, remove or change, if anything? What led you to stop here?",
+    "answer": "This AI play was a clear construction-and-reuse puzzle with a few worthwhile planning decisions and a lot of literal execution. I would keep the event-linked worked surface, actual physical copies rather than blueprint records, and the common-center camera constraint. Combining several station purposes on one clay object and sharing each shelter with a specimen gave useful freedom. I would shorten the repeated tube, fitting, connection and copy-placement bookkeeping, and make the tap rejection identify its missing co-location condition. The conservatory added one spatial rearrangement and a rotation, but its specimen and wet-copy tasks mostly repeated the station. I stopped because the public campaign cards now show every station and conservatory requirement satisfied together, with the historical service earned. These are observations of AI play, not measured human enjoyment or duration.",
+    "displayLimitations": "No output truncation was reported by the execution tool. I read the guide, catalogue index, recipes, processes, known capabilities, primitives, laws, maps in two complete chunks, selected design/place details and public action outputs; I did not read every design or unchanged full state.",
+    "technicalIssues": "No technical interruption. Initial rejected actions were a mistaken object ID, an adjacent rather than co-located tap transformation, and an unknown water capability; play continued through public corrections."
+  },
+  "focusedEvents": [
+    {
+      "seq": 1,
+      "at": "2026-10-26T21:55:57.000Z",
+      "command": "inspect",
+      "arguments": [
+        "cli"
+      ],
+      "accepted": null,
+      "delivered": "{\n  \"commands\": {\n    \"init\": \"init ID [ordinary|complete|OPTIONS_JSON] METADATA_JSON — start a new capture; default ordinary; metadata records the exact assignment and participant\",\n    \"view\": \"view ID — compact current board, objects, and goal progress\",\n    \"goals\": \"goals ID — full public requirements, checks, rows, and completion modes for the current board\",\n    \"campaign\": \"campaign ID — full public goal cards and progress across all available boards\",\n    \"inspect\": \"inspect ID [object/design/place ID] — public detail; omit the operand for full current world/rules; use cli for this guide\",\n    \"catalogue\": \"catalogue ID [SECTION|all] — index every public section by default; explicitly read a full section or all. No section is hidden.\",\n    \"sections\": \"sections ID SOURCE — list every available section and exact line counts for catalogue, world, goals, view, or inspect:PUBLIC_ID\",\n    \"chunk\": \"chunk ID SOURCE SECTION START COUNT — exact 1-based lossless JSON line slice; SECTION all includes the full source; count is 1–200. Returns total/hash/nextStart; every chunk is captured.\",\n    \"partners\": \"partners ID OPERAND — compatible recipes and contextual operations; not a recommended plan\",\n    \"preview\": \"preview ID ACTION_JSON [DETAIL_ID] — exact single-action forecast; optional world/object/place detail of the predicted result\",\n    \"combine\": \"combine ID ACTION_JSON — select and commit one combination; act is an alias\",\n    \"select\": \"select ID MAP_ID — visit another retained board, without a game intervention\",\n    \"undo\": \"undo ID — undo the latest still-applied accepted combination under the public editing rules\",\n    \"checkpoint\": \"checkpoint ID REPORT_JSON — record the exact question/response or current intention\",\n    \"report\": \"report ID REPORT_JSON — record a remark, report, choice, or technical interruption verbatim\",\n    \"finish\": \"finish ID [REPORT_JSON] — stop whenever you choose, whether complete or not\",\n    \"verify\": \"verify ID — read-only capture, source-freeze, and deterministic-replay verification\"\n  },\n  \"action\": {\n    \"type\": \"combine (optional under CLI combine/preview; conflicting explicit values rejected)\",\n    \"a\": \"actual object/design operand\",\n    \"b\": \"actual object/design/target/site operand\",\n    \"context\": \"operation, at:[x,y,z], rotation:3x3 cardinal matrix, part, toolPart, parent, hinge:{pivot:[x,y,z],axis:x|y|z}, quarter, channel, recipe\"\n  },\n  \"transforms\": \"Use context.operation transform with selected material and catalyst operands; actual selected tool parts require positive-area face contact, or a complete context.at pose for the material assembly in that same selection; context.part selects a material leaf, context.toolPart selects a form/record tool part, and context.recipe selects a disclosed compatible process when needed. A fit operation combines an actual formed surface with a matching place; inspect exposes exact requirements, local traits, form, provenance and actual events.\",\n  \"normalOutput\": \"Committed actions and previews show concise changed objects, learned designs, and current-board goal progress. Full public observations and deterministic states remain in the capture. Use goals, campaign, inspect, catalogue, or partners for unrestricted public detail.\",\n  \"operands\": \"Known design IDs, actual object IDs o:N, and places place:ID are distinct. Inspect or query partners for their public conditions.\",\n  \"undo\": \"Editing undo restores the physical boards, records, achievements, and engine counters from before the latest still-applied accepted combination, using the engine editing operation. Learned capabilities and saved designs remain known, the current map stays selected, and the identity serial never decreases. Queries, rejected actions, and navigation do not add undo entries. Repeated undo walks accepted combinations backward; a new accepted combination branches from the edited state. There is no redo. The append-only session evidence and cumulative workload counts are never erased, and undo is counted separately, not as a combination.\",\n  \"attribution\": \"A trailing --actor=player or --actor=operator explicitly attributes a recorded command; otherwise the session metadata actor is used (default player). This does not change game behavior. Operator actions are not counted as player combinations.\",\n  \"movement\": \"Whole move uses b place:floor, complete context.at and optional rotation matrix. Endpoint support/collision only; no sweep or route simulation. Shapes never shrink.\",\n  \"queries\": \"Inspection, catalogue, partners, view, and preview are world-read-only. Their delivered observations are captured and counted separately from gameplay. No catalogue or preview sweep is performed automatically.\",\n  \"stopping\": \"You may finish early or after completion. Reporting and public queries remain available after finishing; further gameplay, navigation, and undo do not.\"\n}\n",
+      "deliveredBytes": 4955,
+      "deliveredSHA256": "a3ff5dc6606706e3578a6e1841381d83361d5c7e82b6625d60b2deac9fb3ae32"
+    },
+    {
+      "seq": 2,
+      "at": "2026-10-26T21:55:57.143Z",
+      "command": "campaign",
+      "arguments": [],
+      "accepted": null,
+      "delivered": "[\n  {\n    \"map\": \"station\",\n    \"goals\": [\n      {\n        \"id\": \"growing\",\n        \"title\": \"A working sheltered bed\",\n        \"requirement\": \"A watered rootbed under an actually supported clear roof, receiving useful light.\",\n        \"test\": \"growing\",\n        \"mode\": \"current\",\n        \"current\": false,\n        \"satisfied\": false\n      },\n      {\n        \"id\": \"soft-service\",\n        \"title\": \"A useful soft interface\",\n        \"requirement\": \"A moldable fitted porous surface actually supplied water to a growing bed. Any player-chosen surface may do this.\",\n        \"test\": \"soft-service\",\n        \"mode\": \"achievement\",\n        \"current\": false,\n        \"satisfied\": false\n      },\n      {\n        \"id\": \"durable-service\",\n        \"title\": \"Keep the water service\",\n        \"requirement\": \"A currently rigid porous fitted surface actually supplies a currently growing bed; replacement is legal.\",\n        \"test\": \"durable-service\",\n        \"mode\": \"current\",\n        \"current\": false,\n        \"satisfied\": false\n      },\n      {\n        \"id\": \"survey\",\n        \"title\": \"Useful survey\",\n        \"requirement\": \"Make actual front-on records of beacon and far-marker. They need not share a center on this board.\",\n        \"test\": \"survey\",\n        \"mode\": \"current\",\n        \"current\": false,\n        \"satisfied\": false\n      },\n      {\n        \"id\": \"temporary-reference\",\n        \"title\": \"Readable working reference\",\n        \"requirement\": \"A genuine physical observation copy is readable at the dry working bench. Temporary porous material is sufficient; durable alternatives remain legal.\",\n        \"test\": \"temporary-reference\",\n        \"mode\": \"current\",\n        \"current\": false,\n        \"satisfied\": false\n      },\n      {\n        \"id\": \"durable-copy\",\n        \"title\": \"Durable reference\",\n        \"requirement\": \"A genuine physical observation copy remains readable in actual wet contact at the wet-display mount; durable watertight local material protects it. Geometrical copies do not create records.\",\n        \"test\": \"durable-copy\",\n        \"mode\": \"current\",\n        \"current\": false,\n        \"satisfied\": false\n      },\n      {\n        \"id\": \"worked-return\",\n        \"title\": \"Worked surface, new purpose\",\n        \"requirement\": \"An actual surface that earlier supplied useful water while moldable now is durable/watertight and carries a genuine physical observation copy. A replacement can keep the water service.\",\n        \"test\": \"worked-return\",\n        \"mode\": \"current\",\n        \"current\": false,\n        \"satisfied\": false\n      },\n      {\n        \"id\": \"specimen\",\n        \"title\": \"Useful specimen holder\",\n        \"requirement\": \"An actual table-leaf contact sample rests in a supported tray under overhead dust protection with light and open-side air.\",\n        \"test\": \"specimen\",\n        \"mode\": \"current\",\n        \"current\": false,\n        \"satisfied\": false\n      },\n      {\n        \"id\": \"relief\",\n        \"title\": \"Keep an actual relief\",\n        \"requirement\": \"A durable watertight surface retains a real leaf-relief contact impression.\",\n        \"test\": \"relief\",\n        \"mode\": \"current\",\n        \"current\": false,\n        \"satisfied\": false\n      },\n      {\n        \"id\": \"published\",\n        \"title\": \"Publish the survey\",\n        \"requirement\": \"Relay actual front-on beacon and far-marker records to the receiver.\",\n        \"test\": \"published\",\n        \"mode\": \"current\",\n        \"current\": false,\n        \"satisfied\": false\n      }\n    ]\n  },\n  {\n    \"map\": \"conservatory\",\n    \"goals\": [\n      {\n        \"id\": \"growing\",\n        \"title\": \"Keep a useful conservatory\",\n        \"requirement\": \"At endpoint a watered rootbed has supported clear overhead protection and useful light; original or replacement is valid.\",\n        \"test\": \"growing\",\n        \"mode\": \"current\",\n        \"current\": true,\n        \"satisfied\": true\n      },\n      {\n        \"id\": \"access\",\n        \"title\": \"Open public approach\",\n        \"requirement\": \"The disclosed public path has no solid body or physical panel cutting its interior; no required garden square.\",\n        \"test\": \"access\",\n        \"mode\": \"current\",\n        \"current\": true,\n        \"satisfied\": true\n      },\n      {\n        \"id\": \"comparison\",\n        \"title\": \"Common-center comparison\",\n        \"requirement\": \"Actual front-on images of A and B from the same lens center establish their perpendicular bearing relationship. One camera or sequential cameras are equally valid.\",\n        \"test\": \"comparison\",\n        \"mode\": \"current\",\n        \"current\": false,\n        \"satisfied\": false\n      },\n      {\n        \"id\": \"published\",\n        \"title\": \"Publish the comparison\",\n        \"requirement\": \"Relay actual A and B records made from their same optical center to the receiver.\",\n        \"test\": \"published\",\n        \"mode\": \"current\",\n        \"current\": false,\n        \"satisfied\": false\n      },\n      {\n        \"id\": \"specimen\",\n        \"title\": \"Conservatory specimen work\",\n        \"requirement\": \"An actual garden-leaf contact sample rests in a supported lit tray under overhead dust protection with open-side air. Sharing an assembly is legal.\",\n        \"test\": \"specimen\",\n        \"mode\": \"current\",\n        \"current\": false,\n        \"satisfied\": false\n      },\n      {\n        \"id\": \"durable-copy\",\n        \"title\": \"Keep a durable survey\",\n        \"requirement\": \"A physical copy of an actual common-center survey observation remains readable in actual wet contact at the wet-display mount; durable watertight local material protects it.\",\n        \"test\": \"durable-copy\",\n        \"mode\": \"current\",\n        \"current\": false,\n        \"satisfied\": false\n      }\n    ]\n  }\n]\n",
+      "deliveredBytes": 5685,
+      "deliveredSHA256": "f3dbad064bd5e1708eb72d111a390cc0398d40275a67f43008a2a297056c30a3"
+    },
+    {
+      "seq": 3,
+      "at": "2026-10-26T21:55:57.302Z",
+      "command": "catalogue",
+      "arguments": [],
+      "accepted": null,
+      "delivered": "{\n  \"source\": \"catalogue\",\n  \"sections\": [\n    {\n      \"section\": \"all\",\n      \"lines\": 3078,\n      \"sha256\": \"1e4567e801d912ca56d6b0b8a3339659162976fc351a12d45b3d2f527c4cf125\"\n    },\n    {\n      \"section\": \"primitives\",\n      \"lines\": 21,\n      \"sha256\": \"e6c454d8fc767080a9d897836674b03bf4e381958a539d29ed971cc506163cf3\"\n    },\n    {\n      \"section\": \"recipes\",\n      \"lines\": 44,\n      \"sha256\": \"2bf5540097621a3c2aaa3379a48a0d75a017c251a79a4836257fafb82e273a17\"\n    },\n    {\n      \"section\": \"laws\",\n      \"lines\": 14,\n      \"sha256\": \"4a7367ea2f4ad3612d2976b3358d86386126848e4dc11be52a1dc694ed7e024e\"\n    },\n    {\n      \"section\": \"processes\",\n      \"lines\": 56,\n      \"sha256\": \"3135187820e06cec358a78c195a2ffbee335d7b769d5aa10a7a781ce77791c8d\"\n    },\n    {\n      \"section\": \"known\",\n      \"lines\": 23,\n      \"sha256\": \"a00a172b8980fce41b7b3f73892ca4915db312e21f4a4681af6ecb69b7010909\"\n    },\n    {\n      \"section\": \"designs\",\n      \"lines\": 2590,\n      \"sha256\": \"5d8d6fb406bb703bb0e8a287e743c177aa556b712545ea8b494ee7b5b89a7473\"\n    },\n    {\n      \"section\": \"maps\",\n      \"lines\": 328,\n      \"sha256\": \"c8d7ad25c309a4bf7d18327606b4b39703f9c7a9b01809f8e14dc27457519c19\"\n    }\n  ],\n  \"help\": \"Read catalogue ID SECTION, or chunk ID SOURCE SECTION START COUNT. No fields are omitted from this index. Chunks are lossless, recorded public queries; use nextStart until null.\"\n}\n",
+      "deliveredBytes": 1381,
+      "deliveredSHA256": "72f0a2e2d19b833bf8abb80bee5120c7ee0e448080e28b98eb1d0fad9591df72"
+    },
+    {
+      "seq": 4,
+      "at": "2026-10-26T21:56:00.783Z",
+      "command": "catalogue",
+      "arguments": [
+        "recipes"
+      ],
+      "accepted": null,
+      "delivered": "[\n  {\n    \"a\": \"frame\",\n    \"b\": \"wheels\",\n    \"result\": \"cart\",\n    \"description\": \"Supported frame and actual wheel contact markers; no shrinking or mobility quota.\"\n  },\n  {\n    \"a\": \"cart\",\n    \"b\": \"hinge\",\n    \"result\": \"hinged-cart\",\n    \"description\": \"A cart with a declared future attachment hinge; actual connected bodies retain their dimensions.\"\n  },\n  {\n    \"a\": \"hinged-cart\",\n    \"b\": \"camera\",\n    \"result\": \"survey-cart\",\n    \"description\": \"Actual two-body camera attached at a real vertical hinge axis to the cart frame.\"\n  },\n  {\n    \"a\": \"lens\",\n    \"b\": \"record-plate\",\n    \"result\": \"camera\",\n    \"description\": \"Lens at origin faces east; recording plate one unit behind. Both real unit bodies.\"\n  },\n  {\n    \"a\": \"tray\",\n    \"b\": \"seed\",\n    \"result\": \"rootbed\",\n    \"description\": \"Seeded tray occupying one actual unit body.\"\n  },\n  {\n    \"a\": \"frame\",\n    \"b\": \"clear-film\",\n    \"result\": \"shelter\",\n    \"description\": \"Two-cell supported clear roof. Right panel is hinged at the real seam; no solid interior.\"\n  },\n  {\n    \"a\": \"frame\",\n    \"b\": \"mesh\",\n    \"result\": \"ventilated-holder\",\n    \"description\": \"Supported porous roof for a lit dry specimen; no sealed enclosure claim.\"\n  }\n]\n",
+      "deliveredBytes": 1219,
+      "deliveredSHA256": "2bf5540097621a3c2aaa3379a48a0d75a017c251a79a4836257fafb82e273a17"
+    },
+    {
+      "seq": 5,
+      "at": "2026-10-26T21:56:00.937Z",
+      "command": "catalogue",
+      "arguments": [
+        "processes"
+      ],
+      "accepted": null,
+      "delivered": "[\n  {\n    \"id\": \"soften\",\n    \"input\": \"clay\",\n    \"tool\": \"water\",\n    \"effect\": \"moldable porous temporary clay; geometry retained\"\n  },\n  {\n    \"id\": \"fire\",\n    \"input\": \"moldable\",\n    \"tool\": \"heater\",\n    \"effect\": \"rigid porous durable; geometry/events retained\"\n  },\n  {\n    \"id\": \"fuse\",\n    \"input\": \"sand\",\n    \"tool\": \"heater\",\n    \"effect\": \"rigid clear watertight durable glass; geometry retained\"\n  },\n  {\n    \"id\": \"sheet\",\n    \"input\": \"fiber\",\n    \"tool\": \"water\",\n    \"effect\": \"flexible porous temporary sheet; geometry retained until actual take-form\"\n  },\n  {\n    \"id\": \"line\",\n    \"input\": \"any surface\",\n    \"tool\": \"binder\",\n    \"effect\": \"watertight durable; geometry/events retained\"\n  },\n  {\n    \"id\": \"laminate\",\n    \"input\": \"any surface\",\n    \"tool\": \"clear-film\",\n    \"effect\": \"watertight durable; geometry/events retained\"\n  },\n  {\n    \"id\": \"take-form\",\n    \"input\": \"moldable or flexible\",\n    \"tool\": \"actual part\",\n    \"effect\": \"copies selected actual shapes/profile; records actual source part/object\"\n  },\n  {\n    \"id\": \"impress\",\n    \"input\": \"recordable\",\n    \"tool\": \"actual recorded part\",\n    \"effect\": \"physical copies all actual selected-part observations; no receiver identity fallback\"\n  },\n  {\n    \"id\": \"relief\",\n    \"input\": \"moldable\",\n    \"tool\": \"actual relief site\",\n    \"effect\": \"records contact impression\"\n  }\n]\n",
+      "deliveredBytes": 1374,
+      "deliveredSHA256": "3135187820e06cec358a78c195a2ffbee335d7b769d5aa10a7a781ce77791c8d"
+    },
+    {
+      "seq": 6,
+      "at": "2026-10-26T21:56:01.087Z",
+      "command": "catalogue",
+      "arguments": [
+        "known"
+      ],
+      "accepted": null,
+      "delivered": "[\n  \"frame\",\n  \"hinge\",\n  \"clear-film\",\n  \"foil\",\n  \"mesh\",\n  \"tube\",\n  \"cable\",\n  \"solar-cell\",\n  \"lamp\",\n  \"heater\",\n  \"tray\",\n  \"seed\",\n  \"wheels\",\n  \"lens\",\n  \"record-plate\",\n  \"sand\",\n  \"clay\",\n  \"fiber\",\n  \"binder\",\n  \"shelter\",\n  \"rootbed\"\n]\n",
+      "deliveredBytes": 249,
+      "deliveredSHA256": "a00a172b8980fce41b7b3f73892ca4915db312e21f4a4681af6ecb69b7010909"
+    },
+    {
+      "seq": 7,
+      "at": "2026-10-26T21:56:01.237Z",
+      "command": "chunk",
+      "arguments": [
+        "catalogue",
+        "maps",
+        "1",
+        "200"
+      ],
+      "accepted": null,
+      "delivered": "{\n  \"source\": \"catalogue\",\n  \"section\": \"maps\",\n  \"start\": 1,\n  \"end\": 200,\n  \"totalLines\": 328,\n  \"nextStart\": 201,\n  \"sha256\": \"c8d7ad25c309a4bf7d18327606b4b39703f9c7a9b01809f8e14dc27457519c19\",\n  \"content\": \"[\\n  {\\n    \\\"id\\\": \\\"station\\\",\\n    \\\"label\\\": \\\"Material station: make services, then reuse actual worked things\\\",\\n    \\\"targets\\\": [\\n      {\\n        \\\"id\\\": \\\"beacon\\\",\\n        \\\"center\\\": [\\n          5,\\n          1,\\n          0.5\\n        ],\\n        \\\"front\\\": [\\n          -1,\\n          0,\\n          0\\n        ]\\n      },\\n      {\\n        \\\"id\\\": \\\"far-marker\\\",\\n        \\\"center\\\": [\\n          5,\\n          6,\\n          0.5\\n        ],\\n        \\\"front\\\": [\\n          -1,\\n          0,\\n          0\\n        ]\\n      }\\n    ],\\n    \\\"places\\\": [\\n      {\\n        \\\"id\\\": \\\"working-bench\\\",\\n        \\\"position\\\": [\\n          1,\\n          7,\\n          0\\n        ]\\n      },\\n      {\\n        \\\"id\\\": \\\"wet-display\\\",\\n        \\\"position\\\": [\\n          0,\\n          7,\\n          0\\n        ],\\n        \\\"wet\\\": true\\n      },\\n      {\\n        \\\"id\\\": \\\"tap\\\",\\n        \\\"position\\\": [\\n          -5,\\n          3,\\n          0\\n        ],\\n        \\\"water\\\": true\\n      },\\n      {\\n        \\\"id\\\": \\\"filter\\\",\\n        \\\"position\\\": [\\n          -4,\\n          3,\\n          0\\n        ],\\n        \\\"outlet\\\": \\\"unit\\\",\\n        \\\"profile\\\": \\\"unit\\\"\\n      },\\n      {\\n        \\\"id\\\": \\\"receiver\\\",\\n        \\\"position\\\": [\\n          -5,\\n          5,\\n          0\\n        ],\\n        \\\"receiver\\\": true\\n      },\\n      {\\n        \\\"id\\\": \\\"specimen\\\",\\n        \\\"position\\\": [\\n          -4,\\n          5,\\n          0\\n        ],\\n        \\\"specimen\\\": \\\"table-leaf\\\"\\n      },\\n      {\\n        \\\"id\\\": \\\"relief\\\",\\n        \\\"position\\\": [\\n          -3,\\n          5,\\n          0\\n        ],\\n        \\\"relief\\\": \\\"leaf-relief\\\",\\n        \\\"profile\\\": \\\"unit\\\"\\n      }\\n    ],\\n    \\\"access\\\": [],\\n    \\\"initial\\\": [],\\n    \\\"goals\\\": [\\n      {\\n        \\\"id\\\": \\\"growing\\\",\\n        \\\"title\\\": \\\"A working sheltered bed\\\",\\n        \\\"requirement\\\": \\\"A watered rootbed under an actually supported clear roof, receiving useful light.\\\",\\n        \\\"test\\\": \\\"growing\\\",\\n        \\\"mode\\\": \\\"current\\\"\\n      },\\n      {\\n        \\\"id\\\": \\\"soft-service\\\",\\n        \\\"title\\\": \\\"A useful soft interface\\\",\\n        \\\"requirement\\\": \\\"A moldable fitted porous surface actually supplied water to a growing bed. Any player-chosen surface may do this.\\\",\\n        \\\"test\\\": \\\"soft-service\\\",\\n        \\\"mode\\\": \\\"achievement\\\"\\n      },\\n      {\\n        \\\"id\\\": \\\"durable-service\\\",\\n        \\\"title\\\": \\\"Keep the water service\\\",\\n        \\\"requirement\\\": \\\"A currently rigid porous fitted surface actually supplies a currently growing bed; replacement is legal.\\\",\\n        \\\"test\\\": \\\"durable-service\\\",\\n        \\\"mode\\\": \\\"current\\\"\\n      },\\n      {\\n        \\\"id\\\": \\\"survey\\\",\\n        \\\"title\\\": \\\"Useful survey\\\",\\n        \\\"requirement\\\": \\\"Make actual front-on records of beacon and far-marker. They need not share a center on this board.\\\",\\n        \\\"test\\\": \\\"survey\\\",\\n        \\\"mode\\\": \\\"current\\\"\\n      },\\n      {\\n        \\\"id\\\": \\\"temporary-reference\\\",\\n        \\\"title\\\": \\\"Readable working reference\\\",\\n        \\\"requirement\\\": \\\"A genuine physical observation copy is readable at the dry working bench. Temporary porous material is sufficient; durable alternatives remain legal.\\\",\\n        \\\"test\\\": \\\"temporary-reference\\\",\\n        \\\"mode\\\": \\\"current\\\"\\n      },\\n      {\\n        \\\"id\\\": \\\"durable-copy\\\",\\n        \\\"title\\\": \\\"Durable reference\\\",\\n        \\\"requirement\\\": \\\"A genuine physical observation copy remains readable in actual wet contact at the wet-display mount; durable watertight local material protects it. Geometrical copies do not create records.\\\",\\n        \\\"test\\\": \\\"durable-copy\\\",\\n        \\\"mode\\\": \\\"current\\\"\\n      },\\n      {\\n        \\\"id\\\": \\\"worked-return\\\",\\n        \\\"title\\\": \\\"Worked surface, new purpose\\\",\\n        \\\"requirement\\\": \\\"An actual surface that earlier supplied useful water while moldable now is durable/watertight and carries a genuine physical observation copy. A replacement can keep the water service.\\\",\\n        \\\"test\\\": \\\"worked-return\\\",\\n        \\\"mode\\\": \\\"current\\\"\\n      },\\n      {\\n        \\\"id\\\": \\\"specimen\\\",\\n        \\\"title\\\": \\\"Useful specimen holder\\\",\\n        \\\"requirement\\\": \\\"An actual table-leaf contact sample rests in a supported tray under overhead dust protection with light and open-side air.\\\",\\n        \\\"test\\\": \\\"specimen\\\",\\n        \\\"mode\\\": \\\"current\\\"\\n      },\\n      {\\n        \\\"id\\\": \\\"relief\\\",\\n        \\\"title\\\": \\\"Keep an actual relief\\\",\\n        \\\"requirement\\\": \\\"A durable watertight surface retains a real leaf-relief contact impression.\\\",\\n        \\\"test\\\": \\\"relief\\\",\\n        \\\"mode\\\": \\\"current\\\"\\n      },\\n      {\\n        \\\"id\\\": \\\"published\\\",\\n        \\\"title\\\": \\\"Publish the survey\\\",\\n        \\\"requirement\\\": \\\"Relay actual front-on beacon and far-marker records to the receiver.\\\",\\n        \\\"test\\\": \\\"published\\\",\\n        \\\"mode\\\": \\\"current\\\"\\n      }\\n    ]\\n  },\\n  {\\n    \\\"id\\\": \\\"conservatory\\\",\\n    \\\"label\\\": \\\"Conservatory and common-center observatory\\\",\\n    \\\"targets\\\": [\\n      {\\n        \\\"id\\\": \\\"A\\\",\\n        \\\"center\\\": [\\n          5,\\n          1,\\n          0.5\\n        ],\\n        \\\"front\\\": [\\n          -1,\\n          0,\\n          0\\n        ]\\n      },\\n      {\\n        \\\"id\\\": \\\"B\\\",\\n        \\\"center\\\": [\\n          2,\\n          -2,\\n          0.5\\n        ],\\n        \\\"front\\\": [\\n          0,\\n          1,\\n\"\n}\n",
+      "deliveredBytes": 5662,
+      "deliveredSHA256": "8667cca075627ba1e40a6603e20dfa773be3876de8c1841a7928432e95e1eac3"
+    },
+    {
+      "seq": 8,
+      "at": "2026-10-26T21:56:05.641Z",
+      "command": "inspect",
+      "arguments": [
+        "shelter"
+      ],
+      "accepted": null,
+      "delivered": "{\n  \"id\": \"shelter\",\n  \"label\": \"shelter\",\n  \"parts\": [\n    {\n      \"id\": \"frame\",\n      \"kind\": \"frame\",\n      \"pose\": {\n        \"position\": [\n          0,\n          0,\n          0\n        ],\n        \"rotation\": [\n          [\n            1,\n            0,\n            0\n          ],\n          [\n            0,\n            1,\n            0\n          ],\n          [\n            0,\n            0,\n            1\n          ]\n        ]\n      },\n      \"surface\": {\n        \"rigidity\": \"rigid\",\n        \"optical\": \"opaque\",\n        \"permeability\": \"watertight\",\n        \"recording\": \"none\"\n      },\n      \"profile\": \"unit\",\n      \"shapes\": [\n        {\n          \"min\": [\n            -0.5,\n            0,\n            0\n          ],\n          \"max\": [\n            1.5,\n            0,\n            0\n          ]\n        },\n        {\n          \"min\": [\n            -0.5,\n            -0.5,\n            0\n          ],\n          \"max\": [\n            -0.5,\n            -0.5,\n            1.5\n          ]\n        },\n        {\n          \"min\": [\n            -0.5,\n            0.5,\n            0\n          ],\n          \"max\": [\n            -0.5,\n            0.5,\n            1.5\n          ]\n        },\n        {\n          \"min\": [\n            1.5,\n            -0.5,\n            0\n          ],\n          \"max\": [\n            1.5,\n            -0.5,\n            1.5\n          ]\n        },\n        {\n          \"min\": [\n            1.5,\n            0.5,\n            0\n          ],\n          \"max\": [\n            1.5,\n            0.5,\n            1.5\n          ]\n        },\n        {\n          \"min\": [\n            -0.5,\n            -0.5,\n            1.5\n          ],\n          \"max\": [\n            1.5,\n            -0.5,\n            1.5\n          ]\n        },\n        {\n          \"min\": [\n            -0.5,\n            0.5,\n            1.5\n          ],\n          \"max\": [\n            1.5,\n            0.5,\n            1.5\n          ]\n        }\n      ],\n      \"records\": [],\n      \"events\": []\n    },\n    {\n      \"id\": \"roof-left\",\n      \"kind\": \"clear-film\",\n      \"pose\": {\n        \"position\": [\n          0,\n          0,\n          0\n        ],\n        \"rotation\": [\n          [\n            1,\n            0,\n            0\n          ],\n          [\n            0,\n            1,\n            0\n          ],\n          [\n            0,\n            0,\n            1\n          ]\n        ]\n      },\n      \"surface\": {\n        \"rigidity\": \"flexible\",\n        \"optical\": \"clear\",\n        \"permeability\": \"watertight\",\n        \"recording\": \"none\"\n      },\n      \"profile\": \"roof-panel\",\n      \"shapes\": [\n        {\n          \"min\": [\n            -0.5,\n            -0.5,\n            1.5\n          ],\n          \"max\": [\n            0.5,\n            0.5,\n            1.5\n          ]\n        }\n      ],\n      \"records\": [],\n      \"events\": [],\n      \"parent\": \"frame\"\n    },\n    {\n      \"id\": \"roof-right\",\n      \"kind\": \"clear-film\",\n      \"pose\": {\n        \"position\": [\n          1,\n          0,\n          0\n        ],\n        \"rotation\": [\n          [\n            1,\n            0,\n            0\n          ],\n          [\n            0,\n            1,\n            0\n          ],\n          [\n            0,\n            0,\n            1\n          ]\n        ]\n      },\n      \"surface\": {\n        \"rigidity\": \"flexible\",\n        \"optical\": \"clear\",\n        \"permeability\": \"watertight\",\n        \"recording\": \"none\"\n      },\n      \"profile\": \"roof-panel\",\n      \"shapes\": [\n        {\n          \"min\": [\n            -0.5,\n            -0.5,\n            1.5\n          ],\n          \"max\": [\n            0.5,\n            0.5,\n            1.5\n          ]\n        }\n      ],\n      \"records\": [],\n      \"events\": [],\n      \"parent\": \"frame\",\n      \"hinge\": {\n        \"pivot\": [\n          0.5,\n          0,\n          1.5\n        ],\n        \"axis\": \"y\"\n      }\n    }\n  ],\n  \"source\": \"canonical\"\n}\n",
+      "deliveredBytes": 3848,
+      "deliveredSHA256": "b5e7c768ea693dc3dd0b0c377edf455f11c7b81149876e2842d8656d9915e7ae"
+    },
+    {
+      "seq": 9,
+      "at": "2026-10-26T21:56:05.838Z",
+      "command": "inspect",
+      "arguments": [
+        "tube"
+      ],
+      "accepted": null,
+      "delivered": "{\n  \"id\": \"tube\",\n  \"label\": \"tube\",\n  \"parts\": [\n    {\n      \"id\": \"tube\",\n      \"kind\": \"tube\",\n      \"pose\": {\n        \"position\": [\n          0,\n          0,\n          0\n        ],\n        \"rotation\": [\n          [\n            1,\n            0,\n            0\n          ],\n          [\n            0,\n            1,\n            0\n          ],\n          [\n            0,\n            0,\n            1\n          ]\n        ]\n      },\n      \"surface\": {\n        \"rigidity\": \"rigid\",\n        \"optical\": \"opaque\",\n        \"permeability\": \"watertight\",\n        \"recording\": \"none\"\n      },\n      \"profile\": \"unit\",\n      \"shapes\": [\n        {\n          \"min\": [\n            -0.5,\n            -0.5,\n            0\n          ],\n          \"max\": [\n            -0.5,\n            -0.5,\n            0\n          ]\n        }\n      ],\n      \"records\": [],\n      \"events\": []\n    }\n  ],\n  \"source\": \"canonical\"\n}\n",
+      "deliveredBytes": 896,
+      "deliveredSHA256": "83bb0ccd7ad0e2627bd9ec2d08c1a65ba04b7dfb048ffb162903d25a9857c639"
+    },
+    {
+      "seq": 10,
+      "at": "2026-10-26T21:56:06.000Z",
+      "command": "inspect",
+      "arguments": [
+        "clay"
+      ],
+      "accepted": null,
+      "delivered": "{\n  \"id\": \"clay\",\n  \"label\": \"clay\",\n  \"parts\": [\n    {\n      \"id\": \"clay\",\n      \"kind\": \"clay\",\n      \"pose\": {\n        \"position\": [\n          0,\n          0,\n          0\n        ],\n        \"rotation\": [\n          [\n            1,\n            0,\n            0\n          ],\n          [\n            0,\n            1,\n            0\n          ],\n          [\n            0,\n            0,\n            1\n          ]\n        ]\n      },\n      \"surface\": {\n        \"rigidity\": \"rigid\",\n        \"optical\": \"opaque\",\n        \"permeability\": \"porous\",\n        \"recording\": \"temporary\"\n      },\n      \"profile\": \"unit\",\n      \"shapes\": [\n        {\n          \"min\": [\n            -0.5,\n            -0.5,\n            0\n          ],\n          \"max\": [\n            0.5,\n            0.5,\n            1\n          ]\n        }\n      ],\n      \"records\": [],\n      \"events\": []\n    }\n  ],\n  \"source\": \"canonical\"\n}\n",
+      "deliveredBytes": 895,
+      "deliveredSHA256": "790b41a6b42d60da048c1fb5ae6cf0df3a599d5b61507201fdf7754df6a410e5"
+    },
+    {
+      "seq": 11,
+      "at": "2026-10-26T21:56:06.197Z",
+      "command": "catalogue",
+      "arguments": [
+        "laws"
+      ],
+      "accepted": null,
+      "delivered": "[\n  \"Unit lengths; x east, y south, z up. Cardinal exact rigid poses. Unit roots/lenses/plates are solid boxes; panels and frame struts have explicitly zero thickness. No invisible filled interior.\",\n  \"Every actual shape must belong to a geometric touching component reaching z=0. Whole joins select complete poses; solids cannot overlap, boundaries cannot cut solids. Touching and laminates are legal. Every parent/subtree joint must retain actual contact at its stored selected attachment part; globally supported but disconnected joints reject. Unbounded supported apron; no object or material cap.\",\n  \"Whole-object relocation is one action; it preserves every body extent. It clears that object's water/power/light links and seating. No cart setup required. Endpoint support/collision only, not a swept-path simulation.\",\n  \"A declared hinge rotates only its attached subtree about the actual parent-coordinate pivot/axis, preserving dimensions. A hinge elsewhere never shrinks a rigid camera.\",\n  \"A camera needs a lens and a recording plate at exactly one unit behind its center along its local forward direction, with the plate's local +x recording normal pointing in that same direction. Targets must be in front on the opposite-facing cardinal ray. Both target-to-lens and lens-to-plate focal paths are checked. Opaque/diffuse/reflecting intervening shapes block faithful records; clear boundaries transmit. Own selected lens/plate are excluded. Records freeze actual center, heading, target, lens, plate and traversed surfaces.\",\n  \"Overhead clear supported panels protect actual roots from falling dust/rain and pass daylight. Opaque roofs block daylight. Roof protection is not sealed enclosure. Open-sided overhead protection does not seal air: clear and porous roofs both allow side ventilation. A lamp with an actual power link supplies useful local light to its own assembly. No scattering or radiation falloff model.\",\n  \"Water/power/light service links are nonblocking abstract interfaces, not geometric wires/pipes. Water connection needs an actual tube constituent. Tap is inexhaustible. Filter contact must be actively fitted at the disclosed outlet with matching profile and porous surface; water can flow through that selected surface. Moving clears seating and links.\",\n  \"A physical copy is readable in actual wet-site contact only on a locally durable watertight material. An overhead roof does not remove wet mounting contact. Unread wet records cannot supply physical copies or transmissions. Stored events are not erased: moving dry or protecting the actual local material restores usability. At a dry working bench temporary porous recording material is sufficient; a durable alternative remains legal.\",\n  \"Soft useful service is recorded only when the fitted surface supplies a genuinely growing bed. A later role can refer to that actual event, not a born-at identity. Replacements remain valid for continued service.\",\n  \"Blueprint/design copies retain geometry/materials but clear all actual records, events, samples and seating. Physical copying preserves full actual source observations. Observation provenance is never inferred from a receiver or containing host.\",\n  \"Actual physical tool/material operations require the selected actual local surfaces to touch along a face with positive area in the current pose. An optional complete at/rotation moves the material assembly as part of the selected combination. Remote or unrelated host parts cannot substitute. Primitive catalyst capabilities are inexhaustible hand tools; site water, fitting and specimen contact require actual local position.\",\n  \"Take-form copies the selected actual template geometry and profile, not its events. Contact relief uses actual site contact. Transformations retain or change public local properties; no secret recipes. No scarce materials, quotas, continuous time or original-ID goals.\"\n]\n",
+      "deliveredBytes": 3914,
+      "deliveredSHA256": "4a7367ea2f4ad3612d2976b3358d86386126848e4dc11be52a1dc694ed7e024e"
+    },
+    {
+      "seq": 12,
+      "at": "2026-10-26T21:56:14.853Z",
+      "command": "inspect",
+      "arguments": [
+        "place:filter"
+      ],
+      "accepted": null,
+      "delivered": "{\n  \"id\": \"filter\",\n  \"position\": [\n    -4,\n    3,\n    0\n  ],\n  \"outlet\": \"unit\",\n  \"profile\": \"unit\"\n}\n",
+      "deliveredBytes": 104,
+      "deliveredSHA256": "0709782023602a3f3a764a36881f40fc55c8dcf49093dc3d6586ced75cb2b421"
+    },
+    {
+      "seq": 18,
+      "at": "2026-10-26T21:56:27.252Z",
+      "command": "combine",
+      "arguments": [
+        "{\"a\":\"o:17\",\"b\":\"place:tap\",\"context\":{\"operation\":\"transform\",\"recipe\":\"soften\",\"part\":\"p:18\"}}"
+      ],
+      "accepted": false,
+      "delivered": "{\n  \"accepted\": false,\n  \"response\": [\n    \"Incompatible declared material process; inspect processes and selected local tool part.\"\n  ],\n  \"observation\": {\n    \"map\": \"station\",\n    \"status\": \"playing\",\n    \"interventions\": 4,\n    \"goalSummary\": {\n      \"satisfied\": 0,\n      \"total\": 10,\n      \"current\": 0,\n      \"earned\": 0\n    },\n    \"goalChanges\": [],\n    \"objects\": [],\n    \"removedObjects\": [],\n    \"learned\": []\n  }\n}\n",
+      "deliveredBytes": 427,
+      "deliveredSHA256": "ba8d97e1cb6c784162e10832b14fdbd42a94af31204ec9a0e55e69247296dee6"
+    },
+    {
+      "seq": 21,
+      "at": "2026-10-26T21:56:33.210Z",
+      "command": "partners",
+      "arguments": [
+        "o:17"
+      ],
+      "accepted": null,
+      "delivered": "{\n  \"operand\": \"o:17\",\n  \"recipes\": [],\n  \"operations\": [\n    \"move\",\n    \"attach\",\n    \"hinge\",\n    \"detach\",\n    \"connect\",\n    \"observe\",\n    \"transmit\",\n    \"transform\",\n    \"fit\",\n    \"sample\",\n    \"discard\"\n  ],\n  \"processes\": [\n    {\n      \"id\": \"soften\",\n      \"input\": \"clay\",\n      \"tool\": \"water\",\n      \"effect\": \"moldable porous temporary clay; geometry retained\"\n    },\n    {\n      \"id\": \"fire\",\n      \"input\": \"moldable\",\n      \"tool\": \"heater\",\n      \"effect\": \"rigid porous durable; geometry/events retained\"\n    },\n    {\n      \"id\": \"fuse\",\n      \"input\": \"sand\",\n      \"tool\": \"heater\",\n      \"effect\": \"rigid clear watertight durable glass; geometry retained\"\n    },\n    {\n      \"id\": \"sheet\",\n      \"input\": \"fiber\",\n      \"tool\": \"water\",\n      \"effect\": \"flexible porous temporary sheet; geometry retained until actual take-form\"\n    },\n    {\n      \"id\": \"line\",\n      \"input\": \"any surface\",\n      \"tool\": \"binder\",\n      \"effect\": \"watertight durable; geometry/events retained\"\n    },\n    {\n      \"id\": \"laminate\",\n      \"input\": \"any surface\",\n      \"tool\": \"clear-film\",\n      \"effect\": \"watertight durable; geometry/events retained\"\n    },\n    {\n      \"id\": \"take-form\",\n      \"input\": \"moldable or flexible\",\n      \"tool\": \"actual part\",\n      \"effect\": \"copies selected actual shapes/profile; records actual source part/object\"\n    },\n    {\n      \"id\": \"impress\",\n      \"input\": \"recordable\",\n      \"tool\": \"actual recorded part\",\n      \"effect\": \"physical copies all actual selected-part observations; no receiver identity fallback\"\n    },\n    {\n      \"id\": \"relief\",\n      \"input\": \"moldable\",\n      \"tool\": \"actual relief site\",\n      \"effect\": \"records contact impression\"\n    }\n  ],\n  \"targets\": [\n    {\n      \"id\": \"beacon\",\n      \"center\": [\n        5,\n        1,\n        0.5\n      ],\n      \"front\": [\n        -1,\n        0,\n        0\n      ]\n    },\n    {\n      \"id\": \"far-marker\",\n      \"center\": [\n        5,\n        6,\n        0.5\n      ],\n      \"front\": [\n        -1,\n        0,\n        0\n      ]\n    }\n  ],\n  \"places\": [\n    {\n      \"id\": \"working-bench\",\n      \"position\": [\n        1,\n        7,\n        0\n      ]\n    },\n    {\n      \"id\": \"wet-display\",\n      \"position\": [\n        0,\n        7,\n        0\n      ],\n      \"wet\": true\n    },\n    {\n      \"id\": \"tap\",\n      \"position\": [\n        -5,\n        3,\n        0\n      ],\n      \"water\": true\n    },\n    {\n      \"id\": \"filter\",\n      \"position\": [\n        -4,\n        3,\n        0\n      ],\n      \"outlet\": \"unit\",\n      \"profile\": \"unit\"\n    },\n    {\n      \"id\": \"receiver\",\n      \"position\": [\n        -5,\n        5,\n        0\n      ],\n      \"receiver\": true\n    },\n    {\n      \"id\": \"specimen\",\n      \"position\": [\n        -4,\n        5,\n        0\n      ],\n      \"specimen\": \"table-leaf\"\n    },\n    {\n      \"id\": \"relief\",\n      \"position\": [\n        -3,\n        5,\n        0\n      ],\n      \"relief\": \"leaf-relief\",\n      \"profile\": \"unit\"\n    }\n  ],\n  \"known\": [\n    \"frame\",\n    \"hinge\",\n    \"clear-film\",\n    \"foil\",\n    \"mesh\",\n    \"tube\",\n    \"cable\",\n    \"solar-cell\",\n    \"lamp\",\n    \"heater\",\n    \"tray\",\n    \"seed\",\n    \"wheels\",\n    \"lens\",\n    \"record-plate\",\n    \"sand\",\n    \"clay\",\n    \"fiber\",\n    \"binder\",\n    \"shelter\",\n    \"rootbed\",\n    \"assembly:1\"\n  ],\n  \"note\": \"Exact pose-dependent compatibility is the public preview; this list does not hide unsuccessful alternatives.\"\n}\n",
+      "deliveredBytes": 3397,
+      "deliveredSHA256": "3c27eeade55f21ba21cb8ab1bb34ec62c2a678cccd23dc388d41825e96def13f"
+    },
+    {
+      "seq": 22,
+      "at": "2026-10-26T21:56:33.634Z",
+      "command": "catalogue",
+      "arguments": [
+        "primitives"
+      ],
+      "accepted": null,
+      "delivered": "[\n  \"frame\",\n  \"hinge\",\n  \"clear-film\",\n  \"foil\",\n  \"mesh\",\n  \"tube\",\n  \"cable\",\n  \"solar-cell\",\n  \"lamp\",\n  \"heater\",\n  \"tray\",\n  \"seed\",\n  \"wheels\",\n  \"lens\",\n  \"record-plate\",\n  \"sand\",\n  \"clay\",\n  \"fiber\",\n  \"binder\"\n]\n",
+      "deliveredBytes": 223,
+      "deliveredSHA256": "e6c454d8fc767080a9d897836674b03bf4e381958a539d29ed971cc506163cf3"
+    },
+    {
+      "seq": 23,
+      "at": "2026-10-26T21:56:34.039Z",
+      "command": "inspect",
+      "arguments": [
+        "place:tap"
+      ],
+      "accepted": null,
+      "delivered": "{\n  \"id\": \"tap\",\n  \"position\": [\n    -5,\n    3,\n    0\n  ],\n  \"water\": true\n}\n",
+      "deliveredBytes": 77,
+      "deliveredSHA256": "8cbf996b68ee2dcb99d3e4afe110e24a3c69ea322733f669091678859dfef974"
+    },
+    {
+      "seq": 24,
+      "at": "2026-10-26T21:56:34.450Z",
+      "command": "combine",
+      "arguments": [
+        "{\"a\":\"o:17\",\"b\":\"water\",\"context\":{\"operation\":\"transform\",\"recipe\":\"soften\",\"part\":\"p:18\"}}"
+      ],
+      "accepted": false,
+      "delivered": "{\n  \"accepted\": false,\n  \"response\": [\n    \"Unknown catalyst capability.\"\n  ],\n  \"observation\": {\n    \"map\": \"station\",\n    \"status\": \"playing\",\n    \"interventions\": 6,\n    \"goalSummary\": {\n      \"satisfied\": 0,\n      \"total\": 10,\n      \"current\": 0,\n      \"earned\": 0\n    },\n    \"goalChanges\": [],\n    \"objects\": [],\n    \"removedObjects\": [],\n    \"learned\": []\n  }\n}\n",
+      "deliveredBytes": 368,
+      "deliveredSHA256": "a2673181dd61a5e67f715b85c2252e2e325ec48c0ec89695b2278a8975f5f522"
+    },
+    {
+      "seq": 25,
+      "at": "2026-10-26T21:56:40.810Z",
+      "command": "preview",
+      "arguments": [
+        "{\"a\":\"o:17\",\"b\":\"place:tap\",\"context\":{\"operation\":\"transform\",\"recipe\":\"soften\",\"part\":\"p:18\",\"at\":[-5,3,0]}}"
+      ],
+      "accepted": null,
+      "delivered": "{\n  \"accepted\": true,\n  \"response\": [\n    \"Accepted transform; exact current goals available.\"\n  ],\n  \"observation\": {\n    \"map\": \"station\",\n    \"status\": \"playing\",\n    \"interventions\": 7,\n    \"goalSummary\": {\n      \"satisfied\": 0,\n      \"total\": 10,\n      \"current\": 0,\n      \"earned\": 0\n    },\n    \"goalChanges\": [],\n    \"objects\": [\n      {\n        \"id\": \"o:17\",\n        \"design\": \"assembly:2\",\n        \"position\": [\n          -5,\n          3,\n          0\n        ],\n        \"parts\": [\n          {\n            \"id\": \"p:18\",\n            \"kind\": \"clay\",\n            \"position\": [\n              -5,\n              3,\n              0\n            ],\n            \"bounds\": [\n              {\n                \"min\": [\n                  -5.5,\n                  2.5,\n                  0\n                ],\n                \"max\": [\n                  -4.5,\n                  3.5,\n                  1\n                ]\n              }\n            ],\n            \"records\": [],\n            \"events\": [\n              {\n                \"id\": \"event:19\",\n                \"kind\": \"fit\"\n              }\n            ]\n          }\n        ]\n      }\n    ],\n    \"removedObjects\": [],\n    \"learned\": [\n      \"assembly:2\"\n    ],\n    \"connections\": []\n  },\n  \"stateHash\": \"effe81c954d2a9280d124c26cd1974487789b5c579ab811d556680ad6628ee14\"\n}\n",
+      "deliveredBytes": 1318,
+      "deliveredSHA256": "891be6e21570a5cc17587445a8a1820dcc93cf660b635df7098a305cd4a7fd17"
+    },
+    {
+      "seq": 26,
+      "at": "2026-10-26T21:56:41.311Z",
+      "command": "combine",
+      "arguments": [
+        "{\"a\":\"o:17\",\"b\":\"place:tap\",\"context\":{\"operation\":\"transform\",\"recipe\":\"soften\",\"part\":\"p:18\",\"at\":[-5,3,0]}}"
+      ],
+      "accepted": true,
+      "delivered": "{\n  \"accepted\": true,\n  \"response\": [\n    \"Accepted transform; exact current goals available.\"\n  ],\n  \"observation\": {\n    \"map\": \"station\",\n    \"status\": \"playing\",\n    \"interventions\": 7,\n    \"goalSummary\": {\n      \"satisfied\": 0,\n      \"total\": 10,\n      \"current\": 0,\n      \"earned\": 0\n    },\n    \"goalChanges\": [],\n    \"objects\": [\n      {\n        \"id\": \"o:17\",\n        \"design\": \"assembly:2\",\n        \"position\": [\n          -5,\n          3,\n          0\n        ],\n        \"parts\": [\n          {\n            \"id\": \"p:18\",\n            \"kind\": \"clay\",\n            \"position\": [\n              -5,\n              3,\n              0\n            ],\n            \"bounds\": [\n              {\n                \"min\": [\n                  -5.5,\n                  2.5,\n                  0\n                ],\n                \"max\": [\n                  -4.5,\n                  3.5,\n                  1\n                ]\n              }\n            ],\n            \"records\": [],\n            \"events\": [\n              {\n                \"id\": \"event:19\",\n                \"kind\": \"fit\"\n              }\n            ]\n          }\n        ]\n      }\n    ],\n    \"removedObjects\": [],\n    \"learned\": [\n      \"assembly:2\"\n    ],\n    \"connections\": []\n  }\n}\n",
+      "deliveredBytes": 1235,
+      "deliveredSHA256": "3edff087a21052ea856eae3d35279be3a47fa18a592dd271d3bc428462f8d1ad"
+    },
+    {
+      "seq": 55,
+      "at": "2026-10-26T21:58:09.572Z",
+      "command": "chunk",
+      "arguments": [
+        "catalogue",
+        "maps",
+        "201",
+        "128"
+      ],
+      "accepted": null,
+      "delivered": "{\n  \"source\": \"catalogue\",\n  \"section\": \"maps\",\n  \"start\": 201,\n  \"end\": 328,\n  \"totalLines\": 328,\n  \"nextStart\": null,\n  \"sha256\": \"c8d7ad25c309a4bf7d18327606b4b39703f9c7a9b01809f8e14dc27457519c19\",\n  \"content\": \"          0\\n        ]\\n      }\\n    ],\\n    \\\"places\\\": [\\n      {\\n        \\\"id\\\": \\\"tap\\\",\\n        \\\"position\\\": [\\n          0,\\n          1,\\n          0\\n        ],\\n        \\\"water\\\": true\\n      },\\n      {\\n        \\\"id\\\": \\\"receiver\\\",\\n        \\\"position\\\": [\\n          -3,\\n          3,\\n          0\\n        ],\\n        \\\"receiver\\\": true\\n      },\\n      {\\n        \\\"id\\\": \\\"specimen\\\",\\n        \\\"position\\\": [\\n          -3,\\n          4,\\n          0\\n        ],\\n        \\\"specimen\\\": \\\"garden-leaf\\\"\\n      },\\n      {\\n        \\\"id\\\": \\\"wet-display\\\",\\n        \\\"position\\\": [\\n          -1,\\n          4,\\n          0\\n        ],\\n        \\\"wet\\\": true\\n      }\\n    ],\\n    \\\"access\\\": [\\n      {\\n        \\\"min\\\": [\\n          -1.5,\\n          -0.5,\\n          0\\n        ],\\n        \\\"max\\\": [\\n          4.5,\\n          0.5,\\n          1\\n        ]\\n      }\\n    ],\\n    \\\"initial\\\": [\\n      {\\n        \\\"design\\\": \\\"shelter\\\",\\n        \\\"position\\\": [\\n          1,\\n          1,\\n          0\\n        ]\\n      },\\n      {\\n        \\\"design\\\": \\\"rootbed\\\",\\n        \\\"position\\\": [\\n          1,\\n          1,\\n          0\\n        ]\\n      },\\n      {\\n        \\\"design\\\": \\\"tube\\\",\\n        \\\"position\\\": [\\n          1,\\n          1,\\n          0\\n        ]\\n      }\\n    ],\\n    \\\"goals\\\": [\\n      {\\n        \\\"id\\\": \\\"growing\\\",\\n        \\\"title\\\": \\\"Keep a useful conservatory\\\",\\n        \\\"requirement\\\": \\\"At endpoint a watered rootbed has supported clear overhead protection and useful light; original or replacement is valid.\\\",\\n        \\\"test\\\": \\\"growing\\\",\\n        \\\"mode\\\": \\\"current\\\"\\n      },\\n      {\\n        \\\"id\\\": \\\"access\\\",\\n        \\\"title\\\": \\\"Open public approach\\\",\\n        \\\"requirement\\\": \\\"The disclosed public path has no solid body or physical panel cutting its interior; no required garden square.\\\",\\n        \\\"test\\\": \\\"access\\\",\\n        \\\"mode\\\": \\\"current\\\"\\n      },\\n      {\\n        \\\"id\\\": \\\"comparison\\\",\\n        \\\"title\\\": \\\"Common-center comparison\\\",\\n        \\\"requirement\\\": \\\"Actual front-on images of A and B from the same lens center establish their perpendicular bearing relationship. One camera or sequential cameras are equally valid.\\\",\\n        \\\"test\\\": \\\"comparison\\\",\\n        \\\"mode\\\": \\\"current\\\"\\n      },\\n      {\\n        \\\"id\\\": \\\"published\\\",\\n        \\\"title\\\": \\\"Publish the comparison\\\",\\n        \\\"requirement\\\": \\\"Relay actual A and B records made from their same optical center to the receiver.\\\",\\n        \\\"test\\\": \\\"published\\\",\\n        \\\"mode\\\": \\\"current\\\"\\n      },\\n      {\\n        \\\"id\\\": \\\"specimen\\\",\\n        \\\"title\\\": \\\"Conservatory specimen work\\\",\\n        \\\"requirement\\\": \\\"An actual garden-leaf contact sample rests in a supported lit tray under overhead dust protection with open-side air. Sharing an assembly is legal.\\\",\\n        \\\"test\\\": \\\"specimen\\\",\\n        \\\"mode\\\": \\\"current\\\"\\n      },\\n      {\\n        \\\"id\\\": \\\"durable-copy\\\",\\n        \\\"title\\\": \\\"Keep a durable survey\\\",\\n        \\\"requirement\\\": \\\"A physical copy of an actual common-center survey observation remains readable in actual wet contact at the wet-display mount; durable watertight local material protects it.\\\",\\n        \\\"test\\\": \\\"durable-copy\\\",\\n        \\\"mode\\\": \\\"current\\\"\\n      }\\n    ]\\n  }\\n]\\n\"\n}\n",
+      "deliveredBytes": 3533,
+      "deliveredSHA256": "6659b5ca5d9a6889c61a676d37417732713e853d438c16ed5dca5208a83291a0"
+    },
+    {
+      "seq": 72,
+      "at": "2026-10-26T21:59:26.808Z",
+      "command": "report",
+      "arguments": [
+        "{\"question\":\"How was the experience as a whole? What would you keep, shorten, remove or change, if anything? What led you to stop here?\",\"answer\":\"This AI play was a clear construction-and-reuse puzzle with a few worthwhile planning decisions and a lot of literal execution. I would keep the event-linked worked surface, actual physical copies rather than blueprint records, and the common-center camera constraint. Combining several station purposes on one clay object and sharing each shelter with a specimen gave useful freedom. I would shorten the repeated tube, fitting, connection and copy-placement bookkeeping, and make the tap rejection identify its missing co-location condition. The conservatory added one spatial rearrangement and a rotation, but its specimen and wet-copy tasks mostly repeated the station. I stopped because the public campaign cards now show every station and conservatory requirement satisfied together, with the historical service earned. These are observations of AI play, not measured human enjoyment or duration.\",\"displayLimitations\":\"No output truncation was reported by the execution tool. I read the guide, catalogue index, recipes, processes, known capabilities, primitives, laws, maps in two complete chunks, selected design/place details and public action outputs; I did not read every design or unchanged full state.\",\"technicalIssues\":\"No technical interruption. Initial rejected actions were a mistaken object ID, an adjacent rather than co-located tap transformation, and an unknown water capability; play continued through public corrections.\"}"
+      ],
+      "accepted": null,
+      "delivered": "{\n  \"recorded\": true\n}\n",
+      "deliveredBytes": 23,
+      "deliveredSHA256": "7ac93da48d0c18ff7e8f8b82e33546f50a0aa84aa6a2cf25ce1e7dd0b8530864"
+    }
+  ]
+}
