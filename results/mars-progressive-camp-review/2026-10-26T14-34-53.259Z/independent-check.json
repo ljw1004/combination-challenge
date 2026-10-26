@@ -1,0 +1,1979 @@
+{
+  "at": "2026-10-26T14:34:53.259Z",
+  "evidence": "Privileged independent deterministic mechanics/disclosure review, not blind play or enjoyment evidence.",
+  "sourceHashes": {
+    "base": "4347c9f71ae6fe8b6d13f807b63a40bffea7adfc391521d18c3cccb782542f4c",
+    "wrapper": "944eae5bfbdac4a970511b96da690066005f0735c5140725dd50fbe509b00f41",
+    "adapter": "57b1da87e0bde53814d60798425390237d58a12d79c7524aabaf199a2084ea61",
+    "baseProtocol": "4a4c9154c61bfdf5e8655d0a50969c1897db3e19226dcca2f549aa3e04ab5dc6",
+    "operatorGuide": "caeea34c02b3f2ba44a29c6defbdb76d6edc095df094a1319af073cd36b8049f",
+    "proposal": "91608f5b0ec893bda9faa62e4b47484eeebdb54b70a0626118a9087776c23ca8"
+  },
+  "checkedPreviews": 3931,
+  "checkedTransitions": 426,
+  "checkedRejected": 3031,
+  "seededWalks": 32,
+  "walkDepth": 12,
+  "traces": [
+    {
+      "name": "incremental",
+      "actions": [
+        {
+          "type": "combine",
+          "a": "frame",
+          "b": "clear-sheet"
+        },
+        {
+          "type": "combine",
+          "a": "clear-shell",
+          "b": "world:camp"
+        },
+        {
+          "type": "combine",
+          "a": "solar-panel",
+          "b": "cable"
+        },
+        {
+          "type": "combine",
+          "a": "solar-lead",
+          "b": "world:camp"
+        },
+        {
+          "type": "combine",
+          "a": "lamp",
+          "b": "world:lead:2"
+        }
+      ],
+      "frames": [
+        {
+          "combine": 1,
+          "goals": {
+            "gardenNow": false,
+            "located": false,
+            "projectCompleteNow": false
+          },
+          "milestones": {
+            "firstGardenAt": null,
+            "firstProjectAt": null
+          },
+          "installations": []
+        },
+        {
+          "combine": 2,
+          "goals": {
+            "gardenNow": true,
+            "located": false,
+            "projectCompleteNow": false
+          },
+          "milestones": {
+            "firstGardenAt": 2,
+            "firstProjectAt": null
+          },
+          "installations": [
+            {
+              "id": "1",
+              "builtFrom": "clear-shell",
+              "shell": {
+                "frame": true,
+                "layers": [
+                  "clear"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "combine": 3,
+          "goals": {
+            "gardenNow": true,
+            "located": false,
+            "projectCompleteNow": false
+          },
+          "milestones": {
+            "firstGardenAt": 2,
+            "firstProjectAt": null
+          },
+          "installations": [
+            {
+              "id": "1",
+              "builtFrom": "clear-shell",
+              "shell": {
+                "frame": true,
+                "layers": [
+                  "clear"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "combine": 4,
+          "goals": {
+            "gardenNow": true,
+            "located": false,
+            "projectCompleteNow": false
+          },
+          "milestones": {
+            "firstGardenAt": 2,
+            "firstProjectAt": null
+          },
+          "installations": [
+            {
+              "id": "1",
+              "builtFrom": "clear-shell",
+              "shell": {
+                "frame": true,
+                "layers": [
+                  "clear"
+                ]
+              }
+            },
+            {
+              "id": "2",
+              "builtFrom": "solar-lead",
+              "power": {
+                "panel": true,
+                "cable": true,
+                "lamp": false,
+                "sourceLayers": []
+              }
+            }
+          ]
+        },
+        {
+          "combine": 5,
+          "goals": {
+            "gardenNow": true,
+            "located": true,
+            "projectCompleteNow": true
+          },
+          "milestones": {
+            "firstGardenAt": 2,
+            "firstProjectAt": 5
+          },
+          "installations": [
+            {
+              "id": "1",
+              "builtFrom": "clear-shell",
+              "shell": {
+                "frame": true,
+                "layers": [
+                  "clear"
+                ]
+              }
+            },
+            {
+              "id": "2",
+              "builtFrom": "solar-lead",
+              "power": {
+                "panel": true,
+                "cable": true,
+                "lamp": true,
+                "sourceLayers": []
+              }
+            }
+          ]
+        }
+      ],
+      "state": {
+        "version": "mars-progressive-camp-1",
+        "camp": {
+          "version": "mars-objects-1",
+          "scenarioId": "garden",
+          "catalogue": "ordinary",
+          "known": [
+            "frame",
+            "clear-sheet",
+            "reflective-cover",
+            "solar-panel",
+            "cable",
+            "lamp",
+            "clear-shell",
+            "solar-lead",
+            "solar-lamp"
+          ],
+          "installations": [
+            {
+              "id": "1",
+              "builtFrom": "clear-shell",
+              "shell": {
+                "frame": true,
+                "layers": [
+                  "clear"
+                ]
+              }
+            },
+            {
+              "id": "2",
+              "builtFrom": "solar-lead",
+              "power": {
+                "panel": true,
+                "cable": true,
+                "lamp": true,
+                "sourceLayers": []
+              }
+            }
+          ],
+          "combines": 5,
+          "observer": {
+            "campLocated": true,
+            "firstReception": {
+              "combine": 5,
+              "rays": [
+                {
+                  "source": "lamp:2",
+                  "direction": "north",
+                  "path": [
+                    "solar:2",
+                    "actual panel is lit",
+                    "cable",
+                    "interior lamp",
+                    "open or transmitting camp"
+                  ]
+                }
+              ]
+            }
+          },
+          "status": "won",
+          "accepted": true,
+          "response": [
+            "Connected lamp to installation 2's actual panel and cable."
+          ]
+        },
+        "milestones": {
+          "firstGardenAt": 2,
+          "firstProjectAt": 5
+        }
+      }
+    },
+    {
+      "name": "repurpose-and-restore",
+      "actions": [
+        {
+          "type": "combine",
+          "a": "frame",
+          "b": "clear-sheet"
+        },
+        {
+          "type": "combine",
+          "a": "clear-shell",
+          "b": "world:camp"
+        },
+        {
+          "type": "combine",
+          "a": "reflective-cover",
+          "b": "world:shell:1"
+        },
+        {
+          "type": "combine",
+          "a": "solar-panel",
+          "b": "cable"
+        },
+        {
+          "type": "combine",
+          "a": "solar-lead",
+          "b": "world:camp"
+        },
+        {
+          "type": "combine",
+          "a": "lamp",
+          "b": "world:lead:2"
+        }
+      ],
+      "frames": [
+        {
+          "combine": 1,
+          "goals": {
+            "gardenNow": false,
+            "located": false,
+            "projectCompleteNow": false
+          },
+          "milestones": {
+            "firstGardenAt": null,
+            "firstProjectAt": null
+          },
+          "installations": []
+        },
+        {
+          "combine": 2,
+          "goals": {
+            "gardenNow": true,
+            "located": false,
+            "projectCompleteNow": false
+          },
+          "milestones": {
+            "firstGardenAt": 2,
+            "firstProjectAt": null
+          },
+          "installations": [
+            {
+              "id": "1",
+              "builtFrom": "clear-shell",
+              "shell": {
+                "frame": true,
+                "layers": [
+                  "clear"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "combine": 3,
+          "goals": {
+            "gardenNow": false,
+            "located": true,
+            "projectCompleteNow": false
+          },
+          "milestones": {
+            "firstGardenAt": 2,
+            "firstProjectAt": null
+          },
+          "installations": [
+            {
+              "id": "1",
+              "builtFrom": "clear-shell",
+              "shell": {
+                "frame": true,
+                "layers": [
+                  "clear",
+                  "reflective"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "combine": 4,
+          "goals": {
+            "gardenNow": false,
+            "located": true,
+            "projectCompleteNow": false
+          },
+          "milestones": {
+            "firstGardenAt": 2,
+            "firstProjectAt": null
+          },
+          "installations": [
+            {
+              "id": "1",
+              "builtFrom": "clear-shell",
+              "shell": {
+                "frame": true,
+                "layers": [
+                  "clear",
+                  "reflective"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "combine": 5,
+          "goals": {
+            "gardenNow": false,
+            "located": true,
+            "projectCompleteNow": false
+          },
+          "milestones": {
+            "firstGardenAt": 2,
+            "firstProjectAt": null
+          },
+          "installations": [
+            {
+              "id": "1",
+              "builtFrom": "clear-shell",
+              "shell": {
+                "frame": true,
+                "layers": [
+                  "clear",
+                  "reflective"
+                ]
+              }
+            },
+            {
+              "id": "2",
+              "builtFrom": "solar-lead",
+              "power": {
+                "panel": true,
+                "cable": true,
+                "lamp": false,
+                "sourceLayers": []
+              }
+            }
+          ]
+        },
+        {
+          "combine": 6,
+          "goals": {
+            "gardenNow": true,
+            "located": true,
+            "projectCompleteNow": true
+          },
+          "milestones": {
+            "firstGardenAt": 2,
+            "firstProjectAt": 6
+          },
+          "installations": [
+            {
+              "id": "1",
+              "builtFrom": "clear-shell",
+              "shell": {
+                "frame": true,
+                "layers": [
+                  "clear",
+                  "reflective"
+                ]
+              }
+            },
+            {
+              "id": "2",
+              "builtFrom": "solar-lead",
+              "power": {
+                "panel": true,
+                "cable": true,
+                "lamp": true,
+                "sourceLayers": []
+              }
+            }
+          ]
+        }
+      ],
+      "state": {
+        "version": "mars-progressive-camp-1",
+        "camp": {
+          "version": "mars-objects-1",
+          "scenarioId": "garden",
+          "catalogue": "ordinary",
+          "known": [
+            "frame",
+            "clear-sheet",
+            "reflective-cover",
+            "solar-panel",
+            "cable",
+            "lamp",
+            "clear-shell",
+            "solar-lead",
+            "solar-lamp"
+          ],
+          "installations": [
+            {
+              "id": "1",
+              "builtFrom": "clear-shell",
+              "shell": {
+                "frame": true,
+                "layers": [
+                  "clear",
+                  "reflective"
+                ]
+              }
+            },
+            {
+              "id": "2",
+              "builtFrom": "solar-lead",
+              "power": {
+                "panel": true,
+                "cable": true,
+                "lamp": true,
+                "sourceLayers": []
+              }
+            }
+          ],
+          "combines": 6,
+          "observer": {
+            "campLocated": true,
+            "firstReception": {
+              "combine": 3,
+              "rays": [
+                {
+                  "source": "sun",
+                  "direction": "north",
+                  "path": [
+                    "sun enters from west",
+                    "reflective shell turns light north"
+                  ]
+                }
+              ]
+            }
+          },
+          "status": "won",
+          "accepted": true,
+          "response": [
+            "Connected lamp to installation 2's actual panel and cable."
+          ]
+        },
+        "milestones": {
+          "firstGardenAt": 2,
+          "firstProjectAt": 6
+        }
+      }
+    },
+    {
+      "name": "universal",
+      "actions": [
+        {
+          "type": "combine",
+          "a": "frame",
+          "b": "clear-sheet"
+        },
+        {
+          "type": "combine",
+          "a": "solar-panel",
+          "b": "cable"
+        },
+        {
+          "type": "combine",
+          "a": "solar-lead",
+          "b": "lamp"
+        },
+        {
+          "type": "combine",
+          "a": "clear-shell",
+          "b": "solar-lamp"
+        },
+        {
+          "type": "combine",
+          "a": "lit-clear-shell",
+          "b": "world:camp"
+        }
+      ],
+      "frames": [
+        {
+          "combine": 1,
+          "goals": {
+            "gardenNow": false,
+            "located": false,
+            "projectCompleteNow": false
+          },
+          "milestones": {
+            "firstGardenAt": null,
+            "firstProjectAt": null
+          },
+          "installations": []
+        },
+        {
+          "combine": 2,
+          "goals": {
+            "gardenNow": false,
+            "located": false,
+            "projectCompleteNow": false
+          },
+          "milestones": {
+            "firstGardenAt": null,
+            "firstProjectAt": null
+          },
+          "installations": []
+        },
+        {
+          "combine": 3,
+          "goals": {
+            "gardenNow": false,
+            "located": false,
+            "projectCompleteNow": false
+          },
+          "milestones": {
+            "firstGardenAt": null,
+            "firstProjectAt": null
+          },
+          "installations": []
+        },
+        {
+          "combine": 4,
+          "goals": {
+            "gardenNow": false,
+            "located": false,
+            "projectCompleteNow": false
+          },
+          "milestones": {
+            "firstGardenAt": null,
+            "firstProjectAt": null
+          },
+          "installations": []
+        },
+        {
+          "combine": 5,
+          "goals": {
+            "gardenNow": true,
+            "located": true,
+            "projectCompleteNow": true
+          },
+          "milestones": {
+            "firstGardenAt": 5,
+            "firstProjectAt": 5
+          },
+          "installations": [
+            {
+              "id": "1",
+              "builtFrom": "lit-clear-shell",
+              "shell": {
+                "frame": true,
+                "layers": [
+                  "clear"
+                ]
+              },
+              "power": {
+                "panel": true,
+                "cable": true,
+                "lamp": true,
+                "sourceLayers": []
+              }
+            }
+          ]
+        }
+      ],
+      "state": {
+        "version": "mars-progressive-camp-1",
+        "camp": {
+          "version": "mars-objects-1",
+          "scenarioId": "garden",
+          "catalogue": "ordinary",
+          "known": [
+            "frame",
+            "clear-sheet",
+            "reflective-cover",
+            "solar-panel",
+            "cable",
+            "lamp",
+            "clear-shell",
+            "solar-lead",
+            "solar-lamp",
+            "lit-clear-shell"
+          ],
+          "installations": [
+            {
+              "id": "1",
+              "builtFrom": "lit-clear-shell",
+              "shell": {
+                "frame": true,
+                "layers": [
+                  "clear"
+                ]
+              },
+              "power": {
+                "panel": true,
+                "cable": true,
+                "lamp": true,
+                "sourceLayers": []
+              }
+            }
+          ],
+          "combines": 5,
+          "observer": {
+            "campLocated": true,
+            "firstReception": {
+              "combine": 5,
+              "rays": [
+                {
+                  "source": "lamp:1",
+                  "direction": "north",
+                  "path": [
+                    "solar:1",
+                    "actual panel is lit",
+                    "cable",
+                    "interior lamp",
+                    "open or transmitting camp"
+                  ]
+                }
+              ]
+            }
+          },
+          "status": "won",
+          "accepted": true,
+          "response": [
+            "Joined lit-clear-shell to the camp as installation 1; its constituent structure is retained."
+          ]
+        },
+        "milestones": {
+          "firstGardenAt": 5,
+          "firstProjectAt": 5
+        }
+      }
+    },
+    {
+      "name": "complete-prefab",
+      "actions": [
+        {
+          "type": "combine",
+          "a": "lit-clear-shell",
+          "b": "world:camp"
+        }
+      ],
+      "frames": [
+        {
+          "combine": 1,
+          "goals": {
+            "gardenNow": true,
+            "located": true,
+            "projectCompleteNow": true
+          },
+          "milestones": {
+            "firstGardenAt": 1,
+            "firstProjectAt": 1
+          },
+          "installations": [
+            {
+              "id": "1",
+              "builtFrom": "lit-clear-shell",
+              "shell": {
+                "frame": true,
+                "layers": [
+                  "clear"
+                ]
+              },
+              "power": {
+                "panel": true,
+                "cable": true,
+                "lamp": true,
+                "sourceLayers": []
+              }
+            }
+          ]
+        }
+      ],
+      "state": {
+        "version": "mars-progressive-camp-1",
+        "camp": {
+          "version": "mars-objects-1",
+          "scenarioId": "garden",
+          "catalogue": "complete",
+          "known": [
+            "frame",
+            "clear-sheet",
+            "reflective-cover",
+            "solar-panel",
+            "cable",
+            "lamp",
+            "clear-shell",
+            "reflective-shell",
+            "solar-lead",
+            "solar-lamp",
+            "lit-clear-shell",
+            "lit-reflective-shell"
+          ],
+          "installations": [
+            {
+              "id": "1",
+              "builtFrom": "lit-clear-shell",
+              "shell": {
+                "frame": true,
+                "layers": [
+                  "clear"
+                ]
+              },
+              "power": {
+                "panel": true,
+                "cable": true,
+                "lamp": true,
+                "sourceLayers": []
+              }
+            }
+          ],
+          "combines": 1,
+          "observer": {
+            "campLocated": true,
+            "firstReception": {
+              "combine": 1,
+              "rays": [
+                {
+                  "source": "lamp:1",
+                  "direction": "north",
+                  "path": [
+                    "solar:1",
+                    "actual panel is lit",
+                    "cable",
+                    "interior lamp",
+                    "open or transmitting camp"
+                  ]
+                }
+              ]
+            }
+          },
+          "status": "won",
+          "accepted": true,
+          "response": [
+            "Joined lit-clear-shell to the camp as installation 1; its constituent structure is retained."
+          ]
+        },
+        "milestones": {
+          "firstGardenAt": 1,
+          "firstProjectAt": 1
+        }
+      }
+    },
+    {
+      "name": "saturation",
+      "actions": [
+        {
+          "type": "combine",
+          "a": "frame",
+          "b": "clear-sheet"
+        },
+        {
+          "type": "combine",
+          "a": "frame",
+          "b": "reflective-cover"
+        },
+        {
+          "type": "combine",
+          "a": "solar-panel",
+          "b": "cable"
+        },
+        {
+          "type": "combine",
+          "a": "solar-lead",
+          "b": "lamp"
+        },
+        {
+          "type": "combine",
+          "a": "clear-shell",
+          "b": "solar-lamp"
+        },
+        {
+          "type": "combine",
+          "a": "reflective-shell",
+          "b": "solar-lamp"
+        },
+        {
+          "type": "combine",
+          "a": "clear-shell",
+          "b": "world:camp"
+        },
+        {
+          "type": "combine",
+          "a": "reflective-shell",
+          "b": "world:camp"
+        },
+        {
+          "type": "combine",
+          "a": "solar-lead",
+          "b": "world:camp"
+        },
+        {
+          "type": "combine",
+          "a": "solar-lamp",
+          "b": "world:camp"
+        },
+        {
+          "type": "combine",
+          "a": "lit-clear-shell",
+          "b": "world:camp"
+        },
+        {
+          "type": "combine",
+          "a": "lit-reflective-shell",
+          "b": "world:camp"
+        }
+      ],
+      "frames": [
+        {
+          "combine": 1,
+          "goals": {
+            "gardenNow": false,
+            "located": false,
+            "projectCompleteNow": false
+          },
+          "milestones": {
+            "firstGardenAt": null,
+            "firstProjectAt": null
+          },
+          "installations": []
+        },
+        {
+          "combine": 2,
+          "goals": {
+            "gardenNow": false,
+            "located": false,
+            "projectCompleteNow": false
+          },
+          "milestones": {
+            "firstGardenAt": null,
+            "firstProjectAt": null
+          },
+          "installations": []
+        },
+        {
+          "combine": 3,
+          "goals": {
+            "gardenNow": false,
+            "located": false,
+            "projectCompleteNow": false
+          },
+          "milestones": {
+            "firstGardenAt": null,
+            "firstProjectAt": null
+          },
+          "installations": []
+        },
+        {
+          "combine": 4,
+          "goals": {
+            "gardenNow": false,
+            "located": false,
+            "projectCompleteNow": false
+          },
+          "milestones": {
+            "firstGardenAt": null,
+            "firstProjectAt": null
+          },
+          "installations": []
+        },
+        {
+          "combine": 5,
+          "goals": {
+            "gardenNow": false,
+            "located": false,
+            "projectCompleteNow": false
+          },
+          "milestones": {
+            "firstGardenAt": null,
+            "firstProjectAt": null
+          },
+          "installations": []
+        },
+        {
+          "combine": 6,
+          "goals": {
+            "gardenNow": false,
+            "located": false,
+            "projectCompleteNow": false
+          },
+          "milestones": {
+            "firstGardenAt": null,
+            "firstProjectAt": null
+          },
+          "installations": []
+        },
+        {
+          "combine": 7,
+          "goals": {
+            "gardenNow": true,
+            "located": false,
+            "projectCompleteNow": false
+          },
+          "milestones": {
+            "firstGardenAt": 7,
+            "firstProjectAt": null
+          },
+          "installations": [
+            {
+              "id": "1",
+              "builtFrom": "clear-shell",
+              "shell": {
+                "frame": true,
+                "layers": [
+                  "clear"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "combine": 8,
+          "goals": {
+            "gardenNow": false,
+            "located": true,
+            "projectCompleteNow": false
+          },
+          "milestones": {
+            "firstGardenAt": 7,
+            "firstProjectAt": null
+          },
+          "installations": [
+            {
+              "id": "1",
+              "builtFrom": "clear-shell",
+              "shell": {
+                "frame": true,
+                "layers": [
+                  "clear"
+                ]
+              }
+            },
+            {
+              "id": "2",
+              "builtFrom": "reflective-shell",
+              "shell": {
+                "frame": true,
+                "layers": [
+                  "reflective"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "combine": 9,
+          "goals": {
+            "gardenNow": false,
+            "located": true,
+            "projectCompleteNow": false
+          },
+          "milestones": {
+            "firstGardenAt": 7,
+            "firstProjectAt": null
+          },
+          "installations": [
+            {
+              "id": "1",
+              "builtFrom": "clear-shell",
+              "shell": {
+                "frame": true,
+                "layers": [
+                  "clear"
+                ]
+              }
+            },
+            {
+              "id": "2",
+              "builtFrom": "reflective-shell",
+              "shell": {
+                "frame": true,
+                "layers": [
+                  "reflective"
+                ]
+              }
+            },
+            {
+              "id": "3",
+              "builtFrom": "solar-lead",
+              "power": {
+                "panel": true,
+                "cable": true,
+                "lamp": false,
+                "sourceLayers": []
+              }
+            }
+          ]
+        },
+        {
+          "combine": 10,
+          "goals": {
+            "gardenNow": true,
+            "located": true,
+            "projectCompleteNow": true
+          },
+          "milestones": {
+            "firstGardenAt": 7,
+            "firstProjectAt": 10
+          },
+          "installations": [
+            {
+              "id": "1",
+              "builtFrom": "clear-shell",
+              "shell": {
+                "frame": true,
+                "layers": [
+                  "clear"
+                ]
+              }
+            },
+            {
+              "id": "2",
+              "builtFrom": "reflective-shell",
+              "shell": {
+                "frame": true,
+                "layers": [
+                  "reflective"
+                ]
+              }
+            },
+            {
+              "id": "3",
+              "builtFrom": "solar-lead",
+              "power": {
+                "panel": true,
+                "cable": true,
+                "lamp": false,
+                "sourceLayers": []
+              }
+            },
+            {
+              "id": "4",
+              "builtFrom": "solar-lamp",
+              "power": {
+                "panel": true,
+                "cable": true,
+                "lamp": true,
+                "sourceLayers": []
+              }
+            }
+          ]
+        },
+        {
+          "combine": 11,
+          "goals": {
+            "gardenNow": true,
+            "located": true,
+            "projectCompleteNow": true
+          },
+          "milestones": {
+            "firstGardenAt": 7,
+            "firstProjectAt": 10
+          },
+          "installations": [
+            {
+              "id": "1",
+              "builtFrom": "clear-shell",
+              "shell": {
+                "frame": true,
+                "layers": [
+                  "clear"
+                ]
+              }
+            },
+            {
+              "id": "2",
+              "builtFrom": "reflective-shell",
+              "shell": {
+                "frame": true,
+                "layers": [
+                  "reflective"
+                ]
+              }
+            },
+            {
+              "id": "3",
+              "builtFrom": "solar-lead",
+              "power": {
+                "panel": true,
+                "cable": true,
+                "lamp": false,
+                "sourceLayers": []
+              }
+            },
+            {
+              "id": "4",
+              "builtFrom": "solar-lamp",
+              "power": {
+                "panel": true,
+                "cable": true,
+                "lamp": true,
+                "sourceLayers": []
+              }
+            },
+            {
+              "id": "5",
+              "builtFrom": "lit-clear-shell",
+              "shell": {
+                "frame": true,
+                "layers": [
+                  "clear"
+                ]
+              },
+              "power": {
+                "panel": true,
+                "cable": true,
+                "lamp": true,
+                "sourceLayers": []
+              }
+            }
+          ]
+        },
+        {
+          "combine": 12,
+          "goals": {
+            "gardenNow": true,
+            "located": true,
+            "projectCompleteNow": true
+          },
+          "milestones": {
+            "firstGardenAt": 7,
+            "firstProjectAt": 10
+          },
+          "installations": [
+            {
+              "id": "1",
+              "builtFrom": "clear-shell",
+              "shell": {
+                "frame": true,
+                "layers": [
+                  "clear"
+                ]
+              }
+            },
+            {
+              "id": "2",
+              "builtFrom": "reflective-shell",
+              "shell": {
+                "frame": true,
+                "layers": [
+                  "reflective"
+                ]
+              }
+            },
+            {
+              "id": "3",
+              "builtFrom": "solar-lead",
+              "power": {
+                "panel": true,
+                "cable": true,
+                "lamp": false,
+                "sourceLayers": []
+              }
+            },
+            {
+              "id": "4",
+              "builtFrom": "solar-lamp",
+              "power": {
+                "panel": true,
+                "cable": true,
+                "lamp": true,
+                "sourceLayers": []
+              }
+            },
+            {
+              "id": "5",
+              "builtFrom": "lit-clear-shell",
+              "shell": {
+                "frame": true,
+                "layers": [
+                  "clear"
+                ]
+              },
+              "power": {
+                "panel": true,
+                "cable": true,
+                "lamp": true,
+                "sourceLayers": []
+              }
+            },
+            {
+              "id": "6",
+              "builtFrom": "lit-reflective-shell",
+              "shell": {
+                "frame": true,
+                "layers": [
+                  "reflective"
+                ]
+              },
+              "power": {
+                "panel": true,
+                "cable": true,
+                "lamp": true,
+                "sourceLayers": []
+              }
+            }
+          ]
+        }
+      ],
+      "state": {
+        "version": "mars-progressive-camp-1",
+        "camp": {
+          "version": "mars-objects-1",
+          "scenarioId": "garden",
+          "catalogue": "ordinary",
+          "known": [
+            "frame",
+            "clear-sheet",
+            "reflective-cover",
+            "solar-panel",
+            "cable",
+            "lamp",
+            "clear-shell",
+            "reflective-shell",
+            "solar-lead",
+            "solar-lamp",
+            "lit-clear-shell",
+            "lit-reflective-shell"
+          ],
+          "installations": [
+            {
+              "id": "1",
+              "builtFrom": "clear-shell",
+              "shell": {
+                "frame": true,
+                "layers": [
+                  "clear"
+                ]
+              }
+            },
+            {
+              "id": "2",
+              "builtFrom": "reflective-shell",
+              "shell": {
+                "frame": true,
+                "layers": [
+                  "reflective"
+                ]
+              }
+            },
+            {
+              "id": "3",
+              "builtFrom": "solar-lead",
+              "power": {
+                "panel": true,
+                "cable": true,
+                "lamp": false,
+                "sourceLayers": []
+              }
+            },
+            {
+              "id": "4",
+              "builtFrom": "solar-lamp",
+              "power": {
+                "panel": true,
+                "cable": true,
+                "lamp": true,
+                "sourceLayers": []
+              }
+            },
+            {
+              "id": "5",
+              "builtFrom": "lit-clear-shell",
+              "shell": {
+                "frame": true,
+                "layers": [
+                  "clear"
+                ]
+              },
+              "power": {
+                "panel": true,
+                "cable": true,
+                "lamp": true,
+                "sourceLayers": []
+              }
+            },
+            {
+              "id": "6",
+              "builtFrom": "lit-reflective-shell",
+              "shell": {
+                "frame": true,
+                "layers": [
+                  "reflective"
+                ]
+              },
+              "power": {
+                "panel": true,
+                "cable": true,
+                "lamp": true,
+                "sourceLayers": []
+              }
+            }
+          ],
+          "combines": 12,
+          "observer": {
+            "campLocated": true,
+            "firstReception": {
+              "combine": 8,
+              "rays": [
+                {
+                  "source": "sun",
+                  "direction": "north",
+                  "path": [
+                    "sun enters from west",
+                    "reflective shell turns light north"
+                  ]
+                }
+              ]
+            }
+          },
+          "status": "won",
+          "accepted": true,
+          "response": [
+            "Joined lit-reflective-shell to the camp as installation 6; its constituent structure is retained."
+          ]
+        },
+        "milestones": {
+          "firstGardenAt": 7,
+          "firstProjectAt": 10
+        }
+      }
+    },
+    {
+      "name": "clear-source-cut",
+      "actions": [
+        {
+          "type": "combine",
+          "a": "frame",
+          "b": "clear-sheet"
+        },
+        {
+          "type": "combine",
+          "a": "clear-shell",
+          "b": "world:camp"
+        },
+        {
+          "type": "combine",
+          "a": "solar-panel",
+          "b": "cable"
+        },
+        {
+          "type": "combine",
+          "a": "solar-lead",
+          "b": "world:camp"
+        },
+        {
+          "type": "combine",
+          "a": "lamp",
+          "b": "world:lead:2"
+        },
+        {
+          "type": "combine",
+          "a": "reflective-cover",
+          "b": "world:solar:2"
+        }
+      ],
+      "frames": [
+        {
+          "combine": 1,
+          "goals": {
+            "gardenNow": false,
+            "located": false,
+            "projectCompleteNow": false
+          },
+          "milestones": {
+            "firstGardenAt": null,
+            "firstProjectAt": null
+          },
+          "installations": []
+        },
+        {
+          "combine": 2,
+          "goals": {
+            "gardenNow": true,
+            "located": false,
+            "projectCompleteNow": false
+          },
+          "milestones": {
+            "firstGardenAt": 2,
+            "firstProjectAt": null
+          },
+          "installations": [
+            {
+              "id": "1",
+              "builtFrom": "clear-shell",
+              "shell": {
+                "frame": true,
+                "layers": [
+                  "clear"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "combine": 3,
+          "goals": {
+            "gardenNow": true,
+            "located": false,
+            "projectCompleteNow": false
+          },
+          "milestones": {
+            "firstGardenAt": 2,
+            "firstProjectAt": null
+          },
+          "installations": [
+            {
+              "id": "1",
+              "builtFrom": "clear-shell",
+              "shell": {
+                "frame": true,
+                "layers": [
+                  "clear"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "combine": 4,
+          "goals": {
+            "gardenNow": true,
+            "located": false,
+            "projectCompleteNow": false
+          },
+          "milestones": {
+            "firstGardenAt": 2,
+            "firstProjectAt": null
+          },
+          "installations": [
+            {
+              "id": "1",
+              "builtFrom": "clear-shell",
+              "shell": {
+                "frame": true,
+                "layers": [
+                  "clear"
+                ]
+              }
+            },
+            {
+              "id": "2",
+              "builtFrom": "solar-lead",
+              "power": {
+                "panel": true,
+                "cable": true,
+                "lamp": false,
+                "sourceLayers": []
+              }
+            }
+          ]
+        },
+        {
+          "combine": 5,
+          "goals": {
+            "gardenNow": true,
+            "located": true,
+            "projectCompleteNow": true
+          },
+          "milestones": {
+            "firstGardenAt": 2,
+            "firstProjectAt": 5
+          },
+          "installations": [
+            {
+              "id": "1",
+              "builtFrom": "clear-shell",
+              "shell": {
+                "frame": true,
+                "layers": [
+                  "clear"
+                ]
+              }
+            },
+            {
+              "id": "2",
+              "builtFrom": "solar-lead",
+              "power": {
+                "panel": true,
+                "cable": true,
+                "lamp": true,
+                "sourceLayers": []
+              }
+            }
+          ]
+        },
+        {
+          "combine": 6,
+          "goals": {
+            "gardenNow": true,
+            "located": true,
+            "projectCompleteNow": true
+          },
+          "milestones": {
+            "firstGardenAt": 2,
+            "firstProjectAt": 5
+          },
+          "installations": [
+            {
+              "id": "1",
+              "builtFrom": "clear-shell",
+              "shell": {
+                "frame": true,
+                "layers": [
+                  "clear"
+                ]
+              }
+            },
+            {
+              "id": "2",
+              "builtFrom": "solar-lead",
+              "power": {
+                "panel": true,
+                "cable": true,
+                "lamp": true,
+                "sourceLayers": [
+                  "reflective"
+                ]
+              }
+            }
+          ]
+        }
+      ],
+      "state": {
+        "version": "mars-progressive-camp-1",
+        "camp": {
+          "version": "mars-objects-1",
+          "scenarioId": "garden",
+          "catalogue": "ordinary",
+          "known": [
+            "frame",
+            "clear-sheet",
+            "reflective-cover",
+            "solar-panel",
+            "cable",
+            "lamp",
+            "clear-shell",
+            "solar-lead",
+            "solar-lamp"
+          ],
+          "installations": [
+            {
+              "id": "1",
+              "builtFrom": "clear-shell",
+              "shell": {
+                "frame": true,
+                "layers": [
+                  "clear"
+                ]
+              }
+            },
+            {
+              "id": "2",
+              "builtFrom": "solar-lead",
+              "power": {
+                "panel": true,
+                "cable": true,
+                "lamp": true,
+                "sourceLayers": [
+                  "reflective"
+                ]
+              }
+            }
+          ],
+          "combines": 6,
+          "observer": {
+            "campLocated": true,
+            "firstReception": {
+              "combine": 5,
+              "rays": [
+                {
+                  "source": "lamp:2",
+                  "direction": "north",
+                  "path": [
+                    "solar:2",
+                    "actual panel is lit",
+                    "cable",
+                    "interior lamp",
+                    "open or transmitting camp"
+                  ]
+                }
+              ]
+            }
+          },
+          "status": "won",
+          "accepted": true,
+          "response": [
+            "Added reflective layer to solar of installation 2; existing layers remain."
+          ]
+        },
+        "milestones": {
+          "firstGardenAt": 2,
+          "firstProjectAt": 5
+        }
+      }
+    },
+    {
+      "name": "reflective-source-cut",
+      "actions": [
+        {
+          "type": "combine",
+          "a": "frame",
+          "b": "clear-sheet"
+        },
+        {
+          "type": "combine",
+          "a": "clear-shell",
+          "b": "world:camp"
+        },
+        {
+          "type": "combine",
+          "a": "reflective-cover",
+          "b": "world:shell:1"
+        },
+        {
+          "type": "combine",
+          "a": "solar-panel",
+          "b": "cable"
+        },
+        {
+          "type": "combine",
+          "a": "solar-lead",
+          "b": "world:camp"
+        },
+        {
+          "type": "combine",
+          "a": "lamp",
+          "b": "world:lead:2"
+        },
+        {
+          "type": "combine",
+          "a": "reflective-cover",
+          "b": "world:solar:2"
+        }
+      ],
+      "frames": [
+        {
+          "combine": 1,
+          "goals": {
+            "gardenNow": false,
+            "located": false,
+            "projectCompleteNow": false
+          },
+          "milestones": {
+            "firstGardenAt": null,
+            "firstProjectAt": null
+          },
+          "installations": []
+        },
+        {
+          "combine": 2,
+          "goals": {
+            "gardenNow": true,
+            "located": false,
+            "projectCompleteNow": false
+          },
+          "milestones": {
+            "firstGardenAt": 2,
+            "firstProjectAt": null
+          },
+          "installations": [
+            {
+              "id": "1",
+              "builtFrom": "clear-shell",
+              "shell": {
+                "frame": true,
+                "layers": [
+                  "clear"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "combine": 3,
+          "goals": {
+            "gardenNow": false,
+            "located": true,
+            "projectCompleteNow": false
+          },
+          "milestones": {
+            "firstGardenAt": 2,
+            "firstProjectAt": null
+          },
+          "installations": [
+            {
+              "id": "1",
+              "builtFrom": "clear-shell",
+              "shell": {
+                "frame": true,
+                "layers": [
+                  "clear",
+                  "reflective"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "combine": 4,
+          "goals": {
+            "gardenNow": false,
+            "located": true,
+            "projectCompleteNow": false
+          },
+          "milestones": {
+            "firstGardenAt": 2,
+            "firstProjectAt": null
+          },
+          "installations": [
+            {
+              "id": "1",
+              "builtFrom": "clear-shell",
+              "shell": {
+                "frame": true,
+                "layers": [
+                  "clear",
+                  "reflective"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "combine": 5,
+          "goals": {
+            "gardenNow": false,
+            "located": true,
+            "projectCompleteNow": false
+          },
+          "milestones": {
+            "firstGardenAt": 2,
+            "firstProjectAt": null
+          },
+          "installations": [
+            {
+              "id": "1",
+              "builtFrom": "clear-shell",
+              "shell": {
+                "frame": true,
+                "layers": [
+                  "clear",
+                  "reflective"
+                ]
+              }
+            },
+            {
+              "id": "2",
+              "builtFrom": "solar-lead",
+              "power": {
+                "panel": true,
+                "cable": true,
+                "lamp": false,
+                "sourceLayers": []
+              }
+            }
+          ]
+        },
+        {
+          "combine": 6,
+          "goals": {
+            "gardenNow": true,
+            "located": true,
+            "projectCompleteNow": true
+          },
+          "milestones": {
+            "firstGardenAt": 2,
+            "firstProjectAt": 6
+          },
+          "installations": [
+            {
+              "id": "1",
+              "builtFrom": "clear-shell",
+              "shell": {
+                "frame": true,
+                "layers": [
+                  "clear",
+                  "reflective"
+                ]
+              }
+            },
+            {
+              "id": "2",
+              "builtFrom": "solar-lead",
+              "power": {
+                "panel": true,
+                "cable": true,
+                "lamp": true,
+                "sourceLayers": []
+              }
+            }
+          ]
+        },
+        {
+          "combine": 7,
+          "goals": {
+            "gardenNow": false,
+            "located": true,
+            "projectCompleteNow": false
+          },
+          "milestones": {
+            "firstGardenAt": 2,
+            "firstProjectAt": 6
+          },
+          "installations": [
+            {
+              "id": "1",
+              "builtFrom": "clear-shell",
+              "shell": {
+                "frame": true,
+                "layers": [
+                  "clear",
+                  "reflective"
+                ]
+              }
+            },
+            {
+              "id": "2",
+              "builtFrom": "solar-lead",
+              "power": {
+                "panel": true,
+                "cable": true,
+                "lamp": true,
+                "sourceLayers": [
+                  "reflective"
+                ]
+              }
+            }
+          ]
+        }
+      ],
+      "state": {
+        "version": "mars-progressive-camp-1",
+        "camp": {
+          "version": "mars-objects-1",
+          "scenarioId": "garden",
+          "catalogue": "ordinary",
+          "known": [
+            "frame",
+            "clear-sheet",
+            "reflective-cover",
+            "solar-panel",
+            "cable",
+            "lamp",
+            "clear-shell",
+            "solar-lead",
+            "solar-lamp"
+          ],
+          "installations": [
+            {
+              "id": "1",
+              "builtFrom": "clear-shell",
+              "shell": {
+                "frame": true,
+                "layers": [
+                  "clear",
+                  "reflective"
+                ]
+              }
+            },
+            {
+              "id": "2",
+              "builtFrom": "solar-lead",
+              "power": {
+                "panel": true,
+                "cable": true,
+                "lamp": true,
+                "sourceLayers": [
+                  "reflective"
+                ]
+              }
+            }
+          ],
+          "combines": 7,
+          "observer": {
+            "campLocated": true,
+            "firstReception": {
+              "combine": 3,
+              "rays": [
+                {
+                  "source": "sun",
+                  "direction": "north",
+                  "path": [
+                    "sun enters from west",
+                    "reflective shell turns light north"
+                  ]
+                }
+              ]
+            }
+          },
+          "status": "playing",
+          "accepted": true,
+          "response": [
+            "Added reflective layer to solar of installation 2; existing layers remain."
+          ]
+        },
+        "milestones": {
+          "firstGardenAt": 2,
+          "firstProjectAt": 6
+        }
+      }
+    }
+  ],
+  "counterfactual": {
+    "label": "Analyst clone-only removal, not a legal player action; earned observer knowledge retained.",
+    "goals": {
+      "gardenNow": false,
+      "located": true,
+      "projectCompleteNow": false
+    }
+  },
+  "cli": {
+    "verified": true,
+    "captureSha256": "75be8899554eb8dd7f0f85531361603ee20849001ed2167fe538bdd1398e1508",
+    "rejectedReinitialization": true,
+    "rejectedPostFinishAction": true,
+    "rejectedReplayTampering": true,
+    "rejectedSourceDrift": true
+  }
+}
