@@ -1,0 +1,24 @@
+import assert from 'node:assert/strict';
+import {readFileSync,writeFileSync} from 'node:fs';
+import {createHash} from 'node:crypto';
+import * as E from '../../../experiments/logical-working-materials.ts';
+const sha=x=>createHash('sha256').update(typeof x==='string'?x:JSON.stringify(x)).digest('hex');
+const paths=['experiments/logical-working-materials.ts','experiments/working-materials-content.ts','experiments/working-materials-types.ts','experiments/working-materials-transformations.ts','experiments/working-materials-play.ts'];
+const hashes=Object.fromEntries(paths.map(p=>[p,sha(readFileSync(p,'utf8'))]));
+assert.equal(hashes[paths[0]],'944e095d14693e9a300bebf7a107e3a33c991739ab9e518e3cb07a269f6110aa');
+const options={catalogue:'complete'};let s=E.selectWorkingMaterials(E.createWorkingMaterials(options),'optics');
+const actions=[{type:'select',map:'optics'}],trace=[];
+const board=()=>s.boards.find(b=>b.id==='optics');const object=id=>board().objects.find(o=>o.id===id);
+function act(a,b,operation,accepted=true){const action={type:'combine',a,b,...operation?{context:{operation}}:{}};const before=s,p=E.previewWorkingMaterials(s,action);s=E.stepWorkingMaterials(s,action);assert.deepEqual(p.state,s);assert.equal(s.accepted,accepted,s.response.join(';'));actions.push(action);trace.push({action,accepted:s.accepted,beforeHash:sha(before),afterHash:sha(s),previewExact:true,response:s.response,records:board().objects.flatMap(o=>o.records)});return board().objects.at(-1).id;}
+const original=board().objects.find(o=>o.initialKey==='survey-camera').id;
+const host=act('clear-cast','place:survey-window');act(host,'camera','inside');act(host,'place:beacon','observe');
+const initialRecords=structuredClone(object(host).records);assert.ok(initialRecords.length);assert.ok(initialRecords.every(r=>!r.viewLenses.some(l=>l.originKey==='survey-camera')));
+act(host,'place:beacon','observe',false);assert.deepEqual(object(host).records,initialRecords);
+act(host,original,'inside');assert.equal(E.workingMaterialsGoals(s).find(g=>g.id==='supporting-window').satisfied,false);assert.deepEqual(object(host).records,initialRecords);
+act(host,'place:beacon','observe');const changedRecords=structuredClone(object(host).records);assert.equal(changedRecords.length,2*initialRecords.length);assert.deepEqual(changedRecords.slice(0,initialRecords.length),initialRecords);
+const newRecords=changedRecords.slice(initialRecords.length);assert.ok(newRecords.every(r=>r.viewLenses.some(l=>l.originKey==='survey-camera')));assert.ok(newRecords.every((r,i)=>r.viewpoint===initialRecords[i].viewpoint&&JSON.stringify(r.viewSurfaces)===JSON.stringify(initialRecords[i].viewSurfaces)));assert.equal(E.workingMaterialsGoals(s).find(g=>g.id==='supporting-window').satisfied,true);
+act(host,'place:beacon','observe',false);assert.deepEqual(object(host).records,changedRecords);
+const copied=act(object(host).design,'place:survey-window');assert.deepEqual(object(copied).records,[]);assert.deepEqual(E.replayWorkingMaterials(actions,options),s);
+assert.deepEqual(Object.fromEntries(paths.map(p=>[p,sha(readFileSync(p,'utf8'))])),hashes);
+const result={evidence:'Independent source-exposed targeted dedup refresh; not player or enjoyment evidence.',hashes,options,actions,trace,initialRecords,newRecords,finalState:s,replayExact:true,summary:{acceptedCombines:trace.filter(t=>t.accepted).length,rejectedUnchangedObservations:2,firstObservationRecords:initialRecords.length,secondObservationRecords:newRecords.length,unchangedBoundary:true,secondLensEvidenceDistinct:true,oldSnapshotsImmutable:true,copyHasNoInventedHistory:true,goalBeforeActualObservation:false,goalAfterActualObservation:true}};
+writeFileSync(new URL('lens-control.json',import.meta.url),JSON.stringify(result,null,2)+'\n');console.log(JSON.stringify(result.summary));
