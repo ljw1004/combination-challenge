@@ -1,0 +1,89 @@
+{
+  "recordType": "New recovery provenance, not the original freeze manifest",
+  "recoveredAt": "2026-10-26T14:20:44.718Z",
+  "originalFreezeTimeRetainedInContext": "2026-10-26T05:30:27.924Z",
+  "method": "Source/test/docs/adapter restored from retained complete tool-call patches or printed file contents. Deterministic reports regenerated and compared to historical complete-file SHA-256. Nine artifacts match exactly. No denied session paths accessed.",
+  "recovered": [
+    {
+      "file": "experiments/logical-mars-objects.ts",
+      "sha256": "4347c9f71ae6fe8b6d13f807b63a40bffea7adfc391521d18c3cccb782542f4c",
+      "bytes": 16215,
+      "exactHistoricalHashMatch": true
+    },
+    {
+      "file": "experiments/mars-objects-play.ts",
+      "sha256": "c99723f9de14b5c47e32b416966ef2be76532f69a0ef3b67ce3260b4c3be25c4",
+      "bytes": 4015,
+      "exactHistoricalHashMatch": true
+    },
+    {
+      "file": "tests/mars-objects.test.ts",
+      "sha256": "177ebe47abad803323666b05a0fb5d7420514fc11801aff56c3759bf4a869e20",
+      "bytes": 10359,
+      "exactHistoricalHashMatch": true
+    },
+    {
+      "file": "docs/mars-objects-play-protocol.md",
+      "sha256": "4a4c9154c61bfdf5e8655d0a50969c1897db3e19226dcca2f549aa3e04ab5dc6",
+      "bytes": 10030,
+      "exactHistoricalHashMatch": true
+    },
+    {
+      "file": "docs/logical-mars-objects.md",
+      "sha256": "bed2959fe56c76a97bb0c467dcda5b9d4a4571ed2873a4f0b920b57b4286b502",
+      "bytes": 4879,
+      "exactHistoricalHashMatch": true
+    },
+    {
+      "file": "docs/mars-objects-mechanics-review.md",
+      "sha256": "09facbd574cd8bd835608779f4ffe157e7769aebc6a938cec50ce4ec76ba853b",
+      "bytes": 5451,
+      "exactHistoricalHashMatch": true
+    },
+    {
+      "file": "results/mars-objects-preplay/mechanical-screen.json",
+      "sha256": "45a891ada09e776689645dabefd478156befbfc3fe4c264b8e1c3192834eb212",
+      "bytes": 255844,
+      "exactHistoricalHashMatch": true
+    },
+    {
+      "file": "results/mars-objects-review/independent-check.json",
+      "sha256": "9940a43b13cf696479d0a495d8eda65f83759cb6dd5d1ee1c9827d4dd879d34b",
+      "bytes": 49487,
+      "exactHistoricalHashMatch": true
+    },
+    {
+      "file": "results/mars-objects-review/independent-probe.mjs",
+      "sha256": "1cff285515d638e67fe434f455b8657d701890de9830d9676f34d414f67f1e32",
+      "bytes": 7942,
+      "exactHistoricalHashMatch": true
+    }
+  ],
+  "newVerification": {
+    "focusedTestsPassed": 13,
+    "focusedTestsFailed": 0,
+    "log": "results/mars-objects-preplay/recovery-focused-tests.log",
+    "independentRerun": "results/mars-objects-review/independent-check.recovery-rerun.json",
+    "independentRerunDetails": "results/mars-objects-review/recovery-provenance.json"
+  },
+  "notRecoveredHere": [
+    {
+      "file": "results/mars-objects-preplay/full-test.log",
+      "expectedSha256": "6d894993fdd51aad3c802ebddfc461d5b6882e04b0a13f4b23378e20e1b7520e",
+      "reason": "Only original terminal tail is retained; full original timing/log bytes unavailable."
+    },
+    {
+      "file": "results/mars-objects-preplay/freeze.json",
+      "reason": "Original printed JSON record retained, but no original complete-file hash is known; not restored under original filename."
+    },
+    {
+      "file": "results/mars-objects-players/*",
+      "reason": "No full original player or reviewer session captures retained in this agent context."
+    }
+  ],
+  "limitations": [
+    "Recovered historical docs report the original 227-test full-suite result; only the 13 recovered Mars tests and independent Mars probe were rerun here.",
+    "No fresh player evidence produced by recovery.",
+    "No remote writes. Parent owns publication."
+  ]
+}

@@ -1,0 +1,1727 @@
+{
+  "reviewedAt": "2026-10-26T14:19:27.526Z",
+  "evidence": "Independent privileged mechanical checks. No blind player or human enjoyment evidence.",
+  "hashes": {
+    "experiments/logical-mars-objects.ts": "4347c9f71ae6fe8b6d13f807b63a40bffea7adfc391521d18c3cccb782542f4c",
+    "docs/mars-objects-play-protocol.md": "4a4c9154c61bfdf5e8655d0a50969c1897db3e19226dcca2f549aa3e04ab5dc6"
+  },
+  "checks": [
+    {
+      "name": "Seeded legal branch screen with independent optical/enclosure oracle, goal independence, truthful previews, input purity and operand commutativity",
+      "passed": true,
+      "seed": 91827,
+      "previewChecks": 3521,
+      "lawStates": 768
+    },
+    {
+      "name": "Independent source causality, opaque enclosure retained, sunlight still reflected after both lamps darken",
+      "passed": true
+    },
+    {
+      "name": "Blueprint reuse and in-world identity are distinct; modified physical constituents retained only in their actual installation",
+      "passed": true
+    },
+    {
+      "name": "Persistent observer knowledge is earned by a real ray and not erased by current source cutoff",
+      "passed": true
+    },
+    {
+      "name": "Malformed and mismatched world operand rejection without physical, knowledge, count or input changes",
+      "passed": true,
+      "cases": 16
+    },
+    {
+      "name": "Public observation does not expose mutable physical state references",
+      "passed": true
+    }
+  ],
+  "traces": [
+    {
+      "name": "Two independent exterior panels in nested opaque shells; each shade removes only one interior source",
+      "scenario": "garden",
+      "options": {
+        "catalogue": "complete"
+      },
+      "actions": [
+        {
+          "type": "combine",
+          "a": "lit-reflective-shell",
+          "b": "world:camp"
+        },
+        {
+          "type": "combine",
+          "a": "lit-reflective-shell",
+          "b": "world:camp"
+        },
+        {
+          "type": "combine",
+          "a": "reflective-cover",
+          "b": "world:solar:1"
+        },
+        {
+          "type": "combine",
+          "a": "reflective-cover",
+          "b": "world:solar:2"
+        }
+      ],
+      "frames": [
+        {
+          "action": null,
+          "state": {
+            "version": "mars-objects-1",
+            "scenarioId": "garden",
+            "catalogue": "complete",
+            "known": [
+              "frame",
+              "clear-sheet",
+              "reflective-cover",
+              "solar-panel",
+              "cable",
+              "lamp",
+              "clear-shell",
+              "reflective-shell",
+              "solar-lead",
+              "solar-lamp",
+              "lit-clear-shell",
+              "lit-reflective-shell"
+            ],
+            "installations": [],
+            "combines": 0,
+            "observer": {
+              "campLocated": false
+            },
+            "status": "playing",
+            "accepted": true,
+            "response": [
+              "The camp is open to sunlight. The northern observer is searching."
+            ]
+          },
+          "world": {
+            "sun": {
+              "direction": "east",
+              "entersFrom": "west",
+              "lit": true
+            },
+            "camp": {
+              "designatedTray": true,
+              "enclosed": false,
+              "boundaryTransmits": true,
+              "interiorSources": [
+                "sun"
+              ],
+              "illuminated": true
+            },
+            "power": [],
+            "rays": [
+              {
+                "source": "sun",
+                "direction": "east",
+                "path": [
+                  "sun enters from west",
+                  "open or transmitting camp",
+                  "light exits east"
+                ]
+              }
+            ],
+            "observer": {
+              "direction": "north",
+              "receiving": false,
+              "received": [],
+              "state": "searching",
+              "campLocated": false
+            }
+          }
+        },
+        {
+          "action": {
+            "type": "combine",
+            "a": "lit-reflective-shell",
+            "b": "world:camp"
+          },
+          "state": {
+            "version": "mars-objects-1",
+            "scenarioId": "garden",
+            "catalogue": "complete",
+            "known": [
+              "frame",
+              "clear-sheet",
+              "reflective-cover",
+              "solar-panel",
+              "cable",
+              "lamp",
+              "clear-shell",
+              "reflective-shell",
+              "solar-lead",
+              "solar-lamp",
+              "lit-clear-shell",
+              "lit-reflective-shell"
+            ],
+            "installations": [
+              {
+                "id": "1",
+                "builtFrom": "lit-reflective-shell",
+                "shell": {
+                  "frame": true,
+                  "layers": [
+                    "reflective"
+                  ]
+                },
+                "power": {
+                  "panel": true,
+                  "cable": true,
+                  "lamp": true,
+                  "sourceLayers": []
+                }
+              }
+            ],
+            "combines": 1,
+            "observer": {
+              "campLocated": true,
+              "firstReception": {
+                "combine": 1,
+                "rays": [
+                  {
+                    "source": "sun",
+                    "direction": "north",
+                    "path": [
+                      "sun enters from west",
+                      "reflective shell turns light north"
+                    ]
+                  }
+                ]
+              }
+            },
+            "status": "won",
+            "accepted": true,
+            "response": [
+              "Joined lit-reflective-shell to the camp as installation 1; its constituent structure is retained."
+            ]
+          },
+          "world": {
+            "sun": {
+              "direction": "east",
+              "entersFrom": "west",
+              "lit": true
+            },
+            "camp": {
+              "designatedTray": true,
+              "enclosed": true,
+              "boundaryTransmits": false,
+              "interiorSources": [
+                "lamp:1"
+              ],
+              "illuminated": true
+            },
+            "power": [
+              {
+                "installation": "1",
+                "source": "solar:1",
+                "panelLit": true,
+                "cableConnected": true,
+                "lampAttached": true,
+                "lampLit": true
+              }
+            ],
+            "rays": [
+              {
+                "source": "sun",
+                "direction": "north",
+                "path": [
+                  "sun enters from west",
+                  "reflective shell turns light north"
+                ]
+              }
+            ],
+            "observer": {
+              "direction": "north",
+              "receiving": true,
+              "received": [
+                {
+                  "source": "sun",
+                  "direction": "north",
+                  "path": [
+                    "sun enters from west",
+                    "reflective shell turns light north"
+                  ]
+                }
+              ],
+              "state": "camp-located",
+              "campLocated": true,
+              "firstReception": {
+                "combine": 1,
+                "rays": [
+                  {
+                    "source": "sun",
+                    "direction": "north",
+                    "path": [
+                      "sun enters from west",
+                      "reflective shell turns light north"
+                    ]
+                  }
+                ]
+              }
+            }
+          }
+        },
+        {
+          "action": {
+            "type": "combine",
+            "a": "lit-reflective-shell",
+            "b": "world:camp"
+          },
+          "state": {
+            "version": "mars-objects-1",
+            "scenarioId": "garden",
+            "catalogue": "complete",
+            "known": [
+              "frame",
+              "clear-sheet",
+              "reflective-cover",
+              "solar-panel",
+              "cable",
+              "lamp",
+              "clear-shell",
+              "reflective-shell",
+              "solar-lead",
+              "solar-lamp",
+              "lit-clear-shell",
+              "lit-reflective-shell"
+            ],
+            "installations": [
+              {
+                "id": "1",
+                "builtFrom": "lit-reflective-shell",
+                "shell": {
+                  "frame": true,
+                  "layers": [
+                    "reflective"
+                  ]
+                },
+                "power": {
+                  "panel": true,
+                  "cable": true,
+                  "lamp": true,
+                  "sourceLayers": []
+                }
+              },
+              {
+                "id": "2",
+                "builtFrom": "lit-reflective-shell",
+                "shell": {
+                  "frame": true,
+                  "layers": [
+                    "reflective"
+                  ]
+                },
+                "power": {
+                  "panel": true,
+                  "cable": true,
+                  "lamp": true,
+                  "sourceLayers": []
+                }
+              }
+            ],
+            "combines": 2,
+            "observer": {
+              "campLocated": true,
+              "firstReception": {
+                "combine": 1,
+                "rays": [
+                  {
+                    "source": "sun",
+                    "direction": "north",
+                    "path": [
+                      "sun enters from west",
+                      "reflective shell turns light north"
+                    ]
+                  }
+                ]
+              }
+            },
+            "status": "won",
+            "accepted": true,
+            "response": [
+              "Joined lit-reflective-shell to the camp as installation 2; its constituent structure is retained."
+            ]
+          },
+          "world": {
+            "sun": {
+              "direction": "east",
+              "entersFrom": "west",
+              "lit": true
+            },
+            "camp": {
+              "designatedTray": true,
+              "enclosed": true,
+              "boundaryTransmits": false,
+              "interiorSources": [
+                "lamp:1",
+                "lamp:2"
+              ],
+              "illuminated": true
+            },
+            "power": [
+              {
+                "installation": "1",
+                "source": "solar:1",
+                "panelLit": true,
+                "cableConnected": true,
+                "lampAttached": true,
+                "lampLit": true
+              },
+              {
+                "installation": "2",
+                "source": "solar:2",
+                "panelLit": true,
+                "cableConnected": true,
+                "lampAttached": true,
+                "lampLit": true
+              }
+            ],
+            "rays": [
+              {
+                "source": "sun",
+                "direction": "north",
+                "path": [
+                  "sun enters from west",
+                  "reflective shell turns light north"
+                ]
+              }
+            ],
+            "observer": {
+              "direction": "north",
+              "receiving": true,
+              "received": [
+                {
+                  "source": "sun",
+                  "direction": "north",
+                  "path": [
+                    "sun enters from west",
+                    "reflective shell turns light north"
+                  ]
+                }
+              ],
+              "state": "camp-located",
+              "campLocated": true,
+              "firstReception": {
+                "combine": 1,
+                "rays": [
+                  {
+                    "source": "sun",
+                    "direction": "north",
+                    "path": [
+                      "sun enters from west",
+                      "reflective shell turns light north"
+                    ]
+                  }
+                ]
+              }
+            }
+          }
+        },
+        {
+          "action": {
+            "type": "combine",
+            "a": "reflective-cover",
+            "b": "world:solar:1"
+          },
+          "state": {
+            "version": "mars-objects-1",
+            "scenarioId": "garden",
+            "catalogue": "complete",
+            "known": [
+              "frame",
+              "clear-sheet",
+              "reflective-cover",
+              "solar-panel",
+              "cable",
+              "lamp",
+              "clear-shell",
+              "reflective-shell",
+              "solar-lead",
+              "solar-lamp",
+              "lit-clear-shell",
+              "lit-reflective-shell"
+            ],
+            "installations": [
+              {
+                "id": "1",
+                "builtFrom": "lit-reflective-shell",
+                "shell": {
+                  "frame": true,
+                  "layers": [
+                    "reflective"
+                  ]
+                },
+                "power": {
+                  "panel": true,
+                  "cable": true,
+                  "lamp": true,
+                  "sourceLayers": [
+                    "reflective"
+                  ]
+                }
+              },
+              {
+                "id": "2",
+                "builtFrom": "lit-reflective-shell",
+                "shell": {
+                  "frame": true,
+                  "layers": [
+                    "reflective"
+                  ]
+                },
+                "power": {
+                  "panel": true,
+                  "cable": true,
+                  "lamp": true,
+                  "sourceLayers": []
+                }
+              }
+            ],
+            "combines": 3,
+            "observer": {
+              "campLocated": true,
+              "firstReception": {
+                "combine": 1,
+                "rays": [
+                  {
+                    "source": "sun",
+                    "direction": "north",
+                    "path": [
+                      "sun enters from west",
+                      "reflective shell turns light north"
+                    ]
+                  }
+                ]
+              }
+            },
+            "status": "won",
+            "accepted": true,
+            "response": [
+              "Added reflective layer to solar of installation 1; existing layers remain."
+            ]
+          },
+          "world": {
+            "sun": {
+              "direction": "east",
+              "entersFrom": "west",
+              "lit": true
+            },
+            "camp": {
+              "designatedTray": true,
+              "enclosed": true,
+              "boundaryTransmits": false,
+              "interiorSources": [
+                "lamp:2"
+              ],
+              "illuminated": true
+            },
+            "power": [
+              {
+                "installation": "1",
+                "source": "solar:1",
+                "panelLit": false,
+                "cableConnected": true,
+                "lampAttached": true,
+                "lampLit": false
+              },
+              {
+                "installation": "2",
+                "source": "solar:2",
+                "panelLit": true,
+                "cableConnected": true,
+                "lampAttached": true,
+                "lampLit": true
+              }
+            ],
+            "rays": [
+              {
+                "source": "sun",
+                "direction": "north",
+                "path": [
+                  "sun enters from west",
+                  "reflective shell turns light north"
+                ]
+              }
+            ],
+            "observer": {
+              "direction": "north",
+              "receiving": true,
+              "received": [
+                {
+                  "source": "sun",
+                  "direction": "north",
+                  "path": [
+                    "sun enters from west",
+                    "reflective shell turns light north"
+                  ]
+                }
+              ],
+              "state": "camp-located",
+              "campLocated": true,
+              "firstReception": {
+                "combine": 1,
+                "rays": [
+                  {
+                    "source": "sun",
+                    "direction": "north",
+                    "path": [
+                      "sun enters from west",
+                      "reflective shell turns light north"
+                    ]
+                  }
+                ]
+              }
+            }
+          }
+        },
+        {
+          "action": {
+            "type": "combine",
+            "a": "reflective-cover",
+            "b": "world:solar:2"
+          },
+          "state": {
+            "version": "mars-objects-1",
+            "scenarioId": "garden",
+            "catalogue": "complete",
+            "known": [
+              "frame",
+              "clear-sheet",
+              "reflective-cover",
+              "solar-panel",
+              "cable",
+              "lamp",
+              "clear-shell",
+              "reflective-shell",
+              "solar-lead",
+              "solar-lamp",
+              "lit-clear-shell",
+              "lit-reflective-shell"
+            ],
+            "installations": [
+              {
+                "id": "1",
+                "builtFrom": "lit-reflective-shell",
+                "shell": {
+                  "frame": true,
+                  "layers": [
+                    "reflective"
+                  ]
+                },
+                "power": {
+                  "panel": true,
+                  "cable": true,
+                  "lamp": true,
+                  "sourceLayers": [
+                    "reflective"
+                  ]
+                }
+              },
+              {
+                "id": "2",
+                "builtFrom": "lit-reflective-shell",
+                "shell": {
+                  "frame": true,
+                  "layers": [
+                    "reflective"
+                  ]
+                },
+                "power": {
+                  "panel": true,
+                  "cable": true,
+                  "lamp": true,
+                  "sourceLayers": [
+                    "reflective"
+                  ]
+                }
+              }
+            ],
+            "combines": 4,
+            "observer": {
+              "campLocated": true,
+              "firstReception": {
+                "combine": 1,
+                "rays": [
+                  {
+                    "source": "sun",
+                    "direction": "north",
+                    "path": [
+                      "sun enters from west",
+                      "reflective shell turns light north"
+                    ]
+                  }
+                ]
+              }
+            },
+            "status": "playing",
+            "accepted": true,
+            "response": [
+              "Added reflective layer to solar of installation 2; existing layers remain."
+            ]
+          },
+          "world": {
+            "sun": {
+              "direction": "east",
+              "entersFrom": "west",
+              "lit": true
+            },
+            "camp": {
+              "designatedTray": true,
+              "enclosed": true,
+              "boundaryTransmits": false,
+              "interiorSources": [],
+              "illuminated": false
+            },
+            "power": [
+              {
+                "installation": "1",
+                "source": "solar:1",
+                "panelLit": false,
+                "cableConnected": true,
+                "lampAttached": true,
+                "lampLit": false
+              },
+              {
+                "installation": "2",
+                "source": "solar:2",
+                "panelLit": false,
+                "cableConnected": true,
+                "lampAttached": true,
+                "lampLit": false
+              }
+            ],
+            "rays": [
+              {
+                "source": "sun",
+                "direction": "north",
+                "path": [
+                  "sun enters from west",
+                  "reflective shell turns light north"
+                ]
+              }
+            ],
+            "observer": {
+              "direction": "north",
+              "receiving": true,
+              "received": [
+                {
+                  "source": "sun",
+                  "direction": "north",
+                  "path": [
+                    "sun enters from west",
+                    "reflective shell turns light north"
+                  ]
+                }
+              ],
+              "state": "camp-located",
+              "campLocated": true,
+              "firstReception": {
+                "combine": 1,
+                "rays": [
+                  {
+                    "source": "sun",
+                    "direction": "north",
+                    "path": [
+                      "sun enters from west",
+                      "reflective shell turns light north"
+                    ]
+                  }
+                ]
+              }
+            }
+          }
+        }
+      ],
+      "exactReplay": true
+    },
+    {
+      "name": "Modified installation remains shaded; a copied canonical blueprint does not inherit shading",
+      "scenario": "garden",
+      "options": {
+        "catalogue": "complete"
+      },
+      "actions": [
+        {
+          "type": "combine",
+          "a": "solar-lead",
+          "b": "world:camp"
+        },
+        {
+          "type": "combine",
+          "a": "reflective-cover",
+          "b": "world:solar:1"
+        },
+        {
+          "type": "combine",
+          "a": "lamp",
+          "b": "world:lead:1"
+        },
+        {
+          "type": "combine",
+          "a": "solar-lamp",
+          "b": "world:camp"
+        }
+      ],
+      "frames": [
+        {
+          "action": null,
+          "state": {
+            "version": "mars-objects-1",
+            "scenarioId": "garden",
+            "catalogue": "complete",
+            "known": [
+              "frame",
+              "clear-sheet",
+              "reflective-cover",
+              "solar-panel",
+              "cable",
+              "lamp",
+              "clear-shell",
+              "reflective-shell",
+              "solar-lead",
+              "solar-lamp",
+              "lit-clear-shell",
+              "lit-reflective-shell"
+            ],
+            "installations": [],
+            "combines": 0,
+            "observer": {
+              "campLocated": false
+            },
+            "status": "playing",
+            "accepted": true,
+            "response": [
+              "The camp is open to sunlight. The northern observer is searching."
+            ]
+          },
+          "world": {
+            "sun": {
+              "direction": "east",
+              "entersFrom": "west",
+              "lit": true
+            },
+            "camp": {
+              "designatedTray": true,
+              "enclosed": false,
+              "boundaryTransmits": true,
+              "interiorSources": [
+                "sun"
+              ],
+              "illuminated": true
+            },
+            "power": [],
+            "rays": [
+              {
+                "source": "sun",
+                "direction": "east",
+                "path": [
+                  "sun enters from west",
+                  "open or transmitting camp",
+                  "light exits east"
+                ]
+              }
+            ],
+            "observer": {
+              "direction": "north",
+              "receiving": false,
+              "received": [],
+              "state": "searching",
+              "campLocated": false
+            }
+          }
+        },
+        {
+          "action": {
+            "type": "combine",
+            "a": "solar-lead",
+            "b": "world:camp"
+          },
+          "state": {
+            "version": "mars-objects-1",
+            "scenarioId": "garden",
+            "catalogue": "complete",
+            "known": [
+              "frame",
+              "clear-sheet",
+              "reflective-cover",
+              "solar-panel",
+              "cable",
+              "lamp",
+              "clear-shell",
+              "reflective-shell",
+              "solar-lead",
+              "solar-lamp",
+              "lit-clear-shell",
+              "lit-reflective-shell"
+            ],
+            "installations": [
+              {
+                "id": "1",
+                "builtFrom": "solar-lead",
+                "power": {
+                  "panel": true,
+                  "cable": true,
+                  "lamp": false,
+                  "sourceLayers": []
+                }
+              }
+            ],
+            "combines": 1,
+            "observer": {
+              "campLocated": false
+            },
+            "status": "playing",
+            "accepted": true,
+            "response": [
+              "Joined solar-lead to the camp as installation 1; its constituent structure is retained."
+            ]
+          },
+          "world": {
+            "sun": {
+              "direction": "east",
+              "entersFrom": "west",
+              "lit": true
+            },
+            "camp": {
+              "designatedTray": true,
+              "enclosed": false,
+              "boundaryTransmits": true,
+              "interiorSources": [
+                "sun"
+              ],
+              "illuminated": true
+            },
+            "power": [
+              {
+                "installation": "1",
+                "source": "solar:1",
+                "panelLit": true,
+                "cableConnected": true,
+                "lampAttached": false,
+                "lampLit": false
+              }
+            ],
+            "rays": [
+              {
+                "source": "sun",
+                "direction": "east",
+                "path": [
+                  "sun enters from west",
+                  "open or transmitting camp",
+                  "light exits east"
+                ]
+              }
+            ],
+            "observer": {
+              "direction": "north",
+              "receiving": false,
+              "received": [],
+              "state": "searching",
+              "campLocated": false
+            }
+          }
+        },
+        {
+          "action": {
+            "type": "combine",
+            "a": "reflective-cover",
+            "b": "world:solar:1"
+          },
+          "state": {
+            "version": "mars-objects-1",
+            "scenarioId": "garden",
+            "catalogue": "complete",
+            "known": [
+              "frame",
+              "clear-sheet",
+              "reflective-cover",
+              "solar-panel",
+              "cable",
+              "lamp",
+              "clear-shell",
+              "reflective-shell",
+              "solar-lead",
+              "solar-lamp",
+              "lit-clear-shell",
+              "lit-reflective-shell"
+            ],
+            "installations": [
+              {
+                "id": "1",
+                "builtFrom": "solar-lead",
+                "power": {
+                  "panel": true,
+                  "cable": true,
+                  "lamp": false,
+                  "sourceLayers": [
+                    "reflective"
+                  ]
+                }
+              }
+            ],
+            "combines": 2,
+            "observer": {
+              "campLocated": false
+            },
+            "status": "playing",
+            "accepted": true,
+            "response": [
+              "Added reflective layer to solar of installation 1; existing layers remain."
+            ]
+          },
+          "world": {
+            "sun": {
+              "direction": "east",
+              "entersFrom": "west",
+              "lit": true
+            },
+            "camp": {
+              "designatedTray": true,
+              "enclosed": false,
+              "boundaryTransmits": true,
+              "interiorSources": [
+                "sun"
+              ],
+              "illuminated": true
+            },
+            "power": [
+              {
+                "installation": "1",
+                "source": "solar:1",
+                "panelLit": false,
+                "cableConnected": true,
+                "lampAttached": false,
+                "lampLit": false
+              }
+            ],
+            "rays": [
+              {
+                "source": "sun",
+                "direction": "east",
+                "path": [
+                  "sun enters from west",
+                  "open or transmitting camp",
+                  "light exits east"
+                ]
+              }
+            ],
+            "observer": {
+              "direction": "north",
+              "receiving": false,
+              "received": [],
+              "state": "searching",
+              "campLocated": false
+            }
+          }
+        },
+        {
+          "action": {
+            "type": "combine",
+            "a": "lamp",
+            "b": "world:lead:1"
+          },
+          "state": {
+            "version": "mars-objects-1",
+            "scenarioId": "garden",
+            "catalogue": "complete",
+            "known": [
+              "frame",
+              "clear-sheet",
+              "reflective-cover",
+              "solar-panel",
+              "cable",
+              "lamp",
+              "clear-shell",
+              "reflective-shell",
+              "solar-lead",
+              "solar-lamp",
+              "lit-clear-shell",
+              "lit-reflective-shell"
+            ],
+            "installations": [
+              {
+                "id": "1",
+                "builtFrom": "solar-lead",
+                "power": {
+                  "panel": true,
+                  "cable": true,
+                  "lamp": true,
+                  "sourceLayers": [
+                    "reflective"
+                  ]
+                }
+              }
+            ],
+            "combines": 3,
+            "observer": {
+              "campLocated": false
+            },
+            "status": "playing",
+            "accepted": true,
+            "response": [
+              "Connected lamp to installation 1's actual panel and cable."
+            ]
+          },
+          "world": {
+            "sun": {
+              "direction": "east",
+              "entersFrom": "west",
+              "lit": true
+            },
+            "camp": {
+              "designatedTray": true,
+              "enclosed": false,
+              "boundaryTransmits": true,
+              "interiorSources": [
+                "sun"
+              ],
+              "illuminated": true
+            },
+            "power": [
+              {
+                "installation": "1",
+                "source": "solar:1",
+                "panelLit": false,
+                "cableConnected": true,
+                "lampAttached": true,
+                "lampLit": false
+              }
+            ],
+            "rays": [
+              {
+                "source": "sun",
+                "direction": "east",
+                "path": [
+                  "sun enters from west",
+                  "open or transmitting camp",
+                  "light exits east"
+                ]
+              }
+            ],
+            "observer": {
+              "direction": "north",
+              "receiving": false,
+              "received": [],
+              "state": "searching",
+              "campLocated": false
+            }
+          }
+        },
+        {
+          "action": {
+            "type": "combine",
+            "a": "solar-lamp",
+            "b": "world:camp"
+          },
+          "state": {
+            "version": "mars-objects-1",
+            "scenarioId": "garden",
+            "catalogue": "complete",
+            "known": [
+              "frame",
+              "clear-sheet",
+              "reflective-cover",
+              "solar-panel",
+              "cable",
+              "lamp",
+              "clear-shell",
+              "reflective-shell",
+              "solar-lead",
+              "solar-lamp",
+              "lit-clear-shell",
+              "lit-reflective-shell"
+            ],
+            "installations": [
+              {
+                "id": "1",
+                "builtFrom": "solar-lead",
+                "power": {
+                  "panel": true,
+                  "cable": true,
+                  "lamp": true,
+                  "sourceLayers": [
+                    "reflective"
+                  ]
+                }
+              },
+              {
+                "id": "2",
+                "builtFrom": "solar-lamp",
+                "power": {
+                  "panel": true,
+                  "cable": true,
+                  "lamp": true,
+                  "sourceLayers": []
+                }
+              }
+            ],
+            "combines": 4,
+            "observer": {
+              "campLocated": true,
+              "firstReception": {
+                "combine": 4,
+                "rays": [
+                  {
+                    "source": "lamp:2",
+                    "direction": "north",
+                    "path": [
+                      "solar:2",
+                      "actual panel is lit",
+                      "cable",
+                      "interior lamp",
+                      "open or transmitting camp"
+                    ]
+                  }
+                ]
+              }
+            },
+            "status": "playing",
+            "accepted": true,
+            "response": [
+              "Joined solar-lamp to the camp as installation 2; its constituent structure is retained."
+            ]
+          },
+          "world": {
+            "sun": {
+              "direction": "east",
+              "entersFrom": "west",
+              "lit": true
+            },
+            "camp": {
+              "designatedTray": true,
+              "enclosed": false,
+              "boundaryTransmits": true,
+              "interiorSources": [
+                "sun",
+                "lamp:2"
+              ],
+              "illuminated": true
+            },
+            "power": [
+              {
+                "installation": "1",
+                "source": "solar:1",
+                "panelLit": false,
+                "cableConnected": true,
+                "lampAttached": true,
+                "lampLit": false
+              },
+              {
+                "installation": "2",
+                "source": "solar:2",
+                "panelLit": true,
+                "cableConnected": true,
+                "lampAttached": true,
+                "lampLit": true
+              }
+            ],
+            "rays": [
+              {
+                "source": "sun",
+                "direction": "east",
+                "path": [
+                  "sun enters from west",
+                  "open or transmitting camp",
+                  "light exits east"
+                ]
+              },
+              {
+                "source": "lamp:2",
+                "direction": "north",
+                "path": [
+                  "solar:2",
+                  "actual panel is lit",
+                  "cable",
+                  "interior lamp",
+                  "open or transmitting camp"
+                ]
+              },
+              {
+                "source": "lamp:2",
+                "direction": "east",
+                "path": [
+                  "solar:2",
+                  "actual panel is lit",
+                  "cable",
+                  "interior lamp",
+                  "open or transmitting camp"
+                ]
+              },
+              {
+                "source": "lamp:2",
+                "direction": "south",
+                "path": [
+                  "solar:2",
+                  "actual panel is lit",
+                  "cable",
+                  "interior lamp",
+                  "open or transmitting camp"
+                ]
+              },
+              {
+                "source": "lamp:2",
+                "direction": "west",
+                "path": [
+                  "solar:2",
+                  "actual panel is lit",
+                  "cable",
+                  "interior lamp",
+                  "open or transmitting camp"
+                ]
+              }
+            ],
+            "observer": {
+              "direction": "north",
+              "receiving": true,
+              "received": [
+                {
+                  "source": "lamp:2",
+                  "direction": "north",
+                  "path": [
+                    "solar:2",
+                    "actual panel is lit",
+                    "cable",
+                    "interior lamp",
+                    "open or transmitting camp"
+                  ]
+                }
+              ],
+              "state": "camp-located",
+              "campLocated": true,
+              "firstReception": {
+                "combine": 4,
+                "rays": [
+                  {
+                    "source": "lamp:2",
+                    "direction": "north",
+                    "path": [
+                      "solar:2",
+                      "actual panel is lit",
+                      "cable",
+                      "interior lamp",
+                      "open or transmitting camp"
+                    ]
+                  }
+                ]
+              }
+            }
+          }
+        }
+      ],
+      "exactReplay": true
+    },
+    {
+      "name": "Source cutoff stops current reception while observer remembers its first actual ray",
+      "scenario": "signal",
+      "options": {
+        "catalogue": "complete"
+      },
+      "actions": [
+        {
+          "type": "combine",
+          "a": "lit-clear-shell",
+          "b": "world:camp"
+        },
+        {
+          "type": "combine",
+          "a": "reflective-cover",
+          "b": "world:solar:1"
+        }
+      ],
+      "frames": [
+        {
+          "action": null,
+          "state": {
+            "version": "mars-objects-1",
+            "scenarioId": "signal",
+            "catalogue": "complete",
+            "known": [
+              "frame",
+              "clear-sheet",
+              "reflective-cover",
+              "solar-panel",
+              "cable",
+              "lamp",
+              "clear-shell",
+              "reflective-shell",
+              "solar-lead",
+              "solar-lamp",
+              "lit-clear-shell",
+              "lit-reflective-shell"
+            ],
+            "installations": [],
+            "combines": 0,
+            "observer": {
+              "campLocated": false
+            },
+            "status": "playing",
+            "accepted": true,
+            "response": [
+              "The camp is open to sunlight. The northern observer is searching."
+            ]
+          },
+          "world": {
+            "sun": {
+              "direction": "east",
+              "entersFrom": "west",
+              "lit": true
+            },
+            "camp": {
+              "designatedTray": true,
+              "enclosed": false,
+              "boundaryTransmits": true,
+              "interiorSources": [
+                "sun"
+              ],
+              "illuminated": true
+            },
+            "power": [],
+            "rays": [
+              {
+                "source": "sun",
+                "direction": "east",
+                "path": [
+                  "sun enters from west",
+                  "open or transmitting camp",
+                  "light exits east"
+                ]
+              }
+            ],
+            "observer": {
+              "direction": "north",
+              "receiving": false,
+              "received": [],
+              "state": "searching",
+              "campLocated": false
+            }
+          }
+        },
+        {
+          "action": {
+            "type": "combine",
+            "a": "lit-clear-shell",
+            "b": "world:camp"
+          },
+          "state": {
+            "version": "mars-objects-1",
+            "scenarioId": "signal",
+            "catalogue": "complete",
+            "known": [
+              "frame",
+              "clear-sheet",
+              "reflective-cover",
+              "solar-panel",
+              "cable",
+              "lamp",
+              "clear-shell",
+              "reflective-shell",
+              "solar-lead",
+              "solar-lamp",
+              "lit-clear-shell",
+              "lit-reflective-shell"
+            ],
+            "installations": [
+              {
+                "id": "1",
+                "builtFrom": "lit-clear-shell",
+                "shell": {
+                  "frame": true,
+                  "layers": [
+                    "clear"
+                  ]
+                },
+                "power": {
+                  "panel": true,
+                  "cable": true,
+                  "lamp": true,
+                  "sourceLayers": []
+                }
+              }
+            ],
+            "combines": 1,
+            "observer": {
+              "campLocated": true,
+              "firstReception": {
+                "combine": 1,
+                "rays": [
+                  {
+                    "source": "lamp:1",
+                    "direction": "north",
+                    "path": [
+                      "solar:1",
+                      "actual panel is lit",
+                      "cable",
+                      "interior lamp",
+                      "open or transmitting camp"
+                    ]
+                  }
+                ]
+              }
+            },
+            "status": "won",
+            "accepted": true,
+            "response": [
+              "Joined lit-clear-shell to the camp as installation 1; its constituent structure is retained."
+            ]
+          },
+          "world": {
+            "sun": {
+              "direction": "east",
+              "entersFrom": "west",
+              "lit": true
+            },
+            "camp": {
+              "designatedTray": true,
+              "enclosed": true,
+              "boundaryTransmits": true,
+              "interiorSources": [
+                "sun",
+                "lamp:1"
+              ],
+              "illuminated": true
+            },
+            "power": [
+              {
+                "installation": "1",
+                "source": "solar:1",
+                "panelLit": true,
+                "cableConnected": true,
+                "lampAttached": true,
+                "lampLit": true
+              }
+            ],
+            "rays": [
+              {
+                "source": "sun",
+                "direction": "east",
+                "path": [
+                  "sun enters from west",
+                  "open or transmitting camp",
+                  "light exits east"
+                ]
+              },
+              {
+                "source": "lamp:1",
+                "direction": "north",
+                "path": [
+                  "solar:1",
+                  "actual panel is lit",
+                  "cable",
+                  "interior lamp",
+                  "open or transmitting camp"
+                ]
+              },
+              {
+                "source": "lamp:1",
+                "direction": "east",
+                "path": [
+                  "solar:1",
+                  "actual panel is lit",
+                  "cable",
+                  "interior lamp",
+                  "open or transmitting camp"
+                ]
+              },
+              {
+                "source": "lamp:1",
+                "direction": "south",
+                "path": [
+                  "solar:1",
+                  "actual panel is lit",
+                  "cable",
+                  "interior lamp",
+                  "open or transmitting camp"
+                ]
+              },
+              {
+                "source": "lamp:1",
+                "direction": "west",
+                "path": [
+                  "solar:1",
+                  "actual panel is lit",
+                  "cable",
+                  "interior lamp",
+                  "open or transmitting camp"
+                ]
+              }
+            ],
+            "observer": {
+              "direction": "north",
+              "receiving": true,
+              "received": [
+                {
+                  "source": "lamp:1",
+                  "direction": "north",
+                  "path": [
+                    "solar:1",
+                    "actual panel is lit",
+                    "cable",
+                    "interior lamp",
+                    "open or transmitting camp"
+                  ]
+                }
+              ],
+              "state": "camp-located",
+              "campLocated": true,
+              "firstReception": {
+                "combine": 1,
+                "rays": [
+                  {
+                    "source": "lamp:1",
+                    "direction": "north",
+                    "path": [
+                      "solar:1",
+                      "actual panel is lit",
+                      "cable",
+                      "interior lamp",
+                      "open or transmitting camp"
+                    ]
+                  }
+                ]
+              }
+            }
+          }
+        },
+        {
+          "action": {
+            "type": "combine",
+            "a": "reflective-cover",
+            "b": "world:solar:1"
+          },
+          "state": {
+            "version": "mars-objects-1",
+            "scenarioId": "signal",
+            "catalogue": "complete",
+            "known": [
+              "frame",
+              "clear-sheet",
+              "reflective-cover",
+              "solar-panel",
+              "cable",
+              "lamp",
+              "clear-shell",
+              "reflective-shell",
+              "solar-lead",
+              "solar-lamp",
+              "lit-clear-shell",
+              "lit-reflective-shell"
+            ],
+            "installations": [
+              {
+                "id": "1",
+                "builtFrom": "lit-clear-shell",
+                "shell": {
+                  "frame": true,
+                  "layers": [
+                    "clear"
+                  ]
+                },
+                "power": {
+                  "panel": true,
+                  "cable": true,
+                  "lamp": true,
+                  "sourceLayers": [
+                    "reflective"
+                  ]
+                }
+              }
+            ],
+            "combines": 2,
+            "observer": {
+              "campLocated": true,
+              "firstReception": {
+                "combine": 1,
+                "rays": [
+                  {
+                    "source": "lamp:1",
+                    "direction": "north",
+                    "path": [
+                      "solar:1",
+                      "actual panel is lit",
+                      "cable",
+                      "interior lamp",
+                      "open or transmitting camp"
+                    ]
+                  }
+                ]
+              }
+            },
+            "status": "won",
+            "accepted": true,
+            "response": [
+              "Added reflective layer to solar of installation 1; existing layers remain."
+            ]
+          },
+          "world": {
+            "sun": {
+              "direction": "east",
+              "entersFrom": "west",
+              "lit": true
+            },
+            "camp": {
+              "designatedTray": true,
+              "enclosed": true,
+              "boundaryTransmits": true,
+              "interiorSources": [
+                "sun"
+              ],
+              "illuminated": true
+            },
+            "power": [
+              {
+                "installation": "1",
+                "source": "solar:1",
+                "panelLit": false,
+                "cableConnected": true,
+                "lampAttached": true,
+                "lampLit": false
+              }
+            ],
+            "rays": [
+              {
+                "source": "sun",
+                "direction": "east",
+                "path": [
+                  "sun enters from west",
+                  "open or transmitting camp",
+                  "light exits east"
+                ]
+              }
+            ],
+            "observer": {
+              "direction": "north",
+              "receiving": false,
+              "received": [],
+              "state": "camp-located",
+              "campLocated": true,
+              "firstReception": {
+                "combine": 1,
+                "rays": [
+                  {
+                    "source": "lamp:1",
+                    "direction": "north",
+                    "path": [
+                      "solar:1",
+                      "actual panel is lit",
+                      "cable",
+                      "interior lamp",
+                      "open or transmitting camp"
+                    ]
+                  }
+                ]
+              }
+            }
+          }
+        }
+      ],
+      "exactReplay": true
+    }
+  ],
+  "stableFilesDuringProbe": true,
+  "finalHashes": {
+    "experiments/logical-mars-objects.ts": "4347c9f71ae6fe8b6d13f807b63a40bffea7adfc391521d18c3cccb782542f4c",
+    "docs/mars-objects-play-protocol.md": "4a4c9154c61bfdf5e8655d0a50969c1897db3e19226dcca2f549aa3e04ab5dc6"
+  }
+}

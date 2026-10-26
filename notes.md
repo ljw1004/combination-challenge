@@ -267,3 +267,8 @@ Implemented a new five-by-three Imprints-derived world, not a frozen-model patch
 ### Overnight stop requested by the user
 
 Wrote handoff.md with current direction, actual results, frozen versions, commands and next steps. Faculties 1 is frozen and mechanically checked. Its two first players were externally interrupted for the overnight stop: interest session has 6 player combines plus 5 waits, long session has 6 combines. Their CLI notes/reports preserve current state and next intentions; neither issued finish or made a voluntary stopping decision. Resume those sessions before judging the new mechanism. Current aggregate predates these partial captures; handle external interruption before regenerating conclusions. Full npm test passes143 after the latest registry integration. All agents are stopped; the historical reader on5180 remains live.
+
+
+## 26 October 2026, 14:22 UTC: continued research and publication
+
+The owner explicitly requested that findings be pushed and experimentation continue without supervision. The optional publication gate is removed. See docs/research-checkpoint-2026-10-26.md and docs/recovery-verification-2026-10-26.md for prior reported findings, exact artifact recovery, unavailable raw captures and fresh verification. Next hypothesis: persistent camp and conjunctive visible goals may make clear steps accumulate into a project. Do not require every step to teach or present a strategic dilemma. No fresh play result yet.
