@@ -28,3 +28,10 @@ Clio is a separate read-only-code audit; this project's write permission does no
 ## 26 October 2026, 14:41 UTC: explicit target and continuous iteration
 
 The owner set the destination: logical combination play judged fun, lasting about200 player decisions and ideally spanning multiple levels/scenarios. Keep experimenting, evaluating and committing until reaching it. Tiny tests are diagnostic steps, not the completion criterion. Do not pad counts, require each action to be a dilemma, or treat a short valid game as200 decisions. Develop a genuine multi-scenario candidate and test complete sessions with neutral prompts and independent evidence review. Clear progress, mechanics learning and comfortable routine remain legitimate parts of the experience.
+
+
+## Current checkpoint: 14:55 UTC
+
+Mars Progressive Camp1 source/protocol published before fresh play (307106eded87acc192b8ca8a9d16423768d7e3a0). Fresh raw9-event pilot and exact assignment published at ac0dc90c2cdb8d5a68ec89bc14d87359f605c8f5. Independent review confirms five real combines and retained shell usefulness, with evidence limits. Current complete suite189 tests and TypeScript pass.
+
+Continue now toward the full target: multi-scenario whole-object campaign design is underway; docs/long-play-evaluation-protocol.md defines replicated neutral long plays, sparse checkpoints, actual decision counting and independent skeptical review. Do not stop at this microtrial or await optional feedback. Parent owns GitHub publication; no changes to Clio or unto.me.
