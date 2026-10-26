@@ -1,0 +1,1746 @@
+{
+  "name": "relay-origin-laundering",
+  "options": {
+    "catalogue": "complete"
+  },
+  "actions": [
+    {
+      "type": "combine",
+      "a": "clear-cast",
+      "b": "place:survey-window"
+    },
+    {
+      "type": "combine",
+      "a": "o:13",
+      "b": "camera",
+      "context": {
+        "operation": "inside"
+      }
+    },
+    {
+      "type": "combine",
+      "a": "o:13",
+      "b": "place:beacon",
+      "context": {
+        "operation": "observe"
+      }
+    },
+    {
+      "type": "combine",
+      "a": "o:13",
+      "b": "o:1",
+      "context": {
+        "operation": "transmit"
+      }
+    },
+    {
+      "type": "combine",
+      "a": "record-sheet",
+      "b": "place:survey-window"
+    },
+    {
+      "type": "combine",
+      "a": "o:21",
+      "b": "o:1",
+      "context": {
+        "operation": "transform",
+        "recipe": "impress"
+      }
+    },
+    {
+      "type": "combine",
+      "a": "o:21",
+      "b": "clear-film",
+      "context": {
+        "operation": "transform",
+        "recipe": "laminate"
+      }
+    },
+    {
+      "type": "combine",
+      "a": "o:21",
+      "b": "cart"
+    },
+    {
+      "type": "combine",
+      "a": "o:21",
+      "b": "place:wet-gallery"
+    }
+  ],
+  "trace": [
+    {
+      "action": {
+        "type": "combine",
+        "a": "clear-cast",
+        "b": "place:survey-window"
+      },
+      "beforeHash": "204981e5a0ea7b30f3a8144bcba296c5e5f572648a8844ce993db006d3468f9e",
+      "afterHash": "76a78377df6f3ad76ff4d952ec3776f189b9dda2c2fd89f2fdad23ee71352f48",
+      "response": [
+        "o:13: clear-cast combined with survey-window; fresh identities, no copied records."
+      ]
+    },
+    {
+      "action": {
+        "type": "combine",
+        "a": "o:13",
+        "b": "camera",
+        "context": {
+          "operation": "inside"
+        }
+      },
+      "beforeHash": "76a78377df6f3ad76ff4d952ec3776f189b9dda2c2fd89f2fdad23ee71352f48",
+      "afterHash": "2412297a85e7743388065b4e2b087f8b3d3dd5ff05ffb412d455f08f0f8bc193",
+      "response": [
+        "o:13 now includes camera as inside; reusable design assembly:1."
+      ]
+    },
+    {
+      "action": {
+        "type": "combine",
+        "a": "o:13",
+        "b": "place:beacon",
+        "context": {
+          "operation": "observe"
+        }
+      },
+      "beforeHash": "2412297a85e7743388065b4e2b087f8b3d3dd5ff05ffb412d455f08f0f8bc193",
+      "afterHash": "538aa1254bb3dc9c96b05d31ffedc0dd44f92e8fa1b50437a5589fd970a8d1ad",
+      "response": [
+        "o:13 recorded beacon in 2 exposure rows."
+      ]
+    },
+    {
+      "action": {
+        "type": "combine",
+        "a": "o:13",
+        "b": "o:1",
+        "context": {
+          "operation": "transmit"
+        }
+      },
+      "beforeHash": "538aa1254bb3dc9c96b05d31ffedc0dd44f92e8fa1b50437a5589fd970a8d1ad",
+      "afterHash": "f1e6ebf1126aa95b2c34e69627d6108fba6d1599b477dae5acd6e004c113a59a",
+      "response": [
+        "o:13 optically relayed 2 actual records to o:1."
+      ]
+    },
+    {
+      "action": {
+        "type": "combine",
+        "a": "record-sheet",
+        "b": "place:survey-window"
+      },
+      "beforeHash": "f1e6ebf1126aa95b2c34e69627d6108fba6d1599b477dae5acd6e004c113a59a",
+      "afterHash": "b74978a89642b582eec0b9eb7125ee517a1a904a68bfbeba55e1843e31881f66",
+      "response": [
+        "o:21: record-sheet combined with survey-window; fresh identities, no copied records."
+      ]
+    },
+    {
+      "action": {
+        "type": "combine",
+        "a": "o:21",
+        "b": "o:1",
+        "context": {
+          "operation": "transform",
+          "recipe": "impress"
+        }
+      },
+      "beforeHash": "b74978a89642b582eec0b9eb7125ee517a1a904a68bfbeba55e1843e31881f66",
+      "afterHash": "45ef7f3445ac65c41c294954f4933dea90edda687a1484d1800838568f29c272",
+      "response": [
+        "o:21/p:22: impress → impressed-sheet; local {\"rigidity\":\"flexible\",\"optical\":\"diffuse\",\"permeability\":\"porous\",\"recording\":\"temporary\"}. Tool retained; 2 actual material events."
+      ]
+    },
+    {
+      "action": {
+        "type": "combine",
+        "a": "o:21",
+        "b": "clear-film",
+        "context": {
+          "operation": "transform",
+          "recipe": "laminate"
+        }
+      },
+      "beforeHash": "45ef7f3445ac65c41c294954f4933dea90edda687a1484d1800838568f29c272",
+      "afterHash": "7a52d9a37a67bbc507f8df6f54e67c2a4fb430ec0d7e5036686817f31835aa8e",
+      "response": [
+        "o:21/p:22: laminate → protected-sheet; local {\"rigidity\":\"flexible\",\"optical\":\"diffuse\",\"permeability\":\"watertight\",\"recording\":\"durable\"}. Tool retained; 2 actual material events."
+      ]
+    },
+    {
+      "action": {
+        "type": "combine",
+        "a": "o:21",
+        "b": "cart"
+      },
+      "beforeHash": "7a52d9a37a67bbc507f8df6f54e67c2a4fb430ec0d7e5036686817f31835aa8e",
+      "afterHash": "7ae1666b7607428c3ec14fab028e6eda043ecc25a0c7bcf74a977ba388881570",
+      "response": [
+        "o:21 now includes cart as attach; reusable design assembly:4."
+      ]
+    },
+    {
+      "action": {
+        "type": "combine",
+        "a": "o:21",
+        "b": "place:wet-gallery"
+      },
+      "beforeHash": "7ae1666b7607428c3ec14fab028e6eda043ecc25a0c7bcf74a977ba388881570",
+      "afterHash": "f4b429b14a467ede48d76275acb33bd9c2615725beee934944d5aae79faf3434",
+      "response": [
+        "o:21 moved intact via survey-window → work-yard → wet-gallery; external interfaces detached."
+      ]
+    }
+  ],
+  "state": {
+    "version": "retained-project-1",
+    "map": "station",
+    "catalogue": "complete",
+    "known": [
+      "frame",
+      "hinge",
+      "clear-film",
+      "foil",
+      "mesh",
+      "tube",
+      "cable",
+      "solar-cell",
+      "lamp",
+      "heater",
+      "tray",
+      "seed",
+      "wheels",
+      "lens",
+      "record-plate",
+      "sand",
+      "clay",
+      "fiber",
+      "binder",
+      "clear-shell",
+      "reflective-shell",
+      "mesh-screen",
+      "hinged-shell",
+      "sealed-passage",
+      "filtered-passage",
+      "folding-frame",
+      "solar-lead",
+      "solar-lamp",
+      "solar-heater",
+      "light-guide",
+      "directed-lamp",
+      "rootbed",
+      "greenhouse",
+      "lit-greenhouse",
+      "warm-greenhouse",
+      "solar-still",
+      "outlet-still",
+      "cart",
+      "covered-cart",
+      "garden-cart",
+      "folding-span",
+      "shelter-cart",
+      "camera",
+      "solar-camera",
+      "sample-tray",
+      "sample-case",
+      "clear-cast",
+      "soft-clay",
+      "soft-form",
+      "fired-form",
+      "pulp",
+      "record-sheet",
+      "protected-sheet",
+      "mirror",
+      "diffuser",
+      "lining",
+      "lined-form",
+      "impressed-sheet",
+      "assembly:1",
+      "assembly:2",
+      "assembly:3",
+      "assembly:4"
+    ],
+    "designs": [
+      {
+        "id": "assembly:1",
+        "label": "assembly:1",
+        "root": {
+          "id": "p:18",
+          "kind": "assembly",
+          "label": "assembly",
+          "children": [
+            {
+              "relation": "attach",
+              "part": {
+                "id": "p:14",
+                "kind": "material",
+                "label": "clear-cast",
+                "children": [],
+                "pose": "closed",
+                "facing": "east",
+                "surface": {
+                  "rigidity": "rigid",
+                  "optical": "clear",
+                  "permeability": "watertight",
+                  "recording": "none"
+                },
+                "form": {
+                  "opening": "closed",
+                  "edges": [
+                    "north",
+                    "south"
+                  ],
+                  "face": "east"
+                },
+                "events": [],
+                "provenance": []
+              }
+            },
+            {
+              "relation": "inside",
+              "part": {
+                "id": "p:15",
+                "kind": "assembly",
+                "label": "camera",
+                "children": [
+                  {
+                    "relation": "attach",
+                    "part": {
+                      "id": "p:16",
+                      "kind": "lens",
+                      "label": "lens",
+                      "children": [],
+                      "pose": "closed",
+                      "facing": "east",
+                      "events": []
+                    }
+                  },
+                  {
+                    "relation": "attach",
+                    "part": {
+                      "id": "p:17",
+                      "kind": "record-plate",
+                      "label": "record-plate",
+                      "children": [],
+                      "pose": "closed",
+                      "facing": "east",
+                      "surface": {
+                        "rigidity": "rigid",
+                        "optical": "opaque",
+                        "permeability": "watertight",
+                        "recording": "durable"
+                      },
+                      "form": {
+                        "opening": "closed",
+                        "edges": [
+                          "north",
+                          "south"
+                        ],
+                        "face": "east"
+                      },
+                      "events": []
+                    }
+                  }
+                ],
+                "pose": "closed",
+                "facing": "east",
+                "events": []
+              }
+            }
+          ],
+          "pose": "closed",
+          "facing": "east",
+          "events": []
+        },
+        "source": "player"
+      },
+      {
+        "id": "assembly:2",
+        "label": "assembly:2",
+        "root": {
+          "id": "p:22",
+          "kind": "material",
+          "label": "impressed-sheet",
+          "children": [],
+          "pose": "closed",
+          "facing": "east",
+          "surface": {
+            "rigidity": "flexible",
+            "optical": "diffuse",
+            "permeability": "porous",
+            "recording": "temporary"
+          },
+          "form": {
+            "opening": "open",
+            "edges": [
+              "north",
+              "south"
+            ],
+            "face": "east"
+          },
+          "events": [],
+          "provenance": [
+            {
+              "id": "transform:25",
+              "recipe": "impress",
+              "intervention": 6,
+              "inputs": [
+                {
+                  "id": "p:22",
+                  "kind": "material",
+                  "label": "record-sheet",
+                  "surface": {
+                    "rigidity": "flexible",
+                    "optical": "diffuse",
+                    "permeability": "porous",
+                    "recording": "temporary"
+                  },
+                  "form": {
+                    "opening": "open",
+                    "edges": [
+                      "north",
+                      "south"
+                    ],
+                    "face": "east"
+                  },
+                  "eventIds": []
+                },
+                {
+                  "id": "p:3",
+                  "kind": "lens",
+                  "label": "lens",
+                  "eventIds": []
+                },
+                {
+                  "id": "p:4",
+                  "kind": "record-plate",
+                  "label": "record-plate",
+                  "surface": {
+                    "rigidity": "rigid",
+                    "optical": "opaque",
+                    "permeability": "watertight",
+                    "recording": "durable"
+                  },
+                  "form": {
+                    "opening": "closed",
+                    "edges": [
+                      "north",
+                      "south"
+                    ],
+                    "face": "east"
+                  },
+                  "eventIds": []
+                }
+              ],
+              "sources": []
+            }
+          ]
+        },
+        "source": "player"
+      },
+      {
+        "id": "assembly:3",
+        "label": "assembly:3",
+        "root": {
+          "id": "p:22",
+          "kind": "material",
+          "label": "protected-sheet",
+          "children": [],
+          "pose": "closed",
+          "facing": "east",
+          "surface": {
+            "rigidity": "flexible",
+            "optical": "diffuse",
+            "permeability": "watertight",
+            "recording": "durable"
+          },
+          "form": {
+            "opening": "open",
+            "edges": [
+              "north",
+              "south"
+            ],
+            "face": "east"
+          },
+          "events": [],
+          "provenance": [
+            {
+              "id": "transform:25",
+              "recipe": "impress",
+              "intervention": 6,
+              "inputs": [
+                {
+                  "id": "p:22",
+                  "kind": "material",
+                  "label": "record-sheet",
+                  "surface": {
+                    "rigidity": "flexible",
+                    "optical": "diffuse",
+                    "permeability": "porous",
+                    "recording": "temporary"
+                  },
+                  "form": {
+                    "opening": "open",
+                    "edges": [
+                      "north",
+                      "south"
+                    ],
+                    "face": "east"
+                  },
+                  "eventIds": []
+                },
+                {
+                  "id": "p:3",
+                  "kind": "lens",
+                  "label": "lens",
+                  "eventIds": []
+                },
+                {
+                  "id": "p:4",
+                  "kind": "record-plate",
+                  "label": "record-plate",
+                  "surface": {
+                    "rigidity": "rigid",
+                    "optical": "opaque",
+                    "permeability": "watertight",
+                    "recording": "durable"
+                  },
+                  "form": {
+                    "opening": "closed",
+                    "edges": [
+                      "north",
+                      "south"
+                    ],
+                    "face": "east"
+                  },
+                  "eventIds": []
+                }
+              ],
+              "sources": []
+            },
+            {
+              "id": "transform:26",
+              "recipe": "laminate",
+              "intervention": 7,
+              "inputs": [
+                {
+                  "id": "p:22",
+                  "kind": "material",
+                  "label": "impressed-sheet",
+                  "surface": {
+                    "rigidity": "flexible",
+                    "optical": "diffuse",
+                    "permeability": "porous",
+                    "recording": "temporary"
+                  },
+                  "form": {
+                    "opening": "open",
+                    "edges": [
+                      "north",
+                      "south"
+                    ],
+                    "face": "east"
+                  },
+                  "eventIds": [
+                    "copy:23",
+                    "copy:24"
+                  ]
+                },
+                {
+                  "id": "design",
+                  "kind": "clear-film",
+                  "label": "clear-film",
+                  "surface": {
+                    "rigidity": "flexible",
+                    "optical": "clear",
+                    "permeability": "watertight",
+                    "recording": "none"
+                  },
+                  "form": {
+                    "opening": "closed",
+                    "edges": [
+                      "north",
+                      "south"
+                    ],
+                    "face": "east"
+                  },
+                  "eventIds": []
+                }
+              ],
+              "sources": []
+            }
+          ]
+        },
+        "source": "player"
+      },
+      {
+        "id": "assembly:4",
+        "label": "assembly:4",
+        "root": {
+          "id": "p:30",
+          "kind": "assembly",
+          "label": "assembly",
+          "children": [
+            {
+              "relation": "attach",
+              "part": {
+                "id": "p:22",
+                "kind": "material",
+                "label": "protected-sheet",
+                "children": [],
+                "pose": "closed",
+                "facing": "east",
+                "surface": {
+                  "rigidity": "flexible",
+                  "optical": "diffuse",
+                  "permeability": "watertight",
+                  "recording": "durable"
+                },
+                "form": {
+                  "opening": "open",
+                  "edges": [
+                    "north",
+                    "south"
+                  ],
+                  "face": "east"
+                },
+                "events": [],
+                "provenance": [
+                  {
+                    "id": "transform:25",
+                    "recipe": "impress",
+                    "intervention": 6,
+                    "inputs": [
+                      {
+                        "id": "p:22",
+                        "kind": "material",
+                        "label": "record-sheet",
+                        "surface": {
+                          "rigidity": "flexible",
+                          "optical": "diffuse",
+                          "permeability": "porous",
+                          "recording": "temporary"
+                        },
+                        "form": {
+                          "opening": "open",
+                          "edges": [
+                            "north",
+                            "south"
+                          ],
+                          "face": "east"
+                        },
+                        "eventIds": []
+                      },
+                      {
+                        "id": "p:3",
+                        "kind": "lens",
+                        "label": "lens",
+                        "eventIds": []
+                      },
+                      {
+                        "id": "p:4",
+                        "kind": "record-plate",
+                        "label": "record-plate",
+                        "surface": {
+                          "rigidity": "rigid",
+                          "optical": "opaque",
+                          "permeability": "watertight",
+                          "recording": "durable"
+                        },
+                        "form": {
+                          "opening": "closed",
+                          "edges": [
+                            "north",
+                            "south"
+                          ],
+                          "face": "east"
+                        },
+                        "eventIds": []
+                      }
+                    ],
+                    "sources": []
+                  },
+                  {
+                    "id": "transform:26",
+                    "recipe": "laminate",
+                    "intervention": 7,
+                    "inputs": [
+                      {
+                        "id": "p:22",
+                        "kind": "material",
+                        "label": "impressed-sheet",
+                        "surface": {
+                          "rigidity": "flexible",
+                          "optical": "diffuse",
+                          "permeability": "porous",
+                          "recording": "temporary"
+                        },
+                        "form": {
+                          "opening": "open",
+                          "edges": [
+                            "north",
+                            "south"
+                          ],
+                          "face": "east"
+                        },
+                        "eventIds": [
+                          "copy:23",
+                          "copy:24"
+                        ]
+                      },
+                      {
+                        "id": "design",
+                        "kind": "clear-film",
+                        "label": "clear-film",
+                        "surface": {
+                          "rigidity": "flexible",
+                          "optical": "clear",
+                          "permeability": "watertight",
+                          "recording": "none"
+                        },
+                        "form": {
+                          "opening": "closed",
+                          "edges": [
+                            "north",
+                            "south"
+                          ],
+                          "face": "east"
+                        },
+                        "eventIds": []
+                      }
+                    ],
+                    "sources": []
+                  }
+                ]
+              }
+            },
+            {
+              "relation": "attach",
+              "part": {
+                "id": "p:27",
+                "kind": "assembly",
+                "label": "cart",
+                "children": [
+                  {
+                    "relation": "attach",
+                    "part": {
+                      "id": "p:28",
+                      "kind": "frame",
+                      "label": "frame",
+                      "children": [],
+                      "pose": "closed",
+                      "facing": "east",
+                      "surface": {
+                        "rigidity": "rigid",
+                        "optical": "opaque",
+                        "permeability": "porous",
+                        "recording": "none"
+                      },
+                      "form": {
+                        "opening": "open",
+                        "edges": [
+                          "north",
+                          "south"
+                        ],
+                        "face": "east"
+                      },
+                      "events": []
+                    }
+                  },
+                  {
+                    "relation": "attach",
+                    "part": {
+                      "id": "p:29",
+                      "kind": "wheels",
+                      "label": "wheels",
+                      "children": [],
+                      "pose": "closed",
+                      "facing": "east",
+                      "events": []
+                    }
+                  }
+                ],
+                "pose": "closed",
+                "facing": "east",
+                "events": []
+              }
+            }
+          ],
+          "pose": "closed",
+          "facing": "east",
+          "events": []
+        },
+        "source": "player"
+      }
+    ],
+    "boards": [
+      {
+        "id": "station",
+        "objects": [
+          {
+            "id": "o:1",
+            "initialKey": "survey-camera",
+            "design": "camera",
+            "root": {
+              "id": "p:2",
+              "kind": "assembly",
+              "label": "camera",
+              "children": [
+                {
+                  "relation": "attach",
+                  "part": {
+                    "id": "p:3",
+                    "kind": "lens",
+                    "label": "lens",
+                    "children": [],
+                    "pose": "closed",
+                    "facing": "east",
+                    "events": [],
+                    "originKey": "survey-camera"
+                  }
+                },
+                {
+                  "relation": "attach",
+                  "part": {
+                    "id": "p:4",
+                    "kind": "record-plate",
+                    "label": "record-plate",
+                    "children": [],
+                    "pose": "closed",
+                    "facing": "east",
+                    "surface": {
+                      "rigidity": "rigid",
+                      "optical": "opaque",
+                      "permeability": "watertight",
+                      "recording": "durable"
+                    },
+                    "form": {
+                      "opening": "closed",
+                      "edges": [
+                        "north",
+                        "south"
+                      ],
+                      "face": "east"
+                    },
+                    "events": [],
+                    "originKey": "survey-camera"
+                  }
+                }
+              ],
+              "pose": "closed",
+              "facing": "east",
+              "events": [],
+              "originKey": "survey-camera"
+            },
+            "place": "survey-window",
+            "records": [
+              {
+                "id": "record:19",
+                "subject": "place:beacon",
+                "viewpoint": "survey-window",
+                "camera": "o:13",
+                "row": "east",
+                "source": [
+                  "sun:east:beacon"
+                ],
+                "intervention": 3,
+                "viewLenses": [
+                  {
+                    "id": "p:16"
+                  }
+                ],
+                "viewSurfaces": [
+                  {
+                    "id": "p:14",
+                    "surface": {
+                      "rigidity": "rigid",
+                      "optical": "clear",
+                      "permeability": "watertight",
+                      "recording": "none"
+                    },
+                    "form": {
+                      "opening": "closed",
+                      "edges": [
+                        "north",
+                        "south"
+                      ],
+                      "face": "east"
+                    }
+                  }
+                ]
+              },
+              {
+                "id": "record:20",
+                "subject": "place:beacon",
+                "viewpoint": "survey-window",
+                "camera": "o:13",
+                "row": "west",
+                "source": [
+                  "sun:west:beacon"
+                ],
+                "intervention": 3,
+                "viewLenses": [
+                  {
+                    "id": "p:16"
+                  }
+                ],
+                "viewSurfaces": [
+                  {
+                    "id": "p:14",
+                    "surface": {
+                      "rigidity": "rigid",
+                      "optical": "clear",
+                      "permeability": "watertight",
+                      "recording": "none"
+                    },
+                    "form": {
+                      "opening": "closed",
+                      "edges": [
+                        "north",
+                        "south"
+                      ],
+                      "face": "east"
+                    }
+                  }
+                ]
+              }
+            ],
+            "samples": [],
+            "history": {
+              "places": [
+                "survey-window"
+              ],
+              "spanned": []
+            },
+            "recordCarriers": [
+              {
+                "record": "record:19",
+                "part": "p:4"
+              },
+              {
+                "record": "record:20",
+                "part": "p:4"
+              }
+            ]
+          },
+          {
+            "id": "o:5",
+            "initialKey": "nursery",
+            "design": "rootbed",
+            "root": {
+              "id": "p:6",
+              "kind": "assembly",
+              "label": "rootbed",
+              "children": [
+                {
+                  "relation": "attach",
+                  "part": {
+                    "id": "p:7",
+                    "kind": "tray",
+                    "label": "tray",
+                    "children": [],
+                    "pose": "closed",
+                    "facing": "east",
+                    "surface": {
+                      "rigidity": "rigid",
+                      "optical": "opaque",
+                      "permeability": "watertight",
+                      "recording": "none"
+                    },
+                    "form": {
+                      "opening": "closed",
+                      "edges": [
+                        "north",
+                        "south"
+                      ],
+                      "face": "east"
+                    },
+                    "events": [],
+                    "originKey": "nursery"
+                  }
+                },
+                {
+                  "relation": "attach",
+                  "part": {
+                    "id": "p:8",
+                    "kind": "seed",
+                    "label": "seed",
+                    "children": [],
+                    "pose": "closed",
+                    "facing": "east",
+                    "events": [],
+                    "originKey": "nursery"
+                  }
+                }
+              ],
+              "pose": "closed",
+              "facing": "east",
+              "events": [],
+              "originKey": "nursery"
+            },
+            "place": "garden",
+            "records": [],
+            "samples": [],
+            "history": {
+              "places": [
+                "garden"
+              ],
+              "spanned": []
+            }
+          },
+          {
+            "id": "o:9",
+            "initialKey": "working-clay",
+            "design": "clay",
+            "root": {
+              "id": "p:10",
+              "kind": "clay",
+              "label": "clay",
+              "children": [],
+              "pose": "closed",
+              "facing": "east",
+              "surface": {
+                "rigidity": "rigid",
+                "optical": "opaque",
+                "permeability": "porous",
+                "recording": "none"
+              },
+              "events": [],
+              "originKey": "working-clay"
+            },
+            "place": "filter-pad",
+            "records": [],
+            "samples": [],
+            "history": {
+              "places": [
+                "filter-pad"
+              ],
+              "spanned": []
+            }
+          },
+          {
+            "id": "o:11",
+            "initialKey": "mesh-master",
+            "design": "mesh",
+            "root": {
+              "id": "p:12",
+              "kind": "mesh",
+              "label": "mesh",
+              "children": [],
+              "pose": "closed",
+              "facing": "east",
+              "surface": {
+                "rigidity": "flexible",
+                "optical": "clear",
+                "permeability": "porous",
+                "recording": "none"
+              },
+              "form": {
+                "opening": "closed",
+                "edges": [
+                  "east",
+                  "west"
+                ],
+                "face": "north"
+              },
+              "events": [],
+              "originKey": "mesh-master"
+            },
+            "place": "casting-bay",
+            "records": [],
+            "samples": [],
+            "history": {
+              "places": [
+                "casting-bay"
+              ],
+              "spanned": []
+            }
+          },
+          {
+            "id": "o:13",
+            "design": "assembly:1",
+            "root": {
+              "id": "p:18",
+              "kind": "assembly",
+              "label": "assembly",
+              "children": [
+                {
+                  "relation": "attach",
+                  "part": {
+                    "id": "p:14",
+                    "kind": "material",
+                    "label": "clear-cast",
+                    "children": [],
+                    "pose": "closed",
+                    "facing": "east",
+                    "surface": {
+                      "rigidity": "rigid",
+                      "optical": "clear",
+                      "permeability": "watertight",
+                      "recording": "none"
+                    },
+                    "form": {
+                      "opening": "closed",
+                      "edges": [
+                        "north",
+                        "south"
+                      ],
+                      "face": "east"
+                    },
+                    "events": [],
+                    "provenance": []
+                  }
+                },
+                {
+                  "relation": "inside",
+                  "part": {
+                    "id": "p:15",
+                    "kind": "assembly",
+                    "label": "camera",
+                    "children": [
+                      {
+                        "relation": "attach",
+                        "part": {
+                          "id": "p:16",
+                          "kind": "lens",
+                          "label": "lens",
+                          "children": [],
+                          "pose": "closed",
+                          "facing": "east",
+                          "events": []
+                        }
+                      },
+                      {
+                        "relation": "attach",
+                        "part": {
+                          "id": "p:17",
+                          "kind": "record-plate",
+                          "label": "record-plate",
+                          "children": [],
+                          "pose": "closed",
+                          "facing": "east",
+                          "surface": {
+                            "rigidity": "rigid",
+                            "optical": "opaque",
+                            "permeability": "watertight",
+                            "recording": "durable"
+                          },
+                          "form": {
+                            "opening": "closed",
+                            "edges": [
+                              "north",
+                              "south"
+                            ],
+                            "face": "east"
+                          },
+                          "events": []
+                        }
+                      }
+                    ],
+                    "pose": "closed",
+                    "facing": "east",
+                    "events": []
+                  }
+                }
+              ],
+              "pose": "closed",
+              "facing": "east"
+            },
+            "place": "survey-window",
+            "records": [
+              {
+                "id": "record:19",
+                "subject": "place:beacon",
+                "viewpoint": "survey-window",
+                "camera": "o:13",
+                "row": "east",
+                "source": [
+                  "sun:east:beacon"
+                ],
+                "intervention": 3,
+                "viewLenses": [
+                  {
+                    "id": "p:16"
+                  }
+                ],
+                "viewSurfaces": [
+                  {
+                    "id": "p:14",
+                    "surface": {
+                      "rigidity": "rigid",
+                      "optical": "clear",
+                      "permeability": "watertight",
+                      "recording": "none"
+                    },
+                    "form": {
+                      "opening": "closed",
+                      "edges": [
+                        "north",
+                        "south"
+                      ],
+                      "face": "east"
+                    }
+                  }
+                ]
+              },
+              {
+                "id": "record:20",
+                "subject": "place:beacon",
+                "viewpoint": "survey-window",
+                "camera": "o:13",
+                "row": "west",
+                "source": [
+                  "sun:west:beacon"
+                ],
+                "intervention": 3,
+                "viewLenses": [
+                  {
+                    "id": "p:16"
+                  }
+                ],
+                "viewSurfaces": [
+                  {
+                    "id": "p:14",
+                    "surface": {
+                      "rigidity": "rigid",
+                      "optical": "clear",
+                      "permeability": "watertight",
+                      "recording": "none"
+                    },
+                    "form": {
+                      "opening": "closed",
+                      "edges": [
+                        "north",
+                        "south"
+                      ],
+                      "face": "east"
+                    }
+                  }
+                ]
+              }
+            ],
+            "samples": [],
+            "history": {
+              "places": [
+                "survey-window"
+              ],
+              "spanned": []
+            },
+            "recordCarriers": [
+              {
+                "record": "record:19",
+                "part": "p:17"
+              },
+              {
+                "record": "record:20",
+                "part": "p:17"
+              }
+            ]
+          },
+          {
+            "id": "o:21",
+            "design": "assembly:4",
+            "root": {
+              "id": "p:30",
+              "kind": "assembly",
+              "label": "assembly",
+              "children": [
+                {
+                  "relation": "attach",
+                  "part": {
+                    "id": "p:22",
+                    "kind": "material",
+                    "label": "protected-sheet",
+                    "children": [],
+                    "pose": "closed",
+                    "facing": "east",
+                    "surface": {
+                      "rigidity": "flexible",
+                      "optical": "diffuse",
+                      "permeability": "watertight",
+                      "recording": "durable"
+                    },
+                    "form": {
+                      "opening": "open",
+                      "edges": [
+                        "north",
+                        "south"
+                      ],
+                      "face": "east"
+                    },
+                    "events": [
+                      {
+                        "id": "copy:23",
+                        "kind": "copy",
+                        "subject": "place:beacon",
+                        "sourceObject": "o:1",
+                        "sourceInitialKey": "survey-camera",
+                        "sourceInitialKeys": [],
+                        "sourceRecords": [
+                          "record:19"
+                        ],
+                        "intervention": 6,
+                        "surface": {
+                          "rigidity": "flexible",
+                          "optical": "diffuse",
+                          "permeability": "porous",
+                          "recording": "temporary"
+                        },
+                        "form": {
+                          "opening": "open",
+                          "edges": [
+                            "north",
+                            "south"
+                          ],
+                          "face": "east"
+                        }
+                      },
+                      {
+                        "id": "copy:24",
+                        "kind": "copy",
+                        "subject": "place:beacon",
+                        "sourceObject": "o:1",
+                        "sourceInitialKey": "survey-camera",
+                        "sourceInitialKeys": [],
+                        "sourceRecords": [
+                          "record:20"
+                        ],
+                        "intervention": 6,
+                        "surface": {
+                          "rigidity": "flexible",
+                          "optical": "diffuse",
+                          "permeability": "porous",
+                          "recording": "temporary"
+                        },
+                        "form": {
+                          "opening": "open",
+                          "edges": [
+                            "north",
+                            "south"
+                          ],
+                          "face": "east"
+                        }
+                      }
+                    ],
+                    "provenance": [
+                      {
+                        "id": "transform:25",
+                        "recipe": "impress",
+                        "intervention": 6,
+                        "inputs": [
+                          {
+                            "id": "p:22",
+                            "kind": "material",
+                            "label": "record-sheet",
+                            "surface": {
+                              "rigidity": "flexible",
+                              "optical": "diffuse",
+                              "permeability": "porous",
+                              "recording": "temporary"
+                            },
+                            "form": {
+                              "opening": "open",
+                              "edges": [
+                                "north",
+                                "south"
+                              ],
+                              "face": "east"
+                            },
+                            "eventIds": []
+                          },
+                          {
+                            "id": "p:3",
+                            "kind": "lens",
+                            "label": "lens",
+                            "eventIds": []
+                          },
+                          {
+                            "id": "p:4",
+                            "kind": "record-plate",
+                            "label": "record-plate",
+                            "surface": {
+                              "rigidity": "rigid",
+                              "optical": "opaque",
+                              "permeability": "watertight",
+                              "recording": "durable"
+                            },
+                            "form": {
+                              "opening": "closed",
+                              "edges": [
+                                "north",
+                                "south"
+                              ],
+                              "face": "east"
+                            },
+                            "eventIds": []
+                          }
+                        ],
+                        "sources": []
+                      },
+                      {
+                        "id": "transform:26",
+                        "recipe": "laminate",
+                        "intervention": 7,
+                        "inputs": [
+                          {
+                            "id": "p:22",
+                            "kind": "material",
+                            "label": "impressed-sheet",
+                            "surface": {
+                              "rigidity": "flexible",
+                              "optical": "diffuse",
+                              "permeability": "porous",
+                              "recording": "temporary"
+                            },
+                            "form": {
+                              "opening": "open",
+                              "edges": [
+                                "north",
+                                "south"
+                              ],
+                              "face": "east"
+                            },
+                            "eventIds": [
+                              "copy:23",
+                              "copy:24"
+                            ]
+                          },
+                          {
+                            "id": "design",
+                            "kind": "clear-film",
+                            "label": "clear-film",
+                            "surface": {
+                              "rigidity": "flexible",
+                              "optical": "clear",
+                              "permeability": "watertight",
+                              "recording": "none"
+                            },
+                            "form": {
+                              "opening": "closed",
+                              "edges": [
+                                "north",
+                                "south"
+                              ],
+                              "face": "east"
+                            },
+                            "eventIds": []
+                          }
+                        ],
+                        "sources": []
+                      }
+                    ]
+                  }
+                },
+                {
+                  "relation": "attach",
+                  "part": {
+                    "id": "p:27",
+                    "kind": "assembly",
+                    "label": "cart",
+                    "children": [
+                      {
+                        "relation": "attach",
+                        "part": {
+                          "id": "p:28",
+                          "kind": "frame",
+                          "label": "frame",
+                          "children": [],
+                          "pose": "closed",
+                          "facing": "east",
+                          "surface": {
+                            "rigidity": "rigid",
+                            "optical": "opaque",
+                            "permeability": "porous",
+                            "recording": "none"
+                          },
+                          "form": {
+                            "opening": "open",
+                            "edges": [
+                              "north",
+                              "south"
+                            ],
+                            "face": "east"
+                          },
+                          "events": []
+                        }
+                      },
+                      {
+                        "relation": "attach",
+                        "part": {
+                          "id": "p:29",
+                          "kind": "wheels",
+                          "label": "wheels",
+                          "children": [],
+                          "pose": "closed",
+                          "facing": "east",
+                          "events": []
+                        }
+                      }
+                    ],
+                    "pose": "closed",
+                    "facing": "east",
+                    "events": []
+                  }
+                }
+              ],
+              "pose": "closed",
+              "facing": "east"
+            },
+            "place": "wet-gallery",
+            "records": [
+              {
+                "id": "record:19",
+                "subject": "place:beacon",
+                "viewpoint": "survey-window",
+                "camera": "o:13",
+                "row": "east",
+                "source": [
+                  "sun:east:beacon"
+                ],
+                "intervention": 3,
+                "viewLenses": [
+                  {
+                    "id": "p:16"
+                  }
+                ],
+                "viewSurfaces": [
+                  {
+                    "id": "p:14",
+                    "surface": {
+                      "rigidity": "rigid",
+                      "optical": "clear",
+                      "permeability": "watertight",
+                      "recording": "none"
+                    },
+                    "form": {
+                      "opening": "closed",
+                      "edges": [
+                        "north",
+                        "south"
+                      ],
+                      "face": "east"
+                    }
+                  }
+                ]
+              },
+              {
+                "id": "record:20",
+                "subject": "place:beacon",
+                "viewpoint": "survey-window",
+                "camera": "o:13",
+                "row": "west",
+                "source": [
+                  "sun:west:beacon"
+                ],
+                "intervention": 3,
+                "viewLenses": [
+                  {
+                    "id": "p:16"
+                  }
+                ],
+                "viewSurfaces": [
+                  {
+                    "id": "p:14",
+                    "surface": {
+                      "rigidity": "rigid",
+                      "optical": "clear",
+                      "permeability": "watertight",
+                      "recording": "none"
+                    },
+                    "form": {
+                      "opening": "closed",
+                      "edges": [
+                        "north",
+                        "south"
+                      ],
+                      "face": "east"
+                    }
+                  }
+                ]
+              }
+            ],
+            "samples": [],
+            "history": {
+              "places": [
+                "survey-window",
+                "work-yard",
+                "wet-gallery"
+              ],
+              "spanned": []
+            },
+            "recordCarriers": [
+              {
+                "record": "record:19",
+                "part": "p:22"
+              },
+              {
+                "record": "record:20",
+                "part": "p:22"
+              }
+            ]
+          }
+        ],
+        "connections": [],
+        "received": [],
+        "spans": [],
+        "achieved": {
+          "wet-copy": 9
+        }
+      }
+    ],
+    "serial": 30,
+    "interventions": 9,
+    "ledger": {
+      "synthesis": 0,
+      "contextual": 4,
+      "reconfiguration": 0,
+      "travel": 1,
+      "observation": 2,
+      "transformation": 2
+    },
+    "accepted": true,
+    "response": [
+      "o:21 moved intact via survey-window → work-yard → wet-gallery; external interfaces detached."
+    ],
+    "status": "playing",
+    "lastAction": {
+      "type": "combine",
+      "a": "o:21",
+      "b": "place:wet-gallery"
+    }
+  },
+  "findings": {
+    "originalNeverObserved": true,
+    "sourceRecords": [
+      {
+        "id": "record:19",
+        "subject": "place:beacon",
+        "viewpoint": "survey-window",
+        "camera": "o:13",
+        "row": "east",
+        "source": [
+          "sun:east:beacon"
+        ],
+        "intervention": 3,
+        "viewLenses": [
+          {
+            "id": "p:16"
+          }
+        ],
+        "viewSurfaces": [
+          {
+            "id": "p:14",
+            "surface": {
+              "rigidity": "rigid",
+              "optical": "clear",
+              "permeability": "watertight",
+              "recording": "none"
+            },
+            "form": {
+              "opening": "closed",
+              "edges": [
+                "north",
+                "south"
+              ],
+              "face": "east"
+            }
+          }
+        ]
+      },
+      {
+        "id": "record:20",
+        "subject": "place:beacon",
+        "viewpoint": "survey-window",
+        "camera": "o:13",
+        "row": "west",
+        "source": [
+          "sun:west:beacon"
+        ],
+        "intervention": 3,
+        "viewLenses": [
+          {
+            "id": "p:16"
+          }
+        ],
+        "viewSurfaces": [
+          {
+            "id": "p:14",
+            "surface": {
+              "rigidity": "rigid",
+              "optical": "clear",
+              "permeability": "watertight",
+              "recording": "none"
+            },
+            "form": {
+              "opening": "closed",
+              "edges": [
+                "north",
+                "south"
+              ],
+              "face": "east"
+            }
+          }
+        ]
+      }
+    ],
+    "physicalCopyEvents": [
+      {
+        "id": "copy:23",
+        "kind": "copy",
+        "subject": "place:beacon",
+        "sourceObject": "o:1",
+        "sourceInitialKey": "survey-camera",
+        "sourceInitialKeys": [],
+        "sourceRecords": [
+          "record:19"
+        ],
+        "intervention": 6,
+        "surface": {
+          "rigidity": "flexible",
+          "optical": "diffuse",
+          "permeability": "porous",
+          "recording": "temporary"
+        },
+        "form": {
+          "opening": "open",
+          "edges": [
+            "north",
+            "south"
+          ],
+          "face": "east"
+        }
+      },
+      {
+        "id": "copy:24",
+        "kind": "copy",
+        "subject": "place:beacon",
+        "sourceObject": "o:1",
+        "sourceInitialKey": "survey-camera",
+        "sourceInitialKeys": [],
+        "sourceRecords": [
+          "record:20"
+        ],
+        "intervention": 6,
+        "surface": {
+          "rigidity": "flexible",
+          "optical": "diffuse",
+          "permeability": "porous",
+          "recording": "temporary"
+        },
+        "form": {
+          "opening": "open",
+          "edges": [
+            "north",
+            "south"
+          ],
+          "face": "east"
+        }
+      }
+    ],
+    "incorrectOriginalAttribution": true,
+    "wetCopySatisfied": true,
+    "expected": "No original-camera physical copy credit from replacement-only records relayed through original camera"
+  }
+}

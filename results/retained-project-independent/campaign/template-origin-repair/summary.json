@@ -1,0 +1,2527 @@
+{
+  "sourceFreeze": "results/retained-project-preplay/controls/template-origin-repair/mechanical-source-freeze.json",
+  "sourceHashes": {
+    "experiments/logical-retained-project.ts": "d080dfaa726ce0839adbe144a1e30ef12f965b4cf255c4df9ce624e309e72038",
+    "experiments/retained-project-content.ts": "9d12221246c569122c9ca1125b10e4bb98eae3ae2c994a7be8ec6122dd6469ad",
+    "experiments/retained-project-types.ts": "cc814663f9544df1dd7ee2f6f81e650f46bafb105beabf864b51b79963570b94",
+    "experiments/retained-project-transformations.ts": "909d8e1bcb2d3e52fde1cdcca36bc41229bad9521ec0218a9b96441564061212",
+    "experiments/retained-project-play.ts": "4bad9ddaac113ed77e2d3d82ef765b8b6ead2bf219ffd70237bccca74ebd4e1b",
+    "experiments/retained-project-controls.ts": "48a2acbb39b9a8148dcac857dfafc9f210ec4ad60a604c5214b0873b0c337ba2",
+    "tests/logical-retained-project.test.ts": "42cc1449431217beb89c5c872f258958c61182456eea135c855b977d96d507b9",
+    "tests/retained-project-cli.test.ts": "27ad01c5dbd9ad41a5128191e23311686b2f136668989d714264a151b7740a85",
+    "docs/retained-project.md": "0e0f845fa000533273e661344b72fd119dc8a276eaa415ed65603eb273e16434",
+    "docs/retained-project-content-plan.md": "e274648c560dff0c8d8d77640644fcce7dd5a8872583ca3ef33aeb17efeb805b"
+  },
+  "evidence": "Independently authored source-informed goal-sensitive cheap transport/record prefab control; not a fresh play, optimum, or goal-insensitive proof. Prior authored route structure was read; no control function imported.",
+  "sourceUnchanged": true,
+  "results": [
+    {
+      "name": "ordinary",
+      "interventions": 83,
+      "utilityBuild": 3,
+      "ledger": {
+        "synthesis": 5,
+        "contextual": 38,
+        "reconfiguration": 6,
+        "travel": 11,
+        "observation": 8,
+        "transformation": 15
+      },
+      "status": "complete",
+      "finalGoals": [
+        {
+          "id": "first-survey",
+          "title": "A supported first survey",
+          "mode": "achievement",
+          "rows": [
+            "east",
+            "west"
+          ],
+          "requirement": "Earn a real beacon observation with the actual initially blank survey-camera at survey-window, through one local rigid clear watertight surface enclosing that camera’s own lens and plate. This first service may later move.",
+          "conditions": [
+            {
+              "kind": "object",
+              "label": "actual survey camera observed beacon through its rigid clear boundary",
+              "place": "survey-window",
+              "initialKey": "survey-camera",
+              "record": {
+                "subject": "place:beacon",
+                "viewpoint": "survey-window",
+                "throughSurface": true,
+                "fromInitial": "survey-camera"
+              },
+              "hasSurface": {
+                "traits": {
+                  "rigidity": "rigid",
+                  "optical": "clear",
+                  "permeability": "watertight"
+                },
+                "enclosesOrigin": {
+                  "key": "survey-camera",
+                  "kinds": [
+                    "lens",
+                    "record-plate"
+                  ]
+                }
+              }
+            }
+          ],
+          "map": "station",
+          "checks": {
+            "actual survey camera observed beacon through its rigid clear boundary": false
+          },
+          "current": false,
+          "satisfied": true,
+          "achieved": true,
+          "firstIntervention": 8
+        },
+        {
+          "id": "working-soft-filter",
+          "title": "A soft form doing real work",
+          "mode": "achievement",
+          "rows": [
+            "east",
+            "west"
+          ],
+          "requirement": "The actual original working-clay material matches filter-pad’s profile, fits while moldable, and actively supplies its outgoing water route to the growing nursery at garden. The displayed outlet supplies water only through an actively seated exposed porous matching surface; hand water remains available for wetting clay. This is an operating temporary filter, not a fit demonstration; it may later be fired and repurposed.",
+          "conditions": [
+            {
+              "kind": "surface",
+              "label": "original soft fitted material actively supplies water",
+              "place": "filter-pad",
+              "initialKey": "working-clay",
+              "test": {
+                "originKey": "working-clay",
+                "traits": {
+                  "rigidity": "moldable",
+                  "permeability": "porous"
+                },
+                "fitted": {
+                  "place": "filter-pad",
+                  "rigidity": "moldable"
+                },
+                "contact": "filter-pad",
+                "supplying": "water"
+              }
+            },
+            {
+              "kind": "link",
+              "label": "the original soft filter actively feeds the original nursery",
+              "channel": "water",
+              "fromPlace": "filter-pad",
+              "toPlace": "garden",
+              "fromInitial": "working-clay",
+              "toInitial": "nursery",
+              "active": true,
+              "fromSurface": {
+                "originKey": "working-clay",
+                "traits": {
+                  "rigidity": "moldable",
+                  "permeability": "porous"
+                },
+                "fitted": {
+                  "place": "filter-pad",
+                  "rigidity": "moldable"
+                },
+                "contact": "filter-pad",
+                "supplying": "water"
+              }
+            },
+            {
+              "kind": "object",
+              "label": "the actual nursery grows using that service",
+              "place": "garden",
+              "initialKey": "nursery",
+              "properties": {
+                "growing": true
+              }
+            }
+          ],
+          "map": "station",
+          "checks": {
+            "original soft fitted material actively supplies water": false,
+            "the original soft filter actively feeds the original nursery": false,
+            "the actual nursery grows using that service": true
+          },
+          "current": false,
+          "satisfied": true,
+          "achieved": true,
+          "firstIntervention": 22
+        },
+        {
+          "id": "living-station",
+          "title": "Keep the living station working",
+          "rows": [
+            "east",
+            "west"
+          ],
+          "requirement": "At the endpoint the actual nursery at garden grows in both sky rows inside one active rigid clear watertight local boundary enclosing its original tray and seed. Familiar lamps, real reflected light and whole assembly copies remain legal.",
+          "conditions": [
+            {
+              "kind": "object",
+              "label": "same original nursery grows within its local clear rigid boundary",
+              "place": "garden",
+              "initialKey": "nursery",
+              "hasSurface": {
+                "traits": {
+                  "rigidity": "rigid",
+                  "optical": "clear",
+                  "permeability": "watertight"
+                },
+                "enclosesOrigin": {
+                  "key": "nursery",
+                  "kinds": [
+                    "tray",
+                    "seed"
+                  ]
+                },
+                "growing": true
+              }
+            }
+          ],
+          "map": "station",
+          "checks": {
+            "same original nursery grows within its local clear rigid boundary": true
+          },
+          "current": true,
+          "satisfied": true,
+          "achieved": true,
+          "firstIntervention": 22
+        },
+        {
+          "id": "soft-light",
+          "title": "Diffuse light for a second growing service",
+          "rows": [
+            "east",
+            "west"
+          ],
+          "requirement": "A growing rootbed at shade-bed has one actual diffuse watertight boundary actively enclosing the lit growing tray and seed. A separate decorative diffuser does not count.",
+          "conditions": [
+            {
+              "kind": "surface",
+              "label": "local diffuse growing boundary",
+              "place": "shade-bed",
+              "test": {
+                "traits": {
+                  "optical": "diffuse",
+                  "permeability": "watertight"
+                },
+                "encloses": [
+                  "tray",
+                  "seed"
+                ],
+                "growing": true
+              }
+            }
+          ],
+          "map": "station",
+          "checks": {
+            "local diffuse growing boundary": true
+          },
+          "current": true,
+          "satisfied": true,
+          "achieved": true,
+          "firstIntervention": 30
+        },
+        {
+          "id": "redirected-light",
+          "title": "Daylight redirected into the shade",
+          "rows": [
+            "east",
+            "west"
+          ],
+          "requirement": "An exposed supported reflector at mirror-perch supplies an active light interface to shade-bed in both rows, where the bed grows. Flexible foil with support or a rigid reflector is valid.",
+          "conditions": [
+            {
+              "kind": "link",
+              "label": "real reflected light actively reaches shade-bed",
+              "channel": "light",
+              "fromPlace": "mirror-perch",
+              "toPlace": "shade-bed",
+              "active": true,
+              "fromSurface": {
+                "traits": {
+                  "optical": "reflecting"
+                },
+                "supplying": "light"
+              }
+            },
+            {
+              "kind": "object",
+              "label": "shade-bed actually grows",
+              "place": "shade-bed",
+              "properties": {
+                "growing": true
+              }
+            }
+          ],
+          "map": "station",
+          "checks": {
+            "real reflected light actively reaches shade-bed": true,
+            "shade-bed actually grows": true
+          },
+          "current": true,
+          "satisfied": true,
+          "achieved": true,
+          "firstIntervention": 30
+        },
+        {
+          "id": "living-observatory",
+          "title": "The nursery becomes an observatory",
+          "rows": [
+            "east",
+            "west"
+          ],
+          "requirement": "The actual nursery remains growing at garden and now holds an actual lookout observation made there through the same local rigid clear watertight boundary that encloses its original growing tray and seed and a working faithful lens.",
+          "conditions": [
+            {
+              "kind": "object",
+              "label": "actual nursery observation and growth share one clear boundary",
+              "place": "garden",
+              "initialKey": "nursery",
+              "properties": {
+                "growing": true,
+                "camera": true
+              },
+              "record": {
+                "subject": "place:lookout",
+                "viewpoint": "garden",
+                "throughSurface": true
+              },
+              "hasSurface": {
+                "traits": {
+                  "rigidity": "rigid",
+                  "optical": "clear",
+                  "permeability": "watertight"
+                },
+                "encloses": [
+                  "lens"
+                ],
+                "enclosesOrigin": {
+                  "key": "nursery",
+                  "kinds": [
+                    "tray",
+                    "seed"
+                  ]
+                },
+                "growing": true
+              }
+            }
+          ],
+          "map": "station",
+          "checks": {
+            "actual nursery observation and growth share one clear boundary": true
+          },
+          "current": true,
+          "satisfied": true,
+          "achieved": true,
+          "firstIntervention": 23
+        },
+        {
+          "id": "wet-copy",
+          "title": "Expose a copy, not the survey original",
+          "rows": [
+            "east",
+            "west"
+          ],
+          "requirement": "Wet-gallery displays a lit durable watertight recording surface with a real physical copy of the beacon record produced by the original survey-camera. No initial records are supplied anywhere; a blank learned sheet cannot invent this copy.",
+          "conditions": [
+            {
+              "kind": "surface",
+              "label": "durable wet display carries original camera beacon copy",
+              "place": "wet-gallery",
+              "test": {
+                "traits": {
+                  "recording": "durable",
+                  "permeability": "watertight"
+                },
+                "lit": true,
+                "event": {
+                  "kind": "copy",
+                  "subject": "place:beacon",
+                  "sourceInitialKey": "survey-camera"
+                }
+              }
+            }
+          ],
+          "map": "station",
+          "checks": {
+            "durable wet display carries original camera beacon copy": true
+          },
+          "current": true,
+          "satisfied": true,
+          "achieved": true,
+          "firstIntervention": 57
+        },
+        {
+          "id": "open-reference",
+          "title": "Keep a separate open reference",
+          "rows": [
+            "east",
+            "west"
+          ],
+          "requirement": "At press, an exposed dry porous temporary recording surface holds a separate real physical copy of the same original beacon observation. The protected wet display remains elsewhere; making every copy watertight is not equivalent.",
+          "conditions": [
+            {
+              "kind": "surface",
+              "label": "open reference copy at press",
+              "place": "press",
+              "test": {
+                "traits": {
+                  "recording": "temporary",
+                  "permeability": "porous"
+                },
+                "dry": true,
+                "exposed": true,
+                "event": {
+                  "kind": "copy",
+                  "subject": "place:beacon",
+                  "sourceInitialKey": "survey-camera"
+                }
+              }
+            }
+          ],
+          "map": "station",
+          "checks": {
+            "open reference copy at press": true
+          },
+          "current": true,
+          "satisfied": true,
+          "achieved": true,
+          "firstIntervention": 48
+        },
+        {
+          "id": "survey-return",
+          "title": "The observing original returns with both views",
+          "rows": [
+            "east",
+            "west"
+          ],
+          "requirement": "At dock, the same original survey-camera is dark and dust-protected and retains its real beacon record from survey-window and far-marker record from far-view. Dock is reached through the physically narrow low route; a fresh design does not reproduce either observation or the original instrument.",
+          "conditions": [
+            {
+              "kind": "object",
+              "label": "dark protected original camera with first real view",
+              "place": "dock",
+              "initialKey": "survey-camera",
+              "properties": {
+                "darkProtected": true
+              },
+              "record": {
+                "subject": "place:beacon",
+                "viewpoint": "survey-window",
+                "fromInitial": "survey-camera"
+              }
+            },
+            {
+              "kind": "object",
+              "label": "same original camera retains its actual distant view",
+              "place": "dock",
+              "initialKey": "survey-camera",
+              "record": {
+                "subject": "place:far-marker",
+                "viewpoint": "far-view",
+                "fromInitial": "survey-camera"
+              }
+            }
+          ],
+          "map": "station",
+          "checks": {
+            "dark protected original camera with first real view": true,
+            "same original camera retains its actual distant view": true
+          },
+          "current": true,
+          "satisfied": true,
+          "achieved": true,
+          "firstIntervention": 80
+        },
+        {
+          "id": "published-survey",
+          "title": "Send the actual survey records",
+          "rows": [
+            "east",
+            "west"
+          ],
+          "requirement": "Receiver retains the real original survey-camera observations of beacon and far-marker. Physical copies or optical relays may send them; observations made only by replacement cameras do not substitute.",
+          "conditions": [
+            {
+              "kind": "received",
+              "label": "beacon original received",
+              "subject": "place:beacon",
+              "fromInitial": "survey-camera"
+            },
+            {
+              "kind": "received",
+              "label": "far-marker original received",
+              "subject": "place:far-marker",
+              "fromInitial": "survey-camera"
+            }
+          ],
+          "map": "station",
+          "checks": {
+            "beacon original received": true,
+            "far-marker original received": true
+          },
+          "current": true,
+          "satisfied": true,
+          "achieved": true,
+          "firstIntervention": 75
+        },
+        {
+          "id": "living-record",
+          "title": "Publish the living station view",
+          "rows": [
+            "east",
+            "west"
+          ],
+          "requirement": "Receiver holds an actual lookout observation, while the original nursery continues its current growing and observing service.",
+          "conditions": [
+            {
+              "kind": "received",
+              "label": "lookout record received",
+              "subject": "place:lookout"
+            },
+            {
+              "kind": "object",
+              "label": "original nursery remains growing with its real view",
+              "place": "garden",
+              "initialKey": "nursery",
+              "properties": {
+                "growing": true
+              },
+              "record": {
+                "subject": "place:lookout",
+                "viewpoint": "garden"
+              }
+            }
+          ],
+          "map": "station",
+          "checks": {
+            "lookout record received": true,
+            "original nursery remains growing with its real view": true
+          },
+          "current": true,
+          "satisfied": true,
+          "achieved": true,
+          "firstIntervention": 24
+        },
+        {
+          "id": "durable-filter",
+          "title": "A lasting filter keeps the service",
+          "rows": [
+            "east",
+            "west"
+          ],
+          "requirement": "At filter-pad a rigid porous surface fitted to its open profile actively supplies the water link to garden. The original worked form or a fresh saved-geometry copy may provide this continuing service; no extra impression is required of a copy.",
+          "conditions": [
+            {
+              "kind": "surface",
+              "label": "rigid porous fitted filter supplies water",
+              "place": "filter-pad",
+              "test": {
+                "traits": {
+                  "rigidity": "rigid",
+                  "permeability": "porous"
+                },
+                "fitted": {
+                  "place": "filter-pad",
+                  "rigidity": "rigid"
+                },
+                "contact": "filter-pad",
+                "supplying": "water"
+              }
+            },
+            {
+              "kind": "link",
+              "label": "the actual fitted durable filter still supplies the original nursery",
+              "channel": "water",
+              "fromPlace": "filter-pad",
+              "toPlace": "garden",
+              "toInitial": "nursery",
+              "active": true,
+              "fromSurface": {
+                "traits": {
+                  "rigidity": "rigid",
+                  "permeability": "porous"
+                },
+                "fitted": {
+                  "place": "filter-pad",
+                  "rigidity": "rigid"
+                },
+                "contact": "filter-pad",
+                "supplying": "water"
+              }
+            }
+          ],
+          "map": "station",
+          "checks": {
+            "rigid porous fitted filter supplies water": true,
+            "the actual fitted durable filter still supplies the original nursery": true
+          },
+          "current": true,
+          "satisfied": true,
+          "achieved": true,
+          "firstIntervention": 36
+        },
+        {
+          "id": "lined-basin",
+          "title": "The useful profile takes another role",
+          "rows": [
+            "east",
+            "west"
+          ],
+          "requirement": "Basin has a rigid durable watertight surface actually fitted to its public open profile. A copied form is valid: geometry can be shared while one filter stays porous and this surface becomes lined.",
+          "conditions": [
+            {
+              "kind": "surface",
+              "label": "rigid lined matching basin surface",
+              "place": "basin",
+              "test": {
+                "traits": {
+                  "rigidity": "rigid",
+                  "permeability": "watertight",
+                  "recording": "durable"
+                },
+                "fitted": {
+                  "place": "basin",
+                  "rigidity": "rigid"
+                }
+              }
+            }
+          ],
+          "map": "station",
+          "checks": {
+            "rigid lined matching basin surface": true
+          },
+          "current": true,
+          "satisfied": true,
+          "achieved": true,
+          "firstIntervention": 39
+        },
+        {
+          "id": "worked-return",
+          "title": "Bring the worked filter home as a record carrier",
+          "rows": [
+            "east",
+            "west"
+          ],
+          "requirement": "At collection the actual working-clay carrier has a rigid durable watertight surface preserving its earlier moldable operating fit at filter-pad; it also carries the actual original beacon record. Other geometry copies may keep the filter/basin working. The old filter is now a portable protected record-bearing artifact, not a duplicate supplied later.",
+          "conditions": [
+            {
+              "kind": "surface",
+              "label": "same actual worked surface and real survey record returned",
+              "place": "collection",
+              "initialKey": "working-clay",
+              "objectRecord": "place:beacon",
+              "objectRecordFromInitial": "survey-camera",
+              "test": {
+                "originKey": "working-clay",
+                "traits": {
+                  "rigidity": "rigid",
+                  "permeability": "watertight",
+                  "recording": "durable"
+                },
+                "fitted": {
+                  "place": "filter-pad",
+                  "rigidity": "moldable"
+                }
+              }
+            }
+          ],
+          "map": "station",
+          "checks": {
+            "same actual worked surface and real survey record returned": true
+          },
+          "current": true,
+          "satisfied": true,
+          "achieved": true,
+          "firstIntervention": 82
+        },
+        {
+          "id": "profile-register",
+          "title": "A borrowed profile carries the survey",
+          "rows": [
+            "east",
+            "west"
+          ],
+          "requirement": "At paper-slot a flexible porous temporary recording surface fits its closed east/west north-facing profile and has a real physical copy of the original beacon observation. Geometry may come from the mesh master or a matching saved design; copied shapes do not invent records.",
+          "conditions": [
+            {
+              "kind": "surface",
+              "label": "fitted shaped register contains actual physical survey copy",
+              "place": "paper-slot",
+              "test": {
+                "traits": {
+                  "rigidity": "flexible",
+                  "permeability": "porous",
+                  "recording": "temporary"
+                },
+                "fitted": {
+                  "place": "paper-slot"
+                },
+                "event": {
+                  "kind": "copy",
+                  "subject": "place:beacon",
+                  "sourceInitialKey": "survey-camera"
+                }
+              }
+            }
+          ],
+          "map": "station",
+          "checks": {
+            "fitted shaped register contains actual physical survey copy": true
+          },
+          "current": true,
+          "satisfied": true,
+          "achieved": true,
+          "firstIntervention": 50
+        },
+        {
+          "id": "master-archive",
+          "title": "The former template becomes an archive",
+          "rows": [
+            "east",
+            "west"
+          ],
+          "requirement": "The actual initial mesh-master has moved to archive-bay and is now a dust-protected tray-and-recording support carrying the real beacon record. It is the earlier tool taking another service role; a newly copied mesh is not that retained tool.",
+          "conditions": [
+            {
+              "kind": "object",
+              "label": "actual master now protects the record support",
+              "place": "archive-bay",
+              "initialKey": "mesh-master",
+              "properties": {
+                "sampleSupport": true,
+                "dustProtected": true
+              },
+              "record": {
+                "subject": "place:beacon",
+                "fromInitial": "survey-camera"
+              }
+            }
+          ],
+          "map": "station",
+          "checks": {
+            "actual master now protects the record support": true
+          },
+          "current": true,
+          "satisfied": true,
+          "achieved": true,
+          "firstIntervention": 65
+        },
+        {
+          "id": "relief-display",
+          "title": "A physical relief survives wet display",
+          "rows": [
+            "east",
+            "west"
+          ],
+          "requirement": "Wet-gallery also holds a rigid durable watertight surface preserving an actual impression taken from relief. This physical profile/history is different from an optical view or a copied blank design. Firing and lining are legal ways to preserve it; no preliminary fit demonstration is required.",
+          "conditions": [
+            {
+              "kind": "surface",
+              "label": "actual relief impression survives on durable watertight material",
+              "place": "wet-gallery",
+              "test": {
+                "traits": {
+                  "rigidity": "rigid",
+                  "permeability": "watertight",
+                  "recording": "durable"
+                },
+                "event": {
+                  "kind": "impression",
+                  "subject": "place:relief"
+                }
+              }
+            }
+          ],
+          "map": "station",
+          "checks": {
+            "actual relief impression survives on durable watertight material": true
+          },
+          "current": true,
+          "satisfied": true,
+          "achieved": true,
+          "firstIntervention": 72
+        },
+        {
+          "id": "specimen-archive",
+          "title": "A live contact becomes a dry collection",
+          "rows": [
+            "east",
+            "west"
+          ],
+          "requirement": "At archive-bay a usable specimen support retains actual contact with table and remains dry, illuminated, air-exposed and dust-protected. It may be the same retained mesh-master archive if that construction satisfies both services.",
+          "conditions": [
+            {
+              "kind": "object",
+              "label": "sampled support remains drying and dust-protected",
+              "place": "archive-bay",
+              "sample": "table",
+              "properties": {
+                "drying": true,
+                "dustProtected": true
+              }
+            }
+          ],
+          "map": "station",
+          "checks": {
+            "sampled support remains drying and dust-protected": true
+          },
+          "current": true,
+          "satisfied": true,
+          "achieved": true,
+          "firstIntervention": 64
+        }
+      ],
+      "milestones": [
+        {
+          "combine": 8,
+          "id": "first-survey"
+        },
+        {
+          "combine": 22,
+          "id": "working-soft-filter"
+        },
+        {
+          "combine": 22,
+          "id": "living-station"
+        },
+        {
+          "combine": 23,
+          "id": "living-observatory"
+        },
+        {
+          "combine": 24,
+          "id": "living-record"
+        },
+        {
+          "combine": 30,
+          "id": "soft-light"
+        },
+        {
+          "combine": 30,
+          "id": "redirected-light"
+        },
+        {
+          "combine": 36,
+          "id": "durable-filter"
+        },
+        {
+          "combine": 39,
+          "id": "lined-basin"
+        },
+        {
+          "combine": 48,
+          "id": "open-reference"
+        },
+        {
+          "combine": 50,
+          "id": "profile-register"
+        },
+        {
+          "combine": 57,
+          "id": "wet-copy"
+        },
+        {
+          "combine": 64,
+          "id": "specimen-archive"
+        },
+        {
+          "combine": 65,
+          "id": "master-archive"
+        },
+        {
+          "combine": 72,
+          "id": "relief-display"
+        },
+        {
+          "combine": 75,
+          "id": "published-survey"
+        },
+        {
+          "combine": 80,
+          "id": "survey-return"
+        },
+        {
+          "combine": 82,
+          "id": "worked-return"
+        }
+      ],
+      "previewExact": true,
+      "replayExact": true
+    },
+    {
+      "name": "complete",
+      "interventions": 81,
+      "utilityBuild": 3,
+      "ledger": {
+        "synthesis": 0,
+        "contextual": 41,
+        "reconfiguration": 6,
+        "travel": 11,
+        "observation": 8,
+        "transformation": 15
+      },
+      "status": "complete",
+      "finalGoals": [
+        {
+          "id": "first-survey",
+          "title": "A supported first survey",
+          "mode": "achievement",
+          "rows": [
+            "east",
+            "west"
+          ],
+          "requirement": "Earn a real beacon observation with the actual initially blank survey-camera at survey-window, through one local rigid clear watertight surface enclosing that camera’s own lens and plate. This first service may later move.",
+          "conditions": [
+            {
+              "kind": "object",
+              "label": "actual survey camera observed beacon through its rigid clear boundary",
+              "place": "survey-window",
+              "initialKey": "survey-camera",
+              "record": {
+                "subject": "place:beacon",
+                "viewpoint": "survey-window",
+                "throughSurface": true,
+                "fromInitial": "survey-camera"
+              },
+              "hasSurface": {
+                "traits": {
+                  "rigidity": "rigid",
+                  "optical": "clear",
+                  "permeability": "watertight"
+                },
+                "enclosesOrigin": {
+                  "key": "survey-camera",
+                  "kinds": [
+                    "lens",
+                    "record-plate"
+                  ]
+                }
+              }
+            }
+          ],
+          "map": "station",
+          "checks": {
+            "actual survey camera observed beacon through its rigid clear boundary": false
+          },
+          "current": false,
+          "satisfied": true,
+          "achieved": true,
+          "firstIntervention": 7
+        },
+        {
+          "id": "working-soft-filter",
+          "title": "A soft form doing real work",
+          "mode": "achievement",
+          "rows": [
+            "east",
+            "west"
+          ],
+          "requirement": "The actual original working-clay material matches filter-pad’s profile, fits while moldable, and actively supplies its outgoing water route to the growing nursery at garden. The displayed outlet supplies water only through an actively seated exposed porous matching surface; hand water remains available for wetting clay. This is an operating temporary filter, not a fit demonstration; it may later be fired and repurposed.",
+          "conditions": [
+            {
+              "kind": "surface",
+              "label": "original soft fitted material actively supplies water",
+              "place": "filter-pad",
+              "initialKey": "working-clay",
+              "test": {
+                "originKey": "working-clay",
+                "traits": {
+                  "rigidity": "moldable",
+                  "permeability": "porous"
+                },
+                "fitted": {
+                  "place": "filter-pad",
+                  "rigidity": "moldable"
+                },
+                "contact": "filter-pad",
+                "supplying": "water"
+              }
+            },
+            {
+              "kind": "link",
+              "label": "the original soft filter actively feeds the original nursery",
+              "channel": "water",
+              "fromPlace": "filter-pad",
+              "toPlace": "garden",
+              "fromInitial": "working-clay",
+              "toInitial": "nursery",
+              "active": true,
+              "fromSurface": {
+                "originKey": "working-clay",
+                "traits": {
+                  "rigidity": "moldable",
+                  "permeability": "porous"
+                },
+                "fitted": {
+                  "place": "filter-pad",
+                  "rigidity": "moldable"
+                },
+                "contact": "filter-pad",
+                "supplying": "water"
+              }
+            },
+            {
+              "kind": "object",
+              "label": "the actual nursery grows using that service",
+              "place": "garden",
+              "initialKey": "nursery",
+              "properties": {
+                "growing": true
+              }
+            }
+          ],
+          "map": "station",
+          "checks": {
+            "original soft fitted material actively supplies water": false,
+            "the original soft filter actively feeds the original nursery": false,
+            "the actual nursery grows using that service": true
+          },
+          "current": false,
+          "satisfied": true,
+          "achieved": true,
+          "firstIntervention": 21
+        },
+        {
+          "id": "living-station",
+          "title": "Keep the living station working",
+          "rows": [
+            "east",
+            "west"
+          ],
+          "requirement": "At the endpoint the actual nursery at garden grows in both sky rows inside one active rigid clear watertight local boundary enclosing its original tray and seed. Familiar lamps, real reflected light and whole assembly copies remain legal.",
+          "conditions": [
+            {
+              "kind": "object",
+              "label": "same original nursery grows within its local clear rigid boundary",
+              "place": "garden",
+              "initialKey": "nursery",
+              "hasSurface": {
+                "traits": {
+                  "rigidity": "rigid",
+                  "optical": "clear",
+                  "permeability": "watertight"
+                },
+                "enclosesOrigin": {
+                  "key": "nursery",
+                  "kinds": [
+                    "tray",
+                    "seed"
+                  ]
+                },
+                "growing": true
+              }
+            }
+          ],
+          "map": "station",
+          "checks": {
+            "same original nursery grows within its local clear rigid boundary": true
+          },
+          "current": true,
+          "satisfied": true,
+          "achieved": true,
+          "firstIntervention": 21
+        },
+        {
+          "id": "soft-light",
+          "title": "Diffuse light for a second growing service",
+          "rows": [
+            "east",
+            "west"
+          ],
+          "requirement": "A growing rootbed at shade-bed has one actual diffuse watertight boundary actively enclosing the lit growing tray and seed. A separate decorative diffuser does not count.",
+          "conditions": [
+            {
+              "kind": "surface",
+              "label": "local diffuse growing boundary",
+              "place": "shade-bed",
+              "test": {
+                "traits": {
+                  "optical": "diffuse",
+                  "permeability": "watertight"
+                },
+                "encloses": [
+                  "tray",
+                  "seed"
+                ],
+                "growing": true
+              }
+            }
+          ],
+          "map": "station",
+          "checks": {
+            "local diffuse growing boundary": true
+          },
+          "current": true,
+          "satisfied": true,
+          "achieved": true,
+          "firstIntervention": 29
+        },
+        {
+          "id": "redirected-light",
+          "title": "Daylight redirected into the shade",
+          "rows": [
+            "east",
+            "west"
+          ],
+          "requirement": "An exposed supported reflector at mirror-perch supplies an active light interface to shade-bed in both rows, where the bed grows. Flexible foil with support or a rigid reflector is valid.",
+          "conditions": [
+            {
+              "kind": "link",
+              "label": "real reflected light actively reaches shade-bed",
+              "channel": "light",
+              "fromPlace": "mirror-perch",
+              "toPlace": "shade-bed",
+              "active": true,
+              "fromSurface": {
+                "traits": {
+                  "optical": "reflecting"
+                },
+                "supplying": "light"
+              }
+            },
+            {
+              "kind": "object",
+              "label": "shade-bed actually grows",
+              "place": "shade-bed",
+              "properties": {
+                "growing": true
+              }
+            }
+          ],
+          "map": "station",
+          "checks": {
+            "real reflected light actively reaches shade-bed": true,
+            "shade-bed actually grows": true
+          },
+          "current": true,
+          "satisfied": true,
+          "achieved": true,
+          "firstIntervention": 29
+        },
+        {
+          "id": "living-observatory",
+          "title": "The nursery becomes an observatory",
+          "rows": [
+            "east",
+            "west"
+          ],
+          "requirement": "The actual nursery remains growing at garden and now holds an actual lookout observation made there through the same local rigid clear watertight boundary that encloses its original growing tray and seed and a working faithful lens.",
+          "conditions": [
+            {
+              "kind": "object",
+              "label": "actual nursery observation and growth share one clear boundary",
+              "place": "garden",
+              "initialKey": "nursery",
+              "properties": {
+                "growing": true,
+                "camera": true
+              },
+              "record": {
+                "subject": "place:lookout",
+                "viewpoint": "garden",
+                "throughSurface": true
+              },
+              "hasSurface": {
+                "traits": {
+                  "rigidity": "rigid",
+                  "optical": "clear",
+                  "permeability": "watertight"
+                },
+                "encloses": [
+                  "lens"
+                ],
+                "enclosesOrigin": {
+                  "key": "nursery",
+                  "kinds": [
+                    "tray",
+                    "seed"
+                  ]
+                },
+                "growing": true
+              }
+            }
+          ],
+          "map": "station",
+          "checks": {
+            "actual nursery observation and growth share one clear boundary": true
+          },
+          "current": true,
+          "satisfied": true,
+          "achieved": true,
+          "firstIntervention": 22
+        },
+        {
+          "id": "wet-copy",
+          "title": "Expose a copy, not the survey original",
+          "rows": [
+            "east",
+            "west"
+          ],
+          "requirement": "Wet-gallery displays a lit durable watertight recording surface with a real physical copy of the beacon record produced by the original survey-camera. No initial records are supplied anywhere; a blank learned sheet cannot invent this copy.",
+          "conditions": [
+            {
+              "kind": "surface",
+              "label": "durable wet display carries original camera beacon copy",
+              "place": "wet-gallery",
+              "test": {
+                "traits": {
+                  "recording": "durable",
+                  "permeability": "watertight"
+                },
+                "lit": true,
+                "event": {
+                  "kind": "copy",
+                  "subject": "place:beacon",
+                  "sourceInitialKey": "survey-camera"
+                }
+              }
+            }
+          ],
+          "map": "station",
+          "checks": {
+            "durable wet display carries original camera beacon copy": true
+          },
+          "current": true,
+          "satisfied": true,
+          "achieved": true,
+          "firstIntervention": 56
+        },
+        {
+          "id": "open-reference",
+          "title": "Keep a separate open reference",
+          "rows": [
+            "east",
+            "west"
+          ],
+          "requirement": "At press, an exposed dry porous temporary recording surface holds a separate real physical copy of the same original beacon observation. The protected wet display remains elsewhere; making every copy watertight is not equivalent.",
+          "conditions": [
+            {
+              "kind": "surface",
+              "label": "open reference copy at press",
+              "place": "press",
+              "test": {
+                "traits": {
+                  "recording": "temporary",
+                  "permeability": "porous"
+                },
+                "dry": true,
+                "exposed": true,
+                "event": {
+                  "kind": "copy",
+                  "subject": "place:beacon",
+                  "sourceInitialKey": "survey-camera"
+                }
+              }
+            }
+          ],
+          "map": "station",
+          "checks": {
+            "open reference copy at press": true
+          },
+          "current": true,
+          "satisfied": true,
+          "achieved": true,
+          "firstIntervention": 47
+        },
+        {
+          "id": "survey-return",
+          "title": "The observing original returns with both views",
+          "rows": [
+            "east",
+            "west"
+          ],
+          "requirement": "At dock, the same original survey-camera is dark and dust-protected and retains its real beacon record from survey-window and far-marker record from far-view. Dock is reached through the physically narrow low route; a fresh design does not reproduce either observation or the original instrument.",
+          "conditions": [
+            {
+              "kind": "object",
+              "label": "dark protected original camera with first real view",
+              "place": "dock",
+              "initialKey": "survey-camera",
+              "properties": {
+                "darkProtected": true
+              },
+              "record": {
+                "subject": "place:beacon",
+                "viewpoint": "survey-window",
+                "fromInitial": "survey-camera"
+              }
+            },
+            {
+              "kind": "object",
+              "label": "same original camera retains its actual distant view",
+              "place": "dock",
+              "initialKey": "survey-camera",
+              "record": {
+                "subject": "place:far-marker",
+                "viewpoint": "far-view",
+                "fromInitial": "survey-camera"
+              }
+            }
+          ],
+          "map": "station",
+          "checks": {
+            "dark protected original camera with first real view": true,
+            "same original camera retains its actual distant view": true
+          },
+          "current": true,
+          "satisfied": true,
+          "achieved": true,
+          "firstIntervention": 78
+        },
+        {
+          "id": "published-survey",
+          "title": "Send the actual survey records",
+          "rows": [
+            "east",
+            "west"
+          ],
+          "requirement": "Receiver retains the real original survey-camera observations of beacon and far-marker. Physical copies or optical relays may send them; observations made only by replacement cameras do not substitute.",
+          "conditions": [
+            {
+              "kind": "received",
+              "label": "beacon original received",
+              "subject": "place:beacon",
+              "fromInitial": "survey-camera"
+            },
+            {
+              "kind": "received",
+              "label": "far-marker original received",
+              "subject": "place:far-marker",
+              "fromInitial": "survey-camera"
+            }
+          ],
+          "map": "station",
+          "checks": {
+            "beacon original received": true,
+            "far-marker original received": true
+          },
+          "current": true,
+          "satisfied": true,
+          "achieved": true,
+          "firstIntervention": 73
+        },
+        {
+          "id": "living-record",
+          "title": "Publish the living station view",
+          "rows": [
+            "east",
+            "west"
+          ],
+          "requirement": "Receiver holds an actual lookout observation, while the original nursery continues its current growing and observing service.",
+          "conditions": [
+            {
+              "kind": "received",
+              "label": "lookout record received",
+              "subject": "place:lookout"
+            },
+            {
+              "kind": "object",
+              "label": "original nursery remains growing with its real view",
+              "place": "garden",
+              "initialKey": "nursery",
+              "properties": {
+                "growing": true
+              },
+              "record": {
+                "subject": "place:lookout",
+                "viewpoint": "garden"
+              }
+            }
+          ],
+          "map": "station",
+          "checks": {
+            "lookout record received": true,
+            "original nursery remains growing with its real view": true
+          },
+          "current": true,
+          "satisfied": true,
+          "achieved": true,
+          "firstIntervention": 23
+        },
+        {
+          "id": "durable-filter",
+          "title": "A lasting filter keeps the service",
+          "rows": [
+            "east",
+            "west"
+          ],
+          "requirement": "At filter-pad a rigid porous surface fitted to its open profile actively supplies the water link to garden. The original worked form or a fresh saved-geometry copy may provide this continuing service; no extra impression is required of a copy.",
+          "conditions": [
+            {
+              "kind": "surface",
+              "label": "rigid porous fitted filter supplies water",
+              "place": "filter-pad",
+              "test": {
+                "traits": {
+                  "rigidity": "rigid",
+                  "permeability": "porous"
+                },
+                "fitted": {
+                  "place": "filter-pad",
+                  "rigidity": "rigid"
+                },
+                "contact": "filter-pad",
+                "supplying": "water"
+              }
+            },
+            {
+              "kind": "link",
+              "label": "the actual fitted durable filter still supplies the original nursery",
+              "channel": "water",
+              "fromPlace": "filter-pad",
+              "toPlace": "garden",
+              "toInitial": "nursery",
+              "active": true,
+              "fromSurface": {
+                "traits": {
+                  "rigidity": "rigid",
+                  "permeability": "porous"
+                },
+                "fitted": {
+                  "place": "filter-pad",
+                  "rigidity": "rigid"
+                },
+                "contact": "filter-pad",
+                "supplying": "water"
+              }
+            }
+          ],
+          "map": "station",
+          "checks": {
+            "rigid porous fitted filter supplies water": true,
+            "the actual fitted durable filter still supplies the original nursery": true
+          },
+          "current": true,
+          "satisfied": true,
+          "achieved": true,
+          "firstIntervention": 35
+        },
+        {
+          "id": "lined-basin",
+          "title": "The useful profile takes another role",
+          "rows": [
+            "east",
+            "west"
+          ],
+          "requirement": "Basin has a rigid durable watertight surface actually fitted to its public open profile. A copied form is valid: geometry can be shared while one filter stays porous and this surface becomes lined.",
+          "conditions": [
+            {
+              "kind": "surface",
+              "label": "rigid lined matching basin surface",
+              "place": "basin",
+              "test": {
+                "traits": {
+                  "rigidity": "rigid",
+                  "permeability": "watertight",
+                  "recording": "durable"
+                },
+                "fitted": {
+                  "place": "basin",
+                  "rigidity": "rigid"
+                }
+              }
+            }
+          ],
+          "map": "station",
+          "checks": {
+            "rigid lined matching basin surface": true
+          },
+          "current": true,
+          "satisfied": true,
+          "achieved": true,
+          "firstIntervention": 38
+        },
+        {
+          "id": "worked-return",
+          "title": "Bring the worked filter home as a record carrier",
+          "rows": [
+            "east",
+            "west"
+          ],
+          "requirement": "At collection the actual working-clay carrier has a rigid durable watertight surface preserving its earlier moldable operating fit at filter-pad; it also carries the actual original beacon record. Other geometry copies may keep the filter/basin working. The old filter is now a portable protected record-bearing artifact, not a duplicate supplied later.",
+          "conditions": [
+            {
+              "kind": "surface",
+              "label": "same actual worked surface and real survey record returned",
+              "place": "collection",
+              "initialKey": "working-clay",
+              "objectRecord": "place:beacon",
+              "objectRecordFromInitial": "survey-camera",
+              "test": {
+                "originKey": "working-clay",
+                "traits": {
+                  "rigidity": "rigid",
+                  "permeability": "watertight",
+                  "recording": "durable"
+                },
+                "fitted": {
+                  "place": "filter-pad",
+                  "rigidity": "moldable"
+                }
+              }
+            }
+          ],
+          "map": "station",
+          "checks": {
+            "same actual worked surface and real survey record returned": true
+          },
+          "current": true,
+          "satisfied": true,
+          "achieved": true,
+          "firstIntervention": 80
+        },
+        {
+          "id": "profile-register",
+          "title": "A borrowed profile carries the survey",
+          "rows": [
+            "east",
+            "west"
+          ],
+          "requirement": "At paper-slot a flexible porous temporary recording surface fits its closed east/west north-facing profile and has a real physical copy of the original beacon observation. Geometry may come from the mesh master or a matching saved design; copied shapes do not invent records.",
+          "conditions": [
+            {
+              "kind": "surface",
+              "label": "fitted shaped register contains actual physical survey copy",
+              "place": "paper-slot",
+              "test": {
+                "traits": {
+                  "rigidity": "flexible",
+                  "permeability": "porous",
+                  "recording": "temporary"
+                },
+                "fitted": {
+                  "place": "paper-slot"
+                },
+                "event": {
+                  "kind": "copy",
+                  "subject": "place:beacon",
+                  "sourceInitialKey": "survey-camera"
+                }
+              }
+            }
+          ],
+          "map": "station",
+          "checks": {
+            "fitted shaped register contains actual physical survey copy": true
+          },
+          "current": true,
+          "satisfied": true,
+          "achieved": true,
+          "firstIntervention": 49
+        },
+        {
+          "id": "master-archive",
+          "title": "The former template becomes an archive",
+          "rows": [
+            "east",
+            "west"
+          ],
+          "requirement": "The actual initial mesh-master has moved to archive-bay and is now a dust-protected tray-and-recording support carrying the real beacon record. It is the earlier tool taking another service role; a newly copied mesh is not that retained tool.",
+          "conditions": [
+            {
+              "kind": "object",
+              "label": "actual master now protects the record support",
+              "place": "archive-bay",
+              "initialKey": "mesh-master",
+              "properties": {
+                "sampleSupport": true,
+                "dustProtected": true
+              },
+              "record": {
+                "subject": "place:beacon",
+                "fromInitial": "survey-camera"
+              }
+            }
+          ],
+          "map": "station",
+          "checks": {
+            "actual master now protects the record support": true
+          },
+          "current": true,
+          "satisfied": true,
+          "achieved": true,
+          "firstIntervention": 63
+        },
+        {
+          "id": "relief-display",
+          "title": "A physical relief survives wet display",
+          "rows": [
+            "east",
+            "west"
+          ],
+          "requirement": "Wet-gallery also holds a rigid durable watertight surface preserving an actual impression taken from relief. This physical profile/history is different from an optical view or a copied blank design. Firing and lining are legal ways to preserve it; no preliminary fit demonstration is required.",
+          "conditions": [
+            {
+              "kind": "surface",
+              "label": "actual relief impression survives on durable watertight material",
+              "place": "wet-gallery",
+              "test": {
+                "traits": {
+                  "rigidity": "rigid",
+                  "permeability": "watertight",
+                  "recording": "durable"
+                },
+                "event": {
+                  "kind": "impression",
+                  "subject": "place:relief"
+                }
+              }
+            }
+          ],
+          "map": "station",
+          "checks": {
+            "actual relief impression survives on durable watertight material": true
+          },
+          "current": true,
+          "satisfied": true,
+          "achieved": true,
+          "firstIntervention": 70
+        },
+        {
+          "id": "specimen-archive",
+          "title": "A live contact becomes a dry collection",
+          "rows": [
+            "east",
+            "west"
+          ],
+          "requirement": "At archive-bay a usable specimen support retains actual contact with table and remains dry, illuminated, air-exposed and dust-protected. It may be the same retained mesh-master archive if that construction satisfies both services.",
+          "conditions": [
+            {
+              "kind": "object",
+              "label": "sampled support remains drying and dust-protected",
+              "place": "archive-bay",
+              "sample": "table",
+              "properties": {
+                "drying": true,
+                "dustProtected": true
+              }
+            }
+          ],
+          "map": "station",
+          "checks": {
+            "sampled support remains drying and dust-protected": true
+          },
+          "current": true,
+          "satisfied": true,
+          "achieved": true,
+          "firstIntervention": 62
+        }
+      ],
+      "milestones": [
+        {
+          "combine": 7,
+          "id": "first-survey"
+        },
+        {
+          "combine": 21,
+          "id": "working-soft-filter"
+        },
+        {
+          "combine": 21,
+          "id": "living-station"
+        },
+        {
+          "combine": 22,
+          "id": "living-observatory"
+        },
+        {
+          "combine": 23,
+          "id": "living-record"
+        },
+        {
+          "combine": 29,
+          "id": "soft-light"
+        },
+        {
+          "combine": 29,
+          "id": "redirected-light"
+        },
+        {
+          "combine": 35,
+          "id": "durable-filter"
+        },
+        {
+          "combine": 38,
+          "id": "lined-basin"
+        },
+        {
+          "combine": 47,
+          "id": "open-reference"
+        },
+        {
+          "combine": 49,
+          "id": "profile-register"
+        },
+        {
+          "combine": 56,
+          "id": "wet-copy"
+        },
+        {
+          "combine": 62,
+          "id": "specimen-archive"
+        },
+        {
+          "combine": 63,
+          "id": "master-archive"
+        },
+        {
+          "combine": 70,
+          "id": "relief-display"
+        },
+        {
+          "combine": 73,
+          "id": "published-survey"
+        },
+        {
+          "combine": 78,
+          "id": "survey-return"
+        },
+        {
+          "combine": 80,
+          "id": "worked-return"
+        }
+      ],
+      "previewExact": true,
+      "replayExact": true
+    },
+    {
+      "name": "saved",
+      "interventions": 78,
+      "utilityBuild": 0,
+      "ledger": {
+        "synthesis": 0,
+        "contextual": 38,
+        "reconfiguration": 6,
+        "travel": 11,
+        "observation": 8,
+        "transformation": 15
+      },
+      "status": "complete",
+      "finalGoals": [
+        {
+          "id": "first-survey",
+          "title": "A supported first survey",
+          "mode": "achievement",
+          "rows": [
+            "east",
+            "west"
+          ],
+          "requirement": "Earn a real beacon observation with the actual initially blank survey-camera at survey-window, through one local rigid clear watertight surface enclosing that camera’s own lens and plate. This first service may later move.",
+          "conditions": [
+            {
+              "kind": "object",
+              "label": "actual survey camera observed beacon through its rigid clear boundary",
+              "place": "survey-window",
+              "initialKey": "survey-camera",
+              "record": {
+                "subject": "place:beacon",
+                "viewpoint": "survey-window",
+                "throughSurface": true,
+                "fromInitial": "survey-camera"
+              },
+              "hasSurface": {
+                "traits": {
+                  "rigidity": "rigid",
+                  "optical": "clear",
+                  "permeability": "watertight"
+                },
+                "enclosesOrigin": {
+                  "key": "survey-camera",
+                  "kinds": [
+                    "lens",
+                    "record-plate"
+                  ]
+                }
+              }
+            }
+          ],
+          "map": "station",
+          "checks": {
+            "actual survey camera observed beacon through its rigid clear boundary": false
+          },
+          "current": false,
+          "satisfied": true,
+          "achieved": true,
+          "firstIntervention": 4
+        },
+        {
+          "id": "working-soft-filter",
+          "title": "A soft form doing real work",
+          "mode": "achievement",
+          "rows": [
+            "east",
+            "west"
+          ],
+          "requirement": "The actual original working-clay material matches filter-pad’s profile, fits while moldable, and actively supplies its outgoing water route to the growing nursery at garden. The displayed outlet supplies water only through an actively seated exposed porous matching surface; hand water remains available for wetting clay. This is an operating temporary filter, not a fit demonstration; it may later be fired and repurposed.",
+          "conditions": [
+            {
+              "kind": "surface",
+              "label": "original soft fitted material actively supplies water",
+              "place": "filter-pad",
+              "initialKey": "working-clay",
+              "test": {
+                "originKey": "working-clay",
+                "traits": {
+                  "rigidity": "moldable",
+                  "permeability": "porous"
+                },
+                "fitted": {
+                  "place": "filter-pad",
+                  "rigidity": "moldable"
+                },
+                "contact": "filter-pad",
+                "supplying": "water"
+              }
+            },
+            {
+              "kind": "link",
+              "label": "the original soft filter actively feeds the original nursery",
+              "channel": "water",
+              "fromPlace": "filter-pad",
+              "toPlace": "garden",
+              "fromInitial": "working-clay",
+              "toInitial": "nursery",
+              "active": true,
+              "fromSurface": {
+                "originKey": "working-clay",
+                "traits": {
+                  "rigidity": "moldable",
+                  "permeability": "porous"
+                },
+                "fitted": {
+                  "place": "filter-pad",
+                  "rigidity": "moldable"
+                },
+                "contact": "filter-pad",
+                "supplying": "water"
+              }
+            },
+            {
+              "kind": "object",
+              "label": "the actual nursery grows using that service",
+              "place": "garden",
+              "initialKey": "nursery",
+              "properties": {
+                "growing": true
+              }
+            }
+          ],
+          "map": "station",
+          "checks": {
+            "original soft fitted material actively supplies water": false,
+            "the original soft filter actively feeds the original nursery": false,
+            "the actual nursery grows using that service": true
+          },
+          "current": false,
+          "satisfied": true,
+          "achieved": true,
+          "firstIntervention": 18
+        },
+        {
+          "id": "living-station",
+          "title": "Keep the living station working",
+          "rows": [
+            "east",
+            "west"
+          ],
+          "requirement": "At the endpoint the actual nursery at garden grows in both sky rows inside one active rigid clear watertight local boundary enclosing its original tray and seed. Familiar lamps, real reflected light and whole assembly copies remain legal.",
+          "conditions": [
+            {
+              "kind": "object",
+              "label": "same original nursery grows within its local clear rigid boundary",
+              "place": "garden",
+              "initialKey": "nursery",
+              "hasSurface": {
+                "traits": {
+                  "rigidity": "rigid",
+                  "optical": "clear",
+                  "permeability": "watertight"
+                },
+                "enclosesOrigin": {
+                  "key": "nursery",
+                  "kinds": [
+                    "tray",
+                    "seed"
+                  ]
+                },
+                "growing": true
+              }
+            }
+          ],
+          "map": "station",
+          "checks": {
+            "same original nursery grows within its local clear rigid boundary": true
+          },
+          "current": true,
+          "satisfied": true,
+          "achieved": true,
+          "firstIntervention": 18
+        },
+        {
+          "id": "soft-light",
+          "title": "Diffuse light for a second growing service",
+          "rows": [
+            "east",
+            "west"
+          ],
+          "requirement": "A growing rootbed at shade-bed has one actual diffuse watertight boundary actively enclosing the lit growing tray and seed. A separate decorative diffuser does not count.",
+          "conditions": [
+            {
+              "kind": "surface",
+              "label": "local diffuse growing boundary",
+              "place": "shade-bed",
+              "test": {
+                "traits": {
+                  "optical": "diffuse",
+                  "permeability": "watertight"
+                },
+                "encloses": [
+                  "tray",
+                  "seed"
+                ],
+                "growing": true
+              }
+            }
+          ],
+          "map": "station",
+          "checks": {
+            "local diffuse growing boundary": true
+          },
+          "current": true,
+          "satisfied": true,
+          "achieved": true,
+          "firstIntervention": 26
+        },
+        {
+          "id": "redirected-light",
+          "title": "Daylight redirected into the shade",
+          "rows": [
+            "east",
+            "west"
+          ],
+          "requirement": "An exposed supported reflector at mirror-perch supplies an active light interface to shade-bed in both rows, where the bed grows. Flexible foil with support or a rigid reflector is valid.",
+          "conditions": [
+            {
+              "kind": "link",
+              "label": "real reflected light actively reaches shade-bed",
+              "channel": "light",
+              "fromPlace": "mirror-perch",
+              "toPlace": "shade-bed",
+              "active": true,
+              "fromSurface": {
+                "traits": {
+                  "optical": "reflecting"
+                },
+                "supplying": "light"
+              }
+            },
+            {
+              "kind": "object",
+              "label": "shade-bed actually grows",
+              "place": "shade-bed",
+              "properties": {
+                "growing": true
+              }
+            }
+          ],
+          "map": "station",
+          "checks": {
+            "real reflected light actively reaches shade-bed": true,
+            "shade-bed actually grows": true
+          },
+          "current": true,
+          "satisfied": true,
+          "achieved": true,
+          "firstIntervention": 26
+        },
+        {
+          "id": "living-observatory",
+          "title": "The nursery becomes an observatory",
+          "rows": [
+            "east",
+            "west"
+          ],
+          "requirement": "The actual nursery remains growing at garden and now holds an actual lookout observation made there through the same local rigid clear watertight boundary that encloses its original growing tray and seed and a working faithful lens.",
+          "conditions": [
+            {
+              "kind": "object",
+              "label": "actual nursery observation and growth share one clear boundary",
+              "place": "garden",
+              "initialKey": "nursery",
+              "properties": {
+                "growing": true,
+                "camera": true
+              },
+              "record": {
+                "subject": "place:lookout",
+                "viewpoint": "garden",
+                "throughSurface": true
+              },
+              "hasSurface": {
+                "traits": {
+                  "rigidity": "rigid",
+                  "optical": "clear",
+                  "permeability": "watertight"
+                },
+                "encloses": [
+                  "lens"
+                ],
+                "enclosesOrigin": {
+                  "key": "nursery",
+                  "kinds": [
+                    "tray",
+                    "seed"
+                  ]
+                },
+                "growing": true
+              }
+            }
+          ],
+          "map": "station",
+          "checks": {
+            "actual nursery observation and growth share one clear boundary": true
+          },
+          "current": true,
+          "satisfied": true,
+          "achieved": true,
+          "firstIntervention": 19
+        },
+        {
+          "id": "wet-copy",
+          "title": "Expose a copy, not the survey original",
+          "rows": [
+            "east",
+            "west"
+          ],
+          "requirement": "Wet-gallery displays a lit durable watertight recording surface with a real physical copy of the beacon record produced by the original survey-camera. No initial records are supplied anywhere; a blank learned sheet cannot invent this copy.",
+          "conditions": [
+            {
+              "kind": "surface",
+              "label": "durable wet display carries original camera beacon copy",
+              "place": "wet-gallery",
+              "test": {
+                "traits": {
+                  "recording": "durable",
+                  "permeability": "watertight"
+                },
+                "lit": true,
+                "event": {
+                  "kind": "copy",
+                  "subject": "place:beacon",
+                  "sourceInitialKey": "survey-camera"
+                }
+              }
+            }
+          ],
+          "map": "station",
+          "checks": {
+            "durable wet display carries original camera beacon copy": true
+          },
+          "current": true,
+          "satisfied": true,
+          "achieved": true,
+          "firstIntervention": 53
+        },
+        {
+          "id": "open-reference",
+          "title": "Keep a separate open reference",
+          "rows": [
+            "east",
+            "west"
+          ],
+          "requirement": "At press, an exposed dry porous temporary recording surface holds a separate real physical copy of the same original beacon observation. The protected wet display remains elsewhere; making every copy watertight is not equivalent.",
+          "conditions": [
+            {
+              "kind": "surface",
+              "label": "open reference copy at press",
+              "place": "press",
+              "test": {
+                "traits": {
+                  "recording": "temporary",
+                  "permeability": "porous"
+                },
+                "dry": true,
+                "exposed": true,
+                "event": {
+                  "kind": "copy",
+                  "subject": "place:beacon",
+                  "sourceInitialKey": "survey-camera"
+                }
+              }
+            }
+          ],
+          "map": "station",
+          "checks": {
+            "open reference copy at press": true
+          },
+          "current": true,
+          "satisfied": true,
+          "achieved": true,
+          "firstIntervention": 44
+        },
+        {
+          "id": "survey-return",
+          "title": "The observing original returns with both views",
+          "rows": [
+            "east",
+            "west"
+          ],
+          "requirement": "At dock, the same original survey-camera is dark and dust-protected and retains its real beacon record from survey-window and far-marker record from far-view. Dock is reached through the physically narrow low route; a fresh design does not reproduce either observation or the original instrument.",
+          "conditions": [
+            {
+              "kind": "object",
+              "label": "dark protected original camera with first real view",
+              "place": "dock",
+              "initialKey": "survey-camera",
+              "properties": {
+                "darkProtected": true
+              },
+              "record": {
+                "subject": "place:beacon",
+                "viewpoint": "survey-window",
+                "fromInitial": "survey-camera"
+              }
+            },
+            {
+              "kind": "object",
+              "label": "same original camera retains its actual distant view",
+              "place": "dock",
+              "initialKey": "survey-camera",
+              "record": {
+                "subject": "place:far-marker",
+                "viewpoint": "far-view",
+                "fromInitial": "survey-camera"
+              }
+            }
+          ],
+          "map": "station",
+          "checks": {
+            "dark protected original camera with first real view": true,
+            "same original camera retains its actual distant view": true
+          },
+          "current": true,
+          "satisfied": true,
+          "achieved": true,
+          "firstIntervention": 75
+        },
+        {
+          "id": "published-survey",
+          "title": "Send the actual survey records",
+          "rows": [
+            "east",
+            "west"
+          ],
+          "requirement": "Receiver retains the real original survey-camera observations of beacon and far-marker. Physical copies or optical relays may send them; observations made only by replacement cameras do not substitute.",
+          "conditions": [
+            {
+              "kind": "received",
+              "label": "beacon original received",
+              "subject": "place:beacon",
+              "fromInitial": "survey-camera"
+            },
+            {
+              "kind": "received",
+              "label": "far-marker original received",
+              "subject": "place:far-marker",
+              "fromInitial": "survey-camera"
+            }
+          ],
+          "map": "station",
+          "checks": {
+            "beacon original received": true,
+            "far-marker original received": true
+          },
+          "current": true,
+          "satisfied": true,
+          "achieved": true,
+          "firstIntervention": 70
+        },
+        {
+          "id": "living-record",
+          "title": "Publish the living station view",
+          "rows": [
+            "east",
+            "west"
+          ],
+          "requirement": "Receiver holds an actual lookout observation, while the original nursery continues its current growing and observing service.",
+          "conditions": [
+            {
+              "kind": "received",
+              "label": "lookout record received",
+              "subject": "place:lookout"
+            },
+            {
+              "kind": "object",
+              "label": "original nursery remains growing with its real view",
+              "place": "garden",
+              "initialKey": "nursery",
+              "properties": {
+                "growing": true
+              },
+              "record": {
+                "subject": "place:lookout",
+                "viewpoint": "garden"
+              }
+            }
+          ],
+          "map": "station",
+          "checks": {
+            "lookout record received": true,
+            "original nursery remains growing with its real view": true
+          },
+          "current": true,
+          "satisfied": true,
+          "achieved": true,
+          "firstIntervention": 20
+        },
+        {
+          "id": "durable-filter",
+          "title": "A lasting filter keeps the service",
+          "rows": [
+            "east",
+            "west"
+          ],
+          "requirement": "At filter-pad a rigid porous surface fitted to its open profile actively supplies the water link to garden. The original worked form or a fresh saved-geometry copy may provide this continuing service; no extra impression is required of a copy.",
+          "conditions": [
+            {
+              "kind": "surface",
+              "label": "rigid porous fitted filter supplies water",
+              "place": "filter-pad",
+              "test": {
+                "traits": {
+                  "rigidity": "rigid",
+                  "permeability": "porous"
+                },
+                "fitted": {
+                  "place": "filter-pad",
+                  "rigidity": "rigid"
+                },
+                "contact": "filter-pad",
+                "supplying": "water"
+              }
+            },
+            {
+              "kind": "link",
+              "label": "the actual fitted durable filter still supplies the original nursery",
+              "channel": "water",
+              "fromPlace": "filter-pad",
+              "toPlace": "garden",
+              "toInitial": "nursery",
+              "active": true,
+              "fromSurface": {
+                "traits": {
+                  "rigidity": "rigid",
+                  "permeability": "porous"
+                },
+                "fitted": {
+                  "place": "filter-pad",
+                  "rigidity": "rigid"
+                },
+                "contact": "filter-pad",
+                "supplying": "water"
+              }
+            }
+          ],
+          "map": "station",
+          "checks": {
+            "rigid porous fitted filter supplies water": true,
+            "the actual fitted durable filter still supplies the original nursery": true
+          },
+          "current": true,
+          "satisfied": true,
+          "achieved": true,
+          "firstIntervention": 32
+        },
+        {
+          "id": "lined-basin",
+          "title": "The useful profile takes another role",
+          "rows": [
+            "east",
+            "west"
+          ],
+          "requirement": "Basin has a rigid durable watertight surface actually fitted to its public open profile. A copied form is valid: geometry can be shared while one filter stays porous and this surface becomes lined.",
+          "conditions": [
+            {
+              "kind": "surface",
+              "label": "rigid lined matching basin surface",
+              "place": "basin",
+              "test": {
+                "traits": {
+                  "rigidity": "rigid",
+                  "permeability": "watertight",
+                  "recording": "durable"
+                },
+                "fitted": {
+                  "place": "basin",
+                  "rigidity": "rigid"
+                }
+              }
+            }
+          ],
+          "map": "station",
+          "checks": {
+            "rigid lined matching basin surface": true
+          },
+          "current": true,
+          "satisfied": true,
+          "achieved": true,
+          "firstIntervention": 35
+        },
+        {
+          "id": "worked-return",
+          "title": "Bring the worked filter home as a record carrier",
+          "rows": [
+            "east",
+            "west"
+          ],
+          "requirement": "At collection the actual working-clay carrier has a rigid durable watertight surface preserving its earlier moldable operating fit at filter-pad; it also carries the actual original beacon record. Other geometry copies may keep the filter/basin working. The old filter is now a portable protected record-bearing artifact, not a duplicate supplied later.",
+          "conditions": [
+            {
+              "kind": "surface",
+              "label": "same actual worked surface and real survey record returned",
+              "place": "collection",
+              "initialKey": "working-clay",
+              "objectRecord": "place:beacon",
+              "objectRecordFromInitial": "survey-camera",
+              "test": {
+                "originKey": "working-clay",
+                "traits": {
+                  "rigidity": "rigid",
+                  "permeability": "watertight",
+                  "recording": "durable"
+                },
+                "fitted": {
+                  "place": "filter-pad",
+                  "rigidity": "moldable"
+                }
+              }
+            }
+          ],
+          "map": "station",
+          "checks": {
+            "same actual worked surface and real survey record returned": true
+          },
+          "current": true,
+          "satisfied": true,
+          "achieved": true,
+          "firstIntervention": 77
+        },
+        {
+          "id": "profile-register",
+          "title": "A borrowed profile carries the survey",
+          "rows": [
+            "east",
+            "west"
+          ],
+          "requirement": "At paper-slot a flexible porous temporary recording surface fits its closed east/west north-facing profile and has a real physical copy of the original beacon observation. Geometry may come from the mesh master or a matching saved design; copied shapes do not invent records.",
+          "conditions": [
+            {
+              "kind": "surface",
+              "label": "fitted shaped register contains actual physical survey copy",
+              "place": "paper-slot",
+              "test": {
+                "traits": {
+                  "rigidity": "flexible",
+                  "permeability": "porous",
+                  "recording": "temporary"
+                },
+                "fitted": {
+                  "place": "paper-slot"
+                },
+                "event": {
+                  "kind": "copy",
+                  "subject": "place:beacon",
+                  "sourceInitialKey": "survey-camera"
+                }
+              }
+            }
+          ],
+          "map": "station",
+          "checks": {
+            "fitted shaped register contains actual physical survey copy": true
+          },
+          "current": true,
+          "satisfied": true,
+          "achieved": true,
+          "firstIntervention": 46
+        },
+        {
+          "id": "master-archive",
+          "title": "The former template becomes an archive",
+          "rows": [
+            "east",
+            "west"
+          ],
+          "requirement": "The actual initial mesh-master has moved to archive-bay and is now a dust-protected tray-and-recording support carrying the real beacon record. It is the earlier tool taking another service role; a newly copied mesh is not that retained tool.",
+          "conditions": [
+            {
+              "kind": "object",
+              "label": "actual master now protects the record support",
+              "place": "archive-bay",
+              "initialKey": "mesh-master",
+              "properties": {
+                "sampleSupport": true,
+                "dustProtected": true
+              },
+              "record": {
+                "subject": "place:beacon",
+                "fromInitial": "survey-camera"
+              }
+            }
+          ],
+          "map": "station",
+          "checks": {
+            "actual master now protects the record support": true
+          },
+          "current": true,
+          "satisfied": true,
+          "achieved": true,
+          "firstIntervention": 60
+        },
+        {
+          "id": "relief-display",
+          "title": "A physical relief survives wet display",
+          "rows": [
+            "east",
+            "west"
+          ],
+          "requirement": "Wet-gallery also holds a rigid durable watertight surface preserving an actual impression taken from relief. This physical profile/history is different from an optical view or a copied blank design. Firing and lining are legal ways to preserve it; no preliminary fit demonstration is required.",
+          "conditions": [
+            {
+              "kind": "surface",
+              "label": "actual relief impression survives on durable watertight material",
+              "place": "wet-gallery",
+              "test": {
+                "traits": {
+                  "rigidity": "rigid",
+                  "permeability": "watertight",
+                  "recording": "durable"
+                },
+                "event": {
+                  "kind": "impression",
+                  "subject": "place:relief"
+                }
+              }
+            }
+          ],
+          "map": "station",
+          "checks": {
+            "actual relief impression survives on durable watertight material": true
+          },
+          "current": true,
+          "satisfied": true,
+          "achieved": true,
+          "firstIntervention": 67
+        },
+        {
+          "id": "specimen-archive",
+          "title": "A live contact becomes a dry collection",
+          "rows": [
+            "east",
+            "west"
+          ],
+          "requirement": "At archive-bay a usable specimen support retains actual contact with table and remains dry, illuminated, air-exposed and dust-protected. It may be the same retained mesh-master archive if that construction satisfies both services.",
+          "conditions": [
+            {
+              "kind": "object",
+              "label": "sampled support remains drying and dust-protected",
+              "place": "archive-bay",
+              "sample": "table",
+              "properties": {
+                "drying": true,
+                "dustProtected": true
+              }
+            }
+          ],
+          "map": "station",
+          "checks": {
+            "sampled support remains drying and dust-protected": true
+          },
+          "current": true,
+          "satisfied": true,
+          "achieved": true,
+          "firstIntervention": 59
+        }
+      ],
+      "milestones": [
+        {
+          "combine": 4,
+          "id": "first-survey"
+        },
+        {
+          "combine": 18,
+          "id": "working-soft-filter"
+        },
+        {
+          "combine": 18,
+          "id": "living-station"
+        },
+        {
+          "combine": 19,
+          "id": "living-observatory"
+        },
+        {
+          "combine": 20,
+          "id": "living-record"
+        },
+        {
+          "combine": 26,
+          "id": "soft-light"
+        },
+        {
+          "combine": 26,
+          "id": "redirected-light"
+        },
+        {
+          "combine": 32,
+          "id": "durable-filter"
+        },
+        {
+          "combine": 35,
+          "id": "lined-basin"
+        },
+        {
+          "combine": 44,
+          "id": "open-reference"
+        },
+        {
+          "combine": 46,
+          "id": "profile-register"
+        },
+        {
+          "combine": 53,
+          "id": "wet-copy"
+        },
+        {
+          "combine": 59,
+          "id": "specimen-archive"
+        },
+        {
+          "combine": 60,
+          "id": "master-archive"
+        },
+        {
+          "combine": 67,
+          "id": "relief-display"
+        },
+        {
+          "combine": 70,
+          "id": "published-survey"
+        },
+        {
+          "combine": 75,
+          "id": "survey-return"
+        },
+        {
+          "combine": 77,
+          "id": "worked-return"
+        }
+      ],
+      "previewExact": true,
+      "replayExact": true
+    }
+  ]
+}
