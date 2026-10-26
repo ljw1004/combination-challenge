@@ -1,0 +1,10 @@
+import {readFileSync} from 'node:fs';
+import {createHash} from 'node:crypto';
+import {DIR,verifySession} from './ideas-history-lives-campaign-play.ts';
+import type {Session} from './ideas-history-lives-campaign-play.ts';
+const [id]=process.argv.slice(2);
+if(!id||!/^[a-zA-Z0-9_-]+$/.test(id))throw Error('Simple session ID required.');
+const raw=readFileSync(`${DIR}/${id}.json`,'utf8');
+const capture:Session=JSON.parse(raw);
+if(capture.id!==id)throw Error('Capture/session ID mismatch.');
+console.log(JSON.stringify({...verifySession(capture),captureSha256:createHash('sha256').update(raw).digest('hex')},null,2));

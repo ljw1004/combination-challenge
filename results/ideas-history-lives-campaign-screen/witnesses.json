@@ -1,0 +1,2863 @@
+{
+  "normal": {
+    "state": {
+      "roles": [
+        {
+          "from": "iona",
+          "to": "executor",
+          "at": 15
+        }
+      ],
+      "requests": [],
+      "version": "ideas-history-lives-campaign-1",
+      "condition": "normal",
+      "known": [
+        "longevity",
+        "living-archives",
+        "anti-domination",
+        "adaptive-minds",
+        "reciprocal-education",
+        "copyable-minds",
+        "adoption",
+        "revisable-promises",
+        "restorative-practice",
+        "kinship",
+        "enduring-witnesses",
+        "succession",
+        "apprentices",
+        "unowned"
+      ],
+      "methods": [
+        {
+          "id": "roof-care",
+          "label": "Care for changing sky",
+          "clauses": [
+            {
+              "cue": "glare",
+              "device": "shade",
+              "value": "spread"
+            },
+            {
+              "cue": "cloud",
+              "device": "shade",
+              "value": "open"
+            }
+          ]
+        },
+        {
+          "id": "rest-care",
+          "label": "Resting room care",
+          "clauses": [
+            {
+              "cue": "rest",
+              "device": "rest-light",
+              "value": "dark"
+            }
+          ]
+        },
+        {
+          "id": "work-care",
+          "label": "Making room care",
+          "clauses": [
+            {
+              "cue": "make",
+              "device": "work-light",
+              "value": "lit"
+            }
+          ]
+        },
+        {
+          "id": "shadow-score",
+          "label": "Opening and closing light score",
+          "clauses": [
+            {
+              "cue": "begin",
+              "device": "shade",
+              "value": "open"
+            },
+            {
+              "cue": "accent",
+              "device": "shade",
+              "value": "spread"
+            },
+            {
+              "cue": "release",
+              "device": "shade",
+              "value": "open"
+            }
+          ]
+        }
+      ],
+      "actors": [
+        {
+          "id": "iona",
+          "label": "Iona",
+          "lineage": "iona",
+          "location": "house",
+          "itinerary": "house",
+          "methods": [
+            "roof-care",
+            "rest-care",
+            "work-care",
+            "shadow-score"
+          ],
+          "lived": [
+            "episode:1",
+            "episode:4"
+          ],
+          "accounts": [
+            "episode:3"
+          ],
+          "active": true,
+          "learner": true,
+          "civic": false,
+          "mandate": [
+            "house",
+            "weather",
+            "score"
+          ]
+        },
+        {
+          "id": "executor",
+          "label": "Installed caretaker",
+          "lineage": "executor",
+          "location": "house",
+          "itinerary": "house",
+          "methods": [
+            "roof-care",
+            "rest-care",
+            "work-care",
+            "shadow-score"
+          ],
+          "lived": [
+            "episode:5",
+            "episode:6"
+          ],
+          "accounts": [
+            "episode:1",
+            "episode:4",
+            "episode:3"
+          ],
+          "active": true,
+          "learner": true,
+          "civic": true,
+          "mandate": [
+            "house",
+            "weather",
+            "score"
+          ]
+        },
+        {
+          "id": "teacher",
+          "label": "Ensemble teacher",
+          "lineage": "teacher",
+          "location": "ensemble",
+          "itinerary": "ensemble",
+          "methods": [
+            "shadow-score"
+          ],
+          "lived": [],
+          "accounts": [],
+          "active": true,
+          "learner": true,
+          "civic": false,
+          "mandate": [
+            "house",
+            "weather",
+            "score"
+          ]
+        },
+        {
+          "id": "steward",
+          "label": "Willing human steward",
+          "lineage": "steward",
+          "location": "house",
+          "itinerary": "house",
+          "methods": [
+            "roof-care",
+            "rest-care",
+            "work-care"
+          ],
+          "lived": [],
+          "accounts": [],
+          "active": true,
+          "learner": true,
+          "civic": false,
+          "mandate": [
+            "house",
+            "weather",
+            "score"
+          ]
+        },
+        {
+          "id": "self:2",
+          "label": "Iona’s continuing self self:2",
+          "lineage": "iona",
+          "location": "ensemble",
+          "itinerary": "ensemble",
+          "methods": [
+            "roof-care",
+            "rest-care",
+            "work-care",
+            "shadow-score"
+          ],
+          "lived": [
+            "episode:1",
+            "episode:3"
+          ],
+          "accounts": [],
+          "active": true,
+          "learner": true,
+          "civic": false,
+          "mandate": [
+            "house",
+            "weather",
+            "score"
+          ]
+        }
+      ],
+      "episodes": [
+        {
+          "id": "episode:1",
+          "actor": "iona",
+          "location": "house",
+          "event": "care-suite",
+          "methodIds": [
+            "roof-care",
+            "rest-care",
+            "work-care"
+          ],
+          "outputs": [
+            {
+              "cue": "rest",
+              "device": "rest-light",
+              "value": "dark"
+            },
+            {
+              "cue": "make",
+              "device": "work-light",
+              "value": "lit"
+            },
+            {
+              "cue": "glare",
+              "device": "shade",
+              "value": "spread"
+            },
+            {
+              "cue": "cloud",
+              "device": "shade",
+              "value": "open"
+            }
+          ],
+          "at": 1
+        },
+        {
+          "id": "episode:3",
+          "actor": "self:2",
+          "location": "ensemble",
+          "event": "performance",
+          "methodIds": [
+            "roof-care",
+            "rest-care",
+            "work-care",
+            "shadow-score"
+          ],
+          "outputs": [
+            {
+              "cue": "begin",
+              "device": "shade",
+              "value": "open"
+            },
+            {
+              "cue": "accent",
+              "device": "shade",
+              "value": "spread"
+            },
+            {
+              "cue": "accent",
+              "device": "shade",
+              "value": "spread"
+            },
+            {
+              "cue": "release",
+              "device": "shade",
+              "value": "open"
+            }
+          ],
+          "at": 6
+        },
+        {
+          "id": "episode:4",
+          "actor": "iona",
+          "location": "house",
+          "event": "performance",
+          "methodIds": [
+            "roof-care",
+            "rest-care",
+            "work-care",
+            "shadow-score"
+          ],
+          "outputs": [
+            {
+              "cue": "begin",
+              "device": "shade",
+              "value": "open"
+            },
+            {
+              "cue": "accent",
+              "device": "shade",
+              "value": "spread"
+            },
+            {
+              "cue": "accent",
+              "device": "shade",
+              "value": "spread"
+            },
+            {
+              "cue": "release",
+              "device": "shade",
+              "value": "open"
+            }
+          ],
+          "at": 8
+        },
+        {
+          "id": "episode:5",
+          "actor": "executor",
+          "location": "house",
+          "event": "performance",
+          "methodIds": [
+            "roof-care",
+            "rest-care",
+            "work-care",
+            "shadow-score"
+          ],
+          "outputs": [
+            {
+              "cue": "begin",
+              "device": "shade",
+              "value": "open"
+            },
+            {
+              "cue": "accent",
+              "device": "shade",
+              "value": "spread"
+            },
+            {
+              "cue": "accent",
+              "device": "shade",
+              "value": "spread"
+            },
+            {
+              "cue": "release",
+              "device": "shade",
+              "value": "open"
+            }
+          ],
+          "at": 17
+        },
+        {
+          "id": "episode:6",
+          "actor": "executor",
+          "location": "house",
+          "event": "care-suite",
+          "methodIds": [
+            "roof-care",
+            "rest-care",
+            "work-care",
+            "shadow-score"
+          ],
+          "outputs": [
+            {
+              "cue": "rest",
+              "device": "rest-light",
+              "value": "dark"
+            },
+            {
+              "cue": "make",
+              "device": "work-light",
+              "value": "lit"
+            },
+            {
+              "cue": "glare",
+              "device": "shade",
+              "value": "spread"
+            },
+            {
+              "cue": "cloud",
+              "device": "shade",
+              "value": "open"
+            }
+          ],
+          "at": 18
+        }
+      ],
+      "forks": [
+        {
+          "parent": "iona",
+          "child": "self:2",
+          "shared": [
+            "episode:1"
+          ],
+          "at": 3
+        }
+      ],
+      "transfers": [
+        {
+          "from": "self:2",
+          "to": "iona",
+          "methods": [
+            "shadow-score"
+          ],
+          "accounts": [
+            "episode:1",
+            "episode:3"
+          ],
+          "at": 7
+        },
+        {
+          "from": "iona",
+          "to": "executor",
+          "methods": [
+            "shadow-score"
+          ],
+          "accounts": [
+            "episode:1",
+            "episode:4",
+            "episode:3"
+          ],
+          "at": 16
+        }
+      ],
+      "devices": {
+        "house": {
+          "shade": "open",
+          "rest-light": "dark",
+          "work-light": "lit"
+        },
+        "ensemble": {
+          "shade": "open"
+        }
+      },
+      "keeper": "executor",
+      "moves": 18,
+      "serial": 7,
+      "history": [
+        {
+          "a": "iona",
+          "b": "care-suite",
+          "context": {
+            "operation": "enact"
+          }
+        },
+        {
+          "a": "copyable-minds",
+          "b": "adoption"
+        },
+        {
+          "a": "kinship",
+          "b": "iona"
+        },
+        {
+          "a": "self:2",
+          "b": "ensemble",
+          "context": {
+            "operation": "travel"
+          }
+        },
+        {
+          "a": "self:2",
+          "b": "shadow-score",
+          "context": {
+            "operation": "learn"
+          }
+        },
+        {
+          "a": "self:2",
+          "b": "performance",
+          "context": {
+            "operation": "enact"
+          }
+        },
+        {
+          "a": "self:2",
+          "b": "iona",
+          "context": {
+            "operation": "teach",
+            "method": "shadow-score"
+          }
+        },
+        {
+          "a": "iona",
+          "b": "performance",
+          "context": {
+            "operation": "enact"
+          }
+        },
+        {
+          "a": "longevity",
+          "b": "living-archives"
+        },
+        {
+          "a": "enduring-witnesses",
+          "b": "anti-domination"
+        },
+        {
+          "a": "adaptive-minds",
+          "b": "reciprocal-education"
+        },
+        {
+          "a": "apprentices",
+          "b": "succession"
+        },
+        {
+          "a": "apprentices",
+          "b": "executor"
+        },
+        {
+          "a": "unowned",
+          "b": "executor",
+          "context": {
+            "domains": [
+              "house",
+              "weather",
+              "score"
+            ]
+          }
+        },
+        {
+          "a": "house-role",
+          "b": "executor",
+          "context": {
+            "operation": "succeed"
+          }
+        },
+        {
+          "a": "iona",
+          "b": "executor",
+          "context": {
+            "operation": "teach",
+            "method": "shadow-score"
+          }
+        },
+        {
+          "a": "executor",
+          "b": "performance",
+          "context": {
+            "operation": "enact"
+          }
+        },
+        {
+          "a": "executor",
+          "b": "care-suite",
+          "context": {
+            "operation": "enact"
+          }
+        }
+      ]
+    },
+    "steps": [
+      {
+        "action": {
+          "a": "iona",
+          "b": "care-suite",
+          "context": {
+            "operation": "enact"
+          }
+        },
+        "message": "Iona enacted episode:1: rest-light=dark, work-light=lit, shade=spread, shade=open",
+        "goals": {
+          "workingHouse": true,
+          "twoContinuingLives": false,
+          "experienceReturned": false,
+          "witnesses": [],
+          "learningCivicHouse": false,
+          "successionWithContribution": false,
+          "contributionEpisodes": []
+        }
+      },
+      {
+        "action": {
+          "a": "copyable-minds",
+          "b": "adoption"
+        },
+        "message": "Fork Kinship is now a reusable capability: Create another consenting continuing self with the actual experienced past and repertoire, but no automatic office.",
+        "goals": {
+          "workingHouse": true,
+          "twoContinuingLives": false,
+          "experienceReturned": false,
+          "witnesses": [],
+          "learningCivicHouse": false,
+          "successionWithContribution": false,
+          "contributionEpisodes": []
+        }
+      },
+      {
+        "action": {
+          "a": "kinship",
+          "b": "iona"
+        },
+        "message": "Created self:2 with shared past; no office copied. Its chosen itinerary is ensemble; travel/enact it to live it.",
+        "goals": {
+          "workingHouse": true,
+          "twoContinuingLives": false,
+          "experienceReturned": false,
+          "witnesses": [],
+          "learningCivicHouse": false,
+          "successionWithContribution": false,
+          "contributionEpisodes": []
+        }
+      },
+      {
+        "action": {
+          "a": "self:2",
+          "b": "ensemble",
+          "context": {
+            "operation": "travel"
+          }
+        },
+        "message": "Iona’s continuing self self:2 continues their chosen ensemble itinerary; memories and role survive.",
+        "goals": {
+          "workingHouse": true,
+          "twoContinuingLives": false,
+          "experienceReturned": false,
+          "witnesses": [],
+          "learningCivicHouse": false,
+          "successionWithContribution": false,
+          "contributionEpisodes": []
+        }
+      },
+      {
+        "action": {
+          "a": "self:2",
+          "b": "shadow-score",
+          "context": {
+            "operation": "learn"
+          }
+        },
+        "message": "Iona’s continuing self self:2 learned Opening and closing light score from its public mapping; no personal episode fabricated.",
+        "goals": {
+          "workingHouse": true,
+          "twoContinuingLives": false,
+          "experienceReturned": false,
+          "witnesses": [],
+          "learningCivicHouse": false,
+          "successionWithContribution": false,
+          "contributionEpisodes": []
+        }
+      },
+      {
+        "action": {
+          "a": "self:2",
+          "b": "performance",
+          "context": {
+            "operation": "enact"
+          }
+        },
+        "message": "Iona’s continuing self self:2 enacted episode:3: shade=open, shade=spread, shade=spread, shade=open",
+        "goals": {
+          "workingHouse": true,
+          "twoContinuingLives": false,
+          "experienceReturned": false,
+          "witnesses": [],
+          "learningCivicHouse": false,
+          "successionWithContribution": false,
+          "contributionEpisodes": []
+        }
+      },
+      {
+        "action": {
+          "a": "self:2",
+          "b": "iona",
+          "context": {
+            "operation": "teach",
+            "method": "shadow-score"
+          }
+        },
+        "message": "Shared selected methods and attributed accounts; firsthand biographies remain distinct.",
+        "goals": {
+          "workingHouse": true,
+          "twoContinuingLives": false,
+          "experienceReturned": false,
+          "witnesses": [],
+          "learningCivicHouse": false,
+          "successionWithContribution": false,
+          "contributionEpisodes": []
+        }
+      },
+      {
+        "action": {
+          "a": "iona",
+          "b": "performance",
+          "context": {
+            "operation": "enact"
+          }
+        },
+        "message": "Iona enacted episode:4: shade=open, shade=spread, shade=spread, shade=open",
+        "goals": {
+          "workingHouse": true,
+          "twoContinuingLives": true,
+          "experienceReturned": true,
+          "witnesses": [
+            {
+              "home": "iona",
+              "traveller": "self:2",
+              "shared": [
+                "episode:1"
+              ],
+              "returned": "episode:3"
+            }
+          ],
+          "learningCivicHouse": false,
+          "successionWithContribution": false,
+          "contributionEpisodes": []
+        }
+      },
+      {
+        "action": {
+          "a": "longevity",
+          "b": "living-archives"
+        },
+        "message": "Enduring Witnesses is now a reusable capability: Expose a living actor’s actual episodes as reusable demonstrations without removing the actor.",
+        "goals": {
+          "workingHouse": true,
+          "twoContinuingLives": true,
+          "experienceReturned": true,
+          "witnesses": [
+            {
+              "home": "iona",
+              "traveller": "self:2",
+              "shared": [
+                "episode:1"
+              ],
+              "returned": "episode:3"
+            }
+          ],
+          "learningCivicHouse": false,
+          "successionWithContribution": false,
+          "contributionEpisodes": []
+        }
+      },
+      {
+        "action": {
+          "a": "enduring-witnesses",
+          "b": "anti-domination"
+        },
+        "message": "Succession Without Death is now a reusable capability: Transfer an actual house role while preserving the former holder and their methods/experience.",
+        "goals": {
+          "workingHouse": true,
+          "twoContinuingLives": true,
+          "experienceReturned": true,
+          "witnesses": [
+            {
+              "home": "iona",
+              "traveller": "self:2",
+              "shared": [
+                "episode:1"
+              ],
+              "returned": "episode:3"
+            }
+          ],
+          "learningCivicHouse": false,
+          "successionWithContribution": false,
+          "contributionEpisodes": []
+        }
+      },
+      {
+        "action": {
+          "a": "adaptive-minds",
+          "b": "reciprocal-education"
+        },
+        "message": "Constitutional Apprentices is now a reusable capability: An executor becomes a learning actor that can accept declared service mandates.",
+        "goals": {
+          "workingHouse": true,
+          "twoContinuingLives": true,
+          "experienceReturned": true,
+          "witnesses": [
+            {
+              "home": "iona",
+              "traveller": "self:2",
+              "shared": [
+                "episode:1"
+              ],
+              "returned": "episode:3"
+            }
+          ],
+          "learningCivicHouse": false,
+          "successionWithContribution": false,
+          "contributionEpisodes": []
+        }
+      },
+      {
+        "action": {
+          "a": "apprentices",
+          "b": "succession"
+        },
+        "message": "Unowned Infrastructure is now a reusable capability: Bind learned maintenance to a resident mandate, not an installer’s unrelated commands.",
+        "goals": {
+          "workingHouse": true,
+          "twoContinuingLives": true,
+          "experienceReturned": true,
+          "witnesses": [
+            {
+              "home": "iona",
+              "traveller": "self:2",
+              "shared": [
+                "episode:1"
+              ],
+              "returned": "episode:3"
+            }
+          ],
+          "learningCivicHouse": false,
+          "successionWithContribution": false,
+          "contributionEpisodes": []
+        }
+      },
+      {
+        "action": {
+          "a": "apprentices",
+          "b": "executor"
+        },
+        "message": "Installed caretaker can now learn and accept service mandates.",
+        "goals": {
+          "workingHouse": true,
+          "twoContinuingLives": true,
+          "experienceReturned": true,
+          "witnesses": [
+            {
+              "home": "iona",
+              "traveller": "self:2",
+              "shared": [
+                "episode:1"
+              ],
+              "returned": "episode:3"
+            }
+          ],
+          "learningCivicHouse": false,
+          "successionWithContribution": false,
+          "contributionEpisodes": []
+        }
+      },
+      {
+        "action": {
+          "a": "unowned",
+          "b": "executor",
+          "context": {
+            "domains": [
+              "house",
+              "weather",
+              "score"
+            ]
+          }
+        },
+        "message": "Installed caretaker accepts a resident mandate for house, weather, score, retaining learned maintenance.",
+        "goals": {
+          "workingHouse": true,
+          "twoContinuingLives": true,
+          "experienceReturned": true,
+          "witnesses": [
+            {
+              "home": "iona",
+              "traveller": "self:2",
+              "shared": [
+                "episode:1"
+              ],
+              "returned": "episode:3"
+            }
+          ],
+          "learningCivicHouse": false,
+          "successionWithContribution": false,
+          "contributionEpisodes": []
+        }
+      },
+      {
+        "action": {
+          "a": "house-role",
+          "b": "executor",
+          "context": {
+            "operation": "succeed"
+          }
+        },
+        "message": "House requests now go to Installed caretaker; former holder persists.",
+        "goals": {
+          "workingHouse": false,
+          "twoContinuingLives": true,
+          "experienceReturned": true,
+          "witnesses": [
+            {
+              "home": "iona",
+              "traveller": "self:2",
+              "shared": [
+                "episode:1"
+              ],
+              "returned": "episode:3"
+            }
+          ],
+          "learningCivicHouse": false,
+          "successionWithContribution": false,
+          "contributionEpisodes": []
+        }
+      },
+      {
+        "action": {
+          "a": "iona",
+          "b": "executor",
+          "context": {
+            "operation": "teach",
+            "method": "shadow-score"
+          }
+        },
+        "message": "Shared selected methods and attributed accounts; firsthand biographies remain distinct.",
+        "goals": {
+          "workingHouse": false,
+          "twoContinuingLives": true,
+          "experienceReturned": true,
+          "witnesses": [
+            {
+              "home": "iona",
+              "traveller": "self:2",
+              "shared": [
+                "episode:1"
+              ],
+              "returned": "episode:3"
+            }
+          ],
+          "learningCivicHouse": false,
+          "successionWithContribution": false,
+          "contributionEpisodes": []
+        }
+      },
+      {
+        "action": {
+          "a": "executor",
+          "b": "performance",
+          "context": {
+            "operation": "enact"
+          }
+        },
+        "message": "Installed caretaker enacted episode:5: shade=open, shade=spread, shade=spread, shade=open",
+        "goals": {
+          "workingHouse": false,
+          "twoContinuingLives": true,
+          "experienceReturned": true,
+          "witnesses": [
+            {
+              "home": "iona",
+              "traveller": "self:2",
+              "shared": [
+                "episode:1"
+              ],
+              "returned": "episode:3"
+            }
+          ],
+          "learningCivicHouse": false,
+          "successionWithContribution": true,
+          "contributionEpisodes": [
+            "episode:5"
+          ]
+        }
+      },
+      {
+        "action": {
+          "a": "executor",
+          "b": "care-suite",
+          "context": {
+            "operation": "enact"
+          }
+        },
+        "message": "Installed caretaker enacted episode:6: rest-light=dark, work-light=lit, shade=spread, shade=open",
+        "goals": {
+          "workingHouse": true,
+          "twoContinuingLives": true,
+          "experienceReturned": true,
+          "witnesses": [
+            {
+              "home": "iona",
+              "traveller": "self:2",
+              "shared": [
+                "episode:1"
+              ],
+              "returned": "episode:3"
+            }
+          ],
+          "learningCivicHouse": true,
+          "successionWithContribution": true,
+          "contributionEpisodes": [
+            "episode:5"
+          ]
+        }
+      }
+    ],
+    "moves": 18,
+    "complete": true
+  },
+  "complete": {
+    "state": {
+      "roles": [
+        {
+          "from": "iona",
+          "to": "executor",
+          "at": 10
+        }
+      ],
+      "requests": [],
+      "version": "ideas-history-lives-campaign-1",
+      "condition": "complete",
+      "known": [
+        "longevity",
+        "living-archives",
+        "anti-domination",
+        "adaptive-minds",
+        "reciprocal-education",
+        "copyable-minds",
+        "adoption",
+        "revisable-promises",
+        "restorative-practice",
+        "enduring-witnesses",
+        "succession",
+        "apprentices",
+        "unowned",
+        "kinship",
+        "constellations",
+        "reunion"
+      ],
+      "methods": [
+        {
+          "id": "roof-care",
+          "label": "Care for changing sky",
+          "clauses": [
+            {
+              "cue": "glare",
+              "device": "shade",
+              "value": "spread"
+            },
+            {
+              "cue": "cloud",
+              "device": "shade",
+              "value": "open"
+            }
+          ]
+        },
+        {
+          "id": "rest-care",
+          "label": "Resting room care",
+          "clauses": [
+            {
+              "cue": "rest",
+              "device": "rest-light",
+              "value": "dark"
+            }
+          ]
+        },
+        {
+          "id": "work-care",
+          "label": "Making room care",
+          "clauses": [
+            {
+              "cue": "make",
+              "device": "work-light",
+              "value": "lit"
+            }
+          ]
+        },
+        {
+          "id": "shadow-score",
+          "label": "Opening and closing light score",
+          "clauses": [
+            {
+              "cue": "begin",
+              "device": "shade",
+              "value": "open"
+            },
+            {
+              "cue": "accent",
+              "device": "shade",
+              "value": "spread"
+            },
+            {
+              "cue": "release",
+              "device": "shade",
+              "value": "open"
+            }
+          ]
+        }
+      ],
+      "actors": [
+        {
+          "id": "iona",
+          "label": "Iona",
+          "lineage": "iona",
+          "location": "house",
+          "itinerary": "house",
+          "methods": [
+            "roof-care",
+            "rest-care",
+            "work-care",
+            "shadow-score"
+          ],
+          "lived": [
+            "episode:1",
+            "episode:4"
+          ],
+          "accounts": [
+            "episode:3"
+          ],
+          "active": true,
+          "learner": true,
+          "civic": false,
+          "mandate": [
+            "house",
+            "weather",
+            "score"
+          ]
+        },
+        {
+          "id": "executor",
+          "label": "Installed caretaker",
+          "lineage": "executor",
+          "location": "house",
+          "itinerary": "house",
+          "methods": [
+            "roof-care",
+            "rest-care",
+            "work-care",
+            "shadow-score"
+          ],
+          "lived": [
+            "episode:5",
+            "episode:6"
+          ],
+          "accounts": [
+            "episode:1",
+            "episode:4",
+            "episode:3"
+          ],
+          "active": true,
+          "learner": true,
+          "civic": true,
+          "mandate": [
+            "house",
+            "weather",
+            "score"
+          ]
+        },
+        {
+          "id": "teacher",
+          "label": "Ensemble teacher",
+          "lineage": "teacher",
+          "location": "ensemble",
+          "itinerary": "ensemble",
+          "methods": [
+            "shadow-score"
+          ],
+          "lived": [],
+          "accounts": [],
+          "active": true,
+          "learner": true,
+          "civic": false,
+          "mandate": [
+            "house",
+            "weather",
+            "score"
+          ]
+        },
+        {
+          "id": "steward",
+          "label": "Willing human steward",
+          "lineage": "steward",
+          "location": "house",
+          "itinerary": "house",
+          "methods": [
+            "roof-care",
+            "rest-care",
+            "work-care"
+          ],
+          "lived": [],
+          "accounts": [],
+          "active": true,
+          "learner": true,
+          "civic": false,
+          "mandate": [
+            "house",
+            "weather",
+            "score"
+          ]
+        },
+        {
+          "id": "self:2",
+          "label": "Iona’s continuing self self:2",
+          "lineage": "iona",
+          "location": "ensemble",
+          "itinerary": "ensemble",
+          "methods": [
+            "roof-care",
+            "rest-care",
+            "work-care",
+            "shadow-score"
+          ],
+          "lived": [
+            "episode:1",
+            "episode:3"
+          ],
+          "accounts": [],
+          "active": true,
+          "learner": true,
+          "civic": false,
+          "mandate": [
+            "house",
+            "weather",
+            "score"
+          ]
+        }
+      ],
+      "episodes": [
+        {
+          "id": "episode:1",
+          "actor": "iona",
+          "location": "house",
+          "event": "care-suite",
+          "methodIds": [
+            "roof-care",
+            "rest-care",
+            "work-care"
+          ],
+          "outputs": [
+            {
+              "cue": "rest",
+              "device": "rest-light",
+              "value": "dark"
+            },
+            {
+              "cue": "make",
+              "device": "work-light",
+              "value": "lit"
+            },
+            {
+              "cue": "glare",
+              "device": "shade",
+              "value": "spread"
+            },
+            {
+              "cue": "cloud",
+              "device": "shade",
+              "value": "open"
+            }
+          ],
+          "at": 1
+        },
+        {
+          "id": "episode:3",
+          "actor": "self:2",
+          "location": "ensemble",
+          "event": "performance",
+          "methodIds": [
+            "roof-care",
+            "rest-care",
+            "work-care",
+            "shadow-score"
+          ],
+          "outputs": [
+            {
+              "cue": "begin",
+              "device": "shade",
+              "value": "open"
+            },
+            {
+              "cue": "accent",
+              "device": "shade",
+              "value": "spread"
+            },
+            {
+              "cue": "accent",
+              "device": "shade",
+              "value": "spread"
+            },
+            {
+              "cue": "release",
+              "device": "shade",
+              "value": "open"
+            }
+          ],
+          "at": 5
+        },
+        {
+          "id": "episode:4",
+          "actor": "iona",
+          "location": "house",
+          "event": "performance",
+          "methodIds": [
+            "roof-care",
+            "rest-care",
+            "work-care",
+            "shadow-score"
+          ],
+          "outputs": [
+            {
+              "cue": "begin",
+              "device": "shade",
+              "value": "open"
+            },
+            {
+              "cue": "accent",
+              "device": "shade",
+              "value": "spread"
+            },
+            {
+              "cue": "accent",
+              "device": "shade",
+              "value": "spread"
+            },
+            {
+              "cue": "release",
+              "device": "shade",
+              "value": "open"
+            }
+          ],
+          "at": 7
+        },
+        {
+          "id": "episode:5",
+          "actor": "executor",
+          "location": "house",
+          "event": "performance",
+          "methodIds": [
+            "roof-care",
+            "rest-care",
+            "work-care",
+            "shadow-score"
+          ],
+          "outputs": [
+            {
+              "cue": "begin",
+              "device": "shade",
+              "value": "open"
+            },
+            {
+              "cue": "accent",
+              "device": "shade",
+              "value": "spread"
+            },
+            {
+              "cue": "accent",
+              "device": "shade",
+              "value": "spread"
+            },
+            {
+              "cue": "release",
+              "device": "shade",
+              "value": "open"
+            }
+          ],
+          "at": 12
+        },
+        {
+          "id": "episode:6",
+          "actor": "executor",
+          "location": "house",
+          "event": "care-suite",
+          "methodIds": [
+            "roof-care",
+            "rest-care",
+            "work-care",
+            "shadow-score"
+          ],
+          "outputs": [
+            {
+              "cue": "rest",
+              "device": "rest-light",
+              "value": "dark"
+            },
+            {
+              "cue": "make",
+              "device": "work-light",
+              "value": "lit"
+            },
+            {
+              "cue": "glare",
+              "device": "shade",
+              "value": "spread"
+            },
+            {
+              "cue": "cloud",
+              "device": "shade",
+              "value": "open"
+            }
+          ],
+          "at": 13
+        }
+      ],
+      "forks": [
+        {
+          "parent": "iona",
+          "child": "self:2",
+          "shared": [
+            "episode:1"
+          ],
+          "at": 2
+        }
+      ],
+      "transfers": [
+        {
+          "from": "self:2",
+          "to": "iona",
+          "methods": [
+            "shadow-score"
+          ],
+          "accounts": [
+            "episode:1",
+            "episode:3"
+          ],
+          "at": 6
+        },
+        {
+          "from": "iona",
+          "to": "executor",
+          "methods": [
+            "shadow-score"
+          ],
+          "accounts": [
+            "episode:1",
+            "episode:4",
+            "episode:3"
+          ],
+          "at": 11
+        }
+      ],
+      "devices": {
+        "house": {
+          "shade": "open",
+          "rest-light": "dark",
+          "work-light": "lit"
+        },
+        "ensemble": {
+          "shade": "open"
+        }
+      },
+      "keeper": "executor",
+      "moves": 13,
+      "serial": 7,
+      "history": [
+        {
+          "a": "iona",
+          "b": "care-suite",
+          "context": {
+            "operation": "enact"
+          }
+        },
+        {
+          "a": "kinship",
+          "b": "iona"
+        },
+        {
+          "a": "self:2",
+          "b": "ensemble",
+          "context": {
+            "operation": "travel"
+          }
+        },
+        {
+          "a": "self:2",
+          "b": "shadow-score",
+          "context": {
+            "operation": "learn"
+          }
+        },
+        {
+          "a": "self:2",
+          "b": "performance",
+          "context": {
+            "operation": "enact"
+          }
+        },
+        {
+          "a": "self:2",
+          "b": "iona",
+          "context": {
+            "operation": "teach",
+            "method": "shadow-score"
+          }
+        },
+        {
+          "a": "iona",
+          "b": "performance",
+          "context": {
+            "operation": "enact"
+          }
+        },
+        {
+          "a": "apprentices",
+          "b": "executor"
+        },
+        {
+          "a": "unowned",
+          "b": "executor",
+          "context": {
+            "domains": [
+              "house",
+              "weather",
+              "score"
+            ]
+          }
+        },
+        {
+          "a": "house-role",
+          "b": "executor",
+          "context": {
+            "operation": "succeed"
+          }
+        },
+        {
+          "a": "iona",
+          "b": "executor",
+          "context": {
+            "operation": "teach",
+            "method": "shadow-score"
+          }
+        },
+        {
+          "a": "executor",
+          "b": "performance",
+          "context": {
+            "operation": "enact"
+          }
+        },
+        {
+          "a": "executor",
+          "b": "care-suite",
+          "context": {
+            "operation": "enact"
+          }
+        }
+      ]
+    },
+    "steps": [
+      {
+        "action": {
+          "a": "iona",
+          "b": "care-suite",
+          "context": {
+            "operation": "enact"
+          }
+        },
+        "message": "Iona enacted episode:1: rest-light=dark, work-light=lit, shade=spread, shade=open",
+        "goals": {
+          "workingHouse": true,
+          "twoContinuingLives": false,
+          "experienceReturned": false,
+          "witnesses": [],
+          "learningCivicHouse": false,
+          "successionWithContribution": false,
+          "contributionEpisodes": []
+        }
+      },
+      {
+        "action": {
+          "a": "kinship",
+          "b": "iona"
+        },
+        "message": "Created self:2 with shared past; no office copied. Its chosen itinerary is ensemble; travel/enact it to live it.",
+        "goals": {
+          "workingHouse": true,
+          "twoContinuingLives": false,
+          "experienceReturned": false,
+          "witnesses": [],
+          "learningCivicHouse": false,
+          "successionWithContribution": false,
+          "contributionEpisodes": []
+        }
+      },
+      {
+        "action": {
+          "a": "self:2",
+          "b": "ensemble",
+          "context": {
+            "operation": "travel"
+          }
+        },
+        "message": "Iona’s continuing self self:2 continues their chosen ensemble itinerary; memories and role survive.",
+        "goals": {
+          "workingHouse": true,
+          "twoContinuingLives": false,
+          "experienceReturned": false,
+          "witnesses": [],
+          "learningCivicHouse": false,
+          "successionWithContribution": false,
+          "contributionEpisodes": []
+        }
+      },
+      {
+        "action": {
+          "a": "self:2",
+          "b": "shadow-score",
+          "context": {
+            "operation": "learn"
+          }
+        },
+        "message": "Iona’s continuing self self:2 learned Opening and closing light score from its public mapping; no personal episode fabricated.",
+        "goals": {
+          "workingHouse": true,
+          "twoContinuingLives": false,
+          "experienceReturned": false,
+          "witnesses": [],
+          "learningCivicHouse": false,
+          "successionWithContribution": false,
+          "contributionEpisodes": []
+        }
+      },
+      {
+        "action": {
+          "a": "self:2",
+          "b": "performance",
+          "context": {
+            "operation": "enact"
+          }
+        },
+        "message": "Iona’s continuing self self:2 enacted episode:3: shade=open, shade=spread, shade=spread, shade=open",
+        "goals": {
+          "workingHouse": true,
+          "twoContinuingLives": false,
+          "experienceReturned": false,
+          "witnesses": [],
+          "learningCivicHouse": false,
+          "successionWithContribution": false,
+          "contributionEpisodes": []
+        }
+      },
+      {
+        "action": {
+          "a": "self:2",
+          "b": "iona",
+          "context": {
+            "operation": "teach",
+            "method": "shadow-score"
+          }
+        },
+        "message": "Shared selected methods and attributed accounts; firsthand biographies remain distinct.",
+        "goals": {
+          "workingHouse": true,
+          "twoContinuingLives": false,
+          "experienceReturned": false,
+          "witnesses": [],
+          "learningCivicHouse": false,
+          "successionWithContribution": false,
+          "contributionEpisodes": []
+        }
+      },
+      {
+        "action": {
+          "a": "iona",
+          "b": "performance",
+          "context": {
+            "operation": "enact"
+          }
+        },
+        "message": "Iona enacted episode:4: shade=open, shade=spread, shade=spread, shade=open",
+        "goals": {
+          "workingHouse": true,
+          "twoContinuingLives": true,
+          "experienceReturned": true,
+          "witnesses": [
+            {
+              "home": "iona",
+              "traveller": "self:2",
+              "shared": [
+                "episode:1"
+              ],
+              "returned": "episode:3"
+            }
+          ],
+          "learningCivicHouse": false,
+          "successionWithContribution": false,
+          "contributionEpisodes": []
+        }
+      },
+      {
+        "action": {
+          "a": "apprentices",
+          "b": "executor"
+        },
+        "message": "Installed caretaker can now learn and accept service mandates.",
+        "goals": {
+          "workingHouse": true,
+          "twoContinuingLives": true,
+          "experienceReturned": true,
+          "witnesses": [
+            {
+              "home": "iona",
+              "traveller": "self:2",
+              "shared": [
+                "episode:1"
+              ],
+              "returned": "episode:3"
+            }
+          ],
+          "learningCivicHouse": false,
+          "successionWithContribution": false,
+          "contributionEpisodes": []
+        }
+      },
+      {
+        "action": {
+          "a": "unowned",
+          "b": "executor",
+          "context": {
+            "domains": [
+              "house",
+              "weather",
+              "score"
+            ]
+          }
+        },
+        "message": "Installed caretaker accepts a resident mandate for house, weather, score, retaining learned maintenance.",
+        "goals": {
+          "workingHouse": true,
+          "twoContinuingLives": true,
+          "experienceReturned": true,
+          "witnesses": [
+            {
+              "home": "iona",
+              "traveller": "self:2",
+              "shared": [
+                "episode:1"
+              ],
+              "returned": "episode:3"
+            }
+          ],
+          "learningCivicHouse": false,
+          "successionWithContribution": false,
+          "contributionEpisodes": []
+        }
+      },
+      {
+        "action": {
+          "a": "house-role",
+          "b": "executor",
+          "context": {
+            "operation": "succeed"
+          }
+        },
+        "message": "House requests now go to Installed caretaker; former holder persists.",
+        "goals": {
+          "workingHouse": false,
+          "twoContinuingLives": true,
+          "experienceReturned": true,
+          "witnesses": [
+            {
+              "home": "iona",
+              "traveller": "self:2",
+              "shared": [
+                "episode:1"
+              ],
+              "returned": "episode:3"
+            }
+          ],
+          "learningCivicHouse": false,
+          "successionWithContribution": false,
+          "contributionEpisodes": []
+        }
+      },
+      {
+        "action": {
+          "a": "iona",
+          "b": "executor",
+          "context": {
+            "operation": "teach",
+            "method": "shadow-score"
+          }
+        },
+        "message": "Shared selected methods and attributed accounts; firsthand biographies remain distinct.",
+        "goals": {
+          "workingHouse": false,
+          "twoContinuingLives": true,
+          "experienceReturned": true,
+          "witnesses": [
+            {
+              "home": "iona",
+              "traveller": "self:2",
+              "shared": [
+                "episode:1"
+              ],
+              "returned": "episode:3"
+            }
+          ],
+          "learningCivicHouse": false,
+          "successionWithContribution": false,
+          "contributionEpisodes": []
+        }
+      },
+      {
+        "action": {
+          "a": "executor",
+          "b": "performance",
+          "context": {
+            "operation": "enact"
+          }
+        },
+        "message": "Installed caretaker enacted episode:5: shade=open, shade=spread, shade=spread, shade=open",
+        "goals": {
+          "workingHouse": false,
+          "twoContinuingLives": true,
+          "experienceReturned": true,
+          "witnesses": [
+            {
+              "home": "iona",
+              "traveller": "self:2",
+              "shared": [
+                "episode:1"
+              ],
+              "returned": "episode:3"
+            }
+          ],
+          "learningCivicHouse": false,
+          "successionWithContribution": true,
+          "contributionEpisodes": [
+            "episode:5"
+          ]
+        }
+      },
+      {
+        "action": {
+          "a": "executor",
+          "b": "care-suite",
+          "context": {
+            "operation": "enact"
+          }
+        },
+        "message": "Installed caretaker enacted episode:6: rest-light=dark, work-light=lit, shade=spread, shade=open",
+        "goals": {
+          "workingHouse": true,
+          "twoContinuingLives": true,
+          "experienceReturned": true,
+          "witnesses": [
+            {
+              "home": "iona",
+              "traveller": "self:2",
+              "shared": [
+                "episode:1"
+              ],
+              "returned": "episode:3"
+            }
+          ],
+          "learningCivicHouse": true,
+          "successionWithContribution": true,
+          "contributionEpisodes": [
+            "episode:5"
+          ]
+        }
+      }
+    ],
+    "moves": 13,
+    "complete": true
+  },
+  "reunionAndWitness": {
+    "state": {
+      "roles": [
+        {
+          "from": "iona",
+          "to": "executor",
+          "at": 16
+        }
+      ],
+      "requests": [],
+      "version": "ideas-history-lives-campaign-1",
+      "condition": "normal",
+      "known": [
+        "longevity",
+        "living-archives",
+        "anti-domination",
+        "adaptive-minds",
+        "reciprocal-education",
+        "copyable-minds",
+        "adoption",
+        "revisable-promises",
+        "restorative-practice",
+        "kinship",
+        "reunion",
+        "enduring-witnesses",
+        "succession",
+        "apprentices",
+        "unowned"
+      ],
+      "methods": [
+        {
+          "id": "roof-care",
+          "label": "Care for changing sky",
+          "clauses": [
+            {
+              "cue": "glare",
+              "device": "shade",
+              "value": "spread"
+            },
+            {
+              "cue": "cloud",
+              "device": "shade",
+              "value": "open"
+            }
+          ]
+        },
+        {
+          "id": "rest-care",
+          "label": "Resting room care",
+          "clauses": [
+            {
+              "cue": "rest",
+              "device": "rest-light",
+              "value": "dark"
+            }
+          ]
+        },
+        {
+          "id": "work-care",
+          "label": "Making room care",
+          "clauses": [
+            {
+              "cue": "make",
+              "device": "work-light",
+              "value": "lit"
+            }
+          ]
+        },
+        {
+          "id": "shadow-score",
+          "label": "Opening and closing light score",
+          "clauses": [
+            {
+              "cue": "begin",
+              "device": "shade",
+              "value": "open"
+            },
+            {
+              "cue": "accent",
+              "device": "shade",
+              "value": "spread"
+            },
+            {
+              "cue": "release",
+              "device": "shade",
+              "value": "open"
+            }
+          ]
+        }
+      ],
+      "actors": [
+        {
+          "id": "iona",
+          "label": "Iona",
+          "lineage": "iona",
+          "location": "house",
+          "itinerary": "house",
+          "methods": [
+            "roof-care",
+            "rest-care",
+            "work-care",
+            "shadow-score"
+          ],
+          "lived": [
+            "episode:1",
+            "episode:4"
+          ],
+          "accounts": [
+            "episode:3"
+          ],
+          "active": true,
+          "learner": true,
+          "civic": false,
+          "mandate": [
+            "house",
+            "weather",
+            "score"
+          ]
+        },
+        {
+          "id": "executor",
+          "label": "Installed caretaker",
+          "lineage": "executor",
+          "location": "house",
+          "itinerary": "house",
+          "methods": [
+            "roof-care",
+            "rest-care",
+            "work-care",
+            "shadow-score"
+          ],
+          "lived": [
+            "episode:5",
+            "episode:6"
+          ],
+          "accounts": [
+            "episode:1",
+            "episode:4"
+          ],
+          "active": true,
+          "learner": true,
+          "civic": true,
+          "mandate": [
+            "house",
+            "weather",
+            "score"
+          ]
+        },
+        {
+          "id": "teacher",
+          "label": "Ensemble teacher",
+          "lineage": "teacher",
+          "location": "ensemble",
+          "itinerary": "ensemble",
+          "methods": [
+            "shadow-score"
+          ],
+          "lived": [],
+          "accounts": [],
+          "active": true,
+          "learner": true,
+          "civic": false,
+          "mandate": [
+            "house",
+            "weather",
+            "score"
+          ]
+        },
+        {
+          "id": "steward",
+          "label": "Willing human steward",
+          "lineage": "steward",
+          "location": "house",
+          "itinerary": "house",
+          "methods": [
+            "roof-care",
+            "rest-care",
+            "work-care"
+          ],
+          "lived": [],
+          "accounts": [],
+          "active": true,
+          "learner": true,
+          "civic": false,
+          "mandate": [
+            "house",
+            "weather",
+            "score"
+          ]
+        },
+        {
+          "id": "self:2",
+          "label": "Iona’s continuing self self:2",
+          "lineage": "iona",
+          "location": "ensemble",
+          "itinerary": "ensemble",
+          "methods": [
+            "roof-care",
+            "rest-care",
+            "work-care",
+            "shadow-score"
+          ],
+          "lived": [
+            "episode:1",
+            "episode:3"
+          ],
+          "accounts": [],
+          "active": true,
+          "learner": true,
+          "civic": false,
+          "mandate": [
+            "house",
+            "weather",
+            "score"
+          ]
+        }
+      ],
+      "episodes": [
+        {
+          "id": "episode:1",
+          "actor": "iona",
+          "location": "house",
+          "event": "care-suite",
+          "methodIds": [
+            "roof-care",
+            "rest-care",
+            "work-care"
+          ],
+          "outputs": [
+            {
+              "cue": "rest",
+              "device": "rest-light",
+              "value": "dark"
+            },
+            {
+              "cue": "make",
+              "device": "work-light",
+              "value": "lit"
+            },
+            {
+              "cue": "glare",
+              "device": "shade",
+              "value": "spread"
+            },
+            {
+              "cue": "cloud",
+              "device": "shade",
+              "value": "open"
+            }
+          ],
+          "at": 1
+        },
+        {
+          "id": "episode:3",
+          "actor": "self:2",
+          "location": "ensemble",
+          "event": "performance",
+          "methodIds": [
+            "roof-care",
+            "rest-care",
+            "work-care",
+            "shadow-score"
+          ],
+          "outputs": [
+            {
+              "cue": "begin",
+              "device": "shade",
+              "value": "open"
+            },
+            {
+              "cue": "accent",
+              "device": "shade",
+              "value": "spread"
+            },
+            {
+              "cue": "accent",
+              "device": "shade",
+              "value": "spread"
+            },
+            {
+              "cue": "release",
+              "device": "shade",
+              "value": "open"
+            }
+          ],
+          "at": 6
+        },
+        {
+          "id": "episode:4",
+          "actor": "iona",
+          "location": "house",
+          "event": "performance",
+          "methodIds": [
+            "roof-care",
+            "rest-care",
+            "work-care",
+            "shadow-score"
+          ],
+          "outputs": [
+            {
+              "cue": "begin",
+              "device": "shade",
+              "value": "open"
+            },
+            {
+              "cue": "accent",
+              "device": "shade",
+              "value": "spread"
+            },
+            {
+              "cue": "accent",
+              "device": "shade",
+              "value": "spread"
+            },
+            {
+              "cue": "release",
+              "device": "shade",
+              "value": "open"
+            }
+          ],
+          "at": 9
+        },
+        {
+          "id": "episode:5",
+          "actor": "executor",
+          "location": "house",
+          "event": "performance",
+          "methodIds": [
+            "roof-care",
+            "rest-care",
+            "work-care",
+            "shadow-score"
+          ],
+          "outputs": [
+            {
+              "cue": "begin",
+              "device": "shade",
+              "value": "open"
+            },
+            {
+              "cue": "accent",
+              "device": "shade",
+              "value": "spread"
+            },
+            {
+              "cue": "accent",
+              "device": "shade",
+              "value": "spread"
+            },
+            {
+              "cue": "release",
+              "device": "shade",
+              "value": "open"
+            }
+          ],
+          "at": 18
+        },
+        {
+          "id": "episode:6",
+          "actor": "executor",
+          "location": "house",
+          "event": "care-suite",
+          "methodIds": [
+            "roof-care",
+            "rest-care",
+            "work-care",
+            "shadow-score"
+          ],
+          "outputs": [
+            {
+              "cue": "rest",
+              "device": "rest-light",
+              "value": "dark"
+            },
+            {
+              "cue": "make",
+              "device": "work-light",
+              "value": "lit"
+            },
+            {
+              "cue": "glare",
+              "device": "shade",
+              "value": "spread"
+            },
+            {
+              "cue": "cloud",
+              "device": "shade",
+              "value": "open"
+            }
+          ],
+          "at": 19
+        }
+      ],
+      "forks": [
+        {
+          "parent": "iona",
+          "child": "self:2",
+          "shared": [
+            "episode:1"
+          ],
+          "at": 3
+        }
+      ],
+      "transfers": [
+        {
+          "from": "self:2",
+          "to": "iona",
+          "methods": [
+            "shadow-score"
+          ],
+          "accounts": [
+            "episode:1",
+            "episode:3"
+          ],
+          "at": 8
+        },
+        {
+          "from": "iona",
+          "to": "executor",
+          "methods": [
+            "shadow-score"
+          ],
+          "accounts": [
+            "episode:1",
+            "episode:4"
+          ],
+          "at": 17
+        }
+      ],
+      "devices": {
+        "house": {
+          "shade": "open",
+          "rest-light": "dark",
+          "work-light": "lit"
+        },
+        "ensemble": {
+          "shade": "open"
+        }
+      },
+      "keeper": "executor",
+      "moves": 19,
+      "serial": 7,
+      "history": [
+        {
+          "a": "iona",
+          "b": "care-suite",
+          "context": {
+            "operation": "enact"
+          }
+        },
+        {
+          "a": "copyable-minds",
+          "b": "adoption"
+        },
+        {
+          "a": "kinship",
+          "b": "iona"
+        },
+        {
+          "a": "self:2",
+          "b": "ensemble",
+          "context": {
+            "operation": "travel"
+          }
+        },
+        {
+          "a": "self:2",
+          "b": "shadow-score",
+          "context": {
+            "operation": "learn"
+          }
+        },
+        {
+          "a": "self:2",
+          "b": "performance",
+          "context": {
+            "operation": "enact"
+          }
+        },
+        {
+          "a": "kinship",
+          "b": "restorative-practice"
+        },
+        {
+          "a": "reunion",
+          "b": "self:2",
+          "context": {
+            "recipient": "iona",
+            "method": "shadow-score"
+          }
+        },
+        {
+          "a": "iona",
+          "b": "performance",
+          "context": {
+            "operation": "enact"
+          }
+        },
+        {
+          "a": "longevity",
+          "b": "living-archives"
+        },
+        {
+          "a": "enduring-witnesses",
+          "b": "anti-domination"
+        },
+        {
+          "a": "adaptive-minds",
+          "b": "reciprocal-education"
+        },
+        {
+          "a": "apprentices",
+          "b": "succession"
+        },
+        {
+          "a": "apprentices",
+          "b": "executor"
+        },
+        {
+          "a": "unowned",
+          "b": "executor",
+          "context": {
+            "domains": [
+              "house",
+              "weather",
+              "score"
+            ]
+          }
+        },
+        {
+          "a": "house-role",
+          "b": "executor",
+          "context": {
+            "operation": "succeed"
+          }
+        },
+        {
+          "a": "enduring-witnesses",
+          "b": "iona",
+          "context": {
+            "recipient": "executor",
+            "method": "shadow-score"
+          }
+        },
+        {
+          "a": "executor",
+          "b": "performance",
+          "context": {
+            "operation": "enact"
+          }
+        },
+        {
+          "a": "executor",
+          "b": "care-suite",
+          "context": {
+            "operation": "enact"
+          }
+        }
+      ]
+    },
+    "steps": [
+      {
+        "action": {
+          "a": "iona",
+          "b": "care-suite",
+          "context": {
+            "operation": "enact"
+          }
+        },
+        "message": "Iona enacted episode:1: rest-light=dark, work-light=lit, shade=spread, shade=open",
+        "goals": {
+          "workingHouse": true,
+          "twoContinuingLives": false,
+          "experienceReturned": false,
+          "witnesses": [],
+          "learningCivicHouse": false,
+          "successionWithContribution": false,
+          "contributionEpisodes": []
+        }
+      },
+      {
+        "action": {
+          "a": "copyable-minds",
+          "b": "adoption"
+        },
+        "message": "Fork Kinship is now a reusable capability: Create another consenting continuing self with the actual experienced past and repertoire, but no automatic office.",
+        "goals": {
+          "workingHouse": true,
+          "twoContinuingLives": false,
+          "experienceReturned": false,
+          "witnesses": [],
+          "learningCivicHouse": false,
+          "successionWithContribution": false,
+          "contributionEpisodes": []
+        }
+      },
+      {
+        "action": {
+          "a": "kinship",
+          "b": "iona"
+        },
+        "message": "Created self:2 with shared past; no office copied. Its chosen itinerary is ensemble; travel/enact it to live it.",
+        "goals": {
+          "workingHouse": true,
+          "twoContinuingLives": false,
+          "experienceReturned": false,
+          "witnesses": [],
+          "learningCivicHouse": false,
+          "successionWithContribution": false,
+          "contributionEpisodes": []
+        }
+      },
+      {
+        "action": {
+          "a": "self:2",
+          "b": "ensemble",
+          "context": {
+            "operation": "travel"
+          }
+        },
+        "message": "Iona’s continuing self self:2 continues their chosen ensemble itinerary; memories and role survive.",
+        "goals": {
+          "workingHouse": true,
+          "twoContinuingLives": false,
+          "experienceReturned": false,
+          "witnesses": [],
+          "learningCivicHouse": false,
+          "successionWithContribution": false,
+          "contributionEpisodes": []
+        }
+      },
+      {
+        "action": {
+          "a": "self:2",
+          "b": "shadow-score",
+          "context": {
+            "operation": "learn"
+          }
+        },
+        "message": "Iona’s continuing self self:2 learned Opening and closing light score from its public mapping; no personal episode fabricated.",
+        "goals": {
+          "workingHouse": true,
+          "twoContinuingLives": false,
+          "experienceReturned": false,
+          "witnesses": [],
+          "learningCivicHouse": false,
+          "successionWithContribution": false,
+          "contributionEpisodes": []
+        }
+      },
+      {
+        "action": {
+          "a": "self:2",
+          "b": "performance",
+          "context": {
+            "operation": "enact"
+          }
+        },
+        "message": "Iona’s continuing self self:2 enacted episode:3: shade=open, shade=spread, shade=spread, shade=open",
+        "goals": {
+          "workingHouse": true,
+          "twoContinuingLives": false,
+          "experienceReturned": false,
+          "witnesses": [],
+          "learningCivicHouse": false,
+          "successionWithContribution": false,
+          "contributionEpisodes": []
+        }
+      },
+      {
+        "action": {
+          "a": "kinship",
+          "b": "restorative-practice"
+        },
+        "message": "Reunion Without Erasure is now a reusable capability: Share methods and attributed accounts without merging lives, itineraries or firsthand memories.",
+        "goals": {
+          "workingHouse": true,
+          "twoContinuingLives": false,
+          "experienceReturned": false,
+          "witnesses": [],
+          "learningCivicHouse": false,
+          "successionWithContribution": false,
+          "contributionEpisodes": []
+        }
+      },
+      {
+        "action": {
+          "a": "reunion",
+          "b": "self:2",
+          "context": {
+            "recipient": "iona",
+            "method": "shadow-score"
+          }
+        },
+        "message": "Reunion shared methods/accounts without moving, merging or overwriting the selves.",
+        "goals": {
+          "workingHouse": true,
+          "twoContinuingLives": false,
+          "experienceReturned": false,
+          "witnesses": [],
+          "learningCivicHouse": false,
+          "successionWithContribution": false,
+          "contributionEpisodes": []
+        }
+      },
+      {
+        "action": {
+          "a": "iona",
+          "b": "performance",
+          "context": {
+            "operation": "enact"
+          }
+        },
+        "message": "Iona enacted episode:4: shade=open, shade=spread, shade=spread, shade=open",
+        "goals": {
+          "workingHouse": true,
+          "twoContinuingLives": true,
+          "experienceReturned": true,
+          "witnesses": [
+            {
+              "home": "iona",
+              "traveller": "self:2",
+              "shared": [
+                "episode:1"
+              ],
+              "returned": "episode:3"
+            }
+          ],
+          "learningCivicHouse": false,
+          "successionWithContribution": false,
+          "contributionEpisodes": []
+        }
+      },
+      {
+        "action": {
+          "a": "longevity",
+          "b": "living-archives"
+        },
+        "message": "Enduring Witnesses is now a reusable capability: Expose a living actor’s actual episodes as reusable demonstrations without removing the actor.",
+        "goals": {
+          "workingHouse": true,
+          "twoContinuingLives": true,
+          "experienceReturned": true,
+          "witnesses": [
+            {
+              "home": "iona",
+              "traveller": "self:2",
+              "shared": [
+                "episode:1"
+              ],
+              "returned": "episode:3"
+            }
+          ],
+          "learningCivicHouse": false,
+          "successionWithContribution": false,
+          "contributionEpisodes": []
+        }
+      },
+      {
+        "action": {
+          "a": "enduring-witnesses",
+          "b": "anti-domination"
+        },
+        "message": "Succession Without Death is now a reusable capability: Transfer an actual house role while preserving the former holder and their methods/experience.",
+        "goals": {
+          "workingHouse": true,
+          "twoContinuingLives": true,
+          "experienceReturned": true,
+          "witnesses": [
+            {
+              "home": "iona",
+              "traveller": "self:2",
+              "shared": [
+                "episode:1"
+              ],
+              "returned": "episode:3"
+            }
+          ],
+          "learningCivicHouse": false,
+          "successionWithContribution": false,
+          "contributionEpisodes": []
+        }
+      },
+      {
+        "action": {
+          "a": "adaptive-minds",
+          "b": "reciprocal-education"
+        },
+        "message": "Constitutional Apprentices is now a reusable capability: An executor becomes a learning actor that can accept declared service mandates.",
+        "goals": {
+          "workingHouse": true,
+          "twoContinuingLives": true,
+          "experienceReturned": true,
+          "witnesses": [
+            {
+              "home": "iona",
+              "traveller": "self:2",
+              "shared": [
+                "episode:1"
+              ],
+              "returned": "episode:3"
+            }
+          ],
+          "learningCivicHouse": false,
+          "successionWithContribution": false,
+          "contributionEpisodes": []
+        }
+      },
+      {
+        "action": {
+          "a": "apprentices",
+          "b": "succession"
+        },
+        "message": "Unowned Infrastructure is now a reusable capability: Bind learned maintenance to a resident mandate, not an installer’s unrelated commands.",
+        "goals": {
+          "workingHouse": true,
+          "twoContinuingLives": true,
+          "experienceReturned": true,
+          "witnesses": [
+            {
+              "home": "iona",
+              "traveller": "self:2",
+              "shared": [
+                "episode:1"
+              ],
+              "returned": "episode:3"
+            }
+          ],
+          "learningCivicHouse": false,
+          "successionWithContribution": false,
+          "contributionEpisodes": []
+        }
+      },
+      {
+        "action": {
+          "a": "apprentices",
+          "b": "executor"
+        },
+        "message": "Installed caretaker can now learn and accept service mandates.",
+        "goals": {
+          "workingHouse": true,
+          "twoContinuingLives": true,
+          "experienceReturned": true,
+          "witnesses": [
+            {
+              "home": "iona",
+              "traveller": "self:2",
+              "shared": [
+                "episode:1"
+              ],
+              "returned": "episode:3"
+            }
+          ],
+          "learningCivicHouse": false,
+          "successionWithContribution": false,
+          "contributionEpisodes": []
+        }
+      },
+      {
+        "action": {
+          "a": "unowned",
+          "b": "executor",
+          "context": {
+            "domains": [
+              "house",
+              "weather",
+              "score"
+            ]
+          }
+        },
+        "message": "Installed caretaker accepts a resident mandate for house, weather, score, retaining learned maintenance.",
+        "goals": {
+          "workingHouse": true,
+          "twoContinuingLives": true,
+          "experienceReturned": true,
+          "witnesses": [
+            {
+              "home": "iona",
+              "traveller": "self:2",
+              "shared": [
+                "episode:1"
+              ],
+              "returned": "episode:3"
+            }
+          ],
+          "learningCivicHouse": false,
+          "successionWithContribution": false,
+          "contributionEpisodes": []
+        }
+      },
+      {
+        "action": {
+          "a": "house-role",
+          "b": "executor",
+          "context": {
+            "operation": "succeed"
+          }
+        },
+        "message": "House requests now go to Installed caretaker; former holder persists.",
+        "goals": {
+          "workingHouse": false,
+          "twoContinuingLives": true,
+          "experienceReturned": true,
+          "witnesses": [
+            {
+              "home": "iona",
+              "traveller": "self:2",
+              "shared": [
+                "episode:1"
+              ],
+              "returned": "episode:3"
+            }
+          ],
+          "learningCivicHouse": false,
+          "successionWithContribution": false,
+          "contributionEpisodes": []
+        }
+      },
+      {
+        "action": {
+          "a": "enduring-witnesses",
+          "b": "iona",
+          "context": {
+            "recipient": "executor",
+            "method": "shadow-score"
+          }
+        },
+        "message": "A living witness taught from actual episodes while retaining their current life.",
+        "goals": {
+          "workingHouse": false,
+          "twoContinuingLives": true,
+          "experienceReturned": true,
+          "witnesses": [
+            {
+              "home": "iona",
+              "traveller": "self:2",
+              "shared": [
+                "episode:1"
+              ],
+              "returned": "episode:3"
+            }
+          ],
+          "learningCivicHouse": false,
+          "successionWithContribution": false,
+          "contributionEpisodes": []
+        }
+      },
+      {
+        "action": {
+          "a": "executor",
+          "b": "performance",
+          "context": {
+            "operation": "enact"
+          }
+        },
+        "message": "Installed caretaker enacted episode:5: shade=open, shade=spread, shade=spread, shade=open",
+        "goals": {
+          "workingHouse": false,
+          "twoContinuingLives": true,
+          "experienceReturned": true,
+          "witnesses": [
+            {
+              "home": "iona",
+              "traveller": "self:2",
+              "shared": [
+                "episode:1"
+              ],
+              "returned": "episode:3"
+            }
+          ],
+          "learningCivicHouse": false,
+          "successionWithContribution": true,
+          "contributionEpisodes": [
+            "episode:5"
+          ]
+        }
+      },
+      {
+        "action": {
+          "a": "executor",
+          "b": "care-suite",
+          "context": {
+            "operation": "enact"
+          }
+        },
+        "message": "Installed caretaker enacted episode:6: rest-light=dark, work-light=lit, shade=spread, shade=open",
+        "goals": {
+          "workingHouse": true,
+          "twoContinuingLives": true,
+          "experienceReturned": true,
+          "witnesses": [
+            {
+              "home": "iona",
+              "traveller": "self:2",
+              "shared": [
+                "episode:1"
+              ],
+              "returned": "episode:3"
+            }
+          ],
+          "learningCivicHouse": true,
+          "successionWithContribution": true,
+          "contributionEpisodes": [
+            "episode:5"
+          ]
+        }
+      }
+    ],
+    "moves": 19,
+    "complete": true
+  }
+}
