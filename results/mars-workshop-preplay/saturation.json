@@ -1,0 +1,4604 @@
+{
+  "evidence": "One explicit counterexample to monotone add-everything success; not proof all saturation policies fail.",
+  "action": {
+    "type": "combine",
+    "a": "o:29",
+    "b": "foil"
+  },
+  "accepted": true,
+  "before": {
+    "goals": [
+      {
+        "id": "garden",
+        "title": "Bright protected garden",
+        "rows": [
+          "day"
+        ],
+        "requirement": "At bed, an actual rootbed is enclosed, illuminated and receiving clean water in the day row. Any construction satisfying those properties works.",
+        "map": "landing",
+        "checks": {
+          "a rootbed at bed is enclosed, illuminated, and clean-water-fed in every row": true
+        },
+        "current": true,
+        "achieved": true,
+        "firstIntervention": 8
+      },
+      {
+        "id": "signal",
+        "title": "First signal",
+        "rows": [
+          "day"
+        ],
+        "requirement": "The northern receiver has actually received the camp location through an optical event, and the bed garden is currently functioning. Both goals may complete together.",
+        "map": "landing",
+        "checks": {
+          "garden remains working": true,
+          "receiver has an actual optical record of bed": true
+        },
+        "current": true,
+        "achieved": true,
+        "firstIntervention": 11
+      }
+    ],
+    "world": {
+      "map": "landing",
+      "rows": [
+        {
+          "id": "day",
+          "sun": "east",
+          "dust": false,
+          "objects": [
+            {
+              "id": "o:29",
+              "place": "bed",
+              "parts": [
+                {
+                  "id": "p:31",
+                  "kind": "frame",
+                  "lit": true,
+                  "enclosed": false,
+                  "dustProtected": false,
+                  "air": true,
+                  "source": [
+                    "sun:day:ice"
+                  ]
+                },
+                {
+                  "id": "p:32",
+                  "kind": "clear-film",
+                  "lit": true,
+                  "enclosed": false,
+                  "dustProtected": false,
+                  "air": true,
+                  "source": [
+                    "sun:day:ice"
+                  ]
+                },
+                {
+                  "id": "p:34",
+                  "kind": "tray",
+                  "lit": true,
+                  "enclosed": true,
+                  "dustProtected": true,
+                  "air": false,
+                  "source": [
+                    "sun:day:ice"
+                  ]
+                },
+                {
+                  "id": "p:35",
+                  "kind": "seed",
+                  "lit": true,
+                  "enclosed": true,
+                  "dustProtected": true,
+                  "air": false,
+                  "source": [
+                    "sun:day:ice"
+                  ]
+                },
+                {
+                  "id": "p:36",
+                  "kind": "lamp",
+                  "lit": true,
+                  "enclosed": false,
+                  "dustProtected": false,
+                  "air": true,
+                  "source": [
+                    "sun:day:ice"
+                  ]
+                }
+              ],
+              "power": [
+                "sun:day:ice"
+              ],
+              "light": [
+                "sun:day:ice"
+              ],
+              "warm": false,
+              "water": "clean",
+              "waterSources": [
+                "water:ice"
+              ],
+              "growing": true,
+              "drying": false,
+              "darkProtected": false,
+              "camera": false,
+              "sampleSupport": false,
+              "enclosed": true,
+              "dustProtected": true,
+              "lit": true,
+              "shape": {
+                "height": 2,
+                "width": 2,
+                "mobile": false,
+                "folded": false
+              }
+            },
+            {
+              "id": "o:37",
+              "place": "workbench",
+              "parts": [
+                {
+                  "id": "p:39",
+                  "kind": "solar-cell",
+                  "lit": false,
+                  "enclosed": false,
+                  "dustProtected": false,
+                  "air": true,
+                  "source": []
+                },
+                {
+                  "id": "p:40",
+                  "kind": "cable",
+                  "lit": false,
+                  "enclosed": false,
+                  "dustProtected": false,
+                  "air": true,
+                  "source": []
+                }
+              ],
+              "power": [],
+              "light": [],
+              "warm": false,
+              "water": "none",
+              "waterSources": [],
+              "growing": false,
+              "drying": false,
+              "darkProtected": false,
+              "camera": false,
+              "sampleSupport": false,
+              "enclosed": false,
+              "dustProtected": false,
+              "lit": false,
+              "shape": {
+                "height": 1,
+                "width": 1,
+                "mobile": false,
+                "folded": false
+              }
+            },
+            {
+              "id": "o:41",
+              "place": "workbench",
+              "parts": [
+                {
+                  "id": "p:44",
+                  "kind": "solar-cell",
+                  "lit": false,
+                  "enclosed": false,
+                  "dustProtected": false,
+                  "air": true,
+                  "source": []
+                },
+                {
+                  "id": "p:45",
+                  "kind": "cable",
+                  "lit": false,
+                  "enclosed": false,
+                  "dustProtected": false,
+                  "air": true,
+                  "source": []
+                },
+                {
+                  "id": "p:46",
+                  "kind": "heater",
+                  "lit": false,
+                  "enclosed": false,
+                  "dustProtected": false,
+                  "air": true,
+                  "source": []
+                }
+              ],
+              "power": [],
+              "light": [],
+              "warm": false,
+              "water": "none",
+              "waterSources": [],
+              "growing": false,
+              "drying": false,
+              "darkProtected": false,
+              "camera": false,
+              "sampleSupport": false,
+              "enclosed": false,
+              "dustProtected": false,
+              "lit": false,
+              "shape": {
+                "height": 1,
+                "width": 1,
+                "mobile": false,
+                "folded": false
+              }
+            },
+            {
+              "id": "o:47",
+              "place": "ice",
+              "parts": [
+                {
+                  "id": "p:50",
+                  "kind": "solar-cell",
+                  "lit": true,
+                  "enclosed": false,
+                  "dustProtected": false,
+                  "air": true,
+                  "source": [
+                    "sun:day:ice"
+                  ]
+                },
+                {
+                  "id": "p:51",
+                  "kind": "cable",
+                  "lit": true,
+                  "enclosed": false,
+                  "dustProtected": false,
+                  "air": true,
+                  "source": [
+                    "sun:day:ice"
+                  ]
+                },
+                {
+                  "id": "p:52",
+                  "kind": "heater",
+                  "lit": true,
+                  "enclosed": false,
+                  "dustProtected": false,
+                  "air": true,
+                  "source": [
+                    "sun:day:ice"
+                  ]
+                },
+                {
+                  "id": "p:53",
+                  "kind": "tube",
+                  "lit": true,
+                  "enclosed": false,
+                  "dustProtected": false,
+                  "air": true,
+                  "source": [
+                    "sun:day:ice"
+                  ]
+                }
+              ],
+              "power": [
+                "sun:day:ice"
+              ],
+              "light": [],
+              "warm": true,
+              "water": "clean",
+              "waterSources": [
+                "water:ice"
+              ],
+              "growing": false,
+              "drying": false,
+              "darkProtected": false,
+              "camera": false,
+              "sampleSupport": false,
+              "enclosed": false,
+              "dustProtected": false,
+              "lit": true,
+              "shape": {
+                "height": 1,
+                "width": 1,
+                "mobile": false,
+                "folded": false
+              }
+            },
+            {
+              "id": "o:56",
+              "place": "signal-perch",
+              "parts": [
+                {
+                  "id": "p:58",
+                  "kind": "lens",
+                  "lit": true,
+                  "enclosed": false,
+                  "dustProtected": false,
+                  "air": true,
+                  "source": [
+                    "sun:day:signal-perch"
+                  ]
+                },
+                {
+                  "id": "p:59",
+                  "kind": "record-plate",
+                  "lit": true,
+                  "enclosed": false,
+                  "dustProtected": false,
+                  "air": true,
+                  "source": [
+                    "sun:day:signal-perch"
+                  ]
+                }
+              ],
+              "power": [],
+              "light": [],
+              "warm": false,
+              "water": "none",
+              "waterSources": [],
+              "growing": false,
+              "drying": false,
+              "darkProtected": false,
+              "camera": true,
+              "sampleSupport": false,
+              "enclosed": false,
+              "dustProtected": false,
+              "lit": true,
+              "shape": {
+                "height": 1,
+                "width": 1,
+                "mobile": false,
+                "folded": false
+              }
+            }
+          ],
+          "places": [
+            {
+              "id": "bed",
+              "wet": true,
+              "water": "clean"
+            },
+            {
+              "id": "ridge",
+              "wet": false,
+              "water": "none"
+            },
+            {
+              "id": "ice",
+              "wet": false,
+              "water": "clean"
+            },
+            {
+              "id": "receiver",
+              "wet": false,
+              "water": "none"
+            },
+            {
+              "id": "camp",
+              "wet": false,
+              "water": "none"
+            },
+            {
+              "id": "junction",
+              "wet": false,
+              "water": "none"
+            },
+            {
+              "id": "ice-approach",
+              "wet": false,
+              "water": "none"
+            },
+            {
+              "id": "signal-perch",
+              "wet": false,
+              "water": "none"
+            }
+          ]
+        }
+      ],
+      "objects": [
+        {
+          "id": "o:29",
+          "design": "assembly:1",
+          "place": "bed",
+          "shape": {
+            "height": 2,
+            "width": 2,
+            "mobile": false,
+            "folded": false
+          },
+          "records": [],
+          "samples": [],
+          "history": {
+            "places": [
+              "bed"
+            ],
+            "spanned": []
+          }
+        },
+        {
+          "id": "o:37",
+          "design": "solar-lead",
+          "place": "workbench",
+          "shape": {
+            "height": 1,
+            "width": 1,
+            "mobile": false,
+            "folded": false
+          },
+          "records": [],
+          "samples": [],
+          "history": {
+            "places": [
+              "workbench"
+            ],
+            "spanned": []
+          }
+        },
+        {
+          "id": "o:41",
+          "design": "solar-heater",
+          "place": "workbench",
+          "shape": {
+            "height": 1,
+            "width": 1,
+            "mobile": false,
+            "folded": false
+          },
+          "records": [],
+          "samples": [],
+          "history": {
+            "places": [
+              "workbench"
+            ],
+            "spanned": []
+          }
+        },
+        {
+          "id": "o:47",
+          "design": "assembly:2",
+          "place": "ice",
+          "shape": {
+            "height": 1,
+            "width": 1,
+            "mobile": false,
+            "folded": false
+          },
+          "records": [],
+          "samples": [],
+          "history": {
+            "places": [
+              "ice"
+            ],
+            "spanned": []
+          }
+        },
+        {
+          "id": "o:56",
+          "design": "camera",
+          "place": "signal-perch",
+          "shape": {
+            "height": 1,
+            "width": 1,
+            "mobile": false,
+            "folded": false
+          },
+          "records": [
+            {
+              "id": "record:60",
+              "subject": "place:bed",
+              "viewpoint": "signal-perch",
+              "camera": "o:56",
+              "row": "day",
+              "source": [
+                "sun:day:ice",
+                "sun:day:ice",
+                "sun:day:ice",
+                "sun:day:ice",
+                "sun:day:ice"
+              ],
+              "intervention": 10
+            }
+          ],
+          "samples": [],
+          "history": {
+            "places": [
+              "signal-perch"
+            ],
+            "spanned": []
+          }
+        }
+      ],
+      "connections": [
+        {
+          "id": "link:54",
+          "a": "o:47",
+          "b": "o:29",
+          "channel": "power"
+        },
+        {
+          "id": "link:55",
+          "a": "o:47",
+          "b": "o:29",
+          "channel": "water"
+        }
+      ],
+      "spans": [],
+      "received": [
+        {
+          "id": "record:60",
+          "subject": "place:bed",
+          "viewpoint": "signal-perch",
+          "camera": "o:56",
+          "row": "day",
+          "source": [
+            "sun:day:ice",
+            "sun:day:ice",
+            "sun:day:ice",
+            "sun:day:ice",
+            "sun:day:ice"
+          ],
+          "intervention": 10
+        }
+      ]
+    }
+  },
+  "after": {
+    "goals": [
+      {
+        "id": "garden",
+        "title": "Bright protected garden",
+        "rows": [
+          "day"
+        ],
+        "requirement": "At bed, an actual rootbed is enclosed, illuminated and receiving clean water in the day row. Any construction satisfying those properties works.",
+        "map": "landing",
+        "checks": {
+          "a rootbed at bed is enclosed, illuminated, and clean-water-fed in every row": false
+        },
+        "current": false,
+        "achieved": true,
+        "firstIntervention": 8
+      },
+      {
+        "id": "signal",
+        "title": "First signal",
+        "rows": [
+          "day"
+        ],
+        "requirement": "The northern receiver has actually received the camp location through an optical event, and the bed garden is currently functioning. Both goals may complete together.",
+        "map": "landing",
+        "checks": {
+          "garden remains working": false,
+          "receiver has an actual optical record of bed": true
+        },
+        "current": false,
+        "achieved": true,
+        "firstIntervention": 11
+      }
+    ],
+    "world": {
+      "map": "landing",
+      "rows": [
+        {
+          "id": "day",
+          "sun": "east",
+          "dust": false,
+          "objects": [
+            {
+              "id": "o:29",
+              "place": "bed",
+              "parts": [
+                {
+                  "id": "p:31",
+                  "kind": "frame",
+                  "lit": true,
+                  "enclosed": false,
+                  "dustProtected": false,
+                  "air": true,
+                  "source": [
+                    "sun:day:ice"
+                  ]
+                },
+                {
+                  "id": "p:32",
+                  "kind": "clear-film",
+                  "lit": true,
+                  "enclosed": false,
+                  "dustProtected": false,
+                  "air": true,
+                  "source": [
+                    "sun:day:ice"
+                  ]
+                },
+                {
+                  "id": "p:34",
+                  "kind": "tray",
+                  "lit": false,
+                  "enclosed": true,
+                  "dustProtected": true,
+                  "air": false,
+                  "source": []
+                },
+                {
+                  "id": "p:35",
+                  "kind": "seed",
+                  "lit": false,
+                  "enclosed": true,
+                  "dustProtected": true,
+                  "air": false,
+                  "source": []
+                },
+                {
+                  "id": "p:36",
+                  "kind": "lamp",
+                  "lit": true,
+                  "enclosed": false,
+                  "dustProtected": false,
+                  "air": true,
+                  "source": [
+                    "sun:day:ice"
+                  ]
+                },
+                {
+                  "id": "p:197",
+                  "kind": "foil",
+                  "lit": true,
+                  "enclosed": false,
+                  "dustProtected": false,
+                  "air": true,
+                  "source": [
+                    "sun:day:ice"
+                  ]
+                }
+              ],
+              "power": [
+                "sun:day:ice"
+              ],
+              "light": [
+                "sun:day:ice"
+              ],
+              "warm": false,
+              "water": "clean",
+              "waterSources": [
+                "water:ice"
+              ],
+              "growing": false,
+              "drying": false,
+              "darkProtected": false,
+              "camera": false,
+              "sampleSupport": false,
+              "enclosed": true,
+              "dustProtected": true,
+              "lit": true,
+              "shape": {
+                "height": 2,
+                "width": 2,
+                "mobile": false,
+                "folded": false
+              }
+            },
+            {
+              "id": "o:37",
+              "place": "workbench",
+              "parts": [
+                {
+                  "id": "p:39",
+                  "kind": "solar-cell",
+                  "lit": false,
+                  "enclosed": false,
+                  "dustProtected": false,
+                  "air": true,
+                  "source": []
+                },
+                {
+                  "id": "p:40",
+                  "kind": "cable",
+                  "lit": false,
+                  "enclosed": false,
+                  "dustProtected": false,
+                  "air": true,
+                  "source": []
+                }
+              ],
+              "power": [],
+              "light": [],
+              "warm": false,
+              "water": "none",
+              "waterSources": [],
+              "growing": false,
+              "drying": false,
+              "darkProtected": false,
+              "camera": false,
+              "sampleSupport": false,
+              "enclosed": false,
+              "dustProtected": false,
+              "lit": false,
+              "shape": {
+                "height": 1,
+                "width": 1,
+                "mobile": false,
+                "folded": false
+              }
+            },
+            {
+              "id": "o:41",
+              "place": "workbench",
+              "parts": [
+                {
+                  "id": "p:44",
+                  "kind": "solar-cell",
+                  "lit": false,
+                  "enclosed": false,
+                  "dustProtected": false,
+                  "air": true,
+                  "source": []
+                },
+                {
+                  "id": "p:45",
+                  "kind": "cable",
+                  "lit": false,
+                  "enclosed": false,
+                  "dustProtected": false,
+                  "air": true,
+                  "source": []
+                },
+                {
+                  "id": "p:46",
+                  "kind": "heater",
+                  "lit": false,
+                  "enclosed": false,
+                  "dustProtected": false,
+                  "air": true,
+                  "source": []
+                }
+              ],
+              "power": [],
+              "light": [],
+              "warm": false,
+              "water": "none",
+              "waterSources": [],
+              "growing": false,
+              "drying": false,
+              "darkProtected": false,
+              "camera": false,
+              "sampleSupport": false,
+              "enclosed": false,
+              "dustProtected": false,
+              "lit": false,
+              "shape": {
+                "height": 1,
+                "width": 1,
+                "mobile": false,
+                "folded": false
+              }
+            },
+            {
+              "id": "o:47",
+              "place": "ice",
+              "parts": [
+                {
+                  "id": "p:50",
+                  "kind": "solar-cell",
+                  "lit": true,
+                  "enclosed": false,
+                  "dustProtected": false,
+                  "air": true,
+                  "source": [
+                    "sun:day:ice"
+                  ]
+                },
+                {
+                  "id": "p:51",
+                  "kind": "cable",
+                  "lit": true,
+                  "enclosed": false,
+                  "dustProtected": false,
+                  "air": true,
+                  "source": [
+                    "sun:day:ice"
+                  ]
+                },
+                {
+                  "id": "p:52",
+                  "kind": "heater",
+                  "lit": true,
+                  "enclosed": false,
+                  "dustProtected": false,
+                  "air": true,
+                  "source": [
+                    "sun:day:ice"
+                  ]
+                },
+                {
+                  "id": "p:53",
+                  "kind": "tube",
+                  "lit": true,
+                  "enclosed": false,
+                  "dustProtected": false,
+                  "air": true,
+                  "source": [
+                    "sun:day:ice"
+                  ]
+                }
+              ],
+              "power": [
+                "sun:day:ice"
+              ],
+              "light": [],
+              "warm": true,
+              "water": "clean",
+              "waterSources": [
+                "water:ice"
+              ],
+              "growing": false,
+              "drying": false,
+              "darkProtected": false,
+              "camera": false,
+              "sampleSupport": false,
+              "enclosed": false,
+              "dustProtected": false,
+              "lit": true,
+              "shape": {
+                "height": 1,
+                "width": 1,
+                "mobile": false,
+                "folded": false
+              }
+            },
+            {
+              "id": "o:56",
+              "place": "signal-perch",
+              "parts": [
+                {
+                  "id": "p:58",
+                  "kind": "lens",
+                  "lit": true,
+                  "enclosed": false,
+                  "dustProtected": false,
+                  "air": true,
+                  "source": [
+                    "sun:day:signal-perch"
+                  ]
+                },
+                {
+                  "id": "p:59",
+                  "kind": "record-plate",
+                  "lit": true,
+                  "enclosed": false,
+                  "dustProtected": false,
+                  "air": true,
+                  "source": [
+                    "sun:day:signal-perch"
+                  ]
+                }
+              ],
+              "power": [],
+              "light": [],
+              "warm": false,
+              "water": "none",
+              "waterSources": [],
+              "growing": false,
+              "drying": false,
+              "darkProtected": false,
+              "camera": true,
+              "sampleSupport": false,
+              "enclosed": false,
+              "dustProtected": false,
+              "lit": true,
+              "shape": {
+                "height": 1,
+                "width": 1,
+                "mobile": false,
+                "folded": false
+              }
+            }
+          ],
+          "places": [
+            {
+              "id": "bed",
+              "wet": true,
+              "water": "clean"
+            },
+            {
+              "id": "ridge",
+              "wet": false,
+              "water": "none"
+            },
+            {
+              "id": "ice",
+              "wet": false,
+              "water": "clean"
+            },
+            {
+              "id": "receiver",
+              "wet": false,
+              "water": "none"
+            },
+            {
+              "id": "camp",
+              "wet": false,
+              "water": "none"
+            },
+            {
+              "id": "junction",
+              "wet": false,
+              "water": "none"
+            },
+            {
+              "id": "ice-approach",
+              "wet": false,
+              "water": "none"
+            },
+            {
+              "id": "signal-perch",
+              "wet": false,
+              "water": "none"
+            }
+          ]
+        }
+      ],
+      "objects": [
+        {
+          "id": "o:29",
+          "design": "assembly:15",
+          "place": "bed",
+          "shape": {
+            "height": 2,
+            "width": 2,
+            "mobile": false,
+            "folded": false
+          },
+          "records": [],
+          "samples": [],
+          "history": {
+            "places": [
+              "bed"
+            ],
+            "spanned": []
+          }
+        },
+        {
+          "id": "o:37",
+          "design": "solar-lead",
+          "place": "workbench",
+          "shape": {
+            "height": 1,
+            "width": 1,
+            "mobile": false,
+            "folded": false
+          },
+          "records": [],
+          "samples": [],
+          "history": {
+            "places": [
+              "workbench"
+            ],
+            "spanned": []
+          }
+        },
+        {
+          "id": "o:41",
+          "design": "solar-heater",
+          "place": "workbench",
+          "shape": {
+            "height": 1,
+            "width": 1,
+            "mobile": false,
+            "folded": false
+          },
+          "records": [],
+          "samples": [],
+          "history": {
+            "places": [
+              "workbench"
+            ],
+            "spanned": []
+          }
+        },
+        {
+          "id": "o:47",
+          "design": "assembly:2",
+          "place": "ice",
+          "shape": {
+            "height": 1,
+            "width": 1,
+            "mobile": false,
+            "folded": false
+          },
+          "records": [],
+          "samples": [],
+          "history": {
+            "places": [
+              "ice"
+            ],
+            "spanned": []
+          }
+        },
+        {
+          "id": "o:56",
+          "design": "camera",
+          "place": "signal-perch",
+          "shape": {
+            "height": 1,
+            "width": 1,
+            "mobile": false,
+            "folded": false
+          },
+          "records": [
+            {
+              "id": "record:60",
+              "subject": "place:bed",
+              "viewpoint": "signal-perch",
+              "camera": "o:56",
+              "row": "day",
+              "source": [
+                "sun:day:ice",
+                "sun:day:ice",
+                "sun:day:ice",
+                "sun:day:ice",
+                "sun:day:ice"
+              ],
+              "intervention": 10
+            }
+          ],
+          "samples": [],
+          "history": {
+            "places": [
+              "signal-perch"
+            ],
+            "spanned": []
+          }
+        }
+      ],
+      "connections": [
+        {
+          "id": "link:54",
+          "a": "o:47",
+          "b": "o:29",
+          "channel": "power"
+        },
+        {
+          "id": "link:55",
+          "a": "o:47",
+          "b": "o:29",
+          "channel": "water"
+        }
+      ],
+      "spans": [],
+      "received": [
+        {
+          "id": "record:60",
+          "subject": "place:bed",
+          "viewpoint": "signal-perch",
+          "camera": "o:56",
+          "row": "day",
+          "source": [
+            "sun:day:ice",
+            "sun:day:ice",
+            "sun:day:ice",
+            "sun:day:ice",
+            "sun:day:ice"
+          ],
+          "intervention": 10
+        }
+      ]
+    }
+  },
+  "state": {
+    "version": "mars-workshop-1",
+    "map": "landing",
+    "catalogue": "ordinary",
+    "known": [
+      "frame",
+      "hinge",
+      "clear-film",
+      "foil",
+      "mesh",
+      "tube",
+      "cable",
+      "solar-cell",
+      "lamp",
+      "heater",
+      "tray",
+      "seed",
+      "wheels",
+      "lens",
+      "record-plate",
+      "greenhouse",
+      "sample-case",
+      "camera",
+      "assembly:1",
+      "solar-lead",
+      "solar-heater",
+      "assembly:2",
+      "sample-tray",
+      "assembly:3",
+      "clear-shell",
+      "assembly:4",
+      "assembly:5",
+      "assembly:6",
+      "assembly:7",
+      "assembly:8",
+      "cart",
+      "assembly:9",
+      "assembly:10",
+      "assembly:11",
+      "assembly:12",
+      "assembly:13",
+      "assembly:14",
+      "assembly:15"
+    ],
+    "designs": [
+      {
+        "id": "assembly:1",
+        "label": "assembly:1",
+        "root": {
+          "id": "p:30",
+          "kind": "assembly",
+          "label": "greenhouse",
+          "children": [
+            {
+              "relation": "attach",
+              "part": {
+                "id": "p:31",
+                "kind": "frame",
+                "label": "frame",
+                "children": [],
+                "pose": "closed",
+                "facing": "east"
+              }
+            },
+            {
+              "relation": "attach",
+              "part": {
+                "id": "p:32",
+                "kind": "clear-film",
+                "label": "clear-film",
+                "children": [],
+                "pose": "closed",
+                "facing": "east"
+              }
+            },
+            {
+              "relation": "inside",
+              "part": {
+                "id": "p:33",
+                "kind": "assembly",
+                "label": "rootbed",
+                "children": [
+                  {
+                    "relation": "attach",
+                    "part": {
+                      "id": "p:34",
+                      "kind": "tray",
+                      "label": "tray",
+                      "children": [],
+                      "pose": "closed",
+                      "facing": "east"
+                    }
+                  },
+                  {
+                    "relation": "attach",
+                    "part": {
+                      "id": "p:35",
+                      "kind": "seed",
+                      "label": "seed",
+                      "children": [],
+                      "pose": "closed",
+                      "facing": "east"
+                    }
+                  }
+                ],
+                "pose": "closed",
+                "facing": "east"
+              }
+            },
+            {
+              "relation": "attach",
+              "part": {
+                "id": "p:36",
+                "kind": "lamp",
+                "label": "lamp",
+                "children": [],
+                "pose": "closed",
+                "facing": "east"
+              }
+            }
+          ],
+          "pose": "closed",
+          "facing": "east"
+        },
+        "source": "player"
+      },
+      {
+        "id": "assembly:2",
+        "label": "assembly:2",
+        "root": {
+          "id": "p:48",
+          "kind": "assembly",
+          "label": "solar-heater",
+          "children": [
+            {
+              "relation": "attach",
+              "part": {
+                "id": "p:49",
+                "kind": "assembly",
+                "label": "solar-lead",
+                "children": [
+                  {
+                    "relation": "attach",
+                    "part": {
+                      "id": "p:50",
+                      "kind": "solar-cell",
+                      "label": "solar-cell",
+                      "children": [],
+                      "pose": "closed",
+                      "facing": "east"
+                    }
+                  },
+                  {
+                    "relation": "attach",
+                    "part": {
+                      "id": "p:51",
+                      "kind": "cable",
+                      "label": "cable",
+                      "children": [],
+                      "pose": "closed",
+                      "facing": "east"
+                    }
+                  }
+                ],
+                "pose": "closed",
+                "facing": "east"
+              }
+            },
+            {
+              "relation": "attach",
+              "part": {
+                "id": "p:52",
+                "kind": "heater",
+                "label": "heater",
+                "children": [],
+                "pose": "closed",
+                "facing": "east"
+              }
+            },
+            {
+              "relation": "attach",
+              "part": {
+                "id": "p:53",
+                "kind": "tube",
+                "label": "tube",
+                "children": [],
+                "pose": "closed",
+                "facing": "east"
+              }
+            }
+          ],
+          "pose": "closed",
+          "facing": "east"
+        },
+        "source": "player"
+      },
+      {
+        "id": "assembly:3",
+        "label": "assembly:3",
+        "root": {
+          "id": "p:106",
+          "kind": "assembly",
+          "label": "solar-lead",
+          "children": [
+            {
+              "relation": "attach",
+              "part": {
+                "id": "p:107",
+                "kind": "solar-cell",
+                "label": "solar-cell",
+                "children": [],
+                "pose": "closed",
+                "facing": "west"
+              }
+            },
+            {
+              "relation": "attach",
+              "part": {
+                "id": "p:108",
+                "kind": "cable",
+                "label": "cable",
+                "children": [],
+                "pose": "closed",
+                "facing": "west"
+              }
+            }
+          ],
+          "pose": "closed",
+          "facing": "west"
+        },
+        "source": "player"
+      },
+      {
+        "id": "assembly:4",
+        "label": "assembly:4",
+        "root": {
+          "id": "p:116",
+          "kind": "assembly",
+          "label": "clear-shell",
+          "children": [
+            {
+              "relation": "attach",
+              "part": {
+                "id": "p:117",
+                "kind": "frame",
+                "label": "frame",
+                "children": [],
+                "pose": "closed",
+                "facing": "east"
+              }
+            },
+            {
+              "relation": "attach",
+              "part": {
+                "id": "p:118",
+                "kind": "clear-film",
+                "label": "clear-film",
+                "children": [],
+                "pose": "closed",
+                "facing": "east"
+              }
+            },
+            {
+              "relation": "inside",
+              "part": {
+                "id": "p:119",
+                "kind": "assembly",
+                "label": "camera",
+                "children": [
+                  {
+                    "relation": "attach",
+                    "part": {
+                      "id": "p:120",
+                      "kind": "lens",
+                      "label": "lens",
+                      "children": [],
+                      "pose": "closed",
+                      "facing": "east"
+                    }
+                  },
+                  {
+                    "relation": "attach",
+                    "part": {
+                      "id": "p:121",
+                      "kind": "record-plate",
+                      "label": "record-plate",
+                      "children": [],
+                      "pose": "closed",
+                      "facing": "east"
+                    }
+                  }
+                ],
+                "pose": "closed",
+                "facing": "east"
+              }
+            }
+          ],
+          "pose": "closed",
+          "facing": "east"
+        },
+        "source": "player"
+      },
+      {
+        "id": "assembly:5",
+        "label": "assembly:5",
+        "root": {
+          "id": "p:116",
+          "kind": "assembly",
+          "label": "clear-shell",
+          "children": [
+            {
+              "relation": "attach",
+              "part": {
+                "id": "p:117",
+                "kind": "frame",
+                "label": "frame",
+                "children": [],
+                "pose": "closed",
+                "facing": "east"
+              }
+            },
+            {
+              "relation": "attach",
+              "part": {
+                "id": "p:118",
+                "kind": "clear-film",
+                "label": "clear-film",
+                "children": [],
+                "pose": "closed",
+                "facing": "east"
+              }
+            },
+            {
+              "relation": "inside",
+              "part": {
+                "id": "p:119",
+                "kind": "assembly",
+                "label": "camera",
+                "children": [
+                  {
+                    "relation": "attach",
+                    "part": {
+                      "id": "p:120",
+                      "kind": "lens",
+                      "label": "lens",
+                      "children": [],
+                      "pose": "closed",
+                      "facing": "east"
+                    }
+                  },
+                  {
+                    "relation": "attach",
+                    "part": {
+                      "id": "p:121",
+                      "kind": "record-plate",
+                      "label": "record-plate",
+                      "children": [],
+                      "pose": "closed",
+                      "facing": "east"
+                    }
+                  }
+                ],
+                "pose": "closed",
+                "facing": "east"
+              }
+            },
+            {
+              "relation": "attach",
+              "part": {
+                "id": "p:122",
+                "kind": "wheels",
+                "label": "wheels",
+                "children": [],
+                "pose": "closed",
+                "facing": "east"
+              }
+            }
+          ],
+          "pose": "closed",
+          "facing": "east"
+        },
+        "source": "player"
+      },
+      {
+        "id": "assembly:6",
+        "label": "assembly:6",
+        "root": {
+          "id": "p:2",
+          "kind": "assembly",
+          "label": "greenhouse",
+          "children": [
+            {
+              "relation": "attach",
+              "part": {
+                "id": "p:3",
+                "kind": "frame",
+                "label": "frame",
+                "children": [],
+                "pose": "closed",
+                "facing": "east"
+              }
+            },
+            {
+              "relation": "attach",
+              "part": {
+                "id": "p:4",
+                "kind": "clear-film",
+                "label": "clear-film",
+                "children": [],
+                "pose": "closed",
+                "facing": "east"
+              }
+            },
+            {
+              "relation": "inside",
+              "part": {
+                "id": "p:5",
+                "kind": "assembly",
+                "label": "rootbed",
+                "children": [
+                  {
+                    "relation": "attach",
+                    "part": {
+                      "id": "p:6",
+                      "kind": "tray",
+                      "label": "tray",
+                      "children": [],
+                      "pose": "closed",
+                      "facing": "east"
+                    }
+                  },
+                  {
+                    "relation": "attach",
+                    "part": {
+                      "id": "p:7",
+                      "kind": "seed",
+                      "label": "seed",
+                      "children": [],
+                      "pose": "closed",
+                      "facing": "east"
+                    }
+                  }
+                ],
+                "pose": "closed",
+                "facing": "east"
+              }
+            },
+            {
+              "relation": "attach",
+              "part": {
+                "id": "p:127",
+                "kind": "wheels",
+                "label": "wheels",
+                "children": [],
+                "pose": "closed",
+                "facing": "east"
+              }
+            }
+          ],
+          "pose": "closed",
+          "facing": "east"
+        },
+        "source": "player"
+      },
+      {
+        "id": "assembly:7",
+        "label": "assembly:7",
+        "root": {
+          "id": "p:2",
+          "kind": "assembly",
+          "label": "greenhouse",
+          "children": [
+            {
+              "relation": "attach",
+              "part": {
+                "id": "p:3",
+                "kind": "frame",
+                "label": "frame",
+                "children": [],
+                "pose": "closed",
+                "facing": "east"
+              }
+            },
+            {
+              "relation": "attach",
+              "part": {
+                "id": "p:4",
+                "kind": "clear-film",
+                "label": "clear-film",
+                "children": [],
+                "pose": "closed",
+                "facing": "east"
+              }
+            },
+            {
+              "relation": "inside",
+              "part": {
+                "id": "p:5",
+                "kind": "assembly",
+                "label": "rootbed",
+                "children": [
+                  {
+                    "relation": "attach",
+                    "part": {
+                      "id": "p:6",
+                      "kind": "tray",
+                      "label": "tray",
+                      "children": [],
+                      "pose": "closed",
+                      "facing": "east"
+                    }
+                  },
+                  {
+                    "relation": "attach",
+                    "part": {
+                      "id": "p:7",
+                      "kind": "seed",
+                      "label": "seed",
+                      "children": [],
+                      "pose": "closed",
+                      "facing": "east"
+                    }
+                  }
+                ],
+                "pose": "closed",
+                "facing": "east"
+              }
+            },
+            {
+              "relation": "attach",
+              "part": {
+                "id": "p:127",
+                "kind": "wheels",
+                "label": "wheels",
+                "children": [],
+                "pose": "closed",
+                "facing": "east"
+              }
+            },
+            {
+              "relation": "attach",
+              "part": {
+                "id": "p:128",
+                "kind": "hinge",
+                "label": "hinge",
+                "children": [],
+                "pose": "closed",
+                "facing": "east"
+              }
+            }
+          ],
+          "pose": "closed",
+          "facing": "east"
+        },
+        "source": "player"
+      },
+      {
+        "id": "assembly:8",
+        "label": "assembly:8",
+        "root": {
+          "id": "p:2",
+          "kind": "assembly",
+          "label": "greenhouse",
+          "children": [
+            {
+              "relation": "attach",
+              "part": {
+                "id": "p:3",
+                "kind": "frame",
+                "label": "frame",
+                "children": [],
+                "pose": "closed",
+                "facing": "east"
+              }
+            },
+            {
+              "relation": "attach",
+              "part": {
+                "id": "p:4",
+                "kind": "clear-film",
+                "label": "clear-film",
+                "children": [],
+                "pose": "closed",
+                "facing": "east"
+              }
+            },
+            {
+              "relation": "inside",
+              "part": {
+                "id": "p:5",
+                "kind": "assembly",
+                "label": "rootbed",
+                "children": [
+                  {
+                    "relation": "attach",
+                    "part": {
+                      "id": "p:6",
+                      "kind": "tray",
+                      "label": "tray",
+                      "children": [],
+                      "pose": "closed",
+                      "facing": "east"
+                    }
+                  },
+                  {
+                    "relation": "attach",
+                    "part": {
+                      "id": "p:7",
+                      "kind": "seed",
+                      "label": "seed",
+                      "children": [],
+                      "pose": "closed",
+                      "facing": "east"
+                    }
+                  }
+                ],
+                "pose": "closed",
+                "facing": "east"
+              }
+            },
+            {
+              "relation": "attach",
+              "part": {
+                "id": "p:127",
+                "kind": "wheels",
+                "label": "wheels",
+                "children": [],
+                "pose": "closed",
+                "facing": "east"
+              }
+            },
+            {
+              "relation": "attach",
+              "part": {
+                "id": "p:128",
+                "kind": "hinge",
+                "label": "hinge",
+                "children": [],
+                "pose": "closed",
+                "facing": "east"
+              }
+            }
+          ],
+          "pose": "folded",
+          "facing": "east"
+        },
+        "source": "player"
+      },
+      {
+        "id": "assembly:9",
+        "label": "assembly:9",
+        "root": {
+          "id": "p:134",
+          "kind": "assembly",
+          "label": "cart",
+          "children": [
+            {
+              "relation": "attach",
+              "part": {
+                "id": "p:135",
+                "kind": "frame",
+                "label": "frame",
+                "children": [],
+                "pose": "closed",
+                "facing": "east"
+              }
+            },
+            {
+              "relation": "attach",
+              "part": {
+                "id": "p:136",
+                "kind": "wheels",
+                "label": "wheels",
+                "children": [],
+                "pose": "closed",
+                "facing": "east"
+              }
+            },
+            {
+              "relation": "attach",
+              "part": {
+                "id": "p:137",
+                "kind": "hinge",
+                "label": "hinge",
+                "children": [],
+                "pose": "closed",
+                "facing": "east"
+              }
+            }
+          ],
+          "pose": "closed",
+          "facing": "east"
+        },
+        "source": "player"
+      },
+      {
+        "id": "assembly:10",
+        "label": "assembly:10",
+        "root": {
+          "id": "p:134",
+          "kind": "assembly",
+          "label": "cart",
+          "children": [
+            {
+              "relation": "attach",
+              "part": {
+                "id": "p:135",
+                "kind": "frame",
+                "label": "frame",
+                "children": [],
+                "pose": "closed",
+                "facing": "east"
+              }
+            },
+            {
+              "relation": "attach",
+              "part": {
+                "id": "p:136",
+                "kind": "wheels",
+                "label": "wheels",
+                "children": [],
+                "pose": "closed",
+                "facing": "east"
+              }
+            },
+            {
+              "relation": "attach",
+              "part": {
+                "id": "p:137",
+                "kind": "hinge",
+                "label": "hinge",
+                "children": [],
+                "pose": "closed",
+                "facing": "east"
+              }
+            }
+          ],
+          "pose": "folded",
+          "facing": "east"
+        },
+        "source": "player"
+      },
+      {
+        "id": "assembly:11",
+        "label": "assembly:11",
+        "root": {
+          "id": "p:141",
+          "kind": "assembly",
+          "label": "sample-case",
+          "children": [
+            {
+              "relation": "attach",
+              "part": {
+                "id": "p:142",
+                "kind": "frame",
+                "label": "frame",
+                "children": [],
+                "pose": "closed",
+                "facing": "east"
+              }
+            },
+            {
+              "relation": "attach",
+              "part": {
+                "id": "p:143",
+                "kind": "clear-film",
+                "label": "clear-film",
+                "children": [],
+                "pose": "closed",
+                "facing": "east"
+              }
+            },
+            {
+              "relation": "inside",
+              "part": {
+                "id": "p:144",
+                "kind": "assembly",
+                "label": "sample-tray",
+                "children": [
+                  {
+                    "relation": "attach",
+                    "part": {
+                      "id": "p:145",
+                      "kind": "tray",
+                      "label": "tray",
+                      "children": [],
+                      "pose": "closed",
+                      "facing": "east"
+                    }
+                  },
+                  {
+                    "relation": "attach",
+                    "part": {
+                      "id": "p:146",
+                      "kind": "record-plate",
+                      "label": "record-plate",
+                      "children": [],
+                      "pose": "closed",
+                      "facing": "east"
+                    }
+                  }
+                ],
+                "pose": "closed",
+                "facing": "east"
+              }
+            },
+            {
+              "relation": "attach",
+              "part": {
+                "id": "p:147",
+                "kind": "heater",
+                "label": "heater",
+                "children": [],
+                "pose": "closed",
+                "facing": "east"
+              }
+            }
+          ],
+          "pose": "closed",
+          "facing": "east"
+        },
+        "source": "player"
+      },
+      {
+        "id": "assembly:12",
+        "label": "assembly:12",
+        "root": {
+          "id": "p:173",
+          "kind": "assembly",
+          "label": "sample-case",
+          "children": [
+            {
+              "relation": "attach",
+              "part": {
+                "id": "p:174",
+                "kind": "frame",
+                "label": "frame",
+                "children": [],
+                "pose": "closed",
+                "facing": "east"
+              }
+            },
+            {
+              "relation": "attach",
+              "part": {
+                "id": "p:175",
+                "kind": "clear-film",
+                "label": "clear-film",
+                "children": [],
+                "pose": "closed",
+                "facing": "east"
+              }
+            },
+            {
+              "relation": "inside",
+              "part": {
+                "id": "p:176",
+                "kind": "assembly",
+                "label": "sample-tray",
+                "children": [
+                  {
+                    "relation": "attach",
+                    "part": {
+                      "id": "p:177",
+                      "kind": "tray",
+                      "label": "tray",
+                      "children": [],
+                      "pose": "closed",
+                      "facing": "east"
+                    }
+                  },
+                  {
+                    "relation": "attach",
+                    "part": {
+                      "id": "p:178",
+                      "kind": "record-plate",
+                      "label": "record-plate",
+                      "children": [],
+                      "pose": "closed",
+                      "facing": "east"
+                    }
+                  }
+                ],
+                "pose": "closed",
+                "facing": "east"
+              }
+            },
+            {
+              "relation": "attach",
+              "part": {
+                "id": "p:179",
+                "kind": "wheels",
+                "label": "wheels",
+                "children": [],
+                "pose": "closed",
+                "facing": "east"
+              }
+            }
+          ],
+          "pose": "closed",
+          "facing": "east"
+        },
+        "source": "player"
+      },
+      {
+        "id": "assembly:13",
+        "label": "assembly:13",
+        "root": {
+          "id": "p:9",
+          "kind": "assembly",
+          "label": "sample-case",
+          "children": [
+            {
+              "relation": "attach",
+              "part": {
+                "id": "p:10",
+                "kind": "frame",
+                "label": "frame",
+                "children": [],
+                "pose": "closed",
+                "facing": "east"
+              }
+            },
+            {
+              "relation": "attach",
+              "part": {
+                "id": "p:11",
+                "kind": "clear-film",
+                "label": "clear-film",
+                "children": [],
+                "pose": "closed",
+                "facing": "east"
+              }
+            },
+            {
+              "relation": "inside",
+              "part": {
+                "id": "p:12",
+                "kind": "assembly",
+                "label": "sample-tray",
+                "children": [
+                  {
+                    "relation": "attach",
+                    "part": {
+                      "id": "p:13",
+                      "kind": "tray",
+                      "label": "tray",
+                      "children": [],
+                      "pose": "closed",
+                      "facing": "east"
+                    }
+                  },
+                  {
+                    "relation": "attach",
+                    "part": {
+                      "id": "p:14",
+                      "kind": "record-plate",
+                      "label": "record-plate",
+                      "children": [],
+                      "pose": "closed",
+                      "facing": "east"
+                    }
+                  }
+                ],
+                "pose": "closed",
+                "facing": "east"
+              }
+            },
+            {
+              "relation": "attach",
+              "part": {
+                "id": "p:192",
+                "kind": "lens",
+                "label": "lens",
+                "children": [],
+                "pose": "closed",
+                "facing": "east"
+              }
+            }
+          ],
+          "pose": "closed",
+          "facing": "east"
+        },
+        "source": "player"
+      },
+      {
+        "id": "assembly:14",
+        "label": "assembly:14",
+        "root": {
+          "id": "p:25",
+          "kind": "assembly",
+          "label": "camera",
+          "children": [
+            {
+              "relation": "attach",
+              "part": {
+                "id": "p:26",
+                "kind": "lens",
+                "label": "lens",
+                "children": [],
+                "pose": "closed",
+                "facing": "east"
+              }
+            },
+            {
+              "relation": "attach",
+              "part": {
+                "id": "p:27",
+                "kind": "record-plate",
+                "label": "record-plate",
+                "children": [],
+                "pose": "closed",
+                "facing": "east"
+              }
+            },
+            {
+              "relation": "attach",
+              "part": {
+                "id": "p:194",
+                "kind": "assembly",
+                "label": "cart",
+                "children": [
+                  {
+                    "relation": "attach",
+                    "part": {
+                      "id": "p:195",
+                      "kind": "frame",
+                      "label": "frame",
+                      "children": [],
+                      "pose": "closed",
+                      "facing": "east"
+                    }
+                  },
+                  {
+                    "relation": "attach",
+                    "part": {
+                      "id": "p:196",
+                      "kind": "wheels",
+                      "label": "wheels",
+                      "children": [],
+                      "pose": "closed",
+                      "facing": "east"
+                    }
+                  }
+                ],
+                "pose": "closed",
+                "facing": "east"
+              }
+            }
+          ],
+          "pose": "closed",
+          "facing": "east"
+        },
+        "source": "player"
+      },
+      {
+        "id": "assembly:15",
+        "label": "assembly:15",
+        "root": {
+          "id": "p:30",
+          "kind": "assembly",
+          "label": "greenhouse",
+          "children": [
+            {
+              "relation": "attach",
+              "part": {
+                "id": "p:31",
+                "kind": "frame",
+                "label": "frame",
+                "children": [],
+                "pose": "closed",
+                "facing": "east"
+              }
+            },
+            {
+              "relation": "attach",
+              "part": {
+                "id": "p:32",
+                "kind": "clear-film",
+                "label": "clear-film",
+                "children": [],
+                "pose": "closed",
+                "facing": "east"
+              }
+            },
+            {
+              "relation": "inside",
+              "part": {
+                "id": "p:33",
+                "kind": "assembly",
+                "label": "rootbed",
+                "children": [
+                  {
+                    "relation": "attach",
+                    "part": {
+                      "id": "p:34",
+                      "kind": "tray",
+                      "label": "tray",
+                      "children": [],
+                      "pose": "closed",
+                      "facing": "east"
+                    }
+                  },
+                  {
+                    "relation": "attach",
+                    "part": {
+                      "id": "p:35",
+                      "kind": "seed",
+                      "label": "seed",
+                      "children": [],
+                      "pose": "closed",
+                      "facing": "east"
+                    }
+                  }
+                ],
+                "pose": "closed",
+                "facing": "east"
+              }
+            },
+            {
+              "relation": "attach",
+              "part": {
+                "id": "p:36",
+                "kind": "lamp",
+                "label": "lamp",
+                "children": [],
+                "pose": "closed",
+                "facing": "east"
+              }
+            },
+            {
+              "relation": "attach",
+              "part": {
+                "id": "p:197",
+                "kind": "foil",
+                "label": "foil",
+                "children": [],
+                "pose": "closed",
+                "facing": "east"
+              }
+            }
+          ],
+          "pose": "closed",
+          "facing": "east"
+        },
+        "source": "player"
+      }
+    ],
+    "boards": [
+      {
+        "id": "landing",
+        "objects": [
+          {
+            "id": "o:29",
+            "design": "assembly:15",
+            "root": {
+              "id": "p:30",
+              "kind": "assembly",
+              "label": "greenhouse",
+              "children": [
+                {
+                  "relation": "attach",
+                  "part": {
+                    "id": "p:31",
+                    "kind": "frame",
+                    "label": "frame",
+                    "children": [],
+                    "pose": "closed",
+                    "facing": "east"
+                  }
+                },
+                {
+                  "relation": "attach",
+                  "part": {
+                    "id": "p:32",
+                    "kind": "clear-film",
+                    "label": "clear-film",
+                    "children": [],
+                    "pose": "closed",
+                    "facing": "east"
+                  }
+                },
+                {
+                  "relation": "inside",
+                  "part": {
+                    "id": "p:33",
+                    "kind": "assembly",
+                    "label": "rootbed",
+                    "children": [
+                      {
+                        "relation": "attach",
+                        "part": {
+                          "id": "p:34",
+                          "kind": "tray",
+                          "label": "tray",
+                          "children": [],
+                          "pose": "closed",
+                          "facing": "east"
+                        }
+                      },
+                      {
+                        "relation": "attach",
+                        "part": {
+                          "id": "p:35",
+                          "kind": "seed",
+                          "label": "seed",
+                          "children": [],
+                          "pose": "closed",
+                          "facing": "east"
+                        }
+                      }
+                    ],
+                    "pose": "closed",
+                    "facing": "east"
+                  }
+                },
+                {
+                  "relation": "attach",
+                  "part": {
+                    "id": "p:36",
+                    "kind": "lamp",
+                    "label": "lamp",
+                    "children": [],
+                    "pose": "closed",
+                    "facing": "east"
+                  }
+                },
+                {
+                  "relation": "attach",
+                  "part": {
+                    "id": "p:197",
+                    "kind": "foil",
+                    "label": "foil",
+                    "children": [],
+                    "pose": "closed",
+                    "facing": "east"
+                  }
+                }
+              ],
+              "pose": "closed",
+              "facing": "east"
+            },
+            "place": "bed",
+            "records": [],
+            "samples": [],
+            "history": {
+              "places": [
+                "bed"
+              ],
+              "spanned": []
+            }
+          },
+          {
+            "id": "o:37",
+            "design": "solar-lead",
+            "root": {
+              "id": "p:38",
+              "kind": "assembly",
+              "label": "solar-lead",
+              "children": [
+                {
+                  "relation": "attach",
+                  "part": {
+                    "id": "p:39",
+                    "kind": "solar-cell",
+                    "label": "solar-cell",
+                    "children": [],
+                    "pose": "closed",
+                    "facing": "east"
+                  }
+                },
+                {
+                  "relation": "attach",
+                  "part": {
+                    "id": "p:40",
+                    "kind": "cable",
+                    "label": "cable",
+                    "children": [],
+                    "pose": "closed",
+                    "facing": "east"
+                  }
+                }
+              ],
+              "pose": "closed",
+              "facing": "east"
+            },
+            "place": "workbench",
+            "records": [],
+            "samples": [],
+            "history": {
+              "places": [
+                "workbench"
+              ],
+              "spanned": []
+            }
+          },
+          {
+            "id": "o:41",
+            "design": "solar-heater",
+            "root": {
+              "id": "p:42",
+              "kind": "assembly",
+              "label": "solar-heater",
+              "children": [
+                {
+                  "relation": "attach",
+                  "part": {
+                    "id": "p:43",
+                    "kind": "assembly",
+                    "label": "solar-lead",
+                    "children": [
+                      {
+                        "relation": "attach",
+                        "part": {
+                          "id": "p:44",
+                          "kind": "solar-cell",
+                          "label": "solar-cell",
+                          "children": [],
+                          "pose": "closed",
+                          "facing": "east"
+                        }
+                      },
+                      {
+                        "relation": "attach",
+                        "part": {
+                          "id": "p:45",
+                          "kind": "cable",
+                          "label": "cable",
+                          "children": [],
+                          "pose": "closed",
+                          "facing": "east"
+                        }
+                      }
+                    ],
+                    "pose": "closed",
+                    "facing": "east"
+                  }
+                },
+                {
+                  "relation": "attach",
+                  "part": {
+                    "id": "p:46",
+                    "kind": "heater",
+                    "label": "heater",
+                    "children": [],
+                    "pose": "closed",
+                    "facing": "east"
+                  }
+                }
+              ],
+              "pose": "closed",
+              "facing": "east"
+            },
+            "place": "workbench",
+            "records": [],
+            "samples": [],
+            "history": {
+              "places": [
+                "workbench"
+              ],
+              "spanned": []
+            }
+          },
+          {
+            "id": "o:47",
+            "design": "assembly:2",
+            "root": {
+              "id": "p:48",
+              "kind": "assembly",
+              "label": "solar-heater",
+              "children": [
+                {
+                  "relation": "attach",
+                  "part": {
+                    "id": "p:49",
+                    "kind": "assembly",
+                    "label": "solar-lead",
+                    "children": [
+                      {
+                        "relation": "attach",
+                        "part": {
+                          "id": "p:50",
+                          "kind": "solar-cell",
+                          "label": "solar-cell",
+                          "children": [],
+                          "pose": "closed",
+                          "facing": "east"
+                        }
+                      },
+                      {
+                        "relation": "attach",
+                        "part": {
+                          "id": "p:51",
+                          "kind": "cable",
+                          "label": "cable",
+                          "children": [],
+                          "pose": "closed",
+                          "facing": "east"
+                        }
+                      }
+                    ],
+                    "pose": "closed",
+                    "facing": "east"
+                  }
+                },
+                {
+                  "relation": "attach",
+                  "part": {
+                    "id": "p:52",
+                    "kind": "heater",
+                    "label": "heater",
+                    "children": [],
+                    "pose": "closed",
+                    "facing": "east"
+                  }
+                },
+                {
+                  "relation": "attach",
+                  "part": {
+                    "id": "p:53",
+                    "kind": "tube",
+                    "label": "tube",
+                    "children": [],
+                    "pose": "closed",
+                    "facing": "east"
+                  }
+                }
+              ],
+              "pose": "closed",
+              "facing": "east"
+            },
+            "place": "ice",
+            "records": [],
+            "samples": [],
+            "history": {
+              "places": [
+                "ice"
+              ],
+              "spanned": []
+            }
+          },
+          {
+            "id": "o:56",
+            "design": "camera",
+            "root": {
+              "id": "p:57",
+              "kind": "assembly",
+              "label": "camera",
+              "children": [
+                {
+                  "relation": "attach",
+                  "part": {
+                    "id": "p:58",
+                    "kind": "lens",
+                    "label": "lens",
+                    "children": [],
+                    "pose": "closed",
+                    "facing": "east"
+                  }
+                },
+                {
+                  "relation": "attach",
+                  "part": {
+                    "id": "p:59",
+                    "kind": "record-plate",
+                    "label": "record-plate",
+                    "children": [],
+                    "pose": "closed",
+                    "facing": "east"
+                  }
+                }
+              ],
+              "pose": "closed",
+              "facing": "east"
+            },
+            "place": "signal-perch",
+            "records": [
+              {
+                "id": "record:60",
+                "subject": "place:bed",
+                "viewpoint": "signal-perch",
+                "camera": "o:56",
+                "row": "day",
+                "source": [
+                  "sun:day:ice",
+                  "sun:day:ice",
+                  "sun:day:ice",
+                  "sun:day:ice",
+                  "sun:day:ice"
+                ],
+                "intervention": 10
+              }
+            ],
+            "samples": [],
+            "history": {
+              "places": [
+                "signal-perch"
+              ],
+              "spanned": []
+            }
+          }
+        ],
+        "connections": [
+          {
+            "id": "link:54",
+            "a": "o:47",
+            "b": "o:29",
+            "channel": "power"
+          },
+          {
+            "id": "link:55",
+            "a": "o:47",
+            "b": "o:29",
+            "channel": "water"
+          }
+        ],
+        "received": [
+          {
+            "id": "record:60",
+            "subject": "place:bed",
+            "viewpoint": "signal-perch",
+            "camera": "o:56",
+            "row": "day",
+            "source": [
+              "sun:day:ice",
+              "sun:day:ice",
+              "sun:day:ice",
+              "sun:day:ice",
+              "sun:day:ice"
+            ],
+            "intervention": 10
+          }
+        ],
+        "spans": [],
+        "achieved": {
+          "garden": 8,
+          "signal": 11
+        }
+      },
+      {
+        "id": "ice",
+        "objects": [
+          {
+            "id": "o:61",
+            "design": "assembly:1",
+            "root": {
+              "id": "p:62",
+              "kind": "assembly",
+              "label": "greenhouse",
+              "children": [
+                {
+                  "relation": "attach",
+                  "part": {
+                    "id": "p:63",
+                    "kind": "frame",
+                    "label": "frame",
+                    "children": [],
+                    "pose": "closed",
+                    "facing": "east"
+                  }
+                },
+                {
+                  "relation": "attach",
+                  "part": {
+                    "id": "p:64",
+                    "kind": "clear-film",
+                    "label": "clear-film",
+                    "children": [],
+                    "pose": "closed",
+                    "facing": "east"
+                  }
+                },
+                {
+                  "relation": "inside",
+                  "part": {
+                    "id": "p:65",
+                    "kind": "assembly",
+                    "label": "rootbed",
+                    "children": [
+                      {
+                        "relation": "attach",
+                        "part": {
+                          "id": "p:66",
+                          "kind": "tray",
+                          "label": "tray",
+                          "children": [],
+                          "pose": "closed",
+                          "facing": "east"
+                        }
+                      },
+                      {
+                        "relation": "attach",
+                        "part": {
+                          "id": "p:67",
+                          "kind": "seed",
+                          "label": "seed",
+                          "children": [],
+                          "pose": "closed",
+                          "facing": "east"
+                        }
+                      }
+                    ],
+                    "pose": "closed",
+                    "facing": "east"
+                  }
+                },
+                {
+                  "relation": "attach",
+                  "part": {
+                    "id": "p:68",
+                    "kind": "lamp",
+                    "label": "lamp",
+                    "children": [],
+                    "pose": "closed",
+                    "facing": "east"
+                  }
+                }
+              ],
+              "pose": "closed",
+              "facing": "east"
+            },
+            "place": "bed",
+            "records": [],
+            "samples": [],
+            "history": {
+              "places": [
+                "bed"
+              ],
+              "spanned": []
+            }
+          },
+          {
+            "id": "o:69",
+            "design": "assembly:2",
+            "root": {
+              "id": "p:70",
+              "kind": "assembly",
+              "label": "solar-heater",
+              "children": [
+                {
+                  "relation": "attach",
+                  "part": {
+                    "id": "p:71",
+                    "kind": "assembly",
+                    "label": "solar-lead",
+                    "children": [
+                      {
+                        "relation": "attach",
+                        "part": {
+                          "id": "p:72",
+                          "kind": "solar-cell",
+                          "label": "solar-cell",
+                          "children": [],
+                          "pose": "closed",
+                          "facing": "east"
+                        }
+                      },
+                      {
+                        "relation": "attach",
+                        "part": {
+                          "id": "p:73",
+                          "kind": "cable",
+                          "label": "cable",
+                          "children": [],
+                          "pose": "closed",
+                          "facing": "east"
+                        }
+                      }
+                    ],
+                    "pose": "closed",
+                    "facing": "east"
+                  }
+                },
+                {
+                  "relation": "attach",
+                  "part": {
+                    "id": "p:74",
+                    "kind": "heater",
+                    "label": "heater",
+                    "children": [],
+                    "pose": "closed",
+                    "facing": "east"
+                  }
+                },
+                {
+                  "relation": "attach",
+                  "part": {
+                    "id": "p:75",
+                    "kind": "tube",
+                    "label": "tube",
+                    "children": [],
+                    "pose": "closed",
+                    "facing": "east"
+                  }
+                }
+              ],
+              "pose": "closed",
+              "facing": "east"
+            },
+            "place": "clean-ice",
+            "records": [],
+            "samples": [],
+            "history": {
+              "places": [
+                "clean-ice"
+              ],
+              "spanned": []
+            }
+          },
+          {
+            "id": "o:78",
+            "design": "sample-tray",
+            "root": {
+              "id": "p:79",
+              "kind": "assembly",
+              "label": "sample-tray",
+              "children": [
+                {
+                  "relation": "attach",
+                  "part": {
+                    "id": "p:80",
+                    "kind": "tray",
+                    "label": "tray",
+                    "children": [],
+                    "pose": "closed",
+                    "facing": "east"
+                  }
+                },
+                {
+                  "relation": "attach",
+                  "part": {
+                    "id": "p:81",
+                    "kind": "record-plate",
+                    "label": "record-plate",
+                    "children": [],
+                    "pose": "closed",
+                    "facing": "east"
+                  }
+                }
+              ],
+              "pose": "closed",
+              "facing": "east"
+            },
+            "place": "workbench",
+            "records": [],
+            "samples": [],
+            "history": {
+              "places": [
+                "workbench"
+              ],
+              "spanned": []
+            }
+          },
+          {
+            "id": "o:82",
+            "design": "sample-tray",
+            "root": {
+              "id": "p:83",
+              "kind": "assembly",
+              "label": "sample-tray",
+              "children": [
+                {
+                  "relation": "attach",
+                  "part": {
+                    "id": "p:84",
+                    "kind": "tray",
+                    "label": "tray",
+                    "children": [],
+                    "pose": "closed",
+                    "facing": "east"
+                  }
+                },
+                {
+                  "relation": "attach",
+                  "part": {
+                    "id": "p:85",
+                    "kind": "record-plate",
+                    "label": "record-plate",
+                    "children": [],
+                    "pose": "closed",
+                    "facing": "east"
+                  }
+                }
+              ],
+              "pose": "closed",
+              "facing": "east"
+            },
+            "place": "table",
+            "records": [],
+            "samples": [
+              "table"
+            ],
+            "history": {
+              "places": [
+                "table"
+              ],
+              "spanned": []
+            }
+          },
+          {
+            "id": "o:86",
+            "design": "sample-case",
+            "root": {
+              "id": "p:87",
+              "kind": "assembly",
+              "label": "sample-case",
+              "children": [
+                {
+                  "relation": "attach",
+                  "part": {
+                    "id": "p:88",
+                    "kind": "frame",
+                    "label": "frame",
+                    "children": [],
+                    "pose": "closed",
+                    "facing": "east"
+                  }
+                },
+                {
+                  "relation": "attach",
+                  "part": {
+                    "id": "p:89",
+                    "kind": "clear-film",
+                    "label": "clear-film",
+                    "children": [],
+                    "pose": "closed",
+                    "facing": "east"
+                  }
+                },
+                {
+                  "relation": "inside",
+                  "part": {
+                    "id": "p:90",
+                    "kind": "assembly",
+                    "label": "sample-tray",
+                    "children": [
+                      {
+                        "relation": "attach",
+                        "part": {
+                          "id": "p:91",
+                          "kind": "tray",
+                          "label": "tray",
+                          "children": [],
+                          "pose": "closed",
+                          "facing": "east"
+                        }
+                      },
+                      {
+                        "relation": "attach",
+                        "part": {
+                          "id": "p:92",
+                          "kind": "record-plate",
+                          "label": "record-plate",
+                          "children": [],
+                          "pose": "closed",
+                          "facing": "east"
+                        }
+                      }
+                    ],
+                    "pose": "closed",
+                    "facing": "east"
+                  }
+                }
+              ],
+              "pose": "closed",
+              "facing": "east"
+            },
+            "place": "alcove",
+            "records": [],
+            "samples": [
+              "alcove"
+            ],
+            "history": {
+              "places": [
+                "alcove"
+              ],
+              "spanned": []
+            }
+          }
+        ],
+        "connections": [
+          {
+            "id": "link:76",
+            "a": "o:69",
+            "b": "o:61",
+            "channel": "power"
+          },
+          {
+            "id": "link:77",
+            "a": "o:69",
+            "b": "o:61",
+            "channel": "water"
+          }
+        ],
+        "received": [],
+        "spans": [],
+        "achieved": {
+          "still": 17,
+          "preservation": 22
+        }
+      },
+      {
+        "id": "twin",
+        "objects": [
+          {
+            "id": "o:93",
+            "design": "assembly:1",
+            "root": {
+              "id": "p:94",
+              "kind": "assembly",
+              "label": "greenhouse",
+              "children": [
+                {
+                  "relation": "attach",
+                  "part": {
+                    "id": "p:95",
+                    "kind": "frame",
+                    "label": "frame",
+                    "children": [],
+                    "pose": "closed",
+                    "facing": "east"
+                  }
+                },
+                {
+                  "relation": "attach",
+                  "part": {
+                    "id": "p:96",
+                    "kind": "clear-film",
+                    "label": "clear-film",
+                    "children": [],
+                    "pose": "closed",
+                    "facing": "east"
+                  }
+                },
+                {
+                  "relation": "inside",
+                  "part": {
+                    "id": "p:97",
+                    "kind": "assembly",
+                    "label": "rootbed",
+                    "children": [
+                      {
+                        "relation": "attach",
+                        "part": {
+                          "id": "p:98",
+                          "kind": "tray",
+                          "label": "tray",
+                          "children": [],
+                          "pose": "closed",
+                          "facing": "east"
+                        }
+                      },
+                      {
+                        "relation": "attach",
+                        "part": {
+                          "id": "p:99",
+                          "kind": "seed",
+                          "label": "seed",
+                          "children": [],
+                          "pose": "closed",
+                          "facing": "east"
+                        }
+                      }
+                    ],
+                    "pose": "closed",
+                    "facing": "east"
+                  }
+                },
+                {
+                  "relation": "attach",
+                  "part": {
+                    "id": "p:100",
+                    "kind": "lamp",
+                    "label": "lamp",
+                    "children": [],
+                    "pose": "closed",
+                    "facing": "east"
+                  }
+                }
+              ],
+              "pose": "closed",
+              "facing": "east"
+            },
+            "place": "bed",
+            "records": [],
+            "samples": [],
+            "history": {
+              "places": [
+                "bed"
+              ],
+              "spanned": []
+            }
+          },
+          {
+            "id": "o:101",
+            "design": "solar-lead",
+            "root": {
+              "id": "p:102",
+              "kind": "assembly",
+              "label": "solar-lead",
+              "children": [
+                {
+                  "relation": "attach",
+                  "part": {
+                    "id": "p:103",
+                    "kind": "solar-cell",
+                    "label": "solar-cell",
+                    "children": [],
+                    "pose": "closed",
+                    "facing": "east"
+                  }
+                },
+                {
+                  "relation": "attach",
+                  "part": {
+                    "id": "p:104",
+                    "kind": "cable",
+                    "label": "cable",
+                    "children": [],
+                    "pose": "closed",
+                    "facing": "east"
+                  }
+                }
+              ],
+              "pose": "closed",
+              "facing": "east"
+            },
+            "place": "east-ridge",
+            "records": [],
+            "samples": [],
+            "history": {
+              "places": [
+                "east-ridge"
+              ],
+              "spanned": []
+            }
+          },
+          {
+            "id": "o:105",
+            "design": "assembly:3",
+            "root": {
+              "id": "p:106",
+              "kind": "assembly",
+              "label": "solar-lead",
+              "children": [
+                {
+                  "relation": "attach",
+                  "part": {
+                    "id": "p:107",
+                    "kind": "solar-cell",
+                    "label": "solar-cell",
+                    "children": [],
+                    "pose": "closed",
+                    "facing": "west"
+                  }
+                },
+                {
+                  "relation": "attach",
+                  "part": {
+                    "id": "p:108",
+                    "kind": "cable",
+                    "label": "cable",
+                    "children": [],
+                    "pose": "closed",
+                    "facing": "west"
+                  }
+                }
+              ],
+              "pose": "closed",
+              "facing": "west"
+            },
+            "place": "west-ridge",
+            "records": [],
+            "samples": [],
+            "history": {
+              "places": [
+                "west-ridge"
+              ],
+              "spanned": []
+            }
+          },
+          {
+            "id": "o:111",
+            "design": "clear-shell",
+            "root": {
+              "id": "p:112",
+              "kind": "assembly",
+              "label": "clear-shell",
+              "children": [
+                {
+                  "relation": "attach",
+                  "part": {
+                    "id": "p:113",
+                    "kind": "frame",
+                    "label": "frame",
+                    "children": [],
+                    "pose": "closed",
+                    "facing": "east"
+                  }
+                },
+                {
+                  "relation": "attach",
+                  "part": {
+                    "id": "p:114",
+                    "kind": "clear-film",
+                    "label": "clear-film",
+                    "children": [],
+                    "pose": "closed",
+                    "facing": "east"
+                  }
+                }
+              ],
+              "pose": "closed",
+              "facing": "east"
+            },
+            "place": "workbench",
+            "records": [],
+            "samples": [],
+            "history": {
+              "places": [
+                "workbench"
+              ],
+              "spanned": []
+            }
+          },
+          {
+            "id": "o:115",
+            "design": "assembly:5",
+            "root": {
+              "id": "p:116",
+              "kind": "assembly",
+              "label": "clear-shell",
+              "children": [
+                {
+                  "relation": "attach",
+                  "part": {
+                    "id": "p:117",
+                    "kind": "frame",
+                    "label": "frame",
+                    "children": [],
+                    "pose": "closed",
+                    "facing": "east"
+                  }
+                },
+                {
+                  "relation": "attach",
+                  "part": {
+                    "id": "p:118",
+                    "kind": "clear-film",
+                    "label": "clear-film",
+                    "children": [],
+                    "pose": "closed",
+                    "facing": "east"
+                  }
+                },
+                {
+                  "relation": "inside",
+                  "part": {
+                    "id": "p:119",
+                    "kind": "assembly",
+                    "label": "camera",
+                    "children": [
+                      {
+                        "relation": "attach",
+                        "part": {
+                          "id": "p:120",
+                          "kind": "lens",
+                          "label": "lens",
+                          "children": [],
+                          "pose": "closed",
+                          "facing": "east"
+                        }
+                      },
+                      {
+                        "relation": "attach",
+                        "part": {
+                          "id": "p:121",
+                          "kind": "record-plate",
+                          "label": "record-plate",
+                          "children": [],
+                          "pose": "closed",
+                          "facing": "east"
+                        }
+                      }
+                    ],
+                    "pose": "closed",
+                    "facing": "east"
+                  }
+                },
+                {
+                  "relation": "attach",
+                  "part": {
+                    "id": "p:122",
+                    "kind": "wheels",
+                    "label": "wheels",
+                    "children": [],
+                    "pose": "closed",
+                    "facing": "east"
+                  }
+                }
+              ],
+              "pose": "closed",
+              "facing": "east"
+            },
+            "place": "alcove",
+            "records": [
+              {
+                "id": "record:123",
+                "subject": "place:landmark",
+                "viewpoint": "west-view",
+                "camera": "o:115",
+                "row": "east-light",
+                "source": [
+                  "sun:east-light:landmark"
+                ],
+                "intervention": 34
+              },
+              {
+                "id": "record:124",
+                "subject": "place:landmark",
+                "viewpoint": "west-view",
+                "camera": "o:115",
+                "row": "west-light",
+                "source": [
+                  "sun:west-light:landmark"
+                ],
+                "intervention": 34
+              },
+              {
+                "id": "record:125",
+                "subject": "place:landmark",
+                "viewpoint": "east-view",
+                "camera": "o:115",
+                "row": "east-light",
+                "source": [
+                  "sun:east-light:landmark"
+                ],
+                "intervention": 36
+              },
+              {
+                "id": "record:126",
+                "subject": "place:landmark",
+                "viewpoint": "east-view",
+                "camera": "o:115",
+                "row": "west-light",
+                "source": [
+                  "sun:west-light:landmark"
+                ],
+                "intervention": 36
+              }
+            ],
+            "samples": [],
+            "history": {
+              "places": [
+                "west-view",
+                "landmark",
+                "east-view",
+                "east-ridge",
+                "bed",
+                "camp",
+                "alcove"
+              ],
+              "spanned": []
+            }
+          }
+        ],
+        "connections": [
+          {
+            "id": "link:109",
+            "a": "o:101",
+            "b": "o:93",
+            "channel": "power"
+          },
+          {
+            "id": "link:110",
+            "a": "o:105",
+            "b": "o:93",
+            "channel": "power"
+          }
+        ],
+        "received": [],
+        "spans": [],
+        "achieved": {
+          "two-skies": 29,
+          "viewpoints": 37
+        }
+      },
+      {
+        "id": "arch",
+        "objects": [
+          {
+            "id": "o:1",
+            "initialKey": "garden",
+            "design": "assembly:7",
+            "root": {
+              "id": "p:2",
+              "kind": "assembly",
+              "label": "greenhouse",
+              "children": [
+                {
+                  "relation": "attach",
+                  "part": {
+                    "id": "p:3",
+                    "kind": "frame",
+                    "label": "frame",
+                    "children": [],
+                    "pose": "closed",
+                    "facing": "east"
+                  }
+                },
+                {
+                  "relation": "attach",
+                  "part": {
+                    "id": "p:4",
+                    "kind": "clear-film",
+                    "label": "clear-film",
+                    "children": [],
+                    "pose": "closed",
+                    "facing": "east"
+                  }
+                },
+                {
+                  "relation": "inside",
+                  "part": {
+                    "id": "p:5",
+                    "kind": "assembly",
+                    "label": "rootbed",
+                    "children": [
+                      {
+                        "relation": "attach",
+                        "part": {
+                          "id": "p:6",
+                          "kind": "tray",
+                          "label": "tray",
+                          "children": [],
+                          "pose": "closed",
+                          "facing": "east"
+                        }
+                      },
+                      {
+                        "relation": "attach",
+                        "part": {
+                          "id": "p:7",
+                          "kind": "seed",
+                          "label": "seed",
+                          "children": [],
+                          "pose": "closed",
+                          "facing": "east"
+                        }
+                      }
+                    ],
+                    "pose": "closed",
+                    "facing": "east"
+                  }
+                },
+                {
+                  "relation": "attach",
+                  "part": {
+                    "id": "p:127",
+                    "kind": "wheels",
+                    "label": "wheels",
+                    "children": [],
+                    "pose": "closed",
+                    "facing": "east"
+                  }
+                },
+                {
+                  "relation": "attach",
+                  "part": {
+                    "id": "p:128",
+                    "kind": "hinge",
+                    "label": "hinge",
+                    "children": [],
+                    "pose": "closed",
+                    "facing": "east"
+                  }
+                }
+              ],
+              "pose": "closed",
+              "facing": "east"
+            },
+            "place": "destination",
+            "records": [],
+            "samples": [],
+            "history": {
+              "places": [
+                "start",
+                "low-west",
+                "low-east",
+                "gap-west",
+                "upper-perch",
+                "source",
+                "approach",
+                "destination"
+              ],
+              "spanned": []
+            }
+          },
+          {
+            "id": "o:129",
+            "design": "cart",
+            "root": {
+              "id": "p:130",
+              "kind": "assembly",
+              "label": "cart",
+              "children": [
+                {
+                  "relation": "attach",
+                  "part": {
+                    "id": "p:131",
+                    "kind": "frame",
+                    "label": "frame",
+                    "children": [],
+                    "pose": "closed",
+                    "facing": "east"
+                  }
+                },
+                {
+                  "relation": "attach",
+                  "part": {
+                    "id": "p:132",
+                    "kind": "wheels",
+                    "label": "wheels",
+                    "children": [],
+                    "pose": "closed",
+                    "facing": "east"
+                  }
+                }
+              ],
+              "pose": "closed",
+              "facing": "east"
+            },
+            "place": "workbench",
+            "records": [],
+            "samples": [],
+            "history": {
+              "places": [
+                "workbench"
+              ],
+              "spanned": []
+            }
+          },
+          {
+            "id": "o:133",
+            "design": "assembly:10",
+            "root": {
+              "id": "p:134",
+              "kind": "assembly",
+              "label": "cart",
+              "children": [
+                {
+                  "relation": "attach",
+                  "part": {
+                    "id": "p:135",
+                    "kind": "frame",
+                    "label": "frame",
+                    "children": [],
+                    "pose": "closed",
+                    "facing": "east"
+                  }
+                },
+                {
+                  "relation": "attach",
+                  "part": {
+                    "id": "p:136",
+                    "kind": "wheels",
+                    "label": "wheels",
+                    "children": [],
+                    "pose": "closed",
+                    "facing": "east"
+                  }
+                },
+                {
+                  "relation": "attach",
+                  "part": {
+                    "id": "p:137",
+                    "kind": "hinge",
+                    "label": "hinge",
+                    "children": [],
+                    "pose": "closed",
+                    "facing": "east"
+                  }
+                }
+              ],
+              "pose": "folded",
+              "facing": "east"
+            },
+            "place": "gap-east",
+            "records": [],
+            "samples": [],
+            "history": {
+              "places": [
+                "gap-west",
+                "lower-west",
+                "lower-east",
+                "gap-east"
+              ],
+              "spanned": [
+                "gap-west/gap-east"
+              ],
+              "afterSpanPlaces": [
+                "gap-west",
+                "lower-west",
+                "lower-east",
+                "gap-east"
+              ]
+            }
+          },
+          {
+            "id": "o:138",
+            "design": "frame",
+            "root": {
+              "id": "p:139",
+              "kind": "frame",
+              "label": "frame",
+              "children": [],
+              "pose": "closed",
+              "facing": "east"
+            },
+            "place": "gap-west",
+            "records": [],
+            "samples": [],
+            "history": {
+              "places": [
+                "gap-west"
+              ],
+              "spanned": [
+                "gap-west/gap-east"
+              ],
+              "afterSpanPlaces": []
+            }
+          }
+        ],
+        "connections": [],
+        "received": [],
+        "spans": [
+          {
+            "object": "o:138",
+            "a": "gap-west",
+            "b": "gap-east"
+          }
+        ],
+        "achieved": {
+          "carry": 42,
+          "deploy-recover": 50
+        }
+      },
+      {
+        "id": "dust",
+        "objects": [
+          {
+            "id": "o:140",
+            "design": "assembly:11",
+            "root": {
+              "id": "p:141",
+              "kind": "assembly",
+              "label": "sample-case",
+              "children": [
+                {
+                  "relation": "attach",
+                  "part": {
+                    "id": "p:142",
+                    "kind": "frame",
+                    "label": "frame",
+                    "children": [],
+                    "pose": "closed",
+                    "facing": "east"
+                  }
+                },
+                {
+                  "relation": "attach",
+                  "part": {
+                    "id": "p:143",
+                    "kind": "clear-film",
+                    "label": "clear-film",
+                    "children": [],
+                    "pose": "closed",
+                    "facing": "east"
+                  }
+                },
+                {
+                  "relation": "inside",
+                  "part": {
+                    "id": "p:144",
+                    "kind": "assembly",
+                    "label": "sample-tray",
+                    "children": [
+                      {
+                        "relation": "attach",
+                        "part": {
+                          "id": "p:145",
+                          "kind": "tray",
+                          "label": "tray",
+                          "children": [],
+                          "pose": "closed",
+                          "facing": "east"
+                        }
+                      },
+                      {
+                        "relation": "attach",
+                        "part": {
+                          "id": "p:146",
+                          "kind": "record-plate",
+                          "label": "record-plate",
+                          "children": [],
+                          "pose": "closed",
+                          "facing": "east"
+                        }
+                      }
+                    ],
+                    "pose": "closed",
+                    "facing": "east"
+                  }
+                },
+                {
+                  "relation": "attach",
+                  "part": {
+                    "id": "p:147",
+                    "kind": "heater",
+                    "label": "heater",
+                    "children": [],
+                    "pose": "closed",
+                    "facing": "east"
+                  }
+                }
+              ],
+              "pose": "closed",
+              "facing": "east"
+            },
+            "place": "warm-room",
+            "records": [],
+            "samples": [],
+            "history": {
+              "places": [
+                "warm-room"
+              ],
+              "spanned": []
+            }
+          },
+          {
+            "id": "o:148",
+            "design": "solar-lead",
+            "root": {
+              "id": "p:149",
+              "kind": "assembly",
+              "label": "solar-lead",
+              "children": [
+                {
+                  "relation": "attach",
+                  "part": {
+                    "id": "p:150",
+                    "kind": "solar-cell",
+                    "label": "solar-cell",
+                    "children": [],
+                    "pose": "closed",
+                    "facing": "east"
+                  }
+                },
+                {
+                  "relation": "attach",
+                  "part": {
+                    "id": "p:151",
+                    "kind": "cable",
+                    "label": "cable",
+                    "children": [],
+                    "pose": "closed",
+                    "facing": "east"
+                  }
+                }
+              ],
+              "pose": "closed",
+              "facing": "east"
+            },
+            "place": "ridge",
+            "records": [],
+            "samples": [],
+            "history": {
+              "places": [
+                "ridge"
+              ],
+              "spanned": []
+            }
+          },
+          {
+            "id": "o:152",
+            "design": "assembly:3",
+            "root": {
+              "id": "p:153",
+              "kind": "assembly",
+              "label": "solar-lead",
+              "children": [
+                {
+                  "relation": "attach",
+                  "part": {
+                    "id": "p:154",
+                    "kind": "solar-cell",
+                    "label": "solar-cell",
+                    "children": [],
+                    "pose": "closed",
+                    "facing": "west"
+                  }
+                },
+                {
+                  "relation": "attach",
+                  "part": {
+                    "id": "p:155",
+                    "kind": "cable",
+                    "label": "cable",
+                    "children": [],
+                    "pose": "closed",
+                    "facing": "west"
+                  }
+                }
+              ],
+              "pose": "closed",
+              "facing": "west"
+            },
+            "place": "ridge",
+            "records": [],
+            "samples": [],
+            "history": {
+              "places": [
+                "ridge"
+              ],
+              "spanned": []
+            }
+          },
+          {
+            "id": "o:158",
+            "design": "greenhouse",
+            "root": {
+              "id": "p:159",
+              "kind": "assembly",
+              "label": "greenhouse",
+              "children": [
+                {
+                  "relation": "attach",
+                  "part": {
+                    "id": "p:160",
+                    "kind": "frame",
+                    "label": "frame",
+                    "children": [],
+                    "pose": "closed",
+                    "facing": "east"
+                  }
+                },
+                {
+                  "relation": "attach",
+                  "part": {
+                    "id": "p:161",
+                    "kind": "clear-film",
+                    "label": "clear-film",
+                    "children": [],
+                    "pose": "closed",
+                    "facing": "east"
+                  }
+                },
+                {
+                  "relation": "inside",
+                  "part": {
+                    "id": "p:162",
+                    "kind": "assembly",
+                    "label": "rootbed",
+                    "children": [
+                      {
+                        "relation": "attach",
+                        "part": {
+                          "id": "p:163",
+                          "kind": "tray",
+                          "label": "tray",
+                          "children": [],
+                          "pose": "closed",
+                          "facing": "east"
+                        }
+                      },
+                      {
+                        "relation": "attach",
+                        "part": {
+                          "id": "p:164",
+                          "kind": "seed",
+                          "label": "seed",
+                          "children": [],
+                          "pose": "closed",
+                          "facing": "east"
+                        }
+                      }
+                    ],
+                    "pose": "closed",
+                    "facing": "east"
+                  }
+                }
+              ],
+              "pose": "closed",
+              "facing": "east"
+            },
+            "place": "bed",
+            "records": [],
+            "samples": [],
+            "history": {
+              "places": [
+                "bed"
+              ],
+              "spanned": []
+            }
+          },
+          {
+            "id": "o:165",
+            "design": "sample-case",
+            "root": {
+              "id": "p:166",
+              "kind": "assembly",
+              "label": "sample-case",
+              "children": [
+                {
+                  "relation": "attach",
+                  "part": {
+                    "id": "p:167",
+                    "kind": "frame",
+                    "label": "frame",
+                    "children": [],
+                    "pose": "closed",
+                    "facing": "east"
+                  }
+                },
+                {
+                  "relation": "attach",
+                  "part": {
+                    "id": "p:168",
+                    "kind": "clear-film",
+                    "label": "clear-film",
+                    "children": [],
+                    "pose": "closed",
+                    "facing": "east"
+                  }
+                },
+                {
+                  "relation": "inside",
+                  "part": {
+                    "id": "p:169",
+                    "kind": "assembly",
+                    "label": "sample-tray",
+                    "children": [
+                      {
+                        "relation": "attach",
+                        "part": {
+                          "id": "p:170",
+                          "kind": "tray",
+                          "label": "tray",
+                          "children": [],
+                          "pose": "closed",
+                          "facing": "east"
+                        }
+                      },
+                      {
+                        "relation": "attach",
+                        "part": {
+                          "id": "p:171",
+                          "kind": "record-plate",
+                          "label": "record-plate",
+                          "children": [],
+                          "pose": "closed",
+                          "facing": "east"
+                        }
+                      }
+                    ],
+                    "pose": "closed",
+                    "facing": "east"
+                  }
+                }
+              ],
+              "pose": "closed",
+              "facing": "east"
+            },
+            "place": "cool-room",
+            "records": [],
+            "samples": [],
+            "history": {
+              "places": [
+                "cool-room"
+              ],
+              "spanned": []
+            }
+          },
+          {
+            "id": "o:172",
+            "design": "assembly:12",
+            "root": {
+              "id": "p:173",
+              "kind": "assembly",
+              "label": "sample-case",
+              "children": [
+                {
+                  "relation": "attach",
+                  "part": {
+                    "id": "p:174",
+                    "kind": "frame",
+                    "label": "frame",
+                    "children": [],
+                    "pose": "closed",
+                    "facing": "east"
+                  }
+                },
+                {
+                  "relation": "attach",
+                  "part": {
+                    "id": "p:175",
+                    "kind": "clear-film",
+                    "label": "clear-film",
+                    "children": [],
+                    "pose": "closed",
+                    "facing": "east"
+                  }
+                },
+                {
+                  "relation": "inside",
+                  "part": {
+                    "id": "p:176",
+                    "kind": "assembly",
+                    "label": "sample-tray",
+                    "children": [
+                      {
+                        "relation": "attach",
+                        "part": {
+                          "id": "p:177",
+                          "kind": "tray",
+                          "label": "tray",
+                          "children": [],
+                          "pose": "closed",
+                          "facing": "east"
+                        }
+                      },
+                      {
+                        "relation": "attach",
+                        "part": {
+                          "id": "p:178",
+                          "kind": "record-plate",
+                          "label": "record-plate",
+                          "children": [],
+                          "pose": "closed",
+                          "facing": "east"
+                        }
+                      }
+                    ],
+                    "pose": "closed",
+                    "facing": "east"
+                  }
+                },
+                {
+                  "relation": "attach",
+                  "part": {
+                    "id": "p:179",
+                    "kind": "wheels",
+                    "label": "wheels",
+                    "children": [],
+                    "pose": "closed",
+                    "facing": "east"
+                  }
+                }
+              ],
+              "pose": "closed",
+              "facing": "east"
+            },
+            "place": "sample-alcove",
+            "records": [],
+            "samples": [
+              "specimen-site"
+            ],
+            "history": {
+              "places": [
+                "specimen-site",
+                "passage",
+                "cool-room",
+                "sample-alcove"
+              ],
+              "spanned": []
+            }
+          },
+          {
+            "id": "o:180",
+            "design": "camera",
+            "root": {
+              "id": "p:181",
+              "kind": "assembly",
+              "label": "camera",
+              "children": [
+                {
+                  "relation": "attach",
+                  "part": {
+                    "id": "p:182",
+                    "kind": "lens",
+                    "label": "lens",
+                    "children": [],
+                    "pose": "closed",
+                    "facing": "east"
+                  }
+                },
+                {
+                  "relation": "attach",
+                  "part": {
+                    "id": "p:183",
+                    "kind": "record-plate",
+                    "label": "record-plate",
+                    "children": [],
+                    "pose": "closed",
+                    "facing": "east"
+                  }
+                }
+              ],
+              "pose": "closed",
+              "facing": "east"
+            },
+            "place": "window",
+            "records": [
+              {
+                "id": "record:184",
+                "subject": "place:landmark",
+                "viewpoint": "window",
+                "camera": "o:180",
+                "row": "clear-east",
+                "source": [
+                  "sun:clear-east:landmark"
+                ],
+                "intervention": 65
+              },
+              {
+                "id": "record:185",
+                "subject": "place:landmark",
+                "viewpoint": "window",
+                "camera": "o:180",
+                "row": "dust-east",
+                "source": [
+                  "sun:dust-east:landmark"
+                ],
+                "intervention": 65
+              },
+              {
+                "id": "record:186",
+                "subject": "place:landmark",
+                "viewpoint": "window",
+                "camera": "o:180",
+                "row": "clear-west",
+                "source": [
+                  "sun:clear-west:landmark"
+                ],
+                "intervention": 65
+              },
+              {
+                "id": "record:187",
+                "subject": "place:landmark",
+                "viewpoint": "window",
+                "camera": "o:180",
+                "row": "dust-west",
+                "source": [
+                  "sun:dust-west:landmark"
+                ],
+                "intervention": 65
+              }
+            ],
+            "samples": [],
+            "history": {
+              "places": [
+                "window"
+              ],
+              "spanned": []
+            }
+          }
+        ],
+        "connections": [
+          {
+            "id": "link:156",
+            "a": "o:148",
+            "b": "o:140",
+            "channel": "power"
+          },
+          {
+            "id": "link:157",
+            "a": "o:152",
+            "b": "o:140",
+            "channel": "power"
+          }
+        ],
+        "received": [],
+        "spans": [],
+        "achieved": {
+          "warm-sample": 63,
+          "window": 65
+        }
+      },
+      {
+        "id": "return",
+        "objects": [
+          {
+            "id": "o:8",
+            "initialKey": "original-a",
+            "design": "assembly:13",
+            "root": {
+              "id": "p:9",
+              "kind": "assembly",
+              "label": "sample-case",
+              "children": [
+                {
+                  "relation": "attach",
+                  "part": {
+                    "id": "p:10",
+                    "kind": "frame",
+                    "label": "frame",
+                    "children": [],
+                    "pose": "closed",
+                    "facing": "east"
+                  }
+                },
+                {
+                  "relation": "attach",
+                  "part": {
+                    "id": "p:11",
+                    "kind": "clear-film",
+                    "label": "clear-film",
+                    "children": [],
+                    "pose": "closed",
+                    "facing": "east"
+                  }
+                },
+                {
+                  "relation": "inside",
+                  "part": {
+                    "id": "p:12",
+                    "kind": "assembly",
+                    "label": "sample-tray",
+                    "children": [
+                      {
+                        "relation": "attach",
+                        "part": {
+                          "id": "p:13",
+                          "kind": "tray",
+                          "label": "tray",
+                          "children": [],
+                          "pose": "closed",
+                          "facing": "east"
+                        }
+                      },
+                      {
+                        "relation": "attach",
+                        "part": {
+                          "id": "p:14",
+                          "kind": "record-plate",
+                          "label": "record-plate",
+                          "children": [],
+                          "pose": "closed",
+                          "facing": "east"
+                        }
+                      }
+                    ],
+                    "pose": "closed",
+                    "facing": "east"
+                  }
+                },
+                {
+                  "relation": "attach",
+                  "part": {
+                    "id": "p:192",
+                    "kind": "lens",
+                    "label": "lens",
+                    "children": [],
+                    "pose": "closed",
+                    "facing": "east"
+                  }
+                }
+              ],
+              "pose": "closed",
+              "facing": "east"
+            },
+            "place": "original-a",
+            "records": [
+              {
+                "id": "record:15",
+                "subject": "A-original",
+                "viewpoint": "original-a",
+                "camera": "o:8",
+                "row": "initial",
+                "source": [
+                  "initial:return:original-a"
+                ],
+                "intervention": 0
+              }
+            ],
+            "samples": [],
+            "history": {
+              "places": [
+                "original-a"
+              ],
+              "spanned": []
+            }
+          },
+          {
+            "id": "o:16",
+            "initialKey": "original-b",
+            "design": "assembly:13",
+            "root": {
+              "id": "p:17",
+              "kind": "assembly",
+              "label": "sample-case",
+              "children": [
+                {
+                  "relation": "attach",
+                  "part": {
+                    "id": "p:18",
+                    "kind": "frame",
+                    "label": "frame",
+                    "children": [],
+                    "pose": "closed",
+                    "facing": "east"
+                  }
+                },
+                {
+                  "relation": "attach",
+                  "part": {
+                    "id": "p:19",
+                    "kind": "clear-film",
+                    "label": "clear-film",
+                    "children": [],
+                    "pose": "closed",
+                    "facing": "east"
+                  }
+                },
+                {
+                  "relation": "inside",
+                  "part": {
+                    "id": "p:20",
+                    "kind": "assembly",
+                    "label": "sample-tray",
+                    "children": [
+                      {
+                        "relation": "attach",
+                        "part": {
+                          "id": "p:21",
+                          "kind": "tray",
+                          "label": "tray",
+                          "children": [],
+                          "pose": "closed",
+                          "facing": "east"
+                        }
+                      },
+                      {
+                        "relation": "attach",
+                        "part": {
+                          "id": "p:22",
+                          "kind": "record-plate",
+                          "label": "record-plate",
+                          "children": [],
+                          "pose": "closed",
+                          "facing": "east"
+                        }
+                      }
+                    ],
+                    "pose": "closed",
+                    "facing": "east"
+                  }
+                },
+                {
+                  "relation": "attach",
+                  "part": {
+                    "id": "p:193",
+                    "kind": "lens",
+                    "label": "lens",
+                    "children": [],
+                    "pose": "closed",
+                    "facing": "east"
+                  }
+                }
+              ],
+              "pose": "closed",
+              "facing": "east"
+            },
+            "place": "original-b",
+            "records": [
+              {
+                "id": "record:23",
+                "subject": "B-original",
+                "viewpoint": "original-b",
+                "camera": "o:16",
+                "row": "initial",
+                "source": [
+                  "initial:return:original-b"
+                ],
+                "intervention": 0
+              }
+            ],
+            "samples": [],
+            "history": {
+              "places": [
+                "original-b"
+              ],
+              "spanned": []
+            }
+          },
+          {
+            "id": "o:24",
+            "initialKey": "stranded-camera",
+            "design": "assembly:14",
+            "root": {
+              "id": "p:25",
+              "kind": "assembly",
+              "label": "camera",
+              "children": [
+                {
+                  "relation": "attach",
+                  "part": {
+                    "id": "p:26",
+                    "kind": "lens",
+                    "label": "lens",
+                    "children": [],
+                    "pose": "closed",
+                    "facing": "east"
+                  }
+                },
+                {
+                  "relation": "attach",
+                  "part": {
+                    "id": "p:27",
+                    "kind": "record-plate",
+                    "label": "record-plate",
+                    "children": [],
+                    "pose": "closed",
+                    "facing": "east"
+                  }
+                },
+                {
+                  "relation": "attach",
+                  "part": {
+                    "id": "p:194",
+                    "kind": "assembly",
+                    "label": "cart",
+                    "children": [
+                      {
+                        "relation": "attach",
+                        "part": {
+                          "id": "p:195",
+                          "kind": "frame",
+                          "label": "frame",
+                          "children": [],
+                          "pose": "closed",
+                          "facing": "east"
+                        }
+                      },
+                      {
+                        "relation": "attach",
+                        "part": {
+                          "id": "p:196",
+                          "kind": "wheels",
+                          "label": "wheels",
+                          "children": [],
+                          "pose": "closed",
+                          "facing": "east"
+                        }
+                      }
+                    ],
+                    "pose": "closed",
+                    "facing": "east"
+                  }
+                }
+              ],
+              "pose": "closed",
+              "facing": "east"
+            },
+            "place": "dock",
+            "records": [
+              {
+                "id": "record:28",
+                "subject": "expedition",
+                "viewpoint": "stranded",
+                "camera": "o:24",
+                "row": "initial",
+                "source": [
+                  "initial:return:stranded-camera"
+                ],
+                "intervention": 0
+              }
+            ],
+            "samples": [],
+            "history": {
+              "places": [
+                "stranded",
+                "dock"
+              ],
+              "spanned": []
+            }
+          },
+          {
+            "id": "o:188",
+            "design": "camera",
+            "root": {
+              "id": "p:189",
+              "kind": "assembly",
+              "label": "camera",
+              "children": [
+                {
+                  "relation": "attach",
+                  "part": {
+                    "id": "p:190",
+                    "kind": "lens",
+                    "label": "lens",
+                    "children": [],
+                    "pose": "closed",
+                    "facing": "east"
+                  }
+                },
+                {
+                  "relation": "attach",
+                  "part": {
+                    "id": "p:191",
+                    "kind": "record-plate",
+                    "label": "record-plate",
+                    "children": [],
+                    "pose": "closed",
+                    "facing": "east"
+                  }
+                }
+              ],
+              "pose": "closed",
+              "facing": "east"
+            },
+            "place": "junction",
+            "records": [
+              {
+                "id": "record:15",
+                "subject": "A-original",
+                "viewpoint": "original-a",
+                "camera": "o:8",
+                "row": "initial",
+                "source": [
+                  "initial:return:original-a"
+                ],
+                "intervention": 0
+              },
+              {
+                "id": "record:23",
+                "subject": "B-original",
+                "viewpoint": "original-b",
+                "camera": "o:16",
+                "row": "initial",
+                "source": [
+                  "initial:return:original-b"
+                ],
+                "intervention": 0
+              }
+            ],
+            "samples": [],
+            "history": {
+              "places": [
+                "junction"
+              ],
+              "spanned": []
+            }
+          }
+        ],
+        "connections": [],
+        "received": [
+          {
+            "id": "record:15",
+            "subject": "A-original",
+            "viewpoint": "original-a",
+            "camera": "o:8",
+            "row": "initial",
+            "source": [
+              "initial:return:original-a"
+            ],
+            "intervention": 0
+          },
+          {
+            "id": "record:23",
+            "subject": "B-original",
+            "viewpoint": "original-b",
+            "camera": "o:16",
+            "row": "initial",
+            "source": [
+              "initial:return:original-b"
+            ],
+            "intervention": 0
+          },
+          {
+            "id": "record:28",
+            "subject": "expedition",
+            "viewpoint": "stranded",
+            "camera": "o:24",
+            "row": "initial",
+            "source": [
+              "initial:return:stranded-camera"
+            ],
+            "intervention": 0
+          }
+        ],
+        "spans": [],
+        "achieved": {
+          "messages": 71,
+          "recovery": 74
+        }
+      }
+    ],
+    "serial": 197,
+    "interventions": 75,
+    "ledger": {
+      "synthesis": 5,
+      "contextual": 47,
+      "reconfiguration": 5,
+      "travel": 6,
+      "observation": 12
+    },
+    "accepted": true,
+    "response": [
+      "o:29 now includes foil as attach; reusable design assembly:15."
+    ],
+    "status": "complete",
+    "lastAction": {
+      "type": "combine",
+      "a": "o:29",
+      "b": "foil"
+    }
+  }
+}

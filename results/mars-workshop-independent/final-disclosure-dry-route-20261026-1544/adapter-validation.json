@@ -1,0 +1,2473 @@
+{
+  "sourceHashes": {
+    "engine": "7f65108ec878e4e1b8c1759bf099d06f39b2d91600b60bf79dde7044162b7307",
+    "content": "54eae0cbe5d61511c32ab8be39747da1a8157976da7131d80c6c30a1e25e4c6a",
+    "types": "8880af310ce0fb4e1c634324e572b026386af0158a321d57652861205b742091",
+    "adapter": "b6f363e4bd6c0a7b5d79d97b7054f5413c99cb25553e860da120b6c629a8a899",
+    "evaluationProtocol": "e15bf98057e4cfe77c64a5b0a6b45ca111c3f54fc1499d835a86663642393d92",
+    "campaignProposal": "47abe5edd4a495e8418a2716d0725b344eb8576e4b25bc4bb2663d7ebebe386d"
+  },
+  "outputs": [
+    {
+      "args": [
+        "init",
+        "independent-preview-20261026-1544",
+        "complete",
+        "{\"publicPrompt\":\"Final-hash independent mechanical validation of compact versus opt-in forecast and per-event actor attribution; not a player session.\",\"participant\":{\"id\":\"independent-mechanics-reviewer\",\"kind\":\"mechanical test\"},\"condition\":\"final-hash disclosure and capture attribution\",\"exposureHistory\":\"Source, proposal and protocol exposed. Synthetic actor labels test the harness; not player evidence.\",\"actor\":\"operator\"}"
+      ],
+      "result": {
+        "observation": {
+          "version": "mars-workshop-1",
+          "map": "landing",
+          "interventions": 0,
+          "ledger": {
+            "synthesis": 0,
+            "contextual": 0,
+            "reconfiguration": 0,
+            "travel": 0,
+            "observation": 0
+          },
+          "status": "playing",
+          "accepted": true,
+          "response": [
+            "Campaign ready. All maps are accessible."
+          ],
+          "goals": [
+            {
+              "id": "garden",
+              "title": "Bright protected garden",
+              "rows": [
+                "day"
+              ],
+              "requirement": "At bed, an actual rootbed is enclosed, illuminated and receiving clean water in the day row. Any construction satisfying those properties works.",
+              "map": "landing",
+              "checks": {
+                "a rootbed at bed is enclosed, illuminated, and clean-water-fed in every row": false
+              },
+              "current": false,
+              "achieved": false,
+              "firstIntervention": null
+            },
+            {
+              "id": "signal",
+              "title": "First signal",
+              "rows": [
+                "day"
+              ],
+              "requirement": "The northern receiver has actually received the camp location through an optical event, and the bed garden is currently functioning. Both goals may complete together.",
+              "map": "landing",
+              "checks": {
+                "garden remains working": false,
+                "receiver has an actual optical record of bed": false
+              },
+              "current": false,
+              "achieved": false,
+              "firstIntervention": null
+            }
+          ],
+          "campaign": [
+            {
+              "map": "landing",
+              "goals": [
+                {
+                  "id": "garden",
+                  "title": "Bright protected garden",
+                  "achieved": false,
+                  "current": false
+                },
+                {
+                  "id": "signal",
+                  "title": "First signal",
+                  "achieved": false,
+                  "current": false
+                }
+              ]
+            },
+            {
+              "map": "ice",
+              "goals": [
+                {
+                  "id": "still",
+                  "title": "Still and growing place",
+                  "achieved": false,
+                  "current": false
+                },
+                {
+                  "id": "preservation",
+                  "title": "Drying and preservation",
+                  "achieved": false,
+                  "current": false
+                }
+              ]
+            },
+            {
+              "map": "twin",
+              "goals": [
+                {
+                  "id": "two-skies",
+                  "title": "Two skies",
+                  "achieved": false,
+                  "current": false
+                },
+                {
+                  "id": "viewpoints",
+                  "title": "Two viewpoints",
+                  "achieved": false,
+                  "current": false
+                }
+              ]
+            },
+            {
+              "map": "arch",
+              "goals": [
+                {
+                  "id": "carry",
+                  "title": "Carry the existing garden",
+                  "achieved": false,
+                  "current": false
+                },
+                {
+                  "id": "deploy-recover",
+                  "title": "Deploy then recover",
+                  "achieved": false,
+                  "current": false
+                }
+              ]
+            },
+            {
+              "map": "dust",
+              "goals": [
+                {
+                  "id": "warm-sample",
+                  "title": "Warm place, protected sample",
+                  "achieved": false,
+                  "current": false
+                },
+                {
+                  "id": "window",
+                  "title": "Usable window",
+                  "achieved": false,
+                  "current": false
+                }
+              ]
+            },
+            {
+              "map": "return",
+              "goals": [
+                {
+                  "id": "messages",
+                  "title": "Distinguishable messages",
+                  "achieved": false,
+                  "current": false
+                },
+                {
+                  "id": "recovery",
+                  "title": "Recover the stranded instrument",
+                  "achieved": false,
+                  "current": false
+                }
+              ]
+            }
+          ],
+          "knownCount": 42,
+          "objects": [],
+          "connections": [],
+          "spans": [],
+          "received": []
+        },
+        "interface": {
+          "commands": {
+            "init": "init ID [ordinary|complete|OPTIONS_JSON] METADATA_JSON — start a new capture; default ordinary; metadata records the exact assignment and participant",
+            "view": "view ID — compact current board, objects, and goals",
+            "inspect": "inspect ID [object/design/place ID] — public detail; omit the operand for rules; use cli for this guide",
+            "catalogue": "catalogue ID — all public recipes and available designs, including reusable assemblies",
+            "partners": "partners ID OPERAND — compatible recipes and contextual operations; not a recommended plan",
+            "preview": "preview ID ACTION_JSON [DETAIL_ID] — exact single-action forecast; optional world/object/place detail of the predicted result",
+            "combine": "combine ID ACTION_JSON — select and commit one combination; act is an alias",
+            "select": "select ID MAP_ID — visit another retained board, without a game intervention",
+            "undo": "undo ID — undo the latest still-applied accepted combination under the public editing rules",
+            "checkpoint": "checkpoint ID REPORT_JSON — record the exact question/response or current intention",
+            "report": "report ID REPORT_JSON — record a remark, report, choice, or technical interruption verbatim",
+            "finish": "finish ID [REPORT_JSON] — stop whenever you choose, whether complete or not",
+            "verify": "verify ID — read-only capture, source-freeze, and deterministic-replay verification"
+          },
+          "action": {
+            "type": "combine",
+            "a": "actual operand",
+            "b": "actual operand",
+            "context": "optional public operation/at/channel/direction/part/via fields"
+          },
+          "operands": "Known design IDs, actual object IDs o:N, and places place:ID are distinct. Inspect or query partners for their public conditions.",
+          "undo": "Editing undo restores the physical boards, records, achievements, and engine counters from before the latest still-applied accepted combination, using the engine editing operation. Learned capabilities and saved designs remain known, the current map stays selected, and the identity serial never decreases. Queries, rejected actions, and navigation do not add undo entries. Repeated undo walks accepted combinations backward; a new accepted combination branches from the edited state. There is no redo. The append-only session evidence and cumulative workload counts are never erased, and undo is counted separately, not as a combination.",
+          "attribution": "A trailing --actor=player or --actor=operator explicitly attributes a recorded command; otherwise the session metadata actor is used (default player). This does not change game behavior. Operator actions are not counted as player combinations.",
+          "movement": "Optional context.via lists public place IDs as waypoints for a chosen route. The entire submitted journey is one combination, not one intervention per traversed edge.",
+          "queries": "Inspection, catalogue, partners, view, and preview are world-read-only. Their delivered observations are captured and counted separately from gameplay. No catalogue or preview sweep is performed automatically.",
+          "stopping": "You may finish early or after completion. Reporting and public queries remain available after finishing; further gameplay, navigation, and undo do not."
+        }
+      }
+    },
+    {
+      "args": [
+        "preview",
+        "independent-preview-20261026-1544",
+        "{\"type\":\"combine\",\"a\":\"solar-lead\",\"b\":\"place:camp\"}"
+      ],
+      "result": {
+        "accepted": true,
+        "response": [
+          "o:29: solar-lead combined with camp; fresh identities, no copied records."
+        ],
+        "observation": {
+          "version": "mars-workshop-1",
+          "map": "landing",
+          "interventions": 1,
+          "ledger": {
+            "synthesis": 0,
+            "contextual": 1,
+            "reconfiguration": 0,
+            "travel": 0,
+            "observation": 0
+          },
+          "status": "playing",
+          "accepted": true,
+          "response": [
+            "o:29: solar-lead combined with camp; fresh identities, no copied records."
+          ],
+          "goals": [
+            {
+              "id": "garden",
+              "title": "Bright protected garden",
+              "rows": [
+                "day"
+              ],
+              "requirement": "At bed, an actual rootbed is enclosed, illuminated and receiving clean water in the day row. Any construction satisfying those properties works.",
+              "map": "landing",
+              "checks": {
+                "a rootbed at bed is enclosed, illuminated, and clean-water-fed in every row": false
+              },
+              "current": false,
+              "achieved": false,
+              "firstIntervention": null
+            },
+            {
+              "id": "signal",
+              "title": "First signal",
+              "rows": [
+                "day"
+              ],
+              "requirement": "The northern receiver has actually received the camp location through an optical event, and the bed garden is currently functioning. Both goals may complete together.",
+              "map": "landing",
+              "checks": {
+                "garden remains working": false,
+                "receiver has an actual optical record of bed": false
+              },
+              "current": false,
+              "achieved": false,
+              "firstIntervention": null
+            }
+          ],
+          "campaign": [
+            {
+              "map": "landing",
+              "goals": [
+                {
+                  "id": "garden",
+                  "title": "Bright protected garden",
+                  "achieved": false,
+                  "current": false
+                },
+                {
+                  "id": "signal",
+                  "title": "First signal",
+                  "achieved": false,
+                  "current": false
+                }
+              ]
+            },
+            {
+              "map": "ice",
+              "goals": [
+                {
+                  "id": "still",
+                  "title": "Still and growing place",
+                  "achieved": false,
+                  "current": false
+                },
+                {
+                  "id": "preservation",
+                  "title": "Drying and preservation",
+                  "achieved": false,
+                  "current": false
+                }
+              ]
+            },
+            {
+              "map": "twin",
+              "goals": [
+                {
+                  "id": "two-skies",
+                  "title": "Two skies",
+                  "achieved": false,
+                  "current": false
+                },
+                {
+                  "id": "viewpoints",
+                  "title": "Two viewpoints",
+                  "achieved": false,
+                  "current": false
+                }
+              ]
+            },
+            {
+              "map": "arch",
+              "goals": [
+                {
+                  "id": "carry",
+                  "title": "Carry the existing garden",
+                  "achieved": false,
+                  "current": false
+                },
+                {
+                  "id": "deploy-recover",
+                  "title": "Deploy then recover",
+                  "achieved": false,
+                  "current": false
+                }
+              ]
+            },
+            {
+              "map": "dust",
+              "goals": [
+                {
+                  "id": "warm-sample",
+                  "title": "Warm place, protected sample",
+                  "achieved": false,
+                  "current": false
+                },
+                {
+                  "id": "window",
+                  "title": "Usable window",
+                  "achieved": false,
+                  "current": false
+                }
+              ]
+            },
+            {
+              "map": "return",
+              "goals": [
+                {
+                  "id": "messages",
+                  "title": "Distinguishable messages",
+                  "achieved": false,
+                  "current": false
+                },
+                {
+                  "id": "recovery",
+                  "title": "Recover the stranded instrument",
+                  "achieved": false,
+                  "current": false
+                }
+              ]
+            }
+          ],
+          "knownCount": 42,
+          "objects": [
+            {
+              "id": "o:29",
+              "design": "solar-lead",
+              "place": "camp",
+              "shape": {
+                "height": 1,
+                "width": 1,
+                "mobile": false,
+                "folded": false
+              },
+              "recordCount": 0,
+              "samples": []
+            }
+          ],
+          "connections": [],
+          "spans": [],
+          "received": []
+        },
+        "stateHash": "ffd8777b989fe307c562ec2f61338f5b4d3619b306006b36b65ca1d08e3c0275"
+      }
+    },
+    {
+      "args": [
+        "preview",
+        "independent-preview-20261026-1544",
+        "{\"type\":\"combine\",\"a\":\"solar-lead\",\"b\":\"place:camp\"}",
+        "world"
+      ],
+      "result": {
+        "accepted": true,
+        "response": [
+          "o:29: solar-lead combined with camp; fresh identities, no copied records."
+        ],
+        "observation": {
+          "version": "mars-workshop-1",
+          "map": "landing",
+          "interventions": 1,
+          "ledger": {
+            "synthesis": 0,
+            "contextual": 1,
+            "reconfiguration": 0,
+            "travel": 0,
+            "observation": 0
+          },
+          "status": "playing",
+          "accepted": true,
+          "response": [
+            "o:29: solar-lead combined with camp; fresh identities, no copied records."
+          ],
+          "goals": [
+            {
+              "id": "garden",
+              "title": "Bright protected garden",
+              "rows": [
+                "day"
+              ],
+              "requirement": "At bed, an actual rootbed is enclosed, illuminated and receiving clean water in the day row. Any construction satisfying those properties works.",
+              "map": "landing",
+              "checks": {
+                "a rootbed at bed is enclosed, illuminated, and clean-water-fed in every row": false
+              },
+              "current": false,
+              "achieved": false,
+              "firstIntervention": null
+            },
+            {
+              "id": "signal",
+              "title": "First signal",
+              "rows": [
+                "day"
+              ],
+              "requirement": "The northern receiver has actually received the camp location through an optical event, and the bed garden is currently functioning. Both goals may complete together.",
+              "map": "landing",
+              "checks": {
+                "garden remains working": false,
+                "receiver has an actual optical record of bed": false
+              },
+              "current": false,
+              "achieved": false,
+              "firstIntervention": null
+            }
+          ],
+          "campaign": [
+            {
+              "map": "landing",
+              "goals": [
+                {
+                  "id": "garden",
+                  "title": "Bright protected garden",
+                  "achieved": false,
+                  "current": false
+                },
+                {
+                  "id": "signal",
+                  "title": "First signal",
+                  "achieved": false,
+                  "current": false
+                }
+              ]
+            },
+            {
+              "map": "ice",
+              "goals": [
+                {
+                  "id": "still",
+                  "title": "Still and growing place",
+                  "achieved": false,
+                  "current": false
+                },
+                {
+                  "id": "preservation",
+                  "title": "Drying and preservation",
+                  "achieved": false,
+                  "current": false
+                }
+              ]
+            },
+            {
+              "map": "twin",
+              "goals": [
+                {
+                  "id": "two-skies",
+                  "title": "Two skies",
+                  "achieved": false,
+                  "current": false
+                },
+                {
+                  "id": "viewpoints",
+                  "title": "Two viewpoints",
+                  "achieved": false,
+                  "current": false
+                }
+              ]
+            },
+            {
+              "map": "arch",
+              "goals": [
+                {
+                  "id": "carry",
+                  "title": "Carry the existing garden",
+                  "achieved": false,
+                  "current": false
+                },
+                {
+                  "id": "deploy-recover",
+                  "title": "Deploy then recover",
+                  "achieved": false,
+                  "current": false
+                }
+              ]
+            },
+            {
+              "map": "dust",
+              "goals": [
+                {
+                  "id": "warm-sample",
+                  "title": "Warm place, protected sample",
+                  "achieved": false,
+                  "current": false
+                },
+                {
+                  "id": "window",
+                  "title": "Usable window",
+                  "achieved": false,
+                  "current": false
+                }
+              ]
+            },
+            {
+              "map": "return",
+              "goals": [
+                {
+                  "id": "messages",
+                  "title": "Distinguishable messages",
+                  "achieved": false,
+                  "current": false
+                },
+                {
+                  "id": "recovery",
+                  "title": "Recover the stranded instrument",
+                  "achieved": false,
+                  "current": false
+                }
+              ]
+            }
+          ],
+          "knownCount": 42,
+          "objects": [
+            {
+              "id": "o:29",
+              "design": "solar-lead",
+              "place": "camp",
+              "shape": {
+                "height": 1,
+                "width": 1,
+                "mobile": false,
+                "folded": false
+              },
+              "recordCount": 0,
+              "samples": []
+            }
+          ],
+          "connections": [],
+          "spans": [],
+          "received": []
+        },
+        "stateHash": "ffd8777b989fe307c562ec2f61338f5b4d3619b306006b36b65ca1d08e3c0275",
+        "inspection": {
+          "map": {
+            "id": "landing",
+            "label": "Landing basin",
+            "phases": [
+              {
+                "id": "day",
+                "label": "Steady daylight from the east; clear air",
+                "sun": "east",
+                "dust": false
+              }
+            ],
+            "places": [
+              {
+                "id": "bed",
+                "label": "Shaded growing bed",
+                "x": 0,
+                "y": 0,
+                "lit": []
+              },
+              {
+                "id": "ridge",
+                "label": "Sunny outer ridge",
+                "x": 0,
+                "y": 2,
+                "lit": [
+                  "north",
+                  "east",
+                  "south",
+                  "west"
+                ]
+              },
+              {
+                "id": "ice",
+                "label": "Clean ice face",
+                "x": 2,
+                "y": 2,
+                "lit": [
+                  "north",
+                  "east",
+                  "south",
+                  "west"
+                ],
+                "ice": true,
+                "water": "clean"
+              },
+              {
+                "id": "receiver",
+                "label": "Northern location receiver",
+                "x": 0,
+                "y": -2,
+                "lit": [
+                  "north",
+                  "east",
+                  "south",
+                  "west"
+                ],
+                "receiver": true
+              },
+              {
+                "id": "camp",
+                "label": "Open landing pad",
+                "x": 2,
+                "y": 0,
+                "lit": [
+                  "north",
+                  "east",
+                  "south",
+                  "west"
+                ]
+              },
+              {
+                "id": "junction",
+                "label": "Central approach",
+                "x": 0,
+                "y": 1,
+                "lit": [
+                  "north",
+                  "east",
+                  "south",
+                  "west"
+                ]
+              },
+              {
+                "id": "ice-approach",
+                "label": "Ice approach",
+                "x": 2,
+                "y": 1,
+                "lit": [
+                  "north",
+                  "east",
+                  "south",
+                  "west"
+                ]
+              },
+              {
+                "id": "signal-perch",
+                "label": "Clear northern sightline",
+                "x": 0,
+                "y": -1,
+                "lit": [
+                  "north",
+                  "east",
+                  "south",
+                  "west"
+                ]
+              }
+            ],
+            "routes": [
+              {
+                "a": "bed",
+                "b": "junction"
+              },
+              {
+                "a": "junction",
+                "b": "ridge"
+              },
+              {
+                "a": "ridge",
+                "b": "ice"
+              },
+              {
+                "a": "ice",
+                "b": "ice-approach"
+              },
+              {
+                "a": "ice-approach",
+                "b": "camp"
+              },
+              {
+                "a": "camp",
+                "b": "bed"
+              },
+              {
+                "a": "bed",
+                "b": "signal-perch"
+              },
+              {
+                "a": "signal-perch",
+                "b": "receiver"
+              }
+            ],
+            "goals": [
+              {
+                "id": "garden",
+                "title": "Bright protected garden",
+                "rows": [
+                  "day"
+                ],
+                "requirement": "At bed, an actual rootbed is enclosed, illuminated and receiving clean water in the day row. Any construction satisfying those properties works."
+              },
+              {
+                "id": "signal",
+                "title": "First signal",
+                "rows": [
+                  "day"
+                ],
+                "requirement": "The northern receiver has actually received the camp location through an optical event, and the bed garden is currently functioning. Both goals may complete together."
+              }
+            ],
+            "initial": []
+          },
+          "world": {
+            "map": "landing",
+            "rows": [
+              {
+                "id": "day",
+                "sun": "east",
+                "dust": false,
+                "objects": [
+                  {
+                    "id": "o:29",
+                    "place": "camp",
+                    "parts": [
+                      {
+                        "id": "p:31",
+                        "kind": "solar-cell",
+                        "lit": true,
+                        "enclosed": false,
+                        "dustProtected": false,
+                        "air": true,
+                        "source": [
+                          "sun:day:camp"
+                        ]
+                      },
+                      {
+                        "id": "p:32",
+                        "kind": "cable",
+                        "lit": true,
+                        "enclosed": false,
+                        "dustProtected": false,
+                        "air": true,
+                        "source": [
+                          "sun:day:camp"
+                        ]
+                      }
+                    ],
+                    "power": [
+                      "sun:day:camp"
+                    ],
+                    "light": [],
+                    "warm": false,
+                    "water": "none",
+                    "waterSources": [],
+                    "growing": false,
+                    "drying": false,
+                    "darkProtected": false,
+                    "camera": false,
+                    "sampleSupport": false,
+                    "enclosed": false,
+                    "dustProtected": false,
+                    "lit": true,
+                    "shape": {
+                      "height": 1,
+                      "width": 1,
+                      "mobile": false,
+                      "folded": false
+                    }
+                  }
+                ],
+                "places": [
+                  {
+                    "id": "bed",
+                    "wet": false,
+                    "water": "none"
+                  },
+                  {
+                    "id": "ridge",
+                    "wet": false,
+                    "water": "none"
+                  },
+                  {
+                    "id": "ice",
+                    "wet": false,
+                    "water": "none"
+                  },
+                  {
+                    "id": "receiver",
+                    "wet": false,
+                    "water": "none"
+                  },
+                  {
+                    "id": "camp",
+                    "wet": false,
+                    "water": "none"
+                  },
+                  {
+                    "id": "junction",
+                    "wet": false,
+                    "water": "none"
+                  },
+                  {
+                    "id": "ice-approach",
+                    "wet": false,
+                    "water": "none"
+                  },
+                  {
+                    "id": "signal-perch",
+                    "wet": false,
+                    "water": "none"
+                  }
+                ]
+              }
+            ],
+            "objects": [
+              {
+                "id": "o:29",
+                "design": "solar-lead",
+                "place": "camp",
+                "shape": {
+                  "height": 1,
+                  "width": 1,
+                  "mobile": false,
+                  "folded": false
+                },
+                "records": [],
+                "samples": [],
+                "history": {
+                  "places": [
+                    "camp"
+                  ],
+                  "spanned": []
+                }
+              }
+            ],
+            "connections": [],
+            "spans": [],
+            "received": []
+          },
+          "goals": [
+            {
+              "id": "garden",
+              "title": "Bright protected garden",
+              "rows": [
+                "day"
+              ],
+              "requirement": "At bed, an actual rootbed is enclosed, illuminated and receiving clean water in the day row. Any construction satisfying those properties works.",
+              "map": "landing",
+              "checks": {
+                "a rootbed at bed is enclosed, illuminated, and clean-water-fed in every row": false
+              },
+              "current": false,
+              "achieved": false,
+              "firstIntervention": null
+            },
+            {
+              "id": "signal",
+              "title": "First signal",
+              "rows": [
+                "day"
+              ],
+              "requirement": "The northern receiver has actually received the camp location through an optical event, and the bed garden is currently functioning. Both goals may complete together.",
+              "map": "landing",
+              "checks": {
+                "garden remains working": false,
+                "receiver has an actual optical record of bed": false
+              },
+              "current": false,
+              "achieved": false,
+              "firstIntervention": null
+            }
+          ],
+          "laws": [
+            "This is a finite fictional object-logic campaign, not real Mars engineering. All recipes, parts, compatibility conditions, map geometry, phase rows and goal requirements are public.",
+            "Known concepts and learned assembly designs are inexhaustible. There are no item quantities, fuel, oxygen budget, stored water, battery charge, production rates, move quotas or depletion timers.",
+            "The player combines named ingredients or actual world objects/places. No action delegates construction of a requested finished output. A whole known assembly can be reused directly.",
+            "Canonical recipes retain real component trees. Other legal attachments and containments can make unnamed larger assemblies. Properties arise from actual parts and relationships, not the name of a result.",
+            "Copies have independent physical identities and preserve their saved geometry and interfaces. A copy does not acquire another object’s observation events, sample history, achievements, movement history or external connections.",
+            "Clear enclosing film protects an actual interior while transmitting light. Reflective foil blocks transmitted light and can redirect a real beam according to public facing. Mesh screens dust without making a place dark. Covering affects actual containment, not every object sharing a place.",
+            "A real solar cell supplies its attached or connected powered parts when it faces the row’s sun and is exposed, or when real connected light reaches it. Aiming a whole object also aims its parts; targeting an actual part can aim that part independently. Light, power, warmth and water are boolean effects with source provenance, not counted stock. Shading the actual cell removes its supply. A source-free lamp–solar loop supplies nothing.",
+            "Sources recur inexhaustibly. Warmth applied to an actual ice face permits water there. A still or filtered passage separates the dirty-water tag. A rootbed grows only with the required actual enclosure, light and clean-water contact.",
+            "A wheel-bearing supported assembly moves as the same object, carrying actual parts and records. Paths, low arches, width and deployed spans determine fit. Traversing several empty edges is one movement choice, not several counted turns.",
+            "Hinges expose explicit poses. A span supports an actual gap only while a compatible physical span remains there. Moving the only supporting object away cannot leave an imaginary bridge.",
+            "Cameras acquire records only through actual illuminated visible subjects at actual viewpoints. Sample supports acquire site tags only through contact with actual specimen places. Sending a record requires an actual optical event and the receiver retains what really arrived.",
+            "Exposure rows are fixed, public test conditions, not advancing weather or hidden timers. The engine checks all required rows automatically. Inspecting or waiting for a row is not construction work.",
+            "There are twelve finite goal cards on six retained maps. Goals inspect resulting properties, identities and actual events rather than an exact recipe or a required move count. A single combine may satisfy two cards; count it once.",
+            "Known designs transfer across maps; each map retains its own physical state and pauses when inactive. Navigation, inspections, previews, assembly selection, automatic checks and reports are not counted combines.",
+            "A shorter valid answer is a complete answer. Full catalogue and whole-assembly shortcuts remain legal. Comfortable clear steps are allowed, but repeated no-op commands, forced repairs and manual duplication do not manufacture campaign length."
+          ],
+          "operations": {
+            "grammar": "{type:\"combine\", a:known-design-or-object-id, b:known-design-or-object-id-or-place:ID, context?:{operation?,at?,channel?,direction?,part?,via?}}",
+            "default": "Two known operands make an actual assembly and reusable design. A known operand plus place creates a fresh copy. An actual object plus place moves that same object (frame+wheels required except from workbench). Movement context.at or context.via optionally names route waypoints, still one whole trip with no per-edge charge. Actual+known or colocated actual+actual attaches and preserves the first actual host identity.",
+            "attach": "Actual host receives the other operand; target a subtree with context.part. inside requires a supported boundary; outside leaves an exterior part. All actual part trees remain inspectable.",
+            "connect": "Two actual object IDs, context.channel power/water/light. Needs a public anchor route; power needs endpoint cable, water endpoint tube. Light additionally needs cardinal unobstructed path, facing source, and lamp/reflector/guide. External links detach on travel.",
+            "pose": "Object combined with itself: operation aim plus direction rotates all its parts (or only context.part); fold/open/close requires a hinge in selected part. A folded hinged root fits low/narrow routes; folded root boundary is open.",
+            "observe": "Actual camera + place, operation observe: lens and plate required; an unobstructed cardinal view and illuminated target in at least one public row produces actual records. All successful rows are recorded automatically; zero waiting.",
+            "transmit": "Actual record-bearing object + receiver place or another actual record-plate assembly, operation transmit: cardinal unobstructed path and actual emitted/guided light or an illuminated lens; receiver retains the original record IDs.",
+            "sample": "Actual tray+plate object + its current specimen place, operation sample: actual contact is retained, never copied into a design.",
+            "span": "Actual unfolded frame object at one gap endpoint + opposite endpoint place, operation span: supports that gap until moved/folded. Any fitting object may serve, not only a named bridge.",
+            "copy": "Known complete designs are inexhaustible. Copies retain part arrangement/pose/facing; new identities, no samples/records/history and no automatically fitted external links. Automatic internal conduction is structural.",
+            "undo": "Physical pre-state restored; learned knowledge/designs, current map, and identity serial floor retained. Capture cumulative accepted action count is never erased. Undo and queries count zero."
+          }
+        }
+      }
+    },
+    {
+      "args": [
+        "combine",
+        "independent-preview-20261026-1544",
+        "{\"type\":\"combine\",\"a\":\"solar-lead\",\"b\":\"place:camp\"}",
+        "--actor=operator"
+      ],
+      "result": {
+        "accepted": true,
+        "response": [
+          "o:29: solar-lead combined with camp; fresh identities, no copied records."
+        ],
+        "observation": {
+          "version": "mars-workshop-1",
+          "map": "landing",
+          "interventions": 1,
+          "ledger": {
+            "synthesis": 0,
+            "contextual": 1,
+            "reconfiguration": 0,
+            "travel": 0,
+            "observation": 0
+          },
+          "status": "playing",
+          "accepted": true,
+          "response": [
+            "o:29: solar-lead combined with camp; fresh identities, no copied records."
+          ],
+          "goals": [
+            {
+              "id": "garden",
+              "title": "Bright protected garden",
+              "rows": [
+                "day"
+              ],
+              "requirement": "At bed, an actual rootbed is enclosed, illuminated and receiving clean water in the day row. Any construction satisfying those properties works.",
+              "map": "landing",
+              "checks": {
+                "a rootbed at bed is enclosed, illuminated, and clean-water-fed in every row": false
+              },
+              "current": false,
+              "achieved": false,
+              "firstIntervention": null
+            },
+            {
+              "id": "signal",
+              "title": "First signal",
+              "rows": [
+                "day"
+              ],
+              "requirement": "The northern receiver has actually received the camp location through an optical event, and the bed garden is currently functioning. Both goals may complete together.",
+              "map": "landing",
+              "checks": {
+                "garden remains working": false,
+                "receiver has an actual optical record of bed": false
+              },
+              "current": false,
+              "achieved": false,
+              "firstIntervention": null
+            }
+          ],
+          "campaign": [
+            {
+              "map": "landing",
+              "goals": [
+                {
+                  "id": "garden",
+                  "title": "Bright protected garden",
+                  "achieved": false,
+                  "current": false
+                },
+                {
+                  "id": "signal",
+                  "title": "First signal",
+                  "achieved": false,
+                  "current": false
+                }
+              ]
+            },
+            {
+              "map": "ice",
+              "goals": [
+                {
+                  "id": "still",
+                  "title": "Still and growing place",
+                  "achieved": false,
+                  "current": false
+                },
+                {
+                  "id": "preservation",
+                  "title": "Drying and preservation",
+                  "achieved": false,
+                  "current": false
+                }
+              ]
+            },
+            {
+              "map": "twin",
+              "goals": [
+                {
+                  "id": "two-skies",
+                  "title": "Two skies",
+                  "achieved": false,
+                  "current": false
+                },
+                {
+                  "id": "viewpoints",
+                  "title": "Two viewpoints",
+                  "achieved": false,
+                  "current": false
+                }
+              ]
+            },
+            {
+              "map": "arch",
+              "goals": [
+                {
+                  "id": "carry",
+                  "title": "Carry the existing garden",
+                  "achieved": false,
+                  "current": false
+                },
+                {
+                  "id": "deploy-recover",
+                  "title": "Deploy then recover",
+                  "achieved": false,
+                  "current": false
+                }
+              ]
+            },
+            {
+              "map": "dust",
+              "goals": [
+                {
+                  "id": "warm-sample",
+                  "title": "Warm place, protected sample",
+                  "achieved": false,
+                  "current": false
+                },
+                {
+                  "id": "window",
+                  "title": "Usable window",
+                  "achieved": false,
+                  "current": false
+                }
+              ]
+            },
+            {
+              "map": "return",
+              "goals": [
+                {
+                  "id": "messages",
+                  "title": "Distinguishable messages",
+                  "achieved": false,
+                  "current": false
+                },
+                {
+                  "id": "recovery",
+                  "title": "Recover the stranded instrument",
+                  "achieved": false,
+                  "current": false
+                }
+              ]
+            }
+          ],
+          "knownCount": 42,
+          "objects": [
+            {
+              "id": "o:29",
+              "design": "solar-lead",
+              "place": "camp",
+              "shape": {
+                "height": 1,
+                "width": 1,
+                "mobile": false,
+                "folded": false
+              },
+              "recordCount": 0,
+              "samples": []
+            }
+          ],
+          "connections": [],
+          "spans": [],
+          "received": []
+        }
+      }
+    },
+    {
+      "args": [
+        "inspect",
+        "independent-preview-20261026-1544",
+        "world"
+      ],
+      "result": {
+        "map": {
+          "id": "landing",
+          "label": "Landing basin",
+          "phases": [
+            {
+              "id": "day",
+              "label": "Steady daylight from the east; clear air",
+              "sun": "east",
+              "dust": false
+            }
+          ],
+          "places": [
+            {
+              "id": "bed",
+              "label": "Shaded growing bed",
+              "x": 0,
+              "y": 0,
+              "lit": []
+            },
+            {
+              "id": "ridge",
+              "label": "Sunny outer ridge",
+              "x": 0,
+              "y": 2,
+              "lit": [
+                "north",
+                "east",
+                "south",
+                "west"
+              ]
+            },
+            {
+              "id": "ice",
+              "label": "Clean ice face",
+              "x": 2,
+              "y": 2,
+              "lit": [
+                "north",
+                "east",
+                "south",
+                "west"
+              ],
+              "ice": true,
+              "water": "clean"
+            },
+            {
+              "id": "receiver",
+              "label": "Northern location receiver",
+              "x": 0,
+              "y": -2,
+              "lit": [
+                "north",
+                "east",
+                "south",
+                "west"
+              ],
+              "receiver": true
+            },
+            {
+              "id": "camp",
+              "label": "Open landing pad",
+              "x": 2,
+              "y": 0,
+              "lit": [
+                "north",
+                "east",
+                "south",
+                "west"
+              ]
+            },
+            {
+              "id": "junction",
+              "label": "Central approach",
+              "x": 0,
+              "y": 1,
+              "lit": [
+                "north",
+                "east",
+                "south",
+                "west"
+              ]
+            },
+            {
+              "id": "ice-approach",
+              "label": "Ice approach",
+              "x": 2,
+              "y": 1,
+              "lit": [
+                "north",
+                "east",
+                "south",
+                "west"
+              ]
+            },
+            {
+              "id": "signal-perch",
+              "label": "Clear northern sightline",
+              "x": 0,
+              "y": -1,
+              "lit": [
+                "north",
+                "east",
+                "south",
+                "west"
+              ]
+            }
+          ],
+          "routes": [
+            {
+              "a": "bed",
+              "b": "junction"
+            },
+            {
+              "a": "junction",
+              "b": "ridge"
+            },
+            {
+              "a": "ridge",
+              "b": "ice"
+            },
+            {
+              "a": "ice",
+              "b": "ice-approach"
+            },
+            {
+              "a": "ice-approach",
+              "b": "camp"
+            },
+            {
+              "a": "camp",
+              "b": "bed"
+            },
+            {
+              "a": "bed",
+              "b": "signal-perch"
+            },
+            {
+              "a": "signal-perch",
+              "b": "receiver"
+            }
+          ],
+          "goals": [
+            {
+              "id": "garden",
+              "title": "Bright protected garden",
+              "rows": [
+                "day"
+              ],
+              "requirement": "At bed, an actual rootbed is enclosed, illuminated and receiving clean water in the day row. Any construction satisfying those properties works."
+            },
+            {
+              "id": "signal",
+              "title": "First signal",
+              "rows": [
+                "day"
+              ],
+              "requirement": "The northern receiver has actually received the camp location through an optical event, and the bed garden is currently functioning. Both goals may complete together."
+            }
+          ],
+          "initial": []
+        },
+        "world": {
+          "map": "landing",
+          "rows": [
+            {
+              "id": "day",
+              "sun": "east",
+              "dust": false,
+              "objects": [
+                {
+                  "id": "o:29",
+                  "place": "camp",
+                  "parts": [
+                    {
+                      "id": "p:31",
+                      "kind": "solar-cell",
+                      "lit": true,
+                      "enclosed": false,
+                      "dustProtected": false,
+                      "air": true,
+                      "source": [
+                        "sun:day:camp"
+                      ]
+                    },
+                    {
+                      "id": "p:32",
+                      "kind": "cable",
+                      "lit": true,
+                      "enclosed": false,
+                      "dustProtected": false,
+                      "air": true,
+                      "source": [
+                        "sun:day:camp"
+                      ]
+                    }
+                  ],
+                  "power": [
+                    "sun:day:camp"
+                  ],
+                  "light": [],
+                  "warm": false,
+                  "water": "none",
+                  "waterSources": [],
+                  "growing": false,
+                  "drying": false,
+                  "darkProtected": false,
+                  "camera": false,
+                  "sampleSupport": false,
+                  "enclosed": false,
+                  "dustProtected": false,
+                  "lit": true,
+                  "shape": {
+                    "height": 1,
+                    "width": 1,
+                    "mobile": false,
+                    "folded": false
+                  }
+                }
+              ],
+              "places": [
+                {
+                  "id": "bed",
+                  "wet": false,
+                  "water": "none"
+                },
+                {
+                  "id": "ridge",
+                  "wet": false,
+                  "water": "none"
+                },
+                {
+                  "id": "ice",
+                  "wet": false,
+                  "water": "none"
+                },
+                {
+                  "id": "receiver",
+                  "wet": false,
+                  "water": "none"
+                },
+                {
+                  "id": "camp",
+                  "wet": false,
+                  "water": "none"
+                },
+                {
+                  "id": "junction",
+                  "wet": false,
+                  "water": "none"
+                },
+                {
+                  "id": "ice-approach",
+                  "wet": false,
+                  "water": "none"
+                },
+                {
+                  "id": "signal-perch",
+                  "wet": false,
+                  "water": "none"
+                }
+              ]
+            }
+          ],
+          "objects": [
+            {
+              "id": "o:29",
+              "design": "solar-lead",
+              "place": "camp",
+              "shape": {
+                "height": 1,
+                "width": 1,
+                "mobile": false,
+                "folded": false
+              },
+              "records": [],
+              "samples": [],
+              "history": {
+                "places": [
+                  "camp"
+                ],
+                "spanned": []
+              }
+            }
+          ],
+          "connections": [],
+          "spans": [],
+          "received": []
+        },
+        "goals": [
+          {
+            "id": "garden",
+            "title": "Bright protected garden",
+            "rows": [
+              "day"
+            ],
+            "requirement": "At bed, an actual rootbed is enclosed, illuminated and receiving clean water in the day row. Any construction satisfying those properties works.",
+            "map": "landing",
+            "checks": {
+              "a rootbed at bed is enclosed, illuminated, and clean-water-fed in every row": false
+            },
+            "current": false,
+            "achieved": false,
+            "firstIntervention": null
+          },
+          {
+            "id": "signal",
+            "title": "First signal",
+            "rows": [
+              "day"
+            ],
+            "requirement": "The northern receiver has actually received the camp location through an optical event, and the bed garden is currently functioning. Both goals may complete together.",
+            "map": "landing",
+            "checks": {
+              "garden remains working": false,
+              "receiver has an actual optical record of bed": false
+            },
+            "current": false,
+            "achieved": false,
+            "firstIntervention": null
+          }
+        ],
+        "laws": [
+          "This is a finite fictional object-logic campaign, not real Mars engineering. All recipes, parts, compatibility conditions, map geometry, phase rows and goal requirements are public.",
+          "Known concepts and learned assembly designs are inexhaustible. There are no item quantities, fuel, oxygen budget, stored water, battery charge, production rates, move quotas or depletion timers.",
+          "The player combines named ingredients or actual world objects/places. No action delegates construction of a requested finished output. A whole known assembly can be reused directly.",
+          "Canonical recipes retain real component trees. Other legal attachments and containments can make unnamed larger assemblies. Properties arise from actual parts and relationships, not the name of a result.",
+          "Copies have independent physical identities and preserve their saved geometry and interfaces. A copy does not acquire another object’s observation events, sample history, achievements, movement history or external connections.",
+          "Clear enclosing film protects an actual interior while transmitting light. Reflective foil blocks transmitted light and can redirect a real beam according to public facing. Mesh screens dust without making a place dark. Covering affects actual containment, not every object sharing a place.",
+          "A real solar cell supplies its attached or connected powered parts when it faces the row’s sun and is exposed, or when real connected light reaches it. Aiming a whole object also aims its parts; targeting an actual part can aim that part independently. Light, power, warmth and water are boolean effects with source provenance, not counted stock. Shading the actual cell removes its supply. A source-free lamp–solar loop supplies nothing.",
+          "Sources recur inexhaustibly. Warmth applied to an actual ice face permits water there. A still or filtered passage separates the dirty-water tag. A rootbed grows only with the required actual enclosure, light and clean-water contact.",
+          "A wheel-bearing supported assembly moves as the same object, carrying actual parts and records. Paths, low arches, width and deployed spans determine fit. Traversing several empty edges is one movement choice, not several counted turns.",
+          "Hinges expose explicit poses. A span supports an actual gap only while a compatible physical span remains there. Moving the only supporting object away cannot leave an imaginary bridge.",
+          "Cameras acquire records only through actual illuminated visible subjects at actual viewpoints. Sample supports acquire site tags only through contact with actual specimen places. Sending a record requires an actual optical event and the receiver retains what really arrived.",
+          "Exposure rows are fixed, public test conditions, not advancing weather or hidden timers. The engine checks all required rows automatically. Inspecting or waiting for a row is not construction work.",
+          "There are twelve finite goal cards on six retained maps. Goals inspect resulting properties, identities and actual events rather than an exact recipe or a required move count. A single combine may satisfy two cards; count it once.",
+          "Known designs transfer across maps; each map retains its own physical state and pauses when inactive. Navigation, inspections, previews, assembly selection, automatic checks and reports are not counted combines.",
+          "A shorter valid answer is a complete answer. Full catalogue and whole-assembly shortcuts remain legal. Comfortable clear steps are allowed, but repeated no-op commands, forced repairs and manual duplication do not manufacture campaign length."
+        ],
+        "operations": {
+          "grammar": "{type:\"combine\", a:known-design-or-object-id, b:known-design-or-object-id-or-place:ID, context?:{operation?,at?,channel?,direction?,part?,via?}}",
+          "default": "Two known operands make an actual assembly and reusable design. A known operand plus place creates a fresh copy. An actual object plus place moves that same object (frame+wheels required except from workbench). Movement context.at or context.via optionally names route waypoints, still one whole trip with no per-edge charge. Actual+known or colocated actual+actual attaches and preserves the first actual host identity.",
+          "attach": "Actual host receives the other operand; target a subtree with context.part. inside requires a supported boundary; outside leaves an exterior part. All actual part trees remain inspectable.",
+          "connect": "Two actual object IDs, context.channel power/water/light. Needs a public anchor route; power needs endpoint cable, water endpoint tube. Light additionally needs cardinal unobstructed path, facing source, and lamp/reflector/guide. External links detach on travel.",
+          "pose": "Object combined with itself: operation aim plus direction rotates all its parts (or only context.part); fold/open/close requires a hinge in selected part. A folded hinged root fits low/narrow routes; folded root boundary is open.",
+          "observe": "Actual camera + place, operation observe: lens and plate required; an unobstructed cardinal view and illuminated target in at least one public row produces actual records. All successful rows are recorded automatically; zero waiting.",
+          "transmit": "Actual record-bearing object + receiver place or another actual record-plate assembly, operation transmit: cardinal unobstructed path and actual emitted/guided light or an illuminated lens; receiver retains the original record IDs.",
+          "sample": "Actual tray+plate object + its current specimen place, operation sample: actual contact is retained, never copied into a design.",
+          "span": "Actual unfolded frame object at one gap endpoint + opposite endpoint place, operation span: supports that gap until moved/folded. Any fitting object may serve, not only a named bridge.",
+          "copy": "Known complete designs are inexhaustible. Copies retain part arrangement/pose/facing; new identities, no samples/records/history and no automatically fitted external links. Automatic internal conduction is structural.",
+          "undo": "Physical pre-state restored; learned knowledge/designs, current map, and identity serial floor retained. Capture cumulative accepted action count is never erased. Undo and queries count zero."
+        }
+      }
+    },
+    {
+      "args": [
+        "preview",
+        "independent-preview-20261026-1544",
+        "{\"type\":\"combine\",\"a\":\"o:29\",\"b\":\"heater\"}",
+        "o:29"
+      ],
+      "result": {
+        "accepted": true,
+        "response": [
+          "o:29 now includes heater as attach; reusable design assembly:1."
+        ],
+        "observation": {
+          "version": "mars-workshop-1",
+          "map": "landing",
+          "interventions": 2,
+          "ledger": {
+            "synthesis": 0,
+            "contextual": 2,
+            "reconfiguration": 0,
+            "travel": 0,
+            "observation": 0
+          },
+          "status": "playing",
+          "accepted": true,
+          "response": [
+            "o:29 now includes heater as attach; reusable design assembly:1."
+          ],
+          "goals": [
+            {
+              "id": "garden",
+              "title": "Bright protected garden",
+              "rows": [
+                "day"
+              ],
+              "requirement": "At bed, an actual rootbed is enclosed, illuminated and receiving clean water in the day row. Any construction satisfying those properties works.",
+              "map": "landing",
+              "checks": {
+                "a rootbed at bed is enclosed, illuminated, and clean-water-fed in every row": false
+              },
+              "current": false,
+              "achieved": false,
+              "firstIntervention": null
+            },
+            {
+              "id": "signal",
+              "title": "First signal",
+              "rows": [
+                "day"
+              ],
+              "requirement": "The northern receiver has actually received the camp location through an optical event, and the bed garden is currently functioning. Both goals may complete together.",
+              "map": "landing",
+              "checks": {
+                "garden remains working": false,
+                "receiver has an actual optical record of bed": false
+              },
+              "current": false,
+              "achieved": false,
+              "firstIntervention": null
+            }
+          ],
+          "campaign": [
+            {
+              "map": "landing",
+              "goals": [
+                {
+                  "id": "garden",
+                  "title": "Bright protected garden",
+                  "achieved": false,
+                  "current": false
+                },
+                {
+                  "id": "signal",
+                  "title": "First signal",
+                  "achieved": false,
+                  "current": false
+                }
+              ]
+            },
+            {
+              "map": "ice",
+              "goals": [
+                {
+                  "id": "still",
+                  "title": "Still and growing place",
+                  "achieved": false,
+                  "current": false
+                },
+                {
+                  "id": "preservation",
+                  "title": "Drying and preservation",
+                  "achieved": false,
+                  "current": false
+                }
+              ]
+            },
+            {
+              "map": "twin",
+              "goals": [
+                {
+                  "id": "two-skies",
+                  "title": "Two skies",
+                  "achieved": false,
+                  "current": false
+                },
+                {
+                  "id": "viewpoints",
+                  "title": "Two viewpoints",
+                  "achieved": false,
+                  "current": false
+                }
+              ]
+            },
+            {
+              "map": "arch",
+              "goals": [
+                {
+                  "id": "carry",
+                  "title": "Carry the existing garden",
+                  "achieved": false,
+                  "current": false
+                },
+                {
+                  "id": "deploy-recover",
+                  "title": "Deploy then recover",
+                  "achieved": false,
+                  "current": false
+                }
+              ]
+            },
+            {
+              "map": "dust",
+              "goals": [
+                {
+                  "id": "warm-sample",
+                  "title": "Warm place, protected sample",
+                  "achieved": false,
+                  "current": false
+                },
+                {
+                  "id": "window",
+                  "title": "Usable window",
+                  "achieved": false,
+                  "current": false
+                }
+              ]
+            },
+            {
+              "map": "return",
+              "goals": [
+                {
+                  "id": "messages",
+                  "title": "Distinguishable messages",
+                  "achieved": false,
+                  "current": false
+                },
+                {
+                  "id": "recovery",
+                  "title": "Recover the stranded instrument",
+                  "achieved": false,
+                  "current": false
+                }
+              ]
+            }
+          ],
+          "knownCount": 43,
+          "objects": [
+            {
+              "id": "o:29",
+              "design": "assembly:1",
+              "place": "camp",
+              "shape": {
+                "height": 1,
+                "width": 1,
+                "mobile": false,
+                "folded": false
+              },
+              "recordCount": 0,
+              "samples": []
+            }
+          ],
+          "connections": [],
+          "spans": [],
+          "received": []
+        },
+        "stateHash": "18f6974f2203268623741eb449623ffc6e34f78e107001f45ee68f366130db10",
+        "inspection": {
+          "object": {
+            "id": "o:29",
+            "design": "assembly:1",
+            "root": {
+              "id": "p:30",
+              "kind": "assembly",
+              "label": "solar-lead",
+              "children": [
+                {
+                  "relation": "attach",
+                  "part": {
+                    "id": "p:31",
+                    "kind": "solar-cell",
+                    "label": "solar-cell",
+                    "children": [],
+                    "pose": "closed",
+                    "facing": "east"
+                  }
+                },
+                {
+                  "relation": "attach",
+                  "part": {
+                    "id": "p:32",
+                    "kind": "cable",
+                    "label": "cable",
+                    "children": [],
+                    "pose": "closed",
+                    "facing": "east"
+                  }
+                },
+                {
+                  "relation": "attach",
+                  "part": {
+                    "id": "p:33",
+                    "kind": "heater",
+                    "label": "heater",
+                    "children": [],
+                    "pose": "closed",
+                    "facing": "east"
+                  }
+                }
+              ],
+              "pose": "closed",
+              "facing": "east"
+            },
+            "place": "camp",
+            "records": [],
+            "samples": [],
+            "history": {
+              "places": [
+                "camp"
+              ],
+              "spanned": []
+            }
+          },
+          "selectedPart": {
+            "id": "p:30",
+            "kind": "assembly",
+            "label": "solar-lead",
+            "children": [
+              {
+                "relation": "attach",
+                "part": {
+                  "id": "p:31",
+                  "kind": "solar-cell",
+                  "label": "solar-cell",
+                  "children": [],
+                  "pose": "closed",
+                  "facing": "east"
+                }
+              },
+              {
+                "relation": "attach",
+                "part": {
+                  "id": "p:32",
+                  "kind": "cable",
+                  "label": "cable",
+                  "children": [],
+                  "pose": "closed",
+                  "facing": "east"
+                }
+              },
+              {
+                "relation": "attach",
+                "part": {
+                  "id": "p:33",
+                  "kind": "heater",
+                  "label": "heater",
+                  "children": [],
+                  "pose": "closed",
+                  "facing": "east"
+                }
+              }
+            ],
+            "pose": "closed",
+            "facing": "east"
+          },
+          "rows": [
+            {
+              "row": "day",
+              "id": "o:29",
+              "place": "camp",
+              "parts": [
+                {
+                  "id": "p:31",
+                  "kind": "solar-cell",
+                  "lit": true,
+                  "enclosed": false,
+                  "dustProtected": false,
+                  "air": true,
+                  "source": [
+                    "sun:day:camp"
+                  ]
+                },
+                {
+                  "id": "p:32",
+                  "kind": "cable",
+                  "lit": true,
+                  "enclosed": false,
+                  "dustProtected": false,
+                  "air": true,
+                  "source": [
+                    "sun:day:camp"
+                  ]
+                },
+                {
+                  "id": "p:33",
+                  "kind": "heater",
+                  "lit": true,
+                  "enclosed": false,
+                  "dustProtected": false,
+                  "air": true,
+                  "source": [
+                    "sun:day:camp"
+                  ]
+                }
+              ],
+              "power": [
+                "sun:day:camp"
+              ],
+              "light": [],
+              "warm": true,
+              "water": "none",
+              "waterSources": [],
+              "growing": false,
+              "drying": false,
+              "darkProtected": false,
+              "camera": false,
+              "sampleSupport": false,
+              "enclosed": false,
+              "dustProtected": false,
+              "lit": true,
+              "shape": {
+                "height": 1,
+                "width": 1,
+                "mobile": false,
+                "folded": false
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "args": [
+        "preview",
+        "independent-preview-20261026-1544",
+        "{\"type\":\"combine\",\"a\":\"o:29\",\"b\":\"heater\"}",
+        "camp"
+      ],
+      "result": {
+        "accepted": true,
+        "response": [
+          "o:29 now includes heater as attach; reusable design assembly:1."
+        ],
+        "observation": {
+          "version": "mars-workshop-1",
+          "map": "landing",
+          "interventions": 2,
+          "ledger": {
+            "synthesis": 0,
+            "contextual": 2,
+            "reconfiguration": 0,
+            "travel": 0,
+            "observation": 0
+          },
+          "status": "playing",
+          "accepted": true,
+          "response": [
+            "o:29 now includes heater as attach; reusable design assembly:1."
+          ],
+          "goals": [
+            {
+              "id": "garden",
+              "title": "Bright protected garden",
+              "rows": [
+                "day"
+              ],
+              "requirement": "At bed, an actual rootbed is enclosed, illuminated and receiving clean water in the day row. Any construction satisfying those properties works.",
+              "map": "landing",
+              "checks": {
+                "a rootbed at bed is enclosed, illuminated, and clean-water-fed in every row": false
+              },
+              "current": false,
+              "achieved": false,
+              "firstIntervention": null
+            },
+            {
+              "id": "signal",
+              "title": "First signal",
+              "rows": [
+                "day"
+              ],
+              "requirement": "The northern receiver has actually received the camp location through an optical event, and the bed garden is currently functioning. Both goals may complete together.",
+              "map": "landing",
+              "checks": {
+                "garden remains working": false,
+                "receiver has an actual optical record of bed": false
+              },
+              "current": false,
+              "achieved": false,
+              "firstIntervention": null
+            }
+          ],
+          "campaign": [
+            {
+              "map": "landing",
+              "goals": [
+                {
+                  "id": "garden",
+                  "title": "Bright protected garden",
+                  "achieved": false,
+                  "current": false
+                },
+                {
+                  "id": "signal",
+                  "title": "First signal",
+                  "achieved": false,
+                  "current": false
+                }
+              ]
+            },
+            {
+              "map": "ice",
+              "goals": [
+                {
+                  "id": "still",
+                  "title": "Still and growing place",
+                  "achieved": false,
+                  "current": false
+                },
+                {
+                  "id": "preservation",
+                  "title": "Drying and preservation",
+                  "achieved": false,
+                  "current": false
+                }
+              ]
+            },
+            {
+              "map": "twin",
+              "goals": [
+                {
+                  "id": "two-skies",
+                  "title": "Two skies",
+                  "achieved": false,
+                  "current": false
+                },
+                {
+                  "id": "viewpoints",
+                  "title": "Two viewpoints",
+                  "achieved": false,
+                  "current": false
+                }
+              ]
+            },
+            {
+              "map": "arch",
+              "goals": [
+                {
+                  "id": "carry",
+                  "title": "Carry the existing garden",
+                  "achieved": false,
+                  "current": false
+                },
+                {
+                  "id": "deploy-recover",
+                  "title": "Deploy then recover",
+                  "achieved": false,
+                  "current": false
+                }
+              ]
+            },
+            {
+              "map": "dust",
+              "goals": [
+                {
+                  "id": "warm-sample",
+                  "title": "Warm place, protected sample",
+                  "achieved": false,
+                  "current": false
+                },
+                {
+                  "id": "window",
+                  "title": "Usable window",
+                  "achieved": false,
+                  "current": false
+                }
+              ]
+            },
+            {
+              "map": "return",
+              "goals": [
+                {
+                  "id": "messages",
+                  "title": "Distinguishable messages",
+                  "achieved": false,
+                  "current": false
+                },
+                {
+                  "id": "recovery",
+                  "title": "Recover the stranded instrument",
+                  "achieved": false,
+                  "current": false
+                }
+              ]
+            }
+          ],
+          "knownCount": 43,
+          "objects": [
+            {
+              "id": "o:29",
+              "design": "assembly:1",
+              "place": "camp",
+              "shape": {
+                "height": 1,
+                "width": 1,
+                "mobile": false,
+                "folded": false
+              },
+              "recordCount": 0,
+              "samples": []
+            }
+          ],
+          "connections": [],
+          "spans": [],
+          "received": []
+        },
+        "stateHash": "18f6974f2203268623741eb449623ffc6e34f78e107001f45ee68f366130db10",
+        "inspection": {
+          "place": {
+            "id": "camp",
+            "label": "Open landing pad",
+            "x": 2,
+            "y": 0,
+            "lit": [
+              "north",
+              "east",
+              "south",
+              "west"
+            ]
+          },
+          "routes": [
+            {
+              "a": "ice-approach",
+              "b": "camp"
+            },
+            {
+              "a": "camp",
+              "b": "bed"
+            }
+          ],
+          "objects": [
+            "o:29"
+          ],
+          "rows": [
+            {
+              "row": "day",
+              "id": "camp",
+              "wet": false,
+              "water": "none"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "args": [
+        "combine",
+        "independent-preview-20261026-1544",
+        "{\"type\":\"combine\",\"a\":\"o:29\",\"b\":\"heater\"}",
+        "--actor=player"
+      ],
+      "result": {
+        "accepted": true,
+        "response": [
+          "o:29 now includes heater as attach; reusable design assembly:1."
+        ],
+        "observation": {
+          "version": "mars-workshop-1",
+          "map": "landing",
+          "interventions": 2,
+          "ledger": {
+            "synthesis": 0,
+            "contextual": 2,
+            "reconfiguration": 0,
+            "travel": 0,
+            "observation": 0
+          },
+          "status": "playing",
+          "accepted": true,
+          "response": [
+            "o:29 now includes heater as attach; reusable design assembly:1."
+          ],
+          "goals": [
+            {
+              "id": "garden",
+              "title": "Bright protected garden",
+              "rows": [
+                "day"
+              ],
+              "requirement": "At bed, an actual rootbed is enclosed, illuminated and receiving clean water in the day row. Any construction satisfying those properties works.",
+              "map": "landing",
+              "checks": {
+                "a rootbed at bed is enclosed, illuminated, and clean-water-fed in every row": false
+              },
+              "current": false,
+              "achieved": false,
+              "firstIntervention": null
+            },
+            {
+              "id": "signal",
+              "title": "First signal",
+              "rows": [
+                "day"
+              ],
+              "requirement": "The northern receiver has actually received the camp location through an optical event, and the bed garden is currently functioning. Both goals may complete together.",
+              "map": "landing",
+              "checks": {
+                "garden remains working": false,
+                "receiver has an actual optical record of bed": false
+              },
+              "current": false,
+              "achieved": false,
+              "firstIntervention": null
+            }
+          ],
+          "campaign": [
+            {
+              "map": "landing",
+              "goals": [
+                {
+                  "id": "garden",
+                  "title": "Bright protected garden",
+                  "achieved": false,
+                  "current": false
+                },
+                {
+                  "id": "signal",
+                  "title": "First signal",
+                  "achieved": false,
+                  "current": false
+                }
+              ]
+            },
+            {
+              "map": "ice",
+              "goals": [
+                {
+                  "id": "still",
+                  "title": "Still and growing place",
+                  "achieved": false,
+                  "current": false
+                },
+                {
+                  "id": "preservation",
+                  "title": "Drying and preservation",
+                  "achieved": false,
+                  "current": false
+                }
+              ]
+            },
+            {
+              "map": "twin",
+              "goals": [
+                {
+                  "id": "two-skies",
+                  "title": "Two skies",
+                  "achieved": false,
+                  "current": false
+                },
+                {
+                  "id": "viewpoints",
+                  "title": "Two viewpoints",
+                  "achieved": false,
+                  "current": false
+                }
+              ]
+            },
+            {
+              "map": "arch",
+              "goals": [
+                {
+                  "id": "carry",
+                  "title": "Carry the existing garden",
+                  "achieved": false,
+                  "current": false
+                },
+                {
+                  "id": "deploy-recover",
+                  "title": "Deploy then recover",
+                  "achieved": false,
+                  "current": false
+                }
+              ]
+            },
+            {
+              "map": "dust",
+              "goals": [
+                {
+                  "id": "warm-sample",
+                  "title": "Warm place, protected sample",
+                  "achieved": false,
+                  "current": false
+                },
+                {
+                  "id": "window",
+                  "title": "Usable window",
+                  "achieved": false,
+                  "current": false
+                }
+              ]
+            },
+            {
+              "map": "return",
+              "goals": [
+                {
+                  "id": "messages",
+                  "title": "Distinguishable messages",
+                  "achieved": false,
+                  "current": false
+                },
+                {
+                  "id": "recovery",
+                  "title": "Recover the stranded instrument",
+                  "achieved": false,
+                  "current": false
+                }
+              ]
+            }
+          ],
+          "knownCount": 43,
+          "objects": [
+            {
+              "id": "o:29",
+              "design": "assembly:1",
+              "place": "camp",
+              "shape": {
+                "height": 1,
+                "width": 1,
+                "mobile": false,
+                "folded": false
+              },
+              "recordCount": 0,
+              "samples": []
+            }
+          ],
+          "connections": [],
+          "spans": [],
+          "received": []
+        }
+      }
+    },
+    {
+      "args": [
+        "finish",
+        "independent-preview-20261026-1544",
+        "{\"report\":\"Synthetic disclosure/actor validation finished; not experience evidence.\"}",
+        "--actor=operator"
+      ],
+      "result": {
+        "finished": true,
+        "outcome": "early-stop",
+        "report": {
+          "report": "Synthetic disclosure/actor validation finished; not experience evidence."
+        },
+        "observation": {
+          "version": "mars-workshop-1",
+          "map": "landing",
+          "interventions": 2,
+          "ledger": {
+            "synthesis": 0,
+            "contextual": 2,
+            "reconfiguration": 0,
+            "travel": 0,
+            "observation": 0
+          },
+          "status": "playing",
+          "accepted": true,
+          "response": [
+            "o:29 now includes heater as attach; reusable design assembly:1."
+          ],
+          "goals": [
+            {
+              "id": "garden",
+              "title": "Bright protected garden",
+              "rows": [
+                "day"
+              ],
+              "requirement": "At bed, an actual rootbed is enclosed, illuminated and receiving clean water in the day row. Any construction satisfying those properties works.",
+              "map": "landing",
+              "checks": {
+                "a rootbed at bed is enclosed, illuminated, and clean-water-fed in every row": false
+              },
+              "current": false,
+              "achieved": false,
+              "firstIntervention": null
+            },
+            {
+              "id": "signal",
+              "title": "First signal",
+              "rows": [
+                "day"
+              ],
+              "requirement": "The northern receiver has actually received the camp location through an optical event, and the bed garden is currently functioning. Both goals may complete together.",
+              "map": "landing",
+              "checks": {
+                "garden remains working": false,
+                "receiver has an actual optical record of bed": false
+              },
+              "current": false,
+              "achieved": false,
+              "firstIntervention": null
+            }
+          ],
+          "campaign": [
+            {
+              "map": "landing",
+              "goals": [
+                {
+                  "id": "garden",
+                  "title": "Bright protected garden",
+                  "achieved": false,
+                  "current": false
+                },
+                {
+                  "id": "signal",
+                  "title": "First signal",
+                  "achieved": false,
+                  "current": false
+                }
+              ]
+            },
+            {
+              "map": "ice",
+              "goals": [
+                {
+                  "id": "still",
+                  "title": "Still and growing place",
+                  "achieved": false,
+                  "current": false
+                },
+                {
+                  "id": "preservation",
+                  "title": "Drying and preservation",
+                  "achieved": false,
+                  "current": false
+                }
+              ]
+            },
+            {
+              "map": "twin",
+              "goals": [
+                {
+                  "id": "two-skies",
+                  "title": "Two skies",
+                  "achieved": false,
+                  "current": false
+                },
+                {
+                  "id": "viewpoints",
+                  "title": "Two viewpoints",
+                  "achieved": false,
+                  "current": false
+                }
+              ]
+            },
+            {
+              "map": "arch",
+              "goals": [
+                {
+                  "id": "carry",
+                  "title": "Carry the existing garden",
+                  "achieved": false,
+                  "current": false
+                },
+                {
+                  "id": "deploy-recover",
+                  "title": "Deploy then recover",
+                  "achieved": false,
+                  "current": false
+                }
+              ]
+            },
+            {
+              "map": "dust",
+              "goals": [
+                {
+                  "id": "warm-sample",
+                  "title": "Warm place, protected sample",
+                  "achieved": false,
+                  "current": false
+                },
+                {
+                  "id": "window",
+                  "title": "Usable window",
+                  "achieved": false,
+                  "current": false
+                }
+              ]
+            },
+            {
+              "map": "return",
+              "goals": [
+                {
+                  "id": "messages",
+                  "title": "Distinguishable messages",
+                  "achieved": false,
+                  "current": false
+                },
+                {
+                  "id": "recovery",
+                  "title": "Recover the stranded instrument",
+                  "achieved": false,
+                  "current": false
+                }
+              ]
+            }
+          ],
+          "knownCount": 43,
+          "objects": [
+            {
+              "id": "o:29",
+              "design": "assembly:1",
+              "place": "camp",
+              "shape": {
+                "height": 1,
+                "width": 1,
+                "mobile": false,
+                "folded": false
+              },
+              "recordCount": 0,
+              "samples": []
+            }
+          ],
+          "connections": [],
+          "spans": [],
+          "received": []
+        }
+      }
+    },
+    {
+      "args": [
+        "verify",
+        "independent-preview-20261026-1544"
+      ],
+      "result": {
+        "verified": true,
+        "protocol": "mars-workshop-cli-1",
+        "id": "independent-preview-20261026-1544",
+        "events": 9,
+        "headHash": "b66d717549600a4ff9afc7764e7c9d2c70c270dd47228552b67db398af523e50",
+        "stateHash": "18f6974f2203268623741eb449623ffc6e34f78e107001f45ee68f366130db10",
+        "finished": true,
+        "status": "playing",
+        "undoDepth": 2,
+        "counts": {
+          "gameAttempts": 2,
+          "acceptedCombines": 2,
+          "acceptedPlayerCombines": 1,
+          "acceptedOperatorCombines": 1,
+          "rejectedGameAttempts": 0,
+          "queries": 5,
+          "navigation": 0,
+          "undoCommands": 0,
+          "successfulUndos": 0,
+          "reporting": 0,
+          "administrative": 2,
+          "invalidCommands": 0,
+          "automaticBeats": 0
+        }
+      }
+    }
+  ],
+  "checks": {
+    "compactPreviewHasNoInspection": true,
+    "optInWorldExactlyMatchesCommittedWorld": true,
+    "objectForecastIncludesPartsAndSourceRows": true,
+    "objectForecastExactStateHashMatchesFinalState": true,
+    "perEventAttributionSeparated": true,
+    "captureVerified": true
+  }
+}

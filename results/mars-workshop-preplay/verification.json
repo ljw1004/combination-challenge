@@ -1,0 +1,86 @@
+{
+  "at": "2026-10-26T15:38:49Z",
+  "evidence": "Mechanical verification only. No fresh player or human-fun evidence. Approximately-200 length hypothesis falsified by legal complete witnesses.",
+  "sourceHashes": {
+    "experiments/logical-mars-workshop.ts": "7f65108ec878e4e1b8c1759bf099d06f39b2d91600b60bf79dde7044162b7307",
+    "experiments/mars-workshop-content.ts": "54eae0cbe5d61511c32ab8be39747da1a8157976da7131d80c6c30a1e25e4c6a",
+    "experiments/mars-workshop-types.ts": "8880af310ce0fb4e1c634324e572b026386af0158a321d57652861205b742091",
+    "experiments/mars-workshop-screen.ts": "e7c3fd7f38646031a7e70d2585e5634f05ea104314401357f7eb93c0990f5ece",
+    "experiments/mars-workshop-play.ts": "b6f363e4bd6c0a7b5d79d97b7054f5413c99cb25553e860da120b6c629a8a899",
+    "tests/logical-mars-workshop.test.ts": "00a5c6ee0fc4446a12d000ebc1db117c349ab03f7a2b1d2af3c312f3a08671ba",
+    "tests/mars-workshop-cli.test.ts": "794bcc066ae72a2836d20ac12e0c4bcd0c171c34cd39c7b7d3c71d422c820229",
+    "docs/mars-workshop.md": "83d7ef58f8cf80dcc601532ec72d4a3d535deb9b3daef4e93f69b0df5650de15"
+  },
+  "checks": {
+    "aggregate": {
+      "command": "npm test",
+      "passed": 219,
+      "failed": 0,
+      "exitCode": 0,
+      "log": "aggregate-tests.txt"
+    },
+    "types": {
+      "command": "npx tsc --noEmit",
+      "exitCode": 0
+    },
+    "screen": {
+      "command": "node experiments/mars-workshop-screen.ts",
+      "exitCode": 0,
+      "witnesses": [
+        {
+          "name": "ordinary",
+          "interventions": 74,
+          "ledger": {
+            "synthesis": 5,
+            "contextual": 46,
+            "reconfiguration": 5,
+            "travel": 6,
+            "observation": 12
+          },
+          "achieved": 12,
+          "status": "complete"
+        },
+        {
+          "name": "complete",
+          "interventions": 69,
+          "ledger": {
+            "synthesis": 0,
+            "contextual": 46,
+            "reconfiguration": 5,
+            "travel": 6,
+            "observation": 12
+          },
+          "achieved": 12,
+          "status": "complete"
+        },
+        {
+          "name": "assembly-reuse",
+          "interventions": 60,
+          "ledger": {
+            "synthesis": 0,
+            "contextual": 37,
+            "reconfiguration": 5,
+            "travel": 6,
+            "observation": 12
+          },
+          "achieved": 12,
+          "status": "complete"
+        },
+        {
+          "name": "alternate-order",
+          "interventions": 74,
+          "ledger": {
+            "synthesis": 5,
+            "contextual": 46,
+            "reconfiguration": 5,
+            "travel": 6,
+            "observation": 12
+          },
+          "achieved": 12,
+          "status": "complete"
+        }
+      ]
+    }
+  },
+  "frozenPriorModels": "No existing model/capture/protocol file edited by implementation task; parent owns baseline hash verification/publication."
+}
