@@ -1,0 +1,87 @@
+# Living Works: smallest useful pre-play review
+
+Independent design review, 26 October 2026. Read `AGENTS.md`, `what-is-fun.md` revision 8, `design-contract.md` and `shared-ontology-levels-proposal.md`. This reviews the proposal, not a finished implementation or played experience. No frozen model, evaluator or capture was changed.
+
+## Verdict
+
+**Proceed with the connected slice.** A reusable ontology and three finite explicit goals are a legitimate game structure. The promising integration is not the number of recipes: the same creations route water, carry or transform marks, retain records, and participate in constructed processes. Those properties can make different combinations useful for different goals.
+
+Do not require every recipe to introduce strategy, every board to offer branching tradeoffs, or a completed board to generate another purpose. Nor does a prebuilt catalogue invalidate the game: using available creations can be its central work. The immediate risk is narrower—recipe clicking could merely unlock unrelated puzzle controls, with no valued construction in the clicking or the later combinations.
+
+## Small checks before fresh play
+
+These are truthful-rule/claim checks, not a requirement to prove fun before testing it. Use the proposed legal witnesses; avoid building a second testing bureaucracy.
+
+1. **Check one actual construction dependency per board.** Save a legal successful construction, then change one relevant relation: lower/root a crossing, bypass or shorten a return route, or put an interpreter before rather than after record capture. Report the actual changed flow, timing or record and which goal condition it affects. A named Feedback valve must expose connected components and require a working return path, not emit “alternation achieved.” An Interpreter must transform arrivals, not set “privacy achieved.” These counterfactuals test the claimed laws; they need not all be alternative winning strategies.
+2. **Disclose the exact success conditions.** Board 1 currently requires passage, flowing water and a living grove—not exact downstream marks. Preserve the mark contrast as a real optional consequence, or explicitly make it part of the goal if genuinely intended; do not score it as a demanded tradeoff under the present wording. State whether alternating gate passage satisfies “an unflooded walking route.” Board 2 must demonstrate automatic alternating watering over a repeated future-relevant dynamic state, including source phase, delayed arrivals and valve state (not ever-increasing log/tick counters); a short alternating prefix is insufficient. Board 3 must say whether foreign exact arrivals are forbidden throughout construction or only in the terminal arrangement. If past exposure matters, expose that history; erasing a present copy is not erasing a past event.
+3. **Check concept reuse without granting a finished solution.** Carry acquired concepts across boards, while resetting the declared world state. Knowing Loop can carry over; a particular return path does not unless explicitly persistent. Installing known components is legitimate construction, but rebuilding prerequisite chains solely to reacquire the same concepts is the prohibited manufacturing tax. One cross-board checkpoint is enough to test this distinction.
+4. **Try the obvious overconnection once.** With the catalogue available, connect all destinations or apply all safeguards in a short plausible routine. Record what actually fails or succeeds. If the identical small arrangement satisfies all three boards, the claimed goal differentiation needs revision. If indiscriminate construction eventually succeeds through substantial goal-specific placement or repair, that is not the same finding. No exhaustive solver or proof of nondominance is necessary here.
+
+Two witnesses per board, as proposed, can establish reachability and different consequences. They do not establish two interesting choices, and a unique-solution insight would not be disqualified.
+
+## Use the comparison conditions diagnostically
+
+| Condition | Keep fixed / record | What it can help distinguish |
+| --- | --- | --- |
+| Goal-led sequence | Public full graph and laws; explicit goals; acquired concepts retained | Which branches the goals make relevant, what the player devises, and what is reused |
+| Catalogue already built | Same board laws, goals and ingredient-based world actions; grant concepts, not completed arrangements | Acquisition/navigation versus composing and applying known creations |
+| Another feasible board order | Same goal boards and laws; record each board's entry knowledge | Transfer from a previous goal versus the assumption that the authored order taught the only method |
+
+Use fresh players for a comparison intended to examine first exposure. Replaying with the same player is a useful mastery check, but prior solution knowledge is a confound, not an effect of the prebuilt catalogue. Small samples provide exploratory evidence, not causal estimates of human enjoyment.
+
+**Interpretation:** If the prebuilt condition retains worthwhile combination-based construction, keep that positive evidence; acquisition may be optional scaffolding or appreciated enactment. If it removes only unwanted dependency clicking while leaving a worthwhile game, reduce that overhead rather than reject the ontology. Concern is stronger when both modes expose the same trivial goal-insensitive control sequence, or when the later challenge is entirely detached from the properties and relationships of the combined things. Success by enumeration alone establishes neither concern.
+
+## Minimal record, then revise from play
+
+For each board retain: the stated goal; entry knowledge; the player's intended construction; actual selected combinations; one concrete inference or valued enactment (or unknown); a transferred method/concept; reported unwanted routine; and the completion/stopping account. Separate acquiring concepts from applying them, commands from decision episodes, and model facts from player reports.
+
+A brief neutral question after completion can ask what was worked out and which execution was worth doing. Do not preload it with the claimed insight. A mandated three-board coverage run is not evidence that the next level was wanted; record an elective offer separately if appetite is being tested. Satisfied finite completion remains a valid result.
+
+Pre-play preparation should stop at a small truthful playable slice with the above ambiguities resolved or explicitly disclosed—not wait for a fun-proof gate, a large catalogue, or 180–240 actions. Fresh play should decide which construction, reuse and completion claims to retain, change or reject.
+
+## First implementation check, before freeze
+
+Inspected `experiments/logical-living-works.ts` while the author was still developing the later boards (first checked source SHA256 `6fdd6a740ccabaa19ee74ddf0f21656dd75299ba06164498fd92e650518adffa`). These findings apply to that developmental state, not a later frozen version.
+
+- **First-board integration is real.** Executed the exported legal crossing witness: Seed + Water at B2, Rootbed + D2, then four waits. The intermediate fields show roots lowering pressure, fragmenting each source identity, and sending seeds downstream; B3/D3 actually grow roots. The path is dry before the second grove finishes growing, so success does not simply check that the recipe is unlocked. The successful result survives 48 further waits.
+- **A relevant counterfactual works.** From that result, Earth + B2 removes its roots, restoring strong exact A and flooding the crossing; the goal fails. Stone + B2 instead preserves the dry crossing while restoring strong exact A; the already rooted downstream grove still softens it. This distinguishes material/history effects without pretending that exact preservation is part of the crossing goal.
+- **Reuse is not a world copy.** After `next`, Rootbed remains known, while the next board has no retained works or planted C2 roots. Checked legal-action/preview agreement for 107 enumerated actions over four reachable states. This is focused functional evidence, not a complete test-suite or enjoyment result.
+- **One input-validation defect sent to the author.** Once Loop is known on the second board, `Loop + unmade-unknown-operand` with a valid path is accepted and constructs the route. The Loop special case bypasses second-operand validation. A declared real anchor/place (or a separately truthful path-action schema) should replace the fictitious second ingredient. This does not undermine the actual flow simulation; it is a narrow violation of the published combination-input contract.
+
+The first board has a short clear solution; that alone is not a defect. No first-board blocker was found. At that checkpoint, temporal-cycle and publication findings awaited the completed implementation.
+
+### Second pass: ready for fresh play
+
+Rechecked source SHA256 `3c18c54f34753619426fb42cb0513df78f8bc3a6787ff9417c175c0f0ae70f43`. The source did not change during this probe. Exact independent legal actions and results are saved in [`results/living-works-review/independent-check.json`](../results/living-works-review/independent-check.json), including negative counterfactuals; these are privileged mechanical checks, not player experience.
+
+- **Temporal construction:** independently constructed the C3 → C2 → D2 → D3 loop, opened its final edge as a delay, combined its entry valve with the output float, and rooted the two groves. The goal succeeds with period 8. Eight additional waits reproduce the entire physical key. Cutting D2's outgoing port immediately clears the certificate and later yields a failed upper-only fixed point. The cycle key covers cells, fields (including resolved outlets), records, roots and source phases; the certificate's samples cover the whole repeated cycle, not just a favorable prefix. The disclosed 256-state detection window can leave a longer period unverified, not falsely successful.
+- **Publication construction:** independently started from the six primitives in `reverse`, captured exact originals at B1/D1, then rooted and routed B2/D2 toward C2. The terminal goal succeeds and remains satisfied after 48 waits. Applying the roots before capture still gives the square fragments and a dry path, but leaves both originals absent and fails. This is a real order-dependent record/transform relation. The implementation now explicitly declares terminal requirements and permitted erasure/rebuilding; no unpromised all-history exclusion was tested.
+- **Input bug corrected by the author:** the unknown Loop partner is rejected, the actual first-path anchor is accepted, and an unrelated real anchor is rejected. Requested that the first-path anchor requirement also be stated in the public schema/rules, rather than learned solely from rejection text.
+- **Conditions separated:** `sequence` and `prebuilt` share board order, with six versus 24 starting concepts; `reverse` changes the order while retaining the normal six. This supports the intended diagnostic comparisons without the earlier combined order/knowledge confound.
+
+**Readiness:** no remaining substantive mechanics/goal-contract blocker found in this focused pass. Finish the owning task's tests and public-rule wording, then expose the frozen slice to fresh players. This is not a comprehensive audit, a claim that every concept is necessary, or a finding of fun.
+
+## V3 intermittent-publication pre-play check
+
+26 October 2026, bounded independent review of `experiments/logical-living-works-3.ts`, SHA256 `7b8d1a520e90c95e940d2a714a260c1c802103687e3e8c1a98ce2b32905127c6`. **Ready for fresh play; no blocking issue found.** No code, captures or working notes were changed by this pass.
+
+- The eight focused V3 tests pass, including frozen V1/V2 hash checks, 1,366 exact forecast comparisons, the favorable-endpoint negative, and unchanged underlying V1 dynamics. V1 remains `8647032f9697c901b11302223cc327a370596be3fc6695ec7b74d84bbd83d6d2`; V2 remains `a3da674164943462dd01431fba6655a632afe43dbe66343978a2db4a0a6f4696`.
+- Independently compared each wait batch length 1–24 against that many one-beat waits from each of the three witness constructions before its final wait: **72 comparisons** agree in physical state, complete orbit samples, cycle certificate and goal. Batch bookkeeping preserves one public command without skipping intermediate phases. The physical equality key includes complete cell/field data and each source's phase; all three established period-four certificates contain all four source phases. Sampled source-on indicators also match the actual preceding emission phase.
+- Direct routing preserves the separate originals and dry walk, but its square fragments are B, B, A, A rather than continuously A+B; it fails the stated continuity condition. Broadcast and genuine recirculation each produce A+B fragments, no exact square identity, retained separate originals and a dry walk in every certified phase. The recirculation construction contains **zero Beacons**. The predicate checks actual state throughout the cycle, not possession of a preferred recipe label. A checked source rule and reusable storage/flow behavior carry this distinction.
+- Read the public rules and initial observation separately from the privileged witness exports. They disclose schedules, laws and the result-oriented goal, not prior-player findings or successful architectures. All 24 known concepts, source schedules, materials and four initial approach ports are **provided setup**, not player construction. Actions, work descriptors, controllers, stored originals, roots and Beacons start empty; the initial state has no cycle certificate and does not satisfy the goal.
+- The contract correctly applies to the established repeating cycle, not every construction transient. Edits invalidate that proof. The 256-state search bound leaves an unobserved longer period unverified rather than allowing a favorable endpoint to pass.
+
+This supports a truthful bounded experiment using changed inputs and a full-cycle objective over the shared engine. It does not establish player understanding, preferred architecture, fun, or the value of a large ontology. Preserve any satisfied finite ending and let fresh play test the construction/transfer claim.
+
+## Atlas consolidation pre-play check
+
+26 October 2026, bounded independent review of `experiments/logical-living-atlas.ts`, SHA256 `8af85e4d84e79a223939b37e2bdada54fa629da2cf864389b75211890f79a5b4`. **Ready for the two fresh play conditions; no blocking issue found.** This reviews the campaign wrapper, not the underlying physics again. Only this review document was edited.
+
+- All **12** focused Atlas tests pass, including 2,874 exact forecast comparisons, offered/reversed all-five legal witnesses, and unchanged V1/V2/V3 source hashes. The compact-certificate formatting is included in this checked source.
+- Shared knowledge is synchronized when a board is selected or acted on; it does not copy places, components, records, controllers or work descriptors. Source inspection and the tests distinguish the six initially known concepts from the fully inspectable 24-concept ontology. The supplied initial worlds are not attributed to player work.
+- Independently played the crossing through a 24-beat wait, switched to intermittent publication, learned Stone there and advanced it 24 more beats, then returned. The inactive crossing board stayed exactly unchanged, including fields, its clock and its certificate. Rootbed knowledge arrived at the new board without planting roots. Stone knowledge returned without altering the retained crossing. Both selections advanced no board or global beat; every card is accessible without a completion gate.
+- The independent crossing certificate identifies **outer command 3, beat 1, local/global tick 3**, although the public wait command runs 24 beats. Replaying just that first beat reproduces the complete certificate and its physical state. The wrapper calls the relevant frozen goal predicate after every actual inner beat, including the V3 per-phase sampler; navigation itself neither ticks nor certifies.
+- An Earth edit on the retained crossing makes its current goal false while leaving its immutable first-achievement certificate and completed-ever badge intact. The inactive intermittent board remains physically unchanged. The public compact stamp's hash matches the full saved certificate; selected-state fields and the current predicate remain visible. Thus compacting redundant past-state strings does not turn a past achievement into a claim of present success.
+- Finishing after that one completed board is valid: terminal is true, completed-ever contains only crossing, and the all-five goal is correctly false. Finish changes neither worlds nor clocks. Treat this as a valid subset ending in the choice condition, not an automatic failure of pleasure; the assigned-five condition separately supplies its coverage obligation.
+
+The wrapper now supports the intended comparison: required coverage versus freely choosing among explicit goals after the first tutorial. It does not itself establish appetite, the quality of repeated construction, or a worthwhile whole-experience duration. Keep navigation, combines, waits, completed-ever, current satisfaction and actual elective choices separate in the play review.

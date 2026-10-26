@@ -272,3 +272,8 @@ Wrote handoff.md with current direction, actual results, frozen versions, comman
 ## 26 October 2026, 14:22 UTC: continued research and publication
 
 The owner explicitly requested that findings be pushed and experimentation continue without supervision. The optional publication gate is removed. See docs/research-checkpoint-2026-10-26.md and docs/recovery-verification-2026-10-26.md for prior reported findings, exact artifact recovery, unavailable raw captures and fresh verification. Next hypothesis: persistent camp and conjunctive visible goals may make clear steps accumulate into a project. Do not require every step to teach or present a strategic dilemma. No fresh play result yet.
+
+
+### 14:31 UTC: recovered shared-ontology models and current criteria
+
+All four Living Works/Atlas sources and Atlas tests match their original frozen hashes. The recovered sources now pass 20 focused tests and 9,443 fresh mechanical forecasts; baseline+Mars+recovered Living tests pass176 plus TypeScript. Exact doctrine8/9 recovered, with current revision9 active. Supporting documents are separately labeled context-reconstructed where no old hash was retained. Original new player captures are still unavailable; do not claim fresh recreation of old choices. The next retained-camp wrapper is being implemented in separate files and independently reviewed.

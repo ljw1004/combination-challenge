@@ -1,5 +1,7 @@
 # Combination Challenge
 
+Current design criteria: [What is fun? revision 9](docs/what-is-fun.md), including clear progress, comfortable routine and stage-sensitive interpretation. [Doctrine recovery status](docs/doctrine-recovery-2026-10-26.md) distinguishes exact recovered revisions from reconstructed supporting text.
+
 Current continuation: [research checkpoint](docs/research-checkpoint-2026-10-26.md), [recovery and fresh verification](docs/recovery-verification-2026-10-26.md), and [active handoff](handoff.md). The owner has requested continuous autonomous experimentation and publication. Clear progress and comfortable routine are legitimate; not every action needs a dilemma. Historical experiments below retain their original conditions.
 
 Current doctrine: [What is fun?](docs/what-is-fun.md). [The evaluated revision cycle](docs/fun-evaluation-cycle.md) links the plays, independent audits and current hypotheses.
