@@ -1,0 +1,306 @@
+{
+  "assignment": "Explore the Estuary of Continuing Lives, version 2: a small speculative world of people, experiences, transforming tools and schools. Make whatever interests you across its six connected possibilities. You may pursue all, some or none, in any order; use any available shortcuts. This is not a speed test, minimum-action contest or request to reach a target number of actions. Stop whenever you have enough to assess it.\nUse only this player wrapper and its help, state, objectives, inspect, partners, combine and finish commands. Do not read implementation files, developer previews, authored routes, tests or other players' records. Compatible-partner hints reveal existing things you can join, not the result's name before you combine. Existing things and their behavior are inspectable. Use a piece ID or its exact unique name; ambiguous names are rejected. Combine returns new pieces and causal progress rather than a repeated full catalogue; state remains available. Combinations preserve conceptual access; nothing is a finite stock. This is a logical pair interface, not a physical drag-and-drop UI or simulated ecology. Supplied places offer their disclosed local practices. A person with two output ports uses angle for dual-channel solo scores. Distant instructions travel and arrive before a later real activity, not on a wait click. Some single encounters cause multiple performances or automatic deliveries; those are not extra player choices.\nYou need not explain every action. At finish, say what you made, what you enjoyed or disliked, anything you still wanted to do, and why you stopped. Distinguish interface friction from interest in the consequences. Your account is evidence about this session, not a request to praise the game.",
+  "objectives": {
+    "shortTide": "Let someone experience another person’s Long Tide in a shorter, tactile form.",
+    "divergentLives": "Let two continuing relatives diverge, then each actually experience something lived by the other.",
+    "sharedPerformance": "Let distinct people express one actual Sweep together through movement and pressure.",
+    "reciprocalSchool": "After a school handover, let the successor live a new firsthand occurrence and the former holder replay that experience. A familiar trajectory counts: new provenance is not necessarily a new skill.",
+    "distantLocalLives": "Let an actually shared local score travel and be performed far away without losing the distant person’s prior repertoire. Retained capabilities already preserve it; no demonstration replay is required.",
+    "roleContinuity": "Let an invitation sent before handover reach the successor, who enacts its score, while the former holder continues personally. Solo or joint enactment both count."
+  },
+  "state": {
+    "version": "estuary-player-2",
+    "epoch": 0,
+    "counts": {
+      "gestures": 0,
+      "substrateCommands": 0,
+      "automaticDeliveries": 0
+    },
+    "projects": {
+      "shortTide": {
+        "complete": false,
+        "reason": "No shortened tactile enactment of another person’s lived Tide yet."
+      },
+      "divergentLives": {
+        "complete": false,
+        "reason": "Needs a shared lived prefix, different later lives, and actual replay in both directions."
+      },
+      "sharedPerformance": {
+        "complete": false,
+        "reason": "No joint movement-and-pressure enactment of an actual Sweep yet."
+      },
+      "reciprocalSchool": {
+        "complete": false,
+        "reason": "No school handover yet."
+      },
+      "distantLocalLives": {
+        "complete": false,
+        "reason": "No locally shared score has arrived at a distant person yet."
+      },
+      "roleContinuity": {
+        "complete": false,
+        "reason": "No pre-handover invitation has reached its successor yet."
+      }
+    },
+    "pieces": [
+      {
+        "id": "watchhouse",
+        "name": "Watchhouse",
+        "kind": "site",
+        "process": "A",
+        "interface": "normal",
+        "method": "identity",
+        "description": "Lives A through normal sensing/movement using identity; retains the actual practice."
+      },
+      {
+        "id": "tidepool",
+        "name": "Long Tide Pool",
+        "kind": "site",
+        "process": "Tide",
+        "interface": "normal",
+        "method": "identity",
+        "description": "Lives Tide through normal sensing/movement using identity; retains the actual practice."
+      },
+      {
+        "id": "mirror-quay",
+        "name": "Mirror Quay",
+        "kind": "site",
+        "process": "A",
+        "interface": "reversed",
+        "method": "reverse",
+        "description": "Lives A through reversed sensing/movement using reverse; retains the actual practice."
+      },
+      {
+        "id": "pilgrim-inlet",
+        "name": "Pilgrim Inlet",
+        "kind": "site",
+        "process": "B",
+        "interface": "pressure",
+        "method": "pressure",
+        "description": "Lives B through pressure sensing/movement using pressure; retains the actual practice."
+      },
+      {
+        "id": "lantern-marsh",
+        "name": "Lantern Marsh",
+        "kind": "site",
+        "process": "C",
+        "interface": "pressure",
+        "method": "pressure",
+        "description": "Lives C through pressure sensing/movement using pressure; retains the actual practice."
+      },
+      {
+        "id": "mirror-marsh",
+        "name": "Mirror Marsh",
+        "kind": "site",
+        "process": "C",
+        "interface": "reversed",
+        "method": "reverse",
+        "description": "Lives C through reversed sensing/movement using reverse; retains the actual practice."
+      },
+      {
+        "id": "storm-archive",
+        "name": "Storm Archive",
+        "kind": "site",
+        "process": "D",
+        "interface": "reversed",
+        "method": "reverse",
+        "description": "Lives D through reversed sensing/movement using reverse; retains the actual practice."
+      },
+      {
+        "id": "fivefold-lens",
+        "name": "Fivefold Lens",
+        "kind": "tool",
+        "method": "tempo",
+        "description": "Reusable disclosed transform: {\"name\":\"Fivefold Lens\",\"kind\":\"render\",\"factor\":[1,5],\"channels\":[\"angle\"]}"
+      },
+      {
+        "id": "touch-loom",
+        "name": "Touch Loom",
+        "kind": "tool",
+        "method": "loom",
+        "description": "Reusable disclosed transform: {\"name\":\"Touch Loom\",\"kind\":\"render\",\"factor\":1,\"channels\":[\"pressure\"]}"
+      },
+      {
+        "id": "beacon-canon",
+        "name": "Beacon Canon",
+        "kind": "tool",
+        "method": "duet",
+        "description": "Reusable disclosed transform: {\"name\":\"Beacon Duet\",\"kind\":\"render\",\"factor\":1,\"channels\":[\"angle\",\"pressure\"]}"
+      },
+      {
+        "id": "whole-tide-loom",
+        "name": "Whole Tide Loom",
+        "kind": "tool",
+        "method": "tactileTide",
+        "description": "Reusable disclosed transform: {\"name\":\"Whole Tide Loom\",\"kind\":\"render\",\"factor\":[1,5],\"channels\":[\"pressure\"]}"
+      },
+      {
+        "id": "two-roads",
+        "name": "Two Roads",
+        "kind": "roads",
+        "description": "A willing local person continues as two relatives sharing their actual lived prefix."
+      },
+      {
+        "id": "beacon-pair",
+        "name": "Beacon Pair",
+        "kind": "duo",
+        "angle": "Sori",
+        "pressure": "Ilen",
+        "description": "Sori moves the beacon; Ilen voices its pressure. These are two actual named roles."
+      },
+      {
+        "id": "school:Local",
+        "name": "Local School",
+        "kind": "school",
+        "ref": "Local",
+        "description": "Place a capable local person here to transfer request routing; former teacher continues."
+      },
+      {
+        "id": "mailbox:Local",
+        "name": "Local Invitation Mailbox",
+        "kind": "mailbox",
+        "ref": "Local",
+        "description": "A score placed here invites whoever holds this school when the letter arrives next activity."
+      },
+      {
+        "id": "school:Far",
+        "name": "Far School",
+        "kind": "school",
+        "ref": "Far",
+        "description": "Place a capable local person here to transfer request routing; former teacher continues."
+      },
+      {
+        "id": "mailbox:Far",
+        "name": "Far Invitation Mailbox",
+        "kind": "mailbox",
+        "ref": "Far",
+        "description": "A score placed here invites whoever holds this school when the letter arrives next activity."
+      },
+      {
+        "id": "person:Mara",
+        "name": "Mara",
+        "kind": "person",
+        "ref": "Mara",
+        "description": "Local living person; outputs angle. Dual-channel solo defaults to angle."
+      },
+      {
+        "id": "person:Ilen",
+        "name": "Ilen",
+        "kind": "person",
+        "ref": "Ilen",
+        "description": "Local living person; outputs pressure. Dual-channel solo defaults to angle."
+      },
+      {
+        "id": "person:Sori",
+        "name": "Sori",
+        "kind": "person",
+        "ref": "Sori",
+        "description": "Local living person; outputs angle. Dual-channel solo defaults to angle."
+      },
+      {
+        "id": "person:House",
+        "name": "House",
+        "kind": "person",
+        "ref": "House",
+        "description": "Local living person; outputs angle, pressure. Dual-channel solo defaults to angle."
+      },
+      {
+        "id": "person:Distant",
+        "name": "Distant",
+        "kind": "person",
+        "ref": "Distant",
+        "description": "Distant living person; outputs angle, pressure. Dual-channel solo defaults to angle."
+      },
+      {
+        "id": "score:baseline",
+        "name": "Inlet local walk",
+        "kind": "score",
+        "ref": "baseline",
+        "description": "angle score; exact trajectory and actual ancestry inspectable."
+      }
+    ],
+    "people": {
+      "Mara": {
+        "id": "Mara",
+        "name": "Mara",
+        "ports": [
+          "angle"
+        ],
+        "remote": false,
+        "history": [],
+        "scores": [],
+        "methods": [
+          "identity"
+        ],
+        "alive": true
+      },
+      "Ilen": {
+        "id": "Ilen",
+        "name": "Ilen",
+        "ports": [
+          "pressure"
+        ],
+        "remote": false,
+        "history": [],
+        "scores": [],
+        "methods": [],
+        "alive": true
+      },
+      "Sori": {
+        "id": "Sori",
+        "name": "Sori",
+        "ports": [
+          "angle"
+        ],
+        "remote": false,
+        "history": [],
+        "scores": [],
+        "methods": [],
+        "alive": true
+      },
+      "House": {
+        "id": "House",
+        "name": "House",
+        "ports": [
+          "angle",
+          "pressure"
+        ],
+        "remote": false,
+        "history": [],
+        "scores": [],
+        "methods": [],
+        "alive": true
+      },
+      "Distant": {
+        "id": "Distant",
+        "name": "Distant",
+        "ports": [
+          "angle",
+          "pressure"
+        ],
+        "remote": true,
+        "history": [],
+        "scores": [
+          "baseline"
+        ],
+        "methods": [
+          "identity"
+        ],
+        "alive": true
+      }
+    },
+    "schools": {
+      "Local": {
+        "id": "Local",
+        "holder": "Mara",
+        "mailbox": []
+      },
+      "Far": {
+        "id": "Far",
+        "holder": "Distant",
+        "mailbox": []
+      }
+    },
+    "messages": {}
+  }
+}
