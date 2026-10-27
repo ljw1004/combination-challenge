@@ -1,0 +1,42 @@
+{
+  "version": "engine-arrival-v6",
+  "baseline": "frozen/v5",
+  "runtimeChange": "engine/model.ts",
+  "changes": [
+    "Arrival-only deterministic compact packing shared by advance and manual visit",
+    "Rigid source-group translation preferred, with compact local collision fallback",
+    "Existing destination/archive items and places, birth placement and carry selection unchanged"
+  ],
+  "testedWidths": [
+    320,
+    375,
+    600
+  ],
+  "tests": {
+    "engineAndArrival": 49,
+    "fullCanonicalRoutes": 27,
+    "nonFinalStageEntries": 258,
+    "independentRandomizedRoutes": 540,
+    "independentLongCheckpoints": 80,
+    "zeroHiddenArrivals": true,
+    "frozenV5HashesUnchanged": true
+  },
+  "sha256": {
+    "README.md": "1c9f595f05d46d18d9819dc92441207481c45d4eb634144b3c8e12ff92d56a7a",
+    "audit.ts": "f0bdf7c8a1bf3dad8fb2c17500bfbfa8d358a725c1d72eb535021d1f38f0c031",
+    "checkpoint-evidence.ts": "5731d16c72d38e0a55bc7adea3ae2806510f53bc7acb35d7bc6ae395e1b8f799",
+    "engine/arrival.test.ts": "62c0330e216fce4a2eb762488a4befe4cbe525a247d4a62027bc221ef5f7dc32",
+    "engine/cli.ts": "4b5b64f7ad95be95c6790a65ab2897298028470c3769dd27033be8bab4b07b4f",
+    "engine/fixture.ts": "d6216fea034832b1f5d8c4f044cd4ef9364a0e5e85ed5d7b7e235df5913e72c8",
+    "engine/model.test.ts": "684ecf6359cb319cb2ffc84d3490a954c3d2d139e030ecca3d7a0c8d295ec1e7",
+    "engine/model.ts": "bbac9262164459ab13a0f041f8ec17a3e6d0d6a70363225ee7bf969daac2bddf",
+    "engine/player.ts": "7418f0613ebd3c3cd48876146aad11cf7a29ce5b620bc25a1a099d00777a7646",
+    "evidence/arrival-geometry.html": "f1135db232757590a38bb9a69427e33f506e237688e3599924f858bde72b730e",
+    "evidence/audit-output.txt": "8d6f2ba73b98e2d7a529802c9a00bcec051f7d445c4d5744fd32165fde99122a",
+    "evidence/checkpoint-positions.json": "57885f3ac4b21740433ed415c294dd88e0dc4a88ecb2ac5e43d4ba784390f784",
+    "evidence/chromium.log": "df5cee64f48daa882d30491e274f3e1a3fa1450fb6c1a050a225195dade52dc5",
+    "evidence/route-layout.json": "88d75b643d81da6d34e9a7f03cfa9b59aaf3e9bb6efa83435124a0626ada8d75",
+    "evidence/unit-tests.txt": "1e9fd8770ea8a62615e60dfd53f5dfd443885692d32f0a95c0b26803437876ae",
+    "schema/scenario.ts": "ff9ae2a3ee6aef34d250200c837f3bbde7aaace3990483afea37494c1f828e9f"
+  }
+}

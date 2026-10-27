@@ -1,0 +1,226 @@
+{
+  "variant": "hypothesis",
+  "failed": {
+    "index": 181,
+    "action": {
+      "type": "combine",
+      "a": "hypothesis",
+      "b": "rival-model"
+    },
+    "message": "Choose a thing in this area.",
+    "stage": "inference",
+    "local": [
+      "measurement-series",
+      "experimental-protocol",
+      "variation-estimate",
+      "sample-size",
+      "sampling-plan",
+      "rival-model",
+      "new-observations",
+      "held-out-observations",
+      "public-timestamp",
+      "independent-team",
+      "error-bars"
+    ],
+    "remaining": [
+      {
+        "id": "inference-goal-1",
+        "text": "Create uncertainty statement.",
+        "kind": "create",
+        "item": "uncertainty-statement",
+        "satisfied": false,
+        "witnesses": [],
+        "places": []
+      },
+      {
+        "id": "inference-goal-2",
+        "text": "Create robustness report.",
+        "kind": "create",
+        "item": "robustness-report",
+        "satisfied": false,
+        "witnesses": [],
+        "places": []
+      }
+    ]
+  },
+  "localHints": [
+    {
+      "item": "measurement-series",
+      "message": "No new combinations with things currently in this area",
+      "partners": [],
+      "outgoing": [],
+      "incoming": [],
+      "settings": [],
+      "directions": [],
+      "settingHelp": []
+    },
+    {
+      "item": "experimental-protocol",
+      "message": null,
+      "partners": [
+        "public-timestamp"
+      ],
+      "outgoing": [
+        "public-timestamp"
+      ],
+      "incoming": [
+        "public-timestamp"
+      ],
+      "settings": [],
+      "directions": [
+        {
+          "source": "experimental-protocol",
+          "target": "public-timestamp",
+          "text": "Bring Experimental protocol onto Public timestamp."
+        },
+        {
+          "source": "public-timestamp",
+          "target": "experimental-protocol",
+          "text": "Bring Public timestamp onto Experimental protocol."
+        }
+      ],
+      "settingHelp": []
+    },
+    {
+      "item": "variation-estimate",
+      "message": "No new combinations with things currently in this area",
+      "partners": [],
+      "outgoing": [],
+      "incoming": [],
+      "settings": [],
+      "directions": [],
+      "settingHelp": []
+    },
+    {
+      "item": "sample-size",
+      "message": null,
+      "partners": [
+        "error-bars"
+      ],
+      "outgoing": [
+        "error-bars"
+      ],
+      "incoming": [
+        "error-bars"
+      ],
+      "settings": [],
+      "directions": [
+        {
+          "source": "sample-size",
+          "target": "error-bars",
+          "text": "Bring Sample size onto Error bars."
+        },
+        {
+          "source": "error-bars",
+          "target": "sample-size",
+          "text": "Bring Error bars onto Sample size."
+        }
+      ],
+      "settingHelp": []
+    },
+    {
+      "item": "sampling-plan",
+      "message": "No new combinations with things currently in this area",
+      "partners": [],
+      "outgoing": [],
+      "incoming": [],
+      "settings": [],
+      "directions": [],
+      "settingHelp": []
+    },
+    {
+      "item": "rival-model",
+      "message": "No new combinations with things currently in this area",
+      "partners": [],
+      "outgoing": [],
+      "incoming": [],
+      "settings": [],
+      "directions": [],
+      "settingHelp": []
+    },
+    {
+      "item": "new-observations",
+      "message": "No new combinations with things currently in this area",
+      "partners": [],
+      "outgoing": [],
+      "incoming": [],
+      "settings": [],
+      "directions": [],
+      "settingHelp": []
+    },
+    {
+      "item": "held-out-observations",
+      "message": "No new combinations with things currently in this area",
+      "partners": [],
+      "outgoing": [],
+      "incoming": [],
+      "settings": [],
+      "directions": [],
+      "settingHelp": []
+    },
+    {
+      "item": "public-timestamp",
+      "message": null,
+      "partners": [
+        "experimental-protocol"
+      ],
+      "outgoing": [
+        "experimental-protocol"
+      ],
+      "incoming": [
+        "experimental-protocol"
+      ],
+      "settings": [],
+      "directions": [
+        {
+          "source": "public-timestamp",
+          "target": "experimental-protocol",
+          "text": "Bring Public timestamp onto Experimental protocol."
+        },
+        {
+          "source": "experimental-protocol",
+          "target": "public-timestamp",
+          "text": "Bring Experimental protocol onto Public timestamp."
+        }
+      ],
+      "settingHelp": []
+    },
+    {
+      "item": "independent-team",
+      "message": "No new combinations with things currently in this area",
+      "partners": [],
+      "outgoing": [],
+      "incoming": [],
+      "settings": [],
+      "directions": [],
+      "settingHelp": []
+    },
+    {
+      "item": "error-bars",
+      "message": null,
+      "partners": [
+        "sample-size"
+      ],
+      "outgoing": [
+        "sample-size"
+      ],
+      "incoming": [
+        "sample-size"
+      ],
+      "settings": [],
+      "directions": [
+        {
+          "source": "error-bars",
+          "target": "sample-size",
+          "text": "Bring Error bars onto Sample size."
+        },
+        {
+          "source": "sample-size",
+          "target": "error-bars",
+          "text": "Bring Sample size onto Error bars."
+        }
+      ],
+      "settingHelp": []
+    }
+  ]
+}

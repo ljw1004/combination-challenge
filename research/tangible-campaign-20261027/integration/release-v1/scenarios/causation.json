@@ -1,0 +1,435 @@
+{
+  "schemaVersion": 1,
+  "id": "causation-purpose-v4",
+  "title": "Why This Boat?",
+  "premise": "Two jobs at one boatyard. Build for what the boat must actually do. This fictional craft story explores Aristotle’s explanations of artifacts, not a claim that nature plans like a boatbuilder.",
+  "items": [
+    {
+      "id": "timber",
+      "label": "Timber stack",
+      "description": "Seasoned planks from the yard. Enough for two small boats; the same wood can be arranged in different ways. This stock is not consumed by one build."
+    },
+    {
+      "id": "cord",
+      "label": "Measuring cord",
+      "description": "Lay it against what the boat must carry or fit through. The builder sketches the measured outline; the cord does not cut wood."
+    },
+    {
+      "id": "adze",
+      "label": "Adze",
+      "description": "The boatbuilder uses this to shape and finish an assembled frame. A drawing cannot do this work."
+    },
+    {
+      "id": "pitch",
+      "label": "Pitch pot",
+      "description": "A supply of seam-sealing pitch. It keeps water out; it does not decide what a boat is for."
+    },
+    {
+      "id": "brush",
+      "label": "Brush",
+      "description": "For working pitch into seams."
+    },
+    {
+      "id": "caulking-brush",
+      "label": "Pitch brush",
+      "description": "A reusable brush and supply of pitch for sealing the shaped hulls."
+    },
+    {
+      "id": "poles",
+      "label": "Pole rack",
+      "description": "A supply of long poles to fit out boats for these calm, shallow waters. No wind or sail is needed."
+    },
+    {
+      "id": "cart",
+      "label": "Loaded cart",
+      "description": "The miller must take this wide, heavy cart across the quiet creek without unloading it. Measure its wheel span before choosing the boat’s shape."
+    },
+    {
+      "id": "broad-layout",
+      "label": "Broad layout",
+      "description": "A measured layout with a wide floor and room for both cart wheels. The cart’s crossing explains why this arrangement was chosen; no wood has moved yet."
+    },
+    {
+      "id": "broad-frame",
+      "label": "Broad frame",
+      "description": "The builder has joined timber into the wide arrangement. Same timber as a slim boat, different organization."
+    },
+    {
+      "id": "broad-hull",
+      "label": "Broad hull",
+      "description": "The adze work is finished. The wide floor can carry the cart, but the seams still leak."
+    },
+    {
+      "id": "sealed-ferry",
+      "label": "Sealed ferry hull",
+      "description": "Broad and watertight, but still needs a means of propulsion."
+    },
+    {
+      "id": "ferry",
+      "label": "Pole ferry",
+      "description": "Built for this measured cart and the open creek. At Creek landing the miller boards and crosses. The ferry is too broad for the narrow reed passage.",
+      "capabilities": [
+        "cart-capacity"
+      ]
+    },
+    {
+      "id": "slim-layout",
+      "label": "Slim layout",
+      "description": "The measured passage sets a narrow outline, with room for rescuer and fisher. Reaching that person, rather than carrying the cart, now organizes the work."
+    },
+    {
+      "id": "slim-frame",
+      "label": "Slim frame",
+      "description": "Timber joined in a narrow arrangement. The builder has not changed the kind of wood or the tool—only the form needed for this job."
+    },
+    {
+      "id": "slim-hull",
+      "label": "Slim hull",
+      "description": "Shaped to pass through the reeds. The narrow floor cannot carry the wide cart; its seams still need sealing."
+    },
+    {
+      "id": "sealed-skiff",
+      "label": "Sealed skiff hull",
+      "description": "A narrow watertight hull, awaiting propulsion."
+    },
+    {
+      "id": "skiff",
+      "label": "Pole skiff",
+      "description": "Built to reach the fisher through the measured reed gap. At Reed mouth the builder poles through and returns with the fisher. It cannot carry the wide cart.",
+      "capabilities": [
+        "reed-access"
+      ]
+    }
+  ],
+  "locations": [
+    {
+      "id": "landing",
+      "label": "Creek landing",
+      "description": "A broad, calm crossing. Deploying a cart-carrying ferry here sends the miller and cart across; an unfinished hull or the narrow skiff cannot do this job."
+    },
+    {
+      "id": "reed-mouth",
+      "label": "Reed mouth",
+      "description": "A fisher waits beyond this shallow gap. Measure it before building. Deploying a suitable narrow skiff here represents the out-and-back rescue trip."
+    }
+  ],
+  "initialItems": [
+    "timber",
+    "cord",
+    "adze",
+    "pitch",
+    "brush",
+    "poles",
+    "cart"
+  ],
+  "recipes": [
+    {
+      "id": "measure-cart",
+      "a": "cord",
+      "b": "cart",
+      "out": "broad-layout",
+      "description": "The builder measures the wheels and sketches a broad floor. The intended crossing guides the design; it does not magically reshape timber."
+    },
+    {
+      "id": "assemble-ferry",
+      "a": "timber",
+      "b": "broad-layout",
+      "out": "broad-frame",
+      "description": "Following the measured layout, the builder joins planks into a broad frame."
+    },
+    {
+      "id": "shape-ferry",
+      "a": "adze",
+      "b": "broad-frame",
+      "out": "broad-hull",
+      "description": "The builder shapes the frame with the adze. Skilled work brings about the change.",
+      "retire": [
+        {
+          "item": "broad-frame",
+          "reason": "This particular workpiece is incorporated into its next finished state."
+        }
+      ]
+    },
+    {
+      "id": "prepare-pitch",
+      "a": "pitch",
+      "b": "brush",
+      "out": "caulking-brush",
+      "description": "The brush is loaded for sealing the seams."
+    },
+    {
+      "id": "seal-ferry",
+      "a": "caulking-brush",
+      "b": "broad-hull",
+      "out": "sealed-ferry",
+      "description": "The builder seals the broad hull. Keeping water out is necessary, but not sufficient, for carrying the cart.",
+      "retire": [
+        {
+          "item": "broad-hull",
+          "reason": "This particular workpiece is incorporated into its next finished state."
+        }
+      ]
+    },
+    {
+      "id": "fit-ferry",
+      "a": "poles",
+      "b": "sealed-ferry",
+      "out": "ferry",
+      "description": "The ferry is fitted with poles for the shallow crossing.",
+      "retire": [
+        {
+          "item": "sealed-ferry",
+          "reason": "This particular workpiece is incorporated into its next finished state."
+        }
+      ]
+    },
+    {
+      "id": "measure-passage",
+      "a": "cord",
+      "b": "@reed-mouth",
+      "out": "slim-layout",
+      "description": "The builder measures the gap and sketches a slim hull. Repeating the broad ferry would repeat the material and making, but miss this job."
+    },
+    {
+      "id": "assemble-skiff",
+      "a": "timber",
+      "b": "slim-layout",
+      "out": "slim-frame",
+      "description": "The same stock is assembled into a different, narrow frame."
+    },
+    {
+      "id": "shape-skiff",
+      "a": "adze",
+      "b": "slim-frame",
+      "out": "slim-hull",
+      "description": "The builder shapes this frame with the same adze. A different end called for a different form, not a different kind of physical push.",
+      "retire": [
+        {
+          "item": "slim-frame",
+          "reason": "This particular workpiece is incorporated into its next finished state."
+        }
+      ]
+    },
+    {
+      "id": "seal-skiff",
+      "a": "caulking-brush",
+      "b": "slim-hull",
+      "out": "sealed-skiff",
+      "description": "The slim hull is sealed for the rescue trip.",
+      "retire": [
+        {
+          "item": "slim-hull",
+          "reason": "This particular workpiece is incorporated into its next finished state."
+        }
+      ]
+    },
+    {
+      "id": "fit-skiff",
+      "a": "poles",
+      "b": "sealed-skiff",
+      "out": "skiff",
+      "description": "The skiff is fitted with poles to move through the shallow passage.",
+      "retire": [
+        {
+          "item": "sealed-skiff",
+          "reason": "This particular workpiece is incorporated into its next finished state."
+        }
+      ]
+    }
+  ],
+  "stages": [
+    {
+      "id": "cart-crossing",
+      "title": "Room for the cart",
+      "speaker": "The boatbuilder",
+      "motivation": "The miller needs the loaded cart across the creek. Measure its wheels, build for its load, then launch the suitable ferry at Creek landing. Placing it there sends the miller across.",
+      "area": {
+        "id": "yard",
+        "label": "Creek boatyard",
+        "travelText": "We are at the yard beside the creek."
+      },
+      "locations": [
+        "landing"
+      ],
+      "caches": [],
+      "objectives": [
+        {
+          "id": "cart-goal",
+          "text": "Launch the cart-carrying ferry at Creek landing.",
+          "kind": "place",
+          "capability": "cart-capacity",
+          "location": "landing"
+        }
+      ],
+      "completionText": "The broad ferry carries the miller and the loaded cart across the creek. Its width and capacity answered this job; beyond the reeds, someone now needs a different boat."
+    },
+    {
+      "id": "reed-rescue",
+      "title": "The ferry will not fit",
+      "speaker": "The boatbuilder",
+      "motivation": "The miller and cart are across. Now a fisher calls from beyond the reeds. Our ferry is sound but too broad for that gap. Measure the route and build a suitable narrow boat. Bringing it to Reed mouth launches the out-and-back rescue.",
+      "area": {
+        "id": "reeds",
+        "label": "Beside the reeds",
+        "travelText": "We bring the stock, measuring cord, adze, pitch brush and pole rack for the new job. The working ferry stays at the creek landing."
+      },
+      "locations": [
+        "reed-mouth"
+      ],
+      "caches": [],
+      "objectives": [
+        {
+          "id": "fisher-goal",
+          "text": "Launch a narrow rescue skiff at Reed mouth.",
+          "kind": "place",
+          "capability": "reed-access",
+          "location": "reed-mouth"
+        }
+      ],
+      "completionText": "The narrow skiff passes through the reeds and brings the fisher safely back. The same timber and tools served two different purposes: room for the loaded cart, and a way through the narrow passage. Both journeys are complete."
+    }
+  ],
+  "sources": [
+    {
+      "id": "physics",
+      "title": "Aristotle, Physics II.3, II.8–9",
+      "url": "https://classics.mit.edu/Aristotle/physics.2.ii.html",
+      "note": "Primary text: different senses of cause; art and ends; things necessary given an end. The boats and jobs are invented illustrations, not Aristotle’s examples or a historical reconstruction."
+    }
+  ],
+  "notes": [
+    "No purpose slots, new engine rules, exhibit labels or outcome-flag inventory. Eleven authored combinations, two exact-placement missions.",
+    "The end organizes measurement, form, making and use. The player embodies the builder; tools alone are not claimed to be the complete efficient cause.",
+    "Construction and trips are compressed fictional actions, not boatbuilding or rescue instructions. Material supplies are explicitly reusable stocks.",
+    "Final cause in artifact making is illustrated; Aristotle’s broader natural teleology is neither simulated nor asserted as modern science.",
+    "Placing a functionally suitable boat at its mission location represents the compressed trip. This is the existing placement-goal convention, not simulated navigation, grounding or elapsed time. Wrong-boat placement does not satisfy the required capability."
+  ],
+  "checkpoints": [
+    {
+      "id": "chapter-1",
+      "label": "1. Room for the cart",
+      "actions": []
+    },
+    {
+      "id": "chapter-2",
+      "label": "2. The ferry will not fit",
+      "actions": [
+        {
+          "type": "combine",
+          "a": "cord",
+          "b": "cart"
+        },
+        {
+          "type": "combine",
+          "a": "timber",
+          "b": "broad-layout"
+        },
+        {
+          "type": "combine",
+          "a": "adze",
+          "b": "broad-frame"
+        },
+        {
+          "type": "combine",
+          "a": "pitch",
+          "b": "brush"
+        },
+        {
+          "type": "combine",
+          "a": "caulking-brush",
+          "b": "broad-hull"
+        },
+        {
+          "type": "combine",
+          "a": "poles",
+          "b": "sealed-ferry"
+        },
+        {
+          "type": "place",
+          "item": "ferry",
+          "location": "landing"
+        },
+        {
+          "type": "advance"
+        }
+      ]
+    },
+    {
+      "id": "complete",
+      "label": "Complete ending",
+      "actions": [
+        {
+          "type": "combine",
+          "a": "cord",
+          "b": "cart"
+        },
+        {
+          "type": "combine",
+          "a": "timber",
+          "b": "broad-layout"
+        },
+        {
+          "type": "combine",
+          "a": "adze",
+          "b": "broad-frame"
+        },
+        {
+          "type": "combine",
+          "a": "pitch",
+          "b": "brush"
+        },
+        {
+          "type": "combine",
+          "a": "caulking-brush",
+          "b": "broad-hull"
+        },
+        {
+          "type": "combine",
+          "a": "poles",
+          "b": "sealed-ferry"
+        },
+        {
+          "type": "place",
+          "item": "ferry",
+          "location": "landing"
+        },
+        {
+          "type": "advance"
+        },
+        {
+          "type": "combine",
+          "a": "cord",
+          "b": "@reed-mouth"
+        },
+        {
+          "type": "combine",
+          "a": "timber",
+          "b": "slim-layout"
+        },
+        {
+          "type": "combine",
+          "a": "adze",
+          "b": "slim-frame"
+        },
+        {
+          "type": "combine",
+          "a": "caulking-brush",
+          "b": "slim-hull"
+        },
+        {
+          "type": "combine",
+          "a": "poles",
+          "b": "sealed-skiff"
+        },
+        {
+          "type": "place",
+          "item": "skiff",
+          "location": "reed-mouth"
+        },
+        {
+          "type": "advance"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,66 @@
+--- ../../frozen/v5/engine/model.ts	2026-10-27 13:28:42.405726784 -0700
++++ engine/model.ts	2026-10-27 14:14:51.015832483 -0700
+@@ -73,6 +73,45 @@
+  const cols=Math.max(1,Math.floor((state.width-8)/100));const used=occupied(s,state,area);
+  for(let row=0;row<1000;row++)for(let col=0;col<cols;col++){const p={x:52+col*100,y:56+row*50};if(used.every(o=>overlap(p,96,44,o)===0))return p;}throw Error('Supply layout exhausted');
+ }
++type ArrivalBox=Point&{w:number;h:number};
++/** Smallest deterministic translation clearing fixed obstacles; no board-wide reflow. */
++function arrivalTranslation(group:ArrivalBox[],used:ArrivalBox[],width:number):Point{
++ const left=52-Math.min(...group.map(t=>t.x)),right=width-52-Math.max(...group.map(t=>t.x));
++ const xs=new Set([Math.max(left,Math.min(right,0)),left,right]);
++ for(const t of group)for(const o of used)for(const sign of [-1,1]){const x=o.x+sign*((t.w+o.w)/2+2)-t.x;if(x>=left&&x<=right)xs.add(x);}
++ let best:Point|undefined,bestCost=Infinity;
++ for(const x of [...xs].sort((a,b)=>Math.abs(a)-Math.abs(b)||a-b)){
++  const intervals=group.flatMap(t=>used.filter(o=>Math.abs(t.x+x-o.x)<(t.w+o.w)/2+2).map(o=>({lo:o.y-(t.h+o.h)/2-2-t.y,hi:o.y+(t.h+o.h)/2+2-t.y}))).sort((a,b)=>a.lo-b.lo||a.hi-b.hi);
++  let y=0;for(const r of intervals)if(r.lo<y&&r.hi>y)y=r.hi;
++  const cost=x*x+y*y;if(cost<bestCost){best={x,y};bestCost=cost;}
++ }
++ return best!;
++}
++/** Only arrivals move: preserve source groups unless their rigid placement would waste a row. */
++function arrive(s:Scenario,state:State,area:string,carried:Token[]){
++ const used:ArrivalBox[]=occupied(s,state,area),groups=[...new Set(carried.map(t=>t.area))].map(from=>carried.filter(t=>t.area===from));
++ for(const group of groups){
++  const minY=Math.min(...group.map(t=>t.y)),boxes:ArrivalBox[]=group.map(t=>({...t,y:56+t.y-minY,...size(s,t)}));
++  // An old birth or player pile may already coincide inside a source group.
++  // Repair only complete hiding; ordinary partial birth overlaps stay intact.
++  for(let i=0;i<boxes.length;i++){
++   const b=boxes[i],others=boxes.slice(0,i);
++   if(others.some(o=>Math.abs(b.x-o.x)<.001&&Math.abs(b.y-o.y)<=Math.abs(b.h-o.h)/2)){
++    const d=arrivalTranslation([b],others,state.width);b.x+=d.x;b.y+=d.y;
++   }
++  }
++  const delta=arrivalTranslation(boxes,used,state.width),bottom=(a:ArrivalBox[])=>Math.max(0,...a.map(t=>t.y+t.h/2));
++  const oldBottom=bottom(used),baseBottom=bottom(boxes),rigidBottom=Math.max(oldBottom,baseBottom+delta.y);
++  // Compare with compact local placement only when a whole-group shift costs >one row.
++  // Unaffected siblings keep their preferred relative positions whenever possible.
++  if(rigidBottom>Math.max(oldBottom,baseBottom)+50){
++   const local:ArrivalBox[]=[],fixed=[...used];
++   for(const b of boxes){const d=arrivalTranslation([b],fixed,state.width),placed={...b,x:b.x+d.x,y:b.y+d.y};local.push(placed);fixed.push(placed);}
++   if(bottom(local)<baseBottom+delta.y-2){boxes.splice(0,boxes.length,...local);delta.x=delta.y=0;}
++  }
++  for(let i=0;i<group.length;i++){const t=group[i],b=boxes[i];t.area=area;t.location=null;t.x=b.x+delta.x;t.y=b.y+delta.y;used.push({...t,...size(s,t)});}
++ }
++}
+ function addItem(s:Scenario,state:State,kind:string,area:string){if(state.discovered.includes(kind))return;state.tokens.push({id:kind,kind,area,location:null,slots:{},incorporated:[],...supplyPosition(s,state,area)});state.discovered.push(kind);}
+ function needed(s:Scenario,state:State,t:Token,excluding?:string):boolean{
+  if(s.recipes.some(r=>r.id!==excluding&&!state.recipesUsed.includes(r.id)&&(!r.out||!state.discovered.includes(r.out))&&[r.a,r.b].includes(t.kind)))return true;
+@@ -96,7 +135,7 @@
+  if(!existing)state.areas.push({id:area,label:st.area.label,enteredAtStage:state.stage});
+  const wanted=first?[]:sceneCarry(s,state,st),carried=state.tokens.filter(t=>wanted.includes(t.kind)&&t.area!==area);
+  const transfers=carried.map(t=>({item:t.id,from:t.area,to:area}));
+- for(const from of new Set(carried.map(t=>t.area))){const group=carried.filter(t=>t.area===from),minY=Math.min(...group.map(t=>t.y));for(const t of group){t.area=area;t.location=null;t.y=56+t.y-minY;}}
++ arrive(s,state,area,carried);
+  state.currentArea=area;
+  for(const id of st.locations??[]){if(state.places.some(p=>p.id===id))continue;const pos=supplyPosition(s,state,area);state.places.push({id,area,x:pos.x,y:pos.y+25});}
+  for(const c of st.caches??[])if(!state.openedCaches.includes(c.id)){for(const k of c.items)addItem(s,state,k,area);state.openedCaches.push(c.id);}
+@@ -131,7 +170,7 @@
+   }else if(a.type==='visit'){
+    if(!state.areas.some(x=>x.id===a.area))throw Error('That area has not been reached.');
+    const take=(a.carry??[]).map(id=>token(state,id));if(take.some(t=>!t||t.area!==state.currentArea))throw Error('Carry only things physically in your current area.');
+-   const minY=take.length?Math.min(...take.map(t=>t!.y)):0;if(a.area!==state.currentArea)for(const t of take){t!.area=a.area;t!.location=null;t!.y=56+t!.y-minY;}state.currentArea=a.area;state.metrics.visits++;message=`Travelled to ${state.areas.find(x=>x.id===a.area)!.label}.`;
++   if(a.area!==state.currentArea)arrive(s,state,a.area,take as Token[]);state.currentArea=a.area;state.metrics.visits++;message=`Travelled to ${state.areas.find(x=>x.id===a.area)!.label}.`;
+   }else{
+    const id=a.type==='combine'?a.a:a.item,first=token(state,id);if(!first||first.area!==state.currentArea)throw Error('Choose a thing in this area.');
+    if(a.type==='move'||a.type==='place'){

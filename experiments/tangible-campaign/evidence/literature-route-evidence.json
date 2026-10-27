@@ -1,12 +1,44 @@
 {
+  "key": "literature",
   "scenario": "literature",
-  "validation": [],
-  "completed": true,
-  "error": null,
-  "recipesTotal": 12,
-  "combinations": 12,
+  "title": "The Last Train",
+  "stages": 3,
+  "checkpoints": [
+    {
+      "checkpoint": "chapter-1",
+      "stageIndex": 0,
+      "stageId": "platform",
+      "actionPrefixLength": 0,
+      "completed": false,
+      "stateSha256": "43a450cd8d036ce9e63d6c820f7b2c10fb382957af896c7ab59e0ff144892c92"
+    },
+    {
+      "checkpoint": "chapter-2",
+      "stageIndex": 1,
+      "stageId": "reading",
+      "actionPrefixLength": 5,
+      "completed": false,
+      "stateSha256": "1fae63576454baf0f101e7998e962abff7e4e27ae3641dfae48bdb0ad8410510"
+    },
+    {
+      "checkpoint": "chapter-3",
+      "stageIndex": 2,
+      "stageId": "press",
+      "actionPrefixLength": 9,
+      "completed": false,
+      "stateSha256": "8578cd4c148067572859a2d13a90ea64e8162bd214006ffaf5729fc5b7ebcd7e"
+    },
+    {
+      "checkpoint": "complete",
+      "stageIndex": 2,
+      "stageId": "press",
+      "actionPrefixLength": 15,
+      "completed": true,
+      "stateSha256": "0898c11f5a9638ff0290661046c78a2b79ca155ed2a0f2113c4b247f5e99d389"
+    }
+  ],
   "actions": 15,
-  "maxVisibleItems": 10,
+  "combinations": 12,
   "metrics": {
     "attempts": 15,
     "accepted": 15,
@@ -18,7 +50,25 @@
     "advances": 3,
     "visits": 0
   },
-  "limits": "Author-aware legal route. Not a blind playtest, UI verification, historical verification, or evidence of fun.",
+  "recipesTotal": 12,
+  "maxVisibleItems": 10,
+  "completed": true,
+  "validation": [],
+  "finalObjectives": [
+    {
+      "id": "chapbook-goal",
+      "text": "Make chapbook.",
+      "kind": "create",
+      "item": "chapbook",
+      "satisfied": true,
+      "witnesses": [
+        "chapbook"
+      ],
+      "places": []
+    }
+  ],
+  "ending": "The poem is stitched into a chapbook. What began as a sound on an empty platform can now travel with a reader.",
+  "limits": "Author-aware structural replay only. Not source-blind playtesting, browser/UI verification, historical or scientific re-verification, or evidence of fun.",
   "actionsLog": [
     {
       "type": "combine",
@@ -90,87 +140,221 @@
       "type": "advance"
     }
   ],
-  "checkpoints": [
+  "steps": [
     {
-      "id": "chapter-1",
-      "label": "The last train",
-      "actions": []
+      "number": 1,
+      "stageBefore": "platform",
+      "stageAfter": "platform",
+      "action": {
+        "type": "combine",
+        "a": "notebook",
+        "b": "station-sounds"
+      },
+      "accepted": true,
+      "message": "Sound notes. An observation: the rails keep humming after the train has gone.",
+      "recipe": "sound-notes",
+      "completed": false
     },
     {
-      "id": "chapter-2",
-      "label": "At the reading table",
-      "actions": [
-        {
-          "type": "combine",
-          "a": "notebook",
-          "b": "station-sounds"
-        },
-        {
-          "type": "combine",
-          "a": "sound-notes",
-          "b": "memory"
-        },
-        {
-          "type": "combine",
-          "a": "departure-board",
-          "b": "pencil"
-        },
-        {
-          "type": "combine",
-          "a": "first-draft",
-          "b": "departure-sketch"
-        },
-        {
-          "type": "advance"
-        }
-      ]
+      "number": 2,
+      "stageBefore": "platform",
+      "stageAfter": "platform",
+      "action": {
+        "type": "combine",
+        "a": "sound-notes",
+        "b": "memory"
+      },
+      "accepted": true,
+      "message": "First draft. The train is gone. I listen to the station. I remember a goodbye.",
+      "recipe": "first-draft",
+      "completed": false
     },
     {
-      "id": "chapter-3",
-      "label": "The little press",
-      "actions": [
+      "number": 3,
+      "stageBefore": "platform",
+      "stageAfter": "platform",
+      "action": {
+        "type": "combine",
+        "a": "departure-board",
+        "b": "pencil"
+      },
+      "accepted": true,
+      "message": "Departure sketch. An empty platform, with one name written below it.",
+      "recipe": "departure-sketch",
+      "completed": false
+    },
+    {
+      "number": 4,
+      "stageBefore": "platform",
+      "stageAfter": "platform",
+      "action": {
+        "type": "combine",
+        "a": "first-draft",
+        "b": "departure-sketch"
+      },
+      "accepted": true,
+      "message": "Station poem. The rails hum after you have gone.\nThe empty platform keeps your name. The station poem is on the page. Now we can hear what its lines might do.",
+      "recipe": "station-poem",
+      "completed": false
+    },
+    {
+      "number": 5,
+      "stageBefore": "platform",
+      "stageAfter": "reading",
+      "action": {
+        "type": "advance"
+      },
+      "accepted": true,
+      "message": "We are taking the useful things with us. Earlier creations remain where we made them. We collect the things needed for this scene along the way.",
+      "transfers": [
         {
-          "type": "combine",
-          "a": "notebook",
-          "b": "station-sounds"
-        },
-        {
-          "type": "combine",
-          "a": "sound-notes",
-          "b": "memory"
-        },
-        {
-          "type": "combine",
-          "a": "departure-board",
-          "b": "pencil"
-        },
-        {
-          "type": "combine",
-          "a": "first-draft",
-          "b": "departure-sketch"
-        },
-        {
-          "type": "advance"
-        },
-        {
-          "type": "combine",
-          "a": "station-poem",
-          "b": "line-break"
-        },
-        {
-          "type": "combine",
-          "a": "enjambed-poem",
-          "b": "refrain"
-        },
-        {
-          "type": "combine",
-          "a": "refrain-poem",
-          "b": "reading-aloud"
-        },
-        {
-          "type": "advance"
+          "item": "station-poem",
+          "from": "platform-area",
+          "to": "reading-area"
         }
-      ]
+      ],
+      "completed": false
+    },
+    {
+      "number": 6,
+      "stageBefore": "reading",
+      "stageAfter": "reading",
+      "action": {
+        "type": "combine",
+        "a": "station-poem",
+        "b": "line-break"
+      },
+      "accepted": true,
+      "message": "Enjambed poem. The sentence now continues beyond “you” and “platform” across line endings. The change delays what follows; it need not be better.",
+      "recipe": "enjambed-poem",
+      "completed": false
+    },
+    {
+      "number": 7,
+      "stageBefore": "reading",
+      "stageAfter": "reading",
+      "action": {
+        "type": "combine",
+        "a": "enjambed-poem",
+        "b": "refrain"
+      },
+      "accepted": true,
+      "message": "Refrain poem. “Stay a while” returns, turning a request into a refrain.",
+      "recipe": "refrain-poem",
+      "completed": false
+    },
+    {
+      "number": 8,
+      "stageBefore": "reading",
+      "stageAfter": "reading",
+      "action": {
+        "type": "combine",
+        "a": "refrain-poem",
+        "b": "reading-aloud"
+      },
+      "accepted": true,
+      "message": "Revised poem. The spoken test shortens the third line. This is one editorial choice, not the correct poem. The revised poem has its returning phrase and a shorter third line. It is ready for the little press.",
+      "recipe": "revised-poem",
+      "completed": false
+    },
+    {
+      "number": 9,
+      "stageBefore": "reading",
+      "stageAfter": "press",
+      "action": {
+        "type": "advance"
+      },
+      "accepted": true,
+      "message": "We are taking the useful things with us. Earlier creations remain where we made them. We collect the things needed for this scene along the way.",
+      "transfers": [
+        {
+          "item": "revised-poem",
+          "from": "reading-area",
+          "to": "press-area"
+        }
+      ],
+      "completed": false
+    },
+    {
+      "number": 10,
+      "stageBefore": "press",
+      "stageAfter": "press",
+      "action": {
+        "type": "combine",
+        "a": "revised-poem",
+        "b": "printing-type"
+      },
+      "accepted": true,
+      "message": "Type form. The revised poem is set in movable type, ready for ink.",
+      "recipe": "type-form",
+      "completed": false
+    },
+    {
+      "number": 11,
+      "stageBefore": "press",
+      "stageAfter": "press",
+      "action": {
+        "type": "combine",
+        "a": "type-form",
+        "b": "ink"
+      },
+      "accepted": true,
+      "message": "Inked form. Ink touches the raised letters, ready to leave their mirror image on paper.",
+      "recipe": "inked-form",
+      "completed": false
+    },
+    {
+      "number": 12,
+      "stageBefore": "press",
+      "stageAfter": "press",
+      "action": {
+        "type": "combine",
+        "a": "paper",
+        "b": "fold"
+      },
+      "accepted": true,
+      "message": "Booklet. Folded sheets ready to receive the poem; the printing sequence is compressed.",
+      "recipe": "booklet",
+      "completed": false
+    },
+    {
+      "number": 13,
+      "stageBefore": "press",
+      "stageAfter": "press",
+      "action": {
+        "type": "combine",
+        "a": "inked-form",
+        "b": "booklet"
+      },
+      "accepted": true,
+      "message": "Printed booklet. The printer inks and presses the type onto sheets before folding the printed sheets. These workshop steps are compressed into this action.",
+      "recipe": "printed-booklet",
+      "completed": false
+    },
+    {
+      "number": 14,
+      "stageBefore": "press",
+      "stageAfter": "press",
+      "action": {
+        "type": "combine",
+        "a": "printed-booklet",
+        "b": "thread"
+      },
+      "accepted": true,
+      "message": "Chapbook. Your station poem, stitched into a small book.\n\nThe rails hum after you\nhave gone. Stay a while.\nThe platform holds your name.\nStay a while. The poem is stitched into a chapbook. What began as a sound on an empty platform can now travel with a reader.",
+      "recipe": "chapbook",
+      "completed": false
+    },
+    {
+      "number": 15,
+      "stageBefore": "press",
+      "stageAfter": "press",
+      "action": {
+        "type": "advance"
+      },
+      "accepted": true,
+      "message": "The poem is stitched into a chapbook. What began as a sound on an empty platform can now travel with a reader.",
+      "completed": true
     }
   ]
 }

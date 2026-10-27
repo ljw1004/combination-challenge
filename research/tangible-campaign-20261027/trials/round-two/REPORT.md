@@ -1,0 +1,9 @@
+# Targeted later-chapter logical play
+
+Three new agents used the frozen common player surface without source/route inspection. Blindness is protocol-based, not OS isolation. Each started at an explicitly authored later checkpoint; earlier combinations are excluded. Exact subprocess output and reports retained. All three closed sessions replay exactly; see closed-replay-report.json. These are not full-campaign human-fun judgments.
+
+- Mars, chapter9: stopped after4 fresh combinations (11 attempts,8 accepted,3 visits,6 hints). Personal table/photograph goal appealing; sling-making pleasant. But hidden photo/memory/map prerequisite and already portable unrecovered sled made recovery opaque. This is an actionable content/affordance issue, not merely a stop at a satisfying boundary.
+- Ideas, chapters17–18:20 fresh combinations,28 attempts/21 accepted,4 hints. Induction and generator reasoning worthwhile after compass hint; concrete prefix coding calculation satisfying. Rejected protection-before-noise and correcting-corrupted-message pairings motivate causal-order review. Stopped at completed chapter boundary, not blocked; next title did not renew curiosity. Do not interpret a two-chapter sitting as proof of failure.
+- Elements, chapters18–21:24 fresh creations,34 attempts/27 accepted,2 hints. Botany coherent and easy food-making pleasant. Microscope plus Pond slide did nothing despite promised discovery, leaving equipment without its use. Wanted actual gathering instead of another preparation sequence. Stop at satisfied boundary, not blocked.
+
+Independent content authors are preparing new candidates in separate revision directories. Do not modify these snapshots or sessions, and do not rewrite past findings as if fixes had already been tested. Preserve comfortable clear making rather than turning every action into a forced dilemma. No recipe-count padding.

@@ -1,0 +1,57 @@
+{
+  "passed": true,
+  "nodeVersion": "v24.22.1",
+  "platform": "linux",
+  "engine": "frozen/v5",
+  "cases": [
+    {
+      "name": "mars",
+      "actions": 232,
+      "history": 100,
+      "baselineEncodeMs": 384.21,
+      "structuredCloneMs": 79.31,
+      "enqueueThreeMs": 0.25,
+      "postMessageMs": 40.67,
+      "asyncSaveWallMs": 527.9,
+      "heartbeatTicksWhileSaving": 48,
+      "maxHeartbeatGapMs": 46.67,
+      "flushSyncMs": 236.34,
+      "encodedUtf16Bytes": 695332
+    },
+    {
+      "name": "ideas",
+      "actions": 224,
+      "history": 100,
+      "baselineEncodeMs": 229.55,
+      "structuredCloneMs": 91.87,
+      "enqueueThreeMs": 0.05,
+      "postMessageMs": 40.65,
+      "asyncSaveWallMs": 435.83,
+      "heartbeatTicksWhileSaving": 39,
+      "maxHeartbeatGapMs": 43.65,
+      "flushSyncMs": 296.03,
+      "encodedUtf16Bytes": 893512
+    },
+    {
+      "name": "elements",
+      "actions": 233,
+      "history": 100,
+      "baselineEncodeMs": 141.52,
+      "structuredCloneMs": 40.52,
+      "enqueueThreeMs": 0.08,
+      "postMessageMs": 23.89,
+      "asyncSaveWallMs": 292.85,
+      "heartbeatTicksWhileSaving": 25,
+      "maxHeartbeatGapMs": 28.57,
+      "flushSyncMs": 136.32,
+      "encodedUtf16Bytes": 529868
+    }
+  ],
+  "assertions": "Real worker_threads using exact SaveRequest/encodeSaveRequest/SaveReply protocol; exact bytes, semantic restore, widths 320/600/375 and all 100 undos at each width for every route.",
+  "limitations": [
+    "Single local Node run; not browser/native mobile timing. In-memory storage spy is not localStorage and does not measure storage quota or storage-write latency.",
+    "Native postMessage object cloning still runs on the main thread and may exceed a frame budget. Factory mode avoids an extra structuredClone and defers capture/dispatch until after controller rendering.",
+    "Async wall time includes worker startup and codec execution. Heartbeat shows main event loop progress during worker encoding, not browser frame rate.",
+    "Synchronous lifecycle fallback is intentionally expensive and best-effort; mobile OS termination may omit visibilitychange/pagehide/beforeunload."
+  ]
+}

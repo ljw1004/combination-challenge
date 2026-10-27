@@ -1,0 +1,46 @@
+{
+  "siteSourceCommit": "9db3c2c132bb7d038d29c59b516e4db084f18f1a",
+  "siteWorkingTreeUnchanged": true,
+  "repeatSiteTests": {
+    "passed": 398,
+    "failed": 0,
+    "skipped": 1
+  },
+  "repeatSiteBuild": "passed with advisory large-chunk warning",
+  "repeatIntegrationTests": {
+    "passed": 95,
+    "failed": 0
+  },
+  "packedRoundTwoReplays": 3,
+  "sourceManifestChecks": {
+    "frozenFiles": 427,
+    "sealedBundleFiles": 135,
+    "sealedSourceProvenanceFiles": 182,
+    "additionalArrivalAuditRoundTwoHashes": 82
+  },
+  "retainedIndependentMechanicalEvidence": {
+    "branchRuns": 540,
+    "longCampaignCheckpoints": 80,
+    "note": "Existing final audit evidence retained and hashes verified, not rerun by preservation task"
+  },
+  "limits": [
+    "Actual native QA belongs to published release and used cloud Chromium500x761, not physical iPhone/Safari.",
+    "One native-browser aggregate test intentionally skipped.",
+    "No full-length human-fun claim.",
+    "Existing installed dependencies reused; no fresh-network dependency installation test.",
+    "New cargo/Ideas v7/Elements v6/narrative-director-v2/round-three drafts excluded."
+  ],
+  "commands": {
+    "site": [
+      "npm test",
+      "npm run build"
+    ],
+    "integration": [
+      "node --test engine/model.test.ts engine/arrival.test.ts release.test.ts"
+    ],
+    "packed": [
+      "python materialize-evidence.py",
+      "node replay-round-two-portable.ts"
+    ]
+  }
+}

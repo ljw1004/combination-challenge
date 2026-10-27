@@ -1,5 +1,14 @@
 # Combination Challenge
 
+## Current status — 27 October 2026, live owner-private full drafts
+
+The [Combination Workshop playtest](https://combination-workshop-playtest.stonysun25.chatgpt.site/campaign.html) is LIVE for Lucian only from Site commit `9db3c2c132bb7d038d29c59b516e4db084f18f1a`. It now offers three full-length **drafts** plus six smaller journeys. Authored witnesses contain Mars **202**, Ideas **199**, and Elements **197** combinations: roughly 200, not mandatory quotas or proof of full-length fun. This status supersedes older UI-freeze, seven-small-theme, and preservation-pending summaries below; those entries remain historical evidence.
+
+Release verification records **398 Site tests passed, 0 failed, 1 intentional native-browser skip**, **95 integration tests passed**, and **540 mechanical branch runs**. Separate actual cloud Chromium checks used a 500 × 761 CSS-pixel viewport; they are not physical iPhone/Safari tests, every-scene visual coverage, or human enjoyment evidence. [Live release and preservation details](docs/live-full-campaign-20261027.md) distinguish the tested source, limits, raw evidence, and replay instructions.
+
+Three later-checkpoint logical trials are closed and replay exactly: Mars stopped after 4 fresh combinations at an opaque cargo-recovery rule; Ideas stopped after 20 with induction rewards but causal-order concerns; Elements stopped after 24 with enjoyable botany/food making but no microscope-use payoff. Authored baselines are excluded. These are targeted agent observations, not full-campaign human playtests. [Round-two report](research/tangible-campaign-20261027/trials/round-two/REPORT.md) retains the negative findings unchanged. New Mars cargo, Ideas v7, Elements v6, narrative-director-v2, and round-three work is **not** included in this release or preservation checkpoint.
+
+
 Active destination: about200 player decisions judged fun across a logical combination campaign. The [Mars Workshop proposal](docs/full-length-campaign-proposal.md) specifies a new42-concept, twelve-job candidate; implementation and independent shortcut checks are underway. The [long-play protocol](docs/long-play-evaluation-protocol.md) defines prospective evaluation. This is not yet a demonstrated full-length game.
 
 Current design criteria: [What is fun? revision 9](docs/what-is-fun.md), including clear progress, comfortable routine and stage-sensitive interpretation. [Doctrine recovery status](docs/doctrine-recovery-2026-10-26.md) distinguishes exact recovered revisions from reconstructed supporting text.

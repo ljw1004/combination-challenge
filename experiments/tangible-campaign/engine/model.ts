@@ -73,6 +73,45 @@ function supplyPosition(s:Scenario,state:State,area:string):Point{
  const cols=Math.max(1,Math.floor((state.width-8)/100));const used=occupied(s,state,area);
  for(let row=0;row<1000;row++)for(let col=0;col<cols;col++){const p={x:52+col*100,y:56+row*50};if(used.every(o=>overlap(p,96,44,o)===0))return p;}throw Error('Supply layout exhausted');
 }
+type ArrivalBox=Point&{w:number;h:number};
+/** Smallest deterministic translation clearing fixed obstacles; no board-wide reflow. */
+function arrivalTranslation(group:ArrivalBox[],used:ArrivalBox[],width:number):Point{
+ const left=52-Math.min(...group.map(t=>t.x)),right=width-52-Math.max(...group.map(t=>t.x));
+ const xs=new Set([Math.max(left,Math.min(right,0)),left,right]);
+ for(const t of group)for(const o of used)for(const sign of [-1,1]){const x=o.x+sign*((t.w+o.w)/2+2)-t.x;if(x>=left&&x<=right)xs.add(x);}
+ let best:Point|undefined,bestCost=Infinity;
+ for(const x of [...xs].sort((a,b)=>Math.abs(a)-Math.abs(b)||a-b)){
+  const intervals=group.flatMap(t=>used.filter(o=>Math.abs(t.x+x-o.x)<(t.w+o.w)/2+2).map(o=>({lo:o.y-(t.h+o.h)/2-2-t.y,hi:o.y+(t.h+o.h)/2+2-t.y}))).sort((a,b)=>a.lo-b.lo||a.hi-b.hi);
+  let y=0;for(const r of intervals)if(r.lo<y&&r.hi>y)y=r.hi;
+  const cost=x*x+y*y;if(cost<bestCost){best={x,y};bestCost=cost;}
+ }
+ return best!;
+}
+/** Only arrivals move: preserve source groups unless their rigid placement would waste a row. */
+function arrive(s:Scenario,state:State,area:string,carried:Token[]){
+ const used:ArrivalBox[]=occupied(s,state,area),groups=[...new Set(carried.map(t=>t.area))].map(from=>carried.filter(t=>t.area===from));
+ for(const group of groups){
+  const minY=Math.min(...group.map(t=>t.y)),boxes:ArrivalBox[]=group.map(t=>({...t,y:56+t.y-minY,...size(s,t)}));
+  // An old birth or player pile may already coincide inside a source group.
+  // Repair only complete hiding; ordinary partial birth overlaps stay intact.
+  for(let i=0;i<boxes.length;i++){
+   const b=boxes[i],others=boxes.slice(0,i);
+   if(others.some(o=>Math.abs(b.x-o.x)<.001&&Math.abs(b.y-o.y)<=Math.abs(b.h-o.h)/2)){
+    const d=arrivalTranslation([b],others,state.width);b.x+=d.x;b.y+=d.y;
+   }
+  }
+  const delta=arrivalTranslation(boxes,used,state.width),bottom=(a:ArrivalBox[])=>Math.max(0,...a.map(t=>t.y+t.h/2));
+  const oldBottom=bottom(used),baseBottom=bottom(boxes),rigidBottom=Math.max(oldBottom,baseBottom+delta.y);
+  // Compare with compact local placement only when a whole-group shift costs >one row.
+  // Unaffected siblings keep their preferred relative positions whenever possible.
+  if(rigidBottom>Math.max(oldBottom,baseBottom)+50){
+   const local:ArrivalBox[]=[],fixed=[...used];
+   for(const b of boxes){const d=arrivalTranslation([b],fixed,state.width),placed={...b,x:b.x+d.x,y:b.y+d.y};local.push(placed);fixed.push(placed);}
+   if(bottom(local)<baseBottom+delta.y-2){boxes.splice(0,boxes.length,...local);delta.x=delta.y=0;}
+  }
+  for(let i=0;i<group.length;i++){const t=group[i],b=boxes[i];t.area=area;t.location=null;t.x=b.x+delta.x;t.y=b.y+delta.y;used.push({...t,...size(s,t)});}
+ }
+}
 function addItem(s:Scenario,state:State,kind:string,area:string){if(state.discovered.includes(kind))return;state.tokens.push({id:kind,kind,area,location:null,slots:{},incorporated:[],...supplyPosition(s,state,area)});state.discovered.push(kind);}
 function needed(s:Scenario,state:State,t:Token,excluding?:string):boolean{
  if(s.recipes.some(r=>r.id!==excluding&&!state.recipesUsed.includes(r.id)&&(!r.out||!state.discovered.includes(r.out))&&[r.a,r.b].includes(t.kind)))return true;
@@ -96,7 +135,7 @@ function enterStage(s:Scenario,state:State,first=false){
  if(!existing)state.areas.push({id:area,label:st.area.label,enteredAtStage:state.stage});
  const wanted=first?[]:sceneCarry(s,state,st),carried=state.tokens.filter(t=>wanted.includes(t.kind)&&t.area!==area);
  const transfers=carried.map(t=>({item:t.id,from:t.area,to:area}));
- for(const from of new Set(carried.map(t=>t.area))){const group=carried.filter(t=>t.area===from),minY=Math.min(...group.map(t=>t.y));for(const t of group){t.area=area;t.location=null;t.y=56+t.y-minY;}}
+ arrive(s,state,area,carried);
  state.currentArea=area;
  for(const id of st.locations??[]){if(state.places.some(p=>p.id===id))continue;const pos=supplyPosition(s,state,area);state.places.push({id,area,x:pos.x,y:pos.y+25});}
  for(const c of st.caches??[])if(!state.openedCaches.includes(c.id)){for(const k of c.items)addItem(s,state,k,area);state.openedCaches.push(c.id);}
@@ -111,6 +150,13 @@ function resolveRecipe(s:Scenario,state:State,a:Token,b:Token|Place,isPlace:bool
  const candidates=s.recipes.filter(r=>(r.requires??[]).every(req=>{const t=token(state,req.item);return !!t&&capabilities(s,t).includes(req.capability);})&&((r.a===a.kind&&r.b===bk)||(r.b===a.kind&&r.a===bk))&&(!r.at||!isPlace&&(b as Token).location===r.at));
  return candidates.sort((x,y)=>Number(!!y.at)-Number(!!x.at)).find(r=>r.out?!state.discovered.includes(r.out):!state.recipesUsed.includes(r.id));
 }
+/** Resolve the same drag gesture for browser and logical player surfaces. */
+export function dropAction(s:Scenario,state:State,a:string,b:string):Action{
+ if(!b.startsWith('@'))return {type:'combine',a,b};
+ const source=token(state,a),target=place(state,b.slice(1));
+ if(source&&target&&source.area===state.currentArea&&target.area===state.currentArea&&resolveRecipe(s,state,source,target,true))return {type:'combine',a,b};
+ return {type:'place',item:a,location:b.slice(1)};
+}
 function errorResult(g:Game,a:Action,message:string):Result{
  const game=clone(g);game.state.metrics.attempts++;game.events.push({seq:game.events.length+1,action:a,accepted:false,message,stage:game.state.stage});game.state.metrics=cumulativeMetrics(game.events);return {accepted:false,game,message};
 }
@@ -120,11 +166,11 @@ export function applyAction(s:Scenario,g:Game,a:Action):Result{
  try{
   if(a.type==='advance'){
    if(!stageComplete(s,state))throw Error('Finish the current objectives before moving on.');
-   if(state.stage===s.stages.length-1){if(state.completed)throw Error('This journey is already complete.');state.completed=true;message='Journey complete.';}else {state.stage++;transfers=enterStage(s,state);message=s.stages[state.stage].area.travelText+(transfers.length?' We collect the things needed for this scene along the way.':'');}state.metrics.advances++;
+   if(state.stage===s.stages.length-1){if(state.completed)throw Error('This journey is already complete.');state.completed=true;message=s.stages[state.stage].completionText??'Journey complete.';}else {state.stage++;transfers=enterStage(s,state);message=s.stages[state.stage].area.travelText+(transfers.length?' We collect the things needed for this scene along the way.':'');}state.metrics.advances++;
   }else if(a.type==='visit'){
    if(!state.areas.some(x=>x.id===a.area))throw Error('That area has not been reached.');
    const take=(a.carry??[]).map(id=>token(state,id));if(take.some(t=>!t||t.area!==state.currentArea))throw Error('Carry only things physically in your current area.');
-   const minY=take.length?Math.min(...take.map(t=>t!.y)):0;if(a.area!==state.currentArea)for(const t of take){t!.area=a.area;t!.location=null;t!.y=56+t!.y-minY;}state.currentArea=a.area;state.metrics.visits++;message=`Travelled to ${state.areas.find(x=>x.id===a.area)!.label}.`;
+   if(a.area!==state.currentArea)arrive(s,state,a.area,take as Token[]);state.currentArea=a.area;state.metrics.visits++;message=`Travelled to ${state.areas.find(x=>x.id===a.area)!.label}.`;
   }else{
    const id=a.type==='combine'?a.a:a.item,first=token(state,id);if(!first||first.area!==state.currentArea)throw Error('Choose a thing in this area.');
    if(a.type==='move'||a.type==='place'){
@@ -140,6 +186,7 @@ export function applyAction(s:Scenario,g:Game,a:Action):Result{
     state.recipesUsed.push(r.id);state.metrics.combinations++;
    }
   }
+  if(a.type!=='advance'&&state.stage===g.state.stage&&!stageComplete(s,g.state)&&stageComplete(s,state)&&s.stages[state.stage].completionText)message+=' '+s.stages[state.stage].completionText;
   state.metrics.attempts++;state.metrics.accepted++;
   const event:Event={seq:g.events.length+1,action:clone(a),accepted:true,message,stage:state.stage,...recipe?{recipe}:{},...created?{created}:{},...updated?{installed:true}:{},...retired.length?{retired}:{},...transfers.length?{transfers}:{}};
   const game:Game={...g,state,history:[...g.history,g.state].slice(-100),events:[...g.events,event]};game.state.metrics=cumulativeMetrics(game.events);return {accepted:true,game,message,created,updated,recipe,origin,retired};
@@ -147,7 +194,7 @@ export function applyAction(s:Scenario,g:Game,a:Action):Result{
 }
 export function undo(g:Game):Result{if(!g.history.length)return {accepted:false,game:g,message:'Nothing to undo.'};const game={...g,state:clone(g.history.at(-1)!),history:g.history.slice(0,-1),events:[...g.events,{seq:g.events.length+1,action:{type:'undo'} as const,accepted:true,message:'Undone.',stage:g.history.at(-1)!.stage}]};game.state.metrics=cumulativeMetrics(game.events);return {accepted:true,game,message:'Undone.'};}
 export function partners(s:Scenario,state:State,id:string){
- const empty={partners:[] as string[],outgoing:[] as string[],incoming:[] as string[],settings:[] as string[],directions:[] as {source:string;target:string;location?:string;text:string}[],settingHelp:[] as {source:string;target:string;location:string;text:string}[]};
+ const empty={message:'No new combinations with things currently in this area' as string|null,partners:[] as string[],outgoing:[] as string[],incoming:[] as string[],settings:[] as string[],directions:[] as {source:string;target:string;location?:string;text:string}[],settingHelp:[] as {source:string;target:string;location:string;text:string}[]};
  const t=token(state,id);if(!t||t.area!==state.currentArea)return empty;
  const things=state.tokens.filter(x=>x.area===state.currentArea&&x.id!==id),places=state.places.filter(x=>x.area===state.currentArea);
  const label=(id:string)=>id.startsWith('@')?s.locations.find(x=>x.id===id.slice(1))!.label:item(s,id)!.label;
@@ -159,12 +206,12 @@ export function partners(s:Scenario,state:State,id:string){
   for(const [source,target] of [[other,t],[t,other]])if(target.location!==r.at){empty.settingHelp.push({source:source.id,target:target.id,location:r.at,text:`Place ${label(target.id)} at ${label('@'+r.at)}, then bring ${label(source.id)} onto ${label(target.id)}. Only the receiving thing needs to be placed there.`});}
   if(!empty.settings.includes('@'+r.at))empty.settings.push('@'+r.at);
  }
- empty.partners=empty.outgoing;return empty;
+ empty.partners=empty.outgoing;if(empty.outgoing.length||empty.incoming.length||empty.settingHelp.length)empty.message=null;return empty;
 }
 export function playerView(s:Scenario,g:Game){
  const state=g.state,st=s.stages[state.stage],marks=gold(s,state);
- return {scenario:{id:s.id,title:s.title,premise:s.premise},stage:{number:state.stage+1,title:st.title,speaker:st.speaker,motivation:st.motivation,travelText:st.area.travelText},area:state.areas.find(a=>a.id===state.currentArea),areas:state.areas.map(a=>({id:a.id,label:a.label,current:a.id===state.currentArea})),objectives:objectiveStates(s,state).map(({id,text,satisfied})=>({id,text,satisfied})),canAdvance:stageComplete(s,state)&&!state.completed,completed:state.completed,
-  things:state.tokens.filter(t=>t.area===state.currentArea).map(t=>{const def=item(s,t.kind)!;return {id:t.id,label:def.label,description:def.description??'',x:t.x,y:t.y,location:t.location,gold:marks.items.includes(t.id),slots:(def.slots??[]).filter(sl=>sl.required||t.slots[sl.id]).map(sl=>({id:sl.id,filled:!!t.slots[sl.id],label:t.slots[sl.id]?item(s,t.slots[sl.id])!.label:null})),functional:functional(s,t)};}),
+ return {scenario:{id:s.id,title:s.title,premise:s.premise},stage:{number:state.stage+1,title:st.title,speaker:st.speaker,motivation:st.motivation,travelText:st.area.travelText},area:state.areas.find(a=>a.id===state.currentArea),areas:state.areas.map(a=>({id:a.id,label:a.label,current:a.id===state.currentArea,thingCount:state.tokens.filter(t=>t.area===a.id).length})),objectives:objectiveStates(s,state).map(({id,text,satisfied})=>({id,text,satisfied})),canAdvance:stageComplete(s,state)&&!state.completed,nextAction:stageComplete(s,state)&&!state.completed?(state.stage===s.stages.length-1?'Finish this journey':'Continue · '+s.stages[state.stage+1].title):null,completionText:stageComplete(s,state)?st.completionText??null:null,completed:state.completed,
+  things:state.tokens.filter(t=>t.area===state.currentArea).map(t=>{const def=item(s,t.kind)!;return {id:t.id,label:def.label,description:def.description??'',x:t.x,y:t.y,location:t.location,gold:marks.items.includes(t.id),slots:(def.slots??[]).filter(sl=>sl.required||t.slots[sl.id]).map((sl,index)=>({id:'slot'+(index+1),filled:!!t.slots[sl.id],label:t.slots[sl.id]?item(s,t.slots[sl.id])!.label:null})),functional:functional(s,t)};}),
   locations:state.places.filter(p=>p.area===state.currentArea).map(p=>({...p,label:s.locations.find(l=>l.id===p.id)!.label,description:s.locations.find(l=>l.id===p.id)!.description??'',gold:marks.places.includes(p.id)})),cacheNarrative:(st.caches??[]).map(c=>({label:c.label,narrative:c.narrative})),metrics:state.metrics};
 }
 export function replay(s:Scenario,actions:Action[],width=360){let g=createGame(s,width);for(let i=0;i<actions.length;i++){const r=applyAction(s,g,actions[i]);if(!r.accepted)throw Error(`Replay action ${i+1}: ${r.message}`);g=r.game;}return g;}

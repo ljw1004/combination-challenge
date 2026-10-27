@@ -1,0 +1,20 @@
+{
+  "name": "engine-arrival-v6",
+  "base": "frozen/v5",
+  "files": {
+    "engine/model.ts": "engine-arrival-v6/engine/model.ts",
+    "engine/cli.ts": "engine-arrival-v6/engine/cli.ts",
+    "engine/player.ts": "engine-arrival-v6/engine/player.ts",
+    "schema/scenario.ts": "engine-arrival-v6/schema/scenario.ts",
+    "engine/fixture.ts": "engine-arrival-v6/engine/fixture.ts",
+    "engine/model.test.ts": "engine-arrival-v6/engine/model.test.ts",
+    "engine/arrival.test.ts": "engine-arrival-v6/engine/arrival.test.ts",
+    "baseline-engine/model.ts": "frozen/v5/engine/model.ts"
+  },
+  "testImportRelocations": {
+    "engine/arrival.test.ts": [
+      ["../../frozen/v5/engine/model.ts", "../baseline-engine/model.ts"],
+      ["../../integration/release-v1/scenarios/", "../scenarios/"]
+    ]
+  }
+}

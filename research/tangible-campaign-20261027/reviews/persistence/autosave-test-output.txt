@@ -1,0 +1,24 @@
+✔ construction/idle does not claim saved or invoke callbacks; factory capture deferred and coalesced (20.597075ms)
+✔ delayed/out-of-order/duplicate responses never store superseded snapshots; latest wins once (27.856004ms)
+✔ value capture and worker clone isolate mutations; full 100 history decoded with no shared identities (19.446889ms)
+✔ storage error keeps previous saved value, rejects flush and supports explicit retry (33.169795ms)
+✔ stale encode errors do not hide the pending newest save; current encode errors surface (17.503635ms)
+✔ worker creation failure is honest and retry recovers without main-thread codec fallback (19.595308ms)
+✔ postMessage, crash, messageerror, and malformed reply failures preserve dirty state (35.240075ms)
+✔ timeout retires worker; retry ignores responses from the retired worker generation (32.321088ms)
+✔ flushSync stores newest full snapshot and retires every late async response (18.505813ms)
+✔ sync storage/capture failure cannot claim saved, and explicit retry retains the latest factory (3.284523ms)
+✔ hidden/pagehide save newest, beforeunload prompts on failure, cleanup removes listeners (3.989994ms)
+✔ dispose rejects outstanding flush, cancels dispatch and never saves or reopens (9.735395ms)
+✔ observer exceptions do not turn successfully persisted bytes into a save error (10.030003ms)
+✔ invalid value snapshot fails without saving a previous revision as the new one (0.833584ms)
+✔ worker protocol handles invalid envelopes/errors, legacy JSON remains readable (1.584455ms)
+✔ browser dispatch gives a paint opportunity; hidden/throttled animation frames have a bounded fallback (261.791392ms)
+ℹ tests 16
+ℹ suites 0
+ℹ pass 16
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 827.522587

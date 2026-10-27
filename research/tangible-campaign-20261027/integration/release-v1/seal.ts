@@ -1,0 +1,13 @@
+import fs from 'node:fs';
+import path from 'node:path';
+import crypto from 'node:crypto';
+import assert from 'node:assert/strict';
+const dir=import.meta.dirname;
+const sha=(p:string)=>crypto.createHash('sha256').update(fs.readFileSync(p)).digest('hex');
+const manifest=JSON.parse(fs.readFileSync(path.join(dir,'manifest.json'),'utf8'));
+for(const [p,h] of Object.entries(manifest.sourceSha256))assert.equal(sha(path.join(manifest.sourceRoot,p)),h,p+' changed');
+const files=fs.readdirSync(dir,{recursive:true,withFileTypes:true}).filter(e=>e.isFile()).map(e=>path.relative(dir,path.join(e.parentPath,e.name))).filter(p=>p!=='manifest.json').sort();
+manifest.bundleSha256=Object.fromEntries(files.map(p=>[p,sha(path.join(dir,p))]));
+manifest.sealedAt=new Date().toISOString();
+fs.writeFileSync(path.join(dir,'manifest.json'),JSON.stringify(manifest,null,2)+'\n');
+console.log(`Sealed ${files.length} bundle files; ${Object.keys(manifest.sourceSha256).length} original source hashes remain unchanged.`);

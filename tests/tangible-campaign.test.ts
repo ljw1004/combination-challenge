@@ -1,7 +1,7 @@
+import '../experiments/tangible-campaign/reviews/persistence/save-autosave.test.ts';
 import '../experiments/tangible-campaign/engine/model.test.ts';
-import '../experiments/tangible-campaign/tests/independent-controller.test.ts';
 import '../experiments/tangible-campaign/tests/independent-engine.test.ts';
-import '../experiments/tangible-campaign/tests/campaign-controller.test.ts';
+import '../experiments/tangible-campaign/ui/campaign-controller.test.ts';
 import test from 'node:test';import assert from 'node:assert/strict';import {readFileSync} from 'node:fs';
 import {scenarios} from '../experiments/tangible-campaign/ui/scenarios.ts';
 import {validateScenario,replay,checkpoint} from '../experiments/tangible-campaign/engine/model.ts';
