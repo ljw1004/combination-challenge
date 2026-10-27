@@ -337,3 +337,11 @@ Mars's final lookout now has a distinct ice outcrop for its specimen task. The o
 
 Final aggregate:318 tests,317passed,0failed,1intentional native-browser skip. TypeScript and all11routes build. Independent checks23/23 plus final7/7 after placed-anchor corrections. Actual cloud Chromium1188/500px checks and a journal removal drag are documented; physical iPhone/native touch and later native Undo were not executed. Preserve initial failures and superseded assertions as history. See results/compact-stage-workspace-release-20261027/README.md and results/compact-stage-release-20261027/.
 
+
+
+## 27 October 2026 · Full campaign research resumed
+
+The owner has now completed and praised all three short human-played games, especially Mars's small unfolding local challenges. The prior content-expansion hold is lifted. Continue developing and evaluating full Mars, Ideas and Elements campaigns toward200–300 combinations each using the current tangible interaction grammar. Preserve understandable stages, durable place, compact workspaces, adjacent creation and current-objective-only gold. Avoid arbitrary choose-two-of-four quotas; the listening-room device was judged contrived. These observations apply to the human-played short versions, not proof that any new long campaign is fun.
+
+A prospective evaluation protocol and versioned common engine are frozen in research/tangible-campaign-20261027/. Seven short new-world candidates are included for falsifiable theme trials, not presented as full-length games. Their14-engine-test/TypeScript validation and authored legal routes establish execution only; no fresh source-blind fun finding exists at this freeze. Longer Mars/Ideas/Elements drafts and mutable sessions/UI are intentionally excluded. The live Site is unchanged. Fresh play must use frozen/v1 inputs, preserve exact command/output/state evidence, permit voluntary stopping and distinguish catalogue size, authored-route length and actual fresh combinations. Any runtime revision needs a new frozen version.
+
