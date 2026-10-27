@@ -1,0 +1,390 @@
+{
+  "schemaVersion": 1,
+  "id": "literature",
+  "title": "The Last Train",
+  "premise": "A fictional writer observes a station, shapes a poem, then makes a small book. Combinations produce drafts and forms, not a claim that literary value has a recipe.",
+  "items": [
+    {
+      "id": "booklet",
+      "label": "Booklet"
+    },
+    {
+      "id": "chapbook",
+      "label": "Chapbook"
+    },
+    {
+      "id": "departure-board",
+      "label": "Departure board"
+    },
+    {
+      "id": "departure-sketch",
+      "label": "Departure sketch"
+    },
+    {
+      "id": "enjambed-poem",
+      "label": "Enjambed poem"
+    },
+    {
+      "id": "first-draft",
+      "label": "First draft"
+    },
+    {
+      "id": "fold",
+      "label": "Fold"
+    },
+    {
+      "id": "ink",
+      "label": "Ink"
+    },
+    {
+      "id": "inked-form",
+      "label": "Inked form"
+    },
+    {
+      "id": "line-break",
+      "label": "Line break"
+    },
+    {
+      "id": "memory",
+      "label": "Memory"
+    },
+    {
+      "id": "notebook",
+      "label": "Notebook"
+    },
+    {
+      "id": "paper",
+      "label": "Paper"
+    },
+    {
+      "id": "pencil",
+      "label": "Pencil"
+    },
+    {
+      "id": "printed-booklet",
+      "label": "Printed booklet"
+    },
+    {
+      "id": "printing-type",
+      "label": "Printing type"
+    },
+    {
+      "id": "reading-aloud",
+      "label": "Reading aloud"
+    },
+    {
+      "id": "refrain",
+      "label": "Refrain"
+    },
+    {
+      "id": "refrain-poem",
+      "label": "Refrain poem"
+    },
+    {
+      "id": "revised-poem",
+      "label": "Revised poem"
+    },
+    {
+      "id": "sound-notes",
+      "label": "Sound notes"
+    },
+    {
+      "id": "station-poem",
+      "label": "Station poem"
+    },
+    {
+      "id": "station-sounds",
+      "label": "Station sounds"
+    },
+    {
+      "id": "thread",
+      "label": "Thread"
+    },
+    {
+      "id": "type-form",
+      "label": "Type form"
+    }
+  ],
+  "locations": [],
+  "initialItems": [
+    "notebook",
+    "station-sounds",
+    "departure-board",
+    "pencil",
+    "memory"
+  ],
+  "recipes": [
+    {
+      "id": "sound-notes",
+      "a": "notebook",
+      "b": "station-sounds",
+      "out": "sound-notes"
+    },
+    {
+      "id": "departure-sketch",
+      "a": "departure-board",
+      "b": "pencil",
+      "out": "departure-sketch"
+    },
+    {
+      "id": "first-draft",
+      "a": "sound-notes",
+      "b": "memory",
+      "out": "first-draft"
+    },
+    {
+      "id": "station-poem",
+      "a": "first-draft",
+      "b": "departure-sketch",
+      "out": "station-poem",
+      "retire": [
+        {
+          "item": "first-draft",
+          "reason": "The original is incorporated into this recognizable derived thing."
+        }
+      ]
+    },
+    {
+      "id": "enjambed-poem",
+      "a": "station-poem",
+      "b": "line-break",
+      "out": "enjambed-poem",
+      "description": "One sentence runs across a line ending; this is a formal change, not automatically an improvement.",
+      "sources": [
+        "enjambment"
+      ]
+    },
+    {
+      "id": "refrain-poem",
+      "a": "enjambed-poem",
+      "b": "refrain",
+      "out": "refrain-poem"
+    },
+    {
+      "id": "revised-poem",
+      "a": "refrain-poem",
+      "b": "reading-aloud",
+      "out": "revised-poem"
+    },
+    {
+      "id": "booklet",
+      "a": "paper",
+      "b": "fold",
+      "out": "booklet"
+    },
+    {
+      "id": "type-form",
+      "a": "revised-poem",
+      "b": "printing-type",
+      "out": "type-form"
+    },
+    {
+      "id": "inked-form",
+      "a": "type-form",
+      "b": "ink",
+      "out": "inked-form"
+    },
+    {
+      "id": "printed-booklet",
+      "a": "inked-form",
+      "b": "booklet",
+      "out": "printed-booklet"
+    },
+    {
+      "id": "chapbook",
+      "a": "printed-booklet",
+      "b": "thread",
+      "out": "chapbook",
+      "retire": [
+        {
+          "item": "printed-booklet",
+          "reason": "The original is incorporated into this recognizable derived thing."
+        }
+      ]
+    }
+  ],
+  "stages": [
+    {
+      "id": "platform",
+      "title": "The last train",
+      "speaker": "The writer",
+      "motivation": "Everyone is leaving, and the station has its own music. Make a station poem from what you notice.",
+      "area": {
+        "id": "platform-area",
+        "label": "The last train",
+        "travelText": "We are taking the useful things with us. Earlier creations remain where we made them."
+      },
+      "locations": [],
+      "caches": [],
+      "objectives": [
+        {
+          "id": "station-poem-goal",
+          "text": "Make station poem.",
+          "kind": "create",
+          "item": "station-poem"
+        }
+      ]
+    },
+    {
+      "id": "reading",
+      "title": "At the reading table",
+      "speaker": "The editor",
+      "motivation": "Read the poem aloud. Try a line that runs onward, and a phrase that returns. Bring me the revised poem.",
+      "area": {
+        "id": "reading-area",
+        "label": "At the reading table",
+        "travelText": "We are taking the useful things with us. Earlier creations remain where we made them."
+      },
+      "locations": [],
+      "caches": [
+        {
+          "id": "editor-notes",
+          "label": "The editor’s marked examples",
+          "narrative": "Examples demonstrate a line break, a returning refrain and reading aloud. They are techniques, not mandatory steps in all poems.",
+          "items": [
+            "line-break",
+            "refrain",
+            "reading-aloud"
+          ]
+        }
+      ],
+      "objectives": [
+        {
+          "id": "revised-poem-goal",
+          "text": "Make revised poem.",
+          "kind": "create",
+          "item": "revised-poem"
+        }
+      ]
+    },
+    {
+      "id": "press",
+      "title": "The little press",
+      "speaker": "The printer",
+      "motivation": "Let the poem leave this room. Make a stitched chapbook.",
+      "area": {
+        "id": "press-area",
+        "label": "The little press",
+        "travelText": "We are taking the useful things with us. Earlier creations remain where we made them."
+      },
+      "locations": [],
+      "caches": [
+        {
+          "id": "press-store",
+          "label": "The printer’s supplies",
+          "narrative": "The small press has paper, folding instructions, type, ink and binding thread.",
+          "items": [
+            "paper",
+            "fold",
+            "printing-type",
+            "ink",
+            "thread"
+          ]
+        }
+      ],
+      "objectives": [
+        {
+          "id": "chapbook-goal",
+          "text": "Make chapbook.",
+          "kind": "create",
+          "item": "chapbook"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "enjambment",
+      "title": "Poetry Foundation: Enjambment",
+      "url": "https://www.poetryfoundation.org/education/glossary/enjambment",
+      "note": ""
+    }
+  ],
+  "notes": [
+    "All poem and narrative content is original fiction. No canonical poem is reproduced.",
+    "Strong risk: technique tokens are less tangible than food. Human playtest should compare this directly rather than declaring literature successful from reachability."
+  ],
+  "checkpoints": [
+    {
+      "id": "chapter-1",
+      "label": "The last train",
+      "actions": []
+    },
+    {
+      "id": "chapter-2",
+      "label": "At the reading table",
+      "actions": [
+        {
+          "type": "combine",
+          "a": "notebook",
+          "b": "station-sounds"
+        },
+        {
+          "type": "combine",
+          "a": "sound-notes",
+          "b": "memory"
+        },
+        {
+          "type": "combine",
+          "a": "departure-board",
+          "b": "pencil"
+        },
+        {
+          "type": "combine",
+          "a": "first-draft",
+          "b": "departure-sketch"
+        },
+        {
+          "type": "advance"
+        }
+      ]
+    },
+    {
+      "id": "chapter-3",
+      "label": "The little press",
+      "actions": [
+        {
+          "type": "combine",
+          "a": "notebook",
+          "b": "station-sounds"
+        },
+        {
+          "type": "combine",
+          "a": "sound-notes",
+          "b": "memory"
+        },
+        {
+          "type": "combine",
+          "a": "departure-board",
+          "b": "pencil"
+        },
+        {
+          "type": "combine",
+          "a": "first-draft",
+          "b": "departure-sketch"
+        },
+        {
+          "type": "advance"
+        },
+        {
+          "type": "combine",
+          "a": "station-poem",
+          "b": "line-break"
+        },
+        {
+          "type": "combine",
+          "a": "enjambed-poem",
+          "b": "refrain"
+        },
+        {
+          "type": "combine",
+          "a": "refrain-poem",
+          "b": "reading-aloud"
+        },
+        {
+          "type": "advance"
+        }
+      ]
+    }
+  ]
+}

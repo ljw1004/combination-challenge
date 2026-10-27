@@ -38,3 +38,18 @@ Same-area stage advancement now leaves existing arrangements and placements unch
 
 ## v3 current-scene packing
 Latest human feedback explicitly replaced future-useful packing with useful-for-current-scene packing. `frozen/v3/` implements the corrected contract above, preserving v1/v2. Default objective-prerequisite closure stops at existing intermediates. Explicit `carry` lists include optional local work and override that derivation. Narrative collection can retrieve existing things from visited areas without tedious manual retrieval; transfers have item/from/to provenance in events and never create duplicates. All19 tests and TypeScript checking pass. Content route and clutter measurements must state which frozen engine revision they used.
+
+## v4: logical play uses the actual drag gesture
+Fresh Elements evidence showed that manually translating a drag into `combine` versus `place` was an abstraction error: the browser already decides that from the target. The shared `dropAction(s,state,a,b):Action` now resolves it identically for all surfaces. A currently legal new A+location recipe takes precedence; otherwise dropping onto a location means ordinary placement. Dropping onto a thing remains a combine attempt, including a normal failed attempt for an incompatible pair. No new game rule was introduced.
+
+The preferred fresh-player commands are now:
+```
+node frozen/v4/engine/player.ts init NEW_PLAYER frozen/v4/scenarios/food.json
+node frozen/v4/engine/player.ts hint NEW_PLAYER KNOWN_ITEM
+node frozen/v4/engine/player.ts drop NEW_PLAYER SOURCE TARGET
+```
+Use `@LOCATION_ID` for a location target. The same gesture can create or place depending on the visible game's legal interaction. For a catalyst: drop the receiving thing on the location, then drop its partner on that receiving thing. Directional hints say which direction currently works without revealing the product. Low-level `act` remains for engineering replay and travel/advance, not a required manual interpretation of drag behavior. Drop output records both the gesture and resolvedAction; subprocess evidence records exact original arguments and stdout/stderr/status.
+
+Required empty construction slots now expose only ordinal IDs (`slot1`, `slot2`) and `label:null`; internal semantic slot names cannot spoil what fits. Filled slots show their component label. The browser and logical view therefore share the same blank-slot information.
+
+v4 passes22 regression tests plus TypeScript checking. Wrapper smoke verified successful location placement and catalyst creation with exact resolved actions. v1–v3 manifests remain unchanged; old fresh-player confusion remains valid evidence about those versions.
