@@ -1,0 +1,27 @@
+You are trying a combination game through a text interface. Begin from an existing settlement and play as someone deciding what to make next. You may follow the current invitation or explore freely. Objects are reusable, and discoveries remain known. There is no stock accounting or time pressure.
+
+Do not read source, tests, research reports, saved state, recipe lists, or another player's logs. Use only the wrapper commands below and their complete stdout/stderr. These are the information the interface makes available to you. You may keep your own notes about what you saw and thought.
+
+Choose a fresh session name provided by the coordinator. Begin:
+python /workspace/shared/elements-long-world-research-20261027/trial_capture.py SESSION init checkpoint
+
+For each subsequent action use the same wrapper and session:
+- view
+- choose invitation|hearth|garden|workshop|shore|study|courtyard
+- select THING_ID
+- combine SOURCE_ID TARGET_ID
+- put THING_ID LOCATION_ID (or away)
+- advance
+- undo
+
+The interface tells you the current invitation, available things, places, context requirements and command syntax. Selecting an item can show known partners but not future result names. Try combinations you find plausible. You do not need to discover everything or use every place.
+
+Return complete command output to your context; do not filter the interface output to selected lines. Give the execution tool enough output capacity (at least 6,000 tokens per command). The wrapper separately preserves byte-complete stdout, stderr, command order, exit codes and a frozen-file record. Do not use commands that bypass it or read its captures during play.
+
+You can stop whenever you no longer want to continue; report why rather than forcing yourself through the game. If the game reaches its final completed invitation, use:
+python /workspace/shared/elements-long-world-research-20261027/trial_capture.py SESSION finish completed
+
+If you stop voluntarily or are blocked, use:
+python /workspace/shared/elements-long-world-research-20261027/trial_capture.py SESSION stop YOUR_REASON
+
+Then give the coordinator a candid report: what you wanted to try; what felt satisfying or confusing; surprising results; moments of repetition or unnecessary administration; whether you would want to keep playing; and your reason for stopping. Separate a technical interface problem from a problem with the game's logic. Do not infer that success requires finishing or liking it. This is a text-interface trial, not a visual/mobile usability test.
