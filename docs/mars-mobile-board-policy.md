@@ -1,3 +1,5 @@
+> Historical revision, superseded by `mars-tangible-areas.md` after the user rejected automatic hiding. Do not treat the archive behavior below as current.
+
 # Mars mobile board revision · 2026-10-27
 
 ## Implemented

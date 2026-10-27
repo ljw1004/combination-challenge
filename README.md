@@ -184,3 +184,9 @@ Each has an isolated Vite config. See [release preservation](results/three-world
 Mars, Ideas and Elements now fit a viewport-width vertical workspace, surface newly useful places/results and automatically hide no-further-use work without deleting canonical progress or creating a collection screen. Mars introduces supplies through named story caches. See [mobile release preservation](results/mobile-workspace-release-20261027/README.md) and each scenario's mobile policy.
 
 Final release:267 tests passed,0 failed,1 optional browser test skipped; TypeScript/build passed. Parent-operated cloud Chromium500px routes are documented separately from synthetic320/375/390px checks. This is not physical-phone/touch validation or proof of enjoyment.
+
+## Tangible creations and story areas (27 October 2026)
+
+The current Mars/Ideas/Elements policy supersedes automatic hiding: surviving finished creations remain physical; only coherent upgrades/incorporation remove objects. Useful pieces travel together into compact story areas while finished work stays behind. Explicit goals and permanent golden contribution markers show progress. See [tangibility release preservation](results/tangible-workspace-release-20261027/README.md), including exact prior-policy evidence.
+
+Final release:297 tests passed,0 failed,1 optional browser test skipped; TypeScript/all11-route build passed. Specific parent cloud Chromium500px routes are documented separately from model/synthetic phone-width and touch checks. Logical scenario expansion is on hold.

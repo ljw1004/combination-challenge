@@ -1,4 +1,9 @@
-/** Independent semantic audit. Model-level evidence, not native-browser hit-testing. */
+/** Independent semantic audit. Model-level evidence, not native-browser hit-testing.
+ * 2026-10-27: visibility is now all tangible survivors. Previous hiding-policy source
+ * and unmodified failing run are preserved under results/mobile-retention-independent-pre-tangibility-*.
+ * Future-use/recipe/alternative tests remain; obsolete disappear assertions now check
+ * carry membership AND tangible survival, not a collection/archive UI.
+ */
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import * as M from '../src/mars-expedition-model.ts';
@@ -67,7 +72,7 @@ test('independent Mars: caches have exact 9/12/8/0 nonoverlapping grants; undo/r
   assert.equal(new Set(p.state.tokens.map(t=>t.kind)).size,p.state.tokens.length);
  }
  let p=M.fresh();const a=p.state.tokens.find(t=>t.kind==='broken-radio')!,b=p.state.tokens.find(t=>t.kind==='cable')!;const initial=structuredClone(p.state);
- p=M.apply(p,{type:'combine',a:a.id,b:b.id});assert(!M.visibleTokens(p.state).some(t=>t.id===b.id));p=M.undo(p);assert.deepEqual(p.state,initial);assert(M.visibleTokens(p.state).some(t=>t.id===b.id));
+ p=M.apply(p,{type:'combine',a:a.id,b:b.id});assert(!M.carryTokens(p.state).some(t=>t.id===b.id));assert(M.visibleTokens(p.state).some(t=>t.id===b.id),'Spent survivor remains tangible');p=M.undo(p);assert.deepEqual(p.state,initial);assert(M.visibleTokens(p.state).some(t=>t.id===b.id));
 });
 test('independent Mars: all legal recipe operands and slot targets stay active through 100 shuffled full expeditions',()=>{
  const covered=new Set<string>();
@@ -100,13 +105,13 @@ test('independent Mars: all legal recipe operands and slot targets stay active t
  }
  assert.deepEqual([...covered].sort(),Core.recipes.map(r=>r.id).sort(),'Each authored alternative exercised at least once');
 });
-test('independent Mars: placing a spent piece cannot falsely retain it',()=>{
+test('independent Mars: placing a spent piece cannot falsely mark it for carry',()=>{
  let s=M.createNamed();const a=s.tokens.find(t=>t.kind==='broken-radio')!,b=s.tokens.find(t=>t.kind==='cable')!;
  // Repair reveals ridge; retained canonical cable can be positioned there in restored/older saves.
  s=M.stepNamed(s,{type:'combine',a:a.id,b:b.id}).state;s=M.stepNamed(s,{type:'place',token:b.id,location:'contact-ridge'}).state;
- assert(s.tokens.some(t=>t.id===b.id&&t.location==='contact-ridge'));assert(!M.visibleTokens(s).some(t=>t.id===b.id));
+ assert(s.tokens.some(t=>t.id===b.id&&t.location==='contact-ridge'));assert(!M.carryTokens(s).some(t=>t.id===b.id));assert(M.visibleTokens(s).some(t=>t.id===b.id),'Placing spent survivor never makes it disappear');
 });
-test('independent Mars: permanently retired alternative operands do not leave useless pieces on a completed board',()=>{
+test('independent Mars: permanently retired alternative operands remain tangible but are not carried for impossible alternatives',()=>{
  let s=M.debugJump('complete').state;
  for(let n=0;n<100;n++){
   let next:M.State|undefined;
@@ -119,7 +124,7 @@ test('independent Mars: permanently retired alternative operands do not leave us
   if(!next)break;s=next;
  }
  assert(s.retired.includes('propagator'));assert(!s.known.includes('heated-propagator'));
- assert.equal(M.visibleTokens(s).length,0,'Heater has no future use once propagator is permanently retired');
+ assert(!M.carryTokens(s).some(t=>t.kind==='heater'),'Heater has no future use once propagator is permanently retired');assert.deepEqual(M.visibleTokens(s),s.tokens,'Finished surviving pieces remain physically on board');
  assert(Core.goals.every(g=>s.achieved.includes(g.id)));
 });
 test('independent Mars: undo and replay cache arrival yields identical exact state, not duplicate supplies',()=>{

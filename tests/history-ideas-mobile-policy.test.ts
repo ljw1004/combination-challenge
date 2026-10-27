@@ -8,28 +8,28 @@ function harness(initial?:any,dimensions={boardWidth:1000,boardHeight:700,viewWi
  const state=()=>JSON.parse(saved.get('history-ideas-v1')??JSON.stringify({version:1,state:M.fresh()})) as any;const thing=(kind:string)=>{const t=state().state.things.find((t:any)=>t.kind===kind);return t?els.find(e=>e.dataset.id===t.id):null;};const button=(id:string)=>doc.getElementById(id);const click=(e:any)=>{assert(e,'Missing clickable element');assert(e.onclick,'No handler');e.onclick({stopPropagation(){}});};const settle=()=>{for(let i=0;i<30;i++){const e=button('close');if(!e||!button('modal').open)return;click(e);}throw Error('Unsettled modal queue');};const pointer=(source:any,target:any,x=700,y=400)=>{const board=doc.querySelector('.board');board.onpointerdown({target:source,button:0,pointerId:1,clientX:100,clientY:100,preventDefault(){}});hit=target;board.onpointermove({pointerId:1,clientX:x,clientY:y});const during={source:source.classes,target:target?.classes};board.onpointerup({pointerId:1,clientX:x,clientY:y});for(const t of timers.splice(0))if(t.ms===0)t.fn();return during;};const down=(source:any)=>doc.querySelector('.board').onpointerdown({target:source,button:0,pointerId:1,clientX:100,clientY:100,preventDefault(){}});const move=(target:any,x=700,y=400)=>{hit=target;doc.querySelector('.board').onpointermove({pointerId:1,clientX:x,clientY:y});};const up=(target:any,x=700,y=400)=>{hit=target;doc.querySelector('.board').onpointerup({pointerId:1,clientX:x,clientY:y});for(const t of timers.splice(0))if(t.ms===0)t.fn();};const touch=(type:string,target:any,x=100,y=100,identifier=7)=>{hit=target;const contact={identifier,clientX:x,clientY:y,target};const event:any={type,target,changedTouches:[contact],touches:type==='touchend'||type==='touchcancel'?[]:[contact],cancelable:true,defaultPrevented:false,preventDefault(){this.defaultPrevented=true;},stopPropagation(){}};doc.querySelector('.board').dispatchEvent(event);return event;};const flush=()=>{for(const timer of timers.splice(0))timer.fn();};return {windowListeners,intervals,tick:()=>{for(const fn of intervals.values())fn()},app,doc,state,thing,button,click,settle,pointer,down,move,up,touch,flush,els:()=>els,place:(id:string)=>els.find(e=>e.dataset.id==='place:'+id)};
 }
 test('mobile geometry: 320/375/390 every active tile and revealed site stays inside horizontal bounds; extent only occupied content',()=>{
- for(const width of [320,375,390])for(const chapter of [0,1,2]){const s=M.fitBoard(M.checkpoint(chapter),width),layout=M.boardLayout(s,width);
- for(const t of M.activeThings(s)){const p=layout.positions.get(t.id)!;assert(p.x>=67&&p.x+67<=width,`${width}: ${t.id}`);}
+ for(const width of [320,375,390])for(const chapter of [0,1,2]){const s=M.fitBoard(M.checkpoint(chapter,width),width),layout=M.boardLayout(s,width);
+ for(const t of M.visibleThings(s)){const p=layout.positions.get(t.id)!;assert(p.x>=67&&p.x+67<=width,`${width}: ${t.id}`);}
  for(const p of layout.locations)assert(p.x>=74&&p.x+74<=width);
- assert.equal(layout.height,Math.max(0,...layout.locations.map(p=>p.y+84),...Array.from(layout.positions.values()).map(p=>p.y+40)));
+ assert.equal(layout.height,Math.max(0,...layout.locations.map(p=>p.y+56),...Array.from(layout.positions.values()).map(p=>p.y+32)));
  }
 });
 test('synthetic mobile: vertical edge scroll only, cancellation/modal/reset/pagehide terminate the timer',()=>{
- for(const width of [320,375,390]){const h=harness(undefined,{boardWidth:width,boardHeight:700,viewWidth:width,viewHeight:300});h.settle();
- h.down(h.thing('observation'));h.move(null,width-2,295);h.tick();assert.equal(h.doc.querySelector('.viewport').scrollLeft,0);assert.equal(h.doc.querySelector('.viewport').scrollTop,12);h.up(null,width-2,295);assert.equal(h.intervals.size,0);
+ for(const width of [320,375,390]){const h=harness(undefined,{boardWidth:width,boardHeight:700,viewWidth:width,viewHeight:220});h.settle();
+ h.down(h.thing('observation'));h.move(null,width-2,215);h.tick();assert.equal(h.doc.querySelector('.viewport').scrollLeft,0);assert.equal(h.doc.querySelector('.viewport').scrollTop,12);h.up(null,width-2,215);assert.equal(h.intervals.size,0);
  h.down(h.thing('observation'));h.click(h.button('purpose'));assert.equal(h.intervals.size,0);h.settle();
- h.touch('touchstart',h.thing('observation'));h.touch('touchmove',null,width-2,295);h.touch('touchcancel',null,width-2,295);assert.equal(h.intervals.size,0);
+ h.touch('touchstart',h.thing('observation'));h.touch('touchmove',null,width-2,215);h.touch('touchcancel',null,width-2,215);assert.equal(h.intervals.size,0);
  h.down(h.thing('observation'));h.windowListeners.pagehide();assert.equal(h.intervals.size,0);
  h.down(h.thing('observation'));h.click(h.button('reset'));assert.equal(h.intervals.size,0);
  }
 });
-test('synthetic mobile: invitation dismissal frames library, Escape follows same path, hidden terminal goal cannot invalidate completion',()=>{
- const h=harness(undefined,{boardWidth:375,boardHeight:700,viewWidth:375,viewHeight:480});h.settle();const sel=h.button('checkpoint');sel.value='1';sel.onchange({target:sel});h.doc.querySelector('.viewport').scrollTop=900;h.settle();assert.equal(h.doc.querySelector('.viewport').scrollTop,15);assert(h.place('library'));h.click(h.button('purpose'));let prevented=false;h.button('modal').oncancel({preventDefault(){prevented=true}});assert(prevented);assert(!h.button('modal').open);assert.equal(h.doc.querySelector('.viewport').scrollTop,15);
- const final=M.checkpoint(2);assert(!M.activeThings(final).some(t=>t.id==='tide-pressure-2'));const invalid=M.step(final,{type:'place',id:'tide-pressure-2',x:100,y:100});assert(!invalid.accepted);assert(M.current(invalid.state));
+test('synthetic mobile: invitation dismissal frames library, Escape follows same path, finished terminal goal remains visible and movable',()=>{
+ const h=harness(undefined,{boardWidth:375,boardHeight:700,viewWidth:375,viewHeight:480});h.settle();const sel=h.button('checkpoint');sel.value='1';sel.onchange({target:sel});h.doc.querySelector('.viewport').scrollTop=900;h.settle();assert.equal(h.doc.querySelector('.viewport').scrollTop,M.areaTop(h.state().state));assert(h.place('library'));h.click(h.button('purpose'));let prevented=false;h.button('modal').oncancel({preventDefault(){prevented=true}});assert(prevented);assert(!h.button('modal').open);assert.equal(h.doc.querySelector('.viewport').scrollTop,M.areaTop(h.state().state));
+ const final=M.checkpoint(2);assert(M.visibleThings(final).some(t=>t.id==='tide-pressure-2'));const invalid=M.step(final,{type:'place',id:'tide-pressure-2',x:100,y:100});assert(invalid.accepted);assert(!M.current(invalid.state));
 });
 test('retention: future partners and translation channels survive; discoveries remain canonical and deduplicated',()=>{
  let s=M.checkpoint(1);assert(M.active(s,M.thing(s,'measurement')!));assert(M.active(s,M.thing(s,'memory')!));assert(M.active(s,M.thing(s,'journal')!));
- s=M.step(s,{type:'combine',a:'journal',b:'doubt'}).state;assert(!M.active(s,M.thing(s,'journal')!));assert(M.current(s,1));assert(M.step(s,{type:'advance'}).accepted);assert(!M.step(s,{type:'place',id:'number',location:'library'}).accepted);
+ s=M.step(s,{type:'combine',a:'journal',b:'doubt'}).state;assert(!M.active(s,M.thing(s,'journal')!));assert(M.current(s,1));assert(M.step(s,{type:'advance'}).accepted);assert(M.step(s,{type:'place',id:'number',location:'library'}).accepted);
  for(const [a,b]of [['measurement','reason'],['pattern','body'],['pattern','time'],['sensory','temporal']])s=M.step(s,{type:'combine',a,b}).state;
  for(const id of ['sensory','temporal','seasons'])assert(M.active(s,M.thing(s,id)!),`keep future ${id}`);
  s=M.step(s,{type:'advance'}).state;s=M.step(s,{type:'combine',a:'memory',b:'place:tidepool'}).state;s=M.step(s,{type:'combine',a:'seasons',b:'tide-movement-10'}).state;
@@ -43,13 +43,43 @@ test('all 12 full routes stay operable using active pieces only at each mobile w
  }
 });
 test('creation tolerates overlap and stays local even in a densely occupied board',()=>{
- const s=M.fitBoard(M.fresh(),320);for(let i=0;i<100;i++)s.things.push({id:`filler${i}`,kind:'number',x:160,y:80});const r=M.step(s,{type:'combine',a:'observation',b:'number'});assert(r.accepted);const target=M.thing(s,'number')!,out=M.thing(r.state,'measurement')!;assert(Math.hypot(out.x-target.x,out.y-target.y)<90);assert.deepEqual(M.thing(r.state,'observation'),M.thing(s,'observation'));
+ const s=M.fitBoard(M.fresh(),320);for(let i=0;i<100;i++)s.things.push({id:`filler${i}`,kind:'number',x:160,y:80});const r=M.step(s,{type:'combine',a:'observation',b:'number'});assert(r.accepted);const target=M.thing(s,'number')!,out=M.thing(r.state,'measurement')!;assert(Math.hypot(out.x-target.x,out.y-target.y)<=220);assert.deepEqual(M.thing(r.state,'observation'),M.thing(s,'observation'));
 });
-test('birth geometry: Measurement reuses retired Number slot without covering Doubt at 320/375/390/500px',()=>{
+test('birth geometry: Measurement preserves Number and avoids covering Doubt at 320/375/390/500px',()=>{
  for(const width of [320,375,390,500]){const before=M.fitBoard(M.fresh(),width),number=M.thing(before,'number')!,doubt=M.thing(before,'doubt')!;
  const r=M.step(before,{type:'combine',a:'observation',b:'number'});assert(r.accepted);const measurement=M.thing(r.state,'measurement')!;
- assert.deepEqual({x:measurement.x,y:measurement.y},{x:number.x,y:number.y});assert(Math.abs(measurement.x-doubt.x)>=134||Math.abs(measurement.y-doubt.y)>=54);
+ assert.deepEqual(M.thing(r.state,'number'),number);assert(M.visibleThings(r.state).includes(M.thing(r.state,'number')!));assert(Math.abs(measurement.x-doubt.x)>=134||Math.abs(measurement.y-doubt.y)>=54);
  assert(M.partners(r.state,'measurement').includes('doubt'));
  const next=M.step(r.state,{type:'combine',a:'measurement',b:'doubt'});assert(next.accepted);
+ }
+});
+test('tangible areas: carry exactly future-needed unplaced tools by one translation; leave finished discoveries unmoved',()=>{
+ for(const width of [320,375,500]){const before=M.checkpoint(0,width),snapshot=structuredClone(before),carry=before.things.filter(t=>M.active(before,t)&&!t.location),left=before.things.filter(t=>!carry.includes(t));assert(left.some(t=>t.kind==='number'));const r=M.step(before,{type:'advance'});assert(r.accepted);assert.deepEqual(before,snapshot);assert.equal(M.visibleThings(r.state).length,before.things.length);const dy=M.thing(r.state,carry[0].id)!.y-carry[0].y;assert(dy>0);
+ for(const t of carry){const moved=M.thing(r.state,t.id)!;assert.equal(moved.x,t.x);assert.equal(moved.y-t.y,dy);}
+ for(const t of left)assert.deepEqual(M.thing(r.state,t.id),t);
+ assert(M.areaTop(r.state)>M.boardLayout(before,width).height);const library=M.boardLayout(r.state,width).locations.find(p=>p.id==='library')!;assert.equal(library.y,M.areaTop(r.state)+48);
+ assert(M.boardLayout(r.state,width).height-M.areaTop(r.state)<500,'Current carried group and location stay compact');
+ }
+});
+test('witnesses stay golden while goal is currently satisfied; placed finished objects stay in their old area',()=>{
+ const s=M.checkpoint(1,375),journal=M.thing(s,'journal')!,method=M.thing(s,'method')!;assert(M.witness(s,journal));assert(M.witness(s,method));const next=M.step(s,{type:'advance'}).state;assert.deepEqual(M.thing(next,'journal'),journal);assert(M.visibleThings(next).some(t=>t.id==='journal'));assert(M.witness(next,M.thing(next,'journal')!));const moved=M.step(next,{type:'place',id:'journal',x:100,y:journal.y+100}).state;assert(!M.witness(moved,M.thing(moved,'journal')!));assert(!M.current(moved,1));
+ const final=M.checkpoint(2,375);assert(M.witness(final,M.thing(final,'tide-pressure-2')!));
+});
+test('synthetic: transition undo restores exact arrangement and all finished objects render on one board',()=>{
+ const before=M.checkpoint(0,375),h=harness({version:1,state:before},{boardWidth:375,boardHeight:700,viewWidth:375,viewHeight:480});const snapshots=structuredClone(h.state().state.things);h.click(h.button('next'));h.settle();assert(h.thing('number'));assert(h.thing('method').classes.has('witness'));assert.equal(h.els().filter((e:any)=>e.classes.has('thing')).length,before.things.length);h.click(h.button('undo'));assert.deepEqual(h.state().state.things,snapshots);assert.equal(h.state().state.chapter,0);
+});
+test('placed future-use non-witness tools travel too, without stranding a needed memory',()=>{
+ let s=M.checkpoint(1,375);s=M.step(s,{type:'place',id:'memory',location:'library'}).state;s=M.step(s,{type:'place',id:'journal',location:'library'}).state;
+ // A separate revealed listening site cannot exist yet: construct authored placement history on library without displacing the valid witness.
+ const memory=M.thing(s,'memory')!;memory.location='library';const before=structuredClone(memory);const next=M.step(s,{type:'advance'});assert(next.accepted);assert(M.thing(next.state,'memory')!.y>before.y);assert.equal(M.thing(next.state,'memory')!.location,undefined);assert(M.current(next.state,1));
+});
+test('returning to a prior physical area permits optional peer review while library witness remains in place',()=>{
+ const before=M.checkpoint(1,375),journal=structuredClone(M.thing(before,'journal'));let s=M.step(before,{type:'advance'}).state;const r=M.step(s,{type:'combine',a:'journal',b:'doubt'});assert(r.accepted);assert.deepEqual(M.thing(r.state,'journal'),journal);assert(M.current(r.state,1));assert(M.witness(r.state,M.thing(r.state,'journal')!));
+ const h=harness({version:1,state:s},{boardWidth:375,boardHeight:900,viewWidth:375,viewHeight:480});h.click(h.doc.querySelector('[data-area="1"]'));assert.equal(h.doc.querySelector('.viewport').scrollTop,M.areaTop(s,1));h.click(h.thing('journal'));h.click(h.doc.querySelector('[data-area="2"]'));assert.equal(h.doc.querySelector('.viewport').scrollTop,M.areaTop(s,2));h.click(h.thing('doubt'));assert(h.thing('review'));assert(h.thing('journal').classes.has('witness'));
+});
+test('area framing: short current area gets exactly one viewport; tall content determines its own bound',()=>{
+ for(const width of [320,375,500]){const s=M.step(M.checkpoint(0,width),{type:'advance'}).state,top=M.areaTop(s),occupied=M.boardLayout(s,width).height;const viewport=700;
+ assert(occupied<top+viewport);assert.equal(M.boardExtent(s,width,viewport),top+viewport);assert.equal(M.boardExtent(s,width,viewport)-viewport,top,'native scroll maximum permits exact top alignment, no more');
+ const tall=structuredClone(s);tall.things[0].y=top+viewport+200;assert.equal(M.boardExtent(tall,width,viewport),M.boardLayout(tall,width).height);assert.equal(M.boardExtent(tall,width,viewport),top+viewport+232);
  }
 });

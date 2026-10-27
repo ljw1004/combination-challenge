@@ -1,0 +1,5 @@
+# Preserve latest primary content
+
+Start from latest remote main, including6fd6418698df48773c385d278228a81b13deaedc completed research and any later unrelated changes. Upload only mapped paths; never delete unrelated files. Normal paths contain the exact authorized changed source/tests/docs/evidence. Current runtime dependencies and all shared root config/package/lockfile are complete in site-source/; keep those snapshot paths, not replacement primary root paths. If an unchanged primary dependency differs from this deployed snapshot, report the discrepancy rather than overwriting completed research.
+
+Read the latest complete remote README.md, notes.md and .gitignore. Append only missing fragment material and publish full merged files; never replace them with fragments or local scratch notes. Historical previous-hiding-policy files are evidence only. Do not apply their source or assertions over the current tangibility policy. No scenario expansion, Site operation, access change or generated-build upload is authorized by this preservation handoff.

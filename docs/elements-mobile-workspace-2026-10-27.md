@@ -1,3 +1,5 @@
+> Historical experiment. Automatic retirement and chapter-grid tidying below were superseded by the later tangible-area policy; see `elements-tangible-areas-2026-10-27.md`. These earlier measurements are preserved as evidence, not current behavior.
+
 # Elements mobile workspace revision
 
 ## Implemented

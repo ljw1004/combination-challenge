@@ -16,24 +16,24 @@ test('All nine opening cards fit a 320px phone and 290px board without horizonta
  for(const t of M.visibleTokens(s)){const center=t.x/36*320;assert(center-44>=0);assert(center+44<=320);assert(t.y*10+30<=290);}
  assert(M.worldSize(s).height*10<=290);
 });
-test('Hiding is derived, lossless and future-aware rather than based on currently available partners',()=>{
+test('Travel usefulness is future-aware while every survivor remains visible',()=>{
  const s=M.createNamed();const frame=s.tokens.find(t=>t.kind==='frame')!;
- assert(!s.tokens.some(t=>t.kind==='wheels'));assert(M.visibleTokens(s).includes(frame),'future cargo partner preserves frame');
+ assert(!s.tokens.some(t=>t.kind==='wheels'));assert(M.carryTokens(s).includes(frame),'future cargo partner preserves frame');
  const a=s.tokens.find(t=>t.kind==='broken-radio')!,b=s.tokens.find(t=>t.kind==='cable')!;
  const r=M.stepNamed(s,{type:'combine',a:a.id,b:b.id});assert(r.accepted);
- assert(r.state.tokens.some(t=>t.id===b.id),'spent cable remains canonical');assert(!M.visibleTokens(r.state).some(t=>t.id===b.id),'spent cable leaves active board');
+ assert(r.state.tokens.some(t=>t.id===b.id),'spent cable remains canonical');assert(M.visibleTokens(r.state).some(t=>t.id===b.id),'spent cable remains tangible');assert(!M.carryTokens(r.state,1).some(t=>t.id===b.id),'spent cable will stay behind');
  const before=JSON.stringify(r.state);M.visibleTokens(r.state);assert.equal(JSON.stringify(r.state),before);
 });
-test('Bounds ignore hidden/future things and permit only useful occupied extent',()=>{
+test('Bounds include every tangible thing but no phantom future area',()=>{
  const s=M.createNamed();const cable=s.tokens.find(t=>t.kind==='cable')!,broken=s.tokens.find(t=>t.kind==='broken-radio')!;
  const r=M.stepNamed(s,{type:'combine',a:broken.id,b:cable.id});assert(r.accepted);
  const before=M.worldSize(r.state);r.state.tokens.find(t=>t.id===cable.id)!.y=100000;
- assert.deepEqual(M.worldSize(r.state),before);
+ assert(M.worldSize(r.state).height>before.height);
  assert.equal(M.edgePan(-1000,200,{left:0,top:0,width:320,height:400}).x,0);
 });
-test('Completed checkpoints retain functional goals canonically even if their loose achievements are hidden',()=>{
+test('Completed checkpoint achievements remain visible and gold',()=>{
  const s=M.debugJump('complete').state;
  assert(M.goalStates(s).every(g=>g.current&&g.achieved));
  assert(s.tokens.some(t=>t.kind==='annotated-survey-map'));
- assert(!M.visibleTokens(s).some(t=>t.kind==='annotated-survey-map'));
+ assert(M.visibleTokens(s).some(t=>t.kind==='annotated-survey-map'));assert(M.goalWitnesses(s).tokens.has(s.tokens.find(t=>t.kind==='annotated-survey-map')!.id));
 });
