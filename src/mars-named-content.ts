@@ -1,6 +1,6 @@
 /** Named, portable Mars content. No generic assemblies or accumulated place recipes. */
 export interface NamedConcept {id:string;label:string;description:string}
-export interface NamedRecipe {id:string;a:string;b:string;result:string;at?:string;description:string}
+export interface NamedRecipe {id:string;a:string;b:string;result:string;at?:string;description:string;retire?:string[];retirementReason?:string}
 export interface NamedLocation {id:string;label:string;x:number;y:number;description:string}
 export interface NamedGoal {id:string;title:string;requirement:string;kind:'discover'|'place';concept:string;location?:string;requiredLocations:string[];supplies:string[]}
 export interface NamedLevel {id:string;label:string;intro:string;supplies:string[];locations:string[];goals:string[]}
@@ -24,7 +24,7 @@ export const NAMED_CONCEPTS:NamedConcept[]=[
 ];
 const r=(id:string,a:string,b:string,result:string,description:string,at?:string):NamedRecipe=>({id,a,b,result,description,...(at?{at}:{})});
 export const NAMED_RECIPES:NamedRecipe[]=[
- r('repair-radio','broken-radio','cable','radio','Reconnect the intact replacement lead to the radio; no special setting is needed.'),
+ {...r('repair-radio','broken-radio','cable','radio','Reconnect the intact replacement lead to the radio; no special setting is needed.'),retire:['broken-radio'],retirementReason:'The repaired radio supersedes this obsolete broken-radio instance. No other authored recipe or goal needs it. Cable remains an ordinary reusable thing; absence of later recipes alone is not a retirement rule.'},
  r('charger','solar-panel','battery','solar-charger','Combine a collector and battery into a charger.'),
  r('solar-radio','solar-charger','radio','solar-radio','Give the repaired radio its own power supply.'),
  r('melt','heater','place:glacier','meltwater','The glacier is an operand: heating it creates portable meltwater, not a placed heater.'),

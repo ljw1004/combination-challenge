@@ -6,7 +6,7 @@
 
 - Every non-location item is one ordinary rounded rectangle. No “actual object,” “design,” infinite-copy button, ingredient inventory or generic assembly bag.
 - There is one global board token per concept kind. An accepted A+B or A+place creates C only if **no C exists anywhere on the board**, including a placement slot or another retained level. A slotted/hidden item is not permission to duplicate it.
-- A and B remain. The dragged A is moved back away from its partner by the UI, and a genuinely new C appears nearby as a loose portable thing. No automatic compound of more than two operands.
+- A and B normally remain. An explicitly authored, conservatively audited evolved successor may retire its obsolete input only when that input is never needed again. Current exception: broken radio+cable→radio removes **broken radio only**, not cable. No generic dead-end or material-consumption rule applies. The surviving dragged A is moved back away from its partner by the UI, and a genuinely new C appears nearby as a loose portable thing. No automatic compound of more than two operands.
 - No new kind is invented for an unlisted pair. Every authored output is recognizable and named: solar radio, seed tray, pressure patch, greenhouse, lit workbench—not “frame+cover+seeds.”
 - Moving C away does not erase its existence. Repeating the recipe cannot make another C. A same-token drop is an explicit no-op/rejection, never deletion or an accidental new thing.
 - Hover highlights the source and compatible items/locations **only when their result would be new**. Do not display the output name as a hover preview. This is the latest human-requested presentation, not the older result-name-preview policy.
@@ -26,7 +26,7 @@ Accepted synthesis returns the dragged/first-selected A to loose space (clearing
 `src/mars-named-content.ts` exports:
 
 - `NAMED_CONCEPTS`: `{id,label,description}`.
-- `NAMED_RECIPES`: `{id,a,b,result,at?,description}`; a location operand uses `b:'place:ID'`.
+- `NAMED_RECIPES`: `{id,a,b,result,at?,description,retire?,retirementReason?}`; a location operand uses `b:'place:ID'`.
 - `NAMED_LOCATIONS`: `{id,label,x,y,description}`.
 - `NAMED_GOALS`: `{id,title,requirement,kind:'discover'|'place',concept,location?,requiredLocations,supplies}`.
 - `NAMED_LEVELS`: `{id,label,intro,supplies,locations,goals}`.
@@ -53,3 +53,9 @@ Normal progression may unlock stages from completed milestones, but moving an it
 Before delivery, mechanically verify every authored recipe/context, base-vs-context branch, A+place portability, no generic merge, duplicate-result rejection across loose/slotted/retained locations, one-slot displacement, free removal, same-slot no-op, input preservation, global kind uniqueness, source/partner-only novelty hover and click/drop equivalence. Replay the whole symbolic route without a global catalogue, copy command or debug-only token identity assumption.
 
 The supplied witness contains19 named combines and9 placements (plus5 stage selections); those are authored interaction counts, not a fresh play, optimality result or duration target. Optional named alternatives remain available. This new human-directed logic experiment does not inherit the old physical campaign's count, fun report or laws. No claim of approximately200 decisions is made.
+
+## Narrow evolved-input retirement update
+
+Explicit `retire` metadata applies only to actual input kinds of that successful recipe. It is not inferred from graph degree, age, lack of further recipes or the fact that a result combines two things. Fire+water→steam would preserve both unless a separately justified evolution rule existed; merely having no later use would not justify retirement. Existing knowledge/history remains; ordinary ingredients do not become stocks. The current authored exception is `repair-radio` retiring `broken-radio` only. Content tests verify no other recipe, goal or later objective supply requires that kind.
+
+Runtime/model owner handles stock suppression after that authored successor exists and preserves old saves without proactively deleting old instances. There is no broad save migration or bulk cleanup. Other possible container/vehicle/bench evolutions remain unapproved in this narrow hotfix; future branches and goals must be audited first.

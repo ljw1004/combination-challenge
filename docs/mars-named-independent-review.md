@@ -70,3 +70,31 @@ Files:
 - `docs/mars-named-contract.md` (content owner's contract)
 
 Earlier explicit-context draft checks were superseded and are not presented as final-contract evidence here.
+
+## Follow-up human feedback: direct drops, persistent possibilities, tight creation groups, explicit evolution
+
+The 00:35 result above is historical evidence for the prior revision. A subsequent review covers revised ordinary-drop animation, persistent drag compatibility highlights, tighter creation grouping and the single authored Broken radio → Radio retirement exception. The earlier blanket statement that both inputs always remain is superseded only for this explicitly authored evolution. Cable and ordinary reusable ingredients are not depleted merely because they have no remaining recipes.
+
+Independent controller regressions execute the real registered pointer and click handlers in the synthetic harness. They check free drops at exact release coordinates without recoil/birth replay, slot drops without dragged-item replay, displaced occupant preservation, reload/undo, compatibility continuity across pointer entry/leave/off-target motion/target switching, and cleanup after drop. Retirement coverage checks both operand orientations and click/pointer equivalence, source/target DOM cleanup, absence of stale selection/drag highlights, reload and undo/recombination. These checks do not establish native pointer capture, browser animation appearance or perceptual spacing.
+
+Follow-up final results and grouping bounds are recorded below once the implementation stabilizes.
+
+### Final follow-up verification (approximately 00:57 UTC)
+
+The final implementation uses proportional thing rectangles (`10cqw × 6cqh`), square locations `min(11.4cqw,14cqh)`, and exact adjacent candidates before broader local spacing. This supersedes the capped thing/location dimensions in the historical section. Removing the location cap initially exposed overlap on a tall 760×1000 effective board; the narrower proportional location bound fixes that case. Independent physical-rectangle checks now include effective 760×620, 1440×800 and 760×1000, through the entire ordinary route and five optional branches.
+
+Measured **A-to-B and C-to-B rectangle-edge distances**, not just closest-neighbour distance, on the complete route plus optional branches:
+
+| Effective board | Loose B: surviving A / new C | Placed B: surviving A / new C | Location operand P: A / C |
+|---|---|---|---|
+|760×620|3.72px / 3.72–4.56px|12.16–12.42px / 12.16–20.67px|0.70px / 0.70px|
+|1440×800|4.80px / 4.80–8.64px|16.00–23.04px / 23.04–31.58px|0.80px / 0.80px|
+|760×1000|6.00px / 4.56–6.00px|12.16–28.00px / 12.16–22.55px|27.68px / 27.68px|
+
+Placed-B measurements account for its CSS centre at 65% of the location square, rather than incorrectly treating it as centred on the model location point. Extra local clearance around the hollow location outline is explicitly allowed by the parent’s bounded hotfix decision; this is not described as an identical tiny gap in every context. Ordinary loose-target combinations have the tiny gap, and side-of-location A/C pairs are edge-adjacent within 0.6 board units. No distant output or overlap was demonstrated in these executed routes. Manual arbitrary dense arrangements are not an exhaustive layout guarantee.
+
+Retirement tests assert that removed kinds match the recipe’s explicit `retire` list exactly. Only Broken radio is authored for retirement. Both input orientations, placed source/target cleanup, stock suppression, all debug prefixes, persisted retirement, physical undo and subsequent recombination pass. Legacy saves with an existing Radio migrate by removing only Broken radio and recording retirement; Cable, actions and achievement history remain intact. Pre-repair legacy saves remain intact. The campaign still covers all 42 named kinds over time, but only 41 coexist after this authored retirement.
+
+No native-browser claim is added: all controller events, scroll requests and class assertions are synthetic; geometric distances come from implemented coordinate/CSS formulas, not screenshots or native layout measurement. The model still guards global novelty and portable current-placement truth. Root/builder retain ownership of Site synchronization and publication.
+
+**Final follow-up result: 25/25 independent tests PASS**, using `node --test tests/mars-named-independent.test.ts tests/mars-named-independent-dom.test.ts` on the final research source at approximately 00:57 UTC. No remaining demonstrated blocker within this bounded tested scope. Historical 17/17 evidence above remains identified as the previous revision.
