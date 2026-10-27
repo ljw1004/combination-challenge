@@ -1,0 +1,337 @@
+{
+  "completed": true,
+  "checks": [
+    {
+      "name": "Dairy packs optional fruit but leaves irrelevant hearth tools",
+      "passed": true,
+      "visible": [
+        "fruit",
+        "dough",
+        "milk",
+        "cream",
+        "churn",
+        "yeast-culture",
+        "lactic-culture"
+      ]
+    },
+    {
+      "name": "fruit yogurt orientation fruit+yogurt",
+      "passed": true
+    },
+    {
+      "name": "fruit yogurt orientation yogurt+fruit",
+      "passed": true
+    },
+    {
+      "name": "bread and butter orientation bread+butter",
+      "passed": true
+    },
+    {
+      "name": "bread and butter orientation butter+bread",
+      "passed": true
+    }
+  ],
+  "metrics": {
+    "attempts": 33,
+    "accepted": 33,
+    "combinations": 23,
+    "creations": 23,
+    "installations": 0,
+    "moves": 0,
+    "placements": 6,
+    "advances": 4,
+    "visits": 0
+  },
+  "events": [
+    {
+      "action": {
+        "type": "combine",
+        "a": "grain",
+        "b": "millstone"
+      },
+      "message": "Flour. Milled grain, ready for dough or pastry.",
+      "stage": 0
+    },
+    {
+      "action": {
+        "type": "combine",
+        "a": "flour",
+        "b": "water"
+      },
+      "message": "Dough. Flour mixed with water; it has not yet risen or baked.",
+      "stage": 0
+    },
+    {
+      "action": {
+        "type": "combine",
+        "a": "dough",
+        "b": "@hearth"
+      },
+      "message": "Flatbread. The dough has baked into a simple flatbread.",
+      "stage": 0
+    },
+    {
+      "action": {
+        "type": "combine",
+        "a": "fruit",
+        "b": "press"
+      },
+      "message": "Juice. Freshly pressed fruit juice. Flatbread and fruit juice: enough for the road. The caravan can leave.",
+      "stage": 0
+    },
+    {
+      "action": {
+        "type": "advance"
+      },
+      "message": "We take our dough and fruit to the dairy and bakehouse. The pressed juice and flatbread remain at the roadside hearth. We collect the things needed for this scene along the way.",
+      "stage": 1
+    },
+    {
+      "action": {
+        "type": "place",
+        "item": "yeast-culture",
+        "location": "fermentation-room"
+      },
+      "message": "Placed.",
+      "stage": 1
+    },
+    {
+      "action": {
+        "type": "combine",
+        "a": "dough",
+        "b": "yeast-culture"
+      },
+      "message": "Leavened dough. Yeast changes the dough over time; the game compresses fermentation.",
+      "stage": 1
+    },
+    {
+      "action": {
+        "type": "combine",
+        "a": "leavened-dough",
+        "b": "@bakehouse-oven"
+      },
+      "message": "Bread. The risen dough is baked into a loaf.",
+      "stage": 1
+    },
+    {
+      "action": {
+        "type": "place",
+        "item": "lactic-culture",
+        "location": "fermentation-room"
+      },
+      "message": "Placed.",
+      "stage": 1
+    },
+    {
+      "action": {
+        "type": "combine",
+        "a": "milk",
+        "b": "lactic-culture"
+      },
+      "message": "Yogurt. A suitable bacterial culture transforms milk; it is not the same culture as bread yeast. A risen loaf and a bowl of yogurt. Two different cultures have changed what we brought.",
+      "stage": 1
+    },
+    {
+      "action": {
+        "type": "combine",
+        "a": "fruit",
+        "b": "yogurt"
+      },
+      "message": "Fruit yogurt. Stir fruit into the yogurt. Neither ingredient is retired: both still have other uses.",
+      "stage": 1
+    },
+    {
+      "action": {
+        "type": "advance"
+      },
+      "message": "We bring the pastry ingredients and a loaf to the workshop. Cream and the churn come from the dairy; yogurt stays there unless we return for it. We collect the things needed for this scene along the way.",
+      "stage": 2
+    },
+    {
+      "action": {
+        "type": "combine",
+        "a": "cream",
+        "b": "churn"
+      },
+      "message": "Butter. Churned butter: a spread for bread, or fat for different pastries.",
+      "stage": 2
+    },
+    {
+      "action": {
+        "type": "combine",
+        "a": "bread",
+        "b": "butter"
+      },
+      "message": "Bread and butter. Spread butter on the bread. This optional discovery is not a quota or a gate.",
+      "stage": 2
+    },
+    {
+      "action": {
+        "type": "place",
+        "item": "butter",
+        "location": "pastry-bench"
+      },
+      "message": "Placed.",
+      "stage": 2
+    },
+    {
+      "action": {
+        "type": "combine",
+        "a": "flour",
+        "b": "butter"
+      },
+      "message": "Shortcrust. Rubbing fat into flour makes a short pastry; water and handling are compressed here.",
+      "stage": 2
+    },
+    {
+      "action": {
+        "type": "combine",
+        "a": "shortcrust",
+        "b": "fruit"
+      },
+      "message": "Unbaked fruit tart. Fruit rests in its pastry case, waiting for the oven.",
+      "stage": 2
+    },
+    {
+      "action": {
+        "type": "combine",
+        "a": "unbaked-fruit-tart",
+        "b": "@oven"
+      },
+      "message": "Fruit tart. The fruit tart is baked.",
+      "stage": 2
+    },
+    {
+      "action": {
+        "type": "place",
+        "item": "butter",
+        "location": "pastry-bench"
+      },
+      "message": "Placed.",
+      "stage": 2
+    },
+    {
+      "action": {
+        "type": "combine",
+        "a": "dough",
+        "b": "butter"
+      },
+      "message": "Laminated dough. Cold butter is folded through dough in separate layers; this is not simply stirred together.",
+      "stage": 2
+    },
+    {
+      "action": {
+        "type": "combine",
+        "a": "laminated-dough",
+        "b": "@oven"
+      },
+      "message": "Puff pastry. The folded pastry has baked into layers. A fruit tart and puff pastry: the butter made two very different textures.",
+      "stage": 2
+    },
+    {
+      "action": {
+        "type": "advance"
+      },
+      "message": "We are taking the useful things with us. Earlier creations remain where we made them. We collect the things needed for this scene along the way.",
+      "stage": 3
+    },
+    {
+      "action": {
+        "type": "combine",
+        "a": "eggs",
+        "b": "whisk"
+      },
+      "message": "Egg foam. The eggs have been beaten to hold air.",
+      "stage": 3
+    },
+    {
+      "action": {
+        "type": "combine",
+        "a": "egg-foam",
+        "b": "sugar"
+      },
+      "message": "Sweet egg foam. Sugar has been beaten into the egg foam.",
+      "stage": 3
+    },
+    {
+      "action": {
+        "type": "combine",
+        "a": "sweet-egg-foam",
+        "b": "flour"
+      },
+      "message": "Sponge batter. Flour has joined the sweet egg foam; careful mixing is compressed.",
+      "stage": 3
+    },
+    {
+      "action": {
+        "type": "combine",
+        "a": "sponge-batter",
+        "b": "@pilot-oven"
+      },
+      "message": "Sponge cake. The sponge batter has baked into a small cake.",
+      "stage": 3
+    },
+    {
+      "action": {
+        "type": "combine",
+        "a": "shortening",
+        "b": "sugar"
+      },
+      "message": "Creme filling. A sweet fat-based filling; this is a broad abstraction, not a commercial formula.",
+      "stage": 3
+    },
+    {
+      "action": {
+        "type": "combine",
+        "a": "creme-filling",
+        "b": "vanilla"
+      },
+      "message": "Vanilla filling. The sweet filling is flavored with vanilla.",
+      "stage": 3
+    },
+    {
+      "action": {
+        "type": "place",
+        "item": "vanilla-filling",
+        "location": "filling-line"
+      },
+      "message": "Placed.",
+      "stage": 3
+    },
+    {
+      "action": {
+        "type": "combine",
+        "a": "sponge-cake",
+        "b": "vanilla-filling"
+      },
+      "message": "Filled sponge. A filling is injected into a sponge cake. This is a broad snack-cake model, not a commercial formula.",
+      "stage": 3
+    },
+    {
+      "action": {
+        "type": "place",
+        "item": "wrapper",
+        "location": "filling-line"
+      },
+      "message": "Placed.",
+      "stage": 3
+    },
+    {
+      "action": {
+        "type": "combine",
+        "a": "filled-sponge",
+        "b": "wrapper"
+      },
+      "message": "Twinkie-style snack cake. A Twinkie-inspired endpoint: a wrapped golden sponge cake with a creamy filling. The brand formula and its industrial process are not reproduced. The filled sponge cake is wrapped for its journey. From hearth to cake line, our short kitchen tour is complete.",
+      "stage": 3
+    },
+    {
+      "action": {
+        "type": "advance"
+      },
+      "message": "The filled sponge cake is wrapped for its journey. From hearth to cake line, our short kitchen tour is complete.",
+      "stage": 3
+    }
+  ],
+  "limits": "Author-aware engine tests, not a new blind or human playtest."
+}

@@ -1,0 +1,434 @@
+{
+  "imports": [
+    "experimental-protocol"
+  ],
+  "items": [
+    {
+      "id": "field-compass",
+      "label": "Compass",
+      "description": "A small magnetic needle in a case, with a position chart for recording its direction.",
+      "sources": [
+        "field-oersted-object"
+      ]
+    },
+    {
+      "id": "field-current-demonstrator",
+      "label": "Enclosed current demonstrator",
+      "description": "A recovered educational display with a visible wire path and recorded current-on/current-off observations. Its wiring is not a construction task.",
+      "sources": [
+        "field-oersted-observation"
+      ]
+    },
+    {
+      "id": "field-position-cards",
+      "label": "Above-and-below observation cards",
+      "description": "Two recorded views identify the compass position relative to the same wire; their orientation marks allow a fair comparison.",
+      "sources": [
+        "field-oersted-observation"
+      ]
+    },
+    {
+      "id": "field-bar-magnet",
+      "label": "Bar magnet",
+      "description": "A familiar magnet with marked ends, supplied with the museum teaching collection."
+    },
+    {
+      "id": "field-coil-meter",
+      "label": "Coil and needle-meter display",
+      "description": "A prepared educational display pairs a coil with a sensitive needle meter. Its recorded trials include approaching, resting and withdrawing a magnet.",
+      "sources": [
+        "field-teaching"
+      ]
+    },
+    {
+      "id": "field-ring-replica",
+      "label": "Induction-ring replica",
+      "description": "A museum replica shows two separate windings around an iron ring. A companion recording preserves the meter view.",
+      "sources": [
+        "field-ring-object"
+      ]
+    },
+    {
+      "id": "field-switch-log",
+      "label": "Switch timing log",
+      "description": "Time marks identify connection, an interval with current unchanged, and disconnection in the ring demonstration.",
+      "sources": [
+        "field-ring-object",
+        "field-teaching"
+      ]
+    },
+    {
+      "id": "field-hand-generator",
+      "label": "Hand-generator exhibit",
+      "description": "An enclosed educational generator with a lamp and a recording of the handle turning and stopping. The curator asks for an explanation, not a wiring plan.",
+      "sources": [
+        "field-generator"
+      ]
+    },
+    {
+      "id": "field-current-deflection",
+      "label": "Current-deflection record",
+      "description": "The compass changes direction when current flows in the nearby wire. The needle is not wired into the circuit: the observation links electric current with a magnetic effect.",
+      "sources": [
+        "field-oersted-object",
+        "field-oersted-observation"
+      ]
+    },
+    {
+      "id": "field-around-wire",
+      "label": "Around-the-wire comparison",
+      "description": "The recorded needles above and below the same wire point in opposite directions. A simple pull straight toward the wire does not describe this pattern.",
+      "sources": [
+        "field-oersted-observation"
+      ]
+    },
+    {
+      "id": "field-direction-map",
+      "label": "Magnetic-direction map",
+      "description": "Compass directions at several positions trace a curved pattern around the bar magnet. The arrows represent local direction; they are not visible threads or a measured map of strength.",
+      "sources": [
+        "field-map-text"
+      ]
+    },
+    {
+      "id": "field-comparison",
+      "label": "Field comparison sheet",
+      "description": "The magnet and the current-carrying wire both organize compass directions in the space around them, but the patterns differ. Field thinking records what a test needle does at each position, rather than merely naming an attraction.",
+      "sources": [
+        "field-teaching",
+        "field-oersted-observation"
+      ]
+    },
+    {
+      "id": "field-motion-record",
+      "label": "Moving-and-still record",
+      "description": "In the supplied coil trials the needle deflects while the magnet approaches, returns to zero when it rests, and deflects the other way as it withdraws. A magnet present beside the coil is not enough for a sustained reading.",
+      "sources": [
+        "field-induction-text"
+      ]
+    },
+    {
+      "id": "field-repeatable-comparison",
+      "label": "Repeatable induction comparison",
+      "description": "The protocol preserves the same coil, magnet orientation and meter while distinguishing approach, rest and withdrawal. Repeated recorded trials retain the zero reading at rest rather than discarding it as an uninteresting failure.",
+      "sources": [
+        "field-induction-text"
+      ]
+    },
+    {
+      "id": "field-transient-record",
+      "label": "Ring transient record",
+      "description": "The second winding gives a brief response at connection and disconnection, not a sustained response while the first current stays steady. Neither winding has to move. Faraday’s surviving 1831 ring anchors this reconstructed comparison.",
+      "sources": [
+        "field-ring-object",
+        "field-induction-text"
+      ]
+    },
+    {
+      "id": "field-change-argument",
+      "label": "Change-not-presence argument",
+      "description": "The moving magnet and the stationary ring support the same distinction: changing magnetic linkage, not mere magnetic presence, induces the response. Mechanical motion is one way to obtain the change, not a requirement in every arrangement.",
+      "sources": [
+        "field-teaching",
+        "field-ring-object"
+      ]
+    },
+    {
+      "id": "field-induction-model",
+      "label": "Field-and-induction model",
+      "description": "The model connects a spatial magnetic pattern to a changing linkage through a coil. It explains the contrasting observations without claiming that the compass map alone proves induction, or that one diagram supplies a complete electromagnetic theory.",
+      "sources": [
+        "field-teaching"
+      ]
+    },
+    {
+      "id": "field-explained-exhibit",
+      "label": "Explained generator exhibit",
+      "description": "The handle keeps changing magnetic linkage through the generator’s coil, and the recorded lamp responds while it turns. The handle supplies mechanical energy: the magnet is not a fuel. The exhibit now connects an everyday generator with the earlier contrast between steady presence and change.",
+      "sources": [
+        "field-generator",
+        "field-teaching"
+      ]
+    }
+  ],
+  "locations": [],
+  "recipes": [
+    {
+      "id": "field-r01",
+      "a": "field-compass",
+      "b": "field-current-demonstrator",
+      "out": "field-current-deflection",
+      "description": "The compass changes direction when current flows in the nearby wire. The needle is not wired into the circuit: the observation links electric current with a magnetic effect.",
+      "sources": [
+        "field-oersted-object",
+        "field-oersted-observation"
+      ],
+      "caveat": "A binary teaching abstraction for comparing apparatus and evidence, not literal historical causation."
+    },
+    {
+      "id": "field-r02",
+      "a": "field-current-deflection",
+      "b": "field-position-cards",
+      "out": "field-around-wire",
+      "description": "The recorded needles above and below the same wire point in opposite directions. A simple pull straight toward the wire does not describe this pattern.",
+      "sources": [
+        "field-oersted-observation"
+      ],
+      "caveat": "A binary teaching abstraction for comparing apparatus and evidence, not literal historical causation.",
+      "retire": [
+        {
+          "item": "field-current-deflection",
+          "reason": "This evidence sheet is incorporated into the fuller comparison; its observations remain described there."
+        },
+        {
+          "item": "field-position-cards",
+          "reason": "This evidence sheet is incorporated into the fuller comparison; its observations remain described there."
+        }
+      ]
+    },
+    {
+      "id": "field-r03",
+      "a": "field-bar-magnet",
+      "b": "field-compass",
+      "out": "field-direction-map",
+      "description": "Compass directions at several positions trace a curved pattern around the bar magnet. The arrows represent local direction; they are not visible threads or a measured map of strength.",
+      "sources": [
+        "field-map-text"
+      ],
+      "caveat": "A binary teaching abstraction for comparing apparatus and evidence, not literal historical causation."
+    },
+    {
+      "id": "field-r04",
+      "a": "field-direction-map",
+      "b": "field-around-wire",
+      "out": "field-comparison",
+      "description": "The magnet and the current-carrying wire both organize compass directions in the space around them, but the patterns differ. Field thinking records what a test needle does at each position, rather than merely naming an attraction.",
+      "sources": [
+        "field-teaching",
+        "field-oersted-observation"
+      ],
+      "caveat": "A binary teaching abstraction for comparing apparatus and evidence, not literal historical causation.",
+      "retire": [
+        {
+          "item": "field-direction-map",
+          "reason": "This evidence sheet is incorporated into the fuller comparison; its observations remain described there."
+        },
+        {
+          "item": "field-around-wire",
+          "reason": "This evidence sheet is incorporated into the fuller comparison; its observations remain described there."
+        }
+      ]
+    },
+    {
+      "id": "field-r05",
+      "a": "field-coil-meter",
+      "b": "field-bar-magnet",
+      "out": "field-motion-record",
+      "description": "In the supplied coil trials the needle deflects while the magnet approaches, returns to zero when it rests, and deflects the other way as it withdraws. A magnet present beside the coil is not enough for a sustained reading.",
+      "sources": [
+        "field-induction-text"
+      ],
+      "caveat": "A binary teaching abstraction for comparing apparatus and evidence, not literal historical causation."
+    },
+    {
+      "id": "field-r06",
+      "a": "field-motion-record",
+      "b": "experimental-protocol",
+      "out": "field-repeatable-comparison",
+      "description": "The protocol preserves the same coil, magnet orientation and meter while distinguishing approach, rest and withdrawal. Repeated recorded trials retain the zero reading at rest rather than discarding it as an uninteresting failure.",
+      "sources": [
+        "field-induction-text"
+      ],
+      "caveat": "A binary teaching abstraction for comparing apparatus and evidence, not literal historical causation.",
+      "retire": [
+        {
+          "item": "field-motion-record",
+          "reason": "This evidence sheet is incorporated into the fuller comparison; its observations remain described there."
+        }
+      ]
+    },
+    {
+      "id": "field-r07",
+      "a": "field-ring-replica",
+      "b": "field-switch-log",
+      "out": "field-transient-record",
+      "description": "The second winding gives a brief response at connection and disconnection, not a sustained response while the first current stays steady. Neither winding has to move. Faraday’s surviving 1831 ring anchors this reconstructed comparison.",
+      "sources": [
+        "field-ring-object",
+        "field-induction-text"
+      ],
+      "caveat": "A binary teaching abstraction for comparing apparatus and evidence, not literal historical causation.",
+      "retire": [
+        {
+          "item": "field-switch-log",
+          "reason": "This evidence sheet is incorporated into the fuller comparison; its observations remain described there."
+        }
+      ]
+    },
+    {
+      "id": "field-r08",
+      "a": "field-repeatable-comparison",
+      "b": "field-transient-record",
+      "out": "field-change-argument",
+      "description": "The moving magnet and the stationary ring support the same distinction: changing magnetic linkage, not mere magnetic presence, induces the response. Mechanical motion is one way to obtain the change, not a requirement in every arrangement.",
+      "sources": [
+        "field-teaching",
+        "field-ring-object"
+      ],
+      "caveat": "A binary teaching abstraction for comparing apparatus and evidence, not literal historical causation.",
+      "retire": [
+        {
+          "item": "field-repeatable-comparison",
+          "reason": "This evidence sheet is incorporated into the fuller comparison; its observations remain described there."
+        },
+        {
+          "item": "field-transient-record",
+          "reason": "This evidence sheet is incorporated into the fuller comparison; its observations remain described there."
+        }
+      ]
+    },
+    {
+      "id": "field-r09",
+      "a": "field-change-argument",
+      "b": "field-comparison",
+      "out": "field-induction-model",
+      "description": "The model connects a spatial magnetic pattern to a changing linkage through a coil. It explains the contrasting observations without claiming that the compass map alone proves induction, or that one diagram supplies a complete electromagnetic theory.",
+      "sources": [
+        "field-teaching"
+      ],
+      "caveat": "A binary teaching abstraction for comparing apparatus and evidence, not literal historical causation.",
+      "retire": [
+        {
+          "item": "field-change-argument",
+          "reason": "This evidence sheet is incorporated into the fuller comparison; its observations remain described there."
+        },
+        {
+          "item": "field-comparison",
+          "reason": "This evidence sheet is incorporated into the fuller comparison; its observations remain described there."
+        }
+      ]
+    },
+    {
+      "id": "field-r10",
+      "a": "field-induction-model",
+      "b": "field-hand-generator",
+      "out": "field-explained-exhibit",
+      "description": "The handle keeps changing magnetic linkage through the generator’s coil, and the recorded lamp responds while it turns. The handle supplies mechanical energy: the magnet is not a fuel. The exhibit now connects an everyday generator with the earlier contrast between steady presence and change.",
+      "sources": [
+        "field-generator",
+        "field-teaching"
+      ],
+      "caveat": "A binary teaching abstraction for comparing apparatus and evidence, not literal historical causation.",
+      "retire": [
+        {
+          "item": "field-induction-model",
+          "reason": "This evidence sheet is incorporated into the fuller comparison; its observations remain described there."
+        }
+      ]
+    }
+  ],
+  "stages": [
+    {
+      "id": "fields",
+      "title": "Why does the needle move only then?",
+      "speaker": "Electricity-gallery curator",
+      "motivation": "The generator’s lamp looks like a trick. Prepare an exhibit that explains it from the compass, coil and ring observations, keeping the quiet intervals as carefully as the needle movements.",
+      "completionText": "Visitors can now follow the evidence from a turning compass to a generator’s lamp—and see why a motionless magnet beside a motionless coil is not a perpetual source of electricity. These reconstructed comparisons join distinct investigations; they do not turn a shared, contested history into one inventor’s inevitable ladder.",
+      "area": {
+        "id": "area-fields",
+        "label": "An electricity and magnetism teaching collection",
+        "travelText": "We retrieve our experimental protocol from the archive and enter a gallery of recorded demonstrations and enclosed educational apparatus. Other collections stay where we left them."
+      },
+      "caches": [
+        {
+          "id": "collection-fields",
+          "label": "Compass, coil and ring collection",
+          "narrative": "Recovered educational displays and labeled observation records sit beside a replica of Faraday’s induction ring. These are interpretive exhibits, not instructions for constructing or powering apparatus.",
+          "items": [
+            "field-compass",
+            "field-current-demonstrator",
+            "field-position-cards",
+            "field-bar-magnet",
+            "field-coil-meter",
+            "field-ring-replica",
+            "field-switch-log",
+            "field-hand-generator"
+          ]
+        }
+      ],
+      "objectives": [
+        {
+          "id": "fields-goal",
+          "text": "Create an explained generator exhibit.",
+          "kind": "create",
+          "item": "field-explained-exhibit"
+        }
+      ],
+      "carry": [
+        "experimental-protocol",
+        "field-around-wire",
+        "field-bar-magnet",
+        "field-change-argument",
+        "field-coil-meter",
+        "field-comparison",
+        "field-compass",
+        "field-current-deflection",
+        "field-current-demonstrator",
+        "field-direction-map",
+        "field-explained-exhibit",
+        "field-hand-generator",
+        "field-induction-model",
+        "field-motion-record",
+        "field-position-cards",
+        "field-repeatable-comparison",
+        "field-ring-replica",
+        "field-switch-log",
+        "field-transient-record"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "field-oersted-object",
+      "title": "Ørsted compass needle, 1828 — Science Museum Group",
+      "url": "https://collection.sciencemuseumgroup.org.uk/objects/co145363/oersted-compass-needle-1828",
+      "note": "A surviving demonstration instrument, not a claim about a single dramatic discovery moment."
+    },
+    {
+      "id": "field-oersted-observation",
+      "title": "Oersted’s experiment — Institute of Physics",
+      "url": "https://spark.iop.org/oersteds-experiment",
+      "note": "Supports opposite compass directions above and below a current-carrying wire. Construction and power-supply instructions deliberately excluded."
+    },
+    {
+      "id": "field-ring-object",
+      "title": "Michael Faraday’s ring-coil apparatus — Royal Institution",
+      "url": "https://www.rigb.org/explore-science/explore/collection/michael-faradays-ring-coil-apparatus",
+      "note": "August 1831 apparatus and brief induced current in the other coil; object evidence anchors the reconstruction."
+    },
+    {
+      "id": "field-teaching",
+      "title": "Electromagnetism — Institute of Physics",
+      "url": "https://spark.iop.org/collections/electromagnetism",
+      "note": "Field representation and induction effects: magnet/coil movement, and changing field without mechanical movement. Modern teaching interpretation, not a transcript of 1831 reasoning."
+    },
+    {
+      "id": "field-generator",
+      "title": "Generators — Institute of Physics",
+      "url": "https://spark.iop.org/generators",
+      "note": "Changing magnetic linkage in a generator; energy transferred through a mechanical pathway. No construction instructions reproduced."
+    },
+    {
+      "id": "field-induction-text",
+      "title": "Induced Emf and Magnetic Flux — OpenStax College Physics",
+      "url": "https://openstax.org/books/college-physics/pages/23-1-induced-emf-and-magnetic-flux",
+      "note": "Figures 23.3–23.4 explicitly compare switch transients and opposite magnet motions with the stationary null."
+    },
+    {
+      "id": "field-map-text",
+      "title": "Magnetic Fields and Lines — OpenStax University Physics",
+      "url": "https://openstax.org/books/university-physics-volume-2/pages/11-2-magnetic-fields-and-lines",
+      "note": "Compass direction defines a field-line direction; lines are representations."
+    }
+  ]
+}

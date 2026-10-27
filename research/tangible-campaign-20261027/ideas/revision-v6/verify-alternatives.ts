@@ -1,0 +1,4 @@
+import fs from 'node:fs';import {replay} from '../../engine/model.ts';
+const p=import.meta.dirname,s=JSON.parse(fs.readFileSync(`${p}/scenario.json`,'utf8')),routes=JSON.parse(fs.readFileSync(`${p}/alternative-routes.json`,'utf8'));
+const results=routes.map((r:any)=>{const g=replay(s,r.actions);if(!g.state.completed||g.state.metrics.combinations!==r.expectedCombinations)throw Error('Alternative route mismatch');return {choices:r.choices,completed:g.state.completed,combinations:g.state.metrics.combinations};});
+fs.writeFileSync(`${p}/alternative-route-evidence.json`,JSON.stringify({passed:true,scope:'All32author-enumerated producer assignments; not independent play.',results},null,2)+'\n');console.log(JSON.stringify({passed:true,routes:results.length,counts:results.map((r:any)=>r.combinations)}));

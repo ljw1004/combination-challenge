@@ -1,0 +1,394 @@
+{
+  "schemaVersion": 1,
+  "id": "shoreline",
+  "title": "The Sheltered Shore",
+  "premise": "An original restoration-planning fiction for a sheltered estuary. Local surveys determine what belongs here; a living shoreline is not a universal answer to coastal hazards.",
+  "items": [
+    {
+      "id": "coir",
+      "label": "Coir"
+    },
+    {
+      "id": "coir-roll",
+      "label": "Coir roll"
+    },
+    {
+      "id": "erosion-map",
+      "label": "Erosion map"
+    },
+    {
+      "id": "marsh-plugs",
+      "label": "Marsh plugs"
+    },
+    {
+      "id": "mesh-bag",
+      "label": "Mesh bag"
+    },
+    {
+      "id": "monitoring-layout",
+      "label": "Monitoring layout"
+    },
+    {
+      "id": "monitoring-poles",
+      "label": "Monitoring poles"
+    },
+    {
+      "id": "monitoring-record",
+      "label": "Monitoring record"
+    },
+    {
+      "id": "native-seed",
+      "label": "Native seed"
+    },
+    {
+      "id": "notebook",
+      "label": "Notebook"
+    },
+    {
+      "id": "nursery-tray",
+      "label": "Nursery tray"
+    },
+    {
+      "id": "planted-edge",
+      "label": "Planted edge"
+    },
+    {
+      "id": "reef-module",
+      "label": "Reef module"
+    },
+    {
+      "id": "reef-plan",
+      "label": "Reef plan"
+    },
+    {
+      "id": "season-report",
+      "label": "Season report"
+    },
+    {
+      "id": "seasonal-photos",
+      "label": "Seasonal photos"
+    },
+    {
+      "id": "sediment-sample",
+      "label": "Sediment sample"
+    },
+    {
+      "id": "shell",
+      "label": "Shell"
+    },
+    {
+      "id": "shell-bag",
+      "label": "Shell bag"
+    },
+    {
+      "id": "shore-map",
+      "label": "Shore map"
+    },
+    {
+      "id": "shoreline-plan",
+      "label": "Shoreline plan"
+    },
+    {
+      "id": "site-survey",
+      "label": "Site survey"
+    },
+    {
+      "id": "stakes",
+      "label": "Stakes"
+    },
+    {
+      "id": "survey-photos",
+      "label": "Survey photos"
+    },
+    {
+      "id": "tide-gauge",
+      "label": "Tide gauge"
+    },
+    {
+      "id": "tide-record",
+      "label": "Tide record"
+    }
+  ],
+  "locations": [
+    {
+      "id": "bank",
+      "label": "Sheltered bank"
+    }
+  ],
+  "initialItems": [
+    "tide-gauge",
+    "notebook",
+    "shore-map",
+    "survey-photos",
+    "sediment-sample"
+  ],
+  "recipes": [
+    {
+      "id": "tide-record",
+      "a": "tide-gauge",
+      "b": "notebook",
+      "out": "tide-record"
+    },
+    {
+      "id": "erosion-map",
+      "a": "shore-map",
+      "b": "survey-photos",
+      "out": "erosion-map"
+    },
+    {
+      "id": "site-survey",
+      "a": "erosion-map",
+      "b": "sediment-sample",
+      "out": "site-survey"
+    },
+    {
+      "id": "shoreline-plan",
+      "a": "site-survey",
+      "b": "tide-record",
+      "out": "shoreline-plan"
+    },
+    {
+      "id": "coir-roll",
+      "a": "coir",
+      "b": "stakes",
+      "out": "coir-roll"
+    },
+    {
+      "id": "marsh-plugs",
+      "a": "native-seed",
+      "b": "nursery-tray",
+      "out": "marsh-plugs"
+    },
+    {
+      "id": "planted-edge",
+      "a": "marsh-plugs",
+      "b": "coir-roll",
+      "out": "planted-edge",
+      "description": "Planting is represented as a portable project model until it is placed at the sheltered bank; real plants are not carried as an intact coast."
+    },
+    {
+      "id": "shell-bag",
+      "a": "shell",
+      "b": "mesh-bag",
+      "out": "shell-bag"
+    },
+    {
+      "id": "reef-module",
+      "a": "shell-bag",
+      "b": "reef-plan",
+      "out": "reef-module"
+    },
+    {
+      "id": "monitoring-layout",
+      "a": "shoreline-plan",
+      "b": "monitoring-poles",
+      "out": "monitoring-layout"
+    },
+    {
+      "id": "monitoring-record",
+      "a": "monitoring-layout",
+      "b": "seasonal-photos",
+      "out": "monitoring-record"
+    },
+    {
+      "id": "season-report",
+      "a": "monitoring-record",
+      "b": "tide-record",
+      "out": "season-report"
+    }
+  ],
+  "stages": [
+    {
+      "id": "survey",
+      "title": "Survey the estuary",
+      "speaker": "The coastal ecologist",
+      "motivation": "This bank is sheltered, but it is retreating. Make a shoreline plan from the tide and site records.",
+      "area": {
+        "id": "survey-area",
+        "label": "Survey the estuary",
+        "travelText": "We are taking the useful things with us. Earlier creations remain where we made them."
+      },
+      "locations": [],
+      "caches": [],
+      "objectives": [
+        {
+          "id": "shoreline-plan-goal",
+          "text": "Make shoreline plan.",
+          "kind": "create",
+          "item": "shoreline-plan"
+        }
+      ]
+    },
+    {
+      "id": "bank",
+      "title": "Plant the sheltered bank",
+      "speaker": "The nursery keeper",
+      "motivation": "Our survey supports native marsh plants here. Set the planted edge at the Sheltered bank.",
+      "area": {
+        "id": "bank-area",
+        "label": "Plant the sheltered bank",
+        "travelText": "We are taking the useful things with us. Earlier creations remain where we made them."
+      },
+      "locations": [
+        "bank"
+      ],
+      "caches": [
+        {
+          "id": "nursery",
+          "label": "The restoration nursery",
+          "narrative": "The nursery carries locally appropriate plants, coir, stakes, shell and reef materials—not every coast needs all of them.",
+          "items": [
+            "coir",
+            "stakes",
+            "native-seed",
+            "nursery-tray",
+            "shell",
+            "mesh-bag",
+            "reef-plan"
+          ]
+        }
+      ],
+      "objectives": [
+        {
+          "id": "planted-edge-goal",
+          "text": "Place the planted edge at the Sheltered bank.",
+          "kind": "place",
+          "item": "planted-edge",
+          "location": "bank"
+        }
+      ]
+    },
+    {
+      "id": "seasons",
+      "title": "A season of watching",
+      "speaker": "The coastal ecologist",
+      "motivation": "Installing a project is not the same as proving it works. Make a season report from the monitoring record.",
+      "area": {
+        "id": "seasons-area",
+        "label": "A season of watching",
+        "travelText": "We are taking the useful things with us. Earlier creations remain where we made them."
+      },
+      "locations": [],
+      "caches": [
+        {
+          "id": "monitoring",
+          "label": "The field team returns",
+          "narrative": "Survey poles and photographs from a later season arrive with the field team. Time has passed in the story.",
+          "items": [
+            "monitoring-poles",
+            "seasonal-photos"
+          ]
+        }
+      ],
+      "objectives": [
+        {
+          "id": "season-report-goal",
+          "text": "Make season report.",
+          "kind": "create",
+          "item": "season-report"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "noaa",
+      "title": "NOAA: What is a living shoreline?",
+      "url": "https://oceanservice.noaa.gov/facts/living-shoreline.html",
+      "note": ""
+    }
+  ],
+  "notes": [
+    "NOAA supports the general restoration approach, not this fictional engineering design.",
+    "Reef module is optional discovery, not forced into every site. No claim that plants prevent every storm or that survey photos alone prove causal success.",
+    "Risk: planted-edge portable model weakens tangibility. Prefer a real bounded planted coir module in revision."
+  ],
+  "checkpoints": [
+    {
+      "id": "chapter-1",
+      "label": "Survey the estuary",
+      "actions": []
+    },
+    {
+      "id": "chapter-2",
+      "label": "Plant the sheltered bank",
+      "actions": [
+        {
+          "type": "combine",
+          "a": "shore-map",
+          "b": "survey-photos"
+        },
+        {
+          "type": "combine",
+          "a": "erosion-map",
+          "b": "sediment-sample"
+        },
+        {
+          "type": "combine",
+          "a": "tide-gauge",
+          "b": "notebook"
+        },
+        {
+          "type": "combine",
+          "a": "site-survey",
+          "b": "tide-record"
+        },
+        {
+          "type": "advance"
+        }
+      ]
+    },
+    {
+      "id": "chapter-3",
+      "label": "A season of watching",
+      "actions": [
+        {
+          "type": "combine",
+          "a": "shore-map",
+          "b": "survey-photos"
+        },
+        {
+          "type": "combine",
+          "a": "erosion-map",
+          "b": "sediment-sample"
+        },
+        {
+          "type": "combine",
+          "a": "tide-gauge",
+          "b": "notebook"
+        },
+        {
+          "type": "combine",
+          "a": "site-survey",
+          "b": "tide-record"
+        },
+        {
+          "type": "advance"
+        },
+        {
+          "type": "combine",
+          "a": "native-seed",
+          "b": "nursery-tray"
+        },
+        {
+          "type": "combine",
+          "a": "coir",
+          "b": "stakes"
+        },
+        {
+          "type": "combine",
+          "a": "marsh-plugs",
+          "b": "coir-roll"
+        },
+        {
+          "type": "place",
+          "item": "planted-edge",
+          "location": "bank"
+        },
+        {
+          "type": "advance"
+        }
+      ]
+    }
+  ]
+}

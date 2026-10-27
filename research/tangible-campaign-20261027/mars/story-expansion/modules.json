@@ -1,0 +1,168 @@
+[
+  {
+    "id": "cargo-return",
+    "after": "camp",
+    "stage": {
+      "id": "cargo-return",
+      "title": "The things we left behind",
+      "speaker": "Survey crew",
+      "motivation": "Before the drive failed we left a small furniture sled beside the route. We remember the way. Bring it back; it has our table and the pictures that made this camp ours.",
+      "area": {
+        "id": "area-cargo-return",
+        "label": "The things we left behind",
+        "travelText": "We gather the known equipment for this nearby work. The larger expedition remains at its current camp or depot."
+      },
+      "locations": [
+        "cargo-shoulder"
+      ],
+      "caches": [
+        {
+          "id": "cargo-return-cache",
+          "label": "Known expedition equipment",
+          "narrative": "The crew identifies its own tagged sled on a nearby known shoulder. Only ordinary recovery padding and their personal picture roll are new loose pieces; the crate unfolds into its original mess table.",
+          "items": [
+            "sled-padding",
+            "tagged-cargo-sled",
+            "picture-roll"
+          ]
+        }
+      ],
+      "objectives": [
+        {
+          "id": "cargo-return-crew-table-portrait",
+          "kind": "create",
+          "item": "crew-table-portrait",
+          "text": "Crew portrait"
+        }
+      ]
+    }
+  },
+  {
+    "id": "nursery",
+    "after": "garden",
+    "stage": {
+      "id": "nursery",
+      "title": "Something for the next crew",
+      "speaker": "Survey crew",
+      "motivation": "The potatoes fed us. The little tray we saved on landing is still alive too. Make a nursery bay for it: this camp can be more than something we survived.",
+      "area": {
+        "id": "area-nursery",
+        "label": "Something for the next crew",
+        "travelText": "We gather the known equipment for this nearby work. The larger expedition remains at its current camp or depot."
+      },
+      "locations": [
+        "nursery-test-shelf"
+      ],
+      "caches": [
+        {
+          "id": "nursery-cache",
+          "label": "Known expedition equipment",
+          "narrative": "A single greenhouse cultivation kit holds the printed grid, original diffuser fitting, soft support lattice and labels. We reuse the landing\u2019s living tray rather than granting another crop.",
+          "items": [
+            "nursery-grid",
+            "diffuser-sheet",
+            "diffuser-frame",
+            "seedling-support",
+            "nursery-labels"
+          ]
+        }
+      ],
+      "objectives": [
+        {
+          "id": "nursery-camp-nursery",
+          "kind": "create",
+          "item": "camp-nursery",
+          "text": "Camp nursery"
+        }
+      ]
+    }
+  },
+  {
+    "id": "contrast",
+    "after": "buried-story",
+    "stage": {
+      "id": "contrast",
+      "title": "Not every ripple is a river",
+      "speaker": "Survey crew",
+      "motivation": "The new core supports our basin story, but a nearby ripple pattern looks suspiciously familiar. Compare the two exposures before we tell Earth they mean the same thing.",
+      "area": {
+        "id": "area-contrast",
+        "label": "Not every ripple is a river",
+        "travelText": "We gather the known equipment for this nearby work. The larger expedition remains at its current camp or depot."
+      },
+      "locations": [
+        "ripple-window",
+        "gravel-window"
+      ],
+      "caches": [
+        {
+          "id": "contrast-cache",
+          "label": "Known expedition equipment",
+          "narrative": "The existing geology team\u2019s single comparison kit holds a board, two-cell case, dry impression sheet and document sleeve. The loose chip is explicitly from the adjacent gravel ledge, not supplied as a laboratory conclusion.",
+          "items": [
+            "context-board",
+            "two-cell-case",
+            "ripple-cast-sheet",
+            "loose-gravel-chip",
+            "comparison-sleeve"
+          ]
+        }
+      ],
+      "objectives": [
+        {
+          "id": "contrast-sleeved-comparison",
+          "kind": "create",
+          "item": "sleeved-comparison",
+          "text": "Sleeved comparison"
+        },
+        {
+          "id": "contrast-specimens",
+          "kind": "create",
+          "capability": "comparison-specimens",
+          "text": "Keep the two differently sourced specimens distinct."
+        }
+      ]
+    }
+  },
+  {
+    "id": "depot-way",
+    "after": "contrast",
+    "stage": {
+      "id": "depot-way",
+      "title": "The tracks that were not ours",
+      "speaker": "Survey crew",
+      "motivation": "The depot should be along the old service route, but the dark tracks have changed. Find the permanent markers. Our protected spare controller matches the depot cargo hauler\u2014we can use that to bring the samples to the ship.",
+      "area": {
+        "id": "area-depot-way",
+        "label": "The tracks that were not ours",
+        "travelText": "We gather the known equipment for this nearby work. The larger expedition remains at its current camp or depot."
+      },
+      "locations": [
+        "depot-marker-line"
+      ],
+      "caches": [
+        {
+          "id": "depot-way-cache",
+          "label": "Known expedition equipment",
+          "narrative": "One existing depot navigation-and-maintenance locker holds its original survey print, cleaning pad and folding sign. The stored standardized cargo hauler and platform stand beside it. Their compatible controller specification is legible before installation.",
+          "items": [
+            "depot-survey-print",
+            "marker-cleaning-pad",
+            "folded-route-sign",
+            "sign-foot",
+            "depot-hauler",
+            "hauler-platform"
+          ]
+        }
+      ],
+      "objectives": [
+        {
+          "id": "depot-way-depot-cargo-shuttle",
+          "kind": "create",
+          "item": "depot-cargo-shuttle",
+          "text": "Depot cargo shuttle"
+        }
+      ]
+    }
+  }
+]

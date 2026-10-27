@@ -1,0 +1,17 @@
+# Source-grounded boundaries
+
+Primary sources consulted2026-10-27. These ground the broad phenomenon, not certification of a fictional crewed mission or every two-token operation.
+
+- [USGS, Large wind ripples on Mars](https://www.usgs.gov/publications/large-wind-ripples-mars-a-record-atmospheric-evolution): wind-built Martian ripples can resemble water-worked forms. This supports challenging a ripple-only interpretation; it does not imply all ripple origins are unknown or that photographs alone decide them.
+- [JPL, Martian Streambed Evidence Rock](https://www.jpl.nasa.gov/images/pia16223-martian-streambed-evidence-rock-in-3-d/): embedded gravel size and roundness are evidence used for ancient stream interpretation. The fictional comparison also supplies matrix/layer/terrain context and avoids life detection or modern-water claims.
+- [USGS, Eolian erasure of Mars rover tracks](https://www.usgs.gov/publications/gone-wind-eolian-erasure-mars-rover-tracks): atmospheric processes alter track visibility, with storm-associated events capable of rapid changes. The game does not prescribe a rate or forecast.
+- [NASA, Dust Devil Dance](https://science.nasa.gov/photojournal/dust-devil-dance/): dark tracks can loop and overprint. The game's current-versus-archival discrepancy motivates checking permanent engineering markers; it is not proof that every dark track is a dust devil or that any track is safe to drive.
+- [NASA, Growing Plants in Space](https://www.nasa.gov/exploration-research-and-technology/growing-plants-in-space/): engineered growth systems provide food and an opportunity to study plants, with crew well-being among the motivations. Nursery shadow mapping, diffuser hardware and its exact performance are fictional, not sourced mission procedure.
+
+Explicit fictional abstractions: future standardized surface-mobility controllers; engineered dual-purpose cargo furniture; a narrated low-risk pickup along a previously used approach; dry surface-impression materials; prepositioned depot and greenhouse support kits; enough secure camp time for growing plants. Known-compatible light fixtures and vehicle hardware are supplied ready-engineered. There are no improvised propellant, oxygen, pressure or chemical instructions. The familiar furniture task needs no unusual NASA claim.
+
+Supply coherence matters more than number of named parts: one known tagged furniture sled, one original greenhouse cultivation kit, one geology comparison kit, and one depot navigation/maintenance locker with adjacent hauler. These still compound v5's convenient expedition infrastructure. Fresh play should test whether players perceive a coherent expedition landscape or a sequence of treasure cabinets.
+
+## Timeline clarification after independent audit
+
+The candidate explicitly states that refuge restoration lets both crews resume their original multi-month surface assignment before the planned return, with the existing mission food and certified life support covering that interval. Greenhouse crops are supplemental, not emergency starvation arithmetic. This is a new explicit story premise requiring editorial acceptance; if an urgent rescue-and-immediate-return tone is preferred, omit the growth/nursery arc instead. The depot uses the **earlier** weather record as evidence that surface marks change, not as a recent measurement after crop growth. A post-diffuser visual check is narrated and does not certify plant-light sufficiency.

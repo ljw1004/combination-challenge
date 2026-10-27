@@ -1,0 +1,4 @@
+import fs from 'node:fs';import {createGame,applyAction,playerView} from '../../engine/model.ts';
+const p=import.meta.dirname,s=JSON.parse(fs.readFileSync(`${p}/scenario.json`,'utf8')),actions=JSON.parse(fs.readFileSync(`${p}/goal-route.json`,'utf8'));let g=createGame(s);const checked:any[]=[];
+for(const a of actions){if(a.type==='advance'&&s.stages[g.state.stage].completionText){const v=playerView(s,g);if(v.completionText!==s.stages[g.state.stage].completionText)throw Error('Missing scene completion');checked.push({stage:s.stages[g.state.stage].id,text:v.completionText});}const r=applyAction(s,g,a);if(!r.accepted)throw Error(r.message);g=r.game;}
+if(checked.length!==5)throw Error('Wrong completion scene count');fs.writeFileSync(`${p}/completion-evidence.json`,JSON.stringify({passed:true,scope:'Engine playerView before advance, not browser presentation',checked},null,2)+'\n');console.log('5 completion messages verified');

@@ -1,0 +1,2998 @@
+{
+  "scenarioPath": "/workspace/shared/combination-campaign-research-20261027/new-worlds/causation-rethink-v4/causation.json",
+  "scenarioSHA256": "fd03311ded201d0c620ec12872ad8d03a06e5e77cd079af61d21a4f5fe0a3841",
+  "engineSHA256": "d67386bfa96e4cc62c275402feb88b863d2b70f168f128e103c3fdbe8a84946c",
+  "implementationSHA256": {
+    "/workspace/shared/combination-campaign-research-20261027/frozen/v4/engine/model.ts": "d67386bfa96e4cc62c275402feb88b863d2b70f168f128e103c3fdbe8a84946c",
+    "/workspace/shared/combination-campaign-research-20261027/frozen/v4/engine/cli.ts": "4b5b64f7ad95be95c6790a65ab2897298028470c3769dd27033be8bab4b07b4f",
+    "/workspace/shared/combination-campaign-research-20261027/frozen/v4/schema/scenario.ts": "acddd0643cccfdb8038bb37ffaba4f7a2167a4a3aaa82bfc08aa00db29e9af3b",
+    "/workspace/shared/combination-campaign-research-20261027/frozen/v4/engine/player.ts": "7418f0613ebd3c3cd48876146aad11cf7a29ce5b620bc25a1a099d00777a7646"
+  },
+  "createdAt": "2026-10-27T20:21:25.807Z",
+  "game": {
+    "version": 1,
+    "scenarioId": "causation-purpose-v4",
+    "state": {
+      "stage": 1,
+      "currentArea": "reeds",
+      "areas": [
+        {
+          "id": "yard",
+          "label": "Creek boatyard",
+          "enteredAtStage": 0
+        },
+        {
+          "id": "reeds",
+          "label": "Beside the reeds",
+          "enteredAtStage": 1
+        }
+      ],
+      "places": [
+        {
+          "id": "landing",
+          "area": "yard",
+          "x": 52,
+          "y": 81
+        },
+        {
+          "id": "reed-mouth",
+          "area": "reeds",
+          "x": 52,
+          "y": 81
+        }
+      ],
+      "tokens": [
+        {
+          "id": "timber",
+          "kind": "timber",
+          "area": "reeds",
+          "location": null,
+          "slots": {},
+          "incorporated": [],
+          "x": 252,
+          "y": 56
+        },
+        {
+          "id": "cord",
+          "kind": "cord",
+          "area": "reeds",
+          "location": null,
+          "slots": {},
+          "incorporated": [],
+          "x": 252,
+          "y": 106
+        },
+        {
+          "id": "adze",
+          "kind": "adze",
+          "area": "reeds",
+          "location": null,
+          "slots": {},
+          "incorporated": [],
+          "x": 52,
+          "y": 156
+        },
+        {
+          "id": "pitch",
+          "kind": "pitch",
+          "area": "yard",
+          "location": null,
+          "slots": {},
+          "incorporated": [],
+          "x": 152,
+          "y": 156
+        },
+        {
+          "id": "brush",
+          "kind": "brush",
+          "area": "yard",
+          "location": null,
+          "slots": {},
+          "incorporated": [],
+          "x": 252,
+          "y": 156
+        },
+        {
+          "id": "poles",
+          "kind": "poles",
+          "area": "reeds",
+          "location": null,
+          "slots": {},
+          "incorporated": [],
+          "x": 52,
+          "y": 206
+        },
+        {
+          "id": "cart",
+          "kind": "cart",
+          "area": "yard",
+          "location": null,
+          "slots": {},
+          "incorporated": [],
+          "x": 152,
+          "y": 206
+        },
+        {
+          "id": "broad-layout",
+          "kind": "broad-layout",
+          "area": "yard",
+          "location": null,
+          "slots": {},
+          "incorporated": [],
+          "x": 250,
+          "y": 252
+        },
+        {
+          "id": "caulking-brush",
+          "kind": "caulking-brush",
+          "area": "reeds",
+          "location": null,
+          "slots": {},
+          "incorporated": [],
+          "x": 250,
+          "y": 202
+        },
+        {
+          "id": "ferry",
+          "kind": "ferry",
+          "area": "yard",
+          "location": "landing",
+          "slots": {},
+          "incorporated": [
+            "sealed-ferry",
+            "broad-hull",
+            "broad-frame"
+          ],
+          "x": 52,
+          "y": 97
+        },
+        {
+          "id": "slim-layout",
+          "kind": "slim-layout",
+          "area": "reeds",
+          "location": null,
+          "slots": {},
+          "incorporated": [],
+          "x": 155,
+          "y": 146
+        },
+        {
+          "id": "skiff",
+          "kind": "skiff",
+          "area": "reeds",
+          "location": "reed-mouth",
+          "slots": {},
+          "incorporated": [
+            "sealed-skiff",
+            "slim-hull",
+            "slim-frame"
+          ],
+          "x": 52,
+          "y": 97
+        }
+      ],
+      "discovered": [
+        "timber",
+        "cord",
+        "adze",
+        "pitch",
+        "brush",
+        "poles",
+        "cart",
+        "broad-layout",
+        "broad-frame",
+        "broad-hull",
+        "caulking-brush",
+        "sealed-ferry",
+        "ferry",
+        "slim-layout",
+        "slim-frame",
+        "slim-hull",
+        "sealed-skiff",
+        "skiff"
+      ],
+      "recipesUsed": [
+        "measure-cart",
+        "assemble-ferry",
+        "shape-ferry",
+        "prepare-pitch",
+        "seal-ferry",
+        "fit-ferry",
+        "measure-passage",
+        "assemble-skiff",
+        "shape-skiff",
+        "seal-skiff",
+        "fit-skiff"
+      ],
+      "openedCaches": [],
+      "width": 360,
+      "metrics": {
+        "attempts": 15,
+        "accepted": 15,
+        "combinations": 11,
+        "creations": 11,
+        "installations": 0,
+        "moves": 0,
+        "placements": 2,
+        "advances": 2,
+        "visits": 0
+      },
+      "completed": true
+    },
+    "history": [
+      {
+        "stage": 0,
+        "currentArea": "yard",
+        "areas": [
+          {
+            "id": "yard",
+            "label": "Creek boatyard",
+            "enteredAtStage": 0
+          }
+        ],
+        "places": [
+          {
+            "id": "landing",
+            "area": "yard",
+            "x": 52,
+            "y": 81
+          }
+        ],
+        "tokens": [
+          {
+            "id": "timber",
+            "kind": "timber",
+            "area": "yard",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 252,
+            "y": 56
+          },
+          {
+            "id": "cord",
+            "kind": "cord",
+            "area": "yard",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 252,
+            "y": 106
+          },
+          {
+            "id": "adze",
+            "kind": "adze",
+            "area": "yard",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 52,
+            "y": 156
+          },
+          {
+            "id": "pitch",
+            "kind": "pitch",
+            "area": "yard",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 152,
+            "y": 156
+          },
+          {
+            "id": "brush",
+            "kind": "brush",
+            "area": "yard",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 252,
+            "y": 156
+          },
+          {
+            "id": "poles",
+            "kind": "poles",
+            "area": "yard",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 52,
+            "y": 206
+          },
+          {
+            "id": "cart",
+            "kind": "cart",
+            "area": "yard",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 152,
+            "y": 206
+          }
+        ],
+        "discovered": [
+          "timber",
+          "cord",
+          "adze",
+          "pitch",
+          "brush",
+          "poles",
+          "cart"
+        ],
+        "recipesUsed": [],
+        "openedCaches": [],
+        "width": 360,
+        "metrics": {
+          "attempts": 0,
+          "accepted": 0,
+          "combinations": 0,
+          "creations": 0,
+          "installations": 0,
+          "moves": 0,
+          "placements": 0,
+          "advances": 0,
+          "visits": 0
+        },
+        "completed": false
+      },
+      {
+        "stage": 0,
+        "currentArea": "yard",
+        "areas": [
+          {
+            "id": "yard",
+            "label": "Creek boatyard",
+            "enteredAtStage": 0
+          }
+        ],
+        "places": [
+          {
+            "id": "landing",
+            "area": "yard",
+            "x": 52,
+            "y": 81
+          }
+        ],
+        "tokens": [
+          {
+            "id": "timber",
+            "kind": "timber",
+            "area": "yard",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 252,
+            "y": 56
+          },
+          {
+            "id": "cord",
+            "kind": "cord",
+            "area": "yard",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 252,
+            "y": 106
+          },
+          {
+            "id": "adze",
+            "kind": "adze",
+            "area": "yard",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 52,
+            "y": 156
+          },
+          {
+            "id": "pitch",
+            "kind": "pitch",
+            "area": "yard",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 152,
+            "y": 156
+          },
+          {
+            "id": "brush",
+            "kind": "brush",
+            "area": "yard",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 252,
+            "y": 156
+          },
+          {
+            "id": "poles",
+            "kind": "poles",
+            "area": "yard",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 52,
+            "y": 206
+          },
+          {
+            "id": "cart",
+            "kind": "cart",
+            "area": "yard",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 152,
+            "y": 206
+          },
+          {
+            "id": "broad-layout",
+            "kind": "broad-layout",
+            "area": "yard",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 250,
+            "y": 252
+          }
+        ],
+        "discovered": [
+          "timber",
+          "cord",
+          "adze",
+          "pitch",
+          "brush",
+          "poles",
+          "cart",
+          "broad-layout"
+        ],
+        "recipesUsed": [
+          "measure-cart"
+        ],
+        "openedCaches": [],
+        "width": 360,
+        "metrics": {
+          "attempts": 1,
+          "accepted": 1,
+          "combinations": 1,
+          "creations": 1,
+          "installations": 0,
+          "moves": 0,
+          "placements": 0,
+          "advances": 0,
+          "visits": 0
+        },
+        "completed": false
+      },
+      {
+        "stage": 0,
+        "currentArea": "yard",
+        "areas": [
+          {
+            "id": "yard",
+            "label": "Creek boatyard",
+            "enteredAtStage": 0
+          }
+        ],
+        "places": [
+          {
+            "id": "landing",
+            "area": "yard",
+            "x": 52,
+            "y": 81
+          }
+        ],
+        "tokens": [
+          {
+            "id": "timber",
+            "kind": "timber",
+            "area": "yard",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 252,
+            "y": 56
+          },
+          {
+            "id": "cord",
+            "kind": "cord",
+            "area": "yard",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 252,
+            "y": 106
+          },
+          {
+            "id": "adze",
+            "kind": "adze",
+            "area": "yard",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 52,
+            "y": 156
+          },
+          {
+            "id": "pitch",
+            "kind": "pitch",
+            "area": "yard",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 152,
+            "y": 156
+          },
+          {
+            "id": "brush",
+            "kind": "brush",
+            "area": "yard",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 252,
+            "y": 156
+          },
+          {
+            "id": "poles",
+            "kind": "poles",
+            "area": "yard",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 52,
+            "y": 206
+          },
+          {
+            "id": "cart",
+            "kind": "cart",
+            "area": "yard",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 152,
+            "y": 206
+          },
+          {
+            "id": "broad-layout",
+            "kind": "broad-layout",
+            "area": "yard",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 250,
+            "y": 252
+          },
+          {
+            "id": "broad-frame",
+            "kind": "broad-frame",
+            "area": "yard",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 154,
+            "y": 102
+          }
+        ],
+        "discovered": [
+          "timber",
+          "cord",
+          "adze",
+          "pitch",
+          "brush",
+          "poles",
+          "cart",
+          "broad-layout",
+          "broad-frame"
+        ],
+        "recipesUsed": [
+          "measure-cart",
+          "assemble-ferry"
+        ],
+        "openedCaches": [],
+        "width": 360,
+        "metrics": {
+          "attempts": 2,
+          "accepted": 2,
+          "combinations": 2,
+          "creations": 2,
+          "installations": 0,
+          "moves": 0,
+          "placements": 0,
+          "advances": 0,
+          "visits": 0
+        },
+        "completed": false
+      },
+      {
+        "stage": 0,
+        "currentArea": "yard",
+        "areas": [
+          {
+            "id": "yard",
+            "label": "Creek boatyard",
+            "enteredAtStage": 0
+          }
+        ],
+        "places": [
+          {
+            "id": "landing",
+            "area": "yard",
+            "x": 52,
+            "y": 81
+          }
+        ],
+        "tokens": [
+          {
+            "id": "timber",
+            "kind": "timber",
+            "area": "yard",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 252,
+            "y": 56
+          },
+          {
+            "id": "cord",
+            "kind": "cord",
+            "area": "yard",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 252,
+            "y": 106
+          },
+          {
+            "id": "adze",
+            "kind": "adze",
+            "area": "yard",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 52,
+            "y": 156
+          },
+          {
+            "id": "pitch",
+            "kind": "pitch",
+            "area": "yard",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 152,
+            "y": 156
+          },
+          {
+            "id": "brush",
+            "kind": "brush",
+            "area": "yard",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 252,
+            "y": 156
+          },
+          {
+            "id": "poles",
+            "kind": "poles",
+            "area": "yard",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 52,
+            "y": 206
+          },
+          {
+            "id": "cart",
+            "kind": "cart",
+            "area": "yard",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 152,
+            "y": 206
+          },
+          {
+            "id": "broad-layout",
+            "kind": "broad-layout",
+            "area": "yard",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 250,
+            "y": 252
+          },
+          {
+            "id": "broad-hull",
+            "kind": "broad-hull",
+            "area": "yard",
+            "location": null,
+            "slots": {},
+            "incorporated": [
+              "broad-frame"
+            ],
+            "x": 154,
+            "y": 56
+          }
+        ],
+        "discovered": [
+          "timber",
+          "cord",
+          "adze",
+          "pitch",
+          "brush",
+          "poles",
+          "cart",
+          "broad-layout",
+          "broad-frame",
+          "broad-hull"
+        ],
+        "recipesUsed": [
+          "measure-cart",
+          "assemble-ferry",
+          "shape-ferry"
+        ],
+        "openedCaches": [],
+        "width": 360,
+        "metrics": {
+          "attempts": 3,
+          "accepted": 3,
+          "combinations": 3,
+          "creations": 3,
+          "installations": 0,
+          "moves": 0,
+          "placements": 0,
+          "advances": 0,
+          "visits": 0
+        },
+        "completed": false
+      },
+      {
+        "stage": 0,
+        "currentArea": "yard",
+        "areas": [
+          {
+            "id": "yard",
+            "label": "Creek boatyard",
+            "enteredAtStage": 0
+          }
+        ],
+        "places": [
+          {
+            "id": "landing",
+            "area": "yard",
+            "x": 52,
+            "y": 81
+          }
+        ],
+        "tokens": [
+          {
+            "id": "timber",
+            "kind": "timber",
+            "area": "yard",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 252,
+            "y": 56
+          },
+          {
+            "id": "cord",
+            "kind": "cord",
+            "area": "yard",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 252,
+            "y": 106
+          },
+          {
+            "id": "adze",
+            "kind": "adze",
+            "area": "yard",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 52,
+            "y": 156
+          },
+          {
+            "id": "pitch",
+            "kind": "pitch",
+            "area": "yard",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 152,
+            "y": 156
+          },
+          {
+            "id": "brush",
+            "kind": "brush",
+            "area": "yard",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 252,
+            "y": 156
+          },
+          {
+            "id": "poles",
+            "kind": "poles",
+            "area": "yard",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 52,
+            "y": 206
+          },
+          {
+            "id": "cart",
+            "kind": "cart",
+            "area": "yard",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 152,
+            "y": 206
+          },
+          {
+            "id": "broad-layout",
+            "kind": "broad-layout",
+            "area": "yard",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 250,
+            "y": 252
+          },
+          {
+            "id": "broad-hull",
+            "kind": "broad-hull",
+            "area": "yard",
+            "location": null,
+            "slots": {},
+            "incorporated": [
+              "broad-frame"
+            ],
+            "x": 154,
+            "y": 56
+          },
+          {
+            "id": "caulking-brush",
+            "kind": "caulking-brush",
+            "area": "yard",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 250,
+            "y": 202
+          }
+        ],
+        "discovered": [
+          "timber",
+          "cord",
+          "adze",
+          "pitch",
+          "brush",
+          "poles",
+          "cart",
+          "broad-layout",
+          "broad-frame",
+          "broad-hull",
+          "caulking-brush"
+        ],
+        "recipesUsed": [
+          "measure-cart",
+          "assemble-ferry",
+          "shape-ferry",
+          "prepare-pitch"
+        ],
+        "openedCaches": [],
+        "width": 360,
+        "metrics": {
+          "attempts": 4,
+          "accepted": 4,
+          "combinations": 4,
+          "creations": 4,
+          "installations": 0,
+          "moves": 0,
+          "placements": 0,
+          "advances": 0,
+          "visits": 0
+        },
+        "completed": false
+      },
+      {
+        "stage": 0,
+        "currentArea": "yard",
+        "areas": [
+          {
+            "id": "yard",
+            "label": "Creek boatyard",
+            "enteredAtStage": 0
+          }
+        ],
+        "places": [
+          {
+            "id": "landing",
+            "area": "yard",
+            "x": 52,
+            "y": 81
+          }
+        ],
+        "tokens": [
+          {
+            "id": "timber",
+            "kind": "timber",
+            "area": "yard",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 252,
+            "y": 56
+          },
+          {
+            "id": "cord",
+            "kind": "cord",
+            "area": "yard",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 252,
+            "y": 106
+          },
+          {
+            "id": "adze",
+            "kind": "adze",
+            "area": "yard",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 52,
+            "y": 156
+          },
+          {
+            "id": "pitch",
+            "kind": "pitch",
+            "area": "yard",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 152,
+            "y": 156
+          },
+          {
+            "id": "brush",
+            "kind": "brush",
+            "area": "yard",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 252,
+            "y": 156
+          },
+          {
+            "id": "poles",
+            "kind": "poles",
+            "area": "yard",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 52,
+            "y": 206
+          },
+          {
+            "id": "cart",
+            "kind": "cart",
+            "area": "yard",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 152,
+            "y": 206
+          },
+          {
+            "id": "broad-layout",
+            "kind": "broad-layout",
+            "area": "yard",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 250,
+            "y": 252
+          },
+          {
+            "id": "caulking-brush",
+            "kind": "caulking-brush",
+            "area": "yard",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 250,
+            "y": 202
+          },
+          {
+            "id": "sealed-ferry",
+            "kind": "sealed-ferry",
+            "area": "yard",
+            "location": null,
+            "slots": {},
+            "incorporated": [
+              "broad-hull",
+              "broad-frame"
+            ],
+            "x": 154,
+            "y": 102
+          }
+        ],
+        "discovered": [
+          "timber",
+          "cord",
+          "adze",
+          "pitch",
+          "brush",
+          "poles",
+          "cart",
+          "broad-layout",
+          "broad-frame",
+          "broad-hull",
+          "caulking-brush",
+          "sealed-ferry"
+        ],
+        "recipesUsed": [
+          "measure-cart",
+          "assemble-ferry",
+          "shape-ferry",
+          "prepare-pitch",
+          "seal-ferry"
+        ],
+        "openedCaches": [],
+        "width": 360,
+        "metrics": {
+          "attempts": 5,
+          "accepted": 5,
+          "combinations": 5,
+          "creations": 5,
+          "installations": 0,
+          "moves": 0,
+          "placements": 0,
+          "advances": 0,
+          "visits": 0
+        },
+        "completed": false
+      },
+      {
+        "stage": 0,
+        "currentArea": "yard",
+        "areas": [
+          {
+            "id": "yard",
+            "label": "Creek boatyard",
+            "enteredAtStage": 0
+          }
+        ],
+        "places": [
+          {
+            "id": "landing",
+            "area": "yard",
+            "x": 52,
+            "y": 81
+          }
+        ],
+        "tokens": [
+          {
+            "id": "timber",
+            "kind": "timber",
+            "area": "yard",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 252,
+            "y": 56
+          },
+          {
+            "id": "cord",
+            "kind": "cord",
+            "area": "yard",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 252,
+            "y": 106
+          },
+          {
+            "id": "adze",
+            "kind": "adze",
+            "area": "yard",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 52,
+            "y": 156
+          },
+          {
+            "id": "pitch",
+            "kind": "pitch",
+            "area": "yard",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 152,
+            "y": 156
+          },
+          {
+            "id": "brush",
+            "kind": "brush",
+            "area": "yard",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 252,
+            "y": 156
+          },
+          {
+            "id": "poles",
+            "kind": "poles",
+            "area": "yard",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 52,
+            "y": 206
+          },
+          {
+            "id": "cart",
+            "kind": "cart",
+            "area": "yard",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 152,
+            "y": 206
+          },
+          {
+            "id": "broad-layout",
+            "kind": "broad-layout",
+            "area": "yard",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 250,
+            "y": 252
+          },
+          {
+            "id": "caulking-brush",
+            "kind": "caulking-brush",
+            "area": "yard",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 250,
+            "y": 202
+          },
+          {
+            "id": "ferry",
+            "kind": "ferry",
+            "area": "yard",
+            "location": null,
+            "slots": {},
+            "incorporated": [
+              "sealed-ferry",
+              "broad-hull",
+              "broad-frame"
+            ],
+            "x": 154,
+            "y": 56
+          }
+        ],
+        "discovered": [
+          "timber",
+          "cord",
+          "adze",
+          "pitch",
+          "brush",
+          "poles",
+          "cart",
+          "broad-layout",
+          "broad-frame",
+          "broad-hull",
+          "caulking-brush",
+          "sealed-ferry",
+          "ferry"
+        ],
+        "recipesUsed": [
+          "measure-cart",
+          "assemble-ferry",
+          "shape-ferry",
+          "prepare-pitch",
+          "seal-ferry",
+          "fit-ferry"
+        ],
+        "openedCaches": [],
+        "width": 360,
+        "metrics": {
+          "attempts": 6,
+          "accepted": 6,
+          "combinations": 6,
+          "creations": 6,
+          "installations": 0,
+          "moves": 0,
+          "placements": 0,
+          "advances": 0,
+          "visits": 0
+        },
+        "completed": false
+      },
+      {
+        "stage": 0,
+        "currentArea": "yard",
+        "areas": [
+          {
+            "id": "yard",
+            "label": "Creek boatyard",
+            "enteredAtStage": 0
+          }
+        ],
+        "places": [
+          {
+            "id": "landing",
+            "area": "yard",
+            "x": 52,
+            "y": 81
+          }
+        ],
+        "tokens": [
+          {
+            "id": "timber",
+            "kind": "timber",
+            "area": "yard",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 252,
+            "y": 56
+          },
+          {
+            "id": "cord",
+            "kind": "cord",
+            "area": "yard",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 252,
+            "y": 106
+          },
+          {
+            "id": "adze",
+            "kind": "adze",
+            "area": "yard",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 52,
+            "y": 156
+          },
+          {
+            "id": "pitch",
+            "kind": "pitch",
+            "area": "yard",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 152,
+            "y": 156
+          },
+          {
+            "id": "brush",
+            "kind": "brush",
+            "area": "yard",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 252,
+            "y": 156
+          },
+          {
+            "id": "poles",
+            "kind": "poles",
+            "area": "yard",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 52,
+            "y": 206
+          },
+          {
+            "id": "cart",
+            "kind": "cart",
+            "area": "yard",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 152,
+            "y": 206
+          },
+          {
+            "id": "broad-layout",
+            "kind": "broad-layout",
+            "area": "yard",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 250,
+            "y": 252
+          },
+          {
+            "id": "caulking-brush",
+            "kind": "caulking-brush",
+            "area": "yard",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 250,
+            "y": 202
+          },
+          {
+            "id": "ferry",
+            "kind": "ferry",
+            "area": "yard",
+            "location": "landing",
+            "slots": {},
+            "incorporated": [
+              "sealed-ferry",
+              "broad-hull",
+              "broad-frame"
+            ],
+            "x": 52,
+            "y": 97
+          }
+        ],
+        "discovered": [
+          "timber",
+          "cord",
+          "adze",
+          "pitch",
+          "brush",
+          "poles",
+          "cart",
+          "broad-layout",
+          "broad-frame",
+          "broad-hull",
+          "caulking-brush",
+          "sealed-ferry",
+          "ferry"
+        ],
+        "recipesUsed": [
+          "measure-cart",
+          "assemble-ferry",
+          "shape-ferry",
+          "prepare-pitch",
+          "seal-ferry",
+          "fit-ferry"
+        ],
+        "openedCaches": [],
+        "width": 360,
+        "metrics": {
+          "attempts": 7,
+          "accepted": 7,
+          "combinations": 6,
+          "creations": 6,
+          "installations": 0,
+          "moves": 0,
+          "placements": 1,
+          "advances": 0,
+          "visits": 0
+        },
+        "completed": false
+      },
+      {
+        "stage": 1,
+        "currentArea": "reeds",
+        "areas": [
+          {
+            "id": "yard",
+            "label": "Creek boatyard",
+            "enteredAtStage": 0
+          },
+          {
+            "id": "reeds",
+            "label": "Beside the reeds",
+            "enteredAtStage": 1
+          }
+        ],
+        "places": [
+          {
+            "id": "landing",
+            "area": "yard",
+            "x": 52,
+            "y": 81
+          },
+          {
+            "id": "reed-mouth",
+            "area": "reeds",
+            "x": 52,
+            "y": 81
+          }
+        ],
+        "tokens": [
+          {
+            "id": "timber",
+            "kind": "timber",
+            "area": "reeds",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 252,
+            "y": 56
+          },
+          {
+            "id": "cord",
+            "kind": "cord",
+            "area": "reeds",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 252,
+            "y": 106
+          },
+          {
+            "id": "adze",
+            "kind": "adze",
+            "area": "reeds",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 52,
+            "y": 156
+          },
+          {
+            "id": "pitch",
+            "kind": "pitch",
+            "area": "yard",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 152,
+            "y": 156
+          },
+          {
+            "id": "brush",
+            "kind": "brush",
+            "area": "yard",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 252,
+            "y": 156
+          },
+          {
+            "id": "poles",
+            "kind": "poles",
+            "area": "reeds",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 52,
+            "y": 206
+          },
+          {
+            "id": "cart",
+            "kind": "cart",
+            "area": "yard",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 152,
+            "y": 206
+          },
+          {
+            "id": "broad-layout",
+            "kind": "broad-layout",
+            "area": "yard",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 250,
+            "y": 252
+          },
+          {
+            "id": "caulking-brush",
+            "kind": "caulking-brush",
+            "area": "reeds",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 250,
+            "y": 202
+          },
+          {
+            "id": "ferry",
+            "kind": "ferry",
+            "area": "yard",
+            "location": "landing",
+            "slots": {},
+            "incorporated": [
+              "sealed-ferry",
+              "broad-hull",
+              "broad-frame"
+            ],
+            "x": 52,
+            "y": 97
+          }
+        ],
+        "discovered": [
+          "timber",
+          "cord",
+          "adze",
+          "pitch",
+          "brush",
+          "poles",
+          "cart",
+          "broad-layout",
+          "broad-frame",
+          "broad-hull",
+          "caulking-brush",
+          "sealed-ferry",
+          "ferry"
+        ],
+        "recipesUsed": [
+          "measure-cart",
+          "assemble-ferry",
+          "shape-ferry",
+          "prepare-pitch",
+          "seal-ferry",
+          "fit-ferry"
+        ],
+        "openedCaches": [],
+        "width": 360,
+        "metrics": {
+          "attempts": 8,
+          "accepted": 8,
+          "combinations": 6,
+          "creations": 6,
+          "installations": 0,
+          "moves": 0,
+          "placements": 1,
+          "advances": 1,
+          "visits": 0
+        },
+        "completed": false
+      },
+      {
+        "stage": 1,
+        "currentArea": "reeds",
+        "areas": [
+          {
+            "id": "yard",
+            "label": "Creek boatyard",
+            "enteredAtStage": 0
+          },
+          {
+            "id": "reeds",
+            "label": "Beside the reeds",
+            "enteredAtStage": 1
+          }
+        ],
+        "places": [
+          {
+            "id": "landing",
+            "area": "yard",
+            "x": 52,
+            "y": 81
+          },
+          {
+            "id": "reed-mouth",
+            "area": "reeds",
+            "x": 52,
+            "y": 81
+          }
+        ],
+        "tokens": [
+          {
+            "id": "timber",
+            "kind": "timber",
+            "area": "reeds",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 252,
+            "y": 56
+          },
+          {
+            "id": "cord",
+            "kind": "cord",
+            "area": "reeds",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 252,
+            "y": 106
+          },
+          {
+            "id": "adze",
+            "kind": "adze",
+            "area": "reeds",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 52,
+            "y": 156
+          },
+          {
+            "id": "pitch",
+            "kind": "pitch",
+            "area": "yard",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 152,
+            "y": 156
+          },
+          {
+            "id": "brush",
+            "kind": "brush",
+            "area": "yard",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 252,
+            "y": 156
+          },
+          {
+            "id": "poles",
+            "kind": "poles",
+            "area": "reeds",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 52,
+            "y": 206
+          },
+          {
+            "id": "cart",
+            "kind": "cart",
+            "area": "yard",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 152,
+            "y": 206
+          },
+          {
+            "id": "broad-layout",
+            "kind": "broad-layout",
+            "area": "yard",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 250,
+            "y": 252
+          },
+          {
+            "id": "caulking-brush",
+            "kind": "caulking-brush",
+            "area": "reeds",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 250,
+            "y": 202
+          },
+          {
+            "id": "ferry",
+            "kind": "ferry",
+            "area": "yard",
+            "location": "landing",
+            "slots": {},
+            "incorporated": [
+              "sealed-ferry",
+              "broad-hull",
+              "broad-frame"
+            ],
+            "x": 52,
+            "y": 97
+          },
+          {
+            "id": "slim-layout",
+            "kind": "slim-layout",
+            "area": "reeds",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 155,
+            "y": 146
+          }
+        ],
+        "discovered": [
+          "timber",
+          "cord",
+          "adze",
+          "pitch",
+          "brush",
+          "poles",
+          "cart",
+          "broad-layout",
+          "broad-frame",
+          "broad-hull",
+          "caulking-brush",
+          "sealed-ferry",
+          "ferry",
+          "slim-layout"
+        ],
+        "recipesUsed": [
+          "measure-cart",
+          "assemble-ferry",
+          "shape-ferry",
+          "prepare-pitch",
+          "seal-ferry",
+          "fit-ferry",
+          "measure-passage"
+        ],
+        "openedCaches": [],
+        "width": 360,
+        "metrics": {
+          "attempts": 9,
+          "accepted": 9,
+          "combinations": 7,
+          "creations": 7,
+          "installations": 0,
+          "moves": 0,
+          "placements": 1,
+          "advances": 1,
+          "visits": 0
+        },
+        "completed": false
+      },
+      {
+        "stage": 1,
+        "currentArea": "reeds",
+        "areas": [
+          {
+            "id": "yard",
+            "label": "Creek boatyard",
+            "enteredAtStage": 0
+          },
+          {
+            "id": "reeds",
+            "label": "Beside the reeds",
+            "enteredAtStage": 1
+          }
+        ],
+        "places": [
+          {
+            "id": "landing",
+            "area": "yard",
+            "x": 52,
+            "y": 81
+          },
+          {
+            "id": "reed-mouth",
+            "area": "reeds",
+            "x": 52,
+            "y": 81
+          }
+        ],
+        "tokens": [
+          {
+            "id": "timber",
+            "kind": "timber",
+            "area": "reeds",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 252,
+            "y": 56
+          },
+          {
+            "id": "cord",
+            "kind": "cord",
+            "area": "reeds",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 252,
+            "y": 106
+          },
+          {
+            "id": "adze",
+            "kind": "adze",
+            "area": "reeds",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 52,
+            "y": 156
+          },
+          {
+            "id": "pitch",
+            "kind": "pitch",
+            "area": "yard",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 152,
+            "y": 156
+          },
+          {
+            "id": "brush",
+            "kind": "brush",
+            "area": "yard",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 252,
+            "y": 156
+          },
+          {
+            "id": "poles",
+            "kind": "poles",
+            "area": "reeds",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 52,
+            "y": 206
+          },
+          {
+            "id": "cart",
+            "kind": "cart",
+            "area": "yard",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 152,
+            "y": 206
+          },
+          {
+            "id": "broad-layout",
+            "kind": "broad-layout",
+            "area": "yard",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 250,
+            "y": 252
+          },
+          {
+            "id": "caulking-brush",
+            "kind": "caulking-brush",
+            "area": "reeds",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 250,
+            "y": 202
+          },
+          {
+            "id": "ferry",
+            "kind": "ferry",
+            "area": "yard",
+            "location": "landing",
+            "slots": {},
+            "incorporated": [
+              "sealed-ferry",
+              "broad-hull",
+              "broad-frame"
+            ],
+            "x": 52,
+            "y": 97
+          },
+          {
+            "id": "slim-layout",
+            "kind": "slim-layout",
+            "area": "reeds",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 155,
+            "y": 146
+          },
+          {
+            "id": "slim-frame",
+            "kind": "slim-frame",
+            "area": "reeds",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 154,
+            "y": 102
+          }
+        ],
+        "discovered": [
+          "timber",
+          "cord",
+          "adze",
+          "pitch",
+          "brush",
+          "poles",
+          "cart",
+          "broad-layout",
+          "broad-frame",
+          "broad-hull",
+          "caulking-brush",
+          "sealed-ferry",
+          "ferry",
+          "slim-layout",
+          "slim-frame"
+        ],
+        "recipesUsed": [
+          "measure-cart",
+          "assemble-ferry",
+          "shape-ferry",
+          "prepare-pitch",
+          "seal-ferry",
+          "fit-ferry",
+          "measure-passage",
+          "assemble-skiff"
+        ],
+        "openedCaches": [],
+        "width": 360,
+        "metrics": {
+          "attempts": 10,
+          "accepted": 10,
+          "combinations": 8,
+          "creations": 8,
+          "installations": 0,
+          "moves": 0,
+          "placements": 1,
+          "advances": 1,
+          "visits": 0
+        },
+        "completed": false
+      },
+      {
+        "stage": 1,
+        "currentArea": "reeds",
+        "areas": [
+          {
+            "id": "yard",
+            "label": "Creek boatyard",
+            "enteredAtStage": 0
+          },
+          {
+            "id": "reeds",
+            "label": "Beside the reeds",
+            "enteredAtStage": 1
+          }
+        ],
+        "places": [
+          {
+            "id": "landing",
+            "area": "yard",
+            "x": 52,
+            "y": 81
+          },
+          {
+            "id": "reed-mouth",
+            "area": "reeds",
+            "x": 52,
+            "y": 81
+          }
+        ],
+        "tokens": [
+          {
+            "id": "timber",
+            "kind": "timber",
+            "area": "reeds",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 252,
+            "y": 56
+          },
+          {
+            "id": "cord",
+            "kind": "cord",
+            "area": "reeds",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 252,
+            "y": 106
+          },
+          {
+            "id": "adze",
+            "kind": "adze",
+            "area": "reeds",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 52,
+            "y": 156
+          },
+          {
+            "id": "pitch",
+            "kind": "pitch",
+            "area": "yard",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 152,
+            "y": 156
+          },
+          {
+            "id": "brush",
+            "kind": "brush",
+            "area": "yard",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 252,
+            "y": 156
+          },
+          {
+            "id": "poles",
+            "kind": "poles",
+            "area": "reeds",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 52,
+            "y": 206
+          },
+          {
+            "id": "cart",
+            "kind": "cart",
+            "area": "yard",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 152,
+            "y": 206
+          },
+          {
+            "id": "broad-layout",
+            "kind": "broad-layout",
+            "area": "yard",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 250,
+            "y": 252
+          },
+          {
+            "id": "caulking-brush",
+            "kind": "caulking-brush",
+            "area": "reeds",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 250,
+            "y": 202
+          },
+          {
+            "id": "ferry",
+            "kind": "ferry",
+            "area": "yard",
+            "location": "landing",
+            "slots": {},
+            "incorporated": [
+              "sealed-ferry",
+              "broad-hull",
+              "broad-frame"
+            ],
+            "x": 52,
+            "y": 97
+          },
+          {
+            "id": "slim-layout",
+            "kind": "slim-layout",
+            "area": "reeds",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 155,
+            "y": 146
+          },
+          {
+            "id": "slim-hull",
+            "kind": "slim-hull",
+            "area": "reeds",
+            "location": null,
+            "slots": {},
+            "incorporated": [
+              "slim-frame"
+            ],
+            "x": 154,
+            "y": 56
+          }
+        ],
+        "discovered": [
+          "timber",
+          "cord",
+          "adze",
+          "pitch",
+          "brush",
+          "poles",
+          "cart",
+          "broad-layout",
+          "broad-frame",
+          "broad-hull",
+          "caulking-brush",
+          "sealed-ferry",
+          "ferry",
+          "slim-layout",
+          "slim-frame",
+          "slim-hull"
+        ],
+        "recipesUsed": [
+          "measure-cart",
+          "assemble-ferry",
+          "shape-ferry",
+          "prepare-pitch",
+          "seal-ferry",
+          "fit-ferry",
+          "measure-passage",
+          "assemble-skiff",
+          "shape-skiff"
+        ],
+        "openedCaches": [],
+        "width": 360,
+        "metrics": {
+          "attempts": 11,
+          "accepted": 11,
+          "combinations": 9,
+          "creations": 9,
+          "installations": 0,
+          "moves": 0,
+          "placements": 1,
+          "advances": 1,
+          "visits": 0
+        },
+        "completed": false
+      },
+      {
+        "stage": 1,
+        "currentArea": "reeds",
+        "areas": [
+          {
+            "id": "yard",
+            "label": "Creek boatyard",
+            "enteredAtStage": 0
+          },
+          {
+            "id": "reeds",
+            "label": "Beside the reeds",
+            "enteredAtStage": 1
+          }
+        ],
+        "places": [
+          {
+            "id": "landing",
+            "area": "yard",
+            "x": 52,
+            "y": 81
+          },
+          {
+            "id": "reed-mouth",
+            "area": "reeds",
+            "x": 52,
+            "y": 81
+          }
+        ],
+        "tokens": [
+          {
+            "id": "timber",
+            "kind": "timber",
+            "area": "reeds",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 252,
+            "y": 56
+          },
+          {
+            "id": "cord",
+            "kind": "cord",
+            "area": "reeds",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 252,
+            "y": 106
+          },
+          {
+            "id": "adze",
+            "kind": "adze",
+            "area": "reeds",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 52,
+            "y": 156
+          },
+          {
+            "id": "pitch",
+            "kind": "pitch",
+            "area": "yard",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 152,
+            "y": 156
+          },
+          {
+            "id": "brush",
+            "kind": "brush",
+            "area": "yard",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 252,
+            "y": 156
+          },
+          {
+            "id": "poles",
+            "kind": "poles",
+            "area": "reeds",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 52,
+            "y": 206
+          },
+          {
+            "id": "cart",
+            "kind": "cart",
+            "area": "yard",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 152,
+            "y": 206
+          },
+          {
+            "id": "broad-layout",
+            "kind": "broad-layout",
+            "area": "yard",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 250,
+            "y": 252
+          },
+          {
+            "id": "caulking-brush",
+            "kind": "caulking-brush",
+            "area": "reeds",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 250,
+            "y": 202
+          },
+          {
+            "id": "ferry",
+            "kind": "ferry",
+            "area": "yard",
+            "location": "landing",
+            "slots": {},
+            "incorporated": [
+              "sealed-ferry",
+              "broad-hull",
+              "broad-frame"
+            ],
+            "x": 52,
+            "y": 97
+          },
+          {
+            "id": "slim-layout",
+            "kind": "slim-layout",
+            "area": "reeds",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 155,
+            "y": 146
+          },
+          {
+            "id": "sealed-skiff",
+            "kind": "sealed-skiff",
+            "area": "reeds",
+            "location": null,
+            "slots": {},
+            "incorporated": [
+              "slim-hull",
+              "slim-frame"
+            ],
+            "x": 154,
+            "y": 102
+          }
+        ],
+        "discovered": [
+          "timber",
+          "cord",
+          "adze",
+          "pitch",
+          "brush",
+          "poles",
+          "cart",
+          "broad-layout",
+          "broad-frame",
+          "broad-hull",
+          "caulking-brush",
+          "sealed-ferry",
+          "ferry",
+          "slim-layout",
+          "slim-frame",
+          "slim-hull",
+          "sealed-skiff"
+        ],
+        "recipesUsed": [
+          "measure-cart",
+          "assemble-ferry",
+          "shape-ferry",
+          "prepare-pitch",
+          "seal-ferry",
+          "fit-ferry",
+          "measure-passage",
+          "assemble-skiff",
+          "shape-skiff",
+          "seal-skiff"
+        ],
+        "openedCaches": [],
+        "width": 360,
+        "metrics": {
+          "attempts": 12,
+          "accepted": 12,
+          "combinations": 10,
+          "creations": 10,
+          "installations": 0,
+          "moves": 0,
+          "placements": 1,
+          "advances": 1,
+          "visits": 0
+        },
+        "completed": false
+      },
+      {
+        "stage": 1,
+        "currentArea": "reeds",
+        "areas": [
+          {
+            "id": "yard",
+            "label": "Creek boatyard",
+            "enteredAtStage": 0
+          },
+          {
+            "id": "reeds",
+            "label": "Beside the reeds",
+            "enteredAtStage": 1
+          }
+        ],
+        "places": [
+          {
+            "id": "landing",
+            "area": "yard",
+            "x": 52,
+            "y": 81
+          },
+          {
+            "id": "reed-mouth",
+            "area": "reeds",
+            "x": 52,
+            "y": 81
+          }
+        ],
+        "tokens": [
+          {
+            "id": "timber",
+            "kind": "timber",
+            "area": "reeds",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 252,
+            "y": 56
+          },
+          {
+            "id": "cord",
+            "kind": "cord",
+            "area": "reeds",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 252,
+            "y": 106
+          },
+          {
+            "id": "adze",
+            "kind": "adze",
+            "area": "reeds",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 52,
+            "y": 156
+          },
+          {
+            "id": "pitch",
+            "kind": "pitch",
+            "area": "yard",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 152,
+            "y": 156
+          },
+          {
+            "id": "brush",
+            "kind": "brush",
+            "area": "yard",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 252,
+            "y": 156
+          },
+          {
+            "id": "poles",
+            "kind": "poles",
+            "area": "reeds",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 52,
+            "y": 206
+          },
+          {
+            "id": "cart",
+            "kind": "cart",
+            "area": "yard",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 152,
+            "y": 206
+          },
+          {
+            "id": "broad-layout",
+            "kind": "broad-layout",
+            "area": "yard",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 250,
+            "y": 252
+          },
+          {
+            "id": "caulking-brush",
+            "kind": "caulking-brush",
+            "area": "reeds",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 250,
+            "y": 202
+          },
+          {
+            "id": "ferry",
+            "kind": "ferry",
+            "area": "yard",
+            "location": "landing",
+            "slots": {},
+            "incorporated": [
+              "sealed-ferry",
+              "broad-hull",
+              "broad-frame"
+            ],
+            "x": 52,
+            "y": 97
+          },
+          {
+            "id": "slim-layout",
+            "kind": "slim-layout",
+            "area": "reeds",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 155,
+            "y": 146
+          },
+          {
+            "id": "skiff",
+            "kind": "skiff",
+            "area": "reeds",
+            "location": null,
+            "slots": {},
+            "incorporated": [
+              "sealed-skiff",
+              "slim-hull",
+              "slim-frame"
+            ],
+            "x": 154,
+            "y": 56
+          }
+        ],
+        "discovered": [
+          "timber",
+          "cord",
+          "adze",
+          "pitch",
+          "brush",
+          "poles",
+          "cart",
+          "broad-layout",
+          "broad-frame",
+          "broad-hull",
+          "caulking-brush",
+          "sealed-ferry",
+          "ferry",
+          "slim-layout",
+          "slim-frame",
+          "slim-hull",
+          "sealed-skiff",
+          "skiff"
+        ],
+        "recipesUsed": [
+          "measure-cart",
+          "assemble-ferry",
+          "shape-ferry",
+          "prepare-pitch",
+          "seal-ferry",
+          "fit-ferry",
+          "measure-passage",
+          "assemble-skiff",
+          "shape-skiff",
+          "seal-skiff",
+          "fit-skiff"
+        ],
+        "openedCaches": [],
+        "width": 360,
+        "metrics": {
+          "attempts": 13,
+          "accepted": 13,
+          "combinations": 11,
+          "creations": 11,
+          "installations": 0,
+          "moves": 0,
+          "placements": 1,
+          "advances": 1,
+          "visits": 0
+        },
+        "completed": false
+      },
+      {
+        "stage": 1,
+        "currentArea": "reeds",
+        "areas": [
+          {
+            "id": "yard",
+            "label": "Creek boatyard",
+            "enteredAtStage": 0
+          },
+          {
+            "id": "reeds",
+            "label": "Beside the reeds",
+            "enteredAtStage": 1
+          }
+        ],
+        "places": [
+          {
+            "id": "landing",
+            "area": "yard",
+            "x": 52,
+            "y": 81
+          },
+          {
+            "id": "reed-mouth",
+            "area": "reeds",
+            "x": 52,
+            "y": 81
+          }
+        ],
+        "tokens": [
+          {
+            "id": "timber",
+            "kind": "timber",
+            "area": "reeds",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 252,
+            "y": 56
+          },
+          {
+            "id": "cord",
+            "kind": "cord",
+            "area": "reeds",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 252,
+            "y": 106
+          },
+          {
+            "id": "adze",
+            "kind": "adze",
+            "area": "reeds",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 52,
+            "y": 156
+          },
+          {
+            "id": "pitch",
+            "kind": "pitch",
+            "area": "yard",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 152,
+            "y": 156
+          },
+          {
+            "id": "brush",
+            "kind": "brush",
+            "area": "yard",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 252,
+            "y": 156
+          },
+          {
+            "id": "poles",
+            "kind": "poles",
+            "area": "reeds",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 52,
+            "y": 206
+          },
+          {
+            "id": "cart",
+            "kind": "cart",
+            "area": "yard",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 152,
+            "y": 206
+          },
+          {
+            "id": "broad-layout",
+            "kind": "broad-layout",
+            "area": "yard",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 250,
+            "y": 252
+          },
+          {
+            "id": "caulking-brush",
+            "kind": "caulking-brush",
+            "area": "reeds",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 250,
+            "y": 202
+          },
+          {
+            "id": "ferry",
+            "kind": "ferry",
+            "area": "yard",
+            "location": "landing",
+            "slots": {},
+            "incorporated": [
+              "sealed-ferry",
+              "broad-hull",
+              "broad-frame"
+            ],
+            "x": 52,
+            "y": 97
+          },
+          {
+            "id": "slim-layout",
+            "kind": "slim-layout",
+            "area": "reeds",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 155,
+            "y": 146
+          },
+          {
+            "id": "skiff",
+            "kind": "skiff",
+            "area": "reeds",
+            "location": "reed-mouth",
+            "slots": {},
+            "incorporated": [
+              "sealed-skiff",
+              "slim-hull",
+              "slim-frame"
+            ],
+            "x": 52,
+            "y": 97
+          }
+        ],
+        "discovered": [
+          "timber",
+          "cord",
+          "adze",
+          "pitch",
+          "brush",
+          "poles",
+          "cart",
+          "broad-layout",
+          "broad-frame",
+          "broad-hull",
+          "caulking-brush",
+          "sealed-ferry",
+          "ferry",
+          "slim-layout",
+          "slim-frame",
+          "slim-hull",
+          "sealed-skiff",
+          "skiff"
+        ],
+        "recipesUsed": [
+          "measure-cart",
+          "assemble-ferry",
+          "shape-ferry",
+          "prepare-pitch",
+          "seal-ferry",
+          "fit-ferry",
+          "measure-passage",
+          "assemble-skiff",
+          "shape-skiff",
+          "seal-skiff",
+          "fit-skiff"
+        ],
+        "openedCaches": [],
+        "width": 360,
+        "metrics": {
+          "attempts": 14,
+          "accepted": 14,
+          "combinations": 11,
+          "creations": 11,
+          "installations": 0,
+          "moves": 0,
+          "placements": 2,
+          "advances": 1,
+          "visits": 0
+        },
+        "completed": false
+      }
+    ],
+    "events": [
+      {
+        "seq": 1,
+        "action": {
+          "type": "combine",
+          "a": "cord",
+          "b": "cart"
+        },
+        "accepted": true,
+        "message": "Broad layout. The builder measures the wheels and sketches a broad floor. The intended crossing guides the design; it does not magically reshape timber.",
+        "stage": 0,
+        "recipe": "measure-cart",
+        "created": "broad-layout"
+      },
+      {
+        "seq": 2,
+        "action": {
+          "type": "combine",
+          "a": "broad-layout",
+          "b": "timber"
+        },
+        "accepted": true,
+        "message": "Broad frame. Following the measured layout, the builder joins planks into a broad frame.",
+        "stage": 0,
+        "recipe": "assemble-ferry",
+        "created": "broad-frame"
+      },
+      {
+        "seq": 3,
+        "action": {
+          "type": "combine",
+          "a": "adze",
+          "b": "broad-frame"
+        },
+        "accepted": true,
+        "message": "Broad hull. The builder shapes the frame with the adze. Skilled work brings about the change.",
+        "stage": 0,
+        "recipe": "shape-ferry",
+        "created": "broad-hull",
+        "retired": [
+          "broad-frame"
+        ]
+      },
+      {
+        "seq": 4,
+        "action": {
+          "type": "combine",
+          "a": "brush",
+          "b": "pitch"
+        },
+        "accepted": true,
+        "message": "Pitch brush. The brush is loaded for sealing the seams.",
+        "stage": 0,
+        "recipe": "prepare-pitch",
+        "created": "caulking-brush"
+      },
+      {
+        "seq": 5,
+        "action": {
+          "type": "combine",
+          "a": "caulking-brush",
+          "b": "broad-hull"
+        },
+        "accepted": true,
+        "message": "Sealed ferry hull. The builder seals the broad hull. Keeping water out is necessary, but not sufficient, for carrying the cart.",
+        "stage": 0,
+        "recipe": "seal-ferry",
+        "created": "sealed-ferry",
+        "retired": [
+          "broad-hull"
+        ]
+      },
+      {
+        "seq": 6,
+        "action": {
+          "type": "combine",
+          "a": "poles",
+          "b": "sealed-ferry"
+        },
+        "accepted": true,
+        "message": "Pole ferry. The ferry is fitted with poles for the shallow crossing.",
+        "stage": 0,
+        "recipe": "fit-ferry",
+        "created": "ferry",
+        "retired": [
+          "sealed-ferry"
+        ]
+      },
+      {
+        "seq": 7,
+        "action": {
+          "type": "place",
+          "item": "ferry",
+          "location": "landing"
+        },
+        "accepted": true,
+        "message": "Placed.",
+        "stage": 0
+      },
+      {
+        "seq": 8,
+        "action": {
+          "type": "advance"
+        },
+        "accepted": true,
+        "message": "We bring the stock, measuring cord, adze, pitch brush and pole rack for the new job. The working ferry stays at the creek landing. We collect the things needed for this scene along the way.",
+        "stage": 1,
+        "transfers": [
+          {
+            "item": "timber",
+            "from": "yard",
+            "to": "reeds"
+          },
+          {
+            "item": "cord",
+            "from": "yard",
+            "to": "reeds"
+          },
+          {
+            "item": "adze",
+            "from": "yard",
+            "to": "reeds"
+          },
+          {
+            "item": "poles",
+            "from": "yard",
+            "to": "reeds"
+          },
+          {
+            "item": "caulking-brush",
+            "from": "yard",
+            "to": "reeds"
+          }
+        ]
+      },
+      {
+        "seq": 9,
+        "action": {
+          "type": "combine",
+          "a": "cord",
+          "b": "@reed-mouth"
+        },
+        "accepted": true,
+        "message": "Slim layout. The builder measures the gap and sketches a slim hull. Repeating the broad ferry would repeat the material and making, but miss this job.",
+        "stage": 1,
+        "recipe": "measure-passage",
+        "created": "slim-layout"
+      },
+      {
+        "seq": 10,
+        "action": {
+          "type": "combine",
+          "a": "slim-layout",
+          "b": "timber"
+        },
+        "accepted": true,
+        "message": "Slim frame. The same stock is assembled into a different, narrow frame.",
+        "stage": 1,
+        "recipe": "assemble-skiff",
+        "created": "slim-frame"
+      },
+      {
+        "seq": 11,
+        "action": {
+          "type": "combine",
+          "a": "adze",
+          "b": "slim-frame"
+        },
+        "accepted": true,
+        "message": "Slim hull. The builder shapes this frame with the same adze. A different end called for a different form, not a different kind of physical push.",
+        "stage": 1,
+        "recipe": "shape-skiff",
+        "created": "slim-hull",
+        "retired": [
+          "slim-frame"
+        ]
+      },
+      {
+        "seq": 12,
+        "action": {
+          "type": "combine",
+          "a": "caulking-brush",
+          "b": "slim-hull"
+        },
+        "accepted": true,
+        "message": "Sealed skiff hull. The slim hull is sealed for the rescue trip.",
+        "stage": 1,
+        "recipe": "seal-skiff",
+        "created": "sealed-skiff",
+        "retired": [
+          "slim-hull"
+        ]
+      },
+      {
+        "seq": 13,
+        "action": {
+          "type": "combine",
+          "a": "poles",
+          "b": "sealed-skiff"
+        },
+        "accepted": true,
+        "message": "Pole skiff. The skiff is fitted with poles to move through the shallow passage.",
+        "stage": 1,
+        "recipe": "fit-skiff",
+        "created": "skiff",
+        "retired": [
+          "sealed-skiff"
+        ]
+      },
+      {
+        "seq": 14,
+        "action": {
+          "type": "place",
+          "item": "skiff",
+          "location": "reed-mouth"
+        },
+        "accepted": true,
+        "message": "Placed.",
+        "stage": 1
+      },
+      {
+        "seq": 15,
+        "action": {
+          "type": "advance"
+        },
+        "accepted": true,
+        "message": "Journey complete.",
+        "stage": 1
+      }
+    ]
+  },
+  "closedAt": "2026-10-27T20:24:45.807Z",
+  "outcome": "finish",
+  "playerReport": "Completed without hints or rejected gestures. Measuring cargo for a broad ferry and measuring a passage for a slim skiff was the best contrast: same wood and tools, different purpose and arrangement. Build steps were legible, but the second assembly chain felt routine, with little choice or surprise. Launch feedback was only Placed; miller payoff arrived on advance, while rescue ended with Journey complete and still-present waiting-fisher text. I continued to see the second job and ending, not because recipes were uncertain. Beyond recipes, the story conveyed that material, skilled making, shape, and intended use explain different aspects of the boat, and a sound boat is not suitable for every task. Much of that was explicitly told in descriptions rather than discovered through consequences. Logical-interface impressions only, not human-fun evidence. No desire to replay the same path."
+}
