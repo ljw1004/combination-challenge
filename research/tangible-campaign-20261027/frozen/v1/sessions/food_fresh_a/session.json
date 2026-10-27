@@ -1,0 +1,4061 @@
+{
+  "scenarioPath": "/workspace/shared/combination-campaign-research-20261027/frozen/v1/scenarios/food.json",
+  "scenarioSHA256": "11bd325d60e7b72726d43fb255435da2b3926a94b9f5a61083cd37605d68039b",
+  "engineSHA256": "055db34c655ba0127db105451a004f1a98b459ac4c3edbf02a78284a162f0a3b",
+  "implementationSHA256": {
+    "/workspace/shared/combination-campaign-research-20261027/frozen/v1/engine/model.ts": "055db34c655ba0127db105451a004f1a98b459ac4c3edbf02a78284a162f0a3b",
+    "/workspace/shared/combination-campaign-research-20261027/frozen/v1/engine/cli.ts": "8e88313a8b5c7675d38835ab20b8ceb8fa2ecbe92122e84b3cc19056e0514a57",
+    "/workspace/shared/combination-campaign-research-20261027/frozen/v1/schema/scenario.ts": "acddd0643cccfdb8038bb37ffaba4f7a2167a4a3aaa82bfc08aa00db29e9af3b"
+  },
+  "createdAt": "2026-10-27T19:23:13.967Z",
+  "game": {
+    "version": 1,
+    "scenarioId": "food",
+    "state": {
+      "stage": 2,
+      "currentArea": "pastry-area",
+      "areas": [
+        {
+          "id": "hearth-area",
+          "label": "The roadside hearth",
+          "enteredAtStage": 0
+        },
+        {
+          "id": "cultures-area",
+          "label": "The dairy and bakehouse",
+          "enteredAtStage": 1
+        },
+        {
+          "id": "pastry-area",
+          "label": "The pastry workshop",
+          "enteredAtStage": 2
+        }
+      ],
+      "places": [
+        {
+          "id": "hearth",
+          "area": "hearth-area",
+          "x": 52,
+          "y": 81
+        },
+        {
+          "id": "fermentation-room",
+          "area": "cultures-area",
+          "x": 52,
+          "y": 81
+        },
+        {
+          "id": "bakehouse-oven",
+          "area": "cultures-area",
+          "x": 252,
+          "y": 81
+        },
+        {
+          "id": "pastry-bench",
+          "area": "pastry-area",
+          "x": 252,
+          "y": 81
+        },
+        {
+          "id": "oven",
+          "area": "pastry-area",
+          "x": 52,
+          "y": 181
+        }
+      ],
+      "tokens": [
+        {
+          "id": "grain",
+          "kind": "grain",
+          "area": "hearth-area",
+          "location": null,
+          "slots": {},
+          "incorporated": [],
+          "x": 252,
+          "y": 56
+        },
+        {
+          "id": "millstone",
+          "kind": "millstone",
+          "area": "hearth-area",
+          "location": null,
+          "slots": {},
+          "incorporated": [],
+          "x": 252,
+          "y": 106
+        },
+        {
+          "id": "water",
+          "kind": "water",
+          "area": "hearth-area",
+          "location": null,
+          "slots": {},
+          "incorporated": [],
+          "x": 52,
+          "y": 156
+        },
+        {
+          "id": "fruit",
+          "kind": "fruit",
+          "area": "pastry-area",
+          "location": null,
+          "slots": {},
+          "incorporated": [],
+          "x": 152,
+          "y": 152
+        },
+        {
+          "id": "press",
+          "kind": "press",
+          "area": "hearth-area",
+          "location": null,
+          "slots": {},
+          "incorporated": [],
+          "x": 252,
+          "y": 156
+        },
+        {
+          "id": "flour",
+          "kind": "flour",
+          "area": "pastry-area",
+          "location": null,
+          "slots": {},
+          "incorporated": [],
+          "x": 154,
+          "y": 56
+        },
+        {
+          "id": "dough",
+          "kind": "dough",
+          "area": "pastry-area",
+          "location": null,
+          "slots": {},
+          "incorporated": [],
+          "x": 52,
+          "y": 97
+        },
+        {
+          "id": "flatbread",
+          "kind": "flatbread",
+          "area": "hearth-area",
+          "location": null,
+          "slots": {},
+          "incorporated": [],
+          "x": 155,
+          "y": 81
+        },
+        {
+          "id": "juice",
+          "kind": "juice",
+          "area": "hearth-area",
+          "location": null,
+          "slots": {},
+          "incorporated": [],
+          "x": 308,
+          "y": 202
+        },
+        {
+          "id": "milk",
+          "kind": "milk",
+          "area": "cultures-area",
+          "location": "fermentation-room",
+          "slots": {},
+          "incorporated": [],
+          "x": 52,
+          "y": 97
+        },
+        {
+          "id": "cream",
+          "kind": "cream",
+          "area": "cultures-area",
+          "location": null,
+          "slots": {},
+          "incorporated": [],
+          "x": 252,
+          "y": 156
+        },
+        {
+          "id": "churn",
+          "kind": "churn",
+          "area": "cultures-area",
+          "location": null,
+          "slots": {},
+          "incorporated": [],
+          "x": 52,
+          "y": 206
+        },
+        {
+          "id": "yeast-culture",
+          "kind": "yeast-culture",
+          "area": "cultures-area",
+          "location": "fermentation-room",
+          "slots": {},
+          "incorporated": [],
+          "x": 52,
+          "y": 97
+        },
+        {
+          "id": "lactic-culture",
+          "kind": "lactic-culture",
+          "area": "cultures-area",
+          "location": "fermentation-room",
+          "slots": {},
+          "incorporated": [],
+          "x": 52,
+          "y": 97
+        },
+        {
+          "id": "leavened-dough",
+          "kind": "leavened-dough",
+          "area": "cultures-area",
+          "location": null,
+          "slots": {},
+          "incorporated": [],
+          "x": 150,
+          "y": 97
+        },
+        {
+          "id": "bread",
+          "kind": "bread",
+          "area": "cultures-area",
+          "location": null,
+          "slots": {},
+          "incorporated": [],
+          "x": 308,
+          "y": 146
+        },
+        {
+          "id": "yogurt",
+          "kind": "yogurt",
+          "area": "cultures-area",
+          "location": null,
+          "slots": {},
+          "incorporated": [],
+          "x": 52,
+          "y": 143
+        },
+        {
+          "id": "butter",
+          "kind": "butter",
+          "area": "pastry-area",
+          "location": null,
+          "slots": {},
+          "incorporated": [],
+          "x": 150,
+          "y": 252
+        },
+        {
+          "id": "eggs",
+          "kind": "eggs",
+          "area": "pastry-area",
+          "location": null,
+          "slots": {},
+          "incorporated": [],
+          "x": 252,
+          "y": 156
+        },
+        {
+          "id": "sugar",
+          "kind": "sugar",
+          "area": "pastry-area",
+          "location": null,
+          "slots": {},
+          "incorporated": [],
+          "x": 252,
+          "y": 206
+        },
+        {
+          "id": "whisk",
+          "kind": "whisk",
+          "area": "pastry-area",
+          "location": null,
+          "slots": {},
+          "incorporated": [],
+          "x": 52,
+          "y": 256
+        },
+        {
+          "id": "menu-card",
+          "kind": "menu-card",
+          "area": "pastry-area",
+          "location": null,
+          "slots": {},
+          "incorporated": [],
+          "x": 252,
+          "y": 256
+        },
+        {
+          "id": "humoral-book",
+          "kind": "humoral-book",
+          "area": "pastry-area",
+          "location": null,
+          "slots": {},
+          "incorporated": [],
+          "x": 52,
+          "y": 306
+        },
+        {
+          "id": "modern-nutrition-note",
+          "kind": "modern-nutrition-note",
+          "area": "pastry-area",
+          "location": null,
+          "slots": {},
+          "incorporated": [],
+          "x": 152,
+          "y": 306
+        },
+        {
+          "id": "humoral-menu",
+          "kind": "humoral-menu",
+          "area": "pastry-area",
+          "location": null,
+          "slots": {},
+          "incorporated": [],
+          "x": 308,
+          "y": 302
+        },
+        {
+          "id": "annotated-menu",
+          "kind": "annotated-menu",
+          "area": "pastry-area",
+          "location": null,
+          "slots": {},
+          "incorporated": [],
+          "x": 250,
+          "y": 352
+        }
+      ],
+      "discovered": [
+        "grain",
+        "millstone",
+        "water",
+        "fruit",
+        "press",
+        "flour",
+        "dough",
+        "flatbread",
+        "juice",
+        "milk",
+        "cream",
+        "churn",
+        "yeast-culture",
+        "lactic-culture",
+        "leavened-dough",
+        "bread",
+        "yogurt",
+        "butter",
+        "eggs",
+        "sugar",
+        "whisk",
+        "menu-card",
+        "humoral-book",
+        "modern-nutrition-note",
+        "humoral-menu",
+        "annotated-menu"
+      ],
+      "recipesUsed": [
+        "flour",
+        "dough",
+        "flatbread",
+        "juice",
+        "leavened-dough",
+        "bread",
+        "yogurt",
+        "butter",
+        "humoral-menu",
+        "annotated-menu"
+      ],
+      "openedCaches": [
+        "dairy-stores",
+        "pastry-cupboard"
+      ],
+      "width": 360,
+      "metrics": {
+        "attempts": 22,
+        "accepted": 16,
+        "combinations": 10,
+        "creations": 10,
+        "installations": 0,
+        "moves": 0,
+        "placements": 4,
+        "advances": 2,
+        "visits": 0
+      },
+      "completed": false
+    },
+    "history": [
+      {
+        "stage": 0,
+        "currentArea": "hearth-area",
+        "areas": [
+          {
+            "id": "hearth-area",
+            "label": "The roadside hearth",
+            "enteredAtStage": 0
+          }
+        ],
+        "places": [
+          {
+            "id": "hearth",
+            "area": "hearth-area",
+            "x": 52,
+            "y": 81
+          }
+        ],
+        "tokens": [
+          {
+            "id": "grain",
+            "kind": "grain",
+            "area": "hearth-area",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 252,
+            "y": 56
+          },
+          {
+            "id": "millstone",
+            "kind": "millstone",
+            "area": "hearth-area",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 252,
+            "y": 106
+          },
+          {
+            "id": "water",
+            "kind": "water",
+            "area": "hearth-area",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 52,
+            "y": 156
+          },
+          {
+            "id": "fruit",
+            "kind": "fruit",
+            "area": "hearth-area",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 152,
+            "y": 156
+          },
+          {
+            "id": "press",
+            "kind": "press",
+            "area": "hearth-area",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 252,
+            "y": 156
+          }
+        ],
+        "discovered": [
+          "grain",
+          "millstone",
+          "water",
+          "fruit",
+          "press"
+        ],
+        "recipesUsed": [],
+        "openedCaches": [],
+        "width": 360,
+        "metrics": {
+          "attempts": 0,
+          "accepted": 0,
+          "combinations": 0,
+          "creations": 0,
+          "installations": 0,
+          "moves": 0,
+          "placements": 0,
+          "advances": 0,
+          "visits": 0
+        },
+        "completed": false
+      },
+      {
+        "stage": 0,
+        "currentArea": "hearth-area",
+        "areas": [
+          {
+            "id": "hearth-area",
+            "label": "The roadside hearth",
+            "enteredAtStage": 0
+          }
+        ],
+        "places": [
+          {
+            "id": "hearth",
+            "area": "hearth-area",
+            "x": 52,
+            "y": 81
+          }
+        ],
+        "tokens": [
+          {
+            "id": "grain",
+            "kind": "grain",
+            "area": "hearth-area",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 252,
+            "y": 56
+          },
+          {
+            "id": "millstone",
+            "kind": "millstone",
+            "area": "hearth-area",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 252,
+            "y": 106
+          },
+          {
+            "id": "water",
+            "kind": "water",
+            "area": "hearth-area",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 52,
+            "y": 156
+          },
+          {
+            "id": "fruit",
+            "kind": "fruit",
+            "area": "hearth-area",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 152,
+            "y": 156
+          },
+          {
+            "id": "press",
+            "kind": "press",
+            "area": "hearth-area",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 252,
+            "y": 156
+          },
+          {
+            "id": "flour",
+            "kind": "flour",
+            "area": "hearth-area",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 154,
+            "y": 60
+          }
+        ],
+        "discovered": [
+          "grain",
+          "millstone",
+          "water",
+          "fruit",
+          "press",
+          "flour"
+        ],
+        "recipesUsed": [
+          "flour"
+        ],
+        "openedCaches": [],
+        "width": 360,
+        "metrics": {
+          "attempts": 1,
+          "accepted": 1,
+          "combinations": 1,
+          "creations": 1,
+          "installations": 0,
+          "moves": 0,
+          "placements": 0,
+          "advances": 0,
+          "visits": 0
+        },
+        "completed": false
+      },
+      {
+        "stage": 0,
+        "currentArea": "hearth-area",
+        "areas": [
+          {
+            "id": "hearth-area",
+            "label": "The roadside hearth",
+            "enteredAtStage": 0
+          }
+        ],
+        "places": [
+          {
+            "id": "hearth",
+            "area": "hearth-area",
+            "x": 52,
+            "y": 81
+          }
+        ],
+        "tokens": [
+          {
+            "id": "grain",
+            "kind": "grain",
+            "area": "hearth-area",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 252,
+            "y": 56
+          },
+          {
+            "id": "millstone",
+            "kind": "millstone",
+            "area": "hearth-area",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 252,
+            "y": 106
+          },
+          {
+            "id": "water",
+            "kind": "water",
+            "area": "hearth-area",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 52,
+            "y": 156
+          },
+          {
+            "id": "fruit",
+            "kind": "fruit",
+            "area": "hearth-area",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 152,
+            "y": 156
+          },
+          {
+            "id": "press",
+            "kind": "press",
+            "area": "hearth-area",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 252,
+            "y": 156
+          },
+          {
+            "id": "flour",
+            "kind": "flour",
+            "area": "hearth-area",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 154,
+            "y": 60
+          },
+          {
+            "id": "dough",
+            "kind": "dough",
+            "area": "hearth-area",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 150,
+            "y": 202
+          }
+        ],
+        "discovered": [
+          "grain",
+          "millstone",
+          "water",
+          "fruit",
+          "press",
+          "flour",
+          "dough"
+        ],
+        "recipesUsed": [
+          "flour",
+          "dough"
+        ],
+        "openedCaches": [],
+        "width": 360,
+        "metrics": {
+          "attempts": 2,
+          "accepted": 2,
+          "combinations": 2,
+          "creations": 2,
+          "installations": 0,
+          "moves": 0,
+          "placements": 0,
+          "advances": 0,
+          "visits": 0
+        },
+        "completed": false
+      },
+      {
+        "stage": 0,
+        "currentArea": "hearth-area",
+        "areas": [
+          {
+            "id": "hearth-area",
+            "label": "The roadside hearth",
+            "enteredAtStage": 0
+          }
+        ],
+        "places": [
+          {
+            "id": "hearth",
+            "area": "hearth-area",
+            "x": 52,
+            "y": 81
+          }
+        ],
+        "tokens": [
+          {
+            "id": "grain",
+            "kind": "grain",
+            "area": "hearth-area",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 252,
+            "y": 56
+          },
+          {
+            "id": "millstone",
+            "kind": "millstone",
+            "area": "hearth-area",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 252,
+            "y": 106
+          },
+          {
+            "id": "water",
+            "kind": "water",
+            "area": "hearth-area",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 52,
+            "y": 156
+          },
+          {
+            "id": "fruit",
+            "kind": "fruit",
+            "area": "hearth-area",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 152,
+            "y": 156
+          },
+          {
+            "id": "press",
+            "kind": "press",
+            "area": "hearth-area",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 252,
+            "y": 156
+          },
+          {
+            "id": "flour",
+            "kind": "flour",
+            "area": "hearth-area",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 154,
+            "y": 60
+          },
+          {
+            "id": "dough",
+            "kind": "dough",
+            "area": "hearth-area",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 150,
+            "y": 202
+          },
+          {
+            "id": "flatbread",
+            "kind": "flatbread",
+            "area": "hearth-area",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 155,
+            "y": 81
+          }
+        ],
+        "discovered": [
+          "grain",
+          "millstone",
+          "water",
+          "fruit",
+          "press",
+          "flour",
+          "dough",
+          "flatbread"
+        ],
+        "recipesUsed": [
+          "flour",
+          "dough",
+          "flatbread"
+        ],
+        "openedCaches": [],
+        "width": 360,
+        "metrics": {
+          "attempts": 3,
+          "accepted": 3,
+          "combinations": 3,
+          "creations": 3,
+          "installations": 0,
+          "moves": 0,
+          "placements": 0,
+          "advances": 0,
+          "visits": 0
+        },
+        "completed": false
+      },
+      {
+        "stage": 0,
+        "currentArea": "hearth-area",
+        "areas": [
+          {
+            "id": "hearth-area",
+            "label": "The roadside hearth",
+            "enteredAtStage": 0
+          }
+        ],
+        "places": [
+          {
+            "id": "hearth",
+            "area": "hearth-area",
+            "x": 52,
+            "y": 81
+          }
+        ],
+        "tokens": [
+          {
+            "id": "grain",
+            "kind": "grain",
+            "area": "hearth-area",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 252,
+            "y": 56
+          },
+          {
+            "id": "millstone",
+            "kind": "millstone",
+            "area": "hearth-area",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 252,
+            "y": 106
+          },
+          {
+            "id": "water",
+            "kind": "water",
+            "area": "hearth-area",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 52,
+            "y": 156
+          },
+          {
+            "id": "fruit",
+            "kind": "fruit",
+            "area": "hearth-area",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 152,
+            "y": 156
+          },
+          {
+            "id": "press",
+            "kind": "press",
+            "area": "hearth-area",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 252,
+            "y": 156
+          },
+          {
+            "id": "flour",
+            "kind": "flour",
+            "area": "hearth-area",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 154,
+            "y": 60
+          },
+          {
+            "id": "dough",
+            "kind": "dough",
+            "area": "hearth-area",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 150,
+            "y": 202
+          },
+          {
+            "id": "flatbread",
+            "kind": "flatbread",
+            "area": "hearth-area",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 155,
+            "y": 81
+          },
+          {
+            "id": "juice",
+            "kind": "juice",
+            "area": "hearth-area",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 308,
+            "y": 202
+          }
+        ],
+        "discovered": [
+          "grain",
+          "millstone",
+          "water",
+          "fruit",
+          "press",
+          "flour",
+          "dough",
+          "flatbread",
+          "juice"
+        ],
+        "recipesUsed": [
+          "flour",
+          "dough",
+          "flatbread",
+          "juice"
+        ],
+        "openedCaches": [],
+        "width": 360,
+        "metrics": {
+          "attempts": 4,
+          "accepted": 4,
+          "combinations": 4,
+          "creations": 4,
+          "installations": 0,
+          "moves": 0,
+          "placements": 0,
+          "advances": 0,
+          "visits": 0
+        },
+        "completed": false
+      },
+      {
+        "stage": 1,
+        "currentArea": "cultures-area",
+        "areas": [
+          {
+            "id": "hearth-area",
+            "label": "The roadside hearth",
+            "enteredAtStage": 0
+          },
+          {
+            "id": "cultures-area",
+            "label": "The dairy and bakehouse",
+            "enteredAtStage": 1
+          }
+        ],
+        "places": [
+          {
+            "id": "hearth",
+            "area": "hearth-area",
+            "x": 52,
+            "y": 81
+          },
+          {
+            "id": "fermentation-room",
+            "area": "cultures-area",
+            "x": 52,
+            "y": 81
+          },
+          {
+            "id": "bakehouse-oven",
+            "area": "cultures-area",
+            "x": 252,
+            "y": 81
+          }
+        ],
+        "tokens": [
+          {
+            "id": "grain",
+            "kind": "grain",
+            "area": "hearth-area",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 252,
+            "y": 56
+          },
+          {
+            "id": "millstone",
+            "kind": "millstone",
+            "area": "hearth-area",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 252,
+            "y": 106
+          },
+          {
+            "id": "water",
+            "kind": "water",
+            "area": "hearth-area",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 52,
+            "y": 156
+          },
+          {
+            "id": "fruit",
+            "kind": "fruit",
+            "area": "cultures-area",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 152,
+            "y": 152
+          },
+          {
+            "id": "press",
+            "kind": "press",
+            "area": "hearth-area",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 252,
+            "y": 156
+          },
+          {
+            "id": "flour",
+            "kind": "flour",
+            "area": "cultures-area",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 154,
+            "y": 56
+          },
+          {
+            "id": "dough",
+            "kind": "dough",
+            "area": "cultures-area",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 150,
+            "y": 198
+          },
+          {
+            "id": "flatbread",
+            "kind": "flatbread",
+            "area": "hearth-area",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 155,
+            "y": 81
+          },
+          {
+            "id": "juice",
+            "kind": "juice",
+            "area": "hearth-area",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 308,
+            "y": 202
+          },
+          {
+            "id": "milk",
+            "kind": "milk",
+            "area": "cultures-area",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 52,
+            "y": 156
+          },
+          {
+            "id": "cream",
+            "kind": "cream",
+            "area": "cultures-area",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 252,
+            "y": 156
+          },
+          {
+            "id": "churn",
+            "kind": "churn",
+            "area": "cultures-area",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 52,
+            "y": 206
+          },
+          {
+            "id": "yeast-culture",
+            "kind": "yeast-culture",
+            "area": "cultures-area",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 252,
+            "y": 206
+          },
+          {
+            "id": "lactic-culture",
+            "kind": "lactic-culture",
+            "area": "cultures-area",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 52,
+            "y": 256
+          }
+        ],
+        "discovered": [
+          "grain",
+          "millstone",
+          "water",
+          "fruit",
+          "press",
+          "flour",
+          "dough",
+          "flatbread",
+          "juice",
+          "milk",
+          "cream",
+          "churn",
+          "yeast-culture",
+          "lactic-culture"
+        ],
+        "recipesUsed": [
+          "flour",
+          "dough",
+          "flatbread",
+          "juice"
+        ],
+        "openedCaches": [
+          "dairy-stores"
+        ],
+        "width": 360,
+        "metrics": {
+          "attempts": 6,
+          "accepted": 5,
+          "combinations": 4,
+          "creations": 4,
+          "installations": 0,
+          "moves": 0,
+          "placements": 0,
+          "advances": 1,
+          "visits": 0
+        },
+        "completed": false
+      },
+      {
+        "stage": 1,
+        "currentArea": "cultures-area",
+        "areas": [
+          {
+            "id": "hearth-area",
+            "label": "The roadside hearth",
+            "enteredAtStage": 0
+          },
+          {
+            "id": "cultures-area",
+            "label": "The dairy and bakehouse",
+            "enteredAtStage": 1
+          }
+        ],
+        "places": [
+          {
+            "id": "hearth",
+            "area": "hearth-area",
+            "x": 52,
+            "y": 81
+          },
+          {
+            "id": "fermentation-room",
+            "area": "cultures-area",
+            "x": 52,
+            "y": 81
+          },
+          {
+            "id": "bakehouse-oven",
+            "area": "cultures-area",
+            "x": 252,
+            "y": 81
+          }
+        ],
+        "tokens": [
+          {
+            "id": "grain",
+            "kind": "grain",
+            "area": "hearth-area",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 252,
+            "y": 56
+          },
+          {
+            "id": "millstone",
+            "kind": "millstone",
+            "area": "hearth-area",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 252,
+            "y": 106
+          },
+          {
+            "id": "water",
+            "kind": "water",
+            "area": "hearth-area",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 52,
+            "y": 156
+          },
+          {
+            "id": "fruit",
+            "kind": "fruit",
+            "area": "cultures-area",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 152,
+            "y": 152
+          },
+          {
+            "id": "press",
+            "kind": "press",
+            "area": "hearth-area",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 252,
+            "y": 156
+          },
+          {
+            "id": "flour",
+            "kind": "flour",
+            "area": "cultures-area",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 154,
+            "y": 56
+          },
+          {
+            "id": "dough",
+            "kind": "dough",
+            "area": "cultures-area",
+            "location": "fermentation-room",
+            "slots": {},
+            "incorporated": [],
+            "x": 52,
+            "y": 97
+          },
+          {
+            "id": "flatbread",
+            "kind": "flatbread",
+            "area": "hearth-area",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 155,
+            "y": 81
+          },
+          {
+            "id": "juice",
+            "kind": "juice",
+            "area": "hearth-area",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 308,
+            "y": 202
+          },
+          {
+            "id": "milk",
+            "kind": "milk",
+            "area": "cultures-area",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 52,
+            "y": 156
+          },
+          {
+            "id": "cream",
+            "kind": "cream",
+            "area": "cultures-area",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 252,
+            "y": 156
+          },
+          {
+            "id": "churn",
+            "kind": "churn",
+            "area": "cultures-area",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 52,
+            "y": 206
+          },
+          {
+            "id": "yeast-culture",
+            "kind": "yeast-culture",
+            "area": "cultures-area",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 252,
+            "y": 206
+          },
+          {
+            "id": "lactic-culture",
+            "kind": "lactic-culture",
+            "area": "cultures-area",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 52,
+            "y": 256
+          }
+        ],
+        "discovered": [
+          "grain",
+          "millstone",
+          "water",
+          "fruit",
+          "press",
+          "flour",
+          "dough",
+          "flatbread",
+          "juice",
+          "milk",
+          "cream",
+          "churn",
+          "yeast-culture",
+          "lactic-culture"
+        ],
+        "recipesUsed": [
+          "flour",
+          "dough",
+          "flatbread",
+          "juice"
+        ],
+        "openedCaches": [
+          "dairy-stores"
+        ],
+        "width": 360,
+        "metrics": {
+          "attempts": 8,
+          "accepted": 6,
+          "combinations": 4,
+          "creations": 4,
+          "installations": 0,
+          "moves": 0,
+          "placements": 1,
+          "advances": 1,
+          "visits": 0
+        },
+        "completed": false
+      },
+      {
+        "stage": 1,
+        "currentArea": "cultures-area",
+        "areas": [
+          {
+            "id": "hearth-area",
+            "label": "The roadside hearth",
+            "enteredAtStage": 0
+          },
+          {
+            "id": "cultures-area",
+            "label": "The dairy and bakehouse",
+            "enteredAtStage": 1
+          }
+        ],
+        "places": [
+          {
+            "id": "hearth",
+            "area": "hearth-area",
+            "x": 52,
+            "y": 81
+          },
+          {
+            "id": "fermentation-room",
+            "area": "cultures-area",
+            "x": 52,
+            "y": 81
+          },
+          {
+            "id": "bakehouse-oven",
+            "area": "cultures-area",
+            "x": 252,
+            "y": 81
+          }
+        ],
+        "tokens": [
+          {
+            "id": "grain",
+            "kind": "grain",
+            "area": "hearth-area",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 252,
+            "y": 56
+          },
+          {
+            "id": "millstone",
+            "kind": "millstone",
+            "area": "hearth-area",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 252,
+            "y": 106
+          },
+          {
+            "id": "water",
+            "kind": "water",
+            "area": "hearth-area",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 52,
+            "y": 156
+          },
+          {
+            "id": "fruit",
+            "kind": "fruit",
+            "area": "cultures-area",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 152,
+            "y": 152
+          },
+          {
+            "id": "press",
+            "kind": "press",
+            "area": "hearth-area",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 252,
+            "y": 156
+          },
+          {
+            "id": "flour",
+            "kind": "flour",
+            "area": "cultures-area",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 154,
+            "y": 56
+          },
+          {
+            "id": "dough",
+            "kind": "dough",
+            "area": "cultures-area",
+            "location": "fermentation-room",
+            "slots": {},
+            "incorporated": [],
+            "x": 52,
+            "y": 97
+          },
+          {
+            "id": "flatbread",
+            "kind": "flatbread",
+            "area": "hearth-area",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 155,
+            "y": 81
+          },
+          {
+            "id": "juice",
+            "kind": "juice",
+            "area": "hearth-area",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 308,
+            "y": 202
+          },
+          {
+            "id": "milk",
+            "kind": "milk",
+            "area": "cultures-area",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 52,
+            "y": 156
+          },
+          {
+            "id": "cream",
+            "kind": "cream",
+            "area": "cultures-area",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 252,
+            "y": 156
+          },
+          {
+            "id": "churn",
+            "kind": "churn",
+            "area": "cultures-area",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 52,
+            "y": 206
+          },
+          {
+            "id": "yeast-culture",
+            "kind": "yeast-culture",
+            "area": "cultures-area",
+            "location": "fermentation-room",
+            "slots": {},
+            "incorporated": [],
+            "x": 52,
+            "y": 97
+          },
+          {
+            "id": "lactic-culture",
+            "kind": "lactic-culture",
+            "area": "cultures-area",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 52,
+            "y": 256
+          }
+        ],
+        "discovered": [
+          "grain",
+          "millstone",
+          "water",
+          "fruit",
+          "press",
+          "flour",
+          "dough",
+          "flatbread",
+          "juice",
+          "milk",
+          "cream",
+          "churn",
+          "yeast-culture",
+          "lactic-culture"
+        ],
+        "recipesUsed": [
+          "flour",
+          "dough",
+          "flatbread",
+          "juice"
+        ],
+        "openedCaches": [
+          "dairy-stores"
+        ],
+        "width": 360,
+        "metrics": {
+          "attempts": 9,
+          "accepted": 7,
+          "combinations": 4,
+          "creations": 4,
+          "installations": 0,
+          "moves": 0,
+          "placements": 2,
+          "advances": 1,
+          "visits": 0
+        },
+        "completed": false
+      },
+      {
+        "stage": 1,
+        "currentArea": "cultures-area",
+        "areas": [
+          {
+            "id": "hearth-area",
+            "label": "The roadside hearth",
+            "enteredAtStage": 0
+          },
+          {
+            "id": "cultures-area",
+            "label": "The dairy and bakehouse",
+            "enteredAtStage": 1
+          }
+        ],
+        "places": [
+          {
+            "id": "hearth",
+            "area": "hearth-area",
+            "x": 52,
+            "y": 81
+          },
+          {
+            "id": "fermentation-room",
+            "area": "cultures-area",
+            "x": 52,
+            "y": 81
+          },
+          {
+            "id": "bakehouse-oven",
+            "area": "cultures-area",
+            "x": 252,
+            "y": 81
+          }
+        ],
+        "tokens": [
+          {
+            "id": "grain",
+            "kind": "grain",
+            "area": "hearth-area",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 252,
+            "y": 56
+          },
+          {
+            "id": "millstone",
+            "kind": "millstone",
+            "area": "hearth-area",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 252,
+            "y": 106
+          },
+          {
+            "id": "water",
+            "kind": "water",
+            "area": "hearth-area",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 52,
+            "y": 156
+          },
+          {
+            "id": "fruit",
+            "kind": "fruit",
+            "area": "cultures-area",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 152,
+            "y": 152
+          },
+          {
+            "id": "press",
+            "kind": "press",
+            "area": "hearth-area",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 252,
+            "y": 156
+          },
+          {
+            "id": "flour",
+            "kind": "flour",
+            "area": "cultures-area",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 154,
+            "y": 56
+          },
+          {
+            "id": "dough",
+            "kind": "dough",
+            "area": "cultures-area",
+            "location": "fermentation-room",
+            "slots": {},
+            "incorporated": [],
+            "x": 52,
+            "y": 97
+          },
+          {
+            "id": "flatbread",
+            "kind": "flatbread",
+            "area": "hearth-area",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 155,
+            "y": 81
+          },
+          {
+            "id": "juice",
+            "kind": "juice",
+            "area": "hearth-area",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 308,
+            "y": 202
+          },
+          {
+            "id": "milk",
+            "kind": "milk",
+            "area": "cultures-area",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 52,
+            "y": 156
+          },
+          {
+            "id": "cream",
+            "kind": "cream",
+            "area": "cultures-area",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 252,
+            "y": 156
+          },
+          {
+            "id": "churn",
+            "kind": "churn",
+            "area": "cultures-area",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 52,
+            "y": 206
+          },
+          {
+            "id": "yeast-culture",
+            "kind": "yeast-culture",
+            "area": "cultures-area",
+            "location": "fermentation-room",
+            "slots": {},
+            "incorporated": [],
+            "x": 52,
+            "y": 97
+          },
+          {
+            "id": "lactic-culture",
+            "kind": "lactic-culture",
+            "area": "cultures-area",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 52,
+            "y": 256
+          },
+          {
+            "id": "leavened-dough",
+            "kind": "leavened-dough",
+            "area": "cultures-area",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 150,
+            "y": 97
+          }
+        ],
+        "discovered": [
+          "grain",
+          "millstone",
+          "water",
+          "fruit",
+          "press",
+          "flour",
+          "dough",
+          "flatbread",
+          "juice",
+          "milk",
+          "cream",
+          "churn",
+          "yeast-culture",
+          "lactic-culture",
+          "leavened-dough"
+        ],
+        "recipesUsed": [
+          "flour",
+          "dough",
+          "flatbread",
+          "juice",
+          "leavened-dough"
+        ],
+        "openedCaches": [
+          "dairy-stores"
+        ],
+        "width": 360,
+        "metrics": {
+          "attempts": 10,
+          "accepted": 8,
+          "combinations": 5,
+          "creations": 5,
+          "installations": 0,
+          "moves": 0,
+          "placements": 2,
+          "advances": 1,
+          "visits": 0
+        },
+        "completed": false
+      },
+      {
+        "stage": 1,
+        "currentArea": "cultures-area",
+        "areas": [
+          {
+            "id": "hearth-area",
+            "label": "The roadside hearth",
+            "enteredAtStage": 0
+          },
+          {
+            "id": "cultures-area",
+            "label": "The dairy and bakehouse",
+            "enteredAtStage": 1
+          }
+        ],
+        "places": [
+          {
+            "id": "hearth",
+            "area": "hearth-area",
+            "x": 52,
+            "y": 81
+          },
+          {
+            "id": "fermentation-room",
+            "area": "cultures-area",
+            "x": 52,
+            "y": 81
+          },
+          {
+            "id": "bakehouse-oven",
+            "area": "cultures-area",
+            "x": 252,
+            "y": 81
+          }
+        ],
+        "tokens": [
+          {
+            "id": "grain",
+            "kind": "grain",
+            "area": "hearth-area",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 252,
+            "y": 56
+          },
+          {
+            "id": "millstone",
+            "kind": "millstone",
+            "area": "hearth-area",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 252,
+            "y": 106
+          },
+          {
+            "id": "water",
+            "kind": "water",
+            "area": "hearth-area",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 52,
+            "y": 156
+          },
+          {
+            "id": "fruit",
+            "kind": "fruit",
+            "area": "cultures-area",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 152,
+            "y": 152
+          },
+          {
+            "id": "press",
+            "kind": "press",
+            "area": "hearth-area",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 252,
+            "y": 156
+          },
+          {
+            "id": "flour",
+            "kind": "flour",
+            "area": "cultures-area",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 154,
+            "y": 56
+          },
+          {
+            "id": "dough",
+            "kind": "dough",
+            "area": "cultures-area",
+            "location": "fermentation-room",
+            "slots": {},
+            "incorporated": [],
+            "x": 52,
+            "y": 97
+          },
+          {
+            "id": "flatbread",
+            "kind": "flatbread",
+            "area": "hearth-area",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 155,
+            "y": 81
+          },
+          {
+            "id": "juice",
+            "kind": "juice",
+            "area": "hearth-area",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 308,
+            "y": 202
+          },
+          {
+            "id": "milk",
+            "kind": "milk",
+            "area": "cultures-area",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 52,
+            "y": 156
+          },
+          {
+            "id": "cream",
+            "kind": "cream",
+            "area": "cultures-area",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 252,
+            "y": 156
+          },
+          {
+            "id": "churn",
+            "kind": "churn",
+            "area": "cultures-area",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 52,
+            "y": 206
+          },
+          {
+            "id": "yeast-culture",
+            "kind": "yeast-culture",
+            "area": "cultures-area",
+            "location": "fermentation-room",
+            "slots": {},
+            "incorporated": [],
+            "x": 52,
+            "y": 97
+          },
+          {
+            "id": "lactic-culture",
+            "kind": "lactic-culture",
+            "area": "cultures-area",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 52,
+            "y": 256
+          },
+          {
+            "id": "leavened-dough",
+            "kind": "leavened-dough",
+            "area": "cultures-area",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 150,
+            "y": 97
+          },
+          {
+            "id": "bread",
+            "kind": "bread",
+            "area": "cultures-area",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 308,
+            "y": 146
+          }
+        ],
+        "discovered": [
+          "grain",
+          "millstone",
+          "water",
+          "fruit",
+          "press",
+          "flour",
+          "dough",
+          "flatbread",
+          "juice",
+          "milk",
+          "cream",
+          "churn",
+          "yeast-culture",
+          "lactic-culture",
+          "leavened-dough",
+          "bread"
+        ],
+        "recipesUsed": [
+          "flour",
+          "dough",
+          "flatbread",
+          "juice",
+          "leavened-dough",
+          "bread"
+        ],
+        "openedCaches": [
+          "dairy-stores"
+        ],
+        "width": 360,
+        "metrics": {
+          "attempts": 11,
+          "accepted": 9,
+          "combinations": 6,
+          "creations": 6,
+          "installations": 0,
+          "moves": 0,
+          "placements": 2,
+          "advances": 1,
+          "visits": 0
+        },
+        "completed": false
+      },
+      {
+        "stage": 1,
+        "currentArea": "cultures-area",
+        "areas": [
+          {
+            "id": "hearth-area",
+            "label": "The roadside hearth",
+            "enteredAtStage": 0
+          },
+          {
+            "id": "cultures-area",
+            "label": "The dairy and bakehouse",
+            "enteredAtStage": 1
+          }
+        ],
+        "places": [
+          {
+            "id": "hearth",
+            "area": "hearth-area",
+            "x": 52,
+            "y": 81
+          },
+          {
+            "id": "fermentation-room",
+            "area": "cultures-area",
+            "x": 52,
+            "y": 81
+          },
+          {
+            "id": "bakehouse-oven",
+            "area": "cultures-area",
+            "x": 252,
+            "y": 81
+          }
+        ],
+        "tokens": [
+          {
+            "id": "grain",
+            "kind": "grain",
+            "area": "hearth-area",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 252,
+            "y": 56
+          },
+          {
+            "id": "millstone",
+            "kind": "millstone",
+            "area": "hearth-area",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 252,
+            "y": 106
+          },
+          {
+            "id": "water",
+            "kind": "water",
+            "area": "hearth-area",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 52,
+            "y": 156
+          },
+          {
+            "id": "fruit",
+            "kind": "fruit",
+            "area": "cultures-area",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 152,
+            "y": 152
+          },
+          {
+            "id": "press",
+            "kind": "press",
+            "area": "hearth-area",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 252,
+            "y": 156
+          },
+          {
+            "id": "flour",
+            "kind": "flour",
+            "area": "cultures-area",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 154,
+            "y": 56
+          },
+          {
+            "id": "dough",
+            "kind": "dough",
+            "area": "cultures-area",
+            "location": "fermentation-room",
+            "slots": {},
+            "incorporated": [],
+            "x": 52,
+            "y": 97
+          },
+          {
+            "id": "flatbread",
+            "kind": "flatbread",
+            "area": "hearth-area",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 155,
+            "y": 81
+          },
+          {
+            "id": "juice",
+            "kind": "juice",
+            "area": "hearth-area",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 308,
+            "y": 202
+          },
+          {
+            "id": "milk",
+            "kind": "milk",
+            "area": "cultures-area",
+            "location": "fermentation-room",
+            "slots": {},
+            "incorporated": [],
+            "x": 52,
+            "y": 97
+          },
+          {
+            "id": "cream",
+            "kind": "cream",
+            "area": "cultures-area",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 252,
+            "y": 156
+          },
+          {
+            "id": "churn",
+            "kind": "churn",
+            "area": "cultures-area",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 52,
+            "y": 206
+          },
+          {
+            "id": "yeast-culture",
+            "kind": "yeast-culture",
+            "area": "cultures-area",
+            "location": "fermentation-room",
+            "slots": {},
+            "incorporated": [],
+            "x": 52,
+            "y": 97
+          },
+          {
+            "id": "lactic-culture",
+            "kind": "lactic-culture",
+            "area": "cultures-area",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 52,
+            "y": 256
+          },
+          {
+            "id": "leavened-dough",
+            "kind": "leavened-dough",
+            "area": "cultures-area",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 150,
+            "y": 97
+          },
+          {
+            "id": "bread",
+            "kind": "bread",
+            "area": "cultures-area",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 308,
+            "y": 146
+          }
+        ],
+        "discovered": [
+          "grain",
+          "millstone",
+          "water",
+          "fruit",
+          "press",
+          "flour",
+          "dough",
+          "flatbread",
+          "juice",
+          "milk",
+          "cream",
+          "churn",
+          "yeast-culture",
+          "lactic-culture",
+          "leavened-dough",
+          "bread"
+        ],
+        "recipesUsed": [
+          "flour",
+          "dough",
+          "flatbread",
+          "juice",
+          "leavened-dough",
+          "bread"
+        ],
+        "openedCaches": [
+          "dairy-stores"
+        ],
+        "width": 360,
+        "metrics": {
+          "attempts": 12,
+          "accepted": 10,
+          "combinations": 6,
+          "creations": 6,
+          "installations": 0,
+          "moves": 0,
+          "placements": 3,
+          "advances": 1,
+          "visits": 0
+        },
+        "completed": false
+      },
+      {
+        "stage": 1,
+        "currentArea": "cultures-area",
+        "areas": [
+          {
+            "id": "hearth-area",
+            "label": "The roadside hearth",
+            "enteredAtStage": 0
+          },
+          {
+            "id": "cultures-area",
+            "label": "The dairy and bakehouse",
+            "enteredAtStage": 1
+          }
+        ],
+        "places": [
+          {
+            "id": "hearth",
+            "area": "hearth-area",
+            "x": 52,
+            "y": 81
+          },
+          {
+            "id": "fermentation-room",
+            "area": "cultures-area",
+            "x": 52,
+            "y": 81
+          },
+          {
+            "id": "bakehouse-oven",
+            "area": "cultures-area",
+            "x": 252,
+            "y": 81
+          }
+        ],
+        "tokens": [
+          {
+            "id": "grain",
+            "kind": "grain",
+            "area": "hearth-area",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 252,
+            "y": 56
+          },
+          {
+            "id": "millstone",
+            "kind": "millstone",
+            "area": "hearth-area",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 252,
+            "y": 106
+          },
+          {
+            "id": "water",
+            "kind": "water",
+            "area": "hearth-area",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 52,
+            "y": 156
+          },
+          {
+            "id": "fruit",
+            "kind": "fruit",
+            "area": "cultures-area",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 152,
+            "y": 152
+          },
+          {
+            "id": "press",
+            "kind": "press",
+            "area": "hearth-area",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 252,
+            "y": 156
+          },
+          {
+            "id": "flour",
+            "kind": "flour",
+            "area": "cultures-area",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 154,
+            "y": 56
+          },
+          {
+            "id": "dough",
+            "kind": "dough",
+            "area": "cultures-area",
+            "location": "fermentation-room",
+            "slots": {},
+            "incorporated": [],
+            "x": 52,
+            "y": 97
+          },
+          {
+            "id": "flatbread",
+            "kind": "flatbread",
+            "area": "hearth-area",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 155,
+            "y": 81
+          },
+          {
+            "id": "juice",
+            "kind": "juice",
+            "area": "hearth-area",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 308,
+            "y": 202
+          },
+          {
+            "id": "milk",
+            "kind": "milk",
+            "area": "cultures-area",
+            "location": "fermentation-room",
+            "slots": {},
+            "incorporated": [],
+            "x": 52,
+            "y": 97
+          },
+          {
+            "id": "cream",
+            "kind": "cream",
+            "area": "cultures-area",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 252,
+            "y": 156
+          },
+          {
+            "id": "churn",
+            "kind": "churn",
+            "area": "cultures-area",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 52,
+            "y": 206
+          },
+          {
+            "id": "yeast-culture",
+            "kind": "yeast-culture",
+            "area": "cultures-area",
+            "location": "fermentation-room",
+            "slots": {},
+            "incorporated": [],
+            "x": 52,
+            "y": 97
+          },
+          {
+            "id": "lactic-culture",
+            "kind": "lactic-culture",
+            "area": "cultures-area",
+            "location": "fermentation-room",
+            "slots": {},
+            "incorporated": [],
+            "x": 52,
+            "y": 97
+          },
+          {
+            "id": "leavened-dough",
+            "kind": "leavened-dough",
+            "area": "cultures-area",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 150,
+            "y": 97
+          },
+          {
+            "id": "bread",
+            "kind": "bread",
+            "area": "cultures-area",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 308,
+            "y": 146
+          }
+        ],
+        "discovered": [
+          "grain",
+          "millstone",
+          "water",
+          "fruit",
+          "press",
+          "flour",
+          "dough",
+          "flatbread",
+          "juice",
+          "milk",
+          "cream",
+          "churn",
+          "yeast-culture",
+          "lactic-culture",
+          "leavened-dough",
+          "bread"
+        ],
+        "recipesUsed": [
+          "flour",
+          "dough",
+          "flatbread",
+          "juice",
+          "leavened-dough",
+          "bread"
+        ],
+        "openedCaches": [
+          "dairy-stores"
+        ],
+        "width": 360,
+        "metrics": {
+          "attempts": 13,
+          "accepted": 11,
+          "combinations": 6,
+          "creations": 6,
+          "installations": 0,
+          "moves": 0,
+          "placements": 4,
+          "advances": 1,
+          "visits": 0
+        },
+        "completed": false
+      },
+      {
+        "stage": 1,
+        "currentArea": "cultures-area",
+        "areas": [
+          {
+            "id": "hearth-area",
+            "label": "The roadside hearth",
+            "enteredAtStage": 0
+          },
+          {
+            "id": "cultures-area",
+            "label": "The dairy and bakehouse",
+            "enteredAtStage": 1
+          }
+        ],
+        "places": [
+          {
+            "id": "hearth",
+            "area": "hearth-area",
+            "x": 52,
+            "y": 81
+          },
+          {
+            "id": "fermentation-room",
+            "area": "cultures-area",
+            "x": 52,
+            "y": 81
+          },
+          {
+            "id": "bakehouse-oven",
+            "area": "cultures-area",
+            "x": 252,
+            "y": 81
+          }
+        ],
+        "tokens": [
+          {
+            "id": "grain",
+            "kind": "grain",
+            "area": "hearth-area",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 252,
+            "y": 56
+          },
+          {
+            "id": "millstone",
+            "kind": "millstone",
+            "area": "hearth-area",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 252,
+            "y": 106
+          },
+          {
+            "id": "water",
+            "kind": "water",
+            "area": "hearth-area",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 52,
+            "y": 156
+          },
+          {
+            "id": "fruit",
+            "kind": "fruit",
+            "area": "cultures-area",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 152,
+            "y": 152
+          },
+          {
+            "id": "press",
+            "kind": "press",
+            "area": "hearth-area",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 252,
+            "y": 156
+          },
+          {
+            "id": "flour",
+            "kind": "flour",
+            "area": "cultures-area",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 154,
+            "y": 56
+          },
+          {
+            "id": "dough",
+            "kind": "dough",
+            "area": "cultures-area",
+            "location": "fermentation-room",
+            "slots": {},
+            "incorporated": [],
+            "x": 52,
+            "y": 97
+          },
+          {
+            "id": "flatbread",
+            "kind": "flatbread",
+            "area": "hearth-area",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 155,
+            "y": 81
+          },
+          {
+            "id": "juice",
+            "kind": "juice",
+            "area": "hearth-area",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 308,
+            "y": 202
+          },
+          {
+            "id": "milk",
+            "kind": "milk",
+            "area": "cultures-area",
+            "location": "fermentation-room",
+            "slots": {},
+            "incorporated": [],
+            "x": 52,
+            "y": 97
+          },
+          {
+            "id": "cream",
+            "kind": "cream",
+            "area": "cultures-area",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 252,
+            "y": 156
+          },
+          {
+            "id": "churn",
+            "kind": "churn",
+            "area": "cultures-area",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 52,
+            "y": 206
+          },
+          {
+            "id": "yeast-culture",
+            "kind": "yeast-culture",
+            "area": "cultures-area",
+            "location": "fermentation-room",
+            "slots": {},
+            "incorporated": [],
+            "x": 52,
+            "y": 97
+          },
+          {
+            "id": "lactic-culture",
+            "kind": "lactic-culture",
+            "area": "cultures-area",
+            "location": "fermentation-room",
+            "slots": {},
+            "incorporated": [],
+            "x": 52,
+            "y": 97
+          },
+          {
+            "id": "leavened-dough",
+            "kind": "leavened-dough",
+            "area": "cultures-area",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 150,
+            "y": 97
+          },
+          {
+            "id": "bread",
+            "kind": "bread",
+            "area": "cultures-area",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 308,
+            "y": 146
+          },
+          {
+            "id": "yogurt",
+            "kind": "yogurt",
+            "area": "cultures-area",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 52,
+            "y": 143
+          }
+        ],
+        "discovered": [
+          "grain",
+          "millstone",
+          "water",
+          "fruit",
+          "press",
+          "flour",
+          "dough",
+          "flatbread",
+          "juice",
+          "milk",
+          "cream",
+          "churn",
+          "yeast-culture",
+          "lactic-culture",
+          "leavened-dough",
+          "bread",
+          "yogurt"
+        ],
+        "recipesUsed": [
+          "flour",
+          "dough",
+          "flatbread",
+          "juice",
+          "leavened-dough",
+          "bread",
+          "yogurt"
+        ],
+        "openedCaches": [
+          "dairy-stores"
+        ],
+        "width": 360,
+        "metrics": {
+          "attempts": 15,
+          "accepted": 12,
+          "combinations": 7,
+          "creations": 7,
+          "installations": 0,
+          "moves": 0,
+          "placements": 4,
+          "advances": 1,
+          "visits": 0
+        },
+        "completed": false
+      },
+      {
+        "stage": 1,
+        "currentArea": "cultures-area",
+        "areas": [
+          {
+            "id": "hearth-area",
+            "label": "The roadside hearth",
+            "enteredAtStage": 0
+          },
+          {
+            "id": "cultures-area",
+            "label": "The dairy and bakehouse",
+            "enteredAtStage": 1
+          }
+        ],
+        "places": [
+          {
+            "id": "hearth",
+            "area": "hearth-area",
+            "x": 52,
+            "y": 81
+          },
+          {
+            "id": "fermentation-room",
+            "area": "cultures-area",
+            "x": 52,
+            "y": 81
+          },
+          {
+            "id": "bakehouse-oven",
+            "area": "cultures-area",
+            "x": 252,
+            "y": 81
+          }
+        ],
+        "tokens": [
+          {
+            "id": "grain",
+            "kind": "grain",
+            "area": "hearth-area",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 252,
+            "y": 56
+          },
+          {
+            "id": "millstone",
+            "kind": "millstone",
+            "area": "hearth-area",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 252,
+            "y": 106
+          },
+          {
+            "id": "water",
+            "kind": "water",
+            "area": "hearth-area",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 52,
+            "y": 156
+          },
+          {
+            "id": "fruit",
+            "kind": "fruit",
+            "area": "cultures-area",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 152,
+            "y": 152
+          },
+          {
+            "id": "press",
+            "kind": "press",
+            "area": "hearth-area",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 252,
+            "y": 156
+          },
+          {
+            "id": "flour",
+            "kind": "flour",
+            "area": "cultures-area",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 154,
+            "y": 56
+          },
+          {
+            "id": "dough",
+            "kind": "dough",
+            "area": "cultures-area",
+            "location": "fermentation-room",
+            "slots": {},
+            "incorporated": [],
+            "x": 52,
+            "y": 97
+          },
+          {
+            "id": "flatbread",
+            "kind": "flatbread",
+            "area": "hearth-area",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 155,
+            "y": 81
+          },
+          {
+            "id": "juice",
+            "kind": "juice",
+            "area": "hearth-area",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 308,
+            "y": 202
+          },
+          {
+            "id": "milk",
+            "kind": "milk",
+            "area": "cultures-area",
+            "location": "fermentation-room",
+            "slots": {},
+            "incorporated": [],
+            "x": 52,
+            "y": 97
+          },
+          {
+            "id": "cream",
+            "kind": "cream",
+            "area": "cultures-area",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 252,
+            "y": 156
+          },
+          {
+            "id": "churn",
+            "kind": "churn",
+            "area": "cultures-area",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 52,
+            "y": 206
+          },
+          {
+            "id": "yeast-culture",
+            "kind": "yeast-culture",
+            "area": "cultures-area",
+            "location": "fermentation-room",
+            "slots": {},
+            "incorporated": [],
+            "x": 52,
+            "y": 97
+          },
+          {
+            "id": "lactic-culture",
+            "kind": "lactic-culture",
+            "area": "cultures-area",
+            "location": "fermentation-room",
+            "slots": {},
+            "incorporated": [],
+            "x": 52,
+            "y": 97
+          },
+          {
+            "id": "leavened-dough",
+            "kind": "leavened-dough",
+            "area": "cultures-area",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 150,
+            "y": 97
+          },
+          {
+            "id": "bread",
+            "kind": "bread",
+            "area": "cultures-area",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 308,
+            "y": 146
+          },
+          {
+            "id": "yogurt",
+            "kind": "yogurt",
+            "area": "cultures-area",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 52,
+            "y": 143
+          },
+          {
+            "id": "butter",
+            "kind": "butter",
+            "area": "cultures-area",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 150,
+            "y": 252
+          }
+        ],
+        "discovered": [
+          "grain",
+          "millstone",
+          "water",
+          "fruit",
+          "press",
+          "flour",
+          "dough",
+          "flatbread",
+          "juice",
+          "milk",
+          "cream",
+          "churn",
+          "yeast-culture",
+          "lactic-culture",
+          "leavened-dough",
+          "bread",
+          "yogurt",
+          "butter"
+        ],
+        "recipesUsed": [
+          "flour",
+          "dough",
+          "flatbread",
+          "juice",
+          "leavened-dough",
+          "bread",
+          "yogurt",
+          "butter"
+        ],
+        "openedCaches": [
+          "dairy-stores"
+        ],
+        "width": 360,
+        "metrics": {
+          "attempts": 17,
+          "accepted": 13,
+          "combinations": 8,
+          "creations": 8,
+          "installations": 0,
+          "moves": 0,
+          "placements": 4,
+          "advances": 1,
+          "visits": 0
+        },
+        "completed": false
+      },
+      {
+        "stage": 2,
+        "currentArea": "pastry-area",
+        "areas": [
+          {
+            "id": "hearth-area",
+            "label": "The roadside hearth",
+            "enteredAtStage": 0
+          },
+          {
+            "id": "cultures-area",
+            "label": "The dairy and bakehouse",
+            "enteredAtStage": 1
+          },
+          {
+            "id": "pastry-area",
+            "label": "The pastry workshop",
+            "enteredAtStage": 2
+          }
+        ],
+        "places": [
+          {
+            "id": "hearth",
+            "area": "hearth-area",
+            "x": 52,
+            "y": 81
+          },
+          {
+            "id": "fermentation-room",
+            "area": "cultures-area",
+            "x": 52,
+            "y": 81
+          },
+          {
+            "id": "bakehouse-oven",
+            "area": "cultures-area",
+            "x": 252,
+            "y": 81
+          },
+          {
+            "id": "pastry-bench",
+            "area": "pastry-area",
+            "x": 252,
+            "y": 81
+          },
+          {
+            "id": "oven",
+            "area": "pastry-area",
+            "x": 52,
+            "y": 181
+          }
+        ],
+        "tokens": [
+          {
+            "id": "grain",
+            "kind": "grain",
+            "area": "hearth-area",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 252,
+            "y": 56
+          },
+          {
+            "id": "millstone",
+            "kind": "millstone",
+            "area": "hearth-area",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 252,
+            "y": 106
+          },
+          {
+            "id": "water",
+            "kind": "water",
+            "area": "hearth-area",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 52,
+            "y": 156
+          },
+          {
+            "id": "fruit",
+            "kind": "fruit",
+            "area": "pastry-area",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 152,
+            "y": 152
+          },
+          {
+            "id": "press",
+            "kind": "press",
+            "area": "hearth-area",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 252,
+            "y": 156
+          },
+          {
+            "id": "flour",
+            "kind": "flour",
+            "area": "pastry-area",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 154,
+            "y": 56
+          },
+          {
+            "id": "dough",
+            "kind": "dough",
+            "area": "pastry-area",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 52,
+            "y": 97
+          },
+          {
+            "id": "flatbread",
+            "kind": "flatbread",
+            "area": "hearth-area",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 155,
+            "y": 81
+          },
+          {
+            "id": "juice",
+            "kind": "juice",
+            "area": "hearth-area",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 308,
+            "y": 202
+          },
+          {
+            "id": "milk",
+            "kind": "milk",
+            "area": "cultures-area",
+            "location": "fermentation-room",
+            "slots": {},
+            "incorporated": [],
+            "x": 52,
+            "y": 97
+          },
+          {
+            "id": "cream",
+            "kind": "cream",
+            "area": "cultures-area",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 252,
+            "y": 156
+          },
+          {
+            "id": "churn",
+            "kind": "churn",
+            "area": "cultures-area",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 52,
+            "y": 206
+          },
+          {
+            "id": "yeast-culture",
+            "kind": "yeast-culture",
+            "area": "cultures-area",
+            "location": "fermentation-room",
+            "slots": {},
+            "incorporated": [],
+            "x": 52,
+            "y": 97
+          },
+          {
+            "id": "lactic-culture",
+            "kind": "lactic-culture",
+            "area": "cultures-area",
+            "location": "fermentation-room",
+            "slots": {},
+            "incorporated": [],
+            "x": 52,
+            "y": 97
+          },
+          {
+            "id": "leavened-dough",
+            "kind": "leavened-dough",
+            "area": "cultures-area",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 150,
+            "y": 97
+          },
+          {
+            "id": "bread",
+            "kind": "bread",
+            "area": "cultures-area",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 308,
+            "y": 146
+          },
+          {
+            "id": "yogurt",
+            "kind": "yogurt",
+            "area": "cultures-area",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 52,
+            "y": 143
+          },
+          {
+            "id": "butter",
+            "kind": "butter",
+            "area": "pastry-area",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 150,
+            "y": 252
+          },
+          {
+            "id": "eggs",
+            "kind": "eggs",
+            "area": "pastry-area",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 252,
+            "y": 156
+          },
+          {
+            "id": "sugar",
+            "kind": "sugar",
+            "area": "pastry-area",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 252,
+            "y": 206
+          },
+          {
+            "id": "whisk",
+            "kind": "whisk",
+            "area": "pastry-area",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 52,
+            "y": 256
+          },
+          {
+            "id": "menu-card",
+            "kind": "menu-card",
+            "area": "pastry-area",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 252,
+            "y": 256
+          },
+          {
+            "id": "humoral-book",
+            "kind": "humoral-book",
+            "area": "pastry-area",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 52,
+            "y": 306
+          },
+          {
+            "id": "modern-nutrition-note",
+            "kind": "modern-nutrition-note",
+            "area": "pastry-area",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 152,
+            "y": 306
+          }
+        ],
+        "discovered": [
+          "grain",
+          "millstone",
+          "water",
+          "fruit",
+          "press",
+          "flour",
+          "dough",
+          "flatbread",
+          "juice",
+          "milk",
+          "cream",
+          "churn",
+          "yeast-culture",
+          "lactic-culture",
+          "leavened-dough",
+          "bread",
+          "yogurt",
+          "butter",
+          "eggs",
+          "sugar",
+          "whisk",
+          "menu-card",
+          "humoral-book",
+          "modern-nutrition-note"
+        ],
+        "recipesUsed": [
+          "flour",
+          "dough",
+          "flatbread",
+          "juice",
+          "leavened-dough",
+          "bread",
+          "yogurt",
+          "butter"
+        ],
+        "openedCaches": [
+          "dairy-stores",
+          "pastry-cupboard"
+        ],
+        "width": 360,
+        "metrics": {
+          "attempts": 19,
+          "accepted": 14,
+          "combinations": 8,
+          "creations": 8,
+          "installations": 0,
+          "moves": 0,
+          "placements": 4,
+          "advances": 2,
+          "visits": 0
+        },
+        "completed": false
+      },
+      {
+        "stage": 2,
+        "currentArea": "pastry-area",
+        "areas": [
+          {
+            "id": "hearth-area",
+            "label": "The roadside hearth",
+            "enteredAtStage": 0
+          },
+          {
+            "id": "cultures-area",
+            "label": "The dairy and bakehouse",
+            "enteredAtStage": 1
+          },
+          {
+            "id": "pastry-area",
+            "label": "The pastry workshop",
+            "enteredAtStage": 2
+          }
+        ],
+        "places": [
+          {
+            "id": "hearth",
+            "area": "hearth-area",
+            "x": 52,
+            "y": 81
+          },
+          {
+            "id": "fermentation-room",
+            "area": "cultures-area",
+            "x": 52,
+            "y": 81
+          },
+          {
+            "id": "bakehouse-oven",
+            "area": "cultures-area",
+            "x": 252,
+            "y": 81
+          },
+          {
+            "id": "pastry-bench",
+            "area": "pastry-area",
+            "x": 252,
+            "y": 81
+          },
+          {
+            "id": "oven",
+            "area": "pastry-area",
+            "x": 52,
+            "y": 181
+          }
+        ],
+        "tokens": [
+          {
+            "id": "grain",
+            "kind": "grain",
+            "area": "hearth-area",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 252,
+            "y": 56
+          },
+          {
+            "id": "millstone",
+            "kind": "millstone",
+            "area": "hearth-area",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 252,
+            "y": 106
+          },
+          {
+            "id": "water",
+            "kind": "water",
+            "area": "hearth-area",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 52,
+            "y": 156
+          },
+          {
+            "id": "fruit",
+            "kind": "fruit",
+            "area": "pastry-area",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 152,
+            "y": 152
+          },
+          {
+            "id": "press",
+            "kind": "press",
+            "area": "hearth-area",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 252,
+            "y": 156
+          },
+          {
+            "id": "flour",
+            "kind": "flour",
+            "area": "pastry-area",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 154,
+            "y": 56
+          },
+          {
+            "id": "dough",
+            "kind": "dough",
+            "area": "pastry-area",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 52,
+            "y": 97
+          },
+          {
+            "id": "flatbread",
+            "kind": "flatbread",
+            "area": "hearth-area",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 155,
+            "y": 81
+          },
+          {
+            "id": "juice",
+            "kind": "juice",
+            "area": "hearth-area",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 308,
+            "y": 202
+          },
+          {
+            "id": "milk",
+            "kind": "milk",
+            "area": "cultures-area",
+            "location": "fermentation-room",
+            "slots": {},
+            "incorporated": [],
+            "x": 52,
+            "y": 97
+          },
+          {
+            "id": "cream",
+            "kind": "cream",
+            "area": "cultures-area",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 252,
+            "y": 156
+          },
+          {
+            "id": "churn",
+            "kind": "churn",
+            "area": "cultures-area",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 52,
+            "y": 206
+          },
+          {
+            "id": "yeast-culture",
+            "kind": "yeast-culture",
+            "area": "cultures-area",
+            "location": "fermentation-room",
+            "slots": {},
+            "incorporated": [],
+            "x": 52,
+            "y": 97
+          },
+          {
+            "id": "lactic-culture",
+            "kind": "lactic-culture",
+            "area": "cultures-area",
+            "location": "fermentation-room",
+            "slots": {},
+            "incorporated": [],
+            "x": 52,
+            "y": 97
+          },
+          {
+            "id": "leavened-dough",
+            "kind": "leavened-dough",
+            "area": "cultures-area",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 150,
+            "y": 97
+          },
+          {
+            "id": "bread",
+            "kind": "bread",
+            "area": "cultures-area",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 308,
+            "y": 146
+          },
+          {
+            "id": "yogurt",
+            "kind": "yogurt",
+            "area": "cultures-area",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 52,
+            "y": 143
+          },
+          {
+            "id": "butter",
+            "kind": "butter",
+            "area": "pastry-area",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 150,
+            "y": 252
+          },
+          {
+            "id": "eggs",
+            "kind": "eggs",
+            "area": "pastry-area",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 252,
+            "y": 156
+          },
+          {
+            "id": "sugar",
+            "kind": "sugar",
+            "area": "pastry-area",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 252,
+            "y": 206
+          },
+          {
+            "id": "whisk",
+            "kind": "whisk",
+            "area": "pastry-area",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 52,
+            "y": 256
+          },
+          {
+            "id": "menu-card",
+            "kind": "menu-card",
+            "area": "pastry-area",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 252,
+            "y": 256
+          },
+          {
+            "id": "humoral-book",
+            "kind": "humoral-book",
+            "area": "pastry-area",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 52,
+            "y": 306
+          },
+          {
+            "id": "modern-nutrition-note",
+            "kind": "modern-nutrition-note",
+            "area": "pastry-area",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 152,
+            "y": 306
+          },
+          {
+            "id": "humoral-menu",
+            "kind": "humoral-menu",
+            "area": "pastry-area",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 308,
+            "y": 302
+          }
+        ],
+        "discovered": [
+          "grain",
+          "millstone",
+          "water",
+          "fruit",
+          "press",
+          "flour",
+          "dough",
+          "flatbread",
+          "juice",
+          "milk",
+          "cream",
+          "churn",
+          "yeast-culture",
+          "lactic-culture",
+          "leavened-dough",
+          "bread",
+          "yogurt",
+          "butter",
+          "eggs",
+          "sugar",
+          "whisk",
+          "menu-card",
+          "humoral-book",
+          "modern-nutrition-note",
+          "humoral-menu"
+        ],
+        "recipesUsed": [
+          "flour",
+          "dough",
+          "flatbread",
+          "juice",
+          "leavened-dough",
+          "bread",
+          "yogurt",
+          "butter",
+          "humoral-menu"
+        ],
+        "openedCaches": [
+          "dairy-stores",
+          "pastry-cupboard"
+        ],
+        "width": 360,
+        "metrics": {
+          "attempts": 20,
+          "accepted": 15,
+          "combinations": 9,
+          "creations": 9,
+          "installations": 0,
+          "moves": 0,
+          "placements": 4,
+          "advances": 2,
+          "visits": 0
+        },
+        "completed": false
+      }
+    ],
+    "events": [
+      {
+        "seq": 1,
+        "action": {
+          "type": "combine",
+          "a": "grain",
+          "b": "millstone"
+        },
+        "accepted": true,
+        "message": "Flour.",
+        "stage": 0,
+        "recipe": "flour",
+        "created": "flour"
+      },
+      {
+        "seq": 2,
+        "action": {
+          "type": "combine",
+          "a": "flour",
+          "b": "water"
+        },
+        "accepted": true,
+        "message": "Dough.",
+        "stage": 0,
+        "recipe": "dough",
+        "created": "dough"
+      },
+      {
+        "seq": 3,
+        "action": {
+          "type": "combine",
+          "a": "dough",
+          "b": "@hearth"
+        },
+        "accepted": true,
+        "message": "Flatbread.",
+        "stage": 0,
+        "recipe": "flatbread",
+        "created": "flatbread"
+      },
+      {
+        "seq": 4,
+        "action": {
+          "type": "combine",
+          "a": "fruit",
+          "b": "press"
+        },
+        "accepted": true,
+        "message": "Juice.",
+        "stage": 0,
+        "recipe": "juice",
+        "created": "juice"
+      },
+      {
+        "seq": 5,
+        "action": {
+          "type": "advance"
+        },
+        "accepted": true,
+        "message": "We are taking the useful things with us. Earlier creations remain where we made them.",
+        "stage": 1
+      },
+      {
+        "seq": 6,
+        "action": {
+          "type": "combine",
+          "a": "dough",
+          "b": "yeast-culture"
+        },
+        "accepted": false,
+        "message": "No new combination here.",
+        "stage": 1
+      },
+      {
+        "seq": 7,
+        "action": {
+          "type": "place",
+          "item": "dough",
+          "location": "fermentation-room"
+        },
+        "accepted": true,
+        "message": "Placed.",
+        "stage": 1
+      },
+      {
+        "seq": 8,
+        "action": {
+          "type": "combine",
+          "a": "dough",
+          "b": "yeast-culture"
+        },
+        "accepted": false,
+        "message": "No new combination here.",
+        "stage": 1
+      },
+      {
+        "seq": 9,
+        "action": {
+          "type": "place",
+          "item": "yeast-culture",
+          "location": "fermentation-room"
+        },
+        "accepted": true,
+        "message": "Placed.",
+        "stage": 1
+      },
+      {
+        "seq": 10,
+        "action": {
+          "type": "combine",
+          "a": "dough",
+          "b": "yeast-culture"
+        },
+        "accepted": true,
+        "message": "Leavened dough. Yeast changes the dough over time; the game compresses fermentation.",
+        "stage": 1,
+        "recipe": "leavened-dough",
+        "created": "leavened-dough"
+      },
+      {
+        "seq": 11,
+        "action": {
+          "type": "combine",
+          "a": "leavened-dough",
+          "b": "@bakehouse-oven"
+        },
+        "accepted": true,
+        "message": "Bread.",
+        "stage": 1,
+        "recipe": "bread",
+        "created": "bread"
+      },
+      {
+        "seq": 12,
+        "action": {
+          "type": "place",
+          "item": "milk",
+          "location": "fermentation-room"
+        },
+        "accepted": true,
+        "message": "Placed.",
+        "stage": 1
+      },
+      {
+        "seq": 13,
+        "action": {
+          "type": "place",
+          "item": "lactic-culture",
+          "location": "fermentation-room"
+        },
+        "accepted": true,
+        "message": "Placed.",
+        "stage": 1
+      },
+      {
+        "seq": 14,
+        "action": {
+          "type": "combine",
+          "a": "milk",
+          "b": "lactic-culture"
+        },
+        "accepted": true,
+        "message": "Yogurt. A suitable bacterial culture transforms milk; it is not the same culture as bread yeast.",
+        "stage": 1,
+        "recipe": "yogurt",
+        "created": "yogurt"
+      },
+      {
+        "seq": 15,
+        "action": {
+          "type": "combine",
+          "a": "yogurt",
+          "b": "fruit"
+        },
+        "accepted": false,
+        "message": "No new combination here.",
+        "stage": 1
+      },
+      {
+        "seq": 16,
+        "action": {
+          "type": "combine",
+          "a": "cream",
+          "b": "churn"
+        },
+        "accepted": true,
+        "message": "Butter.",
+        "stage": 1,
+        "recipe": "butter",
+        "created": "butter"
+      },
+      {
+        "seq": 17,
+        "action": {
+          "type": "combine",
+          "a": "bread",
+          "b": "butter"
+        },
+        "accepted": false,
+        "message": "No new combination here.",
+        "stage": 1
+      },
+      {
+        "seq": 18,
+        "action": {
+          "type": "advance"
+        },
+        "accepted": true,
+        "message": "We are taking the useful things with us. Earlier creations remain where we made them.",
+        "stage": 2
+      },
+      {
+        "seq": 19,
+        "action": {
+          "type": "combine",
+          "a": "humoral-book",
+          "b": "modern-nutrition-note"
+        },
+        "accepted": false,
+        "message": "No new combination here.",
+        "stage": 2
+      },
+      {
+        "seq": 20,
+        "action": {
+          "type": "combine",
+          "a": "humoral-book",
+          "b": "menu-card"
+        },
+        "accepted": true,
+        "message": "Humoral menu. A period menu organized through hot/cold and wet/dry qualities. This records a historical belief, not a medically effective diet.",
+        "stage": 2,
+        "recipe": "humoral-menu",
+        "created": "humoral-menu"
+      },
+      {
+        "seq": 21,
+        "action": {
+          "type": "combine",
+          "a": "humoral-menu",
+          "b": "modern-nutrition-note"
+        },
+        "accepted": true,
+        "message": "Annotated menu. A museum annotation distinguishes a historical explanatory system from present-day nutrition; neither is a literal ingredient.",
+        "stage": 2,
+        "recipe": "annotated-menu",
+        "created": "annotated-menu"
+      },
+      {
+        "seq": 22,
+        "action": {
+          "type": "combine",
+          "a": "flour",
+          "b": "butter"
+        },
+        "accepted": false,
+        "message": "No new combination here.",
+        "stage": 2
+      }
+    ]
+  },
+  "closedAt": "2026-10-27T19:25:19.615Z",
+  "outcome": "stop",
+  "playerReport": "Stopped voluntarily at pastry workshop, not blocked. The roadside meal was clear and mildly satisfying. The two cultures made sense, but dough plus yeast failed twice until I learned to place both in the fermentation room; the generic failure did not explain that distinction. Once learned, yogurt was routine placement then combination. I tried fruit yogurt and buttered bread for pleasure and neither worked, which reduced my urge to experiment. The humoral menu side branch was a welcome oddity, reached with a hint, then annotated successfully. Returning to flour plus butter failed; I suspect the cool bench is required, but another place-both-and-combine sequence no longer interested me enough to continue. I did not reach the ending. This is a logical-interface impression only."
+}

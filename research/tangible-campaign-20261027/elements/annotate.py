@@ -1,0 +1,11 @@
+import json,pathlib
+p=pathlib.Path(__file__).parent/'scenario.json';s=json.loads(p.read_text())
+s['sources']=[{'id':'corning','title':'Corning Museum of Glass: frequently asked questions','url':'https://info.cmog.org/frequently-asked-questions','note':'Soda-lime glass has more ingredients than sand and heat; abstraction explicitly disclosed.'},{'id':'kew','title':'Kew: A brief history of plants in books','url':'https://www.kew.org/read-and-watch/a-brief-history-of-plants-in-books'},{'id':'soap','title':'CPSC: Soap business guidance','url':'https://www.cpsc.gov/Business--Manufacturing/Business-Education/Business-Guidance/Soap','note':'Supports fats/oils and alkali relationship only. No procedure implied.'},{'id':'clock','title':'Science Museum Group: Model of a pendulum clock based on Galileo’s design','url':'https://collection.sciencemuseumgroup.org.uk/objects/co8593065/model-of-a-pendulum-clock-based-on-galileos-design'}]
+notes={'glass':('corning','Storybook simplification: ordinary glass also needs flux and stabilizer; sand plus fire is not a real manufacturing instruction.'),'herbarium':('kew','Represents collected, dried, pressed and documented specimens, not an instantaneous binding operation.'),'soap':('soap','Historical material relationship only; alkali is hazardous. No quantities, apparatus or real manufacturing procedure are supplied.'),'clockwork':('clock','Compresses power source, gearing and escapement; a pendulum and one gear alone cannot make clockwork.')}
+for r in s['recipes']:
+ if r['id'] in notes:r['sources']=[notes[r['id']][0]];r['caveat']=notes[r['id']][1]
+ if r['id'] in ['filtered-water','boiled-water','drinking-water','water-urn']:r['caveat']='Narrative craft abstraction; not a real-world water safety claim. Filtering and boiling do not remove every contaminant.'
+s['stages'][0]['motivation']='The river gathering is a month away. We begin with earth, water, air and fire. Make a bowl for supper and bricks for a hearth.'
+for st in s['stages']:
+ st['area']['travelText']='Our next stop: '+st['title']+'. '+('We’re taking what we need with us; the things we leave stay here.' if st['id']=='supper' else 'Bring the useful things; leave the rest where we made them.')
+p.write_text(json.dumps(s,indent=2)+'\n')

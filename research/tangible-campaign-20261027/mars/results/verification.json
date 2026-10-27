@@ -1,0 +1,1272 @@
+{
+  "scenarioSHA256": "d437c75957407276e2ffe9c9cb53f8836512f4db28a3930d7f35f1c6fac35309",
+  "checks": [
+    "schema",
+    "repair route replay",
+    "tow route replay on unmodified scenario",
+    "optical beacon route replay",
+    "closure replay",
+    "tow capability",
+    "unique tangible kinds",
+    "travel preserves things and fixed places",
+    "every packed object has visited-source provenance and unchanged identity/components",
+    "no mandatory backtracking in witnessed routes",
+    "counts exclude navigation",
+    "cache uniqueness",
+    "slice legal checkpoint"
+  ],
+  "results": [
+    {
+      "name": "goal-route",
+      "metrics": {
+        "attempts": 213,
+        "accepted": 213,
+        "combinations": 194,
+        "creations": 164,
+        "installations": 30,
+        "moves": 0,
+        "placements": 2,
+        "advances": 17,
+        "visits": 0
+      },
+      "peakLocal": 25,
+      "transitions": 17,
+      "packing": [
+        {
+          "stage": "habitat",
+          "transfers": [],
+          "local": 12
+        },
+        {
+          "stage": "rover",
+          "transfers": [
+            {
+              "item": "support-frame",
+              "from": "area-signal",
+              "to": "area-rover"
+            },
+            {
+              "item": "tripod",
+              "from": "area-signal",
+              "to": "area-rover"
+            },
+            {
+              "item": "solar-charger",
+              "from": "area-signal",
+              "to": "area-rover"
+            }
+          ],
+          "local": 14
+        },
+        {
+          "stage": "outcrop",
+          "transfers": [
+            {
+              "item": "tripod",
+              "from": "area-rover",
+              "to": "area-outcrop"
+            },
+            {
+              "item": "camera",
+              "from": "area-rover",
+              "to": "area-outcrop"
+            },
+            {
+              "item": "lens",
+              "from": "area-rover",
+              "to": "area-outcrop"
+            },
+            {
+              "item": "optical-tube",
+              "from": "area-rover",
+              "to": "area-outcrop"
+            },
+            {
+              "item": "bearing-map",
+              "from": "area-rover",
+              "to": "area-outcrop"
+            }
+          ],
+          "local": 14
+        },
+        {
+          "stage": "weather",
+          "transfers": [
+            {
+              "item": "solar-charger",
+              "from": "area-rover",
+              "to": "area-weather"
+            },
+            {
+              "item": "motor-controller",
+              "from": "area-rover",
+              "to": "area-weather"
+            },
+            {
+              "item": "annotated-map",
+              "from": "area-outcrop",
+              "to": "area-weather"
+            }
+          ],
+          "local": 14
+        },
+        {
+          "stage": "relay",
+          "transfers": [
+            {
+              "item": "solar-panel",
+              "from": "area-signal",
+              "to": "area-relay"
+            },
+            {
+              "item": "dish-antenna",
+              "from": "area-rover",
+              "to": "area-relay"
+            },
+            {
+              "item": "weather-route-map",
+              "from": "area-weather",
+              "to": "area-relay"
+            }
+          ],
+          "local": 14
+        },
+        {
+          "stage": "rescue",
+          "transfers": [
+            {
+              "item": "toolkit",
+              "from": "area-signal",
+              "to": "area-rescue"
+            },
+            {
+              "item": "heater",
+              "from": "area-habitat",
+              "to": "area-rescue"
+            },
+            {
+              "item": "pressure-patch",
+              "from": "area-habitat",
+              "to": "area-rescue"
+            },
+            {
+              "item": "rover",
+              "from": "area-rover",
+              "to": "area-rescue"
+            }
+          ],
+          "local": 16
+        },
+        {
+          "stage": "waterworks",
+          "transfers": [
+            {
+              "item": "heater",
+              "from": "area-rescue",
+              "to": "area-waterworks"
+            }
+          ],
+          "local": 13
+        },
+        {
+          "stage": "garden",
+          "transfers": [
+            {
+              "item": "solar-charger",
+              "from": "area-weather",
+              "to": "area-garden"
+            },
+            {
+              "item": "heater",
+              "from": "area-waterworks",
+              "to": "area-garden"
+            },
+            {
+              "item": "pressure-patch",
+              "from": "area-rescue",
+              "to": "area-garden"
+            },
+            {
+              "item": "camp-water-system",
+              "from": "area-waterworks",
+              "to": "area-garden"
+            }
+          ],
+          "local": 16
+        },
+        {
+          "stage": "workshop",
+          "transfers": [
+            {
+              "item": "crawler",
+              "from": "area-rescue",
+              "to": "area-workshop"
+            }
+          ],
+          "local": 14
+        },
+        {
+          "stage": "traverse",
+          "transfers": [
+            {
+              "item": "solar-charger",
+              "from": "area-garden",
+              "to": "area-traverse"
+            },
+            {
+              "item": "annotated-map",
+              "from": "area-weather",
+              "to": "area-traverse"
+            },
+            {
+              "item": "crawler",
+              "from": "area-workshop",
+              "to": "area-traverse"
+            }
+          ],
+          "local": 13
+        },
+        {
+          "stage": "buried-story",
+          "transfers": [
+            {
+              "item": "core-profile",
+              "from": "area-outcrop",
+              "to": "area-buried-story"
+            }
+          ],
+          "local": 12
+        },
+        {
+          "stage": "oxygen",
+          "transfers": [],
+          "local": 12
+        },
+        {
+          "stage": "ascent",
+          "transfers": [
+            {
+              "item": "seat-harness",
+              "from": "area-rover",
+              "to": "area-ascent"
+            }
+          ],
+          "local": 14
+        },
+        {
+          "stage": "rendezvous",
+          "transfers": [
+            {
+              "item": "solar-radio",
+              "from": "area-signal",
+              "to": "area-rendezvous"
+            },
+            {
+              "item": "dish-antenna",
+              "from": "area-relay",
+              "to": "area-rendezvous"
+            }
+          ],
+          "local": 12
+        },
+        {
+          "stage": "departure",
+          "transfers": [
+            {
+              "item": "catalogued-ice-sample",
+              "from": "area-outcrop",
+              "to": "area-departure"
+            },
+            {
+              "item": "core-profile",
+              "from": "area-buried-story",
+              "to": "area-departure"
+            },
+            {
+              "item": "retained-sediment",
+              "from": "area-buried-story",
+              "to": "area-departure"
+            },
+            {
+              "item": "basin-field-record",
+              "from": "area-buried-story",
+              "to": "area-departure"
+            }
+          ],
+          "local": 14
+        },
+        {
+          "stage": "homebound",
+          "transfers": [
+            {
+              "item": "ascent-cabin",
+              "from": "area-ascent",
+              "to": "area-homebound"
+            },
+            {
+              "item": "agreed-rendezvous",
+              "from": "area-rendezvous",
+              "to": "area-homebound"
+            },
+            {
+              "item": "specimen-cart",
+              "from": "area-departure",
+              "to": "area-homebound"
+            }
+          ],
+          "local": 11
+        },
+        {
+          "stage": "homebound",
+          "transfers": [],
+          "local": 16
+        }
+      ],
+      "passed": true
+    },
+    {
+      "name": "tow-route",
+      "metrics": {
+        "attempts": 216,
+        "accepted": 216,
+        "combinations": 197,
+        "creations": 166,
+        "installations": 31,
+        "moves": 0,
+        "placements": 2,
+        "advances": 17,
+        "visits": 0
+      },
+      "peakLocal": 26,
+      "transitions": 17,
+      "packing": [
+        {
+          "stage": "habitat",
+          "transfers": [],
+          "local": 12
+        },
+        {
+          "stage": "rover",
+          "transfers": [
+            {
+              "item": "support-frame",
+              "from": "area-signal",
+              "to": "area-rover"
+            },
+            {
+              "item": "tripod",
+              "from": "area-signal",
+              "to": "area-rover"
+            },
+            {
+              "item": "solar-charger",
+              "from": "area-signal",
+              "to": "area-rover"
+            }
+          ],
+          "local": 14
+        },
+        {
+          "stage": "outcrop",
+          "transfers": [
+            {
+              "item": "tripod",
+              "from": "area-rover",
+              "to": "area-outcrop"
+            },
+            {
+              "item": "camera",
+              "from": "area-rover",
+              "to": "area-outcrop"
+            },
+            {
+              "item": "lens",
+              "from": "area-rover",
+              "to": "area-outcrop"
+            },
+            {
+              "item": "optical-tube",
+              "from": "area-rover",
+              "to": "area-outcrop"
+            },
+            {
+              "item": "bearing-map",
+              "from": "area-rover",
+              "to": "area-outcrop"
+            }
+          ],
+          "local": 14
+        },
+        {
+          "stage": "weather",
+          "transfers": [
+            {
+              "item": "solar-charger",
+              "from": "area-rover",
+              "to": "area-weather"
+            },
+            {
+              "item": "motor-controller",
+              "from": "area-rover",
+              "to": "area-weather"
+            },
+            {
+              "item": "annotated-map",
+              "from": "area-outcrop",
+              "to": "area-weather"
+            }
+          ],
+          "local": 14
+        },
+        {
+          "stage": "relay",
+          "transfers": [
+            {
+              "item": "solar-panel",
+              "from": "area-signal",
+              "to": "area-relay"
+            },
+            {
+              "item": "dish-antenna",
+              "from": "area-rover",
+              "to": "area-relay"
+            },
+            {
+              "item": "weather-route-map",
+              "from": "area-weather",
+              "to": "area-relay"
+            }
+          ],
+          "local": 14
+        },
+        {
+          "stage": "rescue",
+          "transfers": [
+            {
+              "item": "toolkit",
+              "from": "area-signal",
+              "to": "area-rescue"
+            },
+            {
+              "item": "heater",
+              "from": "area-habitat",
+              "to": "area-rescue"
+            },
+            {
+              "item": "pressure-patch",
+              "from": "area-habitat",
+              "to": "area-rescue"
+            },
+            {
+              "item": "rover",
+              "from": "area-rover",
+              "to": "area-rescue"
+            }
+          ],
+          "local": 16
+        },
+        {
+          "stage": "waterworks",
+          "transfers": [
+            {
+              "item": "heater",
+              "from": "area-rescue",
+              "to": "area-waterworks"
+            }
+          ],
+          "local": 13
+        },
+        {
+          "stage": "garden",
+          "transfers": [
+            {
+              "item": "solar-charger",
+              "from": "area-weather",
+              "to": "area-garden"
+            },
+            {
+              "item": "heater",
+              "from": "area-waterworks",
+              "to": "area-garden"
+            },
+            {
+              "item": "pressure-patch",
+              "from": "area-rescue",
+              "to": "area-garden"
+            },
+            {
+              "item": "camp-water-system",
+              "from": "area-waterworks",
+              "to": "area-garden"
+            }
+          ],
+          "local": 16
+        },
+        {
+          "stage": "workshop",
+          "transfers": [
+            {
+              "item": "toolkit",
+              "from": "area-rescue",
+              "to": "area-workshop"
+            },
+            {
+              "item": "spare-drive",
+              "from": "area-rescue",
+              "to": "area-workshop"
+            },
+            {
+              "item": "drive-coupling",
+              "from": "area-rescue",
+              "to": "area-workshop"
+            },
+            {
+              "item": "damaged-crawler",
+              "from": "area-rescue",
+              "to": "area-workshop"
+            },
+            {
+              "item": "towed-crawler",
+              "from": "area-rescue",
+              "to": "area-workshop"
+            }
+          ],
+          "local": 18
+        },
+        {
+          "stage": "traverse",
+          "transfers": [
+            {
+              "item": "solar-charger",
+              "from": "area-garden",
+              "to": "area-traverse"
+            },
+            {
+              "item": "annotated-map",
+              "from": "area-weather",
+              "to": "area-traverse"
+            },
+            {
+              "item": "crawler",
+              "from": "area-workshop",
+              "to": "area-traverse"
+            }
+          ],
+          "local": 13
+        },
+        {
+          "stage": "buried-story",
+          "transfers": [
+            {
+              "item": "core-profile",
+              "from": "area-outcrop",
+              "to": "area-buried-story"
+            }
+          ],
+          "local": 12
+        },
+        {
+          "stage": "oxygen",
+          "transfers": [],
+          "local": 12
+        },
+        {
+          "stage": "ascent",
+          "transfers": [
+            {
+              "item": "seat-harness",
+              "from": "area-rover",
+              "to": "area-ascent"
+            }
+          ],
+          "local": 14
+        },
+        {
+          "stage": "rendezvous",
+          "transfers": [
+            {
+              "item": "solar-radio",
+              "from": "area-signal",
+              "to": "area-rendezvous"
+            },
+            {
+              "item": "dish-antenna",
+              "from": "area-relay",
+              "to": "area-rendezvous"
+            }
+          ],
+          "local": 12
+        },
+        {
+          "stage": "departure",
+          "transfers": [
+            {
+              "item": "catalogued-ice-sample",
+              "from": "area-outcrop",
+              "to": "area-departure"
+            },
+            {
+              "item": "core-profile",
+              "from": "area-buried-story",
+              "to": "area-departure"
+            },
+            {
+              "item": "retained-sediment",
+              "from": "area-buried-story",
+              "to": "area-departure"
+            },
+            {
+              "item": "basin-field-record",
+              "from": "area-buried-story",
+              "to": "area-departure"
+            }
+          ],
+          "local": 14
+        },
+        {
+          "stage": "homebound",
+          "transfers": [
+            {
+              "item": "ascent-cabin",
+              "from": "area-ascent",
+              "to": "area-homebound"
+            },
+            {
+              "item": "agreed-rendezvous",
+              "from": "area-rendezvous",
+              "to": "area-homebound"
+            },
+            {
+              "item": "specimen-cart",
+              "from": "area-departure",
+              "to": "area-homebound"
+            }
+          ],
+          "local": 11
+        },
+        {
+          "stage": "homebound",
+          "transfers": [],
+          "local": 16
+        }
+      ],
+      "passed": true
+    },
+    {
+      "name": "beacon-route",
+      "metrics": {
+        "attempts": 217,
+        "accepted": 217,
+        "combinations": 198,
+        "creations": 168,
+        "installations": 30,
+        "moves": 0,
+        "placements": 2,
+        "advances": 17,
+        "visits": 0
+      },
+      "peakLocal": 25,
+      "transitions": 17,
+      "packing": [
+        {
+          "stage": "habitat",
+          "transfers": [],
+          "local": 12
+        },
+        {
+          "stage": "rover",
+          "transfers": [
+            {
+              "item": "solar-panel",
+              "from": "area-signal",
+              "to": "area-rover"
+            },
+            {
+              "item": "battery",
+              "from": "area-signal",
+              "to": "area-rover"
+            },
+            {
+              "item": "support-frame",
+              "from": "area-signal",
+              "to": "area-rover"
+            },
+            {
+              "item": "tripod",
+              "from": "area-signal",
+              "to": "area-rover"
+            }
+          ],
+          "local": 15
+        },
+        {
+          "stage": "outcrop",
+          "transfers": [
+            {
+              "item": "tripod",
+              "from": "area-rover",
+              "to": "area-outcrop"
+            },
+            {
+              "item": "camera",
+              "from": "area-rover",
+              "to": "area-outcrop"
+            },
+            {
+              "item": "lens",
+              "from": "area-rover",
+              "to": "area-outcrop"
+            },
+            {
+              "item": "optical-tube",
+              "from": "area-rover",
+              "to": "area-outcrop"
+            },
+            {
+              "item": "bearing-map",
+              "from": "area-rover",
+              "to": "area-outcrop"
+            }
+          ],
+          "local": 14
+        },
+        {
+          "stage": "weather",
+          "transfers": [
+            {
+              "item": "motor-controller",
+              "from": "area-rover",
+              "to": "area-weather"
+            },
+            {
+              "item": "solar-charger",
+              "from": "area-rover",
+              "to": "area-weather"
+            },
+            {
+              "item": "annotated-map",
+              "from": "area-outcrop",
+              "to": "area-weather"
+            }
+          ],
+          "local": 14
+        },
+        {
+          "stage": "relay",
+          "transfers": [
+            {
+              "item": "solar-panel",
+              "from": "area-rover",
+              "to": "area-relay"
+            },
+            {
+              "item": "dish-antenna",
+              "from": "area-rover",
+              "to": "area-relay"
+            },
+            {
+              "item": "weather-route-map",
+              "from": "area-weather",
+              "to": "area-relay"
+            }
+          ],
+          "local": 14
+        },
+        {
+          "stage": "rescue",
+          "transfers": [
+            {
+              "item": "toolkit",
+              "from": "area-signal",
+              "to": "area-rescue"
+            },
+            {
+              "item": "heater",
+              "from": "area-habitat",
+              "to": "area-rescue"
+            },
+            {
+              "item": "pressure-patch",
+              "from": "area-habitat",
+              "to": "area-rescue"
+            },
+            {
+              "item": "rover",
+              "from": "area-rover",
+              "to": "area-rescue"
+            }
+          ],
+          "local": 16
+        },
+        {
+          "stage": "waterworks",
+          "transfers": [
+            {
+              "item": "heater",
+              "from": "area-rescue",
+              "to": "area-waterworks"
+            }
+          ],
+          "local": 13
+        },
+        {
+          "stage": "garden",
+          "transfers": [
+            {
+              "item": "heater",
+              "from": "area-waterworks",
+              "to": "area-garden"
+            },
+            {
+              "item": "pressure-patch",
+              "from": "area-rescue",
+              "to": "area-garden"
+            },
+            {
+              "item": "solar-charger",
+              "from": "area-weather",
+              "to": "area-garden"
+            },
+            {
+              "item": "camp-water-system",
+              "from": "area-waterworks",
+              "to": "area-garden"
+            }
+          ],
+          "local": 16
+        },
+        {
+          "stage": "workshop",
+          "transfers": [
+            {
+              "item": "crawler",
+              "from": "area-rescue",
+              "to": "area-workshop"
+            }
+          ],
+          "local": 14
+        },
+        {
+          "stage": "traverse",
+          "transfers": [
+            {
+              "item": "solar-charger",
+              "from": "area-garden",
+              "to": "area-traverse"
+            },
+            {
+              "item": "annotated-map",
+              "from": "area-weather",
+              "to": "area-traverse"
+            },
+            {
+              "item": "crawler",
+              "from": "area-workshop",
+              "to": "area-traverse"
+            }
+          ],
+          "local": 13
+        },
+        {
+          "stage": "buried-story",
+          "transfers": [
+            {
+              "item": "core-profile",
+              "from": "area-outcrop",
+              "to": "area-buried-story"
+            }
+          ],
+          "local": 12
+        },
+        {
+          "stage": "oxygen",
+          "transfers": [],
+          "local": 12
+        },
+        {
+          "stage": "ascent",
+          "transfers": [
+            {
+              "item": "seat-harness",
+              "from": "area-rover",
+              "to": "area-ascent"
+            }
+          ],
+          "local": 14
+        },
+        {
+          "stage": "rendezvous",
+          "transfers": [
+            {
+              "item": "radio",
+              "from": "area-signal",
+              "to": "area-rendezvous"
+            },
+            {
+              "item": "dish-antenna",
+              "from": "area-relay",
+              "to": "area-rendezvous"
+            },
+            {
+              "item": "solar-charger",
+              "from": "area-traverse",
+              "to": "area-rendezvous"
+            }
+          ],
+          "local": 13
+        },
+        {
+          "stage": "departure",
+          "transfers": [
+            {
+              "item": "catalogued-ice-sample",
+              "from": "area-outcrop",
+              "to": "area-departure"
+            },
+            {
+              "item": "core-profile",
+              "from": "area-buried-story",
+              "to": "area-departure"
+            },
+            {
+              "item": "retained-sediment",
+              "from": "area-buried-story",
+              "to": "area-departure"
+            },
+            {
+              "item": "basin-field-record",
+              "from": "area-buried-story",
+              "to": "area-departure"
+            }
+          ],
+          "local": 14
+        },
+        {
+          "stage": "homebound",
+          "transfers": [
+            {
+              "item": "ascent-cabin",
+              "from": "area-ascent",
+              "to": "area-homebound"
+            },
+            {
+              "item": "agreed-rendezvous",
+              "from": "area-rendezvous",
+              "to": "area-homebound"
+            },
+            {
+              "item": "specimen-cart",
+              "from": "area-departure",
+              "to": "area-homebound"
+            }
+          ],
+          "local": 11
+        },
+        {
+          "stage": "homebound",
+          "transfers": [],
+          "local": 16
+        }
+      ],
+      "passed": true
+    },
+    {
+      "name": "closure",
+      "metrics": {
+        "attempts": 230,
+        "accepted": 230,
+        "combinations": 211,
+        "creations": 177,
+        "installations": 34,
+        "moves": 0,
+        "placements": 2,
+        "advances": 17,
+        "visits": 0
+      },
+      "peakLocal": 26,
+      "transitions": 17,
+      "packing": [
+        {
+          "stage": "habitat",
+          "transfers": [],
+          "local": 12
+        },
+        {
+          "stage": "rover",
+          "transfers": [
+            {
+              "item": "support-frame",
+              "from": "area-signal",
+              "to": "area-rover"
+            },
+            {
+              "item": "tripod",
+              "from": "area-signal",
+              "to": "area-rover"
+            },
+            {
+              "item": "solar-charger",
+              "from": "area-signal",
+              "to": "area-rover"
+            }
+          ],
+          "local": 14
+        },
+        {
+          "stage": "outcrop",
+          "transfers": [
+            {
+              "item": "camera",
+              "from": "area-rover",
+              "to": "area-outcrop"
+            },
+            {
+              "item": "bearing-map",
+              "from": "area-rover",
+              "to": "area-outcrop"
+            },
+            {
+              "item": "telescope-camera",
+              "from": "area-rover",
+              "to": "area-outcrop"
+            }
+          ],
+          "local": 12
+        },
+        {
+          "stage": "weather",
+          "transfers": [
+            {
+              "item": "solar-charger",
+              "from": "area-rover",
+              "to": "area-weather"
+            },
+            {
+              "item": "motor-controller",
+              "from": "area-rover",
+              "to": "area-weather"
+            },
+            {
+              "item": "annotated-map",
+              "from": "area-outcrop",
+              "to": "area-weather"
+            }
+          ],
+          "local": 14
+        },
+        {
+          "stage": "relay",
+          "transfers": [
+            {
+              "item": "solar-panel",
+              "from": "area-signal",
+              "to": "area-relay"
+            },
+            {
+              "item": "dish-antenna",
+              "from": "area-rover",
+              "to": "area-relay"
+            },
+            {
+              "item": "weather-route-map",
+              "from": "area-weather",
+              "to": "area-relay"
+            }
+          ],
+          "local": 14
+        },
+        {
+          "stage": "rescue",
+          "transfers": [
+            {
+              "item": "toolkit",
+              "from": "area-signal",
+              "to": "area-rescue"
+            },
+            {
+              "item": "heater",
+              "from": "area-habitat",
+              "to": "area-rescue"
+            },
+            {
+              "item": "pressure-patch",
+              "from": "area-habitat",
+              "to": "area-rescue"
+            },
+            {
+              "item": "rover",
+              "from": "area-rover",
+              "to": "area-rescue"
+            }
+          ],
+          "local": 16
+        },
+        {
+          "stage": "waterworks",
+          "transfers": [
+            {
+              "item": "heater",
+              "from": "area-rescue",
+              "to": "area-waterworks"
+            }
+          ],
+          "local": 13
+        },
+        {
+          "stage": "garden",
+          "transfers": [
+            {
+              "item": "solar-charger",
+              "from": "area-weather",
+              "to": "area-garden"
+            },
+            {
+              "item": "heater",
+              "from": "area-waterworks",
+              "to": "area-garden"
+            },
+            {
+              "item": "pressure-patch",
+              "from": "area-rescue",
+              "to": "area-garden"
+            },
+            {
+              "item": "camp-water-system",
+              "from": "area-waterworks",
+              "to": "area-garden"
+            }
+          ],
+          "local": 16
+        },
+        {
+          "stage": "workshop",
+          "transfers": [
+            {
+              "item": "crawler",
+              "from": "area-rescue",
+              "to": "area-workshop"
+            }
+          ],
+          "local": 14
+        },
+        {
+          "stage": "traverse",
+          "transfers": [
+            {
+              "item": "solar-charger",
+              "from": "area-garden",
+              "to": "area-traverse"
+            },
+            {
+              "item": "annotated-map",
+              "from": "area-weather",
+              "to": "area-traverse"
+            },
+            {
+              "item": "crawler",
+              "from": "area-workshop",
+              "to": "area-traverse"
+            }
+          ],
+          "local": 13
+        },
+        {
+          "stage": "buried-story",
+          "transfers": [
+            {
+              "item": "core-profile",
+              "from": "area-outcrop",
+              "to": "area-buried-story"
+            }
+          ],
+          "local": 12
+        },
+        {
+          "stage": "oxygen",
+          "transfers": [],
+          "local": 12
+        },
+        {
+          "stage": "ascent",
+          "transfers": [
+            {
+              "item": "seat-harness",
+              "from": "area-rover",
+              "to": "area-ascent"
+            }
+          ],
+          "local": 14
+        },
+        {
+          "stage": "rendezvous",
+          "transfers": [
+            {
+              "item": "solar-radio",
+              "from": "area-signal",
+              "to": "area-rendezvous"
+            },
+            {
+              "item": "dish-antenna",
+              "from": "area-relay",
+              "to": "area-rendezvous"
+            }
+          ],
+          "local": 12
+        },
+        {
+          "stage": "departure",
+          "transfers": [
+            {
+              "item": "catalogued-ice-sample",
+              "from": "area-outcrop",
+              "to": "area-departure"
+            },
+            {
+              "item": "core-profile",
+              "from": "area-buried-story",
+              "to": "area-departure"
+            },
+            {
+              "item": "retained-sediment",
+              "from": "area-buried-story",
+              "to": "area-departure"
+            },
+            {
+              "item": "basin-field-record",
+              "from": "area-buried-story",
+              "to": "area-departure"
+            }
+          ],
+          "local": 14
+        },
+        {
+          "stage": "homebound",
+          "transfers": [
+            {
+              "item": "ascent-cabin",
+              "from": "area-ascent",
+              "to": "area-homebound"
+            },
+            {
+              "item": "agreed-rendezvous",
+              "from": "area-rendezvous",
+              "to": "area-homebound"
+            },
+            {
+              "item": "specimen-cart",
+              "from": "area-departure",
+              "to": "area-homebound"
+            }
+          ],
+          "local": 11
+        },
+        {
+          "stage": "homebound",
+          "transfers": [],
+          "local": 16
+        }
+      ],
+      "passed": true
+    }
+  ]
+}

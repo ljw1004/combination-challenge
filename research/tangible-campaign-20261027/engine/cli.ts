@@ -6,7 +6,7 @@ import type {Game} from './model.ts';import type {Scenario,Action} from '../sche
 const args=process.argv.slice(2),command=args.shift();
 const root=path.resolve(import.meta.dirname,'..'),sessions=path.join(root,'sessions');
 const enginePath=path.join(import.meta.dirname,'model.ts');
-const implementationPaths=[enginePath,path.join(import.meta.dirname,'cli.ts'),path.join(root,'schema/scenario.ts')];
+const implementationPaths=[enginePath,path.join(import.meta.dirname,'cli.ts'),path.join(root,'schema/scenario.ts'),path.join(import.meta.dirname,'player.ts')];
 const hash=(x:string)=>crypto.createHash('sha256').update(x).digest('hex');
 function emit(x:unknown){console.log(JSON.stringify(x,null,2));}
 function safeId(id:string|undefined){if(!id||!/^[a-zA-Z0-9_-]{1,100}$/.test(id))throw Error('Session id must be alphanumeric, underscore or hyphen');return id;}

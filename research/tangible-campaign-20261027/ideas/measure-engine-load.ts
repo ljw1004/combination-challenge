@@ -1,0 +1,6 @@
+import fs from 'node:fs';import {createGame,applyAction} from '../engine/model.ts';
+const p=import.meta.dirname,s=JSON.parse(fs.readFileSync(`${p}/scenario.json`,'utf8')),actions=JSON.parse(fs.readFileSync(`${p}/goal-route.json`,'utf8'));
+let g=createGame(s);const stages:any[]=[];
+function capture(){const n=g.state.stage,row=stages[n]??{stage:s.stages[n]?.id,peakLocalThings:0,peakLocalLocations:0,peakScrollBottom:0};const local=g.state.tokens.filter(t=>t.area===g.state.currentArea);row.peakLocalThings=Math.max(row.peakLocalThings,local.length);row.peakLocalLocations=Math.max(row.peakLocalLocations,g.state.places.filter(l=>l.area===g.state.currentArea).length);row.peakScrollBottom=Math.max(row.peakScrollBottom,...local.map(t=>t.y));stages[n]=row;}
+capture();for(const a of actions){const r=applyAction(s,g,a);if(!r.accepted)throw Error(r.message);g=r.game;if(!g.state.completed)capture();}
+const out={scope:'Engine token counts on author goal route, width360. Coordinates are logical—not measured browser layout. No retirement rules yet.',maxLocalThings:Math.max(...stages.map(s=>s.peakLocalThings)),stages};fs.writeFileSync(`${p}/engine-load-evidence.json`,JSON.stringify(out,null,2)+'\n');console.log(JSON.stringify(out,null,2));

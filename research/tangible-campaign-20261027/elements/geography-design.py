@@ -1,0 +1,13 @@
+import json,pathlib
+p=pathlib.Path(__file__).parent;s=json.loads((p/'local-records-scenario.json').read_text());by={x['id']:x for x in s['stages']}
+# Concrete first pass: contiguous jobs at physical places, followed by a return for gathering.
+groups=[('valley','Upper valley',['beginnings','supper','shelter']),('brook','Mill brook',['crossing','mill','bakery']),('hall','Riverside hall',['pottery']),('workshop','Smiths quarry yard',['workshop']),('orchard','Orchard terraces',['orchard','garden','waterworks']),('hall','Riverside hall',['weavers','letters']),('harbour','Harbour landing',['ferry','harbour','timekeeping']),('square','Market square',['music','theatre','gallery']),('observatory','Naturalists cottage',['optics','botany','weather','stars','mapping']),('shore','Shore kitchens',['saltshore','stores']),('hall','Riverside hall',['cleanwater','lanterns','washday','kitchen','gathering'])]
+s['stages']=[]
+for area,label,ids in groups:
+ for id in ids:
+  st=by[id];st['area']={'id':area,'label':label,'travelText':('Return to the riverside hall. The preparations we left here are waiting.' if area=='hall' and id=='lanterns' else 'Our next work is at '+label.lower()+'.')};s['stages'].append(st)
+# Assembly cleanup only, explicit contained materials; safety check in engine retains any still needed operand.
+contained={'mill-gearing':['wooden-gear'],'grain-mill':['mill-gearing'],'flour-sack':['sack'],'picnic-basket':['basket'],'sealed-preserves':['preserve-jar','jar-lid'],'cider-bottle':['cider','glazed-bottle'],'tiled-table':['table','tile'],'tool-chest':['wooden-chest','hinge'],'mooring-buoy':['float'],'climbing-garden':['seedlings','trellis'],'water-pump':['pump','waterwheel'],'filled-reservoir':['reservoir','water-pump'],'irrigation-channel':['water-channel','filled-reservoir'],'irrigated-garden':['irrigation-channel','climbing-garden'],'festival-banner':['patterned-cloth'],'canopy':['awning'],'bandstand':['platform','canopy'],'puppet-theatre':['stage','puppet'],'picture-book':['picture','bound-book'],'pond-slide':['pond-water','glass-slide'],'illustrated-flora':['botanical-drawing','herbarium'],'weather-record':['rain-record'],'pickle-jar':['pickles'],'water-urn':['drinking-water','covered-urn'],'fruit-crock':['dried-fruit','sealed-crock'],'paper-lantern':['lantern-frame'],'floating-lantern':['paper-lantern'],'mounted-telescope':['tripod','telescope'],'feast-table':['feast','tiled-table']}
+for r in s['recipes']:
+ if r['id'] in contained:r['retire']=[{'item':i,'reason':'The resulting object physically incorporates this component, if it has no remaining use.'} for i in contained[r['id']]]
+s['id']='elements-geography-research-v3';(p/'geography-scenario.json').write_text(json.dumps(s,indent=2)+'\n')

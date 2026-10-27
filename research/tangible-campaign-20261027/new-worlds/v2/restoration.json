@@ -1,0 +1,465 @@
+{
+  "schemaVersion": 1,
+  "id": "restoration",
+  "title": "After the Flood",
+  "premise": "An original museum story: a conservator has already dried and stabilized a flood-damaged map. Document it, protect it, and tell its story without erasing the damage. Not instructions for treating a real collection.",
+  "items": [
+    {
+      "id": "acid-free-board",
+      "label": "Acid free board"
+    },
+    {
+      "id": "archive-letter",
+      "label": "Archive letter",
+      "description": "A fictional letter says its writer carried a map on this journey. It is a clue, not conclusive proof that this is that map."
+    },
+    {
+      "id": "camera",
+      "label": "Camera"
+    },
+    {
+      "id": "condition-form",
+      "label": "Condition form"
+    },
+    {
+      "id": "condition-notes",
+      "label": "Condition notes"
+    },
+    {
+      "id": "condition-record",
+      "label": "Condition record"
+    },
+    {
+      "id": "damaged-map",
+      "label": "Damaged map",
+      "description": "The same dry, stabilized map will stay with us through housing and display. Its old water marks remain part of its history."
+    },
+    {
+      "id": "documented-map",
+      "label": "Documented map",
+      "description": "The map with its condition record. Recording the damage has not repaired or replaced it."
+    },
+    {
+      "id": "exhibition-label",
+      "label": "Exhibition label",
+      "description": "This flood-marked map may have travelled with the letter’s writer. The association remains uncertain."
+    },
+    {
+      "id": "folder",
+      "label": "Folder"
+    },
+    {
+      "id": "housed-map",
+      "label": "Housed map",
+      "description": "The supported map has a protective enclosure. It was dry and stabilized before housing."
+    },
+    {
+      "id": "knife",
+      "label": "Knife"
+    },
+    {
+      "id": "label-card",
+      "label": "Label card"
+    },
+    {
+      "id": "low-light-case",
+      "label": "Low light case"
+    },
+    {
+      "id": "map-exhibit",
+      "label": "Map exhibit",
+      "description": "A map, its scars and an honestly qualified story. The label preserves uncertainty as well as provenance."
+    },
+    {
+      "id": "map-measurements",
+      "label": "Map measurements",
+      "description": "Dimensions recorded beside the supported map, without pressing a ruler onto its fragile surface."
+    },
+    {
+      "id": "pencil",
+      "label": "Pencil"
+    },
+    {
+      "id": "protected-display",
+      "label": "Protected display",
+      "description": "The same supported map is displayed under controlled low light; preservation does not make its past disappear."
+    },
+    {
+      "id": "protective-folder",
+      "label": "Protective folder"
+    },
+    {
+      "id": "provenance-note",
+      "label": "Provenance note",
+      "description": "The letter may connect this map with a journey. The note records that attribution and its uncertainty, not a proven chain of ownership."
+    },
+    {
+      "id": "record-photograph",
+      "label": "Record photograph"
+    },
+    {
+      "id": "record-template",
+      "label": "Record template"
+    },
+    {
+      "id": "ruler",
+      "label": "Ruler"
+    },
+    {
+      "id": "support-board",
+      "label": "Support board"
+    },
+    {
+      "id": "supported-map",
+      "label": "Supported map",
+      "description": "The same map rests on a suitable rigid support, reducing the need to handle the sheet itself."
+    },
+    {
+      "id": "tissue",
+      "label": "Tissue"
+    }
+  ],
+  "locations": [],
+  "initialItems": [
+    "camera",
+    "damaged-map",
+    "pencil",
+    "condition-form",
+    "ruler"
+  ],
+  "recipes": [
+    {
+      "id": "record-photograph",
+      "a": "camera",
+      "b": "damaged-map",
+      "out": "record-photograph"
+    },
+    {
+      "id": "map-measurements",
+      "a": "damaged-map",
+      "b": "ruler",
+      "out": "map-measurements",
+      "description": "The conservator records dimensions beside the supported sheet without pressing the ruler onto its surface."
+    },
+    {
+      "id": "record-template",
+      "a": "condition-form",
+      "b": "pencil",
+      "out": "record-template"
+    },
+    {
+      "id": "condition-notes",
+      "a": "record-template",
+      "b": "map-measurements",
+      "out": "condition-notes"
+    },
+    {
+      "id": "condition-record",
+      "a": "condition-notes",
+      "b": "record-photograph",
+      "out": "condition-record"
+    },
+    {
+      "id": "documented-map",
+      "a": "damaged-map",
+      "b": "condition-record",
+      "out": "documented-map",
+      "retire": [
+        {
+          "item": "damaged-map",
+          "reason": "The original is incorporated into this recognizable derived thing."
+        }
+      ]
+    },
+    {
+      "id": "support-board",
+      "a": "acid-free-board",
+      "b": "knife",
+      "out": "support-board"
+    },
+    {
+      "id": "supported-map",
+      "a": "support-board",
+      "b": "documented-map",
+      "out": "supported-map",
+      "sources": [
+        "cci"
+      ],
+      "retire": [
+        {
+          "item": "documented-map",
+          "reason": "The original is incorporated into this recognizable derived thing."
+        }
+      ]
+    },
+    {
+      "id": "protective-folder",
+      "a": "tissue",
+      "b": "folder",
+      "out": "protective-folder"
+    },
+    {
+      "id": "housed-map",
+      "a": "supported-map",
+      "b": "protective-folder",
+      "out": "housed-map",
+      "sources": [
+        "cci"
+      ],
+      "retire": [
+        {
+          "item": "supported-map",
+          "reason": "The original is incorporated into this recognizable derived thing."
+        }
+      ]
+    },
+    {
+      "id": "provenance-note",
+      "a": "record-photograph",
+      "b": "archive-letter",
+      "out": "provenance-note"
+    },
+    {
+      "id": "exhibition-label",
+      "a": "provenance-note",
+      "b": "label-card",
+      "out": "exhibition-label"
+    },
+    {
+      "id": "protected-display",
+      "a": "housed-map",
+      "b": "low-light-case",
+      "out": "protected-display",
+      "sources": [
+        "cci"
+      ],
+      "retire": [
+        {
+          "item": "housed-map",
+          "reason": "The original is incorporated into this recognizable derived thing."
+        }
+      ]
+    },
+    {
+      "id": "map-exhibit",
+      "a": "protected-display",
+      "b": "exhibition-label",
+      "out": "map-exhibit",
+      "retire": [
+        {
+          "item": "protected-display",
+          "reason": "The original is incorporated into this recognizable derived thing."
+        }
+      ]
+    }
+  ],
+  "stages": [
+    {
+      "id": "intake",
+      "title": "The salvage table",
+      "speaker": "The conservator",
+      "motivation": "Our conservator has dried and stabilized this map. Before we display it, make a record of its condition.",
+      "area": {
+        "id": "intake-area",
+        "label": "The salvage table",
+        "travelText": "We are taking the useful things with us. Earlier creations remain where we made them."
+      },
+      "locations": [],
+      "caches": [],
+      "objectives": [
+        {
+          "id": "documented-map-goal",
+          "text": "Make documented map.",
+          "kind": "create",
+          "item": "documented-map"
+        }
+      ]
+    },
+    {
+      "id": "housing",
+      "title": "The paper store",
+      "speaker": "The conservator",
+      "motivation": "We will not make the tears disappear. Give the map a protective housing.",
+      "area": {
+        "id": "housing-area",
+        "label": "The paper store",
+        "travelText": "We are taking the useful things with us. Earlier creations remain where we made them."
+      },
+      "locations": [],
+      "caches": [
+        {
+          "id": "housing-supplies",
+          "label": "Conservation supplies",
+          "narrative": "The store provides suitable board, tissue, folders and a cutting tool. Treatment decisions belong to a trained conservator.",
+          "items": [
+            "acid-free-board",
+            "knife",
+            "tissue",
+            "folder"
+          ]
+        }
+      ],
+      "objectives": [
+        {
+          "id": "housed-map-goal",
+          "text": "Make housed map.",
+          "kind": "create",
+          "item": "housed-map"
+        }
+      ]
+    },
+    {
+      "id": "display",
+      "title": "The quiet gallery",
+      "speaker": "The curator",
+      "motivation": "A letter tells us who carried the map. Make a protected exhibit that keeps that history visible.",
+      "area": {
+        "id": "display-area",
+        "label": "The quiet gallery",
+        "travelText": "We are taking the useful things with us. Earlier creations remain where we made them."
+      },
+      "locations": [],
+      "caches": [
+        {
+          "id": "archive-case",
+          "label": "Archive and display store",
+          "narrative": "The archive supplies a related letter; the gallery provides a label and a low-light case.",
+          "items": [
+            "archive-letter",
+            "label-card",
+            "low-light-case"
+          ]
+        }
+      ],
+      "objectives": [
+        {
+          "id": "map-exhibit-goal",
+          "text": "Make map exhibit.",
+          "kind": "create",
+          "item": "map-exhibit"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "cci",
+      "title": "Canadian Conservation Institute: Care of paper objects",
+      "url": "https://www.canada.ca/en/conservation-institute/services/preventive-conservation/guidelines-collections/paper-objects.html",
+      "note": "Primary preventive conservation guidance; fiction abstracts safe housing, not wet-object treatment."
+    }
+  ],
+  "notes": [
+    "Original scenario candidate. It tests preservation as progress rather than every output becoming a more powerful version.",
+    "No recipe adds water, heat, adhesive or cleaning chemicals to a damaged artifact.",
+    "Version2: item descriptions provide inspectable semantic content. Same recipe graph and checkpoints as v1; new text does not constitute human fun validation."
+  ],
+  "checkpoints": [
+    {
+      "id": "chapter-1",
+      "label": "The salvage table",
+      "actions": []
+    },
+    {
+      "id": "chapter-2",
+      "label": "The paper store",
+      "actions": [
+        {
+          "type": "combine",
+          "a": "condition-form",
+          "b": "pencil"
+        },
+        {
+          "type": "combine",
+          "a": "damaged-map",
+          "b": "ruler"
+        },
+        {
+          "type": "combine",
+          "a": "record-template",
+          "b": "map-measurements"
+        },
+        {
+          "type": "combine",
+          "a": "camera",
+          "b": "damaged-map"
+        },
+        {
+          "type": "combine",
+          "a": "condition-notes",
+          "b": "record-photograph"
+        },
+        {
+          "type": "combine",
+          "a": "damaged-map",
+          "b": "condition-record"
+        },
+        {
+          "type": "advance"
+        }
+      ]
+    },
+    {
+      "id": "chapter-3",
+      "label": "The quiet gallery",
+      "actions": [
+        {
+          "type": "combine",
+          "a": "condition-form",
+          "b": "pencil"
+        },
+        {
+          "type": "combine",
+          "a": "damaged-map",
+          "b": "ruler"
+        },
+        {
+          "type": "combine",
+          "a": "record-template",
+          "b": "map-measurements"
+        },
+        {
+          "type": "combine",
+          "a": "camera",
+          "b": "damaged-map"
+        },
+        {
+          "type": "combine",
+          "a": "condition-notes",
+          "b": "record-photograph"
+        },
+        {
+          "type": "combine",
+          "a": "damaged-map",
+          "b": "condition-record"
+        },
+        {
+          "type": "advance"
+        },
+        {
+          "type": "combine",
+          "a": "acid-free-board",
+          "b": "knife"
+        },
+        {
+          "type": "combine",
+          "a": "support-board",
+          "b": "documented-map"
+        },
+        {
+          "type": "combine",
+          "a": "tissue",
+          "b": "folder"
+        },
+        {
+          "type": "combine",
+          "a": "supported-map",
+          "b": "protective-folder"
+        },
+        {
+          "type": "advance"
+        }
+      ]
+    }
+  ]
+}

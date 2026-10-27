@@ -1,0 +1,490 @@
+{
+  "schemaVersion": 1,
+  "id": "causation",
+  "title": "Why This Boat?",
+  "premise": "A fictional boatbuilder and philosopher distinguish what a thing is made from, its pattern, its maker and its purpose. Aristotle’s four explanations are not four kinds of physical push.",
+  "items": [
+    {
+      "id": "adze",
+      "label": "Adze"
+    },
+    {
+      "id": "boat-plan",
+      "label": "Boat plan"
+    },
+    {
+      "id": "brush",
+      "label": "Brush"
+    },
+    {
+      "id": "builder-testimony",
+      "label": "Builder testimony"
+    },
+    {
+      "id": "caulking-brush",
+      "label": "Caulking brush"
+    },
+    {
+      "id": "cloth",
+      "label": "Cloth"
+    },
+    {
+      "id": "ferry-design",
+      "label": "Ferry design"
+    },
+    {
+      "id": "ferry-request",
+      "label": "Ferry request"
+    },
+    {
+      "id": "form-exhibit",
+      "label": "Form exhibit",
+      "description": "The hull’s organized structure: what makes these parts a boat of this kind. The drawn plan represents that form; it is not the entire explanation."
+    },
+    {
+      "id": "hull-frame",
+      "label": "Hull frame"
+    },
+    {
+      "id": "maker-card",
+      "label": "Maker card"
+    },
+    {
+      "id": "maker-exhibit",
+      "label": "Maker exhibit",
+      "description": "The builder’s skilled making: the source of the boat’s coming-to-be."
+    },
+    {
+      "id": "material-card",
+      "label": "Material card"
+    },
+    {
+      "id": "material-exhibit",
+      "label": "Material exhibit",
+      "description": "Timber: what this boat is made from."
+    },
+    {
+      "id": "needle",
+      "label": "Needle"
+    },
+    {
+      "id": "pattern-card",
+      "label": "Pattern card"
+    },
+    {
+      "id": "pitch",
+      "label": "Pitch"
+    },
+    {
+      "id": "planks",
+      "label": "Planks"
+    },
+    {
+      "id": "purpose-card",
+      "label": "Purpose card"
+    },
+    {
+      "id": "purpose-exhibit",
+      "label": "Purpose exhibit",
+      "description": "Ferrying people across the water: the end for which this boat was made. A purpose explains its design; it does not physically push the timber."
+    },
+    {
+      "id": "rigged-boat",
+      "label": "Rigged boat"
+    },
+    {
+      "id": "rigging",
+      "label": "Rigging"
+    },
+    {
+      "id": "rope",
+      "label": "Rope"
+    },
+    {
+      "id": "sail",
+      "label": "Sail"
+    },
+    {
+      "id": "sailing-boat",
+      "label": "Sailing boat"
+    },
+    {
+      "id": "saw",
+      "label": "Saw"
+    },
+    {
+      "id": "sealed-hull",
+      "label": "Sealed hull"
+    },
+    {
+      "id": "shaped-hull",
+      "label": "Shaped hull"
+    },
+    {
+      "id": "spar",
+      "label": "Spar"
+    },
+    {
+      "id": "timber",
+      "label": "Timber"
+    },
+    {
+      "id": "timber-sample",
+      "label": "Timber sample"
+    }
+  ],
+  "locations": [],
+  "initialItems": [
+    "timber",
+    "saw",
+    "boat-plan",
+    "adze",
+    "pitch",
+    "brush"
+  ],
+  "recipes": [
+    {
+      "id": "planks",
+      "a": "timber",
+      "b": "saw",
+      "out": "planks"
+    },
+    {
+      "id": "hull-frame",
+      "a": "planks",
+      "b": "boat-plan",
+      "out": "hull-frame"
+    },
+    {
+      "id": "shaped-hull",
+      "a": "hull-frame",
+      "b": "adze",
+      "out": "shaped-hull",
+      "retire": [
+        {
+          "item": "hull-frame",
+          "reason": "The original is incorporated into this recognizable derived thing."
+        }
+      ]
+    },
+    {
+      "id": "caulking-brush",
+      "a": "pitch",
+      "b": "brush",
+      "out": "caulking-brush"
+    },
+    {
+      "id": "sealed-hull",
+      "a": "shaped-hull",
+      "b": "caulking-brush",
+      "out": "sealed-hull",
+      "retire": [
+        {
+          "item": "shaped-hull",
+          "reason": "The original is incorporated into this recognizable derived thing."
+        }
+      ]
+    },
+    {
+      "id": "sail",
+      "a": "cloth",
+      "b": "needle",
+      "out": "sail"
+    },
+    {
+      "id": "rigging",
+      "a": "spar",
+      "b": "rope",
+      "out": "rigging"
+    },
+    {
+      "id": "rigged-boat",
+      "a": "sealed-hull",
+      "b": "rigging",
+      "out": "rigged-boat",
+      "retire": [
+        {
+          "item": "sealed-hull",
+          "reason": "The original is incorporated into this recognizable derived thing."
+        }
+      ]
+    },
+    {
+      "id": "sailing-boat",
+      "a": "rigged-boat",
+      "b": "sail",
+      "out": "sailing-boat",
+      "retire": [
+        {
+          "item": "rigged-boat",
+          "reason": "The original is incorporated into this recognizable derived thing."
+        }
+      ]
+    },
+    {
+      "id": "material-exhibit",
+      "a": "timber-sample",
+      "b": "material-card",
+      "out": "material-exhibit",
+      "sources": [
+        "physics"
+      ]
+    },
+    {
+      "id": "form-exhibit",
+      "a": "boat-plan",
+      "b": "pattern-card",
+      "out": "form-exhibit",
+      "sources": [
+        "physics"
+      ]
+    },
+    {
+      "id": "maker-exhibit",
+      "a": "builder-testimony",
+      "b": "maker-card",
+      "out": "maker-exhibit",
+      "sources": [
+        "physics"
+      ]
+    },
+    {
+      "id": "purpose-exhibit",
+      "a": "ferry-request",
+      "b": "purpose-card",
+      "out": "purpose-exhibit",
+      "sources": [
+        "physics"
+      ]
+    },
+    {
+      "id": "ferry-design",
+      "a": "purpose-exhibit",
+      "b": "sailing-boat",
+      "out": "ferry-design",
+      "description": "A labelled design explains the boat in relation to its intended work; a request alone does not physically change the hull."
+    }
+  ],
+  "stages": [
+    {
+      "id": "yard",
+      "title": "At the boatyard",
+      "speaker": "The boatbuilder",
+      "motivation": "The island needs a boat. First make a sealed hull that will keep the water out.",
+      "area": {
+        "id": "yard-area",
+        "label": "At the boatyard",
+        "travelText": "We are taking the useful things with us. Earlier creations remain where we made them."
+      },
+      "locations": [],
+      "caches": [],
+      "objectives": [
+        {
+          "id": "sealed-hull-goal",
+          "text": "Make sealed hull.",
+          "kind": "create",
+          "item": "sealed-hull"
+        }
+      ]
+    },
+    {
+      "id": "rig",
+      "title": "Wind and work",
+      "speaker": "The ferryman",
+      "motivation": "We can spare cloth, rope and a spar. Make a sailing boat for the crossing.",
+      "area": {
+        "id": "rig-area",
+        "label": "Wind and work",
+        "travelText": "We are taking the useful things with us. Earlier creations remain where we made them."
+      },
+      "locations": [],
+      "caches": [
+        {
+          "id": "rig-store",
+          "label": "Rigging store",
+          "narrative": "The store holds sails to be sewn and lines to be rigged.",
+          "items": [
+            "cloth",
+            "needle",
+            "spar",
+            "rope"
+          ]
+        }
+      ],
+      "objectives": [
+        {
+          "id": "sailing-boat-goal",
+          "text": "Make sailing boat.",
+          "kind": "create",
+          "item": "sailing-boat"
+        }
+      ]
+    },
+    {
+      "id": "why",
+      "title": "Four questions at the quay",
+      "speaker": "The philosopher",
+      "motivation": "Our visitors ask four different questions: what is it made of, what pattern does it follow, who made it, and what is it for? Prepare the four exhibits.",
+      "area": {
+        "id": "why-area",
+        "label": "Four questions at the quay",
+        "travelText": "We are taking the useful things with us. Earlier creations remain where we made them."
+      },
+      "locations": [],
+      "caches": [
+        {
+          "id": "display",
+          "label": "Exhibition materials",
+          "narrative": "The teacher brings labelled question cards, a timber offcut, the builder’s testimony and the ferryman’s request.",
+          "items": [
+            "timber-sample",
+            "material-card",
+            "pattern-card",
+            "builder-testimony",
+            "maker-card",
+            "ferry-request",
+            "purpose-card"
+          ]
+        }
+      ],
+      "objectives": [
+        {
+          "id": "material-exhibit-goal",
+          "text": "Make the material exhibit.",
+          "kind": "create",
+          "item": "material-exhibit"
+        },
+        {
+          "id": "form-exhibit-goal",
+          "text": "Make the form exhibit.",
+          "kind": "create",
+          "item": "form-exhibit"
+        },
+        {
+          "id": "maker-exhibit-goal",
+          "text": "Make the maker exhibit.",
+          "kind": "create",
+          "item": "maker-exhibit"
+        },
+        {
+          "id": "purpose-exhibit-goal",
+          "text": "Make the purpose exhibit.",
+          "kind": "create",
+          "item": "purpose-exhibit"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "physics",
+      "title": "Aristotle, Physics Book II",
+      "url": "https://classics.mit.edu/Aristotle/physics.2.ii.html",
+      "note": "Primary translation; four explanations with different explanatory roles."
+    }
+  ],
+  "notes": [
+    "Construction is compressed and not a boatbuilding manual. The fourth stage is intentionally absent: test whether distinguishing explanations is engaging, not whether a longer chain can be padded.",
+    "Risk: exhibit objectives may feel like homework; no claim of validated fun.",
+    "Version2: item descriptions provide inspectable semantic content. Same recipe graph and checkpoints as v1; new text does not constitute human fun validation.",
+    "v3 route revalidation against scene-local packing engine; recipe graph and semantic descriptions unchanged from v2."
+  ],
+  "checkpoints": [
+    {
+      "id": "chapter-1",
+      "label": "At the boatyard",
+      "actions": []
+    },
+    {
+      "id": "chapter-2",
+      "label": "Wind and work",
+      "actions": [
+        {
+          "type": "combine",
+          "a": "timber",
+          "b": "saw"
+        },
+        {
+          "type": "combine",
+          "a": "planks",
+          "b": "boat-plan"
+        },
+        {
+          "type": "combine",
+          "a": "hull-frame",
+          "b": "adze"
+        },
+        {
+          "type": "combine",
+          "a": "pitch",
+          "b": "brush"
+        },
+        {
+          "type": "combine",
+          "a": "shaped-hull",
+          "b": "caulking-brush"
+        },
+        {
+          "type": "advance"
+        }
+      ]
+    },
+    {
+      "id": "chapter-3",
+      "label": "Four questions at the quay",
+      "actions": [
+        {
+          "type": "combine",
+          "a": "timber",
+          "b": "saw"
+        },
+        {
+          "type": "combine",
+          "a": "planks",
+          "b": "boat-plan"
+        },
+        {
+          "type": "combine",
+          "a": "hull-frame",
+          "b": "adze"
+        },
+        {
+          "type": "combine",
+          "a": "pitch",
+          "b": "brush"
+        },
+        {
+          "type": "combine",
+          "a": "shaped-hull",
+          "b": "caulking-brush"
+        },
+        {
+          "type": "advance"
+        },
+        {
+          "type": "combine",
+          "a": "spar",
+          "b": "rope"
+        },
+        {
+          "type": "combine",
+          "a": "sealed-hull",
+          "b": "rigging"
+        },
+        {
+          "type": "combine",
+          "a": "cloth",
+          "b": "needle"
+        },
+        {
+          "type": "combine",
+          "a": "rigged-boat",
+          "b": "sail"
+        },
+        {
+          "type": "advance"
+        }
+      ]
+    }
+  ]
+}

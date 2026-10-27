@@ -1,0 +1,375 @@
+{
+  "schemaVersion": 1,
+  "id": "chinese-thought",
+  "title": "The School by the Well",
+  "premise": "A fictional Warring States school explores two distinct accounts of moral cultivation. Mencius and Xunzi are not fused into one correct answer or treated as representatives of all Chinese thought.",
+  "items": [
+    {
+      "id": "bamboo-slips",
+      "label": "Bamboo slips"
+    },
+    {
+      "id": "binding-cord",
+      "label": "Binding cord"
+    },
+    {
+      "id": "brush",
+      "label": "Brush"
+    },
+    {
+      "id": "comparison-sheet",
+      "label": "Comparison sheet"
+    },
+    {
+      "id": "comparison-table",
+      "label": "Comparison table"
+    },
+    {
+      "id": "compassion-notes",
+      "label": "Compassion notes"
+    },
+    {
+      "id": "compassion-question",
+      "label": "Compassion question"
+    },
+    {
+      "id": "counterexample",
+      "label": "Counterexample"
+    },
+    {
+      "id": "cultivation-reading",
+      "label": "Cultivation reading"
+    },
+    {
+      "id": "mencius-reading",
+      "label": "Mencius reading"
+    },
+    {
+      "id": "mourning-account",
+      "label": "Mourning account"
+    },
+    {
+      "id": "mourning-commentary",
+      "label": "Mourning commentary"
+    },
+    {
+      "id": "music-example",
+      "label": "Music example"
+    },
+    {
+      "id": "open-question",
+      "label": "Open question"
+    },
+    {
+      "id": "paired-readings",
+      "label": "Paired readings"
+    },
+    {
+      "id": "practice-record",
+      "label": "Practice record"
+    },
+    {
+      "id": "question-card",
+      "label": "Question card"
+    },
+    {
+      "id": "ritual-notes",
+      "label": "Ritual notes"
+    },
+    {
+      "id": "ritual-text",
+      "label": "Ritual text"
+    },
+    {
+      "id": "school-manuscript",
+      "label": "School manuscript"
+    },
+    {
+      "id": "seminar-record",
+      "label": "Seminar record"
+    },
+    {
+      "id": "teacher-response",
+      "label": "Teacher response"
+    },
+    {
+      "id": "well-account",
+      "label": "Well account"
+    }
+  ],
+  "locations": [],
+  "initialItems": [
+    "well-account",
+    "question-card",
+    "bamboo-slips",
+    "brush"
+  ],
+  "recipes": [
+    {
+      "id": "compassion-question",
+      "a": "well-account",
+      "b": "question-card",
+      "out": "compassion-question",
+      "description": "A child near a well invites Mencius’s question about immediate concern, not a literal experiment on a child.",
+      "sources": [
+        "mencius"
+      ]
+    },
+    {
+      "id": "compassion-notes",
+      "a": "compassion-question",
+      "b": "bamboo-slips",
+      "out": "compassion-notes"
+    },
+    {
+      "id": "mencius-reading",
+      "a": "compassion-notes",
+      "b": "brush",
+      "out": "mencius-reading"
+    },
+    {
+      "id": "ritual-notes",
+      "a": "ritual-text",
+      "b": "practice-record",
+      "out": "ritual-notes",
+      "sources": [
+        "xunzi"
+      ]
+    },
+    {
+      "id": "cultivation-reading",
+      "a": "ritual-notes",
+      "b": "music-example",
+      "out": "cultivation-reading",
+      "sources": [
+        "xunzi"
+      ]
+    },
+    {
+      "id": "paired-readings",
+      "a": "cultivation-reading",
+      "b": "mencius-reading",
+      "out": "paired-readings"
+    },
+    {
+      "id": "comparison-table",
+      "a": "paired-readings",
+      "b": "comparison-sheet",
+      "out": "comparison-table"
+    },
+    {
+      "id": "open-question",
+      "a": "comparison-table",
+      "b": "counterexample",
+      "out": "open-question"
+    },
+    {
+      "id": "seminar-record",
+      "a": "open-question",
+      "b": "teacher-response",
+      "out": "seminar-record"
+    },
+    {
+      "id": "school-manuscript",
+      "a": "seminar-record",
+      "b": "binding-cord",
+      "out": "school-manuscript"
+    },
+    {
+      "id": "mourning-commentary",
+      "a": "mourning-account",
+      "b": "ritual-text",
+      "out": "mourning-commentary",
+      "description": "Xunzi’s ritual discussion gives expression to grief within a specific social account; this is not a claim that grief requires a ritual everywhere.",
+      "sources": [
+        "xunzi"
+      ]
+    }
+  ],
+  "stages": [
+    {
+      "id": "well",
+      "title": "The question by the well",
+      "speaker": "The teacher",
+      "motivation": "Why might someone reach out before thinking of a reward? Make a reading of the well story.",
+      "area": {
+        "id": "well-area",
+        "label": "The question by the well",
+        "travelText": "We are taking the useful things with us. Earlier creations remain where we made them."
+      },
+      "locations": [],
+      "caches": [],
+      "objectives": [
+        {
+          "id": "mencius-reading-goal",
+          "text": "Make the Mencius reading.",
+          "kind": "create",
+          "item": "mencius-reading"
+        }
+      ]
+    },
+    {
+      "id": "practice",
+      "title": "In the practice hall",
+      "speaker": "The second teacher",
+      "motivation": "Another account asks what deliberate practice and ritual make possible. Prepare a cultivation reading beside the first.",
+      "area": {
+        "id": "practice-area",
+        "label": "In the practice hall",
+        "travelText": "We are taking the useful things with us. Earlier creations remain where we made them."
+      },
+      "locations": [],
+      "caches": [
+        {
+          "id": "school-texts",
+          "label": "The school’s second shelf",
+          "narrative": "The school holds a ritual text, practice records, a musical example and an account of mourning. These represent selected Xunzi themes.",
+          "items": [
+            "ritual-text",
+            "practice-record",
+            "music-example",
+            "mourning-account"
+          ]
+        }
+      ],
+      "objectives": [
+        {
+          "id": "paired-readings-goal",
+          "text": "Make paired readings.",
+          "kind": "create",
+          "item": "paired-readings"
+        }
+      ]
+    },
+    {
+      "id": "seminar",
+      "title": "An unfinished argument",
+      "speaker": "The students",
+      "motivation": "Do not make the disagreement disappear. Make a manuscript that preserves the comparison and a difficult question.",
+      "area": {
+        "id": "seminar-area",
+        "label": "An unfinished argument",
+        "travelText": "We are taking the useful things with us. Earlier creations remain where we made them."
+      },
+      "locations": [],
+      "caches": [
+        {
+          "id": "seminar-kit",
+          "label": "Seminar materials",
+          "narrative": "The teacher brings a comparison sheet, a counterexample and a response; binding cord holds the final record.",
+          "items": [
+            "comparison-sheet",
+            "counterexample",
+            "teacher-response",
+            "binding-cord"
+          ]
+        }
+      ],
+      "objectives": [
+        {
+          "id": "school-manuscript-goal",
+          "text": "Make school manuscript.",
+          "kind": "create",
+          "item": "school-manuscript"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "mencius",
+      "title": "Mencius, Gong Sun Chou I",
+      "url": "https://ctext.org/mengzi/gong-sun-chou-i/zh",
+      "note": "Primary text; child-near-well example."
+    },
+    {
+      "id": "xunzi",
+      "title": "Xunzi, Treatise on Ritual",
+      "url": "https://ctext.org/xunzi/li-lun/ens",
+      "note": "Primary text in translation; selected ritual themes."
+    },
+    {
+      "id": "xunzi-context",
+      "title": "Stanford Encyclopedia of Philosophy: Xunzi",
+      "url": "https://plato.stanford.edu/entries/xunzi/",
+      "note": ""
+    }
+  ],
+  "notes": [
+    "The characters and encounter are fiction; Mencius and Xunzi were not conducting this seminar together.",
+    "Risk: document assembly can become a named checklist. This candidate needs a domain reader and human playtest before expansion."
+  ],
+  "checkpoints": [
+    {
+      "id": "chapter-1",
+      "label": "The question by the well",
+      "actions": []
+    },
+    {
+      "id": "chapter-2",
+      "label": "In the practice hall",
+      "actions": [
+        {
+          "type": "combine",
+          "a": "well-account",
+          "b": "question-card"
+        },
+        {
+          "type": "combine",
+          "a": "compassion-question",
+          "b": "bamboo-slips"
+        },
+        {
+          "type": "combine",
+          "a": "compassion-notes",
+          "b": "brush"
+        },
+        {
+          "type": "advance"
+        }
+      ]
+    },
+    {
+      "id": "chapter-3",
+      "label": "An unfinished argument",
+      "actions": [
+        {
+          "type": "combine",
+          "a": "well-account",
+          "b": "question-card"
+        },
+        {
+          "type": "combine",
+          "a": "compassion-question",
+          "b": "bamboo-slips"
+        },
+        {
+          "type": "combine",
+          "a": "compassion-notes",
+          "b": "brush"
+        },
+        {
+          "type": "advance"
+        },
+        {
+          "type": "combine",
+          "a": "ritual-text",
+          "b": "practice-record"
+        },
+        {
+          "type": "combine",
+          "a": "ritual-notes",
+          "b": "music-example"
+        },
+        {
+          "type": "combine",
+          "a": "cultivation-reading",
+          "b": "mencius-reading"
+        },
+        {
+          "type": "advance"
+        }
+      ]
+    }
+  ]
+}

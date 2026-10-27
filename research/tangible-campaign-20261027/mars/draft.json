@@ -1,0 +1,1820 @@
+{
+  "id": "mars-long-v1",
+  "title": "Mars: A Light That Answers",
+  "status": "unreviewed authored logical candidate; not live or fun-validated",
+  "stages": [
+    {
+      "id": "signal",
+      "title": "A voice above the ridge",
+      "speaker": "Mission Control",
+      "motivation": "We lost your signal on landing. Repair the radio and put a powered signal above the ridge. We are listening.",
+      "cache": [
+        "broken-radio",
+        "cable",
+        "solar-panel",
+        "battery",
+        "lamp",
+        "reflective-foil",
+        "support-frame",
+        "tripod",
+        "toolkit"
+      ],
+      "locations": [
+        "contact-ridge"
+      ],
+      "recipes": [
+        {
+          "a": "broken-radio",
+          "b": "cable",
+          "result": "radio",
+          "description": "Replace the damaged detachable lead; the radio itself is repaired, not duplicated."
+        },
+        {
+          "a": "solar-panel",
+          "b": "battery",
+          "result": "solar-charger",
+          "description": "Connect the salvaged collector to its compatible storage unit."
+        },
+        {
+          "a": "radio",
+          "b": "solar-charger",
+          "result": "solar-radio",
+          "description": "Fit an internal power supply to the radio."
+        },
+        {
+          "a": "reflective-foil",
+          "b": "support-frame",
+          "result": "reflector",
+          "description": "Support the reflective sheet so it directs light."
+        },
+        {
+          "a": "lamp",
+          "b": "battery",
+          "result": "lantern",
+          "description": "Make a portable powered light."
+        },
+        {
+          "a": "lantern",
+          "b": "reflector",
+          "result": "signal-lamp",
+          "description": "Direct the light toward the orbiter."
+        },
+        {
+          "a": "signal-lamp",
+          "b": "tripod",
+          "result": "signal-beacon",
+          "description": "Hold the directed signal steady above the ridge."
+        }
+      ],
+      "goals": [
+        "radio",
+        "place:solar-radio@contact-ridge"
+      ]
+    },
+    {
+      "id": "habitat",
+      "title": "Somewhere to come back to",
+      "speaker": "Mission Control",
+      "motivation": "The landing tore the habitat vestibule. The inner cabin still has its certified life-support unit. Make the entry weather-tight, store water, and protect a living tray. The missing survey crew may need this refuge too.",
+      "cache": [
+        "heater",
+        "water-filter",
+        "empty-canister",
+        "seeds",
+        "planting-tray",
+        "clear-cover",
+        "habitat-fabric",
+        "sealant",
+        "seam-roller",
+        "tie-downs",
+        "hatch-frame",
+        "insulating-blanket"
+      ],
+      "locations": [
+        "sheltered-ice",
+        "warm-habitat"
+      ],
+      "recipes": [
+        {
+          "a": "heater",
+          "b": "place:sheltered-ice",
+          "result": "meltwater",
+          "description": "A recovered enclosed melt head collects water; exposed liquid on Mars would not behave like an Earth puddle."
+        },
+        {
+          "a": "meltwater",
+          "b": "water-filter",
+          "result": "filtered-water",
+          "description": "The mission filter processes this known source inside its enclosed vessel; not real water-safety advice."
+        },
+        {
+          "a": "filtered-water",
+          "b": "empty-canister",
+          "result": "water-canister",
+          "description": "Seal the water against dust and evaporation."
+        },
+        {
+          "a": "seeds",
+          "b": "planting-tray",
+          "result": "seed-tray",
+          "description": "The tray contains prepared terrestrial growing medium."
+        },
+        {
+          "a": "seed-tray",
+          "b": "water-canister",
+          "result": "watered-seed-tray",
+          "description": "Water the prepared tray."
+        },
+        {
+          "a": "watered-seed-tray",
+          "b": "place:warm-habitat",
+          "result": "sprouted-tray",
+          "description": "Time passes in the warm pressurized cabin; no instant real germination is implied."
+        },
+        {
+          "a": "sprouted-tray",
+          "b": "clear-cover",
+          "result": "propagator",
+          "description": "Protect the living tray from the disturbed entrance air."
+        },
+        {
+          "a": "habitat-fabric",
+          "b": "sealant",
+          "result": "pressure-patch",
+          "description": "Prepare a compatible patch for the damaged outer vestibule."
+        },
+        {
+          "a": "pressure-patch",
+          "b": "seam-roller",
+          "result": "sealed-panel",
+          "description": "Work the compatible seam closed."
+        },
+        {
+          "a": "sealed-panel",
+          "b": "hatch-frame",
+          "result": "vestibule",
+          "description": "Fit the repaired outer entrance around the existing hatch."
+        },
+        {
+          "a": "vestibule",
+          "b": "tie-downs",
+          "result": "anchored-vestibule",
+          "description": "Anchor the fabric structure to its prepared footings."
+        },
+        {
+          "a": "anchored-vestibule",
+          "b": "insulating-blanket",
+          "result": "insulated-vestibule",
+          "description": "Wrap the outer structure; the inner cabin still supplies pressure and life support."
+        }
+      ],
+      "goals": [
+        "water-canister",
+        "propagator",
+        "insulated-vestibule"
+      ]
+    },
+    {
+      "id": "rover",
+      "title": "The route out",
+      "speaker": "Survey lead",
+      "motivation": "Our survey crawler is overdue. Your cargo sled holds the rover parts. Get moving and map the route before following its last transmission.",
+      "cache": [
+        "wheels",
+        "drive-motor",
+        "motor-controller",
+        "dish-antenna",
+        "terrain-sheet",
+        "binoculars",
+        "camera",
+        "lens",
+        "optical-tube",
+        "compass-module",
+        "seat-harness"
+      ],
+      "locations": [
+        "route-overlook"
+      ],
+      "recipes": [
+        {
+          "a": "support-frame",
+          "b": "wheels",
+          "result": "rover-chassis",
+          "description": "A wheeled chassis is a recognizable rover with unfilled component slots."
+        },
+        {
+          "a": "drive-motor",
+          "b": "motor-controller",
+          "result": "drive-unit",
+          "description": "Connect the matching controller to the motor."
+        },
+        {
+          "a": "rover-chassis",
+          "b": "drive-unit",
+          "result": "motorized-rover",
+          "description": "Install the drive component in the same Rover, not a second vehicle."
+        },
+        {
+          "a": "motorized-rover",
+          "b": "solar-charger",
+          "result": "solar-rover",
+          "description": "Install the traction power module; it is not the radio's internal supply."
+        },
+        {
+          "a": "solar-radio",
+          "b": "dish-antenna",
+          "result": "long-range-radio",
+          "description": "Fit the directional antenna to the existing radio."
+        },
+        {
+          "a": "solar-rover",
+          "b": "long-range-radio",
+          "result": "survey-rover",
+          "description": "Install the optional radio module in the same Rover."
+        },
+        {
+          "a": "survey-rover",
+          "b": "seat-harness",
+          "result": "belted-rover",
+          "description": "Fit the seating restraint to the existing vehicle."
+        },
+        {
+          "a": "camera",
+          "b": "tripod",
+          "result": "field-camera",
+          "description": "A stable camera can make repeatable wide views."
+        },
+        {
+          "a": "field-camera",
+          "b": "place:route-overlook",
+          "result": "panorama",
+          "description": "Record the visible route, not a claim that it is safe to cross."
+        },
+        {
+          "a": "panorama",
+          "b": "terrain-sheet",
+          "result": "survey-map",
+          "description": "Mark the observed landmarks on the map."
+        },
+        {
+          "a": "binoculars",
+          "b": "compass-module",
+          "result": "bearing-scope",
+          "description": "Read a direction while sighting a landmark."
+        },
+        {
+          "a": "bearing-scope",
+          "b": "survey-map",
+          "result": "bearing-map",
+          "description": "Add the observed bearings to the existing map."
+        }
+      ],
+      "goals": [
+        "belted-rover",
+        "bearing-map"
+      ]
+    },
+    {
+      "id": "outcrop",
+      "title": "What the cliff can tell us",
+      "speaker": "Geologist",
+      "motivation": "The route crosses an exposed ice lens. Keep a sealed specimen and its photograph. A closer view of the layered cliff may tell us which route the crawler took, not what is safe without checking.",
+      "cache": [
+        "sample-scoop",
+        "transparent-jar",
+        "core-tube",
+        "sample-labels",
+        "caliper",
+        "scale-card",
+        "windowed-box",
+        "glove-ports",
+        "specimen-rack"
+      ],
+      "locations": [
+        "lookout-ice",
+        "distant-lookout"
+      ],
+      "recipes": [
+        {
+          "a": "sample-scoop",
+          "b": "place:lookout-ice",
+          "result": "ice-sample",
+          "description": "Collect ice from the exposed outcrop beside the current viewpoint."
+        },
+        {
+          "a": "ice-sample",
+          "b": "transparent-jar",
+          "result": "sealed-ice-sample",
+          "description": "Seal the actual specimen in its jar."
+        },
+        {
+          "a": "sealed-ice-sample",
+          "b": "sample-labels",
+          "result": "catalogued-ice-sample",
+          "description": "Retain provenance on the specimen container."
+        },
+        {
+          "a": "catalogued-ice-sample",
+          "b": "camera",
+          "result": "ice-photograph",
+          "description": "Photograph through the transparent jar."
+        },
+        {
+          "a": "lens",
+          "b": "optical-tube",
+          "result": "telescope",
+          "description": "Align the recovered optical components."
+        },
+        {
+          "a": "telescope",
+          "b": "tripod",
+          "result": "field-telescope",
+          "description": "Give the optical tube a stable support."
+        },
+        {
+          "a": "field-telescope",
+          "b": "camera",
+          "result": "telescope-camera",
+          "description": "Attach the camera to the supported optics."
+        },
+        {
+          "a": "telescope-camera",
+          "b": "place:distant-lookout",
+          "result": "cliff-photograph",
+          "description": "Record the layered cliff at the route's far side."
+        },
+        {
+          "a": "cliff-photograph",
+          "b": "bearing-map",
+          "result": "annotated-map",
+          "description": "Add this new observation to the same route map."
+        },
+        {
+          "a": "windowed-box",
+          "b": "glove-ports",
+          "result": "glovebox",
+          "description": "Fit the matching sealed glove ports to the handling enclosure."
+        },
+        {
+          "a": "glovebox",
+          "b": "lamp",
+          "result": "illuminated-glovebox",
+          "description": "Light the contained inspection area."
+        },
+        {
+          "a": "core-tube",
+          "b": "place:lookout-ice",
+          "result": "ice-core",
+          "description": "Recover a short core with its layer order retained."
+        },
+        {
+          "a": "ice-core",
+          "b": "specimen-rack",
+          "result": "core-rack",
+          "description": "Support the fragile sample for a profile photograph."
+        },
+        {
+          "a": "core-rack",
+          "b": "scale-card",
+          "result": "scaled-core",
+          "description": "Place a visible scale beside the core without treating the label as a discovery."
+        },
+        {
+          "a": "scaled-core",
+          "b": "camera",
+          "result": "core-profile",
+          "description": "Record visible structure; the image is evidence, not a proof of ancient life."
+        }
+      ],
+      "goals": [
+        "catalogued-ice-sample",
+        "ice-photograph",
+        "annotated-map",
+        "core-profile"
+      ]
+    },
+    {
+      "id": "weather",
+      "title": "The sky is closing",
+      "speaker": "Weather officer",
+      "motivation": "Visibility is falling, not because a wall of wind will throw the rover over. Dust is cutting the light. Restore this abandoned weather station so we can judge when to move, and protect the equipment we already depend on.",
+      "cache": [
+        "weather-mast",
+        "wind-vane",
+        "cup-rotor",
+        "temperature-probe",
+        "pressure-sensor",
+        "logger",
+        "sensor-cable",
+        "dust-brush",
+        "filter-mesh",
+        "sealed-housing",
+        "louver-panel"
+      ],
+      "locations": [
+        "weather-apron"
+      ],
+      "recipes": [
+        {
+          "a": "weather-mast",
+          "b": "wind-vane",
+          "result": "wind-direction-mast",
+          "description": "Mount the recovered wind-direction instrument."
+        },
+        {
+          "a": "wind-direction-mast",
+          "b": "cup-rotor",
+          "result": "anemometer-mast",
+          "description": "Fit the companion speed sensor to the mast."
+        },
+        {
+          "a": "temperature-probe",
+          "b": "louver-panel",
+          "result": "shielded-thermometer",
+          "description": "Shield the sensor from direct sunlight while admitting air."
+        },
+        {
+          "a": "pressure-sensor",
+          "b": "sealed-housing",
+          "result": "barometer",
+          "description": "Put the compatible pressure sensor in its designed enclosure."
+        },
+        {
+          "a": "logger",
+          "b": "sensor-cable",
+          "result": "sensor-logger",
+          "description": "Reconnect the station's matching sensor interface."
+        },
+        {
+          "a": "anemometer-mast",
+          "b": "sensor-logger",
+          "result": "wind-station",
+          "description": "Record wind measurements rather than only seeing the vane move."
+        },
+        {
+          "a": "wind-station",
+          "b": "shielded-thermometer",
+          "result": "weather-station",
+          "description": "Fit the temperature channel to the station."
+        },
+        {
+          "a": "weather-station",
+          "b": "barometer",
+          "result": "instrumented-weather-station",
+          "description": "Add the station's pressure channel."
+        },
+        {
+          "a": "instrumented-weather-station",
+          "b": "solar-charger",
+          "result": "autonomous-weather-station",
+          "description": "Restore its independent power supply."
+        },
+        {
+          "a": "autonomous-weather-station",
+          "b": "place:weather-apron",
+          "result": "weather-record",
+          "description": "Let the station observe an interval of changing conditions."
+        },
+        {
+          "a": "dust-brush",
+          "b": "solar-panel",
+          "result": "clean-solar-panel",
+          "description": "Remove deposited dust using the supplied panel-safe brush."
+        },
+        {
+          "a": "filter-mesh",
+          "b": "sealed-housing",
+          "result": "dust-screen",
+          "description": "Fit a replaceable screen to an equipment inlet."
+        },
+        {
+          "a": "dust-screen",
+          "b": "motor-controller",
+          "result": "protected-controller",
+          "description": "Protect the compatible electronics enclosure from abrasive dust."
+        },
+        {
+          "a": "weather-record",
+          "b": "annotated-map",
+          "result": "weather-route-map",
+          "description": "Mark the observed visibility window on the route map; it remains a forecast, not a guarantee."
+        }
+      ],
+      "goals": [
+        "weather-route-map",
+        "autonomous-weather-station",
+        "protected-controller"
+      ]
+    },
+    {
+      "id": "relay",
+      "title": "A voice in the static",
+      "speaker": "Missing survey crew",
+      "motivation": "We can hear the old relay, but it cannot hear us. Its maintenance cabinet has spare radio parts. Restore a clean signal and tell us what you can see beyond the next rise.",
+      "cache": [
+        "relay-transceiver",
+        "coaxial-lead",
+        "bandpass-filter",
+        "antenna-bracket",
+        "signal-meter",
+        "relay-battery",
+        "charge-regulator",
+        "timer-module",
+        "insulation-sleeve",
+        "antenna-boom",
+        "spare-fuse"
+      ],
+      "locations": [
+        "relay-knoll"
+      ],
+      "recipes": [
+        {
+          "a": "relay-transceiver",
+          "b": "spare-fuse",
+          "result": "working-transceiver",
+          "description": "Replace the identified failed replaceable fuse, not a speculative rewiring puzzle."
+        },
+        {
+          "a": "coaxial-lead",
+          "b": "insulation-sleeve",
+          "result": "insulated-feedline",
+          "description": "Protect the compatible antenna cable from abrasion."
+        },
+        {
+          "a": "working-transceiver",
+          "b": "bandpass-filter",
+          "result": "filtered-transceiver",
+          "description": "Fit the recovered front-end filter for the assigned link."
+        },
+        {
+          "a": "antenna-bracket",
+          "b": "antenna-boom",
+          "result": "antenna-mount",
+          "description": "Assemble the mast's matching mount."
+        },
+        {
+          "a": "antenna-mount",
+          "b": "dish-antenna",
+          "result": "relay-antenna",
+          "description": "Support the compatible directional antenna."
+        },
+        {
+          "a": "filtered-transceiver",
+          "b": "insulated-feedline",
+          "result": "wired-relay",
+          "description": "Connect transmitter and feedline."
+        },
+        {
+          "a": "wired-relay",
+          "b": "relay-antenna",
+          "result": "directional-relay",
+          "description": "Fit the antenna to the restored relay."
+        },
+        {
+          "a": "relay-battery",
+          "b": "charge-regulator",
+          "result": "relay-powerpack",
+          "description": "Restore the designed battery regulator."
+        },
+        {
+          "a": "relay-powerpack",
+          "b": "solar-panel",
+          "result": "relay-charger",
+          "description": "Connect the panel to the regulator, not directly to the cells."
+        },
+        {
+          "a": "directional-relay",
+          "b": "relay-charger",
+          "result": "powered-relay",
+          "description": "Power the complete radio assembly."
+        },
+        {
+          "a": "powered-relay",
+          "b": "signal-meter",
+          "result": "tuned-relay",
+          "description": "Use the supplied meter to align the antenna on the assigned beacon."
+        },
+        {
+          "a": "tuned-relay",
+          "b": "timer-module",
+          "result": "scheduled-relay",
+          "description": "Restore the stored relay schedule for the orbiter passes."
+        },
+        {
+          "a": "scheduled-relay",
+          "b": "place:relay-knoll",
+          "result": "distress-recording",
+          "description": "The restored link receives the missing crew's actual message."
+        },
+        {
+          "a": "distress-recording",
+          "b": "weather-route-map",
+          "result": "rescue-route",
+          "description": "Their landmarks and your observations locate the crawler without treating a map as magic."
+        }
+      ],
+      "goals": [
+        "rescue-route",
+        "place:scheduled-relay@relay-knoll"
+      ]
+    },
+    {
+      "id": "rescue",
+      "title": "Not the only ones stranded",
+      "speaker": "Survey crew",
+      "motivation": "Our cabin is intact, but its drive is not. The service shed has recovery equipment. Bring us into its shelter while you decide how to move the crawler. You do not need to rebuild every broken thing to help us.",
+      "cache": [
+        "recovery-rope",
+        "tow-eye",
+        "pulley",
+        "spare-drive",
+        "drive-coupling",
+        "service-shelter",
+        "damaged-crawler",
+        "bedding",
+        "prepared-soup",
+        "insulated-flask",
+        "folding-bed",
+        "traction-mat"
+      ],
+      "locations": [
+        "service-depot"
+      ],
+      "recipes": [
+        {
+          "a": "service-shelter",
+          "b": "pressure-patch",
+          "result": "sealed-refuge",
+          "description": "Repair the shelter's documented torn outer seam."
+        },
+        {
+          "a": "sealed-refuge",
+          "b": "heater",
+          "result": "warm-refuge",
+          "description": "Connect its compatible heating socket; intact life support remains a recovered system."
+        },
+        {
+          "a": "folding-bed",
+          "b": "bedding",
+          "result": "prepared-bed",
+          "description": "Make a comfortable place for the exhausted crew."
+        },
+        {
+          "a": "prepared-bed",
+          "b": "warm-refuge",
+          "result": "rest-refuge",
+          "description": "Put the prepared bed inside the heated refuge."
+        },
+        {
+          "a": "prepared-soup",
+          "b": "heater",
+          "result": "warm-soup",
+          "description": "Warm an existing food pouch; this is not a new recipe from raw chemistry."
+        },
+        {
+          "a": "warm-soup",
+          "b": "insulated-flask",
+          "result": "soup-flask",
+          "description": "Keep the prepared food warm for the return journey."
+        },
+        {
+          "a": "spare-drive",
+          "b": "toolkit",
+          "result": "serviced-drive",
+          "description": "Inspect and service the supplied replacement drive."
+        },
+        {
+          "a": "serviced-drive",
+          "b": "drive-coupling",
+          "result": "replacement-drive",
+          "description": "Fit its matched coupling."
+        },
+        {
+          "a": "replacement-drive",
+          "b": "damaged-crawler",
+          "result": "repaired-crawler",
+          "description": "Replace the failed drive module in the original crawler."
+        },
+        {
+          "a": "recovery-rope",
+          "b": "tow-eye",
+          "result": "tow-line",
+          "description": "Fit the rope to the rated recovery eye."
+        },
+        {
+          "a": "tow-line",
+          "b": "belted-rover",
+          "result": "recovery-rover",
+          "description": "Add a recovery-line component to the existing rover."
+        },
+        {
+          "a": "recovery-rover",
+          "b": "damaged-crawler",
+          "result": "towed-crawler",
+          "description": "The intact cabin can be towed on this gentle route; repairing its drive is an alternative."
+        },
+        {
+          "a": "repaired-crawler",
+          "b": "rest-refuge",
+          "result": "sheltered-crew",
+          "description": "Bring the crew into the prepared refuge, leaving their repaired crawler there."
+        },
+        {
+          "a": "towed-crawler",
+          "b": "rest-refuge",
+          "result": "sheltered-crew",
+          "description": "Tow the intact cabin to the refuge; the same people are rescued, never duplicated."
+        },
+        {
+          "a": "sheltered-crew",
+          "b": "soup-flask",
+          "result": "rested-crew",
+          "description": "A meal and rest close the rescue beat, rather than becoming another medical minigame."
+        }
+      ],
+      "goals": [
+        "rested-crew"
+      ]
+    },
+    {
+      "id": "waterworks",
+      "title": "Enough water to stay",
+      "speaker": "Crew engineer",
+      "motivation": "The crew knows an old ice-processing test site ahead. Its equipment is incomplete, not imaginary. Restore its enclosed water loop so the camp can do more than melt one cup at a time.",
+      "cache": [
+        "pump-head",
+        "pump-motor",
+        "intake-hose",
+        "melt-chamber",
+        "heat-exchanger",
+        "sediment-cartridge",
+        "conductivity-meter",
+        "sterilizer-module",
+        "insulated-tank",
+        "level-switch",
+        "return-hose",
+        "manifold"
+      ],
+      "locations": [
+        "ice-works"
+      ],
+      "recipes": [
+        {
+          "a": "pump-head",
+          "b": "pump-motor",
+          "result": "water-pump",
+          "description": "Assemble the matching electric pump head and motor."
+        },
+        {
+          "a": "water-pump",
+          "b": "intake-hose",
+          "result": "intake-pump",
+          "description": "Fit the rated intake hose."
+        },
+        {
+          "a": "melt-chamber",
+          "b": "heat-exchanger",
+          "result": "ice-melter",
+          "description": "Restore the enclosed melting vessel and heat exchange coil."
+        },
+        {
+          "a": "ice-melter",
+          "b": "heater",
+          "result": "heated-melter",
+          "description": "Connect the compatible heater to the sealed vessel."
+        },
+        {
+          "a": "heated-melter",
+          "b": "place:ice-works",
+          "result": "collected-water",
+          "description": "The local ice feed and enclosed apparatus produce a collected batch."
+        },
+        {
+          "a": "collected-water",
+          "b": "sediment-cartridge",
+          "result": "clarified-water",
+          "description": "Remove particles; this alone does not establish drinking safety."
+        },
+        {
+          "a": "clarified-water",
+          "b": "sterilizer-module",
+          "result": "treated-water",
+          "description": "The recovered mission treatment module handles the known source."
+        },
+        {
+          "a": "treated-water",
+          "b": "conductivity-meter",
+          "result": "checked-water",
+          "description": "Check the mission's source-specific acceptance measurement; not a universal purity test."
+        },
+        {
+          "a": "insulated-tank",
+          "b": "level-switch",
+          "result": "monitored-tank",
+          "description": "Fit the compatible fill-level cutoff."
+        },
+        {
+          "a": "monitored-tank",
+          "b": "checked-water",
+          "result": "water-reserve",
+          "description": "Store the treated batch in the protected tank."
+        },
+        {
+          "a": "intake-pump",
+          "b": "manifold",
+          "result": "distribution-pump",
+          "description": "Connect the compatible branch manifold."
+        },
+        {
+          "a": "distribution-pump",
+          "b": "return-hose",
+          "result": "circulating-water-loop",
+          "description": "Close the return path of the enclosed demonstration system."
+        },
+        {
+          "a": "circulating-water-loop",
+          "b": "water-reserve",
+          "result": "camp-water-system",
+          "description": "Feed the closed camp water circuit from its protected reserve."
+        }
+      ],
+      "goals": [
+        "camp-water-system"
+      ]
+    },
+    {
+      "id": "garden",
+      "title": "A meal that grew here",
+      "speaker": "Crew botanist",
+      "motivation": "We have time to wait for a crop, if we give it the right place to grow. The greenhouse shell survived at the camp. Bring it light, a clean growing bed and a dependable water supply.",
+      "cache": [
+        "greenhouse-shell",
+        "growing-rack",
+        "prepared-substrate",
+        "nutrient-pack",
+        "drip-line",
+        "circulation-fan",
+        "grow-light",
+        "seed-potato",
+        "harvest-basket",
+        "root-tray",
+        "humidity-sensor",
+        "vent-actuator"
+      ],
+      "locations": [
+        "pressurized-greenhouse"
+      ],
+      "recipes": [
+        {
+          "a": "greenhouse-shell",
+          "b": "pressure-patch",
+          "result": "repaired-greenhouse",
+          "description": "Repair the shell's documented seam with the compatible patch."
+        },
+        {
+          "a": "growing-rack",
+          "b": "root-tray",
+          "result": "growing-bed",
+          "description": "Fit the tray to its support rack."
+        },
+        {
+          "a": "growing-bed",
+          "b": "prepared-substrate",
+          "result": "prepared-bed-medium",
+          "description": "Use brought terrestrial substrate, not unprocessed perchlorate-bearing regolith."
+        },
+        {
+          "a": "prepared-bed-medium",
+          "b": "nutrient-pack",
+          "result": "fed-growing-bed",
+          "description": "Add the mission nutrient pack to the growing bed."
+        },
+        {
+          "a": "fed-growing-bed",
+          "b": "seed-potato",
+          "result": "planted-potatoes",
+          "description": "Plant brought seed stock in the prepared medium."
+        },
+        {
+          "a": "drip-line",
+          "b": "camp-water-system",
+          "result": "irrigation-line",
+          "description": "Connect the growing circuit to the enclosed water system."
+        },
+        {
+          "a": "planted-potatoes",
+          "b": "irrigation-line",
+          "result": "watered-potatoes",
+          "description": "Supply the bed without flooding its roots."
+        },
+        {
+          "a": "circulation-fan",
+          "b": "repaired-greenhouse",
+          "result": "ventilated-greenhouse",
+          "description": "Circulate the interior cabin air; no outside Mars air is admitted."
+        },
+        {
+          "a": "grow-light",
+          "b": "solar-charger",
+          "result": "powered-grow-light",
+          "description": "Connect the lighting unit to its compatible power supply."
+        },
+        {
+          "a": "humidity-sensor",
+          "b": "vent-actuator",
+          "result": "humidity-controller",
+          "description": "Restore the greenhouse's designed humidity controls."
+        },
+        {
+          "a": "ventilated-greenhouse",
+          "b": "humidity-controller",
+          "result": "controlled-greenhouse",
+          "description": "Fit the recovered climate controller."
+        },
+        {
+          "a": "watered-potatoes",
+          "b": "controlled-greenhouse",
+          "result": "greenhouse-crop",
+          "description": "Place the crop in the functioning pressurized growing enclosure."
+        },
+        {
+          "a": "greenhouse-crop",
+          "b": "powered-grow-light",
+          "result": "growing-potatoes",
+          "description": "Provide the required supplementary light; elapsed growth time is compressed."
+        },
+        {
+          "a": "growing-potatoes",
+          "b": "harvest-basket",
+          "result": "potato-harvest",
+          "description": "After a narrated growing interval, harvest the crop."
+        },
+        {
+          "a": "potato-harvest",
+          "b": "heater",
+          "result": "warm-potatoes",
+          "description": "Cook the harvest in the supplied food-safe heater attachment."
+        }
+      ],
+      "goals": [
+        "warm-potatoes",
+        "controlled-greenhouse"
+      ]
+    },
+    {
+      "id": "workshop",
+      "title": "Make what cannot be shipped",
+      "speaker": "Crew engineer",
+      "motivation": "The camp machine shop has stock and tools. Make a reliable replacement wheel and a protected sample carrier. They will let us take the next journey rather than patch this camp forever.",
+      "cache": [
+        "machine-base",
+        "cutting-head",
+        "machining-stock",
+        "spindle-controller",
+        "guard-panel",
+        "wheel-hub",
+        "bearing-set",
+        "rim-blank",
+        "tyre-band",
+        "carrier-shell",
+        "shock-foam",
+        "latch",
+        "blank-bracket"
+      ],
+      "locations": [
+        "machine-shop"
+      ],
+      "recipes": [
+        {
+          "a": "machine-base",
+          "b": "cutting-head",
+          "result": "machine-tool",
+          "description": "Fit the recovered tool head to its designed machine base."
+        },
+        {
+          "a": "machine-tool",
+          "b": "spindle-controller",
+          "result": "controlled-machine",
+          "description": "Connect the matched controller."
+        },
+        {
+          "a": "controlled-machine",
+          "b": "guard-panel",
+          "result": "guarded-machine",
+          "description": "Restore the supplied safety enclosure."
+        },
+        {
+          "a": "guarded-machine",
+          "b": "machining-stock",
+          "result": "machined-axle",
+          "description": "Machine the specified replacement axle using the stored design; not freeform precision from hand tools."
+        },
+        {
+          "a": "wheel-hub",
+          "b": "bearing-set",
+          "result": "bearing-hub",
+          "description": "Fit the designed bearings into the hub."
+        },
+        {
+          "a": "bearing-hub",
+          "b": "rim-blank",
+          "result": "wheel-rim",
+          "description": "Assemble the replacement wheel structure."
+        },
+        {
+          "a": "wheel-rim",
+          "b": "tyre-band",
+          "result": "replacement-wheel",
+          "description": "Fit the recovered wheel tread."
+        },
+        {
+          "a": "replacement-wheel",
+          "b": "machined-axle",
+          "result": "wheel-module",
+          "description": "Make a ready-to-fit wheel and axle module."
+        },
+        {
+          "a": "carrier-shell",
+          "b": "shock-foam",
+          "result": "padded-carrier",
+          "description": "Protect specimens from vibration."
+        },
+        {
+          "a": "padded-carrier",
+          "b": "latch",
+          "result": "sample-carrier",
+          "description": "Close the carrier without sealing an unknown atmosphere inside a food container."
+        },
+        {
+          "a": "blank-bracket",
+          "b": "guarded-machine",
+          "result": "mounting-bracket",
+          "description": "Make the specified carrier bracket from stock."
+        },
+        {
+          "a": "sample-carrier",
+          "b": "mounting-bracket",
+          "result": "mounted-sample-carrier",
+          "description": "Fit the bracket for a rover-mounted specimen carrier."
+        },
+        {
+          "a": "wheel-module",
+          "b": "repaired-crawler",
+          "result": "field-crawler",
+          "description": "Fit the replacement wheel to the recovered crawler."
+        },
+        {
+          "a": "field-crawler",
+          "b": "mounted-sample-carrier",
+          "result": "science-crawler",
+          "description": "Install its protected sample carrier."
+        }
+      ],
+      "goals": [
+        "science-crawler"
+      ]
+    },
+    {
+      "id": "traverse",
+      "title": "Across the dark ground",
+      "speaker": "Survey lead",
+      "motivation": "The route to the old ascent depot crosses rough lava. We can reach it, but not by pretending our first map shows everything. Build a short-range scout and prepare the crawler for the surveyed ground.",
+      "cache": [
+        "scout-airframe",
+        "counter-rotating-rotors",
+        "flight-controller",
+        "navigation-camera",
+        "landing-legs",
+        "scout-battery",
+        "radar-head",
+        "suspension-damper",
+        "route-tablet",
+        "hazard-marker"
+      ],
+      "locations": [
+        "lava-overlook"
+      ],
+      "recipes": [
+        {
+          "a": "scout-airframe",
+          "b": "counter-rotating-rotors",
+          "result": "rotorcraft-frame",
+          "description": "Fit purpose-built Mars rotor assemblies, not an Earth toy drone."
+        },
+        {
+          "a": "rotorcraft-frame",
+          "b": "flight-controller",
+          "result": "controlled-scout",
+          "description": "Install the matching recovered flight controller."
+        },
+        {
+          "a": "controlled-scout",
+          "b": "navigation-camera",
+          "result": "navigating-scout",
+          "description": "Fit its visual-navigation sensor."
+        },
+        {
+          "a": "navigating-scout",
+          "b": "landing-legs",
+          "result": "landing-scout",
+          "description": "Restore the landing structure."
+        },
+        {
+          "a": "landing-scout",
+          "b": "scout-battery",
+          "result": "powered-scout",
+          "description": "Fit the compatible high-rate flight battery."
+        },
+        {
+          "a": "powered-scout",
+          "b": "solar-charger",
+          "result": "rechargeable-scout",
+          "description": "Restore its ground charging connection."
+        },
+        {
+          "a": "rechargeable-scout",
+          "b": "place:lava-overlook",
+          "result": "scout-panorama",
+          "description": "Fly a short reconnaissance using the stored flight envelope; thin atmosphere limits performance."
+        },
+        {
+          "a": "scout-panorama",
+          "b": "route-tablet",
+          "result": "terrain-model",
+          "description": "Turn overlapping calibrated images into a local terrain model using recovered software."
+        },
+        {
+          "a": "terrain-model",
+          "b": "annotated-map",
+          "result": "traverse-map",
+          "description": "Add the new local terrain observations to the route."
+        },
+        {
+          "a": "radar-head",
+          "b": "science-crawler",
+          "result": "sounding-crawler",
+          "description": "Fit a recovered ground-sounding instrument to the same crawler."
+        },
+        {
+          "a": "suspension-damper",
+          "b": "sounding-crawler",
+          "result": "rough-ground-crawler",
+          "description": "Fit the compatible suspension component."
+        },
+        {
+          "a": "traverse-map",
+          "b": "hazard-marker",
+          "result": "marked-traverse",
+          "description": "Mark the identified route hazards, rather than inventing certainty beyond the surveyed area."
+        },
+        {
+          "a": "rough-ground-crawler",
+          "b": "marked-traverse",
+          "result": "traverse-ready-crawler",
+          "description": "Load the surveyed route into the crawler's navigation display."
+        }
+      ],
+      "goals": [
+        "traverse-ready-crawler"
+      ]
+    },
+    {
+      "id": "buried-story",
+      "title": "What lies beneath",
+      "speaker": "Geologist",
+      "motivation": "The radar shows a boundary, not a buried city. Collect a core, examine its layers, and compare the measurements. Let the evidence decide what this place used to be.",
+      "cache": [
+        "drill-motor",
+        "drill-bit",
+        "sterile-liner",
+        "core-cradle",
+        "microscope",
+        "illuminator",
+        "spectrometer",
+        "calibration-target",
+        "balance",
+        "sample-vial",
+        "specimen-log"
+      ],
+      "locations": [
+        "layered-basin"
+      ],
+      "recipes": [
+        {
+          "a": "drill-motor",
+          "b": "drill-bit",
+          "result": "core-drill",
+          "description": "Assemble the designed low-impact coring tool."
+        },
+        {
+          "a": "core-drill",
+          "b": "sterile-liner",
+          "result": "lined-core-drill",
+          "description": "Fit the sample liner without claiming perfect sterility."
+        },
+        {
+          "a": "lined-core-drill",
+          "b": "place:layered-basin",
+          "result": "sediment-core",
+          "description": "Recover the shallow core with layer order retained."
+        },
+        {
+          "a": "sediment-core",
+          "b": "core-cradle",
+          "result": "supported-core",
+          "description": "Support the layered material for inspection."
+        },
+        {
+          "a": "microscope",
+          "b": "illuminator",
+          "result": "lit-microscope",
+          "description": "Illuminate the specimen under the recovered microscope."
+        },
+        {
+          "a": "supported-core",
+          "b": "lit-microscope",
+          "result": "grain-images",
+          "description": "Record grain shapes; an image alone does not establish biology."
+        },
+        {
+          "a": "spectrometer",
+          "b": "calibration-target",
+          "result": "calibrated-spectrometer",
+          "description": "Use the supplied target to check the instrument's reference response."
+        },
+        {
+          "a": "sediment-core",
+          "b": "sample-vial",
+          "result": "retained-sediment",
+          "description": "Save a portion with its source identity."
+        },
+        {
+          "a": "retained-sediment",
+          "b": "calibrated-spectrometer",
+          "result": "mineral-spectrum",
+          "description": "Measure the specimen's spectral response."
+        },
+        {
+          "a": "retained-sediment",
+          "b": "balance",
+          "result": "sample-mass",
+          "description": "Record a measurement of this specimen, not a new kind of substance."
+        },
+        {
+          "a": "grain-images",
+          "b": "mineral-spectrum",
+          "result": "sediment-comparison",
+          "description": "Compare independent observations of the same material."
+        },
+        {
+          "a": "sediment-comparison",
+          "b": "core-profile",
+          "result": "layer-interpretation",
+          "description": "Compare the local sediment with the earlier ice profile, retaining uncertainty."
+        },
+        {
+          "a": "layer-interpretation",
+          "b": "specimen-log",
+          "result": "basin-field-record",
+          "description": "Write a sourced interpretation that can travel with the actual specimens."
+        }
+      ],
+      "goals": [
+        "basin-field-record",
+        "retained-sediment"
+      ]
+    },
+    {
+      "id": "oxygen",
+      "title": "The plant that breathes stone air",
+      "speaker": "Flight engineer",
+      "motivation": "The ascent depot was built to make oxygen here. Its reactor stack is intact, but the air intake and controls were dismantled for storage. Recommission the certified modules; do not improvise a rocket in a kitchen.",
+      "cache": [
+        "intake-compressor",
+        "dust-separator",
+        "intake-filter",
+        "electrolyzer-stack",
+        "process-controller",
+        "oxygen-sensor",
+        "product-cooler",
+        "gas-dryer",
+        "buffer-tank",
+        "pressure-regulator",
+        "oxygen-line",
+        "inspection-port"
+      ],
+      "locations": [
+        "ascent-plant"
+      ],
+      "recipes": [
+        {
+          "a": "intake-compressor",
+          "b": "dust-separator",
+          "result": "dust-separated-intake",
+          "description": "Protect the process intake from deposited Mars dust."
+        },
+        {
+          "a": "dust-separated-intake",
+          "b": "intake-filter",
+          "result": "filtered-intake",
+          "description": "Fit the supplied fine-particle cartridge."
+        },
+        {
+          "a": "electrolyzer-stack",
+          "b": "process-controller",
+          "result": "controlled-electrolyzer",
+          "description": "Restore the recovered solid-oxide oxygen-generation module and its matched controller."
+        },
+        {
+          "a": "controlled-electrolyzer",
+          "b": "filtered-intake",
+          "result": "oxygen-generator",
+          "description": "Connect the conditioned carbon-dioxide feed to the engineered module."
+        },
+        {
+          "a": "oxygen-generator",
+          "b": "oxygen-sensor",
+          "result": "monitored-generator",
+          "description": "Restore the product measurement channel."
+        },
+        {
+          "a": "product-cooler",
+          "b": "gas-dryer",
+          "result": "oxygen-conditioner",
+          "description": "Assemble the depot's compatible product conditioning train."
+        },
+        {
+          "a": "monitored-generator",
+          "b": "oxygen-conditioner",
+          "result": "conditioned-generator",
+          "description": "Connect the engineered product train; no unsafe process settings are player instructions."
+        },
+        {
+          "a": "buffer-tank",
+          "b": "pressure-regulator",
+          "result": "regulated-buffer",
+          "description": "Restore the certified storage vessel's regulator."
+        },
+        {
+          "a": "regulated-buffer",
+          "b": "oxygen-line",
+          "result": "connected-buffer",
+          "description": "Fit the rated oxygen-service line."
+        },
+        {
+          "a": "conditioned-generator",
+          "b": "connected-buffer",
+          "result": "oxygen-plant",
+          "description": "Reconnect the designed production and buffer systems."
+        },
+        {
+          "a": "oxygen-plant",
+          "b": "inspection-port",
+          "result": "inspectable-oxygen-plant",
+          "description": "Restore the specified inspection access and instrumentation connection."
+        },
+        {
+          "a": "inspectable-oxygen-plant",
+          "b": "place:ascent-plant",
+          "result": "oxygen-production-record",
+          "description": "A narrated supervised test produces a traceable production record, not an assumed unlimited gas supply."
+        },
+        {
+          "a": "oxygen-production-record",
+          "b": "process-controller",
+          "result": "verified-oxygen-plant",
+          "description": "Mission Control accepts the measured test of the restored plant; the plant retains its identity."
+        }
+      ],
+      "goals": [
+        "verified-oxygen-plant"
+      ]
+    },
+    {
+      "id": "ascent",
+      "title": "A ship with an unfinished job",
+      "speaker": "Flight engineer",
+      "motivation": "The pre-positioned ascent vehicle has waited longer than planned. Its sealed propulsion module survived. Restore the cabin and avionics using the depot parts, then let the built-in tests tell us what still fails.",
+      "cache": [
+        "ascent-cabin",
+        "docking-ring",
+        "hatch-seal",
+        "cabin-fan",
+        "air-cartridge",
+        "avionics-rack",
+        "flight-computer",
+        "inertial-unit",
+        "harness-loom",
+        "display-panel",
+        "suit-umbilical",
+        "restraint-frame",
+        "spare-contact"
+      ],
+      "locations": [
+        "ascent-pad"
+      ],
+      "recipes": [
+        {
+          "a": "ascent-cabin",
+          "b": "hatch-seal",
+          "result": "sealed-ascent-cabin",
+          "description": "Replace the documented failed hatch seal."
+        },
+        {
+          "a": "sealed-ascent-cabin",
+          "b": "docking-ring",
+          "result": "dockable-cabin",
+          "description": "Restore the recovered certified docking interface."
+        },
+        {
+          "a": "cabin-fan",
+          "b": "air-cartridge",
+          "result": "cabin-circulator",
+          "description": "Assemble the designed air-circulation module."
+        },
+        {
+          "a": "dockable-cabin",
+          "b": "cabin-circulator",
+          "result": "ventilated-ascent-cabin",
+          "description": "Restore the engineered cabin circulation system."
+        },
+        {
+          "a": "avionics-rack",
+          "b": "flight-computer",
+          "result": "flight-rack",
+          "description": "Install the recovered computer in its intended rack."
+        },
+        {
+          "a": "flight-rack",
+          "b": "inertial-unit",
+          "result": "navigation-rack",
+          "description": "Fit the matching inertial reference unit."
+        },
+        {
+          "a": "harness-loom",
+          "b": "spare-contact",
+          "result": "repaired-harness",
+          "description": "Replace the identified damaged connector contact."
+        },
+        {
+          "a": "navigation-rack",
+          "b": "repaired-harness",
+          "result": "wired-avionics",
+          "description": "Connect the designed harness to the avionics rack."
+        },
+        {
+          "a": "wired-avionics",
+          "b": "display-panel",
+          "result": "flight-console",
+          "description": "Restore the cabin's flight interface."
+        },
+        {
+          "a": "ventilated-ascent-cabin",
+          "b": "flight-console",
+          "result": "operable-ascent-cabin",
+          "description": "Install the restored avionics and display."
+        },
+        {
+          "a": "restraint-frame",
+          "b": "seat-harness",
+          "result": "flight-seat",
+          "description": "Fit the recovered seating restraint to its frame."
+        },
+        {
+          "a": "flight-seat",
+          "b": "suit-umbilical",
+          "result": "suited-flight-seat",
+          "description": "Restore the seat's compatible suit service connection."
+        },
+        {
+          "a": "operable-ascent-cabin",
+          "b": "suited-flight-seat",
+          "result": "crewed-ascent-cabin",
+          "description": "Install the prepared seat in the existing cabin."
+        },
+        {
+          "a": "crewed-ascent-cabin",
+          "b": "place:ascent-pad",
+          "result": "cabin-test-record",
+          "description": "Run the vehicle's built-in depot test under remote supervision."
+        }
+      ],
+      "goals": [
+        "cabin-test-record"
+      ]
+    },
+    {
+      "id": "rendezvous",
+      "title": "A moving meeting place",
+      "speaker": "Orbital navigator",
+      "motivation": "The orbiter is not above us all the time. We need a common clock and a measured beacon before we agree where to meet. Your old radio and patient observations matter again.",
+      "cache": [
+        "precision-clock",
+        "star-camera",
+        "star-catalogue",
+        "beacon-receiver",
+        "timing-cable",
+        "ephemeris-card",
+        "navigation-terminal",
+        "alignment-target",
+        "synchronization-module",
+        "range-transponder"
+      ],
+      "locations": [
+        "clear-sky-station"
+      ],
+      "recipes": [
+        {
+          "a": "precision-clock",
+          "b": "synchronization-module",
+          "result": "disciplined-clock",
+          "description": "Restore the recovered clock synchronization module."
+        },
+        {
+          "a": "beacon-receiver",
+          "b": "timing-cable",
+          "result": "timed-receiver",
+          "description": "Connect the calibrated timing interface."
+        },
+        {
+          "a": "timed-receiver",
+          "b": "disciplined-clock",
+          "result": "timing-station",
+          "description": "Record beacon timing against the recovered clock."
+        },
+        {
+          "a": "star-camera",
+          "b": "star-catalogue",
+          "result": "star-tracker",
+          "description": "Load the matching reference catalogue into the engineered tracker."
+        },
+        {
+          "a": "star-tracker",
+          "b": "alignment-target",
+          "result": "aligned-star-tracker",
+          "description": "Check its reference alignment using the supplied target."
+        },
+        {
+          "a": "aligned-star-tracker",
+          "b": "place:clear-sky-station",
+          "result": "sky-fix",
+          "description": "Observe the visible star field; do not navigate by an invented Earth constellation shortcut."
+        },
+        {
+          "a": "timing-station",
+          "b": "place:clear-sky-station",
+          "result": "beacon-times",
+          "description": "Record the actual received beacon sequence."
+        },
+        {
+          "a": "beacon-times",
+          "b": "ephemeris-card",
+          "result": "orbiter-pass-prediction",
+          "description": "Compare observations against the transmitted orbital data."
+        },
+        {
+          "a": "sky-fix",
+          "b": "navigation-terminal",
+          "result": "ground-reference",
+          "description": "Establish the site's observed reference orientation."
+        },
+        {
+          "a": "ground-reference",
+          "b": "orbiter-pass-prediction",
+          "result": "rendezvous-solution",
+          "description": "The certified navigation software combines measured reference and orbital data."
+        },
+        {
+          "a": "range-transponder",
+          "b": "long-range-radio",
+          "result": "ranging-link",
+          "description": "Restore the depot's compatible ranging interface."
+        },
+        {
+          "a": "ranging-link",
+          "b": "rendezvous-solution",
+          "result": "agreed-rendezvous",
+          "description": "Exchange and verify the calculated meeting plan with the orbiter."
+        }
+      ],
+      "goals": [
+        "agreed-rendezvous"
+      ]
+    },
+    {
+      "id": "departure",
+      "title": "What we take with us",
+      "speaker": "Survey crew",
+      "motivation": "We came here to explore, and we leave with more than a survival story. Pack the specimens with their records, leave the camp useful to the next crew, and bring everyone to the ship.",
+      "cache": [
+        "return-capsule",
+        "shock-mount",
+        "data-store",
+        "archival-card",
+        "specimen-seal",
+        "cargo-strap",
+        "crew-manifest",
+        "camp-beacon",
+        "maintenance-card",
+        "transfer-cart"
+      ],
+      "locations": [
+        "departure-shelter"
+      ],
+      "recipes": [
+        {
+          "a": "return-capsule",
+          "b": "shock-mount",
+          "result": "cushioned-capsule",
+          "description": "Fit the specimen capsule's vibration protection."
+        },
+        {
+          "a": "cushioned-capsule",
+          "b": "catalogued-ice-sample",
+          "result": "ice-return-capsule",
+          "description": "Pack the actual labelled ice specimen."
+        },
+        {
+          "a": "ice-return-capsule",
+          "b": "retained-sediment",
+          "result": "mixed-specimen-capsule",
+          "description": "Add the separately contained sediment without mixing the specimens themselves."
+        },
+        {
+          "a": "mixed-specimen-capsule",
+          "b": "specimen-seal",
+          "result": "sealed-return-capsule",
+          "description": "Close the traceable return package."
+        },
+        {
+          "a": "data-store",
+          "b": "archival-card",
+          "result": "archival-recorder",
+          "description": "Fit the compatible archive medium to its reader."
+        },
+        {
+          "a": "archival-recorder",
+          "b": "basin-field-record",
+          "result": "geology-archive",
+          "description": "Store the recorded observations and explicit uncertainties."
+        },
+        {
+          "a": "geology-archive",
+          "b": "core-profile",
+          "result": "complete-field-archive",
+          "description": "Keep the earlier profile with the later interpretation."
+        },
+        {
+          "a": "complete-field-archive",
+          "b": "sealed-return-capsule",
+          "result": "documented-return-capsule",
+          "description": "Attach the archive to the specimen shipment, not into the sample containers."
+        },
+        {
+          "a": "camp-beacon",
+          "b": "maintenance-card",
+          "result": "camp-handover-beacon",
+          "description": "Leave the next crew a readable status message at the camp."
+        },
+        {
+          "a": "rested-crew",
+          "b": "crew-manifest",
+          "result": "accounted-crew",
+          "description": "Check the named crew against the actual people being brought aboard."
+        },
+        {
+          "a": "transfer-cart",
+          "b": "cargo-strap",
+          "result": "secured-cart",
+          "description": "Prepare the depot's cargo cart."
+        },
+        {
+          "a": "secured-cart",
+          "b": "documented-return-capsule",
+          "result": "specimen-cart",
+          "description": "Secure the return capsule for transfer."
+        },
+        {
+          "a": "accounted-crew",
+          "b": "place:departure-shelter",
+          "result": "ready-crew",
+          "description": "The crew gathers in the protected staging shelter with its already recovered suits."
+        }
+      ],
+      "goals": [
+        "ready-crew",
+        "specimen-cart",
+        "camp-handover-beacon"
+      ]
+    },
+    {
+      "id": "homebound",
+      "title": "A light that answers",
+      "speaker": "Mission Control",
+      "motivation": "The ascent system is a recovered flight vehicle, not a collection of improvised parts. We have its cabin tests, oxygen test and agreed rendezvous. Complete the handover, then bring the people and their discoveries home.",
+      "cache": [
+        "certified-ascent-stage",
+        "flight-release",
+        "receiver-latch",
+        "cargo-adapter",
+        "checklist-terminal",
+        "telemetry-recorder",
+        "launch-key",
+        "orbital-cabin"
+      ],
+      "locations": [
+        "ascent-vehicle",
+        "orbital-hatch"
+      ],
+      "recipes": [
+        {
+          "a": "certified-ascent-stage",
+          "b": "crewed-ascent-cabin",
+          "result": "ascent-vehicle",
+          "description": "Mate the already qualified vehicle modules at their designed interface."
+        },
+        {
+          "a": "checklist-terminal",
+          "b": "cabin-test-record",
+          "result": "cabin-acceptance",
+          "description": "Use the actual test record to clear the cabin checks."
+        },
+        {
+          "a": "cabin-acceptance",
+          "b": "verified-oxygen-plant",
+          "result": "systems-acceptance",
+          "description": "Confirm the depot's oxygen-production test alongside the cabin acceptance; fuel remains a sealed pre-positioned system."
+        },
+        {
+          "a": "systems-acceptance",
+          "b": "flight-release",
+          "result": "flight-clearance",
+          "description": "Ground control authorizes the recovered vehicle after the documented checks."
+        },
+        {
+          "a": "cargo-adapter",
+          "b": "receiver-latch",
+          "result": "capsule-dock",
+          "description": "Prepare the designed return-capsule mount."
+        },
+        {
+          "a": "specimen-cart",
+          "b": "capsule-dock",
+          "result": "loaded-capsule-dock",
+          "description": "Transfer the secured capsule to its ship mount."
+        },
+        {
+          "a": "ascent-vehicle",
+          "b": "loaded-capsule-dock",
+          "result": "loaded-ascent-vehicle",
+          "description": "Install the specimen cargo without replacing the vehicle."
+        },
+        {
+          "a": "loaded-ascent-vehicle",
+          "b": "ready-crew",
+          "result": "boarded-ascent-vehicle",
+          "description": "The crew boards the restored cabin."
+        },
+        {
+          "a": "telemetry-recorder",
+          "b": "agreed-rendezvous",
+          "result": "rendezvous-program",
+          "description": "Load the accepted navigation and telemetry plan into its designed recorder."
+        },
+        {
+          "a": "boarded-ascent-vehicle",
+          "b": "rendezvous-program",
+          "result": "flight-ready-vehicle",
+          "description": "Load the agreed flight plan into the existing ship."
+        },
+        {
+          "a": "flight-ready-vehicle",
+          "b": "flight-clearance",
+          "result": "cleared-ascent-vehicle",
+          "description": "Ground control clears this specific prepared vehicle, not an arbitrary checklist token."
+        },
+        {
+          "a": "cleared-ascent-vehicle",
+          "b": "launch-key",
+          "result": "ascending-vehicle",
+          "description": "A narrated supervised ascent compresses the flight; no real launch procedure is provided."
+        },
+        {
+          "a": "ascending-vehicle",
+          "b": "orbital-cabin",
+          "result": "docked-vehicle",
+          "description": "The agreed rendezvous meets the waiting orbital cabin."
+        },
+        {
+          "a": "docked-vehicle",
+          "b": "place:orbital-hatch",
+          "result": "reunited-crew",
+          "description": "Cross the hatch together; the saved specimens and records remain tangible cargo."
+        }
+      ],
+      "goals": [
+        "reunited-crew"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,460 @@
+{
+  "schemaVersion": 1,
+  "id": "theology",
+  "title": "The Guest and the Fast",
+  "premise": "A fictional medieval Benedictine guesthouse asks how hospitality and fasting can coexist. This is one Latin-Christian rule and a particular case, not a universal religion or a proof of doctrine.",
+  "items": [
+    {
+      "id": "basin",
+      "label": "Basin"
+    },
+    {
+      "id": "basket",
+      "label": "Basket"
+    },
+    {
+      "id": "bread",
+      "label": "Bread"
+    },
+    {
+      "id": "brothers-timetable",
+      "label": "Brothers timetable"
+    },
+    {
+      "id": "calendar",
+      "label": "Calendar"
+    },
+    {
+      "id": "chapter-53",
+      "label": "Chapter 53"
+    },
+    {
+      "id": "community-fast-note",
+      "label": "Community fast note",
+      "description": "The guest exception does not require every brother to break the fast. The note preserves the other part of the rule."
+    },
+    {
+      "id": "fasting-rule",
+      "label": "Fasting rule"
+    },
+    {
+      "id": "guest-account",
+      "label": "Guest account"
+    },
+    {
+      "id": "guest-meal",
+      "label": "Guest meal"
+    },
+    {
+      "id": "guest-table",
+      "label": "Guest table"
+    },
+    {
+      "id": "guest-washstand",
+      "label": "Guest washstand"
+    },
+    {
+      "id": "hospitality-passage",
+      "label": "Hospitality passage"
+    },
+    {
+      "id": "hospitality-question",
+      "label": "Hospitality question",
+      "description": "Must receiving a guest mean abandoning the fast for the whole community? The question exposes a tension, not a contradiction proved by the game."
+    },
+    {
+      "id": "host-exception",
+      "label": "Host exception",
+      "description": "Chapter53 distinguishes the superior receiving a guest from the other brothers, and ordinary fasts from principal fasts. The exception is limited, not a repeal."
+    },
+    {
+      "id": "host-permission",
+      "label": "Host permission",
+      "description": "For this ordinary fast, the superior may eat with the guest. The other brothers keep their usual fasting practice."
+    },
+    {
+      "id": "laid-table",
+      "label": "Laid table"
+    },
+    {
+      "id": "linen",
+      "label": "Linen"
+    },
+    {
+      "id": "ordinary-fast-day",
+      "label": "Ordinary fast day",
+      "description": "In this fictional case the calendar identifies an ordinary fast, not an unbreakable principal fast."
+    },
+    {
+      "id": "shared-table",
+      "label": "Shared table",
+      "description": "The prepared table now bears the host’s place as well as the guest’s; this represents the chosen hospitality arrangement, not an extra created meal."
+    },
+    {
+      "id": "table",
+      "label": "Table"
+    },
+    {
+      "id": "washing-basin",
+      "label": "Washing basin"
+    },
+    {
+      "id": "water",
+      "label": "Water"
+    },
+    {
+      "id": "welcome-reading",
+      "label": "Welcome reading",
+      "description": "The guest is received with care, not treated as an interruption to erase."
+    }
+  ],
+  "locations": [
+    {
+      "id": "guesthouse",
+      "label": "Guesthouse"
+    }
+  ],
+  "initialItems": [
+    "bread",
+    "basket",
+    "water",
+    "basin",
+    "linen"
+  ],
+  "recipes": [
+    {
+      "id": "guest-meal",
+      "a": "bread",
+      "b": "basket",
+      "out": "guest-meal"
+    },
+    {
+      "id": "washing-basin",
+      "a": "water",
+      "b": "basin",
+      "out": "washing-basin"
+    },
+    {
+      "id": "guest-washstand",
+      "a": "washing-basin",
+      "b": "linen",
+      "out": "guest-washstand",
+      "retire": [
+        {
+          "item": "washing-basin",
+          "reason": "The original is incorporated into this recognizable derived thing."
+        }
+      ]
+    },
+    {
+      "id": "welcome-reading",
+      "a": "guest-account",
+      "b": "hospitality-passage",
+      "out": "welcome-reading",
+      "description": "The guest is received with care, not treated as an interruption to erase.",
+      "sources": [
+        "benedict"
+      ]
+    },
+    {
+      "id": "ordinary-fast-day",
+      "a": "fasting-rule",
+      "b": "calendar",
+      "out": "ordinary-fast-day",
+      "description": "In this fictional case the calendar identifies an ordinary fast, not an unbreakable principal fast.",
+      "sources": [
+        "benedict"
+      ]
+    },
+    {
+      "id": "hospitality-question",
+      "a": "welcome-reading",
+      "b": "fasting-rule",
+      "out": "hospitality-question",
+      "description": "Must receiving a guest mean abandoning the fast for the whole community? The question exposes a tension, not a contradiction proved by the game.",
+      "sources": [
+        "benedict"
+      ]
+    },
+    {
+      "id": "host-exception",
+      "a": "hospitality-question",
+      "b": "chapter-53",
+      "out": "host-exception",
+      "description": "Chapter53 distinguishes the superior receiving a guest from the other brothers, and ordinary fasts from principal fasts. The exception is limited, not a repeal.",
+      "sources": [
+        "benedict"
+      ]
+    },
+    {
+      "id": "host-permission",
+      "a": "host-exception",
+      "b": "ordinary-fast-day",
+      "out": "host-permission",
+      "description": "For this ordinary fast, the superior may eat with the guest. The other brothers keep their usual fasting practice.",
+      "sources": [
+        "benedict"
+      ]
+    },
+    {
+      "id": "laid-table",
+      "a": "table",
+      "b": "linen",
+      "out": "laid-table"
+    },
+    {
+      "id": "guest-table",
+      "a": "laid-table",
+      "b": "guest-meal",
+      "out": "guest-table",
+      "retire": [
+        {
+          "item": "laid-table",
+          "reason": "The original is incorporated into this recognizable derived thing."
+        }
+      ]
+    },
+    {
+      "id": "shared-table",
+      "a": "host-permission",
+      "b": "guest-table",
+      "out": "shared-table",
+      "description": "The prepared table now bears the host’s place as well as the guest’s; this represents the chosen hospitality arrangement, not an extra created meal.",
+      "sources": [
+        "benedict"
+      ],
+      "retire": [
+        {
+          "item": "guest-table",
+          "reason": "The original is incorporated into this recognizable derived thing."
+        }
+      ]
+    },
+    {
+      "id": "community-fast-note",
+      "a": "host-exception",
+      "b": "brothers-timetable",
+      "out": "community-fast-note",
+      "description": "The guest exception does not require every brother to break the fast. The note preserves the other part of the rule.",
+      "sources": [
+        "benedict"
+      ]
+    }
+  ],
+  "stages": [
+    {
+      "id": "gate",
+      "title": "At the guesthouse gate",
+      "speaker": "The guestmaster",
+      "motivation": "A traveller has arrived tired and hungry. Prepare a washstand, and put a meal in the guesthouse.",
+      "area": {
+        "id": "gate-area",
+        "label": "At the guesthouse gate",
+        "travelText": "We are taking the useful things with us. Earlier creations remain where we made them."
+      },
+      "locations": [
+        "guesthouse"
+      ],
+      "caches": [],
+      "objectives": [
+        {
+          "id": "guest-meal-goal",
+          "text": "Put the guest meal in the Guesthouse.",
+          "kind": "place",
+          "item": "guest-meal",
+          "location": "guesthouse"
+        },
+        {
+          "id": "guest-washstand-goal",
+          "text": "Make a guest washstand.",
+          "kind": "create",
+          "item": "guest-washstand"
+        }
+      ]
+    },
+    {
+      "id": "question",
+      "title": "A guest on a fast day",
+      "speaker": "The novice",
+      "motivation": "Today is a fast. Can our superior eat with the traveller while the brothers keep it? Find the host’s permission, and make a note of the community’s fast.",
+      "area": {
+        "id": "question-area",
+        "label": "A guest on a fast day",
+        "travelText": "We are taking the useful things with us. Earlier creations remain where we made them."
+      },
+      "locations": [],
+      "caches": [
+        {
+          "id": "rule-desk",
+          "label": "The guestmaster’s desk",
+          "narrative": "The desk holds the Rule, a fasting schedule, today’s calendar and the traveller’s account. We are considering an ordinary fast, not a principal fast.",
+          "items": [
+            "guest-account",
+            "hospitality-passage",
+            "fasting-rule",
+            "calendar",
+            "chapter-53",
+            "brothers-timetable"
+          ]
+        }
+      ],
+      "objectives": [
+        {
+          "id": "host-permission-goal",
+          "text": "Establish the host’s permission for this day.",
+          "kind": "create",
+          "item": "host-permission"
+        },
+        {
+          "id": "community-fast-note-goal",
+          "text": "Make the note preserving the community’s fast.",
+          "kind": "create",
+          "item": "community-fast-note"
+        }
+      ]
+    },
+    {
+      "id": "table",
+      "title": "Room at the table",
+      "speaker": "The guestmaster",
+      "motivation": "The rule makes room for our guest without asking the whole community to stop its practice. Prepare the shared table.",
+      "area": {
+        "id": "table-area",
+        "label": "Room at the table",
+        "travelText": "We are taking the useful things with us. Earlier creations remain where we made them."
+      },
+      "locations": [],
+      "caches": [
+        {
+          "id": "guest-dining",
+          "label": "The guest dining room",
+          "narrative": "The adjoining room has a table. The meal and linen come with us.",
+          "items": [
+            "table"
+          ]
+        }
+      ],
+      "objectives": [
+        {
+          "id": "shared-table-goal",
+          "text": "Prepare the shared host-and-guest table.",
+          "kind": "create",
+          "item": "shared-table"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "benedict",
+      "title": "Rule of Benedict, chapter53, especially verses10–11 and16",
+      "url": "https://pressbooks.palni.org/ruleofbenedict/chapter/rb-53/",
+      "note": "Primary translation. Host exception, principal-fast limitation and other brothers’ continued practice distinguish this case."
+    }
+  ],
+  "notes": [
+    "Explicitly a fictional Benedictine case grounded in one primary text, not all Christian practice or all religions.",
+    "An ordinary fast is a stipulated story fact; the recipe does not calculate a real liturgical calendar.",
+    "The rule makes distinct roles and conditions matter. Gameplay still risks document assembly; test before expanding.",
+    "The meal is carried from the former guesthouse area into its adjoining dining room, not conjured by the argument.",
+    "Version2: item descriptions provide inspectable semantic content. Same recipe graph and checkpoints as v1; new text does not constitute human fun validation."
+  ],
+  "checkpoints": [
+    {
+      "id": "chapter-1",
+      "label": "At the guesthouse gate",
+      "actions": []
+    },
+    {
+      "id": "chapter-2",
+      "label": "A guest on a fast day",
+      "actions": [
+        {
+          "type": "combine",
+          "a": "bread",
+          "b": "basket"
+        },
+        {
+          "type": "place",
+          "item": "guest-meal",
+          "location": "guesthouse"
+        },
+        {
+          "type": "combine",
+          "a": "water",
+          "b": "basin"
+        },
+        {
+          "type": "combine",
+          "a": "washing-basin",
+          "b": "linen"
+        },
+        {
+          "type": "advance"
+        }
+      ]
+    },
+    {
+      "id": "chapter-3",
+      "label": "Room at the table",
+      "actions": [
+        {
+          "type": "combine",
+          "a": "bread",
+          "b": "basket"
+        },
+        {
+          "type": "place",
+          "item": "guest-meal",
+          "location": "guesthouse"
+        },
+        {
+          "type": "combine",
+          "a": "water",
+          "b": "basin"
+        },
+        {
+          "type": "combine",
+          "a": "washing-basin",
+          "b": "linen"
+        },
+        {
+          "type": "advance"
+        },
+        {
+          "type": "combine",
+          "a": "guest-account",
+          "b": "hospitality-passage"
+        },
+        {
+          "type": "combine",
+          "a": "welcome-reading",
+          "b": "fasting-rule"
+        },
+        {
+          "type": "combine",
+          "a": "hospitality-question",
+          "b": "chapter-53"
+        },
+        {
+          "type": "combine",
+          "a": "fasting-rule",
+          "b": "calendar"
+        },
+        {
+          "type": "combine",
+          "a": "host-exception",
+          "b": "ordinary-fast-day"
+        },
+        {
+          "type": "combine",
+          "a": "host-exception",
+          "b": "brothers-timetable"
+        },
+        {
+          "type": "advance"
+        }
+      ]
+    }
+  ]
+}

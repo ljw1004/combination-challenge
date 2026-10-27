@@ -5,7 +5,7 @@ export type Place=Point&{id:string;area:string};
 export type Area={id:string;label:string;enteredAtStage:number};
 export type Metrics={attempts:number;accepted:number;combinations:number;creations:number;installations:number;moves:number;placements:number;advances:number;visits:number};
 export type State={stage:number;currentArea:string;areas:Area[];places:Place[];tokens:Token[];discovered:string[];recipesUsed:string[];openedCaches:string[];width:number;metrics:Metrics;completed:boolean};
-export type Event={seq:number;action:Action|{type:'undo'};accepted:boolean;message:string;stage:number;recipe?:string;created?:string;installed?:boolean;retired?:string[]};
+export type Event={seq:number;action:Action|{type:'undo'};accepted:boolean;message:string;stage:number;recipe?:string;created?:string;installed?:boolean;retired?:string[];transfers?:{item:string;from:string;to:string}[]};
 export type Game={version:1;scenarioId:string;state:State;history:State[];events:Event[]};
 export type Result={accepted:boolean;game:Game;message:string;created?:string;updated?:string;recipe?:string;origin?:Point;retired?:string[]};
 const clone=<T>(x:T):T=>structuredClone(x);
@@ -78,16 +78,30 @@ function needed(s:Scenario,state:State,t:Token,excluding?:string):boolean{
  if(s.recipes.some(r=>r.id!==excluding&&!state.recipesUsed.includes(r.id)&&(!r.out||!state.discovered.includes(r.out))&&[r.a,r.b].includes(t.kind)))return true;
  return s.stages.slice(state.stage).some(st=>st.objectives.some(o=>matches(s,t,o)&&!state.tokens.some(x=>x.id!==t.id&&matches(s,x,o)&&(o.kind==='create'||x.location===o.location))));
 }
+/** Stage-local packing intent. Includes alternative prerequisite routes, never future goals. */
+export function sceneCarry(s:Scenario,state:State,st:Stage):string[]{
+ if(st.carry)return [...new Set(st.carry)];
+ const want=new Set<string>();
+ const need=(kind:string,forceConstruction=false)=>{if(want.has(kind))return;want.add(kind);const def=item(s,kind),existing=token(state,kind);
+  if(existing){if(forceConstruction||!functional(s,existing))for(const slot of def?.slots??[])if(slot.required&&!existing.slots[slot.id])for(const k of slot.accepts)need(k);return;}
+  for(const r of s.recipes.filter(r=>r.out===kind)){for(const k of [r.a,r.b])if(!k.startsWith('@'))need(k);for(const q of r.requires??[])needCapability(q.capability,q.item);}
+  for(const slot of def?.slots??[])if(slot.required)for(const k of slot.accepts)need(k);
+ };
+ const needCapability=(cap:string,only?:string)=>{for(const def of s.items.filter(it=>!only||it.id===only)){const slots=(def.slots??[]).filter(sl=>(sl.capabilities??[]).includes(cap)||Object.values(sl.grants??{}).some(c=>c.includes(cap)));if(!(def.capabilities??[]).includes(cap)&&!slots.length)continue;need(def.id,true);const existing=token(state,def.id);for(const slot of slots)if(!existing?.slots[slot.id]||!capabilities(s,existing).includes(cap)){const accepted=Object.entries(slot.grants??{}).filter(([,caps])=>caps.includes(cap)).map(([k])=>k);for(const k of accepted.length?accepted:slot.accepts)need(k);}}};
+ for(const o of st.objectives)if(o.item)need(o.item);else needCapability(o.capability!);
+ return [...want];
+}
 function enterStage(s:Scenario,state:State,first=false){
  const st=s.stages[state.stage],area=st.area.id,existing=state.areas.find(x=>x.id===area);
  if(!existing)state.areas.push({id:area,label:st.area.label,enteredAtStage:state.stage});
- const carried=first?[]:state.tokens.filter(t=>t.area===state.currentArea&&(st.carry?st.carry.includes(t.kind):needed(s,state,t)));
- const minY=carried.length?Math.min(...carried.map(t=>t.y)):0;
- for(const t of carried){t.area=area;t.location=null;t.y=56+t.y-minY;}
+ const wanted=first?[]:sceneCarry(s,state,st),carried=state.tokens.filter(t=>wanted.includes(t.kind)&&t.area!==area);
+ const transfers=carried.map(t=>({item:t.id,from:t.area,to:area}));
+ for(const from of new Set(carried.map(t=>t.area))){const group=carried.filter(t=>t.area===from),minY=Math.min(...group.map(t=>t.y));for(const t of group){t.area=area;t.location=null;t.y=56+t.y-minY;}}
  state.currentArea=area;
  for(const id of st.locations??[]){if(state.places.some(p=>p.id===id))continue;const pos=supplyPosition(s,state,area);state.places.push({id,area,x:pos.x,y:pos.y+25});}
  for(const c of st.caches??[])if(!state.openedCaches.includes(c.id)){for(const k of c.items)addItem(s,state,k,area);state.openedCaches.push(c.id);}
  if(first)for(const k of s.initialItems)addItem(s,state,k,area);
+ return transfers;
 }
 export function createGame(s:Scenario,width=360):Game{
  assertScenario(s);const state:State={stage:0,currentArea:s.stages[0].area.id,areas:[],places:[],tokens:[],discovered:[],recipesUsed:[],openedCaches:[],width:Math.max(320,Math.min(600,width)),metrics:clone(ZERO),completed:false};enterStage(s,state,true);return {version:1,scenarioId:s.id,state,history:[],events:[]};
@@ -102,11 +116,11 @@ function errorResult(g:Game,a:Action,message:string):Result{
 }
 export function applyAction(s:Scenario,g:Game,a:Action):Result{
  if(g.scenarioId!==s.id)throw Error('Scenario/save mismatch');
- const state=clone(g.state);let message='',created:string|undefined,updated:string|undefined,recipe:string|undefined,origin:Point|undefined;const retired:string[]=[];
+ const state=clone(g.state);let message='',created:string|undefined,updated:string|undefined,recipe:string|undefined,origin:Point|undefined;const retired:string[]=[];let transfers:{item:string;from:string;to:string}[]=[];
  try{
   if(a.type==='advance'){
    if(!stageComplete(s,state))throw Error('Finish the current objectives before moving on.');
-   if(state.stage===s.stages.length-1){if(state.completed)throw Error('This journey is already complete.');state.completed=true;message='Journey complete.';}else {state.stage++;enterStage(s,state);message=s.stages[state.stage].area.travelText;}state.metrics.advances++;
+   if(state.stage===s.stages.length-1){if(state.completed)throw Error('This journey is already complete.');state.completed=true;message='Journey complete.';}else {state.stage++;transfers=enterStage(s,state);message=s.stages[state.stage].area.travelText+(transfers.length?' We collect the things needed for this scene along the way.':'');}state.metrics.advances++;
   }else if(a.type==='visit'){
    if(!state.areas.some(x=>x.id===a.area))throw Error('That area has not been reached.');
    const take=(a.carry??[]).map(id=>token(state,id));if(take.some(t=>!t||t.area!==state.currentArea))throw Error('Carry only things physically in your current area.');
@@ -118,7 +132,7 @@ export function applyAction(s:Scenario,g:Game,a:Action):Result{
     else {if(!Number.isFinite(a.x)||!Number.isFinite(a.y))throw Error('Supply finite x and y coordinates for an ordinary move.');first.x=Math.max(52,Math.min(state.width-52,a.x!));first.y=Math.max(30,a.y!);first.location=null;state.metrics.moves++;message='Moved.';}
    }else if(a.type==='combine'){
     const isPlace=a.b.startsWith('@'),second=isPlace?place(state,a.b.slice(1)):token(state,a.b);if(!second||second.area!==state.currentArea||first.id===second.id)throw Error('Choose another thing or place in this area.');
-    const r=resolveRecipe(s,state,first,second,isPlace);if(!r)throw Error('No new combination here.');recipe=r.id;origin={x:second.x,y:second.y};
+    const r=resolveRecipe(s,state,first,second,isPlace);if(!r){const hints=partners(s,state,first.id),incoming=hints.directions.find(h=>h.source===second.id&&h.target===first.id&&h.location),advice=hints.settingHelp.find(h=>h.source===first.id&&h.target===second.id);throw Error(incoming?incoming.text+' Only the receiving thing needs to be placed there.':advice?.text??'No new combination here.');}recipe=r.id;origin={x:second.x,y:second.y};
     if(r.install){const target=token(state,r.install.target),component=token(state,r.install.component);if(!target||!component)throw Error('Both component and construction must be available.');if(target.slots[r.install.slot]===component.kind)throw Error('That component is already fitted.');target.slots[r.install.slot]=component.kind;updated=target.id;state.metrics.installations++;message=`${item(s,component.kind)!.label} fitted to ${item(s,target.kind)!.label}.`;if(!needed(s,state,component,r.id)){target.incorporated.push(component.kind);state.tokens=state.tokens.filter(t=>t.id!==component.id);retired.push(component.id);}}
     else {const out:Token={id:r.out!,kind:r.out!,area:state.currentArea,location:null,slots:{},incorporated:[],x:0,y:0};Object.assign(out,adjacent(s,state,origin,state.currentArea,out,isPlace?{w:106,h:82}:size(s,second as Token)));state.tokens.push(out);state.discovered.push(out.kind);created=out.kind;state.metrics.creations++;message=`${item(s,out.kind)!.label}. ${r.description??item(s,out.kind)?.description??''}`.trim();
      for(const ret of r.retire??[]){const t=token(state,ret.item);if(t&&!needed(s,state,t,r.id)){out.incorporated.push(t.kind,...t.incorporated);state.tokens=state.tokens.filter(x=>x.id!==t.id);retired.push(t.id);}}
@@ -127,17 +141,25 @@ export function applyAction(s:Scenario,g:Game,a:Action):Result{
    }
   }
   state.metrics.attempts++;state.metrics.accepted++;
-  const event:Event={seq:g.events.length+1,action:clone(a),accepted:true,message,stage:state.stage,...recipe?{recipe}:{},...created?{created}:{},...updated?{installed:true}:{},...retired.length?{retired}:{}};
+  const event:Event={seq:g.events.length+1,action:clone(a),accepted:true,message,stage:state.stage,...recipe?{recipe}:{},...created?{created}:{},...updated?{installed:true}:{},...retired.length?{retired}:{},...transfers.length?{transfers}:{}};
   const game:Game={...g,state,history:[...g.history,g.state].slice(-100),events:[...g.events,event]};game.state.metrics=cumulativeMetrics(game.events);return {accepted:true,game,message,created,updated,recipe,origin,retired};
  }catch(e){return errorResult(g,a,(e as Error).message);}
 }
 export function undo(g:Game):Result{if(!g.history.length)return {accepted:false,game:g,message:'Nothing to undo.'};const game={...g,state:clone(g.history.at(-1)!),history:g.history.slice(0,-1),events:[...g.events,{seq:g.events.length+1,action:{type:'undo'} as const,accepted:true,message:'Undone.',stage:g.history.at(-1)!.stage}]};game.state.metrics=cumulativeMetrics(game.events);return {accepted:true,game,message:'Undone.'};}
 export function partners(s:Scenario,state:State,id:string){
- const t=token(state,id);if(!t||t.area!==state.currentArea)return {partners:[],settings:[]};
- const targets=[...state.tokens.filter(x=>x.area===state.currentArea&&x.id!==id).map(x=>x.id),...state.places.filter(x=>x.area===state.currentArea).map(x=>'@'+x.id)];
- const partners=targets.filter(id=>{const isPlace=id.startsWith('@'),target=isPlace?place(state,id.slice(1)):token(state,id);if(!target)return false;const r=resolveRecipe(s,state,t,target,isPlace);return !!r&&(!r.install||token(state,r.install.target)?.slots[r.install.slot]!==r.install.component);});
- const settings=state.places.filter(p=>p.area===state.currentArea&&s.recipes.some(r=>r.at===p.id&&[r.a,r.b].includes(t.kind)&&(!r.out||!state.discovered.includes(r.out))&&!state.recipesUsed.includes(r.id)&&state.tokens.some(x=>x.area===state.currentArea&&x.id!==id&&[r.a,r.b].includes(x.kind)))).map(p=>'@'+p.id);
- return {partners,settings};
+ const empty={partners:[] as string[],outgoing:[] as string[],incoming:[] as string[],settings:[] as string[],directions:[] as {source:string;target:string;location?:string;text:string}[],settingHelp:[] as {source:string;target:string;location:string;text:string}[]};
+ const t=token(state,id);if(!t||t.area!==state.currentArea)return empty;
+ const things=state.tokens.filter(x=>x.area===state.currentArea&&x.id!==id),places=state.places.filter(x=>x.area===state.currentArea);
+ const label=(id:string)=>id.startsWith('@')?s.locations.find(x=>x.id===id.slice(1))!.label:item(s,id)!.label;
+ const legal=(a:Token,b:Token|Place,isPlace:boolean)=>{const r=resolveRecipe(s,state,a,b,isPlace);return r&&(!r.install||token(state,r.install.target)?.slots[r.install.slot]!==r.install.component)?r:undefined;};
+ for(const target of [...things,...places]){const isPlace=places.includes(target as Place),r=legal(t,target,isPlace);if(r){const targetId=isPlace?'@'+target.id:target.id;empty.outgoing.push(targetId);empty.directions.push({source:id,target:targetId,...r.at?{location:r.at}:{},text:`Bring ${label(id)} onto ${label(targetId)}${r.at?' here':''}.`});}}
+ for(const source of things){const r=legal(source,t,false);if(r){empty.incoming.push(source.id);if(!empty.directions.some(d=>d.source===source.id&&d.target===id))empty.directions.push({source:source.id,target:id,...r.at?{location:r.at}:{},text:`Bring ${label(source.id)} onto ${label(id)}${r.at?' here':''}.`});}}
+ for(const r of s.recipes){if(!r.at||![r.a,r.b].includes(t.kind)||state.recipesUsed.includes(r.id)||r.out&&state.discovered.includes(r.out)||!(r.requires??[]).every(q=>{const x=token(state,q.item);return !!x&&capabilities(s,x).includes(q.capability);}))continue;
+  const p=places.find(x=>x.id===r.at),other=things.find(x=>[r.a,r.b].includes(x.kind));if(!p||!other)continue;
+  for(const [source,target] of [[other,t],[t,other]])if(target.location!==r.at){empty.settingHelp.push({source:source.id,target:target.id,location:r.at,text:`Place ${label(target.id)} at ${label('@'+r.at)}, then bring ${label(source.id)} onto ${label(target.id)}. Only the receiving thing needs to be placed there.`});}
+  if(!empty.settings.includes('@'+r.at))empty.settings.push('@'+r.at);
+ }
+ empty.partners=empty.outgoing;return empty;
 }
 export function playerView(s:Scenario,g:Game){
  const state=g.state,st=s.stages[state.stage],marks=gold(s,state);

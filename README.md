@@ -206,3 +206,13 @@ The owner has now completed and praised all three short human-played games, espe
 
 A prospective evaluation protocol and versioned common engine are frozen in research/tangible-campaign-20261027/. Seven short new-world candidates are included for falsifiable theme trials, not presented as full-length games. Their14-engine-test/TypeScript validation and authored legal routes establish execution only; no fresh source-blind fun finding exists at this freeze. Longer Mars/Ideas/Elements drafts and mutable sessions/UI are intentionally excluded. The live Site is unchanged. Fresh play must use frozen/v1 inputs, preserve exact command/output/state evidence, permit voluntary stopping and distinguish catalogue size, authored-route length and actual fresh combinations. Any runtime revision needs a new frozen version.
 
+
+
+## 27 October 2026 · Current-scene packing and first fresh trial
+
+The newest human rule is to bring only the things needed for the current scene, rather than carrying everything with any eventual use. Engine v3 collects the actual existing objects from visited areas, retains identities/components and records transfers; it does not clone supplies or impose manual retrieval errands. Explicit carry lists remain authoritative. Same-area progression preserves arrangement and placement. This is the current research grammar, not a live Site deployment.
+
+The first frozen Food v1 fresh player stopped voluntarily after10creations, finding the meal mildly satisfying but repeated catalyst staging and unsupported pleasurable combinations discouraging. The exact27-command transcript/state and independent replay are retained; this is agent diagnostic evidence, not human-fun proof. Versioned engine hints and Food revisions address those hypotheses prospectively; they are not yet established improvements.
+
+Frozen long drafts remain below the200–300combination target: Mars's legal goal witnesses194/197/198 with25–26local items, Ideas192 with23, Elements196 with28. Catalogue sizes are not route-length evidence. Three bounded pilots and seven revised mini candidates are preserved for fresh evaluation; no new pilot or second-Food fresh result is claimed here. Earlier failed banks, broad-carry peaks, horizon/retrieval experiments, v1/v2 freezes and reviews remain intact. See research/tangible-campaign-20261027/CHECKPOINT-V3.md. The existing live Site is unchanged.
+
