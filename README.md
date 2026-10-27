@@ -216,3 +216,11 @@ The first frozen Food v1 fresh player stopped voluntarily after10creations, find
 
 Frozen long drafts remain below the200–300combination target: Mars's legal goal witnesses194/197/198 with25–26local items, Ideas192 with23, Elements196 with28. Catalogue sizes are not route-length evidence. Three bounded pilots and seven revised mini candidates are preserved for fresh evaluation; no new pilot or second-Food fresh result is claimed here. Earlier failed banks, broad-carry peaks, horizon/retrieval experiments, v1/v2 freezes and reviews remain intact. See research/tangible-campaign-20261027/CHECKPOINT-V3.md. The existing live Site is unchanged.
 
+
+
+## 27 October 2026 · Seven small playable theme experiments
+
+The owner-private Site now includes campaign.html with seven short scenarios sharing one tangible engine/browser grammar: Food, Theology, Restoration, Shoreline, Causation, Literature and Chinese thought. This is a separate playable checkpoint, not replacement of the original Mars/Ideas/Elements or a completed200–300combination game. Current-scene packing, explicit goals, current-stage gold, local births, descriptions, mobile-compatible input, undo/reset and legal replay checkpoints use the shared engine. Full-length campaign research continues separately.
+
+See results/shared-campaign-ui-preservation-20261027/README.md for exact deployed source and evidence. Final aggregate358passed,0failed,1intentional skip; TypeScript and12routes build;41focused checks passed. Native cloud Chromium500px checks cover Food and Literature, including real mouse combination and receiving-target fermentation. Physical iPhone/touch and human enjoyment remain unverified. The stopped Food v1 logical trial remains historical evidence, not retroactively improved.
+

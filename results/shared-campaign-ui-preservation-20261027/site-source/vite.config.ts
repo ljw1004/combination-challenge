@@ -1,0 +1,2 @@
+import {defineConfig} from 'vite';
+export default defineConfig({base:'./',build:{outDir:'dist',emptyOutDir:true,rollupOptions:{input:{campaign:'campaign.html',index:'index.html',estuaryHistory:'estuary-history.html',historyIdeas:'history-ideas.html',marsExpedition:'mars-expedition.html',elementsDiscovery:'elements-discovery.html',marsSlots:'mars-slots.html',marsPurpose:'mars-purpose.html',workshop:'workshop.html',uxLab:'ux-lab.html',marsV2:'mars-v2.html',history:'history.html'}}}});
