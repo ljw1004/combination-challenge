@@ -1,0 +1,18 @@
+You are trying a combination game through its logical player interface. Play as a curious player, not as a solver asked to prove completion. You may continue as long as you are interested and stop whenever you would stop voluntarily. There is no action quota.
+
+Use only the supplied player command. Do not read scenario JSON, engine source, route evidence, tests, other reviews, session files or manifests. You can inspect everything the interface returns. This is a logical UI, not a claim about graphics or touch.
+
+Commands after initialization:
+- view SESSION: see the current place, things, invitation and goals.
+- hint SESSION ITEM_ID: see compatible partner IDs and useful settings. Outputs are not revealed in advance.
+- act SESSION '{"type":"combine","a":"ITEM_ID","b":"OTHER_ITEM_ID"}': combine two things. A place operand uses @PLACE_ID as b.
+- act SESSION '{"type":"place","item":"ITEM_ID","location":"PLACE_ID"}': put a thing at a location, including a setting for a later combination.
+- act SESSION '{"type":"move","item":"ITEM_ID","x":100,"y":150}': move a thing to open space.
+- act SESSION '{"type":"advance"}': move on after current goals are met.
+- act SESSION '{"type":"visit","area":"AREA_ID","carry":["ITEM_ID"]}': return to a known area with actual selected things from your current area.
+- undo SESSION: undo your last accepted action.
+- stop SESSION 'your report' or finish SESSION 'your report': end the session. Finish is appropriate if you reached its ending; stopping early is equally valid.
+
+Use one command per invocation. Do not batch a list of inferred recipes or automate selection. Read each returned state before choosing again. Optional hints are normal player tools, not a failure. No developer checkpoint/reset commands during this fresh trial.
+
+Give sparse brief notes about what you intend, what felt satisfying, confusing or arbitrary, and what makes you want to continue or stop. At the end provide a candid account, including any uninteresting routine as well as good moments. Do not try to please the designer. Do not claim to represent a human or every player.

@@ -1,0 +1,754 @@
+{
+  "schemaVersion": 1,
+  "id": "food",
+  "title": "From Hearth to Snack Cake",
+  "premise": "A playful journey through kitchens: make recognizable food, discover what living cultures and skilled processing change. Time is compressed; these are not complete cooking instructions.",
+  "items": [
+    {
+      "id": "annotated-menu",
+      "label": "Annotated menu"
+    },
+    {
+      "id": "bread",
+      "label": "Bread"
+    },
+    {
+      "id": "butter",
+      "label": "Butter"
+    },
+    {
+      "id": "churn",
+      "label": "Churn"
+    },
+    {
+      "id": "cream",
+      "label": "Cream"
+    },
+    {
+      "id": "creme-filling",
+      "label": "Creme filling"
+    },
+    {
+      "id": "dough",
+      "label": "Dough"
+    },
+    {
+      "id": "egg-foam",
+      "label": "Egg foam"
+    },
+    {
+      "id": "eggs",
+      "label": "Eggs"
+    },
+    {
+      "id": "filled-sponge",
+      "label": "Filled sponge"
+    },
+    {
+      "id": "flatbread",
+      "label": "Flatbread"
+    },
+    {
+      "id": "flour",
+      "label": "Flour"
+    },
+    {
+      "id": "fruit",
+      "label": "Fruit"
+    },
+    {
+      "id": "fruit-tart",
+      "label": "Fruit tart"
+    },
+    {
+      "id": "grain",
+      "label": "Grain"
+    },
+    {
+      "id": "humoral-book",
+      "label": "Humoral book"
+    },
+    {
+      "id": "humoral-menu",
+      "label": "Humoral menu"
+    },
+    {
+      "id": "juice",
+      "label": "Juice"
+    },
+    {
+      "id": "lactic-culture",
+      "label": "Lactic culture"
+    },
+    {
+      "id": "laminated-dough",
+      "label": "Laminated dough"
+    },
+    {
+      "id": "leavened-dough",
+      "label": "Leavened dough"
+    },
+    {
+      "id": "menu-card",
+      "label": "Menu card"
+    },
+    {
+      "id": "milk",
+      "label": "Milk"
+    },
+    {
+      "id": "millstone",
+      "label": "Millstone"
+    },
+    {
+      "id": "modern-nutrition-note",
+      "label": "Modern nutrition note"
+    },
+    {
+      "id": "press",
+      "label": "Press"
+    },
+    {
+      "id": "puff-pastry",
+      "label": "Puff pastry"
+    },
+    {
+      "id": "shortcrust",
+      "label": "Shortcrust"
+    },
+    {
+      "id": "shortening",
+      "label": "Shortening"
+    },
+    {
+      "id": "sponge-batter",
+      "label": "Sponge batter"
+    },
+    {
+      "id": "sponge-cake",
+      "label": "Sponge cake"
+    },
+    {
+      "id": "sugar",
+      "label": "Sugar"
+    },
+    {
+      "id": "sweet-egg-foam",
+      "label": "Sweet egg foam"
+    },
+    {
+      "id": "twinkie",
+      "label": "Twinkie-inspired snack cake"
+    },
+    {
+      "id": "unbaked-fruit-tart",
+      "label": "Unbaked fruit tart"
+    },
+    {
+      "id": "vanilla",
+      "label": "Vanilla"
+    },
+    {
+      "id": "vanilla-filling",
+      "label": "Vanilla filling"
+    },
+    {
+      "id": "water",
+      "label": "Water"
+    },
+    {
+      "id": "whisk",
+      "label": "Whisk"
+    },
+    {
+      "id": "wrapper",
+      "label": "Wrapper"
+    },
+    {
+      "id": "yeast-culture",
+      "label": "Yeast culture"
+    },
+    {
+      "id": "yogurt",
+      "label": "Yogurt"
+    }
+  ],
+  "locations": [
+    {
+      "id": "bakehouse-oven",
+      "label": "Bakehouse oven"
+    },
+    {
+      "id": "pilot-oven",
+      "label": "Pilot oven"
+    },
+    {
+      "id": "hearth",
+      "label": "Hearth"
+    },
+    {
+      "id": "fermentation-room",
+      "label": "Fermentation room"
+    },
+    {
+      "id": "pastry-bench",
+      "label": "Cool pastry bench"
+    },
+    {
+      "id": "oven",
+      "label": "Pastry oven"
+    },
+    {
+      "id": "filling-line",
+      "label": "Filling line"
+    }
+  ],
+  "initialItems": [
+    "grain",
+    "millstone",
+    "water",
+    "fruit",
+    "press"
+  ],
+  "recipes": [
+    {
+      "id": "flour",
+      "a": "grain",
+      "b": "millstone",
+      "out": "flour"
+    },
+    {
+      "id": "dough",
+      "a": "flour",
+      "b": "water",
+      "out": "dough"
+    },
+    {
+      "id": "flatbread",
+      "a": "dough",
+      "b": "@hearth",
+      "out": "flatbread"
+    },
+    {
+      "id": "juice",
+      "a": "fruit",
+      "b": "press",
+      "out": "juice"
+    },
+    {
+      "id": "leavened-dough",
+      "a": "dough",
+      "b": "yeast-culture",
+      "out": "leavened-dough",
+      "at": "fermentation-room",
+      "description": "Yeast changes the dough over time; the game compresses fermentation.",
+      "sources": [
+        "fermentation"
+      ]
+    },
+    {
+      "id": "bread",
+      "a": "leavened-dough",
+      "b": "@bakehouse-oven",
+      "out": "bread"
+    },
+    {
+      "id": "yogurt",
+      "a": "milk",
+      "b": "lactic-culture",
+      "out": "yogurt",
+      "at": "fermentation-room",
+      "description": "A suitable bacterial culture transforms milk; it is not the same culture as bread yeast.",
+      "sources": [
+        "fermentation"
+      ]
+    },
+    {
+      "id": "butter",
+      "a": "cream",
+      "b": "churn",
+      "out": "butter"
+    },
+    {
+      "id": "shortcrust",
+      "a": "flour",
+      "b": "butter",
+      "out": "shortcrust",
+      "at": "pastry-bench",
+      "description": "Rubbing fat into flour makes a short pastry; water and handling are compressed here.",
+      "sources": [
+        "pastry"
+      ]
+    },
+    {
+      "id": "unbaked-fruit-tart",
+      "a": "shortcrust",
+      "b": "fruit",
+      "out": "unbaked-fruit-tart"
+    },
+    {
+      "id": "fruit-tart",
+      "a": "unbaked-fruit-tart",
+      "b": "@oven",
+      "out": "fruit-tart"
+    },
+    {
+      "id": "laminated-dough",
+      "a": "dough",
+      "b": "butter",
+      "out": "laminated-dough",
+      "at": "pastry-bench",
+      "description": "Cold butter is folded through dough in separate layers; this is not simply stirred together.",
+      "sources": [
+        "pastry"
+      ]
+    },
+    {
+      "id": "puff-pastry",
+      "a": "laminated-dough",
+      "b": "@oven",
+      "out": "puff-pastry"
+    },
+    {
+      "id": "egg-foam",
+      "a": "eggs",
+      "b": "whisk",
+      "out": "egg-foam"
+    },
+    {
+      "id": "sweet-egg-foam",
+      "a": "egg-foam",
+      "b": "sugar",
+      "out": "sweet-egg-foam"
+    },
+    {
+      "id": "sponge-batter",
+      "a": "sweet-egg-foam",
+      "b": "flour",
+      "out": "sponge-batter"
+    },
+    {
+      "id": "sponge-cake",
+      "a": "sponge-batter",
+      "b": "@pilot-oven",
+      "out": "sponge-cake"
+    },
+    {
+      "id": "creme-filling",
+      "a": "shortening",
+      "b": "sugar",
+      "out": "creme-filling"
+    },
+    {
+      "id": "vanilla-filling",
+      "a": "creme-filling",
+      "b": "vanilla",
+      "out": "vanilla-filling"
+    },
+    {
+      "id": "filled-sponge",
+      "a": "sponge-cake",
+      "b": "vanilla-filling",
+      "out": "filled-sponge",
+      "at": "filling-line",
+      "description": "A filling is injected into a sponge cake. This is a broad snack-cake model, not a commercial formula."
+    },
+    {
+      "id": "twinkie",
+      "a": "filled-sponge",
+      "b": "wrapper",
+      "out": "twinkie",
+      "at": "filling-line",
+      "description": "A Twinkie-inspired endpoint: a wrapped golden sponge cake with a creamy filling. The brand formula and its industrial process are not reproduced."
+    },
+    {
+      "id": "humoral-menu",
+      "a": "menu-card",
+      "b": "humoral-book",
+      "out": "humoral-menu",
+      "description": "A period menu organized through hot/cold and wet/dry qualities. This records a historical belief, not a medically effective diet.",
+      "sources": [
+        "humors"
+      ]
+    },
+    {
+      "id": "annotated-menu",
+      "a": "humoral-menu",
+      "b": "modern-nutrition-note",
+      "out": "annotated-menu",
+      "description": "A museum annotation distinguishes a historical explanatory system from present-day nutrition; neither is a literal ingredient."
+    }
+  ],
+  "stages": [
+    {
+      "id": "hearth",
+      "title": "The roadside hearth",
+      "speaker": "The traveller",
+      "motivation": "We have grain and fruit. Make flatbread and press a drink before the caravan leaves.",
+      "area": {
+        "id": "hearth-area",
+        "label": "The roadside hearth",
+        "travelText": "We are taking the useful things with us. Earlier creations remain where we made them."
+      },
+      "locations": [
+        "hearth"
+      ],
+      "caches": [],
+      "objectives": [
+        {
+          "id": "flatbread-goal",
+          "text": "Make flatbread.",
+          "kind": "create",
+          "item": "flatbread"
+        },
+        {
+          "id": "juice-goal",
+          "text": "Make fruit juice.",
+          "kind": "create",
+          "item": "juice"
+        }
+      ]
+    },
+    {
+      "id": "cultures",
+      "title": "The dairy and bakehouse",
+      "speaker": "The baker",
+      "motivation": "Our neighbours keep living cultures. Give us a risen loaf and a bowl of yogurt.",
+      "area": {
+        "id": "cultures-area",
+        "label": "The dairy and bakehouse",
+        "travelText": "We are taking the useful things with us. Earlier creations remain where we made them."
+      },
+      "locations": [
+        "fermentation-room",
+        "bakehouse-oven"
+      ],
+      "caches": [
+        {
+          "id": "dairy-stores",
+          "label": "Dairy shelves",
+          "narrative": "The dairy keeps milk, cream, a churn and separate cultures for its bread and milk.",
+          "items": [
+            "milk",
+            "cream",
+            "churn",
+            "yeast-culture",
+            "lactic-culture"
+          ]
+        }
+      ],
+      "objectives": [
+        {
+          "id": "bread-goal",
+          "text": "Bake a risen loaf.",
+          "kind": "create",
+          "item": "bread"
+        },
+        {
+          "id": "yogurt-goal",
+          "text": "Make yogurt.",
+          "kind": "create",
+          "item": "yogurt"
+        }
+      ]
+    },
+    {
+      "id": "pastry",
+      "title": "The pastry workshop",
+      "speaker": "The pastry cook",
+      "motivation": "Butter can crumble through flour or lie in thin sheets. Bring me a fruit tart and a puff pastry.",
+      "area": {
+        "id": "pastry-area",
+        "label": "The pastry workshop",
+        "travelText": "We are taking the useful things with us. Earlier creations remain where we made them."
+      },
+      "locations": [
+        "pastry-bench",
+        "oven"
+      ],
+      "caches": [
+        {
+          "id": "pastry-cupboard",
+          "label": "Pastry cupboard",
+          "narrative": "A working pastry kitchen holds eggs, sugar, whisks and old menu records as well as its ovens.",
+          "items": [
+            "eggs",
+            "sugar",
+            "whisk",
+            "menu-card",
+            "humoral-book",
+            "modern-nutrition-note"
+          ]
+        }
+      ],
+      "objectives": [
+        {
+          "id": "fruit-tart-goal",
+          "text": "Bake a fruit tart.",
+          "kind": "create",
+          "item": "fruit-tart"
+        },
+        {
+          "id": "puff-pastry-goal",
+          "text": "Bake puff pastry.",
+          "kind": "create",
+          "item": "puff-pastry"
+        }
+      ]
+    },
+    {
+      "id": "snack",
+      "title": "The small cake line",
+      "speaker": "The food historian",
+      "motivation": "Now a bakery wants its little sponge cake to travel. Make the filled, wrapped snack cake. Our last stop is a Twinkie, not a verdict that later food is better.",
+      "area": {
+        "id": "snack-area",
+        "label": "The small cake line",
+        "travelText": "We are taking the useful things with us. Earlier creations remain where we made them."
+      },
+      "locations": [
+        "filling-line",
+        "pilot-oven"
+      ],
+      "caches": [
+        {
+          "id": "cake-line",
+          "label": "Cake-line stores",
+          "narrative": "The pilot line keeps filling ingredients and wrappers; the sponge-making tools came with us.",
+          "items": [
+            "shortening",
+            "vanilla",
+            "wrapper"
+          ]
+        }
+      ],
+      "objectives": [
+        {
+          "id": "twinkie-goal",
+          "text": "Make the wrapped Twinkie-inspired snack cake.",
+          "kind": "create",
+          "item": "twinkie"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "fermentation",
+      "title": "OpenStax: What Our Ancestors Knew",
+      "url": "https://openstax.org/books/microbiology/pages/1-1-what-our-ancestors-knew",
+      "note": ""
+    },
+    {
+      "id": "pastry",
+      "title": "King Arthur bakery: puff pastry lamination",
+      "url": "https://www.kingarthurbaking.com/blog/2013/08/02/puff-pastry-layer-it-like-the-pros",
+      "note": ""
+    },
+    {
+      "id": "humors",
+      "title": "NLM: The Four Humors",
+      "url": "https://www.nlm.nih.gov/exhibition/shakespeare/fourhumors.html",
+      "note": "Historical interpretation only; not health advice."
+    }
+  ],
+  "notes": [
+    "Prototype target: test whether tangible food transformations remain engaging across a shift to industrial production.",
+    "The branded final output is a fictional approximation. Hostess official page was unavailable to web reader; exact formula not asserted.",
+    "Humoral menu is an optional historical side discovery, never a nutrition recommendation. No medical efficacy mechanic.",
+    "Not a universal food chronology: fermentation and pastry have multiple regional histories. A Paris-style workshop does not claim France invented layered pastry."
+  ],
+  "checkpoints": [
+    {
+      "id": "chapter-1",
+      "label": "The roadside hearth",
+      "actions": []
+    },
+    {
+      "id": "chapter-2",
+      "label": "The dairy and bakehouse",
+      "actions": [
+        {
+          "type": "combine",
+          "a": "grain",
+          "b": "millstone"
+        },
+        {
+          "type": "combine",
+          "a": "flour",
+          "b": "water"
+        },
+        {
+          "type": "combine",
+          "a": "dough",
+          "b": "@hearth"
+        },
+        {
+          "type": "combine",
+          "a": "fruit",
+          "b": "press"
+        },
+        {
+          "type": "advance"
+        }
+      ]
+    },
+    {
+      "id": "chapter-3",
+      "label": "The pastry workshop",
+      "actions": [
+        {
+          "type": "combine",
+          "a": "grain",
+          "b": "millstone"
+        },
+        {
+          "type": "combine",
+          "a": "flour",
+          "b": "water"
+        },
+        {
+          "type": "combine",
+          "a": "dough",
+          "b": "@hearth"
+        },
+        {
+          "type": "combine",
+          "a": "fruit",
+          "b": "press"
+        },
+        {
+          "type": "advance"
+        },
+        {
+          "type": "place",
+          "item": "yeast-culture",
+          "location": "fermentation-room"
+        },
+        {
+          "type": "combine",
+          "a": "dough",
+          "b": "yeast-culture"
+        },
+        {
+          "type": "combine",
+          "a": "leavened-dough",
+          "b": "@bakehouse-oven"
+        },
+        {
+          "type": "place",
+          "item": "lactic-culture",
+          "location": "fermentation-room"
+        },
+        {
+          "type": "combine",
+          "a": "milk",
+          "b": "lactic-culture"
+        },
+        {
+          "type": "advance"
+        }
+      ]
+    },
+    {
+      "id": "chapter-4",
+      "label": "The small cake line",
+      "actions": [
+        {
+          "type": "combine",
+          "a": "grain",
+          "b": "millstone"
+        },
+        {
+          "type": "combine",
+          "a": "flour",
+          "b": "water"
+        },
+        {
+          "type": "combine",
+          "a": "dough",
+          "b": "@hearth"
+        },
+        {
+          "type": "combine",
+          "a": "fruit",
+          "b": "press"
+        },
+        {
+          "type": "advance"
+        },
+        {
+          "type": "place",
+          "item": "yeast-culture",
+          "location": "fermentation-room"
+        },
+        {
+          "type": "combine",
+          "a": "dough",
+          "b": "yeast-culture"
+        },
+        {
+          "type": "combine",
+          "a": "leavened-dough",
+          "b": "@bakehouse-oven"
+        },
+        {
+          "type": "place",
+          "item": "lactic-culture",
+          "location": "fermentation-room"
+        },
+        {
+          "type": "combine",
+          "a": "milk",
+          "b": "lactic-culture"
+        },
+        {
+          "type": "advance"
+        },
+        {
+          "type": "combine",
+          "a": "cream",
+          "b": "churn"
+        },
+        {
+          "type": "place",
+          "item": "butter",
+          "location": "pastry-bench"
+        },
+        {
+          "type": "combine",
+          "a": "flour",
+          "b": "butter"
+        },
+        {
+          "type": "combine",
+          "a": "shortcrust",
+          "b": "fruit"
+        },
+        {
+          "type": "combine",
+          "a": "unbaked-fruit-tart",
+          "b": "@oven"
+        },
+        {
+          "type": "place",
+          "item": "butter",
+          "location": "pastry-bench"
+        },
+        {
+          "type": "combine",
+          "a": "dough",
+          "b": "butter"
+        },
+        {
+          "type": "combine",
+          "a": "laminated-dough",
+          "b": "@oven"
+        },
+        {
+          "type": "advance"
+        }
+      ]
+    }
+  ]
+}
