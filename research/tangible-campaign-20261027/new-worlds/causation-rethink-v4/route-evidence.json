@@ -1,0 +1,2819 @@
+{
+  "engine": "frozen/v4/engine/model.ts",
+  "validation": [],
+  "completed": true,
+  "recipes": 11,
+  "combinations": 11,
+  "maxVisibleItems": 10,
+  "packedScene2": [
+    "adze",
+    "caulking-brush",
+    "cord",
+    "poles",
+    "timber"
+  ],
+  "checks": [
+    "All 11 recipes traversed with v4 dropAction",
+    "Both legal checkpoints replay",
+    "No goal from built boat alone",
+    "Only the suitable boat at its exact mission location satisfies deployment",
+    "Only five current-scene things packed",
+    "Broad ferry legally retrieved and placed at reed mouth cannot rescue fisher",
+    "Plan alone cannot carry cart"
+  ],
+  "wrongBoat": {
+    "gestureResolution": {
+      "type": "place",
+      "item": "ferry",
+      "location": "reed-mouth"
+    },
+    "dropCompletesGoal": false,
+    "explicitCombineAccepted": false,
+    "message": "No new combination here."
+  },
+  "limits": "Author-aware reachability and semantic assertion tests; not a fresh-player trial, visual UI test or evidence of enjoyment.",
+  "actions": [
+    {
+      "type": "combine",
+      "a": "cord",
+      "b": "cart"
+    },
+    {
+      "type": "combine",
+      "a": "timber",
+      "b": "broad-layout"
+    },
+    {
+      "type": "combine",
+      "a": "adze",
+      "b": "broad-frame"
+    },
+    {
+      "type": "combine",
+      "a": "pitch",
+      "b": "brush"
+    },
+    {
+      "type": "combine",
+      "a": "caulking-brush",
+      "b": "broad-hull"
+    },
+    {
+      "type": "combine",
+      "a": "poles",
+      "b": "sealed-ferry"
+    },
+    {
+      "type": "place",
+      "item": "ferry",
+      "location": "landing"
+    },
+    {
+      "type": "advance"
+    },
+    {
+      "type": "combine",
+      "a": "cord",
+      "b": "@reed-mouth"
+    },
+    {
+      "type": "combine",
+      "a": "timber",
+      "b": "slim-layout"
+    },
+    {
+      "type": "combine",
+      "a": "adze",
+      "b": "slim-frame"
+    },
+    {
+      "type": "combine",
+      "a": "caulking-brush",
+      "b": "slim-hull"
+    },
+    {
+      "type": "combine",
+      "a": "poles",
+      "b": "sealed-skiff"
+    },
+    {
+      "type": "place",
+      "item": "skiff",
+      "location": "reed-mouth"
+    },
+    {
+      "type": "advance"
+    }
+  ],
+  "trace": [
+    {
+      "checkpoint": "chapter-1",
+      "view": {
+        "scenario": {
+          "id": "causation-purpose-v4",
+          "title": "Why This Boat?",
+          "premise": "Two jobs at one boatyard. Build for what the boat must actually do. This fictional craft story explores Aristotle’s explanations of artifacts, not a claim that nature plans like a boatbuilder."
+        },
+        "stage": {
+          "number": 1,
+          "title": "Room for the cart",
+          "speaker": "The boatbuilder",
+          "motivation": "The miller needs the loaded cart across the creek. Measure its wheels, build for its load, then launch the suitable ferry at Creek landing. Placing it there sends the miller across.",
+          "travelText": "We are at the yard beside the creek."
+        },
+        "area": {
+          "id": "yard",
+          "label": "Creek boatyard",
+          "enteredAtStage": 0
+        },
+        "areas": [
+          {
+            "id": "yard",
+            "label": "Creek boatyard",
+            "current": true
+          }
+        ],
+        "objectives": [
+          {
+            "id": "cart-goal",
+            "text": "Launch the cart-carrying ferry at Creek landing.",
+            "satisfied": false
+          }
+        ],
+        "canAdvance": false,
+        "completed": false,
+        "things": [
+          {
+            "id": "timber",
+            "label": "Timber stack",
+            "description": "Seasoned planks from the yard. Enough for two small boats; the same wood can be arranged in different ways. This stock is not consumed by one build.",
+            "x": 252,
+            "y": 56,
+            "location": null,
+            "gold": false,
+            "slots": [],
+            "functional": true
+          },
+          {
+            "id": "cord",
+            "label": "Measuring cord",
+            "description": "Lay it against what the boat must carry or fit through. The builder sketches the measured outline; the cord does not cut wood.",
+            "x": 252,
+            "y": 106,
+            "location": null,
+            "gold": false,
+            "slots": [],
+            "functional": true
+          },
+          {
+            "id": "adze",
+            "label": "Adze",
+            "description": "The boatbuilder uses this to shape and finish an assembled frame. A drawing cannot do this work.",
+            "x": 52,
+            "y": 156,
+            "location": null,
+            "gold": false,
+            "slots": [],
+            "functional": true
+          },
+          {
+            "id": "pitch",
+            "label": "Pitch pot",
+            "description": "A supply of seam-sealing pitch. It keeps water out; it does not decide what a boat is for.",
+            "x": 152,
+            "y": 156,
+            "location": null,
+            "gold": false,
+            "slots": [],
+            "functional": true
+          },
+          {
+            "id": "brush",
+            "label": "Brush",
+            "description": "For working pitch into seams.",
+            "x": 252,
+            "y": 156,
+            "location": null,
+            "gold": false,
+            "slots": [],
+            "functional": true
+          },
+          {
+            "id": "poles",
+            "label": "Pole rack",
+            "description": "A supply of long poles to fit out boats for these calm, shallow waters. No wind or sail is needed.",
+            "x": 52,
+            "y": 206,
+            "location": null,
+            "gold": false,
+            "slots": [],
+            "functional": true
+          },
+          {
+            "id": "cart",
+            "label": "Loaded cart",
+            "description": "The miller must take this wide, heavy cart across the quiet creek without unloading it. Measure its wheel span before choosing the boat’s shape.",
+            "x": 152,
+            "y": 206,
+            "location": null,
+            "gold": false,
+            "slots": [],
+            "functional": true
+          }
+        ],
+        "locations": [
+          {
+            "id": "landing",
+            "area": "yard",
+            "x": 52,
+            "y": 81,
+            "label": "Creek landing",
+            "description": "A broad, calm crossing. Deploying a cart-carrying ferry here sends the miller and cart across; an unfinished hull or the narrow skiff cannot do this job.",
+            "gold": false
+          }
+        ],
+        "cacheNarrative": [],
+        "metrics": {
+          "attempts": 0,
+          "accepted": 0,
+          "combinations": 0,
+          "creations": 0,
+          "installations": 0,
+          "moves": 0,
+          "placements": 0,
+          "advances": 0,
+          "visits": 0
+        }
+      }
+    },
+    {
+      "gesture": {
+        "a": "cord",
+        "b": "cart"
+      },
+      "action": {
+        "type": "combine",
+        "a": "cord",
+        "b": "cart"
+      },
+      "message": "Broad layout. The builder measures the wheels and sketches a broad floor. The intended crossing guides the design; it does not magically reshape timber.",
+      "view": {
+        "scenario": {
+          "id": "causation-purpose-v4",
+          "title": "Why This Boat?",
+          "premise": "Two jobs at one boatyard. Build for what the boat must actually do. This fictional craft story explores Aristotle’s explanations of artifacts, not a claim that nature plans like a boatbuilder."
+        },
+        "stage": {
+          "number": 1,
+          "title": "Room for the cart",
+          "speaker": "The boatbuilder",
+          "motivation": "The miller needs the loaded cart across the creek. Measure its wheels, build for its load, then launch the suitable ferry at Creek landing. Placing it there sends the miller across.",
+          "travelText": "We are at the yard beside the creek."
+        },
+        "area": {
+          "id": "yard",
+          "label": "Creek boatyard",
+          "enteredAtStage": 0
+        },
+        "areas": [
+          {
+            "id": "yard",
+            "label": "Creek boatyard",
+            "current": true
+          }
+        ],
+        "objectives": [
+          {
+            "id": "cart-goal",
+            "text": "Launch the cart-carrying ferry at Creek landing.",
+            "satisfied": false
+          }
+        ],
+        "canAdvance": false,
+        "completed": false,
+        "things": [
+          {
+            "id": "timber",
+            "label": "Timber stack",
+            "description": "Seasoned planks from the yard. Enough for two small boats; the same wood can be arranged in different ways. This stock is not consumed by one build.",
+            "x": 252,
+            "y": 56,
+            "location": null,
+            "gold": false,
+            "slots": [],
+            "functional": true
+          },
+          {
+            "id": "cord",
+            "label": "Measuring cord",
+            "description": "Lay it against what the boat must carry or fit through. The builder sketches the measured outline; the cord does not cut wood.",
+            "x": 252,
+            "y": 106,
+            "location": null,
+            "gold": false,
+            "slots": [],
+            "functional": true
+          },
+          {
+            "id": "adze",
+            "label": "Adze",
+            "description": "The boatbuilder uses this to shape and finish an assembled frame. A drawing cannot do this work.",
+            "x": 52,
+            "y": 156,
+            "location": null,
+            "gold": false,
+            "slots": [],
+            "functional": true
+          },
+          {
+            "id": "pitch",
+            "label": "Pitch pot",
+            "description": "A supply of seam-sealing pitch. It keeps water out; it does not decide what a boat is for.",
+            "x": 152,
+            "y": 156,
+            "location": null,
+            "gold": false,
+            "slots": [],
+            "functional": true
+          },
+          {
+            "id": "brush",
+            "label": "Brush",
+            "description": "For working pitch into seams.",
+            "x": 252,
+            "y": 156,
+            "location": null,
+            "gold": false,
+            "slots": [],
+            "functional": true
+          },
+          {
+            "id": "poles",
+            "label": "Pole rack",
+            "description": "A supply of long poles to fit out boats for these calm, shallow waters. No wind or sail is needed.",
+            "x": 52,
+            "y": 206,
+            "location": null,
+            "gold": false,
+            "slots": [],
+            "functional": true
+          },
+          {
+            "id": "cart",
+            "label": "Loaded cart",
+            "description": "The miller must take this wide, heavy cart across the quiet creek without unloading it. Measure its wheel span before choosing the boat’s shape.",
+            "x": 152,
+            "y": 206,
+            "location": null,
+            "gold": false,
+            "slots": [],
+            "functional": true
+          },
+          {
+            "id": "broad-layout",
+            "label": "Broad layout",
+            "description": "A measured layout with a wide floor and room for both cart wheels. The cart’s crossing explains why this arrangement was chosen; no wood has moved yet.",
+            "x": 250,
+            "y": 252,
+            "location": null,
+            "gold": false,
+            "slots": [],
+            "functional": true
+          }
+        ],
+        "locations": [
+          {
+            "id": "landing",
+            "area": "yard",
+            "x": 52,
+            "y": 81,
+            "label": "Creek landing",
+            "description": "A broad, calm crossing. Deploying a cart-carrying ferry here sends the miller and cart across; an unfinished hull or the narrow skiff cannot do this job.",
+            "gold": false
+          }
+        ],
+        "cacheNarrative": [],
+        "metrics": {
+          "attempts": 1,
+          "accepted": 1,
+          "combinations": 1,
+          "creations": 1,
+          "installations": 0,
+          "moves": 0,
+          "placements": 0,
+          "advances": 0,
+          "visits": 0
+        }
+      }
+    },
+    {
+      "gesture": {
+        "a": "timber",
+        "b": "broad-layout"
+      },
+      "action": {
+        "type": "combine",
+        "a": "timber",
+        "b": "broad-layout"
+      },
+      "message": "Broad frame. Following the measured layout, the builder joins planks into a broad frame.",
+      "view": {
+        "scenario": {
+          "id": "causation-purpose-v4",
+          "title": "Why This Boat?",
+          "premise": "Two jobs at one boatyard. Build for what the boat must actually do. This fictional craft story explores Aristotle’s explanations of artifacts, not a claim that nature plans like a boatbuilder."
+        },
+        "stage": {
+          "number": 1,
+          "title": "Room for the cart",
+          "speaker": "The boatbuilder",
+          "motivation": "The miller needs the loaded cart across the creek. Measure its wheels, build for its load, then launch the suitable ferry at Creek landing. Placing it there sends the miller across.",
+          "travelText": "We are at the yard beside the creek."
+        },
+        "area": {
+          "id": "yard",
+          "label": "Creek boatyard",
+          "enteredAtStage": 0
+        },
+        "areas": [
+          {
+            "id": "yard",
+            "label": "Creek boatyard",
+            "current": true
+          }
+        ],
+        "objectives": [
+          {
+            "id": "cart-goal",
+            "text": "Launch the cart-carrying ferry at Creek landing.",
+            "satisfied": false
+          }
+        ],
+        "canAdvance": false,
+        "completed": false,
+        "things": [
+          {
+            "id": "timber",
+            "label": "Timber stack",
+            "description": "Seasoned planks from the yard. Enough for two small boats; the same wood can be arranged in different ways. This stock is not consumed by one build.",
+            "x": 252,
+            "y": 56,
+            "location": null,
+            "gold": false,
+            "slots": [],
+            "functional": true
+          },
+          {
+            "id": "cord",
+            "label": "Measuring cord",
+            "description": "Lay it against what the boat must carry or fit through. The builder sketches the measured outline; the cord does not cut wood.",
+            "x": 252,
+            "y": 106,
+            "location": null,
+            "gold": false,
+            "slots": [],
+            "functional": true
+          },
+          {
+            "id": "adze",
+            "label": "Adze",
+            "description": "The boatbuilder uses this to shape and finish an assembled frame. A drawing cannot do this work.",
+            "x": 52,
+            "y": 156,
+            "location": null,
+            "gold": false,
+            "slots": [],
+            "functional": true
+          },
+          {
+            "id": "pitch",
+            "label": "Pitch pot",
+            "description": "A supply of seam-sealing pitch. It keeps water out; it does not decide what a boat is for.",
+            "x": 152,
+            "y": 156,
+            "location": null,
+            "gold": false,
+            "slots": [],
+            "functional": true
+          },
+          {
+            "id": "brush",
+            "label": "Brush",
+            "description": "For working pitch into seams.",
+            "x": 252,
+            "y": 156,
+            "location": null,
+            "gold": false,
+            "slots": [],
+            "functional": true
+          },
+          {
+            "id": "poles",
+            "label": "Pole rack",
+            "description": "A supply of long poles to fit out boats for these calm, shallow waters. No wind or sail is needed.",
+            "x": 52,
+            "y": 206,
+            "location": null,
+            "gold": false,
+            "slots": [],
+            "functional": true
+          },
+          {
+            "id": "cart",
+            "label": "Loaded cart",
+            "description": "The miller must take this wide, heavy cart across the quiet creek without unloading it. Measure its wheel span before choosing the boat’s shape.",
+            "x": 152,
+            "y": 206,
+            "location": null,
+            "gold": false,
+            "slots": [],
+            "functional": true
+          },
+          {
+            "id": "broad-layout",
+            "label": "Broad layout",
+            "description": "A measured layout with a wide floor and room for both cart wheels. The cart’s crossing explains why this arrangement was chosen; no wood has moved yet.",
+            "x": 250,
+            "y": 252,
+            "location": null,
+            "gold": false,
+            "slots": [],
+            "functional": true
+          },
+          {
+            "id": "broad-frame",
+            "label": "Broad frame",
+            "description": "The builder has joined timber into the wide arrangement. Same timber as a slim boat, different organization.",
+            "x": 308,
+            "y": 298,
+            "location": null,
+            "gold": false,
+            "slots": [],
+            "functional": true
+          }
+        ],
+        "locations": [
+          {
+            "id": "landing",
+            "area": "yard",
+            "x": 52,
+            "y": 81,
+            "label": "Creek landing",
+            "description": "A broad, calm crossing. Deploying a cart-carrying ferry here sends the miller and cart across; an unfinished hull or the narrow skiff cannot do this job.",
+            "gold": false
+          }
+        ],
+        "cacheNarrative": [],
+        "metrics": {
+          "attempts": 2,
+          "accepted": 2,
+          "combinations": 2,
+          "creations": 2,
+          "installations": 0,
+          "moves": 0,
+          "placements": 0,
+          "advances": 0,
+          "visits": 0
+        }
+      }
+    },
+    {
+      "gesture": {
+        "a": "adze",
+        "b": "broad-frame"
+      },
+      "action": {
+        "type": "combine",
+        "a": "adze",
+        "b": "broad-frame"
+      },
+      "message": "Broad hull. The builder shapes the frame with the adze. Skilled work brings about the change.",
+      "view": {
+        "scenario": {
+          "id": "causation-purpose-v4",
+          "title": "Why This Boat?",
+          "premise": "Two jobs at one boatyard. Build for what the boat must actually do. This fictional craft story explores Aristotle’s explanations of artifacts, not a claim that nature plans like a boatbuilder."
+        },
+        "stage": {
+          "number": 1,
+          "title": "Room for the cart",
+          "speaker": "The boatbuilder",
+          "motivation": "The miller needs the loaded cart across the creek. Measure its wheels, build for its load, then launch the suitable ferry at Creek landing. Placing it there sends the miller across.",
+          "travelText": "We are at the yard beside the creek."
+        },
+        "area": {
+          "id": "yard",
+          "label": "Creek boatyard",
+          "enteredAtStage": 0
+        },
+        "areas": [
+          {
+            "id": "yard",
+            "label": "Creek boatyard",
+            "current": true
+          }
+        ],
+        "objectives": [
+          {
+            "id": "cart-goal",
+            "text": "Launch the cart-carrying ferry at Creek landing.",
+            "satisfied": false
+          }
+        ],
+        "canAdvance": false,
+        "completed": false,
+        "things": [
+          {
+            "id": "timber",
+            "label": "Timber stack",
+            "description": "Seasoned planks from the yard. Enough for two small boats; the same wood can be arranged in different ways. This stock is not consumed by one build.",
+            "x": 252,
+            "y": 56,
+            "location": null,
+            "gold": false,
+            "slots": [],
+            "functional": true
+          },
+          {
+            "id": "cord",
+            "label": "Measuring cord",
+            "description": "Lay it against what the boat must carry or fit through. The builder sketches the measured outline; the cord does not cut wood.",
+            "x": 252,
+            "y": 106,
+            "location": null,
+            "gold": false,
+            "slots": [],
+            "functional": true
+          },
+          {
+            "id": "adze",
+            "label": "Adze",
+            "description": "The boatbuilder uses this to shape and finish an assembled frame. A drawing cannot do this work.",
+            "x": 52,
+            "y": 156,
+            "location": null,
+            "gold": false,
+            "slots": [],
+            "functional": true
+          },
+          {
+            "id": "pitch",
+            "label": "Pitch pot",
+            "description": "A supply of seam-sealing pitch. It keeps water out; it does not decide what a boat is for.",
+            "x": 152,
+            "y": 156,
+            "location": null,
+            "gold": false,
+            "slots": [],
+            "functional": true
+          },
+          {
+            "id": "brush",
+            "label": "Brush",
+            "description": "For working pitch into seams.",
+            "x": 252,
+            "y": 156,
+            "location": null,
+            "gold": false,
+            "slots": [],
+            "functional": true
+          },
+          {
+            "id": "poles",
+            "label": "Pole rack",
+            "description": "A supply of long poles to fit out boats for these calm, shallow waters. No wind or sail is needed.",
+            "x": 52,
+            "y": 206,
+            "location": null,
+            "gold": false,
+            "slots": [],
+            "functional": true
+          },
+          {
+            "id": "cart",
+            "label": "Loaded cart",
+            "description": "The miller must take this wide, heavy cart across the quiet creek without unloading it. Measure its wheel span before choosing the boat’s shape.",
+            "x": 152,
+            "y": 206,
+            "location": null,
+            "gold": false,
+            "slots": [],
+            "functional": true
+          },
+          {
+            "id": "broad-layout",
+            "label": "Broad layout",
+            "description": "A measured layout with a wide floor and room for both cart wheels. The cart’s crossing explains why this arrangement was chosen; no wood has moved yet.",
+            "x": 250,
+            "y": 252,
+            "location": null,
+            "gold": false,
+            "slots": [],
+            "functional": true
+          },
+          {
+            "id": "broad-hull",
+            "label": "Broad hull",
+            "description": "The adze work is finished. The wide floor can carry the cart, but the seams still leak.",
+            "x": 308,
+            "y": 344,
+            "location": null,
+            "gold": false,
+            "slots": [],
+            "functional": true
+          }
+        ],
+        "locations": [
+          {
+            "id": "landing",
+            "area": "yard",
+            "x": 52,
+            "y": 81,
+            "label": "Creek landing",
+            "description": "A broad, calm crossing. Deploying a cart-carrying ferry here sends the miller and cart across; an unfinished hull or the narrow skiff cannot do this job.",
+            "gold": false
+          }
+        ],
+        "cacheNarrative": [],
+        "metrics": {
+          "attempts": 3,
+          "accepted": 3,
+          "combinations": 3,
+          "creations": 3,
+          "installations": 0,
+          "moves": 0,
+          "placements": 0,
+          "advances": 0,
+          "visits": 0
+        }
+      }
+    },
+    {
+      "gesture": {
+        "a": "pitch",
+        "b": "brush"
+      },
+      "action": {
+        "type": "combine",
+        "a": "pitch",
+        "b": "brush"
+      },
+      "message": "Pitch brush. The brush is loaded for sealing the seams.",
+      "view": {
+        "scenario": {
+          "id": "causation-purpose-v4",
+          "title": "Why This Boat?",
+          "premise": "Two jobs at one boatyard. Build for what the boat must actually do. This fictional craft story explores Aristotle’s explanations of artifacts, not a claim that nature plans like a boatbuilder."
+        },
+        "stage": {
+          "number": 1,
+          "title": "Room for the cart",
+          "speaker": "The boatbuilder",
+          "motivation": "The miller needs the loaded cart across the creek. Measure its wheels, build for its load, then launch the suitable ferry at Creek landing. Placing it there sends the miller across.",
+          "travelText": "We are at the yard beside the creek."
+        },
+        "area": {
+          "id": "yard",
+          "label": "Creek boatyard",
+          "enteredAtStage": 0
+        },
+        "areas": [
+          {
+            "id": "yard",
+            "label": "Creek boatyard",
+            "current": true
+          }
+        ],
+        "objectives": [
+          {
+            "id": "cart-goal",
+            "text": "Launch the cart-carrying ferry at Creek landing.",
+            "satisfied": false
+          }
+        ],
+        "canAdvance": false,
+        "completed": false,
+        "things": [
+          {
+            "id": "timber",
+            "label": "Timber stack",
+            "description": "Seasoned planks from the yard. Enough for two small boats; the same wood can be arranged in different ways. This stock is not consumed by one build.",
+            "x": 252,
+            "y": 56,
+            "location": null,
+            "gold": false,
+            "slots": [],
+            "functional": true
+          },
+          {
+            "id": "cord",
+            "label": "Measuring cord",
+            "description": "Lay it against what the boat must carry or fit through. The builder sketches the measured outline; the cord does not cut wood.",
+            "x": 252,
+            "y": 106,
+            "location": null,
+            "gold": false,
+            "slots": [],
+            "functional": true
+          },
+          {
+            "id": "adze",
+            "label": "Adze",
+            "description": "The boatbuilder uses this to shape and finish an assembled frame. A drawing cannot do this work.",
+            "x": 52,
+            "y": 156,
+            "location": null,
+            "gold": false,
+            "slots": [],
+            "functional": true
+          },
+          {
+            "id": "pitch",
+            "label": "Pitch pot",
+            "description": "A supply of seam-sealing pitch. It keeps water out; it does not decide what a boat is for.",
+            "x": 152,
+            "y": 156,
+            "location": null,
+            "gold": false,
+            "slots": [],
+            "functional": true
+          },
+          {
+            "id": "brush",
+            "label": "Brush",
+            "description": "For working pitch into seams.",
+            "x": 252,
+            "y": 156,
+            "location": null,
+            "gold": false,
+            "slots": [],
+            "functional": true
+          },
+          {
+            "id": "poles",
+            "label": "Pole rack",
+            "description": "A supply of long poles to fit out boats for these calm, shallow waters. No wind or sail is needed.",
+            "x": 52,
+            "y": 206,
+            "location": null,
+            "gold": false,
+            "slots": [],
+            "functional": true
+          },
+          {
+            "id": "cart",
+            "label": "Loaded cart",
+            "description": "The miller must take this wide, heavy cart across the quiet creek without unloading it. Measure its wheel span before choosing the boat’s shape.",
+            "x": 152,
+            "y": 206,
+            "location": null,
+            "gold": false,
+            "slots": [],
+            "functional": true
+          },
+          {
+            "id": "broad-layout",
+            "label": "Broad layout",
+            "description": "A measured layout with a wide floor and room for both cart wheels. The cart’s crossing explains why this arrangement was chosen; no wood has moved yet.",
+            "x": 250,
+            "y": 252,
+            "location": null,
+            "gold": false,
+            "slots": [],
+            "functional": true
+          },
+          {
+            "id": "broad-hull",
+            "label": "Broad hull",
+            "description": "The adze work is finished. The wide floor can carry the cart, but the seams still leak.",
+            "x": 308,
+            "y": 344,
+            "location": null,
+            "gold": false,
+            "slots": [],
+            "functional": true
+          },
+          {
+            "id": "caulking-brush",
+            "label": "Pitch brush",
+            "description": "A reusable brush and supply of pitch for sealing the shaped hulls.",
+            "x": 308,
+            "y": 202,
+            "location": null,
+            "gold": false,
+            "slots": [],
+            "functional": true
+          }
+        ],
+        "locations": [
+          {
+            "id": "landing",
+            "area": "yard",
+            "x": 52,
+            "y": 81,
+            "label": "Creek landing",
+            "description": "A broad, calm crossing. Deploying a cart-carrying ferry here sends the miller and cart across; an unfinished hull or the narrow skiff cannot do this job.",
+            "gold": false
+          }
+        ],
+        "cacheNarrative": [],
+        "metrics": {
+          "attempts": 4,
+          "accepted": 4,
+          "combinations": 4,
+          "creations": 4,
+          "installations": 0,
+          "moves": 0,
+          "placements": 0,
+          "advances": 0,
+          "visits": 0
+        }
+      }
+    },
+    {
+      "gesture": {
+        "a": "caulking-brush",
+        "b": "broad-hull"
+      },
+      "action": {
+        "type": "combine",
+        "a": "caulking-brush",
+        "b": "broad-hull"
+      },
+      "message": "Sealed ferry hull. The builder seals the broad hull. Keeping water out is necessary, but not sufficient, for carrying the cart.",
+      "view": {
+        "scenario": {
+          "id": "causation-purpose-v4",
+          "title": "Why This Boat?",
+          "premise": "Two jobs at one boatyard. Build for what the boat must actually do. This fictional craft story explores Aristotle’s explanations of artifacts, not a claim that nature plans like a boatbuilder."
+        },
+        "stage": {
+          "number": 1,
+          "title": "Room for the cart",
+          "speaker": "The boatbuilder",
+          "motivation": "The miller needs the loaded cart across the creek. Measure its wheels, build for its load, then launch the suitable ferry at Creek landing. Placing it there sends the miller across.",
+          "travelText": "We are at the yard beside the creek."
+        },
+        "area": {
+          "id": "yard",
+          "label": "Creek boatyard",
+          "enteredAtStage": 0
+        },
+        "areas": [
+          {
+            "id": "yard",
+            "label": "Creek boatyard",
+            "current": true
+          }
+        ],
+        "objectives": [
+          {
+            "id": "cart-goal",
+            "text": "Launch the cart-carrying ferry at Creek landing.",
+            "satisfied": false
+          }
+        ],
+        "canAdvance": false,
+        "completed": false,
+        "things": [
+          {
+            "id": "timber",
+            "label": "Timber stack",
+            "description": "Seasoned planks from the yard. Enough for two small boats; the same wood can be arranged in different ways. This stock is not consumed by one build.",
+            "x": 252,
+            "y": 56,
+            "location": null,
+            "gold": false,
+            "slots": [],
+            "functional": true
+          },
+          {
+            "id": "cord",
+            "label": "Measuring cord",
+            "description": "Lay it against what the boat must carry or fit through. The builder sketches the measured outline; the cord does not cut wood.",
+            "x": 252,
+            "y": 106,
+            "location": null,
+            "gold": false,
+            "slots": [],
+            "functional": true
+          },
+          {
+            "id": "adze",
+            "label": "Adze",
+            "description": "The boatbuilder uses this to shape and finish an assembled frame. A drawing cannot do this work.",
+            "x": 52,
+            "y": 156,
+            "location": null,
+            "gold": false,
+            "slots": [],
+            "functional": true
+          },
+          {
+            "id": "pitch",
+            "label": "Pitch pot",
+            "description": "A supply of seam-sealing pitch. It keeps water out; it does not decide what a boat is for.",
+            "x": 152,
+            "y": 156,
+            "location": null,
+            "gold": false,
+            "slots": [],
+            "functional": true
+          },
+          {
+            "id": "brush",
+            "label": "Brush",
+            "description": "For working pitch into seams.",
+            "x": 252,
+            "y": 156,
+            "location": null,
+            "gold": false,
+            "slots": [],
+            "functional": true
+          },
+          {
+            "id": "poles",
+            "label": "Pole rack",
+            "description": "A supply of long poles to fit out boats for these calm, shallow waters. No wind or sail is needed.",
+            "x": 52,
+            "y": 206,
+            "location": null,
+            "gold": false,
+            "slots": [],
+            "functional": true
+          },
+          {
+            "id": "cart",
+            "label": "Loaded cart",
+            "description": "The miller must take this wide, heavy cart across the quiet creek without unloading it. Measure its wheel span before choosing the boat’s shape.",
+            "x": 152,
+            "y": 206,
+            "location": null,
+            "gold": false,
+            "slots": [],
+            "functional": true
+          },
+          {
+            "id": "broad-layout",
+            "label": "Broad layout",
+            "description": "A measured layout with a wide floor and room for both cart wheels. The cart’s crossing explains why this arrangement was chosen; no wood has moved yet.",
+            "x": 250,
+            "y": 252,
+            "location": null,
+            "gold": false,
+            "slots": [],
+            "functional": true
+          },
+          {
+            "id": "caulking-brush",
+            "label": "Pitch brush",
+            "description": "A reusable brush and supply of pitch for sealing the shaped hulls.",
+            "x": 308,
+            "y": 202,
+            "location": null,
+            "gold": false,
+            "slots": [],
+            "functional": true
+          },
+          {
+            "id": "sealed-ferry",
+            "label": "Sealed ferry hull",
+            "description": "Broad and watertight, but still needs a means of propulsion.",
+            "x": 308,
+            "y": 390,
+            "location": null,
+            "gold": false,
+            "slots": [],
+            "functional": true
+          }
+        ],
+        "locations": [
+          {
+            "id": "landing",
+            "area": "yard",
+            "x": 52,
+            "y": 81,
+            "label": "Creek landing",
+            "description": "A broad, calm crossing. Deploying a cart-carrying ferry here sends the miller and cart across; an unfinished hull or the narrow skiff cannot do this job.",
+            "gold": false
+          }
+        ],
+        "cacheNarrative": [],
+        "metrics": {
+          "attempts": 5,
+          "accepted": 5,
+          "combinations": 5,
+          "creations": 5,
+          "installations": 0,
+          "moves": 0,
+          "placements": 0,
+          "advances": 0,
+          "visits": 0
+        }
+      }
+    },
+    {
+      "gesture": {
+        "a": "poles",
+        "b": "sealed-ferry"
+      },
+      "action": {
+        "type": "combine",
+        "a": "poles",
+        "b": "sealed-ferry"
+      },
+      "message": "Pole ferry. The ferry is fitted with poles for the shallow crossing.",
+      "view": {
+        "scenario": {
+          "id": "causation-purpose-v4",
+          "title": "Why This Boat?",
+          "premise": "Two jobs at one boatyard. Build for what the boat must actually do. This fictional craft story explores Aristotle’s explanations of artifacts, not a claim that nature plans like a boatbuilder."
+        },
+        "stage": {
+          "number": 1,
+          "title": "Room for the cart",
+          "speaker": "The boatbuilder",
+          "motivation": "The miller needs the loaded cart across the creek. Measure its wheels, build for its load, then launch the suitable ferry at Creek landing. Placing it there sends the miller across.",
+          "travelText": "We are at the yard beside the creek."
+        },
+        "area": {
+          "id": "yard",
+          "label": "Creek boatyard",
+          "enteredAtStage": 0
+        },
+        "areas": [
+          {
+            "id": "yard",
+            "label": "Creek boatyard",
+            "current": true
+          }
+        ],
+        "objectives": [
+          {
+            "id": "cart-goal",
+            "text": "Launch the cart-carrying ferry at Creek landing.",
+            "satisfied": false
+          }
+        ],
+        "canAdvance": false,
+        "completed": false,
+        "things": [
+          {
+            "id": "timber",
+            "label": "Timber stack",
+            "description": "Seasoned planks from the yard. Enough for two small boats; the same wood can be arranged in different ways. This stock is not consumed by one build.",
+            "x": 252,
+            "y": 56,
+            "location": null,
+            "gold": false,
+            "slots": [],
+            "functional": true
+          },
+          {
+            "id": "cord",
+            "label": "Measuring cord",
+            "description": "Lay it against what the boat must carry or fit through. The builder sketches the measured outline; the cord does not cut wood.",
+            "x": 252,
+            "y": 106,
+            "location": null,
+            "gold": false,
+            "slots": [],
+            "functional": true
+          },
+          {
+            "id": "adze",
+            "label": "Adze",
+            "description": "The boatbuilder uses this to shape and finish an assembled frame. A drawing cannot do this work.",
+            "x": 52,
+            "y": 156,
+            "location": null,
+            "gold": false,
+            "slots": [],
+            "functional": true
+          },
+          {
+            "id": "pitch",
+            "label": "Pitch pot",
+            "description": "A supply of seam-sealing pitch. It keeps water out; it does not decide what a boat is for.",
+            "x": 152,
+            "y": 156,
+            "location": null,
+            "gold": false,
+            "slots": [],
+            "functional": true
+          },
+          {
+            "id": "brush",
+            "label": "Brush",
+            "description": "For working pitch into seams.",
+            "x": 252,
+            "y": 156,
+            "location": null,
+            "gold": false,
+            "slots": [],
+            "functional": true
+          },
+          {
+            "id": "poles",
+            "label": "Pole rack",
+            "description": "A supply of long poles to fit out boats for these calm, shallow waters. No wind or sail is needed.",
+            "x": 52,
+            "y": 206,
+            "location": null,
+            "gold": false,
+            "slots": [],
+            "functional": true
+          },
+          {
+            "id": "cart",
+            "label": "Loaded cart",
+            "description": "The miller must take this wide, heavy cart across the quiet creek without unloading it. Measure its wheel span before choosing the boat’s shape.",
+            "x": 152,
+            "y": 206,
+            "location": null,
+            "gold": false,
+            "slots": [],
+            "functional": true
+          },
+          {
+            "id": "broad-layout",
+            "label": "Broad layout",
+            "description": "A measured layout with a wide floor and room for both cart wheels. The cart’s crossing explains why this arrangement was chosen; no wood has moved yet.",
+            "x": 250,
+            "y": 252,
+            "location": null,
+            "gold": false,
+            "slots": [],
+            "functional": true
+          },
+          {
+            "id": "caulking-brush",
+            "label": "Pitch brush",
+            "description": "A reusable brush and supply of pitch for sealing the shaped hulls.",
+            "x": 308,
+            "y": 202,
+            "location": null,
+            "gold": false,
+            "slots": [],
+            "functional": true
+          },
+          {
+            "id": "ferry",
+            "label": "Pole ferry",
+            "description": "Built for this measured cart and the open creek. At Creek landing the miller boards and crosses. The ferry is too broad for the narrow reed passage.",
+            "x": 308,
+            "y": 436,
+            "location": null,
+            "gold": false,
+            "slots": [],
+            "functional": true
+          }
+        ],
+        "locations": [
+          {
+            "id": "landing",
+            "area": "yard",
+            "x": 52,
+            "y": 81,
+            "label": "Creek landing",
+            "description": "A broad, calm crossing. Deploying a cart-carrying ferry here sends the miller and cart across; an unfinished hull or the narrow skiff cannot do this job.",
+            "gold": false
+          }
+        ],
+        "cacheNarrative": [],
+        "metrics": {
+          "attempts": 6,
+          "accepted": 6,
+          "combinations": 6,
+          "creations": 6,
+          "installations": 0,
+          "moves": 0,
+          "placements": 0,
+          "advances": 0,
+          "visits": 0
+        }
+      }
+    },
+    {
+      "gesture": {
+        "a": "ferry",
+        "b": "@landing"
+      },
+      "action": {
+        "type": "place",
+        "item": "ferry",
+        "location": "landing"
+      },
+      "message": "Placed.",
+      "view": {
+        "scenario": {
+          "id": "causation-purpose-v4",
+          "title": "Why This Boat?",
+          "premise": "Two jobs at one boatyard. Build for what the boat must actually do. This fictional craft story explores Aristotle’s explanations of artifacts, not a claim that nature plans like a boatbuilder."
+        },
+        "stage": {
+          "number": 1,
+          "title": "Room for the cart",
+          "speaker": "The boatbuilder",
+          "motivation": "The miller needs the loaded cart across the creek. Measure its wheels, build for its load, then launch the suitable ferry at Creek landing. Placing it there sends the miller across.",
+          "travelText": "We are at the yard beside the creek."
+        },
+        "area": {
+          "id": "yard",
+          "label": "Creek boatyard",
+          "enteredAtStage": 0
+        },
+        "areas": [
+          {
+            "id": "yard",
+            "label": "Creek boatyard",
+            "current": true
+          }
+        ],
+        "objectives": [
+          {
+            "id": "cart-goal",
+            "text": "Launch the cart-carrying ferry at Creek landing.",
+            "satisfied": true
+          }
+        ],
+        "canAdvance": true,
+        "completed": false,
+        "things": [
+          {
+            "id": "timber",
+            "label": "Timber stack",
+            "description": "Seasoned planks from the yard. Enough for two small boats; the same wood can be arranged in different ways. This stock is not consumed by one build.",
+            "x": 252,
+            "y": 56,
+            "location": null,
+            "gold": false,
+            "slots": [],
+            "functional": true
+          },
+          {
+            "id": "cord",
+            "label": "Measuring cord",
+            "description": "Lay it against what the boat must carry or fit through. The builder sketches the measured outline; the cord does not cut wood.",
+            "x": 252,
+            "y": 106,
+            "location": null,
+            "gold": false,
+            "slots": [],
+            "functional": true
+          },
+          {
+            "id": "adze",
+            "label": "Adze",
+            "description": "The boatbuilder uses this to shape and finish an assembled frame. A drawing cannot do this work.",
+            "x": 52,
+            "y": 156,
+            "location": null,
+            "gold": false,
+            "slots": [],
+            "functional": true
+          },
+          {
+            "id": "pitch",
+            "label": "Pitch pot",
+            "description": "A supply of seam-sealing pitch. It keeps water out; it does not decide what a boat is for.",
+            "x": 152,
+            "y": 156,
+            "location": null,
+            "gold": false,
+            "slots": [],
+            "functional": true
+          },
+          {
+            "id": "brush",
+            "label": "Brush",
+            "description": "For working pitch into seams.",
+            "x": 252,
+            "y": 156,
+            "location": null,
+            "gold": false,
+            "slots": [],
+            "functional": true
+          },
+          {
+            "id": "poles",
+            "label": "Pole rack",
+            "description": "A supply of long poles to fit out boats for these calm, shallow waters. No wind or sail is needed.",
+            "x": 52,
+            "y": 206,
+            "location": null,
+            "gold": false,
+            "slots": [],
+            "functional": true
+          },
+          {
+            "id": "cart",
+            "label": "Loaded cart",
+            "description": "The miller must take this wide, heavy cart across the quiet creek without unloading it. Measure its wheel span before choosing the boat’s shape.",
+            "x": 152,
+            "y": 206,
+            "location": null,
+            "gold": false,
+            "slots": [],
+            "functional": true
+          },
+          {
+            "id": "broad-layout",
+            "label": "Broad layout",
+            "description": "A measured layout with a wide floor and room for both cart wheels. The cart’s crossing explains why this arrangement was chosen; no wood has moved yet.",
+            "x": 250,
+            "y": 252,
+            "location": null,
+            "gold": false,
+            "slots": [],
+            "functional": true
+          },
+          {
+            "id": "caulking-brush",
+            "label": "Pitch brush",
+            "description": "A reusable brush and supply of pitch for sealing the shaped hulls.",
+            "x": 308,
+            "y": 202,
+            "location": null,
+            "gold": false,
+            "slots": [],
+            "functional": true
+          },
+          {
+            "id": "ferry",
+            "label": "Pole ferry",
+            "description": "Built for this measured cart and the open creek. At Creek landing the miller boards and crosses. The ferry is too broad for the narrow reed passage.",
+            "x": 52,
+            "y": 97,
+            "location": "landing",
+            "gold": true,
+            "slots": [],
+            "functional": true
+          }
+        ],
+        "locations": [
+          {
+            "id": "landing",
+            "area": "yard",
+            "x": 52,
+            "y": 81,
+            "label": "Creek landing",
+            "description": "A broad, calm crossing. Deploying a cart-carrying ferry here sends the miller and cart across; an unfinished hull or the narrow skiff cannot do this job.",
+            "gold": true
+          }
+        ],
+        "cacheNarrative": [],
+        "metrics": {
+          "attempts": 7,
+          "accepted": 7,
+          "combinations": 6,
+          "creations": 6,
+          "installations": 0,
+          "moves": 0,
+          "placements": 1,
+          "advances": 0,
+          "visits": 0
+        }
+      }
+    },
+    {
+      "gesture": null,
+      "action": {
+        "type": "advance"
+      },
+      "message": "We bring the stock, measuring cord, adze, pitch brush and pole rack for the new job. The working ferry stays at the creek landing. We collect the things needed for this scene along the way.",
+      "transfers": [
+        {
+          "item": "timber",
+          "from": "yard",
+          "to": "reeds"
+        },
+        {
+          "item": "cord",
+          "from": "yard",
+          "to": "reeds"
+        },
+        {
+          "item": "adze",
+          "from": "yard",
+          "to": "reeds"
+        },
+        {
+          "item": "poles",
+          "from": "yard",
+          "to": "reeds"
+        },
+        {
+          "item": "caulking-brush",
+          "from": "yard",
+          "to": "reeds"
+        }
+      ],
+      "view": {
+        "scenario": {
+          "id": "causation-purpose-v4",
+          "title": "Why This Boat?",
+          "premise": "Two jobs at one boatyard. Build for what the boat must actually do. This fictional craft story explores Aristotle’s explanations of artifacts, not a claim that nature plans like a boatbuilder."
+        },
+        "stage": {
+          "number": 2,
+          "title": "The ferry will not fit",
+          "speaker": "The boatbuilder",
+          "motivation": "The miller and cart are across. Now a fisher calls from beyond the reeds. Our ferry is sound but too broad for that gap. Measure the route and build a suitable narrow boat. Bringing it to Reed mouth launches the out-and-back rescue.",
+          "travelText": "We bring the stock, measuring cord, adze, pitch brush and pole rack for the new job. The working ferry stays at the creek landing."
+        },
+        "area": {
+          "id": "reeds",
+          "label": "Beside the reeds",
+          "enteredAtStage": 1
+        },
+        "areas": [
+          {
+            "id": "yard",
+            "label": "Creek boatyard",
+            "current": false
+          },
+          {
+            "id": "reeds",
+            "label": "Beside the reeds",
+            "current": true
+          }
+        ],
+        "objectives": [
+          {
+            "id": "fisher-goal",
+            "text": "Launch a narrow rescue skiff at Reed mouth.",
+            "satisfied": false
+          }
+        ],
+        "canAdvance": false,
+        "completed": false,
+        "things": [
+          {
+            "id": "timber",
+            "label": "Timber stack",
+            "description": "Seasoned planks from the yard. Enough for two small boats; the same wood can be arranged in different ways. This stock is not consumed by one build.",
+            "x": 252,
+            "y": 56,
+            "location": null,
+            "gold": false,
+            "slots": [],
+            "functional": true
+          },
+          {
+            "id": "cord",
+            "label": "Measuring cord",
+            "description": "Lay it against what the boat must carry or fit through. The builder sketches the measured outline; the cord does not cut wood.",
+            "x": 252,
+            "y": 106,
+            "location": null,
+            "gold": false,
+            "slots": [],
+            "functional": true
+          },
+          {
+            "id": "adze",
+            "label": "Adze",
+            "description": "The boatbuilder uses this to shape and finish an assembled frame. A drawing cannot do this work.",
+            "x": 52,
+            "y": 156,
+            "location": null,
+            "gold": false,
+            "slots": [],
+            "functional": true
+          },
+          {
+            "id": "poles",
+            "label": "Pole rack",
+            "description": "A supply of long poles to fit out boats for these calm, shallow waters. No wind or sail is needed.",
+            "x": 52,
+            "y": 206,
+            "location": null,
+            "gold": false,
+            "slots": [],
+            "functional": true
+          },
+          {
+            "id": "caulking-brush",
+            "label": "Pitch brush",
+            "description": "A reusable brush and supply of pitch for sealing the shaped hulls.",
+            "x": 308,
+            "y": 202,
+            "location": null,
+            "gold": false,
+            "slots": [],
+            "functional": true
+          }
+        ],
+        "locations": [
+          {
+            "id": "reed-mouth",
+            "area": "reeds",
+            "x": 52,
+            "y": 81,
+            "label": "Reed mouth",
+            "description": "A fisher waits beyond this shallow gap. Measure it before building. Deploying a suitable narrow skiff here represents the out-and-back rescue trip.",
+            "gold": false
+          }
+        ],
+        "cacheNarrative": [],
+        "metrics": {
+          "attempts": 8,
+          "accepted": 8,
+          "combinations": 6,
+          "creations": 6,
+          "installations": 0,
+          "moves": 0,
+          "placements": 1,
+          "advances": 1,
+          "visits": 0
+        }
+      }
+    },
+    {
+      "checkpoint": "chapter-2",
+      "view": {
+        "scenario": {
+          "id": "causation-purpose-v4",
+          "title": "Why This Boat?",
+          "premise": "Two jobs at one boatyard. Build for what the boat must actually do. This fictional craft story explores Aristotle’s explanations of artifacts, not a claim that nature plans like a boatbuilder."
+        },
+        "stage": {
+          "number": 2,
+          "title": "The ferry will not fit",
+          "speaker": "The boatbuilder",
+          "motivation": "The miller and cart are across. Now a fisher calls from beyond the reeds. Our ferry is sound but too broad for that gap. Measure the route and build a suitable narrow boat. Bringing it to Reed mouth launches the out-and-back rescue.",
+          "travelText": "We bring the stock, measuring cord, adze, pitch brush and pole rack for the new job. The working ferry stays at the creek landing."
+        },
+        "area": {
+          "id": "reeds",
+          "label": "Beside the reeds",
+          "enteredAtStage": 1
+        },
+        "areas": [
+          {
+            "id": "yard",
+            "label": "Creek boatyard",
+            "current": false
+          },
+          {
+            "id": "reeds",
+            "label": "Beside the reeds",
+            "current": true
+          }
+        ],
+        "objectives": [
+          {
+            "id": "fisher-goal",
+            "text": "Launch a narrow rescue skiff at Reed mouth.",
+            "satisfied": false
+          }
+        ],
+        "canAdvance": false,
+        "completed": false,
+        "things": [
+          {
+            "id": "timber",
+            "label": "Timber stack",
+            "description": "Seasoned planks from the yard. Enough for two small boats; the same wood can be arranged in different ways. This stock is not consumed by one build.",
+            "x": 252,
+            "y": 56,
+            "location": null,
+            "gold": false,
+            "slots": [],
+            "functional": true
+          },
+          {
+            "id": "cord",
+            "label": "Measuring cord",
+            "description": "Lay it against what the boat must carry or fit through. The builder sketches the measured outline; the cord does not cut wood.",
+            "x": 252,
+            "y": 106,
+            "location": null,
+            "gold": false,
+            "slots": [],
+            "functional": true
+          },
+          {
+            "id": "adze",
+            "label": "Adze",
+            "description": "The boatbuilder uses this to shape and finish an assembled frame. A drawing cannot do this work.",
+            "x": 52,
+            "y": 156,
+            "location": null,
+            "gold": false,
+            "slots": [],
+            "functional": true
+          },
+          {
+            "id": "poles",
+            "label": "Pole rack",
+            "description": "A supply of long poles to fit out boats for these calm, shallow waters. No wind or sail is needed.",
+            "x": 52,
+            "y": 206,
+            "location": null,
+            "gold": false,
+            "slots": [],
+            "functional": true
+          },
+          {
+            "id": "caulking-brush",
+            "label": "Pitch brush",
+            "description": "A reusable brush and supply of pitch for sealing the shaped hulls.",
+            "x": 308,
+            "y": 202,
+            "location": null,
+            "gold": false,
+            "slots": [],
+            "functional": true
+          }
+        ],
+        "locations": [
+          {
+            "id": "reed-mouth",
+            "area": "reeds",
+            "x": 52,
+            "y": 81,
+            "label": "Reed mouth",
+            "description": "A fisher waits beyond this shallow gap. Measure it before building. Deploying a suitable narrow skiff here represents the out-and-back rescue trip.",
+            "gold": false
+          }
+        ],
+        "cacheNarrative": [],
+        "metrics": {
+          "attempts": 8,
+          "accepted": 8,
+          "combinations": 6,
+          "creations": 6,
+          "installations": 0,
+          "moves": 0,
+          "placements": 1,
+          "advances": 1,
+          "visits": 0
+        }
+      }
+    },
+    {
+      "gesture": {
+        "a": "cord",
+        "b": "@reed-mouth"
+      },
+      "action": {
+        "type": "combine",
+        "a": "cord",
+        "b": "@reed-mouth"
+      },
+      "message": "Slim layout. The builder measures the gap and sketches a slim hull. Repeating the broad ferry would repeat the material and making, but miss this job.",
+      "view": {
+        "scenario": {
+          "id": "causation-purpose-v4",
+          "title": "Why This Boat?",
+          "premise": "Two jobs at one boatyard. Build for what the boat must actually do. This fictional craft story explores Aristotle’s explanations of artifacts, not a claim that nature plans like a boatbuilder."
+        },
+        "stage": {
+          "number": 2,
+          "title": "The ferry will not fit",
+          "speaker": "The boatbuilder",
+          "motivation": "The miller and cart are across. Now a fisher calls from beyond the reeds. Our ferry is sound but too broad for that gap. Measure the route and build a suitable narrow boat. Bringing it to Reed mouth launches the out-and-back rescue.",
+          "travelText": "We bring the stock, measuring cord, adze, pitch brush and pole rack for the new job. The working ferry stays at the creek landing."
+        },
+        "area": {
+          "id": "reeds",
+          "label": "Beside the reeds",
+          "enteredAtStage": 1
+        },
+        "areas": [
+          {
+            "id": "yard",
+            "label": "Creek boatyard",
+            "current": false
+          },
+          {
+            "id": "reeds",
+            "label": "Beside the reeds",
+            "current": true
+          }
+        ],
+        "objectives": [
+          {
+            "id": "fisher-goal",
+            "text": "Launch a narrow rescue skiff at Reed mouth.",
+            "satisfied": false
+          }
+        ],
+        "canAdvance": false,
+        "completed": false,
+        "things": [
+          {
+            "id": "timber",
+            "label": "Timber stack",
+            "description": "Seasoned planks from the yard. Enough for two small boats; the same wood can be arranged in different ways. This stock is not consumed by one build.",
+            "x": 252,
+            "y": 56,
+            "location": null,
+            "gold": false,
+            "slots": [],
+            "functional": true
+          },
+          {
+            "id": "cord",
+            "label": "Measuring cord",
+            "description": "Lay it against what the boat must carry or fit through. The builder sketches the measured outline; the cord does not cut wood.",
+            "x": 252,
+            "y": 106,
+            "location": null,
+            "gold": false,
+            "slots": [],
+            "functional": true
+          },
+          {
+            "id": "adze",
+            "label": "Adze",
+            "description": "The boatbuilder uses this to shape and finish an assembled frame. A drawing cannot do this work.",
+            "x": 52,
+            "y": 156,
+            "location": null,
+            "gold": false,
+            "slots": [],
+            "functional": true
+          },
+          {
+            "id": "poles",
+            "label": "Pole rack",
+            "description": "A supply of long poles to fit out boats for these calm, shallow waters. No wind or sail is needed.",
+            "x": 52,
+            "y": 206,
+            "location": null,
+            "gold": false,
+            "slots": [],
+            "functional": true
+          },
+          {
+            "id": "caulking-brush",
+            "label": "Pitch brush",
+            "description": "A reusable brush and supply of pitch for sealing the shaped hulls.",
+            "x": 308,
+            "y": 202,
+            "location": null,
+            "gold": false,
+            "slots": [],
+            "functional": true
+          },
+          {
+            "id": "slim-layout",
+            "label": "Slim layout",
+            "description": "The measured passage sets a narrow outline, with room for rescuer and fisher. Reaching that person, rather than carrying the cart, now organizes the work.",
+            "x": 155,
+            "y": 146,
+            "location": null,
+            "gold": false,
+            "slots": [],
+            "functional": true
+          }
+        ],
+        "locations": [
+          {
+            "id": "reed-mouth",
+            "area": "reeds",
+            "x": 52,
+            "y": 81,
+            "label": "Reed mouth",
+            "description": "A fisher waits beyond this shallow gap. Measure it before building. Deploying a suitable narrow skiff here represents the out-and-back rescue trip.",
+            "gold": false
+          }
+        ],
+        "cacheNarrative": [],
+        "metrics": {
+          "attempts": 9,
+          "accepted": 9,
+          "combinations": 7,
+          "creations": 7,
+          "installations": 0,
+          "moves": 0,
+          "placements": 1,
+          "advances": 1,
+          "visits": 0
+        }
+      }
+    },
+    {
+      "gesture": {
+        "a": "timber",
+        "b": "slim-layout"
+      },
+      "action": {
+        "type": "combine",
+        "a": "timber",
+        "b": "slim-layout"
+      },
+      "message": "Slim frame. The same stock is assembled into a different, narrow frame.",
+      "view": {
+        "scenario": {
+          "id": "causation-purpose-v4",
+          "title": "Why This Boat?",
+          "premise": "Two jobs at one boatyard. Build for what the boat must actually do. This fictional craft story explores Aristotle’s explanations of artifacts, not a claim that nature plans like a boatbuilder."
+        },
+        "stage": {
+          "number": 2,
+          "title": "The ferry will not fit",
+          "speaker": "The boatbuilder",
+          "motivation": "The miller and cart are across. Now a fisher calls from beyond the reeds. Our ferry is sound but too broad for that gap. Measure the route and build a suitable narrow boat. Bringing it to Reed mouth launches the out-and-back rescue.",
+          "travelText": "We bring the stock, measuring cord, adze, pitch brush and pole rack for the new job. The working ferry stays at the creek landing."
+        },
+        "area": {
+          "id": "reeds",
+          "label": "Beside the reeds",
+          "enteredAtStage": 1
+        },
+        "areas": [
+          {
+            "id": "yard",
+            "label": "Creek boatyard",
+            "current": false
+          },
+          {
+            "id": "reeds",
+            "label": "Beside the reeds",
+            "current": true
+          }
+        ],
+        "objectives": [
+          {
+            "id": "fisher-goal",
+            "text": "Launch a narrow rescue skiff at Reed mouth.",
+            "satisfied": false
+          }
+        ],
+        "canAdvance": false,
+        "completed": false,
+        "things": [
+          {
+            "id": "timber",
+            "label": "Timber stack",
+            "description": "Seasoned planks from the yard. Enough for two small boats; the same wood can be arranged in different ways. This stock is not consumed by one build.",
+            "x": 252,
+            "y": 56,
+            "location": null,
+            "gold": false,
+            "slots": [],
+            "functional": true
+          },
+          {
+            "id": "cord",
+            "label": "Measuring cord",
+            "description": "Lay it against what the boat must carry or fit through. The builder sketches the measured outline; the cord does not cut wood.",
+            "x": 252,
+            "y": 106,
+            "location": null,
+            "gold": false,
+            "slots": [],
+            "functional": true
+          },
+          {
+            "id": "adze",
+            "label": "Adze",
+            "description": "The boatbuilder uses this to shape and finish an assembled frame. A drawing cannot do this work.",
+            "x": 52,
+            "y": 156,
+            "location": null,
+            "gold": false,
+            "slots": [],
+            "functional": true
+          },
+          {
+            "id": "poles",
+            "label": "Pole rack",
+            "description": "A supply of long poles to fit out boats for these calm, shallow waters. No wind or sail is needed.",
+            "x": 52,
+            "y": 206,
+            "location": null,
+            "gold": false,
+            "slots": [],
+            "functional": true
+          },
+          {
+            "id": "caulking-brush",
+            "label": "Pitch brush",
+            "description": "A reusable brush and supply of pitch for sealing the shaped hulls.",
+            "x": 308,
+            "y": 202,
+            "location": null,
+            "gold": false,
+            "slots": [],
+            "functional": true
+          },
+          {
+            "id": "slim-layout",
+            "label": "Slim layout",
+            "description": "The measured passage sets a narrow outline, with room for rescuer and fisher. Reaching that person, rather than carrying the cart, now organizes the work.",
+            "x": 155,
+            "y": 146,
+            "location": null,
+            "gold": false,
+            "slots": [],
+            "functional": true
+          },
+          {
+            "id": "slim-frame",
+            "label": "Slim frame",
+            "description": "Timber joined in a narrow arrangement. The builder has not changed the kind of wood or the tool—only the form needed for this job.",
+            "x": 155,
+            "y": 192,
+            "location": null,
+            "gold": false,
+            "slots": [],
+            "functional": true
+          }
+        ],
+        "locations": [
+          {
+            "id": "reed-mouth",
+            "area": "reeds",
+            "x": 52,
+            "y": 81,
+            "label": "Reed mouth",
+            "description": "A fisher waits beyond this shallow gap. Measure it before building. Deploying a suitable narrow skiff here represents the out-and-back rescue trip.",
+            "gold": false
+          }
+        ],
+        "cacheNarrative": [],
+        "metrics": {
+          "attempts": 10,
+          "accepted": 10,
+          "combinations": 8,
+          "creations": 8,
+          "installations": 0,
+          "moves": 0,
+          "placements": 1,
+          "advances": 1,
+          "visits": 0
+        }
+      }
+    },
+    {
+      "gesture": {
+        "a": "adze",
+        "b": "slim-frame"
+      },
+      "action": {
+        "type": "combine",
+        "a": "adze",
+        "b": "slim-frame"
+      },
+      "message": "Slim hull. The builder shapes this frame with the same adze. A different end called for a different form, not a different kind of physical push.",
+      "view": {
+        "scenario": {
+          "id": "causation-purpose-v4",
+          "title": "Why This Boat?",
+          "premise": "Two jobs at one boatyard. Build for what the boat must actually do. This fictional craft story explores Aristotle’s explanations of artifacts, not a claim that nature plans like a boatbuilder."
+        },
+        "stage": {
+          "number": 2,
+          "title": "The ferry will not fit",
+          "speaker": "The boatbuilder",
+          "motivation": "The miller and cart are across. Now a fisher calls from beyond the reeds. Our ferry is sound but too broad for that gap. Measure the route and build a suitable narrow boat. Bringing it to Reed mouth launches the out-and-back rescue.",
+          "travelText": "We bring the stock, measuring cord, adze, pitch brush and pole rack for the new job. The working ferry stays at the creek landing."
+        },
+        "area": {
+          "id": "reeds",
+          "label": "Beside the reeds",
+          "enteredAtStage": 1
+        },
+        "areas": [
+          {
+            "id": "yard",
+            "label": "Creek boatyard",
+            "current": false
+          },
+          {
+            "id": "reeds",
+            "label": "Beside the reeds",
+            "current": true
+          }
+        ],
+        "objectives": [
+          {
+            "id": "fisher-goal",
+            "text": "Launch a narrow rescue skiff at Reed mouth.",
+            "satisfied": false
+          }
+        ],
+        "canAdvance": false,
+        "completed": false,
+        "things": [
+          {
+            "id": "timber",
+            "label": "Timber stack",
+            "description": "Seasoned planks from the yard. Enough for two small boats; the same wood can be arranged in different ways. This stock is not consumed by one build.",
+            "x": 252,
+            "y": 56,
+            "location": null,
+            "gold": false,
+            "slots": [],
+            "functional": true
+          },
+          {
+            "id": "cord",
+            "label": "Measuring cord",
+            "description": "Lay it against what the boat must carry or fit through. The builder sketches the measured outline; the cord does not cut wood.",
+            "x": 252,
+            "y": 106,
+            "location": null,
+            "gold": false,
+            "slots": [],
+            "functional": true
+          },
+          {
+            "id": "adze",
+            "label": "Adze",
+            "description": "The boatbuilder uses this to shape and finish an assembled frame. A drawing cannot do this work.",
+            "x": 52,
+            "y": 156,
+            "location": null,
+            "gold": false,
+            "slots": [],
+            "functional": true
+          },
+          {
+            "id": "poles",
+            "label": "Pole rack",
+            "description": "A supply of long poles to fit out boats for these calm, shallow waters. No wind or sail is needed.",
+            "x": 52,
+            "y": 206,
+            "location": null,
+            "gold": false,
+            "slots": [],
+            "functional": true
+          },
+          {
+            "id": "caulking-brush",
+            "label": "Pitch brush",
+            "description": "A reusable brush and supply of pitch for sealing the shaped hulls.",
+            "x": 308,
+            "y": 202,
+            "location": null,
+            "gold": false,
+            "slots": [],
+            "functional": true
+          },
+          {
+            "id": "slim-layout",
+            "label": "Slim layout",
+            "description": "The measured passage sets a narrow outline, with room for rescuer and fisher. Reaching that person, rather than carrying the cart, now organizes the work.",
+            "x": 155,
+            "y": 146,
+            "location": null,
+            "gold": false,
+            "slots": [],
+            "functional": true
+          },
+          {
+            "id": "slim-hull",
+            "label": "Slim hull",
+            "description": "Shaped to pass through the reeds. The narrow floor cannot carry the wide cart; its seams still need sealing.",
+            "x": 155,
+            "y": 238,
+            "location": null,
+            "gold": false,
+            "slots": [],
+            "functional": true
+          }
+        ],
+        "locations": [
+          {
+            "id": "reed-mouth",
+            "area": "reeds",
+            "x": 52,
+            "y": 81,
+            "label": "Reed mouth",
+            "description": "A fisher waits beyond this shallow gap. Measure it before building. Deploying a suitable narrow skiff here represents the out-and-back rescue trip.",
+            "gold": false
+          }
+        ],
+        "cacheNarrative": [],
+        "metrics": {
+          "attempts": 11,
+          "accepted": 11,
+          "combinations": 9,
+          "creations": 9,
+          "installations": 0,
+          "moves": 0,
+          "placements": 1,
+          "advances": 1,
+          "visits": 0
+        }
+      }
+    },
+    {
+      "gesture": {
+        "a": "caulking-brush",
+        "b": "slim-hull"
+      },
+      "action": {
+        "type": "combine",
+        "a": "caulking-brush",
+        "b": "slim-hull"
+      },
+      "message": "Sealed skiff hull. The slim hull is sealed for the rescue trip.",
+      "view": {
+        "scenario": {
+          "id": "causation-purpose-v4",
+          "title": "Why This Boat?",
+          "premise": "Two jobs at one boatyard. Build for what the boat must actually do. This fictional craft story explores Aristotle’s explanations of artifacts, not a claim that nature plans like a boatbuilder."
+        },
+        "stage": {
+          "number": 2,
+          "title": "The ferry will not fit",
+          "speaker": "The boatbuilder",
+          "motivation": "The miller and cart are across. Now a fisher calls from beyond the reeds. Our ferry is sound but too broad for that gap. Measure the route and build a suitable narrow boat. Bringing it to Reed mouth launches the out-and-back rescue.",
+          "travelText": "We bring the stock, measuring cord, adze, pitch brush and pole rack for the new job. The working ferry stays at the creek landing."
+        },
+        "area": {
+          "id": "reeds",
+          "label": "Beside the reeds",
+          "enteredAtStage": 1
+        },
+        "areas": [
+          {
+            "id": "yard",
+            "label": "Creek boatyard",
+            "current": false
+          },
+          {
+            "id": "reeds",
+            "label": "Beside the reeds",
+            "current": true
+          }
+        ],
+        "objectives": [
+          {
+            "id": "fisher-goal",
+            "text": "Launch a narrow rescue skiff at Reed mouth.",
+            "satisfied": false
+          }
+        ],
+        "canAdvance": false,
+        "completed": false,
+        "things": [
+          {
+            "id": "timber",
+            "label": "Timber stack",
+            "description": "Seasoned planks from the yard. Enough for two small boats; the same wood can be arranged in different ways. This stock is not consumed by one build.",
+            "x": 252,
+            "y": 56,
+            "location": null,
+            "gold": false,
+            "slots": [],
+            "functional": true
+          },
+          {
+            "id": "cord",
+            "label": "Measuring cord",
+            "description": "Lay it against what the boat must carry or fit through. The builder sketches the measured outline; the cord does not cut wood.",
+            "x": 252,
+            "y": 106,
+            "location": null,
+            "gold": false,
+            "slots": [],
+            "functional": true
+          },
+          {
+            "id": "adze",
+            "label": "Adze",
+            "description": "The boatbuilder uses this to shape and finish an assembled frame. A drawing cannot do this work.",
+            "x": 52,
+            "y": 156,
+            "location": null,
+            "gold": false,
+            "slots": [],
+            "functional": true
+          },
+          {
+            "id": "poles",
+            "label": "Pole rack",
+            "description": "A supply of long poles to fit out boats for these calm, shallow waters. No wind or sail is needed.",
+            "x": 52,
+            "y": 206,
+            "location": null,
+            "gold": false,
+            "slots": [],
+            "functional": true
+          },
+          {
+            "id": "caulking-brush",
+            "label": "Pitch brush",
+            "description": "A reusable brush and supply of pitch for sealing the shaped hulls.",
+            "x": 308,
+            "y": 202,
+            "location": null,
+            "gold": false,
+            "slots": [],
+            "functional": true
+          },
+          {
+            "id": "slim-layout",
+            "label": "Slim layout",
+            "description": "The measured passage sets a narrow outline, with room for rescuer and fisher. Reaching that person, rather than carrying the cart, now organizes the work.",
+            "x": 155,
+            "y": 146,
+            "location": null,
+            "gold": false,
+            "slots": [],
+            "functional": true
+          },
+          {
+            "id": "sealed-skiff",
+            "label": "Sealed skiff hull",
+            "description": "A narrow watertight hull, awaiting propulsion.",
+            "x": 253,
+            "y": 284,
+            "location": null,
+            "gold": false,
+            "slots": [],
+            "functional": true
+          }
+        ],
+        "locations": [
+          {
+            "id": "reed-mouth",
+            "area": "reeds",
+            "x": 52,
+            "y": 81,
+            "label": "Reed mouth",
+            "description": "A fisher waits beyond this shallow gap. Measure it before building. Deploying a suitable narrow skiff here represents the out-and-back rescue trip.",
+            "gold": false
+          }
+        ],
+        "cacheNarrative": [],
+        "metrics": {
+          "attempts": 12,
+          "accepted": 12,
+          "combinations": 10,
+          "creations": 10,
+          "installations": 0,
+          "moves": 0,
+          "placements": 1,
+          "advances": 1,
+          "visits": 0
+        }
+      }
+    },
+    {
+      "gesture": {
+        "a": "poles",
+        "b": "sealed-skiff"
+      },
+      "action": {
+        "type": "combine",
+        "a": "poles",
+        "b": "sealed-skiff"
+      },
+      "message": "Pole skiff. The skiff is fitted with poles to move through the shallow passage.",
+      "view": {
+        "scenario": {
+          "id": "causation-purpose-v4",
+          "title": "Why This Boat?",
+          "premise": "Two jobs at one boatyard. Build for what the boat must actually do. This fictional craft story explores Aristotle’s explanations of artifacts, not a claim that nature plans like a boatbuilder."
+        },
+        "stage": {
+          "number": 2,
+          "title": "The ferry will not fit",
+          "speaker": "The boatbuilder",
+          "motivation": "The miller and cart are across. Now a fisher calls from beyond the reeds. Our ferry is sound but too broad for that gap. Measure the route and build a suitable narrow boat. Bringing it to Reed mouth launches the out-and-back rescue.",
+          "travelText": "We bring the stock, measuring cord, adze, pitch brush and pole rack for the new job. The working ferry stays at the creek landing."
+        },
+        "area": {
+          "id": "reeds",
+          "label": "Beside the reeds",
+          "enteredAtStage": 1
+        },
+        "areas": [
+          {
+            "id": "yard",
+            "label": "Creek boatyard",
+            "current": false
+          },
+          {
+            "id": "reeds",
+            "label": "Beside the reeds",
+            "current": true
+          }
+        ],
+        "objectives": [
+          {
+            "id": "fisher-goal",
+            "text": "Launch a narrow rescue skiff at Reed mouth.",
+            "satisfied": false
+          }
+        ],
+        "canAdvance": false,
+        "completed": false,
+        "things": [
+          {
+            "id": "timber",
+            "label": "Timber stack",
+            "description": "Seasoned planks from the yard. Enough for two small boats; the same wood can be arranged in different ways. This stock is not consumed by one build.",
+            "x": 252,
+            "y": 56,
+            "location": null,
+            "gold": false,
+            "slots": [],
+            "functional": true
+          },
+          {
+            "id": "cord",
+            "label": "Measuring cord",
+            "description": "Lay it against what the boat must carry or fit through. The builder sketches the measured outline; the cord does not cut wood.",
+            "x": 252,
+            "y": 106,
+            "location": null,
+            "gold": false,
+            "slots": [],
+            "functional": true
+          },
+          {
+            "id": "adze",
+            "label": "Adze",
+            "description": "The boatbuilder uses this to shape and finish an assembled frame. A drawing cannot do this work.",
+            "x": 52,
+            "y": 156,
+            "location": null,
+            "gold": false,
+            "slots": [],
+            "functional": true
+          },
+          {
+            "id": "poles",
+            "label": "Pole rack",
+            "description": "A supply of long poles to fit out boats for these calm, shallow waters. No wind or sail is needed.",
+            "x": 52,
+            "y": 206,
+            "location": null,
+            "gold": false,
+            "slots": [],
+            "functional": true
+          },
+          {
+            "id": "caulking-brush",
+            "label": "Pitch brush",
+            "description": "A reusable brush and supply of pitch for sealing the shaped hulls.",
+            "x": 308,
+            "y": 202,
+            "location": null,
+            "gold": false,
+            "slots": [],
+            "functional": true
+          },
+          {
+            "id": "slim-layout",
+            "label": "Slim layout",
+            "description": "The measured passage sets a narrow outline, with room for rescuer and fisher. Reaching that person, rather than carrying the cart, now organizes the work.",
+            "x": 155,
+            "y": 146,
+            "location": null,
+            "gold": false,
+            "slots": [],
+            "functional": true
+          },
+          {
+            "id": "skiff",
+            "label": "Pole skiff",
+            "description": "Built to reach the fisher through the measured reed gap. At Reed mouth the builder poles through and returns with the fisher. It cannot carry the wide cart.",
+            "x": 308,
+            "y": 330,
+            "location": null,
+            "gold": false,
+            "slots": [],
+            "functional": true
+          }
+        ],
+        "locations": [
+          {
+            "id": "reed-mouth",
+            "area": "reeds",
+            "x": 52,
+            "y": 81,
+            "label": "Reed mouth",
+            "description": "A fisher waits beyond this shallow gap. Measure it before building. Deploying a suitable narrow skiff here represents the out-and-back rescue trip.",
+            "gold": false
+          }
+        ],
+        "cacheNarrative": [],
+        "metrics": {
+          "attempts": 13,
+          "accepted": 13,
+          "combinations": 11,
+          "creations": 11,
+          "installations": 0,
+          "moves": 0,
+          "placements": 1,
+          "advances": 1,
+          "visits": 0
+        }
+      }
+    },
+    {
+      "gesture": {
+        "a": "skiff",
+        "b": "@reed-mouth"
+      },
+      "action": {
+        "type": "place",
+        "item": "skiff",
+        "location": "reed-mouth"
+      },
+      "message": "Placed.",
+      "view": {
+        "scenario": {
+          "id": "causation-purpose-v4",
+          "title": "Why This Boat?",
+          "premise": "Two jobs at one boatyard. Build for what the boat must actually do. This fictional craft story explores Aristotle’s explanations of artifacts, not a claim that nature plans like a boatbuilder."
+        },
+        "stage": {
+          "number": 2,
+          "title": "The ferry will not fit",
+          "speaker": "The boatbuilder",
+          "motivation": "The miller and cart are across. Now a fisher calls from beyond the reeds. Our ferry is sound but too broad for that gap. Measure the route and build a suitable narrow boat. Bringing it to Reed mouth launches the out-and-back rescue.",
+          "travelText": "We bring the stock, measuring cord, adze, pitch brush and pole rack for the new job. The working ferry stays at the creek landing."
+        },
+        "area": {
+          "id": "reeds",
+          "label": "Beside the reeds",
+          "enteredAtStage": 1
+        },
+        "areas": [
+          {
+            "id": "yard",
+            "label": "Creek boatyard",
+            "current": false
+          },
+          {
+            "id": "reeds",
+            "label": "Beside the reeds",
+            "current": true
+          }
+        ],
+        "objectives": [
+          {
+            "id": "fisher-goal",
+            "text": "Launch a narrow rescue skiff at Reed mouth.",
+            "satisfied": true
+          }
+        ],
+        "canAdvance": true,
+        "completed": false,
+        "things": [
+          {
+            "id": "timber",
+            "label": "Timber stack",
+            "description": "Seasoned planks from the yard. Enough for two small boats; the same wood can be arranged in different ways. This stock is not consumed by one build.",
+            "x": 252,
+            "y": 56,
+            "location": null,
+            "gold": false,
+            "slots": [],
+            "functional": true
+          },
+          {
+            "id": "cord",
+            "label": "Measuring cord",
+            "description": "Lay it against what the boat must carry or fit through. The builder sketches the measured outline; the cord does not cut wood.",
+            "x": 252,
+            "y": 106,
+            "location": null,
+            "gold": false,
+            "slots": [],
+            "functional": true
+          },
+          {
+            "id": "adze",
+            "label": "Adze",
+            "description": "The boatbuilder uses this to shape and finish an assembled frame. A drawing cannot do this work.",
+            "x": 52,
+            "y": 156,
+            "location": null,
+            "gold": false,
+            "slots": [],
+            "functional": true
+          },
+          {
+            "id": "poles",
+            "label": "Pole rack",
+            "description": "A supply of long poles to fit out boats for these calm, shallow waters. No wind or sail is needed.",
+            "x": 52,
+            "y": 206,
+            "location": null,
+            "gold": false,
+            "slots": [],
+            "functional": true
+          },
+          {
+            "id": "caulking-brush",
+            "label": "Pitch brush",
+            "description": "A reusable brush and supply of pitch for sealing the shaped hulls.",
+            "x": 308,
+            "y": 202,
+            "location": null,
+            "gold": false,
+            "slots": [],
+            "functional": true
+          },
+          {
+            "id": "slim-layout",
+            "label": "Slim layout",
+            "description": "The measured passage sets a narrow outline, with room for rescuer and fisher. Reaching that person, rather than carrying the cart, now organizes the work.",
+            "x": 155,
+            "y": 146,
+            "location": null,
+            "gold": false,
+            "slots": [],
+            "functional": true
+          },
+          {
+            "id": "skiff",
+            "label": "Pole skiff",
+            "description": "Built to reach the fisher through the measured reed gap. At Reed mouth the builder poles through and returns with the fisher. It cannot carry the wide cart.",
+            "x": 52,
+            "y": 97,
+            "location": "reed-mouth",
+            "gold": true,
+            "slots": [],
+            "functional": true
+          }
+        ],
+        "locations": [
+          {
+            "id": "reed-mouth",
+            "area": "reeds",
+            "x": 52,
+            "y": 81,
+            "label": "Reed mouth",
+            "description": "A fisher waits beyond this shallow gap. Measure it before building. Deploying a suitable narrow skiff here represents the out-and-back rescue trip.",
+            "gold": true
+          }
+        ],
+        "cacheNarrative": [],
+        "metrics": {
+          "attempts": 14,
+          "accepted": 14,
+          "combinations": 11,
+          "creations": 11,
+          "installations": 0,
+          "moves": 0,
+          "placements": 2,
+          "advances": 1,
+          "visits": 0
+        }
+      }
+    },
+    {
+      "gesture": null,
+      "action": {
+        "type": "advance"
+      },
+      "message": "Journey complete.",
+      "view": {
+        "scenario": {
+          "id": "causation-purpose-v4",
+          "title": "Why This Boat?",
+          "premise": "Two jobs at one boatyard. Build for what the boat must actually do. This fictional craft story explores Aristotle’s explanations of artifacts, not a claim that nature plans like a boatbuilder."
+        },
+        "stage": {
+          "number": 2,
+          "title": "The ferry will not fit",
+          "speaker": "The boatbuilder",
+          "motivation": "The miller and cart are across. Now a fisher calls from beyond the reeds. Our ferry is sound but too broad for that gap. Measure the route and build a suitable narrow boat. Bringing it to Reed mouth launches the out-and-back rescue.",
+          "travelText": "We bring the stock, measuring cord, adze, pitch brush and pole rack for the new job. The working ferry stays at the creek landing."
+        },
+        "area": {
+          "id": "reeds",
+          "label": "Beside the reeds",
+          "enteredAtStage": 1
+        },
+        "areas": [
+          {
+            "id": "yard",
+            "label": "Creek boatyard",
+            "current": false
+          },
+          {
+            "id": "reeds",
+            "label": "Beside the reeds",
+            "current": true
+          }
+        ],
+        "objectives": [
+          {
+            "id": "fisher-goal",
+            "text": "Launch a narrow rescue skiff at Reed mouth.",
+            "satisfied": true
+          }
+        ],
+        "canAdvance": false,
+        "completed": true,
+        "things": [
+          {
+            "id": "timber",
+            "label": "Timber stack",
+            "description": "Seasoned planks from the yard. Enough for two small boats; the same wood can be arranged in different ways. This stock is not consumed by one build.",
+            "x": 252,
+            "y": 56,
+            "location": null,
+            "gold": false,
+            "slots": [],
+            "functional": true
+          },
+          {
+            "id": "cord",
+            "label": "Measuring cord",
+            "description": "Lay it against what the boat must carry or fit through. The builder sketches the measured outline; the cord does not cut wood.",
+            "x": 252,
+            "y": 106,
+            "location": null,
+            "gold": false,
+            "slots": [],
+            "functional": true
+          },
+          {
+            "id": "adze",
+            "label": "Adze",
+            "description": "The boatbuilder uses this to shape and finish an assembled frame. A drawing cannot do this work.",
+            "x": 52,
+            "y": 156,
+            "location": null,
+            "gold": false,
+            "slots": [],
+            "functional": true
+          },
+          {
+            "id": "poles",
+            "label": "Pole rack",
+            "description": "A supply of long poles to fit out boats for these calm, shallow waters. No wind or sail is needed.",
+            "x": 52,
+            "y": 206,
+            "location": null,
+            "gold": false,
+            "slots": [],
+            "functional": true
+          },
+          {
+            "id": "caulking-brush",
+            "label": "Pitch brush",
+            "description": "A reusable brush and supply of pitch for sealing the shaped hulls.",
+            "x": 308,
+            "y": 202,
+            "location": null,
+            "gold": false,
+            "slots": [],
+            "functional": true
+          },
+          {
+            "id": "slim-layout",
+            "label": "Slim layout",
+            "description": "The measured passage sets a narrow outline, with room for rescuer and fisher. Reaching that person, rather than carrying the cart, now organizes the work.",
+            "x": 155,
+            "y": 146,
+            "location": null,
+            "gold": false,
+            "slots": [],
+            "functional": true
+          },
+          {
+            "id": "skiff",
+            "label": "Pole skiff",
+            "description": "Built to reach the fisher through the measured reed gap. At Reed mouth the builder poles through and returns with the fisher. It cannot carry the wide cart.",
+            "x": 52,
+            "y": 97,
+            "location": "reed-mouth",
+            "gold": true,
+            "slots": [],
+            "functional": true
+          }
+        ],
+        "locations": [
+          {
+            "id": "reed-mouth",
+            "area": "reeds",
+            "x": 52,
+            "y": 81,
+            "label": "Reed mouth",
+            "description": "A fisher waits beyond this shallow gap. Measure it before building. Deploying a suitable narrow skiff here represents the out-and-back rescue trip.",
+            "gold": true
+          }
+        ],
+        "cacheNarrative": [],
+        "metrics": {
+          "attempts": 15,
+          "accepted": 15,
+          "combinations": 11,
+          "creations": 11,
+          "installations": 0,
+          "moves": 0,
+          "placements": 2,
+          "advances": 2,
+          "visits": 0
+        }
+      }
+    }
+  ]
+}
