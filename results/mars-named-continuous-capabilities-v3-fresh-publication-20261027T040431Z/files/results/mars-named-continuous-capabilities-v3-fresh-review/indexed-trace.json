@@ -1,0 +1,8835 @@
+[
+  {
+    "index": 1,
+    "command": {
+      "op": "help"
+    },
+    "ok": true,
+    "consequence": null,
+    "error": null,
+    "partners": null,
+    "objectives": []
+  },
+  {
+    "index": 2,
+    "command": {
+      "op": "view"
+    },
+    "ok": true,
+    "consequence": null,
+    "error": null,
+    "partners": null,
+    "objectives": [
+      {
+        "id": "repair",
+        "current": false,
+        "achieved": false
+      }
+    ]
+  },
+  {
+    "index": 3,
+    "command": {
+      "op": "partners",
+      "a": "broken-radio"
+    },
+    "ok": true,
+    "consequence": null,
+    "error": null,
+    "partners": [
+      "cable"
+    ],
+    "objectives": []
+  },
+  {
+    "index": 4,
+    "command": {
+      "op": "combine",
+      "a": "cable",
+      "b": "broken-radio"
+    },
+    "ok": true,
+    "consequence": {
+      "created": "radio",
+      "targetContext": null,
+      "retired": [
+        "broken-radio"
+      ]
+    },
+    "error": null,
+    "partners": null,
+    "objectives": [
+      {
+        "id": "repair",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "contact",
+        "current": false,
+        "achieved": false
+      }
+    ]
+  },
+  {
+    "index": 5,
+    "command": {
+      "op": "place",
+      "a": "radio",
+      "place": "contact-ridge"
+    },
+    "ok": true,
+    "consequence": {
+      "placed": "radio",
+      "at": "contact-ridge",
+      "displaced": []
+    },
+    "error": null,
+    "partners": null,
+    "objectives": [
+      {
+        "id": "repair",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "contact",
+        "current": false,
+        "achieved": false
+      }
+    ]
+  },
+  {
+    "index": 6,
+    "command": {
+      "op": "partners",
+      "a": "radio"
+    },
+    "ok": true,
+    "consequence": null,
+    "error": null,
+    "partners": [],
+    "objectives": []
+  },
+  {
+    "index": 7,
+    "command": {
+      "op": "knowledge"
+    },
+    "ok": true,
+    "consequence": null,
+    "error": null,
+    "partners": null,
+    "objectives": []
+  },
+  {
+    "index": 8,
+    "command": {
+      "op": "combine",
+      "a": "radio",
+      "b": "place:contact-ridge"
+    },
+    "ok": false,
+    "consequence": null,
+    "error": "No combination here. Check partners or the actual target location.",
+    "partners": null,
+    "objectives": []
+  },
+  {
+    "index": 9,
+    "command": {
+      "op": "partners",
+      "a": "dish"
+    },
+    "ok": true,
+    "consequence": null,
+    "error": null,
+    "partners": [],
+    "objectives": []
+  },
+  {
+    "index": 10,
+    "command": {
+      "op": "partners",
+      "a": "battery"
+    },
+    "ok": true,
+    "consequence": null,
+    "error": null,
+    "partners": [
+      "lamp",
+      "solar-panel"
+    ],
+    "objectives": []
+  },
+  {
+    "index": 11,
+    "command": {
+      "op": "place",
+      "a": "radio",
+      "place": null
+    },
+    "ok": true,
+    "consequence": {
+      "placed": "radio",
+      "at": null,
+      "displaced": []
+    },
+    "error": null,
+    "partners": null,
+    "objectives": [
+      {
+        "id": "repair",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "contact",
+        "current": false,
+        "achieved": false
+      }
+    ]
+  },
+  {
+    "index": 12,
+    "command": {
+      "op": "partners",
+      "a": "radio"
+    },
+    "ok": true,
+    "consequence": null,
+    "error": null,
+    "partners": [],
+    "objectives": []
+  },
+  {
+    "index": 13,
+    "command": {
+      "op": "next"
+    },
+    "ok": false,
+    "consequence": null,
+    "error": "Finish this level\u2019s achievements and restore its current goals before continuing.",
+    "partners": null,
+    "objectives": []
+  },
+  {
+    "index": 14,
+    "command": {
+      "op": "partners",
+      "a": "toolkit"
+    },
+    "ok": true,
+    "consequence": null,
+    "error": null,
+    "partners": [
+      "frame"
+    ],
+    "objectives": []
+  },
+  {
+    "index": 15,
+    "command": {
+      "op": "combine",
+      "a": "solar-panel",
+      "b": "battery"
+    },
+    "ok": true,
+    "consequence": {
+      "created": "solar-charger",
+      "targetContext": null,
+      "retired": []
+    },
+    "error": null,
+    "partners": null,
+    "objectives": [
+      {
+        "id": "repair",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "contact",
+        "current": false,
+        "achieved": false
+      }
+    ]
+  },
+  {
+    "index": 16,
+    "command": {
+      "op": "partners",
+      "a": "solar-charger"
+    },
+    "ok": true,
+    "consequence": null,
+    "error": null,
+    "partners": [
+      "heater",
+      "lamp",
+      "radio"
+    ],
+    "objectives": []
+  },
+  {
+    "index": 17,
+    "command": {
+      "op": "combine",
+      "a": "solar-charger",
+      "b": "radio"
+    },
+    "ok": true,
+    "consequence": {
+      "created": "solar-radio",
+      "targetContext": null,
+      "retired": []
+    },
+    "error": null,
+    "partners": null,
+    "objectives": [
+      {
+        "id": "repair",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "contact",
+        "current": false,
+        "achieved": false
+      }
+    ]
+  },
+  {
+    "index": 18,
+    "command": {
+      "op": "place",
+      "a": "solar-radio",
+      "place": "contact-ridge"
+    },
+    "ok": true,
+    "consequence": {
+      "placed": "solar-radio",
+      "at": "contact-ridge",
+      "displaced": []
+    },
+    "error": null,
+    "partners": null,
+    "objectives": [
+      {
+        "id": "repair",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "contact",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "water",
+        "current": false,
+        "achieved": false
+      }
+    ]
+  },
+  {
+    "index": 19,
+    "command": {
+      "op": "partners",
+      "a": "heater"
+    },
+    "ok": true,
+    "consequence": null,
+    "error": null,
+    "partners": [
+      "place:glacier",
+      "solar-charger"
+    ],
+    "objectives": []
+  },
+  {
+    "index": 20,
+    "command": {
+      "op": "combine",
+      "a": "heater",
+      "b": "place:glacier"
+    },
+    "ok": true,
+    "consequence": {
+      "created": "meltwater",
+      "targetContext": null,
+      "retired": []
+    },
+    "error": null,
+    "partners": null,
+    "objectives": [
+      {
+        "id": "repair",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "contact",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "water",
+        "current": false,
+        "achieved": false
+      }
+    ]
+  },
+  {
+    "index": 21,
+    "command": {
+      "op": "partners",
+      "a": "meltwater"
+    },
+    "ok": true,
+    "consequence": null,
+    "error": null,
+    "partners": [
+      "water-filter"
+    ],
+    "objectives": []
+  },
+  {
+    "index": 22,
+    "command": {
+      "op": "combine",
+      "a": "water-filter",
+      "b": "meltwater"
+    },
+    "ok": true,
+    "consequence": {
+      "created": "filtered-water",
+      "targetContext": null,
+      "retired": []
+    },
+    "error": null,
+    "partners": null,
+    "objectives": [
+      {
+        "id": "repair",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "contact",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "water",
+        "current": false,
+        "achieved": false
+      }
+    ]
+  },
+  {
+    "index": 23,
+    "command": {
+      "op": "place",
+      "a": "filtered-water",
+      "place": "water-point"
+    },
+    "ok": true,
+    "consequence": {
+      "placed": "filtered-water",
+      "at": "water-point",
+      "displaced": []
+    },
+    "error": null,
+    "partners": null,
+    "objectives": [
+      {
+        "id": "repair",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "contact",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "water",
+        "current": false,
+        "achieved": false
+      }
+    ]
+  },
+  {
+    "index": 24,
+    "command": {
+      "op": "partners",
+      "a": "filtered-water"
+    },
+    "ok": true,
+    "consequence": null,
+    "error": null,
+    "partners": [
+      "canister"
+    ],
+    "objectives": []
+  },
+  {
+    "index": 25,
+    "command": {
+      "op": "combine",
+      "a": "canister",
+      "b": "filtered-water"
+    },
+    "ok": true,
+    "consequence": {
+      "created": "water-canister",
+      "targetContext": "water-point",
+      "retired": []
+    },
+    "error": null,
+    "partners": null,
+    "objectives": [
+      {
+        "id": "repair",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "contact",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "water",
+        "current": false,
+        "achieved": false
+      }
+    ]
+  },
+  {
+    "index": 26,
+    "command": {
+      "op": "place",
+      "a": "water-canister",
+      "place": "water-point"
+    },
+    "ok": true,
+    "consequence": {
+      "placed": "water-canister",
+      "at": "water-point",
+      "displaced": [
+        "filtered-water"
+      ]
+    },
+    "error": null,
+    "partners": null,
+    "objectives": [
+      {
+        "id": "repair",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "contact",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "water",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "growth",
+        "current": false,
+        "achieved": false
+      }
+    ]
+  },
+  {
+    "index": 27,
+    "command": {
+      "op": "partners",
+      "a": "seeds"
+    },
+    "ok": true,
+    "consequence": null,
+    "error": null,
+    "partners": [
+      "planting-tray"
+    ],
+    "objectives": []
+  },
+  {
+    "index": 28,
+    "command": {
+      "op": "combine",
+      "a": "seeds",
+      "b": "planting-tray"
+    },
+    "ok": true,
+    "consequence": {
+      "created": "seed-tray",
+      "targetContext": null,
+      "retired": []
+    },
+    "error": null,
+    "partners": null,
+    "objectives": [
+      {
+        "id": "repair",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "contact",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "water",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "growth",
+        "current": false,
+        "achieved": false
+      }
+    ]
+  },
+  {
+    "index": 29,
+    "command": {
+      "op": "partners",
+      "a": "seed-tray"
+    },
+    "ok": true,
+    "consequence": null,
+    "error": null,
+    "partners": [
+      "water-canister"
+    ],
+    "objectives": []
+  },
+  {
+    "index": 30,
+    "command": {
+      "op": "place",
+      "a": "seed-tray",
+      "place": "warm-habitat"
+    },
+    "ok": true,
+    "consequence": {
+      "placed": "seed-tray",
+      "at": "warm-habitat",
+      "displaced": []
+    },
+    "error": null,
+    "partners": null,
+    "objectives": [
+      {
+        "id": "repair",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "contact",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "water",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "growth",
+        "current": false,
+        "achieved": false
+      }
+    ]
+  },
+  {
+    "index": 31,
+    "command": {
+      "op": "combine",
+      "a": "water-canister",
+      "b": "seed-tray"
+    },
+    "ok": true,
+    "consequence": {
+      "created": "sprouted-tray",
+      "targetContext": "warm-habitat",
+      "retired": []
+    },
+    "error": null,
+    "partners": null,
+    "objectives": [
+      {
+        "id": "repair",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "contact",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "water",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "growth",
+        "current": false,
+        "achieved": false
+      }
+    ]
+  },
+  {
+    "index": 32,
+    "command": {
+      "op": "partners",
+      "a": "sprouted-tray"
+    },
+    "ok": true,
+    "consequence": null,
+    "error": null,
+    "partners": [
+      "clear-cover"
+    ],
+    "objectives": []
+  },
+  {
+    "index": 33,
+    "command": {
+      "op": "combine",
+      "a": "clear-cover",
+      "b": "sprouted-tray"
+    },
+    "ok": true,
+    "consequence": {
+      "created": "propagator",
+      "targetContext": null,
+      "retired": []
+    },
+    "error": null,
+    "partners": null,
+    "objectives": [
+      {
+        "id": "repair",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "contact",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "water",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "growth",
+        "current": false,
+        "achieved": false
+      }
+    ]
+  },
+  {
+    "index": 34,
+    "command": {
+      "op": "place",
+      "a": "propagator",
+      "place": "warm-habitat"
+    },
+    "ok": true,
+    "consequence": {
+      "placed": "propagator",
+      "at": "warm-habitat",
+      "displaced": [
+        "seed-tray"
+      ]
+    },
+    "error": null,
+    "partners": null,
+    "objectives": [
+      {
+        "id": "repair",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "contact",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "water",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "growth",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "patch",
+        "current": false,
+        "achieved": false
+      }
+    ]
+  },
+  {
+    "index": 35,
+    "command": {
+      "op": "partners",
+      "a": "sealant"
+    },
+    "ok": true,
+    "consequence": null,
+    "error": null,
+    "partners": [],
+    "objectives": []
+  },
+  {
+    "index": 36,
+    "command": {
+      "op": "partners",
+      "a": "habitat-fabric"
+    },
+    "ok": true,
+    "consequence": null,
+    "error": null,
+    "partners": [
+      "frame"
+    ],
+    "objectives": []
+  },
+  {
+    "index": 37,
+    "command": {
+      "op": "place",
+      "a": "habitat-fabric",
+      "place": "repair-bench"
+    },
+    "ok": true,
+    "consequence": {
+      "placed": "habitat-fabric",
+      "at": "repair-bench",
+      "displaced": []
+    },
+    "error": null,
+    "partners": null,
+    "objectives": [
+      {
+        "id": "repair",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "contact",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "water",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "growth",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "patch",
+        "current": false,
+        "achieved": false
+      }
+    ]
+  },
+  {
+    "index": 38,
+    "command": {
+      "op": "partners",
+      "a": "sealant"
+    },
+    "ok": true,
+    "consequence": null,
+    "error": null,
+    "partners": [
+      "habitat-fabric"
+    ],
+    "objectives": []
+  },
+  {
+    "index": 39,
+    "command": {
+      "op": "combine",
+      "a": "sealant",
+      "b": "habitat-fabric"
+    },
+    "ok": true,
+    "consequence": {
+      "created": "pressure-patch",
+      "targetContext": "repair-bench",
+      "retired": []
+    },
+    "error": null,
+    "partners": null,
+    "objectives": [
+      {
+        "id": "repair",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "contact",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "water",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "growth",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "patch",
+        "current": false,
+        "achieved": false
+      }
+    ]
+  },
+  {
+    "index": 40,
+    "command": {
+      "op": "place",
+      "a": "pressure-patch",
+      "place": "airlock"
+    },
+    "ok": true,
+    "consequence": {
+      "placed": "pressure-patch",
+      "at": "airlock",
+      "displaced": []
+    },
+    "error": null,
+    "partners": null,
+    "objectives": [
+      {
+        "id": "repair",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "contact",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "water",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "growth",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "patch",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "mobility",
+        "current": false,
+        "achieved": false
+      }
+    ]
+  },
+  {
+    "index": 41,
+    "command": {
+      "op": "combine",
+      "a": "toolkit",
+      "b": "frame"
+    },
+    "ok": true,
+    "consequence": {
+      "created": "workbench",
+      "targetContext": null,
+      "retired": []
+    },
+    "error": null,
+    "partners": null,
+    "objectives": [
+      {
+        "id": "repair",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "contact",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "water",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "growth",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "patch",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "mobility",
+        "current": false,
+        "achieved": false
+      }
+    ]
+  },
+  {
+    "index": 42,
+    "command": {
+      "op": "partners",
+      "a": "wheels"
+    },
+    "ok": true,
+    "consequence": null,
+    "error": null,
+    "partners": [
+      "frame"
+    ],
+    "objectives": []
+  },
+  {
+    "index": 43,
+    "command": {
+      "op": "combine",
+      "a": "wheels",
+      "b": "frame"
+    },
+    "ok": true,
+    "consequence": {
+      "created": "rover",
+      "targetContext": null,
+      "retired": [
+        "wheels"
+      ]
+    },
+    "error": null,
+    "partners": null,
+    "objectives": [
+      {
+        "id": "repair",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "contact",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "water",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "growth",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "patch",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "mobility",
+        "current": false,
+        "achieved": false
+      }
+    ]
+  },
+  {
+    "index": 44,
+    "command": {
+      "op": "partners",
+      "a": "rover"
+    },
+    "ok": true,
+    "consequence": null,
+    "error": null,
+    "partners": [
+      "motor",
+      "radio",
+      "solar-charger"
+    ],
+    "objectives": []
+  },
+  {
+    "index": 45,
+    "command": {
+      "op": "combine",
+      "a": "motor",
+      "b": "rover"
+    },
+    "ok": true,
+    "consequence": {
+      "updated": "rover",
+      "installedSlot": "engine",
+      "installedPart": "motor",
+      "externalRepresentativeRetained": false,
+      "retired": [
+        "motor"
+      ],
+      "targetContext": null
+    },
+    "error": null,
+    "partners": null,
+    "objectives": [
+      {
+        "id": "repair",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "contact",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "water",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "growth",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "patch",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "mobility",
+        "current": false,
+        "achieved": false
+      }
+    ]
+  },
+  {
+    "index": 46,
+    "command": {
+      "op": "combine",
+      "a": "solar-charger",
+      "b": "rover"
+    },
+    "ok": true,
+    "consequence": {
+      "updated": "rover",
+      "installedSlot": "charger",
+      "installedPart": "solar-charger",
+      "externalRepresentativeRetained": true,
+      "retired": [],
+      "targetContext": null
+    },
+    "error": null,
+    "partners": null,
+    "objectives": [
+      {
+        "id": "repair",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "contact",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "water",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "growth",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "patch",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "mobility",
+        "current": false,
+        "achieved": false
+      }
+    ]
+  },
+  {
+    "index": 47,
+    "command": {
+      "op": "combine",
+      "a": "radio",
+      "b": "rover"
+    },
+    "ok": true,
+    "consequence": {
+      "updated": "rover",
+      "installedSlot": "radio",
+      "installedPart": "radio",
+      "externalRepresentativeRetained": false,
+      "retired": [
+        "radio"
+      ],
+      "targetContext": null
+    },
+    "error": null,
+    "partners": null,
+    "objectives": [
+      {
+        "id": "repair",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "contact",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "water",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "growth",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "patch",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "mobility",
+        "current": false,
+        "achieved": false
+      }
+    ]
+  },
+  {
+    "index": 48,
+    "command": {
+      "op": "place",
+      "a": "rover",
+      "place": "expedition-gate"
+    },
+    "ok": true,
+    "consequence": {
+      "placed": "rover",
+      "at": "expedition-gate",
+      "displaced": []
+    },
+    "error": null,
+    "partners": null,
+    "objectives": [
+      {
+        "id": "repair",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "contact",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "water",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "growth",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "patch",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "mobility",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "survey",
+        "current": false,
+        "achieved": false
+      }
+    ]
+  },
+  {
+    "index": 49,
+    "command": {
+      "op": "partners",
+      "a": "binoculars"
+    },
+    "ok": true,
+    "consequence": null,
+    "error": null,
+    "partners": [],
+    "objectives": []
+  },
+  {
+    "index": 50,
+    "command": {
+      "op": "place",
+      "a": "map",
+      "place": "overlook"
+    },
+    "ok": true,
+    "consequence": {
+      "placed": "map",
+      "at": "overlook",
+      "displaced": []
+    },
+    "error": null,
+    "partners": null,
+    "objectives": [
+      {
+        "id": "repair",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "contact",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "water",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "growth",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "patch",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "mobility",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "survey",
+        "current": false,
+        "achieved": false
+      }
+    ]
+  },
+  {
+    "index": 51,
+    "command": {
+      "op": "partners",
+      "a": "binoculars"
+    },
+    "ok": true,
+    "consequence": null,
+    "error": null,
+    "partners": [
+      "map"
+    ],
+    "objectives": []
+  },
+  {
+    "index": 52,
+    "command": {
+      "op": "combine",
+      "a": "binoculars",
+      "b": "map"
+    },
+    "ok": true,
+    "consequence": {
+      "created": "survey-map",
+      "targetContext": "overlook",
+      "retired": []
+    },
+    "error": null,
+    "partners": null,
+    "objectives": [
+      {
+        "id": "repair",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "contact",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "water",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "growth",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "patch",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "mobility",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "survey",
+        "current": false,
+        "achieved": false
+      }
+    ]
+  },
+  {
+    "index": 53,
+    "command": {
+      "op": "place",
+      "a": "survey-map",
+      "place": "navigation-table"
+    },
+    "ok": true,
+    "consequence": {
+      "placed": "survey-map",
+      "at": "navigation-table",
+      "displaced": []
+    },
+    "error": null,
+    "partners": null,
+    "objectives": [
+      {
+        "id": "repair",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "contact",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "water",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "growth",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "patch",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "mobility",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "survey",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "field-water",
+        "current": false,
+        "achieved": false
+      }
+    ]
+  },
+  {
+    "index": 54,
+    "command": {
+      "op": "partners",
+      "a": "hand-pump"
+    },
+    "ok": true,
+    "consequence": null,
+    "error": null,
+    "partners": [
+      "water-canister",
+      "water-filter"
+    ],
+    "objectives": []
+  },
+  {
+    "index": 55,
+    "command": {
+      "op": "combine",
+      "a": "water-filter",
+      "b": "hand-pump"
+    },
+    "ok": true,
+    "consequence": {
+      "created": "filter-pump",
+      "targetContext": null,
+      "retired": []
+    },
+    "error": null,
+    "partners": null,
+    "objectives": [
+      {
+        "id": "repair",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "contact",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "water",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "growth",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "patch",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "mobility",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "survey",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "field-water",
+        "current": false,
+        "achieved": false
+      }
+    ]
+  },
+  {
+    "index": 56,
+    "command": {
+      "op": "place",
+      "a": "filter-pump",
+      "place": "field-water"
+    },
+    "ok": true,
+    "consequence": {
+      "placed": "filter-pump",
+      "at": "field-water",
+      "displaced": []
+    },
+    "error": null,
+    "partners": null,
+    "objectives": [
+      {
+        "id": "repair",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "contact",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "water",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "growth",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "patch",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "mobility",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "survey",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "field-water",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "lifting",
+        "current": false,
+        "achieved": false
+      }
+    ]
+  },
+  {
+    "index": 57,
+    "command": {
+      "op": "partners",
+      "a": "winch"
+    },
+    "ok": true,
+    "consequence": null,
+    "error": null,
+    "partners": [
+      "rope"
+    ],
+    "objectives": []
+  },
+  {
+    "index": 58,
+    "command": {
+      "op": "combine",
+      "a": "rope",
+      "b": "winch"
+    },
+    "ok": true,
+    "consequence": {
+      "created": "hoist",
+      "targetContext": null,
+      "retired": []
+    },
+    "error": null,
+    "partners": null,
+    "objectives": [
+      {
+        "id": "repair",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "contact",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "water",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "growth",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "patch",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "mobility",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "survey",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "field-water",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "lifting",
+        "current": false,
+        "achieved": false
+      }
+    ]
+  },
+  {
+    "index": 59,
+    "command": {
+      "op": "place",
+      "a": "hoist",
+      "place": "loading-bay"
+    },
+    "ok": true,
+    "consequence": {
+      "placed": "hoist",
+      "at": "loading-bay",
+      "displaced": []
+    },
+    "error": null,
+    "partners": null,
+    "objectives": [
+      {
+        "id": "repair",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "contact",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "water",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "growth",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "patch",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "mobility",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "survey",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "field-water",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "lifting",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "work",
+        "current": false,
+        "achieved": false
+      }
+    ]
+  },
+  {
+    "index": 60,
+    "command": {
+      "op": "partners",
+      "a": "workbench"
+    },
+    "ok": true,
+    "consequence": null,
+    "error": null,
+    "partners": [],
+    "objectives": []
+  },
+  {
+    "index": 61,
+    "command": {
+      "op": "combine",
+      "a": "battery",
+      "b": "lamp"
+    },
+    "ok": true,
+    "consequence": {
+      "created": "lantern",
+      "targetContext": null,
+      "retired": []
+    },
+    "error": null,
+    "partners": null,
+    "objectives": [
+      {
+        "id": "repair",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "contact",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "water",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "growth",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "patch",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "mobility",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "survey",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "field-water",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "lifting",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "work",
+        "current": false,
+        "achieved": false
+      }
+    ]
+  },
+  {
+    "index": 62,
+    "command": {
+      "op": "partners",
+      "a": "lantern"
+    },
+    "ok": true,
+    "consequence": null,
+    "error": null,
+    "partners": [
+      "workbench"
+    ],
+    "objectives": []
+  },
+  {
+    "index": 63,
+    "command": {
+      "op": "combine",
+      "a": "lantern",
+      "b": "workbench"
+    },
+    "ok": true,
+    "consequence": {
+      "created": "lit-workbench",
+      "targetContext": null,
+      "retired": []
+    },
+    "error": null,
+    "partners": null,
+    "objectives": [
+      {
+        "id": "repair",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "contact",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "water",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "growth",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "patch",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "mobility",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "survey",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "field-water",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "lifting",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "work",
+        "current": false,
+        "achieved": false
+      }
+    ]
+  },
+  {
+    "index": 64,
+    "command": {
+      "op": "place",
+      "a": "lit-workbench",
+      "place": "workshop"
+    },
+    "ok": true,
+    "consequence": {
+      "placed": "lit-workbench",
+      "at": "workshop",
+      "displaced": []
+    },
+    "error": null,
+    "partners": null,
+    "objectives": [
+      {
+        "id": "repair",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "contact",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "water",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "growth",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "patch",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "mobility",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "survey",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "field-water",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "lifting",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "work",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "garden",
+        "current": false,
+        "achieved": false
+      }
+    ]
+  },
+  {
+    "index": 65,
+    "command": {
+      "op": "partners",
+      "a": "greenhouse-frame"
+    },
+    "ok": true,
+    "consequence": null,
+    "error": null,
+    "partners": [
+      "propagator"
+    ],
+    "objectives": []
+  },
+  {
+    "index": 66,
+    "command": {
+      "op": "combine",
+      "a": "propagator",
+      "b": "greenhouse-frame"
+    },
+    "ok": true,
+    "consequence": {
+      "created": "greenhouse",
+      "targetContext": null,
+      "retired": []
+    },
+    "error": null,
+    "partners": null,
+    "objectives": [
+      {
+        "id": "repair",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "contact",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "water",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "growth",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "patch",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "mobility",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "survey",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "field-water",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "lifting",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "work",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "garden",
+        "current": false,
+        "achieved": false
+      }
+    ]
+  },
+  {
+    "index": 67,
+    "command": {
+      "op": "place",
+      "a": "greenhouse",
+      "place": "growing-court"
+    },
+    "ok": true,
+    "consequence": {
+      "placed": "greenhouse",
+      "at": "growing-court",
+      "displaced": []
+    },
+    "error": null,
+    "partners": null,
+    "objectives": [
+      {
+        "id": "repair",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "contact",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "water",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "growth",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "patch",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "mobility",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "survey",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "field-water",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "lifting",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "work",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "garden",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "irrigation",
+        "current": false,
+        "achieved": false
+      }
+    ]
+  },
+  {
+    "index": 68,
+    "command": {
+      "op": "combine",
+      "a": "hand-pump",
+      "b": "water-canister"
+    },
+    "ok": true,
+    "consequence": {
+      "created": "garden-sprayer",
+      "targetContext": "water-point",
+      "retired": []
+    },
+    "error": null,
+    "partners": null,
+    "objectives": [
+      {
+        "id": "repair",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "contact",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "water",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "growth",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "patch",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "mobility",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "survey",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "field-water",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "lifting",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "work",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "garden",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "irrigation",
+        "current": false,
+        "achieved": false
+      }
+    ]
+  },
+  {
+    "index": 69,
+    "command": {
+      "op": "place",
+      "a": "garden-sprayer",
+      "place": "irrigation-point"
+    },
+    "ok": true,
+    "consequence": {
+      "placed": "garden-sprayer",
+      "at": "irrigation-point",
+      "displaced": []
+    },
+    "error": null,
+    "partners": null,
+    "objectives": [
+      {
+        "id": "repair",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "contact",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "water",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "growth",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "patch",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "mobility",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "survey",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "field-water",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "lifting",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "work",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "garden",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "irrigation",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "harvest",
+        "current": false,
+        "achieved": false
+      }
+    ]
+  },
+  {
+    "index": 70,
+    "command": {
+      "op": "partners",
+      "a": "greenhouse"
+    },
+    "ok": true,
+    "consequence": null,
+    "error": null,
+    "partners": [],
+    "objectives": []
+  },
+  {
+    "index": 71,
+    "command": {
+      "op": "partners",
+      "a": "potatoes"
+    },
+    "ok": true,
+    "consequence": null,
+    "error": null,
+    "partners": [],
+    "objectives": []
+  },
+  {
+    "index": 72,
+    "command": {
+      "op": "partners",
+      "a": "soil"
+    },
+    "ok": true,
+    "consequence": null,
+    "error": null,
+    "partners": [
+      "compost"
+    ],
+    "objectives": []
+  },
+  {
+    "index": 73,
+    "command": {
+      "op": "combine",
+      "a": "compost",
+      "b": "soil"
+    },
+    "ok": true,
+    "consequence": {
+      "created": "potting-mix",
+      "targetContext": null,
+      "retired": []
+    },
+    "error": null,
+    "partners": null,
+    "objectives": [
+      {
+        "id": "repair",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "contact",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "water",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "growth",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "patch",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "mobility",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "survey",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "field-water",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "lifting",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "work",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "garden",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "irrigation",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "harvest",
+        "current": false,
+        "achieved": false
+      }
+    ]
+  },
+  {
+    "index": 74,
+    "command": {
+      "op": "partners",
+      "a": "potting-mix"
+    },
+    "ok": true,
+    "consequence": null,
+    "error": null,
+    "partners": [
+      "empty-planter"
+    ],
+    "objectives": []
+  },
+  {
+    "index": 75,
+    "command": {
+      "op": "combine",
+      "a": "potting-mix",
+      "b": "empty-planter"
+    },
+    "ok": true,
+    "consequence": {
+      "created": "filled-planter",
+      "targetContext": null,
+      "retired": []
+    },
+    "error": null,
+    "partners": null,
+    "objectives": [
+      {
+        "id": "repair",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "contact",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "water",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "growth",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "patch",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "mobility",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "survey",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "field-water",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "lifting",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "work",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "garden",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "irrigation",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "harvest",
+        "current": false,
+        "achieved": false
+      }
+    ]
+  },
+  {
+    "index": 76,
+    "command": {
+      "op": "combine",
+      "a": "potatoes",
+      "b": "filled-planter"
+    },
+    "ok": true,
+    "consequence": {
+      "created": "potato-planter",
+      "targetContext": null,
+      "retired": []
+    },
+    "error": null,
+    "partners": null,
+    "objectives": [
+      {
+        "id": "repair",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "contact",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "water",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "growth",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "patch",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "mobility",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "survey",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "field-water",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "lifting",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "work",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "garden",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "irrigation",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "harvest",
+        "current": false,
+        "achieved": false
+      }
+    ]
+  },
+  {
+    "index": 77,
+    "command": {
+      "op": "partners",
+      "a": "potato-planter"
+    },
+    "ok": true,
+    "consequence": null,
+    "error": null,
+    "partners": [],
+    "objectives": []
+  },
+  {
+    "index": 78,
+    "command": {
+      "op": "place",
+      "a": "potato-planter",
+      "place": "growing-court"
+    },
+    "ok": true,
+    "consequence": {
+      "placed": "potato-planter",
+      "at": "growing-court",
+      "displaced": [
+        "greenhouse"
+      ]
+    },
+    "error": null,
+    "partners": null,
+    "objectives": [
+      {
+        "id": "repair",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "contact",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "water",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "growth",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "patch",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "mobility",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "survey",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "field-water",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "lifting",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "work",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "garden",
+        "current": false,
+        "achieved": true
+      },
+      {
+        "id": "irrigation",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "harvest",
+        "current": false,
+        "achieved": false
+      }
+    ]
+  },
+  {
+    "index": 79,
+    "command": {
+      "op": "partners",
+      "a": "garden-sprayer"
+    },
+    "ok": true,
+    "consequence": null,
+    "error": null,
+    "partners": [],
+    "objectives": []
+  },
+  {
+    "index": 80,
+    "command": {
+      "op": "partners",
+      "a": "potato-planter"
+    },
+    "ok": true,
+    "consequence": null,
+    "error": null,
+    "partners": [],
+    "objectives": []
+  },
+  {
+    "index": 81,
+    "command": {
+      "op": "partners",
+      "a": "water-canister"
+    },
+    "ok": true,
+    "consequence": null,
+    "error": null,
+    "partners": [
+      "seed-tray"
+    ],
+    "objectives": []
+  },
+  {
+    "index": 82,
+    "command": {
+      "op": "place",
+      "a": "greenhouse",
+      "place": "growing-court"
+    },
+    "ok": true,
+    "consequence": {
+      "placed": "greenhouse",
+      "at": "growing-court",
+      "displaced": [
+        "potato-planter"
+      ]
+    },
+    "error": null,
+    "partners": null,
+    "objectives": [
+      {
+        "id": "repair",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "contact",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "water",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "growth",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "patch",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "mobility",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "survey",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "field-water",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "lifting",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "work",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "garden",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "irrigation",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "harvest",
+        "current": false,
+        "achieved": false
+      }
+    ]
+  },
+  {
+    "index": 83,
+    "command": {
+      "op": "partners",
+      "a": "potato-planter"
+    },
+    "ok": true,
+    "consequence": null,
+    "error": null,
+    "partners": [],
+    "objectives": []
+  },
+  {
+    "index": 84,
+    "command": {
+      "op": "place",
+      "a": "potato-planter",
+      "place": "warm-habitat"
+    },
+    "ok": true,
+    "consequence": {
+      "placed": "potato-planter",
+      "at": "warm-habitat",
+      "displaced": [
+        "propagator"
+      ]
+    },
+    "error": null,
+    "partners": null,
+    "objectives": [
+      {
+        "id": "repair",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "contact",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "water",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "growth",
+        "current": false,
+        "achieved": true
+      },
+      {
+        "id": "patch",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "mobility",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "survey",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "field-water",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "lifting",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "work",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "garden",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "irrigation",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "harvest",
+        "current": false,
+        "achieved": false
+      }
+    ]
+  },
+  {
+    "index": 85,
+    "command": {
+      "op": "partners",
+      "a": "potato-planter"
+    },
+    "ok": true,
+    "consequence": null,
+    "error": null,
+    "partners": [],
+    "objectives": []
+  },
+  {
+    "index": 86,
+    "command": {
+      "op": "partners",
+      "a": "water-canister"
+    },
+    "ok": true,
+    "consequence": null,
+    "error": null,
+    "partners": [
+      "potato-planter",
+      "seed-tray"
+    ],
+    "objectives": []
+  },
+  {
+    "index": 87,
+    "command": {
+      "op": "combine",
+      "a": "water-canister",
+      "b": "potato-planter"
+    },
+    "ok": true,
+    "consequence": {
+      "created": "growing-potato-planter",
+      "targetContext": "warm-habitat",
+      "retired": []
+    },
+    "error": null,
+    "partners": null,
+    "objectives": [
+      {
+        "id": "repair",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "contact",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "water",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "growth",
+        "current": false,
+        "achieved": true
+      },
+      {
+        "id": "patch",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "mobility",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "survey",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "field-water",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "lifting",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "work",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "garden",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "irrigation",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "harvest",
+        "current": false,
+        "achieved": false
+      }
+    ]
+  },
+  {
+    "index": 88,
+    "command": {
+      "op": "partners",
+      "a": "growing-potato-planter"
+    },
+    "ok": true,
+    "consequence": null,
+    "error": null,
+    "partners": [
+      "greenhouse"
+    ],
+    "objectives": []
+  },
+  {
+    "index": 89,
+    "command": {
+      "op": "combine",
+      "a": "growing-potato-planter",
+      "b": "greenhouse"
+    },
+    "ok": true,
+    "consequence": {
+      "created": "potato-harvest",
+      "targetContext": "growing-court",
+      "retired": []
+    },
+    "error": null,
+    "partners": null,
+    "objectives": [
+      {
+        "id": "repair",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "contact",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "water",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "growth",
+        "current": false,
+        "achieved": true
+      },
+      {
+        "id": "patch",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "mobility",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "survey",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "field-water",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "lifting",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "work",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "garden",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "irrigation",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "harvest",
+        "current": false,
+        "achieved": false
+      }
+    ]
+  },
+  {
+    "index": 90,
+    "command": {
+      "op": "place",
+      "a": "potato-harvest",
+      "place": "pantry"
+    },
+    "ok": true,
+    "consequence": {
+      "placed": "potato-harvest",
+      "at": "pantry",
+      "displaced": []
+    },
+    "error": null,
+    "partners": null,
+    "objectives": [
+      {
+        "id": "repair",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "contact",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "water",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "growth",
+        "current": false,
+        "achieved": true
+      },
+      {
+        "id": "patch",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "mobility",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "survey",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "field-water",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "lifting",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "work",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "garden",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "irrigation",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "harvest",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "meal",
+        "current": false,
+        "achieved": false
+      }
+    ]
+  },
+  {
+    "index": 91,
+    "command": {
+      "op": "partners",
+      "a": "potato-harvest"
+    },
+    "ok": true,
+    "consequence": null,
+    "error": null,
+    "partners": [],
+    "objectives": []
+  },
+  {
+    "index": 92,
+    "command": {
+      "op": "place",
+      "a": "potato-harvest",
+      "place": "galley"
+    },
+    "ok": true,
+    "consequence": {
+      "placed": "potato-harvest",
+      "at": "galley",
+      "displaced": []
+    },
+    "error": null,
+    "partners": null,
+    "objectives": [
+      {
+        "id": "repair",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "contact",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "water",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "growth",
+        "current": false,
+        "achieved": true
+      },
+      {
+        "id": "patch",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "mobility",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "survey",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "field-water",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "lifting",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "work",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "garden",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "irrigation",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "harvest",
+        "current": false,
+        "achieved": true
+      },
+      {
+        "id": "meal",
+        "current": false,
+        "achieved": false
+      }
+    ]
+  },
+  {
+    "index": 93,
+    "command": {
+      "op": "partners",
+      "a": "water-canister"
+    },
+    "ok": true,
+    "consequence": null,
+    "error": null,
+    "partners": [
+      "potato-harvest",
+      "seed-tray"
+    ],
+    "objectives": []
+  },
+  {
+    "index": 94,
+    "command": {
+      "op": "combine",
+      "a": "water-canister",
+      "b": "potato-harvest"
+    },
+    "ok": true,
+    "consequence": {
+      "created": "potato-soup",
+      "targetContext": "galley",
+      "retired": []
+    },
+    "error": null,
+    "partners": null,
+    "objectives": [
+      {
+        "id": "repair",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "contact",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "water",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "growth",
+        "current": false,
+        "achieved": true
+      },
+      {
+        "id": "patch",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "mobility",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "survey",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "field-water",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "lifting",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "work",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "garden",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "irrigation",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "harvest",
+        "current": false,
+        "achieved": true
+      },
+      {
+        "id": "meal",
+        "current": false,
+        "achieved": false
+      }
+    ]
+  },
+  {
+    "index": 95,
+    "command": {
+      "op": "place",
+      "a": "potato-soup",
+      "place": "galley"
+    },
+    "ok": true,
+    "consequence": {
+      "placed": "potato-soup",
+      "at": "galley",
+      "displaced": [
+        "potato-harvest"
+      ]
+    },
+    "error": null,
+    "partners": null,
+    "objectives": [
+      {
+        "id": "repair",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "contact",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "water",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "growth",
+        "current": false,
+        "achieved": true
+      },
+      {
+        "id": "patch",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "mobility",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "survey",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "field-water",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "lifting",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "work",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "garden",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "irrigation",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "harvest",
+        "current": false,
+        "achieved": true
+      },
+      {
+        "id": "meal",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "relay",
+        "current": false,
+        "achieved": false
+      }
+    ]
+  },
+  {
+    "index": 96,
+    "command": {
+      "op": "partners",
+      "a": "solar-radio"
+    },
+    "ok": true,
+    "consequence": null,
+    "error": null,
+    "partners": [
+      "dish"
+    ],
+    "objectives": []
+  },
+  {
+    "index": 97,
+    "command": {
+      "op": "combine",
+      "a": "solar-radio",
+      "b": "dish"
+    },
+    "ok": true,
+    "consequence": {
+      "created": "long-range-radio",
+      "targetContext": null,
+      "retired": []
+    },
+    "error": null,
+    "partners": null,
+    "objectives": [
+      {
+        "id": "repair",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "contact",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "water",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "growth",
+        "current": false,
+        "achieved": true
+      },
+      {
+        "id": "patch",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "mobility",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "survey",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "field-water",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "lifting",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "work",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "garden",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "irrigation",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "harvest",
+        "current": false,
+        "achieved": true
+      },
+      {
+        "id": "meal",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "relay",
+        "current": false,
+        "achieved": false
+      }
+    ]
+  },
+  {
+    "index": 98,
+    "command": {
+      "op": "place",
+      "a": "long-range-radio",
+      "place": "relay-ridge"
+    },
+    "ok": true,
+    "consequence": {
+      "placed": "long-range-radio",
+      "at": "relay-ridge",
+      "displaced": []
+    },
+    "error": null,
+    "partners": null,
+    "objectives": [
+      {
+        "id": "repair",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "contact",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "water",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "growth",
+        "current": false,
+        "achieved": true
+      },
+      {
+        "id": "patch",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "mobility",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "survey",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "field-water",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "lifting",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "work",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "garden",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "irrigation",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "harvest",
+        "current": false,
+        "achieved": true
+      },
+      {
+        "id": "meal",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "relay",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "ice-haul",
+        "current": false,
+        "achieved": false
+      }
+    ]
+  },
+  {
+    "index": 99,
+    "command": {
+      "op": "partners",
+      "a": "skis"
+    },
+    "ok": true,
+    "consequence": null,
+    "error": null,
+    "partners": [
+      "frame"
+    ],
+    "objectives": []
+  },
+  {
+    "index": 100,
+    "command": {
+      "op": "combine",
+      "a": "skis",
+      "b": "frame"
+    },
+    "ok": true,
+    "consequence": {
+      "created": "sled",
+      "targetContext": null,
+      "retired": []
+    },
+    "error": null,
+    "partners": null,
+    "objectives": [
+      {
+        "id": "repair",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "contact",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "water",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "growth",
+        "current": false,
+        "achieved": true
+      },
+      {
+        "id": "patch",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "mobility",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "survey",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "field-water",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "lifting",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "work",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "garden",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "irrigation",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "harvest",
+        "current": false,
+        "achieved": true
+      },
+      {
+        "id": "meal",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "relay",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "ice-haul",
+        "current": false,
+        "achieved": false
+      }
+    ]
+  },
+  {
+    "index": 101,
+    "command": {
+      "op": "place",
+      "a": "sled",
+      "place": "ice-route"
+    },
+    "ok": true,
+    "consequence": {
+      "placed": "sled",
+      "at": "ice-route",
+      "displaced": []
+    },
+    "error": null,
+    "partners": null,
+    "objectives": [
+      {
+        "id": "repair",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "contact",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "water",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "growth",
+        "current": false,
+        "achieved": true
+      },
+      {
+        "id": "patch",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "mobility",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "survey",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "field-water",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "lifting",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "work",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "garden",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "irrigation",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "harvest",
+        "current": false,
+        "achieved": true
+      },
+      {
+        "id": "meal",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "relay",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "ice-haul",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "camp-shelter",
+        "current": false,
+        "achieved": false
+      }
+    ]
+  },
+  {
+    "index": 102,
+    "command": {
+      "op": "combine",
+      "a": "habitat-fabric",
+      "b": "frame"
+    },
+    "ok": true,
+    "consequence": {
+      "created": "shelter-tent",
+      "targetContext": null,
+      "retired": []
+    },
+    "error": null,
+    "partners": null,
+    "objectives": [
+      {
+        "id": "repair",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "contact",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "water",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "growth",
+        "current": false,
+        "achieved": true
+      },
+      {
+        "id": "patch",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "mobility",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "survey",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "field-water",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "lifting",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "work",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "garden",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "irrigation",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "harvest",
+        "current": false,
+        "achieved": true
+      },
+      {
+        "id": "meal",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "relay",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "ice-haul",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "camp-shelter",
+        "current": false,
+        "achieved": false
+      }
+    ]
+  },
+  {
+    "index": 103,
+    "command": {
+      "op": "partners",
+      "a": "shelter-tent"
+    },
+    "ok": true,
+    "consequence": null,
+    "error": null,
+    "partners": [
+      "insulation"
+    ],
+    "objectives": []
+  },
+  {
+    "index": 104,
+    "command": {
+      "op": "combine",
+      "a": "insulation",
+      "b": "shelter-tent"
+    },
+    "ok": true,
+    "consequence": {
+      "created": "insulated-tent",
+      "targetContext": null,
+      "retired": []
+    },
+    "error": null,
+    "partners": null,
+    "objectives": [
+      {
+        "id": "repair",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "contact",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "water",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "growth",
+        "current": false,
+        "achieved": true
+      },
+      {
+        "id": "patch",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "mobility",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "survey",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "field-water",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "lifting",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "work",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "garden",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "irrigation",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "harvest",
+        "current": false,
+        "achieved": true
+      },
+      {
+        "id": "meal",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "relay",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "ice-haul",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "camp-shelter",
+        "current": false,
+        "achieved": false
+      }
+    ]
+  },
+  {
+    "index": 105,
+    "command": {
+      "op": "place",
+      "a": "insulated-tent",
+      "place": "cold-camp"
+    },
+    "ok": true,
+    "consequence": {
+      "placed": "insulated-tent",
+      "at": "cold-camp",
+      "displaced": []
+    },
+    "error": null,
+    "partners": null,
+    "objectives": [
+      {
+        "id": "repair",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "contact",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "water",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "growth",
+        "current": false,
+        "achieved": true
+      },
+      {
+        "id": "patch",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "mobility",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "survey",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "field-water",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "lifting",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "work",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "garden",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "irrigation",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "harvest",
+        "current": false,
+        "achieved": true
+      },
+      {
+        "id": "meal",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "relay",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "ice-haul",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "camp-shelter",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "rest",
+        "current": false,
+        "achieved": false
+      }
+    ]
+  },
+  {
+    "index": 106,
+    "command": {
+      "op": "place",
+      "a": "blanket",
+      "place": "rest-berth"
+    },
+    "ok": true,
+    "consequence": {
+      "placed": "blanket",
+      "at": "rest-berth",
+      "displaced": []
+    },
+    "error": null,
+    "partners": null,
+    "objectives": [
+      {
+        "id": "repair",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "contact",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "water",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "growth",
+        "current": false,
+        "achieved": true
+      },
+      {
+        "id": "patch",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "mobility",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "survey",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "field-water",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "lifting",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "work",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "garden",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "irrigation",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "harvest",
+        "current": false,
+        "achieved": true
+      },
+      {
+        "id": "meal",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "relay",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "ice-haul",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "camp-shelter",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "rest",
+        "current": false,
+        "achieved": false
+      }
+    ]
+  },
+  {
+    "index": 107,
+    "command": {
+      "op": "partners",
+      "a": "blanket"
+    },
+    "ok": true,
+    "consequence": null,
+    "error": null,
+    "partners": [
+      "foil"
+    ],
+    "objectives": []
+  },
+  {
+    "index": 108,
+    "command": {
+      "op": "combine",
+      "a": "foil",
+      "b": "blanket"
+    },
+    "ok": true,
+    "consequence": {
+      "created": "thermal-blanket",
+      "targetContext": "rest-berth",
+      "retired": []
+    },
+    "error": null,
+    "partners": null,
+    "objectives": [
+      {
+        "id": "repair",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "contact",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "water",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "growth",
+        "current": false,
+        "achieved": true
+      },
+      {
+        "id": "patch",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "mobility",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "survey",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "field-water",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "lifting",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "work",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "garden",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "irrigation",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "harvest",
+        "current": false,
+        "achieved": true
+      },
+      {
+        "id": "meal",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "relay",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "ice-haul",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "camp-shelter",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "rest",
+        "current": false,
+        "achieved": false
+      }
+    ]
+  },
+  {
+    "index": 109,
+    "command": {
+      "op": "place",
+      "a": "thermal-blanket",
+      "place": "rest-berth"
+    },
+    "ok": true,
+    "consequence": {
+      "placed": "thermal-blanket",
+      "at": "rest-berth",
+      "displaced": [
+        "blanket"
+      ]
+    },
+    "error": null,
+    "partners": null,
+    "objectives": [
+      {
+        "id": "repair",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "contact",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "water",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "growth",
+        "current": false,
+        "achieved": true
+      },
+      {
+        "id": "patch",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "mobility",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "survey",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "field-water",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "lifting",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "work",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "garden",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "irrigation",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "harvest",
+        "current": false,
+        "achieved": true
+      },
+      {
+        "id": "meal",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "relay",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "ice-haul",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "camp-shelter",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "rest",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "clean-air",
+        "current": false,
+        "achieved": false
+      }
+    ]
+  },
+  {
+    "index": 110,
+    "command": {
+      "op": "partners",
+      "a": "air-filter"
+    },
+    "ok": true,
+    "consequence": null,
+    "error": null,
+    "partners": [
+      "fan"
+    ],
+    "objectives": []
+  },
+  {
+    "index": 111,
+    "command": {
+      "op": "combine",
+      "a": "fan",
+      "b": "air-filter"
+    },
+    "ok": true,
+    "consequence": {
+      "created": "air-cleaner",
+      "targetContext": null,
+      "retired": []
+    },
+    "error": null,
+    "partners": null,
+    "objectives": [
+      {
+        "id": "repair",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "contact",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "water",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "growth",
+        "current": false,
+        "achieved": true
+      },
+      {
+        "id": "patch",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "mobility",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "survey",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "field-water",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "lifting",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "work",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "garden",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "irrigation",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "harvest",
+        "current": false,
+        "achieved": true
+      },
+      {
+        "id": "meal",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "relay",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "ice-haul",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "camp-shelter",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "rest",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "clean-air",
+        "current": false,
+        "achieved": false
+      }
+    ]
+  },
+  {
+    "index": 112,
+    "command": {
+      "op": "place",
+      "a": "air-cleaner",
+      "place": "dusty-workroom"
+    },
+    "ok": true,
+    "consequence": {
+      "placed": "air-cleaner",
+      "at": "dusty-workroom",
+      "displaced": []
+    },
+    "error": null,
+    "partners": null,
+    "objectives": [
+      {
+        "id": "repair",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "contact",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "water",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "growth",
+        "current": false,
+        "achieved": true
+      },
+      {
+        "id": "patch",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "mobility",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "survey",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "field-water",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "lifting",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "work",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "garden",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "irrigation",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "harvest",
+        "current": false,
+        "achieved": true
+      },
+      {
+        "id": "meal",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "relay",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "ice-haul",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "camp-shelter",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "rest",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "clean-air",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "ventilation",
+        "current": false,
+        "achieved": false
+      }
+    ]
+  },
+  {
+    "index": 113,
+    "command": {
+      "op": "combine",
+      "a": "fan",
+      "b": "duct"
+    },
+    "ok": true,
+    "consequence": {
+      "created": "ventilator",
+      "targetContext": null,
+      "retired": []
+    },
+    "error": null,
+    "partners": null,
+    "objectives": [
+      {
+        "id": "repair",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "contact",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "water",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "growth",
+        "current": false,
+        "achieved": true
+      },
+      {
+        "id": "patch",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "mobility",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "survey",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "field-water",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "lifting",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "work",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "garden",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "irrigation",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "harvest",
+        "current": false,
+        "achieved": true
+      },
+      {
+        "id": "meal",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "relay",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "ice-haul",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "camp-shelter",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "rest",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "clean-air",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "ventilation",
+        "current": false,
+        "achieved": false
+      }
+    ]
+  },
+  {
+    "index": 114,
+    "command": {
+      "op": "place",
+      "a": "ventilator",
+      "place": "air-exchange"
+    },
+    "ok": true,
+    "consequence": {
+      "placed": "ventilator",
+      "at": "air-exchange",
+      "displaced": []
+    },
+    "error": null,
+    "partners": null,
+    "objectives": [
+      {
+        "id": "repair",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "contact",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "water",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "growth",
+        "current": false,
+        "achieved": true
+      },
+      {
+        "id": "patch",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "mobility",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "survey",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "field-water",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "lifting",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "work",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "garden",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "irrigation",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "harvest",
+        "current": false,
+        "achieved": true
+      },
+      {
+        "id": "meal",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "relay",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "ice-haul",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "camp-shelter",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "rest",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "clean-air",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "ventilation",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "contained-imaging",
+        "current": false,
+        "achieved": false
+      }
+    ]
+  },
+  {
+    "index": 115,
+    "command": {
+      "op": "partners",
+      "a": "sealed-box"
+    },
+    "ok": true,
+    "consequence": null,
+    "error": null,
+    "partners": [
+      "gloves"
+    ],
+    "objectives": []
+  },
+  {
+    "index": 116,
+    "command": {
+      "op": "combine",
+      "a": "gloves",
+      "b": "sealed-box"
+    },
+    "ok": true,
+    "consequence": {
+      "created": "glovebox",
+      "targetContext": null,
+      "retired": []
+    },
+    "error": null,
+    "partners": null,
+    "objectives": [
+      {
+        "id": "repair",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "contact",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "water",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "growth",
+        "current": false,
+        "achieved": true
+      },
+      {
+        "id": "patch",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "mobility",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "survey",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "field-water",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "lifting",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "work",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "garden",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "irrigation",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "harvest",
+        "current": false,
+        "achieved": true
+      },
+      {
+        "id": "meal",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "relay",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "ice-haul",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "camp-shelter",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "rest",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "clean-air",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "ventilation",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "contained-imaging",
+        "current": false,
+        "achieved": false
+      }
+    ]
+  },
+  {
+    "index": 117,
+    "command": {
+      "op": "partners",
+      "a": "glovebox"
+    },
+    "ok": true,
+    "consequence": null,
+    "error": null,
+    "partners": [
+      "lamp"
+    ],
+    "objectives": []
+  },
+  {
+    "index": 118,
+    "command": {
+      "op": "combine",
+      "a": "lamp",
+      "b": "glovebox"
+    },
+    "ok": true,
+    "consequence": {
+      "created": "illuminated-glovebox",
+      "targetContext": null,
+      "retired": []
+    },
+    "error": null,
+    "partners": null,
+    "objectives": [
+      {
+        "id": "repair",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "contact",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "water",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "growth",
+        "current": false,
+        "achieved": true
+      },
+      {
+        "id": "patch",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "mobility",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "survey",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "field-water",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "lifting",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "work",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "garden",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "irrigation",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "harvest",
+        "current": false,
+        "achieved": true
+      },
+      {
+        "id": "meal",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "relay",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "ice-haul",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "camp-shelter",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "rest",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "clean-air",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "ventilation",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "contained-imaging",
+        "current": false,
+        "achieved": false
+      }
+    ]
+  },
+  {
+    "index": 119,
+    "command": {
+      "op": "combine",
+      "a": "camera",
+      "b": "illuminated-glovebox"
+    },
+    "ok": true,
+    "consequence": {
+      "created": "imaging-glovebox",
+      "targetContext": null,
+      "retired": []
+    },
+    "error": null,
+    "partners": null,
+    "objectives": [
+      {
+        "id": "repair",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "contact",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "water",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "growth",
+        "current": false,
+        "achieved": true
+      },
+      {
+        "id": "patch",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "mobility",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "survey",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "field-water",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "lifting",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "work",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "garden",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "irrigation",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "harvest",
+        "current": false,
+        "achieved": true
+      },
+      {
+        "id": "meal",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "relay",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "ice-haul",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "camp-shelter",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "rest",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "clean-air",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "ventilation",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "contained-imaging",
+        "current": false,
+        "achieved": false
+      }
+    ]
+  },
+  {
+    "index": 120,
+    "command": {
+      "op": "place",
+      "a": "imaging-glovebox",
+      "place": "inspection-nook"
+    },
+    "ok": true,
+    "consequence": {
+      "placed": "imaging-glovebox",
+      "at": "inspection-nook",
+      "displaced": []
+    },
+    "error": null,
+    "partners": null,
+    "objectives": [
+      {
+        "id": "repair",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "contact",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "water",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "growth",
+        "current": false,
+        "achieved": true
+      },
+      {
+        "id": "patch",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "mobility",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "survey",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "field-water",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "lifting",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "work",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "garden",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "irrigation",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "harvest",
+        "current": false,
+        "achieved": true
+      },
+      {
+        "id": "meal",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "relay",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "ice-haul",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "camp-shelter",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "rest",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "clean-air",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "ventilation",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "contained-imaging",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "ice-image",
+        "current": false,
+        "achieved": false
+      }
+    ]
+  },
+  {
+    "index": 121,
+    "command": {
+      "op": "partners",
+      "a": "camera"
+    },
+    "ok": true,
+    "consequence": null,
+    "error": null,
+    "partners": [
+      "tripod"
+    ],
+    "objectives": []
+  },
+  {
+    "index": 122,
+    "command": {
+      "op": "partners",
+      "a": "scoop"
+    },
+    "ok": true,
+    "consequence": null,
+    "error": null,
+    "partners": [
+      "place:glacier"
+    ],
+    "objectives": []
+  },
+  {
+    "index": 123,
+    "command": {
+      "op": "combine",
+      "a": "scoop",
+      "b": "place:glacier"
+    },
+    "ok": true,
+    "consequence": {
+      "created": "ice-sample",
+      "targetContext": null,
+      "retired": []
+    },
+    "error": null,
+    "partners": null,
+    "objectives": [
+      {
+        "id": "repair",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "contact",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "water",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "growth",
+        "current": false,
+        "achieved": true
+      },
+      {
+        "id": "patch",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "mobility",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "survey",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "field-water",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "lifting",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "work",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "garden",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "irrigation",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "harvest",
+        "current": false,
+        "achieved": true
+      },
+      {
+        "id": "meal",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "relay",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "ice-haul",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "camp-shelter",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "rest",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "clean-air",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "ventilation",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "contained-imaging",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "ice-image",
+        "current": false,
+        "achieved": false
+      }
+    ]
+  },
+  {
+    "index": 124,
+    "command": {
+      "op": "partners",
+      "a": "ice-sample"
+    },
+    "ok": true,
+    "consequence": null,
+    "error": null,
+    "partners": [
+      "imaging-glovebox",
+      "sample-jar"
+    ],
+    "objectives": []
+  },
+  {
+    "index": 125,
+    "command": {
+      "op": "combine",
+      "a": "ice-sample",
+      "b": "imaging-glovebox"
+    },
+    "ok": true,
+    "consequence": {
+      "created": "ice-photograph",
+      "targetContext": "inspection-nook",
+      "retired": []
+    },
+    "error": null,
+    "partners": null,
+    "objectives": [
+      {
+        "id": "repair",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "contact",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "water",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "growth",
+        "current": false,
+        "achieved": true
+      },
+      {
+        "id": "patch",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "mobility",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "survey",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "field-water",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "lifting",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "work",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "garden",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "irrigation",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "harvest",
+        "current": false,
+        "achieved": true
+      },
+      {
+        "id": "meal",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "relay",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "ice-haul",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "camp-shelter",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "rest",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "clean-air",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "ventilation",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "contained-imaging",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "ice-image",
+        "current": false,
+        "achieved": false
+      }
+    ]
+  },
+  {
+    "index": 126,
+    "command": {
+      "op": "place",
+      "a": "ice-photograph",
+      "place": "image-archive"
+    },
+    "ok": true,
+    "consequence": {
+      "placed": "ice-photograph",
+      "at": "image-archive",
+      "displaced": []
+    },
+    "error": null,
+    "partners": null,
+    "objectives": [
+      {
+        "id": "repair",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "contact",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "water",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "growth",
+        "current": false,
+        "achieved": true
+      },
+      {
+        "id": "patch",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "mobility",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "survey",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "field-water",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "lifting",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "work",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "garden",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "irrigation",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "harvest",
+        "current": false,
+        "achieved": true
+      },
+      {
+        "id": "meal",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "relay",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "ice-haul",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "camp-shelter",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "rest",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "clean-air",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "ventilation",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "contained-imaging",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "ice-image",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "ice-specimen",
+        "current": false,
+        "achieved": false
+      }
+    ]
+  },
+  {
+    "index": 127,
+    "command": {
+      "op": "combine",
+      "a": "ice-sample",
+      "b": "sample-jar"
+    },
+    "ok": true,
+    "consequence": {
+      "created": "sealed-ice-sample",
+      "targetContext": null,
+      "retired": []
+    },
+    "error": null,
+    "partners": null,
+    "objectives": [
+      {
+        "id": "repair",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "contact",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "water",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "growth",
+        "current": false,
+        "achieved": true
+      },
+      {
+        "id": "patch",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "mobility",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "survey",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "field-water",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "lifting",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "work",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "garden",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "irrigation",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "harvest",
+        "current": false,
+        "achieved": true
+      },
+      {
+        "id": "meal",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "relay",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "ice-haul",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "camp-shelter",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "rest",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "clean-air",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "ventilation",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "contained-imaging",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "ice-image",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "ice-specimen",
+        "current": false,
+        "achieved": false
+      }
+    ]
+  },
+  {
+    "index": 128,
+    "command": {
+      "op": "place",
+      "a": "sealed-ice-sample",
+      "place": "sample-store"
+    },
+    "ok": true,
+    "consequence": {
+      "placed": "sealed-ice-sample",
+      "at": "sample-store",
+      "displaced": []
+    },
+    "error": null,
+    "partners": null,
+    "objectives": [
+      {
+        "id": "repair",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "contact",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "water",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "growth",
+        "current": false,
+        "achieved": true
+      },
+      {
+        "id": "patch",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "mobility",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "survey",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "field-water",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "lifting",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "work",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "garden",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "irrigation",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "harvest",
+        "current": false,
+        "achieved": true
+      },
+      {
+        "id": "meal",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "relay",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "ice-haul",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "camp-shelter",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "rest",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "clean-air",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "ventilation",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "contained-imaging",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "ice-image",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "ice-specimen",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "cliff-view",
+        "current": false,
+        "achieved": false
+      }
+    ]
+  },
+  {
+    "index": 129,
+    "command": {
+      "op": "combine",
+      "a": "camera",
+      "b": "tripod"
+    },
+    "ok": true,
+    "consequence": {
+      "created": "field-camera",
+      "targetContext": null,
+      "retired": []
+    },
+    "error": null,
+    "partners": null,
+    "objectives": [
+      {
+        "id": "repair",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "contact",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "water",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "growth",
+        "current": false,
+        "achieved": true
+      },
+      {
+        "id": "patch",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "mobility",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "survey",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "field-water",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "lifting",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "work",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "garden",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "irrigation",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "harvest",
+        "current": false,
+        "achieved": true
+      },
+      {
+        "id": "meal",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "relay",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "ice-haul",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "camp-shelter",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "rest",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "clean-air",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "ventilation",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "contained-imaging",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "ice-image",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "ice-specimen",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "cliff-view",
+        "current": false,
+        "achieved": false
+      }
+    ]
+  },
+  {
+    "index": 130,
+    "command": {
+      "op": "partners",
+      "a": "field-camera"
+    },
+    "ok": true,
+    "consequence": null,
+    "error": null,
+    "partners": [
+      "place:overlook"
+    ],
+    "objectives": []
+  },
+  {
+    "index": 131,
+    "command": {
+      "op": "partners",
+      "a": "lens"
+    },
+    "ok": true,
+    "consequence": null,
+    "error": null,
+    "partners": [
+      "lamp",
+      "tube"
+    ],
+    "objectives": []
+  },
+  {
+    "index": 132,
+    "command": {
+      "op": "combine",
+      "a": "lens",
+      "b": "tube"
+    },
+    "ok": true,
+    "consequence": {
+      "created": "telescope",
+      "targetContext": null,
+      "retired": []
+    },
+    "error": null,
+    "partners": null,
+    "objectives": [
+      {
+        "id": "repair",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "contact",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "water",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "growth",
+        "current": false,
+        "achieved": true
+      },
+      {
+        "id": "patch",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "mobility",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "survey",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "field-water",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "lifting",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "work",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "garden",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "irrigation",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "harvest",
+        "current": false,
+        "achieved": true
+      },
+      {
+        "id": "meal",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "relay",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "ice-haul",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "camp-shelter",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "rest",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "clean-air",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "ventilation",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "contained-imaging",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "ice-image",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "ice-specimen",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "cliff-view",
+        "current": false,
+        "achieved": false
+      }
+    ]
+  },
+  {
+    "index": 133,
+    "command": {
+      "op": "partners",
+      "a": "telescope"
+    },
+    "ok": true,
+    "consequence": null,
+    "error": null,
+    "partners": [
+      "tripod"
+    ],
+    "objectives": []
+  },
+  {
+    "index": 134,
+    "command": {
+      "op": "combine",
+      "a": "telescope",
+      "b": "tripod"
+    },
+    "ok": true,
+    "consequence": {
+      "created": "field-telescope",
+      "targetContext": null,
+      "retired": []
+    },
+    "error": null,
+    "partners": null,
+    "objectives": [
+      {
+        "id": "repair",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "contact",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "water",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "growth",
+        "current": false,
+        "achieved": true
+      },
+      {
+        "id": "patch",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "mobility",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "survey",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "field-water",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "lifting",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "work",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "garden",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "irrigation",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "harvest",
+        "current": false,
+        "achieved": true
+      },
+      {
+        "id": "meal",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "relay",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "ice-haul",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "camp-shelter",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "rest",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "clean-air",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "ventilation",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "contained-imaging",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "ice-image",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "ice-specimen",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "cliff-view",
+        "current": false,
+        "achieved": false
+      }
+    ]
+  },
+  {
+    "index": 135,
+    "command": {
+      "op": "partners",
+      "a": "field-telescope"
+    },
+    "ok": true,
+    "consequence": null,
+    "error": null,
+    "partners": [
+      "camera"
+    ],
+    "objectives": []
+  },
+  {
+    "index": 136,
+    "command": {
+      "op": "combine",
+      "a": "camera",
+      "b": "field-telescope"
+    },
+    "ok": true,
+    "consequence": {
+      "created": "telescope-camera",
+      "targetContext": null,
+      "retired": []
+    },
+    "error": null,
+    "partners": null,
+    "objectives": [
+      {
+        "id": "repair",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "contact",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "water",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "growth",
+        "current": false,
+        "achieved": true
+      },
+      {
+        "id": "patch",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "mobility",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "survey",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "field-water",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "lifting",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "work",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "garden",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "irrigation",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "harvest",
+        "current": false,
+        "achieved": true
+      },
+      {
+        "id": "meal",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "relay",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "ice-haul",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "camp-shelter",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "rest",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "clean-air",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "ventilation",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "contained-imaging",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "ice-image",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "ice-specimen",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "cliff-view",
+        "current": false,
+        "achieved": false
+      }
+    ]
+  },
+  {
+    "index": 137,
+    "command": {
+      "op": "partners",
+      "a": "telescope-camera"
+    },
+    "ok": true,
+    "consequence": null,
+    "error": null,
+    "partners": [
+      "place:distant-lookout"
+    ],
+    "objectives": []
+  },
+  {
+    "index": 138,
+    "command": {
+      "op": "combine",
+      "a": "telescope-camera",
+      "b": "place:distant-lookout"
+    },
+    "ok": true,
+    "consequence": {
+      "created": "cliff-photograph",
+      "targetContext": null,
+      "retired": []
+    },
+    "error": null,
+    "partners": null,
+    "objectives": [
+      {
+        "id": "repair",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "contact",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "water",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "growth",
+        "current": false,
+        "achieved": true
+      },
+      {
+        "id": "patch",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "mobility",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "survey",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "field-water",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "lifting",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "work",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "garden",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "irrigation",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "harvest",
+        "current": false,
+        "achieved": true
+      },
+      {
+        "id": "meal",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "relay",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "ice-haul",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "camp-shelter",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "rest",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "clean-air",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "ventilation",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "contained-imaging",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "ice-image",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "ice-specimen",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "cliff-view",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "field-chart",
+        "current": false,
+        "achieved": false
+      }
+    ]
+  },
+  {
+    "index": 139,
+    "command": {
+      "op": "partners",
+      "a": "cliff-photograph"
+    },
+    "ok": true,
+    "consequence": null,
+    "error": null,
+    "partners": [
+      "survey-map"
+    ],
+    "objectives": []
+  },
+  {
+    "index": 140,
+    "command": {
+      "op": "combine",
+      "a": "cliff-photograph",
+      "b": "survey-map"
+    },
+    "ok": true,
+    "consequence": {
+      "created": "annotated-survey-map",
+      "targetContext": "navigation-table",
+      "retired": []
+    },
+    "error": null,
+    "partners": null,
+    "objectives": [
+      {
+        "id": "repair",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "contact",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "water",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "growth",
+        "current": false,
+        "achieved": true
+      },
+      {
+        "id": "patch",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "mobility",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "survey",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "field-water",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "lifting",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "work",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "garden",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "irrigation",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "harvest",
+        "current": false,
+        "achieved": true
+      },
+      {
+        "id": "meal",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "relay",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "ice-haul",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "camp-shelter",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "rest",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "clean-air",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "ventilation",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "contained-imaging",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "ice-image",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "ice-specimen",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "cliff-view",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "field-chart",
+        "current": false,
+        "achieved": false
+      }
+    ]
+  },
+  {
+    "index": 141,
+    "command": {
+      "op": "place",
+      "a": "annotated-survey-map",
+      "place": "field-map-table"
+    },
+    "ok": true,
+    "consequence": {
+      "placed": "annotated-survey-map",
+      "at": "field-map-table",
+      "displaced": []
+    },
+    "error": null,
+    "partners": null,
+    "objectives": [
+      {
+        "id": "repair",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "contact",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "water",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "growth",
+        "current": false,
+        "achieved": true
+      },
+      {
+        "id": "patch",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "mobility",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "survey",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "field-water",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "lifting",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "work",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "garden",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "irrigation",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "harvest",
+        "current": false,
+        "achieved": true
+      },
+      {
+        "id": "meal",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "relay",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "ice-haul",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "camp-shelter",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "rest",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "clean-air",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "ventilation",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "contained-imaging",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "ice-image",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "ice-specimen",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "cliff-view",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "field-chart",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "way-home",
+        "current": false,
+        "achieved": false
+      }
+    ]
+  },
+  {
+    "index": 142,
+    "command": {
+      "op": "combine",
+      "a": "lens",
+      "b": "lamp"
+    },
+    "ok": true,
+    "consequence": {
+      "created": "inspection-lamp",
+      "targetContext": null,
+      "retired": []
+    },
+    "error": null,
+    "partners": null,
+    "objectives": [
+      {
+        "id": "repair",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "contact",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "water",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "growth",
+        "current": false,
+        "achieved": true
+      },
+      {
+        "id": "patch",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "mobility",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "survey",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "field-water",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "lifting",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "work",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "garden",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "irrigation",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "harvest",
+        "current": false,
+        "achieved": true
+      },
+      {
+        "id": "meal",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "relay",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "ice-haul",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "camp-shelter",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "rest",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "clean-air",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "ventilation",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "contained-imaging",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "ice-image",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "ice-specimen",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "cliff-view",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "field-chart",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "way-home",
+        "current": false,
+        "achieved": false
+      }
+    ]
+  },
+  {
+    "index": 143,
+    "command": {
+      "op": "combine",
+      "a": "solar-charger",
+      "b": "lamp"
+    },
+    "ok": true,
+    "consequence": {
+      "created": "solar-lamp",
+      "targetContext": null,
+      "retired": []
+    },
+    "error": null,
+    "partners": null,
+    "objectives": [
+      {
+        "id": "repair",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "contact",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "water",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "growth",
+        "current": false,
+        "achieved": true
+      },
+      {
+        "id": "patch",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "mobility",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "survey",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "field-water",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "lifting",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "work",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "garden",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "irrigation",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "harvest",
+        "current": false,
+        "achieved": true
+      },
+      {
+        "id": "meal",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "relay",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "ice-haul",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "camp-shelter",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "rest",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "clean-air",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "ventilation",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "contained-imaging",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "ice-image",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "ice-specimen",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "cliff-view",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "field-chart",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "way-home",
+        "current": false,
+        "achieved": false
+      }
+    ]
+  },
+  {
+    "index": 144,
+    "command": {
+      "op": "partners",
+      "a": "solar-lamp"
+    },
+    "ok": true,
+    "consequence": null,
+    "error": null,
+    "partners": [],
+    "objectives": []
+  },
+  {
+    "index": 145,
+    "command": {
+      "op": "place",
+      "a": "solar-lamp",
+      "place": "camp-approach"
+    },
+    "ok": true,
+    "consequence": {
+      "placed": "solar-lamp",
+      "at": "camp-approach",
+      "displaced": []
+    },
+    "error": null,
+    "partners": null,
+    "objectives": [
+      {
+        "id": "repair",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "contact",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "water",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "growth",
+        "current": false,
+        "achieved": true
+      },
+      {
+        "id": "patch",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "mobility",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "survey",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "field-water",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "lifting",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "work",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "garden",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "irrigation",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "harvest",
+        "current": false,
+        "achieved": true
+      },
+      {
+        "id": "meal",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "relay",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "ice-haul",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "camp-shelter",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "rest",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "clean-air",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "ventilation",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "contained-imaging",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "ice-image",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "ice-specimen",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "cliff-view",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "field-chart",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "way-home",
+        "current": false,
+        "achieved": false
+      }
+    ]
+  },
+  {
+    "index": 146,
+    "command": {
+      "op": "partners",
+      "a": "lamp"
+    },
+    "ok": true,
+    "consequence": null,
+    "error": null,
+    "partners": [],
+    "objectives": []
+  },
+  {
+    "index": 147,
+    "command": {
+      "op": "partners",
+      "a": "inspection-lamp"
+    },
+    "ok": true,
+    "consequence": null,
+    "error": null,
+    "partners": [],
+    "objectives": []
+  },
+  {
+    "index": 148,
+    "command": {
+      "op": "partners",
+      "a": "foil"
+    },
+    "ok": true,
+    "consequence": null,
+    "error": null,
+    "partners": [
+      "frame"
+    ],
+    "objectives": []
+  },
+  {
+    "index": 149,
+    "command": {
+      "op": "combine",
+      "a": "foil",
+      "b": "frame"
+    },
+    "ok": true,
+    "consequence": {
+      "created": "reflector",
+      "targetContext": null,
+      "retired": []
+    },
+    "error": null,
+    "partners": null,
+    "objectives": [
+      {
+        "id": "repair",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "contact",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "water",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "growth",
+        "current": false,
+        "achieved": true
+      },
+      {
+        "id": "patch",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "mobility",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "survey",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "field-water",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "lifting",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "work",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "garden",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "irrigation",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "harvest",
+        "current": false,
+        "achieved": true
+      },
+      {
+        "id": "meal",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "relay",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "ice-haul",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "camp-shelter",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "rest",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "clean-air",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "ventilation",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "contained-imaging",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "ice-image",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "ice-specimen",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "cliff-view",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "field-chart",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "way-home",
+        "current": false,
+        "achieved": false
+      }
+    ]
+  },
+  {
+    "index": 150,
+    "command": {
+      "op": "partners",
+      "a": "reflector"
+    },
+    "ok": true,
+    "consequence": null,
+    "error": null,
+    "partners": [
+      "dark-cooking-pot",
+      "heater",
+      "lantern"
+    ],
+    "objectives": []
+  },
+  {
+    "index": 151,
+    "command": {
+      "op": "combine",
+      "a": "reflector",
+      "b": "lantern"
+    },
+    "ok": true,
+    "consequence": {
+      "created": "signal-lamp",
+      "targetContext": null,
+      "retired": []
+    },
+    "error": null,
+    "partners": null,
+    "objectives": [
+      {
+        "id": "repair",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "contact",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "water",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "growth",
+        "current": false,
+        "achieved": true
+      },
+      {
+        "id": "patch",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "mobility",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "survey",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "field-water",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "lifting",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "work",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "garden",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "irrigation",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "harvest",
+        "current": false,
+        "achieved": true
+      },
+      {
+        "id": "meal",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "relay",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "ice-haul",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "camp-shelter",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "rest",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "clean-air",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "ventilation",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "contained-imaging",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "ice-image",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "ice-specimen",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "cliff-view",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "field-chart",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "way-home",
+        "current": false,
+        "achieved": false
+      }
+    ]
+  },
+  {
+    "index": 152,
+    "command": {
+      "op": "place",
+      "a": "signal-lamp",
+      "place": "camp-approach"
+    },
+    "ok": true,
+    "consequence": {
+      "placed": "signal-lamp",
+      "at": "camp-approach",
+      "displaced": [
+        "solar-lamp"
+      ]
+    },
+    "error": null,
+    "partners": null,
+    "objectives": [
+      {
+        "id": "repair",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "contact",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "water",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "growth",
+        "current": false,
+        "achieved": true
+      },
+      {
+        "id": "patch",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "mobility",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "survey",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "field-water",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "lifting",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "work",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "garden",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "irrigation",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "harvest",
+        "current": false,
+        "achieved": true
+      },
+      {
+        "id": "meal",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "relay",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "ice-haul",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "camp-shelter",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "rest",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "clean-air",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "ventilation",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "contained-imaging",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "ice-image",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "ice-specimen",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "cliff-view",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "field-chart",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "way-home",
+        "current": false,
+        "achieved": false
+      }
+    ]
+  },
+  {
+    "index": 153,
+    "command": {
+      "op": "partners",
+      "a": "signal-lamp"
+    },
+    "ok": true,
+    "consequence": null,
+    "error": null,
+    "partners": [
+      "tripod"
+    ],
+    "objectives": []
+  },
+  {
+    "index": 154,
+    "command": {
+      "op": "combine",
+      "a": "signal-lamp",
+      "b": "tripod"
+    },
+    "ok": true,
+    "consequence": {
+      "created": "signal-beacon",
+      "targetContext": null,
+      "retired": []
+    },
+    "error": null,
+    "partners": null,
+    "objectives": [
+      {
+        "id": "repair",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "contact",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "water",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "growth",
+        "current": false,
+        "achieved": true
+      },
+      {
+        "id": "patch",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "mobility",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "survey",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "field-water",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "lifting",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "work",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "garden",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "irrigation",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "harvest",
+        "current": false,
+        "achieved": true
+      },
+      {
+        "id": "meal",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "relay",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "ice-haul",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "camp-shelter",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "rest",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "clean-air",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "ventilation",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "contained-imaging",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "ice-image",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "ice-specimen",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "cliff-view",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "field-chart",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "way-home",
+        "current": false,
+        "achieved": false
+      }
+    ]
+  },
+  {
+    "index": 155,
+    "command": {
+      "op": "place",
+      "a": "signal-beacon",
+      "place": "camp-approach"
+    },
+    "ok": true,
+    "consequence": {
+      "placed": "signal-beacon",
+      "at": "camp-approach",
+      "displaced": [
+        "signal-lamp"
+      ]
+    },
+    "error": null,
+    "partners": null,
+    "objectives": [
+      {
+        "id": "repair",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "contact",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "water",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "growth",
+        "current": false,
+        "achieved": true
+      },
+      {
+        "id": "patch",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "mobility",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "survey",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "field-water",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "lifting",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "work",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "garden",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "irrigation",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "harvest",
+        "current": false,
+        "achieved": true
+      },
+      {
+        "id": "meal",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "relay",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "ice-haul",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "camp-shelter",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "rest",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "clean-air",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "ventilation",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "contained-imaging",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "ice-image",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "ice-specimen",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "cliff-view",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "field-chart",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "way-home",
+        "current": true,
+        "achieved": true
+      }
+    ]
+  },
+  {
+    "index": 156,
+    "command": {
+      "op": "next"
+    },
+    "ok": true,
+    "consequence": {
+      "transition": "finished",
+      "notice": "Whole continuous board saved read-only; no world reset or transfer occurred."
+    },
+    "error": null,
+    "partners": null,
+    "objectives": [
+      {
+        "id": "repair",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "contact",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "water",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "growth",
+        "current": false,
+        "achieved": true
+      },
+      {
+        "id": "patch",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "mobility",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "survey",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "field-water",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "lifting",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "work",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "garden",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "irrigation",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "harvest",
+        "current": false,
+        "achieved": true
+      },
+      {
+        "id": "meal",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "relay",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "ice-haul",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "camp-shelter",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "rest",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "clean-air",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "ventilation",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "contained-imaging",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "ice-image",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "ice-specimen",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "cliff-view",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "field-chart",
+        "current": true,
+        "achieved": true
+      },
+      {
+        "id": "way-home",
+        "current": true,
+        "achieved": true
+      }
+    ]
+  }
+]
