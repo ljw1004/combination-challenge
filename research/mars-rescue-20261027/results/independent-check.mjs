@@ -1,0 +1,12 @@
+import assert from 'node:assert/strict';
+import * as E from '../experiments/mars-rescue-next/model.ts';
+const kinds=['rover','rope','stranded-crawler','warm-refuge','spare-drive','toolkit'];
+const s={tokens:kinds.map((kind,i)=>({kind,id:`audit${i}`,location:null,...kind==='rover'?{slots:{engine:'motor',wheels:'wheels',charger:'solar-charger'}}:{}})),known:[...kinds],retired:[],level:4,revealed:['service-depot','dry-wash'],achieved:[],actions:0,nextId:100};
+const install=E.step(s,{type:'combine',a:'rope',b:'rover'});assert.ok(install.accepted,install.message);
+const tow=E.step(install.state,{type:'combine',a:'stranded-crawler',b:'rover'});assert.ok(tow.accepted,tow.message);assert.ok(tow.state.achieved.includes('crew-rescue'));
+const cold=structuredClone(install.state);cold.tokens=cold.tokens.filter(t=>t.kind!=='warm-refuge');assert.equal(E.step(cold,{type:'combine',a:'stranded-crawler',b:'rover'}).accepted,false);
+const drive=E.step(s,{type:'combine',a:'spare-drive',b:'toolkit'});assert.ok(drive.accepted);
+const repair=E.step(drive.state,{type:'combine',a:'serviced-drive',b:'stranded-crawler'});assert.ok(repair.accepted);assert.ok(E.hasCapability(repair.state.tokens.find(t=>t.kind==='repaired-crawler'),'independent-travel'));
+const escort=E.step(repair.state,{type:'combine',a:'repaired-crawler',b:'rover'});assert.ok(escort.accepted);assert.ok(escort.state.tokens.some(t=>t.kind==='repaired-crawler'));
+assert.equal(E.create().tokens.length,9);assert.equal(E.recipes.some(r=>r.id==='organize-fittings'),false);
+console.log('PASS independent targeted checks: direct rope install/tow; cold refuge rejected; repair/escort; retained independent crawler; opening 9; organization recipe absent. Seeded-state checks only, not a full campaign route.');

@@ -1,0 +1,63 @@
+--- baseline/model.ts	2026-10-27 07:15:42.629820590 -0700
++++ experiments/mars-rescue-next/model.ts	2026-10-27 07:20:01.238306884 -0700
+@@ -8,6 +8,7 @@
+ export function hasCapability(t:Token,cap:NamedCapability):boolean {
+  if(t.kind!=='rover')return concept(t.kind).capabilities.includes(cap);
+  const radio=t.slots?.radio,radioCaps=radio?concept(radio).capabilities:[],charger=t.slots?.charger==='solar-charger';
++ if(cap==='recovery')return ['rope','recovery-tackle'].includes(t.slots?.recovery??'');
+  if(cap==='solar-travel')return !!(charger&&t.slots?.engine==='motor'&&t.slots?.wheels==='wheels');
+  if(cap==='working-radio'||cap==='long-range-radio')return radioCaps.includes(cap);
+  if(cap==='orbiter-contact')return radioCaps.includes('orbiter-contact')||(radioCaps.includes('working-radio')&&charger);
+@@ -21,7 +22,7 @@
+ }
+ function settle(s:State){for(const g of goals)if(satisfiesGoal(s,g)&&!s.achieved.includes(g.id))s.achieved.push(g.id);for(const id of levels[s.level].goals){const g=goals.find(g=>g.id===id)!;for(const loc of g.requiredLocations)if(!s.revealed.includes(loc))s.revealed.push(loc);if(!s.achieved.includes(id))break;}}
+ function add(s:State,kind:string){if(s.tokens.some(t=>t.kind===kind)||s.retired.includes(kind))throw Error('Already exists or was incorporated/evolved; no duplicate reconstruction.');const t:Token={id:`v4-${s.nextId++}`,kind,location:null,...kind==='rover'?{slots:{wheels:'wheels'}}:{}};s.tokens.push(t);if(!s.known.includes(kind))s.known.push(kind);return t;}
+-export function create():State{const s:State={tokens:[],known:[],retired:[],level:0,revealed:[],achieved:[],actions:0,nextId:1};for(const k of supplies)add(s,k);settle(s);return s;}
++export function create():State{const s:State={tokens:[],known:[],retired:[],level:0,revealed:[],achieved:[],actions:0,nextId:1};for(const k of CHAPTER_CACHES[0])add(s,k);settle(s);return s;}
+ const pair=(r:NamedRecipe,a:string,b:string)=>(r.a===a&&r.b===b)||(r.a===b&&r.b===a);
+ export function recipeFor(a:string,b:string,at?:string){return recipes.find(r=>pair(r,a,b)&&r.at===at)??recipes.find(r=>pair(r,a,b)&&!r.at);}
+ const exists=(s:State,k:string)=>s.tokens.some(t=>t.kind===k)||s.retired.includes(k);
+@@ -36,7 +37,7 @@
+ /** Retained incorporated representatives are reconsidered only when the same physical module is used again. Never sweep unused ingredients. */
+ export function step(state:State,action:Action):{accepted:boolean;state:State;message:string;recipe?:string}{
+  const s=structuredClone(state);try{
+- if(action.type==='advance'){if(!levels[s.level].goals.every(id=>s.achieved.includes(id)))throw Error('Complete this purpose first.');if(s.level===levels.length-1)throw Error('Already at final purpose.');s.level++;settle(s);return {accepted:true,state:s,message:levels[s.level].intro};}
++ if(action.type==='advance'){if(!levels[s.level].goals.every(id=>s.achieved.includes(id)))throw Error('Complete this purpose first.');if(s.level===levels.length-1)throw Error('Already at final purpose.');s.level++;for(const k of CHAPTER_CACHES[s.level]??[])if(!exists(s,k))add(s,k);settle(s);return {accepted:true,state:s,message:levels[s.level].intro};}
+  if(action.type==='place'){const t=s.tokens.find(t=>t.kind===action.kind);if(!t)throw Error('Missing thing.');if(action.location&&!s.revealed.includes(action.location))throw Error('Unrevealed location.');const old=s.tokens.find(t=>t.location===action.location&&action.location);if(old)old.location=null;t.location=action.location;s.actions++;settle(s);return {accepted:true,state:s,message:'Placed freely; no ingredients accumulated.'};}
+  const a=s.tokens.find(t=>t.kind===action.a),b=s.tokens.find(t=>t.kind===action.b),place=action.b.startsWith('place:')?action.b.slice(6):null;
+  if(!a||(!b&&!place)||a===b)throw Error('Two available operands required.');if(place&&!s.revealed.includes(place))throw Error('Unrevealed location.');
+@@ -44,12 +45,32 @@
+  const rover=a.kind==='rover'?a:b?.kind==='rover'?b:undefined,part=rover===a?b:a,slot=rover&&part?slots.find(slot=>slot.accepts.includes(part.kind)):undefined;
+  if(rover&&part&&slot){const installed=rover.slots?.[slot.id];if(installed){if(slot.id!=='radio'||installed===part.kind||!concept(installed).capabilities.every(c=>concept(part.kind).capabilities.includes(c)))throw Error('Slot already filled; not an enhanced compatible module.');}
+  rover.slots={...rover.slots,[slot.id]:part.kind};if(!hasFurtherUse(s,part.kind))retire(s,part.kind);s.actions++;settle(s);return {accepted:true,state:s,message:`Installed ${part.kind} in typed ${slot.id} slot.`,recipe:'install-'+slot.id};}
+- const r=recipeFor(a.kind,action.b,at);if(!r)throw Error('No combination in this setting.');if(exists(s,r.result))throw Error('Result already exists or evolved; no duplicate.');
++ const r=recipeFor(a.kind,action.b,at);if(!r)throw Error('No combination in this setting.');if((r.requires??[]).some(cap=>!s.tokens.some(t=>hasCapability(t,cap))))throw Error('Missing required capability.');
++ if((r.operandRequires??[]).some(cap=>![a,b].some(t=>t&&hasCapability(t,cap))))throw Error('Operand is not equipped for this action.');
++ if(exists(s,r.result))throw Error('Result already exists or evolved; no duplicate.');
+  for(const k of r.retire??[])if(k===a.kind||k===b?.kind)retire(s,k);
+  for(const k of r.incorporate??[])if((k===a.kind||k===b?.kind)&&!hasFurtherUse(s,k,r.result))retire(s,k);
+- add(s,r.result);s.actions++;settle(s);return {accepted:true,state:s,message:`Created ${r.result}. Surviving operands retain their placements.`,recipe:r.id};
++ add(s,r.result);for(const kind of r.grants??[])if(!exists(s,kind))add(s,kind);s.actions++;settle(s);return {accepted:true,state:s,message:`Created ${r.result}. Surviving operands retain their placements.`,recipe:r.id};
+  }catch(e){return {accepted:false,state,message:(e as Error).message};}
+ }
+ export function partners(s:State,kind:string):string[]{return [...s.tokens.map(t=>t.kind),...s.revealed.map(p=>'place:'+p)].filter(b=>step(s,{type:'combine',a:kind,b}).accepted);}
+ export const currentGoals=(s:State)=>levels[s.level].goals.map(id=>{const g=goals.find(g=>g.id===id)!;return {...g,current:satisfiesGoal(s,g),achieved:s.achieved.includes(g.id)};});
+ export {concepts,recipes,goals,levels,locations,supplies,slots};
++
++/** Mirrors the live adapter's 9/12/8/0 authored cache policy; no UI or save code is copied. */
++export const CHAPTER_CACHES=[
++ ['broken-radio','cable','solar-panel','battery','lamp','foil','frame','tripod','toolkit'],
++ ['heater','water-filter','canister','seeds','planting-tray','clear-cover','habitat-fabric','sealant','scoop','sample-jar','sealed-box','gloves'],
++ ['wheels','motor','dish','map','binoculars','camera','lens','tube'],[],[],[]
++];
++/** Derived view only. Never remove canonical tokens; keep future cache/slot uses. */
++export function visibleTokens(s:State):Token[]{
++ const made=(kind:string)=>exists(s,kind);
++ return s.tokens.filter(t=>{
++  if(recipes.some(r=>(r.a===t.kind||r.b===t.kind)&&!made(r.result)&&!s.retired.includes(r.a)&&!s.retired.includes(r.b)))return true;
++  const rover=s.tokens.find(t=>t.kind==='rover');
++  if(t.kind==='rover'&&slots.some(slot=>!t.slots?.[slot.id]&&slot.accepts.some(k=>!s.retired.includes(k))))return true;
++  if(slots.some(slot=>slot.accepts.includes(t.kind)&&!rover?.slots?.[slot.id]))return true;
++  return goals.some(g=>!s.achieved.includes(g.id)&&(g.concept===t.kind||(g.capability&&hasCapability(t,g.capability))||(g.requires??[]).some(cap=>hasCapability(t,cap))));
++ });
++}

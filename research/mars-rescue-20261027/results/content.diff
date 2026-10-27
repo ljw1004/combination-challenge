@@ -1,0 +1,80 @@
+--- baseline/content.ts	2026-10-27 07:15:42.629955713 -0700
++++ experiments/mars-rescue-next/content.ts	2026-10-27 07:22:25.567291513 -0700
+@@ -1,7 +1,7 @@
+ /** Named, portable Mars content. No generic assemblies or accumulated place recipes. */
+-export type NamedCapability='working-radio'|'solar-radio'|'long-range-radio'|'stored-water'|'protected-growth'|'solar-travel'|'pressure-repair'|'greenhouse'|'workbench'|'lit-workbench'|'heat'|'solar-heat'|'solar-light'|'orbiter-contact'|'route-map'|'sample-record'|'stored-sample'|'annotated-route';
++export type NamedCapability='working-radio'|'solar-radio'|'long-range-radio'|'stored-water'|'protected-growth'|'solar-travel'|'pressure-repair'|'greenhouse'|'workbench'|'lit-workbench'|'heat'|'solar-heat'|'solar-light'|'orbiter-contact'|'route-map'|'sample-record'|'stored-sample'|'annotated-route'|'rescue-route'|'warm-refuge'|'crew-safe'|'recovery'|'independent-travel';
+ export interface NamedConcept {id:string;label:string;description:string;capabilities:NamedCapability[]}
+-export interface NamedRecipe {id:string;a:string;b:string;result:string;at?:string;description:string;retire?:string[];retirementReason?:string;incorporate?:string[];incorporationReason?:string}
++export interface NamedRecipe {id:string;a:string;b:string;result:string;at?:string;description:string;retire?:string[];retirementReason?:string;incorporate?:string[];incorporationReason?:string;requires?:NamedCapability[];operandRequires?:NamedCapability[];grants?:string[]}
+ export interface NamedLocation {id:string;label:string;x:number;y:number;description:string}
+ export interface NamedGoal {id:string;title:string;requirement:string;kind:'discover'|'place'|'function';concept:string;requires?:NamedCapability[];capability?:NamedCapability;location?:string;requiredLocations:string[];supplies:string[]}
+ export interface NamedLevel {id:string;label:string;intro:string;supplies:string[];locations:string[];goals:string[]}
+@@ -104,7 +104,7 @@
+ NAMED_GOALS.push({id:'observations',title:'Return something worth studying',requirement:'Seal a collected ice specimen, record its appearance and enrich the route map with a distant cliff observation. A transparent jar does not prevent photography; contained photography is optional.',kind:'function',concept:'annotated-survey-map',requires:['stored-sample','sample-record','annotated-route'],requiredLocations:['distant-lookout'],supplies:[]});
+ NAMED_LEVELS.push({id:'observations',label:'4 · Useful observations',intro:'Bring back a protected specimen and an inspectable record, plus a new view of the distant cliff on your route map. The observations are the payoff; no apparatus or photograph needs parking.',supplies:[],locations:['distant-lookout'],goals:['observations']});
+ export const NAMED_STARTING_SUPPLIES=NAMED_CONCEPTS.filter(c=>c.id!=='cart'&&!NAMED_RECIPES.some(r=>r.result===c.id)).map(c=>c.id);
+-export type RoverSlot='wheels'|'engine'|'charger'|'radio';
++export type RoverSlot='wheels'|'engine'|'charger'|'radio'|'recovery';
+ /** Slots are physical interfaces, not generic bags or exact-old-kind gates. */
+ export const ROVER_SLOTS:{id:RoverSlot;label:string;accepts:string[];required:boolean}[]=[
+  {id:'wheels',label:'Wheels',accepts:['wheels'],required:true},
+@@ -123,3 +123,58 @@
+  if(recipe.retire)recipe.retirementReason='An explicit evolved predecessor is physically replaced; enhanced functions and compatible recipes are preserved.';
+  if(recipe.incorporate)recipe.incorporationReason='This physical module becomes part of the output. Keep an outside representative only while another authored use remains.';
+ }
++
++// Isolated rescue continuation. Existing four chapters and their recipes are unchanged.
++export const RESCUE_CACHE=['rope','pulley','spare-drive','shelter-shell','insulation','cot','ration-pack','fittings'];
++NAMED_CONCEPTS.push(
++ c('rope','Recovery rope','A rated recovery line from the depot’s vehicle bay.'),
++ c('pulley','Recovery pulley','A recovery block compatible with the Rover’s towing mount.'),
++ c('spare-drive','Spare drive','A service replacement for the stranded crawler’s failed drive.'),
++ c('shelter-shell','Emergency shelter','An old depot shelter with a leaking seam and a heater connection.'),
++ c('insulation','Insulation roll','Flexible thermal lining stored with the depot’s emergency bedding.'),
++ c('cot','Folding cot','An ordinary camp cot.'),c('ration-pack','Ration pack','Sealed prepared food; warming is optional.'),
++ c('fittings','Spare fittings','General mounting and repair fittings, not a mystery key.'),
++ c('distress-log','Distress log','A repeated crew transmission identifies their crawler and landmarks along the mapped wash.'),
++ c('rescue-route','Rescue route','The crew’s landmarks matched to your observed map. The original survey remains useful.',['rescue-route']),
++ c('depot-open','Service depot opened','Vehicle spares, emergency shelter, bedding, food and general hardware recovered together.'),
++ c('sealed-shelter','Sealed shelter','The shelter’s leaking seam repaired with the existing pressure patch.'),
++ c('warm-refuge','Warm refuge','A repaired emergency shelter with a compatible solar heater. The game abstracts operating conditions.',['warm-refuge']),
++ c('lined-cot','Lined cot','A cot lined with insulation: an optional comfort, not a survival tax.'),
++ c('rested-refuge','Furnished refuge','The warm shelter now has a lined resting cot.',['warm-refuge']),
++ c('warm-ration','Warm ration','Prepared food warmed using the heater; no food-production claim.'),
++ c('recovery-tackle','Recovery tackle','Recovery rope reeved through its compatible block, ready for the Rover towing mount.',['recovery']),
++ c('stranded-crawler','Stranded crawler','The crew are in its intact cabin. Its failed drive prevents the gentle return journey; repair it or tow it with a recovery line.'),
++ c('serviced-drive','Serviced drive','The replacement drive checked and set up with the toolkit.'),
++ c('repaired-crawler','Repaired crawler','Drive restored. It can follow the Rover back to the shelter and remains an independently mobile second vehicle.',['independent-travel']),
++ c('crew-at-refuge','Crew at refuge','The crew and their intact cabin have reached the warm refuge. Rescue complete.',['crew-safe'])
++);
++NAMED_RECIPES.push(
++ r('hear-distress','long-range-radio','place:distant-lookout','distress-log','The crew transmission becomes clear from the exposed lookout.'),
++ {...r('hear-distress-installed','rover','place:distant-lookout','distress-log','Use the installed long-range radio from the same exposed lookout.'),operandRequires:['long-range-radio']},
++ r('trace-rescue-route','distress-log','annotated-survey-map','rescue-route','Match the transmitted landmarks to the cliff and route observations.'),
++ {...r('open-depot','rover','place:service-depot','depot-open','Travel to the known service depot and open its mixed vehicle and emergency supplies.'),operandRequires:['solar-travel'],grants:RESCUE_CACHE},
++ {...r('seal-refuge','shelter-shell','pressure-patch','sealed-shelter','Repair the shelter seam with the patch.'),retire:['shelter-shell']},
++ {...r('heat-refuge','sealed-shelter','solar-heater','warm-refuge','Connect the compatible heater to the shelter.'),retire:['sealed-shelter'],incorporate:['solar-heater']},
++ {...r('line-cot','cot','insulation','lined-cot','Line the resting cot.'),incorporate:['cot','insulation']},
++ {...r('furnish-refuge','lined-cot','warm-refuge','rested-refuge','Add a comfortable resting place without losing the refuge’s function.'),retire:['warm-refuge'],incorporate:['lined-cot']},
++ r('warm-food','ration-pack','heater','warm-ration','Warm the prepared ration. Optional comfort.'),
++ {...r('rig-recovery','rope','pulley','recovery-tackle','Reeve the line through the recovery block.'),incorporate:['rope','pulley']},
++ {...r('reach-crawler','rescue-route','place:dry-wash','stranded-crawler','Follow the located crew’s route using your working Rover; their cabin is still intact.'),requires:['solar-travel']},
++ r('service-drive','spare-drive','toolkit','serviced-drive','Check and prepare the compatible replacement drive.'),
++ {...r('repair-crawler','serviced-drive','stranded-crawler','repaired-crawler','Replace the failed drive. The intact cabin does not need an invented pressure-repair chore.'),retire:['stranded-crawler'],incorporate:['serviced-drive']},
++ {...r('escort-crew','repaired-crawler','rover','crew-at-refuge','Lead the repaired crawler back to the established warm refuge.'),requires:['warm-refuge'],operandRequires:['solar-travel']},
++ {...r('tow-crew','stranded-crawler','rover','crew-at-refuge','Use the Rover’s fitted recovery line to tow the intact cabin back to the established warm refuge.'),requires:['warm-refuge'],operandRequires:['solar-travel','recovery']}
++);
++ROVER_SLOTS.push({id:'recovery',label:'Recovery line',accepts:['rope','recovery-tackle'],required:false});
++NAMED_LOCATIONS.push(
++ {id:'service-depot',label:'Service depot',x:180,y:1080,description:'A known maintenance stop on the mapped route. Vehicle spares and emergency stores belong here; access needs working transport.'},
++ {id:'dry-wash',label:'Dry wash',x:900,y:1080,description:'The crew’s crawler has failed on a gentle wash route. The radio landmarks are needed to locate it, not another panorama apparatus.'}
++);
++NAMED_GOALS.push(
++ {id:'rescue-preparation',title:'Find them a way home',requirement:'Locate the crew from their transmission and establish a warm refuge at the depot. Work on navigation or shelter first.',kind:'function',concept:'rescue-route',requires:['rescue-route','warm-refuge'],requiredLocations:['service-depot','dry-wash'],supplies:[]},
++ {id:'crew-rescue',title:'Bring the crew in',requirement:'Repair their crawler so it can follow you, or fit a recovery rope or tackle to your Rover and tow it back. Your refuge is the destination, not another delivery socket.',kind:'function',concept:'crew-at-refuge',requires:['crew-safe'],requiredLocations:['dry-wash'],supplies:[]}
++);
++NAMED_LEVELS.push(
++ {id:'rescue-preparation',label:'5 · Someone else is stranded',intro:'At the lookout a crew calls from a disabled crawler. Match their landmarks to your observations, then make the old service depot a warm place to return to. Its stores contain more than this rescue needs.',supplies:[],locations:['service-depot','dry-wash'],goals:['rescue-preparation']},
++ {id:'crew-rescue',label:'6 · Bring them home',intro:'Their cabin is intact; the drive has failed. Repair it or tow it; a direct recovery rope is enough on this gentle route. Bring them into your refuge and this rescue is complete.',supplies:[],locations:['dry-wash'],goals:['crew-rescue']}
++);
