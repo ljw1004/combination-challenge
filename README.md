@@ -153,3 +153,16 @@ node --test tests/mars-named-*.test.ts
 ```
 
 The research default entry is not replaced. The owner-private hosted Site now uses named Mars at `/`; its previous full Mars remains `/mars-v2.html`, alongside `/ux-lab.html` and `/workshop.html`. All older saves remain separate from `mars-named-portable-v1`. Narrow screens use an explicit 760×620 minimum scrollable board rather than unreadably tiny labels. See [contract](docs/mars-named-contract.md), [implementation](docs/mars-named-implementation.md) and [independent review](docs/mars-named-independent-review.md). Evidence is model, synthetic controller and source-derived geometry verification, not native-browser QA or measured fun/duration. The larger named-ontology expansion remains design-only.
+
+## Estuary intellectual-history human checkpoint
+
+`history-play.html` is a separate browser surface over the frozen Estuary binary engine and v2 consequence contracts. It preserves Mars and older research interfaces/saves. The private hosted build integrates `/history.html` as a fifth source entry, not a copied-asset overlay.
+
+```sh
+npx tsc -p estuary-play.tsconfig.json
+npx vite --config estuary-play.vite.config.ts       # open /history-play.html
+npx vite build --config estuary-play.vite.config.ts # ignored dist-estuary-play/
+node --test tests/estuary-play-*.test.ts
+```
+
+See [checkpoint scope and verification](docs/estuary-browser-checkpoint.md). Final focused tests passed 12/12; the source-integrated Site aggregate passed 152/152. Native browser/device rendering and touch behavior remain unverified; synthetic handler coverage is not a device pass. Debug checkpoints are real authored replays, not player/fun evidence.
