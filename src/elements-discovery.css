@@ -33,3 +33,6 @@ body{min-width:0;overflow-x:hidden}.viewport{overflow-x:hidden;overflow-y:auto;t
 /* One viewport of current work permits exact chapter alignment; older areas
    remain scrollback. Extra room is only what the current viewport needs. */
 .board{height:max(100%,var(--content-height,0px),calc(100% + var(--area-top,0px)))}
+
+/* Match Mars: a compact centered work area even on a wide desktop. */
+.board{max-width:600px;margin-inline:auto}.board .thing.born{z-index:10}

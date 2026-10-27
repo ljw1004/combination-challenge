@@ -4,7 +4,7 @@ import * as I from '../src/history-ideas-model.ts';import * as M from '../src/ma
 const random=(seed:number)=>()=>{seed=(Math.imul(seed,1664525)+1013904223)>>>0;return seed/2**32};
 test('Ideas: completed situated witness stays; optional review remains selectable and needed placed tools travel',()=>{
  let s=I.checkpoint(1,375);const journal=structuredClone(I.thing(s,'journal')!);assert(I.active(s,journal));
- let r=I.step(s,{type:'advance'});assert(r.accepted);assert.deepEqual(I.thing(r.state,'journal'),journal);assert(I.witness(r.state,I.thing(r.state,'journal')!));assert(I.visibleThings(r.state).some(t=>t.id==='journal'));assert(I.partners(r.state,'journal').includes('doubt'));assert(I.step(r.state,{type:'combine',a:'journal',b:'doubt'}).accepted);
+ let r=I.step(s,{type:'advance'});assert(r.accepted);assert.deepEqual(I.thing(r.state,'journal'),journal);assert(!I.witness(r.state,I.thing(r.state,'journal')!),'Prior-stage library completion is no longer gold');assert(I.visibleThings(r.state).some(t=>t.id==='journal'));assert(I.partners(r.state,'journal').includes('doubt'));assert(I.step(r.state,{type:'combine',a:'journal',b:'doubt'}).accepted);
  s=I.checkpoint(1,375);s=I.step(s,{type:'place',id:'memory',location:'library'}).state;s=I.step(s,{type:'combine',a:'press',b:'observation'}).state;s=I.step(s,{type:'combine',a:'atlas',b:'method'}).state;s=I.step(s,{type:'place',id:'encyclopedia',location:'library'}).state;
  // The library has one occupant; synthetic saved placement at an already encountered site exercises located required tool.
  I.thing(s,'memory')!.location='library';const oldY=I.thing(s,'memory')!.y;r=I.step(s,{type:'advance'});assert(r.accepted);assert(!I.thing(r.state,'memory')!.location);assert(I.thing(r.state,'memory')!.y>oldY);assert.equal(I.visibleThings(r.state).length,s.things.length);
@@ -15,9 +15,9 @@ test('Ideas: all 4 tide variants remain discoverable with every surviving object
  const l=I.boardLayout(s,width);for(const p of l.positions.values())assert(p.x>=67&&p.x+67<=width);for(const p of l.locations)assert(p.x>=74&&p.x+74<=width);
  }
 });
-test('Mars: prior actual condition witnesses remain gold after advancement',()=>{
+test('Mars: prior actual condition witnesses lose gold after advancement',()=>{
  const p=M.debugJump('expedition');const witnesses=M.goalWitnesses(p.state).tokens;
- for(const kind of ['habitat-patch','propagator']){const t=p.state.tokens.find(t=>t.kind===kind);if(t)assert(witnesses.has(t.id),`${kind} lost actual completed-condition gold`);}
+ for(const kind of ['habitat-patch','propagator']){const t=p.state.tokens.find(t=>t.kind===kind);if(t)assert(!witnesses.has(t.id),`${kind} retained prior-stage gold`);}
 });
 test('Mars: every canonical survivor remains visible in all checkpoints; save and undo exact',()=>{
  for(const id of ['home','expedition','observations','complete']){const p=M.debugJump(id);assert.deepEqual(M.visibleTokens(p.state),p.state.tokens);assert.deepEqual(M.restore(JSON.stringify(p)),p);const t=p.state.tokens.find(t=>!t.location)!;const q=M.apply(p,{type:'place',token:t.id,location:null,x:18,y:25});assert.deepEqual(M.undo(q).state,p.state);}
@@ -67,6 +67,12 @@ test('independent Mars: all legal recipe operands and slot targets stay active t
   }
   assert.equal(s.level,3,`seed ${seed}: advance deadlock`);assert(Core.goals.every(g=>s.achieved.includes(g.id)),`seed ${seed}: unmet goals`);
  }
+ // The new later outcrop shares its output with earlier Glacier sampling; random
+ // early collectors naturally cannot create that duplicate. Exercise its legal
+ // fresh-at-observations route explicitly rather than weakening coverage.
+ const late=M.debugJump('observations').state,scoop=late.tokens.find(t=>t.kind==='scoop')!;
+ const sample=M.stepNamed(late,{type:'use-location',token:scoop.id,location:'lookout-ice'});
+ assert(sample.accepted,sample.message);assert.equal(sample.recipe,'outcrop-sample');covered.add(sample.recipe!);
  assert.deepEqual([...covered].sort(),Core.recipes.map(r=>r.id).sort(),'Each authored alternative exercised at least once');
 });
 test('Mars: chapter travel cannot introduce vertical overlaps between previously separated carried cards',()=>{

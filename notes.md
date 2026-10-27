@@ -327,3 +327,13 @@ Parent cloud Chromium500px checks caught Ideas birth overlap and Elements checkp
 Latest human direction reverses the previous hiding policy: preserve surviving finished creations physically; remove only explicit coherent upgrades/incorporation. Carry useful objects into nearby story areas without changing their relative arrangement; leave finished work tangible behind. Keep earlier locations fixed, make goals explicit and preserve golden goal-contribution witnesses. Future-use checks now govern carrying, never disappearance. Do not revive the old collection/hiding policy from historical evidence.
 
 Final tangibility aggregate passed297/0 with1 optional browser skip. Parent cloud Chromium500px verified Ideas/Elements area framing and tangible gold, and Mars cross-area specimen combination with partial gold. Physical iPhone/touch and native320/375px remain unverified; preserve original observations and superseded-test failures. Completed research remains intact; logical scenario expansion is on hold.
+
+
+### 27 October 2026 · Compact stages and local success feedback
+
+Human playtesting found Mars's small unfolding stages compelling, but Ideas/Elements were too wide and persistent gold/remote result placement reduced clarity. The new revision caps all three worktables at600px, creates results immediately adjacent to the acted-on target (free adjacent space first, least-bad local overlap otherwise), and colors only satisfied current mission/subobjectives. Placement goals require the actual item/place relationship, and gold clears at stage advance. This supersedes the earlier permanent golden-witness policy; finished objects still remain tangible.
+
+Mars's final lookout now has a distinct ice outcrop for its specimen task. The original Glacier remains fixed in its earlier area, rather than silently moving; no forced backward chapter trip is needed for this local challenge. Further logical/story expansion remains on hold while the mechanics are refined.
+
+Final aggregate:318 tests,317passed,0failed,1intentional native-browser skip. TypeScript and all11routes build. Independent checks23/23 plus final7/7 after placed-anchor corrections. Actual cloud Chromium1188/500px checks and a journal removal drag are documented; physical iPhone/native touch and later native Undo were not executed. Preserve initial failures and superseded assertions as history. See results/compact-stage-workspace-release-20261027/README.md and results/compact-stage-release-20261027/.
+

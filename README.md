@@ -190,3 +190,11 @@ Final release:267 tests passed,0 failed,1 optional browser test skipped; TypeScr
 The current Mars/Ideas/Elements policy supersedes automatic hiding: surviving finished creations remain physical; only coherent upgrades/incorporation remove objects. Useful pieces travel together into compact story areas while finished work stays behind. Explicit goals and permanent golden contribution markers show progress. See [tangibility release preservation](results/tangible-workspace-release-20261027/README.md), including exact prior-policy evidence.
 
 Final release:297 tests passed,0 failed,1 optional browser test skipped; TypeScript/all11-route build passed. Specific parent cloud Chromium500px routes are documented separately from model/synthetic phone-width and touch checks. Logical scenario expansion is on hold.
+
+
+## Compact local stages (27 October 2026)
+
+Ideas and Elements now use Mars's600px maximum worktable. New creations stay directly beside their target, and gold marks only satisfied objectives in the current stage, including required placement. Gold clears at advancement; finished things remain tangible. Mars's final area has a distinct local ice outcrop instead of requiring a return to the old Glacier. This supersedes the previous persistent-gold policy without expanding the scenarios.
+
+See [release preservation](results/compact-stage-workspace-release-20261027/README.md). Final checks:317passed,0failed,1intentional skip (318total); TypeScript/all11routes build. Actual cloud Chromium1188/500px evidence is separated from synthetic narrower-width tests and unexecuted physical-phone/touch checks.
+

@@ -90,6 +90,7 @@ NAMED_RECIPES.push(
  r('cliff-photo','telescope-camera','place:distant-lookout','cliff-photograph','The distant lookout exposes the cliff face to the long-range optics.'),
  {...r('annotate','cliff-photograph','survey-map','annotated-survey-map','Add the cliff observation to the existing usable route map.'),retire:['survey-map']},
  r('sample','scoop','place:glacier','ice-sample','Collect the specimen with a reusable scoop.'),
+ r('outcrop-sample','scoop','place:lookout-ice','ice-sample','Collect a specimen from the exposed ice beside the expedition lookout.'),
  {...r('seal-sample','ice-sample','sample-jar','sealed-ice-sample','Seal the actual specimen, not a second duplicate sample.'),retire:['ice-sample'],incorporate:['sample-jar']},
  r('sample-photo','ice-sample','camera','ice-photograph','Record a close view with the camera.'),r('sealed-sample-photo','sealed-ice-sample','camera','ice-photograph','Photograph the specimen through its transparent jar.'),
  {...r('glovebox','sealed-box','gloves','glovebox','Fit the sealed gloves to the existing ports.'),incorporate:['sealed-box','gloves']},
@@ -98,11 +99,12 @@ NAMED_RECIPES.push(
  r('contained-photo','ice-sample','imaging-glovebox','ice-photograph','Record the specimen using the enclosure’s camera.'),r('contained-sealed-photo','sealed-ice-sample','imaging-glovebox','ice-photograph','Record the sealed specimen inside the enclosure.')
 );
 NAMED_LOCATIONS.push(
+ {id:'lookout-ice',label:'Lookout ice outcrop',x:180,y:1080,description:'A fresh ice exposure beside the distant lookout. Collect a local specimen with the scoop; the earlier glacier remains back by the habitat.'},
  {id:'overlook',label:'Route overlook',x:180,y:780,description:'A vantage onto the actual expedition route: supported panorama or binocular observation can inform a map.'},
  {id:'distant-lookout',label:'Distant lookout',x:900,y:780,description:'The cliff face is visible from here. Long-range optics produce a portable observation; there is no photograph delivery slot.'}
 );
-NAMED_GOALS.push({id:'observations',title:'Return something worth studying',requirement:'Seal a collected ice specimen, record its appearance and enrich the route map with a distant cliff observation. A transparent jar does not prevent photography; contained photography is optional.',kind:'function',concept:'annotated-survey-map',requires:['stored-sample','sample-record','annotated-route'],requiredLocations:['distant-lookout'],supplies:[]});
-NAMED_LEVELS.push({id:'observations',label:'4 · Useful observations',intro:'Bring back a protected specimen and an inspectable record, plus a new view of the distant cliff on your route map. The observations are the payoff; no apparatus or photograph needs parking.',supplies:[],locations:['distant-lookout'],goals:['observations']});
+NAMED_GOALS.push({id:'observations',title:'Return something worth studying',requirement:'Seal a collected ice specimen, record its appearance and enrich the route map with a distant cliff observation. A transparent jar does not prevent photography; contained photography is optional.',kind:'function',concept:'annotated-survey-map',requires:['stored-sample','sample-record','annotated-route'],requiredLocations:['distant-lookout','lookout-ice'],supplies:[]});
+NAMED_LEVELS.push({id:'observations',label:'4 · Useful observations',intro:'Bring back a protected specimen and an inspectable record, plus a new view of the distant cliff on your route map. The observations are the payoff; no apparatus or photograph needs parking.',supplies:[],locations:['distant-lookout','lookout-ice'],goals:['observations']});
 export const NAMED_STARTING_SUPPLIES=NAMED_CONCEPTS.filter(c=>c.id!=='cart'&&!NAMED_RECIPES.some(r=>r.result===c.id)).map(c=>c.id);
 export type RoverSlot='wheels'|'engine'|'charger'|'radio';
 /** Slots are physical interfaces, not generic bags or exact-old-kind gates. */

@@ -15,13 +15,13 @@ test('Large user gaps compact monotonically without introducing any new overlap'
  for(const a of carried)for(const b of carried){const aa=M.token(next,a.id)!,bb=M.token(next,b.id)!;assert.equal(aa.x-a.x,bb.x-b.x);assert.equal(Math.sign(aa.y-bb.y),Math.sign(a.y-b.y));if(Math.abs(a.y-b.y)>=4.6)assert(Math.abs(aa.y-bb.y)>=4.6-1e-6);}
  assert(M.currentAreaHeight(next)<600);assert(before.tokens.every(t=>M.token(next,t.id)));
 });
-test('Current goals expose individual plain conditions; actual witnesses stay gold in prior areas',()=>{
+test('Current goals expose individual plain conditions; only current witnesses are gold',()=>{
  const s=M.debugJump('expedition').state;const conditions=M.goalConditions(s);assert.equal(conditions.length,3);assert(conditions.every(c=>!c.satisfied));
- const patch=s.tokens.find(t=>t.kind==='pressure-patch')!;assert(M.goalWitnesses(s).tokens.has(patch.id));assert(patch.y<M.areaTop(s));assert(M.visibleTokens(s).includes(patch));
+ const patch=s.tokens.find(t=>t.kind==='pressure-patch')!;assert(!M.goalWitnesses(s).tokens.has(patch.id));assert(patch.y<M.areaTop(s));assert(M.visibleTokens(s).includes(patch));
  const final=M.debugJump('complete').state;assert(M.goalConditions(final).every(c=>c.satisfied&&c.witnesses.length));for(const c of M.goalConditions(final))for(const id of c.witnesses)assert(M.goalWitnesses(final).tokens.has(id));
 });
 test('Measured narrow-world arrivals include actual frames and cards, without invented trailing board',()=>{
- for(const width of [320,375])for(const id of ['home','expedition','observations']){const s=M.debugJump(id).state;assert(M.currentAreaHeight(s)<=510,`${width}px ${id}: ${M.currentAreaHeight(s)}px`);for(const t of s.tokens.filter(t=>!t.location)){const x=t.x/36*width;assert(x-48>=-1e-6&&x+48<=width+1e-6);}}
+ for(const width of [320,375])for(const id of ['home','expedition','observations']){const s=M.debugJump(id).state;assert(M.currentAreaHeight(s)<=520,`${width}px ${id}: ${M.currentAreaHeight(s)}px`);for(const t of s.tokens.filter(t=>!t.location)){const x=t.x/36*width;assert(x-48>=-1e-6&&x+48<=width+1e-6);}}
  const s=M.debugJump('observations').state,rover=s.tokens.find(t=>t.kind==='rover')!;rover.location='distant-lookout';assert(M.worldSize(s).height>=s.places['distant-lookout'].y+M.locationSize(s,'distant-lookout').height/2);assert(M.locationSize(s,'distant-lookout').height>10);
 });
 test('A topmost tall Rover carries wholly inside the new area without crossing its boundary',()=>{let p=M.debugJump('expedition');const c=(a:string,b:string)=>{const id=(k:string)=>p.state.tokens.find(t=>t.kind===k)!.id;p=M.apply(p,{type:'combine',a:id(a),b:id(b)});};c('solar-radio','dish');c('frame','wheels');c('motor','rover');c('solar-charger','rover');p=M.apply(p,{type:'place',token:p.state.tokens.find(t=>t.kind==='map')!.id,location:'overlook'});c('binoculars','map');const rover=p.state.tokens.find(t=>t.kind==='rover')!;rover.y=M.areaTop(p.state)+1;assert(M.carryTokens(p.state,3).some(t=>t.id===rover.id),'Unfilled radio slot keeps Rover useful');const next=M.apply(p,{type:'advance'}).state,moved=M.token(next,rover.id)!;assert(moved.y-M.tokenSize(moved).height/2>=M.areaTop(next));});

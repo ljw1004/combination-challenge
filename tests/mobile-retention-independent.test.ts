@@ -103,6 +103,11 @@ test('independent Mars: all legal recipe operands and slot targets stay active t
   }
   assert.equal(s.level,3,`seed ${seed}: advance deadlock`);assert(Core.goals.every(g=>s.achieved.includes(g.id)),`seed ${seed}: unmet goals`);
  }
+ // The later outcrop shares Ice sample with earlier sampling. Exercise it
+ // explicitly before sampling, without weakening all-alternative coverage.
+ const late=M.debugJump('observations').state,scoop=late.tokens.find(t=>t.kind==='scoop')!;
+ const sample=M.stepNamed(late,{type:'use-location',token:scoop.id,location:'lookout-ice'});
+ assert(sample.accepted,sample.message);assert.equal(sample.recipe,'outcrop-sample');covered.add(sample.recipe!);
  assert.deepEqual([...covered].sort(),Core.recipes.map(r=>r.id).sort(),'Each authored alternative exercised at least once');
 });
 test('independent Mars: placing a spent piece cannot falsely mark it for carry',()=>{

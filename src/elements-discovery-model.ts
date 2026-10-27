@@ -3,7 +3,7 @@ export const SAVE_KEY='elements-discovery-v1',VERSION='elements-discovery-1';
 export type Point={x:number;y:number};
 export type Token=Point&{id:string;kind:string;location:string|null;slots?:Record<string,string>};
 export type State={tokens:Token[];level:number;revealed:string[];achieved:string[];actions:number;areaTop?:number;cellarY?:number;witnesses?:Record<string,string>};
-export type Action={type:'combine';a:string;b:string;at?:string}|{type:'use-location';token:string;location:string}|{type:'place';token:string;location:string|null;x?:number;y?:number}|{type:'advance'};
+export type Action={type:'combine';a:string;b:string;at?:string;boardWidth?:number}|{type:'use-location';token:string;location:string}|{type:'place';token:string;location:string|null;x?:number;y?:number}|{type:'advance'};
 export type Result={accepted:boolean;state:State;message:string;created?:string;updated?:string;origin?:Point;recipe?:string;nudged?:{id:string;from:Point}[];moved?:string;displaced?:string};
 export type Play={version:1;layout?:2|3;state:State;history:State[];debug:string|null;notice:Omit<Result,'state'|'accepted'>|null;welcome:boolean;purpose:boolean};
 const names:Record<string,string>={earth:'Earth',water:'Water',air:'Air',fire:'Fire',clay:'Clay',stone:'Stone',sand:'Sand',rain:'Rain',plant:'Plant',wood:'Wood',grain:'Grain',fruit:'Fruit',flour:'Flour',dough:'Dough',flatbread:'Flatbread',bowl:'Bowl',brick:'Brick',glass:'Glass',window:'Window',charcoal:'Charcoal',torch:'Torch',kiln:'Kiln',glaze:'Glaze','glazed-bowl':'Glazed bowl',juice:'Fruit juice',starter:'Wild starter','risen-dough':'Risen dough',bread:'Bread',cider:'Cider',vinegar:'Vinegar',fiber:'Plant fiber',thread:'Thread',cloth:'Cloth',rope:'Rope',basket:'Basket',sail:'Sail',raft:'Raft',sailboat:'Sailboat',house:'House',greenhouse:'Greenhouse',lantern:'Lantern',feast:'Feast',jam:'Jam','fruit-tart':'Fruit tart','picnic-basket':'Picnic basket'};
@@ -31,7 +31,16 @@ export const LEVELS=[{label:'From four beginnings',intro:'“I have earth, water
 export const level=(s:State)=>LEVELS[s.level];
 export function goalStates(s:State,index=s.level){return LEVELS[index].goals.map(id=>{const g=GOALS.find(g=>g.id===id)!;return {...g,current:g.requires.filter(c=>s.tokens.some(t=>hasCapability(t,c))).length>=(g.count??g.requires.length),achieved:s.achieved.includes(id)};});}
 function score(s:State){s.witnesses??={};for(let i=0;i<=s.level;i++)for(const g of goalStates(s,i)){for(const cap of g.requires){const witness=s.tokens.find(t=>hasCapability(t,cap));if(witness&&!s.witnesses[g.id+':'+cap])s.witnesses[g.id+':'+cap]=witness.id;}if(g.current&&!s.achieved.includes(g.id))s.achieved.push(g.id);}}
-export const victoryWitnesses=(s:State)=>new Set(Object.values(s.witnesses??{}));
+/** Gold is current mission success, never a historical achievement or precursor. */
+export function victoryWitnesses(s:State){
+ const ids=new Set<string>();
+ for(const g of goalStates(s))for(const cap of g.requires){
+  const saved=s.witnesses?.[g.id+':'+cap];
+  const witness=s.tokens.find(t=>t.id===saved&&hasCapability(t,cap))??s.tokens.find(t=>hasCapability(t,cap));
+  if(witness)ids.add(witness.id);
+ }
+ return ids;
+}
 /** Carry selection only. All surviving discoveries remain physically visible. */
 export function activeTokens(s:State):Token[]{
  const known=new Set(s.tokens.map(t=>t.kind)),needed=new Set<string>();
@@ -42,19 +51,23 @@ export function activeTokens(s:State):Token[]{
 }
 /** Carry as one translated group; never sort or grid the user's arrangement. */
 export function arrangeActive(s:State){const carried=activeTokens(s),ids=new Set(carried.map(t=>t.id)),left=s.tokens.filter(t=>!ids.has(t.id));const top=left.length?Math.max(...left.map(t=>t.y))+10:0;s.areaTop=top;if(!carried.length)return;const minY=Math.min(...carried.map(t=>t.y));const span=Math.max(...carried.map(t=>t.y))-minY,scale=span>36?.92:1;for(const t of carried){t.x=50+(t.x-50)*scale;t.y=top+11+(t.y-minY)*scale;t.location=null;}}
-function freePoint(s:State,near:Point,local=false,fixed:string[]=[]):Point{
- const points:Point[]=[];for(let y=Math.max(s.level&&near.y>=(s.areaTop??0)?(s.areaTop??0)+11:6,near.y-25);y<=near.y+25;y+=5)for(const x of [18,50,82])if(!s.revealed.includes('cellar')||Math.abs(x-82)>29||Math.abs(y-mapPositions(s).cellar.y)>8)points.push({x,y});
- const overlaps=(p:Point,t:Token)=>Math.abs(p.x-t.x)<29&&Math.abs(p.y-t.y)<4;
- const distance=(p:Point)=>Math.hypot(p.x-near.x,p.y-near.y);
- const nearbyDistance=(p:Point)=>Math.hypot((p.x-near.x)*.2,p.y-near.y);
- const candidates=points.filter(p=>!local||distance(p)<=70).sort((a,b)=>nearbyDistance(a)-nearbyDistance(b));
- const visible=s.tokens;
- const free=candidates.find(p=>visible.every(t=>!overlaps(p,t)));if(free)return free;
- const staggered=points.map(p=>({x:p.x,y:p.y+2.5})).filter(p=>(!s.revealed.includes('cellar')||Math.abs(p.x-82)>29||Math.abs(p.y-mapPositions(s).cellar.y)>8)&&(!local||distance(p)<=70));
- const nearby=[...staggered,...candidates].filter(p=>s.tokens.filter(t=>fixed.includes(t.id)).every(t=>!overlaps(p,t)))
-  .sort((a,b)=>visible.reduce((sum,t)=>sum+(overlaps(a,t)?Math.max(0,4-Math.abs(a.y-t.y)):0),0)-visible.reduce((sum,t)=>sum+(overlaps(b,t)?Math.max(0,4-Math.abs(b.y-t.y)):0),0)||nearbyDistance(a)-nearbyDistance(b));
- // Geometry must never reject a legal recipe, hint or cellar displacement.
- return nearby[0]??{x:Math.max(18,Math.min(82,near.x)),y:near.y>82?near.y-8:near.y+8};
+/** Pick only immediate neighbours of the target. A crowded board may overlap,
+ * but must never send a new discovery to a distant vacant grid slot.
+ * Horizontal coordinates are percentages; vertical coordinates are ten pixels. */
+function freePoint(s:State,near:Point,_local=false,fixed:string[]=[],boardWidth=360):Point{
+ const width=Number.isFinite(boardWidth)?Math.max(320,Math.min(600,boardWidth)):360;
+ const cardWidth=Math.min(width*.28,110),dx=(cardWidth+2)/width*100,dy=3.8;
+ const points:Point[]=[
+  {x:near.x+dx,y:near.y+dy},{x:near.x-dx,y:near.y+dy},
+  {x:near.x+dx,y:near.y-dy},{x:near.x-dx,y:near.y-dy},
+  {x:near.x,y:near.y+dy},{x:near.x+dx,y:near.y},
+  {x:near.x-dx,y:near.y},{x:near.x,y:near.y-dy}
+ ].map(p=>({x:Math.max(18,Math.min(82,p.x)),y:Math.max(6,p.y)}));
+ const overlap=(p:Point,t:Point,w=cardWidth,h=36)=>Math.max(0,(cardWidth+w)/2-Math.abs(p.x-t.x)*width/100)*Math.max(0,(36+h)/2-Math.abs(p.y-t.y)*10);
+ const cost=(p:Point)=>s.tokens.reduce((n,t)=>n+overlap(p,t)*(fixed.includes(t.id)?2:1),0)+s.revealed.reduce((n,id)=>n+overlap(p,mapPositions(s)[id],Math.min(width*.29,110),70),0);
+ // Stable order favours a diagonally touching birth. Free wins; otherwise the
+ // least occupied immediate neighbour wins, without rearranging existing things.
+ return points.map((p,i)=>({p,i,cost:cost(p)})).sort((a,b)=>a.cost-b.cost||a.i-b.i)[0].p;
 }
 
 export function createNamed():State{return {tokens:['earth','water','air','fire'].map((kind,i)=>({id:kind,kind,x:[18,50,82][i%3],y:8+Math.floor(i/3)*5,location:null})),level:0,revealed:[],achieved:[],actions:0,areaTop:0,witnesses:{}};}
@@ -62,7 +75,8 @@ export function stepNamed(state:State,action:Action):Result{try{const s=structur
  const a=token(s,action.type==='combine'?action.a:action.token);if(!a)throw Error('Choose an available thing.');
  if(action.type==='place'){if(action.location&&!s.revealed.includes(action.location))throw Error('That place is not open.');if(action.location){const old=s.tokens.find(t=>t.location===action.location&&t.id!==a.id);if(old){old.location=null;Object.assign(old,freePoint(s,old));}Object.assign(a,mapPositions(s)[action.location]);}else if(action.x!==undefined&&action.y!==undefined){if(!Number.isFinite(action.x)||!Number.isFinite(action.y))throw Error('Invalid position');a.x=Math.max(18,Math.min(82,action.x));a.y=Math.max(6,action.y);}a.location=action.location;s.actions++;return {accepted:true,state:s,message:action.location?'Set down in the warm cellar.':'Moved.'};}
  if(action.type==='use-location')throw Error('Set a mixture here, then bring its partner.');
- const b=token(s,action.b);if(!b||a.id===b.id)throw Error('Choose another thing.');const recipe=RECIPES.find(r=>((r.a===a.kind&&r.b===b.kind)||(r.a===b.kind&&r.b===a.kind))&&(!r.at||b.location===r.at));if(!recipe)throw Error('Nothing new yet. Try another partner.');if(s.tokens.some(t=>t.kind===recipe.out))throw Error('You already have that discovery.');const origin={x:b.x,y:b.y};s.tokens.push({id:recipe.out,kind:recipe.out,location:null,...freePoint(s,origin,true,[a.id,b.id])});s.actions++;score(s);return {accepted:true,state:s,message:`${concept(recipe.out).label} discovered.`,created:recipe.out,origin,recipe:recipe.id};
+ const b=token(s,action.b);if(!b||a.id===b.id)throw Error('Choose another thing.');const recipe=RECIPES.find(r=>((r.a===a.kind&&r.b===b.kind)||(r.a===b.kind&&r.b===a.kind))&&(!r.at||b.location===r.at));if(!recipe)throw Error('Nothing new yet. Try another partner.');if(s.tokens.some(t=>t.kind===recipe.out))throw Error('You already have that discovery.');// A placed thing is drawn at 68% of the 70px location, 12.6px below its center.
+ const origin={x:b.x,y:b.y+(b.location?1.26:0)};s.tokens.push({id:recipe.out,kind:recipe.out,location:null,...freePoint(s,origin,true,[a.id,b.id],action.boardWidth)});s.actions++;score(s);return {accepted:true,state:s,message:`${concept(recipe.out).label} discovered.`,created:recipe.out,origin,recipe:recipe.id};
  }catch(e){return {accepted:false,state,message:(e as Error).message};}}
 export function creation(s:State,a:string,target:string){if(target.startsWith('place:'))return null;const r=stepNamed(s,{type:'combine',a,b:target});return r.accepted&&r.created?r:null;}
 export function gestureAction(s:State,a:string,target:string):Action{return target.startsWith('place:')?{type:'place',token:a,location:target.slice(6)}:{type:'combine',a,b:target};}

@@ -22,16 +22,22 @@ export const revealed=(s:State)=>places.filter(p=>p.id==='library'?s.chapter>=1:
 export const label=(t:Thing)=>t.memory?`${t.memory.duration===2?'Short ':''}${t.memory.channel==='pressure'?'tactile ':'moving '}tide`:concepts[t.kind]?.label??t.kind;
 export const description=(t:Thing)=>t.memory?`A ${t.memory.duration}-minute tide, expressed through ${t.memory.channel}. Its five remembered heights remain ${t.memory.samples.join(', ')}.`:concepts[t.kind]?.description??'';
 export function current(s:State,index=s.chapter){if(index===0)return s.things.some(t=>t.kind==='method');if(index===1)return s.things.some(t=>t.location==='library'&&['journal','encyclopedia'].includes(t.kind));return s.things.some(t=>t.location==='listening'&&t.memory?.channel==='pressure'&&t.memory.duration===2&&t.memory.samples.join(',')==='0,1,3,1,0');}
-/** Prefer a nearby readable opening (including a just-retired operand's slot).
- * Packing is cosmetic: if no local opening exists, creation still succeeds. */
-function gap(s:State,p:Point,ignore?:string):Point{
- const maxX=(s.boardWidth??1000)-75,clamp=(q:Point)=>({x:Math.max(75,Math.min(maxX,q.x)),y:Math.max(60,q.y)});
- const candidates:Point[]=[];
- for(let dy=-220;dy<=220;dy+=55)for(let dx=-140;dx<=140;dx+=70){const q=clamp({x:p.x+dx,y:p.y+dy});if(Math.hypot(q.x-p.x,q.y-p.y)<=220)candidates.push(q);}
- const occupied=s.things.filter(t=>t.id!==ignore);
+/** New ideas emerge against the target's edge, never in a distant vacant slot.
+ * Among immediately adjacent positions prefer no overlap, otherwise the least
+ * covered area. Packing is cosmetic and must never prevent a combination. */
+export function nearbyBirth(s:State,p:Point,ignore?:string,placeTarget=false):Point{
+ const maxX=playWidth(s.boardWidth??600)-70;
+ const clamp=(q:Point)=>({x:Math.max(70,Math.min(maxX,q.x)),y:Math.max(24,q.y)});
+ const dx=placeTarget?137:136,dy=placeTarget?72:46;
+ const offsets=[[dx,dy],[-dx,dy],[dx,-dy],[-dx,-dy],[0,dy],[dx,0],[-dx,0],[0,-dy]];
+ const candidates=offsets.map(([x,y])=>clamp({x:p.x+x,y:p.y+y}));
+ const overlap=(q:Point,o:Point,w:number,h:number)=>Math.max(0,(134+w)/2-Math.abs(q.x-o.x))*Math.max(0,(44+h)/2-Math.abs(q.y-o.y));
  const sites=s.boardWidth?boardLayout(s,s.boardWidth).locations:revealed(s);
- return candidates.sort((a,b)=>Math.hypot(a.x-p.x,a.y-p.y)-Math.hypot(b.x-p.x,b.y-p.y)).find(q=>occupied.every(t=>Math.abs(q.x-t.x)>=138||Math.abs(q.y-t.y)>=54)&&sites.every(t=>Math.abs(q.x-t.x)>=140||Math.abs(q.y-t.y)>=80))??clamp({x:p.x+24,y:p.y+56});
+ const score=(q:Point)=>s.things.filter(t=>t.id!==ignore).reduce((n,t)=>n+overlap(q,t,134,44),0)+sites.reduce((n,t)=>n+overlap(q,t,136,96),0);
+ return candidates.map((q,i)=>({q,i,cost:score(q)})).sort((a,b)=>a.cost-b.cost||a.i-b.i)[0].q;
 }
+const gap=nearbyBirth;
+export const playWidth=(width:number)=>Math.max(280,Math.min(600,width));
 /** Future-use predicate: decides which tools travel, NEVER visibility. */
 export function active(s:State,t:Thing):boolean{
  if(recipes.some(([a,b,out])=>(a===t.kind||b===t.kind)&&!s.things.some(x=>x.kind===out)))return true;
@@ -52,10 +58,11 @@ export function active(s:State,t:Thing):boolean{
 export const activeThings=(s:State)=>s.things.filter(t=>active(s,t));
 /** All surviving discoveries remain tangible on this one continuous board. */
 export const visibleThings=(s:State)=>s.things;
-export function witness(s:State,t:Thing){return t.kind==='method'||(t.location==='library'&&['journal','encyclopedia'].includes(t.kind))||(t.location==='listening'&&t.memory?.channel==='pressure'&&t.memory.duration===2&&t.memory.samples.join(',')==='0,1,3,1,0');}
+export function witness(s:State,t:Thing){return s.chapter===0?t.kind==='method':s.chapter===1?t.location==='library'&&['journal','encyclopedia'].includes(t.kind):t.location==='listening'&&t.memory?.channel==='pressure'&&t.memory.duration===2&&t.memory.samples.join(',')==='0,1,3,1,0';}
+export const placeWitness=(s:State,id:string)=>s.things.some(t=>t.location===id&&witness(s,t));
 export const areaTop=(s:State,chapter=s.chapter)=>s.areas?.find(a=>a.chapter===chapter)?.top??0;
 export function boardLayout(s:State,width:number){
- const w=Math.max(280,width),columns=w<600?2:Math.max(2,Math.floor(w/150));
+ const w=playWidth(width),columns=w<600?2:Math.max(2,Math.floor(w/150));
  const locations=revealed(s).map(p=>({...p,x:p.id==='library'?w/2:p.id==='listening'?w*.25:w*.75,y:areaTop(s,p.id==='library'?1:2)+48}));
  const positions=new Map<string,Point>();
  s.things.forEach((t,i)=>{const place=locations.find(p=>p.id===t.location);positions.set(t.id,place?{x:place.x,y:place.y+16}:!s.boardWidth&&!s.areas?{x:(i%columns+.5)*w/columns,y:44+Math.floor(i/columns)*55}:{x:Math.min(w-70,Math.max(70,t.x)),y:t.y});});
@@ -89,7 +96,7 @@ export function step(before:State,action:Action):{state:State;accepted:boolean;m
  const s=structuredClone(before);let created:string|undefined,origin:Point|undefined,message='';
  if(action.type==='advance'){if(!current(s)||s.chapter>=2)return {state:before,accepted:false,message:'There is more to discover here.'};travel(s);message=chapters[s.chapter].invitation;}
  else if(action.type==='place'){const t=thing(s,action.id);if(!t)return {state:before,accepted:false,message:'That idea is not here.'};if(action.location){const p=(s.boardWidth?boardLayout(s,s.boardWidth).locations:revealed(s)).find(p=>p.id===action.location);if(!p)return {state:before,accepted:false,message:'That place has not opened.'};for(const old of s.things.filter(x=>x.location===p.id)){delete old.location;Object.assign(old,gap(s,{x:p.x-150,y:p.y}));}t.location=p.id;t.x=p.x;t.y=p.y;message=`${label(t)} is at the ${p.label.toLowerCase()}.`;}else{if(!Number.isFinite(action.x)||!Number.isFinite(action.y))return {state:before,accepted:false,message:'Choose a point on the board.'};delete t.location;t.x=Math.max(75,Math.min((s.boardWidth??1000)-75,action.x!));t.y=Math.max(60,action.y!);message='';}}
- else {const a=thing(s,action.a);const r=a&&result(s,a,action.b);if(!r)return {state:before,accepted:false,message:'Those ideas do not meet yet.'};created=outputId(r);if(thing(s,created))return {state:before,accepted:false,message:'That discovery is already here.'};origin=action.b.startsWith('place:')?(s.boardWidth?boardLayout(s,s.boardWidth).locations:places).find(p=>p.id===action.b.slice(6)):thing(s,action.b);const t={...r,id:created,x:origin!.x,y:origin!.y};s.things.push(t);Object.assign(t,gap(s,origin!,created));message=`${label(t)}. ${description(t)}`;}
+ else {const a=thing(s,action.a);const r=a&&result(s,a,action.b);if(!r)return {state:before,accepted:false,message:'Those ideas do not meet yet.'};created=outputId(r);if(thing(s,created))return {state:before,accepted:false,message:'That discovery is already here.'};origin=action.b.startsWith('place:')?(s.boardWidth?boardLayout(s,s.boardWidth).locations:places).find(p=>p.id===action.b.slice(6)):(s.boardWidth?boardLayout(s,s.boardWidth).positions.get(action.b):thing(s,action.b));const t={...r,id:created,x:origin!.x,y:origin!.y};s.things.push(t);Object.assign(t,gap(s,origin!,created,action.b.startsWith('place:')));message=`${label(t)}. ${description(t)}`;}
  s.actions++;for(let i=0;i<=s.chapter;i++)if(current(s,i)&&!s.achieved.includes(String(i)))s.achieved.push(String(i));return {state:s,accepted:true,message,created,origin};
 }
 export function gesture(s:State,a:string,b:string):Action {return b.startsWith('place:')&&!partners(s,a).includes(b)?{type:'place',id:a,location:b.slice(6)}:{type:'combine',a,b};}

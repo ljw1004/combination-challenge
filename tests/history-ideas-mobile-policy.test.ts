@@ -61,12 +61,12 @@ test('tangible areas: carry exactly future-needed unplaced tools by one translat
  assert(M.boardLayout(r.state,width).height-M.areaTop(r.state)<500,'Current carried group and location stay compact');
  }
 });
-test('witnesses stay golden while goal is currently satisfied; placed finished objects stay in their old area',()=>{
- const s=M.checkpoint(1,375),journal=M.thing(s,'journal')!,method=M.thing(s,'method')!;assert(M.witness(s,journal));assert(M.witness(s,method));const next=M.step(s,{type:'advance'}).state;assert.deepEqual(M.thing(next,'journal'),journal);assert(M.visibleThings(next).some(t=>t.id==='journal'));assert(M.witness(next,M.thing(next,'journal')!));const moved=M.step(next,{type:'place',id:'journal',x:100,y:journal.y+100}).state;assert(!M.witness(moved,M.thing(moved,'journal')!));assert(!M.current(moved,1));
+test('gold is current-stage only; placed finished objects stay tangible in their old area',()=>{
+ const s=M.checkpoint(1,375),journal=M.thing(s,'journal')!,method=M.thing(s,'method')!;assert(M.witness(s,journal));assert(!M.witness(s,method));const next=M.step(s,{type:'advance'}).state;assert.deepEqual(M.thing(next,'journal'),journal);assert(M.visibleThings(next).some(t=>t.id==='journal'));assert(!M.witness(next,M.thing(next,'journal')!));const moved=M.step(next,{type:'place',id:'journal',x:100,y:journal.y+100}).state;assert(!M.witness(moved,M.thing(moved,'journal')!));assert(!M.current(moved,1));
  const final=M.checkpoint(2,375);assert(M.witness(final,M.thing(final,'tide-pressure-2')!));
 });
 test('synthetic: transition undo restores exact arrangement and all finished objects render on one board',()=>{
- const before=M.checkpoint(0,375),h=harness({version:1,state:before},{boardWidth:375,boardHeight:700,viewWidth:375,viewHeight:480});const snapshots=structuredClone(h.state().state.things);h.click(h.button('next'));h.settle();assert(h.thing('number'));assert(h.thing('method').classes.has('witness'));assert.equal(h.els().filter((e:any)=>e.classes.has('thing')).length,before.things.length);h.click(h.button('undo'));assert.deepEqual(h.state().state.things,snapshots);assert.equal(h.state().state.chapter,0);
+ const before=M.checkpoint(0,375),h=harness({version:1,state:before},{boardWidth:375,boardHeight:700,viewWidth:375,viewHeight:480});const snapshots=structuredClone(h.state().state.things);h.click(h.button('next'));h.settle();assert(h.thing('number'));assert(!h.thing('method').classes.has('witness'));assert.equal(h.els().filter((e:any)=>e.classes.has('thing')).length,before.things.length);h.click(h.button('undo'));assert.deepEqual(h.state().state.things,snapshots);assert.equal(h.state().state.chapter,0);
 });
 test('placed future-use non-witness tools travel too, without stranding a needed memory',()=>{
  let s=M.checkpoint(1,375);s=M.step(s,{type:'place',id:'memory',location:'library'}).state;s=M.step(s,{type:'place',id:'journal',location:'library'}).state;
@@ -74,8 +74,8 @@ test('placed future-use non-witness tools travel too, without stranding a needed
  const memory=M.thing(s,'memory')!;memory.location='library';const before=structuredClone(memory);const next=M.step(s,{type:'advance'});assert(next.accepted);assert(M.thing(next.state,'memory')!.y>before.y);assert.equal(M.thing(next.state,'memory')!.location,undefined);assert(M.current(next.state,1));
 });
 test('returning to a prior physical area permits optional peer review while library witness remains in place',()=>{
- const before=M.checkpoint(1,375),journal=structuredClone(M.thing(before,'journal'));let s=M.step(before,{type:'advance'}).state;const r=M.step(s,{type:'combine',a:'journal',b:'doubt'});assert(r.accepted);assert.deepEqual(M.thing(r.state,'journal'),journal);assert(M.current(r.state,1));assert(M.witness(r.state,M.thing(r.state,'journal')!));
- const h=harness({version:1,state:s},{boardWidth:375,boardHeight:900,viewWidth:375,viewHeight:480});h.click(h.doc.querySelector('[data-area="1"]'));assert.equal(h.doc.querySelector('.viewport').scrollTop,M.areaTop(s,1));h.click(h.thing('journal'));h.click(h.doc.querySelector('[data-area="2"]'));assert.equal(h.doc.querySelector('.viewport').scrollTop,M.areaTop(s,2));h.click(h.thing('doubt'));assert(h.thing('review'));assert(h.thing('journal').classes.has('witness'));
+ const before=M.checkpoint(1,375),journal=structuredClone(M.thing(before,'journal'));let s=M.step(before,{type:'advance'}).state;const r=M.step(s,{type:'combine',a:'journal',b:'doubt'});assert(r.accepted);assert.deepEqual(M.thing(r.state,'journal'),journal);assert(M.current(r.state,1));assert(!M.witness(r.state,M.thing(r.state,'journal')!));
+ const h=harness({version:1,state:s},{boardWidth:375,boardHeight:900,viewWidth:375,viewHeight:480});h.click(h.doc.querySelector('[data-area="1"]'));assert.equal(h.doc.querySelector('.viewport').scrollTop,M.areaTop(s,1));h.click(h.thing('journal'));h.click(h.doc.querySelector('[data-area="2"]'));assert.equal(h.doc.querySelector('.viewport').scrollTop,M.areaTop(s,2));h.click(h.thing('doubt'));assert(h.thing('review'));assert(!h.thing('journal').classes.has('witness'));
 });
 test('area framing: short current area gets exactly one viewport; tall content determines its own bound',()=>{
  for(const width of [320,375,500]){const s=M.step(M.checkpoint(0,width),{type:'advance'}).state,top=M.areaTop(s),occupied=M.boardLayout(s,width).height;const viewport=700;

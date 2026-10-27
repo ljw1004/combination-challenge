@@ -5,7 +5,7 @@ export const SAVE_KEY='mars-expedition-checkpoint-v3', VERSION='mars-expedition-
 export type Point={x:number;y:number};
 export type Token=E.Token & Point;
 export type State=Omit<E.State,'tokens'> & {tokens:Token[];places:Record<string,Point>;areas:{level:number;top:number}[]};
-export type Action={type:'combine';a:string;b:string;at?:string}|{type:'use-location';token:string;location:string}|{type:'place';token:string;location:string|null;x?:number;y?:number}|{type:'advance'};
+export type Action=({type:'combine';a:string;b:string;at?:string}|{type:'use-location';token:string;location:string}|{type:'place';token:string;location:string|null;x?:number;y?:number}|{type:'advance'}) & {boardWidth?:number};
 export type Result={accepted:boolean;state:State;message:string;created?:string;updated?:string;installed?:{rover:string;slot:RoverSlot;retained:boolean};origin?:Point;recipe?:string;displaced?:string;moved?:string;nudged?:{id:string;from:Point}[]};
 export type Play={version:1;state:State;history:State[];debug:string|null;notice:Omit<Result,'state'|'accepted'>|null;welcome:boolean;purpose:boolean};
 export const concept=E.concept, hasCapability=E.hasCapability;
@@ -26,7 +26,7 @@ export const caches=[
  {label:'Lander wreck · emergency salvage',story:'You are outside the damaged lander. Emergency electronics, a portable lamp and workshop salvage survived beside the hatch. Repair a radio or build a directed optical signal.',items:['broken-radio','cable','solar-panel','battery','lamp','foil','frame','tripod','toolkit']},
  {label:'Habitat locker · living and lab supplies',story:'Contact restored: Mission Control guides you into the nearby habitat. Its locker holds water, growing and repair equipment, together with a small sampling and contained-work kit.',items:['heater','water-filter','canister','seeds','planting-tray','clear-cover','habitat-fabric','sealant','scoop','sample-jar','sealed-box','gloves']},
  {label:'Cargo sled · vehicle and survey equipment',story:'Beyond the habitat you recover the lander’s cargo sled: vehicle parts, a dish and a mixed survey kit with spare optics.',items:['wheels','motor','dish','map','binoculars','camera','lens','tube']},
- {label:'Distant lookout · a new view',story:'Your mapped route leads to a distant lookout. Use the equipment you have recovered to record the cliff and bring back observations.',items:[]}
+ {label:'Distant lookout · a new view',story:'Your mapped route leads to a distant lookout. A fresh ice outcrop lies beside this viewpoint. Collect a specimen here and use your recovered equipment to record the cliff.',items:[]}
 ];
 export const roverSlots=(t:Pick<Token,'kind'|'slots'>)=>t.kind==='rover'?E.slots.filter(slot=>slot.id!=='wheels'&&(slot.required||!!t.slots?.[slot.id])).map(slot=>({...slot,label:t.slots?.[slot.id]?concept(t.slots[slot.id]!).label:slot.label,filled:!!t.slots?.[slot.id]})):[];
 export const tokenSize=(t:Pick<Token,'kind'|'slots'>)=>({width:10.8,height:t.kind==='rover'?4.4+2.1*roverSlots(t).length:4.4});
@@ -42,7 +42,7 @@ export const areaTop=(s:State)=>s.areas.at(-1)?.top??0;
 /** Fill gaps with new salvage only. Existing pieces are never individually repacked. */
 function availablePoint(s:State,width=10.8,height=4.4):Point{
  for(let row=0;row<10000;row++)for(const x of [6,18,30]){
-  const p={x,y:areaTop(s)+3+row*4.6};
+  const p={x,y:areaTop(s)+3+row*.2};
   const occupied=s.tokens.map(t=>({p:point(s,t),size:tokenSize(t)})).concat(Object.entries(s.places).map(([id,p])=>({p,size:locationSize(s,id)})));
   if(occupied.every(q=>Math.abs(p.x-q.p.x)>=(width+q.size.width)/2+.2-1e-6||Math.abs(p.y-q.p.y)>=(height+q.size.height)/2+.2-1e-6))return p;
  }
@@ -70,16 +70,16 @@ function nextArea(s:State){
  for(const {t,p} of origins){t.x=p.x;t.y=top+.8+compact(p.y)-minCompact;t.location=null;}
  grantCache(s,s.level);revealPlaces(s);
 }
-/** Nearby births may share edges, but never cover another surviving label/hit core.
- * Geometry chooses presentation only: a crowded board grows instead of rejecting a recipe. */
-function birthPoint(s:State,t:Token,anchor:Point):Point{
- const size=tokenSize(t),others=s.tokens.filter(q=>q.id!==t.id).map(q=>({p:point(s,q),size:tokenSize(q)})).concat(Object.entries(s.places).map(([id,p])=>({p,size:locationSize(s,id)})));
- const clear=(p:Point)=>others.every(q=>Math.abs(p.x-q.p.x)>=(size.width+q.size.width)/2-Math.min(size.width,q.size.width)*.1-1e-6||Math.abs(p.y-q.p.y)>=(size.height+q.size.height)/2-Math.min(size.height,q.size.height)*.1-1e-6);
- const bottom=Math.max(anchor.y,...others.map(q=>q.p.y+q.size.height/2))+size.height+6,localTop=s.areas.filter(a=>a.top<=anchor.y).at(-1)?.top??0;
- const candidates:Point[]=[{x:Math.max(6,Math.min(30,anchor.x)),y:Math.max(localTop+3,anchor.y)}];
- for(let y=localTop+3;y<=bottom;y+=2.3)for(const x of [6,18,30])candidates.push({x,y});
+/** Creation stays attached to its target visually. Crowding permits a small,
+ * least-bad overlap rather than sending the result away across the board. */
+function birthPoint(s:State,t:Token,anchor:Point,targetSize={width:10.8,height:4.4},boardWidth=320):Point{
+ const widthScale=320/Math.max(320,boardWidth),size={...tokenSize(t),width:10.8*widthScale};targetSize={...targetSize,width:targetSize.width*widthScale};const others=s.tokens.filter(q=>q.id!==t.id).map(q=>({p:point(s,q),size:{...tokenSize(q),width:10.8*widthScale}})).concat(Object.entries(s.places).map(([id,p])=>({p,size:{...locationSize(s,id),width:locationSize(s,id).width*widthScale}})));
+ const localTop=s.areas.filter(a=>a.top<=anchor.y).at(-1)?.top??0;
+ const dx=(size.width+targetSize.width)/2+.15,dy=(size.height+targetSize.height)/2+.15;
+ const candidates:Point[]=[[1,1],[-1,1],[1,-1],[-1,-1],[0,1],[0,-1],[1,0],[-1,0]].map(([x,y])=>({x:Math.max(size.width/2+.3,Math.min(WORLD_WIDTH-size.width/2-.3,anchor.x+x*dx)),y:Math.max(localTop+size.height/2+.3,anchor.y+y*dy)}));
+ const overlap=(p:Point)=>others.reduce((sum,q)=>sum+Math.max(0,(size.width+q.size.width)/2-Math.abs(p.x-q.p.x))*Math.max(0,(size.height+q.size.height)/2-Math.abs(p.y-q.p.y)),0);
  candidates.sort((a,b)=>Math.hypot(a.x-anchor.x,a.y-anchor.y)-Math.hypot(b.x-anchor.x,b.y-anchor.y));
- return candidates.find(clear)??{x:Math.max(6,Math.min(30,anchor.x)),y:bottom};
+ return candidates.find(p=>overlap(p)<1e-6)??candidates.reduce((best,p)=>overlap(p)<overlap(best)?p:best);
 }
 export function createNamed():State{const base=E.create(),s:State={...base,tokens:[],known:[],places:{},areas:[{level:0,top:0}]};grantCache(s,0);revealPlaces(s);return s;}
 export type GoalCondition={id:string;label:string;satisfied:boolean;witnesses:string[];place?:string};
@@ -90,8 +90,8 @@ export function goalConditions(s:State,index=s.level):GoalCondition[]{return E.l
  const witnesses=s.tokens.filter(t=>g.kind==='place'?t.location===g.location&&(g.capability?hasCapability(t,g.capability):t.kind===g.concept):t.kind===g.concept).map(t=>t.id);
  return [{id,label:g.id==='contact'?'Place a powered radio or optical beacon on Contact ridge':g.requirement,satisfied:E.satisfiesGoal(s,g),witnesses,...g.kind==='place'?{place:g.location}:{}}];
  });}
-/** Gold belongs to actual currently satisfying witnesses, not merely historical flags. */
-export function goalWitnesses(s:State){return {tokens:new Set(Array.from({length:s.level+1},(_,i)=>goalConditions(s,i)).flat().filter(c=>c.satisfied).flatMap(c=>c.witnesses)),places:new Set(Array.from({length:s.level+1},(_,i)=>goalConditions(s,i)).flat().filter(c=>c.satisfied&&c.place).map(c=>c.place!))};}
+/** Gold denotes only an actually satisfied condition in this stage. */
+export function goalWitnesses(s:State){const done=goalConditions(s).filter(c=>c.satisfied);return {tokens:new Set(done.flatMap(c=>c.witnesses)),places:new Set(done.filter(c=>c.place).map(c=>c.place!))};}
 export function goalStates(s:State,index=s.level){return E.levels[index].goals.map(id=>{const g=E.goals.find(g=>g.id===id)!;return {...g,current:E.satisfiesGoal(s,g),achieved:s.achieved.includes(id)};});}
 export function stepNamed(state:State,action:Action):Result{
  try{
@@ -103,9 +103,9 @@ export function stepNamed(state:State,action:Action):Result{
  if(action.type==='place')logical={type:'place',kind:a.kind,location:action.location};
  else logical={type:'combine',a:a.kind,b:action.type==='use-location'?'place:'+action.location:b?.kind??action.b,...action.type==='combine'&&action.at?{at:action.at}:{}};}
  const result=E.step(state,logical);if(!result.accepted)return {...result,state,message:result.message.includes('duplicate')?'We already have that.':'Not quite. Try another pairing.'};
- const s=result.state as State, origin=b?point(state,b):action.type==='use-location'?s.places[action.location]:undefined;
+ const s=result.state as State, origin=b?{...point(state,b),y:point(state,b).y+(b.location?locationSize(state,b.location).height*.16:0)}:action.type==='use-location'?s.places[action.location]:undefined;
  const added=s.tokens.find(t=>!token(state,t.id));
- if(added)Object.assign(added,birthPoint(s,added,origin??{x:18,y:areaTop(s)+3}));
+ if(added)Object.assign(added,birthPoint(s,added,origin??{x:18,y:areaTop(s)+3},b?tokenSize(b):action.type==='use-location'?locationSize(state,action.location):undefined,action.boardWidth));
  if(action.type==='advance')nextArea(s);else revealPlaces(s);
  if(action.type==='place'){
  const t=token(s,a!.id)!;
@@ -151,5 +151,5 @@ export function debugJump(id:string):Play{if(!fixtures.some(f=>f.id===id))throw 
  c('broken-radio','cable');c('solar-panel','battery');c('solar-charger','radio');place('solar-radio','contact-ridge');act({type:'advance'});
  if(id!=='home'){place('canister','glacier');c('heater','canister');c('meltwater-canister','water-filter');c('seeds','planting-tray');c('water-canister','seed-tray');c('watered-seed-tray','place:warm-habitat');c('sprouted-tray','clear-cover');c('habitat-fabric','sealant');act({type:'advance'});}
  if(id==='observations'||id==='complete'){c('solar-radio','dish');c('frame','wheels');c('motor','rover');c('solar-charger','rover');c('long-range-radio','rover');place('map','overlook');c('binoculars','map');act({type:'advance'});}
- if(id==='complete'){c('scoop','place:glacier');c('ice-sample','sample-jar');c('sealed-ice-sample','camera');c('lens','tube');c('telescope','tripod');c('field-telescope','camera');c('telescope-camera','place:distant-lookout');c('cliff-photograph','survey-map');}
+ if(id==='complete'){c('scoop','place:lookout-ice');c('ice-sample','sample-jar');c('sealed-ice-sample','camera');c('lens','tube');c('telescope','tripod');c('field-telescope','camera');c('telescope-camera','place:distant-lookout');c('cliff-photograph','survey-map');}
  return {...p,history:[],debug:fixtures.find(f=>f.id===id)!.label,notice:null,purpose:true};}
