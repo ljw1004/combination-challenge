@@ -1,0 +1,9 @@
+# Operator gate — not player-facing
+
+No recruitment until root publishes and verifies the exact v3 source/content, tests, independent review, assignment and a matching capture launcher. Prior host/capture packages are historical: they implement superseded source recoil, exact-kind goals and progressive raw supplies. Do not use the former player prompt or launcher for this version.
+
+The fresh ordinary run uses all authored raw supplies from the beginning. Keep the alternate generous initial substitution distinct from same-start controls. A Rover's stored slots are not duplicate freely movable tokens. Capabilities are explicit; do not infer arbitrary properties from ingredients. Only declared structural installation/obsolete evolution removes outside tokens. Return surviving source to its origin; deliberate ordinary movement remains free.
+
+Preserve every request, query, rejection, raw host response, exit and final state through a reviewed capture wrapper. Successful game outputs remain exact; fatal source diagnostics remain private and the player receives a generic operator error. Use a new dedicated run directory, serial invocations, and instruction-only source isolation honestly disclosed unless stronger isolation is provided. Do not expose source, routes, developer README, control counts or prior player reports to a fresh agent.
+
+Whole play continues through home and field to completion, explicit withdrawal, unrecoverable failure or an externally authorized study limit. No invented tiny-segment stopping condition. Retain failure/repair evidence; source changes require a new reviewed published artifact before clean subsequent evidence. Logical list access cannot establish viewport/scrolling/drag-distance cost. Catalogue growth is allowed; fixed old spatial positions remain a future UI requirement, not a capability of this coordinate-free host. No Site/UI changes authorized here.

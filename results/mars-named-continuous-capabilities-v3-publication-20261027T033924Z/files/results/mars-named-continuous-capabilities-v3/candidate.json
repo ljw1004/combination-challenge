@@ -1,0 +1,1130 @@
+{
+  "version": "continuous-capabilities-v3",
+  "status": "Logical design and controls, no fresh play",
+  "sourceSHA256": "762ffa7a9a1d54fb18abcc2c735554931e48185a292214eaafea280e8868e9a4",
+  "recipes": [
+    {
+      "a": "broken-radio",
+      "b": "cable",
+      "result": "radio",
+      "retire": [
+        "broken-radio"
+      ],
+      "retirementReason": "Radio is the evolved successor of the obsolete broken radio; cable is not consumed."
+    },
+    {
+      "a": "solar-panel",
+      "b": "battery",
+      "result": "solar-charger"
+    },
+    {
+      "a": "solar-charger",
+      "b": "radio",
+      "result": "solar-radio"
+    },
+    {
+      "a": "solar-radio",
+      "b": "dish",
+      "result": "long-range-radio"
+    },
+    {
+      "a": "long-range-radio",
+      "b": "tripod",
+      "result": "relay-station"
+    },
+    {
+      "a": "battery",
+      "b": "lamp",
+      "result": "lantern"
+    },
+    {
+      "a": "lantern",
+      "b": "reflector",
+      "result": "signal-lamp"
+    },
+    {
+      "a": "signal-lamp",
+      "b": "tripod",
+      "result": "signal-beacon"
+    },
+    {
+      "a": "solar-charger",
+      "b": "lamp",
+      "result": "solar-lamp"
+    },
+    {
+      "a": "solar-charger",
+      "b": "heater",
+      "result": "solar-heater"
+    },
+    {
+      "a": "heater",
+      "b": "place:glacier",
+      "result": "meltwater"
+    },
+    {
+      "a": "scoop",
+      "b": "place:glacier",
+      "result": "ice-sample"
+    },
+    {
+      "a": "heater",
+      "b": "ice-sample",
+      "result": "meltwater"
+    },
+    {
+      "a": "meltwater",
+      "b": "water-filter",
+      "result": "filtered-water"
+    },
+    {
+      "a": "filtered-water",
+      "b": "canister",
+      "result": "water-canister"
+    },
+    {
+      "a": "water-filter",
+      "b": "hand-pump",
+      "result": "filter-pump"
+    },
+    {
+      "a": "hose",
+      "b": "valve",
+      "result": "watering-hose"
+    },
+    {
+      "a": "water-canister",
+      "b": "watering-hose",
+      "result": "drip-irrigator"
+    },
+    {
+      "a": "water-canister",
+      "b": "hand-pump",
+      "result": "garden-sprayer"
+    },
+    {
+      "a": "dark-basin",
+      "b": "clear-cover",
+      "result": "solar-still"
+    },
+    {
+      "a": "meltwater",
+      "b": "solar-still",
+      "result": "distilled-water",
+      "at": "sunny-ledge"
+    },
+    {
+      "a": "distilled-water",
+      "b": "canister",
+      "result": "water-canister"
+    },
+    {
+      "a": "seeds",
+      "b": "planting-tray",
+      "result": "seed-tray"
+    },
+    {
+      "a": "water-canister",
+      "b": "seed-tray",
+      "result": "watered-seed-tray"
+    },
+    {
+      "a": "water-canister",
+      "b": "seed-tray",
+      "result": "sprouted-tray",
+      "at": "warm-habitat"
+    },
+    {
+      "a": "watered-seed-tray",
+      "b": "place:warm-habitat",
+      "result": "sprouted-tray"
+    },
+    {
+      "a": "sprouted-tray",
+      "b": "clear-cover",
+      "result": "propagator"
+    },
+    {
+      "a": "propagator",
+      "b": "heater",
+      "result": "heated-propagator"
+    },
+    {
+      "a": "frame",
+      "b": "clear-cover",
+      "result": "cold-frame"
+    },
+    {
+      "a": "cold-frame",
+      "b": "sprouted-tray",
+      "result": "planted-cold-frame"
+    },
+    {
+      "a": "greenhouse-frame",
+      "b": "propagator",
+      "result": "greenhouse"
+    },
+    {
+      "a": "greenhouse",
+      "b": "solar-heater",
+      "result": "heated-greenhouse"
+    },
+    {
+      "a": "soil",
+      "b": "compost",
+      "result": "potting-mix"
+    },
+    {
+      "a": "potting-mix",
+      "b": "empty-planter",
+      "result": "filled-planter"
+    },
+    {
+      "a": "potatoes",
+      "b": "filled-planter",
+      "result": "potato-planter"
+    },
+    {
+      "a": "potato-planter",
+      "b": "water-canister",
+      "result": "growing-potato-planter",
+      "at": "warm-habitat"
+    },
+    {
+      "a": "growing-potato-planter",
+      "b": "greenhouse",
+      "result": "potato-harvest",
+      "at": "growing-court"
+    },
+    {
+      "a": "growing-potato-planter",
+      "b": "planted-cold-frame",
+      "result": "potato-harvest",
+      "at": "growing-court"
+    },
+    {
+      "a": "growing-potato-planter",
+      "b": "heated-greenhouse",
+      "result": "potato-harvest",
+      "at": "growing-court"
+    },
+    {
+      "a": "habitat-fabric",
+      "b": "sealant",
+      "result": "pressure-patch",
+      "at": "repair-bench"
+    },
+    {
+      "a": "frame",
+      "b": "habitat-fabric",
+      "result": "shelter-tent"
+    },
+    {
+      "a": "shelter-tent",
+      "b": "insulation",
+      "result": "insulated-tent"
+    },
+    {
+      "a": "blanket",
+      "b": "foil",
+      "result": "thermal-blanket"
+    },
+    {
+      "a": "cloth",
+      "b": "frame",
+      "result": "windscreen"
+    },
+    {
+      "a": "mesh",
+      "b": "frame",
+      "result": "dust-screen"
+    },
+    {
+      "a": "fan",
+      "b": "air-filter",
+      "result": "air-cleaner"
+    },
+    {
+      "a": "fan",
+      "b": "duct",
+      "result": "ventilator"
+    },
+    {
+      "a": "sealed-box",
+      "b": "gloves",
+      "result": "glovebox"
+    },
+    {
+      "a": "glovebox",
+      "b": "lamp",
+      "result": "illuminated-glovebox"
+    },
+    {
+      "a": "frame",
+      "b": "wheels",
+      "result": "rover",
+      "initialSlots": {
+        "wheels": "wheels"
+      },
+      "incorporate": [
+        "wheels"
+      ]
+    },
+    {
+      "a": "cart",
+      "b": "motor",
+      "result": "rover",
+      "initialSlots": {
+        "wheels": "wheels",
+        "engine": "motor"
+      },
+      "legacyOnly": true
+    },
+    {
+      "a": "cart",
+      "b": "water-canister",
+      "result": "water-cart",
+      "legacyOnly": true
+    },
+    {
+      "a": "frame",
+      "b": "skis",
+      "result": "sled"
+    },
+    {
+      "a": "winch",
+      "b": "rope",
+      "result": "hoist"
+    },
+    {
+      "a": "hoist",
+      "b": "tripod",
+      "result": "tripod-hoist"
+    },
+    {
+      "a": "ramp",
+      "b": "hinge",
+      "result": "folding-ramp"
+    },
+    {
+      "a": "solar-panel",
+      "b": "hinge",
+      "result": "folding-solar-panel"
+    },
+    {
+      "a": "camera",
+      "b": "tripod",
+      "result": "field-camera"
+    },
+    {
+      "a": "field-camera",
+      "b": "place:overlook",
+      "result": "panorama"
+    },
+    {
+      "a": "panorama",
+      "b": "map",
+      "result": "survey-map"
+    },
+    {
+      "a": "binoculars",
+      "b": "map",
+      "result": "survey-map",
+      "at": "overlook"
+    },
+    {
+      "a": "frame",
+      "b": "toolkit",
+      "result": "workbench"
+    },
+    {
+      "a": "workbench",
+      "b": "solar-lamp",
+      "result": "lit-workbench"
+    },
+    {
+      "a": "workbench",
+      "b": "lantern",
+      "result": "lit-workbench"
+    },
+    {
+      "a": "workbench",
+      "b": "clamp",
+      "result": "clamping-bench"
+    },
+    {
+      "a": "lens",
+      "b": "tube",
+      "result": "telescope"
+    },
+    {
+      "a": "telescope",
+      "b": "tripod",
+      "result": "field-telescope"
+    },
+    {
+      "a": "lens",
+      "b": "lamp",
+      "result": "inspection-lamp"
+    },
+    {
+      "a": "foil",
+      "b": "frame",
+      "result": "reflector"
+    },
+    {
+      "a": "reflector",
+      "b": "heater",
+      "result": "radiant-heater"
+    },
+    {
+      "a": "reflector",
+      "b": "dark-cooking-pot",
+      "result": "solar-cooker"
+    },
+    {
+      "a": "potato-harvest",
+      "b": "solar-cooker",
+      "result": "baked-potatoes",
+      "at": "sunny-ledge"
+    },
+    {
+      "a": "potatoes",
+      "b": "solar-cooker",
+      "result": "baked-potatoes",
+      "at": "sunny-ledge"
+    },
+    {
+      "a": "potato-harvest",
+      "b": "water-canister",
+      "result": "potato-soup",
+      "at": "galley"
+    },
+    {
+      "a": "camera",
+      "b": "illuminated-glovebox",
+      "result": "imaging-glovebox"
+    },
+    {
+      "a": "ice-sample",
+      "b": "imaging-glovebox",
+      "result": "ice-photograph"
+    },
+    {
+      "a": "ice-sample",
+      "b": "sample-jar",
+      "result": "sealed-ice-sample"
+    },
+    {
+      "a": "field-telescope",
+      "b": "camera",
+      "result": "telescope-camera"
+    },
+    {
+      "a": "telescope-camera",
+      "b": "place:distant-lookout",
+      "result": "cliff-photograph"
+    },
+    {
+      "a": "cliff-photograph",
+      "b": "survey-map",
+      "result": "annotated-survey-map"
+    },
+    {
+      "a": "rover",
+      "b": "wheels",
+      "result": "rover",
+      "operation": "install",
+      "slot": "wheels",
+      "part": "wheels",
+      "outsidePolicy": "hasFurtherUseAfterInstallation"
+    },
+    {
+      "a": "rover",
+      "b": "motor",
+      "result": "rover",
+      "operation": "install",
+      "slot": "engine",
+      "part": "motor",
+      "outsidePolicy": "hasFurtherUseAfterInstallation"
+    },
+    {
+      "a": "rover",
+      "b": "solar-charger",
+      "result": "rover",
+      "operation": "install",
+      "slot": "charger",
+      "part": "solar-charger",
+      "outsidePolicy": "hasFurtherUseAfterInstallation"
+    },
+    {
+      "a": "rover",
+      "b": "radio",
+      "result": "rover",
+      "operation": "install",
+      "slot": "radio",
+      "part": "radio",
+      "outsidePolicy": "hasFurtherUseAfterInstallation"
+    }
+  ],
+  "kindCapabilities": {
+    "radio": [
+      "working-radio"
+    ],
+    "solar-radio": [
+      "orbiter-contact",
+      "working-radio"
+    ],
+    "long-range-radio": [
+      "long-range-contact",
+      "orbiter-contact",
+      "working-radio"
+    ],
+    "signal-beacon": [
+      "orbiter-contact",
+      "visible-approach-marker"
+    ],
+    "water-canister": [
+      "usable-water"
+    ],
+    "propagator": [
+      "protected-growth"
+    ],
+    "heated-propagator": [
+      "protected-growth"
+    ],
+    "pressure-patch": [
+      "pressure-seal"
+    ],
+    "cart": [
+      "field-transport"
+    ],
+    "survey-map": [
+      "route-map"
+    ],
+    "filter-pump": [
+      "water-filtration-pump"
+    ],
+    "hoist": [
+      "load-lifting"
+    ],
+    "tripod-hoist": [
+      "load-lifting"
+    ],
+    "lit-workbench": [
+      "illuminated-work-surface",
+      "lit-work",
+      "work-surface"
+    ],
+    "greenhouse": [
+      "planted-growing-shelter",
+      "protected-growth"
+    ],
+    "planted-cold-frame": [
+      "planted-growing-shelter",
+      "protected-growth"
+    ],
+    "heated-greenhouse": [
+      "planted-growing-shelter",
+      "protected-growth"
+    ],
+    "drip-irrigator": [
+      "garden-watering"
+    ],
+    "garden-sprayer": [
+      "garden-watering"
+    ],
+    "potato-harvest": [
+      "harvested-crop"
+    ],
+    "baked-potatoes": [
+      "warm-meal"
+    ],
+    "potato-soup": [
+      "warm-meal"
+    ],
+    "relay-station": [
+      "long-range-contact",
+      "orbiter-contact",
+      "working-radio"
+    ],
+    "sled": [
+      "ice-freight"
+    ],
+    "insulated-tent": [
+      "insulated-weather-shelter"
+    ],
+    "thermal-blanket": [
+      "personal-warmth"
+    ],
+    "air-cleaner": [
+      "dust-filtration"
+    ],
+    "ventilator": [
+      "air-exchange"
+    ],
+    "imaging-glovebox": [
+      "contained-illuminated-imaging"
+    ],
+    "ice-photograph": [
+      "close-ice-image"
+    ],
+    "sealed-ice-sample": [
+      "sealed-ice-specimen"
+    ],
+    "cliff-photograph": [
+      "distant-cliff-image"
+    ],
+    "annotated-survey-map": [
+      "photograph-annotated-map",
+      "route-map"
+    ],
+    "workbench": [
+      "work-surface"
+    ],
+    "clamping-bench": [
+      "clamping",
+      "work-surface"
+    ]
+  },
+  "componentSchemas": {
+    "rover": {
+      "slots": {
+        "wheels": "wheels",
+        "engine": "motor",
+        "charger": "solar-charger",
+        "radio": "radio"
+      },
+      "requiredSlots": {
+        "engine": "motor",
+        "charger": "solar-charger"
+      },
+      "requiredForCapabilities": {
+        "field-transport": {
+          "wheels": "wheels",
+          "engine": "motor",
+          "charger": "solar-charger"
+        },
+        "powered-transport": {
+          "wheels": "wheels",
+          "engine": "motor",
+          "charger": "solar-charger"
+        },
+        "working-radio": {
+          "radio": "radio"
+        },
+        "powered-radio": {
+          "radio": "radio",
+          "charger": "solar-charger"
+        },
+        "orbiter-contact": {
+          "radio": "radio",
+          "charger": "solar-charger"
+        }
+      },
+      "optionalSlots": [
+        "radio"
+      ]
+    }
+  },
+  "exactGoalTargets": [],
+  "rawInitial": [
+    "air-filter",
+    "battery",
+    "binoculars",
+    "blanket",
+    "broken-radio",
+    "cable",
+    "camera",
+    "canister",
+    "clear-cover",
+    "compost",
+    "dark-basin",
+    "dark-cooking-pot",
+    "dish",
+    "duct",
+    "empty-planter",
+    "fan",
+    "foil",
+    "frame",
+    "gloves",
+    "greenhouse-frame",
+    "habitat-fabric",
+    "hand-pump",
+    "heater",
+    "hose",
+    "insulation",
+    "lamp",
+    "lens",
+    "map",
+    "motor",
+    "planting-tray",
+    "potatoes",
+    "rope",
+    "sample-jar",
+    "scoop",
+    "sealant",
+    "sealed-box",
+    "seeds",
+    "skis",
+    "soil",
+    "solar-panel",
+    "toolkit",
+    "tripod",
+    "tube",
+    "valve",
+    "water-filter",
+    "wheels",
+    "winch"
+  ],
+  "generousInitial": [
+    "radio",
+    "solar-charger",
+    "solar-still",
+    "propagator",
+    "cold-frame",
+    "sprouted-tray",
+    "workbench",
+    "lantern",
+    "growing-potato-planter",
+    "filter-pump",
+    "hoist"
+  ],
+  "rawStartSubstitutions": {
+    "generous": {
+      "broken-radio": "radio"
+    }
+  },
+  "levels": [
+    {
+      "id": "continuous-mars",
+      "title": "Build a working home, then outfit a remote ice camp",
+      "initial": [
+        "air-filter",
+        "battery",
+        "binoculars",
+        "blanket",
+        "broken-radio",
+        "cable",
+        "camera",
+        "canister",
+        "clear-cover",
+        "compost",
+        "dark-basin",
+        "dark-cooking-pot",
+        "dish",
+        "duct",
+        "empty-planter",
+        "fan",
+        "foil",
+        "frame",
+        "gloves",
+        "greenhouse-frame",
+        "habitat-fabric",
+        "hand-pump",
+        "heater",
+        "hose",
+        "insulation",
+        "lamp",
+        "lens",
+        "map",
+        "motor",
+        "planting-tray",
+        "potatoes",
+        "rope",
+        "sample-jar",
+        "scoop",
+        "sealant",
+        "sealed-box",
+        "seeds",
+        "skis",
+        "soil",
+        "solar-panel",
+        "toolkit",
+        "tripod",
+        "tube",
+        "valve",
+        "water-filter",
+        "wheels",
+        "winch"
+      ],
+      "goals": [
+        {
+          "id": "repair",
+          "title": "Reconnect the radio",
+          "location": null,
+          "mode": "milestone",
+          "supplies": [],
+          "conditionalLocations": [],
+          "requiresCapability": "working-radio",
+          "places": []
+        },
+        {
+          "id": "contact",
+          "title": "Contact the orbiter",
+          "location": "contact-ridge",
+          "mode": "milestone",
+          "supplies": [],
+          "conditionalLocations": [],
+          "requiresCapability": "orbiter-contact",
+          "places": [
+            "contact-ridge"
+          ]
+        },
+        {
+          "id": "water",
+          "title": "Bring usable water home",
+          "location": "water-point",
+          "mode": "milestone",
+          "supplies": [],
+          "conditionalLocations": [
+            {
+              "when": "solar-still",
+              "locations": [
+                "sunny-ledge"
+              ]
+            }
+          ],
+          "requiresCapability": "usable-water",
+          "places": [
+            "glacier",
+            "water-point"
+          ]
+        },
+        {
+          "id": "growth",
+          "title": "Start protected growth",
+          "location": "warm-habitat",
+          "mode": "milestone",
+          "supplies": [],
+          "conditionalLocations": [],
+          "requiresCapability": "protected-growth",
+          "places": [
+            "warm-habitat"
+          ]
+        },
+        {
+          "id": "patch",
+          "title": "Seal the habitat",
+          "location": "airlock",
+          "mode": "current",
+          "supplies": [],
+          "conditionalLocations": [],
+          "requiresCapability": "pressure-seal",
+          "places": [
+            "repair-bench",
+            "airlock"
+          ]
+        },
+        {
+          "id": "mobility",
+          "title": "Prepare field transport",
+          "location": "expedition-gate",
+          "mode": "current",
+          "supplies": [],
+          "conditionalLocations": [],
+          "requiresCapability": "field-transport",
+          "places": [
+            "expedition-gate"
+          ]
+        },
+        {
+          "id": "survey",
+          "title": "Prepare a usable route map",
+          "location": "navigation-table",
+          "mode": "current",
+          "supplies": [],
+          "conditionalLocations": [],
+          "requiresCapability": "route-map",
+          "places": [
+            "overlook",
+            "navigation-table"
+          ]
+        },
+        {
+          "id": "field-water",
+          "title": "Equip the field water point",
+          "location": "field-water",
+          "mode": "current",
+          "supplies": [],
+          "conditionalLocations": [],
+          "requiresCapability": "water-filtration-pump",
+          "places": [
+            "field-water"
+          ]
+        },
+        {
+          "id": "lifting",
+          "title": "Rig a lifting point",
+          "location": "loading-bay",
+          "mode": "current",
+          "supplies": [],
+          "conditionalLocations": [],
+          "requiresCapability": "load-lifting",
+          "places": [
+            "loading-bay"
+          ]
+        },
+        {
+          "id": "work",
+          "title": "Light a real workbench",
+          "location": "workshop",
+          "mode": "current",
+          "supplies": [],
+          "conditionalLocations": [],
+          "requiresCapability": "illuminated-work-surface",
+          "places": [
+            "workshop"
+          ]
+        },
+        {
+          "id": "garden",
+          "title": "Establish the growing court",
+          "location": "growing-court",
+          "mode": "current",
+          "supplies": [],
+          "conditionalLocations": [],
+          "requiresCapability": "planted-growing-shelter",
+          "places": [
+            "growing-court"
+          ]
+        },
+        {
+          "id": "irrigation",
+          "title": "Equip useful watering",
+          "location": "irrigation-point",
+          "mode": "current",
+          "supplies": [],
+          "conditionalLocations": [],
+          "requiresCapability": "garden-watering",
+          "places": [
+            "irrigation-point"
+          ]
+        },
+        {
+          "id": "harvest",
+          "title": "Bring in a crop",
+          "location": "pantry",
+          "mode": "milestone",
+          "supplies": [],
+          "conditionalLocations": [],
+          "requiresCapability": "harvested-crop",
+          "places": [
+            "warm-habitat",
+            "growing-court",
+            "pantry"
+          ]
+        },
+        {
+          "id": "meal",
+          "title": "Prepare a warm meal",
+          "location": "galley",
+          "mode": "current",
+          "supplies": [],
+          "conditionalLocations": [
+            {
+              "when": "solar-cooker",
+              "locations": [
+                "sunny-ledge"
+              ]
+            }
+          ],
+          "requiresCapability": "warm-meal",
+          "places": [
+            "galley"
+          ]
+        },
+        {
+          "id": "relay",
+          "title": "Leave long-range contact ready",
+          "location": "relay-ridge",
+          "mode": "current",
+          "supplies": [],
+          "conditionalLocations": [],
+          "requiresCapability": "long-range-contact",
+          "places": [
+            "relay-ridge"
+          ]
+        },
+        {
+          "id": "ice-haul",
+          "title": "Equip the icy approach",
+          "location": "ice-route",
+          "mode": "current",
+          "supplies": [],
+          "conditionalLocations": [],
+          "requiresCapability": "ice-freight",
+          "places": [
+            "ice-route"
+          ]
+        },
+        {
+          "id": "camp-shelter",
+          "title": "Shelter the remote camp",
+          "location": "cold-camp",
+          "mode": "current",
+          "supplies": [],
+          "conditionalLocations": [],
+          "requiresCapability": "insulated-weather-shelter",
+          "places": [
+            "cold-camp"
+          ]
+        },
+        {
+          "id": "rest",
+          "title": "Warm the sheltered resting berth",
+          "location": "rest-berth",
+          "mode": "current",
+          "supplies": [],
+          "conditionalLocations": [],
+          "requiresCapability": "personal-warmth",
+          "places": [
+            "rest-berth"
+          ]
+        },
+        {
+          "id": "clean-air",
+          "title": "Filter dust from the sample workroom",
+          "location": "dusty-workroom",
+          "mode": "current",
+          "supplies": [],
+          "conditionalLocations": [],
+          "requiresCapability": "dust-filtration",
+          "places": [
+            "dusty-workroom"
+          ]
+        },
+        {
+          "id": "ventilation",
+          "title": "Ventilate the enclosed workroom",
+          "location": "air-exchange",
+          "mode": "current",
+          "supplies": [],
+          "conditionalLocations": [],
+          "requiresCapability": "air-exchange",
+          "places": [
+            "air-exchange"
+          ]
+        },
+        {
+          "id": "contained-imaging",
+          "title": "Prepare contained specimen photography",
+          "location": "inspection-nook",
+          "mode": "current",
+          "supplies": [],
+          "conditionalLocations": [],
+          "requiresCapability": "contained-illuminated-imaging",
+          "places": [
+            "inspection-nook"
+          ]
+        },
+        {
+          "id": "ice-image",
+          "title": "Return a close photograph of glacier ice",
+          "location": "image-archive",
+          "mode": "current",
+          "supplies": [],
+          "conditionalLocations": [],
+          "requiresCapability": "close-ice-image",
+          "places": [
+            "glacier",
+            "image-archive"
+          ]
+        },
+        {
+          "id": "ice-specimen",
+          "title": "Store a sealed ice specimen",
+          "location": "sample-store",
+          "mode": "current",
+          "supplies": [],
+          "conditionalLocations": [],
+          "requiresCapability": "sealed-ice-specimen",
+          "places": [
+            "sample-store"
+          ]
+        },
+        {
+          "id": "cliff-view",
+          "title": "Record the cliff beyond the fissure",
+          "location": null,
+          "mode": "milestone",
+          "supplies": [],
+          "conditionalLocations": [],
+          "requiresCapability": "distant-cliff-image",
+          "places": [
+            "distant-lookout"
+          ]
+        },
+        {
+          "id": "field-chart",
+          "title": "Leave a photograph-annotated field map",
+          "location": "field-map-table",
+          "mode": "current",
+          "supplies": [],
+          "conditionalLocations": [],
+          "requiresCapability": "photograph-annotated-map",
+          "places": [
+            "field-map-table"
+          ]
+        },
+        {
+          "id": "way-home",
+          "title": "Mark the camp approach visibly",
+          "location": "camp-approach",
+          "mode": "current",
+          "supplies": [],
+          "conditionalLocations": [],
+          "requiresCapability": "visible-approach-marker",
+          "places": [
+            "camp-approach"
+          ]
+        }
+      ]
+    }
+  ],
+  "missions": [
+    {
+      "id": "home",
+      "objectives": [
+        "repair",
+        "contact",
+        "water",
+        "growth",
+        "patch",
+        "mobility",
+        "survey",
+        "field-water",
+        "lifting",
+        "work",
+        "garden",
+        "irrigation",
+        "harvest",
+        "meal",
+        "relay"
+      ]
+    },
+    {
+      "id": "remote-ice-camp",
+      "objectives": [
+        "ice-haul",
+        "camp-shelter",
+        "rest",
+        "clean-air",
+        "ventilation",
+        "contained-imaging",
+        "ice-image",
+        "ice-specimen",
+        "cliff-view",
+        "field-chart",
+        "way-home"
+      ]
+    }
+  ],
+  "semantics": [
+    "All47 authored raw supplies present initially; goal introductions reveal places only.",
+    "Surviving source A returns to original placement; B stays.",
+    "One globally unique external token per kind. Installed values are internal records, not movable tokens.",
+    "A Rover retains one identity; exact parts fill vacant typed slots. Filled slots reject. Installation fills first then evaluates remaining recipe outputs, exact goals and present missing slots to retain or absorb only its direct component.",
+    "Only explicit authored functional capabilities satisfy goals; no ancestry or contained-part substitution."
+  ]
+}
