@@ -29,10 +29,21 @@ This project has only three givens: (1) combination, (2) fun in the sense of an 
 
 Every idea must be DISCARDED if it doesn't further these three givens. We must explore and experiment, and not be afraid to try and throw away different paths.
 
-## Subsequent user constraints
+## Current user direction (27 October 2026)
 
-- The player physically combines the things; selecting a finished output and delegating its construction does not satisfy the intended interaction.
-- Preserve hover discovery of compatible things and their results. Recipe secrecy and guessing the author's ontology are not the source of challenge. A challenge must remain worthwhile with all legal combinations inspectable.
-- Discovered concepts are inexhaustible capabilities. Do not make finite material stocks, depletion, stockpiling, or inventory tallies the game. The user explicitly rejects resource-management games.
-- The intended experience is creating a universe from its elements: gods, not grocers. Seek interesting consequences, relationships, arrangements, sequences, or skill challenges above known combinations.
-- Current research priority: work wholly in logical game space. Freeze UI work. Use abstract combination actions, challenges, model tests and agent playtests to discover a compelling game structure before investing further in presentation.
+These instructions reflect the latest human playtest feedback and supersede the earlier logical-only/UI-freeze and result-preview directions.
+
+- Continue logical experiments and functional browser playtests in parallel. The eventual aim is a fun combination game of roughly 200 decisions, preferably with multiple scenarios. Do not inflate counts, require every recipe, or claim that an agent report proves human enjoyment.
+- Clear, comfortable progress and learning the mechanics can be enjoyable. Not every action needs to be a difficult tradeoff. Preserve legitimate shortcuts and distinguish authored routes from fresh play.
+- The player combines the things themselves. Selecting a finished output and delegating its construction is not the intended interaction. Avoid arbitrary ontology guessing: normal hover/selection reveals compatible partners, but not the future result name. Rich result previews belong to developer diagnostics, not a discovery-mode player interface.
+- Normal playspace objects are things (rounded rectangles) and locations (hollow, square-cornered rectangles). Named slotted constructions are an explicit extension: slots belong inside the thing, not to an accumulating location. Results must be recognizable things, not generic bags of components.
+- Mars is about improvising with recognizable salvaged things, not rebuilding civilization from raw elements. Do not turn it into stock management, depletion, or inventory accounting.
+- Locations have three roles: a meaningful setting for a binary combination; one operand producing a portable thing; or a place where a functional thing satisfies an objective. Placement is freely reversible. A location must not silently collect and combine several things.
+- A continuous scrolling playspace may become a catalogue. Leave older things where the player put them; reveal new locations as objectives need them, and let useful things be dragged forward. Total retained-item count is not itself a failure or a reason to reset the world into separate levels.
+- All Mars starting supplies are present from the beginning. Later supplies require an explicit story event such as discovering a cache, not an unexplained objective-triggered grant. Only locations normally unfold with objectives.
+- Enhanced things may satisfy a goal when they genuinely provide its required capabilities. Do not use exact names or arbitrary family barriers in place of functional checks, and do not grant capabilities merely because an unrelated part is contained somewhere.
+- The current Rover is created by Frame + Wheels. Its remaining essential slots are for the engine and solar charger; empty slots are unlabelled and discovered through normal partner hints. Installed parts become labelled. An optional radio slot appears only when installed. Use compact one-line rows and the same tile width as other things.
+- A component with further use keeps a reusable outside copy when installed. Otherwise it moves inside and stays there. An explicit clear evolution may also retire an obsolete predecessor, such as Broken radio becoming Radio. Do not remove all unused ingredients indiscriminately.
+- After a successful combination, surviving dragged A returns to its original position or placement; an absorbed or retired input is the exception. An ordinary move drops where released. Keep new results close to the target and visibly animate their creation. Do not create a duplicate result already present on the Mars board, including incorporated parts.
+- Finger dragging a thing should move it, while dragging empty space scrolls the playspace. Drag highlights must persist and distinguish a valid creation drop. Reset must fully replay instructions and be reachable from an open instruction dialog. The user resets these checkpoints, so migration work is not a priority.
+- Preserve prior research and raw play evidence honestly. Freeze the actual player interface, assignment and source before a fresh trial; keep developer routes and previews out of that trial. Explain unavailable native tests and separate logical-interface findings from real scrolling, touch or human-play evidence.
