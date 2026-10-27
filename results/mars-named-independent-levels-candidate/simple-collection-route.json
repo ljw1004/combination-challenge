@@ -1,0 +1,3251 @@
+[
+  {
+    "level": "contact",
+    "variant": "simple",
+    "startingThings": [
+      "broken-radio",
+      "cable"
+    ],
+    "counts": {
+      "combine": 3,
+      "place": 1
+    },
+    "total": 4,
+    "reconstructedKnownOutputs": [],
+    "loads": [
+      {
+        "goal": "repair",
+        "start": {
+          "things": 2,
+          "loose": 2,
+          "places": 0,
+          "occupied": 0
+        },
+        "end": {
+          "things": 2,
+          "loose": 2,
+          "places": 0,
+          "occupied": 0
+        }
+      },
+      {
+        "goal": "contact",
+        "start": {
+          "things": 8,
+          "loose": 8,
+          "places": 1,
+          "occupied": 0
+        },
+        "end": {
+          "things": 10,
+          "loose": 9,
+          "places": 1,
+          "occupied": 1
+        }
+      }
+    ],
+    "trace": [
+      {
+        "index": 1,
+        "goal": "repair",
+        "action": {
+          "type": "combine",
+          "a": "broken-radio",
+          "b": "cable"
+        },
+        "consequence": {
+          "result": "radio",
+          "targetContext": null,
+          "retired": [
+            "broken-radio"
+          ]
+        },
+        "tokens": {
+          "cable": null,
+          "radio": null
+        },
+        "load": {
+          "things": 2,
+          "loose": 2,
+          "places": 0,
+          "occupied": 0
+        },
+        "current": [
+          "repair"
+        ],
+        "completed": [
+          "repair"
+        ]
+      },
+      {
+        "index": 2,
+        "goal": "contact",
+        "action": {
+          "type": "combine",
+          "a": "solar-panel",
+          "b": "battery"
+        },
+        "consequence": {
+          "result": "solar-charger",
+          "targetContext": null,
+          "retired": []
+        },
+        "tokens": {
+          "cable": null,
+          "radio": null,
+          "solar-panel": null,
+          "battery": null,
+          "lamp": null,
+          "foil": null,
+          "frame": null,
+          "tripod": null,
+          "solar-charger": null
+        },
+        "load": {
+          "things": 9,
+          "loose": 9,
+          "places": 1,
+          "occupied": 0
+        },
+        "current": [
+          "repair"
+        ],
+        "completed": [
+          "repair"
+        ]
+      },
+      {
+        "index": 3,
+        "goal": "contact",
+        "action": {
+          "type": "combine",
+          "a": "solar-charger",
+          "b": "radio"
+        },
+        "consequence": {
+          "result": "solar-radio",
+          "targetContext": null,
+          "retired": []
+        },
+        "tokens": {
+          "cable": null,
+          "radio": null,
+          "solar-panel": null,
+          "battery": null,
+          "lamp": null,
+          "foil": null,
+          "frame": null,
+          "tripod": null,
+          "solar-charger": null,
+          "solar-radio": null
+        },
+        "load": {
+          "things": 10,
+          "loose": 10,
+          "places": 1,
+          "occupied": 0
+        },
+        "current": [
+          "repair"
+        ],
+        "completed": [
+          "repair"
+        ]
+      },
+      {
+        "index": 4,
+        "goal": "contact",
+        "action": {
+          "type": "place",
+          "a": "solar-radio",
+          "place": "contact-ridge"
+        },
+        "consequence": {
+          "displaced": []
+        },
+        "tokens": {
+          "cable": null,
+          "radio": null,
+          "solar-panel": null,
+          "battery": null,
+          "lamp": null,
+          "foil": null,
+          "frame": null,
+          "tripod": null,
+          "solar-charger": null,
+          "solar-radio": "contact-ridge"
+        },
+        "load": {
+          "things": 10,
+          "loose": 9,
+          "places": 1,
+          "occupied": 1
+        },
+        "current": [
+          "repair",
+          "contact"
+        ],
+        "completed": [
+          "contact",
+          "repair"
+        ]
+      }
+    ],
+    "savedCompletion": [
+      "contact",
+      "repair"
+    ],
+    "savedBoard": {
+      "cable": null,
+      "radio": null,
+      "solar-panel": null,
+      "battery": null,
+      "lamp": null,
+      "foil": null,
+      "frame": null,
+      "tripod": null,
+      "solar-charger": null,
+      "solar-radio": "contact-ridge"
+    },
+    "finalLoad": {
+      "things": 10,
+      "loose": 9,
+      "places": 1,
+      "occupied": 1
+    }
+  },
+  {
+    "level": "water",
+    "variant": "simple",
+    "startingThings": [
+      "heater",
+      "canister"
+    ],
+    "counts": {
+      "combine": 4,
+      "place": 2
+    },
+    "total": 6,
+    "reconstructedKnownOutputs": [],
+    "loads": [
+      {
+        "goal": "water",
+        "start": {
+          "things": 5,
+          "loose": 5,
+          "places": 3,
+          "occupied": 0
+        },
+        "end": {
+          "things": 8,
+          "loose": 7,
+          "places": 3,
+          "occupied": 1
+        }
+      },
+      {
+        "goal": "field-water",
+        "start": {
+          "things": 9,
+          "loose": 8,
+          "places": 4,
+          "occupied": 1
+        },
+        "end": {
+          "things": 10,
+          "loose": 8,
+          "places": 4,
+          "occupied": 2
+        }
+      }
+    ],
+    "trace": [
+      {
+        "index": 1,
+        "goal": "water",
+        "action": {
+          "type": "combine",
+          "a": "heater",
+          "b": "place:glacier"
+        },
+        "consequence": {
+          "result": "meltwater",
+          "targetContext": null,
+          "retired": []
+        },
+        "tokens": {
+          "heater": null,
+          "canister": null,
+          "water-filter": null,
+          "dark-basin": null,
+          "clear-cover": null,
+          "meltwater": null
+        },
+        "load": {
+          "things": 6,
+          "loose": 6,
+          "places": 3,
+          "occupied": 0
+        },
+        "current": [],
+        "completed": []
+      },
+      {
+        "index": 2,
+        "goal": "water",
+        "action": {
+          "type": "combine",
+          "a": "meltwater",
+          "b": "water-filter"
+        },
+        "consequence": {
+          "result": "filtered-water",
+          "targetContext": null,
+          "retired": []
+        },
+        "tokens": {
+          "heater": null,
+          "canister": null,
+          "water-filter": null,
+          "dark-basin": null,
+          "clear-cover": null,
+          "meltwater": null,
+          "filtered-water": null
+        },
+        "load": {
+          "things": 7,
+          "loose": 7,
+          "places": 3,
+          "occupied": 0
+        },
+        "current": [],
+        "completed": []
+      },
+      {
+        "index": 3,
+        "goal": "water",
+        "action": {
+          "type": "combine",
+          "a": "filtered-water",
+          "b": "canister"
+        },
+        "consequence": {
+          "result": "water-canister",
+          "targetContext": null,
+          "retired": []
+        },
+        "tokens": {
+          "heater": null,
+          "canister": null,
+          "water-filter": null,
+          "dark-basin": null,
+          "clear-cover": null,
+          "meltwater": null,
+          "filtered-water": null,
+          "water-canister": null
+        },
+        "load": {
+          "things": 8,
+          "loose": 8,
+          "places": 3,
+          "occupied": 0
+        },
+        "current": [],
+        "completed": []
+      },
+      {
+        "index": 4,
+        "goal": "water",
+        "action": {
+          "type": "place",
+          "a": "water-canister",
+          "place": "water-point"
+        },
+        "consequence": {
+          "displaced": []
+        },
+        "tokens": {
+          "heater": null,
+          "canister": null,
+          "water-filter": null,
+          "dark-basin": null,
+          "clear-cover": null,
+          "meltwater": null,
+          "filtered-water": null,
+          "water-canister": "water-point"
+        },
+        "load": {
+          "things": 8,
+          "loose": 7,
+          "places": 3,
+          "occupied": 1
+        },
+        "current": [
+          "water"
+        ],
+        "completed": [
+          "water"
+        ]
+      },
+      {
+        "index": 5,
+        "goal": "field-water",
+        "action": {
+          "type": "combine",
+          "a": "water-filter",
+          "b": "hand-pump"
+        },
+        "consequence": {
+          "result": "filter-pump",
+          "targetContext": null,
+          "retired": []
+        },
+        "tokens": {
+          "heater": null,
+          "canister": null,
+          "water-filter": null,
+          "dark-basin": null,
+          "clear-cover": null,
+          "meltwater": null,
+          "filtered-water": null,
+          "water-canister": "water-point",
+          "hand-pump": null,
+          "filter-pump": null
+        },
+        "load": {
+          "things": 10,
+          "loose": 9,
+          "places": 4,
+          "occupied": 1
+        },
+        "current": [
+          "water"
+        ],
+        "completed": [
+          "water"
+        ]
+      },
+      {
+        "index": 6,
+        "goal": "field-water",
+        "action": {
+          "type": "place",
+          "a": "filter-pump",
+          "place": "field-water"
+        },
+        "consequence": {
+          "displaced": []
+        },
+        "tokens": {
+          "heater": null,
+          "canister": null,
+          "water-filter": null,
+          "dark-basin": null,
+          "clear-cover": null,
+          "meltwater": null,
+          "filtered-water": null,
+          "water-canister": "water-point",
+          "hand-pump": null,
+          "filter-pump": "field-water"
+        },
+        "load": {
+          "things": 10,
+          "loose": 8,
+          "places": 4,
+          "occupied": 2
+        },
+        "current": [
+          "water",
+          "field-water"
+        ],
+        "completed": [
+          "field-water",
+          "water"
+        ]
+      }
+    ],
+    "savedCompletion": [
+      "field-water",
+      "water"
+    ],
+    "savedBoard": {
+      "heater": null,
+      "canister": null,
+      "water-filter": null,
+      "dark-basin": null,
+      "clear-cover": null,
+      "meltwater": null,
+      "filtered-water": null,
+      "water-canister": "water-point",
+      "hand-pump": null,
+      "filter-pump": "field-water"
+    },
+    "finalLoad": {
+      "things": 10,
+      "loose": 8,
+      "places": 4,
+      "occupied": 2
+    }
+  },
+  {
+    "level": "shelter",
+    "variant": "simple",
+    "startingThings": [
+      "water-canister",
+      "frame",
+      "battery",
+      "lamp"
+    ],
+    "counts": {
+      "combine": 8,
+      "place": 4
+    },
+    "total": 12,
+    "reconstructedKnownOutputs": [],
+    "loads": [
+      {
+        "goal": "growth",
+        "start": {
+          "things": 7,
+          "loose": 7,
+          "places": 1,
+          "occupied": 0
+        },
+        "end": {
+          "things": 11,
+          "loose": 10,
+          "places": 1,
+          "occupied": 1
+        }
+      },
+      {
+        "goal": "patch",
+        "start": {
+          "things": 13,
+          "loose": 12,
+          "places": 3,
+          "occupied": 1
+        },
+        "end": {
+          "things": 14,
+          "loose": 11,
+          "places": 3,
+          "occupied": 3
+        }
+      },
+      {
+        "goal": "work",
+        "start": {
+          "things": 16,
+          "loose": 13,
+          "places": 4,
+          "occupied": 3
+        },
+        "end": {
+          "things": 19,
+          "loose": 15,
+          "places": 4,
+          "occupied": 4
+        }
+      }
+    ],
+    "trace": [
+      {
+        "index": 1,
+        "goal": "growth",
+        "action": {
+          "type": "combine",
+          "a": "seeds",
+          "b": "planting-tray"
+        },
+        "consequence": {
+          "result": "seed-tray",
+          "targetContext": null,
+          "retired": []
+        },
+        "tokens": {
+          "water-canister": null,
+          "frame": null,
+          "battery": null,
+          "lamp": null,
+          "seeds": null,
+          "planting-tray": null,
+          "clear-cover": null,
+          "seed-tray": null
+        },
+        "load": {
+          "things": 8,
+          "loose": 8,
+          "places": 1,
+          "occupied": 0
+        },
+        "current": [],
+        "completed": []
+      },
+      {
+        "index": 2,
+        "goal": "growth",
+        "action": {
+          "type": "combine",
+          "a": "seed-tray",
+          "b": "water-canister"
+        },
+        "consequence": {
+          "result": "watered-seed-tray",
+          "targetContext": null,
+          "retired": []
+        },
+        "tokens": {
+          "water-canister": null,
+          "frame": null,
+          "battery": null,
+          "lamp": null,
+          "seeds": null,
+          "planting-tray": null,
+          "clear-cover": null,
+          "seed-tray": null,
+          "watered-seed-tray": null
+        },
+        "load": {
+          "things": 9,
+          "loose": 9,
+          "places": 1,
+          "occupied": 0
+        },
+        "current": [],
+        "completed": []
+      },
+      {
+        "index": 3,
+        "goal": "growth",
+        "action": {
+          "type": "combine",
+          "a": "watered-seed-tray",
+          "b": "place:warm-habitat"
+        },
+        "consequence": {
+          "result": "sprouted-tray",
+          "targetContext": null,
+          "retired": []
+        },
+        "tokens": {
+          "water-canister": null,
+          "frame": null,
+          "battery": null,
+          "lamp": null,
+          "seeds": null,
+          "planting-tray": null,
+          "clear-cover": null,
+          "seed-tray": null,
+          "watered-seed-tray": null,
+          "sprouted-tray": null
+        },
+        "load": {
+          "things": 10,
+          "loose": 10,
+          "places": 1,
+          "occupied": 0
+        },
+        "current": [],
+        "completed": []
+      },
+      {
+        "index": 4,
+        "goal": "growth",
+        "action": {
+          "type": "combine",
+          "a": "sprouted-tray",
+          "b": "clear-cover"
+        },
+        "consequence": {
+          "result": "propagator",
+          "targetContext": null,
+          "retired": []
+        },
+        "tokens": {
+          "water-canister": null,
+          "frame": null,
+          "battery": null,
+          "lamp": null,
+          "seeds": null,
+          "planting-tray": null,
+          "clear-cover": null,
+          "seed-tray": null,
+          "watered-seed-tray": null,
+          "sprouted-tray": null,
+          "propagator": null
+        },
+        "load": {
+          "things": 11,
+          "loose": 11,
+          "places": 1,
+          "occupied": 0
+        },
+        "current": [],
+        "completed": []
+      },
+      {
+        "index": 5,
+        "goal": "growth",
+        "action": {
+          "type": "place",
+          "a": "propagator",
+          "place": "warm-habitat"
+        },
+        "consequence": {
+          "displaced": []
+        },
+        "tokens": {
+          "water-canister": null,
+          "frame": null,
+          "battery": null,
+          "lamp": null,
+          "seeds": null,
+          "planting-tray": null,
+          "clear-cover": null,
+          "seed-tray": null,
+          "watered-seed-tray": null,
+          "sprouted-tray": null,
+          "propagator": "warm-habitat"
+        },
+        "load": {
+          "things": 11,
+          "loose": 10,
+          "places": 1,
+          "occupied": 1
+        },
+        "current": [
+          "growth"
+        ],
+        "completed": [
+          "growth"
+        ]
+      },
+      {
+        "index": 6,
+        "goal": "patch",
+        "action": {
+          "type": "place",
+          "a": "sealant",
+          "place": "repair-bench"
+        },
+        "consequence": {
+          "displaced": []
+        },
+        "tokens": {
+          "water-canister": null,
+          "frame": null,
+          "battery": null,
+          "lamp": null,
+          "seeds": null,
+          "planting-tray": null,
+          "clear-cover": null,
+          "seed-tray": null,
+          "watered-seed-tray": null,
+          "sprouted-tray": null,
+          "propagator": "warm-habitat",
+          "habitat-fabric": null,
+          "sealant": "repair-bench"
+        },
+        "load": {
+          "things": 13,
+          "loose": 11,
+          "places": 3,
+          "occupied": 2
+        },
+        "current": [
+          "growth"
+        ],
+        "completed": [
+          "growth"
+        ]
+      },
+      {
+        "index": 7,
+        "goal": "patch",
+        "action": {
+          "type": "combine",
+          "a": "habitat-fabric",
+          "b": "sealant",
+          "at": "repair-bench"
+        },
+        "consequence": {
+          "result": "pressure-patch",
+          "targetContext": "repair-bench",
+          "retired": []
+        },
+        "tokens": {
+          "water-canister": null,
+          "frame": null,
+          "battery": null,
+          "lamp": null,
+          "seeds": null,
+          "planting-tray": null,
+          "clear-cover": null,
+          "seed-tray": null,
+          "watered-seed-tray": null,
+          "sprouted-tray": null,
+          "propagator": "warm-habitat",
+          "habitat-fabric": null,
+          "sealant": "repair-bench",
+          "pressure-patch": null
+        },
+        "load": {
+          "things": 14,
+          "loose": 12,
+          "places": 3,
+          "occupied": 2
+        },
+        "current": [
+          "growth"
+        ],
+        "completed": [
+          "growth"
+        ]
+      },
+      {
+        "index": 8,
+        "goal": "patch",
+        "action": {
+          "type": "place",
+          "a": "pressure-patch",
+          "place": "airlock"
+        },
+        "consequence": {
+          "displaced": []
+        },
+        "tokens": {
+          "water-canister": null,
+          "frame": null,
+          "battery": null,
+          "lamp": null,
+          "seeds": null,
+          "planting-tray": null,
+          "clear-cover": null,
+          "seed-tray": null,
+          "watered-seed-tray": null,
+          "sprouted-tray": null,
+          "propagator": "warm-habitat",
+          "habitat-fabric": null,
+          "sealant": "repair-bench",
+          "pressure-patch": "airlock"
+        },
+        "load": {
+          "things": 14,
+          "loose": 11,
+          "places": 3,
+          "occupied": 3
+        },
+        "current": [
+          "growth",
+          "patch"
+        ],
+        "completed": [
+          "growth",
+          "patch"
+        ]
+      },
+      {
+        "index": 9,
+        "goal": "work",
+        "action": {
+          "type": "combine",
+          "a": "frame",
+          "b": "toolkit"
+        },
+        "consequence": {
+          "result": "workbench",
+          "targetContext": null,
+          "retired": []
+        },
+        "tokens": {
+          "water-canister": null,
+          "frame": null,
+          "battery": null,
+          "lamp": null,
+          "seeds": null,
+          "planting-tray": null,
+          "clear-cover": null,
+          "seed-tray": null,
+          "watered-seed-tray": null,
+          "sprouted-tray": null,
+          "propagator": "warm-habitat",
+          "habitat-fabric": null,
+          "sealant": "repair-bench",
+          "pressure-patch": "airlock",
+          "toolkit": null,
+          "solar-panel": null,
+          "workbench": null
+        },
+        "load": {
+          "things": 17,
+          "loose": 14,
+          "places": 4,
+          "occupied": 3
+        },
+        "current": [
+          "growth",
+          "patch"
+        ],
+        "completed": [
+          "growth",
+          "patch"
+        ]
+      },
+      {
+        "index": 10,
+        "goal": "work",
+        "action": {
+          "type": "combine",
+          "a": "battery",
+          "b": "lamp"
+        },
+        "consequence": {
+          "result": "lantern",
+          "targetContext": null,
+          "retired": []
+        },
+        "tokens": {
+          "water-canister": null,
+          "frame": null,
+          "battery": null,
+          "lamp": null,
+          "seeds": null,
+          "planting-tray": null,
+          "clear-cover": null,
+          "seed-tray": null,
+          "watered-seed-tray": null,
+          "sprouted-tray": null,
+          "propagator": "warm-habitat",
+          "habitat-fabric": null,
+          "sealant": "repair-bench",
+          "pressure-patch": "airlock",
+          "toolkit": null,
+          "solar-panel": null,
+          "workbench": null,
+          "lantern": null
+        },
+        "load": {
+          "things": 18,
+          "loose": 15,
+          "places": 4,
+          "occupied": 3
+        },
+        "current": [
+          "growth",
+          "patch"
+        ],
+        "completed": [
+          "growth",
+          "patch"
+        ]
+      },
+      {
+        "index": 11,
+        "goal": "work",
+        "action": {
+          "type": "combine",
+          "a": "workbench",
+          "b": "lantern"
+        },
+        "consequence": {
+          "result": "lit-workbench",
+          "targetContext": null,
+          "retired": []
+        },
+        "tokens": {
+          "water-canister": null,
+          "frame": null,
+          "battery": null,
+          "lamp": null,
+          "seeds": null,
+          "planting-tray": null,
+          "clear-cover": null,
+          "seed-tray": null,
+          "watered-seed-tray": null,
+          "sprouted-tray": null,
+          "propagator": "warm-habitat",
+          "habitat-fabric": null,
+          "sealant": "repair-bench",
+          "pressure-patch": "airlock",
+          "toolkit": null,
+          "solar-panel": null,
+          "workbench": null,
+          "lantern": null,
+          "lit-workbench": null
+        },
+        "load": {
+          "things": 19,
+          "loose": 16,
+          "places": 4,
+          "occupied": 3
+        },
+        "current": [
+          "growth",
+          "patch"
+        ],
+        "completed": [
+          "growth",
+          "patch"
+        ]
+      },
+      {
+        "index": 12,
+        "goal": "work",
+        "action": {
+          "type": "place",
+          "a": "lit-workbench",
+          "place": "workshop"
+        },
+        "consequence": {
+          "displaced": []
+        },
+        "tokens": {
+          "water-canister": null,
+          "frame": null,
+          "battery": null,
+          "lamp": null,
+          "seeds": null,
+          "planting-tray": null,
+          "clear-cover": null,
+          "seed-tray": null,
+          "watered-seed-tray": null,
+          "sprouted-tray": null,
+          "propagator": "warm-habitat",
+          "habitat-fabric": null,
+          "sealant": "repair-bench",
+          "pressure-patch": "airlock",
+          "toolkit": null,
+          "solar-panel": null,
+          "workbench": null,
+          "lantern": null,
+          "lit-workbench": "workshop"
+        },
+        "load": {
+          "things": 19,
+          "loose": 15,
+          "places": 4,
+          "occupied": 4
+        },
+        "current": [
+          "growth",
+          "patch",
+          "work"
+        ],
+        "completed": [
+          "growth",
+          "patch",
+          "work"
+        ]
+      }
+    ],
+    "savedCompletion": [
+      "growth",
+      "patch",
+      "work"
+    ],
+    "savedBoard": {
+      "water-canister": null,
+      "frame": null,
+      "battery": null,
+      "lamp": null,
+      "seeds": null,
+      "planting-tray": null,
+      "clear-cover": null,
+      "seed-tray": null,
+      "watered-seed-tray": null,
+      "sprouted-tray": null,
+      "propagator": "warm-habitat",
+      "habitat-fabric": null,
+      "sealant": "repair-bench",
+      "pressure-patch": "airlock",
+      "toolkit": null,
+      "solar-panel": null,
+      "workbench": null,
+      "lantern": null,
+      "lit-workbench": "workshop"
+    },
+    "finalLoad": {
+      "things": 19,
+      "loose": 15,
+      "places": 4,
+      "occupied": 4
+    }
+  },
+  {
+    "level": "travel",
+    "variant": "simple",
+    "startingThings": [
+      "frame",
+      "solar-charger",
+      "radio",
+      "tripod"
+    ],
+    "counts": {
+      "combine": 4,
+      "place": 4
+    },
+    "total": 8,
+    "reconstructedKnownOutputs": [
+      "solar-radio"
+    ],
+    "loads": [
+      {
+        "goal": "mobility",
+        "start": {
+          "things": 6,
+          "loose": 6,
+          "places": 1,
+          "occupied": 0
+        },
+        "end": {
+          "things": 7,
+          "loose": 6,
+          "places": 1,
+          "occupied": 1
+        }
+      },
+      {
+        "goal": "survey",
+        "start": {
+          "things": 10,
+          "loose": 9,
+          "places": 3,
+          "occupied": 1
+        },
+        "end": {
+          "things": 11,
+          "loose": 8,
+          "places": 3,
+          "occupied": 3
+        }
+      },
+      {
+        "goal": "relay",
+        "start": {
+          "things": 12,
+          "loose": 9,
+          "places": 4,
+          "occupied": 3
+        },
+        "end": {
+          "things": 14,
+          "loose": 10,
+          "places": 4,
+          "occupied": 4
+        }
+      }
+    ],
+    "trace": [
+      {
+        "index": 1,
+        "goal": "mobility",
+        "action": {
+          "type": "combine",
+          "a": "frame",
+          "b": "wheels"
+        },
+        "consequence": {
+          "result": "cart",
+          "targetContext": null,
+          "retired": []
+        },
+        "tokens": {
+          "frame": null,
+          "solar-charger": null,
+          "radio": null,
+          "tripod": null,
+          "wheels": null,
+          "motor": null,
+          "cart": null
+        },
+        "load": {
+          "things": 7,
+          "loose": 7,
+          "places": 1,
+          "occupied": 0
+        },
+        "current": [],
+        "completed": []
+      },
+      {
+        "index": 2,
+        "goal": "mobility",
+        "action": {
+          "type": "place",
+          "a": "cart",
+          "place": "expedition-gate"
+        },
+        "consequence": {
+          "displaced": []
+        },
+        "tokens": {
+          "frame": null,
+          "solar-charger": null,
+          "radio": null,
+          "tripod": null,
+          "wheels": null,
+          "motor": null,
+          "cart": "expedition-gate"
+        },
+        "load": {
+          "things": 7,
+          "loose": 6,
+          "places": 1,
+          "occupied": 1
+        },
+        "current": [
+          "mobility"
+        ],
+        "completed": [
+          "mobility"
+        ]
+      },
+      {
+        "index": 3,
+        "goal": "survey",
+        "action": {
+          "type": "place",
+          "a": "map",
+          "place": "overlook"
+        },
+        "consequence": {
+          "displaced": []
+        },
+        "tokens": {
+          "frame": null,
+          "solar-charger": null,
+          "radio": null,
+          "tripod": null,
+          "wheels": null,
+          "motor": null,
+          "cart": "expedition-gate",
+          "camera": null,
+          "map": "overlook",
+          "binoculars": null
+        },
+        "load": {
+          "things": 10,
+          "loose": 8,
+          "places": 3,
+          "occupied": 2
+        },
+        "current": [
+          "mobility"
+        ],
+        "completed": [
+          "mobility"
+        ]
+      },
+      {
+        "index": 4,
+        "goal": "survey",
+        "action": {
+          "type": "combine",
+          "a": "binoculars",
+          "b": "map",
+          "at": "overlook"
+        },
+        "consequence": {
+          "result": "survey-map",
+          "targetContext": "overlook",
+          "retired": []
+        },
+        "tokens": {
+          "frame": null,
+          "solar-charger": null,
+          "radio": null,
+          "tripod": null,
+          "wheels": null,
+          "motor": null,
+          "cart": "expedition-gate",
+          "camera": null,
+          "map": "overlook",
+          "binoculars": null,
+          "survey-map": null
+        },
+        "load": {
+          "things": 11,
+          "loose": 9,
+          "places": 3,
+          "occupied": 2
+        },
+        "current": [
+          "mobility"
+        ],
+        "completed": [
+          "mobility"
+        ]
+      },
+      {
+        "index": 5,
+        "goal": "survey",
+        "action": {
+          "type": "place",
+          "a": "survey-map",
+          "place": "navigation-table"
+        },
+        "consequence": {
+          "displaced": []
+        },
+        "tokens": {
+          "frame": null,
+          "solar-charger": null,
+          "radio": null,
+          "tripod": null,
+          "wheels": null,
+          "motor": null,
+          "cart": "expedition-gate",
+          "camera": null,
+          "map": "overlook",
+          "binoculars": null,
+          "survey-map": "navigation-table"
+        },
+        "load": {
+          "things": 11,
+          "loose": 8,
+          "places": 3,
+          "occupied": 3
+        },
+        "current": [
+          "mobility",
+          "survey"
+        ],
+        "completed": [
+          "mobility",
+          "survey"
+        ]
+      },
+      {
+        "index": 6,
+        "goal": "relay",
+        "action": {
+          "type": "combine",
+          "a": "solar-charger",
+          "b": "radio"
+        },
+        "consequence": {
+          "result": "solar-radio",
+          "targetContext": null,
+          "retired": []
+        },
+        "tokens": {
+          "frame": null,
+          "solar-charger": null,
+          "radio": null,
+          "tripod": null,
+          "wheels": null,
+          "motor": null,
+          "cart": "expedition-gate",
+          "camera": null,
+          "map": "overlook",
+          "binoculars": null,
+          "survey-map": "navigation-table",
+          "dish": null,
+          "solar-radio": null
+        },
+        "load": {
+          "things": 13,
+          "loose": 10,
+          "places": 4,
+          "occupied": 3
+        },
+        "current": [
+          "mobility",
+          "survey"
+        ],
+        "completed": [
+          "mobility",
+          "survey"
+        ]
+      },
+      {
+        "index": 7,
+        "goal": "relay",
+        "action": {
+          "type": "combine",
+          "a": "dish",
+          "b": "solar-radio"
+        },
+        "consequence": {
+          "result": "long-range-radio",
+          "targetContext": null,
+          "retired": []
+        },
+        "tokens": {
+          "frame": null,
+          "solar-charger": null,
+          "radio": null,
+          "tripod": null,
+          "wheels": null,
+          "motor": null,
+          "cart": "expedition-gate",
+          "camera": null,
+          "map": "overlook",
+          "binoculars": null,
+          "survey-map": "navigation-table",
+          "dish": null,
+          "solar-radio": null,
+          "long-range-radio": null
+        },
+        "load": {
+          "things": 14,
+          "loose": 11,
+          "places": 4,
+          "occupied": 3
+        },
+        "current": [
+          "mobility",
+          "survey"
+        ],
+        "completed": [
+          "mobility",
+          "survey"
+        ]
+      },
+      {
+        "index": 8,
+        "goal": "relay",
+        "action": {
+          "type": "place",
+          "a": "long-range-radio",
+          "place": "relay-ridge"
+        },
+        "consequence": {
+          "displaced": []
+        },
+        "tokens": {
+          "frame": null,
+          "solar-charger": null,
+          "radio": null,
+          "tripod": null,
+          "wheels": null,
+          "motor": null,
+          "cart": "expedition-gate",
+          "camera": null,
+          "map": "overlook",
+          "binoculars": null,
+          "survey-map": "navigation-table",
+          "dish": null,
+          "solar-radio": null,
+          "long-range-radio": "relay-ridge"
+        },
+        "load": {
+          "things": 14,
+          "loose": 10,
+          "places": 4,
+          "occupied": 4
+        },
+        "current": [
+          "mobility",
+          "survey",
+          "relay"
+        ],
+        "completed": [
+          "mobility",
+          "relay",
+          "survey"
+        ]
+      }
+    ],
+    "savedCompletion": [
+      "mobility",
+      "relay",
+      "survey"
+    ],
+    "savedBoard": {
+      "frame": null,
+      "solar-charger": null,
+      "radio": null,
+      "tripod": null,
+      "wheels": null,
+      "motor": null,
+      "cart": "expedition-gate",
+      "camera": null,
+      "map": "overlook",
+      "binoculars": null,
+      "survey-map": "navigation-table",
+      "dish": null,
+      "solar-radio": null,
+      "long-range-radio": "relay-ridge"
+    },
+    "finalLoad": {
+      "things": 14,
+      "loose": 10,
+      "places": 4,
+      "occupied": 4
+    }
+  },
+  {
+    "level": "garden",
+    "variant": "simple",
+    "startingThings": [
+      "propagator",
+      "water-canister",
+      "frame",
+      "sprouted-tray"
+    ],
+    "counts": {
+      "combine": 8,
+      "place": 6
+    },
+    "total": 14,
+    "reconstructedKnownOutputs": [],
+    "loads": [
+      {
+        "goal": "garden",
+        "start": {
+          "things": 6,
+          "loose": 6,
+          "places": 1,
+          "occupied": 0
+        },
+        "end": {
+          "things": 7,
+          "loose": 6,
+          "places": 1,
+          "occupied": 1
+        }
+      },
+      {
+        "goal": "irrigation",
+        "start": {
+          "things": 10,
+          "loose": 9,
+          "places": 2,
+          "occupied": 1
+        },
+        "end": {
+          "things": 11,
+          "loose": 9,
+          "places": 2,
+          "occupied": 2
+        }
+      },
+      {
+        "goal": "harvest",
+        "start": {
+          "things": 15,
+          "loose": 13,
+          "places": 4,
+          "occupied": 2
+        },
+        "end": {
+          "things": 20,
+          "loose": 16,
+          "places": 4,
+          "occupied": 4
+        }
+      },
+      {
+        "goal": "meal",
+        "start": {
+          "things": 22,
+          "loose": 18,
+          "places": 6,
+          "occupied": 4
+        },
+        "end": {
+          "things": 23,
+          "loose": 20,
+          "places": 6,
+          "occupied": 3
+        }
+      }
+    ],
+    "trace": [
+      {
+        "index": 1,
+        "goal": "garden",
+        "action": {
+          "type": "combine",
+          "a": "greenhouse-frame",
+          "b": "propagator"
+        },
+        "consequence": {
+          "result": "greenhouse",
+          "targetContext": null,
+          "retired": []
+        },
+        "tokens": {
+          "propagator": null,
+          "water-canister": null,
+          "frame": null,
+          "sprouted-tray": null,
+          "greenhouse-frame": null,
+          "clear-cover": null,
+          "greenhouse": null
+        },
+        "load": {
+          "things": 7,
+          "loose": 7,
+          "places": 1,
+          "occupied": 0
+        },
+        "current": [],
+        "completed": []
+      },
+      {
+        "index": 2,
+        "goal": "garden",
+        "action": {
+          "type": "place",
+          "a": "greenhouse",
+          "place": "growing-court"
+        },
+        "consequence": {
+          "displaced": []
+        },
+        "tokens": {
+          "propagator": null,
+          "water-canister": null,
+          "frame": null,
+          "sprouted-tray": null,
+          "greenhouse-frame": null,
+          "clear-cover": null,
+          "greenhouse": "growing-court"
+        },
+        "load": {
+          "things": 7,
+          "loose": 6,
+          "places": 1,
+          "occupied": 1
+        },
+        "current": [
+          "garden"
+        ],
+        "completed": [
+          "garden"
+        ]
+      },
+      {
+        "index": 3,
+        "goal": "irrigation",
+        "action": {
+          "type": "combine",
+          "a": "hand-pump",
+          "b": "water-canister"
+        },
+        "consequence": {
+          "result": "garden-sprayer",
+          "targetContext": null,
+          "retired": []
+        },
+        "tokens": {
+          "propagator": null,
+          "water-canister": null,
+          "frame": null,
+          "sprouted-tray": null,
+          "greenhouse-frame": null,
+          "clear-cover": null,
+          "greenhouse": "growing-court",
+          "hose": null,
+          "valve": null,
+          "hand-pump": null,
+          "garden-sprayer": null
+        },
+        "load": {
+          "things": 11,
+          "loose": 10,
+          "places": 2,
+          "occupied": 1
+        },
+        "current": [
+          "garden"
+        ],
+        "completed": [
+          "garden"
+        ]
+      },
+      {
+        "index": 4,
+        "goal": "irrigation",
+        "action": {
+          "type": "place",
+          "a": "garden-sprayer",
+          "place": "irrigation-point"
+        },
+        "consequence": {
+          "displaced": []
+        },
+        "tokens": {
+          "propagator": null,
+          "water-canister": null,
+          "frame": null,
+          "sprouted-tray": null,
+          "greenhouse-frame": null,
+          "clear-cover": null,
+          "greenhouse": "growing-court",
+          "hose": null,
+          "valve": null,
+          "hand-pump": null,
+          "garden-sprayer": "irrigation-point"
+        },
+        "load": {
+          "things": 11,
+          "loose": 9,
+          "places": 2,
+          "occupied": 2
+        },
+        "current": [
+          "garden",
+          "irrigation"
+        ],
+        "completed": [
+          "garden",
+          "irrigation"
+        ]
+      },
+      {
+        "index": 5,
+        "goal": "harvest",
+        "action": {
+          "type": "combine",
+          "a": "soil",
+          "b": "compost"
+        },
+        "consequence": {
+          "result": "potting-mix",
+          "targetContext": null,
+          "retired": []
+        },
+        "tokens": {
+          "propagator": null,
+          "water-canister": null,
+          "frame": null,
+          "sprouted-tray": null,
+          "greenhouse-frame": null,
+          "clear-cover": null,
+          "greenhouse": "growing-court",
+          "hose": null,
+          "valve": null,
+          "hand-pump": null,
+          "garden-sprayer": "irrigation-point",
+          "soil": null,
+          "compost": null,
+          "empty-planter": null,
+          "potatoes": null,
+          "potting-mix": null
+        },
+        "load": {
+          "things": 16,
+          "loose": 14,
+          "places": 4,
+          "occupied": 2
+        },
+        "current": [
+          "garden",
+          "irrigation"
+        ],
+        "completed": [
+          "garden",
+          "irrigation"
+        ]
+      },
+      {
+        "index": 6,
+        "goal": "harvest",
+        "action": {
+          "type": "combine",
+          "a": "potting-mix",
+          "b": "empty-planter"
+        },
+        "consequence": {
+          "result": "filled-planter",
+          "targetContext": null,
+          "retired": []
+        },
+        "tokens": {
+          "propagator": null,
+          "water-canister": null,
+          "frame": null,
+          "sprouted-tray": null,
+          "greenhouse-frame": null,
+          "clear-cover": null,
+          "greenhouse": "growing-court",
+          "hose": null,
+          "valve": null,
+          "hand-pump": null,
+          "garden-sprayer": "irrigation-point",
+          "soil": null,
+          "compost": null,
+          "empty-planter": null,
+          "potatoes": null,
+          "potting-mix": null,
+          "filled-planter": null
+        },
+        "load": {
+          "things": 17,
+          "loose": 15,
+          "places": 4,
+          "occupied": 2
+        },
+        "current": [
+          "garden",
+          "irrigation"
+        ],
+        "completed": [
+          "garden",
+          "irrigation"
+        ]
+      },
+      {
+        "index": 7,
+        "goal": "harvest",
+        "action": {
+          "type": "combine",
+          "a": "potatoes",
+          "b": "filled-planter"
+        },
+        "consequence": {
+          "result": "potato-planter",
+          "targetContext": null,
+          "retired": []
+        },
+        "tokens": {
+          "propagator": null,
+          "water-canister": null,
+          "frame": null,
+          "sprouted-tray": null,
+          "greenhouse-frame": null,
+          "clear-cover": null,
+          "greenhouse": "growing-court",
+          "hose": null,
+          "valve": null,
+          "hand-pump": null,
+          "garden-sprayer": "irrigation-point",
+          "soil": null,
+          "compost": null,
+          "empty-planter": null,
+          "potatoes": null,
+          "potting-mix": null,
+          "filled-planter": null,
+          "potato-planter": null
+        },
+        "load": {
+          "things": 18,
+          "loose": 16,
+          "places": 4,
+          "occupied": 2
+        },
+        "current": [
+          "garden",
+          "irrigation"
+        ],
+        "completed": [
+          "garden",
+          "irrigation"
+        ]
+      },
+      {
+        "index": 8,
+        "goal": "harvest",
+        "action": {
+          "type": "place",
+          "a": "water-canister",
+          "place": "warm-habitat"
+        },
+        "consequence": {
+          "displaced": []
+        },
+        "tokens": {
+          "propagator": null,
+          "water-canister": "warm-habitat",
+          "frame": null,
+          "sprouted-tray": null,
+          "greenhouse-frame": null,
+          "clear-cover": null,
+          "greenhouse": "growing-court",
+          "hose": null,
+          "valve": null,
+          "hand-pump": null,
+          "garden-sprayer": "irrigation-point",
+          "soil": null,
+          "compost": null,
+          "empty-planter": null,
+          "potatoes": null,
+          "potting-mix": null,
+          "filled-planter": null,
+          "potato-planter": null
+        },
+        "load": {
+          "things": 18,
+          "loose": 15,
+          "places": 4,
+          "occupied": 3
+        },
+        "current": [
+          "garden",
+          "irrigation"
+        ],
+        "completed": [
+          "garden",
+          "irrigation"
+        ]
+      },
+      {
+        "index": 9,
+        "goal": "harvest",
+        "action": {
+          "type": "combine",
+          "a": "potato-planter",
+          "b": "water-canister",
+          "at": "warm-habitat"
+        },
+        "consequence": {
+          "result": "growing-potato-planter",
+          "targetContext": "warm-habitat",
+          "retired": []
+        },
+        "tokens": {
+          "propagator": null,
+          "water-canister": "warm-habitat",
+          "frame": null,
+          "sprouted-tray": null,
+          "greenhouse-frame": null,
+          "clear-cover": null,
+          "greenhouse": "growing-court",
+          "hose": null,
+          "valve": null,
+          "hand-pump": null,
+          "garden-sprayer": "irrigation-point",
+          "soil": null,
+          "compost": null,
+          "empty-planter": null,
+          "potatoes": null,
+          "potting-mix": null,
+          "filled-planter": null,
+          "potato-planter": null,
+          "growing-potato-planter": null
+        },
+        "load": {
+          "things": 19,
+          "loose": 16,
+          "places": 4,
+          "occupied": 3
+        },
+        "current": [
+          "garden",
+          "irrigation"
+        ],
+        "completed": [
+          "garden",
+          "irrigation"
+        ]
+      },
+      {
+        "index": 10,
+        "goal": "harvest",
+        "action": {
+          "type": "combine",
+          "a": "growing-potato-planter",
+          "b": "greenhouse",
+          "at": "growing-court"
+        },
+        "consequence": {
+          "result": "potato-harvest",
+          "targetContext": "growing-court",
+          "retired": []
+        },
+        "tokens": {
+          "propagator": null,
+          "water-canister": "warm-habitat",
+          "frame": null,
+          "sprouted-tray": null,
+          "greenhouse-frame": null,
+          "clear-cover": null,
+          "greenhouse": "growing-court",
+          "hose": null,
+          "valve": null,
+          "hand-pump": null,
+          "garden-sprayer": "irrigation-point",
+          "soil": null,
+          "compost": null,
+          "empty-planter": null,
+          "potatoes": null,
+          "potting-mix": null,
+          "filled-planter": null,
+          "potato-planter": null,
+          "growing-potato-planter": null,
+          "potato-harvest": null
+        },
+        "load": {
+          "things": 20,
+          "loose": 17,
+          "places": 4,
+          "occupied": 3
+        },
+        "current": [
+          "garden",
+          "irrigation"
+        ],
+        "completed": [
+          "garden",
+          "irrigation"
+        ]
+      },
+      {
+        "index": 11,
+        "goal": "harvest",
+        "action": {
+          "type": "place",
+          "a": "potato-harvest",
+          "place": "pantry"
+        },
+        "consequence": {
+          "displaced": []
+        },
+        "tokens": {
+          "propagator": null,
+          "water-canister": "warm-habitat",
+          "frame": null,
+          "sprouted-tray": null,
+          "greenhouse-frame": null,
+          "clear-cover": null,
+          "greenhouse": "growing-court",
+          "hose": null,
+          "valve": null,
+          "hand-pump": null,
+          "garden-sprayer": "irrigation-point",
+          "soil": null,
+          "compost": null,
+          "empty-planter": null,
+          "potatoes": null,
+          "potting-mix": null,
+          "filled-planter": null,
+          "potato-planter": null,
+          "growing-potato-planter": null,
+          "potato-harvest": "pantry"
+        },
+        "load": {
+          "things": 20,
+          "loose": 16,
+          "places": 4,
+          "occupied": 4
+        },
+        "current": [
+          "garden",
+          "irrigation",
+          "harvest"
+        ],
+        "completed": [
+          "garden",
+          "harvest",
+          "irrigation"
+        ]
+      },
+      {
+        "index": 12,
+        "goal": "meal",
+        "action": {
+          "type": "place",
+          "a": "water-canister",
+          "place": "galley"
+        },
+        "consequence": {
+          "displaced": []
+        },
+        "tokens": {
+          "propagator": null,
+          "water-canister": "galley",
+          "frame": null,
+          "sprouted-tray": null,
+          "greenhouse-frame": null,
+          "clear-cover": null,
+          "greenhouse": "growing-court",
+          "hose": null,
+          "valve": null,
+          "hand-pump": null,
+          "garden-sprayer": "irrigation-point",
+          "soil": null,
+          "compost": null,
+          "empty-planter": null,
+          "potatoes": null,
+          "potting-mix": null,
+          "filled-planter": null,
+          "potato-planter": null,
+          "growing-potato-planter": null,
+          "potato-harvest": "pantry",
+          "foil": null,
+          "dark-cooking-pot": null
+        },
+        "load": {
+          "things": 22,
+          "loose": 18,
+          "places": 6,
+          "occupied": 4
+        },
+        "current": [
+          "garden",
+          "irrigation",
+          "harvest"
+        ],
+        "completed": [
+          "garden",
+          "harvest",
+          "irrigation"
+        ]
+      },
+      {
+        "index": 13,
+        "goal": "meal",
+        "action": {
+          "type": "combine",
+          "a": "potato-harvest",
+          "b": "water-canister",
+          "at": "galley"
+        },
+        "consequence": {
+          "result": "potato-soup",
+          "targetContext": "galley",
+          "retired": []
+        },
+        "tokens": {
+          "propagator": null,
+          "water-canister": "galley",
+          "frame": null,
+          "sprouted-tray": null,
+          "greenhouse-frame": null,
+          "clear-cover": null,
+          "greenhouse": "growing-court",
+          "hose": null,
+          "valve": null,
+          "hand-pump": null,
+          "garden-sprayer": "irrigation-point",
+          "soil": null,
+          "compost": null,
+          "empty-planter": null,
+          "potatoes": null,
+          "potting-mix": null,
+          "filled-planter": null,
+          "potato-planter": null,
+          "growing-potato-planter": null,
+          "potato-harvest": null,
+          "foil": null,
+          "dark-cooking-pot": null,
+          "potato-soup": null
+        },
+        "load": {
+          "things": 23,
+          "loose": 20,
+          "places": 6,
+          "occupied": 3
+        },
+        "current": [
+          "garden",
+          "irrigation"
+        ],
+        "completed": [
+          "garden",
+          "harvest",
+          "irrigation"
+        ]
+      },
+      {
+        "index": 14,
+        "goal": "meal",
+        "action": {
+          "type": "place",
+          "a": "potato-soup",
+          "place": "galley"
+        },
+        "consequence": {
+          "displaced": [
+            "water-canister"
+          ]
+        },
+        "tokens": {
+          "propagator": null,
+          "water-canister": null,
+          "frame": null,
+          "sprouted-tray": null,
+          "greenhouse-frame": null,
+          "clear-cover": null,
+          "greenhouse": "growing-court",
+          "hose": null,
+          "valve": null,
+          "hand-pump": null,
+          "garden-sprayer": "irrigation-point",
+          "soil": null,
+          "compost": null,
+          "empty-planter": null,
+          "potatoes": null,
+          "potting-mix": null,
+          "filled-planter": null,
+          "potato-planter": null,
+          "growing-potato-planter": null,
+          "potato-harvest": null,
+          "foil": null,
+          "dark-cooking-pot": null,
+          "potato-soup": "galley"
+        },
+        "load": {
+          "things": 23,
+          "loose": 20,
+          "places": 6,
+          "occupied": 3
+        },
+        "current": [
+          "garden",
+          "irrigation",
+          "meal"
+        ],
+        "completed": [
+          "garden",
+          "harvest",
+          "irrigation",
+          "meal"
+        ]
+      }
+    ],
+    "savedCompletion": [
+      "garden",
+      "harvest",
+      "irrigation",
+      "meal"
+    ],
+    "savedBoard": {
+      "propagator": null,
+      "water-canister": null,
+      "frame": null,
+      "sprouted-tray": null,
+      "greenhouse-frame": null,
+      "clear-cover": null,
+      "greenhouse": "growing-court",
+      "hose": null,
+      "valve": null,
+      "hand-pump": null,
+      "garden-sprayer": "irrigation-point",
+      "soil": null,
+      "compost": null,
+      "empty-planter": null,
+      "potatoes": null,
+      "potting-mix": null,
+      "filled-planter": null,
+      "potato-planter": null,
+      "growing-potato-planter": null,
+      "potato-harvest": null,
+      "foil": null,
+      "dark-cooking-pot": null,
+      "potato-soup": "galley"
+    },
+    "finalLoad": {
+      "things": 23,
+      "loose": 20,
+      "places": 6,
+      "occupied": 3
+    }
+  },
+  {
+    "level": "ice",
+    "variant": "simple",
+    "startingThings": [
+      "frame",
+      "habitat-fabric",
+      "solar-lamp",
+      "field-camera",
+      "map"
+    ],
+    "counts": {
+      "combine": 13,
+      "place": 5
+    },
+    "total": 18,
+    "reconstructedKnownOutputs": [],
+    "loads": [
+      {
+        "goal": "ice-haul",
+        "start": {
+          "things": 6,
+          "loose": 6,
+          "places": 1,
+          "occupied": 0
+        },
+        "end": {
+          "things": 7,
+          "loose": 6,
+          "places": 1,
+          "occupied": 1
+        }
+      },
+      {
+        "goal": "camp-shelter",
+        "start": {
+          "things": 8,
+          "loose": 7,
+          "places": 2,
+          "occupied": 1
+        },
+        "end": {
+          "things": 10,
+          "loose": 8,
+          "places": 2,
+          "occupied": 2
+        }
+      },
+      {
+        "goal": "ice-image",
+        "start": {
+          "things": 13,
+          "loose": 11,
+          "places": 4,
+          "occupied": 2
+        },
+        "end": {
+          "things": 18,
+          "loose": 15,
+          "places": 4,
+          "occupied": 3
+        }
+      },
+      {
+        "goal": "ice-specimen",
+        "start": {
+          "things": 19,
+          "loose": 16,
+          "places": 5,
+          "occupied": 3
+        },
+        "end": {
+          "things": 20,
+          "loose": 16,
+          "places": 5,
+          "occupied": 4
+        }
+      },
+      {
+        "goal": "cliff-view",
+        "start": {
+          "things": 22,
+          "loose": 18,
+          "places": 6,
+          "occupied": 4
+        },
+        "end": {
+          "things": 25,
+          "loose": 21,
+          "places": 6,
+          "occupied": 4
+        }
+      },
+      {
+        "goal": "field-chart",
+        "start": {
+          "things": 25,
+          "loose": 21,
+          "places": 7,
+          "occupied": 4
+        },
+        "end": {
+          "things": 26,
+          "loose": 21,
+          "places": 7,
+          "occupied": 5
+        }
+      }
+    ],
+    "trace": [
+      {
+        "index": 1,
+        "goal": "ice-haul",
+        "action": {
+          "type": "combine",
+          "a": "frame",
+          "b": "skis"
+        },
+        "consequence": {
+          "result": "sled",
+          "targetContext": null,
+          "retired": []
+        },
+        "tokens": {
+          "frame": null,
+          "habitat-fabric": null,
+          "solar-lamp": null,
+          "field-camera": null,
+          "map": null,
+          "skis": null,
+          "sled": null
+        },
+        "load": {
+          "things": 7,
+          "loose": 7,
+          "places": 1,
+          "occupied": 0
+        },
+        "current": [],
+        "completed": []
+      },
+      {
+        "index": 2,
+        "goal": "ice-haul",
+        "action": {
+          "type": "place",
+          "a": "sled",
+          "place": "ice-route"
+        },
+        "consequence": {
+          "displaced": []
+        },
+        "tokens": {
+          "frame": null,
+          "habitat-fabric": null,
+          "solar-lamp": null,
+          "field-camera": null,
+          "map": null,
+          "skis": null,
+          "sled": "ice-route"
+        },
+        "load": {
+          "things": 7,
+          "loose": 6,
+          "places": 1,
+          "occupied": 1
+        },
+        "current": [
+          "ice-haul"
+        ],
+        "completed": [
+          "ice-haul"
+        ]
+      },
+      {
+        "index": 3,
+        "goal": "camp-shelter",
+        "action": {
+          "type": "combine",
+          "a": "frame",
+          "b": "habitat-fabric"
+        },
+        "consequence": {
+          "result": "shelter-tent",
+          "targetContext": null,
+          "retired": []
+        },
+        "tokens": {
+          "frame": null,
+          "habitat-fabric": null,
+          "solar-lamp": null,
+          "field-camera": null,
+          "map": null,
+          "skis": null,
+          "sled": "ice-route",
+          "insulation": null,
+          "shelter-tent": null
+        },
+        "load": {
+          "things": 9,
+          "loose": 8,
+          "places": 2,
+          "occupied": 1
+        },
+        "current": [
+          "ice-haul"
+        ],
+        "completed": [
+          "ice-haul"
+        ]
+      },
+      {
+        "index": 4,
+        "goal": "camp-shelter",
+        "action": {
+          "type": "combine",
+          "a": "shelter-tent",
+          "b": "insulation"
+        },
+        "consequence": {
+          "result": "insulated-tent",
+          "targetContext": null,
+          "retired": []
+        },
+        "tokens": {
+          "frame": null,
+          "habitat-fabric": null,
+          "solar-lamp": null,
+          "field-camera": null,
+          "map": null,
+          "skis": null,
+          "sled": "ice-route",
+          "insulation": null,
+          "shelter-tent": null,
+          "insulated-tent": null
+        },
+        "load": {
+          "things": 10,
+          "loose": 9,
+          "places": 2,
+          "occupied": 1
+        },
+        "current": [
+          "ice-haul"
+        ],
+        "completed": [
+          "ice-haul"
+        ]
+      },
+      {
+        "index": 5,
+        "goal": "camp-shelter",
+        "action": {
+          "type": "place",
+          "a": "insulated-tent",
+          "place": "cold-camp"
+        },
+        "consequence": {
+          "displaced": []
+        },
+        "tokens": {
+          "frame": null,
+          "habitat-fabric": null,
+          "solar-lamp": null,
+          "field-camera": null,
+          "map": null,
+          "skis": null,
+          "sled": "ice-route",
+          "insulation": null,
+          "shelter-tent": null,
+          "insulated-tent": "cold-camp"
+        },
+        "load": {
+          "things": 10,
+          "loose": 8,
+          "places": 2,
+          "occupied": 2
+        },
+        "current": [
+          "ice-haul",
+          "camp-shelter"
+        ],
+        "completed": [
+          "camp-shelter",
+          "ice-haul"
+        ]
+      },
+      {
+        "index": 6,
+        "goal": "ice-image",
+        "action": {
+          "type": "combine",
+          "a": "sealed-box",
+          "b": "gloves"
+        },
+        "consequence": {
+          "result": "glovebox",
+          "targetContext": null,
+          "retired": []
+        },
+        "tokens": {
+          "frame": null,
+          "habitat-fabric": null,
+          "solar-lamp": null,
+          "field-camera": null,
+          "map": null,
+          "skis": null,
+          "sled": "ice-route",
+          "insulation": null,
+          "shelter-tent": null,
+          "insulated-tent": "cold-camp",
+          "sealed-box": null,
+          "gloves": null,
+          "scoop": null,
+          "glovebox": null
+        },
+        "load": {
+          "things": 14,
+          "loose": 12,
+          "places": 4,
+          "occupied": 2
+        },
+        "current": [
+          "ice-haul",
+          "camp-shelter"
+        ],
+        "completed": [
+          "camp-shelter",
+          "ice-haul"
+        ]
+      },
+      {
+        "index": 7,
+        "goal": "ice-image",
+        "action": {
+          "type": "combine",
+          "a": "glovebox",
+          "b": "solar-lamp"
+        },
+        "consequence": {
+          "result": "illuminated-glovebox",
+          "targetContext": null,
+          "retired": []
+        },
+        "tokens": {
+          "frame": null,
+          "habitat-fabric": null,
+          "solar-lamp": null,
+          "field-camera": null,
+          "map": null,
+          "skis": null,
+          "sled": "ice-route",
+          "insulation": null,
+          "shelter-tent": null,
+          "insulated-tent": "cold-camp",
+          "sealed-box": null,
+          "gloves": null,
+          "scoop": null,
+          "glovebox": null,
+          "illuminated-glovebox": null
+        },
+        "load": {
+          "things": 15,
+          "loose": 13,
+          "places": 4,
+          "occupied": 2
+        },
+        "current": [
+          "ice-haul",
+          "camp-shelter"
+        ],
+        "completed": [
+          "camp-shelter",
+          "ice-haul"
+        ]
+      },
+      {
+        "index": 8,
+        "goal": "ice-image",
+        "action": {
+          "type": "combine",
+          "a": "field-camera",
+          "b": "illuminated-glovebox"
+        },
+        "consequence": {
+          "result": "imaging-glovebox",
+          "targetContext": null,
+          "retired": []
+        },
+        "tokens": {
+          "frame": null,
+          "habitat-fabric": null,
+          "solar-lamp": null,
+          "field-camera": null,
+          "map": null,
+          "skis": null,
+          "sled": "ice-route",
+          "insulation": null,
+          "shelter-tent": null,
+          "insulated-tent": "cold-camp",
+          "sealed-box": null,
+          "gloves": null,
+          "scoop": null,
+          "glovebox": null,
+          "illuminated-glovebox": null,
+          "imaging-glovebox": null
+        },
+        "load": {
+          "things": 16,
+          "loose": 14,
+          "places": 4,
+          "occupied": 2
+        },
+        "current": [
+          "ice-haul",
+          "camp-shelter"
+        ],
+        "completed": [
+          "camp-shelter",
+          "ice-haul"
+        ]
+      },
+      {
+        "index": 9,
+        "goal": "ice-image",
+        "action": {
+          "type": "combine",
+          "a": "scoop",
+          "b": "place:glacier"
+        },
+        "consequence": {
+          "result": "ice-sample",
+          "targetContext": null,
+          "retired": []
+        },
+        "tokens": {
+          "frame": null,
+          "habitat-fabric": null,
+          "solar-lamp": null,
+          "field-camera": null,
+          "map": null,
+          "skis": null,
+          "sled": "ice-route",
+          "insulation": null,
+          "shelter-tent": null,
+          "insulated-tent": "cold-camp",
+          "sealed-box": null,
+          "gloves": null,
+          "scoop": null,
+          "glovebox": null,
+          "illuminated-glovebox": null,
+          "imaging-glovebox": null,
+          "ice-sample": null
+        },
+        "load": {
+          "things": 17,
+          "loose": 15,
+          "places": 4,
+          "occupied": 2
+        },
+        "current": [
+          "ice-haul",
+          "camp-shelter"
+        ],
+        "completed": [
+          "camp-shelter",
+          "ice-haul"
+        ]
+      },
+      {
+        "index": 10,
+        "goal": "ice-image",
+        "action": {
+          "type": "combine",
+          "a": "ice-sample",
+          "b": "imaging-glovebox"
+        },
+        "consequence": {
+          "result": "ice-photograph",
+          "targetContext": null,
+          "retired": []
+        },
+        "tokens": {
+          "frame": null,
+          "habitat-fabric": null,
+          "solar-lamp": null,
+          "field-camera": null,
+          "map": null,
+          "skis": null,
+          "sled": "ice-route",
+          "insulation": null,
+          "shelter-tent": null,
+          "insulated-tent": "cold-camp",
+          "sealed-box": null,
+          "gloves": null,
+          "scoop": null,
+          "glovebox": null,
+          "illuminated-glovebox": null,
+          "imaging-glovebox": null,
+          "ice-sample": null,
+          "ice-photograph": null
+        },
+        "load": {
+          "things": 18,
+          "loose": 16,
+          "places": 4,
+          "occupied": 2
+        },
+        "current": [
+          "ice-haul",
+          "camp-shelter"
+        ],
+        "completed": [
+          "camp-shelter",
+          "ice-haul"
+        ]
+      },
+      {
+        "index": 11,
+        "goal": "ice-image",
+        "action": {
+          "type": "place",
+          "a": "ice-photograph",
+          "place": "image-archive"
+        },
+        "consequence": {
+          "displaced": []
+        },
+        "tokens": {
+          "frame": null,
+          "habitat-fabric": null,
+          "solar-lamp": null,
+          "field-camera": null,
+          "map": null,
+          "skis": null,
+          "sled": "ice-route",
+          "insulation": null,
+          "shelter-tent": null,
+          "insulated-tent": "cold-camp",
+          "sealed-box": null,
+          "gloves": null,
+          "scoop": null,
+          "glovebox": null,
+          "illuminated-glovebox": null,
+          "imaging-glovebox": null,
+          "ice-sample": null,
+          "ice-photograph": "image-archive"
+        },
+        "load": {
+          "things": 18,
+          "loose": 15,
+          "places": 4,
+          "occupied": 3
+        },
+        "current": [
+          "ice-haul",
+          "camp-shelter",
+          "ice-image"
+        ],
+        "completed": [
+          "camp-shelter",
+          "ice-haul",
+          "ice-image"
+        ]
+      },
+      {
+        "index": 12,
+        "goal": "ice-specimen",
+        "action": {
+          "type": "combine",
+          "a": "ice-sample",
+          "b": "sample-jar"
+        },
+        "consequence": {
+          "result": "sealed-ice-sample",
+          "targetContext": null,
+          "retired": []
+        },
+        "tokens": {
+          "frame": null,
+          "habitat-fabric": null,
+          "solar-lamp": null,
+          "field-camera": null,
+          "map": null,
+          "skis": null,
+          "sled": "ice-route",
+          "insulation": null,
+          "shelter-tent": null,
+          "insulated-tent": "cold-camp",
+          "sealed-box": null,
+          "gloves": null,
+          "scoop": null,
+          "glovebox": null,
+          "illuminated-glovebox": null,
+          "imaging-glovebox": null,
+          "ice-sample": null,
+          "ice-photograph": "image-archive",
+          "sample-jar": null,
+          "sealed-ice-sample": null
+        },
+        "load": {
+          "things": 20,
+          "loose": 17,
+          "places": 5,
+          "occupied": 3
+        },
+        "current": [
+          "ice-haul",
+          "camp-shelter",
+          "ice-image"
+        ],
+        "completed": [
+          "camp-shelter",
+          "ice-haul",
+          "ice-image"
+        ]
+      },
+      {
+        "index": 13,
+        "goal": "ice-specimen",
+        "action": {
+          "type": "place",
+          "a": "sealed-ice-sample",
+          "place": "sample-store"
+        },
+        "consequence": {
+          "displaced": []
+        },
+        "tokens": {
+          "frame": null,
+          "habitat-fabric": null,
+          "solar-lamp": null,
+          "field-camera": null,
+          "map": null,
+          "skis": null,
+          "sled": "ice-route",
+          "insulation": null,
+          "shelter-tent": null,
+          "insulated-tent": "cold-camp",
+          "sealed-box": null,
+          "gloves": null,
+          "scoop": null,
+          "glovebox": null,
+          "illuminated-glovebox": null,
+          "imaging-glovebox": null,
+          "ice-sample": null,
+          "ice-photograph": "image-archive",
+          "sample-jar": null,
+          "sealed-ice-sample": "sample-store"
+        },
+        "load": {
+          "things": 20,
+          "loose": 16,
+          "places": 5,
+          "occupied": 4
+        },
+        "current": [
+          "ice-haul",
+          "camp-shelter",
+          "ice-image",
+          "ice-specimen"
+        ],
+        "completed": [
+          "camp-shelter",
+          "ice-haul",
+          "ice-image",
+          "ice-specimen"
+        ]
+      },
+      {
+        "index": 14,
+        "goal": "cliff-view",
+        "action": {
+          "type": "combine",
+          "a": "lens",
+          "b": "tube"
+        },
+        "consequence": {
+          "result": "telescope",
+          "targetContext": null,
+          "retired": []
+        },
+        "tokens": {
+          "frame": null,
+          "habitat-fabric": null,
+          "solar-lamp": null,
+          "field-camera": null,
+          "map": null,
+          "skis": null,
+          "sled": "ice-route",
+          "insulation": null,
+          "shelter-tent": null,
+          "insulated-tent": "cold-camp",
+          "sealed-box": null,
+          "gloves": null,
+          "scoop": null,
+          "glovebox": null,
+          "illuminated-glovebox": null,
+          "imaging-glovebox": null,
+          "ice-sample": null,
+          "ice-photograph": "image-archive",
+          "sample-jar": null,
+          "sealed-ice-sample": "sample-store",
+          "lens": null,
+          "tube": null,
+          "telescope": null
+        },
+        "load": {
+          "things": 23,
+          "loose": 19,
+          "places": 6,
+          "occupied": 4
+        },
+        "current": [
+          "ice-haul",
+          "camp-shelter",
+          "ice-image",
+          "ice-specimen"
+        ],
+        "completed": [
+          "camp-shelter",
+          "ice-haul",
+          "ice-image",
+          "ice-specimen"
+        ]
+      },
+      {
+        "index": 15,
+        "goal": "cliff-view",
+        "action": {
+          "type": "combine",
+          "a": "field-camera",
+          "b": "telescope"
+        },
+        "consequence": {
+          "result": "telescope-camera",
+          "targetContext": null,
+          "retired": []
+        },
+        "tokens": {
+          "frame": null,
+          "habitat-fabric": null,
+          "solar-lamp": null,
+          "field-camera": null,
+          "map": null,
+          "skis": null,
+          "sled": "ice-route",
+          "insulation": null,
+          "shelter-tent": null,
+          "insulated-tent": "cold-camp",
+          "sealed-box": null,
+          "gloves": null,
+          "scoop": null,
+          "glovebox": null,
+          "illuminated-glovebox": null,
+          "imaging-glovebox": null,
+          "ice-sample": null,
+          "ice-photograph": "image-archive",
+          "sample-jar": null,
+          "sealed-ice-sample": "sample-store",
+          "lens": null,
+          "tube": null,
+          "telescope": null,
+          "telescope-camera": null
+        },
+        "load": {
+          "things": 24,
+          "loose": 20,
+          "places": 6,
+          "occupied": 4
+        },
+        "current": [
+          "ice-haul",
+          "camp-shelter",
+          "ice-image",
+          "ice-specimen"
+        ],
+        "completed": [
+          "camp-shelter",
+          "ice-haul",
+          "ice-image",
+          "ice-specimen"
+        ]
+      },
+      {
+        "index": 16,
+        "goal": "cliff-view",
+        "action": {
+          "type": "combine",
+          "a": "telescope-camera",
+          "b": "place:distant-lookout"
+        },
+        "consequence": {
+          "result": "cliff-photograph",
+          "targetContext": null,
+          "retired": []
+        },
+        "tokens": {
+          "frame": null,
+          "habitat-fabric": null,
+          "solar-lamp": null,
+          "field-camera": null,
+          "map": null,
+          "skis": null,
+          "sled": "ice-route",
+          "insulation": null,
+          "shelter-tent": null,
+          "insulated-tent": "cold-camp",
+          "sealed-box": null,
+          "gloves": null,
+          "scoop": null,
+          "glovebox": null,
+          "illuminated-glovebox": null,
+          "imaging-glovebox": null,
+          "ice-sample": null,
+          "ice-photograph": "image-archive",
+          "sample-jar": null,
+          "sealed-ice-sample": "sample-store",
+          "lens": null,
+          "tube": null,
+          "telescope": null,
+          "telescope-camera": null,
+          "cliff-photograph": null
+        },
+        "load": {
+          "things": 25,
+          "loose": 21,
+          "places": 6,
+          "occupied": 4
+        },
+        "current": [
+          "ice-haul",
+          "camp-shelter",
+          "ice-image",
+          "ice-specimen",
+          "cliff-view"
+        ],
+        "completed": [
+          "camp-shelter",
+          "cliff-view",
+          "ice-haul",
+          "ice-image",
+          "ice-specimen"
+        ]
+      },
+      {
+        "index": 17,
+        "goal": "field-chart",
+        "action": {
+          "type": "combine",
+          "a": "cliff-photograph",
+          "b": "map"
+        },
+        "consequence": {
+          "result": "annotated-survey-map",
+          "targetContext": null,
+          "retired": []
+        },
+        "tokens": {
+          "frame": null,
+          "habitat-fabric": null,
+          "solar-lamp": null,
+          "field-camera": null,
+          "map": null,
+          "skis": null,
+          "sled": "ice-route",
+          "insulation": null,
+          "shelter-tent": null,
+          "insulated-tent": "cold-camp",
+          "sealed-box": null,
+          "gloves": null,
+          "scoop": null,
+          "glovebox": null,
+          "illuminated-glovebox": null,
+          "imaging-glovebox": null,
+          "ice-sample": null,
+          "ice-photograph": "image-archive",
+          "sample-jar": null,
+          "sealed-ice-sample": "sample-store",
+          "lens": null,
+          "tube": null,
+          "telescope": null,
+          "telescope-camera": null,
+          "cliff-photograph": null,
+          "annotated-survey-map": null
+        },
+        "load": {
+          "things": 26,
+          "loose": 22,
+          "places": 7,
+          "occupied": 4
+        },
+        "current": [
+          "ice-haul",
+          "camp-shelter",
+          "ice-image",
+          "ice-specimen",
+          "cliff-view"
+        ],
+        "completed": [
+          "camp-shelter",
+          "cliff-view",
+          "ice-haul",
+          "ice-image",
+          "ice-specimen"
+        ]
+      },
+      {
+        "index": 18,
+        "goal": "field-chart",
+        "action": {
+          "type": "place",
+          "a": "annotated-survey-map",
+          "place": "field-map-table"
+        },
+        "consequence": {
+          "displaced": []
+        },
+        "tokens": {
+          "frame": null,
+          "habitat-fabric": null,
+          "solar-lamp": null,
+          "field-camera": null,
+          "map": null,
+          "skis": null,
+          "sled": "ice-route",
+          "insulation": null,
+          "shelter-tent": null,
+          "insulated-tent": "cold-camp",
+          "sealed-box": null,
+          "gloves": null,
+          "scoop": null,
+          "glovebox": null,
+          "illuminated-glovebox": null,
+          "imaging-glovebox": null,
+          "ice-sample": null,
+          "ice-photograph": "image-archive",
+          "sample-jar": null,
+          "sealed-ice-sample": "sample-store",
+          "lens": null,
+          "tube": null,
+          "telescope": null,
+          "telescope-camera": null,
+          "cliff-photograph": null,
+          "annotated-survey-map": "field-map-table"
+        },
+        "load": {
+          "things": 26,
+          "loose": 21,
+          "places": 7,
+          "occupied": 5
+        },
+        "current": [
+          "ice-haul",
+          "camp-shelter",
+          "ice-image",
+          "ice-specimen",
+          "cliff-view",
+          "field-chart"
+        ],
+        "completed": [
+          "camp-shelter",
+          "cliff-view",
+          "field-chart",
+          "ice-haul",
+          "ice-image",
+          "ice-specimen"
+        ]
+      }
+    ],
+    "savedCompletion": [
+      "camp-shelter",
+      "cliff-view",
+      "field-chart",
+      "ice-haul",
+      "ice-image",
+      "ice-specimen"
+    ],
+    "savedBoard": {
+      "frame": null,
+      "habitat-fabric": null,
+      "solar-lamp": null,
+      "field-camera": null,
+      "map": null,
+      "skis": null,
+      "sled": "ice-route",
+      "insulation": null,
+      "shelter-tent": null,
+      "insulated-tent": "cold-camp",
+      "sealed-box": null,
+      "gloves": null,
+      "scoop": null,
+      "glovebox": null,
+      "illuminated-glovebox": null,
+      "imaging-glovebox": null,
+      "ice-sample": null,
+      "ice-photograph": "image-archive",
+      "sample-jar": null,
+      "sealed-ice-sample": "sample-store",
+      "lens": null,
+      "tube": null,
+      "telescope": null,
+      "telescope-camera": null,
+      "cliff-photograph": null,
+      "annotated-survey-map": "field-map-table"
+    },
+    "finalLoad": {
+      "things": 26,
+      "loose": 21,
+      "places": 7,
+      "occupied": 5
+    }
+  }
+]

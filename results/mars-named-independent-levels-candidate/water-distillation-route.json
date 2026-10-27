@@ -1,0 +1,339 @@
+{
+  "level": "water",
+  "variant": "distillation",
+  "startingThings": [
+    "heater",
+    "canister"
+  ],
+  "counts": {
+    "combine": 5,
+    "place": 3
+  },
+  "total": 8,
+  "reconstructedKnownOutputs": [],
+  "loads": [
+    {
+      "goal": "water",
+      "start": {
+        "things": 5,
+        "loose": 5,
+        "places": 3,
+        "occupied": 0
+      },
+      "end": {
+        "things": 9,
+        "loose": 7,
+        "places": 3,
+        "occupied": 2
+      }
+    },
+    {
+      "goal": "field-water",
+      "start": {
+        "things": 10,
+        "loose": 8,
+        "places": 4,
+        "occupied": 2
+      },
+      "end": {
+        "things": 11,
+        "loose": 8,
+        "places": 4,
+        "occupied": 3
+      }
+    }
+  ],
+  "trace": [
+    {
+      "index": 1,
+      "goal": "water",
+      "action": {
+        "type": "combine",
+        "a": "heater",
+        "b": "place:glacier"
+      },
+      "consequence": {
+        "result": "meltwater",
+        "targetContext": null,
+        "retired": []
+      },
+      "tokens": {
+        "heater": null,
+        "canister": null,
+        "water-filter": null,
+        "dark-basin": null,
+        "clear-cover": null,
+        "meltwater": null
+      },
+      "load": {
+        "things": 6,
+        "loose": 6,
+        "places": 3,
+        "occupied": 0
+      },
+      "current": [],
+      "completed": []
+    },
+    {
+      "index": 2,
+      "goal": "water",
+      "action": {
+        "type": "combine",
+        "a": "dark-basin",
+        "b": "clear-cover"
+      },
+      "consequence": {
+        "result": "solar-still",
+        "targetContext": null,
+        "retired": []
+      },
+      "tokens": {
+        "heater": null,
+        "canister": null,
+        "water-filter": null,
+        "dark-basin": null,
+        "clear-cover": null,
+        "meltwater": null,
+        "solar-still": null
+      },
+      "load": {
+        "things": 7,
+        "loose": 7,
+        "places": 3,
+        "occupied": 0
+      },
+      "current": [],
+      "completed": []
+    },
+    {
+      "index": 3,
+      "goal": "water",
+      "action": {
+        "type": "place",
+        "a": "solar-still",
+        "place": "sunny-ledge"
+      },
+      "consequence": {
+        "displaced": []
+      },
+      "tokens": {
+        "heater": null,
+        "canister": null,
+        "water-filter": null,
+        "dark-basin": null,
+        "clear-cover": null,
+        "meltwater": null,
+        "solar-still": "sunny-ledge"
+      },
+      "load": {
+        "things": 7,
+        "loose": 6,
+        "places": 3,
+        "occupied": 1
+      },
+      "current": [],
+      "completed": []
+    },
+    {
+      "index": 4,
+      "goal": "water",
+      "action": {
+        "type": "combine",
+        "a": "meltwater",
+        "b": "solar-still"
+      },
+      "consequence": {
+        "result": "distilled-water",
+        "targetContext": "sunny-ledge",
+        "retired": []
+      },
+      "tokens": {
+        "heater": null,
+        "canister": null,
+        "water-filter": null,
+        "dark-basin": null,
+        "clear-cover": null,
+        "meltwater": null,
+        "solar-still": "sunny-ledge",
+        "distilled-water": null
+      },
+      "load": {
+        "things": 8,
+        "loose": 7,
+        "places": 3,
+        "occupied": 1
+      },
+      "current": [],
+      "completed": []
+    },
+    {
+      "index": 5,
+      "goal": "water",
+      "action": {
+        "type": "combine",
+        "a": "distilled-water",
+        "b": "canister"
+      },
+      "consequence": {
+        "result": "water-canister",
+        "targetContext": null,
+        "retired": []
+      },
+      "tokens": {
+        "heater": null,
+        "canister": null,
+        "water-filter": null,
+        "dark-basin": null,
+        "clear-cover": null,
+        "meltwater": null,
+        "solar-still": "sunny-ledge",
+        "distilled-water": null,
+        "water-canister": null
+      },
+      "load": {
+        "things": 9,
+        "loose": 8,
+        "places": 3,
+        "occupied": 1
+      },
+      "current": [],
+      "completed": []
+    },
+    {
+      "index": 6,
+      "goal": "water",
+      "action": {
+        "type": "place",
+        "a": "water-canister",
+        "place": "water-point"
+      },
+      "consequence": {
+        "displaced": []
+      },
+      "tokens": {
+        "heater": null,
+        "canister": null,
+        "water-filter": null,
+        "dark-basin": null,
+        "clear-cover": null,
+        "meltwater": null,
+        "solar-still": "sunny-ledge",
+        "distilled-water": null,
+        "water-canister": "water-point"
+      },
+      "load": {
+        "things": 9,
+        "loose": 7,
+        "places": 3,
+        "occupied": 2
+      },
+      "current": [
+        "water"
+      ],
+      "completed": [
+        "water"
+      ]
+    },
+    {
+      "index": 7,
+      "goal": "field-water",
+      "action": {
+        "type": "combine",
+        "a": "water-filter",
+        "b": "hand-pump"
+      },
+      "consequence": {
+        "result": "filter-pump",
+        "targetContext": null,
+        "retired": []
+      },
+      "tokens": {
+        "heater": null,
+        "canister": null,
+        "water-filter": null,
+        "dark-basin": null,
+        "clear-cover": null,
+        "meltwater": null,
+        "solar-still": "sunny-ledge",
+        "distilled-water": null,
+        "water-canister": "water-point",
+        "hand-pump": null,
+        "filter-pump": null
+      },
+      "load": {
+        "things": 11,
+        "loose": 9,
+        "places": 4,
+        "occupied": 2
+      },
+      "current": [
+        "water"
+      ],
+      "completed": [
+        "water"
+      ]
+    },
+    {
+      "index": 8,
+      "goal": "field-water",
+      "action": {
+        "type": "place",
+        "a": "filter-pump",
+        "place": "field-water"
+      },
+      "consequence": {
+        "displaced": []
+      },
+      "tokens": {
+        "heater": null,
+        "canister": null,
+        "water-filter": null,
+        "dark-basin": null,
+        "clear-cover": null,
+        "meltwater": null,
+        "solar-still": "sunny-ledge",
+        "distilled-water": null,
+        "water-canister": "water-point",
+        "hand-pump": null,
+        "filter-pump": "field-water"
+      },
+      "load": {
+        "things": 11,
+        "loose": 8,
+        "places": 4,
+        "occupied": 3
+      },
+      "current": [
+        "water",
+        "field-water"
+      ],
+      "completed": [
+        "field-water",
+        "water"
+      ]
+    }
+  ],
+  "savedCompletion": [
+    "field-water",
+    "water"
+  ],
+  "savedBoard": {
+    "heater": null,
+    "canister": null,
+    "water-filter": null,
+    "dark-basin": null,
+    "clear-cover": null,
+    "meltwater": null,
+    "solar-still": "sunny-ledge",
+    "distilled-water": null,
+    "water-canister": "water-point",
+    "hand-pump": null,
+    "filter-pump": "field-water"
+  },
+  "finalLoad": {
+    "things": 11,
+    "loose": 8,
+    "places": 4,
+    "occupied": 3
+  }
+}

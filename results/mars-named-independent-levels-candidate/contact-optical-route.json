@@ -1,0 +1,298 @@
+{
+  "level": "contact",
+  "variant": "optical",
+  "startingThings": [
+    "broken-radio",
+    "cable"
+  ],
+  "counts": {
+    "combine": 5,
+    "place": 1
+  },
+  "total": 6,
+  "reconstructedKnownOutputs": [],
+  "loads": [
+    {
+      "goal": "repair",
+      "start": {
+        "things": 2,
+        "loose": 2,
+        "places": 0,
+        "occupied": 0
+      },
+      "end": {
+        "things": 2,
+        "loose": 2,
+        "places": 0,
+        "occupied": 0
+      }
+    },
+    {
+      "goal": "contact",
+      "start": {
+        "things": 8,
+        "loose": 8,
+        "places": 1,
+        "occupied": 0
+      },
+      "end": {
+        "things": 12,
+        "loose": 11,
+        "places": 1,
+        "occupied": 1
+      }
+    }
+  ],
+  "trace": [
+    {
+      "index": 1,
+      "goal": "repair",
+      "action": {
+        "type": "combine",
+        "a": "broken-radio",
+        "b": "cable"
+      },
+      "consequence": {
+        "result": "radio",
+        "targetContext": null,
+        "retired": [
+          "broken-radio"
+        ]
+      },
+      "tokens": {
+        "cable": null,
+        "radio": null
+      },
+      "load": {
+        "things": 2,
+        "loose": 2,
+        "places": 0,
+        "occupied": 0
+      },
+      "current": [
+        "repair"
+      ],
+      "completed": [
+        "repair"
+      ]
+    },
+    {
+      "index": 2,
+      "goal": "contact",
+      "action": {
+        "type": "combine",
+        "a": "battery",
+        "b": "lamp"
+      },
+      "consequence": {
+        "result": "lantern",
+        "targetContext": null,
+        "retired": []
+      },
+      "tokens": {
+        "cable": null,
+        "radio": null,
+        "solar-panel": null,
+        "battery": null,
+        "lamp": null,
+        "foil": null,
+        "frame": null,
+        "tripod": null,
+        "lantern": null
+      },
+      "load": {
+        "things": 9,
+        "loose": 9,
+        "places": 1,
+        "occupied": 0
+      },
+      "current": [
+        "repair"
+      ],
+      "completed": [
+        "repair"
+      ]
+    },
+    {
+      "index": 3,
+      "goal": "contact",
+      "action": {
+        "type": "combine",
+        "a": "foil",
+        "b": "frame"
+      },
+      "consequence": {
+        "result": "reflector",
+        "targetContext": null,
+        "retired": []
+      },
+      "tokens": {
+        "cable": null,
+        "radio": null,
+        "solar-panel": null,
+        "battery": null,
+        "lamp": null,
+        "foil": null,
+        "frame": null,
+        "tripod": null,
+        "lantern": null,
+        "reflector": null
+      },
+      "load": {
+        "things": 10,
+        "loose": 10,
+        "places": 1,
+        "occupied": 0
+      },
+      "current": [
+        "repair"
+      ],
+      "completed": [
+        "repair"
+      ]
+    },
+    {
+      "index": 4,
+      "goal": "contact",
+      "action": {
+        "type": "combine",
+        "a": "lantern",
+        "b": "reflector"
+      },
+      "consequence": {
+        "result": "signal-lamp",
+        "targetContext": null,
+        "retired": []
+      },
+      "tokens": {
+        "cable": null,
+        "radio": null,
+        "solar-panel": null,
+        "battery": null,
+        "lamp": null,
+        "foil": null,
+        "frame": null,
+        "tripod": null,
+        "lantern": null,
+        "reflector": null,
+        "signal-lamp": null
+      },
+      "load": {
+        "things": 11,
+        "loose": 11,
+        "places": 1,
+        "occupied": 0
+      },
+      "current": [
+        "repair"
+      ],
+      "completed": [
+        "repair"
+      ]
+    },
+    {
+      "index": 5,
+      "goal": "contact",
+      "action": {
+        "type": "combine",
+        "a": "signal-lamp",
+        "b": "tripod"
+      },
+      "consequence": {
+        "result": "signal-beacon",
+        "targetContext": null,
+        "retired": []
+      },
+      "tokens": {
+        "cable": null,
+        "radio": null,
+        "solar-panel": null,
+        "battery": null,
+        "lamp": null,
+        "foil": null,
+        "frame": null,
+        "tripod": null,
+        "lantern": null,
+        "reflector": null,
+        "signal-lamp": null,
+        "signal-beacon": null
+      },
+      "load": {
+        "things": 12,
+        "loose": 12,
+        "places": 1,
+        "occupied": 0
+      },
+      "current": [
+        "repair"
+      ],
+      "completed": [
+        "repair"
+      ]
+    },
+    {
+      "index": 6,
+      "goal": "contact",
+      "action": {
+        "type": "place",
+        "a": "signal-beacon",
+        "place": "contact-ridge"
+      },
+      "consequence": {
+        "displaced": []
+      },
+      "tokens": {
+        "cable": null,
+        "radio": null,
+        "solar-panel": null,
+        "battery": null,
+        "lamp": null,
+        "foil": null,
+        "frame": null,
+        "tripod": null,
+        "lantern": null,
+        "reflector": null,
+        "signal-lamp": null,
+        "signal-beacon": "contact-ridge"
+      },
+      "load": {
+        "things": 12,
+        "loose": 11,
+        "places": 1,
+        "occupied": 1
+      },
+      "current": [
+        "repair",
+        "contact"
+      ],
+      "completed": [
+        "contact",
+        "repair"
+      ]
+    }
+  ],
+  "savedCompletion": [
+    "contact",
+    "repair"
+  ],
+  "savedBoard": {
+    "cable": null,
+    "radio": null,
+    "solar-panel": null,
+    "battery": null,
+    "lamp": null,
+    "foil": null,
+    "frame": null,
+    "tripod": null,
+    "lantern": null,
+    "reflector": null,
+    "signal-lamp": null,
+    "signal-beacon": "contact-ridge"
+  },
+  "finalLoad": {
+    "things": 12,
+    "loose": 11,
+    "places": 1,
+    "occupied": 1
+  }
+}
