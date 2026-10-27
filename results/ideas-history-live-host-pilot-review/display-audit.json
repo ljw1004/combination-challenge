@@ -1,0 +1,5436 @@
+{
+  "reviewer": "/root/evaluate_working_materials_campaign/review_a/cli_audit",
+  "scope": "Read-only independent captured-output and reported-exposure audit; no engine execution, player followup, or original execution transcript. Event indices are zero-based.",
+  "inputs": [
+    {
+      "path": "results/ideas-history-live-host-players/live-host-pilot-a.json",
+      "bytes": 15510463,
+      "sha256": "7211b3d3e560731152103fbf44a6213b01a6246b5c46a2fd2ff8411bcc7ba296"
+    },
+    {
+      "path": "results/ideas-history-live-host-pilot-evidence/reports.json",
+      "bytes": 3358,
+      "sha256": "c2178b78a0f2322bf8c8e144b099938e30161711cb1da35d6bbe491278e6c813"
+    },
+    {
+      "path": "results/ideas-history-live-host-pilot-evidence/metadata.json",
+      "bytes": 2768,
+      "sha256": "345fedf4355c21c79a72bf0f50fbbacae7eed5c7db7b54bdde6fbe7e17beb0d6"
+    },
+    {
+      "path": "results/ideas-history-live-host-pilot-evidence/summary.json",
+      "bytes": 1813,
+      "sha256": "8cc81c066cf708140fcfd828274aba5cb57ac4b368483d4c6cef7bafb7f5d475"
+    },
+    {
+      "path": "results/ideas-history-live-host-pilot-evidence/README.md",
+      "bytes": 952,
+      "sha256": "9813cf4293b5a6d7001e2c9e2b750855d851e1a9056f309cad50253219dbe2db"
+    },
+    {
+      "path": "results/ideas-history-live-host-pilot-evidence/capture.json.gz",
+      "bytes": 653805,
+      "sha256": "5108fa1aa518893a64aa7ba6b9867a80f796cedafa942adab47a33660877b281"
+    },
+    {
+      "path": "docs/ideas-history-live-host.md",
+      "bytes": 10171,
+      "sha256": "4b5058df359f40af78c2f7eafbdff7ef380beff8b4060d2672b3353585cdb960"
+    }
+  ],
+  "checks": {
+    "gzipExactlyMatchesOriginal": true,
+    "reportArgumentsExactlyMatchOriginal": true,
+    "queryStatesUnchanged": true,
+    "verifyStatesUnchanged": true
+  },
+  "counts": {
+    "events": 57,
+    "commands": {
+      "init": 1,
+      "catalogue": 4,
+      "combine": 46,
+      "inspect": 1,
+      "report": 2,
+      "finish": 1,
+      "verify": 2
+    },
+    "queryCommands": 5,
+    "queryErrors": 1,
+    "combineAttempts": 46,
+    "rejectedCombines": 2,
+    "acceptedCombines": 44,
+    "noPreviewViewOffersOrChunkQueries": true
+  },
+  "visibilityFindings": [
+    "Capture output is adapter-generated full public output, not a transcript of downstream shell-helper selections or tool display. No actual execution transcript is available, so neither complete reading nor precise truncation boundaries can be independently established.",
+    "Index 0 captures goals, world, catalogue and offers. Player explicitly reports initialization truncated twice, middle unpaged, opening goals/map/laws/processes and ending offers read. This is retrospective self-report, not independent display proof.",
+    "Index 1 catalogue recipes returns Unknown catalogue section catalogue.recipes. Index 2 captures full catalogue with ideas/laws/targets/physical/operations/applications; player reports top-level keys and ideas actually read. Index 3 captures all seven physical.recipes; player reports reading them.",
+    "Index 4 captures 26 physical designs; player reports helper-selected frame,tube,lens,record-plate,clay,rootbed,shelter only. Do not call the full design catalogue read. Index 6 inspect objects captures the sole first shelter; player reports reading this.",
+    "Later action outputs include goals and changes, but player admits helper omission/selection of fields. Exact displayed later fields are unknown. Captured material may support availability, not actual exposure.",
+    "No capture queries page missing initialization middle; full assigned guide/assignment reading and no source exposure are participant assertions, not independently established execution behavior."
+  ],
+  "interfaceFindings": [
+    {
+      "indices": [
+        1,
+        2,
+        3
+      ],
+      "finding": "Nested catalogue naming caused a resolved query error. Guide offers nested sections but does not give physical.recipes as a concrete example. Separate this error from rejected gameplay."
+    },
+    {
+      "indices": [
+        10,
+        12,
+        13
+      ],
+      "finding": "Fit with at rejected for missing actual matching site contact; subsequent explicit move then fit accepted. Guide states fit seats matching actual surface at site but does not explicitly say at is ignored/not a relocation for fit. Error identifies contact prerequisite, not operation-specific at semantics."
+    },
+    {
+      "indices": [
+        16,
+        17
+      ],
+      "finding": "Tap-first water connect rejected No actual object place:tap on current board.; reversing operands accepted. Guide says connect joins actual interfaces but does not explicitly state actual object must be first for site connection. Rejection points to actual-object operand requirement; report supports resolved argument-direction friction, not crash."
+    }
+  ],
+  "navigationAttribution": {
+    "captureFacts": "Finish at index54; verify55 at23:47:30.281 returns events55 for its preceding prefix; verify56 at23:47:58.942 returns events56. Both leave state unchanged and remain finished. Final capture57events includes both verify rows.",
+    "attributionLimit": "Supplied coordinator summary identifies verify55 as player and verify56 as coordinator. Per-event actor/caller identity absent; metadata participant is session-wide and cannot independently identify caller. Timing/prefix data is consistent with summary, not proof of attribution.",
+    "outputs": [
+      {
+        "index": 55,
+        "at": "2026-10-26T23:47:30.281Z",
+        "output": {
+          "verified": true,
+          "events": 55,
+          "prefixHash": "81f94999e015b3292c3d1e7bccfda564c7207fe6215341812093d4062dff3f21",
+          "sourceHashes": {
+            "logical-ideas-history-live-host.ts": "0fab54d574a7f41177b1d0ac7097a44d57178b94c0c57d95b718471ad08b2be4",
+            "geometric-materials-live-view.ts": "e1305c53c7447a669c1c733c73a7c93c70659be32a710bf19f03ccfd6651246e",
+            "geometric-materials-engine.ts": "bfd42e457716596e0fb7cf42b453a49563ecd1daee91bdf31df1680eafe0144b",
+            "geometric-materials-content.ts": "2b8d98e7b728079772d1d9240b89a995fae851451ba20a43690a4c3dc58e9598",
+            "geometric-materials-types.ts": "4818500e553c3ff7e7a9ec9ba145eab19a94cd9bafa8699a513e2e6dcfa49e3d",
+            "geometric-materials-geometry.ts": "2d8b0c97f88730934f17118e228fd65bb73de4f4b5c7972611067747e89d2c8c",
+            "ideas-history-live-host-play.ts": "ab53268c9c42eecbadb11f8f2c247cebfefac891c36b8d62ad16da39f65ddd4f"
+          },
+          "notice": "Deterministic replay verifies capture, not lived experience or independent engine semantics."
+        }
+      },
+      {
+        "index": 56,
+        "at": "2026-10-26T23:47:58.942Z",
+        "output": {
+          "verified": true,
+          "events": 56,
+          "prefixHash": "9530f0d999fc3db17710209ccc38796356926c0333a646bde4aebf20323c577b",
+          "sourceHashes": {
+            "logical-ideas-history-live-host.ts": "0fab54d574a7f41177b1d0ac7097a44d57178b94c0c57d95b718471ad08b2be4",
+            "geometric-materials-live-view.ts": "e1305c53c7447a669c1c733c73a7c93c70659be32a710bf19f03ccfd6651246e",
+            "geometric-materials-engine.ts": "bfd42e457716596e0fb7cf42b453a49563ecd1daee91bdf31df1680eafe0144b",
+            "geometric-materials-content.ts": "2b8d98e7b728079772d1d9240b89a995fae851451ba20a43690a4c3dc58e9598",
+            "geometric-materials-types.ts": "4818500e553c3ff7e7a9ec9ba145eab19a94cd9bafa8699a513e2e6dcfa49e3d",
+            "geometric-materials-geometry.ts": "2d8b0c97f88730934f17118e228fd65bb73de4f4b5c7972611067747e89d2c8c",
+            "ideas-history-live-host-play.ts": "ab53268c9c42eecbadb11f8f2c247cebfefac891c36b8d62ad16da39f65ddd4f"
+          },
+          "notice": "Deterministic replay verifies capture, not lived experience or independent engine semantics."
+        }
+      }
+    ]
+  },
+  "reportsVerbatim": [
+    {
+      "index": 39,
+      "at": "2026-10-26T23:46:42.420Z",
+      "moves": 31,
+      "argument": "{\"checkpoint\":\"material-station\",\"response\":\"I am now trying to make the already useful station host live views from one calibrated point while the creator is away. Making the soft filter actually water a growing bed and then reusing that same surface as a waterproof physical record felt worthwhile: its history mattered rather than only its label. Geometry for physical copying was also meaningful. Repeating move/fit/connect and the second shelter/tray specimen setup felt more routine. I chose a born-rigid replacement clay filter because the disclosed requirement accepts it; firing would have been unnecessary for my chosen route. Two rejected actions exposed interface details: fit did not relocate via at, and connect required the actual object first rather than the tap first.\"}"
+    },
+    {
+      "index": 53,
+      "at": "2026-10-26T23:47:29.569Z",
+      "moves": 44,
+      "argument": "{\"checkpoint\":\"completion\",\"response\":\"The experience was coherent and reasonably satisfying as an inspectable construction puzzle. The best part was the real serviced clay becoming a record and relief while a replacement kept the garden alive; provenance made reuse meaningful. The live-host phase was a distinct purpose on the same apparatus, not another station checklist. I kept the camera at the calibrated point and taught two explicit absolute orientations. I did not pursue a hinge because ordinary complete-pose moves already supplied the chosen experience. Teaching actual performed actions, the current-view guard, and the creator leaving made sense. The philosophical combinations themselves felt like short disclosed unlock/application steps rather than concepts I had to reason out; I would keep the actual handover dependence but shorten the separate idea-install ceremony if the goal is experiential rather than named-combination play. I would keep the physical-copy/wet-contact contrast, shorten repetitive plumbing setup, and make command argument direction and which operations consume at clearer. I stopped because complete became true, all ten tasks held, both directions had been hosted, and present readiness held; more operations would not improve my chosen project. Public material actually read: the full assigned guide and exact public assignment; initialization opening goals, map, laws/processes and visible ending offers, but not every item in its enormous truncated middle; catalogue top-level keys and ideas; physical.recipes; a helper-selected subset of physical.designs (frame, tube, lens, record-plate, clay, rootbed, shelter); inspect objects for my first shelter; and the selected public action outputs shown throughout, including final request details. Initialization output was truncated twice by output limits and was not paged. Later helper output intentionally omitted fields or selected fields to keep it readable; unseen captured fields were not read. I did not inspect source, tests, protocols, witnesses, history, other sessions, or review material. Technical/interface issues: catalogue recipes returned unknown section until I found physical.recipes; fit with at did not relocate, and tap-first connect rejected. These were resolved through the public interface. No crashes or other technical failures.\"}"
+    }
+  ],
+  "focusedCapturedEvidence": [
+    {
+      "index": 0,
+      "at": "2026-10-26T23:45:09.081Z",
+      "cmd": "init",
+      "argument": "{\"condition\":\"normal\",\"participant\":{\"id\":\"/root/continue_intellectual_history_experiments/fresh_live_host_pilot\",\"kind\":\"agent\"},\"exposureHistory\":\"Fresh player; no prior game exposure. Read only the assigned public guide and exact public assignment before initialization.\",\"publicPrompt\":\"Play The Observatory Learns to Host as a fresh player in the normal condition. This is a logical combination game, not a speed or action-count challenge. Build the useful material station and pursue the later live-hosting purpose, or stop earlier if you wish. All legal recipes and consequences are inspectable; there is no hidden intended solution.\\n\\nWork in /workspace/shared/combination-challenge. Read only docs/ideas-history-live-host.md and this exact public assignment at results/ideas-history-live-host-preplay/public-assignment.txt (for byte-exact initialization), and use the public interface:\\nnode experiments/ideas-history-live-host-play.ts COMMAND live-host-pilot-a [ARGUMENT]\\nDo not read implementation, tests, protocols, witnesses, other player sessions, review files or repository history. Do not edit game files or bypass the public interface. Small shell/JavaScript helpers may package your manually selected commands and parse their public outputs, but must not search future states, generate actions, run an automatic policy, inspect other files or fabricate game state.\\n\\nInitialize the session with condition \\\"normal\\\", your actual participant id and kind \\\"agent\\\", your actual exposureHistory, and publicPrompt equal to this entire assignment exactly (including its final newline). Public inspect, catalogue, offers and preview commands are freely available. Use combine for your chosen operations; reporting and inspection do not count as gameplay. Save your own exact actions through the adapter, not a hand-written replacement trace.\\n\\nWhen all ten material station tasks first hold, record one report answering: \\\"What are you trying to do now? Since the last check, what, if anything, was worth doing, and what felt routine or unnecessary?\\\" If you stop earlier, skip this intermediate checkpoint.\\n\\nAt completion or your chosen stopping point, record a report answering: \\\"How was the experience as a whole? What would you keep, shorten, remove or change, if anything? What led you to stop here?\\\" Include which public material you actually saw/read, whether outputs were truncated or unpaged, and any technical issues; captured output alone does not mean you read it. Then finish and verify your session. You need not praise the game, optimize the solution, use every concept, make every operation difficult, or continue just to make the game longer. Return the session path and your candid experience.\\n\"}",
+      "beforeHash": "1b76bb5ca1b53de589e19e4884d30b5c90a526284533c4c797bab6349d7645d5",
+      "afterHash": "1b76bb5ca1b53de589e19e4884d30b5c90a526284533c4c797bab6349d7645d5",
+      "capturedOutputJsonCompactBytes": 51790,
+      "capturedOutputJsonCompactSHA256": "c1a5fc87144c43c1aa76256d75e8a6a2f6bcc5b8d79810593c1713f3463ec9bd",
+      "capturedOutputKeys": [
+        "version",
+        "condition",
+        "moves",
+        "manualRevision",
+        "physicalManual",
+        "physicalAutomatic",
+        "known",
+        "learner",
+        "civic",
+        "keeper",
+        "creatorAway",
+        "calibration",
+        "routines",
+        "rules",
+        "requests",
+        "liveViews",
+        "goals",
+        "complete",
+        "world",
+        "metadata",
+        "sourceHashes",
+        "catalogue",
+        "offers"
+      ],
+      "note": "Large full output remains in immutable original; key list and content hash here are not delivered/read claims."
+    },
+    {
+      "index": 1,
+      "at": "2026-10-26T23:45:11.888Z",
+      "cmd": "catalogue",
+      "argument": "recipes",
+      "beforeHash": "1b76bb5ca1b53de589e19e4884d30b5c90a526284533c4c797bab6349d7645d5",
+      "afterHash": "1b76bb5ca1b53de589e19e4884d30b5c90a526284533c4c797bab6349d7645d5",
+      "capturedOutputJsonCompactBytes": 55,
+      "capturedOutputJsonCompactSHA256": "f1a4f6c98575c442303e7b57e4cdfa0d1086cc033d1ec793f742892471b64e2a",
+      "capturedOutputKeys": [
+        "error"
+      ],
+      "output": {
+        "error": "Unknown catalogue section catalogue.recipes"
+      }
+    },
+    {
+      "index": 2,
+      "at": "2026-10-26T23:45:15.929Z",
+      "cmd": "catalogue",
+      "argument": null,
+      "beforeHash": "1b76bb5ca1b53de589e19e4884d30b5c90a526284533c4c797bab6349d7645d5",
+      "afterHash": "1b76bb5ca1b53de589e19e4884d30b5c90a526284533c4c797bab6349d7645d5",
+      "capturedOutputJsonCompactBytes": 30777,
+      "capturedOutputJsonCompactSHA256": "9cbb9c50ee508f714b45700d1b4c3f372bd8d6139566f1bf161c70219970aace",
+      "capturedOutputKeys": [
+        "ideas",
+        "laws",
+        "targets",
+        "physical",
+        "operations",
+        "applications"
+      ],
+      "note": "Large full output remains in immutable original; key list and content hash here are not delivered/read claims."
+    },
+    {
+      "index": 3,
+      "at": "2026-10-26T23:45:20.887Z",
+      "cmd": "catalogue",
+      "argument": "physical.recipes",
+      "beforeHash": "1b76bb5ca1b53de589e19e4884d30b5c90a526284533c4c797bab6349d7645d5",
+      "afterHash": "1b76bb5ca1b53de589e19e4884d30b5c90a526284533c4c797bab6349d7645d5",
+      "capturedOutputJsonCompactBytes": 1007,
+      "capturedOutputJsonCompactSHA256": "6928e4d276d5dc141bbe08c5b1c4e7f9c578edcfc79fcd1f9929cf5fbcacc3f8",
+      "capturedOutputKeys": null,
+      "output": [
+        {
+          "a": "frame",
+          "b": "wheels",
+          "result": "cart",
+          "description": "Supported frame and actual wheel contact markers; no shrinking or mobility quota."
+        },
+        {
+          "a": "cart",
+          "b": "hinge",
+          "result": "hinged-cart",
+          "description": "A cart with a declared future attachment hinge; actual connected bodies retain their dimensions."
+        },
+        {
+          "a": "hinged-cart",
+          "b": "camera",
+          "result": "survey-cart",
+          "description": "Actual two-body camera attached at a real vertical hinge axis to the cart frame."
+        },
+        {
+          "a": "lens",
+          "b": "record-plate",
+          "result": "camera",
+          "description": "Lens at origin faces east; recording plate one unit behind. Both real unit bodies."
+        },
+        {
+          "a": "tray",
+          "b": "seed",
+          "result": "rootbed",
+          "description": "Seeded tray occupying one actual unit body."
+        },
+        {
+          "a": "frame",
+          "b": "clear-film",
+          "result": "shelter",
+          "description": "Two-cell supported clear roof. Right panel is hinged at the real seam; no solid interior."
+        },
+        {
+          "a": "frame",
+          "b": "mesh",
+          "result": "ventilated-holder",
+          "description": "Supported porous roof for a lit dry specimen; no sealed enclosure claim."
+        }
+      ]
+    },
+    {
+      "index": 4,
+      "at": "2026-10-26T23:45:21.020Z",
+      "cmd": "catalogue",
+      "argument": "physical.designs",
+      "beforeHash": "1b76bb5ca1b53de589e19e4884d30b5c90a526284533c4c797bab6349d7645d5",
+      "afterHash": "1b76bb5ca1b53de589e19e4884d30b5c90a526284533c4c797bab6349d7645d5",
+      "capturedOutputJsonCompactBytes": 14647,
+      "capturedOutputJsonCompactSHA256": "24ec7f0ae7104124825751fde7d6dfcd6853ff077aa1dd3e0124a22da9e285c7",
+      "capturedOutputKeys": null,
+      "capturedDesignIds": [
+        "frame",
+        "hinge",
+        "clear-film",
+        "foil",
+        "mesh",
+        "tube",
+        "cable",
+        "solar-cell",
+        "lamp",
+        "heater",
+        "tray",
+        "seed",
+        "wheels",
+        "lens",
+        "record-plate",
+        "sand",
+        "clay",
+        "fiber",
+        "binder",
+        "camera",
+        "rootbed",
+        "shelter",
+        "ventilated-holder",
+        "cart",
+        "hinged-cart",
+        "survey-cart"
+      ],
+      "reportedReadDesignIds": [
+        "frame",
+        "tube",
+        "lens",
+        "record-plate",
+        "clay",
+        "rootbed",
+        "shelter"
+      ]
+    },
+    {
+      "index": 6,
+      "at": "2026-10-26T23:45:28.789Z",
+      "cmd": "inspect",
+      "argument": "objects",
+      "beforeHash": "f9ba7c4718a6a8036e385518a3b47dfd04818626ca247b24f1a9a10c38faf09d",
+      "afterHash": "f9ba7c4718a6a8036e385518a3b47dfd04818626ca247b24f1a9a10c38faf09d",
+      "capturedOutputJsonCompactBytes": 3056,
+      "capturedOutputJsonCompactSHA256": "08128c5dece5d79e8613071f39e523405d4e81f97c07230ea32d53822c3d5038",
+      "capturedOutputKeys": null,
+      "output": [
+        {
+          "id": "o:9",
+          "design": "shelter",
+          "parts": [
+            {
+              "id": "p:10",
+              "kind": "frame",
+              "pose": {
+                "position": [
+                  0,
+                  0,
+                  0
+                ],
+                "rotation": [
+                  [
+                    1,
+                    0,
+                    0
+                  ],
+                  [
+                    0,
+                    1,
+                    0
+                  ],
+                  [
+                    0,
+                    0,
+                    1
+                  ]
+                ]
+              },
+              "surface": {
+                "rigidity": "rigid",
+                "optical": "opaque",
+                "permeability": "watertight",
+                "recording": "none"
+              },
+              "profile": "unit",
+              "shapes": [
+                {
+                  "min": [
+                    -0.5,
+                    0,
+                    0
+                  ],
+                  "max": [
+                    1.5,
+                    0,
+                    0
+                  ]
+                },
+                {
+                  "min": [
+                    -0.5,
+                    -0.5,
+                    0
+                  ],
+                  "max": [
+                    -0.5,
+                    -0.5,
+                    1.5
+                  ]
+                },
+                {
+                  "min": [
+                    -0.5,
+                    0.5,
+                    0
+                  ],
+                  "max": [
+                    -0.5,
+                    0.5,
+                    1.5
+                  ]
+                },
+                {
+                  "min": [
+                    1.5,
+                    -0.5,
+                    0
+                  ],
+                  "max": [
+                    1.5,
+                    -0.5,
+                    1.5
+                  ]
+                },
+                {
+                  "min": [
+                    1.5,
+                    0.5,
+                    0
+                  ],
+                  "max": [
+                    1.5,
+                    0.5,
+                    1.5
+                  ]
+                },
+                {
+                  "min": [
+                    -0.5,
+                    -0.5,
+                    1.5
+                  ],
+                  "max": [
+                    1.5,
+                    -0.5,
+                    1.5
+                  ]
+                },
+                {
+                  "min": [
+                    -0.5,
+                    0.5,
+                    1.5
+                  ],
+                  "max": [
+                    1.5,
+                    0.5,
+                    1.5
+                  ]
+                }
+              ],
+              "records": [],
+              "events": []
+            },
+            {
+              "id": "p:11",
+              "kind": "clear-film",
+              "pose": {
+                "position": [
+                  0,
+                  0,
+                  0
+                ],
+                "rotation": [
+                  [
+                    1,
+                    0,
+                    0
+                  ],
+                  [
+                    0,
+                    1,
+                    0
+                  ],
+                  [
+                    0,
+                    0,
+                    1
+                  ]
+                ]
+              },
+              "surface": {
+                "rigidity": "flexible",
+                "optical": "clear",
+                "permeability": "watertight",
+                "recording": "none"
+              },
+              "profile": "roof-panel",
+              "shapes": [
+                {
+                  "min": [
+                    -0.5,
+                    -0.5,
+                    1.5
+                  ],
+                  "max": [
+                    0.5,
+                    0.5,
+                    1.5
+                  ]
+                }
+              ],
+              "records": [],
+              "events": [],
+              "parent": "p:10"
+            },
+            {
+              "id": "p:12",
+              "kind": "clear-film",
+              "pose": {
+                "position": [
+                  1,
+                  0,
+                  0
+                ],
+                "rotation": [
+                  [
+                    1,
+                    0,
+                    0
+                  ],
+                  [
+                    0,
+                    1,
+                    0
+                  ],
+                  [
+                    0,
+                    0,
+                    1
+                  ]
+                ]
+              },
+              "surface": {
+                "rigidity": "flexible",
+                "optical": "clear",
+                "permeability": "watertight",
+                "recording": "none"
+              },
+              "profile": "roof-panel",
+              "shapes": [
+                {
+                  "min": [
+                    -0.5,
+                    -0.5,
+                    1.5
+                  ],
+                  "max": [
+                    0.5,
+                    0.5,
+                    1.5
+                  ]
+                }
+              ],
+              "records": [],
+              "events": [],
+              "parent": "p:10",
+              "hinge": {
+                "pivot": [
+                  0.5,
+                  0,
+                  1.5
+                ],
+                "axis": "y"
+              }
+            }
+          ],
+          "pose": {
+            "position": [
+              0,
+              3,
+              0
+            ],
+            "rotation": [
+              [
+                1,
+                0,
+                0
+              ],
+              [
+                0,
+                1,
+                0
+              ],
+              [
+                0,
+                0,
+                1
+              ]
+            ]
+          },
+          "geometry": [
+            {
+              "object": "o:9",
+              "part": "p:10",
+              "kind": "frame",
+              "surface": {
+                "rigidity": "rigid",
+                "optical": "opaque",
+                "permeability": "watertight",
+                "recording": "none"
+              },
+              "box": {
+                "min": [
+                  -0.5,
+                  3,
+                  0
+                ],
+                "max": [
+                  1.5,
+                  3,
+                  0
+                ]
+              }
+            },
+            {
+              "object": "o:9",
+              "part": "p:10",
+              "kind": "frame",
+              "surface": {
+                "rigidity": "rigid",
+                "optical": "opaque",
+                "permeability": "watertight",
+                "recording": "none"
+              },
+              "box": {
+                "min": [
+                  -0.5,
+                  2.5,
+                  0
+                ],
+                "max": [
+                  -0.5,
+                  2.5,
+                  1.5
+                ]
+              }
+            },
+            {
+              "object": "o:9",
+              "part": "p:10",
+              "kind": "frame",
+              "surface": {
+                "rigidity": "rigid",
+                "optical": "opaque",
+                "permeability": "watertight",
+                "recording": "none"
+              },
+              "box": {
+                "min": [
+                  -0.5,
+                  3.5,
+                  0
+                ],
+                "max": [
+                  -0.5,
+                  3.5,
+                  1.5
+                ]
+              }
+            },
+            {
+              "object": "o:9",
+              "part": "p:10",
+              "kind": "frame",
+              "surface": {
+                "rigidity": "rigid",
+                "optical": "opaque",
+                "permeability": "watertight",
+                "recording": "none"
+              },
+              "box": {
+                "min": [
+                  1.5,
+                  2.5,
+                  0
+                ],
+                "max": [
+                  1.5,
+                  2.5,
+                  1.5
+                ]
+              }
+            },
+            {
+              "object": "o:9",
+              "part": "p:10",
+              "kind": "frame",
+              "surface": {
+                "rigidity": "rigid",
+                "optical": "opaque",
+                "permeability": "watertight",
+                "recording": "none"
+              },
+              "box": {
+                "min": [
+                  1.5,
+                  3.5,
+                  0
+                ],
+                "max": [
+                  1.5,
+                  3.5,
+                  1.5
+                ]
+              }
+            },
+            {
+              "object": "o:9",
+              "part": "p:10",
+              "kind": "frame",
+              "surface": {
+                "rigidity": "rigid",
+                "optical": "opaque",
+                "permeability": "watertight",
+                "recording": "none"
+              },
+              "box": {
+                "min": [
+                  -0.5,
+                  2.5,
+                  1.5
+                ],
+                "max": [
+                  1.5,
+                  2.5,
+                  1.5
+                ]
+              }
+            },
+            {
+              "object": "o:9",
+              "part": "p:10",
+              "kind": "frame",
+              "surface": {
+                "rigidity": "rigid",
+                "optical": "opaque",
+                "permeability": "watertight",
+                "recording": "none"
+              },
+              "box": {
+                "min": [
+                  -0.5,
+                  3.5,
+                  1.5
+                ],
+                "max": [
+                  1.5,
+                  3.5,
+                  1.5
+                ]
+              }
+            },
+            {
+              "object": "o:9",
+              "part": "p:11",
+              "kind": "clear-film",
+              "surface": {
+                "rigidity": "flexible",
+                "optical": "clear",
+                "permeability": "watertight",
+                "recording": "none"
+              },
+              "box": {
+                "min": [
+                  -0.5,
+                  2.5,
+                  1.5
+                ],
+                "max": [
+                  0.5,
+                  3.5,
+                  1.5
+                ]
+              }
+            },
+            {
+              "object": "o:9",
+              "part": "p:12",
+              "kind": "clear-film",
+              "surface": {
+                "rigidity": "flexible",
+                "optical": "clear",
+                "permeability": "watertight",
+                "recording": "none"
+              },
+              "box": {
+                "min": [
+                  0.5,
+                  2.5,
+                  1.5
+                ],
+                "max": [
+                  1.5,
+                  3.5,
+                  1.5
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "index": 10,
+      "at": "2026-10-26T23:45:37.939Z",
+      "cmd": "combine",
+      "argument": "{\"a\":\"o:15\",\"b\":\"place:filter\",\"context\":{\"operation\":\"fit\",\"at\":[-4,3,0]}}",
+      "beforeHash": "ecc813c4c399414cc43d40136a258d0c41f92fbc5ca01c946923fb55f4ca2f20",
+      "afterHash": "ecc813c4c399414cc43d40136a258d0c41f92fbc5ca01c946923fb55f4ca2f20",
+      "capturedOutputJsonCompactBytes": 2991,
+      "capturedOutputJsonCompactSHA256": "98aa7b0fcdfa1237212c6589be952ee2224052520686ec2430d3229f2f6bd700",
+      "capturedOutputKeys": [
+        "accepted",
+        "message",
+        "moves",
+        "complete",
+        "goals",
+        "physicalManual",
+        "physicalAutomatic"
+      ],
+      "output": {
+        "accepted": false,
+        "message": "Actual selected surface must match and contact the disclosed fitting site.",
+        "moves": 4,
+        "complete": false,
+        "goals": {
+          "materials": [
+            {
+              "id": "growing",
+              "title": "A working sheltered bed",
+              "requirement": "A watered rootbed under an actually supported clear roof, receiving useful light.",
+              "test": "growing",
+              "mode": "current",
+              "current": false,
+              "satisfied": false
+            },
+            {
+              "id": "soft-service",
+              "title": "A useful soft interface",
+              "requirement": "A moldable fitted porous surface actually supplied water to a growing bed. Any player-chosen surface may do this.",
+              "test": "soft-service",
+              "mode": "achievement",
+              "current": false,
+              "satisfied": false
+            },
+            {
+              "id": "durable-service",
+              "title": "Keep the water service",
+              "requirement": "A currently rigid porous fitted surface actually supplies a currently growing bed; replacement is legal.",
+              "test": "durable-service",
+              "mode": "current",
+              "current": false,
+              "satisfied": false
+            },
+            {
+              "id": "survey",
+              "title": "Useful survey",
+              "requirement": "Make actual front-on records of beacon and far-marker. They need not share a center on this board.",
+              "test": "survey",
+              "mode": "current",
+              "current": false,
+              "satisfied": false
+            },
+            {
+              "id": "temporary-reference",
+              "title": "Readable working reference",
+              "requirement": "A genuine physical observation copy is readable at the dry working bench. Temporary porous material is sufficient; durable alternatives remain legal.",
+              "test": "temporary-reference",
+              "mode": "current",
+              "current": false,
+              "satisfied": false
+            },
+            {
+              "id": "durable-copy",
+              "title": "Durable reference",
+              "requirement": "A genuine physical observation copy remains readable in actual wet contact at the wet-display mount; durable watertight local material protects it. Geometrical copies do not create records.",
+              "test": "durable-copy",
+              "mode": "current",
+              "current": false,
+              "satisfied": false
+            },
+            {
+              "id": "worked-return",
+              "title": "Worked surface, new purpose",
+              "requirement": "An actual surface that earlier supplied useful water while moldable now is durable/watertight and carries a genuine physical observation copy. A replacement can keep the water service.",
+              "test": "worked-return",
+              "mode": "current",
+              "current": false,
+              "satisfied": false
+            },
+            {
+              "id": "specimen",
+              "title": "Useful specimen holder",
+              "requirement": "An actual table-leaf contact sample rests in a supported tray under overhead dust protection with light and open-side air.",
+              "test": "specimen",
+              "mode": "current",
+              "current": false,
+              "satisfied": false
+            },
+            {
+              "id": "relief",
+              "title": "Keep an actual relief",
+              "requirement": "A durable watertight surface retains a real leaf-relief contact impression.",
+              "test": "relief",
+              "mode": "current",
+              "current": false,
+              "satisfied": false
+            },
+            {
+              "id": "published",
+              "title": "Publish the survey",
+              "requirement": "Relay actual front-on beacon and far-marker records to the receiver.",
+              "test": "published",
+              "mode": "current",
+              "current": false,
+              "satisfied": false
+            }
+          ],
+          "workingStation": false,
+          "calibrated": false,
+          "civicSuccessor": false,
+          "hosted": [
+            {
+              "target": "beacon",
+              "served": false
+            },
+            {
+              "target": "west",
+              "served": false
+            }
+          ],
+          "currentlyOperable": false,
+          "livePanorama": false
+        },
+        "physicalManual": 4,
+        "physicalAutomatic": 0
+      }
+    },
+    {
+      "index": 12,
+      "at": "2026-10-26T23:45:43.246Z",
+      "cmd": "combine",
+      "argument": "{\"a\":\"o:15\",\"b\":\"place:floor\",\"context\":{\"operation\":\"move\",\"at\":[-4,3,0]}}",
+      "beforeHash": "811be5d0fd6dbc054acec999bb90c95e03b939d7c7b7c688b2ddd0a0a618efeb",
+      "afterHash": "6c5cbdc939aa865ffa4407072dca534370ebed5396d5358f4eef0a9548d57f72",
+      "capturedOutputJsonCompactBytes": 3504,
+      "capturedOutputJsonCompactSHA256": "2a78acb4d17095240aec7267a5d305bcd59d8f9a756f70cc09edeb62ff5765ed",
+      "capturedOutputKeys": [
+        "accepted",
+        "message",
+        "moves",
+        "complete",
+        "goals",
+        "physicalManual",
+        "physicalAutomatic",
+        "changes"
+      ],
+      "output": {
+        "accepted": true,
+        "message": "Accepted move; exact current goals available. Demonstrated control demo:1.",
+        "moves": 6,
+        "complete": false,
+        "goals": {
+          "materials": [
+            {
+              "id": "growing",
+              "title": "A working sheltered bed",
+              "requirement": "A watered rootbed under an actually supported clear roof, receiving useful light.",
+              "test": "growing",
+              "mode": "current",
+              "current": false,
+              "satisfied": false
+            },
+            {
+              "id": "soft-service",
+              "title": "A useful soft interface",
+              "requirement": "A moldable fitted porous surface actually supplied water to a growing bed. Any player-chosen surface may do this.",
+              "test": "soft-service",
+              "mode": "achievement",
+              "current": false,
+              "satisfied": false
+            },
+            {
+              "id": "durable-service",
+              "title": "Keep the water service",
+              "requirement": "A currently rigid porous fitted surface actually supplies a currently growing bed; replacement is legal.",
+              "test": "durable-service",
+              "mode": "current",
+              "current": false,
+              "satisfied": false
+            },
+            {
+              "id": "survey",
+              "title": "Useful survey",
+              "requirement": "Make actual front-on records of beacon and far-marker. They need not share a center on this board.",
+              "test": "survey",
+              "mode": "current",
+              "current": false,
+              "satisfied": false
+            },
+            {
+              "id": "temporary-reference",
+              "title": "Readable working reference",
+              "requirement": "A genuine physical observation copy is readable at the dry working bench. Temporary porous material is sufficient; durable alternatives remain legal.",
+              "test": "temporary-reference",
+              "mode": "current",
+              "current": false,
+              "satisfied": false
+            },
+            {
+              "id": "durable-copy",
+              "title": "Durable reference",
+              "requirement": "A genuine physical observation copy remains readable in actual wet contact at the wet-display mount; durable watertight local material protects it. Geometrical copies do not create records.",
+              "test": "durable-copy",
+              "mode": "current",
+              "current": false,
+              "satisfied": false
+            },
+            {
+              "id": "worked-return",
+              "title": "Worked surface, new purpose",
+              "requirement": "An actual surface that earlier supplied useful water while moldable now is durable/watertight and carries a genuine physical observation copy. A replacement can keep the water service.",
+              "test": "worked-return",
+              "mode": "current",
+              "current": false,
+              "satisfied": false
+            },
+            {
+              "id": "specimen",
+              "title": "Useful specimen holder",
+              "requirement": "An actual table-leaf contact sample rests in a supported tray under overhead dust protection with light and open-side air.",
+              "test": "specimen",
+              "mode": "current",
+              "current": false,
+              "satisfied": false
+            },
+            {
+              "id": "relief",
+              "title": "Keep an actual relief",
+              "requirement": "A durable watertight surface retains a real leaf-relief contact impression.",
+              "test": "relief",
+              "mode": "current",
+              "current": false,
+              "satisfied": false
+            },
+            {
+              "id": "published",
+              "title": "Publish the survey",
+              "requirement": "Relay actual front-on beacon and far-marker records to the receiver.",
+              "test": "published",
+              "mode": "current",
+              "current": false,
+              "satisfied": false
+            }
+          ],
+          "workingStation": false,
+          "calibrated": false,
+          "civicSuccessor": false,
+          "hosted": [
+            {
+              "target": "beacon",
+              "served": false
+            },
+            {
+              "target": "west",
+              "served": false
+            }
+          ],
+          "currentlyOperable": false,
+          "livePanorama": false
+        },
+        "physicalManual": 6,
+        "physicalAutomatic": 0,
+        "changes": {
+          "known": [],
+          "actors": {},
+          "routines": {
+            "added": [
+              {
+                "id": "demo:1",
+                "actions": [
+                  {
+                    "a": "o:15",
+                    "b": "place:floor",
+                    "context": {
+                      "operation": "move",
+                      "at": [
+                        -4,
+                        3,
+                        0
+                      ]
+                    },
+                    "type": "combine"
+                  }
+                ],
+                "sources": [
+                  "demo:1"
+                ],
+                "createdAt": 6
+              }
+            ],
+            "removed": [],
+            "changed": []
+          },
+          "requests": [],
+          "physical": {
+            "known": [],
+            "designs": {
+              "added": [],
+              "removed": [],
+              "changed": []
+            },
+            "boards": {
+              "added": [],
+              "removed": [],
+              "changed": []
+            },
+            "objects": {
+              "added": [],
+              "removed": [],
+              "changed": [
+                {
+                  "id": "o:15",
+                  "fields": {
+                    "pose": {
+                      "position": [
+                        -4,
+                        3,
+                        0
+                      ],
+                      "rotation": [
+                        [
+                          1,
+                          0,
+                          0
+                        ],
+                        [
+                          0,
+                          1,
+                          0
+                        ],
+                        [
+                          0,
+                          0,
+                          1
+                        ]
+                      ]
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "index": 13,
+      "at": "2026-10-26T23:45:43.407Z",
+      "cmd": "combine",
+      "argument": "{\"a\":\"o:15\",\"b\":\"place:filter\",\"context\":{\"operation\":\"fit\"}}",
+      "beforeHash": "6c5cbdc939aa865ffa4407072dca534370ebed5396d5358f4eef0a9548d57f72",
+      "afterHash": "ee1d03f5c083bd2e32ba09fc700af2c1498944517937ed731bb43f23c444e93e",
+      "capturedOutputJsonCompactBytes": 3533,
+      "capturedOutputJsonCompactSHA256": "f28b963ac3d8f05741a05e62cf544894139d903ef1b5365f2b53cbfc29affa32",
+      "capturedOutputKeys": [
+        "accepted",
+        "message",
+        "moves",
+        "complete",
+        "goals",
+        "physicalManual",
+        "physicalAutomatic",
+        "changes"
+      ],
+      "output": {
+        "accepted": true,
+        "message": "Accepted fit; exact current goals available.",
+        "moves": 7,
+        "complete": false,
+        "goals": {
+          "materials": [
+            {
+              "id": "growing",
+              "title": "A working sheltered bed",
+              "requirement": "A watered rootbed under an actually supported clear roof, receiving useful light.",
+              "test": "growing",
+              "mode": "current",
+              "current": false,
+              "satisfied": false
+            },
+            {
+              "id": "soft-service",
+              "title": "A useful soft interface",
+              "requirement": "A moldable fitted porous surface actually supplied water to a growing bed. Any player-chosen surface may do this.",
+              "test": "soft-service",
+              "mode": "achievement",
+              "current": false,
+              "satisfied": false
+            },
+            {
+              "id": "durable-service",
+              "title": "Keep the water service",
+              "requirement": "A currently rigid porous fitted surface actually supplies a currently growing bed; replacement is legal.",
+              "test": "durable-service",
+              "mode": "current",
+              "current": false,
+              "satisfied": false
+            },
+            {
+              "id": "survey",
+              "title": "Useful survey",
+              "requirement": "Make actual front-on records of beacon and far-marker. They need not share a center on this board.",
+              "test": "survey",
+              "mode": "current",
+              "current": false,
+              "satisfied": false
+            },
+            {
+              "id": "temporary-reference",
+              "title": "Readable working reference",
+              "requirement": "A genuine physical observation copy is readable at the dry working bench. Temporary porous material is sufficient; durable alternatives remain legal.",
+              "test": "temporary-reference",
+              "mode": "current",
+              "current": false,
+              "satisfied": false
+            },
+            {
+              "id": "durable-copy",
+              "title": "Durable reference",
+              "requirement": "A genuine physical observation copy remains readable in actual wet contact at the wet-display mount; durable watertight local material protects it. Geometrical copies do not create records.",
+              "test": "durable-copy",
+              "mode": "current",
+              "current": false,
+              "satisfied": false
+            },
+            {
+              "id": "worked-return",
+              "title": "Worked surface, new purpose",
+              "requirement": "An actual surface that earlier supplied useful water while moldable now is durable/watertight and carries a genuine physical observation copy. A replacement can keep the water service.",
+              "test": "worked-return",
+              "mode": "current",
+              "current": false,
+              "satisfied": false
+            },
+            {
+              "id": "specimen",
+              "title": "Useful specimen holder",
+              "requirement": "An actual table-leaf contact sample rests in a supported tray under overhead dust protection with light and open-side air.",
+              "test": "specimen",
+              "mode": "current",
+              "current": false,
+              "satisfied": false
+            },
+            {
+              "id": "relief",
+              "title": "Keep an actual relief",
+              "requirement": "A durable watertight surface retains a real leaf-relief contact impression.",
+              "test": "relief",
+              "mode": "current",
+              "current": false,
+              "satisfied": false
+            },
+            {
+              "id": "published",
+              "title": "Publish the survey",
+              "requirement": "Relay actual front-on beacon and far-marker records to the receiver.",
+              "test": "published",
+              "mode": "current",
+              "current": false,
+              "satisfied": false
+            }
+          ],
+          "workingStation": false,
+          "calibrated": false,
+          "civicSuccessor": false,
+          "hosted": [
+            {
+              "target": "beacon",
+              "served": false
+            },
+            {
+              "target": "west",
+              "served": false
+            }
+          ],
+          "currentlyOperable": false,
+          "livePanorama": false
+        },
+        "physicalManual": 7,
+        "physicalAutomatic": 0,
+        "changes": {
+          "known": [],
+          "actors": {},
+          "routines": {
+            "added": [],
+            "removed": [],
+            "changed": []
+          },
+          "requests": [],
+          "physical": {
+            "known": [],
+            "designs": {
+              "added": [],
+              "removed": [],
+              "changed": []
+            },
+            "boards": {
+              "added": [],
+              "removed": [],
+              "changed": []
+            },
+            "objects": {
+              "added": [],
+              "removed": [],
+              "changed": [
+                {
+                  "id": "o:15",
+                  "fields": {
+                    "parts": {
+                      "added": [],
+                      "removed": [],
+                      "changed": [
+                        {
+                          "id": "p:16",
+                          "fields": {
+                            "events": {
+                              "append": [
+                                {
+                                  "id": "event:19",
+                                  "kind": "fit",
+                                  "intervention": 7,
+                                  "surface": {
+                                    "rigidity": "moldable",
+                                    "optical": "opaque",
+                                    "permeability": "porous",
+                                    "recording": "temporary"
+                                  },
+                                  "profile": "unit"
+                                }
+                              ]
+                            },
+                            "activeFit": "filter"
+                          }
+                        }
+                      ]
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "index": 16,
+      "at": "2026-10-26T23:45:48.941Z",
+      "cmd": "combine",
+      "argument": "{\"a\":\"place:tap\",\"b\":\"o:15\",\"context\":{\"operation\":\"connect\",\"channel\":\"water\"}}",
+      "beforeHash": "4f6e039a7f2fb7a08eb6d66c9f20c6ec641fe85c49c567b97948b99865f413a8",
+      "afterHash": "4f6e039a7f2fb7a08eb6d66c9f20c6ec641fe85c49c567b97948b99865f413a8",
+      "capturedOutputJsonCompactBytes": 2961,
+      "capturedOutputJsonCompactSHA256": "54d36b49902b5189c817be320fe25bcf55bb154c3a88bfad7a1d055bacb248a3",
+      "capturedOutputKeys": [
+        "accepted",
+        "message",
+        "moves",
+        "complete",
+        "goals",
+        "physicalManual",
+        "physicalAutomatic"
+      ],
+      "output": {
+        "accepted": false,
+        "message": "No actual object place:tap on current board.",
+        "moves": 9,
+        "complete": false,
+        "goals": {
+          "materials": [
+            {
+              "id": "growing",
+              "title": "A working sheltered bed",
+              "requirement": "A watered rootbed under an actually supported clear roof, receiving useful light.",
+              "test": "growing",
+              "mode": "current",
+              "current": false,
+              "satisfied": false
+            },
+            {
+              "id": "soft-service",
+              "title": "A useful soft interface",
+              "requirement": "A moldable fitted porous surface actually supplied water to a growing bed. Any player-chosen surface may do this.",
+              "test": "soft-service",
+              "mode": "achievement",
+              "current": false,
+              "satisfied": false
+            },
+            {
+              "id": "durable-service",
+              "title": "Keep the water service",
+              "requirement": "A currently rigid porous fitted surface actually supplies a currently growing bed; replacement is legal.",
+              "test": "durable-service",
+              "mode": "current",
+              "current": false,
+              "satisfied": false
+            },
+            {
+              "id": "survey",
+              "title": "Useful survey",
+              "requirement": "Make actual front-on records of beacon and far-marker. They need not share a center on this board.",
+              "test": "survey",
+              "mode": "current",
+              "current": false,
+              "satisfied": false
+            },
+            {
+              "id": "temporary-reference",
+              "title": "Readable working reference",
+              "requirement": "A genuine physical observation copy is readable at the dry working bench. Temporary porous material is sufficient; durable alternatives remain legal.",
+              "test": "temporary-reference",
+              "mode": "current",
+              "current": false,
+              "satisfied": false
+            },
+            {
+              "id": "durable-copy",
+              "title": "Durable reference",
+              "requirement": "A genuine physical observation copy remains readable in actual wet contact at the wet-display mount; durable watertight local material protects it. Geometrical copies do not create records.",
+              "test": "durable-copy",
+              "mode": "current",
+              "current": false,
+              "satisfied": false
+            },
+            {
+              "id": "worked-return",
+              "title": "Worked surface, new purpose",
+              "requirement": "An actual surface that earlier supplied useful water while moldable now is durable/watertight and carries a genuine physical observation copy. A replacement can keep the water service.",
+              "test": "worked-return",
+              "mode": "current",
+              "current": false,
+              "satisfied": false
+            },
+            {
+              "id": "specimen",
+              "title": "Useful specimen holder",
+              "requirement": "An actual table-leaf contact sample rests in a supported tray under overhead dust protection with light and open-side air.",
+              "test": "specimen",
+              "mode": "current",
+              "current": false,
+              "satisfied": false
+            },
+            {
+              "id": "relief",
+              "title": "Keep an actual relief",
+              "requirement": "A durable watertight surface retains a real leaf-relief contact impression.",
+              "test": "relief",
+              "mode": "current",
+              "current": false,
+              "satisfied": false
+            },
+            {
+              "id": "published",
+              "title": "Publish the survey",
+              "requirement": "Relay actual front-on beacon and far-marker records to the receiver.",
+              "test": "published",
+              "mode": "current",
+              "current": false,
+              "satisfied": false
+            }
+          ],
+          "workingStation": false,
+          "calibrated": false,
+          "civicSuccessor": false,
+          "hosted": [
+            {
+              "target": "beacon",
+              "served": false
+            },
+            {
+              "target": "west",
+              "served": false
+            }
+          ],
+          "currentlyOperable": false,
+          "livePanorama": false
+        },
+        "physicalManual": 9,
+        "physicalAutomatic": 0
+      }
+    },
+    {
+      "index": 17,
+      "at": "2026-10-26T23:45:54.382Z",
+      "cmd": "combine",
+      "argument": "{\"a\":\"o:15\",\"b\":\"place:tap\",\"context\":{\"operation\":\"connect\",\"channel\":\"water\"}}",
+      "beforeHash": "4f6e039a7f2fb7a08eb6d66c9f20c6ec641fe85c49c567b97948b99865f413a8",
+      "afterHash": "4455f267b813ca7c31363996b00ecdcb58a5bc5c90558c49638eb7b84278a0e2",
+      "capturedOutputJsonCompactBytes": 3863,
+      "capturedOutputJsonCompactSHA256": "c2e5dca3b826f3788c759b33b65e589654c41cb06ca0276249cbb3ccbc21f7d8",
+      "capturedOutputKeys": [
+        "accepted",
+        "message",
+        "moves",
+        "complete",
+        "goals",
+        "physicalManual",
+        "physicalAutomatic",
+        "changes"
+      ],
+      "output": {
+        "accepted": true,
+        "message": "Accepted connect; exact current goals available. Demonstrated control demo:3.",
+        "moves": 10,
+        "complete": false,
+        "goals": {
+          "materials": [
+            {
+              "id": "growing",
+              "title": "A working sheltered bed",
+              "requirement": "A watered rootbed under an actually supported clear roof, receiving useful light.",
+              "test": "growing",
+              "mode": "current",
+              "current": true,
+              "achievedAt": 10,
+              "satisfied": true
+            },
+            {
+              "id": "soft-service",
+              "title": "A useful soft interface",
+              "requirement": "A moldable fitted porous surface actually supplied water to a growing bed. Any player-chosen surface may do this.",
+              "test": "soft-service",
+              "mode": "achievement",
+              "current": true,
+              "achievedAt": 10,
+              "satisfied": true
+            },
+            {
+              "id": "durable-service",
+              "title": "Keep the water service",
+              "requirement": "A currently rigid porous fitted surface actually supplies a currently growing bed; replacement is legal.",
+              "test": "durable-service",
+              "mode": "current",
+              "current": false,
+              "satisfied": false
+            },
+            {
+              "id": "survey",
+              "title": "Useful survey",
+              "requirement": "Make actual front-on records of beacon and far-marker. They need not share a center on this board.",
+              "test": "survey",
+              "mode": "current",
+              "current": false,
+              "satisfied": false
+            },
+            {
+              "id": "temporary-reference",
+              "title": "Readable working reference",
+              "requirement": "A genuine physical observation copy is readable at the dry working bench. Temporary porous material is sufficient; durable alternatives remain legal.",
+              "test": "temporary-reference",
+              "mode": "current",
+              "current": false,
+              "satisfied": false
+            },
+            {
+              "id": "durable-copy",
+              "title": "Durable reference",
+              "requirement": "A genuine physical observation copy remains readable in actual wet contact at the wet-display mount; durable watertight local material protects it. Geometrical copies do not create records.",
+              "test": "durable-copy",
+              "mode": "current",
+              "current": false,
+              "satisfied": false
+            },
+            {
+              "id": "worked-return",
+              "title": "Worked surface, new purpose",
+              "requirement": "An actual surface that earlier supplied useful water while moldable now is durable/watertight and carries a genuine physical observation copy. A replacement can keep the water service.",
+              "test": "worked-return",
+              "mode": "current",
+              "current": false,
+              "satisfied": false
+            },
+            {
+              "id": "specimen",
+              "title": "Useful specimen holder",
+              "requirement": "An actual table-leaf contact sample rests in a supported tray under overhead dust protection with light and open-side air.",
+              "test": "specimen",
+              "mode": "current",
+              "current": false,
+              "satisfied": false
+            },
+            {
+              "id": "relief",
+              "title": "Keep an actual relief",
+              "requirement": "A durable watertight surface retains a real leaf-relief contact impression.",
+              "test": "relief",
+              "mode": "current",
+              "current": false,
+              "satisfied": false
+            },
+            {
+              "id": "published",
+              "title": "Publish the survey",
+              "requirement": "Relay actual front-on beacon and far-marker records to the receiver.",
+              "test": "published",
+              "mode": "current",
+              "current": false,
+              "satisfied": false
+            }
+          ],
+          "workingStation": false,
+          "calibrated": false,
+          "civicSuccessor": false,
+          "hosted": [
+            {
+              "target": "beacon",
+              "served": false
+            },
+            {
+              "target": "west",
+              "served": false
+            }
+          ],
+          "currentlyOperable": false,
+          "livePanorama": false
+        },
+        "physicalManual": 10,
+        "physicalAutomatic": 0,
+        "changes": {
+          "known": [],
+          "actors": {},
+          "routines": {
+            "added": [
+              {
+                "id": "demo:3",
+                "actions": [
+                  {
+                    "a": "o:15",
+                    "b": "place:tap",
+                    "context": {
+                      "operation": "connect",
+                      "channel": "water"
+                    },
+                    "type": "combine"
+                  }
+                ],
+                "sources": [
+                  "demo:3"
+                ],
+                "createdAt": 10
+              }
+            ],
+            "removed": [],
+            "changed": []
+          },
+          "requests": [],
+          "physical": {
+            "known": [],
+            "designs": {
+              "added": [],
+              "removed": [],
+              "changed": []
+            },
+            "boards": {
+              "added": [],
+              "removed": [],
+              "changed": [
+                {
+                  "id": "station",
+                  "fields": {
+                    "links": {
+                      "append": [
+                        {
+                          "a": "place:tap",
+                          "b": "o:15",
+                          "channel": "water"
+                        }
+                      ]
+                    },
+                    "achieved": {
+                      "growing": 10,
+                      "soft-service": 10
+                    }
+                  }
+                }
+              ]
+            },
+            "objects": {
+              "added": [],
+              "removed": [],
+              "changed": [
+                {
+                  "id": "o:15",
+                  "fields": {
+                    "parts": {
+                      "added": [],
+                      "removed": [],
+                      "changed": [
+                        {
+                          "id": "p:16",
+                          "fields": {
+                            "events": {
+                              "append": [
+                                {
+                                  "id": "event:22",
+                                  "kind": "service",
+                                  "intervention": 10,
+                                  "surface": {
+                                    "rigidity": "moldable",
+                                    "optical": "opaque",
+                                    "permeability": "porous",
+                                    "recording": "temporary"
+                                  }
+                                }
+                              ]
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "index": 52,
+      "at": "2026-10-26T23:47:04.814Z",
+      "cmd": "combine",
+      "argument": "{\"a\":\"view\",\"b\":\"panorama\",\"context\":{\"operation\":\"session\"}}",
+      "beforeHash": "d4fc111e83951c3e080bde03612f9ac4d0783688c0b70708dd97d6a1bd55da00",
+      "afterHash": "d85bde321deb0e6052e4503cd069f77a8edb26ad2856a41c65036345fff3f397",
+      "capturedOutputJsonCompactBytes": 4625,
+      "capturedOutputJsonCompactSHA256": "fbe9160594c6b608030e969a4501cfcfebd62daf76337e5e0d0484a97d59306f",
+      "capturedOutputKeys": [
+        "accepted",
+        "message",
+        "moves",
+        "complete",
+        "goals",
+        "physicalManual",
+        "physicalAutomatic",
+        "changes"
+      ],
+      "output": {
+        "accepted": true,
+        "message": "served: beacon via host; 0 automatic physical transitions. / served: west via host; 1 automatic physical transitions.",
+        "moves": 44,
+        "complete": true,
+        "goals": {
+          "materials": [
+            {
+              "id": "growing",
+              "title": "A working sheltered bed",
+              "requirement": "A watered rootbed under an actually supported clear roof, receiving useful light.",
+              "test": "growing",
+              "mode": "current",
+              "current": true,
+              "achievedAt": 10,
+              "satisfied": true
+            },
+            {
+              "id": "soft-service",
+              "title": "A useful soft interface",
+              "requirement": "A moldable fitted porous surface actually supplied water to a growing bed. Any player-chosen surface may do this.",
+              "test": "soft-service",
+              "mode": "achievement",
+              "current": true,
+              "achievedAt": 10,
+              "satisfied": true
+            },
+            {
+              "id": "durable-service",
+              "title": "Keep the water service",
+              "requirement": "A currently rigid porous fitted surface actually supplies a currently growing bed; replacement is legal.",
+              "test": "durable-service",
+              "mode": "current",
+              "current": true,
+              "achievedAt": 17,
+              "satisfied": true
+            },
+            {
+              "id": "survey",
+              "title": "Useful survey",
+              "requirement": "Make actual front-on records of beacon and far-marker. They need not share a center on this board.",
+              "test": "survey",
+              "mode": "current",
+              "current": true,
+              "achievedAt": 20,
+              "satisfied": true
+            },
+            {
+              "id": "temporary-reference",
+              "title": "Readable working reference",
+              "requirement": "A genuine physical observation copy is readable at the dry working bench. Temporary porous material is sufficient; durable alternatives remain legal.",
+              "test": "temporary-reference",
+              "mode": "current",
+              "current": true,
+              "achievedAt": 28,
+              "satisfied": true
+            },
+            {
+              "id": "durable-copy",
+              "title": "Durable reference",
+              "requirement": "A genuine physical observation copy remains readable in actual wet contact at the wet-display mount; durable watertight local material protects it. Geometrical copies do not create records.",
+              "test": "durable-copy",
+              "mode": "current",
+              "current": true,
+              "achievedAt": 25,
+              "satisfied": true
+            },
+            {
+              "id": "worked-return",
+              "title": "Worked surface, new purpose",
+              "requirement": "An actual surface that earlier supplied useful water while moldable now is durable/watertight and carries a genuine physical observation copy. A replacement can keep the water service.",
+              "test": "worked-return",
+              "mode": "current",
+              "current": true,
+              "achievedAt": 24,
+              "satisfied": true
+            },
+            {
+              "id": "specimen",
+              "title": "Useful specimen holder",
+              "requirement": "An actual table-leaf contact sample rests in a supported tray under overhead dust protection with light and open-side air.",
+              "test": "specimen",
+              "mode": "current",
+              "current": true,
+              "achievedAt": 31,
+              "satisfied": true
+            },
+            {
+              "id": "relief",
+              "title": "Keep an actual relief",
+              "requirement": "A durable watertight surface retains a real leaf-relief contact impression.",
+              "test": "relief",
+              "mode": "current",
+              "current": true,
+              "achievedAt": 24,
+              "satisfied": true
+            },
+            {
+              "id": "published",
+              "title": "Publish the survey",
+              "requirement": "Relay actual front-on beacon and far-marker records to the receiver.",
+              "test": "published",
+              "mode": "current",
+              "current": true,
+              "achievedAt": 21,
+              "satisfied": true
+            }
+          ],
+          "workingStation": true,
+          "calibrated": true,
+          "civicSuccessor": true,
+          "hosted": [
+            {
+              "target": "beacon",
+              "served": true
+            },
+            {
+              "target": "west",
+              "served": true
+            }
+          ],
+          "currentlyOperable": true,
+          "livePanorama": true
+        },
+        "physicalManual": 34,
+        "physicalAutomatic": 1,
+        "changes": {
+          "known": [],
+          "actors": {},
+          "routines": {
+            "added": [],
+            "removed": [],
+            "changed": []
+          },
+          "requests": [
+            {
+              "manualRevision": 34,
+              "at": 44,
+              "target": "beacon",
+              "issuer": "resident",
+              "server": "host",
+              "calibrationAt": 33,
+              "status": "served",
+              "automatic": [],
+              "response": [],
+              "views": [
+                {
+                  "object": "o:25",
+                  "subject": "beacon",
+                  "center": [
+                    0,
+                    1,
+                    0.5
+                  ],
+                  "heading": [
+                    1,
+                    0,
+                    0
+                  ],
+                  "target": [
+                    5,
+                    1,
+                    0.5
+                  ],
+                  "front": [
+                    -1,
+                    0,
+                    0
+                  ],
+                  "lens": "p:26",
+                  "plate": "p:27",
+                  "boundaries": [],
+                  "focalBoundaries": []
+                }
+              ],
+              "garden": true,
+              "creatorAway": true,
+              "civic": true
+            },
+            {
+              "manualRevision": 34,
+              "at": 44,
+              "target": "west",
+              "issuer": "resident",
+              "server": "host",
+              "calibrationAt": 33,
+              "status": "served",
+              "automatic": [
+                {
+                  "a": "o:25",
+                  "b": "place:floor",
+                  "context": {
+                    "operation": "move",
+                    "at": [
+                      0,
+                      1,
+                      0
+                    ],
+                    "rotation": [
+                      [
+                        -1,
+                        0,
+                        0
+                      ],
+                      [
+                        0,
+                        -1,
+                        0
+                      ],
+                      [
+                        0,
+                        0,
+                        1
+                      ]
+                    ]
+                  },
+                  "type": "combine"
+                }
+              ],
+              "response": [],
+              "views": [
+                {
+                  "object": "o:25",
+                  "subject": "west",
+                  "center": [
+                    0,
+                    1,
+                    0.5
+                  ],
+                  "heading": [
+                    -1,
+                    0,
+                    0
+                  ],
+                  "target": [
+                    -5,
+                    1,
+                    0.5
+                  ],
+                  "front": [
+                    1,
+                    0,
+                    0
+                  ],
+                  "lens": "p:26",
+                  "plate": "p:27",
+                  "boundaries": [],
+                  "focalBoundaries": []
+                }
+              ],
+              "garden": true,
+              "creatorAway": true,
+              "civic": true,
+              "method": "demo:11"
+            }
+          ],
+          "physical": {
+            "known": [],
+            "designs": {
+              "added": [],
+              "removed": [],
+              "changed": []
+            },
+            "boards": {
+              "added": [],
+              "removed": [],
+              "changed": []
+            },
+            "objects": {
+              "added": [],
+              "removed": [],
+              "changed": [
+                {
+                  "id": "o:25",
+                  "fields": {
+                    "pose": {
+                      "position": [
+                        0,
+                        1,
+                        0
+                      ],
+                      "rotation": [
+                        [
+                          -1,
+                          0,
+                          0
+                        ],
+                        [
+                          0,
+                          -1,
+                          0
+                        ],
+                        [
+                          0,
+                          0,
+                          1
+                        ]
+                      ]
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          "liveViews": [
+            {
+              "object": "o:25",
+              "subject": "west",
+              "center": [
+                0,
+                1,
+                0.5
+              ],
+              "heading": [
+                -1,
+                0,
+                0
+              ],
+              "target": [
+                -5,
+                1,
+                0.5
+              ],
+              "front": [
+                1,
+                0,
+                0
+              ],
+              "lens": "p:26",
+              "plate": "p:27",
+              "boundaries": [],
+              "focalBoundaries": []
+            }
+          ]
+        }
+      }
+    },
+    {
+      "index": 54,
+      "at": "2026-10-26T23:47:29.855Z",
+      "cmd": "finish",
+      "argument": "{\"reason\":\"Completed the full chosen station and live civic hosting endpoint.\"}",
+      "beforeHash": "d85bde321deb0e6052e4503cd069f77a8edb26ad2856a41c65036345fff3f397",
+      "afterHash": "d85bde321deb0e6052e4503cd069f77a8edb26ad2856a41c65036345fff3f397",
+      "capturedOutputJsonCompactBytes": 33128,
+      "capturedOutputJsonCompactSHA256": "5eae49f228e045c9f54a986ce83c383a3148253b932eacf700ebacc0e51666ea",
+      "capturedOutputKeys": [
+        "finished",
+        "report",
+        "observation"
+      ],
+      "output": {
+        "finished": true,
+        "report": {
+          "reason": "Completed the full chosen station and live civic hosting endpoint."
+        },
+        "observation": {
+          "version": "ideas-history-live-host-1",
+          "condition": "normal",
+          "moves": 44,
+          "manualRevision": 34,
+          "physicalManual": 34,
+          "physicalAutomatic": 1,
+          "known": [
+            "adaptive-minds",
+            "reciprocal-education",
+            "apprentices",
+            "succession-experience",
+            "unowned"
+          ],
+          "learner": true,
+          "civic": true,
+          "keeper": "host",
+          "creatorAway": true,
+          "calibration": {
+            "center": [
+              0,
+              1,
+              0.5
+            ],
+            "at": 33,
+            "sourceObject": "o:25",
+            "sourceLens": "p:26"
+          },
+          "routines": [
+            {
+              "id": "idle",
+              "actions": [],
+              "sources": [],
+              "createdAt": 0
+            },
+            {
+              "id": "demo:1",
+              "actions": [
+                {
+                  "a": "o:15",
+                  "b": "place:floor",
+                  "context": {
+                    "operation": "move",
+                    "at": [
+                      -4,
+                      3,
+                      0
+                    ]
+                  },
+                  "type": "combine"
+                }
+              ],
+              "sources": [
+                "demo:1"
+              ],
+              "createdAt": 6
+            },
+            {
+              "id": "demo:2",
+              "actions": [
+                {
+                  "a": "o:13",
+                  "b": "o:15",
+                  "context": {
+                    "operation": "connect",
+                    "channel": "water"
+                  },
+                  "type": "combine"
+                }
+              ],
+              "sources": [
+                "demo:2"
+              ],
+              "createdAt": 8
+            },
+            {
+              "id": "demo:3",
+              "actions": [
+                {
+                  "a": "o:15",
+                  "b": "place:tap",
+                  "context": {
+                    "operation": "connect",
+                    "channel": "water"
+                  },
+                  "type": "combine"
+                }
+              ],
+              "sources": [
+                "demo:3"
+              ],
+              "createdAt": 10
+            },
+            {
+              "id": "demo:4",
+              "actions": [
+                {
+                  "a": "o:15",
+                  "b": "place:floor",
+                  "context": {
+                    "operation": "move",
+                    "at": [
+                      -2,
+                      3,
+                      0
+                    ]
+                  },
+                  "type": "combine"
+                }
+              ],
+              "sources": [
+                "demo:4"
+              ],
+              "createdAt": 11
+            },
+            {
+              "id": "demo:5",
+              "actions": [
+                {
+                  "a": "o:23",
+                  "b": "place:tap",
+                  "context": {
+                    "operation": "connect",
+                    "channel": "water"
+                  },
+                  "type": "combine"
+                }
+              ],
+              "sources": [
+                "demo:5"
+              ],
+              "createdAt": 16
+            },
+            {
+              "id": "demo:6",
+              "actions": [
+                {
+                  "a": "o:13",
+                  "b": "o:23",
+                  "context": {
+                    "operation": "connect",
+                    "channel": "water"
+                  },
+                  "type": "combine"
+                }
+              ],
+              "sources": [
+                "demo:6"
+              ],
+              "createdAt": 17
+            },
+            {
+              "id": "demo:7",
+              "actions": [
+                {
+                  "a": "o:25",
+                  "b": "place:floor",
+                  "context": {
+                    "operation": "move",
+                    "at": [
+                      0,
+                      6,
+                      0
+                    ]
+                  },
+                  "type": "combine"
+                }
+              ],
+              "sources": [
+                "demo:7"
+              ],
+              "createdAt": 19
+            },
+            {
+              "id": "demo:8",
+              "actions": [
+                {
+                  "a": "o:15",
+                  "b": "place:floor",
+                  "context": {
+                    "operation": "move",
+                    "at": [
+                      0,
+                      7,
+                      0
+                    ]
+                  },
+                  "type": "combine"
+                }
+              ],
+              "sources": [
+                "demo:8"
+              ],
+              "createdAt": 25
+            },
+            {
+              "id": "demo:9",
+              "actions": [
+                {
+                  "a": "o:36",
+                  "b": "place:floor",
+                  "context": {
+                    "operation": "move",
+                    "at": [
+                      1,
+                      7,
+                      0
+                    ]
+                  },
+                  "type": "combine"
+                }
+              ],
+              "sources": [
+                "demo:9"
+              ],
+              "createdAt": 28
+            },
+            {
+              "id": "demo:10",
+              "actions": [
+                {
+                  "a": "o:25",
+                  "b": "place:floor",
+                  "context": {
+                    "operation": "move",
+                    "at": [
+                      0,
+                      1,
+                      0
+                    ]
+                  },
+                  "type": "combine"
+                }
+              ],
+              "sources": [
+                "demo:10"
+              ],
+              "createdAt": 32
+            },
+            {
+              "id": "demo:11",
+              "actions": [
+                {
+                  "a": "o:25",
+                  "b": "place:floor",
+                  "context": {
+                    "operation": "move",
+                    "at": [
+                      0,
+                      1,
+                      0
+                    ],
+                    "rotation": [
+                      [
+                        -1,
+                        0,
+                        0
+                      ],
+                      [
+                        0,
+                        -1,
+                        0
+                      ],
+                      [
+                        0,
+                        0,
+                        1
+                      ]
+                    ]
+                  },
+                  "type": "combine"
+                }
+              ],
+              "sources": [
+                "demo:11"
+              ],
+              "createdAt": 34
+            },
+            {
+              "id": "demo:12",
+              "actions": [
+                {
+                  "a": "o:25",
+                  "b": "place:floor",
+                  "context": {
+                    "operation": "move",
+                    "at": [
+                      0,
+                      1,
+                      0
+                    ],
+                    "rotation": [
+                      [
+                        1,
+                        0,
+                        0
+                      ],
+                      [
+                        0,
+                        1,
+                        0
+                      ],
+                      [
+                        0,
+                        0,
+                        1
+                      ]
+                    ]
+                  },
+                  "type": "combine"
+                }
+              ],
+              "sources": [
+                "demo:12"
+              ],
+              "createdAt": 37
+            }
+          ],
+          "rules": {
+            "west": "demo:11",
+            "beacon": "demo:12"
+          },
+          "requests": [
+            {
+              "manualRevision": 34,
+              "at": 44,
+              "target": "beacon",
+              "issuer": "resident",
+              "server": "host",
+              "calibrationAt": 33,
+              "status": "served",
+              "automatic": [],
+              "response": [],
+              "views": [
+                {
+                  "object": "o:25",
+                  "subject": "beacon",
+                  "center": [
+                    0,
+                    1,
+                    0.5
+                  ],
+                  "heading": [
+                    1,
+                    0,
+                    0
+                  ],
+                  "target": [
+                    5,
+                    1,
+                    0.5
+                  ],
+                  "front": [
+                    -1,
+                    0,
+                    0
+                  ],
+                  "lens": "p:26",
+                  "plate": "p:27",
+                  "boundaries": [],
+                  "focalBoundaries": []
+                }
+              ],
+              "garden": true,
+              "creatorAway": true,
+              "civic": true
+            },
+            {
+              "manualRevision": 34,
+              "at": 44,
+              "target": "west",
+              "issuer": "resident",
+              "server": "host",
+              "calibrationAt": 33,
+              "status": "served",
+              "automatic": [
+                {
+                  "a": "o:25",
+                  "b": "place:floor",
+                  "context": {
+                    "operation": "move",
+                    "at": [
+                      0,
+                      1,
+                      0
+                    ],
+                    "rotation": [
+                      [
+                        -1,
+                        0,
+                        0
+                      ],
+                      [
+                        0,
+                        -1,
+                        0
+                      ],
+                      [
+                        0,
+                        0,
+                        1
+                      ]
+                    ]
+                  },
+                  "type": "combine"
+                }
+              ],
+              "response": [],
+              "views": [
+                {
+                  "object": "o:25",
+                  "subject": "west",
+                  "center": [
+                    0,
+                    1,
+                    0.5
+                  ],
+                  "heading": [
+                    -1,
+                    0,
+                    0
+                  ],
+                  "target": [
+                    -5,
+                    1,
+                    0.5
+                  ],
+                  "front": [
+                    1,
+                    0,
+                    0
+                  ],
+                  "lens": "p:26",
+                  "plate": "p:27",
+                  "boundaries": [],
+                  "focalBoundaries": []
+                }
+              ],
+              "garden": true,
+              "creatorAway": true,
+              "civic": true,
+              "method": "demo:11"
+            }
+          ],
+          "liveViews": [
+            {
+              "object": "o:25",
+              "subject": "west",
+              "center": [
+                0,
+                1,
+                0.5
+              ],
+              "heading": [
+                -1,
+                0,
+                0
+              ],
+              "target": [
+                -5,
+                1,
+                0.5
+              ],
+              "front": [
+                1,
+                0,
+                0
+              ],
+              "lens": "p:26",
+              "plate": "p:27",
+              "boundaries": [],
+              "focalBoundaries": []
+            }
+          ],
+          "goals": {
+            "materials": [
+              {
+                "id": "growing",
+                "title": "A working sheltered bed",
+                "requirement": "A watered rootbed under an actually supported clear roof, receiving useful light.",
+                "test": "growing",
+                "mode": "current",
+                "current": true,
+                "achievedAt": 10,
+                "satisfied": true
+              },
+              {
+                "id": "soft-service",
+                "title": "A useful soft interface",
+                "requirement": "A moldable fitted porous surface actually supplied water to a growing bed. Any player-chosen surface may do this.",
+                "test": "soft-service",
+                "mode": "achievement",
+                "current": true,
+                "achievedAt": 10,
+                "satisfied": true
+              },
+              {
+                "id": "durable-service",
+                "title": "Keep the water service",
+                "requirement": "A currently rigid porous fitted surface actually supplies a currently growing bed; replacement is legal.",
+                "test": "durable-service",
+                "mode": "current",
+                "current": true,
+                "achievedAt": 17,
+                "satisfied": true
+              },
+              {
+                "id": "survey",
+                "title": "Useful survey",
+                "requirement": "Make actual front-on records of beacon and far-marker. They need not share a center on this board.",
+                "test": "survey",
+                "mode": "current",
+                "current": true,
+                "achievedAt": 20,
+                "satisfied": true
+              },
+              {
+                "id": "temporary-reference",
+                "title": "Readable working reference",
+                "requirement": "A genuine physical observation copy is readable at the dry working bench. Temporary porous material is sufficient; durable alternatives remain legal.",
+                "test": "temporary-reference",
+                "mode": "current",
+                "current": true,
+                "achievedAt": 28,
+                "satisfied": true
+              },
+              {
+                "id": "durable-copy",
+                "title": "Durable reference",
+                "requirement": "A genuine physical observation copy remains readable in actual wet contact at the wet-display mount; durable watertight local material protects it. Geometrical copies do not create records.",
+                "test": "durable-copy",
+                "mode": "current",
+                "current": true,
+                "achievedAt": 25,
+                "satisfied": true
+              },
+              {
+                "id": "worked-return",
+                "title": "Worked surface, new purpose",
+                "requirement": "An actual surface that earlier supplied useful water while moldable now is durable/watertight and carries a genuine physical observation copy. A replacement can keep the water service.",
+                "test": "worked-return",
+                "mode": "current",
+                "current": true,
+                "achievedAt": 24,
+                "satisfied": true
+              },
+              {
+                "id": "specimen",
+                "title": "Useful specimen holder",
+                "requirement": "An actual table-leaf contact sample rests in a supported tray under overhead dust protection with light and open-side air.",
+                "test": "specimen",
+                "mode": "current",
+                "current": true,
+                "achievedAt": 31,
+                "satisfied": true
+              },
+              {
+                "id": "relief",
+                "title": "Keep an actual relief",
+                "requirement": "A durable watertight surface retains a real leaf-relief contact impression.",
+                "test": "relief",
+                "mode": "current",
+                "current": true,
+                "achievedAt": 24,
+                "satisfied": true
+              },
+              {
+                "id": "published",
+                "title": "Publish the survey",
+                "requirement": "Relay actual front-on beacon and far-marker records to the receiver.",
+                "test": "published",
+                "mode": "current",
+                "current": true,
+                "achievedAt": 21,
+                "satisfied": true
+              }
+            ],
+            "workingStation": true,
+            "calibrated": true,
+            "civicSuccessor": true,
+            "hosted": [
+              {
+                "target": "beacon",
+                "served": true
+              },
+              {
+                "target": "west",
+                "served": true
+              }
+            ],
+            "currentlyOperable": true,
+            "livePanorama": true
+          },
+          "complete": true,
+          "world": {
+            "version": "geometric-materials-1",
+            "map": {
+              "id": "station",
+              "label": "Material station: make services, then reuse actual worked things",
+              "targets": [
+                {
+                  "id": "beacon",
+                  "center": [
+                    5,
+                    1,
+                    0.5
+                  ],
+                  "front": [
+                    -1,
+                    0,
+                    0
+                  ]
+                },
+                {
+                  "id": "far-marker",
+                  "center": [
+                    5,
+                    6,
+                    0.5
+                  ],
+                  "front": [
+                    -1,
+                    0,
+                    0
+                  ]
+                }
+              ],
+              "places": [
+                {
+                  "id": "working-bench",
+                  "position": [
+                    1,
+                    7,
+                    0
+                  ]
+                },
+                {
+                  "id": "wet-display",
+                  "position": [
+                    0,
+                    7,
+                    0
+                  ],
+                  "wet": true
+                },
+                {
+                  "id": "tap",
+                  "position": [
+                    -5,
+                    3,
+                    0
+                  ],
+                  "water": true
+                },
+                {
+                  "id": "filter",
+                  "position": [
+                    -4,
+                    3,
+                    0
+                  ],
+                  "outlet": "unit",
+                  "profile": "unit"
+                },
+                {
+                  "id": "receiver",
+                  "position": [
+                    -5,
+                    5,
+                    0
+                  ],
+                  "receiver": true
+                },
+                {
+                  "id": "specimen",
+                  "position": [
+                    -4,
+                    5,
+                    0
+                  ],
+                  "specimen": "table-leaf"
+                },
+                {
+                  "id": "relief",
+                  "position": [
+                    -3,
+                    5,
+                    0
+                  ],
+                  "relief": "leaf-relief",
+                  "profile": "unit"
+                }
+              ],
+              "access": [],
+              "initial": [],
+              "goals": [
+                {
+                  "id": "growing",
+                  "title": "A working sheltered bed",
+                  "requirement": "A watered rootbed under an actually supported clear roof, receiving useful light.",
+                  "test": "growing",
+                  "mode": "current"
+                },
+                {
+                  "id": "soft-service",
+                  "title": "A useful soft interface",
+                  "requirement": "A moldable fitted porous surface actually supplied water to a growing bed. Any player-chosen surface may do this.",
+                  "test": "soft-service",
+                  "mode": "achievement"
+                },
+                {
+                  "id": "durable-service",
+                  "title": "Keep the water service",
+                  "requirement": "A currently rigid porous fitted surface actually supplies a currently growing bed; replacement is legal.",
+                  "test": "durable-service",
+                  "mode": "current"
+                },
+                {
+                  "id": "survey",
+                  "title": "Useful survey",
+                  "requirement": "Make actual front-on records of beacon and far-marker. They need not share a center on this board.",
+                  "test": "survey",
+                  "mode": "current"
+                },
+                {
+                  "id": "temporary-reference",
+                  "title": "Readable working reference",
+                  "requirement": "A genuine physical observation copy is readable at the dry working bench. Temporary porous material is sufficient; durable alternatives remain legal.",
+                  "test": "temporary-reference",
+                  "mode": "current"
+                },
+                {
+                  "id": "durable-copy",
+                  "title": "Durable reference",
+                  "requirement": "A genuine physical observation copy remains readable in actual wet contact at the wet-display mount; durable watertight local material protects it. Geometrical copies do not create records.",
+                  "test": "durable-copy",
+                  "mode": "current"
+                },
+                {
+                  "id": "worked-return",
+                  "title": "Worked surface, new purpose",
+                  "requirement": "An actual surface that earlier supplied useful water while moldable now is durable/watertight and carries a genuine physical observation copy. A replacement can keep the water service.",
+                  "test": "worked-return",
+                  "mode": "current"
+                },
+                {
+                  "id": "specimen",
+                  "title": "Useful specimen holder",
+                  "requirement": "An actual table-leaf contact sample rests in a supported tray under overhead dust protection with light and open-side air.",
+                  "test": "specimen",
+                  "mode": "current"
+                },
+                {
+                  "id": "relief",
+                  "title": "Keep an actual relief",
+                  "requirement": "A durable watertight surface retains a real leaf-relief contact impression.",
+                  "test": "relief",
+                  "mode": "current"
+                },
+                {
+                  "id": "published",
+                  "title": "Publish the survey",
+                  "requirement": "Relay actual front-on beacon and far-marker records to the receiver.",
+                  "test": "published",
+                  "mode": "current"
+                }
+              ]
+            },
+            "laws": [
+              "Unit lengths; x east, y south, z up. Cardinal exact rigid poses. Unit roots/lenses/plates are solid boxes; panels and frame struts have explicitly zero thickness. No invisible filled interior.",
+              "Every actual shape must belong to a geometric touching component reaching z=0. Whole joins select complete poses; solids cannot overlap, boundaries cannot cut solids. Touching and laminates are legal. Every parent/subtree joint must retain actual contact at its stored selected attachment part; globally supported but disconnected joints reject. Unbounded supported apron; no object or material cap.",
+              "Whole-object relocation is one action; it preserves every body extent. It clears that object's water/power/light links and seating. No cart setup required. Endpoint support/collision only, not a swept-path simulation.",
+              "A declared hinge rotates only its attached subtree about the actual parent-coordinate pivot/axis, preserving dimensions. A hinge elsewhere never shrinks a rigid camera.",
+              "A camera needs a lens and a recording plate at exactly one unit behind its center along its local forward direction, with the plate's local +x recording normal pointing in that same direction. Targets must be in front on the opposite-facing cardinal ray. Both target-to-lens and lens-to-plate focal paths are checked. Opaque/diffuse/reflecting intervening shapes block faithful records; clear boundaries transmit. Own selected lens/plate are excluded. Records freeze actual center, heading, target, lens, plate and traversed surfaces.",
+              "Overhead clear supported panels protect actual roots from falling dust/rain and pass daylight. Opaque roofs block daylight. Roof protection is not sealed enclosure. Open-sided overhead protection does not seal air: clear and porous roofs both allow side ventilation. A lamp with an actual power link supplies useful local light to its own assembly. No scattering or radiation falloff model.",
+              "Water/power/light service links are nonblocking abstract interfaces, not geometric wires/pipes. Water connection needs an actual tube constituent. Tap is inexhaustible. Filter contact must be actively fitted at the disclosed outlet with matching profile and porous surface; water can flow through that selected surface. Moving clears seating and links.",
+              "A physical copy is readable in actual wet-site contact only on a locally durable watertight material. An overhead roof does not remove wet mounting contact. Unread wet records cannot supply physical copies or transmissions. Stored events are not erased: moving dry or protecting the actual local material restores usability. At a dry working bench temporary porous recording material is sufficient; a durable alternative remains legal.",
+              "Soft useful service is recorded only when the fitted surface supplies a genuinely growing bed. A later role can refer to that actual event, not a born-at identity. Replacements remain valid for continued service.",
+              "Blueprint/design copies retain geometry/materials but clear all actual records, events, samples and seating. Physical copying preserves full actual source observations. Observation provenance is never inferred from a receiver or containing host.",
+              "Actual physical tool/material operations require the selected actual local surfaces to touch along a face with positive area in the current pose. An optional complete at/rotation moves the material assembly as part of the selected combination. Remote or unrelated host parts cannot substitute. Primitive catalyst capabilities are inexhaustible hand tools; site water, fitting and specimen contact require actual local position.",
+              "Take-form copies the selected actual template geometry and profile, not its events. Contact relief uses actual site contact. Transformations retain or change public local properties; no secret recipes. No scarce materials, quotas, continuous time or original-ID goals."
+            ],
+            "processes": [
+              {
+                "id": "soften",
+                "input": "clay",
+                "tool": "water",
+                "effect": "moldable porous temporary clay; geometry retained"
+              },
+              {
+                "id": "fire",
+                "input": "moldable",
+                "tool": "heater",
+                "effect": "rigid porous durable; geometry/events retained"
+              },
+              {
+                "id": "fuse",
+                "input": "sand",
+                "tool": "heater",
+                "effect": "rigid clear watertight durable glass; geometry retained"
+              },
+              {
+                "id": "sheet",
+                "input": "fiber",
+                "tool": "water",
+                "effect": "flexible porous temporary sheet; geometry retained until actual take-form"
+              },
+              {
+                "id": "line",
+                "input": "any surface",
+                "tool": "binder",
+                "effect": "watertight durable; geometry/events retained"
+              },
+              {
+                "id": "laminate",
+                "input": "any surface",
+                "tool": "clear-film",
+                "effect": "watertight durable; geometry/events retained"
+              },
+              {
+                "id": "take-form",
+                "input": "moldable or flexible",
+                "tool": "actual part",
+                "effect": "copies selected actual shapes/profile; records actual source part/object"
+              },
+              {
+                "id": "impress",
+                "input": "recordable",
+                "tool": "actual recorded part",
+                "effect": "physical copies all actual selected-part observations; no receiver identity fallback"
+              },
+              {
+                "id": "relief",
+                "input": "moldable",
+                "tool": "actual relief site",
+                "effect": "records contact impression"
+              }
+            ],
+            "objects": [
+              {
+                "id": "o:9",
+                "design": "shelter",
+                "parts": [
+                  {
+                    "id": "p:10",
+                    "kind": "frame",
+                    "pose": {
+                      "position": [
+                        0,
+                        0,
+                        0
+                      ],
+                      "rotation": [
+                        [
+                          1,
+                          0,
+                          0
+                        ],
+                        [
+                          0,
+                          1,
+                          0
+                        ],
+                        [
+                          0,
+                          0,
+                          1
+                        ]
+                      ]
+                    },
+                    "surface": {
+                      "rigidity": "rigid",
+                      "optical": "opaque",
+                      "permeability": "watertight",
+                      "recording": "none"
+                    },
+                    "profile": "unit",
+                    "shapes": [
+                      {
+                        "min": [
+                          -0.5,
+                          0,
+                          0
+                        ],
+                        "max": [
+                          1.5,
+                          0,
+                          0
+                        ]
+                      },
+                      {
+                        "min": [
+                          -0.5,
+                          -0.5,
+                          0
+                        ],
+                        "max": [
+                          -0.5,
+                          -0.5,
+                          1.5
+                        ]
+                      },
+                      {
+                        "min": [
+                          -0.5,
+                          0.5,
+                          0
+                        ],
+                        "max": [
+                          -0.5,
+                          0.5,
+                          1.5
+                        ]
+                      },
+                      {
+                        "min": [
+                          1.5,
+                          -0.5,
+                          0
+                        ],
+                        "max": [
+                          1.5,
+                          -0.5,
+                          1.5
+                        ]
+                      },
+                      {
+                        "min": [
+                          1.5,
+                          0.5,
+                          0
+                        ],
+                        "max": [
+                          1.5,
+                          0.5,
+                          1.5
+                        ]
+                      },
+                      {
+                        "min": [
+                          -0.5,
+                          -0.5,
+                          1.5
+                        ],
+                        "max": [
+                          1.5,
+                          -0.5,
+                          1.5
+                        ]
+                      },
+                      {
+                        "min": [
+                          -0.5,
+                          0.5,
+                          1.5
+                        ],
+                        "max": [
+                          1.5,
+                          0.5,
+                          1.5
+                        ]
+                      }
+                    ],
+                    "records": [],
+                    "events": []
+                  },
+                  {
+                    "id": "p:11",
+                    "kind": "clear-film",
+                    "pose": {
+                      "position": [
+                        0,
+                        0,
+                        0
+                      ],
+                      "rotation": [
+                        [
+                          1,
+                          0,
+                          0
+                        ],
+                        [
+                          0,
+                          1,
+                          0
+                        ],
+                        [
+                          0,
+                          0,
+                          1
+                        ]
+                      ]
+                    },
+                    "surface": {
+                      "rigidity": "flexible",
+                      "optical": "clear",
+                      "permeability": "watertight",
+                      "recording": "none"
+                    },
+                    "profile": "roof-panel",
+                    "shapes": [
+                      {
+                        "min": [
+                          -0.5,
+                          -0.5,
+                          1.5
+                        ],
+                        "max": [
+                          0.5,
+                          0.5,
+                          1.5
+                        ]
+                      }
+                    ],
+                    "records": [],
+                    "events": [],
+                    "parent": "p:10"
+                  },
+                  {
+                    "id": "p:12",
+                    "kind": "clear-film",
+                    "pose": {
+                      "position": [
+                        1,
+                        0,
+                        0
+                      ],
+                      "rotation": [
+                        [
+                          1,
+                          0,
+                          0
+                        ],
+                        [
+                          0,
+                          1,
+                          0
+                        ],
+                        [
+                          0,
+                          0,
+                          1
+                        ]
+                      ]
+                    },
+                    "surface": {
+                      "rigidity": "flexible",
+                      "optical": "clear",
+                      "permeability": "watertight",
+                      "recording": "none"
+                    },
+                    "profile": "roof-panel",
+                    "shapes": [
+                      {
+                        "min": [
+                          -0.5,
+                          -0.5,
+                          1.5
+                        ],
+                        "max": [
+                          0.5,
+                          0.5,
+                          1.5
+                        ]
+                      }
+                    ],
+                    "records": [],
+                    "events": [],
+                    "parent": "p:10",
+                    "hinge": {
+                      "pivot": [
+                        0.5,
+                        0,
+                        1.5
+                      ],
+                      "axis": "y"
+                    }
+                  }
+                ],
+                "pose": {
+                  "position": [
+                    0,
+                    3,
+                    0
+                  ],
+                  "rotation": [
+                    [
+                      1,
+                      0,
+                      0
+                    ],
+                    [
+                      0,
+                      1,
+                      0
+                    ],
+                    [
+                      0,
+                      0,
+                      1
+                    ]
+                  ]
+                },
+                "geometry": [
+                  {
+                    "object": "o:9",
+                    "part": "p:10",
+                    "kind": "frame",
+                    "surface": {
+                      "rigidity": "rigid",
+                      "optical": "opaque",
+                      "permeability": "watertight",
+                      "recording": "none"
+                    },
+                    "box": {
+                      "min": [
+                        -0.5,
+                        3,
+                        0
+                      ],
+                      "max": [
+                        1.5,
+                        3,
+                        0
+                      ]
+                    }
+                  },
+                  {
+                    "object": "o:9",
+                    "part": "p:10",
+                    "kind": "frame",
+                    "surface": {
+                      "rigidity": "rigid",
+                      "optical": "opaque",
+                      "permeability": "watertight",
+                      "recording": "none"
+                    },
+                    "box": {
+                      "min": [
+                        -0.5,
+                        2.5,
+                        0
+                      ],
+                      "max": [
+                        -0.5,
+                        2.5,
+                        1.5
+                      ]
+                    }
+                  },
+                  {
+                    "object": "o:9",
+                    "part": "p:10",
+                    "kind": "frame",
+                    "surface": {
+                      "rigidity": "rigid",
+                      "optical": "opaque",
+                      "permeability": "watertight",
+                      "recording": "none"
+                    },
+                    "box": {
+                      "min": [
+                        -0.5,
+                        3.5,
+                        0
+                      ],
+                      "max": [
+                        -0.5,
+                        3.5,
+                        1.5
+                      ]
+                    }
+                  },
+                  {
+                    "object": "o:9",
+                    "part": "p:10",
+                    "kind": "frame",
+                    "surface": {
+                      "rigidity": "rigid",
+                      "optical": "opaque",
+                      "permeability": "watertight",
+                      "recording": "none"
+                    },
+                    "box": {
+                      "min": [
+                        1.5,
+                        2.5,
+                        0
+                      ],
+                      "max": [
+                        1.5,
+                        2.5,
+                        1.5
+                      ]
+                    }
+                  },
+                  {
+                    "object": "o:9",
+                    "part": "p:10",
+                    "kind": "frame",
+                    "surface": {
+                      "rigidity": "rigid",
+                      "optical": "opaque",
+                      "permeability": "watertight",
+                      "recording": "none"
+                    },
+                    "box": {
+                      "min": [
+                        1.5,
+                        3.5,
+                        0
+                      ],
+                      "max": [
+                        1.5,
+                        3.5,
+                        1.5
+                      ]
+                    }
+                  },
+                  {
+                    "object": "o:9",
+                    "part": "p:10",
+                    "kind": "frame",
+                    "surface": {
+                      "rigidity": "rigid",
+                      "optical": "opaque",
+                      "permeability": "watertight",
+                      "recording": "none"
+                    },
+                    "box": {
+                      "min": [
+                        -0.5,
+                        2.5,
+                        1.5
+                      ],
+                      "max": [
+                        1.5,
+                        2.5,
+                        1.5
+                      ]
+                    }
+                  },
+                  {
+                    "object": "o:9",
+                    "part": "p:10",
+                    "kind": "frame",
+                    "surface": {
+                      "rigidity": "rigid",
+                      "optical": "opaque",
+                      "permeability": "watertight",
+                      "recording": "none"
+                    },
+                    "box": {
+                      "min": [
+                        -0.5,
+                        3.5,
+                        1.5
+                      ],
+                      "max": [
+                        1.5,
+                        3.5,
+                        1.5
+                      ]
+                    }
+                  },
+                  {
+                    "object": "o:9",
+                    "part": "p:11",
+                    "kind": "clear-film",
+                    "surface": {
+                      "rigidity": "flexible",
+                      "optical": "clear",
+                      "permeability": "watertight",
+                      "recording": "none"
+                    },
+                    "box": {
+                      "min": [
+                        -0.5,
+                        2.5,
+                        1.5
+                      ],
+                      "max": [
+                        0.5,
+                        3.5,
+                        1.5
+                      ]
+                    }
+                  },
+                  {
+                    "object": "o:9",
+                    "part": "p:12",
+                    "kind": "clear-film",
+                    "surface": {
+                      "rigidity": "flexible",
+                      "optical": "clear",
+                      "permeability": "watertight",
+                      "recording": "none"
+                    },
+                    "box": {
+                      "min": [
+                        0.5,
+                        2.5,
+                        1.5
+                      ],
+                      "max": [
+                        1.5,
+                        3.5,
+                        1.5
+                      ]
+                    }
+                  }
+                ]
+              },
+              {
+                "id": "o:13",
+                "design": "assembly:2",
+                "parts": [
+                  {
+                    "id": "p:14",
+                    "kind": "rootbed",
+                    "pose": {
+                      "position": [
+                        0,
+                        0,
+                        0
+                      ],
+                      "rotation": [
+                        [
+                          1,
+                          0,
+                          0
+                        ],
+                        [
+                          0,
+                          1,
+                          0
+                        ],
+                        [
+                          0,
+                          0,
+                          1
+                        ]
+                      ]
+                    },
+                    "surface": {
+                      "rigidity": "rigid",
+                      "optical": "opaque",
+                      "permeability": "watertight",
+                      "recording": "none"
+                    },
+                    "profile": "unit",
+                    "shapes": [
+                      {
+                        "min": [
+                          -0.5,
+                          -0.5,
+                          0
+                        ],
+                        "max": [
+                          0.5,
+                          0.5,
+                          1
+                        ]
+                      }
+                    ],
+                    "records": [],
+                    "events": []
+                  },
+                  {
+                    "id": "p:18",
+                    "kind": "tube",
+                    "pose": {
+                      "position": [
+                        0,
+                        0,
+                        0
+                      ],
+                      "rotation": [
+                        [
+                          1,
+                          0,
+                          0
+                        ],
+                        [
+                          0,
+                          1,
+                          0
+                        ],
+                        [
+                          0,
+                          0,
+                          1
+                        ]
+                      ]
+                    },
+                    "surface": {
+                      "rigidity": "rigid",
+                      "optical": "opaque",
+                      "permeability": "watertight",
+                      "recording": "none"
+                    },
+                    "profile": "unit",
+                    "shapes": [
+                      {
+                        "min": [
+                          -0.5,
+                          -0.5,
+                          0
+                        ],
+                        "max": [
+                          -0.5,
+                          -0.5,
+                          0
+                        ]
+                      }
+                    ],
+                    "records": [],
+                    "events": [],
+                    "parent": "p:14",
+                    "attachmentPart": "p:18"
+                  }
+                ],
+                "pose": {
+                  "position": [
+                    0,
+                    3,
+                    0
+                  ],
+                  "rotation": [
+                    [
+                      1,
+                      0,
+                      0
+                    ],
+                    [
+                      0,
+                      1,
+                      0
+                    ],
+                    [
+                      0,
+                      0,
+                      1
+                    ]
+                  ]
+                },
+                "geometry": [
+                  {
+                    "object": "o:13",
+                    "part": "p:14",
+                    "kind": "rootbed",
+                    "surface": {
+                      "rigidity": "rigid",
+                      "optical": "opaque",
+                      "permeability": "watertight",
+                      "recording": "none"
+                    },
+                    "box": {
+                      "min": [
+                        -0.5,
+                        2.5,
+                        0
+                      ],
+                      "max": [
+                        0.5,
+                        3.5,
+                        1
+                      ]
+                    }
+                  },
+                  {
+                    "object": "o:13",
+                    "part": "p:18",
+                    "kind": "tube",
+                    "surface": {
+                      "rigidity": "rigid",
+                      "optical": "opaque",
+                      "permeability": "watertight",
+                      "recording": "none"
+                    },
+                    "box": {
+                      "min": [
+                        -0.5,
+                        2.5,
+                        0
+                      ],
+                      "max": [
+                        -0.5,
+                        2.5,
+                        0
+                      ]
+                    }
+                  }
+                ]
+              },
+              {
+                "id": "o:15",
+                "design": "assembly:5",
+                "parts": [
+                  {
+                    "id": "p:16",
+                    "kind": "clay",
+                    "pose": {
+                      "position": [
+                        0,
+                        0,
+                        0
+                      ],
+                      "rotation": [
+                        [
+                          1,
+                          0,
+                          0
+                        ],
+                        [
+                          0,
+                          1,
+                          0
+                        ],
+                        [
+                          0,
+                          0,
+                          1
+                        ]
+                      ]
+                    },
+                    "surface": {
+                      "rigidity": "moldable",
+                      "optical": "opaque",
+                      "permeability": "watertight",
+                      "recording": "durable"
+                    },
+                    "profile": "unit",
+                    "shapes": [
+                      {
+                        "min": [
+                          -0.5,
+                          -0.5,
+                          0
+                        ],
+                        "max": [
+                          0.5,
+                          0.5,
+                          1
+                        ]
+                      }
+                    ],
+                    "records": [
+                      {
+                        "id": "record:32",
+                        "subject": "beacon",
+                        "center": [
+                          0,
+                          1,
+                          0.5
+                        ],
+                        "heading": [
+                          1,
+                          0,
+                          0
+                        ],
+                        "target": [
+                          5,
+                          1,
+                          0.5
+                        ],
+                        "front": [
+                          -1,
+                          0,
+                          0
+                        ],
+                        "lens": "p:26",
+                        "plate": "p:27",
+                        "focalBoundaries": [],
+                        "boundaries": [],
+                        "intervention": 18
+                      },
+                      {
+                        "id": "record:33",
+                        "subject": "far-marker",
+                        "center": [
+                          0,
+                          6,
+                          0.5
+                        ],
+                        "heading": [
+                          1,
+                          0,
+                          0
+                        ],
+                        "target": [
+                          5,
+                          6,
+                          0.5
+                        ],
+                        "front": [
+                          -1,
+                          0,
+                          0
+                        ],
+                        "lens": "p:26",
+                        "plate": "p:27",
+                        "focalBoundaries": [],
+                        "boundaries": [],
+                        "intervention": 20
+                      }
+                    ],
+                    "events": [
+                      {
+                        "id": "event:19",
+                        "kind": "fit",
+                        "intervention": 7,
+                        "surface": {
+                          "rigidity": "moldable",
+                          "optical": "opaque",
+                          "permeability": "porous",
+                          "recording": "temporary"
+                        },
+                        "profile": "unit"
+                      },
+                      {
+                        "id": "event:22",
+                        "kind": "service",
+                        "intervention": 10,
+                        "surface": {
+                          "rigidity": "moldable",
+                          "optical": "opaque",
+                          "permeability": "porous",
+                          "recording": "temporary"
+                        }
+                      },
+                      {
+                        "id": "event:34",
+                        "kind": "impression",
+                        "intervention": 22,
+                        "surface": {
+                          "rigidity": "moldable",
+                          "optical": "opaque",
+                          "permeability": "porous",
+                          "recording": "temporary"
+                        },
+                        "sourceObject": "place:relief",
+                        "profile": "leaf-relief"
+                      },
+                      {
+                        "id": "event:35",
+                        "kind": "copy",
+                        "intervention": 23,
+                        "surface": {
+                          "rigidity": "moldable",
+                          "optical": "opaque",
+                          "permeability": "porous",
+                          "recording": "temporary"
+                        },
+                        "sourcePart": "p:27",
+                        "sourceObject": "o:25",
+                        "records": [
+                          {
+                            "id": "record:32",
+                            "subject": "beacon",
+                            "center": [
+                              0,
+                              1,
+                              0.5
+                            ],
+                            "heading": [
+                              1,
+                              0,
+                              0
+                            ],
+                            "target": [
+                              5,
+                              1,
+                              0.5
+                            ],
+                            "front": [
+                              -1,
+                              0,
+                              0
+                            ],
+                            "lens": "p:26",
+                            "plate": "p:27",
+                            "focalBoundaries": [],
+                            "boundaries": [],
+                            "intervention": 18
+                          },
+                          {
+                            "id": "record:33",
+                            "subject": "far-marker",
+                            "center": [
+                              0,
+                              6,
+                              0.5
+                            ],
+                            "heading": [
+                              1,
+                              0,
+                              0
+                            ],
+                            "target": [
+                              5,
+                              6,
+                              0.5
+                            ],
+                            "front": [
+                              -1,
+                              0,
+                              0
+                            ],
+                            "lens": "p:26",
+                            "plate": "p:27",
+                            "focalBoundaries": [],
+                            "boundaries": [],
+                            "intervention": 20
+                          }
+                        ],
+                        "contact": {
+                          "materialPart": "p:16",
+                          "toolPart": "p:27",
+                          "toolTranslation": [
+                            0,
+                            0,
+                            0
+                          ]
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "id": "p:21",
+                    "kind": "tube",
+                    "pose": {
+                      "position": [
+                        0,
+                        0,
+                        0
+                      ],
+                      "rotation": [
+                        [
+                          1,
+                          0,
+                          0
+                        ],
+                        [
+                          0,
+                          1,
+                          0
+                        ],
+                        [
+                          0,
+                          0,
+                          1
+                        ]
+                      ]
+                    },
+                    "surface": {
+                      "rigidity": "rigid",
+                      "optical": "opaque",
+                      "permeability": "watertight",
+                      "recording": "none"
+                    },
+                    "profile": "unit",
+                    "shapes": [
+                      {
+                        "min": [
+                          -0.5,
+                          -0.5,
+                          0
+                        ],
+                        "max": [
+                          -0.5,
+                          -0.5,
+                          0
+                        ]
+                      }
+                    ],
+                    "records": [],
+                    "events": [],
+                    "parent": "p:16",
+                    "attachmentPart": "p:21"
+                  }
+                ],
+                "pose": {
+                  "position": [
+                    0,
+                    7,
+                    0
+                  ],
+                  "rotation": [
+                    [
+                      1,
+                      0,
+                      0
+                    ],
+                    [
+                      0,
+                      1,
+                      0
+                    ],
+                    [
+                      0,
+                      0,
+                      1
+                    ]
+                  ]
+                },
+                "geometry": [
+                  {
+                    "object": "o:15",
+                    "part": "p:16",
+                    "kind": "clay",
+                    "surface": {
+                      "rigidity": "moldable",
+                      "optical": "opaque",
+                      "permeability": "watertight",
+                      "recording": "durable"
+                    },
+                    "box": {
+                      "min": [
+                        -0.5,
+                        6.5,
+                        0
+                      ],
+                      "max": [
+                        0.5,
+                        7.5,
+                        1
+                      ]
+                    }
+                  },
+                  {
+                    "object": "o:15",
+                    "part": "p:21",
+                    "kind": "tube",
+                    "surface": {
+                      "rigidity": "rigid",
+                      "optical": "opaque",
+                      "permeability": "watertight",
+                      "recording": "none"
+                    },
+                    "box": {
+                      "min": [
+                        -0.5,
+                        6.5,
+                        0
+                      ],
+                      "max": [
+                        -0.5,
+                        6.5,
+                        0
+                      ]
+                    }
+                  }
+                ]
+              },
+              {
+                "id": "o:23",
+                "design": "assembly:4",
+                "parts": [
+                  {
+                    "id": "p:24",
+                    "kind": "clay",
+                    "pose": {
+                      "position": [
+                        0,
+                        0,
+                        0
+                      ],
+                      "rotation": [
+                        [
+                          1,
+                          0,
+                          0
+                        ],
+                        [
+                          0,
+                          1,
+                          0
+                        ],
+                        [
+                          0,
+                          0,
+                          1
+                        ]
+                      ]
+                    },
+                    "surface": {
+                      "rigidity": "rigid",
+                      "optical": "opaque",
+                      "permeability": "porous",
+                      "recording": "temporary"
+                    },
+                    "profile": "unit",
+                    "shapes": [
+                      {
+                        "min": [
+                          -0.5,
+                          -0.5,
+                          0
+                        ],
+                        "max": [
+                          0.5,
+                          0.5,
+                          1
+                        ]
+                      }
+                    ],
+                    "records": [],
+                    "events": [
+                      {
+                        "id": "event:30",
+                        "kind": "fit",
+                        "intervention": 15,
+                        "surface": {
+                          "rigidity": "rigid",
+                          "optical": "opaque",
+                          "permeability": "porous",
+                          "recording": "temporary"
+                        },
+                        "profile": "unit"
+                      },
+                      {
+                        "id": "event:31",
+                        "kind": "service",
+                        "intervention": 17,
+                        "surface": {
+                          "rigidity": "rigid",
+                          "optical": "opaque",
+                          "permeability": "porous",
+                          "recording": "temporary"
+                        }
+                      }
+                    ],
+                    "activeFit": "filter"
+                  },
+                  {
+                    "id": "p:29",
+                    "kind": "tube",
+                    "pose": {
+                      "position": [
+                        0,
+                        0,
+                        0
+                      ],
+                      "rotation": [
+                        [
+                          1,
+                          0,
+                          0
+                        ],
+                        [
+                          0,
+                          1,
+                          0
+                        ],
+                        [
+                          0,
+                          0,
+                          1
+                        ]
+                      ]
+                    },
+                    "surface": {
+                      "rigidity": "rigid",
+                      "optical": "opaque",
+                      "permeability": "watertight",
+                      "recording": "none"
+                    },
+                    "profile": "unit",
+                    "shapes": [
+                      {
+                        "min": [
+                          -0.5,
+                          -0.5,
+                          0
+                        ],
+                        "max": [
+                          -0.5,
+                          -0.5,
+                          0
+                        ]
+                      }
+                    ],
+                    "records": [],
+                    "events": [],
+                    "parent": "p:24",
+                    "attachmentPart": "p:29"
+                  }
+                ],
+                "pose": {
+                  "position": [
+                    -4,
+                    3,
+                    0
+                  ],
+                  "rotation": [
+                    [
+                      1,
+                      0,
+                      0
+                    ],
+                    [
+                      0,
+                      1,
+                      0
+                    ],
+                    [
+                      0,
+                      0,
+                      1
+                    ]
+                  ]
+                },
+                "geometry": [
+                  {
+                    "object": "o:23",
+                    "part": "p:24",
+                    "kind": "clay",
+                    "surface": {
+                      "rigidity": "rigid",
+                      "optical": "opaque",
+                      "permeability": "porous",
+                      "recording": "temporary"
+                    },
+                    "box": {
+                      "min": [
+                        -4.5,
+                        2.5,
+                        0
+                      ],
+                      "max": [
+                        -3.5,
+                        3.5,
+                        1
+                      ]
+                    }
+                  },
+                  {
+                    "object": "o:23",
+                    "part": "p:29",
+                    "kind": "tube",
+                    "surface": {
+                      "rigidity": "rigid",
+                      "optical": "opaque",
+                      "permeability": "watertight",
+                      "recording": "none"
+                    },
+                    "box": {
+                      "min": [
+                        -4.5,
+                        2.5,
+                        0
+                      ],
+                      "max": [
+                        -4.5,
+                        2.5,
+                        0
+                      ]
+                    }
+                  }
+                ]
+              },
+              {
+                "id": "o:25",
+                "design": "camera",
+                "parts": [
+                  {
+                    "id": "p:26",
+                    "kind": "lens",
+                    "pose": {
+                      "position": [
+                        0,
+                        0,
+                        0
+                      ],
+                      "rotation": [
+                        [
+                          1,
+                          0,
+                          0
+                        ],
+                        [
+                          0,
+                          1,
+                          0
+                        ],
+                        [
+                          0,
+                          0,
+                          1
+                        ]
+                      ]
+                    },
+                    "surface": {
+                      "rigidity": "flexible",
+                      "optical": "clear",
+                      "permeability": "watertight",
+                      "recording": "none"
+                    },
+                    "profile": "unit",
+                    "shapes": [
+                      {
+                        "min": [
+                          -0.5,
+                          -0.5,
+                          0
+                        ],
+                        "max": [
+                          0.5,
+                          0.5,
+                          1
+                        ]
+                      }
+                    ],
+                    "records": [],
+                    "events": []
+                  },
+                  {
+                    "id": "p:27",
+                    "kind": "record-plate",
+                    "pose": {
+                      "position": [
+                        -1,
+                        0,
+                        0
+                      ],
+                      "rotation": [
+                        [
+                          1,
+                          0,
+                          0
+                        ],
+                        [
+                          0,
+                          1,
+                          0
+                        ],
+                        [
+                          0,
+                          0,
+                          1
+                        ]
+                      ]
+                    },
+                    "surface": {
+                      "rigidity": "rigid",
+                      "optical": "opaque",
+                      "permeability": "watertight",
+                      "recording": "durable"
+                    },
+                    "profile": "unit",
+                    "shapes": [
+                      {
+                        "min": [
+                          -0.5,
+                          -0.5,
+                          0
+                        ],
+                        "max": [
+                          0.5,
+                          0.5,
+                          1
+                        ]
+                      }
+                    ],
+                    "records": [
+                      {
+                        "id": "record:32",
+                        "subject": "beacon",
+                        "center": [
+                          0,
+                          1,
+                          0.5
+                        ],
+                        "heading": [
+                          1,
+                          0,
+                          0
+                        ],
+                        "target": [
+                          5,
+                          1,
+                          0.5
+                        ],
+                        "front": [
+                          -1,
+                          0,
+                          0
+                        ],
+                        "lens": "p:26",
+                        "plate": "p:27",
+                        "focalBoundaries": [],
+                        "boundaries": [],
+                        "intervention": 18
+                      },
+                      {
+                        "id": "record:33",
+                        "subject": "far-marker",
+                        "center": [
+                          0,
+                          6,
+                          0.5
+                        ],
+                        "heading": [
+                          1,
+                          0,
+                          0
+                        ],
+                        "target": [
+                          5,
+                          6,
+                          0.5
+                        ],
+                        "front": [
+                          -1,
+                          0,
+                          0
+                        ],
+                        "lens": "p:26",
+                        "plate": "p:27",
+                        "focalBoundaries": [],
+                        "boundaries": [],
+                        "intervention": 20
+                      }
+                    ],
+                    "events": [],
+                    "parent": "p:26"
+                  }
+                ],
+                "pose": {
+                  "position": [
+                    0,
+                    1,
+                    0
+                  ],
+                  "rotation": [
+                    [
+                      -1,
+                      0,
+                      0
+                    ],
+                    [
+                      0,
+                      -1,
+                      0
+                    ],
+                    [
+                      0,
+                      0,
+                      1
+                    ]
+                  ]
+                },
+                "geometry": [
+                  {
+                    "object": "o:25",
+                    "part": "p:26",
+                    "kind": "lens",
+                    "surface": {
+                      "rigidity": "flexible",
+                      "optical": "clear",
+                      "permeability": "watertight",
+                      "recording": "none"
+                    },
+                    "box": {
+                      "min": [
+                        -0.5,
+                        0.5,
+                        0
+                      ],
+                      "max": [
+                        0.5,
+                        1.5,
+                        1
+                      ]
+                    }
+                  },
+                  {
+                    "object": "o:25",
+                    "part": "p:27",
+                    "kind": "record-plate",
+                    "surface": {
+                      "rigidity": "rigid",
+                      "optical": "opaque",
+                      "permeability": "watertight",
+                      "recording": "durable"
+                    },
+                    "box": {
+                      "min": [
+                        0.5,
+                        0.5,
+                        0
+                      ],
+                      "max": [
+                        1.5,
+                        1.5,
+                        1
+                      ]
+                    }
+                  }
+                ]
+              },
+              {
+                "id": "o:36",
+                "design": "clay",
+                "parts": [
+                  {
+                    "id": "p:37",
+                    "kind": "clay",
+                    "pose": {
+                      "position": [
+                        0,
+                        0,
+                        0
+                      ],
+                      "rotation": [
+                        [
+                          1,
+                          0,
+                          0
+                        ],
+                        [
+                          0,
+                          1,
+                          0
+                        ],
+                        [
+                          0,
+                          0,
+                          1
+                        ]
+                      ]
+                    },
+                    "surface": {
+                      "rigidity": "rigid",
+                      "optical": "opaque",
+                      "permeability": "porous",
+                      "recording": "temporary"
+                    },
+                    "profile": "unit",
+                    "shapes": [
+                      {
+                        "min": [
+                          -0.5,
+                          -0.5,
+                          0
+                        ],
+                        "max": [
+                          0.5,
+                          0.5,
+                          1
+                        ]
+                      }
+                    ],
+                    "records": [
+                      {
+                        "id": "record:32",
+                        "subject": "beacon",
+                        "center": [
+                          0,
+                          1,
+                          0.5
+                        ],
+                        "heading": [
+                          1,
+                          0,
+                          0
+                        ],
+                        "target": [
+                          5,
+                          1,
+                          0.5
+                        ],
+                        "front": [
+                          -1,
+                          0,
+                          0
+                        ],
+                        "lens": "p:26",
+                        "plate": "p:27",
+                        "focalBoundaries": [],
+                        "boundaries": [],
+                        "intervention": 18
+                      },
+                      {
+                        "id": "record:33",
+                        "subject": "far-marker",
+                        "center": [
+                          0,
+                          6,
+                          0.5
+                        ],
+                        "heading": [
+                          1,
+                          0,
+                          0
+                        ],
+                        "target": [
+                          5,
+                          6,
+                          0.5
+                        ],
+                        "front": [
+                          -1,
+                          0,
+                          0
+                        ],
+                        "lens": "p:26",
+                        "plate": "p:27",
+                        "focalBoundaries": [],
+                        "boundaries": [],
+                        "intervention": 20
+                      }
+                    ],
+                    "events": [
+                      {
+                        "id": "event:38",
+                        "kind": "copy",
+                        "intervention": 27,
+                        "surface": {
+                          "rigidity": "rigid",
+                          "optical": "opaque",
+                          "permeability": "porous",
+                          "recording": "temporary"
+                        },
+                        "sourcePart": "p:27",
+                        "sourceObject": "o:25",
+                        "records": [
+                          {
+                            "id": "record:32",
+                            "subject": "beacon",
+                            "center": [
+                              0,
+                              1,
+                              0.5
+                            ],
+                            "heading": [
+                              1,
+                              0,
+                              0
+                            ],
+                            "target": [
+                              5,
+                              1,
+                              0.5
+                            ],
+                            "front": [
+                              -1,
+                              0,
+                              0
+                            ],
+                            "lens": "p:26",
+                            "plate": "p:27",
+                            "focalBoundaries": [],
+                            "boundaries": [],
+                            "intervention": 18
+                          },
+                          {
+                            "id": "record:33",
+                            "subject": "far-marker",
+                            "center": [
+                              0,
+                              6,
+                              0.5
+                            ],
+                            "heading": [
+                              1,
+                              0,
+                              0
+                            ],
+                            "target": [
+                              5,
+                              6,
+                              0.5
+                            ],
+                            "front": [
+                              -1,
+                              0,
+                              0
+                            ],
+                            "lens": "p:26",
+                            "plate": "p:27",
+                            "focalBoundaries": [],
+                            "boundaries": [],
+                            "intervention": 20
+                          }
+                        ],
+                        "contact": {
+                          "materialPart": "p:37",
+                          "toolPart": "p:27",
+                          "toolTranslation": [
+                            0,
+                            0,
+                            0
+                          ]
+                        }
+                      }
+                    ]
+                  }
+                ],
+                "pose": {
+                  "position": [
+                    1,
+                    7,
+                    0
+                  ],
+                  "rotation": [
+                    [
+                      1,
+                      0,
+                      0
+                    ],
+                    [
+                      0,
+                      1,
+                      0
+                    ],
+                    [
+                      0,
+                      0,
+                      1
+                    ]
+                  ]
+                },
+                "geometry": [
+                  {
+                    "object": "o:36",
+                    "part": "p:37",
+                    "kind": "clay",
+                    "surface": {
+                      "rigidity": "rigid",
+                      "optical": "opaque",
+                      "permeability": "porous",
+                      "recording": "temporary"
+                    },
+                    "box": {
+                      "min": [
+                        0.5,
+                        6.5,
+                        0
+                      ],
+                      "max": [
+                        1.5,
+                        7.5,
+                        1
+                      ]
+                    }
+                  }
+                ]
+              },
+              {
+                "id": "o:39",
+                "design": "tray",
+                "parts": [
+                  {
+                    "id": "p:40",
+                    "kind": "tray",
+                    "pose": {
+                      "position": [
+                        0,
+                        0,
+                        0
+                      ],
+                      "rotation": [
+                        [
+                          1,
+                          0,
+                          0
+                        ],
+                        [
+                          0,
+                          1,
+                          0
+                        ],
+                        [
+                          0,
+                          0,
+                          1
+                        ]
+                      ]
+                    },
+                    "surface": {
+                      "rigidity": "rigid",
+                      "optical": "opaque",
+                      "permeability": "watertight",
+                      "recording": "none"
+                    },
+                    "profile": "unit",
+                    "shapes": [
+                      {
+                        "min": [
+                          -0.5,
+                          -0.5,
+                          0
+                        ],
+                        "max": [
+                          0.5,
+                          0.5,
+                          1
+                        ]
+                      }
+                    ],
+                    "records": [],
+                    "events": [],
+                    "sample": "table-leaf"
+                  }
+                ],
+                "pose": {
+                  "position": [
+                    -4,
+                    5,
+                    0
+                  ],
+                  "rotation": [
+                    [
+                      1,
+                      0,
+                      0
+                    ],
+                    [
+                      0,
+                      1,
+                      0
+                    ],
+                    [
+                      0,
+                      0,
+                      1
+                    ]
+                  ]
+                },
+                "geometry": [
+                  {
+                    "object": "o:39",
+                    "part": "p:40",
+                    "kind": "tray",
+                    "surface": {
+                      "rigidity": "rigid",
+                      "optical": "opaque",
+                      "permeability": "watertight",
+                      "recording": "none"
+                    },
+                    "box": {
+                      "min": [
+                        -4.5,
+                        4.5,
+                        0
+                      ],
+                      "max": [
+                        -3.5,
+                        5.5,
+                        1
+                      ]
+                    }
+                  }
+                ]
+              },
+              {
+                "id": "o:41",
+                "design": "shelter",
+                "parts": [
+                  {
+                    "id": "p:42",
+                    "kind": "frame",
+                    "pose": {
+                      "position": [
+                        0,
+                        0,
+                        0
+                      ],
+                      "rotation": [
+                        [
+                          1,
+                          0,
+                          0
+                        ],
+                        [
+                          0,
+                          1,
+                          0
+                        ],
+                        [
+                          0,
+                          0,
+                          1
+                        ]
+                      ]
+                    },
+                    "surface": {
+                      "rigidity": "rigid",
+                      "optical": "opaque",
+                      "permeability": "watertight",
+                      "recording": "none"
+                    },
+                    "profile": "unit",
+                    "shapes": [
+                      {
+                        "min": [
+                          -0.5,
+                          0,
+                          0
+                        ],
+                        "max": [
+                          1.5,
+                          0,
+                          0
+                        ]
+                      },
+                      {
+                        "min": [
+                          -0.5,
+                          -0.5,
+                          0
+                        ],
+                        "max": [
+                          -0.5,
+                          -0.5,
+                          1.5
+                        ]
+                      },
+                      {
+                        "min": [
+                          -0.5,
+                          0.5,
+                          0
+                        ],
+                        "max": [
+                          -0.5,
+                          0.5,
+                          1.5
+                        ]
+                      },
+                      {
+                        "min": [
+                          1.5,
+                          -0.5,
+                          0
+                        ],
+                        "max": [
+                          1.5,
+                          -0.5,
+                          1.5
+                        ]
+                      },
+                      {
+                        "min": [
+                          1.5,
+                          0.5,
+                          0
+                        ],
+                        "max": [
+                          1.5,
+                          0.5,
+                          1.5
+                        ]
+                      },
+                      {
+                        "min": [
+                          -0.5,
+                          -0.5,
+                          1.5
+                        ],
+                        "max": [
+                          1.5,
+                          -0.5,
+                          1.5
+                        ]
+                      },
+                      {
+                        "min": [
+                          -0.5,
+                          0.5,
+                          1.5
+                        ],
+                        "max": [
+                          1.5,
+                          0.5,
+                          1.5
+                        ]
+                      }
+                    ],
+                    "records": [],
+                    "events": []
+                  },
+                  {
+                    "id": "p:43",
+                    "kind": "clear-film",
+                    "pose": {
+                      "position": [
+                        0,
+                        0,
+                        0
+                      ],
+                      "rotation": [
+                        [
+                          1,
+                          0,
+                          0
+                        ],
+                        [
+                          0,
+                          1,
+                          0
+                        ],
+                        [
+                          0,
+                          0,
+                          1
+                        ]
+                      ]
+                    },
+                    "surface": {
+                      "rigidity": "flexible",
+                      "optical": "clear",
+                      "permeability": "watertight",
+                      "recording": "none"
+                    },
+                    "profile": "roof-panel",
+                    "shapes": [
+                      {
+                        "min": [
+                          -0.5,
+                          -0.5,
+                          1.5
+                        ],
+                        "max": [
+                          0.5,
+                          0.5,
+                          1.5
+                        ]
+                      }
+                    ],
+                    "records": [],
+                    "events": [],
+                    "parent": "p:42"
+                  },
+                  {
+                    "id": "p:44",
+                    "kind": "clear-film",
+                    "pose": {
+                      "position": [
+                        1,
+                        0,
+                        0
+                      ],
+                      "rotation": [
+                        [
+                          1,
+                          0,
+                          0
+                        ],
+                        [
+                          0,
+                          1,
+                          0
+                        ],
+                        [
+                          0,
+                          0,
+                          1
+                        ]
+                      ]
+                    },
+                    "surface": {
+                      "rigidity": "flexible",
+                      "optical": "clear",
+                      "permeability": "watertight",
+                      "recording": "none"
+                    },
+                    "profile": "roof-panel",
+                    "shapes": [
+                      {
+                        "min": [
+                          -0.5,
+                          -0.5,
+                          1.5
+                        ],
+                        "max": [
+                          0.5,
+                          0.5,
+                          1.5
+                        ]
+                      }
+                    ],
+                    "records": [],
+                    "events": [],
+                    "parent": "p:42",
+                    "hinge": {
+                      "pivot": [
+                        0.5,
+                        0,
+                        1.5
+                      ],
+                      "axis": "y"
+                    }
+                  }
+                ],
+                "pose": {
+                  "position": [
+                    -4,
+                    5,
+                    0
+                  ],
+                  "rotation": [
+                    [
+                      1,
+                      0,
+                      0
+                    ],
+                    [
+                      0,
+                      1,
+                      0
+                    ],
+                    [
+                      0,
+                      0,
+                      1
+                    ]
+                  ]
+                },
+                "geometry": [
+                  {
+                    "object": "o:41",
+                    "part": "p:42",
+                    "kind": "frame",
+                    "surface": {
+                      "rigidity": "rigid",
+                      "optical": "opaque",
+                      "permeability": "watertight",
+                      "recording": "none"
+                    },
+                    "box": {
+                      "min": [
+                        -4.5,
+                        5,
+                        0
+                      ],
+                      "max": [
+                        -2.5,
+                        5,
+                        0
+                      ]
+                    }
+                  },
+                  {
+                    "object": "o:41",
+                    "part": "p:42",
+                    "kind": "frame",
+                    "surface": {
+                      "rigidity": "rigid",
+                      "optical": "opaque",
+                      "permeability": "watertight",
+                      "recording": "none"
+                    },
+                    "box": {
+                      "min": [
+                        -4.5,
+                        4.5,
+                        0
+                      ],
+                      "max": [
+                        -4.5,
+                        4.5,
+                        1.5
+                      ]
+                    }
+                  },
+                  {
+                    "object": "o:41",
+                    "part": "p:42",
+                    "kind": "frame",
+                    "surface": {
+                      "rigidity": "rigid",
+                      "optical": "opaque",
+                      "permeability": "watertight",
+                      "recording": "none"
+                    },
+                    "box": {
+                      "min": [
+                        -4.5,
+                        5.5,
+                        0
+                      ],
+                      "max": [
+                        -4.5,
+                        5.5,
+                        1.5
+                      ]
+                    }
+                  },
+                  {
+                    "object": "o:41",
+                    "part": "p:42",
+                    "kind": "frame",
+                    "surface": {
+                      "rigidity": "rigid",
+                      "optical": "opaque",
+                      "permeability": "watertight",
+                      "recording": "none"
+                    },
+                    "box": {
+                      "min": [
+                        -2.5,
+                        4.5,
+                        0
+                      ],
+                      "max": [
+                        -2.5,
+                        4.5,
+                        1.5
+                      ]
+                    }
+                  },
+                  {
+                    "object": "o:41",
+                    "part": "p:42",
+                    "kind": "frame",
+                    "surface": {
+                      "rigidity": "rigid",
+                      "optical": "opaque",
+                      "permeability": "watertight",
+                      "recording": "none"
+                    },
+                    "box": {
+                      "min": [
+                        -2.5,
+                        5.5,
+                        0
+                      ],
+                      "max": [
+                        -2.5,
+                        5.5,
+                        1.5
+                      ]
+                    }
+                  },
+                  {
+                    "object": "o:41",
+                    "part": "p:42",
+                    "kind": "frame",
+                    "surface": {
+                      "rigidity": "rigid",
+                      "optical": "opaque",
+                      "permeability": "watertight",
+                      "recording": "none"
+                    },
+                    "box": {
+                      "min": [
+                        -4.5,
+                        4.5,
+                        1.5
+                      ],
+                      "max": [
+                        -2.5,
+                        4.5,
+                        1.5
+                      ]
+                    }
+                  },
+                  {
+                    "object": "o:41",
+                    "part": "p:42",
+                    "kind": "frame",
+                    "surface": {
+                      "rigidity": "rigid",
+                      "optical": "opaque",
+                      "permeability": "watertight",
+                      "recording": "none"
+                    },
+                    "box": {
+                      "min": [
+                        -4.5,
+                        5.5,
+                        1.5
+                      ],
+                      "max": [
+                        -2.5,
+                        5.5,
+                        1.5
+                      ]
+                    }
+                  },
+                  {
+                    "object": "o:41",
+                    "part": "p:43",
+                    "kind": "clear-film",
+                    "surface": {
+                      "rigidity": "flexible",
+                      "optical": "clear",
+                      "permeability": "watertight",
+                      "recording": "none"
+                    },
+                    "box": {
+                      "min": [
+                        -4.5,
+                        4.5,
+                        1.5
+                      ],
+                      "max": [
+                        -3.5,
+                        5.5,
+                        1.5
+                      ]
+                    }
+                  },
+                  {
+                    "object": "o:41",
+                    "part": "p:44",
+                    "kind": "clear-film",
+                    "surface": {
+                      "rigidity": "flexible",
+                      "optical": "clear",
+                      "permeability": "watertight",
+                      "recording": "none"
+                    },
+                    "box": {
+                      "min": [
+                        -3.5,
+                        4.5,
+                        1.5
+                      ],
+                      "max": [
+                        -2.5,
+                        5.5,
+                        1.5
+                      ]
+                    }
+                  }
+                ]
+              }
+            ],
+            "links": [
+              {
+                "a": "place:tap",
+                "b": "o:23",
+                "channel": "water"
+              },
+              {
+                "a": "o:23",
+                "b": "o:13",
+                "channel": "water"
+              }
+            ],
+            "received": [
+              {
+                "id": "record:32",
+                "subject": "beacon",
+                "center": [
+                  0,
+                  1,
+                  0.5
+                ],
+                "heading": [
+                  1,
+                  0,
+                  0
+                ],
+                "target": [
+                  5,
+                  1,
+                  0.5
+                ],
+                "front": [
+                  -1,
+                  0,
+                  0
+                ],
+                "lens": "p:26",
+                "plate": "p:27",
+                "focalBoundaries": [],
+                "boundaries": [],
+                "intervention": 18
+              },
+              {
+                "id": "record:33",
+                "subject": "far-marker",
+                "center": [
+                  0,
+                  6,
+                  0.5
+                ],
+                "heading": [
+                  1,
+                  0,
+                  0
+                ],
+                "target": [
+                  5,
+                  6,
+                  0.5
+                ],
+                "front": [
+                  -1,
+                  0,
+                  0
+                ],
+                "lens": "p:26",
+                "plate": "p:27",
+                "focalBoundaries": [],
+                "boundaries": [],
+                "intervention": 20
+              }
+            ],
+            "growing": [
+              {
+                "object": "o:13",
+                "part": "p:14"
+              }
+            ],
+            "goals": [
+              {
+                "id": "growing",
+                "title": "A working sheltered bed",
+                "requirement": "A watered rootbed under an actually supported clear roof, receiving useful light.",
+                "test": "growing",
+                "mode": "current",
+                "current": true,
+                "achievedAt": 10,
+                "satisfied": true
+              },
+              {
+                "id": "soft-service",
+                "title": "A useful soft interface",
+                "requirement": "A moldable fitted porous surface actually supplied water to a growing bed. Any player-chosen surface may do this.",
+                "test": "soft-service",
+                "mode": "achievement",
+                "current": true,
+                "achievedAt": 10,
+                "satisfied": true
+              },
+              {
+                "id": "durable-service",
+                "title": "Keep the water service",
+                "requirement": "A currently rigid porous fitted surface actually supplies a currently growing bed; replacement is legal.",
+                "test": "durable-service",
+                "mode": "current",
+                "current": true,
+                "achievedAt": 17,
+                "satisfied": true
+              },
+              {
+                "id": "survey",
+                "title": "Useful survey",
+                "requirement": "Make actual front-on records of beacon and far-marker. They need not share a center on this board.",
+                "test": "survey",
+                "mode": "current",
+                "current": true,
+                "achievedAt": 20,
+                "satisfied": true
+              },
+              {
+                "id": "temporary-reference",
+                "title": "Readable working reference",
+                "requirement": "A genuine physical observation copy is readable at the dry working bench. Temporary porous material is sufficient; durable alternatives remain legal.",
+                "test": "temporary-reference",
+                "mode": "current",
+                "current": true,
+                "achievedAt": 28,
+                "satisfied": true
+              },
+              {
+                "id": "durable-copy",
+                "title": "Durable reference",
+                "requirement": "A genuine physical observation copy remains readable in actual wet contact at the wet-display mount; durable watertight local material protects it. Geometrical copies do not create records.",
+                "test": "durable-copy",
+                "mode": "current",
+                "current": true,
+                "achievedAt": 25,
+                "satisfied": true
+              },
+              {
+                "id": "worked-return",
+                "title": "Worked surface, new purpose",
+                "requirement": "An actual surface that earlier supplied useful water while moldable now is durable/watertight and carries a genuine physical observation copy. A replacement can keep the water service.",
+                "test": "worked-return",
+                "mode": "current",
+                "current": true,
+                "achievedAt": 24,
+                "satisfied": true
+              },
+              {
+                "id": "specimen",
+                "title": "Useful specimen holder",
+                "requirement": "An actual table-leaf contact sample rests in a supported tray under overhead dust protection with light and open-side air.",
+                "test": "specimen",
+                "mode": "current",
+                "current": true,
+                "achievedAt": 31,
+                "satisfied": true
+              },
+              {
+                "id": "relief",
+                "title": "Keep an actual relief",
+                "requirement": "A durable watertight surface retains a real leaf-relief contact impression.",
+                "test": "relief",
+                "mode": "current",
+                "current": true,
+                "achievedAt": 24,
+                "satisfied": true
+              },
+              {
+                "id": "published",
+                "title": "Publish the survey",
+                "requirement": "Relay actual front-on beacon and far-marker records to the receiver.",
+                "test": "published",
+                "mode": "current",
+                "current": true,
+                "achievedAt": 21,
+                "satisfied": true
+              }
+            ]
+          }
+        }
+      }
+    }
+  ]
+}
