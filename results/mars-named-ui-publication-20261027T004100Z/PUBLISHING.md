@@ -1,0 +1,11 @@
+# Immutable named-Mars publication snapshot
+
+Publish `source/` files to their matching primary-repository paths. Preserve all existing content. Fetch/read the latest remote README and .gitignore, append the supplied fragments only where absent, and never replace these files from the local workspace. This workspace has no .git metadata, so remote-latest reconciliation is a publisher step, not a claim made here. Dependency references pin the versions used; verify them against latest remote, do not blindly overwrite package files. All relative local runtime/test imports are included.
+
+Include raw evidence under results/mars-named-grammar-20261027 and this manifest/receipt. Hosted-route-reference files document deployment behavior only: do not replace the primary research index, package or Vite config with them. The isolated mars-named entry/config is the research route. The prior hosted index is preserved as mars-v2.html; older ux-lab/workshop entry files and saves were not modified. Their source dependencies remain in the existing repository and prior full-Mars publication; this package is an additive named-model snapshot, not a full Site checkout.
+
+Final runtime passed Site build and full83/83 tests (109311ms). Then the reviewer strengthened an existing cumulative-reflow assertion, without runtime changes; that final test file passed the separate17/17 independent run (2737ms), and build was rerun. Historical logs marked before-viewport-fallback or before-reveal-fix describe earlier source versions and do not certify final source. Final build log contains two successful invocations. All status files record exit0. No new build was performed to prepare this snapshot.
+
+No native browser rendering, hit testing, accessibility or physical touch/pointer verification was possible through supported private-Site access. Source-derived rectangles were checked at effective760×620 and1440×800 dimensions; synthetic DOM tests are not a browser pass. Content is a finite grammar checkpoint, not the future larger ontology, a fun evaluation or duration claim.
+
+No generated dist, node_modules, hosting identity/config, credentials, personal/private notes or memory are included. Source commit in receipt identifies published code, not a primary GitHub commit. No external writes or frozen Site modifications were made by this preparation.
