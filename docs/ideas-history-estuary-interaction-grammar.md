@@ -1,0 +1,38 @@
+# Estuary 1 — normal-route interaction accounting
+
+**Design limitation, not UI readiness.** The implemented interface submits JSON configurations. Its 30 accepted actions are 30 logical command submissions, **not 30 clicks, binary combinations or independently measured player decisions**. Some commands bind three or four objects simultaneously. The named Mars grammar requested by the owner is not implemented here: no movable pieces, placement, geometric contact or location-as-operand objects exist.
+
+The table below audits every normal witness command. “Bindings” counts distinct supplied semantic fields/roles, excluding action type and output ID/name; it does not claim that each is an interesting or even independent decision. Fixed or uniquely compatible choices may be inferable. We do not sum fields into a fabricated decision count. A real interaction adapter must expose choices or unambiguously derive them before any click count can be asserted.
+
+| Route rows | Current command and actual inputs | Supplied bindings per command | Honest named-thing expression / unresolved work |
+|---|---|---:|---|
+| 1, 2 | Run Mara, A or Tide, identity, normal interface | 4 | Mara + an actual process at Watchhouse could enact immediately only if the normal interface and retained identity are visibly established context. There is no Watchhouse object in this engine. Otherwise method/interface require explicit prior selection. |
+| 3 | Render-method authoring: factor1/5 and angle | 2 | A named fivefold tempo operator could be a real callable result of time-scale + order. Those primitive operands and fixed recipe are **not implemented**; current arbitrary parameter authoring is a configuration form. Do not call it a binary combine. |
+| 4 | Actual Tide episode + tempo | 2 | Already a genuine two-operand transformation into Borrowed Tide; naming is metadata, not another enabling action. |
+| 5 | Render-method authoring: factor1 and pressure | 2 | A public angle/pressure correspondence could yield a Sensory Loom with actual function. Current authoring still selects values; no physical primitive recipe exists. |
+| 6 | Borrowed Tide + loom | 2 | Genuine two-operand score transformation, immediately usable. |
+| 7 | Ilen + touch score + pressure port | 3 | Binary performer + score is sufficient **if** the one compatible port is automatically and visibly inferred. It is not a third decision in that case; current CLI explicitly supplies it. |
+| 8 | Fork Mara (new identity metadata) | 1 | Mara + a consenting copyable-continuity operand would be meaningful, but that capability is currently an operation, not a named operand. New actor is immediate; never add an unlock then apply stage. |
+| 9, 10 | Following-method authoring: bound mode + reversed/pressure interface | 2 | Following relation + actual interface could construct a callable bound practice. Current engine has methods and interface enum values, not two manipulable parent things. |
+| 11, 12 | Run actor + A/B + selected practice + interface | 4 | Actor + a visibly situated process can use a chosen retained practice; neither the method nor place may be hidden inside an unnamed bag. Explicit process-site binding and method choice are currently unresolved interactions. |
+| 13 | Reunion: two actors + their two selected episodes | 4 | Two actual episode operands can identify the reciprocal family members without extra actor picks, then directly transfer both ways. That is a plausible meaningful binary rule, but the current API redundantly supplies all four IDs. Multiple candidate episodes still need a visible choice. |
+| 14, 15 | Recall: relative + other's score + angle port | 3 | Relative + retained episode score; a unique compatible channel may be inferred. Actual replay happens immediately; no separate installation. |
+| 16, 17 | Follow: relative + C + retained exchanged practice + interface | 4 | Same unresolved situated-process/method binding as runs. These are genuine later controller uses, not required extra setup clicks. |
+| 18 | Run Ilen + C + pressure practice + pressure interface | 4 | Same four-field binding issue. Pressure *sensor* and pressure *performance output* are distinct, and must not be visually conflated. |
+| 19 | Render-method authoring: factor1 and dual channels | 2 | Channel correspondence + simultaneity could yield a reusable canon method. Current authoring is still a form; no fake binary label repairs that. |
+| 20 | Actual Sweep episode + canon method | 2 | Genuine binary transformation producing the actual dual-channel score. |
+| 21 | Ensemble score + angle actor Sori + pressure actor Ilen | 3 | A score plus a named, previously defined two-role performer assignment could be two operands. But constructing that assignment costs a real interaction unless it is supplied from the start. Do not hide the two selected actors inside “willing performers” or count their selection as free. No such assignment object currently exists. |
+| 22 | Teach Mara + House + actual Mara episode | 3 | The actual episode identifies its teacher; episode + House can be a genuine binary lesson with immediate changed repertoire. Current API supplies the redundant teacher field. |
+| 23, 24 | Send score + Local/Far role + invitation mode | 3 | Shared score + a concrete school destination could directly create a role invitation, if that consequence is explicit from the recipe. Personal vs role address and invitation vs ordinary instruction cannot be silently conflated. Current API exposes a mode flag and has no portable mailbox objects. |
+| 25 | Local School + capable House | 2 | Already a genuinely binary immediate routing change. Former Mara remains alive; no civic unlock. |
+| 26 | Run House + D + reverse practice + reversed interface | 4 | Same explicit run-binding limitation; its genuinely new resulting experience is not extra setup. |
+| 27 | Teach House + Mara + actual D episode | 3 | Episode identifies House; episode + Mara could immediately teach the replay. No additional “Reciprocal School” button is needed or implemented. |
+| 28 | Recall Mara + D score + angle port | 3 | Genuine actor/score combination if the compatible port is inferred; personal performance itself is the consequence. |
+| 29 | Two delivered matching school invitations | 2 | Two specific invitation objects can directly enact their shared festival. Actual current holders resolve at enactment, not from a generic arbitrary group bag. |
+| 30 | Distant + baseline score + angle port | 3 | Actor + its local practice/score can immediately continue its own life. Equivalent retained-controller B run is legal; a named baseline token is not a password. |
+
+## Implication for the next evidence claim
+
+This whole-collection substrate tests whether the six causal relationships cohere and whether an agent values them through a fully disclosed logical interface. It does **not yet test the owner's preferred physical interaction grammar**. The prospective diagnostic must state that limitation and separate JSON/setup friction from the underlying creation. Do not present it as a ready playable human alternative to Mars.
+
+A future named-piece adapter should first settle concrete process-site objects, reusable method operands, genuinely two-role ensembles, direct episode teaching, and unambiguous unique-port inference. If those require extra authored objects or placements, report the actual resulting interactions; never retrofit the 30-command count as 30 physical combinations. Conversely do not force redundant actor/port selections where the operands already determine them. No additional clicks are justified merely to approach 200.

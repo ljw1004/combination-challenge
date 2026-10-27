@@ -1,0 +1,4356 @@
+{
+  "scenario": "woven",
+  "world": {
+    "version": "estuary-binary-1",
+    "engine": {
+      "version": "estuary-collection-1",
+      "catalogue": "complete",
+      "epoch": 15,
+      "selections": 25,
+      "actors": {
+        "Mara": {
+          "id": "Mara",
+          "name": "Mara",
+          "ports": [
+            "angle"
+          ],
+          "remote": false,
+          "history": [
+            "episode-1",
+            "episode-2",
+            "episode-4",
+            "episode-6",
+            "episode-8",
+            "episode-14"
+          ],
+          "scores": [
+            "run-score-1",
+            "run-score-2",
+            "run-score-3",
+            "run-score-4",
+            "run-score-5",
+            "run-score-7"
+          ],
+          "methods": [
+            "identity",
+            "reverse",
+            "pressure"
+          ],
+          "alive": true
+        },
+        "Ilen": {
+          "id": "Ilen",
+          "name": "Ilen",
+          "ports": [
+            "pressure"
+          ],
+          "remote": false,
+          "history": [
+            "episode-3",
+            "episode-11"
+          ],
+          "scores": [
+            "score-gesture-4",
+            "score-gesture-12"
+          ],
+          "methods": [],
+          "alive": true
+        },
+        "Sori": {
+          "id": "Sori",
+          "name": "Sori",
+          "ports": [
+            "angle"
+          ],
+          "remote": false,
+          "history": [
+            "episode-10"
+          ],
+          "scores": [
+            "score-gesture-12"
+          ],
+          "methods": [],
+          "alive": true
+        },
+        "House": {
+          "id": "House",
+          "name": "House",
+          "ports": [
+            "angle",
+            "pressure"
+          ],
+          "remote": false,
+          "history": [
+            "episode-12",
+            "episode-13",
+            "episode-15"
+          ],
+          "scores": [
+            "run-score-3",
+            "score-gesture-12",
+            "run-score-7"
+          ],
+          "methods": [
+            "reverse"
+          ],
+          "alive": true
+        },
+        "Distant": {
+          "id": "Distant",
+          "name": "Distant",
+          "ports": [
+            "angle",
+            "pressure"
+          ],
+          "remote": true,
+          "history": [
+            "episode-16",
+            "episode-17"
+          ],
+          "scores": [
+            "baseline",
+            "score-gesture-12"
+          ],
+          "methods": [
+            "identity"
+          ],
+          "alive": true
+        },
+        "relative-gesture-6": {
+          "id": "relative-gesture-6",
+          "name": "Mara of the Other Road",
+          "ports": [
+            "angle"
+          ],
+          "remote": false,
+          "history": [
+            "episode-1",
+            "episode-2",
+            "episode-5",
+            "episode-7",
+            "episode-9"
+          ],
+          "scores": [
+            "run-score-1",
+            "run-score-2",
+            "run-score-4",
+            "run-score-3",
+            "run-score-6"
+          ],
+          "methods": [
+            "identity",
+            "pressure",
+            "reverse"
+          ],
+          "alive": true
+        }
+      },
+      "methods": {
+        "identity": {
+          "name": "Following",
+          "kind": "following",
+          "mode": "identity"
+        },
+        "universal": {
+          "name": "Public Interface Adapter",
+          "kind": "following",
+          "mode": "universal"
+        },
+        "tactileTide": {
+          "name": "Whole Tide Loom",
+          "kind": "render",
+          "factor": [
+            1,
+            5
+          ],
+          "channels": [
+            "pressure"
+          ]
+        },
+        "duet": {
+          "name": "Beacon Duet",
+          "kind": "render",
+          "factor": 1,
+          "channels": [
+            "angle",
+            "pressure"
+          ]
+        },
+        "tempo": {
+          "name": "Fivefold Lens",
+          "kind": "render",
+          "factor": [
+            1,
+            5
+          ],
+          "channels": [
+            "angle"
+          ]
+        },
+        "loom": {
+          "name": "Touch Loom",
+          "kind": "render",
+          "factor": 1,
+          "channels": [
+            "pressure"
+          ]
+        },
+        "reverse": {
+          "name": "Mirror Following",
+          "kind": "following",
+          "mode": "bound",
+          "interface": "reversed"
+        },
+        "pressure": {
+          "name": "Pressure Following",
+          "kind": "following",
+          "mode": "bound",
+          "interface": "pressure"
+        }
+      },
+      "scores": {
+        "baseline": {
+          "id": "baseline",
+          "name": "Inlet local walk",
+          "trajectory": [
+            {
+              "t": [
+                0,
+                1
+              ],
+              "v": [
+                0,
+                1
+              ]
+            },
+            {
+              "t": [
+                2,
+                1
+              ],
+              "v": [
+                90,
+                1
+              ]
+            },
+            {
+              "t": [
+                3,
+                1
+              ],
+              "v": [
+                30,
+                1
+              ]
+            },
+            {
+              "t": [
+                5,
+                1
+              ],
+              "v": [
+                60,
+                1
+              ]
+            }
+          ],
+          "channels": [
+            "angle"
+          ],
+          "sources": []
+        },
+        "run-score-1": {
+          "id": "run-score-1",
+          "name": "Mara: A",
+          "trajectory": [
+            {
+              "t": [
+                0,
+                1
+              ],
+              "v": [
+                0,
+                1
+              ]
+            },
+            {
+              "t": [
+                1,
+                1
+              ],
+              "v": [
+                45,
+                1
+              ]
+            },
+            {
+              "t": [
+                2,
+                1
+              ],
+              "v": [
+                90,
+                1
+              ]
+            },
+            {
+              "t": [
+                3,
+                1
+              ],
+              "v": [
+                45,
+                1
+              ]
+            },
+            {
+              "t": [
+                4,
+                1
+              ],
+              "v": [
+                0,
+                1
+              ]
+            }
+          ],
+          "channels": [
+            "angle"
+          ],
+          "sources": [
+            "episode-1"
+          ]
+        },
+        "run-score-2": {
+          "id": "run-score-2",
+          "name": "Mara: Tide",
+          "trajectory": [
+            {
+              "t": [
+                0,
+                1
+              ],
+              "v": [
+                0,
+                1
+              ]
+            },
+            {
+              "t": [
+                5,
+                1
+              ],
+              "v": [
+                90,
+                1
+              ]
+            },
+            {
+              "t": [
+                15,
+                1
+              ],
+              "v": [
+                90,
+                1
+              ]
+            },
+            {
+              "t": [
+                20,
+                1
+              ],
+              "v": [
+                0,
+                1
+              ]
+            }
+          ],
+          "channels": [
+            "angle"
+          ],
+          "sources": [
+            "episode-2"
+          ]
+        },
+        "score-gesture-3": {
+          "id": "score-gesture-3",
+          "name": "Fivefold Lens of Mara's Tide experience episode-2",
+          "trajectory": [
+            {
+              "t": [
+                0,
+                1
+              ],
+              "v": [
+                0,
+                1
+              ]
+            },
+            {
+              "t": [
+                1,
+                1
+              ],
+              "v": [
+                90,
+                1
+              ]
+            },
+            {
+              "t": [
+                3,
+                1
+              ],
+              "v": [
+                90,
+                1
+              ]
+            },
+            {
+              "t": [
+                4,
+                1
+              ],
+              "v": [
+                0,
+                1
+              ]
+            }
+          ],
+          "channels": [
+            "angle"
+          ],
+          "sources": [
+            "episode-2"
+          ]
+        },
+        "score-gesture-4": {
+          "id": "score-gesture-4",
+          "name": "Touch Loom of Fivefold Lens of Mara's Tide experience episode-2",
+          "trajectory": [
+            {
+              "t": [
+                0,
+                1
+              ],
+              "v": [
+                0,
+                1
+              ]
+            },
+            {
+              "t": [
+                1,
+                1
+              ],
+              "v": [
+                90,
+                1
+              ]
+            },
+            {
+              "t": [
+                3,
+                1
+              ],
+              "v": [
+                90,
+                1
+              ]
+            },
+            {
+              "t": [
+                4,
+                1
+              ],
+              "v": [
+                0,
+                1
+              ]
+            }
+          ],
+          "channels": [
+            "pressure"
+          ],
+          "sources": [
+            "episode-2"
+          ]
+        },
+        "run-score-3": {
+          "id": "run-score-3",
+          "name": "Mara: A",
+          "trajectory": [
+            {
+              "t": [
+                0,
+                1
+              ],
+              "v": [
+                0,
+                1
+              ]
+            },
+            {
+              "t": [
+                1,
+                1
+              ],
+              "v": [
+                45,
+                1
+              ]
+            },
+            {
+              "t": [
+                2,
+                1
+              ],
+              "v": [
+                90,
+                1
+              ]
+            },
+            {
+              "t": [
+                3,
+                1
+              ],
+              "v": [
+                45,
+                1
+              ]
+            },
+            {
+              "t": [
+                4,
+                1
+              ],
+              "v": [
+                0,
+                1
+              ]
+            }
+          ],
+          "channels": [
+            "angle"
+          ],
+          "sources": [
+            "episode-4"
+          ]
+        },
+        "run-score-4": {
+          "id": "run-score-4",
+          "name": "Mara of the Other Road: B",
+          "trajectory": [
+            {
+              "t": [
+                0,
+                1
+              ],
+              "v": [
+                0,
+                1
+              ]
+            },
+            {
+              "t": [
+                2,
+                1
+              ],
+              "v": [
+                90,
+                1
+              ]
+            },
+            {
+              "t": [
+                3,
+                1
+              ],
+              "v": [
+                30,
+                1
+              ]
+            },
+            {
+              "t": [
+                5,
+                1
+              ],
+              "v": [
+                60,
+                1
+              ]
+            }
+          ],
+          "channels": [
+            "angle"
+          ],
+          "sources": [
+            "episode-5"
+          ]
+        },
+        "run-score-5": {
+          "id": "run-score-5",
+          "name": "Mara: C",
+          "trajectory": [
+            {
+              "t": [
+                0,
+                1
+              ],
+              "v": [
+                90,
+                1
+              ]
+            },
+            {
+              "t": [
+                1,
+                1
+              ],
+              "v": [
+                30,
+                1
+              ]
+            },
+            {
+              "t": [
+                3,
+                1
+              ],
+              "v": [
+                60,
+                1
+              ]
+            },
+            {
+              "t": [
+                4,
+                1
+              ],
+              "v": [
+                0,
+                1
+              ]
+            }
+          ],
+          "channels": [
+            "angle"
+          ],
+          "sources": [
+            "episode-8"
+          ]
+        },
+        "run-score-6": {
+          "id": "run-score-6",
+          "name": "Mara of the Other Road: C",
+          "trajectory": [
+            {
+              "t": [
+                0,
+                1
+              ],
+              "v": [
+                90,
+                1
+              ]
+            },
+            {
+              "t": [
+                1,
+                1
+              ],
+              "v": [
+                30,
+                1
+              ]
+            },
+            {
+              "t": [
+                3,
+                1
+              ],
+              "v": [
+                60,
+                1
+              ]
+            },
+            {
+              "t": [
+                4,
+                1
+              ],
+              "v": [
+                0,
+                1
+              ]
+            }
+          ],
+          "channels": [
+            "angle"
+          ],
+          "sources": [
+            "episode-9"
+          ]
+        },
+        "score-gesture-12": {
+          "id": "score-gesture-12",
+          "name": "Beacon Canon of Mara's A experience episode-1",
+          "trajectory": [
+            {
+              "t": [
+                0,
+                1
+              ],
+              "v": [
+                0,
+                1
+              ]
+            },
+            {
+              "t": [
+                1,
+                1
+              ],
+              "v": [
+                45,
+                1
+              ]
+            },
+            {
+              "t": [
+                2,
+                1
+              ],
+              "v": [
+                90,
+                1
+              ]
+            },
+            {
+              "t": [
+                3,
+                1
+              ],
+              "v": [
+                45,
+                1
+              ]
+            },
+            {
+              "t": [
+                4,
+                1
+              ],
+              "v": [
+                0,
+                1
+              ]
+            }
+          ],
+          "channels": [
+            "angle",
+            "pressure"
+          ],
+          "sources": [
+            "episode-1"
+          ]
+        },
+        "run-score-7": {
+          "id": "run-score-7",
+          "name": "House: D",
+          "trajectory": [
+            {
+              "t": [
+                0,
+                1
+              ],
+              "v": [
+                0,
+                1
+              ]
+            },
+            {
+              "t": [
+                1,
+                1
+              ],
+              "v": [
+                90,
+                1
+              ]
+            },
+            {
+              "t": [
+                2,
+                1
+              ],
+              "v": [
+                0,
+                1
+              ]
+            },
+            {
+              "t": [
+                4,
+                1
+              ],
+              "v": [
+                90,
+                1
+              ]
+            },
+            {
+              "t": [
+                6,
+                1
+              ],
+              "v": [
+                0,
+                1
+              ]
+            }
+          ],
+          "channels": [
+            "angle",
+            "pressure"
+          ],
+          "sources": [
+            "episode-13"
+          ]
+        }
+      },
+      "episodes": {
+        "episode-1": {
+          "id": "episode-1",
+          "actor": "Mara",
+          "epoch": 1,
+          "selection": 1,
+          "kind": "run",
+          "score": "run-score-1",
+          "sourceEpisodes": [],
+          "trajectory": [
+            {
+              "t": [
+                0,
+                1
+              ],
+              "v": [
+                0,
+                1
+              ]
+            },
+            {
+              "t": [
+                1,
+                1
+              ],
+              "v": [
+                45,
+                1
+              ]
+            },
+            {
+              "t": [
+                2,
+                1
+              ],
+              "v": [
+                90,
+                1
+              ]
+            },
+            {
+              "t": [
+                3,
+                1
+              ],
+              "v": [
+                45,
+                1
+              ]
+            },
+            {
+              "t": [
+                4,
+                1
+              ],
+              "v": [
+                0,
+                1
+              ]
+            }
+          ],
+          "outputs": {
+            "angle": [
+              {
+                "t": [
+                  0,
+                  1
+                ],
+                "v": [
+                  0,
+                  1
+                ]
+              },
+              {
+                "t": [
+                  1,
+                  1
+                ],
+                "v": [
+                  45,
+                  1
+                ]
+              },
+              {
+                "t": [
+                  2,
+                  1
+                ],
+                "v": [
+                  90,
+                  1
+                ]
+              },
+              {
+                "t": [
+                  3,
+                  1
+                ],
+                "v": [
+                  45,
+                  1
+                ]
+              },
+              {
+                "t": [
+                  4,
+                  1
+                ],
+                "v": [
+                  0,
+                  1
+                ]
+              }
+            ]
+          },
+          "process": "A",
+          "interface": "normal",
+          "method": "identity",
+          "commands": [
+            {
+              "t": [
+                0,
+                1
+              ],
+              "v": [
+                0,
+                1
+              ]
+            },
+            {
+              "t": [
+                1,
+                1
+              ],
+              "v": [
+                45,
+                1
+              ]
+            },
+            {
+              "t": [
+                2,
+                1
+              ],
+              "v": [
+                90,
+                1
+              ]
+            },
+            {
+              "t": [
+                3,
+                1
+              ],
+              "v": [
+                45,
+                1
+              ]
+            },
+            {
+              "t": [
+                4,
+                1
+              ],
+              "v": [
+                0,
+                1
+              ]
+            }
+          ]
+        },
+        "episode-2": {
+          "id": "episode-2",
+          "actor": "Mara",
+          "epoch": 2,
+          "selection": 2,
+          "kind": "run",
+          "score": "run-score-2",
+          "sourceEpisodes": [],
+          "trajectory": [
+            {
+              "t": [
+                0,
+                1
+              ],
+              "v": [
+                0,
+                1
+              ]
+            },
+            {
+              "t": [
+                5,
+                1
+              ],
+              "v": [
+                90,
+                1
+              ]
+            },
+            {
+              "t": [
+                15,
+                1
+              ],
+              "v": [
+                90,
+                1
+              ]
+            },
+            {
+              "t": [
+                20,
+                1
+              ],
+              "v": [
+                0,
+                1
+              ]
+            }
+          ],
+          "outputs": {
+            "angle": [
+              {
+                "t": [
+                  0,
+                  1
+                ],
+                "v": [
+                  0,
+                  1
+                ]
+              },
+              {
+                "t": [
+                  5,
+                  1
+                ],
+                "v": [
+                  90,
+                  1
+                ]
+              },
+              {
+                "t": [
+                  15,
+                  1
+                ],
+                "v": [
+                  90,
+                  1
+                ]
+              },
+              {
+                "t": [
+                  20,
+                  1
+                ],
+                "v": [
+                  0,
+                  1
+                ]
+              }
+            ]
+          },
+          "process": "Tide",
+          "interface": "normal",
+          "method": "identity",
+          "commands": [
+            {
+              "t": [
+                0,
+                1
+              ],
+              "v": [
+                0,
+                1
+              ]
+            },
+            {
+              "t": [
+                5,
+                1
+              ],
+              "v": [
+                90,
+                1
+              ]
+            },
+            {
+              "t": [
+                15,
+                1
+              ],
+              "v": [
+                90,
+                1
+              ]
+            },
+            {
+              "t": [
+                20,
+                1
+              ],
+              "v": [
+                0,
+                1
+              ]
+            }
+          ]
+        },
+        "episode-3": {
+          "id": "episode-3",
+          "actor": "Ilen",
+          "epoch": 3,
+          "selection": 5,
+          "kind": "replay",
+          "score": "score-gesture-4",
+          "sourceEpisodes": [
+            "episode-2"
+          ],
+          "trajectory": [
+            {
+              "t": [
+                0,
+                1
+              ],
+              "v": [
+                0,
+                1
+              ]
+            },
+            {
+              "t": [
+                1,
+                1
+              ],
+              "v": [
+                90,
+                1
+              ]
+            },
+            {
+              "t": [
+                3,
+                1
+              ],
+              "v": [
+                90,
+                1
+              ]
+            },
+            {
+              "t": [
+                4,
+                1
+              ],
+              "v": [
+                0,
+                1
+              ]
+            }
+          ],
+          "outputs": {
+            "pressure": [
+              {
+                "t": [
+                  0,
+                  1
+                ],
+                "v": [
+                  0,
+                  1
+                ]
+              },
+              {
+                "t": [
+                  1,
+                  1
+                ],
+                "v": [
+                  1,
+                  1
+                ]
+              },
+              {
+                "t": [
+                  3,
+                  1
+                ],
+                "v": [
+                  1,
+                  1
+                ]
+              },
+              {
+                "t": [
+                  4,
+                  1
+                ],
+                "v": [
+                  0,
+                  1
+                ]
+              }
+            ]
+          }
+        },
+        "episode-4": {
+          "id": "episode-4",
+          "actor": "Mara",
+          "epoch": 4,
+          "selection": 7,
+          "kind": "run",
+          "score": "run-score-3",
+          "sourceEpisodes": [],
+          "trajectory": [
+            {
+              "t": [
+                0,
+                1
+              ],
+              "v": [
+                0,
+                1
+              ]
+            },
+            {
+              "t": [
+                1,
+                1
+              ],
+              "v": [
+                45,
+                1
+              ]
+            },
+            {
+              "t": [
+                2,
+                1
+              ],
+              "v": [
+                90,
+                1
+              ]
+            },
+            {
+              "t": [
+                3,
+                1
+              ],
+              "v": [
+                45,
+                1
+              ]
+            },
+            {
+              "t": [
+                4,
+                1
+              ],
+              "v": [
+                0,
+                1
+              ]
+            }
+          ],
+          "outputs": {
+            "angle": [
+              {
+                "t": [
+                  0,
+                  1
+                ],
+                "v": [
+                  0,
+                  1
+                ]
+              },
+              {
+                "t": [
+                  1,
+                  1
+                ],
+                "v": [
+                  45,
+                  1
+                ]
+              },
+              {
+                "t": [
+                  2,
+                  1
+                ],
+                "v": [
+                  90,
+                  1
+                ]
+              },
+              {
+                "t": [
+                  3,
+                  1
+                ],
+                "v": [
+                  45,
+                  1
+                ]
+              },
+              {
+                "t": [
+                  4,
+                  1
+                ],
+                "v": [
+                  0,
+                  1
+                ]
+              }
+            ]
+          },
+          "process": "A",
+          "interface": "reversed",
+          "method": "reverse",
+          "commands": [
+            {
+              "t": [
+                0,
+                1
+              ],
+              "v": [
+                90,
+                1
+              ]
+            },
+            {
+              "t": [
+                1,
+                1
+              ],
+              "v": [
+                45,
+                1
+              ]
+            },
+            {
+              "t": [
+                2,
+                1
+              ],
+              "v": [
+                0,
+                1
+              ]
+            },
+            {
+              "t": [
+                3,
+                1
+              ],
+              "v": [
+                45,
+                1
+              ]
+            },
+            {
+              "t": [
+                4,
+                1
+              ],
+              "v": [
+                90,
+                1
+              ]
+            }
+          ]
+        },
+        "episode-5": {
+          "id": "episode-5",
+          "actor": "relative-gesture-6",
+          "epoch": 5,
+          "selection": 8,
+          "kind": "run",
+          "score": "run-score-4",
+          "sourceEpisodes": [],
+          "trajectory": [
+            {
+              "t": [
+                0,
+                1
+              ],
+              "v": [
+                0,
+                1
+              ]
+            },
+            {
+              "t": [
+                2,
+                1
+              ],
+              "v": [
+                90,
+                1
+              ]
+            },
+            {
+              "t": [
+                3,
+                1
+              ],
+              "v": [
+                30,
+                1
+              ]
+            },
+            {
+              "t": [
+                5,
+                1
+              ],
+              "v": [
+                60,
+                1
+              ]
+            }
+          ],
+          "outputs": {
+            "angle": [
+              {
+                "t": [
+                  0,
+                  1
+                ],
+                "v": [
+                  0,
+                  1
+                ]
+              },
+              {
+                "t": [
+                  2,
+                  1
+                ],
+                "v": [
+                  90,
+                  1
+                ]
+              },
+              {
+                "t": [
+                  3,
+                  1
+                ],
+                "v": [
+                  30,
+                  1
+                ]
+              },
+              {
+                "t": [
+                  5,
+                  1
+                ],
+                "v": [
+                  60,
+                  1
+                ]
+              }
+            ]
+          },
+          "process": "B",
+          "interface": "pressure",
+          "method": "pressure",
+          "commands": [
+            {
+              "t": [
+                0,
+                1
+              ],
+              "v": [
+                0,
+                1
+              ]
+            },
+            {
+              "t": [
+                2,
+                1
+              ],
+              "v": [
+                90,
+                1
+              ]
+            },
+            {
+              "t": [
+                3,
+                1
+              ],
+              "v": [
+                30,
+                1
+              ]
+            },
+            {
+              "t": [
+                5,
+                1
+              ],
+              "v": [
+                60,
+                1
+              ]
+            }
+          ]
+        },
+        "episode-6": {
+          "id": "episode-6",
+          "actor": "Mara",
+          "epoch": 6,
+          "selection": 10,
+          "kind": "replay",
+          "score": "run-score-4",
+          "sourceEpisodes": [
+            "episode-5"
+          ],
+          "trajectory": [
+            {
+              "t": [
+                0,
+                1
+              ],
+              "v": [
+                0,
+                1
+              ]
+            },
+            {
+              "t": [
+                2,
+                1
+              ],
+              "v": [
+                90,
+                1
+              ]
+            },
+            {
+              "t": [
+                3,
+                1
+              ],
+              "v": [
+                30,
+                1
+              ]
+            },
+            {
+              "t": [
+                5,
+                1
+              ],
+              "v": [
+                60,
+                1
+              ]
+            }
+          ],
+          "outputs": {
+            "angle": [
+              {
+                "t": [
+                  0,
+                  1
+                ],
+                "v": [
+                  0,
+                  1
+                ]
+              },
+              {
+                "t": [
+                  2,
+                  1
+                ],
+                "v": [
+                  90,
+                  1
+                ]
+              },
+              {
+                "t": [
+                  3,
+                  1
+                ],
+                "v": [
+                  30,
+                  1
+                ]
+              },
+              {
+                "t": [
+                  5,
+                  1
+                ],
+                "v": [
+                  60,
+                  1
+                ]
+              }
+            ]
+          }
+        },
+        "episode-7": {
+          "id": "episode-7",
+          "actor": "relative-gesture-6",
+          "epoch": 7,
+          "selection": 11,
+          "kind": "replay",
+          "score": "run-score-3",
+          "sourceEpisodes": [
+            "episode-4"
+          ],
+          "trajectory": [
+            {
+              "t": [
+                0,
+                1
+              ],
+              "v": [
+                0,
+                1
+              ]
+            },
+            {
+              "t": [
+                1,
+                1
+              ],
+              "v": [
+                45,
+                1
+              ]
+            },
+            {
+              "t": [
+                2,
+                1
+              ],
+              "v": [
+                90,
+                1
+              ]
+            },
+            {
+              "t": [
+                3,
+                1
+              ],
+              "v": [
+                45,
+                1
+              ]
+            },
+            {
+              "t": [
+                4,
+                1
+              ],
+              "v": [
+                0,
+                1
+              ]
+            }
+          ],
+          "outputs": {
+            "angle": [
+              {
+                "t": [
+                  0,
+                  1
+                ],
+                "v": [
+                  0,
+                  1
+                ]
+              },
+              {
+                "t": [
+                  1,
+                  1
+                ],
+                "v": [
+                  45,
+                  1
+                ]
+              },
+              {
+                "t": [
+                  2,
+                  1
+                ],
+                "v": [
+                  90,
+                  1
+                ]
+              },
+              {
+                "t": [
+                  3,
+                  1
+                ],
+                "v": [
+                  45,
+                  1
+                ]
+              },
+              {
+                "t": [
+                  4,
+                  1
+                ],
+                "v": [
+                  0,
+                  1
+                ]
+              }
+            ]
+          }
+        },
+        "episode-8": {
+          "id": "episode-8",
+          "actor": "Mara",
+          "epoch": 8,
+          "selection": 12,
+          "kind": "run",
+          "score": "run-score-5",
+          "sourceEpisodes": [],
+          "trajectory": [
+            {
+              "t": [
+                0,
+                1
+              ],
+              "v": [
+                90,
+                1
+              ]
+            },
+            {
+              "t": [
+                1,
+                1
+              ],
+              "v": [
+                30,
+                1
+              ]
+            },
+            {
+              "t": [
+                3,
+                1
+              ],
+              "v": [
+                60,
+                1
+              ]
+            },
+            {
+              "t": [
+                4,
+                1
+              ],
+              "v": [
+                0,
+                1
+              ]
+            }
+          ],
+          "outputs": {
+            "angle": [
+              {
+                "t": [
+                  0,
+                  1
+                ],
+                "v": [
+                  90,
+                  1
+                ]
+              },
+              {
+                "t": [
+                  1,
+                  1
+                ],
+                "v": [
+                  30,
+                  1
+                ]
+              },
+              {
+                "t": [
+                  3,
+                  1
+                ],
+                "v": [
+                  60,
+                  1
+                ]
+              },
+              {
+                "t": [
+                  4,
+                  1
+                ],
+                "v": [
+                  0,
+                  1
+                ]
+              }
+            ]
+          },
+          "process": "C",
+          "interface": "pressure",
+          "method": "pressure",
+          "commands": [
+            {
+              "t": [
+                0,
+                1
+              ],
+              "v": [
+                90,
+                1
+              ]
+            },
+            {
+              "t": [
+                1,
+                1
+              ],
+              "v": [
+                30,
+                1
+              ]
+            },
+            {
+              "t": [
+                3,
+                1
+              ],
+              "v": [
+                60,
+                1
+              ]
+            },
+            {
+              "t": [
+                4,
+                1
+              ],
+              "v": [
+                0,
+                1
+              ]
+            }
+          ]
+        },
+        "episode-9": {
+          "id": "episode-9",
+          "actor": "relative-gesture-6",
+          "epoch": 9,
+          "selection": 13,
+          "kind": "run",
+          "score": "run-score-6",
+          "sourceEpisodes": [],
+          "trajectory": [
+            {
+              "t": [
+                0,
+                1
+              ],
+              "v": [
+                90,
+                1
+              ]
+            },
+            {
+              "t": [
+                1,
+                1
+              ],
+              "v": [
+                30,
+                1
+              ]
+            },
+            {
+              "t": [
+                3,
+                1
+              ],
+              "v": [
+                60,
+                1
+              ]
+            },
+            {
+              "t": [
+                4,
+                1
+              ],
+              "v": [
+                0,
+                1
+              ]
+            }
+          ],
+          "outputs": {
+            "angle": [
+              {
+                "t": [
+                  0,
+                  1
+                ],
+                "v": [
+                  90,
+                  1
+                ]
+              },
+              {
+                "t": [
+                  1,
+                  1
+                ],
+                "v": [
+                  30,
+                  1
+                ]
+              },
+              {
+                "t": [
+                  3,
+                  1
+                ],
+                "v": [
+                  60,
+                  1
+                ]
+              },
+              {
+                "t": [
+                  4,
+                  1
+                ],
+                "v": [
+                  0,
+                  1
+                ]
+              }
+            ]
+          },
+          "process": "C",
+          "interface": "reversed",
+          "method": "reverse",
+          "commands": [
+            {
+              "t": [
+                0,
+                1
+              ],
+              "v": [
+                0,
+                1
+              ]
+            },
+            {
+              "t": [
+                1,
+                1
+              ],
+              "v": [
+                60,
+                1
+              ]
+            },
+            {
+              "t": [
+                3,
+                1
+              ],
+              "v": [
+                30,
+                1
+              ]
+            },
+            {
+              "t": [
+                4,
+                1
+              ],
+              "v": [
+                90,
+                1
+              ]
+            }
+          ]
+        },
+        "episode-10": {
+          "id": "episode-10",
+          "actor": "Sori",
+          "epoch": 10,
+          "selection": 15,
+          "kind": "replay",
+          "score": "score-gesture-12",
+          "sourceEpisodes": [
+            "episode-1"
+          ],
+          "trajectory": [
+            {
+              "t": [
+                0,
+                1
+              ],
+              "v": [
+                0,
+                1
+              ]
+            },
+            {
+              "t": [
+                1,
+                1
+              ],
+              "v": [
+                45,
+                1
+              ]
+            },
+            {
+              "t": [
+                2,
+                1
+              ],
+              "v": [
+                90,
+                1
+              ]
+            },
+            {
+              "t": [
+                3,
+                1
+              ],
+              "v": [
+                45,
+                1
+              ]
+            },
+            {
+              "t": [
+                4,
+                1
+              ],
+              "v": [
+                0,
+                1
+              ]
+            }
+          ],
+          "outputs": {
+            "angle": [
+              {
+                "t": [
+                  0,
+                  1
+                ],
+                "v": [
+                  0,
+                  1
+                ]
+              },
+              {
+                "t": [
+                  1,
+                  1
+                ],
+                "v": [
+                  45,
+                  1
+                ]
+              },
+              {
+                "t": [
+                  2,
+                  1
+                ],
+                "v": [
+                  90,
+                  1
+                ]
+              },
+              {
+                "t": [
+                  3,
+                  1
+                ],
+                "v": [
+                  45,
+                  1
+                ]
+              },
+              {
+                "t": [
+                  4,
+                  1
+                ],
+                "v": [
+                  0,
+                  1
+                ]
+              }
+            ]
+          },
+          "group": "ensemble-15"
+        },
+        "episode-11": {
+          "id": "episode-11",
+          "actor": "Ilen",
+          "epoch": 10,
+          "selection": 15,
+          "kind": "replay",
+          "score": "score-gesture-12",
+          "sourceEpisodes": [
+            "episode-1"
+          ],
+          "trajectory": [
+            {
+              "t": [
+                0,
+                1
+              ],
+              "v": [
+                0,
+                1
+              ]
+            },
+            {
+              "t": [
+                1,
+                1
+              ],
+              "v": [
+                45,
+                1
+              ]
+            },
+            {
+              "t": [
+                2,
+                1
+              ],
+              "v": [
+                90,
+                1
+              ]
+            },
+            {
+              "t": [
+                3,
+                1
+              ],
+              "v": [
+                45,
+                1
+              ]
+            },
+            {
+              "t": [
+                4,
+                1
+              ],
+              "v": [
+                0,
+                1
+              ]
+            }
+          ],
+          "outputs": {
+            "pressure": [
+              {
+                "t": [
+                  0,
+                  1
+                ],
+                "v": [
+                  0,
+                  1
+                ]
+              },
+              {
+                "t": [
+                  1,
+                  1
+                ],
+                "v": [
+                  1,
+                  2
+                ]
+              },
+              {
+                "t": [
+                  2,
+                  1
+                ],
+                "v": [
+                  1,
+                  1
+                ]
+              },
+              {
+                "t": [
+                  3,
+                  1
+                ],
+                "v": [
+                  1,
+                  2
+                ]
+              },
+              {
+                "t": [
+                  4,
+                  1
+                ],
+                "v": [
+                  0,
+                  1
+                ]
+              }
+            ]
+          },
+          "group": "ensemble-15"
+        },
+        "episode-12": {
+          "id": "episode-12",
+          "actor": "House",
+          "epoch": 11,
+          "selection": 17,
+          "kind": "replay",
+          "score": "run-score-3",
+          "sourceEpisodes": [
+            "episode-4"
+          ],
+          "trajectory": [
+            {
+              "t": [
+                0,
+                1
+              ],
+              "v": [
+                0,
+                1
+              ]
+            },
+            {
+              "t": [
+                1,
+                1
+              ],
+              "v": [
+                45,
+                1
+              ]
+            },
+            {
+              "t": [
+                2,
+                1
+              ],
+              "v": [
+                90,
+                1
+              ]
+            },
+            {
+              "t": [
+                3,
+                1
+              ],
+              "v": [
+                45,
+                1
+              ]
+            },
+            {
+              "t": [
+                4,
+                1
+              ],
+              "v": [
+                0,
+                1
+              ]
+            }
+          ],
+          "outputs": {
+            "angle": [
+              {
+                "t": [
+                  0,
+                  1
+                ],
+                "v": [
+                  0,
+                  1
+                ]
+              },
+              {
+                "t": [
+                  1,
+                  1
+                ],
+                "v": [
+                  45,
+                  1
+                ]
+              },
+              {
+                "t": [
+                  2,
+                  1
+                ],
+                "v": [
+                  90,
+                  1
+                ]
+              },
+              {
+                "t": [
+                  3,
+                  1
+                ],
+                "v": [
+                  45,
+                  1
+                ]
+              },
+              {
+                "t": [
+                  4,
+                  1
+                ],
+                "v": [
+                  0,
+                  1
+                ]
+              }
+            ]
+          }
+        },
+        "episode-13": {
+          "id": "episode-13",
+          "actor": "House",
+          "epoch": 12,
+          "selection": 21,
+          "kind": "run",
+          "score": "run-score-7",
+          "sourceEpisodes": [],
+          "trajectory": [
+            {
+              "t": [
+                0,
+                1
+              ],
+              "v": [
+                0,
+                1
+              ]
+            },
+            {
+              "t": [
+                1,
+                1
+              ],
+              "v": [
+                90,
+                1
+              ]
+            },
+            {
+              "t": [
+                2,
+                1
+              ],
+              "v": [
+                0,
+                1
+              ]
+            },
+            {
+              "t": [
+                4,
+                1
+              ],
+              "v": [
+                90,
+                1
+              ]
+            },
+            {
+              "t": [
+                6,
+                1
+              ],
+              "v": [
+                0,
+                1
+              ]
+            }
+          ],
+          "outputs": {
+            "angle": [
+              {
+                "t": [
+                  0,
+                  1
+                ],
+                "v": [
+                  0,
+                  1
+                ]
+              },
+              {
+                "t": [
+                  1,
+                  1
+                ],
+                "v": [
+                  90,
+                  1
+                ]
+              },
+              {
+                "t": [
+                  2,
+                  1
+                ],
+                "v": [
+                  0,
+                  1
+                ]
+              },
+              {
+                "t": [
+                  4,
+                  1
+                ],
+                "v": [
+                  90,
+                  1
+                ]
+              },
+              {
+                "t": [
+                  6,
+                  1
+                ],
+                "v": [
+                  0,
+                  1
+                ]
+              }
+            ],
+            "pressure": [
+              {
+                "t": [
+                  0,
+                  1
+                ],
+                "v": [
+                  0,
+                  1
+                ]
+              },
+              {
+                "t": [
+                  1,
+                  1
+                ],
+                "v": [
+                  1,
+                  1
+                ]
+              },
+              {
+                "t": [
+                  2,
+                  1
+                ],
+                "v": [
+                  0,
+                  1
+                ]
+              },
+              {
+                "t": [
+                  4,
+                  1
+                ],
+                "v": [
+                  1,
+                  1
+                ]
+              },
+              {
+                "t": [
+                  6,
+                  1
+                ],
+                "v": [
+                  0,
+                  1
+                ]
+              }
+            ]
+          },
+          "process": "D",
+          "interface": "reversed",
+          "method": "reverse",
+          "commands": [
+            {
+              "t": [
+                0,
+                1
+              ],
+              "v": [
+                90,
+                1
+              ]
+            },
+            {
+              "t": [
+                1,
+                1
+              ],
+              "v": [
+                0,
+                1
+              ]
+            },
+            {
+              "t": [
+                2,
+                1
+              ],
+              "v": [
+                90,
+                1
+              ]
+            },
+            {
+              "t": [
+                4,
+                1
+              ],
+              "v": [
+                0,
+                1
+              ]
+            },
+            {
+              "t": [
+                6,
+                1
+              ],
+              "v": [
+                90,
+                1
+              ]
+            }
+          ]
+        },
+        "episode-14": {
+          "id": "episode-14",
+          "actor": "Mara",
+          "epoch": 13,
+          "selection": 23,
+          "kind": "replay",
+          "score": "run-score-7",
+          "sourceEpisodes": [
+            "episode-13"
+          ],
+          "trajectory": [
+            {
+              "t": [
+                0,
+                1
+              ],
+              "v": [
+                0,
+                1
+              ]
+            },
+            {
+              "t": [
+                1,
+                1
+              ],
+              "v": [
+                90,
+                1
+              ]
+            },
+            {
+              "t": [
+                2,
+                1
+              ],
+              "v": [
+                0,
+                1
+              ]
+            },
+            {
+              "t": [
+                4,
+                1
+              ],
+              "v": [
+                90,
+                1
+              ]
+            },
+            {
+              "t": [
+                6,
+                1
+              ],
+              "v": [
+                0,
+                1
+              ]
+            }
+          ],
+          "outputs": {
+            "angle": [
+              {
+                "t": [
+                  0,
+                  1
+                ],
+                "v": [
+                  0,
+                  1
+                ]
+              },
+              {
+                "t": [
+                  1,
+                  1
+                ],
+                "v": [
+                  90,
+                  1
+                ]
+              },
+              {
+                "t": [
+                  2,
+                  1
+                ],
+                "v": [
+                  0,
+                  1
+                ]
+              },
+              {
+                "t": [
+                  4,
+                  1
+                ],
+                "v": [
+                  90,
+                  1
+                ]
+              },
+              {
+                "t": [
+                  6,
+                  1
+                ],
+                "v": [
+                  0,
+                  1
+                ]
+              }
+            ]
+          }
+        },
+        "episode-15": {
+          "id": "episode-15",
+          "actor": "House",
+          "epoch": 14,
+          "selection": 24,
+          "kind": "replay",
+          "score": "score-gesture-12",
+          "sourceEpisodes": [
+            "episode-1"
+          ],
+          "trajectory": [
+            {
+              "t": [
+                0,
+                1
+              ],
+              "v": [
+                0,
+                1
+              ]
+            },
+            {
+              "t": [
+                1,
+                1
+              ],
+              "v": [
+                45,
+                1
+              ]
+            },
+            {
+              "t": [
+                2,
+                1
+              ],
+              "v": [
+                90,
+                1
+              ]
+            },
+            {
+              "t": [
+                3,
+                1
+              ],
+              "v": [
+                45,
+                1
+              ]
+            },
+            {
+              "t": [
+                4,
+                1
+              ],
+              "v": [
+                0,
+                1
+              ]
+            }
+          ],
+          "outputs": {
+            "angle": [
+              {
+                "t": [
+                  0,
+                  1
+                ],
+                "v": [
+                  0,
+                  1
+                ]
+              },
+              {
+                "t": [
+                  1,
+                  1
+                ],
+                "v": [
+                  45,
+                  1
+                ]
+              },
+              {
+                "t": [
+                  2,
+                  1
+                ],
+                "v": [
+                  90,
+                  1
+                ]
+              },
+              {
+                "t": [
+                  3,
+                  1
+                ],
+                "v": [
+                  45,
+                  1
+                ]
+              },
+              {
+                "t": [
+                  4,
+                  1
+                ],
+                "v": [
+                  0,
+                  1
+                ]
+              }
+            ],
+            "pressure": [
+              {
+                "t": [
+                  0,
+                  1
+                ],
+                "v": [
+                  0,
+                  1
+                ]
+              },
+              {
+                "t": [
+                  1,
+                  1
+                ],
+                "v": [
+                  1,
+                  2
+                ]
+              },
+              {
+                "t": [
+                  2,
+                  1
+                ],
+                "v": [
+                  1,
+                  1
+                ]
+              },
+              {
+                "t": [
+                  3,
+                  1
+                ],
+                "v": [
+                  1,
+                  2
+                ]
+              },
+              {
+                "t": [
+                  4,
+                  1
+                ],
+                "v": [
+                  0,
+                  1
+                ]
+              }
+            ]
+          },
+          "group": "festival-24",
+          "role": "Local",
+          "message": "invitation-gesture-15"
+        },
+        "episode-16": {
+          "id": "episode-16",
+          "actor": "Distant",
+          "epoch": 14,
+          "selection": 24,
+          "kind": "replay",
+          "score": "score-gesture-12",
+          "sourceEpisodes": [
+            "episode-1"
+          ],
+          "trajectory": [
+            {
+              "t": [
+                0,
+                1
+              ],
+              "v": [
+                0,
+                1
+              ]
+            },
+            {
+              "t": [
+                1,
+                1
+              ],
+              "v": [
+                45,
+                1
+              ]
+            },
+            {
+              "t": [
+                2,
+                1
+              ],
+              "v": [
+                90,
+                1
+              ]
+            },
+            {
+              "t": [
+                3,
+                1
+              ],
+              "v": [
+                45,
+                1
+              ]
+            },
+            {
+              "t": [
+                4,
+                1
+              ],
+              "v": [
+                0,
+                1
+              ]
+            }
+          ],
+          "outputs": {
+            "angle": [
+              {
+                "t": [
+                  0,
+                  1
+                ],
+                "v": [
+                  0,
+                  1
+                ]
+              },
+              {
+                "t": [
+                  1,
+                  1
+                ],
+                "v": [
+                  45,
+                  1
+                ]
+              },
+              {
+                "t": [
+                  2,
+                  1
+                ],
+                "v": [
+                  90,
+                  1
+                ]
+              },
+              {
+                "t": [
+                  3,
+                  1
+                ],
+                "v": [
+                  45,
+                  1
+                ]
+              },
+              {
+                "t": [
+                  4,
+                  1
+                ],
+                "v": [
+                  0,
+                  1
+                ]
+              }
+            ],
+            "pressure": [
+              {
+                "t": [
+                  0,
+                  1
+                ],
+                "v": [
+                  0,
+                  1
+                ]
+              },
+              {
+                "t": [
+                  1,
+                  1
+                ],
+                "v": [
+                  1,
+                  2
+                ]
+              },
+              {
+                "t": [
+                  2,
+                  1
+                ],
+                "v": [
+                  1,
+                  1
+                ]
+              },
+              {
+                "t": [
+                  3,
+                  1
+                ],
+                "v": [
+                  1,
+                  2
+                ]
+              },
+              {
+                "t": [
+                  4,
+                  1
+                ],
+                "v": [
+                  0,
+                  1
+                ]
+              }
+            ]
+          },
+          "group": "festival-24",
+          "role": "Far",
+          "message": "invitation-gesture-16"
+        },
+        "episode-17": {
+          "id": "episode-17",
+          "actor": "Distant",
+          "epoch": 15,
+          "selection": 25,
+          "kind": "replay",
+          "score": "baseline",
+          "sourceEpisodes": [],
+          "trajectory": [
+            {
+              "t": [
+                0,
+                1
+              ],
+              "v": [
+                0,
+                1
+              ]
+            },
+            {
+              "t": [
+                2,
+                1
+              ],
+              "v": [
+                90,
+                1
+              ]
+            },
+            {
+              "t": [
+                3,
+                1
+              ],
+              "v": [
+                30,
+                1
+              ]
+            },
+            {
+              "t": [
+                5,
+                1
+              ],
+              "v": [
+                60,
+                1
+              ]
+            }
+          ],
+          "outputs": {
+            "angle": [
+              {
+                "t": [
+                  0,
+                  1
+                ],
+                "v": [
+                  0,
+                  1
+                ]
+              },
+              {
+                "t": [
+                  2,
+                  1
+                ],
+                "v": [
+                  90,
+                  1
+                ]
+              },
+              {
+                "t": [
+                  3,
+                  1
+                ],
+                "v": [
+                  30,
+                  1
+                ]
+              },
+              {
+                "t": [
+                  5,
+                  1
+                ],
+                "v": [
+                  60,
+                  1
+                ]
+              }
+            ]
+          }
+        }
+      },
+      "schools": {
+        "Local": {
+          "id": "Local",
+          "holder": "House",
+          "mailbox": [
+            "invitation-gesture-15"
+          ]
+        },
+        "Far": {
+          "id": "Far",
+          "holder": "Distant",
+          "mailbox": [
+            "invitation-gesture-16"
+          ]
+        }
+      },
+      "messages": {
+        "invitation-gesture-15": {
+          "id": "invitation-gesture-15",
+          "score": "score-gesture-12",
+          "role": "Local",
+          "invitation": true,
+          "sent": 18,
+          "due": 12,
+          "recipient": "House",
+          "received": 21
+        },
+        "invitation-gesture-16": {
+          "id": "invitation-gesture-16",
+          "score": "score-gesture-12",
+          "role": "Far",
+          "invitation": true,
+          "sent": 19,
+          "due": 12,
+          "recipient": "Distant",
+          "received": 21
+        }
+      },
+      "families": [
+        {
+          "a": "Mara",
+          "b": "relative-gesture-6",
+          "prefix": [
+            "episode-1",
+            "episode-2"
+          ],
+          "selection": 6
+        }
+      ],
+      "successions": [
+        {
+          "role": "Local",
+          "former": "Mara",
+          "successor": "House",
+          "selection": 20
+        }
+      ],
+      "lessons": [
+        {
+          "teacher": "Mara",
+          "learner": "relative-gesture-6",
+          "episode": "episode-4",
+          "score": "run-score-3",
+          "selection": 9,
+          "novel": false
+        },
+        {
+          "teacher": "relative-gesture-6",
+          "learner": "Mara",
+          "episode": "episode-5",
+          "score": "run-score-4",
+          "selection": 9,
+          "novel": true
+        },
+        {
+          "teacher": "Mara",
+          "learner": "House",
+          "episode": "episode-4",
+          "score": "run-score-3",
+          "selection": 16,
+          "novel": true
+        },
+        {
+          "teacher": "House",
+          "learner": "Mara",
+          "episode": "episode-13",
+          "score": "run-score-7",
+          "selection": 22,
+          "novel": true
+        }
+      ],
+      "ledger": [
+        {
+          "selection": 1,
+          "action": {
+            "type": "run",
+            "actor": "Mara",
+            "process": "A",
+            "method": "identity",
+            "interface": "normal"
+          },
+          "automatic": []
+        },
+        {
+          "selection": 2,
+          "action": {
+            "type": "run",
+            "actor": "Mara",
+            "process": "Tide",
+            "method": "identity",
+            "interface": "normal"
+          },
+          "automatic": []
+        },
+        {
+          "selection": 3,
+          "action": {
+            "type": "transform",
+            "id": "score-gesture-3",
+            "source": "episode-2",
+            "method": "tempo",
+            "name": "Fivefold Lens of Mara's Tide experience episode-2"
+          },
+          "automatic": []
+        },
+        {
+          "selection": 4,
+          "action": {
+            "type": "transform",
+            "id": "score-gesture-4",
+            "source": "score-gesture-3",
+            "method": "loom",
+            "name": "Touch Loom of Fivefold Lens of Mara's Tide experience episode-2"
+          },
+          "automatic": []
+        },
+        {
+          "selection": 5,
+          "action": {
+            "type": "perform",
+            "actor": "Ilen",
+            "score": "score-gesture-4",
+            "channel": "pressure"
+          },
+          "automatic": []
+        },
+        {
+          "selection": 6,
+          "action": {
+            "type": "fork",
+            "actor": "Mara",
+            "child": "relative-gesture-6",
+            "name": "Mara of the Other Road"
+          },
+          "automatic": []
+        },
+        {
+          "selection": 7,
+          "action": {
+            "type": "run",
+            "actor": "Mara",
+            "process": "A",
+            "method": "reverse",
+            "interface": "reversed"
+          },
+          "automatic": []
+        },
+        {
+          "selection": 8,
+          "action": {
+            "type": "run",
+            "actor": "relative-gesture-6",
+            "process": "B",
+            "method": "pressure",
+            "interface": "pressure"
+          },
+          "automatic": []
+        },
+        {
+          "selection": 9,
+          "action": {
+            "type": "reunion",
+            "a": "Mara",
+            "b": "relative-gesture-6",
+            "episodeA": "episode-4",
+            "episodeB": "episode-5"
+          },
+          "automatic": []
+        },
+        {
+          "selection": 10,
+          "action": {
+            "type": "recall",
+            "actor": "Mara",
+            "score": "run-score-4",
+            "channel": "angle"
+          },
+          "automatic": []
+        },
+        {
+          "selection": 11,
+          "action": {
+            "type": "recall",
+            "actor": "relative-gesture-6",
+            "score": "run-score-3",
+            "channel": "angle"
+          },
+          "automatic": []
+        },
+        {
+          "selection": 12,
+          "action": {
+            "type": "run",
+            "actor": "Mara",
+            "process": "C",
+            "method": "pressure",
+            "interface": "pressure"
+          },
+          "automatic": []
+        },
+        {
+          "selection": 13,
+          "action": {
+            "type": "run",
+            "actor": "relative-gesture-6",
+            "process": "C",
+            "method": "reverse",
+            "interface": "reversed"
+          },
+          "automatic": []
+        },
+        {
+          "selection": 14,
+          "action": {
+            "type": "transform",
+            "id": "score-gesture-12",
+            "source": "episode-1",
+            "method": "duet",
+            "name": "Beacon Canon of Mara's A experience episode-1"
+          },
+          "automatic": []
+        },
+        {
+          "selection": 15,
+          "action": {
+            "type": "ensemble",
+            "score": "score-gesture-12",
+            "angle": "Sori",
+            "pressure": "Ilen"
+          },
+          "automatic": []
+        },
+        {
+          "selection": 16,
+          "action": {
+            "type": "teach",
+            "teacher": "Mara",
+            "learner": "House",
+            "episode": "episode-4"
+          },
+          "automatic": []
+        },
+        {
+          "selection": 17,
+          "action": {
+            "type": "perform",
+            "actor": "House",
+            "score": "run-score-3",
+            "channel": "angle"
+          },
+          "automatic": []
+        },
+        {
+          "selection": 18,
+          "action": {
+            "type": "send",
+            "id": "invitation-gesture-15",
+            "score": "score-gesture-12",
+            "role": "Local",
+            "invitation": true
+          },
+          "automatic": []
+        },
+        {
+          "selection": 19,
+          "action": {
+            "type": "send",
+            "id": "invitation-gesture-16",
+            "score": "score-gesture-12",
+            "role": "Far",
+            "invitation": true
+          },
+          "automatic": []
+        },
+        {
+          "selection": 20,
+          "action": {
+            "type": "succeed",
+            "role": "Local",
+            "successor": "House"
+          },
+          "automatic": []
+        },
+        {
+          "selection": 21,
+          "action": {
+            "type": "run",
+            "actor": "House",
+            "process": "D",
+            "method": "reverse",
+            "interface": "reversed"
+          },
+          "automatic": [
+            "deliver invitation-gesture-15 to House",
+            "deliver invitation-gesture-16 to Distant"
+          ]
+        },
+        {
+          "selection": 22,
+          "action": {
+            "type": "teach",
+            "teacher": "House",
+            "learner": "Mara",
+            "episode": "episode-13"
+          },
+          "automatic": []
+        },
+        {
+          "selection": 23,
+          "action": {
+            "type": "perform",
+            "actor": "Mara",
+            "score": "run-score-7",
+            "channel": "angle"
+          },
+          "automatic": []
+        },
+        {
+          "selection": 24,
+          "action": {
+            "type": "festival",
+            "messages": [
+              "invitation-gesture-15",
+              "invitation-gesture-16"
+            ]
+          },
+          "automatic": []
+        },
+        {
+          "selection": 25,
+          "action": {
+            "type": "perform",
+            "actor": "Distant",
+            "score": "baseline",
+            "channel": "angle"
+          },
+          "automatic": []
+        }
+      ]
+    },
+    "pieces": {
+      "watchhouse": {
+        "id": "watchhouse",
+        "name": "Watchhouse",
+        "kind": "site",
+        "process": "A",
+        "interface": "normal",
+        "method": "identity",
+        "description": "Lives A through normal sensing/movement using identity; retains the actual practice."
+      },
+      "tidepool": {
+        "id": "tidepool",
+        "name": "Long Tide Pool",
+        "kind": "site",
+        "process": "Tide",
+        "interface": "normal",
+        "method": "identity",
+        "description": "Lives Tide through normal sensing/movement using identity; retains the actual practice."
+      },
+      "mirror-quay": {
+        "id": "mirror-quay",
+        "name": "Mirror Quay",
+        "kind": "site",
+        "process": "A",
+        "interface": "reversed",
+        "method": "reverse",
+        "description": "Lives A through reversed sensing/movement using reverse; retains the actual practice."
+      },
+      "pilgrim-inlet": {
+        "id": "pilgrim-inlet",
+        "name": "Pilgrim Inlet",
+        "kind": "site",
+        "process": "B",
+        "interface": "pressure",
+        "method": "pressure",
+        "description": "Lives B through pressure sensing/movement using pressure; retains the actual practice."
+      },
+      "lantern-marsh": {
+        "id": "lantern-marsh",
+        "name": "Lantern Marsh",
+        "kind": "site",
+        "process": "C",
+        "interface": "pressure",
+        "method": "pressure",
+        "description": "Lives C through pressure sensing/movement using pressure; retains the actual practice."
+      },
+      "mirror-marsh": {
+        "id": "mirror-marsh",
+        "name": "Mirror Marsh",
+        "kind": "site",
+        "process": "C",
+        "interface": "reversed",
+        "method": "reverse",
+        "description": "Lives C through reversed sensing/movement using reverse; retains the actual practice."
+      },
+      "storm-archive": {
+        "id": "storm-archive",
+        "name": "Storm Archive",
+        "kind": "site",
+        "process": "D",
+        "interface": "reversed",
+        "method": "reverse",
+        "description": "Lives D through reversed sensing/movement using reverse; retains the actual practice."
+      },
+      "fivefold-lens": {
+        "id": "fivefold-lens",
+        "name": "Fivefold Lens",
+        "kind": "tool",
+        "method": "tempo",
+        "description": "Reusable disclosed transform: {\"name\":\"Fivefold Lens\",\"kind\":\"render\",\"factor\":[1,5],\"channels\":[\"angle\"]}"
+      },
+      "touch-loom": {
+        "id": "touch-loom",
+        "name": "Touch Loom",
+        "kind": "tool",
+        "method": "loom",
+        "description": "Reusable disclosed transform: {\"name\":\"Touch Loom\",\"kind\":\"render\",\"factor\":1,\"channels\":[\"pressure\"]}"
+      },
+      "beacon-canon": {
+        "id": "beacon-canon",
+        "name": "Beacon Canon",
+        "kind": "tool",
+        "method": "duet",
+        "description": "Reusable disclosed transform: {\"name\":\"Beacon Duet\",\"kind\":\"render\",\"factor\":1,\"channels\":[\"angle\",\"pressure\"]}"
+      },
+      "whole-tide-loom": {
+        "id": "whole-tide-loom",
+        "name": "Whole Tide Loom",
+        "kind": "tool",
+        "method": "tactileTide",
+        "description": "Reusable disclosed transform: {\"name\":\"Whole Tide Loom\",\"kind\":\"render\",\"factor\":[1,5],\"channels\":[\"pressure\"]}"
+      },
+      "two-roads": {
+        "id": "two-roads",
+        "name": "Two Roads",
+        "kind": "roads",
+        "description": "A willing local person continues as two relatives sharing their actual lived prefix."
+      },
+      "beacon-pair": {
+        "id": "beacon-pair",
+        "name": "Beacon Pair",
+        "kind": "duo",
+        "angle": "Sori",
+        "pressure": "Ilen",
+        "description": "Sori moves the beacon; Ilen voices its pressure. These are two actual named roles."
+      },
+      "school:Local": {
+        "id": "school:Local",
+        "name": "Local School",
+        "kind": "school",
+        "ref": "Local",
+        "description": "Place a capable local person here to transfer request routing; former teacher continues."
+      },
+      "mailbox:Local": {
+        "id": "mailbox:Local",
+        "name": "Local Invitation Mailbox",
+        "kind": "mailbox",
+        "ref": "Local",
+        "description": "A score placed here invites whoever holds this school when the letter arrives next activity."
+      },
+      "school:Far": {
+        "id": "school:Far",
+        "name": "Far School",
+        "kind": "school",
+        "ref": "Far",
+        "description": "Place a capable local person here to transfer request routing; former teacher continues."
+      },
+      "mailbox:Far": {
+        "id": "mailbox:Far",
+        "name": "Far Invitation Mailbox",
+        "kind": "mailbox",
+        "ref": "Far",
+        "description": "A score placed here invites whoever holds this school when the letter arrives next activity."
+      },
+      "person:Mara": {
+        "id": "person:Mara",
+        "name": "Mara",
+        "kind": "person",
+        "ref": "Mara",
+        "description": "Local living person; outputs angle. Dual-channel solo defaults to angle."
+      },
+      "person:Ilen": {
+        "id": "person:Ilen",
+        "name": "Ilen",
+        "kind": "person",
+        "ref": "Ilen",
+        "description": "Local living person; outputs pressure. Dual-channel solo defaults to angle."
+      },
+      "person:Sori": {
+        "id": "person:Sori",
+        "name": "Sori",
+        "kind": "person",
+        "ref": "Sori",
+        "description": "Local living person; outputs angle. Dual-channel solo defaults to angle."
+      },
+      "person:House": {
+        "id": "person:House",
+        "name": "House",
+        "kind": "person",
+        "ref": "House",
+        "description": "Local living person; outputs angle, pressure. Dual-channel solo defaults to angle."
+      },
+      "person:Distant": {
+        "id": "person:Distant",
+        "name": "Distant",
+        "kind": "person",
+        "ref": "Distant",
+        "description": "Distant living person; outputs angle, pressure. Dual-channel solo defaults to angle."
+      },
+      "score:baseline": {
+        "id": "score:baseline",
+        "name": "Inlet local walk",
+        "kind": "score",
+        "ref": "baseline",
+        "description": "angle score; exact trajectory and actual ancestry inspectable."
+      },
+      "episode:episode-1": {
+        "id": "episode:episode-1",
+        "name": "Mara's A experience episode-1",
+        "kind": "episode",
+        "ref": "episode-1",
+        "description": "Actual run at epoch 1; source and practice inspectable."
+      },
+      "score:run-score-1": {
+        "id": "score:run-score-1",
+        "name": "Mara: A",
+        "kind": "score",
+        "ref": "run-score-1",
+        "description": "angle score; exact trajectory and actual ancestry inspectable."
+      },
+      "episode:episode-2": {
+        "id": "episode:episode-2",
+        "name": "Mara's Tide experience episode-2",
+        "kind": "episode",
+        "ref": "episode-2",
+        "description": "Actual run at epoch 2; source and practice inspectable."
+      },
+      "score:run-score-2": {
+        "id": "score:run-score-2",
+        "name": "Mara: Tide",
+        "kind": "score",
+        "ref": "run-score-2",
+        "description": "angle score; exact trajectory and actual ancestry inspectable."
+      },
+      "score:score-gesture-3": {
+        "id": "score:score-gesture-3",
+        "name": "Fivefold Lens of Mara's Tide experience episode-2",
+        "kind": "score",
+        "ref": "score-gesture-3",
+        "description": "angle score; exact trajectory and actual ancestry inspectable."
+      },
+      "score:score-gesture-4": {
+        "id": "score:score-gesture-4",
+        "name": "Touch Loom of Fivefold Lens of Mara's Tide experience episode-2",
+        "kind": "score",
+        "ref": "score-gesture-4",
+        "description": "pressure score; exact trajectory and actual ancestry inspectable."
+      },
+      "episode:episode-3": {
+        "id": "episode:episode-3",
+        "name": "Ilen's remembered experience episode-3",
+        "kind": "episode",
+        "ref": "episode-3",
+        "description": "Actual replay at epoch 3; source and practice inspectable."
+      },
+      "person:relative-gesture-6": {
+        "id": "person:relative-gesture-6",
+        "name": "Mara of the Other Road",
+        "kind": "person",
+        "ref": "relative-gesture-6",
+        "description": "Local living person; outputs angle. Dual-channel solo defaults to angle."
+      },
+      "episode:episode-4": {
+        "id": "episode:episode-4",
+        "name": "Mara's A experience episode-4",
+        "kind": "episode",
+        "ref": "episode-4",
+        "description": "Actual run at epoch 4; source and practice inspectable."
+      },
+      "score:run-score-3": {
+        "id": "score:run-score-3",
+        "name": "Mara: A",
+        "kind": "score",
+        "ref": "run-score-3",
+        "description": "angle score; exact trajectory and actual ancestry inspectable."
+      },
+      "episode:episode-5": {
+        "id": "episode:episode-5",
+        "name": "Mara of the Other Road's B experience episode-5",
+        "kind": "episode",
+        "ref": "episode-5",
+        "description": "Actual run at epoch 5; source and practice inspectable."
+      },
+      "score:run-score-4": {
+        "id": "score:run-score-4",
+        "name": "Mara of the Other Road: B",
+        "kind": "score",
+        "ref": "run-score-4",
+        "description": "angle score; exact trajectory and actual ancestry inspectable."
+      },
+      "episode:episode-6": {
+        "id": "episode:episode-6",
+        "name": "Mara's remembered experience episode-6",
+        "kind": "episode",
+        "ref": "episode-6",
+        "description": "Actual replay at epoch 6; source and practice inspectable."
+      },
+      "episode:episode-7": {
+        "id": "episode:episode-7",
+        "name": "Mara of the Other Road's remembered experience episode-7",
+        "kind": "episode",
+        "ref": "episode-7",
+        "description": "Actual replay at epoch 7; source and practice inspectable."
+      },
+      "episode:episode-8": {
+        "id": "episode:episode-8",
+        "name": "Mara's C experience episode-8",
+        "kind": "episode",
+        "ref": "episode-8",
+        "description": "Actual run at epoch 8; source and practice inspectable."
+      },
+      "score:run-score-5": {
+        "id": "score:run-score-5",
+        "name": "Mara: C",
+        "kind": "score",
+        "ref": "run-score-5",
+        "description": "angle score; exact trajectory and actual ancestry inspectable."
+      },
+      "episode:episode-9": {
+        "id": "episode:episode-9",
+        "name": "Mara of the Other Road's C experience episode-9",
+        "kind": "episode",
+        "ref": "episode-9",
+        "description": "Actual run at epoch 9; source and practice inspectable."
+      },
+      "score:run-score-6": {
+        "id": "score:run-score-6",
+        "name": "Mara of the Other Road: C",
+        "kind": "score",
+        "ref": "run-score-6",
+        "description": "angle score; exact trajectory and actual ancestry inspectable."
+      },
+      "score:score-gesture-12": {
+        "id": "score:score-gesture-12",
+        "name": "Beacon Canon of Mara's A experience episode-1",
+        "kind": "score",
+        "ref": "score-gesture-12",
+        "description": "angle/pressure score; exact trajectory and actual ancestry inspectable."
+      },
+      "episode:episode-10": {
+        "id": "episode:episode-10",
+        "name": "Sori's remembered experience episode-10",
+        "kind": "episode",
+        "ref": "episode-10",
+        "description": "Actual replay at epoch 10; source and practice inspectable."
+      },
+      "episode:episode-11": {
+        "id": "episode:episode-11",
+        "name": "Ilen's remembered experience episode-11",
+        "kind": "episode",
+        "ref": "episode-11",
+        "description": "Actual replay at epoch 10; source and practice inspectable."
+      },
+      "episode:episode-12": {
+        "id": "episode:episode-12",
+        "name": "House's remembered experience episode-12",
+        "kind": "episode",
+        "ref": "episode-12",
+        "description": "Actual replay at epoch 11; source and practice inspectable."
+      },
+      "invitation:invitation-gesture-15": {
+        "id": "invitation:invitation-gesture-15",
+        "name": "Local invitation: Beacon Canon of Mara's A experience episode-1",
+        "kind": "invitation",
+        "ref": "invitation-gesture-15",
+        "description": "Received by House."
+      },
+      "invitation:invitation-gesture-16": {
+        "id": "invitation:invitation-gesture-16",
+        "name": "Far invitation: Beacon Canon of Mara's A experience episode-1",
+        "kind": "invitation",
+        "ref": "invitation-gesture-16",
+        "description": "Received by Distant."
+      },
+      "episode:episode-13": {
+        "id": "episode:episode-13",
+        "name": "House's D experience episode-13",
+        "kind": "episode",
+        "ref": "episode-13",
+        "description": "Actual run at epoch 12; source and practice inspectable."
+      },
+      "score:run-score-7": {
+        "id": "score:run-score-7",
+        "name": "House: D",
+        "kind": "score",
+        "ref": "run-score-7",
+        "description": "angle/pressure score; exact trajectory and actual ancestry inspectable."
+      },
+      "episode:episode-14": {
+        "id": "episode:episode-14",
+        "name": "Mara's remembered experience episode-14",
+        "kind": "episode",
+        "ref": "episode-14",
+        "description": "Actual replay at epoch 13; source and practice inspectable."
+      },
+      "episode:episode-15": {
+        "id": "episode:episode-15",
+        "name": "House's remembered experience episode-15",
+        "kind": "episode",
+        "ref": "episode-15",
+        "description": "Actual replay at epoch 14; source and practice inspectable."
+      },
+      "episode:episode-16": {
+        "id": "episode:episode-16",
+        "name": "Distant's remembered experience episode-16",
+        "kind": "episode",
+        "ref": "episode-16",
+        "description": "Actual replay at epoch 14; source and practice inspectable."
+      },
+      "episode:episode-17": {
+        "id": "episode:episode-17",
+        "name": "Distant's remembered experience episode-17",
+        "kind": "episode",
+        "ref": "episode-17",
+        "description": "Actual replay at epoch 15; source and practice inspectable."
+      }
+    },
+    "gestures": [
+      {
+        "input": {
+          "left": "person:Mara",
+          "right": "watchhouse"
+        },
+        "commands": [
+          {
+            "type": "run",
+            "actor": "Mara",
+            "process": "A",
+            "method": "identity",
+            "interface": "normal"
+          }
+        ],
+        "results": [
+          "episode:episode-1",
+          "score:run-score-1"
+        ],
+        "automatic": []
+      },
+      {
+        "input": {
+          "left": "person:Mara",
+          "right": "tidepool"
+        },
+        "commands": [
+          {
+            "type": "run",
+            "actor": "Mara",
+            "process": "Tide",
+            "method": "identity",
+            "interface": "normal"
+          }
+        ],
+        "results": [
+          "episode:episode-2",
+          "score:run-score-2"
+        ],
+        "automatic": []
+      },
+      {
+        "input": {
+          "left": "episode:episode-2",
+          "right": "fivefold-lens"
+        },
+        "commands": [
+          {
+            "type": "transform",
+            "id": "score-gesture-3",
+            "source": "episode-2",
+            "method": "tempo",
+            "name": "Fivefold Lens of Mara's Tide experience episode-2"
+          }
+        ],
+        "results": [
+          "score:score-gesture-3"
+        ],
+        "automatic": []
+      },
+      {
+        "input": {
+          "left": "score:score-gesture-3",
+          "right": "touch-loom"
+        },
+        "commands": [
+          {
+            "type": "transform",
+            "id": "score-gesture-4",
+            "source": "score-gesture-3",
+            "method": "loom",
+            "name": "Touch Loom of Fivefold Lens of Mara's Tide experience episode-2"
+          }
+        ],
+        "results": [
+          "score:score-gesture-4"
+        ],
+        "automatic": []
+      },
+      {
+        "input": {
+          "left": "person:Ilen",
+          "right": "score:score-gesture-4"
+        },
+        "commands": [
+          {
+            "type": "perform",
+            "actor": "Ilen",
+            "score": "score-gesture-4",
+            "channel": "pressure"
+          }
+        ],
+        "results": [
+          "episode:episode-3"
+        ],
+        "automatic": []
+      },
+      {
+        "input": {
+          "left": "person:Mara",
+          "right": "two-roads"
+        },
+        "commands": [
+          {
+            "type": "fork",
+            "actor": "Mara",
+            "child": "relative-gesture-6",
+            "name": "Mara of the Other Road"
+          }
+        ],
+        "results": [
+          "person:relative-gesture-6"
+        ],
+        "automatic": []
+      },
+      {
+        "input": {
+          "left": "person:Mara",
+          "right": "mirror-quay"
+        },
+        "commands": [
+          {
+            "type": "run",
+            "actor": "Mara",
+            "process": "A",
+            "method": "reverse",
+            "interface": "reversed"
+          }
+        ],
+        "results": [
+          "episode:episode-4",
+          "score:run-score-3"
+        ],
+        "automatic": []
+      },
+      {
+        "input": {
+          "left": "person:relative-gesture-6",
+          "right": "pilgrim-inlet"
+        },
+        "commands": [
+          {
+            "type": "run",
+            "actor": "relative-gesture-6",
+            "process": "B",
+            "method": "pressure",
+            "interface": "pressure"
+          }
+        ],
+        "results": [
+          "episode:episode-5",
+          "score:run-score-4"
+        ],
+        "automatic": []
+      },
+      {
+        "input": {
+          "left": "episode:episode-4",
+          "right": "episode:episode-5"
+        },
+        "commands": [
+          {
+            "type": "reunion",
+            "a": "Mara",
+            "b": "relative-gesture-6",
+            "episodeA": "episode-4",
+            "episodeB": "episode-5"
+          },
+          {
+            "type": "recall",
+            "actor": "Mara",
+            "score": "run-score-4",
+            "channel": "angle"
+          },
+          {
+            "type": "recall",
+            "actor": "relative-gesture-6",
+            "score": "run-score-3",
+            "channel": "angle"
+          }
+        ],
+        "results": [
+          "episode:episode-6",
+          "episode:episode-7"
+        ],
+        "automatic": []
+      },
+      {
+        "input": {
+          "left": "person:Mara",
+          "right": "lantern-marsh"
+        },
+        "commands": [
+          {
+            "type": "run",
+            "actor": "Mara",
+            "process": "C",
+            "method": "pressure",
+            "interface": "pressure"
+          }
+        ],
+        "results": [
+          "episode:episode-8",
+          "score:run-score-5"
+        ],
+        "automatic": []
+      },
+      {
+        "input": {
+          "left": "person:relative-gesture-6",
+          "right": "mirror-marsh"
+        },
+        "commands": [
+          {
+            "type": "run",
+            "actor": "relative-gesture-6",
+            "process": "C",
+            "method": "reverse",
+            "interface": "reversed"
+          }
+        ],
+        "results": [
+          "episode:episode-9",
+          "score:run-score-6"
+        ],
+        "automatic": []
+      },
+      {
+        "input": {
+          "left": "episode:episode-1",
+          "right": "beacon-canon"
+        },
+        "commands": [
+          {
+            "type": "transform",
+            "id": "score-gesture-12",
+            "source": "episode-1",
+            "method": "duet",
+            "name": "Beacon Canon of Mara's A experience episode-1"
+          }
+        ],
+        "results": [
+          "score:score-gesture-12"
+        ],
+        "automatic": []
+      },
+      {
+        "input": {
+          "left": "score:score-gesture-12",
+          "right": "beacon-pair"
+        },
+        "commands": [
+          {
+            "type": "ensemble",
+            "score": "score-gesture-12",
+            "angle": "Sori",
+            "pressure": "Ilen"
+          }
+        ],
+        "results": [
+          "episode:episode-10",
+          "episode:episode-11"
+        ],
+        "automatic": []
+      },
+      {
+        "input": {
+          "left": "episode:episode-4",
+          "right": "person:House"
+        },
+        "commands": [
+          {
+            "type": "teach",
+            "teacher": "Mara",
+            "learner": "House",
+            "episode": "episode-4"
+          },
+          {
+            "type": "perform",
+            "actor": "House",
+            "score": "run-score-3",
+            "channel": "angle"
+          }
+        ],
+        "results": [
+          "episode:episode-12"
+        ],
+        "automatic": []
+      },
+      {
+        "input": {
+          "left": "score:score-gesture-12",
+          "right": "mailbox:Local"
+        },
+        "commands": [
+          {
+            "type": "send",
+            "id": "invitation-gesture-15",
+            "score": "score-gesture-12",
+            "role": "Local",
+            "invitation": true
+          }
+        ],
+        "results": [
+          "invitation:invitation-gesture-15"
+        ],
+        "automatic": []
+      },
+      {
+        "input": {
+          "left": "score:score-gesture-12",
+          "right": "mailbox:Far"
+        },
+        "commands": [
+          {
+            "type": "send",
+            "id": "invitation-gesture-16",
+            "score": "score-gesture-12",
+            "role": "Far",
+            "invitation": true
+          }
+        ],
+        "results": [
+          "invitation:invitation-gesture-16"
+        ],
+        "automatic": []
+      },
+      {
+        "input": {
+          "left": "person:House",
+          "right": "school:Local"
+        },
+        "commands": [
+          {
+            "type": "succeed",
+            "role": "Local",
+            "successor": "House"
+          }
+        ],
+        "results": [],
+        "automatic": []
+      },
+      {
+        "input": {
+          "left": "person:House",
+          "right": "storm-archive"
+        },
+        "commands": [
+          {
+            "type": "run",
+            "actor": "House",
+            "process": "D",
+            "method": "reverse",
+            "interface": "reversed"
+          }
+        ],
+        "results": [
+          "episode:episode-13",
+          "score:run-score-7"
+        ],
+        "automatic": [
+          "deliver invitation-gesture-15 to House",
+          "deliver invitation-gesture-16 to Distant"
+        ]
+      },
+      {
+        "input": {
+          "left": "episode:episode-13",
+          "right": "person:Mara"
+        },
+        "commands": [
+          {
+            "type": "teach",
+            "teacher": "House",
+            "learner": "Mara",
+            "episode": "episode-13"
+          },
+          {
+            "type": "perform",
+            "actor": "Mara",
+            "score": "run-score-7",
+            "channel": "angle"
+          }
+        ],
+        "results": [
+          "episode:episode-14"
+        ],
+        "automatic": []
+      },
+      {
+        "input": {
+          "left": "invitation:invitation-gesture-15",
+          "right": "invitation:invitation-gesture-16"
+        },
+        "commands": [
+          {
+            "type": "festival",
+            "messages": [
+              "invitation-gesture-15",
+              "invitation-gesture-16"
+            ]
+          }
+        ],
+        "results": [
+          "episode:episode-15",
+          "episode:episode-16"
+        ],
+        "automatic": []
+      },
+      {
+        "input": {
+          "left": "person:Distant",
+          "right": "score:baseline"
+        },
+        "commands": [
+          {
+            "type": "perform",
+            "actor": "Distant",
+            "score": "baseline",
+            "channel": "angle"
+          }
+        ],
+        "results": [
+          "episode:episode-17"
+        ],
+        "automatic": []
+      }
+    ]
+  },
+  "projects": {
+    "shortTide": true,
+    "divergentLives": true,
+    "sharedPerformance": true,
+    "reciprocalSchool": true,
+    "distantLocalLives": true,
+    "roleContinuity": true
+  },
+  "gestures": 21,
+  "substrateCommands": 25,
+  "automaticDeliveries": 2
+}

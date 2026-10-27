@@ -1,0 +1,36 @@
+/** CLI mechanics only, source-exposed audit, never a player capture. */
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import fs from 'node:fs';
+import os from 'node:os';
+import path from 'node:path';
+import {spawnSync} from 'node:child_process';
+const cli=path.resolve('experiments/ideas-history-estuary-play.ts');
+test('audit CLI: previews/rejections preserve bytes; capture full init, delivery, terminal finish',()=>{
+ const cwd=fs.mkdtempSync(path.join(os.tmpdir(),'estuary-source-audit-'));
+ const dir=path.join(cwd,'results/ideas-history-estuary-players/audit');
+ const call=(command:string,arg?:unknown)=>spawnSync(process.execPath,[cli,command,'audit',...(arg===undefined?[]:[typeof arg==='string'?arg:JSON.stringify(arg)])],{cwd,encoding:'utf8'});
+ const state=()=>fs.readFileSync(path.join(dir,'state.json'),'utf8');
+ const invoke={type:'run',actor:'Mara',process:'A',method:'identity',interface:'normal'};
+ assert.equal(call('init').status,0);const pristine=state();
+ const init=JSON.parse(fs.readFileSync(path.join(dir,'capture.jsonl'),'utf8').trim());
+ assert(init.output);assert.deepEqual(init.output.families,[]);assert.deepEqual(init.output.lessons,[]);assert.deepEqual(init.output.successions,[]);
+ const p=call('preview',invoke);assert.equal(p.status,0);assert.equal(state(),pristine);
+ assert.equal(JSON.parse(p.stdout).hypothetical,true);assert.equal(JSON.parse(p.stdout).acceptedSelection,0);assert.equal(JSON.parse(p.stdout).forecast.selections,1);
+ assert.equal(call('preview',{...invoke,actor:'missing'}).status,1);assert.equal(state(),pristine);
+ assert.equal(call('act',{...invoke,actor:'missing'}).status,1);assert.equal(state(),pristine);
+ assert.equal(call('act',invoke).status,0);
+ assert.equal(call('act',{type:'send',id:'mail',score:'run-score-1',actor:'Distant',invitation:false}).status,0);
+ const pending=state();
+ const forecast=call('preview',{type:'perform',actor:'Distant',score:'run-score-1',channel:'angle'});
+ assert.equal(forecast.status,0);assert.equal(state(),pending);assert.equal(JSON.parse(forecast.stdout).automatic.length,1);
+ assert.equal(JSON.parse(pending).messages.mail.received,undefined);
+ assert.equal(call('act',{type:'perform',actor:'Distant',score:'run-score-1',channel:'angle'}).status,0);
+ const actual=state();assert.equal(JSON.parse(actual).selections,3);assert.equal(JSON.parse(actual).messages.mail.recipient,'Distant');
+ assert.equal(call('finish','Source-exposed CLI audit, not enjoyment evidence.').status,0);
+ assert.equal(call('act',invoke).status,1);assert.equal(state(),actual);
+ assert.equal(call('finish','duplicate').status,1);assert.equal(call('view').status,0);assert.equal(state(),actual);
+ const capture=fs.readFileSync(path.join(dir,'capture.jsonl'),'utf8').trim().split('\n').map(x=>JSON.parse(x));
+ assert.equal(capture.filter(e=>e.type==='accepted').length,3);assert.equal(capture.filter(e=>e.type==='finish').length,1);assert.equal(capture.filter(e=>e.type==='preview').length,3);
+ assert.equal(capture.filter(e=>e.type==='accepted').flatMap(e=>e.automatic).length,1);
+});
