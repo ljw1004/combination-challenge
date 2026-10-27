@@ -1,0 +1,1 @@
+This intermediate run predates the final Wheels-incorporation policy. It exposed stale Frame+Motor assumptions in mars-slots-independent.test.ts, outside the named-only glob; these tests were subsequently adapted to the new user contract. This is not final validation evidence.

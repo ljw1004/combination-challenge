@@ -9,3 +9,5 @@ test('authored retired inputs have no other recipe, goal or later supply depende
  // No automatic retirement is inferred for other recipe leaves or everyday materials.
  assert(R.filter(r=>r.id!=='repair-radio').every(r=>!r.retire?.length));
 });
+
+ test('Rover wheels use incorporation metadata, never successor-retirement inference',()=>{const rover=R.find(r=>r.id==='rover')!;assert.deepEqual(rover.incorporate,['wheels']);assert.equal(rover.retire,undefined);assert(R.filter(r=>r.id!=='rover').every(r=>!r.incorporate?.length));});

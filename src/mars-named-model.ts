@@ -2,7 +2,7 @@
 import type {NamedCapability,NamedGoal,RoverSlot} from './mars-named-content.ts';
 import {NAMED_CONCEPTS,NAMED_RECIPES,NAMED_LOCATIONS,NAMED_GOALS,NAMED_LEVELS,NAMED_WITNESS,NAMED_STARTING_SUPPLIES,ROVER_SLOTS} from './mars-named-content.ts';
 export const SAVE_KEY='mars-named-portable-v1';
-export const VERSION='mars-named-slots-2';
+export const VERSION='mars-named-slots-3';
 export type Point={x:number;y:number};
 export type Token={id:string;kind:string;scene:string;location:string|null;x:number;y:number;slots?:Partial<Record<RoverSlot,string>>};
 export type State={version:typeof VERSION;level:string;known:string[];tokens:Token[];achieved:string[];unlocked:number;nextId:number;actions:number;introduced:string[];revealed:string[];retired?:string[];locationPositions?:Record<string,Point>};
@@ -13,19 +13,19 @@ export type ResultNotice={message:string;created?:string;updated?:string;install
 const clone=<T>(x:T):T=>structuredClone(x);
 export const concept=(id:string)=>NAMED_CONCEPTS.find(c=>c.id===id);
 /** Authored functional contracts, never label matching, recipe ancestry or contained-part inference. */
-export const roverSlots=(t:Token)=>t.kind==='rover'?ROVER_SLOTS.filter(slot=>slot.required||!!t.slots?.[slot.id]).map(slot=>({...slot,filled:t.slots?.[slot.id]===slot.kind})):[];
+export const roverSlots=(t:Pick<Token,'kind'|'slots'>)=>t.kind==='rover'?ROVER_SLOTS.filter(slot=>slot.id==='wheels'?!t.slots?.wheels:slot.required||!!t.slots?.[slot.id]).map(slot=>({...slot,filled:t.slots?.[slot.id]===slot.kind})):[];
 export function hasCapability(t:Pick<Token,'kind'|'slots'>,capability:NamedCapability):boolean{
  if(t.kind==='rover'){
   const radio=t.slots?.radio==='radio',charger=t.slots?.charger==='solar-charger';
   if(capability==='working-radio')return radio;
   if(capability==='solar-radio')return radio&&charger;
-  if(capability==='solar-travel')return charger&&t.slots?.wheels==='wheels';
+  if(capability==='solar-travel')return charger&&t.slots?.wheels==='wheels'&&t.slots?.engine==='motor';
   return false; // No inferred dish range, generic component inheritance or unmodeled wiring.
  }
  return concept(t.kind)?.capabilities.includes(capability)??false;
 }
 /** Remaining authored uses, including future objectives; exhausted unique outputs are not future uses. */
-export function hasFurtherUse(s:State,kind:string):boolean{return NAMED_RECIPES.some(r=>(r.a===kind||r.b===kind)&&!s.tokens.some(t=>t.kind===r.result)&&!s.retired?.includes(r.result))||NAMED_GOALS.some(g=>g.concept===kind&&(g.kind==='place'||!s.known.includes(kind)))||s.tokens.some(t=>t.kind==='rover'&&ROVER_SLOTS.some(slot=>slot.kind===kind&&!t.slots?.[slot.id]));}
+export function hasFurtherUse(s:State,kind:string,completedResult?:string):boolean{return NAMED_RECIPES.some(r=>r.result!==completedResult&&(r.id!=='rover-from-cart'||s.tokens.some(t=>t.kind==='cart'))&&(r.a===kind||r.b===kind)&&!s.tokens.some(t=>t.kind===r.result)&&!s.retired?.includes(r.result))||NAMED_GOALS.some(g=>g.concept===kind&&(g.kind==='place'||!s.known.includes(kind)))||s.tokens.some(t=>t.kind==='rover'&&ROVER_SLOTS.some(slot=>slot.kind===kind&&!t.slots?.[slot.id]));}
 export const satisfiesGoal=(t:Token,g:NamedGoal):boolean=>g.kind==='place'&&t.location===g.location&&(g.capability?hasCapability(t,g.capability):t.kind===g.concept);
 export const location=(id:string)=>NAMED_LOCATIONS.find(p=>p.id===id);
 export const level=(s:State)=>NAMED_LEVELS.find(l=>l.id===s.level)!;
@@ -34,7 +34,7 @@ export const isVisible=(_s:State,_t:Token)=>true;
 export const visibleTokens=(s:State)=>s.tokens.filter(t=>isVisible(s,t));
 export function mapPositions(s:State):Record<string,Point>{const ps=NAMED_LOCATIONS,xs=ps.map(p=>p.x),ys=ps.map(p=>p.y),xmin=Math.min(...xs),xmax=Math.max(...xs),ymin=Math.min(...ys),ymax=Math.max(...ys);return Object.fromEntries(ps.filter(p=>s.revealed.includes(p.id)).map(p=>[p.id,s.locationPositions?.[p.id]??{x:xmax===xmin?50:12+(p.x-xmin)/(xmax-xmin)*76,y:ymax===ymin?38:20+(p.y-ymin)/(ymax-ymin)*48}]));}
 function point(s:State,t:Token):Point{return t.location?mapPositions(s)[t.location]??{x:50,y:50}:t;}
-export function tokenSize(t:Pick<Token,'kind'|'slots'>):{width:number;height:number}{return t.kind==='rover'?{width:20,height:t.slots?.radio?30:24}:{width:10,height:6};}
+export function tokenSize(t:Pick<Token,'kind'|'slots'>):{width:number;height:number}{return t.kind==='rover'?{width:10,height:6+3*roverSlots(t).length}:{width:10,height:6};}
 function collision(a:Point,as:{width:number;height:number},b:Point,bs:{width:number;height:number},gap=.6){return Math.abs(a.x-b.x)<(as.width+bs.width)/2+gap-1e-7&&Math.abs(a.y-b.y)<(as.height+bs.height)/2+gap-1e-7;}
 function locationBounds(s:State){return Object.entries(mapPositions(s)).map(([id,p])=>{const occupant=s.tokens.find(t=>t.location===id),size=occupant?tokenSize(occupant):{width:0,height:0};return {point:p,size:{width:Math.max(12,size.width+2),height:Math.max(16,size.height+2)}};});}
 function candidates(s:State,size:{width:number;height:number}):Point[]{const points:Point[]=[],bounds=locationBounds(s);for(let y=Math.max(12,(size.width===20?30:size.height)/2+2);y<=Math.min(93,98-(size.width===20?30:size.height)/2);y+=2)for(let x=Math.max(8,size.width/2+2);x<=Math.min(92,98-size.width/2);x+=2)if(bounds.every(p=>!collision({x,y},size,p.point,p.size,0)))points.push({x,y});return points;}
@@ -54,7 +54,7 @@ function nearbyGap(s:State,preferred:Point,anchor:Point,ignore?:string,fixed:str
  };
  for(const p of spots){const blockers=movable().filter(t=>collision(p,size,t,tokenSize(t)));if(!blockers.length)return p;if(blockers.length>5||blockers.some(t=>fixed.includes(t.id)))continue;const backup=s.tokens.map(t=>({id:t.id,x:t.x,y:t.y}));if(blockers.every(t=>moveAside(t,[{point:p,size}],new Set(),5)))return p;for(const old of backup)Object.assign(token(s,old.id)!,{x:old.x,y:old.y});}throw Error('There is no safe nearby space yet. Move a few loose things apart and try again.');
 }
-function add(s:State,kind:string,preferred?:Point,near?:Point,fixed:string[]=[],movementOrigins?:Map<string,Point>):Token{if(!concept(kind))throw Error(`Unknown named concept ${kind}`);if(s.tokens.some(t=>t.kind===kind)||s.retired?.includes(kind))throw Error('That thing already exists on the board.');const shape={kind},p=near?nearbyGap(s,preferred??near,near,undefined,fixed,movementOrigins,shape):freePoint(s,preferred,undefined,shape),t:Token={id:`n${s.nextId++}`,kind,scene:s.level,location:null,...p,...kind==='rover'?{slots:{}}:{}};s.tokens.push(t);return t;}
+function add(s:State,kind:string,preferred?:Point,near?:Point,fixed:string[]=[],movementOrigins?:Map<string,Point>):Token{if(!concept(kind))throw Error(`Unknown named concept ${kind}`);if(s.tokens.some(t=>t.kind===kind)||s.retired?.includes(kind))throw Error('That thing already exists on the board.');const shape={kind,...kind==='rover'?{slots:{wheels:'wheels'}}:{}},p=near?nearbyGap(s,preferred??near,near,undefined,fixed,movementOrigins,shape):freePoint(s,preferred,undefined,shape),t:Token={id:`n${s.nextId++}`,kind,scene:s.level,location:null,...p,...kind==='rover'?{slots:{wheels:'wheels'}}:{}};s.tokens.push(t);return t;}
 function clearRoverBounds(s:State,rover:Token,fixed:string[]=[]){const rp=point(s,rover),size=tokenSize(rover);for(const t of s.tokens.filter(t=>t.id!==rover.id&&!t.location)){if(!collision(rp,size,t,tokenSize(t)))continue;if(fixed.includes(t.id))throw Error('Move Rover away from that part before installing it.');Object.assign(t,freePoint(s,t,t.id,t));}}
 /** Supplies are physical initial conditions, not objective rewards. */
 export function stock(s:State):State{return clone(s);}
@@ -77,16 +77,16 @@ export function stepNamed(state:State,action:Action):Result{try{const s=clone(st
   rover.slots={...rover.slots,[slot.id]:part.kind};const retained=hasFurtherUse(s,part.kind);
   if(!retained){s.tokens=s.tokens.filter(t=>t.id!==part.id);s.retired=[...new Set([...(s.retired??[]),part.kind])];}
   clearRoverBounds(s,rover,retained?[part.id]:[]);updated=rover.id;installed={rover:rover.id,slot:slot.id,retained};recipe='install-'+slot.id;
-  message=`${slot.label} installed in Rover. ${retained?'A reusable copy stays at its original position.':'The part moves inside the Rover.'} ${hasCapability(rover,'solar-travel')?'Rover is ready to drive.':'Rover still needs '+roverSlots(rover).filter(slot=>slot.required&&!slot.filled).map(slot=>slot.label).join(' and ')+' before driving.'}`;
+  message=`${slot.label} installed in Rover. ${retained?'A reusable copy stays at its original position.':'The part moves inside the Rover.'} ${hasCapability(rover,'solar-travel')?'Rover is ready to drive.':'Rover is not ready to drive. Explore its remaining spaces.'}`;
  }else{
   const r=recipeFor(a.kind,b,at);if(!r)throw Error('No named result for that combination. Nothing has been merged or parked.');if(s.tokens.some(t=>t.kind===r.result)||s.retired?.includes(r.result))throw Error('That thing already exists on the board. No duplicate is created.');
-  const retire=(r.retire??[]).filter(k=>k===a.kind||k===b);s.retired=[...new Set([...(s.retired??[]),...retire])];s.tokens=s.tokens.filter(t=>!retire.includes(t.kind));
+  const retire=(r.retire??[]).filter(k=>k===a.kind||k===b),incorporated=(r.incorporate??[]).filter(k=>(k===a.kind||k===b)&&!hasFurtherUse(s,k,r.result)),removed=[...retire,...incorporated];s.retired=[...new Set([...(s.retired??[]),...removed])];s.tokens=s.tokens.filter(t=>!removed.includes(t.kind));
   // Surviving operands stay exactly where the gesture began, including location occupancy.
   const fixed=[a.id,...targetId?[targetId]:[]].filter(id=>!!token(s,id));
   const output=add(s,r.result,{x:origin!.x+11,y:origin!.y+8},origin!,fixed,movementOrigins);
-  if(output.kind==='rover'&&(a.kind==='cart'||b==='cart'))output.slots={wheels:'wheels'};
+  if(output.kind==='rover'&&(a.kind==='cart'||b==='cart'))output.slots={wheels:'wheels',engine:'motor'};
   created=output.id;recipe=r.id;if(!s.known.includes(r.result))s.known.push(r.result);
-  message=`${concept(r.result)!.label} created — a portable piece. ${retire.length?retire.map(k=>concept(k)!.label).join(', ')+' retired as its evolved successor was created. Surviving inputs stay where they began.':'Both inputs stay where they began.'}${r.at?' '+location(r.at)!.label+' supplied the setting; its slot was unchanged.':''}`;
+  message=`${concept(r.result)!.label} created — a portable piece. ${r.id==='rover'?`${incorporated.includes('wheels')?'Wheels move inside the Rover.':'A reusable Wheels copy stays outside.'} Frame stays where it began.`:retire.length?retire.map(k=>concept(k)!.label).join(', ')+' retired as its evolved successor was created. Surviving inputs stay where they began.':'Both inputs stay where they began.'}${r.at?' '+location(r.at)!.label+' supplied the setting; its slot was unchanged.':''}`;
  }
  }else if(action.type==='place'){const t=active(action.token);if(action.location!==null)place(action.location);if(t.location===action.location&&action.x===undefined&&action.y===undefined)return {accepted:true,state,message:'Already there. Nothing combined or transformed.',noop:true};if(action.x!==undefined&&!Number.isFinite(action.x)||action.y!==undefined&&!Number.isFinite(action.y))throw Error('Invalid board position.');if(action.location){const old=s.tokens.find(o=>o.id!==t.id&&o.location===action.location);t.location=action.location;t.scene=s.level;if(old){old.location=null;old.scene=s.level;Object.assign(old,freePoint(s,old,old.id,old));displaced=old.id;}message=`${concept(t.kind)!.label} placed at ${location(action.location)!.label}.${old?' '+concept(old.kind)!.label+' returned to the loose playspace; nothing combined.':''}`;}else{t.location=null;t.scene=s.level;Object.assign(t,action.x!==undefined&&action.y!==undefined?{x:Math.max(t.kind==='rover'?12:8,Math.min(t.kind==='rover'?88:92,action.x)),y:Math.max(t.kind==='rover'?17:12,Math.min(t.kind==='rover'?83:93,action.y))}:freePoint(s,t,t.id,t));message=`${concept(t.kind)!.label} is loose and portable again.`;}
  }else throw Error('Unknown action.');if(action.type==='place'&&action.location){const placed=token(s,action.token);if(placed?.kind==='rover')clearRoverBounds(s,placed);}s.actions++;settle(s,action.type==='combine'?[action.a,action.b]:action.type==='use-location'?[action.token]:[]);const stocked=stock(s);const nudged=stocked.tokens.flatMap(t=>{const old=state.tokens.find(o=>o.id===t.id);return old&&old.location===null&&t.location===null&&t.id!==moved&&!(action.type==='place'&&t.id===action.token)&&(old.x!==t.x||old.y!==t.y)?[{id:t.id,from:{x:old.x,y:old.y}}]:[];});return {accepted:true,state:stocked,message,nudged,...created?{created}:{},...updated?{updated}:{},...installed?{installed}:{},...displaced?{displaced}:{},...recipe?{recipe}:{},...origin?{origin}:{},...moved?{moved}:{}};
@@ -107,11 +107,15 @@ export const fixtures=NAMED_LEVELS.flatMap(l=>{const start=NAMED_WITNESS.findInd
 export function debugJump(id:string):Play{const f=fixtures.find(f=>f.id===id);if(!f)throw Error('Unknown checkpoint.');let state=createNamed();for(const a of NAMED_WITNESS.slice(0,f.through)){if(a.type==='select'){state=selectLevel(state,a.level);continue;}const find=(kind:string)=>[...visibleTokens(state)].reverse().find(t=>t.kind===kind)?.id??'';const action:Action=a.type==='place'?{type:'place',token:find(a.concept),location:a.location}:a.b.startsWith('place:')?{type:'use-location',token:find(a.a),location:a.b.slice(6)}:{type:'combine',a:find(a.a),b:find(a.b),...a.at?{at:a.at}:{}};const next=stepNamed(state,action);if(!next.accepted)throw Error('Invalid checkpoint: '+next.message);state=next.state;}return queueTasks({...fresh(),state,queue:[],seen:[],welcome:false,debug:f.label,notice:null});}
 /** Legacy named objects become one Rover; no finished output is granted by migration. */
 function migrateState(old:State):State{
- const s=clone(old);if((s.version as string)!=='mars-named-binary-1')return s;
+ const s=clone(old),version=s.version as string;if(version==='mars-named-slots-2'){
+  // Every prior Rover recipe required Motor; never infer missing wheels from its name.
+  for(const rover of s.tokens.filter(t=>t.kind==='rover'))rover.slots={...rover.slots,engine:'motor'};
+  s.version=VERSION;return s;
+ }if(version!=='mars-named-binary-1')return s;
  const rovers=s.tokens.filter(t=>['rover','solar-rover','survey-rover'].includes(t.kind));
  if(rovers.length){const rank=(t:Token)=>t.kind==='survey-rover'?3:t.kind==='solar-rover'?2:1;
   const keep=[...rovers].sort((a,b)=>Number(b.location==='canyon-route')-Number(a.location==='canyon-route')||rank(b)-rank(a))[0];
-  const slots:Partial<Record<RoverSlot,string>>={};
+  const slots:Partial<Record<RoverSlot,string>>={engine:'motor'};
   if(rovers.some(t=>t.slots===undefined||t.slots.wheels==='wheels'))slots.wheels='wheels';
   if(rovers.some(t=>rank(t)>=2||t.slots?.charger==='solar-charger'))slots.charger='solar-charger';if(rovers.some(t=>rank(t)>=3||t.slots?.radio==='radio'))slots.radio='radio';
   s.tokens=s.tokens.filter(t=>!rovers.includes(t)||t===keep);keep.kind='rover';keep.slots=slots;
@@ -120,8 +124,8 @@ function migrateState(old:State):State{
  s.retired=s.retired??[];if(s.tokens.some(t=>t.kind==='radio')&&!s.retired.includes('broken-radio'))s.retired.push('broken-radio');
  s.tokens=s.tokens.filter(t=>!s.retired!.includes(t.kind));const migrated=provisionStartingSupplies(s);for(const rover of migrated.tokens.filter(t=>t.kind==='rover')){if(!rover.location){rover.x=Math.max(12,Math.min(88,rover.x));rover.y=Math.max(17,Math.min(83,rover.y));}clearRoverBounds(migrated,rover);}return migrated;
 }
-export function restore(raw:string|null):Play{try{const p=JSON.parse(raw??'null') as Play;if(p?.state&&(p.state.version as string)==='mars-named-binary-1'){p.state=migrateState(p.state);}if(p&&Array.isArray(p.history))p.history=p.history.map(migrateState);
+export function restore(raw:string|null):Play{try{const p=JSON.parse(raw??'null') as Play;if(p?.state&&['mars-named-binary-1','mars-named-slots-2'].includes(p.state.version as string)){p.state=migrateState(p.state);p.notice=null;}if(p&&Array.isArray(p.history))p.history=p.history.map(migrateState);
 if(p&&p.state&&!Array.isArray(p.state.retired))p.state.retired=[];if(!p||p.version!==1||p.state?.version!==VERSION||!NAMED_LEVELS.some(l=>l.id===p.state.level)||!Array.isArray(p.state.tokens)||!Array.isArray(p.state.known)||!Array.isArray(p.seen)||!Array.isArray(p.queue)||!Array.isArray(p.history))return fresh();if(!Array.isArray(p.state.revealed)||!Array.isArray(p.state.introduced)||!Array.isArray(p.state.achieved)||p.state.revealed.some(id=>!location(id))||p.state.introduced.some(id=>!NAMED_GOALS.some(g=>g.id===id))||p.state.known.some(id=>!concept(id))||!Number.isInteger(p.state.nextId)||p.state.nextId<1||!Number.isInteger(p.state.unlocked)||p.state.unlocked<0||p.state.unlocked>=NAMED_LEVELS.length)return fresh();if(p.state.locationPositions&&(typeof p.state.locationPositions!=='object'||Object.entries(p.state.locationPositions).some(([id,p])=>!location(id)||!p||!Number.isFinite(p.x)||!Number.isFinite(p.y)||p.x<8||p.x>92||p.y<12||p.y>90)))return fresh();const ids=new Set<string>(),slots=new Set<string>(),kinds=new Set<string>();for(const t of p.state.tokens){if(!t||ids.has(t.id)||kinds.has(t.kind)||!concept(t.kind)||!NAMED_LEVELS.some(l=>l.id===t.scene)||!Number.isFinite(t.x)||!Number.isFinite(t.y)||t.x<8||t.x>92||t.y<12||t.y>93||!p.state.known.includes(t.kind)||t.location&&(!location(t.location)||!p.state.revealed.includes(t.location))||t.location&&slots.has(t.location))return fresh();if(t.kind==='rover'){if(!t.slots||typeof t.slots!=='object'||Array.isArray(t.slots)||Object.entries(t.slots).some(([key,value])=>!ROVER_SLOTS.some(slot=>slot.id===key&&slot.kind===value)))return fresh();}else if(t.slots!==undefined)return fresh();ids.add(t.id);kinds.add(t.kind);if(t.location)slots.add(t.location);}// Migrate only explicit authored evolutions whose successor is physically present.
-const retired=new Set(p.state.retired??[]);if([...retired].some(k=>!NAMED_RECIPES.some(r=>r.retire?.includes(k))&&!ROVER_SLOTS.some(slot=>slot.kind===k&&!hasFurtherUse(p.state,k))))return fresh();for(const r of NAMED_RECIPES)if(r.retire?.length&&p.state.tokens.some(t=>t.kind===r.result))for(const k of r.retire)retired.add(k);p.state.retired=[...retired];p.state.tokens=p.state.tokens.filter(t=>!retired.has(t.kind));if(p.notice){if(p.notice.moved&&!token(p.state,p.notice.moved))delete p.notice.moved;p.notice.nudged=p.notice.nudged?.filter(n=>!!token(p.state,n.id));}// Re-evaluate old saves against current functional contracts, without moving an already placed object.
+const retired=new Set(p.state.retired??[]);if([...retired].some(k=>!NAMED_RECIPES.some(r=>r.retire?.includes(k)||r.incorporate?.includes(k))&&!ROVER_SLOTS.some(slot=>slot.kind===k&&!hasFurtherUse(p.state,k))))return fresh();for(const r of NAMED_RECIPES)if(r.retire?.length&&p.state.tokens.some(t=>t.kind===r.result))for(const k of r.retire)retired.add(k);p.state.retired=[...retired];p.state.tokens=p.state.tokens.filter(t=>!retired.has(t.kind));if(p.notice){if(p.notice.moved&&!token(p.state,p.notice.moved))delete p.notice.moved;p.notice.nudged=p.notice.nudged?.filter(n=>!!token(p.state,n.id));}// Re-evaluate old saves against current functional contracts, without moving an already placed object.
 if(NAMED_LEVELS.some(l=>goalStates(p.state,l.id).some(g=>g.current&&!g.achieved))){settle(p.state);p.state=stock(p.state);}
 return queueTasks(p);}catch{return fresh();}}
