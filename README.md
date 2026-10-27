@@ -170,3 +170,11 @@ See [checkpoint scope and verification](docs/estuary-browser-checkpoint.md). Fin
 ## Mars useful-things checkpoint (27 October 2026)
 
 The separate `mars-purpose.html` checkpoint imports the audited compact Mars core and tests broader functional purposes, explicit evolution/incorporation and setting-aware discovery without result previews. Run `npx vite --config mars-purpose.vite.config.ts`; see [browser contract](docs/mars-purpose-browser-contract.md) and [release preservation](results/mars-purpose-release-20261027/README.md). Prior named Mars, history and other checkpoints remain intact. The deployed private default uses this revision, with the previous named checkpoint at `/mars-slots.html`. Final Site tests: 174 passed; focused controller tests: 22 passed. Native mobile/human enjoyment is not established.
+
+## Three discovery worlds (27 October 2026)
+
+- **Mars expedition:** `mars-expedition.html` continues contact → home → expedition → remote observations, with short Mission Control invitations and a fixed expanding playspace.
+- **A Republic of Ideas:** `history-ideas.html` explores shareable ideas through thing-and-place combinations; old Estuary remains preserved.
+- **Elements:** `elements-discovery.html` begins with simple elements and opens a fermentation setting.
+
+Each has an isolated Vite config. See [release preservation](results/three-worlds-release-20261027/README.md) for complete tested Site source/aliases and exact final evidence. Combined Site tests:236 passed,0 failed,1 optional native-browser test skipped. This is not a native-mobile or human-enjoyment claim.
