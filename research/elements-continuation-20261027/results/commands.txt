@@ -1,0 +1,6 @@
+python build.py
+# candidate-v2.ts was copied and hashed before any tests.
+node --test tests/logical.test.ts > results/logical.txt 2>&1
+node tests/routes.ts > results/shortest-routes.txt
+/workspace/shared/combination-playtest-site/node_modules/.bin/tsc --noEmit --target es2023 --module nodenext --moduleResolution nodenext --skipLibCheck src/elements-discovery-model.ts > results/typecheck.txt 2>&1
+# TypeScript exit 0; tests exit 0.
