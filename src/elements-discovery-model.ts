@@ -5,14 +5,14 @@ export type Token=Point&{id:string;kind:string;location:string|null;slots?:Recor
 export type State={tokens:Token[];level:number;revealed:string[];achieved:string[];actions:number};
 export type Action={type:'combine';a:string;b:string;at?:string}|{type:'use-location';token:string;location:string}|{type:'place';token:string;location:string|null;x?:number;y?:number}|{type:'advance'};
 export type Result={accepted:boolean;state:State;message:string;created?:string;updated?:string;origin?:Point;recipe?:string;nudged?:{id:string;from:Point}[];moved?:string;displaced?:string};
-export type Play={version:1;state:State;history:State[];debug:string|null;notice:Omit<Result,'state'|'accepted'>|null;welcome:boolean;purpose:boolean};
+export type Play={version:1;layout?:2;state:State;history:State[];debug:string|null;notice:Omit<Result,'state'|'accepted'>|null;welcome:boolean;purpose:boolean};
 const names:Record<string,string>={earth:'Earth',water:'Water',air:'Air',fire:'Fire',clay:'Clay',stone:'Stone',sand:'Sand',rain:'Rain',plant:'Plant',wood:'Wood',grain:'Grain',fruit:'Fruit',flour:'Flour',dough:'Dough',flatbread:'Flatbread',bowl:'Bowl',brick:'Brick',glass:'Glass',window:'Window',charcoal:'Charcoal',torch:'Torch',kiln:'Kiln',glaze:'Glaze','glazed-bowl':'Glazed bowl',juice:'Fruit juice',starter:'Wild starter','risen-dough':'Risen dough',bread:'Bread',cider:'Cider',vinegar:'Vinegar',fiber:'Plant fiber',thread:'Thread',cloth:'Cloth',rope:'Rope',basket:'Basket',sail:'Sail',raft:'Raft',sailboat:'Sailboat',house:'House',greenhouse:'Greenhouse',lantern:'Lantern',feast:'Feast',jam:'Jam','fruit-tart':'Fruit tart','picnic-basket':'Picnic basket'};
 export const concepts=Object.entries(names).map(([id,label])=>({id,label}));
 export const concept=(id:string)=>concepts.find(c=>c.id===id)!;
 export const token=(s:State,id:string)=>s.tokens.find(t=>t.id===id);
 export const LOCATIONS=[{id:'cellar',label:'Warm cellar'}];
 export const location=(id:string)=>LOCATIONS.find(p=>p.id===id);
-export const mapPositions=(_s:State):Record<string,Point>=>({cellar:{x:85,y:86}});
+export const mapPositions=(_s:State):Record<string,Point>=>({cellar:{x:50,y:44}});
 export const tokenSize=(_t:unknown)=>({width:10,height:6});
 type Recipe={id:string;a:string;b:string;out:string;at?:string};
 const r=(a:string,b:string,out:string,at?:string):Recipe=>({id:out,a,b,out,...at?{at}:{}});
@@ -31,22 +31,34 @@ export const LEVELS=[{label:'From four beginnings',intro:'“I have earth, water
 export const level=(s:State)=>LEVELS[s.level];
 export function goalStates(s:State,index=s.level){return LEVELS[index].goals.map(id=>{const g=GOALS.find(g=>g.id===id)!;return {...g,current:g.requires.filter(c=>s.tokens.some(t=>hasCapability(t,c))).length>=(g.count??g.requires.length),achieved:s.achieved.includes(id)};});}
 function score(s:State){for(const g of goalStates(s))if(g.current&&!s.achieved.includes(g.id))s.achieved.push(g.id);}
+/** A view projection only: canonical discoveries still score goals and suppress duplicates. */
+export function activeTokens(s:State):Token[]{
+ const known=new Set(s.tokens.map(t=>t.kind)),needed=new Set<string>();
+ for(const r of RECIPES)if(!known.has(r.out)){needed.add(r.a);needed.add(r.b);}
+ const remaining=LEVELS.slice(s.level).flatMap(l=>l.goals).filter(id=>!s.achieved.includes(id));
+ const caps=new Set(remaining.flatMap(id=>GOALS.find(g=>g.id===id)!.requires));
+ return s.tokens.filter(t=>needed.has(t.kind)||(capabilities[t.kind]??[]).some(c=>caps.has(c)));
+}
+/** Chapter transitions clear accumulated overlap without shuffling ordinary gestures. */
+export function arrangeActive(s:State){let i=0;for(const t of activeTokens(s)){if(t.location){Object.assign(t,mapPositions(s)[t.location]);continue;}let x=0,y=0;do{x=[18,50,82][i%3];y=12+Math.floor(i++/3)*8;}while(s.revealed.includes('cellar')&&x===50&&y>=36&&y<=52);Object.assign(t,{x,y});}}
 function freePoint(s:State,near:Point,local=false,fixed:string[]=[]):Point{
- const points:Point[]=[];for(let y=12;y<94;y+=4)for(let x=8;x<94;x+=4)if(!(x>74&&y>73))points.push({x,y});
- const overlaps=(p:Point,t:Token)=>Math.abs(p.x-t.x)<11&&Math.abs(p.y-t.y)<7;
+ const points:Point[]=[];for(let y=12;y<=92;y+=8)for(const x of [18,50,82])if(!(x===50&&y>=36&&y<=52))points.push({x,y});
+ const overlaps=(p:Point,t:Token)=>Math.abs(p.x-t.x)<29&&Math.abs(p.y-t.y)<6;
  const distance=(p:Point)=>Math.hypot(p.x-near.x,p.y-near.y);
- const candidates=points.filter(p=>!local||distance(p)<=28).sort((a,b)=>distance(a)-distance(b));
- const free=candidates.find(p=>s.tokens.every(t=>!overlaps(p,t)));if(free)return free;
- // A crowded table must not teleport a discovery across the world. Keep a local
- // landing spot, never cover either operand, and let the player rearrange it.
- if(local){const nearby=candidates.filter(p=>s.tokens.filter(t=>fixed.includes(t.id)).every(t=>!overlaps(p,t))).sort((a,b)=>s.tokens.filter(t=>overlaps(a,t)).length-s.tokens.filter(t=>overlaps(b,t)).length||distance(a)-distance(b));if(nearby[0])return nearby[0];}
- throw Error('Make a little room for your new thing.');
+ const candidates=points.filter(p=>!local||distance(p)<=40).sort((a,b)=>distance(a)-distance(b));
+ const visible=activeTokens(s);
+ const free=candidates.find(p=>visible.every(t=>!overlaps(p,t)));if(free)return free;
+ const staggered=points.map(p=>({x:p.x,y:p.y+4})).filter(p=>p.y<=94&&!(p.x===50&&p.y>=36&&p.y<=52)&&(!local||distance(p)<=40));
+ const nearby=[...staggered,...candidates].filter(p=>s.tokens.filter(t=>fixed.includes(t.id)).every(t=>!overlaps(p,t)))
+  .sort((a,b)=>visible.reduce((sum,t)=>sum+(overlaps(a,t)?Math.max(0,6-Math.abs(a.y-t.y)):0),0)-visible.reduce((sum,t)=>sum+(overlaps(b,t)?Math.max(0,6-Math.abs(b.y-t.y)):0),0)||distance(a)-distance(b));
+ // Geometry must never reject a legal recipe, hint or cellar displacement.
+ return nearby[0]??{x:Math.max(18,Math.min(82,near.x)),y:near.y>82?near.y-8:near.y+8};
 }
 
-export function createNamed():State{return {tokens:['earth','water','air','fire'].map((kind,i)=>({id:kind,kind,x:20+i*16,y:20,location:null})),level:0,revealed:[],achieved:[],actions:0};}
-export function stepNamed(state:State,action:Action):Result{try{const s=structuredClone(state);if(action.type==='advance'){if(!goalStates(s).every(g=>g.current)||s.level>=LEVELS.length-1)throw Error('There is still something to make here.');s.level++;if(s.level===1)s.revealed.push('cellar');score(s);s.actions++;return {accepted:true,state:s,message:level(s).label};}
+export function createNamed():State{return {tokens:['earth','water','air','fire'].map((kind,i)=>({id:kind,kind,x:[18,50,82][i%3],y:12+Math.floor(i/3)*8,location:null})),level:0,revealed:[],achieved:[],actions:0};}
+export function stepNamed(state:State,action:Action):Result{try{const s=structuredClone(state);if(action.type==='advance'){if(!goalStates(s).every(g=>g.current)||s.level>=LEVELS.length-1)throw Error('There is still something to make here.');s.level++;if(s.level===1)s.revealed.push('cellar');score(s);arrangeActive(s);s.actions++;return {accepted:true,state:s,message:level(s).label};}
  const a=token(s,action.type==='combine'?action.a:action.token);if(!a)throw Error('Choose an available thing.');
- if(action.type==='place'){if(action.location&&!s.revealed.includes(action.location))throw Error('That place is not open.');if(action.location){const old=s.tokens.find(t=>t.location===action.location&&t.id!==a.id);if(old){old.location=null;Object.assign(old,freePoint(s,old));}Object.assign(a,mapPositions(s)[action.location]);}else if(action.x!==undefined&&action.y!==undefined){if(!Number.isFinite(action.x)||!Number.isFinite(action.y))throw Error('Invalid position');a.x=Math.max(6,Math.min(94,action.x));a.y=Math.max(6,Math.min(94,action.y));}a.location=action.location;s.actions++;return {accepted:true,state:s,message:action.location?'Set down in the warm cellar.':'Moved.'};}
+ if(action.type==='place'){if(action.location&&!s.revealed.includes(action.location))throw Error('That place is not open.');if(action.location){const old=s.tokens.find(t=>t.location===action.location&&t.id!==a.id);if(old){old.location=null;Object.assign(old,freePoint(s,old));}Object.assign(a,mapPositions(s)[action.location]);}else if(action.x!==undefined&&action.y!==undefined){if(!Number.isFinite(action.x)||!Number.isFinite(action.y))throw Error('Invalid position');a.x=Math.max(18,Math.min(82,action.x));a.y=Math.max(6,action.y);}a.location=action.location;s.actions++;return {accepted:true,state:s,message:action.location?'Set down in the warm cellar.':'Moved.'};}
  if(action.type==='use-location')throw Error('Set a mixture here, then bring its partner.');
  const b=token(s,action.b);if(!b||a.id===b.id)throw Error('Choose another thing.');const recipe=RECIPES.find(r=>((r.a===a.kind&&r.b===b.kind)||(r.a===b.kind&&r.b===a.kind))&&(!r.at||b.location===r.at));if(!recipe)throw Error('Nothing new yet. Try another partner.');if(s.tokens.some(t=>t.kind===recipe.out))throw Error('You already have that discovery.');const origin={x:b.x,y:b.y};s.tokens.push({id:recipe.out,kind:recipe.out,location:null,...freePoint(s,origin,true,[a.id,b.id])});s.actions++;score(s);return {accepted:true,state:s,message:`${concept(recipe.out).label} discovered.`,created:recipe.out,origin,recipe:recipe.id};
  }catch(e){return {accepted:false,state,message:(e as Error).message};}}
@@ -55,11 +67,11 @@ export function gestureAction(s:State,a:string,target:string):Action{return targ
 export function compatibility(s:State,id:string){return s.tokens.filter(t=>t.id!==id).map(t=>({id:t.id,outgoing:!!creation(s,id,t.id),incoming:!!creation(s,t.id,id)})).filter(p=>p.outgoing||p.incoming);}
 export function settingPlaces(s:State,id:string){const t=token(s,id);if(!t)return [];return s.revealed.filter(p=>t.location!==p&&RECIPES.some(r=>r.at===p&&!s.tokens.some(t=>t.kind===r.out)&&((r.a===t.kind&&s.tokens.some(t=>t.kind===r.b))||(r.b===t.kind&&s.tokens.some(t=>t.kind===r.a))))).map(p=>'place:'+p);}
 export const novelPartners=(s:State,id:string)=>compatibility(s,id).filter(p=>p.outgoing).map(p=>p.id);
-export const fresh=():Play=>({version:1,state:createNamed(),history:[],debug:null,notice:null,welcome:true,purpose:false});
+export const fresh=():Play=>({version:1,layout:2,state:createNamed(),history:[],debug:null,notice:null,welcome:true,purpose:false});
 export function apply(p:Play,a:Action):Play{const r=stepNamed(p.state,a);return r.accepted?{...p,state:r.state,history:[...p.history,p.state].slice(-50),notice:r,purpose:a.type==='advance'||p.purpose}:{...p,notice:r};}
 export const undo=(p:Play):Play=>p.history.length?{...p,state:p.history.at(-1)!,history:p.history.slice(0,-1),notice:null,purpose:false}:p;
 function validState(s:State):boolean{return !!s&&Number.isInteger(s.level)&&!!LEVELS[s.level]&&Number.isFinite(s.actions)&&s.actions>=0&&Array.isArray(s.tokens)&&Array.isArray(s.revealed)&&s.revealed.every(id=>LOCATIONS.some(p=>p.id===id))&&Array.isArray(s.achieved)&&s.achieved.every(id=>GOALS.some(g=>g.id===id))&&new Set(s.tokens.map(t=>t.kind)).size===s.tokens.length&&s.tokens.every(t=>!!t&&t.id===t.kind&&!!concept(t.kind)&&Number.isFinite(t.x)&&Number.isFinite(t.y)&&(t.location===null||s.revealed.includes(t.location)));}
-export function restore(raw:string|null):Play{try{const p=JSON.parse(raw??'null');if(p?.version!==1||!validState(p.state)||!Array.isArray(p.history)||typeof p.welcome!=='boolean'||typeof p.purpose!=='boolean')return fresh();p.history=p.history.filter(validState).slice(-50);return p;}catch{return fresh();}}
+export function restore(raw:string|null):Play{try{const p=JSON.parse(raw??'null');if(p?.version!==1||!validState(p.state)||!Array.isArray(p.history)||typeof p.welcome!=='boolean'||typeof p.purpose!=='boolean')return fresh();p.history=p.history.filter(validState).slice(-50);if(p.layout!==2){const adapt=(s:State)=>{let i=0;for(const t of s.tokens){if(t.location){Object.assign(t,mapPositions(s)[t.location]);continue;}let x=0,y=0;do{x=[18,50,82][i%3];y=12+Math.floor(i++/3)*8;}while(x===50&&y>=36&&y<=52);Object.assign(t,{x,y});}};adapt(p.state);p.history.forEach(adapt);p.layout=2;}return p;}catch{return fresh();}}
 
 export const fixtures=[{id:'supper',label:'First supper · arrival'},{id:'comfort',label:'A little comfort · arrival'},{id:'world',label:'Beyond the doorstep · arrival'},{id:'complete',label:'A world worth sharing · complete'}];
 export const ROUTE:[string,string][]=[['earth','water'],['earth','fire'],['clay','stone'],['clay','fire'],['air','water'],['earth','rain'],['plant','air'],['grain','stone'],['flour','water'],['dough','fire'],['plant','water'],['fruit','water'],['earth','air'],['sand','fire'],['plant','earth'],['glass','wood'],['plant','stone'],['fiber','bowl'],['brick','wood'],['fiber','wood'],['fiber','thread'],['wood','rope']];

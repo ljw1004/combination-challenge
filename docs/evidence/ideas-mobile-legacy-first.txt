@@ -1,0 +1,85 @@
+(node:13) ExperimentalWarning: stripTypeScriptTypes is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ synthetic: hover and selection expose partners without output names (26.600962ms)
+✔ synthetic: click and pointer create identical model state and preserve source (25.678971ms)
+✔ synthetic: touch drag creates, touch cancellation does not mutate (10.432508ms)
+✔ synthetic: reset from invitation restores initial supply and welcome (29.254312ms)
+✔ synthetic: selection cancel and undo return clean state (17.422681ms)
+✔ synthetic: debug provenance survives reload (10.120594ms)
+✖ synthetic: complete controller route, placement reversal, invitation reopening (37.453097ms)
+✔ synthetic: empty board touch is not cancelled, ordinary move retains drop delta (27.783875ms)
+✔ synthetic regression: opening and closing invitation does not replay creation animation (6.380189ms)
+✖ synthetic: edge-pan interval accounts for scroll displacement and stops on drop/reset/cancel (8.239572ms)
+✔ independent model: twelve alternate full routes reach all current goals with preserved five-point signal (30.248422ms)
+✖ independent model: placed source remains in library during further idea creation; displacement/reversal keeps identities (18.819439ms)
+✔ independent model: exhausted pair and applied translation no longer hint or mutate (2.822434ms)
+✔ independent regression: authored creations stay within 220px of target (0.728409ms)
+✔ all three authored purposes are replayed, not granted (4.922978ms)
+✔ two inquiry routes and two publication routes preserve alternate approaches (3.167835ms)
+✔ translations commute, preserve source and heights; fused route is optional (6.34604ms)
+✔ inputs return, no duplicates, movement reverses placement, invalid actions preserve state (1.289115ms)
+✔ hints name partners only, locations unfold, unknown checkpoints do not fabricate actions (0.332418ms)
+ℹ tests 19
+ℹ suites 0
+ℹ pass 16
+ℹ fail 3
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 834.510256
+
+✖ failing tests:
+
+test at tests/history-ideas-independent-controller.test.ts:16:1
+✖ synthetic: complete controller route, placement reversal, invitation reopening (37.453097ms)
+  TypeError [Error]: Cannot read properties of null (reading 'classes')
+      at Object.pointer (file:///workspace/shared/combination-playtest-site/tests/history-ideas-independent-controller.test.ts:8:858)
+      at TestContext.<anonymous> (file:///workspace/shared/combination-playtest-site/tests/history-ideas-independent-controller.test.ts:16:661)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7)
+
+test at tests/history-ideas-independent-controller.test.ts:19:1
+✖ synthetic: edge-pan interval accounts for scroll displacement and stops on drop/reset/cancel (8.239572ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  0 !== 12
+  
+      at TestContext.<anonymous> (file:///workspace/shared/combination-playtest-site/tests/history-ideas-independent-controller.test.ts:19:275)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 0,
+    expected: 12,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests/history-ideas-independent-model.test.ts:4:1
+✖ independent model: placed source remains in library during further idea creation; displacement/reversal keeps identities (18.819439ms)
+  AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+  
+    assert(r.accepted)
+  
+      at TestContext.<anonymous> (file:///workspace/shared/combination-playtest-site/tests/history-ideas-independent-model.test.ts:4:405)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
