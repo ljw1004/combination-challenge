@@ -1,0 +1,3 @@
+# Safe publisher operations
+
+Upload the exact mapped payload files without deletion of unrelated paths. Treat README-append.fragment.md and gitignore-append.fragment.txt as append-only suggestions: first read the complete current remote README.md/.gitignore, append only missing content and commit the full merged file. Never upload a fragment as README.md or .gitignore. Preserve remote edits. Site-source snapshot entries belong only at their snapshot paths; do not replace primary index.html, vite.config.ts, package.json or legacy source. Do not publish generated dist, .openai hosting identity, credential/helper state or private notes.
