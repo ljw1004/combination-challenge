@@ -1,0 +1,118 @@
+{
+  "scope": "Independent written-law derivations, not engine execution, accepted gameplay, optimum or player report",
+  "source": {
+    "path": "docs/mars-salvage-water-work-paper-screen.md",
+    "bytes": 11267,
+    "sha256": "315ffd355aafe07f14f05f97a1bf0854e22045c662a60b2061b8c3ab48b8715a"
+  },
+  "routes": [
+    {
+      "name": "A-electrical-intact",
+      "selections": 8,
+      "classes": {
+        "place": 2,
+        "attach": 1,
+        "connect": 5
+      },
+      "sun-calm": {
+        "workPath": [
+          "exposed S.electric",
+          "U.electric",
+          "U motor",
+          "U pump"
+        ],
+        "waterPath": [
+          "L grit head0",
+          "Q removes grit",
+          "pump at0 with work: max(0,4)=4",
+          "U.out clean head4",
+          "G3 and B2"
+        ]
+      },
+      "dust-wind": {
+        "workPath": [
+          "actual wind",
+          "F shaft",
+          "F reversible motor electric",
+          "U.electric",
+          "U motor",
+          "U pump"
+        ],
+        "waterPath": [
+          "L grit head0",
+          "Q removes grit",
+          "pump at0 with work: max(0,4)=4",
+          "U.out clean head4",
+          "G3 and B2"
+        ]
+      }
+    },
+    {
+      "name": "B-direct-wind-shaft",
+      "selections": 8,
+      "classes": {
+        "place": 2,
+        "attach": 1,
+        "connect": 5
+      },
+      "differenceFromA": "Replace F.electric\u2192U.electric by actual compatible F.shaft\u2192U.shaft. Sun route unchanged. Both row outputs clean head4."
+    },
+    {
+      "name": "C-heated-upper-source",
+      "selections": 7,
+      "classes": {
+        "place": 3,
+        "connect": 4
+      },
+      "sun-calm": "S.electric\u2192H.electric, actual ice-contact heat produces clean I head5\u2192G3/B2",
+      "dust-wind": "wind\u2192F shaft\u2192F electric\u2192H.electric, actual ice-contact heat produces clean I head5\u2192G3/B2",
+      "notRequired": [
+        "U",
+        "Q",
+        "pump work"
+      ]
+    },
+    {
+      "name": "D-lower-receivers",
+      "selections": 6,
+      "classes": {
+        "move": 2,
+        "attach": 1,
+        "connect": 3
+      },
+      "bothRows": "G0/B0; L grit head0\u2192Q in actual U.filter\u2192passive U pump\u2192clean head0; 0\u22650 supplies both",
+      "notRequired": [
+        "S",
+        "F",
+        "H",
+        "powered pump",
+        "disassembly"
+      ]
+    },
+    {
+      "name": "E-shared-reversible-F-path",
+      "selections": 8,
+      "classes": {
+        "place": 2,
+        "attach": 1,
+        "connect": 5
+      },
+      "route": [
+        "Place S at exposed solar pad",
+        "Place F at wind pad intact",
+        "Connect S.electric\u2192F.electric",
+        "Connect F.shaft\u2192U.shaft",
+        "Attach matching Q to U.filter",
+        "Connect L\u2192U.in",
+        "Connect U.out\u2192G",
+        "Connect U.out\u2192B"
+      ],
+      "sun-calm": "S electric enters reversible F motor\u2192F shaft\u2192U shaft/pump",
+      "dust-wind": "external wind\u2192F shaft\u2192U shaft/pump",
+      "water": "L\u2192Q\u2192powered pump at0\u2192clean head4\u2192G3/B2",
+      "condition": "F accessible electric interface accepts actual electrical input, as stated reversible relation and multiple-input work-port law permit; no additional converter/mode action assumed."
+    }
+  ],
+  "strongerCountClaim": null,
+  "reason": "No shorter definite route found without supplying an undeclared junction, membrane seat or other interface; absence of a shortcut is not optimality proof."
+}
