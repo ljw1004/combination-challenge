@@ -1,0 +1,152 @@
+✔ schema, lifecycle, objective and construction checks; no new supplies or mechanics (24.182927ms)
+✔ first ten are nine unchanged opening recipes plus the existing fruit recipe (148.272909ms)
+✔ all 29 later chapters reuse earlier creations; chapter two requires opening Stone (135.888337ms)
+✔ all 31 checkpoints are earned prefixes and restore exactly; new identity does not overwrite old save (2395.57027ms)
+✔ either opening objective order carries the made Stone into supper; no early bowl or kiln prerequisite (3.866332ms)
+✖ normal highlighting exposes wheel at bowl-making; existing Wheel survives unchanged and undo is exact (55.287787ms)
+✔ all source copies survive until an authored combine/install event; chapter advance never retires objects (99.939947ms)
+ℹ tests 7
+ℹ suites 0
+ℹ pass 6
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 3100.438863
+
+✖ failing tests:
+
+test at ../../shared/combination-campaign-research-20261028/elements-opening-wheel-v1/tools/opening.test.ts:17:1
+✖ normal highlighting exposes wheel at bowl-making; existing Wheel survives unchanged and undo is exact (55.287787ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  ... Skipped lines
+  
+    {
+      events: [
+        {
+          accepted: true,
+          action: {
+  ...
+        },
+  +     {
+  +       accepted: true,
+  +       action: {
+  +         a: 'clay',
+  +         b: 'wheel',
+  +         type: 'combine'
+  +       },
+  +       created: 'bowl',
+  +       message: 'Bowl. Shape the clay on a turning wheel into an open bowl.',
+  +       recipe: 'bowl',
+  +       seq: 44,
+  +       stage: 5
+  +     },
+  +     {
+  +       accepted: true,
+  +       action: {
+  +         type: 'undo'
+  +       },
+  +       message: 'Undone.',
+  +       seq: 45,
+  +       stage: 5
+  +     }
+      ],
+      history: [
+        {
+          areas: [
+            {
+  ...
+        metrics: {
+  +       accepted: 45,
+  -       accepted: 43,
+          advances: 5,
+  +       attempts: 45,
+  +       combinations: 39,
+  +       creations: 38,
+  -       attempts: 43,
+  -       combinations: 38,
+  -       creations: 37,
+          installations: 1,
+          moves: 0,
+          placements: 0,
+          visits: 0
+        },
+  
+      at TestContext.<anonymous> (file:///workspace/shared/combination-campaign-research-20261028/elements-opening-wheel-v1/tools/opening.test.ts:17:625)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: {
+      version: 1,
+      lifecycleVersion: 2,
+      scenarioId: 'elements-opening-wheel-v1-research',
+      state: { stage: 5, currentArea: 'area-bakery', areas: [Array], places: [Array], tokens: [Array], discovered: [Array], recipesUsed: [Array], openedCaches: [], width: 360, metrics: [Object], completed: false },
+      history: [
+        [Object], [Object], [Object], [Object],
+        [Object], [Object], [Object], [Object],
+        [Object], [Object], [Object], [Object],
+        [Object], [Object], [Object], [Object],
+        [Object], [Object], [Object], [Object],
+        [Object], [Object], [Object], [Object],
+        [Object], [Object], [Object], [Object],
+        [Object], [Object], [Object], [Object],
+        [Object], [Object], [Object], [Object],
+        [Object], [Object], [Object], [Object],
+        [Object], [Object], [Object]
+      ],
+      events: [
+        [Object], [Object], [Object], [Object],
+        [Object], [Object], [Object], [Object],
+        [Object], [Object], [Object], [Object],
+        [Object], [Object], [Object], [Object],
+        [Object], [Object], [Object], [Object],
+        [Object], [Object], [Object], [Object],
+        [Object], [Object], [Object], [Object],
+        [Object], [Object], [Object], [Object],
+        [Object], [Object], [Object], [Object],
+        [Object], [Object], [Object], [Object],
+        [Object], [Object], [Object], [Object],
+        [Object]
+      ]
+    },
+    expected: {
+      version: 1,
+      lifecycleVersion: 2,
+      scenarioId: 'elements-opening-wheel-v1-research',
+      state: { stage: 5, currentArea: 'area-bakery', areas: [Array], places: [Array], tokens: [Array], discovered: [Array], recipesUsed: [Array], openedCaches: [], width: 360, metrics: [Object], completed: false },
+      history: [
+        [Object], [Object], [Object], [Object],
+        [Object], [Object], [Object], [Object],
+        [Object], [Object], [Object], [Object],
+        [Object], [Object], [Object], [Object],
+        [Object], [Object], [Object], [Object],
+        [Object], [Object], [Object], [Object],
+        [Object], [Object], [Object], [Object],
+        [Object], [Object], [Object], [Object],
+        [Object], [Object], [Object], [Object],
+        [Object], [Object], [Object], [Object],
+        [Object], [Object], [Object]
+      ],
+      events: [
+        [Object], [Object], [Object], [Object],
+        [Object], [Object], [Object], [Object],
+        [Object], [Object], [Object], [Object],
+        [Object], [Object], [Object], [Object],
+        [Object], [Object], [Object], [Object],
+        [Object], [Object], [Object], [Object],
+        [Object], [Object], [Object], [Object],
+        [Object], [Object], [Object], [Object],
+        [Object], [Object], [Object], [Object],
+        [Object], [Object], [Object], [Object],
+        [Object], [Object], [Object]
+      ]
+    },
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }

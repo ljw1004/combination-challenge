@@ -1,0 +1,60 @@
+{
+  "source": {
+    "project_id": "appgprj_6adf94d914f081918359a6568c9c05b6",
+    "checkout_path": "/workspace/shared/combination-fork-recovery-20261028",
+    "commit_sha": "217ce7428e8e95ea0c1bc18e7747ecdbf68c1b5c",
+    "archive": "/workspace/shared/combination-arrival-content-human-checkpoint-20261028.tar.gz"
+  },
+  "deployment": {
+    "id": "appgdep_6ae211729b308191b7e2ccf34eb7e431",
+    "project_id": "appgprj_6adf94d914f081918359a6568c9c05b6",
+    "title": "Combination Workshop \u00b7 Playtest",
+    "version_id": "appgprj_6adf94d914f081918359a6568c9c05b6~appgver_d645890b4ca481919c1d45d3703a0a6e",
+    "type": "publish",
+    "status": "succeeded",
+    "url": "https://combination-workshop-playtest.stonysun25.chatgpt.site",
+    "has_mcp": false,
+    "screenshot_asset_pointer": null,
+    "provider_deployment_id": "site---6adf94d914f081918359a6568c9c05b6",
+    "failure_message": null,
+    "env_set_revision": 0,
+    "updated_at": "2026-10-28T15:15:14.417756+00:00"
+  },
+  "parent": "51b6f9f5090c99174997793e49affff24fecd814",
+  "sourceSeal": "6fe9b6d16507c264be9c818ef25b6c69e5f9796f18b6dcb87af80e7c588e307d",
+  "commands": [
+    [
+      "python",
+      "experiments/tangible-campaign/integration/verify-manifest.py"
+    ],
+    [
+      "python",
+      "experiments/tangible-campaign/integration/verify-arrival-content-delta.py"
+    ],
+    [
+      "node",
+      "--test",
+      "tests/arrival-source-contract.test.ts"
+    ],
+    [
+      "node",
+      "/home/agent/.codex/plugins/cache/openai-curated-remote/sites/1.1.2/scripts/build-site.mjs"
+    ],
+    [
+      "python",
+      "experiments/tangible-campaign/integration/verify-manifest.py"
+    ],
+    [
+      "python",
+      "experiments/tangible-campaign/integration/verify-arrival-content-delta.py"
+    ]
+  ],
+  "tests": {
+    "freshSourceOnly": 944,
+    "failed": 0,
+    "browser": "not run"
+  },
+  "deliveryMessage": "Sentinel_02d869f7e8b88191a68c84170835875c",
+  "archiveSha256": "341dcecbe8e79aa9d8f7c8fb03aee157b8a2c1c670ead1a1016bb5bebe098652",
+  "actualCheckoutClean": true
+}

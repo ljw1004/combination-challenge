@@ -1,0 +1,43 @@
+{
+  "scope": "Proposed remaining command arrays for parent-owned supported Sites helper; these are not claimed executed here.",
+  "baseCommit": "51b6f9f5090c99174997793e49affff24fecd814",
+  "sourceSealSha256": "6fe9b6d16507c264be9c818ef25b6c69e5f9796f18b6dcb87af80e7c588e307d",
+  "overlay": {
+    "path": "/workspace/shared/combination-arrival-content-integration-20261028-source-overlay.tar.gz",
+    "sha256": "b2c6934d325422b03e0c75c838974fe6b3a0339e88508b8c9eba384e99f07b16",
+    "bytes": 1038000,
+    "files": 111,
+    "archiveMembersHashVerified": true
+  },
+  "commands": [
+    [
+      "python",
+      "experiments/tangible-campaign/integration/verify-manifest.py"
+    ],
+    [
+      "python",
+      "experiments/tangible-campaign/integration/verify-arrival-content-delta.py"
+    ],
+    [
+      "node",
+      "--test",
+      "tests/arrival-source-contract.test.ts"
+    ],
+    [
+      "node",
+      "/home/agent/.codex/plugins/cache/openai-curated-remote/sites/1.1.2/scripts/build-site.mjs"
+    ],
+    [
+      "python",
+      "experiments/tangible-campaign/integration/verify-manifest.py"
+    ],
+    [
+      "python",
+      "experiments/tangible-campaign/integration/verify-arrival-content-delta.py"
+    ]
+  ],
+  "archivePath": "/workspace/shared/combination-arrival-content-human-checkpoint-20261028.tar.gz",
+  "priorFreshValidation": "944/944 across 55 non-native-browser test files, all source bytes exact, recorded executed arrays in results/arrival-content-20261028/fresh-copy/executed-commands.json",
+  "parentOwnsActualCheckoutAndSitePublication": true,
+  "soleGitHubWriter": "/root/preserve_closed_logical_research"
+}

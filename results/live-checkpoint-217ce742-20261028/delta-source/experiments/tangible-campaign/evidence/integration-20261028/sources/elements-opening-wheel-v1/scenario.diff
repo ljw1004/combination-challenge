@@ -1,0 +1,756 @@
+--- baseline
++++ candidate
+@@ -1,6 +1,6 @@
+ {
+   "schemaVersion": 1,
+-  "id": "elements-gathering-refinement-v7-cue-research",
++  "id": "elements-opening-wheel-v1-research",
+   "title": "Elements: A River Worth Returning To",
+   "premise": "Starting from four storybook elements, travel from an orchard to a coastal gathering. Make useful things for people you meet. The world remembers what you leave behind.",
+   "initialItems": [
+@@ -1138,18 +1138,23 @@
+     {
+       "id": "bowl",
+       "a": "clay",
+-      "b": "stone",
++      "b": "wheel",
+       "out": "bowl",
+       "lifecycle": {
+         "clay": {
+           "role": "transform",
+-          "reason": "Clay is the existing object changed into Bowl."
+-        },
+-        "stone": {
++          "reason": "Clay is shaped into the bowl; the wheel is not incorporated into it."
++        },
++        "wheel": {
+           "role": "retain",
+-          "reason": "Stone is reused as equipment, a source/reference, a subject of observation, or a continuing supply; this action does not consume it."
+-        }
+-      }
++          "reason": "The wheel serves as a turning surface for shaping the clay and remains a reusable tool."
++        }
++      },
++      "description": "Shape the clay on a turning wheel into an open bowl.",
++      "caveat": "Storybook compression of forming and finishing a usable vessel; wheel support, hand shaping, drying and firing are implicit, not a complete ceramics procedure.",
++      "sources": [
++        "pottery-forming"
++      ]
+     },
+     {
+       "id": "brick",
+@@ -4633,7 +4638,7 @@
+       "id": "beginnings",
+       "title": "Four beginnings",
+       "speaker": "The keeper",
+-      "motivation": "The river gathering is a month away. We begin with earth, water, air and fire. Make a bowl for supper and bricks for a hearth.",
++      "motivation": "The river gathering is a month away. We begin with earth, water, air and fire. Make stone for grinding and bricks for building.",
+       "area": {
+         "id": "area-beginnings",
+         "label": "Four beginnings",
+@@ -4642,10 +4647,10 @@
+       "locations": [],
+       "objectives": [
+         {
+-          "id": "beginnings-bowl",
+-          "text": "Make Bowl",
++          "id": "beginnings-stone",
++          "text": "Make Stone",
+           "kind": "create",
+-          "item": "bowl"
++          "item": "stone"
+         },
+         {
+           "id": "beginnings-brick",
+@@ -4654,7 +4659,7 @@
+           "item": "brick"
+         }
+       ],
+-      "completionText": "A bowl to eat from and bricks to build with—not bad for four beginnings. Now we need something worth putting in that bowl."
++      "completionText": "Stone for grinding and bricks for building. Now we need something to eat before the journey."
+     },
+     {
+       "id": "supper",
+@@ -5496,7 +5501,8 @@
+     "Uses v3 current-scene packing: only the existing prerequisite frontier is brought along; things left behind remain tangible at prior places.",
+     "v4 adds concrete material/function descriptions, names the wheeled undercarriage Wheelset, fixes hinge and hammerstone relationships, and folds the one-creation map synthesis into the night-navigation chapter. No quota recipes added.",
+     "v5 responds to the full-v4 stop: natural alternate routes retain canonical outputs; fitting the house window now satisfies the actual shelter goal; mill and baker acknowledge prior flour and offer a concrete next reward. No new item or quota recipe added.",
+-    "v6 observation candidate: the microscope now reveals an observed pond-world; natural sample, specimen and wind-note alternatives preserve their old routes. Guests arrive after scene 21, share the kitchen meal at 24, and stay present through the later craft exchanges and journeys home. No new mechanic, scarcity, timer, choice quota, hidden item retirement or artificial prerequisite. Author-aware validation is not a fresh player retest."
++    "v6 observation candidate: the microscope now reveals an observed pond-world; natural sample, specimen and wind-note alternatives preserve their old routes. Guests arrive after scene 21, share the kitchen meal at 24, and stay present through the later craft exchanges and journeys home. No new mechanic, scarcity, timer, choice quota, hidden item retirement or artificial prerequisite. Author-aware validation is not a fresh player retest.",
++    "Opening-wheel research candidate: first chapter makes Stone and Brick, preserving Stone as chapter-two grinding equipment. Bowl is formed from Clay and the earlier Wheel when it first becomes useful for the bakery basket. No original raw inputs, other recipe pairs, runtime rules or later objectives change. Not promoted or human-tested."
+   ],
+   "sources": [
+     {
+@@ -5532,6 +5538,12 @@
+       "title": "Hackney Museum: Hammerstone",
+       "url": "https://museum-collection.hackney.gov.uk/object-1991-637",
+       "note": "Museum describes hand-held cobbles used for striking, supporting a blunt tool distinct from an edged axe."
++    },
++    {
++      "id": "pottery-forming",
++      "title": "V&A: Richard Batterham — methods of making",
++      "url": "https://www.vam.ac.uk/articles/richard-batterham-methods-of-making",
++      "note": "Supports forming clay vessels on a rotating wheel and distinguishes forming from later firing. Does not establish that a bare cart wheel is a complete pottery tool."
+     }
+   ],
+   "checkpoints": [
+@@ -5557,11 +5569,6 @@
+         {
+           "type": "combine",
+           "a": "clay",
+-          "b": "stone"
+-        },
+-        {
+-          "type": "combine",
+-          "a": "clay",
+           "b": "fire"
+         },
+         {
+@@ -5586,11 +5593,6 @@
+         {
+           "type": "combine",
+           "a": "clay",
+-          "b": "stone"
+-        },
+-        {
+-          "type": "combine",
+-          "a": "clay",
+           "b": "fire"
+         },
+         {
+@@ -5658,11 +5660,6 @@
+         {
+           "type": "combine",
+           "a": "clay",
+-          "b": "stone"
+-        },
+-        {
+-          "type": "combine",
+-          "a": "clay",
+           "b": "fire"
+         },
+         {
+@@ -5783,11 +5780,6 @@
+         {
+           "type": "combine",
+           "a": "clay",
+-          "b": "stone"
+-        },
+-        {
+-          "type": "combine",
+-          "a": "clay",
+           "b": "fire"
+         },
+         {
+@@ -5961,11 +5953,6 @@
+         {
+           "type": "combine",
+           "a": "clay",
+-          "b": "stone"
+-        },
+-        {
+-          "type": "combine",
+-          "a": "clay",
+           "b": "fire"
+         },
+         {
+@@ -6177,11 +6164,6 @@
+         {
+           "type": "combine",
+           "a": "clay",
+-          "b": "stone"
+-        },
+-        {
+-          "type": "combine",
+-          "a": "clay",
+           "b": "fire"
+         },
+         {
+@@ -6396,6 +6378,11 @@
+         },
+         {
+           "type": "combine",
++          "a": "clay",
++          "b": "wheel"
++        },
++        {
++          "type": "combine",
+           "a": "fiber",
+           "b": "bowl"
+         },
+@@ -6426,11 +6413,6 @@
+         {
+           "type": "combine",
+           "a": "clay",
+-          "b": "stone"
+-        },
+-        {
+-          "type": "combine",
+-          "a": "clay",
+           "b": "fire"
+         },
+         {
+@@ -6645,6 +6627,11 @@
+         },
+         {
+           "type": "combine",
++          "a": "clay",
++          "b": "wheel"
++        },
++        {
++          "type": "combine",
+           "a": "fiber",
+           "b": "bowl"
+         },
+@@ -6723,11 +6710,6 @@
+         {
+           "type": "combine",
+           "a": "clay",
+-          "b": "stone"
+-        },
+-        {
+-          "type": "combine",
+-          "a": "clay",
+           "b": "fire"
+         },
+         {
+@@ -6942,6 +6924,11 @@
+         },
+         {
+           "type": "combine",
++          "a": "clay",
++          "b": "wheel"
++        },
++        {
++          "type": "combine",
+           "a": "fiber",
+           "b": "bowl"
+         },
+@@ -7048,11 +7035,6 @@
+         {
+           "type": "combine",
+           "a": "clay",
+-          "b": "stone"
+-        },
+-        {
+-          "type": "combine",
+-          "a": "clay",
+           "b": "fire"
+         },
+         {
+@@ -7267,6 +7249,11 @@
+         },
+         {
+           "type": "combine",
++          "a": "clay",
++          "b": "wheel"
++        },
++        {
++          "type": "combine",
+           "a": "fiber",
+           "b": "bowl"
+         },
+@@ -7431,11 +7418,6 @@
+         {
+           "type": "combine",
+           "a": "clay",
+-          "b": "stone"
+-        },
+-        {
+-          "type": "combine",
+-          "a": "clay",
+           "b": "fire"
+         },
+         {
+@@ -7650,6 +7632,11 @@
+         },
+         {
+           "type": "combine",
++          "a": "clay",
++          "b": "wheel"
++        },
++        {
++          "type": "combine",
+           "a": "fiber",
+           "b": "bowl"
+         },
+@@ -7847,11 +7834,6 @@
+         {
+           "type": "combine",
+           "a": "clay",
+-          "b": "stone"
+-        },
+-        {
+-          "type": "combine",
+-          "a": "clay",
+           "b": "fire"
+         },
+         {
+@@ -8066,6 +8048,11 @@
+         },
+         {
+           "type": "combine",
++          "a": "clay",
++          "b": "wheel"
++        },
++        {
++          "type": "combine",
+           "a": "fiber",
+           "b": "bowl"
+         },
+@@ -8311,11 +8298,6 @@
+         {
+           "type": "combine",
+           "a": "clay",
+-          "b": "stone"
+-        },
+-        {
+-          "type": "combine",
+-          "a": "clay",
+           "b": "fire"
+         },
+         {
+@@ -8530,6 +8512,11 @@
+         },
+         {
+           "type": "combine",
++          "a": "clay",
++          "b": "wheel"
++        },
++        {
++          "type": "combine",
+           "a": "fiber",
+           "b": "bowl"
+         },
+@@ -8803,11 +8790,6 @@
+         {
+           "type": "combine",
+           "a": "clay",
+-          "b": "stone"
+-        },
+-        {
+-          "type": "combine",
+-          "a": "clay",
+           "b": "fire"
+         },
+         {
+@@ -9022,6 +9004,11 @@
+         },
+         {
+           "type": "combine",
++          "a": "clay",
++          "b": "wheel"
++        },
++        {
++          "type": "combine",
+           "a": "fiber",
+           "b": "bowl"
+         },
+@@ -9348,11 +9335,6 @@
+         {
+           "type": "combine",
+           "a": "clay",
+-          "b": "stone"
+-        },
+-        {
+-          "type": "combine",
+-          "a": "clay",
+           "b": "fire"
+         },
+         {
+@@ -9567,6 +9549,11 @@
+         },
+         {
+           "type": "combine",
++          "a": "clay",
++          "b": "wheel"
++        },
++        {
++          "type": "combine",
+           "a": "fiber",
+           "b": "bowl"
+         },
+@@ -9936,11 +9923,6 @@
+         {
+           "type": "combine",
+           "a": "clay",
+-          "b": "stone"
+-        },
+-        {
+-          "type": "combine",
+-          "a": "clay",
+           "b": "fire"
+         },
+         {
+@@ -10155,6 +10137,11 @@
+         },
+         {
+           "type": "combine",
++          "a": "clay",
++          "b": "wheel"
++        },
++        {
++          "type": "combine",
+           "a": "fiber",
+           "b": "bowl"
+         },
+@@ -10557,11 +10544,6 @@
+         {
+           "type": "combine",
+           "a": "clay",
+-          "b": "stone"
+-        },
+-        {
+-          "type": "combine",
+-          "a": "clay",
+           "b": "fire"
+         },
+         {
+@@ -10776,6 +10758,11 @@
+         },
+         {
+           "type": "combine",
++          "a": "clay",
++          "b": "wheel"
++        },
++        {
++          "type": "combine",
+           "a": "fiber",
+           "b": "bowl"
+         },
+@@ -11206,11 +11193,6 @@
+         {
+           "type": "combine",
+           "a": "clay",
+-          "b": "stone"
+-        },
+-        {
+-          "type": "combine",
+-          "a": "clay",
+           "b": "fire"
+         },
+         {
+@@ -11425,6 +11407,11 @@
+         },
+         {
+           "type": "combine",
++          "a": "clay",
++          "b": "wheel"
++        },
++        {
++          "type": "combine",
+           "a": "fiber",
+           "b": "bowl"
+         },
+@@ -11898,11 +11885,6 @@
+         {
+           "type": "combine",
+           "a": "clay",
+-          "b": "stone"
+-        },
+-        {
+-          "type": "combine",
+-          "a": "clay",
+           "b": "fire"
+         },
+         {
+@@ -12117,6 +12099,11 @@
+         },
+         {
+           "type": "combine",
++          "a": "clay",
++          "b": "wheel"
++        },
++        {
++          "type": "combine",
+           "a": "fiber",
+           "b": "bowl"
+         },
+@@ -12633,11 +12620,6 @@
+         {
+           "type": "combine",
+           "a": "clay",
+-          "b": "stone"
+-        },
+-        {
+-          "type": "combine",
+-          "a": "clay",
+           "b": "fire"
+         },
+         {
+@@ -12852,6 +12834,11 @@
+         },
+         {
+           "type": "combine",
++          "a": "clay",
++          "b": "wheel"
++        },
++        {
++          "type": "combine",
+           "a": "fiber",
+           "b": "bowl"
+         },
+@@ -13396,11 +13383,6 @@
+         {
+           "type": "combine",
+           "a": "clay",
+-          "b": "stone"
+-        },
+-        {
+-          "type": "combine",
+-          "a": "clay",
+           "b": "fire"
+         },
+         {
+@@ -13615,6 +13597,11 @@
+         },
+         {
+           "type": "combine",
++          "a": "clay",
++          "b": "wheel"
++        },
++        {
++          "type": "combine",
+           "a": "fiber",
+           "b": "bowl"
+         },
+@@ -14187,11 +14174,6 @@
+         {
+           "type": "combine",
+           "a": "clay",
+-          "b": "stone"
+-        },
+-        {
+-          "type": "combine",
+-          "a": "clay",
+           "b": "fire"
+         },
+         {
+@@ -14406,6 +14388,11 @@
+         },
+         {
+           "type": "combine",
++          "a": "clay",
++          "b": "wheel"
++        },
++        {
++          "type": "combine",
+           "a": "fiber",
+           "b": "bowl"
+         },
+@@ -15016,11 +15003,6 @@
+         {
+           "type": "combine",
+           "a": "clay",
+-          "b": "stone"
+-        },
+-        {
+-          "type": "combine",
+-          "a": "clay",
+           "b": "fire"
+         },
+         {
+@@ -15235,6 +15217,11 @@
+         },
+         {
+           "type": "combine",
++          "a": "clay",
++          "b": "wheel"
++        },
++        {
++          "type": "combine",
+           "a": "fiber",
+           "b": "bowl"
+         },
+@@ -15883,11 +15870,6 @@
+         {
+           "type": "combine",
+           "a": "clay",
+-          "b": "stone"
+-        },
+-        {
+-          "type": "combine",
+-          "a": "clay",
+           "b": "fire"
+         },
+         {
+@@ -16102,6 +16084,11 @@
+         },
+         {
+           "type": "combine",
++          "a": "clay",
++          "b": "wheel"
++        },
++        {
++          "type": "combine",
+           "a": "fiber",
+           "b": "bowl"
+         },
+@@ -16778,11 +16765,6 @@
+         {
+           "type": "combine",
+           "a": "clay",
+-          "b": "stone"
+-        },
+-        {
+-          "type": "combine",
+-          "a": "clay",
+           "b": "fire"
+         },
+         {
+@@ -16997,6 +16979,11 @@
+         },
+         {
+           "type": "combine",
++          "a": "clay",
++          "b": "wheel"
++        },
++        {
++          "type": "combine",
+           "a": "fiber",
+           "b": "bowl"
+         },
+@@ -17701,11 +17688,6 @@
+         {
+           "type": "combine",
+           "a": "clay",
+-          "b": "stone"
+-        },
+-        {
+-          "type": "combine",
+-          "a": "clay",
+           "b": "fire"
+         },
+         {
+@@ -17920,6 +17902,11 @@
+         },
+         {
+           "type": "combine",
++          "a": "clay",
++          "b": "wheel"
++        },
++        {
++          "type": "combine",
+           "a": "fiber",
+           "b": "bowl"
+         },
+@@ -18657,11 +18644,6 @@
+         {
+           "type": "combine",
+           "a": "clay",
+-          "b": "stone"
+-        },
+-        {
+-          "type": "combine",
+-          "a": "clay",
+           "b": "fire"
+         },
+         {
+@@ -18876,6 +18858,11 @@
+         },
+         {
+           "type": "combine",
++          "a": "clay",
++          "b": "wheel"
++        },
++        {
++          "type": "combine",
+           "a": "fiber",
+           "b": "bowl"
+         },
+@@ -19646,11 +19633,6 @@
+         {
+           "type": "combine",
+           "a": "clay",
+-          "b": "stone"
+-        },
+-        {
+-          "type": "combine",
+-          "a": "clay",
+           "b": "fire"
+         },
+         {
+@@ -19865,6 +19847,11 @@
+         },
+         {
+           "type": "combine",
++          "a": "clay",
++          "b": "wheel"
++        },
++        {
++          "type": "combine",
+           "a": "fiber",
+           "b": "bowl"
+         },
+@@ -20668,11 +20655,6 @@
+         {
+           "type": "combine",
+           "a": "clay",
+-          "b": "stone"
+-        },
+-        {
+-          "type": "combine",
+-          "a": "clay",
+           "b": "fire"
+         },
+         {
+@@ -20887,6 +20869,11 @@
+         },
+         {
+           "type": "combine",
++          "a": "clay",
++          "b": "wheel"
++        },
++        {
++          "type": "combine",
+           "a": "fiber",
+           "b": "bowl"
+         },
+@@ -21713,11 +21700,6 @@
+         {
+           "type": "combine",
+           "a": "clay",
+-          "b": "stone"
+-        },
+-        {
+-          "type": "combine",
+-          "a": "clay",
+           "b": "fire"
+         },
+         {
+@@ -21932,6 +21914,11 @@
+         },
+         {
+           "type": "combine",
++          "a": "clay",
++          "b": "wheel"
++        },
++        {
++          "type": "combine",
+           "a": "fiber",
+           "b": "bowl"
+         },
+@@ -22791,11 +22778,6 @@
+         {
+           "type": "combine",
+           "a": "clay",
+-          "b": "stone"
+-        },
+-        {
+-          "type": "combine",
+-          "a": "clay",
+           "b": "fire"
+         },
+         {
+@@ -23007,6 +22989,11 @@
+           "type": "combine",
+           "a": "risen-dough",
+           "b": "fire"
++        },
++        {
++          "type": "combine",
++          "a": "clay",
++          "b": "wheel"
+         },
+         {
+           "type": "combine",
