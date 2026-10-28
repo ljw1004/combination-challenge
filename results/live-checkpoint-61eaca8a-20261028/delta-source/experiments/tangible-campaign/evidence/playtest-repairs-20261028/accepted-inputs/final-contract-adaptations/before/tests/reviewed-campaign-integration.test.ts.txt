@@ -1,0 +1,77 @@
+import {applyIntuitiveAlternatives,beforeIntuitiveAlternatives} from '../experiments/tangible-campaign/integration/intuitive-story-alternatives.ts';
+import {applyMarsNaturalOrders} from '../experiments/tangible-campaign/integration/mars-natural-orders.ts';
+import {milestoneAtlasPredecessorScenarios} from '../experiments/tangible-campaign/ui/campaigns/milestone-atlas-predecessors-20261028.ts';
+import {acceptedGoalAncestry,priorCreatedAncestors} from '../experiments/tangible-campaign/integration/accepted-goal-ancestry.ts';
+import {kitchenAtlasAdditionalScenarios} from '../experiments/tangible-campaign/ui/campaigns/kitchen-atlas-experiments-20261028.ts';
+import {arrivalContentPredecessorScenarios} from '../experiments/tangible-campaign/ui/campaigns/arrival-content-predecessors-20261028.ts';
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {readFileSync} from 'node:fs';
+import {scenarios,c85Scenarios,integratedScenarios,intellectualWorldScenarios,intellectualWorldPredecessorScenarios,optionalIntellectualScenarios,featuredScenarioIds} from '../experiments/tangible-campaign/ui/scenarios.ts';
+import {checkpointPredecessorScenarios} from '../experiments/tangible-campaign/ui/campaigns/checkpoint-predecessors-20261028.ts';
+import {predecessorScenarios} from '../experiments/tangible-campaign/ui/campaigns/predecessors-20261028.ts';
+import {lifecycleAudit} from '../experiments/tangible-campaign/integration/current-lifecycle-audit.ts';
+import {scenarios as legacy} from '../experiments/tangible-campaign/ui/legacy-scenarios.ts';
+import {archivedScenarioIds,validateRecipeLifecycle,validateContentLifecycles,validateConstructionContinuity,validateObjectiveFlow} from '../experiments/tangible-campaign/schema/lifecycle.ts';
+import * as M from '../experiments/tangible-campaign/engine/model.ts';
+import {routeSpecs,routeActions,scenarioFor,auditRoute,digest,evidenceRoot,sourceManifest,readSource} from '../experiments/tangible-campaign/integration/reviewed-routes.ts';
+const root=new URL('../',import.meta.url);
+const normalized=(state:M.State)=>({...state,tokens:state.tokens.map(t=>({...t,components:t.components??[]}))});
+test('legacy data is byte-identical to exact 61a9b4e source; every old object and save identity remains in facade',()=>{
+ assert.equal(digest(readFileSync(new URL('../experiments/tangible-campaign/ui/legacy-scenarios.ts',import.meta.url))),sourceManifest.legacyScenariosSha256);
+ assert.equal(legacy.length,15);assert.equal(scenarios.length,21+intellectualWorldScenarios.length+predecessorScenarios.length+checkpointPredecessorScenarios.length+arrivalContentPredecessorScenarios.length+kitchenAtlasAdditionalScenarios.length+milestoneAtlasPredecessorScenarios.length);assert.equal(new Set(scenarios.map(s=>s.id)).size,scenarios.length);
+ for(const old of legacy){assert.equal(scenarios.find(s=>s.id===old.id),old);const g=M.createGame(old);assert.equal(M.restore(old,JSON.stringify(g)).scenarioId,old.id);}
+ const active=scenarios.filter(s=>!archivedScenarioIds.has(s.id));assert.equal(active.length,9+intellectualWorldScenarios.length+predecessorScenarios.length+checkpointPredecessorScenarios.length+arrivalContentPredecessorScenarios.length+kitchenAtlasAdditionalScenarios.length+milestoneAtlasPredecessorScenarios.length);assert.equal(active.reduce((n,s)=>n+s.recipes.length,0),c85Scenarios.reduce((n,s)=>n+s.recipes.length,0)+intellectualWorldScenarios.reduce((n,s)=>n+s.recipes.length,0)+predecessorScenarios.reduce((n,s)=>n+s.recipes.length,0)+checkpointPredecessorScenarios.reduce((n,s)=>n+s.recipes.length,0)+arrivalContentPredecessorScenarios.reduce((n,s)=>n+s.recipes.length,0)+kitchenAtlasAdditionalScenarios.reduce((n,s)=>n+s.recipes.length,0)+milestoneAtlasPredecessorScenarios.reduce((n,s)=>n+s.recipes.length,0)+38);
+ assert.deepEqual(active.filter(s=>!featuredScenarioIds.includes(s.id)).map(s=>s.id).sort(),['literature','restoration','shoreline',...predecessorScenarios.map(s=>s.id),...checkpointPredecessorScenarios.map(s=>s.id),...arrivalContentPredecessorScenarios.map(s=>s.id),...kitchenAtlasAdditionalScenarios.map(s=>s.id),...milestoneAtlasPredecessorScenarios.map(s=>s.id),...intellectualWorldPredecessorScenarios.map(s=>s.id),...optionalIntellectualScenarios.map(s=>s.id)].sort());
+ for(const old of c85Scenarios)assert.equal(scenarios.find(s=>s.id===old.id),old,'Every c85 route and raw object remains registered');
+ assert.deepEqual(scenarios.find(s=>s.id==='doctrine-grace-and-matter-v1'),legacy.find(s=>s.id==='doctrine-grace-and-matter-v1'));
+});
+test('all input snapshots hash-verify; candidate data matches reviewed bytes except documented Mars presentation and Atlas checkpoints',()=>{
+ for(const row of sourceManifest.inputs)assert.equal(digest(readFileSync(new URL(row.snapshotPath,root))),row.sha256,row.snapshotPath);
+ const delta=JSON.parse(readFileSync(new URL('mars-presentation-delta.json',evidenceRoot),'utf8'));
+ for(const spec of routeSpecs){const source=readSource(sourceManifest.scenarioSources[spec.key]);if(spec.key==='mars')for(const change of delta.changes){const i=source.items.find((i:any)=>i.id===change.item);if(source.id==='mars-connected-survival-v4-return-cargo-research')assert.equal(i[change.field],change.after);else{assert.equal(i[change.field],change.before);i[change.field]=change.after;}}if(spec.key==='mars')for(const change of JSON.parse(readFileSync(new URL('late-label-successor-20261028/mars-archive-label-override.json',evidenceRoot),'utf8')).changes){const i=source.items.find((i:any)=>i.id===change.item);assert.equal(i[change.field],change.before);i[change.field]=change.after;}if(spec.key==='elements'&&source.id==='elements-gathering-refinement-v7-cue-research')for(const change of JSON.parse(readFileSync(new URL('late-revision-20261028/elements-label-override.json',evidenceRoot),'utf8')).changes){const i=source.items.find((i:any)=>i.id===change.item);assert.equal(i[change.field],change.before);i[change.field]=change.after;}if(spec.key==='purpose'&&source.id==='causation-accidental-bell-probe-v1')source.checkpoints=JSON.parse(readFileSync(new URL('morning-revision-20261028/purpose-checkpoint-addition.json',evidenceRoot),'utf8')).checkpoints;if(spec.key==='atlas'&&source.id!=='atlas-connected-questions-v9-evidence-repair-research')source.checkpoints=JSON.parse(readFileSync(new URL('morning-revision-20261028/atlas-checkpoint-addition.json',evidenceRoot),'utf8')).checkpoints;assert.deepEqual(scenarioFor(spec.key),applyIntuitiveAlternatives(spec.key==='mars'?applyMarsNaturalOrders(source):source));}
+ assert.equal(delta.changes.length,4);
+});
+test('new scenarios are not grandfathered and every recipe has valid explicit input, objective and compound decisions',()=>{
+ const acceptedScenarios=[...c85Scenarios,...intellectualWorldScenarios];
+ for(const s of acceptedScenarios){assert(!archivedScenarioIds.has(s.id));for(const r of s.recipes)assert.deepEqual(validateRecipeLifecycle(r,true),[],s.id+':'+r.id);}
+ assert.deepEqual(validateContentLifecycles(acceptedScenarios),[]);assert.deepEqual(validateObjectiveFlow(acceptedScenarios),[]);assert.deepEqual(validateConstructionContinuity(acceptedScenarios),[]);
+ const audit=lifecycleAudit;
+ const priorAudit=JSON.parse(readFileSync(new URL('../experiments/tangible-campaign/reviews/lifecycle/audit.json',import.meta.url),'utf8'));
+ for(const row of priorAudit.recipes)assert.deepEqual(audit.historicalRecipes.find((r:any)=>r.world===row.world&&r.recipe===row.recipe),row,'Every historical lifecycle row remains exact in the historical audit');
+ const active=scenarios.filter(s=>!archivedScenarioIds.has(s.id));assert.deepEqual(audit.recipes.map((r:any)=>r.world+':'+r.recipe).sort(),active.flatMap(s=>s.recipes.map(r=>s.id+':'+r.id)).sort());assert.equal(new Set(audit.recipes.map((r:any)=>r.world+':'+r.recipe)).size,audit.recipes.length,'No duplicate lifecycle rows');
+ for(const s of active)for(const r of s.recipes){const row=audit.recipes.find((x:any)=>x.world===s.id&&x.recipe===r.id);assert.deepEqual(row.lifecycles??row.lifecycle??row.decisions,r.lifecycle,s.id+':'+r.id);}
+});
+for(const spec of routeSpecs){const s=scenarioFor(spec.key),actions=routeActions(spec.source);
+ test(`${s.id}: canonical current-goal ancestry, event-local input lifetime and preserved fitted contents at three widths`,()=>{
+  const evidence=JSON.parse(readFileSync(new URL(`../experiments/tangible-campaign/evidence/${s.id}-route-evidence.json`,import.meta.url),'utf8'));assert.deepEqual(evidence.actionsLog,actions);
+  for(const width of [320,375,600]){const result=auditRoute(s,actions,width);assert(result.game.state.completed);assert.equal(result.rows.length,s.stages.length);assert.deepEqual(result.missing,[]);assert.equal(result.game.state.metrics.combinations,evidence.combinations);assert.deepEqual(normalized(M.restore(s,JSON.stringify(result.game)).state),normalized(result.game.state));if(width===375){assert.deepEqual(result.rows,evidence.goalContinuity);assert.deepEqual(result.stageEntries.map(({stateSha256,...row})=>row),evidence.stageEntries.map(({stateSha256,...row}:any)=>row));}}
+ });
+ test(`${s.id}: every authored checkpoint restores and remains separate from every historical save identity`,()=>{
+  for(const cp of s.checkpoints??[])for(const width of [320,375,600]){const g=M.checkpoint(s,cp.id,width);assert.deepEqual(normalized(M.restore(s,JSON.stringify(g)).state),normalized(g.state));for(const old of legacy)assert.throws(()=>M.restore(old,JSON.stringify(g)),/Invalid campaign save/);}
+ });
+ for(const alt of spec.alternatives)test(`${s.id}: documented ${alt.name} alternative completes with goal-connected reuse or explicitly earned early goals, and event-local behavior`,()=>{
+  const actions=routeActions(alt.source,alt.witness),report=auditRoute(s,actions);assert(report.game.state.completed);
+  if(spec.key!=='food'||!['early-kitchen-forward','early-kitchen-reverse'].includes(alt.name)){assert.deepEqual(report.missing,[]);return;}
+  // These two explicit witnesses do the second chapter's real cooking early at the
+  // same workstation. Do not invent fresh work or gates solely to satisfy an audit.
+  const ready=['orchard','salads','pastry','sugar','custard','sponge','quickbread','meringue','precision'];
+  assert.deepEqual(report.missing,[...ready,'snack']);
+  const earned=acceptedGoalAncestry(s,actions);assert.equal(earned.rows.length,s.stages.length);assert.deepEqual(earned.rows.filter(r=>r.readyAtEntry).map(r=>r.stage),ready);
+  for(const row of earned.rows.slice(1))assert(row.priorCreations.length,`${row.stage}: actual accepted ancestry must contain an earlier-created object`);
+  for(const id of ready){const row=earned.rows.find(r=>r.stage===id)!;assert(row.readyAtEntry);assert.deepEqual(row.actions,[]);assert(row.roots.length);for(const root of row.roots){assert(earned.createdAt[root]<row.stageIndex);assert(earned.events.some(e=>e.out===root&&e.created&&e.stage<row.stageIndex));}}
+  const final=earned.rows.find(r=>r.stage==='snack')!;assert(!final.readyAtEntry);assert.deepEqual(final.actions,[{type:'place',item:'supper-trolley',location:'dining-car'}]);assert(final.roots.includes('supper-trolley'));
+  for(const id of ['bean-supper','juice','processed-stew-tin']){assert(final.priorCreations.includes(id));assert(Object.values(M.token(earned.finalState,'supper-trolley')!.slots).includes(id));assert(earned.events.some(e=>e.out==='supper-trolley'&&e.inputs.includes(id)&&e.stage<final.stageIndex));}
+  const cakes=['vanilla-sandwich','iced-chocolate-cake'].filter(id=>Object.values(M.token(earned.finalState,'supper-trolley')!.slots).includes(id));assert(cakes.length);for(const id of cakes){assert(final.priorCreations.includes(id));assert(earned.events.some(e=>e.out==='supper-trolley'&&e.inputs.includes(id)&&e.stage<final.stageIndex));}
+ });
+}
+
+test('accepted-goal ancestry rejects primitive-only cargo, missing install links and unrelated creations',()=>{
+ const edges=new Map([['trolley',new Set(['raw-food'])]]),made=new Map([['cooked-food',0]]);
+ assert.deepEqual(priorCreatedAncestors(['trolley'],edges,made,1),[],'unrelated cooked food must not count');
+ assert.deepEqual(priorCreatedAncestors(['wrong-primitive'],new Map([['trolley',new Set(['cooked-food'])]]),made,1),[],'wrong goal witness must not count');
+ assert.deepEqual(priorCreatedAncestors(['trolley'],new Map(),made,1),[],'inventory without accepted install link must not count');
+ assert.deepEqual(priorCreatedAncestors(['trolley'],edges,new Map(),1),[],'a merely loaded primitive is not an earlier creation');
+ assert.deepEqual(priorCreatedAncestors(['trolley'],new Map([['trolley',new Set(['cooked-food'])]]),made,0),[],'same-stage manufacture is not earlier-chapter creation');
+ assert.deepEqual(priorCreatedAncestors(['trolley'],new Map([['trolley',new Set(['cooked-food'])]]),made,1),['cooked-food']);
+});

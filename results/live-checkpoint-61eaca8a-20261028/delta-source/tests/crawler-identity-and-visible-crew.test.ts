@@ -1,0 +1,93 @@
+import {currentMarsRouteActions} from '../experiments/tangible-campaign/integration/current-mars-route-actions.ts';
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {readFileSync} from 'node:fs';
+import * as M from '../experiments/tangible-campaign/engine/model.ts';
+import {scenario as s} from '../experiments/tangible-campaign/ui/campaigns/mars-return-cargo.ts';
+import {validateContentLifecycles,validateObjectiveFlow,validateConstructionContinuity} from '../experiments/tangible-campaign/schema/lifecycle.ts';
+import type {Action,Scenario} from '../experiments/tangible-campaign/schema/scenario.ts';
+
+const route:Action[]=JSON.parse(readFileSync(new URL('../experiments/tangible-campaign/evidence/'+s.id+'-route-evidence.json',import.meta.url),'utf8')).actionsLog;
+const rescueIndex=s.stages.findIndex(st=>st.id==='rescue');
+const start=()=>M.checkpoint(s,'chapter-'+(rescueIndex+1));
+const run=(world:Scenario,g:M.Game,actions:Action[])=>actions.reduce((g,a)=>{
+ const result=M.applyAction(world,g,a);assert(result.accepted,JSON.stringify(a)+': '+result.message);return result.game;
+},g);
+const combine=(a:string,b:string):Action=>({type:'combine',a,b});
+function prepare(g:M.Game){return run(s,g,[combine('service-shelter','pressure-patch'),combine('sealed-refuge','heater'),combine('folding-bed','bedding'),combine('prepared-bed','warm-refuge')]);}
+function drive(g:M.Game){return run(s,g,[combine('spare-drive','toolkit'),combine('serviced-drive','drive-coupling')]);}
+function tow(g:M.Game){return run(s,g,[combine('recovery-rope','tow-eye'),combine('tow-line','rover'),combine('rover','damaged-crawler')]);}
+
+test('crawler repair replaces disabled cabin at the same spot in either drag direction; Undo and restore are exact',()=>{
+ const before=drive(start()),old=M.token(before.state,'damaged-crawler')!;
+ for(const [a,b] of [['replacement-drive','damaged-crawler'],['damaged-crawler','replacement-drive']]){
+  const result=M.applyAction(s,before,combine(a,b));assert(result.accepted,result.message);
+  const crawler=M.token(result.game.state,'crawler')!;
+  assert(!M.token(result.game.state,'damaged-crawler'));assert(!M.token(result.game.state,'replacement-drive'));
+  assert.deepEqual([crawler.x,crawler.y,crawler.location],[old.x,old.y,old.location]);
+  assert(result.retired?.includes(old.id));assert(crawler.incorporated.includes('damaged-crawler'));
+  const undone=M.undo(result.game).game.state;assert.deepEqual({...undone,metrics:before.state.metrics},before.state);
+  assert.deepEqual(M.restore(s,JSON.stringify(result.game)),result.game);
+ }
+});
+
+test('tow-first transforms the same cabin; repair before shelter replaces its towed state, not a second cabin',()=>{
+ const initial=start(),towed=tow(initial);
+ assert(!M.token(towed.state,'damaged-crawler'));assert(M.token(towed.state,'towed-crawler'));
+ const before=drive(towed),old=M.token(before.state,'towed-crawler')!;
+ for(const [a,b] of [['replacement-drive','towed-crawler'],['towed-crawler','replacement-drive']]){
+  const result=M.applyAction(s,before,combine(a,b));assert(result.accepted,result.message);
+  assert(!M.token(result.game.state,'towed-crawler'));assert(!M.token(result.game.state,'damaged-crawler'));
+  assert.deepEqual([M.token(result.game.state,'crawler')!.x,M.token(result.game.state,'crawler')!.y],[old.x,old.y]);
+  const sheltered=run(s,prepare(result.game),[combine('crawler','rest-refuge')]);
+  assert(M.token(sheltered.state,'occupied-refuge'));assert(M.token(sheltered.state,'crawler'));
+ }
+});
+
+test('tow-first shelter remains valid; a later drive repair also retains exactly one real crawler',()=>{
+ const towed=tow(prepare(start()));
+ const sheltered=run(s,towed,[combine('towed-crawler','rest-refuge')]);
+ assert.equal(M.itemDisplayLabel(s,sheltered.state,'towed-crawler'),'Recovered crawler');
+ const repaired=run(s,drive(sheltered),[combine('replacement-drive','towed-crawler')]);
+ assert(M.token(repaired.state,'crawler'));assert(!M.token(repaired.state,'towed-crawler'));assert(!M.token(repaired.state,'damaged-crawler'));
+ assert.equal(M.itemDisplayLabel(s,repaired.state,'crawler'),'Crawler');
+});
+
+test('tile and task names reveal crew without requiring prose; shelter changes them and Undo restores them',()=>{
+ const before=run(s,prepare(drive(start())),[combine('replacement-drive','damaged-crawler')]);
+ let view=M.playerView(s,before);
+ assert.equal(view.things.find(t=>t.id==='crawler')!.label,'Crawler · crew aboard');
+ assert.deepEqual(view.objectives.map(o=>o.text),['Bring crew to shelter']);
+ const after=run(s,before,[combine('crawler','rest-refuge')]);view=M.playerView(s,after);
+ assert.equal(view.things.find(t=>t.id==='crawler')!.label,'Crawler');
+ assert.deepEqual(view.objectives.map(o=>o.text),['Feed sheltered crew']);
+ assert(!M.gold(s,after.state).items.includes('occupied-refuge'),'The intermediate refuge is not permanently gilded.');
+ const undone=M.undo(after).game;assert.equal(M.itemDisplayLabel(s,undone.state,'crawler'),'Crawler · crew aboard');
+ assert.equal(M.itemDisplayLabel(s,M.restore(s,JSON.stringify(after)).state,'crawler'),'Crawler');
+ assert.equal(M.item(s,'crawler')!.label,'Crawler · crew aboard','Projection never mutates content.');
+});
+
+test('old duplicate saves are preserved verbatim; no reload, move, or chapter event retroactively culls things',()=>{
+ const old=structuredClone(s);for(const r of old.recipes)for(const l of Object.values(r.lifecycle??{}))delete l.exclusive;
+ const before=drive(start()),legacy=run(old,before,[combine('replacement-drive','damaged-crawler')]);
+ assert(M.token(legacy.state,'damaged-crawler'));assert(M.token(legacy.state,'crawler'));
+ const restored=M.restore(s,JSON.stringify(legacy));assert.deepEqual(restored,legacy);
+ const moved=run(s,restored,[{type:'move',item:'crawler',x:210,y:240}]);assert(M.token(moved.state,'damaged-crawler'));
+ assert.equal(restored.scenarioId,s.id);assert.equal(restored.version,legacy.version);
+});
+
+test('canonical complete route and every saved checkpoint still work with crew intermediate goal',()=>{
+ assert.deepEqual([...M.validateScenario(s),...validateContentLifecycles([s]),...validateObjectiveFlow([s]),...validateConstructionContinuity([s])],[]);
+ const complete=M.replay(s,currentMarsRouteActions(route));assert(complete.state.completed);
+ assert(!M.token(complete.state,'damaged-crawler'));assert(M.token(complete.state,'crawler'));
+ for(const checkpoint of s.checkpoints??[])assert(M.checkpoint(s,checkpoint.id));
+});
+
+test('conditional labels require a valid different item and a real alternate label, and stay presentation-only',()=>{
+ for(const value of [null,{item:'missing',label:'Crawler'},{item:'crawler',label:'Crawler'},{item:'occupied-refuge',label:''},{item:'occupied-refuge',label:'Crawler · crew aboard'},{item:'occupied-refuge',label:12}]){
+  const mutant=structuredClone(s);(mutant.items.find(i=>i.id==='crawler') as any).labelAfterCreated=value;
+  assert(M.validateScenario(mutant).some(e=>e.includes('Invalid conditional label crawler')),JSON.stringify(value));
+ }
+ const before=start(),snapshot=JSON.stringify(before);M.playerView(s,before);M.arrivalView(s,before.state);M.partners(s,before.state,'damaged-crawler');
+ assert.equal(JSON.stringify(before),snapshot);
+});

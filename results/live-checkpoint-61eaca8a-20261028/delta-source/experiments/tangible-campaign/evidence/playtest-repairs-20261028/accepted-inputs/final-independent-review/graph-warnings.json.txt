@@ -1,0 +1,372 @@
+[
+  {
+    "world": "mars-connected-survival-v4-return-cargo-research",
+    "recipe": "camp-lantern-bracket",
+    "input": "lantern",
+    "rule": "conditional-retention",
+    "id": "conditional-retention:signal-5-signal-lamp",
+    "conflict": "signal-5-signal-lamp",
+    "path": [
+      "signal-5-signal-lamp",
+      "camp-signal-lamp-bracket"
+    ],
+    "message": "incorporate of lantern can retain the predecessor for signal-5-signal-lamp, although their outputs reconverge through declared lifecycle lineage",
+    "reason": "The fitted bench lamp cannot substitute for the independent unfinished signal-lamp → signal-beacon branch. A player can reach camp by the solar-radio route before making a beacon, so needed() must keep the outside lantern until that signaling branch is made."
+  },
+  {
+    "world": "elements-house-and-craft-v1",
+    "recipe": "window",
+    "input": "wood",
+    "rule": "conditional-retention",
+    "id": "conditional-retention:house",
+    "conflict": "house",
+    "path": [
+      "house",
+      "fit-house-window"
+    ],
+    "message": "incorporate of wood can retain the predecessor for house, although their outputs reconverge through declared lifecycle lineage",
+    "reason": "The window frame uses some of the timber stock. Separate lengths are still needed for the house structure; fitting the frame into that house does not make those two timber allocations the same object."
+  },
+  {
+    "world": "elements-house-and-craft-v1",
+    "recipe": "house",
+    "input": "wood",
+    "rule": "conditional-retention",
+    "id": "conditional-retention:window",
+    "conflict": "window",
+    "path": [
+      "window",
+      "fit-house-window"
+    ],
+    "message": "incorporate of wood can retain the predecessor for window, although their outputs reconverge through declared lifecycle lineage",
+    "reason": "Building the house uses structural timber, while separate stock is kept for its still-unmade window frame. The eventual installation joins two assemblies, not two states of one timber piece."
+  },
+  {
+    "world": "elements-house-and-craft-v1",
+    "recipe": "wheel",
+    "input": "planks",
+    "rule": "conditional-retention",
+    "id": "conditional-retention:waterwheel",
+    "conflict": "waterwheel",
+    "path": [
+      "waterwheel",
+      "waterwheel-from-wheel"
+    ],
+    "message": "transform of planks can retain the predecessor for waterwheel, although their outputs reconverge through declared lifecycle lineage",
+    "reason": "Shaping one wheel uses boards from the shared plank stock. The waterwheel may instead be built from more boards; handcart, table and bridge work also need planks outside this wheel."
+  },
+  {
+    "world": "elements-house-and-craft-v1",
+    "recipe": "waterwheel",
+    "input": "planks",
+    "rule": "conditional-retention",
+    "id": "conditional-retention:wheel",
+    "conflict": "wheel",
+    "path": [
+      "wheel",
+      "waterwheel-from-wheel"
+    ],
+    "message": "transform of planks can retain the predecessor for wheel, although their outputs reconverge through declared lifecycle lineage",
+    "reason": "The waterwheel uses part of the board stock. Ordinary wheels can still be made for the handcart and other mechanisms; the alternative wheel-to-waterwheel route does not exhaust all planks."
+  },
+  {
+    "world": "elements-house-and-craft-v1",
+    "recipe": "glazed-bowl",
+    "input": "bowl",
+    "rule": "conditional-retention",
+    "id": "conditional-retention:washstand",
+    "conflict": "washstand",
+    "path": [
+      "washstand",
+      "washstand-from-glazed-bowl"
+    ],
+    "message": "transform of bowl can retain the predecessor for washstand, although their outputs reconverge through declared lifecycle lineage",
+    "reason": "The pottery craft represents repeatable vessels: glazing a serving bowl leaves an unglazed bowl available as the jar-shaping form or washstand basin. The washstand accepts either finish, not a uniquely tracked cabin-like object."
+  },
+  {
+    "world": "elements-house-and-craft-v1",
+    "recipe": "glass-slide",
+    "input": "glass",
+    "rule": "conditional-retention",
+    "id": "conditional-retention:pond-slide-on-glass",
+    "conflict": "pond-slide-on-glass",
+    "path": [
+      "pond-slide-on-glass",
+      "pond-slide"
+    ],
+    "message": "transform of glass can retain the predecessor for pond-slide-on-glass, although their outputs reconverge through declared lifecycle lineage",
+    "reason": "A small flat piece is prepared from the glass stock. The direct pond-sample route prepares another piece if used; window, bottle and lens work still need glass outside this slide."
+  },
+  {
+    "world": "elements-house-and-craft-v1",
+    "recipe": "rain-record",
+    "input": "paper",
+    "rule": "conditional-retention",
+    "id": "conditional-retention:wind-record",
+    "conflict": "wind-record",
+    "path": [
+      "wind-record",
+      "weather-record",
+      "weather-from-wind-record"
+    ],
+    "message": "transform of paper can retain the predecessor for wind-record; both alternative states later transform into weather-record",
+    "reason": "Rain notes use one sheet from the paper supply; wind notes may begin on another. Either record can later gain its missing observation from the windsock or rain gauge, so converging on a weather record does not exhaust all paper."
+  },
+  {
+    "world": "elements-house-and-craft-v1",
+    "recipe": "drinking-water",
+    "input": "boiled-water",
+    "rule": "conditional-retention",
+    "id": "conditional-retention:fill-water-bottle",
+    "conflict": "fill-water-bottle",
+    "path": [
+      "fill-water-bottle",
+      "pour-bowl-into-bottle"
+    ],
+    "message": "incorporate of boiled-water can retain the predecessor for fill-water-bottle, but identity successor drinking-water has the equivalent pour-bowl-into-bottle use",
+    "reason": "The serving bowl receives a portion of prepared water. A separate portion can fill the clay jar directly, even though pouring from the bowl is another route to that filled jar."
+  },
+  {
+    "world": "elements-house-and-craft-v1",
+    "recipe": "drinking-water",
+    "input": "boiled-water",
+    "rule": "conditional-retention",
+    "id": "conditional-retention:fill-covered-bottle",
+    "conflict": "fill-covered-bottle",
+    "path": [
+      "fill-covered-bottle",
+      "water-urn"
+    ],
+    "message": "incorporate of boiled-water can retain the predecessor for fill-covered-bottle, but identity successor drinking-water has the equivalent water-urn use",
+    "reason": "Water served in the bowl is a portion of the prepared batch. The already-covered clay jar can receive a different portion; neither vessel exhausts the whole batch."
+  },
+  {
+    "world": "elements-house-and-craft-v1",
+    "recipe": "covered-urn",
+    "input": "glazed-bottle",
+    "rule": "conditional-retention",
+    "id": "conditional-retention:fill-water-bottle",
+    "conflict": "fill-water-bottle",
+    "path": [
+      "fill-water-bottle",
+      "water-urn",
+      "cover-filled-water-bottle"
+    ],
+    "message": "transform of glazed-bottle can retain the predecessor for fill-water-bottle; both alternative states later transform into water-urn",
+    "reason": "The pottery craft supplies more than one ceramic vessel for cider, a float and water service. Covering a water jar therefore keeps an outside jar supply; cover-first and fill-first are alternative preparations, not globally exclusive pottery."
+  },
+  {
+    "world": "elements-house-and-craft-v1",
+    "recipe": "covered-urn",
+    "input": "glazed-bottle",
+    "rule": "conditional-retention",
+    "id": "conditional-retention:pour-bowl-into-bottle",
+    "conflict": "pour-bowl-into-bottle",
+    "path": [
+      "pour-bowl-into-bottle",
+      "water-urn",
+      "cover-filled-water-bottle"
+    ],
+    "message": "transform of glazed-bottle can retain the predecessor for pour-bowl-into-bottle; both alternative states later transform into water-urn",
+    "reason": "A covered serving jar does not exhaust the pottery craft used for cider or the float. An open jar can still receive water from the bowl; these are separately allocated vessels, not duplicated occupants or cargo."
+  },
+  {
+    "world": "elements-house-and-craft-v1",
+    "recipe": "covered-urn",
+    "input": "jar-lid",
+    "rule": "conditional-retention",
+    "id": "conditional-retention:cover-filled-water-bottle",
+    "conflict": "cover-filled-water-bottle",
+    "path": [
+      "cover-filled-water-bottle",
+      "water-urn"
+    ],
+    "message": "incorporate of jar-lid can retain the predecessor for cover-filled-water-bottle, although their outputs reconverge through declared lifecycle lineage",
+    "reason": "One wooden lid is fitted to this jar. The lid-making craft also supplies covers for sealed preserves and the crock; the alternate fill-before-cover route does not mean all covers became this one lid."
+  },
+  {
+    "world": "elements-house-and-craft-v1",
+    "recipe": "washstand",
+    "input": "bowl",
+    "rule": "conditional-retention",
+    "id": "conditional-retention:glazed-bowl",
+    "conflict": "glazed-bowl",
+    "path": [
+      "glazed-bowl",
+      "washstand-from-glazed-bowl"
+    ],
+    "message": "incorporate of bowl can retain the predecessor for glazed-bowl, although their outputs reconverge through declared lifecycle lineage",
+    "reason": "One basin enters the washstand while the pottery craft still supplies a bowl for glazing and drinking-water service. These are separate vessel uses, despite the alternate glazed-basin washstand route."
+  },
+  {
+    "world": "elements-house-and-craft-v1",
+    "recipe": "mounted-telescope",
+    "input": "telescope",
+    "rule": "conditional-retention",
+    "id": "conditional-retention:star-chart",
+    "conflict": "star-chart",
+    "path": [
+      "star-chart",
+      "star-chart-mounted-telescope"
+    ],
+    "message": "transform of telescope can retain the predecessor for star-chart, but identity successor mounted-telescope has the equivalent star-chart-mounted-telescope use",
+    "reason": "The mounted telescope can make the star chart, but the independent microscope recipe still requires the loose telescope with a magnifier. There is no mounted-telescope microscope substitute, so keep the loose source while that distinct construction is unfinished."
+  },
+  {
+    "world": "elements-house-and-craft-v1",
+    "recipe": "compote",
+    "input": "fruit",
+    "rule": "conditional-retention",
+    "id": "conditional-retention:feast",
+    "conflict": "feast",
+    "path": [
+      "feast",
+      "feast-from-warm-meal"
+    ],
+    "message": "transform of fruit can retain the predecessor for feast, although their outputs reconverge through declared lifecycle lineage",
+    "reason": "A portion of fruit is cooked in the pot. Fresh fruit remains for the bread-and-fruit feast and for preserves; cooked and fresh servings are separate portions even though either can feed the gathering."
+  },
+  {
+    "world": "elements-house-and-craft-v1",
+    "recipe": "feast",
+    "input": "fruit",
+    "rule": "conditional-retention",
+    "id": "conditional-retention:compote",
+    "conflict": "compote",
+    "path": [
+      "compote",
+      "feast-from-warm-meal"
+    ],
+    "message": "incorporate of fruit can retain the predecessor for compote, although their outputs reconverge through declared lifecycle lineage",
+    "reason": "The feast uses a fresh-fruit serving, not the entire harvest. Another portion may be cooked in the pot, so retaining fruit does not duplicate the already assembled feast."
+  },
+  {
+    "world": "elements-house-and-craft-v1",
+    "recipe": "feast",
+    "input": "fruit",
+    "rule": "conditional-retention",
+    "id": "conditional-retention:compote-on-stove",
+    "conflict": "compote-on-stove",
+    "path": [
+      "compote-on-stove",
+      "feast-from-warm-meal"
+    ],
+    "message": "incorporate of fruit can retain the predecessor for compote-on-stove, although their outputs reconverge through declared lifecycle lineage",
+    "reason": "Fresh fruit served with bread is distinct from fruit later cooked on the stove. The harvest remains available for that cooked portion even though both meals can lead to the same feast outcome."
+  },
+  {
+    "world": "elements-house-and-craft-v1",
+    "recipe": "pond-slide-on-glass",
+    "input": "glass",
+    "rule": "conditional-retention",
+    "id": "conditional-retention:glass-slide",
+    "conflict": "glass-slide",
+    "path": [
+      "glass-slide",
+      "pond-slide"
+    ],
+    "message": "transform of glass can retain the predecessor for glass-slide, although their outputs reconverge through declared lifecycle lineage",
+    "reason": "The direct sample route uses a small piece of glass, not the entire glass supply. A clean slide and other glasswork may still be made from the remaining stock."
+  },
+  {
+    "world": "elements-house-and-craft-v1",
+    "recipe": "wind-record",
+    "input": "paper",
+    "rule": "conditional-retention",
+    "id": "conditional-retention:rain-record",
+    "conflict": "rain-record",
+    "path": [
+      "rain-record",
+      "weather-from-wind-record",
+      "weather-record"
+    ],
+    "message": "transform of paper can retain the predecessor for rain-record; both alternative states later transform into weather-record",
+    "reason": "Wind notes use one sheet, leaving paper for a separate rain record. Adding the rain-gauge observation to wind notes or the windsock observation to rain notes yields the same weather record by different routes, not by consuming the whole paper supply."
+  },
+  {
+    "world": "elements-house-and-craft-v1",
+    "recipe": "fill-water-bottle",
+    "input": "boiled-water",
+    "rule": "conditional-retention",
+    "id": "conditional-retention:fill-covered-bottle",
+    "conflict": "fill-covered-bottle",
+    "path": [
+      "fill-covered-bottle",
+      "cover-filled-water-bottle"
+    ],
+    "message": "incorporate of boiled-water can retain the predecessor for fill-covered-bottle, although their outputs reconverge through declared lifecycle lineage",
+    "reason": "Filling the open jar uses one portion of the prepared-water batch. Water remains for bowl service and a covered vessel; the two fill orders do not consume the entire batch."
+  },
+  {
+    "world": "elements-house-and-craft-v1",
+    "recipe": "fill-water-bottle",
+    "input": "glazed-bottle",
+    "rule": "conditional-retention",
+    "id": "conditional-retention:covered-urn",
+    "conflict": "covered-urn",
+    "path": [
+      "covered-urn",
+      "cover-filled-water-bottle",
+      "water-urn"
+    ],
+    "message": "transform of glazed-bottle can retain the predecessor for covered-urn; both alternative states later transform into water-urn",
+    "reason": "Filling one serving jar preserves the outside ceramic-vessel supply used for cider and the float. The cover-first route is still optional for another vessel; the filled jar itself remains one evolving object."
+  },
+  {
+    "world": "elements-house-and-craft-v1",
+    "recipe": "pour-bowl-into-bottle",
+    "input": "glazed-bottle",
+    "rule": "conditional-retention",
+    "id": "conditional-retention:covered-urn",
+    "conflict": "covered-urn",
+    "path": [
+      "covered-urn",
+      "cover-filled-water-bottle",
+      "water-urn"
+    ],
+    "message": "transform of glazed-bottle can retain the predecessor for covered-urn; both alternative states later transform into water-urn",
+    "reason": "Pouring from the bowl fills one ceramic serving vessel. The pottery craft still provides jars for cider and the float, so an outside jar may remain despite the alternate cover-first route."
+  },
+  {
+    "world": "elements-house-and-craft-v1",
+    "recipe": "cover-filled-water-bottle",
+    "input": "jar-lid",
+    "rule": "conditional-retention",
+    "id": "conditional-retention:covered-urn",
+    "conflict": "covered-urn",
+    "path": [
+      "covered-urn",
+      "water-urn"
+    ],
+    "message": "incorporate of jar-lid can retain the predecessor for covered-urn, although their outputs reconverge through declared lifecycle lineage",
+    "reason": "One cover closes the water jar, while covers remain available for preserves and the crock. Cover-before-fill is an alternative for a serving vessel, not a claim that the whole lid supply was fitted."
+  },
+  {
+    "world": "elements-house-and-craft-v1",
+    "recipe": "fill-covered-bottle",
+    "input": "boiled-water",
+    "rule": "conditional-retention",
+    "id": "conditional-retention:fill-water-bottle",
+    "conflict": "fill-water-bottle",
+    "path": [
+      "fill-water-bottle",
+      "cover-filled-water-bottle"
+    ],
+    "message": "incorporate of boiled-water can retain the predecessor for fill-water-bottle, although their outputs reconverge through declared lifecycle lineage",
+    "reason": "The covered jar receives a portion, with prepared water left for bowl service or another open jar. The alternative order changes the vessel state, not the amount of water represented by the whole supply."
+  },
+  {
+    "world": "elements-house-and-craft-v1",
+    "recipe": "compote-on-stove",
+    "input": "fruit",
+    "rule": "conditional-retention",
+    "id": "conditional-retention:feast",
+    "conflict": "feast",
+    "path": [
+      "feast",
+      "feast-from-warm-meal"
+    ],
+    "message": "transform of fruit can retain the predecessor for feast, although their outputs reconverge through declared lifecycle lineage",
+    "reason": "The stove cooks one fruit portion. The remaining fresh produce can still accompany bread at the feast; the warm-meal alternative does not convert the whole harvest into compote."
+  }
+]

@@ -1,0 +1,104 @@
+{
+  "sourceCommit": "61eaca8a691db7ab5999211f8cd99df54eabc7e0",
+  "sourceSealSha256": "34f812b17fc1ec2ba3b4226f5b80107b484a4670e18bc40cee7b2d7403346f86",
+  "exactSourceFiles": 1750,
+  "exactSourceBytes": 126005347,
+  "allSourceBytesAndModesUnchangedAfterTests": true,
+  "nodeVersion": "v24.22.1",
+  "dependencies": "Existing lockfile-matched node_modules reused by symlink only in disposable copy; npm ci not rerun and dependencies not uploaded.",
+  "runs": [
+    {
+      "name": "materialize",
+      "command": [
+        "python",
+        "/workspace/shared/live-61-preservation-20261028/materialize-source.py",
+        "/workspace/shared/live-61-preservation-20261028/verification-repository",
+        "/workspace/shared/live-61-preservation-20261028/runnable-copy"
+      ],
+      "exitCode": 0,
+      "seconds": 1.929,
+      "log": "results/live-checkpoint-61eaca8a-20261028/preservation-validation/materialize.log"
+    },
+    {
+      "name": "initial-seal",
+      "command": [
+        "python",
+        "experiments/tangible-campaign/integration/verify-manifest.py"
+      ],
+      "exitCode": 0,
+      "seconds": 0.363,
+      "log": "results/live-checkpoint-61eaca8a-20261028/preservation-validation/initial-seal.log"
+    },
+    {
+      "name": "exact-delta",
+      "command": [
+        "python",
+        "experiments/tangible-campaign/integration/verify-playtest-contract-final-delta.py"
+      ],
+      "exitCode": 0,
+      "seconds": 0.371,
+      "log": "results/live-checkpoint-61eaca8a-20261028/preservation-validation/exact-delta.log"
+    },
+    {
+      "name": "focused-37",
+      "command": [
+        "node",
+        "--test",
+        "tests/playtest-contract-final-source-contract.test.ts",
+        "tests/playtest-repairs-source-contract.test.ts",
+        "tests/location-affordances.test.ts",
+        "tests/lifecycle-graph-anomalies.test.ts",
+        "tests/crawler-identity-and-visible-crew.test.ts",
+        "tests/solar-lamp-continuity.test.mjs"
+      ],
+      "exitCode": 0,
+      "seconds": 4.825,
+      "log": "results/live-checkpoint-61eaca8a-20261028/preservation-validation/focused-37.log"
+    },
+    {
+      "name": "controller-12",
+      "command": [
+        "node",
+        "--test",
+        "--test-name-pattern=location press:|location birth:|area growth:|conditional item labels|conditional labels reserve",
+        "experiments/tangible-campaign/ui/campaign-controller.test.ts"
+      ],
+      "exitCode": 0,
+      "seconds": 7.411,
+      "log": "results/live-checkpoint-61eaca8a-20261028/preservation-validation/controller-12.log"
+    },
+    {
+      "name": "build",
+      "command": [
+        "npm",
+        "run",
+        "build"
+      ],
+      "exitCode": 0,
+      "seconds": 6.037,
+      "log": "results/live-checkpoint-61eaca8a-20261028/preservation-validation/build.log"
+    },
+    {
+      "name": "final-seal",
+      "command": [
+        "python",
+        "experiments/tangible-campaign/integration/verify-manifest.py"
+      ],
+      "exitCode": 0,
+      "seconds": 0.41,
+      "log": "results/live-checkpoint-61eaca8a-20261028/preservation-validation/final-seal.log"
+    }
+  ],
+  "allChecksPassed": true,
+  "predecessorFullAggregate": {
+    "tests": 1275,
+    "passed": 1269,
+    "failed": 6,
+    "scope": "verification-only failures retained; not a final full-suite pass"
+  },
+  "historicalFinalAffectedPassed": 57,
+  "historicalFullSuiteRerunHere": false,
+  "secondFullAggregateClaimed": false,
+  "browserTestsRun": false,
+  "currentSolarProbeByteIdenticalToRoot": true
+}

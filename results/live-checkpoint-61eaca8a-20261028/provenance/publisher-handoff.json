@@ -1,0 +1,150 @@
+{
+  "status": "READY_FOR_ROOT_PUBLICATION_DECISION",
+  "createdAtUtc": "2026-10-28T21:06:05.447731+00:00",
+  "sourceRoot": "/workspace/shared/combination-playtest-repairs-final-20261028",
+  "freshSourceRoot": "/workspace/shared/combination-playtest-repairs-final-20261028-fresh",
+  "requiredLiveCheckoutParent": "86c479746909412d775873d5bb250868ed7bf2d0",
+  "parentSourceSealSha256": "ce7ecf3eb8c09460d046987cfaec969f0c7e72e902f5ffe07e6b0faa80acfefb",
+  "sourceSealSha256": "34f812b17fc1ec2ba3b4226f5b80107b484a4670e18bc40cee7b2d7403346f86",
+  "sourceFiles": 1750,
+  "delta": {
+    "changed": 42,
+    "added": 308,
+    "removed": 0
+  },
+  "packageManifest": {
+    "path": "/workspace/shared/combination-playtest-repairs-final-20261028-package-manifest.json",
+    "sha256": "827888094353046336efdb75ca6f7743beea47ff3b2f0979b5c3a5fa7bbd6a36",
+    "bytes": 48682
+  },
+  "archiveVerification": {
+    "path": "/workspace/shared/combination-playtest-repairs-final-20261028-packaging-verification.json",
+    "sha256": "766186148c213272d49c4395f7c1cc573a7b6fea4720608345b3824841dd9e58",
+    "bytes": 2142
+  },
+  "sourceInventory": {
+    "path": "/workspace/shared/combination-playtest-repairs-final-20261028/results/playtest-contract-final-20261028/source-inventory.json",
+    "sha256": "ad81d2aba16f958c4480ddfa26ca016c1835ec8c3a15b1a747d7d270f19dbe45",
+    "bytes": 413163
+  },
+  "archives": {
+    "source": {
+      "path": "/workspace/shared/combination-playtest-repairs-final-20261028-source.tar.gz",
+      "sha256": "4352090f6b427348a0c8708760d4d929c8b403645a5f4435cc9cdf7eb27d79bf",
+      "bytes": 15132075,
+      "files": 1750,
+      "membersHashVerified": true
+    },
+    "sourceOverlay": {
+      "path": "/workspace/shared/combination-playtest-repairs-final-20261028-source-overlay.tar.gz",
+      "sha256": "e70771f18a1e6322aa568649eb077e25a263bc1df4e7c54b025cb4029e641ad5",
+      "bytes": 3407773,
+      "files": 350,
+      "membersHashVerified": true
+    },
+    "build": {
+      "path": "/workspace/shared/combination-playtest-repairs-final-20261028-build.tar.gz",
+      "sha256": "3ebc297b43e726c9e06df6e2571998d93a5b2a0b78dec0aa2044d1ecfc161b45",
+      "bytes": 1463666,
+      "files": 35,
+      "membersHashVerified": true
+    },
+    "evidence": {
+      "path": "/workspace/shared/combination-playtest-repairs-final-20261028-evidence.tar.gz",
+      "sha256": "6ea183dec7f7d1bcd2f7989c2a093bde44607c08b472d514af698f26a24c7d80",
+      "bytes": 156782,
+      "files": 24,
+      "membersHashVerified": true
+    }
+  },
+  "actualFinalVerification": {
+    "finalAffectedAndSourceContractsPassed": 57,
+    "predecessorFullAggregate": {
+      "sourceSealSha256": "98a6b06c306e10553b6764918db79385ae80d70ce91936083087f55b29fcab56",
+      "applicableRootFiles": 82,
+      "tests": 1275,
+      "pass": 1269,
+      "fail": 6,
+      "cancelled": 0,
+      "skipped": 0,
+      "testSummaryLines": [
+        "\u2139 tests 1275",
+        "\u2139 pass 1269",
+        "\u2139 fail 6",
+        "\u2139 cancelled 0",
+        "\u2139 skipped 0",
+        "\u2139 duration_ms 736154.061382"
+      ],
+      "logSha256": "63eba6b15169d6759bb32d50a9b753bd80fce17c19133d7bc37d06881740cdfa",
+      "scope": "Full fresh aggregate; four stale assertions, one audit display-format error and three omitted evidence-text paths. No runtime/content failure."
+    },
+    "notASecondWholeSuiteAggregate": true,
+    "runtimeContentBuildInputsByteIdentical": true,
+    "builtArtifactsByteIdentical": 35,
+    "failed": 0,
+    "skipped": 0,
+    "cancelled": 0,
+    "testDurationMs": 38428.133225,
+    "completeFinalRootTestFiles": 11,
+    "sourceOnlyFresh": true,
+    "buildContentStrictType": true,
+    "generatorInvocations": 2,
+    "generatorByteIdentical": true,
+    "strictSealAndExactDelta": true,
+    "archiveReadback": true,
+    "buildLocalReferences": 36,
+    "limits": "Logical/model/synthetic controller only; browser/native excluded by user. No human enjoyment claim."
+  },
+  "executedCommands": {
+    "path": "/workspace/shared/combination-playtest-repairs-final-20261028/results/playtest-contract-final-20261028/executed-commands.json",
+    "sha256": "cbc591f85a9c9afe70f68053e58fe4b879c96351181ab56d4571a35a32f57985",
+    "bytes": 6964
+  },
+  "freshSummary": {
+    "path": "/workspace/shared/combination-playtest-repairs-final-20261028/results/playtest-contract-final-20261028/fresh-run-summary.json",
+    "sha256": "46bb3b4f20f9396a7bd232de1f1787e7a00c01d8b8fd97a13bffc93f6c175660",
+    "bytes": 1394
+  },
+  "publisherHelperCommands": [
+    [
+      "python",
+      "experiments/tangible-campaign/integration/verify-manifest.py"
+    ],
+    [
+      "python",
+      "experiments/tangible-campaign/integration/verify-playtest-contract-final-delta.py"
+    ],
+    [
+      "node",
+      "--test",
+      "tests/playtest-contract-final-source-contract.test.ts",
+      "tests/playtest-repairs-source-contract.test.ts",
+      "tests/location-affordances.test.ts",
+      "tests/lifecycle-graph-anomalies.test.ts",
+      "tests/crawler-identity-and-visible-crew.test.ts",
+      "tests/solar-lamp-continuity.test.mjs"
+    ],
+    [
+      "node",
+      "--test",
+      "--test-name-pattern=location press:|location birth:|area growth:|conditional item labels|conditional labels reserve",
+      "experiments/tangible-campaign/ui/campaign-controller.test.ts"
+    ],
+    [
+      "npm",
+      "run",
+      "build"
+    ]
+  ],
+  "publisherHelpersWereExecutedAsThisArray": false,
+  "verificationStrategy": "Completed full82-file predecessor aggregate plus final fresh complete affected files/source contracts on exact byte-identical runtime/content; six predecessor contract/evidence failures retained, no second aggregate claimed.",
+  "publicationInstructions": "Refresh actual checkout HEAD/cleanliness/source seal/private audience. Apply only exact sourceOverlay when actual parent remains86; no deletions. Old tracked dist/results remain untouched except deliberate separate root rebuild. No duplicate fullsuite needed for identical seal; run listed focused helpers/build. Worker did not change actual checkout, GitHub or Site.",
+  "oldSavePresentationLimit": "Existing restore drops only optional camp arrival/arrivalLayout provenance that listed obsolete supplied Solar lamp. All actual objects, coordinates, progress, events and other history preserved; no fabricated replacement provenance.1168 old-prefix checks and six consumed-Lamp continuations pass.",
+  "independentReviewReceipt": {
+    "path": "/workspace/shared/combination-playtest-repairs-final-20261028/experiments/tangible-campaign/evidence/playtest-repairs-20261028/accepted-inputs/final-independent-review/review-receipt.json.txt",
+    "sha256": "0bebfa9ca4addcf65bfc569f3c5b0addf9f35a1372234c95bd57e84d5fa5a6f0",
+    "bytes": 3102
+  },
+  "remainingBlockers": [],
+  "publicationPerformed": false
+}

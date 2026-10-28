@@ -1,0 +1,173 @@
+✔ Frozen predecessor: Mars archive override is exactly one label against frozen reviewed 3385 candidate; no graph, lifecycle, identity or save-version change (13.198262ms)
+✔ Frozen predecessor: five unchanged route files preserve semantics at all 1168 action prefixes, and all canonical old saves still restore (14923.966957ms)
+✔ historical natural-order successor preserves the same world, checkpoints and goals; both power facts are surface narrative (24.495169ms)
+✖ all canonical old-save prefixes restore verbatim; pre-existing tray states can take each newly offered path (752.502879ms)
+✔ historical tow-old-alias completes only on its exact inverse baseline; current crawler cannot be duplicated (380.925895ms)
+✔ real Mars route earns exactly the selected milestones, including Rover only after drive and solar power (321.331947ms)
+✔ mars: every debug checkpoint is an exact prefix earned by accepted actions (3820.017989ms)
+ℹ tests 7
+ℹ suites 0
+ℹ pass 6
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 15914.974958
+
+✖ failing tests:
+
+test at tests/mars-natural-orders.test.ts:65:1
+✖ all canonical old-save prefixes restore verbatim; pre-existing tray states can take each newly offered path (752.502879ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  ... Skipped lines
+  
+    {
+      events: [
+        {
+          accepted: true,
+          action: {
+  ...
+        ],
+  -     arrival: {
+  -       area: 'area-camp',
+  -       carried: [
+  -         {
+  -           from: 'area-habitat',
+  -           item: 'solar-radio'
+  -         },
+  -         {
+  -           from: 'area-rover',
+  -           item: 'dish-antenna'
+  -         },
+  -         {
+  -           from: 'area-rescue',
+  -           item: 'provisioned-refuge'
+  -         }
+  -       ],
+  -       here: [],
+  -       stage: 7,
+  -       supplies: [
+  -         {
+  -           cache: 'camp-cache',
+  -           item: 'bench-legs'
+  -         },
+  -         {
+  -           cache: 'camp-cache',
+  -           item: 'worktop'
+  -         },
+  -         {
+  -           cache: 'camp-cache',
+  -           item: 'lamp-bracket'
+  -         },
+  -         {
+  -           cache: 'camp-cache',
+  -           item: 'solar-lamp'
+  -         },
+  -         {
+  -           cache: 'camp-cache',
+  -           item: 'message-camera'
+  -         },
+  -         {
+  -           cache: 'camp-cache',
+  -           item: 'antenna-stand'
+  -         }
+  -       ]
+  -     },
+  -     arrivalLayout: {
+  -       active: true,
+  -       area: 'area-camp',
+  -       dividerY: 144,
+  -       stage: 7
+  -     },
+        completed: false,
+        currentArea: 'area-camp',
+        discovered: [
+          'broken-radio',
+          'cable',
+  
+      at TestContext.<anonymous> (file:///workspace/shared/combination-playtest-repairs-integration-20261028/tests/mars-natural-orders.test.ts:67:162)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: {
+      version: 1,
+      lifecycleVersion: 2,
+      scenarioId: 'mars-connected-survival-v4-return-cargo-research',
+      state: { stage: 7, currentArea: 'area-camp', areas: [Array], places: [Array], tokens: [Array], discovered: [Array], recipesUsed: [Array], openedCaches: [Array], width: 360, metrics: [Object], completed: false },
+      history: [
+        [Object], [Object], [Object], [Object], [Object],
+        [Object], [Object], [Object], [Object], [Object],
+        [Object], [Object], [Object], [Object], [Object],
+        [Object], [Object], [Object], [Object], [Object],
+        [Object], [Object], [Object], [Object], [Object],
+        [Object], [Object], [Object], [Object], [Object],
+        [Object], [Object], [Object], [Object], [Object],
+        [Object], [Object], [Object], [Object], [Object],
+        [Object], [Object], [Object], [Object], [Object],
+        [Object], [Object], [Object], [Object], [Object],
+        [Object], [Object], [Object], [Object], [Object],
+        [Object], [Object], [Object], [Object], [Object],
+        [Object], [Object], [Object], [Object], [Object],
+        [Object], [Object], [Object], [Object], [Object]
+      ],
+      events: [
+        [Object], [Object], [Object], [Object], [Object],
+        [Object], [Object], [Object], [Object], [Object],
+        [Object], [Object], [Object], [Object], [Object],
+        [Object], [Object], [Object], [Object], [Object],
+        [Object], [Object], [Object], [Object], [Object],
+        [Object], [Object], [Object], [Object], [Object],
+        [Object], [Object], [Object], [Object], [Object],
+        [Object], [Object], [Object], [Object], [Object],
+        [Object], [Object], [Object], [Object], [Object],
+        [Object], [Object], [Object], [Object], [Object],
+        [Object], [Object], [Object], [Object], [Object],
+        [Object], [Object], [Object], [Object], [Object],
+        [Object], [Object], [Object], [Object], [Object],
+        [Object], [Object], [Object], [Object], [Object]
+      ]
+    },
+    expected: {
+      version: 1,
+      lifecycleVersion: 2,
+      scenarioId: 'mars-connected-survival-v4-return-cargo-research',
+      state: { stage: 7, currentArea: 'area-camp', areas: [Array], places: [Array], tokens: [Array], discovered: [Array], recipesUsed: [Array], openedCaches: [Array], width: 360, metrics: [Object], completed: false, arrival: [Object], arrivalLayout: [Object] },
+      history: [
+        [Object], [Object], [Object], [Object], [Object],
+        [Object], [Object], [Object], [Object], [Object],
+        [Object], [Object], [Object], [Object], [Object],
+        [Object], [Object], [Object], [Object], [Object],
+        [Object], [Object], [Object], [Object], [Object],
+        [Object], [Object], [Object], [Object], [Object],
+        [Object], [Object], [Object], [Object], [Object],
+        [Object], [Object], [Object], [Object], [Object],
+        [Object], [Object], [Object], [Object], [Object],
+        [Object], [Object], [Object], [Object], [Object],
+        [Object], [Object], [Object], [Object], [Object],
+        [Object], [Object], [Object], [Object], [Object],
+        [Object], [Object], [Object], [Object], [Object],
+        [Object], [Object], [Object], [Object], [Object]
+      ],
+      events: [
+        [Object], [Object], [Object], [Object], [Object],
+        [Object], [Object], [Object], [Object], [Object],
+        [Object], [Object], [Object], [Object], [Object],
+        [Object], [Object], [Object], [Object], [Object],
+        [Object], [Object], [Object], [Object], [Object],
+        [Object], [Object], [Object], [Object], [Object],
+        [Object], [Object], [Object], [Object], [Object],
+        [Object], [Object], [Object], [Object], [Object],
+        [Object], [Object], [Object], [Object], [Object],
+        [Object], [Object], [Object], [Object], [Object],
+        [Object], [Object], [Object], [Object], [Object],
+        [Object], [Object], [Object], [Object], [Object],
+        [Object], [Object], [Object], [Object], [Object],
+        [Object], [Object], [Object], [Object], [Object]
+      ]
+    },
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }

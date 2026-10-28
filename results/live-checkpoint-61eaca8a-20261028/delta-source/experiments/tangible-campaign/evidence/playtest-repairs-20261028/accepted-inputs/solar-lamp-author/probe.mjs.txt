@@ -1,0 +1,100 @@
+import assert from 'node:assert/strict';
+import {readFileSync,writeFileSync} from 'node:fs';
+import {pathToFileURL} from 'node:url';
+const root=process.argv[2]??process.cwd();
+const {scenario: actual}=await import(pathToFileURL(`${root}/experiments/tangible-campaign/ui/campaigns/mars-return-cargo.ts`).href);
+const M=await import(pathToFileURL(`${root}/experiments/tangible-campaign/engine/model.ts`).href);
+const {validateContentLifecycles,validateConstructionContinuity,validateObjectiveFlow}=await import(pathToFileURL(`${root}/experiments/tangible-campaign/schema/lifecycle.ts`).href);
+// Reconstruct pre-change LIVE86 rules for genuine old-save compatibility probes.
+// All unrelated integrated scenario changes stay in place.
+const base=structuredClone(actual);
+const addedIds=['signal-solar-lamp','camp-lantern-bracket','camp-signal-lamp-bracket','camp-beacon-light'];
+base.recipes=base.recipes.filter(r=>!addedIds.includes(r.id));
+const oldCampStage=base.stages.find(s=>s.id==='camp');delete oldCampStage.carry;
+const oldCache=oldCampStage.caches.find(c=>c.id==='camp-cache');if(!oldCache.items.includes('solar-lamp'))oldCache.items.splice(oldCache.items.indexOf('lamp-bracket')+1,0,'solar-lamp');
+const isNewLampAction=a=>a.type==='combine'&&[a.a,a.b].includes('lamp')&&[a.a,a.b].includes('solar-charger');
+base.checkpoints=base.checkpoints.map(cp=>({...cp,actions:cp.actions.filter(a=>!isNewLampAction(a))}));
+const route=JSON.parse(readFileSync(`${root}/experiments/tangible-campaign/evidence/${base.id}-route-evidence.json`)).actionsLog.filter(a=>!isNewLampAction(a));
+const candidate=structuredClone(base);
+const recipe={id:'signal-solar-lamp',a:'lamp',b:'solar-charger',out:'solar-lamp',description:'Connect the recovered lamp to the solar charging unit we built after landing.',lifecycle:{lamp:{role:'transform',reason:'The recovered lamp becomes our solar-powered task lamp. Keep an outside lamp only while its earlier lantern or inspection-light branch remains unmade.'},'solar-charger':{role:'retain',reason:'The same solar charging unit supplies the lamp and remains available for rover traction, the weather station and the greenhouse grow light.'}}};
+candidate.recipes.splice(candidate.recipes.findIndex(r=>r.id==='signal-3-reflector'),0,recipe);
+candidate.items.find(i=>i.id==='solar-lamp').description='The recovered lamp, powered from the solar charging unit we assembled after landing.';
+const cache=candidate.stages.find(s=>s.id==='camp').caches.find(c=>c.id==='camp-cache');
+cache.items=cache.items.filter(id=>id!=='solar-lamp');
+cache.narrative='The camp stores hold a worktop with its folded legs beneath it, a movable lamp bracket, and the crew’s message camera and antenna stand. Our recovered lamp and solar charger can light the bench.';
+candidate.items.find(i=>i.id==='bench-lamp').description='Our portable light fitted to its adjustable bracket. Any earlier lantern or directed signal lamp remains visible as the fitted light.';
+candidate.items.find(i=>i.id==='lit-workbench').description='The portable expedition workbench we assembled at camp, with its fitted task light or intact signal beacon beside it. Its stiff mounting rails accept the guarded bench-top machine’s integral clamps.';
+const lights=['lantern','signal-lamp'];
+for(const light of lights)candidate.recipes.push({id:`camp-${light}-bracket`,a:light,b:'lamp-bracket',out:'bench-lamp',description:light==='lantern'?'Fit our existing powered lantern to the movable bracket. It already supplies a useful task light.':'Fit our existing directed signal lamp to the movable bracket; its reflector stays with it.',preserve:[light],lifecycle:{[light]:{role:'incorporate',reason:'The existing powered light stays visibly fitted to the bracket. Keep its outside source only while the earlier signal construction branch still needs it.'},'lamp-bracket':{role:'transform',reason:'The bracket becomes a mounted bench light using the existing powered lamp; no new bulb, battery or panel appears.'}}});
+candidate.recipes.push({id:'camp-beacon-light',a:'workbench',b:'signal-beacon',out:'lit-workbench',description:'Stand our intact signal beacon beside the workbench and aim its light at the work surface. Its reflector and tripod remain part of the beacon.',preserve:['signal-beacon'],lifecycle:{workbench:{role:'transform',reason:'The same workbench becomes a lit workstation, without rebuilding the existing light.'},'signal-beacon':{role:'incorporate',reason:'The intact beacon remains visible with the lit workbench. A separate source stays only while an unfinished contact objective still needs the beacon.'}}});
+// Avoid the generic all-alternative ancestry sweep dragging unused reflector,
+// tripod and battery supplies into camp just because the new substitutes exist.
+candidate.stages.find(s=>s.id==='camp').carry=['lamp','solar-charger','solar-lamp','lantern','signal-lamp','signal-beacon','bench-lamp','workbench','lit-workbench','radio','solar-radio','dish-antenna','long-range-radio','provisioned-refuge','crew-message','message-home'];
+const c=(a,b)=>({type:'combine',a,b});
+const patchActions=actions=>actions.flatMap(a=>a.type==='combine'&&[a.a,a.b].includes('solar-lamp')?[c('lamp','solar-charger'),a]:[a]);
+candidate.checkpoints=candidate.checkpoints.map(cp=>({...cp,actions:patchActions(cp.actions)}));
+const amended=patchActions(route),report={};
+if(actual.recipes.some(r=>r.id==='signal-solar-lamp')){
+ for(const id of addedIds)assert.deepEqual(actual.recipes.find(r=>r.id===id),candidate.recipes.find(r=>r.id===id));
+ assert.deepEqual(actual.stages.find(s=>s.id==='camp'),candidate.stages.find(s=>s.id==='camp'));
+ for(const id of ['solar-lamp','bench-lamp','lit-workbench'])assert.deepEqual(actual.items.find(i=>i.id===id),candidate.items.find(i=>i.id===id));
+ report.appliedSourceContract='pass';
+}else report.appliedSourceContract='not applied; isolated candidate probe only';
+const step=(s,g,a)=>{const r=M.applyAction(s,g,a);assert(r.accepted,JSON.stringify(a)+': '+r.message);return r.game;};
+const checks=[...M.validateScenario(candidate),...validateContentLifecycles([candidate]),...validateConstructionContinuity([candidate]),...validateObjectiveFlow([candidate])];assert.deepEqual(checks,[]);report.schemaAndLifecycle='pass';
+let g=M.replay(candidate,amended);assert(g.state.completed);report.fullRoute={completed:g.state.completed,combinations:g.state.metrics.combinations,actions:amended.length};
+const beacon=[c('broken-radio','cable'),c('reflective-foil','support-frame'),c('lamp','battery'),c('lantern','reflector'),c('signal-lamp','tripod'),{type:'place',item:'signal-beacon',location:'contact-ridge'},{type:'advance'}];
+let stage=0,firstHabitat=true;
+for(const raw of amended){const a=structuredClone(raw);if(stage>0){if(stage===1&&firstHabitat){beacon.push(c('solar-panel','battery'));firstHabitat=false;}if(stage===1&&a.type==='place'&&a.location==='refuge-contact-mast')a.item='signal-beacon';if(stage===7&&a.type==='combine'&&a.a==='solar-radio')beacon.push(c('radio','solar-charger'));beacon.push(a);}if(a.type==='advance')stage++;}
+g=M.replay(candidate,beacon);assert(g.state.completed);report.freshBeaconFirstCompletes='pass';
+for(const cp of candidate.checkpoints)assert(M.checkpoint(candidate,cp.id));report.checkpoints=candidate.checkpoints.length;
+g=M.checkpoint(candidate,'chapter-8');assert(!M.token(g.state,'solar-lamp'));assert.equal(M.token(g.state,'lamp').area,'area-camp');assert.equal(M.token(g.state,'solar-charger').area,'area-camp');assert(g.state.arrival.carried.some(x=>x.item==='lamp'));assert(!g.state.arrival.supplies.some(x=>x.item==='lamp'||x.item==='solar-lamp'||x.item==='solar-charger'));report.campRealPartsCarry='pass';
+for(const reverse of [false,true]){let q=step(candidate,g,c(reverse?'solar-charger':'lamp',reverse?'lamp':'solar-charger'));assert(M.token(q.state,'solar-lamp'));assert(M.token(q.state,'solar-charger'));assert.deepEqual(M.undo(q).game.state.tokens,g.state.tokens);assert.deepEqual(M.restore(candidate,JSON.stringify(q)).state.tokens,q.state.tokens);}report.reverseUndoRestore='pass';
+const early=route.flatMap(a=>a.type==='combine'&&[a.a,a.b].includes('solar-lamp')?[a]:a.type==='combine'&&[a.a,a.b].includes('solar-panel')?[a,c('lamp','solar-charger')]:[a]);
+g=M.replay(candidate,early);assert(g.state.completed);assert.equal(g.events.filter(e=>e.created==='solar-lamp').length,1);assert.equal(g.events.find(e=>e.created==='solar-lamp').stage,0);report.earlyCreationCompletes='pass';
+const oldCamp=M.checkpoint(base,'chapter-8'),restored=M.restore(candidate,JSON.stringify(oldCamp));assert.deepEqual(restored.state.tokens,oldCamp.state.tokens);assert(M.token(restored.state,'solar-lamp'));report.oldCampFinishedLampPreserved='pass';
+// Make the old inventory exhaust its two original Lamp uses in the reverse order:
+// inspect the glovebox first, then build the beacon, before arriving at camp.
+g=M.checkpoint(base,'chapter-4');
+g=step(base,g,c('windowed-box','glove-ports'));
+g=step(base,g,{type:'visit',area:'area-signal',carry:[]});
+g=step(base,g,{type:'visit',area:'area-outcrop',carry:['lamp']});
+g=step(base,g,c('glovebox','lamp'));
+g=step(base,g,{type:'visit',area:'area-habitat',carry:['lamp','tripod']});
+g=step(base,g,{type:'visit',area:'area-rover',carry:['lamp','battery','tripod']});
+g=step(base,g,{type:'visit',area:'area-signal',carry:['lamp','battery','tripod','support-frame']});
+g=step(base,g,c('lamp','battery'));assert(!M.token(g.state,'lamp'));
+g=step(base,g,c('reflective-foil','support-frame'));
+g=step(base,g,c('lantern','reflector'));
+g=step(base,g,c('signal-lamp','tripod'));
+g=step(base,g,{type:'visit',area:'area-outcrop',carry:['tripod']});
+const oldPreCamp=structuredClone(g);
+g=M.restore(candidate,JSON.stringify(g));
+for(const a of route.slice(base.checkpoints.find(cp=>cp.id==='chapter-4').actions.length)){if(candidate.stages[g.state.stage].id==='camp')break;g=step(candidate,g,a);}
+assert(!M.token(g.state,'lamp'));assert(!M.token(g.state,'solar-lamp'));assert(M.token(g.state,'signal-beacon'));report.oldConsumedLampSave={restores:true,lampAbsent:true,beaconPresent:true};
+const stageActions=id=>{let n=0;return route.filter(a=>{const here=base.stages[n].id===id;if(a.type==='advance')n++;return here&&a.type!=='advance';});};
+report.oldPoweredLightVariants=[];
+for(const light of ['lantern','signal-lamp','signal-beacon'])for(const reverse of [false,true]){
+ // Each old state is an actually accepted prefix of the above old-save witness.
+ let old=structuredClone(oldPreCamp);
+ while(old.state.discovered.includes('signal-beacon')&&light!=='signal-beacon')old=M.undo(old).game;
+ if(light==='lantern')while(old.state.discovered.includes('signal-lamp'))old=M.undo(old).game;
+ if(old.state.currentArea!=='area-outcrop')old=step(base,old,{type:'visit',area:'area-outcrop',carry:M.token(old.state,'tripod')?.area===old.state.currentArea?['tripod']:[]});
+ // Advance old LIVE86 rules only to rescue, then restore before its camp delivery.
+ for(const a of route.slice(base.checkpoints.find(cp=>cp.id==='chapter-4').actions.length)){if(base.stages[old.state.stage].id==='rescue'&&M.stageComplete(base,old.state))break;old=step(base,old,a);}
+ assert(!M.token(old.state,'lamp'));assert(M.token(old.state,light));
+ let q=M.restore(candidate,JSON.stringify(old));q=step(candidate,q,{type:'advance'});assert.equal(q.state.stage,7);assert(!M.token(q.state,'solar-lamp'));assert.equal(M.token(q.state,light).area,'area-camp');
+ assert(!q.state.arrival.carried.some(x=>['battery','reflective-foil','support-frame','tripod'].includes(x.item)));
+ q=step(candidate,q,c('worktop','bench-legs'));
+ const before=q,a=light==='signal-beacon'?c(reverse?'signal-beacon':'workbench',reverse?'workbench':'signal-beacon'):c(reverse?'lamp-bracket':light,reverse?light:'lamp-bracket');
+ q=step(candidate,q,a);assert.deepEqual(M.undo(q).game.state.tokens,before.state.tokens);assert.deepEqual(M.restore(candidate,JSON.stringify(q)).state.tokens,q.state.tokens);
+ if(light!=='signal-beacon'){assert(M.token(q.state,'bench-lamp').components.includes(light));q=step(candidate,q,c('workbench','bench-lamp'));}
+ assert(M.token(q.state,'lit-workbench').components.includes(light));
+ assert.equal(M.applyAction(candidate,q,a).accepted,false);
+ for(const a of stageActions('camp').filter(a=>!(a.type==='combine'&&(['worktop','solar-lamp','bench-lamp'].includes(a.a)||a.b==='bench-lamp'))))q=step(candidate,q,a);
+ assert(M.stageComplete(candidate,q.state));q=step(candidate,q,{type:'advance'});
+ for(const a of route.slice(base.checkpoints.find(cp=>cp.id==='chapter-9').actions.length)){q=step(candidate,q,a);}
+ assert(q.state.completed);const bench=M.token(q.state,'lit-workbench');assert.equal(bench.slots.machine,'guarded-machine');assert(bench.components.includes(light));
+ report.oldPoweredLightVariants.push({light,reverse,completed:true,preservedLight:true,retainedOutside:!!M.token(q.state,light)});
+}
+console.log(JSON.stringify(report,null,2));

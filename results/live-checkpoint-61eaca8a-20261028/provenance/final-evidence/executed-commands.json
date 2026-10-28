@@ -1,0 +1,173 @@
+{
+  "scope": "Actually executed by isolated fresh-source driver, not publisher helper or inherited author evidence.",
+  "sourceSealSha256": "34f812b17fc1ec2ba3b4226f5b80107b484a4670e18bc40cee7b2d7403346f86",
+  "commands": [
+    {
+      "name": "initial-seal",
+      "argv": [
+        "python",
+        "experiments/tangible-campaign/integration/verify-manifest.py"
+      ],
+      "cwd": "/workspace/shared/combination-playtest-repairs-final-20261028-fresh",
+      "startedAt": "2026-10-28T21:04:08.152533+00:00",
+      "status": "PASS",
+      "log": "/workspace/shared/combination-playtest-repairs-final-20261028-clean-evidence/initial-seal.log",
+      "timeoutSeconds": 1800,
+      "pid": 6,
+      "finishedAt": "2026-10-28T21:04:08.476920+00:00",
+      "exitCode": 0,
+      "durationSeconds": 0.324,
+      "logSha256": "e0791c33b651b1ee580f6c374457b94acb8eb4b72af49b4a327f51abb8dc2846"
+    },
+    {
+      "name": "final-affected-and-source-contracts",
+      "argv": [
+        "node",
+        "--test",
+        "--test-concurrency=3",
+        "tests/elements-heroes.test.ts",
+        "tests/elements-house-components.test.ts",
+        "tests/kitchen-atlas-registry.test.ts",
+        "experiments/tangible-campaign/reviews/lifecycle/event-local.test.ts",
+        "experiments/tangible-campaign/reviews/lifecycle/lifecycle.test.ts",
+        "tests/playtest-repairs-source-contract.test.ts",
+        "tests/playtest-contract-final-source-contract.test.ts",
+        "tests/arrival-source-contract.test.ts",
+        "tests/milestones-source-contract.test.ts",
+        "tests/reactive-heroes-source-contract.test.ts",
+        "tests/intellectual-worlds-source-contract.test.ts"
+      ],
+      "cwd": "/workspace/shared/combination-playtest-repairs-final-20261028-fresh",
+      "startedAt": "2026-10-28T21:04:08.477480+00:00",
+      "status": "PASS",
+      "log": "/workspace/shared/combination-playtest-repairs-final-20261028-clean-evidence/final-affected-and-source-contracts.log",
+      "timeoutSeconds": 1200,
+      "pid": 7,
+      "finishedAt": "2026-10-28T21:04:46.983889+00:00",
+      "exitCode": 0,
+      "durationSeconds": 38.506,
+      "logSha256": "7ee8a205110e5d6a8df91f52970934b8965b820c3c03f566bf4d91d36d3a7046"
+    },
+    {
+      "name": "predecessor-build",
+      "argv": [
+        "npm",
+        "run",
+        "build"
+      ],
+      "cwd": "/workspace/shared/combination-playtest-repairs-integration-20261028-fresh",
+      "startedAt": "2026-10-28T21:04:46.984366+00:00",
+      "status": "PASS",
+      "log": "/workspace/shared/combination-playtest-repairs-final-20261028-clean-evidence/predecessor-build.log",
+      "timeoutSeconds": 1800,
+      "pid": 102,
+      "finishedAt": "2026-10-28T21:04:52.643360+00:00",
+      "exitCode": 0,
+      "durationSeconds": 5.659,
+      "logSha256": "72bfa39cf05f321207638b1a307abeaabbf154d8bd96446a76ebde0398fd0126"
+    },
+    {
+      "name": "build",
+      "argv": [
+        "npm",
+        "run",
+        "build"
+      ],
+      "cwd": "/workspace/shared/combination-playtest-repairs-final-20261028-fresh",
+      "startedAt": "2026-10-28T21:04:52.644017+00:00",
+      "status": "PASS",
+      "log": "/workspace/shared/combination-playtest-repairs-final-20261028-clean-evidence/build.log",
+      "timeoutSeconds": 1800,
+      "pid": 195,
+      "finishedAt": "2026-10-28T21:04:58.557128+00:00",
+      "exitCode": 0,
+      "durationSeconds": 5.913,
+      "logSha256": "4540f2953a257a0707b66cf58553030239a1ed932772211788579f6ae959501d"
+    },
+    {
+      "name": "predecessor-final-seal",
+      "argv": [
+        "python",
+        "experiments/tangible-campaign/integration/verify-manifest.py"
+      ],
+      "cwd": "/workspace/shared/combination-playtest-repairs-integration-20261028-fresh",
+      "startedAt": "2026-10-28T21:04:58.581518+00:00",
+      "status": "PASS",
+      "log": "/workspace/shared/combination-playtest-repairs-final-20261028-clean-evidence/predecessor-final-seal.log",
+      "timeoutSeconds": 1800,
+      "pid": 297,
+      "finishedAt": "2026-10-28T21:04:58.948971+00:00",
+      "exitCode": 0,
+      "durationSeconds": 0.367,
+      "logSha256": "a27d9e817165f57c48738937443c0546e5ea23bf76adb26753378a59df19077a"
+    },
+    {
+      "name": "generator-first",
+      "argv": [
+        "node",
+        "experiments/tangible-campaign/integration/generate-playtest-contract-final-evidence.ts"
+      ],
+      "cwd": "/workspace/shared/combination-playtest-repairs-final-20261028-fresh",
+      "startedAt": "2026-10-28T21:04:58.949465+00:00",
+      "status": "PASS",
+      "log": "/workspace/shared/combination-playtest-repairs-final-20261028-clean-evidence/generator-first.log",
+      "timeoutSeconds": 1800,
+      "pid": 298,
+      "finishedAt": "2026-10-28T21:05:16.791391+00:00",
+      "exitCode": 0,
+      "durationSeconds": 17.842,
+      "logSha256": "9303db86cea15e02b282884258d98de5e8b61570909101ccb5756b392e51a599"
+    },
+    {
+      "name": "generator-second",
+      "argv": [
+        "node",
+        "experiments/tangible-campaign/integration/generate-playtest-contract-final-evidence.ts"
+      ],
+      "cwd": "/workspace/shared/combination-playtest-repairs-final-20261028-fresh",
+      "startedAt": "2026-10-28T21:05:16.792080+00:00",
+      "status": "PASS",
+      "log": "/workspace/shared/combination-playtest-repairs-final-20261028-clean-evidence/generator-second.log",
+      "timeoutSeconds": 1800,
+      "pid": 306,
+      "finishedAt": "2026-10-28T21:05:33.823131+00:00",
+      "exitCode": 0,
+      "durationSeconds": 17.028,
+      "logSha256": "9303db86cea15e02b282884258d98de5e8b61570909101ccb5756b392e51a599"
+    },
+    {
+      "name": "final-seal",
+      "argv": [
+        "python",
+        "experiments/tangible-campaign/integration/verify-manifest.py"
+      ],
+      "cwd": "/workspace/shared/combination-playtest-repairs-final-20261028-fresh",
+      "startedAt": "2026-10-28T21:05:33.824415+00:00",
+      "status": "PASS",
+      "log": "/workspace/shared/combination-playtest-repairs-final-20261028-clean-evidence/final-seal.log",
+      "timeoutSeconds": 1800,
+      "pid": 314,
+      "finishedAt": "2026-10-28T21:05:34.149510+00:00",
+      "exitCode": 0,
+      "durationSeconds": 0.325,
+      "logSha256": "e0791c33b651b1ee580f6c374457b94acb8eb4b72af49b4a327f51abb8dc2846"
+    },
+    {
+      "name": "exact-delta",
+      "argv": [
+        "python",
+        "experiments/tangible-campaign/integration/verify-playtest-contract-final-delta.py"
+      ],
+      "cwd": "/workspace/shared/combination-playtest-repairs-final-20261028-fresh",
+      "startedAt": "2026-10-28T21:05:34.150121+00:00",
+      "status": "PASS",
+      "log": "/workspace/shared/combination-playtest-repairs-final-20261028-clean-evidence/exact-delta.log",
+      "timeoutSeconds": 1800,
+      "pid": 315,
+      "finishedAt": "2026-10-28T21:05:34.468616+00:00",
+      "exitCode": 0,
+      "durationSeconds": 0.318,
+      "logSha256": "b80c74fc9b8a91b46ca88b89e8f11dd7ff23e84273915a129d1d24ca67e1dc52"
+    }
+  ]
+}

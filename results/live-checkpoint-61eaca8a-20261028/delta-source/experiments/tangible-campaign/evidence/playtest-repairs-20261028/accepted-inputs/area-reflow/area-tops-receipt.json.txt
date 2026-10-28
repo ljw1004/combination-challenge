@@ -1,0 +1,96 @@
+{
+  "version": 1,
+  "preparedAtUtc": "2026-10-28T20:30:21.563963+00:00",
+  "candidate": "/workspace/shared/combination-playtest-repairs-integration-20261028",
+  "scope": "Presentation-only downstream area-top separation; two source files, no model/schema/campaign/data/helper/manifest edits. No actual checkout or external writes.",
+  "changes": [
+    {
+      "path": "experiments/tangible-campaign/ui/campaign-main.ts",
+      "beforeSha256": "0f43c79e8e61f95370e0cd85d3df71292e7c23c48d4718ad65c8ebec9e9faeda",
+      "afterSha256": "65919cb23ea3d1633f4eb8b6a7163dbbe06560061f7275ca21dfb617baef27b5",
+      "beforeBytes": 29063,
+      "afterBytes": 29583
+    },
+    {
+      "path": "experiments/tangible-campaign/ui/campaign-controller.test.ts",
+      "beforeSha256": "2a7ba6bcf23db393c0993b447d5e8c565a39208c7d50e17551754d6f4c95bfdd",
+      "afterSha256": "822bb59e587075edf2e82352c25fb15ad2f55848e956fd8d508232babb76cbb6",
+      "beforeBytes": 101079,
+      "afterBytes": 107221
+    }
+  ],
+  "algorithm": "Saved tops remain lower bounds in existing visual order. Append missing areas; push only downstream overlaps to previous bottom +55px. render is sole ensureTops owner; one scroll-anchor delta applied after replacement DOM. Recursive width correction forwards adjusted prior. Local coordinates, history, gameplay unchanged.",
+  "tests": [
+    {
+      "argv": [
+        "node",
+        "--test",
+        "--test-name-pattern=area growth:|ordinary no-growth",
+        "experiments/tangible-campaign/ui/campaign-controller.test.ts"
+      ],
+      "log": "focused.log",
+      "passed": 4,
+      "failed": 0,
+      "durationMs": 7303.350516
+    },
+    {
+      "argv": [
+        "node",
+        "--test",
+        "experiments/tangible-campaign/ui/campaign-controller.test.ts"
+      ],
+      "log": "controller.log",
+      "passed": 102,
+      "failed": 0,
+      "durationMs": 55612.466733
+    },
+    {
+      "argv": [
+        "./node_modules/.bin/tsc",
+        "--noEmit"
+      ],
+      "log": "typescript.log",
+      "exitCode": 0
+    }
+  ],
+  "coverage": [
+    "Actual Mars canonical controller route through chapter10 at widths320/375/600",
+    "Compact reload exact game identity; exact model Undo; reentry with no second shift",
+    "LIVE86 saved top values repaired without token/place/history/arrival metadata changes",
+    "All rendered object/place tops match local coordinates + owning area top",
+    "Old areas remain outside active chapter divider area",
+    "No-growth drop retains exact saved tops; repeated render and same-size resize stable",
+    "Downstream scroll anchor shifts once after new DOM; no-change render/Undo preserve anchor"
+  ],
+  "existingTestChange": "The prior fixed-tops drag now drops y56 inside the established extent instead of y100, which actually grew that area. Fixed-top assertion preserved for its truthful no-growth case.",
+  "independentReview": {
+    "agent": "/root/audit_story_supply_arrivals",
+    "result": "PASS, no blocker",
+    "log": "/workspace/shared/story-supply-audit-20261028/independent-area-growth-review.log",
+    "sha256": "859e31f209232a152d1495e8b104bae97688acdf2fc2328bf273da1e38538287",
+    "passed": 4
+  },
+  "excluded": "No browser/native/Safari/private screenshot or fullaggregate claim. Parent owns final merged sourcechain/build/aggregate; subsequent crawler label hunks must preserve this delta.",
+  "artifacts": [
+    {
+      "path": "area-tops.patch",
+      "sha256": "bc867c666f057fffe7692a196559458192151413e154943e0c89263bfe44604a",
+      "bytes": 24150
+    },
+    {
+      "path": "focused.log",
+      "sha256": "36dbacd8bfcae6273f83a79308c599ab04365dce20d5dc5ee47b75531adec751",
+      "bytes": 780
+    },
+    {
+      "path": "controller.log",
+      "sha256": "9c723f377b8bf54e83d9b432a7a99cf2f398767c116328b275a954fffae153c1",
+      "bytes": 11402
+    },
+    {
+      "path": "typescript.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    }
+  ]
+}

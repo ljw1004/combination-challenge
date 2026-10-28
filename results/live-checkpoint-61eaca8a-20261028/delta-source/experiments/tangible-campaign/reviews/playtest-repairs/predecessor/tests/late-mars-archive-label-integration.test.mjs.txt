@@ -1,0 +1,27 @@
+import {beforeMarsNaturalOrders} from '../experiments/tangible-campaign/integration/mars-natural-orders.ts';
+// Label-only successor: source-aware headless semantic/save checks, not fresh final-label or UI evidence.
+import test from 'node:test';import assert from 'node:assert/strict';import fs from 'node:fs';
+import * as M from '../experiments/tangible-campaign/engine/model.ts';
+import {scenario as latest} from '../experiments/tangible-campaign/ui/campaigns/mars-return-cargo.ts';
+import {scenarios} from '../experiments/tangible-campaign/ui/scenarios.ts';
+import {readSource,evidenceRoot,digest} from '../experiments/tangible-campaign/integration/reviewed-routes.ts';
+fs.mkdirSync(new URL('../results/content-late-20261028/',import.meta.url),{recursive:true});
+const current=beforeMarsNaturalOrders(latest);
+const override=JSON.parse(fs.readFileSync(new URL('late-label-successor-20261028/mars-archive-label-override.json',evidenceRoot),'utf8')),old=readSource(override.source),data='mars/late-return-consistency-20261028/';
+const semantic=state=>({...state,tokens:state.tokens.map(({x,y,...t})=>t),places:state.places.map(({x,y,...p})=>p)});
+test('Frozen predecessor: Mars archive override is exactly one label against frozen reviewed 3385 candidate; no graph, lifecycle, identity or save-version change',()=>{
+ assert.equal(digest(fs.readFileSync(new URL('sources/'+override.source,evidenceRoot))),'3385e9d34941f15138fdde832347751f223128c59cbf209f4f590fd45827f29e');assert.equal(override.changes.length,1);const inverse=structuredClone(current),item=inverse.items.find(i=>i.id==='geology-archive'),change=override.changes[0];assert.equal(item.label,'Expedition archive');assert.equal(item.description,override.descriptionUnchanged);item.label=change.before;assert.deepEqual(inverse,old);assert.equal(current.id,old.id);assert.equal(scenarios.filter(s=>s.id===current.id).length,1);
+});
+test('Frozen predecessor: five unchanged route files preserve semantics at all 1168 action prefixes, and all canonical old saves still restore',()=>{
+ const rows=[];let prefixes=0,restores=0;
+ for(const name of ['authored','beacon','tow','tow-old-alias','closed-reader.accepted']){let a=M.createGame(old),b=M.createGame(current),seen=false;const actions=readSource(data+name+'.cargo.actions.json');
+  for(const action of actions){const ar=M.applyAction(old,a,action),br=M.applyAction(current,b,action);assert(ar.accepted);assert(br.accepted);a=ar.game;b=br.game;assert.deepEqual(semantic(b.state),semantic(a.state));assert.equal(b.history.length,a.history.length);assert.equal(b.events.length,a.events.length);const event={...b.events.at(-1)};if(event.recipe==='departure-5-geology-archive')event.message=event.message.replace('Expedition archive.','Geology archive.');assert.deepEqual(event,a.events.at(-1));prefixes++;
+   if(name==='authored'){assert.deepEqual(M.restore(current,JSON.stringify(a)),a);restores++;}
+   if(br.created==='geology-archive'){assert.equal(M.playerView(current,b).things.find(t=>t.id==='geology-archive').label,'Expedition archive');seen=true;}
+  }
+  if(name!=='authored'){assert.deepEqual(M.restore(current,JSON.stringify(a)),a);restores++;}
+  assert(seen);assert(b.state.completed);rows.push({name,actions:actions.length,completed:true,combinations:b.state.metrics.combinations});
+ }
+ assert.equal(prefixes,1168);assert.equal(restores,234);
+ fs.writeFileSync(new URL('../results/content-late-20261028/mars-archive-label-regression.json',import.meta.url),JSON.stringify({scenarioId:current.id,changedFields:1,semanticActionPrefixesChecked:prefixes,oldSaveRestoresChecked:restores,onlyEventCopyDifference:'Geology archive becomes Expedition archive in its expected creation message.',geometryEqualityClaimed:false,newScenarioOrSaveVersion:false,duplicateRegistration:false,freshFinalLabelPlayer:false,UI:false,routes:rows},null,2)+'\n');
+});

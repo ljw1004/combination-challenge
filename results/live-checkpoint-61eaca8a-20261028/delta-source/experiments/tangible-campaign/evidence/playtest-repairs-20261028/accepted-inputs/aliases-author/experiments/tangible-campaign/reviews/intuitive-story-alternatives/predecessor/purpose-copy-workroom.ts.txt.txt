@@ -1,0 +1,337 @@
+import type {Scenario} from '../../schema/scenario.ts';
+
+/** Exact short paired human-checkpoint experiment; not a solved causation game or human-fun claim. */
+export const scenario: Scenario = {
+  "schemaVersion": 1,
+  "id": "copy-workroom-two-commissions-v1",
+  "title": "The Copy Workroom",
+  "premise": "A paper design travels from the print shop to a workroom with two customers.",
+  "items": [
+    {
+      "id": "papers",
+      "label": "Paper pack, ink and roller",
+      "description": "Shared printing supplies: many blank sheets, an ink roller and ink. A proof uses one sheet; enough stock remains to try both blocks."
+    },
+    {
+      "id": "master",
+      "label": "Master sheet: RIVER →",
+      "description": "The actual thin paper sheet you printed. It has upright readable RIVER followed by a right-pointing arrow, with a marked top edge. Its back is clean and the design is visible through it."
+    },
+    {
+      "id": "reverse",
+      "label": "Back-view tracing: reflected RIVER",
+      "description": "A separate tracing sheet made while viewing the master through its back. The whole word and arrow are horizontally reflected; the top stays at the top."
+    },
+    {
+      "id": "stock",
+      "label": "Blank blocks, transfer sheets and tools",
+      "description": "Several prepared wooden blocks, separate carbon transfer sheets and carving tools. A drawing is kept face up over a transfer sheet whose coated side faces the wood. Tracing transfers the same viewed design. The cutter leaves those lines raised. The master is not coated or cut.",
+      "reading": {
+        "text": "COPY A DRAWING TO WOOD\nKeep the master or tracing face up over a separate carbon transfer sheet, coated side toward a fresh wooden block. Keep the top edges aligned. Trace the outlines, lift both papers, then carve away the background, leaving the same viewed design raised. Neither drawing is coated or cut.\n\nTRACE THE BACK VIEW\nAt the back-lit window, hold the thin master with its printed face against the glass, top edge up. Put a fresh tracing sheet over its clean back and copy the outlines visible through it. The new guide reflects the whole word-and-arrow image. The original master stays intact. Sheets and pencils are stocked at the window.\n\nTAKE A PROOF\nInk either block’s raised face with the roller, press a sheet onto it and lift the impression. The paper shows a reflection of the block’s face. A proof is optional; it does not use up the block. The paper pack and workbench have enough sheets, blanks and transfer sheets to try either form. The word and top mark are part of the design, not just a rotatable arrow.",
+        "attribution": "Method sheet packed with the workroom tools — fictional workshop instructions."
+      }
+    },
+    {
+      "id": "block-readable",
+      "label": "Relief block: readable RIVER →",
+      "description": "A new wooden block with upright readable RIVER and a right arrow raised on its face. Its top edge is marked.",
+      "capabilities": [
+        "readable-carved-face"
+      ]
+    },
+    {
+      "id": "block-reflected",
+      "label": "Relief block: reflected RIVER",
+      "description": "A new wooden block with the whole word-and-arrow image horizontally reflected on its raised face. Its top edge is marked.",
+      "capabilities": [
+        "readable-impressions"
+      ]
+    },
+    {
+      "id": "proof-back",
+      "label": "Proof sheet: reflected RIVER",
+      "description": "A real new sheet from the paper pack, printed from the readable-faced block. The whole word and arrow appear horizontally reflected."
+    },
+    {
+      "id": "proof-front",
+      "label": "Proof sheet: RIVER →",
+      "description": "A real new sheet from the paper pack, printed from the reflected-faced block. It matches the earlier master."
+    }
+  ],
+  "locations": [
+    {
+      "id": "press",
+      "label": "Shop press — reflected RIVER matrix",
+      "description": "The shop’s working press has its original reflected relief matrix in service. The original matrix remains the shop’s property and is still needed here; the next commission asks you to make a new block, not remove this one."
+    },
+    {
+      "id": "window",
+      "label": "Back-lit window and tracing sheets",
+      "description": "Hold the master with its printed face against the glass, top edge up. Place a fresh tracing sheet over its clean back and copy the outlines seen through it. The resulting separate guide reflects the master; the original remains unchanged."
+    },
+    {
+      "id": "display-frame",
+      "label": "Shop’s display frame",
+      "description": "A prepared frame for the new portable relief panel. People will read the panel’s carved face here."
+    },
+    {
+      "id": "printer-chest",
+      "label": "Travelling printer’s delivery chest",
+      "description": "The travelling printer brings this chest when the second commission begins. Place the newly made relief block here for delivery."
+    }
+  ],
+  "initialItems": [
+    "papers"
+  ],
+  "recipes": [
+    {
+      "id": "print-master",
+      "a": "papers",
+      "b": "@press",
+      "out": "master",
+      "description": "Ink, pressure and a sheet of paper take an impression from the shop’s reflected matrix. The printed word reads RIVER and its arrow points right.",
+      "lifecycle": {
+        "papers": {
+          "role": "retain",
+          "reason": "One sheet is used from the explicit shared pack; the roller, ink and remaining sheets stay available."
+        }
+      }
+    },
+    {
+      "id": "trace-back-view",
+      "a": "master",
+      "b": "@window",
+      "out": "reverse",
+      "description": "With the master’s printed face against the glass and its top edge up, trace the design seen through its back onto a fresh sheet from the stocked window. Keep the master intact.",
+      "lifecycle": {
+        "master": {
+          "role": "retain",
+          "reason": "The earlier master is a physical reference; a new tracing sheet comes from the explicitly stocked station."
+        }
+      }
+    },
+    {
+      "id": "carve-direct",
+      "a": "master",
+      "b": "stock",
+      "out": "block-readable",
+      "description": "Keep the master face up over a separate carbon sheet, coated side toward a fresh wooden block. Trace the outlines, lift both papers and carve away the background, leaving the same viewed design raised.",
+      "lifecycle": {
+        "master": {
+          "role": "retain",
+          "reason": "The actual earlier master is neither coated nor cut; a separate transfer sheet carries its lines to the wood."
+        },
+        "stock": {
+          "role": "retain",
+          "reason": "This shared stock contains several blanks and transfer sheets; the tools remain reusable."
+        }
+      }
+    },
+    {
+      "id": "carve-from-back-view",
+      "a": "reverse",
+      "b": "stock",
+      "out": "block-reflected",
+      "description": "Keep the reflected tracing face up over a separate carbon sheet, coated side toward a fresh block. Transfer and carve its viewed design in relief, without reflecting it again.",
+      "lifecycle": {
+        "reverse": {
+          "role": "retain",
+          "reason": "The reflected guide is retained as a reference; the separate transfer sheet applies the same viewed lines to the wood."
+        },
+        "stock": {
+          "role": "retain",
+          "reason": "Another blank and transfer sheet come from the explicit shared stock; the tools remain."
+        }
+      }
+    },
+    {
+      "id": "proof-readable-face",
+      "a": "block-readable",
+      "b": "papers",
+      "out": "proof-back",
+      "description": "Ink the raised readable face, press a sheet onto it and lift the impression. The whole word-and-arrow design is reflected on the new sheet.",
+      "lifecycle": {
+        "block-readable": {
+          "role": "retain",
+          "reason": "The wooden printing surface remains after an impression."
+        },
+        "papers": {
+          "role": "retain",
+          "reason": "A proof uses one sheet from ample stock; the roller, ink and remaining sheets remain."
+        }
+      }
+    },
+    {
+      "id": "proof-reflected-face",
+      "a": "block-reflected",
+      "b": "papers",
+      "out": "proof-front",
+      "description": "Ink the raised reflected face, press a sheet onto it and lift the impression. The new sheet reads RIVER with the arrow pointing right.",
+      "lifecycle": {
+        "block-reflected": {
+          "role": "retain",
+          "reason": "The wooden printing surface remains after an impression."
+        },
+        "papers": {
+          "role": "retain",
+          "reason": "A proof uses one sheet from ample stock; the roller, ink and remaining sheets remain."
+        }
+      }
+    }
+  ],
+  "stages": [
+    {
+      "id": "sample",
+      "title": "At the print shop",
+      "speaker": "The shop printer",
+      "motivation": "“Print a thin master sheet to take to the workroom. Our reflected RIVER matrix stays here in service; the customer needs a new wooden copy. Paper, ink and a roller are ready.”",
+      "completionText": "The impression reads RIVER →. You take that same thin master sheet to the workroom; the shop keeps its original working matrix.",
+      "area": {
+        "id": "shop",
+        "label": "Print shop",
+        "travelText": "A small print shop opens for the morning."
+      },
+      "locations": [
+        "press"
+      ],
+      "objectives": [
+        {
+          "id": "make-master",
+          "kind": "create",
+          "item": "master",
+          "text": "Take a paper master to the workroom"
+        }
+      ]
+    },
+    {
+      "id": "commission",
+      "title": "In the carving workroom",
+      "speaker": "The customer",
+      "motivation": "“I need a carved panel for the shop. People will read the wooden face itself, like your paper master. Put the new panel in the display frame.”",
+      "completionText": "The customer hangs your new panel upright. People read RIVER on its carved face and follow the right-pointing arrow. Your earlier paper master is still intact.",
+      "area": {
+        "id": "workroom",
+        "label": "Carving workroom",
+        "travelText": "Carry your own printed master and the printing supplies to the carving workroom."
+      },
+      "locations": [
+        "window",
+        "display-frame"
+      ],
+      "carry": [
+        "master",
+        "papers"
+      ],
+      "caches": [
+        {
+          "id": "workshop-stock",
+          "label": "Prepared workroom",
+          "items": [
+            "stock"
+          ],
+          "narrative": "Copying a drawing onto a block keeps its viewed design. At the window, hold the master face toward the glass and trace through its back; that makes a reflected guide. Printing reflects a block’s raised face. Keep the top marks upright. There are several blanks and plenty of paper. The tool kit’s method sheet explains the physical steps if you want them."
+        }
+      ],
+      "objectives": [
+        {
+          "id": "display-panel",
+          "kind": "place",
+          "capability": "readable-carved-face",
+          "location": "display-frame",
+          "text": "Put a readable carved panel in the shop’s frame"
+        }
+      ]
+    },
+    {
+      "id": "printer-commission",
+      "title": "The travelling printer’s order",
+      "speaker": "The travelling printer",
+      "motivation": "With the panel delivered, a travelling printer arrives. “I need a new block to print that same design. People will read its paper impressions. Leave my block in the delivery chest.”",
+      "completionText": "The travelling printer inks your new block and takes an impression. The new paper reads RIVER →, like your earlier master. People follow its right-pointing arrow. Your original paper master remains intact.",
+      "area": {
+        "id": "workroom",
+        "label": "Carving workroom",
+        "travelText": "The travelling printer sets a delivery chest beside the same workbench."
+      },
+      "locations": [
+        "printer-chest"
+      ],
+      "carry": [
+        "papers",
+        "master",
+        "reverse",
+        "stock",
+        "block-readable",
+        "block-reflected",
+        "proof-back",
+        "proof-front"
+      ],
+      "objectives": [
+        {
+          "id": "printer-block",
+          "kind": "place",
+          "capability": "readable-impressions",
+          "location": "printer-chest",
+          "text": "Deliver a block that prints the customer’s design"
+        }
+      ]
+    }
+  ],
+  "checkpoints": [
+    {
+      "id": "workroom-earned",
+      "label": "At the workroom · master already printed (authored prior progress)",
+      "actions": [
+        {
+          "type": "combine",
+          "a": "papers",
+          "b": "@press"
+        },
+        {
+          "type": "advance"
+        }
+      ]
+    },
+    {
+      "id": "printer-arrival-earned",
+      "label": "Printer arrives · panel already delivered (authored prior progress)",
+      "actions": [
+        {
+          "type": "combine",
+          "a": "papers",
+          "b": "@press"
+        },
+        {
+          "type": "advance"
+        },
+        {
+          "type": "combine",
+          "a": "master",
+          "b": "stock"
+        },
+        {
+          "type": "place",
+          "item": "block-readable",
+          "location": "display-frame"
+        },
+        {
+          "type": "advance"
+        }
+      ]
+    }
+  ],
+  "notes": [
+    "Isolated use-sensitive backward-design comparison, not proof of natural teleology or distinctive human experience.",
+    "Both variants share all item, stock, location and recipe data. The commission and final fitness criterion differ; physics does not.",
+    "A block is made according to its viewed drawing whether or not it suits the commission. Proofs are optional physical sheets, not evaluation tokens.",
+    "Paper/blank stocks are explicitly plural; no unique finite object is duplicated or destroyed. Original master is retained through both construction routes.",
+    "The shop retains its original matrix as working property, not because fixed presses make matrices physically unremovable.",
+    "Logical labels describe a whole-word horizontal reflection; this is not artwork, optical simulation, or visual UI verification.",
+    "Carving/printing are compressed fictional skilled operations, not practical workshop instructions. No new runtime or UI semantics.",
+    "Separate within-person transfer package, not two independent matched trials. Display then printing is the fixed order.",
+    "The display frame and newly arrived delivery chest are actual distinct destinations. Earlier preparation is allowed; the later commission requires only delivery if its block already exists.",
+    "All six manufacturing recipes, physical kinds, plural supplies and optional method Read are copied from matched v2 without changes.",
+    "The sealed neutral reader starts at the actual beginning. Scenario checkpoints replay explicit authored earlier actions and must not be credited to a fresh player.",
+    "Prior completed commissions are historical achievements under the existing engine; later moving an old delivered piece is not re-evaluated as a new duty. The final narrative concerns the new printer’s use only."
+  ]
+};
