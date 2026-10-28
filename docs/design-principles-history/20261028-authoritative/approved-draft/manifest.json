@@ -1,0 +1,44 @@
+{
+  "task": "Consolidate authoritative game design principles; next narrative batch only",
+  "base_repository": "/workspace/shared/combination-fork-recovery-20261028",
+  "base_commit": "86c479746909412d775873d5bb250868ed7bf2d0",
+  "delivery_type": "isolated docs-only candidate; not applied, committed, pushed or published",
+  "allowed_paths": [
+    "DESIGN_PRINCIPLES.md",
+    "README.md"
+  ],
+  "files": [
+    {
+      "path": "DESIGN_PRINCIPLES.md",
+      "base_sha256": "8401d8f599899339dd7bfd36ff59964d6700391e0b005790d2ebb306215b2d96",
+      "candidate_sha256": "146301b5bfc8e08529a24dfddc252f5b90c5c604b6555100df219814eb0179bf",
+      "candidate_bytes": 27597
+    },
+    {
+      "path": "README.md",
+      "base_sha256": "80a00e0b573ba7bce84ce03fb6d72a28b03003565ee90f7d0f704bee92b0826b",
+      "candidate_sha256": "f979777542bd0087c213972596dff0ed30f2084db0aa771cfea43f40591c4f3a",
+      "candidate_bytes": 6979
+    }
+  ],
+  "patch": {
+    "path": "design-principles.patch",
+    "sha256": "68cfd04571d5adadf350dee28a89e0d824c2dad6265ff72ab43708779c37bc19"
+  },
+  "validation": "evidence/validation.json",
+  "source_inventory": "evidence/source-inventory.json",
+  "historical_design_diff": "evidence/principle-history.txt",
+  "integration_constraint": "Do not apply to the current fixes batch or update frozen historical source contracts. For the next narrative batch, check current base hashes; rebase the two doc changes if source moved, preserving any newer edits. No code/content/art changes.",
+  "handoff": "HANDOFF.md",
+  "latest_direction": "Parent supplied 20:55 clarification: current scene for carry means actual location visit planned work across all its chapters, not the first chapter; no same-place automatic carry/import, pruning, rearrangement or re-grants.",
+  "prior_delivery": {
+    "directory": "history/v1-2041",
+    "patch_sha256": "cf541f55569c28efb27e0d234baf73c0b04dafd0487c2e1476d0a49c9825ad31",
+    "manifest_sha256": "3f02c94c6ed0e037ff22ba43eb67ec986ff031433cf5b7927ab74476b2e4fe7f"
+  },
+  "amendment_patch": {
+    "path": "location-visit-carry-amendment.patch",
+    "sha256": "9f784ffc8c222f7122947b061ba454bf3c05a29e3e9709c8f5afe5ea275cdc6c",
+    "scope": "Only two existing DESIGN_PRINCIPLES.md bullets changed; README unchanged."
+  }
+}

@@ -1,0 +1,139 @@
+# Combination games: design principles
+
+These are the user's design decisions, accumulated during playtests. This is the central authoring reference for existing games and new work, not text to display to players. Read it before changing content, runtime behaviour or validation.
+
+## Why these rules matter
+
+The audience is a player making sense of a world, not an author checking off a recipe graph. A consistent conceptual structure lets the player predict how things will behave, become better informed, and make meaningful decisions: that is the intended source of **fun**. Preserve the pleasure of recognising, trying and discovering; satisfying this document mechanically is not sufficient.
+
+The user's latest explicit direction controls when older designs conflict. Direct human enjoyment is stronger evidence than an AI player's report of boredom; use simulated trials to expose concrete confusion or inconsistency, not to overrule the human's enjoyed experience or manufacture difficulty by obscurity. Recipe totals, completion and test passes are not fun metrics.
+
+**Design direction is not implementation status.** This document specifies what should be true. This documentation update does not establish that every rule is implemented across every campaign. In particular, the clarified location/chapter presentation, complete popup coverage and future visual staging still require implementation review and player-facing verification. Use the [current checkpoint README](README.md) and its linked release evidence for delivered scope and known limits. Preserve older audits as evidence of their own versions, not competing current instructions.
+
+## Locations and chapters have different jobs
+
+Latest clarification: 28 October 2026.
+
+- A **location** is a continuing physical setting. It can contain several chapters. On arrival, expose all plausible authored stock that belongs there, not just the few bespoke ingredients needed for the next task. A kitchen has its ordinary ingredients and equipment from the get-go. A substantial facility may have genuinely distinct, clearly established workrooms; do not invent a new room merely to disguise a chapter-by-chapter supply drip.
+- A **chapter** is a story beat: a new purpose, radio contact, dialogue or development, not necessarily a journey. Every chapter actually entered with unfinished work should have a brief story-beat popup, such as a radio exchange, dialogue or narrative card. Arrival at a new location will often have one too; an arrival and chapter beat can share the same introduction rather than duplicate it. A popup is not a demand to read the prose to understand the mechanics.
+- **Exception: chapters already completed on entry retain the explicit skip/bridge policy below.** Do not restore a popup or a task for every skipped chapter. Important authored bridges join the next unfinished beat or ending; a partially complete chapter still has a real introduction and remaining task.
+- A new chapter in the **same location** keeps every surviving item and the player's layout. The chapter boundary must never automatically carry/import earlier-area items, prune items, rearrange the work surface or re-grant existing stock. It does not start a fresh board or pretend to travel.
+- **Only an actual location move triggers carry.** Here, the destination's **current scene means the actual location visit's planned work across all its chapters**, not merely its first chapter or an arbitrary chapter boundary. On arrival, bring existing things useful across that planned work, preserving the carried group's arrangement; do not silently import missing old items when a later same-place chapter begins. Leave other surviving things physically in their earlier areas, accessible for later reuse; do not haul the entire future campaign catalogue forward or hide leftovers. Do not carry an existing placement witness away merely to manufacture an unfinished task.
+- A genuine new delivery or discovery at the same place should be rare and visibly explained by a minimal discovery/delivery popup. It is not an excuse for an arbitrary new pile each chapter. Actual fresh items use the new-items policy below; old-area spillover and previously existing objects are not new grants.
+- **Future art direction — do not generate artwork yet:** describe each setting for later artwork; use stable background art for that location, including successive chapters there. Place eventual new supplies in relevant positions beside the work or structure they belong to. The same place uses the same art; changes in people, tasks and tangible work communicate its developing story. These are authoring plans, not claims that background art or contextual placement exists now.
+- Mars remains a single-narrator survival journey. Use minimal necessary people and radio/contact explanation to establish who is speaking and what matters; do not force alternating rover/farming narrators or two threads into every game.
+
+## A small, predictable interaction language
+
+- The core is **binary A + B = C**, with recognisable, authored, named results. Do not turn arbitrary pairs into unnamed compound bags or secretly require a third ingredient. Fitting an actual component into a named construction is the explicit construction case, not generic accumulation.
+- The two player-facing roles are **things** and **locations**: ordinary rounded thing tiles and distinct location frames. Component items remain things and stay visibly identifiable when fitted. A named location target within a setting is not itself an instruction to change chapters or travel.
+- Keep the three location uses distinct: **catalyst**, where the receiving thing B's actual placement supplies context for A+B; **operand**, where A+location creates a named portable C; and **placement**, where moving a thing into a place tests its own goal eligibility. Neither context nor placement accumulates prior occupants' properties. No sticky ingredients, cumulative location recipe or invented context override.
+- Things remain movable. Moving a placed witness away changes current goal truth; historical achievement is separate. Context can make the two drag directions differ, so communicate the actual legal receiving direction rather than pretending both are legal.
+- Normal partner highlighting is a core affordance: show it on press/selection and throughout a thing-drag, including location operands and relevant current-goal things. Location frames are fixed targets, not draggable things. Show legal existing partners and valid drops, not future output-name previews. Highlights must not disappear merely because a source is gold or a target is a location; they must not promise an illegal direction or an already-existing result.
+- Never create another C when that output already exists, including in an earlier area or fitted construction. Moving, fitting or incorporating an output is not permission to reconstruct a duplicate. Alternative routes should converge on existing output identities where appropriate; distinct real objects in different kitchens can still share a familiar label.
+- After a successful creation, surviving dragged A returns to its original position; B stays put. New C appears close to the receiving B, or **inside the location target** when the location is the operand, and remains portable rather than permanently attached. The explicit transformation and installation rules below take precedence over this ordinary birth rule. A same-token drop is a no-op/rejection, never deletion.
+
+## Understand from the task and visible things
+
+Clear, simple object names are a mandatory baseline, not an optional polish pass. Assume the player skips chapter prose, cache narrative, item descriptions and Read. The task list, object/location names, text printed on tiles, visible fitted components and normal interaction feedback must make the action intelligible. A short quotation already printed on a tile counts; a crucial premise hidden behind Read does not.
+
+- Ask of every required action: **Does this make sense from the task and the things the player can see?** Put a necessary premise on the surface through a truthful short name, visible component, diagram, observed result or meaningful state change. Do not repair a missing apparatus, ingredient, evidential premise, purpose or order constraint by lengthening prose.
+- Review recipes **forwards**, not only backwards: would the visible things and task naturally suggest trying this pair, and is its result recognisable and useful for a purpose the player can understand? A technically possible after-the-fact story does not make a combination intuitive. For example, Footbridge + Paper → Crossing map is not justified merely by saying that paper can record a bridge crossing: why would the player want or need that map? This is not a ban on maps or observational recipes; give them a genuine, visible job.
+- Accept plausible alternative tools, evidence and preparation orders that genuinely reach the result. A stronger compatible tool should not arbitrarily lose its simpler form's useful capability; independent preparations should not have a secret sequence. Preserve real ingredient, causal and evidential distinctions: related names alone do not make a valid recipe.
+- Keep physical identity and prerequisites consistent across alternatives: no duplicated trays, missing covers, vanished samples or finished food without its ingredients. Use bounded states or existing construction components rather than every imaginable permutation.
+- Chapter prose and Read add optional flavour, attribution, qualifications and depth. They do not repair irrational mechanics or become a click-through comprehension test. Places, people, supplies, carried constructions and tasks should make changes legible.
+
+## Play without administration
+
+- Teach through what objects do and how they change. Remove explanatory gameplay toasts, including “Moved”, and temporary recipe instructions. Do not make reading instructions necessary for ordinary interactions.
+- Keep the scene open. Use terse objectives (“Place powered radio”), no “Objectives” heading, at the top right near the screen edge. Put the bare bug icon underneath; no visible button surround. Keep accessible names and adequate touch targets.
+- After the final creation cue, open the next challenge automatically, except for a deliberately rare milestone celebration. Do not add a separate completed-chapter Continue chore or “just finished” recap; the next unfinished chapter's story-beat popup still appears.
+- Readable manuscripts remain the same rounded tiles, with a small source marker. Selection offers an intentional Read action; only activation opens the attributed text. Author source contents in `Item.reading`, not generic descriptions that may contain instructions or recipe hints. Reading preserves selection and scroll, changes no progress, and only pauses the automatic next-chapter handoff until dismissal.
+- A key quotation can be the item itself: 5–12 words need not collapse into an icon. All long labels—including observations and cases—need matching line space in tile rendering and engine packing. Reserve the reader for fuller source context; never attach fake readings just to obtain text space.
+- Keep the work surface compact and responsive, with readable labels and usable touch targets. Fit the available width and use vertical scrolling rather than a horizontally sprawling board. Compress genuinely empty space only when necessary; dense real content may scroll. Do not hide objects, scramble a settled arrangement or claim phone usability from coordinate checks alone.
+- Art is a later phase. Do not generate or add artwork now.
+
+## Rare milestones celebrate new possibilities
+
+- Chapters carry the story; rare full-screen invention celebrations reward pivotal new possibilities. These are separate threads, not a popup for every recipe or another chapter recap.
+- Choose milestones for significance and their role in opening combinations. Plant qualifies in Elements; juice does not. When used, give them a coherent recurring rhythm rather than a lone surprise. The current Elements selection has nine meaningful creations across its 197-combination canonical route; Mars has three, for the working Rover, Camp water system and ready Oxygen plant. These are campaign-specific choices, not a quota. Cooking has none.
+- Celebrate an actually achieved invention. An unfinished Rover shell is not a working Rover; required fitted parts and the authored capability must be present before celebrating it.
+- Keep the language evocative and concise. A subtle hint at real future branches is welcome, but not a recipe sequence, a technical manual, an unlimited-resource promise or a claim of capabilities the game has not earned.
+- Let the creation remain tangible, then briefly step out of play with a full-screen celebration and a clear Continue. Do not force the player to wait for animation; respect reduced motion. Resume any deferred chapter after the celebration, preserving intentional reading and debug flows.
+- Keep ordinary combinations uncelebrated and never replay an old-save backlog as newly earned. A dismissed celebration happens once per run. Pending rewards and acknowledgement survive saving; Undo removes unearned pending events but does not repeat a dismissed triumph. Reset starts a fresh run; debug checkpoints identify their replayed achievements as historical.
+
+## Objects retain identity
+
+- Each recipe explicitly declares every object input as `transform`, `incorporate`, or `retain`, with a reason. An upgrade or physical incorporation consumes its original at the event when no independent use needs an outside copy; reusable tools and supplies remain when another use still needs them. This is not a finite-stock simulation or a blanket everything-stays rule. Exhausting an input's future uses is a warning to review its lifecycle, never permission to delete it automatically.
+- Apply authored removal only at the actual combining or installing event. If another use or objective requires an outside copy/supply to remain then, it stays tangible until a later action explicitly transforms or incorporates it. Do not retroactively absorb it into an old owner when an unrelated action, alternative recipe, chapter advance or reload exhausts its remaining uses. Leave finished leftovers in their areas; scene-local carry controls clutter.
+- Preserve a declared construction's fitted contents visibly at the combining/installing event even when its outside source copy remains useful. The new assembly receives that event's actual construction snapshot, not later additions to the separate copy. Preserving the new assembly's visible parts does not move or alter the retained source copy.
+- A transformation replaces its primary input at exactly that object's position, with a brief creation animation, in either drag direction. Do not place its replacement to one side.
+- Context matters: putting material into a seed tray should leave the result at the tray. A reusable tool used there should remain a tool. Do not apply a blanket “everything stays” rule.
+- Soup pouch → warmed soup is one evolving object. Its empty earlier state should not remain as a useless duplicate. Heater, references and other reusable equipment survive. Shared supplies can remain while another authored branch needs them.
+- Adding to a fitted rover should keep the same recognisable rover and its fitted parts. Prefer installation in its existing slots. Never collapse a compound into an apparently simple object. When joining assemblies or genuinely changing an assembly's identity, explicitly preserve and display its existing components through subsequent transformations. A change of name is not a disassembly.
+- Any genuine removal/disassembly needs a deliberately authored action and understandable visible result. Do not hide lost parts in bookkeeping or explain them away in a paragraph.
+- A terminal creation does not disappear after its animation, a timer or its last use. Every surviving object stays tangible; no hidden shelf, presentation archive or invisible inventory solves clutter. Scene-local carry controls what travels, not what exists.
+
+## Goals express the next useful action
+
+- Gold means **a currently fulfilled objective of the current chapter**, not a historical achievement, new delivery or permanently prestigious object. A placement objective gilds its actual correctly placed witness and location; moving it away removes current satisfaction. Advancing clears prior-chapter gold, not the surviving objects. Avoid making a gold object a reagent for a subsequent goal in the same challenge.
+- Represent intermediate goals explicitly and reveal their successor after completion: “Bake bread” becomes “Pack a picnic basket”. Remove the completed intermediate from the visible list, and do not permanently gild its object.
+- Completing an intermediate remains recorded even after it is incorporated. Undo restores both objects and goal progress.
+- Phrase goals so a player understands the action; keep them short without making them cryptic. Ask for useful creations or capabilities, not a parking errand for every piece of equipment or every optional recipe.
+- An enhanced thing satisfies the function it genuinely retains: an upgraded radio or growing shelter must not fail merely because its name changed. Preserve real functional distinctions; a radio's little supply is not automatically a rover's traction power. No exact-name barrier should manufacture extra work.
+
+## Chapters belong to a continuing story
+
+- Every non-opening chapter must meaningfully use at least one, preferably several, objects or ideas created in an earlier chapter. An item merely remaining in inventory, or an old raw supply, does not satisfy this.
+- The source chapter need not be the immediately preceding one. Earlier creations may return after a gap. Evaluate competing perspectives selectively, especially for Doctrine; do not force two threads into every journey.
+- Carry useful existing creations forward on actual travel, under the location/chapter distinction above; do not conjure missing prerequisites or replace continuity with an explanatory paragraph. Players should recognise what they made.
+- Distinguish actual new supplies spatially: existing objects above a dotted “new items” line, actual deliveries below. Do not use New/Carried labels or divide the screen into arbitrary halves. Compact empty vertical gaps only when needed; allow dense scenes to scroll. The first intentional committed crossing or successful cross-group combination removes the line; cancellation, rejection, reading, resizing and reload do not. Undo restores the earlier split. The lower group contains only this arrival's actual fresh grants, never old-area spillover or existing things reclassified as new. Crossing is scoped to those groups in that area. With no fresh delivery, do not add a divider or rearrange settled objects; old saves are not retroactively relaid out.
+- The food journey needs the same continuity. Preserve the value of older practices rather than portraying every later technique as simply superior.
+- A kitchen or cooking station should support several services, with ordinary ingredients and tools introduced when its stores become available, not a fresh box of bespoke materials for each chapter. Keep the active work area manageable; a substantial facility may have small, clearly established workrooms. New chapters on the same work surface must not repack or relocate settled objects.
+- Familiar equipment labels may repeat across distinct kitchens. Do not force uniqueness into names such as “Salad oven”. Let the story and physical identities distinguish facilities.
+- Let the cooking journey earn its conclusion through useful earlier preparations and a concrete act of feeding people. Do not force a branded destination or invent industrial props when the actual journey remains grounded in cooking.
+
+## Chapters react to work already done
+
+- Chapter divisions do not invalidate earlier invention. A chapter whose goals are all already fulfilled on entry disappears, including its objectives and routine acknowledgement. Do not lock recipes or add chores to prevent the player racing ahead.
+- Author each active chapter’s `onAlreadyComplete` policy explicitly: `skip`, or `bridge` with a short important story paragraph. Most chapters skip silently. Bridges preserve genuinely important story turns, not carry lists, mechanical recaps or future recipe spoilers; they appear in order with the next unfinished chapter, or the ending if everything remaining is done.
+- A partial chapter remains: already fulfilled goals are visibly complete, while the remaining task is real. Preserve existing placement witnesses rather than automatically carrying them away to manufacture work.
+- Entering a skipped chapter still introduces its genuine caches and locations. Supplies remain tangible with their original provenance and new-versus-old classification through a cascade; never fabricate combinations or invention rewards. Empty source areas do not retain a delivery divider.
+- Normal chapter completion is distinct from being complete on entry. The shared logical engine owns this distinction and the bounded cascade, not a hidden UI shortcut. Bridge facts follow Undo; acknowledgements persist once per run. Reset starts fresh; replayed debug checkpoints mark their bridges and inventions historical. Old policy-less snapshots retain their original behavior and save identities.
+
+## Ideas have histories
+
+- Show what builds on what: transmission, adaptation, criticism, synthesis and cross-fertilisation, rather than isolated historical vignettes.
+- Respect chronology. Athens predates formal early-modern scientific method; intellectual history also predates Athens. Research earlier cosmologies, practical knowledge and observation where relevant.
+- Do not turn “the will of the gods” → “the universe ticks” into an inevitable secular ladder. Religious thought and natural explanation can coexist and interact.
+- Distinguish documented historical influence from a useful modern comparison. Keyword matches and episode abstracts supply research leads, not proof of a connection.
+- Doctrine should span a broad, continuing history, including Augustine, Aquinas and Luther. Alternate strands and perspectives; always use earlier created ideas, and allow disagreements to remain substantive rather than crowning each later chapter the winner.
+- For religion, use substantive doctrinal tensions with consequences. The Benedictine fasting exception was too niche. Attribute claims to particular texts/traditions; completing a recipe reconstructs a position, not a proof that a religion is true or false. Cathar sources and beliefs need careful attribution rather than a single universal “Cathar doctrine”.
+
+## Enforcement and review
+
+- Every recipe should earn its place through a meaningful, recognisable result or use, not graph padding. Every non-opening chapter must meet the earlier-created-item continuity rule above; merely carrying an item is not meaningful reuse. Historical influence, analogy and physical lifecycle are different claims and need different evidence.
+- Keep graph/audit warnings visible. Resolve a warning or record an explicit, specific waiver explaining why that exception is intentional; do not silently ignore it, weaken the rule to obtain green tests or present a waiver as a fix. This review requirement does not claim that every desired graph check is automated today.
+- Default discoverability testing is **name-and-task-first**, with prose and Read closed and normal highlights available. Begin from a fresh state or clearly labelled earned checkpoint, not memorised recipe knowledge. Record the exact visible words and rejected attempt; distinguish a valid alternative rejected, a hidden premise, a misleading label, a missing prerequisite, an unavailable object and an already-existing output.
+- For an accepted content fix, verify local input availability and undiscovered output, the original and alternative routes, both drag directions where applicable, downstream uses, objectives, arrival/carry, duplicate prevention, Undo and save/restore. Do not let an alternative erase necessary physical parts or make another order unwinnable.
+- Grade **factual/authenticity accuracy** and **forward player intuition/useful purpose** separately. A historically or physically defensible account can still fail the player-facing test; an authenticity reviewer must not approve a contrived recipe merely because it can be explained afterwards.
+- State the evidence level: source review, logical/engine replay, visual name/task-only pass, native interaction or independent human play. Full-text fact-checking is valuable but not discoverability evidence. Mechanical completion and AI difficulty ratings do not certify comprehension or fun.
+
+The release build checks input lifecycles, compound preservation and objective progression. Regression tests cover position, consumption, fitting, saved progress and authored routes. Existing saves should remain usable; a redesigned campaign gets a new identity, while old direct routes remain available.
+
+The [research and chapter-continuity audits](experiments/tangible-campaign/research/intellectual-threads/README.md) retain their dated findings. Their documented unresolved gaps are work still to do, not an exemption from these principles. Do not claim that an audit alone fixed its findings. Human playtesting is still needed to judge whether the combinations are compelling.
+
+## Current development focus (28 October 2026)
+
+Prioritize Mars, Atlas of Questions, Elements, From Hearth to Snack Cake, Why This Boat, and Doctrine: Grace and Matter. Other sketches remain accessible as explicitly undeveloped secondary experiments. Preserve the working Mars and Elements grammar and use playtest evidence for refinements. Restructure Atlas around chronological intellectual connections. Preserve the enjoyed cooking core while grouping services into continuing kitchens; earn the conclusion by feeding people rather than forcing a branded endpoint. Reconsider Why This Boat around a genuinely perceptible alternative notion of causality. Give Doctrine a rich working desk of manuscripts, arguments, excerpts and real concerns rather than repeated three-item puzzles.
+
+## Implementation records and historical context
+
+Use these focused records for implementation detail, not as alternative principle lists:
+
+- [Event-local lifecycle and construction preservation](experiments/tangible-campaign/reviews/lifecycle/EVENT_LOCAL_POLICY.md).
+- [Spatial new-item grouping](experiments/tangible-campaign/reviews/grouped-arrivals/README.md).
+- [Already-complete chapter behaviour](experiments/tangible-campaign/reviews/reactive-chapters/README.md).
+- [Reviewed reactive-chapter and invention checkpoint](experiments/tangible-campaign/integration/REACTIVE-HEROES-RELEASE-20261028.md).
+
+Historical contracts remain intact. In particular, old automatic-hiding rules, permanent past-stage gold, compulsory equipment-delivery chores, chapter-equals-travel assumptions, and the proposed alternating Mars narrators are superseded where they conflict with this document. Frozen source manifests and test evidence describe their pinned revisions; update current behaviour through an explicit successor, never rewrite an old audit to claim it already proved the new direction.

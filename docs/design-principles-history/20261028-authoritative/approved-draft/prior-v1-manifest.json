@@ -1,0 +1,34 @@
+{
+  "task": "Consolidate authoritative game design principles; next narrative batch only",
+  "base_repository": "/workspace/shared/combination-fork-recovery-20261028",
+  "base_commit": "86c479746909412d775873d5bb250868ed7bf2d0",
+  "delivery_type": "isolated docs-only candidate; not applied, committed, pushed or published",
+  "allowed_paths": [
+    "DESIGN_PRINCIPLES.md",
+    "README.md"
+  ],
+  "files": [
+    {
+      "path": "DESIGN_PRINCIPLES.md",
+      "base_sha256": "8401d8f599899339dd7bfd36ff59964d6700391e0b005790d2ebb306215b2d96",
+      "candidate_sha256": "fc22c4b00c681ebc6a01c165fe7e97e4b486971f2c9bcf7a3921e6e35b8790e1",
+      "candidate_bytes": 27274
+    },
+    {
+      "path": "README.md",
+      "base_sha256": "80a00e0b573ba7bce84ce03fb6d72a28b03003565ee90f7d0f704bee92b0826b",
+      "candidate_sha256": "f979777542bd0087c213972596dff0ed30f2084db0aa771cfea43f40591c4f3a",
+      "candidate_bytes": 6979
+    }
+  ],
+  "patch": {
+    "path": "design-principles.patch",
+    "sha256": "cf541f55569c28efb27e0d234baf73c0b04dafd0487c2e1476d0a49c9825ad31"
+  },
+  "validation": "evidence/validation.json",
+  "source_inventory": "evidence/source-inventory.json",
+  "historical_design_diff": "evidence/principle-history.txt",
+  "integration_constraint": "Do not apply to the current fixes batch or update frozen historical source contracts. For the next narrative batch, check current base hashes; rebase the two doc changes if source moved, preserving any newer edits. No code/content/art changes.",
+  "handoff": "HANDOFF.md",
+  "latest_direction": "Parent supplied user 20:33 chapter/location clarification and 20:39 Footbridge+Paper forward-intuition critique"
+}

@@ -1,5 +1,11 @@
 # Combination Challenge
 
+## Authoritative game design principles
+
+**Start with [DESIGN_PRINCIPLES.md](DESIGN_PRINCIPLES.md)** before changing game content, runtime or validation. It consolidates the user's rules: continuing locations versus story-beat chapters; whole-location-visit carry only on actual travel; no artwork yet; task-and-name-first understanding; natural forward combinations, useful purposes and authenticity; plus the earlier lifecycle, goal and continuity principles.
+
+**Direction is not delivery.** This docs-only update does not change the running Site or claim the next narrative overhaul or proposed Iron quarry rename is live. The latest preserved live source is [`61eaca8a` and its exact restore/evidence](docs/live-checkpoint-61eaca8a-20261028.md). The dated sections below remain unchanged historical records; their earlier “current”/“not live” statements apply to those checkpoints. [Documentation provenance and reconciliation](docs/design-principles-history/20261028-authoritative/RECONCILIATION.md).
+
 ## Current live shared runtime — 28 October 2026
 
 The owner-private [Combination Workshop](https://combination-workshop-playtest.stonysun25.chatgpt.site/campaign.html) is live from exact Site Git **`61a9b4ee8c6235bff07f97eb16d713ec6125c81e`** (existing publication at 03:22:08 UTC). This checkpoint preserves that source; it does **not** deploy or change the Site audience. The prior immutable `6204` source/evidence checkpoint remains intact.
