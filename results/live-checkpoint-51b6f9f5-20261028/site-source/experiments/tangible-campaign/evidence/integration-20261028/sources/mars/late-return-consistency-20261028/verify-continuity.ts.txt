@@ -1,0 +1,13 @@
+import assert from 'node:assert/strict';
+import {readFileSync,writeFileSync} from 'node:fs';
+import {auditRoute} from '../../continuity/audit.ts';
+const read=(n:string)=>JSON.parse(readFileSync(new URL(n,import.meta.url),'utf8'));
+const reports=[];
+for(const name of ['cargo-alternative','recommended']){
+ const s=read(`${name}.candidate.scenario.json`);
+ for(const route of ['authored','beacon','tow','tow-old-alias','closed-reader.accepted']){
+  const r=auditRoute(s,read(`${route}.cargo.actions.json`));assert.ok(r.completed);assert.deepEqual(r.missing,[]);assert.equal(r.rows.length,24);reports.push({candidate:name,route,...r});
+ }
+}
+writeFileSync(new URL('continuity-verification.json',import.meta.url),JSON.stringify({evidenceClass:'Source-aware goal-connected earlier-creation witness audit; not a proof of all routes or a blind playtest.',reports},null,2)+'\n');
+console.log('Both candidates: all 5 routes complete all 24 chapters; every non-opening chapter has a goal-connected use of an earlier creation.');

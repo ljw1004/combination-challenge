@@ -1,0 +1,41 @@
+{
+  "kind": "source-aware bounded canonical local-state search",
+  "states": 20,
+  "terminalStates": 1,
+  "minimumDrops": 5,
+  "witness": [
+    {
+      "type": "combine",
+      "a": "blank",
+      "b": "mallet"
+    },
+    {
+      "type": "place",
+      "item": "basin",
+      "location": "wash"
+    },
+    {
+      "type": "advance"
+    },
+    {
+      "type": "combine",
+      "a": "basin",
+      "b": "hanger"
+    },
+    {
+      "type": "combine",
+      "a": "mallet",
+      "b": "gong"
+    },
+    {
+      "type": "place",
+      "item": "gong",
+      "location": "gate"
+    },
+    {
+      "type": "advance"
+    }
+  ],
+  "scope": "All unordered visible local item pairs and item/location drops, with automatic stage advances. Geometry-only moves and optional travel cannot change this recipe/placement lower bound.",
+  "lowerBound": "One basin-forming combination and one washing placement are required before hardware exists. Then suspension, striker installation and gate placement are each required. No recipe combines one of these with another."
+}

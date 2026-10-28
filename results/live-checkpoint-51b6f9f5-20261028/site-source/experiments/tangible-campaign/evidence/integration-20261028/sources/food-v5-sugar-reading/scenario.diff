@@ -1,0 +1,58 @@
+--- food-v4-flexible-salads/scenario.json
++++ food-v5-sugar-reading/scenario.json
+@@ -1,6 +1,6 @@
+ {
+   "schemaVersion": 1,
+-  "id": "hearth-to-twinkie-v4-flexible-salads",
++  "id": "hearth-to-twinkie-v5-sugar-reading",
+   "title": "From Hearth to Snack Cake",
+   "premise": "Travel with a kitchen caravan from a roadside breakfast through harvest, rain, a crowded market and the station bakery. Make the food that each stop needs, ending at a Twinkie. This fictional collection brings historical techniques together; time, proportions and safe handling are compressed, not taught.",
+   "items": [
+@@ -512,7 +512,14 @@
+     {
+       "id": "sugar",
+       "label": "Sugar",
+-      "description": "Sugar stocks have a social history: plantation economies and enslaved labour helped expand European consumption."
++      "description": "Sugar stocks have a social history: plantation economies and enslaved labour helped expand European consumption.",
++      "reading": {
++        "text": "In his 1657 account of Barbados, Richard Ligon describes a sugar plantation sale that included enslaved people among its property. His projected plantation budget treats enslaved people as assets to be maintained.\n\nThis is one record of the coerced labour behind seventeenth-century Atlantic plantation sugar. Ligon wrote from the colonists’ profit-seeking perspective, not the voices of the people they enslaved. It is not a history of every place or period in which sugar was made.",
++        "attribution": "Game-author paraphrase and contextual note, not a quotation. Richard Ligon, A True & Exact History of the Island of Barbados (1657), pp. 22–23 and 113–116. A colonial participant’s account; not testimony from enslaved workers."
++      },
++      "sources": [
++        "ligon-barbados-sugar"
++      ]
+     },
+     {
+       "id": "jam",
+@@ -5448,11 +5455,11 @@
+       "id": "sugar",
+       "title": "The sugar kitchen",
+       "speaker": "The preserving cook",
+-      "motivation": "The orchard has sent more ripe fruit than we can serve fresh. Make tomorrow’s marmalade and tonight’s jam tart and crumble; the preserving works also wants a fruit syrup sample. The historian keeps the sugar-trade record beside the dishes: enslaved people’s labour must not vanish behind a merchant’s name.",
++      "motivation": "The orchard has sent more ripe fruit than we can serve fresh. Make tomorrow’s marmalade and tonight’s jam tart and crumble; the preserving works also wants a fruit syrup sample. Sugar has an optional historical note about enslaved plantation labour in seventeenth-century Barbados.",
+       "area": {
+         "id": "sugar-area",
+         "label": "The sugar kitchen",
+-        "travelText": "The orchard has sent more ripe fruit than we can serve fresh. Make tomorrow’s marmalade and tonight’s jam tart and crumble; the preserving works also wants a fruit syrup sample. The historian keeps the sugar-trade record beside the dishes: enslaved people’s labour must not vanish behind a merchant’s name."
++        "travelText": "The orchard has sent more ripe fruit than we can serve fresh. Make tomorrow’s marmalade and tonight’s jam tart and crumble; the preserving works also wants a fruit syrup sample. Sugar has an optional historical note about enslaved plantation labour in seventeenth-century Barbados."
+       },
+       "locations": [
+         "preserve-pan",
+@@ -17711,10 +17718,16 @@
+       "title": "Colman’s Mustard: Foodservice",
+       "url": "https://colmansusa.com/foodservice",
+       "note": "Producer guidance lists mustard powder for vinaigrettes. It does not specify this game’s exact quantity or mixing order."
++    },
++    {
++      "id": "ligon-barbados-sugar",
++      "title": "Richard Ligon: A True & Exact History of the Island of Barbados (1657), pp. 22–23, 113–116",
++      "url": "https://www.gutenberg.org/cache/epub/70489/pg70489-images.html",
++      "note": "Primary colonial account, consulted directly. Supports this optional, geographically and temporally bounded game-author paraphrase; not a modern recipe method or enslaved people’s own testimony."
+     }
+   ],
+   "notes": [
+-    "Isolated v4 flexible-salads experiment: two authentic alternate joins to existing outputs, not two new discoveries; approved copy-fixed v3, its trial, and all earlier candidates remain unchanged.",
++    "Isolated v5 content correction: an optional attributed historical note on existing Sugar replaces the promise of an absent record. All v4 salad alternatives and gameplay remain unchanged; v4 and its active trial are not rewritten.",
+     "One continuous collection narrative, not a universal chronology of invention or a progress ladder. Historical connections are technique reuse and adaptation unless explicitly sourced as influence.",
+     "No carried-object prose: current-scene carry lists are executable. Every non-opening chapter has required earlier-created inputs.",
+     "Logical routes are source-aware author witnesses, not independent player enjoyment or browser/touch validation.",

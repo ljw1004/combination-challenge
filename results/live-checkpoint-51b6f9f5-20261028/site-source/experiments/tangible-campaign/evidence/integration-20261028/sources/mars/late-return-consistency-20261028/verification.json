@@ -1,0 +1,608 @@
+{
+  "evidenceClass": "source-aware logical reproduction and narrative-only candidate verification; no UI/browser testing",
+  "checks": [
+    {
+      "name": "Pinned source copies and original inputs remain unchanged",
+      "passed": true,
+      "evidence": [
+        {
+          "file": "baseline.scenario.json",
+          "sha256": "81d9aee6504bae6cb549b3b70d57de9fbcfe216b6bfe53bd899f0a81da4365ea"
+        },
+        {
+          "file": "engine/model.ts",
+          "sha256": "793354131dc6b2cf9a5398e0dc163f5d834e62d477b719e7dedcfdcf6a2c8265"
+        },
+        {
+          "file": "schema/scenario.ts",
+          "sha256": "f4c61757fb5d78c55054963c067ba061ed3e2d3450a3ed3455f20a35553aaa91"
+        },
+        {
+          "file": "schema/lifecycle.ts",
+          "sha256": "89dc8fe7ccee86efaba542540af23a5b575dae18891acbf211bc4d082aa4f3fa"
+        },
+        {
+          "file": "authored.actions.json",
+          "sha256": "031e94c0840a0678cab1178ef636cc9f17c8ff28c231988daf278bec99bbc6e7"
+        },
+        {
+          "file": "beacon.actions.json",
+          "sha256": "078f1e5562692463e46bef506689e0a69774f5ef321ed235c0005201df5b3693"
+        },
+        {
+          "file": "tow.actions.json",
+          "sha256": "25e3793bc3037848b05616a7d906a28b1457e308f91a1ccd48324c8cc823b1f5"
+        },
+        {
+          "file": "tow-old-alias.actions.json",
+          "sha256": "ac90f59b30bf363ba3dce8ee77cfcbd27880259ce4b260830319a673d4c71923"
+        }
+      ]
+    },
+    {
+      "name": "Both scenarios pass unchanged existing declarative validators",
+      "passed": true,
+      "evidence": {
+        "baseline": [],
+        "narrativeCandidate": []
+      }
+    },
+    {
+      "name": "Closed-reader sequence completes with 204 combinations on current source",
+      "passed": true,
+      "evidence": {
+        "attempts": 238,
+        "accepted": 238,
+        "combinations": 204,
+        "creations": 172,
+        "installations": 32,
+        "moves": 0,
+        "placements": 10,
+        "advances": 24,
+        "visits": 0
+      }
+    },
+    {
+      "name": "Packing preserves actual named capsule contents in specimen-cart",
+      "passed": true,
+      "evidence": {
+        "capsule": {
+          "id": "cushioned-capsule",
+          "kind": "cushioned-capsule",
+          "area": "area-departure",
+          "location": null,
+          "slots": {
+            "ice": "catalogued-ice-sample",
+            "sediment": "retained-sediment",
+            "comparison": "two-cell-case",
+            "comparison-record": "sleeved-comparison",
+            "record": "complete-field-archive"
+          },
+          "incorporated": [
+            "return-capsule",
+            "shock-mount",
+            "catalogued-ice-sample",
+            "retained-sediment",
+            "two-cell-case",
+            "sleeved-comparison",
+            "complete-field-archive"
+          ],
+          "x": 152,
+          "y": 106,
+          "components": [
+            "two-cell-case",
+            "ripple-impression",
+            "logged-gravel-chip"
+          ]
+        },
+        "cart": {
+          "id": "specimen-cart",
+          "kind": "specimen-cart",
+          "area": "area-departure",
+          "location": null,
+          "slots": {},
+          "incorporated": [
+            "secured-cart",
+            "depot-cargo-shuttle",
+            "depot-hauler",
+            "protected-controller",
+            "hauler-platform",
+            "cargo-strap",
+            "cushioned-capsule",
+            "return-capsule",
+            "shock-mount",
+            "catalogued-ice-sample",
+            "retained-sediment",
+            "two-cell-case",
+            "sleeved-comparison",
+            "complete-field-archive"
+          ],
+          "x": 52,
+          "y": 120,
+          "components": [
+            "protected-controller",
+            "hauler-platform",
+            "cushioned-capsule",
+            "catalogued-ice-sample",
+            "retained-sediment",
+            "two-cell-case",
+            "sleeved-comparison",
+            "complete-field-archive",
+            "ripple-impression",
+            "logged-gravel-chip"
+          ]
+        }
+      }
+    },
+    {
+      "name": "First loss is actual homebound-5 state, not a player-surface filter",
+      "passed": true,
+      "evidence": {
+        "cartUnchanged": true,
+        "dock": {
+          "id": "loaded-capsule-dock",
+          "kind": "loaded-capsule-dock",
+          "area": "area-homebound",
+          "location": null,
+          "slots": {},
+          "incorporated": [
+            "capsule-dock",
+            "cargo-adapter",
+            "receiver-latch"
+          ],
+          "x": 252,
+          "y": 206
+        },
+        "visible": {
+          "id": "loaded-capsule-dock",
+          "label": "Loaded capsule dock",
+          "description": "Transfer the secured capsule to its ship mount.",
+          "x": 252,
+          "y": 206,
+          "location": null,
+          "gold": false,
+          "slots": [],
+          "components": [],
+          "functional": true
+        },
+        "attemptToAddressNestedCapsule": {
+          "accepted": false,
+          "message": "Choose a thing in this area."
+        }
+      }
+    },
+    {
+      "name": "Ascent, docking, and returned capsule never acquire any packed specimen membership",
+      "passed": true,
+      "evidence": {
+        "science": [
+          "cushioned-capsule",
+          "catalogued-ice-sample",
+          "retained-sediment",
+          "two-cell-case",
+          "sleeved-comparison",
+          "complete-field-archive",
+          "ripple-impression",
+          "logged-gravel-chip"
+        ],
+        "outputs": [
+          {
+            "id": "loaded-capsule-dock",
+            "kind": "loaded-capsule-dock",
+            "area": "area-homebound",
+            "location": null,
+            "slots": {},
+            "incorporated": [
+              "capsule-dock",
+              "cargo-adapter",
+              "receiver-latch"
+            ],
+            "x": 252,
+            "y": 206
+          },
+          {
+            "id": "loaded-ascent-vehicle",
+            "kind": "loaded-ascent-vehicle",
+            "area": "area-homebound",
+            "location": null,
+            "slots": {},
+            "incorporated": [
+              "ascent-vehicle",
+              "certified-ascent-stage",
+              "ascent-cabin",
+              "damaged-ascent-cabin",
+              "hatch-seal",
+              "oxygen-service-module",
+              "docking-ring",
+              "flight-console",
+              "suited-flight-seat",
+              "loaded-capsule-dock",
+              "capsule-dock",
+              "cargo-adapter",
+              "receiver-latch"
+            ],
+            "x": 252,
+            "y": 156,
+            "components": [
+              "ascent-cabin",
+              "oxygen-service-module",
+              "docking-ring",
+              "flight-console",
+              "suited-flight-seat"
+            ]
+          },
+          {
+            "id": "flight-ready-vehicle",
+            "kind": "flight-ready-vehicle",
+            "area": "area-homebound",
+            "location": null,
+            "slots": {},
+            "incorporated": [
+              "loaded-ascent-vehicle",
+              "ascent-vehicle",
+              "certified-ascent-stage",
+              "ascent-cabin",
+              "damaged-ascent-cabin",
+              "hatch-seal",
+              "oxygen-service-module",
+              "docking-ring",
+              "flight-console",
+              "suited-flight-seat",
+              "loaded-capsule-dock",
+              "capsule-dock",
+              "cargo-adapter",
+              "receiver-latch",
+              "rendezvous-program",
+              "telemetry-recorder"
+            ],
+            "x": 252,
+            "y": 156,
+            "components": [
+              "ascent-cabin",
+              "oxygen-service-module",
+              "docking-ring",
+              "flight-console",
+              "suited-flight-seat"
+            ]
+          },
+          {
+            "id": "ascending-vehicle",
+            "kind": "ascending-vehicle",
+            "area": "area-homebound",
+            "location": null,
+            "slots": {},
+            "incorporated": [
+              "flight-ready-vehicle",
+              "loaded-ascent-vehicle",
+              "ascent-vehicle",
+              "certified-ascent-stage",
+              "ascent-cabin",
+              "damaged-ascent-cabin",
+              "hatch-seal",
+              "oxygen-service-module",
+              "docking-ring",
+              "flight-console",
+              "suited-flight-seat",
+              "loaded-capsule-dock",
+              "capsule-dock",
+              "cargo-adapter",
+              "receiver-latch",
+              "rendezvous-program",
+              "telemetry-recorder"
+            ],
+            "x": 252,
+            "y": 156,
+            "components": [
+              "ascent-cabin",
+              "oxygen-service-module",
+              "docking-ring",
+              "flight-console",
+              "suited-flight-seat"
+            ]
+          },
+          {
+            "id": "docked-vehicle",
+            "kind": "docked-vehicle",
+            "area": "area-homebound",
+            "location": null,
+            "slots": {},
+            "incorporated": [
+              "ascending-vehicle",
+              "flight-ready-vehicle",
+              "loaded-ascent-vehicle",
+              "ascent-vehicle",
+              "certified-ascent-stage",
+              "ascent-cabin",
+              "damaged-ascent-cabin",
+              "hatch-seal",
+              "oxygen-service-module",
+              "docking-ring",
+              "flight-console",
+              "suited-flight-seat",
+              "loaded-capsule-dock",
+              "capsule-dock",
+              "cargo-adapter",
+              "receiver-latch",
+              "rendezvous-program",
+              "telemetry-recorder"
+            ],
+            "x": 252,
+            "y": 156,
+            "components": [
+              "ascent-cabin",
+              "oxygen-service-module",
+              "docking-ring",
+              "flight-console",
+              "suited-flight-seat"
+            ]
+          },
+          {
+            "id": "returned-capsule",
+            "kind": "returned-capsule",
+            "area": "area-homebound",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 308,
+            "y": 52
+          }
+        ]
+      }
+    },
+    {
+      "name": "Naive preservation from retained cart is illegal content and duplicates the physical load in engine execution",
+      "passed": true,
+      "evidence": {
+        "validationErrors": [
+          "mars-connected-survival-v4-readable-field-records / homebound-5-loaded-capsule-dock: preserve must name an incorporated or transformed input with an output"
+        ],
+        "cart": {
+          "id": "specimen-cart",
+          "kind": "specimen-cart",
+          "area": "area-homebound",
+          "location": null,
+          "slots": {},
+          "incorporated": [
+            "secured-cart",
+            "depot-cargo-shuttle",
+            "depot-hauler",
+            "protected-controller",
+            "hauler-platform",
+            "cargo-strap",
+            "cushioned-capsule",
+            "return-capsule",
+            "shock-mount",
+            "catalogued-ice-sample",
+            "retained-sediment",
+            "two-cell-case",
+            "sleeved-comparison",
+            "complete-field-archive"
+          ],
+          "x": 150,
+          "y": 204,
+          "components": [
+            "protected-controller",
+            "hauler-platform",
+            "cushioned-capsule",
+            "catalogued-ice-sample",
+            "retained-sediment",
+            "two-cell-case",
+            "sleeved-comparison",
+            "complete-field-archive",
+            "ripple-impression",
+            "logged-gravel-chip"
+          ]
+        },
+        "dock": {
+          "id": "loaded-capsule-dock",
+          "kind": "loaded-capsule-dock",
+          "area": "area-homebound",
+          "location": null,
+          "slots": {},
+          "incorporated": [
+            "capsule-dock",
+            "cargo-adapter",
+            "receiver-latch"
+          ],
+          "x": 252,
+          "y": 206,
+          "components": [
+            "protected-controller",
+            "hauler-platform",
+            "cushioned-capsule",
+            "catalogued-ice-sample",
+            "retained-sediment",
+            "two-cell-case",
+            "sleeved-comparison",
+            "complete-field-archive",
+            "ripple-impression",
+            "logged-gravel-chip"
+          ]
+        },
+        "warning": "Unsupported rejected content, executed only as an isolated negative control."
+      }
+    },
+    {
+      "name": "Making whole-parent preservation valid still puts hauler and cabin hardware inside returned capsule",
+      "passed": true,
+      "evidence": {
+        "validationErrors": [],
+        "returnedCapsule": {
+          "id": "returned-capsule",
+          "kind": "returned-capsule",
+          "area": "area-homebound",
+          "location": "orbital-hatch",
+          "slots": {},
+          "incorporated": [
+            "docked-vehicle",
+            "ascending-vehicle",
+            "flight-ready-vehicle",
+            "loaded-ascent-vehicle",
+            "ascent-vehicle",
+            "certified-ascent-stage",
+            "ascent-cabin",
+            "damaged-ascent-cabin",
+            "hatch-seal",
+            "oxygen-service-module",
+            "docking-ring",
+            "flight-console",
+            "suited-flight-seat",
+            "loaded-capsule-dock",
+            "specimen-cart",
+            "secured-cart",
+            "depot-cargo-shuttle",
+            "depot-hauler",
+            "protected-controller",
+            "hauler-platform",
+            "cargo-strap",
+            "cushioned-capsule",
+            "return-capsule",
+            "shock-mount",
+            "catalogued-ice-sample",
+            "retained-sediment",
+            "two-cell-case",
+            "sleeved-comparison",
+            "complete-field-archive",
+            "capsule-dock",
+            "cargo-adapter",
+            "receiver-latch",
+            "rendezvous-program",
+            "telemetry-recorder"
+          ],
+          "x": 252,
+          "y": 97,
+          "components": [
+            "ascent-cabin",
+            "oxygen-service-module",
+            "docking-ring",
+            "flight-console",
+            "suited-flight-seat",
+            "loaded-capsule-dock",
+            "specimen-cart",
+            "protected-controller",
+            "hauler-platform",
+            "cushioned-capsule",
+            "catalogued-ice-sample",
+            "retained-sediment",
+            "two-cell-case",
+            "sleeved-comparison",
+            "complete-field-archive",
+            "ripple-impression",
+            "logged-gravel-chip"
+          ]
+        },
+        "warning": "Syntactically valid but physically false; this negative control is not a repair candidate."
+      }
+    },
+    {
+      "name": "Cabin test cannot run while any required slot is missing and adds no diagnosed failure",
+      "passed": true,
+      "evidence": {
+        "requiredSlots": {
+          "air": "oxygen-service-module",
+          "dock": "docking-ring",
+          "avionics": "flight-console",
+          "seat": "suited-flight-seat"
+        },
+        "missingSlotControls": [
+          {
+            "missingSlot": "air",
+            "accepted": false,
+            "message": "No new combination here."
+          },
+          {
+            "missingSlot": "dock",
+            "accepted": false,
+            "message": "No new combination here."
+          },
+          {
+            "missingSlot": "avionics",
+            "accepted": false,
+            "message": "No new combination here."
+          },
+          {
+            "missingSlot": "seat",
+            "accepted": false,
+            "message": "No new combination here."
+          }
+        ],
+        "baselineItem": {
+          "id": "cabin-test-record",
+          "label": "Cabin test record",
+          "description": "Run the vehicle's built-in depot test under remote supervision."
+        },
+        "outgoingRecipeCount": 0
+      }
+    },
+    {
+      "name": "Portrait goal names the existing actual archiving recipe; no extra action added",
+      "passed": true,
+      "evidence": {
+        "goal": {
+          "id": "departure-family",
+          "kind": "create",
+          "item": "family-record",
+          "text": "Archive the crew portrait"
+        },
+        "recipe": {
+          "id": "expansion-family-archive",
+          "a": "crew-table-portrait",
+          "b": "archival-recorder",
+          "out": "family-record",
+          "description": "Save the recovered crew’s table portrait alongside the earlier personal recording for the journey home.",
+          "lifecycle": {
+            "crew-table-portrait": {
+              "role": "retain",
+              "reason": "Crew portrait is reused as equipment, a source/reference, a subject of observation, or a continuing supply; this action does not consume it."
+            },
+            "archival-recorder": {
+              "role": "retain",
+              "reason": "Archival recorder is reused as equipment, a source/reference, a subject of observation, or a continuing supply; this action does not consume it."
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Four authored route alternatives plus closed-reader route unchanged by narrative-only candidate",
+      "passed": true,
+      "evidence": [
+        {
+          "name": "authored",
+          "completed": true,
+          "combinations": 200,
+          "actions": 230,
+          "semanticsEqual": true
+        },
+        {
+          "name": "beacon",
+          "completed": true,
+          "combinations": 204,
+          "actions": 234,
+          "semanticsEqual": true
+        },
+        {
+          "name": "tow",
+          "completed": true,
+          "combinations": 203,
+          "actions": 233,
+          "semanticsEqual": true
+        },
+        {
+          "name": "tow-old-alias",
+          "completed": true,
+          "combinations": 203,
+          "actions": 233,
+          "semanticsEqual": true
+        },
+        {
+          "name": "closed-reader.accepted",
+          "completed": true,
+          "combinations": 204,
+          "actions": 238,
+          "semanticsEqual": true
+        }
+      ]
+    }
+  ]
+}

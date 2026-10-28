@@ -1,0 +1,324 @@
+{
+  "key": "shoreline",
+  "scenario": "shoreline",
+  "title": "The Sheltered Shore",
+  "stages": 3,
+  "checkpoints": [
+    {
+      "checkpoint": "chapter-1",
+      "stageIndex": 0,
+      "stageId": "survey",
+      "actionPrefixLength": 0,
+      "completed": false,
+      "stateSha256": "5f0fb8208e4a9bbf4527838bc7f5351d93cb2ecd8f603c703825c54c947df84d"
+    },
+    {
+      "checkpoint": "chapter-2",
+      "stageIndex": 1,
+      "stageId": "bank",
+      "actionPrefixLength": 5,
+      "completed": false,
+      "stateSha256": "e497d2f17097419682977fa8b68c425b205cb90196f9c1327c113c6377a79468"
+    },
+    {
+      "checkpoint": "chapter-3",
+      "stageIndex": 2,
+      "stageId": "seasons",
+      "actionPrefixLength": 10,
+      "completed": false,
+      "stateSha256": "c2257ee91e30ec8dc2270447022accc9c58f1232757d3f83a44a9d7376e0c06e"
+    },
+    {
+      "checkpoint": "complete",
+      "stageIndex": 2,
+      "stageId": "seasons",
+      "actionPrefixLength": 14,
+      "completed": true,
+      "stateSha256": "3345df46558311cb2b7f18f2c27700cc36d8c10be04c44de5359869f0ead6e95"
+    }
+  ],
+  "actions": 14,
+  "actionsLog": [
+    {
+      "type": "combine",
+      "a": "shore-map",
+      "b": "survey-photos"
+    },
+    {
+      "type": "combine",
+      "a": "erosion-map",
+      "b": "sediment-sample"
+    },
+    {
+      "type": "combine",
+      "a": "tide-gauge",
+      "b": "notebook"
+    },
+    {
+      "type": "combine",
+      "a": "site-survey",
+      "b": "tide-record"
+    },
+    {
+      "type": "advance"
+    },
+    {
+      "type": "combine",
+      "a": "native-seed",
+      "b": "nursery-tray"
+    },
+    {
+      "type": "combine",
+      "a": "coir",
+      "b": "stakes"
+    },
+    {
+      "type": "combine",
+      "a": "marsh-plugs",
+      "b": "coir-roll"
+    },
+    {
+      "type": "place",
+      "item": "planted-edge",
+      "location": "bank"
+    },
+    {
+      "type": "advance"
+    },
+    {
+      "type": "combine",
+      "a": "shoreline-plan",
+      "b": "monitoring-poles"
+    },
+    {
+      "type": "combine",
+      "a": "monitoring-layout",
+      "b": "seasonal-photos"
+    },
+    {
+      "type": "combine",
+      "a": "monitoring-record",
+      "b": "tide-record"
+    },
+    {
+      "type": "advance"
+    }
+  ],
+  "combinations": 10,
+  "metrics": {
+    "attempts": 14,
+    "accepted": 14,
+    "combinations": 10,
+    "creations": 10,
+    "installations": 0,
+    "moves": 0,
+    "placements": 1,
+    "advances": 3,
+    "visits": 0
+  },
+  "recipesTotal": 12,
+  "maxVisibleItems": 10,
+  "completed": true,
+  "validation": [],
+  "ending": "The season report is ready. We have a record to assess, not a guarantee that the shoreline has recovered.",
+  "steps": [
+    {
+      "number": 1,
+      "stageBefore": "survey",
+      "stageAfter": "survey",
+      "action": {
+        "type": "combine",
+        "a": "shore-map",
+        "b": "survey-photos"
+      },
+      "accepted": true,
+      "message": "Erosion map. The mapped photographs show where this bank has retreated.",
+      "recipe": "erosion-map",
+      "completed": false
+    },
+    {
+      "number": 2,
+      "stageBefore": "survey",
+      "stageAfter": "survey",
+      "action": {
+        "type": "combine",
+        "a": "erosion-map",
+        "b": "sediment-sample"
+      },
+      "accepted": true,
+      "message": "Site survey. The erosion observations and sediment information are considered together.",
+      "recipe": "site-survey",
+      "completed": false
+    },
+    {
+      "number": 3,
+      "stageBefore": "survey",
+      "stageAfter": "survey",
+      "action": {
+        "type": "combine",
+        "a": "tide-gauge",
+        "b": "notebook"
+      },
+      "accepted": true,
+      "message": "Tide record. Recorded water-level observations, not a forecast that every future storm will be safe.",
+      "recipe": "tide-record",
+      "completed": false
+    },
+    {
+      "number": 4,
+      "stageBefore": "survey",
+      "stageAfter": "survey",
+      "action": {
+        "type": "combine",
+        "a": "site-survey",
+        "b": "tide-record"
+      },
+      "accepted": true,
+      "message": "Shoreline plan. A plan based on the fictional tide and site survey; no real engineering design is certified. The tide and site records now support a plan for this fictional sheltered bank.",
+      "recipe": "shoreline-plan",
+      "completed": false
+    },
+    {
+      "number": 5,
+      "stageBefore": "survey",
+      "stageAfter": "bank",
+      "action": {
+        "type": "advance"
+      },
+      "accepted": true,
+      "message": "We are taking the useful things with us. Earlier creations remain where we made them.",
+      "completed": false
+    },
+    {
+      "number": 6,
+      "stageBefore": "bank",
+      "stageAfter": "bank",
+      "action": {
+        "type": "combine",
+        "a": "native-seed",
+        "b": "nursery-tray"
+      },
+      "accepted": true,
+      "message": "Marsh plugs. Nursery time passes as the native seedlings establish. Biological growth is compressed, not instantaneous.",
+      "recipe": "marsh-plugs",
+      "completed": false
+    },
+    {
+      "number": 7,
+      "stageBefore": "bank",
+      "stageAfter": "bank",
+      "action": {
+        "type": "combine",
+        "a": "coir",
+        "b": "stakes"
+      },
+      "accepted": true,
+      "message": "Coir roll. A bounded coir roll prepared for this sheltered-bank project.",
+      "recipe": "coir-roll",
+      "completed": false
+    },
+    {
+      "number": 8,
+      "stageBefore": "bank",
+      "stageAfter": "bank",
+      "action": {
+        "type": "combine",
+        "a": "marsh-plugs",
+        "b": "coir-roll"
+      },
+      "accepted": true,
+      "message": "Planted coir module. Nursery-grown marsh plugs are established in a bounded coir module. Placement installs that same module at the sheltered bank.",
+      "recipe": "planted-edge",
+      "completed": false
+    },
+    {
+      "number": 9,
+      "stageBefore": "bank",
+      "stageAfter": "bank",
+      "action": {
+        "type": "place",
+        "item": "planted-edge",
+        "location": "bank"
+      },
+      "accepted": true,
+      "message": "Placed. The planted coir module is in place at the sheltered bank. Installation is the beginning of watching, not proof of success.",
+      "completed": false
+    },
+    {
+      "number": 10,
+      "stageBefore": "bank",
+      "stageAfter": "seasons",
+      "action": {
+        "type": "advance"
+      },
+      "accepted": true,
+      "message": "We are taking the useful things with us. Earlier creations remain where we made them. We collect the things needed for this scene along the way.",
+      "transfers": [
+        {
+          "item": "tide-record",
+          "from": "survey-area",
+          "to": "seasons-area"
+        },
+        {
+          "item": "shoreline-plan",
+          "from": "survey-area",
+          "to": "seasons-area"
+        }
+      ],
+      "completed": false
+    },
+    {
+      "number": 11,
+      "stageBefore": "seasons",
+      "stageAfter": "seasons",
+      "action": {
+        "type": "combine",
+        "a": "shoreline-plan",
+        "b": "monitoring-poles"
+      },
+      "accepted": true,
+      "message": "Monitoring layout. A plan for repeated observations at marked points.",
+      "recipe": "monitoring-layout",
+      "completed": false
+    },
+    {
+      "number": 12,
+      "stageBefore": "seasons",
+      "stageAfter": "seasons",
+      "action": {
+        "type": "combine",
+        "a": "monitoring-layout",
+        "b": "seasonal-photos"
+      },
+      "accepted": true,
+      "message": "Monitoring record. Later photographs are associated with the monitoring layout.",
+      "recipe": "monitoring-record",
+      "completed": false
+    },
+    {
+      "number": 13,
+      "stageBefore": "seasons",
+      "stageAfter": "seasons",
+      "action": {
+        "type": "combine",
+        "a": "monitoring-record",
+        "b": "tide-record"
+      },
+      "accepted": true,
+      "message": "Season report. A record for continued assessment, not a certificate that the shoreline is restored. The season report is ready. We have a record to assess, not a guarantee that the shoreline has recovered.",
+      "recipe": "season-report",
+      "completed": false
+    },
+    {
+      "number": 14,
+      "stageBefore": "seasons",
+      "stageAfter": "seasons",
+      "action": {
+        "type": "advance"
+      },
+      "accepted": true,
+      "message": "The season report is ready. We have a record to assess, not a guarantee that the shoreline has recovered.",
+      "completed": true
+    }
+  ]
+}

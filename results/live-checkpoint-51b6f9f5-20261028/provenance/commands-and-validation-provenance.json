@@ -1,0 +1,182 @@
+{
+  "exactSuccessfulLiveHelperCommandArray": null,
+  "reason": "Parent confirms the exact input command array is not retained. The full actual live workflow log is preserved separately; no reconstructed array is represented as an execution receipt.",
+  "documentedReproductionCommands": [
+    "node experiments/tangible-campaign/integration/generate-evidence.ts doctrine purpose\nnode experiments/tangible-campaign/integration/generate-next-evidence.ts\nnode --test tests/reviewed-campaign-integration.test.ts tests/reviewed-copy-corrections.test.ts tests/morning-content-integration.test.ts tests/mars-v4-refinement.test.ts tests/doctrine-v9-integration.test.ts tests/campaign-refinement-branches.test.ts tests/purpose-workshop-integration.test.ts tests/riverside-content-integration.test.ts tests/late-doctrine-content-integration.test.mjs tests/late-elements-label-integration.test.mjs tests/late-mars-content-integration.test.ts tests/late-mars-archive-label-integration.test.mjs tests/next-doctrine-checkpoint-integration.test.mjs tests/next-all-registered-routes.test.mjs tests/next-purpose-checkpoint-integration.test.mjs\nnode --test experiments/tangible-campaign/reviews/lifecycle/objective-flow.test.ts experiments/tangible-campaign/reviews/lifecycle/lifecycle.test.ts experiments/tangible-campaign/reviews/lifecycle/event-local.test.ts experiments/tangible-campaign/reviews/persistence/save-autosave.test.ts experiments/tangible-campaign/engine/model.test.ts experiments/tangible-campaign/tests/independent-engine.test.ts\nnpm run build\npython experiments/tangible-campaign/integration/verify-manifest.py\npython experiments/tangible-campaign/integration/verify-next-delta.py\n"
+  ],
+  "documentedAtSourceCommit": "51b6f9f5090c99174997793e49affff24fecd814",
+  "freshCopyRecordedExecution": {
+    "sourceFilesIncludingSeal": 658,
+    "sourceSealSha256": "34e905e4f1898bdc0ee82ee0531d0607e2c4120d7128959f3a2a42a020eb1a90",
+    "initialResultsAbsent": true,
+    "initialDistAbsent": true,
+    "initialDependenciesAbsent": true,
+    "runs": [
+      {
+        "name": "standalone-doctrine",
+        "command": [
+          "node",
+          "--test",
+          "tests/next-doctrine-checkpoint-integration.test.mjs"
+        ],
+        "exitCode": 0,
+        "seconds": 10.613,
+        "beganWithoutResults": true
+      },
+      {
+        "name": "standalone-purpose",
+        "command": [
+          "node",
+          "--test",
+          "tests/next-purpose-checkpoint-integration.test.mjs"
+        ],
+        "exitCode": 0,
+        "seconds": 0.881,
+        "beganWithoutResults": true
+      },
+      {
+        "name": "standalone-catalogue",
+        "command": [
+          "node",
+          "--test",
+          "tests/next-all-registered-routes.test.mjs"
+        ],
+        "exitCode": 0,
+        "seconds": 54.735,
+        "beganWithoutResults": true
+      },
+      {
+        "name": "selected",
+        "command": [
+          "node",
+          "--test",
+          "tests/reviewed-campaign-integration.test.ts",
+          "tests/reviewed-copy-corrections.test.ts",
+          "tests/morning-content-integration.test.ts",
+          "tests/mars-v4-refinement.test.ts",
+          "tests/doctrine-v9-integration.test.ts",
+          "tests/campaign-refinement-branches.test.ts",
+          "tests/purpose-workshop-integration.test.ts",
+          "tests/riverside-content-integration.test.ts",
+          "tests/late-doctrine-content-integration.test.mjs",
+          "tests/late-elements-label-integration.test.mjs",
+          "tests/late-mars-content-integration.test.ts",
+          "tests/late-mars-archive-label-integration.test.mjs",
+          "tests/next-doctrine-checkpoint-integration.test.mjs",
+          "tests/next-all-registered-routes.test.mjs",
+          "tests/next-purpose-checkpoint-integration.test.mjs"
+        ],
+        "exitCode": 0,
+        "seconds": 119.305,
+        "beganWithoutResults": true
+      },
+      {
+        "name": "core",
+        "command": [
+          "node",
+          "--test",
+          "experiments/tangible-campaign/reviews/lifecycle/objective-flow.test.ts",
+          "experiments/tangible-campaign/reviews/lifecycle/lifecycle.test.ts",
+          "experiments/tangible-campaign/reviews/lifecycle/event-local.test.ts",
+          "experiments/tangible-campaign/reviews/persistence/save-autosave.test.ts",
+          "experiments/tangible-campaign/engine/model.test.ts",
+          "experiments/tangible-campaign/tests/independent-engine.test.ts"
+        ],
+        "exitCode": 0,
+        "seconds": 10.231,
+        "beganWithoutResults": false
+      },
+      {
+        "name": "content",
+        "command": [
+          "npm",
+          "run",
+          "check:content"
+        ],
+        "exitCode": 0,
+        "seconds": 0.905,
+        "beganWithoutResults": false
+      },
+      {
+        "name": "typecheck",
+        "command": [
+          "node_modules/.bin/tsc",
+          "--noEmit"
+        ],
+        "exitCode": 0,
+        "seconds": 1.818,
+        "beganWithoutResults": false
+      },
+      {
+        "name": "build",
+        "command": [
+          "npm",
+          "run",
+          "build"
+        ],
+        "exitCode": 0,
+        "seconds": 4.123,
+        "beganWithoutResults": false
+      },
+      {
+        "name": "source-seal",
+        "command": [
+          "python",
+          "experiments/tangible-campaign/integration/verify-manifest.py"
+        ],
+        "exitCode": 0,
+        "seconds": 0.193,
+        "beganWithoutResults": false
+      },
+      {
+        "name": "exact-delta",
+        "command": [
+          "python",
+          "experiments/tangible-campaign/integration/verify-next-delta.py"
+        ],
+        "exitCode": 0,
+        "seconds": 0.229,
+        "beganWithoutResults": false
+      },
+      {
+        "name": "generate-route-evidence",
+        "command": [
+          "node",
+          "experiments/tangible-campaign/integration/generate-evidence.ts",
+          "doctrine",
+          "purpose"
+        ],
+        "exitCode": 0,
+        "seconds": 1.001,
+        "beganWithoutResults": false
+      },
+      {
+        "name": "generate-audit-evidence",
+        "command": [
+          "node",
+          "experiments/tangible-campaign/integration/generate-next-evidence.ts"
+        ],
+        "exitCode": 0,
+        "seconds": 0.642,
+        "beganWithoutResults": false
+      },
+      {
+        "name": "post-generator-seal",
+        "command": [
+          "python",
+          "experiments/tangible-campaign/integration/verify-manifest.py"
+        ],
+        "exitCode": 0,
+        "seconds": 0.19,
+        "beganWithoutResults": false
+      }
+    ],
+    "buildArtifactCount": 35,
+    "allBuildArtifactsMatchMain": true,
+    "allChecksPassed": true,
+    "finalSourceSealExact": true
+  },
+  "nativeSourceAndDeploymentVerified": true,
+  "actualLiveSourceFileSetAndHashesVerified": true,
+  "noUiBrowserTestClaim": true
+}

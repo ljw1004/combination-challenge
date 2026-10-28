@@ -1,0 +1,98 @@
+{
+  "createdAt": "2026-10-28T14:42:53.918891+00:00",
+  "sourceCommit": "51b6f9f5090c99174997793e49affff24fecd814",
+  "sourceSealSha256": "34e905e4f1898bdc0ee82ee0531d0607e2c4120d7128959f3a2a42a020eb1a90",
+  "exactRestoredFileSetBeforeTests": true,
+  "verifiedFiles": 658,
+  "verifiedBytes": 45470742,
+  "recordedModesVerified": true,
+  "allSourceBytesUnchangedAfterTests": true,
+  "nodeVersion": "v24.22.1",
+  "dependencies": "Existing lockfile-matched node_modules reused by symlink only in disposable validation copy; not stored in payload; npm ci not rerun.",
+  "noBrowserUiTest": true,
+  "runs": [
+    {
+      "name": "initial-source-seal",
+      "command": [
+        "python",
+        "experiments/tangible-campaign/integration/verify-manifest.py"
+      ],
+      "exitCode": 0,
+      "seconds": 0.197,
+      "log": "results/live-checkpoint-51b6f9f5-20261028/preservation-validation/initial-source-seal.log"
+    },
+    {
+      "name": "selected",
+      "command": [
+        "node",
+        "--test",
+        "tests/reviewed-campaign-integration.test.ts",
+        "tests/reviewed-copy-corrections.test.ts",
+        "tests/morning-content-integration.test.ts",
+        "tests/mars-v4-refinement.test.ts",
+        "tests/doctrine-v9-integration.test.ts",
+        "tests/campaign-refinement-branches.test.ts",
+        "tests/purpose-workshop-integration.test.ts",
+        "tests/riverside-content-integration.test.ts",
+        "tests/late-doctrine-content-integration.test.mjs",
+        "tests/late-elements-label-integration.test.mjs",
+        "tests/late-mars-content-integration.test.ts",
+        "tests/late-mars-archive-label-integration.test.mjs",
+        "tests/next-doctrine-checkpoint-integration.test.mjs",
+        "tests/next-all-registered-routes.test.mjs",
+        "tests/next-purpose-checkpoint-integration.test.mjs"
+      ],
+      "exitCode": 0,
+      "seconds": 139.099,
+      "log": "results/live-checkpoint-51b6f9f5-20261028/preservation-validation/selected.log"
+    },
+    {
+      "name": "core",
+      "command": [
+        "node",
+        "--test",
+        "experiments/tangible-campaign/reviews/lifecycle/objective-flow.test.ts",
+        "experiments/tangible-campaign/reviews/lifecycle/lifecycle.test.ts",
+        "experiments/tangible-campaign/reviews/lifecycle/event-local.test.ts",
+        "experiments/tangible-campaign/reviews/persistence/save-autosave.test.ts",
+        "experiments/tangible-campaign/engine/model.test.ts",
+        "experiments/tangible-campaign/tests/independent-engine.test.ts"
+      ],
+      "exitCode": 0,
+      "seconds": 10.642,
+      "log": "results/live-checkpoint-51b6f9f5-20261028/preservation-validation/core.log"
+    },
+    {
+      "name": "build",
+      "command": [
+        "npm",
+        "run",
+        "build"
+      ],
+      "exitCode": 0,
+      "seconds": 4.334,
+      "log": "results/live-checkpoint-51b6f9f5-20261028/preservation-validation/build.log"
+    },
+    {
+      "name": "exact-delta",
+      "command": [
+        "python",
+        "experiments/tangible-campaign/integration/verify-next-delta.py"
+      ],
+      "exitCode": 0,
+      "seconds": 0.207,
+      "log": "results/live-checkpoint-51b6f9f5-20261028/preservation-validation/exact-delta.log"
+    },
+    {
+      "name": "final-source-seal",
+      "command": [
+        "python",
+        "experiments/tangible-campaign/integration/verify-manifest.py"
+      ],
+      "exitCode": 0,
+      "seconds": 0.193,
+      "log": "results/live-checkpoint-51b6f9f5-20261028/preservation-validation/final-source-seal.log"
+    }
+  ],
+  "allChecksPassed": true
+}

@@ -1,0 +1,672 @@
+[
+  {
+    "path": "/checkpoints/0/label",
+    "before": "A trip to the quarry",
+    "after": "1. Closing the painting bench"
+  },
+  {
+    "path": "/checkpoints/1/actions",
+    "before": [
+      {
+        "type": "combine",
+        "a": "fiber",
+        "b": "twister"
+      },
+      {
+        "type": "combine",
+        "a": "willow",
+        "b": "rope"
+      },
+      {
+        "type": "place",
+        "item": "basket",
+        "location": "quarry"
+      },
+      {
+        "type": "advance"
+      }
+    ],
+    "after": [
+      {
+        "type": "combine",
+        "a": "blank",
+        "b": "mallet"
+      },
+      {
+        "type": "place",
+        "item": "basin",
+        "location": "wash"
+      },
+      {
+        "type": "advance"
+      }
+    ]
+  },
+  {
+    "path": "/checkpoints/1/id",
+    "before": "chapter-2-basket",
+    "after": "chapter-2"
+  },
+  {
+    "path": "/checkpoints/1/label",
+    "before": "Gravel for the path · basket",
+    "after": "2. Outside the gate"
+  },
+  {
+    "path": "/checkpoints/2/actions",
+    "before": [
+      {
+        "type": "combine",
+        "a": "fiber",
+        "b": "twister"
+      },
+      {
+        "type": "combine",
+        "a": "boards",
+        "b": "rope"
+      },
+      {
+        "type": "place",
+        "item": "crate",
+        "location": "quarry"
+      },
+      {
+        "type": "advance"
+      }
+    ],
+    "after": [
+      {
+        "type": "combine",
+        "a": "blank",
+        "b": "mallet"
+      },
+      {
+        "type": "place",
+        "item": "basin",
+        "location": "wash"
+      },
+      {
+        "type": "advance"
+      },
+      {
+        "type": "combine",
+        "a": "basin",
+        "b": "hanger"
+      },
+      {
+        "type": "combine",
+        "a": "mallet",
+        "b": "gong"
+      },
+      {
+        "type": "place",
+        "item": "gong",
+        "location": "gate"
+      },
+      {
+        "type": "advance"
+      }
+    ]
+  },
+  {
+    "path": "/checkpoints/2/id",
+    "before": "chapter-2-crate",
+    "after": "complete"
+  },
+  {
+    "path": "/checkpoints/2/label",
+    "before": "Gravel for the path · crate",
+    "after": "Complete"
+  },
+  {
+    "path": "/id",
+    "before": "causation-fitting-forms-probe-v2",
+    "after": "causation-accidental-bell-probe-v1"
+  },
+  {
+    "path": "/initialItems",
+    "before": [
+      "fiber",
+      "twister",
+      "boards",
+      "willow"
+    ],
+    "after": [
+      "blank",
+      "mallet"
+    ]
+  },
+  {
+    "path": "/items",
+    "before": [
+      {
+        "id": "fiber",
+        "label": "Hemp bundle",
+        "description": "Fibres for making a coil of binding rope."
+      },
+      {
+        "id": "twister",
+        "label": "Twisting stick",
+        "description": "A reusable tool for twisting fibres into rope."
+      },
+      {
+        "id": "rope",
+        "label": "Rope coil",
+        "description": "The coil you made has enough binding rope for both carriers. Individual lengths tie boards or bind the woven willow; the shared coil remains."
+      },
+      {
+        "id": "boards",
+        "label": "Board kit",
+        "description": "Prepared boards and their fasteners, enough for one closed crate."
+      },
+      {
+        "id": "willow",
+        "label": "Willow bundle",
+        "description": "Flexible willow, enough for one open-weave basket."
+      },
+      {
+        "id": "crate",
+        "label": "Closed crate",
+        "description": "A sturdy carrier with a closed bottom. It holds coarse stones and fine sand.",
+        "capabilities": [
+          "stone-carrier",
+          "retains-fine-sand"
+        ]
+      },
+      {
+        "id": "basket",
+        "label": "Open-weave basket",
+        "description": "A sturdy carrier. Its woven gaps hold coarse stones but let fine sand fall through.",
+        "capabilities": [
+          "stone-carrier",
+          "gravel-sieve"
+        ]
+      },
+      {
+        "id": "drill",
+        "label": "Hand drill",
+        "description": "A reusable tool for making small holes in wood."
+      },
+      {
+        "id": "pierced-crate",
+        "label": "Perforated crate",
+        "description": "The same crate, now pierced with small holes. Coarse gravel stays; fine sand falls through.",
+        "capabilities": [
+          "stone-carrier",
+          "gravel-sieve"
+        ]
+      },
+      {
+        "id": "rough-gravel",
+        "label": "Sandy gravel",
+        "description": "The load brought back from the quarry: coarse gravel mixed with fine sand."
+      },
+      {
+        "id": "sorted-gravel",
+        "label": "Sorted gravel",
+        "description": "The coarse gravel remains after the fine sand falls through the sieve.",
+        "capabilities": [
+          "path-gravel"
+        ]
+      }
+    ],
+    "after": [
+      {
+        "id": "blank",
+        "label": "Copper basin blank",
+        "description": "A partly formed copper blank with two pierced rim tabs. The fixed forming block belongs to the workbench."
+      },
+      {
+        "id": "mallet",
+        "label": "Wooden mallet",
+        "description": "The workshop mallet can finish the prepared copper blank. It remains an ordinary wooden mallet afterward."
+      },
+      {
+        "id": "basin",
+        "label": "Copper washbasin",
+        "description": "The same copper blank, finished as a washbasin with two pierced rim tabs.",
+        "capabilities": [
+          "holds-wash-water"
+        ]
+      },
+      {
+        "id": "hanger",
+        "label": "Crossbar, hooks and cords",
+        "description": "A prepared crossbar with two suspension hooks and cords for the basin rim tabs, an upper mounting loop for the gatepost bracket, and a loose tether for a striker."
+      },
+      {
+        "id": "gong",
+        "label": "Hanging basin gong",
+        "description": "The same copper basin hangs from its rim tabs on the crossbar. The loose tether can keep a striker beside it.",
+        "slots": [
+          {
+            "id": "striker",
+            "required": true,
+            "accepts": [
+              "mallet"
+            ],
+            "grants": {
+              "mallet": [
+                "visitor-call"
+              ]
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "path": "/locations",
+    "before": [
+      {
+        "id": "quarry",
+        "label": "Quarry gate",
+        "description": "Bring a stone carrier here. The path makers take it on the collection trip and return it with gravel."
+      }
+    ],
+    "after": [
+      {
+        "id": "wash",
+        "label": "Washing bench",
+        "description": "The painter has the rinse water and brushes ready here."
+      },
+      {
+        "id": "gate",
+        "label": "Outside gatepost bracket",
+        "description": "A fixed bracket outside the gate, within visitors’ reach."
+      }
+    ]
+  },
+  {
+    "path": "/notes",
+    "before": [
+      "Research probe, not a promoted campaign or a human-tested game.",
+      "Both initial forms carry stones; both open forms sieve gravel. No quota, cost, or exclusive-choice rule.",
+      "The basket route needs no alteration; drilling preserves the same crate but removes its fine-sand containment property.",
+      "Every later successful route uses an earlier-made carrier or the earlier-made rope to produce another fitting carrier.",
+      "The three crafting steps and quarry trip compress fictional skilled work; this is not construction guidance or simulated physics.",
+      "No output flags represent explanations. The end is in the scene, not an ingredient."
+    ],
+    "after": [
+      "Isolated content-level probe; fictional craft compression, not practical metalworking instructions.",
+      "The gust, clang, brush washing and visitor response are authored narrative events. No wind, acoustics or human behaviour is simulated.",
+      "Visible stage motivation carries the incident; generic item descriptions are not automatically shown by the current UI.",
+      "No purpose tokens, finite resource accounting, score trade-off, hidden intention state or new runtime mechanic.",
+      "The requested mounted fixture is one design, not a claim that a handheld basin could never call anyone."
+    ]
+  },
+  {
+    "path": "/premise",
+    "before": "A small workshop supplying the village path makers.",
+    "after": "An afternoon helping at a small riverside workshop."
+  },
+  {
+    "path": "/recipes",
+    "before": [
+      {
+        "id": "twist-rope",
+        "a": "fiber",
+        "b": "twister",
+        "out": "rope",
+        "description": "The worker twists the fibres into binding rope.",
+        "lifecycle": {
+          "fiber": {
+            "role": "transform",
+            "reason": "This hemp becomes a coil of binding rope."
+          },
+          "twister": {
+            "role": "retain",
+            "reason": "The twisting stick remains reusable."
+          }
+        }
+      },
+      {
+        "id": "make-crate",
+        "a": "boards",
+        "b": "rope",
+        "out": "crate",
+        "description": "The worker joins and lashes the boards into a closed crate.",
+        "lifecycle": {
+          "boards": {
+            "role": "transform",
+            "reason": "The board kit becomes one closed crate."
+          },
+          "rope": {
+            "role": "retain",
+            "reason": "This shared coil provides a length of binding rope; enough remains for the other carrier."
+          }
+        }
+      },
+      {
+        "id": "weave-basket",
+        "a": "willow",
+        "b": "rope",
+        "out": "basket",
+        "description": "The worker weaves the willow and binds its rim with rope.",
+        "lifecycle": {
+          "willow": {
+            "role": "transform",
+            "reason": "This willow becomes one open-weave basket."
+          },
+          "rope": {
+            "role": "retain",
+            "reason": "This shared coil provides a length of binding rope; enough remains for the other carrier."
+          }
+        }
+      },
+      {
+        "id": "pierce-crate",
+        "a": "crate",
+        "b": "drill",
+        "out": "pierced-crate",
+        "description": "The worker pierces the base. The crate now passes fine sand rather than keeping it in.",
+        "lifecycle": {
+          "crate": {
+            "role": "transform",
+            "reason": "The same finite crate is perforated; its closed-bottom form is gone."
+          },
+          "drill": {
+            "role": "retain",
+            "reason": "The drill remains a reusable tool."
+          }
+        }
+      },
+      {
+        "id": "sift-with-basket",
+        "a": "rough-gravel",
+        "b": "basket",
+        "out": "sorted-gravel",
+        "description": "Fine sand falls through the weave; coarse gravel remains.",
+        "lifecycle": {
+          "rough-gravel": {
+            "role": "transform",
+            "reason": "The finite mixed load becomes sorted gravel; separated sand falls below the work area."
+          },
+          "basket": {
+            "role": "retain",
+            "reason": "The basket is used as a sieve and remains available."
+          }
+        }
+      },
+      {
+        "id": "sift-with-crate",
+        "a": "rough-gravel",
+        "b": "pierced-crate",
+        "out": "sorted-gravel",
+        "description": "Fine sand falls through the holes; coarse gravel remains.",
+        "lifecycle": {
+          "rough-gravel": {
+            "role": "transform",
+            "reason": "The finite mixed load becomes sorted gravel; separated sand falls below the work area."
+          },
+          "pierced-crate": {
+            "role": "retain",
+            "reason": "The perforated crate is used as a sieve and remains available."
+          }
+        }
+      }
+    ],
+    "after": [
+      {
+        "id": "finish-basin",
+        "a": "blank",
+        "b": "mallet",
+        "out": "basin",
+        "description": "On the fixed forming block, the craftsperson finishes the prepared copper blank as a basin.",
+        "lifecycle": {
+          "blank": {
+            "role": "transform",
+            "reason": "This copper blank becomes the same finished basin."
+          },
+          "mallet": {
+            "role": "retain",
+            "reason": "The wooden mallet is a reusable shaping tool."
+          }
+        }
+      },
+      {
+        "id": "suspend-basin",
+        "a": "basin",
+        "b": "hanger",
+        "out": "gong",
+        "preserve": [
+          "hanger"
+        ],
+        "description": "The hooks and cords join the basin’s pierced rim tabs to the crossbar. The upper loop fits the gatepost bracket; the striker tether hangs loose.",
+        "lifecycle": {
+          "basin": {
+            "role": "transform",
+            "reason": "The earlier washbasin itself becomes the suspended gong, without another basin being created."
+          },
+          "hanger": {
+            "role": "incorporate",
+            "reason": "The crossbar, hooks, suspension cords and loose striker tether become parts of this assembly."
+          }
+        }
+      },
+      {
+        "id": "tether-striker",
+        "a": "gong",
+        "b": "mallet",
+        "install": {
+          "target": "gong",
+          "slot": "striker",
+          "component": "mallet"
+        },
+        "description": "The existing wooden mallet is fastened to the loose tether so arrivals have a striker beside the hanging basin.",
+        "lifecycle": {
+          "gong": {
+            "role": "retain",
+            "reason": "The same suspended basin and its hardware stay in place."
+          },
+          "mallet": {
+            "role": "incorporate",
+            "reason": "The actual earlier shaping mallet now hangs on the assembly as its reachable striker."
+          }
+        }
+      }
+    ]
+  },
+  {
+    "path": "/sources",
+    "before": [
+      {
+        "id": "physics",
+        "title": "Aristotle, Physics II.2–3, II.9",
+        "url": "https://classics.mit.edu/Aristotle/physics.2.ii.html",
+        "note": "End-directed craft and conditional necessity. Fictional carriers are a design inference, not Aristotle’s examples."
+      },
+      {
+        "id": "metaphysics",
+        "title": "Aristotle, Metaphysics VII.7",
+        "url": "https://classics.mit.edu/Aristotle/metaphysics.7.vii.html",
+        "note": "Reasoning from an end to a practicable intervention; forward making realizes the chosen means."
+      }
+    ]
+  },
+  {
+    "path": "/stages/0/area/label",
+    "before": "Workshop",
+    "after": "Painting workshop"
+  },
+  {
+    "path": "/stages/0/area/travelText",
+    "before": "The path makers stop at your workshop.",
+    "after": "An afternoon at the riverside workshop."
+  },
+  {
+    "path": "/stages/0/caches",
+    "before": []
+  },
+  {
+    "path": "/stages/0/completionText",
+    "before": "The carrier goes to the quarry and comes back with the load.",
+    "after": "The painter rinses the brushes in your basin, empties it and puts it aside to dry."
+  },
+  {
+    "path": "/stages/0/id",
+    "before": "carrier",
+    "after": "rinse"
+  },
+  {
+    "path": "/stages/0/locations/0",
+    "before": "quarry",
+    "after": "wash"
+  },
+  {
+    "path": "/stages/0/motivation",
+    "before": "We need a sturdy carrier for coarse stones. Bring one to the quarry gate.",
+    "after": "I need a basin to rinse these brushes before I close up. The prepared copper blank and mallet are on the forming block. Water is waiting at the washing bench."
+  },
+  {
+    "path": "/stages/0/objectives/0/capability",
+    "before": "stone-carrier"
+  },
+  {
+    "path": "/stages/0/objectives/0/id",
+    "before": "supply-carrier",
+    "after": "rinse-brushes"
+  },
+  {
+    "path": "/stages/0/objectives/0/item",
+    "after": "basin"
+  },
+  {
+    "path": "/stages/0/objectives/0/location",
+    "before": "quarry",
+    "after": "wash"
+  },
+  {
+    "path": "/stages/0/objectives/0/text",
+    "before": "Bring a stone carrier.",
+    "after": "Bring a basin to the washing bench"
+  },
+  {
+    "path": "/stages/0/speaker",
+    "before": "The path maker",
+    "after": "The painter"
+  },
+  {
+    "path": "/stages/0/title",
+    "before": "A trip to the quarry",
+    "after": "Closing the painting bench"
+  },
+  {
+    "path": "/stages/1/area/id",
+    "before": "yard",
+    "after": "courtyard"
+  },
+  {
+    "path": "/stages/1/area/label",
+    "before": "Mason’s yard",
+    "after": "Workshop gate"
+  },
+  {
+    "path": "/stages/1/area/travelText",
+    "before": "The carrier returns with its load. Your rope coil and spare materials come to the mason’s yard too.",
+    "after": "Carry the washbasin and the same wooden mallet outside."
+  },
+  {
+    "path": "/stages/1/caches/0/id",
+    "before": "returned-load",
+    "after": "mounting-parts"
+  },
+  {
+    "path": "/stages/1/caches/0/items",
+    "before": [
+      "rough-gravel",
+      "drill"
+    ],
+    "after": [
+      "hanger"
+    ]
+  },
+  {
+    "path": "/stages/1/caches/0/label",
+    "before": "Back from the quarry",
+    "after": "Mounting parts"
+  },
+  {
+    "path": "/stages/1/caches/0/narrative",
+    "before": "The returned load is tipped out beside a hand drill.",
+    "after": "The keeper brings a crossbar, hooks and cords. The hooks fit the basin’s two pierced rim tabs; the upper loop fits the outside gatepost bracket. A loose tether can hold a striker."
+  },
+  {
+    "path": "/stages/1/carry",
+    "before": [
+      "rope",
+      "crate",
+      "basket",
+      "boards",
+      "willow"
+    ],
+    "after": [
+      "basin",
+      "mallet"
+    ]
+  },
+  {
+    "path": "/stages/1/completionText",
+    "before": "The sand falls away. The gravel is ready for the path.",
+    "after": "An arriving visitor lifts the tethered mallet and strikes your hanging basin. Its clear clang reaches the back room. The keeper comes out and opens the gate."
+  },
+  {
+    "path": "/stages/1/id",
+    "before": "sieve",
+    "after": "call"
+  },
+  {
+    "path": "/stages/1/locations",
+    "before": [],
+    "after": [
+      "gate"
+    ]
+  },
+  {
+    "path": "/stages/1/motivation",
+    "before": "The load is full of fine sand. I need the coarse gravel: let the sand fall through, but keep the stones.",
+    "after": "The brushes are clean. Your emptied basin leans beside the gate to dry. A gust rocks it against the iron latch; its clang brings the keeper out. “Visitors knock, but I cannot hear them from the back room. Leave a hanging call signal outside the gate, with something for them to strike it with.”"
+  },
+  {
+    "path": "/stages/1/objectives/0/capability",
+    "after": "visitor-call"
+  },
+  {
+    "path": "/stages/1/objectives/0/id",
+    "before": "separate-gravel",
+    "after": "visitor-call"
+  },
+  {
+    "path": "/stages/1/objectives/0/item",
+    "before": "sorted-gravel"
+  },
+  {
+    "path": "/stages/1/objectives/0/kind",
+    "before": "create",
+    "after": "place"
+  },
+  {
+    "path": "/stages/1/objectives/0/location",
+    "after": "gate"
+  },
+  {
+    "path": "/stages/1/objectives/0/text",
+    "before": "Separate the gravel.",
+    "after": "Leave a hanging call signal by the gate"
+  },
+  {
+    "path": "/stages/1/speaker",
+    "before": "The mason",
+    "after": "The keeper"
+  },
+  {
+    "path": "/stages/1/title",
+    "before": "Gravel for the path",
+    "after": "Outside the gate"
+  },
+  {
+    "path": "/title",
+    "before": "The Quarry Workshop",
+    "after": "The Riverside Workshop"
+  }
+]

@@ -1,0 +1,12 @@
+{
+  "observedAt": "2026-10-28T10:01:24Z",
+  "baseCommit": "c30a7236a0d27ae3e78d83e9e446a2350b8c2662",
+  "sourceSeal": "99e2c9892515ade14a6336bed282a5b537dd419a02d7d8e01731824b8fb1c2e1",
+  "initialAttempt": "Stopped before commit/push: test evidence writes received ENOENT for results/content-late-20261028 because the parent omitted the documented generator/setup commands.",
+  "correction": "Ran generate-evidence.ts doctrine mars, then generate-late-evidence.ts exactly as the reproduction guide specifies. Exact572-file source seal still passed; no source or test edits were made for this preparation error.",
+  "rerun": "Full selected logical checks, headless core checks, build, source seal and late delta verification restarted through supported Site workflow. Final publication status is recorded separately.",
+  "notClaimed": "The initial attempt was not a pass or a gameplay regression. UI/browser tests remain unexecuted at user request.",
+  "secondAttemptObservedAt": "2026-10-28T10:06:42Z",
+  "secondAttempt": "The same ENOENT failures remained after both documented generators ran. They do not create the test evidence output directory. This is a clean-checkout test portability defect, not solely omitted parent setup.",
+  "nextCorrection": "Additive test-only successor requested: each evidence-writing test creates its own output directory; verify with a fresh source-only checkout lacking results, preserve all assertions and frozen predecessor artifacts. Actual HEAD remains c30 and no commit/push/publication occurred."
+}
