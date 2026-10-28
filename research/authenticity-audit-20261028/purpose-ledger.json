@@ -1,0 +1,105 @@
+{
+  "scenario_id": "copy-workroom-two-commissions-v1",
+  "snapshot_sha256": "0603859bf3a0cda2974cb58346c3349651559752fb154ce2a001cb8c2f724a19",
+  "review_method": "All six recipes and eight item descriptions plus four locations individually read. Reflection geometry checked against exact RIVER word/arrow orientation and top-edge constraints.",
+  "counts": {
+    "ACCEPTED": 6,
+    "MEDIUM": 0,
+    "HIGH": 0
+  },
+  "recipes": [
+    {
+      "recipe_id": "print-master",
+      "verdict": "ACCEPTED",
+      "rationale": "Actual shop matrix is reflected; ink and paper take a reversed impression, correctly producing readable RIVER and right arrow. Press and supplies are explicit.",
+      "minimal_rework": null,
+      "affected_recipe_consumers": [
+        "trace-back-view",
+        "carve-direct"
+      ],
+      "sources": [],
+      "ordinal": 1,
+      "inputs": [
+        "papers",
+        "@press"
+      ],
+      "output": "master"
+    },
+    {
+      "recipe_id": "trace-back-view",
+      "verdict": "ACCEPTED",
+      "rationale": "Thin translucent printed master seen from its clean back has horizontal reflection with top fixed. Separate tracing sheet preserves original; window stock is explicit.",
+      "minimal_rework": null,
+      "affected_recipe_consumers": [
+        "carve-from-back-view"
+      ],
+      "sources": [],
+      "ordinal": 2,
+      "inputs": [
+        "master",
+        "@window"
+      ],
+      "output": "reverse"
+    },
+    {
+      "recipe_id": "carve-direct",
+      "verdict": "ACCEPTED",
+      "rationale": "Face-up master over separate carbon transfer sheet copies same-view lines to fresh wood. Removing background leaves readable raised face; no extra reversal hidden.",
+      "minimal_rework": null,
+      "affected_recipe_consumers": [
+        "proof-readable-face"
+      ],
+      "sources": [],
+      "ordinal": 3,
+      "inputs": [
+        "master",
+        "stock"
+      ],
+      "output": "block-readable"
+    },
+    {
+      "recipe_id": "carve-from-back-view",
+      "verdict": "ACCEPTED",
+      "rationale": "Face-up reflected tracing transfers its already-reflected design to block. Explicit transfer avoids an accidental second reversal; stock is distinct from original paper.",
+      "minimal_rework": null,
+      "affected_recipe_consumers": [
+        "proof-reflected-face"
+      ],
+      "sources": [],
+      "ordinal": 4,
+      "inputs": [
+        "reverse",
+        "stock"
+      ],
+      "output": "block-reflected"
+    },
+    {
+      "recipe_id": "proof-readable-face",
+      "verdict": "ACCEPTED",
+      "rationale": "Readable relief face prints a reflected proof, matching contact-impression geometry. Ink, roller, paper stock and human pressing are supplied.",
+      "minimal_rework": null,
+      "affected_recipe_consumers": [],
+      "sources": [],
+      "ordinal": 5,
+      "inputs": [
+        "block-readable",
+        "papers"
+      ],
+      "output": "proof-back"
+    },
+    {
+      "recipe_id": "proof-reflected-face",
+      "verdict": "ACCEPTED",
+      "rationale": "Reflected relief face prints a readable proof matching prior master. The old master is a real comparison target, not a continuity toll.",
+      "minimal_rework": null,
+      "affected_recipe_consumers": [],
+      "sources": [],
+      "ordinal": 6,
+      "inputs": [
+        "block-reflected",
+        "papers"
+      ],
+      "output": "proof-front"
+    }
+  ]
+}

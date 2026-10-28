@@ -1,0 +1,35 @@
+1. print-master: papers [Paper pack, ink and roller] + @press [undefined] -> master [Master sheet: RIVER →]
+ A: Shared printing supplies: many blank sheets, an ink roller and ink. A proof uses one sheet; enough stock remains to try both blocks.
+ B: undefined
+ OUT: The actual thin paper sheet you printed. It has upright readable RIVER followed by a right-pointing arrow, with a marked top edge. Its back is clean and the design is visible through it.
+ Recipe: Ink, pressure and a sheet of paper take an impression from the shop’s reflected matrix. The printed word reads RIVER and its arrow points right. 
+
+2. trace-back-view: master [Master sheet: RIVER →] + @window [undefined] -> reverse [Back-view tracing: reflected RIVER]
+ A: The actual thin paper sheet you printed. It has upright readable RIVER followed by a right-pointing arrow, with a marked top edge. Its back is clean and the design is visible through it.
+ B: undefined
+ OUT: A separate tracing sheet made while viewing the master through its back. The whole word and arrow are horizontally reflected; the top stays at the top.
+ Recipe: With the master’s printed face against the glass and its top edge up, trace the design seen through its back onto a fresh sheet from the stocked window. Keep the master intact. 
+
+3. carve-direct: master [Master sheet: RIVER →] + stock [Blank blocks, transfer sheets and tools] -> block-readable [Relief block: readable RIVER →]
+ A: The actual thin paper sheet you printed. It has upright readable RIVER followed by a right-pointing arrow, with a marked top edge. Its back is clean and the design is visible through it.
+ B: Several prepared wooden blocks, separate carbon transfer sheets and carving tools. A drawing is kept face up over a transfer sheet whose coated side faces the wood. Tracing transfers the same viewed design. The cutter leaves those lines raised. The master is not coated or cut.
+ OUT: A new wooden block with upright readable RIVER and a right arrow raised on its face. Its top edge is marked.
+ Recipe: Keep the master face up over a separate carbon sheet, coated side toward a fresh wooden block. Trace the outlines, lift both papers and carve away the background, leaving the same viewed design raised. 
+
+4. carve-from-back-view: reverse [Back-view tracing: reflected RIVER] + stock [Blank blocks, transfer sheets and tools] -> block-reflected [Relief block: reflected RIVER]
+ A: A separate tracing sheet made while viewing the master through its back. The whole word and arrow are horizontally reflected; the top stays at the top.
+ B: Several prepared wooden blocks, separate carbon transfer sheets and carving tools. A drawing is kept face up over a transfer sheet whose coated side faces the wood. Tracing transfers the same viewed design. The cutter leaves those lines raised. The master is not coated or cut.
+ OUT: A new wooden block with the whole word-and-arrow image horizontally reflected on its raised face. Its top edge is marked.
+ Recipe: Keep the reflected tracing face up over a separate carbon sheet, coated side toward a fresh block. Transfer and carve its viewed design in relief, without reflecting it again. 
+
+5. proof-readable-face: block-readable [Relief block: readable RIVER →] + papers [Paper pack, ink and roller] -> proof-back [Proof sheet: reflected RIVER]
+ A: A new wooden block with upright readable RIVER and a right arrow raised on its face. Its top edge is marked.
+ B: Shared printing supplies: many blank sheets, an ink roller and ink. A proof uses one sheet; enough stock remains to try both blocks.
+ OUT: A real new sheet from the paper pack, printed from the readable-faced block. The whole word and arrow appear horizontally reflected.
+ Recipe: Ink the raised readable face, press a sheet onto it and lift the impression. The whole word-and-arrow design is reflected on the new sheet. 
+
+6. proof-reflected-face: block-reflected [Relief block: reflected RIVER] + papers [Paper pack, ink and roller] -> proof-front [Proof sheet: RIVER →]
+ A: A new wooden block with the whole word-and-arrow image horizontally reflected on its raised face. Its top edge is marked.
+ B: Shared printing supplies: many blank sheets, an ink roller and ink. A proof uses one sheet; enough stock remains to try both blocks.
+ OUT: A real new sheet from the paper pack, printed from the reflected-faced block. It matches the earlier master.
+ Recipe: Ink the raised reflected face, press a sheet onto it and lift the impression. The new sheet reads RIVER with the arrow pointing right. 
