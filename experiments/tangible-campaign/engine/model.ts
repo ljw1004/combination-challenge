@@ -7,7 +7,8 @@ export type Area={id:string;label:string;enteredAtStage:number};
 export type Metrics={attempts:number;accepted:number;combinations:number;creations:number;installations:number;moves:number;placements:number;advances:number;visits:number};
 export type State={stage:number;currentArea:string;areas:Area[];places:Place[];tokens:Token[];discovered:string[];recipesUsed:string[];openedCaches:string[];width:number;metrics:Metrics;completed:boolean};
 export type Event={seq:number;action:Action|{type:'undo'};accepted:boolean;message:string;stage:number;recipe?:string;created?:string;installed?:boolean;retired?:string[];transfers?:{item:string;from:string;to:string}[]};
-export type Game={version:1;scenarioId:string;state:State;history:State[];events:Event[]};
+/** lifecycleVersion 2 records event-local removals and immutable construction snapshots. */
+export type Game={version:1;lifecycleVersion?:2;scenarioId:string;state:State;history:State[];events:Event[]};
 export type Result={accepted:boolean;game:Game;message:string;created?:string;updated?:string;recipe?:string;origin?:Point;retired?:string[]};
 const clone=<T>(x:T):T=>structuredClone(x);
 const ZERO:Metrics={attempts:0,accepted:0,combinations:0,creations:0,installations:0,moves:0,placements:0,advances:0,visits:0};
@@ -26,7 +27,7 @@ export function validateScenario(s:Scenario):string[]{
  const pairKeys=new Set<string>();
  if(!s.stages.length)bad('No stages');if(!unique(s.initialItems))bad('Duplicate starting item');
  for(const id of s.initialItems)if(!kinds.has(id))bad(`Unknown initial item ${id}`);
- for(const x of s.items){if(!x.label)bad(`Missing item label ${x.id}`);if(x.slots){if(!unique(x.slots.map(y=>y.id)))bad(`Duplicate slot ${x.id}`);for(const slot of x.slots){if(!slot.accepts.length||slot.accepts.some(k=>!kinds.has(k)))bad(`Unknown/empty slot accepts ${x.id}.${slot.id}`);}}}
+ for(const x of s.items){if(!x.label)bad(`Missing item label ${x.id}`);if(x.reading!==undefined&&(!x.reading||typeof x.reading.text!=='string'||!x.reading.text.trim()||typeof x.reading.attribution!=='string'||!x.reading.attribution.trim()))bad(`Reading needs text and attribution ${x.id}`);if(x.slots){if(!unique(x.slots.map(y=>y.id)))bad(`Duplicate slot ${x.id}`);for(const slot of x.slots){if(!slot.accepts.length||slot.accepts.some(k=>!kinds.has(k)))bad(`Unknown/empty slot accepts ${x.id}.${slot.id}`);}}}
  for(const r of s.recipes){
   if(!operand(r.a)||!operand(r.b)||r.a===r.b||r.a.startsWith('@')&&r.b.startsWith('@'))bad(`Invalid operands ${r.id}`);
   if(!!r.out===!!r.install)bad(`Exactly one out/install required ${r.id}`);
@@ -80,7 +81,23 @@ export function gold(s:Scenario,state:State){const final=visibleObjectives(s,sta
 export const stageComplete=(s:Scenario,state:State)=>objectiveStates(s,state).every(o=>o.satisfied);
 export const componentLabels=(s:Scenario,t:Token)=>(t.components??[]).filter(k=>!Object.values(t.slots).includes(k)).map(k=>item(s,k)!.label);
 function preserveConstruction(r:Recipe,owner:Token,input:Token){if(!r.preserve?.includes(input.kind))return;owner.components=[...new Set([...(owner.components??[]),...(r.lifecycle?.[input.kind]?.role==='incorporate'?[input.kind]:[]),...Object.values(input.slots),...(input.components??[])])];}
-export const tokenHeight=(s:Scenario,t:Token)=>Math.max(44,38+((item(s,t.kind)?.slots??[]).filter(x=>x.required||t.slots[x.id]).length+componentLabels(s,t).length)*21);
+/** Conservative 12px Arial advances; explicit lines keep browser and packing
+ * heights identical without needing a canvas/font service in replays or saves. */
+export function itemLabelLines(label:string):string[]{
+ const advance=(c:string)=>/\s/u.test(c)?3.5:/[ilI.,'!:;|]/u.test(c)?3.5:/[mwMW@%]/u.test(c)?11.5:/[frt()[\]{}]/u.test(c)?5:/[A-Z]/u.test(c)?9.5:/[a-z0-9-]/u.test(c)?7:(c.codePointAt(0)??0)>0xffff?16:14;
+ const measure=(text:string)=>Array.from(text).reduce((n,c)=>n+advance(c),0);
+ const lines:string[]=[];let line='';
+ for(const word of label.trim().split(/\s+/u)){
+  if(line&&measure(line+' '+word)<=84){line+=' '+word;continue;}
+  if(line){lines.push(line);line='';}
+  for(const c of Array.from(word)){if(line&&measure(line+c)>84){lines.push(line);line='';}line+=c;}
+ }
+ if(line)lines.push(line);return lines.length?lines:[''];
+}
+/** Ordinary two-line names keep their existing styling. Longer observations,
+ * arguments and sources share the same explicit text layout, not fake readings. */
+export function itemLabelLayout(def:Item):string[]|null{const lines=itemLabelLines(def.label);return def.reading||lines.length>2?lines:null;}
+export const tokenHeight=(s:Scenario,t:Token)=>{const def=item(s,t.kind),lines=def?itemLabelLayout(def):null;return Math.max(44,(lines?10+(def?.reading?12:0)+lines.length*14:38)+((def?.slots??[]).filter(x=>x.required||t.slots[x.id]).length+componentLabels(s,t).length)*21);};
 const size=(s:Scenario,t:Token)=>({w:96,h:tokenHeight(s,t)});
 function occupied(s:Scenario,state:State,area:string){return [...state.tokens.filter(t=>t.area===area).map(t=>({...t,...size(s,t)})),...state.places.filter(p=>p.area===area).map(p=>({...p,w:106,h:82}))];}
 function overlap(a:Point,w:number,h:number,b:Point&{w:number;h:number}){return Math.max(0,(w+b.w)/2-Math.abs(a.x-b.x))*Math.max(0,(h+b.h)/2-Math.abs(a.y-b.y));}
@@ -133,28 +150,10 @@ function arrive(s:Scenario,state:State,area:string,carried:Token[]){
  }
 }
 function addItem(s:Scenario,state:State,kind:string,area:string){if(state.discovered.includes(kind))return;const t:Token={id:kind,kind,area,location:null,slots:{},incorporated:[],x:0,y:0};Object.assign(t,supplyPosition(s,state,area,tokenHeight(s,t)));state.tokens.push(t);state.discovered.push(kind);}
+/** A safeguard at the current recipe event, never a pending retirement schedule. */
 function needed(s:Scenario,state:State,t:Token,excluding?:string):boolean{
  if(s.recipes.some(r=>r.id!==excluding&&!state.recipesUsed.includes(r.id)&&(!r.out||!state.discovered.includes(r.out))&&[r.a,r.b].includes(t.kind)))return true;
  return s.stages.slice(state.stage).some(st=>st.objectives.some(o=>!(o.intermediate&&state.discovered.includes(o.item!))&&matches(s,t,o)&&!state.tokens.some(x=>x.id!==t.id&&matches(s,x,o)&&(o.kind==='create'||x.location===o.location))));
-}
-/** Reconcile authored incorporation after the last remaining use, including old saves.
- * Never remove tools/references merely because their dependency graph is exhausted. */
-function reconcileIncorporation(s:Scenario,state:State):string[]{
- const retired:string[]=[];
- for(const id of state.recipesUsed){
-  const r=s.recipes.find(r=>r.id===id)!;
-  const owner=r.install?token(state,r.install.target):r.out?token(state,r.out)??state.tokens.find(t=>t.incorporated.includes(r.out!)||Object.values(t.slots).includes(r.out!)):undefined;
-  if(!owner||r.install&&owner.slots[r.install.slot]!==r.install.component)continue;
-  const inputs=r.install?[r.install.component]:incorporations(r).map(x=>x.item);
-  for(const kind of inputs){
-   const t=token(state,kind);
-   if(!t||t===owner||needed(s,state,t,id))continue;
-   preserveConstruction(r,owner,t);
-   owner.incorporated=[...new Set([...owner.incorporated,t.kind,...t.incorporated])];
-   state.tokens=state.tokens.filter(x=>x.id!==t.id);retired.push(t.id);
-  }
- }
- return retired;
 }
 /** Stage-local packing intent. Includes alternative prerequisite routes, never future goals. */
 export function sceneCarry(s:Scenario,state:State,st:Stage):string[]{
@@ -182,7 +181,7 @@ function enterStage(s:Scenario,state:State,first=false){
  return transfers;
 }
 export function createGame(s:Scenario,width=360):Game{
- assertScenario(s);const state:State={stage:0,currentArea:s.stages[0].area.id,areas:[],places:[],tokens:[],discovered:[],recipesUsed:[],openedCaches:[],width:Math.max(320,Math.min(600,width)),metrics:clone(ZERO),completed:false};enterStage(s,state,true);return {version:1,scenarioId:s.id,state,history:[],events:[]};
+ assertScenario(s);const state:State={stage:0,currentArea:s.stages[0].area.id,areas:[],places:[],tokens:[],discovered:[],recipesUsed:[],openedCaches:[],width:Math.max(320,Math.min(600,width)),metrics:clone(ZERO),completed:false};enterStage(s,state,true);return {version:1,lifecycleVersion:2,scenarioId:s.id,state,history:[],events:[]};
 }
 function resolveRecipe(s:Scenario,state:State,a:Token,b:Token|Place,isPlace:boolean):Recipe|undefined{
  const bk=isPlace?'@'+b.id:(b as Token).kind;
@@ -218,9 +217,9 @@ export function applyAction(s:Scenario,g:Game,a:Action):Result{
    }else if(a.type==='combine'){
     const isPlace=a.b.startsWith('@'),second=isPlace?place(state,a.b.slice(1)):token(state,a.b);if(!second||second.area!==state.currentArea||first.id===second.id)throw Error('Choose another thing or place in this area.');
     const r=resolveRecipe(s,state,first,second,isPlace);if(!r){const hints=partners(s,state,first.id),incoming=hints.directions.find(h=>h.source===second.id&&h.target===first.id&&h.location),advice=hints.settingHelp.find(h=>h.source===first.id&&h.target===second.id);throw Error(incoming?incoming.text+' Only the receiving thing needs to be placed there.':advice?.text??'No new combination here.');}recipe=r.id;origin={x:second.x,y:second.y};
-    if(r.install){const target=token(state,r.install.target),component=token(state,r.install.component);if(!target||!component)throw Error('Both component and construction must be available.');if(target.slots[r.install.slot]===component.kind)throw Error('That component is already fitted.');target.slots[r.install.slot]=component.kind;updated=target.id;state.metrics.installations++;message=`${item(s,component.kind)!.label} fitted to ${item(s,target.kind)!.label}.`;if(!needed(s,state,component,r.id)){preserveConstruction(r,target,component);target.incorporated.push(component.kind);state.tokens=state.tokens.filter(t=>t.id!==component.id);retired.push(component.id);}}
-    else {const out:Token={id:r.out!,kind:r.out!,area:state.currentArea,location:null,slots:{},incorporated:[],x:0,y:0};Object.assign(out,adjacent(s,state,origin,state.currentArea,out,isPlace?{w:106,h:82}:size(s,second as Token)));state.tokens.push(out);state.discovered.push(out.kind);created=out.kind;state.metrics.creations++;message=`${item(s,out.kind)!.label}. ${r.description??item(s,out.kind)?.description??''}`.trim();
-     for(const ret of incorporations(r)){const t=token(state,ret.item);if(t&&!needed(s,state,t,r.id)){preserveConstruction(r,out,t);out.incorporated.push(t.kind,...t.incorporated);state.tokens=state.tokens.filter(x=>x.id!==t.id);retired.push(t.id);}}
+    if(r.install){const target=token(state,r.install.target),component=token(state,r.install.component);if(!target||!component)throw Error('Both component and construction must be available.');if(target.slots[r.install.slot]===component.kind)throw Error('That component is already fitted.');target.slots[r.install.slot]=component.kind;updated=target.id;state.metrics.installations++;message=`${item(s,component.kind)!.label} fitted to ${item(s,target.kind)!.label}.`;preserveConstruction(r,target,component);if(!needed(s,state,component,r.id)){target.incorporated.push(component.kind);state.tokens=state.tokens.filter(t=>t.id!==component.id);retired.push(component.id);}}
+    else {const out:Token={id:r.out!,kind:r.out!,area:state.currentArea,location:null,slots:{},incorporated:[],x:0,y:0};for(const kind of r.preserve??[]){const source=token(state,kind);if(source)preserveConstruction(r,out,source);}Object.assign(out,adjacent(s,state,origin,state.currentArea,out,isPlace?{w:106,h:82}:size(s,second as Token)));state.tokens.push(out);state.discovered.push(out.kind);created=out.kind;state.metrics.creations++;message=`${item(s,out.kind)!.label}. ${r.description??item(s,out.kind)?.description??''}`.trim();
+     for(const ret of incorporations(r)){const t=token(state,ret.item);if(t&&!needed(s,state,t,r.id)){out.incorporated.push(t.kind,...t.incorporated);state.tokens=state.tokens.filter(x=>x.id!==t.id);retired.push(t.id);}}
      // A replacement inherits the removed object's physical spot. Prefer the
      // drop target when both inputs disappear; keep its placement identity too.
      const primary=transformedInput(r);
@@ -235,7 +234,6 @@ export function applyAction(s:Scenario,g:Game,a:Action):Result{
     state.recipesUsed.push(r.id);state.metrics.combinations++;
    }
   }
-  retired.push(...reconcileIncorporation(s,state));
   if(a.type!=='advance'&&state.stage===g.state.stage&&!stageComplete(s,g.state)&&stageComplete(s,state)&&s.stages[state.stage].completionText)message+=' '+s.stages[state.stage].completionText;
   state.metrics.attempts++;state.metrics.accepted++;
   const event:Event={seq:g.events.length+1,action:clone(a),accepted:true,message,stage:state.stage,...recipe?{recipe}:{},...created?{created}:{},...updated?{installed:true}:{},...retired.length?{retired}:{},...transfers.length?{transfers}:{}};
@@ -261,7 +259,7 @@ export function partners(s:Scenario,state:State,id:string){
 export function playerView(s:Scenario,g:Game){
  const state=g.state,st=s.stages[state.stage],marks=gold(s,state);
  return {scenario:{id:s.id,title:s.title,premise:s.premise},stage:{number:state.stage+1,title:st.title,speaker:st.speaker,motivation:st.motivation,travelText:st.area.travelText},area:state.areas.find(a=>a.id===state.currentArea),areas:state.areas.map(a=>({id:a.id,label:a.label,current:a.id===state.currentArea,thingCount:state.tokens.filter(t=>t.area===a.id).length})),objectives:visibleObjectives(s,state).map(({id,text,satisfied})=>({id,text,satisfied})),canAdvance:stageComplete(s,state)&&!state.completed,nextAction:stageComplete(s,state)&&!state.completed?(state.stage===s.stages.length-1?'Finish this journey':'Continue · '+s.stages[state.stage+1].title):null,completionText:stageComplete(s,state)?st.completionText??null:null,completed:state.completed,
-  things:state.tokens.filter(t=>t.area===state.currentArea).map(t=>{const def=item(s,t.kind)!;return {id:t.id,label:def.label,description:def.description??'',x:t.x,y:t.y,location:t.location,gold:marks.items.includes(t.id),slots:(def.slots??[]).filter(sl=>sl.required||t.slots[sl.id]).map((sl,index)=>({id:'slot'+(index+1),filled:!!t.slots[sl.id],label:t.slots[sl.id]?item(s,t.slots[sl.id])!.label:null})),components:componentLabels(s,t),functional:functional(s,t)};}),
+  things:state.tokens.filter(t=>t.area===state.currentArea).map(t=>{const def=item(s,t.kind)!;return {id:t.id,label:def.label,description:def.description??'',...(def.reading?{reading:{...def.reading}}:{}),x:t.x,y:t.y,location:t.location,gold:marks.items.includes(t.id),slots:(def.slots??[]).filter(sl=>sl.required||t.slots[sl.id]).map((sl,index)=>({id:'slot'+(index+1),filled:!!t.slots[sl.id],label:t.slots[sl.id]?item(s,t.slots[sl.id])!.label:null})),components:componentLabels(s,t),functional:functional(s,t)};}),
   locations:state.places.filter(p=>p.area===state.currentArea).map(p=>({...p,label:s.locations.find(l=>l.id===p.id)!.label,description:s.locations.find(l=>l.id===p.id)!.description??'',gold:marks.places.includes(p.id)})),cacheNarrative:(st.caches??[]).map(c=>({label:c.label,narrative:c.narrative})),metrics:state.metrics};
 }
 export function replay(s:Scenario,actions:Action[],width=360){let g=createGame(s,width);for(let i=0;i<actions.length;i++){const r=applyAction(s,g,actions[i]);if(!r.accepted)throw Error(`Replay action ${i+1}: ${r.message}`);g=r.game;}return g;}
@@ -280,12 +278,25 @@ export function restore(s:Scenario,raw:string):Game{
    return Object.entries(t.slots).every(([id,k])=>def.slots?.some(slot=>slot.id===id&&slot.accepts.includes(k))&&st.discovered.includes(k));
   });
  };
- if(g?.version!==1||g.scenarioId!==s.id||!validState(g.state)||!Array.isArray(g.events)||!Array.isArray(g.history)||!g.history.every(validState)||!g.events.every((e,i)=>e.seq===i+1&&typeof e.accepted==='boolean'&&e.action&&typeof e.message==='string'&&!!s.stages[e.stage]&&(!e.recipe||s.recipes.some(r=>r.id===e.recipe))&&(!e.created||!!item(s,e.created))))throw Error('Invalid campaign save');
- // Recover fitted parts in pre-preservation saves from actual earlier token snapshots.
- const past:State[]=[];
- for(const st of [...g.history,g.state]){
-  for(const id of st.recipesUsed){const r=s.recipes.find(r=>r.id===id)!;const owner=r.out?token(st,r.out)??st.tokens.find(t=>t.incorporated.includes(r.out!)):undefined;if(!owner)continue;for(const kind of r.preserve??[]){const source=token(st,kind)??past.slice().reverse().map(x=>token(x,kind)).find(Boolean);if(source)preserveConstruction(r,owner,source);}}
-  reconcileIncorporation(s,st);past.push(st);
+ if(g?.version!==1||g.lifecycleVersion!==undefined&&g.lifecycleVersion!==2||g.scenarioId!==s.id||!validState(g.state)||!Array.isArray(g.events)||!Array.isArray(g.history)||!g.history.every(validState)||!g.events.every((e,i)=>e.seq===i+1&&typeof e.accepted==='boolean'&&e.action&&typeof e.message==='string'&&!!s.stages[e.stage]&&(!e.recipe||s.recipes.some(r=>r.id===e.recipe))&&(!e.created||!!item(s,e.created))))throw Error('Invalid campaign save');
+ // Unmarked old saves may lack visible construction details. Recover only
+ // from an observed recipe event's actual PRE-action snapshot, not a later
+ // upgraded loose copy or the catalogue. Missing history is not permission
+ // to invent parts. Never retrospectively retire a still-present object.
+ if(g.lifecycleVersion===undefined){
+  const sources=new Map<string,Token[]>();let before:State|undefined;
+  for(const st of [...g.history,g.state]){
+   for(const id of st.recipesUsed){
+    const r=s.recipes.find(r=>r.id===id)!;if(!r.preserve?.length)continue;
+    if(before&&!before.recipesUsed.includes(id))sources.set(id,r.preserve.flatMap(kind=>{const source=token(before!,kind);return source?[clone(source)]:[];}));
+    const ownerKind=r.install?.target??r.out;
+    const owner=ownerKind?token(st,ownerKind)??st.tokens.find(t=>t.incorporated.includes(ownerKind)):undefined;
+    if(!owner||r.install&&owner.kind===r.install.target&&owner.slots[r.install.slot]!==r.install.component)continue;
+    for(const source of sources.get(id)??[])preserveConstruction(r,owner,source);
+   }
+   before=st;
+  }
+  g.lifecycleVersion=2;
  }
  return g;
 }

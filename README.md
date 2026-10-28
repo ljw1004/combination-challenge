@@ -1,5 +1,18 @@
 # Combination Challenge
 
+## Current live shared runtime — 28 October 2026
+
+The owner-private [Combination Workshop](https://combination-workshop-playtest.stonysun25.chatgpt.site/campaign.html) is live from exact Site Git **`61a9b4ee8c6235bff07f97eb16d713ec6125c81e`** (existing publication at 03:22:08 UTC). This checkpoint preserves that source; it does **not** deploy or change the Site audience. The prior immutable `6204` source/evidence checkpoint remains intact.
+
+Shared improvements now live: intentional attributed manuscript reading, generalized long-text tile sizing, **event-local** retirement, and immediate visible preservation of fitted components even when the original outside source remains useful. Unrelated later actions, travel or loading no longer absorb an earlier retained input into an old product. Legacy save migration adds only evidence-backed visible construction metadata; it does not invent/resurrect parts or silently delete old leftovers.
+
+The six priorities remain **Mars, Atlas of Questions, Elements, From Hearth to Snack Cake, Why This Boat, and Doctrine: Grace and Matter**. All scenario bytes are unchanged from 6204. Story overhauls, including revised Atlas, Doctrine and Food-v2, are **IN PROGRESS / NOT LIVE**. Reader support is released; its availability is not acceptance of unreleased Doctrine content.
+
+Independent preservation replay of the exact final Site snapshot: **455 tests passed, 0 failed, 1 intentional skip**, plus content validation, TypeScript and Vite build passed (existing large-chunk advisory). Retained release evidence includes 138 campaign checks, 112 policy differential route/width runs, and actual cloud Chromium reader checks at 1180 and 502 CSS-pixel widths. The native check used a temporary Doctrine fixture removed afterward; no physical iPhone/touch, every-scene coverage, native lifecycle-moment check or proof of full-game human fun is claimed.
+
+[Source, policy review, evidence and limitations](docs/live-reading-policy-20261028.md). This newer status supersedes older reader/policy-not-live statements below; older evidence and candidate limitations remain historical, unchanged.
+
+
 ## Intermediate source checkpoint — 28 October 2026
 
 This preserves recovered fork `3d3dbf36c7be473b30e09384f8a279b2fa2d9918` plus the six-focus chooser at exact Site Git commit **`6204f3bb6160eb6549fbaa98bdc8e43483cb6de1`**. Focus: **Mars, Atlas of Questions, Elements, From Hearth to Snack Cake, Why This Boat, and Doctrine: Grace and Matter**. Other sketches and archived direct routes remain available.

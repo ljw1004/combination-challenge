@@ -1,5 +1,5 @@
 /** JSON contract for tangible local-challenge campaigns. No result previews in player hints. */
-export type Item = {id:string;label:string;description?:string;capabilities?:string[];slots?:{id:string;accepts:string[];required?:boolean;capabilities?:string[];grants?:Record<string,string[]>}[];sources?:string[];caveat?:string};
+export type Item = {id:string;label:string;description?:string;reading?:{text:string;attribution:string};capabilities?:string[];slots?:{id:string;accepts:string[];required?:boolean;capabilities?:string[];grants?:Record<string,string[]>}[];sources?:string[];caveat?:string};
 export type Location = {id:string;label:string;description?:string;sources?:string[]};
 export type Retirement = {item:string;reason:string};
 export type InputLifecycle = {role:'transform'|'incorporate'|'retain';reason:string};

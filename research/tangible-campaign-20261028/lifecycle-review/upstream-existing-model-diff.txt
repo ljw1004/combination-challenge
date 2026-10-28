@@ -1,0 +1,47 @@
+diff --git a/experiments/tangible-campaign/engine/model.ts b/experiments/tangible-campaign/engine/model.ts
+index 7f7b460..f44fffe 100644
+--- a/experiments/tangible-campaign/engine/model.ts
++++ b/experiments/tangible-campaign/engine/model.ts
+@@ -26,7 +26,7 @@ export function validateScenario(s:Scenario):string[]{
+  const pairKeys=new Set<string>();
+  if(!s.stages.length)bad('No stages');if(!unique(s.initialItems))bad('Duplicate starting item');
+  for(const id of s.initialItems)if(!kinds.has(id))bad(`Unknown initial item ${id}`);
+- for(const x of s.items){if(!x.label)bad(`Missing item label ${x.id}`);if(x.slots){if(!unique(x.slots.map(y=>y.id)))bad(`Duplicate slot ${x.id}`);for(const slot of x.slots){if(!slot.accepts.length||slot.accepts.some(k=>!kinds.has(k)))bad(`Unknown/empty slot accepts ${x.id}.${slot.id}`);}}}
++ for(const x of s.items){if(!x.label)bad(`Missing item label ${x.id}`);if(x.reading!==undefined&&(!x.reading||typeof x.reading.text!=='string'||!x.reading.text.trim()||typeof x.reading.attribution!=='string'||!x.reading.attribution.trim()))bad(`Reading needs text and attribution ${x.id}`);if(x.slots){if(!unique(x.slots.map(y=>y.id)))bad(`Duplicate slot ${x.id}`);for(const slot of x.slots){if(!slot.accepts.length||slot.accepts.some(k=>!kinds.has(k)))bad(`Unknown/empty slot accepts ${x.id}.${slot.id}`);}}}
+  for(const r of s.recipes){
+   if(!operand(r.a)||!operand(r.b)||r.a===r.b||r.a.startsWith('@')&&r.b.startsWith('@'))bad(`Invalid operands ${r.id}`);
+   if(!!r.out===!!r.install)bad(`Exactly one out/install required ${r.id}`);
+@@ -80,7 +80,23 @@ export function gold(s:Scenario,state:State){const final=visibleObjectives(s,sta
+ export const stageComplete=(s:Scenario,state:State)=>objectiveStates(s,state).every(o=>o.satisfied);
+ export const componentLabels=(s:Scenario,t:Token)=>(t.components??[]).filter(k=>!Object.values(t.slots).includes(k)).map(k=>item(s,k)!.label);
+ function preserveConstruction(r:Recipe,owner:Token,input:Token){if(!r.preserve?.includes(input.kind))return;owner.components=[...new Set([...(owner.components??[]),...(r.lifecycle?.[input.kind]?.role==='incorporate'?[input.kind]:[]),...Object.values(input.slots),...(input.components??[])])];}
+-export const tokenHeight=(s:Scenario,t:Token)=>Math.max(44,38+((item(s,t.kind)?.slots??[]).filter(x=>x.required||t.slots[x.id]).length+componentLabels(s,t).length)*21);
++/** Conservative 12px Arial advances; explicit lines keep browser and packing
++ * heights identical without needing a canvas/font service in replays or saves. */
++export function itemLabelLines(label:string):string[]{
++ const advance=(c:string)=>/\s/u.test(c)?3.5:/[ilI.,'!:;|]/u.test(c)?3.5:/[mwMW@%]/u.test(c)?11.5:/[frt()[\]{}]/u.test(c)?5:/[A-Z]/u.test(c)?9.5:/[a-z0-9-]/u.test(c)?7:(c.codePointAt(0)??0)>0xffff?16:14;
++ const measure=(text:string)=>Array.from(text).reduce((n,c)=>n+advance(c),0);
++ const lines:string[]=[];let line='';
++ for(const word of label.trim().split(/\s+/u)){
++  if(line&&measure(line+' '+word)<=84){line+=' '+word;continue;}
++  if(line){lines.push(line);line='';}
++  for(const c of Array.from(word)){if(line&&measure(line+c)>84){lines.push(line);line='';}line+=c;}
++ }
++ if(line)lines.push(line);return lines.length?lines:[''];
++}
++/** Ordinary two-line names keep their existing styling. Longer observations,
++ * arguments and sources share the same explicit text layout, not fake readings. */
++export function itemLabelLayout(def:Item):string[]|null{const lines=itemLabelLines(def.label);return def.reading||lines.length>2?lines:null;}
++export const tokenHeight=(s:Scenario,t:Token)=>{const def=item(s,t.kind),lines=def?itemLabelLayout(def):null;return Math.max(44,(lines?10+(def?.reading?12:0)+lines.length*14:38)+((def?.slots??[]).filter(x=>x.required||t.slots[x.id]).length+componentLabels(s,t).length)*21);};
+ const size=(s:Scenario,t:Token)=>({w:96,h:tokenHeight(s,t)});
+ function occupied(s:Scenario,state:State,area:string){return [...state.tokens.filter(t=>t.area===area).map(t=>({...t,...size(s,t)})),...state.places.filter(p=>p.area===area).map(p=>({...p,w:106,h:82}))];}
+ function overlap(a:Point,w:number,h:number,b:Point&{w:number;h:number}){return Math.max(0,(w+b.w)/2-Math.abs(a.x-b.x))*Math.max(0,(h+b.h)/2-Math.abs(a.y-b.y));}
+@@ -261,7 +277,7 @@ export function partners(s:Scenario,state:State,id:string){
+ export function playerView(s:Scenario,g:Game){
+  const state=g.state,st=s.stages[state.stage],marks=gold(s,state);
+  return {scenario:{id:s.id,title:s.title,premise:s.premise},stage:{number:state.stage+1,title:st.title,speaker:st.speaker,motivation:st.motivation,travelText:st.area.travelText},area:state.areas.find(a=>a.id===state.currentArea),areas:state.areas.map(a=>({id:a.id,label:a.label,current:a.id===state.currentArea,thingCount:state.tokens.filter(t=>t.area===a.id).length})),objectives:visibleObjectives(s,state).map(({id,text,satisfied})=>({id,text,satisfied})),canAdvance:stageComplete(s,state)&&!state.completed,nextAction:stageComplete(s,state)&&!state.completed?(state.stage===s.stages.length-1?'Finish this journey':'Continue · '+s.stages[state.stage+1].title):null,completionText:stageComplete(s,state)?st.completionText??null:null,completed:state.completed,
+-  things:state.tokens.filter(t=>t.area===state.currentArea).map(t=>{const def=item(s,t.kind)!;return {id:t.id,label:def.label,description:def.description??'',x:t.x,y:t.y,location:t.location,gold:marks.items.includes(t.id),slots:(def.slots??[]).filter(sl=>sl.required||t.slots[sl.id]).map((sl,index)=>({id:'slot'+(index+1),filled:!!t.slots[sl.id],label:t.slots[sl.id]?item(s,t.slots[sl.id])!.label:null})),components:componentLabels(s,t),functional:functional(s,t)};}),
++  things:state.tokens.filter(t=>t.area===state.currentArea).map(t=>{const def=item(s,t.kind)!;return {id:t.id,label:def.label,description:def.description??'',...(def.reading?{reading:{...def.reading}}:{}),x:t.x,y:t.y,location:t.location,gold:marks.items.includes(t.id),slots:(def.slots??[]).filter(sl=>sl.required||t.slots[sl.id]).map((sl,index)=>({id:'slot'+(index+1),filled:!!t.slots[sl.id],label:t.slots[sl.id]?item(s,t.slots[sl.id])!.label:null})),components:componentLabels(s,t),functional:functional(s,t)};}),
+   locations:state.places.filter(p=>p.area===state.currentArea).map(p=>({...p,label:s.locations.find(l=>l.id===p.id)!.label,description:s.locations.find(l=>l.id===p.id)!.description??'',gold:marks.places.includes(p.id)})),cacheNarrative:(st.caches??[]).map(c=>({label:c.label,narrative:c.narrative})),metrics:state.metrics};
+ }
+ export function replay(s:Scenario,actions:Action[],width=360){let g=createGame(s,width);for(let i=0;i<actions.length;i++){const r=applyAction(s,g,actions[i]);if(!r.accepted)throw Error(`Replay action ${i+1}: ${r.message}`);g=r.game;}return g;}

@@ -22,24 +22,24 @@ test('real Mars soup pouch transforms once, heater survives, and soup is incorpo
  assert(M.token(packed.game.state,'soup-flask')!.incorporated.includes('prepared-soup'));
  assert.deepEqual(M.undo(r.game).game.state.tokens,before.state.tokens);
 });
-test('legacy soup save cleans obsolete pouch, preserves route/history, and needs no reset',()=>{
+test('unmarked legacy soup save preserves ambiguous physical copies and progress without resetting',()=>{
  const old=structuredClone(mars);old.recipes.find(r=>r.id==='rescue-4-warm-soup')!.lifecycle=undefined;old.recipes.find(r=>r.id==='rescue-4-warm-soup')!.retire=[];
  const legacy=M.replay(old,evidence.actionsLog.slice(0,soupIndex+1));assert(M.token(legacy.state,'prepared-soup'));
- const restored=M.restore(mars,JSON.stringify(legacy));assert(!M.token(restored.state,'prepared-soup'));assert(M.token(restored.state,'warm-soup'));assert(M.token(restored.state,'heater'));
+ delete legacy.lifecycleVersion;const restored=M.restore(mars,JSON.stringify(legacy));assert(M.token(restored.state,'prepared-soup'),'No retrospective deletion from an unversioned historical lifecycle');assert(M.token(restored.state,'warm-soup'));assert(M.token(restored.state,'heater'));
  assert.equal(restored.state.stage,legacy.state.stage);assert.deepEqual(restored.events,legacy.events);
  assert.deepEqual(restored.state.recipesUsed,legacy.state.recipesUsed);assert.equal(restored.history.length,legacy.history.length);
  assert.deepEqual(M.restore(mars,JSON.stringify(restored)),restored);
  assert(M.token(M.undo(restored).game.state,'prepared-soup'));
  const next=M.applyAction(mars,restored,{type:'combine',a:'warm-soup',b:'insulated-flask'});assert(next.accepted,next.message);
 });
-test('declared ingredient supply retires after final other use; exhausted tools stay',()=>{
+test('outside supply retained at an earlier event stays after a later non-consuming use',()=>{
  const s:Scenario=structuredClone(fixture);s.initialItems=['frame','wheels','charger'];
  s.recipes=[{id:'first',a:'frame',b:'wheels',out:'ice',retire:[{item:'frame',reason:'Material enters first product'}]},
  {id:'second',a:'frame',b:'charger',out:'radio'}];
  s.stages=[{...s.stages[0],objectives:[{id:'done',text:'Make radio',kind:'create',item:'radio'}]}];
  let g=M.createGame(s);g=M.applyAction(s,g,{type:'combine',a:'frame',b:'wheels'}).game;assert(M.token(g.state,'frame'));
- const r=M.applyAction(s,g,{type:'combine',a:'frame',b:'charger'});assert(r.accepted);assert(!M.token(r.game.state,'frame'));assert(r.retired?.includes('frame'));
- assert(M.token(r.game.state,'wheels'));assert(M.token(r.game.state,'charger'));assert(M.token(r.game.state,'ice')!.incorporated.includes('frame'));
+ const r=M.applyAction(s,g,{type:'combine',a:'frame',b:'charger'});assert(r.accepted);assert(M.token(r.game.state,'frame'));assert(!r.retired?.includes('frame'));
+ assert(M.token(r.game.state,'wheels'));assert(M.token(r.game.state,'charger'));assert(!M.token(r.game.state,'ice')!.incorporated.includes('frame'));
  assert(M.token(M.undo(r.game).game.state,'frame'));
 });
 test('bearing map retains reusable instrument and replaces the old map, not its source photograph',()=>{
@@ -115,7 +115,7 @@ test('all authored assembly upgrades keep their fitted parts visible, including 
 test('old assembly saves recover fitted components from real history without resetting progress',()=>{
  const legacy=structuredClone(mars);legacy.recipes.forEach(r=>delete r.preserve);
  const actions=evidence.actionsLog;const index=actions.findIndex((a:any)=>a.type==='combine'&&legacy.recipes.find(r=>r.id==='depot-deliver')?.a===a.a&&legacy.recipes.find(r=>r.id==='depot-deliver')?.b===a.b);
- assert(index>=0);const old=M.replay(legacy,actions.slice(0,index+1));const restored=M.restore(mars,JSON.stringify(old));
+ assert(index>=0);const old=M.replay(legacy,actions.slice(0,index+1));delete old.lifecycleVersion;const restored=M.restore(mars,JSON.stringify(old));
  const shuttle=M.token(restored.state,'depot-cargo-shuttle')!;
  assert(shuttle.components?.includes('protected-controller'));assert(shuttle.components?.includes('hauler-platform'));
  assert.equal(restored.state.stage,old.state.stage);assert.deepEqual(restored.state.metrics,old.state.metrics);assert.equal(restored.history.length,old.history.length);

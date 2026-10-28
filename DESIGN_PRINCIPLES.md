@@ -7,11 +7,15 @@ These are the user's design decisions, accumulated during playtests. Apply them 
 - Teach through what objects do and how they change. Remove explanatory gameplay toasts, including “Moved”, and temporary recipe instructions. Do not make reading instructions necessary for ordinary interactions.
 - Keep the scene open. Use terse objectives (“Place powered radio”), no “Objectives” heading, at the top right near the screen edge. Put the bare bug icon underneath; no visible button surround. Keep accessible names and adequate touch targets.
 - After the final creation cue, open the next challenge automatically. No Continue chore and no “just finished” recap before the next challenge.
+- Readable manuscripts remain the same rounded tiles, with a small source marker. Selection offers an intentional Read action; only activation opens the attributed text. Author source contents in `Item.reading`, not generic descriptions that may contain instructions or recipe hints. Reading preserves selection and scroll, changes no progress, and only pauses the automatic next-chapter handoff until dismissal.
+- A key quotation can be the item itself: 5–12 words need not collapse into an icon. All long labels—including observations and cases—need matching line space in tile rendering and engine packing. Reserve the reader for fuller source context; never attach fake readings just to obtain text space.
 - Art is a later phase. Do not add it before the user asks.
 
 ## Objects retain identity
 
 - Each recipe explicitly declares every object input as `transform`, `incorporate`, or `retain`, with a reason. Exhausting an input's future uses is a warning to review its lifecycle, never permission to delete it automatically.
+- Apply authored removal only at the actual combining or installing event. If another use or objective requires an outside copy/supply to remain then, it stays tangible until a later action explicitly transforms or incorporates it. Do not retroactively absorb it into an old owner when an unrelated action, alternative recipe, chapter advance or reload exhausts its remaining uses. Leave finished leftovers in their areas; scene-local carry controls clutter.
+- Preserve a declared construction's fitted contents visibly at the combining/installing event even when its outside source copy remains useful. The new assembly receives that event's actual construction snapshot, not later additions to the separate copy. Preserving the new assembly's visible parts does not move or alter the retained source copy.
 - A transformation replaces its primary input at exactly that object's position, with a brief creation animation, in either drag direction. Do not place its replacement to one side.
 - Context matters: putting material into a seed tray should leave the result at the tray. A reusable tool used there should remain a tool. Do not apply a blanket “everything stays” rule.
 - Soup pouch → warmed soup is one evolving object. Its empty earlier state should not remain as a useless duplicate. Heater, references and other reusable equipment survive. Shared supplies can remain while another authored branch needs them.

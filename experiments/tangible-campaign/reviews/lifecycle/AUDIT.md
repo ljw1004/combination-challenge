@@ -1,5 +1,7 @@
 # Object lifecycle audit — 27 October 2026
 
+> **Policy correction, 28 October:** The historical last-use cleanup described below is superseded by event-local retirement. Retained outside copies remain physical until a later recipe explicitly consumes them. Current restore never deletes or resurrects tokens. Construction is preserved at the event even when its source remains. See [EVENT_LOCAL_POLICY.md](EVENT_LOCAL_POLICY.md) for changed expectations and bounded legacy recovery.
+
 Reviewed all 731 recipes in the nine active journeys. 384 recipes had missing or incorrect input-incorporation declarations; the nursery also referenced an obsolete tray instead of its current propagator. The five archived scenarios keep their historical authored content, but their routes remain in regression checks.
 
 ## Findings and corrections

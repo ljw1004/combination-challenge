@@ -1,0 +1,162 @@
+✖ tests/history-ideas-independent-controller.test.ts (17470.271479ms)
+✔ independent model: twelve alternate full routes reach all current goals with preserved five-point signal (106.915564ms)
+✔ independent model: placed source remains in library during further idea creation; active displacement/reversal keeps identities (5.59114ms)
+✔ independent model: exhausted pair and applied translation no longer hint or mutate (5.161081ms)
+✔ independent regression: authored creations stay within 220px of target (1.098731ms)
+(node:41) ExperimentalWarning: stripTypeScriptTypes is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+✖ mobile geometry: 320/375/390 every active tile and revealed site stays inside horizontal bounds; extent only occupied content (6.530046ms)
+✖ synthetic mobile: vertical edge scroll only, cancellation/modal/reset/pagehide terminate the timer (21.545226ms)
+✖ synthetic mobile: invitation dismissal frames library, Escape follows same path, hidden terminal goal cannot invalidate completion (14.722231ms)
+✖ retention: future partners and translation channels survive; discoveries remain canonical and deduplicated (14.047058ms)
+✔ all 12 full routes stay operable using active pieces only at each mobile width (140.688773ms)
+✖ creation tolerates overlap and stays local even in a densely occupied board (10.387195ms)
+✖ birth geometry: Measurement reuses retired Number slot without covering Doubt at 320/375/390/500px (2.523847ms)
+✔ all three authored purposes are replayed, not granted (15.04126ms)
+✔ two inquiry routes and two publication routes preserve alternate approaches (10.748178ms)
+✔ translations commute, preserve source and heights; fused route is optional (18.574687ms)
+✔ inputs return, no duplicates, movement reverses placement, invalid actions preserve state (1.269493ms)
+✔ hints name partners only, locations unfold, unknown checkpoints do not fabricate actions (0.322176ms)
+ℹ tests 17
+ℹ suites 0
+ℹ pass 10
+ℹ fail 7
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 17501.864856
+
+✖ failing tests:
+
+test at tests/history-ideas-independent-controller.test.ts:1:1
+✖ tests/history-ideas-independent-controller.test.ts (17470.271479ms)
+  'test failed'
+
+test at tests/history-ideas-mobile-policy.test.ts:10:1
+✖ mobile geometry: 320/375/390 every active tile and revealed site stays inside horizontal bounds; extent only occupied content (6.530046ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  351 !== 359
+  
+      at TestContext.<anonymous> (file:///workspace/shared/combination-playtest-site/tests/history-ideas-mobile-policy.test.ts:14:9)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.start (node:internal/test_runner/test:1262:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:387:17) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 351,
+    expected: 359,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests/history-ideas-mobile-policy.test.ts:17:1
+✖ synthetic mobile: vertical edge scroll only, cancellation/modal/reset/pagehide terminate the timer (21.545226ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  0 !== 12
+  
+      at TestContext.<anonymous> (file:///workspace/shared/combination-playtest-site/tests/history-ideas-mobile-policy.test.ts:19:134)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 0,
+    expected: 12,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests/history-ideas-mobile-policy.test.ts:26:1
+✖ synthetic mobile: invitation dismissal frames library, Escape follows same path, hidden terminal goal cannot invalidate completion (14.722231ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  155 !== 15
+  
+      at TestContext.<anonymous> (file:///workspace/shared/combination-playtest-site/tests/history-ideas-mobile-policy.test.ts:27:241)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 155,
+    expected: 15,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests/history-ideas-mobile-policy.test.ts:30:1
+✖ retention: future partners and translation channels survive; discoveries remain canonical and deduplicated (14.047058ms)
+  AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+  
+    assert(!M.step(s,{type:'place',id:'number',location:'library'}).accepted)
+  
+      at TestContext.<anonymous> (file:///workspace/shared/combination-playtest-site/tests/history-ideas-mobile-policy.test.ts:32:169)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at tests/history-ideas-mobile-policy.test.ts:45:1
+✖ creation tolerates overlap and stays local even in a densely occupied board (10.387195ms)
+  AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+  
+    assert(Math.hypot(out.x-target.x,out.y-target.y)<90)
+  
+      at TestContext.<anonymous> (file:///workspace/shared/combination-playtest-site/tests/history-ideas-mobile-policy.test.ts:46:267)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at tests/history-ideas-mobile-policy.test.ts:48:1
+✖ birth geometry: Measurement reuses retired Number slot without covering Doubt at 320/375/390/500px (2.523847ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+    {
+      x: 240,
+  +   y: 264
+  -   y: 44
+    }
+  
+      at TestContext.<anonymous> (file:///workspace/shared/combination-playtest-site/tests/history-ideas-mobile-policy.test.ts:51:9)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: { x: 240, y: 264 },
+    expected: { x: 240, y: 44 },
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }

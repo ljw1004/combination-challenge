@@ -1,0 +1,313 @@
+--- a/experiments/tangible-campaign/engine/model.ts
++++ b/experiments/tangible-campaign/engine/model.ts
+@@ -7,7 +7,8 @@
+ export type Metrics={attempts:number;accepted:number;combinations:number;creations:number;installations:number;moves:number;placements:number;advances:number;visits:number};
+ export type State={stage:number;currentArea:string;areas:Area[];places:Place[];tokens:Token[];discovered:string[];recipesUsed:string[];openedCaches:string[];width:number;metrics:Metrics;completed:boolean};
+ export type Event={seq:number;action:Action|{type:'undo'};accepted:boolean;message:string;stage:number;recipe?:string;created?:string;installed?:boolean;retired?:string[];transfers?:{item:string;from:string;to:string}[]};
+-export type Game={version:1;scenarioId:string;state:State;history:State[];events:Event[]};
++/** lifecycleVersion 2 records event-local removals and immutable construction snapshots. */
++export type Game={version:1;lifecycleVersion?:2;scenarioId:string;state:State;history:State[];events:Event[]};
+ export type Result={accepted:boolean;game:Game;message:string;created?:string;updated?:string;recipe?:string;origin?:Point;retired?:string[]};
+ const clone=<T>(x:T):T=>structuredClone(x);
+ const ZERO:Metrics={attempts:0,accepted:0,combinations:0,creations:0,installations:0,moves:0,placements:0,advances:0,visits:0};
+@@ -149,28 +150,10 @@
+  }
+ }
+ function addItem(s:Scenario,state:State,kind:string,area:string){if(state.discovered.includes(kind))return;const t:Token={id:kind,kind,area,location:null,slots:{},incorporated:[],x:0,y:0};Object.assign(t,supplyPosition(s,state,area,tokenHeight(s,t)));state.tokens.push(t);state.discovered.push(kind);}
++/** A safeguard at the current recipe event, never a pending retirement schedule. */
+ function needed(s:Scenario,state:State,t:Token,excluding?:string):boolean{
+  if(s.recipes.some(r=>r.id!==excluding&&!state.recipesUsed.includes(r.id)&&(!r.out||!state.discovered.includes(r.out))&&[r.a,r.b].includes(t.kind)))return true;
+  return s.stages.slice(state.stage).some(st=>st.objectives.some(o=>!(o.intermediate&&state.discovered.includes(o.item!))&&matches(s,t,o)&&!state.tokens.some(x=>x.id!==t.id&&matches(s,x,o)&&(o.kind==='create'||x.location===o.location))));
+-}
+-/** Reconcile authored incorporation after the last remaining use, including old saves.
+- * Never remove tools/references merely because their dependency graph is exhausted. */
+-function reconcileIncorporation(s:Scenario,state:State):string[]{
+- const retired:string[]=[];
+- for(const id of state.recipesUsed){
+-  const r=s.recipes.find(r=>r.id===id)!;
+-  const owner=r.install?token(state,r.install.target):r.out?token(state,r.out)??state.tokens.find(t=>t.incorporated.includes(r.out!)||Object.values(t.slots).includes(r.out!)):undefined;
+-  if(!owner||r.install&&owner.slots[r.install.slot]!==r.install.component)continue;
+-  const inputs=r.install?[r.install.component]:incorporations(r).map(x=>x.item);
+-  for(const kind of inputs){
+-   const t=token(state,kind);
+-   if(!t||t===owner||needed(s,state,t,id))continue;
+-   preserveConstruction(r,owner,t);
+-   owner.incorporated=[...new Set([...owner.incorporated,t.kind,...t.incorporated])];
+-   state.tokens=state.tokens.filter(x=>x.id!==t.id);retired.push(t.id);
+-  }
+- }
+- return retired;
+ }
+ /** Stage-local packing intent. Includes alternative prerequisite routes, never future goals. */
+ export function sceneCarry(s:Scenario,state:State,st:Stage):string[]{
+@@ -198,7 +181,7 @@
+  return transfers;
+ }
+ export function createGame(s:Scenario,width=360):Game{
+- assertScenario(s);const state:State={stage:0,currentArea:s.stages[0].area.id,areas:[],places:[],tokens:[],discovered:[],recipesUsed:[],openedCaches:[],width:Math.max(320,Math.min(600,width)),metrics:clone(ZERO),completed:false};enterStage(s,state,true);return {version:1,scenarioId:s.id,state,history:[],events:[]};
++ assertScenario(s);const state:State={stage:0,currentArea:s.stages[0].area.id,areas:[],places:[],tokens:[],discovered:[],recipesUsed:[],openedCaches:[],width:Math.max(320,Math.min(600,width)),metrics:clone(ZERO),completed:false};enterStage(s,state,true);return {version:1,lifecycleVersion:2,scenarioId:s.id,state,history:[],events:[]};
+ }
+ function resolveRecipe(s:Scenario,state:State,a:Token,b:Token|Place,isPlace:boolean):Recipe|undefined{
+  const bk=isPlace?'@'+b.id:(b as Token).kind;
+@@ -234,9 +217,9 @@
+    }else if(a.type==='combine'){
+     const isPlace=a.b.startsWith('@'),second=isPlace?place(state,a.b.slice(1)):token(state,a.b);if(!second||second.area!==state.currentArea||first.id===second.id)throw Error('Choose another thing or place in this area.');
+     const r=resolveRecipe(s,state,first,second,isPlace);if(!r){const hints=partners(s,state,first.id),incoming=hints.directions.find(h=>h.source===second.id&&h.target===first.id&&h.location),advice=hints.settingHelp.find(h=>h.source===first.id&&h.target===second.id);throw Error(incoming?incoming.text+' Only the receiving thing needs to be placed there.':advice?.text??'No new combination here.');}recipe=r.id;origin={x:second.x,y:second.y};
+-    if(r.install){const target=token(state,r.install.target),component=token(state,r.install.component);if(!target||!component)throw Error('Both component and construction must be available.');if(target.slots[r.install.slot]===component.kind)throw Error('That component is already fitted.');target.slots[r.install.slot]=component.kind;updated=target.id;state.metrics.installations++;message=`${item(s,component.kind)!.label} fitted to ${item(s,target.kind)!.label}.`;if(!needed(s,state,component,r.id)){preserveConstruction(r,target,component);target.incorporated.push(component.kind);state.tokens=state.tokens.filter(t=>t.id!==component.id);retired.push(component.id);}}
+-    else {const out:Token={id:r.out!,kind:r.out!,area:state.currentArea,location:null,slots:{},incorporated:[],x:0,y:0};Object.assign(out,adjacent(s,state,origin,state.currentArea,out,isPlace?{w:106,h:82}:size(s,second as Token)));state.tokens.push(out);state.discovered.push(out.kind);created=out.kind;state.metrics.creations++;message=`${item(s,out.kind)!.label}. ${r.description??item(s,out.kind)?.description??''}`.trim();
+-     for(const ret of incorporations(r)){const t=token(state,ret.item);if(t&&!needed(s,state,t,r.id)){preserveConstruction(r,out,t);out.incorporated.push(t.kind,...t.incorporated);state.tokens=state.tokens.filter(x=>x.id!==t.id);retired.push(t.id);}}
++    if(r.install){const target=token(state,r.install.target),component=token(state,r.install.component);if(!target||!component)throw Error('Both component and construction must be available.');if(target.slots[r.install.slot]===component.kind)throw Error('That component is already fitted.');target.slots[r.install.slot]=component.kind;updated=target.id;state.metrics.installations++;message=`${item(s,component.kind)!.label} fitted to ${item(s,target.kind)!.label}.`;preserveConstruction(r,target,component);if(!needed(s,state,component,r.id)){target.incorporated.push(component.kind);state.tokens=state.tokens.filter(t=>t.id!==component.id);retired.push(component.id);}}
++    else {const out:Token={id:r.out!,kind:r.out!,area:state.currentArea,location:null,slots:{},incorporated:[],x:0,y:0};for(const kind of r.preserve??[]){const source=token(state,kind);if(source)preserveConstruction(r,out,source);}Object.assign(out,adjacent(s,state,origin,state.currentArea,out,isPlace?{w:106,h:82}:size(s,second as Token)));state.tokens.push(out);state.discovered.push(out.kind);created=out.kind;state.metrics.creations++;message=`${item(s,out.kind)!.label}. ${r.description??item(s,out.kind)?.description??''}`.trim();
++     for(const ret of incorporations(r)){const t=token(state,ret.item);if(t&&!needed(s,state,t,r.id)){out.incorporated.push(t.kind,...t.incorporated);state.tokens=state.tokens.filter(x=>x.id!==t.id);retired.push(t.id);}}
+      // A replacement inherits the removed object's physical spot. Prefer the
+      // drop target when both inputs disappear; keep its placement identity too.
+      const primary=transformedInput(r);
+@@ -251,7 +234,6 @@
+     state.recipesUsed.push(r.id);state.metrics.combinations++;
+    }
+   }
+-  retired.push(...reconcileIncorporation(s,state));
+   if(a.type!=='advance'&&state.stage===g.state.stage&&!stageComplete(s,g.state)&&stageComplete(s,state)&&s.stages[state.stage].completionText)message+=' '+s.stages[state.stage].completionText;
+   state.metrics.attempts++;state.metrics.accepted++;
+   const event:Event={seq:g.events.length+1,action:clone(a),accepted:true,message,stage:state.stage,...recipe?{recipe}:{},...created?{created}:{},...updated?{installed:true}:{},...retired.length?{retired}:{},...transfers.length?{transfers}:{}};
+@@ -296,12 +278,25 @@
+    return Object.entries(t.slots).every(([id,k])=>def.slots?.some(slot=>slot.id===id&&slot.accepts.includes(k))&&st.discovered.includes(k));
+   });
+  };
+- if(g?.version!==1||g.scenarioId!==s.id||!validState(g.state)||!Array.isArray(g.events)||!Array.isArray(g.history)||!g.history.every(validState)||!g.events.every((e,i)=>e.seq===i+1&&typeof e.accepted==='boolean'&&e.action&&typeof e.message==='string'&&!!s.stages[e.stage]&&(!e.recipe||s.recipes.some(r=>r.id===e.recipe))&&(!e.created||!!item(s,e.created))))throw Error('Invalid campaign save');
+- // Recover fitted parts in pre-preservation saves from actual earlier token snapshots.
+- const past:State[]=[];
+- for(const st of [...g.history,g.state]){
+-  for(const id of st.recipesUsed){const r=s.recipes.find(r=>r.id===id)!;const owner=r.out?token(st,r.out)??st.tokens.find(t=>t.incorporated.includes(r.out!)):undefined;if(!owner)continue;for(const kind of r.preserve??[]){const source=token(st,kind)??past.slice().reverse().map(x=>token(x,kind)).find(Boolean);if(source)preserveConstruction(r,owner,source);}}
+-  reconcileIncorporation(s,st);past.push(st);
++ if(g?.version!==1||g.lifecycleVersion!==undefined&&g.lifecycleVersion!==2||g.scenarioId!==s.id||!validState(g.state)||!Array.isArray(g.events)||!Array.isArray(g.history)||!g.history.every(validState)||!g.events.every((e,i)=>e.seq===i+1&&typeof e.accepted==='boolean'&&e.action&&typeof e.message==='string'&&!!s.stages[e.stage]&&(!e.recipe||s.recipes.some(r=>r.id===e.recipe))&&(!e.created||!!item(s,e.created))))throw Error('Invalid campaign save');
++ // Unmarked old saves may lack visible construction details. Recover only
++ // from an observed recipe event's actual PRE-action snapshot, not a later
++ // upgraded loose copy or the catalogue. Missing history is not permission
++ // to invent parts. Never retrospectively retire a still-present object.
++ if(g.lifecycleVersion===undefined){
++  const sources=new Map<string,Token[]>();let before:State|undefined;
++  for(const st of [...g.history,g.state]){
++   for(const id of st.recipesUsed){
++    const r=s.recipes.find(r=>r.id===id)!;if(!r.preserve?.length)continue;
++    if(before&&!before.recipesUsed.includes(id))sources.set(id,r.preserve.flatMap(kind=>{const source=token(before!,kind);return source?[clone(source)]:[];}));
++    const ownerKind=r.install?.target??r.out;
++    const owner=ownerKind?token(st,ownerKind)??st.tokens.find(t=>t.incorporated.includes(ownerKind)):undefined;
++    if(!owner||r.install&&owner.kind===r.install.target&&owner.slots[r.install.slot]!==r.install.component)continue;
++    for(const source of sources.get(id)??[])preserveConstruction(r,owner,source);
++   }
++   before=st;
++  }
++  g.lifecycleVersion=2;
+  }
+  return g;
+ }
+--- a/experiments/tangible-campaign/reviews/lifecycle/lifecycle.test.ts
++++ b/experiments/tangible-campaign/reviews/lifecycle/lifecycle.test.ts
+@@ -22,24 +22,24 @@
+  assert(M.token(packed.game.state,'soup-flask')!.incorporated.includes('prepared-soup'));
+  assert.deepEqual(M.undo(r.game).game.state.tokens,before.state.tokens);
+ });
+-test('legacy soup save cleans obsolete pouch, preserves route/history, and needs no reset',()=>{
++test('unmarked legacy soup save preserves ambiguous physical copies and progress without resetting',()=>{
+  const old=structuredClone(mars);old.recipes.find(r=>r.id==='rescue-4-warm-soup')!.lifecycle=undefined;old.recipes.find(r=>r.id==='rescue-4-warm-soup')!.retire=[];
+  const legacy=M.replay(old,evidence.actionsLog.slice(0,soupIndex+1));assert(M.token(legacy.state,'prepared-soup'));
+- const restored=M.restore(mars,JSON.stringify(legacy));assert(!M.token(restored.state,'prepared-soup'));assert(M.token(restored.state,'warm-soup'));assert(M.token(restored.state,'heater'));
++ delete legacy.lifecycleVersion;const restored=M.restore(mars,JSON.stringify(legacy));assert(M.token(restored.state,'prepared-soup'),'No retrospective deletion from an unversioned historical lifecycle');assert(M.token(restored.state,'warm-soup'));assert(M.token(restored.state,'heater'));
+  assert.equal(restored.state.stage,legacy.state.stage);assert.deepEqual(restored.events,legacy.events);
+  assert.deepEqual(restored.state.recipesUsed,legacy.state.recipesUsed);assert.equal(restored.history.length,legacy.history.length);
+  assert.deepEqual(M.restore(mars,JSON.stringify(restored)),restored);
+  assert(M.token(M.undo(restored).game.state,'prepared-soup'));
+  const next=M.applyAction(mars,restored,{type:'combine',a:'warm-soup',b:'insulated-flask'});assert(next.accepted,next.message);
+ });
+-test('declared ingredient supply retires after final other use; exhausted tools stay',()=>{
++test('outside supply retained at an earlier event stays after a later non-consuming use',()=>{
+  const s:Scenario=structuredClone(fixture);s.initialItems=['frame','wheels','charger'];
+  s.recipes=[{id:'first',a:'frame',b:'wheels',out:'ice',retire:[{item:'frame',reason:'Material enters first product'}]},
+  {id:'second',a:'frame',b:'charger',out:'radio'}];
+  s.stages=[{...s.stages[0],objectives:[{id:'done',text:'Make radio',kind:'create',item:'radio'}]}];
+  let g=M.createGame(s);g=M.applyAction(s,g,{type:'combine',a:'frame',b:'wheels'}).game;assert(M.token(g.state,'frame'));
+- const r=M.applyAction(s,g,{type:'combine',a:'frame',b:'charger'});assert(r.accepted);assert(!M.token(r.game.state,'frame'));assert(r.retired?.includes('frame'));
+- assert(M.token(r.game.state,'wheels'));assert(M.token(r.game.state,'charger'));assert(M.token(r.game.state,'ice')!.incorporated.includes('frame'));
++ const r=M.applyAction(s,g,{type:'combine',a:'frame',b:'charger'});assert(r.accepted);assert(M.token(r.game.state,'frame'));assert(!r.retired?.includes('frame'));
++ assert(M.token(r.game.state,'wheels'));assert(M.token(r.game.state,'charger'));assert(!M.token(r.game.state,'ice')!.incorporated.includes('frame'));
+  assert(M.token(M.undo(r.game).game.state,'frame'));
+ });
+ test('bearing map retains reusable instrument and replaces the old map, not its source photograph',()=>{
+@@ -115,7 +115,7 @@
+ test('old assembly saves recover fitted components from real history without resetting progress',()=>{
+  const legacy=structuredClone(mars);legacy.recipes.forEach(r=>delete r.preserve);
+  const actions=evidence.actionsLog;const index=actions.findIndex((a:any)=>a.type==='combine'&&legacy.recipes.find(r=>r.id==='depot-deliver')?.a===a.a&&legacy.recipes.find(r=>r.id==='depot-deliver')?.b===a.b);
+- assert(index>=0);const old=M.replay(legacy,actions.slice(0,index+1));const restored=M.restore(mars,JSON.stringify(old));
++ assert(index>=0);const old=M.replay(legacy,actions.slice(0,index+1));delete old.lifecycleVersion;const restored=M.restore(mars,JSON.stringify(old));
+  const shuttle=M.token(restored.state,'depot-cargo-shuttle')!;
+  assert(shuttle.components?.includes('protected-controller'));assert(shuttle.components?.includes('hauler-platform'));
+  assert.equal(restored.state.stage,old.state.stage);assert.deepEqual(restored.state.metrics,old.state.metrics);assert.equal(restored.history.length,old.history.length);
+--- /dev/null
++++ b/experiments/tangible-campaign/reviews/lifecycle/event-local.test.ts
+@@ -0,0 +1,104 @@
++import test from 'node:test';
++import assert from 'node:assert/strict';
++import {readFileSync} from 'node:fs';
++import * as M from '../../engine/model.ts';
++import {incorporations,validateContentLifecycles,validateConstructionContinuity} from '../../schema/lifecycle.ts';
++import type {Scenario,Action,Recipe} from '../../schema/scenario.ts';
++import {scenarios} from '../../ui/scenarios.ts';
++const lifecycle=(...roles:[string,'retain'|'incorporate'|'transform'][])=>Object.fromEntries(roles.map(([k,role])=>[k,{role,reason:'Explicit test lifecycle: '+role}]));
++function scenario(id:string,items:string[],initialItems:string[],recipes:Recipe[],goal:string):Scenario{return {schemaVersion:1,id,title:id,premise:'Synthetic lifecycle regression',items:items.map(id=>({id,label:id})),initialItems,recipes,locations:[],stages:[{id:'one',title:'one',speaker:'Tester',motivation:'Observe tangible results',area:{id:'here',label:'here',travelText:'Start here'},objectives:[{id:'goal-one',text:'Make '+goal,kind:'create',item:goal}]}]};}
++function step(s:Scenario,g:M.Game,a:Action){const r=M.applyAction(s,g,a);assert(r.accepted,r.message);return r;}
++function route(s:Scenario):Action[]{return JSON.parse(readFileSync(new URL('../../evidence/'+s.id+'-route-evidence.json',import.meta.url),'utf8')).actionsLog;}
++function check(s:Scenario){assert.deepEqual(M.validateScenario(s),[]);assert.deepEqual(validateContentLifecycles([s]),[]);assert.deepEqual(validateConstructionContinuity([s]),[]);return s;}
++function roundtrip(s:Scenario,g:M.Game){const loaded=M.restore(s,JSON.stringify(g));assert.deepEqual(loaded,g);assert.deepEqual(M.restore(s,JSON.stringify(loaded)),loaded);return loaded;}
++
++test('every authored route removes only current authored inputs; movements and travel remove nothing',()=>{
++ for(const s of scenarios){let g=M.createGame(s);for(const action of route(s)){
++  const before=g,r=step(s,g,action);g=r.game;const recipe=s.recipes.find(x=>x.id===r.recipe);
++  const permitted=recipe?.install?[recipe.install.component]:recipe?incorporations(recipe).map(x=>x.item):[];
++  const removed=before.state.tokens.filter(t=>!M.token(g.state,t.id)).map(t=>t.id);
++  assert.deepEqual(removed.slice().sort(),(r.retired??[]).slice().sort());assert(removed.every(id=>permitted.includes(id)),s.id+':'+JSON.stringify(action));
++ }assert(g.state.completed,s.id);roundtrip(s,g);}
++});
++
++test('actual Elements keeps millstone, untouched bread and river map; no distant owner collects them',()=>{
++ const s=scenarios.find(s=>s.id==='elements-observation-revision-v6')!,wanted=new Map([['oil','millstone'],['feast-from-warm-meal','bread'],['landing-clock','river-map']]);let g=M.createGame(s),checked=0;
++ for(const action of route(s)){const before=g,r=step(s,g,action);g=r.game;const id=wanted.get(r.recipe??'');if(!id)continue;checked++;
++  assert.deepEqual(M.token(g.state,id),M.token(before.state,id));assert(M.token(g.state,id));assert(!r.retired?.includes(id));
++  for(const old of before.state.tokens.filter(t=>t.id!==r.created))if(old.id!==id&&M.token(g.state,old.id)&&![action.type==='combine'?action.a:'',action.type==='combine'?action.b:''].includes(old.id))assert.deepEqual(M.token(g.state,old.id),old);
++  roundtrip(s,g);assert.deepEqual(M.undo(g).game.state.tokens,before.state.tokens);
++ }assert.equal(checked,3);
++});
++
++test('actual Mars current retain leaves pressure patch and loose solar charger without changing old installed slots',()=>{
++ const s=scenarios.find(s=>s.id==='mars-cargo-revision-v2')!,wanted=new Map([['garden-repair','pressure-patch'],['garden-8-powered-grow-light','solar-charger']]);let g=M.createGame(s),checked=0;
++ for(const action of route(s)){const before=g,r=step(s,g,action);g=r.game;const id=wanted.get(r.recipe??'');if(!id)continue;checked++;
++  assert.deepEqual(M.token(g.state,id),M.token(before.state,id));assert(!r.retired?.includes(id));assert.deepEqual(M.token(g.state,'rover')!.slots,M.token(before.state,'rover')!.slots);roundtrip(s,g);
++ }assert.equal(checked,2);
++});
++
++test('an outside retained supply can be consumed by a later explicit event, never by an unrelated alternative',()=>{
++ const s=check(scenario('event-local',['bread','basket','picnic','fruit','porridge','compote','feast'],['bread','basket','fruit','porridge','compote'],[
++ {id:'pack',a:'bread',b:'basket',out:'picnic',lifecycle:lifecycle(['bread','incorporate'],['basket','transform'])},
++ {id:'cold',a:'bread',b:'fruit',out:'feast',lifecycle:lifecycle(['bread','incorporate'],['fruit','incorporate'])},
++ {id:'warm',a:'porridge',b:'compote',out:'feast',lifecycle:lifecycle(['porridge','incorporate'],['compote','incorporate'])}], 'feast'));
++ const packed=step(s,M.createGame(s),{type:'combine',a:'bread',b:'basket'}).game;assert(M.token(packed.state,'bread'));
++ const warm=step(s,packed,{type:'combine',a:'porridge',b:'compote'}).game;assert.deepEqual(M.token(warm.state,'bread'),M.token(packed.state,'bread'));assert(!M.token(warm.state,'picnic')!.incorporated.includes('bread'));roundtrip(s,warm);
++ const cold=step(s,packed,{type:'combine',a:'bread',b:'fruit'}).game;assert(!M.token(cold.state,'bread'));assert(M.token(cold.state,'feast')!.incorporated.includes('bread'));roundtrip(s,cold);
++});
++
++test('finished outside copy remains in its old area on advance, movement, visit and unmarked restore/history',()=>{
++ const s=check(scenario('stage',['a','b','c'],['a','b'],[{id:'c',a:'a',b:'b',out:'c',lifecycle:lifecycle(['a','incorporate'],['b','retain'])}],'a'));
++ s.stages.push({...structuredClone(s.stages[0]),id:'two',area:{id:'there',label:'there',travelText:'Go there'},objectives:[{id:'goal-two',text:'Have c',kind:'create',item:'c'}]});
++ let g=step(s,M.createGame(s),{type:'combine',a:'a',b:'b'}).game;const source=structuredClone(M.token(g.state,'a'))!;assert(M.gold(s,g.state).items.includes('a'));
++ g=step(s,g,{type:'advance'}).game;assert.deepEqual(M.token(g.state,'a'),source);assert.equal(M.token(g.state,'c')!.area,'there');
++ g=step(s,g,{type:'move',item:'c',x:180,y:200}).game;g=step(s,g,{type:'visit',area:'here'}).game;assert.deepEqual(M.token(g.state,'a'),source);roundtrip(s,g);
++ const legacy=structuredClone(g);delete legacy.lifecycleVersion;const migrated=M.restore(s,JSON.stringify(legacy));assert.deepEqual(migrated.state,g.state);assert.deepEqual(migrated.history,g.history);assert.deepEqual(migrated.events,g.events);roundtrip(s,migrated);
++});
++
++function chassis(){const s=scenario('chassis',['chassis','wheel','paint','sensor','upgrade','scan','trim','battery'],['chassis','wheel','paint','sensor','trim','battery'],[
++ {id:'wheel',a:'wheel',b:'chassis',install:{target:'chassis',slot:'wheel',component:'wheel'},lifecycle:lifecycle(['wheel','incorporate'],['chassis','retain'])},
++ {id:'upgrade',a:'chassis',b:'paint',out:'upgrade',preserve:['chassis'],lifecycle:lifecycle(['chassis','transform'],['paint','incorporate'])},
++ {id:'scan',a:'chassis',b:'sensor',out:'scan',lifecycle:lifecycle(['chassis','retain'],['sensor','retain'])},
++ {id:'trim',a:'trim',b:'chassis',install:{target:'chassis',slot:'trim',component:'trim'},lifecycle:lifecycle(['trim','incorporate'],['chassis','retain'])},
++ {id:'battery',a:'battery',b:'chassis',install:{target:'chassis',slot:'battery',component:'battery'},lifecycle:lifecycle(['battery','incorporate'],['chassis','retain'])}], 'scan');
++ s.items.find(x=>x.id==='chassis')!.slots=[{id:'wheel',accepts:['wheel']},{id:'trim',accepts:['trim']},{id:'battery',accepts:['battery']}];return check(s);}
++
++test('fitted chassis preserves parts immediately in either direction while original copy stays intact; no retroactive upgrades',()=>{
++ for(const reverse of [false,true]){const s=chassis();let g=step(s,M.createGame(s),{type:'combine',a:'wheel',b:'chassis'}).game;const source=structuredClone(M.token(g.state,'chassis'))!;const before=g;
++  const r=step(s,g,{type:'combine',a:reverse?'paint':'chassis',b:reverse?'chassis':'paint'});g=r.game;
++  assert.deepEqual(M.token(g.state,'chassis'),source);assert.deepEqual(M.token(g.state,'upgrade')!.components,['wheel']);assert.deepEqual(M.playerView(s,g).things.find(x=>x.id==='upgrade')!.components,['wheel']);roundtrip(s,g);assert.deepEqual(M.undo(g).game.state.tokens,before.state.tokens);
++  g=step(s,g,{type:'combine',a:'trim',b:'chassis'}).game;g=step(s,g,{type:'combine',a:'battery',b:'chassis'}).game;g=step(s,g,{type:'combine',a:'chassis',b:'sensor'}).game;
++  assert(M.token(g.state,'chassis'));assert.deepEqual(M.token(g.state,'upgrade')!.components,['wheel']);roundtrip(s,g);
++ }
++});
++
++test('actual optional Mars fitted radio preserves stand at installation while outside radio remains, both directions',()=>{
++ const s=scenarios.find(s=>s.id==='mars-cargo-revision-v2')!,actions=route(s),index=actions.findIndex(a=>a.type==='combine'&&[a.a,a.b].includes('antenna-stand'));assert(index>=0);
++ for(const reverse of [false,true]){let g=M.replay(s,actions.slice(0,index+1));g=step(s,g,{type:'visit',area:M.token(g.state,'rover')!.area,carry:['long-range-radio']}).game;
++  const before=g,radio=structuredClone(M.token(g.state,'long-range-radio'))!;const r=step(s,g,{type:'combine',a:reverse?'rover':'long-range-radio',b:reverse?'long-range-radio':'rover'});g=r.game;
++  assert.equal(r.recipe,'rover-5-survey-rover');assert.deepEqual(M.token(g.state,'long-range-radio'),radio);assert.equal(M.token(g.state,'rover')!.slots.radio,'long-range-radio');assert(M.token(g.state,'rover')!.components?.includes('antenna-stand'));
++  const view=M.playerView(s,g).things.find(x=>x.id==='rover')!;assert(view.components.includes('Antenna stand'));assert(!view.components.includes('Long range radio'),'direct slot label is not duplicated');roundtrip(s,g);assert.deepEqual(M.undo(g).game.state.tokens,before.state.tokens);
++ }
++});
++
++test('legacy construction recovery uses actual pre-event parts; later fitted additions do not flow backward',()=>{
++ const s=chassis(),old=structuredClone(s);delete old.recipes.find(r=>r.id==='upgrade')!.preserve;
++ let g=step(old,M.createGame(old),{type:'combine',a:'wheel',b:'chassis'}).game;g=step(old,g,{type:'combine',a:'chassis',b:'paint'}).game;g=step(old,g,{type:'combine',a:'trim',b:'chassis'}).game;delete g.lifecycleVersion;
++ const loaded=M.restore(s,JSON.stringify(g));assert.deepEqual(M.token(loaded.state,'upgrade')!.components,['wheel']);assert.equal(M.token(loaded.state,'chassis')!.slots.trim,'trim');assert.deepEqual(loaded.events,g.events);assert.deepEqual(loaded.state.metrics,g.state.metrics);roundtrip(s,loaded);
++ const trimmed=structuredClone(g);trimmed.history=[];const insufficient=M.restore(s,JSON.stringify(trimmed));assert.equal(M.token(insufficient.state,'upgrade')!.components,undefined,'no retained pre-event snapshot means no guess from the later source');roundtrip(s,insufficient);
++});
++
++test('unmarked legacy installation recovers actual nested parts without removing source or inventing absent history',()=>{
++ const s=scenarios.find(s=>s.id==='mars-cargo-revision-v2')!,old=structuredClone(s),actions=route(s);delete old.recipes.find(r=>r.id==='rover-5-survey-rover')!.preserve;
++ const index=actions.findIndex(a=>a.type==='combine'&&[a.a,a.b].includes('antenna-stand'));let g=M.replay(old,actions.slice(0,index+1));g=step(old,g,{type:'visit',area:M.token(g.state,'rover')!.area,carry:['long-range-radio']}).game;g=step(old,g,{type:'combine',a:'rover',b:'long-range-radio'}).game;delete g.lifecycleVersion;
++ const loaded=M.restore(s,JSON.stringify(g));assert(M.token(loaded.state,'rover')!.components?.includes('antenna-stand'));assert.deepEqual(M.token(loaded.state,'long-range-radio'),M.token(g.state,'long-range-radio'));assert.deepEqual(loaded.events,g.events);roundtrip(s,loaded);
++ const noHistory=structuredClone(g);noHistory.history=[];assert.equal(M.token(M.restore(s,JSON.stringify(noHistory)).state,'rover')!.components,undefined);
++});
++
++test('an immediate fitted transformation stays in place, preserves components and does not resurrect the retired input on load',()=>{
++ const s=chassis();s.recipes=s.recipes.filter(r=>!['scan','trim','battery'].includes(r.id));s.stages[0].objectives=[{id:'done',text:'Make upgrade',kind:'create',item:'upgrade'}];
++ let g=step(s,M.createGame(s),{type:'combine',a:'wheel',b:'chassis'}).game;g=step(s,g,{type:'move',item:'chassis',x:180,y:240}).game;const source=structuredClone(M.token(g.state,'chassis'))!;
++ g=step(s,g,{type:'combine',a:'paint',b:'chassis'}).game;assert(!M.token(g.state,'chassis'));const out=M.token(g.state,'upgrade')!;assert.deepEqual([out.x,out.y],[source.x,source.y]);assert.deepEqual(out.components,['wheel']);roundtrip(s,g);
++ delete g.lifecycleVersion;const oldLoaded=M.restore(s,JSON.stringify(g));assert(!M.token(oldLoaded.state,'chassis'));assert.deepEqual(oldLoaded.state.tokens,g.state.tokens);roundtrip(s,oldLoaded);
++});
+--- a/experiments/tangible-campaign/reviews/lifecycle/AUDIT.md
++++ b/experiments/tangible-campaign/reviews/lifecycle/AUDIT.md
+@@ -1,4 +1,6 @@
+ # Object lifecycle audit — 27 October 2026
++
++> **Policy correction, 28 October:** The historical last-use cleanup described below is superseded by event-local retirement. Retained outside copies remain physical until a later recipe explicitly consumes them. Current restore never deletes or resurrects tokens. Construction is preserved at the event even when its source remains. See [EVENT_LOCAL_POLICY.md](EVENT_LOCAL_POLICY.md) for changed expectations and bounded legacy recovery.
+ 
+ Reviewed all 731 recipes in the nine active journeys. 384 recipes had missing or incorrect input-incorporation declarations; the nursery also referenced an obsolete tray instead of its current propagator. The five archived scenarios keep their historical authored content, but their routes remain in regression checks.
+ 
+--- /dev/null
++++ b/experiments/tangible-campaign/reviews/lifecycle/EVENT_LOCAL_POLICY.md
+@@ -0,0 +1,30 @@
++# Event-local lifecycle correction — 28 October 2026
++
++## Rule
++
++Only the accepted combination/installation may retire inputs declared transformed/incorporated by **that recipe**. The existing `needed` check still protects future useful inputs and current/future objectives at that event. An outside copy or qualitative supply deliberately left then remains physical until a later recipe explicitly consumes it. Discovering an alternative output, an unrelated last use, moving, visiting, advancing, or loading never retroactively absorbs it into an old product.
++
++This is not a finite-resource simulation or blanket retention. Immediate replacements, consumed ingredients, and installations still retire their actual inputs when no remaining use protects them. Finished leftovers remain in their current areas. Scene-local carry, not deletion, controls the next chapter's contents.
++
++Declared construction contents are copied into the new owner's visible components at the event, even when an outside source remains. Creation placement uses the resulting component height. The original source keeps its fitted slots and position. A later modification of that separate source must not appear retroactively in the earlier assembly. Direct slot labels are not duplicated as component labels.
++
++## Why the old green suite was insufficient
++
++The previous runtime deliberately reconciled all earlier incorporations after every action and on restore. The previous final-use regression required that policy. It allowed Seed oil to delete its explicitly retained Millstone into an old Grain mill, and Porridge + Compote to delete untouched Bread into an old Picnic basket. Neither current action visibly explained those removals. The older audit and generic “retain a supply only while another authored use needs it” reasons described that superseded policy; the future-use safeguard is now evaluated **at the recipe event**, not continuously afterward.
++
++Preservation was also guarded by retirement. A retained source could keep its own fitted parts while the new assembly omitted them. That omission is not proof that the original source's slot data was destroyed. Optional Mars radio installation and synthetic fitted chassis tests cover both sides of this distinction.
++
++## Save compatibility and deliberate limits
++
++- The outer save schema remains `version: 1`. `lifecycleVersion: 2` marks event-local decisions and construction snapshots. Marked saves restore without reinterpretation, including their undo history.
++- Unmarked valid old saves load without resets, token deletion, token resurrection, changed events, or changed metrics. Already absent incorporated inputs remain absent. Existing outside copies remain present at their recorded coordinates.
++- The only migration is additive **visible construction metadata** recovery. It requires adjacent retained snapshots that show a preserved recipe becoming used, takes the source's actual pre-action fitted parts, and follows the recorded output/owner lineage. It also covers installations.
++- A currently retained source that was upgraded later is not evidence of what an earlier assembly contained. Recovery never uses its later state, item-definition possibilities, or fabricated default parts.
++- If the relevant pre-action snapshot has fallen outside the saved history (normally the last 100 accepted actions), missing old components remain unknown. No parts are invented. A migrated save is marked so recovery is idempotent.
++- **Changed legacy soup expectation:** an unmarked pre-lifecycle save that physically contains both the obsolete prepared pouch and warmed soup keeps that ambiguous old copy. Generic graph exhaustion is no longer used to “clean” it. New play still transforms the pouch immediately, and existing old progress/next recipes remain usable. A future narrowly identified historical repair would need its own provenance and tests.
++
++## Coverage
++
++`event-local.test.ts` covers current-recipe-only retirement on every existing authored route; actual Elements Millstone, Bread and River map; Mars retained Solar charger and Pressure patch; explicit later consumption; advance/move/visit and restore/history persistence; fitted chassis and actual optional radio installation in both directions; old output and installation recovery; truncated-history limits; immediate fitted replacement position and non-resurrection. The old last-use test was revised rather than quietly removed; the old soup test now records the explicit migration limit.
++
++Required integration checks remain `npm run build` and `node --test tests/tangible-campaign.test.ts`. The isolated review also compares old/new route actions and local clutter, including current research candidates. Those research runs do not make candidates released campaigns or constitute native/human playtesting.
+--- a/tests/tangible-campaign.test.ts
++++ b/tests/tangible-campaign.test.ts
+@@ -8,3 +8,5 @@
+ import {scenarios} from '../experiments/tangible-campaign/ui/scenarios.ts';
+ import {validateScenario,replay,checkpoint} from '../experiments/tangible-campaign/engine/model.ts';
+ for(const s of scenarios)test('Shared browser data: '+s.id+' exact authored route and checkpoints',()=>{assert.deepEqual(validateScenario(s),[]);const evidence=JSON.parse(readFileSync(new URL('../experiments/tangible-campaign/evidence/'+s.id+'-route-evidence.json',import.meta.url),'utf8'));const game=replay(s,evidence.actionsLog);assert(game.state.completed);assert.equal(game.state.metrics.combinations,evidence.combinations);for(const c of s.checkpoints??[])assert(checkpoint(s,c.id));});
++
++import '../experiments/tangible-campaign/reviews/lifecycle/event-local.test.ts';
+--- a/DESIGN_PRINCIPLES.md
++++ b/DESIGN_PRINCIPLES.md
+@@ -14,6 +14,8 @@
+ ## Objects retain identity
+ 
+ - Each recipe explicitly declares every object input as `transform`, `incorporate`, or `retain`, with a reason. Exhausting an input's future uses is a warning to review its lifecycle, never permission to delete it automatically.
++- Apply authored removal only at the actual combining or installing event. If another use or objective requires an outside copy/supply to remain then, it stays tangible until a later action explicitly transforms or incorporates it. Do not retroactively absorb it into an old owner when an unrelated action, alternative recipe, chapter advance or reload exhausts its remaining uses. Leave finished leftovers in their areas; scene-local carry controls clutter.
++- Preserve a declared construction's fitted contents visibly at the combining/installing event even when its outside source copy remains useful. The new assembly receives that event's actual construction snapshot, not later additions to the separate copy. Preserving the new assembly's visible parts does not move or alter the retained source copy.
+ - A transformation replaces its primary input at exactly that object's position, with a brief creation animation, in either drag direction. Do not place its replacement to one side.
+ - Context matters: putting material into a seed tray should leave the result at the tray. A reusable tool used there should remain a tool. Do not apply a blanket “everything stays” rule.
+ - Soup pouch → warmed soup is one evolving object. Its empty earlier state should not remain as a useless duplicate. Heater, references and other reusable equipment survive. Shared supplies can remain while another authored branch needs them.

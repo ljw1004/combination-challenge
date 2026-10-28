@@ -1,5 +1,10 @@
 # Combination Challenge
 
+## Latest shared-runtime guidance (28 October 2026)
+
+The 61a9 live checkpoint supersedes the earlier statement below that the manuscript reader was not live. The shared reader, generalized long-label layout, event-local input retirement and immediate fitted-component preservation are live; story overhauls are still research. Follow the updated DESIGN_PRINCIPLES.md and experiments/tangible-campaign/reviews/lifecycle/EVENT_LOCAL_POLICY.md. A retained input is not retroactively absorbed by unrelated later actions or reload; preserve declared fitted contents on the new owner at the actual event, without modifying the surviving source. Keep conservative evidence-based legacy save limits explicit. Earlier combination/fun/empirical-evaluation goals and unmodified history below remain in force.
+
+
 Goal: a game prototype that takes the combination challenge from Little Alchemy 2 or Doodle God, but with the following:
 - it doesn't have the frustrating feeling of having to experiment to discover someone's arbitrary ontology
 - it has a game, a challenge, effort, skill, reward

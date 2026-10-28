@@ -1,0 +1,648 @@
+{
+  "scope": "Current behavior characterization, NOT corrected runtime assertions",
+  "synthetic": {
+    "bread": {
+      "actions": [
+        {
+          "type": "combine",
+          "a": "bread",
+          "b": "basket"
+        },
+        {
+          "type": "combine",
+          "a": "porridge",
+          "b": "compote"
+        }
+      ],
+      "retired": [
+        "porridge",
+        "compote",
+        "bread"
+      ],
+      "before": [
+        {
+          "id": "bread",
+          "area": "here",
+          "slots": {},
+          "components": [],
+          "incorporated": []
+        },
+        {
+          "id": "fruit",
+          "area": "here",
+          "slots": {},
+          "components": [],
+          "incorporated": []
+        },
+        {
+          "id": "porridge",
+          "area": "here",
+          "slots": {},
+          "components": [],
+          "incorporated": []
+        },
+        {
+          "id": "compote",
+          "area": "here",
+          "slots": {},
+          "components": [],
+          "incorporated": []
+        },
+        {
+          "id": "picnic",
+          "area": "here",
+          "slots": {},
+          "components": [],
+          "incorporated": [
+            "basket"
+          ]
+        }
+      ],
+      "after": [
+        {
+          "id": "fruit",
+          "area": "here",
+          "slots": {},
+          "components": [],
+          "incorporated": []
+        },
+        {
+          "id": "picnic",
+          "area": "here",
+          "slots": {},
+          "components": [],
+          "incorporated": [
+            "basket",
+            "bread"
+          ]
+        },
+        {
+          "id": "feast",
+          "area": "here",
+          "slots": {},
+          "components": [],
+          "incorporated": [
+            "porridge",
+            "compote"
+          ]
+        }
+      ],
+      "undoRestoresTokens": true
+    },
+    "mill": {
+      "actions": [
+        {
+          "type": "combine",
+          "a": "gearing",
+          "b": "stone"
+        },
+        {
+          "type": "combine",
+          "a": "seeds",
+          "b": "stone"
+        }
+      ],
+      "retired": [
+        "seeds",
+        "stone"
+      ],
+      "after": [
+        {
+          "id": "mill",
+          "area": "here",
+          "slots": {},
+          "components": [],
+          "incorporated": [
+            "gearing",
+            "stone"
+          ]
+        },
+        {
+          "id": "oil",
+          "area": "here",
+          "slots": {},
+          "components": [],
+          "incorporated": [
+            "seeds"
+          ]
+        }
+      ]
+    },
+    "advance": {
+      "actions": [
+        {
+          "type": "combine",
+          "a": "a",
+          "b": "b"
+        },
+        {
+          "type": "advance"
+        }
+      ],
+      "retired": [
+        "a"
+      ],
+      "transfers": [
+        {
+          "item": "c",
+          "from": "here",
+          "to": "there"
+        }
+      ],
+      "after": [
+        {
+          "id": "b",
+          "area": "here",
+          "slots": {},
+          "components": [],
+          "incorporated": []
+        },
+        {
+          "id": "c",
+          "area": "there",
+          "slots": {},
+          "components": [],
+          "incorporated": [
+            "a"
+          ]
+        }
+      ]
+    },
+    "preserve": {
+      "actions": [
+        {
+          "type": "combine",
+          "a": "wheel",
+          "b": "chassis"
+        },
+        {
+          "type": "combine",
+          "a": "chassis",
+          "b": "paint"
+        }
+      ],
+      "beforeReload": [
+        {
+          "id": "chassis",
+          "area": "here",
+          "slots": {
+            "wheel": "wheel"
+          },
+          "components": [],
+          "incorporated": [
+            "wheel"
+          ]
+        },
+        {
+          "id": "sensor",
+          "area": "here",
+          "slots": {},
+          "components": [],
+          "incorporated": []
+        },
+        {
+          "id": "upgrade",
+          "area": "here",
+          "slots": {},
+          "components": [],
+          "incorporated": [
+            "paint"
+          ]
+        }
+      ],
+      "afterReload": [
+        {
+          "id": "chassis",
+          "area": "here",
+          "slots": {
+            "wheel": "wheel"
+          },
+          "components": [],
+          "incorporated": [
+            "wheel"
+          ]
+        },
+        {
+          "id": "sensor",
+          "area": "here",
+          "slots": {},
+          "components": [],
+          "incorporated": []
+        },
+        {
+          "id": "upgrade",
+          "area": "here",
+          "slots": {},
+          "components": [
+            "wheel"
+          ],
+          "incorporated": [
+            "paint"
+          ]
+        }
+      ],
+      "afterFinalUnrelatedUse": [
+        {
+          "id": "sensor",
+          "area": "here",
+          "slots": {},
+          "components": [],
+          "incorporated": []
+        },
+        {
+          "id": "upgrade",
+          "area": "here",
+          "slots": {},
+          "components": [
+            "wheel"
+          ],
+          "incorporated": [
+            "paint",
+            "chassis",
+            "wheel"
+          ]
+        },
+        {
+          "id": "scan",
+          "area": "here",
+          "slots": {},
+          "components": [],
+          "incorporated": []
+        }
+      ],
+      "validatorsPass": true
+    },
+    "installPreserve": {
+      "actions": [
+        {
+          "type": "combine",
+          "a": "battery",
+          "b": "module"
+        },
+        {
+          "type": "combine",
+          "a": "module",
+          "b": "chassis"
+        }
+      ],
+      "beforeReload": [
+        {
+          "id": "chassis",
+          "area": "here",
+          "slots": {
+            "module": "module"
+          },
+          "components": [],
+          "incorporated": []
+        },
+        {
+          "id": "module",
+          "area": "here",
+          "slots": {
+            "battery": "battery"
+          },
+          "components": [],
+          "incorporated": [
+            "battery"
+          ]
+        },
+        {
+          "id": "sensor",
+          "area": "here",
+          "slots": {},
+          "components": [],
+          "incorporated": []
+        }
+      ],
+      "afterReload": [
+        {
+          "id": "chassis",
+          "area": "here",
+          "slots": {
+            "module": "module"
+          },
+          "components": [],
+          "incorporated": []
+        },
+        {
+          "id": "module",
+          "area": "here",
+          "slots": {
+            "battery": "battery"
+          },
+          "components": [],
+          "incorporated": [
+            "battery"
+          ]
+        },
+        {
+          "id": "sensor",
+          "area": "here",
+          "slots": {},
+          "components": [],
+          "incorporated": []
+        }
+      ],
+      "afterFinalUnrelatedUse": [
+        {
+          "id": "chassis",
+          "area": "here",
+          "slots": {
+            "module": "module"
+          },
+          "components": [
+            "module",
+            "battery"
+          ],
+          "incorporated": [
+            "module",
+            "battery"
+          ]
+        },
+        {
+          "id": "sensor",
+          "area": "here",
+          "slots": {},
+          "components": [],
+          "incorporated": []
+        },
+        {
+          "id": "scan",
+          "area": "here",
+          "slots": {},
+          "components": [],
+          "incorporated": []
+        }
+      ]
+    }
+  },
+  "actual": {
+    "marsRadio": {
+      "prefixActions": 75,
+      "extraActions": [
+        {
+          "type": "visit",
+          "area": "area-rescue",
+          "carry": [
+            "long-range-radio"
+          ]
+        },
+        {
+          "type": "combine",
+          "a": "long-range-radio",
+          "b": "rover"
+        }
+      ],
+      "radioBefore": {
+        "id": "long-range-radio",
+        "kind": "long-range-radio",
+        "area": "area-camp",
+        "location": null,
+        "slots": {
+          "stand": "antenna-stand"
+        },
+        "incorporated": [
+          "solar-radio",
+          "radio",
+          "broken-radio",
+          "cable",
+          "dish-antenna",
+          "antenna-stand"
+        ],
+        "x": 52,
+        "y": 56
+      },
+      "roverAfter": {
+        "id": "rover",
+        "kind": "rover",
+        "area": "area-rescue",
+        "location": null,
+        "slots": {
+          "drive": "drive-unit",
+          "traction-power": "solar-charger",
+          "restraint": "seat-harness",
+          "radio": "long-range-radio"
+        },
+        "incorporated": [
+          "wheels",
+          "drive-unit",
+          "seat-harness"
+        ],
+        "x": 52,
+        "y": 176.5
+      },
+      "radioAfter": {
+        "id": "long-range-radio",
+        "kind": "long-range-radio",
+        "area": "area-rescue",
+        "location": null,
+        "slots": {
+          "stand": "antenna-stand"
+        },
+        "incorporated": [
+          "solar-radio",
+          "radio",
+          "broken-radio",
+          "cable",
+          "dish-antenna",
+          "antenna-stand"
+        ],
+        "x": 150,
+        "y": 109.5
+      },
+      "roverView": {
+        "id": "rover",
+        "label": "Rover",
+        "description": "A wheeled chassis is a recognizable rover with unfilled component slots.",
+        "x": 52,
+        "y": 176.5,
+        "location": null,
+        "gold": false,
+        "slots": [
+          {
+            "id": "slot1",
+            "filled": true,
+            "label": "Drive unit"
+          },
+          {
+            "id": "slot2",
+            "filled": true,
+            "label": "Solar charger"
+          },
+          {
+            "id": "slot3",
+            "filled": true,
+            "label": "Long range radio"
+          },
+          {
+            "id": "slot4",
+            "filled": true,
+            "label": "Seat harness"
+          }
+        ],
+        "components": [],
+        "functional": true
+      },
+      "reloadAddsStand": false
+    },
+    "frozenV7": {
+      "scenario": "elements-gathering-refinement-v7",
+      "exactFullReplay": true,
+      "reviewedAndFrozenEnginesMatch": true,
+      "events": [
+        {
+          "seq": 183,
+          "recipe": "oil",
+          "action": {
+            "type": "combine",
+            "a": "seeds",
+            "b": "millstone"
+          },
+          "sourceBefore": {
+            "id": "millstone",
+            "kind": "millstone",
+            "area": "area-washday",
+            "location": null,
+            "slots": {},
+            "incorporated": [],
+            "x": 250,
+            "y": 56
+          },
+          "retired": [
+            "seeds",
+            "millstone"
+          ],
+          "ownersAfter": [
+            {
+              "id": "grain-mill",
+              "kind": "grain-mill",
+              "area": "area-mill",
+              "location": null,
+              "slots": {},
+              "incorporated": [
+                "mill-gearing",
+                "millstone"
+              ],
+              "x": 248,
+              "y": 290
+            }
+          ],
+          "currentRecipe": {
+            "id": "oil",
+            "a": "seeds",
+            "b": "millstone",
+            "out": "oil",
+            "lifecycle": {
+              "seeds": {
+                "role": "transform",
+                "reason": "Seeds is the existing object changed into Seed oil."
+              },
+              "millstone": {
+                "role": "retain",
+                "reason": "Millstone is reused as equipment, a source/reference, a subject of observation, or a continuing supply; this action does not consume it."
+              }
+            }
+          },
+          "previousAuthoredRecipes": [
+            {
+              "id": "grain-mill",
+              "a": "mill-gearing",
+              "b": "millstone",
+              "out": "grain-mill",
+              "lifecycle": {
+                "mill-gearing": {
+                  "role": "incorporate",
+                  "reason": "Mill gearing becomes part of the result; retain a supply only while another authored use needs it."
+                },
+                "millstone": {
+                  "role": "incorporate",
+                  "reason": "Millstone becomes part of the result; retain a supply only while another authored use needs it."
+                }
+              }
+            }
+          ]
+        },
+        {
+          "seq": 195,
+          "recipe": "feast-from-warm-meal",
+          "action": {
+            "type": "combine",
+            "a": "compote",
+            "b": "porridge"
+          },
+          "sourceBefore": {
+            "id": "bread",
+            "kind": "bread",
+            "area": "area-kitchen",
+            "location": null,
+            "slots": {},
+            "incorporated": [
+              "risen-dough",
+              "dough"
+            ],
+            "x": 152,
+            "y": 102
+          },
+          "retired": [
+            "porridge",
+            "compote",
+            "bread"
+          ],
+          "ownersAfter": [
+            {
+              "id": "picnic-basket",
+              "kind": "picnic-basket",
+              "area": "area-bakery",
+              "location": null,
+              "slots": {},
+              "incorporated": [
+                "basket",
+                "bread",
+                "risen-dough",
+                "dough"
+              ],
+              "x": 308,
+              "y": 102
+            }
+          ],
+          "currentRecipe": {
+            "id": "feast-from-warm-meal",
+            "a": "porridge",
+            "b": "compote",
+            "out": "feast",
+            "description": "Bowls of warm porridge and fruit compote make a meal to share. The bread-and-fruit feast is still welcome, too.",
+            "lifecycle": {
+              "porridge": {
+                "role": "incorporate",
+                "reason": "Porridge becomes part of the result; retain a supply only while another authored use needs it."
+              },
+              "compote": {
+                "role": "incorporate",
+                "reason": "Fruit compote becomes part of the result; retain a supply only while another authored use needs it."
+              }
+            }
+          },
+          "previousAuthoredRecipes": [
+            {
+              "id": "picnic-basket",
+              "a": "bread",
+              "b": "basket",
+              "out": "picnic-basket",
+              "lifecycle": {
+                "bread": {
+                  "role": "incorporate",
+                  "reason": "Bread becomes part of the result; retain a supply only while another authored use needs it."
+                },
+                "basket": {
+                  "role": "transform",
+                  "reason": "Basket is the existing object changed into Picnic basket."
+                }
+              }
+            }
+          ]
+        }
+      ],
+      "report": "Stopped satisfied at the shared meal, stage 24. I expected practical combinations to help the arriving visitors; the washstand, filter chain and soap were mostly inferable. Water into a bowl and grain into a glazed bowl failed without explanation, so I used partner hints. The cooking-pot hearth error was particularly clear and useful. Making hot dishes and immediately seeing cooks serve them felt like a real payoff; I wanted to reach the table, not exhaust every recipe. The soap chain was competent but routine. Object persistence felt inconsistent: filling the same glazed bottle leaves the original empty bottle, while making seed oil removes the millstone. Combining compote and porridge also removed bread although I had not used it. I would stop comfortably here; mild curiosity about A gift for winter, not a strong urge to start another crafting chain. Logical interface only, not human or native UI evidence."
+    }
+  }
+}

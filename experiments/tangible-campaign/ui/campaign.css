@@ -40,3 +40,18 @@ dialog button,dialog select{min-height:44px}
 .chooser a{display:block;margin:10px 0;padding:14px;border:1px solid #b5a58a;border-radius:8px;color:inherit;text-decoration:none;background:#fffaf0}.chooser p{line-height:1.5;font-size:14px}.chooser a,.chooser p{overflow-wrap:anywhere}
 @media(max-height:420px){.hud-stack{max-width:min(68vw,240px)}.objectives{max-height:18dvh}.objective-overlay{padding:3px 2px 3px 6px}dialog{max-height:94dvh;padding:16px}}
 @media(prefers-reduced-motion:reduce){.born{animation:none}}
+
+/* Source fragments stay ordinary rounded things. A small mark offers reading,
+   never a different object grammar or an automatic instructional popup. */
+.source-marker{display:block;height:12px;line-height:12px;text-align:right;color:#6c735d;pointer-events:none}
+.read-source{position:absolute;z-index:34;bottom:max(12px,env(safe-area-inset-bottom));left:50%;transform:translateX(-50%);min-height:44px;min-width:44px;max-width:calc(100% - 24px);width:max-content;border:1px solid #8d8068;border-radius:8px;padding:10px 14px;background:#fffaf0;font-size:13px;overflow-wrap:anywhere}
+.is-dragging .read-source{visibility:hidden;pointer-events:none}
+#source-reader{width:min(92vw,430px);padding:18px;max-height:82dvh}
+.reader-heading{display:flex;align-items:flex-start;gap:12px}.reader-heading h1{flex:1;min-width:0;margin:8px 0;font-size:19px;overflow-wrap:anywhere}.reader-heading button{width:44px;min-width:44px;padding:0;font-size:22px;background:transparent}
+#source-reader .reading-text{white-space:pre-wrap;overflow-wrap:anywhere;margin:14px 0;font-family:Georgia,serif;font-size:17px;line-height:1.65}
+#source-reader .reading-attribution{white-space:pre-wrap;overflow-wrap:anywhere;font-size:12px;line-height:1.5;color:#6c735d;margin:18px 0 0}
+
+/* Explicit long-label lines share the engine's 14px line box and 10px
+   padding/border allowance. Only real readings add a 12px source marker. */
+.text-thing{font-family:Arial,Helvetica,sans-serif;line-height:14px}
+.item-label,.item-label-line{display:block}.item-label-line{white-space:pre}
