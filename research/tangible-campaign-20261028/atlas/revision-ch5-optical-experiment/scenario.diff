@@ -1,0 +1,366 @@
+--- frozen-v5/scenario.json
++++ chapter5-optics-candidate/scenario.json
+@@ -704,12 +704,17 @@
+     },
+     {
+       "id": "lamp",
+-      "label": "Lamp",
+-      "description": "A movable source of light, not a physical ray.",
++      "label": "Two lamps H/L + movable cover",
++      "description": "Two lamps can shine at the same time. Their fixed marks are H and L on the positions card. A separate opaque cover can screen either lamp before its light reaches the opening; it does not cover the opening or a patch on the receiving screen. The comparison record supplies the trial observations: this game is not a live light simulation.",
+       "sources": [
+         "optics",
+-        "optics-manuscript"
+-      ]
++        "optics-manuscript",
++        "optics-lamps-primary"
++      ],
++      "reading": {
++        "text": "Two lamps can shine at the same time. Their fixed marks are H and L on the positions card. A separate opaque cover can screen either lamp before its light reaches the opening; it does not cover the opening or a patch on the receiving screen. The comparison record supplies the trial observations: this game is not a live light simulation.",
++        "attribution": "Authored two-lamp teaching adaptation in modern diagram notation, not a surviving experimental notebook or historical quotation. Based on Ibn al-Haytham, Optics I.6 §§85–87, A. I. Sabra translation (1989), pp.90–91."
++      }
+     },
+     {
+       "id": "opaque-board",
+@@ -749,12 +754,17 @@
+     },
+     {
+       "id": "source-positions",
+-      "label": "Two lamp positions",
+-      "description": "Two marked source positions permit a deliberate comparison without changing the aperture.",
++      "label": "H above O; L below O; screen beyond O",
++      "description": "Side view of the authored setup: both lamps are left of the small aperture O; a white receiving screen is on the right, in the dark room. H is one unit above O, L one unit below. The lamps are equally far left of O, and the screen is that same horizontal distance to its right. Units are arbitrary. Keep both lamps, O and the screen fixed; change only which lamp is covered. Light travels through uniform air, and the two receiving patches can be distinguished.",
+       "sources": [
+         "optics",
+-        "optics-manuscript"
+-      ]
++        "optics-manuscript",
++        "optics-lamps-primary"
++      ],
++      "reading": {
++        "text": "Side view of the authored setup: both lamps are left of the small aperture O; a white receiving screen is on the right, in the dark room. H is one unit above O, L one unit below. The lamps are equally far left of O, and the screen is that same horizontal distance to its right. Units are arbitrary. Keep both lamps, O and the screen fixed; change only which lamp is covered. Light travels through uniform air, and the two receiving patches can be distinguished.",
++        "attribution": "Authored two-lamp teaching adaptation in modern diagram notation, not a surviving experimental notebook or historical quotation. Based on Ibn al-Haytham, Optics I.6 §§85–87, A. I. Sabra translation (1989), pp.90–91."
++      }
+     },
+     {
+       "id": "aperture-board",
+@@ -776,8 +786,8 @@
+     },
+     {
+       "id": "camera-obscura",
+-      "label": "Camera obscura",
+-      "description": "In darkness an inverted image appears: upper and lower paths cross at the aperture. This demonstration is not an exclusive-inventor claim.",
++      "label": "Camera obscura: doorway top appears below",
++      "description": "The dark-room camera forms an inverted courtyard image: the upper doorway appears below and the lower paving above. The same opening and receiving screen can then be used with the two fixed lamps. This is a familiar construction, not an exclusive-inventor claim.",
+       "sources": [
+         "optics",
+         "optics-manuscript"
+@@ -785,57 +795,87 @@
+     },
+     {
+       "id": "ray-diagram",
+-      "label": "Ray diagram",
+-      "description": "Straight lines model light propagation in a uniform medium; a ray is a representation, not a luminous thread.",
++      "label": "Equal steps: H → lower; L → upper",
++      "description": "Use the corrected proof’s discipline: preserve equal relations rather than trust a sketch. Assume a straight light path in uniform air. Along one straight line, equal horizontal runs have equal vertical changes. H→O drops one unit; the equally long run beyond O drops one more, reaching the lower screen mark (−1). L→O rises one unit; continuing equally far rises one more, reaching the upper mark (+1). Thus H→lower and L→upper. The earlier equality reasoning helps work out this consequence; the old triangle proof does not establish the physical straight-path assumption. A ray is a drawn path, not a luminous thread.",
+       "sources": [
+         "optics",
+-        "optics-manuscript"
+-      ]
++        "optics-manuscript",
++        "optics-lamps-primary"
++      ],
++      "reading": {
++        "text": "Use the corrected proof’s discipline: preserve equal relations rather than trust a sketch. Assume a straight light path in uniform air. Along one straight line, equal horizontal runs have equal vertical changes. H→O drops one unit; the equally long run beyond O drops one more, reaching the lower screen mark (−1). L→O rises one unit; continuing equally far rises one more, reaching the upper mark (+1). Thus H→lower and L→upper. The earlier equality reasoning helps work out this consequence; the old triangle proof does not establish the physical straight-path assumption. A ray is a drawn path, not a luminous thread.",
++        "attribution": "Authored two-lamp teaching adaptation in modern diagram notation, not a surviving experimental notebook or historical quotation. Based on Ibn al-Haytham, Optics I.6 §§85–87, A. I. Sabra translation (1989), pp.90–91."
++      }
+     },
+     {
+       "id": "crossed-rays",
+-      "label": "Crossed rays",
+-      "description": "Tracing paths through the opening explains the image inversion geometrically.",
++      "label": "Crossing paths invert the courtyard image",
++      "description": "The straight path from the doorway’s top crosses the aperture and reaches the lower part of the screen; the path from the paving reaches the upper part. This agrees with the inverted camera image. In the marked lamp setup the same geometry gives H→lower and L→upper. Paths cross at O, but a crossing drawn on paper alone does not show whether the light contributions remain separable. Covering just one lamp can test that claim.",
+       "sources": [
+         "optics",
+-        "optics-manuscript"
+-      ]
++        "optics-manuscript",
++        "optics-lamps-primary"
++      ],
++      "reading": {
++        "text": "The straight path from the doorway’s top crosses the aperture and reaches the lower part of the screen; the path from the paving reaches the upper part. This agrees with the inverted camera image. In the marked lamp setup the same geometry gives H→lower and L→upper. Paths cross at O, but a crossing drawn on paper alone does not show whether the light contributions remain separable. Covering just one lamp can test that claim.",
++        "attribution": "Authored two-lamp teaching adaptation in modern diagram notation, not a surviving experimental notebook or historical quotation. Based on Ibn al-Haytham, Optics I.6 §§85–87, A. I. Sabra translation (1989), pp.90–91."
++      }
+     },
+     {
+       "id": "predicted-spots",
+-      "label": "Predicted spots",
+-      "description": "The diagram predicts where light from each marked position should reach the screen.",
++      "label": "Cover H → lower patch should vanish",
++      "description": "Prediction before consulting the trial: both lamps uncovered should give two patches, H at the lower mark and L at the upper. If each contribution continues independently through O, covering H should remove only the lower patch and leave the upper one. Uncover H: both return. Cover L instead: only the upper patch should vanish, leaving the lower one. The geometry tells us which patch belongs to which lamp; selective removal tests whether crossing makes their contributions inseparable.",
+       "sources": [
+         "optics",
+-        "optics-manuscript"
+-      ]
++        "optics-manuscript",
++        "optics-lamps-primary"
++      ],
++      "reading": {
++        "text": "Prediction before consulting the trial: both lamps uncovered should give two patches, H at the lower mark and L at the upper. If each contribution continues independently through O, covering H should remove only the lower patch and leave the upper one. Uncover H: both return. Cover L instead: only the upper patch should vanish, leaving the lower one. The geometry tells us which patch belongs to which lamp; selective removal tests whether crossing makes their contributions inseparable.",
++        "attribution": "Authored two-lamp teaching adaptation in modern diagram notation, not a surviving experimental notebook or historical quotation. Based on Ibn al-Haytham, Optics I.6 §§85–87, A. I. Sabra translation (1989), pp.90–91."
++      }
+     },
+     {
+       "id": "comparison-record",
+-      "label": "Comparison record",
+-      "description": "The lamp is moved between the specified positions and the observed spots are recorded. This is a deliberate test of this arrangement.",
++      "label": "H covered: lower gone; L covered: upper gone",
++      "description": "Supplied observations for the authored trial, with lamps, aperture and receiving screen fixed:\nBoth uncovered: upper and lower patches present.\nH covered: lower patch absent; upper remains.\nH uncovered again: both present.\nL covered: upper patch absent; lower remains.\nL uncovered again: both present.\nEach disappearance matches the prediction. The record changes one cover condition at a time and includes restoration; it is not a claim that merely moving one lamp tested two simultaneous light contributions.",
+       "sources": [
+         "optics",
+-        "optics-manuscript"
+-      ]
++        "optics-manuscript",
++        "optics-lamps-primary"
++      ],
++      "reading": {
++        "text": "Supplied observations for the authored trial, with lamps, aperture and receiving screen fixed:\nBoth uncovered: upper and lower patches present.\nH covered: lower patch absent; upper remains.\nH uncovered again: both present.\nL covered: upper patch absent; lower remains.\nL uncovered again: both present.\nEach disappearance matches the prediction. The record changes one cover condition at a time and includes restoration; it is not a claim that merely moving one lamp tested two simultaneous light contributions.",
++        "attribution": "Authored two-lamp teaching adaptation in modern diagram notation, not a surviving experimental notebook or historical quotation. Based on Ibn al-Haytham, Optics I.6 §§85–87, A. I. Sabra translation (1989), pp.90–91."
++      }
+     },
+     {
+       "id": "optical-model",
+-      "label": "Optical model",
+-      "description": "The same ray geometry accounts for the image and the moved-source observations. It does not settle all questions of vision.",
++      "label": "Crossing preserves H/lower and L/upper",
++      "description": "Geometry predicted H→lower and L→upper; the supplied trial removed just the corresponding patch whenever H or L was screened, and restored it when uncovered. Therefore, in this aperture arrangement crossing did not destroy source-to-patch correspondence. This counts against an inseparable-mixture account in which separate contributions could not emerge after meeting at O. The same straight-path representation explains the courtyard image’s inversion. Keep the distinction between a represented path, the supplied observation, and the supported conclusion; this is not a proof of every claim about light or sight.",
+       "sources": [
+         "optics",
+-        "optics-manuscript"
+-      ]
++        "optics-manuscript",
++        "optics-lamps-primary"
++      ],
++      "reading": {
++        "text": "Geometry predicted H→lower and L→upper; the supplied trial removed just the corresponding patch whenever H or L was screened, and restored it when uncovered. Therefore, in this aperture arrangement crossing did not destroy source-to-patch correspondence. This counts against an inseparable-mixture account in which separate contributions could not emerge after meeting at O. The same straight-path representation explains the courtyard image’s inversion. Keep the distinction between a represented path, the supplied observation, and the supported conclusion; this is not a proof of every claim about light or sight.",
++        "attribution": "Authored two-lamp teaching adaptation in modern diagram notation, not a surviving experimental notebook or historical quotation. Based on Ibn al-Haytham, Optics I.6 §§85–87, A. I. Sabra translation (1989), pp.90–91."
++      }
+     },
+     {
+       "id": "optical-question",
+-      "label": "Optical question",
+-      "description": "Light reaching an eye still needs an account of image formation and perception. A successful aperture demonstration is not the entire theory of sight.",
++      "label": "Light path explained; eye sensing still open",
++      "description": "The earlier dark-Moon case showed why an observation can support a prediction without selecting a unique complete account. Here the selective-cover test supports separate light paths through the opening; it can reject the stated inseparable-mixture consequence. But a receiving screen does not sense. This trial does not decide how an eye senses light, what structures do the sensing, or how perception occurs: rival eye accounts could agree on every patch in this record. Do not turn success on light propagation into a complete theory of vision.",
+       "sources": [
+         "optics",
+-        "optics-manuscript"
+-      ]
++        "optics-manuscript",
++        "optics-lamps-primary"
++      ],
++      "reading": {
++        "text": "The earlier dark-Moon case showed why an observation can support a prediction without selecting a unique complete account. Here the selective-cover test supports separate light paths through the opening; it can reject the stated inseparable-mixture consequence. But a receiving screen does not sense. This trial does not decide how an eye senses light, what structures do the sensing, or how perception occurs: rival eye accounts could agree on every patch in this record. Do not turn success on light propagation into a complete theory of vision.",
++        "attribution": "Authored two-lamp teaching adaptation in modern diagram notation, not a surviving experimental notebook or historical quotation. Based on Ibn al-Haytham, Optics I.6 §§85–87, A. I. Sabra translation (1989), pp.90–91."
++      }
+     },
+     {
+       "id": "latin-vocabulary",
+@@ -5517,7 +5557,7 @@
+       "a": "image-box",
+       "b": "courtyard",
+       "out": "camera-obscura",
+-      "description": "In darkness an inverted image appears: upper and lower paths cross at the aperture. This demonstration is not an exclusive-inventor claim.",
++      "description": "The dark-room camera forms an inverted courtyard image: the upper doorway appears below and the lower paving above. The same opening and receiving screen can then be used with the two fixed lamps. This is a familiar construction, not an exclusive-inventor claim.",
+       "sources": [
+         "optics",
+         "optics-manuscript"
+@@ -5536,22 +5576,23 @@
+     },
+     {
+       "id": "make-ray-diagram",
+-      "a": "lamp",
++      "a": "source-positions",
+       "b": "arabic-proof",
+       "out": "ray-diagram",
+-      "description": "Straight lines model light propagation in a uniform medium; a ray is a representation, not a luminous thread.",
++      "description": "Use the corrected proof’s discipline: preserve equal relations rather than trust a sketch. Assume a straight light path in uniform air. Along one straight line, equal horizontal runs have equal vertical changes. H→O drops one unit; the equally long run beyond O drops one more, reaching the lower screen mark (−1). L→O rises one unit; continuing equally far rises one more, reaching the upper mark (+1). Thus H→lower and L→upper. The earlier equality reasoning helps work out this consequence; the old triangle proof does not establish the physical straight-path assumption. A ray is a drawn path, not a luminous thread.",
+       "sources": [
+         "optics",
+-        "optics-manuscript"
+-      ],
+-      "lifecycle": {
+-        "lamp": {
+-          "role": "retain",
+-          "reason": "This source or reusable instrument remains available for comparison and later work."
++        "optics-manuscript",
++        "optics-lamps-primary"
++      ],
++      "lifecycle": {
++        "source-positions": {
++          "role": "retain",
++          "reason": "The diagram, evidence or reusable setup is consulted, not used up."
+         },
+         "arabic-proof": {
+           "role": "retain",
+-          "reason": "The reference, evidence or reusable tool is consulted, not used up."
++          "reason": "The diagram, evidence or reusable setup remains available for comparison and later work."
+         }
+       }
+     },
+@@ -5560,10 +5601,11 @@
+       "a": "ray-diagram",
+       "b": "camera-obscura",
+       "out": "crossed-rays",
+-      "description": "Tracing paths through the opening explains the image inversion geometrically.",
++      "description": "The straight path from the doorway’s top crosses the aperture and reaches the lower part of the screen; the path from the paving reaches the upper part. This agrees with the inverted camera image. In the marked lamp setup the same geometry gives H→lower and L→upper. Paths cross at O, but a crossing drawn on paper alone does not show whether the light contributions remain separable. Covering just one lamp can test that claim.",
+       "sources": [
+         "optics",
+-        "optics-manuscript"
++        "optics-manuscript",
++        "optics-lamps-primary"
+       ],
+       "lifecycle": {
+         "ray-diagram": {
+@@ -5578,43 +5620,45 @@
+     },
+     {
+       "id": "make-predicted-spots",
+-      "a": "source-positions",
+-      "b": "ray-diagram",
++      "a": "ray-diagram",
++      "b": "lamp",
+       "out": "predicted-spots",
+-      "description": "The diagram predicts where light from each marked position should reach the screen.",
++      "description": "Prediction before consulting the trial: both lamps uncovered should give two patches, H at the lower mark and L at the upper. If each contribution continues independently through O, covering H should remove only the lower patch and leave the upper one. Uncover H: both return. Cover L instead: only the upper patch should vanish, leaving the lower one. The geometry tells us which patch belongs to which lamp; selective removal tests whether crossing makes their contributions inseparable.",
+       "sources": [
+         "optics",
+-        "optics-manuscript"
+-      ],
+-      "lifecycle": {
+-        "source-positions": {
+-          "role": "retain",
+-          "reason": "This source or reusable instrument remains available for comparison and later work."
+-        },
++        "optics-manuscript",
++        "optics-lamps-primary"
++      ],
++      "lifecycle": {
+         "ray-diagram": {
+           "role": "retain",
+-          "reason": "The reference, evidence or reusable tool is consulted, not used up."
++          "reason": "The diagram, evidence or reusable setup is consulted, not used up."
++        },
++        "lamp": {
++          "role": "retain",
++          "reason": "The diagram, evidence or reusable setup remains available for comparison and later work."
+         }
+       }
+     },
+     {
+       "id": "make-comparison-record",
+       "a": "predicted-spots",
+-      "b": "lamp",
++      "b": "camera-obscura",
+       "out": "comparison-record",
+-      "description": "The lamp is moved between the specified positions and the observed spots are recorded. This is a deliberate test of this arrangement.",
++      "description": "Supplied observations for the authored trial, with lamps, aperture and receiving screen fixed:\nBoth uncovered: upper and lower patches present.\nH covered: lower patch absent; upper remains.\nH uncovered again: both present.\nL covered: upper patch absent; lower remains.\nL uncovered again: both present.\nEach disappearance matches the prediction. The record changes one cover condition at a time and includes restoration; it is not a claim that merely moving one lamp tested two simultaneous light contributions.",
+       "sources": [
+         "optics",
+-        "optics-manuscript"
++        "optics-manuscript",
++        "optics-lamps-primary"
+       ],
+       "lifecycle": {
+         "predicted-spots": {
+           "role": "retain",
+-          "reason": "This source or reusable instrument remains available for comparison and later work."
+-        },
+-        "lamp": {
+-          "role": "retain",
+-          "reason": "The reference, evidence or reusable tool is consulted, not used up."
++          "reason": "The diagram, evidence or reusable setup is consulted, not used up."
++        },
++        "camera-obscura": {
++          "role": "retain",
++          "reason": "The diagram, evidence or reusable setup remains available for comparison and later work."
+         }
+       }
+     },
+@@ -5623,10 +5667,11 @@
+       "a": "comparison-record",
+       "b": "crossed-rays",
+       "out": "optical-model",
+-      "description": "The same ray geometry accounts for the image and the moved-source observations. It does not settle all questions of vision.",
++      "description": "Geometry predicted H→lower and L→upper; the supplied trial removed just the corresponding patch whenever H or L was screened, and restored it when uncovered. Therefore, in this aperture arrangement crossing did not destroy source-to-patch correspondence. This counts against an inseparable-mixture account in which separate contributions could not emerge after meeting at O. The same straight-path representation explains the courtyard image’s inversion. Keep the distinction between a represented path, the supplied observation, and the supported conclusion; this is not a proof of every claim about light or sight.",
+       "sources": [
+         "optics",
+-        "optics-manuscript"
++        "optics-manuscript",
++        "optics-lamps-primary"
+       ],
+       "lifecycle": {
+         "comparison-record": {
+@@ -5644,10 +5689,11 @@
+       "a": "optical-model",
+       "b": "underdetermined-case",
+       "out": "optical-question",
+-      "description": "Light reaching an eye still needs an account of image formation and perception. A successful aperture demonstration is not the entire theory of sight.",
++      "description": "The earlier dark-Moon case showed why an observation can support a prediction without selecting a unique complete account. Here the selective-cover test supports separate light paths through the opening; it can reject the stated inseparable-mixture consequence. But a receiving screen does not sense. This trial does not decide how an eye senses light, what structures do the sensing, or how perception occurs: rival eye accounts could agree on every patch in this record. Do not turn success on light propagation into a complete theory of vision.",
+       "sources": [
+         "optics",
+-        "optics-manuscript"
++        "optics-manuscript",
++        "optics-lamps-primary"
+       ],
+       "lifecycle": {
+         "optical-model": {
+@@ -10737,7 +10783,7 @@
+       "id": "cairo",
+       "title": "Where does the light come from?",
+       "speaker": "Workshop keeper",
+-      "motivation": "The bright doorway appears upside down inside the dark room. Make an image and a ray account that can survive moving the lamp.",
++      "motivation": "A doorway appears upside down in the dark room. H and L send light through one opening: if their paths cross, do their lights become an inseparable mixture? Work out which patch should vanish when one lamp is covered, then compare the supplied trial.",
+       "area": {
+         "id": "area-cairo",
+         "label": "Cairo optics workshop · c. 1020 CE",
+@@ -10761,14 +10807,14 @@
+       "objectives": [
+         {
+           "id": "cairo-camera-obscura",
+-          "text": "Form the courtyard image",
++          "text": "Form the inverted courtyard image",
+           "kind": "create",
+           "item": "camera-obscura",
+           "intermediate": true
+         },
+         {
+           "id": "cairo-optical-model",
+-          "text": "Explain the image",
++          "text": "Test whether crossing erases lamp identity",
+           "kind": "create",
+           "item": "optical-model",
+           "after": [
+@@ -10778,7 +10824,7 @@
+         },
+         {
+           "id": "cairo-optical-question",
+-          "text": "Keep the remaining question open",
++          "text": "Separate light paths from eye sensing",
+           "kind": "create",
+           "item": "optical-question",
+           "after": [
+@@ -12500,6 +12546,12 @@
+       "title": "Al-Khwarizmi, Algebra, Rosen translation (1831), pp.15–16: two strips and the missing corner",
+       "url": "https://en.wikisource.org/wiki/Page:The_Algebra_of_Mohammed_Ben_Musa_(1831).djvu/31",
+       "note": "Primary translated demonstration continues on scan page32. Historical case x²+10x=39; game cases40 and20 are invented modern positive-length variants."
++    },
++    {
++      "id": "optics-lamps-primary",
++      "title": "Ibn al-Haytham, Optics I.6 §§85–87; A. I. Sabra translation (1989), pp.90–91",
++      "url": "https://resources.warburg.sas.ac.uk/pdf/ffh360b2205460.pdf#page=50",
++      "note": "Primary multiple-lamp aperture and selective-screening case: the corresponding patch disappears and returns; crossing does not make the contributions inseparable. H/L labels, equal distances and unit offsets are an authored two-lamp adaptation. This case alone does not establish a complete account of eye sensing."
+     }
+   ],
+   "notes": [

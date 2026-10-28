@@ -1,0 +1,33 @@
+✔ fresh full session pins scenario, manifest and runtime and continues unchanged (296.334257ms)
+✔ a resealed changed scenario cannot silently continue an existing session (446.068503ms)
+✖ prepared later case pins complete provenance; resealed runtime change is rejected (522.739655ms)
+✔ resealing a changed player also rejects prior sessions even if scenario/runtime match (244.168835ms)
+✔ legacy setup-only sessions are preserved, not silently adopted (522.292905ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 4
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 2136.118606
+
+✖ failing tests:
+
+test at provenance.test.mjs:11:1
+✖ prepared later case pins complete provenance; resealed runtime change is rejected (522.739655ms)
+  Error: EACCES: permission denied, open '/tmp/atlas-pinned-test-g1h1ni/frozen-runtime/engine/model.ts'
+      at Object.writeFileSync (node:fs:2482:20)
+      at Object.appendFileSync (node:fs:2564:6)
+      at TestContext.<anonymous> (file:///workspace/shared/combination-campaign-research-20261028/atlas/revision-v5-baghdad-calculation/provenance.test.mjs:11:400)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    errno: -13,
+    code: 'EACCES',
+    syscall: 'open',
+    path: '/tmp/atlas-pinned-test-g1h1ni/frozen-runtime/engine/model.ts'
+  }

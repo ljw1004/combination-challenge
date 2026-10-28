@@ -1,0 +1,2682 @@
+{
+  "result": {
+    "packet": "mars-v4-cue-packet-v1",
+    "passed": true,
+    "commands": 13,
+    "firstStageAutoAdvanced": true,
+    "missionAfterUndo": true,
+    "expectationRequired": true,
+    "rejectionsPreserved": true,
+    "stoppingEnforced": true,
+    "fullCompressedAuditVerified": true,
+    "readTested": false,
+    "scope": "source-aware preparer smoke; not source-blind trial, human evidence, or browser testing"
+  },
+  "calls": [
+    {
+      "op": "start",
+      "args": [],
+      "exit": 0,
+      "output": {
+        "evidenceClass": "simulated logical play; not human evidence",
+        "session": "smoke-preparation-final-01",
+        "commandNumber": 1,
+        "integrity": {
+          "verified": true,
+          "manifestSha256": "3321994a2c1c93e1b5b45fdb6a1c8bfe3fa5f3dfe1722348be8b2b067f01d048"
+        },
+        "automaticTransitions": [],
+        "view": {
+          "scenario": {
+            "id": "mars-connected-survival-v4-cue-research",
+            "title": "Mars: A Light That Answers",
+            "premise": "A damaged landing strands a small expedition. Recovery becomes a rescue, then a return journey carrying people and evidence. This is an engineering story with recovered qualified systems, not real survival instructions."
+          },
+          "stage": {
+            "number": 1,
+            "title": "A voice above the ridge",
+            "speaker": "Mission Control",
+            "motivation": "We lost your signal on landing. Repair the radio and put a powered signal above the ridge. We are listening."
+          },
+          "area": {
+            "id": "area-signal",
+            "label": "A voice above the ridge",
+            "enteredAtStage": 0
+          },
+          "areas": [
+            {
+              "id": "area-signal",
+              "label": "A voice above the ridge",
+              "current": true,
+              "thingCount": 9
+            }
+          ],
+          "objectives": [
+            {
+              "id": "radio-repair",
+              "text": "Repair radio",
+              "satisfied": false
+            }
+          ],
+          "newSupplies": [],
+          "things": [
+            {
+              "id": "broken-radio",
+              "label": "Broken radio",
+              "x": 252,
+              "y": 56,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "cable",
+              "label": "Cable",
+              "x": 252,
+              "y": 106,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "solar-panel",
+              "label": "Solar panel",
+              "x": 52,
+              "y": 156,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "battery",
+              "label": "Battery",
+              "x": 152,
+              "y": 156,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "lamp",
+              "label": "Lamp",
+              "x": 252,
+              "y": 156,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "reflective-foil",
+              "label": "Reflective foil",
+              "x": 52,
+              "y": 206,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "support-frame",
+              "label": "Support frame",
+              "x": 152,
+              "y": 206,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "tripod",
+              "label": "Tripod",
+              "x": 252,
+              "y": 206,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "toolkit",
+              "label": "Toolkit",
+              "x": 52,
+              "y": 256,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            }
+          ],
+          "locations": [
+            {
+              "id": "@contact-ridge",
+              "area": "area-signal",
+              "x": 52,
+              "y": 81,
+              "label": "Contact ridge",
+              "gold": false
+            }
+          ],
+          "completed": false,
+          "successfulCombinations": 0
+        }
+      }
+    },
+    {
+      "op": "drop",
+      "args": [
+        "broken-radio",
+        "broken-radio"
+      ],
+      "exit": 2,
+      "output": {
+        "accepted": false,
+        "protocolError": "Before acting, supply --expect with the meaning or outcome you expect from this action.",
+        "preservedRejection": true
+      }
+    },
+    {
+      "op": "drop",
+      "args": [
+        "broken-radio",
+        "broken-radio"
+      ],
+      "expect": "Source-aware smoke: self-drop must reject, not play evidence.",
+      "exit": 0,
+      "output": {
+        "evidenceClass": "simulated logical play; not human evidence",
+        "session": "smoke-preparation-final-01",
+        "commandNumber": 2,
+        "integrity": {
+          "verified": true,
+          "manifestSha256": "3321994a2c1c93e1b5b45fdb6a1c8bfe3fa5f3dfe1722348be8b2b067f01d048"
+        },
+        "expectedMeaning": "Source-aware smoke: self-drop must reject, not play evidence.",
+        "accepted": false,
+        "gesture": {
+          "source": "broken-radio",
+          "target": "broken-radio"
+        },
+        "resolvedAction": {
+          "type": "combine",
+          "a": "broken-radio",
+          "b": "broken-radio"
+        },
+        "visibleOutcome": "No visible change.",
+        "automaticTransitions": [],
+        "view": {
+          "scenario": {
+            "id": "mars-connected-survival-v4-cue-research",
+            "title": "Mars: A Light That Answers",
+            "premise": "A damaged landing strands a small expedition. Recovery becomes a rescue, then a return journey carrying people and evidence. This is an engineering story with recovered qualified systems, not real survival instructions."
+          },
+          "stage": {
+            "number": 1,
+            "title": "A voice above the ridge",
+            "speaker": "Mission Control",
+            "motivation": "We lost your signal on landing. Repair the radio and put a powered signal above the ridge. We are listening."
+          },
+          "area": {
+            "id": "area-signal",
+            "label": "A voice above the ridge",
+            "enteredAtStage": 0
+          },
+          "areas": [
+            {
+              "id": "area-signal",
+              "label": "A voice above the ridge",
+              "current": true,
+              "thingCount": 9
+            }
+          ],
+          "objectives": [
+            {
+              "id": "radio-repair",
+              "text": "Repair radio",
+              "satisfied": false
+            }
+          ],
+          "newSupplies": [],
+          "things": [
+            {
+              "id": "broken-radio",
+              "label": "Broken radio",
+              "x": 252,
+              "y": 56,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "cable",
+              "label": "Cable",
+              "x": 252,
+              "y": 106,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "solar-panel",
+              "label": "Solar panel",
+              "x": 52,
+              "y": 156,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "battery",
+              "label": "Battery",
+              "x": 152,
+              "y": 156,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "lamp",
+              "label": "Lamp",
+              "x": 252,
+              "y": 156,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "reflective-foil",
+              "label": "Reflective foil",
+              "x": 52,
+              "y": 206,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "support-frame",
+              "label": "Support frame",
+              "x": 152,
+              "y": 206,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "tripod",
+              "label": "Tripod",
+              "x": 252,
+              "y": 206,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "toolkit",
+              "label": "Toolkit",
+              "x": 52,
+              "y": 256,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            }
+          ],
+          "locations": [
+            {
+              "id": "@contact-ridge",
+              "area": "area-signal",
+              "x": 52,
+              "y": 81,
+              "label": "Contact ridge",
+              "gold": false
+            }
+          ],
+          "completed": false,
+          "successfulCombinations": 0
+        }
+      }
+    },
+    {
+      "op": "highlight",
+      "args": [
+        "broken-radio"
+      ],
+      "expect": "Source-aware smoke: inspect highlight surface, not play evidence.",
+      "exit": 0,
+      "output": {
+        "evidenceClass": "simulated logical play; not human evidence",
+        "session": "smoke-preparation-final-01",
+        "commandNumber": 3,
+        "integrity": {
+          "verified": true,
+          "manifestSha256": "3321994a2c1c93e1b5b45fdb6a1c8bfe3fa5f3dfe1722348be8b2b067f01d048"
+        },
+        "expectedMeaning": "Source-aware smoke: inspect highlight surface, not play evidence.",
+        "selection": "broken-radio",
+        "highlighted": [
+          {
+            "id": "cable",
+            "label": "Cable"
+          }
+        ],
+        "highlightMeaning": "These existing tiles light up on selection. No output preview or recipe directions are supplied.",
+        "automaticTransitions": [],
+        "view": {
+          "scenario": {
+            "id": "mars-connected-survival-v4-cue-research",
+            "title": "Mars: A Light That Answers",
+            "premise": "A damaged landing strands a small expedition. Recovery becomes a rescue, then a return journey carrying people and evidence. This is an engineering story with recovered qualified systems, not real survival instructions."
+          },
+          "stage": {
+            "number": 1,
+            "title": "A voice above the ridge",
+            "speaker": "Mission Control",
+            "motivation": "We lost your signal on landing. Repair the radio and put a powered signal above the ridge. We are listening."
+          },
+          "area": {
+            "id": "area-signal",
+            "label": "A voice above the ridge",
+            "enteredAtStage": 0
+          },
+          "areas": [
+            {
+              "id": "area-signal",
+              "label": "A voice above the ridge",
+              "current": true,
+              "thingCount": 9
+            }
+          ],
+          "objectives": [
+            {
+              "id": "radio-repair",
+              "text": "Repair radio",
+              "satisfied": false
+            }
+          ],
+          "newSupplies": [],
+          "things": [
+            {
+              "id": "broken-radio",
+              "label": "Broken radio",
+              "x": 252,
+              "y": 56,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "cable",
+              "label": "Cable",
+              "x": 252,
+              "y": 106,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "solar-panel",
+              "label": "Solar panel",
+              "x": 52,
+              "y": 156,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "battery",
+              "label": "Battery",
+              "x": 152,
+              "y": 156,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "lamp",
+              "label": "Lamp",
+              "x": 252,
+              "y": 156,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "reflective-foil",
+              "label": "Reflective foil",
+              "x": 52,
+              "y": 206,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "support-frame",
+              "label": "Support frame",
+              "x": 152,
+              "y": 206,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "tripod",
+              "label": "Tripod",
+              "x": 252,
+              "y": 206,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "toolkit",
+              "label": "Toolkit",
+              "x": 52,
+              "y": 256,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            }
+          ],
+          "locations": [
+            {
+              "id": "@contact-ridge",
+              "area": "area-signal",
+              "x": 52,
+              "y": 81,
+              "label": "Contact ridge",
+              "gold": false
+            }
+          ],
+          "completed": false,
+          "successfulCombinations": 0
+        }
+      }
+    },
+    {
+      "op": "drop",
+      "args": [
+        "broken-radio",
+        "cable"
+      ],
+      "expect": "Source-aware fixture smoke using authored first-stage action; NOT player reasoning or trial evidence.",
+      "exit": 0,
+      "output": {
+        "evidenceClass": "simulated logical play; not human evidence",
+        "session": "smoke-preparation-final-01",
+        "commandNumber": 4,
+        "integrity": {
+          "verified": true,
+          "manifestSha256": "3321994a2c1c93e1b5b45fdb6a1c8bfe3fa5f3dfe1722348be8b2b067f01d048"
+        },
+        "expectedMeaning": "Source-aware fixture smoke using authored first-stage action; NOT player reasoning or trial evidence.",
+        "accepted": true,
+        "gesture": {
+          "source": "broken-radio",
+          "target": "cable"
+        },
+        "resolvedAction": {
+          "type": "combine",
+          "a": "broken-radio",
+          "b": "cable"
+        },
+        "automaticTransitions": [],
+        "view": {
+          "scenario": {
+            "id": "mars-connected-survival-v4-cue-research",
+            "title": "Mars: A Light That Answers",
+            "premise": "A damaged landing strands a small expedition. Recovery becomes a rescue, then a return journey carrying people and evidence. This is an engineering story with recovered qualified systems, not real survival instructions."
+          },
+          "stage": {
+            "number": 1,
+            "title": "A voice above the ridge",
+            "speaker": "Mission Control",
+            "motivation": "We lost your signal on landing. Repair the radio and put a powered signal above the ridge. We are listening."
+          },
+          "area": {
+            "id": "area-signal",
+            "label": "A voice above the ridge",
+            "enteredAtStage": 0
+          },
+          "areas": [
+            {
+              "id": "area-signal",
+              "label": "A voice above the ridge",
+              "current": true,
+              "thingCount": 8
+            }
+          ],
+          "objectives": [
+            {
+              "id": "signal-contact",
+              "text": "Place powered radio / beacon",
+              "satisfied": false
+            }
+          ],
+          "newSupplies": [],
+          "things": [
+            {
+              "id": "solar-panel",
+              "label": "Solar panel",
+              "x": 52,
+              "y": 156,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "battery",
+              "label": "Battery",
+              "x": 152,
+              "y": 156,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "lamp",
+              "label": "Lamp",
+              "x": 252,
+              "y": 156,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "reflective-foil",
+              "label": "Reflective foil",
+              "x": 52,
+              "y": 206,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "support-frame",
+              "label": "Support frame",
+              "x": 152,
+              "y": 206,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "tripod",
+              "label": "Tripod",
+              "x": 252,
+              "y": 206,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "toolkit",
+              "label": "Toolkit",
+              "x": 52,
+              "y": 256,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "radio",
+              "label": "Radio",
+              "x": 252,
+              "y": 56,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            }
+          ],
+          "locations": [
+            {
+              "id": "@contact-ridge",
+              "area": "area-signal",
+              "x": 52,
+              "y": 81,
+              "label": "Contact ridge",
+              "gold": false
+            }
+          ],
+          "completed": false,
+          "successfulCombinations": 1
+        }
+      }
+    },
+    {
+      "op": "drop",
+      "args": [
+        "solar-panel",
+        "battery"
+      ],
+      "expect": "Source-aware fixture smoke using authored first-stage action; NOT player reasoning or trial evidence.",
+      "exit": 0,
+      "output": {
+        "evidenceClass": "simulated logical play; not human evidence",
+        "session": "smoke-preparation-final-01",
+        "commandNumber": 5,
+        "integrity": {
+          "verified": true,
+          "manifestSha256": "3321994a2c1c93e1b5b45fdb6a1c8bfe3fa5f3dfe1722348be8b2b067f01d048"
+        },
+        "expectedMeaning": "Source-aware fixture smoke using authored first-stage action; NOT player reasoning or trial evidence.",
+        "accepted": true,
+        "gesture": {
+          "source": "solar-panel",
+          "target": "battery"
+        },
+        "resolvedAction": {
+          "type": "combine",
+          "a": "solar-panel",
+          "b": "battery"
+        },
+        "automaticTransitions": [],
+        "view": {
+          "scenario": {
+            "id": "mars-connected-survival-v4-cue-research",
+            "title": "Mars: A Light That Answers",
+            "premise": "A damaged landing strands a small expedition. Recovery becomes a rescue, then a return journey carrying people and evidence. This is an engineering story with recovered qualified systems, not real survival instructions."
+          },
+          "stage": {
+            "number": 1,
+            "title": "A voice above the ridge",
+            "speaker": "Mission Control",
+            "motivation": "We lost your signal on landing. Repair the radio and put a powered signal above the ridge. We are listening."
+          },
+          "area": {
+            "id": "area-signal",
+            "label": "A voice above the ridge",
+            "enteredAtStage": 0
+          },
+          "areas": [
+            {
+              "id": "area-signal",
+              "label": "A voice above the ridge",
+              "current": true,
+              "thingCount": 8
+            }
+          ],
+          "objectives": [
+            {
+              "id": "signal-contact",
+              "text": "Place powered radio / beacon",
+              "satisfied": false
+            }
+          ],
+          "newSupplies": [],
+          "things": [
+            {
+              "id": "battery",
+              "label": "Battery",
+              "x": 152,
+              "y": 156,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "lamp",
+              "label": "Lamp",
+              "x": 252,
+              "y": 156,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "reflective-foil",
+              "label": "Reflective foil",
+              "x": 52,
+              "y": 206,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "support-frame",
+              "label": "Support frame",
+              "x": 152,
+              "y": 206,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "tripod",
+              "label": "Tripod",
+              "x": 252,
+              "y": 206,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "toolkit",
+              "label": "Toolkit",
+              "x": 52,
+              "y": 256,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "radio",
+              "label": "Radio",
+              "x": 252,
+              "y": 56,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "solar-charger",
+              "label": "Solar charger",
+              "x": 52,
+              "y": 156,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            }
+          ],
+          "locations": [
+            {
+              "id": "@contact-ridge",
+              "area": "area-signal",
+              "x": 52,
+              "y": 81,
+              "label": "Contact ridge",
+              "gold": false
+            }
+          ],
+          "completed": false,
+          "successfulCombinations": 2
+        }
+      }
+    },
+    {
+      "op": "drop",
+      "args": [
+        "radio",
+        "solar-charger"
+      ],
+      "expect": "Source-aware fixture smoke using authored first-stage action; NOT player reasoning or trial evidence.",
+      "exit": 0,
+      "output": {
+        "evidenceClass": "simulated logical play; not human evidence",
+        "session": "smoke-preparation-final-01",
+        "commandNumber": 6,
+        "integrity": {
+          "verified": true,
+          "manifestSha256": "3321994a2c1c93e1b5b45fdb6a1c8bfe3fa5f3dfe1722348be8b2b067f01d048"
+        },
+        "expectedMeaning": "Source-aware fixture smoke using authored first-stage action; NOT player reasoning or trial evidence.",
+        "accepted": true,
+        "gesture": {
+          "source": "radio",
+          "target": "solar-charger"
+        },
+        "resolvedAction": {
+          "type": "combine",
+          "a": "radio",
+          "b": "solar-charger"
+        },
+        "automaticTransitions": [],
+        "view": {
+          "scenario": {
+            "id": "mars-connected-survival-v4-cue-research",
+            "title": "Mars: A Light That Answers",
+            "premise": "A damaged landing strands a small expedition. Recovery becomes a rescue, then a return journey carrying people and evidence. This is an engineering story with recovered qualified systems, not real survival instructions."
+          },
+          "stage": {
+            "number": 1,
+            "title": "A voice above the ridge",
+            "speaker": "Mission Control",
+            "motivation": "We lost your signal on landing. Repair the radio and put a powered signal above the ridge. We are listening."
+          },
+          "area": {
+            "id": "area-signal",
+            "label": "A voice above the ridge",
+            "enteredAtStage": 0
+          },
+          "areas": [
+            {
+              "id": "area-signal",
+              "label": "A voice above the ridge",
+              "current": true,
+              "thingCount": 8
+            }
+          ],
+          "objectives": [
+            {
+              "id": "signal-contact",
+              "text": "Place powered radio / beacon",
+              "satisfied": false
+            }
+          ],
+          "newSupplies": [],
+          "things": [
+            {
+              "id": "battery",
+              "label": "Battery",
+              "x": 152,
+              "y": 156,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "lamp",
+              "label": "Lamp",
+              "x": 252,
+              "y": 156,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "reflective-foil",
+              "label": "Reflective foil",
+              "x": 52,
+              "y": 206,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "support-frame",
+              "label": "Support frame",
+              "x": 152,
+              "y": 206,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "tripod",
+              "label": "Tripod",
+              "x": 252,
+              "y": 206,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "toolkit",
+              "label": "Toolkit",
+              "x": 52,
+              "y": 256,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "solar-charger",
+              "label": "Solar charger",
+              "x": 52,
+              "y": 156,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "solar-radio",
+              "label": "Solar radio",
+              "x": 252,
+              "y": 56,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            }
+          ],
+          "locations": [
+            {
+              "id": "@contact-ridge",
+              "area": "area-signal",
+              "x": 52,
+              "y": 81,
+              "label": "Contact ridge",
+              "gold": false
+            }
+          ],
+          "completed": false,
+          "successfulCombinations": 3
+        }
+      }
+    },
+    {
+      "op": "place",
+      "args": [
+        "solar-radio",
+        "@contact-ridge"
+      ],
+      "expect": "Source-aware fixture smoke using authored first-stage action; NOT player reasoning or trial evidence.",
+      "exit": 0,
+      "output": {
+        "evidenceClass": "simulated logical play; not human evidence",
+        "session": "smoke-preparation-final-01",
+        "commandNumber": 7,
+        "integrity": {
+          "verified": true,
+          "manifestSha256": "3321994a2c1c93e1b5b45fdb6a1c8bfe3fa5f3dfe1722348be8b2b067f01d048"
+        },
+        "expectedMeaning": "Source-aware fixture smoke using authored first-stage action; NOT player reasoning or trial evidence.",
+        "accepted": true,
+        "gesture": {
+          "source": "solar-radio",
+          "target": "@contact-ridge"
+        },
+        "resolvedAction": {
+          "type": "place",
+          "item": "solar-radio",
+          "location": "contact-ridge"
+        },
+        "automaticTransitions": [
+          {
+            "completedStage": 1,
+            "visibleFinalCreation": {
+              "scenario": {
+                "id": "mars-connected-survival-v4-cue-research",
+                "title": "Mars: A Light That Answers",
+                "premise": "A damaged landing strands a small expedition. Recovery becomes a rescue, then a return journey carrying people and evidence. This is an engineering story with recovered qualified systems, not real survival instructions."
+              },
+              "stage": {
+                "number": 1,
+                "title": "A voice above the ridge",
+                "speaker": "Mission Control",
+                "motivation": "We lost your signal on landing. Repair the radio and put a powered signal above the ridge. We are listening."
+              },
+              "area": {
+                "id": "area-signal",
+                "label": "A voice above the ridge",
+                "enteredAtStage": 0
+              },
+              "areas": [
+                {
+                  "id": "area-signal",
+                  "label": "A voice above the ridge",
+                  "current": true,
+                  "thingCount": 8
+                }
+              ],
+              "objectives": [
+                {
+                  "id": "signal-contact",
+                  "text": "Place powered radio / beacon",
+                  "satisfied": true
+                }
+              ],
+              "newSupplies": [],
+              "things": [
+                {
+                  "id": "battery",
+                  "label": "Battery",
+                  "x": 152,
+                  "y": 156,
+                  "location": null,
+                  "gold": false,
+                  "slots": [],
+                  "components": [],
+                  "readable": false
+                },
+                {
+                  "id": "lamp",
+                  "label": "Lamp",
+                  "x": 252,
+                  "y": 156,
+                  "location": null,
+                  "gold": false,
+                  "slots": [],
+                  "components": [],
+                  "readable": false
+                },
+                {
+                  "id": "reflective-foil",
+                  "label": "Reflective foil",
+                  "x": 52,
+                  "y": 206,
+                  "location": null,
+                  "gold": false,
+                  "slots": [],
+                  "components": [],
+                  "readable": false
+                },
+                {
+                  "id": "support-frame",
+                  "label": "Support frame",
+                  "x": 152,
+                  "y": 206,
+                  "location": null,
+                  "gold": false,
+                  "slots": [],
+                  "components": [],
+                  "readable": false
+                },
+                {
+                  "id": "tripod",
+                  "label": "Tripod",
+                  "x": 252,
+                  "y": 206,
+                  "location": null,
+                  "gold": false,
+                  "slots": [],
+                  "components": [],
+                  "readable": false
+                },
+                {
+                  "id": "toolkit",
+                  "label": "Toolkit",
+                  "x": 52,
+                  "y": 256,
+                  "location": null,
+                  "gold": false,
+                  "slots": [],
+                  "components": [],
+                  "readable": false
+                },
+                {
+                  "id": "solar-charger",
+                  "label": "Solar charger",
+                  "x": 52,
+                  "y": 156,
+                  "location": null,
+                  "gold": false,
+                  "slots": [],
+                  "components": [],
+                  "readable": false
+                },
+                {
+                  "id": "solar-radio",
+                  "label": "Solar radio",
+                  "x": 52,
+                  "y": 97,
+                  "location": "contact-ridge",
+                  "gold": true,
+                  "slots": [],
+                  "components": [],
+                  "readable": false
+                }
+              ],
+              "locations": [
+                {
+                  "id": "@contact-ridge",
+                  "area": "area-signal",
+                  "x": 52,
+                  "y": 81,
+                  "label": "Contact ridge",
+                  "gold": true
+                }
+              ],
+              "completed": false,
+              "successfulCombinations": 3
+            },
+            "next": {
+              "scenario": {
+                "id": "mars-connected-survival-v4-cue-research",
+                "title": "Mars: A Light That Answers",
+                "premise": "A damaged landing strands a small expedition. Recovery becomes a rescue, then a return journey carrying people and evidence. This is an engineering story with recovered qualified systems, not real survival instructions."
+              },
+              "stage": {
+                "number": 2,
+                "title": "Somewhere to come back to",
+                "speaker": "Mission Control",
+                "motivation": "The inner cabin survived, but the landing tore its vestibule. Make the entry weather-tight, store water, and protect a living tray. Move our signal to the cabin’s clear-sky mast: the missing survey crew need a refuge to aim for, not just our crash site."
+              },
+              "area": {
+                "id": "area-habitat",
+                "label": "Somewhere to come back to",
+                "enteredAtStage": 1
+              },
+              "areas": [
+                {
+                  "id": "area-signal",
+                  "label": "A voice above the ridge",
+                  "current": false,
+                  "thingCount": 5
+                },
+                {
+                  "id": "area-habitat",
+                  "label": "Somewhere to come back to",
+                  "current": true,
+                  "thingCount": 15
+                }
+              ],
+              "objectives": [
+                {
+                  "id": "habitat-goal-0",
+                  "text": "Store water",
+                  "satisfied": false
+                },
+                {
+                  "id": "habitat-goal-2",
+                  "text": "Make insulated vestibule",
+                  "satisfied": false
+                },
+                {
+                  "id": "habitat-contact",
+                  "text": "Mark refuge for rescue",
+                  "satisfied": false
+                }
+              ],
+              "newSupplies": [
+                {
+                  "label": "Somewhere to come back to stores",
+                  "narrative": "The expedition reaches the previously placed mission stores at somewhere to come back to. These include the following recovered equipment, not freshly delivered ingredients."
+                }
+              ],
+              "things": [
+                {
+                  "id": "battery",
+                  "label": "Battery",
+                  "x": 152,
+                  "y": 115,
+                  "location": null,
+                  "gold": false,
+                  "slots": [],
+                  "components": [],
+                  "readable": false
+                },
+                {
+                  "id": "solar-charger",
+                  "label": "Solar charger",
+                  "x": 52,
+                  "y": 115,
+                  "location": null,
+                  "gold": false,
+                  "slots": [],
+                  "components": [],
+                  "readable": false
+                },
+                {
+                  "id": "solar-radio",
+                  "label": "Solar radio",
+                  "x": 52,
+                  "y": 56,
+                  "location": null,
+                  "gold": false,
+                  "slots": [],
+                  "components": [],
+                  "readable": false
+                },
+                {
+                  "id": "heater",
+                  "label": "Heater",
+                  "x": 252,
+                  "y": 256,
+                  "location": null,
+                  "gold": false,
+                  "slots": [],
+                  "components": [],
+                  "readable": false
+                },
+                {
+                  "id": "water-filter",
+                  "label": "Water filter",
+                  "x": 52,
+                  "y": 306,
+                  "location": null,
+                  "gold": false,
+                  "slots": [],
+                  "components": [],
+                  "readable": false
+                },
+                {
+                  "id": "empty-canister",
+                  "label": "Empty canister",
+                  "x": 152,
+                  "y": 306,
+                  "location": null,
+                  "gold": false,
+                  "slots": [],
+                  "components": [],
+                  "readable": false
+                },
+                {
+                  "id": "seeds",
+                  "label": "Seeds",
+                  "x": 252,
+                  "y": 306,
+                  "location": null,
+                  "gold": false,
+                  "slots": [],
+                  "components": [],
+                  "readable": false
+                },
+                {
+                  "id": "planting-tray",
+                  "label": "Planting tray",
+                  "x": 52,
+                  "y": 356,
+                  "location": null,
+                  "gold": false,
+                  "slots": [],
+                  "components": [],
+                  "readable": false
+                },
+                {
+                  "id": "clear-cover",
+                  "label": "Clear cover",
+                  "x": 152,
+                  "y": 356,
+                  "location": null,
+                  "gold": false,
+                  "slots": [],
+                  "components": [],
+                  "readable": false
+                },
+                {
+                  "id": "habitat-fabric",
+                  "label": "Habitat fabric",
+                  "x": 252,
+                  "y": 356,
+                  "location": null,
+                  "gold": false,
+                  "slots": [],
+                  "components": [],
+                  "readable": false
+                },
+                {
+                  "id": "sealant",
+                  "label": "Sealant",
+                  "x": 52,
+                  "y": 406,
+                  "location": null,
+                  "gold": false,
+                  "slots": [],
+                  "components": [],
+                  "readable": false
+                },
+                {
+                  "id": "seam-roller",
+                  "label": "Seam roller",
+                  "x": 152,
+                  "y": 406,
+                  "location": null,
+                  "gold": false,
+                  "slots": [],
+                  "components": [],
+                  "readable": false
+                },
+                {
+                  "id": "tie-downs",
+                  "label": "Tie downs",
+                  "x": 252,
+                  "y": 406,
+                  "location": null,
+                  "gold": false,
+                  "slots": [],
+                  "components": [],
+                  "readable": false
+                },
+                {
+                  "id": "hatch-frame",
+                  "label": "Hatch frame",
+                  "x": 52,
+                  "y": 456,
+                  "location": null,
+                  "gold": false,
+                  "slots": [],
+                  "components": [],
+                  "readable": false
+                },
+                {
+                  "id": "insulating-blanket",
+                  "label": "Insulating blanket",
+                  "x": 152,
+                  "y": 456,
+                  "location": null,
+                  "gold": false,
+                  "slots": [],
+                  "components": [],
+                  "readable": false
+                }
+              ],
+              "locations": [
+                {
+                  "id": "@sheltered-ice",
+                  "area": "area-habitat",
+                  "x": 152,
+                  "y": 81,
+                  "label": "Sheltered ice",
+                  "gold": false
+                },
+                {
+                  "id": "@warm-habitat",
+                  "area": "area-habitat",
+                  "x": 252,
+                  "y": 181,
+                  "label": "Warm habitat",
+                  "gold": false
+                },
+                {
+                  "id": "@refuge-contact-mast",
+                  "area": "area-habitat",
+                  "x": 52,
+                  "y": 231,
+                  "label": "Refuge signal mast",
+                  "gold": false
+                }
+              ],
+              "completed": false,
+              "successfulCombinations": 3
+            }
+          }
+        ],
+        "view": {
+          "scenario": {
+            "id": "mars-connected-survival-v4-cue-research",
+            "title": "Mars: A Light That Answers",
+            "premise": "A damaged landing strands a small expedition. Recovery becomes a rescue, then a return journey carrying people and evidence. This is an engineering story with recovered qualified systems, not real survival instructions."
+          },
+          "stage": {
+            "number": 2,
+            "title": "Somewhere to come back to",
+            "speaker": "Mission Control",
+            "motivation": "The inner cabin survived, but the landing tore its vestibule. Make the entry weather-tight, store water, and protect a living tray. Move our signal to the cabin’s clear-sky mast: the missing survey crew need a refuge to aim for, not just our crash site."
+          },
+          "area": {
+            "id": "area-habitat",
+            "label": "Somewhere to come back to",
+            "enteredAtStage": 1
+          },
+          "areas": [
+            {
+              "id": "area-signal",
+              "label": "A voice above the ridge",
+              "current": false,
+              "thingCount": 5
+            },
+            {
+              "id": "area-habitat",
+              "label": "Somewhere to come back to",
+              "current": true,
+              "thingCount": 15
+            }
+          ],
+          "objectives": [
+            {
+              "id": "habitat-goal-0",
+              "text": "Store water",
+              "satisfied": false
+            },
+            {
+              "id": "habitat-goal-2",
+              "text": "Make insulated vestibule",
+              "satisfied": false
+            },
+            {
+              "id": "habitat-contact",
+              "text": "Mark refuge for rescue",
+              "satisfied": false
+            }
+          ],
+          "newSupplies": [
+            {
+              "label": "Somewhere to come back to stores",
+              "narrative": "The expedition reaches the previously placed mission stores at somewhere to come back to. These include the following recovered equipment, not freshly delivered ingredients."
+            }
+          ],
+          "things": [
+            {
+              "id": "battery",
+              "label": "Battery",
+              "x": 152,
+              "y": 115,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "solar-charger",
+              "label": "Solar charger",
+              "x": 52,
+              "y": 115,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "solar-radio",
+              "label": "Solar radio",
+              "x": 52,
+              "y": 56,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "heater",
+              "label": "Heater",
+              "x": 252,
+              "y": 256,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "water-filter",
+              "label": "Water filter",
+              "x": 52,
+              "y": 306,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "empty-canister",
+              "label": "Empty canister",
+              "x": 152,
+              "y": 306,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "seeds",
+              "label": "Seeds",
+              "x": 252,
+              "y": 306,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "planting-tray",
+              "label": "Planting tray",
+              "x": 52,
+              "y": 356,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "clear-cover",
+              "label": "Clear cover",
+              "x": 152,
+              "y": 356,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "habitat-fabric",
+              "label": "Habitat fabric",
+              "x": 252,
+              "y": 356,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "sealant",
+              "label": "Sealant",
+              "x": 52,
+              "y": 406,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "seam-roller",
+              "label": "Seam roller",
+              "x": 152,
+              "y": 406,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "tie-downs",
+              "label": "Tie downs",
+              "x": 252,
+              "y": 406,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "hatch-frame",
+              "label": "Hatch frame",
+              "x": 52,
+              "y": 456,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "insulating-blanket",
+              "label": "Insulating blanket",
+              "x": 152,
+              "y": 456,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            }
+          ],
+          "locations": [
+            {
+              "id": "@sheltered-ice",
+              "area": "area-habitat",
+              "x": 152,
+              "y": 81,
+              "label": "Sheltered ice",
+              "gold": false
+            },
+            {
+              "id": "@warm-habitat",
+              "area": "area-habitat",
+              "x": 252,
+              "y": 181,
+              "label": "Warm habitat",
+              "gold": false
+            },
+            {
+              "id": "@refuge-contact-mast",
+              "area": "area-habitat",
+              "x": 52,
+              "y": 231,
+              "label": "Refuge signal mast",
+              "gold": false
+            }
+          ],
+          "completed": false,
+          "successfulCombinations": 3
+        }
+      }
+    },
+    {
+      "op": "undo",
+      "args": [],
+      "expect": "Source-aware smoke: undo the automatic handoff to its completed previous stage.",
+      "exit": 0,
+      "output": {
+        "evidenceClass": "simulated logical play; not human evidence",
+        "session": "smoke-preparation-final-01",
+        "commandNumber": 8,
+        "integrity": {
+          "verified": true,
+          "manifestSha256": "3321994a2c1c93e1b5b45fdb6a1c8bfe3fa5f3dfe1722348be8b2b067f01d048"
+        },
+        "expectedMeaning": "Source-aware smoke: undo the automatic handoff to its completed previous stage.",
+        "accepted": true,
+        "automaticTransitions": [],
+        "view": {
+          "scenario": {
+            "id": "mars-connected-survival-v4-cue-research",
+            "title": "Mars: A Light That Answers",
+            "premise": "A damaged landing strands a small expedition. Recovery becomes a rescue, then a return journey carrying people and evidence. This is an engineering story with recovered qualified systems, not real survival instructions."
+          },
+          "stage": {
+            "number": 1,
+            "title": "A voice above the ridge",
+            "speaker": "Mission Control",
+            "motivation": "We lost your signal on landing. Repair the radio and put a powered signal above the ridge. We are listening."
+          },
+          "area": {
+            "id": "area-signal",
+            "label": "A voice above the ridge",
+            "enteredAtStage": 0
+          },
+          "areas": [
+            {
+              "id": "area-signal",
+              "label": "A voice above the ridge",
+              "current": true,
+              "thingCount": 8
+            }
+          ],
+          "objectives": [
+            {
+              "id": "signal-contact",
+              "text": "Place powered radio / beacon",
+              "satisfied": true
+            }
+          ],
+          "newSupplies": [],
+          "things": [
+            {
+              "id": "battery",
+              "label": "Battery",
+              "x": 152,
+              "y": 156,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "lamp",
+              "label": "Lamp",
+              "x": 252,
+              "y": 156,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "reflective-foil",
+              "label": "Reflective foil",
+              "x": 52,
+              "y": 206,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "support-frame",
+              "label": "Support frame",
+              "x": 152,
+              "y": 206,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "tripod",
+              "label": "Tripod",
+              "x": 252,
+              "y": 206,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "toolkit",
+              "label": "Toolkit",
+              "x": 52,
+              "y": 256,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "solar-charger",
+              "label": "Solar charger",
+              "x": 52,
+              "y": 156,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "solar-radio",
+              "label": "Solar radio",
+              "x": 52,
+              "y": 97,
+              "location": "contact-ridge",
+              "gold": true,
+              "slots": [],
+              "components": [],
+              "readable": false
+            }
+          ],
+          "locations": [
+            {
+              "id": "@contact-ridge",
+              "area": "area-signal",
+              "x": 52,
+              "y": 81,
+              "label": "Contact ridge",
+              "gold": true
+            }
+          ],
+          "completed": false,
+          "successfulCombinations": 3
+        }
+      }
+    },
+    {
+      "op": "mission",
+      "args": [],
+      "exit": 0,
+      "output": {
+        "evidenceClass": "simulated logical play; not human evidence",
+        "session": "smoke-preparation-final-01",
+        "commandNumber": 9,
+        "integrity": {
+          "verified": true,
+          "manifestSha256": "3321994a2c1c93e1b5b45fdb6a1c8bfe3fa5f3dfe1722348be8b2b067f01d048"
+        },
+        "automaticTransitions": [],
+        "view": {
+          "scenario": {
+            "id": "mars-connected-survival-v4-cue-research",
+            "title": "Mars: A Light That Answers",
+            "premise": "A damaged landing strands a small expedition. Recovery becomes a rescue, then a return journey carrying people and evidence. This is an engineering story with recovered qualified systems, not real survival instructions."
+          },
+          "stage": {
+            "number": 2,
+            "title": "Somewhere to come back to",
+            "speaker": "Mission Control",
+            "motivation": "The inner cabin survived, but the landing tore its vestibule. Make the entry weather-tight, store water, and protect a living tray. Move our signal to the cabin’s clear-sky mast: the missing survey crew need a refuge to aim for, not just our crash site."
+          },
+          "area": {
+            "id": "area-habitat",
+            "label": "Somewhere to come back to",
+            "enteredAtStage": 1
+          },
+          "areas": [
+            {
+              "id": "area-signal",
+              "label": "A voice above the ridge",
+              "current": false,
+              "thingCount": 5
+            },
+            {
+              "id": "area-habitat",
+              "label": "Somewhere to come back to",
+              "current": true,
+              "thingCount": 15
+            }
+          ],
+          "objectives": [
+            {
+              "id": "habitat-goal-0",
+              "text": "Store water",
+              "satisfied": false
+            },
+            {
+              "id": "habitat-goal-2",
+              "text": "Make insulated vestibule",
+              "satisfied": false
+            },
+            {
+              "id": "habitat-contact",
+              "text": "Mark refuge for rescue",
+              "satisfied": false
+            }
+          ],
+          "newSupplies": [
+            {
+              "label": "Somewhere to come back to stores",
+              "narrative": "The expedition reaches the previously placed mission stores at somewhere to come back to. These include the following recovered equipment, not freshly delivered ingredients."
+            }
+          ],
+          "things": [
+            {
+              "id": "battery",
+              "label": "Battery",
+              "x": 152,
+              "y": 115,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "solar-charger",
+              "label": "Solar charger",
+              "x": 52,
+              "y": 115,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "solar-radio",
+              "label": "Solar radio",
+              "x": 52,
+              "y": 56,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "heater",
+              "label": "Heater",
+              "x": 252,
+              "y": 256,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "water-filter",
+              "label": "Water filter",
+              "x": 52,
+              "y": 306,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "empty-canister",
+              "label": "Empty canister",
+              "x": 152,
+              "y": 306,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "seeds",
+              "label": "Seeds",
+              "x": 252,
+              "y": 306,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "planting-tray",
+              "label": "Planting tray",
+              "x": 52,
+              "y": 356,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "clear-cover",
+              "label": "Clear cover",
+              "x": 152,
+              "y": 356,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "habitat-fabric",
+              "label": "Habitat fabric",
+              "x": 252,
+              "y": 356,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "sealant",
+              "label": "Sealant",
+              "x": 52,
+              "y": 406,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "seam-roller",
+              "label": "Seam roller",
+              "x": 152,
+              "y": 406,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "tie-downs",
+              "label": "Tie downs",
+              "x": 252,
+              "y": 406,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "hatch-frame",
+              "label": "Hatch frame",
+              "x": 52,
+              "y": 456,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "insulating-blanket",
+              "label": "Insulating blanket",
+              "x": 152,
+              "y": 456,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            }
+          ],
+          "locations": [
+            {
+              "id": "@sheltered-ice",
+              "area": "area-habitat",
+              "x": 152,
+              "y": 81,
+              "label": "Sheltered ice",
+              "gold": false
+            },
+            {
+              "id": "@warm-habitat",
+              "area": "area-habitat",
+              "x": 252,
+              "y": 181,
+              "label": "Warm habitat",
+              "gold": false
+            },
+            {
+              "id": "@refuge-contact-mast",
+              "area": "area-habitat",
+              "x": 52,
+              "y": 231,
+              "label": "Refuge signal mast",
+              "gold": false
+            }
+          ],
+          "completed": false,
+          "successfulCombinations": 3
+        }
+      }
+    },
+    {
+      "op": "note",
+      "args": [
+        "Source-aware preparation smoke only; exclude the entire session from source-blind metrics."
+      ],
+      "exit": 0,
+      "output": {
+        "evidenceClass": "simulated logical play; not human evidence",
+        "session": "smoke-preparation-final-01",
+        "commandNumber": 10,
+        "integrity": {
+          "verified": true,
+          "manifestSha256": "3321994a2c1c93e1b5b45fdb6a1c8bfe3fa5f3dfe1722348be8b2b067f01d048"
+        },
+        "note": "Source-aware preparation smoke only; exclude the entire session from source-blind metrics.",
+        "automaticTransitions": [],
+        "view": {
+          "scenario": {
+            "id": "mars-connected-survival-v4-cue-research",
+            "title": "Mars: A Light That Answers",
+            "premise": "A damaged landing strands a small expedition. Recovery becomes a rescue, then a return journey carrying people and evidence. This is an engineering story with recovered qualified systems, not real survival instructions."
+          },
+          "stage": {
+            "number": 2,
+            "title": "Somewhere to come back to",
+            "speaker": "Mission Control",
+            "motivation": "The inner cabin survived, but the landing tore its vestibule. Make the entry weather-tight, store water, and protect a living tray. Move our signal to the cabin’s clear-sky mast: the missing survey crew need a refuge to aim for, not just our crash site."
+          },
+          "area": {
+            "id": "area-habitat",
+            "label": "Somewhere to come back to",
+            "enteredAtStage": 1
+          },
+          "areas": [
+            {
+              "id": "area-signal",
+              "label": "A voice above the ridge",
+              "current": false,
+              "thingCount": 5
+            },
+            {
+              "id": "area-habitat",
+              "label": "Somewhere to come back to",
+              "current": true,
+              "thingCount": 15
+            }
+          ],
+          "objectives": [
+            {
+              "id": "habitat-goal-0",
+              "text": "Store water",
+              "satisfied": false
+            },
+            {
+              "id": "habitat-goal-2",
+              "text": "Make insulated vestibule",
+              "satisfied": false
+            },
+            {
+              "id": "habitat-contact",
+              "text": "Mark refuge for rescue",
+              "satisfied": false
+            }
+          ],
+          "newSupplies": [
+            {
+              "label": "Somewhere to come back to stores",
+              "narrative": "The expedition reaches the previously placed mission stores at somewhere to come back to. These include the following recovered equipment, not freshly delivered ingredients."
+            }
+          ],
+          "things": [
+            {
+              "id": "battery",
+              "label": "Battery",
+              "x": 152,
+              "y": 115,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "solar-charger",
+              "label": "Solar charger",
+              "x": 52,
+              "y": 115,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "solar-radio",
+              "label": "Solar radio",
+              "x": 52,
+              "y": 56,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "heater",
+              "label": "Heater",
+              "x": 252,
+              "y": 256,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "water-filter",
+              "label": "Water filter",
+              "x": 52,
+              "y": 306,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "empty-canister",
+              "label": "Empty canister",
+              "x": 152,
+              "y": 306,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "seeds",
+              "label": "Seeds",
+              "x": 252,
+              "y": 306,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "planting-tray",
+              "label": "Planting tray",
+              "x": 52,
+              "y": 356,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "clear-cover",
+              "label": "Clear cover",
+              "x": 152,
+              "y": 356,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "habitat-fabric",
+              "label": "Habitat fabric",
+              "x": 252,
+              "y": 356,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "sealant",
+              "label": "Sealant",
+              "x": 52,
+              "y": 406,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "seam-roller",
+              "label": "Seam roller",
+              "x": 152,
+              "y": 406,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "tie-downs",
+              "label": "Tie downs",
+              "x": 252,
+              "y": 406,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "hatch-frame",
+              "label": "Hatch frame",
+              "x": 52,
+              "y": 456,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "insulating-blanket",
+              "label": "Insulating blanket",
+              "x": 152,
+              "y": 456,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            }
+          ],
+          "locations": [
+            {
+              "id": "@sheltered-ice",
+              "area": "area-habitat",
+              "x": 152,
+              "y": 81,
+              "label": "Sheltered ice",
+              "gold": false
+            },
+            {
+              "id": "@warm-habitat",
+              "area": "area-habitat",
+              "x": 252,
+              "y": 181,
+              "label": "Warm habitat",
+              "gold": false
+            },
+            {
+              "id": "@refuge-contact-mast",
+              "area": "area-habitat",
+              "x": 52,
+              "y": 231,
+              "label": "Refuge signal mast",
+              "gold": false
+            }
+          ],
+          "completed": false,
+          "successfulCombinations": 3
+        }
+      }
+    },
+    {
+      "op": "stop",
+      "args": [
+        "Preparation smoke completed; not a simulated player decision."
+      ],
+      "exit": 0,
+      "output": {
+        "evidenceClass": "simulated logical play; not human evidence",
+        "session": "smoke-preparation-final-01",
+        "commandNumber": 11,
+        "integrity": {
+          "verified": true,
+          "manifestSha256": "3321994a2c1c93e1b5b45fdb6a1c8bfe3fa5f3dfe1722348be8b2b067f01d048"
+        },
+        "stopped": true,
+        "reason": "Preparation smoke completed; not a simulated player decision.",
+        "automaticTransitions": [],
+        "view": {
+          "scenario": {
+            "id": "mars-connected-survival-v4-cue-research",
+            "title": "Mars: A Light That Answers",
+            "premise": "A damaged landing strands a small expedition. Recovery becomes a rescue, then a return journey carrying people and evidence. This is an engineering story with recovered qualified systems, not real survival instructions."
+          },
+          "stage": {
+            "number": 2,
+            "title": "Somewhere to come back to",
+            "speaker": "Mission Control",
+            "motivation": "The inner cabin survived, but the landing tore its vestibule. Make the entry weather-tight, store water, and protect a living tray. Move our signal to the cabin’s clear-sky mast: the missing survey crew need a refuge to aim for, not just our crash site."
+          },
+          "area": {
+            "id": "area-habitat",
+            "label": "Somewhere to come back to",
+            "enteredAtStage": 1
+          },
+          "areas": [
+            {
+              "id": "area-signal",
+              "label": "A voice above the ridge",
+              "current": false,
+              "thingCount": 5
+            },
+            {
+              "id": "area-habitat",
+              "label": "Somewhere to come back to",
+              "current": true,
+              "thingCount": 15
+            }
+          ],
+          "objectives": [
+            {
+              "id": "habitat-goal-0",
+              "text": "Store water",
+              "satisfied": false
+            },
+            {
+              "id": "habitat-goal-2",
+              "text": "Make insulated vestibule",
+              "satisfied": false
+            },
+            {
+              "id": "habitat-contact",
+              "text": "Mark refuge for rescue",
+              "satisfied": false
+            }
+          ],
+          "newSupplies": [
+            {
+              "label": "Somewhere to come back to stores",
+              "narrative": "The expedition reaches the previously placed mission stores at somewhere to come back to. These include the following recovered equipment, not freshly delivered ingredients."
+            }
+          ],
+          "things": [
+            {
+              "id": "battery",
+              "label": "Battery",
+              "x": 152,
+              "y": 115,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "solar-charger",
+              "label": "Solar charger",
+              "x": 52,
+              "y": 115,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "solar-radio",
+              "label": "Solar radio",
+              "x": 52,
+              "y": 56,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "heater",
+              "label": "Heater",
+              "x": 252,
+              "y": 256,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "water-filter",
+              "label": "Water filter",
+              "x": 52,
+              "y": 306,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "empty-canister",
+              "label": "Empty canister",
+              "x": 152,
+              "y": 306,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "seeds",
+              "label": "Seeds",
+              "x": 252,
+              "y": 306,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "planting-tray",
+              "label": "Planting tray",
+              "x": 52,
+              "y": 356,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "clear-cover",
+              "label": "Clear cover",
+              "x": 152,
+              "y": 356,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "habitat-fabric",
+              "label": "Habitat fabric",
+              "x": 252,
+              "y": 356,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "sealant",
+              "label": "Sealant",
+              "x": 52,
+              "y": 406,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "seam-roller",
+              "label": "Seam roller",
+              "x": 152,
+              "y": 406,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "tie-downs",
+              "label": "Tie downs",
+              "x": 252,
+              "y": 406,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "hatch-frame",
+              "label": "Hatch frame",
+              "x": 52,
+              "y": 456,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "insulating-blanket",
+              "label": "Insulating blanket",
+              "x": 152,
+              "y": 456,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            }
+          ],
+          "locations": [
+            {
+              "id": "@sheltered-ice",
+              "area": "area-habitat",
+              "x": 152,
+              "y": 81,
+              "label": "Sheltered ice",
+              "gold": false
+            },
+            {
+              "id": "@warm-habitat",
+              "area": "area-habitat",
+              "x": 252,
+              "y": 181,
+              "label": "Warm habitat",
+              "gold": false
+            },
+            {
+              "id": "@refuge-contact-mast",
+              "area": "area-habitat",
+              "x": 52,
+              "y": 231,
+              "label": "Refuge signal mast",
+              "gold": false
+            }
+          ],
+          "completed": false,
+          "successfulCombinations": 3
+        }
+      }
+    },
+    {
+      "op": "drop",
+      "args": [
+        "broken-radio",
+        "broken-radio"
+      ],
+      "expect": "Source-aware smoke: stopped sessions must reject gameplay.",
+      "exit": 2,
+      "output": {
+        "accepted": false,
+        "protocolError": "Session was voluntarily stopped; preserve its result. Only view, mission and note remain available.",
+        "preservedRejection": true
+      }
+    }
+  ]
+}

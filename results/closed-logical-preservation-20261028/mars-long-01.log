@@ -1,0 +1,134 @@
+{
+  "packetId": "mars-v4-copyfix-packet-v1",
+  "sessionId": "mars-long-01",
+  "verifiedAt": "2026-10-28T06:54:56.047Z",
+  "manifestSha256": "30347445b521f4bf55075c4c4d388112d6105e11a0dfd229aa35e12ad2a603ce",
+  "commands": {
+    "start": 1,
+    "drop": 32,
+    "note": 16,
+    "highlight": 5,
+    "place": 4,
+    "stop": 1
+  },
+  "commandCount": 59,
+  "authoredBaseline": 0,
+  "autoCompletedStatus": false,
+  "engineMetrics": {
+    "attempts": 38,
+    "accepted": 30,
+    "combinations": 21,
+    "creations": 18,
+    "installations": 3,
+    "moves": 0,
+    "placements": 7,
+    "advances": 2,
+    "visits": 0
+  },
+  "stageIndex": 2,
+  "completed": false,
+  "status": "stopped",
+  "rejects": [
+    {
+      "seq": 3,
+      "command": {
+        "op": "drop",
+        "args": [
+          "battery",
+          "radio"
+        ]
+      },
+      "expectation": "The repaired radio still needs electricity; connecting the battery should make a powered radio for the contact ridge.",
+      "protocolError": null
+    },
+    {
+      "seq": 11,
+      "command": {
+        "op": "drop",
+        "args": [
+          "solar-charger",
+          "heater"
+        ]
+      },
+      "expectation": "Our existing solar charger should power the heater so sheltered ice can be melted into water.",
+      "protocolError": null
+    },
+    {
+      "seq": 22,
+      "command": {
+        "op": "drop",
+        "args": [
+          "insulating-blanket",
+          "vestibule"
+        ]
+      },
+      "expectation": "Wrapping the entry in insulation should keep the refuge weather-tight and reduce heat loss, meeting the insulated vestibule goal.",
+      "protocolError": null
+    },
+    {
+      "seq": 30,
+      "command": {
+        "op": "drop",
+        "args": [
+          "filtered-water",
+          "seed-tray"
+        ]
+      },
+      "expectation": "Seeds need water to germinate; using the clean meltwater should produce a growing or watered tray.",
+      "protocolError": null
+    },
+    {
+      "seq": 32,
+      "command": {
+        "op": "drop",
+        "args": [
+          "clear-cover",
+          "seed-tray"
+        ]
+      },
+      "expectation": "The clear cover should protect the seeded tray while allowing light in, making a sheltered growing box.",
+      "protocolError": null
+    },
+    {
+      "seq": 37,
+      "command": {
+        "op": "drop",
+        "args": [
+          "clear-cover",
+          "watered-seed-tray"
+        ]
+      },
+      "expectation": "The watered tray now has what it needs inside; its clear cover should protect the seedlings and complete their shelter.",
+      "protocolError": null
+    },
+    {
+      "seq": 47,
+      "command": {
+        "op": "drop",
+        "args": [
+          "compass-module",
+          "terrain-sheet"
+        ]
+      },
+      "expectation": "The terrain sheet combined with directional bearings should make a navigation map for following the last transmission.",
+      "protocolError": null
+    },
+    {
+      "seq": 56,
+      "command": {
+        "op": "drop",
+        "args": [
+          "bearing-scope",
+          "terrain-sheet"
+        ]
+      },
+      "expectation": "The bearing scope gives directions for landmarks; transferring those observations to the terrain sheet should make the bearing map.",
+      "protocolError": null
+    }
+  ],
+  "exactFullGameAndEveryCommandReplay": true,
+  "limitations": [
+    "Protocol-source-blind simulated logical play, not human enjoyment or UI proof.",
+    "Current file hashes and recorded chain verified; no tamper-proof chronology claim."
+  ]
+}

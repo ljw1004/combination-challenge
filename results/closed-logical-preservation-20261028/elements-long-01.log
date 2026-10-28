@@ -1,0 +1,87 @@
+{
+  "packetId": "elements-v7-copyfix-packet-v1",
+  "sessionId": "elements-long-01",
+  "verifiedAt": "2026-10-28T06:54:54.732Z",
+  "manifestSha256": "611bc2aab15dc8d1a1e04c0bb6f18f96e154f434e0b859b48a90e771e85a06f9",
+  "commands": {
+    "start": 1,
+    "drop": 19,
+    "highlight": 4,
+    "note": 8,
+    "mission": 1,
+    "visit": 2,
+    "stop": 1
+  },
+  "commandCount": 36,
+  "authoredBaseline": 0,
+  "autoCompletedStatus": false,
+  "engineMetrics": {
+    "attempts": 22,
+    "accepted": 18,
+    "combinations": 15,
+    "creations": 15,
+    "installations": 0,
+    "moves": 0,
+    "placements": 0,
+    "advances": 1,
+    "visits": 2
+  },
+  "stageIndex": 1,
+  "completed": false,
+  "status": "stopped",
+  "rejects": [
+    {
+      "seq": 7,
+      "command": {
+        "op": "drop",
+        "args": [
+          "air",
+          "fire"
+        ]
+      },
+      "expectation": "Air feeds a fire; I expect stronger heat or a furnace that could make pottery more deliberately than raw fire.",
+      "protocolError": null
+    },
+    {
+      "seq": 10,
+      "command": {
+        "op": "drop",
+        "args": [
+          "clay",
+          "kiln"
+        ]
+      },
+      "expectation": "A kiln fires clay into pottery, so I expect the supper bowl now.",
+      "protocolError": null
+    },
+    {
+      "seq": 15,
+      "command": {
+        "op": "drop",
+        "args": [
+          "glass",
+          "air"
+        ]
+      },
+      "expectation": "Blowing air into glass is how a vessel is formed; I expect a hollow glass bowl or bottle.",
+      "protocolError": null
+    },
+    {
+      "seq": 29,
+      "command": {
+        "op": "drop",
+        "args": [
+          "fruit",
+          "bowl"
+        ]
+      },
+      "expectation": "The bowl catches squeezed fruit juice for supper; this is why I carried it here.",
+      "protocolError": null
+    }
+  ],
+  "exactFullGameAndEveryCommandReplay": true,
+  "limitations": [
+    "Protocol-source-blind simulated logical play, not human enjoyment or UI proof.",
+    "Current file hashes and recorded chain verified; no tamper-proof chronology claim."
+  ]
+}

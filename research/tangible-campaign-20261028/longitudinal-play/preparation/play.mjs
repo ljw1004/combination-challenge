@@ -1,0 +1,71 @@
+#!/usr/bin/env node
+import {readFileSync,writeFileSync,appendFileSync,existsSync,mkdirSync,renameSync,lstatSync,openSync,fsyncSync,closeSync,rmSync} from 'node:fs';
+import {createHash} from 'node:crypto';
+import {gzipSync} from 'node:zlib';
+import {fileURLToPath} from 'node:url';
+import {resolve,dirname,basename} from 'node:path';
+const packet=dirname(fileURLToPath(import.meta.url)),root=dirname(packet),packetId=basename(packet);
+const hash=x=>createHash('sha256').update(x).digest('hex');
+const json=x=>JSON.stringify(x);
+const durableAppend=(file,obj)=>{const fd=openSync(file,'a');try{writeFileSync(fd,json(obj)+'\n');fsyncSync(fd);}finally{closeSync(fd);}};
+const argv=process.argv.slice(2),[seal,sessionId,op='view',...rawArgs]=argv;
+const now=()=>new Date().toISOString();
+const rejection={time:now(),packet:packetId,argv,evidenceClass:'simulated logical harness; not human evidence'};
+let dir,lockHeld=false,intent,session,verification;
+try{
+ if(!/^[a-f0-9]{64}$/.test(seal??''))throw Error('Supply the exact manifest SHA-256 from PLAYER_TASK.md as the first argument.');
+ const manifestBytes=readFileSync(resolve(packet,'manifest.json'));
+ if(hash(manifestBytes)!==seal)throw Error('Pinned manifest hash mismatch; no runtime or scenario loaded.');
+ const manifest=JSON.parse(manifestBytes);
+ for(const [file,expected] of Object.entries(manifest.files)){
+  const path=resolve(packet,file);if(!path.startsWith(packet+'/')||!lstatSync(path).isFile()||lstatSync(path).isSymbolicLink())throw Error('Invalid frozen file: '+file);
+  if(hash(readFileSync(path))!==expected)throw Error('Frozen file hash mismatch: '+file);
+ }
+ verification={manifestSha256:seal,files:manifest.files,runtimeCommit:manifest.runtimeCommit,verifiedAt:now()};
+ if(!/^[a-z0-9][a-z0-9_-]{0,63}$/.test(sessionId??''))throw Error('Session ID must be 1–64 lowercase letters, digits, underscores or hyphens.');
+ dir=resolve(root,'sessions',packetId,sessionId);mkdirSync(dir,{recursive:true});
+ mkdirSync(resolve(dir,'.lock'));lockHeld=true;
+ let expect=null;const args=[...rawArgs],expectAt=args.indexOf('--expect');
+ if(expectAt>=0){if(expectAt!==args.length-2||!args[expectAt+1]?.trim())throw Error('--expect must be the final flag followed by your nonempty expected meaning.');expect=args[expectAt+1];args.splice(expectAt,2);}
+ const statePath=resolve(dir,'session.json'),receiptsPath=resolve(dir,'receipts.jsonl');
+ if(existsSync(statePath)){
+  session=JSON.parse(readFileSync(statePath,'utf8'));
+  if(session.seal!==seal||session.packetId!==packetId)throw Error('Session belongs to a different frozen packet.');
+  const receipts=readFileSync(receiptsPath,'utf8').trim().split('\n').filter(Boolean);let prior=null;
+  for(const line of receipts){const r=JSON.parse(line);if(r.previousReceiptSha256!==prior)throw Error('Receipt chain broken.');prior=hash(line);}
+  const last=JSON.parse(receipts.at(-1));
+  if(prior!==session.lastReceiptSha256||last.seq!==session.seq||last.gameSha256!==hash(json(session.game))||last.status!==session.status)throw Error('Session snapshot/receipt mismatch. Preserve files; do not reset.');
+  if(hash(readFileSync(resolve(dir,last.auditFile)))!==last.auditSha256)throw Error('Latest audit record integrity failure.');
+ }
+ if(op==='start'&&session)throw Error('This session already exists. Resume it with view; do not erase prior evidence.');
+ if(!session&&op!=='start')throw Error('Fresh session must begin with start at the actual scenario opening.');
+ if(session?.status==='stopped'&&!['view','mission','note','stop'].includes(op))throw Error('Session was voluntarily stopped; preserve its result. Only view, mission and note remain available.');
+ const needsExpect=['highlight','read','drop','place','move','visit','undo'].includes(op);
+ if(needsExpect&&!expect)throw Error('Before acting, supply --expect with the meaning or outcome you expect from this action.');
+ const seq=(session?.seq??0)+1;
+ intent={time:now(),seq,sessionId,packetId,command:{op,args},expectedMeaning:expect,verification,beforeGameSha256:session?hash(json(session.game)):null,evidenceClass:'simulated logical play; not a human playtest',sourceBlindness:'protocol-only; not OS isolation'};
+ durableAppend(resolve(dir,'intents.jsonl'),intent);
+ // Nothing scenario/runtime-dependent is imported or parsed before the freeze checks.
+ const M=await import('./engine/model.ts');const {execute,visibleView}=await import('./surface.mjs');
+ const scenario=JSON.parse(readFileSync(resolve(packet,'scenario.json'),'utf8'));
+ const fresh=!session;
+ if(!session)session={packetId,seal,seq:0,status:'active',startedAt:now(),lastReceiptSha256:null,game:M.createGame(scenario,360)};
+ const beforeView=visibleView(M,scenario,session.game);
+ let run,protocolError=null;
+ try{run=execute(M,scenario,session.game,op,args);}catch(e){protocolError=String(e.message??e);run={game:session.game,engineResults:[],response:{accepted:false,protocolError},transitions:[],view:beforeView,rawView:M.playerView(scenario,session.game)};}
+ const status=op==='stop'&&!protocolError?'stopped':session.status;
+ const output={evidenceClass:'simulated logical play; not human evidence',session:sessionId,commandNumber:seq,integrity:{verified:true,manifestSha256:seal},...(expect?{expectedMeaning:expect}:{}),...run.response,automaticTransitions:run.transitions,view:run.view};
+ const audit={...intent,finishedAt:now(),freshStart:fresh,noAuthoredBaseline:true,...(fresh?{initialGame:session.game}:{}),beforeView,engineResults:run.engineResults,rawView:run.rawView,playerOutput:output,status};
+ mkdirSync(resolve(dir,'audit'),{recursive:true});const auditFile=`audit/${String(seq).padStart(5,'0')}.json.gz`,auditBytes=gzipSync(json(audit));
+ writeFileSync(resolve(dir,auditFile),auditBytes,{flag:'wx'});
+ const receipt={seq,time:now(),op,expectedMeaning:expect,previousReceiptSha256:session.lastReceiptSha256,auditFile,auditSha256:hash(auditBytes),gameSha256:hash(json(run.game)),status,outputSha256:hash(json(output)),protocolError};
+ durableAppend(receiptsPath,receipt);
+ session={...session,seq,status,game:run.game,lastReceiptSha256:hash(json(receipt))};
+ writeFileSync(statePath+'.tmp',json(session)+'\n');renameSync(statePath+'.tmp',statePath);
+ durableAppend(resolve(dir,'player-output.jsonl'),output);
+ console.log(JSON.stringify(output,null,2));if(protocolError)process.exitCode=2;
+}catch(e){
+ const error={...rejection,error:String(e.message??e),verification:verification??null,intent:intent??null};
+ const where=dir??resolve(root,'sessions');mkdirSync(where,{recursive:true});durableAppend(resolve(where,'rejected-commands.jsonl'),error);
+ console.log(JSON.stringify({accepted:false,protocolError:error.error,preservedRejection:true},null,2));process.exitCode=2;
+}finally{if(lockHeld)rmSync(resolve(dir,'.lock'),{recursive:true});}

@@ -1,0 +1,61 @@
+node:internal/modules/run_main:107
+    triggerUncaughtException(
+    ^
+
+AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
++ actual - expected
+
+  {
+    area: 'snack-area',
+    id: 'injector',
++   incorporated: [
++     'vanilla-filling'
++   ],
+-   incorporated: [],
+    kind: 'injector',
+    location: null,
++   slots: {
++     creme: 'vanilla-filling'
++   },
+-   slots: {},
+    x: 52,
+    y: 63.5
+  }
+
+    at witness (file:///workspace/shared/combination-campaign-research-20261028/food-v4-flexible-salads/verify.ts:60:96)
+    at file:///workspace/shared/combination-campaign-research-20261028/food-v4-flexible-salads/verify.ts:112:110
+    at Array.map (<anonymous>)
+    at file:///workspace/shared/combination-campaign-research-20261028/food-v4-flexible-salads/verify.ts:112:103
+    at Array.flatMap (<anonymous>)
+    at verify (file:///workspace/shared/combination-campaign-research-20261028/food-v4-flexible-salads/verify.ts:112:63)
+    at file:///workspace/shared/combination-campaign-research-20261028/food-v4-flexible-salads/verify.ts:121:44
+    at ModuleJob.run (node:internal/modules/esm/module_job:561:25)
+    at async node:internal/modules/esm/loader:647:26
+    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:101:5) {
+  generatedMessage: true,
+  code: 'ERR_ASSERTION',
+  actual: {
+    id: 'injector',
+    kind: 'injector',
+    area: 'snack-area',
+    location: null,
+    slots: { creme: 'vanilla-filling' },
+    incorporated: [ 'vanilla-filling' ],
+    x: 52,
+    y: 63.5
+  },
+  expected: {
+    id: 'injector',
+    kind: 'injector',
+    area: 'snack-area',
+    location: null,
+    slots: {},
+    incorporated: [],
+    x: 52,
+    y: 63.5
+  },
+  operator: 'deepStrictEqual',
+  diff: 'simple'
+}
+
+Node.js v24.22.1

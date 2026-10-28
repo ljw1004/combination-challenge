@@ -1,0 +1,61 @@
+{
+  "packetId": "atlas-v4-packet-v2",
+  "sessionId": "atlas-long-01",
+  "verifiedAt": "2026-10-28T06:01:18.686Z",
+  "manifestSha256": "508e42aed84e322829a682d1b00863842c52c65e6f96f8a34a31fd1cb5ce0fc1",
+  "commands": {
+    "start": 1,
+    "read": 6,
+    "drop": 31,
+    "note": 5,
+    "highlight": 3,
+    "stop": 1
+  },
+  "commandCount": 47,
+  "authoredBaseline": 0,
+  "engineMetrics": {
+    "attempts": 34,
+    "accepted": 32,
+    "combinations": 29,
+    "creations": 29,
+    "installations": 0,
+    "moves": 0,
+    "placements": 0,
+    "advances": 3,
+    "visits": 0
+  },
+  "stageIndex": 3,
+  "completed": false,
+  "status": "stopped",
+  "rejects": [
+    {
+      "seq": 7,
+      "command": {
+        "op": "drop",
+        "args": [
+          "matched-records",
+          "month-counts"
+        ]
+      },
+      "expectation": "Count the intervals between the matched eclipse records to turn the three dates into the six-lunar-month pattern.",
+      "protocolError": null
+    },
+    {
+      "seq": 33,
+      "command": {
+        "op": "drop",
+        "args": [
+          "square-strips",
+          "corner-square"
+        ]
+      },
+      "expectation": "Add the missing area 9 to complete a square of side x+3, making x²+6x+9=(x+3)² in this positive-length case.",
+      "protocolError": null
+    }
+  ],
+  "exactFullGameAndEveryCommandReplay": true,
+  "limitations": [
+    "Protocol-source-blind simulated logical play, not human enjoyment or UI proof.",
+    "Current file hashes and recorded chain verified; no tamper-proof chronology claim."
+  ]
+}

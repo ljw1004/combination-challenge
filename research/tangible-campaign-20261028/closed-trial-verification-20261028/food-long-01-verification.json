@@ -1,0 +1,85 @@
+{
+  "packetId": "food-v3-copyfix-packet-v1",
+  "sessionId": "food-long-01",
+  "verifiedAt": "2026-10-28T06:08:23.354Z",
+  "manifestSha256": "43c378a8cf5a8f728428e5cf85f6fc505a929fdd628f5f66b98624e465dc8857",
+  "commands": {
+    "start": 1,
+    "drop": 47,
+    "note": 13,
+    "highlight": 5,
+    "read": 1,
+    "stop": 1
+  },
+  "commandCount": 68,
+  "authoredBaseline": 0,
+  "engineMetrics": {
+    "attempts": 51,
+    "accepted": 47,
+    "combinations": 35,
+    "creations": 35,
+    "installations": 0,
+    "moves": 0,
+    "placements": 8,
+    "advances": 4,
+    "visits": 0
+  },
+  "stageIndex": 4,
+  "completed": false,
+  "status": "stopped",
+  "rejects": [
+    {
+      "seq": 10,
+      "command": {
+        "op": "drop",
+        "args": [
+          "dough",
+          "yeast-culture"
+        ]
+      },
+      "expectation": "Adding bakers yeast to the carried dough should begin a risen loaf, probably with a proofing step.",
+      "protocolError": null
+    },
+    {
+      "seq": 45,
+      "command": {
+        "op": "drop",
+        "args": [
+          "roast-roots",
+          "cooked-beans"
+        ]
+      },
+      "expectation": "Roasted roots plus cooked beans should make a substantial warm filling for the flatbread.",
+      "protocolError": null
+    },
+    {
+      "seq": 64,
+      "command": {
+        "op": "drop",
+        "args": [
+          "vinaigrette",
+          "roast-roots"
+        ]
+      },
+      "expectation": "The carried vinaigrette should dress the roasted roots as the lighter root salad the gardener requested.",
+      "protocolError": null
+    },
+    {
+      "seq": 66,
+      "command": {
+        "op": "drop",
+        "args": [
+          "ground-mustard",
+          "vinaigrette"
+        ]
+      },
+      "expectation": "Ground mustard stirred into the existing vinaigrette should give a sharper mustard dressing for the root salad.",
+      "protocolError": null
+    }
+  ],
+  "exactFullGameAndEveryCommandReplay": true,
+  "limitations": [
+    "Protocol-source-blind simulated logical play, not human enjoyment or UI proof.",
+    "Current file hashes and recorded chain verified; no tamper-proof chronology claim."
+  ]
+}

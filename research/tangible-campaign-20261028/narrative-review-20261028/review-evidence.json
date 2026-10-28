@@ -1,0 +1,1164 @@
+{
+  "reviewType": "Source-aware whole-journey narrative review plus static consistency checks; no new runtime or browser execution",
+  "inputSHA256": {
+    "mars/revision-v4/candidate.scenario.json": "1ac65986f456aed067ec74b39393065929068cbd589328f89f2e40621333cc3b",
+    "mars/revision-v4/candidate-route-evidence.json": "21f78b5ba53810ade9314195b63d2ce50e42c1feb9c33fc04a2c66063f9455ec",
+    "mars/revision-v4/verification.json": "a1228db35f6fbfd805177cbc334f254ea54ee1a3f9c4fe0f588d1a63d6b1c3c4",
+    "mars/revision-v4/blind-sessions/night.json": "69e8ac8caa69ddc76bea8f4ed3da0039b870584c0f50e0b793abd1b274efe871",
+    "mars/revision-v4/blind-sessions/workshop.json": "1f3d524bba05f7fd4f532e05a5be2f9c411cb789c73feae60a4e962506c3ead7",
+    "elements/candidates/v7/scenario.json": "69a61f97754e708d357a36a9ed8bb937ffaef5ff690173c86e94104402ca64d2",
+    "elements/candidates/v7/frozen/scenarios/elements-v7.json": "69a61f97754e708d357a36a9ed8bb937ffaef5ff690173c86e94104402ca64d2",
+    "elements/candidates/v7/elements-gathering-refinement-v7-route-evidence.json": "490aa40993618585f0842151697d3d67e4e199643c497d36b816f96b47345dc9",
+    "elements/reports/v7-goal-provenance.json": "c5f88215d6580529c04fbcc1b4512ff82c980864f2ba14dedaaab2e03ca18cc3",
+    "elements/reports/fresh-gathering-v7-exact-replay.json": "8fd4e0b92383f2c1e8f376782412ea0cf43cf06ea4fd03125f4fb2e70ca4f607",
+    "food-v3/scenario.json": "578bae178cb06d32c5d8f719be2c39a44c1effd5b49e4e7bda28cd75cceae993",
+    "food-v3/routes/canonical.json": "7451f42ef2a63694da52d5cd7ca0b4653d5d53c955c0e95e35e4e2877fdc2511",
+    "food-v3/dependency-plan.json": "f223d6b72c41a0e7893719f7983cb775500c6bbf3bcb4a4cdd442ec35ea01cab",
+    "food-v3/evidence/verification.json": "ffbaec1a25903139f76250fcceccc988a09225a07e3295aafaf021ce84cc28b6",
+    "food-v3/evidence/trial-response.json": "abcfa0ca2eeb40f4bb49e0e0f7fe0f4ba5867c5768aaba6b3af35e0443fa38c2",
+    "food-v3/source-attribution.json": "b2eb68f86f05a704fc35d1698c4a690869df2aa35dc48343171a403a11e0977c",
+    "food-v3/docs/SOURCES-AND-LIMITS.md": "c07f861f0763b786c6002b0ea722dc1c8df098ef2aef4c74fb9398b868af78e1",
+    "food-v2/pilots/sessions/fresh_train_a.json": "05fa947103cf9b53b0458ec4f9f71bc8b143687a83cd44e79b9e768b5940f3c7"
+  },
+  "originalHashesMatchFrozenManifests": true,
+  "staticFindings": {
+    "marsRadar": {
+      "acquired": false,
+      "recipes": [],
+      "staleClaimStage": "buried-story"
+    },
+    "marsOrbitalCabin": {
+      "listedAsRecoveredHomeboundStore": true,
+      "dockingRecipe": "homebound-12-docked-vehicle",
+      "ascentAlreadyNarrated": true
+    },
+    "elementsKiln": {
+      "ch8InstructionDemandsBuild": true,
+      "ch8GoalsDoNotRequireKiln": true,
+      "glazingUsesPotterControlledLocation": "kiln-yard",
+      "canonicalKilnCreationChapter": 9
+    },
+    "foodWhisk": {
+      "claimedCacheChapter": 11,
+      "actualGrantChapters": [
+        12
+      ]
+    }
+  },
+  "continuityEvidence": {
+    "scope": "Existing source-aware author evidence, independently read for semantic purpose; not a new engine replay",
+    "mars": {
+      "source": "mars/revision-v4/verification.json",
+      "rows": [
+        {
+          "stage": "signal",
+          "earlierUsed": [],
+          "goalConnected": [],
+          "completed": true
+        },
+        {
+          "stage": "habitat",
+          "earlierUsed": [
+            "solar-charger"
+          ],
+          "goalConnected": [
+            "solar-charger",
+            "solar-radio"
+          ],
+          "completed": true
+        },
+        {
+          "stage": "rover",
+          "earlierUsed": [
+            "solar-charger"
+          ],
+          "goalConnected": [
+            "solar-charger"
+          ],
+          "completed": true
+        },
+        {
+          "stage": "outcrop",
+          "earlierUsed": [
+            "bearing-map"
+          ],
+          "goalConnected": [
+            "bearing-map"
+          ],
+          "completed": true
+        },
+        {
+          "stage": "weather",
+          "earlierUsed": [
+            "solar-charger",
+            "annotated-map"
+          ],
+          "goalConnected": [
+            "solar-charger",
+            "annotated-map"
+          ],
+          "completed": true
+        },
+        {
+          "stage": "relay",
+          "earlierUsed": [
+            "weather-route-map"
+          ],
+          "goalConnected": [
+            "weather-route-map"
+          ],
+          "completed": true
+        },
+        {
+          "stage": "rescue",
+          "earlierUsed": [
+            "pressure-patch"
+          ],
+          "goalConnected": [
+            "pressure-patch"
+          ],
+          "completed": true
+        },
+        {
+          "stage": "camp",
+          "earlierUsed": [
+            "provisioned-refuge",
+            "solar-radio"
+          ],
+          "goalConnected": [
+            "provisioned-refuge",
+            "solar-radio"
+          ],
+          "completed": true
+        },
+        {
+          "stage": "cargo-return",
+          "earlierUsed": [
+            "soup-flask"
+          ],
+          "goalConnected": [
+            "soup-flask"
+          ],
+          "completed": true
+        },
+        {
+          "stage": "night",
+          "earlierUsed": [
+            "provisioned-refuge"
+          ],
+          "goalConnected": [
+            "provisioned-refuge"
+          ],
+          "completed": true
+        },
+        {
+          "stage": "waterworks",
+          "earlierUsed": [
+            "water-canister"
+          ],
+          "goalConnected": [
+            "water-canister"
+          ],
+          "completed": true
+        },
+        {
+          "stage": "garden",
+          "earlierUsed": [
+            "pressure-patch",
+            "camp-water-system",
+            "solar-charger"
+          ],
+          "goalConnected": [
+            "pressure-patch",
+            "camp-water-system",
+            "solar-charger"
+          ],
+          "completed": true
+        },
+        {
+          "stage": "nursery",
+          "earlierUsed": [
+            "propagator",
+            "field-camera",
+            "greenhouse"
+          ],
+          "goalConnected": [
+            "propagator",
+            "greenhouse",
+            "field-camera"
+          ],
+          "completed": true
+        },
+        {
+          "stage": "workshop",
+          "earlierUsed": [
+            "lit-workbench",
+            "crawler"
+          ],
+          "goalConnected": [
+            "lit-workbench",
+            "crawler"
+          ],
+          "completed": true
+        },
+        {
+          "stage": "traverse",
+          "earlierUsed": [
+            "annotated-map",
+            "crawler"
+          ],
+          "goalConnected": [
+            "annotated-map",
+            "crawler"
+          ],
+          "completed": true
+        },
+        {
+          "stage": "crossing",
+          "earlierUsed": [
+            "terrain-model"
+          ],
+          "goalConnected": [
+            "terrain-model",
+            "crawler"
+          ],
+          "completed": true
+        },
+        {
+          "stage": "buried-story",
+          "earlierUsed": [
+            "core-profile"
+          ],
+          "goalConnected": [
+            "core-profile"
+          ],
+          "completed": true
+        },
+        {
+          "stage": "contrast",
+          "earlierUsed": [
+            "field-camera",
+            "terrain-model",
+            "basin-field-record"
+          ],
+          "goalConnected": [
+            "field-camera",
+            "terrain-model",
+            "basin-field-record"
+          ],
+          "completed": true
+        },
+        {
+          "stage": "depot-way",
+          "earlierUsed": [
+            "field-camera",
+            "weather-record",
+            "protected-controller"
+          ],
+          "goalConnected": [
+            "protected-controller",
+            "field-camera",
+            "weather-record"
+          ],
+          "completed": true
+        },
+        {
+          "stage": "oxygen",
+          "earlierUsed": [
+            "depot-cargo-shuttle"
+          ],
+          "goalConnected": [
+            "depot-cargo-shuttle"
+          ],
+          "completed": true
+        },
+        {
+          "stage": "ascent",
+          "earlierUsed": [
+            "oxygen-service-module"
+          ],
+          "goalConnected": [
+            "oxygen-service-module"
+          ],
+          "completed": true
+        },
+        {
+          "stage": "rendezvous",
+          "earlierUsed": [
+            "long-range-radio"
+          ],
+          "goalConnected": [
+            "long-range-radio"
+          ],
+          "completed": true
+        },
+        {
+          "stage": "departure",
+          "earlierUsed": [
+            "depot-cargo-shuttle",
+            "catalogued-ice-sample",
+            "retained-sediment",
+            "crew-table-portrait",
+            "basin-field-record",
+            "core-profile",
+            "sleeved-comparison"
+          ],
+          "goalConnected": [
+            "depot-cargo-shuttle",
+            "catalogued-ice-sample",
+            "retained-sediment",
+            "crew-table-portrait",
+            "basin-field-record",
+            "core-profile",
+            "sleeved-comparison"
+          ],
+          "completed": true
+        },
+        {
+          "stage": "homebound",
+          "earlierUsed": [
+            "ascent-cabin",
+            "specimen-cart",
+            "agreed-rendezvous"
+          ],
+          "goalConnected": [
+            "ascent-cabin",
+            "specimen-cart",
+            "agreed-rendezvous"
+          ],
+          "completed": true
+        }
+      ],
+      "laterChaptersWithGoalConnectedEarlierCreations": 23
+    },
+    "elements": {
+      "source": "elements/reports/v7-goal-provenance.json",
+      "rows": [
+        {
+          "stage": "beginnings",
+          "earlierUsed": [],
+          "goalConnected": [],
+          "completed": true
+        },
+        {
+          "stage": "supper",
+          "earlierUsed": [
+            "stone"
+          ],
+          "goalConnected": [
+            "stone"
+          ],
+          "completed": true
+        },
+        {
+          "stage": "shelter",
+          "earlierUsed": [
+            "plant",
+            "brick",
+            "stone"
+          ],
+          "goalConnected": [
+            "brick",
+            "plant",
+            "stone"
+          ],
+          "completed": true
+        },
+        {
+          "stage": "crossing",
+          "earlierUsed": [
+            "wood",
+            "stone",
+            "fiber",
+            "thread",
+            "cloth"
+          ],
+          "goalConnected": [
+            "wood",
+            "stone",
+            "fiber",
+            "thread",
+            "cloth"
+          ],
+          "completed": true
+        },
+        {
+          "stage": "mill",
+          "earlierUsed": [
+            "planks",
+            "wheel",
+            "axe",
+            "stone",
+            "cloth",
+            "thread",
+            "flour"
+          ],
+          "goalConnected": [
+            "planks",
+            "wheel",
+            "axe",
+            "stone",
+            "cloth",
+            "thread",
+            "flour"
+          ],
+          "completed": true
+        },
+        {
+          "stage": "bakery",
+          "earlierUsed": [
+            "flour",
+            "dough",
+            "fiber",
+            "bowl"
+          ],
+          "goalConnected": [
+            "flour",
+            "dough",
+            "fiber",
+            "bowl"
+          ],
+          "completed": true
+        },
+        {
+          "stage": "orchard",
+          "earlierUsed": [
+            "fruit",
+            "clay",
+            "bowl",
+            "wood",
+            "starter",
+            "juice",
+            "sand"
+          ],
+          "goalConnected": [
+            "fruit",
+            "clay",
+            "bowl",
+            "wood",
+            "starter",
+            "juice",
+            "sand"
+          ],
+          "completed": true
+        },
+        {
+          "stage": "pottery",
+          "earlierUsed": [
+            "bowl",
+            "glaze",
+            "planks",
+            "wood",
+            "clay"
+          ],
+          "goalConnected": [
+            "bowl",
+            "glaze",
+            "planks",
+            "wood",
+            "clay"
+          ],
+          "completed": true
+        },
+        {
+          "stage": "workshop",
+          "earlierUsed": [
+            "stone",
+            "brick",
+            "cloth",
+            "wood",
+            "planks"
+          ],
+          "goalConnected": [
+            "stone",
+            "brick",
+            "cloth",
+            "wood",
+            "planks"
+          ],
+          "completed": true
+        },
+        {
+          "stage": "ferry",
+          "earlierUsed": [
+            "planks",
+            "hammer",
+            "wood",
+            "rope",
+            "cloth",
+            "crossing-map"
+          ],
+          "goalConnected": [
+            "planks",
+            "hammer",
+            "wood",
+            "rope",
+            "cloth",
+            "crossing-map"
+          ],
+          "completed": true
+        },
+        {
+          "stage": "harbour",
+          "earlierUsed": [
+            "brick",
+            "window",
+            "wood",
+            "kiln",
+            "glass",
+            "glazed-bottle",
+            "rope",
+            "river-map"
+          ],
+          "goalConnected": [
+            "brick",
+            "window",
+            "glass",
+            "wood",
+            "kiln",
+            "glazed-bottle",
+            "rope",
+            "river-map"
+          ],
+          "completed": true
+        },
+        {
+          "stage": "garden",
+          "earlierUsed": [
+            "plant",
+            "fruit",
+            "rope",
+            "window"
+          ],
+          "goalConnected": [
+            "plant",
+            "fruit",
+            "rope",
+            "window"
+          ],
+          "completed": true
+        },
+        {
+          "stage": "waterworks",
+          "earlierUsed": [
+            "iron",
+            "stone",
+            "wood",
+            "planks",
+            "clay",
+            "brick",
+            "wheel",
+            "waterwheel",
+            "climbing-garden"
+          ],
+          "goalConnected": [
+            "iron",
+            "stone",
+            "wood",
+            "planks",
+            "clay",
+            "brick",
+            "wheel",
+            "waterwheel",
+            "climbing-garden"
+          ],
+          "completed": true
+        },
+        {
+          "stage": "weavers",
+          "earlierUsed": [
+            "thread",
+            "planks",
+            "plant",
+            "rain",
+            "cloth",
+            "wood",
+            "rope"
+          ],
+          "goalConnected": [
+            "thread",
+            "planks",
+            "cloth",
+            "plant",
+            "rain",
+            "wood",
+            "rope"
+          ],
+          "completed": true
+        },
+        {
+          "stage": "letters",
+          "earlierUsed": [
+            "charcoal",
+            "paper",
+            "sailboat",
+            "carving-tool",
+            "planks"
+          ],
+          "goalConnected": [
+            "paper",
+            "charcoal",
+            "sailboat",
+            "carving-tool",
+            "planks"
+          ],
+          "completed": true
+        },
+        {
+          "stage": "music",
+          "earlierUsed": [
+            "wood",
+            "carving-tool",
+            "cloth",
+            "jar",
+            "planks",
+            "brick",
+            "canopy"
+          ],
+          "goalConnected": [
+            "wood",
+            "carving-tool",
+            "cloth",
+            "jar",
+            "planks",
+            "brick",
+            "canopy"
+          ],
+          "completed": true
+        },
+        {
+          "stage": "theatre",
+          "earlierUsed": [
+            "cloth",
+            "window",
+            "platform",
+            "wood",
+            "paper",
+            "thread",
+            "dye",
+            "bowl"
+          ],
+          "goalConnected": [
+            "cloth",
+            "window",
+            "platform",
+            "wood",
+            "paper",
+            "thread",
+            "dye",
+            "bowl"
+          ],
+          "completed": true
+        },
+        {
+          "stage": "optics",
+          "earlierUsed": [
+            "bowl",
+            "glass",
+            "planks",
+            "sand",
+            "wood",
+            "hollow-tube"
+          ],
+          "goalConnected": [
+            "bowl",
+            "glass",
+            "planks",
+            "sand",
+            "wood",
+            "hollow-tube"
+          ],
+          "completed": true
+        },
+        {
+          "stage": "botany",
+          "earlierUsed": [
+            "lens",
+            "plant",
+            "ink",
+            "paper",
+            "bound-book"
+          ],
+          "goalConnected": [
+            "lens",
+            "plant",
+            "ink",
+            "paper",
+            "bound-book"
+          ],
+          "completed": true
+        },
+        {
+          "stage": "weather",
+          "earlierUsed": [
+            "cloth",
+            "hollow-tube",
+            "jar",
+            "paper",
+            "rain"
+          ],
+          "goalConnected": [
+            "cloth",
+            "hollow-tube",
+            "paper",
+            "jar",
+            "rain"
+          ],
+          "completed": true
+        },
+        {
+          "stage": "saltshore",
+          "earlierUsed": [
+            "wood",
+            "thread",
+            "rope",
+            "cider",
+            "fruit",
+            "jar"
+          ],
+          "goalConnected": [
+            "wood",
+            "thread",
+            "rope",
+            "cider",
+            "fruit",
+            "jar"
+          ],
+          "completed": true
+        },
+        {
+          "stage": "cleanwater",
+          "earlierUsed": [
+            "glazed-bowl",
+            "table",
+            "sand",
+            "charcoal",
+            "hollow-pipe",
+            "glazed-bottle",
+            "jar-lid"
+          ],
+          "goalConnected": [
+            "glazed-bowl",
+            "table",
+            "sand",
+            "charcoal",
+            "hollow-pipe",
+            "glazed-bottle",
+            "jar-lid"
+          ],
+          "completed": true
+        },
+        {
+          "stage": "washday",
+          "earlierUsed": [
+            "charcoal",
+            "seeds",
+            "millstone",
+            "washstand"
+          ],
+          "goalConnected": [
+            "charcoal",
+            "seeds",
+            "millstone",
+            "washstand"
+          ],
+          "completed": true
+        },
+        {
+          "stage": "kitchen",
+          "earlierUsed": [
+            "brick",
+            "iron",
+            "grain",
+            "fruit",
+            "tiled-table"
+          ],
+          "goalConnected": [
+            "grain",
+            "brick",
+            "iron",
+            "fruit",
+            "tiled-table"
+          ],
+          "completed": true
+        },
+        {
+          "stage": "stores",
+          "earlierUsed": [
+            "planks",
+            "wooden-chest",
+            "net",
+            "fruit",
+            "jar",
+            "clay",
+            "jar-lid"
+          ],
+          "goalConnected": [
+            "planks",
+            "wooden-chest",
+            "fruit",
+            "net",
+            "jar",
+            "clay",
+            "jar-lid"
+          ],
+          "completed": true
+        },
+        {
+          "stage": "lanterns",
+          "earlierUsed": [
+            "paper",
+            "planks",
+            "fiber",
+            "oil",
+            "bowl",
+            "float",
+            "glass"
+          ],
+          "goalConnected": [
+            "paper",
+            "planks",
+            "fiber",
+            "oil",
+            "bowl",
+            "float",
+            "glass"
+          ],
+          "completed": true
+        },
+        {
+          "stage": "timekeeping",
+          "earlierUsed": [
+            "stone",
+            "rope",
+            "wooden-gear",
+            "planks",
+            "river-map",
+            "iron",
+            "bowl"
+          ],
+          "goalConnected": [
+            "stone",
+            "rope",
+            "wooden-gear",
+            "planks",
+            "river-map",
+            "iron",
+            "bowl"
+          ],
+          "completed": true
+        },
+        {
+          "stage": "stars",
+          "earlierUsed": [
+            "telescope",
+            "paper",
+            "planks",
+            "hinge",
+            "harbour-map"
+          ],
+          "goalConnected": [
+            "telescope",
+            "paper",
+            "planks",
+            "hinge",
+            "harbour-map"
+          ],
+          "completed": true
+        },
+        {
+          "stage": "gallery",
+          "earlierUsed": [
+            "stone",
+            "brick",
+            "planks",
+            "picture",
+            "paper",
+            "glass",
+            "clay"
+          ],
+          "goalConnected": [
+            "stone",
+            "brick",
+            "planks",
+            "picture",
+            "paper",
+            "glass",
+            "clay"
+          ],
+          "completed": true
+        },
+        {
+          "stage": "gathering",
+          "earlierUsed": [
+            "weather-record",
+            "bound-book",
+            "navigation-chart"
+          ],
+          "goalConnected": [
+            "navigation-chart",
+            "weather-record",
+            "bound-book",
+            "floating-lantern"
+          ],
+          "completed": true
+        }
+      ],
+      "laterChaptersWithGoalConnectedEarlierCreations": 29
+    },
+    "food": {
+      "source": "food-v3/dependency-plan.json",
+      "rows": [
+        {
+          "chapter": 1,
+          "stage": "hearth",
+          "requiredEarlierCreatedInputs": []
+        },
+        {
+          "chapter": 2,
+          "stage": "dairy",
+          "requiredEarlierCreatedInputs": [
+            "dough",
+            "flatbread"
+          ]
+        },
+        {
+          "chapter": 3,
+          "stage": "orchard",
+          "requiredEarlierCreatedInputs": [
+            "juice",
+            "butter",
+            "bread",
+            "yogurt"
+          ]
+        },
+        {
+          "chapter": 4,
+          "stage": "soup",
+          "requiredEarlierCreatedInputs": [
+            "bread",
+            "butter",
+            "herb-toast",
+            "herb-butter",
+            "flatbread"
+          ]
+        },
+        {
+          "chapter": 5,
+          "stage": "salads",
+          "requiredEarlierCreatedInputs": [
+            "cider-vinegar",
+            "vinaigrette",
+            "roast-roots",
+            "bread",
+            "dressed-salad",
+            "yogurt"
+          ]
+        },
+        {
+          "chapter": 6,
+          "stage": "noodles",
+          "requiredEarlierCreatedInputs": [
+            "bread",
+            "flour",
+            "herb-butter",
+            "roast-roots",
+            "strained-yogurt"
+          ]
+        },
+        {
+          "chapter": 7,
+          "stage": "pastry",
+          "requiredEarlierCreatedInputs": [
+            "flour",
+            "butter",
+            "dough",
+            "bean-stew"
+          ]
+        },
+        {
+          "chapter": 8,
+          "stage": "sauce",
+          "requiredEarlierCreatedInputs": [
+            "flour",
+            "butter",
+            "cooked-noodles"
+          ]
+        },
+        {
+          "chapter": 9,
+          "stage": "sugar",
+          "requiredEarlierCreatedInputs": [
+            "juice",
+            "breadcrumbs",
+            "butter",
+            "shortcrust",
+            "compote"
+          ]
+        },
+        {
+          "chapter": 10,
+          "stage": "confection",
+          "requiredEarlierCreatedInputs": [
+            "puff-pastry"
+          ]
+        },
+        {
+          "chapter": 11,
+          "stage": "custard",
+          "requiredEarlierCreatedInputs": [
+            "shortcrust",
+            "bread",
+            "caramel-sauce"
+          ]
+        },
+        {
+          "chapter": 12,
+          "stage": "choux",
+          "requiredEarlierCreatedInputs": [
+            "butter",
+            "flour",
+            "pastry-cream",
+            "caramel-sauce"
+          ]
+        },
+        {
+          "chapter": 13,
+          "stage": "sponge",
+          "requiredEarlierCreatedInputs": [
+            "flour",
+            "jam",
+            "whipped-cream",
+            "vanilla-custard",
+            "compote"
+          ]
+        },
+        {
+          "chapter": 14,
+          "stage": "chocolate",
+          "requiredEarlierCreatedInputs": [
+            "butter",
+            "chocolate-sponge",
+            "cream-puffs",
+            "marzipan"
+          ]
+        },
+        {
+          "chapter": 15,
+          "stage": "quickbread",
+          "requiredEarlierCreatedInputs": [
+            "flour",
+            "butter",
+            "jam",
+            "whipped-cream",
+            "yogurt"
+          ]
+        },
+        {
+          "chapter": 16,
+          "stage": "ice",
+          "requiredEarlierCreatedInputs": [
+            "vanilla-custard",
+            "compote",
+            "fruit-syrup",
+            "caramel-sauce"
+          ]
+        },
+        {
+          "chapter": 17,
+          "stage": "meringue",
+          "requiredEarlierCreatedInputs": [
+            "whipped-cream",
+            "almond-sugar",
+            "ganache",
+            "sponge-cake",
+            "milk-ice-cream"
+          ]
+        },
+        {
+          "chapter": 18,
+          "stage": "cannery",
+          "requiredEarlierCreatedInputs": [
+            "fruit-syrup",
+            "vanilla-custard",
+            "bean-stew"
+          ]
+        },
+        {
+          "chapter": 19,
+          "stage": "precision",
+          "requiredEarlierCreatedInputs": [
+            "processed-stew-tin",
+            "soda-bread",
+            "flour",
+            "sweet-egg-foam"
+          ]
+        },
+        {
+          "chapter": 20,
+          "stage": "snack",
+          "requiredEarlierCreatedInputs": [
+            "vanilla-filling",
+            "golden-sponge"
+          ]
+        }
+      ],
+      "laterChaptersWithRequiredEarlierCreations": 19,
+      "importsVerifiedToHaveEarlierRequiredRecipeOutput": true
+    }
+  },
+  "copyCandidates": {
+    "mars": {
+      "status": "NEW isolated copy-only candidate; parent review/adoption required; not integrated or deployed",
+      "source": "mars/revision-v4/candidate.scenario.json",
+      "sourceSha256": "1ac65986f456aed067ec74b39393065929068cbd589328f89f2e40621333cc3b",
+      "candidate": "narrative-review-20261028/mars-copy-correction/candidate.scenario.json",
+      "candidateSha256": "69fd8d4609dbe5eac11e8184b880694f87c81f35720946348e289e84ea675192",
+      "scenarioIdUnchanged": true,
+      "changedTextFields": 10,
+      "allOtherDataExactlyUnchanged": true,
+      "items": 458,
+      "recipes": 213,
+      "stages": 24,
+      "originalStillUnchanged": true,
+      "newGameplayTestClaim": false,
+      "browserTestingPerformed": false
+    },
+    "elements": {
+      "status": "NEW isolated copy-only candidate; parent review/adoption required; not integrated or deployed",
+      "source": "elements/candidates/v7/scenario.json",
+      "sourceSha256": "69a61f97754e708d357a36a9ed8bb937ffaef5ff690173c86e94104402ca64d2",
+      "candidate": "narrative-review-20261028/elements-copy-correction/scenario.json",
+      "candidateSha256": "e6c0c56f055bef7ca57357f6fa540c6c55d1cff798660736743b5409f7da4d1e",
+      "scenarioIdUnchanged": true,
+      "changedTextFields": 1,
+      "allOtherDataExactlyUnchanged": true,
+      "items": 207,
+      "recipes": 217,
+      "stages": 30,
+      "originalStillUnchanged": true,
+      "newGameplayTestClaim": false,
+      "browserTestingPerformed": false
+    },
+    "food": {
+      "status": "NEW isolated copy-only candidate; parent review/adoption required; not integrated or deployed",
+      "source": "food-v3/scenario.json",
+      "sourceSha256": "578bae178cb06d32c5d8f719be2c39a44c1effd5b49e4e7bda28cd75cceae993",
+      "candidate": "narrative-review-20261028/food-copy-correction/scenario.json",
+      "candidateSha256": "904efb40141971b629c1266e257527024a6a8dd81fc519ee430352de0fa8b27b",
+      "scenarioIdUnchanged": true,
+      "changedTextFields": 2,
+      "allOtherDataExactlyUnchanged": true,
+      "items": 250,
+      "recipes": 195,
+      "stages": 20,
+      "originalStillUnchanged": true,
+      "newGameplayTestClaim": false,
+      "browserTestingPerformed": false
+    }
+  },
+  "copyChangesOnlyVerified": true,
+  "humanWholeGameFunClaim": false,
+  "browserUIOrTouchTesting": false,
+  "integrationOrPublicationPerformed": false
+}

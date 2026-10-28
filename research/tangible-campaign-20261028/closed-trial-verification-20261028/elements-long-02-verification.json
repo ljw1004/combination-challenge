@@ -1,0 +1,85 @@
+{
+  "packetId": "elements-v7-cue-packet-v1",
+  "sessionId": "elements-long-02",
+  "verifiedAt": "2026-10-28T06:22:49.326Z",
+  "manifestSha256": "af6d9688e3c0b6c8b2a459613ca03bf147e1128bf56ef2016f21898ba0a86415",
+  "commands": {
+    "start": 1,
+    "drop": 16,
+    "highlight": 3,
+    "note": 8,
+    "mission": 1,
+    "stop": 1
+  },
+  "commandCount": 30,
+  "authoredBaseline": 0,
+  "engineMetrics": {
+    "attempts": 16,
+    "accepted": 12,
+    "combinations": 12,
+    "creations": 12,
+    "installations": 0,
+    "moves": 0,
+    "placements": 0,
+    "advances": 0,
+    "visits": 0
+  },
+  "stageIndex": 0,
+  "completed": false,
+  "status": "stopped",
+  "rejects": [
+    {
+      "seq": 10,
+      "command": {
+        "op": "drop",
+        "args": [
+          "hammer",
+          "clay"
+        ]
+      },
+      "expectation": "A hammerstone can press and hollow soft clay into a bowl. I expect this shaping step to make the supper bowl.",
+      "protocolError": null
+    },
+    {
+      "seq": 12,
+      "command": {
+        "op": "drop",
+        "args": [
+          "hammer",
+          "stone"
+        ]
+      },
+      "expectation": "Use the hammerstone to peck a hollow in a larger stone and make a stone bowl.",
+      "protocolError": null
+    },
+    {
+      "seq": 17,
+      "command": {
+        "op": "drop",
+        "args": [
+          "glass",
+          "air"
+        ]
+      },
+      "expectation": "Blowing air into warm glass should make a hollow vessel, hopefully the bowl.",
+      "protocolError": null
+    },
+    {
+      "seq": 27,
+      "command": {
+        "op": "drop",
+        "args": [
+          "hammer",
+          "wood"
+        ]
+      },
+      "expectation": "Now I have wood: the hammerstone should shape or hollow it into our supper bowl.",
+      "protocolError": null
+    }
+  ],
+  "exactFullGameAndEveryCommandReplay": true,
+  "limitations": [
+    "Protocol-source-blind simulated logical play, not human enjoyment or UI proof.",
+    "Current file hashes and recorded chain verified; no tamper-proof chronology claim."
+  ]
+}

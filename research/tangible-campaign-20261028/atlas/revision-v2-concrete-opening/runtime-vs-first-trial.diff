@@ -1,0 +1,23 @@
+--- ../fresh-opening-v1/engine/model.ts	2026-10-27 19:56:37.849910913 -0700
++++ frozen-runtime/engine/model.ts	2026-10-27 20:14:25.183371703 -0700
+@@ -82,7 +82,7 @@
+ function preserveConstruction(r:Recipe,owner:Token,input:Token){if(!r.preserve?.includes(input.kind))return;owner.components=[...new Set([...(owner.components??[]),...(r.lifecycle?.[input.kind]?.role==='incorporate'?[input.kind]:[]),...Object.values(input.slots),...(input.components??[])])];}
+ /** Conservative 12px Arial advances; explicit lines keep browser and packing
+  * heights identical without needing a canvas/font service in replays or saves. */
+-export function readingLabelLines(label:string):string[]{
++export function itemLabelLines(label:string):string[]{
+  const advance=(c:string)=>/\s/u.test(c)?3.5:/[ilI.,'!:;|]/u.test(c)?3.5:/[mwMW@%]/u.test(c)?11.5:/[frt()[\]{}]/u.test(c)?5:/[A-Z]/u.test(c)?9.5:/[a-z0-9-]/u.test(c)?7:(c.codePointAt(0)??0)>0xffff?16:14;
+  const measure=(text:string)=>Array.from(text).reduce((n,c)=>n+advance(c),0);
+  const lines:string[]=[];let line='';
+@@ -93,7 +93,10 @@
+  }
+  if(line)lines.push(line);return lines.length?lines:[''];
+ }
+-export const tokenHeight=(s:Scenario,t:Token)=>{const def=item(s,t.kind);return Math.max(44,(def?.reading?22+readingLabelLines(def.label).length*14:38)+((def?.slots??[]).filter(x=>x.required||t.slots[x.id]).length+componentLabels(s,t).length)*21);};
++/** Ordinary two-line names keep their existing styling. Longer observations,
++ * arguments and sources share the same explicit text layout, not fake readings. */
++export function itemLabelLayout(def:Item):string[]|null{const lines=itemLabelLines(def.label);return def.reading||lines.length>2?lines:null;}
++export const tokenHeight=(s:Scenario,t:Token)=>{const def=item(s,t.kind),lines=def?itemLabelLayout(def):null;return Math.max(44,(lines?10+(def?.reading?12:0)+lines.length*14:38)+((def?.slots??[]).filter(x=>x.required||t.slots[x.id]).length+componentLabels(s,t).length)*21);};
+ const size=(s:Scenario,t:Token)=>({w:96,h:tokenHeight(s,t)});
+ function occupied(s:Scenario,state:State,area:string){return [...state.tokens.filter(t=>t.area===area).map(t=>({...t,...size(s,t)})),...state.places.filter(p=>p.area===area).map(p=>({...p,w:106,h:82}))];}
+ function overlap(a:Point,w:number,h:number,b:Point&{w:number;h:number}){return Math.max(0,(w+b.w)/2-Math.abs(a.x-b.x))*Math.max(0,(h+b.h)/2-Math.abs(a.y-b.y));}

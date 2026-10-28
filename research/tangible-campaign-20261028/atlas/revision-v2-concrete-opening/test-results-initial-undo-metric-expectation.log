@@ -1,0 +1,102 @@
+✔ frozen schema, lifecycle and objective validation (25.725474ms)
+✔ all reachable opening branch states complete and retain downstream contracts (438.02059ms)
+✔ 50 full randomized routes and reverse drags finish without missing inherited work (14322.833517ms)
+✔ mandatory earlier creations remain mandatory across alternative producers (1.74695ms)
+✔ later changes are precisely three operand remaps; 230 recipes and later items/narratives unchanged (11.324917ms)
+✔ original candidate and stopped negative trial remain byte-identical (3.989665ms)
+✔ tablet transforms exactly in place, keeps stylus and observations, and fits initial top margin (10.141956ms)
+✔ proper alternative groupings share results, rather than arbitrary alias outcomes (7.554111ms)
+✔ counterexample is a terminal result now, not a stranded ingredient in a disclaimer ladder (346.15121ms)
+✔ every nonterminal opening output has a concrete authored next relation (0.474945ms)
+✖ save and undo preserve branch-created evidence and goal progress (9.215181ms)
+✔ long non-reading statements use explicit multiline heights; no fake reader used for spacing (0.637519ms)
+✔ current-scene carry transfers real earlier tokens and exposes no future recipe (714.08558ms)
+ℹ tests 13
+ℹ suites 0
+ℹ pass 12
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 16085.095135
+
+✖ failing tests:
+
+test at revision.test.mjs:20:1
+✖ save and undo preserve branch-created evidence and goal progress (9.215181ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  ... Skipped lines
+  
+    {
+      areas: [
+        {
+          enteredAtStage: 0,
+          id: 'area-records',
+  ...
+      metrics: {
+  +     accepted: 6,
+  -     accepted: 4,
+        advances: 0,
+  +     attempts: 6,
+  +     combinations: 5,
+  +     creations: 5,
+  -     attempts: 4,
+  -     combinations: 4,
+  -     creations: 4,
+        installations: 0,
+        moves: 0,
+        placements: 0,
+        visits: 0
+      },
+  
+      at TestContext.<anonymous> (file:///workspace/shared/combination-campaign-research-20261028/atlas/revision-v2-concrete-opening/revision.test.mjs:20:410)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: {
+      stage: 0,
+      currentArea: 'area-records',
+      areas: [ [Object] ],
+      places: [],
+      tokens: [
+        [Object], [Object],
+        [Object], [Object],
+        [Object], [Object],
+        [Object], [Object],
+        [Object]
+      ],
+      discovered: [ 'clay', 'stylus', 'month-counts', 'night-records', 'older-eclipses', 'next-dates', 'omen-text', 'marked-tablet', 'sky-record', 'reckoning-table', 'earlier-interval' ],
+      recipesUsed: [ 'make-marked-tablet', 'make-sky-record', 'make-reckoning-table', 'make-earlier-interval' ],
+      openedCaches: [ 'cache-records' ],
+      width: 360,
+      metrics: { attempts: 6, accepted: 6, combinations: 5, creations: 5, installations: 0, moves: 0, placements: 0, advances: 0, visits: 0 },
+      completed: false
+    },
+    expected: {
+      stage: 0,
+      currentArea: 'area-records',
+      areas: [ [Object] ],
+      places: [],
+      tokens: [
+        [Object], [Object],
+        [Object], [Object],
+        [Object], [Object],
+        [Object], [Object],
+        [Object]
+      ],
+      discovered: [ 'clay', 'stylus', 'month-counts', 'night-records', 'older-eclipses', 'next-dates', 'omen-text', 'marked-tablet', 'sky-record', 'reckoning-table', 'earlier-interval' ],
+      recipesUsed: [ 'make-marked-tablet', 'make-sky-record', 'make-reckoning-table', 'make-earlier-interval' ],
+      openedCaches: [ 'cache-records' ],
+      width: 360,
+      metrics: { attempts: 4, accepted: 4, combinations: 4, creations: 4, installations: 0, moves: 0, placements: 0, advances: 0, visits: 0 },
+      completed: false
+    },
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }

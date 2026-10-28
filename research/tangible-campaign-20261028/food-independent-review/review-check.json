@@ -1,0 +1,103 @@
+{
+  "sourceAware": true,
+  "candidate": "hearth-to-twinkie-v1",
+  "ingredientOutputCacheViolations": [],
+  "laterChaptersReusingActualCreations": 19,
+  "canneryExit": {
+    "currentStage": "cannery",
+    "complete": true,
+    "things": [
+      "bean-stew",
+      "fruit-syrup",
+      "vanilla-custard",
+      "apricots",
+      "opener",
+      "fruit-custard",
+      "canned-lunch"
+    ],
+    "containers": [
+      {
+        "recipe": "syrup-apricots",
+        "fruitJarPresent": false,
+        "stewTinPresent": false
+      },
+      {
+        "recipe": "filled-fruit-jar",
+        "fruitJarPresent": false,
+        "stewTinPresent": false
+      },
+      {
+        "recipe": "processed-fruit-jar",
+        "fruitJarPresent": true,
+        "stewTinPresent": false
+      },
+      {
+        "recipe": "bottled-fruit",
+        "fruitJarPresent": false,
+        "stewTinPresent": false
+      },
+      {
+        "recipe": "fruit-custard",
+        "fruitJarPresent": false,
+        "stewTinPresent": false
+      },
+      {
+        "recipe": "filled-stew-tin",
+        "fruitJarPresent": false,
+        "stewTinPresent": false
+      },
+      {
+        "recipe": "processed-stew-tin",
+        "fruitJarPresent": false,
+        "stewTinPresent": true
+      },
+      {
+        "recipe": "opened-stew",
+        "fruitJarPresent": false,
+        "stewTinPresent": false
+      },
+      {
+        "recipe": "canned-lunch",
+        "fruitJarPresent": false,
+        "stewTinPresent": false
+      }
+    ]
+  },
+  "optionalCheeseStrawsRecovery": [
+    {
+      "action": {
+        "type": "visit",
+        "area": "pastry-area",
+        "carry": [
+          "grated-cheese"
+        ]
+      },
+      "accepted": true,
+      "recipe": null
+    },
+    {
+      "action": {
+        "type": "combine",
+        "a": "laminated-dough",
+        "b": "grated-cheese"
+      },
+      "accepted": true,
+      "recipe": "cheese-straw-dough"
+    },
+    {
+      "action": {
+        "type": "combine",
+        "a": "cheese-straw-dough",
+        "b": "@pastry-oven"
+      },
+      "accepted": true,
+      "recipe": "cheese-straws"
+    }
+  ],
+  "notProven": [
+    "human fun",
+    "UI readability",
+    "source-blind optional rediscovery",
+    "whole-journey pacing"
+  ]
+}

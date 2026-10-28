@@ -1,0 +1,139 @@
+{
+  "createdAt": "2026-10-28T05:31:21.722Z",
+  "node": "v24.22.1",
+  "scenarioId": "causation-gate-property-candidate-v3",
+  "sourceCommit": "3d3dbf36c7be473b30e09384f8a279b2fa2d9918",
+  "hashes": {
+    "pilot.json": "5383759b1647af07999632086db2bff7a16865cf14857d803340a441e50b3f90",
+    "pilot.ts": "f6f4ce266acde06a6588231dd4931e5b451d33e10dec182f4612b1838d291ed9",
+    "routes.json": "11af145a064712d71a2899310f8e6c3dae0ee76529d88fb782306e774a8889b4",
+    "third-job-checkpoint.json": "7507f0c32df25dda03e851aa79c5b876f5bf35f6be59c09af888bea911538d9f",
+    "play.ts": "658cb362f4ace4a6d525b3e50d5d46b5902aa22f3b406fe50779ad13cd9a407e",
+    "../runtime/engine/model.ts": "cc37461ae19712a84b61d869d10c1a554214c0848e4dda2b3aa65525b4a19b08",
+    "../runtime/schema/scenario.ts": "30a0a3189d3a138b9d0bf7252317acc7f33caab8837e6815bd93a9efa71679d7",
+    "../runtime/schema/lifecycle.ts": "5f987a4b352b606b511a542cfb8f3274325e3da21bcfc9ea1cee6e46f32a1647"
+  },
+  "setup": {
+    "width": 360,
+    "sourceBlindRequested": true,
+    "input": "DROP resolved by M.dropAction",
+    "automaticAdvance": true,
+    "gameplayExplanationToasts": false,
+    "partnerHelpAvailable": true,
+    "descriptionSurface": "logical playerView; may expose more description than browser"
+  },
+  "start": {
+    "kind": "full-start"
+  },
+  "initialView": {
+    "scenario": {
+      "id": "causation-gate-property-candidate-v3",
+      "title": "The Quarry Workshop · Gate trial",
+      "premise": "An isolated third-job trial: the workshop supplies the village path makers."
+    },
+    "stage": {
+      "number": 1,
+      "title": "A trip to the quarry",
+      "speaker": "The path maker",
+      "motivation": "We need a sturdy carrier for coarse stones. Bring one to the quarry gate.",
+      "travelText": "The path makers stop at your workshop."
+    },
+    "area": {
+      "id": "workshop",
+      "label": "Workshop",
+      "enteredAtStage": 0
+    },
+    "areas": [
+      {
+        "id": "workshop",
+        "label": "Workshop",
+        "current": true,
+        "thingCount": 4
+      }
+    ],
+    "objectives": [
+      {
+        "id": "supply-carrier",
+        "text": "Bring a stone carrier.",
+        "satisfied": false
+      }
+    ],
+    "canAdvance": false,
+    "nextAction": null,
+    "completionText": null,
+    "completed": false,
+    "things": [
+      {
+        "id": "fiber",
+        "label": "Hemp bundle",
+        "description": "Fibres for making a coil of binding rope.",
+        "x": 252,
+        "y": 56,
+        "location": null,
+        "gold": false,
+        "slots": [],
+        "components": [],
+        "functional": true
+      },
+      {
+        "id": "twister",
+        "label": "Twisting stick",
+        "description": "A reusable tool for twisting fibres into rope.",
+        "x": 252,
+        "y": 106,
+        "location": null,
+        "gold": false,
+        "slots": [],
+        "components": [],
+        "functional": true
+      },
+      {
+        "id": "boards",
+        "label": "Board kit",
+        "description": "Prepared boards and their fasteners, enough for one closed crate.",
+        "x": 52,
+        "y": 156,
+        "location": null,
+        "gold": false,
+        "slots": [],
+        "components": [],
+        "functional": true
+      },
+      {
+        "id": "willow",
+        "label": "Willow bundle",
+        "description": "Flexible willow, enough for one open-weave basket.",
+        "x": 152,
+        "y": 156,
+        "location": null,
+        "gold": false,
+        "slots": [],
+        "components": [],
+        "functional": true
+      }
+    ],
+    "locations": [
+      {
+        "id": "quarry",
+        "area": "workshop",
+        "x": 52,
+        "y": 81,
+        "label": "Quarry gate",
+        "description": "Bring a stone carrier here. The path makers take it on the collection trip and return it with gravel.",
+        "gold": false
+      }
+    ],
+    "cacheNarrative": [],
+    "metrics": {
+      "attempts": 0,
+      "accepted": 0,
+      "combinations": 0,
+      "creations": 0,
+      "installations": 0,
+      "moves": 0,
+      "placements": 0,
+      "advances": 0,
+      "visits": 0
+    }
+  }
+}

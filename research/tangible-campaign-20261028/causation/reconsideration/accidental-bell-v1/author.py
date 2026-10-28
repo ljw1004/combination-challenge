@@ -1,0 +1,58 @@
+"""Author only this isolated two-scene probe. No runtime or shared-world writes."""
+from pathlib import Path
+import json
+P=Path(__file__).parent
+s={
+ 'schemaVersion':1,'id':'causation-accidental-bell-probe-v1','title':'The Riverside Workshop',
+ 'premise':'An afternoon helping at a small riverside workshop.',
+ 'items':[
+  {'id':'blank','label':'Copper basin blank','description':'A partly formed copper blank with two pierced rim tabs. The fixed forming block belongs to the workbench.'},
+  {'id':'mallet','label':'Wooden mallet','description':'The workshop mallet can finish the prepared copper blank. It remains an ordinary wooden mallet afterward.'},
+  {'id':'basin','label':'Copper washbasin','description':'The same copper blank, finished as a washbasin with two pierced rim tabs.','capabilities':['holds-wash-water']},
+  {'id':'hanger','label':'Crossbar, hooks and cords','description':'A prepared crossbar with two suspension hooks and cords for the basin rim tabs, an upper mounting loop for the gatepost bracket, and a loose tether for a striker.'},
+  {'id':'gong','label':'Hanging basin gong','description':'The same copper basin hangs from its rim tabs on the crossbar. The loose tether can keep a striker beside it.',
+   'slots':[{'id':'striker','required':True,'accepts':['mallet'],'grants':{'mallet':['visitor-call']}}]}
+ ],
+ 'locations':[
+  {'id':'wash','label':'Washing bench','description':'The painter has the rinse water and brushes ready here.'},
+  {'id':'gate','label':'Outside gatepost bracket','description':'A fixed bracket outside the gate, within visitors’ reach.'}
+ ],
+ 'initialItems':['blank','mallet'],
+ 'recipes':[
+  {'id':'finish-basin','a':'blank','b':'mallet','out':'basin',
+   'description':'On the fixed forming block, the craftsperson finishes the prepared copper blank as a basin.',
+   'lifecycle':{'blank':{'role':'transform','reason':'This copper blank becomes the same finished basin.'},'mallet':{'role':'retain','reason':'The wooden mallet is a reusable shaping tool.'}}},
+  {'id':'suspend-basin','a':'basin','b':'hanger','out':'gong','preserve':['hanger'],
+   'description':'The hooks and cords join the basin’s pierced rim tabs to the crossbar. The upper loop fits the gatepost bracket; the striker tether hangs loose.',
+   'lifecycle':{'basin':{'role':'transform','reason':'The earlier washbasin itself becomes the suspended gong, without another basin being created.'},'hanger':{'role':'incorporate','reason':'The crossbar, hooks, suspension cords and loose striker tether become parts of this assembly.'}}},
+  {'id':'tether-striker','a':'gong','b':'mallet','install':{'target':'gong','slot':'striker','component':'mallet'},
+   'description':'The existing wooden mallet is fastened to the loose tether so arrivals have a striker beside the hanging basin.',
+   'lifecycle':{'gong':{'role':'retain','reason':'The same suspended basin and its hardware stay in place.'},'mallet':{'role':'incorporate','reason':'The actual earlier shaping mallet now hangs on the assembly as its reachable striker.'}}}
+ ],
+ 'stages':[
+  {'id':'rinse','title':'Closing the painting bench','speaker':'The painter',
+   'motivation':'I need a basin to rinse these brushes before I close up. The prepared copper blank and mallet are on the forming block. Water is waiting at the washing bench.',
+   'completionText':'The painter rinses the brushes in your basin, empties it and puts it aside to dry.',
+   'area':{'id':'workshop','label':'Painting workshop','travelText':'An afternoon at the riverside workshop.'},
+   'locations':['wash'],
+   'objectives':[{'id':'rinse-brushes','text':'Bring a basin to the washing bench','kind':'place','item':'basin','location':'wash'}]},
+  {'id':'call','title':'Outside the gate','speaker':'The keeper',
+   'motivation':'The brushes are clean. Your emptied basin leans beside the gate to dry. A gust rocks it against the iron latch; its clang brings the keeper out. “Visitors knock, but I cannot hear them from the back room. Leave a hanging call signal outside the gate, with something for them to strike it with.”',
+   'completionText':'An arriving visitor lifts the tethered mallet and strikes your hanging basin. Its clear clang reaches the back room. The keeper comes out and opens the gate.',
+   'area':{'id':'courtyard','label':'Workshop gate','travelText':'Carry the washbasin and the same wooden mallet outside.'},
+   'locations':['gate'],'carry':['basin','mallet'],
+   'caches':[{'id':'mounting-parts','label':'Mounting parts','narrative':'The keeper brings a crossbar, hooks and cords. The hooks fit the basin’s two pierced rim tabs; the upper loop fits the outside gatepost bracket. A loose tether can hold a striker.','items':['hanger']}],
+   'objectives':[{'id':'visitor-call','text':'Leave a hanging call signal by the gate','kind':'place','capability':'visitor-call','location':'gate'}]}
+ ],
+ 'checkpoints':[],
+ 'notes':['Isolated content-level probe; fictional craft compression, not practical metalworking instructions.',
+ 'The gust, clang, brush washing and visitor response are authored narrative events. No wind, acoustics or human behaviour is simulated.',
+ 'Visible stage motivation carries the incident; generic item descriptions are not automatically shown by the current UI.',
+ 'No purpose tokens, finite resource accounting, score trade-off, hidden intention state or new runtime mechanic.',
+ 'The requested mounted fixture is one design, not a claim that a handheld basin could never call anyone.']
+}
+(P/'scenario.json').write_text(json.dumps(s,indent=2,ensure_ascii=False)+'\n')
+route=[{'type':'combine','a':'blank','b':'mallet'},{'type':'place','item':'basin','location':'wash'},{'type':'advance'},
+       {'type':'combine','a':'basin','b':'hanger'},{'type':'combine','a':'mallet','b':'gong'},{'type':'place','item':'gong','location':'gate'},{'type':'advance'}]
+(P/'author-route.json').write_text(json.dumps(route,indent=2)+'\n')
+print(json.dumps({'identity':s['id'],'scenes':2,'recipes':3,'minimumDrops':5,'minimumCombinationsIncludingInstallation':3,'placements':2,'automaticAdvances':2,'engineActions':7}))

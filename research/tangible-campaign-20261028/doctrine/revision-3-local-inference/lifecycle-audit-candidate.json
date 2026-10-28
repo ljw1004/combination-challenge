@@ -1,0 +1,1252 @@
+{
+  "counts": {
+    "doctrine-argument-desks-v3-candidate": {
+      "recipes": 69,
+      "changed": 0
+    }
+  },
+  "recipes": [
+    {
+      "world": "doctrine-argument-desks-v3-candidate",
+      "recipe": "missing-health",
+      "inputs": "wound-notes + cure-notes",
+      "output": "missing-health",
+      "incorporated": "wound-notes",
+      "retained": "cure-notes",
+      "lifecycles": {
+        "wound-notes": {
+          "role": "transform",
+          "reason": "This working question is revised into a more precise argument at the same position."
+        },
+        "cure-notes": {
+          "role": "retain",
+          "reason": "This source or established case remains available; a new interpretation does not erase its evidence."
+        }
+      }
+    },
+    {
+      "world": "doctrine-argument-desks-v3-candidate",
+      "recipe": "missing-health-from-text",
+      "inputs": "enchiridion-leaf + wound-notes",
+      "output": "missing-health",
+      "incorporated": "wound-notes",
+      "retained": "enchiridion-leaf",
+      "lifecycles": {
+        "enchiridion-leaf": {
+          "role": "retain",
+          "reason": "This source or established case remains available; a new interpretation does not erase its evidence."
+        },
+        "wound-notes": {
+          "role": "transform",
+          "reason": "This working question is revised into a more precise argument at the same position."
+        }
+      }
+    },
+    {
+      "world": "doctrine-argument-desks-v3-candidate",
+      "recipe": "missing-health-from-jar",
+      "inputs": "broken-vessel + enchiridion-leaf",
+      "output": "missing-health",
+      "incorporated": "broken-vessel",
+      "retained": "enchiridion-leaf",
+      "lifecycles": {
+        "broken-vessel": {
+          "role": "transform",
+          "reason": "This working question is revised into a more precise argument at the same position."
+        },
+        "enchiridion-leaf": {
+          "role": "retain",
+          "reason": "This source or established case remains available; a new interpretation does not erase its evidence."
+        }
+      }
+    },
+    {
+      "world": "doctrine-argument-desks-v3-candidate",
+      "recipe": "no-evil-substance",
+      "inputs": "missing-health + evil-substance-objection",
+      "output": "no-evil-substance",
+      "incorporated": "evil-substance-objection",
+      "retained": "missing-health",
+      "lifecycles": {
+        "missing-health": {
+          "role": "retain",
+          "reason": "This source or established case remains available; a new interpretation does not erase its evidence."
+        },
+        "evil-substance-objection": {
+          "role": "transform",
+          "reason": "This working question is revised into a more precise argument at the same position."
+        }
+      }
+    },
+    {
+      "world": "doctrine-argument-desks-v3-candidate",
+      "recipe": "chosen-attachment",
+      "inputs": "human-choice + lesser-good",
+      "output": "chosen-attachment",
+      "incorporated": "human-choice",
+      "retained": "lesser-good",
+      "lifecycles": {
+        "human-choice": {
+          "role": "transform",
+          "reason": "This working question is revised into a more precise argument at the same position."
+        },
+        "lesser-good": {
+          "role": "retain",
+          "reason": "This source or established case remains available; a new interpretation does not erase its evidence."
+        }
+      }
+    },
+    {
+      "world": "doctrine-argument-desks-v3-candidate",
+      "recipe": "misdirected-will",
+      "inputs": "chosen-attachment + missing-health",
+      "output": "misdirected-will",
+      "incorporated": "—",
+      "retained": "chosen-attachment, missing-health",
+      "lifecycles": {
+        "chosen-attachment": {
+          "role": "retain",
+          "reason": "This source or established case remains available; a new interpretation does not erase its evidence."
+        },
+        "missing-health": {
+          "role": "retain",
+          "reason": "This source or established case remains available; a new interpretation does not erase its evidence."
+        }
+      }
+    },
+    {
+      "world": "doctrine-argument-desks-v3-candidate",
+      "recipe": "misdirected-will-from-text",
+      "inputs": "chosen-attachment + enchiridion-leaf",
+      "output": "misdirected-will",
+      "incorporated": "—",
+      "retained": "chosen-attachment, enchiridion-leaf",
+      "lifecycles": {
+        "chosen-attachment": {
+          "role": "retain",
+          "reason": "This source or established case remains available; a new interpretation does not erase its evidence."
+        },
+        "enchiridion-leaf": {
+          "role": "retain",
+          "reason": "This source or established case remains available; a new interpretation does not erase its evidence."
+        }
+      }
+    },
+    {
+      "world": "doctrine-argument-desks-v3-candidate",
+      "recipe": "misdirected-will-from-general-account",
+      "inputs": "chosen-attachment + evil-as-loss",
+      "output": "misdirected-will",
+      "incorporated": "—",
+      "retained": "chosen-attachment, evil-as-loss",
+      "lifecycles": {
+        "chosen-attachment": {
+          "role": "retain",
+          "reason": "This source or established case remains available; a new interpretation does not erase its evidence."
+        },
+        "evil-as-loss": {
+          "role": "retain",
+          "reason": "This source or established case remains available; a new interpretation does not erase its evidence."
+        }
+      }
+    },
+    {
+      "world": "doctrine-argument-desks-v3-candidate",
+      "recipe": "evil-as-loss",
+      "inputs": "no-evil-substance + created-goodness",
+      "output": "evil-as-loss",
+      "incorporated": "—",
+      "retained": "created-goodness, no-evil-substance",
+      "lifecycles": {
+        "no-evil-substance": {
+          "role": "retain",
+          "reason": "This source or established case remains available; a new interpretation does not erase its evidence."
+        },
+        "created-goodness": {
+          "role": "retain",
+          "reason": "This source or established case remains available; a new interpretation does not erase its evidence."
+        }
+      }
+    },
+    {
+      "world": "doctrine-argument-desks-v3-candidate",
+      "recipe": "evil-as-loss-from-local-case",
+      "inputs": "missing-health + created-goodness",
+      "output": "evil-as-loss",
+      "incorporated": "—",
+      "retained": "created-goodness, missing-health",
+      "lifecycles": {
+        "missing-health": {
+          "role": "retain",
+          "reason": "This source or established case remains available; a new interpretation does not erase its evidence."
+        },
+        "created-goodness": {
+          "role": "retain",
+          "reason": "This source or established case remains available; a new interpretation does not erase its evidence."
+        }
+      }
+    },
+    {
+      "world": "doctrine-argument-desks-v3-candidate",
+      "recipe": "augustine-account",
+      "inputs": "evil-as-loss + misdirected-will",
+      "output": "augustine-account",
+      "incorporated": "—",
+      "retained": "evil-as-loss, misdirected-will",
+      "lifecycles": {
+        "evil-as-loss": {
+          "role": "retain",
+          "reason": "This source or established case remains available; a new interpretation does not erase its evidence."
+        },
+        "misdirected-will": {
+          "role": "retain",
+          "reason": "This source or established case remains available; a new interpretation does not erase its evidence."
+        }
+      }
+    },
+    {
+      "world": "doctrine-argument-desks-v3-candidate",
+      "recipe": "divided-will",
+      "inputs": "misdirected-will + romans-leaf",
+      "output": "divided-will",
+      "incorporated": "—",
+      "retained": "misdirected-will, romans-leaf",
+      "lifecycles": {
+        "misdirected-will": {
+          "role": "retain",
+          "reason": "This cited text or established argument remains available for comparison; making a new reading does not destroy it."
+        },
+        "romans-leaf": {
+          "role": "retain",
+          "reason": "This cited text or established argument remains available for comparison; making a new reading does not destroy it."
+        }
+      }
+    },
+    {
+      "world": "doctrine-argument-desks-v3-candidate",
+      "recipe": "instruction-account",
+      "inputs": "commands + pelagius-quotation",
+      "output": "instruction-account",
+      "incorporated": "—",
+      "retained": "commands, pelagius-quotation",
+      "lifecycles": {
+        "commands": {
+          "role": "retain",
+          "reason": "This cited text or established argument remains available for comparison; making a new reading does not destroy it."
+        },
+        "pelagius-quotation": {
+          "role": "retain",
+          "reason": "This cited text or established argument remains available for comparison; making a new reading does not destroy it."
+        }
+      }
+    },
+    {
+      "world": "doctrine-argument-desks-v3-candidate",
+      "recipe": "command-not-cure",
+      "inputs": "divided-will + instruction-account",
+      "output": "command-not-cure",
+      "incorporated": "—",
+      "retained": "divided-will, instruction-account",
+      "lifecycles": {
+        "divided-will": {
+          "role": "retain",
+          "reason": "This cited text or established argument remains available for comparison; making a new reading does not destroy it."
+        },
+        "instruction-account": {
+          "role": "retain",
+          "reason": "This cited text or established argument remains available for comparison; making a new reading does not destroy it."
+        }
+      }
+    },
+    {
+      "world": "doctrine-argument-desks-v3-candidate",
+      "recipe": "wounded-will",
+      "inputs": "evil-as-loss + adams-fall",
+      "output": "wounded-will",
+      "incorporated": "adams-fall",
+      "retained": "evil-as-loss",
+      "lifecycles": {
+        "adams-fall": {
+          "role": "transform",
+          "reason": "This working question or manuscript is revised into the more specific argument at the same desk position."
+        },
+        "evil-as-loss": {
+          "role": "retain",
+          "reason": "This cited text or established argument remains available for comparison; making a new reading does not destroy it."
+        }
+      }
+    },
+    {
+      "world": "doctrine-argument-desks-v3-candidate",
+      "recipe": "inherited-condition",
+      "inputs": "infant-baptism + baptism-leaf",
+      "output": "inherited-condition",
+      "incorporated": "infant-baptism",
+      "retained": "baptism-leaf",
+      "lifecycles": {
+        "infant-baptism": {
+          "role": "transform",
+          "reason": "This working question or manuscript is revised into the more specific argument at the same desk position."
+        },
+        "baptism-leaf": {
+          "role": "retain",
+          "reason": "This cited text or established argument remains available for comparison; making a new reading does not destroy it."
+        }
+      }
+    },
+    {
+      "world": "doctrine-argument-desks-v3-candidate",
+      "recipe": "need-of-grace",
+      "inputs": "wounded-will + inherited-condition",
+      "output": "need-of-grace",
+      "incorporated": "inherited-condition, wounded-will",
+      "retained": "—",
+      "lifecycles": {
+        "wounded-will": {
+          "role": "transform",
+          "reason": "This working question or manuscript is revised into the more specific argument at the same desk position."
+        },
+        "inherited-condition": {
+          "role": "incorporate",
+          "reason": "This manuscript leaf is bound into the combined argument, not erased or discredited."
+        }
+      }
+    },
+    {
+      "world": "doctrine-argument-desks-v3-candidate",
+      "recipe": "grace-heals-will",
+      "inputs": "need-of-grace + inward-grace",
+      "output": "grace-heals-will",
+      "incorporated": "need-of-grace",
+      "retained": "inward-grace",
+      "lifecycles": {
+        "need-of-grace": {
+          "role": "transform",
+          "reason": "This working question or manuscript is revised into the more specific argument at the same desk position."
+        },
+        "inward-grace": {
+          "role": "retain",
+          "reason": "This cited text or established argument remains available for comparison; making a new reading does not destroy it."
+        }
+      }
+    },
+    {
+      "world": "doctrine-argument-desks-v3-candidate",
+      "recipe": "augustine-grace-answer",
+      "inputs": "grace-heals-will + command-not-cure",
+      "output": "augustine-grace-answer",
+      "incorporated": "—",
+      "retained": "command-not-cure, grace-heals-will",
+      "lifecycles": {
+        "grace-heals-will": {
+          "role": "retain",
+          "reason": "This cited text or established argument remains available for comparison; making a new reading does not destroy it."
+        },
+        "command-not-cure": {
+          "role": "retain",
+          "reason": "This cited text or established argument remains available for comparison; making a new reading does not destroy it."
+        }
+      }
+    },
+    {
+      "world": "doctrine-argument-desks-v3-candidate",
+      "recipe": "two-origins",
+      "inputs": "dualist-treatise + two-trees",
+      "output": "two-origins",
+      "incorporated": "—",
+      "retained": "dualist-treatise, two-trees",
+      "lifecycles": {
+        "dualist-treatise": {
+          "role": "retain",
+          "reason": "This cited text or established argument remains available for comparison; making a new reading does not destroy it."
+        },
+        "two-trees": {
+          "role": "retain",
+          "reason": "This cited text or established argument remains available for comparison; making a new reading does not destroy it."
+        }
+      }
+    },
+    {
+      "world": "doctrine-argument-desks-v3-candidate",
+      "recipe": "evil-maker",
+      "inputs": "two-origins + material-world",
+      "output": "evil-maker",
+      "incorporated": "material-world",
+      "retained": "two-origins",
+      "lifecycles": {
+        "two-origins": {
+          "role": "retain",
+          "reason": "This cited text or established argument remains available for comparison; making a new reading does not destroy it."
+        },
+        "material-world": {
+          "role": "transform",
+          "reason": "This working question or manuscript is revised into the more specific argument at the same desk position."
+        }
+      }
+    },
+    {
+      "world": "doctrine-argument-desks-v3-candidate",
+      "recipe": "cause-and-permission",
+      "inputs": "evil-as-loss + foreknowledge-question",
+      "output": "cause-and-permission",
+      "incorporated": "foreknowledge-question",
+      "retained": "evil-as-loss",
+      "lifecycles": {
+        "evil-as-loss": {
+          "role": "retain",
+          "reason": "This cited text or established argument remains available for comparison; making a new reading does not destroy it."
+        },
+        "foreknowledge-question": {
+          "role": "transform",
+          "reason": "This working question or manuscript is revised into the more specific argument at the same desk position."
+        }
+      }
+    },
+    {
+      "world": "doctrine-argument-desks-v3-candidate",
+      "recipe": "knowing-not-causing",
+      "inputs": "misdirected-will + watcher-analogy",
+      "output": "knowing-not-causing",
+      "incorporated": "—",
+      "retained": "misdirected-will, watcher-analogy",
+      "lifecycles": {
+        "misdirected-will": {
+          "role": "retain",
+          "reason": "This cited text or established argument remains available for comparison; making a new reading does not destroy it."
+        },
+        "watcher-analogy": {
+          "role": "retain",
+          "reason": "This cited text or established argument remains available for comparison; making a new reading does not destroy it."
+        }
+      }
+    },
+    {
+      "world": "doctrine-argument-desks-v3-candidate",
+      "recipe": "first-cause-challenge",
+      "inputs": "knowing-not-causing + cause-and-permission",
+      "output": "first-cause-challenge",
+      "incorporated": "cause-and-permission",
+      "retained": "knowing-not-causing",
+      "lifecycles": {
+        "knowing-not-causing": {
+          "role": "retain",
+          "reason": "This cited text or established argument remains available for comparison; making a new reading does not destroy it."
+        },
+        "cause-and-permission": {
+          "role": "transform",
+          "reason": "This working question or manuscript is revised into the more specific argument at the same desk position."
+        }
+      }
+    },
+    {
+      "world": "doctrine-argument-desks-v3-candidate",
+      "recipe": "augustine-reply",
+      "inputs": "created-goodness + misdirected-will",
+      "output": "augustine-reply",
+      "incorporated": "—",
+      "retained": "created-goodness, misdirected-will",
+      "lifecycles": {
+        "created-goodness": {
+          "role": "retain",
+          "reason": "This cited text or established argument remains available for comparison; making a new reading does not destroy it."
+        },
+        "misdirected-will": {
+          "role": "retain",
+          "reason": "This cited text or established argument remains available for comparison; making a new reading does not destroy it."
+        }
+      }
+    },
+    {
+      "world": "doctrine-argument-desks-v3-candidate",
+      "recipe": "dualist-case",
+      "inputs": "evil-maker + first-cause-challenge",
+      "output": "dualist-case",
+      "incorporated": "—",
+      "retained": "evil-maker, first-cause-challenge",
+      "lifecycles": {
+        "evil-maker": {
+          "role": "retain",
+          "reason": "This cited text or established argument remains available for comparison; making a new reading does not destroy it."
+        },
+        "first-cause-challenge": {
+          "role": "retain",
+          "reason": "This cited text or established argument remains available for comparison; making a new reading does not destroy it."
+        }
+      }
+    },
+    {
+      "world": "doctrine-argument-desks-v3-candidate",
+      "recipe": "creation-disagreement",
+      "inputs": "dualist-case + augustine-reply",
+      "output": "creation-disagreement",
+      "incorporated": "—",
+      "retained": "augustine-reply, dualist-case",
+      "lifecycles": {
+        "dualist-case": {
+          "role": "retain",
+          "reason": "This cited text or established argument remains available for comparison; making a new reading does not destroy it."
+        },
+        "augustine-reply": {
+          "role": "retain",
+          "reason": "This cited text or established argument remains available for comparison; making a new reading does not destroy it."
+        }
+      }
+    },
+    {
+      "world": "doctrine-argument-desks-v3-candidate",
+      "recipe": "nature-perfected",
+      "inputs": "grace-heals-will + summa-page",
+      "output": "nature-perfected",
+      "incorporated": "—",
+      "retained": "grace-heals-will, summa-page",
+      "lifecycles": {
+        "grace-heals-will": {
+          "role": "retain",
+          "reason": "This cited text or established argument remains available for comparison; making a new reading does not destroy it."
+        },
+        "summa-page": {
+          "role": "retain",
+          "reason": "This cited text or established argument remains available for comparison; making a new reading does not destroy it."
+        }
+      }
+    },
+    {
+      "world": "doctrine-argument-desks-v3-candidate",
+      "recipe": "philosophical-inquiry",
+      "inputs": "aristotle-leaf + reason-observation",
+      "output": "philosophical-inquiry",
+      "incorporated": "reason-observation",
+      "retained": "aristotle-leaf",
+      "lifecycles": {
+        "aristotle-leaf": {
+          "role": "retain",
+          "reason": "This cited text or established argument remains available for comparison; making a new reading does not destroy it."
+        },
+        "reason-observation": {
+          "role": "transform",
+          "reason": "This working question or manuscript is revised into the more specific argument at the same desk position."
+        }
+      }
+    },
+    {
+      "world": "doctrine-argument-desks-v3-candidate",
+      "recipe": "philosophical-inquiry-alt-1",
+      "inputs": "metaphysics-objection + reason-observation",
+      "output": "philosophical-inquiry",
+      "incorporated": "reason-observation",
+      "retained": "metaphysics-objection",
+      "lifecycles": {
+        "metaphysics-objection": {
+          "role": "retain",
+          "reason": "This cited text or established argument remains available for comparison; making a new reading does not destroy it."
+        },
+        "reason-observation": {
+          "role": "transform",
+          "reason": "This working question or manuscript is revised into the more specific argument at the same desk position."
+        }
+      }
+    },
+    {
+      "world": "doctrine-argument-desks-v3-candidate",
+      "recipe": "reason-limits",
+      "inputs": "philosophical-inquiry + salvation-end",
+      "output": "reason-limits",
+      "incorporated": "philosophical-inquiry",
+      "retained": "salvation-end",
+      "lifecycles": {
+        "philosophical-inquiry": {
+          "role": "transform",
+          "reason": "This working question or manuscript is revised into the more specific argument at the same desk position."
+        },
+        "salvation-end": {
+          "role": "retain",
+          "reason": "This cited text or established argument remains available for comparison; making a new reading does not destroy it."
+        }
+      }
+    },
+    {
+      "world": "doctrine-argument-desks-v3-candidate",
+      "recipe": "reason-and-revelation",
+      "inputs": "reason-limits + revelation-leaf",
+      "output": "reason-and-revelation",
+      "incorporated": "reason-limits",
+      "retained": "revelation-leaf",
+      "lifecycles": {
+        "reason-limits": {
+          "role": "transform",
+          "reason": "This working question or manuscript is revised into the more specific argument at the same desk position."
+        },
+        "revelation-leaf": {
+          "role": "retain",
+          "reason": "This cited text or established argument remains available for comparison; making a new reading does not destroy it."
+        }
+      }
+    },
+    {
+      "world": "doctrine-argument-desks-v3-candidate",
+      "recipe": "reason-serving-theology",
+      "inputs": "nature-perfected + reason-and-revelation",
+      "output": "reason-serving-theology",
+      "incorporated": "reason-and-revelation",
+      "retained": "nature-perfected",
+      "lifecycles": {
+        "nature-perfected": {
+          "role": "retain",
+          "reason": "This cited text or established argument remains available for comparison; making a new reading does not destroy it."
+        },
+        "reason-and-revelation": {
+          "role": "transform",
+          "reason": "This working question or manuscript is revised into the more specific argument at the same desk position."
+        }
+      }
+    },
+    {
+      "world": "doctrine-argument-desks-v3-candidate",
+      "recipe": "aquinas-evil-answer",
+      "inputs": "creation-disagreement + summa-evil-leaf",
+      "output": "aquinas-evil-answer",
+      "incorporated": "—",
+      "retained": "creation-disagreement, summa-evil-leaf",
+      "lifecycles": {
+        "creation-disagreement": {
+          "role": "retain",
+          "reason": "This cited text or established argument remains available for comparison; making a new reading does not destroy it."
+        },
+        "summa-evil-leaf": {
+          "role": "retain",
+          "reason": "This cited text or established argument remains available for comparison; making a new reading does not destroy it."
+        }
+      }
+    },
+    {
+      "world": "doctrine-argument-desks-v3-candidate",
+      "recipe": "summa-disputation",
+      "inputs": "reason-serving-theology + aquinas-evil-answer",
+      "output": "summa-disputation",
+      "incorporated": "—",
+      "retained": "aquinas-evil-answer, reason-serving-theology",
+      "lifecycles": {
+        "reason-serving-theology": {
+          "role": "retain",
+          "reason": "This cited text or established argument remains available for comparison; making a new reading does not destroy it."
+        },
+        "aquinas-evil-answer": {
+          "role": "retain",
+          "reason": "This cited text or established argument remains available for comparison; making a new reading does not destroy it."
+        }
+      }
+    },
+    {
+      "world": "doctrine-argument-desks-v3-candidate",
+      "recipe": "water-question",
+      "inputs": "evil-maker + washing-water",
+      "output": "water-question",
+      "incorporated": "washing-water",
+      "retained": "evil-maker",
+      "lifecycles": {
+        "evil-maker": {
+          "role": "retain",
+          "reason": "This cited text or established argument remains available for comparison; making a new reading does not destroy it."
+        },
+        "washing-water": {
+          "role": "transform",
+          "reason": "This working question or manuscript is revised into the more specific argument at the same desk position."
+        }
+      }
+    },
+    {
+      "world": "doctrine-argument-desks-v3-candidate",
+      "recipe": "baptism-distinction",
+      "inputs": "water-question + ritual-leaf",
+      "output": "baptism-distinction",
+      "incorporated": "water-question",
+      "retained": "ritual-leaf",
+      "lifecycles": {
+        "water-question": {
+          "role": "transform",
+          "reason": "This working question or manuscript is revised into the more specific argument at the same desk position."
+        },
+        "ritual-leaf": {
+          "role": "retain",
+          "reason": "This cited text or established argument remains available for comparison; making a new reading does not destroy it."
+        }
+      }
+    },
+    {
+      "world": "doctrine-argument-desks-v3-candidate",
+      "recipe": "apostolic-pattern",
+      "inputs": "gospel-and-hands + acts-hands",
+      "output": "apostolic-pattern",
+      "incorporated": "—",
+      "retained": "acts-hands, gospel-and-hands",
+      "lifecycles": {
+        "gospel-and-hands": {
+          "role": "retain",
+          "reason": "This cited text or established argument remains available for comparison; making a new reading does not destroy it."
+        },
+        "acts-hands": {
+          "role": "retain",
+          "reason": "This cited text or established argument remains available for comparison; making a new reading does not destroy it."
+        }
+      }
+    },
+    {
+      "world": "doctrine-argument-desks-v3-candidate",
+      "recipe": "spiritual-baptism",
+      "inputs": "apostolic-pattern + ritual-promise",
+      "output": "spiritual-baptism",
+      "incorporated": "apostolic-pattern",
+      "retained": "ritual-promise",
+      "lifecycles": {
+        "apostolic-pattern": {
+          "role": "transform",
+          "reason": "This working question or manuscript is revised into the more specific argument at the same desk position."
+        },
+        "ritual-promise": {
+          "role": "retain",
+          "reason": "This cited text or established argument remains available for comparison; making a new reading does not destroy it."
+        }
+      }
+    },
+    {
+      "world": "doctrine-argument-desks-v3-candidate",
+      "recipe": "bodily-action-question",
+      "inputs": "nature-perfected + body-book-observation",
+      "output": "bodily-action-question",
+      "incorporated": "body-book-observation",
+      "retained": "nature-perfected",
+      "lifecycles": {
+        "nature-perfected": {
+          "role": "retain",
+          "reason": "This cited text or established argument remains available for comparison; making a new reading does not destroy it."
+        },
+        "body-book-observation": {
+          "role": "transform",
+          "reason": "This working question or manuscript is revised into the more specific argument at the same desk position."
+        }
+      }
+    },
+    {
+      "world": "doctrine-argument-desks-v3-candidate",
+      "recipe": "embodied-spiritual-rite",
+      "inputs": "spiritual-baptism + bodily-action-question",
+      "output": "embodied-spiritual-rite",
+      "incorporated": "—",
+      "retained": "bodily-action-question, spiritual-baptism",
+      "lifecycles": {
+        "spiritual-baptism": {
+          "role": "retain",
+          "reason": "This cited text or established argument remains available for comparison; making a new reading does not destroy it."
+        },
+        "bodily-action-question": {
+          "role": "retain",
+          "reason": "This cited text or established argument remains available for comparison; making a new reading does not destroy it."
+        }
+      }
+    },
+    {
+      "world": "doctrine-argument-desks-v3-candidate",
+      "recipe": "ritual-account",
+      "inputs": "baptism-distinction + embodied-spiritual-rite",
+      "output": "ritual-account",
+      "incorporated": "—",
+      "retained": "baptism-distinction, embodied-spiritual-rite",
+      "lifecycles": {
+        "baptism-distinction": {
+          "role": "retain",
+          "reason": "This cited text or established argument remains available for comparison; making a new reading does not destroy it."
+        },
+        "embodied-spiritual-rite": {
+          "role": "retain",
+          "reason": "This cited text or established argument remains available for comparison; making a new reading does not destroy it."
+        }
+      }
+    },
+    {
+      "world": "doctrine-argument-desks-v3-candidate",
+      "recipe": "sensible-sign",
+      "inputs": "nature-perfected + water-and-word",
+      "output": "sensible-sign",
+      "incorporated": "water-and-word",
+      "retained": "nature-perfected",
+      "lifecycles": {
+        "nature-perfected": {
+          "role": "retain",
+          "reason": "This cited text or established argument remains available for comparison; making a new reading does not destroy it."
+        },
+        "water-and-word": {
+          "role": "transform",
+          "reason": "This working question or manuscript is revised into the more specific argument at the same desk position."
+        }
+      }
+    },
+    {
+      "world": "doctrine-argument-desks-v3-candidate",
+      "recipe": "sign-with-words",
+      "inputs": "sensible-sign + summa-sign-leaf",
+      "output": "sign-with-words",
+      "incorporated": "sensible-sign",
+      "retained": "summa-sign-leaf",
+      "lifecycles": {
+        "sensible-sign": {
+          "role": "transform",
+          "reason": "This working question or manuscript is revised into the more specific argument at the same desk position."
+        },
+        "summa-sign-leaf": {
+          "role": "retain",
+          "reason": "This cited text or established argument remains available for comparison; making a new reading does not destroy it."
+        }
+      }
+    },
+    {
+      "world": "doctrine-argument-desks-v3-candidate",
+      "recipe": "instrument-analogy",
+      "inputs": "saw + craftsperson",
+      "output": "instrument-analogy",
+      "incorporated": "—",
+      "retained": "craftsperson, saw",
+      "lifecycles": {
+        "saw": {
+          "role": "retain",
+          "reason": "This cited text or established argument remains available for comparison; making a new reading does not destroy it."
+        },
+        "craftsperson": {
+          "role": "retain",
+          "reason": "This cited text or established argument remains available for comparison; making a new reading does not destroy it."
+        }
+      }
+    },
+    {
+      "world": "doctrine-argument-desks-v3-candidate",
+      "recipe": "instrument-of-grace",
+      "inputs": "sign-with-words + instrument-analogy",
+      "output": "instrument-of-grace",
+      "incorporated": "instrument-analogy, sign-with-words",
+      "retained": "—",
+      "lifecycles": {
+        "sign-with-words": {
+          "role": "transform",
+          "reason": "This working question or manuscript is revised into the more specific argument at the same desk position."
+        },
+        "instrument-analogy": {
+          "role": "incorporate",
+          "reason": "This manuscript leaf is bound into the combined argument, not erased or discredited."
+        }
+      }
+    },
+    {
+      "world": "doctrine-argument-desks-v3-candidate",
+      "recipe": "sacramental-disagreement",
+      "inputs": "spiritual-baptism + instrument-of-grace",
+      "output": "sacramental-disagreement",
+      "incorporated": "—",
+      "retained": "instrument-of-grace, spiritual-baptism",
+      "lifecycles": {
+        "spiritual-baptism": {
+          "role": "retain",
+          "reason": "This cited text or established argument remains available for comparison; making a new reading does not destroy it."
+        },
+        "instrument-of-grace": {
+          "role": "retain",
+          "reason": "This cited text or established argument remains available for comparison; making a new reading does not destroy it."
+        }
+      }
+    },
+    {
+      "world": "doctrine-argument-desks-v3-candidate",
+      "recipe": "sensible-appearances",
+      "inputs": "bread-and-wine + appearance-notes",
+      "output": "sensible-appearances",
+      "incorporated": "appearance-notes",
+      "retained": "bread-and-wine",
+      "lifecycles": {
+        "bread-and-wine": {
+          "role": "retain",
+          "reason": "This cited text or established argument remains available for comparison; making a new reading does not destroy it."
+        },
+        "appearance-notes": {
+          "role": "transform",
+          "reason": "This working question or manuscript is revised into the more specific argument at the same desk position."
+        }
+      }
+    },
+    {
+      "world": "doctrine-argument-desks-v3-candidate",
+      "recipe": "substance-and-appearance",
+      "inputs": "sensible-appearances + eucharist-leaf",
+      "output": "substance-and-appearance",
+      "incorporated": "sensible-appearances",
+      "retained": "eucharist-leaf",
+      "lifecycles": {
+        "sensible-appearances": {
+          "role": "transform",
+          "reason": "This working question or manuscript is revised into the more specific argument at the same desk position."
+        },
+        "eucharist-leaf": {
+          "role": "retain",
+          "reason": "This cited text or established argument remains available for comparison; making a new reading does not destroy it."
+        }
+      }
+    },
+    {
+      "world": "doctrine-argument-desks-v3-candidate",
+      "recipe": "aquinas-sacramental-account",
+      "inputs": "sacramental-disagreement + substance-and-appearance",
+      "output": "aquinas-sacramental-account",
+      "incorporated": "—",
+      "retained": "sacramental-disagreement, substance-and-appearance",
+      "lifecycles": {
+        "sacramental-disagreement": {
+          "role": "retain",
+          "reason": "This cited text or established argument remains available for comparison; making a new reading does not destroy it."
+        },
+        "substance-and-appearance": {
+          "role": "retain",
+          "reason": "This cited text or established argument remains available for comparison; making a new reading does not destroy it."
+        }
+      }
+    },
+    {
+      "world": "doctrine-argument-desks-v3-candidate",
+      "recipe": "guilt-and-penalty",
+      "inputs": "instrument-of-grace + indulgence-letter",
+      "output": "guilt-and-penalty",
+      "incorporated": "indulgence-letter",
+      "retained": "instrument-of-grace",
+      "lifecycles": {
+        "instrument-of-grace": {
+          "role": "retain",
+          "reason": "This cited text or established argument remains available for comparison; making a new reading does not destroy it."
+        },
+        "indulgence-letter": {
+          "role": "transform",
+          "reason": "This working question or manuscript is revised into the more specific argument at the same desk position."
+        }
+      }
+    },
+    {
+      "world": "doctrine-argument-desks-v3-candidate",
+      "recipe": "sales-promise",
+      "inputs": "coin-claim + theses-penalties",
+      "output": "sales-promise",
+      "incorporated": "coin-claim",
+      "retained": "theses-penalties",
+      "lifecycles": {
+        "coin-claim": {
+          "role": "transform",
+          "reason": "This working question or manuscript is revised into the more specific argument at the same desk position."
+        },
+        "theses-penalties": {
+          "role": "retain",
+          "reason": "This cited text or established argument remains available for comparison; making a new reading does not destroy it."
+        }
+      }
+    },
+    {
+      "world": "doctrine-argument-desks-v3-candidate",
+      "recipe": "false-assurance",
+      "inputs": "guilt-and-penalty + sales-promise",
+      "output": "false-assurance",
+      "incorporated": "sales-promise",
+      "retained": "guilt-and-penalty",
+      "lifecycles": {
+        "guilt-and-penalty": {
+          "role": "retain",
+          "reason": "This cited text or established argument remains available for comparison; making a new reading does not destroy it."
+        },
+        "sales-promise": {
+          "role": "transform",
+          "reason": "This working question or manuscript is revised into the more specific argument at the same desk position."
+        }
+      }
+    },
+    {
+      "world": "doctrine-argument-desks-v3-candidate",
+      "recipe": "repentant-life",
+      "inputs": "repentance + theses-penalties",
+      "output": "repentant-life",
+      "incorporated": "repentance",
+      "retained": "theses-penalties",
+      "lifecycles": {
+        "repentance": {
+          "role": "transform",
+          "reason": "This working question or manuscript is revised into the more specific argument at the same desk position."
+        },
+        "theses-penalties": {
+          "role": "retain",
+          "reason": "This cited text or established argument remains available for comparison; making a new reading does not destroy it."
+        }
+      }
+    },
+    {
+      "world": "doctrine-argument-desks-v3-candidate",
+      "recipe": "works-of-mercy",
+      "inputs": "neighbour-1517 + theses-mercy",
+      "output": "works-of-mercy",
+      "incorporated": "neighbour-1517",
+      "retained": "theses-mercy",
+      "lifecycles": {
+        "neighbour-1517": {
+          "role": "transform",
+          "reason": "This working question or manuscript is revised into the more specific argument at the same desk position."
+        },
+        "theses-mercy": {
+          "role": "retain",
+          "reason": "This cited text or established argument remains available for comparison; making a new reading does not destroy it."
+        }
+      }
+    },
+    {
+      "world": "doctrine-argument-desks-v3-candidate",
+      "recipe": "works-of-mercy-alt-1",
+      "inputs": "household-need + theses-mercy",
+      "output": "works-of-mercy",
+      "incorporated": "household-need",
+      "retained": "theses-mercy",
+      "lifecycles": {
+        "household-need": {
+          "role": "transform",
+          "reason": "This working question or manuscript is revised into the more specific argument at the same desk position."
+        },
+        "theses-mercy": {
+          "role": "retain",
+          "reason": "This cited text or established argument remains available for comparison; making a new reading does not destroy it."
+        }
+      }
+    },
+    {
+      "world": "doctrine-argument-desks-v3-candidate",
+      "recipe": "indulgence-critique",
+      "inputs": "false-assurance + repentant-life",
+      "output": "indulgence-critique",
+      "incorporated": "false-assurance",
+      "retained": "repentant-life",
+      "lifecycles": {
+        "false-assurance": {
+          "role": "transform",
+          "reason": "This working question or manuscript is revised into the more specific argument at the same desk position."
+        },
+        "repentant-life": {
+          "role": "retain",
+          "reason": "This cited text or established argument remains available for comparison; making a new reading does not destroy it."
+        }
+      }
+    },
+    {
+      "world": "doctrine-argument-desks-v3-candidate",
+      "recipe": "pastoral-priorities",
+      "inputs": "works-of-mercy + indulgence-critique",
+      "output": "pastoral-priorities",
+      "incorporated": "—",
+      "retained": "indulgence-critique, works-of-mercy",
+      "lifecycles": {
+        "works-of-mercy": {
+          "role": "retain",
+          "reason": "This cited text or established argument remains available for comparison; making a new reading does not destroy it."
+        },
+        "indulgence-critique": {
+          "role": "retain",
+          "reason": "This cited text or established argument remains available for comparison; making a new reading does not destroy it."
+        }
+      }
+    },
+    {
+      "world": "doctrine-argument-desks-v3-candidate",
+      "recipe": "limits-1517",
+      "inputs": "sacramental-disagreement + papal-declaration",
+      "output": "limits-1517",
+      "incorporated": "—",
+      "retained": "papal-declaration, sacramental-disagreement",
+      "lifecycles": {
+        "sacramental-disagreement": {
+          "role": "retain",
+          "reason": "This cited text or established argument remains available for comparison; making a new reading does not destroy it."
+        },
+        "papal-declaration": {
+          "role": "retain",
+          "reason": "This cited text or established argument remains available for comparison; making a new reading does not destroy it."
+        }
+      }
+    },
+    {
+      "world": "doctrine-argument-desks-v3-candidate",
+      "recipe": "wittenberg-disputation",
+      "inputs": "pastoral-priorities + limits-1517",
+      "output": "wittenberg-disputation",
+      "incorporated": "—",
+      "retained": "limits-1517, pastoral-priorities",
+      "lifecycles": {
+        "pastoral-priorities": {
+          "role": "retain",
+          "reason": "This cited text or established argument remains available for comparison; making a new reading does not destroy it."
+        },
+        "limits-1517": {
+          "role": "retain",
+          "reason": "This cited text or established argument remains available for comparison; making a new reading does not destroy it."
+        }
+      }
+    },
+    {
+      "world": "doctrine-argument-desks-v3-candidate",
+      "recipe": "receiving-not-earning",
+      "inputs": "grace-heals-will + promise-of-christ",
+      "output": "receiving-not-earning",
+      "incorporated": "—",
+      "retained": "grace-heals-will, promise-of-christ",
+      "lifecycles": {
+        "grace-heals-will": {
+          "role": "retain",
+          "reason": "This cited text or established argument remains available for comparison; making a new reading does not destroy it."
+        },
+        "promise-of-christ": {
+          "role": "retain",
+          "reason": "This cited text or established argument remains available for comparison; making a new reading does not destroy it."
+        }
+      }
+    },
+    {
+      "world": "doctrine-argument-desks-v3-candidate",
+      "recipe": "justification-by-faith",
+      "inputs": "receiving-not-earning + liberty-leaf",
+      "output": "justification-by-faith",
+      "incorporated": "receiving-not-earning",
+      "retained": "liberty-leaf",
+      "lifecycles": {
+        "receiving-not-earning": {
+          "role": "transform",
+          "reason": "This working question or manuscript is revised into the more specific argument at the same desk position."
+        },
+        "liberty-leaf": {
+          "role": "retain",
+          "reason": "This cited text or established argument remains available for comparison; making a new reading does not destroy it."
+        }
+      }
+    },
+    {
+      "world": "doctrine-argument-desks-v3-candidate",
+      "recipe": "command-and-promise",
+      "inputs": "repentant-life + commands-promises",
+      "output": "command-and-promise",
+      "incorporated": "—",
+      "retained": "commands-promises, repentant-life",
+      "lifecycles": {
+        "repentant-life": {
+          "role": "retain",
+          "reason": "This cited text or established argument remains available for comparison; making a new reading does not destroy it."
+        },
+        "commands-promises": {
+          "role": "retain",
+          "reason": "This cited text or established argument remains available for comparison; making a new reading does not destroy it."
+        }
+      }
+    },
+    {
+      "world": "doctrine-argument-desks-v3-candidate",
+      "recipe": "freedom-from-merit",
+      "inputs": "justification-by-faith + command-and-promise",
+      "output": "freedom-from-merit",
+      "incorporated": "command-and-promise",
+      "retained": "justification-by-faith",
+      "lifecycles": {
+        "justification-by-faith": {
+          "role": "retain",
+          "reason": "This cited text or established argument remains available for comparison; making a new reading does not destroy it."
+        },
+        "command-and-promise": {
+          "role": "transform",
+          "reason": "This working question or manuscript is revised into the more specific argument at the same desk position."
+        }
+      }
+    },
+    {
+      "world": "doctrine-argument-desks-v3-candidate",
+      "recipe": "service-pattern",
+      "inputs": "neighbour-in-need + christ-servant",
+      "output": "service-pattern",
+      "incorporated": "neighbour-in-need",
+      "retained": "christ-servant",
+      "lifecycles": {
+        "neighbour-in-need": {
+          "role": "transform",
+          "reason": "This working question or manuscript is revised into the more specific argument at the same desk position."
+        },
+        "christ-servant": {
+          "role": "retain",
+          "reason": "This cited text or established argument remains available for comparison; making a new reading does not destroy it."
+        }
+      }
+    },
+    {
+      "world": "doctrine-argument-desks-v3-candidate",
+      "recipe": "free-service",
+      "inputs": "freedom-from-merit + service-pattern",
+      "output": "free-service",
+      "incorporated": "freedom-from-merit, service-pattern",
+      "retained": "—",
+      "lifecycles": {
+        "freedom-from-merit": {
+          "role": "transform",
+          "reason": "This working question or manuscript is revised into the more specific argument at the same desk position."
+        },
+        "service-pattern": {
+          "role": "incorporate",
+          "reason": "This manuscript leaf is bound into the combined argument, not erased or discredited."
+        }
+      }
+    },
+    {
+      "world": "doctrine-argument-desks-v3-candidate",
+      "recipe": "works-after-faith",
+      "inputs": "pastoral-priorities + free-service",
+      "output": "works-after-faith",
+      "incorporated": "—",
+      "retained": "free-service, pastoral-priorities",
+      "lifecycles": {
+        "pastoral-priorities": {
+          "role": "retain",
+          "reason": "This cited text or established argument remains available for comparison; making a new reading does not destroy it."
+        },
+        "free-service": {
+          "role": "retain",
+          "reason": "This cited text or established argument remains available for comparison; making a new reading does not destroy it."
+        }
+      }
+    },
+    {
+      "world": "doctrine-argument-desks-v3-candidate",
+      "recipe": "body-not-discarded",
+      "inputs": "embodied-spiritual-rite + body-discipline",
+      "output": "body-not-discarded",
+      "incorporated": "—",
+      "retained": "body-discipline, embodied-spiritual-rite",
+      "lifecycles": {
+        "embodied-spiritual-rite": {
+          "role": "retain",
+          "reason": "This cited text or established argument remains available for comparison; making a new reading does not destroy it."
+        },
+        "body-discipline": {
+          "role": "retain",
+          "reason": "This cited text or established argument remains available for comparison; making a new reading does not destroy it."
+        }
+      }
+    },
+    {
+      "world": "doctrine-argument-desks-v3-candidate",
+      "recipe": "freedom-and-service",
+      "inputs": "works-after-faith + body-not-discarded",
+      "output": "freedom-and-service",
+      "incorporated": "—",
+      "retained": "body-not-discarded, works-after-faith",
+      "lifecycles": {
+        "works-after-faith": {
+          "role": "retain",
+          "reason": "This cited text or established argument remains available for comparison; making a new reading does not destroy it."
+        },
+        "body-not-discarded": {
+          "role": "retain",
+          "reason": "This cited text or established argument remains available for comparison; making a new reading does not destroy it."
+        }
+      }
+    }
+  ]
+}

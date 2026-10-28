@@ -1,0 +1,89 @@
+TAP version 13
+# Subtest: All 125 archived v1 files, its frozen trial and its evidence remain byte-identical
+ok 1 - All 125 archived v1 files, its frozen trial and its evidence remain byte-identical
+  ---
+  duration_ms: 33.457951
+  type: 'test'
+  ...
+# Subtest: The first 17 canonical chapters and the 42-step custard-through-chocolate block are unchanged
+ok 2 - The first 17 canonical chapters and the 42-step custard-through-chocolate block are unchanged
+  ---
+  duration_ms: 1.263508
+  type: 'test'
+  ...
+# Subtest: Every remaining v1 combination retains its operands, settings, construction and input roles
+ok 3 - Every remaining v1 combination retains its operands, settings, construction and input roles
+  ---
+  duration_ms: 2.963471
+  type: 'test'
+  ...
+# Subtest: A real sealed tin completes the cannery, travels intact, and is explicitly opened for the hungry shift
+not ok 4 - A real sealed tin completes the cannery, travels intact, and is explicitly opened for the hungry shift
+  ---
+  duration_ms: 148.114865
+  type: 'test'
+  location: '/workspace/shared/combination-campaign-research-20261028/food-v2/revision.test.ts:25:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    The expression evaluated to a falsy value:
+    
+      assert(advanced.transfers?.some(t=>t.item===tin.id&&t.from==='cannery-area'&&t.to==='precision-area'))
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: true
+  operator: '=='
+  stack: |-
+    TestContext.<anonymous> (file:///workspace/shared/combination-campaign-research-20261028/food-v2/revision.test.ts:33:2)
+    Test.runInAsyncScope (node:async_hooks:227:14)
+    Test.run (node:internal/test_runner/test:1402:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+    Test.postRun (node:internal/test_runner/test:1542:19)
+    Test.run (node:internal/test_runner/test:1467:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:974:7)
+  ...
+# Subtest: Opening the provision early remains recoverable @ 320
+ok 5 - Opening the provision early remains recoverable @ 320
+  ---
+  duration_ms: 5502.541394
+  type: 'test'
+  ...
+# Subtest: Opening the provision early remains recoverable @ 360
+ok 6 - Opening the provision early remains recoverable @ 360
+  ---
+  duration_ms: 5104.034418
+  type: 'test'
+  ...
+# Subtest: Opening the provision early remains recoverable @ 600
+ok 7 - Opening the provision early remains recoverable @ 600
+  ---
+  duration_ms: 5774.267131
+  type: 'test'
+  ...
+# Subtest: The production batch and creme, not display-cake quotas, complete the station preparation
+ok 8 - The production batch and creme, not display-cake quotas, complete the station preparation
+  ---
+  duration_ms: 160.277631
+  type: 'test'
+  ...
+# Subtest: Skipped optional cheese straws remain recoverable with the existing cheese after automatic handoff
+ok 9 - Skipped optional cheese straws remain recoverable with the existing cheese after automatic handoff
+  ---
+  duration_ms: 17.186202
+  type: 'test'
+  ...
+# Subtest: The frozen fresh pastry gestures still complete; continuing sauce never requires a second saucepan placement
+ok 10 - The frozen fresh pastry gestures still complete; continuing sauce never requires a second saucepan placement
+  ---
+  duration_ms: 144.837599
+  type: 'test'
+  ...
+1..10
+# tests 10
+# suites 0
+# pass 9
+# fail 1
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 17056.322874

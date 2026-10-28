@@ -1,0 +1,133 @@
+{
+  "createdAt": "2026-10-28T02:25:36.447Z",
+  "node": "v24.22.1",
+  "scenarioId": "causation-good-hole-probe-v1",
+  "sourceCommit": "3d3dbf36c7be473b30e09384f8a279b2fa2d9918",
+  "hashes": {
+    "pilot.json": "226289749bff01682aac8e95f4c96f6fb58aa9645696b8d559a286d6c70a7d75",
+    "pilot.ts": "bfd95901def02f431ba59abdb22f46e46ef4334a847169ee530e35f8451b9078",
+    "route.json": "b5c1d00ae43f8bdbfa140dc168074b8ad1e1cac778f54e94e2f189660f768077",
+    "play.ts": "e80185aade8aee30d619a8773f1453701c6ca122f576983b44b93a75f43df137",
+    "runtime/engine/model.ts": "cc37461ae19712a84b61d869d10c1a554214c0848e4dda2b3aa65525b4a19b08",
+    "runtime/schema/scenario.ts": "30a0a3189d3a138b9d0bf7252317acc7f33caab8837e6815bd93a9efa71679d7",
+    "runtime/schema/lifecycle.ts": "5f987a4b352b606b511a542cfb8f3274325e3da21bcfc9ea1cee6e46f32a1647"
+  },
+  "setup": {
+    "width": 360,
+    "sourceBlind": true,
+    "automaticAdvance": true,
+    "gameplayExplanationToasts": false,
+    "partnerHelpAvailable": true
+  },
+  "initialView": {
+    "scenario": {
+      "id": "causation-good-hole-probe-v1",
+      "title": "The Workshop Bucket",
+      "premise": "One bucket, two jobs. A short fictional workshop experiment."
+    },
+    "stage": {
+      "number": 1,
+      "title": "Keep the water in",
+      "speaker": "The workshop keeper",
+      "motivation": "Rain is dripping through the roof. Make something that will catch it.",
+      "travelText": "Rain drums on the workshop roof."
+    },
+    "area": {
+      "id": "workshop",
+      "label": "Workshop",
+      "enteredAtStage": 0
+    },
+    "areas": [
+      {
+        "id": "workshop",
+        "label": "Workshop",
+        "current": true,
+        "thingCount": 4
+      }
+    ],
+    "objectives": [
+      {
+        "id": "catch-water",
+        "text": "Catch the roof leak.",
+        "satisfied": false
+      }
+    ],
+    "canAdvance": false,
+    "nextAction": null,
+    "completionText": null,
+    "completed": false,
+    "things": [
+      {
+        "id": "staves",
+        "label": "Bucket staves",
+        "description": "Shaped wooden staves and a fitted bottom, ready for assembly.",
+        "x": 252,
+        "y": 56,
+        "location": null,
+        "gold": false,
+        "slots": [],
+        "components": [],
+        "functional": true
+      },
+      {
+        "id": "hoops",
+        "label": "Iron hoops",
+        "description": "Hoops to hold the staves together.",
+        "x": 252,
+        "y": 106,
+        "location": null,
+        "gold": false,
+        "slots": [],
+        "components": [],
+        "functional": true
+      },
+      {
+        "id": "pitch",
+        "label": "Pitch pot",
+        "description": "A reusable supply for closing seams. Not for food vessels.",
+        "x": 52,
+        "y": 156,
+        "location": null,
+        "gold": false,
+        "slots": [],
+        "components": [],
+        "functional": true
+      },
+      {
+        "id": "rag",
+        "label": "Rag",
+        "description": "A small cloth for applying pitch.",
+        "x": 152,
+        "y": 156,
+        "location": null,
+        "gold": false,
+        "slots": [],
+        "components": [],
+        "functional": true
+      }
+    ],
+    "locations": [
+      {
+        "id": "leak",
+        "area": "workshop",
+        "x": 52,
+        "y": 81,
+        "label": "Roof leak",
+        "description": "Runoff drips here. Catch it before it reaches the floor.",
+        "gold": false
+      }
+    ],
+    "cacheNarrative": [],
+    "metrics": {
+      "attempts": 0,
+      "accepted": 0,
+      "combinations": 0,
+      "creations": 0,
+      "installations": 0,
+      "moves": 0,
+      "placements": 0,
+      "advances": 0,
+      "visits": 0
+    }
+  }
+}

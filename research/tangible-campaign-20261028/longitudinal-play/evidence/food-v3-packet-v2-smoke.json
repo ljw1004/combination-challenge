@@ -1,0 +1,2913 @@
+{
+  "result": {
+    "packet": "food-v3-packet-v2",
+    "passed": true,
+    "commands": 16,
+    "firstStageAutoAdvanced": true,
+    "missionAfterUndo": true,
+    "expectationRequired": true,
+    "rejectionsPreserved": true,
+    "stoppingEnforced": true,
+    "fullCompressedAuditVerified": true,
+    "readTested": false,
+    "scope": "source-aware preparer smoke; not source-blind trial, human evidence, or browser testing"
+  },
+  "calls": [
+    {
+      "op": "start",
+      "args": [],
+      "exit": 0,
+      "output": {
+        "evidenceClass": "simulated logical play; not human evidence",
+        "session": "smoke-preparation-03",
+        "commandNumber": 1,
+        "integrity": {
+          "verified": true,
+          "manifestSha256": "10bc74ff5b726e0e21b653b0283d036a6e60257cdc6bb76dc44e751436461023"
+        },
+        "automaticTransitions": [],
+        "view": {
+          "scenario": {
+            "id": "hearth-to-twinkie-v3",
+            "title": "From Hearth to Snack Cake",
+            "premise": "Travel with a kitchen caravan from a roadside breakfast through harvest, rain, a crowded market and the station bakery. Make the food that each stop needs, ending at a Twinkie. This fictional collection brings historical techniques together; time, proportions and safe handling are compressed, not taught."
+          },
+          "stage": {
+            "number": 1,
+            "title": "The roadside hearth",
+            "speaker": "The traveller",
+            "motivation": "The kitchen caravan has stopped beside the road. The children want breakfast before the carts move: warm porridge, flatbread and something to drink."
+          },
+          "area": {
+            "id": "hearth-area",
+            "label": "The roadside hearth",
+            "enteredAtStage": 0
+          },
+          "areas": [
+            {
+              "id": "hearth-area",
+              "label": "The roadside hearth",
+              "current": true,
+              "thingCount": 5
+            }
+          ],
+          "objectives": [
+            {
+              "id": "hearth-flatbread",
+              "text": "Make flatbread.",
+              "satisfied": false
+            },
+            {
+              "id": "hearth-juice",
+              "text": "Make apple juice.",
+              "satisfied": false
+            },
+            {
+              "id": "hearth-fruit-porridge",
+              "text": "Make fruit porridge.",
+              "satisfied": false
+            }
+          ],
+          "newSupplies": [],
+          "things": [
+            {
+              "id": "grain",
+              "label": "Grain",
+              "x": 252,
+              "y": 56,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "millstone",
+              "label": "Millstone",
+              "x": 252,
+              "y": 106,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "water",
+              "label": "Water",
+              "x": 52,
+              "y": 156,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "fruit",
+              "label": "Apples",
+              "x": 152,
+              "y": 156,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "press",
+              "label": "Fruit press",
+              "x": 252,
+              "y": 156,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            }
+          ],
+          "locations": [
+            {
+              "id": "@hearth-fire",
+              "area": "hearth-area",
+              "x": 52,
+              "y": 81,
+              "label": "Hearth fire",
+              "gold": false
+            }
+          ],
+          "completed": false,
+          "successfulCombinations": 0
+        }
+      }
+    },
+    {
+      "op": "drop",
+      "args": [
+        "grain",
+        "grain"
+      ],
+      "exit": 2,
+      "output": {
+        "accepted": false,
+        "protocolError": "Before acting, supply --expect with the meaning or outcome you expect from this action.",
+        "preservedRejection": true
+      }
+    },
+    {
+      "op": "drop",
+      "args": [
+        "grain",
+        "grain"
+      ],
+      "expect": "Source-aware smoke: self-drop must reject, not play evidence.",
+      "exit": 0,
+      "output": {
+        "evidenceClass": "simulated logical play; not human evidence",
+        "session": "smoke-preparation-03",
+        "commandNumber": 2,
+        "integrity": {
+          "verified": true,
+          "manifestSha256": "10bc74ff5b726e0e21b653b0283d036a6e60257cdc6bb76dc44e751436461023"
+        },
+        "expectedMeaning": "Source-aware smoke: self-drop must reject, not play evidence.",
+        "accepted": false,
+        "gesture": {
+          "source": "grain",
+          "target": "grain"
+        },
+        "resolvedAction": {
+          "type": "combine",
+          "a": "grain",
+          "b": "grain"
+        },
+        "visibleOutcome": "No visible change.",
+        "automaticTransitions": [],
+        "view": {
+          "scenario": {
+            "id": "hearth-to-twinkie-v3",
+            "title": "From Hearth to Snack Cake",
+            "premise": "Travel with a kitchen caravan from a roadside breakfast through harvest, rain, a crowded market and the station bakery. Make the food that each stop needs, ending at a Twinkie. This fictional collection brings historical techniques together; time, proportions and safe handling are compressed, not taught."
+          },
+          "stage": {
+            "number": 1,
+            "title": "The roadside hearth",
+            "speaker": "The traveller",
+            "motivation": "The kitchen caravan has stopped beside the road. The children want breakfast before the carts move: warm porridge, flatbread and something to drink."
+          },
+          "area": {
+            "id": "hearth-area",
+            "label": "The roadside hearth",
+            "enteredAtStage": 0
+          },
+          "areas": [
+            {
+              "id": "hearth-area",
+              "label": "The roadside hearth",
+              "current": true,
+              "thingCount": 5
+            }
+          ],
+          "objectives": [
+            {
+              "id": "hearth-flatbread",
+              "text": "Make flatbread.",
+              "satisfied": false
+            },
+            {
+              "id": "hearth-juice",
+              "text": "Make apple juice.",
+              "satisfied": false
+            },
+            {
+              "id": "hearth-fruit-porridge",
+              "text": "Make fruit porridge.",
+              "satisfied": false
+            }
+          ],
+          "newSupplies": [],
+          "things": [
+            {
+              "id": "grain",
+              "label": "Grain",
+              "x": 252,
+              "y": 56,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "millstone",
+              "label": "Millstone",
+              "x": 252,
+              "y": 106,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "water",
+              "label": "Water",
+              "x": 52,
+              "y": 156,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "fruit",
+              "label": "Apples",
+              "x": 152,
+              "y": 156,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "press",
+              "label": "Fruit press",
+              "x": 252,
+              "y": 156,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            }
+          ],
+          "locations": [
+            {
+              "id": "@hearth-fire",
+              "area": "hearth-area",
+              "x": 52,
+              "y": 81,
+              "label": "Hearth fire",
+              "gold": false
+            }
+          ],
+          "completed": false,
+          "successfulCombinations": 0
+        }
+      }
+    },
+    {
+      "op": "highlight",
+      "args": [
+        "grain"
+      ],
+      "expect": "Source-aware smoke: inspect highlight surface, not play evidence.",
+      "exit": 0,
+      "output": {
+        "evidenceClass": "simulated logical play; not human evidence",
+        "session": "smoke-preparation-03",
+        "commandNumber": 3,
+        "integrity": {
+          "verified": true,
+          "manifestSha256": "10bc74ff5b726e0e21b653b0283d036a6e60257cdc6bb76dc44e751436461023"
+        },
+        "expectedMeaning": "Source-aware smoke: inspect highlight surface, not play evidence.",
+        "selection": "grain",
+        "highlighted": [
+          {
+            "id": "millstone",
+            "label": "Millstone"
+          },
+          {
+            "id": "water",
+            "label": "Water"
+          }
+        ],
+        "highlightMeaning": "These existing tiles light up on selection. No output preview or recipe directions are supplied.",
+        "automaticTransitions": [],
+        "view": {
+          "scenario": {
+            "id": "hearth-to-twinkie-v3",
+            "title": "From Hearth to Snack Cake",
+            "premise": "Travel with a kitchen caravan from a roadside breakfast through harvest, rain, a crowded market and the station bakery. Make the food that each stop needs, ending at a Twinkie. This fictional collection brings historical techniques together; time, proportions and safe handling are compressed, not taught."
+          },
+          "stage": {
+            "number": 1,
+            "title": "The roadside hearth",
+            "speaker": "The traveller",
+            "motivation": "The kitchen caravan has stopped beside the road. The children want breakfast before the carts move: warm porridge, flatbread and something to drink."
+          },
+          "area": {
+            "id": "hearth-area",
+            "label": "The roadside hearth",
+            "enteredAtStage": 0
+          },
+          "areas": [
+            {
+              "id": "hearth-area",
+              "label": "The roadside hearth",
+              "current": true,
+              "thingCount": 5
+            }
+          ],
+          "objectives": [
+            {
+              "id": "hearth-flatbread",
+              "text": "Make flatbread.",
+              "satisfied": false
+            },
+            {
+              "id": "hearth-juice",
+              "text": "Make apple juice.",
+              "satisfied": false
+            },
+            {
+              "id": "hearth-fruit-porridge",
+              "text": "Make fruit porridge.",
+              "satisfied": false
+            }
+          ],
+          "newSupplies": [],
+          "things": [
+            {
+              "id": "grain",
+              "label": "Grain",
+              "x": 252,
+              "y": 56,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "millstone",
+              "label": "Millstone",
+              "x": 252,
+              "y": 106,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "water",
+              "label": "Water",
+              "x": 52,
+              "y": 156,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "fruit",
+              "label": "Apples",
+              "x": 152,
+              "y": 156,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "press",
+              "label": "Fruit press",
+              "x": 252,
+              "y": 156,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            }
+          ],
+          "locations": [
+            {
+              "id": "@hearth-fire",
+              "area": "hearth-area",
+              "x": 52,
+              "y": 81,
+              "label": "Hearth fire",
+              "gold": false
+            }
+          ],
+          "completed": false,
+          "successfulCombinations": 0
+        }
+      }
+    },
+    {
+      "op": "drop",
+      "args": [
+        "grain",
+        "millstone"
+      ],
+      "expect": "Source-aware fixture smoke using authored first-stage action; NOT player reasoning or trial evidence.",
+      "exit": 0,
+      "output": {
+        "evidenceClass": "simulated logical play; not human evidence",
+        "session": "smoke-preparation-03",
+        "commandNumber": 4,
+        "integrity": {
+          "verified": true,
+          "manifestSha256": "10bc74ff5b726e0e21b653b0283d036a6e60257cdc6bb76dc44e751436461023"
+        },
+        "expectedMeaning": "Source-aware fixture smoke using authored first-stage action; NOT player reasoning or trial evidence.",
+        "accepted": true,
+        "gesture": {
+          "source": "grain",
+          "target": "millstone"
+        },
+        "resolvedAction": {
+          "type": "combine",
+          "a": "grain",
+          "b": "millstone"
+        },
+        "automaticTransitions": [],
+        "view": {
+          "scenario": {
+            "id": "hearth-to-twinkie-v3",
+            "title": "From Hearth to Snack Cake",
+            "premise": "Travel with a kitchen caravan from a roadside breakfast through harvest, rain, a crowded market and the station bakery. Make the food that each stop needs, ending at a Twinkie. This fictional collection brings historical techniques together; time, proportions and safe handling are compressed, not taught."
+          },
+          "stage": {
+            "number": 1,
+            "title": "The roadside hearth",
+            "speaker": "The traveller",
+            "motivation": "The kitchen caravan has stopped beside the road. The children want breakfast before the carts move: warm porridge, flatbread and something to drink."
+          },
+          "area": {
+            "id": "hearth-area",
+            "label": "The roadside hearth",
+            "enteredAtStage": 0
+          },
+          "areas": [
+            {
+              "id": "hearth-area",
+              "label": "The roadside hearth",
+              "current": true,
+              "thingCount": 6
+            }
+          ],
+          "objectives": [
+            {
+              "id": "hearth-flatbread",
+              "text": "Make flatbread.",
+              "satisfied": false
+            },
+            {
+              "id": "hearth-juice",
+              "text": "Make apple juice.",
+              "satisfied": false
+            },
+            {
+              "id": "hearth-fruit-porridge",
+              "text": "Make fruit porridge.",
+              "satisfied": false
+            }
+          ],
+          "newSupplies": [],
+          "things": [
+            {
+              "id": "grain",
+              "label": "Grain",
+              "x": 252,
+              "y": 56,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "millstone",
+              "label": "Millstone",
+              "x": 252,
+              "y": 106,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "water",
+              "label": "Water",
+              "x": 52,
+              "y": 156,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "fruit",
+              "label": "Apples",
+              "x": 152,
+              "y": 156,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "press",
+              "label": "Fruit press",
+              "x": 252,
+              "y": 156,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "flour",
+              "label": "Flour",
+              "x": 154,
+              "y": 60,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            }
+          ],
+          "locations": [
+            {
+              "id": "@hearth-fire",
+              "area": "hearth-area",
+              "x": 52,
+              "y": 81,
+              "label": "Hearth fire",
+              "gold": false
+            }
+          ],
+          "completed": false,
+          "successfulCombinations": 1
+        }
+      }
+    },
+    {
+      "op": "drop",
+      "args": [
+        "flour",
+        "water"
+      ],
+      "expect": "Source-aware fixture smoke using authored first-stage action; NOT player reasoning or trial evidence.",
+      "exit": 0,
+      "output": {
+        "evidenceClass": "simulated logical play; not human evidence",
+        "session": "smoke-preparation-03",
+        "commandNumber": 5,
+        "integrity": {
+          "verified": true,
+          "manifestSha256": "10bc74ff5b726e0e21b653b0283d036a6e60257cdc6bb76dc44e751436461023"
+        },
+        "expectedMeaning": "Source-aware fixture smoke using authored first-stage action; NOT player reasoning or trial evidence.",
+        "accepted": true,
+        "gesture": {
+          "source": "flour",
+          "target": "water"
+        },
+        "resolvedAction": {
+          "type": "combine",
+          "a": "flour",
+          "b": "water"
+        },
+        "automaticTransitions": [],
+        "view": {
+          "scenario": {
+            "id": "hearth-to-twinkie-v3",
+            "title": "From Hearth to Snack Cake",
+            "premise": "Travel with a kitchen caravan from a roadside breakfast through harvest, rain, a crowded market and the station bakery. Make the food that each stop needs, ending at a Twinkie. This fictional collection brings historical techniques together; time, proportions and safe handling are compressed, not taught."
+          },
+          "stage": {
+            "number": 1,
+            "title": "The roadside hearth",
+            "speaker": "The traveller",
+            "motivation": "The kitchen caravan has stopped beside the road. The children want breakfast before the carts move: warm porridge, flatbread and something to drink."
+          },
+          "area": {
+            "id": "hearth-area",
+            "label": "The roadside hearth",
+            "enteredAtStage": 0
+          },
+          "areas": [
+            {
+              "id": "hearth-area",
+              "label": "The roadside hearth",
+              "current": true,
+              "thingCount": 7
+            }
+          ],
+          "objectives": [
+            {
+              "id": "hearth-flatbread",
+              "text": "Make flatbread.",
+              "satisfied": false
+            },
+            {
+              "id": "hearth-juice",
+              "text": "Make apple juice.",
+              "satisfied": false
+            },
+            {
+              "id": "hearth-fruit-porridge",
+              "text": "Make fruit porridge.",
+              "satisfied": false
+            }
+          ],
+          "newSupplies": [],
+          "things": [
+            {
+              "id": "grain",
+              "label": "Grain",
+              "x": 252,
+              "y": 56,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "millstone",
+              "label": "Millstone",
+              "x": 252,
+              "y": 106,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "water",
+              "label": "Water",
+              "x": 52,
+              "y": 156,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "fruit",
+              "label": "Apples",
+              "x": 152,
+              "y": 156,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "press",
+              "label": "Fruit press",
+              "x": 252,
+              "y": 156,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "flour",
+              "label": "Flour",
+              "x": 154,
+              "y": 60,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "dough",
+              "label": "Dough",
+              "x": 150,
+              "y": 202,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            }
+          ],
+          "locations": [
+            {
+              "id": "@hearth-fire",
+              "area": "hearth-area",
+              "x": 52,
+              "y": 81,
+              "label": "Hearth fire",
+              "gold": false
+            }
+          ],
+          "completed": false,
+          "successfulCombinations": 2
+        }
+      }
+    },
+    {
+      "op": "drop",
+      "args": [
+        "dough",
+        "@hearth-fire"
+      ],
+      "expect": "Source-aware fixture smoke using authored first-stage action; NOT player reasoning or trial evidence.",
+      "exit": 0,
+      "output": {
+        "evidenceClass": "simulated logical play; not human evidence",
+        "session": "smoke-preparation-03",
+        "commandNumber": 6,
+        "integrity": {
+          "verified": true,
+          "manifestSha256": "10bc74ff5b726e0e21b653b0283d036a6e60257cdc6bb76dc44e751436461023"
+        },
+        "expectedMeaning": "Source-aware fixture smoke using authored first-stage action; NOT player reasoning or trial evidence.",
+        "accepted": true,
+        "gesture": {
+          "source": "dough",
+          "target": "@hearth-fire"
+        },
+        "resolvedAction": {
+          "type": "combine",
+          "a": "dough",
+          "b": "@hearth-fire"
+        },
+        "automaticTransitions": [],
+        "view": {
+          "scenario": {
+            "id": "hearth-to-twinkie-v3",
+            "title": "From Hearth to Snack Cake",
+            "premise": "Travel with a kitchen caravan from a roadside breakfast through harvest, rain, a crowded market and the station bakery. Make the food that each stop needs, ending at a Twinkie. This fictional collection brings historical techniques together; time, proportions and safe handling are compressed, not taught."
+          },
+          "stage": {
+            "number": 1,
+            "title": "The roadside hearth",
+            "speaker": "The traveller",
+            "motivation": "The kitchen caravan has stopped beside the road. The children want breakfast before the carts move: warm porridge, flatbread and something to drink."
+          },
+          "area": {
+            "id": "hearth-area",
+            "label": "The roadside hearth",
+            "enteredAtStage": 0
+          },
+          "areas": [
+            {
+              "id": "hearth-area",
+              "label": "The roadside hearth",
+              "current": true,
+              "thingCount": 8
+            }
+          ],
+          "objectives": [
+            {
+              "id": "hearth-flatbread",
+              "text": "Make flatbread.",
+              "satisfied": true
+            },
+            {
+              "id": "hearth-juice",
+              "text": "Make apple juice.",
+              "satisfied": false
+            },
+            {
+              "id": "hearth-fruit-porridge",
+              "text": "Make fruit porridge.",
+              "satisfied": false
+            }
+          ],
+          "newSupplies": [],
+          "things": [
+            {
+              "id": "grain",
+              "label": "Grain",
+              "x": 252,
+              "y": 56,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "millstone",
+              "label": "Millstone",
+              "x": 252,
+              "y": 106,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "water",
+              "label": "Water",
+              "x": 52,
+              "y": 156,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "fruit",
+              "label": "Apples",
+              "x": 152,
+              "y": 156,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "press",
+              "label": "Fruit press",
+              "x": 252,
+              "y": 156,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "flour",
+              "label": "Flour",
+              "x": 154,
+              "y": 60,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "dough",
+              "label": "Dough",
+              "x": 150,
+              "y": 202,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "flatbread",
+              "label": "Flatbread",
+              "x": 155,
+              "y": 81,
+              "location": null,
+              "gold": true,
+              "slots": [],
+              "components": [],
+              "readable": false
+            }
+          ],
+          "locations": [
+            {
+              "id": "@hearth-fire",
+              "area": "hearth-area",
+              "x": 52,
+              "y": 81,
+              "label": "Hearth fire",
+              "gold": false
+            }
+          ],
+          "completed": false,
+          "successfulCombinations": 3
+        }
+      }
+    },
+    {
+      "op": "drop",
+      "args": [
+        "fruit",
+        "press"
+      ],
+      "expect": "Source-aware fixture smoke using authored first-stage action; NOT player reasoning or trial evidence.",
+      "exit": 0,
+      "output": {
+        "evidenceClass": "simulated logical play; not human evidence",
+        "session": "smoke-preparation-03",
+        "commandNumber": 7,
+        "integrity": {
+          "verified": true,
+          "manifestSha256": "10bc74ff5b726e0e21b653b0283d036a6e60257cdc6bb76dc44e751436461023"
+        },
+        "expectedMeaning": "Source-aware fixture smoke using authored first-stage action; NOT player reasoning or trial evidence.",
+        "accepted": true,
+        "gesture": {
+          "source": "fruit",
+          "target": "press"
+        },
+        "resolvedAction": {
+          "type": "combine",
+          "a": "fruit",
+          "b": "press"
+        },
+        "automaticTransitions": [],
+        "view": {
+          "scenario": {
+            "id": "hearth-to-twinkie-v3",
+            "title": "From Hearth to Snack Cake",
+            "premise": "Travel with a kitchen caravan from a roadside breakfast through harvest, rain, a crowded market and the station bakery. Make the food that each stop needs, ending at a Twinkie. This fictional collection brings historical techniques together; time, proportions and safe handling are compressed, not taught."
+          },
+          "stage": {
+            "number": 1,
+            "title": "The roadside hearth",
+            "speaker": "The traveller",
+            "motivation": "The kitchen caravan has stopped beside the road. The children want breakfast before the carts move: warm porridge, flatbread and something to drink."
+          },
+          "area": {
+            "id": "hearth-area",
+            "label": "The roadside hearth",
+            "enteredAtStage": 0
+          },
+          "areas": [
+            {
+              "id": "hearth-area",
+              "label": "The roadside hearth",
+              "current": true,
+              "thingCount": 9
+            }
+          ],
+          "objectives": [
+            {
+              "id": "hearth-flatbread",
+              "text": "Make flatbread.",
+              "satisfied": true
+            },
+            {
+              "id": "hearth-juice",
+              "text": "Make apple juice.",
+              "satisfied": true
+            },
+            {
+              "id": "hearth-fruit-porridge",
+              "text": "Make fruit porridge.",
+              "satisfied": false
+            }
+          ],
+          "newSupplies": [],
+          "things": [
+            {
+              "id": "grain",
+              "label": "Grain",
+              "x": 252,
+              "y": 56,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "millstone",
+              "label": "Millstone",
+              "x": 252,
+              "y": 106,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "water",
+              "label": "Water",
+              "x": 52,
+              "y": 156,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "fruit",
+              "label": "Apples",
+              "x": 152,
+              "y": 156,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "press",
+              "label": "Fruit press",
+              "x": 252,
+              "y": 156,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "flour",
+              "label": "Flour",
+              "x": 154,
+              "y": 60,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "dough",
+              "label": "Dough",
+              "x": 150,
+              "y": 202,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "flatbread",
+              "label": "Flatbread",
+              "x": 155,
+              "y": 81,
+              "location": null,
+              "gold": true,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "juice",
+              "label": "Apple juice",
+              "x": 308,
+              "y": 202,
+              "location": null,
+              "gold": true,
+              "slots": [],
+              "components": [],
+              "readable": false
+            }
+          ],
+          "locations": [
+            {
+              "id": "@hearth-fire",
+              "area": "hearth-area",
+              "x": 52,
+              "y": 81,
+              "label": "Hearth fire",
+              "gold": false
+            }
+          ],
+          "completed": false,
+          "successfulCombinations": 4
+        }
+      }
+    },
+    {
+      "op": "drop",
+      "args": [
+        "grain",
+        "water"
+      ],
+      "expect": "Source-aware fixture smoke using authored first-stage action; NOT player reasoning or trial evidence.",
+      "exit": 0,
+      "output": {
+        "evidenceClass": "simulated logical play; not human evidence",
+        "session": "smoke-preparation-03",
+        "commandNumber": 8,
+        "integrity": {
+          "verified": true,
+          "manifestSha256": "10bc74ff5b726e0e21b653b0283d036a6e60257cdc6bb76dc44e751436461023"
+        },
+        "expectedMeaning": "Source-aware fixture smoke using authored first-stage action; NOT player reasoning or trial evidence.",
+        "accepted": true,
+        "gesture": {
+          "source": "grain",
+          "target": "water"
+        },
+        "resolvedAction": {
+          "type": "combine",
+          "a": "grain",
+          "b": "water"
+        },
+        "automaticTransitions": [],
+        "view": {
+          "scenario": {
+            "id": "hearth-to-twinkie-v3",
+            "title": "From Hearth to Snack Cake",
+            "premise": "Travel with a kitchen caravan from a roadside breakfast through harvest, rain, a crowded market and the station bakery. Make the food that each stop needs, ending at a Twinkie. This fictional collection brings historical techniques together; time, proportions and safe handling are compressed, not taught."
+          },
+          "stage": {
+            "number": 1,
+            "title": "The roadside hearth",
+            "speaker": "The traveller",
+            "motivation": "The kitchen caravan has stopped beside the road. The children want breakfast before the carts move: warm porridge, flatbread and something to drink."
+          },
+          "area": {
+            "id": "hearth-area",
+            "label": "The roadside hearth",
+            "enteredAtStage": 0
+          },
+          "areas": [
+            {
+              "id": "hearth-area",
+              "label": "The roadside hearth",
+              "current": true,
+              "thingCount": 10
+            }
+          ],
+          "objectives": [
+            {
+              "id": "hearth-flatbread",
+              "text": "Make flatbread.",
+              "satisfied": true
+            },
+            {
+              "id": "hearth-juice",
+              "text": "Make apple juice.",
+              "satisfied": true
+            },
+            {
+              "id": "hearth-fruit-porridge",
+              "text": "Make fruit porridge.",
+              "satisfied": false
+            }
+          ],
+          "newSupplies": [],
+          "things": [
+            {
+              "id": "grain",
+              "label": "Grain",
+              "x": 252,
+              "y": 56,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "millstone",
+              "label": "Millstone",
+              "x": 252,
+              "y": 106,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "water",
+              "label": "Water",
+              "x": 52,
+              "y": 156,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "fruit",
+              "label": "Apples",
+              "x": 152,
+              "y": 156,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "press",
+              "label": "Fruit press",
+              "x": 252,
+              "y": 156,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "flour",
+              "label": "Flour",
+              "x": 154,
+              "y": 60,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "dough",
+              "label": "Dough",
+              "x": 150,
+              "y": 202,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "flatbread",
+              "label": "Flatbread",
+              "x": 155,
+              "y": 81,
+              "location": null,
+              "gold": true,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "juice",
+              "label": "Apple juice",
+              "x": 308,
+              "y": 202,
+              "location": null,
+              "gold": true,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "soaked-grain",
+              "label": "Soaked grain",
+              "x": 52,
+              "y": 202,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            }
+          ],
+          "locations": [
+            {
+              "id": "@hearth-fire",
+              "area": "hearth-area",
+              "x": 52,
+              "y": 81,
+              "label": "Hearth fire",
+              "gold": false
+            }
+          ],
+          "completed": false,
+          "successfulCombinations": 5
+        }
+      }
+    },
+    {
+      "op": "drop",
+      "args": [
+        "soaked-grain",
+        "@hearth-fire"
+      ],
+      "expect": "Source-aware fixture smoke using authored first-stage action; NOT player reasoning or trial evidence.",
+      "exit": 0,
+      "output": {
+        "evidenceClass": "simulated logical play; not human evidence",
+        "session": "smoke-preparation-03",
+        "commandNumber": 9,
+        "integrity": {
+          "verified": true,
+          "manifestSha256": "10bc74ff5b726e0e21b653b0283d036a6e60257cdc6bb76dc44e751436461023"
+        },
+        "expectedMeaning": "Source-aware fixture smoke using authored first-stage action; NOT player reasoning or trial evidence.",
+        "accepted": true,
+        "gesture": {
+          "source": "soaked-grain",
+          "target": "@hearth-fire"
+        },
+        "resolvedAction": {
+          "type": "combine",
+          "a": "soaked-grain",
+          "b": "@hearth-fire"
+        },
+        "automaticTransitions": [],
+        "view": {
+          "scenario": {
+            "id": "hearth-to-twinkie-v3",
+            "title": "From Hearth to Snack Cake",
+            "premise": "Travel with a kitchen caravan from a roadside breakfast through harvest, rain, a crowded market and the station bakery. Make the food that each stop needs, ending at a Twinkie. This fictional collection brings historical techniques together; time, proportions and safe handling are compressed, not taught."
+          },
+          "stage": {
+            "number": 1,
+            "title": "The roadside hearth",
+            "speaker": "The traveller",
+            "motivation": "The kitchen caravan has stopped beside the road. The children want breakfast before the carts move: warm porridge, flatbread and something to drink."
+          },
+          "area": {
+            "id": "hearth-area",
+            "label": "The roadside hearth",
+            "enteredAtStage": 0
+          },
+          "areas": [
+            {
+              "id": "hearth-area",
+              "label": "The roadside hearth",
+              "current": true,
+              "thingCount": 10
+            }
+          ],
+          "objectives": [
+            {
+              "id": "hearth-flatbread",
+              "text": "Make flatbread.",
+              "satisfied": true
+            },
+            {
+              "id": "hearth-juice",
+              "text": "Make apple juice.",
+              "satisfied": true
+            },
+            {
+              "id": "hearth-fruit-porridge",
+              "text": "Make fruit porridge.",
+              "satisfied": false
+            }
+          ],
+          "newSupplies": [],
+          "things": [
+            {
+              "id": "grain",
+              "label": "Grain",
+              "x": 252,
+              "y": 56,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "millstone",
+              "label": "Millstone",
+              "x": 252,
+              "y": 106,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "water",
+              "label": "Water",
+              "x": 52,
+              "y": 156,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "fruit",
+              "label": "Apples",
+              "x": 152,
+              "y": 156,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "press",
+              "label": "Fruit press",
+              "x": 252,
+              "y": 156,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "flour",
+              "label": "Flour",
+              "x": 154,
+              "y": 60,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "dough",
+              "label": "Dough",
+              "x": 150,
+              "y": 202,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "flatbread",
+              "label": "Flatbread",
+              "x": 155,
+              "y": 81,
+              "location": null,
+              "gold": true,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "juice",
+              "label": "Apple juice",
+              "x": 308,
+              "y": 202,
+              "location": null,
+              "gold": true,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "porridge",
+              "label": "Porridge",
+              "x": 52,
+              "y": 97,
+              "location": "hearth-fire",
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            }
+          ],
+          "locations": [
+            {
+              "id": "@hearth-fire",
+              "area": "hearth-area",
+              "x": 52,
+              "y": 81,
+              "label": "Hearth fire",
+              "gold": false
+            }
+          ],
+          "completed": false,
+          "successfulCombinations": 6
+        }
+      }
+    },
+    {
+      "op": "drop",
+      "args": [
+        "porridge",
+        "fruit"
+      ],
+      "expect": "Source-aware fixture smoke using authored first-stage action; NOT player reasoning or trial evidence.",
+      "exit": 0,
+      "output": {
+        "evidenceClass": "simulated logical play; not human evidence",
+        "session": "smoke-preparation-03",
+        "commandNumber": 10,
+        "integrity": {
+          "verified": true,
+          "manifestSha256": "10bc74ff5b726e0e21b653b0283d036a6e60257cdc6bb76dc44e751436461023"
+        },
+        "expectedMeaning": "Source-aware fixture smoke using authored first-stage action; NOT player reasoning or trial evidence.",
+        "accepted": true,
+        "gesture": {
+          "source": "porridge",
+          "target": "fruit"
+        },
+        "resolvedAction": {
+          "type": "combine",
+          "a": "porridge",
+          "b": "fruit"
+        },
+        "automaticTransitions": [
+          {
+            "completedStage": 1,
+            "visibleFinalCreation": {
+              "scenario": {
+                "id": "hearth-to-twinkie-v3",
+                "title": "From Hearth to Snack Cake",
+                "premise": "Travel with a kitchen caravan from a roadside breakfast through harvest, rain, a crowded market and the station bakery. Make the food that each stop needs, ending at a Twinkie. This fictional collection brings historical techniques together; time, proportions and safe handling are compressed, not taught."
+              },
+              "stage": {
+                "number": 1,
+                "title": "The roadside hearth",
+                "speaker": "The traveller",
+                "motivation": "The kitchen caravan has stopped beside the road. The children want breakfast before the carts move: warm porridge, flatbread and something to drink."
+              },
+              "area": {
+                "id": "hearth-area",
+                "label": "The roadside hearth",
+                "enteredAtStage": 0
+              },
+              "areas": [
+                {
+                  "id": "hearth-area",
+                  "label": "The roadside hearth",
+                  "current": true,
+                  "thingCount": 10
+                }
+              ],
+              "objectives": [
+                {
+                  "id": "hearth-flatbread",
+                  "text": "Make flatbread.",
+                  "satisfied": true
+                },
+                {
+                  "id": "hearth-juice",
+                  "text": "Make apple juice.",
+                  "satisfied": true
+                },
+                {
+                  "id": "hearth-fruit-porridge",
+                  "text": "Make fruit porridge.",
+                  "satisfied": true
+                }
+              ],
+              "newSupplies": [],
+              "things": [
+                {
+                  "id": "grain",
+                  "label": "Grain",
+                  "x": 252,
+                  "y": 56,
+                  "location": null,
+                  "gold": false,
+                  "slots": [],
+                  "components": [],
+                  "readable": false
+                },
+                {
+                  "id": "millstone",
+                  "label": "Millstone",
+                  "x": 252,
+                  "y": 106,
+                  "location": null,
+                  "gold": false,
+                  "slots": [],
+                  "components": [],
+                  "readable": false
+                },
+                {
+                  "id": "water",
+                  "label": "Water",
+                  "x": 52,
+                  "y": 156,
+                  "location": null,
+                  "gold": false,
+                  "slots": [],
+                  "components": [],
+                  "readable": false
+                },
+                {
+                  "id": "fruit",
+                  "label": "Apples",
+                  "x": 152,
+                  "y": 156,
+                  "location": null,
+                  "gold": false,
+                  "slots": [],
+                  "components": [],
+                  "readable": false
+                },
+                {
+                  "id": "press",
+                  "label": "Fruit press",
+                  "x": 252,
+                  "y": 156,
+                  "location": null,
+                  "gold": false,
+                  "slots": [],
+                  "components": [],
+                  "readable": false
+                },
+                {
+                  "id": "flour",
+                  "label": "Flour",
+                  "x": 154,
+                  "y": 60,
+                  "location": null,
+                  "gold": false,
+                  "slots": [],
+                  "components": [],
+                  "readable": false
+                },
+                {
+                  "id": "dough",
+                  "label": "Dough",
+                  "x": 150,
+                  "y": 202,
+                  "location": null,
+                  "gold": false,
+                  "slots": [],
+                  "components": [],
+                  "readable": false
+                },
+                {
+                  "id": "flatbread",
+                  "label": "Flatbread",
+                  "x": 155,
+                  "y": 81,
+                  "location": null,
+                  "gold": true,
+                  "slots": [],
+                  "components": [],
+                  "readable": false
+                },
+                {
+                  "id": "juice",
+                  "label": "Apple juice",
+                  "x": 308,
+                  "y": 202,
+                  "location": null,
+                  "gold": true,
+                  "slots": [],
+                  "components": [],
+                  "readable": false
+                },
+                {
+                  "id": "fruit-porridge",
+                  "label": "Fruit porridge",
+                  "x": 52,
+                  "y": 97,
+                  "location": "hearth-fire",
+                  "gold": true,
+                  "slots": [],
+                  "components": [],
+                  "readable": false
+                }
+              ],
+              "locations": [
+                {
+                  "id": "@hearth-fire",
+                  "area": "hearth-area",
+                  "x": 52,
+                  "y": 81,
+                  "label": "Hearth fire",
+                  "gold": false
+                }
+              ],
+              "completed": false,
+              "successfulCombinations": 7
+            },
+            "next": {
+              "scenario": {
+                "id": "hearth-to-twinkie-v3",
+                "title": "From Hearth to Snack Cake",
+                "premise": "Travel with a kitchen caravan from a roadside breakfast through harvest, rain, a crowded market and the station bakery. Make the food that each stop needs, ending at a Twinkie. This fictional collection brings historical techniques together; time, proportions and safe handling are compressed, not taught."
+              },
+              "stage": {
+                "number": 2,
+                "title": "The dairy and bakehouse",
+                "speaker": "The baker",
+                "motivation": "The dairy keeper offers us a night’s shelter. Help with breakfast: a risen loaf for the adults, fruit yogurt for the children, and a soft spread for the last flatbread."
+              },
+              "area": {
+                "id": "dairy-area",
+                "label": "The dairy and bakehouse",
+                "enteredAtStage": 1
+              },
+              "areas": [
+                {
+                  "id": "hearth-area",
+                  "label": "The roadside hearth",
+                  "current": false,
+                  "thingCount": 7
+                },
+                {
+                  "id": "dairy-area",
+                  "label": "The dairy and bakehouse",
+                  "current": true,
+                  "thingCount": 10
+                }
+              ],
+              "objectives": [
+                {
+                  "id": "dairy-bread-and-butter",
+                  "text": "Make bread and butter.",
+                  "satisfied": false
+                },
+                {
+                  "id": "dairy-fruit-yogurt",
+                  "text": "Make fruit yogurt.",
+                  "satisfied": false
+                },
+                {
+                  "id": "dairy-labneh-flatbread",
+                  "text": "Make flatbread with herbed yogurt.",
+                  "satisfied": false
+                }
+              ],
+              "newSupplies": [
+                {
+                  "label": "The dairy and bakehouse stores",
+                  "narrative": "The dairy supplies milk, cream, a churn, a straining cloth, herbs, and separate bread and yogurt cultures."
+                }
+              ],
+              "things": [
+                {
+                  "id": "fruit",
+                  "label": "Apples",
+                  "x": 152,
+                  "y": 131,
+                  "location": null,
+                  "gold": false,
+                  "slots": [],
+                  "components": [],
+                  "readable": false
+                },
+                {
+                  "id": "dough",
+                  "label": "Dough",
+                  "x": 150,
+                  "y": 177,
+                  "location": null,
+                  "gold": false,
+                  "slots": [],
+                  "components": [],
+                  "readable": false
+                },
+                {
+                  "id": "flatbread",
+                  "label": "Flatbread",
+                  "x": 155,
+                  "y": 56,
+                  "location": null,
+                  "gold": false,
+                  "slots": [],
+                  "components": [],
+                  "readable": false
+                },
+                {
+                  "id": "yeast-culture",
+                  "label": "Baker’s yeast",
+                  "x": 52,
+                  "y": 156,
+                  "location": null,
+                  "gold": false,
+                  "slots": [],
+                  "components": [],
+                  "readable": false
+                },
+                {
+                  "id": "milk",
+                  "label": "Milk",
+                  "x": 252,
+                  "y": 156,
+                  "location": null,
+                  "gold": false,
+                  "slots": [],
+                  "components": [],
+                  "readable": false
+                },
+                {
+                  "id": "yogurt-culture",
+                  "label": "Yogurt starter",
+                  "x": 52,
+                  "y": 206,
+                  "location": null,
+                  "gold": false,
+                  "slots": [],
+                  "components": [],
+                  "readable": false
+                },
+                {
+                  "id": "cream",
+                  "label": "Cream",
+                  "x": 252,
+                  "y": 206,
+                  "location": null,
+                  "gold": false,
+                  "slots": [],
+                  "components": [],
+                  "readable": false
+                },
+                {
+                  "id": "churn",
+                  "label": "Churn",
+                  "x": 52,
+                  "y": 256,
+                  "location": null,
+                  "gold": false,
+                  "slots": [],
+                  "components": [],
+                  "readable": false
+                },
+                {
+                  "id": "cloth",
+                  "label": "Straining cloth",
+                  "x": 152,
+                  "y": 256,
+                  "location": null,
+                  "gold": false,
+                  "slots": [],
+                  "components": [],
+                  "readable": false
+                },
+                {
+                  "id": "herbs",
+                  "label": "Herbs",
+                  "x": 252,
+                  "y": 256,
+                  "location": null,
+                  "gold": false,
+                  "slots": [],
+                  "components": [],
+                  "readable": false
+                }
+              ],
+              "locations": [
+                {
+                  "id": "@culture-room",
+                  "area": "dairy-area",
+                  "x": 52,
+                  "y": 81,
+                  "label": "Culture room",
+                  "gold": false
+                },
+                {
+                  "id": "@bakehouse-oven",
+                  "area": "dairy-area",
+                  "x": 252,
+                  "y": 81,
+                  "label": "Bakehouse oven",
+                  "gold": false
+                }
+              ],
+              "completed": false,
+              "successfulCombinations": 7
+            }
+          }
+        ],
+        "view": {
+          "scenario": {
+            "id": "hearth-to-twinkie-v3",
+            "title": "From Hearth to Snack Cake",
+            "premise": "Travel with a kitchen caravan from a roadside breakfast through harvest, rain, a crowded market and the station bakery. Make the food that each stop needs, ending at a Twinkie. This fictional collection brings historical techniques together; time, proportions and safe handling are compressed, not taught."
+          },
+          "stage": {
+            "number": 2,
+            "title": "The dairy and bakehouse",
+            "speaker": "The baker",
+            "motivation": "The dairy keeper offers us a night’s shelter. Help with breakfast: a risen loaf for the adults, fruit yogurt for the children, and a soft spread for the last flatbread."
+          },
+          "area": {
+            "id": "dairy-area",
+            "label": "The dairy and bakehouse",
+            "enteredAtStage": 1
+          },
+          "areas": [
+            {
+              "id": "hearth-area",
+              "label": "The roadside hearth",
+              "current": false,
+              "thingCount": 7
+            },
+            {
+              "id": "dairy-area",
+              "label": "The dairy and bakehouse",
+              "current": true,
+              "thingCount": 10
+            }
+          ],
+          "objectives": [
+            {
+              "id": "dairy-bread-and-butter",
+              "text": "Make bread and butter.",
+              "satisfied": false
+            },
+            {
+              "id": "dairy-fruit-yogurt",
+              "text": "Make fruit yogurt.",
+              "satisfied": false
+            },
+            {
+              "id": "dairy-labneh-flatbread",
+              "text": "Make flatbread with herbed yogurt.",
+              "satisfied": false
+            }
+          ],
+          "newSupplies": [
+            {
+              "label": "The dairy and bakehouse stores",
+              "narrative": "The dairy supplies milk, cream, a churn, a straining cloth, herbs, and separate bread and yogurt cultures."
+            }
+          ],
+          "things": [
+            {
+              "id": "fruit",
+              "label": "Apples",
+              "x": 152,
+              "y": 131,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "dough",
+              "label": "Dough",
+              "x": 150,
+              "y": 177,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "flatbread",
+              "label": "Flatbread",
+              "x": 155,
+              "y": 56,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "yeast-culture",
+              "label": "Baker’s yeast",
+              "x": 52,
+              "y": 156,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "milk",
+              "label": "Milk",
+              "x": 252,
+              "y": 156,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "yogurt-culture",
+              "label": "Yogurt starter",
+              "x": 52,
+              "y": 206,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "cream",
+              "label": "Cream",
+              "x": 252,
+              "y": 206,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "churn",
+              "label": "Churn",
+              "x": 52,
+              "y": 256,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "cloth",
+              "label": "Straining cloth",
+              "x": 152,
+              "y": 256,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "herbs",
+              "label": "Herbs",
+              "x": 252,
+              "y": 256,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            }
+          ],
+          "locations": [
+            {
+              "id": "@culture-room",
+              "area": "dairy-area",
+              "x": 52,
+              "y": 81,
+              "label": "Culture room",
+              "gold": false
+            },
+            {
+              "id": "@bakehouse-oven",
+              "area": "dairy-area",
+              "x": 252,
+              "y": 81,
+              "label": "Bakehouse oven",
+              "gold": false
+            }
+          ],
+          "completed": false,
+          "successfulCombinations": 7
+        }
+      }
+    },
+    {
+      "op": "undo",
+      "args": [],
+      "expect": "Source-aware smoke: undo the automatic handoff to its completed previous stage.",
+      "exit": 0,
+      "output": {
+        "evidenceClass": "simulated logical play; not human evidence",
+        "session": "smoke-preparation-03",
+        "commandNumber": 11,
+        "integrity": {
+          "verified": true,
+          "manifestSha256": "10bc74ff5b726e0e21b653b0283d036a6e60257cdc6bb76dc44e751436461023"
+        },
+        "expectedMeaning": "Source-aware smoke: undo the automatic handoff to its completed previous stage.",
+        "accepted": true,
+        "automaticTransitions": [],
+        "view": {
+          "scenario": {
+            "id": "hearth-to-twinkie-v3",
+            "title": "From Hearth to Snack Cake",
+            "premise": "Travel with a kitchen caravan from a roadside breakfast through harvest, rain, a crowded market and the station bakery. Make the food that each stop needs, ending at a Twinkie. This fictional collection brings historical techniques together; time, proportions and safe handling are compressed, not taught."
+          },
+          "stage": {
+            "number": 1,
+            "title": "The roadside hearth",
+            "speaker": "The traveller",
+            "motivation": "The kitchen caravan has stopped beside the road. The children want breakfast before the carts move: warm porridge, flatbread and something to drink."
+          },
+          "area": {
+            "id": "hearth-area",
+            "label": "The roadside hearth",
+            "enteredAtStage": 0
+          },
+          "areas": [
+            {
+              "id": "hearth-area",
+              "label": "The roadside hearth",
+              "current": true,
+              "thingCount": 10
+            }
+          ],
+          "objectives": [
+            {
+              "id": "hearth-flatbread",
+              "text": "Make flatbread.",
+              "satisfied": true
+            },
+            {
+              "id": "hearth-juice",
+              "text": "Make apple juice.",
+              "satisfied": true
+            },
+            {
+              "id": "hearth-fruit-porridge",
+              "text": "Make fruit porridge.",
+              "satisfied": true
+            }
+          ],
+          "newSupplies": [],
+          "things": [
+            {
+              "id": "grain",
+              "label": "Grain",
+              "x": 252,
+              "y": 56,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "millstone",
+              "label": "Millstone",
+              "x": 252,
+              "y": 106,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "water",
+              "label": "Water",
+              "x": 52,
+              "y": 156,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "fruit",
+              "label": "Apples",
+              "x": 152,
+              "y": 156,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "press",
+              "label": "Fruit press",
+              "x": 252,
+              "y": 156,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "flour",
+              "label": "Flour",
+              "x": 154,
+              "y": 60,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "dough",
+              "label": "Dough",
+              "x": 150,
+              "y": 202,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "flatbread",
+              "label": "Flatbread",
+              "x": 155,
+              "y": 81,
+              "location": null,
+              "gold": true,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "juice",
+              "label": "Apple juice",
+              "x": 308,
+              "y": 202,
+              "location": null,
+              "gold": true,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "fruit-porridge",
+              "label": "Fruit porridge",
+              "x": 52,
+              "y": 97,
+              "location": "hearth-fire",
+              "gold": true,
+              "slots": [],
+              "components": [],
+              "readable": false
+            }
+          ],
+          "locations": [
+            {
+              "id": "@hearth-fire",
+              "area": "hearth-area",
+              "x": 52,
+              "y": 81,
+              "label": "Hearth fire",
+              "gold": false
+            }
+          ],
+          "completed": false,
+          "successfulCombinations": 7
+        }
+      }
+    },
+    {
+      "op": "mission",
+      "args": [],
+      "exit": 0,
+      "output": {
+        "evidenceClass": "simulated logical play; not human evidence",
+        "session": "smoke-preparation-03",
+        "commandNumber": 12,
+        "integrity": {
+          "verified": true,
+          "manifestSha256": "10bc74ff5b726e0e21b653b0283d036a6e60257cdc6bb76dc44e751436461023"
+        },
+        "automaticTransitions": [],
+        "view": {
+          "scenario": {
+            "id": "hearth-to-twinkie-v3",
+            "title": "From Hearth to Snack Cake",
+            "premise": "Travel with a kitchen caravan from a roadside breakfast through harvest, rain, a crowded market and the station bakery. Make the food that each stop needs, ending at a Twinkie. This fictional collection brings historical techniques together; time, proportions and safe handling are compressed, not taught."
+          },
+          "stage": {
+            "number": 2,
+            "title": "The dairy and bakehouse",
+            "speaker": "The baker",
+            "motivation": "The dairy keeper offers us a night’s shelter. Help with breakfast: a risen loaf for the adults, fruit yogurt for the children, and a soft spread for the last flatbread."
+          },
+          "area": {
+            "id": "dairy-area",
+            "label": "The dairy and bakehouse",
+            "enteredAtStage": 1
+          },
+          "areas": [
+            {
+              "id": "hearth-area",
+              "label": "The roadside hearth",
+              "current": false,
+              "thingCount": 7
+            },
+            {
+              "id": "dairy-area",
+              "label": "The dairy and bakehouse",
+              "current": true,
+              "thingCount": 10
+            }
+          ],
+          "objectives": [
+            {
+              "id": "dairy-bread-and-butter",
+              "text": "Make bread and butter.",
+              "satisfied": false
+            },
+            {
+              "id": "dairy-fruit-yogurt",
+              "text": "Make fruit yogurt.",
+              "satisfied": false
+            },
+            {
+              "id": "dairy-labneh-flatbread",
+              "text": "Make flatbread with herbed yogurt.",
+              "satisfied": false
+            }
+          ],
+          "newSupplies": [
+            {
+              "label": "The dairy and bakehouse stores",
+              "narrative": "The dairy supplies milk, cream, a churn, a straining cloth, herbs, and separate bread and yogurt cultures."
+            }
+          ],
+          "things": [
+            {
+              "id": "fruit",
+              "label": "Apples",
+              "x": 152,
+              "y": 131,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "dough",
+              "label": "Dough",
+              "x": 150,
+              "y": 177,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "flatbread",
+              "label": "Flatbread",
+              "x": 155,
+              "y": 56,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "yeast-culture",
+              "label": "Baker’s yeast",
+              "x": 52,
+              "y": 156,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "milk",
+              "label": "Milk",
+              "x": 252,
+              "y": 156,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "yogurt-culture",
+              "label": "Yogurt starter",
+              "x": 52,
+              "y": 206,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "cream",
+              "label": "Cream",
+              "x": 252,
+              "y": 206,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "churn",
+              "label": "Churn",
+              "x": 52,
+              "y": 256,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "cloth",
+              "label": "Straining cloth",
+              "x": 152,
+              "y": 256,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "herbs",
+              "label": "Herbs",
+              "x": 252,
+              "y": 256,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            }
+          ],
+          "locations": [
+            {
+              "id": "@culture-room",
+              "area": "dairy-area",
+              "x": 52,
+              "y": 81,
+              "label": "Culture room",
+              "gold": false
+            },
+            {
+              "id": "@bakehouse-oven",
+              "area": "dairy-area",
+              "x": 252,
+              "y": 81,
+              "label": "Bakehouse oven",
+              "gold": false
+            }
+          ],
+          "completed": false,
+          "successfulCombinations": 7
+        }
+      }
+    },
+    {
+      "op": "note",
+      "args": [
+        "Source-aware preparation smoke only; exclude the entire session from source-blind metrics."
+      ],
+      "exit": 0,
+      "output": {
+        "evidenceClass": "simulated logical play; not human evidence",
+        "session": "smoke-preparation-03",
+        "commandNumber": 13,
+        "integrity": {
+          "verified": true,
+          "manifestSha256": "10bc74ff5b726e0e21b653b0283d036a6e60257cdc6bb76dc44e751436461023"
+        },
+        "note": "Source-aware preparation smoke only; exclude the entire session from source-blind metrics.",
+        "automaticTransitions": [],
+        "view": {
+          "scenario": {
+            "id": "hearth-to-twinkie-v3",
+            "title": "From Hearth to Snack Cake",
+            "premise": "Travel with a kitchen caravan from a roadside breakfast through harvest, rain, a crowded market and the station bakery. Make the food that each stop needs, ending at a Twinkie. This fictional collection brings historical techniques together; time, proportions and safe handling are compressed, not taught."
+          },
+          "stage": {
+            "number": 2,
+            "title": "The dairy and bakehouse",
+            "speaker": "The baker",
+            "motivation": "The dairy keeper offers us a night’s shelter. Help with breakfast: a risen loaf for the adults, fruit yogurt for the children, and a soft spread for the last flatbread."
+          },
+          "area": {
+            "id": "dairy-area",
+            "label": "The dairy and bakehouse",
+            "enteredAtStage": 1
+          },
+          "areas": [
+            {
+              "id": "hearth-area",
+              "label": "The roadside hearth",
+              "current": false,
+              "thingCount": 7
+            },
+            {
+              "id": "dairy-area",
+              "label": "The dairy and bakehouse",
+              "current": true,
+              "thingCount": 10
+            }
+          ],
+          "objectives": [
+            {
+              "id": "dairy-bread-and-butter",
+              "text": "Make bread and butter.",
+              "satisfied": false
+            },
+            {
+              "id": "dairy-fruit-yogurt",
+              "text": "Make fruit yogurt.",
+              "satisfied": false
+            },
+            {
+              "id": "dairy-labneh-flatbread",
+              "text": "Make flatbread with herbed yogurt.",
+              "satisfied": false
+            }
+          ],
+          "newSupplies": [
+            {
+              "label": "The dairy and bakehouse stores",
+              "narrative": "The dairy supplies milk, cream, a churn, a straining cloth, herbs, and separate bread and yogurt cultures."
+            }
+          ],
+          "things": [
+            {
+              "id": "fruit",
+              "label": "Apples",
+              "x": 152,
+              "y": 131,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "dough",
+              "label": "Dough",
+              "x": 150,
+              "y": 177,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "flatbread",
+              "label": "Flatbread",
+              "x": 155,
+              "y": 56,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "yeast-culture",
+              "label": "Baker’s yeast",
+              "x": 52,
+              "y": 156,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "milk",
+              "label": "Milk",
+              "x": 252,
+              "y": 156,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "yogurt-culture",
+              "label": "Yogurt starter",
+              "x": 52,
+              "y": 206,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "cream",
+              "label": "Cream",
+              "x": 252,
+              "y": 206,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "churn",
+              "label": "Churn",
+              "x": 52,
+              "y": 256,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "cloth",
+              "label": "Straining cloth",
+              "x": 152,
+              "y": 256,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "herbs",
+              "label": "Herbs",
+              "x": 252,
+              "y": 256,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            }
+          ],
+          "locations": [
+            {
+              "id": "@culture-room",
+              "area": "dairy-area",
+              "x": 52,
+              "y": 81,
+              "label": "Culture room",
+              "gold": false
+            },
+            {
+              "id": "@bakehouse-oven",
+              "area": "dairy-area",
+              "x": 252,
+              "y": 81,
+              "label": "Bakehouse oven",
+              "gold": false
+            }
+          ],
+          "completed": false,
+          "successfulCombinations": 7
+        }
+      }
+    },
+    {
+      "op": "stop",
+      "args": [
+        "Preparation smoke completed; not a simulated player decision."
+      ],
+      "exit": 0,
+      "output": {
+        "evidenceClass": "simulated logical play; not human evidence",
+        "session": "smoke-preparation-03",
+        "commandNumber": 14,
+        "integrity": {
+          "verified": true,
+          "manifestSha256": "10bc74ff5b726e0e21b653b0283d036a6e60257cdc6bb76dc44e751436461023"
+        },
+        "stopped": true,
+        "reason": "Preparation smoke completed; not a simulated player decision.",
+        "automaticTransitions": [],
+        "view": {
+          "scenario": {
+            "id": "hearth-to-twinkie-v3",
+            "title": "From Hearth to Snack Cake",
+            "premise": "Travel with a kitchen caravan from a roadside breakfast through harvest, rain, a crowded market and the station bakery. Make the food that each stop needs, ending at a Twinkie. This fictional collection brings historical techniques together; time, proportions and safe handling are compressed, not taught."
+          },
+          "stage": {
+            "number": 2,
+            "title": "The dairy and bakehouse",
+            "speaker": "The baker",
+            "motivation": "The dairy keeper offers us a night’s shelter. Help with breakfast: a risen loaf for the adults, fruit yogurt for the children, and a soft spread for the last flatbread."
+          },
+          "area": {
+            "id": "dairy-area",
+            "label": "The dairy and bakehouse",
+            "enteredAtStage": 1
+          },
+          "areas": [
+            {
+              "id": "hearth-area",
+              "label": "The roadside hearth",
+              "current": false,
+              "thingCount": 7
+            },
+            {
+              "id": "dairy-area",
+              "label": "The dairy and bakehouse",
+              "current": true,
+              "thingCount": 10
+            }
+          ],
+          "objectives": [
+            {
+              "id": "dairy-bread-and-butter",
+              "text": "Make bread and butter.",
+              "satisfied": false
+            },
+            {
+              "id": "dairy-fruit-yogurt",
+              "text": "Make fruit yogurt.",
+              "satisfied": false
+            },
+            {
+              "id": "dairy-labneh-flatbread",
+              "text": "Make flatbread with herbed yogurt.",
+              "satisfied": false
+            }
+          ],
+          "newSupplies": [
+            {
+              "label": "The dairy and bakehouse stores",
+              "narrative": "The dairy supplies milk, cream, a churn, a straining cloth, herbs, and separate bread and yogurt cultures."
+            }
+          ],
+          "things": [
+            {
+              "id": "fruit",
+              "label": "Apples",
+              "x": 152,
+              "y": 131,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "dough",
+              "label": "Dough",
+              "x": 150,
+              "y": 177,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "flatbread",
+              "label": "Flatbread",
+              "x": 155,
+              "y": 56,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "yeast-culture",
+              "label": "Baker’s yeast",
+              "x": 52,
+              "y": 156,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "milk",
+              "label": "Milk",
+              "x": 252,
+              "y": 156,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "yogurt-culture",
+              "label": "Yogurt starter",
+              "x": 52,
+              "y": 206,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "cream",
+              "label": "Cream",
+              "x": 252,
+              "y": 206,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "churn",
+              "label": "Churn",
+              "x": 52,
+              "y": 256,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "cloth",
+              "label": "Straining cloth",
+              "x": 152,
+              "y": 256,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "herbs",
+              "label": "Herbs",
+              "x": 252,
+              "y": 256,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            }
+          ],
+          "locations": [
+            {
+              "id": "@culture-room",
+              "area": "dairy-area",
+              "x": 52,
+              "y": 81,
+              "label": "Culture room",
+              "gold": false
+            },
+            {
+              "id": "@bakehouse-oven",
+              "area": "dairy-area",
+              "x": 252,
+              "y": 81,
+              "label": "Bakehouse oven",
+              "gold": false
+            }
+          ],
+          "completed": false,
+          "successfulCombinations": 7
+        }
+      }
+    },
+    {
+      "op": "drop",
+      "args": [
+        "grain",
+        "grain"
+      ],
+      "expect": "Source-aware smoke: stopped sessions must reject gameplay.",
+      "exit": 2,
+      "output": {
+        "accepted": false,
+        "protocolError": "Session was voluntarily stopped; preserve its result. Only view, mission and note remain available.",
+        "preservedRejection": true
+      }
+    }
+  ]
+}

@@ -1,0 +1,83 @@
+--- approved-food-copy-correction/scenario.json
++++ food-v4-flexible-salads/scenario.json
+@@ -1,6 +1,6 @@
+ {
+   "schemaVersion": 1,
+-  "id": "hearth-to-twinkie-v3",
++  "id": "hearth-to-twinkie-v4-flexible-salads",
+   "title": "From Hearth to Snack Cake",
+   "premise": "Travel with a kitchen caravan from a roadside breakfast through harvest, rain, a crowded market and the station bakery. Make the food that each stop needs, ending at a Twinkie. This fictional collection brings historical techniques together; time, proportions and safe handling are compressed, not taught.",
+   "items": [
+@@ -4917,6 +4917,48 @@
+         }
+       },
+       "caveat": "Authored culinary reconstruction: ingredients, proportions and handling are compressed. Technique references support a named process, not a complete formula or an invention date."
++    },
++    {
++      "id": "root-salad-vinaigrette",
++      "a": "roast-roots",
++      "b": "vinaigrette",
++      "out": "root-salad",
++      "description": "A portion of the roasted roots is tossed with the oil-and-vinegar dressing for the salad table.",
++      "lifecycle": {
++        "roast-roots": {
++          "role": "retain",
++          "reason": "Dress a portion of the roasted roots; the remaining prepared batch stays available for the noodle kitchen."
++        },
++        "vinaigrette": {
++          "role": "retain",
++          "reason": "Use a portion of vinaigrette to dress the roots; the remaining prepared batch stays available."
++        }
++      },
++      "sources": [
++        "root-salad-pairing"
++      ],
++      "caveat": "Authored culinary simplification: the source supports dressing roasted roots with vinaigrette, not this exact two-input dish. Proportions, tossing and serving temperature are compressed; no invention-date claim."
++    },
++    {
++      "id": "mustard-dressing-direct",
++      "a": "ground-mustard",
++      "b": "vinaigrette",
++      "out": "mustard-dressing",
++      "description": "A little dry ground mustard is thoroughly whisked into a portion of the vinaigrette for a sharper dressing.",
++      "lifecycle": {
++        "ground-mustard": {
++          "role": "retain",
++          "reason": "Use a measured portion of the dry ground mustard seed; the remaining supply stays available."
++        },
++        "vinaigrette": {
++          "role": "retain",
++          "reason": "Use a portion of vinaigrette for the mustard dressing; the remaining prepared batch stays available."
++        }
++      },
++      "sources": [
++        "mustard-powder-vinaigrette"
++      ],
++      "caveat": "Authored culinary simplification: mustard powder is used in vinaigrettes, but quantity, hydration, mixing order and resting are compressed. This is not an exact formula, a prepared-mustard substitute ratio or a claim of identical flavor."
+     }
+   ],
+   "stages": [
+@@ -17657,10 +17699,22 @@
+       "title": "Animas Museum: 1930s Foods",
+       "url": "https://www.animasmuseum.org/online_exhibits/PetersonHouse/foods.html",
+       "note": "Museum account of 1930 banana-filled origin and later vanilla; game does not reconstruct either recipe."
++    },
++    {
++      "id": "root-salad-pairing",
++      "title": "Giada De Laurentiis: Roasted Root Vegetable Salad",
++      "url": "https://www.foodnetwork.com/recipes/giada-de-laurentiis/roasted-root-vegetable-salad-recipe-2095657",
++      "note": "Pairing support only, not an exact reproduction."
++    },
++    {
++      "id": "mustard-powder-vinaigrette",
++      "title": "Colman’s Mustard: Foodservice",
++      "url": "https://colmansusa.com/foodservice",
++      "note": "Producer guidance lists mustard powder for vinaigrettes. It does not specify this game’s exact quantity or mixing order."
+     }
+   ],
+   "notes": [
+-    "Tiny v3 portability revision; v2, v1, original food mini and saucepan pilot remain unchanged and their evidence is not relabelled.",
++    "Isolated v4 flexible-salads experiment: two authentic alternate joins to existing outputs, not two new discoveries; approved copy-fixed v3, its trial, and all earlier candidates remain unchanged.",
+     "One continuous collection narrative, not a universal chronology of invention or a progress ladder. Historical connections are technique reuse and adaptation unless explicitly sourced as influence.",
+     "No carried-object prose: current-scene carry lists are executable. Every non-opening chapter has required earlier-created inputs.",
+     "Logical routes are source-aware author witnesses, not independent player enjoyment or browser/touch validation.",

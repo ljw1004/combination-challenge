@@ -1,0 +1,1364 @@
+{
+  "recipes": [
+    {
+      "world": "doctrine-argument-desks-v7-local-arguments",
+      "recipe": "missing-health",
+      "inputs": "wound-notes + cure-notes",
+      "incorporated": "wound-notes",
+      "decisions": {
+        "wound-notes": {
+          "role": "transform",
+          "reason": "This working question is revised into a more precise argument at the same position."
+        },
+        "cure-notes": {
+          "role": "retain",
+          "reason": "This source or established case remains available; a new interpretation does not erase its evidence."
+        }
+      }
+    },
+    {
+      "world": "doctrine-argument-desks-v7-local-arguments",
+      "recipe": "missing-health-from-text",
+      "inputs": "enchiridion-leaf + wound-notes",
+      "incorporated": "wound-notes",
+      "decisions": {
+        "enchiridion-leaf": {
+          "role": "retain",
+          "reason": "This source or established case remains available; a new interpretation does not erase its evidence."
+        },
+        "wound-notes": {
+          "role": "transform",
+          "reason": "This working question is revised into a more precise argument at the same position."
+        }
+      }
+    },
+    {
+      "world": "doctrine-argument-desks-v7-local-arguments",
+      "recipe": "missing-health-from-jar",
+      "inputs": "broken-vessel + enchiridion-leaf",
+      "incorporated": "broken-vessel",
+      "decisions": {
+        "broken-vessel": {
+          "role": "transform",
+          "reason": "This working question is revised into a more precise argument at the same position."
+        },
+        "enchiridion-leaf": {
+          "role": "retain",
+          "reason": "This source or established case remains available; a new interpretation does not erase its evidence."
+        }
+      }
+    },
+    {
+      "world": "doctrine-argument-desks-v7-local-arguments",
+      "recipe": "no-evil-substance",
+      "inputs": "missing-health + evil-substance-objection",
+      "incorporated": "evil-substance-objection",
+      "decisions": {
+        "missing-health": {
+          "role": "retain",
+          "reason": "This source or established case remains available; a new interpretation does not erase its evidence."
+        },
+        "evil-substance-objection": {
+          "role": "transform",
+          "reason": "This working question is revised into a more precise argument at the same position."
+        }
+      }
+    },
+    {
+      "world": "doctrine-argument-desks-v7-local-arguments",
+      "recipe": "chosen-attachment",
+      "inputs": "human-choice + lesser-good",
+      "incorporated": "human-choice",
+      "decisions": {
+        "human-choice": {
+          "role": "transform",
+          "reason": "This working question is revised into a more precise argument at the same position."
+        },
+        "lesser-good": {
+          "role": "retain",
+          "reason": "This source or established case remains available; a new interpretation does not erase its evidence."
+        }
+      }
+    },
+    {
+      "world": "doctrine-argument-desks-v7-local-arguments",
+      "recipe": "misdirected-will",
+      "inputs": "chosen-attachment + missing-health",
+      "incorporated": "—",
+      "decisions": {
+        "chosen-attachment": {
+          "role": "retain",
+          "reason": "This source or established case remains available; a new interpretation does not erase its evidence."
+        },
+        "missing-health": {
+          "role": "retain",
+          "reason": "This source or established case remains available; a new interpretation does not erase its evidence."
+        }
+      }
+    },
+    {
+      "world": "doctrine-argument-desks-v7-local-arguments",
+      "recipe": "misdirected-will-from-text",
+      "inputs": "chosen-attachment + enchiridion-leaf",
+      "incorporated": "—",
+      "decisions": {
+        "chosen-attachment": {
+          "role": "retain",
+          "reason": "This source or established case remains available; a new interpretation does not erase its evidence."
+        },
+        "enchiridion-leaf": {
+          "role": "retain",
+          "reason": "This source or established case remains available; a new interpretation does not erase its evidence."
+        }
+      }
+    },
+    {
+      "world": "doctrine-argument-desks-v7-local-arguments",
+      "recipe": "misdirected-will-from-general-account",
+      "inputs": "chosen-attachment + evil-as-loss",
+      "incorporated": "—",
+      "decisions": {
+        "chosen-attachment": {
+          "role": "retain",
+          "reason": "This source or established case remains available; a new interpretation does not erase its evidence."
+        },
+        "evil-as-loss": {
+          "role": "retain",
+          "reason": "This source or established case remains available; a new interpretation does not erase its evidence."
+        }
+      }
+    },
+    {
+      "world": "doctrine-argument-desks-v7-local-arguments",
+      "recipe": "evil-as-loss",
+      "inputs": "no-evil-substance + created-goodness",
+      "incorporated": "—",
+      "decisions": {
+        "no-evil-substance": {
+          "role": "retain",
+          "reason": "This source or established case remains available; a new interpretation does not erase its evidence."
+        },
+        "created-goodness": {
+          "role": "retain",
+          "reason": "This source or established case remains available; a new interpretation does not erase its evidence."
+        }
+      }
+    },
+    {
+      "world": "doctrine-argument-desks-v7-local-arguments",
+      "recipe": "evil-as-loss-from-local-case",
+      "inputs": "missing-health + created-goodness",
+      "incorporated": "—",
+      "decisions": {
+        "missing-health": {
+          "role": "retain",
+          "reason": "This source or established case remains available; a new interpretation does not erase its evidence."
+        },
+        "created-goodness": {
+          "role": "retain",
+          "reason": "This source or established case remains available; a new interpretation does not erase its evidence."
+        }
+      }
+    },
+    {
+      "world": "doctrine-argument-desks-v7-local-arguments",
+      "recipe": "augustine-account",
+      "inputs": "evil-as-loss + misdirected-will",
+      "incorporated": "—",
+      "decisions": {
+        "evil-as-loss": {
+          "role": "retain",
+          "reason": "This source or established case remains available; a new interpretation does not erase its evidence."
+        },
+        "misdirected-will": {
+          "role": "retain",
+          "reason": "This source or established case remains available; a new interpretation does not erase its evidence."
+        }
+      }
+    },
+    {
+      "world": "doctrine-argument-desks-v7-local-arguments",
+      "recipe": "command-not-cure",
+      "inputs": "instruction-account + romans-leaf",
+      "incorporated": "instruction-account, romans-leaf",
+      "decisions": {
+        "instruction-account": {
+          "role": "incorporate",
+          "reason": "This source leaf is bound into the new manuscript and remains visible among its preserved references."
+        },
+        "romans-leaf": {
+          "role": "incorporate",
+          "reason": "This source leaf is bound into the new manuscript and remains visible among its preserved references."
+        }
+      }
+    },
+    {
+      "world": "doctrine-argument-desks-v7-local-arguments",
+      "recipe": "grace-heals-will",
+      "inputs": "command-not-cure + inward-grace",
+      "incorporated": "command-not-cure, inward-grace",
+      "decisions": {
+        "command-not-cure": {
+          "role": "transform",
+          "reason": "This working manuscript is revised into a more specific inference at the same desk position; its bound leaves remain visible."
+        },
+        "inward-grace": {
+          "role": "incorporate",
+          "reason": "This source leaf is bound into the new manuscript and remains visible among its preserved references."
+        }
+      }
+    },
+    {
+      "world": "doctrine-argument-desks-v7-local-arguments",
+      "recipe": "infant-question",
+      "inputs": "misdirected-will + infant-baptism",
+      "incorporated": "infant-baptism",
+      "decisions": {
+        "misdirected-will": {
+          "role": "retain",
+          "reason": "This earlier argument remains available for later comparison; using it does not erase it."
+        },
+        "infant-baptism": {
+          "role": "incorporate",
+          "reason": "This source leaf is bound into the new manuscript and remains visible among its preserved references."
+        }
+      }
+    },
+    {
+      "world": "doctrine-argument-desks-v7-local-arguments",
+      "recipe": "inherited-condition",
+      "inputs": "infant-question + adams-fall",
+      "incorporated": "adams-fall, infant-question",
+      "decisions": {
+        "infant-question": {
+          "role": "transform",
+          "reason": "This working manuscript is revised into a more specific inference at the same desk position; its bound leaves remain visible."
+        },
+        "adams-fall": {
+          "role": "incorporate",
+          "reason": "This source leaf is bound into the new manuscript and remains visible among its preserved references."
+        }
+      }
+    },
+    {
+      "world": "doctrine-argument-desks-v7-local-arguments",
+      "recipe": "wounded-will",
+      "inputs": "inherited-condition + evil-as-loss",
+      "incorporated": "inherited-condition",
+      "decisions": {
+        "inherited-condition": {
+          "role": "transform",
+          "reason": "This working manuscript is revised into a more specific inference at the same desk position; its bound leaves remain visible."
+        },
+        "evil-as-loss": {
+          "role": "retain",
+          "reason": "This earlier argument remains available for later comparison; using it does not erase it."
+        }
+      }
+    },
+    {
+      "world": "doctrine-argument-desks-v7-local-arguments",
+      "recipe": "augustine-grace-answer",
+      "inputs": "grace-heals-will + wounded-will",
+      "incorporated": "grace-heals-will, wounded-will",
+      "decisions": {
+        "grace-heals-will": {
+          "role": "incorporate",
+          "reason": "This source leaf is bound into the new manuscript and remains visible among its preserved references."
+        },
+        "wounded-will": {
+          "role": "transform",
+          "reason": "This working manuscript is revised into a more specific inference at the same desk position; its bound leaves remain visible."
+        }
+      }
+    },
+    {
+      "world": "doctrine-argument-desks-v7-local-arguments",
+      "recipe": "inherited-condition-direct",
+      "inputs": "infant-baptism + adams-fall",
+      "incorporated": "adams-fall, infant-baptism",
+      "decisions": {
+        "infant-baptism": {
+          "role": "incorporate",
+          "reason": "This source leaf is bound into the new manuscript and remains visible among its preserved references."
+        },
+        "adams-fall": {
+          "role": "incorporate",
+          "reason": "This source leaf is bound into the new manuscript and remains visible among its preserved references."
+        }
+      }
+    },
+    {
+      "world": "doctrine-argument-desks-v7-local-arguments",
+      "recipe": "evil-maker",
+      "inputs": "two-trees + material-world",
+      "incorporated": "material-world, two-trees",
+      "decisions": {
+        "two-trees": {
+          "role": "incorporate",
+          "reason": "This premise is cited inside the new argument and remains visible among its preserved references."
+        },
+        "material-world": {
+          "role": "incorporate",
+          "reason": "This premise is cited inside the new argument and remains visible among its preserved references."
+        }
+      }
+    },
+    {
+      "world": "doctrine-argument-desks-v7-local-arguments",
+      "recipe": "creation-disagreement",
+      "inputs": "evil-maker + evil-as-loss",
+      "incorporated": "—",
+      "decisions": {
+        "evil-maker": {
+          "role": "retain",
+          "reason": "This argument remains available for another genuine comparison."
+        },
+        "evil-as-loss": {
+          "role": "retain",
+          "reason": "This argument remains available for another genuine comparison."
+        }
+      }
+    },
+    {
+      "world": "doctrine-argument-desks-v7-local-arguments",
+      "recipe": "creator-not-watcher",
+      "inputs": "watcher-analogy + foreknowledge-question",
+      "incorporated": "foreknowledge-question, watcher-analogy",
+      "decisions": {
+        "watcher-analogy": {
+          "role": "incorporate",
+          "reason": "This premise is cited inside the new argument and remains visible among its preserved references."
+        },
+        "foreknowledge-question": {
+          "role": "incorporate",
+          "reason": "This premise is cited inside the new argument and remains visible among its preserved references."
+        }
+      }
+    },
+    {
+      "world": "doctrine-argument-desks-v7-local-arguments",
+      "recipe": "agency-and-origin",
+      "inputs": "foreknowledge-question + misdirected-will",
+      "incorporated": "foreknowledge-question",
+      "decisions": {
+        "foreknowledge-question": {
+          "role": "incorporate",
+          "reason": "This premise is cited inside the new argument and remains visible among its preserved references."
+        },
+        "misdirected-will": {
+          "role": "retain",
+          "reason": "This argument remains available for another genuine comparison."
+        }
+      }
+    },
+    {
+      "world": "doctrine-argument-desks-v7-local-arguments",
+      "recipe": "knowing-not-causing",
+      "inputs": "watcher-analogy + misdirected-will",
+      "incorporated": "watcher-analogy",
+      "decisions": {
+        "watcher-analogy": {
+          "role": "incorporate",
+          "reason": "This premise is cited inside the new argument and remains visible among its preserved references."
+        },
+        "misdirected-will": {
+          "role": "retain",
+          "reason": "This argument remains available for another genuine comparison."
+        }
+      }
+    },
+    {
+      "world": "doctrine-argument-desks-v7-local-arguments",
+      "recipe": "maker-after-agency",
+      "inputs": "agency-and-origin + watcher-analogy",
+      "incorporated": "agency-and-origin, watcher-analogy",
+      "decisions": {
+        "agency-and-origin": {
+          "role": "transform",
+          "reason": "This partial argument is revised at the same position; its cited premises remain visible."
+        },
+        "watcher-analogy": {
+          "role": "incorporate",
+          "reason": "This premise is cited inside the new argument and remains visible among its preserved references."
+        }
+      }
+    },
+    {
+      "world": "doctrine-argument-desks-v7-local-arguments",
+      "recipe": "maker-after-watcher",
+      "inputs": "knowing-not-causing + foreknowledge-question",
+      "incorporated": "foreknowledge-question, knowing-not-causing",
+      "decisions": {
+        "knowing-not-causing": {
+          "role": "transform",
+          "reason": "This partial argument is revised at the same position; its cited premises remain visible."
+        },
+        "foreknowledge-question": {
+          "role": "incorporate",
+          "reason": "This premise is cited inside the new argument and remains visible among its preserved references."
+        }
+      }
+    },
+    {
+      "world": "doctrine-argument-desks-v7-local-arguments",
+      "recipe": "maker-from-compared-partials",
+      "inputs": "agency-and-origin + knowing-not-causing",
+      "incorporated": "agency-and-origin, knowing-not-causing",
+      "decisions": {
+        "agency-and-origin": {
+          "role": "transform",
+          "reason": "This partial argument is revised at the same position; its cited premises remain visible."
+        },
+        "knowing-not-causing": {
+          "role": "incorporate",
+          "reason": "This premise is cited inside the new argument and remains visible among its preserved references."
+        }
+      }
+    },
+    {
+      "world": "doctrine-argument-desks-v7-local-arguments",
+      "recipe": "false-assurance-direct",
+      "inputs": "indulgence-letter + coin-claim",
+      "incorporated": "coin-claim, indulgence-letter",
+      "decisions": {
+        "indulgence-letter": {
+          "role": "incorporate",
+          "reason": "This premise is cited inside the new argument and remains visible among its preserved references."
+        },
+        "coin-claim": {
+          "role": "incorporate",
+          "reason": "This premise is cited inside the new argument and remains visible among its preserved references."
+        }
+      }
+    },
+    {
+      "world": "doctrine-argument-desks-v7-local-arguments",
+      "recipe": "guilt-and-penalty",
+      "inputs": "indulgence-letter + theses-penalties",
+      "incorporated": "indulgence-letter, theses-penalties",
+      "decisions": {
+        "indulgence-letter": {
+          "role": "incorporate",
+          "reason": "This premise is cited inside the new argument and remains visible among its preserved references."
+        },
+        "theses-penalties": {
+          "role": "incorporate",
+          "reason": "This premise is cited inside the new argument and remains visible among its preserved references."
+        }
+      }
+    },
+    {
+      "world": "doctrine-argument-desks-v7-local-arguments",
+      "recipe": "false-assurance-from-scope",
+      "inputs": "guilt-and-penalty + coin-claim",
+      "incorporated": "coin-claim, guilt-and-penalty",
+      "decisions": {
+        "guilt-and-penalty": {
+          "role": "transform",
+          "reason": "This partial argument is revised at the same position; its cited premises remain visible."
+        },
+        "coin-claim": {
+          "role": "incorporate",
+          "reason": "This premise is cited inside the new argument and remains visible among its preserved references."
+        }
+      }
+    },
+    {
+      "world": "doctrine-argument-desks-v7-local-arguments",
+      "recipe": "false-assurance-from-rule",
+      "inputs": "coin-claim + theses-penalties",
+      "incorporated": "coin-claim, theses-penalties",
+      "decisions": {
+        "coin-claim": {
+          "role": "incorporate",
+          "reason": "This premise is cited inside the new argument and remains visible among its preserved references."
+        },
+        "theses-penalties": {
+          "role": "incorporate",
+          "reason": "This premise is cited inside the new argument and remains visible among its preserved references."
+        }
+      }
+    },
+    {
+      "world": "doctrine-argument-desks-v7-local-arguments",
+      "recipe": "repentant-life",
+      "inputs": "false-assurance + repentance",
+      "incorporated": "false-assurance, repentance",
+      "decisions": {
+        "false-assurance": {
+          "role": "transform",
+          "reason": "This partial argument is revised at the same position; its cited premises remain visible."
+        },
+        "repentance": {
+          "role": "incorporate",
+          "reason": "This premise is cited inside the new argument and remains visible among its preserved references."
+        }
+      }
+    },
+    {
+      "world": "doctrine-argument-desks-v7-local-arguments",
+      "recipe": "limits-1517",
+      "inputs": "instrument-of-grace + papal-declaration",
+      "incorporated": "papal-declaration",
+      "decisions": {
+        "instrument-of-grace": {
+          "role": "retain",
+          "reason": "This argument remains available for another genuine comparison."
+        },
+        "papal-declaration": {
+          "role": "incorporate",
+          "reason": "This premise is cited inside the new argument and remains visible among its preserved references."
+        }
+      }
+    },
+    {
+      "world": "doctrine-argument-desks-v7-local-arguments",
+      "recipe": "shared-needs",
+      "inputs": "household-need + neighbour-1517",
+      "incorporated": "household-need, neighbour-1517",
+      "decisions": {
+        "household-need": {
+          "role": "incorporate",
+          "reason": "This premise is cited inside the new argument and remains visible among its preserved references."
+        },
+        "neighbour-1517": {
+          "role": "incorporate",
+          "reason": "This premise is cited inside the new argument and remains visible among its preserved references."
+        }
+      }
+    },
+    {
+      "world": "doctrine-argument-desks-v7-local-arguments",
+      "recipe": "household-priority",
+      "inputs": "household-need + theses-mercy",
+      "incorporated": "household-need, theses-mercy",
+      "decisions": {
+        "household-need": {
+          "role": "incorporate",
+          "reason": "This premise is cited inside the new argument and remains visible among its preserved references."
+        },
+        "theses-mercy": {
+          "role": "incorporate",
+          "reason": "This premise is cited inside the new argument and remains visible among its preserved references."
+        }
+      }
+    },
+    {
+      "world": "doctrine-argument-desks-v7-local-arguments",
+      "recipe": "neighbour-priority",
+      "inputs": "neighbour-1517 + theses-mercy",
+      "incorporated": "neighbour-1517, theses-mercy",
+      "decisions": {
+        "neighbour-1517": {
+          "role": "incorporate",
+          "reason": "This premise is cited inside the new argument and remains visible among its preserved references."
+        },
+        "theses-mercy": {
+          "role": "incorporate",
+          "reason": "This premise is cited inside the new argument and remains visible among its preserved references."
+        }
+      }
+    },
+    {
+      "world": "doctrine-argument-desks-v7-local-arguments",
+      "recipe": "care-from-cases",
+      "inputs": "shared-needs + theses-mercy",
+      "incorporated": "shared-needs, theses-mercy",
+      "decisions": {
+        "shared-needs": {
+          "role": "transform",
+          "reason": "This partial argument is revised at the same position; its cited premises remain visible."
+        },
+        "theses-mercy": {
+          "role": "incorporate",
+          "reason": "This premise is cited inside the new argument and remains visible among its preserved references."
+        }
+      }
+    },
+    {
+      "world": "doctrine-argument-desks-v7-local-arguments",
+      "recipe": "care-from-household",
+      "inputs": "household-priority + neighbour-1517",
+      "incorporated": "household-priority, neighbour-1517",
+      "decisions": {
+        "household-priority": {
+          "role": "transform",
+          "reason": "This partial argument is revised at the same position; its cited premises remain visible."
+        },
+        "neighbour-1517": {
+          "role": "incorporate",
+          "reason": "This premise is cited inside the new argument and remains visible among its preserved references."
+        }
+      }
+    },
+    {
+      "world": "doctrine-argument-desks-v7-local-arguments",
+      "recipe": "care-from-neighbour",
+      "inputs": "neighbour-priority + household-need",
+      "incorporated": "household-need, neighbour-priority",
+      "decisions": {
+        "neighbour-priority": {
+          "role": "transform",
+          "reason": "This partial argument is revised at the same position; its cited premises remain visible."
+        },
+        "household-need": {
+          "role": "incorporate",
+          "reason": "This premise is cited inside the new argument and remains visible among its preserved references."
+        }
+      }
+    },
+    {
+      "world": "doctrine-argument-desks-v7-local-arguments",
+      "recipe": "care-from-two-priorities",
+      "inputs": "household-priority + neighbour-priority",
+      "incorporated": "household-priority, neighbour-priority",
+      "decisions": {
+        "household-priority": {
+          "role": "transform",
+          "reason": "This partial argument expands into the complete priorities argument; its cited premises remain visible."
+        },
+        "neighbour-priority": {
+          "role": "incorporate",
+          "reason": "The overlapping argument joins the manuscript. Shared cited premises are one reference, not duplicated evidence."
+        }
+      }
+    },
+    {
+      "world": "doctrine-argument-desks-v7-local-arguments",
+      "recipe": "care-from-cases-and-household",
+      "inputs": "shared-needs + household-priority",
+      "incorporated": "household-priority, shared-needs",
+      "decisions": {
+        "shared-needs": {
+          "role": "transform",
+          "reason": "This partial argument expands into the complete priorities argument; its cited premises remain visible."
+        },
+        "household-priority": {
+          "role": "incorporate",
+          "reason": "The overlapping argument joins the manuscript. Shared cited premises are one reference, not duplicated evidence."
+        }
+      }
+    },
+    {
+      "world": "doctrine-argument-desks-v7-local-arguments",
+      "recipe": "care-from-cases-and-neighbour",
+      "inputs": "shared-needs + neighbour-priority",
+      "incorporated": "neighbour-priority, shared-needs",
+      "decisions": {
+        "shared-needs": {
+          "role": "transform",
+          "reason": "This partial argument expands into the complete priorities argument; its cited premises remain visible."
+        },
+        "neighbour-priority": {
+          "role": "incorporate",
+          "reason": "The overlapping argument joins the manuscript. Shared cited premises are one reference, not duplicated evidence."
+        }
+      }
+    },
+    {
+      "world": "doctrine-argument-desks-v7-local-arguments",
+      "recipe": "reason-metaphysics-objection--salvation-end",
+      "inputs": "metaphysics-objection + salvation-end",
+      "incorporated": "metaphysics-objection, salvation-end",
+      "decisions": {
+        "metaphysics-objection": {
+          "role": "incorporate",
+          "reason": "This premise joins the manuscript as a preserved reference, not a discarded belief."
+        },
+        "salvation-end": {
+          "role": "incorporate",
+          "reason": "This premise joins the manuscript as a preserved reference, not a discarded belief."
+        }
+      }
+    },
+    {
+      "world": "doctrine-argument-desks-v7-local-arguments",
+      "recipe": "reason-metaphysics-objection--known-destination",
+      "inputs": "metaphysics-objection + known-destination",
+      "incorporated": "known-destination, metaphysics-objection",
+      "decisions": {
+        "metaphysics-objection": {
+          "role": "incorporate",
+          "reason": "This premise joins the manuscript as a preserved reference, not a discarded belief."
+        },
+        "known-destination": {
+          "role": "incorporate",
+          "reason": "This premise joins the manuscript as a preserved reference, not a discarded belief."
+        }
+      }
+    },
+    {
+      "world": "doctrine-argument-desks-v7-local-arguments",
+      "recipe": "reason-metaphysics-objection--reason-and-revelation",
+      "inputs": "metaphysics-objection + reason-and-revelation",
+      "incorporated": "metaphysics-objection, reason-and-revelation",
+      "decisions": {
+        "metaphysics-objection": {
+          "role": "incorporate",
+          "reason": "This premise joins the manuscript as a preserved reference, not a discarded belief."
+        },
+        "reason-and-revelation": {
+          "role": "incorporate",
+          "reason": "This premise joins the manuscript as a preserved reference, not a discarded belief."
+        }
+      }
+    },
+    {
+      "world": "doctrine-argument-desks-v7-local-arguments",
+      "recipe": "reason-salvation-end--known-destination",
+      "inputs": "salvation-end + known-destination",
+      "incorporated": "known-destination, salvation-end",
+      "decisions": {
+        "salvation-end": {
+          "role": "incorporate",
+          "reason": "This premise joins the manuscript as a preserved reference, not a discarded belief."
+        },
+        "known-destination": {
+          "role": "incorporate",
+          "reason": "This premise joins the manuscript as a preserved reference, not a discarded belief."
+        }
+      }
+    },
+    {
+      "world": "doctrine-argument-desks-v7-local-arguments",
+      "recipe": "reason-salvation-end--philosophical-inquiry",
+      "inputs": "salvation-end + philosophical-inquiry",
+      "incorporated": "philosophical-inquiry, salvation-end",
+      "decisions": {
+        "salvation-end": {
+          "role": "incorporate",
+          "reason": "This premise joins the manuscript as a preserved reference, not a discarded belief."
+        },
+        "philosophical-inquiry": {
+          "role": "incorporate",
+          "reason": "This premise joins the manuscript as a preserved reference, not a discarded belief."
+        }
+      }
+    },
+    {
+      "world": "doctrine-argument-desks-v7-local-arguments",
+      "recipe": "reason-known-destination--reason-limits",
+      "inputs": "known-destination + reason-limits",
+      "incorporated": "known-destination, reason-limits",
+      "decisions": {
+        "known-destination": {
+          "role": "incorporate",
+          "reason": "This premise joins the manuscript as a preserved reference, not a discarded belief."
+        },
+        "reason-limits": {
+          "role": "incorporate",
+          "reason": "This premise joins the manuscript as a preserved reference, not a discarded belief."
+        }
+      }
+    },
+    {
+      "world": "doctrine-argument-desks-v7-local-arguments",
+      "recipe": "reason-reason-limits--philosophical-inquiry",
+      "inputs": "reason-limits + philosophical-inquiry",
+      "incorporated": "philosophical-inquiry, reason-limits",
+      "decisions": {
+        "reason-limits": {
+          "role": "transform",
+          "reason": "This partial argument expands; its cited premises remain preserved."
+        },
+        "philosophical-inquiry": {
+          "role": "incorporate",
+          "reason": "This premise joins the manuscript as a preserved reference, not a discarded belief."
+        }
+      }
+    },
+    {
+      "world": "doctrine-argument-desks-v7-local-arguments",
+      "recipe": "reason-reason-limits--reason-and-revelation",
+      "inputs": "reason-limits + reason-and-revelation",
+      "incorporated": "reason-and-revelation, reason-limits",
+      "decisions": {
+        "reason-limits": {
+          "role": "transform",
+          "reason": "This partial argument expands; its cited premises remain preserved."
+        },
+        "reason-and-revelation": {
+          "role": "incorporate",
+          "reason": "This premise joins the manuscript as a preserved reference, not a discarded belief."
+        }
+      }
+    },
+    {
+      "world": "doctrine-argument-desks-v7-local-arguments",
+      "recipe": "reason-philosophical-inquiry--reason-and-revelation",
+      "inputs": "philosophical-inquiry + reason-and-revelation",
+      "incorporated": "philosophical-inquiry, reason-and-revelation",
+      "decisions": {
+        "philosophical-inquiry": {
+          "role": "transform",
+          "reason": "This partial argument expands; its cited premises remain preserved."
+        },
+        "reason-and-revelation": {
+          "role": "incorporate",
+          "reason": "This premise joins the manuscript as a preserved reference, not a discarded belief."
+        }
+      }
+    },
+    {
+      "world": "doctrine-argument-desks-v7-local-arguments",
+      "recipe": "nature-perfected",
+      "inputs": "grace-heals-will + reason-serving-theology",
+      "incorporated": "grace-heals-will, reason-serving-theology",
+      "decisions": {
+        "grace-heals-will": {
+          "role": "incorporate",
+          "reason": "This premise joins the manuscript as a preserved reference, not a discarded belief."
+        },
+        "reason-serving-theology": {
+          "role": "incorporate",
+          "reason": "This premise joins the manuscript as a preserved reference, not a discarded belief."
+        }
+      }
+    },
+    {
+      "world": "doctrine-argument-desks-v7-local-arguments",
+      "recipe": "aquinas-evil-answer",
+      "inputs": "creation-disagreement + fire-water",
+      "incorporated": "creation-disagreement, fire-water",
+      "decisions": {
+        "creation-disagreement": {
+          "role": "incorporate",
+          "reason": "This premise joins the manuscript as a preserved reference, not a discarded belief."
+        },
+        "fire-water": {
+          "role": "incorporate",
+          "reason": "This premise joins the manuscript as a preserved reference, not a discarded belief."
+        }
+      }
+    },
+    {
+      "world": "doctrine-argument-desks-v7-local-arguments",
+      "recipe": "aquinas-tree-answer",
+      "inputs": "creation-disagreement + aquinas-tree",
+      "incorporated": "aquinas-tree, creation-disagreement",
+      "decisions": {
+        "creation-disagreement": {
+          "role": "incorporate",
+          "reason": "This premise joins the manuscript as a preserved reference, not a discarded belief."
+        },
+        "aquinas-tree": {
+          "role": "incorporate",
+          "reason": "This premise joins the manuscript as a preserved reference, not a discarded belief."
+        }
+      }
+    },
+    {
+      "world": "doctrine-argument-desks-v7-local-arguments",
+      "recipe": "spiritual-baptism",
+      "inputs": "gospel-and-hands + acts-hands",
+      "incorporated": "acts-hands, gospel-and-hands",
+      "decisions": {
+        "gospel-and-hands": {
+          "role": "incorporate",
+          "reason": "This premise joins the manuscript as a preserved reference, not a discarded belief."
+        },
+        "acts-hands": {
+          "role": "incorporate",
+          "reason": "This premise joins the manuscript as a preserved reference, not a discarded belief."
+        }
+      }
+    },
+    {
+      "world": "doctrine-argument-desks-v7-local-arguments",
+      "recipe": "embodied-spiritual-rite",
+      "inputs": "ritual-leaf + gospel-and-hands",
+      "incorporated": "gospel-and-hands, ritual-leaf",
+      "decisions": {
+        "ritual-leaf": {
+          "role": "incorporate",
+          "reason": "This premise joins the manuscript as a preserved reference, not a discarded belief."
+        },
+        "gospel-and-hands": {
+          "role": "incorporate",
+          "reason": "This premise joins the manuscript as a preserved reference, not a discarded belief."
+        }
+      }
+    },
+    {
+      "world": "doctrine-argument-desks-v7-local-arguments",
+      "recipe": "ritual-origins-limit",
+      "inputs": "creation-disagreement + embodied-spiritual-rite",
+      "incorporated": "creation-disagreement, embodied-spiritual-rite",
+      "decisions": {
+        "creation-disagreement": {
+          "role": "incorporate",
+          "reason": "This premise joins the manuscript as a preserved reference, not a discarded belief."
+        },
+        "embodied-spiritual-rite": {
+          "role": "incorporate",
+          "reason": "This premise joins the manuscript as a preserved reference, not a discarded belief."
+        }
+      }
+    },
+    {
+      "world": "doctrine-argument-desks-v7-local-arguments",
+      "recipe": "ritual-discipline",
+      "inputs": "spiritual-baptism + ritual-promise",
+      "incorporated": "ritual-promise, spiritual-baptism",
+      "decisions": {
+        "spiritual-baptism": {
+          "role": "incorporate",
+          "reason": "This premise joins the manuscript as a preserved reference, not a discarded belief."
+        },
+        "ritual-promise": {
+          "role": "incorporate",
+          "reason": "This premise joins the manuscript as a preserved reference, not a discarded belief."
+        }
+      }
+    },
+    {
+      "world": "doctrine-argument-desks-v7-local-arguments",
+      "recipe": "instrument-analogy",
+      "inputs": "saw + craftsperson",
+      "incorporated": "craftsperson, saw",
+      "decisions": {
+        "saw": {
+          "role": "incorporate",
+          "reason": "This premise joins the manuscript as a preserved reference, not a discarded belief."
+        },
+        "craftsperson": {
+          "role": "incorporate",
+          "reason": "This premise joins the manuscript as a preserved reference, not a discarded belief."
+        }
+      }
+    },
+    {
+      "world": "doctrine-argument-desks-v7-local-arguments",
+      "recipe": "instrument-god-gives-grace--water-and-word",
+      "inputs": "god-gives-grace + water-and-word",
+      "incorporated": "god-gives-grace, water-and-word",
+      "decisions": {
+        "god-gives-grace": {
+          "role": "incorporate",
+          "reason": "This premise joins the manuscript as a preserved reference, not a discarded belief."
+        },
+        "water-and-word": {
+          "role": "incorporate",
+          "reason": "This premise joins the manuscript as a preserved reference, not a discarded belief."
+        }
+      }
+    },
+    {
+      "world": "doctrine-argument-desks-v7-local-arguments",
+      "recipe": "instrument-god-gives-grace--instrument-analogy",
+      "inputs": "god-gives-grace + instrument-analogy",
+      "incorporated": "god-gives-grace, instrument-analogy",
+      "decisions": {
+        "god-gives-grace": {
+          "role": "incorporate",
+          "reason": "This premise joins the manuscript as a preserved reference, not a discarded belief."
+        },
+        "instrument-analogy": {
+          "role": "incorporate",
+          "reason": "This premise joins the manuscript as a preserved reference, not a discarded belief."
+        }
+      }
+    },
+    {
+      "world": "doctrine-argument-desks-v7-local-arguments",
+      "recipe": "instrument-god-gives-grace--borrowed-cleansing",
+      "inputs": "god-gives-grace + borrowed-cleansing",
+      "incorporated": "borrowed-cleansing, god-gives-grace",
+      "decisions": {
+        "god-gives-grace": {
+          "role": "incorporate",
+          "reason": "This premise joins the manuscript as a preserved reference, not a discarded belief."
+        },
+        "borrowed-cleansing": {
+          "role": "incorporate",
+          "reason": "This premise joins the manuscript as a preserved reference, not a discarded belief."
+        }
+      }
+    },
+    {
+      "world": "doctrine-argument-desks-v7-local-arguments",
+      "recipe": "instrument-water-and-word--instrument-analogy",
+      "inputs": "water-and-word + instrument-analogy",
+      "incorporated": "instrument-analogy, water-and-word",
+      "decisions": {
+        "water-and-word": {
+          "role": "incorporate",
+          "reason": "This premise joins the manuscript as a preserved reference, not a discarded belief."
+        },
+        "instrument-analogy": {
+          "role": "incorporate",
+          "reason": "This premise joins the manuscript as a preserved reference, not a discarded belief."
+        }
+      }
+    },
+    {
+      "world": "doctrine-argument-desks-v7-local-arguments",
+      "recipe": "instrument-water-and-word--dependent-instrument",
+      "inputs": "water-and-word + dependent-instrument",
+      "incorporated": "dependent-instrument, water-and-word",
+      "decisions": {
+        "water-and-word": {
+          "role": "incorporate",
+          "reason": "This premise joins the manuscript as a preserved reference, not a discarded belief."
+        },
+        "dependent-instrument": {
+          "role": "incorporate",
+          "reason": "This premise joins the manuscript as a preserved reference, not a discarded belief."
+        }
+      }
+    },
+    {
+      "world": "doctrine-argument-desks-v7-local-arguments",
+      "recipe": "instrument-instrument-analogy--sacramental-difficulty",
+      "inputs": "instrument-analogy + sacramental-difficulty",
+      "incorporated": "instrument-analogy, sacramental-difficulty",
+      "decisions": {
+        "instrument-analogy": {
+          "role": "incorporate",
+          "reason": "This premise joins the manuscript as a preserved reference, not a discarded belief."
+        },
+        "sacramental-difficulty": {
+          "role": "incorporate",
+          "reason": "This premise joins the manuscript as a preserved reference, not a discarded belief."
+        }
+      }
+    },
+    {
+      "world": "doctrine-argument-desks-v7-local-arguments",
+      "recipe": "instrument-sacramental-difficulty--dependent-instrument",
+      "inputs": "sacramental-difficulty + dependent-instrument",
+      "incorporated": "dependent-instrument, sacramental-difficulty",
+      "decisions": {
+        "sacramental-difficulty": {
+          "role": "transform",
+          "reason": "This partial argument expands; its cited premises remain preserved."
+        },
+        "dependent-instrument": {
+          "role": "incorporate",
+          "reason": "This premise joins the manuscript as a preserved reference, not a discarded belief."
+        }
+      }
+    },
+    {
+      "world": "doctrine-argument-desks-v7-local-arguments",
+      "recipe": "instrument-sacramental-difficulty--borrowed-cleansing",
+      "inputs": "sacramental-difficulty + borrowed-cleansing",
+      "incorporated": "borrowed-cleansing, sacramental-difficulty",
+      "decisions": {
+        "sacramental-difficulty": {
+          "role": "transform",
+          "reason": "This partial argument expands; its cited premises remain preserved."
+        },
+        "borrowed-cleansing": {
+          "role": "incorporate",
+          "reason": "This premise joins the manuscript as a preserved reference, not a discarded belief."
+        }
+      }
+    },
+    {
+      "world": "doctrine-argument-desks-v7-local-arguments",
+      "recipe": "instrument-dependent-instrument--borrowed-cleansing",
+      "inputs": "dependent-instrument + borrowed-cleansing",
+      "incorporated": "borrowed-cleansing, dependent-instrument",
+      "decisions": {
+        "dependent-instrument": {
+          "role": "transform",
+          "reason": "This partial argument expands; its cited premises remain preserved."
+        },
+        "borrowed-cleansing": {
+          "role": "incorporate",
+          "reason": "This premise joins the manuscript as a preserved reference, not a discarded belief."
+        }
+      }
+    },
+    {
+      "world": "doctrine-argument-desks-v7-local-arguments",
+      "recipe": "substance-and-appearance",
+      "inputs": "appearance-notes + eucharist-leaf",
+      "incorporated": "appearance-notes, eucharist-leaf",
+      "decisions": {
+        "appearance-notes": {
+          "role": "incorporate",
+          "reason": "This premise joins the manuscript as a preserved reference, not a discarded belief."
+        },
+        "eucharist-leaf": {
+          "role": "incorporate",
+          "reason": "This premise joins the manuscript as a preserved reference, not a discarded belief."
+        }
+      }
+    },
+    {
+      "world": "doctrine-argument-desks-v7-local-arguments",
+      "recipe": "baptism-media",
+      "inputs": "spiritual-baptism + water-and-word",
+      "incorporated": "spiritual-baptism, water-and-word",
+      "decisions": {
+        "spiritual-baptism": {
+          "role": "incorporate",
+          "reason": "This premise joins the manuscript as a preserved reference, not a discarded belief."
+        },
+        "water-and-word": {
+          "role": "incorporate",
+          "reason": "This premise joins the manuscript as a preserved reference, not a discarded belief."
+        }
+      }
+    },
+    {
+      "world": "doctrine-argument-desks-v7-local-arguments",
+      "recipe": "sacramental-disagreement",
+      "inputs": "spiritual-baptism + instrument-of-grace",
+      "incorporated": "instrument-of-grace, spiritual-baptism",
+      "decisions": {
+        "spiritual-baptism": {
+          "role": "incorporate",
+          "reason": "This premise joins the manuscript as a preserved reference, not a discarded belief."
+        },
+        "instrument-of-grace": {
+          "role": "incorporate",
+          "reason": "This premise joins the manuscript as a preserved reference, not a discarded belief."
+        }
+      }
+    },
+    {
+      "world": "doctrine-argument-desks-v7-local-arguments",
+      "recipe": "sacramental-disagreement-from-media",
+      "inputs": "baptism-media + instrument-of-grace",
+      "incorporated": "baptism-media, instrument-of-grace",
+      "decisions": {
+        "baptism-media": {
+          "role": "transform",
+          "reason": "This partial argument expands; its cited premises remain preserved."
+        },
+        "instrument-of-grace": {
+          "role": "incorporate",
+          "reason": "This premise joins the manuscript as a preserved reference, not a discarded belief."
+        }
+      }
+    },
+    {
+      "world": "doctrine-argument-desks-v7-local-arguments",
+      "recipe": "service-promise-of-christ--neighbour-in-need",
+      "inputs": "promise-of-christ + neighbour-in-need",
+      "incorporated": "neighbour-in-need, promise-of-christ",
+      "decisions": {
+        "promise-of-christ": {
+          "role": "incorporate",
+          "reason": "This premise joins the manuscript as a preserved reference, not a discarded belief."
+        },
+        "neighbour-in-need": {
+          "role": "incorporate",
+          "reason": "This premise joins the manuscript as a preserved reference, not a discarded belief."
+        }
+      }
+    },
+    {
+      "world": "doctrine-argument-desks-v7-local-arguments",
+      "recipe": "service-promise-of-christ--christ-servant",
+      "inputs": "promise-of-christ + christ-servant",
+      "incorporated": "christ-servant, promise-of-christ",
+      "decisions": {
+        "promise-of-christ": {
+          "role": "incorporate",
+          "reason": "This premise joins the manuscript as a preserved reference, not a discarded belief."
+        },
+        "christ-servant": {
+          "role": "incorporate",
+          "reason": "This premise joins the manuscript as a preserved reference, not a discarded belief."
+        }
+      }
+    },
+    {
+      "world": "doctrine-argument-desks-v7-local-arguments",
+      "recipe": "service-promise-of-christ--service-pattern",
+      "inputs": "promise-of-christ + service-pattern",
+      "incorporated": "promise-of-christ, service-pattern",
+      "decisions": {
+        "promise-of-christ": {
+          "role": "incorporate",
+          "reason": "This premise joins the manuscript as a preserved reference, not a discarded belief."
+        },
+        "service-pattern": {
+          "role": "incorporate",
+          "reason": "This premise joins the manuscript as a preserved reference, not a discarded belief."
+        }
+      }
+    },
+    {
+      "world": "doctrine-argument-desks-v7-local-arguments",
+      "recipe": "service-neighbour-in-need--christ-servant",
+      "inputs": "neighbour-in-need + christ-servant",
+      "incorporated": "christ-servant, neighbour-in-need",
+      "decisions": {
+        "neighbour-in-need": {
+          "role": "incorporate",
+          "reason": "This premise joins the manuscript as a preserved reference, not a discarded belief."
+        },
+        "christ-servant": {
+          "role": "incorporate",
+          "reason": "This premise joins the manuscript as a preserved reference, not a discarded belief."
+        }
+      }
+    },
+    {
+      "world": "doctrine-argument-desks-v7-local-arguments",
+      "recipe": "service-neighbour-in-need--received-and-given",
+      "inputs": "neighbour-in-need + received-and-given",
+      "incorporated": "neighbour-in-need, received-and-given",
+      "decisions": {
+        "neighbour-in-need": {
+          "role": "incorporate",
+          "reason": "This premise joins the manuscript as a preserved reference, not a discarded belief."
+        },
+        "received-and-given": {
+          "role": "incorporate",
+          "reason": "This premise joins the manuscript as a preserved reference, not a discarded belief."
+        }
+      }
+    },
+    {
+      "world": "doctrine-argument-desks-v7-local-arguments",
+      "recipe": "service-christ-servant--freedom-from-merit",
+      "inputs": "christ-servant + freedom-from-merit",
+      "incorporated": "christ-servant, freedom-from-merit",
+      "decisions": {
+        "christ-servant": {
+          "role": "incorporate",
+          "reason": "This premise joins the manuscript as a preserved reference, not a discarded belief."
+        },
+        "freedom-from-merit": {
+          "role": "incorporate",
+          "reason": "This premise joins the manuscript as a preserved reference, not a discarded belief."
+        }
+      }
+    },
+    {
+      "world": "doctrine-argument-desks-v7-local-arguments",
+      "recipe": "service-freedom-from-merit--received-and-given",
+      "inputs": "freedom-from-merit + received-and-given",
+      "incorporated": "freedom-from-merit, received-and-given",
+      "decisions": {
+        "freedom-from-merit": {
+          "role": "transform",
+          "reason": "This partial argument expands; its cited premises remain preserved."
+        },
+        "received-and-given": {
+          "role": "incorporate",
+          "reason": "This premise joins the manuscript as a preserved reference, not a discarded belief."
+        }
+      }
+    },
+    {
+      "world": "doctrine-argument-desks-v7-local-arguments",
+      "recipe": "service-freedom-from-merit--service-pattern",
+      "inputs": "freedom-from-merit + service-pattern",
+      "incorporated": "freedom-from-merit, service-pattern",
+      "decisions": {
+        "freedom-from-merit": {
+          "role": "transform",
+          "reason": "This partial argument expands; its cited premises remain preserved."
+        },
+        "service-pattern": {
+          "role": "incorporate",
+          "reason": "This premise joins the manuscript as a preserved reference, not a discarded belief."
+        }
+      }
+    },
+    {
+      "world": "doctrine-argument-desks-v7-local-arguments",
+      "recipe": "service-received-and-given--service-pattern",
+      "inputs": "received-and-given + service-pattern",
+      "incorporated": "received-and-given, service-pattern",
+      "decisions": {
+        "received-and-given": {
+          "role": "transform",
+          "reason": "This partial argument expands; its cited premises remain preserved."
+        },
+        "service-pattern": {
+          "role": "incorporate",
+          "reason": "This premise joins the manuscript as a preserved reference, not a discarded belief."
+        }
+      }
+    },
+    {
+      "world": "doctrine-argument-desks-v7-local-arguments",
+      "recipe": "receiving-not-earning",
+      "inputs": "grace-heals-will + promise-of-christ",
+      "incorporated": "grace-heals-will, promise-of-christ",
+      "decisions": {
+        "grace-heals-will": {
+          "role": "incorporate",
+          "reason": "This premise joins the manuscript as a preserved reference, not a discarded belief."
+        },
+        "promise-of-christ": {
+          "role": "incorporate",
+          "reason": "This premise joins the manuscript as a preserved reference, not a discarded belief."
+        }
+      }
+    },
+    {
+      "world": "doctrine-argument-desks-v7-local-arguments",
+      "recipe": "works-after-faith-direct",
+      "inputs": "pastoral-priorities + promise-of-christ",
+      "incorporated": "pastoral-priorities, promise-of-christ",
+      "decisions": {
+        "pastoral-priorities": {
+          "role": "incorporate",
+          "reason": "This premise joins the manuscript as a preserved reference, not a discarded belief."
+        },
+        "promise-of-christ": {
+          "role": "incorporate",
+          "reason": "This premise joins the manuscript as a preserved reference, not a discarded belief."
+        }
+      }
+    },
+    {
+      "world": "doctrine-argument-desks-v7-local-arguments",
+      "recipe": "works-after-faith",
+      "inputs": "pastoral-priorities + free-service",
+      "incorporated": "free-service, pastoral-priorities",
+      "decisions": {
+        "pastoral-priorities": {
+          "role": "incorporate",
+          "reason": "This premise joins the manuscript as a preserved reference, not a discarded belief."
+        },
+        "free-service": {
+          "role": "incorporate",
+          "reason": "This premise joins the manuscript as a preserved reference, not a discarded belief."
+        }
+      }
+    },
+    {
+      "world": "doctrine-argument-desks-v7-local-arguments",
+      "recipe": "command-and-promise",
+      "inputs": "repentant-life + promise-of-christ",
+      "incorporated": "promise-of-christ, repentant-life",
+      "decisions": {
+        "repentant-life": {
+          "role": "incorporate",
+          "reason": "This premise joins the manuscript as a preserved reference, not a discarded belief."
+        },
+        "promise-of-christ": {
+          "role": "incorporate",
+          "reason": "This premise joins the manuscript as a preserved reference, not a discarded belief."
+        }
+      }
+    },
+    {
+      "world": "doctrine-argument-desks-v7-local-arguments",
+      "recipe": "body-not-discarded",
+      "inputs": "body-discipline + promise-of-christ",
+      "incorporated": "body-discipline, promise-of-christ",
+      "decisions": {
+        "body-discipline": {
+          "role": "incorporate",
+          "reason": "This premise joins the manuscript as a preserved reference, not a discarded belief."
+        },
+        "promise-of-christ": {
+          "role": "incorporate",
+          "reason": "This premise joins the manuscript as a preserved reference, not a discarded belief."
+        }
+      }
+    }
+  ]
+}

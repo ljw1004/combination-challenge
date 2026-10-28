@@ -1,0 +1,149 @@
+{
+  "scope": "Only labels, motivation/objectives, and deliberate Item.reading. Excludes generic descriptions and recipe knowledge. Not a playtest.",
+  "stage": {
+    "title": "Where does the light come from?",
+    "motivation": "A doorway appears upside down in the dark room. H and L send light through one opening: if their paths cross, do their lights become an inseparable mixture? Work out which patch should vanish when one lamp is covered, then compare the supplied trial.",
+    "objectives": [
+      {
+        "id": "cairo-camera-obscura",
+        "text": "Form the inverted courtyard image",
+        "kind": "create",
+        "item": "camera-obscura",
+        "intermediate": true
+      },
+      {
+        "id": "cairo-optical-model",
+        "text": "Test whether crossing erases lamp identity",
+        "kind": "create",
+        "item": "optical-model",
+        "after": [
+          "cairo-camera-obscura"
+        ],
+        "intermediate": true
+      },
+      {
+        "id": "cairo-optical-question",
+        "text": "Separate light paths from eye sensing",
+        "kind": "create",
+        "item": "optical-question",
+        "after": [
+          "cairo-optical-model"
+        ]
+      }
+    ]
+  },
+  "supplies": [
+    {
+      "id": "lamp",
+      "label": "Two lamps H/L + movable cover",
+      "reading": {
+        "text": "Two lamps can shine at the same time. Their fixed marks are H and L on the positions card. A separate opaque cover can screen either lamp before its light reaches the opening; it does not cover the opening or a patch on the receiving screen. The comparison record supplies the trial observations: this game is not a live light simulation.",
+        "attribution": "Authored two-lamp teaching adaptation in modern diagram notation, not a surviving experimental notebook or historical quotation. Based on Ibn al-Haytham, Optics I.6 §§85–87, A. I. Sabra translation (1989), pp.90–91."
+      }
+    },
+    {
+      "id": "opaque-board",
+      "label": "Opaque board"
+    },
+    {
+      "id": "aperture",
+      "label": "Small aperture"
+    },
+    {
+      "id": "screen",
+      "label": "White screen"
+    },
+    {
+      "id": "courtyard",
+      "label": "Bright courtyard"
+    },
+    {
+      "id": "source-positions",
+      "label": "H above O; L below O; screen beyond O",
+      "reading": {
+        "text": "Side view of the authored setup: both lamps are left of the small aperture O; a white receiving screen is on the right, in the dark room. H is one unit above O, L one unit below. The lamps are equally far left of O, and the screen is that same horizontal distance to its right. Units are arbitrary. Keep both lamps, O and the screen fixed; change only which lamp is covered. Light travels through uniform air, and the two receiving patches can be distinguished.",
+        "attribution": "Authored two-lamp teaching adaptation in modern diagram notation, not a surviving experimental notebook or historical quotation. Based on Ibn al-Haytham, Optics I.6 §§85–87, A. I. Sabra translation (1989), pp.90–91."
+      }
+    }
+  ],
+  "inherited": [
+    {
+      "id": "arabic-proof",
+      "label": "Restored AC=BC; equal changes preserve equality",
+      "reading": {
+        "text": "The corrected teaching rendering reads AC=AB and BC=AB, hence AC=BC; its margin preserves the rejected AC≠BC line. The accompanying equality rules state that equal additions or subtractions leave equal quantities equal. For an area equation, adding a missing corner means adding that same area to the numerical total. The correction restores a mathematical relation rather than merely fluent wording.",
+        "attribution": "Invented translation-workshop witness in modern notation, not a surviving Greek, Syriac or Arabic quotation. Euclid’s equality principles supply the mathematical comparison; no single translation route or institution is claimed."
+      }
+    },
+    {
+      "id": "underdetermined-case",
+      "label": "One observed dark Moon fits both rival accounts",
+      "reading": {
+        "text": "Both teaching accounts predicted this same darkening, and it occurred. The observation therefore does not select one account over the other. Another observation could do more if their predictions differ. This case can later help distinguish a successful representation from a uniquely established cause.",
+        "attribution": "Authored teaching reconstruction; not a historical quotation."
+      }
+    }
+  ],
+  "created": [
+    {
+      "id": "aperture-board",
+      "label": "Aperture board"
+    },
+    {
+      "id": "image-box",
+      "label": "Image box"
+    },
+    {
+      "id": "camera-obscura",
+      "label": "Camera obscura: doorway top appears below"
+    },
+    {
+      "id": "ray-diagram",
+      "label": "Equal steps: H → lower; L → upper",
+      "reading": {
+        "text": "Use the corrected proof’s discipline: preserve equal relations rather than trust a sketch. Assume a straight light path in uniform air. Along one straight line, equal horizontal runs have equal vertical changes. H→O drops one unit; the equally long run beyond O drops one more, reaching the lower screen mark (−1). L→O rises one unit; continuing equally far rises one more, reaching the upper mark (+1). Thus H→lower and L→upper. The earlier equality reasoning helps work out this consequence; the old triangle proof does not establish the physical straight-path assumption. A ray is a drawn path, not a luminous thread.",
+        "attribution": "Authored two-lamp teaching adaptation in modern diagram notation, not a surviving experimental notebook or historical quotation. Based on Ibn al-Haytham, Optics I.6 §§85–87, A. I. Sabra translation (1989), pp.90–91."
+      }
+    },
+    {
+      "id": "crossed-rays",
+      "label": "Crossing paths invert the courtyard image",
+      "reading": {
+        "text": "The straight path from the doorway’s top crosses the aperture and reaches the lower part of the screen; the path from the paving reaches the upper part. This agrees with the inverted camera image. In the marked lamp setup the same geometry gives H→lower and L→upper. Paths cross at O, but a crossing drawn on paper alone does not show whether the light contributions remain separable. Covering just one lamp can test that claim.",
+        "attribution": "Authored two-lamp teaching adaptation in modern diagram notation, not a surviving experimental notebook or historical quotation. Based on Ibn al-Haytham, Optics I.6 §§85–87, A. I. Sabra translation (1989), pp.90–91."
+      }
+    },
+    {
+      "id": "predicted-spots",
+      "label": "Cover H → lower patch should vanish",
+      "reading": {
+        "text": "Prediction before consulting the trial: both lamps uncovered should give two patches, H at the lower mark and L at the upper. If each contribution continues independently through O, covering H should remove only the lower patch and leave the upper one. Uncover H: both return. Cover L instead: only the upper patch should vanish, leaving the lower one. The geometry tells us which patch belongs to which lamp; selective removal tests whether crossing makes their contributions inseparable.",
+        "attribution": "Authored two-lamp teaching adaptation in modern diagram notation, not a surviving experimental notebook or historical quotation. Based on Ibn al-Haytham, Optics I.6 §§85–87, A. I. Sabra translation (1989), pp.90–91."
+      }
+    },
+    {
+      "id": "comparison-record",
+      "label": "H covered: lower gone; L covered: upper gone",
+      "reading": {
+        "text": "Supplied observations for the authored trial, with lamps, aperture and receiving screen fixed:\nBoth uncovered: upper and lower patches present.\nH covered: lower patch absent; upper remains.\nH uncovered again: both present.\nL covered: upper patch absent; lower remains.\nL uncovered again: both present.\nEach disappearance matches the prediction. The record changes one cover condition at a time and includes restoration; it is not a claim that merely moving one lamp tested two simultaneous light contributions.",
+        "attribution": "Authored two-lamp teaching adaptation in modern diagram notation, not a surviving experimental notebook or historical quotation. Based on Ibn al-Haytham, Optics I.6 §§85–87, A. I. Sabra translation (1989), pp.90–91."
+      }
+    },
+    {
+      "id": "optical-model",
+      "label": "Crossing preserves H/lower and L/upper",
+      "reading": {
+        "text": "Geometry predicted H→lower and L→upper; the supplied trial removed just the corresponding patch whenever H or L was screened, and restored it when uncovered. Therefore, in this aperture arrangement crossing did not destroy source-to-patch correspondence. This counts against an inseparable-mixture account in which separate contributions could not emerge after meeting at O. The same straight-path representation explains the courtyard image’s inversion. Keep the distinction between a represented path, the supplied observation, and the supported conclusion; this is not a proof of every claim about light or sight.",
+        "attribution": "Authored two-lamp teaching adaptation in modern diagram notation, not a surviving experimental notebook or historical quotation. Based on Ibn al-Haytham, Optics I.6 §§85–87, A. I. Sabra translation (1989), pp.90–91."
+      }
+    },
+    {
+      "id": "optical-question",
+      "label": "Light path explained; eye sensing still open",
+      "reading": {
+        "text": "The earlier dark-Moon case showed why an observation can support a prediction without selecting a unique complete account. Here the selective-cover test supports separate light paths through the opening; it can reject the stated inseparable-mixture consequence. But a receiving screen does not sense. This trial does not decide how an eye senses light, what structures do the sensing, or how perception occurs: rival eye accounts could agree on every patch in this record. Do not turn success on light propagation into a complete theory of vision.",
+        "attribution": "Authored two-lamp teaching adaptation in modern diagram notation, not a surviving experimental notebook or historical quotation. Based on Ibn al-Haytham, Optics I.6 §§85–87, A. I. Sabra translation (1989), pp.90–91."
+      }
+    }
+  ]
+}

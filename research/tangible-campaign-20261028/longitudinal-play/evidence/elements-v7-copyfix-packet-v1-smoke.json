@@ -1,0 +1,1702 @@
+{
+  "result": {
+    "packet": "elements-v7-copyfix-packet-v1",
+    "passed": true,
+    "commands": 13,
+    "firstStageAutoAdvanced": true,
+    "missionAfterUndo": true,
+    "expectationRequired": true,
+    "rejectionsPreserved": true,
+    "stoppingEnforced": true,
+    "fullCompressedAuditVerified": true,
+    "readTested": false,
+    "scope": "source-aware preparer smoke; not source-blind trial, human evidence, or browser testing"
+  },
+  "calls": [
+    {
+      "op": "start",
+      "args": [],
+      "exit": 0,
+      "output": {
+        "evidenceClass": "simulated logical play; not human evidence",
+        "session": "smoke-preparation-final-01",
+        "commandNumber": 1,
+        "integrity": {
+          "verified": true,
+          "manifestSha256": "611bc2aab15dc8d1a1e04c0bb6f18f96e154f434e0b859b48a90e771e85a06f9"
+        },
+        "automaticTransitions": [],
+        "view": {
+          "scenario": {
+            "id": "elements-gathering-refinement-v7",
+            "title": "Elements: A River Worth Returning To",
+            "premise": "Starting from four storybook elements, travel from an orchard to a coastal gathering. Make useful things for people you meet. The world remembers what you leave behind."
+          },
+          "stage": {
+            "number": 1,
+            "title": "Four beginnings",
+            "speaker": "The keeper",
+            "motivation": "The river gathering is a month away. We begin with earth, water, air and fire. Make a bowl for supper and bricks for a hearth."
+          },
+          "area": {
+            "id": "area-beginnings",
+            "label": "Four beginnings",
+            "enteredAtStage": 0
+          },
+          "areas": [
+            {
+              "id": "area-beginnings",
+              "label": "Four beginnings",
+              "current": true,
+              "thingCount": 4
+            }
+          ],
+          "objectives": [
+            {
+              "id": "beginnings-bowl",
+              "text": "Make Bowl",
+              "satisfied": false
+            },
+            {
+              "id": "beginnings-brick",
+              "text": "Make Brick",
+              "satisfied": false
+            }
+          ],
+          "newSupplies": [],
+          "things": [
+            {
+              "id": "earth",
+              "label": "Earth",
+              "x": 52,
+              "y": 56,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "water",
+              "label": "Water",
+              "x": 152,
+              "y": 56,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "air",
+              "label": "Air",
+              "x": 252,
+              "y": 56,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "fire",
+              "label": "Fire",
+              "x": 52,
+              "y": 106,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            }
+          ],
+          "locations": [],
+          "completed": false,
+          "successfulCombinations": 0
+        }
+      }
+    },
+    {
+      "op": "drop",
+      "args": [
+        "earth",
+        "earth"
+      ],
+      "exit": 2,
+      "output": {
+        "accepted": false,
+        "protocolError": "Before acting, supply --expect with the meaning or outcome you expect from this action.",
+        "preservedRejection": true
+      }
+    },
+    {
+      "op": "drop",
+      "args": [
+        "earth",
+        "earth"
+      ],
+      "expect": "Source-aware smoke: self-drop must reject, not play evidence.",
+      "exit": 0,
+      "output": {
+        "evidenceClass": "simulated logical play; not human evidence",
+        "session": "smoke-preparation-final-01",
+        "commandNumber": 2,
+        "integrity": {
+          "verified": true,
+          "manifestSha256": "611bc2aab15dc8d1a1e04c0bb6f18f96e154f434e0b859b48a90e771e85a06f9"
+        },
+        "expectedMeaning": "Source-aware smoke: self-drop must reject, not play evidence.",
+        "accepted": false,
+        "gesture": {
+          "source": "earth",
+          "target": "earth"
+        },
+        "resolvedAction": {
+          "type": "combine",
+          "a": "earth",
+          "b": "earth"
+        },
+        "visibleOutcome": "No visible change.",
+        "automaticTransitions": [],
+        "view": {
+          "scenario": {
+            "id": "elements-gathering-refinement-v7",
+            "title": "Elements: A River Worth Returning To",
+            "premise": "Starting from four storybook elements, travel from an orchard to a coastal gathering. Make useful things for people you meet. The world remembers what you leave behind."
+          },
+          "stage": {
+            "number": 1,
+            "title": "Four beginnings",
+            "speaker": "The keeper",
+            "motivation": "The river gathering is a month away. We begin with earth, water, air and fire. Make a bowl for supper and bricks for a hearth."
+          },
+          "area": {
+            "id": "area-beginnings",
+            "label": "Four beginnings",
+            "enteredAtStage": 0
+          },
+          "areas": [
+            {
+              "id": "area-beginnings",
+              "label": "Four beginnings",
+              "current": true,
+              "thingCount": 4
+            }
+          ],
+          "objectives": [
+            {
+              "id": "beginnings-bowl",
+              "text": "Make Bowl",
+              "satisfied": false
+            },
+            {
+              "id": "beginnings-brick",
+              "text": "Make Brick",
+              "satisfied": false
+            }
+          ],
+          "newSupplies": [],
+          "things": [
+            {
+              "id": "earth",
+              "label": "Earth",
+              "x": 52,
+              "y": 56,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "water",
+              "label": "Water",
+              "x": 152,
+              "y": 56,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "air",
+              "label": "Air",
+              "x": 252,
+              "y": 56,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "fire",
+              "label": "Fire",
+              "x": 52,
+              "y": 106,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            }
+          ],
+          "locations": [],
+          "completed": false,
+          "successfulCombinations": 0
+        }
+      }
+    },
+    {
+      "op": "highlight",
+      "args": [
+        "earth"
+      ],
+      "expect": "Source-aware smoke: inspect highlight surface, not play evidence.",
+      "exit": 0,
+      "output": {
+        "evidenceClass": "simulated logical play; not human evidence",
+        "session": "smoke-preparation-final-01",
+        "commandNumber": 3,
+        "integrity": {
+          "verified": true,
+          "manifestSha256": "611bc2aab15dc8d1a1e04c0bb6f18f96e154f434e0b859b48a90e771e85a06f9"
+        },
+        "expectedMeaning": "Source-aware smoke: inspect highlight surface, not play evidence.",
+        "selection": "earth",
+        "highlighted": [
+          {
+            "id": "water",
+            "label": "Water"
+          },
+          {
+            "id": "air",
+            "label": "Air"
+          },
+          {
+            "id": "fire",
+            "label": "Fire"
+          }
+        ],
+        "highlightMeaning": "These existing tiles light up on selection. No output preview or recipe directions are supplied.",
+        "automaticTransitions": [],
+        "view": {
+          "scenario": {
+            "id": "elements-gathering-refinement-v7",
+            "title": "Elements: A River Worth Returning To",
+            "premise": "Starting from four storybook elements, travel from an orchard to a coastal gathering. Make useful things for people you meet. The world remembers what you leave behind."
+          },
+          "stage": {
+            "number": 1,
+            "title": "Four beginnings",
+            "speaker": "The keeper",
+            "motivation": "The river gathering is a month away. We begin with earth, water, air and fire. Make a bowl for supper and bricks for a hearth."
+          },
+          "area": {
+            "id": "area-beginnings",
+            "label": "Four beginnings",
+            "enteredAtStage": 0
+          },
+          "areas": [
+            {
+              "id": "area-beginnings",
+              "label": "Four beginnings",
+              "current": true,
+              "thingCount": 4
+            }
+          ],
+          "objectives": [
+            {
+              "id": "beginnings-bowl",
+              "text": "Make Bowl",
+              "satisfied": false
+            },
+            {
+              "id": "beginnings-brick",
+              "text": "Make Brick",
+              "satisfied": false
+            }
+          ],
+          "newSupplies": [],
+          "things": [
+            {
+              "id": "earth",
+              "label": "Earth",
+              "x": 52,
+              "y": 56,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "water",
+              "label": "Water",
+              "x": 152,
+              "y": 56,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "air",
+              "label": "Air",
+              "x": 252,
+              "y": 56,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "fire",
+              "label": "Fire",
+              "x": 52,
+              "y": 106,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            }
+          ],
+          "locations": [],
+          "completed": false,
+          "successfulCombinations": 0
+        }
+      }
+    },
+    {
+      "op": "drop",
+      "args": [
+        "earth",
+        "water"
+      ],
+      "expect": "Source-aware fixture smoke using authored first-stage action; NOT player reasoning or trial evidence.",
+      "exit": 0,
+      "output": {
+        "evidenceClass": "simulated logical play; not human evidence",
+        "session": "smoke-preparation-final-01",
+        "commandNumber": 4,
+        "integrity": {
+          "verified": true,
+          "manifestSha256": "611bc2aab15dc8d1a1e04c0bb6f18f96e154f434e0b859b48a90e771e85a06f9"
+        },
+        "expectedMeaning": "Source-aware fixture smoke using authored first-stage action; NOT player reasoning or trial evidence.",
+        "accepted": true,
+        "gesture": {
+          "source": "earth",
+          "target": "water"
+        },
+        "resolvedAction": {
+          "type": "combine",
+          "a": "earth",
+          "b": "water"
+        },
+        "automaticTransitions": [],
+        "view": {
+          "scenario": {
+            "id": "elements-gathering-refinement-v7",
+            "title": "Elements: A River Worth Returning To",
+            "premise": "Starting from four storybook elements, travel from an orchard to a coastal gathering. Make useful things for people you meet. The world remembers what you leave behind."
+          },
+          "stage": {
+            "number": 1,
+            "title": "Four beginnings",
+            "speaker": "The keeper",
+            "motivation": "The river gathering is a month away. We begin with earth, water, air and fire. Make a bowl for supper and bricks for a hearth."
+          },
+          "area": {
+            "id": "area-beginnings",
+            "label": "Four beginnings",
+            "enteredAtStage": 0
+          },
+          "areas": [
+            {
+              "id": "area-beginnings",
+              "label": "Four beginnings",
+              "current": true,
+              "thingCount": 5
+            }
+          ],
+          "objectives": [
+            {
+              "id": "beginnings-bowl",
+              "text": "Make Bowl",
+              "satisfied": false
+            },
+            {
+              "id": "beginnings-brick",
+              "text": "Make Brick",
+              "satisfied": false
+            }
+          ],
+          "newSupplies": [],
+          "things": [
+            {
+              "id": "earth",
+              "label": "Earth",
+              "x": 52,
+              "y": 56,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "water",
+              "label": "Water",
+              "x": 152,
+              "y": 56,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "air",
+              "label": "Air",
+              "x": 252,
+              "y": 56,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "fire",
+              "label": "Fire",
+              "x": 52,
+              "y": 106,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "clay",
+              "label": "Clay",
+              "x": 250,
+              "y": 102,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            }
+          ],
+          "locations": [],
+          "completed": false,
+          "successfulCombinations": 1
+        }
+      }
+    },
+    {
+      "op": "drop",
+      "args": [
+        "earth",
+        "fire"
+      ],
+      "expect": "Source-aware fixture smoke using authored first-stage action; NOT player reasoning or trial evidence.",
+      "exit": 0,
+      "output": {
+        "evidenceClass": "simulated logical play; not human evidence",
+        "session": "smoke-preparation-final-01",
+        "commandNumber": 5,
+        "integrity": {
+          "verified": true,
+          "manifestSha256": "611bc2aab15dc8d1a1e04c0bb6f18f96e154f434e0b859b48a90e771e85a06f9"
+        },
+        "expectedMeaning": "Source-aware fixture smoke using authored first-stage action; NOT player reasoning or trial evidence.",
+        "accepted": true,
+        "gesture": {
+          "source": "earth",
+          "target": "fire"
+        },
+        "resolvedAction": {
+          "type": "combine",
+          "a": "earth",
+          "b": "fire"
+        },
+        "automaticTransitions": [],
+        "view": {
+          "scenario": {
+            "id": "elements-gathering-refinement-v7",
+            "title": "Elements: A River Worth Returning To",
+            "premise": "Starting from four storybook elements, travel from an orchard to a coastal gathering. Make useful things for people you meet. The world remembers what you leave behind."
+          },
+          "stage": {
+            "number": 1,
+            "title": "Four beginnings",
+            "speaker": "The keeper",
+            "motivation": "The river gathering is a month away. We begin with earth, water, air and fire. Make a bowl for supper and bricks for a hearth."
+          },
+          "area": {
+            "id": "area-beginnings",
+            "label": "Four beginnings",
+            "enteredAtStage": 0
+          },
+          "areas": [
+            {
+              "id": "area-beginnings",
+              "label": "Four beginnings",
+              "current": true,
+              "thingCount": 6
+            }
+          ],
+          "objectives": [
+            {
+              "id": "beginnings-bowl",
+              "text": "Make Bowl",
+              "satisfied": false
+            },
+            {
+              "id": "beginnings-brick",
+              "text": "Make Brick",
+              "satisfied": false
+            }
+          ],
+          "newSupplies": [],
+          "things": [
+            {
+              "id": "earth",
+              "label": "Earth",
+              "x": 52,
+              "y": 56,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "water",
+              "label": "Water",
+              "x": 152,
+              "y": 56,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "air",
+              "label": "Air",
+              "x": 252,
+              "y": 56,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "fire",
+              "label": "Fire",
+              "x": 52,
+              "y": 106,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "clay",
+              "label": "Clay",
+              "x": 250,
+              "y": 102,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "stone",
+              "label": "Stone",
+              "x": 150,
+              "y": 152,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            }
+          ],
+          "locations": [],
+          "completed": false,
+          "successfulCombinations": 2
+        }
+      }
+    },
+    {
+      "op": "drop",
+      "args": [
+        "clay",
+        "stone"
+      ],
+      "expect": "Source-aware fixture smoke using authored first-stage action; NOT player reasoning or trial evidence.",
+      "exit": 0,
+      "output": {
+        "evidenceClass": "simulated logical play; not human evidence",
+        "session": "smoke-preparation-final-01",
+        "commandNumber": 6,
+        "integrity": {
+          "verified": true,
+          "manifestSha256": "611bc2aab15dc8d1a1e04c0bb6f18f96e154f434e0b859b48a90e771e85a06f9"
+        },
+        "expectedMeaning": "Source-aware fixture smoke using authored first-stage action; NOT player reasoning or trial evidence.",
+        "accepted": true,
+        "gesture": {
+          "source": "clay",
+          "target": "stone"
+        },
+        "resolvedAction": {
+          "type": "combine",
+          "a": "clay",
+          "b": "stone"
+        },
+        "automaticTransitions": [],
+        "view": {
+          "scenario": {
+            "id": "elements-gathering-refinement-v7",
+            "title": "Elements: A River Worth Returning To",
+            "premise": "Starting from four storybook elements, travel from an orchard to a coastal gathering. Make useful things for people you meet. The world remembers what you leave behind."
+          },
+          "stage": {
+            "number": 1,
+            "title": "Four beginnings",
+            "speaker": "The keeper",
+            "motivation": "The river gathering is a month away. We begin with earth, water, air and fire. Make a bowl for supper and bricks for a hearth."
+          },
+          "area": {
+            "id": "area-beginnings",
+            "label": "Four beginnings",
+            "enteredAtStage": 0
+          },
+          "areas": [
+            {
+              "id": "area-beginnings",
+              "label": "Four beginnings",
+              "current": true,
+              "thingCount": 7
+            }
+          ],
+          "objectives": [
+            {
+              "id": "beginnings-bowl",
+              "text": "Make Bowl",
+              "satisfied": true
+            },
+            {
+              "id": "beginnings-brick",
+              "text": "Make Brick",
+              "satisfied": false
+            }
+          ],
+          "newSupplies": [],
+          "things": [
+            {
+              "id": "earth",
+              "label": "Earth",
+              "x": 52,
+              "y": 56,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "water",
+              "label": "Water",
+              "x": 152,
+              "y": 56,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "air",
+              "label": "Air",
+              "x": 252,
+              "y": 56,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "fire",
+              "label": "Fire",
+              "x": 52,
+              "y": 106,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "clay",
+              "label": "Clay",
+              "x": 250,
+              "y": 102,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "stone",
+              "label": "Stone",
+              "x": 150,
+              "y": 152,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "bowl",
+              "label": "Bowl",
+              "x": 248,
+              "y": 198,
+              "location": null,
+              "gold": true,
+              "slots": [],
+              "components": [],
+              "readable": false
+            }
+          ],
+          "locations": [],
+          "completed": false,
+          "successfulCombinations": 3
+        }
+      }
+    },
+    {
+      "op": "drop",
+      "args": [
+        "clay",
+        "fire"
+      ],
+      "expect": "Source-aware fixture smoke using authored first-stage action; NOT player reasoning or trial evidence.",
+      "exit": 0,
+      "output": {
+        "evidenceClass": "simulated logical play; not human evidence",
+        "session": "smoke-preparation-final-01",
+        "commandNumber": 7,
+        "integrity": {
+          "verified": true,
+          "manifestSha256": "611bc2aab15dc8d1a1e04c0bb6f18f96e154f434e0b859b48a90e771e85a06f9"
+        },
+        "expectedMeaning": "Source-aware fixture smoke using authored first-stage action; NOT player reasoning or trial evidence.",
+        "accepted": true,
+        "gesture": {
+          "source": "clay",
+          "target": "fire"
+        },
+        "resolvedAction": {
+          "type": "combine",
+          "a": "clay",
+          "b": "fire"
+        },
+        "automaticTransitions": [
+          {
+            "completedStage": 1,
+            "visibleFinalCreation": {
+              "scenario": {
+                "id": "elements-gathering-refinement-v7",
+                "title": "Elements: A River Worth Returning To",
+                "premise": "Starting from four storybook elements, travel from an orchard to a coastal gathering. Make useful things for people you meet. The world remembers what you leave behind."
+              },
+              "stage": {
+                "number": 1,
+                "title": "Four beginnings",
+                "speaker": "The keeper",
+                "motivation": "The river gathering is a month away. We begin with earth, water, air and fire. Make a bowl for supper and bricks for a hearth."
+              },
+              "area": {
+                "id": "area-beginnings",
+                "label": "Four beginnings",
+                "enteredAtStage": 0
+              },
+              "areas": [
+                {
+                  "id": "area-beginnings",
+                  "label": "Four beginnings",
+                  "current": true,
+                  "thingCount": 8
+                }
+              ],
+              "objectives": [
+                {
+                  "id": "beginnings-bowl",
+                  "text": "Make Bowl",
+                  "satisfied": true
+                },
+                {
+                  "id": "beginnings-brick",
+                  "text": "Make Brick",
+                  "satisfied": true
+                }
+              ],
+              "newSupplies": [],
+              "things": [
+                {
+                  "id": "earth",
+                  "label": "Earth",
+                  "x": 52,
+                  "y": 56,
+                  "location": null,
+                  "gold": false,
+                  "slots": [],
+                  "components": [],
+                  "readable": false
+                },
+                {
+                  "id": "water",
+                  "label": "Water",
+                  "x": 152,
+                  "y": 56,
+                  "location": null,
+                  "gold": false,
+                  "slots": [],
+                  "components": [],
+                  "readable": false
+                },
+                {
+                  "id": "air",
+                  "label": "Air",
+                  "x": 252,
+                  "y": 56,
+                  "location": null,
+                  "gold": false,
+                  "slots": [],
+                  "components": [],
+                  "readable": false
+                },
+                {
+                  "id": "fire",
+                  "label": "Fire",
+                  "x": 52,
+                  "y": 106,
+                  "location": null,
+                  "gold": false,
+                  "slots": [],
+                  "components": [],
+                  "readable": false
+                },
+                {
+                  "id": "clay",
+                  "label": "Clay",
+                  "x": 250,
+                  "y": 102,
+                  "location": null,
+                  "gold": false,
+                  "slots": [],
+                  "components": [],
+                  "readable": false
+                },
+                {
+                  "id": "stone",
+                  "label": "Stone",
+                  "x": 150,
+                  "y": 152,
+                  "location": null,
+                  "gold": false,
+                  "slots": [],
+                  "components": [],
+                  "readable": false
+                },
+                {
+                  "id": "bowl",
+                  "label": "Bowl",
+                  "x": 248,
+                  "y": 198,
+                  "location": null,
+                  "gold": true,
+                  "slots": [],
+                  "components": [],
+                  "readable": false
+                },
+                {
+                  "id": "brick",
+                  "label": "Brick",
+                  "x": 52,
+                  "y": 152,
+                  "location": null,
+                  "gold": true,
+                  "slots": [],
+                  "components": [],
+                  "readable": false
+                }
+              ],
+              "locations": [],
+              "completed": false,
+              "successfulCombinations": 4
+            },
+            "next": {
+              "scenario": {
+                "id": "elements-gathering-refinement-v7",
+                "title": "Elements: A River Worth Returning To",
+                "premise": "Starting from four storybook elements, travel from an orchard to a coastal gathering. Make useful things for people you meet. The world remembers what you leave behind."
+              },
+              "stage": {
+                "number": 2,
+                "title": "The first supper",
+                "speaker": "The baker",
+                "motivation": "Bring our useful things to the orchard. Bake flatbread and pour fruit juice; we have a long walk tomorrow."
+              },
+              "area": {
+                "id": "area-supper",
+                "label": "The first supper",
+                "enteredAtStage": 1
+              },
+              "areas": [
+                {
+                  "id": "area-beginnings",
+                  "label": "Four beginnings",
+                  "current": false,
+                  "thingCount": 3
+                },
+                {
+                  "id": "area-supper",
+                  "label": "The first supper",
+                  "current": true,
+                  "thingCount": 5
+                }
+              ],
+              "objectives": [
+                {
+                  "id": "supper-flatbread",
+                  "text": "Make Flatbread",
+                  "satisfied": false
+                },
+                {
+                  "id": "supper-juice",
+                  "text": "Make Fruit juice",
+                  "satisfied": false
+                }
+              ],
+              "newSupplies": [],
+              "things": [
+                {
+                  "id": "earth",
+                  "label": "Earth",
+                  "x": 52,
+                  "y": 56,
+                  "location": null,
+                  "gold": false,
+                  "slots": [],
+                  "components": [],
+                  "readable": false
+                },
+                {
+                  "id": "water",
+                  "label": "Water",
+                  "x": 152,
+                  "y": 56,
+                  "location": null,
+                  "gold": false,
+                  "slots": [],
+                  "components": [],
+                  "readable": false
+                },
+                {
+                  "id": "air",
+                  "label": "Air",
+                  "x": 252,
+                  "y": 56,
+                  "location": null,
+                  "gold": false,
+                  "slots": [],
+                  "components": [],
+                  "readable": false
+                },
+                {
+                  "id": "fire",
+                  "label": "Fire",
+                  "x": 52,
+                  "y": 106,
+                  "location": null,
+                  "gold": false,
+                  "slots": [],
+                  "components": [],
+                  "readable": false
+                },
+                {
+                  "id": "stone",
+                  "label": "Stone",
+                  "x": 150,
+                  "y": 152,
+                  "location": null,
+                  "gold": false,
+                  "slots": [],
+                  "components": [],
+                  "readable": false
+                }
+              ],
+              "locations": [],
+              "completed": false,
+              "successfulCombinations": 4
+            }
+          }
+        ],
+        "view": {
+          "scenario": {
+            "id": "elements-gathering-refinement-v7",
+            "title": "Elements: A River Worth Returning To",
+            "premise": "Starting from four storybook elements, travel from an orchard to a coastal gathering. Make useful things for people you meet. The world remembers what you leave behind."
+          },
+          "stage": {
+            "number": 2,
+            "title": "The first supper",
+            "speaker": "The baker",
+            "motivation": "Bring our useful things to the orchard. Bake flatbread and pour fruit juice; we have a long walk tomorrow."
+          },
+          "area": {
+            "id": "area-supper",
+            "label": "The first supper",
+            "enteredAtStage": 1
+          },
+          "areas": [
+            {
+              "id": "area-beginnings",
+              "label": "Four beginnings",
+              "current": false,
+              "thingCount": 3
+            },
+            {
+              "id": "area-supper",
+              "label": "The first supper",
+              "current": true,
+              "thingCount": 5
+            }
+          ],
+          "objectives": [
+            {
+              "id": "supper-flatbread",
+              "text": "Make Flatbread",
+              "satisfied": false
+            },
+            {
+              "id": "supper-juice",
+              "text": "Make Fruit juice",
+              "satisfied": false
+            }
+          ],
+          "newSupplies": [],
+          "things": [
+            {
+              "id": "earth",
+              "label": "Earth",
+              "x": 52,
+              "y": 56,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "water",
+              "label": "Water",
+              "x": 152,
+              "y": 56,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "air",
+              "label": "Air",
+              "x": 252,
+              "y": 56,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "fire",
+              "label": "Fire",
+              "x": 52,
+              "y": 106,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "stone",
+              "label": "Stone",
+              "x": 150,
+              "y": 152,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            }
+          ],
+          "locations": [],
+          "completed": false,
+          "successfulCombinations": 4
+        }
+      }
+    },
+    {
+      "op": "undo",
+      "args": [],
+      "expect": "Source-aware smoke: undo the automatic handoff to its completed previous stage.",
+      "exit": 0,
+      "output": {
+        "evidenceClass": "simulated logical play; not human evidence",
+        "session": "smoke-preparation-final-01",
+        "commandNumber": 8,
+        "integrity": {
+          "verified": true,
+          "manifestSha256": "611bc2aab15dc8d1a1e04c0bb6f18f96e154f434e0b859b48a90e771e85a06f9"
+        },
+        "expectedMeaning": "Source-aware smoke: undo the automatic handoff to its completed previous stage.",
+        "accepted": true,
+        "automaticTransitions": [],
+        "view": {
+          "scenario": {
+            "id": "elements-gathering-refinement-v7",
+            "title": "Elements: A River Worth Returning To",
+            "premise": "Starting from four storybook elements, travel from an orchard to a coastal gathering. Make useful things for people you meet. The world remembers what you leave behind."
+          },
+          "stage": {
+            "number": 1,
+            "title": "Four beginnings",
+            "speaker": "The keeper",
+            "motivation": "The river gathering is a month away. We begin with earth, water, air and fire. Make a bowl for supper and bricks for a hearth."
+          },
+          "area": {
+            "id": "area-beginnings",
+            "label": "Four beginnings",
+            "enteredAtStage": 0
+          },
+          "areas": [
+            {
+              "id": "area-beginnings",
+              "label": "Four beginnings",
+              "current": true,
+              "thingCount": 8
+            }
+          ],
+          "objectives": [
+            {
+              "id": "beginnings-bowl",
+              "text": "Make Bowl",
+              "satisfied": true
+            },
+            {
+              "id": "beginnings-brick",
+              "text": "Make Brick",
+              "satisfied": true
+            }
+          ],
+          "newSupplies": [],
+          "things": [
+            {
+              "id": "earth",
+              "label": "Earth",
+              "x": 52,
+              "y": 56,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "water",
+              "label": "Water",
+              "x": 152,
+              "y": 56,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "air",
+              "label": "Air",
+              "x": 252,
+              "y": 56,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "fire",
+              "label": "Fire",
+              "x": 52,
+              "y": 106,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "clay",
+              "label": "Clay",
+              "x": 250,
+              "y": 102,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "stone",
+              "label": "Stone",
+              "x": 150,
+              "y": 152,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "bowl",
+              "label": "Bowl",
+              "x": 248,
+              "y": 198,
+              "location": null,
+              "gold": true,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "brick",
+              "label": "Brick",
+              "x": 52,
+              "y": 152,
+              "location": null,
+              "gold": true,
+              "slots": [],
+              "components": [],
+              "readable": false
+            }
+          ],
+          "locations": [],
+          "completed": false,
+          "successfulCombinations": 4
+        }
+      }
+    },
+    {
+      "op": "mission",
+      "args": [],
+      "exit": 0,
+      "output": {
+        "evidenceClass": "simulated logical play; not human evidence",
+        "session": "smoke-preparation-final-01",
+        "commandNumber": 9,
+        "integrity": {
+          "verified": true,
+          "manifestSha256": "611bc2aab15dc8d1a1e04c0bb6f18f96e154f434e0b859b48a90e771e85a06f9"
+        },
+        "automaticTransitions": [],
+        "view": {
+          "scenario": {
+            "id": "elements-gathering-refinement-v7",
+            "title": "Elements: A River Worth Returning To",
+            "premise": "Starting from four storybook elements, travel from an orchard to a coastal gathering. Make useful things for people you meet. The world remembers what you leave behind."
+          },
+          "stage": {
+            "number": 2,
+            "title": "The first supper",
+            "speaker": "The baker",
+            "motivation": "Bring our useful things to the orchard. Bake flatbread and pour fruit juice; we have a long walk tomorrow."
+          },
+          "area": {
+            "id": "area-supper",
+            "label": "The first supper",
+            "enteredAtStage": 1
+          },
+          "areas": [
+            {
+              "id": "area-beginnings",
+              "label": "Four beginnings",
+              "current": false,
+              "thingCount": 3
+            },
+            {
+              "id": "area-supper",
+              "label": "The first supper",
+              "current": true,
+              "thingCount": 5
+            }
+          ],
+          "objectives": [
+            {
+              "id": "supper-flatbread",
+              "text": "Make Flatbread",
+              "satisfied": false
+            },
+            {
+              "id": "supper-juice",
+              "text": "Make Fruit juice",
+              "satisfied": false
+            }
+          ],
+          "newSupplies": [],
+          "things": [
+            {
+              "id": "earth",
+              "label": "Earth",
+              "x": 52,
+              "y": 56,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "water",
+              "label": "Water",
+              "x": 152,
+              "y": 56,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "air",
+              "label": "Air",
+              "x": 252,
+              "y": 56,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "fire",
+              "label": "Fire",
+              "x": 52,
+              "y": 106,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "stone",
+              "label": "Stone",
+              "x": 150,
+              "y": 152,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            }
+          ],
+          "locations": [],
+          "completed": false,
+          "successfulCombinations": 4
+        }
+      }
+    },
+    {
+      "op": "note",
+      "args": [
+        "Source-aware preparation smoke only; exclude the entire session from source-blind metrics."
+      ],
+      "exit": 0,
+      "output": {
+        "evidenceClass": "simulated logical play; not human evidence",
+        "session": "smoke-preparation-final-01",
+        "commandNumber": 10,
+        "integrity": {
+          "verified": true,
+          "manifestSha256": "611bc2aab15dc8d1a1e04c0bb6f18f96e154f434e0b859b48a90e771e85a06f9"
+        },
+        "note": "Source-aware preparation smoke only; exclude the entire session from source-blind metrics.",
+        "automaticTransitions": [],
+        "view": {
+          "scenario": {
+            "id": "elements-gathering-refinement-v7",
+            "title": "Elements: A River Worth Returning To",
+            "premise": "Starting from four storybook elements, travel from an orchard to a coastal gathering. Make useful things for people you meet. The world remembers what you leave behind."
+          },
+          "stage": {
+            "number": 2,
+            "title": "The first supper",
+            "speaker": "The baker",
+            "motivation": "Bring our useful things to the orchard. Bake flatbread and pour fruit juice; we have a long walk tomorrow."
+          },
+          "area": {
+            "id": "area-supper",
+            "label": "The first supper",
+            "enteredAtStage": 1
+          },
+          "areas": [
+            {
+              "id": "area-beginnings",
+              "label": "Four beginnings",
+              "current": false,
+              "thingCount": 3
+            },
+            {
+              "id": "area-supper",
+              "label": "The first supper",
+              "current": true,
+              "thingCount": 5
+            }
+          ],
+          "objectives": [
+            {
+              "id": "supper-flatbread",
+              "text": "Make Flatbread",
+              "satisfied": false
+            },
+            {
+              "id": "supper-juice",
+              "text": "Make Fruit juice",
+              "satisfied": false
+            }
+          ],
+          "newSupplies": [],
+          "things": [
+            {
+              "id": "earth",
+              "label": "Earth",
+              "x": 52,
+              "y": 56,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "water",
+              "label": "Water",
+              "x": 152,
+              "y": 56,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "air",
+              "label": "Air",
+              "x": 252,
+              "y": 56,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "fire",
+              "label": "Fire",
+              "x": 52,
+              "y": 106,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "stone",
+              "label": "Stone",
+              "x": 150,
+              "y": 152,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            }
+          ],
+          "locations": [],
+          "completed": false,
+          "successfulCombinations": 4
+        }
+      }
+    },
+    {
+      "op": "stop",
+      "args": [
+        "Preparation smoke completed; not a simulated player decision."
+      ],
+      "exit": 0,
+      "output": {
+        "evidenceClass": "simulated logical play; not human evidence",
+        "session": "smoke-preparation-final-01",
+        "commandNumber": 11,
+        "integrity": {
+          "verified": true,
+          "manifestSha256": "611bc2aab15dc8d1a1e04c0bb6f18f96e154f434e0b859b48a90e771e85a06f9"
+        },
+        "stopped": true,
+        "reason": "Preparation smoke completed; not a simulated player decision.",
+        "automaticTransitions": [],
+        "view": {
+          "scenario": {
+            "id": "elements-gathering-refinement-v7",
+            "title": "Elements: A River Worth Returning To",
+            "premise": "Starting from four storybook elements, travel from an orchard to a coastal gathering. Make useful things for people you meet. The world remembers what you leave behind."
+          },
+          "stage": {
+            "number": 2,
+            "title": "The first supper",
+            "speaker": "The baker",
+            "motivation": "Bring our useful things to the orchard. Bake flatbread and pour fruit juice; we have a long walk tomorrow."
+          },
+          "area": {
+            "id": "area-supper",
+            "label": "The first supper",
+            "enteredAtStage": 1
+          },
+          "areas": [
+            {
+              "id": "area-beginnings",
+              "label": "Four beginnings",
+              "current": false,
+              "thingCount": 3
+            },
+            {
+              "id": "area-supper",
+              "label": "The first supper",
+              "current": true,
+              "thingCount": 5
+            }
+          ],
+          "objectives": [
+            {
+              "id": "supper-flatbread",
+              "text": "Make Flatbread",
+              "satisfied": false
+            },
+            {
+              "id": "supper-juice",
+              "text": "Make Fruit juice",
+              "satisfied": false
+            }
+          ],
+          "newSupplies": [],
+          "things": [
+            {
+              "id": "earth",
+              "label": "Earth",
+              "x": 52,
+              "y": 56,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "water",
+              "label": "Water",
+              "x": 152,
+              "y": 56,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "air",
+              "label": "Air",
+              "x": 252,
+              "y": 56,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "fire",
+              "label": "Fire",
+              "x": 52,
+              "y": 106,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "stone",
+              "label": "Stone",
+              "x": 150,
+              "y": 152,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            }
+          ],
+          "locations": [],
+          "completed": false,
+          "successfulCombinations": 4
+        }
+      }
+    },
+    {
+      "op": "drop",
+      "args": [
+        "earth",
+        "earth"
+      ],
+      "expect": "Source-aware smoke: stopped sessions must reject gameplay.",
+      "exit": 2,
+      "output": {
+        "accepted": false,
+        "protocolError": "Session was voluntarily stopped; preserve its result. Only view, mission and note remain available.",
+        "preservedRejection": true
+      }
+    }
+  ]
+}

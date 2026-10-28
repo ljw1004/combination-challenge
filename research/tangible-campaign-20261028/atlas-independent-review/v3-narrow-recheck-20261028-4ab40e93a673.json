@@ -1,0 +1,242 @@
+{
+  "date": "2026-10-28",
+  "kind": "Narrow author-aware v3 arithmetic and dependency recheck; not fresh play",
+  "sha256": "4ab40e93a67338b48189459b97a4b2ce730e22fccae76e26febb64e5fe93af52",
+  "parsedInputs": {
+    "clockMean": [
+      14,
+      6
+    ],
+    "apparentOffsetMinutes": -2,
+    "localTime": [
+      12,
+      0
+    ],
+    "localBoundSeconds": 20,
+    "clockRateSecondsPerDay": 6,
+    "days": 20,
+    "clockResidualSeconds": 20,
+    "rawLunarArcmin": 2720,
+    "netClearingArcmin": 10,
+    "clearedBoundArcmin": 1,
+    "table": [
+      {
+        "timeMin": 720,
+        "arcmin": 2669
+      },
+      {
+        "timeMin": 900,
+        "arcmin": 2759
+      }
+    ],
+    "rotation": 360,
+    "hours": 24,
+    "hazardArcmin": 1845,
+    "perBeat": 5,
+    "beatsPerMin": 60,
+    "minutes": 30,
+    "stock": 5,
+    "replenish": 1
+  },
+  "calculated": {
+    "degreesPerHour": 15,
+    "rawClockLongitudeArcmin": 1860,
+    "clockGainSeconds": 120,
+    "correctedApparentTimeMin": 842,
+    "clockLongitudeArcmin": 1830,
+    "clockBoundArcmin": 10,
+    "clockRangeArcmin": [
+      1820,
+      1840
+    ],
+    "clearedLunarArcmin": 2730,
+    "tableSlopeArcminPerMinute": 0.5,
+    "lunarReferenceTimeMin": 842,
+    "lunarLongitudeArcmin": 1830,
+    "lunarBoundArcmin": 35,
+    "lunarRangeArcmin": [
+      1795,
+      1865
+    ],
+    "entireClockBandEastOfHazard": true,
+    "closestEdgeGapArcmin": 5,
+    "throughputLitres": 9,
+    "oneWayLimitLitres": 6,
+    "oneWayShortfallLitres": 3
+  },
+  "dependency": {
+    "prefixAcceptedActions": 133,
+    "uniqueClockProducer": [
+      "make-clock-longitude"
+    ],
+    "uniqueLunarProducer": [
+      "make-lunar-longitude"
+    ],
+    "withoutLocal": {
+      "referenceTimeReachable": true,
+      "clockLongitudeReachable": false,
+      "correctedClockReachable": false,
+      "lunarLongitudeReachable": false
+    }
+  },
+  "runtimeBranches": [
+    {
+      "target": "lunar-longitude",
+      "remove": [
+        "sea-clock"
+      ],
+      "events": [
+        {
+          "recipe": "make-time-angle-rule",
+          "accepted": true,
+          "created": "time-angle-rule"
+        },
+        {
+          "recipe": "make-observed-sky-angle",
+          "accepted": true,
+          "created": "observed-sky-angle"
+        },
+        {
+          "recipe": "make-cleared-lunar-angle",
+          "accepted": true,
+          "created": "cleared-lunar-angle"
+        },
+        {
+          "recipe": "make-lunar-reference-time",
+          "accepted": true,
+          "created": "lunar-reference-time"
+        },
+        {
+          "recipe": "make-lunar-time-difference",
+          "accepted": true,
+          "created": "lunar-time-difference"
+        },
+        {
+          "recipe": "make-lunar-longitude",
+          "accepted": true,
+          "created": "lunar-longitude"
+        }
+      ],
+      "produced": true
+    },
+    {
+      "target": "corrected-clock-position",
+      "remove": [
+        "lunar-distance",
+        "nautical-table"
+      ],
+      "events": [
+        {
+          "recipe": "make-time-angle-rule",
+          "accepted": true,
+          "created": "time-angle-rule"
+        },
+        {
+          "action": {
+            "type": "place",
+            "item": "sea-clock",
+            "location": "sea-trial"
+          },
+          "accepted": true
+        },
+        {
+          "recipe": "make-voyage-clock-record",
+          "accepted": true,
+          "created": "voyage-clock-record"
+        },
+        {
+          "recipe": "make-apparent-clock",
+          "accepted": true,
+          "created": "apparent-clock"
+        },
+        {
+          "recipe": "make-time-difference",
+          "accepted": true,
+          "created": "time-difference"
+        },
+        {
+          "recipe": "make-clock-longitude",
+          "accepted": true,
+          "created": "clock-longitude"
+        },
+        {
+          "recipe": "make-corrected-clock-position",
+          "accepted": true,
+          "created": "corrected-clock-position"
+        }
+      ],
+      "produced": true
+    },
+    {
+      "target": "lunar-longitude",
+      "remove": [
+        "local-noon"
+      ],
+      "events": [
+        {
+          "recipe": "make-time-angle-rule",
+          "accepted": true,
+          "created": "time-angle-rule"
+        },
+        {
+          "recipe": "make-observed-sky-angle",
+          "accepted": true,
+          "created": "observed-sky-angle"
+        },
+        {
+          "recipe": "make-cleared-lunar-angle",
+          "accepted": true,
+          "created": "cleared-lunar-angle"
+        },
+        {
+          "recipe": "make-lunar-reference-time",
+          "accepted": true,
+          "created": "lunar-reference-time"
+        },
+        {
+          "recipe": "make-lunar-time-difference",
+          "accepted": false,
+          "message": "Choose a thing in this area."
+        }
+      ],
+      "produced": false
+    },
+    {
+      "target": "corrected-clock-position",
+      "remove": [
+        "local-noon"
+      ],
+      "events": [
+        {
+          "recipe": "make-time-angle-rule",
+          "accepted": true,
+          "created": "time-angle-rule"
+        },
+        {
+          "action": {
+            "type": "place",
+            "item": "sea-clock",
+            "location": "sea-trial"
+          },
+          "accepted": true
+        },
+        {
+          "recipe": "make-voyage-clock-record",
+          "accepted": true,
+          "created": "voyage-clock-record"
+        },
+        {
+          "recipe": "make-apparent-clock",
+          "accepted": true,
+          "created": "apparent-clock"
+        },
+        {
+          "recipe": "make-time-difference",
+          "accepted": false,
+          "message": "Choose a thing in this area."
+        }
+      ],
+      "produced": false
+    }
+  ]
+}

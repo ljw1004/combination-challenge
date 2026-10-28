@@ -1,0 +1,135 @@
+{
+  "createdAt": "2026-10-28T03:10:47.048Z",
+  "node": "v24.22.1",
+  "scenarioId": "causation-fitting-forms-probe-v2",
+  "sourceCommit": "3d3dbf36c7be473b30e09384f8a279b2fa2d9918",
+  "hashes": {
+    "pilot.json": "6f9d9d2dae257a78c5fcffb26b194f758cd554b5dd7e22ad7b2b316a99105e39",
+    "pilot.ts": "e3e423b123f92496fb3ba41ef32de56e86f8798a17555e96282f4bc51ebc46cd",
+    "routes.json": "aaa82ff3cf8710e4ecd1bfac799e01bc0e47fa0df446b7ed2876dc61d76d7963",
+    "play.ts": "8cee0e4cd3a11f9d32c38da3412d6c9bf87d0b577c0e9b3b2adfe4e4b6871419",
+    "../runtime/engine/model.ts": "cc37461ae19712a84b61d869d10c1a554214c0848e4dda2b3aa65525b4a19b08",
+    "../runtime/schema/scenario.ts": "30a0a3189d3a138b9d0bf7252317acc7f33caab8837e6815bd93a9efa71679d7",
+    "../runtime/schema/lifecycle.ts": "5f987a4b352b606b511a542cfb8f3274325e3da21bcfc9ea1cee6e46f32a1647"
+  },
+  "setup": {
+    "width": 360,
+    "sourceBlind": true,
+    "input": "DROP resolved by M.dropAction",
+    "automaticAdvance": true,
+    "gameplayExplanationToasts": false,
+    "partnerHelpAvailable": true,
+    "descriptionSurface": "logical playerView; may expose more description than browser"
+  },
+  "initialView": {
+    "scenario": {
+      "id": "causation-fitting-forms-probe-v2",
+      "title": "The Quarry Workshop",
+      "premise": "A small workshop supplying the village path makers."
+    },
+    "stage": {
+      "number": 1,
+      "title": "A trip to the quarry",
+      "speaker": "The path maker",
+      "motivation": "We need a sturdy carrier for coarse stones. Bring one to the quarry gate.",
+      "travelText": "The path makers stop at your workshop."
+    },
+    "area": {
+      "id": "workshop",
+      "label": "Workshop",
+      "enteredAtStage": 0
+    },
+    "areas": [
+      {
+        "id": "workshop",
+        "label": "Workshop",
+        "current": true,
+        "thingCount": 4
+      }
+    ],
+    "objectives": [
+      {
+        "id": "supply-carrier",
+        "text": "Bring a stone carrier.",
+        "satisfied": false
+      }
+    ],
+    "canAdvance": false,
+    "nextAction": null,
+    "completionText": null,
+    "completed": false,
+    "things": [
+      {
+        "id": "fiber",
+        "label": "Hemp bundle",
+        "description": "Fibres for making a coil of binding rope.",
+        "x": 252,
+        "y": 56,
+        "location": null,
+        "gold": false,
+        "slots": [],
+        "components": [],
+        "functional": true
+      },
+      {
+        "id": "twister",
+        "label": "Twisting stick",
+        "description": "A reusable tool for twisting fibres into rope.",
+        "x": 252,
+        "y": 106,
+        "location": null,
+        "gold": false,
+        "slots": [],
+        "components": [],
+        "functional": true
+      },
+      {
+        "id": "boards",
+        "label": "Board kit",
+        "description": "Prepared boards and their fasteners, enough for one closed crate.",
+        "x": 52,
+        "y": 156,
+        "location": null,
+        "gold": false,
+        "slots": [],
+        "components": [],
+        "functional": true
+      },
+      {
+        "id": "willow",
+        "label": "Willow bundle",
+        "description": "Flexible willow, enough for one open-weave basket.",
+        "x": 152,
+        "y": 156,
+        "location": null,
+        "gold": false,
+        "slots": [],
+        "components": [],
+        "functional": true
+      }
+    ],
+    "locations": [
+      {
+        "id": "quarry",
+        "area": "workshop",
+        "x": 52,
+        "y": 81,
+        "label": "Quarry gate",
+        "description": "Bring a stone carrier here. The path makers take it on the collection trip and return it with gravel.",
+        "gold": false
+      }
+    ],
+    "cacheNarrative": [],
+    "metrics": {
+      "attempts": 0,
+      "accepted": 0,
+      "combinations": 0,
+      "creations": 0,
+      "installations": 0,
+      "moves": 0,
+      "placements": 0,
+      "advances": 0,
+      "visits": 0
+    }
+  }
+}

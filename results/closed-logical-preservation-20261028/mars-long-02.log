@@ -1,0 +1,99 @@
+{
+  "packetId": "mars-v4-cue-packet-v1",
+  "sessionId": "mars-long-02",
+  "verifiedAt": "2026-10-28T06:54:56.259Z",
+  "manifestSha256": "3321994a2c1c93e1b5b45fdb6a1c8bfe3fa5f3dfe1722348be8b2b067f01d048",
+  "commands": {
+    "start": 1,
+    "drop": 16,
+    "note": 8,
+    "highlight": 4,
+    "place": 2,
+    "mission": 1,
+    "stop": 1
+  },
+  "commandCount": 33,
+  "authoredBaseline": 0,
+  "autoCompletedStatus": false,
+  "engineMetrics": {
+    "attempts": 19,
+    "accepted": 14,
+    "combinations": 9,
+    "creations": 9,
+    "installations": 0,
+    "moves": 0,
+    "placements": 4,
+    "advances": 1,
+    "visits": 0
+  },
+  "stageIndex": 1,
+  "completed": false,
+  "status": "stopped",
+  "rejects": [
+    {
+      "seq": 2,
+      "command": {
+        "op": "drop",
+        "args": [
+          "toolkit",
+          "broken-radio"
+        ]
+      },
+      "expectation": "Use the toolkit to repair the landing-damaged radio so we can contact Mission Control.",
+      "protocolError": null
+    },
+    {
+      "seq": 13,
+      "command": {
+        "op": "drop",
+        "args": [
+          "battery",
+          "heater"
+        ]
+      },
+      "expectation": "Give the heater power from the battery so it can melt the sheltered ice.",
+      "protocolError": null
+    },
+    {
+      "seq": 22,
+      "command": {
+        "op": "drop",
+        "args": [
+          "insulating-blanket",
+          "vestibule"
+        ]
+      },
+      "expectation": "Wrap the rebuilt vestibule in insulation to make the weather-tight entry protective against the cold.",
+      "protocolError": null
+    },
+    {
+      "seq": 27,
+      "command": {
+        "op": "drop",
+        "args": [
+          "solar-charger",
+          "battery"
+        ]
+      },
+      "expectation": "Charge the remaining battery explicitly; perhaps the earlier panel combination built a charger without charging this battery for the heater.",
+      "protocolError": null
+    },
+    {
+      "seq": 30,
+      "command": {
+        "op": "drop",
+        "args": [
+          "clear-cover",
+          "seed-tray"
+        ]
+      },
+      "expectation": "Protect the seed tray with its clear cover, making a small greenhouse.",
+      "protocolError": null
+    }
+  ],
+  "exactFullGameAndEveryCommandReplay": true,
+  "limitations": [
+    "Protocol-source-blind simulated logical play, not human enjoyment or UI proof.",
+    "Current file hashes and recorded chain verified; no tamper-proof chronology claim."
+  ]
+}

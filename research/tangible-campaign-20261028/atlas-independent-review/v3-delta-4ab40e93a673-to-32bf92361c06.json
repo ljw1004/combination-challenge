@@ -1,0 +1,382 @@
+{
+  "from": "4ab40e93a67338b48189459b97a4b2ce730e22fccae76e26febb64e5fe93af52",
+  "to": "32bf92361c06ddc5b8984775e7e129b44a8427a9f5486090586712a5daa91df9",
+  "changes": [
+    {
+      "collection": "items",
+      "id": "cleared-lunar-angle",
+      "before": {
+        "id": "cleared-lunar-angle",
+        "label": "Cleared Moon–Sun distance: 45°30′ ±1′",
+        "description": "Cleared Moon–Sun distance: 45°30′ ±1′",
+        "sources": [
+          "longitude",
+          "longitude-lunar-si",
+          "almanac-history",
+          "almanac-time",
+          "rotation-eso"
+        ],
+        "reading": {
+          "text": "45°20′ + 10′ = 45°30′. The corrected observation can now be compared with the centre-to-centre distances in the reference table.",
+          "attribution": "Fictional voyage day 20, in an imagined 1768 voyage. All sights share one instant on day 20. Modern midnight-based 00–24-hour notation is used; values are invented, not an ephemeris for a real calendar date or usable navigation data."
+        }
+      },
+      "after": {
+        "id": "cleared-lunar-angle",
+        "label": "Cleared Moon–Sun distance: 45°30′ ±1′",
+        "description": "Cleared Moon–Sun distance: 45°30′ ±1′",
+        "sources": [
+          "longitude",
+          "longitude-lunar-si",
+          "almanac-history",
+          "almanac-time",
+          "rotation-eso"
+        ],
+        "reading": {
+          "text": "45°20′ + 10′ = 45°30′. The corrected observation can now be compared with the centre-to-centre distances in the reference table. The original measurement remains a separate source.",
+          "attribution": "Fictional voyage day 20, in an imagined 1768 voyage. All sights share one instant on day 20. Modern midnight-based 00–24-hour notation is used; values are invented, not an ephemeris for a real calendar date or usable navigation data."
+        }
+      }
+    },
+    {
+      "collection": "items",
+      "id": "lunar-time-scale",
+      "before": null,
+      "after": {
+        "id": "lunar-time-scale",
+        "label": "Lunar time scale: 90′ in 180 minutes; 1′ means 2 minutes",
+        "description": "Lunar time scale: 90′ in 180 minutes; 1′ means 2 minutes",
+        "sources": [
+          "longitude",
+          "longitude-lunar-si",
+          "almanac-history",
+          "almanac-time",
+          "rotation-eso"
+        ],
+        "reading": {
+          "text": "The inherited practice of treating a sky table as a predictive relation is applied to these actual rows: 44°29′ at 12:00 and 45°59′ at 15:00 apparent reference time. The rise is 90′ in 180 minutes: 0.5′ per minute, or two minutes of time per arcminute. This is the stipulated linear scale against which the new observation is compared, not a local-time reading.",
+          "attribution": "Fictional voyage day 20, in an imagined 1768 voyage. All sights share one instant on day 20. Modern midnight-based 00–24-hour notation is used; values are invented, not an ephemeris for a real calendar date or usable navigation data."
+        }
+      }
+    },
+    {
+      "collection": "items",
+      "id": "observed-sky-angle",
+      "before": {
+        "id": "observed-sky-angle",
+        "label": "Observation row: 45°20′, not a table prediction",
+        "description": "Observation row: 45°20′, not a table prediction",
+        "sources": [
+          "longitude",
+          "longitude-lunar-si",
+          "almanac-history",
+          "almanac-time",
+          "rotation-eso"
+        ],
+        "reading": {
+          "text": "The sight is entered as an observed Moon–Sun separation at the common instant, distinct from the model’s predicted distances. This applies the inherited observed-versus-predicted comparison. The older record supplies neither a current local time nor an angular correction.",
+          "attribution": "Fictional voyage day 20, in an imagined 1768 voyage. All sights share one instant on day 20. Modern midnight-based 00–24-hour notation is used; values are invented, not an ephemeris for a real calendar date or usable navigation data."
+        }
+      },
+      "after": null
+    },
+    {
+      "collection": "recipes",
+      "id": "make-cleared-lunar-angle",
+      "before": {
+        "id": "make-cleared-lunar-angle",
+        "a": "observed-sky-angle",
+        "b": "lunar-clearing",
+        "out": "cleared-lunar-angle",
+        "description": "45°20′ + 10′ = 45°30′. The corrected observation can now be compared with the centre-to-centre distances in the reference table.",
+        "sources": [
+          "longitude",
+          "longitude-lunar-si",
+          "almanac-history",
+          "almanac-time",
+          "rotation-eso"
+        ],
+        "lifecycle": {
+          "observed-sky-angle": {
+            "role": "transform",
+            "reason": "This same working calculation or draft becomes the more developed result; its result text preserves the relevant earlier entries, while raw observations remain separate references."
+          },
+          "lunar-clearing": {
+            "role": "retain",
+            "reason": "This observation, source or reusable tool remains available."
+          }
+        }
+      },
+      "after": {
+        "id": "make-cleared-lunar-angle",
+        "a": "lunar-distance",
+        "b": "lunar-clearing",
+        "out": "cleared-lunar-angle",
+        "description": "45°20′ + 10′ = 45°30′. The corrected observation can now be compared with the centre-to-centre distances in the reference table. The original measurement remains a separate source.",
+        "sources": [
+          "longitude",
+          "longitude-lunar-si",
+          "almanac-history",
+          "almanac-time",
+          "rotation-eso"
+        ],
+        "lifecycle": {
+          "lunar-distance": {
+            "role": "retain",
+            "reason": "This observation, source or reusable tool remains available."
+          },
+          "lunar-clearing": {
+            "role": "retain",
+            "reason": "This observation, source or reusable tool remains available."
+          }
+        }
+      }
+    },
+    {
+      "collection": "recipes",
+      "id": "make-lunar-reference-time",
+      "before": {
+        "id": "make-lunar-reference-time",
+        "a": "cleared-lunar-angle",
+        "b": "nautical-table",
+        "out": "lunar-reference-time",
+        "description": "The distance is 61′ beyond the 12:00 entry. At 0.5′ per minute, that is 122 minutes after 12:00: 14:02 apparent reference time. A ±1′ distance bound gives ±2 minutes of reference time. This is not yet longitude.",
+        "sources": [
+          "longitude",
+          "longitude-lunar-si",
+          "almanac-history",
+          "almanac-time",
+          "rotation-eso"
+        ],
+        "lifecycle": {
+          "cleared-lunar-angle": {
+            "role": "transform",
+            "reason": "This same working calculation or draft becomes the more developed result; its result text preserves the relevant earlier entries, while raw observations remain separate references."
+          },
+          "nautical-table": {
+            "role": "retain",
+            "reason": "This observation, source or reusable tool remains available."
+          }
+        }
+      },
+      "after": {
+        "id": "make-lunar-reference-time",
+        "a": "cleared-lunar-angle",
+        "b": "lunar-time-scale",
+        "out": "lunar-reference-time",
+        "description": "The distance is 61′ beyond the 12:00 entry. At 0.5′ per minute, that is 122 minutes after 12:00: 14:02 apparent reference time. A ±1′ distance bound gives ±2 minutes of reference time. This is not yet longitude.",
+        "sources": [
+          "longitude",
+          "longitude-lunar-si",
+          "almanac-history",
+          "almanac-time",
+          "rotation-eso"
+        ],
+        "lifecycle": {
+          "cleared-lunar-angle": {
+            "role": "transform",
+            "reason": "This same working calculation or draft becomes the more developed result; its result text preserves the relevant earlier entries, while raw observations remain separate references."
+          },
+          "lunar-time-scale": {
+            "role": "retain",
+            "reason": "This observation, source or reusable tool remains available."
+          }
+        }
+      }
+    },
+    {
+      "collection": "recipes",
+      "id": "make-lunar-time-scale",
+      "before": null,
+      "after": {
+        "id": "make-lunar-time-scale",
+        "a": "nautical-table",
+        "b": "predictive-sky-record",
+        "out": "lunar-time-scale",
+        "description": "The inherited practice of treating a sky table as a predictive relation is applied to these actual rows: 44°29′ at 12:00 and 45°59′ at 15:00 apparent reference time. The rise is 90′ in 180 minutes: 0.5′ per minute, or two minutes of time per arcminute. This is the stipulated linear scale against which the new observation is compared, not a local-time reading.",
+        "sources": [
+          "longitude",
+          "longitude-lunar-si",
+          "almanac-history",
+          "almanac-time",
+          "rotation-eso"
+        ],
+        "lifecycle": {
+          "nautical-table": {
+            "role": "retain",
+            "reason": "This observation, source or reusable tool remains available."
+          },
+          "predictive-sky-record": {
+            "role": "retain",
+            "reason": "This observation, source or reusable tool remains available."
+          }
+        }
+      }
+    },
+    {
+      "collection": "recipes",
+      "id": "make-observed-sky-angle",
+      "before": {
+        "id": "make-observed-sky-angle",
+        "a": "lunar-distance",
+        "b": "predictive-sky-record",
+        "out": "observed-sky-angle",
+        "description": "The sight is entered as an observed Moon–Sun separation at the common instant, distinct from the model’s predicted distances. This applies the inherited observed-versus-predicted comparison. The older record supplies neither a current local time nor an angular correction.",
+        "sources": [
+          "longitude",
+          "longitude-lunar-si",
+          "almanac-history",
+          "almanac-time",
+          "rotation-eso"
+        ],
+        "lifecycle": {
+          "lunar-distance": {
+            "role": "retain",
+            "reason": "This observation, source or reusable tool remains available."
+          },
+          "predictive-sky-record": {
+            "role": "retain",
+            "reason": "This observation, source or reusable tool remains available."
+          }
+        }
+      },
+      "after": null
+    },
+    {
+      "collection": "stages",
+      "id": "longitude",
+      "before": {
+        "id": "longitude",
+        "title": "Which position survives the voyage?",
+        "speaker": "Workshop keeper",
+        "motivation": "The uncorrected watch puts the ship beyond the chart’s hazard meridian. Does the Moon agree? Recover two longitudes, correct the watch’s rate, and mark the band the observations actually support.",
+        "area": {
+          "id": "area-longitude",
+          "label": "Atlantic teaching voyage · c. 1768 CE",
+          "travelText": "Ship’s chart table"
+        },
+        "caches": [
+          {
+            "id": "cache-longitude",
+            "label": "On the table",
+            "narrative": "A dated teaching reconstruction; the cases and quantities are invented.",
+            "items": [
+              "sea-clock",
+              "local-noon",
+              "lunar-distance",
+              "nautical-table",
+              "rough-voyage",
+              "chart",
+              "equation-time",
+              "rotation-card",
+              "lunar-clearing"
+            ]
+          }
+        ],
+        "objectives": [
+          {
+            "id": "longitude-navigation-chart",
+            "text": "Mark the corrected longitude band",
+            "kind": "create",
+            "item": "navigation-chart"
+          }
+        ],
+        "carry": [
+          "apparent-clock",
+          "chart",
+          "cleared-lunar-angle",
+          "clock-longitude",
+          "corrected-clock-position",
+          "equation-time",
+          "local-noon",
+          "lunar-clearing",
+          "lunar-distance",
+          "lunar-longitude",
+          "lunar-reference-time",
+          "lunar-time-difference",
+          "merchant-manual",
+          "nautical-table",
+          "navigation-chart",
+          "observed-sky-angle",
+          "position-comparison",
+          "predictive-sky-record",
+          "rotation-card",
+          "rough-voyage",
+          "sea-clock",
+          "time-angle-rule",
+          "time-difference",
+          "voyage-clock-record"
+        ],
+        "locations": [
+          "sea-trial"
+        ]
+      },
+      "after": {
+        "id": "longitude",
+        "title": "Which position survives the voyage?",
+        "speaker": "Workshop keeper",
+        "motivation": "The uncorrected watch puts the ship beyond the chart’s hazard meridian. Does the Moon agree? Recover two longitudes, correct the watch’s rate, and mark the band the observations actually support.",
+        "area": {
+          "id": "area-longitude",
+          "label": "Atlantic teaching voyage · c. 1768 CE",
+          "travelText": "Ship’s chart table"
+        },
+        "caches": [
+          {
+            "id": "cache-longitude",
+            "label": "On the table",
+            "narrative": "A dated teaching reconstruction; the cases and quantities are invented.",
+            "items": [
+              "sea-clock",
+              "local-noon",
+              "lunar-distance",
+              "nautical-table",
+              "rough-voyage",
+              "chart",
+              "equation-time",
+              "rotation-card",
+              "lunar-clearing"
+            ]
+          }
+        ],
+        "objectives": [
+          {
+            "id": "longitude-navigation-chart",
+            "text": "Mark the corrected longitude band",
+            "kind": "create",
+            "item": "navigation-chart"
+          }
+        ],
+        "carry": [
+          "apparent-clock",
+          "chart",
+          "cleared-lunar-angle",
+          "clock-longitude",
+          "corrected-clock-position",
+          "equation-time",
+          "local-noon",
+          "lunar-clearing",
+          "lunar-distance",
+          "lunar-longitude",
+          "lunar-reference-time",
+          "lunar-time-difference",
+          "lunar-time-scale",
+          "merchant-manual",
+          "nautical-table",
+          "navigation-chart",
+          "position-comparison",
+          "predictive-sky-record",
+          "rotation-card",
+          "rough-voyage",
+          "sea-clock",
+          "time-angle-rule",
+          "time-difference",
+          "voyage-clock-record"
+        ],
+        "locations": [
+          "sea-trial"
+        ]
+      }
+    }
+  ]
+}

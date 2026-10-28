@@ -1,0 +1,61 @@
+{
+  "packetId": "elements-v7-cue-protocol-v2",
+  "sessionId": "elements-long-03",
+  "verifiedAt": "2026-10-28T06:45:41.484Z",
+  "manifestSha256": "af6d9688e3c0b6c8b2a459613ca03bf147e1128bf56ef2016f21898ba0a86415",
+  "commands": {
+    "start": 1,
+    "drop": 61,
+    "highlight": 27,
+    "note": 3,
+    "place": 1,
+    "stop": 1
+  },
+  "commandCount": 94,
+  "authoredBaseline": 0,
+  "engineMetrics": {
+    "attempts": 69,
+    "accepted": 67,
+    "combinations": 59,
+    "creations": 58,
+    "installations": 1,
+    "moves": 0,
+    "placements": 1,
+    "advances": 7,
+    "visits": 0
+  },
+  "stageIndex": 7,
+  "completed": false,
+  "status": "stopped",
+  "rejects": [
+    {
+      "seq": 8,
+      "command": {
+        "op": "drop",
+        "args": [
+          "clay",
+          "kiln"
+        ]
+      },
+      "expectation": "The kiln could turn clay into a bowl now.",
+      "protocolError": null
+    },
+    {
+      "seq": 56,
+      "command": {
+        "op": "drop",
+        "args": [
+          "wheel",
+          "planks"
+        ]
+      },
+      "expectation": "Put wheels on a planked body for the handcart.",
+      "protocolError": null
+    }
+  ],
+  "exactFullGameAndEveryCommandReplay": true,
+  "limitations": [
+    "Protocol-source-blind simulated logical play, not human enjoyment or UI proof.",
+    "Current file hashes and recorded chain verified; no tamper-proof chronology claim."
+  ]
+}

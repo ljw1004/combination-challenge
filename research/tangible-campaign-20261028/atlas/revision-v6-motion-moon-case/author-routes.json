@@ -1,0 +1,54 @@
+{
+  "routes": [
+    {
+      "name": "terrestrial-first",
+      "recipes": [
+        "make-motion-differences",
+        "make-acceleration-record",
+        "make-force-comparison",
+        "make-terrestrial-account",
+        "make-orbital-geometry",
+        "make-orbit-model",
+        "make-cross-orbit-check",
+        "make-shared-motion-account",
+        "make-scope-of-law",
+        "make-mathematical-treatise"
+      ]
+    },
+    {
+      "name": "lunar-first",
+      "recipes": [
+        "make-orbital-geometry",
+        "make-orbit-model",
+        "make-cross-orbit-check",
+        "make-motion-differences",
+        "make-acceleration-record",
+        "make-force-comparison",
+        "make-terrestrial-account",
+        "make-shared-motion-account",
+        "make-scope-of-law",
+        "make-mathematical-treatise"
+      ]
+    }
+  ],
+  "branches": {
+    "terrestrial": [
+      "position-times + algebra-method → motion-differences",
+      "motion-differences + direction-diagram → acceleration-record",
+      "acceleration-record + mass-comparison → force-comparison",
+      "fall-record + force-comparison → terrestrial-account"
+    ],
+    "lunar": [
+      "orbital-table + geometrical-proof → orbital-geometry",
+      "orbital-geometry + force-rule → orbit-model",
+      "orbit-model + orbit-distances → cross-orbit-check"
+    ],
+    "join": [
+      "terrestrial-account + cross-orbit-check → shared-motion-account",
+      "shared-motion-account + bounded-sky-claim → scope-of-law",
+      "scope-of-law + checked-edition → mathematical-treatise"
+    ]
+  },
+  "readingRequiredByEngine": false,
+  "graphUnchanged": true
+}

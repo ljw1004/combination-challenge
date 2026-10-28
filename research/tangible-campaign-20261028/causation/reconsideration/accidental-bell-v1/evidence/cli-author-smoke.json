@@ -1,0 +1,2435 @@
+{
+  "kind": "source-aware author runner smoke; NOT independent player evidence",
+  "manifestPin": "3cb494cbb2d32b8e6eadddd1ca3fc46272e5bed37cdff817655e06f7fa657ac7",
+  "canonicalDrops": 5,
+  "fullSmokes": 2,
+  "allPassed": true,
+  "commands": [
+    {
+      "packet": "/workspace/shared/combination-campaign-research-20261028/causation/reconsideration/accidental-bell-v1",
+      "session": "author-smoke-normal",
+      "op": "start",
+      "args": [],
+      "status": 0,
+      "output": {
+        "evidenceClass": "simulated logical play; not human evidence",
+        "session": "author-smoke-normal",
+        "commandNumber": 1,
+        "integrity": {
+          "verified": true,
+          "manifestSha256": "3cb494cbb2d32b8e6eadddd1ca3fc46272e5bed37cdff817655e06f7fa657ac7"
+        },
+        "automaticTransitions": [],
+        "view": {
+          "scenario": {
+            "id": "causation-accidental-bell-probe-v1",
+            "title": "The Riverside Workshop",
+            "premise": "An afternoon helping at a small riverside workshop."
+          },
+          "stage": {
+            "number": 1,
+            "title": "Closing the painting bench",
+            "speaker": "The painter",
+            "motivation": "I need a basin to rinse these brushes before I close up. The prepared copper blank and mallet are on the forming block. Water is waiting at the washing bench."
+          },
+          "area": {
+            "id": "workshop",
+            "label": "Painting workshop",
+            "enteredAtStage": 0
+          },
+          "areas": [
+            {
+              "id": "workshop",
+              "label": "Painting workshop",
+              "current": true,
+              "thingCount": 2
+            }
+          ],
+          "objectives": [
+            {
+              "id": "rinse-brushes",
+              "text": "Bring a basin to the washing bench",
+              "satisfied": false
+            }
+          ],
+          "newSupplies": [],
+          "things": [
+            {
+              "id": "blank",
+              "label": "Copper basin blank",
+              "x": 252,
+              "y": 56,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "mallet",
+              "label": "Wooden mallet",
+              "x": 252,
+              "y": 106,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            }
+          ],
+          "locations": [
+            {
+              "id": "@wash",
+              "area": "workshop",
+              "x": 52,
+              "y": 81,
+              "label": "Washing bench",
+              "gold": false
+            }
+          ],
+          "completed": false,
+          "successfulCombinations": 0
+        }
+      }
+    },
+    {
+      "packet": "/workspace/shared/combination-campaign-research-20261028/causation/reconsideration/accidental-bell-v1",
+      "session": "author-smoke-normal",
+      "op": "drop",
+      "args": [
+        "blank",
+        "mallet"
+      ],
+      "status": 0,
+      "output": {
+        "evidenceClass": "simulated logical play; not human evidence",
+        "session": "author-smoke-normal",
+        "commandNumber": 2,
+        "integrity": {
+          "verified": true,
+          "manifestSha256": "3cb494cbb2d32b8e6eadddd1ca3fc46272e5bed37cdff817655e06f7fa657ac7"
+        },
+        "accepted": true,
+        "gesture": {
+          "source": "blank",
+          "target": "mallet"
+        },
+        "resolvedAction": {
+          "type": "combine",
+          "a": "blank",
+          "b": "mallet"
+        },
+        "automaticTransitions": [],
+        "view": {
+          "scenario": {
+            "id": "causation-accidental-bell-probe-v1",
+            "title": "The Riverside Workshop",
+            "premise": "An afternoon helping at a small riverside workshop."
+          },
+          "stage": {
+            "number": 1,
+            "title": "Closing the painting bench",
+            "speaker": "The painter",
+            "motivation": "I need a basin to rinse these brushes before I close up. The prepared copper blank and mallet are on the forming block. Water is waiting at the washing bench."
+          },
+          "area": {
+            "id": "workshop",
+            "label": "Painting workshop",
+            "enteredAtStage": 0
+          },
+          "areas": [
+            {
+              "id": "workshop",
+              "label": "Painting workshop",
+              "current": true,
+              "thingCount": 2
+            }
+          ],
+          "objectives": [
+            {
+              "id": "rinse-brushes",
+              "text": "Bring a basin to the washing bench",
+              "satisfied": false
+            }
+          ],
+          "newSupplies": [],
+          "things": [
+            {
+              "id": "mallet",
+              "label": "Wooden mallet",
+              "x": 252,
+              "y": 106,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "basin",
+              "label": "Copper washbasin",
+              "x": 252,
+              "y": 56,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            }
+          ],
+          "locations": [
+            {
+              "id": "@wash",
+              "area": "workshop",
+              "x": 52,
+              "y": 81,
+              "label": "Washing bench",
+              "gold": false
+            }
+          ],
+          "completed": false,
+          "successfulCombinations": 1
+        }
+      }
+    },
+    {
+      "packet": "/workspace/shared/combination-campaign-research-20261028/causation/reconsideration/accidental-bell-v1",
+      "session": "author-smoke-normal",
+      "op": "drop",
+      "args": [
+        "basin",
+        "@wash"
+      ],
+      "status": 0,
+      "output": {
+        "evidenceClass": "simulated logical play; not human evidence",
+        "session": "author-smoke-normal",
+        "commandNumber": 3,
+        "integrity": {
+          "verified": true,
+          "manifestSha256": "3cb494cbb2d32b8e6eadddd1ca3fc46272e5bed37cdff817655e06f7fa657ac7"
+        },
+        "accepted": true,
+        "gesture": {
+          "source": "basin",
+          "target": "@wash"
+        },
+        "resolvedAction": {
+          "type": "place",
+          "item": "basin",
+          "location": "wash"
+        },
+        "automaticTransitions": [
+          {
+            "completedStage": 1,
+            "visibleFinalCreation": {
+              "scenario": {
+                "id": "causation-accidental-bell-probe-v1",
+                "title": "The Riverside Workshop",
+                "premise": "An afternoon helping at a small riverside workshop."
+              },
+              "stage": {
+                "number": 1,
+                "title": "Closing the painting bench",
+                "speaker": "The painter",
+                "motivation": "I need a basin to rinse these brushes before I close up. The prepared copper blank and mallet are on the forming block. Water is waiting at the washing bench."
+              },
+              "area": {
+                "id": "workshop",
+                "label": "Painting workshop",
+                "enteredAtStage": 0
+              },
+              "areas": [
+                {
+                  "id": "workshop",
+                  "label": "Painting workshop",
+                  "current": true,
+                  "thingCount": 2
+                }
+              ],
+              "objectives": [
+                {
+                  "id": "rinse-brushes",
+                  "text": "Bring a basin to the washing bench",
+                  "satisfied": true
+                }
+              ],
+              "newSupplies": [],
+              "things": [
+                {
+                  "id": "mallet",
+                  "label": "Wooden mallet",
+                  "x": 252,
+                  "y": 106,
+                  "location": null,
+                  "gold": false,
+                  "slots": [],
+                  "components": [],
+                  "readable": false
+                },
+                {
+                  "id": "basin",
+                  "label": "Copper washbasin",
+                  "x": 52,
+                  "y": 97,
+                  "location": "wash",
+                  "gold": true,
+                  "slots": [],
+                  "components": [],
+                  "readable": false
+                }
+              ],
+              "locations": [
+                {
+                  "id": "@wash",
+                  "area": "workshop",
+                  "x": 52,
+                  "y": 81,
+                  "label": "Washing bench",
+                  "gold": true
+                }
+              ],
+              "completed": false,
+              "successfulCombinations": 1
+            },
+            "next": {
+              "scenario": {
+                "id": "causation-accidental-bell-probe-v1",
+                "title": "The Riverside Workshop",
+                "premise": "An afternoon helping at a small riverside workshop."
+              },
+              "stage": {
+                "number": 2,
+                "title": "Outside the gate",
+                "speaker": "The keeper",
+                "motivation": "The brushes are clean. Your emptied basin leans beside the gate to dry. A gust rocks it against the iron latch; its clang brings the keeper out. “Visitors knock, but I cannot hear them from the back room. Leave a hanging call signal outside the gate, with something for them to strike it with.”"
+              },
+              "area": {
+                "id": "courtyard",
+                "label": "Workshop gate",
+                "enteredAtStage": 1
+              },
+              "areas": [
+                {
+                  "id": "workshop",
+                  "label": "Painting workshop",
+                  "current": false,
+                  "thingCount": 0
+                },
+                {
+                  "id": "courtyard",
+                  "label": "Workshop gate",
+                  "current": true,
+                  "thingCount": 3
+                }
+              ],
+              "objectives": [
+                {
+                  "id": "visitor-call",
+                  "text": "Leave a hanging call signal by the gate",
+                  "satisfied": false
+                }
+              ],
+              "newSupplies": [
+                {
+                  "label": "Mounting parts",
+                  "narrative": "The keeper brings a crossbar, hooks and cords. The hooks fit the basin’s two pierced rim tabs; the upper loop fits the outside gatepost bracket. A loose tether can hold a striker."
+                }
+              ],
+              "things": [
+                {
+                  "id": "mallet",
+                  "label": "Wooden mallet",
+                  "x": 252,
+                  "y": 65,
+                  "location": null,
+                  "gold": false,
+                  "slots": [],
+                  "components": [],
+                  "readable": false
+                },
+                {
+                  "id": "basin",
+                  "label": "Copper washbasin",
+                  "x": 52,
+                  "y": 56,
+                  "location": null,
+                  "gold": false,
+                  "slots": [],
+                  "components": [],
+                  "readable": false
+                },
+                {
+                  "id": "hanger",
+                  "label": "Crossbar, hooks and cords",
+                  "x": 52,
+                  "y": 160,
+                  "location": null,
+                  "gold": false,
+                  "slots": [],
+                  "components": [],
+                  "readable": false
+                }
+              ],
+              "locations": [
+                {
+                  "id": "@gate",
+                  "area": "courtyard",
+                  "x": 152,
+                  "y": 81,
+                  "label": "Outside gatepost bracket",
+                  "gold": false
+                }
+              ],
+              "completed": false,
+              "successfulCombinations": 1
+            }
+          }
+        ],
+        "view": {
+          "scenario": {
+            "id": "causation-accidental-bell-probe-v1",
+            "title": "The Riverside Workshop",
+            "premise": "An afternoon helping at a small riverside workshop."
+          },
+          "stage": {
+            "number": 2,
+            "title": "Outside the gate",
+            "speaker": "The keeper",
+            "motivation": "The brushes are clean. Your emptied basin leans beside the gate to dry. A gust rocks it against the iron latch; its clang brings the keeper out. “Visitors knock, but I cannot hear them from the back room. Leave a hanging call signal outside the gate, with something for them to strike it with.”"
+          },
+          "area": {
+            "id": "courtyard",
+            "label": "Workshop gate",
+            "enteredAtStage": 1
+          },
+          "areas": [
+            {
+              "id": "workshop",
+              "label": "Painting workshop",
+              "current": false,
+              "thingCount": 0
+            },
+            {
+              "id": "courtyard",
+              "label": "Workshop gate",
+              "current": true,
+              "thingCount": 3
+            }
+          ],
+          "objectives": [
+            {
+              "id": "visitor-call",
+              "text": "Leave a hanging call signal by the gate",
+              "satisfied": false
+            }
+          ],
+          "newSupplies": [
+            {
+              "label": "Mounting parts",
+              "narrative": "The keeper brings a crossbar, hooks and cords. The hooks fit the basin’s two pierced rim tabs; the upper loop fits the outside gatepost bracket. A loose tether can hold a striker."
+            }
+          ],
+          "things": [
+            {
+              "id": "mallet",
+              "label": "Wooden mallet",
+              "x": 252,
+              "y": 65,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "basin",
+              "label": "Copper washbasin",
+              "x": 52,
+              "y": 56,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "hanger",
+              "label": "Crossbar, hooks and cords",
+              "x": 52,
+              "y": 160,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            }
+          ],
+          "locations": [
+            {
+              "id": "@gate",
+              "area": "courtyard",
+              "x": 152,
+              "y": 81,
+              "label": "Outside gatepost bracket",
+              "gold": false
+            }
+          ],
+          "completed": false,
+          "successfulCombinations": 1
+        }
+      }
+    },
+    {
+      "packet": "/workspace/shared/combination-campaign-research-20261028/causation/reconsideration/accidental-bell-v1",
+      "session": "author-smoke-normal",
+      "op": "drop",
+      "args": [
+        "basin",
+        "hanger"
+      ],
+      "status": 0,
+      "output": {
+        "evidenceClass": "simulated logical play; not human evidence",
+        "session": "author-smoke-normal",
+        "commandNumber": 4,
+        "integrity": {
+          "verified": true,
+          "manifestSha256": "3cb494cbb2d32b8e6eadddd1ca3fc46272e5bed37cdff817655e06f7fa657ac7"
+        },
+        "accepted": true,
+        "gesture": {
+          "source": "basin",
+          "target": "hanger"
+        },
+        "resolvedAction": {
+          "type": "combine",
+          "a": "basin",
+          "b": "hanger"
+        },
+        "automaticTransitions": [],
+        "view": {
+          "scenario": {
+            "id": "causation-accidental-bell-probe-v1",
+            "title": "The Riverside Workshop",
+            "premise": "An afternoon helping at a small riverside workshop."
+          },
+          "stage": {
+            "number": 2,
+            "title": "Outside the gate",
+            "speaker": "The keeper",
+            "motivation": "The brushes are clean. Your emptied basin leans beside the gate to dry. A gust rocks it against the iron latch; its clang brings the keeper out. “Visitors knock, but I cannot hear them from the back room. Leave a hanging call signal outside the gate, with something for them to strike it with.”"
+          },
+          "area": {
+            "id": "courtyard",
+            "label": "Workshop gate",
+            "enteredAtStage": 1
+          },
+          "areas": [
+            {
+              "id": "workshop",
+              "label": "Painting workshop",
+              "current": false,
+              "thingCount": 0
+            },
+            {
+              "id": "courtyard",
+              "label": "Workshop gate",
+              "current": true,
+              "thingCount": 2
+            }
+          ],
+          "objectives": [
+            {
+              "id": "visitor-call",
+              "text": "Leave a hanging call signal by the gate",
+              "satisfied": false
+            }
+          ],
+          "newSupplies": [
+            {
+              "label": "Mounting parts",
+              "narrative": "The keeper brings a crossbar, hooks and cords. The hooks fit the basin’s two pierced rim tabs; the upper loop fits the outside gatepost bracket. A loose tether can hold a striker."
+            }
+          ],
+          "things": [
+            {
+              "id": "mallet",
+              "label": "Wooden mallet",
+              "x": 252,
+              "y": 65,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "gong",
+              "label": "Hanging basin gong",
+              "x": 52,
+              "y": 56,
+              "location": null,
+              "gold": false,
+              "slots": [
+                {
+                  "id": "slot1",
+                  "filled": false,
+                  "label": null
+                }
+              ],
+              "components": [
+                "Crossbar, hooks and cords"
+              ],
+              "readable": false
+            }
+          ],
+          "locations": [
+            {
+              "id": "@gate",
+              "area": "courtyard",
+              "x": 152,
+              "y": 81,
+              "label": "Outside gatepost bracket",
+              "gold": false
+            }
+          ],
+          "completed": false,
+          "successfulCombinations": 2
+        }
+      }
+    },
+    {
+      "packet": "/workspace/shared/combination-campaign-research-20261028/causation/reconsideration/accidental-bell-v1",
+      "session": "author-smoke-normal",
+      "op": "drop",
+      "args": [
+        "mallet",
+        "gong"
+      ],
+      "status": 0,
+      "output": {
+        "evidenceClass": "simulated logical play; not human evidence",
+        "session": "author-smoke-normal",
+        "commandNumber": 5,
+        "integrity": {
+          "verified": true,
+          "manifestSha256": "3cb494cbb2d32b8e6eadddd1ca3fc46272e5bed37cdff817655e06f7fa657ac7"
+        },
+        "accepted": true,
+        "gesture": {
+          "source": "mallet",
+          "target": "gong"
+        },
+        "resolvedAction": {
+          "type": "combine",
+          "a": "mallet",
+          "b": "gong"
+        },
+        "automaticTransitions": [],
+        "view": {
+          "scenario": {
+            "id": "causation-accidental-bell-probe-v1",
+            "title": "The Riverside Workshop",
+            "premise": "An afternoon helping at a small riverside workshop."
+          },
+          "stage": {
+            "number": 2,
+            "title": "Outside the gate",
+            "speaker": "The keeper",
+            "motivation": "The brushes are clean. Your emptied basin leans beside the gate to dry. A gust rocks it against the iron latch; its clang brings the keeper out. “Visitors knock, but I cannot hear them from the back room. Leave a hanging call signal outside the gate, with something for them to strike it with.”"
+          },
+          "area": {
+            "id": "courtyard",
+            "label": "Workshop gate",
+            "enteredAtStage": 1
+          },
+          "areas": [
+            {
+              "id": "workshop",
+              "label": "Painting workshop",
+              "current": false,
+              "thingCount": 0
+            },
+            {
+              "id": "courtyard",
+              "label": "Workshop gate",
+              "current": true,
+              "thingCount": 1
+            }
+          ],
+          "objectives": [
+            {
+              "id": "visitor-call",
+              "text": "Leave a hanging call signal by the gate",
+              "satisfied": false
+            }
+          ],
+          "newSupplies": [
+            {
+              "label": "Mounting parts",
+              "narrative": "The keeper brings a crossbar, hooks and cords. The hooks fit the basin’s two pierced rim tabs; the upper loop fits the outside gatepost bracket. A loose tether can hold a striker."
+            }
+          ],
+          "things": [
+            {
+              "id": "gong",
+              "label": "Hanging basin gong",
+              "x": 52,
+              "y": 56,
+              "location": null,
+              "gold": false,
+              "slots": [
+                {
+                  "id": "slot1",
+                  "filled": true,
+                  "label": "Wooden mallet"
+                }
+              ],
+              "components": [
+                "Crossbar, hooks and cords"
+              ],
+              "readable": false
+            }
+          ],
+          "locations": [
+            {
+              "id": "@gate",
+              "area": "courtyard",
+              "x": 152,
+              "y": 81,
+              "label": "Outside gatepost bracket",
+              "gold": false
+            }
+          ],
+          "completed": false,
+          "successfulCombinations": 3
+        }
+      }
+    },
+    {
+      "packet": "/workspace/shared/combination-campaign-research-20261028/causation/reconsideration/accidental-bell-v1",
+      "session": "author-smoke-normal",
+      "op": "drop",
+      "args": [
+        "gong",
+        "@gate"
+      ],
+      "status": 0,
+      "output": {
+        "evidenceClass": "simulated logical play; not human evidence",
+        "session": "author-smoke-normal",
+        "commandNumber": 6,
+        "integrity": {
+          "verified": true,
+          "manifestSha256": "3cb494cbb2d32b8e6eadddd1ca3fc46272e5bed37cdff817655e06f7fa657ac7"
+        },
+        "accepted": true,
+        "gesture": {
+          "source": "gong",
+          "target": "@gate"
+        },
+        "resolvedAction": {
+          "type": "place",
+          "item": "gong",
+          "location": "gate"
+        },
+        "automaticTransitions": [
+          {
+            "completedStage": 2,
+            "visibleFinalCreation": {
+              "scenario": {
+                "id": "causation-accidental-bell-probe-v1",
+                "title": "The Riverside Workshop",
+                "premise": "An afternoon helping at a small riverside workshop."
+              },
+              "stage": {
+                "number": 2,
+                "title": "Outside the gate",
+                "speaker": "The keeper",
+                "motivation": "The brushes are clean. Your emptied basin leans beside the gate to dry. A gust rocks it against the iron latch; its clang brings the keeper out. “Visitors knock, but I cannot hear them from the back room. Leave a hanging call signal outside the gate, with something for them to strike it with.”"
+              },
+              "area": {
+                "id": "courtyard",
+                "label": "Workshop gate",
+                "enteredAtStage": 1
+              },
+              "areas": [
+                {
+                  "id": "workshop",
+                  "label": "Painting workshop",
+                  "current": false,
+                  "thingCount": 0
+                },
+                {
+                  "id": "courtyard",
+                  "label": "Workshop gate",
+                  "current": true,
+                  "thingCount": 1
+                }
+              ],
+              "objectives": [
+                {
+                  "id": "visitor-call",
+                  "text": "Leave a hanging call signal by the gate",
+                  "satisfied": true
+                }
+              ],
+              "newSupplies": [
+                {
+                  "label": "Mounting parts",
+                  "narrative": "The keeper brings a crossbar, hooks and cords. The hooks fit the basin’s two pierced rim tabs; the upper loop fits the outside gatepost bracket. A loose tether can hold a striker."
+                }
+              ],
+              "things": [
+                {
+                  "id": "gong",
+                  "label": "Hanging basin gong",
+                  "x": 152,
+                  "y": 97,
+                  "location": "gate",
+                  "gold": true,
+                  "slots": [
+                    {
+                      "id": "slot1",
+                      "filled": true,
+                      "label": "Wooden mallet"
+                    }
+                  ],
+                  "components": [
+                    "Crossbar, hooks and cords"
+                  ],
+                  "readable": false
+                }
+              ],
+              "locations": [
+                {
+                  "id": "@gate",
+                  "area": "courtyard",
+                  "x": 152,
+                  "y": 81,
+                  "label": "Outside gatepost bracket",
+                  "gold": true
+                }
+              ],
+              "completed": false,
+              "successfulCombinations": 3
+            },
+            "next": {
+              "scenario": {
+                "id": "causation-accidental-bell-probe-v1",
+                "title": "The Riverside Workshop",
+                "premise": "An afternoon helping at a small riverside workshop."
+              },
+              "stage": {
+                "number": 2,
+                "title": "Outside the gate",
+                "speaker": "The keeper",
+                "motivation": "The brushes are clean. Your emptied basin leans beside the gate to dry. A gust rocks it against the iron latch; its clang brings the keeper out. “Visitors knock, but I cannot hear them from the back room. Leave a hanging call signal outside the gate, with something for them to strike it with.”"
+              },
+              "area": {
+                "id": "courtyard",
+                "label": "Workshop gate",
+                "enteredAtStage": 1
+              },
+              "areas": [
+                {
+                  "id": "workshop",
+                  "label": "Painting workshop",
+                  "current": false,
+                  "thingCount": 0
+                },
+                {
+                  "id": "courtyard",
+                  "label": "Workshop gate",
+                  "current": true,
+                  "thingCount": 1
+                }
+              ],
+              "objectives": [
+                {
+                  "id": "visitor-call",
+                  "text": "Leave a hanging call signal by the gate",
+                  "satisfied": true
+                }
+              ],
+              "newSupplies": [
+                {
+                  "label": "Mounting parts",
+                  "narrative": "The keeper brings a crossbar, hooks and cords. The hooks fit the basin’s two pierced rim tabs; the upper loop fits the outside gatepost bracket. A loose tether can hold a striker."
+                }
+              ],
+              "things": [
+                {
+                  "id": "gong",
+                  "label": "Hanging basin gong",
+                  "x": 152,
+                  "y": 97,
+                  "location": "gate",
+                  "gold": true,
+                  "slots": [
+                    {
+                      "id": "slot1",
+                      "filled": true,
+                      "label": "Wooden mallet"
+                    }
+                  ],
+                  "components": [
+                    "Crossbar, hooks and cords"
+                  ],
+                  "readable": false
+                }
+              ],
+              "locations": [
+                {
+                  "id": "@gate",
+                  "area": "courtyard",
+                  "x": 152,
+                  "y": 81,
+                  "label": "Outside gatepost bracket",
+                  "gold": true
+                }
+              ],
+              "completed": true,
+              "ending": "An arriving visitor lifts the tethered mallet and strikes your hanging basin. Its clear clang reaches the back room. The keeper comes out and opens the gate.",
+              "successfulCombinations": 3
+            }
+          }
+        ],
+        "view": {
+          "scenario": {
+            "id": "causation-accidental-bell-probe-v1",
+            "title": "The Riverside Workshop",
+            "premise": "An afternoon helping at a small riverside workshop."
+          },
+          "stage": {
+            "number": 2,
+            "title": "Outside the gate",
+            "speaker": "The keeper",
+            "motivation": "The brushes are clean. Your emptied basin leans beside the gate to dry. A gust rocks it against the iron latch; its clang brings the keeper out. “Visitors knock, but I cannot hear them from the back room. Leave a hanging call signal outside the gate, with something for them to strike it with.”"
+          },
+          "area": {
+            "id": "courtyard",
+            "label": "Workshop gate",
+            "enteredAtStage": 1
+          },
+          "areas": [
+            {
+              "id": "workshop",
+              "label": "Painting workshop",
+              "current": false,
+              "thingCount": 0
+            },
+            {
+              "id": "courtyard",
+              "label": "Workshop gate",
+              "current": true,
+              "thingCount": 1
+            }
+          ],
+          "objectives": [
+            {
+              "id": "visitor-call",
+              "text": "Leave a hanging call signal by the gate",
+              "satisfied": true
+            }
+          ],
+          "newSupplies": [
+            {
+              "label": "Mounting parts",
+              "narrative": "The keeper brings a crossbar, hooks and cords. The hooks fit the basin’s two pierced rim tabs; the upper loop fits the outside gatepost bracket. A loose tether can hold a striker."
+            }
+          ],
+          "things": [
+            {
+              "id": "gong",
+              "label": "Hanging basin gong",
+              "x": 152,
+              "y": 97,
+              "location": "gate",
+              "gold": true,
+              "slots": [
+                {
+                  "id": "slot1",
+                  "filled": true,
+                  "label": "Wooden mallet"
+                }
+              ],
+              "components": [
+                "Crossbar, hooks and cords"
+              ],
+              "readable": false
+            }
+          ],
+          "locations": [
+            {
+              "id": "@gate",
+              "area": "courtyard",
+              "x": 152,
+              "y": 81,
+              "label": "Outside gatepost bracket",
+              "gold": true
+            }
+          ],
+          "completed": true,
+          "ending": "An arriving visitor lifts the tethered mallet and strikes your hanging basin. Its clear clang reaches the back room. The keeper comes out and opens the gate.",
+          "successfulCombinations": 3
+        }
+      }
+    },
+    {
+      "packet": "/workspace/shared/combination-campaign-research-20261028/causation/reconsideration/accidental-bell-v1",
+      "session": "author-smoke-normal",
+      "op": "view",
+      "args": [],
+      "status": 0,
+      "output": {
+        "evidenceClass": "simulated logical play; not human evidence",
+        "session": "author-smoke-normal",
+        "commandNumber": 7,
+        "integrity": {
+          "verified": true,
+          "manifestSha256": "3cb494cbb2d32b8e6eadddd1ca3fc46272e5bed37cdff817655e06f7fa657ac7"
+        },
+        "automaticTransitions": [],
+        "view": {
+          "scenario": {
+            "id": "causation-accidental-bell-probe-v1",
+            "title": "The Riverside Workshop",
+            "premise": "An afternoon helping at a small riverside workshop."
+          },
+          "stage": {
+            "number": 2,
+            "title": "Outside the gate",
+            "speaker": "The keeper",
+            "motivation": "The brushes are clean. Your emptied basin leans beside the gate to dry. A gust rocks it against the iron latch; its clang brings the keeper out. “Visitors knock, but I cannot hear them from the back room. Leave a hanging call signal outside the gate, with something for them to strike it with.”"
+          },
+          "area": {
+            "id": "courtyard",
+            "label": "Workshop gate",
+            "enteredAtStage": 1
+          },
+          "areas": [
+            {
+              "id": "workshop",
+              "label": "Painting workshop",
+              "current": false,
+              "thingCount": 0
+            },
+            {
+              "id": "courtyard",
+              "label": "Workshop gate",
+              "current": true,
+              "thingCount": 1
+            }
+          ],
+          "objectives": [
+            {
+              "id": "visitor-call",
+              "text": "Leave a hanging call signal by the gate",
+              "satisfied": true
+            }
+          ],
+          "newSupplies": [
+            {
+              "label": "Mounting parts",
+              "narrative": "The keeper brings a crossbar, hooks and cords. The hooks fit the basin’s two pierced rim tabs; the upper loop fits the outside gatepost bracket. A loose tether can hold a striker."
+            }
+          ],
+          "things": [
+            {
+              "id": "gong",
+              "label": "Hanging basin gong",
+              "x": 152,
+              "y": 97,
+              "location": "gate",
+              "gold": true,
+              "slots": [
+                {
+                  "id": "slot1",
+                  "filled": true,
+                  "label": "Wooden mallet"
+                }
+              ],
+              "components": [
+                "Crossbar, hooks and cords"
+              ],
+              "readable": false
+            }
+          ],
+          "locations": [
+            {
+              "id": "@gate",
+              "area": "courtyard",
+              "x": 152,
+              "y": 81,
+              "label": "Outside gatepost bracket",
+              "gold": true
+            }
+          ],
+          "completed": true,
+          "ending": "An arriving visitor lifts the tethered mallet and strikes your hanging basin. Its clear clang reaches the back room. The keeper comes out and opens the gate.",
+          "successfulCombinations": 3
+        }
+      }
+    },
+    {
+      "packet": "/workspace/shared/combination-campaign-research-20261028/causation/reconsideration/accidental-bell-v1",
+      "session": "author-smoke-normal",
+      "op": "drop",
+      "args": [
+        "gong",
+        "@gate"
+      ],
+      "status": 2,
+      "output": {
+        "accepted": false,
+        "protocolError": "The two-scene session has ended. Preserve the first result; follow-up answers may use note.",
+        "preservedRejection": true
+      }
+    },
+    {
+      "packet": "/workspace/shared/combination-campaign-research-20261028/causation/reconsideration/accidental-bell-v1",
+      "session": "author-smoke-normal",
+      "op": "note",
+      "args": [
+        "Source-aware author smoke, not an independent fresh trial."
+      ],
+      "status": 0,
+      "output": {
+        "evidenceClass": "simulated logical play; not human evidence",
+        "session": "author-smoke-normal",
+        "commandNumber": 8,
+        "integrity": {
+          "verified": true,
+          "manifestSha256": "3cb494cbb2d32b8e6eadddd1ca3fc46272e5bed37cdff817655e06f7fa657ac7"
+        },
+        "note": "Source-aware author smoke, not an independent fresh trial.",
+        "automaticTransitions": [],
+        "view": {
+          "scenario": {
+            "id": "causation-accidental-bell-probe-v1",
+            "title": "The Riverside Workshop",
+            "premise": "An afternoon helping at a small riverside workshop."
+          },
+          "stage": {
+            "number": 2,
+            "title": "Outside the gate",
+            "speaker": "The keeper",
+            "motivation": "The brushes are clean. Your emptied basin leans beside the gate to dry. A gust rocks it against the iron latch; its clang brings the keeper out. “Visitors knock, but I cannot hear them from the back room. Leave a hanging call signal outside the gate, with something for them to strike it with.”"
+          },
+          "area": {
+            "id": "courtyard",
+            "label": "Workshop gate",
+            "enteredAtStage": 1
+          },
+          "areas": [
+            {
+              "id": "workshop",
+              "label": "Painting workshop",
+              "current": false,
+              "thingCount": 0
+            },
+            {
+              "id": "courtyard",
+              "label": "Workshop gate",
+              "current": true,
+              "thingCount": 1
+            }
+          ],
+          "objectives": [
+            {
+              "id": "visitor-call",
+              "text": "Leave a hanging call signal by the gate",
+              "satisfied": true
+            }
+          ],
+          "newSupplies": [
+            {
+              "label": "Mounting parts",
+              "narrative": "The keeper brings a crossbar, hooks and cords. The hooks fit the basin’s two pierced rim tabs; the upper loop fits the outside gatepost bracket. A loose tether can hold a striker."
+            }
+          ],
+          "things": [
+            {
+              "id": "gong",
+              "label": "Hanging basin gong",
+              "x": 152,
+              "y": 97,
+              "location": "gate",
+              "gold": true,
+              "slots": [
+                {
+                  "id": "slot1",
+                  "filled": true,
+                  "label": "Wooden mallet"
+                }
+              ],
+              "components": [
+                "Crossbar, hooks and cords"
+              ],
+              "readable": false
+            }
+          ],
+          "locations": [
+            {
+              "id": "@gate",
+              "area": "courtyard",
+              "x": 152,
+              "y": 81,
+              "label": "Outside gatepost bracket",
+              "gold": true
+            }
+          ],
+          "completed": true,
+          "ending": "An arriving visitor lifts the tethered mallet and strikes your hanging basin. Its clear clang reaches the back room. The keeper comes out and opens the gate.",
+          "successfulCombinations": 3
+        }
+      }
+    },
+    {
+      "packet": "/workspace/shared/combination-campaign-research-20261028/causation/reconsideration/accidental-bell-v1",
+      "session": "author-smoke-normal",
+      "op": "start",
+      "args": [],
+      "status": 2,
+      "output": {
+        "accepted": false,
+        "protocolError": "This session already exists. Resume it with view; do not erase prior evidence.",
+        "preservedRejection": true
+      }
+    },
+    {
+      "packet": "/workspace/shared/combination-campaign-research-20261028/causation/reconsideration/accidental-bell-v1",
+      "session": "author-smoke-preplaced",
+      "op": "start",
+      "args": [],
+      "status": 0,
+      "output": {
+        "evidenceClass": "simulated logical play; not human evidence",
+        "session": "author-smoke-preplaced",
+        "commandNumber": 1,
+        "integrity": {
+          "verified": true,
+          "manifestSha256": "3cb494cbb2d32b8e6eadddd1ca3fc46272e5bed37cdff817655e06f7fa657ac7"
+        },
+        "automaticTransitions": [],
+        "view": {
+          "scenario": {
+            "id": "causation-accidental-bell-probe-v1",
+            "title": "The Riverside Workshop",
+            "premise": "An afternoon helping at a small riverside workshop."
+          },
+          "stage": {
+            "number": 1,
+            "title": "Closing the painting bench",
+            "speaker": "The painter",
+            "motivation": "I need a basin to rinse these brushes before I close up. The prepared copper blank and mallet are on the forming block. Water is waiting at the washing bench."
+          },
+          "area": {
+            "id": "workshop",
+            "label": "Painting workshop",
+            "enteredAtStage": 0
+          },
+          "areas": [
+            {
+              "id": "workshop",
+              "label": "Painting workshop",
+              "current": true,
+              "thingCount": 2
+            }
+          ],
+          "objectives": [
+            {
+              "id": "rinse-brushes",
+              "text": "Bring a basin to the washing bench",
+              "satisfied": false
+            }
+          ],
+          "newSupplies": [],
+          "things": [
+            {
+              "id": "blank",
+              "label": "Copper basin blank",
+              "x": 252,
+              "y": 56,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "mallet",
+              "label": "Wooden mallet",
+              "x": 252,
+              "y": 106,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            }
+          ],
+          "locations": [
+            {
+              "id": "@wash",
+              "area": "workshop",
+              "x": 52,
+              "y": 81,
+              "label": "Washing bench",
+              "gold": false
+            }
+          ],
+          "completed": false,
+          "successfulCombinations": 0
+        }
+      }
+    },
+    {
+      "packet": "/workspace/shared/combination-campaign-research-20261028/causation/reconsideration/accidental-bell-v1",
+      "session": "author-smoke-preplaced",
+      "op": "drop",
+      "args": [
+        "blank",
+        "@wash"
+      ],
+      "status": 0,
+      "output": {
+        "evidenceClass": "simulated logical play; not human evidence",
+        "session": "author-smoke-preplaced",
+        "commandNumber": 2,
+        "integrity": {
+          "verified": true,
+          "manifestSha256": "3cb494cbb2d32b8e6eadddd1ca3fc46272e5bed37cdff817655e06f7fa657ac7"
+        },
+        "accepted": true,
+        "gesture": {
+          "source": "blank",
+          "target": "@wash"
+        },
+        "resolvedAction": {
+          "type": "place",
+          "item": "blank",
+          "location": "wash"
+        },
+        "automaticTransitions": [],
+        "view": {
+          "scenario": {
+            "id": "causation-accidental-bell-probe-v1",
+            "title": "The Riverside Workshop",
+            "premise": "An afternoon helping at a small riverside workshop."
+          },
+          "stage": {
+            "number": 1,
+            "title": "Closing the painting bench",
+            "speaker": "The painter",
+            "motivation": "I need a basin to rinse these brushes before I close up. The prepared copper blank and mallet are on the forming block. Water is waiting at the washing bench."
+          },
+          "area": {
+            "id": "workshop",
+            "label": "Painting workshop",
+            "enteredAtStage": 0
+          },
+          "areas": [
+            {
+              "id": "workshop",
+              "label": "Painting workshop",
+              "current": true,
+              "thingCount": 2
+            }
+          ],
+          "objectives": [
+            {
+              "id": "rinse-brushes",
+              "text": "Bring a basin to the washing bench",
+              "satisfied": false
+            }
+          ],
+          "newSupplies": [],
+          "things": [
+            {
+              "id": "blank",
+              "label": "Copper basin blank",
+              "x": 52,
+              "y": 97,
+              "location": "wash",
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "mallet",
+              "label": "Wooden mallet",
+              "x": 252,
+              "y": 106,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            }
+          ],
+          "locations": [
+            {
+              "id": "@wash",
+              "area": "workshop",
+              "x": 52,
+              "y": 81,
+              "label": "Washing bench",
+              "gold": false
+            }
+          ],
+          "completed": false,
+          "successfulCombinations": 0
+        }
+      }
+    },
+    {
+      "packet": "/workspace/shared/combination-campaign-research-20261028/causation/reconsideration/accidental-bell-v1",
+      "session": "author-smoke-preplaced",
+      "op": "drop",
+      "args": [
+        "mallet",
+        "blank"
+      ],
+      "status": 0,
+      "output": {
+        "evidenceClass": "simulated logical play; not human evidence",
+        "session": "author-smoke-preplaced",
+        "commandNumber": 3,
+        "integrity": {
+          "verified": true,
+          "manifestSha256": "3cb494cbb2d32b8e6eadddd1ca3fc46272e5bed37cdff817655e06f7fa657ac7"
+        },
+        "accepted": true,
+        "gesture": {
+          "source": "mallet",
+          "target": "blank"
+        },
+        "resolvedAction": {
+          "type": "combine",
+          "a": "mallet",
+          "b": "blank"
+        },
+        "automaticTransitions": [
+          {
+            "completedStage": 1,
+            "visibleFinalCreation": {
+              "scenario": {
+                "id": "causation-accidental-bell-probe-v1",
+                "title": "The Riverside Workshop",
+                "premise": "An afternoon helping at a small riverside workshop."
+              },
+              "stage": {
+                "number": 1,
+                "title": "Closing the painting bench",
+                "speaker": "The painter",
+                "motivation": "I need a basin to rinse these brushes before I close up. The prepared copper blank and mallet are on the forming block. Water is waiting at the washing bench."
+              },
+              "area": {
+                "id": "workshop",
+                "label": "Painting workshop",
+                "enteredAtStage": 0
+              },
+              "areas": [
+                {
+                  "id": "workshop",
+                  "label": "Painting workshop",
+                  "current": true,
+                  "thingCount": 2
+                }
+              ],
+              "objectives": [
+                {
+                  "id": "rinse-brushes",
+                  "text": "Bring a basin to the washing bench",
+                  "satisfied": true
+                }
+              ],
+              "newSupplies": [],
+              "things": [
+                {
+                  "id": "mallet",
+                  "label": "Wooden mallet",
+                  "x": 252,
+                  "y": 106,
+                  "location": null,
+                  "gold": false,
+                  "slots": [],
+                  "components": [],
+                  "readable": false
+                },
+                {
+                  "id": "basin",
+                  "label": "Copper washbasin",
+                  "x": 52,
+                  "y": 97,
+                  "location": "wash",
+                  "gold": true,
+                  "slots": [],
+                  "components": [],
+                  "readable": false
+                }
+              ],
+              "locations": [
+                {
+                  "id": "@wash",
+                  "area": "workshop",
+                  "x": 52,
+                  "y": 81,
+                  "label": "Washing bench",
+                  "gold": true
+                }
+              ],
+              "completed": false,
+              "successfulCombinations": 1
+            },
+            "next": {
+              "scenario": {
+                "id": "causation-accidental-bell-probe-v1",
+                "title": "The Riverside Workshop",
+                "premise": "An afternoon helping at a small riverside workshop."
+              },
+              "stage": {
+                "number": 2,
+                "title": "Outside the gate",
+                "speaker": "The keeper",
+                "motivation": "The brushes are clean. Your emptied basin leans beside the gate to dry. A gust rocks it against the iron latch; its clang brings the keeper out. “Visitors knock, but I cannot hear them from the back room. Leave a hanging call signal outside the gate, with something for them to strike it with.”"
+              },
+              "area": {
+                "id": "courtyard",
+                "label": "Workshop gate",
+                "enteredAtStage": 1
+              },
+              "areas": [
+                {
+                  "id": "workshop",
+                  "label": "Painting workshop",
+                  "current": false,
+                  "thingCount": 0
+                },
+                {
+                  "id": "courtyard",
+                  "label": "Workshop gate",
+                  "current": true,
+                  "thingCount": 3
+                }
+              ],
+              "objectives": [
+                {
+                  "id": "visitor-call",
+                  "text": "Leave a hanging call signal by the gate",
+                  "satisfied": false
+                }
+              ],
+              "newSupplies": [
+                {
+                  "label": "Mounting parts",
+                  "narrative": "The keeper brings a crossbar, hooks and cords. The hooks fit the basin’s two pierced rim tabs; the upper loop fits the outside gatepost bracket. A loose tether can hold a striker."
+                }
+              ],
+              "things": [
+                {
+                  "id": "mallet",
+                  "label": "Wooden mallet",
+                  "x": 252,
+                  "y": 65,
+                  "location": null,
+                  "gold": false,
+                  "slots": [],
+                  "components": [],
+                  "readable": false
+                },
+                {
+                  "id": "basin",
+                  "label": "Copper washbasin",
+                  "x": 52,
+                  "y": 56,
+                  "location": null,
+                  "gold": false,
+                  "slots": [],
+                  "components": [],
+                  "readable": false
+                },
+                {
+                  "id": "hanger",
+                  "label": "Crossbar, hooks and cords",
+                  "x": 52,
+                  "y": 160,
+                  "location": null,
+                  "gold": false,
+                  "slots": [],
+                  "components": [],
+                  "readable": false
+                }
+              ],
+              "locations": [
+                {
+                  "id": "@gate",
+                  "area": "courtyard",
+                  "x": 152,
+                  "y": 81,
+                  "label": "Outside gatepost bracket",
+                  "gold": false
+                }
+              ],
+              "completed": false,
+              "successfulCombinations": 1
+            }
+          }
+        ],
+        "view": {
+          "scenario": {
+            "id": "causation-accidental-bell-probe-v1",
+            "title": "The Riverside Workshop",
+            "premise": "An afternoon helping at a small riverside workshop."
+          },
+          "stage": {
+            "number": 2,
+            "title": "Outside the gate",
+            "speaker": "The keeper",
+            "motivation": "The brushes are clean. Your emptied basin leans beside the gate to dry. A gust rocks it against the iron latch; its clang brings the keeper out. “Visitors knock, but I cannot hear them from the back room. Leave a hanging call signal outside the gate, with something for them to strike it with.”"
+          },
+          "area": {
+            "id": "courtyard",
+            "label": "Workshop gate",
+            "enteredAtStage": 1
+          },
+          "areas": [
+            {
+              "id": "workshop",
+              "label": "Painting workshop",
+              "current": false,
+              "thingCount": 0
+            },
+            {
+              "id": "courtyard",
+              "label": "Workshop gate",
+              "current": true,
+              "thingCount": 3
+            }
+          ],
+          "objectives": [
+            {
+              "id": "visitor-call",
+              "text": "Leave a hanging call signal by the gate",
+              "satisfied": false
+            }
+          ],
+          "newSupplies": [
+            {
+              "label": "Mounting parts",
+              "narrative": "The keeper brings a crossbar, hooks and cords. The hooks fit the basin’s two pierced rim tabs; the upper loop fits the outside gatepost bracket. A loose tether can hold a striker."
+            }
+          ],
+          "things": [
+            {
+              "id": "mallet",
+              "label": "Wooden mallet",
+              "x": 252,
+              "y": 65,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "basin",
+              "label": "Copper washbasin",
+              "x": 52,
+              "y": 56,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "hanger",
+              "label": "Crossbar, hooks and cords",
+              "x": 52,
+              "y": 160,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            }
+          ],
+          "locations": [
+            {
+              "id": "@gate",
+              "area": "courtyard",
+              "x": 152,
+              "y": 81,
+              "label": "Outside gatepost bracket",
+              "gold": false
+            }
+          ],
+          "completed": false,
+          "successfulCombinations": 1
+        }
+      }
+    },
+    {
+      "packet": "/workspace/shared/combination-campaign-research-20261028/causation/reconsideration/accidental-bell-v1",
+      "session": "author-smoke-preplaced",
+      "op": "drop",
+      "args": [
+        "basin",
+        "@gate"
+      ],
+      "status": 0,
+      "output": {
+        "evidenceClass": "simulated logical play; not human evidence",
+        "session": "author-smoke-preplaced",
+        "commandNumber": 4,
+        "integrity": {
+          "verified": true,
+          "manifestSha256": "3cb494cbb2d32b8e6eadddd1ca3fc46272e5bed37cdff817655e06f7fa657ac7"
+        },
+        "accepted": true,
+        "gesture": {
+          "source": "basin",
+          "target": "@gate"
+        },
+        "resolvedAction": {
+          "type": "place",
+          "item": "basin",
+          "location": "gate"
+        },
+        "automaticTransitions": [],
+        "view": {
+          "scenario": {
+            "id": "causation-accidental-bell-probe-v1",
+            "title": "The Riverside Workshop",
+            "premise": "An afternoon helping at a small riverside workshop."
+          },
+          "stage": {
+            "number": 2,
+            "title": "Outside the gate",
+            "speaker": "The keeper",
+            "motivation": "The brushes are clean. Your emptied basin leans beside the gate to dry. A gust rocks it against the iron latch; its clang brings the keeper out. “Visitors knock, but I cannot hear them from the back room. Leave a hanging call signal outside the gate, with something for them to strike it with.”"
+          },
+          "area": {
+            "id": "courtyard",
+            "label": "Workshop gate",
+            "enteredAtStage": 1
+          },
+          "areas": [
+            {
+              "id": "workshop",
+              "label": "Painting workshop",
+              "current": false,
+              "thingCount": 0
+            },
+            {
+              "id": "courtyard",
+              "label": "Workshop gate",
+              "current": true,
+              "thingCount": 3
+            }
+          ],
+          "objectives": [
+            {
+              "id": "visitor-call",
+              "text": "Leave a hanging call signal by the gate",
+              "satisfied": false
+            }
+          ],
+          "newSupplies": [
+            {
+              "label": "Mounting parts",
+              "narrative": "The keeper brings a crossbar, hooks and cords. The hooks fit the basin’s two pierced rim tabs; the upper loop fits the outside gatepost bracket. A loose tether can hold a striker."
+            }
+          ],
+          "things": [
+            {
+              "id": "mallet",
+              "label": "Wooden mallet",
+              "x": 252,
+              "y": 65,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "basin",
+              "label": "Copper washbasin",
+              "x": 152,
+              "y": 97,
+              "location": "gate",
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "hanger",
+              "label": "Crossbar, hooks and cords",
+              "x": 52,
+              "y": 160,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            }
+          ],
+          "locations": [
+            {
+              "id": "@gate",
+              "area": "courtyard",
+              "x": 152,
+              "y": 81,
+              "label": "Outside gatepost bracket",
+              "gold": false
+            }
+          ],
+          "completed": false,
+          "successfulCombinations": 1
+        }
+      }
+    },
+    {
+      "packet": "/workspace/shared/combination-campaign-research-20261028/causation/reconsideration/accidental-bell-v1",
+      "session": "author-smoke-preplaced",
+      "op": "drop",
+      "args": [
+        "hanger",
+        "basin"
+      ],
+      "status": 0,
+      "output": {
+        "evidenceClass": "simulated logical play; not human evidence",
+        "session": "author-smoke-preplaced",
+        "commandNumber": 5,
+        "integrity": {
+          "verified": true,
+          "manifestSha256": "3cb494cbb2d32b8e6eadddd1ca3fc46272e5bed37cdff817655e06f7fa657ac7"
+        },
+        "accepted": true,
+        "gesture": {
+          "source": "hanger",
+          "target": "basin"
+        },
+        "resolvedAction": {
+          "type": "combine",
+          "a": "hanger",
+          "b": "basin"
+        },
+        "automaticTransitions": [],
+        "view": {
+          "scenario": {
+            "id": "causation-accidental-bell-probe-v1",
+            "title": "The Riverside Workshop",
+            "premise": "An afternoon helping at a small riverside workshop."
+          },
+          "stage": {
+            "number": 2,
+            "title": "Outside the gate",
+            "speaker": "The keeper",
+            "motivation": "The brushes are clean. Your emptied basin leans beside the gate to dry. A gust rocks it against the iron latch; its clang brings the keeper out. “Visitors knock, but I cannot hear them from the back room. Leave a hanging call signal outside the gate, with something for them to strike it with.”"
+          },
+          "area": {
+            "id": "courtyard",
+            "label": "Workshop gate",
+            "enteredAtStage": 1
+          },
+          "areas": [
+            {
+              "id": "workshop",
+              "label": "Painting workshop",
+              "current": false,
+              "thingCount": 0
+            },
+            {
+              "id": "courtyard",
+              "label": "Workshop gate",
+              "current": true,
+              "thingCount": 2
+            }
+          ],
+          "objectives": [
+            {
+              "id": "visitor-call",
+              "text": "Leave a hanging call signal by the gate",
+              "satisfied": false
+            }
+          ],
+          "newSupplies": [
+            {
+              "label": "Mounting parts",
+              "narrative": "The keeper brings a crossbar, hooks and cords. The hooks fit the basin’s two pierced rim tabs; the upper loop fits the outside gatepost bracket. A loose tether can hold a striker."
+            }
+          ],
+          "things": [
+            {
+              "id": "mallet",
+              "label": "Wooden mallet",
+              "x": 252,
+              "y": 65,
+              "location": null,
+              "gold": false,
+              "slots": [],
+              "components": [],
+              "readable": false
+            },
+            {
+              "id": "gong",
+              "label": "Hanging basin gong",
+              "x": 152,
+              "y": 97,
+              "location": "gate",
+              "gold": false,
+              "slots": [
+                {
+                  "id": "slot1",
+                  "filled": false,
+                  "label": null
+                }
+              ],
+              "components": [
+                "Crossbar, hooks and cords"
+              ],
+              "readable": false
+            }
+          ],
+          "locations": [
+            {
+              "id": "@gate",
+              "area": "courtyard",
+              "x": 152,
+              "y": 81,
+              "label": "Outside gatepost bracket",
+              "gold": false
+            }
+          ],
+          "completed": false,
+          "successfulCombinations": 2
+        }
+      }
+    },
+    {
+      "packet": "/workspace/shared/combination-campaign-research-20261028/causation/reconsideration/accidental-bell-v1",
+      "session": "author-smoke-preplaced",
+      "op": "drop",
+      "args": [
+        "gong",
+        "mallet"
+      ],
+      "status": 0,
+      "output": {
+        "evidenceClass": "simulated logical play; not human evidence",
+        "session": "author-smoke-preplaced",
+        "commandNumber": 6,
+        "integrity": {
+          "verified": true,
+          "manifestSha256": "3cb494cbb2d32b8e6eadddd1ca3fc46272e5bed37cdff817655e06f7fa657ac7"
+        },
+        "accepted": true,
+        "gesture": {
+          "source": "gong",
+          "target": "mallet"
+        },
+        "resolvedAction": {
+          "type": "combine",
+          "a": "gong",
+          "b": "mallet"
+        },
+        "automaticTransitions": [
+          {
+            "completedStage": 2,
+            "visibleFinalCreation": {
+              "scenario": {
+                "id": "causation-accidental-bell-probe-v1",
+                "title": "The Riverside Workshop",
+                "premise": "An afternoon helping at a small riverside workshop."
+              },
+              "stage": {
+                "number": 2,
+                "title": "Outside the gate",
+                "speaker": "The keeper",
+                "motivation": "The brushes are clean. Your emptied basin leans beside the gate to dry. A gust rocks it against the iron latch; its clang brings the keeper out. “Visitors knock, but I cannot hear them from the back room. Leave a hanging call signal outside the gate, with something for them to strike it with.”"
+              },
+              "area": {
+                "id": "courtyard",
+                "label": "Workshop gate",
+                "enteredAtStage": 1
+              },
+              "areas": [
+                {
+                  "id": "workshop",
+                  "label": "Painting workshop",
+                  "current": false,
+                  "thingCount": 0
+                },
+                {
+                  "id": "courtyard",
+                  "label": "Workshop gate",
+                  "current": true,
+                  "thingCount": 1
+                }
+              ],
+              "objectives": [
+                {
+                  "id": "visitor-call",
+                  "text": "Leave a hanging call signal by the gate",
+                  "satisfied": true
+                }
+              ],
+              "newSupplies": [
+                {
+                  "label": "Mounting parts",
+                  "narrative": "The keeper brings a crossbar, hooks and cords. The hooks fit the basin’s two pierced rim tabs; the upper loop fits the outside gatepost bracket. A loose tether can hold a striker."
+                }
+              ],
+              "things": [
+                {
+                  "id": "gong",
+                  "label": "Hanging basin gong",
+                  "x": 152,
+                  "y": 97,
+                  "location": "gate",
+                  "gold": true,
+                  "slots": [
+                    {
+                      "id": "slot1",
+                      "filled": true,
+                      "label": "Wooden mallet"
+                    }
+                  ],
+                  "components": [
+                    "Crossbar, hooks and cords"
+                  ],
+                  "readable": false
+                }
+              ],
+              "locations": [
+                {
+                  "id": "@gate",
+                  "area": "courtyard",
+                  "x": 152,
+                  "y": 81,
+                  "label": "Outside gatepost bracket",
+                  "gold": true
+                }
+              ],
+              "completed": false,
+              "successfulCombinations": 3
+            },
+            "next": {
+              "scenario": {
+                "id": "causation-accidental-bell-probe-v1",
+                "title": "The Riverside Workshop",
+                "premise": "An afternoon helping at a small riverside workshop."
+              },
+              "stage": {
+                "number": 2,
+                "title": "Outside the gate",
+                "speaker": "The keeper",
+                "motivation": "The brushes are clean. Your emptied basin leans beside the gate to dry. A gust rocks it against the iron latch; its clang brings the keeper out. “Visitors knock, but I cannot hear them from the back room. Leave a hanging call signal outside the gate, with something for them to strike it with.”"
+              },
+              "area": {
+                "id": "courtyard",
+                "label": "Workshop gate",
+                "enteredAtStage": 1
+              },
+              "areas": [
+                {
+                  "id": "workshop",
+                  "label": "Painting workshop",
+                  "current": false,
+                  "thingCount": 0
+                },
+                {
+                  "id": "courtyard",
+                  "label": "Workshop gate",
+                  "current": true,
+                  "thingCount": 1
+                }
+              ],
+              "objectives": [
+                {
+                  "id": "visitor-call",
+                  "text": "Leave a hanging call signal by the gate",
+                  "satisfied": true
+                }
+              ],
+              "newSupplies": [
+                {
+                  "label": "Mounting parts",
+                  "narrative": "The keeper brings a crossbar, hooks and cords. The hooks fit the basin’s two pierced rim tabs; the upper loop fits the outside gatepost bracket. A loose tether can hold a striker."
+                }
+              ],
+              "things": [
+                {
+                  "id": "gong",
+                  "label": "Hanging basin gong",
+                  "x": 152,
+                  "y": 97,
+                  "location": "gate",
+                  "gold": true,
+                  "slots": [
+                    {
+                      "id": "slot1",
+                      "filled": true,
+                      "label": "Wooden mallet"
+                    }
+                  ],
+                  "components": [
+                    "Crossbar, hooks and cords"
+                  ],
+                  "readable": false
+                }
+              ],
+              "locations": [
+                {
+                  "id": "@gate",
+                  "area": "courtyard",
+                  "x": 152,
+                  "y": 81,
+                  "label": "Outside gatepost bracket",
+                  "gold": true
+                }
+              ],
+              "completed": true,
+              "ending": "An arriving visitor lifts the tethered mallet and strikes your hanging basin. Its clear clang reaches the back room. The keeper comes out and opens the gate.",
+              "successfulCombinations": 3
+            }
+          }
+        ],
+        "view": {
+          "scenario": {
+            "id": "causation-accidental-bell-probe-v1",
+            "title": "The Riverside Workshop",
+            "premise": "An afternoon helping at a small riverside workshop."
+          },
+          "stage": {
+            "number": 2,
+            "title": "Outside the gate",
+            "speaker": "The keeper",
+            "motivation": "The brushes are clean. Your emptied basin leans beside the gate to dry. A gust rocks it against the iron latch; its clang brings the keeper out. “Visitors knock, but I cannot hear them from the back room. Leave a hanging call signal outside the gate, with something for them to strike it with.”"
+          },
+          "area": {
+            "id": "courtyard",
+            "label": "Workshop gate",
+            "enteredAtStage": 1
+          },
+          "areas": [
+            {
+              "id": "workshop",
+              "label": "Painting workshop",
+              "current": false,
+              "thingCount": 0
+            },
+            {
+              "id": "courtyard",
+              "label": "Workshop gate",
+              "current": true,
+              "thingCount": 1
+            }
+          ],
+          "objectives": [
+            {
+              "id": "visitor-call",
+              "text": "Leave a hanging call signal by the gate",
+              "satisfied": true
+            }
+          ],
+          "newSupplies": [
+            {
+              "label": "Mounting parts",
+              "narrative": "The keeper brings a crossbar, hooks and cords. The hooks fit the basin’s two pierced rim tabs; the upper loop fits the outside gatepost bracket. A loose tether can hold a striker."
+            }
+          ],
+          "things": [
+            {
+              "id": "gong",
+              "label": "Hanging basin gong",
+              "x": 152,
+              "y": 97,
+              "location": "gate",
+              "gold": true,
+              "slots": [
+                {
+                  "id": "slot1",
+                  "filled": true,
+                  "label": "Wooden mallet"
+                }
+              ],
+              "components": [
+                "Crossbar, hooks and cords"
+              ],
+              "readable": false
+            }
+          ],
+          "locations": [
+            {
+              "id": "@gate",
+              "area": "courtyard",
+              "x": 152,
+              "y": 81,
+              "label": "Outside gatepost bracket",
+              "gold": true
+            }
+          ],
+          "completed": true,
+          "ending": "An arriving visitor lifts the tethered mallet and strikes your hanging basin. Its clear clang reaches the back room. The keeper comes out and opens the gate.",
+          "successfulCombinations": 3
+        }
+      }
+    },
+    {
+      "packet": "/workspace/shared/combination-campaign-research-20261028/causation/reconsideration/accidental-bell-v1",
+      "session": "author-smoke-preplaced",
+      "op": "view",
+      "args": [],
+      "status": 0,
+      "output": {
+        "evidenceClass": "simulated logical play; not human evidence",
+        "session": "author-smoke-preplaced",
+        "commandNumber": 7,
+        "integrity": {
+          "verified": true,
+          "manifestSha256": "3cb494cbb2d32b8e6eadddd1ca3fc46272e5bed37cdff817655e06f7fa657ac7"
+        },
+        "automaticTransitions": [],
+        "view": {
+          "scenario": {
+            "id": "causation-accidental-bell-probe-v1",
+            "title": "The Riverside Workshop",
+            "premise": "An afternoon helping at a small riverside workshop."
+          },
+          "stage": {
+            "number": 2,
+            "title": "Outside the gate",
+            "speaker": "The keeper",
+            "motivation": "The brushes are clean. Your emptied basin leans beside the gate to dry. A gust rocks it against the iron latch; its clang brings the keeper out. “Visitors knock, but I cannot hear them from the back room. Leave a hanging call signal outside the gate, with something for them to strike it with.”"
+          },
+          "area": {
+            "id": "courtyard",
+            "label": "Workshop gate",
+            "enteredAtStage": 1
+          },
+          "areas": [
+            {
+              "id": "workshop",
+              "label": "Painting workshop",
+              "current": false,
+              "thingCount": 0
+            },
+            {
+              "id": "courtyard",
+              "label": "Workshop gate",
+              "current": true,
+              "thingCount": 1
+            }
+          ],
+          "objectives": [
+            {
+              "id": "visitor-call",
+              "text": "Leave a hanging call signal by the gate",
+              "satisfied": true
+            }
+          ],
+          "newSupplies": [
+            {
+              "label": "Mounting parts",
+              "narrative": "The keeper brings a crossbar, hooks and cords. The hooks fit the basin’s two pierced rim tabs; the upper loop fits the outside gatepost bracket. A loose tether can hold a striker."
+            }
+          ],
+          "things": [
+            {
+              "id": "gong",
+              "label": "Hanging basin gong",
+              "x": 152,
+              "y": 97,
+              "location": "gate",
+              "gold": true,
+              "slots": [
+                {
+                  "id": "slot1",
+                  "filled": true,
+                  "label": "Wooden mallet"
+                }
+              ],
+              "components": [
+                "Crossbar, hooks and cords"
+              ],
+              "readable": false
+            }
+          ],
+          "locations": [
+            {
+              "id": "@gate",
+              "area": "courtyard",
+              "x": 152,
+              "y": 81,
+              "label": "Outside gatepost bracket",
+              "gold": true
+            }
+          ],
+          "completed": true,
+          "ending": "An arriving visitor lifts the tethered mallet and strikes your hanging basin. Its clear clang reaches the back room. The keeper comes out and opens the gate.",
+          "successfulCombinations": 3
+        }
+      }
+    },
+    {
+      "packet": "/workspace/shared/combination-campaign-research-20261028/causation/reconsideration/accidental-bell-v1",
+      "session": "author-smoke-preplaced",
+      "op": "drop",
+      "args": [
+        "gong",
+        "@gate"
+      ],
+      "status": 2,
+      "output": {
+        "accepted": false,
+        "protocolError": "The two-scene session has ended. Preserve the first result; follow-up answers may use note.",
+        "preservedRejection": true
+      }
+    },
+    {
+      "packet": "/workspace/shared/combination-campaign-research-20261028/causation/reconsideration/accidental-bell-v1",
+      "session": "author-smoke-preplaced",
+      "op": "note",
+      "args": [
+        "Source-aware author smoke, not an independent fresh trial."
+      ],
+      "status": 0,
+      "output": {
+        "evidenceClass": "simulated logical play; not human evidence",
+        "session": "author-smoke-preplaced",
+        "commandNumber": 8,
+        "integrity": {
+          "verified": true,
+          "manifestSha256": "3cb494cbb2d32b8e6eadddd1ca3fc46272e5bed37cdff817655e06f7fa657ac7"
+        },
+        "note": "Source-aware author smoke, not an independent fresh trial.",
+        "automaticTransitions": [],
+        "view": {
+          "scenario": {
+            "id": "causation-accidental-bell-probe-v1",
+            "title": "The Riverside Workshop",
+            "premise": "An afternoon helping at a small riverside workshop."
+          },
+          "stage": {
+            "number": 2,
+            "title": "Outside the gate",
+            "speaker": "The keeper",
+            "motivation": "The brushes are clean. Your emptied basin leans beside the gate to dry. A gust rocks it against the iron latch; its clang brings the keeper out. “Visitors knock, but I cannot hear them from the back room. Leave a hanging call signal outside the gate, with something for them to strike it with.”"
+          },
+          "area": {
+            "id": "courtyard",
+            "label": "Workshop gate",
+            "enteredAtStage": 1
+          },
+          "areas": [
+            {
+              "id": "workshop",
+              "label": "Painting workshop",
+              "current": false,
+              "thingCount": 0
+            },
+            {
+              "id": "courtyard",
+              "label": "Workshop gate",
+              "current": true,
+              "thingCount": 1
+            }
+          ],
+          "objectives": [
+            {
+              "id": "visitor-call",
+              "text": "Leave a hanging call signal by the gate",
+              "satisfied": true
+            }
+          ],
+          "newSupplies": [
+            {
+              "label": "Mounting parts",
+              "narrative": "The keeper brings a crossbar, hooks and cords. The hooks fit the basin’s two pierced rim tabs; the upper loop fits the outside gatepost bracket. A loose tether can hold a striker."
+            }
+          ],
+          "things": [
+            {
+              "id": "gong",
+              "label": "Hanging basin gong",
+              "x": 152,
+              "y": 97,
+              "location": "gate",
+              "gold": true,
+              "slots": [
+                {
+                  "id": "slot1",
+                  "filled": true,
+                  "label": "Wooden mallet"
+                }
+              ],
+              "components": [
+                "Crossbar, hooks and cords"
+              ],
+              "readable": false
+            }
+          ],
+          "locations": [
+            {
+              "id": "@gate",
+              "area": "courtyard",
+              "x": 152,
+              "y": 81,
+              "label": "Outside gatepost bracket",
+              "gold": true
+            }
+          ],
+          "completed": true,
+          "ending": "An arriving visitor lifts the tethered mallet and strikes your hanging basin. Its clear clang reaches the back room. The keeper comes out and opens the gate.",
+          "successfulCombinations": 3
+        }
+      }
+    },
+    {
+      "packet": "/workspace/shared/combination-campaign-research-20261028/causation/reconsideration/accidental-bell-v1",
+      "session": "author-smoke-preplaced",
+      "op": "start",
+      "args": [],
+      "status": 2,
+      "output": {
+        "accepted": false,
+        "protocolError": "This session already exists. Resume it with view; do not erase prior evidence.",
+        "preservedRejection": true
+      }
+    },
+    {
+      "packet": "/tmp/bell-freeze-test-LuWQL6",
+      "session": "author-smoke-tampered",
+      "op": "start",
+      "args": [],
+      "status": 2,
+      "output": {
+        "accepted": false,
+        "protocolError": "Frozen file hash mismatch: scenario.json",
+        "preservedRejection": true
+      }
+    },
+    {
+      "packet": "/workspace/shared/combination-campaign-research-20261028/causation/reconsideration/accidental-bell-v1",
+      "session": "author-smoke-wrong-pin",
+      "op": "start",
+      "args": [],
+      "status": 2,
+      "output": {
+        "accepted": false,
+        "protocolError": "Pinned manifest hash mismatch; no runtime or scenario loaded.",
+        "preservedRejection": true
+      }
+    }
+  ]
+}

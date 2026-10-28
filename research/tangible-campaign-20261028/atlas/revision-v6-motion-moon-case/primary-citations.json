@@ -1,0 +1,31 @@
+{
+  "verifiedOn": "2026-10-28",
+  "method": "Opened/read primary-text PDF extraction and Newton Project normalized primary text via web tool. No UI/browser playtest.",
+  "sources": [
+    {
+      "id": "newton-moon-test-primary",
+      "url": "https://sites.pitt.edu/~jdnorton/teaching/2682_confirmation/2010/Principia_fragments/Principia_Bk3_to_Prop_15.pdf#page=9",
+      "locator": "Book III, Proposition IV and scholium; printed pages 391–393; PDF zero-based pages 8–10",
+      "verified": "The passage compares lunar deflection and terrestrial fall using a roughly sixty-Earth-radius lunar distance and squared-distance scaling. It discusses the fixed-Earth approximation and a correction when Earth and Moon move.",
+      "adaptation": "4.90 m, a 27.3-day period, a 6.37-million-metre Earth radius, and the same-one-second 1.36 mm comparison are supplied rounded modern-unit teaching quantities, not historical measurement quotations. The circular formula is explicitly a short-time model."
+    },
+    {
+      "id": "newton",
+      "url": "https://www.newtonproject.ox.ac.uk/view/texts/normalized/NATP00056",
+      "locator": "General Scholium; normalized 1729 English text; printed page 392, paragraphs beginning Hitherto and But hitherto",
+      "verified": "Newton distinguishes a gravitational account of phenomena from having established gravity’s cause. The opening of the scholium also disputes vortex explanations, but this candidate does not pretend to have numerically tested one.",
+      "adaptation": "The exercise keeps cause open without erasing Newton’s own theological discussion or claiming the later Scholium was an available 1687 object."
+    }
+  ],
+  "mathematicalChecks": {
+    "radiusMetres": 382200000,
+    "periodSeconds": 2358720,
+    "deltaTimeSeconds": 1,
+    "orbitFormula": "d ≈ r(2πΔt/T)²/2 = 2π²r(Δt/T)²",
+    "orbitDepartureMetres": 0.0013560248387941088,
+    "inverseSquareDisplacementFormula": "4.90 m / 60²",
+    "inverseSquareDisplacementMetres": 0.0013611111111111111,
+    "roundingConclusion": "Both values round to 1.36 mm, but they are not numerically identical before rounding.",
+    "accelerationRelation": "a ≈ 2d/(Δt)²; surface a ≈ 9.80 m/s², lunar a ≈ 0.00272 m/s²."
+  }
+}
