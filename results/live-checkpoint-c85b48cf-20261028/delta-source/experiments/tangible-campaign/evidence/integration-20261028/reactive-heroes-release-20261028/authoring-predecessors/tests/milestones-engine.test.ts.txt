@@ -1,0 +1,69 @@
+// Logical/headless evidence only. No native dialog, layout, motion, or human playtest claim.
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {readFileSync} from 'node:fs';
+import * as M from '../experiments/tangible-campaign/engine/model.ts';
+import type {Scenario} from '../experiments/tangible-campaign/schema/scenario.ts';
+import {encodeSave,decodeSave} from '../experiments/tangible-campaign/ui/save-codec.ts';
+import {scenario as marsSource} from '../experiments/tangible-campaign/ui/campaigns/mars-return-cargo.ts';
+import {scenario as elementsSource} from '../experiments/tangible-campaign/ui/campaigns/elements-house-and-craft.ts';
+import {integratedScenarios} from '../experiments/tangible-campaign/ui/scenarios.ts';
+import {applyMilestones,getPlayableScenario} from '../experiments/tangible-campaign/ui/campaign-milestones.ts';
+const mars=applyMilestones(marsSource),elements=applyMilestones(elementsSource);
+const fixture:Scenario={schemaVersion:1,id:'milestones',title:'A tiny invention',premise:'Light.',items:[{id:'frame',label:'Frame'},{id:'lens',label:'Lens'},{id:'battery',label:'Battery'},{id:'lamp',label:'Lamp',capabilities:['light'],slots:[{id:'power',accepts:['battery'],required:true}]}],locations:[],initialItems:['frame','lens','battery'],recipes:[{id:'lamp',a:'frame',b:'lens',out:'lamp'},{id:'power',a:'lamp',b:'battery',install:{target:'lamp',slot:'power',component:'battery'}}],stages:[{id:'build',title:'Build',speaker:'Maker',motivation:'Make a lamp.',area:{id:'camp',label:'Camp',travelText:'Arrive.'},objectives:[{id:'lit',kind:'create',capability:'light',text:'Light the lamp'}]}],milestones:[{id:'light',item:'lamp',when:'functional',capability:'light',title:'The night opens',text:'Light carries beyond the flame.'}]};
+const combine=(g:M.Game,a:string,b:string)=>M.applyAction(fixture,g,{type:'combine',a,b}).game;
+const shell=()=>combine(M.createGame(fixture),'frame','lens');
+const powered=()=>combine(shell(),'lamp','battery');
+test('functional milestone requires an actual accepted capability transition, not an empty shell',()=>{
+ let g=shell();assert.equal(M.pendingMilestone(fixture,g),null);assert.equal(M.functional(fixture,M.token(g.state,'lamp')!),false);
+ const rejected=M.applyAction(fixture,g,{type:'combine',a:'lamp',b:'lens'});assert(!rejected.accepted);assert.equal(M.pendingMilestone(fixture,rejected.game),null);
+ g=combine(g,'battery','lamp');const earned=M.pendingMilestone(fixture,g)!;assert.equal(earned.id,'light');assert.deepEqual(earned.components,['battery']);assert(M.token(g.state,'lamp'));
+ const duplicate=M.applyAction(fixture,g,{type:'combine',a:'battery',b:'lamp'});assert(!duplicate.accepted);assert.equal(duplicate.game.state.milestones!.length,1);
+});
+test('created milestone is an event, not a cache, initial supply, revisit or old-save scan',()=>{
+ const s=structuredClone(fixture);s.milestones=[{id:'lamp-made',item:'lamp',when:'created',title:'Made',text:'A lamp.'}];s.initialItems.push('lamp');let g=M.createGame(s);assert.equal(M.pendingMilestone(s,g),null);
+ g=M.applyAction(s,g,{type:'visit',area:'camp'}).game;assert.equal(M.pendingMilestone(s,g),null);assert.equal(M.pendingMilestone(s,M.restore(s,JSON.stringify(g))),null);
+});
+test('pending and acknowledged state survive lossless save; undo clears unearned pending but never repeats acknowledged rewards',()=>{
+ let g=powered();const saved=decodeSave(encodeSave({game:g,tops:{camp:0},seen:[0]}));g=M.restore(fixture,JSON.stringify(saved.game));assert.equal(M.pendingMilestone(fixture,g)!.id,'light');
+ const undone=M.undo(g).game;assert.equal(M.pendingMilestone(fixture,undone),null);assert.equal(M.pendingMilestone(fixture,combine(undone,'lamp','battery'))!.id,'light');
+ g=M.acknowledgeMilestone(fixture,g,'light');assert.equal(M.pendingMilestone(fixture,g),null);assert.deepEqual(M.acknowledgeMilestone(fixture,g,'light'),g);
+ g=M.restore(fixture,JSON.stringify(g));g=combine(M.undo(g).game,'lamp','battery');assert.equal(M.pendingMilestone(fixture,g),null);assert.deepEqual(g.milestonesSeen,['light']);assert.equal(M.pendingMilestone(fixture,powered())!.id,'light');
+});
+test('prepared checkpoints mark replayed achievements acknowledged, not newly earned by the player',()=>{
+ const s=structuredClone(fixture);s.checkpoints=[{id:'powered',label:'Powered',actions:[{type:'combine',a:'frame',b:'lens'},{type:'combine',a:'lamp',b:'battery'}]}];const g=M.checkpoint(s,'powered');assert.equal(M.pendingMilestone(s,g),null);assert.deepEqual(g.milestonesSeen,['light']);assert.equal(M.pendingMilestone(s,M.undo(g).game),null);
+});
+test('invalid optional reward metadata does not discard playable progress',()=>{
+ const g=powered();(g as any).milestonesSeen='broken';g.state.milestones=[{id:'missing',components:[]},{id:'light',components:['missing']}];const restored=M.restore(fixture,JSON.stringify(g));assert(M.token(restored.state,'lamp'));assert.equal(M.pendingMilestone(fixture,restored),null);
+});
+test('authoring rejects duplicate, impossible and incomplete milestone declarations',()=>{
+ for(const mutate of [(s:Scenario)=>s.milestones!.push(s.milestones![0]),(s:Scenario)=>s.milestones![0].item='missing',(s:Scenario)=>s.milestones![0].capability='missing',(s:Scenario)=>s.milestones![0].text='',(s:Scenario)=>s.milestones![0].when='bad' as any]){const s=structuredClone(fixture);mutate(s);assert(M.validateScenario(s).length);}
+});
+test('selection is exactly three Mars milestones and Plant, with no uniform quota or cooking reward',()=>{
+ assert.equal(mars.milestones!.length,3);assert.deepEqual(elements.milestones!.map(m=>m.item),['plant']);assert.equal(integratedScenarios.reduce((n,s)=>n+(applyMilestones(s).milestones?.length??0),0),4);
+ for(const s of integratedScenarios.filter(s=>s.id!==mars.id&&s.id!==elements.id))assert.equal(applyMilestones(s).milestones,undefined);
+ for(const s of [mars,elements])for(const m of s.milestones!)assert(!m.text.includes('—'));
+ const branches=elements.recipes.filter(r=>r.a==='plant'||r.b==='plant').map(r=>r.out);for(const id of ['fruit','grain','flowers'])assert(branches.includes(id));
+});
+test('real Mars route earns exactly the selected milestones, including Rover only after drive and solar power',()=>{
+ const evidence=JSON.parse(readFileSync(new URL('../experiments/tangible-campaign/evidence/'+mars.id+'-route-evidence.json',import.meta.url),'utf8'));
+ let g=M.createGame(mars);const earned:string[]=[];
+ for(const a of evidence.actionsLog){const before=g;const r=M.applyAction(mars,g,a);assert(r.accepted);g=r.game;
+  for(const m of g.state.milestones??[])if(!(before.state.milestones??[]).some(x=>x.id===m.id)){earned.push(m.id);const def=mars.milestones!.find(x=>x.id===m.id)!;const t=M.token(g.state,def.item)!;assert(t);if(def.when==='functional')assert(M.capabilities(mars,t).includes(def.capability!));if(m.id==='mars-rover')assert.deepEqual([t.slots.drive,t.slots['traction-power']],['drive-unit','solar-charger']);if(m.id==='mars-oxygen')assert.equal(t.slots.intake,'filtered-intake');}
+ }
+ assert(g.state.completed);assert.deepEqual(earned,['mars-rover','mars-water','mars-oxygen']);
+});
+
+test('presentation metadata does not rewrite frozen recipe graphs or opt predecessor worlds into rewards',()=>{
+ for(const source of [marsSource,elementsSource]){const before=JSON.stringify(source),decorated=applyMilestones(source);assert.notEqual(decorated,source);assert.equal(JSON.stringify(source),before);assert.equal(source.milestones,undefined);assert.equal(decorated.recipes,source.recipes);assert.equal(decorated.stages,source.stages);}
+ assert.equal(applyMilestones({...elementsSource,id:'elements-opening-wheel-v1-research'}).milestones,undefined);
+});
+
+test('shared playable-world resolver exposes actual active metadata to logical replay without altering the catalogue',()=>{
+ assert.equal(getPlayableScenario('missing',integratedScenarios),undefined);
+ for(const source of [marsSource,elementsSource])assert.deepEqual(getPlayableScenario(source.id,integratedScenarios),applyMilestones(source));
+ const s=getPlayableScenario(elementsSource.id,integratedScenarios)!;
+ const evidence=JSON.parse(readFileSync(new URL('../experiments/tangible-campaign/evidence/'+s.id+'-route-evidence.json',import.meta.url),'utf8'));
+ const g=M.replay(s,evidence.actionsLog);assert(g.state.completed);assert.deepEqual(g.state.milestones?.map(m=>m.id),['elements-plant']);assert.equal(M.pendingMilestone(s,g)!.id,'elements-plant');
+ for(const cp of s.checkpoints??[])assert.equal(M.pendingMilestone(s,M.checkpoint(s,cp.id)),null);
+});

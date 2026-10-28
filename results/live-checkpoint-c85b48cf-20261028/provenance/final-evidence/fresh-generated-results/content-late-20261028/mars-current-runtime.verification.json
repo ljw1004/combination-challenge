@@ -1,0 +1,1003 @@
+{
+  "evidenceClass": "Source-aware logical candidate verification, not a new blind playtest; no UI/browser testing",
+  "checks": [
+    {
+      "name": "Existing scenario, lifecycle, objective-flow and construction validators pass",
+      "passed": true,
+      "evidence": []
+    },
+    {
+      "name": "All five prior route sequences complete with only load input and final gesture changed; one fewer synthetic combination",
+      "passed": true,
+      "evidence": [
+        {
+          "name": "authored",
+          "actions": 230,
+          "combinations": 199,
+          "completed": true,
+          "diffs": [
+            {
+              "index": 223,
+              "before": {
+                "type": "combine",
+                "a": "specimen-cart",
+                "b": "capsule-dock"
+              },
+              "after": {
+                "type": "combine",
+                "a": "cushioned-capsule",
+                "b": "capsule-dock"
+              }
+            },
+            {
+              "index": 229,
+              "before": {
+                "type": "combine",
+                "a": "docked-vehicle",
+                "b": "@orbital-hatch"
+              },
+              "after": {
+                "type": "place",
+                "item": "docked-vehicle",
+                "location": "orbital-hatch"
+              }
+            }
+          ]
+        },
+        {
+          "name": "beacon",
+          "actions": 234,
+          "combinations": 203,
+          "completed": true,
+          "diffs": [
+            {
+              "index": 227,
+              "before": {
+                "type": "combine",
+                "a": "specimen-cart",
+                "b": "capsule-dock"
+              },
+              "after": {
+                "type": "combine",
+                "a": "cushioned-capsule",
+                "b": "capsule-dock"
+              }
+            },
+            {
+              "index": 233,
+              "before": {
+                "type": "combine",
+                "a": "docked-vehicle",
+                "b": "@orbital-hatch"
+              },
+              "after": {
+                "type": "place",
+                "item": "docked-vehicle",
+                "location": "orbital-hatch"
+              }
+            }
+          ]
+        },
+        {
+          "name": "tow",
+          "actions": 233,
+          "combinations": 202,
+          "completed": true,
+          "diffs": [
+            {
+              "index": 226,
+              "before": {
+                "type": "combine",
+                "a": "specimen-cart",
+                "b": "capsule-dock"
+              },
+              "after": {
+                "type": "combine",
+                "a": "cushioned-capsule",
+                "b": "capsule-dock"
+              }
+            },
+            {
+              "index": 232,
+              "before": {
+                "type": "combine",
+                "a": "docked-vehicle",
+                "b": "@orbital-hatch"
+              },
+              "after": {
+                "type": "place",
+                "item": "docked-vehicle",
+                "location": "orbital-hatch"
+              }
+            }
+          ]
+        },
+        {
+          "name": "tow-old-alias",
+          "actions": 233,
+          "combinations": 202,
+          "completed": true,
+          "diffs": [
+            {
+              "index": 226,
+              "before": {
+                "type": "combine",
+                "a": "specimen-cart",
+                "b": "capsule-dock"
+              },
+              "after": {
+                "type": "combine",
+                "a": "cushioned-capsule",
+                "b": "capsule-dock"
+              }
+            },
+            {
+              "index": 232,
+              "before": {
+                "type": "combine",
+                "a": "docked-vehicle",
+                "b": "@orbital-hatch"
+              },
+              "after": {
+                "type": "place",
+                "item": "docked-vehicle",
+                "location": "orbital-hatch"
+              }
+            }
+          ]
+        },
+        {
+          "name": "closed-reader.accepted",
+          "actions": 238,
+          "combinations": 203,
+          "completed": true,
+          "diffs": [
+            {
+              "index": 232,
+              "before": {
+                "type": "combine",
+                "a": "specimen-cart",
+                "b": "capsule-dock"
+              },
+              "after": {
+                "type": "combine",
+                "a": "cushioned-capsule",
+                "b": "capsule-dock"
+              }
+            },
+            {
+              "index": 237,
+              "before": {
+                "type": "combine",
+                "a": "docked-vehicle",
+                "b": "@orbital-hatch"
+              },
+              "after": {
+                "type": "place",
+                "item": "docked-vehicle",
+                "location": "orbital-hatch"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Cart preparation keeps precisely one filled capsule and does not snapshot any of its cargo",
+      "passed": true,
+      "evidence": {
+        "raw": [
+          {
+            "id": "cushioned-capsule",
+            "kind": "cushioned-capsule",
+            "area": "area-departure",
+            "location": null,
+            "slots": {
+              "ice": "catalogued-ice-sample",
+              "sediment": "retained-sediment",
+              "comparison": "two-cell-case",
+              "comparison-record": "sleeved-comparison",
+              "record": "complete-field-archive"
+            },
+            "incorporated": [
+              "return-capsule",
+              "shock-mount",
+              "catalogued-ice-sample",
+              "retained-sediment",
+              "two-cell-case",
+              "sleeved-comparison",
+              "complete-field-archive"
+            ],
+            "x": 52,
+            "y": 438,
+            "components": [
+              "two-cell-case",
+              "ripple-impression",
+              "logged-gravel-chip"
+            ]
+          },
+          {
+            "id": "specimen-cart",
+            "kind": "specimen-cart",
+            "area": "area-departure",
+            "location": null,
+            "slots": {},
+            "incorporated": [
+              "secured-cart",
+              "depot-cargo-shuttle",
+              "depot-hauler",
+              "protected-controller",
+              "hauler-platform",
+              "cargo-strap"
+            ],
+            "x": 52,
+            "y": 172,
+            "components": [
+              "protected-controller",
+              "hauler-platform"
+            ]
+          }
+        ],
+        "visible": [
+          {
+            "id": "cushioned-capsule",
+            "label": "Return capsule",
+            "description": "The same protected return capsule. Its specimen compartments and record pouch keep the scientific evidence together.",
+            "x": 52,
+            "y": 438,
+            "location": null,
+            "gold": false,
+            "slots": [
+              {
+                "id": "slot1",
+                "filled": true,
+                "label": "Catalogued ice sample"
+              },
+              {
+                "id": "slot2",
+                "filled": true,
+                "label": "Retained sediment"
+              },
+              {
+                "id": "slot3",
+                "filled": true,
+                "label": "Complete field archive"
+              },
+              {
+                "id": "slot4",
+                "filled": true,
+                "label": "Two-cell comparison case"
+              },
+              {
+                "id": "slot5",
+                "filled": true,
+                "label": "Sleeved comparison"
+              }
+            ],
+            "components": [
+              "Ripple impression",
+              "Logged gravel chip"
+            ],
+            "functional": true
+          },
+          {
+            "id": "specimen-cart",
+            "label": "Specimen transport cart",
+            "description": "The recovered cargo hauler, with its cargo restraint fitted to transport the protected return capsule to the ascent depot.",
+            "x": 52,
+            "y": 172,
+            "location": null,
+            "gold": true,
+            "slots": [],
+            "components": [
+              "Protected controller",
+              "Hauler platform"
+            ],
+            "functional": true
+          }
+        ]
+      }
+    },
+    {
+      "name": "Homebound carries prepared cart and capsule separately, plus cabin, record and rendezvous",
+      "passed": true,
+      "evidence": [
+        {
+          "item": "ascent-cabin",
+          "from": "area-ascent",
+          "to": "area-homebound"
+        },
+        {
+          "item": "cabin-test-record",
+          "from": "area-ascent",
+          "to": "area-homebound"
+        },
+        {
+          "item": "agreed-rendezvous",
+          "from": "area-rendezvous",
+          "to": "area-homebound"
+        },
+        {
+          "item": "cushioned-capsule",
+          "from": "area-departure",
+          "to": "area-homebound"
+        },
+        {
+          "item": "specimen-cart",
+          "from": "area-departure",
+          "to": "area-homebound"
+        }
+      ]
+    },
+    {
+      "name": "Actual capsule transfer removes capsule once, preserves all cargo, leaves the empty hauler untouched",
+      "passed": true,
+      "evidence": {
+        "raw": [
+          {
+            "id": "specimen-cart",
+            "kind": "specimen-cart",
+            "area": "area-homebound",
+            "location": null,
+            "slots": {},
+            "incorporated": [
+              "secured-cart",
+              "depot-cargo-shuttle",
+              "depot-hauler",
+              "protected-controller",
+              "hauler-platform",
+              "cargo-strap"
+            ],
+            "x": 150,
+            "y": 120,
+            "components": [
+              "protected-controller",
+              "hauler-platform"
+            ]
+          },
+          {
+            "id": "loaded-capsule-dock",
+            "kind": "loaded-capsule-dock",
+            "area": "area-homebound",
+            "location": null,
+            "slots": {},
+            "incorporated": [
+              "capsule-dock",
+              "cargo-adapter",
+              "receiver-latch",
+              "cushioned-capsule",
+              "return-capsule",
+              "shock-mount",
+              "catalogued-ice-sample",
+              "retained-sediment",
+              "two-cell-case",
+              "sleeved-comparison",
+              "complete-field-archive"
+            ],
+            "x": 252,
+            "y": 435,
+            "components": [
+              "cushioned-capsule",
+              "catalogued-ice-sample",
+              "retained-sediment",
+              "two-cell-case",
+              "sleeved-comparison",
+              "complete-field-archive",
+              "ripple-impression",
+              "logged-gravel-chip"
+            ]
+          }
+        ],
+        "visible": [
+          {
+            "id": "specimen-cart",
+            "label": "Specimen transport cart",
+            "description": "The recovered cargo hauler, with its cargo restraint fitted to transport the protected return capsule to the ascent depot.",
+            "x": 150,
+            "y": 120,
+            "location": null,
+            "gold": false,
+            "slots": [],
+            "components": [
+              "Protected controller",
+              "Hauler platform"
+            ],
+            "functional": true
+          },
+          {
+            "id": "loaded-capsule-dock",
+            "label": "Loaded capsule dock",
+            "description": "Transfer the secured capsule to its ship mount.",
+            "x": 252,
+            "y": 435,
+            "location": null,
+            "gold": false,
+            "slots": [],
+            "components": [
+              "Return capsule",
+              "Catalogued ice sample",
+              "Retained sediment",
+              "Two-cell comparison case",
+              "Sleeved comparison",
+              "Complete field archive",
+              "Ripple impression",
+              "Logged gravel chip"
+            ],
+            "functional": true
+          }
+        ]
+      }
+    },
+    {
+      "name": "Every flight transformation has exactly one capsule owner, all same contents, no hauler aboard",
+      "passed": true,
+      "evidence": [
+        {
+          "recipe": "homebound-6-loaded-ascent-vehicle",
+          "capsuleOwner": "loaded-ascent-vehicle",
+          "contents": [
+            "ascent-cabin",
+            "oxygen-service-module",
+            "docking-ring",
+            "flight-console",
+            "suited-flight-seat",
+            "loaded-capsule-dock",
+            "cushioned-capsule",
+            "catalogued-ice-sample",
+            "retained-sediment",
+            "two-cell-case",
+            "sleeved-comparison",
+            "complete-field-archive",
+            "ripple-impression",
+            "logged-gravel-chip"
+          ]
+        },
+        {
+          "recipe": "homebound-9-flight-ready-vehicle",
+          "capsuleOwner": "flight-ready-vehicle",
+          "contents": [
+            "ascent-cabin",
+            "oxygen-service-module",
+            "docking-ring",
+            "flight-console",
+            "suited-flight-seat",
+            "loaded-capsule-dock",
+            "cushioned-capsule",
+            "catalogued-ice-sample",
+            "retained-sediment",
+            "two-cell-case",
+            "sleeved-comparison",
+            "complete-field-archive",
+            "ripple-impression",
+            "logged-gravel-chip"
+          ]
+        },
+        {
+          "recipe": "homebound-11-ascending-vehicle",
+          "capsuleOwner": "ascending-vehicle",
+          "contents": [
+            "ascent-cabin",
+            "oxygen-service-module",
+            "docking-ring",
+            "flight-console",
+            "suited-flight-seat",
+            "loaded-capsule-dock",
+            "cushioned-capsule",
+            "catalogued-ice-sample",
+            "retained-sediment",
+            "two-cell-case",
+            "sleeved-comparison",
+            "complete-field-archive",
+            "ripple-impression",
+            "logged-gravel-chip"
+          ]
+        },
+        {
+          "recipe": "homebound-12-docked-vehicle",
+          "capsuleOwner": "docked-vehicle",
+          "contents": [
+            "ascent-cabin",
+            "oxygen-service-module",
+            "docking-ring",
+            "flight-console",
+            "suited-flight-seat",
+            "loaded-capsule-dock",
+            "cushioned-capsule",
+            "catalogued-ice-sample",
+            "retained-sediment",
+            "two-cell-case",
+            "sleeved-comparison",
+            "complete-field-archive",
+            "ripple-impression",
+            "logged-gravel-chip"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Missing capsule compartment blocks both fitting and load, in both drag directions",
+      "passed": true,
+      "evidence": [
+        {
+          "recipe": "departure-11-specimen-cart",
+          "missingSlot": "ice",
+          "direction": [
+            "secured-cart",
+            "cushioned-capsule"
+          ],
+          "accepted": false
+        },
+        {
+          "recipe": "departure-11-specimen-cart",
+          "missingSlot": "ice",
+          "direction": [
+            "cushioned-capsule",
+            "secured-cart"
+          ],
+          "accepted": false
+        },
+        {
+          "recipe": "departure-11-specimen-cart",
+          "missingSlot": "sediment",
+          "direction": [
+            "secured-cart",
+            "cushioned-capsule"
+          ],
+          "accepted": false
+        },
+        {
+          "recipe": "departure-11-specimen-cart",
+          "missingSlot": "sediment",
+          "direction": [
+            "cushioned-capsule",
+            "secured-cart"
+          ],
+          "accepted": false
+        },
+        {
+          "recipe": "departure-11-specimen-cart",
+          "missingSlot": "comparison",
+          "direction": [
+            "secured-cart",
+            "cushioned-capsule"
+          ],
+          "accepted": false
+        },
+        {
+          "recipe": "departure-11-specimen-cart",
+          "missingSlot": "comparison",
+          "direction": [
+            "cushioned-capsule",
+            "secured-cart"
+          ],
+          "accepted": false
+        },
+        {
+          "recipe": "departure-11-specimen-cart",
+          "missingSlot": "comparison-record",
+          "direction": [
+            "secured-cart",
+            "cushioned-capsule"
+          ],
+          "accepted": false
+        },
+        {
+          "recipe": "departure-11-specimen-cart",
+          "missingSlot": "comparison-record",
+          "direction": [
+            "cushioned-capsule",
+            "secured-cart"
+          ],
+          "accepted": false
+        },
+        {
+          "recipe": "departure-11-specimen-cart",
+          "missingSlot": "record",
+          "direction": [
+            "secured-cart",
+            "cushioned-capsule"
+          ],
+          "accepted": false
+        },
+        {
+          "recipe": "departure-11-specimen-cart",
+          "missingSlot": "record",
+          "direction": [
+            "cushioned-capsule",
+            "secured-cart"
+          ],
+          "accepted": false
+        },
+        {
+          "recipe": "homebound-5-loaded-capsule-dock",
+          "missingSlot": "ice",
+          "direction": [
+            "cushioned-capsule",
+            "capsule-dock"
+          ],
+          "accepted": false
+        },
+        {
+          "recipe": "homebound-5-loaded-capsule-dock",
+          "missingSlot": "ice",
+          "direction": [
+            "capsule-dock",
+            "cushioned-capsule"
+          ],
+          "accepted": false
+        },
+        {
+          "recipe": "homebound-5-loaded-capsule-dock",
+          "missingSlot": "sediment",
+          "direction": [
+            "cushioned-capsule",
+            "capsule-dock"
+          ],
+          "accepted": false
+        },
+        {
+          "recipe": "homebound-5-loaded-capsule-dock",
+          "missingSlot": "sediment",
+          "direction": [
+            "capsule-dock",
+            "cushioned-capsule"
+          ],
+          "accepted": false
+        },
+        {
+          "recipe": "homebound-5-loaded-capsule-dock",
+          "missingSlot": "comparison",
+          "direction": [
+            "cushioned-capsule",
+            "capsule-dock"
+          ],
+          "accepted": false
+        },
+        {
+          "recipe": "homebound-5-loaded-capsule-dock",
+          "missingSlot": "comparison",
+          "direction": [
+            "capsule-dock",
+            "cushioned-capsule"
+          ],
+          "accepted": false
+        },
+        {
+          "recipe": "homebound-5-loaded-capsule-dock",
+          "missingSlot": "comparison-record",
+          "direction": [
+            "cushioned-capsule",
+            "capsule-dock"
+          ],
+          "accepted": false
+        },
+        {
+          "recipe": "homebound-5-loaded-capsule-dock",
+          "missingSlot": "comparison-record",
+          "direction": [
+            "capsule-dock",
+            "cushioned-capsule"
+          ],
+          "accepted": false
+        },
+        {
+          "recipe": "homebound-5-loaded-capsule-dock",
+          "missingSlot": "record",
+          "direction": [
+            "cushioned-capsule",
+            "capsule-dock"
+          ],
+          "accepted": false
+        },
+        {
+          "recipe": "homebound-5-loaded-capsule-dock",
+          "missingSlot": "record",
+          "direction": [
+            "capsule-dock",
+            "cushioned-capsule"
+          ],
+          "accepted": false
+        }
+      ]
+    },
+    {
+      "name": "Both operand directions perform the same single-owner transfer",
+      "passed": true,
+      "evidence": [
+        {
+          "recipe": "departure-11-specimen-cart",
+          "sameStateAndVisibleContents": true
+        },
+        {
+          "recipe": "homebound-5-loaded-capsule-dock",
+          "sameStateAndVisibleContents": true
+        },
+        {
+          "recipe": "homebound-6-loaded-ascent-vehicle",
+          "sameStateAndVisibleContents": true
+        }
+      ]
+    },
+    {
+      "name": "Final placement wins with real cargo visible on docked ship and creates no capsule badge",
+      "passed": true,
+      "evidence": {
+        "completed": true,
+        "goals": [
+          {
+            "id": "homebound-return",
+            "text": "Bring specimens to orbital hatch",
+            "satisfied": true
+          }
+        ],
+        "ship": {
+          "id": "docked-vehicle",
+          "label": "Docked vehicle",
+          "description": "The agreed rendezvous meets the waiting orbital cabin.",
+          "x": 252,
+          "y": 147,
+          "location": "orbital-hatch",
+          "gold": true,
+          "slots": [],
+          "components": [
+            "Ascent cabin",
+            "Serviced oxygen module",
+            "Docking ring",
+            "Flight console",
+            "Flight seat",
+            "Loaded capsule dock",
+            "Return capsule",
+            "Catalogued ice sample",
+            "Retained sediment",
+            "Two-cell comparison case",
+            "Sleeved comparison",
+            "Complete field archive",
+            "Ripple impression",
+            "Logged gravel chip"
+          ],
+          "functional": true
+        },
+        "cart": {
+          "id": "specimen-cart",
+          "label": "Specimen transport cart",
+          "description": "The recovered cargo hauler, with its cargo restraint fitted to transport the protected return capsule to the ascent depot.",
+          "x": 150,
+          "y": 120,
+          "location": null,
+          "gold": false,
+          "slots": [],
+          "components": [
+            "Protected controller",
+            "Hauler platform"
+          ],
+          "functional": true
+        },
+        "completionText": "We’re through the orbiter’s hatch together. Our return capsule is still secured in the docked ship beside us, with the specimens, their records and a copy of the picture from our table. The light that answered us has become our way home."
+      }
+    },
+    {
+      "name": "Undo restores single prior capsule owner; JSON restore retains final ownership",
+      "passed": true,
+      "evidence": {
+        "undoMatchesBefore": true,
+        "restoreMatchesAfter": true
+      }
+    },
+    {
+      "name": "Every embedded checkpoint still replays on unchanged engine",
+      "passed": true,
+      "evidence": [
+        {
+          "id": "chapter-1",
+          "actions": 0,
+          "stage": "signal",
+          "completed": false
+        },
+        {
+          "id": "chapter-2",
+          "actions": 5,
+          "stage": "habitat",
+          "completed": false
+        },
+        {
+          "id": "chapter-3",
+          "actions": 19,
+          "stage": "rover",
+          "completed": false
+        },
+        {
+          "id": "chapter-4",
+          "actions": 30,
+          "stage": "outcrop",
+          "completed": false
+        },
+        {
+          "id": "chapter-5",
+          "actions": 44,
+          "stage": "weather",
+          "completed": false
+        },
+        {
+          "id": "chapter-6",
+          "actions": 52,
+          "stage": "relay",
+          "completed": false
+        },
+        {
+          "id": "chapter-7",
+          "actions": 58,
+          "stage": "rescue",
+          "completed": false
+        },
+        {
+          "id": "chapter-8",
+          "actions": 70,
+          "stage": "camp",
+          "completed": false
+        },
+        {
+          "id": "chapter-9",
+          "actions": 78,
+          "stage": "cargo-return",
+          "completed": false
+        },
+        {
+          "id": "chapter-10",
+          "actions": 85,
+          "stage": "night",
+          "completed": false
+        },
+        {
+          "id": "chapter-11",
+          "actions": 95,
+          "stage": "waterworks",
+          "completed": false
+        },
+        {
+          "id": "chapter-12",
+          "actions": 103,
+          "stage": "garden",
+          "completed": false
+        },
+        {
+          "id": "chapter-13",
+          "actions": 115,
+          "stage": "nursery",
+          "completed": false
+        },
+        {
+          "id": "chapter-14",
+          "actions": 124,
+          "stage": "workshop",
+          "completed": false
+        },
+        {
+          "id": "chapter-15",
+          "actions": 134,
+          "stage": "traverse",
+          "completed": false
+        },
+        {
+          "id": "chapter-16",
+          "actions": 142,
+          "stage": "crossing",
+          "completed": false
+        },
+        {
+          "id": "chapter-17",
+          "actions": 148,
+          "stage": "buried-story",
+          "completed": false
+        },
+        {
+          "id": "chapter-18",
+          "actions": 159,
+          "stage": "contrast",
+          "completed": false
+        },
+        {
+          "id": "chapter-19",
+          "actions": 172,
+          "stage": "depot-way",
+          "completed": false
+        },
+        {
+          "id": "chapter-20",
+          "actions": 183,
+          "stage": "oxygen",
+          "completed": false
+        },
+        {
+          "id": "chapter-21",
+          "actions": 189,
+          "stage": "ascent",
+          "completed": false
+        },
+        {
+          "id": "chapter-22",
+          "actions": 196,
+          "stage": "rendezvous",
+          "completed": false
+        },
+        {
+          "id": "chapter-23",
+          "actions": 206,
+          "stage": "departure",
+          "completed": false
+        },
+        {
+          "id": "chapter-24",
+          "actions": 220,
+          "stage": "homebound",
+          "completed": false
+        },
+        {
+          "id": "complete",
+          "actions": 230,
+          "stage": "homebound",
+          "completed": true
+        }
+      ]
+    },
+    {
+      "name": "Exact recommended bytes plus approved archive-label override; carrier strings once and live predecessor save identity unchanged",
+      "passed": true,
+      "evidence": {
+        "exactSourceWithSingleLabelOverride": true,
+        "oldDirectRouteAndSavePreserved": true,
+        "carrierOverridesReapplied": false
+      }
+    },
+    {
+      "name": "All five exact corrected route files preserve single ownership at each cargo milestone and all 23 earlier-created chapter connections",
+      "passed": true,
+      "evidence": [
+        {
+          "name": "authored",
+          "completed": true,
+          "combinations": 199,
+          "goalConnectedLaterChapters": 23,
+          "ownershipMilestonesChecked": 6
+        },
+        {
+          "name": "beacon",
+          "completed": true,
+          "combinations": 203,
+          "goalConnectedLaterChapters": 23,
+          "ownershipMilestonesChecked": 6
+        },
+        {
+          "name": "tow",
+          "completed": true,
+          "combinations": 202,
+          "goalConnectedLaterChapters": 23,
+          "ownershipMilestonesChecked": 6
+        },
+        {
+          "name": "tow-old-alias",
+          "completed": true,
+          "combinations": 202,
+          "goalConnectedLaterChapters": 23,
+          "ownershipMilestonesChecked": 6
+        },
+        {
+          "name": "closed-reader.accepted",
+          "completed": true,
+          "combinations": 203,
+          "goalConnectedLaterChapters": 23,
+          "ownershipMilestonesChecked": 6
+        }
+      ]
+    },
+    {
+      "name": "Cabin record promises only restored fittings, missing fitting rejects, and optional fictional reading leaves full state untouched",
+      "passed": true,
+      "evidence": {
+        "missingFittingControls": 8,
+        "readingDetachedAndNonmutating": true,
+        "portraitArchivingUnchangedRecipe": true,
+        "newActionAdded": false
+      }
+    }
+  ]
+}

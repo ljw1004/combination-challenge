@@ -1,0 +1,37 @@
+import fs from 'node:fs';import assert from 'node:assert/strict';import crypto from 'node:crypto';import * as M from './frozen-runtime/engine/model.ts';import * as L from './frozen-runtime/schema/lifecycle.ts';import {execute} from './strict-surface.mjs';
+const s=JSON.parse(fs.readFileSync(new URL('scenario.json',import.meta.url))),old=JSON.parse(fs.readFileSync(new URL('original-atlas-data.json',import.meta.url))),chapters=JSON.parse(fs.readFileSync(new URL('chapter-recipes.json',import.meta.url))),prefix=JSON.parse(fs.readFileSync(new URL('earned-babylon-prefix.json',import.meta.url)));const report={candidateSha256:crypto.createHash('sha256').update(fs.readFileSync(new URL('scenario.json',import.meta.url))).digest('hex'),checks:[],chapters:[],routes:[],limits:['Logical tests only, not UI/layout or human enjoyment.','Research entry is an actually replayed checkpoint after seven original Babylon combinations, not a fresh player journey.','State keys exclude geometry/history/metrics; full saves still compare exactly. Undo compares all substantive state excluding cumulative metrics.']};
+for(const [name,f] of Object.entries({schema:M.validateScenario,lifecycle:x=>L.validateContentLifecycles([x]),objective:x=>L.validateObjectiveFlow([x]),construction:x=>L.validateConstructionContinuity([x])})){assert.deepEqual(f(s),[],name);report.checks.push(name)}
+assert.deepEqual(s.stages[0],old.stages[0]);for(const id of chapters[0].recipes)assert.deepEqual(s.recipes.find(r=>r.id===id),old.recipes.find(r=>r.id===id));for(const x of s.items.filter(i=>!i.id.startsWith('p-')))assert.deepEqual(x,old.items.find(i=>i.id===x.id));
+const before=prefix.slice(0,-1);assert.deepEqual(M.replay(s,before).state,M.replay(old,before).state);report.checks.push('Exact old Babylon stage,9 recipes and all selected item records; prefix replay substantive state exactly matches original before branching');
+const substantive=state=>{const {metrics,...rest}=state;return rest};const key=g=>JSON.stringify({stage:g.state.stage,area:g.state.currentArea,tokens:g.state.tokens.filter(t=>t.area===g.state.currentArea).map(t=>({id:t.id,kind:t.kind,location:t.location,slots:t.slots,components:t.components})).sort((a,b)=>a.id.localeCompare(b.id)),used:g.state.recipesUsed.slice().sort(),discovered:g.state.discovered.slice().sort(),completed:g.state.completed});
+const options=g=>s.recipes.flatMap(r=>{const a=g.state.tokens.find(t=>t.kind===r.a&&t.area===g.state.currentArea),b=g.state.tokens.find(t=>t.kind===r.b&&t.area===g.state.currentArea);if(!a||!b)return [];const x=M.applyAction(s,g,{type:'combine',a:a.id,b:b.id});return x.accepted?[{r,a,b,result:x}]:[]});
+let entry=M.replay(s,prefix);const entries=[];const minRoute=[...prefix];let totalTransitions=0;
+for(let stage=1;stage<s.stages.length;stage++){
+ assert.equal(entry.state.stage,stage);entries.push(structuredClone(entry));const queue=[entry],seen=new Map([[key(entry),{game:entry,from:null,action:null}]]),edges=[],goals=[];let firstGoal=null;
+ for(let cursor=0;cursor<queue.length;cursor++){
+  const g=queue[cursor],k=key(g);if(M.stageComplete(s,g.state)){goals.push(k);firstGoal??=k;continue}
+  for(const {r,a,b,result} of options(g)){
+   const prior=structuredClone(g),partners=M.partners(s,g.state,a.id);assert.ok([...partners.partners,...partners.incoming,...partners.settings].includes(b.id),r.id);assert.deepEqual(g,prior);
+   assert.deepEqual(M.restore(s,JSON.stringify(result.game)),result.game);const u=M.undo(result.game);assert.deepEqual(substantive(u.game.state),substantive(g.state));const re=M.applyAction(s,u.game,{type:'combine',a:a.id,b:b.id});assert.deepEqual(substantive(re.game.state),substantive(result.game.state));
+   const reversed=M.applyAction(s,g,{type:'combine',a:b.id,b:a.id});assert.equal(reversed.accepted,true);assert.equal(key(reversed.game),key(result.game));
+   const target=key(result.game);edges.push([k,target]);if(!seen.has(target)){seen.set(target,{game:result.game,from:k,action:{type:'combine',a:a.id,b:b.id}});queue.push(result.game)}
+  }
+ }
+ assert.ok(goals.length,'No completion '+stage);const finish=new Set(goals);for(let change=true;change;){change=false;for(const [a,b] of edges)if(finish.has(b)&&!finish.has(a)){finish.add(a);change=true}}assert.equal(finish.size,seen.size,'A reachable state cannot finish');
+ // Prior created imports cannot be replaced by new supply: removing ALL imported creations prevents finishing.
+ const imported=s.stages[stage].carry;assert.ok(imported.length);for(const id of imported)assert.ok(s.recipes.some(r=>r.out===id&&chapters.slice(0,stage).some(c=>c.recipes.includes(r.id))),id+' was not actually created earlier');
+ const removed=structuredClone(entry);removed.state.tokens=removed.state.tokens.filter(t=>!imported.includes(t.kind));const rq=[removed],rk=new Set([key(removed)]);let couldFinish=false;for(let j=0;j<rq.length;j++){const g=rq[j];if(M.stageComplete(s,g.state)){couldFinish=true;break}for(const {result} of options(g)){const k=key(result.game);if(!rk.has(k)){rk.add(k);rq.push(result.game)}}}assert.equal(couldFinish,false);
+ report.chapters.push({chapter:stage+1,stage:s.stages[stage].id,reachableStates:seen.size,directedTransitions:edges.length,terminalStates:goals.length,allStatesCanFinish:true,earlierCreatedImports:imported,removeAllImportsPreventsCompletion:true});totalTransitions+=edges.length;
+ let goal=seen.get(firstGoal),actions=[];while(goal.from!==null){actions.unshift(goal.action);goal=seen.get(goal.from)}minRoute.push(...actions,{type:'advance'});entry=M.applyAction(s,seen.get(firstGoal).game,{type:'advance'}).game;
+}
+assert.equal(entry.state.completed,true);report.checks.push(`All reachable states in each new desk can finish; ${totalTransitions} transitions have bidirectional highlighting, exact saves and undo/reapply checks`);
+let seed=401;const rand=()=>((seed=(Math.imul(seed,1664525)+1013904223)>>>0)/2**32);
+for(const width of [320,480,600])for(const orientation of [false,true])for(let n=0;n<8;n++){
+ let g=M.createGame(s,width);for(const a of prefix){const x=M.applyAction(s,g,a);assert.equal(x.accepted,true);g=x.game}const count=g.state.metrics.combinations;let safety=0;
+ while(!g.state.completed){if(++safety>60)throw Error('Route did not settle');const choices=options(g);assert.ok(choices.length);const c=choices[Math.floor(rand()*choices.length)];const x=execute(M,s,g,'drop',orientation?[c.b.id,c.a.id]:[c.a.id,c.b.id]);assert.equal(x.response.accepted,true);g=x.game}
+ report.routes.push({width,orientation:orientation?'reverse':'forward',newCombinations:g.state.metrics.combinations-count,complete:true});
+}
+report.checks.push('48 ordinary settled routes across widths/orientations and competing orderings complete; optional papers need not all be used');
+assert.throws(()=>M.restore(s,JSON.stringify({...entry,scenarioId:old.id})));report.checks.push('Separate save identity; original saves not migrated');
+fs.writeFileSync(new URL('author-route.json',import.meta.url),JSON.stringify({scenarioId:s.id,actionsLog:minRoute,combinations:entry.state.metrics.combinations,completed:true,limits:'Shortest diagnostic route, not player evidence or a guide'},null,2)+'\n');
+fs.writeFileSync(new URL('verification.json',import.meta.url),JSON.stringify(report,null,2)+'\n');console.log(JSON.stringify({checks:report.checks,chapters:report.chapters,routes:report.routes.length,newCombinationRange:[Math.min(...report.routes.map(x=>x.newCombinations)),Math.max(...report.routes.map(x=>x.newCombinations))]},null,2));

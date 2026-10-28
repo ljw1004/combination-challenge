@@ -1,0 +1,65 @@
+{
+  "source": {
+    "project_id": "appgprj_6adf94d914f081918359a6568c9c05b6",
+    "checkout_path": "/workspace/shared/combination-fork-recovery-20261028",
+    "commit_sha": "c85b48cfd4006fe00eae90f7e22d7984201a534d",
+    "archive": "/workspace/shared/combination-reactive-heroes-human-checkpoint-20261028.tar.gz"
+  },
+  "deployment": {
+    "id": "appgdep_6ae23d31d6f08191a7f2e04f41510f29",
+    "project_id": "appgprj_6adf94d914f081918359a6568c9c05b6",
+    "title": "Combination Workshop \u00b7 Playtest",
+    "version_id": "appgprj_6adf94d914f081918359a6568c9c05b6~appgver_7996f47dd0288191a6a6e15825084f10",
+    "type": "publish",
+    "status": "succeeded",
+    "url": "https://combination-workshop-playtest.stonysun25.chatgpt.site",
+    "has_mcp": false,
+    "screenshot_asset_pointer": null,
+    "provider_deployment_id": "site---6adf94d914f081918359a6568c9c05b6",
+    "failure_message": null,
+    "env_set_revision": 0,
+    "updated_at": "2026-10-28T18:21:49.067789+00:00"
+  },
+  "parent": "217ce7428e8e95ea0c1bc18e7747ecdbf68c1b5c",
+  "sourceSeal": "97f0c2fc2b1c422b7079980353ba6ea58c77042c2c4a568f8b136d9f8174fe83",
+  "commands": [
+    [
+      "python",
+      "experiments/tangible-campaign/integration/verify-manifest.py"
+    ],
+    [
+      "python",
+      "experiments/tangible-campaign/integration/verify-reactive-heroes-delta.py"
+    ],
+    [
+      "node",
+      "--test",
+      "tests/reactive-heroes-source-contract.test.ts",
+      "tests/reactive-chapters.test.ts",
+      "tests/reactive-chapter-policies.test.ts",
+      "tests/elements-heroes.test.ts"
+    ],
+    [
+      "node",
+      "/home/agent/.codex/plugins/cache/openai-curated-remote/sites/1.1.2/scripts/build-site.mjs"
+    ],
+    [
+      "python",
+      "experiments/tangible-campaign/integration/verify-manifest.py"
+    ],
+    [
+      "python",
+      "experiments/tangible-campaign/integration/verify-reactive-heroes-delta.py"
+    ]
+  ],
+  "tests": {
+    "freshSourceOnly": 1145,
+    "failed": 0,
+    "actualCheckoutFocused": 27,
+    "browser": "not run"
+  },
+  "deliveryMessage": "Sentinel_bdcb4408b6e881919022dcabcc7dcc2d",
+  "archiveSha256": "7407b29d8ce1a65771c4f0d4258b8dfd5866532cda1296d7ed092cd2933b9459",
+  "actualCheckoutClean": true,
+  "actualHead": "c85b48cfd4006fe00eae90f7e22d7984201a534d"
+}

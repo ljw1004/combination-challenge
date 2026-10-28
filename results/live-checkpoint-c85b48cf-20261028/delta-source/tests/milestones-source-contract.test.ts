@@ -1,0 +1,24 @@
+import {expectedSourceHashAfterMilestoneAtlas} from '../experiments/tangible-campaign/integration/milestone-atlas-source-guard.ts';
+import {expectedSourceHashAfterArrivals} from '../experiments/tangible-campaign/integration/arrival-source-guard.ts';
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {createHash} from 'node:crypto';
+import {readFileSync} from 'node:fs';
+const root=new URL('../',import.meta.url);
+const read=(path:string)=>readFileSync(new URL(path,root));
+const hash=(value:Uint8Array)=>createHash('sha256').update(value).digest('hex');
+const milestone=JSON.parse(read('experiments/tangible-campaign/reviews/milestones/source-successors.json').toString());
+const grouped=JSON.parse(read('experiments/tangible-campaign/reviews/grouped-arrivals/source-successors.json').toString());
+const acknowledgement=JSON.parse(read('experiments/tangible-campaign/reviews/chapter-acknowledgement/source-successors.json').toString());
+test('milestone successor pins every changed implementation and added test without rewriting historical grouping freezes',()=>{
+ assert.equal(milestone.baseSealSha256,'141353c215738e7df4ffccbf9154610573175d667f2252a79ac93a02b2e37caa');
+ for(const [path,row]of Object.entries<any>(milestone.files)){assert.equal(hash(read(path)),expectedSourceHashAfterMilestoneAtlas(path,row.afterSha256),path);if(grouped.files[path])assert.equal(row.beforeSha256,acknowledgement.files[path]?.afterSha256??grouped.files[path].afterSha256,path);}
+ for(const [path,expected]of Object.entries(milestone.addedFiles))assert.equal(hash(read(path)),expectedSourceHashAfterMilestoneAtlas(path,expected as string),path);
+ for(const [path,expected]of Object.entries(milestone.unchangedFiles))assert.equal(hash(read(path)),expectedSourceHashAfterMilestoneAtlas(path,expected as string),path);
+});
+
+test('new schema/build and harness source successors pin their original bytes, never exempt protected sources',()=>{
+ for(const path of ['experiments/tangible-campaign/schema/scenario.ts','experiments/tangible-campaign/schema/check-content.ts','tests/mars-v4-ui.test.ts']){
+  const row=milestone.files[path];assert.equal(expectedSourceHashAfterArrivals(path,row.beforeSha256),expectedSourceHashAfterMilestoneAtlas(path,row.afterSha256));assert.throws(()=>expectedSourceHashAfterArrivals(path,'0'.repeat(64)),/historical freeze was not replaced/);
+ }
+});

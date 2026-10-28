@@ -1,0 +1,10 @@
+{
+  "name": "kitchen-caravan-v6-isolated-candidate",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node --test --test-reporter=tap content.test.ts engine/model.test.ts",
+    "routes": "node build-routes.ts && node early-exploration.ts",
+    "verify": "node verify.ts"
+  }
+}
