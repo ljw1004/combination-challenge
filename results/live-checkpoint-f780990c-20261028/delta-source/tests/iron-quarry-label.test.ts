@@ -1,0 +1,25 @@
+import test from 'node:test';import assert from 'node:assert/strict';import {readFileSync} from 'node:fs';import {createHash} from 'node:crypto';
+import {scenario as raw} from '../experiments/tangible-campaign/ui/campaigns/elements-house-and-craft.ts';
+import {scenario as historicalHouse} from '../experiments/tangible-campaign/ui/campaigns/elements-house-components.ts';
+import * as M from '../experiments/tangible-campaign/engine/model.ts';import {applyMilestones} from '../experiments/tangible-campaign/ui/campaign-milestones.ts';
+import {beforeIronQuarryLabel,expectedSourceHashAfterIronQuarry} from '../experiments/tangible-campaign/integration/iron-quarry-label.ts';
+const root=new URL('../',import.meta.url),read=(p:string)=>readFileSync(new URL(p,root)),hash=(data:string|Uint8Array)=>createHash('sha256').update(data).digest('hex'),json=(p:string)=>JSON.parse(read(p).toString());const folder='experiments/tangible-campaign/reviews/iron-quarry-label/',delta=json(folder+'scenario-delta.json');
+test('Iron quarry is exactly one current display-label difference; IDs, recipes, objectives and historical worlds are unchanged',()=>{
+ assert.equal(raw.id,'elements-house-and-craft-v1');assert.equal(raw.locations.find(p=>p.id==='quarry')!.label,'Iron quarry');assert.equal(historicalHouse.locations.find(p=>p.id==='quarry')!.label,'Red quarry');
+ assert.equal(hash(JSON.stringify(raw)),delta.afterScenarioSha256);assert.equal(hash(JSON.stringify(beforeIronQuarryLabel(raw))),delta.beforeScenarioSha256);assert.deepEqual(delta.changes,[{path:'/locations/2/label',locationId:'quarry',before:'Red quarry',after:'Iron quarry'}]);
+ assert.equal(JSON.stringify(raw).includes('Red quarry'),false);assert.equal(raw.locations.find(p=>p.id==='quarry')!.description,'An exposed seam of iron-bearing rock.');
+});
+test('location view and normal hints use Iron quarry; canonical progress, every checkpoint and old saves stay exact',()=>{
+ const current=applyMilestones(raw),old=beforeIronQuarryLabel(current),actions=current.checkpoints!.find(c=>c.id==='complete')!.actions,index=actions.findIndex(a=>a.type==='combine'&&(a.a==='@quarry'||a.b==='@quarry'));assert(index>0);
+ const g=M.replay(current,actions.slice(0,index)),oldGame=M.replay(old,actions.slice(0,index));assert.deepEqual(g,oldGame);assert.deepEqual(M.restore(current,JSON.stringify(oldGame)),oldGame);
+ assert.equal(M.playerView(current,g).locations.find(p=>p.id==='quarry')!.label,'Iron quarry');const action=actions[index];assert.equal(action.type,'combine');if(action.type!=='combine')throw Error('Expected quarry recipe');const thing=action.a==='@quarry'?action.b:action.a;
+ const hints=M.partners(current,g.state,thing);assert(hints.directions.some(d=>d.text.includes('Iron quarry')));assert(!JSON.stringify(hints).includes('Red quarry'));
+ const complete=M.replay(current,actions);assert(complete.state.completed);assert.equal(complete.state.metrics.combinations,197);assert.deepEqual(complete,M.replay(old,actions));
+ for(const cp of current.checkpoints!){const now=M.checkpoint(current,cp.id),before=M.checkpoint(old,cp.id);assert.deepEqual(now,before);assert.deepEqual(M.restore(current,JSON.stringify(before)),before);}
+ const main=read('experiments/tangible-campaign/ui/campaign-main.ts').toString();assert(main.includes('aria-label="${esc(label(\'@\'+p.id))}"'));assert(main.includes('${esc(label(\'@\'+p.id))}</button>'));
+});
+test('label successor preserves exact LIVE61 source ancestry and all historical modules/manifests',()=>{
+ const base=json(folder+'parent-source-inventory.json'),next=json(folder+'source-successors.json');assert.equal(next.baseCommit,'61eaca8a691db7ab5999211f8cd99df54eabc7e0');assert.equal(hash(read(folder+'parent-source-manifest.json')),'34f812b17fc1ec2ba3b4226f5b80107b484a4670e18bc40cee7b2d7403346f86');
+ for(const [p,row]of Object.entries<any>(next.files)){assert.equal(row.beforeSha256,base[p].sha256);assert.equal(hash(read(row.predecessorSnapshotPath)),row.beforeSha256);assert.equal(hash(read(p)),row.afterSha256);assert.equal(expectedSourceHashAfterIronQuarry(p,row.beforeSha256),row.afterSha256);assert.throws(()=>expectedSourceHashAfterIronQuarry(p,'0'.repeat(64)),/exact LIVE61/);}
+ for(const [p,row]of Object.entries<any>(base))if((p.startsWith('experiments/tangible-campaign/ui/campaigns/')&&!p.endsWith('/elements-house-and-craft.ts'))||p.endsWith('/source-successors.json')||p.startsWith('experiments/tangible-campaign/evidence/'))assert.equal(hash(read(p)),row.sha256,p);
+});

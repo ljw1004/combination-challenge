@@ -1,0 +1,162 @@
+{
+  "status": "READY",
+  "baseCommit": "61eaca8a691db7ab5999211f8cd99df54eabc7e0",
+  "parentSourceSealSha256": "34f812b17fc1ec2ba3b4226f5b80107b484a4670e18bc40cee7b2d7403346f86",
+  "sourceSealSha256": "5fa645e9b527bdb5df228a681a8d9bf907e7c1e4a31523736e7186cd0aa30fe6",
+  "candidatePath": "/workspace/shared/combination-iron-quarry-20261028",
+  "packageManifest": {
+    "path": "/workspace/shared/combination-iron-quarry-20261028-package-manifest.json",
+    "sha256": "ffe58c47fde18f7ba7ee195c9eddc9aefb91ab939e640e820090a2a5c3f2bc1c",
+    "bytes": 6336
+  },
+  "sourceOverlay": {
+    "path": "/workspace/shared/combination-iron-quarry-20261028-source-overlay.tar.gz",
+    "sha256": "930f3c23e6d904f5cc4fc85aabca28e31065fd82ca75295f7a5cdc0076b59ae7",
+    "bytes": 301213,
+    "files": 18,
+    "verifiedSafeMembers": true
+  },
+  "verificationEvidence": {
+    "path": "/workspace/shared/combination-iron-quarry-20261028-verification-evidence.tar.gz",
+    "sha256": "7d7c4a9378d0f589cbb05bbf346a6346bd36a0bdb20b9d2abb90da886988c083",
+    "bytes": 95628,
+    "files": 9,
+    "verifiedSafeMembers": true
+  },
+  "sourceInventory": {
+    "path": "/workspace/shared/combination-iron-quarry-20261028/results/iron-quarry-20261028/exact-source-delta.json",
+    "sha256": "bb194a795ab23b0bacb5b3d8c8e067a71b636840f9ac30221dcee4c93440108f",
+    "bytes": 417634
+  },
+  "scenarioDelta": {
+    "parentCommit": "61eaca8a691db7ab5999211f8cd99df54eabc7e0",
+    "scenarioId": "elements-house-and-craft-v1",
+    "beforeScenarioSha256": "2fe144714665a1304ffc2ecc826b543b7a715fb03da4739786fb5348788375cc",
+    "afterScenarioSha256": "9ad13fbc642a799262f1ce4c3940e01713082e915b1828aca1aba7d7ea00a18d",
+    "changes": [
+      {
+        "path": "/locations/2/label",
+        "locationId": "quarry",
+        "before": "Red quarry",
+        "after": "Iron quarry"
+      }
+    ],
+    "allOtherScenarioBytesIdentical": true
+  },
+  "scope": "Current featured Elements location label only: Red quarry \u2192 Iron quarry; internal quarry/world/save/recipe IDs unchanged. Historical snapshots preserved. UI/accessibility use the existing dynamic label; no runtime code changes.",
+  "verification": {
+    "sourceOnlyFreshPath": "/workspace/shared/combination-iron-quarry-20261028-fresh",
+    "targetedTestsPassed": 20,
+    "targetedTestsFailed": 0,
+    "completeCanonicalElementsCombinations": 197,
+    "checkpointsAndOldSaves": "covered by focused label regression",
+    "typeContentBuild": "PASS",
+    "sealAndExactDelta": "PASS",
+    "fullAggregateRun": false,
+    "fullAggregateNotRunReason": "Exact one-field display-label change and no semantic runtime change.",
+    "browserNativeTestsRun": false,
+    "actualExecutedCommands": [
+      [
+        "python",
+        "experiments/tangible-campaign/integration/verify-manifest.py"
+      ],
+      [
+        "node",
+        "--test",
+        "tests/iron-quarry-label.test.ts",
+        "tests/playtest-repairs-source-contract.test.ts",
+        "tests/playtest-contract-final-source-contract.test.ts",
+        "tests/arrival-source-contract.test.ts",
+        "tests/milestones-source-contract.test.ts",
+        "tests/reactive-heroes-source-contract.test.ts",
+        "tests/intellectual-worlds-source-contract.test.ts"
+      ],
+      [
+        "node",
+        "--test",
+        "--test-name-pattern=all input snapshots hash-verify|exact LIVE86 source successor",
+        "tests/reviewed-campaign-integration.test.ts",
+        "tests/intuitive-story-alternatives.test.ts"
+      ],
+      [
+        "npm",
+        "run",
+        "build"
+      ],
+      [
+        "python",
+        "experiments/tangible-campaign/integration/verify-manifest.py"
+      ],
+      [
+        "python",
+        "experiments/tangible-campaign/integration/verify-iron-quarry-delta.py"
+      ]
+    ],
+    "commandReceipts": {
+      "path": "/workspace/shared/combination-iron-quarry-20261028/results/iron-quarry-20261028/executed-commands.json",
+      "sha256": "af1459782da583e0d1c6d875d8616d16a6f2f81b5e75c42e381b1cc3c9c50a58",
+      "bytes": 3847
+    },
+    "summary": {
+      "path": "/workspace/shared/combination-iron-quarry-20261028/results/iron-quarry-20261028/verification-summary.json",
+      "sha256": "e790c88461bbe1630e8a2f6b6efef63910776f7c64c88d8485c6e34ff3842fb2",
+      "bytes": 4525
+    }
+  },
+  "publisherPreconditions": [
+    "Root refreshes actual checkout: clean HEAD61eaca8a691db7ab5999211f8cd99df54eabc7e0 and parent source seal34f812b17fc1ec2ba3b4226f5b80107b484a4670e18bc40cee7b2d7403346f86 before applying.",
+    "Root confirms existing private audience/hosting unchanged.",
+    "Apply exactly18 regular source-overlay files, no deletion; do not apply label-only reference patch alone.",
+    "Run proposed command arrays below in actual source root after exact overlay. Only root may publish or push."
+  ],
+  "proposedPublisherCommandArrays": [
+    [
+      "python",
+      "experiments/tangible-campaign/integration/verify-manifest.py"
+    ],
+    [
+      "node",
+      "--test",
+      "tests/iron-quarry-label.test.ts",
+      "tests/playtest-repairs-source-contract.test.ts",
+      "tests/playtest-contract-final-source-contract.test.ts",
+      "tests/arrival-source-contract.test.ts",
+      "tests/milestones-source-contract.test.ts",
+      "tests/reactive-heroes-source-contract.test.ts",
+      "tests/intellectual-worlds-source-contract.test.ts"
+    ],
+    [
+      "node",
+      "--test",
+      "--test-name-pattern=all input snapshots hash-verify|exact LIVE86 source successor",
+      "tests/reviewed-campaign-integration.test.ts",
+      "tests/intuitive-story-alternatives.test.ts"
+    ],
+    [
+      "npm",
+      "run",
+      "build"
+    ],
+    [
+      "python",
+      "experiments/tangible-campaign/integration/verify-manifest.py"
+    ],
+    [
+      "python",
+      "experiments/tangible-campaign/integration/verify-iron-quarry-delta.py"
+    ]
+  ],
+  "blindAudit": {
+    "predecessorFrozenCommit": "61eaca8a691db7ab5999211f8cd99df54eabc7e0",
+    "coordinator": "/root/run_blind_combination_audit",
+    "affectedOriginalOpaqueCases": [
+      "C23eabc2f10a5",
+      "C405f375ee1f7"
+    ],
+    "successorSeparatelyNotified": true,
+    "existingEvidenceUnmodified": true,
+    "recheckIsNotPublicationGate": true
+  },
+  "publicationPerformed": false,
+  "actualCheckoutModified": false
+}

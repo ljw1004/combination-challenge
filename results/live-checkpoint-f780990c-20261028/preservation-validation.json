@@ -1,0 +1,103 @@
+{
+  "sourceCommit": "f780990cdff4557aeb46dcbf7d0d622e9f6310e2",
+  "sourceSealSha256": "5fa645e9b527bdb5df228a681a8d9bf907e7c1e4a31523736e7186cd0aa30fe6",
+  "exactSourceFiles": 1762,
+  "exactSourceBytes": 126875871,
+  "allSourceBytesAndModesUnchangedAfterTests": true,
+  "nodeVersion": "v24.22.1",
+  "dependencies": "Existing lockfile-matched node_modules reused by symlink only in disposable copy; npm ci not rerun and dependencies not uploaded.",
+  "runs": [
+    {
+      "name": "materialize",
+      "command": [
+        "python",
+        "/workspace/shared/live-f780-preservation-20261028/materialize-source.py",
+        "/workspace/shared/live-f780-preservation-20261028/verification-repository",
+        "/workspace/shared/live-f780-preservation-20261028/runnable-copy"
+      ],
+      "exitCode": 0,
+      "seconds": 2.159,
+      "log": "results/live-checkpoint-f780990c-20261028/preservation-validation/materialize.log"
+    },
+    {
+      "name": "initial-seal",
+      "command": [
+        "python",
+        "experiments/tangible-campaign/integration/verify-manifest.py"
+      ],
+      "exitCode": 0,
+      "seconds": 0.352,
+      "log": "results/live-checkpoint-f780990c-20261028/preservation-validation/initial-seal.log"
+    },
+    {
+      "name": "focused-18",
+      "command": [
+        "node",
+        "--test",
+        "tests/iron-quarry-label.test.ts",
+        "tests/playtest-repairs-source-contract.test.ts",
+        "tests/playtest-contract-final-source-contract.test.ts",
+        "tests/arrival-source-contract.test.ts",
+        "tests/milestones-source-contract.test.ts",
+        "tests/reactive-heroes-source-contract.test.ts",
+        "tests/intellectual-worlds-source-contract.test.ts"
+      ],
+      "exitCode": 0,
+      "seconds": 4.777,
+      "log": "results/live-checkpoint-f780990c-20261028/preservation-validation/focused-18.log"
+    },
+    {
+      "name": "historical-equality-2",
+      "command": [
+        "node",
+        "--test",
+        "--test-name-pattern=all input snapshots hash-verify|exact LIVE86 source successor",
+        "tests/reviewed-campaign-integration.test.ts",
+        "tests/intuitive-story-alternatives.test.ts"
+      ],
+      "exitCode": 0,
+      "seconds": 1.065,
+      "log": "results/live-checkpoint-f780990c-20261028/preservation-validation/historical-equality-2.log"
+    },
+    {
+      "name": "build",
+      "command": [
+        "npm",
+        "--offline",
+        "run",
+        "build"
+      ],
+      "exitCode": 0,
+      "seconds": 5.428,
+      "log": "results/live-checkpoint-f780990c-20261028/preservation-validation/build.log"
+    },
+    {
+      "name": "final-seal",
+      "command": [
+        "python",
+        "experiments/tangible-campaign/integration/verify-manifest.py"
+      ],
+      "exitCode": 0,
+      "seconds": 0.391,
+      "log": "results/live-checkpoint-f780990c-20261028/preservation-validation/final-seal.log"
+    },
+    {
+      "name": "exact-delta",
+      "command": [
+        "python",
+        "experiments/tangible-campaign/integration/verify-iron-quarry-delta.py"
+      ],
+      "exitCode": 0,
+      "seconds": 0.362,
+      "log": "results/live-checkpoint-f780990c-20261028/preservation-validation/exact-delta.log"
+    }
+  ],
+  "allChecksPassed": true,
+  "historicalTargetedChecksPassed": 20,
+  "fullAggregateRun": false,
+  "reason": "Exact one-field display-label change; no runtime behavior change.",
+  "offlineBuildOnly": true,
+  "browserTestsRun": false,
+  "nativeArchiveSha256Readback": "fb99241f9323ecbc2e4ae8cabde7bcde6de7a1b7ed68d8186a556e12c195792c",
+  "noInstallOrRegistryRequest": true
+}

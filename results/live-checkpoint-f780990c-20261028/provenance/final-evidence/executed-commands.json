@@ -1,0 +1,95 @@
+{
+  "sourceSealSha256": "5fa645e9b527bdb5df228a681a8d9bf907e7c1e4a31523736e7186cd0aa30fe6",
+  "sourceOnlyFresh": true,
+  "commands": [
+    {
+      "name": "initial-seal",
+      "argv": [
+        "python",
+        "experiments/tangible-campaign/integration/verify-manifest.py"
+      ],
+      "cwd": "/workspace/shared/combination-iron-quarry-20261028-fresh",
+      "startedAtUtc": "2026-10-28T21:40:19.287723+00:00",
+      "durationSeconds": 0.365,
+      "exitCode": 0,
+      "log": "/workspace/shared/combination-iron-quarry-20261028/results/iron-quarry-20261028/initial-seal.log",
+      "logSha256": "552772ddfcac06705ec8386fedda75e9e496390afe269f8ef7b23227f121b297"
+    },
+    {
+      "name": "focused-and-source-contracts",
+      "argv": [
+        "node",
+        "--test",
+        "tests/iron-quarry-label.test.ts",
+        "tests/playtest-repairs-source-contract.test.ts",
+        "tests/playtest-contract-final-source-contract.test.ts",
+        "tests/arrival-source-contract.test.ts",
+        "tests/milestones-source-contract.test.ts",
+        "tests/reactive-heroes-source-contract.test.ts",
+        "tests/intellectual-worlds-source-contract.test.ts"
+      ],
+      "cwd": "/workspace/shared/combination-iron-quarry-20261028-fresh",
+      "startedAtUtc": "2026-10-28T21:40:19.653802+00:00",
+      "durationSeconds": 4.385,
+      "exitCode": 0,
+      "log": "/workspace/shared/combination-iron-quarry-20261028/results/iron-quarry-20261028/focused-and-source-contracts.log",
+      "logSha256": "8eaadc3eced8644ab9bbff866c81e1c94eadb3bb9a1cc0ebfc2fc223f33e0953"
+    },
+    {
+      "name": "historical-equality",
+      "argv": [
+        "node",
+        "--test",
+        "--test-name-pattern=all input snapshots hash-verify|exact LIVE86 source successor",
+        "tests/reviewed-campaign-integration.test.ts",
+        "tests/intuitive-story-alternatives.test.ts"
+      ],
+      "cwd": "/workspace/shared/combination-iron-quarry-20261028-fresh",
+      "startedAtUtc": "2026-10-28T21:40:24.039285+00:00",
+      "durationSeconds": 1.069,
+      "exitCode": 0,
+      "log": "/workspace/shared/combination-iron-quarry-20261028/results/iron-quarry-20261028/historical-equality.log",
+      "logSha256": "e8b598e9f3b554a98924dfd27c2e9d517d70b43be27fcc53e0e578545e39ae90"
+    },
+    {
+      "name": "build",
+      "argv": [
+        "npm",
+        "run",
+        "build"
+      ],
+      "cwd": "/workspace/shared/combination-iron-quarry-20261028-fresh",
+      "startedAtUtc": "2026-10-28T21:40:25.109057+00:00",
+      "durationSeconds": 5.717,
+      "exitCode": 0,
+      "log": "/workspace/shared/combination-iron-quarry-20261028/results/iron-quarry-20261028/build.log",
+      "logSha256": "469e8f4e29854934197fd66214b5c4eed0ddb4d34a635d307c41d6fceca1f766"
+    },
+    {
+      "name": "final-seal",
+      "argv": [
+        "python",
+        "experiments/tangible-campaign/integration/verify-manifest.py"
+      ],
+      "cwd": "/workspace/shared/combination-iron-quarry-20261028-fresh",
+      "startedAtUtc": "2026-10-28T21:40:30.827468+00:00",
+      "durationSeconds": 0.365,
+      "exitCode": 0,
+      "log": "/workspace/shared/combination-iron-quarry-20261028/results/iron-quarry-20261028/final-seal.log",
+      "logSha256": "552772ddfcac06705ec8386fedda75e9e496390afe269f8ef7b23227f121b297"
+    },
+    {
+      "name": "exact-delta",
+      "argv": [
+        "python",
+        "experiments/tangible-campaign/integration/verify-iron-quarry-delta.py"
+      ],
+      "cwd": "/workspace/shared/combination-iron-quarry-20261028-fresh",
+      "startedAtUtc": "2026-10-28T21:40:31.193447+00:00",
+      "durationSeconds": 0.315,
+      "exitCode": 0,
+      "log": "/workspace/shared/combination-iron-quarry-20261028/results/iron-quarry-20261028/exact-delta.log",
+      "logSha256": "f8a67e8691e69d4a3a0d6655981486ac2964f0bc7dc8037fdd5c4dc8da4d5388"
+    }
+  ]
+}

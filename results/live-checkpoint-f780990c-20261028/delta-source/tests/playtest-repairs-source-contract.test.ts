@@ -1,0 +1,20 @@
+import {expectedSourceHashAfterIronQuarry} from '../experiments/tangible-campaign/integration/iron-quarry-label.ts';
+/** Strict exact source/evidence provenance; no browser or publication claims. */
+import test from 'node:test';import assert from 'node:assert/strict';import {readFileSync} from 'node:fs';import {createHash} from 'node:crypto';
+import {expectedSourceHashAfterPlaytestRepairs} from '../experiments/tangible-campaign/integration/playtest-repairs-source-guard.ts';
+import {scenarios,featuredScenarioIds} from '../experiments/tangible-campaign/ui/scenarios.ts';
+import {lifecycleAudit} from '../experiments/tangible-campaign/integration/current-lifecycle-audit.ts';
+const root=new URL('../',import.meta.url),read=(p:string)=>readFileSync(new URL(p,root)),sha=(p:string)=>createHash('sha256').update(read(p)).digest('hex'),json=(p:string)=>JSON.parse(read(p).toString());
+const evidence='experiments/tangible-campaign/evidence/playtest-repairs-20261028/',base=json(evidence+'baseline-source-inventory.json'),author=json(evidence+'authoring-parent-source-inventory.json'),next=json('experiments/tangible-campaign/reviews/playtest-repairs/source-successors.json');
+test('playtest repairs extend exact LIVE86 and original author freezes without rewriting historical evidence',()=>{
+ assert.equal(sha(evidence+'parent-source-manifest.json'),'ce7ecf3eb8c09460d046987cfaec969f0c7e72e902f5ffe07e6b0faa80acfefb');assert.equal(Object.keys(base).length,1442);
+ assert.equal(next.deploymentBaseCommit,'86c479746909412d775873d5bb250868ed7bf2d0');assert.equal(next.deploymentParentSourceSealSha256,base['experiments/tangible-campaign/integration/source-manifest.json'].sha256);
+ for(const [path,row]of Object.entries<any>(next.files)){assert.equal(row.beforeSha256,author[path].sha256,path);assert.equal(sha(row.predecessorSnapshotPath),row.beforeSha256,path);assert.equal(sha(path),expectedSourceHashAfterIronQuarry(path,row.afterSha256),path);assert.equal(expectedSourceHashAfterPlaytestRepairs(path,row.beforeSha256),expectedSourceHashAfterIronQuarry(path,row.afterSha256));assert.throws(()=>expectedSourceHashAfterPlaytestRepairs(path,'0'.repeat(64)),/exact/);}
+ for(const [path,row]of Object.entries<any>(base))if(path.startsWith('experiments/tangible-campaign/evidence/')||path.endsWith('/source-successors.json')||path==='experiments/tangible-campaign/reviews/lifecycle/audit.json')assert.equal(sha(path),row.sha256,path+' immutable historical evidence');
+ for(const path of ['experiments/tangible-campaign/ui/scenarios.ts','experiments/tangible-campaign/ui/campaign-milestones.ts','experiments/tangible-campaign/ui/campaign-reactivity.ts','experiments/tangible-campaign/ui/legacy-scenarios.ts'])assert.equal(sha(path),base[path].sha256,path+' unchanged published policy/catalogue');
+ assert.equal(scenarios.length,40);assert.equal(new Set(scenarios.map(s=>s.id)).size,40);assert.equal(featuredScenarioIds.length,6);
+});
+test('every accepted author and reviewer snapshot remains exact; lifecycle rows cover all current recipes',()=>{
+ for(const group of Object.values<any>(json(evidence+'accepted-inputs.json')))for(const row of group.files){assert.equal(sha(row.snapshotPath),row.sha256,row.snapshotPath);assert.equal(read(row.snapshotPath).length,row.bytes,row.snapshotPath);assert(!/\.(png|jpe?g|webp)(\.txt)?$/i.test(row.snapshotPath),'No private screenshot payload');}
+ assert.equal(lifecycleAudit.recipes.length,lifecycleAudit.activeRecipes);assert.equal(new Set(lifecycleAudit.recipes.map((r:any)=>r.world+':'+r.recipe)).size,lifecycleAudit.recipes.length);
+});
