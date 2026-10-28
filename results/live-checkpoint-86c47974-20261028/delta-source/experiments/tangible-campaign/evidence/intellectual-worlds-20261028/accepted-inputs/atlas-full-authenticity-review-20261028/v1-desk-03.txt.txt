@@ -1,0 +1,59 @@
+DESK 3: kinds | Academy and Lyceum · c. 380–320 BCE | The same thing, or only alike? | Beautiful things change. Animals resemble one another but are not identical. What can an explanation hold steady?
+GOALS: [{'id': 'kinds-four-causes', 'text': 'Distinguish kinds of explanation', 'kind': 'create', 'item': 'four-causes'}, {'id': 'kinds-valid-not-true', 'text': 'Separate validity from truth', 'kind': 'create', 'item': 'valid-not-true'}, {'id': 'kinds-cultivated-virtue', 'text': 'Cultivate practical judgment', 'kind': 'create', 'item': 'cultivated-virtue'}, {'id': 'kinds-turning-attention', 'text': 'Reconsider what education changes', 'kind': 'create', 'item': 'turning-attention'}]
+
+RECIPE make-stable-forms
+A examined-definition | A definition still under examination | One counterexample reopens the inquiry rather than furnishing a complete replacement theory.
+B changing-beauty | Beautiful things change and disagree | Plato’s problem is not solved by collecting more things that happen to please us.
+OUT stable-forms | Plato: stable Forms | A stable object of understanding is proposed behind changing examples; this is a reconstructed Platonic position.
+LIFECYCLE {'examined-definition': 'retain', 'changing-beauty': 'retain'}
+LINK {"from": "explanations", "to": "kinds", "item": "examined-definition", "recipe": "make-stable-forms", "relation": "adaptation", "evidence": "Plato develops the demand for a stable account beyond individual examples.", "sources": ["plato", "plato-republic", "aristotle-biology", "aristotle-causes", "aristotle", "aristotle-ethics"]}
+
+RECIPE make-form-in-particular
+A stable-forms | Plato: stable Forms | A stable object of understanding is proposed behind changing examples; this is a reconstructed Platonic position.
+B form-in-thing | Aristotle: form belongs to this living thing | A distinct account of form and substance, not an acceptance of separately existing Platonic Forms.
+OUT form-in-particular | Aristotle: form in the particular | A rival explanation relocates form in the thing rather than merely renaming Plato’s position.
+LIFECYCLE {'stable-forms': 'retain', 'form-in-thing': 'retain'}
+
+RECIPE make-animal-kinds
+A form-in-particular | Aristotle: form in the particular | A rival explanation relocates form in the thing rather than merely renaming Plato’s position.
+B animal-observations | Animals share some parts, differ in others | Observation provides material for grouping and explanation.
+OUT animal-kinds | Animals grouped by shared features | Comparison makes similarities and differences available to inquiry.
+LIFECYCLE {'form-in-particular': 'retain', 'animal-observations': 'retain'}
+
+RECIPE make-part-and-function
+A animal-kinds | Animals grouped by shared features | Comparison makes similarities and differences available to inquiry.
+B parts-work | Wings serve flight; fins serve swimming | A simplified comparison of what animal parts do; not every wing is used for flight.
+OUT part-and-function | A part understood through its work | Functional explanation asks why a part is present in an organism.
+LIFECYCLE {'animal-kinds': 'retain', 'parts-work': 'retain'}
+
+RECIPE make-four-causes
+A part-and-function | A part understood through its work | Functional explanation asks why a part is present in an organism.
+B statue-causes | A statue has bronze, shape, maker and purpose | A teaching case for distinct Aristotelian questions about why a thing is as it is.
+OUT four-causes | Different questions about why | Material, form, source of change and end are distinct explanatory questions.
+LIFECYCLE {'part-and-function': 'retain', 'statue-causes': 'retain'}
+
+RECIPE make-valid-inference
+A answerable-claims | Claims answerable to objections | Modern teaching comparison: different inquiries can both expose their claims to difficulties rather than rely on status alone.
+B mortal-premises | All humans are mortal; Socrates is human | An authored example of inference from stated premises.
+OUT valid-inference | A conclusion follows from premises | The stated premises support a particular conclusion by the argument’s form.
+LIFECYCLE {'answerable-claims': 'retain', 'mortal-premises': 'retain'}
+LINK {"from": "explanations", "to": "kinds", "item": "answerable-claims", "recipe": "make-valid-inference", "relation": "teaching-comparison", "evidence": "The player reuses an earlier practice of testing arguments; the particular example is authored.", "sources": ["plato", "plato-republic", "aristotle-biology", "aristotle-causes", "aristotle", "aristotle-ethics"]}
+
+RECIPE make-valid-not-true
+A valid-inference | A conclusion follows from premises | The stated premises support a particular conclusion by the argument’s form.
+B false-premise | An orderly argument can start from falsehood | Validity concerns what follows, not whether every starting statement is true.
+OUT valid-not-true | Validity is not truth | A sound-looking chain cannot repair a false premise simply by being orderly.
+LIFECYCLE {'valid-inference': 'retain', 'false-premise': 'retain'}
+
+RECIPE make-cultivated-virtue
+A examined-life | The examined life | The practice of questioning reaches beyond a verbal puzzle to a way of living.
+B practised-courage | Courage is practised between rashness and fear | Aristotelian virtue requires habituation and practical judgment, not a numerical average.
+OUT cultivated-virtue | Virtue as cultivated judgment | A good life is reconstructed as learned practical activity, not possession of a slogan.
+LIFECYCLE {'examined-life': 'retain', 'practised-courage': 'retain'}
+LINK {"from": "explanations", "to": "kinds", "item": "examined-life", "recipe": "make-cultivated-virtue", "relation": "adaptation", "evidence": "Aristotelian ethics continues the Greek question of living well while offering a distinct account.", "sources": ["plato", "plato-republic", "aristotle-biology", "aristotle-causes", "aristotle", "aristotle-ethics"]}
+
+RECIPE make-turning-attention
+A stable-forms | Plato: stable Forms | A stable object of understanding is proposed behind changing examples; this is a reconstructed Platonic position.
+B cave-shadows | Prisoners take shadows for the whole of reality | A paraphrase of Plato’s cave image; the player needs no unseen diagram.
+OUT turning-attention | Education as a turning of attention | Plato’s image makes education a reorientation of understanding, not only the delivery of facts.
+LIFECYCLE {'stable-forms': 'retain', 'cave-shadows': 'retain'}

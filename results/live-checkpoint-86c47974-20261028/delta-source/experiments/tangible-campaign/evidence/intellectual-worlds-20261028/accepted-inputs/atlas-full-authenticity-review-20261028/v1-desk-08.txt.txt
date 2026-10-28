@@ -1,0 +1,62 @@
+DESK 8: objections | Latin classrooms and commentaries · c. 1150–1350 CE | A university of objections | Aristotle returns with commentators, not alone. A serious objection earns a place on the desk, even when a master offers a reply.
+GOALS: [{'id': 'objections-formal-disputation', 'text': 'Give an objection a hearing', 'kind': 'create', 'item': 'formal-disputation'}, {'id': 'objections-universals-open', 'text': 'Keep the universal dispute visible', 'kind': 'create', 'item': 'universals-open'}, {'id': 'objections-explanatory-economy', 'text': 'Remove an idle explanation', 'kind': 'create', 'item': 'explanatory-economy'}, {'id': 'objections-intelligible-nature', 'text': 'Reconstruct nature’s intelligibility', 'kind': 'create', 'item': 'intelligible-nature'}]
+
+RECIPE make-latin-aristotle
+A arabic-logic | Logic in a new scholarly language | The argument crosses a language boundary through learned translation.
+B latin-translators | Translators work from Arabic and Greek into Latin | Distinct routes bring texts and commentaries to Latin readers; no single exclusive route is claimed.
+OUT latin-aristotle | Aristotle in Latin | Translated logical works enter a new setting of study.
+LIFECYCLE {'arabic-logic': 'retain', 'latin-translators': 'retain'}
+LINK {"from": "translation", "to": "objections", "item": "arabic-logic", "recipe": "make-latin-aristotle", "relation": "transmission", "evidence": "Arabic–Latin and Greek–Latin translations brought logical works into Latin learning.", "sources": ["arabic-latin", "aquinas", "ockham", "plato"]}
+
+RECIPE make-commentaries-in-dispute
+A latin-aristotle | Aristotle in Latin | Translated logical works enter a new setting of study.
+B active-commentary | A commentary that changes the question | The received argument becomes a starting point for original criticism and elaboration.
+OUT commentaries-in-dispute | The commentators disagree | Reception includes rival interpretations rather than a single official meaning.
+LIFECYCLE {'latin-aristotle': 'retain', 'active-commentary': 'retain'}
+LINK {"from": "translation", "to": "objections", "item": "active-commentary", "recipe": "make-commentaries-in-dispute", "relation": "transmission", "evidence": "Arabic commentators including Avicenna and Averroes became influential participants in Latin debates.", "sources": ["arabic-latin", "aquinas", "ockham", "plato"]}
+
+RECIPE make-reason-faith-distinction
+A necessary-being | Avicenna: a necessary source of existence | Reconstruct an attributed argument from contingency; making it is not an assertion that all readers must accept it.
+B revelation-text | Revelation makes claims reason must interpret | A reconstructed theological concern, not an external proof of a particular faith.
+OUT reason-faith-distinction | Reason and faith: distinct questions | Aquinas distinguishes what natural reason can investigate from truths held through revelation.
+LIFECYCLE {'necessary-being': 'retain', 'revelation-text': 'retain'}
+LINK {"from": "translation", "to": "objections", "item": "necessary-being", "recipe": "make-reason-faith-distinction", "relation": "adaptation", "evidence": "Avicennian metaphysical arguments were received and reworked rather than copied without disagreement.", "sources": ["arabic-latin", "aquinas", "ockham", "plato"]}
+
+RECIPE make-formal-disputation
+A commentaries-in-dispute | The commentators disagree | Reception includes rival interpretations rather than a single official meaning.
+B objection-reply | Set out an objection before answering it | Disputation makes disagreement part of an organized intellectual practice.
+OUT formal-disputation | An objection and an accountable reply | The disagreement receives a structured forum, not compulsory reconciliation.
+LIFECYCLE {'commentaries-in-dispute': 'retain', 'objection-reply': 'retain'}
+
+RECIPE make-real-universal
+A stable-forms | Plato: stable Forms | A stable object of understanding is proposed behind changing examples; this is a reconstructed Platonic position.
+B common-name | One name applies to many distinct things | Universals concern what, if anything, corresponds to that shared name.
+OUT real-universal | A shared nature beyond this instance | A schematic realist position on universals is reconstructed; medieval realism is not identical to Plato’s full theory.
+LIFECYCLE {'stable-forms': 'retain', 'common-name': 'retain'}
+LINK {"from": "kinds", "to": "objections", "item": "stable-forms", "recipe": "make-real-universal", "relation": "teaching-comparison", "evidence": "This reused Platonic construction is a comparison with medieval realism, not a claim of identity between positions.", "sources": ["arabic-latin", "aquinas", "ockham", "plato"]}
+
+RECIPE make-nominal-kinds
+A form-in-particular | Aristotle: form in the particular | A rival explanation relocates form in the thing rather than merely renaming Plato’s position.
+B common-name | One name applies to many distinct things | Universals concern what, if anything, corresponds to that shared name.
+OUT nominal-kinds | Shared names without separate universal things | A schematic nominalist alternative denies a separately existing universal; it does not deny all resemblance.
+LIFECYCLE {'form-in-particular': 'retain', 'common-name': 'retain'}
+LINK {"from": "kinds", "to": "objections", "item": "form-in-particular", "recipe": "make-nominal-kinds", "relation": "teaching-comparison", "evidence": "Aristotle’s particular substance is a contrasting resource, not an assertion that he held Ockham’s nominalism.", "sources": ["arabic-latin", "aquinas", "ockham", "plato"]}
+
+RECIPE make-universals-open
+A real-universal | A shared nature beyond this instance | A schematic realist position on universals is reconstructed; medieval realism is not identical to Plato’s full theory.
+B nominal-kinds | Shared names without separate universal things | A schematic nominalist alternative denies a separately existing universal; it does not deny all resemblance.
+OUT universals-open | One shared name, rival accounts | Both accounts remain inspectable. This juxtaposition identifies the disagreement rather than proving a synthesis.
+LIFECYCLE {'real-universal': 'retain', 'nominal-kinds': 'retain'}
+
+RECIPE make-explanatory-economy
+A four-causes | Different questions about why | Material, form, source of change and end are distinct explanatory questions.
+B extra-entities | An explanation adds an entity it never uses | A teaching case for economy of explanation, not a command to choose the simplest story regardless of evidence.
+OUT explanatory-economy | Do not multiply idle explanations | Economy constrains an explanation without becoming an automatic truth test.
+LIFECYCLE {'four-causes': 'retain', 'extra-entities': 'retain'}
+LINK {"from": "kinds", "to": "objections", "item": "four-causes", "recipe": "make-explanatory-economy", "relation": "criticism", "evidence": "A new constraint asks whether an explanatory addition actually does work; it does not erase all Aristotelian causes.", "sources": ["arabic-latin", "aquinas", "ockham", "plato"]}
+
+RECIPE make-intelligible-nature
+A reason-faith-distinction | Reason and faith: distinct questions | Aquinas distinguishes what natural reason can investigate from truths held through revelation.
+B created-nature | A created world can have intelligible natural causes | Aquinas’s synthesis does not replace every natural explanation with an immediate miracle.
+OUT intelligible-nature | Aquinas: nature has its own intelligibility | Theological commitment and investigation of natural causes need not be rival activities.
+LIFECYCLE {'reason-faith-distinction': 'retain', 'created-nature': 'retain'}

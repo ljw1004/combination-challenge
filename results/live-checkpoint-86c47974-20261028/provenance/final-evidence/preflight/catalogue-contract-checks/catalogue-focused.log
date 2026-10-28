@@ -1,0 +1,34 @@
+✖ exactly six current focuses, two exact prior routes/saves, original Atlas untouched and visible (516.524157ms)
+✔ UI and logical players share one composed active-world entry with both story and invention metadata (281.116327ms)
+✔ legacy data is byte-identical to exact 61a9b4e source; every old object and save identity remains in facade (38.44639ms)
+✔ all input snapshots hash-verify; candidate data matches reviewed bytes except documented Mars presentation and Atlas checkpoints (96.606177ms)
+✔ new scenarios are not grandfathered and every recipe has valid explicit input, objective and compound decisions (340.851281ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 4
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1629.903076
+
+✖ failing tests:
+
+test at tests/arrival-combined-integration.test.ts:17:1
+✖ exactly six current focuses, two exact prior routes/saves, original Atlas untouched and visible (516.524157ms)
+  AssertionError [ERR_ASSERTION]: The input did not match the regular expression /opening four desks/. Input:
+  
+  'The earlier twelve-desk compact-wording journey, preserved with its original progress. Divinity: Disputed Questions is a separate new reconstruction.'
+  
+      at TestContext.<anonymous> (file:///workspace/shared/combination-intellectual-worlds-integration-20261028/tests/arrival-combined-integration.test.ts:22:48)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.start (node:internal/test_runner/test:1262:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:387:17) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'The earlier twelve-desk compact-wording journey, preserved with its original progress. Divinity: Disputed Questions is a separate new reconstruction.',
+    expected: /opening four desks/,
+    operator: 'match',
+    diff: 'simple'
+  }

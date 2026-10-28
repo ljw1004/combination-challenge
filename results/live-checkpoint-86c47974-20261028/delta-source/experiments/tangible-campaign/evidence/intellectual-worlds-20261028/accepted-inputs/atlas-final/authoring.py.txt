@@ -1,0 +1,98 @@
+"""Small content-only authoring helper; no engine/UI change or invented history.
+All historical arguments, labels, sources, goals and cross-time relations are
+explicit data supplied by the author. No quota-based chapter generator.
+"""
+import json
+from pathlib import Path
+
+class Atlas:
+    def __init__(self, identity, premise):
+        self.s = dict(schemaVersion=1,id=identity,title='Atlas of Questions',premise=premise,
+                      items=[],locations=[],initialItems=[],recipes=[],stages=[],
+                      milestones=[],checkpoints=[],sources=[],notes=[])
+        self.items={}; self.recipes={}; self.origins={}; self.chapters=[]; self.connections=[]
+        self.stage=None; self.prefix=[]
+    def source(self,id,title,url,note=''):
+        assert id not in {x['id'] for x in self.s['sources']},id
+        x=dict(id=id,title=title,url=url)
+        if note:x['note']=note
+        self.s['sources'].append(x)
+    def begin(self,id,title,place,date,motivation,*,speaker='The researcher',bridge=None):
+        assert self.stage is None,'Finish the current stage first'
+        self.stage=dict(id=id,title=title,speaker=speaker,motivation=motivation,
+            area=dict(id='desk-'+id,label=place+' · '+date,travelText=place),
+            caches=[],objectives=[],carry=[],onAlreadyComplete=dict(mode='bridge',text=bridge) if bridge else dict(mode='skip'))
+        self.chapter=dict(id=id,recipes=[],actions=[])
+        self.raw=[]
+    def item(self,id,label,description,sources,*,reading=None,attribution=None,seed=False,**extra):
+        assert id not in self.items,id
+        x=dict(id=id,label=label,description=description,sources=sources,**extra)
+        if reading:x['reading']=dict(text=reading,attribution=attribution or 'Authored paraphrase and teaching reconstruction; not a historical quotation.')
+        self.items[id]=x; self.s['items'].append(x)
+        if seed:
+            assert self.stage is not None
+            self.raw.append(id)
+        return id
+    def seed(self,*args,**kwargs):return self.item(*args,seed=True,**kwargs)
+    def location(self,id,label,description,sources):
+        assert self.stage is not None
+        self.s['locations'].append(dict(id=id,label=label,description=description,sources=sources))
+        self.stage.setdefault('locations',[]).append(id)
+        return '@'+id
+    def make(self,id,label,a,b,description,sources,*,reading=None,roles=None,at=None,preserve=None,edges=None):
+        assert self.stage is not None
+        self.item(id,label,description,sources,reading=reading)
+        rid='make-'+id
+        assert rid not in self.recipes,rid
+        lifecycle={}
+        for k in [a,b]:
+            if k.startswith('@'):continue
+            assert k in self.items,k
+            role,reason=(roles or {}).get(k,('retain','This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse.'))
+            lifecycle[k]=dict(role=role,reason=reason)
+        r=dict(id=rid,a=a,b=b,out=id,description=description,sources=sources,lifecycle=lifecycle)
+        if at:r['at']=at
+        if preserve:r['preserve']=preserve
+        self.recipes[rid]=r;self.s['recipes'].append(r);self.chapter['recipes'].append(rid)
+        if at:self.chapter['actions'].append(dict(type='place',item=b,location=at))
+        self.chapter['actions'].append(dict(type='combine',a=a,b=b))
+        for k in [a,b]:
+            if k in self.origins and self.origins[k]!=self.stage['id']:
+                assert edges and k in edges,f'Cross-time edge needs evidence: {k} -> {id}'
+                relation,evidence,refs=edges[k]
+                self.connections.append(dict(from_=self.origins[k],to=self.stage['id'],item=k,recipe=rid,relation=relation,evidence=evidence,sources=refs))
+        self.origins[id]=self.stage['id']
+        return id
+    def finish(self,goals,*,intermediates=None,cache_label='Newly opened sources',cache_narrative='A new collection joins the manuscripts already on your desk.',completion=None):
+        assert self.stage is not None
+        st=self.stage
+        for id,text in (intermediates or []):st['objectives'].append(dict(id=st['id']+'-'+id,text=text,kind='create',item=id,intermediate=True))
+        for goal in goals:
+            id,text,*deps=goal
+            x=dict(id=st['id']+'-'+id,text=text,kind='create',item=id)
+            if deps:x['after']=[st['id']+'-'+k for k in deps[0]]
+            st['objectives'].append(x)
+        if self.raw:st['caches']=[dict(id='sources-'+st['id'],label=cache_label,narrative=cache_narrative,items=self.raw)]
+        if completion:st['completionText']=completion
+        local_outputs={self.recipes[r]['out'] for r in self.chapter['recipes']}
+        st['carry']=sorted({k for rid in self.chapter['recipes'] for k in [self.recipes[rid]['a'],self.recipes[rid]['b']] if not k.startswith('@') and k not in local_outputs and k not in self.raw})
+        self.s['stages'].append(st);self.chapters.append(self.chapter)
+        self.prefix += self.chapter['actions']+[dict(type='advance')]
+        self.stage=None
+    def checkpoint(self,id,label):
+        assert self.stage is None
+        self.s['checkpoints'].append(dict(id=id,label=label,actions=list(self.prefix)))
+    def milestone(self,item,title,text):
+        assert item in self.origins,item
+        self.s['milestones'].append(dict(id='milestone-'+item,item=item,when='created',title=title,text=text))
+    def write(self,directory):
+        assert self.stage is None
+        directory=Path(directory)
+        expected=json.dumps(self.s,ensure_ascii=False,indent=2)+'\n'
+        if (directory/'scenario.json').exists() and (directory/'scenario.json').read_text()!=expected:
+            raise RuntimeError('Refusing to overwrite a different frozen scenario; choose a new output directory: '+str(directory))
+        directory.mkdir(exist_ok=True,parents=True)
+        edges=[{('from' if k=='from_' else k):v for k,v in edge.items()} for edge in self.connections]
+        for f,x in [('scenario.json',self.s),('chapter-recipes.json',self.chapters),('connections.json',edges)]:
+            (directory/f).write_text(json.dumps(x,ensure_ascii=False,indent=2)+'\n')
+        (directory/'atlas-intellectual-history.ts').write_text("import type {Scenario} from '../../schema/scenario.ts';\n\n/** New full-length Atlas identity. Original routes and saves remain untouched. */\nexport const scenario:Scenario = "+json.dumps(self.s,ensure_ascii=False,indent=2)+';\n')

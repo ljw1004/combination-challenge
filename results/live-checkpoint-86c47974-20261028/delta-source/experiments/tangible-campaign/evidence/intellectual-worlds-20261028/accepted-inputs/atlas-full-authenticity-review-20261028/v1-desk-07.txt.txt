@@ -1,0 +1,51 @@
+DESK 7: light | An optical workroom · c. 1000–1300 CE | Light enters the argument | An old account of sight meets a painful brightness and a controlled room. Glassmakers can help even before every property of glass is explained.
+GOALS: [{'id': 'light-inverted-image', 'text': 'Make a dark-room image', 'kind': 'create', 'item': 'inverted-image'}, {'id': 'light-magnified-view', 'text': 'Magnify a view', 'kind': 'create', 'item': 'magnified-view'}, {'id': 'light-seeing-and-judging', 'text': 'Separate sight and judgment', 'kind': 'create', 'item': 'seeing-and-judging'}]
+
+RECIPE make-vision-dispute
+A arabic-nature | Natural philosophy in Arabic | Inherited explanatory distinctions become resources for further inquiry.
+B emitted-sight | Do rays leave the eye to make sight? | An inherited theory of vision is posed as a question.
+OUT vision-dispute | Rival accounts of sight | Optical questions are investigated within a living philosophical tradition.
+LIFECYCLE {'arabic-nature': 'retain', 'emitted-sight': 'retain'}
+LINK {"from": "translation", "to": "light", "item": "arabic-nature", "recipe": "make-vision-dispute", "relation": "adaptation", "evidence": "Ibn al-Haytham’s optics transforms inherited philosophical and mathematical questions rather than merely transmitting them.", "sources": ["optics", "optics-lamps-primary", "optics-manuscript", "lensmaking"]}
+
+RECIPE make-light-into-eye
+A vision-dispute | Rival accounts of sight | Optical questions are investigated within a living philosophical tradition.
+B bright-light | Bright light affects the eye | A qualitative reason to investigate what enters the eye; never an instruction to look at the Sun.
+OUT light-into-eye | Sight depends on light entering the eye | Ibn al-Haytham’s account turns attention toward incoming light and the conditions of vision.
+LIFECYCLE {'vision-dispute': 'retain', 'bright-light': 'retain'}
+
+RECIPE make-geometric-optics
+A light-into-eye | Sight depends on light entering the eye | Ibn al-Haytham’s account turns attention toward incoming light and the conditions of vision.
+B straight-paths | Light follows straight paths in a uniform medium | A conceptual relation; the player is not asked to infer an unseen diagram.
+OUT geometric-optics | Light paths as a geometric account | A model of paths connects physical light with spatial reasoning.
+LIFECYCLE {'light-into-eye': 'retain', 'straight-paths': 'retain'}
+
+RECIPE make-pinhole-box
+A geometric-optics | Light paths as a geometric account | A model of paths connects physical light with spatial reasoning.
+B aperture-screen | A closed box, small opening and receiving screen | A particular optical arrangement ready to use.
+OUT pinhole-box | A prepared dark-room image box | The arrangement becomes a controlled setting for a projected image.
+LIFECYCLE {'geometric-optics': 'retain', 'aperture-screen': 'transform'}
+
+RECIPE make-inverted-image
+A pinhole-box | A prepared dark-room image box | The arrangement becomes a controlled setting for a projected image.
+B @optical-darkroom |  | 
+OUT inverted-image | An inverted image on the screen | The dark setting makes the aperture image visible. The box remains a reusable instrument.
+LIFECYCLE {'pinhole-box': 'retain'}
+
+RECIPE make-ground-lens
+A glass-blank | A clear glass blank | A particular piece of workable glass.
+B lens-grinding | Curved surfaces can bend light | Craft knowledge enables lenses without requiring a completed theory of the glass transition.
+OUT ground-lens | A shaped optical lens | A crafted glass surface changes the paths of light.
+LIFECYCLE {'glass-blank': 'transform', 'lens-grinding': 'retain'}
+
+RECIPE make-magnified-view
+A ground-lens | A shaped optical lens | A crafted glass surface changes the paths of light.
+B geometric-optics | Light paths as a geometric account | A model of paths connects physical light with spatial reasoning.
+OUT magnified-view | A magnified view | A lens makes a new visual relation available without a focal-length calculation.
+LIFECYCLE {'ground-lens': 'retain', 'geometric-optics': 'retain'}
+
+RECIPE make-seeing-and-judging
+A light-into-eye | Sight depends on light entering the eye | Ibn al-Haytham’s account turns attention toward incoming light and the conditions of vision.
+B size-illusion | Distant things can mislead our judgment of size | The optical stimulus and the judgment made from it are not identical.
+OUT seeing-and-judging | Seeing includes interpretation | An account of light does not by itself eliminate every error in judging what is seen.
+LIFECYCLE {'light-into-eye': 'retain', 'size-illusion': 'retain'}

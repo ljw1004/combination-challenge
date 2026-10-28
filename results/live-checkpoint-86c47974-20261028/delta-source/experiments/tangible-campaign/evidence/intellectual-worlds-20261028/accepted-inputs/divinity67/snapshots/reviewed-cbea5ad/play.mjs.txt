@@ -1,0 +1,23 @@
+/** Recipe-blind logical diagnostic surface. Do not inspect this file or candidate during a reader trial. */
+import fs from 'node:fs';import crypto from 'node:crypto';import * as M from './runtime/experiments/tangible-campaign/engine/model.ts';
+const root=new URL('.',import.meta.url),bytes=fs.readFileSync(new URL('conceptual-candidate.json',root)),s=JSON.parse(bytes),sha=crypto.createHash('sha256').update(bytes).digest('hex');
+const [session,command='look',...args]=process.argv.slice(2);if(!session||!/^[a-z0-9_-]+$/.test(session))throw Error('Use a safe session name, then start chapter-N | look | read tNNN | partners tNNN | combine tNNN tNNN | advance | undo | note TEXT | stop TEXT.');
+const dir=new URL('sessions/'+session+'/',root);fs.mkdirSync(dir,{recursive:true});const file=n=>new URL(n,dir),exists=fs.existsSync(file('game.json'));const info=exists?JSON.parse(fs.readFileSync(file('session.json'))):{session,startedAt:new Date().toISOString(),candidateSha256:sha,kind:'AI diagnostic logical reader, not human/UI testing',checkpoint:command==='start'?args[0]:'chapter-1',status:'running'};
+if(info.candidateSha256!==sha)throw Error('The candidate changed. Preserve this session; start a new session on the new version.');
+if(command==='start'&&exists)throw Error('Session already exists; do not overwrite reader evidence.');
+const cp=info.checkpoint;if(!s.checkpoints.some(c=>c.id===cp))throw Error('Unknown earned checkpoint.');
+let g=exists?M.restore(s,fs.readFileSync(file('game.json'),'utf8')):M.checkpoint(s,cp);
+const code=id=>'t'+String(s.items.findIndex(i=>i.id===id)+1).padStart(3,'0'),decode=c=>{if(!/^t\d{3}$/.test(c??''))return null;const id=s.items[Number(c.slice(1))-1]?.id;return g.state.tokens.some(t=>t.id===id&&t.area===g.state.currentArea)?id:null;},def=id=>s.items.find(i=>i.id===id);
+const view=()=>{const v=M.playerView(s,g);return {title:v.scenario.title,premise:v.scenario.premise,stage:v.stage,objectives:v.objectives.map(({text,satisfied})=>({text,satisfied})),things:v.things.map(t=>({id:code(t.id),label:t.label,gold:t.gold,readable:!!t.reading})),canAdvance:v.canAdvance,nextAction:v.nextAction,completionText:v.completionText,completed:v.completed,bridges:v.bridges.map(b=>b.text)};};
+let result;const before=JSON.stringify(g);
+if(['look','start'].includes(command))result=view();
+else if(command==='read'){const id=decode(args[0]),i=id&&def(id);result=i?.reading?{id:args[0],label:i.label,...i.reading,sources:i.sources.map(id=>{const x=s.sources.find(x=>x.id===id);return {title:x.title,url:x.url};}),progressChanged:false}:{error:'No readable visible card with that ID.'};}
+else if(command==='partners'){const id=decode(args[0]);result=id?{selected:args[0],highlighted:M.partners(s,g.state,id).partners.map(id=>({id:code(id),label:def(id).label})),resultPreview:null}:{error:'No visible card with that ID.'};}
+else if(['combine','advance','undo'].includes(command)){
+ const a=decode(args[0]),b=decode(args[1]);if(command==='combine'&&(!a||!b))result={accepted:false,error:'Both operands must be visible cards.'};else {const r=command==='undo'?M.undo(g):M.applyAction(s,g,command==='advance'?{type:'advance'}:{type:'combine',a,b});g=r.game;result={accepted:r.accepted,...r.accepted?{}:{message:r.message},...r.created?{created:{id:code(r.created),label:def(r.created).label}}:{},view:view()};}
+}else if(command==='note'){result={recorded:args.join(' ')};}
+else if(command==='stop'){info.status='stopped';info.reason=args.join(' ');info.stoppedAt=new Date().toISOString();result={recorded:'stopped',stage:g.state.stage+1,reason:info.reason};}
+else throw Error('Unknown command. No state changed.');
+if(['look','start','read','partners','note','stop'].includes(command)&&JSON.stringify(g)!==before)throw Error('A read-only surface command mutated game state.');
+if(g.state.completed){info.status='completed';info.completedAt=new Date().toISOString();}
+fs.writeFileSync(file('game.json'),JSON.stringify(g));fs.writeFileSync(file('session.json'),JSON.stringify(info,null,2)+'\n');fs.appendFileSync(file('events.jsonl'),JSON.stringify({at:new Date().toISOString(),command,args,result})+'\n');console.log(JSON.stringify(result,null,2));

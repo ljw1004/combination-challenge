@@ -1,0 +1,29 @@
+{
+  "status": "PLANNED_PUBLISHER_HELPERS_NOT_EXECUTED_AS_THIS_ARRAY",
+  "sourceSealSha256": "ce7ecf3eb8c09460d046987cfaec969f0c7e72e902f5ffe07e6b0faa80acfefb",
+  "requiredParentCommit": "c85b48cfd4006fe00eae90f7e22d7984201a534d",
+  "commands": [
+    [
+      "python",
+      "experiments/tangible-campaign/integration/verify-manifest.py"
+    ],
+    [
+      "python",
+      "experiments/tangible-campaign/integration/verify-intellectual-worlds-delta.py"
+    ],
+    [
+      "node",
+      "--test",
+      "tests/intellectual-worlds-source-contract.test.ts",
+      "tests/intellectual-worlds.test.ts",
+      "tests/reactive-heroes-source-contract.test.ts"
+    ],
+    [
+      "npm",
+      "run",
+      "build"
+    ]
+  ],
+  "note": "Root must freshly verify actual checkout parent/cleanliness and audience before applying overlay. Do not relabel planned helper commands as executed evidence. Full applicable source-only suite is separately running in fresh tree with exact argv and durable receipts. No need duplicate fullsuite on byte-identical published source unless root finds new change.",
+  "publicationPerformed": false
+}

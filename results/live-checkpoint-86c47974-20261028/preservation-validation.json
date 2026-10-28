@@ -1,0 +1,81 @@
+{
+  "sourceCommit": "86c479746909412d775873d5bb250868ed7bf2d0",
+  "sourceSealSha256": "ce7ecf3eb8c09460d046987cfaec969f0c7e72e902f5ffe07e6b0faa80acfefb",
+  "exactSourceFiles": 1442,
+  "exactSourceBytes": 104220659,
+  "allSourceBytesAndModesUnchangedAfterTests": true,
+  "nodeVersion": "v24.22.1",
+  "dependencies": "Existing lockfile-matched node_modules reused by symlink only in disposable copy; npm ci not rerun and dependencies not uploaded.",
+  "runs": [
+    {
+      "name": "materialize",
+      "command": [
+        "python",
+        "/workspace/shared/live-86-preservation-20261028/materialize-source.py",
+        "/workspace/shared/live-86-preservation-20261028/verification-repository",
+        "/workspace/shared/live-86-preservation-20261028/runnable-copy"
+      ],
+      "exitCode": 0,
+      "seconds": 1.263,
+      "log": "results/live-checkpoint-86c47974-20261028/preservation-validation/materialize.log"
+    },
+    {
+      "name": "initial-seal",
+      "command": [
+        "python",
+        "experiments/tangible-campaign/integration/verify-manifest.py"
+      ],
+      "exitCode": 0,
+      "seconds": 0.312,
+      "log": "results/live-checkpoint-86c47974-20261028/preservation-validation/initial-seal.log"
+    },
+    {
+      "name": "exact-delta",
+      "command": [
+        "python",
+        "experiments/tangible-campaign/integration/verify-intellectual-worlds-delta.py"
+      ],
+      "exitCode": 0,
+      "seconds": 0.299,
+      "log": "results/live-checkpoint-86c47974-20261028/preservation-validation/exact-delta.log"
+    },
+    {
+      "name": "focused-19",
+      "command": [
+        "node",
+        "--test",
+        "tests/intellectual-worlds-source-contract.test.ts",
+        "tests/intellectual-worlds.test.ts",
+        "tests/reactive-heroes-source-contract.test.ts"
+      ],
+      "exitCode": 0,
+      "seconds": 42.292,
+      "log": "results/live-checkpoint-86c47974-20261028/preservation-validation/focused-19.log"
+    },
+    {
+      "name": "build",
+      "command": [
+        "npm",
+        "run",
+        "build"
+      ],
+      "exitCode": 0,
+      "seconds": 5.692,
+      "log": "results/live-checkpoint-86c47974-20261028/preservation-validation/build.log"
+    },
+    {
+      "name": "final-seal",
+      "command": [
+        "python",
+        "experiments/tangible-campaign/integration/verify-manifest.py"
+      ],
+      "exitCode": 0,
+      "seconds": 0.298,
+      "log": "results/live-checkpoint-86c47974-20261028/preservation-validation/final-seal.log"
+    }
+  ],
+  "allChecksPassed": true,
+  "historicalFullSuiteCount": 1196,
+  "historicalFullSuiteRerunHere": false,
+  "browserTestsRun": false
+}

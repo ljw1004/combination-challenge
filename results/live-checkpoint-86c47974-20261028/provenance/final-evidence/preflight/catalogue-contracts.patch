@@ -1,0 +1,280 @@
+--- c85/experiments/tangible-campaign/integration/reviewed-routes.ts
++++ candidate/experiments/tangible-campaign/integration/reviewed-routes.ts
+@@ -2,7 +2,7 @@
+ import {createHash} from 'node:crypto';
+ import * as M from '../engine/model.ts';
+ import type {Action,Scenario} from '../schema/scenario.ts';
+-import {integratedScenarios} from '../ui/scenarios.ts';
++import {c85Scenarios} from '../ui/scenarios.ts';
+ export const evidenceRoot=new URL('../evidence/integration-20261028/',import.meta.url);
+ export const readSource=(path:string)=>JSON.parse(readFileSync(new URL('sources/'+path,evidenceRoot),'utf8'));
+ export const digest=(data:string|Uint8Array)=>createHash('sha256').update(data).digest('hex');
+@@ -16,7 +16,7 @@
+  {key:'doctrine',source:'doctrine/images-dispute-research-20261028/candidate-v2-copy1/authoring-manifest.json',alternatives:[]},
+ ];
+ export function routeActions(source:string,witness?:string):Action[]{const raw=readSource(source);return witness?raw[witness]:Array.isArray(raw)?raw:raw.actionsLog??raw.actions??raw.authoredActions??raw.basket??raw.checkpoints?.find((c:any)=>c.id==='complete')?.actions;}
+-export function scenarioFor(key:string):Scenario {const id=readSource(sourceManifest.scenarioSources[key]).id;const s=integratedScenarios.find(s=>s.id===id);if(!s)throw Error('Missing integrated '+id);return s;}
++export function scenarioFor(key:string):Scenario {const id=readSource(sourceManifest.scenarioSources[key]).id;const s=c85Scenarios.find(s=>s.id===id);if(!s)throw Error('Missing historical c85 integration '+id);return s;}
+ /** Accepted-action, current-goal ancestry audit. It does not mistake inventory presence or optional unrelated actions for reuse.
+  * Derived from research28/continuity/audit.ts. This witness diagnostic is not exhaustive semantic proof or human enjoyment evidence. */
+ export function auditRoute(s:Scenario,actions:Action[],width=360){
+--- c85/tests/reactive-chapter-policies.test.ts
++++ candidate/tests/reactive-chapter-policies.test.ts
+@@ -1,14 +1,14 @@
+ import test from 'node:test';
+ import assert from 'node:assert/strict';
+-import {integratedScenarios, scenarios} from '../experiments/tangible-campaign/ui/scenarios.ts';
++import {c85Scenarios, scenarios} from '../experiments/tangible-campaign/ui/scenarios.ts';
+ import {applyChapterPolicies, campaignChapterPolicies} from '../experiments/tangible-campaign/ui/campaign-reactivity.ts';
+ import type {Scenario} from '../experiments/tangible-campaign/schema/scenario.ts';
+ 
+-test('all 118 chapters in the six current worlds have an explicit editorial entry policy',()=>{
+- assert.equal(integratedScenarios.length,6);
+- assert.deepEqual(Object.keys(campaignChapterPolicies).sort(),integratedScenarios.map(s=>s.id).sort());
++test('all 118 chapters in the six preserved c85 worlds have an explicit editorial entry policy',()=>{
++ assert.equal(c85Scenarios.length,6);
++ assert.deepEqual(Object.keys(campaignChapterPolicies).sort(),c85Scenarios.map(s=>s.id).sort());
+  let count=0,bridges=0;
+- for(const s of integratedScenarios){
++ for(const s of c85Scenarios){
+   assert.deepEqual(Object.keys(campaignChapterPolicies[s.id]).sort(),s.stages.map(st=>st.id).sort(),s.id);
+   const playable=applyChapterPolicies(s);
+   for(const st of playable.stages){
+@@ -41,7 +41,7 @@
+ });
+ 
+ test('policies neither mutate frozen scenario records nor touch predecessor worlds and save identities',()=>{
+- for(const s of integratedScenarios){
++ for(const s of c85Scenarios){
+   const before=JSON.stringify(s),playable=applyChapterPolicies(s);
+   assert.equal(JSON.stringify(s),before);
+   assert.equal(playable.id,s.id);
+@@ -56,7 +56,7 @@
+ });
+ 
+ test('explicit stage metadata wins; missing current-world decisions fail instead of silently skipping',()=>{
+- const original=integratedScenarios[0];
++ const original=c85Scenarios[0];
+  const custom:Scenario={...original,stages:original.stages.map((st,i)=>i?st:{...st,onAlreadyComplete:{mode:'bridge',text:'A deliberately authored local beat.'}})};
+  assert.deepEqual(applyChapterPolicies(custom).stages[0].onAlreadyComplete,custom.stages[0].onAlreadyComplete);
+  const changed:Scenario={...original,stages:[...original.stages,{...original.stages[0],id:'unauthored-new-chapter'}]};
+--- c85/tests/milestones-engine.test.ts
++++ candidate/tests/milestones-engine.test.ts
+@@ -7,7 +7,7 @@
+ import {encodeSave,decodeSave} from '../experiments/tangible-campaign/ui/save-codec.ts';
+ import {scenario as marsSource} from '../experiments/tangible-campaign/ui/campaigns/mars-return-cargo.ts';
+ import {scenario as elementsSource} from '../experiments/tangible-campaign/ui/campaigns/elements-house-and-craft.ts';
+-import {integratedScenarios} from '../experiments/tangible-campaign/ui/scenarios.ts';
++import {c85Scenarios} from '../experiments/tangible-campaign/ui/scenarios.ts';
+ import {applyMilestones,getPlayableScenario} from '../experiments/tangible-campaign/ui/campaign-milestones.ts';
+ const mars=applyMilestones(marsSource),elements=applyMilestones(elementsSource);
+ const elementsItems=["plant", "wheel", "grain-mill", "iron", "sailboat", "printed-invitations", "microscope", "soap", "clock"];
+@@ -40,9 +40,9 @@
+ test('authoring rejects duplicate, impossible and incomplete milestone declarations',()=>{
+  for(const mutate of [(s:Scenario)=>s.milestones!.push(s.milestones![0]),(s:Scenario)=>s.milestones![0].item='missing',(s:Scenario)=>s.milestones![0].capability='missing',(s:Scenario)=>s.milestones![0].text='',(s:Scenario)=>s.milestones![0].when='bad' as any]){const s=structuredClone(fixture);mutate(s);assert(M.validateScenario(s).length);}
+ });
+-test('selection is exactly three Mars and nine coherent Elements milestones, with no cooking reward',()=>{
+- assert.equal(mars.milestones!.length,3);assert.deepEqual(elements.milestones!.map(m=>m.item),elementsItems);assert.equal(integratedScenarios.reduce((n,s)=>n+(applyMilestones(s).milestones?.length??0),0),12);
+- for(const s of integratedScenarios.filter(s=>s.id!==mars.id&&s.id!==elements.id))assert.equal(applyMilestones(s).milestones,undefined);
++test('preserved c85 selection is exactly three Mars and nine coherent Elements milestones, with no cooking reward',()=>{
++ assert.equal(mars.milestones!.length,3);assert.deepEqual(elements.milestones!.map(m=>m.item),elementsItems);assert.equal(c85Scenarios.reduce((n,s)=>n+(applyMilestones(s).milestones?.length??0),0),12);
++ for(const s of c85Scenarios.filter(s=>s.id!==mars.id&&s.id!==elements.id))assert.equal(applyMilestones(s).milestones,undefined);
+  for(const s of [mars,elements])for(const m of s.milestones!)assert(!m.text.includes('—'));
+  const branches=elements.recipes.filter(r=>r.a==='plant'||r.b==='plant').map(r=>r.out);for(const id of ['fruit','grain','flowers'])assert(branches.includes(id));
+ });
+@@ -61,9 +61,9 @@
+ });
+ 
+ test('shared playable-world resolver exposes actual active metadata to logical replay without altering the catalogue',()=>{
+- assert.equal(getPlayableScenario('missing',integratedScenarios),undefined);
+- for(const source of [marsSource,elementsSource])assert.deepEqual(getPlayableScenario(source.id,integratedScenarios),applyMilestones(source));
+- const s=getPlayableScenario(elementsSource.id,integratedScenarios)!;
++ assert.equal(getPlayableScenario('missing',c85Scenarios),undefined);
++ for(const source of [marsSource,elementsSource])assert.deepEqual(getPlayableScenario(source.id,c85Scenarios),applyMilestones(source));
++ const s=getPlayableScenario(elementsSource.id,c85Scenarios)!;
+  const evidence=JSON.parse(readFileSync(new URL('../experiments/tangible-campaign/evidence/'+s.id+'-route-evidence.json',import.meta.url),'utf8'));
+  const g=M.replay(s,evidence.actionsLog);assert(g.state.completed);assert.deepEqual(g.state.milestones?.map(m=>m.id),elementsItems.map(id=>'elements-'+id));assert.equal(M.pendingMilestone(s,g)!.id,'elements-plant');
+  for(const cp of s.checkpoints??[])assert.equal(M.pendingMilestone(s,M.checkpoint(s,cp.id)),null);
+--- c85/tests/late-doctrine-content-integration.test.mjs
++++ candidate/tests/late-doctrine-content-integration.test.mjs
+@@ -20,7 +20,7 @@
+  const u=new URL('revision-3-content-clarity/doctrine-ten-desks-v3-candidate.json',source);assert.equal(sha(u),'f8397c2b591d58c9088138111a5bd31c7df6fe8b93ec47898b89036115bd3879');assert.deepEqual(s,read(u));
+  const expected=structuredClone(v2),diffs=read(new URL('revision-3-content-clarity/exact-diff.json',source));assert.equal(diffs.length,5);for(const d of diffs){const p=d.path.slice(1).split('/');let o=expected;for(const k of p.slice(0,-1))o=o[k];assert.deepEqual(o[p.at(-1)]??null,d.before);o[p.at(-1)]=d.after;}assert.deepEqual(s,expected);
+  for(const key of ['items','recipes','stages','sources'])assert.deepEqual(s[key].slice(0,v10[key].length),v10[key],key);
+- assert.equal(scenarios.find(x=>x.id===v10.id),v10);assert(!featuredScenarioIds.includes(s.id));assert.equal(scenarios.find(x=>x.id===s.id),s);assert(!featuredScenarioIds.includes('doctrine-images-relics-local-v2-copy1'));assert(featuredScenarioIds.includes('doctrine-language-compact-local-20261028'));assert(!featuredScenarioIds.includes(v10.id));assert.equal(featuredScenarioIds.length,6);assert.equal(new Set(scenarios.map(x=>x.id)).size,scenarios.length);
++ assert.equal(scenarios.find(x=>x.id===v10.id),v10);assert(!featuredScenarioIds.includes(s.id));assert.equal(scenarios.find(x=>x.id===s.id),s);assert(!featuredScenarioIds.includes('doctrine-images-relics-local-v2-copy1'));assert(!featuredScenarioIds.includes('doctrine-language-compact-local-20261028'));assert(scenarios.some(x=>x.id==='doctrine-language-compact-local-20261028'));assert(featuredScenarioIds.includes('divinity-disputed-questions-conceptual-v2-20261028'));assert(!featuredScenarioIds.includes(v10.id));assert.equal(featuredScenarioIds.length,6);assert.equal(new Set(scenarios.map(x=>x.id)).size,scenarios.length);
+  const saved=JSON.stringify(M.checkpoint(v10,'complete'));assert(M.restore(v10,saved).state.completed);assert.throws(()=>M.restore(s,saved),/Invalid campaign save/);
+ });
+ test('All protected implementation bytes match historical freeze or approved arrival successors; Elements has only its approved single-label difference',()=>{
+--- c85/tests/next-doctrine-checkpoint-integration.test.mjs
++++ candidate/tests/next-doctrine-checkpoint-integration.test.mjs
+@@ -241,7 +241,7 @@
+ 
+ test('prior twelve-desk content remains registered while compact successor is featured and exact ten-desk route and completed save remain separate; every later desk uses a goal-connected earlier creation',()=>{
+  assert.equal(scenarios.find(x=>x.id===priorLive.id),priorLive);assert.equal(scenarios.find(x=>x.id===s.id),integrated);
+- assert(!featuredScenarioIds.includes(s.id));assert(featuredScenarioIds.includes('doctrine-language-compact-local-20261028'));assert(!featuredScenarioIds.includes(priorLive.id));assert.equal(featuredScenarioIds.length,6);
++ assert(!featuredScenarioIds.includes(s.id));assert(!featuredScenarioIds.includes('doctrine-language-compact-local-20261028'));assert(scenarios.some(x=>x.id==='doctrine-language-compact-local-20261028'));assert(featuredScenarioIds.includes('divinity-disputed-questions-conceptual-v2-20261028'));assert(!featuredScenarioIds.includes(priorLive.id));assert.equal(featuredScenarioIds.length,6);
+  const old=M.checkpoint(priorLive,'complete'),saved=JSON.stringify(old);assert(M.restore(priorLive,saved).state.completed);assert.throws(()=>M.restore(s,saved),/Invalid campaign save/);
+  const final=M.checkpoint(s,'complete');assert.throws(()=>M.restore(priorLive,JSON.stringify(final)),/Invalid campaign save/);
+  const audits=[];for(const width of [320,375,600]){const a=auditRoute(s,m.authoredActions,width);assert(a.game.state.completed);assert.equal(a.game.state.metrics.combinations,61);assert.equal(a.rows.length,12);assert.deepEqual(a.missing,[]);audits.push({width,completed:true,combinations:61,laterDesks:a.rows.slice(1)});}
+--- c85/tests/kitchen-atlas-registry.test.ts
++++ candidate/tests/kitchen-atlas-registry.test.ts
+@@ -14,7 +14,7 @@
+ test('Food and optional Atlas are exact accepted data with separate save IDs; six focuses remain',()=>{
+  assert.deepEqual(food,read(sourceRoot+'food-v6-ten-kitchens/scenario.json'));assert.equal(sha(sourceRoot+'food-v6-ten-kitchens/scenario.json'),'cafffa9f25754d3246c3ad4f2a212a7dd451c432c2927df92757ef1a3149b1c7');
+  assert.deepEqual(miniature,read(sourceRoot+'optional-atlas-miniature/philosophy-miniature-v2/scenario.json'));assert.equal(sha(sourceRoot+'optional-atlas-miniature/philosophy-miniature-v2/scenario.json'),'31bd0d36bb083fe7e7d9a828f6373ec626377f3c276c042a3b50348526ca868b');
+- assert.equal(featuredScenarioIds.length,6);assert(featuredScenarioIds.includes(food.id));assert(!featuredScenarioIds.includes(oldFood.id));assert(!featuredScenarioIds.includes(atlas.id));assert(featuredScenarioIds.includes('atlas-connected-questions-v9-evidence-repair-research'));assert(!featuredScenarioIds.includes(miniature.id));assert.equal(new Set(scenarios.map(s=>s.id)).size,scenarios.length);
++ assert.equal(featuredScenarioIds.length,6);assert(featuredScenarioIds.includes(food.id));assert(!featuredScenarioIds.includes(oldFood.id));assert(!featuredScenarioIds.includes(atlas.id));assert(!featuredScenarioIds.includes('atlas-connected-questions-v9-evidence-repair-research'));assert(scenarios.some(x=>x.id==='atlas-connected-questions-v9-evidence-repair-research'));assert(featuredScenarioIds.includes('atlas-intellectual-history-v1-research'));assert(!featuredScenarioIds.includes(miniature.id));assert.equal(new Set(scenarios.map(s=>s.id)).size,scenarios.length);
+  for(const s of [oldFood,atlas])assert.equal(scenarios.find(x=>x.id===s.id),s);
+  assert.match(presentationFor(miniature).title,/Optional experiment/);assert.match(presentationFor(food).premise,/supper and provisions/);
+ });
+--- c85/tests/atlas-miniature-semantic-alternatives.test.ts
++++ candidate/tests/atlas-miniature-semantic-alternatives.test.ts
+@@ -7,7 +7,7 @@
+ const route=JSON.parse(fs.readFileSync(new URL('../experiments/tangible-campaign/evidence/atlas-three-philosophical-cases-v2-research-route-evidence.json',import.meta.url),'utf8'));
+ function entries(){let g=M.createGame(s);const out=new Map<number,typeof g>();for(const a of route.actionsLog){const x=M.applyAction(s,g,a);assert(x.accepted);g=x.game;if(a.type==='advance'&&!out.has(g.state.stage))out.set(g.state.stage,structuredClone(g))}return out}
+ function combine(g:ReturnType<typeof M.createGame>,a:string,b:string){const x=M.applyAction(s,g,{type:'combine',a,b});assert(x.accepted,x.message);return x.game}
+-test('Atlas miniature remains optional; original full Atlas remains a preserved snapshot',()=>{assert.equal(featuredScenarioIds.length,6);assert(!featuredScenarioIds.includes(original.id));assert(featuredScenarioIds.includes('atlas-connected-questions-v9-evidence-repair-research'));assert(!featuredScenarioIds.includes(s.id));assert(scenarios.some(x=>x.id===s.id));assert.equal(s.items.length,57);assert.equal(s.recipes.length,32);assert.equal(s.stages.length,4);assert.deepEqual(s.stages[0],original.stages[0]);});
++test('Atlas miniature remains optional; original full Atlas remains a preserved snapshot',()=>{assert.equal(featuredScenarioIds.length,6);assert(!featuredScenarioIds.includes(original.id));assert(!featuredScenarioIds.includes('atlas-connected-questions-v9-evidence-repair-research'));assert(scenarios.some(x=>x.id==='atlas-connected-questions-v9-evidence-repair-research'));assert(featuredScenarioIds.includes('atlas-intellectual-history-v1-research'));assert(!featuredScenarioIds.includes(s.id));assert(scenarios.some(x=>x.id===s.id));assert.equal(s.items.length,57);assert.equal(s.recipes.length,32);assert.equal(s.stages.length,4);assert.deepEqual(s.stages[0],original.stages[0]);});
+ test('Atlas miniature checkpoint earns the exact original Babylon opening',()=>{const cp=s.checkpoints!.find(x=>x.id==='after-babylon-watch')!;assert(cp);assert.equal(cp.actions.filter(x=>x.type==='combine').length,7);assert.equal(cp.actions.at(-1)!.type,'advance');const before=cp.actions.slice(0,-1);assert.deepEqual(M.replay(s,before),{...M.replay(original,before),scenarioId:s.id});const g=M.checkpoint(s,cp.id);assert.equal(g.state.stage,1);assert.equal(g.state.metrics.combinations,7);assert.deepEqual(M.restore(s,JSON.stringify(g)),g);});
+ test('Atlas miniature supports direct case contrast without consensus',()=>{for(const [a,b] of [['p-physician','p-shepherd'],['p-shepherd','p-physician']]){const entry=entries().get(2)!;const g=combine(entry,a,b);assert(g.state.discovered.includes('p-craft-rival'));assert(g.state.tokens.some(t=>t.kind==='p-expert-ruler'));assert(!M.stageComplete(s,g.state));}});
+ test('Atlas miniature help does not require the optional Cynic intermediate',()=>{for(const [a,b] of [['p-judgment-space','p-hungry-citizen'],['p-hungry-citizen','p-judgment-space']]){const entry=entries().get(3)!;entry.state.tokens=entry.state.tokens.filter(t=>t.kind!=='p-independent-need');let g=combine(entry,'p-insult','p-judgment-practice');g=combine(g,a,b);assert(g.state.discovered.includes('p-help-despite-insult'));assert(!g.state.discovered.includes('p-different-needs'));assert(!M.stageComplete(s,g.state));g=combine(g,'p-return-edict','p-return-qualified');g=combine(g,'p-edict-counterexample','p-correction-practice');assert(M.stageComplete(s,g.state));assert.deepEqual(M.restore(s,JSON.stringify(g)),g);}});
+--- c85/tests/arrival-combined-integration.test.ts
++++ candidate/tests/arrival-combined-integration.test.ts
+@@ -15,11 +15,11 @@
+ const parent=read('experiments/tangible-campaign/evidence/integration-20261028/arrival-content-20261028/parent-source-inventory.json');
+ const withoutArrival=(g:M.Game)=>{const copy=structuredClone(g);for(const st of [...copy.history,copy.state])delete st.arrival;return copy;};
+ test('exactly six current focuses, two exact prior routes/saves, original Atlas untouched and visible',()=>{
+- assert.equal(featuredScenarioIds.length,6);assert.equal(new Set(scenarios.map(s=>s.id)).size,37);
++ assert.equal(featuredScenarioIds.length,6);assert.equal(new Set(scenarios.map(s=>s.id)).size,40);
+  for(const s of [elementsBefore,doctrineBefore]){assert.equal(scenarios.find(x=>x.id===s.id),s);assert(!featuredScenarioIds.includes(s.id));const g=M.checkpoint(s,s.checkpoints!.at(-1)!.id);assert.deepEqual(M.restore(s,JSON.stringify(g)),g);}
+- assert(featuredScenarioIds.includes('elements-house-and-craft-v1'));assert(!featuredScenarioIds.includes('elements-opening-wheel-v1-research'));assert(scenarios.some(s=>s.id==='elements-opening-wheel-v1-research'));assert(featuredScenarioIds.includes('doctrine-language-compact-local-20261028'));assert(!featuredScenarioIds.includes(atlas.id));assert(featuredScenarioIds.includes('atlas-connected-questions-v9-evidence-repair-research'));assert.equal(scenarios.find(s=>s.id===atlas.id),atlas);
++ assert(featuredScenarioIds.includes('elements-house-and-craft-v1'));assert(!featuredScenarioIds.includes('elements-opening-wheel-v1-research'));assert(scenarios.some(s=>s.id==='elements-opening-wheel-v1-research'));assert(!featuredScenarioIds.includes('doctrine-language-compact-local-20261028'));assert(scenarios.some(x=>x.id==='doctrine-language-compact-local-20261028'));assert(featuredScenarioIds.includes('divinity-disputed-questions-conceptual-v2-20261028'));assert(!featuredScenarioIds.includes(atlas.id));assert(!featuredScenarioIds.includes('atlas-connected-questions-v9-evidence-repair-research'));assert(scenarios.some(x=>x.id==='atlas-connected-questions-v9-evidence-repair-research'));assert(featuredScenarioIds.includes('atlas-intellectual-history-v1-research'));assert.equal(scenarios.find(s=>s.id===atlas.id),atlas);
+  const atlasPath='experiments/tangible-campaign/ui/campaigns/atlas.ts';assert.equal(digest(readFileSync(new URL(atlasPath,root))),parent.files[atlasPath].sha256);
+- const doctrine=scenarioFor('doctrine');assert.match(presentationFor(doctrine).premise,/opening four desks/);assert.match(presentationFor(doctrine).premise,/twelve-desk/);
++ const doctrine=scenarioFor('doctrine');assert.match(presentationFor(doctrine).title,/^Snapshot:/);assert.match(presentationFor(doctrine).premise,/original progress/);assert.match(presentationFor(doctrine).premise,/twelve-desk/);
+  assert.equal(scenarios.filter(s=>s.id.startsWith('copy-workroom-')).length,1);
+  for(const p of ['elements.ts','doctrine-images-cases.ts','atlas.ts','food.ts','mars-return-cargo.ts','purpose-copy-workroom.ts']){const path='experiments/tangible-campaign/ui/campaigns/'+p;assert.equal(digest(readFileSync(new URL(path,root))),parent.files[path].sha256,p);}
+ });
+@@ -33,7 +33,7 @@
+  }
+  writeFileSync(new URL('runtime-parity.json',output),JSON.stringify({oldRuntimeSha256:digest(readFileSync(new URL('experiments/tangible-campaign/evidence/integration-20261028/sources/doctrine/continuation-research-20261028/revision-2-checkpoint-clarity/runtime/engine/model.ts',root))),actions,results:rows},null,2)+'\n');
+ });
+-test('new featured chapters still depend on previous creations; no graph/content changes elsewhere',()=>{
++test('preserved c85 chapters still depend on previous creations; no historical graph/content changes',()=>{
+  for(const key of ['elements','doctrine']){const spec=routeSpecs.find(s=>s.key===key)!,s=scenarioFor(key),r=auditRoute(s,routeActions(spec.source));assert.deepEqual(r.missing,[]);assert(r.game.state.completed);assert.equal(r.game.state.metrics.combinations,key==='elements'?197:61);}
+  assert.equal(integratedScenarios.length,6);
+ });
+--- c85/tests/atlas-evidence-repair-integration.test.mjs
++++ candidate/tests/atlas-evidence-repair-integration.test.mjs
+@@ -18,9 +18,9 @@
+ check('Registered repaired Atlas is separate; original complete snapshot and every old campaign module remain exact',()=>{
+  const parent=read(new URL('../experiments/tangible-campaign/evidence/integration-20261028/milestone-atlas-20261028/parent-source-inventory.json',import.meta.url));let preserved=0;
+  for(const [path,row]of Object.entries(parent.files))if(path.startsWith('experiments/tangible-campaign/ui/campaigns/')){assert.equal(hash(new URL('../'+path,import.meta.url)),row.sha256,path);preserved++;}
+- assert.deepEqual(originalAtlas,base);assert.equal(scenarios.find(x=>x.id===base.id),originalAtlas);assert.equal(scenarios.find(x=>x.id===s.id),moduleScenario);assert.equal(featuredScenarioIds.length,6);assert(featuredScenarioIds.includes(s.id));assert(!featuredScenarioIds.includes(base.id));assert(!featuredScenarioIds.includes('atlas-three-philosophical-cases-v2-research'));assert.equal(new Set(scenarios.map(x=>x.id)).size,37);assert.match(presentationFor(originalAtlas).title,/^Snapshot: Atlas before evidence repairs$/);
+- const playable=getPlayableScenario(s.id,scenarios);assert.deepEqual({...playable,stages:playable.stages.map(({onAlreadyComplete,...stage})=>stage)},moduleScenario);assert.equal(Object.values(campaignMilestones).flat().length,12);assert.deepEqual(Object.keys(campaignMilestones).sort(),['elements-house-and-craft-v1','mars-connected-survival-v4-return-cargo-research']);for(const id of featuredScenarioIds){const playable=getPlayableScenario(id,scenarios);assert(playable);assert.equal(playable.milestones?.length??0,id.startsWith('mars-')?3:id.startsWith('elements-')?9:0);}
+- return {preservedCampaignModules:preserved,separateSaveIdentities:true,featuredWorlds:6,rareMilestones:12};
++ assert.deepEqual(originalAtlas,base);assert.equal(scenarios.find(x=>x.id===base.id),originalAtlas);assert.equal(scenarios.find(x=>x.id===s.id),moduleScenario);assert.equal(featuredScenarioIds.length,6);assert(!featuredScenarioIds.includes(s.id));assert(featuredScenarioIds.includes('atlas-intellectual-history-v1-research'));assert(!featuredScenarioIds.includes(base.id));assert(!featuredScenarioIds.includes('atlas-three-philosophical-cases-v2-research'));assert.equal(new Set(scenarios.map(x=>x.id)).size,40);assert.match(presentationFor(originalAtlas).title,/^Snapshot: Atlas before evidence repairs$/);
++ const playable=getPlayableScenario(s.id,scenarios);assert.deepEqual({...playable,stages:playable.stages.map(({onAlreadyComplete,...stage})=>stage)},moduleScenario);assert.equal(Object.values(campaignMilestones).flat().length,12);assert.deepEqual(Object.keys(campaignMilestones).sort(),['elements-house-and-craft-v1','mars-connected-survival-v4-return-cargo-research']);for(const id of featuredScenarioIds){const playable=getPlayableScenario(id,scenarios);assert(playable);assert.equal(playable.milestones?.length??0,id.startsWith('mars-')?3:id.startsWith('elements-')?9:id==='atlas-intellectual-history-v1-research'?7:0);}
++ return {preservedCampaignModules:preserved,separateSaveIdentities:true,featuredWorlds:6,c85MilestoneDeclarations:12,currentFeaturedMilestones:19};
+ });
+ check('Every ID, goal, supply, carry and unaffected contract retained; exactly two operand substitutions',()=>{for(const k of ['items','recipes','stages','sources'])assert.deepEqual(s[k].map(x=>x.id),base[k].map(x=>x.id));assert.deepEqual([s.items.length,s.recipes.length,s.stages.length],[426,263,29]);for(const [n,st]of s.stages.entries()){const old=base.stages[n];assert.deepEqual(omit(st,['motivation','caches']),omit(old,['motivation','caches']));assert.deepEqual(st.caches.map(x=>omit(x,['narrative'])),old.caches.map(x=>omit(x,['narrative'])));}const changed=[];for(const r of s.recipes){const old=base.recipes.find(x=>x.id===r.id);if(r.a!==old.a){changed.push(r.id);assert.equal(r.a,'proof-roll');assert.equal(r.b,old.b);assert.equal(r.out,old.out);assert.deepEqual(omit(r,['a','description','lifecycle']),omit(old,['a','description','lifecycle']));assert.deepEqual(Object.values(r.lifecycle).map(x=>x.role).sort(),Object.values(old.lifecycle).map(x=>x.role).sort());}else assert.deepEqual(omit(r,['description']),omit(old,['description']));}assert.deepEqual(changed,['make-set-page','make-diagram-block']);for(const x of [...s.items,...s.recipes])for(const id of x.sources??[])assert.ok(s.sources.some(y=>y.id===id));assert.deepEqual(s.sources,base.sources);return {idsRetained:true,graphOperandSubstitutions:changed};});
+ check('Printing supplies a single actual witness, consequential mismatch, correction and final agreement',()=>{assert.equal(R.get('make-set-page').a,'proof-roll');assert.equal(R.get('make-diagram-block').a,'proof-roll');assert.equal(R.get('make-checked-edition').b,'proof-roll');assert.match(I.get('proof-roll').reading.text,/AC=AB=BC/);assert.match(I.get('diagram-block').reading.text,/No point C/);assert.match(I.get('proof-impression').reading.text,/A, B and D/);assert.match(I.get('swapped-label').reading.text,/not a consistent renaming/);assert.match(I.get('corrected-proof').reading.text,/D label to C/);assert.match(I.get('checked-edition').reading.text,/both use A\/B\/C/);assert.match(I.get('checked-edition').reading.text,/source-to-copy/);for(const r of s.recipes.filter(x=>[x.a,x.b].includes('checked-edition')||[x.a,x.b].includes('printed-quire')&&x.id!=='make-checked-edition'))assert.match(r.description,/source-to-copy/);return {source:'proof-roll',error:'C is absent; text still refers to AC/BC',repair:'D → C',newGeometryRequired:false};});
+--- c85/tests/reactive-heroes-source-contract.test.ts
++++ candidate/tests/reactive-heroes-source-contract.test.ts
+@@ -1,3 +1,4 @@
++import {expectedSourceHashAfterIntellectualWorlds} from '../experiments/tangible-campaign/integration/intellectual-worlds-source-guard.ts';
+ import test from 'node:test';import assert from 'node:assert/strict';import {readFileSync} from 'node:fs';import {createHash} from 'node:crypto';
+ import {expectedSourceHashAfterReactiveHeroes} from '../experiments/tangible-campaign/integration/reactive-heroes-source-guard.ts';
+ import {applyMilestones,getPlayableScenario,campaignMilestones} from '../experiments/tangible-campaign/ui/campaign-milestones.ts';
+@@ -9,13 +10,13 @@
+ const parent=JSON.parse(read(e+'authoring-parent-source-inventory.json').toString());
+ const release=JSON.parse(read('experiments/tangible-campaign/reviews/reactive-heroes/source-successors.json').toString());
+ test('final exact successor preserves every previous source freeze and rejects wrong predecessors',()=>{
+- for(const [path,row]of Object.entries<any>(release.files)){assert.equal(row.beforeSha256,parent.files[path].sha256,path);assert.equal(sha(row.predecessorSnapshotPath),row.beforeSha256,path);assert.equal(sha(path),row.afterSha256,path);assert.equal(expectedSourceHashAfterReactiveHeroes(path,row.beforeSha256),row.afterSha256);assert.throws(()=>expectedSourceHashAfterReactiveHeroes(path,'0'.repeat(64)),/exact milestone\/Atlas predecessor/);assert.notEqual(createHash('sha256').update(read(path)).update('unreviewed').digest('hex'),row.afterSha256);}
++ for(const [path,row]of Object.entries<any>(release.files)){assert.equal(row.beforeSha256,parent.files[path].sha256,path);assert.equal(sha(row.predecessorSnapshotPath),row.beforeSha256,path);assert.equal(sha(path),expectedSourceHashAfterIntellectualWorlds(path,row.afterSha256),path);assert.equal(expectedSourceHashAfterReactiveHeroes(path,row.beforeSha256),expectedSourceHashAfterIntellectualWorlds(path,row.afterSha256));assert.throws(()=>expectedSourceHashAfterReactiveHeroes(path,'0'.repeat(64)),/exact milestone\/Atlas predecessor/);assert.notEqual(createHash('sha256').update(read(path)).update('unreviewed').digest('hex'),row.afterSha256);}
+  assert.equal(expectedSourceHashAfterReactiveHeroes('unrelated/source.ts','a'.repeat(64)),'a'.repeat(64));
+  for(const [path,row]of Object.entries<any>(parent.files))if(path.startsWith('experiments/tangible-campaign/ui/campaigns/')||path.endsWith('/source-successors.json'))assert.equal(sha(path),row.sha256,path+' historical bytes must remain exact');
+ });
+ test('UI and logical players share one composed active-world entry with both story and invention metadata',()=>{
+  const raw=JSON.stringify(scenarios);assert.equal(featuredScenarioIds.length,6);assert.equal(Object.values(campaignMilestones).flat().length,12);
+- for(const id of featuredScenarioIds){const original=scenarios.find(s=>s.id===id)!,s=getPlayableScenario(id,scenarios)!;assert.deepEqual(s,applyMilestones(original));assert.deepEqual(s.stages,applyChapterPolicies(original).stages);assert(s.stages.every(st=>st.onAlreadyComplete));assert.deepEqual(s.milestones??[],campaignMilestones[id]??[]);assert.deepEqual(M.validateScenario(s),[]);assert.equal(Object.keys(campaignChapterPolicies[id]).length,s.stages.length);}
++ for(const id of featuredScenarioIds){const original=scenarios.find(s=>s.id===id)!,s=getPlayableScenario(id,scenarios)!;assert.deepEqual(s,applyMilestones(original));assert.deepEqual(s.stages,applyChapterPolicies(original).stages);assert(s.stages.every(st=>st.onAlreadyComplete));assert.deepEqual(s.milestones??[],original.milestones??campaignMilestones[id]??[]);assert.deepEqual(M.validateScenario(s),[]);if(campaignChapterPolicies[id])assert.equal(Object.keys(campaignChapterPolicies[id]).length,s.stages.length);else assert(original.stages.every(st=>st.onAlreadyComplete),'New worlds directly author every chapter policy');}
+  assert.equal(JSON.stringify(scenarios),raw,'decorators must not mutate saved historical content');
+  const ui=read('experiments/tangible-campaign/ui/campaign-main.ts').toString();assert.match(ui,/start\(applyMilestones\(scenario\)\)/);assert(!ui.includes('applyChapterPolicies('),'no UI-only second decorator');
+ });
+--- c85/tests/reviewed-campaign-integration.test.ts
++++ candidate/tests/reviewed-campaign-integration.test.ts
+@@ -5,9 +5,10 @@
+ import test from 'node:test';
+ import assert from 'node:assert/strict';
+ import {readFileSync} from 'node:fs';
+-import {scenarios,integratedScenarios,featuredScenarioIds} from '../experiments/tangible-campaign/ui/scenarios.ts';
++import {scenarios,c85Scenarios,integratedScenarios,intellectualWorldScenarios,intellectualWorldPredecessorScenarios,optionalIntellectualScenarios,featuredScenarioIds} from '../experiments/tangible-campaign/ui/scenarios.ts';
+ import {checkpointPredecessorScenarios} from '../experiments/tangible-campaign/ui/campaigns/checkpoint-predecessors-20261028.ts';
+ import {predecessorScenarios} from '../experiments/tangible-campaign/ui/campaigns/predecessors-20261028.ts';
++import {lifecycleAudit} from '../experiments/tangible-campaign/integration/current-lifecycle-audit.ts';
+ import {scenarios as legacy} from '../experiments/tangible-campaign/ui/legacy-scenarios.ts';
+ import {archivedScenarioIds,validateRecipeLifecycle,validateContentLifecycles,validateConstructionContinuity,validateObjectiveFlow} from '../experiments/tangible-campaign/schema/lifecycle.ts';
+ import * as M from '../experiments/tangible-campaign/engine/model.ts';
+@@ -16,10 +17,11 @@
+ const normalized=(state:M.State)=>({...state,tokens:state.tokens.map(t=>({...t,components:t.components??[]}))});
+ test('legacy data is byte-identical to exact 61a9b4e source; every old object and save identity remains in facade',()=>{
+  assert.equal(digest(readFileSync(new URL('../experiments/tangible-campaign/ui/legacy-scenarios.ts',import.meta.url))),sourceManifest.legacyScenariosSha256);
+- assert.equal(legacy.length,15);assert.equal(scenarios.length,21+predecessorScenarios.length+checkpointPredecessorScenarios.length+arrivalContentPredecessorScenarios.length+kitchenAtlasAdditionalScenarios.length+milestoneAtlasPredecessorScenarios.length);assert.equal(new Set(scenarios.map(s=>s.id)).size,scenarios.length);
++ assert.equal(legacy.length,15);assert.equal(scenarios.length,21+intellectualWorldScenarios.length+predecessorScenarios.length+checkpointPredecessorScenarios.length+arrivalContentPredecessorScenarios.length+kitchenAtlasAdditionalScenarios.length+milestoneAtlasPredecessorScenarios.length);assert.equal(new Set(scenarios.map(s=>s.id)).size,scenarios.length);
+  for(const old of legacy){assert.equal(scenarios.find(s=>s.id===old.id),old);const g=M.createGame(old);assert.equal(M.restore(old,JSON.stringify(g)).scenarioId,old.id);}
+- const active=scenarios.filter(s=>!archivedScenarioIds.has(s.id));assert.equal(active.length,9+predecessorScenarios.length+checkpointPredecessorScenarios.length+arrivalContentPredecessorScenarios.length+kitchenAtlasAdditionalScenarios.length+milestoneAtlasPredecessorScenarios.length);assert.equal(active.reduce((n,s)=>n+s.recipes.length,0),integratedScenarios.reduce((n,s)=>n+s.recipes.length,0)+predecessorScenarios.reduce((n,s)=>n+s.recipes.length,0)+checkpointPredecessorScenarios.reduce((n,s)=>n+s.recipes.length,0)+arrivalContentPredecessorScenarios.reduce((n,s)=>n+s.recipes.length,0)+kitchenAtlasAdditionalScenarios.reduce((n,s)=>n+s.recipes.length,0)+milestoneAtlasPredecessorScenarios.reduce((n,s)=>n+s.recipes.length,0)+38);
+- assert.deepEqual(active.filter(s=>!featuredScenarioIds.includes(s.id)).map(s=>s.id),['literature','restoration','shoreline',...predecessorScenarios.map(s=>s.id),...checkpointPredecessorScenarios.map(s=>s.id),...arrivalContentPredecessorScenarios.map(s=>s.id),...kitchenAtlasAdditionalScenarios.map(s=>s.id),...milestoneAtlasPredecessorScenarios.map(s=>s.id)]);
++ const active=scenarios.filter(s=>!archivedScenarioIds.has(s.id));assert.equal(active.length,9+intellectualWorldScenarios.length+predecessorScenarios.length+checkpointPredecessorScenarios.length+arrivalContentPredecessorScenarios.length+kitchenAtlasAdditionalScenarios.length+milestoneAtlasPredecessorScenarios.length);assert.equal(active.reduce((n,s)=>n+s.recipes.length,0),c85Scenarios.reduce((n,s)=>n+s.recipes.length,0)+intellectualWorldScenarios.reduce((n,s)=>n+s.recipes.length,0)+predecessorScenarios.reduce((n,s)=>n+s.recipes.length,0)+checkpointPredecessorScenarios.reduce((n,s)=>n+s.recipes.length,0)+arrivalContentPredecessorScenarios.reduce((n,s)=>n+s.recipes.length,0)+kitchenAtlasAdditionalScenarios.reduce((n,s)=>n+s.recipes.length,0)+milestoneAtlasPredecessorScenarios.reduce((n,s)=>n+s.recipes.length,0)+38);
++ assert.deepEqual(active.filter(s=>!featuredScenarioIds.includes(s.id)).map(s=>s.id).sort(),['literature','restoration','shoreline',...predecessorScenarios.map(s=>s.id),...checkpointPredecessorScenarios.map(s=>s.id),...arrivalContentPredecessorScenarios.map(s=>s.id),...kitchenAtlasAdditionalScenarios.map(s=>s.id),...milestoneAtlasPredecessorScenarios.map(s=>s.id),...intellectualWorldPredecessorScenarios.map(s=>s.id),...optionalIntellectualScenarios.map(s=>s.id)].sort());
++ for(const old of c85Scenarios)assert.equal(scenarios.find(s=>s.id===old.id),old,'Every c85 route and raw object remains registered');
+  assert.deepEqual(scenarios.find(s=>s.id==='doctrine-grace-and-matter-v1'),legacy.find(s=>s.id==='doctrine-grace-and-matter-v1'));
+ });
+ test('all input snapshots hash-verify; candidate data matches reviewed bytes except documented Mars presentation and Atlas checkpoints',()=>{
+@@ -29,10 +31,13 @@
+  assert.equal(delta.changes.length,4);
+ });
+ test('new scenarios are not grandfathered and every recipe has valid explicit input, objective and compound decisions',()=>{
+- for(const s of integratedScenarios){assert(!archivedScenarioIds.has(s.id));for(const r of s.recipes)assert.deepEqual(validateRecipeLifecycle(r,true),[],s.id+':'+r.id);}
+- assert.deepEqual(validateContentLifecycles(integratedScenarios),[]);assert.deepEqual(validateObjectiveFlow(integratedScenarios),[]);assert.deepEqual(validateConstructionContinuity(integratedScenarios),[]);
+- const audit=JSON.parse(readFileSync(new URL('../experiments/tangible-campaign/reviews/lifecycle/audit.json',import.meta.url),'utf8'));
+- const active=scenarios.filter(s=>!archivedScenarioIds.has(s.id));assert.deepEqual(audit.recipes.map((r:any)=>r.world+':'+r.recipe),active.flatMap(s=>s.recipes.map(r=>s.id+':'+r.id)));
++ const acceptedScenarios=[...c85Scenarios,...intellectualWorldScenarios];
++ for(const s of acceptedScenarios){assert(!archivedScenarioIds.has(s.id));for(const r of s.recipes)assert.deepEqual(validateRecipeLifecycle(r,true),[],s.id+':'+r.id);}
++ assert.deepEqual(validateContentLifecycles(acceptedScenarios),[]);assert.deepEqual(validateObjectiveFlow(acceptedScenarios),[]);assert.deepEqual(validateConstructionContinuity(acceptedScenarios),[]);
++ const audit=lifecycleAudit;
++ const priorAudit=JSON.parse(readFileSync(new URL('../experiments/tangible-campaign/reviews/lifecycle/audit.json',import.meta.url),'utf8'));
++ for(const row of priorAudit.recipes)assert.deepEqual(audit.recipes.find((r:any)=>r.world===row.world&&r.recipe===row.recipe),row,'Every historical lifecycle row remains exact');
++ const active=scenarios.filter(s=>!archivedScenarioIds.has(s.id));assert.deepEqual(audit.recipes.map((r:any)=>r.world+':'+r.recipe).sort(),active.flatMap(s=>s.recipes.map(r=>s.id+':'+r.id)).sort());assert.equal(new Set(audit.recipes.map((r:any)=>r.world+':'+r.recipe)).size,audit.recipes.length,'No duplicate lifecycle rows');
+  for(const s of active)for(const r of s.recipes){const row=audit.recipes.find((x:any)=>x.world===s.id&&x.recipe===r.id);assert.deepEqual(row.lifecycles??row.lifecycle??row.decisions,r.lifecycle,s.id+':'+r.id);}
+ });
+ for(const spec of routeSpecs){const s=scenarioFor(spec.key),actions=routeActions(spec.source);
+--- c85/experiments/tangible-campaign/reviews/lifecycle/lifecycle.test.ts
++++ candidate/experiments/tangible-campaign/reviews/lifecycle/lifecycle.test.ts
+@@ -3,6 +3,7 @@
+ import assert from 'node:assert/strict';
+ import {readFileSync} from 'node:fs';
+ import {scenarios,integratedScenarios,featuredScenarioIds} from '../../ui/scenarios.ts';
++import {lifecycleAudit} from '../../integration/current-lifecycle-audit.ts';
+ import * as M from '../../engine/model.ts';
+ import {fixture} from '../../engine/fixture.ts';
+ import type {Scenario} from '../../schema/scenario.ts';
+@@ -48,13 +49,15 @@
+  assert(!incorporations(mars.recipes.find(r=>r.id==='outcrop-3-ice-photograph')!).length);
+ });
+ test('every active recipe has reviewed lifecycle metadata; locations never become consumed ingredients',()=>{
+- const audit=JSON.parse(readFileSync(new URL('./audit.json',import.meta.url),'utf8'));
++ const audit=lifecycleAudit;
++ const priorAudit=JSON.parse(readFileSync(new URL('./audit.json',import.meta.url),'utf8'));
++ for(const row of priorAudit.recipes)assert.deepEqual(audit.recipes.find((r:any)=>r.world===row.world&&r.recipe===row.recipe),row,'Historical lifecycle rows must stay exact');
+  const active=scenarios.filter(s=>!archivedScenarioIds.has(s.id));
+  assert.equal(audit.activeScenarios,active.length);assert.equal(audit.activeRecipes,active.reduce((n,s)=>n+s.recipes.length,0));
+  assert.deepEqual(Object.keys(audit.counts),active.map(s=>s.id));
+  for(const s of active)assert.equal(audit.counts[s.id].recipes,s.recipes.length,s.id);
+  assert.deepEqual(featuredScenarioIds,integratedScenarios.map(s=>s.id));assert.equal(new Set(featuredScenarioIds).size,6);
+- for(const prefixes of [['mars-'],['atlas-'],['elements-'],['hearth-','kitchen-caravan-'],['causation-','copy-workroom-'],['doctrine-']])assert.equal(featuredScenarioIds.filter(id=>prefixes.some(prefix=>id.startsWith(prefix))).length,1,prefixes.join('|')+' featured focus');
++ for(const prefixes of [['mars-'],['atlas-'],['elements-'],['hearth-','kitchen-caravan-'],['causation-','copy-workroom-'],['doctrine-','divinity-']])assert.equal(featuredScenarioIds.filter(id=>prefixes.some(prefix=>id.startsWith(prefix))).length,1,prefixes.join('|')+' featured focus');
+  for(const id of featuredScenarioIds)assert(active.some(s=>s.id===id),id+' must be validated, never exempted');
+  const expected:string[]=[];for(const s of active)for(const r of s.recipes){
+   const entry=audit.recipes.find((row:any)=>row.world===s.id&&row.recipe===r.id);assert(entry,s.id+':'+r.id);

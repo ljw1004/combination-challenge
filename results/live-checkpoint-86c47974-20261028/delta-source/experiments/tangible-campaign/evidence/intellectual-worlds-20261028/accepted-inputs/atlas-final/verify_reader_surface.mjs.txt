@@ -1,0 +1,11 @@
+import fs from 'node:fs';import assert from 'node:assert/strict';import {execFileSync} from 'node:child_process';
+const s=JSON.parse(fs.readFileSync('candidate-v2/scenario.json')),chapters=JSON.parse(fs.readFileSync('candidate-v2/chapter-recipes.json'));
+const aliases=new Map([...s.items.map((x,i)=>[x.id,'t'+String(i+1).padStart(3,'0')]),...s.locations.map((x,i)=>['@'+x.id,'p'+String(i+1).padStart(2,'0')])]);
+const results=[];
+for(const [slice,first,last] of [['greek',1,3],['earthlife',16,18]]){
+ const session='author-surface-check-'+slice,base=['reader-cli/player.mjs',session,slice],call=(...a)=>JSON.parse(execFileSync(process.execPath,[...base,...a],{encoding:'utf8'}));
+ let v=call('start');assert.equal(v.view.stage.number,first+1);assert(v.preparedEntry);const tile=v.view.things[0].id;const file=`reader-cli/.sessions/${session}/state.json`,before=fs.readFileSync(file,'utf8');const read=call('read',tile);assert(read.reading.text);assert.equal(fs.readFileSync(file,'utf8'),before);const hi=call('highlight',tile);assert(hi.highlightMeaning);assert.equal(fs.readFileSync(file,'utf8'),before);
+ let actions=0;for(const c of chapters.slice(first,last+1))for(const a of c.actions){v=call('drop',aliases.get(a.a),aliases.get(a.b));assert(v.accepted);actions++;assert(!JSON.stringify(v).includes('make-'));if(v.view){assert(v.view.things.every(x=>/^t\d+$/.test(x.id)));assert(v.view.things.every(x=>!('description'in x)&&!('reading'in x)));}}
+ assert(v.stopped&&!v.view);assert(call('view').stopped);results.push({slice,preparedStart:first+1,boundedEnd:last+1,authorActions:actions,opaqueIds:true,readAndHighlightObservational:true,noAutomaticReading:true,noRecipeIdOrOutputPreview:true,boundaryEnforced:true,claim:'Author-operated surface verification, not a blind reader or human playtest.'});
+}
+fs.writeFileSync('reader-cli/surface-verification.json',JSON.stringify(results,null,2)+'\n');console.log(JSON.stringify(results,null,2));

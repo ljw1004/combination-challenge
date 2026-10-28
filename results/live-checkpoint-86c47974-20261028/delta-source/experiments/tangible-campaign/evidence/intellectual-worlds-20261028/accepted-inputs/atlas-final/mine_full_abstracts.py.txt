@@ -1,0 +1,32 @@
+"""Whole-corpus private feature analysis; all derived text stays with temporary inputs.
+This does not republish abstracts, generate a paraphrase compendium, or assert
+that statistical clusters prove a historical influence.
+"""
+import json,pathlib,re,hashlib
+import numpy as np
+from sklearn.feature_extraction.text import TfidfVectorizer,ENGLISH_STOP_WORDS
+from sklearn.decomposition import NMF
+p=pathlib.Path('/tmp/in-our-time-internal-20261028')
+rows=[json.loads(x) for x in (p/'canonical-research-abstracts.jsonl').read_text().split('\n') if x]
+assert len(rows)==1099 and len({r['episode_id'] for r in rows})==1099
+stop=set(ENGLISH_STOP_WORDS)|set('melvyn bragg guests discuss professor university college london history century new book books reading list producer researcher published emeritus emerita senior lecturer fellow author editor oxford cambridge press penguin edition translated edited dr podcast programme available bbc time world science'.split())
+v=TfidfVectorizer(stop_words=sorted(stop),min_df=3,max_df=.32,ngram_range=(1,2),max_features=32000,strip_accents='unicode')
+# Every complete available source abstract participates; no shortlist filter.
+x=v.fit_transform([r['title']+' '+r['source_abstract'] for r in rows])
+nmf=NMF(n_components=42,init='nndsvda',random_state=20261028,max_iter=600)
+w=nmf.fit_transform(x);h=nmf.components_;terms=np.array(v.get_feature_names_out())
+clusters=[]
+for k in range(42):
+ indices=np.argsort(w[:,k])[::-1][:16]
+ clusters.append(dict(cluster=k,terms=terms[np.argsort(h[k])[::-1][:14]].tolist(),primary_count=int((w.argmax(axis=1)==k).sum()),representatives=[dict(id=rows[i]['episode_id'],title=rows[i]['title'],weight=round(float(w[i,k]),4)) for i in indices]))
+(p/'cluster-inventory.json').write_text(json.dumps(clusters,ensure_ascii=False,indent=2))
+# Every document gets two strongest themes and its own salient features.
+lines=[]
+for i,r in enumerate(rows):
+ a=x.getrow(i).toarray()[0];top=terms[np.argsort(a)[::-1][:7]].tolist();ks=np.argsort(w[i])[::-1][:2].tolist()
+ lines.append(f"{r['episode_id']} | {r['title']} | themes {ks} | {'; '.join(top)}")
+(p/'full-feature-scan.txt').write_text('\n'.join(lines)+'\n')
+coverage=dict(abstracts_processed=len(rows),abstract_words_processed=sum(len(r['source_abstract'].split()) for r in rows),unique_episode_ids=len({r['episode_id'] for r in rows}),all_abstract_fields_nonempty=all(r['source_abstract'].strip() for r in rows),source_file_sha256=hashlib.sha256((p/'canonical-research-abstracts.jsonl').read_bytes()).hexdigest(),method='Whole-text TF-IDF (1–2 grams, minimum document frequency 3) plus 42-component nonnegative matrix factorization, seeded 20261028; every full abstract included. Title/topic scan was a separate earlier pass.',features=len(terms),clusters=42,manual_fulltext_review_ids=[],limits=['Clustering is not close reading of all broadcasts or proof of influence.','Catalogue and RSS coverage gaps retained from collector manifest.','Raw abstracts and per-document derived feature text are temporary and must be deleted after private mining.'])
+(pathlib.Path(__file__).parent/'full-corpus-analysis-coverage.json').write_text(json.dumps(coverage,indent=2)+'\n')
+print(json.dumps(coverage,indent=2))
+for c in clusters:print(f"{c['cluster']} ({c['primary_count']}): {', '.join(c['terms'][:9])}\n  "+' | '.join(r['title'] for r in c['representatives'][:10]))

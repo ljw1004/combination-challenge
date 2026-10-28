@@ -1,0 +1,129 @@
+import json,pathlib,hashlib,copy
+P=pathlib.Path(__file__).parent
+BASE=P.parent/'conceptual-desks-20261028'
+EXPECTED='af65c1e764d719dbfa92943f764c3b4563433f6f6e70374292e8e9b11c0377c4'
+b=BASE/'conceptual-candidate.json';assert hashlib.sha256(b.read_bytes()).hexdigest()==EXPECTED
+s=json.loads(b.read_text());old=copy.deepcopy(s);routes=json.loads((BASE/'canonical-routes.json').read_text());I={i['id']:i for i in s['items']}
+s['id']='divinity-disputed-questions-conceptual-v2-20261028'
+changes=[]
+def set_item(id,label=None,text=None,attribution=None):
+ i=I[id]
+ if label:i['label']=label
+ if text:i['description']=text;i['reading']['text']=text
+ if attribution:i['reading']['attribution']=attribution
+ changes.append(id)
+def add_item(id,label,text,sources=(),attribution='Editorial case or comparison, not a reported historical event.'):
+ assert id not in I
+ i={'id':id,'label':label,'description':text,'sources':list(sources),'reading':{'text':text,'attribution':attribution}};I[id]=i;s['items'].append(i)
+def add_recipe(a,b,out,why):
+ r={'id':out+'-v2-'+str(len(s['recipes'])),'a':a,'b':b,'out':out,'description':why,'sources':I[out]['sources'],'lifecycle':{i:{'role':'retain','reason':'Keep this text, case or earned distinction available; applying it does not erase it.'} for i in (a,b)}}
+ s['recipes'].append(r);return {'type':'combine','a':a,'b':b}
+def action(a,b):return {'type':'combine','a':a,'b':b}
+def replace_route(stage,old_a,old_b,new):
+ a=routes[stage-1]['actions'];n=next(i for i,x in enumerate(a) if x==action(old_a,old_b));a[n:n+1]=new
+
+affected={2:['A real sick/well countercase replaces near-duplicate inherited-condition output.'],3:['Accept direct causal-premise application; the source-interpretation route is optional.'],4:['Explain Trinity, created things and historical form without requiring prior theology.'],6:['Name the claimed spiritual change and explain source vocabulary; allow direct bodily/spiritual composition.'],7:['Define nature and sacrament; accept the complete appointment premise directly.'],9:['Make remaining penalty, forgiven guilt and limited papal authority separately visible.'],10:['Accept discipline plus unearned acceptance directly.'],11:['Name forgiveness and spiritual reception; permit the Luther/Zwingli comparison before Aquinas.'],12:['Supply Luther’s explicit exclusion of works making the already-Christian person more holy; use earned food-service case for shared no-purchase ground.'],13:['Permit optional authenticity-versus-veneration comparison.'],14:['Allow evidence-first inquiry before procedural recognition, without inventing authentication.']}
+
+# 2. Earlier distinction now decides a countercase, not a near-synonym.
+set_item('adam-condition',text='In the biblical story, Adam is the first human and disobeys God. Augustine says his descendants inherit a sinful condition needing forgiveness. This is a theological account, not a finding about genetics.')
+add_item('two-infants','Case: one infant ill, one well; neither chose wrong','The invented pair varies bodily health while keeping the absence of a chosen offence the same. Does the illness identify who needs forgiveness?')
+add_item('health-not-moral-test','Illness does not identify a chosen offence','Your earlier distinction rules out reading the ill infant’s condition as evidence of a personally chosen wrong. The healthy infant has not chosen wrong either.')
+set_item('condition-not-act','Augustine: both infants need forgiveness, whether ill or well','His reason is their shared descent from Adam, not a diagnosis of illness. Neither has chosen a wrong act; the healthy infant is no exception to his inherited-condition claim. This reconstructs Augustine’s account, not a medical or moral judgment on sick children.')
+s['recipes']=[r for r in s['recipes'] if r['out']!='condition-not-act']
+a1=add_recipe('harm-not-guilt','two-infants','health-not-moral-test','Apply the earlier suffering/choice distinction to a controlled sick/well comparison.')
+a2=add_recipe('inherited-sin','health-not-moral-test','condition-not-act','Use Augustine’s universal inherited-condition premise, not observed illness, to decide the two cases.')
+replace_route(2,'inherited-sin','harm-not-guilt',[a1,a2])
+s['stages'][1]['caches'][0]['items'].append('two-infants')
+s['stages'][1]['objectives'][1]['text']='Would Augustine treat the sick and healthy infants differently?'
+s['stages'][1]['motivation']='Someone knows the duty but repeats the wrong. Two infants, one ill and one healthy, have chosen no offence. Why does Augustine think they need forgiveness, and could their health decide the answer?'
+s['stages'][1]['completionText']='Augustine’s help for the struggling adult and his inherited-condition claim answer different questions. In his account both infants need forgiveness: illness is not the test.'
+
+# 3. Already-explicit premises may be used directly.
+add_recipe('source-rule','harmful-world','two-sources','Apply the writer’s already-visible causal rule directly; do not force a source-classification intermediate.')
+
+# 4. Remove opaque entry vocabulary from the heads and teach needed terms in plain language.
+set_item('fire-active','Aquinas: a fire can work well as fire','Aquinas calls a thing good in one respect when it successfully acts according to its nature. This does not mean the fire is morally virtuous. His example asks whether effective action can still harm something else.')
+set_item('water-lost','Aquinas: that same fire destroys what made it water','“Form” means what makes a thing the kind of thing it is. Aquinas thought fire could destroy water’s form while producing its own. This is his medieval natural philosophy, not a modern account of chemistry.')
+set_item('reason-effects','Aquinas: things in this world can point to their cause','Aquinas thinks reasoning from effects can establish some things about their cause. “Creatures” in his text means created things, not only animals. He does not think such reasoning establishes every Christian belief.')
+set_item('faith-beyond','Aquinas: nature cannot prove Father, Son and Spirit are one','The Trinity is the belief that Father, Son and Holy Spirit are one God, not three gods. Aquinas says created things do not demonstrate this belief. The next desk examines what its words mean.')
+
+# 6. The gift is specified; the source argument is not a mandatory gate to noticing bodies.
+set_item('book-and-hands','Lyon ritual: a Gospel book and hands touch the candidate','A Gospel is an account of Jesus’s life and teaching. The ritual places the book and hands on the candidate. These are physical actions, even though the ceremony claims an inward gift.',attribution='Lyon PA 36 ritual IV.49–53; critical edition by Marvyn Roy Harris.')
+set_item('spirit-baptism','Lyon: hands bring forgiveness and God’s Spirit, not water-washing','The rite claims forgiveness of sins and reception of the Holy Spirit—God dwelling with the believer. It calls this spiritual baptism rather than washing with water. These are its claims, not events the game verifies.',attribution='Lyon ritual III.22–31; IV.3,18–21,49–53; original paraphrase.')
+set_item('acts-hands-line','Acts: Jesus’s first followers give the Spirit through hands','Acts is the biblical account of the early Christian community. The ritual cites its report that Peter and John lay hands on believers who receive the Holy Spirit. The appeal claims authority; it is not independent verification of this later rite.',attribution='Lyon ritual IV.15–18, citing Acts 8:14–17; original paraphrase.')
+set_item('apostolic-claim','Lyon claims its hands continue Jesus’s first followers’ practice','“Apostolic” means connected with the apostles, Jesus’s first commissioned followers. The rite says its spiritual baptism continues their practice. That explains its authority claim, not a historically verified chain of transmission.')
+set_item('ritual-not-cosmology','The hands cannot prove this writer accepted one creator','An imagined catalogue note says bodily ritual proves belief in one good creator. Your earlier origins dispute shows what it would need to establish. The hands alone do not identify the community’s creation account; keep the two manuscript witnesses distinct.')
+s['stages'][5]['motivation']='A candidate receives a Gospel book and hands, seeking forgiveness and God’s Spirit. An imagined catalogue note claims this bodily ceremony proves belief in one good creator. Test that note, then work out what the candidate’s renunciation requires.'
+s['stages'][5]['objectives'][0]['text']='Test the catalogue’s inference from hands to one creator'
+add_recipe('book-and-hands','spirit-baptism','bodily-spiritual','Compare the visible bodily procedure directly with its stated inward claim.')
+
+# 7. Definitional repair, plus a genuinely complete alternative premise.
+set_item('nature-perfected-line',text='Here “nature” means created powers such as reasoning and choosing, not the countryside. Aquinas says God’s help develops rather than destroys those powers. Compare Augustine’s person, who still really chooses when helped.')
+set_item('instituted-baptism',text='A sacrament is a bodily sign or rite believed to be appointed by God. Aquinas says baptism is appointed to give inward grace. That appointment is a religious premise; a tool analogy alone cannot establish it.')
+set_item('rites-different',text='Lyon says its hands continue Jesus’s first followers’ practice. Aquinas says God appoints baptism’s water as a means of giving grace. Both use bodily actions, but that does not establish the same authority or explain the gift in the same way.')
+add_recipe('dependent-grace','instituted-baptism','instrumental-baptism','The appointment card already names baptism and its claimed gift; ordinary washing need not be a compulsory intermediate.')
+
+# 9. A missing conceptual premise receives an actual visible card, not a glossary-only patch.
+set_item('seller-guarantee','Reported seller: a coin ends a dead person’s punishment','The claim concerns purgatory: purification after death for people ultimately saved, not hell. Luther attacks the guarantee of release through payment. This is his report of a sales claim, not an official definition of Catholic teaching.')
+set_item('letter-penalties','Forgiven guilt can leave penalties; indulgences concern those penalties','In the account being debated, forgiveness of guilt does not remove every remaining penalty or purification. An indulgence concerns that remainder, not a purchase of God’s forgiveness. Luther disputes what the pope can release.',attribution='Ninety-Five Theses 5–6,21,36; background distinction required by the argument, not endorsement of the seller’s claim.')
+add_item('papal-penalty-limit','Luther: the pope controls church-imposed penalties, not God’s mercy','In 1517 Luther limits the pope’s own power to penalties imposed by church authority. Declaring God’s forgiveness is not the same as controlling it. This is Luther’s contested account, not a neutral definition of every Catholic position.',('theses',),'Luther, Ninety-Five Theses 5–7,21,27–28.')
+add_item('letter-limited','For Luther, the letter cannot command release after death','The distinction between guilt and remaining penalties explains what an indulgence concerns. Luther’s further authority limit explains why a papal letter cannot by its own power command God’s treatment of a departed soul.',('theses',),'Editorial reconstruction of Luther’s Ninety-Five Theses 5–7,21,27–28.')
+s['recipes']=[r for r in s['recipes'] if r['out']!='coin-not-control']
+a1=add_recipe('letter-penalties','papal-penalty-limit','letter-limited','Combine what the letter concerns with the stated limit of the pope’s authority.')
+a2=add_recipe('seller-guarantee','letter-limited','coin-not-control','Test the sales guarantee against both the subject and authority of the letter.')
+replace_route(9,'seller-guarantee','letter-penalties',[a1,a2]);s['stages'][8]['caches'][0]['items'].insert(3,'papal-penalty-limit')
+
+# 10. The general no-wages premise is sufficient for the discipline question.
+add_recipe('body-practice','gift-acceptance','practice-not-price','Apply the explicit unearned-acceptance premise directly to bodily discipline.')
+
+# 11. Name the benefit and admit either sensible two-position comparison first.
+set_item('faith-benefit','Luther: faith receives the promised forgiveness of sins','For Luther the promised benefit is forgiveness of sins, strengthening faith and consoling the believer. Receiving the sacrament’s body and blood is not identical to receiving that benefit through trust.',attribution='Luther, Large Catechism V §§20–29,33–37.')
+set_item('received-not-benefited','Luther: an unbelieving guest receives the body, not promised forgiveness','Luther distinguishes Christ’s body and blood being given from the guest trusting the promise of forgiveness. Unbelief does not undo the sacrament, but the guest does not receive its benefit in faith. This is Luther’s account, not a verdict on the other writers.')
+set_item('signed-supper','Marburg: Christ received by faith; bodily presence remains disputed','Spiritual reception means sharing in Christ through faith, not deciding where his body is. Article 15 affirms that reception and the supper’s strengthening of faith, while recording disagreement about bodily presence in bread and wine. It supplies no shared physical mechanism.',attribution='Marburg Articles, article 15; “through faith” is a plain-language gloss read with articles 5–8, not a quoted common mechanism.')
+add_item('luther-zwingli-contrast','Luther gives the body with bread; Zwingli reads a sign','These two accounts differ about bodily presence. That does not yet locate Aquinas: his earlier changed-bread account is a third position to compare.',('later-luther-1529','later-zwingli-1526'),'Editorial comparison of the 1529 catechism and Zwingli’s 1526 supper argument.')
+add_recipe('zwingli-reading','luther-word-makes','luther-zwingli-contrast','Permit the direct comparison of the two currently new positions without silently adding Aquinas.')
+add_recipe('luther-zwingli-contrast','eucharist-account','three-supper-accounts','Bring the earlier earned third account into the alternate comparison route.')
+
+# 12. Temporal order alone was insufficient; now the exclusion is actually stated.
+set_item('luther-fruit','Luther: later works do not make me more righteous before God','Luther compares a bishop’s work with prior consecration: doing the work does not make the bishop more consecrated. Likewise, works do not make a Christian more holy before God; faith alone does. This denies a role for works in increasing that holiness, not their usefulness.',attribution='Christian Liberty (1520), bodily-discipline discussion and bishop comparison; public-domain text, original paraphrase. “Before God” marks the stated domain, not a denial of practical improvement.')
+set_item('trent-growth','Trent: received goodness grows through later grace-enabled actions','For the council, righteousness includes inward renewal: being made just, not only being forgiven. It says the justice already received grows through grace-enabled good actions. Its claim is not merely that actions display an unchanged condition.',attribution='Trent, Session VI, chapters VII and X, canon 24; original paraphrase.')
+set_item('works-dispute','Dispute: do later works increase the justice already received?','Luther allows practice and service but denies that works make the already-Christian person more holy before God. Trent gives grace-enabled works a role in increasing received justice. We compare these specific texts, not a slogan that one side cares about conduct and the other does not.')
+set_item('gift-common-ground','Luther and Trent: the meal does not buy initial acceptance','The council’s no-earning statement agrees with your earlier Lutheran conclusion about the hungry household: the meal is not a purchase of initial acceptance. Agreement on this test does not settle what later works can do.')
+s['recipes']=[r for r in s['recipes'] if r['out']!='gift-common-ground']
+a=add_recipe('trent-no-price','care-not-purchase','gift-common-ground','Apply the council’s initial no-earning rule to the earlier earned act of care, not merely a repeated source slogan.')
+replace_route(12,'trent-no-price','gift-acceptance',[a])
+add_recipe('trent-first-help','trent-can-refuse','assisted-consent','The two current premises already state prior help and a real response; do not force the Augustine comparison first.')
+
+# 13/14. Evidence may arrive before a doctrine or procedure is considered.
+add_item('authenticity-not-permission','Even a genuine fragment would still face Calvin’s objection','The identity question is unresolved, but Calvin’s stated objection does not depend on resolving it. Authenticity and permission to venerate are distinct questions.',('images-calvin-relics-1543',),'Editorial application of Calvin’s authentic-or-false distinction to the fictional fragment.')
+add_recipe('fragment-unverified','calvin-even-genuine','authenticity-not-permission','Permit the reader’s optional direct comparison after the Calvin case goals.')
+add_item('record-adds-evidence','The record adds evidence; it does not yet establish identity','The fictional record gives the investigation something new. Its incomplete custody history does not automatically authenticate the fragment or count as a bishop’s recognition.')
+add_recipe('fragment-unverified','new-record','record-adds-evidence','Let new evidence bear directly on the unresolved identity question before an authorisation question.')
+add_recipe('record-adds-evidence','trent-new-relic','record-not-ruling','Apply the recognition requirement after assessing the new evidence.')
+add_recipe('record-not-ruling','authenticity-not-permission','evidence-not-consensus','Reuse the earlier earned distinction after the evidence changes.')
+
+# Independent source audit: do not make Calvin accept Trent’s mediation distinction.
+set_item('calvin-hearing','Calvin: invoking saints lacks warrant and obscures Christ’s mediation','Calvin questions the warrant for invoking departed saints, including their knowledge of particular requests. He also argues that invoking heavenly intercessors obscures Christ’s continuing mediation. Saying the petitioner means well does not answer these objections.',attribution='Institutes III.20 §§20–27; original paraphrase of Calvin’s objections, not an independent verdict about Scripture.')
+set_item('agency-not-permission',text='Aquinas’s instrument distinction showed that created helpers need not rival God; it did not appoint every proposed helper. Calvin’s objections about authority to invoke the dead and Christ’s sole mediation therefore remain unanswered by the tool analogy.')
+set_item('prayer-disagreement','Trent denies rival saviours; Calvin still rejects invocation','Trent says the saints pray through Christ, not as other saviours. Calvin rejects invoking them: he argues that it obscures Christ’s sole mediation as well as lacking scriptural warrant. Stating Trent’s intention does not settle Calvin’s objection.',attribution='Trent, Session XXV; Calvin, Institutes III.20 §§19–21,27. Editorial comparison, not an agreed account of mediation.')
+
+# Fresh earned checkpoints are reconstructed from accepted-action routes.
+actions=[];s['checkpoints']=[]
+for n,(st,route) in enumerate(zip(s['stages'],routes)):
+ s['checkpoints'].append({'id':'chapter-'+str(n+1),'label':str(n+1)+'. '+st['title'],'actions':copy.deepcopy(actions)})
+ actions += route['actions']+[{'type':'advance'}]
+s['checkpoints'].append({'id':'complete','label':'Completed manuscript','actions':actions})
+s['notes'].append('Revision 2 responds to two independent recipe-blind logical readers. Their original frozen v1 package and sessions are preserved. V2 repairs missing premises and valid alternative orders, not just labels.')
+for src in s['sources']:
+ if src['id']=='liberty-public-domain':src['note']='Public-domain English text checked for gift, faith, service and bodily discipline. The discipline discussion excludes works as righteousness before God; the bishop comparison denies their making the Christian more holy. Original paraphrases, not quotations from the separate modern Hanover translation.'
+ if src['id']=='later-zwingli-1526':src['note']='Primary text after THE TEXT; G. W. Bromiley, Zwingli and Bullinger (1953), pp.185–238. Original paraphrases only; the editorial introduction is not Zwingli. Ring at Third Article; ascension at Second Article. The brief supper quotation is separately attributed to KJV Luke 22:19.'
+ if src['id']=='later-marburg-1529':src['title']='The Marburg Articles, 3 October 1529, Articles 1, 5–8 and 15'
+ if src['id']=='ritual':src['note']='Critical text IV.15–18 cites Acts 8:14–17 (not Acts 19). III.22–31 and IV.49–53 support indwelling Spirit, forgiveness and bodily enactment. Distinct witness from Two Principles.'
+ if src['id']=='later-luther-1529':src['note']='Large Catechism V §§8–18 identity; §§20–29 forgiveness and nourishment of faith; §§33–37 benefit through faith. No later Formula of Concord labels substituted.'
+ if src['id']=='later-trent-1547':src['note']='Session VI V–VIII: prior help, consent, unearned initial gift and inward renewal; X and canon24: growth in received justice. Compare Luther’s explicit more-sacred-person exclusion, not only temporal order.'
+for name,data in [('conceptual-candidate.json',s),('canonical-routes.json',routes),('review-response.json',{'baseSha256':EXPECTED,'changedItems':changes,'responses':affected})]:
+ (P/name).write_text(json.dumps(data,ensure_ascii=False,indent=2)+'\n')
+protected=json.loads((BASE/'protected-inputs.json').read_text());protected[str(b)]=EXPECTED
+(P/'protected-inputs.json').write_text(json.dumps(protected,indent=2)+'\n')
+(P/'divinity-disputed-questions.ts').write_text("import type {Scenario} from '../../schema/scenario';\nexport const scenario:Scenario = "+json.dumps(s,ensure_ascii=False,indent=2)+';\n')
+print(json.dumps({'stages':len(s['stages']),'items':len(s['items']),'recipes':len(s['recipes']),'canonicalCombinations':sum(len(r['actions']) for r in routes),'candidateSha256':hashlib.sha256((P/'conceptual-candidate.json').read_bytes()).hexdigest()},indent=2))

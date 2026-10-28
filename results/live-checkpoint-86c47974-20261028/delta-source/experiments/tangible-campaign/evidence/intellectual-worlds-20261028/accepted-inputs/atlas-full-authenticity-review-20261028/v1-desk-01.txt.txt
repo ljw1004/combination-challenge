@@ -1,0 +1,50 @@
+DESK 1: sky | Mesopotamian archive · c. 700–500 BCE | A sky that can be consulted | The watchers want to know when to return. The court wants to know what the sky means. A useful archive must preserve the difference.
+GOALS: [{'id': 'sky-watch-window', 'text': 'Plan another sky watch', 'kind': 'create', 'item': 'watch-window'}, {'id': 'sky-portent-and-pattern', 'text': 'Keep pattern and portent distinct', 'kind': 'create', 'item': 'portent-and-pattern'}, {'id': 'sky-shared-year', 'text': 'Make a shared calendar', 'kind': 'create', 'item': 'shared-year'}, {'id': 'sky-travel-provisions', 'text': 'Prepare lasting provisions', 'kind': 'create', 'item': 'travel-provisions'}]
+
+RECIPE make-sky-archive
+A watch-records | Dated reports of seen eclipses | Several generations have recorded celestial events; the cases here are schematic, not transcribed ancient dates.
+B watch-gaps | Clouded nights and unattended watches | A gap in observation cannot be entered as an uneclipsed sky.
+OUT sky-archive | A sky archive with its gaps | The collection distinguishes observed events from nights that tell us nothing.
+LIFECYCLE {'watch-records': 'retain', 'watch-gaps': 'retain'}
+
+RECIPE make-eclipse-pattern
+A sky-archive | A sky archive with its gaps | The collection distinguishes observed events from nights that tell us nothing.
+B lunar-calendar | A calendar of lunar months | A public convention makes observations from different nights comparable.
+OUT eclipse-pattern | Recurring eclipse seasons | Recurrence makes future watching worthwhile; it does not guarantee a visible eclipse at every place.
+LIFECYCLE {'sky-archive': 'retain', 'lunar-calendar': 'retain'}
+
+RECIPE make-watch-window
+A eclipse-pattern | Recurring eclipse seasons | Recurrence makes future watching worthwhile; it does not guarantee a visible eclipse at every place.
+B watch-gaps | Clouded nights and unattended watches | A gap in observation cannot be entered as an uneclipsed sky.
+OUT watch-window | A watch, not a promised eclipse | A predicted opportunity and a successfully observed event are different things.
+LIFECYCLE {'eclipse-pattern': 'retain', 'watch-gaps': 'retain'}
+
+RECIPE make-portent-and-pattern
+A eclipse-pattern | Recurring eclipse seasons | Recurrence makes future watching worthwhile; it does not guarantee a visible eclipse at every place.
+B omen-series | An eclipse may threaten the king | A paraphrased divinatory position, not a physical account of darkening.
+OUT portent-and-pattern | Prediction alongside portent | A regular sky and its political or religious interpretation can coexist.
+LIFECYCLE {'eclipse-pattern': 'retain', 'omen-series': 'retain'}
+
+RECIPE make-seasonal-calendar
+A lunar-calendar | A calendar of lunar months | A public convention makes observations from different nights comparable.
+B river-seasons | Floods and harvests return seasonally | Practical experience ties provisions to recurrent seasons.
+OUT seasonal-calendar | A calendar for fields and stores | The same act of ordering time supports practical work.
+LIFECYCLE {'lunar-calendar': 'retain', 'river-seasons': 'retain'}
+
+RECIPE make-shared-year
+A seasonal-calendar | A calendar for fields and stores | The same act of ordering time supports practical work.
+B festival-days | Festivals need shared dates | Ritual, administration and observation can use the same calendar.
+OUT shared-year | A publicly shared year | Shared dates coordinate communal life without settling cosmology.
+LIFECYCLE {'seasonal-calendar': 'retain', 'festival-days': 'retain'}
+
+RECIPE make-salted-fish
+A salt-crystals | Salt | A reusable supply represents preservation practice, not a finite stock puzzle.
+B fresh-fish | Fresh fish | A particular perishable food supply.
+OUT salted-fish | Salt-preserved fish | Preservation allows a perishable food to travel farther from the moment it was caught.
+LIFECYCLE {'salt-crystals': 'retain', 'fresh-fish': 'transform'}
+
+RECIPE make-travel-provisions
+A salted-fish | Salt-preserved fish | Preservation allows a perishable food to travel farther from the moment it was caught.
+B grain-store | Grain set aside for a journey | A particular store of food.
+OUT travel-provisions | Provisions for a longer journey | Stored grain and preserved fish extend the practical reach of a journey.
+LIFECYCLE {'salted-fish': 'retain', 'grain-store': 'transform'}

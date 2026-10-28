@@ -1,0 +1,809 @@
+{
+  "scope": "Append-only rows for root integration; inherited audit is not modified.",
+  "world": "divinity-light-guide-v1-20261028",
+  "count": 45,
+  "recipes": [
+    {
+      "world": "divinity-light-guide-v1-20261028",
+      "recipe": "dl-neighbor-action",
+      "inputs": "neighbor-question + samaritan-story",
+      "output": "neighbor-action",
+      "incorporated": "—",
+      "retained": "neighbor-question, samaritan-story",
+      "lifecycles": {
+        "neighbor-question": {
+          "role": "retain",
+          "reason": "The source or earlier conclusion remains available for rereading and later comparison."
+        },
+        "samaritan-story": {
+          "role": "retain",
+          "reason": "The source or earlier conclusion remains available for rereading and later comparison."
+        }
+      }
+    },
+    {
+      "world": "divinity-light-guide-v1-20261028",
+      "recipe": "dl-unexpected-helper",
+      "inputs": "samaritan-story + samaritan-context",
+      "output": "unexpected-helper",
+      "incorporated": "—",
+      "retained": "samaritan-context, samaritan-story",
+      "lifecycles": {
+        "samaritan-story": {
+          "role": "retain",
+          "reason": "The source or earlier conclusion remains available for rereading and later comparison."
+        },
+        "samaritan-context": {
+          "role": "retain",
+          "reason": "The source or earlier conclusion remains available for rereading and later comparison."
+        }
+      }
+    },
+    {
+      "world": "divinity-light-guide-v1-20261028",
+      "recipe": "dl-neighbor-care",
+      "inputs": "neighbor-action + unexpected-helper",
+      "output": "neighbor-care",
+      "incorporated": "neighbor-action, unexpected-helper",
+      "retained": "—",
+      "lifecycles": {
+        "neighbor-action": {
+          "role": "transform",
+          "reason": "The working note is revised into this fuller note at this event."
+        },
+        "unexpected-helper": {
+          "role": "incorporate",
+          "reason": "This note becomes part of the combined case file at this event."
+        }
+      }
+    },
+    {
+      "world": "divinity-light-guide-v1-20261028",
+      "recipe": "dl-two-brothers",
+      "inputs": "lost-son + older-brother",
+      "output": "two-brothers",
+      "incorporated": "—",
+      "retained": "lost-son, older-brother",
+      "lifecycles": {
+        "lost-son": {
+          "role": "retain",
+          "reason": "The source or earlier conclusion remains available for rereading and later comparison."
+        },
+        "older-brother": {
+          "role": "retain",
+          "reason": "The source or earlier conclusion remains available for rereading and later comparison."
+        }
+      }
+    },
+    {
+      "world": "divinity-light-guide-v1-20261028",
+      "recipe": "dl-parable-response",
+      "inputs": "two-brothers + parable-lens",
+      "output": "parable-response",
+      "incorporated": "two-brothers",
+      "retained": "parable-lens",
+      "lifecycles": {
+        "two-brothers": {
+          "role": "transform",
+          "reason": "The working note is revised into this fuller note at this event."
+        },
+        "parable-lens": {
+          "role": "retain",
+          "reason": "The source or earlier conclusion remains available for rereading and later comparison."
+        }
+      }
+    },
+    {
+      "world": "divinity-light-guide-v1-20261028",
+      "recipe": "dl-genre-purpose",
+      "inputs": "parable-response + luke-prologue",
+      "output": "genre-purpose",
+      "incorporated": "—",
+      "retained": "luke-prologue, parable-response",
+      "lifecycles": {
+        "parable-response": {
+          "role": "retain",
+          "reason": "The source or earlier conclusion remains available for rereading and later comparison."
+        },
+        "luke-prologue": {
+          "role": "retain",
+          "reason": "The source or earlier conclusion remains available for rereading and later comparison."
+        }
+      }
+    },
+    {
+      "world": "divinity-light-guide-v1-20261028",
+      "recipe": "dl-shared-scene",
+      "inputs": "mark-bread + john-bread",
+      "output": "shared-scene",
+      "incorporated": "—",
+      "retained": "john-bread, mark-bread",
+      "lifecycles": {
+        "mark-bread": {
+          "role": "retain",
+          "reason": "The source or earlier conclusion remains available for rereading and later comparison."
+        },
+        "john-bread": {
+          "role": "retain",
+          "reason": "The source or earlier conclusion remains available for rereading and later comparison."
+        }
+      }
+    },
+    {
+      "world": "divinity-light-guide-v1-20261028",
+      "recipe": "dl-gospel-emphases",
+      "inputs": "shared-scene + genre-purpose",
+      "output": "gospel-emphases",
+      "incorporated": "shared-scene",
+      "retained": "genre-purpose",
+      "lifecycles": {
+        "shared-scene": {
+          "role": "transform",
+          "reason": "The working note is revised into this fuller note at this event."
+        },
+        "genre-purpose": {
+          "role": "retain",
+          "reason": "The source or earlier conclusion remains available for rereading and later comparison."
+        }
+      }
+    },
+    {
+      "world": "divinity-light-guide-v1-20261028",
+      "recipe": "dl-context-reading",
+      "inputs": "gospel-emphases + jewish-world",
+      "output": "context-reading",
+      "incorporated": "gospel-emphases",
+      "retained": "jewish-world",
+      "lifecycles": {
+        "gospel-emphases": {
+          "role": "transform",
+          "reason": "The working note is revised into this fuller note at this event."
+        },
+        "jewish-world": {
+          "role": "retain",
+          "reason": "The source or earlier conclusion remains available for rereading and later comparison."
+        }
+      }
+    },
+    {
+      "world": "divinity-light-guide-v1-20261028",
+      "recipe": "dl-gospel-notebook",
+      "inputs": "context-reading + neighbor-care",
+      "output": "gospel-notebook",
+      "incorporated": "context-reading",
+      "retained": "neighbor-care",
+      "lifecycles": {
+        "context-reading": {
+          "role": "transform",
+          "reason": "The working note is revised into this fuller note at this event."
+        },
+        "neighbor-care": {
+          "role": "retain",
+          "reason": "The source or earlier conclusion remains available for rereading and later comparison."
+        }
+      }
+    },
+    {
+      "world": "divinity-light-guide-v1-20261028",
+      "recipe": "dl-hand-copy",
+      "inputs": "gospel-notebook + copy-paper",
+      "output": "hand-copy",
+      "incorporated": "copy-paper",
+      "retained": "gospel-notebook",
+      "lifecycles": {
+        "gospel-notebook": {
+          "role": "retain",
+          "reason": "The source or earlier conclusion remains available for rereading and later comparison."
+        },
+        "copy-paper": {
+          "role": "transform",
+          "reason": "The working note is revised into this fuller note at this event."
+        }
+      }
+    },
+    {
+      "world": "divinity-light-guide-v1-20261028",
+      "recipe": "dl-manuscript-guide",
+      "inputs": "hand-copy + kells-record",
+      "output": "manuscript-guide",
+      "incorporated": "—",
+      "retained": "hand-copy, kells-record",
+      "lifecycles": {
+        "hand-copy": {
+          "role": "retain",
+          "reason": "The source or earlier conclusion remains available for rereading and later comparison."
+        },
+        "kells-record": {
+          "role": "retain",
+          "reason": "The source or earlier conclusion remains available for rereading and later comparison."
+        }
+      }
+    },
+    {
+      "world": "divinity-light-guide-v1-20261028",
+      "recipe": "dl-shared-scholarship",
+      "inputs": "aristotle-leaf + translation-record",
+      "output": "shared-scholarship",
+      "incorporated": "—",
+      "retained": "aristotle-leaf, translation-record",
+      "lifecycles": {
+        "aristotle-leaf": {
+          "role": "retain",
+          "reason": "The source or earlier conclusion remains available for rereading and later comparison."
+        },
+        "translation-record": {
+          "role": "retain",
+          "reason": "The source or earlier conclusion remains available for rereading and later comparison."
+        }
+      }
+    },
+    {
+      "world": "divinity-light-guide-v1-20261028",
+      "recipe": "dl-faith-reason",
+      "inputs": "shared-scholarship + aquinas-leaf",
+      "output": "faith-reason",
+      "incorporated": "shared-scholarship",
+      "retained": "aquinas-leaf",
+      "lifecycles": {
+        "shared-scholarship": {
+          "role": "transform",
+          "reason": "The working note is revised into this fuller note at this event."
+        },
+        "aquinas-leaf": {
+          "role": "retain",
+          "reason": "The source or earlier conclusion remains available for rereading and later comparison."
+        }
+      }
+    },
+    {
+      "world": "divinity-light-guide-v1-20261028",
+      "recipe": "dl-fitting-evidence",
+      "inputs": "seed-diary + creation-reading",
+      "output": "fitting-evidence",
+      "incorporated": "—",
+      "retained": "creation-reading, seed-diary",
+      "lifecycles": {
+        "seed-diary": {
+          "role": "retain",
+          "reason": "The source or earlier conclusion remains available for rereading and later comparison."
+        },
+        "creation-reading": {
+          "role": "retain",
+          "reason": "The source or earlier conclusion remains available for rereading and later comparison."
+        }
+      }
+    },
+    {
+      "world": "divinity-light-guide-v1-20261028",
+      "recipe": "dl-careful-questions",
+      "inputs": "faith-reason + fitting-evidence",
+      "output": "careful-questions",
+      "incorporated": "faith-reason, fitting-evidence",
+      "retained": "—",
+      "lifecycles": {
+        "faith-reason": {
+          "role": "transform",
+          "reason": "The working note is revised into this fuller note at this event."
+        },
+        "fitting-evidence": {
+          "role": "incorporate",
+          "reason": "This note becomes part of the combined case file at this event."
+        }
+      }
+    },
+    {
+      "world": "divinity-light-guide-v1-20261028",
+      "recipe": "dl-sources-reasons",
+      "inputs": "manuscript-guide + careful-questions",
+      "output": "sources-reasons",
+      "incorporated": "manuscript-guide",
+      "retained": "careful-questions",
+      "lifecycles": {
+        "manuscript-guide": {
+          "role": "transform",
+          "reason": "The working note is revised into this fuller note at this event."
+        },
+        "careful-questions": {
+          "role": "retain",
+          "reason": "The source or earlier conclusion remains available for rereading and later comparison."
+        }
+      }
+    },
+    {
+      "world": "divinity-light-guide-v1-20261028",
+      "recipe": "dl-printed-gospel",
+      "inputs": "hand-copy + @printing-workshop",
+      "output": "printed-gospel",
+      "incorporated": "hand-copy",
+      "retained": "—",
+      "lifecycles": {
+        "hand-copy": {
+          "role": "transform",
+          "reason": "The working note is revised into this fuller note at this event."
+        }
+      }
+    },
+    {
+      "world": "divinity-light-guide-v1-20261028",
+      "recipe": "dl-print-churches",
+      "inputs": "printed-gospel + gutenberg-record",
+      "output": "print-churches",
+      "incorporated": "printed-gospel",
+      "retained": "gutenberg-record",
+      "lifecycles": {
+        "printed-gospel": {
+          "role": "transform",
+          "reason": "The working note is revised into this fuller note at this event."
+        },
+        "gutenberg-record": {
+          "role": "retain",
+          "reason": "The source or earlier conclusion remains available for rereading and later comparison."
+        }
+      }
+    },
+    {
+      "world": "divinity-light-guide-v1-20261028",
+      "recipe": "dl-reform-pamphlet",
+      "inputs": "luther-theses + @printing-workshop",
+      "output": "reform-pamphlet",
+      "incorporated": "—",
+      "retained": "luther-theses",
+      "lifecycles": {
+        "luther-theses": {
+          "role": "retain",
+          "reason": "The source or earlier conclusion remains available for rereading and later comparison."
+        }
+      }
+    },
+    {
+      "world": "divinity-light-guide-v1-20261028",
+      "recipe": "dl-disputed-claims",
+      "inputs": "reform-pamphlet + catholic-response",
+      "output": "disputed-claims",
+      "incorporated": "reform-pamphlet",
+      "retained": "catholic-response",
+      "lifecycles": {
+        "reform-pamphlet": {
+          "role": "transform",
+          "reason": "The working note is revised into this fuller note at this event."
+        },
+        "catholic-response": {
+          "role": "retain",
+          "reason": "The source or earlier conclusion remains available for rereading and later comparison."
+        }
+      }
+    },
+    {
+      "world": "divinity-light-guide-v1-20261028",
+      "recipe": "dl-fair-disagreement",
+      "inputs": "disputed-claims + sources-reasons",
+      "output": "fair-disagreement",
+      "incorporated": "disputed-claims",
+      "retained": "sources-reasons",
+      "lifecycles": {
+        "disputed-claims": {
+          "role": "transform",
+          "reason": "The working note is revised into this fuller note at this event."
+        },
+        "sources-reasons": {
+          "role": "retain",
+          "reason": "The source or earlier conclusion remains available for rereading and later comparison."
+        }
+      }
+    },
+    {
+      "world": "divinity-light-guide-v1-20261028",
+      "recipe": "dl-history-dialogue",
+      "inputs": "fair-disagreement + unity-text",
+      "output": "history-dialogue",
+      "incorporated": "fair-disagreement",
+      "retained": "unity-text",
+      "lifecycles": {
+        "fair-disagreement": {
+          "role": "transform",
+          "reason": "The working note is revised into this fuller note at this event."
+        },
+        "unity-text": {
+          "role": "retain",
+          "reason": "The source or earlier conclusion remains available for rereading and later comparison."
+        }
+      }
+    },
+    {
+      "world": "divinity-light-guide-v1-20261028",
+      "recipe": "dl-day-review",
+      "inputs": "examen-card + fictional-journal",
+      "output": "day-review",
+      "incorporated": "—",
+      "retained": "examen-card, fictional-journal",
+      "lifecycles": {
+        "examen-card": {
+          "role": "retain",
+          "reason": "The source or earlier conclusion remains available for rereading and later comparison."
+        },
+        "fictional-journal": {
+          "role": "retain",
+          "reason": "The source or earlier conclusion remains available for rereading and later comparison."
+        }
+      }
+    },
+    {
+      "world": "divinity-light-guide-v1-20261028",
+      "recipe": "dl-noticed-neighbor",
+      "inputs": "day-review + neighbor-care",
+      "output": "noticed-neighbor",
+      "incorporated": "day-review",
+      "retained": "neighbor-care",
+      "lifecycles": {
+        "day-review": {
+          "role": "transform",
+          "reason": "The working note is revised into this fuller note at this event."
+        },
+        "neighbor-care": {
+          "role": "retain",
+          "reason": "The source or earlier conclusion remains available for rereading and later comparison."
+        }
+      }
+    },
+    {
+      "world": "divinity-light-guide-v1-20261028",
+      "recipe": "dl-weighed-options",
+      "inputs": "club-options + club-effects",
+      "output": "weighed-options",
+      "incorporated": "—",
+      "retained": "club-effects, club-options",
+      "lifecycles": {
+        "club-options": {
+          "role": "retain",
+          "reason": "The source or earlier conclusion remains available for rereading and later comparison."
+        },
+        "club-effects": {
+          "role": "retain",
+          "reason": "The source or earlier conclusion remains available for rereading and later comparison."
+        }
+      }
+    },
+    {
+      "world": "divinity-light-guide-v1-20261028",
+      "recipe": "dl-discernment-plan",
+      "inputs": "noticed-neighbor + weighed-options",
+      "output": "discernment-plan",
+      "incorporated": "noticed-neighbor, weighed-options",
+      "retained": "—",
+      "lifecycles": {
+        "noticed-neighbor": {
+          "role": "transform",
+          "reason": "The working note is revised into this fuller note at this event."
+        },
+        "weighed-options": {
+          "role": "incorporate",
+          "reason": "This note becomes part of the combined case file at this event."
+        }
+      }
+    },
+    {
+      "world": "divinity-light-guide-v1-20261028",
+      "recipe": "dl-revised-action",
+      "inputs": "discernment-plan + week-later",
+      "output": "revised-action",
+      "incorporated": "discernment-plan",
+      "retained": "week-later",
+      "lifecycles": {
+        "discernment-plan": {
+          "role": "transform",
+          "reason": "The working note is revised into this fuller note at this event."
+        },
+        "week-later": {
+          "role": "retain",
+          "reason": "The source or earlier conclusion remains available for rereading and later comparison."
+        }
+      }
+    },
+    {
+      "world": "divinity-light-guide-v1-20261028",
+      "recipe": "dl-respect-time",
+      "inputs": "shabbat-account + saturday-plan",
+      "output": "respect-time",
+      "incorporated": "—",
+      "retained": "saturday-plan, shabbat-account",
+      "lifecycles": {
+        "shabbat-account": {
+          "role": "retain",
+          "reason": "The source or earlier conclusion remains available for rereading and later comparison."
+        },
+        "saturday-plan": {
+          "role": "retain",
+          "reason": "The source or earlier conclusion remains available for rereading and later comparison."
+        }
+      }
+    },
+    {
+      "world": "divinity-light-guide-v1-20261028",
+      "recipe": "dl-shared-meal",
+      "inputs": "ramadan-account + meal-invitation",
+      "output": "shared-meal",
+      "incorporated": "—",
+      "retained": "meal-invitation, ramadan-account",
+      "lifecycles": {
+        "ramadan-account": {
+          "role": "retain",
+          "reason": "The source or earlier conclusion remains available for rereading and later comparison."
+        },
+        "meal-invitation": {
+          "role": "retain",
+          "reason": "The source or earlier conclusion remains available for rereading and later comparison."
+        }
+      }
+    },
+    {
+      "world": "divinity-light-guide-v1-20261028",
+      "recipe": "dl-similar-not-same",
+      "inputs": "metta-text + neighbor-care",
+      "output": "similar-not-same",
+      "incorporated": "—",
+      "retained": "metta-text, neighbor-care",
+      "lifecycles": {
+        "metta-text": {
+          "role": "retain",
+          "reason": "The source or earlier conclusion remains available for rereading and later comparison."
+        },
+        "neighbor-care": {
+          "role": "retain",
+          "reason": "The source or earlier conclusion remains available for rereading and later comparison."
+        }
+      }
+    },
+    {
+      "world": "divinity-light-guide-v1-20261028",
+      "recipe": "dl-respect-difference",
+      "inputs": "similar-not-same + nostra-text",
+      "output": "respect-difference",
+      "incorporated": "similar-not-same",
+      "retained": "nostra-text",
+      "lifecycles": {
+        "similar-not-same": {
+          "role": "transform",
+          "reason": "The working note is revised into this fuller note at this event."
+        },
+        "nostra-text": {
+          "role": "retain",
+          "reason": "The source or earlier conclusion remains available for rereading and later comparison."
+        }
+      }
+    },
+    {
+      "world": "divinity-light-guide-v1-20261028",
+      "recipe": "dl-room-for-practice",
+      "inputs": "respect-time + shared-meal",
+      "output": "room-for-practice",
+      "incorporated": "respect-time, shared-meal",
+      "retained": "—",
+      "lifecycles": {
+        "respect-time": {
+          "role": "transform",
+          "reason": "The working note is revised into this fuller note at this event."
+        },
+        "shared-meal": {
+          "role": "incorporate",
+          "reason": "This note becomes part of the combined case file at this event."
+        }
+      }
+    },
+    {
+      "world": "divinity-light-guide-v1-20261028",
+      "recipe": "dl-dialogue-guide",
+      "inputs": "room-for-practice + respect-difference",
+      "output": "dialogue-guide",
+      "incorporated": "room-for-practice",
+      "retained": "respect-difference",
+      "lifecycles": {
+        "room-for-practice": {
+          "role": "transform",
+          "reason": "The working note is revised into this fuller note at this event."
+        },
+        "respect-difference": {
+          "role": "retain",
+          "reason": "The source or earlier conclusion remains available for rereading and later comparison."
+        }
+      }
+    },
+    {
+      "world": "divinity-light-guide-v1-20261028",
+      "recipe": "dl-immediate-help",
+      "inputs": "pantry-request + neighbor-care",
+      "output": "immediate-help",
+      "incorporated": "—",
+      "retained": "neighbor-care, pantry-request",
+      "lifecycles": {
+        "pantry-request": {
+          "role": "retain",
+          "reason": "The source or earlier conclusion remains available for rereading and later comparison."
+        },
+        "neighbor-care": {
+          "role": "retain",
+          "reason": "The source or earlier conclusion remains available for rereading and later comparison."
+        }
+      }
+    },
+    {
+      "world": "divinity-light-guide-v1-20261028",
+      "recipe": "dl-access-justice",
+      "inputs": "access-report + dignity-card",
+      "output": "access-justice",
+      "incorporated": "—",
+      "retained": "access-report, dignity-card",
+      "lifecycles": {
+        "access-report": {
+          "role": "retain",
+          "reason": "The source or earlier conclusion remains available for rereading and later comparison."
+        },
+        "dignity-card": {
+          "role": "retain",
+          "reason": "The source or earlier conclusion remains available for rereading and later comparison."
+        }
+      }
+    },
+    {
+      "world": "divinity-light-guide-v1-20261028",
+      "recipe": "dl-shared-planning",
+      "inputs": "dialogue-guide + neighbors-voices",
+      "output": "shared-planning",
+      "incorporated": "—",
+      "retained": "dialogue-guide, neighbors-voices",
+      "lifecycles": {
+        "dialogue-guide": {
+          "role": "retain",
+          "reason": "The source or earlier conclusion remains available for rereading and later comparison."
+        },
+        "neighbors-voices": {
+          "role": "retain",
+          "reason": "The source or earlier conclusion remains available for rereading and later comparison."
+        }
+      }
+    },
+    {
+      "world": "divinity-light-guide-v1-20261028",
+      "recipe": "dl-help-and-change",
+      "inputs": "immediate-help + access-justice",
+      "output": "help-and-change",
+      "incorporated": "access-justice, immediate-help",
+      "retained": "—",
+      "lifecycles": {
+        "immediate-help": {
+          "role": "transform",
+          "reason": "The working note is revised into this fuller note at this event."
+        },
+        "access-justice": {
+          "role": "incorporate",
+          "reason": "This note becomes part of the combined case file at this event."
+        }
+      }
+    },
+    {
+      "world": "divinity-light-guide-v1-20261028",
+      "recipe": "dl-justice-plan",
+      "inputs": "help-and-change + shared-planning",
+      "output": "justice-plan",
+      "incorporated": "help-and-change, shared-planning",
+      "retained": "—",
+      "lifecycles": {
+        "help-and-change": {
+          "role": "transform",
+          "reason": "The working note is revised into this fuller note at this event."
+        },
+        "shared-planning": {
+          "role": "incorporate",
+          "reason": "This note becomes part of the combined case file at this event."
+        }
+      }
+    },
+    {
+      "world": "divinity-light-guide-v1-20261028",
+      "recipe": "dl-evidence-check",
+      "inputs": "water-notes + careful-questions",
+      "output": "evidence-check",
+      "incorporated": "—",
+      "retained": "careful-questions, water-notes",
+      "lifecycles": {
+        "water-notes": {
+          "role": "retain",
+          "reason": "The source or earlier conclusion remains available for rereading and later comparison."
+        },
+        "careful-questions": {
+          "role": "retain",
+          "reason": "The source or earlier conclusion remains available for rereading and later comparison."
+        }
+      }
+    },
+    {
+      "world": "divinity-light-guide-v1-20261028",
+      "recipe": "dl-people-earth",
+      "inputs": "common-home + justice-plan",
+      "output": "people-earth",
+      "incorporated": "—",
+      "retained": "common-home, justice-plan",
+      "lifecycles": {
+        "common-home": {
+          "role": "retain",
+          "reason": "The source or earlier conclusion remains available for rereading and later comparison."
+        },
+        "justice-plan": {
+          "role": "retain",
+          "reason": "The source or earlier conclusion remains available for rereading and later comparison."
+        }
+      }
+    },
+    {
+      "world": "divinity-light-guide-v1-20261028",
+      "recipe": "dl-water-proposal",
+      "inputs": "evidence-check + water-costs",
+      "output": "water-proposal",
+      "incorporated": "evidence-check",
+      "retained": "water-costs",
+      "lifecycles": {
+        "evidence-check": {
+          "role": "transform",
+          "reason": "The working note is revised into this fuller note at this event."
+        },
+        "water-costs": {
+          "role": "retain",
+          "reason": "The source or earlier conclusion remains available for rereading and later comparison."
+        }
+      }
+    },
+    {
+      "world": "divinity-light-guide-v1-20261028",
+      "recipe": "dl-reviewed-proposal",
+      "inputs": "water-proposal + dialogue-guide",
+      "output": "reviewed-proposal",
+      "incorporated": "water-proposal",
+      "retained": "dialogue-guide",
+      "lifecycles": {
+        "water-proposal": {
+          "role": "transform",
+          "reason": "The working note is revised into this fuller note at this event."
+        },
+        "dialogue-guide": {
+          "role": "retain",
+          "reason": "The source or earlier conclusion remains available for rereading and later comparison."
+        }
+      }
+    },
+    {
+      "world": "divinity-light-guide-v1-20261028",
+      "recipe": "dl-common-home-plan",
+      "inputs": "reviewed-proposal + people-earth",
+      "output": "common-home-plan",
+      "incorporated": "people-earth, reviewed-proposal",
+      "retained": "—",
+      "lifecycles": {
+        "reviewed-proposal": {
+          "role": "transform",
+          "reason": "The working note is revised into this fuller note at this event."
+        },
+        "people-earth": {
+          "role": "incorporate",
+          "reason": "This note becomes part of the combined case file at this event."
+        }
+      }
+    },
+    {
+      "world": "divinity-light-guide-v1-20261028",
+      "recipe": "dl-exhibition-guide",
+      "inputs": "common-home-plan + gospel-notebook",
+      "output": "exhibition-guide",
+      "incorporated": "common-home-plan",
+      "retained": "gospel-notebook",
+      "lifecycles": {
+        "common-home-plan": {
+          "role": "transform",
+          "reason": "The working note is revised into this fuller note at this event."
+        },
+        "gospel-notebook": {
+          "role": "retain",
+          "reason": "The source or earlier conclusion remains available for rereading and later comparison."
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+DESK 10: perspective | Renaissance workshop and chart room · c. 1480–1600 CE | A window on paper | A painter wants a believable street. A navigator wants a useful map. Each picture must choose which relation to preserve.
+GOALS: [{'id': 'perspective-viewpoint-occlusion', 'text': 'Find what one view conceals', 'kind': 'create', 'item': 'viewpoint-occlusion'}, {'id': 'perspective-checked-perspective', 'text': 'Check the intended viewpoint', 'kind': 'create', 'item': 'checked-perspective'}, {'id': 'perspective-projection-tradeoff', 'text': 'Expose the map’s trade-off', 'kind': 'create', 'item': 'projection-tradeoff'}]
+
+RECIPE make-window-projection
+A geometric-optics | Light paths as a geometric account | A model of paths connects physical light with spatial reasoning.
+B picture-plane | A flat surface between eye and street | The conceptual picture plane intersects the paths from the scene to an eye.
+OUT window-projection | A scene projected through a picture plane | Light-path geometry supplies a relation between the scene, picture surface and viewer.
+LIFECYCLE {'geometric-optics': 'retain', 'picture-plane': 'retain'}
+LINK {"from": "light", "to": "perspective", "item": "geometric-optics", "recipe": "make-window-projection", "relation": "adaptation", "evidence": "Renaissance perspective uses geometric accounts of vision; not every painter read Ibn al-Haytham directly.", "sources": ["perspective", "perspective-alberti-rays-primary", "perspective-alberti-veil-primary", "ratdolt"]}
+
+RECIPE make-vanishing-direction
+A window-projection | A scene projected through a picture plane | Light-path geometry supplies a relation between the scene, picture surface and viewer.
+B receding-street | Parallel street edges appear to converge | The visible observation is stated; no unseen drawing is required.
+OUT vanishing-direction | One direction converges toward a point | The parallel edges define a common vanishing direction in the constructed view.
+LIFECYCLE {'window-projection': 'retain', 'receding-street': 'retain'}
+
+RECIPE make-linear-perspective
+A vanishing-direction | One direction converges toward a point | The parallel edges define a common vanishing direction in the constructed view.
+B fixed-eye | Keep the eye at one fixed position | A single-viewpoint construction has a condition of use.
+OUT linear-perspective | A single-viewpoint perspective | A coherent projection is made for a chosen eye position, not for every possible viewer at once.
+LIFECYCLE {'vanishing-direction': 'retain', 'fixed-eye': 'retain'}
+
+RECIPE make-viewpoint-occlusion
+A linear-perspective | A single-viewpoint perspective | A coherent projection is made for a chosen eye position, not for every possible viewer at once.
+B viewer-moves | From the side, previously hidden surfaces appear | A changed viewpoint can reveal information not present in the first projection.
+OUT viewpoint-occlusion | A fixed view leaves other surfaces hidden | The creation records a specific limit: a projection cannot show what its viewpoint occludes.
+LIFECYCLE {'linear-perspective': 'retain', 'viewer-moves': 'retain'}
+
+RECIPE make-checked-perspective
+A linear-perspective | A single-viewpoint perspective | A coherent projection is made for a chosen eye position, not for every possible viewer at once.
+B mirror-comparison | Compare the painted view with the actual view | A simplified optical check of a perspectival construction.
+OUT checked-perspective | A painted view checked from its viewing point | A comparison tests the intended correspondence without claiming the picture is the whole place.
+LIFECYCLE {'linear-perspective': 'retain', 'mirror-comparison': 'retain'}
+
+RECIPE make-mapped-globe
+A measurable-earth | An Earth whose size can be investigated | A known ground distance gives observations a relation to the whole Earth; no numerical answer is required.
+B coordinate-grid | Locations named by a common coordinate grid | The grid makes positions comparable, without a coordinate calculation.
+OUT mapped-globe | An Earth with comparable positions | A common positional framework joins local places into a geographic representation.
+LIFECYCLE {'measurable-earth': 'retain', 'coordinate-grid': 'retain'}
+LINK {"from": "world-models", "to": "perspective", "item": "measurable-earth", "recipe": "make-mapped-globe", "relation": "adaptation", "evidence": "A geometric Earth supplies the object that cartographic projections try to represent.", "sources": ["perspective", "perspective-alberti-rays-primary", "perspective-alberti-veil-primary", "ratdolt"]}
+
+RECIPE make-flat-projection
+A mapped-globe | An Earth with comparable positions | A common positional framework joins local places into a geographic representation.
+B flat-map-sheet | A flat sheet for a map | A particular drawing surface.
+OUT flat-projection | A curved world on a flat sheet | Flattening the globe entails choices about what relationships to preserve.
+LIFECYCLE {'mapped-globe': 'retain', 'flat-map-sheet': 'transform'}
+
+RECIPE make-bearing-chart
+A flat-projection | A curved world on a flat sheet | Flattening the globe entails choices about what relationships to preserve.
+B bearing-priority | The sailor wants constant compass bearings | A projection can be chosen for a task rather than universal fidelity.
+OUT bearing-chart | A chart made for compass bearings | The representation serves a navigation task rather than preserving every size and shape.
+LIFECYCLE {'flat-projection': 'retain', 'bearing-priority': 'retain'}
+
+RECIPE make-projection-tradeoff
+A bearing-chart | A chart made for compass bearings | The representation serves a navigation task rather than preserving every size and shape.
+B polar-stretch | Polar regions grow greatly on this chart | The distortion is stated explicitly, not left for the player to infer from an invisible map.
+OUT projection-tradeoff | Useful bearings, distorted areas | A map can be excellent for one purpose and misleading for another.
+LIFECYCLE {'bearing-chart': 'retain', 'polar-stretch': 'retain'}
