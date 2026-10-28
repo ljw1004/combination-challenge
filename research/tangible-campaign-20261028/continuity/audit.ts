@@ -1,0 +1,32 @@
+import * as M from '../../combination-fork-recovery-20261028/experiments/tangible-campaign/engine/model.ts';
+import type {Scenario,Action} from '../../combination-fork-recovery-20261028/experiments/tangible-campaign/schema/scenario.ts';
+/** Witness audit, not proof of all possible routes or narrative meaning. */
+export function auditRoute(s:Scenario, actions:Action[]){
+ let g=M.createGame(s);const createdAt=new Map<string,number>();
+ const rows:{stage:string;earlierUsed:string[];goalConnected:string[];completed:boolean}[]=[];
+ let edges=new Map<string,Set<string>>(),used=new Set<string>(),placed=new Set<string>();
+ const finish=()=>{
+  const connected=new Set<string>(),visited=new Set<string>();
+  const walk=(id:string)=>{if(visited.has(id))return;visited.add(id);for(const input of edges.get(id)??[]){if(createdAt.has(input)&&createdAt.get(input)!<g.state.stage)connected.add(input);if(input!==id)walk(input);}};
+  for(const o of M.objectiveStates(s,g.state).filter(o=>o.satisfied)){
+   const witnesses=o.witnesses.length?o.witnesses:o.intermediate&&o.item?[o.item]:[];
+   for(const id of witnesses){walk(id);if(o.kind==='place'&&placed.has(id)&&createdAt.has(id)&&createdAt.get(id)!<g.state.stage)connected.add(id);}
+  }
+  rows.push({stage:s.stages[g.state.stage].id,earlierUsed:[...used],goalConnected:[...connected],completed:M.stageComplete(s,g.state)});
+ };
+ for(const [index,a]of actions.entries()){
+  const stage=g.state.stage;const r=M.applyAction(s,g,a);if(!r.accepted)throw Error(`Action ${index}: ${r.message}`);
+  if(a.type==='advance'){finish();edges=new Map();used=new Set();placed=new Set();}
+  if(a.type==='combine'){
+   const inputs=[a.a,a.b].filter(id=>!id.startsWith('@'));
+   for(const id of inputs)if(createdAt.has(id)&&createdAt.get(id)!<stage)used.add(id);
+   const out=r.created??r.updated;
+   if(out){const deps=edges.get(out)??new Set<string>();for(const id of inputs)deps.add(id);edges.set(out,deps);}
+   if(r.created)createdAt.set(r.created,stage);
+  }
+  if(a.type==='place'&&a.location)placed.add(a.item);
+  g=r.game;
+ }
+ if(!g.state.completed)finish();
+ return {scenario:s.id,completed:g.state.completed,rows,missing:rows.filter((r,i)=>i>0&&r.completed&&!r.goalConnected.length).map(r=>r.stage)};
+}

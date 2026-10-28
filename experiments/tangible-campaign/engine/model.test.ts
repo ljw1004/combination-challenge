@@ -29,3 +29,45 @@ test('Player construction slots never expose hidden semantic slot IDs',()=>{cons
 test('Completion narrative is gated by true objectives, appended at newly fulfilled goal and cleared by reversal',()=>{const s=structuredClone(fixture);s.stages[0].completionText='The rover reaches the ridge. Control receives its signal.';let g=replay(s,[{type:'combine',a:'frame',b:'wheels'},{type:'combine',a:'motor',b:'rover'},{type:'combine',a:'charger',b:'rover'}]);assert.equal(playerView(s,g).completionText,null);assert.equal(playerView(s,g).nextAction,null);let r=applyAction(s,g,{type:'place',item:'rover',location:'ridge'});assert.equal(r.message,'Placed. '+s.stages[0].completionText);g=r.game;assert.equal(playerView(s,g).completionText,s.stages[0].completionText);assert.equal(playerView(s,g).nextAction,'Continue · A specimen');r=applyAction(s,g,{type:'move',item:'scoop',x:180,y:180});assert.equal(r.message,'Moved.');r=applyAction(s,r.game,{type:'move',item:'rover',x:180,y:200});assert.equal(playerView(s,r.game).completionText,null);assert.equal(playerView(s,r.game).nextAction,null);});
 test('Final objective exposes Finish this journey and declarative ending, not another chapter',()=>{const s=structuredClone(fixture);s.initialItems=['dough','starter','fire'];s.stages=[s.stages[2]];s.stages[0].completionText='The bread is shared. The journey ends at the table.';let g=createGame(s);for(const a of [{type:'place',item:'dough',location:'cellar'},{type:'combine',a:'starter',b:'dough'},{type:'combine',a:'fire',b:'risen'}] as Action[])g=applyAction(s,g,a).game;assert.equal(playerView(s,g).nextAction,'Finish this journey');const r=applyAction(s,g,{type:'advance'});assert.equal(r.message,s.stages[0].completionText);assert.equal(playerView(s,r.game).nextAction,null);assert.equal(playerView(s,r.game).completed,true);});
 test('Empty hints are locally scoped and area counts reveal no undiscovered content',()=>{const s=structuredClone(fixture);const g=createGame(s);const h=partners(s,g.state,'jar');assert.equal(h.message,'No new combinations with things currently in this area');assert.ok(!JSON.stringify(h).includes('sealed'));const v=playerView(s,g);assert.equal(v.areas[0].thingCount,g.state.tokens.length);assert.ok(!JSON.stringify(v.areas).includes('bread'));assert.equal(partners(s,g.state,'frame').message,null);});
+
+test('Replacement inherits the removed target position and placement, survives save and reverses exactly',()=>{
+ for(const width of [320,375,600])for(const placed of [false,true])for(const reverse of [false,true]){
+  const s=structuredClone(fixture);s.items.push({id:'solar-radio',label:'Solar radio'});
+  s.initialItems=['radio','charger'];s.recipes=[{id:'upgrade',a:'radio',b:'charger',out:'solar-radio',retire:[{item:'radio',reason:'Radio upgraded in place'}]}];
+  s.stages=[{...s.stages[0],objectives:[{id:'upgraded',text:'Make solar radio',kind:'create',item:'solar-radio'}]}];
+  let g=createGame(s,width);g=applyAction(s,g,{type:'move',item:'radio',x:width-70,y:235}).game;
+  if(placed)g=applyAction(s,g,{type:'place',item:'radio',location:'ridge'}).game;
+  const before=structuredClone(g),radio=g.state.tokens.find(t=>t.id==='radio')!,charger=structuredClone(g.state.tokens.find(t=>t.id==='charger'));
+  const r=applyAction(s,g,{type:'combine',a:reverse?'radio':'charger',b:reverse?'charger':'radio'});
+  assert(r.accepted);assert(r.retired?.includes('radio'));const out=r.game.state.tokens.find(t=>t.id==='solar-radio')!;
+  assert.deepEqual({x:out.x,y:out.y,area:out.area,location:out.location},{x:radio.x,y:radio.y,area:radio.area,location:radio.location});
+  assert.deepEqual(r.origin,{x:radio.x,y:radio.y});assert.deepEqual(r.game.state.tokens.find(t=>t.id==='charger'),charger);
+  assert.deepEqual(restore(s,JSON.stringify(r.game)),r.game);assert.deepEqual(undo(r.game).game.state.tokens,before.state.tokens);
+ }
+});
+test('When both inputs disappear the replacement takes the drop target spot; ordinary new creations stay adjacent',()=>{
+ const s=structuredClone(fixture),g=createGame(s),b=g.state.tokens.find(t=>t.id==='wheels')!;
+ const replacement=applyAction(s,g,{type:'combine',a:'frame',b:'wheels'});const rover=replacement.game.state.tokens.find(t=>t.id==='rover')!;
+ assert.deepEqual([rover.x,rover.y],[b.x,b.y]);
+ s.recipes[0].retire=[];const ordinary=applyAction(s,g,{type:'combine',a:'frame',b:'wheels'});const separate=ordinary.game.state.tokens.find(t=>t.id==='rover')!;
+ assert.notDeepEqual([separate.x,separate.y],[b.x,b.y]);assert(ordinary.game.state.tokens.some(t=>t.id==='wheels'));
+});
+
+test('An object transformed by a location remains there; a reusable tool producing something separate does not',()=>{
+ for(const width of [320,375,600])for(const transforms of [false,true]){
+  const s=structuredClone(fixture);s.initialItems=['scoop'];s.stages=[{...s.stages[0],objectives:[{id:'result',text:'Make ice',kind:'create',item:'ice'}]}];
+  s.recipes=[{id:'at-ridge',a:'scoop',b:'@ridge',out:'ice',...(transforms?{retire:[{item:'scoop',reason:'The carried object transforms at its destination'}]}:{})}];
+  let g=createGame(s,width);g=applyAction(s,g,{type:'move',item:'scoop',x:width-60,y:320}).game;
+  const source=structuredClone(g.state.tokens.find(t=>t.id==='scoop'))!,destination=g.state.places.find(p=>p.id==='ridge')!;
+  const action=dropAction(s,g.state,'scoop','@ridge'),r=applyAction(s,g,action);assert(r.accepted);
+  const out=r.game.state.tokens.find(t=>t.id==='ice')!;
+  if(transforms){
+   assert.deepEqual([out.x,out.y,out.area,out.location],[destination.x,destination.y+16,destination.area,destination.id]);
+   assert.deepEqual(r.origin,{x:out.x,y:out.y});assert(!r.game.state.tokens.some(t=>t.id==='scoop'));
+   assert.deepEqual(restore(s,JSON.stringify(r.game)),r.game);assert.deepEqual(undo(r.game).game.state.tokens,g.state.tokens);
+   const moved=applyAction(s,r.game,{type:'move',item:'ice',x:150,y:400});assert(moved.accepted);assert.equal(moved.game.state.tokens.find(t=>t.id==='ice')!.location,null);
+  }else{
+   assert.deepEqual(r.game.state.tokens.find(t=>t.id==='scoop'),source);assert.equal(out.location,null);assert.notDeepEqual([out.x,out.y],[destination.x,destination.y+16]);
+  }
+ }
+});

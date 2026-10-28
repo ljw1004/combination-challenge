@@ -38,37 +38,6 @@
     }
   ],
   "actions": 16,
-  "combinations": 12,
-  "metrics": {
-    "attempts": 16,
-    "accepted": 16,
-    "combinations": 12,
-    "creations": 12,
-    "installations": 0,
-    "moves": 0,
-    "placements": 1,
-    "advances": 3,
-    "visits": 0
-  },
-  "recipesTotal": 12,
-  "maxVisibleItems": 12,
-  "completed": true,
-  "validation": [],
-  "finalObjectives": [
-    {
-      "id": "shared-table-goal",
-      "text": "Prepare the shared host-and-guest table.",
-      "kind": "create",
-      "item": "shared-table",
-      "satisfied": true,
-      "witnesses": [
-        "shared-table"
-      ],
-      "places": []
-    }
-  ],
-  "ending": "The shared table is prepared. Hospitality has made room for the traveller without turning one limited exception into a rule for everyone.",
-  "limits": "Author-aware structural replay only. Not source-blind playtesting, browser/UI verification, historical or scientific re-verification, or evidence of fun.",
   "actionsLog": [
     {
       "type": "combine",
@@ -145,6 +114,23 @@
       "type": "advance"
     }
   ],
+  "combinations": 12,
+  "metrics": {
+    "attempts": 16,
+    "accepted": 16,
+    "combinations": 12,
+    "creations": 12,
+    "installations": 0,
+    "moves": 0,
+    "placements": 1,
+    "advances": 3,
+    "visits": 0
+  },
+  "recipesTotal": 12,
+  "maxVisibleItems": 12,
+  "completed": true,
+  "validation": [],
+  "ending": "The shared table is prepared. Hospitality has made room for the traveller without turning one limited exception into a rule for everyone.",
   "steps": [
     {
       "number": 1,
@@ -199,6 +185,9 @@
       "accepted": true,
       "message": "Guest washstand. Water and linen are ready for the traveller to wash. The guest has a meal waiting, and the washstand is ready. Now the novice brings a question about today’s fast.",
       "recipe": "guest-washstand",
+      "retired": [
+        "washing-basin"
+      ],
       "completed": false
     },
     {
@@ -350,6 +339,9 @@
       "accepted": true,
       "message": "Guest table. The traveller’s meal is on the laid table.",
       "recipe": "guest-table",
+      "retired": [
+        "laid-table"
+      ],
       "completed": false
     },
     {
@@ -364,6 +356,9 @@
       "accepted": true,
       "message": "Shared table. The prepared table now bears the host’s place as well as the guest’s; this represents the chosen hospitality arrangement, not an extra created meal. The shared table is prepared. Hospitality has made room for the traveller without turning one limited exception into a rule for everyone.",
       "recipe": "shared-table",
+      "retired": [
+        "guest-table"
+      ],
       "completed": false
     },
     {

@@ -1,0 +1,870 @@
+{
+  "scenario": "mars-connected-survival-v3",
+  "routes": {
+    "authored": {
+      "completed": true,
+      "actions": 230,
+      "combinations": 200,
+      "continuity": {
+        "scenario": "mars-connected-survival-v3",
+        "completed": true,
+        "rows": [
+          {
+            "stage": "signal",
+            "earlierUsed": [],
+            "goalConnected": [],
+            "completed": true
+          },
+          {
+            "stage": "habitat",
+            "earlierUsed": [
+              "solar-charger"
+            ],
+            "goalConnected": [
+              "solar-charger",
+              "solar-radio"
+            ],
+            "completed": true
+          },
+          {
+            "stage": "rover",
+            "earlierUsed": [
+              "solar-charger"
+            ],
+            "goalConnected": [
+              "solar-charger"
+            ],
+            "completed": true
+          },
+          {
+            "stage": "outcrop",
+            "earlierUsed": [
+              "bearing-map"
+            ],
+            "goalConnected": [
+              "bearing-map"
+            ],
+            "completed": true
+          },
+          {
+            "stage": "weather",
+            "earlierUsed": [
+              "solar-charger",
+              "annotated-map"
+            ],
+            "goalConnected": [
+              "solar-charger",
+              "annotated-map"
+            ],
+            "completed": true
+          },
+          {
+            "stage": "relay",
+            "earlierUsed": [
+              "weather-route-map"
+            ],
+            "goalConnected": [
+              "weather-route-map"
+            ],
+            "completed": true
+          },
+          {
+            "stage": "rescue",
+            "earlierUsed": [
+              "pressure-patch"
+            ],
+            "goalConnected": [
+              "pressure-patch"
+            ],
+            "completed": true
+          },
+          {
+            "stage": "camp",
+            "earlierUsed": [
+              "provisioned-refuge",
+              "solar-radio"
+            ],
+            "goalConnected": [
+              "provisioned-refuge",
+              "solar-radio"
+            ],
+            "completed": true
+          },
+          {
+            "stage": "cargo-return",
+            "earlierUsed": [
+              "soup-flask"
+            ],
+            "goalConnected": [
+              "soup-flask"
+            ],
+            "completed": true
+          },
+          {
+            "stage": "night",
+            "earlierUsed": [
+              "provisioned-refuge"
+            ],
+            "goalConnected": [
+              "provisioned-refuge"
+            ],
+            "completed": true
+          },
+          {
+            "stage": "waterworks",
+            "earlierUsed": [
+              "water-canister"
+            ],
+            "goalConnected": [
+              "water-canister"
+            ],
+            "completed": true
+          },
+          {
+            "stage": "garden",
+            "earlierUsed": [
+              "pressure-patch",
+              "camp-water-system",
+              "solar-charger"
+            ],
+            "goalConnected": [
+              "pressure-patch",
+              "camp-water-system",
+              "solar-charger"
+            ],
+            "completed": true
+          },
+          {
+            "stage": "nursery",
+            "earlierUsed": [
+              "propagator",
+              "field-camera",
+              "greenhouse"
+            ],
+            "goalConnected": [
+              "propagator",
+              "greenhouse",
+              "field-camera"
+            ],
+            "completed": true
+          },
+          {
+            "stage": "workshop",
+            "earlierUsed": [
+              "crawler"
+            ],
+            "goalConnected": [
+              "crawler"
+            ],
+            "completed": true
+          },
+          {
+            "stage": "traverse",
+            "earlierUsed": [
+              "annotated-map",
+              "crawler"
+            ],
+            "goalConnected": [
+              "annotated-map",
+              "crawler"
+            ],
+            "completed": true
+          },
+          {
+            "stage": "crossing",
+            "earlierUsed": [
+              "terrain-model"
+            ],
+            "goalConnected": [
+              "terrain-model",
+              "crawler"
+            ],
+            "completed": true
+          },
+          {
+            "stage": "buried-story",
+            "earlierUsed": [
+              "core-profile"
+            ],
+            "goalConnected": [
+              "core-profile"
+            ],
+            "completed": true
+          },
+          {
+            "stage": "contrast",
+            "earlierUsed": [
+              "field-camera",
+              "terrain-model",
+              "basin-field-record"
+            ],
+            "goalConnected": [
+              "field-camera",
+              "terrain-model",
+              "basin-field-record"
+            ],
+            "completed": true
+          },
+          {
+            "stage": "depot-way",
+            "earlierUsed": [
+              "field-camera",
+              "weather-record",
+              "protected-controller"
+            ],
+            "goalConnected": [
+              "protected-controller",
+              "field-camera",
+              "weather-record"
+            ],
+            "completed": true
+          },
+          {
+            "stage": "oxygen",
+            "earlierUsed": [
+              "depot-cargo-shuttle"
+            ],
+            "goalConnected": [
+              "depot-cargo-shuttle"
+            ],
+            "completed": true
+          },
+          {
+            "stage": "ascent",
+            "earlierUsed": [
+              "oxygen-service-module"
+            ],
+            "goalConnected": [
+              "oxygen-service-module"
+            ],
+            "completed": true
+          },
+          {
+            "stage": "rendezvous",
+            "earlierUsed": [
+              "long-range-radio"
+            ],
+            "goalConnected": [
+              "long-range-radio"
+            ],
+            "completed": true
+          },
+          {
+            "stage": "departure",
+            "earlierUsed": [
+              "depot-cargo-shuttle",
+              "catalogued-ice-sample",
+              "retained-sediment",
+              "crew-table-portrait",
+              "basin-field-record",
+              "core-profile",
+              "sleeved-comparison"
+            ],
+            "goalConnected": [
+              "depot-cargo-shuttle",
+              "catalogued-ice-sample",
+              "retained-sediment",
+              "crew-table-portrait",
+              "basin-field-record",
+              "core-profile",
+              "sleeved-comparison"
+            ],
+            "completed": true
+          },
+          {
+            "stage": "homebound",
+            "earlierUsed": [
+              "ascent-cabin",
+              "specimen-cart",
+              "agreed-rendezvous"
+            ],
+            "goalConnected": [
+              "ascent-cabin",
+              "specimen-cart",
+              "agreed-rendezvous"
+            ],
+            "completed": true
+          }
+        ],
+        "missing": []
+      }
+    },
+    "beacon": {
+      "completed": true,
+      "actions": 234,
+      "combinations": 204,
+      "continuity": {
+        "scenario": "mars-connected-survival-v3",
+        "completed": true,
+        "rows": [
+          {
+            "stage": "signal",
+            "earlierUsed": [],
+            "goalConnected": [],
+            "completed": true
+          },
+          {
+            "stage": "habitat",
+            "earlierUsed": [],
+            "goalConnected": [
+              "signal-beacon"
+            ],
+            "completed": true
+          },
+          {
+            "stage": "rover",
+            "earlierUsed": [
+              "solar-charger"
+            ],
+            "goalConnected": [
+              "solar-charger"
+            ],
+            "completed": true
+          },
+          {
+            "stage": "outcrop",
+            "earlierUsed": [
+              "bearing-map"
+            ],
+            "goalConnected": [
+              "bearing-map"
+            ],
+            "completed": true
+          },
+          {
+            "stage": "weather",
+            "earlierUsed": [
+              "solar-charger",
+              "annotated-map"
+            ],
+            "goalConnected": [
+              "solar-charger",
+              "annotated-map"
+            ],
+            "completed": true
+          },
+          {
+            "stage": "relay",
+            "earlierUsed": [
+              "weather-route-map"
+            ],
+            "goalConnected": [
+              "weather-route-map"
+            ],
+            "completed": true
+          },
+          {
+            "stage": "rescue",
+            "earlierUsed": [
+              "pressure-patch"
+            ],
+            "goalConnected": [
+              "pressure-patch"
+            ],
+            "completed": true
+          },
+          {
+            "stage": "camp",
+            "earlierUsed": [
+              "provisioned-refuge",
+              "radio",
+              "solar-charger"
+            ],
+            "goalConnected": [
+              "provisioned-refuge",
+              "radio",
+              "solar-charger"
+            ],
+            "completed": true
+          },
+          {
+            "stage": "cargo-return",
+            "earlierUsed": [
+              "soup-flask"
+            ],
+            "goalConnected": [
+              "soup-flask"
+            ],
+            "completed": true
+          },
+          {
+            "stage": "night",
+            "earlierUsed": [
+              "provisioned-refuge"
+            ],
+            "goalConnected": [
+              "provisioned-refuge"
+            ],
+            "completed": true
+          },
+          {
+            "stage": "waterworks",
+            "earlierUsed": [
+              "water-canister"
+            ],
+            "goalConnected": [
+              "water-canister"
+            ],
+            "completed": true
+          },
+          {
+            "stage": "garden",
+            "earlierUsed": [
+              "pressure-patch",
+              "camp-water-system",
+              "solar-charger"
+            ],
+            "goalConnected": [
+              "pressure-patch",
+              "camp-water-system",
+              "solar-charger"
+            ],
+            "completed": true
+          },
+          {
+            "stage": "nursery",
+            "earlierUsed": [
+              "propagator",
+              "field-camera",
+              "greenhouse"
+            ],
+            "goalConnected": [
+              "propagator",
+              "greenhouse",
+              "field-camera"
+            ],
+            "completed": true
+          },
+          {
+            "stage": "workshop",
+            "earlierUsed": [
+              "crawler"
+            ],
+            "goalConnected": [
+              "crawler"
+            ],
+            "completed": true
+          },
+          {
+            "stage": "traverse",
+            "earlierUsed": [
+              "annotated-map",
+              "crawler"
+            ],
+            "goalConnected": [
+              "annotated-map",
+              "crawler"
+            ],
+            "completed": true
+          },
+          {
+            "stage": "crossing",
+            "earlierUsed": [
+              "terrain-model"
+            ],
+            "goalConnected": [
+              "terrain-model",
+              "crawler"
+            ],
+            "completed": true
+          },
+          {
+            "stage": "buried-story",
+            "earlierUsed": [
+              "core-profile"
+            ],
+            "goalConnected": [
+              "core-profile"
+            ],
+            "completed": true
+          },
+          {
+            "stage": "contrast",
+            "earlierUsed": [
+              "field-camera",
+              "terrain-model",
+              "basin-field-record"
+            ],
+            "goalConnected": [
+              "field-camera",
+              "terrain-model",
+              "basin-field-record"
+            ],
+            "completed": true
+          },
+          {
+            "stage": "depot-way",
+            "earlierUsed": [
+              "field-camera",
+              "weather-record",
+              "protected-controller"
+            ],
+            "goalConnected": [
+              "protected-controller",
+              "field-camera",
+              "weather-record"
+            ],
+            "completed": true
+          },
+          {
+            "stage": "oxygen",
+            "earlierUsed": [
+              "depot-cargo-shuttle"
+            ],
+            "goalConnected": [
+              "depot-cargo-shuttle"
+            ],
+            "completed": true
+          },
+          {
+            "stage": "ascent",
+            "earlierUsed": [
+              "oxygen-service-module"
+            ],
+            "goalConnected": [
+              "oxygen-service-module"
+            ],
+            "completed": true
+          },
+          {
+            "stage": "rendezvous",
+            "earlierUsed": [
+              "long-range-radio"
+            ],
+            "goalConnected": [
+              "long-range-radio"
+            ],
+            "completed": true
+          },
+          {
+            "stage": "departure",
+            "earlierUsed": [
+              "depot-cargo-shuttle",
+              "catalogued-ice-sample",
+              "retained-sediment",
+              "crew-table-portrait",
+              "basin-field-record",
+              "core-profile",
+              "sleeved-comparison"
+            ],
+            "goalConnected": [
+              "depot-cargo-shuttle",
+              "catalogued-ice-sample",
+              "retained-sediment",
+              "crew-table-portrait",
+              "basin-field-record",
+              "core-profile",
+              "sleeved-comparison"
+            ],
+            "completed": true
+          },
+          {
+            "stage": "homebound",
+            "earlierUsed": [
+              "ascent-cabin",
+              "specimen-cart",
+              "agreed-rendezvous"
+            ],
+            "goalConnected": [
+              "ascent-cabin",
+              "specimen-cart",
+              "agreed-rendezvous"
+            ],
+            "completed": true
+          }
+        ],
+        "missing": []
+      }
+    },
+    "tow": {
+      "completed": true,
+      "actions": 233,
+      "combinations": 203,
+      "continuity": {
+        "scenario": "mars-connected-survival-v3",
+        "completed": true,
+        "rows": [
+          {
+            "stage": "signal",
+            "earlierUsed": [],
+            "goalConnected": [],
+            "completed": true
+          },
+          {
+            "stage": "habitat",
+            "earlierUsed": [
+              "solar-charger"
+            ],
+            "goalConnected": [
+              "solar-charger",
+              "solar-radio"
+            ],
+            "completed": true
+          },
+          {
+            "stage": "rover",
+            "earlierUsed": [
+              "solar-charger"
+            ],
+            "goalConnected": [
+              "solar-charger"
+            ],
+            "completed": true
+          },
+          {
+            "stage": "outcrop",
+            "earlierUsed": [
+              "bearing-map"
+            ],
+            "goalConnected": [
+              "bearing-map"
+            ],
+            "completed": true
+          },
+          {
+            "stage": "weather",
+            "earlierUsed": [
+              "solar-charger",
+              "annotated-map"
+            ],
+            "goalConnected": [
+              "solar-charger",
+              "annotated-map"
+            ],
+            "completed": true
+          },
+          {
+            "stage": "relay",
+            "earlierUsed": [
+              "weather-route-map"
+            ],
+            "goalConnected": [
+              "weather-route-map"
+            ],
+            "completed": true
+          },
+          {
+            "stage": "rescue",
+            "earlierUsed": [
+              "rover",
+              "pressure-patch"
+            ],
+            "goalConnected": [
+              "rover",
+              "pressure-patch"
+            ],
+            "completed": true
+          },
+          {
+            "stage": "camp",
+            "earlierUsed": [
+              "provisioned-refuge",
+              "solar-radio"
+            ],
+            "goalConnected": [
+              "provisioned-refuge",
+              "solar-radio"
+            ],
+            "completed": true
+          },
+          {
+            "stage": "cargo-return",
+            "earlierUsed": [
+              "soup-flask"
+            ],
+            "goalConnected": [
+              "soup-flask"
+            ],
+            "completed": true
+          },
+          {
+            "stage": "night",
+            "earlierUsed": [
+              "provisioned-refuge"
+            ],
+            "goalConnected": [
+              "provisioned-refuge"
+            ],
+            "completed": true
+          },
+          {
+            "stage": "waterworks",
+            "earlierUsed": [
+              "water-canister"
+            ],
+            "goalConnected": [
+              "water-canister"
+            ],
+            "completed": true
+          },
+          {
+            "stage": "garden",
+            "earlierUsed": [
+              "pressure-patch",
+              "camp-water-system",
+              "solar-charger"
+            ],
+            "goalConnected": [
+              "pressure-patch",
+              "camp-water-system",
+              "solar-charger"
+            ],
+            "completed": true
+          },
+          {
+            "stage": "nursery",
+            "earlierUsed": [
+              "propagator",
+              "field-camera",
+              "greenhouse"
+            ],
+            "goalConnected": [
+              "propagator",
+              "greenhouse",
+              "field-camera"
+            ],
+            "completed": true
+          },
+          {
+            "stage": "workshop",
+            "earlierUsed": [
+              "towed-crawler"
+            ],
+            "goalConnected": [
+              "towed-crawler"
+            ],
+            "completed": true
+          },
+          {
+            "stage": "traverse",
+            "earlierUsed": [
+              "annotated-map",
+              "crawler"
+            ],
+            "goalConnected": [
+              "annotated-map",
+              "crawler"
+            ],
+            "completed": true
+          },
+          {
+            "stage": "crossing",
+            "earlierUsed": [
+              "terrain-model"
+            ],
+            "goalConnected": [
+              "terrain-model",
+              "crawler"
+            ],
+            "completed": true
+          },
+          {
+            "stage": "buried-story",
+            "earlierUsed": [
+              "core-profile"
+            ],
+            "goalConnected": [
+              "core-profile"
+            ],
+            "completed": true
+          },
+          {
+            "stage": "contrast",
+            "earlierUsed": [
+              "field-camera",
+              "terrain-model",
+              "basin-field-record"
+            ],
+            "goalConnected": [
+              "field-camera",
+              "terrain-model",
+              "basin-field-record"
+            ],
+            "completed": true
+          },
+          {
+            "stage": "depot-way",
+            "earlierUsed": [
+              "field-camera",
+              "weather-record",
+              "protected-controller"
+            ],
+            "goalConnected": [
+              "protected-controller",
+              "field-camera",
+              "weather-record"
+            ],
+            "completed": true
+          },
+          {
+            "stage": "oxygen",
+            "earlierUsed": [
+              "depot-cargo-shuttle"
+            ],
+            "goalConnected": [
+              "depot-cargo-shuttle"
+            ],
+            "completed": true
+          },
+          {
+            "stage": "ascent",
+            "earlierUsed": [
+              "oxygen-service-module"
+            ],
+            "goalConnected": [
+              "oxygen-service-module"
+            ],
+            "completed": true
+          },
+          {
+            "stage": "rendezvous",
+            "earlierUsed": [
+              "long-range-radio"
+            ],
+            "goalConnected": [
+              "long-range-radio"
+            ],
+            "completed": true
+          },
+          {
+            "stage": "departure",
+            "earlierUsed": [
+              "depot-cargo-shuttle",
+              "catalogued-ice-sample",
+              "retained-sediment",
+              "crew-table-portrait",
+              "basin-field-record",
+              "core-profile",
+              "sleeved-comparison"
+            ],
+            "goalConnected": [
+              "depot-cargo-shuttle",
+              "catalogued-ice-sample",
+              "retained-sediment",
+              "crew-table-portrait",
+              "basin-field-record",
+              "core-profile",
+              "sleeved-comparison"
+            ],
+            "completed": true
+          },
+          {
+            "stage": "homebound",
+            "earlierUsed": [
+              "ascent-cabin",
+              "specimen-cart",
+              "agreed-rendezvous"
+            ],
+            "goalConnected": [
+              "ascent-cabin",
+              "specimen-cart",
+              "agreed-rendezvous"
+            ],
+            "completed": true
+          }
+        ],
+        "missing": []
+      }
+    }
+  }
+}

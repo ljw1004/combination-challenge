@@ -1,0 +1,36 @@
+✔ stove is a disconnected required goal: cooking and feast work before stove (478.641394ms)
+✔ warm-meal incorporation preserves intermediate completion, undo restores foods, final table preserves position (407.449453ms)
+✔ mounted telescope first still permits star chart, then old telescope retires (513.007335ms)
+✖ timetable retains the existing clock and river-map reference (476.209789ms)
+✔ baseline saves restore without reset at each late chapter (6012.319797ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 4
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 8078.969661
+
+✖ failing tests:
+
+test at ../../shared/combination-campaign-research-20261028/elements/tools/targeted.test.ts:8:1
+✖ timetable retains the existing clock and river-map reference (476.209789ms)
+  AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+  
+    assert(M.token(g.state,'river-map'))
+  
+      at TestContext.<anonymous> (file:///workspace/shared/combination-campaign-research-20261028/elements/tools/targeted.test.ts:8:287)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }

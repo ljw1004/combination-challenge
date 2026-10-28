@@ -1,0 +1,43 @@
+# Elements: targeted late-journey review
+
+**Status:** author-aware baseline evaluation; no game-content candidate implemented, no remote writes. Latest v6 is preserved unchanged. A fresh-player session is prepared but has not yet been played by this reviewer.
+
+## What should be preserved
+
+Elements already has a continuing journey, not thirty disconnected puzzles. The river map begins with the crossing, extends through the landing and harbour, joins the star chart, then enters the final atlas with the weather record. The potter's tiled table becomes the shared feast table. The washstand becomes a supplied wash station. Seed oil returns as lighting; the lens/telescope return for the night crossing; the floating lantern returns at the actual final landing. These are meaningful reuses, not an inventory sentence inserted to pass continuity.
+
+The later narrative is substantially better than an endless preparation sequence: guests arrive after shore food, wash and join the kitchen, share the hot meal, bring gifts, then receive departure times and a route home. The final invitation to sit at the same table pays off making things for people. Do not replace this with new systems or mandatory side recipes simply to claim an improvement.
+
+The previous `round-three` trial covers optics, botany and weather only: 20 attempts, 18 accepted actions including 2 advances, 2 hints. The pond swimmer and shared eyepiece were a specific positive; weather increasingly felt routine. Its voluntary stop before food must remain negative/limited evidence, not be presented as completion of the later journey. Familiar, readily understood craft sequences are not automatically bad.
+
+## Critical findings and hypotheses
+
+1. **Verified mechanical disconnect worth fresh probing: the stove.** Chapter 24 requires a Stove but no recipe has Stove as an input. Cooking is Cooking pot + Grain/Fruit at the fixed Kitchen hearth. It is possible to make both dishes and lay the feast before constructing the mandatory stove; only the unrelated stove objective then blocks departure. A player could reasonably try cooking pot/food with the stove. This is a genuine usefulness/affordance concern, not proof the chapter is unfun. Do not add new combinations blindly: observe the fresh player first. A repair must connect useful cooking equipment without adding a redundant stove-plus-pot click or invalidating existing saves.
+2. **Smaller wording mismatch: Dinner bell.** Chapter 27 is explicitly about calling homeward boat passengers; its goal and output retain the old Dinner bell label. A save-compatible label/goal adjustment to a departure/ferry bell is a plausible tiny candidate, not yet implemented. A generic reusable bell is also defensible; this is not a broken route.
+3. **Storage abstraction, not a confirmed missing recipe.** Grain bin is made from planks and a wooden chest. Completion says donated grain is put away. This can be ordinary narrative filling rather than a demand for another `grain + bin` action. Do not pad the route to literalize every social action.
+4. **Possible late-game routine remains an open experience question.** Food preservation, water preparation and washing are familiar transformations before the shared meal; they may feel like a concrete welcome or like more chores. The current first-person social completions improve purpose, but only fresh play can show whether that purpose is felt. The supported earlier finding of routine weather should not be inflated into a diagnosis that the entire last third fails.
+5. **Optional objects are not route requirements.** Brush, brine/salt and hourglass are not needed by the authored route. Automatic stage packing is goal-driven, so their ingredients need not be in the local scene. A failed synthetic attempt to create Brush immediately on entering chapter 17 was an invalid availability assumption, not a gameplay deadlock. That failed audit is disclosed below; do not claim these options were fully tested.
+
+## Verification and limits
+
+- `tools/audit.ts`: exact comparison of authored complete checkpoint actions to published route evidence; current scenario/lifecycle/objective-flow/construction validators; baseline route replay; all 96 combinations of authored juice, waterwheel, slide, herbarium, weather and meal alternatives. It records earlier-created input reuse for every non-opening chapter. This is an author-aware structural audit, **not** source-blind play, goal-connected provenance proof, or a human enjoyment result. The parent's stronger goal-connected audit should supersede the simple reuse count.
+- `tools/targeted.test.ts`: stove disconnect, warm-dish incorporation and intermediate goals, undo, transformed table position, reusable pot retention, mount-before-chart ordering, timetable references, and save restore at chapters 21–30.
+- Exact machine results are in `reports/route-audit.json`, `reports/audit-stdout.json`, `reports/targeted-tests.tap`. If the JSON is absent or TAP says failure, the corresponding process has not established a pass; check the running process/status rather than assuming success.
+- An initial audit runner completed its alternative loop but then failed at an optional Brush insertion because it was not in the local inventory. It did not publish a pass report. The runner was corrected to report the untested optional scope rather than silently teleport materials. A mistaken warm-meal recipe ID was corrected and the alternative product rerun with an assertion that each route substitution exists.
+- No game source was changed, so build/regression execution against an integrated candidate is not claimed. No visual/touch/browser QA performed. Old saves and archived routes are untouched.
+
+## Frozen fresh-player assignment
+
+Prepared session: `elements_guests_a`, starting at chapter 21, directly after the previous trial's stopping boundary. All earlier actions are authored setup, excluded from fresh metrics. The current model, lifecycle, schema and v6 scenario were copied from the recovered baseline; CLI/player is the prior evidence-capturing logical surface, with lifecycle added to its frozen implementation hash checks. The supplied command exposes current scene/items/descriptions/goals and normal partner hints, not outputs or recipes.
+
+Give a new agent **only** this assignment, not this report or its hypotheses:
+
+> Read `/workspace/shared/combination-campaign-research-20261028/elements/frozen/PLAYER-INSTRUCTIONS.txt`. Start with `node /workspace/shared/combination-campaign-research-20261028/elements/frozen/engine/player.ts view elements_guests_a`. Use only that player command and returned state. Do not read scenario JSON, engine source, route evidence, reports, tests, session files or manifests. Play as a curious player, one action per call, not as a completion solver. Continue from food for the crossing through guest arrival and beyond only while interested. Hints are ordinary tools; stopping early is equally useful. Provide sparse candid notes about intent, satisfaction, confusion and routine. End with the command's stop/finish report. Manual advance is logical-interface transport; the shipped browser transitions automatically. This is a protocol-source-blind AI logical test, not a human or visual/touch trial.
+
+Afterward verify frozen hashes, exact command/event replay, baseline-subtracted metrics, rejected gestures, hints and the voluntary stopping point. Preserve an incomplete or negative session. Only then make targeted changes, freeze a new candidate identity/snapshot and assign a separate fresh test where useful.
+
+## Established terminal results
+
+- Authored baseline and all **96** alternative-route combinations completed. All 29 non-opening chapters reused earlier-created inputs in each tested route. Baseline: **198 combinations**, 197 creations, 1 installation, 6 placements, 30 advances (234 accepted actions). Alternative paths remain approximately 200 combinations; no padding was added.
+- Targeted tests: **4 passed, 1 failed**, preserved in TAP. The failing assertion expected River map to remain after making Ferry timetable. The timetable recipe itself declares retention, but an older harbour-map transformation can reconcile its previously deferred incorporation once the timetable is its final use. This is a lifecycle expectation mismatch requiring review, not an established gameplay block: the 96 complete routes pass. Clock remains. Do not report the targeted suite as fully passing or silently erase its failure.
+- The verified Stove disconnect remains the most useful uncoached player probe. Frozen session has not been mutated after authored checkpoint setup. No candidate content changes.

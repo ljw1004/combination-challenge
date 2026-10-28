@@ -1,0 +1,794 @@
+TAP version 13
+# Subtest: intermediate bread leaves checklist and stays ordinary while picnic basket remains the final objective
+ok 1 - intermediate bread leaves checklist and stays ordinary while picnic basket remains the final objective
+  ---
+  duration_ms: 43.596825
+  type: 'test'
+  ...
+# Subtest: finishing the basket turns only the basket gold; intermediate achievements do not demand a second copy
+ok 2 - finishing the basket turns only the basket gold; intermediate achievements do not demand a second copy
+  ---
+  duration_ms: 21.070198
+  type: 'test'
+  ...
+# Subtest: build rejects final objectives that are also reagents on the way to another objective
+ok 3 - build rejects final objectives that are also reagents on the way to another objective
+  ---
+  duration_ms: 20.092471
+  type: 'test'
+  ...
+# Subtest: goal reveal prerequisites cannot point to missing goals or form cycles
+ok 4 - goal reveal prerequisites cannot point to missing goals or form cycles
+  ---
+  duration_ms: 7.408644
+  type: 'test'
+  ...
+# Subtest: real Mars soup pouch transforms once, heater survives, and soup is incorporated into flask
+ok 5 - real Mars soup pouch transforms once, heater survives, and soup is incorporated into flask
+  ---
+  duration_ms: 38.257905
+  type: 'test'
+  ...
+# Subtest: legacy soup save cleans obsolete pouch, preserves route/history, and needs no reset
+ok 6 - legacy soup save cleans obsolete pouch, preserves route/history, and needs no reset
+  ---
+  duration_ms: 111.675058
+  type: 'test'
+  ...
+# Subtest: declared ingredient supply retires after final other use; exhausted tools stay
+ok 7 - declared ingredient supply retires after final other use; exhausted tools stay
+  ---
+  duration_ms: 0.759953
+  type: 'test'
+  ...
+# Subtest: bearing map retains reusable instrument and replaces the old map, not its source photograph
+ok 8 - bearing map retains reusable instrument and replaces the old map, not its source photograph
+  ---
+  duration_ms: 0.196355
+  type: 'test'
+  ...
+# Subtest: every active recipe has reviewed lifecycle metadata; locations never become consumed ingredients
+not ok 9 - every active recipe has reviewed lifecycle metadata; locations never become consumed ingredients
+  ---
+  duration_ms: 4.043112
+  type: 'test'
+  location: '/tmp/food-candidate-build-check-20261028/experiments/tangible-campaign/reviews/lifecycle/lifecycle.test.ts:50:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly equal:
+    
+    10 !== 9
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: 9
+  actual: 10
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///tmp/food-candidate-build-check-20261028/experiments/tangible-campaign/reviews/lifecycle/lifecycle.test.ts:53:63)
+    Test.runInAsyncScope (node:async_hooks:227:14)
+    Test.run (node:internal/test_runner/test:1402:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+    Test.postRun (node:internal/test_runner/test:1542:19)
+    Test.run (node:internal/test_runner/test:1467:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:974:7)
+  ...
+# Subtest: nursery continues the same protected tray rather than requiring an obsolete duplicate
+ok 10 - nursery continues the same protected tray rather than requiring an obsolete duplicate
+  ---
+  duration_ms: 0.277908
+  type: 'test'
+  ...
+# Subtest: content validator rejects unannotated inputs, highlights last-use candidates, and accepts explicit retention
+ok 11 - content validator rejects unannotated inputs, highlights last-use candidates, and accepts explicit retention
+  ---
+  duration_ms: 0.440743
+  type: 'test'
+  ...
+# Subtest: lifecycle validation rejects duplicate transformations, wrong input names, empty reasons and conflicting legacy rules
+ok 12 - lifecycle validation rejects duplicate transformations, wrong input names, empty reasons and conflicting legacy rules
+  ---
+  duration_ms: 0.168183
+  type: 'test'
+  ...
+# Subtest: declared transformed object determines result position regardless of drag direction or recipe operand order
+ok 13 - declared transformed object determines result position regardless of drag direction or recipe operand order
+  ---
+  duration_ms: 0.706262
+  type: 'test'
+  ...
+# Subtest: actual grow light transforms in place without absorbing the shared power unit
+ok 14 - actual grow light transforms in place without absorbing the shared power unit
+  ---
+  duration_ms: 79.260132
+  type: 'test'
+  ...
+# Subtest: all authored assembly upgrades keep their fitted parts visible, including chained upgrades
+ok 15 - all authored assembly upgrades keep their fitted parts visible, including chained upgrades
+  ---
+  duration_ms: 1983.126125
+  type: 'test'
+  ...
+# Subtest: old assembly saves recover fitted components from real history without resetting progress
+ok 16 - old assembly saves recover fitted components from real history without resetting progress
+  ---
+  duration_ms: 350.02107
+  type: 'test'
+  ...
+# Subtest: build rejects compound-to-simple recipes and missing preservation later in a chain
+ok 17 - build rejects compound-to-simple recipes and missing preservation later in a chain
+  ---
+  duration_ms: 6.328703
+  type: 'test'
+  ...
+# Subtest: large fitted assemblies arrive fully inside their new chapter
+ok 18 - large fitted assemblies arrive fully inside their new chapter
+  ---
+  duration_ms: 210.644754
+  type: 'test'
+  ...
+# Subtest: construction/idle does not claim saved or invoke callbacks; factory capture deferred and coalesced
+ok 19 - construction/idle does not claim saved or invoke callbacks; factory capture deferred and coalesced
+  ---
+  duration_ms: 18.15334
+  type: 'test'
+  ...
+# Subtest: delayed/out-of-order/duplicate responses never store superseded snapshots; latest wins once
+ok 20 - delayed/out-of-order/duplicate responses never store superseded snapshots; latest wins once
+  ---
+  duration_ms: 20.140488
+  type: 'test'
+  ...
+# Subtest: value capture and worker clone isolate mutations; full 100 history decoded with no shared identities
+ok 21 - value capture and worker clone isolate mutations; full 100 history decoded with no shared identities
+  ---
+  duration_ms: 16.648888
+  type: 'test'
+  ...
+# Subtest: storage error keeps previous saved value, rejects flush and supports explicit retry
+ok 22 - storage error keeps previous saved value, rejects flush and supports explicit retry
+  ---
+  duration_ms: 27.735213
+  type: 'test'
+  ...
+# Subtest: stale encode errors do not hide the pending newest save; current encode errors surface
+ok 23 - stale encode errors do not hide the pending newest save; current encode errors surface
+  ---
+  duration_ms: 16.707975
+  type: 'test'
+  ...
+# Subtest: worker creation failure is honest and retry recovers without main-thread codec fallback
+ok 24 - worker creation failure is honest and retry recovers without main-thread codec fallback
+  ---
+  duration_ms: 16.616663
+  type: 'test'
+  ...
+# Subtest: postMessage, crash, messageerror, and malformed reply failures preserve dirty state
+ok 25 - postMessage, crash, messageerror, and malformed reply failures preserve dirty state
+  ---
+  duration_ms: 34.550866
+  type: 'test'
+  ...
+# Subtest: timeout retires worker; retry ignores responses from the retired worker generation
+ok 26 - timeout retires worker; retry ignores responses from the retired worker generation
+  ---
+  duration_ms: 31.621355
+  type: 'test'
+  ...
+# Subtest: flushSync stores newest full snapshot and retires every late async response
+ok 27 - flushSync stores newest full snapshot and retires every late async response
+  ---
+  duration_ms: 17.614824
+  type: 'test'
+  ...
+# Subtest: sync storage/capture failure cannot claim saved, and explicit retry retains the latest factory
+ok 28 - sync storage/capture failure cannot claim saved, and explicit retry retains the latest factory
+  ---
+  duration_ms: 2.045714
+  type: 'test'
+  ...
+# Subtest: hidden/pagehide save newest, beforeunload prompts on failure, cleanup removes listeners
+ok 29 - hidden/pagehide save newest, beforeunload prompts on failure, cleanup removes listeners
+  ---
+  duration_ms: 2.30883
+  type: 'test'
+  ...
+# Subtest: dispose rejects outstanding flush, cancels dispatch and never saves or reopens
+ok 30 - dispose rejects outstanding flush, cancels dispatch and never saves or reopens
+  ---
+  duration_ms: 9.134356
+  type: 'test'
+  ...
+# Subtest: observer exceptions do not turn successfully persisted bytes into a save error
+ok 31 - observer exceptions do not turn successfully persisted bytes into a save error
+  ---
+  duration_ms: 9.382864
+  type: 'test'
+  ...
+# Subtest: invalid value snapshot fails without saving a previous revision as the new one
+ok 32 - invalid value snapshot fails without saving a previous revision as the new one
+  ---
+  duration_ms: 0.619641
+  type: 'test'
+  ...
+# Subtest: worker protocol handles invalid envelopes/errors, legacy JSON remains readable
+ok 33 - worker protocol handles invalid envelopes/errors, legacy JSON remains readable
+  ---
+  duration_ms: 1.193052
+  type: 'test'
+  ...
+# (node:107) ExperimentalWarning: stripTypeScriptTypes is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: browser dispatch gives a paint opportunity; hidden/throttled animation frames have a bounded fallback
+ok 34 - browser dispatch gives a paint opportunity; hidden/throttled animation frames have a bounded fallback
+  ---
+  duration_ms: 258.349915
+  type: 'test'
+  ...
+# Subtest: schema validates test world and rejects arbitrary missing/ambiguous data
+ok 35 - schema validates test world and rejects arbitrary missing/ambiguous data
+  ---
+  duration_ms: 1.216598
+  type: 'test'
+  ...
+# Subtest: public view includes current explicit motivation/goal but not future catalogue outputs
+ok 36 - public view includes current explicit motivation/goal but not future catalogue outputs
+  ---
+  duration_ms: 1.125461
+  type: 'test'
+  ...
+# Subtest: Rover required slots blank and optional hidden until installed, functional goal exact placement
+ok 37 - Rover required slots blank and optional hidden until installed, functional goal exact placement
+  ---
+  duration_ms: 0.894484
+  type: 'test'
+  ...
+# Subtest: No duplicate discovery, explicit incorporation only, permanent terminal things
+ok 38 - No duplicate discovery, explicit incorporation only, permanent terminal things
+  ---
+  duration_ms: 1.167674
+  type: 'test'
+  ...
+# Subtest: Stage caches are story events, old areas remain fixed, carried relative arrangement preserved
+ok 39 - Stage caches are story events, old areas remain fixed, carried relative arrangement preserved
+  ---
+  duration_ms: 0.646742
+  type: 'test'
+  ...
+# Subtest: Local operand and catalyst interactions use current physical things, not telepathy
+ok 40 - Local operand and catalyst interactions use current physical things, not telepathy
+  ---
+  duration_ms: 1.5174
+  type: 'test'
+  ...
+# Subtest: Placement freely reversible and undo restores exact gold; moves not combinations
+ok 41 - Placement freely reversible and undo restores exact gold; moves not combinations
+  ---
+  duration_ms: 0.452971
+  type: 'test'
+  ...
+# Subtest: Birth stays immediately adjacent to target at widths320/375/600; source unchanged
+ok 42 - Birth stays immediately adjacent to target at widths320/375/600; source unchanged
+  ---
+  duration_ms: 0.644389
+  type: 'test'
+  ...
+# Subtest: Visit transports actual selected things and does not summon unseen supply
+ok 43 - Visit transports actual selected things and does not summon unseen supply
+  ---
+  duration_ms: 0.77884
+  type: 'test'
+  ...
+# Subtest: Save/restore, resize and legal checkpoints preserve outcomes and avoid hidden injection
+ok 44 - Save/restore, resize and legal checkpoints preserve outcomes and avoid hidden injection
+  ---
+  duration_ms: 2.052114
+  type: 'test'
+  ...
+# Subtest: Hints are pure and agree with real legal action; no duplicate count inflation through undo
+ok 45 - Hints are pure and agree with real legal action; no duplicate count inflation through undo
+  ---
+  duration_ms: 0.610547
+  type: 'test'
+  ...
+# Subtest: Required readiness is an operand property, and hint parity respects it
+ok 46 - Required readiness is an operand property, and hint parity respects it
+  ---
+  duration_ms: 0.817799
+  type: 'test'
+  ...
+# Subtest: No blind stage travel teleport of a deliberately left earlier tool
+ok 47 - No blind stage travel teleport of a deliberately left earlier tool
+  ---
+  duration_ms: 0.67919
+  type: 'test'
+  ...
+# Subtest: Unreadable piled placement objectives and malformed saves rejected
+ok 48 - Unreadable piled placement objectives and malformed saves rejected
+  ---
+  duration_ms: 0.651659
+  type: 'test'
+  ...
+# Subtest: Catalyst directions distinguish receiving target and incoming partner without output spoilers
+ok 49 - Catalyst directions distinguish receiving target and incoming partner without output spoilers
+  ---
+  duration_ms: 1.283459
+  type: 'test'
+  ...
+# Subtest: Same physical area stage progression preserves arrangements and placements
+ok 50 - Same physical area stage progression preserves arrangements and placements
+  ---
+  duration_ms: 0.589245
+  type: 'test'
+  ...
+# Subtest: Current-scene packing leaves future tools then collects their unique identities with provenance
+ok 51 - Current-scene packing leaves future tools then collects their unique identities with provenance
+  ---
+  duration_ms: 0.723277
+  type: 'test'
+  ...
+# Subtest: Scene default stops at existing intermediate instead of taking its unused raw ancestors
+ok 52 - Scene default stops at existing intermediate instead of taking its unused raw ancestors
+  ---
+  duration_ms: 0.317687
+  type: 'test'
+  ...
+# Subtest: Explicit scene packing is authoritative and cannot instantiate unknown supplies
+ok 53 - Explicit scene packing is authoritative and cannot instantiate unknown supplies
+  ---
+  duration_ms: 0.902195
+  type: 'test'
+  ...
+# Subtest: One shared drop resolver prioritizes new location recipes, otherwise ordinary placement
+ok 54 - One shared drop resolver prioritizes new location recipes, otherwise ordinary placement
+  ---
+  duration_ms: 0.99195
+  type: 'test'
+  ...
+# Subtest: Gesture catalyst placement needs no player translation into different logical action
+ok 55 - Gesture catalyst placement needs no player translation into different logical action
+  ---
+  duration_ms: 0.327412
+  type: 'test'
+  ...
+# Subtest: Player construction slots never expose hidden semantic slot IDs
+ok 56 - Player construction slots never expose hidden semantic slot IDs
+  ---
+  duration_ms: 0.381273
+  type: 'test'
+  ...
+# Subtest: Completion narrative is gated by true objectives, appended at newly fulfilled goal and cleared by reversal
+ok 57 - Completion narrative is gated by true objectives, appended at newly fulfilled goal and cleared by reversal
+  ---
+  duration_ms: 0.987824
+  type: 'test'
+  ...
+# Subtest: Final objective exposes Finish this journey and declarative ending, not another chapter
+ok 58 - Final objective exposes Finish this journey and declarative ending, not another chapter
+  ---
+  duration_ms: 0.554133
+  type: 'test'
+  ...
+# Subtest: Empty hints are locally scoped and area counts reveal no undiscovered content
+ok 59 - Empty hints are locally scoped and area counts reveal no undiscovered content
+  ---
+  duration_ms: 0.420512
+  type: 'test'
+  ...
+# Subtest: Replacement inherits the removed target position and placement, survives save and reverses exactly
+ok 60 - Replacement inherits the removed target position and placement, survives save and reverses exactly
+  ---
+  duration_ms: 4.580794
+  type: 'test'
+  ...
+# Subtest: When both inputs disappear the replacement takes the drop target spot; ordinary new creations stay adjacent
+ok 61 - When both inputs disappear the replacement takes the drop target spot; ordinary new creations stay adjacent
+  ---
+  duration_ms: 0.505209
+  type: 'test'
+  ...
+# Subtest: An object transformed by a location remains there; a reusable tool producing something separate does not
+ok 62 - An object transformed by a location remains there; a reusable tool producing something separate does not
+  ---
+  duration_ms: 1.476128
+  type: 'test'
+  ...
+# Subtest: same-area advancement recollects current prerequisites from old areas, never clones or future-only tools
+ok 63 - same-area advancement recollects current prerequisites from old areas, never clones or future-only tools
+  ---
+  duration_ms: 0.494623
+  type: 'test'
+  ...
+# Subtest: resize updates history so undo cannot restore out-of-width positions, and restore roundtrips every state
+ok 64 - resize updates history so undo cannot restore out-of-width positions, and restore roundtrips every state
+  ---
+  duration_ms: 0.558459
+  type: 'test'
+  ...
+# Subtest: placement gold is an exact current-stage relation and source remains at origin after combining
+ok 65 - placement gold is an exact current-stage relation and source remains at origin after combining
+  ---
+  duration_ms: 0.354362
+  type: 'test'
+  ...
+# Subtest: click creation, advance modal, exact placement gold, undo and reset
+ok 66 - click creation, advance modal, exact placement gold, undo and reset
+  ---
+  duration_ms: 12.379721
+  type: 'test'
+  ...
+# Subtest: drag creation leaves source at origin and ordinary drop uses release position
+ok 67 - drag creation leaves source at origin and ordinary drop uses release position
+  ---
+  duration_ms: 6.299381
+  type: 'test'
+  ...
+# Subtest: cancelled drag and mission interruption do not combine
+ok 68 - cancelled drag and mission interruption do not combine
+  ---
+  duration_ms: 5.242618
+  type: 'test'
+  ...
+# Subtest: REGRESSION: unrelated pointerup must not finish active drag
+ok 69 - REGRESSION: unrelated pointerup must not finish active drag
+  ---
+  duration_ms: 3.614752
+  type: 'test'
+  ...
+# Subtest: lost capture cancels drag without a move; stale up does nothing
+ok 70 - lost capture cancels drag without a move; stale up does nothing
+  ---
+  duration_ms: 3.701893
+  type: 'test'
+  ...
+# Subtest: saved stage roundtrip and undo preserves prior places
+ok 71 - saved stage roundtrip and undo preserves prior places
+  ---
+  duration_ms: 8.367843
+  type: 'test'
+  ...
+# Subtest: incoming catalyst highlights receiver without explanatory text
+ok 72 - incoming catalyst highlights receiver without explanatory text
+  ---
+  duration_ms: 4.434824
+  type: 'test'
+  ...
+# Subtest: second pointer cannot adopt drag or cancel first pointer
+ok 73 - second pointer cannot adopt drag or cancel first pointer
+  ---
+  duration_ms: 3.376884
+  type: 'test'
+  ...
+# Subtest: legacy fallback ignores second finger and commits only owned touch
+ok 74 - legacy fallback ignores second finger and commits only owned touch
+  ---
+  duration_ms: 3.818789
+  type: 'test'
+  ...
+# Subtest: resize and blur interrupt drag without committing transient coordinates
+ok 75 - resize and blur interrupt drag without committing transient coordinates
+  ---
+  duration_ms: 7.332849
+  type: 'test'
+  ...
+# Subtest: ordinary drop into prior area changes actual area with same unique ID and fixed area tops
+ok 76 - ordinary drop into prior area changes actual area with same unique ID and fixed area tops
+  ---
+  duration_ms: 5.465873
+  type: 'test'
+  ...
+# Subtest: checkpoint interruption cancels drag and opens replayed-stage mission
+ok 77 - checkpoint interruption cancels drag and opens replayed-stage mission
+  ---
+  duration_ms: 4.093801
+  type: 'test'
+  ...
+# Subtest: location gesture uses the shared resolver: new recipe first, then ordinary placement
+ok 78 - location gesture uses the shared resolver: new recipe first, then ordinary placement
+  ---
+  duration_ms: 4.642686
+  type: 'test'
+  ...
+# Subtest: completing a chapter shows the next challenge directly, and undo restores the earlier challenge
+ok 79 - completing a chapter shows the next challenge directly, and undo restores the earlier challenge
+  ---
+  duration_ms: 4.321003
+  type: 'test'
+  ...
+# Subtest: final challenge automatically finishes and shows its ending once; reload and undo work
+ok 80 - final challenge automatically finishes and shows its ending once; reload and undo work
+  ---
+  duration_ms: 9.1239
+  type: 'test'
+  ...
+# Subtest: moving an exact-placement objective away removes premature ending before Finish
+ok 81 - moving an exact-placement objective away removes premature ending before Finish
+  ---
+  duration_ms: 4.084247
+  type: 'test'
+  ...
+# Subtest: checkpoint DEBUG marker lives in popup, restores from compact save and clears only on reset
+ok 82 - checkpoint DEBUG marker lives in popup, restores from compact save and clears only on reset
+  ---
+  duration_ms: 6.925236
+  type: 'test'
+  ...
+# Subtest: active chooser hides archived school and causation, preserving direct archived routes
+ok 83 - active chooser hides archived school and causation, preserving direct archived routes
+  ---
+  duration_ms: 7.674512
+  type: 'test'
+  ...
+# Subtest: previous full campaigns remain playable directly but are unlisted in the active chooser
+ok 84 - previous full campaigns remain playable directly but are unlisted in the active chooser
+  ---
+  duration_ms: 13.24987
+  type: 'test'
+  ...
+# Subtest: modern pointer ownership ignores compatibility Touch Events
+ok 85 - modern pointer ownership ignores compatibility Touch Events
+  ---
+  duration_ms: 4.431448
+  type: 'test'
+  ...
+# Subtest: async save status is truthful and updates without cancelling drag; failures expose retry
+ok 86 - async save status is truthful and updates without cancelling drag; failures expose retry
+  ---
+  duration_ms: 3.693149
+  type: 'test'
+  ...
+# Subtest: invalid save is reported without crashing and reset starts a playable new journey
+ok 87 - invalid save is reported without crashing and reset starts a playable new journey
+  ---
+  duration_ms: 4.414613
+  type: 'test'
+  ...
+# Subtest: small-screen scroll containment is explicit in CSS (not native layout evidence)
+ok 88 - small-screen scroll containment is explicit in CSS (not native layout evidence)
+  ---
+  duration_ms: 0.277998
+  type: 'test'
+  ...
+# Subtest: in-app navigation awaits durable save and stays on the current journey after failure
+ok 89 - in-app navigation awaits durable save and stays on the current journey after failure
+  ---
+  duration_ms: 3.544516
+  type: 'test'
+  ...
+# Subtest: newer navigation wins and reset cancels an outstanding save-before-navigation request
+ok 90 - newer navigation wins and reset cancels an outstanding save-before-navigation request
+  ---
+  duration_ms: 7.561952
+  type: 'test'
+  ...
+# Subtest: after Finish, moved creations retain the recorded ending without claiming current placement
+ok 91 - after Finish, moved creations retain the recorded ending without claiming current placement
+  ---
+  duration_ms: 4.681003
+  type: 'test'
+  ...
+# Subtest: mission presents the challenge and local context without carried-item narration
+ok 92 - mission presents the challenge and local context without carried-item narration
+  ---
+  duration_ms: 4.228213
+  type: 'test'
+  ...
+# Subtest: objective card opens current description; dismissal preserves scroll and restores trigger focus
+ok 93 - objective card opens current description; dismissal preserves scroll and restores trigger focus
+  ---
+  duration_ms: 3.663165
+  type: 'test'
+  ...
+# Subtest: chapter completion lets birth finish, then opens only the next challenge with no acknowledgement
+ok 94 - chapter completion lets birth finish, then opens only the next challenge with no acknowledgement
+  ---
+  duration_ms: 4.155744
+  type: 'test'
+  ...
+# Subtest: bug popup groups controls, survives repeated undo, and dismisses by close, Escape and backdrop
+ok 95 - bug popup groups controls, survives repeated undo, and dismisses by close, Escape and backdrop
+  ---
+  duration_ms: 6.171934
+  type: 'test'
+  ...
+# Subtest: opening overlays cancels active pointer and legacy touch gestures without stale drop
+ok 96 - opening overlays cancels active pointer and legacy touch gestures without stale drop
+  ---
+  duration_ms: 13.592825
+  type: 'test'
+  ...
+# Subtest: save failures remain actionable outside closed debug; status updates preserve the open popup
+ok 97 - save failures remain actionable outside closed debug; status updates preserve the open popup
+  ---
+  duration_ms: 3.157104
+  type: 'test'
+  ...
+# Subtest: earlier-area and current-area controls close popup without losing selection or save state
+ok 98 - earlier-area and current-area controls close popup without losing selection or save state
+  ---
+  duration_ms: 5.525102
+  type: 'test'
+  ...
+# Subtest: selection and ordinary actions use visual feedback without explanatory bubbles
+ok 99 - selection and ordinary actions use visual feedback without explanatory bubbles
+  ---
+  duration_ms: 3.866239
+  type: 'test'
+  ...
+# Subtest: automatic completion popup is cancelled by undo or reset and does not reopen after dismissal
+ok 100 - automatic completion popup is cancelled by undo or reset and does not reopen after dismissal
+  ---
+  duration_ms: 10.678005
+  type: 'test'
+  ...
+# Subtest: resuming a completed challenge opens the next challenge rather than its completion recap
+ok 101 - resuming a completed challenge opens the next challenge rather than its completion recap
+  ---
+  duration_ms: 5.574847
+  type: 'test'
+  ...
+# Subtest: six selected journeys are prominent; undeveloped sketches are secondary and remain playable
+ok 102 - six selected journeys are prominent; undeveloped sketches are secondary and remain playable
+  ---
+  duration_ms: 10.179986
+  type: 'test'
+  ...
+# Subtest: readable metadata is optional, validated, copied into the player view, and never inferred from descriptions
+ok 103 - readable metadata is optional, validated, copied into the player view, and never inferred from descriptions
+  ---
+  duration_ms: 4.222054
+  type: 'test'
+  ...
+# Subtest: source reading is deliberate, single-instance, and preserves selection, scroll, history and focus on every dismissal
+ok 104 - source reading is deliberate, single-instance, and preserves selection, scroll, history and focus on every dismissal
+  ---
+  duration_ms: 6.113106
+  type: 'test'
+  ...
+# Subtest: reader escapes labels, passage text and attribution instead of injecting markup or links
+ok 105 - reader escapes labels, passage text and attribution instead of injecting markup or links
+  ---
+  duration_ms: 4.322045
+  type: 'test'
+  ...
+# Subtest: reading a source in an older area is observational for clicks and touch-sized pointer taps
+ok 106 - reading a source in an older area is observational for clicks and touch-sized pointer taps
+  ---
+  duration_ms: 14.751095
+  type: 'test'
+  ...
+# Subtest: source marker and selection do not steal pointer or legacy-touch drags or synthesize a reading action
+ok 107 - source marker and selection do not steal pointer or legacy-touch drags or synthesize a reading action
+  ---
+  duration_ms: 11.800822
+  type: 'test'
+  ...
+# Subtest: reader is transient across reset, checkpoints, other overlays and saved navigation
+ok 108 - reader is transient across reset, checkpoints, other overlays and saved navigation
+  ---
+  duration_ms: 30.564477
+  type: 'test'
+  ...
+# Subtest: source reading defers but never loses automatic next-stage or final completion, including reopen before queued handoff
+ok 109 - source reading defers but never loses automatic next-stage or final completion, including reopen before queued handoff
+  ---
+  duration_ms: 12.382886
+  type: 'test'
+  ...
+# Subtest: reading completion handoff cannot survive undo, reset, checkpoint or a placement goal being undone
+ok 110 - reading completion handoff cannot survive undo, reset, checkpoint or a placement goal being undone
+  ---
+  duration_ms: 22.662483
+  type: 'test'
+  ...
+# Subtest: text-heavy source tiles use engine-sized label lines at 320/375px without initial overlap
+ok 111 - text-heavy source tiles use engine-sized label lines at 320/375px without initial overlap
+  ---
+  duration_ms: 4.486221
+  type: 'test'
+  ...
+# Subtest: Shared browser data: mars-cargo-revision-v2 exact authored route and checkpoints
+ok 112 - Shared browser data: mars-cargo-revision-v2 exact authored route and checkpoints
+  ---
+  duration_ms: 2386.914609
+  type: 'test'
+  ...
+# Subtest: Shared browser data: atlas-of-questions-v8-transmission-actions exact authored route and checkpoints
+ok 113 - Shared browser data: atlas-of-questions-v8-transmission-actions exact authored route and checkpoints
+  ---
+  duration_ms: 1753.366612
+  type: 'test'
+  ...
+# Subtest: Shared browser data: elements-observation-revision-v6 exact authored route and checkpoints
+ok 114 - Shared browser data: elements-observation-revision-v6 exact authored route and checkpoints
+  ---
+  duration_ms: 5963.572292
+  type: 'test'
+  ...
+# Subtest: Shared browser data: food exact authored route and checkpoints
+ok 115 - Shared browser data: food exact authored route and checkpoints
+  ---
+  duration_ms: 16.052992
+  type: 'test'
+  ...
+# Subtest: Shared browser data: theology exact authored route and checkpoints
+ok 116 - Shared browser data: theology exact authored route and checkpoints
+  ---
+  duration_ms: 2.542054
+  type: 'test'
+  ...
+# Subtest: Shared browser data: literature exact authored route and checkpoints
+ok 117 - Shared browser data: literature exact authored route and checkpoints
+  ---
+  duration_ms: 2.62632
+  type: 'test'
+  ...
+# Subtest: Shared browser data: restoration exact authored route and checkpoints
+ok 118 - Shared browser data: restoration exact authored route and checkpoints
+  ---
+  duration_ms: 3.679139
+  type: 'test'
+  ...
+# Subtest: Shared browser data: shoreline exact authored route and checkpoints
+ok 119 - Shared browser data: shoreline exact authored route and checkpoints
+  ---
+  duration_ms: 2.182183
+  type: 'test'
+  ...
+# Subtest: Shared browser data: causation-purpose-v4 exact authored route and checkpoints
+ok 120 - Shared browser data: causation-purpose-v4 exact authored route and checkpoints
+  ---
+  duration_ms: 3.461392
+  type: 'test'
+  ...
+# Subtest: Shared browser data: mars-story-expansion-candidate exact authored route and checkpoints
+ok 121 - Shared browser data: mars-story-expansion-candidate exact authored route and checkpoints
+  ---
+  duration_ms: 2623.374463
+  type: 'test'
+  ...
+# Subtest: Shared browser data: atlas-of-questions-v6 exact authored route and checkpoints
+ok 122 - Shared browser data: atlas-of-questions-v6 exact authored route and checkpoints
+  ---
+  duration_ms: 1571.456757
+  type: 'test'
+  ...
+# Subtest: Shared browser data: elements-local-projects-v5 exact authored route and checkpoints
+ok 123 - Shared browser data: elements-local-projects-v5 exact authored route and checkpoints
+  ---
+  duration_ms: 1448.182625
+  type: 'test'
+  ...
+# Subtest: Shared browser data: causation exact authored route and checkpoints
+ok 124 - Shared browser data: causation exact authored route and checkpoints
+  ---
+  duration_ms: 2.460801
+  type: 'test'
+  ...
+# Subtest: Shared browser data: chinese-thought exact authored route and checkpoints
+ok 125 - Shared browser data: chinese-thought exact authored route and checkpoints
+  ---
+  duration_ms: 1.374502
+  type: 'test'
+  ...
+# Subtest: Shared browser data: doctrine-grace-and-matter-v1 exact authored route and checkpoints
+ok 126 - Shared browser data: doctrine-grace-and-matter-v1 exact authored route and checkpoints
+  ---
+  duration_ms: 8.770194
+  type: 'test'
+  ...
+# Subtest: Shared browser data: hearth-to-twinkie-v1 exact authored route and checkpoints
+ok 127 - Shared browser data: hearth-to-twinkie-v1 exact authored route and checkpoints
+  ---
+  duration_ms: 1198.852866
+  type: 'test'
+  ...
+1..127
+# tests 127
+# suites 0
+# pass 126
+# fail 1
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 21065.880062

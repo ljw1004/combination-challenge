@@ -13,10 +13,10 @@ function harness(world=fixture,initialSaved?:string,options:{worlds?:Scenario[];
  let latest:SaveEnvelope|undefined=initialSaved?(()=>{try{return decodeSave(initialSaved);}catch{return undefined;}})():undefined,saveCallback:Function=()=>{},saveStatus={state:'idle',revision:0,savedRevision:0,message:''},retries=0,lifecycleInstalled=false;
  const matches=(e:any,q:string)=>q.split(',').some(q=>q.startsWith('#')?e.id===q.slice(1):q.startsWith('.')?e.classList.contains(q.slice(1)):(()=>{const m=/^\[data-([\w-]+)(?:="([^"]*)")?\]$/.exec(q);return !!m&&m[1]in e.dataset&&(m[2]===undefined||e.dataset[m[1]]===m[2]);})());
  class El{listeners:Record<string,Function[]>={};id='';dataset:Record<string,string>={};attrs:Record<string,string>={};parentElement:any=null;children:any[]=[];value='';style:any={};hidden=false;open=false;textContent='';isConnected=true;clientWidth=360;clientHeight=500;scrollTop=0;scrollLeft=0;_html='';classes=new Set<string>();classList={add:(...xs:string[])=>xs.forEach(x=>this.classes.add(x)),remove:(...xs:string[])=>xs.forEach(x=>this.classes.delete(x)),contains:(x:string)=>this.classes.has(x)};
-  set innerHTML(html:string){this._html=html;els.forEach(e=>e.isConnected=false);els=[];const stack:any[]=[this];for(const m of html.matchAll(/<\/?([\w-]+)\b[^>]*>/g)){const raw=m[0],tag=m[1];if(raw.startsWith('</')){if(stack.length>1)stack.pop();continue;}const e=new El();for(const a of raw.matchAll(/([\w-]+)="([^"]*)"/g))e.attrs[a[1]]=a[2];e.id=e.attrs.id??'';e.hidden=/\shidden(?:\s|>)/.test(raw);e.classes=new Set((e.attrs.class??'').split(/\s+/).filter(Boolean));for(const [k,v]of Object.entries(e.attrs))if(k.startsWith('data-'))e.dataset[k.slice(5)]=v;e.parentElement=stack.at(-1);e.parentElement.children.push(e);els.push(e);if(!['br','input','meta','link'].includes(tag))stack.push(e);}}
-  get innerHTML(){return this._html;}get href(){return this.attrs.href;}showModal(){this.open=true;}closest(q:string):any{return matches(this,q)?this:this.parentElement?.closest(q)??null;}getBoundingClientRect(){return {left:0,top:0,right:360,bottom:500,width:360,height:500};}setPointerCapture(){}addEventListener(type:string,fn:Function){(this.listeners[type]??=[]).push(fn);}
+  set innerHTML(html:string){this._html=html;els.forEach(e=>e.isConnected=false);els=[];const stack:any[]=[this];for(const m of html.matchAll(/<\/?([\w-]+)\b[^>]*>/g)){const raw=m[0],tag=m[1];if(raw.startsWith('</')){if(stack.length>1)stack.pop();continue;}const e=new El();for(const a of raw.matchAll(/([\w-]+)="([^"]*)"/g))e.attrs[a[1]]=a[2];e.id=e.attrs.id??'';e.hidden=/\shidden(?:\s|>)/.test(raw);e.classes=new Set((e.attrs.class??'').split(/\s+/).filter(Boolean));for(const [k,v]of Object.entries(e.attrs))if(k.startsWith('data-'))e.dataset[k.slice(5)]=v;e.parentElement=stack.at(-1);e.parentElement.children.push(e);els.push(e);if(!raw.endsWith('/>')&&!['br','input','meta','link'].includes(tag))stack.push(e);}}
+  setAttribute(name:string,value:string){this.attrs[name]=value;}focus(){doc.activeElement=this;}get innerHTML(){return this._html;}get href(){return this.attrs.href;}showModal(){this.open=true;}closest(q:string):any{return matches(this,q)?this:this.parentElement?.closest(q)??null;}getBoundingClientRect(){return {left:0,top:0,right:360,bottom:500,width:360,height:500};}setPointerCapture(){}addEventListener(type:string,fn:Function){(this.listeners[type]??=[]).push(fn);}
  }
- const app=new El();const doc={querySelector:(q:string)=>q==='#app'?app:els.find(e=>matches(e,q))??null,querySelectorAll:(q:string)=>els.filter(e=>matches(e,q)),getElementById:(id:string)=>els.find(e=>e.id===id)??null,elementFromPoint:()=>hit};
+ const app=new El();const doc={activeElement:null as any,querySelector:(q:string)=>q==='#app'?app:els.find(e=>matches(e,q))??null,querySelectorAll:(q:string)=>els.filter(e=>matches(e,q)),getElementById:(id:string)=>els.find(e=>e.id===id)??null,elementFromPoint:()=>hit};
  const emitSaveStatus=(state:string,message:string)=>{saveStatus={...saveStatus,state,message};saveCallback(saveStatus);};
  const flushSave=()=>{if(latest){saved.set(key,JSON.stringify(latest));saveStatus.savedRevision=saveStatus.revision;emitSaveStatus('saved','Progress saved.');}};
  // Deliberate adapter double. Real worker ordering, lifecycle and quota behavior
@@ -27,18 +27,18 @@ function harness(world=fixture,initialSaved?:string,options:{worlds?:Scenario[];
  const button=(id:string)=>doc.getElementById(id);const thing=(id:string)=>els.find(e=>e.dataset.target===id);const click=(e:any)=>{assert(e);e.onclick?.({target:e,stopPropagation(){}});};const state=()=>structuredClone(latest!.game) as M.Game;
  return {navigated,resolveFlush:()=>flushWaiters.splice(0).forEach(fn=>fn()),windowEvents,saved,app,doc,button,thing,click,state,timers,key,emitSaveStatus,flushSave,retries:()=>retries,lifecycleInstalled:()=>lifecycleInstalled,setHit:(e:any)=>hit=e,flush:()=>timers.filter(t=>t.ms===0).forEach(t=>t.fn())};
 }
-test('click creation, advance modal, exact placement gold, undo and reset',()=>{const h=harness();h.click(h.button('close'));h.click(h.thing('lamp'));h.click(h.thing('battery'));assert.equal(h.state().state.metrics.combinations,1);assert(h.thing('beacon').classes.has('goal-met'));assert(h.thing('lamp'));h.click(h.button('next'));assert(h.button('mission').open);assert(!h.thing('beacon').classes.has('goal-met'));h.click(h.button('close'));h.click(h.thing('beacon'));h.click(h.thing('@ridge'));assert(h.thing('beacon').classes.has('goal-met'));assert(h.thing('@ridge').classes.has('goal-met'));h.click(h.button('undo'));assert(!h.thing('beacon').classes.has('goal-met'));h.click(h.button('reset'));assert(h.button('mission').open);assert(!h.thing('beacon'));});
+test('click creation, advance modal, exact placement gold, undo and reset',()=>{const h=harness();h.click(h.button('close'));h.click(h.thing('lamp'));h.click(h.thing('battery'));assert.equal(h.state().state.metrics.combinations,1);assert(h.thing('beacon').classes.has('goal-met'));assert(h.thing('lamp'));h.timers.filter(t=>t.ms===700).at(-1)?.fn();assert(h.button('mission').open);assert(!h.thing('beacon').classes.has('goal-met'));h.click(h.button('close'));h.click(h.thing('beacon'));h.click(h.thing('@ridge'));assert(h.thing('beacon').classes.has('goal-met'));assert(h.thing('@ridge').classes.has('goal-met'));h.click(h.button('undo'));assert(!h.thing('beacon').classes.has('goal-met'));h.click(h.button('reset'));assert(h.button('mission').open);assert(!h.thing('beacon'));});
 test('drag creation leaves source at origin and ordinary drop uses release position',()=>{const h=harness();h.click(h.button('close'));const origin=structuredClone(h.state().state.tokens.find(t=>t.id==='lamp'));let board:any=h.doc.querySelector('.board');board.onpointerdown({target:h.thing('lamp'),button:0,clientX:52,clientY:56,pointerId:1,preventDefault(){}});h.setHit(h.thing('battery'));board.onpointermove({clientX:152,clientY:56,pointerId:1});board.onpointerup({clientX:152,clientY:56,pointerId:1});assert.deepEqual(h.state().state.tokens.find(t=>t.id==='lamp'),origin);assert(h.thing('beacon'));h.flush();board=h.doc.querySelector('.board');board.onpointerdown({target:h.thing('lamp'),button:0,clientX:52,clientY:56,pointerId:2,preventDefault(){}});h.setHit(null);board.onpointermove({clientX:200,clientY:300,pointerId:2});board.onpointerup({clientX:200,clientY:300,pointerId:2});assert.equal(h.state().state.tokens.find(t=>t.id==='lamp')!.x,200);assert.equal(h.state().state.tokens.find(t=>t.id==='lamp')!.y,300);});
 test('cancelled drag and mission interruption do not combine',()=>{const h=harness();h.click(h.button('close'));const before=h.state().state;const board:any=h.doc.querySelector('.board');board.onpointerdown({target:h.thing('lamp'),button:0,clientX:52,clientY:56,pointerId:1,preventDefault(){}});h.setHit(h.thing('battery'));board.onpointermove({clientX:152,clientY:56,pointerId:1});board.onpointercancel({pointerId:1});assert.deepEqual(h.state().state,before);h.click(h.button('purpose'));assert(h.button('mission').open);h.click(h.button('modal-reset'));assert.equal(h.state().state.metrics.combinations,0);});
 
 test('REGRESSION: unrelated pointerup must not finish active drag',()=>{const h=harness();h.click(h.button('close'));const before=h.state().state;const board:any=h.doc.querySelector('.board');board.onpointerdown({target:h.thing('lamp'),button:0,clientX:52,clientY:56,pointerId:1,preventDefault(){}});h.setHit(null);board.onpointermove({clientX:220,clientY:300,pointerId:1});board.onpointerup({clientX:100,clientY:100,pointerId:2});assert.deepEqual(h.state().state,before);});
 test('lost capture cancels drag without a move; stale up does nothing',()=>{const h=harness();h.click(h.button('close'));const before=h.state().state;const board:any=h.doc.querySelector('.board');board.onpointerdown({target:h.thing('lamp'),button:0,clientX:52,clientY:56,pointerId:1,preventDefault(){}});board.onpointermove({clientX:220,clientY:300,pointerId:1});board.onlostpointercapture({pointerId:1});h.setHit(h.thing('battery'));board.onpointerup({clientX:152,clientY:56,pointerId:1});assert.deepEqual(h.state().state,before);});
-test('saved stage roundtrip and undo preserves prior places',()=>{const h=harness();h.click(h.button('close'));h.click(h.thing('lamp'));h.click(h.thing('battery'));h.click(h.button('next'));h.click(h.button('close'));const before=h.state();const loaded=harness(fixture,h.saved.get('tangible-campaign-v1:fixture'));assert.deepEqual(loaded.state(),before);loaded.click(loaded.button('undo'));assert.equal(loaded.state().state.stage,0);assert(!loaded.thing('@ridge'));assert(loaded.thing('lamp'));});
-test('incoming catalyst hints identify receiving object without output spoiler',()=>{const world=structuredClone(fixture);world.stages[0].locations=['ridge'];world.stages[1].locations=[];world.recipes[0].at='ridge';const h=harness(world);h.click(h.button('close'));h.click(h.thing('lamp'));h.click(h.thing('@ridge'));h.thing('lamp').onmouseenter();const info:any=h.doc.querySelector('#inspection');assert.match(info.textContent,/Bring Battery onto Lamp here/);assert(!info.textContent.includes('Beacon'));h.click(h.thing('battery'));h.click(h.thing('lamp'));assert(h.thing('beacon'));});
+test('saved stage roundtrip and undo preserves prior places',()=>{const h=harness();h.click(h.button('close'));h.click(h.thing('lamp'));h.click(h.thing('battery'));h.timers.filter(t=>t.ms===700).at(-1)?.fn();h.click(h.button('close'));const before=h.state();const loaded=harness(fixture,h.saved.get('tangible-campaign-v1:fixture'));assert.deepEqual(loaded.state(),before);loaded.click(loaded.button('undo'));assert.equal(loaded.state().state.stage,0);assert(!loaded.thing('@ridge'));assert(loaded.thing('lamp'));});
+test('incoming catalyst highlights receiver without explanatory text',()=>{const world=structuredClone(fixture);world.stages[0].locations=['ridge'];world.stages[1].locations=[];world.recipes[0].at='ridge';const h=harness(world);h.click(h.button('close'));h.click(h.thing('lamp'));h.click(h.thing('@ridge'));h.thing('lamp').onmouseenter();assert(!h.doc.querySelector('#inspection'));assert(h.thing('battery').classes.has('possible'));h.click(h.thing('battery'));h.click(h.thing('lamp'));assert(h.thing('beacon'));});
 test('second pointer cannot adopt drag or cancel first pointer',()=>{const h=harness();h.click(h.button('close'));const board:any=h.doc.querySelector('.board');board.onpointerdown({target:h.thing('lamp'),button:0,clientX:52,clientY:56,pointerId:1,preventDefault(){}});board.onpointerdown({target:h.thing('battery'),button:0,clientX:152,clientY:56,pointerId:2,preventDefault(){}});board.onpointercancel({pointerId:2});board.onlostpointercapture({pointerId:2});h.setHit(null);board.onpointermove({clientX:220,clientY:300,pointerId:1});board.onpointerup({clientX:220,clientY:300,pointerId:1});assert.equal(h.state().state.tokens.find(t=>t.id==='lamp')!.x,220);assert.equal(h.state().state.tokens.find(t=>t.id==='battery')!.x,152);});
 test('legacy fallback ignores second finger and commits only owned touch',()=>{const h=harness();h.click(h.button('close'));const board:any=h.doc.querySelector('.board');const touch=(identifier:number,clientX=52,clientY=56)=>({identifier,clientX,clientY});const fire=(name:string,args:any)=>board.listeners[name][0]({preventDefault(){},...args});fire('touchstart',{target:h.thing('lamp'),changedTouches:[touch(1)]});fire('touchstart',{target:h.thing('battery'),changedTouches:[touch(2)]});fire('touchcancel',{changedTouches:[touch(2)]});fire('touchmove',{touches:[touch(1,220,300),touch(2)]});fire('touchend',{changedTouches:[touch(2)]});assert.equal(h.state().state.metrics.moves,0);h.setHit(null);fire('touchend',{changedTouches:[touch(1,220,300)]});assert.equal(h.state().state.tokens.find(t=>t.id==='lamp')!.x,220);});
 test('resize and blur interrupt drag without committing transient coordinates',()=>{for(const event of ['resize','blur']){const h=harness();h.click(h.button('close'));const before=h.state().state;const board:any=h.doc.querySelector('.board');board.onpointerdown({target:h.thing('lamp'),button:0,clientX:52,clientY:56,pointerId:1,preventDefault(){}});board.onpointermove({clientX:220,clientY:300,pointerId:1});h.windowEvents[event]();h.setHit(null);board.onpointerup({clientX:220,clientY:300,pointerId:1});assert.deepEqual(h.state().state,before);}});
-test('ordinary drop into prior area changes actual area with same unique ID and fixed area tops',()=>{const h=harness();h.click(h.button('close'));h.click(h.thing('lamp'));h.click(h.thing('battery'));h.click(h.button('next'));h.click(h.button('close'));const saved=JSON.parse(h.saved.get('tangible-campaign-v1:fixture')!);const top=saved.tops.hill;const board:any=h.doc.querySelector('.board');board.onpointerdown({target:h.thing('beacon'),button:0,clientX:52,clientY:top+56,pointerId:1,preventDefault(){}});h.setHit(null);board.onpointermove({clientX:220,clientY:100,pointerId:1});board.onpointerup({clientX:220,clientY:100,pointerId:1});const g=h.state();assert.equal(g.state.tokens.find(t=>t.id==='beacon')!.area,'camp');assert.equal(g.state.tokens.find(t=>t.id==='beacon')!.y,100);assert.equal(g.state.tokens.filter(t=>t.id==='beacon').length,1);assert.equal(g.state.currentArea,'camp');assert.deepEqual(JSON.parse(h.saved.get('tangible-campaign-v1:fixture')!).tops,saved.tops);});
+test('ordinary drop into prior area changes actual area with same unique ID and fixed area tops',()=>{const h=harness();h.click(h.button('close'));h.click(h.thing('lamp'));h.click(h.thing('battery'));h.timers.filter(t=>t.ms===700).at(-1)?.fn();h.click(h.button('close'));const saved=JSON.parse(h.saved.get('tangible-campaign-v1:fixture')!);const top=saved.tops.hill;const board:any=h.doc.querySelector('.board');board.onpointerdown({target:h.thing('beacon'),button:0,clientX:52,clientY:top+56,pointerId:1,preventDefault(){}});h.setHit(null);board.onpointermove({clientX:220,clientY:100,pointerId:1});board.onpointerup({clientX:220,clientY:100,pointerId:1});const g=h.state();assert.equal(g.state.tokens.find(t=>t.id==='beacon')!.area,'camp');assert.equal(g.state.tokens.find(t=>t.id==='beacon')!.y,100);assert.equal(g.state.tokens.filter(t=>t.id==='beacon').length,1);assert.equal(g.state.currentArea,'camp');assert.deepEqual(JSON.parse(h.saved.get('tangible-campaign-v1:fixture')!).tops,saved.tops);});
 test('checkpoint interruption cancels drag and opens replayed-stage mission',()=>{const world=structuredClone(fixture);world.checkpoints=[{id:'hill',label:'Hill',actions:[{type:'combine',a:'lamp',b:'battery'},{type:'advance'}]}];const h=harness(world);h.click(h.button('close'));const board:any=h.doc.querySelector('.board');board.onpointerdown({target:h.thing('lamp'),button:0,clientX:52,clientY:56,pointerId:1,preventDefault(){}});board.onpointermove({clientX:220,clientY:300,pointerId:1});h.button('jump')!.onchange({target:{value:'hill'}});h.setHit(null);board.onpointerup({clientX:220,clientY:300,pointerId:1});assert.equal(h.state().state.stage,1);assert(h.button('mission')!.open);assert.equal(h.state().state.metrics.moves,0);assert.equal(h.state().state.tokens.find(t=>t.id==='beacon')!.area,'hill');});
 
 test('location gesture uses the shared resolver: new recipe first, then ordinary placement',()=>{
@@ -49,34 +49,28 @@ test('location gesture uses the shared resolver: new recipe first, then ordinary
  assert.deepEqual(h.state().events.at(-1)!.action,{type:'place',item:'lamp',location:'ridge'});
  assert.equal(h.state().state.tokens.find(t=>t.id==='lamp')!.location,'ridge');
 });
-test('fulfilled chapter replaces stale mission with durable closure and named next action; undo clears it',()=>{
- const h=harness();assert(!h.app.innerHTML.includes(fixture.stages[0].completionText!));h.click(h.button('close'));
- h.click(h.thing('lamp'));h.click(h.thing('battery'));
- assert.match(h.app.innerHTML,/Continue · Signal/);assert(h.app.innerHTML.includes(fixture.stages[0].completionText!));
- h.timers.filter(t=>t.ms===4500).forEach(t=>t.fn());assert(h.doc.querySelector('.completion-story'));
- h.click(h.button('purpose'));assert(h.button('mission').open);assert.match(h.app.innerHTML,/Chapter complete · Build/);
- assert(!h.doc.querySelector('.motivation'));assert(h.button('modal-next'));
- h.click(h.button('close'));h.click(h.button('undo'));
- assert(!h.button('next'));assert(!h.doc.querySelector('.completion-story'));assert(h.doc.querySelector('.motivation'));
+test('completing a chapter shows the next challenge directly, and undo restores the earlier challenge',()=>{
+ const h=harness();h.click(h.button('close'));h.click(h.thing('lamp'));h.click(h.thing('battery'));
+ assert(!h.button('mission').open);h.timers.filter(t=>t.ms===700).at(-1)?.fn();
+ assert.equal(h.state().state.stage,1);assert(h.button('mission').open);assert(h.doc.querySelector('.motivation'));assert(!h.doc.querySelector('.completion-story'));assert(!h.button('modal-next'));
+ assert(!h.app.innerHTML.includes(fixture.stages[0].completionText!));assert(h.app.innerHTML.includes(fixture.stages[1].motivation));
+ h.click(h.button('close'));h.click(h.button('undo'));assert.equal(h.state().state.stage,0);assert.equal(h.state().state.completed,false);
 });
-test('finish opens readable ending, ending survives close/reload, and undo restores Finish',()=>{
- const h=harness();h.click(h.button('close'));h.click(h.thing('lamp'));h.click(h.thing('battery'));h.click(h.button('next'));h.click(h.button('close'));
- h.click(h.thing('beacon'));h.click(h.thing('@ridge'));assert.match(h.app.innerHTML,/Finish this journey/);
- assert(h.app.innerHTML.includes(fixture.stages[1].completionText!));h.click(h.button('next'));
- assert(h.state().state.completed);assert(h.button('mission').open);assert(!h.button('next'));assert(!h.button('modal-next'));
- assert.match(h.app.innerHTML,/>Ending<\/button>/);assert.match(h.app.innerHTML,/Explore your creations/);assert(!h.doc.querySelector('.motivation'));
- h.click(h.button('close'));assert(h.doc.querySelector('.completion-story'));const loaded=harness(fixture,h.saved.get(h.key));
- assert(loaded.app.innerHTML.includes(fixture.stages[1].completionText!));loaded.click(loaded.button('purpose'));assert(loaded.button('mission').open);
- loaded.click(loaded.button('close'));loaded.click(loaded.button('undo'));assert(!loaded.state().state.completed);assert(loaded.button('next'));assert.match(loaded.app.innerHTML,/Finish this journey/);
+test('final challenge automatically finishes and shows its ending once; reload and undo work',()=>{
+ const h=harness();h.click(h.button('close'));h.click(h.thing('lamp'));h.click(h.thing('battery'));h.timers.filter(t=>t.ms===700).at(-1)?.fn();h.click(h.button('close'));
+ h.click(h.thing('beacon'));h.click(h.thing('@ridge'));h.timers.filter(t=>t.ms===700).at(-1)?.fn();
+ assert(h.state().state.completed);assert(h.button('mission').open);assert(!h.button('modal-next'));assert(h.app.innerHTML.includes(fixture.stages[1].completionText!));
+ h.click(h.button('close'));const loaded=harness(fixture,h.saved.get(h.key));assert(loaded.state().state.completed);assert(!loaded.button('mission').open);
+ loaded.click(loaded.button('purpose'));assert(loaded.button('mission').open);loaded.click(loaded.button('close'));loaded.click(loaded.button('undo'));assert(!loaded.state().state.completed);
 });
 test('moving an exact-placement objective away removes premature ending before Finish',()=>{
- const world=structuredClone(fixture);world.initialItems=['beacon'];world.stages=[world.stages[1]];const h=harness(world);h.click(h.button('close'));h.click(h.thing('beacon'));h.click(h.thing('@ridge'));assert(h.button('next'));
+ const world=structuredClone(fixture);world.initialItems=['beacon'];world.stages=[world.stages[1]];const h=harness(world);h.click(h.button('close'));h.click(h.thing('beacon'));h.click(h.thing('@ridge'));assert(!h.button('next'));assert(h.button('modal-next'));
  const board:any=h.doc.querySelector('.board');board.onpointerdown({target:h.thing('beacon'),button:0,clientX:52,clientY:56,pointerId:1,preventDefault(){}});h.setHit(null);board.onpointermove({clientX:200,clientY:300,pointerId:1});board.onpointerup({clientX:200,clientY:300,pointerId:1});
  assert(!h.button('next'));assert(!h.doc.querySelector('.completion-story'));h.click(h.button('purpose'));assert(h.doc.querySelector('.motivation'));
 });
-test('checkpoint DEBUG marker stays outside menu, restores from compact save and clears only on reset',()=>{
+test('checkpoint DEBUG marker lives in popup, restores from compact save and clears only on reset',()=>{
  const world=structuredClone(fixture);world.checkpoints=[{id:'hill',label:'Hill checkpoint',actions:[{type:'combine',a:'lamp',b:'battery'},{type:'advance'}]}];
- const h=harness(world);h.button('jump').onchange({target:{value:'hill'}});const marker=h.doc.querySelector('.debug-marker');assert(marker);assert(marker.parentElement.classes.has('toolbar'));
+ const h=harness(world);h.button('jump').onchange({target:{value:'hill'}});const marker=h.doc.querySelector('.debug-marker');assert(marker);assert.equal(marker.parentElement.id,'debug-dialog');assert.equal(h.button('debug-toggle').dataset.debug,'true');
  assert.match(h.app.innerHTML,/DEBUG · Hill checkpoint/);h.click(h.button('close'));h.click(h.button('undo'));assert(h.doc.querySelector('.debug-marker'));
  const raw=encodeSave(decodeSave(h.saved.get(h.key)!));const loaded=harness(world,raw);assert.match(loaded.app.innerHTML,/DEBUG · Hill checkpoint/);
  loaded.click(loaded.button('reset'));assert(!loaded.doc.querySelector('.debug-marker'));assert.equal(decodeSave(loaded.saved.get(loaded.key)!).debugName,undefined);
@@ -85,6 +79,11 @@ test('active chooser hides archived school and causation, preserving direct arch
  const oldBoat={...structuredClone(fixture),id:'causation',title:'Why This Boat?'},oldSchool={...structuredClone(fixture),id:'chinese-thought',title:'The School by the Well'},newBoat={...structuredClone(fixture),id:'causation-purpose-v4',title:'The rebuilt boatyard'},worlds=[fixture,oldBoat,oldSchool,newBoat];
  const h=harness(fixture,undefined,{worlds,search:''});assert.match(h.app.innerHTML,/A small journey/);assert(!h.app.innerHTML.includes(oldBoat.title));assert(!h.app.innerHTML.includes(oldSchool.title));assert(h.app.innerHTML.includes(newBoat.title));
  for(const world of [oldBoat,oldSchool]){const route=harness(world,undefined,{worlds});assert(route.button('mission').open);assert(route.app.innerHTML.includes(world.title));route.click(route.button('close'));assert.equal(route.state().scenarioId,world.id);}
+});
+test('previous full campaigns remain playable directly but are unlisted in the active chooser',()=>{
+ const archived=['theology','mars-story-expansion-candidate','atlas-of-questions-v6','elements-local-projects-v5'].map((id,i)=>({...structuredClone(fixture),id,title:'Archived full campaign '+i}));
+ const worlds=[fixture,...archived];const menu=harness(fixture,undefined,{worlds,search:''});
+ for(const world of archived){assert(!menu.app.innerHTML.includes(world.title));const direct=harness(world,undefined,{worlds});assert(direct.button('mission').open);direct.click(direct.button('close'));assert.equal(direct.state().scenarioId,world.id);}
 });
 test('modern pointer ownership ignores compatibility Touch Events',()=>{
  const h=harness(fixture,undefined,{modernPointer:true});h.click(h.button('close'));const board:any=h.doc.querySelector('.board');
@@ -107,7 +106,7 @@ test('invalid save is reported without crashing and reset starts a playable new 
  const h=harness(fixture,'not a valid save');assert(h.button('mission').open);assert.match(h.button('save-status').textContent,/could not be loaded/);h.click(h.button('close'));h.click(h.thing('lamp'));h.click(h.thing('battery'));assert(h.thing('beacon'));h.click(h.button('reset'));assert(h.thing('lamp'));assert(!h.thing('beacon'));
 });
 test('small-screen scroll containment is explicit in CSS (not native layout evidence)',()=>{
- const css=readFileSync(new URL('./campaign.css',import.meta.url),'utf8');assert.match(css,/\.chooser\{flex:1;min-height:0;[^}]*overflow-y:auto/);assert.match(css,/\.progress\{max-height:28dvh;overflow-y:auto/);assert.match(css,/#inspection\{[^}]*max-height:min\(16dvh,96px\);overflow-y:auto/);assert.match(css,/\.footer-actions\{display:flex/);
+ const css=readFileSync(new URL('./campaign.css',import.meta.url),'utf8');assert.match(css,/\.chooser\{height:100%;min-height:0;[^}]*overflow-y:auto/);assert.match(css,/\.objectives\{[^}]*max-height:min\(20dvh,140px\);overflow-y:auto/);assert.match(css,/#app\{height:100dvh;position:relative;overflow:hidden/);assert.match(css,/\.viewport\{position:absolute;inset:0;/);assert.match(css,/\.hud-stack\{position:absolute;[^}]*top:/);assert.match(css,/\.debug-toggle\{[^}]*width:44px;height:44px/);assert.match(css,/dialog button,dialog select\{min-height:44px/);assert(!css.includes('.footer{'));assert(!css.includes('.toolbar{'));
 });
 test('in-app navigation awaits durable save and stays on the current journey after failure',async()=>{
  const h=harness(fixture,undefined,{deferSave:true});h.click(h.button('close'));
@@ -117,18 +116,101 @@ test('in-app navigation awaits durable save and stays on the current journey aft
 });
 test('newer navigation wins and reset cancels an outstanding save-before-navigation request',async()=>{
  const h=harness(fixture,undefined,{deferFlush:true});h.click(h.button('close'));
- const first=h.button('go-chooser').onclick({preventDefault(){}}),second=h.button('go-original').onclick({preventDefault(){}});h.resolveFlush();await Promise.all([first,second]);assert.deepEqual(h.navigated,['index.html']);
- const pending=h.button('go-chooser').onclick({preventDefault(){}});h.click(h.button('reset'));h.resolveFlush();await pending;assert.deepEqual(h.navigated,['index.html']);assert(h.button('mission').open);
+ const first=h.button('go-chooser').onclick({preventDefault(){}}),second=h.button('go-original').onclick({preventDefault(){}});h.resolveFlush();await Promise.all([first,second]);assert.deepEqual(h.navigated,['mars-expedition.html']);
+ const pending=h.button('go-chooser').onclick({preventDefault(){}});h.click(h.button('reset'));h.resolveFlush();await pending;assert.deepEqual(h.navigated,['mars-expedition.html']);assert(h.button('mission').open);
 });
 test('after Finish, moved creations retain the recorded ending without claiming current placement',()=>{
- const world=structuredClone(fixture);world.initialItems=['beacon'];world.stages=[world.stages[1]];const h=harness(world);h.click(h.button('close'));h.click(h.thing('beacon'));h.click(h.thing('@ridge'));h.click(h.button('next'));h.click(h.button('close'));
+ const world=structuredClone(fixture);world.initialItems=['beacon'];world.stages=[world.stages[1]];const h=harness(world);h.click(h.button('close'));h.click(h.thing('beacon'));h.click(h.thing('@ridge'));h.timers.filter(t=>t.ms===700).at(-1)?.fn();h.click(h.button('close'));
  const board:any=h.doc.querySelector('.board');board.onpointerdown({target:h.thing('beacon'),button:0,clientX:52,clientY:56,pointerId:1,preventDefault(){}});h.setHit(null);board.onpointermove({clientX:200,clientY:300,pointerId:1});board.onpointerup({clientX:200,clientY:300,pointerId:1});
  assert(h.state().state.completed);assert(!h.thing('beacon').classes.has('goal-met'));assert(!h.button('next'));assert.match(h.app.innerHTML,/At journey’s end:/);assert(h.app.innerHTML.includes(world.stages[0].completionText!));assert(!h.doc.querySelector('.motivation'));
 });
-test('opening mission shows initial cache narrative but no transition; later stage shows actual travel',()=>{
+test('mission presents the challenge and local context without carried-item narration',()=>{
  const world=structuredClone(fixture);world.stages[0].area.travelText='We collect useful things from places already visited.';
  world.initialItems=['battery'];world.stages[0].caches=[{id:'initial-store',label:'Supplies at camp',narrative:'The landing pack is already beside you.',items:['lamp']}];
  const h=harness(world);assert(h.button('mission').open);assert(!h.app.innerHTML.includes(world.stages[0].area.travelText));assert(h.app.innerHTML.includes('Supplies at camp'));assert(h.app.innerHTML.includes('The landing pack is already beside you.'));
- h.click(h.button('close'));h.click(h.thing('lamp'));h.click(h.thing('battery'));h.click(h.button('next'));
- assert(h.button('mission').open);assert(h.app.innerHTML.includes(world.stages[1].area.travelText));
+ h.click(h.button('close'));h.click(h.thing('lamp'));h.click(h.thing('battery'));h.timers.filter(t=>t.ms===700).at(-1)?.fn();
+ assert(h.button('mission').open);assert(!h.app.innerHTML.includes(world.stages[1].area.travelText));assert(h.app.innerHTML.includes(world.stages[1].motivation));
+});
+
+test('objective card opens current description; dismissal preserves scroll and restores trigger focus',()=>{
+ const h=harness();h.click(h.button('close'));const v:any=h.doc.querySelector('.viewport');v.scrollTop=137;
+ assert(!h.doc.querySelector('.toolbar'));assert(!h.doc.querySelector('.footer'));assert(!h.doc.querySelector('.progress'));
+ assert.equal(h.button('purpose').attrs['aria-haspopup'],'dialog');
+ h.click(h.button('purpose'));assert(h.button('mission').open);assert(h.doc.querySelector('.motivation'));assert(h.app.innerHTML.includes(fixture.stages[0].motivation));
+ let prevented=false;h.button('mission').oncancel({preventDefault(){prevented=true;}});
+ assert(prevented);assert(!h.button('mission').open);assert.equal((h.doc.querySelector('.viewport') as any).scrollTop,137);assert.equal(h.doc.activeElement,h.button('purpose'));
+ h.click(h.button('purpose'));const mission=h.button('mission');mission.onclick({target:mission,clientX:100,clientY:100});assert(h.button('mission').open);
+ mission.onclick({target:mission,clientX:400,clientY:100});assert(!h.button('mission').open);
+});
+test('chapter completion lets birth finish, then opens only the next challenge with no acknowledgement',()=>{
+ const h=harness();h.click(h.button('close'));h.click(h.thing('lamp'));h.click(h.thing('battery'));
+ assert(h.thing('beacon').classes.has('born'));assert(!h.button('mission').open);assert.equal(h.state().state.stage,0);
+ h.timers.filter(t=>t.ms===700).at(-1)?.fn();assert.equal(h.state().state.stage,1);assert(h.button('mission').open);assert(h.doc.querySelector('.motivation'));assert(!h.doc.querySelector('.completion-story'));assert(!h.button('modal-next'));
+ assert(h.app.innerHTML.includes(fixture.stages[1].motivation));assert(!h.app.innerHTML.includes(fixture.stages[0].completionText!));
+});
+test('bug popup groups controls, survives repeated undo, and dismisses by close, Escape and backdrop',()=>{
+ const h=harness();h.click(h.button('close'));const v:any=h.doc.querySelector('.viewport');v.scrollTop=94;const before=h.state();
+ for(const dismiss of ['button','escape','backdrop']){
+  h.click(h.button('debug-toggle'));assert(h.button('debug-dialog').open);assert(!h.button('mission').open);assert.equal(h.button('debug-toggle').attrs['aria-expanded'],'true');
+  for(const id of ['undo','reset','current','travel','jump','go-chooser','go-original','save-status'])assert(h.button(id).closest('#debug-dialog'));
+  if(dismiss==='button')h.click(h.button('debug-close'));
+  if(dismiss==='escape')h.button('debug-dialog').oncancel({preventDefault(){}});
+  if(dismiss==='backdrop'){const d=h.button('debug-dialog');d.onclick({target:d,clientX:-1,clientY:20});}
+  assert(!h.button('debug-dialog').open);assert.equal(h.button('debug-toggle').attrs['aria-expanded'],'false');assert.equal(h.doc.activeElement,h.button('debug-toggle'));assert.equal((h.doc.querySelector('.viewport') as any).scrollTop,94);assert.deepEqual(h.state(),before);
+ }
+ h.click(h.thing('lamp'));h.click(h.thing('battery'));h.click(h.button('debug-toggle'));h.click(h.button('undo'));assert(h.button('debug-dialog').open);assert(!h.thing('beacon'));h.click(h.button('undo'));assert(h.button('debug-dialog').open);
+});
+test('opening overlays cancels active pointer and legacy touch gestures without stale drop',()=>{
+ for(const mode of ['pointer','touch'])for(const overlay of ['purpose','debug-toggle']){
+  const h=harness();h.click(h.button('close'));const before=h.state().state,board:any=h.doc.querySelector('.board');
+  if(mode==='pointer'){board.onpointerdown({target:h.thing('lamp'),button:0,clientX:52,clientY:56,pointerId:1,preventDefault(){}});board.onpointermove({clientX:220,clientY:300,pointerId:1});}
+  else{board.listeners.touchstart[0]({target:h.thing('lamp'),changedTouches:[{identifier:1,clientX:52,clientY:56}],preventDefault(){}});board.listeners.touchmove[0]({touches:[{identifier:1,clientX:220,clientY:300}],preventDefault(){}});}
+  assert(h.app.classes.has('is-dragging'));h.click(h.button(overlay));assert(!h.app.classes.has('is-dragging'));h.setHit(h.thing('battery'));
+  if(mode==='pointer')board.onpointerup({clientX:152,clientY:56,pointerId:1});else board.listeners.touchend[0]({changedTouches:[{identifier:1,clientX:152,clientY:56}],preventDefault(){}});
+  assert.deepEqual(h.state().state,before);assert(h.button(overlay==='purpose'?'mission':'debug-dialog').open);
+ }
+});
+test('save failures remain actionable outside closed debug; status updates preserve the open popup',()=>{
+ const h=harness(fixture,undefined,{deferSave:true});h.click(h.button('close'));assert(h.button('save-alert').hidden);
+ h.emitSaveStatus('error','Progress is not saved. Storage is full.');assert(!h.button('save-alert').hidden);assert(!h.button('debug-dialog').open);assert.equal(h.button('debug-toggle').dataset.saveError,'true');
+ h.click(h.button('save-alert'));const d=h.button('debug-dialog');assert(d.open);assert(!h.button('retry-save').hidden);h.click(h.button('retry-save'));assert.equal(h.button('debug-dialog'),d);assert(d.open);
+ h.flushSave();assert(h.button('save-alert').hidden);assert.equal(h.button('debug-toggle').dataset.saveError,'false');assert.equal(h.button('debug-dialog'),d);assert.equal(h.button('save-status').textContent,'Progress saved.');
+});
+test('earlier-area and current-area controls close popup without losing selection or save state',()=>{
+ const h=harness();h.click(h.button('close'));h.click(h.thing('lamp'));h.click(h.thing('battery'));h.timers.filter(t=>t.ms===700).at(-1)?.fn();h.click(h.button('close'));
+ h.click(h.thing('beacon'));h.click(h.button('debug-toggle'));h.button('travel').onchange({target:{value:'camp'}});
+ assert(!h.button('debug-dialog').open);assert.equal(h.state().state.currentArea,'camp');assert.equal(h.state().state.tokens.find(t=>t.id==='beacon')!.area,'camp');assert(h.thing('beacon').classes.has('selected'));
+ const tops=decodeSave(h.saved.get(h.key)!).tops;(h.doc.querySelector('.viewport') as any).scrollTop=200;h.click(h.button('debug-toggle'));h.click(h.button('current'));
+ assert(!h.button('debug-dialog').open);assert.equal((h.doc.querySelector('.viewport') as any).scrollTop,tops.camp);assert.equal((decodeSave(h.saved.get(h.key)!).game as M.Game).state.currentArea,'camp');
+});
+test('selection and ordinary actions use visual feedback without explanatory bubbles',()=>{
+ const world=structuredClone(fixture);world.items[0].description='A portable lamp.';const h=harness(world);h.click(h.button('close'));
+ h.click(h.thing('lamp'));assert(h.thing('lamp').classes.has('selected'));assert(!h.doc.querySelector('.inspection-overlay'));assert(!h.app.innerHTML.includes('A portable lamp.'));assert(!h.doc.querySelector('.objective-caption'));
+ h.click(h.thing('lamp'));assert(!h.thing('lamp').classes.has('selected'));
+ h.click(h.thing('lamp'));h.click(h.thing('battery'));assert(h.thing('beacon'));assert(h.doc.querySelector('.feedback').hidden);
+});
+
+test('automatic completion popup is cancelled by undo or reset and does not reopen after dismissal',()=>{
+ for(const interrupt of ['undo','reset']){
+  const h=harness();h.click(h.button('close'));h.click(h.thing('lamp'));h.click(h.thing('battery'));
+  const show=h.timers.filter(t=>t.ms===700).at(-1)!;h.click(h.button(interrupt));if(interrupt==='reset')h.click(h.button('close'));
+  show.fn();assert(!h.button('mission').open);assert(!h.thing('beacon'));
+ }
+ const h=harness();h.click(h.button('close'));h.click(h.thing('lamp'));h.click(h.thing('battery'));
+ const show=h.timers.filter(t=>t.ms===700).at(-1)!;show.fn();assert(h.button('mission').open);
+ h.click(h.button('close'));show.fn();assert(!h.button('mission').open);assert(!h.button('next'));
+});
+
+test('resuming a completed challenge opens the next challenge rather than its completion recap',()=>{
+ const h=harness();h.click(h.button('close'));h.click(h.thing('lamp'));h.click(h.thing('battery'));
+ const loaded=harness(fixture,h.saved.get(h.key));assert.equal(loaded.state().state.stage,1);assert(loaded.button('mission').open);assert(!loaded.doc.querySelector('.completion-story'));assert(loaded.app.innerHTML.includes(fixture.stages[1].motivation));
+});
+
+test('six selected journeys are prominent; undeveloped sketches are secondary and remain playable',()=>{
+ const ids=['mars-cargo-revision-v2','atlas-of-questions-v8-transmission-actions','elements-observation-revision-v6','food','causation-purpose-v4','doctrine-grace-and-matter-v1'];
+ const worlds=[...ids.map((id,i)=>({...structuredClone(fixture),id,title:'Priority '+i})),{...structuredClone(fixture),id:'literature',title:'Literature sketch'},{...structuredClone(fixture),id:'restoration',title:'Restoration sketch'},{...structuredClone(fixture),id:'shoreline',title:'Shoreline sketch'}];
+ const h=harness(fixture,undefined,{worlds,search:''});const html=h.app.innerHTML;const secondary=html.indexOf('<details class="secondary-journeys">');assert(secondary>0);assert.match(html,/not developed/);
+ for(const id of ids){const at=html.indexOf('?world='+id);assert(at>=0&&at<secondary);}
+ for(const world of worlds.filter(s=>!ids.includes(s.id))){assert(html.indexOf('?world='+world.id)>secondary);const direct=harness(world,undefined,{worlds});assert(direct.button('mission').open);direct.click(direct.button('close'));assert.equal(direct.state().scenarioId,world.id);}
+ assert(!h.doc.querySelector('.secondary-journeys')?.attrs.open);
 });

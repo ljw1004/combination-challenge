@@ -1,0 +1,262 @@
+{
+  "context": "You repaired a refuge, made a bed, and brought the stranded crew inside. You later assembled a lit shared workbench and took a supper portrait together.",
+  "view": {
+    "scenario": {
+      "id": "mars-connected-survival-v4",
+      "title": "Mars: A Light That Answers",
+      "premise": "A damaged landing strands a small expedition. Recovery becomes a rescue, then a return journey carrying people and evidence. This is an engineering story with recovered qualified systems, not real survival instructions."
+    },
+    "stage": {
+      "number": 10,
+      "title": "The long night",
+      "speaker": "Camp engineer",
+      "motivation": "The refuge we repaired kept the recovered crew safe, but its exposed service wall loses heat overnight. Compare the wall samples in the chamber, then fit a screen to the same refuge so everyone can sleep comfortably.",
+      "travelText": "We return to the refuge where we sheltered the crew. Its exposed service wall is losing heat; the camp’s thermal chamber and screen kit are nearby."
+    },
+    "area": {
+      "id": "area-camp",
+      "label": "Recovery camp",
+      "enteredAtStage": 7
+    },
+    "areas": [
+      {
+        "id": "area-signal",
+        "label": "A voice above the ridge",
+        "current": false,
+        "thingCount": 2
+      },
+      {
+        "id": "area-habitat",
+        "label": "Somewhere to come back to",
+        "current": false,
+        "thingCount": 6
+      },
+      {
+        "id": "area-rover",
+        "label": "The route out",
+        "current": false,
+        "thingCount": 4
+      },
+      {
+        "id": "area-outcrop",
+        "label": "What the cliff can tell us",
+        "current": false,
+        "thingCount": 13
+      },
+      {
+        "id": "area-weather",
+        "label": "Weather station apron",
+        "current": false,
+        "thingCount": 5
+      },
+      {
+        "id": "area-relay",
+        "label": "Northern relay knoll",
+        "current": false,
+        "thingCount": 3
+      },
+      {
+        "id": "area-rescue",
+        "label": "Survey recovery route",
+        "current": false,
+        "thingCount": 6
+      },
+      {
+        "id": "area-camp",
+        "label": "Recovery camp",
+        "current": true,
+        "thingCount": 11
+      },
+      {
+        "id": "area-cargo-return",
+        "label": "The things we left behind",
+        "current": false,
+        "thingCount": 6
+      }
+    ],
+    "objectives": [
+      {
+        "id": "night-compare-wall",
+        "text": "Compare wall cooling",
+        "satisfied": false
+      }
+    ],
+    "canAdvance": false,
+    "nextAction": null,
+    "completionText": null,
+    "completed": false,
+    "things": [
+      {
+        "id": "provisioned-refuge",
+        "label": "Provisioned refuge",
+        "description": "The crew are sheltered, warm and fed. Their recovered equipment remains here for the next part of the expedition.",
+        "x": 152,
+        "y": 120,
+        "location": null,
+        "gold": false,
+        "slots": [],
+        "components": [
+          "Prepared bed",
+          "Bedding"
+        ],
+        "functional": true
+      },
+      {
+        "id": "lit-workbench",
+        "label": "Lit workbench",
+        "description": "The portable expedition workbench we assembled at camp, with its lamp still fitted. Its stiff mounting rails accept the guarded bench-top machine’s integral clamps.",
+        "x": 52,
+        "y": 106,
+        "location": null,
+        "gold": false,
+        "slots": [],
+        "components": [
+          "Bench lamp"
+        ],
+        "functional": true
+      },
+      {
+        "id": "crew-message",
+        "label": "Crew message",
+        "description": "A personal recording from the rescued crew, not a report card or abstract morale resource.",
+        "x": 250,
+        "y": 56,
+        "location": null,
+        "gold": false,
+        "slots": [],
+        "components": [],
+        "functional": true
+      },
+      {
+        "id": "long-range-radio",
+        "label": "Long range radio",
+        "description": "Fit the directional antenna to the existing radio.",
+        "x": 52,
+        "y": 56,
+        "location": null,
+        "gold": false,
+        "slots": [
+          {
+            "id": "slot1",
+            "filled": true,
+            "label": "Antenna stand"
+          }
+        ],
+        "components": [],
+        "functional": true
+      },
+      {
+        "id": "message-home",
+        "label": "Message home",
+        "description": "The crew’s recorded message sent home; a tangible recording of reaching other people again.",
+        "x": 150,
+        "y": 52,
+        "location": null,
+        "gold": false,
+        "slots": [],
+        "components": [],
+        "functional": true
+      },
+      {
+        "id": "wall-coupon",
+        "label": "Wall sample",
+        "description": "A spare piece of the recovered refuge’s wall assembly, supplied for the camp thermal chamber.",
+        "x": 52,
+        "y": 206,
+        "location": null,
+        "gold": false,
+        "slots": [],
+        "components": [],
+        "functional": true
+      },
+      {
+        "id": "temperature-logger",
+        "label": "Temperature logger",
+        "description": "A ready temperature recorder that can capture a cooling trace.",
+        "x": 152,
+        "y": 206,
+        "location": null,
+        "gold": false,
+        "slots": [],
+        "components": [],
+        "functional": true
+      },
+      {
+        "id": "thermal-blanket",
+        "label": "Thermal blanket",
+        "description": "A mission insulating blanket that can be fitted to the measured wall dimensions.",
+        "x": 252,
+        "y": 206,
+        "location": null,
+        "gold": false,
+        "slots": [],
+        "components": [],
+        "functional": true
+      },
+      {
+        "id": "clip-frame",
+        "label": "Clip frame",
+        "description": "The rigid reusable frame for the cabin’s removable thermal screen.",
+        "x": 52,
+        "y": 256,
+        "location": null,
+        "gold": false,
+        "slots": [],
+        "components": [],
+        "functional": true
+      },
+      {
+        "id": "wall-template",
+        "label": "Measured wall template",
+        "description": "The existing full-size outline of the refuge’s removable service-wall screen, with its fixing points marked.",
+        "x": 152,
+        "y": 256,
+        "location": null,
+        "gold": false,
+        "slots": [],
+        "components": [],
+        "functional": true
+      },
+      {
+        "id": "insulation-swatch",
+        "label": "Insulation swatch",
+        "description": "A spare test swatch of the mission blanket material, kept with the wall coupon.",
+        "x": 252,
+        "y": 256,
+        "location": null,
+        "gold": false,
+        "slots": [],
+        "components": [],
+        "functional": true
+      }
+    ],
+    "locations": [
+      {
+        "id": "thermal-chamber",
+        "area": "area-camp",
+        "x": 252,
+        "y": 131,
+        "label": "Thermal chamber",
+        "description": "The camp’s enclosed qualification chamber provides a controlled cooling cycle for the wall sample; exposed outdoor readings would mix changing wind and sunlight.",
+        "gold": false
+      }
+    ],
+    "cacheNarrative": [
+      {
+        "label": "Camp thermal workshop stores",
+        "narrative": "The camp’s service cabinet holds the refuge wall sample, its measured template and the removable screen kit. The refuge and its prepared bed are the ones we already restored."
+      }
+    ],
+    "metrics": {
+      "attempts": 85,
+      "accepted": 85,
+      "combinations": 74,
+      "creations": 66,
+      "installations": 8,
+      "moves": 0,
+      "placements": 2,
+      "advances": 9,
+      "visits": 0
+    }
+  }
+}

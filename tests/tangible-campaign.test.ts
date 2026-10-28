@@ -1,3 +1,5 @@
+import '../experiments/tangible-campaign/reviews/lifecycle/objective-flow.test.ts';
+import '../experiments/tangible-campaign/reviews/lifecycle/lifecycle.test.ts';
 import '../experiments/tangible-campaign/reviews/persistence/save-autosave.test.ts';
 import '../experiments/tangible-campaign/engine/model.test.ts';
 import '../experiments/tangible-campaign/tests/independent-engine.test.ts';

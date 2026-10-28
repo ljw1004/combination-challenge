@@ -1,0 +1,302 @@
+✔ Mars connected candidate declares all lifecycles, objectives and compound preservation (11.82222ms)
+✔ Mars exact main route: 200 meaningful combinations, 23 goal-connected later chapters (2454.888812ms)
+✖ Mars every candidate checkpoint round-trips; archived save identity remains distinct (3187.234936ms)
+✔ Mars habitat contact is an accepted earlier-created radio placement, not inventory presence (4.843656ms)
+✔ Mars habitat uses created charger for actual water chain, leaving charger available for rover (3.778443ms)
+✔ Mars night insulates the existing furnished refuge in place; reverse=false (44.29778ms)
+✔ Mars night insulates the existing furnished refuge in place; reverse=true (47.245555ms)
+✔ Mars water loop cannot bypass the saved-water priming action; canister is not eaten (55.732899ms)
+✔ Mars oxygen requires actual shuttle docking, preserves the fitted hauler and module location (164.075986ms)
+✔ Mars new scene dependencies actually carry their earlier creations from their old areas (215.242218ms)
+✔ Mars beacon-first and tow-first alternatives remain complete and goal-connected (435.085103ms)
+ℹ tests 11
+ℹ suites 0
+ℹ pass 10
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 6978.689283
+
+✖ failing tests:
+
+test at tests/mars-connected-continuity.test.ts:23:1
+✖ Mars every candidate checkpoint round-trips; archived save identity remains distinct (3187.234936ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  ... Skipped lines
+  
+    {
+      areas: [
+        {
+          enteredAtStage: 0,
+          id: 'area-signal',
+  ...
+          area: 'area-ascent',
+  +       components: [],
+          id: 'ascent-cabin',
+          incorporated: [
+            'damaged-ascent-cabin',
+            'hatch-seal',
+            'docking-ring',
+  
+      at TestContext.<anonymous> (file:///workspace/shared/combination-campaign-research-20261028/mars/worktree/tests/mars-connected-continuity.test.ts:23:167)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: {
+      stage: 21,
+      currentArea: 'area-rendezvous',
+      areas: [
+        [Object], [Object], [Object],
+        [Object], [Object], [Object],
+        [Object], [Object], [Object],
+        [Object], [Object], [Object],
+        [Object], [Object], [Object],
+        [Object], [Object], [Object],
+        [Object], [Object], [Object]
+      ],
+      places: [
+        [Object], [Object], [Object],
+        [Object], [Object], [Object],
+        [Object], [Object], [Object],
+        [Object], [Object], [Object],
+        [Object], [Object], [Object],
+        [Object], [Object], [Object],
+        [Object], [Object], [Object],
+        [Object]
+      ],
+      tokens: [
+        [Object], [Object], [Object], [Object], [Object], [Object],
+        [Object], [Object], [Object], [Object], [Object], [Object],
+        [Object], [Object], [Object], [Object], [Object], [Object],
+        [Object], [Object], [Object], [Object], [Object], [Object],
+        [Object], [Object], [Object], [Object], [Object], [Object],
+        [Object], [Object], [Object], [Object], [Object], [Object],
+        [Object], [Object], [Object], [Object], [Object], [Object],
+        [Object], [Object], [Object], [Object], [Object], [Object],
+        [Object], [Object], [Object], [Object], [Object], [Object],
+        [Object], [Object], [Object], [Object], [Object], [Object],
+        [Object], [Object], [Object], [Object], [Object], [Object],
+        [Object], [Object], [Object], [Object], [Object], [Object],
+        [Object], [Object], [Object], [Object], [Object], [Object],
+        [Object], [Object], [Object], [Object], [Object], [Object],
+        [Object], [Object], [Object], [Object], [Object], [Object],
+        [Object], [Object], [Object], [Object], [Object], [Object],
+        [Object], [Object], [Object], [Object],
+        ... 12 more items
+      ],
+      discovered: [
+        'broken-radio',          'cable',             'solar-panel',        'battery',
+        'lamp',                  'reflective-foil',   'support-frame',      'tripod',
+        'toolkit',               'radio',             'solar-charger',      'solar-radio',
+        'heater',                'water-filter',      'empty-canister',     'seeds',
+        'planting-tray',         'clear-cover',       'habitat-fabric',     'sealant',
+        'seam-roller',           'tie-downs',         'hatch-frame',        'insulating-blanket',
+        'meltwater',             'filtered-water',    'water-canister',     'seed-tray',
+        'watered-seed-tray',     'sprouted-tray',     'propagator',         'pressure-patch',
+        'sealed-panel',          'vestibule',         'anchored-vestibule', 'insulated-vestibule',
+        'wheels',                'drive-motor',       'motor-controller',   'dish-antenna',
+        'terrain-sheet',         'binoculars',        'camera',             'lens',
+        'optical-tube',          'compass-module',    'seat-harness',       'rover',
+        'drive-unit',            'bearing-scope',     'field-camera',       'panorama',
+        'survey-map',            'bearing-map',       'sample-scoop',       'transparent-jar',
+        'core-tube',             'sample-labels',     'scale-card',         'windowed-box',
+        'glove-ports',           'specimen-rack',     'ice-sample',         'sealed-ice-sample',
+        'catalogued-ice-sample', 'ice-photograph',    'telescope',          'field-telescope',
+        'telescope-camera',      'cliff-photograph',  'annotated-map',      'ice-core',
+        'core-rack',             'scaled-core',       'core-profile',       'weather-mast',
+        'wind-vane',             'sensor-logger',     'filter-mesh',        'sealed-housing',
+        'weather-station',       'weather-record',    'weather-route-map',  'dust-screen',
+        'protected-controller',  'relay-transceiver', 'spare-fuse',         'relay-antenna',
+        'relay-powerpack',       'relay',             'distress-recording', 'rescue-route',
+        'recovery-rope',         'tow-eye',           'spare-drive',        'drive-coupling',
+        'service-shelter',       'damaged-crawler',   'bedding',            'prepared-soup',
+        ... 186 more items
+      ],
+      recipesUsed: [
+        'signal-0-radio',                  'signal-1-solar-charger',               'signal-2-solar-radio',
+        'habitat-0-meltwater',             'habitat-1-filtered-water',             'habitat-2-water-canister',
+        'habitat-3-seed-tray',             'habitat-4-watered-seed-tray',          'habitat-5-sprouted-tray',
+        'habitat-6-propagator',            'habitat-7-pressure-patch',             'habitat-8-sealed-panel',
+        'habitat-9-vestibule',             'habitat-10-anchored-vestibule',        'habitat-11-insulated-vestibule',
+        'rover-0-rover-chassis',           'rover-1-drive-unit',                   'rover-2-motorized-rover',
+        'rover-3-solar-rover',             'rover-6-belted-rover',                 'rover-10-bearing-scope',
+        'rover-7-field-camera',            'rover-8-panorama',                     'rover-9-survey-map',
+        'rover-11-bearing-map',            'outcrop-0-ice-sample',                 'outcrop-1-sealed-ice-sample',
+        'outcrop-2-catalogued-ice-sample', 'outcrop-3-ice-photograph',             'outcrop-4-telescope',
+        'outcrop-5-field-telescope',       'outcrop-6-telescope-camera',           'outcrop-7-cliff-photograph',
+        'outcrop-8-annotated-map',         'outcrop-11-ice-core',                  'outcrop-12-core-rack',
+        'outcrop-13-scaled-core',          'outcrop-14-core-profile',              'weather-0-wind-direction-mast',
+        'weather-5-wind-station',          'weather-8-autonomous-weather-station', 'weather-9-weather-record',
+        'weather-13-weather-route-map',    'weather-11-dust-screen',               'weather-12-protected-controller',
+        'relay-0-working-transceiver',     'relay-6-directional-relay',            'relay-9-powered-relay',
+        'relay-12-distress-recording',     'relay-13-rescue-route',                'rescue-6-serviced-drive',
+        'rescue-7-replacement-drive',      'rescue-8-repaired-crawler',            'rescue-2-prepared-bed',
+        'rescue-0-sealed-refuge',          'rescue-1-warm-refuge',                 'rescue-3-rest-refuge',
+        'rescue-12-sheltered-crew',        'rescue-4-warm-soup',                   'rescue-5-soup-flask',
+        'rescue-14-rested-crew',           'camp-bench',                           'camp-lamp',
+        'camp-light',                      'camp-message',                         'rover-4-long-range-radio',
+        'camp-radio',                      'camp-send',                            'cargo-sling',
+        'cargo-bring',                     'cargo-unfold',                         'cargo-pictures',
+        'cargo-supper',                    'cargo-portrait',                       'night-trace',
+        'night-insulate',                  'night-insulated-trace',                'night-compare',
+        'night-pattern',                   'night-fit',                            'night-screen',
+        'night-cabin',                     'waterworks-prime',                     'waterworks-loop',
+        'waterworks-3-heated-melter',      'waterworks-4-collected-water',         'waterworks-treatment',
+        'waterworks-9-water-reserve',      'waterworks-12-camp-water-system',      'garden-repair',
+        'garden-bed',                      'garden-plant',                         'garden-5-irrigation-line',
+        'garden-6-watered-potatoes',       'garden-install-bed',                   'garden-8-powered-grow-light',
+        'garden-install-light',            'garden-install-air',                   'garden-harvest',
+        'garden-14-warm-potatoes',
+        ... 69 more items
+      ],
+      openedCaches: [
+        'habitat-cache',    'rover-cache',
+        'outcrop-cache',    'weather-cache',
+        'relay-cache',      'rescue-cache',
+        'camp-cache',       'cargo-return-cache',
+        'night-cache',      'waterworks-cache',
+        'garden-cache',     'nursery-cache',
+        'workshop-cache',   'traverse-cache',
+        'crossing-cache',   'buried-story-cache',
+        'contrast-cache',   'depot-way-cache',
+        'oxygen-cache',     'ascent-cache',
+        'rendezvous-cache'
+      ],
+      width: 360,
+      metrics: { attempts: 196, accepted: 196, combinations: 169, creations: 144, installations: 25, moves: 0, placements: 6, advances: 21, visits: 0 },
+      completed: false
+    },
+    expected: {
+      stage: 21,
+      currentArea: 'area-rendezvous',
+      areas: [
+        [Object], [Object], [Object],
+        [Object], [Object], [Object],
+        [Object], [Object], [Object],
+        [Object], [Object], [Object],
+        [Object], [Object], [Object],
+        [Object], [Object], [Object],
+        [Object], [Object], [Object]
+      ],
+      places: [
+        [Object], [Object], [Object],
+        [Object], [Object], [Object],
+        [Object], [Object], [Object],
+        [Object], [Object], [Object],
+        [Object], [Object], [Object],
+        [Object], [Object], [Object],
+        [Object], [Object], [Object],
+        [Object]
+      ],
+      tokens: [
+        [Object], [Object], [Object], [Object], [Object], [Object],
+        [Object], [Object], [Object], [Object], [Object], [Object],
+        [Object], [Object], [Object], [Object], [Object], [Object],
+        [Object], [Object], [Object], [Object], [Object], [Object],
+        [Object], [Object], [Object], [Object], [Object], [Object],
+        [Object], [Object], [Object], [Object], [Object], [Object],
+        [Object], [Object], [Object], [Object], [Object], [Object],
+        [Object], [Object], [Object], [Object], [Object], [Object],
+        [Object], [Object], [Object], [Object], [Object], [Object],
+        [Object], [Object], [Object], [Object], [Object], [Object],
+        [Object], [Object], [Object], [Object], [Object], [Object],
+        [Object], [Object], [Object], [Object], [Object], [Object],
+        [Object], [Object], [Object], [Object], [Object], [Object],
+        [Object], [Object], [Object], [Object], [Object], [Object],
+        [Object], [Object], [Object], [Object], [Object], [Object],
+        [Object], [Object], [Object], [Object], [Object], [Object],
+        [Object], [Object], [Object], [Object],
+        ... 12 more items
+      ],
+      discovered: [
+        'broken-radio',          'cable',             'solar-panel',        'battery',
+        'lamp',                  'reflective-foil',   'support-frame',      'tripod',
+        'toolkit',               'radio',             'solar-charger',      'solar-radio',
+        'heater',                'water-filter',      'empty-canister',     'seeds',
+        'planting-tray',         'clear-cover',       'habitat-fabric',     'sealant',
+        'seam-roller',           'tie-downs',         'hatch-frame',        'insulating-blanket',
+        'meltwater',             'filtered-water',    'water-canister',     'seed-tray',
+        'watered-seed-tray',     'sprouted-tray',     'propagator',         'pressure-patch',
+        'sealed-panel',          'vestibule',         'anchored-vestibule', 'insulated-vestibule',
+        'wheels',                'drive-motor',       'motor-controller',   'dish-antenna',
+        'terrain-sheet',         'binoculars',        'camera',             'lens',
+        'optical-tube',          'compass-module',    'seat-harness',       'rover',
+        'drive-unit',            'bearing-scope',     'field-camera',       'panorama',
+        'survey-map',            'bearing-map',       'sample-scoop',       'transparent-jar',
+        'core-tube',             'sample-labels',     'scale-card',         'windowed-box',
+        'glove-ports',           'specimen-rack',     'ice-sample',         'sealed-ice-sample',
+        'catalogued-ice-sample', 'ice-photograph',    'telescope',          'field-telescope',
+        'telescope-camera',      'cliff-photograph',  'annotated-map',      'ice-core',
+        'core-rack',             'scaled-core',       'core-profile',       'weather-mast',
+        'wind-vane',             'sensor-logger',     'filter-mesh',        'sealed-housing',
+        'weather-station',       'weather-record',    'weather-route-map',  'dust-screen',
+        'protected-controller',  'relay-transceiver', 'spare-fuse',         'relay-antenna',
+        'relay-powerpack',       'relay',             'distress-recording', 'rescue-route',
+        'recovery-rope',         'tow-eye',           'spare-drive',        'drive-coupling',
+        'service-shelter',       'damaged-crawler',   'bedding',            'prepared-soup',
+        ... 186 more items
+      ],
+      recipesUsed: [
+        'signal-0-radio',                  'signal-1-solar-charger',               'signal-2-solar-radio',
+        'habitat-0-meltwater',             'habitat-1-filtered-water',             'habitat-2-water-canister',
+        'habitat-3-seed-tray',             'habitat-4-watered-seed-tray',          'habitat-5-sprouted-tray',
+        'habitat-6-propagator',            'habitat-7-pressure-patch',             'habitat-8-sealed-panel',
+        'habitat-9-vestibule',             'habitat-10-anchored-vestibule',        'habitat-11-insulated-vestibule',
+        'rover-0-rover-chassis',           'rover-1-drive-unit',                   'rover-2-motorized-rover',
+        'rover-3-solar-rover',             'rover-6-belted-rover',                 'rover-10-bearing-scope',
+        'rover-7-field-camera',            'rover-8-panorama',                     'rover-9-survey-map',
+        'rover-11-bearing-map',            'outcrop-0-ice-sample',                 'outcrop-1-sealed-ice-sample',
+        'outcrop-2-catalogued-ice-sample', 'outcrop-3-ice-photograph',             'outcrop-4-telescope',
+        'outcrop-5-field-telescope',       'outcrop-6-telescope-camera',           'outcrop-7-cliff-photograph',
+        'outcrop-8-annotated-map',         'outcrop-11-ice-core',                  'outcrop-12-core-rack',
+        'outcrop-13-scaled-core',          'outcrop-14-core-profile',              'weather-0-wind-direction-mast',
+        'weather-5-wind-station',          'weather-8-autonomous-weather-station', 'weather-9-weather-record',
+        'weather-13-weather-route-map',    'weather-11-dust-screen',               'weather-12-protected-controller',
+        'relay-0-working-transceiver',     'relay-6-directional-relay',            'relay-9-powered-relay',
+        'relay-12-distress-recording',     'relay-13-rescue-route',                'rescue-6-serviced-drive',
+        'rescue-7-replacement-drive',      'rescue-8-repaired-crawler',            'rescue-2-prepared-bed',
+        'rescue-0-sealed-refuge',          'rescue-1-warm-refuge',                 'rescue-3-rest-refuge',
+        'rescue-12-sheltered-crew',        'rescue-4-warm-soup',                   'rescue-5-soup-flask',
+        'rescue-14-rested-crew',           'camp-bench',                           'camp-lamp',
+        'camp-light',                      'camp-message',                         'rover-4-long-range-radio',
+        'camp-radio',                      'camp-send',                            'cargo-sling',
+        'cargo-bring',                     'cargo-unfold',                         'cargo-pictures',
+        'cargo-supper',                    'cargo-portrait',                       'night-trace',
+        'night-insulate',                  'night-insulated-trace',                'night-compare',
+        'night-pattern',                   'night-fit',                            'night-screen',
+        'night-cabin',                     'waterworks-prime',                     'waterworks-loop',
+        'waterworks-3-heated-melter',      'waterworks-4-collected-water',         'waterworks-treatment',
+        'waterworks-9-water-reserve',      'waterworks-12-camp-water-system',      'garden-repair',
+        'garden-bed',                      'garden-plant',                         'garden-5-irrigation-line',
+        'garden-6-watered-potatoes',       'garden-install-bed',                   'garden-8-powered-grow-light',
+        'garden-install-light',            'garden-install-air',                   'garden-harvest',
+        'garden-14-warm-potatoes',
+        ... 69 more items
+      ],
+      openedCaches: [
+        'habitat-cache',    'rover-cache',
+        'outcrop-cache',    'weather-cache',
+        'relay-cache',      'rescue-cache',
+        'camp-cache',       'cargo-return-cache',
+        'night-cache',      'waterworks-cache',
+        'garden-cache',     'nursery-cache',
+        'workshop-cache',   'traverse-cache',
+        'crossing-cache',   'buried-story-cache',
+        'contrast-cache',   'depot-way-cache',
+        'oxygen-cache',     'ascent-cache',
+        'rendezvous-cache'
+      ],
+      width: 360,
+      metrics: { attempts: 196, accepted: 196, combinations: 169, creations: 144, installations: 25, moves: 0, placements: 6, advances: 21, visits: 0 },
+      completed: false
+    },
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }

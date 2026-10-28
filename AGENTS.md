@@ -47,3 +47,13 @@ These instructions reflect the latest human playtest feedback and supersede the 
 - After a successful combination, surviving dragged A returns to its original position or placement; an absorbed or retired input is the exception. An ordinary move drops where released. Keep new results close to the target and visibly animate their creation. Do not create a duplicate result already present on the Mars board, including incorporated parts.
 - Finger dragging a thing should move it, while dragging empty space scrolls the playspace. Drag highlights must persist and distinguish a valid creation drop. Reset must fully replay instructions and be reachable from an open instruction dialog. The user resets these checkpoints, so migration work is not a priority.
 - Preserve prior research and raw play evidence honestly. Freeze the actual player interface, assignment and source before a fresh trial; keep developer routes and previews out of that trial. Explain unavailable native tests and separate logical-interface findings from real scrolling, touch or human-play evidence.
+
+## Recovered project guidance and current focus (28 October 2026)
+
+The original prototype, empirical fun research, and kill-your-darlings goals above remain in force. The following accumulated playtest guidance is additive and supersedes older interaction details only where explicitly incompatible.
+
+Before changing or adding a game, read [DESIGN_PRINCIPLES.md](DESIGN_PRINCIPLES.md). It records the user's playtest decisions and applies to all current and future combination games in this project. Update it when the user establishes a new principle; implement the principle in content, runtime behaviour and build validation where appropriate.
+
+For tangible campaigns, author explicit input lifecycles, intermediate-goal dependencies and construction-preservation declarations. Run `npm run build` and `node --test tests/tangible-campaign.test.ts` for changes affecting campaign semantics. Preserve saved progress and existing archived direct routes. Do not treat research candidates or continuity-audit findings as implemented improvements.
+
+Current focus: Mars, Atlas of Questions, Elements, From Hearth to Snack Cake, Why This Boat, and Doctrine: Grace and Matter. Preserve other sketches and archived direct routes. Every non-opening chapter should meaningfully use earlier-created work; merely carrying an unused token or raw supply does not count. Research candidates and the manuscript reader remain IN PROGRESS / NOT LIVE at the 6204 source checkpoint. Preserve negative findings, raw play evidence and exact source provenance; never equate mechanical completion or simulated play with proof of human fun.

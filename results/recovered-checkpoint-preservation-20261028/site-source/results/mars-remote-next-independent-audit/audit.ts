@@ -1,0 +1,29 @@
+import assert from 'node:assert/strict';
+import {writeFileSync} from 'node:fs';
+import {create,step,hasCapability,goals,recipes,slots,satisfiesGoal} from '../../experiments/mars-remote-next/model.ts';
+import type {State,Action} from '../../experiments/mars-remote-next/model.ts';
+const checks:{name:string,pass:boolean,detail?:string}[]=[];
+function test(name:string,fn:()=>void){try{fn();checks.push({name,pass:true});}catch(e){checks.push({name,pass:false,detail:String(e)});}}
+function apply(s:State,a:Action){const r=step(s,a);assert.ok(r.accepted,`${JSON.stringify(a)}: ${r.message}`);return r.state;}
+function combine(s:State,a:string,b:string){return apply(s,{type:'combine',a,b});}
+function contact(){let s=create();s=combine(s,'broken-radio','cable');s=combine(s,'solar-panel','battery');s=combine(s,'radio','solar-charger');s=apply(s,{type:'place',kind:'solar-radio',location:'contact-ridge'});return apply(s,{type:'advance'});}
+test('clear radio upgrades and enhanced Rover preserve all communication functions',()=>{let s=contact();s=combine(s,'solar-radio','dish');assert.ok(!s.tokens.some(t=>['radio','solar-radio','dish'].includes(t.kind)));s=combine(s,'frame','wheels');s=combine(s,'long-range-radio','rover');const r=s.tokens.find(t=>t.kind==='rover')!;for(const c of ['working-radio','solar-radio','long-range-radio'] as const)assert.ok(hasCapability(r,c));assert.ok(!hasCapability(r,'solar-travel'));assert.ok(!s.tokens.some(t=>t.kind==='long-range-radio'));s=combine(s,'motor','rover');s=combine(s,'solar-charger','rover');assert.ok(hasCapability(s.tokens.find(t=>t.kind==='rover')!,'solar-travel'));});
+test('wheels incorporated by chassis',()=>{const s=combine(create(),'frame','wheels');assert.ok(!s.tokens.some(t=>t.kind==='wheels'));});
+test('glacier context is necessary and meaningful; filter remains tool; source survives in place',()=>{let s=contact();assert.equal(step(s,{type:'combine',a:'heater',b:'canister'}).accepted,false);assert.equal(step(s,{type:'combine',a:'heater',b:'canister',at:'glacier'}).accepted,false);s=apply(s,{type:'place',kind:'canister',location:'glacier'});s=combine(s,'heater','canister');assert.ok(s.tokens.some(t=>t.kind==='meltwater-canister'));assert.ok(s.tokens.some(t=>t.kind==='heater'));s=combine(s,'meltwater-canister','water-filter');assert.ok(s.tokens.some(t=>t.kind==='water-filter'));assert.ok(!s.tokens.some(t=>t.kind==='meltwater-canister'));assert.ok(s.tokens.some(t=>t.kind==='water-canister'));});
+test('upgraded propagator can become enhanced greenhouse',()=>{let s=contact();s=combine(s,'heater','place:glacier');s=combine(s,'meltwater','water-filter');s=combine(s,'filtered-water','canister');s=combine(s,'seeds','planting-tray');s=combine(s,'water-canister','seed-tray');s=combine(s,'watered-seed-tray','place:warm-habitat');s=combine(s,'sprouted-tray','clear-cover');s=combine(s,'propagator','heater');assert.ok(!s.tokens.some(t=>t.kind==='propagator'));s=combine(s,'heated-propagator','frame');const g=s.tokens.find(t=>t.kind==='heated-greenhouse')!;assert.ok(hasCapability(g,'protected-growth'));assert.ok(hasCapability(g,'greenhouse'));assert.ok(!s.tokens.some(t=>t.kind==='heated-propagator'));});
+test('charger keeps outside representative until real downstream consumers are done, then incorporates',()=>{let s=contact();assert.ok(s.tokens.some(t=>t.kind==='solar-charger'));s=combine(s,'solar-charger','lamp');s=combine(s,'frame','toolkit');s=combine(s,'workbench','solar-lamp');assert.ok(!s.tokens.some(t=>['solar-lamp','workbench'].includes(t.kind)));s=combine(s,'solar-charger','heater');assert.ok(s.tokens.some(t=>t.kind==='solar-charger'),'future Rover needs charger');s=combine(s,'frame','wheels');s=combine(s,'solar-charger','rover');assert.ok(!s.tokens.some(t=>t.kind==='solar-charger'));assert.ok(s.tokens.some(t=>t.kind==='heater'),'a heat tool is not blanket-deleted');assert.ok(s.tokens.some(t=>t.kind==='cable'),'ordinary unused ingredient is not blanket-deleted');assert.equal(step(s,{type:'combine',a:'solar-panel',b:'battery'}).accepted,false);});
+// Randomized closure explores recipe/upgrade/installation order; no developer route given to any player.
+const deadlocks:any[]=[];let complete=0;
+for(let seed=1;seed<=1000;seed++){let rand=seed;const random=()=>{rand=(Math.imul(rand,1664525)+1013904223)>>>0;return rand/2**32;};let s=create();const trace:Action[]=[];
+for(let n=0;n<150;n++){
+ if(goals.every(g=>s.achieved.includes(g.id))){complete++;break;}
+ const choices:Action[][]=[];
+ const advance:Action={type:'advance'};if(step(s,advance).accepted)choices.push([advance]);
+ for(const g of goals.filter(g=>g.kind==='place'&&s.revealed.includes(g.location!)&&!satisfiesGoal(s,g)))for(const t of s.tokens.filter(t=>g.capability&&hasCapability(t,g.capability)))choices.push([{type:'place',kind:t.kind,location:g.location!}]);
+ for(const r of recipes){const a:Action={type:'combine',a:r.a,b:r.b};if(step(s,a).accepted)choices.push([a]);if(r.at&&s.revealed.includes(r.at)&&s.tokens.some(t=>t.kind===r.b)){const p:Action={type:'place',kind:r.b,location:r.at},ps=step(s,p);if(ps.accepted&&step(ps.state,a).accepted)choices.push([p,a]);}}
+ for(const t of s.tokens)if(slots.some(slot=>slot.accepts.includes(t.kind))){const a:Action={type:'combine',a:t.kind,b:'rover'};if(step(s,a).accepted)choices.push([a]);}
+ if(!choices.length){deadlocks.push({seed,trace,achieved:s.achieved,remaining:goals.filter(g=>!s.achieved.includes(g.id)).map(g=>g.id)});break;}
+ for(const a of choices[Math.floor(random()*choices.length)]){s=apply(s,a);trace.push(a);}
+}}
+checks.push({name:'1,000 randomized recipe/slot-order closures all reach all purposes',pass:complete===1000,detail:`${complete}/1000 complete; ${deadlocks.length} deadlocks`});
+const report={timestamp:new Date().toISOString(),checks,deadlocks};writeFileSync(new URL('./results.json',import.meta.url),JSON.stringify(report,null,2));console.log(JSON.stringify({checks,firstDeadlock:deadlocks[0]},null,2));

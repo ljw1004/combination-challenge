@@ -1,0 +1,3010 @@
+[
+  {
+    "world": "hearth-to-twinkie-v1",
+    "recipe": "flour",
+    "inputs": "grain + millstone",
+    "incorporated": "—",
+    "lifecycle": {
+      "grain": {
+        "role": "retain",
+        "reason": "Use a measured portion of the grain stock; the remaining supply is still present."
+      },
+      "millstone": {
+        "role": "retain",
+        "reason": "Millstone remains a reusable tool or reference, not an ingredient."
+      }
+    }
+  },
+  {
+    "world": "hearth-to-twinkie-v1",
+    "recipe": "dough",
+    "inputs": "flour + water",
+    "incorporated": "—",
+    "lifecycle": {
+      "flour": {
+        "role": "retain",
+        "reason": "Use a portion of flour for dough; the prepared batch remains available to the other kitchens."
+      },
+      "water": {
+        "role": "retain",
+        "reason": "Use a measured portion of the water stock; the remaining supply is still present."
+      }
+    }
+  },
+  {
+    "world": "hearth-to-twinkie-v1",
+    "recipe": "flatbread",
+    "inputs": "dough + @hearth-fire",
+    "incorporated": "—",
+    "lifecycle": {
+      "dough": {
+        "role": "retain",
+        "reason": "Use a portion of dough for flatbread; the prepared batch remains available to the other kitchens."
+      }
+    }
+  },
+  {
+    "world": "hearth-to-twinkie-v1",
+    "recipe": "juice",
+    "inputs": "fruit + press",
+    "incorporated": "—",
+    "lifecycle": {
+      "fruit": {
+        "role": "retain",
+        "reason": "Use a measured portion of the apples stock; the remaining supply is still present."
+      },
+      "press": {
+        "role": "retain",
+        "reason": "Fruit press remains a reusable tool or reference, not an ingredient."
+      }
+    }
+  },
+  {
+    "world": "hearth-to-twinkie-v1",
+    "recipe": "soaked-grain",
+    "inputs": "grain + water",
+    "incorporated": "—",
+    "lifecycle": {
+      "grain": {
+        "role": "retain",
+        "reason": "Use a measured portion of the grain stock; the remaining supply is still present."
+      },
+      "water": {
+        "role": "retain",
+        "reason": "Use a measured portion of the water stock; the remaining supply is still present."
+      }
+    }
+  },
+  {
+    "world": "hearth-to-twinkie-v1",
+    "recipe": "porridge",
+    "inputs": "soaked-grain + @hearth-fire",
+    "incorporated": "soaked-grain",
+    "lifecycle": {
+      "soaked-grain": {
+        "role": "transform",
+        "reason": "This soaked grain is the evolving preparation and becomes porridge."
+      }
+    }
+  },
+  {
+    "world": "hearth-to-twinkie-v1",
+    "recipe": "fruit-porridge",
+    "inputs": "porridge + fruit",
+    "incorporated": "porridge",
+    "lifecycle": {
+      "porridge": {
+        "role": "transform",
+        "reason": "This porridge is the evolving preparation and becomes fruit porridge."
+      },
+      "fruit": {
+        "role": "retain",
+        "reason": "Use a measured portion of the apples stock; the remaining supply is still present."
+      }
+    }
+  },
+  {
+    "world": "hearth-to-twinkie-v1",
+    "recipe": "leavened-dough",
+    "inputs": "dough + yeast-culture",
+    "incorporated": "—",
+    "lifecycle": {
+      "dough": {
+        "role": "retain",
+        "reason": "Use a portion of dough for leavened dough; the prepared batch remains available to the other kitchens."
+      },
+      "yeast-culture": {
+        "role": "retain",
+        "reason": "Use a measured portion of the baker’s yeast stock; the remaining supply is still present."
+      }
+    }
+  },
+  {
+    "world": "hearth-to-twinkie-v1",
+    "recipe": "bread",
+    "inputs": "leavened-dough + @bakehouse-oven",
+    "incorporated": "—",
+    "lifecycle": {
+      "leavened-dough": {
+        "role": "retain",
+        "reason": "Use a portion of leavened dough for bread; the prepared batch remains available to the other kitchens."
+      }
+    }
+  },
+  {
+    "world": "hearth-to-twinkie-v1",
+    "recipe": "yogurt",
+    "inputs": "milk + yogurt-culture",
+    "incorporated": "—",
+    "lifecycle": {
+      "milk": {
+        "role": "retain",
+        "reason": "Use a measured portion of the milk stock; the remaining supply is still present."
+      },
+      "yogurt-culture": {
+        "role": "retain",
+        "reason": "Use a measured portion of the yogurt starter stock; the remaining supply is still present."
+      }
+    }
+  },
+  {
+    "world": "hearth-to-twinkie-v1",
+    "recipe": "butter",
+    "inputs": "cream + churn",
+    "incorporated": "—",
+    "lifecycle": {
+      "cream": {
+        "role": "retain",
+        "reason": "Use a measured portion of the cream stock; the remaining supply is still present."
+      },
+      "churn": {
+        "role": "retain",
+        "reason": "Churn remains a reusable tool or reference, not an ingredient."
+      }
+    }
+  },
+  {
+    "world": "hearth-to-twinkie-v1",
+    "recipe": "strained-yogurt",
+    "inputs": "yogurt + cloth",
+    "incorporated": "—",
+    "lifecycle": {
+      "yogurt": {
+        "role": "retain",
+        "reason": "Use a portion of yogurt for strained yogurt; the prepared batch remains available to the other kitchens."
+      },
+      "cloth": {
+        "role": "retain",
+        "reason": "Straining cloth remains a reusable tool or reference, not an ingredient."
+      }
+    }
+  },
+  {
+    "world": "hearth-to-twinkie-v1",
+    "recipe": "herb-labneh",
+    "inputs": "strained-yogurt + herbs",
+    "incorporated": "—",
+    "lifecycle": {
+      "strained-yogurt": {
+        "role": "retain",
+        "reason": "Use a portion of strained yogurt for herbed strained yogurt; the prepared batch remains available to the other kitchens."
+      },
+      "herbs": {
+        "role": "retain",
+        "reason": "Use a measured portion of the herbs stock; the remaining supply is still present."
+      }
+    }
+  },
+  {
+    "world": "hearth-to-twinkie-v1",
+    "recipe": "labneh-flatbread",
+    "inputs": "flatbread + herb-labneh",
+    "incorporated": "—",
+    "lifecycle": {
+      "flatbread": {
+        "role": "retain",
+        "reason": "Use a portion of flatbread for flatbread with herbed yogurt; the prepared batch remains available to the other kitchens."
+      },
+      "herb-labneh": {
+        "role": "retain",
+        "reason": "Use a portion of herbed strained yogurt for flatbread with herbed yogurt; the prepared batch remains available to the other kitchens."
+      }
+    }
+  },
+  {
+    "world": "hearth-to-twinkie-v1",
+    "recipe": "fruit-yogurt",
+    "inputs": "yogurt + fruit",
+    "incorporated": "—",
+    "lifecycle": {
+      "yogurt": {
+        "role": "retain",
+        "reason": "Use a portion of yogurt for fruit yogurt; the prepared batch remains available to the other kitchens."
+      },
+      "fruit": {
+        "role": "retain",
+        "reason": "Use a measured portion of the apples stock; the remaining supply is still present."
+      }
+    }
+  },
+  {
+    "world": "hearth-to-twinkie-v1",
+    "recipe": "bread-and-butter",
+    "inputs": "bread + butter",
+    "incorporated": "—",
+    "lifecycle": {
+      "bread": {
+        "role": "retain",
+        "reason": "Use a portion of bread for bread and butter; the prepared batch remains available to the other kitchens."
+      },
+      "butter": {
+        "role": "retain",
+        "reason": "Use a portion of butter for bread and butter; the prepared batch remains available to the other kitchens."
+      }
+    }
+  },
+  {
+    "world": "hearth-to-twinkie-v1",
+    "recipe": "cider",
+    "inputs": "juice + cider-yeast",
+    "incorporated": "—",
+    "lifecycle": {
+      "juice": {
+        "role": "retain",
+        "reason": "Use a portion of apple juice for hard cider; the prepared batch remains available to the other kitchens."
+      },
+      "cider-yeast": {
+        "role": "retain",
+        "reason": "Use a measured portion of the cider yeast stock; the remaining supply is still present."
+      }
+    }
+  },
+  {
+    "world": "hearth-to-twinkie-v1",
+    "recipe": "cider-vinegar",
+    "inputs": "cider + vinegar-culture",
+    "incorporated": "cider",
+    "lifecycle": {
+      "cider": {
+        "role": "transform",
+        "reason": "This hard cider is the evolving preparation and becomes cider vinegar."
+      },
+      "vinegar-culture": {
+        "role": "retain",
+        "reason": "Use a measured portion of the vinegar culture stock; the remaining supply is still present."
+      }
+    }
+  },
+  {
+    "world": "hearth-to-twinkie-v1",
+    "recipe": "vinaigrette",
+    "inputs": "cider-vinegar + olive-oil",
+    "incorporated": "—",
+    "lifecycle": {
+      "cider-vinegar": {
+        "role": "retain",
+        "reason": "Use a portion of cider vinegar for vinaigrette; the prepared batch remains available to the other kitchens."
+      },
+      "olive-oil": {
+        "role": "retain",
+        "reason": "Use a measured portion of the olive oil stock; the remaining supply is still present."
+      }
+    }
+  },
+  {
+    "world": "hearth-to-twinkie-v1",
+    "recipe": "dressed-salad",
+    "inputs": "salad-leaves + vinaigrette",
+    "incorporated": "—",
+    "lifecycle": {
+      "salad-leaves": {
+        "role": "retain",
+        "reason": "Use a measured portion of the salad leaves stock; the remaining supply is still present."
+      },
+      "vinaigrette": {
+        "role": "retain",
+        "reason": "Use a portion of vinaigrette for dressed salad; the prepared batch remains available to the other kitchens."
+      }
+    }
+  },
+  {
+    "world": "hearth-to-twinkie-v1",
+    "recipe": "herb-butter",
+    "inputs": "butter + herbs",
+    "incorporated": "—",
+    "lifecycle": {
+      "butter": {
+        "role": "retain",
+        "reason": "Use a portion of butter for herb butter; the prepared batch remains available to the other kitchens."
+      },
+      "herbs": {
+        "role": "retain",
+        "reason": "Use a measured portion of the herbs stock; the remaining supply is still present."
+      }
+    }
+  },
+  {
+    "world": "hearth-to-twinkie-v1",
+    "recipe": "herb-bread",
+    "inputs": "bread + herb-butter",
+    "incorporated": "—",
+    "lifecycle": {
+      "bread": {
+        "role": "retain",
+        "reason": "Use a portion of bread for herb-buttered bread; the prepared batch remains available to the other kitchens."
+      },
+      "herb-butter": {
+        "role": "retain",
+        "reason": "Use a portion of herb butter for herb-buttered bread; the prepared batch remains available to the other kitchens."
+      }
+    }
+  },
+  {
+    "world": "hearth-to-twinkie-v1",
+    "recipe": "herb-toast",
+    "inputs": "herb-bread + @orchard-grill",
+    "incorporated": "herb-bread",
+    "lifecycle": {
+      "herb-bread": {
+        "role": "transform",
+        "reason": "This herb-buttered bread is the evolving preparation and becomes herb toast."
+      }
+    }
+  },
+  {
+    "world": "hearth-to-twinkie-v1",
+    "recipe": "compote",
+    "inputs": "fruit + juice",
+    "incorporated": "—",
+    "lifecycle": {
+      "fruit": {
+        "role": "retain",
+        "reason": "Use a measured portion of the apples stock; the remaining supply is still present."
+      },
+      "juice": {
+        "role": "retain",
+        "reason": "Use a portion of apple juice for apple compote; the prepared batch remains available to the other kitchens."
+      }
+    }
+  },
+  {
+    "world": "hearth-to-twinkie-v1",
+    "recipe": "compote-yogurt",
+    "inputs": "yogurt + compote",
+    "incorporated": "—",
+    "lifecycle": {
+      "yogurt": {
+        "role": "retain",
+        "reason": "Use a portion of yogurt for compote yogurt; the prepared batch remains available to the other kitchens."
+      },
+      "compote": {
+        "role": "retain",
+        "reason": "Use a portion of apple compote for compote yogurt; the prepared batch remains available to the other kitchens."
+      }
+    }
+  },
+  {
+    "world": "hearth-to-twinkie-v1",
+    "recipe": "stock-pot",
+    "inputs": "roots + water",
+    "incorporated": "—",
+    "lifecycle": {
+      "roots": {
+        "role": "retain",
+        "reason": "Use a measured portion of the root vegetables stock; the remaining supply is still present."
+      },
+      "water": {
+        "role": "retain",
+        "reason": "Use a measured portion of the water stock; the remaining supply is still present."
+      }
+    }
+  },
+  {
+    "world": "hearth-to-twinkie-v1",
+    "recipe": "broth",
+    "inputs": "stock-pot + @soup-stove",
+    "incorporated": "stock-pot",
+    "lifecycle": {
+      "stock-pot": {
+        "role": "transform",
+        "reason": "This vegetable stock pot is the evolving preparation and becomes vegetable broth."
+      }
+    }
+  },
+  {
+    "world": "hearth-to-twinkie-v1",
+    "recipe": "bread-soup",
+    "inputs": "bread + broth",
+    "incorporated": "—",
+    "lifecycle": {
+      "bread": {
+        "role": "retain",
+        "reason": "Use a portion of bread for bread soup; the prepared batch remains available to the other kitchens."
+      },
+      "broth": {
+        "role": "retain",
+        "reason": "Use a portion of vegetable broth for bread soup; the prepared batch remains available to the other kitchens."
+      }
+    }
+  },
+  {
+    "world": "hearth-to-twinkie-v1",
+    "recipe": "soft-onions",
+    "inputs": "onions + butter",
+    "incorporated": "—",
+    "lifecycle": {
+      "onions": {
+        "role": "retain",
+        "reason": "Use a measured portion of the onions stock; the remaining supply is still present."
+      },
+      "butter": {
+        "role": "retain",
+        "reason": "Use a portion of butter for softened onions; the prepared batch remains available to the other kitchens."
+      }
+    }
+  },
+  {
+    "world": "hearth-to-twinkie-v1",
+    "recipe": "onion-soup",
+    "inputs": "soft-onions + broth",
+    "incorporated": "soft-onions",
+    "lifecycle": {
+      "soft-onions": {
+        "role": "transform",
+        "reason": "This softened onions is the evolving preparation and becomes onion soup."
+      },
+      "broth": {
+        "role": "retain",
+        "reason": "Use a portion of vegetable broth for onion soup; the prepared batch remains available to the other kitchens."
+      }
+    }
+  },
+  {
+    "world": "hearth-to-twinkie-v1",
+    "recipe": "onion-supper",
+    "inputs": "onion-soup + herb-toast",
+    "incorporated": "onion-soup",
+    "lifecycle": {
+      "onion-soup": {
+        "role": "transform",
+        "reason": "This onion soup is the evolving preparation and becomes onion soup with herb toast."
+      },
+      "herb-toast": {
+        "role": "retain",
+        "reason": "Use a portion of herb toast for onion soup with herb toast; the prepared batch remains available to the other kitchens."
+      }
+    }
+  },
+  {
+    "world": "hearth-to-twinkie-v1",
+    "recipe": "bean-stew",
+    "inputs": "cooked-beans + broth",
+    "incorporated": "—",
+    "lifecycle": {
+      "cooked-beans": {
+        "role": "retain",
+        "reason": "Use a measured portion of the cooked beans stock; the remaining supply is still present."
+      },
+      "broth": {
+        "role": "retain",
+        "reason": "Use a portion of vegetable broth for bean stew; the prepared batch remains available to the other kitchens."
+      }
+    }
+  },
+  {
+    "world": "hearth-to-twinkie-v1",
+    "recipe": "roast-roots",
+    "inputs": "roots + herb-butter",
+    "incorporated": "—",
+    "lifecycle": {
+      "roots": {
+        "role": "retain",
+        "reason": "Use a measured portion of the root vegetables stock; the remaining supply is still present."
+      },
+      "herb-butter": {
+        "role": "retain",
+        "reason": "Use a portion of herb butter for roasted roots; the prepared batch remains available to the other kitchens."
+      }
+    }
+  },
+  {
+    "world": "hearth-to-twinkie-v1",
+    "recipe": "roast-bean-stew",
+    "inputs": "bean-stew + roast-roots",
+    "incorporated": "—",
+    "lifecycle": {
+      "bean-stew": {
+        "role": "retain",
+        "reason": "Use a portion of bean stew for bean stew with roasted roots; the prepared batch remains available to the other kitchens."
+      },
+      "roast-roots": {
+        "role": "retain",
+        "reason": "Use a portion of roasted roots for bean stew with roasted roots; the prepared batch remains available to the other kitchens."
+      }
+    }
+  },
+  {
+    "world": "hearth-to-twinkie-v1",
+    "recipe": "filled-flatbread",
+    "inputs": "flatbread + roast-bean-stew",
+    "incorporated": "roast-bean-stew",
+    "lifecycle": {
+      "flatbread": {
+        "role": "retain",
+        "reason": "Use a portion of flatbread for root-and-bean flatbread; the prepared batch remains available to the other kitchens."
+      },
+      "roast-bean-stew": {
+        "role": "incorporate",
+        "reason": "The bean stew with roasted roots becomes part of root-and-bean flatbread, rather than disappearing because its uses ended."
+      }
+    }
+  },
+  {
+    "world": "hearth-to-twinkie-v1",
+    "recipe": "mustard-paste",
+    "inputs": "ground-mustard + cider-vinegar",
+    "incorporated": "—",
+    "lifecycle": {
+      "ground-mustard": {
+        "role": "retain",
+        "reason": "Use a measured portion of the ground mustard seed stock; the remaining supply is still present."
+      },
+      "cider-vinegar": {
+        "role": "retain",
+        "reason": "Use a portion of cider vinegar for mustard paste; the prepared batch remains available to the other kitchens."
+      }
+    }
+  },
+  {
+    "world": "hearth-to-twinkie-v1",
+    "recipe": "mustard-dressing",
+    "inputs": "mustard-paste + vinaigrette",
+    "incorporated": "—",
+    "lifecycle": {
+      "mustard-paste": {
+        "role": "retain",
+        "reason": "Use a portion of mustard paste for mustard dressing; the prepared batch remains available to the other kitchens."
+      },
+      "vinaigrette": {
+        "role": "retain",
+        "reason": "Use a portion of vinaigrette for mustard dressing; the prepared batch remains available to the other kitchens."
+      }
+    }
+  },
+  {
+    "world": "hearth-to-twinkie-v1",
+    "recipe": "root-salad",
+    "inputs": "roast-roots + mustard-dressing",
+    "incorporated": "—",
+    "lifecycle": {
+      "roast-roots": {
+        "role": "retain",
+        "reason": "Use a portion of roasted roots for roasted-root salad; the prepared batch remains available to the other kitchens."
+      },
+      "mustard-dressing": {
+        "role": "retain",
+        "reason": "Use a portion of mustard dressing for roasted-root salad; the prepared batch remains available to the other kitchens."
+      }
+    }
+  },
+  {
+    "world": "hearth-to-twinkie-v1",
+    "recipe": "croutons",
+    "inputs": "bread + @salad-oven",
+    "incorporated": "—",
+    "lifecycle": {
+      "bread": {
+        "role": "retain",
+        "reason": "Use a portion of bread for croutons; the prepared batch remains available to the other kitchens."
+      }
+    }
+  },
+  {
+    "world": "hearth-to-twinkie-v1",
+    "recipe": "crisp-green-salad",
+    "inputs": "dressed-salad + croutons",
+    "incorporated": "dressed-salad",
+    "lifecycle": {
+      "dressed-salad": {
+        "role": "transform",
+        "reason": "This dressed salad is the evolving preparation and becomes green salad with croutons."
+      },
+      "croutons": {
+        "role": "retain",
+        "reason": "Use a portion of croutons for green salad with croutons; the prepared batch remains available to the other kitchens."
+      }
+    }
+  },
+  {
+    "world": "hearth-to-twinkie-v1",
+    "recipe": "cucumber-yogurt",
+    "inputs": "yogurt + cucumber",
+    "incorporated": "—",
+    "lifecycle": {
+      "yogurt": {
+        "role": "retain",
+        "reason": "Use a portion of yogurt for cucumber yogurt; the prepared batch remains available to the other kitchens."
+      },
+      "cucumber": {
+        "role": "retain",
+        "reason": "Use a measured portion of the cucumber stock; the remaining supply is still present."
+      }
+    }
+  },
+  {
+    "world": "hearth-to-twinkie-v1",
+    "recipe": "humoral-menu",
+    "inputs": "menu-card + humoral-book",
+    "incorporated": "menu-card",
+    "lifecycle": {
+      "menu-card": {
+        "role": "transform",
+        "reason": "This menu card is the evolving preparation and becomes humoral menu."
+      },
+      "humoral-book": {
+        "role": "retain",
+        "reason": "Humoral book remains a reusable tool or reference, not an ingredient."
+      }
+    }
+  },
+  {
+    "world": "hearth-to-twinkie-v1",
+    "recipe": "annotated-menu",
+    "inputs": "humoral-menu + modern-note",
+    "incorporated": "humoral-menu",
+    "lifecycle": {
+      "humoral-menu": {
+        "role": "transform",
+        "reason": "This humoral menu is the evolving preparation and becomes annotated historical menu."
+      },
+      "modern-note": {
+        "role": "retain",
+        "reason": "Museum annotation remains a reusable tool or reference, not an ingredient."
+      }
+    }
+  },
+  {
+    "world": "hearth-to-twinkie-v1",
+    "recipe": "breadcrumbs",
+    "inputs": "bread + bread-knife",
+    "incorporated": "—",
+    "lifecycle": {
+      "bread": {
+        "role": "retain",
+        "reason": "Use a portion of bread for breadcrumbs; the prepared batch remains available to the other kitchens."
+      },
+      "bread-knife": {
+        "role": "retain",
+        "reason": "Bread knife remains a reusable tool or reference, not an ingredient."
+      }
+    }
+  },
+  {
+    "world": "hearth-to-twinkie-v1",
+    "recipe": "egg-dough",
+    "inputs": "flour + eggs",
+    "incorporated": "—",
+    "lifecycle": {
+      "flour": {
+        "role": "retain",
+        "reason": "Use a portion of flour for egg pasta dough; the prepared batch remains available to the other kitchens."
+      },
+      "eggs": {
+        "role": "retain",
+        "reason": "Use a measured portion of the eggs stock; the remaining supply is still present."
+      }
+    }
+  },
+  {
+    "world": "hearth-to-twinkie-v1",
+    "recipe": "pasta-sheets",
+    "inputs": "egg-dough + rolling-pin",
+    "incorporated": "egg-dough",
+    "lifecycle": {
+      "egg-dough": {
+        "role": "transform",
+        "reason": "This egg pasta dough is the evolving preparation and becomes pasta sheets."
+      },
+      "rolling-pin": {
+        "role": "retain",
+        "reason": "Rolling pin remains a reusable tool or reference, not an ingredient."
+      }
+    }
+  },
+  {
+    "world": "hearth-to-twinkie-v1",
+    "recipe": "noodles",
+    "inputs": "pasta-sheets + cutting-wheel",
+    "incorporated": "—",
+    "lifecycle": {
+      "pasta-sheets": {
+        "role": "retain",
+        "reason": "Use a portion of pasta sheets for fresh noodles; the prepared batch remains available to the other kitchens."
+      },
+      "cutting-wheel": {
+        "role": "retain",
+        "reason": "Cutting wheel remains a reusable tool or reference, not an ingredient."
+      }
+    }
+  },
+  {
+    "world": "hearth-to-twinkie-v1",
+    "recipe": "cooked-noodles",
+    "inputs": "noodles + @pasta-pot",
+    "incorporated": "noodles",
+    "lifecycle": {
+      "noodles": {
+        "role": "transform",
+        "reason": "This fresh noodles is the evolving preparation and becomes cooked noodles."
+      }
+    }
+  },
+  {
+    "world": "hearth-to-twinkie-v1",
+    "recipe": "buttered-noodles",
+    "inputs": "cooked-noodles + herb-butter",
+    "incorporated": "—",
+    "lifecycle": {
+      "cooked-noodles": {
+        "role": "retain",
+        "reason": "Use a portion of cooked noodles for herb-buttered noodles; the prepared batch remains available to the other kitchens."
+      },
+      "herb-butter": {
+        "role": "retain",
+        "reason": "Use a portion of herb butter for herb-buttered noodles; the prepared batch remains available to the other kitchens."
+      }
+    }
+  },
+  {
+    "world": "hearth-to-twinkie-v1",
+    "recipe": "toasted-crumbs",
+    "inputs": "breadcrumbs + @pasta-pan",
+    "incorporated": "—",
+    "lifecycle": {
+      "breadcrumbs": {
+        "role": "retain",
+        "reason": "Use a portion of breadcrumbs for toasted crumbs; the prepared batch remains available to the other kitchens."
+      }
+    }
+  },
+  {
+    "world": "hearth-to-twinkie-v1",
+    "recipe": "crisp-buttered-noodles",
+    "inputs": "buttered-noodles + toasted-crumbs",
+    "incorporated": "buttered-noodles",
+    "lifecycle": {
+      "buttered-noodles": {
+        "role": "transform",
+        "reason": "This herb-buttered noodles is the evolving preparation and becomes noodles with toasted crumbs."
+      },
+      "toasted-crumbs": {
+        "role": "retain",
+        "reason": "Use a portion of toasted crumbs for noodles with toasted crumbs; the prepared batch remains available to the other kitchens."
+      }
+    }
+  },
+  {
+    "world": "hearth-to-twinkie-v1",
+    "recipe": "root-filling",
+    "inputs": "roast-roots + strained-yogurt",
+    "incorporated": "—",
+    "lifecycle": {
+      "roast-roots": {
+        "role": "retain",
+        "reason": "Use a portion of roasted roots for root and yogurt filling; the prepared batch remains available to the other kitchens."
+      },
+      "strained-yogurt": {
+        "role": "retain",
+        "reason": "Use a portion of strained yogurt for root and yogurt filling; the prepared batch remains available to the other kitchens."
+      }
+    }
+  },
+  {
+    "world": "hearth-to-twinkie-v1",
+    "recipe": "ravioli",
+    "inputs": "pasta-sheets + root-filling",
+    "incorporated": "—",
+    "lifecycle": {
+      "pasta-sheets": {
+        "role": "retain",
+        "reason": "Use a portion of pasta sheets for filled ravioli; the prepared batch remains available to the other kitchens."
+      },
+      "root-filling": {
+        "role": "retain",
+        "reason": "Use a portion of root and yogurt filling for filled ravioli; the prepared batch remains available to the other kitchens."
+      }
+    }
+  },
+  {
+    "world": "hearth-to-twinkie-v1",
+    "recipe": "cooked-ravioli",
+    "inputs": "ravioli + @pasta-pot",
+    "incorporated": "ravioli",
+    "lifecycle": {
+      "ravioli": {
+        "role": "transform",
+        "reason": "This filled ravioli is the evolving preparation and becomes cooked ravioli."
+      }
+    }
+  },
+  {
+    "world": "hearth-to-twinkie-v1",
+    "recipe": "butter-ravioli",
+    "inputs": "cooked-ravioli + herb-butter",
+    "incorporated": "cooked-ravioli",
+    "lifecycle": {
+      "cooked-ravioli": {
+        "role": "transform",
+        "reason": "This cooked ravioli is the evolving preparation and becomes ravioli with herb butter."
+      },
+      "herb-butter": {
+        "role": "retain",
+        "reason": "Use a portion of herb butter for ravioli with herb butter; the prepared batch remains available to the other kitchens."
+      }
+    }
+  },
+  {
+    "world": "hearth-to-twinkie-v1",
+    "recipe": "pastry-crumbs",
+    "inputs": "flour + butter",
+    "incorporated": "—",
+    "lifecycle": {
+      "flour": {
+        "role": "retain",
+        "reason": "Use a portion of flour for buttery pastry crumbs; the prepared batch remains available to the other kitchens."
+      },
+      "butter": {
+        "role": "retain",
+        "reason": "Use a portion of butter for buttery pastry crumbs; the prepared batch remains available to the other kitchens."
+      }
+    }
+  },
+  {
+    "world": "hearth-to-twinkie-v1",
+    "recipe": "shortcrust",
+    "inputs": "pastry-crumbs + water",
+    "incorporated": "pastry-crumbs",
+    "lifecycle": {
+      "pastry-crumbs": {
+        "role": "transform",
+        "reason": "This buttery pastry crumbs is the evolving preparation and becomes shortcrust."
+      },
+      "water": {
+        "role": "retain",
+        "reason": "Use a measured portion of the water stock; the remaining supply is still present."
+      }
+    }
+  },
+  {
+    "world": "hearth-to-twinkie-v1",
+    "recipe": "unbaked-fruit-tart",
+    "inputs": "shortcrust + fruit",
+    "incorporated": "—",
+    "lifecycle": {
+      "shortcrust": {
+        "role": "retain",
+        "reason": "Use a portion of shortcrust for unbaked fruit tart; the prepared batch remains available to the other kitchens."
+      },
+      "fruit": {
+        "role": "retain",
+        "reason": "Use a measured portion of the apples stock; the remaining supply is still present."
+      }
+    }
+  },
+  {
+    "world": "hearth-to-twinkie-v1",
+    "recipe": "fruit-tart",
+    "inputs": "unbaked-fruit-tart + @pastry-oven",
+    "incorporated": "unbaked-fruit-tart",
+    "lifecycle": {
+      "unbaked-fruit-tart": {
+        "role": "transform",
+        "reason": "This unbaked fruit tart is the evolving preparation and becomes fruit tart."
+      }
+    }
+  },
+  {
+    "world": "hearth-to-twinkie-v1",
+    "recipe": "laminated-dough",
+    "inputs": "dough + butter",
+    "incorporated": "—",
+    "lifecycle": {
+      "dough": {
+        "role": "retain",
+        "reason": "Use a portion of dough for laminated dough; the prepared batch remains available to the other kitchens."
+      },
+      "butter": {
+        "role": "retain",
+        "reason": "Use a portion of butter for laminated dough; the prepared batch remains available to the other kitchens."
+      }
+    }
+  },
+  {
+    "world": "hearth-to-twinkie-v1",
+    "recipe": "puff-pastry",
+    "inputs": "laminated-dough + @pastry-oven",
+    "incorporated": "—",
+    "lifecycle": {
+      "laminated-dough": {
+        "role": "retain",
+        "reason": "Use a portion of laminated dough for puff pastry; the prepared batch remains available to the other kitchens."
+      }
+    }
+  },
+  {
+    "world": "hearth-to-twinkie-v1",
+    "recipe": "unbaked-bean-pie",
+    "inputs": "shortcrust + bean-stew",
+    "incorporated": "—",
+    "lifecycle": {
+      "shortcrust": {
+        "role": "retain",
+        "reason": "Use a portion of shortcrust for unbaked bean pie; the prepared batch remains available to the other kitchens."
+      },
+      "bean-stew": {
+        "role": "retain",
+        "reason": "Use a portion of bean stew for unbaked bean pie; the prepared batch remains available to the other kitchens."
+      }
+    }
+  },
+  {
+    "world": "hearth-to-twinkie-v1",
+    "recipe": "bean-pie",
+    "inputs": "unbaked-bean-pie + @pastry-oven",
+    "incorporated": "unbaked-bean-pie",
+    "lifecycle": {
+      "unbaked-bean-pie": {
+        "role": "transform",
+        "reason": "This unbaked bean pie is the evolving preparation and becomes bean pie."
+      }
+    }
+  },
+  {
+    "world": "hearth-to-twinkie-v1",
+    "recipe": "cheese-straw-dough",
+    "inputs": "laminated-dough + grated-cheese",
+    "incorporated": "—",
+    "lifecycle": {
+      "laminated-dough": {
+        "role": "retain",
+        "reason": "Use a portion of laminated dough for cheese-straw twists; the prepared batch remains available to the other kitchens."
+      },
+      "grated-cheese": {
+        "role": "retain",
+        "reason": "Use a measured portion of the grated cheese stock; the remaining supply is still present."
+      }
+    }
+  },
+  {
+    "world": "hearth-to-twinkie-v1",
+    "recipe": "cheese-straws",
+    "inputs": "cheese-straw-dough + @pastry-oven",
+    "incorporated": "cheese-straw-dough",
+    "lifecycle": {
+      "cheese-straw-dough": {
+        "role": "transform",
+        "reason": "This cheese-straw twists is the evolving preparation and becomes cheese straws."
+      }
+    }
+  },
+  {
+    "world": "hearth-to-twinkie-v1",
+    "recipe": "white-roux",
+    "inputs": "flour + butter",
+    "incorporated": "—",
+    "lifecycle": {
+      "flour": {
+        "role": "retain",
+        "reason": "Use a portion of flour for white roux; the prepared batch remains available to the other kitchens."
+      },
+      "butter": {
+        "role": "retain",
+        "reason": "Use a portion of butter for white roux; the prepared batch remains available to the other kitchens."
+      }
+    }
+  },
+  {
+    "world": "hearth-to-twinkie-v1",
+    "recipe": "bechamel",
+    "inputs": "white-roux + milk",
+    "incorporated": "—",
+    "lifecycle": {
+      "white-roux": {
+        "role": "retain",
+        "reason": "Use a portion of white roux for béchamel; the prepared batch remains available to the other kitchens."
+      },
+      "milk": {
+        "role": "retain",
+        "reason": "Use a measured portion of the milk stock; the remaining supply is still present."
+      }
+    }
+  },
+  {
+    "world": "hearth-to-twinkie-v1",
+    "recipe": "cheese-sauce",
+    "inputs": "bechamel + grated-cheese",
+    "incorporated": "—",
+    "lifecycle": {
+      "bechamel": {
+        "role": "retain",
+        "reason": "Use a portion of béchamel for cheese sauce; the prepared batch remains available to the other kitchens."
+      },
+      "grated-cheese": {
+        "role": "retain",
+        "reason": "Use a measured portion of the grated cheese stock; the remaining supply is still present."
+      }
+    }
+  },
+  {
+    "world": "hearth-to-twinkie-v1",
+    "recipe": "cooked-cauliflower",
+    "inputs": "cauliflower + @steamer",
+    "incorporated": "—",
+    "lifecycle": {
+      "cauliflower": {
+        "role": "retain",
+        "reason": "Use a measured portion of the cauliflower stock; the remaining supply is still present."
+      }
+    }
+  },
+  {
+    "world": "hearth-to-twinkie-v1",
+    "recipe": "coated-cauliflower",
+    "inputs": "cooked-cauliflower + cheese-sauce",
+    "incorporated": "—",
+    "lifecycle": {
+      "cooked-cauliflower": {
+        "role": "retain",
+        "reason": "Use a portion of cooked cauliflower for cauliflower in cheese sauce; the prepared batch remains available to the other kitchens."
+      },
+      "cheese-sauce": {
+        "role": "retain",
+        "reason": "Use a portion of cheese sauce for cauliflower in cheese sauce; the prepared batch remains available to the other kitchens."
+      }
+    }
+  },
+  {
+    "world": "hearth-to-twinkie-v1",
+    "recipe": "cauliflower-gratin",
+    "inputs": "coated-cauliflower + @supper-oven",
+    "incorporated": "coated-cauliflower",
+    "lifecycle": {
+      "coated-cauliflower": {
+        "role": "transform",
+        "reason": "This cauliflower in cheese sauce is the evolving preparation and becomes cauliflower gratin."
+      }
+    }
+  },
+  {
+    "world": "hearth-to-twinkie-v1",
+    "recipe": "cheese-noodles",
+    "inputs": "cooked-noodles + cheese-sauce",
+    "incorporated": "—",
+    "lifecycle": {
+      "cooked-noodles": {
+        "role": "retain",
+        "reason": "Use a portion of cooked noodles for noodles in cheese sauce; the prepared batch remains available to the other kitchens."
+      },
+      "cheese-sauce": {
+        "role": "retain",
+        "reason": "Use a portion of cheese sauce for noodles in cheese sauce; the prepared batch remains available to the other kitchens."
+      }
+    }
+  },
+  {
+    "world": "hearth-to-twinkie-v1",
+    "recipe": "baked-cheese-noodles",
+    "inputs": "cheese-noodles + @supper-oven",
+    "incorporated": "cheese-noodles",
+    "lifecycle": {
+      "cheese-noodles": {
+        "role": "transform",
+        "reason": "This noodles in cheese sauce is the evolving preparation and becomes baked cheese noodles."
+      }
+    }
+  },
+  {
+    "world": "hearth-to-twinkie-v1",
+    "recipe": "veloute",
+    "inputs": "white-roux + broth",
+    "incorporated": "—",
+    "lifecycle": {
+      "white-roux": {
+        "role": "retain",
+        "reason": "Use a portion of white roux for vegetable velouté; the prepared batch remains available to the other kitchens."
+      },
+      "broth": {
+        "role": "retain",
+        "reason": "Use a portion of vegetable broth for vegetable velouté; the prepared batch remains available to the other kitchens."
+      }
+    }
+  },
+  {
+    "world": "hearth-to-twinkie-v1",
+    "recipe": "buttered-cauliflower",
+    "inputs": "cooked-cauliflower + butter",
+    "incorporated": "—",
+    "lifecycle": {
+      "cooked-cauliflower": {
+        "role": "retain",
+        "reason": "Use a portion of cooked cauliflower for buttered cauliflower; the prepared batch remains available to the other kitchens."
+      },
+      "butter": {
+        "role": "retain",
+        "reason": "Use a portion of butter for buttered cauliflower; the prepared batch remains available to the other kitchens."
+      }
+    }
+  },
+  {
+    "world": "hearth-to-twinkie-v1",
+    "recipe": "macerated-fruit",
+    "inputs": "fruit + sugar",
+    "incorporated": "—",
+    "lifecycle": {
+      "fruit": {
+        "role": "retain",
+        "reason": "Use a measured portion of the apples stock; the remaining supply is still present."
+      },
+      "sugar": {
+        "role": "retain",
+        "reason": "Use a measured portion of the sugar stock; the remaining supply is still present."
+      }
+    }
+  },
+  {
+    "world": "hearth-to-twinkie-v1",
+    "recipe": "jam",
+    "inputs": "macerated-fruit + @preserve-pan",
+    "incorporated": "macerated-fruit",
+    "lifecycle": {
+      "macerated-fruit": {
+        "role": "transform",
+        "reason": "This macerated fruit is the evolving preparation and becomes soft-set fruit jam."
+      }
+    }
+  },
+  {
+    "world": "hearth-to-twinkie-v1",
+    "recipe": "fruit-syrup",
+    "inputs": "juice + sugar",
+    "incorporated": "—",
+    "lifecycle": {
+      "juice": {
+        "role": "retain",
+        "reason": "Use a portion of apple juice for fruit syrup; the prepared batch remains available to the other kitchens."
+      },
+      "sugar": {
+        "role": "retain",
+        "reason": "Use a measured portion of the sugar stock; the remaining supply is still present."
+      }
+    }
+  },
+  {
+    "world": "hearth-to-twinkie-v1",
+    "recipe": "soft-citrus",
+    "inputs": "citrus + water",
+    "incorporated": "—",
+    "lifecycle": {
+      "citrus": {
+        "role": "retain",
+        "reason": "Use a measured portion of the citrus stock; the remaining supply is still present."
+      },
+      "water": {
+        "role": "retain",
+        "reason": "Use a measured portion of the water stock; the remaining supply is still present."
+      }
+    }
+  },
+  {
+    "world": "hearth-to-twinkie-v1",
+    "recipe": "marmalade",
+    "inputs": "soft-citrus + sugar",
+    "incorporated": "soft-citrus",
+    "lifecycle": {
+      "soft-citrus": {
+        "role": "transform",
+        "reason": "This softened citrus is the evolving preparation and becomes marmalade."
+      },
+      "sugar": {
+        "role": "retain",
+        "reason": "Use a measured portion of the sugar stock; the remaining supply is still present."
+      }
+    }
+  },
+  {
+    "world": "hearth-to-twinkie-v1",
+    "recipe": "crumble-topping",
+    "inputs": "breadcrumbs + butter",
+    "incorporated": "—",
+    "lifecycle": {
+      "breadcrumbs": {
+        "role": "retain",
+        "reason": "Use a portion of breadcrumbs for buttery crumble topping; the prepared batch remains available to the other kitchens."
+      },
+      "butter": {
+        "role": "retain",
+        "reason": "Use a portion of butter for buttery crumble topping; the prepared batch remains available to the other kitchens."
+      }
+    }
+  },
+  {
+    "world": "hearth-to-twinkie-v1",
+    "recipe": "unbaked-jam-tart",
+    "inputs": "shortcrust + jam",
+    "incorporated": "—",
+    "lifecycle": {
+      "shortcrust": {
+        "role": "retain",
+        "reason": "Use a portion of shortcrust for unbaked jam tart; the prepared batch remains available to the other kitchens."
+      },
+      "jam": {
+        "role": "retain",
+        "reason": "Use a portion of soft-set fruit jam for unbaked jam tart; the prepared batch remains available to the other kitchens."
+      }
+    }
+  },
+  {
+    "world": "hearth-to-twinkie-v1",
+    "recipe": "jam-tart",
+    "inputs": "unbaked-jam-tart + @sugar-oven",
+    "incorporated": "unbaked-jam-tart",
+    "lifecycle": {
+      "unbaked-jam-tart": {
+        "role": "transform",
+        "reason": "This unbaked jam tart is the evolving preparation and becomes jam tart."
+      }
+    }
+  },
+  {
+    "world": "hearth-to-twinkie-v1",
+    "recipe": "unbaked-crumble",
+    "inputs": "compote + crumble-topping",
+    "incorporated": "crumble-topping",
+    "lifecycle": {
+      "compote": {
+        "role": "retain",
+        "reason": "Use a portion of apple compote for unbaked fruit crumble; the prepared batch remains available to the other kitchens."
+      },
+      "crumble-topping": {
+        "role": "incorporate",
+        "reason": "The buttery crumble topping becomes part of unbaked fruit crumble, rather than disappearing because its uses ended."
+      }
+    }
+  },
+  {
+    "world": "hearth-to-twinkie-v1",
+    "recipe": "fruit-crumble",
+    "inputs": "unbaked-crumble + @sugar-oven",
+    "incorporated": "unbaked-crumble",
+    "lifecycle": {
+      "unbaked-crumble": {
+        "role": "transform",
+        "reason": "This unbaked fruit crumble is the evolving preparation and becomes fruit crumble."
+      }
+    }
+  },
+  {
+    "world": "hearth-to-twinkie-v1",
+    "recipe": "glazed-fruit-tart",
+    "inputs": "fruit-tart + fruit-syrup",
+    "incorporated": "—",
+    "lifecycle": {
+      "fruit-tart": {
+        "role": "retain",
+        "reason": "Use a portion of fruit tart for glazed fruit tart; the prepared batch remains available to the other kitchens."
+      },
+      "fruit-syrup": {
+        "role": "retain",
+        "reason": "Use a portion of fruit syrup for glazed fruit tart; the prepared batch remains available to the other kitchens."
+      }
+    }
+  },
+  {
+    "world": "hearth-to-twinkie-v1",
+    "recipe": "ground-almonds",
+    "inputs": "almonds + mortar",
+    "incorporated": "—",
+    "lifecycle": {
+      "almonds": {
+        "role": "retain",
+        "reason": "Use a measured portion of the almonds stock; the remaining supply is still present."
+      },
+      "mortar": {
+        "role": "retain",
+        "reason": "Mortar remains a reusable tool or reference, not an ingredient."
+      }
+    }
+  },
+  {
+    "world": "hearth-to-twinkie-v1",
+    "recipe": "almond-sugar",
+    "inputs": "ground-almonds + sugar",
+    "incorporated": "—",
+    "lifecycle": {
+      "ground-almonds": {
+        "role": "retain",
+        "reason": "Use a portion of ground almonds for almond and sugar mixture; the prepared batch remains available to the other kitchens."
+      },
+      "sugar": {
+        "role": "retain",
+        "reason": "Use a measured portion of the sugar stock; the remaining supply is still present."
+      }
+    }
+  },
+  {
+    "world": "hearth-to-twinkie-v1",
+    "recipe": "marzipan",
+    "inputs": "almond-sugar + water",
+    "incorporated": "—",
+    "lifecycle": {
+      "almond-sugar": {
+        "role": "retain",
+        "reason": "Use a portion of almond and sugar mixture for marzipan; the prepared batch remains available to the other kitchens."
+      },
+      "water": {
+        "role": "retain",
+        "reason": "Use a measured portion of the water stock; the remaining supply is still present."
+      }
+    }
+  },
+  {
+    "world": "hearth-to-twinkie-v1",
+    "recipe": "almond-pastry",
+    "inputs": "puff-pastry + marzipan",
+    "incorporated": "—",
+    "lifecycle": {
+      "puff-pastry": {
+        "role": "retain",
+        "reason": "Use a portion of puff pastry for almond-filled puff pastry; the prepared batch remains available to the other kitchens."
+      },
+      "marzipan": {
+        "role": "retain",
+        "reason": "Use a portion of marzipan for almond-filled puff pastry; the prepared batch remains available to the other kitchens."
+      }
+    }
+  },
+  {
+    "world": "hearth-to-twinkie-v1",
+    "recipe": "sugar-syrup",
+    "inputs": "sugar + water",
+    "incorporated": "—",
+    "lifecycle": {
+      "sugar": {
+        "role": "retain",
+        "reason": "Use a measured portion of the sugar stock; the remaining supply is still present."
+      },
+      "water": {
+        "role": "retain",
+        "reason": "Use a measured portion of the water stock; the remaining supply is still present."
+      }
+    }
+  },
+  {
+    "world": "hearth-to-twinkie-v1",
+    "recipe": "caramel",
+    "inputs": "sugar-syrup + @sugar-pan",
+    "incorporated": "—",
+    "lifecycle": {
+      "sugar-syrup": {
+        "role": "retain",
+        "reason": "Use a portion of sugar syrup for caramel; the prepared batch remains available to the other kitchens."
+      }
+    }
+  },
+  {
+    "world": "hearth-to-twinkie-v1",
+    "recipe": "almond-brittle",
+    "inputs": "caramel + almonds",
+    "incorporated": "—",
+    "lifecycle": {
+      "caramel": {
+        "role": "retain",
+        "reason": "Use a portion of caramel for almond brittle; the prepared batch remains available to the other kitchens."
+      },
+      "almonds": {
+        "role": "retain",
+        "reason": "Use a measured portion of the almonds stock; the remaining supply is still present."
+      }
+    }
+  },
+  {
+    "world": "hearth-to-twinkie-v1",
+    "recipe": "caramel-sauce",
+    "inputs": "caramel + cream",
+    "incorporated": "—",
+    "lifecycle": {
+      "caramel": {
+        "role": "retain",
+        "reason": "Use a portion of caramel for caramel sauce; the prepared batch remains available to the other kitchens."
+      },
+      "cream": {
+        "role": "retain",
+        "reason": "Use a measured portion of the cream stock; the remaining supply is still present."
+      }
+    }
+  },
+  {
+    "world": "hearth-to-twinkie-v1",
+    "recipe": "marzipan-fruit",
+    "inputs": "marzipan + dates",
+    "incorporated": "—",
+    "lifecycle": {
+      "marzipan": {
+        "role": "retain",
+        "reason": "Use a portion of marzipan for marzipan-stuffed dates; the prepared batch remains available to the other kitchens."
+      },
+      "dates": {
+        "role": "retain",
+        "reason": "Use a measured portion of the pitted dates stock; the remaining supply is still present."
+      }
+    }
+  },
+  {
+    "world": "hearth-to-twinkie-v1",
+    "recipe": "sweet-yolks",
+    "inputs": "egg-yolks + sugar",
+    "incorporated": "—",
+    "lifecycle": {
+      "egg-yolks": {
+        "role": "retain",
+        "reason": "Use a measured portion of the egg yolks stock; the remaining supply is still present."
+      },
+      "sugar": {
+        "role": "retain",
+        "reason": "Use a measured portion of the sugar stock; the remaining supply is still present."
+      }
+    }
+  },
+  {
+    "world": "hearth-to-twinkie-v1",
+    "recipe": "custard-mixture",
+    "inputs": "sweet-yolks + milk",
+    "incorporated": "—",
+    "lifecycle": {
+      "sweet-yolks": {
+        "role": "retain",
+        "reason": "Use a portion of sweetened yolks for custard mixture; the prepared batch remains available to the other kitchens."
+      },
+      "milk": {
+        "role": "retain",
+        "reason": "Use a measured portion of the milk stock; the remaining supply is still present."
+      }
+    }
+  },
+  {
+    "world": "hearth-to-twinkie-v1",
+    "recipe": "custard",
+    "inputs": "custard-mixture + @custard-pan",
+    "incorporated": "—",
+    "lifecycle": {
+      "custard-mixture": {
+        "role": "retain",
+        "reason": "Use a portion of custard mixture for pouring custard; the prepared batch remains available to the other kitchens."
+      }
+    }
+  },
+  {
+    "world": "hearth-to-twinkie-v1",
+    "recipe": "vanilla-custard",
+    "inputs": "custard + vanilla",
+    "incorporated": "—",
+    "lifecycle": {
+      "custard": {
+        "role": "retain",
+        "reason": "Use a portion of pouring custard for vanilla custard; the prepared batch remains available to the other kitchens."
+      },
+      "vanilla": {
+        "role": "retain",
+        "reason": "Use a measured portion of the vanilla stock; the remaining supply is still present."
+      }
+    }
+  },
+  {
+    "world": "hearth-to-twinkie-v1",
+    "recipe": "starchy-yolks",
+    "inputs": "sweet-yolks + starch",
+    "incorporated": "—",
+    "lifecycle": {
+      "sweet-yolks": {
+        "role": "retain",
+        "reason": "Use a portion of sweetened yolks for starch-thickened yolk base; the prepared batch remains available to the other kitchens."
+      },
+      "starch": {
+        "role": "retain",
+        "reason": "Use a measured portion of the corn starch stock; the remaining supply is still present."
+      }
+    }
+  },
+  {
+    "world": "hearth-to-twinkie-v1",
+    "recipe": "pastry-cream-base",
+    "inputs": "starchy-yolks + milk",
+    "incorporated": "starchy-yolks",
+    "lifecycle": {
+      "starchy-yolks": {
+        "role": "transform",
+        "reason": "This starch-thickened yolk base is the evolving preparation and becomes pastry cream mixture."
+      },
+      "milk": {
+        "role": "retain",
+        "reason": "Use a measured portion of the milk stock; the remaining supply is still present."
+      }
+    }
+  },
+  {
+    "world": "hearth-to-twinkie-v1",
+    "recipe": "pastry-cream",
+    "inputs": "pastry-cream-base + @custard-pan",
+    "incorporated": "pastry-cream-base",
+    "lifecycle": {
+      "pastry-cream-base": {
+        "role": "transform",
+        "reason": "This pastry cream mixture is the evolving preparation and becomes pastry cream."
+      }
+    }
+  },
+  {
+    "world": "hearth-to-twinkie-v1",
+    "recipe": "tart-case",
+    "inputs": "shortcrust + @custard-oven",
+    "incorporated": "—",
+    "lifecycle": {
+      "shortcrust": {
+        "role": "retain",
+        "reason": "Use a portion of shortcrust for baked tart case; the prepared batch remains available to the other kitchens."
+      }
+    }
+  },
+  {
+    "world": "hearth-to-twinkie-v1",
+    "recipe": "cream-tart",
+    "inputs": "tart-case + pastry-cream",
+    "incorporated": "tart-case",
+    "lifecycle": {
+      "tart-case": {
+        "role": "transform",
+        "reason": "This baked tart case is the evolving preparation and becomes cream-filled tart."
+      },
+      "pastry-cream": {
+        "role": "retain",
+        "reason": "Use a portion of pastry cream for cream-filled tart; the prepared batch remains available to the other kitchens."
+      }
+    }
+  },
+  {
+    "world": "hearth-to-twinkie-v1",
+    "recipe": "fruit-cream-tart",
+    "inputs": "cream-tart + fruit",
+    "incorporated": "cream-tart",
+    "lifecycle": {
+      "cream-tart": {
+        "role": "transform",
+        "reason": "This cream-filled tart is the evolving preparation and becomes fruit cream tart."
+      },
+      "fruit": {
+        "role": "retain",
+        "reason": "Use a measured portion of the apples stock; the remaining supply is still present."
+      }
+    }
+  },
+  {
+    "world": "hearth-to-twinkie-v1",
+    "recipe": "soaked-bread",
+    "inputs": "bread + custard-mixture",
+    "incorporated": "—",
+    "lifecycle": {
+      "bread": {
+        "role": "retain",
+        "reason": "Use a portion of bread for custard-soaked bread; the prepared batch remains available to the other kitchens."
+      },
+      "custard-mixture": {
+        "role": "retain",
+        "reason": "Use a portion of custard mixture for custard-soaked bread; the prepared batch remains available to the other kitchens."
+      }
+    }
+  },
+  {
+    "world": "hearth-to-twinkie-v1",
+    "recipe": "bread-pudding",
+    "inputs": "soaked-bread + @custard-oven",
+    "incorporated": "soaked-bread",
+    "lifecycle": {
+      "soaked-bread": {
+        "role": "transform",
+        "reason": "This custard-soaked bread is the evolving preparation and becomes bread pudding."
+      }
+    }
+  },
+  {
+    "world": "hearth-to-twinkie-v1",
+    "recipe": "caramel-bread-pudding",
+    "inputs": "bread-pudding + caramel-sauce",
+    "incorporated": "bread-pudding",
+    "lifecycle": {
+      "bread-pudding": {
+        "role": "transform",
+        "reason": "This bread pudding is the evolving preparation and becomes caramel bread pudding."
+      },
+      "caramel-sauce": {
+        "role": "retain",
+        "reason": "Use a portion of caramel sauce for caramel bread pudding; the prepared batch remains available to the other kitchens."
+      }
+    }
+  },
+  {
+    "world": "hearth-to-twinkie-v1",
+    "recipe": "butter-water",
+    "inputs": "butter + water",
+    "incorporated": "—",
+    "lifecycle": {
+      "butter": {
+        "role": "retain",
+        "reason": "Use a portion of butter for choux cooking liquid; the prepared batch remains available to the other kitchens."
+      },
+      "water": {
+        "role": "retain",
+        "reason": "Use a measured portion of the water stock; the remaining supply is still present."
+      }
+    }
+  },
+  {
+    "world": "hearth-to-twinkie-v1",
+    "recipe": "panade",
+    "inputs": "butter-water + flour",
+    "incorporated": "butter-water",
+    "lifecycle": {
+      "butter-water": {
+        "role": "transform",
+        "reason": "This choux cooking liquid is the evolving preparation and becomes cooked flour paste."
+      },
+      "flour": {
+        "role": "retain",
+        "reason": "Use a portion of flour for cooked flour paste; the prepared batch remains available to the other kitchens."
+      }
+    }
+  },
+  {
+    "world": "hearth-to-twinkie-v1",
+    "recipe": "choux-paste",
+    "inputs": "panade + eggs",
+    "incorporated": "panade",
+    "lifecycle": {
+      "panade": {
+        "role": "transform",
+        "reason": "This cooked flour paste is the evolving preparation and becomes choux paste."
+      },
+      "eggs": {
+        "role": "retain",
+        "reason": "Use a measured portion of the eggs stock; the remaining supply is still present."
+      }
+    }
+  },
+  {
+    "world": "hearth-to-twinkie-v1",
+    "recipe": "choux-buns",
+    "inputs": "choux-paste + @choux-oven",
+    "incorporated": "—",
+    "lifecycle": {
+      "choux-paste": {
+        "role": "retain",
+        "reason": "Use a portion of choux paste for hollow choux buns; the prepared batch remains available to the other kitchens."
+      }
+    }
+  },
+  {
+    "world": "hearth-to-twinkie-v1",
+    "recipe": "cheese-choux",
+    "inputs": "choux-paste + grated-cheese",
+    "incorporated": "—",
+    "lifecycle": {
+      "choux-paste": {
+        "role": "retain",
+        "reason": "Use a portion of choux paste for cheese choux paste; the prepared batch remains available to the other kitchens."
+      },
+      "grated-cheese": {
+        "role": "retain",
+        "reason": "Use a measured portion of the grated cheese stock; the remaining supply is still present."
+      }
+    }
+  },
+  {
+    "world": "hearth-to-twinkie-v1",
+    "recipe": "cheese-puffs",
+    "inputs": "cheese-choux + @choux-oven",
+    "incorporated": "cheese-choux",
+    "lifecycle": {
+      "cheese-choux": {
+        "role": "transform",
+        "reason": "This cheese choux paste is the evolving preparation and becomes cheese puffs."
+      }
+    }
+  },
+  {
+    "world": "hearth-to-twinkie-v1",
+    "recipe": "filled-choux",
+    "inputs": "choux-buns + pastry-cream",
+    "incorporated": "—",
+    "lifecycle": {
+      "choux-buns": {
+        "role": "retain",
+        "reason": "Use a portion of hollow choux buns for custard-filled choux; the prepared batch remains available to the other kitchens."
+      },
+      "pastry-cream": {
+        "role": "retain",
+        "reason": "Use a portion of pastry cream for custard-filled choux; the prepared batch remains available to the other kitchens."
+      }
+    }
+  },
+  {
+    "world": "hearth-to-twinkie-v1",
+    "recipe": "whipped-cream",
+    "inputs": "cream + whisk",
+    "incorporated": "—",
+    "lifecycle": {
+      "cream": {
+        "role": "retain",
+        "reason": "Use a measured portion of the cream stock; the remaining supply is still present."
+      },
+      "whisk": {
+        "role": "retain",
+        "reason": "Whisk remains a reusable tool or reference, not an ingredient."
+      }
+    }
+  },
+  {
+    "world": "hearth-to-twinkie-v1",
+    "recipe": "cream-puffs",
+    "inputs": "choux-buns + whipped-cream",
+    "incorporated": "—",
+    "lifecycle": {
+      "choux-buns": {
+        "role": "retain",
+        "reason": "Use a portion of hollow choux buns for cream puffs; the prepared batch remains available to the other kitchens."
+      },
+      "whipped-cream": {
+        "role": "retain",
+        "reason": "Use a portion of whipped cream for cream puffs; the prepared batch remains available to the other kitchens."
+      }
+    }
+  },
+  {
+    "world": "hearth-to-twinkie-v1",
+    "recipe": "caramel-choux",
+    "inputs": "filled-choux + caramel-sauce",
+    "incorporated": "filled-choux",
+    "lifecycle": {
+      "filled-choux": {
+        "role": "transform",
+        "reason": "This custard-filled choux is the evolving preparation and becomes caramel choux."
+      },
+      "caramel-sauce": {
+        "role": "retain",
+        "reason": "Use a portion of caramel sauce for caramel choux; the prepared batch remains available to the other kitchens."
+      }
+    }
+  },
+  {
+    "world": "hearth-to-twinkie-v1",
+    "recipe": "egg-foam",
+    "inputs": "eggs + whisk",
+    "incorporated": "—",
+    "lifecycle": {
+      "eggs": {
+        "role": "retain",
+        "reason": "Use a measured portion of the eggs stock; the remaining supply is still present."
+      },
+      "whisk": {
+        "role": "retain",
+        "reason": "Whisk remains a reusable tool or reference, not an ingredient."
+      }
+    }
+  },
+  {
+    "world": "hearth-to-twinkie-v1",
+    "recipe": "sweet-egg-foam",
+    "inputs": "egg-foam + sugar",
+    "incorporated": "—",
+    "lifecycle": {
+      "egg-foam": {
+        "role": "retain",
+        "reason": "Use a portion of egg foam for sweet egg foam; the prepared batch remains available to the other kitchens."
+      },
+      "sugar": {
+        "role": "retain",
+        "reason": "Use a measured portion of the sugar stock; the remaining supply is still present."
+      }
+    }
+  },
+  {
+    "world": "hearth-to-twinkie-v1",
+    "recipe": "sponge-batter",
+    "inputs": "sweet-egg-foam + flour",
+    "incorporated": "—",
+    "lifecycle": {
+      "sweet-egg-foam": {
+        "role": "retain",
+        "reason": "Use a portion of sweet egg foam for sponge batter; the prepared batch remains available to the other kitchens."
+      },
+      "flour": {
+        "role": "retain",
+        "reason": "Use a portion of flour for sponge batter; the prepared batch remains available to the other kitchens."
+      }
+    }
+  },
+  {
+    "world": "hearth-to-twinkie-v1",
+    "recipe": "sponge-cake",
+    "inputs": "sponge-batter + @sponge-oven",
+    "incorporated": "—",
+    "lifecycle": {
+      "sponge-batter": {
+        "role": "retain",
+        "reason": "Use a portion of sponge batter for sponge cake; the prepared batch remains available to the other kitchens."
+      }
+    }
+  },
+  {
+    "world": "hearth-to-twinkie-v1",
+    "recipe": "jam-roll",
+    "inputs": "sponge-cake + jam",
+    "incorporated": "—",
+    "lifecycle": {
+      "sponge-cake": {
+        "role": "retain",
+        "reason": "Use a portion of sponge cake for jam roll; the prepared batch remains available to the other kitchens."
+      },
+      "jam": {
+        "role": "retain",
+        "reason": "Use a portion of soft-set fruit jam for jam roll; the prepared batch remains available to the other kitchens."
+      }
+    }
+  },
+  {
+    "world": "hearth-to-twinkie-v1",
+    "recipe": "cream-jam-roll",
+    "inputs": "jam-roll + whipped-cream",
+    "incorporated": "jam-roll",
+    "lifecycle": {
+      "jam-roll": {
+        "role": "transform",
+        "reason": "This jam roll is the evolving preparation and becomes jam-and-cream roll."
+      },
+      "whipped-cream": {
+        "role": "retain",
+        "reason": "Use a portion of whipped cream for jam-and-cream roll; the prepared batch remains available to the other kitchens."
+      }
+    }
+  },
+  {
+    "world": "hearth-to-twinkie-v1",
+    "recipe": "chocolate-batter",
+    "inputs": "sponge-batter + cocoa",
+    "incorporated": "—",
+    "lifecycle": {
+      "sponge-batter": {
+        "role": "retain",
+        "reason": "Use a portion of sponge batter for chocolate sponge batter; the prepared batch remains available to the other kitchens."
+      },
+      "cocoa": {
+        "role": "retain",
+        "reason": "Use a measured portion of the cocoa powder stock; the remaining supply is still present."
+      }
+    }
+  },
+  {
+    "world": "hearth-to-twinkie-v1",
+    "recipe": "chocolate-sponge",
+    "inputs": "chocolate-batter + @sponge-oven",
+    "incorporated": "chocolate-batter",
+    "lifecycle": {
+      "chocolate-batter": {
+        "role": "transform",
+        "reason": "This chocolate sponge batter is the evolving preparation and becomes chocolate sponge."
+      }
+    }
+  },
+  {
+    "world": "hearth-to-twinkie-v1",
+    "recipe": "trifle-base",
+    "inputs": "sponge-cake + vanilla-custard",
+    "incorporated": "—",
+    "lifecycle": {
+      "sponge-cake": {
+        "role": "retain",
+        "reason": "Use a portion of sponge cake for trifle base; the prepared batch remains available to the other kitchens."
+      },
+      "vanilla-custard": {
+        "role": "retain",
+        "reason": "Use a portion of vanilla custard for trifle base; the prepared batch remains available to the other kitchens."
+      }
+    }
+  },
+  {
+    "world": "hearth-to-twinkie-v1",
+    "recipe": "fruit-trifle",
+    "inputs": "trifle-base + compote",
+    "incorporated": "trifle-base",
+    "lifecycle": {
+      "trifle-base": {
+        "role": "transform",
+        "reason": "This trifle base is the evolving preparation and becomes fruit trifle."
+      },
+      "compote": {
+        "role": "retain",
+        "reason": "Use a portion of apple compote for fruit trifle; the prepared batch remains available to the other kitchens."
+      }
+    }
+  },
+  {
+    "world": "hearth-to-twinkie-v1",
+    "recipe": "finished-trifle",
+    "inputs": "fruit-trifle + whipped-cream",
+    "incorporated": "fruit-trifle",
+    "lifecycle": {
+      "fruit-trifle": {
+        "role": "transform",
+        "reason": "This fruit trifle is the evolving preparation and becomes cream-topped trifle."
+      },
+      "whipped-cream": {
+        "role": "retain",
+        "reason": "Use a portion of whipped cream for cream-topped trifle; the prepared batch remains available to the other kitchens."
+      }
+    }
+  },
+  {
+    "world": "hearth-to-twinkie-v1",
+    "recipe": "cocoa-paste",
+    "inputs": "cacao-nibs + mortar",
+    "incorporated": "—",
+    "lifecycle": {
+      "cacao-nibs": {
+        "role": "retain",
+        "reason": "Use a measured portion of the roasted cacao nibs stock; the remaining supply is still present."
+      },
+      "mortar": {
+        "role": "retain",
+        "reason": "Mortar remains a reusable tool or reference, not an ingredient."
+      }
+    }
+  },
+  {
+    "world": "hearth-to-twinkie-v1",
+    "recipe": "sweet-cocoa-paste",
+    "inputs": "cocoa-paste + sugar",
+    "incorporated": "cocoa-paste",
+    "lifecycle": {
+      "cocoa-paste": {
+        "role": "transform",
+        "reason": "This ground cacao paste is the evolving preparation and becomes sweetened cacao paste."
+      },
+      "sugar": {
+        "role": "retain",
+        "reason": "Use a measured portion of the sugar stock; the remaining supply is still present."
+      }
+    }
+  },
+  {
+    "world": "hearth-to-twinkie-v1",
+    "recipe": "dark-chocolate",
+    "inputs": "sweet-cocoa-paste + cocoa-butter",
+    "incorporated": "sweet-cocoa-paste",
+    "lifecycle": {
+      "sweet-cocoa-paste": {
+        "role": "transform",
+        "reason": "This sweetened cacao paste is the evolving preparation and becomes dark chocolate."
+      },
+      "cocoa-butter": {
+        "role": "retain",
+        "reason": "Use a measured portion of the cocoa butter stock; the remaining supply is still present."
+      }
+    }
+  },
+  {
+    "world": "hearth-to-twinkie-v1",
+    "recipe": "ganache",
+    "inputs": "dark-chocolate + cream",
+    "incorporated": "—",
+    "lifecycle": {
+      "dark-chocolate": {
+        "role": "retain",
+        "reason": "Use a portion of dark chocolate for chocolate ganache; the prepared batch remains available to the other kitchens."
+      },
+      "cream": {
+        "role": "retain",
+        "reason": "Use a measured portion of the cream stock; the remaining supply is still present."
+      }
+    }
+  },
+  {
+    "world": "hearth-to-twinkie-v1",
+    "recipe": "chocolate-glaze",
+    "inputs": "dark-chocolate + butter",
+    "incorporated": "—",
+    "lifecycle": {
+      "dark-chocolate": {
+        "role": "retain",
+        "reason": "Use a portion of dark chocolate for chocolate glaze; the prepared batch remains available to the other kitchens."
+      },
+      "butter": {
+        "role": "retain",
+        "reason": "Use a portion of butter for chocolate glaze; the prepared batch remains available to the other kitchens."
+      }
+    }
+  },
+  {
+    "world": "hearth-to-twinkie-v1",
+    "recipe": "ganache-cake",
+    "inputs": "chocolate-sponge + ganache",
+    "incorporated": "—",
+    "lifecycle": {
+      "chocolate-sponge": {
+        "role": "retain",
+        "reason": "Use a portion of chocolate sponge for ganache-filled chocolate cake; the prepared batch remains available to the other kitchens."
+      },
+      "ganache": {
+        "role": "retain",
+        "reason": "Use a portion of chocolate ganache for ganache-filled chocolate cake; the prepared batch remains available to the other kitchens."
+      }
+    }
+  },
+  {
+    "world": "hearth-to-twinkie-v1",
+    "recipe": "profiteroles",
+    "inputs": "cream-puffs + chocolate-glaze",
+    "incorporated": "—",
+    "lifecycle": {
+      "cream-puffs": {
+        "role": "retain",
+        "reason": "Use a portion of cream puffs for chocolate profiteroles; the prepared batch remains available to the other kitchens."
+      },
+      "chocolate-glaze": {
+        "role": "retain",
+        "reason": "Use a portion of chocolate glaze for chocolate profiteroles; the prepared batch remains available to the other kitchens."
+      }
+    }
+  },
+  {
+    "world": "hearth-to-twinkie-v1",
+    "recipe": "chocolate-marzipan",
+    "inputs": "marzipan + dark-chocolate",
+    "incorporated": "—",
+    "lifecycle": {
+      "marzipan": {
+        "role": "retain",
+        "reason": "Use a portion of marzipan for chocolate-coated marzipan; the prepared batch remains available to the other kitchens."
+      },
+      "dark-chocolate": {
+        "role": "retain",
+        "reason": "Use a portion of dark chocolate for chocolate-coated marzipan; the prepared batch remains available to the other kitchens."
+      }
+    }
+  },
+  {
+    "world": "hearth-to-twinkie-v1",
+    "recipe": "hot-chocolate",
+    "inputs": "cocoa + milk",
+    "incorporated": "—",
+    "lifecycle": {
+      "cocoa": {
+        "role": "retain",
+        "reason": "Use a measured portion of the cocoa powder stock; the remaining supply is still present."
+      },
+      "milk": {
+        "role": "retain",
+        "reason": "Use a measured portion of the milk stock; the remaining supply is still present."
+      }
+    }
+  },
+  {
+    "world": "hearth-to-twinkie-v1",
+    "recipe": "self-raising-flour",
+    "inputs": "flour + baking-powder",
+    "incorporated": "—",
+    "lifecycle": {
+      "flour": {
+        "role": "retain",
+        "reason": "Use a portion of flour for self-raising flour; the prepared batch remains available to the other kitchens."
+      },
+      "baking-powder": {
+        "role": "retain",
+        "reason": "Use a measured portion of the baking powder stock; the remaining supply is still present."
+      }
+    }
+  },
+  {
+    "world": "hearth-to-twinkie-v1",
+    "recipe": "scone-crumbs",
+    "inputs": "self-raising-flour + butter",
+    "incorporated": "—",
+    "lifecycle": {
+      "self-raising-flour": {
+        "role": "retain",
+        "reason": "Use a portion of self-raising flour for scone crumbs; the prepared batch remains available to the other kitchens."
+      },
+      "butter": {
+        "role": "retain",
+        "reason": "Use a portion of butter for scone crumbs; the prepared batch remains available to the other kitchens."
+      }
+    }
+  },
+  {
+    "world": "hearth-to-twinkie-v1",
+    "recipe": "scone-dough",
+    "inputs": "scone-crumbs + milk",
+    "incorporated": "scone-crumbs",
+    "lifecycle": {
+      "scone-crumbs": {
+        "role": "transform",
+        "reason": "This scone crumbs is the evolving preparation and becomes scone dough."
+      },
+      "milk": {
+        "role": "retain",
+        "reason": "Use a measured portion of the milk stock; the remaining supply is still present."
+      }
+    }
+  },
+  {
+    "world": "hearth-to-twinkie-v1",
+    "recipe": "scones",
+    "inputs": "scone-dough + @tea-oven",
+    "incorporated": "scone-dough",
+    "lifecycle": {
+      "scone-dough": {
+        "role": "transform",
+        "reason": "This scone dough is the evolving preparation and becomes scones."
+      }
+    }
+  },
+  {
+    "world": "hearth-to-twinkie-v1",
+    "recipe": "jam-scones",
+    "inputs": "scones + jam",
+    "incorporated": "scones",
+    "lifecycle": {
+      "scones": {
+        "role": "transform",
+        "reason": "This scones is the evolving preparation and becomes jam-filled scones."
+      },
+      "jam": {
+        "role": "retain",
+        "reason": "Use a portion of soft-set fruit jam for jam-filled scones; the prepared batch remains available to the other kitchens."
+      }
+    }
+  },
+  {
+    "world": "hearth-to-twinkie-v1",
+    "recipe": "cream-tea",
+    "inputs": "jam-scones + whipped-cream",
+    "incorporated": "jam-scones",
+    "lifecycle": {
+      "jam-scones": {
+        "role": "transform",
+        "reason": "This jam-filled scones is the evolving preparation and becomes cream tea plate."
+      },
+      "whipped-cream": {
+        "role": "retain",
+        "reason": "Use a portion of whipped cream for cream tea plate; the prepared batch remains available to the other kitchens."
+      }
+    }
+  },
+  {
+    "world": "hearth-to-twinkie-v1",
+    "recipe": "muffin-wet-mixture",
+    "inputs": "eggs + milk",
+    "incorporated": "—",
+    "lifecycle": {
+      "eggs": {
+        "role": "retain",
+        "reason": "Use a measured portion of the eggs stock; the remaining supply is still present."
+      },
+      "milk": {
+        "role": "retain",
+        "reason": "Use a measured portion of the milk stock; the remaining supply is still present."
+      }
+    }
+  },
+  {
+    "world": "hearth-to-twinkie-v1",
+    "recipe": "enriched-muffin-mixture",
+    "inputs": "muffin-wet-mixture + butter",
+    "incorporated": "muffin-wet-mixture",
+    "lifecycle": {
+      "muffin-wet-mixture": {
+        "role": "transform",
+        "reason": "This beaten egg-and-milk mixture is the evolving preparation and becomes buttery muffin mixture."
+      },
+      "butter": {
+        "role": "retain",
+        "reason": "Use a portion of butter for buttery muffin mixture; the prepared batch remains available to the other kitchens."
+      }
+    }
+  },
+  {
+    "world": "hearth-to-twinkie-v1",
+    "recipe": "muffin-batter",
+    "inputs": "enriched-muffin-mixture + self-raising-flour",
+    "incorporated": "enriched-muffin-mixture",
+    "lifecycle": {
+      "enriched-muffin-mixture": {
+        "role": "transform",
+        "reason": "This buttery muffin mixture is the evolving preparation and becomes muffin batter."
+      },
+      "self-raising-flour": {
+        "role": "retain",
+        "reason": "Use a portion of self-raising flour for muffin batter; the prepared batch remains available to the other kitchens."
+      }
+    }
+  },
+  {
+    "world": "hearth-to-twinkie-v1",
+    "recipe": "fruit-muffin-batter",
+    "inputs": "muffin-batter + fruit",
+    "incorporated": "muffin-batter",
+    "lifecycle": {
+      "muffin-batter": {
+        "role": "transform",
+        "reason": "This muffin batter is the evolving preparation and becomes fruit muffin batter."
+      },
+      "fruit": {
+        "role": "retain",
+        "reason": "Use a measured portion of the apples stock; the remaining supply is still present."
+      }
+    }
+  },
+  {
+    "world": "hearth-to-twinkie-v1",
+    "recipe": "fruit-muffins",
+    "inputs": "fruit-muffin-batter + @tea-oven",
+    "incorporated": "fruit-muffin-batter",
+    "lifecycle": {
+      "fruit-muffin-batter": {
+        "role": "transform",
+        "reason": "This fruit muffin batter is the evolving preparation and becomes fruit muffins."
+      }
+    }
+  },
+  {
+    "world": "hearth-to-twinkie-v1",
+    "recipe": "foaming-yogurt",
+    "inputs": "yogurt + baking-soda",
+    "incorporated": "—",
+    "lifecycle": {
+      "yogurt": {
+        "role": "retain",
+        "reason": "Use a portion of yogurt for yogurt and soda mixture; the prepared batch remains available to the other kitchens."
+      },
+      "baking-soda": {
+        "role": "retain",
+        "reason": "Use a measured portion of the baking soda stock; the remaining supply is still present."
+      }
+    }
+  },
+  {
+    "world": "hearth-to-twinkie-v1",
+    "recipe": "soda-dough",
+    "inputs": "foaming-yogurt + flour",
+    "incorporated": "foaming-yogurt",
+    "lifecycle": {
+      "foaming-yogurt": {
+        "role": "transform",
+        "reason": "This yogurt and soda mixture is the evolving preparation and becomes soda bread dough."
+      },
+      "flour": {
+        "role": "retain",
+        "reason": "Use a portion of flour for soda bread dough; the prepared batch remains available to the other kitchens."
+      }
+    }
+  },
+  {
+    "world": "hearth-to-twinkie-v1",
+    "recipe": "soda-bread",
+    "inputs": "soda-dough + @tea-oven",
+    "incorporated": "soda-dough",
+    "lifecycle": {
+      "soda-dough": {
+        "role": "transform",
+        "reason": "This soda bread dough is the evolving preparation and becomes soda bread."
+      }
+    }
+  },
+  {
+    "world": "hearth-to-twinkie-v1",
+    "recipe": "frozen-custard",
+    "inputs": "vanilla-custard + freezing-churn",
+    "incorporated": "—",
+    "lifecycle": {
+      "vanilla-custard": {
+        "role": "retain",
+        "reason": "Use a portion of vanilla custard for frozen custard; the prepared batch remains available to the other kitchens."
+      },
+      "freezing-churn": {
+        "role": "retain",
+        "reason": "Freezing churn remains a reusable tool or reference, not an ingredient."
+      }
+    }
+  },
+  {
+    "world": "hearth-to-twinkie-v1",
+    "recipe": "sorbet-base",
+    "inputs": "compote + fruit-syrup",
+    "incorporated": "—",
+    "lifecycle": {
+      "compote": {
+        "role": "retain",
+        "reason": "Use a portion of apple compote for fruit sorbet base; the prepared batch remains available to the other kitchens."
+      },
+      "fruit-syrup": {
+        "role": "retain",
+        "reason": "Use a portion of fruit syrup for fruit sorbet base; the prepared batch remains available to the other kitchens."
+      }
+    }
+  },
+  {
+    "world": "hearth-to-twinkie-v1",
+    "recipe": "fruit-sorbet",
+    "inputs": "sorbet-base + freezing-churn",
+    "incorporated": "sorbet-base",
+    "lifecycle": {
+      "sorbet-base": {
+        "role": "transform",
+        "reason": "This fruit sorbet base is the evolving preparation and becomes fruit sorbet."
+      },
+      "freezing-churn": {
+        "role": "retain",
+        "reason": "Freezing churn remains a reusable tool or reference, not an ingredient."
+      }
+    }
+  },
+  {
+    "world": "hearth-to-twinkie-v1",
+    "recipe": "ice-cream-base",
+    "inputs": "cream + milk",
+    "incorporated": "—",
+    "lifecycle": {
+      "cream": {
+        "role": "retain",
+        "reason": "Use a measured portion of the cream stock; the remaining supply is still present."
+      },
+      "milk": {
+        "role": "retain",
+        "reason": "Use a measured portion of the milk stock; the remaining supply is still present."
+      }
+    }
+  },
+  {
+    "world": "hearth-to-twinkie-v1",
+    "recipe": "sweet-cream-base",
+    "inputs": "ice-cream-base + sugar",
+    "incorporated": "ice-cream-base",
+    "lifecycle": {
+      "ice-cream-base": {
+        "role": "transform",
+        "reason": "This milk-and-cream base is the evolving preparation and becomes sweetened cream base."
+      },
+      "sugar": {
+        "role": "retain",
+        "reason": "Use a measured portion of the sugar stock; the remaining supply is still present."
+      }
+    }
+  },
+  {
+    "world": "hearth-to-twinkie-v1",
+    "recipe": "milk-ice-cream",
+    "inputs": "sweet-cream-base + freezing-churn",
+    "incorporated": "sweet-cream-base",
+    "lifecycle": {
+      "sweet-cream-base": {
+        "role": "transform",
+        "reason": "This sweetened cream base is the evolving preparation and becomes milk ice cream."
+      },
+      "freezing-churn": {
+        "role": "retain",
+        "reason": "Freezing churn remains a reusable tool or reference, not an ingredient."
+      }
+    }
+  },
+  {
+    "world": "hearth-to-twinkie-v1",
+    "recipe": "caramel-sundae",
+    "inputs": "frozen-custard + caramel-sauce",
+    "incorporated": "—",
+    "lifecycle": {
+      "frozen-custard": {
+        "role": "retain",
+        "reason": "Use a portion of frozen custard for caramel sundae; the prepared batch remains available to the other kitchens."
+      },
+      "caramel-sauce": {
+        "role": "retain",
+        "reason": "Use a portion of caramel sauce for caramel sundae; the prepared batch remains available to the other kitchens."
+      }
+    }
+  },
+  {
+    "world": "hearth-to-twinkie-v1",
+    "recipe": "chocolate-sundae",
+    "inputs": "milk-ice-cream + chocolate-glaze",
+    "incorporated": "—",
+    "lifecycle": {
+      "milk-ice-cream": {
+        "role": "retain",
+        "reason": "Use a portion of milk ice cream for chocolate sundae; the prepared batch remains available to the other kitchens."
+      },
+      "chocolate-glaze": {
+        "role": "retain",
+        "reason": "Use a portion of chocolate glaze for chocolate sundae; the prepared batch remains available to the other kitchens."
+      }
+    }
+  },
+  {
+    "world": "hearth-to-twinkie-v1",
+    "recipe": "white-foam",
+    "inputs": "egg-whites + whisk",
+    "incorporated": "—",
+    "lifecycle": {
+      "egg-whites": {
+        "role": "retain",
+        "reason": "Use a measured portion of the egg whites stock; the remaining supply is still present."
+      },
+      "whisk": {
+        "role": "retain",
+        "reason": "Whisk remains a reusable tool or reference, not an ingredient."
+      }
+    }
+  },
+  {
+    "world": "hearth-to-twinkie-v1",
+    "recipe": "meringue",
+    "inputs": "white-foam + sugar",
+    "incorporated": "white-foam",
+    "lifecycle": {
+      "white-foam": {
+        "role": "transform",
+        "reason": "This egg-white foam is the evolving preparation and becomes meringue."
+      },
+      "sugar": {
+        "role": "retain",
+        "reason": "Use a measured portion of the sugar stock; the remaining supply is still present."
+      }
+    }
+  },
+  {
+    "world": "hearth-to-twinkie-v1",
+    "recipe": "meringue-nests",
+    "inputs": "meringue + @meringue-oven",
+    "incorporated": "—",
+    "lifecycle": {
+      "meringue": {
+        "role": "retain",
+        "reason": "Use a portion of meringue for meringue nests; the prepared batch remains available to the other kitchens."
+      }
+    }
+  },
+  {
+    "world": "hearth-to-twinkie-v1",
+    "recipe": "cream-nests",
+    "inputs": "meringue-nests + whipped-cream",
+    "incorporated": "meringue-nests",
+    "lifecycle": {
+      "meringue-nests": {
+        "role": "transform",
+        "reason": "This meringue nests is the evolving preparation and becomes cream-filled meringue nests."
+      },
+      "whipped-cream": {
+        "role": "retain",
+        "reason": "Use a portion of whipped cream for cream-filled meringue nests; the prepared batch remains available to the other kitchens."
+      }
+    }
+  },
+  {
+    "world": "hearth-to-twinkie-v1",
+    "recipe": "fruit-meringues",
+    "inputs": "cream-nests + fruit",
+    "incorporated": "cream-nests",
+    "lifecycle": {
+      "cream-nests": {
+        "role": "transform",
+        "reason": "This cream-filled meringue nests is the evolving preparation and becomes fruit meringue nests."
+      },
+      "fruit": {
+        "role": "retain",
+        "reason": "Use a measured portion of the apples stock; the remaining supply is still present."
+      }
+    }
+  },
+  {
+    "world": "hearth-to-twinkie-v1",
+    "recipe": "macaron-batter",
+    "inputs": "meringue + almond-sugar",
+    "incorporated": "—",
+    "lifecycle": {
+      "meringue": {
+        "role": "retain",
+        "reason": "Use a portion of meringue for macaron batter; the prepared batch remains available to the other kitchens."
+      },
+      "almond-sugar": {
+        "role": "retain",
+        "reason": "Use a portion of almond and sugar mixture for macaron batter; the prepared batch remains available to the other kitchens."
+      }
+    }
+  },
+  {
+    "world": "hearth-to-twinkie-v1",
+    "recipe": "macaron-shells",
+    "inputs": "macaron-batter + @meringue-oven",
+    "incorporated": "macaron-batter",
+    "lifecycle": {
+      "macaron-batter": {
+        "role": "transform",
+        "reason": "This macaron batter is the evolving preparation and becomes macaron shells."
+      }
+    }
+  },
+  {
+    "world": "hearth-to-twinkie-v1",
+    "recipe": "chocolate-macarons",
+    "inputs": "macaron-shells + ganache",
+    "incorporated": "macaron-shells",
+    "lifecycle": {
+      "macaron-shells": {
+        "role": "transform",
+        "reason": "This macaron shells is the evolving preparation and becomes chocolate macarons."
+      },
+      "ganache": {
+        "role": "retain",
+        "reason": "Use a portion of chocolate ganache for chocolate macarons; the prepared batch remains available to the other kitchens."
+      }
+    }
+  },
+  {
+    "world": "hearth-to-twinkie-v1",
+    "recipe": "frozen-cake",
+    "inputs": "sponge-cake + milk-ice-cream",
+    "incorporated": "—",
+    "lifecycle": {
+      "sponge-cake": {
+        "role": "retain",
+        "reason": "Use a portion of sponge cake for ice-cream cake; the prepared batch remains available to the other kitchens."
+      },
+      "milk-ice-cream": {
+        "role": "retain",
+        "reason": "Use a portion of milk ice cream for ice-cream cake; the prepared batch remains available to the other kitchens."
+      }
+    }
+  },
+  {
+    "world": "hearth-to-twinkie-v1",
+    "recipe": "baked-alaska",
+    "inputs": "frozen-cake + meringue",
+    "incorporated": "frozen-cake",
+    "lifecycle": {
+      "frozen-cake": {
+        "role": "transform",
+        "reason": "This ice-cream cake is the evolving preparation and becomes baked alaska."
+      },
+      "meringue": {
+        "role": "retain",
+        "reason": "Use a portion of meringue for baked alaska; the prepared batch remains available to the other kitchens."
+      }
+    }
+  },
+  {
+    "world": "hearth-to-twinkie-v1",
+    "recipe": "syrup-apricots",
+    "inputs": "apricots + fruit-syrup",
+    "incorporated": "—",
+    "lifecycle": {
+      "apricots": {
+        "role": "retain",
+        "reason": "Use a measured portion of the prepared apricots stock; the remaining supply is still present."
+      },
+      "fruit-syrup": {
+        "role": "retain",
+        "reason": "Use a portion of fruit syrup for apricots in syrup; the prepared batch remains available to the other kitchens."
+      }
+    }
+  },
+  {
+    "world": "hearth-to-twinkie-v1",
+    "recipe": "filled-fruit-jar",
+    "inputs": "syrup-apricots + empty-jar",
+    "incorporated": "empty-jar, syrup-apricots",
+    "lifecycle": {
+      "syrup-apricots": {
+        "role": "transform",
+        "reason": "This apricots in syrup is the evolving preparation and becomes fruit-filled jar."
+      },
+      "empty-jar": {
+        "role": "incorporate",
+        "reason": "The preserving jar becomes part of fruit-filled jar, rather than disappearing because its uses ended."
+      }
+    }
+  },
+  {
+    "world": "hearth-to-twinkie-v1",
+    "recipe": "processed-fruit-jar",
+    "inputs": "filled-fruit-jar + @controlled-fruit-line",
+    "incorporated": "filled-fruit-jar",
+    "lifecycle": {
+      "filled-fruit-jar": {
+        "role": "transform",
+        "reason": "This fruit-filled jar is the evolving preparation and becomes processed fruit jar."
+      }
+    }
+  },
+  {
+    "world": "hearth-to-twinkie-v1",
+    "recipe": "bottled-fruit",
+    "inputs": "processed-fruit-jar + opener",
+    "incorporated": "processed-fruit-jar",
+    "lifecycle": {
+      "processed-fruit-jar": {
+        "role": "transform",
+        "reason": "This processed fruit jar is the evolving preparation and becomes opened bottled fruit."
+      },
+      "opener": {
+        "role": "retain",
+        "reason": "Opener remains a reusable tool or reference, not an ingredient."
+      }
+    }
+  },
+  {
+    "world": "hearth-to-twinkie-v1",
+    "recipe": "fruit-custard",
+    "inputs": "bottled-fruit + vanilla-custard",
+    "incorporated": "bottled-fruit",
+    "lifecycle": {
+      "bottled-fruit": {
+        "role": "transform",
+        "reason": "This opened bottled fruit is the evolving preparation and becomes bottled fruit with custard."
+      },
+      "vanilla-custard": {
+        "role": "retain",
+        "reason": "Use a portion of vanilla custard for bottled fruit with custard; the prepared batch remains available to the other kitchens."
+      }
+    }
+  },
+  {
+    "world": "hearth-to-twinkie-v1",
+    "recipe": "filled-stew-tin",
+    "inputs": "bean-stew + empty-tin",
+    "incorporated": "empty-tin",
+    "lifecycle": {
+      "bean-stew": {
+        "role": "retain",
+        "reason": "Use a portion of bean stew for stew-filled tin; the prepared batch remains available to the other kitchens."
+      },
+      "empty-tin": {
+        "role": "incorporate",
+        "reason": "The empty food tin becomes part of stew-filled tin, rather than disappearing because its uses ended."
+      }
+    }
+  },
+  {
+    "world": "hearth-to-twinkie-v1",
+    "recipe": "processed-stew-tin",
+    "inputs": "filled-stew-tin + @controlled-stew-line",
+    "incorporated": "filled-stew-tin",
+    "lifecycle": {
+      "filled-stew-tin": {
+        "role": "transform",
+        "reason": "This stew-filled tin is the evolving preparation and becomes processed bean-stew tin."
+      }
+    }
+  },
+  {
+    "world": "hearth-to-twinkie-v1",
+    "recipe": "opened-stew",
+    "inputs": "processed-stew-tin + opener",
+    "incorporated": "processed-stew-tin",
+    "lifecycle": {
+      "processed-stew-tin": {
+        "role": "transform",
+        "reason": "This processed bean-stew tin is the evolving preparation and becomes opened canned stew."
+      },
+      "opener": {
+        "role": "retain",
+        "reason": "Opener remains a reusable tool or reference, not an ingredient."
+      }
+    }
+  },
+  {
+    "world": "hearth-to-twinkie-v1",
+    "recipe": "canned-lunch",
+    "inputs": "opened-stew + soda-bread",
+    "incorporated": "opened-stew, soda-bread",
+    "lifecycle": {
+      "opened-stew": {
+        "role": "transform",
+        "reason": "This opened canned stew is the evolving preparation and becomes travelling lunch."
+      },
+      "soda-bread": {
+        "role": "incorporate",
+        "reason": "The soda bread becomes part of travelling lunch, rather than disappearing because its uses ended."
+      }
+    }
+  },
+  {
+    "world": "hearth-to-twinkie-v1",
+    "recipe": "sifted-flour",
+    "inputs": "flour + sieve",
+    "incorporated": "—",
+    "lifecycle": {
+      "flour": {
+        "role": "retain",
+        "reason": "Use a portion of flour for sifted flour; the prepared batch remains available to the other kitchens."
+      },
+      "sieve": {
+        "role": "retain",
+        "reason": "Sieve remains a reusable tool or reference, not an ingredient."
+      }
+    }
+  },
+  {
+    "world": "hearth-to-twinkie-v1",
+    "recipe": "powdered-sugar",
+    "inputs": "sugar + sugar-mill",
+    "incorporated": "—",
+    "lifecycle": {
+      "sugar": {
+        "role": "retain",
+        "reason": "Use a measured portion of the sugar stock; the remaining supply is still present."
+      },
+      "sugar-mill": {
+        "role": "retain",
+        "reason": "Sugar mill remains a reusable tool or reference, not an ingredient."
+      }
+    }
+  },
+  {
+    "world": "hearth-to-twinkie-v1",
+    "recipe": "buttercream",
+    "inputs": "butter + powdered-sugar",
+    "incorporated": "—",
+    "lifecycle": {
+      "butter": {
+        "role": "retain",
+        "reason": "Use a portion of butter for buttercream; the prepared batch remains available to the other kitchens."
+      },
+      "powdered-sugar": {
+        "role": "retain",
+        "reason": "Use a portion of confectioner’s sugar for buttercream; the prepared batch remains available to the other kitchens."
+      }
+    }
+  },
+  {
+    "world": "hearth-to-twinkie-v1",
+    "recipe": "vanilla-buttercream",
+    "inputs": "buttercream + vanilla",
+    "incorporated": "buttercream",
+    "lifecycle": {
+      "buttercream": {
+        "role": "transform",
+        "reason": "This buttercream is the evolving preparation and becomes vanilla buttercream."
+      },
+      "vanilla": {
+        "role": "retain",
+        "reason": "Use a measured portion of the vanilla stock; the remaining supply is still present."
+      }
+    }
+  },
+  {
+    "world": "hearth-to-twinkie-v1",
+    "recipe": "vanilla-sandwich",
+    "inputs": "sponge-cake + vanilla-buttercream",
+    "incorporated": "vanilla-buttercream",
+    "lifecycle": {
+      "sponge-cake": {
+        "role": "retain",
+        "reason": "Use a portion of sponge cake for vanilla sandwich cake; the prepared batch remains available to the other kitchens."
+      },
+      "vanilla-buttercream": {
+        "role": "incorporate",
+        "reason": "The vanilla buttercream becomes part of vanilla sandwich cake, rather than disappearing because its uses ended."
+      }
+    }
+  },
+  {
+    "world": "hearth-to-twinkie-v1",
+    "recipe": "water-icing",
+    "inputs": "powdered-sugar + water",
+    "incorporated": "—",
+    "lifecycle": {
+      "powdered-sugar": {
+        "role": "retain",
+        "reason": "Use a portion of confectioner’s sugar for water icing; the prepared batch remains available to the other kitchens."
+      },
+      "water": {
+        "role": "retain",
+        "reason": "Use a measured portion of the water stock; the remaining supply is still present."
+      }
+    }
+  },
+  {
+    "world": "hearth-to-twinkie-v1",
+    "recipe": "iced-chocolate-cake",
+    "inputs": "ganache-cake + water-icing",
+    "incorporated": "ganache-cake, water-icing",
+    "lifecycle": {
+      "ganache-cake": {
+        "role": "transform",
+        "reason": "This ganache-filled chocolate cake is the evolving preparation and becomes iced chocolate cake."
+      },
+      "water-icing": {
+        "role": "incorporate",
+        "reason": "The water icing becomes part of iced chocolate cake, rather than disappearing because its uses ended."
+      }
+    }
+  },
+  {
+    "world": "hearth-to-twinkie-v1",
+    "recipe": "creme-filling",
+    "inputs": "shortening + powdered-sugar",
+    "incorporated": "—",
+    "lifecycle": {
+      "shortening": {
+        "role": "retain",
+        "reason": "Use a measured portion of the shortening stock; the remaining supply is still present."
+      },
+      "powdered-sugar": {
+        "role": "retain",
+        "reason": "Use a portion of confectioner’s sugar for creme filling; the prepared batch remains available to the other kitchens."
+      }
+    }
+  },
+  {
+    "world": "hearth-to-twinkie-v1",
+    "recipe": "vanilla-filling",
+    "inputs": "creme-filling + vanilla",
+    "incorporated": "—",
+    "lifecycle": {
+      "creme-filling": {
+        "role": "retain",
+        "reason": "Use a portion of creme filling for vanilla creme filling; the prepared batch remains available to the other kitchens."
+      },
+      "vanilla": {
+        "role": "retain",
+        "reason": "Use a measured portion of the vanilla stock; the remaining supply is still present."
+      }
+    }
+  },
+  {
+    "world": "hearth-to-twinkie-v1",
+    "recipe": "line-batter",
+    "inputs": "sweet-egg-foam + sifted-flour",
+    "incorporated": "sifted-flour",
+    "lifecycle": {
+      "sweet-egg-foam": {
+        "role": "retain",
+        "reason": "Use a portion of sweet egg foam for small-cake sponge batter; the prepared batch remains available to the other kitchens."
+      },
+      "sifted-flour": {
+        "role": "incorporate",
+        "reason": "The sifted flour becomes part of small-cake sponge batter, rather than disappearing because its uses ended."
+      }
+    }
+  },
+  {
+    "world": "hearth-to-twinkie-v1",
+    "recipe": "moulded-batter",
+    "inputs": "line-batter + oblong-mould",
+    "incorporated": "line-batter",
+    "lifecycle": {
+      "line-batter": {
+        "role": "transform",
+        "reason": "This small-cake sponge batter is the evolving preparation and becomes moulded sponge batter."
+      },
+      "oblong-mould": {
+        "role": "retain",
+        "reason": "Oblong mould remains a reusable tool or reference, not an ingredient."
+      }
+    }
+  },
+  {
+    "world": "hearth-to-twinkie-v1",
+    "recipe": "golden-sponge",
+    "inputs": "moulded-batter + @line-oven",
+    "incorporated": "moulded-batter",
+    "lifecycle": {
+      "moulded-batter": {
+        "role": "transform",
+        "reason": "This moulded sponge batter is the evolving preparation and becomes golden snack sponge."
+      }
+    }
+  },
+  {
+    "world": "hearth-to-twinkie-v1",
+    "recipe": "loaded-injector",
+    "inputs": "injector + vanilla-filling",
+    "incorporated": "vanilla-filling",
+    "lifecycle": {
+      "injector": {
+        "role": "retain",
+        "reason": "Keep the same injector and visibly fill its creme slot."
+      },
+      "vanilla-filling": {
+        "role": "incorporate",
+        "reason": "The prepared creme is loaded into the injector reservoir."
+      }
+    }
+  },
+  {
+    "world": "hearth-to-twinkie-v1",
+    "recipe": "filled-sponge",
+    "inputs": "golden-sponge + injector",
+    "incorporated": "—",
+    "lifecycle": {
+      "golden-sponge": {
+        "role": "retain",
+        "reason": "Use a portion of golden snack sponge for creme-filled sponge; the prepared batch remains available to the other kitchens."
+      },
+      "injector": {
+        "role": "retain",
+        "reason": "The same filled injector dispenses a portion; its fitted creme reservoir stays visible."
+      }
+    }
+  },
+  {
+    "world": "hearth-to-twinkie-v1",
+    "recipe": "printed-wrapper",
+    "inputs": "wrapper + packaging-printer",
+    "incorporated": "—",
+    "lifecycle": {
+      "wrapper": {
+        "role": "retain",
+        "reason": "Use a measured portion of the cake wrapper stock; the remaining supply is still present."
+      },
+      "packaging-printer": {
+        "role": "retain",
+        "reason": "Packaging printer remains a reusable tool or reference, not an ingredient."
+      }
+    }
+  },
+  {
+    "world": "hearth-to-twinkie-v1",
+    "recipe": "twinkie",
+    "inputs": "filled-sponge + printed-wrapper",
+    "incorporated": "filled-sponge, printed-wrapper",
+    "lifecycle": {
+      "filled-sponge": {
+        "role": "transform",
+        "reason": "This creme-filled sponge is the evolving preparation and becomes twinkie."
+      },
+      "printed-wrapper": {
+        "role": "incorporate",
+        "reason": "The printed cake wrapper becomes part of twinkie, rather than disappearing because its uses ended."
+      }
+    }
+  },
+  {
+    "world": "hearth-to-twinkie-v1",
+    "recipe": "banana-filling",
+    "inputs": "creme-filling + banana-puree",
+    "incorporated": "—",
+    "lifecycle": {
+      "creme-filling": {
+        "role": "retain",
+        "reason": "Use a portion of creme filling for banana creme filling; the prepared batch remains available to the other kitchens."
+      },
+      "banana-puree": {
+        "role": "retain",
+        "reason": "Use a measured portion of the banana purée stock; the remaining supply is still present."
+      }
+    }
+  },
+  {
+    "world": "hearth-to-twinkie-v1",
+    "recipe": "banana-snack",
+    "inputs": "golden-sponge + banana-filling",
+    "incorporated": "banana-filling",
+    "lifecycle": {
+      "golden-sponge": {
+        "role": "retain",
+        "reason": "Use a portion of golden snack sponge for banana-filled snack cake; the prepared batch remains available to the other kitchens."
+      },
+      "banana-filling": {
+        "role": "incorporate",
+        "reason": "The banana creme filling becomes part of banana-filled snack cake, rather than disappearing because its uses ended."
+      }
+    }
+  }
+]

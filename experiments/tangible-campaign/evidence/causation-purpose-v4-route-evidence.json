@@ -30,40 +30,6 @@
     }
   ],
   "actions": 15,
-  "combinations": 11,
-  "metrics": {
-    "attempts": 15,
-    "accepted": 15,
-    "combinations": 11,
-    "creations": 11,
-    "installations": 0,
-    "moves": 0,
-    "placements": 2,
-    "advances": 2,
-    "visits": 0
-  },
-  "recipesTotal": 11,
-  "maxVisibleItems": 10,
-  "completed": true,
-  "validation": [],
-  "finalObjectives": [
-    {
-      "id": "fisher-goal",
-      "text": "Launch a narrow rescue skiff at Reed mouth.",
-      "kind": "place",
-      "capability": "reed-access",
-      "location": "reed-mouth",
-      "satisfied": true,
-      "witnesses": [
-        "skiff"
-      ],
-      "places": [
-        "reed-mouth"
-      ]
-    }
-  ],
-  "ending": "The narrow skiff passes through the reeds and brings the fisher safely back. The same timber and tools served two different purposes: room for the loaded cart, and a way through the narrow passage. Both journeys are complete.",
-  "limits": "Author-aware structural replay only. Not source-blind playtesting, browser/UI verification, historical or scientific re-verification, or evidence of fun.",
   "actionsLog": [
     {
       "type": "combine",
@@ -137,6 +103,23 @@
       "type": "advance"
     }
   ],
+  "combinations": 11,
+  "metrics": {
+    "attempts": 15,
+    "accepted": 15,
+    "combinations": 11,
+    "creations": 11,
+    "installations": 0,
+    "moves": 0,
+    "placements": 2,
+    "advances": 2,
+    "visits": 0
+  },
+  "recipesTotal": 11,
+  "maxVisibleItems": 10,
+  "completed": true,
+  "validation": [],
+  "ending": "The narrow skiff passes through the reeds and brings the fisher safely back. The same timber and tools served two different purposes: room for the loaded cart, and a way through the narrow passage. Both journeys are complete.",
   "steps": [
     {
       "number": 1,
@@ -178,6 +161,9 @@
       "accepted": true,
       "message": "Broad hull. The builder shapes the frame with the adze. Skilled work brings about the change.",
       "recipe": "shape-ferry",
+      "retired": [
+        "broad-frame"
+      ],
       "completed": false
     },
     {
@@ -206,6 +192,9 @@
       "accepted": true,
       "message": "Sealed ferry hull. The builder seals the broad hull. Keeping water out is necessary, but not sufficient, for carrying the cart.",
       "recipe": "seal-ferry",
+      "retired": [
+        "broad-hull"
+      ],
       "completed": false
     },
     {
@@ -220,6 +209,9 @@
       "accepted": true,
       "message": "Pole ferry. The ferry is fitted with poles for the shallow crossing.",
       "recipe": "fit-ferry",
+      "retired": [
+        "sealed-ferry"
+      ],
       "completed": false
     },
     {
@@ -313,6 +305,9 @@
       "accepted": true,
       "message": "Slim hull. The builder shapes this frame with the same adze. A different end called for a different form, not a different kind of physical push.",
       "recipe": "shape-skiff",
+      "retired": [
+        "slim-frame"
+      ],
       "completed": false
     },
     {
@@ -327,6 +322,9 @@
       "accepted": true,
       "message": "Sealed skiff hull. The slim hull is sealed for the rescue trip.",
       "recipe": "seal-skiff",
+      "retired": [
+        "slim-hull"
+      ],
       "completed": false
     },
     {
@@ -341,6 +339,9 @@
       "accepted": true,
       "message": "Pole skiff. The skiff is fitted with poles to move through the shallow passage.",
       "recipe": "fit-skiff",
+      "retired": [
+        "sealed-skiff"
+      ],
       "completed": false
     },
     {

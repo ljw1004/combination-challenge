@@ -1,0 +1,81 @@
+✔ independent Mars: optional rover radio remains actually selectable after expedition goal (53.866465ms)
+✔ independent Elements: all 41 authored outputs remain reachable using active operands in 50 shuffled discovery orders (1129.288356ms)
+✔ independent Ideas: every available canonical recipe/translation has active operands across shuffled full closure (1395.256826ms)
+✖ independent Mars: caches have exact 9/12/8/0 nonoverlapping grants; undo/replay never duplicates (69.147962ms)
+✔ independent Mars: all legal recipe operands and slot targets stay active through 100 shuffled full expeditions (22292.873486ms)
+✖ independent Mars: placing a spent piece cannot falsely retain it (2.184769ms)
+✖ independent Mars: permanently retired alternative operands do not leave useless pieces on a completed board (68.120432ms)
+✔ independent Mars: undo and replay cache arrival yields identical exact state, not duplicate supplies (3.997587ms)
+ℹ tests 8
+ℹ suites 0
+ℹ pass 5
+ℹ fail 3
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 25400.466245
+
+✖ failing tests:
+
+test at tests/mobile-retention-independent.test.ts:62:1
+✖ independent Mars: caches have exact 9/12/8/0 nonoverlapping grants; undo/replay never duplicates (69.147962ms)
+  AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+  
+    assert(!M.visibleTokens(p.state).some(t=>t.id===b.id))
+  
+      at TestContext.<anonymous> (file:///workspace/shared/combination-playtest-site/tests/mobile-retention-independent.test.ts:70:46)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at tests/mobile-retention-independent.test.ts:103:1
+✖ independent Mars: placing a spent piece cannot falsely retain it (2.184769ms)
+  AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+  
+    assert(!M.visibleTokens(s).some(t=>t.id===b.id))
+  
+      at TestContext.<anonymous> (file:///workspace/shared/combination-playtest-site/tests/mobile-retention-independent.test.ts:107:70)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at tests/mobile-retention-independent.test.ts:109:1
+✖ independent Mars: permanently retired alternative operands do not leave useless pieces on a completed board (68.120432ms)
+  AssertionError [ERR_ASSERTION]: Heater has no future use once propagator is permanently retired
+  
+  31 !== 0
+  
+      at TestContext.<anonymous> (file:///workspace/shared/combination-playtest-site/tests/mobile-retention-independent.test.ts:122:9)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 31,
+    expected: 0,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

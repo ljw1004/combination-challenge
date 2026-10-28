@@ -38,37 +38,6 @@
     }
   ],
   "actions": 17,
-  "combinations": 14,
-  "metrics": {
-    "attempts": 17,
-    "accepted": 17,
-    "combinations": 14,
-    "creations": 14,
-    "installations": 0,
-    "moves": 0,
-    "placements": 0,
-    "advances": 3,
-    "visits": 0
-  },
-  "recipesTotal": 14,
-  "maxVisibleItems": 10,
-  "completed": true,
-  "validation": [],
-  "finalObjectives": [
-    {
-      "id": "map-exhibit-goal",
-      "text": "Make map exhibit.",
-      "kind": "create",
-      "item": "map-exhibit",
-      "satisfied": true,
-      "witnesses": [
-        "map-exhibit"
-      ],
-      "places": []
-    }
-  ],
-  "ending": "The map is on protected display with an honestly qualified story. Its survival—and what we still do not know—remain visible.",
-  "limits": "Author-aware structural replay only. Not source-blind playtesting, browser/UI verification, historical or scientific re-verification, or evidence of fun.",
   "actionsLog": [
     {
       "type": "combine",
@@ -150,6 +119,23 @@
       "type": "advance"
     }
   ],
+  "combinations": 14,
+  "metrics": {
+    "attempts": 17,
+    "accepted": 17,
+    "combinations": 14,
+    "creations": 14,
+    "installations": 0,
+    "moves": 0,
+    "placements": 0,
+    "advances": 3,
+    "visits": 0
+  },
+  "recipesTotal": 14,
+  "maxVisibleItems": 10,
+  "completed": true,
+  "validation": [],
+  "ending": "The map is on protected display with an honestly qualified story. Its survival—and what we still do not know—remain visible.",
   "steps": [
     {
       "number": 1,
@@ -233,6 +219,9 @@
       "accepted": true,
       "message": "Documented map. The map with its condition record. Recording the damage has not repaired or replaced it. The map’s condition is recorded. Its old marks remain; we have documented them, not erased them.",
       "recipe": "documented-map",
+      "retired": [
+        "damaged-map"
+      ],
       "completed": false
     },
     {
@@ -279,6 +268,9 @@
       "accepted": true,
       "message": "Supported map. The same map rests on a suitable rigid support, reducing the need to handle the sheet itself.",
       "recipe": "supported-map",
+      "retired": [
+        "documented-map"
+      ],
       "completed": false
     },
     {
@@ -307,6 +299,9 @@
       "accepted": true,
       "message": "Housed map. The supported map has a protective enclosure. It was dry and stabilized before housing. The same map is supported and housed. It is ready for careful display.",
       "recipe": "housed-map",
+      "retired": [
+        "supported-map"
+      ],
       "completed": false
     },
     {
@@ -344,6 +339,9 @@
       "accepted": true,
       "message": "Protected display. The same supported map is displayed under controlled low light; preservation does not make its past disappear.",
       "recipe": "protected-display",
+      "retired": [
+        "housed-map"
+      ],
       "completed": false
     },
     {
@@ -386,6 +384,9 @@
       "accepted": true,
       "message": "Map exhibit. A map, its scars and an honestly qualified story. The label preserves uncertainty as well as provenance. The map is on protected display with an honestly qualified story. Its survival—and what we still do not know—remain visible.",
       "recipe": "map-exhibit",
+      "retired": [
+        "protected-display"
+      ],
       "completed": false
     },
     {

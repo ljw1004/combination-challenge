@@ -1,5 +1,16 @@
 ## AI working notes
 
+## Intermediate source checkpoint — 28 October 2026
+
+This preserves recovered fork `3d3dbf36c7be473b30e09384f8a279b2fa2d9918` plus the six-focus chooser at exact Site Git commit **`6204f3bb6160eb6549fbaa98bdc8e43483cb6de1`**. Focus: **Mars, Atlas of Questions, Elements, From Hearth to Snack Cake, Why This Boat, and Doctrine: Grace and Matter**. Other sketches and archived direct routes remain available.
+
+**This is not the latest live release.** While this immutable checkpoint was uploading, the parent published newer owner-private Site source `61a9b4ee8c6235bff07f97eb16d713ec6125c81e` at 2026-10-28T03:22:08.568732Z, adding the manuscript reader, long-label layout and reviewed event-local lifecycle behavior. Those later source changes are **not included here**. This preservation task makes no Site deployment or audience change. New story/campaign overhauls remain **IN PROGRESS / NOT LIVE**; closed candidates in this repository are research, not claims of deployed improvements.
+
+The exact 6204 source was independently reconstructed from Git objects, not mutable working files: **434 tests passed, 0 failed, 1 intentional native-browser skip**, and content validation, TypeScript and Vite build passed (existing large-chunk advisory). Five closed logical sessions replay exactly: Food pastry, Elements guests and gathering v7, and Mars refuge and night. Negative attempts, stopped play and author-vs-fresh distinctions are retained. These are simulated logical-play and mechanical findings, **not proof that full games are fun**, human enjoyment, physical iPhone/Safari, touch or new native layout coverage.
+
+[Checkpoint scope, source hashes, replay instructions and limitations](docs/recovered-six-focus-checkpoint-20261028.md). Earlier entries below remain historical and are superseded only on explicitly newer status/direction.
+
+
 ## Current status — 27 October 2026, live owner-private full drafts
 
 The [Combination Workshop playtest](https://combination-workshop-playtest.stonysun25.chatgpt.site/campaign.html) is LIVE for Lucian only from Site commit `9db3c2c132bb7d038d29c59b516e4db084f18f1a`. It now offers three full-length **drafts** plus six smaller journeys. Authored witnesses contain Mars **202**, Ideas **199**, and Elements **197** combinations: roughly 200, not mandatory quotas or proof of full-length fun. This status supersedes older UI-freeze, seven-small-theme, and preservation-pending summaries below; those entries remain historical evidence.
@@ -379,3 +390,4 @@ Overnight continuation remains authorized. This research checkpoint preserves te
 Frozen v5 engine and source-aware candidates now have mechanically witnessed routes around 200 combinations: Mars 202–206, Ideas 199–203, Elements 197. These counts are not full human-fun evidence and some paths remain short of 200. Chinese thought as a standalone scenario is retired per the user's direction (historical evidence retained); causation is rethought as a purpose-led boat problem. Ideas incorporates a narrow source-reviewed field chapter. All previous records remain; this update supersedes earlier candidate-status summaries only.
 
 This is research preservation, not a Site release. Mutable integration and UI save-codec work, including release-v1 completion patches, are excluded. No new browser or live deployment claim is made here.
+
