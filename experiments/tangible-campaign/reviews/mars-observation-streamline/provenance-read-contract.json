@@ -1,0 +1,40 @@
+{
+  "wholeSiteProvenanceOnly": {
+    "manifest": "experiments/tangible-campaign/reviews/mars-observation-streamline/source-successors.json",
+    "currentPaths": [
+      "DESIGN_PRINCIPLES.md",
+      "docs/persistent-locations-and-artwork.md",
+      "experiments/tangible-campaign/ui/stories/mars-locations.ts",
+      "tests/physical-location-successors.test.ts",
+      "tests/physical-location-runtime.test.ts",
+      "tests/location-current-registry.test.ts",
+      "experiments/tangible-campaign/integration/current-lifecycle-audit.ts",
+      "tests/reviewed-campaign-integration.test.ts",
+      "experiments/tangible-campaign/integration/location-presentation-source-guard.ts"
+    ],
+    "predecessorPaths": [
+      "experiments/tangible-campaign/reviews/mars-observation-streamline/predecessor/DESIGN_PRINCIPLES.md.txt",
+      "experiments/tangible-campaign/reviews/mars-observation-streamline/predecessor/docs/persistent-locations-and-artwork.md.txt",
+      "experiments/tangible-campaign/reviews/mars-observation-streamline/predecessor/experiments/tangible-campaign/ui/stories/mars-locations.ts.txt",
+      "experiments/tangible-campaign/reviews/mars-observation-streamline/predecessor/tests/physical-location-successors.test.ts.txt",
+      "experiments/tangible-campaign/reviews/mars-observation-streamline/predecessor/tests/physical-location-runtime.test.ts.txt",
+      "experiments/tangible-campaign/reviews/mars-observation-streamline/predecessor/tests/location-current-registry.test.ts.txt",
+      "experiments/tangible-campaign/reviews/mars-observation-streamline/predecessor/experiments/tangible-campaign/integration/current-lifecycle-audit.ts.txt",
+      "experiments/tangible-campaign/reviews/mars-observation-streamline/predecessor/tests/reviewed-campaign-integration.test.ts.txt",
+      "experiments/tangible-campaign/reviews/mars-observation-streamline/predecessor/experiments/tangible-campaign/integration/location-presentation-source-guard.ts.txt"
+    ],
+    "semantics": "Each current-path SHA must equal afterSha256; each exact retained predecessor byte file must equal beforeSha256. Compact root may resolve these SHA reads via explicit validated Site-source-context mapping only; never replace active gameplay scenario imports with archived scenario objects."
+  },
+  "runtimeTestOrAuditDataRawRequired": [
+    "experiments/tangible-campaign/reviews/mars-observation-streamline/lifecycle-delta.json",
+    "experiments/tangible-campaign/reviews/mars-observation-streamline/historical-scenario-hashes.json",
+    "experiments/tangible-campaign/reviews/mars-observation-streamline/source-successors.json"
+  ],
+  "newImportsRawRequired": [
+    "experiments/tangible-campaign/ui/stories/mars-observation-chains.ts",
+    "experiments/tangible-campaign/integration/mars-observation-source-guard.ts"
+  ],
+  "guardSemantics": "New helper checks exact incoming parent hash for a listed changed path, returns exact successor hash, and passes unlisted paths through. Existing location-presentation-source-guard now composes it after the unchanged historical location manifest; no older manifest is rewritten. location-current-registry directly chains the new helper when reading the original location manifest.",
+  "lifecycleSemantics": "Current ledger applies exactly eight before/after rows and asserts old row equality. Three unpublished retired rows stay retained in supersededUnpublishedRecipes plus immutable source delta. All older rows and original location-additions remain intact.",
+  "sameScenarioIdentityBoundary": "v5 is unpublished. If it publishes before merge, issue a new scenario ID and revise the scoped ledger/world checks; no save migration is supplied."
+}

@@ -1,0 +1,60 @@
+import json,hashlib,pathlib,collections,copy
+D=pathlib.Path('/workspace/shared/atlas-full-authenticity-review-20261028');B=pathlib.Path('/workspace/shared/atlas-full-redesign-20261028')
+def read(p):return json.loads(p.read_text())
+def sha(p):return hashlib.sha256(p.read_bytes()).hexdigest()
+def write(n,x):(D/n).write_text(json.dumps(x,ensure_ascii=False,indent=2)+'\n')
+for n,h in read(D/'baseline-artifact-manifest.json').items():assert sha(D/n)==h,n
+s2=read(B/'candidate-v2/scenario.json');s3=read(B/'candidate-v3/scenario.json');sf=read(B/'candidate-v3-sourced/scenario.json')
+a={x['id']:x for x in s2['items']};b={x['id']:x for x in s3['items']};ar={x['id']:x for x in s2['recipes']};br={x['id']:x for x in s3['recipes']}
+modi={i for i in b if a.get(i)!=b[i]};deli=set(a)-set(b);modr={i for i in br if ar.get(i)!=br[i]};delr=set(ar)-set(br);cons={r['id'] for r in br.values() if r['a'] in modi or r['b'] in modi}
+assert (len(modi),len(deli),len(modr),len(delr),len(cons))==(47,5,31,4,47)
+notes={}
+for line in (D/'v3-manual-delta-notes.tsv').read_text().splitlines():
+ rid,v,n=line.split('\t',2);assert rid not in notes;notes[rid]=(v,n)
+assert set(notes)==modr|cons and len(notes)==63
+auth=read(B/'candidate-v3/delta-from-v2.json')
+for sec in ['items','recipes','stages','locations','milestones','checkpoints','sources']:
+ aa={x['id']:x for x in s2[sec]};bb={x['id']:x for x in s3[sec]}
+ actual={i for i in set(aa)|set(bb) if aa.get(i)!=bb.get(i)}
+ assert {x['id'] for x in auth['sections'][sec]}==actual,sec
+ for x in auth['sections'][sec]:assert x.get('before')==aa.get(x['id']) and x.get('after')==bb.get(x['id']),x['id']
+for iid in modi:assert b[iid]['reading']['text']==b[iid]['description'],iid
+for rid in modr:assert br[rid]['description']==b[br[rid]['out']]['description'],rid
+def semantic(s):
+ z=copy.deepcopy(s);z.pop('sources')
+ for x in z['items']+z['recipes']:
+  x.pop('sources',None)
+  if 'reading'in x:x['reading'].pop('attribution',None)
+ return z
+assert semantic(s3)==semantic(sf)
+fm={x['id']:x for x in sf['items']};fr={x['id']:x for x in sf['recipes']}
+assert {i for i in fm if fm[i]!=b[i]}=={'atoms-void','release-from-terror'}
+assert {i for i in fr if fr[i]!=br[i]}=={'make-release-from-terror'}
+assert len(sf['sources'])==len(s3['sources'])+1
+for n in ['chapter-recipes.json','connections.json']:assert (B/'candidate-v3'/n).read_bytes()==(B/'candidate-v3-sourced'/n).read_bytes()
+base={x['recipe_id']:x for x in read(D/'v1-recipe-ledger.json')['recipes']}
+ch=read(B/'candidate-v3-sourced/chapter-recipes.json');chmap={r:c['id'] for c in ch for r in c['recipes']};stidx={x['id']:i for i,x in enumerate(sf['stages'])};creator={r['out']:chmap[r['id']] for r in sf['recipes']};allitems={**fm,**{'@'+x['id']:x for x in sf['locations']}}
+# Static checkpoint-action prefix check, not a runtime route execution.
+canonical=[]
+for c in ch:canonical+=c['actions']+[{'type':'advance'}]
+for cp in sf['checkpoints']:assert cp['actions']==canonical[:len(cp['actions'])],cp['id']
+co=read(B/'candidate-v3-sourced/connections.json');oldco={(x['item'],x['recipe']):x for x in read(D/'v1-connections-ledger.json')['connections']};co3=[]
+for i,x in enumerate(co,1):
+ r=fr[x['recipe']];assert x['item']in(r['a'],r['b']);assert creator[x['item']]==x['from'];assert chmap[r['id']]==x['to'];assert stidx[x['from']]<stidx[x['to']]
+ key=(x['item'],x['recipe'])
+ if key==('division-of-labour','make-industrial-production'):n='Changed to adaptation of an existing divided-task practice; the stronger Smith-to-factory influence claim is explicitly disclaimed.'
+ elif key==('examined-life','make-convention-questioned'):n='The earlier examined-life question interrogates a concrete rival criterion of civic respectability; meaningful adaptation rather than permission to need less.'
+ else:n=oldco[key]['individual_review']
+ co3.append({'ordinal':i,**x,'verdict':'ACCEPTED','individual_review':n,'review_basis':'Changed relations directly inspected; unchanged relations inherit the full v1 individual review. Target-recipe concerns close separately.'})
+ledger=[]
+for i,r in enumerate(sf['recipes'],1):
+ rid=r['id'];old=base[rid];n=notes[rid][1] if rid in notes else old['individual_review']
+ if rid=='make-chemical-agency-in-cells':n='Buchner 1897 now fits the corrected desk date. The unchanged cell-free fermentation inference is accepted.'
+ ledger.append({'ordinal':i,'recipe_id':rid,'stage_id':chmap[rid],'verdict':'ACCEPTED','individual_review':n,'review_basis':'V3 delta/consumer re-review' if rid in notes else 'Individually reviewed v1 semantics inherited unchanged, with v2 date correction where noted','baseline_verdict':old['verdict'],'recipe_payload':r,'operand_payloads':[allitems[r['a']],allitems[r['b']]],'output_payload':fm[r['out']],'direct_consumers':[rr['id'] for rr in sf['recipes'] if r['out']in(rr['a'],rr['b'])],'baseline_ledger_reference':rid})
+assert len(ledger)==260 and len({x['recipe_id'] for x in ledger})==260 and set(chmap)==set(fr)
+removed={'make-justice-as-debt':'The supplied repayment proposal directly meets the harmful return case; no premise is lost by removing its renaming.','make-independent-of-favour':'Reduced needs plus royal offer already gives practical independence; a second restatement is unnecessary.','make-epicurean-nature':'The supplied material position directly meets the sensation argument; no generic natural-explanation authorizer is required.','make-automated-workshop':'Alienated work directly meets machine-set pace. The separate automaton/life inquiry remains, without serving as a continuity toll.'}
+assert set(removed)==delr
+write('v3-sourced-recipe-ledger.json',{'scenario_sha256':sha(B/'candidate-v3-sourced/scenario.json'),'counts':{'ACCEPTED':260,'MEDIUM':0,'HIGH':0},'recipes':ledger,'limits':'Content acceptance, not uniform forward discoverability, fun, complete historical proofs, or human playtesting.'})
+write('v3-sourced-connections-ledger.json',{'connections_sha256':sha(B/'candidate-v3-sourced/connections.json'),'count':len(co3),'relation_counts':dict(collections.Counter(x['relation'] for x in co3)),'connections':co3})
+write('v3-delta-closure.json',{'status':'PASS_NO_AUTHENTICITY_BLOCKER','reviewed_v3_sha256':sha(B/'candidate-v3/scenario.json'),'final_sourced_sha256':sha(B/'candidate-v3-sourced/scenario.json'),'baseline_artifacts_unchanged':True,'independently_matched_author_delta':True,'item_rows_reviewed':52,'item_rows_modified':47,'item_rows_deleted':5,'recipe_rows_reviewed':35,'recipe_rows_modified':31,'recipe_rows_deleted':4,'direct_consumers_reviewed':47,'distinct_modified_or_consumer_recipe_reviews':63,'unchanged_recipe_reviews_inherited':197,'removed_recipe_decisions':removed,'removed_connections':[['conditional-cause','make-epicurean-nature'],['examined-life','make-cynic-sufficiency'],['imitation-limit','make-automated-workshop']],'new_connection':['examined-life','make-convention-questioned'],'retagged_connection':['division-of-labour','make-industrial-production'],'stage_payload_rows_reviewed':3,'six_checkpoint_action_lists_static_prefix_checked':True,'all_3_HIGH_closed':True,'all_14_remaining_MEDIUM_closed':True,'source_only_successor_semantic_identity':True,'chapter_and_connection_files_byte_identical_to_v3':True,'additional_primary_source':{'title':'Epicurus Letter to Herodotus sections 63–66','url':'https://www.contrib.andrew.cmu.edu/~kk3n/80-300/epicurus-to-herodotus.htm','independent_check':'Opened final citation and read material soul, bodily dependence and dispersal; corroborated in Attalus primary translation.'},'checks':{'final_recipe_count':260,'final_item_count':len(fm),'final_chapter_count':len(ch),'final_connection_count':len(co3),'final_source_count':len(sf['sources']),'exact_recipe_ID_coverage':True,'connection_operand_creator_target_and_stage_order_valid':True,'changed_read_text_matches_description':True},'limits':['No runtime or browser test executed by this reviewer.','No human-playtest claim.','Final unchanged rows inherit individual baseline reviews rather than claiming a fresh full playthrough.','Author bibliography is not universally certified per claim.','No guarantee that every accepted pair is uniquely guessable.']})
+print('PASS final',len(ledger),'recipes',len(co3),'connections',sha(B/'candidate-v3-sourced/scenario.json'))

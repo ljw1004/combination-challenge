@@ -1,0 +1,65 @@
+DESK 24: moving-earth-geology | Continental margins, isotopes and ocean floors · 1912–1968, with a return to the age question | An Earth that moves | The old rocks already had an order. Now their age can be measured, and their present locations need not be where they formed. A persuasive fit still needs a physical account.
+GOALS: [{'id': 'moving-earth-geology-earth-age-measured', 'text': 'Measure the age, not just the order', 'kind': 'create', 'item': 'earth-age-measured'}, {'id': 'moving-earth-geology-relocated-habitats', 'text': 'Reinterpret life on a moving Earth', 'kind': 'create', 'item': 'relocated-habitats'}]
+
+RECIPE make-reassembled-continents
+A mapped-globe | An Earth with comparable positions | A common positional framework joins local places into a geographic representation.
+B opposite-shores | Opposite Atlantic margins have a suggestive fit | Coastline resemblance suggests a question; continental margins and additional evidence matter more than a perfect jigsaw outline.
+OUT reassembled-continents | Continents can be compared in an earlier arrangement | The coordinate representation becomes a testable reconstruction rather than a fixed portrait of eternal positions.
+LIFECYCLE {'mapped-globe': 'retain', 'opposite-shores': 'retain'}
+LINK {"from": "perspective", "to": "moving-earth-geology", "item": "mapped-globe", "recipe": "make-reassembled-continents", "relation": "adaptation", "evidence": "A prior spatial representation permits explicit reconstructions of former continental arrangements.", "sources": ["tectonics", "plate-evidence", "seafloor", "radiometric-clock", "geologic-age-modern", "earth-age"]}
+
+RECIPE make-continental-drift-case
+A reassembled-continents | Continents can be compared in an earlier arrangement | The coordinate representation becomes a testable reconstruction rather than a fixed portrait of eternal positions.
+B shared-fossil-belts | Matching fossils and rock belts cross today’s oceans | The separation of matching geological and biological traces asks for an explanation.
+OUT continental-drift-case | Separated lands share a geological past | Several kinds of matching evidence strengthen the drift case beyond resemblance alone.
+LIFECYCLE {'reassembled-continents': 'retain', 'shared-fossil-belts': 'retain'}
+
+RECIPE make-drift-without-drive
+A continental-drift-case | Separated lands share a geological past | Several kinds of matching evidence strengthen the drift case beyond resemblance alone.
+B weak-drift-force | Wegener’s proposed driving forces are inadequate | A serious historical objection to his mechanism; it does not erase every pattern he sought to explain.
+OUT drift-without-drive | A strong pattern, an unresolved driving account | The evidence and mechanism can have different strengths; the old objection stays visible rather than being mocked away.
+LIFECYCLE {'continental-drift-case': 'retain', 'weak-drift-force': 'retain'}
+
+RECIPE make-mineral-clock
+A radioactive-decay | Unstable isotopes change at measurable rates | A physical clock requires known decay behaviour and attention to whether the mineral system remained closed.
+B mineral-isotopes | Parent and daughter isotopes survive in minerals | The measured proportions can constrain when a mineral clock was set; no numerical calculation is asked of the player.
+OUT mineral-clock | A rock can contain a measurable clock | Physical decay connects material evidence to elapsed time, subject to the clock’s geological history.
+LIFECYCLE {'radioactive-decay': 'retain', 'mineral-isotopes': 'retain'}
+
+RECIPE make-absolute-age-possible
+A age-still-open | Sequence is not duration | The order and depth of the history are powerful results; its absolute age remains a distinct unresolved measurement problem.
+B mineral-clock | A rock can contain a measurable clock | Physical decay connects material evidence to elapsed time, subject to the clock’s geological history.
+OUT absolute-age-possible | The sequence can acquire durations | The earlier unresolved distinction is addressed with a genuinely new kind of evidence, not a number added to a label.
+LIFECYCLE {'age-still-open': 'retain', 'mineral-clock': 'retain'}
+LINK {"from": "deep-time", "to": "moving-earth-geology", "item": "age-still-open", "recipe": "make-absolute-age-possible", "relation": "criticism", "evidence": "The exact earlier result distinguished order from duration; isotope evidence addresses that open measurement problem in its proper twentieth-century setting.", "sources": ["tectonics", "plate-evidence", "seafloor", "radiometric-clock", "geologic-age-modern", "earth-age"]}
+
+RECIPE make-earth-age-measured
+A absolute-age-possible | The sequence can acquire durations | The earlier unresolved distinction is addressed with a genuinely new kind of evidence, not a number added to a label.
+B meteorite-lead | Lead measurements link ancient meteorites and Earth | Patterson’s 1956 work gave an age close to the modern estimate by treating Earth and meteorites as parts of a common early solar system, not by choosing Earth’s oldest surviving rock.
+OUT earth-age-measured | Earth is about 4.54 billion years old | The modern estimate is an evidence-based age of formation. The numerical conclusion is supplied as a finding, not a mental arithmetic exercise.
+LIFECYCLE {'absolute-age-possible': 'retain', 'meteorite-lead': 'retain'}
+
+RECIPE make-seafloor-spreading
+A ocean-ridge | A global ridge system marks newly made ocean floor | Mid-ocean observations change the available mechanism in the mid-twentieth century.
+B magnetic-stripes | Matching magnetic stripes lie on either side of ridges | Their pattern and dated reversals support the creation and outward movement of ocean crust.
+OUT seafloor-spreading | Ocean floor is made and moves away from ridges | A physical process explains a patterned record which coastlines alone could not supply.
+LIFECYCLE {'ocean-ridge': 'retain', 'magnetic-stripes': 'retain'}
+
+RECIPE make-mobile-plates
+A drift-without-drive | A strong pattern, an unresolved driving account | The evidence and mechanism can have different strengths; the old objection stays visible rather than being mocked away.
+B seafloor-spreading | Ocean floor is made and moves away from ridges | A physical process explains a patterned record which coastlines alone could not supply.
+OUT mobile-plates | Continents move with larger crustal plates | The newer framework is not merely Wegener’s original mechanism declared correct.
+LIFECYCLE {'drift-without-drive': 'retain', 'seafloor-spreading': 'retain'}
+
+RECIPE make-recycled-crust
+A mobile-plates | Continents move with larger crustal plates | The newer framework is not merely Wegener’s original mechanism declared correct.
+B subduction-evidence | Deep earthquakes and trenches mark descending slabs | New crust is balanced by recycling at other boundaries; the entire Earth need not expand.
+OUT recycled-crust | Plates form, move and descend | Several boundaries fit into one changing system without requiring a steadily swelling planet.
+LIFECYCLE {'mobile-plates': 'retain', 'subduction-evidence': 'retain'}
+
+RECIPE make-relocated-habitats
+A recycled-crust | Plates form, move and descend | Several boundaries fit into one changing system without requiring a steadily swelling planet.
+B geography-of-life | Life patterned by place and conditions | The named collection becomes a comparison of environments, not just a shelf of specimens.
+OUT relocated-habitats | Life’s changing map includes moving land | Earlier environmental and distributional patterns can now be reconsidered on a mobile surface.
+LIFECYCLE {'recycled-crust': 'retain', 'geography-of-life': 'retain'}
+LINK {"from": "evolution", "to": "moving-earth-geology", "item": "geography-of-life", "recipe": "make-relocated-habitats", "relation": "adaptation", "evidence": "The earlier distribution of living forms gains a changing geological setting rather than being discarded.", "sources": ["tectonics", "plate-evidence", "seafloor", "radiometric-clock", "geologic-age-modern", "earth-age"]}

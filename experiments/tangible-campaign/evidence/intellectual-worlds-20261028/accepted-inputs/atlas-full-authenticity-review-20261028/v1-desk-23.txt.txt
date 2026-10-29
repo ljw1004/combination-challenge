@@ -1,0 +1,59 @@
+DESK 23: relativity | Light signals and moving laboratories · 1905–1919 | Whose clocks agree? | The clocks work. The difficulty is deciding what it means for distant events to happen together. Keep the procedures visible rather than replacing them with unexplained equations.
+GOALS: [{'id': 'relativity-newtonian-limit', 'text': 'Bound the old account without erasing it', 'kind': 'create', 'item': 'newtonian-limit'}, {'id': 'relativity-tested-light-bending', 'text': 'Bring geometry to an observation', 'kind': 'create', 'item': 'tested-light-bending'}]
+
+RECIPE make-signal-synchronized-clocks
+A networked-time | Clock coordination travels over a network | A maintained reference can be communicated instead of only carried on a ship.
+B light-clock-rule | Set distant clocks by equal outward and return light journeys | Einstein’s synchronization procedure uses a convention about two-way light travel, not an instantly accessible universal clock.
+OUT signal-synchronized-clocks | Distant agreement depends on a signal procedure | The earlier practical clock network becomes a precise question about how distant clock settings are related.
+LIFECYCLE {'networked-time': 'retain', 'light-clock-rule': 'retain'}
+LINK {"from": "fields-images", "to": "relativity", "item": "networked-time", "recipe": "make-signal-synchronized-clocks", "relation": "adaptation", "evidence": "The concrete problem of synchronizing distant clocks becomes part of Einstein’s operational definition, not a claim that railway administration alone caused relativity.", "sources": ["einstein-time", "einstein-spacetime"]}
+
+RECIPE make-platform-simultaneity
+A signal-synchronized-clocks | Distant agreement depends on a signal procedure | The earlier practical clock network becomes a precise question about how distant clock settings are related.
+B platform-flashes | Flashes from both ends reach the platform midpoint together | A verbal teaching setup: equal distances in the platform frame make simultaneous reception a test for simultaneous emission in that frame.
+OUT platform-simultaneity | Together according to the platform clocks | The conclusion is tied to a specified frame and procedure, not simply to a person’s impression.
+LIFECYCLE {'signal-synchronized-clocks': 'retain', 'platform-flashes': 'retain'}
+
+RECIPE make-unequal-passenger-reception
+A platform-simultaneity | Together according to the platform clocks | The conclusion is tied to a specified frame and procedure, not simply to a person’s impression.
+B passenger-motion | A passenger moves toward one arriving flash and away from the other | The events are the same; the passenger is not at rest with the platform’s midpoint.
+OUT unequal-passenger-reception | The moving passenger receives the flashes separately | A concrete comparison changes reception order; this alone is not yet the whole relativity argument.
+LIFECYCLE {'platform-simultaneity': 'retain', 'passenger-motion': 'retain'}
+
+RECIPE make-frame-dependent-simultaneity
+A unequal-passenger-reception | The moving passenger receives the flashes separately | A concrete comparison changes reception order; this alone is not yet the whole relativity argument.
+B light-invariance | Every inertial laboratory measures the same light speed | The light postulate is paired with the relativity principle; it is not an invitation to add or subtract a train’s speed from light.
+OUT frame-dependent-simultaneity | Different frames need not agree on distant simultaneity | With the same light speed used in each inertial frame, their synchronized clocks do not supply one frame-independent distant present. No arithmetic or unseen diagram is required.
+LIFECYCLE {'unequal-passenger-reception': 'retain', 'light-invariance': 'retain'}
+
+RECIPE make-special-relativity
+A frame-dependent-simultaneity | Different frames need not agree on distant simultaneity | With the same light speed used in each inertial frame, their synchronized clocks do not supply one frame-independent distant present. No arithmetic or unseen diagram is required.
+B relativity-principle | The same physical laws hold in inertial laboratories | A principle about physical descriptions, not a claim that all opinions are equally true.
+OUT special-relativity | No preferred inertial frame or universal distant present | The two principles reorganize the relations of space and time; everyday mechanics survives as an approximation in its domain.
+LIFECYCLE {'frame-dependent-simultaneity': 'retain', 'relativity-principle': 'retain'}
+
+RECIPE make-newtonian-limit
+A special-relativity | No preferred inertial frame or universal distant present | The two principles reorganize the relations of space and time; everyday mechanics survives as an approximation in its domain.
+B newtonian-framework | Universal mechanics in absolute space and time | Reconstruct the framework whose successes and limits later theories will revisit.
+OUT newtonian-limit | Newton’s shared time is a useful limit, not universal | The earlier successful account is bounded rather than treated as worthless after a new theory appears.
+LIFECYCLE {'special-relativity': 'retain', 'newtonian-framework': 'retain'}
+LINK {"from": "mechanism", "to": "relativity", "item": "newtonian-framework", "recipe": "make-newtonian-limit", "relation": "criticism", "evidence": "The earlier universal-time and gravitation framework is revised while its limited predictive success is retained.", "sources": ["einstein-time", "einstein-spacetime"]}
+
+RECIPE make-local-equivalence
+A universal-gravitation | One gravitation for Earth and heavens | A common dynamical account relates the previously separate domains.
+B falling-room | A freely falling room removes the local sensation of weight | A local thought experiment, not the claim that gravity disappears everywhere or that tidal differences vanish.
+OUT local-equivalence | Free fall connects gravity and acceleration | A local equivalence motivates a different account; the Newtonian attraction remains a meaningful predecessor and approximation.
+LIFECYCLE {'universal-gravitation': 'retain', 'falling-room': 'retain'}
+LINK {"from": "mechanism", "to": "relativity", "item": "universal-gravitation", "recipe": "make-local-equivalence", "relation": "criticism", "evidence": "The actual earlier gravitational explanation is put beside a local free-fall argument rather than serving as an arbitrary passkey.", "sources": ["einstein-time", "einstein-spacetime"]}
+
+RECIPE make-geometric-gravity
+A local-equivalence | Free fall connects gravity and acceleration | A local equivalence motivates a different account; the Newtonian attraction remains a meaningful predecessor and approximation.
+B curved-spacetime-claim | Einstein models gravity through spacetime geometry | A theoretical account whose consequences can be tested; geometry is represented conceptually here.
+OUT geometric-gravity | Gravity changes the geometry of paths | The physical question becomes how matter, geometry and motion relate.
+LIFECYCLE {'local-equivalence': 'retain', 'curved-spacetime-claim': 'retain'}
+
+RECIPE make-tested-light-bending
+A geometric-gravity | Gravity changes the geometry of paths | The physical question becomes how matter, geometry and motion relate.
+B light-deflection | Starlight near the Sun is deflected | The 1919 eclipse observations contributed evidence with measurement uncertainty; they were not the only possible test of the theory.
+OUT tested-light-bending | A new geometry meets a light observation | A consequence meets evidence, with the quality and interpretation of the observation still part of the historical record.
+LIFECYCLE {'geometric-gravity': 'retain', 'light-deflection': 'retain'}

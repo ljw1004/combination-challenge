@@ -1,0 +1,86 @@
+/** Content/runtime evidence only. Never a UI or human enjoyment test.
+ * node verify_candidate.mjs CANDIDATE_DIR RUNTIME_ROOT
+ * Expected files: scenario.json, chapter-recipes.json, connections.json.
+ */
+import fs from 'node:fs';
+import path from 'node:path';
+import {pathToFileURL} from 'node:url';
+import assert from 'node:assert/strict';
+import crypto from 'node:crypto';
+const dir=path.resolve(process.argv[2]??'.');
+const runtime=path.resolve(process.argv[3]??'frozen-runtime');
+const M=await import(pathToFileURL(path.join(runtime,'engine/model.ts')));
+const L=await import(pathToFileURL(path.join(runtime,'schema/lifecycle.ts')));
+const read=f=>JSON.parse(fs.readFileSync(path.join(dir,f),'utf8'));
+const s=read('scenario.json'),chapters=read('chapter-recipes.json'),connections=read('connections.json');
+const hash=x=>crypto.createHash('sha256').update(x).digest('hex');
+const report={scenario:s.id,scenarioSha256:hash(fs.readFileSync(path.join(dir,'scenario.json'))),runtimeRoot:runtime,checks:[],chapters:[],route:[],limits:['Logical model evidence only; no browser/native UI or human enjoyment testing.','Randomized legal ordering is diagnostic, not a simulated human review.','Source existence checks validate references, not historical truth; authenticity requires independent review.']};
+const check=(name,fn)=>{fn();report.checks.push(name)};
+check('schema',()=>assert.deepEqual(M.validateScenario(s),[]));
+check('explicit lifecycles',()=>assert.deepEqual(L.validateContentLifecycles([s]),[]));
+check('intermediate goals and final gold',()=>assert.deepEqual(L.validateObjectiveFlow([s]),[]));
+check('construction continuity',()=>assert.deepEqual(L.validateConstructionContinuity([s]),[]));
+check('full-length scope',()=>assert.ok(s.recipes.length>=200&&s.recipes.length<=300,`Expected 200–300 recipes, got ${s.recipes.length}`));
+const recipeById=new Map(s.recipes.map(r=>[r.id,r])),stageById=new Map(s.stages.map((st,i)=>[st.id,i])),itemById=new Map(s.items.map(i=>[i.id,i]));
+const sourceIds=new Set((s.sources??[]).map(x=>x.id));
+check('all authored references resolve',()=>{for(const x of [...s.items,...s.recipes,...s.locations])for(const id of x.sources??[])assert.ok(sourceIds.has(id),`${x.id}: ${id}`);for(const src of s.sources??[])assert.ok(/^https?:\/\//.test(src.url),src.id)});
+check('chapter ownership complete and unique',()=>{assert.equal(chapters.length,s.stages.length);const ids=chapters.flatMap(c=>c.recipes);assert.equal(new Set(ids).size,ids.length);assert.deepEqual(ids.slice().sort(),s.recipes.map(r=>r.id).sort());for(const c of chapters){assert.ok(stageById.has(c.id));for(const id of c.recipes)assert.ok(recipeById.has(id))}});
+const ownership=new Map(chapters.flatMap(c=>c.recipes.map(id=>[id,stageById.get(c.id)])));
+const outputStage=new Map(s.recipes.filter(r=>r.out).map(r=>[r.out,ownership.get(r.id)]));
+check('raw caches never conjure created outputs',()=>{for(const st of s.stages)for(const cache of st.caches??[])for(const id of cache.items)assert.ok(!outputStage.has(id),`${st.id} supplies created ${id}`)});
+check('every stage explicitly handles already-earned progress',()=>{for(const st of s.stages)assert.ok(st.onAlreadyComplete,st.id)});
+check('crosschapter edges classified and sourced',()=>{
+ const valid=new Set(['transmission','adaptation','criticism','teaching-comparison','future-speculation']);
+ for(const edge of connections){assert.ok(valid.has(edge.relation),JSON.stringify(edge));assert.ok(stageById.has(edge.from)&&stageById.has(edge.to));assert.ok(stageById.get(edge.from)<stageById.get(edge.to));assert.equal(outputStage.get(edge.item),stageById.get(edge.from));const r=recipeById.get(edge.recipe);assert.ok(r&&[r.a,r.b].includes(edge.item));assert.equal(ownership.get(r.id),stageById.get(edge.to));assert.ok(edge.evidence?.trim());for(const id of edge.sources??[])assert.ok(sourceIds.has(id));if(edge.relation!=='future-speculation')assert.ok(edge.sources?.length)}
+});
+const substantive=state=>{const {metrics,...rest}=state;return rest};
+const actions=[];let g=M.createGame(s,480);const entries=[];
+for(let i=0;i<s.stages.length;i++){
+ const st=s.stages[i],c=chapters.find(c=>c.id===st.id);assert.equal(g.state.stage,i,`Author route entry ${st.id}`);entries.push(structuredClone(g));
+ const createdImports=[...new Set(c.recipes.flatMap(id=>{const r=recipeById.get(id);return [r.a,r.b].filter(k=>outputStage.has(k)&&outputStage.get(k)<i)}))];
+ if(i){assert.ok(createdImports.length,`${st.id} has no meaningful prior creation`);for(const k of createdImports){assert.ok(st.carry?.includes(k),`${st.id} does not carry ${k}`);assert.ok(g.state.tokens.some(t=>t.kind===k&&t.area===g.state.currentArea),`${st.id} lacks tangible ${k}`);assert.ok(connections.some(e=>e.to===st.id&&e.item===k),`${st.id} missing connection evidence for ${k}`)}}
+ console.error(`Checking ${i+1}/${s.stages.length}: ${st.id}`);
+ const seenAtEntry=g.state.tokens.filter(t=>t.area===g.state.currentArea).length,stageActions=[];
+ for(const a of c.actions??c.recipes.flatMap(id=>{const r=recipeById.get(id);return [...r.at?[{type:'place',item:r.b,location:r.at}]:[],{type:'combine',a:r.a,b:r.b}]})){
+  const before=structuredClone(g);const x=M.applyAction(s,g,a);assert.ok(x.accepted,`${st.id} ${JSON.stringify(a)}: ${x.message}`);
+  if(a.type==='combine'){
+   assert.ok(M.partners(s,g.state,a.a).outgoing.includes(a.b),`Missing normal highlight ${JSON.stringify(a)}`);
+   assert.deepEqual(g,before,'Query mutated state');
+   const reverse=!a.b.startsWith('@')?M.applyAction(s,g,{...a,a:a.b,b:a.a}):null;
+   if(reverse&&!recipeById.get(x.recipe).at){assert.ok(reverse.accepted);assert.equal(reverse.created,x.created)}
+  }
+  assert.deepEqual(M.restore(s,JSON.stringify(x.game)),x.game,'Save restore differs');
+  const u=M.undo(x.game);assert.ok(u.accepted);assert.deepEqual(substantive(u.game.state),substantive(g.state),'Undo state differs');
+  const again=M.applyAction(s,u.game,a);assert.ok(again.accepted);assert.deepEqual(substantive(again.game.state),substantive(x.game.state),'Reapply differs');
+  g=x.game;g.history=[];actions.push(a);stageActions.push(a);
+ }
+ assert.ok(M.stageComplete(s,g.state),`Unfinished ${st.id}`);
+ const completedWithoutFuture=g.state.recipesUsed.filter(id=>ownership.get(id)===i).length;
+ report.chapters.push({id:st.id,recipes:c.recipes.length,createdImports,entryTiles:seenAtEntry,exitTiles:g.state.tokens.filter(t=>t.area===g.state.currentArea).length,complete:true,usedRecipes:completedWithoutFuture});
+ const adv={type:'advance'},x=M.applyAction(s,g,adv);assert.ok(x.accepted,`${st.id}: ${x.message}`);g=x.game;g.history=[];actions.push(adv);
+}
+assert.ok(g.state.completed);report.checks.push('Full route: every chapter completes with local inputs, normal highlights, save/restore, undo/reapply');
+check('checkpoints are exact earned author-route prefixes',()=>{for(const c of s.checkpoints??[]){assert.deepEqual(c.actions,actions.slice(0,c.actions.length),c.id);const earned=M.checkpoint(s,c.id,480);assert.ok(earned.state.recipesUsed.length||c.actions.length===0);report.route.push({checkpoint:c.id,actionCount:c.actions.length,combinations:earned.state.metrics.combinations,stage:s.stages[earned.state.stage].id,stateSha256:hash(JSON.stringify(earned.state))})}});
+// Vary every available authored decision in a stage, never use future/off-scene items.
+const legal=(game,allowed)=>s.recipes.filter(r=>allowed.has(r.id)).flatMap(r=>{
+ const a=game.state.tokens.find(t=>t.kind===r.a&&t.area===game.state.currentArea);const b=r.b.startsWith('@')?game.state.places.find(p=>p.id===r.b.slice(1)&&p.area===game.state.currentArea):game.state.tokens.find(t=>t.kind===r.b&&t.area===game.state.currentArea);
+ if(!a||!b)return [];
+ const action={type:'combine',a:r.a,b:r.b};const x=M.applyAction(s,game,action);if(x.accepted)return [{action,x}];
+ if(r.at&&!r.b.startsWith('@')&&!game.state.discovered.includes(r.out)&&b.location!==r.at){const placement={type:'place',item:b.id,location:r.at};const p=M.applyAction(s,game,placement);if(p.accepted&&M.applyAction(s,p.game,action).accepted)return [{action:placement,x:p}]}
+ return [];
+});
+let seed=20261028;const rand=()=>((seed=(Math.imul(seed,1664525)+1013904223)>>>0)/2**32);
+report.orderTrials=[];console.error('Starting 480 legal-order trials');
+for(let i=0;i<s.stages.length;i++)for(let trial=0;trial<16;trial++){
+ let game=structuredClone(entries[i]),count=0;const c=chapters.find(c=>c.id===s.stages[i].id),allowed=new Set(c.recipes);
+ while(!M.stageComplete(s,game.state)){assert.ok(++count<100,`Ordering loop ${c.id}`);const options=legal(game,allowed);assert.ok(options.length,`Ordering dead end ${c.id}`);game=options[Math.floor(rand()*options.length)].x.game;game.history=[]}
+ // Anything a later stage consumes must already exist when this stage auto-advances.
+ const neededLater=c.recipes.map(id=>recipeById.get(id).out).filter(k=>s.recipes.some(r=>ownership.get(r.id)>i&&[r.a,r.b].includes(k)));
+ for(const k of neededLater)assert.ok(game.state.tokens.some(t=>t.kind===k),`Optional source ${k} could be skipped in ${c.id}`);
+ report.orderTrials.push({stage:c.id,trial,actions:count,complete:true});
+}
+report.checks.push(`${report.orderTrials.length} varied per-scene legal-order routes; future required outputs cannot be missed at automatic handoff`);
+report.authorRoute={actions:actions.length,combinations:g.state.metrics.combinations,complete:g.state.completed};
+fs.writeFileSync(path.join(dir,'author-route.json'),JSON.stringify({scenarioId:s.id,actionsLog:actions,...report.authorRoute,limits:'Diagnostic authored route, not a player trace.'},null,2)+'\n');
+fs.writeFileSync(path.join(dir,'verification.json'),JSON.stringify(report,null,2)+'\n');
+console.log(JSON.stringify({checks:report.checks,authorRoute:report.authorRoute,chapters:report.chapters.length,sourceCount:sourceIds.size},null,2));

@@ -1,0 +1,67 @@
+DESK 14: longitude | Observatories and sea trials · c. 1714–1770 CE | Whose time at sea? | A useful time must survive a voyage. The Moon offers another clock. At Jaipur, old and new astronomical traditions are being tested in a different kind of instrument.
+GOALS: [{'id': 'longitude-sea-tested-clock', 'text': 'Test a reference at sea', 'kind': 'create', 'item': 'sea-tested-clock'}, {'id': 'longitude-lunar-longitude', 'text': 'Keep the lunar alternative working', 'kind': 'create', 'item': 'lunar-longitude'}, {'id': 'longitude-masonry-observatory', 'text': 'Build an architectural observatory', 'kind': 'create', 'item': 'masonry-observatory'}, {'id': 'longitude-provisioned-route', 'text': 'Sustain the charted voyage', 'kind': 'create', 'item': 'provisioned-route'}]
+
+RECIPE make-equal-hours
+A shared-year | A publicly shared year | Shared dates coordinate communal life without settling cosmology.
+B regular-oscillation | A clock divides time into regular intervals | A schematic mechanical resource, not a claim that all clocks are equally accurate.
+OUT equal-hours | A common sequence of equal hours | A community’s shared calendar meets a finer instrumental division of time.
+LIFECYCLE {'shared-year': 'retain', 'regular-oscillation': 'retain'}
+LINK {"from": "sky", "to": "longitude", "item": "shared-year", "recipe": "make-equal-hours", "relation": "adaptation", "evidence": "Instrumental timekeeping refines a long history of shared temporal conventions.", "sources": ["longitude", "longitude-lunar-si", "almanac-history", "jaipur"]}
+
+RECIPE make-reference-timekeeper
+A equal-hours | A common sequence of equal hours | A community’s shared calendar meets a finer instrumental division of time.
+B portable-clock | A portable clock set to a reference meridian | A particular instrument whose stability must be tested.
+OUT reference-timekeeper | A clock carrying another place’s time | The instrument carries a reference that is distinct from the Sun’s local noon.
+LIFECYCLE {'equal-hours': 'retain', 'portable-clock': 'transform'}
+
+RECIPE make-time-longitude
+A reference-timekeeper | A clock carrying another place’s time | The instrument carries a reference that is distinct from the Sun’s local noon.
+B local-noon | Local noon follows the Sun at this place | The local reference differs from a clock carried from another longitude.
+OUT time-longitude | Longitude from two kinds of time | Comparing local time with reference time locates an east–west difference without a calculation exercise.
+LIFECYCLE {'reference-timekeeper': 'retain', 'local-noon': 'retain'}
+
+RECIPE make-sea-tested-clock
+A reference-timekeeper | A clock carrying another place’s time | The instrument carries a reference that is distinct from the Sun’s local noon.
+B @longitude-sea |  | 
+OUT sea-tested-clock | A reference clock tested at sea | Workshop performance is not enough: a moving voyage tests whether the instrument can preserve its reference.
+LIFECYCLE {'reference-timekeeper': 'retain'}
+
+RECIPE make-lunar-reference
+A planetary-archive | An archive of planetary motion | Astronomical modeling depends on observations collected across time, including Babylonian records known in Greek astronomy.
+B moon-table | The Moon’s changing sky position can mark reference time | Lunar-distance navigation needs observations and an almanac; no angle arithmetic is required.
+OUT lunar-reference | Reference time read from the Moon | A long observational and tabular tradition supplies a different route to reference time.
+LIFECYCLE {'planetary-archive': 'retain', 'moon-table': 'retain'}
+LINK {"from": "world-models", "to": "longitude", "item": "planetary-archive", "recipe": "make-lunar-reference", "relation": "adaptation", "evidence": "Lunar methods rely on accumulated astronomy and tables, not a newly invented Moon.", "sources": ["longitude", "longitude-lunar-si", "almanac-history", "jaipur"]}
+
+RECIPE make-lunar-longitude
+A lunar-reference | Reference time read from the Moon | A long observational and tabular tradition supplies a different route to reference time.
+B local-noon | Local noon follows the Sun at this place | The local reference differs from a clock carried from another longitude.
+OUT lunar-longitude | A lunar route to longitude | The lunar method remains a genuine alternative, with its own demands on sky conditions and observation.
+LIFECYCLE {'lunar-reference': 'retain', 'local-noon': 'retain'}
+
+RECIPE make-jaipur-comparison
+A ptolemy-questioned | Ptolemy read critically | Receiving a model also makes its difficulties available for criticism.
+B indian-persian-tables | Indian and Persian astronomical tables in comparison | Jai Singh’s project brings multiple astronomical traditions into active comparison.
+OUT jaipur-comparison | Astronomical traditions compared at Jaipur | The earlier habit of revising tables returns in a documented South Asian astronomical project, not as a decorative detour.
+LIFECYCLE {'ptolemy-questioned': 'retain', 'indian-persian-tables': 'retain'}
+LINK {"from": "translation", "to": "longitude", "item": "ptolemy-questioned", "recipe": "make-jaipur-comparison", "relation": "adaptation", "evidence": "Jai Singh’s scholarship works with transmitted astronomical traditions and their correction; exact continuity is at the level of traditions, not this fictional manuscript.", "sources": ["longitude", "longitude-lunar-si", "almanac-history", "jaipur"]}
+
+RECIPE make-masonry-observatory
+A jaipur-comparison | Astronomical traditions compared at Jaipur | The earlier habit of revising tables returns in a documented South Asian astronomical project, not as a decorative detour.
+B masonry-sightlines | Large masonry instruments fix precise lines of sight | A different instrumental choice from a telescope, not an inferior historical stage.
+OUT masonry-observatory | An observatory made from architecture | Large fixed structures serve astronomical measurement and the revision of tables.
+LIFECYCLE {'jaipur-comparison': 'retain', 'masonry-sightlines': 'retain'}
+
+RECIPE make-positioned-sea-route
+A bearing-chart | A chart made for compass bearings | The representation serves a navigation task rather than preserving every size and shape.
+B time-longitude | Longitude from two kinds of time | Comparing local time with reference time locates an east–west difference without a calculation exercise.
+OUT positioned-sea-route | A bearing chart with a located voyage | A map made for bearings gains an observed position; its distortions do not disappear.
+LIFECYCLE {'bearing-chart': 'retain', 'time-longitude': 'retain'}
+LINK {"from": "perspective", "to": "longitude", "item": "bearing-chart", "recipe": "make-positioned-sea-route", "relation": "adaptation", "evidence": "Navigation combines positional methods with charts chosen for their practical relations.", "sources": ["longitude", "longitude-lunar-si", "almanac-history", "jaipur"]}
+
+RECIPE make-provisioned-route
+A positioned-sea-route | A bearing chart with a located voyage | A map made for bearings gains an observed position; its distortions do not disappear.
+B travel-provisions | Provisions for a longer journey | Stored grain and preserved fish extend the practical reach of a journey.
+OUT provisioned-route | A voyage sustained beyond the fresh-food window | Earlier preservation practice materially supports the reach of navigation.
+LIFECYCLE {'positioned-sea-route': 'retain', 'travel-provisions': 'retain'}
+LINK {"from": "sky", "to": "longitude", "item": "travel-provisions", "recipe": "make-provisioned-route", "relation": "adaptation", "evidence": "Preserved provisions remain physically relevant to long voyages rather than becoming obsolete when instruments improve.", "sources": ["longitude", "longitude-lunar-si", "almanac-history", "jaipur"]}

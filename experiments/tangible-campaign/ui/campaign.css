@@ -6,7 +6,7 @@ button:focus-visible,select:focus-visible,a:focus-visible{outline:3px solid #267
 #app{height:100dvh;position:relative;overflow:hidden}
 /* The world is the whole viewport; the HUD never takes layout height. */
 .viewport{position:absolute;inset:0;overflow-y:auto;overflow-x:hidden;touch-action:pan-y;overscroll-behavior:contain}
-.board{position:relative;width:100%;max-width:600px;margin-inline:auto;min-height:100%;touch-action:pan-y}.area-label{position:absolute;left:5px;right:5px;pointer-events:none;border-top:1px solid #cfbfa5;color:#8b715b;font-size:10px;padding-top:3px}.thing,.location{position:absolute;transform:translate(-50%,-50%);user-select:none}.thing{width:96px;min-height:44px;border:1px solid #8d8068;border-radius:8px;padding:4px;background:#fffaf0;box-shadow:0 2px 4px #53422e15;font-size:12px;line-height:1.15;z-index:3;touch-action:none;overflow-wrap:anywhere}.location{width:104px;height:82px;border:1.5px solid #9a8b70;border-radius:0;background:transparent;font-size:11px;padding:5px;display:flex;align-items:flex-start;justify-content:center;z-index:1;touch-action:pan-y}.thing .slot{display:block;height:18px;line-height:16px;border:1px dashed #b5a58a;border-radius:3px;margin-top:3px;font-size:9px;overflow:hidden;white-space:nowrap}.thing .slot.filled{border-style:solid;background:#ebe9dc}.selected{outline:2px solid #527a72;outline-offset:3px}.possible{border-color:#338e87!important;box-shadow:0 0 0 3px #71b5a84d!important}.will-create{outline:3px solid #d7893b!important;outline-offset:2px;background:#fff0cd!important}.will-place{outline:2px solid #75899b;outline-offset:2px}.goal-met{border-color:#b58b23;box-shadow:0 0 10px #d4aa5366;outline:2px solid #d6ad48;outline-offset:1px}.thing.goal-met{background:#fff1c6}.dragging{z-index:30!important;pointer-events:none;animation:none!important;transition:none!important}.born{z-index:15;animation:arrival .65s ease-out}@keyframes arrival{0%{transform:translate(calc(-50% + var(--birth-x,0px)),calc(-50% + var(--birth-y,0px))) scale(.75);background:#ffe3a3;box-shadow:0 0 18px #d58b36}55%{background:#ffecc1;box-shadow:0 0 12px #d58b36}100%{transform:translate(-50%,-50%) scale(1)}}
+.board{position:relative;width:100%;max-width:600px;margin-inline:auto;min-height:100%;touch-action:pan-y}.location-label{position:absolute;left:5px;right:5px;pointer-events:none;border-top:1px solid #cfbfa5;color:#8b715b;font-size:10px;padding-top:3px}.thing,.hotspot{position:absolute;transform:translate(-50%,-50%);user-select:none}.thing{width:96px;min-height:44px;border:1px solid #8d8068;border-radius:8px;padding:4px;background:#fffaf0;box-shadow:0 2px 4px #53422e15;font-size:12px;line-height:1.15;z-index:3;touch-action:none;overflow-wrap:anywhere}.hotspot{width:104px;height:82px;border:1.5px solid #9a8b70;border-radius:0;background:transparent;font-size:11px;padding:5px;display:flex;align-items:flex-start;justify-content:center;z-index:1;touch-action:pan-y}.thing .slot{display:block;height:18px;line-height:16px;border:1px dashed #b5a58a;border-radius:3px;margin-top:3px;font-size:9px;overflow:hidden;white-space:nowrap}.thing .slot.filled{border-style:solid;background:#ebe9dc}.selected,.pressed{outline:2px solid #527a72;outline-offset:3px}.possible{border-color:#3586ad!important;box-shadow:0 0 0 3px #6fb7db4d!important}.will-create{outline:3px solid #d7893b!important;outline-offset:2px;background:#fff0cd!important}.will-place{outline:3px solid #d7893b!important;outline-offset:2px;background:#fff0cd!important}.goal-met{border-color:#b58b23;box-shadow:0 0 10px #d4aa5366;outline:2px solid #d6ad48;outline-offset:1px}.thing.goal-met{background:#fff1c6}.dragging{z-index:30!important;pointer-events:none;animation:none!important;transition:none!important}.born{z-index:15;animation:arrival .65s ease-out}@keyframes arrival{0%{transform:translate(calc(-50% + var(--birth-x,0px)),calc(-50% + var(--birth-y,0px))) scale(.75);background:#ffe3a3;box-shadow:0 0 18px #d58b36}55%{background:#ffecc1;box-shadow:0 0 12px #d58b36}100%{transform:translate(-50%,-50%) scale(1)}}
 /* Bare objectives and icon sit against the viewport edge, outside board layout. */
 .hud-stack{position:absolute;z-index:35;right:max(0px,env(safe-area-inset-right));top:max(0px,env(safe-area-inset-top));width:max-content;max-width:min(68vw,260px);display:flex;flex-direction:column;align-items:flex-end;gap:0;pointer-events:none}
 .objective-dock{display:flex;flex-direction:column;align-items:flex-end;gap:0;max-width:100%;pointer-events:auto}
@@ -55,3 +55,40 @@ dialog button,dialog select{min-height:44px}
    padding/border allowance. Only real readings add a 12px source marker. */
 .text-thing{font-family:Arial,Helvetica,sans-serif;line-height:14px}
 .item-label,.item-label-line{display:block}.item-label-line{white-space:pre}
+
+/* Chapter-entry grouping is scenery, not a tile, goal, or interaction target. */
+.arrival-divider{position:absolute;left:8px;right:8px;height:1px;border-top:1px dotted #9a8b70;pointer-events:none;z-index:2;text-align:center;color:#716858;font-size:10px;line-height:16px}.arrival-divider span{position:relative;top:-9px;padding:0 8px;background:#f3eddf}
+
+/* Rare invention celebrations step outside the board without replacing its object.
+   Native dialog supplies focus containment; the single explicit action is always available. */
+#milestone{position:fixed;inset:0;margin:0;width:100%;max-width:none;height:100%;height:100dvh;max-height:none;border:0;border-radius:0;padding:max(24px,env(safe-area-inset-top)) max(24px,env(safe-area-inset-right)) max(24px,env(safe-area-inset-bottom)) max(24px,env(safe-area-inset-left));background:radial-gradient(ellipse at 50% 32%,#fff5d7 0%,#f3eddf 60%);overflow:auto;overscroll-behavior:contain}
+#milestone::backdrop{background:#f3eddf}
+.milestone-content{min-height:100%;max-width:600px;margin:auto;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}
+#milestone .milestone-eyebrow{text-transform:uppercase;letter-spacing:.17em;font-size:11px;color:#71634c;margin:0 0 26px}
+.milestone-object{width:clamp(144px,38vw,206px);max-width:100%;padding:18px;border:1px solid #a98b55;border-radius:12px;background:#fffaf0;box-shadow:0 8px 48px #ba92583d;animation:milestone-reveal 1.1s ease-out both}
+.milestone-item-label{font-size:19px;line-height:1.3;overflow-wrap:anywhere}
+.milestone-component{display:block;margin-top:8px;border:1px solid #b5a58a;border-radius:5px;padding:5px 8px;background:#ebe9dc;font-size:12px;line-height:1.3;overflow-wrap:anywhere;animation:milestone-fit .65s ease-out both;animation-delay:calc(.15s + var(--part)*.12s)}
+#milestone h1{font-family:Georgia,serif;font-weight:400;font-size:clamp(30px,7vw,46px);line-height:1.12;max-width:100%;overflow-wrap:anywhere;margin:30px 0 14px}
+#milestone #milestone-text{font-family:Georgia,serif;font-size:clamp(17px,4vw,21px);line-height:1.6;max-width:29em;margin:0 0 28px;overflow-wrap:anywhere}
+#milestone-continue{min-width:140px;min-height:48px;background:#52694f;color:#fffaf0;border-color:#52694f}
+@keyframes milestone-reveal{from{opacity:0;transform:scale(.78);box-shadow:0 0 0 #ba925800}to{opacity:1;transform:scale(1);box-shadow:0 8px 48px #ba92583d}}
+@keyframes milestone-fit{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+@media(prefers-reduced-motion:reduce){.milestone-object,.milestone-component{animation:none}}
+@media(max-height:480px){#milestone{padding:20px}.milestone-content{justify-content:flex-start}#milestone .milestone-eyebrow{margin-bottom:14px}#milestone h1{margin-top:20px}.milestone-object{padding:12px}}
+
+/* One real place is one phone-sized panel, including on a desktop. Artwork is
+   decorative, dimmed, never a source of inventory or a reason to reflow tiles. */
+.board.fixed-locations{max-width:390px;min-height:0;isolation:isolate}
+.location-scene{position:absolute;left:0;right:0;overflow:hidden;pointer-events:none;z-index:-2;background:#e8dfcd}
+.location-scene img{display:block;width:100%;height:100%;object-fit:cover;opacity:.46;filter:saturate(.68);pointer-events:none}
+.location-scrim{position:absolute;inset:0;background:linear-gradient(#f3eddf20,#f3eddf77 24%,#f3eddf9c 80%);pointer-events:none}
+.fixed-locations .location-label{z-index:0;background:#f3eddfc9;min-height:24px;padding:5px 7px;color:#665c4b;border-top:1px solid #b8aa91}
+.fixed-locations .thing.selected,.fixed-locations .thing:focus-visible{z-index:20}
+.fixed-locations .hotspot{background:#f3eddf75}
+#mission[data-format="radio"]{border-left:4px solid #557574;background:#f5faf4}
+#mission[data-format="speech-bubble"]{border-radius:20px 20px 20px 4px}
+#mission[data-format="source-update-card"]{border-top:4px solid #9d8657}
+#mission .source-caption{font-size:11px;line-height:1.4;color:#756c5a;margin:8px 0 0}
+/* The source marker is a corner annotation in fixed panels, not an extra
+   blank text row on every manuscript. Read remains a deliberate selected action. */
+.fixed-locations .source-marker{position:absolute;right:-2px;top:-3px;width:12px;height:12px;line-height:12px;background:#fffaf0;border-radius:3px;opacity:.8;pointer-events:none}

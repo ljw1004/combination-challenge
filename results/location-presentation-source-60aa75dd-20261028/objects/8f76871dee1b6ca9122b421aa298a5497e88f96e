@@ -1,0 +1,91 @@
+import {applyMilestones} from '../experiments/tangible-campaign/ui/campaign-milestones.ts';
+/** Source-aware headless semantic checks. No browser, usability or scientific validation claimed. */
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {readFileSync,mkdirSync,writeFileSync} from 'node:fs';
+import * as M from '../experiments/tangible-campaign/engine/model.ts';
+import {validateContentLifecycles,validateConstructionContinuity,validateObjectiveFlow,validateRecipeLifecycle} from '../experiments/tangible-campaign/schema/lifecycle.ts';
+import type {Action,Scenario,Recipe} from '../experiments/tangible-campaign/schema/scenario.ts';
+import {scenario as s} from '../experiments/tangible-campaign/ui/campaigns/mars-return-cargo.ts';
+import {applyMarsNaturalOrders,beforeMarsNaturalOrders,marsNaturalOrdersDelta} from '../experiments/tangible-campaign/integration/mars-natural-orders.ts';
+import {auditRoute} from '../experiments/tangible-campaign/integration/reviewed-routes.ts';
+const old=beforeMarsNaturalOrders(s),root=new URL('../experiments/tangible-campaign/evidence/integration-20261028/sources/mars/late-return-consistency-20261028/',import.meta.url);
+const names=['authored','beacon','tow','tow-old-alias','closed-reader.accepted'];
+const routes=names.map(name=>({name,actions:JSON.parse(readFileSync(new URL(name+'.cargo.actions.json',root),'utf8')) as Action[]}));
+const combine=(a:string,b:string):Action=>({type:'combine',a,b});
+const routesForSeeds:Record<string,Action[]>={
+ 'cover-first':[combine('seed-tray','clear-cover'),combine('covered-seed-tray','water-canister'),combine('watered-covered-tray','@warm-habitat')],
+ 'water-then-cover':[combine('seed-tray','water-canister'),combine('watered-seed-tray','clear-cover'),combine('watered-covered-tray','@warm-habitat')],
+ 'germinate-then-cover':[combine('seed-tray','water-canister'),combine('watered-seed-tray','@warm-habitat'),combine('sprouted-tray','clear-cover')],
+};
+const trayKinds=['seed-tray','covered-seed-tray','watered-seed-tray','watered-covered-tray','sprouted-tray','propagator','identified-seedlings','supported-seedlings','camp-nursery'];
+function step(g:M.Game,a:Action){const r=M.applyAction(s,g,a);assert(r.accepted,JSON.stringify(a)+': '+r.message);return r;}
+function reversed(a:Action):Action{return a.type==='combine'&&!a.b.startsWith('@')?{...a,a:a.b,b:a.a}:a;}
+function variant(actions:Action[],heater:boolean,order:string,reverse:boolean){let skipped=0;return actions.flatMap(a=>{
+ if(a.type==='combine'&&[a.a,a.b].includes('solar-charger')&&a.b==='@sheltered-ice')return [combine(heater?'heater':'solar-charger','@sheltered-ice')];
+ if(a.type==='combine'&&[['seed-tray','water-canister'],['watered-seed-tray','@warm-habitat'],['sprouted-tray','clear-cover']].some(([x,y])=>(a.a===x&&a.b===y)||(a.a===y&&a.b===x))){skipped++;return skipped===1?routesForSeeds[order].map(x=>reverse?reversed(x):x):[];}
+ return [a];
+ });}
+const rows:any[]=[];
+test('bounded successor preserves the same world, checkpoints and goals; both power facts are surface narrative',()=>{
+ assert.deepEqual(applyMarsNaturalOrders(old),s);assert.equal(s.id,old.id);assert.deepEqual(s.checkpoints,old.checkpoints);assert.deepEqual(s.stages.map(x=>x.objectives),old.stages.map(x=>x.objectives));assert.equal(s.items.length-old.items.length,2);assert.equal(s.recipes.length-old.recipes.length,5);
+ assert.deepEqual([...M.validateScenario(s),...validateContentLifecycles([s]),...validateObjectiveFlow([s]),...validateConstructionContinuity([s])],[]);
+ const loc=s.locations.find(x=>x.id==='sheltered-ice')!;assert.equal(loc.label,'Ice melt station');assert.equal(s.locations.find(x=>x.id==='distant-lookout')!.label,'Cliff viewpoint');assert.equal(s.locations.find(x=>x.id==='weather-apron')!.label,'Open weather site');assert.equal(s.stages.find(x=>x.id==='weather')!.area.label,'Open weather site');assert.match(loc.description!,/fixed electric melt head awaiting the solar charger/);assert.match(loc.description!,/surviving cabin service lead/);assert.match(s.stages.find(x=>x.id==='habitat')!.caches![0].narrative,/unpowered fixed melt head.*separate live cabin service lead/);
+});
+test('all 60 full routes: two melt methods, three cover orders, both object drag directions, five historic route families',()=>{
+ for(const {name,actions} of routes)for(const heater of [false,true])for(const order of Object.keys(routesForSeeds))for(const reverse of [false,true]){
+  const altered=variant(actions,heater,order,reverse);const audit=auditRoute(s,altered);assert(audit.game.state.completed);assert.deepEqual(audit.missing,[]);assert.equal(audit.rows.length,24);
+  let g=M.createGame(s);let covered=false,checks=0,late=false;
+  for(const a of altered){const before=g,r=step(g,a);g=r.game;if(r.recipe?.startsWith('habitat')||r.recipe?.startsWith('nursery')){
+   const active=g.state.tokens.filter(t=>trayKinds.includes(t.kind));assert(active.length<=1,'one evolving tray, not alternative copies');
+   if(r.created&&['covered-seed-tray','watered-covered-tray','propagator'].includes(r.created)){covered=true;assert(!M.token(g.state,'clear-cover'));assert.equal(M.token(g.state,r.created)!.components!.filter(x=>x==='clear-cover').length,1);}
+   if(covered)assert(!M.token(g.state,'clear-cover'),'lid never reappears');
+   if(r.created&&trayKinds.includes(r.created)){const made=M.token(g.state,r.created)!;if(covered)assert(made.components?.includes('clear-cover'));for(const t of before.state.tokens.filter(t=>trayKinds.includes(t.kind))){assert(!M.token(g.state,t.kind));if(a.type==='combine'&&!a.b.startsWith('@'))assert.deepEqual([made.x,made.y],[t.x,t.y]);}checks++;}
+   if(r.recipe==='habitat-4-watered-seed-tray'||r.recipe==='habitat-water-covered-tray')assert.deepEqual(M.token(g.state,'water-canister'),M.token(before.state,'water-canister'));
+   if(r.recipe==='habitat-meltwater-heater')assert.deepEqual(M.token(g.state,'heater'),M.token(before.state,'heater'));
+   if(r.recipe==='nursery-label'){late=true;assert(!M.token(g.state,'propagator'));assert(M.token(g.state,'identified-seedlings')!.incorporated.includes('clear-cover'));}
+   assert.deepEqual(M.restore(s,JSON.stringify(g)),g);if(r.recipe){assert.deepEqual(M.undo(g).game.state.tokens,before.state.tokens);}
+  }}
+  assert(late);assert.equal(g.state.tokens.filter(t=>t.kind==='propagator').length,0);rows.push({name,heater,order,reverse,completed:true,combinations:g.state.metrics.combinations,trayTransitions:checks,lateNursery:true});
+ }
+});
+test('dry cover and moist cover cannot skip water, warmth or germination; duplicate melt result is rejected',()=>{
+ const actions=routes[0].actions,seedIndex=actions.findIndex(a=>a.type==='combine'&&a.a==='seed-tray'&&a.b==='water-canister');let g=M.replay(s,actions.slice(0,seedIndex));
+ const heater=M.token(g.state,'heater')!,charger=M.token(g.state,'solar-charger')!;for(const tool of ['heater','solar-charger'])assert(!M.applyAction(s,g,combine(tool,'@sheltered-ice')).accepted);assert.deepEqual(M.token(g.state,'heater'),heater);assert.deepEqual(M.token(g.state,'solar-charger'),charger);
+ g=step(g,combine('seed-tray','clear-cover')).game;assert(!M.applyAction(s,g,combine('covered-seed-tray','@warm-habitat')).accepted);assert(!M.objectiveStates(s,g.state).find(o=>o.item==='propagator')!.satisfied);assert(!M.token(g.state,'propagator'));
+ g=step(g,combine('covered-seed-tray','water-canister')).game;assert(!M.objectiveStates(s,g.state).find(o=>o.item==='propagator')!.satisfied);assert(!M.token(g.state,'propagator'));
+ g=step(g,combine('watered-covered-tray','@warm-habitat')).game;assert(M.objectiveStates(s,g.state).find(o=>o.item==='propagator')!.satisfied);assert.equal(M.token(g.state,'propagator')!.location,'warm-habitat');
+ assert(!M.applyAction(s,g,combine('watered-covered-tray','@warm-habitat')).accepted);
+ const elsewhere=step(g,{type:'visit',area:'area-signal',carry:['heater']}).game;assert(!M.applyAction(s,elsewhere,combine('heater','@sheltered-ice')).accepted,'station cannot be used from another area');
+});
+test('all canonical old-save prefixes restore verbatim; pre-existing tray states can take each newly offered path',()=>{
+ let restores=0;
+ for(const {name,actions} of routes){let g=M.createGame(old);for(const a of actions){const r=M.applyAction(old,g,a);assert(r.accepted);g=r.game;assert.deepEqual(M.restore(s,JSON.stringify(g)),g);restores++;
+  if(name==='authored'&&r.created==='seed-tray'){let h=M.restore(s,JSON.stringify(g));for(const x of routesForSeeds['cover-first'])h=step(h,x).game;assert(M.token(h.state,'propagator'));}
+  if(name==='authored'&&r.created==='watered-seed-tray'){let h=M.restore(s,JSON.stringify(g));h=step(h,combine('watered-seed-tray','clear-cover')).game;h=step(h,combine('watered-covered-tray','@warm-habitat')).game;assert(M.token(h.state,'propagator'));}
+ }}assert.equal(restores,1168);
+ mkdirSync(new URL('../results/mars-natural-orders-20261028/',import.meta.url),{recursive:true});writeFileSync(new URL('../results/mars-natural-orders-20261028/routes.json',import.meta.url),JSON.stringify({evidenceClass:'Source-aware logical verification; no UI/browser or fresh player evidence',oldSaveRestores:restores,worldId:s.id,sourceDeltaEntries:marsNaturalOrdersDelta.changes.length,routes:rows},null,2)+'\n');
+});
+function forkScenario(exclusive:boolean):Scenario{const life=(role:'transform'|'retain'|'incorporate',unique=false)=>({role,reason:'Synthetic explicit lifecycle',...(unique?{exclusive:true as const}:{})});return {schemaVersion:1,id:'exclusive-test',title:'Exclusive test',premise:'Single physical input versus continuing supply',items:['tray','lid','water','covered','watered','done'].map(id=>({id,label:id})),locations:[],initialItems:['tray','lid','water'],recipes:[{id:'cover',a:'tray',b:'lid',out:'covered',preserve:['lid'],lifecycle:{tray:life('transform',exclusive),lid:life('incorporate',exclusive)}},{id:'water',a:'tray',b:'water',out:'watered',lifecycle:{tray:life('transform'),water:life('retain')}},{id:'other-lid',a:'water',b:'lid',out:'done',lifecycle:{water:life('retain'),lid:life('incorporate')}}],stages:[{id:'one',title:'One',speaker:'Test',motivation:'Test explicit event-local ownership',area:{id:'one',label:'One',travelText:'Here'},objectives:[{id:'done',text:'Cover tray',kind:'create',item:'covered'}]}]};}
+test('exclusive is narrowly opt-in; unflagged shared supplies remain, unrelated work and restore do not remove them',()=>{
+ for(const exclusive of [false,true])for(const reverse of [false,true]){const x=forkScenario(exclusive),before=M.createGame(x),r=M.applyAction(x,before,reverse?combine('lid','tray'):combine('tray','lid'));assert(r.accepted);assert.equal(!!M.token(r.game.state,'tray'),!exclusive);assert.equal(!!M.token(r.game.state,'lid'),!exclusive);assert(M.token(r.game.state,'water'));assert.deepEqual(M.undo(r.game).game.state.tokens,before.state.tokens);assert.deepEqual(M.restore(x,JSON.stringify(r.game)),r.game);assert.deepEqual(M.playerView(x,r.game).things.find(t=>t.id==='covered')!.components,['lid']);}
+ for(const bad of [{role:'retain',exclusive:true},{role:'transform',exclusive:false}]){const r=structuredClone(forkScenario(false).recipes[0]);r.lifecycle!.tray={...bad,reason:'Invalid exclusivity'} as any;assert(validateRecipeLifecycle(r).some(x=>x.includes('exclusive input')));}
+ const install:Recipe={id:'invalid-install',a:'tray',b:'lid',install:{target:'tray',slot:'lid',component:'lid'},lifecycle:{tray:{role:'retain',reason:'Keep'},lid:{role:'incorporate',reason:'Fit',exclusive:true}}};assert(validateRecipeLifecycle(install).some(x=>x.includes('exclusive input')));
+});
+
+test('heater route is meaningful before any charger is built; live drag gesture recognizes the equipped station',()=>{
+ const beacon=routes.find(x=>x.name==='beacon')!.actions;
+ const chargerIndex=beacon.findIndex(a=>a.type==='combine'&&a.a==='solar-panel'&&a.b==='battery');
+ const before=M.replay(s,beacon.slice(0,chargerIndex));assert(!M.token(before.state,'solar-charger'));
+ const action=M.dropAction(s,before.state,'heater','@sheltered-ice');assert.deepEqual(action,combine('heater','@sheltered-ice'));
+ const after=step(before,action);assert(M.token(after.game.state,'meltwater'));assert.deepEqual(M.token(after.game.state,'heater'),M.token(before.state,'heater'));
+ assert(!M.applyAction(s,after.game,action).accepted);
+});
+test('same alternatives work under composed live milestones/reactive policies at narrow, standard and wide sizes',()=>{
+ const playable=applyMilestones(s);
+ assert(playable.stages.every(st=>st.onAlreadyComplete));
+ for(const width of [320,375,600])for(const heater of [false,true])for(const order of Object.keys(routesForSeeds)){
+  const actions=variant(routes[0].actions,heater,order,false),game=M.replay(playable,actions,width);
+  assert(game.state.completed);assert.deepEqual(M.restore(playable,JSON.stringify(game)),game);assert.equal(game.state.milestones?.length,3);
+ }
+});

@@ -1,0 +1,180 @@
+{
+  "evidenceClass": "Source-blind simulated logical play, not human or UI evidence.",
+  "session": "fresh-opening",
+  "status": "stopped",
+  "commands": 75,
+  "metrics": {
+    "attempts": 54,
+    "accepted": 52,
+    "combinations": 45,
+    "creations": 44,
+    "installations": 1,
+    "moves": 0,
+    "placements": 1,
+    "advances": 6,
+    "visits": 0
+  },
+  "firstTen": [
+    {
+      "command": 3,
+      "expected": "Earth and water should make mud, a possible clay-like material for bricks.",
+      "action": {
+        "type": "combine",
+        "a": "earth",
+        "b": "water"
+      },
+      "created": "clay",
+      "recipe": "clay",
+      "accepted": true
+    },
+    {
+      "command": 4,
+      "expected": "Firing clay should make a brick. Clay instead of mud was a small naming difference, not a confusing material change.",
+      "action": {
+        "type": "combine",
+        "a": "clay",
+        "b": "fire"
+      },
+      "created": "brick",
+      "recipe": "brick",
+      "accepted": true
+    },
+    {
+      "command": 5,
+      "expected": "For stone I would try heating earth: perhaps it makes lava first, or simply hardened stone in this simplified grammar. I lean toward lava.",
+      "action": {
+        "type": "combine",
+        "a": "earth",
+        "b": "fire"
+      },
+      "created": "stone",
+      "recipe": "stone",
+      "accepted": true
+    },
+    {
+      "command": 8,
+      "expected": "Air over earth might mean a plant growing or windblown seed; I hope for a plant. Without the highlight and orchard context I would predict dust more readily.",
+      "action": {
+        "type": "combine",
+        "a": "earth",
+        "b": "air"
+      },
+      "created": "sand",
+      "recipe": "sand",
+      "accepted": true
+    },
+    {
+      "command": 11,
+      "expected": "Water in air should make rain, or a rain cloud; I hope to water earth with it next.",
+      "action": {
+        "type": "combine",
+        "a": "water",
+        "b": "air"
+      },
+      "created": "rain",
+      "recipe": "rain",
+      "accepted": true
+    },
+    {
+      "command": 12,
+      "expected": "Rain watering earth should grow a plant. Unlike the air detour, this connection now feels direct.",
+      "action": {
+        "type": "combine",
+        "a": "rain",
+        "b": "earth"
+      },
+      "created": "plant",
+      "recipe": "plant",
+      "accepted": true
+    },
+    {
+      "command": 14,
+      "expected": "The explicit ripe seed heads in the breeze suggests plant plus air will give grain or seeds for bread.",
+      "action": {
+        "type": "combine",
+        "a": "plant",
+        "b": "air"
+      },
+      "created": "grain",
+      "recipe": "grain",
+      "accepted": true
+    },
+    {
+      "command": 15,
+      "expected": "The stone made for grinding should grind grain into flour. This feels like a clear payoff for chapter one.",
+      "action": {
+        "type": "combine",
+        "a": "grain",
+        "b": "stone"
+      },
+      "created": "flour",
+      "recipe": "flour",
+      "accepted": true
+    },
+    {
+      "command": 16,
+      "expected": "Flour mixed with water should make dough, then fire should bake it.",
+      "action": {
+        "type": "combine",
+        "a": "flour",
+        "b": "water"
+      },
+      "created": "dough",
+      "recipe": "dough",
+      "accepted": true
+    },
+    {
+      "command": 17,
+      "expected": "Baking dough with fire should give the requested flatbread; no oven is visible, and direct fire fits the binary grammar.",
+      "action": {
+        "type": "combine",
+        "a": "dough",
+        "b": "fire"
+      },
+      "created": "flatbread",
+      "recipe": "flatbread",
+      "accepted": true
+    }
+  ],
+  "bowlEvents": [
+    {
+      "command": 72,
+      "expected": "A wheel can serve as a potters wheel to shape clay into a bowl or pot. I do not yet see how that yields a basket, but a bowl might serve as its weaving mould or picnic container.",
+      "action": {
+        "type": "combine",
+        "a": "clay",
+        "b": "wheel"
+      },
+      "created": "bowl",
+      "recipe": "bowl",
+      "accepted": true
+    }
+  ],
+  "rejections": [
+    {
+      "command": 41,
+      "expected": "Planks make the body and Wheel lets it roll, so this should be a handcart. Wheel was my alternative for planks plus stone, not my leading bridge prediction.",
+      "action": {
+        "type": "combine",
+        "a": "wheel",
+        "b": "planks"
+      },
+      "created": null,
+      "recipe": null,
+      "accepted": false
+    },
+    {
+      "command": 59,
+      "expected": "Connecting the millstone to the waterwheel should make the grain mill, unless the game needs gears between them.",
+      "action": {
+        "type": "combine",
+        "a": "millstone",
+        "b": "waterwheel"
+      },
+      "created": null,
+      "recipe": null,
+      "accepted": false
+    }
+  ],
+  "allAuditHashesAndReceiptChainVerified": true
+}

@@ -1,0 +1,277 @@
+--- base/scenario.json
++++ candidate.scenario.json
+@@ -1,6 +1,6 @@
+ {
+   "schemaVersion": 1,
+-  "id": "mars-connected-survival-v4-cue-research",
++  "id": "mars-connected-survival-v4-supply-copy-research",
+   "title": "Mars: A Light That Answers",
+   "premise": "A damaged landing strands a small expedition. Recovery becomes a rescue, then a return journey carrying people and evidence. This is an engineering story with recovered qualified systems, not real survival instructions.",
+   "items": [
+@@ -6688,7 +6688,7 @@
+       "area": {
+         "id": "area-signal",
+         "label": "A voice above the ridge",
+-        "travelText": "We take the useful equipment onward to a voice above the ridge, leaving the earlier work where it stands."
++        "travelText": "We head for the contact ridge above the landing site."
+       },
+       "locations": [
+         "contact-ridge"
+@@ -6722,7 +6722,7 @@
+       "area": {
+         "id": "area-habitat",
+         "label": "Somewhere to come back to",
+-        "travelText": "We take the useful equipment onward to somewhere to come back to, leaving the earlier work where it stands."
++        "travelText": "We return from the ridge to the surviving inner cabin and its torn entry."
+       },
+       "locations": [
+         "sheltered-ice",
+@@ -6763,8 +6763,8 @@
+       "caches": [
+         {
+           "id": "habitat-cache",
+-          "label": "Somewhere to come back to stores",
+-          "narrative": "The expedition reaches the previously placed mission stores at somewhere to come back to. These include the following recovered equipment, not freshly delivered ingredients.",
++          "label": "Cabin supplies and repair kit",
++          "narrative": "The cabin stores hold the heater, water kit, planting supplies and vestibule repair materials. At the sheltered ice, the fixed enclosed melt head is waiting for power.",
+           "items": [
+             "heater",
+             "water-filter",
+@@ -6799,7 +6799,7 @@
+       "area": {
+         "id": "area-rover",
+         "label": "The route out",
+-        "travelText": "We take the useful equipment onward to the route out, leaving the earlier work where it stands."
++        "travelText": "We turn to the cargo sled and the view from the route overlook."
+       },
+       "locations": [
+         "route-overlook"
+@@ -6827,8 +6827,8 @@
+       "caches": [
+         {
+           "id": "rover-cache",
+-          "label": "The route out stores",
+-          "narrative": "The expedition reaches the previously placed mission stores at the route out. These include the following recovered equipment, not freshly delivered ingredients.",
++          "label": "Cargo sled equipment",
++          "narrative": "The cargo sled holds the rover’s wheels, drive parts and harness, alongside the antenna, terrain sheet, camera and survey optics.",
+           "items": [
+             "wheels",
+             "drive-motor",
+@@ -6854,7 +6854,7 @@
+       "area": {
+         "id": "area-outcrop",
+         "label": "What the cliff can tell us",
+-        "travelText": "We take the useful equipment onward to what the cliff can tell us, leaving the earlier work where it stands."
++        "travelText": "We follow the bearings to the ice outcrop, within sight of the layered cliff."
+       },
+       "locations": [
+         "lookout-ice",
+@@ -6893,8 +6893,8 @@
+       "caches": [
+         {
+           "id": "outcrop-cache",
+-          "label": "What the cliff can tell us stores",
+-          "narrative": "The expedition reaches the previously placed mission stores at what the cliff can tell us. These include the following recovered equipment, not freshly delivered ingredients.",
++          "label": "Outcrop sampling bench",
++          "narrative": "The sampling bench holds the scoop, jar, core tube, labels and scale card. The handling enclosure, glove ports and specimen rack are packed beside them.",
+           "items": [
+             "sample-scoop",
+             "transparent-jar",
+@@ -7036,14 +7036,14 @@
+       "area": {
+         "id": "area-camp",
+         "label": "Recovery camp",
+-        "travelText": "We collect the known equipment needed for this work and move to recovery camp. Earlier work stays where we left it."
++        "travelText": "At recovery camp, we turn to the packed bench and communications equipment."
+       },
+       "locations": [],
+       "caches": [
+         {
+           "id": "camp-cache",
+           "label": "Recovery camp stores",
+-          "narrative": "The existing recovery camp has the following stored mission equipment; these are not a new delivery.",
++          "narrative": "The camp stores hold a worktop with its folded legs beneath it, a lamp and bracket, and the crew’s message camera and antenna stand.",
+           "items": [
+             "bench-legs",
+             "worktop",
+@@ -7086,7 +7086,7 @@
+       "caches": [
+         {
+           "id": "cargo-return-cache",
+-          "label": "Known expedition equipment",
++          "label": "Furniture padding and crew pictures",
+           "narrative": "The crew lays out protective padding and its personal picture roll. The furniture sled waits on firm ground within sight of camp.",
+           "items": [
+             "sled-padding",
+@@ -7160,7 +7160,7 @@
+       "area": {
+         "id": "area-waterworks",
+         "label": "Enough water to stay",
+-        "travelText": "We take the useful equipment onward to enough water to stay, leaving the earlier work where it stands."
++        "travelText": "We go from the refuge to the ice-processing site the recovered crew know."
+       },
+       "locations": [
+         "ice-works"
+@@ -7176,7 +7176,7 @@
+       "caches": [
+         {
+           "id": "waterworks-cache",
+-          "label": "Enough water to stay stores",
++          "label": "Ice-processing equipment",
+           "narrative": "This is an existing ice-processing pilot site. Its enclosed melter, treatment skid, monitored tank and circulation pump were stored as working appliances. The disconnected return hose is still here.",
+           "items": [
+             "return-hose",
+@@ -7197,7 +7197,7 @@
+       "area": {
+         "id": "area-garden",
+         "label": "A meal that grew here",
+-        "travelText": "We take the useful equipment onward to a meal that grew here, leaving the earlier work where it stands."
++        "travelText": "At the camp greenhouse, we prepare to use the restored water loop."
+       },
+       "locations": [],
+       "objectives": [
+@@ -7211,7 +7211,7 @@
+       "caches": [
+         {
+           "id": "garden-cache",
+-          "label": "A meal that grew here stores",
++          "label": "Camp greenhouse supplies",
+           "narrative": "The camp greenhouse is mostly intact. Its growing tray, fan, light, brought substrate and seed potatoes were stored here for a later planting. A damaged seam needs the existing patch kit.",
+           "items": [
+             "greenhouse-shell",
+@@ -7235,7 +7235,7 @@
+       "area": {
+         "id": "area-nursery",
+         "label": "Something for the next crew",
+-        "travelText": "We gather the known equipment for this nearby work. The larger expedition remains at its current camp or depot."
++        "travelText": "We move to the indoor test shelf beside the greenhouse."
+       },
+       "locations": [
+         "nursery-test-shelf"
+@@ -7243,7 +7243,7 @@
+       "caches": [
+         {
+           "id": "nursery-cache",
+-          "label": "Known expedition equipment",
++          "label": "Greenhouse cultivation kit",
+           "narrative": "A single greenhouse cultivation kit holds the printed grid, original diffuser fitting, soft support lattice and labels. We reuse the landing’s living tray rather than granting another crop.",
+           "items": [
+             "nursery-grid",
+@@ -7292,7 +7292,7 @@
+       "caches": [
+         {
+           "id": "workshop-cache",
+-          "label": "Make what cannot be shipped stores",
++          "label": "Camp machine-shop cabinet",
+           "narrative": "The camp machine-shop cabinet holds the guarded bench-top machine, stock, carrier parts and replacement wheel. Its captive base clamps match the rails on the shared workbench we assembled earlier.",
+           "items": [
+             "machining-stock",
+@@ -7331,7 +7331,7 @@
+       "caches": [
+         {
+           "id": "traverse-cache",
+-          "label": "Across the dark ground stores",
++          "label": "Geology depot scout equipment",
+           "narrative": "The geology depot holds a stored Mars scout. Its delicate rotor assembly and battery were packed separately; its flight electronics, camera and legs are already fitted. A route tablet and hazard marker are also here.",
+           "items": [
+             "scout-airframe",
+@@ -7360,8 +7360,8 @@
+       "caches": [
+         {
+           "id": "crossing-cache",
+-          "label": "Shallow channel stores",
+-          "narrative": "The existing shallow channel has the following stored mission equipment; these are not a new delivery.",
++          "label": "Channel survey kit",
++          "narrative": "At the channel approach, the stored survey kit holds a ground probe, a map overlay and a crossing marker.",
+           "items": [
+             "ground-probe",
+             "route-overlay",
+@@ -7420,8 +7420,8 @@
+       "caches": [
+         {
+           "id": "buried-story-cache",
+-          "label": "What lies beneath stores",
+-          "narrative": "The expedition reaches the previously placed mission stores at what lies beneath. These include the following recovered equipment, not freshly delivered ingredients.",
++          "label": "Basin field equipment",
++          "narrative": "The basin’s stored field equipment includes the core drill and liner, sample cradle, vial and log, plus the microscope, spectrometer, calibration target and balance.",
+           "items": [
+             "sterile-liner",
+             "core-cradle",
+@@ -7445,7 +7445,7 @@
+       "area": {
+         "id": "area-contrast",
+         "label": "Not every ripple is a river",
+-        "travelText": "We gather the known equipment for this nearby work. The larger expedition remains at its current camp or depot."
++        "travelText": "We turn from the basin core to the nearby rippled surface and gravel ledge."
+       },
+       "locations": [
+         "ripple-window",
+@@ -7454,7 +7454,7 @@
+       "caches": [
+         {
+           "id": "contrast-cache",
+-          "label": "Known expedition equipment",
++          "label": "Geology comparison kit",
+           "narrative": "The existing geology team’s single comparison kit holds a board, two-cell case, dry impression sheet and document sleeve. The loose chip is explicitly from the adjacent gravel ledge, not supplied as a laboratory conclusion.",
+           "items": [
+             "context-board",
+@@ -7497,7 +7497,7 @@
+       "caches": [
+         {
+           "id": "depot-way-cache",
+-          "label": "Known expedition equipment",
++          "label": "Depot navigation and hauler equipment",
+           "narrative": "One existing depot navigation-and-maintenance locker holds its original survey print, cleaning pad and folding sign. The stored standardized cargo hauler and platform stand beside it. Their compatible controller specification is legible before installation.",
+           "items": [
+             "depot-survey-print",
+@@ -7543,8 +7543,8 @@
+       "caches": [
+         {
+           "id": "oxygen-cache",
+-          "label": "The plant that breathes stone air stores",
+-          "narrative": "The expedition reaches the previously placed mission stores at the plant that breathes stone air. These include the following recovered equipment, not freshly delivered ingredients.",
++          "label": "Oxygen-plant equipment",
++          "narrative": "The oxygen plant holds its stored processing stack, controller and filtered intake. The heavy flight module waits on its transport cradle.",
+           "items": [
+             "electrolyzer-stack",
+             "process-controller",
+@@ -7563,7 +7563,7 @@
+       "area": {
+         "id": "area-ascent",
+         "label": "A ship with an unfinished job",
+-        "travelText": "We take the useful equipment onward to a ship with an unfinished job, leaving the earlier work where it stands."
++        "travelText": "We turn from the oxygen plant to the waiting vehicle on the ascent pad."
+       },
+       "locations": [
+         "ascent-pad"
+@@ -7579,8 +7579,8 @@
+       "caches": [
+         {
+           "id": "ascent-cache",
+-          "label": "A ship with an unfinished job stores",
+-          "narrative": "The expedition reaches the previously placed mission stores at a ship with an unfinished job. These include the following recovered equipment, not freshly delivered ingredients.",
++          "label": "Ascent cabin and depot parts",
++          "narrative": "The cabin shell survived, but its hatch seal is damaged. The depot stores hold the replacement seal, docking ring, flight console and stowed flight seat.",
+           "items": [
+             "damaged-ascent-cabin",
+             "docking-ring",
+@@ -7600,7 +7600,7 @@
+       "area": {
+         "id": "area-rendezvous",
+         "label": "A moving meeting place",
+-        "travelText": "We take the useful equipment onward to a moving meeting place, leaving the earlier work where it stands."
++        "travelText": "We go from the ascent pad to the clear-sky station for the rendezvous observations."
+       },
+       "locations": [
+         "clear-sky-station"
+@@ -7616,8 +7616,8 @@
+       "caches": [
+         {
+           "id": "rendezvous-cache",
+-          "label": "A moving meeting place stores",
+-          "narrative": "The expedition reaches the previously placed mission stores at a moving meeting place. These include the following recovered equipment, not freshly delivered ingredients.",
++          "label": "Clear-sky station navigation kit",
++          "narrative": "The clear-sky station’s stored navigation kit holds the ephemeris card, terminal and clock, with the tracker, alignment target, timing receiver and range transponder.",
+           "items": [
+             "ephemeris-card",
+             "navigation-terminal",

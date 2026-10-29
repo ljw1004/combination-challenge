@@ -1,0 +1,965 @@
+{
+  "schemaVersion": 1,
+  "scope": "Explicit final current lifecycle successor after immutable Mars-natural-order and thirteen-alias author ledgers. Historical rows remain byte-identical. Solar additions and reviewed crawler/graph amendments only.",
+  "changes": [
+    {
+      "world": "mars-connected-survival-v4-return-cargo-research",
+      "recipe": "repair-towed-crawler",
+      "inputs": [
+        "replacement-drive",
+        "towed-crawler"
+      ],
+      "output": "crawler",
+      "before": {
+        "replacement-drive": {
+          "role": "incorporate",
+          "reason": "Replacement drive becomes part of the result; retain a supply only while another authored use needs it."
+        },
+        "towed-crawler": {
+          "role": "transform",
+          "reason": "Recovered crawler is the existing object changed into Crawler."
+        }
+      },
+      "after": {
+        "replacement-drive": {
+          "role": "incorporate",
+          "reason": "Replacement drive becomes part of the result; retain a supply only while another authored use needs it."
+        },
+        "towed-crawler": {
+          "role": "transform",
+          "reason": "Recovered crawler is the existing object changed into Crawler.",
+          "exclusive": true
+        }
+      }
+    },
+    {
+      "world": "mars-connected-survival-v4-return-cargo-research",
+      "recipe": "signal-solar-lamp",
+      "inputs": [
+        "lamp",
+        "solar-charger"
+      ],
+      "output": "solar-lamp",
+      "before": null,
+      "after": {
+        "lamp": {
+          "role": "transform",
+          "reason": "The recovered lamp becomes our solar-powered task lamp. Keep an outside lamp only while its earlier lantern or inspection-light branch remains unmade."
+        },
+        "solar-charger": {
+          "role": "retain",
+          "reason": "The same solar charging unit supplies the lamp and remains available for rover traction, the weather station and the greenhouse grow light."
+        }
+      }
+    },
+    {
+      "world": "mars-connected-survival-v4-return-cargo-research",
+      "recipe": "signal-5-signal-lamp",
+      "inputs": [
+        "lantern",
+        "reflector"
+      ],
+      "output": "signal-lamp",
+      "before": {
+        "lantern": {
+          "role": "transform",
+          "reason": "Lantern is the existing object changed into Signal lamp."
+        },
+        "reflector": {
+          "role": "incorporate",
+          "reason": "Reflector becomes part of the result; retain a supply only while another authored use needs it."
+        }
+      },
+      "after": {
+        "lantern": {
+          "role": "transform",
+          "reason": "Lantern is the existing object changed into Signal lamp.",
+          "exclusive": true
+        },
+        "reflector": {
+          "role": "incorporate",
+          "reason": "Reflector becomes part of the result; retain a supply only while another authored use needs it."
+        }
+      }
+    },
+    {
+      "world": "mars-connected-survival-v4-return-cargo-research",
+      "recipe": "rescue-8-repaired-crawler",
+      "inputs": [
+        "replacement-drive",
+        "damaged-crawler"
+      ],
+      "output": "crawler",
+      "before": {
+        "replacement-drive": {
+          "role": "incorporate",
+          "reason": "Replacement drive becomes part of the result; retain a supply only while another authored use needs it."
+        },
+        "damaged-crawler": {
+          "role": "transform",
+          "reason": "Disabled crawler is the existing object changed into Crawler."
+        }
+      },
+      "after": {
+        "replacement-drive": {
+          "role": "incorporate",
+          "reason": "Replacement drive becomes part of the result; retain a supply only while another authored use needs it."
+        },
+        "damaged-crawler": {
+          "role": "transform",
+          "reason": "Disabled crawler is the existing object changed into Crawler.",
+          "exclusive": true
+        }
+      }
+    },
+    {
+      "world": "mars-connected-survival-v4-return-cargo-research",
+      "recipe": "rescue-11-towed-crawler",
+      "inputs": [
+        "rover",
+        "damaged-crawler"
+      ],
+      "output": "towed-crawler",
+      "before": {
+        "rover": {
+          "role": "retain",
+          "reason": "Rover is reused as equipment, a source/reference, a subject of observation, or a continuing supply; this action does not consume it."
+        },
+        "damaged-crawler": {
+          "role": "transform",
+          "reason": "Disabled crawler is the existing object changed into Recovered crawler."
+        }
+      },
+      "after": {
+        "rover": {
+          "role": "retain",
+          "reason": "Rover is reused as equipment, a source/reference, a subject of observation, or a continuing supply; this action does not consume it."
+        },
+        "damaged-crawler": {
+          "role": "transform",
+          "reason": "Disabled crawler is the existing object changed into Recovered crawler.",
+          "exclusive": true
+        }
+      }
+    },
+    {
+      "world": "mars-connected-survival-v4-return-cargo-research",
+      "recipe": "camp-lantern-bracket",
+      "inputs": [
+        "lantern",
+        "lamp-bracket"
+      ],
+      "output": "bench-lamp",
+      "before": null,
+      "after": {
+        "lantern": {
+          "role": "incorporate",
+          "reason": "The existing powered light stays visibly fitted to the bracket. Keep its outside source only while the earlier signal construction branch still needs it.",
+          "graphExceptions": [
+            {
+              "warning": "conditional-retention:signal-5-signal-lamp",
+              "reason": "The fitted bench lamp cannot substitute for the independent unfinished signal-lamp → signal-beacon branch. A player can reach camp by the solar-radio route before making a beacon, so needed() must keep the outside lantern until that signaling branch is made."
+            }
+          ]
+        },
+        "lamp-bracket": {
+          "role": "transform",
+          "reason": "The bracket becomes a mounted bench light using the existing powered lamp; no new bulb, battery or panel appears."
+        }
+      }
+    },
+    {
+      "world": "mars-connected-survival-v4-return-cargo-research",
+      "recipe": "camp-signal-lamp-bracket",
+      "inputs": [
+        "signal-lamp",
+        "lamp-bracket"
+      ],
+      "output": "bench-lamp",
+      "before": null,
+      "after": {
+        "signal-lamp": {
+          "role": "incorporate",
+          "reason": "The existing powered light stays visibly fitted to the bracket. Keep its outside source only while the earlier signal construction branch still needs it."
+        },
+        "lamp-bracket": {
+          "role": "transform",
+          "reason": "The bracket becomes a mounted bench light using the existing powered lamp; no new bulb, battery or panel appears."
+        }
+      }
+    },
+    {
+      "world": "mars-connected-survival-v4-return-cargo-research",
+      "recipe": "camp-beacon-light",
+      "inputs": [
+        "workbench",
+        "signal-beacon"
+      ],
+      "output": "lit-workbench",
+      "before": null,
+      "after": {
+        "workbench": {
+          "role": "transform",
+          "reason": "The same workbench becomes a lit workstation, without rebuilding the existing light."
+        },
+        "signal-beacon": {
+          "role": "incorporate",
+          "reason": "The intact beacon remains visible with the lit workbench. A separate source stays only while an unfinished contact objective still needs the beacon."
+        }
+      }
+    },
+    {
+      "world": "elements-house-and-craft-v1",
+      "recipe": "window",
+      "inputs": [
+        "glass",
+        "wood"
+      ],
+      "output": "window",
+      "before": {
+        "glass": {
+          "role": "incorporate",
+          "reason": "Glass becomes part of the result; retain a supply only while another authored use needs it."
+        },
+        "wood": {
+          "role": "incorporate",
+          "reason": "Wood becomes part of the result; retain a supply only while another authored use needs it."
+        }
+      },
+      "after": {
+        "glass": {
+          "role": "incorporate",
+          "reason": "Glass becomes part of the result; retain a supply only while another authored use needs it."
+        },
+        "wood": {
+          "role": "incorporate",
+          "reason": "Wood becomes part of the result; retain a supply only while another authored use needs it.",
+          "graphExceptions": [
+            {
+              "warning": "conditional-retention:house",
+              "reason": "The window frame uses some of the timber stock. Separate lengths are still needed for the house structure; fitting the frame into that house does not make those two timber allocations the same object."
+            }
+          ]
+        }
+      }
+    },
+    {
+      "world": "elements-house-and-craft-v1",
+      "recipe": "house",
+      "inputs": [
+        "brick",
+        "wood"
+      ],
+      "output": "house",
+      "before": {
+        "brick": {
+          "role": "incorporate",
+          "reason": "Brick becomes part of the result; retain a supply only while another authored use needs it."
+        },
+        "wood": {
+          "role": "incorporate",
+          "reason": "Wood becomes part of the result; retain a supply only while another authored use needs it."
+        }
+      },
+      "after": {
+        "brick": {
+          "role": "incorporate",
+          "reason": "Brick becomes part of the result; retain a supply only while another authored use needs it."
+        },
+        "wood": {
+          "role": "incorporate",
+          "reason": "Wood becomes part of the result; retain a supply only while another authored use needs it.",
+          "graphExceptions": [
+            {
+              "warning": "conditional-retention:window",
+              "reason": "Building the house uses structural timber, while separate stock is kept for its still-unmade window frame. The eventual installation joins two assemblies, not two states of one timber piece."
+            }
+          ]
+        }
+      }
+    },
+    {
+      "world": "elements-house-and-craft-v1",
+      "recipe": "wheel",
+      "inputs": [
+        "planks",
+        "stone"
+      ],
+      "output": "wheel",
+      "before": {
+        "planks": {
+          "role": "transform",
+          "reason": "Planks is the existing object changed into Wheel."
+        },
+        "stone": {
+          "role": "retain",
+          "reason": "Stone is reused as equipment, a source/reference, a subject of observation, or a continuing supply; this action does not consume it."
+        }
+      },
+      "after": {
+        "planks": {
+          "role": "transform",
+          "reason": "Planks is the existing object changed into Wheel.",
+          "graphExceptions": [
+            {
+              "warning": "conditional-retention:waterwheel",
+              "reason": "Shaping one wheel uses boards from the shared plank stock. The waterwheel may instead be built from more boards; handcart, table and bridge work also need planks outside this wheel."
+            }
+          ]
+        },
+        "stone": {
+          "role": "retain",
+          "reason": "Stone is reused as equipment, a source/reference, a subject of observation, or a continuing supply; this action does not consume it."
+        }
+      }
+    },
+    {
+      "world": "elements-house-and-craft-v1",
+      "recipe": "waterwheel",
+      "inputs": [
+        "planks",
+        "water"
+      ],
+      "output": "waterwheel",
+      "before": {
+        "planks": {
+          "role": "transform",
+          "reason": "Planks is the existing object changed into Waterwheel."
+        },
+        "water": {
+          "role": "retain",
+          "reason": "Water is reused as equipment, a source/reference, a subject of observation, or a continuing supply; this action does not consume it."
+        }
+      },
+      "after": {
+        "planks": {
+          "role": "transform",
+          "reason": "Planks is the existing object changed into Waterwheel.",
+          "graphExceptions": [
+            {
+              "warning": "conditional-retention:wheel",
+              "reason": "The waterwheel uses part of the board stock. Ordinary wheels can still be made for the handcart and other mechanisms; the alternative wheel-to-waterwheel route does not exhaust all planks."
+            }
+          ]
+        },
+        "water": {
+          "role": "retain",
+          "reason": "Water is reused as equipment, a source/reference, a subject of observation, or a continuing supply; this action does not consume it."
+        }
+      }
+    },
+    {
+      "world": "elements-house-and-craft-v1",
+      "recipe": "glazed-bowl",
+      "inputs": [
+        "bowl",
+        "glaze"
+      ],
+      "output": "glazed-bowl",
+      "before": {
+        "bowl": {
+          "role": "transform",
+          "reason": "Bowl is the existing object changed into Glazed bowl."
+        },
+        "glaze": {
+          "role": "incorporate",
+          "reason": "Glaze becomes part of the result; retain a supply only while another authored use needs it."
+        }
+      },
+      "after": {
+        "bowl": {
+          "role": "transform",
+          "reason": "Bowl is the existing object changed into Glazed bowl.",
+          "graphExceptions": [
+            {
+              "warning": "conditional-retention:washstand",
+              "reason": "The pottery craft represents repeatable vessels: glazing a serving bowl leaves an unglazed bowl available as the jar-shaping form or washstand basin. The washstand accepts either finish, not a uniquely tracked cabin-like object."
+            }
+          ]
+        },
+        "glaze": {
+          "role": "incorporate",
+          "reason": "Glaze becomes part of the result; retain a supply only while another authored use needs it."
+        }
+      }
+    },
+    {
+      "world": "elements-house-and-craft-v1",
+      "recipe": "mailboat",
+      "inputs": [
+        "letter",
+        "sailboat"
+      ],
+      "output": "mailboat",
+      "before": {
+        "letter": {
+          "role": "transform",
+          "reason": "Letter is the existing object changed into Mailboat."
+        },
+        "sailboat": {
+          "role": "retain",
+          "reason": "Sailboat is reused as equipment, a source/reference, a subject of observation, or a continuing supply; this action does not consume it."
+        }
+      },
+      "after": {
+        "letter": {
+          "role": "incorporate",
+          "reason": "The written letter is carried aboard the mailboat. This is its only authored use, so no loose duplicate letter is needed."
+        },
+        "sailboat": {
+          "role": "transform",
+          "reason": "The same sailboat becomes the mailboat carrying the letter; it is not a second supply of boats."
+        }
+      }
+    },
+    {
+      "world": "elements-house-and-craft-v1",
+      "recipe": "glass-slide",
+      "inputs": [
+        "glass",
+        "planks"
+      ],
+      "output": "glass-slide",
+      "before": {
+        "glass": {
+          "role": "transform",
+          "reason": "Glass is the existing object changed into Glass slide."
+        },
+        "planks": {
+          "role": "retain",
+          "reason": "Planks is reused as equipment, a source/reference, a subject of observation, or a continuing supply; this action does not consume it."
+        }
+      },
+      "after": {
+        "glass": {
+          "role": "transform",
+          "reason": "Glass is the existing object changed into Glass slide.",
+          "graphExceptions": [
+            {
+              "warning": "conditional-retention:pond-slide-on-glass",
+              "reason": "A small flat piece is prepared from the glass stock. The direct pond-sample route prepares another piece if used; window, bottle and lens work still need glass outside this slide."
+            }
+          ]
+        },
+        "planks": {
+          "role": "retain",
+          "reason": "Planks is reused as equipment, a source/reference, a subject of observation, or a continuing supply; this action does not consume it."
+        }
+      }
+    },
+    {
+      "world": "elements-house-and-craft-v1",
+      "recipe": "rain-record",
+      "inputs": [
+        "paper",
+        "rain-gauge"
+      ],
+      "output": "rain-record",
+      "before": {
+        "paper": {
+          "role": "transform",
+          "reason": "Paper is the existing object changed into Rain record."
+        },
+        "rain-gauge": {
+          "role": "retain",
+          "reason": "Rain gauge is reused as equipment, a source/reference, a subject of observation, or a continuing supply; this action does not consume it."
+        }
+      },
+      "after": {
+        "paper": {
+          "role": "transform",
+          "reason": "Paper is the existing object changed into Rain record.",
+          "graphExceptions": [
+            {
+              "warning": "conditional-retention:wind-record",
+              "reason": "Rain notes use one sheet from the paper supply; wind notes may begin on another. Either record can later gain its missing observation from the windsock or rain gauge, so converging on a weather record does not exhaust all paper."
+            }
+          ]
+        },
+        "rain-gauge": {
+          "role": "retain",
+          "reason": "Rain gauge is reused as equipment, a source/reference, a subject of observation, or a continuing supply; this action does not consume it."
+        }
+      }
+    },
+    {
+      "world": "elements-house-and-craft-v1",
+      "recipe": "drinking-water",
+      "inputs": [
+        "boiled-water",
+        "glazed-bowl"
+      ],
+      "output": "drinking-water",
+      "before": {
+        "boiled-water": {
+          "role": "incorporate",
+          "reason": "Boiled water becomes part of the result; retain a supply only while another authored use needs it."
+        },
+        "glazed-bowl": {
+          "role": "incorporate",
+          "reason": "Glazed bowl becomes part of the result; retain a supply only while another authored use needs it."
+        }
+      },
+      "after": {
+        "boiled-water": {
+          "role": "incorporate",
+          "reason": "Boiled water becomes part of the result; retain a supply only while another authored use needs it.",
+          "graphExceptions": [
+            {
+              "warning": "conditional-retention:fill-water-bottle",
+              "reason": "The serving bowl receives a portion of prepared water. A separate portion can fill the clay jar directly, even though pouring from the bowl is another route to that filled jar."
+            },
+            {
+              "warning": "conditional-retention:fill-covered-bottle",
+              "reason": "Water served in the bowl is a portion of the prepared batch. The already-covered clay jar can receive a different portion; neither vessel exhausts the whole batch."
+            }
+          ]
+        },
+        "glazed-bowl": {
+          "role": "incorporate",
+          "reason": "Glazed bowl becomes part of the result; retain a supply only while another authored use needs it."
+        }
+      }
+    },
+    {
+      "world": "elements-house-and-craft-v1",
+      "recipe": "covered-urn",
+      "inputs": [
+        "glazed-bottle",
+        "jar-lid"
+      ],
+      "output": "covered-urn",
+      "before": {
+        "glazed-bottle": {
+          "role": "transform",
+          "reason": "The existing glazed clay jar is fitted with a cover; its ceramic body and shape stay the same."
+        },
+        "jar-lid": {
+          "role": "incorporate",
+          "reason": "Jar lid becomes part of the result; retain a supply only while another authored use needs it."
+        }
+      },
+      "after": {
+        "glazed-bottle": {
+          "role": "transform",
+          "reason": "The existing glazed clay jar is fitted with a cover; its ceramic body and shape stay the same.",
+          "graphExceptions": [
+            {
+              "warning": "conditional-retention:fill-water-bottle",
+              "reason": "The pottery craft supplies more than one ceramic vessel for cider, a float and water service. Covering a water jar therefore keeps an outside jar supply; cover-first and fill-first are alternative preparations, not globally exclusive pottery."
+            },
+            {
+              "warning": "conditional-retention:pour-bowl-into-bottle",
+              "reason": "A covered serving jar does not exhaust the pottery craft used for cider or the float. An open jar can still receive water from the bowl; these are separately allocated vessels, not duplicated occupants or cargo."
+            }
+          ]
+        },
+        "jar-lid": {
+          "role": "incorporate",
+          "reason": "Jar lid becomes part of the result; retain a supply only while another authored use needs it.",
+          "graphExceptions": [
+            {
+              "warning": "conditional-retention:cover-filled-water-bottle",
+              "reason": "One wooden lid is fitted to this jar. The lid-making craft also supplies covers for sealed preserves and the crock; the alternate fill-before-cover route does not mean all covers became this one lid."
+            }
+          ]
+        }
+      }
+    },
+    {
+      "world": "elements-house-and-craft-v1",
+      "recipe": "washstand",
+      "inputs": [
+        "bowl",
+        "table"
+      ],
+      "output": "washstand",
+      "before": {
+        "bowl": {
+          "role": "incorporate",
+          "reason": "Bowl becomes part of the result; retain a supply only while another authored use needs it."
+        },
+        "table": {
+          "role": "transform",
+          "reason": "Table is the existing object changed into Washstand."
+        }
+      },
+      "after": {
+        "bowl": {
+          "role": "incorporate",
+          "reason": "Bowl becomes part of the result; retain a supply only while another authored use needs it.",
+          "graphExceptions": [
+            {
+              "warning": "conditional-retention:glazed-bowl",
+              "reason": "One basin enters the washstand while the pottery craft still supplies a bowl for glazing and drinking-water service. These are separate vessel uses, despite the alternate glazed-basin washstand route."
+            }
+          ]
+        },
+        "table": {
+          "role": "transform",
+          "reason": "Table is the existing object changed into Washstand."
+        }
+      }
+    },
+    {
+      "world": "elements-house-and-craft-v1",
+      "recipe": "mounted-telescope",
+      "inputs": [
+        "telescope",
+        "tripod"
+      ],
+      "output": "mounted-telescope",
+      "before": {
+        "telescope": {
+          "role": "transform",
+          "reason": "Telescope is the existing object changed into Mounted telescope."
+        },
+        "tripod": {
+          "role": "incorporate",
+          "reason": "Tripod becomes part of the result; retain a supply only while another authored use needs it."
+        }
+      },
+      "after": {
+        "telescope": {
+          "role": "transform",
+          "reason": "Telescope is the existing object changed into Mounted telescope.",
+          "graphExceptions": [
+            {
+              "warning": "conditional-retention:star-chart",
+              "reason": "The mounted telescope can make the star chart, but the independent microscope recipe still requires the loose telescope with a magnifier. There is no mounted-telescope microscope substitute, so keep the loose source while that distinct construction is unfinished."
+            }
+          ]
+        },
+        "tripod": {
+          "role": "incorporate",
+          "reason": "Tripod becomes part of the result; retain a supply only while another authored use needs it."
+        }
+      }
+    },
+    {
+      "world": "elements-house-and-craft-v1",
+      "recipe": "compote",
+      "inputs": [
+        "cooking-pot",
+        "fruit"
+      ],
+      "output": "compote",
+      "before": {
+        "cooking-pot": {
+          "role": "retain",
+          "reason": "Cooking pot is reused as equipment, a source/reference, a subject of observation, or a continuing supply; this action does not consume it."
+        },
+        "fruit": {
+          "role": "transform",
+          "reason": "Fruit is the existing object changed into Fruit compote."
+        }
+      },
+      "after": {
+        "cooking-pot": {
+          "role": "retain",
+          "reason": "Cooking pot is reused as equipment, a source/reference, a subject of observation, or a continuing supply; this action does not consume it."
+        },
+        "fruit": {
+          "role": "transform",
+          "reason": "Fruit is the existing object changed into Fruit compote.",
+          "graphExceptions": [
+            {
+              "warning": "conditional-retention:feast",
+              "reason": "A portion of fruit is cooked in the pot. Fresh fruit remains for the bread-and-fruit feast and for preserves; cooked and fresh servings are separate portions even though either can feed the gathering."
+            }
+          ]
+        }
+      }
+    },
+    {
+      "world": "elements-house-and-craft-v1",
+      "recipe": "feast",
+      "inputs": [
+        "bread",
+        "fruit"
+      ],
+      "output": "feast",
+      "before": {
+        "bread": {
+          "role": "incorporate",
+          "reason": "Bread becomes part of the result; retain a supply only while another authored use needs it."
+        },
+        "fruit": {
+          "role": "incorporate",
+          "reason": "Fruit becomes part of the result; retain a supply only while another authored use needs it."
+        }
+      },
+      "after": {
+        "bread": {
+          "role": "incorporate",
+          "reason": "Bread becomes part of the result; retain a supply only while another authored use needs it."
+        },
+        "fruit": {
+          "role": "incorporate",
+          "reason": "Fruit becomes part of the result; retain a supply only while another authored use needs it.",
+          "graphExceptions": [
+            {
+              "warning": "conditional-retention:compote",
+              "reason": "The feast uses a fresh-fruit serving, not the entire harvest. Another portion may be cooked in the pot, so retaining fruit does not duplicate the already assembled feast."
+            },
+            {
+              "warning": "conditional-retention:compote-on-stove",
+              "reason": "Fresh fruit served with bread is distinct from fruit later cooked on the stove. The harvest remains available for that cooked portion even though both meals can lead to the same feast outcome."
+            }
+          ]
+        }
+      }
+    },
+    {
+      "world": "elements-house-and-craft-v1",
+      "recipe": "pond-slide-on-glass",
+      "inputs": [
+        "pond-water",
+        "glass"
+      ],
+      "output": "pond-slide",
+      "before": {
+        "pond-water": {
+          "role": "incorporate",
+          "reason": "Pond water becomes part of the result; retain a supply only while another authored use needs it."
+        },
+        "glass": {
+          "role": "transform",
+          "reason": "Glass is the existing object changed into Pond slide."
+        }
+      },
+      "after": {
+        "pond-water": {
+          "role": "incorporate",
+          "reason": "Pond water becomes part of the result; retain a supply only while another authored use needs it."
+        },
+        "glass": {
+          "role": "transform",
+          "reason": "Glass is the existing object changed into Pond slide.",
+          "graphExceptions": [
+            {
+              "warning": "conditional-retention:glass-slide",
+              "reason": "The direct sample route uses a small piece of glass, not the entire glass supply. A clean slide and other glasswork may still be made from the remaining stock."
+            }
+          ]
+        }
+      }
+    },
+    {
+      "world": "elements-house-and-craft-v1",
+      "recipe": "wind-record",
+      "inputs": [
+        "windsock",
+        "paper"
+      ],
+      "output": "wind-record",
+      "before": {
+        "windsock": {
+          "role": "retain",
+          "reason": "Windsock is reused as equipment, a source/reference, a subject of observation, or a continuing supply; this action does not consume it."
+        },
+        "paper": {
+          "role": "transform",
+          "reason": "Paper is the existing object changed into Wind record."
+        }
+      },
+      "after": {
+        "windsock": {
+          "role": "retain",
+          "reason": "Windsock is reused as equipment, a source/reference, a subject of observation, or a continuing supply; this action does not consume it."
+        },
+        "paper": {
+          "role": "transform",
+          "reason": "Paper is the existing object changed into Wind record.",
+          "graphExceptions": [
+            {
+              "warning": "conditional-retention:rain-record",
+              "reason": "Wind notes use one sheet, leaving paper for a separate rain record. Adding the rain-gauge observation to wind notes or the windsock observation to rain notes yields the same weather record by different routes, not by consuming the whole paper supply."
+            }
+          ]
+        }
+      }
+    },
+    {
+      "world": "elements-house-and-craft-v1",
+      "recipe": "fill-water-bottle",
+      "inputs": [
+        "boiled-water",
+        "glazed-bottle"
+      ],
+      "output": "filled-water-bottle",
+      "before": {
+        "boiled-water": {
+          "role": "incorporate",
+          "reason": "Prepared water is poured into the serving jar."
+        },
+        "glazed-bottle": {
+          "role": "transform",
+          "reason": "The existing clay jar becomes its filled state; no new vessel is conjured."
+        }
+      },
+      "after": {
+        "boiled-water": {
+          "role": "incorporate",
+          "reason": "Prepared water is poured into the serving jar.",
+          "graphExceptions": [
+            {
+              "warning": "conditional-retention:fill-covered-bottle",
+              "reason": "Filling the open jar uses one portion of the prepared-water batch. Water remains for bowl service and a covered vessel; the two fill orders do not consume the entire batch."
+            }
+          ]
+        },
+        "glazed-bottle": {
+          "role": "transform",
+          "reason": "The existing clay jar becomes its filled state; no new vessel is conjured.",
+          "graphExceptions": [
+            {
+              "warning": "conditional-retention:covered-urn",
+              "reason": "Filling one serving jar preserves the outside ceramic-vessel supply used for cider and the float. The cover-first route is still optional for another vessel; the filled jar itself remains one evolving object."
+            }
+          ]
+        }
+      }
+    },
+    {
+      "world": "elements-house-and-craft-v1",
+      "recipe": "pour-bowl-into-bottle",
+      "inputs": [
+        "drinking-water",
+        "glazed-bottle"
+      ],
+      "output": "filled-water-bottle",
+      "before": {
+        "drinking-water": {
+          "role": "retain",
+          "reason": "This is a serving bowl and shared supply; pouring a portion does not consume the ceramic bowl."
+        },
+        "glazed-bottle": {
+          "role": "transform",
+          "reason": "The existing clay jar becomes its filled state."
+        }
+      },
+      "after": {
+        "drinking-water": {
+          "role": "retain",
+          "reason": "This is a serving bowl and shared supply; pouring a portion does not consume the ceramic bowl."
+        },
+        "glazed-bottle": {
+          "role": "transform",
+          "reason": "The existing clay jar becomes its filled state.",
+          "graphExceptions": [
+            {
+              "warning": "conditional-retention:covered-urn",
+              "reason": "Pouring from the bowl fills one ceramic serving vessel. The pottery craft still provides jars for cider and the float, so an outside jar may remain despite the alternate cover-first route."
+            }
+          ]
+        }
+      }
+    },
+    {
+      "world": "elements-house-and-craft-v1",
+      "recipe": "cover-filled-water-bottle",
+      "inputs": [
+        "filled-water-bottle",
+        "jar-lid"
+      ],
+      "output": "water-urn",
+      "before": {
+        "filled-water-bottle": {
+          "role": "transform",
+          "reason": "The same filled clay jar is now covered for serving."
+        },
+        "jar-lid": {
+          "role": "incorporate",
+          "reason": "The fitted lid becomes part of the covered clay jar."
+        }
+      },
+      "after": {
+        "filled-water-bottle": {
+          "role": "transform",
+          "reason": "The same filled clay jar is now covered for serving."
+        },
+        "jar-lid": {
+          "role": "incorporate",
+          "reason": "The fitted lid becomes part of the covered clay jar.",
+          "graphExceptions": [
+            {
+              "warning": "conditional-retention:covered-urn",
+              "reason": "One cover closes the water jar, while covers remain available for preserves and the crock. Cover-before-fill is an alternative for a serving vessel, not a claim that the whole lid supply was fitted."
+            }
+          ]
+        }
+      }
+    },
+    {
+      "world": "elements-house-and-craft-v1",
+      "recipe": "fill-covered-bottle",
+      "inputs": [
+        "boiled-water",
+        "covered-urn"
+      ],
+      "output": "water-urn",
+      "before": {
+        "boiled-water": {
+          "role": "incorporate",
+          "reason": "The prepared water fills the covered serving vessel."
+        },
+        "covered-urn": {
+          "role": "transform",
+          "reason": "The same covered clay jar is filled; its removable lid stays with it."
+        }
+      },
+      "after": {
+        "boiled-water": {
+          "role": "incorporate",
+          "reason": "The prepared water fills the covered serving vessel.",
+          "graphExceptions": [
+            {
+              "warning": "conditional-retention:fill-water-bottle",
+              "reason": "The covered jar receives a portion, with prepared water left for bowl service or another open jar. The alternative order changes the vessel state, not the amount of water represented by the whole supply."
+            }
+          ]
+        },
+        "covered-urn": {
+          "role": "transform",
+          "reason": "The same covered clay jar is filled; its removable lid stays with it."
+        }
+      }
+    },
+    {
+      "world": "elements-house-and-craft-v1",
+      "recipe": "compote-on-stove",
+      "inputs": [
+        "fruit",
+        "stove"
+      ],
+      "output": "compote",
+      "before": {
+        "fruit": {
+          "role": "transform",
+          "reason": "The food becomes its cooked state; the shared stock remains while another authored use needs it."
+        },
+        "stove": {
+          "role": "retain",
+          "reason": "The stove and its inset iron pot remain reusable cooking equipment."
+        }
+      },
+      "after": {
+        "fruit": {
+          "role": "transform",
+          "reason": "The food becomes its cooked state; the shared stock remains while another authored use needs it.",
+          "graphExceptions": [
+            {
+              "warning": "conditional-retention:feast",
+              "reason": "The stove cooks one fruit portion. The remaining fresh produce can still accompany bread at the feast; the warm-meal alternative does not convert the whole harvest into compote."
+            }
+          ]
+        },
+        "stove": {
+          "role": "retain",
+          "reason": "The stove and its inset iron pot remain reusable cooking equipment."
+        }
+      }
+    }
+  ]
+}

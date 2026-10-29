@@ -28,7 +28,7 @@ test('finishing the basket turns only the basket gold; intermediate achievements
 });
 test('build rejects final objectives that are also reagents on the way to another objective',()=>{
  assert.deepEqual(validateObjectiveFlow(scenarios),[]);
- const s=structuredClone(elements);s.stages.find(st=>st.id==='bakery')!.objectives.find(o=>o.item==='bread')!.intermediate=false;
+ const s=structuredClone(elements);s.id='active-validation-fixture';s.stages.find(st=>st.id==='bakery')!.objectives.find(o=>o.item==='bread')!.intermediate=false;
  assert(validateObjectiveFlow([s]).some(e=>e.includes('bread')&&e.includes('mark it intermediate')));
  s.stages.find(st=>st.id==='bakery')!.objectives.forEach(o=>o.intermediate=true);
  assert(validateObjectiveFlow([s]).some(e=>e.includes('needs a final objective')));

@@ -1,0 +1,52 @@
+DESK 25: computing | Logic, code and feedback · c. 1847–1950: a parallel technical file | A procedure made portable | A proof, a coded message and a machine instruction are not the same thing. Find what can be carried across between them without confusing information with meaning.
+GOALS: [{'id': 'computing-computation-limit', 'text': 'Find the boundary of a universal procedure', 'kind': 'create', 'item': 'computation-limit'}, {'id': 'computing-error-correcting-message', 'text': 'Protect a message from some errors', 'kind': 'create', 'item': 'error-correcting-message'}, {'id': 'computing-feedback-control', 'text': 'Close an observation–action loop', 'kind': 'create', 'item': 'feedback-control'}]
+
+RECIPE make-boolean-logic
+A valid-inference | A conclusion follows from premises | The stated premises support a particular conclusion by the argument’s form.
+B boolean-operations | Boole represents logical relations algebraically | The symbols stand for logical operations; the player need not solve a symbolic calculation.
+OUT boolean-logic | Inference becomes a manipulable symbolic system | An earlier concern with valid form becomes an explicit algebra of logical relations.
+LIFECYCLE {'valid-inference': 'retain', 'boolean-operations': 'retain'}
+LINK {"from": "kinds", "to": "computing", "item": "valid-inference", "recipe": "make-boolean-logic", "relation": "transmission", "evidence": "Boolean logic transforms an inherited formal-logic tradition rather than merely reusing the word reason.", "sources": ["boole", "turing", "shannon", "shannon1948"]}
+
+RECIPE make-logic-circuit
+A boolean-logic | Inference becomes a manipulable symbolic system | An earlier concern with valid form becomes an explicit algebra of logical relations.
+B switching-circuit | A circuit can implement on/off combinations | Shannon’s switching analysis connects Boolean operations to electrical design.
+OUT logic-circuit | Logical operations become switching actions | The same organization can be embodied in a circuit; a true switch does not guarantee a true premise.
+LIFECYCLE {'boolean-logic': 'retain', 'switching-circuit': 'retain'}
+
+RECIPE make-mechanical-procedure
+A logic-circuit | Logical operations become switching actions | The same organization can be embodied in a circuit; a true switch does not guarantee a true premise.
+B finite-instructions | A finite rule describes each step of a procedure | Turing’s machine model specifies symbol reading, writing and movement rather than human understanding.
+OUT mechanical-procedure | A rule-governed symbol machine | The conceptual machine makes procedure explicit without claiming that all intelligence is already explained.
+LIFECYCLE {'logic-circuit': 'retain', 'finite-instructions': 'retain'}
+
+RECIPE make-universal-computation
+A mechanical-procedure | A rule-governed symbol machine | The conceptual machine makes procedure explicit without claiming that all intelligence is already explained.
+B universal-description | A procedure itself can be encoded as data | A universal machine can follow an encoded description of another machine.
+OUT universal-computation | One machine can follow many encoded procedures | The distinction between a fixed device and a general interpreter becomes tangible.
+LIFECYCLE {'mechanical-procedure': 'retain', 'universal-description': 'retain'}
+
+RECIPE make-computation-limit
+A universal-computation | One machine can follow many encoded procedures | The distinction between a fixed device and a general interpreter becomes tangible.
+B halting-demand | Decide whether any given procedure will ever stop | A precisely stated general demand, not a claim that every individual program is undecidable.
+OUT computation-limit | No procedure solves every halting case | Turing’s general impossibility result limits an exact universal demand; it does not mean useful computation is futile.
+LIFECYCLE {'universal-computation': 'retain', 'halting-demand': 'retain'}
+
+RECIPE make-communication-problem
+A networked-time | Clock coordination travels over a network | A maintained reference can be communicated instead of only carried on a ship.
+B noisy-channel | A signal can be corrupted in transmission | A communication problem concerns recoverable distinctions, not whether the message is wise or true.
+OUT communication-problem | A transmitted message can lose distinctions | The earlier electrical network becomes an example of a channel whose signal integrity matters.
+LIFECYCLE {'networked-time': 'retain', 'noisy-channel': 'retain'}
+LINK {"from": "fields-images", "to": "computing", "item": "networked-time", "recipe": "make-communication-problem", "relation": "adaptation", "evidence": "The concrete signal network is reused as a communication channel, where corrupted signals pose a distinct question.", "sources": ["boole", "turing", "shannon", "shannon1948"]}
+
+RECIPE make-error-correcting-message
+A communication-problem | A transmitted message can lose distinctions | The earlier electrical network becomes an example of a channel whose signal integrity matters.
+B redundant-code | Additional structured signals can reveal corruption | Redundancy can improve recovery without adding a new idea to the message.
+OUT error-correcting-message | A message designed to survive some errors | The useful construction changes the representation, not the underlying message’s truth or meaning.
+LIFECYCLE {'communication-problem': 'retain', 'redundant-code': 'retain'}
+
+RECIPE make-feedback-control
+A mechanical-procedure | A rule-governed symbol machine | The conceptual machine makes procedure explicit without claiming that all intelligence is already explained.
+B feedback-sensor | A controller compares a measured result with a target | An operational loop adjusts actions using observations; a target is still chosen by someone.
+OUT feedback-control | A machine responds to its measured effects | A specified target and observation loop support control without equating response with autonomy or understanding.
+LIFECYCLE {'mechanical-procedure': 'retain', 'feedback-sensor': 'retain'}

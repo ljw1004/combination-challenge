@@ -1,0 +1,917 @@
+{
+  "evidenceClass": "source-aware replay-earned checkpoint evidence; not reader actions",
+  "checkpoints": [
+    {
+      "id": "workroom-earned",
+      "label": "At the workroom · master already printed (authored prior progress)",
+      "authoredActions": [
+        {
+          "type": "combine",
+          "a": "papers",
+          "b": "@press"
+        },
+        {
+          "type": "advance"
+        }
+      ],
+      "gameSha256": "e3980f1902230629ab7845bb4a3585f5bce1375857c926b7111d7a5478b8dc02",
+      "stage": 2,
+      "metrics": {
+        "attempts": 2,
+        "accepted": 2,
+        "combinations": 1,
+        "creations": 1,
+        "installations": 0,
+        "moves": 0,
+        "placements": 0,
+        "advances": 1,
+        "visits": 0
+      },
+      "completed": false,
+      "game": {
+        "version": 1,
+        "lifecycleVersion": 2,
+        "scenarioId": "copy-workroom-two-commissions-v1",
+        "state": {
+          "stage": 1,
+          "currentArea": "workroom",
+          "areas": [
+            {
+              "id": "shop",
+              "label": "Print shop",
+              "enteredAtStage": 0
+            },
+            {
+              "id": "workroom",
+              "label": "Carving workroom",
+              "enteredAtStage": 1
+            }
+          ],
+          "places": [
+            {
+              "id": "press",
+              "area": "shop",
+              "x": 52,
+              "y": 81
+            },
+            {
+              "id": "window",
+              "area": "workroom",
+              "x": 52,
+              "y": 81
+            },
+            {
+              "id": "display-frame",
+              "area": "workroom",
+              "x": 252,
+              "y": 131
+            }
+          ],
+          "tokens": [
+            {
+              "id": "papers",
+              "kind": "papers",
+              "area": "workroom",
+              "location": null,
+              "slots": {},
+              "incorporated": [],
+              "x": 252,
+              "y": 56
+            },
+            {
+              "id": "master",
+              "kind": "master",
+              "area": "workroom",
+              "location": null,
+              "slots": {},
+              "incorporated": [],
+              "x": 155,
+              "y": 146
+            },
+            {
+              "id": "stock",
+              "kind": "stock",
+              "area": "workroom",
+              "location": null,
+              "slots": {},
+              "incorporated": [],
+              "x": 52,
+              "y": 173
+            }
+          ],
+          "discovered": [
+            "papers",
+            "master",
+            "stock"
+          ],
+          "recipesUsed": [
+            "print-master"
+          ],
+          "openedCaches": [
+            "workshop-stock"
+          ],
+          "width": 360,
+          "metrics": {
+            "attempts": 2,
+            "accepted": 2,
+            "combinations": 1,
+            "creations": 1,
+            "installations": 0,
+            "moves": 0,
+            "placements": 0,
+            "advances": 1,
+            "visits": 0
+          },
+          "completed": false
+        },
+        "history": [
+          {
+            "stage": 0,
+            "currentArea": "shop",
+            "areas": [
+              {
+                "id": "shop",
+                "label": "Print shop",
+                "enteredAtStage": 0
+              }
+            ],
+            "places": [
+              {
+                "id": "press",
+                "area": "shop",
+                "x": 52,
+                "y": 81
+              }
+            ],
+            "tokens": [
+              {
+                "id": "papers",
+                "kind": "papers",
+                "area": "shop",
+                "location": null,
+                "slots": {},
+                "incorporated": [],
+                "x": 252,
+                "y": 56
+              }
+            ],
+            "discovered": [
+              "papers"
+            ],
+            "recipesUsed": [],
+            "openedCaches": [],
+            "width": 360,
+            "metrics": {
+              "attempts": 0,
+              "accepted": 0,
+              "combinations": 0,
+              "creations": 0,
+              "installations": 0,
+              "moves": 0,
+              "placements": 0,
+              "advances": 0,
+              "visits": 0
+            },
+            "completed": false
+          },
+          {
+            "stage": 0,
+            "currentArea": "shop",
+            "areas": [
+              {
+                "id": "shop",
+                "label": "Print shop",
+                "enteredAtStage": 0
+              }
+            ],
+            "places": [
+              {
+                "id": "press",
+                "area": "shop",
+                "x": 52,
+                "y": 81
+              }
+            ],
+            "tokens": [
+              {
+                "id": "papers",
+                "kind": "papers",
+                "area": "shop",
+                "location": null,
+                "slots": {},
+                "incorporated": [],
+                "x": 252,
+                "y": 56
+              },
+              {
+                "id": "master",
+                "kind": "master",
+                "area": "shop",
+                "location": null,
+                "slots": {},
+                "incorporated": [],
+                "x": 155,
+                "y": 146
+              }
+            ],
+            "discovered": [
+              "papers",
+              "master"
+            ],
+            "recipesUsed": [
+              "print-master"
+            ],
+            "openedCaches": [],
+            "width": 360,
+            "metrics": {
+              "attempts": 1,
+              "accepted": 1,
+              "combinations": 1,
+              "creations": 1,
+              "installations": 0,
+              "moves": 0,
+              "placements": 0,
+              "advances": 0,
+              "visits": 0
+            },
+            "completed": false
+          }
+        ],
+        "events": [
+          {
+            "seq": 1,
+            "action": {
+              "type": "combine",
+              "a": "papers",
+              "b": "@press"
+            },
+            "accepted": true,
+            "message": "Master sheet: RIVER →. Ink, pressure and a sheet of paper take an impression from the shop’s reflected matrix. The printed word reads RIVER and its arrow points right. The impression reads RIVER →. You take that same thin master sheet to the workroom; the shop keeps its original working matrix.",
+            "stage": 0,
+            "recipe": "print-master",
+            "created": "master"
+          },
+          {
+            "seq": 2,
+            "action": {
+              "type": "advance"
+            },
+            "accepted": true,
+            "message": "Carry your own printed master and the printing supplies to the carving workroom. We collect the things needed for this scene along the way.",
+            "stage": 1,
+            "transfers": [
+              {
+                "item": "papers",
+                "from": "shop",
+                "to": "workroom"
+              },
+              {
+                "item": "master",
+                "from": "shop",
+                "to": "workroom"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "printer-arrival-earned",
+      "label": "Printer arrives · panel already delivered (authored prior progress)",
+      "authoredActions": [
+        {
+          "type": "combine",
+          "a": "papers",
+          "b": "@press"
+        },
+        {
+          "type": "advance"
+        },
+        {
+          "type": "combine",
+          "a": "master",
+          "b": "stock"
+        },
+        {
+          "type": "place",
+          "item": "block-readable",
+          "location": "display-frame"
+        },
+        {
+          "type": "advance"
+        }
+      ],
+      "gameSha256": "0e86e672b54731e5e25cb504fde24009d49c9d24dedc10aab0b4861c67f5027e",
+      "stage": 3,
+      "metrics": {
+        "attempts": 5,
+        "accepted": 5,
+        "combinations": 2,
+        "creations": 2,
+        "installations": 0,
+        "moves": 0,
+        "placements": 1,
+        "advances": 2,
+        "visits": 0
+      },
+      "completed": false,
+      "game": {
+        "version": 1,
+        "lifecycleVersion": 2,
+        "scenarioId": "copy-workroom-two-commissions-v1",
+        "state": {
+          "stage": 2,
+          "currentArea": "workroom",
+          "areas": [
+            {
+              "id": "shop",
+              "label": "Print shop",
+              "enteredAtStage": 0
+            },
+            {
+              "id": "workroom",
+              "label": "Carving workroom",
+              "enteredAtStage": 1
+            }
+          ],
+          "places": [
+            {
+              "id": "press",
+              "area": "shop",
+              "x": 52,
+              "y": 81
+            },
+            {
+              "id": "window",
+              "area": "workroom",
+              "x": 52,
+              "y": 81
+            },
+            {
+              "id": "display-frame",
+              "area": "workroom",
+              "x": 252,
+              "y": 131
+            },
+            {
+              "id": "printer-chest",
+              "area": "workroom",
+              "x": 152,
+              "y": 231
+            }
+          ],
+          "tokens": [
+            {
+              "id": "papers",
+              "kind": "papers",
+              "area": "workroom",
+              "location": null,
+              "slots": {},
+              "incorporated": [],
+              "x": 252,
+              "y": 56
+            },
+            {
+              "id": "master",
+              "kind": "master",
+              "area": "workroom",
+              "location": null,
+              "slots": {},
+              "incorporated": [],
+              "x": 155,
+              "y": 146
+            },
+            {
+              "id": "stock",
+              "kind": "stock",
+              "area": "workroom",
+              "location": null,
+              "slots": {},
+              "incorporated": [],
+              "x": 52,
+              "y": 173
+            },
+            {
+              "id": "block-readable",
+              "kind": "block-readable",
+              "area": "workroom",
+              "location": "display-frame",
+              "slots": {},
+              "incorporated": [],
+              "x": 252,
+              "y": 147
+            }
+          ],
+          "discovered": [
+            "papers",
+            "master",
+            "stock",
+            "block-readable"
+          ],
+          "recipesUsed": [
+            "print-master",
+            "carve-direct"
+          ],
+          "openedCaches": [
+            "workshop-stock"
+          ],
+          "width": 360,
+          "metrics": {
+            "attempts": 5,
+            "accepted": 5,
+            "combinations": 2,
+            "creations": 2,
+            "installations": 0,
+            "moves": 0,
+            "placements": 1,
+            "advances": 2,
+            "visits": 0
+          },
+          "completed": false
+        },
+        "history": [
+          {
+            "stage": 0,
+            "currentArea": "shop",
+            "areas": [
+              {
+                "id": "shop",
+                "label": "Print shop",
+                "enteredAtStage": 0
+              }
+            ],
+            "places": [
+              {
+                "id": "press",
+                "area": "shop",
+                "x": 52,
+                "y": 81
+              }
+            ],
+            "tokens": [
+              {
+                "id": "papers",
+                "kind": "papers",
+                "area": "shop",
+                "location": null,
+                "slots": {},
+                "incorporated": [],
+                "x": 252,
+                "y": 56
+              }
+            ],
+            "discovered": [
+              "papers"
+            ],
+            "recipesUsed": [],
+            "openedCaches": [],
+            "width": 360,
+            "metrics": {
+              "attempts": 0,
+              "accepted": 0,
+              "combinations": 0,
+              "creations": 0,
+              "installations": 0,
+              "moves": 0,
+              "placements": 0,
+              "advances": 0,
+              "visits": 0
+            },
+            "completed": false
+          },
+          {
+            "stage": 0,
+            "currentArea": "shop",
+            "areas": [
+              {
+                "id": "shop",
+                "label": "Print shop",
+                "enteredAtStage": 0
+              }
+            ],
+            "places": [
+              {
+                "id": "press",
+                "area": "shop",
+                "x": 52,
+                "y": 81
+              }
+            ],
+            "tokens": [
+              {
+                "id": "papers",
+                "kind": "papers",
+                "area": "shop",
+                "location": null,
+                "slots": {},
+                "incorporated": [],
+                "x": 252,
+                "y": 56
+              },
+              {
+                "id": "master",
+                "kind": "master",
+                "area": "shop",
+                "location": null,
+                "slots": {},
+                "incorporated": [],
+                "x": 155,
+                "y": 146
+              }
+            ],
+            "discovered": [
+              "papers",
+              "master"
+            ],
+            "recipesUsed": [
+              "print-master"
+            ],
+            "openedCaches": [],
+            "width": 360,
+            "metrics": {
+              "attempts": 1,
+              "accepted": 1,
+              "combinations": 1,
+              "creations": 1,
+              "installations": 0,
+              "moves": 0,
+              "placements": 0,
+              "advances": 0,
+              "visits": 0
+            },
+            "completed": false
+          },
+          {
+            "stage": 1,
+            "currentArea": "workroom",
+            "areas": [
+              {
+                "id": "shop",
+                "label": "Print shop",
+                "enteredAtStage": 0
+              },
+              {
+                "id": "workroom",
+                "label": "Carving workroom",
+                "enteredAtStage": 1
+              }
+            ],
+            "places": [
+              {
+                "id": "press",
+                "area": "shop",
+                "x": 52,
+                "y": 81
+              },
+              {
+                "id": "window",
+                "area": "workroom",
+                "x": 52,
+                "y": 81
+              },
+              {
+                "id": "display-frame",
+                "area": "workroom",
+                "x": 252,
+                "y": 131
+              }
+            ],
+            "tokens": [
+              {
+                "id": "papers",
+                "kind": "papers",
+                "area": "workroom",
+                "location": null,
+                "slots": {},
+                "incorporated": [],
+                "x": 252,
+                "y": 56
+              },
+              {
+                "id": "master",
+                "kind": "master",
+                "area": "workroom",
+                "location": null,
+                "slots": {},
+                "incorporated": [],
+                "x": 155,
+                "y": 146
+              },
+              {
+                "id": "stock",
+                "kind": "stock",
+                "area": "workroom",
+                "location": null,
+                "slots": {},
+                "incorporated": [],
+                "x": 52,
+                "y": 173
+              }
+            ],
+            "discovered": [
+              "papers",
+              "master",
+              "stock"
+            ],
+            "recipesUsed": [
+              "print-master"
+            ],
+            "openedCaches": [
+              "workshop-stock"
+            ],
+            "width": 360,
+            "metrics": {
+              "attempts": 2,
+              "accepted": 2,
+              "combinations": 1,
+              "creations": 1,
+              "installations": 0,
+              "moves": 0,
+              "placements": 0,
+              "advances": 1,
+              "visits": 0
+            },
+            "completed": false
+          },
+          {
+            "stage": 1,
+            "currentArea": "workroom",
+            "areas": [
+              {
+                "id": "shop",
+                "label": "Print shop",
+                "enteredAtStage": 0
+              },
+              {
+                "id": "workroom",
+                "label": "Carving workroom",
+                "enteredAtStage": 1
+              }
+            ],
+            "places": [
+              {
+                "id": "press",
+                "area": "shop",
+                "x": 52,
+                "y": 81
+              },
+              {
+                "id": "window",
+                "area": "workroom",
+                "x": 52,
+                "y": 81
+              },
+              {
+                "id": "display-frame",
+                "area": "workroom",
+                "x": 252,
+                "y": 131
+              }
+            ],
+            "tokens": [
+              {
+                "id": "papers",
+                "kind": "papers",
+                "area": "workroom",
+                "location": null,
+                "slots": {},
+                "incorporated": [],
+                "x": 252,
+                "y": 56
+              },
+              {
+                "id": "master",
+                "kind": "master",
+                "area": "workroom",
+                "location": null,
+                "slots": {},
+                "incorporated": [],
+                "x": 155,
+                "y": 146
+              },
+              {
+                "id": "stock",
+                "kind": "stock",
+                "area": "workroom",
+                "location": null,
+                "slots": {},
+                "incorporated": [],
+                "x": 52,
+                "y": 173
+              },
+              {
+                "id": "block-readable",
+                "kind": "block-readable",
+                "area": "workroom",
+                "location": null,
+                "slots": {},
+                "incorporated": [],
+                "x": 150,
+                "y": 240
+              }
+            ],
+            "discovered": [
+              "papers",
+              "master",
+              "stock",
+              "block-readable"
+            ],
+            "recipesUsed": [
+              "print-master",
+              "carve-direct"
+            ],
+            "openedCaches": [
+              "workshop-stock"
+            ],
+            "width": 360,
+            "metrics": {
+              "attempts": 3,
+              "accepted": 3,
+              "combinations": 2,
+              "creations": 2,
+              "installations": 0,
+              "moves": 0,
+              "placements": 0,
+              "advances": 1,
+              "visits": 0
+            },
+            "completed": false
+          },
+          {
+            "stage": 1,
+            "currentArea": "workroom",
+            "areas": [
+              {
+                "id": "shop",
+                "label": "Print shop",
+                "enteredAtStage": 0
+              },
+              {
+                "id": "workroom",
+                "label": "Carving workroom",
+                "enteredAtStage": 1
+              }
+            ],
+            "places": [
+              {
+                "id": "press",
+                "area": "shop",
+                "x": 52,
+                "y": 81
+              },
+              {
+                "id": "window",
+                "area": "workroom",
+                "x": 52,
+                "y": 81
+              },
+              {
+                "id": "display-frame",
+                "area": "workroom",
+                "x": 252,
+                "y": 131
+              }
+            ],
+            "tokens": [
+              {
+                "id": "papers",
+                "kind": "papers",
+                "area": "workroom",
+                "location": null,
+                "slots": {},
+                "incorporated": [],
+                "x": 252,
+                "y": 56
+              },
+              {
+                "id": "master",
+                "kind": "master",
+                "area": "workroom",
+                "location": null,
+                "slots": {},
+                "incorporated": [],
+                "x": 155,
+                "y": 146
+              },
+              {
+                "id": "stock",
+                "kind": "stock",
+                "area": "workroom",
+                "location": null,
+                "slots": {},
+                "incorporated": [],
+                "x": 52,
+                "y": 173
+              },
+              {
+                "id": "block-readable",
+                "kind": "block-readable",
+                "area": "workroom",
+                "location": "display-frame",
+                "slots": {},
+                "incorporated": [],
+                "x": 252,
+                "y": 147
+              }
+            ],
+            "discovered": [
+              "papers",
+              "master",
+              "stock",
+              "block-readable"
+            ],
+            "recipesUsed": [
+              "print-master",
+              "carve-direct"
+            ],
+            "openedCaches": [
+              "workshop-stock"
+            ],
+            "width": 360,
+            "metrics": {
+              "attempts": 4,
+              "accepted": 4,
+              "combinations": 2,
+              "creations": 2,
+              "installations": 0,
+              "moves": 0,
+              "placements": 1,
+              "advances": 1,
+              "visits": 0
+            },
+            "completed": false
+          }
+        ],
+        "events": [
+          {
+            "seq": 1,
+            "action": {
+              "type": "combine",
+              "a": "papers",
+              "b": "@press"
+            },
+            "accepted": true,
+            "message": "Master sheet: RIVER →. Ink, pressure and a sheet of paper take an impression from the shop’s reflected matrix. The printed word reads RIVER and its arrow points right. The impression reads RIVER →. You take that same thin master sheet to the workroom; the shop keeps its original working matrix.",
+            "stage": 0,
+            "recipe": "print-master",
+            "created": "master"
+          },
+          {
+            "seq": 2,
+            "action": {
+              "type": "advance"
+            },
+            "accepted": true,
+            "message": "Carry your own printed master and the printing supplies to the carving workroom. We collect the things needed for this scene along the way.",
+            "stage": 1,
+            "transfers": [
+              {
+                "item": "papers",
+                "from": "shop",
+                "to": "workroom"
+              },
+              {
+                "item": "master",
+                "from": "shop",
+                "to": "workroom"
+              }
+            ]
+          },
+          {
+            "seq": 3,
+            "action": {
+              "type": "combine",
+              "a": "master",
+              "b": "stock"
+            },
+            "accepted": true,
+            "message": "Relief block: readable RIVER →. Keep the master face up over a separate carbon sheet, coated side toward a fresh wooden block. Trace the outlines, lift both papers and carve away the background, leaving the same viewed design raised.",
+            "stage": 1,
+            "recipe": "carve-direct",
+            "created": "block-readable"
+          },
+          {
+            "seq": 4,
+            "action": {
+              "type": "place",
+              "item": "block-readable",
+              "location": "display-frame"
+            },
+            "accepted": true,
+            "message": "Placed. The customer hangs your new panel upright. People read RIVER on its carved face and follow the right-pointing arrow. Your earlier paper master is still intact.",
+            "stage": 1
+          },
+          {
+            "seq": 5,
+            "action": {
+              "type": "advance"
+            },
+            "accepted": true,
+            "message": "The travelling printer sets a delivery chest beside the same workbench.",
+            "stage": 2
+          }
+        ]
+      }
+    }
+  ]
+}

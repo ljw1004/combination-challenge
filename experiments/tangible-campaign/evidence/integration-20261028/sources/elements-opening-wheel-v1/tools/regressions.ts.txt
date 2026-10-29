@@ -1,0 +1,22 @@
+import fs from 'node:fs';import assert from 'node:assert/strict';
+import * as M from '../frozen/engine/model.ts';import {auditRoute} from './goal-audit.ts';import type {Scenario,Action} from '../frozen/schema/scenario.ts';
+const root=new URL('../',import.meta.url),s:Scenario=JSON.parse(fs.readFileSync(new URL('scenario.json',root),'utf8')),base:Scenario=JSON.parse(fs.readFileSync(new URL('baseline.scenario.json',root),'utf8'));
+const route=s.checkpoints!.at(-1)!.actions;const baselineAudit=auditRoute(s,route);assert(baselineAudit.completed);assert.deepEqual(baselineAudit.missing,[]);
+const pair=(a:string,b:string)=>[a,b].sort().join('|');
+const swap=(actions:Action[],a:string,b:string,replacement:Action[])=>{let n=0;const out=actions.flatMap(x=>{if(x.type==='combine'&&pair(x.a,x.b)===pair(a,b)){n++;return replacement;}return [x];});assert.equal(n,1,`${a}+${b}`);return out;};
+const c=(a:string,b:string):Action=>({type:'combine',a,b});const results=[];
+for(const juice of [false,true])for(const waterwheel of [false,true])for(const slide of [false,true])for(const herbarium of [false,true])for(const weather of [0,1,2])for(const feast of [false,true]){
+ let a=route;
+ if(juice)a=swap(a,'fruit','water',[c('fruit','stone')]);
+ if(waterwheel)a=swap(a,'planks','water',[c('water','wheel')]);
+ if(slide){a=swap(a,'glass','planks',[]);a=swap(a,'pond-water','glass-slide',[c('pond-water','glass')]);}
+ if(herbarium){a=swap(a,'plant','paper',[]);a=swap(a,'pressed-specimen','bound-book',[c('plant','bound-book')]);}
+ if(weather===1){a=swap(a,'paper','rain-gauge',[c('windsock','paper')]);a=swap(a,'windsock','rain-record',[c('wind-record','rain-gauge')]);}
+ if(weather===2){a=swap(a,'paper','rain-gauge',[c('paper','rain-gauge'),c('windsock','paper')]);a=swap(a,'windsock','rain-record',[c('wind-record','rain-record')]);}
+ if(feast)a=swap(a,'porridge','compote',[c('bread','fruit')]);
+ const audit=auditRoute(s,a);assert(audit.completed);assert.deepEqual(audit.missing,[]);results.push({juice,waterwheel,slide,herbarium,weather,feast,accepted:true,connectedChapters:audit.rows.filter((r,i)=>i>0&&r.goalConnected.length).length});
+}
+// Original scenario and every original checkpoint remain separate and unmodified.
+for(const cp of base.checkpoints!)assert(M.checkpoint(base,cp.id));
+const output={scope:'Author-aware exact engine replays, six existing alternative families; no browser/UI tests and not fresh-play evidence.',goalConnectedBaseline:baselineAudit,alternativeRoutes:results,unchangedOriginalCheckpoints:base.checkpoints!.length};
+fs.writeFileSync(new URL('reports/regressions.json',root),JSON.stringify(output,null,2)+'\n');console.log(JSON.stringify({baselineCompleted:baselineAudit.completed,goalConnectedLaterChapters:baselineAudit.rows.filter((r,i)=>i>0&&r.goalConnected.length).length,alternativeRoutes:results.length,originalCheckpoints:base.checkpoints!.length}));

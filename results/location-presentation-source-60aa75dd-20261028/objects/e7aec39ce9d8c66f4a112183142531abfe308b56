@@ -1,0 +1,40 @@
+# Independent cargo ownership review
+
+**Recommendation: accept the content-only route for further authored integration, subject to the limits below.** It fixes the reported physical lineage loss without pretending that the engine can extract a nested capsule, carrying the whole hauler into space, or inventing a second load. This is a source-aware adversarial review, not a new blind-reader trial or UI test.
+
+Final reviewed cargo candidate: `cargo-alternative.candidate.scenario.json`, SHA-256 `6cbaf97d8e6543ba911cef2ba4dfd22eecdfefc871cd220f73743bc4011ae11e`. Also reverified the combined recommendation, `recommended.candidate.scenario.json`, SHA-256 `3385e9d34941f15138fdde832347751f223128c59cbf209f4f590fd45827f29e`, which adds the separately authored cabin-record and portrait-goal narrative changes and retains the four already-live carrier strings. The copied engine is unchanged. No source/runtime/UI/frozen input was modified by this reviewer; this note is the reviewer's only new file.
+
+## Challenge and result
+
+1. **Does cart preparation secretly duplicate the full capsule? No.** At `departure-11-specimen-cart`, the capsule's `retain` lifecycle and absence from `preserve` leave the one existing `cushioned-capsule` token completely unchanged. Only `secured-cart` transforms. The resulting cart's components are exactly `protected-controller` and `hauler-platform`; it contains no capsule or specimen snapshot.
+2. **Does the recovered hauler still do useful work? Yes, with a deliberate story change.** The earlier hauler is fitted with the restraint at `departure-10-secured-cart`, then the actual packed capsule is used to adjust the transport restraint. Both prepared cart and separate load are carried to the depot. This is preparation of an existing vehicle, not fabrication of an unrelated badge or an additional recipe. Following the review, the final candidate describes the second step as adjusting the restraint **to the packed capsule's size**, rather than suggesting the capsule has already been attached inside the cart.
+3. **Is the actual capsule loaded exactly once? Yes on all five tested routes.** `homebound-5-loaded-capsule-dock` now takes `cushioned-capsule`, not `specimen-cart`, requires the fully packed `return-sample-set`, incorporates that real token, and preserves its snapshot. The capsule disappears from the board at that event. The cart remains a separate object and keeps only its own hardware.
+4. **Can `needed()` leave an unintended outside copy? Not on the tested routes, and the declared graph explains why.** The capsule's five packing installations and the cart-preparation recipe have already been used when homebound loading occurs. There is no remaining capsule objective or recipe requiring another outside capsule. The test observed both the capsule and unladen dock retire at loading, then the loaded mount retire into the vehicle. No loaded capsule token survives alongside the ship.
+5. **Do the true payload identifiers survive? Yes.** The loaded mount contains these eight distinct identifiers: `cushioned-capsule`, `catalogued-ice-sample`, `retained-sediment`, `two-cell-case`, `sleeved-comparison`, `complete-field-archive`, `ripple-impression`, `logged-gravel-chip`. All eight persist through `homebound-6-loaded-ascent-vehicle`, `homebound-9-flight-ready-vehicle`, `homebound-11-ascending-vehicle`, and `homebound-12-docked-vehicle`. The final vehicle contains no `protected-controller` or `hauler-platform`.
+6. **Does the ending extract a capsule that the engine cannot detach? No.** The final objective is placement of that same loaded `docked-vehicle` at `orbital-hatch`. Immediately after docking the stage is not complete; `dropAction(docked-vehicle, @orbital-hatch)` resolves to the existing placement action. After placement the same ship owns the cargo at the hatch. No `returned-capsule` object is created. The ending correctly says that cargo remains secured in the docked ship.
+
+## Independent logical verification
+
+I first found that the generated cargo action files still used `specimen-cart + capsule-dock`; this failed at the loading step. I notified the author before accepting the candidate. After the author corrected the files and the embedded complete checkpoint, I replayed the actual saved action files without an in-memory correction:
+
+| Route | Actions | Combinations | Result |
+|---|---:|---:|---|
+| Authored | 230 | 199 | Completed; ownership checks pass |
+| Beacon | 234 | 203 | Completed; ownership checks pass |
+| Tow | 233 | 202 | Completed; ownership checks pass |
+| Tow, old alias | 233 | 202 | Completed; ownership checks pass |
+| Closed reader's accepted sequence, remapped | 238 | 203 | Completed; ownership checks pass |
+
+The remap requires **two** changes to existing actions, neither an added step: use the actual capsule at `homebound-5`, and replace the final synthetic capsule creation with placement of the loaded docked vehicle. All 25 embedded checkpoints also replay successfully. Existing scenario, input-lifecycle, objective-flow, and construction-continuity validators pass. After the author applied the sizing-reference wording, I re-ran all five routes and all 25 checkpoints against **both final files identified above**; both passed again.
+
+The independent assertions checked: an unchanged single capsule after cart preparation; no payload identifier in the cart; removal of the capsule at loading; payload preservation in the final ship; no hauler components in that ship; the final location; absence of a synthetic returned-capsule; and the final drop resolving to placement rather than an obsolete recipe.
+
+Final integration reconciliation was independently checked by reconstructing the earlier combined recommendation from the unchanged cargo candidate and four-field narrative patch. The only subsequent differences are `padded-carrier.description`, `sample-carrier.description`, and `mounted-sample-carrier.description`/`.label`; each exactly matches the live `ui/campaigns/mars.ts` item by stable ID. No cargo semantics changed. All five routes and 25 checkpoints were rerun against the final recommended bytes and passed.
+
+## Limits and tradeoffs
+
+- **The capsule is not detached into the orbiter.** This is an intentional, honest change of ending. Supporting physical extraction later would still require the generic selective-transfer/disassembly semantics that the existing flat representation lacks. This candidate does not implement or simulate that capability.
+- **Depot and orbit remain one narrated chapter-area.** The cart stays a separate token in `area-homebound`; the loaded ship is placed at `orbital-hatch`. Components and lifecycle prove that the hauler was not incorporated or flown as cargo. Area IDs alone do not model the real spatial separation of depot and orbit. The explicit story text supplies that distinction, as the existing compressed ascent already does. I do not count this as a newly introduced ownership defect.
+- **The portrait travels as an informational copy.** `departure-5-geology-archive` now explicitly copies the portrait and basin field record, and `departure-6-complete-field-archive` adds a copy of the core profile. Keeping the originals available is not an unexplained duplicate physical photograph. The packed `complete-field-archive` is tangible cargo; the named individual picture remains description-level archive content rather than a separate engine component. The ending appropriately says “a copy of the picture.”
+- **The engine still flattens component membership.** The final ship visibly retains every named packed identifier, but the state is not a nested tree showing which specimen is inside which capsule compartment. This candidate repairs loss, not hierarchical display or selective extraction.
+- No browser/UI tests, real spacecraft procedure validation, publication, or migration of existing saved games was performed. The research candidate has a new scenario identity; integration must preserve archived identities and saves rather than overwriting their meaning.

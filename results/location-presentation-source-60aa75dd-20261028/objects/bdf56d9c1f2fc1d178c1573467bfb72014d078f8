@@ -1,0 +1,259 @@
+import {expectedSourceHashAfterArrivals} from '../experiments/tangible-campaign/integration/arrival-source-guard.ts';
+// Current-source integration adaptation of archived author tests. Self-contained inputs and self-creating evidence output; no UI/controller/browser.
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import fs from 'node:fs';
+import crypto from 'node:crypto';
+import * as M from '../experiments/tangible-campaign/engine/model.ts';
+import * as L from '../experiments/tangible-campaign/schema/lifecycle.ts';
+import {scenario as integrated} from '../experiments/tangible-campaign/ui/campaigns/doctrine-images-cases.ts';
+import {scenario as priorLive} from '../experiments/tangible-campaign/ui/campaigns/doctrine-ten-desks.ts';
+import {scenarios,featuredScenarioIds} from '../experiments/tangible-campaign/ui/scenarios.ts';
+import {encodeSave,decodeSave} from '../experiments/tangible-campaign/ui/save-codec.ts';
+import {auditRoute} from '../experiments/tangible-campaign/integration/reviewed-routes.ts';
+import {execute,visibleView} from '../experiments/tangible-campaign/evidence/integration-20261028/sources/doctrine/images-dispute-research-20261028/candidate-v2-copy1/pinned-surface.mjs';
+const project=new URL('../',import.meta.url),root=new URL('experiments/tangible-campaign/evidence/integration-20261028/sources/doctrine/images-dispute-research-20261028/candidate-v2-copy1/',project);
+const output=new URL('results/content-next-playtest-20261028/doctrine/',project);
+fs.mkdirSync(output,{recursive:true});
+const read=f=>JSON.parse(fs.readFileSync(new URL(f,root),'utf8'));
+const write=(f,x)=>fs.writeFileSync(new URL(f,output),JSON.stringify(x,null,2)+'\n');
+const hash=b=>crypto.createHash('sha256').update(b).digest('hex');
+const sha=f=>hash(fs.readFileSync(new URL(f,root)));
+const s=read('doctrine-images-relics-local-v2-copy1-candidate.json'),m=read('authoring-manifest.json');
+const base=priorLive,baseFile=new URL('experiments/tangible-campaign/evidence/integration-20261028/sources/doctrine/continuation-research-20261028/revision-3-content-clarity/doctrine-ten-desks-v3-candidate.json',project);
+const parent=JSON.parse(fs.readFileSync(new URL('experiments/tangible-campaign/evidence/integration-20261028/next-playtest-20261028/parent-source-inventory.json',project),'utf8'));
+assert.deepEqual(base,JSON.parse(fs.readFileSync(baseFile,'utf8')));
+assert.deepEqual(integrated,s);
+assert.equal(sha('doctrine-images-relics-local-v2-copy1-candidate.json'),'f6c048ed3d55f3201d1054f2a2a211c11da052d680496b499bcb2a2a1fa44de8');
+const structural=state=>({stage:state.stage,currentArea:state.currentArea,completed:state.completed,discovered:state.discovered.slice().sort(),recipesUsed:state.recipesUsed.slice().sort(),openedCaches:state.openedCaches.slice().sort(),tokens:state.tokens.map(t=>({id:t.id,kind:t.kind,area:t.area,location:t.location,slots:t.slots,components:(t.components??[]).slice().sort(),incorporated:t.incorporated.slice().sort()})).sort((a,b)=>a.id.localeCompare(b.id))});
+const sig=g=>JSON.stringify(structural(g.state));
+const reversed=actions=>actions.map(a=>a.type==='combine'?{...a,a:a.b,b:a.a}:a);
+
+test('approved originals and all ten-desk content prefixes are unchanged',()=>{
+ assert.equal(hash(fs.readFileSync(baseFile)),m.baseSha256);
+ assert.equal(m.baseSha256,'f8397c2b591d58c9088138111a5bd31c7df6fe8b93ec47898b89036115bd3879');
+ for(const key of ['items','recipes','stages','sources','notes'])assert.deepEqual(s[key].slice(0,base[key].length),base[key],key);
+ for(const key of ['locations','initialItems'])assert.deepEqual(s[key],base[key],key);
+ assert.deepEqual(s.checkpoints.slice(0,10),base.checkpoints.slice(0,10));
+ assert.deepEqual(s.checkpoints.find(c=>c.id==='chapter-11').actions,base.checkpoints.at(-1).actions);
+ assert.equal(s.stages.length,12);assert.equal(m.newRecipes.length,9);
+ assert.equal(s.items.filter(i=>i.id==='instrument-of-grace').length,1);
+ assert(!m.newItems.includes('later-sign-language'));
+ assert(m.newRecipes.every(id=>{const r=s.recipes.find(r=>r.id===id);return ![r.a,r.b].includes('later-sign-language');}));
+ const rows=[];
+ // New future-use recipes must not change earlier retirement or geometry.
+ const beforeFinish=base.checkpoints.at(-1).actions.slice(0,-1);
+ for(const width of [320,600])for(const reverse of [false,true]){
+  const actions=reverse?reversed(beforeFinish):beforeFinish;
+  const old=M.replay(base,actions,width),now=M.replay(s,actions,width);
+  assert.deepEqual(now.state,old.state);assert.deepEqual(now.events,old.events);assert.deepEqual(now.history,old.history);
+  rows.push({width,reversed:reverse,actions:actions.length,exactStateHistoryAndEventsEqual:true});
+ }
+ write('preservation-evidence.json',{baseSha256:m.baseSha256,allOriginalContentPrefixesEqual:true,priorTokenRetirementUnchanged:true,replays:rows});
+});
+
+test('historical engine/schema/controller/save/CSS and modules stay exact except approved arrival successors; validation passes',()=>{
+ const checked=[];
+ for(const [path,metadata]of Object.entries(parent.files)){
+  if(!path.startsWith('src/')&&!/experiments\/tangible-campaign\/(engine|schema)\//.test(path)&&!(path.startsWith('experiments/tangible-campaign/ui/')&&!path.endsWith('/scenarios.ts')))continue;
+  assert.equal(hash(fs.readFileSync(new URL(path,project))),expectedSourceHashAfterArrivals(path,metadata.sha256),path);checked.push(path);
+ }
+ assert(checked.length>50);assert.equal(sha('pinned-surface.mjs'),'86098df473650de49b8f9ec04a0bd46fe7846f9ca0fcc7025a97c976564da0c2');
+ assert.deepEqual(M.validateScenario(s),[]);
+ for(const f of [L.validateContentLifecycles,L.validateObjectiveFlow,L.validateConstructionContinuity])assert.deepEqual(f([s]),[]);
+ assert(m.newRecipes.every(id=>!s.recipes.find(r=>r.id===id).requires));
+ write('protected-live-bytes.json',{baseCommit:parent.baseCommit,checked,exactExceptApprovedArrivals:true,limits:'Source equality, not browser or UI testing.'});
+});
+
+test('thirteen checkpoints are actual earned prefixes, with source identity and save restoration',()=>{
+ const rows=[];
+ for(const cp of s.checkpoints){
+  assert.deepEqual(cp.actions,m.authoredActions.slice(0,cp.actions.length));
+  for(const width of [320,600])for(const reverse of [false,true]){
+   const actions=reverse?reversed(cp.actions):cp.actions,g=M.replay(s,actions,width);
+   assert.deepEqual(M.restore(s,JSON.stringify(g)),g);
+   assert.equal(g.state.completed,cp.id==='complete');
+   rows.push({checkpoint:cp.id,width,reversed:reverse,stage:g.state.stage+1,completed:g.state.completed,combinations:g.state.metrics.combinations});
+  }
+ }
+ const a=M.checkpoint(s,'chapter-11'),b=M.checkpoint(s,'chapter-12');
+ assert.equal(a.state.metrics.combinations,52);assert.equal(b.state.metrics.combinations,56);
+ const old=M.replay(base,base.checkpoints.at(-1).actions.slice(0,-1));
+ const source=M.token(old.state,'instrument-of-grace'),carried=M.token(a.state,'instrument-of-grace');
+ for(const key of ['id','kind','components','incorporated','slots'])assert.deepEqual(carried[key],source[key],key);
+ assert.equal(carried.area,s.stages[10].area.id);
+ assert(!M.token(a.state,'later-sign-language'));
+ for(const id of m.betweenNewDesks)assert.equal(M.token(b.state,id)?.area,s.stages[11].area.id);
+ assert.equal(M.token(b.state,'instrument-of-grace')?.area,s.stages[11].area.id);
+ assert.equal(M.checkpoint(s,'complete').state.metrics.combinations,61);
+ write('checkpoint-evidence.json',{replays:rows.length,results:rows,originalCarryIsSameEarnedToken:true,newDeskCarry:m.betweenNewDesks,oldCompletedSaveMigrationClaim:false});
+});
+
+function explore(entry,width){
+ const queue=[M.checkpoint(s,entry,width)],seen=new Set(),edges=[],terminals=[],terminalViews=[],recipes=new Set();let reverseChecks=0,undoChecks=0,restoreChecks=0;
+ for(let cursor=0;cursor<queue.length;cursor++){
+  const g=queue[cursor],k=sig(g);if(seen.has(k))continue;seen.add(k);
+  assert.deepEqual(M.restore(s,JSON.stringify(g)),g);restoreChecks++;
+  let productive=0;
+  for(const r of s.recipes.filter(r=>[r.a,r.b].every(id=>g.state.tokens.some(t=>t.kind===id&&t.area===g.state.currentArea)))){
+   const x=M.applyAction(s,g,{type:'combine',a:r.a,b:r.b});if(!x.accepted)continue;
+   assert(m.newRecipes.includes(r.id));
+   const y=M.applyAction(s,g,{type:'combine',a:r.b,b:r.a});assert(y.accepted);assert.equal(sig(x.game),sig(y.game));reverseChecks++;
+   const hi=M.partners(s,g.state,r.a);assert(hi.partners.includes(r.b)||hi.incoming.includes(r.b));
+   const undo=M.undo(x.game);assert(undo.accepted);assert.deepEqual(structural(undo.game.state),structural(g.state));
+   assert.deepEqual(M.restore(s,JSON.stringify(undo.game)),undo.game);undoChecks++;
+   const again=M.applyAction(s,undo.game,{type:'combine',a:r.a,b:r.b});assert(again.accepted);assert.equal(sig(again.game),sig(x.game));
+   recipes.add(r.id);edges.push([k,sig(x.game)]);queue.push(x.game);productive++;
+  }
+  if(!productive){assert(M.stageComplete(s,g.state),'productive terminal must satisfy every objective');terminals.push(k);terminalViews.push(M.playerView(s,g).things.map(t=>({id:t.id,label:t.label,components:t.components.slice().sort(),gold:t.gold})).sort((a,b)=>a.id.localeCompare(b.id)));}
+ }
+ const canFinish=new Set(terminals);let changed=true;
+ while(changed){changed=false;for(const [a,b] of edges)if(canFinish.has(b)&&!canFinish.has(a)){canFinish.add(a);changed=true;}}
+ assert.equal(canFinish.size,seen.size,'every productive local state reaches completion');
+ for(const view of terminalViews)assert.deepEqual(view,terminalViews[0],'all orders preserve visible final case contents');
+ return {entry,width,reachableStates:seen.size,productiveEdges:edges.length,terminalStates:terminals.length,allStatesCanFinish:true,visibleTerminalCaseContentsEqual:true,reverseChecks,undoChecks,restoreChecks,recipesCovered:[...recipes].sort()};
+}
+test('all productive local orders and actual available alternatives remain completable',()=>{
+ const rows=[];for(const entry of ['chapter-11','chapter-12'])for(const width of [320,600])rows.push(explore(entry,width));
+ const hit=new Set(rows.flatMap(r=>r.recipesCovered));assert.deepEqual([...hit].sort(),m.newRecipes.slice().sort());
+ // No redundant alternate recipe has been invented merely to increase counts.
+ write('local-order-evidence.json',{scope:'Exhaustive productive recipe states at each earned entry, both operand directions and widths; source-aware, not player behavior or UI testing.',pairedAlternativeRecipes:0,results:rows});
+});
+
+test('required original creation and first-desk cases cannot be bypassed',()=>{
+ const needs=(target,kind,seen=new Set())=>{if(target===kind)return true;if(seen.has(target))return false;seen.add(target);const rs=s.recipes.filter(r=>r.out===target);return rs.length>0&&rs.every(r=>needs(r.a,kind,new Set(seen))||needs(r.b,kind,new Set(seen)));};
+ assert(needs('images-calvin-panel-file','instrument-of-grace'));
+ assert(needs('images-panel-not-font','instrument-of-grace'));
+ assert(needs('images-panel-not-font','images-calvin-panel-file'));
+ assert(needs('images-two-next-steps','images-catalogue-question'));
+ assert(needs('images-two-next-steps','images-calvin-relic-rule'));
+ const final=M.checkpoint(s,'complete');
+ const panel=M.token(final.state,'images-panel-not-font'),relic=M.token(final.state,'images-two-next-steps');
+ assert(panel.components.includes('images-panel-proposal'));
+ for(const id of ['images-new-fragment','images-rome-report','images-amiens-report','images-calvin-relic-rule'])assert(relic.components.includes(id),id);
+ const newCaches=s.stages.slice(10).flatMap(st=>st.caches.flatMap(c=>c.items));
+ assert(!newCaches.includes('instrument-of-grace'));assert(!newCaches.includes('later-sign-language'));
+ assert(!newCaches.some(id=>m.betweenNewDesks.includes(id)));
+ assert(/Calvin reports/.test(M.item(s,'images-rome-report').label));
+ assert(/Calvin reports/.test(M.item(s,'images-amiens-report').label));
+ write('continuity-and-case-evidence.json',{originalArgumentRequiredForBothPanelGoals:true,newCaseFilesRequired:true,rawFictionAndAttributedClaimsPreserved:true,panelComponents:panel.components,relicComponents:relic.components,noCachedDuplicateArguments:true});
+});
+
+test('normal-highlight surface, optional non-mutating readings, save/undo and honest ending',()=>{
+ const rows=[];
+ for(const width of [320,600])for(const order of ['canonical','relic-first']){
+  let g=M.checkpoint(s,'chapter-11',width),start=g.state.metrics.combinations,readCount=0,transitions=[];
+  const a=m.routes['chapter-11'],b=m.routes['chapter-12'];
+  const routes=order==='canonical'?[a,b]:[[a[3],a[2],a[0],a[1]],[b[2],b[3],b[4],b[0],b[1]]];
+  for(const actions of routes)for(const action of actions){
+   for(const id of [action.a,action.b])if(M.item(s,id).reading){
+    const before=JSON.stringify(g),rr=execute(M,s,g,'read',[id]);assert.equal(JSON.stringify(rr.game),before);assert.equal(rr.response.progressChanged,false);assert(!rr.engineResults.length);readCount++;
+   }
+   const highlight=execute(M,s,g,'highlight',[action.a]);assert.equal(highlight.game,g);assert(highlight.response.highlighted.some(x=>x.id===action.b));
+   const beforeDrop=g,run=execute(M,s,g,'drop',[action.a,action.b]);assert(run.response.accepted);g=run.game;transitions.push(...run.transitions);
+   if(run.transitions.length){
+    const one=execute(M,s,g,'undo',[]);assert(one.response.accepted);assert(M.stageComplete(s,one.game.state));
+    const two=execute(M,s,one.game,'undo',[]);assert(two.response.accepted);assert.deepEqual(structural(two.game.state),structural(beforeDrop.state));
+    assert.deepEqual(M.restore(s,JSON.stringify(two.game)),two.game);
+    const retried=execute(M,s,two.game,'drop',[action.a,action.b]);assert(retried.response.accepted);assert.deepEqual(structural(retried.game.state),structural(g.state));
+   }
+   assert.deepEqual(M.restore(s,JSON.stringify(g)),g);
+  }
+  assert(g.state.completed);assert.equal(g.state.metrics.combinations-start,9);
+  assert.equal(visibleView(M,s,g).ending,s.stages[11].completionText);
+  assert.match(visibleView(M,s,g).ending,/No object has been authenticated/);
+  const beforeUndo=structuredClone(g),u=execute(M,s,g,'undo',[]);assert(u.response.accepted);assert(!u.game.state.completed);assert(M.stageComplete(s,u.game.state));
+  const finish=execute(M,s,u.game,'mission',[]);assert(finish.game.state.completed);assert.deepEqual(structural(finish.game.state),structural(beforeUndo.state));
+  rows.push({width,order,newCombinations:9,optionalReads:readCount,transitions:transitions.map(x=>({completedStage:x.completedStage,nextStage:x.next.stage.number,completed:x.next.completed})),finishUndoAndRefinish:true});
+ }
+ // Prove no reading is required: the same canonical surface path with zero reads.
+ let g=M.checkpoint(s,'chapter-11');for(const action of [...m.routes['chapter-11'],...m.routes['chapter-12']]){const run=execute(M,s,g,'drop',[action.a,action.b]);assert(run.response.accepted);g=run.game;}assert(g.state.completed);
+ write('surface-evidence.json',{kind:'Author/source-aware exact pinned-surface checks; not fresh-player evidence.',normalHighlight:true,noReadingGate:true,zeroReadRouteCompletes:true,results:rows,ending:visibleView(M,s,g).ending});
+});
+
+test('concrete fictional premises are visible without hidden descriptions; simplification stays bounded',()=>{
+ const entry=M.checkpoint(s,'chapter-11');
+ const panel=execute(M,s,entry,'read',['images-panel-proposal']);
+ assert.match(JSON.stringify(panel.response),/no figure of God or heavenly vision/);
+ assert.match(JSON.stringify(panel.response),/fictional/);
+ const rescue=execute(M,s,entry,'read',['images-rescue-sketch']);assert.match(JSON.stringify(rescue.response),/home/);assert.match(JSON.stringify(rescue.response),/no prayer or religious honour/);
+ const next=M.checkpoint(s,'chapter-12');const fragment=execute(M,s,next,'read',['images-new-fragment']);assert.match(JSON.stringify(fragment.response),/John the Baptist — Amiens/);assert.match(JSON.stringify(fragment.response),/enquiry lead does not link/);
+ for(const id of ['images-genuine-supposition','images-genuine-refusal','images-panel-referred'])assert(!s.items.some(i=>i.id===id));
+ for(const id of ['images-test-genuine-relic','images-refer-unusual-panel'])assert(!s.recipes.some(r=>r.id===id));
+ assert(!s.stages[10].caches[0].items.includes('images-calvin-relic-rule'));assert(s.stages[11].caches[0].items.includes('images-calvin-relic-rule'));
+ assert.match(s.stages[11].completionText,/not the font’s role or an installation licence/);
+ const protectedFiles=Object.entries(parent.files).filter(([p])=>p.startsWith('experiments/tangible-campaign/evidence/integration-20261028/sources/'));for(const [p,meta]of protectedFiles)assert.equal(hash(fs.readFileSync(new URL(p,project))),meta.sha256,p);
+ write('concrete-premise-evidence.json',{essentialCaseFactsOnVisibleLabelsAndReadings:true,noReadingGate:true,removedTautologyAndUnexplainedException:true,frozenParentResearchInputsUnchanged:protectedFiles.length});
+});
+
+test('exactly one authored label changes, plus successor identity; source claim is qualified',()=>{
+ const old=read('../candidate-v2/doctrine-images-relics-local-v2-candidate.json');const copy=structuredClone(s);copy.id=old.id;
+ const x=copy.items.find(i=>i.id==='images-new-fragment'),prior=old.items.find(i=>i.id==='images-new-fragment');
+ assert.equal(x.label,'Chip called bone by its donor: “John the Baptist — Amiens”');
+ assert.match(x.reading.text,/calls it bone/);assert.match(x.reading.attribution,/No historical transaction, chain of custody, examination, authentication/);
+ x.label=prior.label;assert.deepEqual(copy,old,'No other content, recipe, route, checkpoint or narrative change');
+ const changes=read('exact-changes.json');assert.equal(changes.length,2);assert.deepEqual(changes.map(c=>c.path),['/id','/items/136/label']);
+ assert.equal(sha('../candidate-v2/doctrine-images-relics-local-v2-candidate.json'),'66dc40a0daabd425e0502f610981ebed1c95513ed120b94bbcfebd11e65230eb');
+ assert(!fs.existsSync(new URL('reader-packet',root)));assert(!fs.existsSync(new URL('sessions',root)));
+ write('copy-scope-evidence.json',{authoredChanges:changes,changedRecipes:0,changedRoutesOrCheckpoints:0,changedReadings:0,newReaderPacket:false,newPlayerSession:false,freshFinalCopyPlayClaim:false});
+});
+
+test('predecessor differential checkpoint replay, visible label and all optional Reads remain exact',()=>{
+ const old=read('../candidate-v2/doctrine-images-relics-local-v2-candidate.json'),rows=[];let reads=0;
+ const previousLabel=old.items.find(i=>i.id==='images-new-fragment').label,newLabel=M.item(s,'images-new-fragment').label;
+ const deltas=[];
+ const differences=(a,b,p='')=>{
+  if(JSON.stringify(a)===JSON.stringify(b))return [];
+  if(a&&b&&typeof a==='object'&&typeof b==='object'&&Array.isArray(a)===Array.isArray(b)){
+   assert.deepEqual(Object.keys(a),Object.keys(b),'Same object/array structure');return Object.keys(a).flatMap(k=>differences(a[k],b[k],p+'/'+k));
+  }return [{path:p,before:a,after:b}];
+ };
+ const equalGame=(a,b,context)=>{
+  const d=differences(a,b);for(const x of d)assert(x.path==='/scenarioId'||/^\/(state|history\/\d+)\/tokens\/\d+\/(x|y)$/.test(x.path),'Unexpected game change: '+x.path);
+  deltas.push({context,differences:d});
+ };
+ const normalizeVisible=x=>JSON.parse(JSON.stringify(x).replaceAll(newLabel,previousLabel));
+ const equalView=(a,b)=>{for(const d of differences(a,normalizeVisible(b)))assert(/^\/things\/\d+\/(x|y)$/.test(d.path),'Unexpected visible change: '+d.path);};
+ for(const cp of s.checkpoints)for(const width of [320,600])for(const reverse of [false,true]){
+  const actions=reverse?reversed(cp.actions):cp.actions,a=M.replay(old,actions,width),b=M.replay(s,actions,width);
+  equalGame(a,b,cp.id+'/'+width+'/'+reverse);
+  assert.deepEqual(M.restore(s,JSON.stringify(b)),b);equalView(visibleView(M,old,a),visibleView(M,s,b));
+  rows.push({checkpoint:cp.id,width,reversed:reverse,fullGameEqualExceptScenarioIdAndLabelDrivenPositions:true,visibleSurfaceEqualExceptQualifiedLabelAndPositions:true});
+ }
+ let g=M.checkpoint(s,'chapter-11'),o=M.checkpoint(old,'chapter-11');
+ for(const action of [...m.routes['chapter-11'],...m.routes['chapter-12']]){
+  const v=visibleView(M,s,g);
+  for(const t of v.things.filter(x=>x.readable)){
+   const before=JSON.stringify(g),r=execute(M,s,g,'read',[t.id]),prior=execute(M,old,o,'read',[t.id]);
+   assert.equal(JSON.stringify(r.game),before);assert.equal(r.response.progressChanged,false);assert.equal(r.engineResults.length,0);
+   assert.deepEqual(normalizeVisible(r.response),prior.response);reads++;
+  }
+  if(g.state.stage===11&&M.token(g.state,'images-new-fragment')){
+   assert.equal(v.things.find(t=>t.id==='images-new-fragment').label,newLabel);
+   const h=execute(M,s,g,'highlight',['images-catalogue-question']);assert.equal(h.response.highlighted.find(t=>t.id==='images-new-fragment').label,newLabel);
+  }
+  g=execute(M,s,g,'drop',[action.a,action.b]).game;o=execute(M,old,o,'drop',[action.a,action.b]).game;
+  equalGame(o,g,'surface/'+action.a);equalView(visibleView(M,old,o),visibleView(M,s,g));
+ }
+ assert(g.state.completed);assert.equal(g.state.metrics.combinations,61);
+ write('copy-differential-evidence.json',{checkpointReplays:rows.length,allVisibleOptionalReadsChecked:reads,noReadMutation:true,noReaderSession:true,predecessorScenarioSha256:sha('../candidate-v2/doctrine-images-relics-local-v2-candidate.json'),successorScenarioSha256:sha('doctrine-images-relics-local-v2-copy1-candidate.json'),labelDrivenLayoutChangesExpected:true,onlyAllowedGameDifferences:'Scenario identity plus token x/y positions from ordinary label-length reflow; every other state/history/event field exact.',differentialChecks:deltas,results:rows});
+});
+
+test('prior twelve-desk content remains registered while compact successor is featured and exact ten-desk route and completed save remain separate; every later desk uses a goal-connected earlier creation',()=>{
+ assert.deepEqual(scenarios.find(x=>x.id===priorLive.id),priorLive);assert.deepEqual(scenarios.find(x=>x.id===s.id),integrated);
+ assert(!featuredScenarioIds.includes(s.id));assert(!featuredScenarioIds.includes('doctrine-language-compact-local-20261028'));assert(scenarios.some(x=>x.id==='doctrine-language-compact-local-20261028'));assert(featuredScenarioIds.includes('divinity-disputed-questions-conceptual-v2-20261028'));assert(!featuredScenarioIds.includes(priorLive.id));assert.equal(featuredScenarioIds.length,6);
+ const old=M.checkpoint(priorLive,'complete'),saved=JSON.stringify(old);assert(M.restore(priorLive,saved).state.completed);assert.throws(()=>M.restore(s,saved),/Invalid campaign save/);
+ const final=M.checkpoint(s,'complete');assert.throws(()=>M.restore(priorLive,JSON.stringify(final)),/Invalid campaign save/);
+ const audits=[];for(const width of [320,375,600]){const a=auditRoute(s,m.authoredActions,width);assert(a.game.state.completed);assert.equal(a.game.state.metrics.combinations,61);assert.equal(a.rows.length,12);assert.deepEqual(a.missing,[]);audits.push({width,completed:true,combinations:61,laterDesks:a.rows.slice(1)});}
+ write('integrated-route-save-continuity.json',{baseCommit:parent.baseCommit,priorId:priorLive.id,currentId:s.id,oldSaveCompletesWithoutMigration:true,newAndOldSavesSeparate:true,allElevenLaterDesksGoalConnected:true,audits,limits:'Source-aware authored route and logical engine checks. No fresh final-copy player, UI/browser or enjoyment claim.'});
+});
+
+test('actual unchanged save codec roundtrips new earned checkpoints and old completed save without cross-identity migration',()=>{
+ const rows=[];for(const [scenario,checkpoint] of [[priorLive,'complete'],[s,'chapter-11'],[s,'chapter-12'],[s,'complete']]){
+  const game=M.checkpoint(scenario,checkpoint),envelope={game,tops:{[game.state.currentArea]:0},seen:[game.state.stage],debugName:checkpoint},plain=JSON.stringify(envelope),packed=encodeSave(envelope),decoded=decodeSave(packed);
+  assert.deepEqual(decoded,JSON.parse(plain));assert.deepEqual(M.restore(scenario,JSON.stringify(decoded.game)),game);
+  assert.throws(()=>M.restore(scenario.id===s.id?priorLive:s,JSON.stringify(decoded.game)),/Invalid campaign save/);
+  rows.push({scenarioId:scenario.id,checkpoint,plainBytes:Buffer.byteLength(plain),savedBytes:Buffer.byteLength(packed),exactRestore:true,separateIdentity:true});
+ }
+ write('actual-save-codec.json',{implementationUnchanged:true,results:rows});
+});

@@ -1,0 +1,50 @@
+# Persistent locations, artwork and chapter cues — 28 October 2026
+
+This is a new authored-version boundary, not a migration of saved games. Forty previous scenario objects and direct routes remain intact. The current six featured successors are Mars, Atlas, Elements, Kitchen, Copy Workroom and Divinity; Light remains optional.
+
+| Story | New `world=` ID | Panels | Chapters |
+|---|---|---:|---:|
+| Mars | `mars-persistent-locations-v5` | 18 | 24 |
+| Atlas | `atlas-intellectual-history-locations-v2` | 26 | 30 |
+| Elements | `elements-river-locations-v2` | 8 | 30 |
+| Kitchen | `kitchen-caravan-stations-v7` | 10 | 20 |
+| Copy | `copy-workroom-locations-v2` | 2 | 3 |
+| Divinity | `divinity-disputed-questions-locations-v3` | 6 | 14 |
+| Light | `divinity-light-exhibition-v3` | 1 | 4 |
+
+Use `campaign.html?world=<id>`. The homepage selects new Mars. Prior featured worlds are chooser-labelled snapshots, not replaced data.
+
+## Model and presentation
+
+- Locations own ordinary stock, fixed hotspots and a decorative background. Chapters own goals, already-complete policy and one short entry cue. All 125 chapters have reviewed cues; already-earned chapters keep their skip/bridge behavior. Arrival plus chapter is one cue, not two consecutive dialogs. Mars uses radio/journal voices; other worlds use concise story/source cards. Milestone celebrations retain priority and defer chapter handoffs.
+- Panels use a fixed logical height of844 and a width capped390; narrow screens may use320. Earlier discovered panels remain above later ones. No panel extension, horizontal scrolling, invisible object archive or automatic terminal culling is added.
+- Same-location beats do not move, prune, regrant or import objects. Actual travel uses the entire next visit's useful existing inventory. Ordinary supplies are exposed at first arrival. Divinity's one explicitly explained record update is a real new delivery, not routine per-chapter stock.
+- Fresh supplies remain below a dotted divider until an intentional crossing or successful cross-group interaction. Returns and source updates never rearrange settled residents. A full player-arranged delivery region causes an atomic, visible space warning rather than silently mixing stock. A rejected advance does not retry indefinitely; a real arrangement change permits another attempt.
+- Source-group travel packing first removes global empty gaps. If that cannot fit first arrival, rigid existing overlap clusters can move vertically into genuinely empty per-column space without adding overlaps. On a return, if the whole incoming group cannot fit, rigid overlap clusters may translate into free spaces around settled residents. Neither fallback introduces a new overlap, moves residents or shrinks text/cards. Fresh supply rows remain distinct.
+- Cross-panel blank drops are ownership moves, not story travel. Target drops are one atomic transaction; an invalid recipe does not first carry the source, and one Undo restores a successful interaction. Retained inputs remain at their original owner/position. A replacement inherits the retired source anchor; additional results from retained sources appear by the receiver.
+- Fixed geometry reserves space for authored construction growth, including nested preserved parts and hotspot-produced assemblies. A player move to an unsuitable edge can cause a clear atomic growth warning. No essential fitted component text is hidden.
+- An optional finder selects and raises the actual board object when creations overlap. It is not a hidden inventory or a substitute for manageable arrival layouts.
+
+## Authored changes
+
+Kitchen's ten panels are real stations, not ten invented buildings; ordinary stock is available at each station's arrival. Atlas adds a mechanical demonstration bench within its natural-philosophy workshop and a classification desk within its library; architectural identity and narrative connections remain shared. These avoid forcing initial deliveries into unreasonably crowded arrangements without flattening Atlas into trivial three-object desks.
+
+Mars distinguishes the damaged crawler from the recovery camp and the surface launch from the orbital rendezvous. Repair and tow alternatives both reach the same stocked camp. The loose specimen chip is collected with the existing scoop at the gravel ledge; the orbital cabin is a fixed remote destination, not a portable surface supply. Earned-ahead travel triggers once when the relevant chapter becomes active.
+
+Before the location successor's first publication, the [Mars observation simplification](mars-observation-streamline.md) removes the rack/scale-card processing family. The actual ice core yields a layer photograph; the existing ripple and gravel photographs compare directly. The retained basin and archive connections do not claim calibrated dimensions, a common age or life. The frozen pre-simplification candidate and every historical world remain preserved.
+
+Original recipe/content snapshots remain untouched. Intellectual readings preserve full source text/attribution while some successor-only visible labels are shortened without removing essential premises. Reading is still optional and does not change game progress.
+
+## Artwork and saves
+
+`public/assets/locations/` contains71 selected WebPs (11,698,632bytes). The copied art manifest records source prompts, selected revisions and hashes. Same location uses the same art across chapters; the background contains no actionable inventory. Original PNGs, rejected revisions and contact-sheet QA remain in the separately retained artwork handoff.
+
+Autosave still uses the v1 envelope, `CCSP1` encoding and `tangible-campaign-v1:<scenario-id>` key. The v2 runtime translates vocabulary; it does not create a second engine. New location metadata, ownership, entry-cue acknowledgements, discovered panels and Undo history round-trip. Old scenarios keep their old rules/IDs.
+
+## Verification scope
+
+The model probe covers all seven complete canonical routes at320/375/390/600 viewport widths (the model caps390), with bounds, exact same-place arrangement, actual-delivery separation, save restoration and375px direct-action versus UI-drop parity. Focused synthetic controller tests cover cross-panel moves/target drops, cancellation, rejection, one-step Undo, modal sequencing, deferred reader/finder handoff and capacity warnings/retry. Physical tests also cover the towing alternative and internal-travel Undo/save behavior. Source and lifecycle validators remain part of the build.
+
+These are logical coordinates, source tests and synthetic DOM/controller checks. **No browser, native touch, final font/contrast/layout, human understanding or enjoyment claim is made.** Peak token count and overlap statistics describe tested routes, not proof that a crowded desk feels good. Browser and human evaluation remain an explicit later boundary.
+
+Historical catalogue assertions now explicitly import `pre-location-scenarios` rather than treating new identities as if they had old route evidence. Exact predecessor test/source bytes are retained in the location-presentation review successor record. New tests separately assert the47-world current registry, six featured IDs, new save identities and71 actual art hashes.

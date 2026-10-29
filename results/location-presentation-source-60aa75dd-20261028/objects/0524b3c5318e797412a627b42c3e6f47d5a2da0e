@@ -1,0 +1,60 @@
+DESK 5: world-models | Hellenistic and Roman collections · c. 300 BCE–200 CE | A world between covers | A world can be organized in a proof, a geographical image, a planetary model or a book. Which kinds of success do these representations earn?
+GOALS: [{'id': 'world-models-measurable-earth', 'text': 'Make the Earth investigable', 'kind': 'create', 'item': 'measurable-earth'}, {'id': 'world-models-model-not-cause', 'text': 'Distinguish forecast from cause', 'kind': 'create', 'item': 'model-not-cause'}, {'id': 'world-models-mechanical-sky', 'text': 'Build a mechanical sky', 'kind': 'create', 'item': 'mechanical-sky'}, {'id': 'world-models-critical-edition', 'text': 'Preserve a text’s alternatives', 'kind': 'create', 'item': 'critical-edition'}]
+
+RECIPE make-deductive-geometry
+A valid-inference | A conclusion follows from premises | The stated premises support a particular conclusion by the argument’s form.
+B geometric-postulates | A few stated geometric starting points | Euclid orders proofs through definitions, postulates and common notions.
+OUT deductive-geometry | A connected geometric proof | Conclusions form a structured deductive account instead of an unconnected collection of claims.
+LIFECYCLE {'valid-inference': 'retain', 'geometric-postulates': 'retain'}
+LINK {"from": "kinds", "to": "world-models", "item": "valid-inference", "recipe": "make-deductive-geometry", "relation": "adaptation", "evidence": "Greek deductive practice develops a systematic mathematical form.", "sources": ["euclid", "alexandria", "antikythera", "aristotle-eclipse"]}
+
+RECIPE make-spherical-earth
+A deductive-geometry | A connected geometric proof | Conclusions form a structured deductive account instead of an unconnected collection of claims.
+B curved-earth-signs | Different stars and shadows at different places | These qualitative observations support a curved Earth without requiring the player to calculate its size.
+OUT spherical-earth | A spherical Earth | A geometric model relates different local appearances.
+LIFECYCLE {'deductive-geometry': 'retain', 'curved-earth-signs': 'retain'}
+
+RECIPE make-measurable-earth
+A spherical-earth | A spherical Earth | A geometric model relates different local appearances.
+B measured-journey | A known journey connects two observing places | Distance can relate local observations to the size of a larger world.
+OUT measurable-earth | An Earth whose size can be investigated | A known ground distance gives observations a relation to the whole Earth; no numerical answer is required.
+LIFECYCLE {'spherical-earth': 'retain', 'measured-journey': 'retain'}
+
+RECIPE make-planetary-archive
+A sky-archive | A sky archive with its gaps | The collection distinguishes observed events from nights that tell us nothing.
+B planet-positions | Planets wander against the stars | A Greek astronomical dossier joins earlier traditions of recorded motion.
+OUT planetary-archive | An archive of planetary motion | Astronomical modeling depends on observations collected across time, including Babylonian records known in Greek astronomy.
+LIFECYCLE {'sky-archive': 'retain', 'planet-positions': 'retain'}
+LINK {"from": "sky", "to": "world-models", "item": "sky-archive", "recipe": "make-planetary-archive", "relation": "transmission", "evidence": "Greek astronomy drew on Babylonian observations; the teaching archive is not an actual transmitted manuscript.", "sources": ["euclid", "alexandria", "antikythera", "aristotle-eclipse"]}
+
+RECIPE make-ptolemaic-model
+A planetary-archive | An archive of planetary motion | Astronomical modeling depends on observations collected across time, including Babylonian records known in Greek astronomy.
+B circular-models | Ptolemy combines circles around an Earth-centred frame | A simplified representation of a sophisticated mathematical astronomy.
+OUT ptolemaic-model | Ptolemy’s predictive heavens | Reconstruct an Earth-centred predictive scheme rather than treating it as mere ignorance.
+LIFECYCLE {'planetary-archive': 'retain', 'circular-models': 'retain'}
+
+RECIPE make-model-not-cause
+A ptolemaic-model | Ptolemy’s predictive heavens | Reconstruct an Earth-centred predictive scheme rather than treating it as mere ignorance.
+B forecast-check | A planetary model predicts where to look | Predictive success alone does not establish every physical assumption of a model.
+OUT model-not-cause | A forecast is not its physical cause | Modern teaching distinction: success at prediction leaves some explanatory questions open.
+LIFECYCLE {'ptolemaic-model': 'retain', 'forecast-check': 'retain'}
+
+RECIPE make-mechanical-sky
+A eclipse-pattern | Recurring eclipse seasons | Recurrence makes future watching worthwhile; it does not guarantee a visible eclipse at every place.
+B geared-wheels | Gears can turn at linked rates | A supply of mechanism, not a task to calculate tooth ratios.
+OUT mechanical-sky | A sky represented in gears | Recurring celestial cycles can be embodied in a mechanism; no uninterrupted lineage to modern computers is asserted.
+LIFECYCLE {'eclipse-pattern': 'retain', 'geared-wheels': 'retain'}
+LINK {"from": "sky", "to": "world-models", "item": "eclipse-pattern", "recipe": "make-mechanical-sky", "relation": "adaptation", "evidence": "The Antikythera device represents astronomical periods already established through observation and calculation.", "sources": ["euclid", "alexandria", "antikythera", "aristotle-eclipse"]}
+
+RECIPE make-textual-variants
+A parallel-copies | Two copies of a poem disagree | Textual variants make the inherited work an object of comparison.
+B editorial-marks | Mark a doubtful reading instead of hiding it | Alexandrian scholarship provides a historical setting for critical attention to texts.
+OUT textual-variants | A text with visible alternatives | Disagreement between copies becomes visible evidence rather than a secretly chosen correction.
+LIFECYCLE {'parallel-copies': 'retain', 'editorial-marks': 'retain'}
+
+RECIPE make-critical-edition
+A textual-variants | A text with visible alternatives | Disagreement between copies becomes visible evidence rather than a secretly chosen correction.
+B answerable-claims | Claims answerable to objections | Modern teaching comparison: different inquiries can both expose their claims to difficulties rather than rely on status alone.
+OUT critical-edition | An edition that shows its doubts | Modern teaching comparison: a reader can inspect the editor’s uncertainty rather than inherit an invisible verdict.
+LIFECYCLE {'textual-variants': 'retain', 'answerable-claims': 'retain'}
+LINK {"from": "explanations", "to": "world-models", "item": "answerable-claims", "recipe": "make-critical-edition", "relation": "teaching-comparison", "evidence": "Textual criticism is compared with inspectable argument, without claiming Socratic origin of editorial marks.", "sources": ["euclid", "alexandria", "antikythera", "aristotle-eclipse"]}

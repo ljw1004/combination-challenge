@@ -1,3 +1,5 @@
+import {archivedScenarioIds} from '../schema/lifecycle.ts';
+import {featuredScenarioIds,presentationFor} from '../ui/scenarios.ts';
 // Synthetic DOM/controller evidence. No native layout or touch claims.
 import test from 'node:test';
 import assert from 'node:assert/strict';
@@ -15,7 +17,7 @@ function harness(world=fixture, initialSaved?:string){
   get innerHTML(){return this._html;}showModal(){this.open=true;}closest(q:string):any{return matches(this,q)?this:this.parentElement?.closest(q)??null;}getBoundingClientRect(){return {left:0,top:0,right:360,bottom:500,width:360,height:500};}setPointerCapture(){}addEventListener(type:string,fn:Function){(this.listeners[type]??=[]).push(fn);}
  }
  const app=new El();const doc={querySelector:(q:string)=>q==='#app'?app:els.find(e=>matches(e,q))??null,querySelectorAll:(q:string)=>els.filter(e=>matches(e,q)),getElementById:(id:string)=>els.find(e=>e.id===id)??null,elementFromPoint:()=>hit};
- const ctx={addEventListener:(name:string,fn:Function)=>windowEvents[name]=fn,M,scenarios:[world],document:doc,location:{search:'?world=fixture'},URLSearchParams,innerWidth:360,structuredClone,confirm:()=>true,localStorage:{getItem:(k:string)=>saved.get(k)??null,setItem:(k:string,v:string)=>saved.set(k,v)},setTimeout:(fn:()=>void,ms:number)=>{const t={fn,ms};timers.push(t);return t;},clearTimeout:(t:{fn:()=>void})=>{t.fn=()=>{};}};
+ const ctx={archivedScenarioIds,featuredScenarioIds,presentationFor,addEventListener:(name:string,fn:Function)=>windowEvents[name]=fn,M,scenarios:[world],document:doc,location:{search:'?world=fixture'},URLSearchParams,innerWidth:360,structuredClone,confirm:()=>true,localStorage:{getItem:(k:string)=>saved.get(k)??null,setItem:(k:string,v:string)=>saved.set(k,v)},setTimeout:(fn:()=>void,ms:number)=>{const t={fn,ms};timers.push(t);return t;},clearTimeout:(t:{fn:()=>void})=>{t.fn=()=>{};}};
  const code=stripTypeScriptTypes(readFileSync(new URL('../ui/campaign-main.ts',import.meta.url),'utf8').replace(/^import .*;\n/gm,''));vm.runInNewContext(code,ctx);
  const button=(id:string)=>doc.getElementById(id);const thing=(id:string)=>els.find(e=>e.dataset.target===id);const click=(e:any)=>{assert(e);e.onclick?.({target:e,stopPropagation(){}});};const state=()=>JSON.parse(saved.get('tangible-campaign-v1:fixture')!).game as M.Game;
  return {windowEvents,saved,app,doc,button,thing,click,state,timers,setHit:(e:any)=>hit=e,flush:()=>timers.filter(t=>t.ms===0).forEach(t=>t.fn())};

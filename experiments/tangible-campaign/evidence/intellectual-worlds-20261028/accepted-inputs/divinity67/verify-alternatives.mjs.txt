@@ -1,0 +1,27 @@
+import fs from 'node:fs';import assert from 'node:assert/strict';import crypto from 'node:crypto';import * as M from './runtime/experiments/tangible-campaign/engine/model.ts';
+const P=new URL('.',import.meta.url),read=n=>JSON.parse(fs.readFileSync(new URL(n,P))),s=read('conceptual-candidate.json'),routes=read('canonical-routes.json'),A=(a,b)=>({type:'combine',a,b});
+const def=a=>s.recipes.find(r=>(r.a===a.a&&r.b===a.b)||(r.a===a.b&&r.b===a.a));
+const variants=[],clone=()=>structuredClone(routes),replace=(rs,n,outs,actions,at=0)=>{rs[n-1].actions=rs[n-1].actions.filter(a=>!outs.includes(def(a).out));rs[n-1].actions.splice(at,0,...actions);};
+let r=clone();r[1].actions=r[1].actions.map(a=>a.a==='known-duty'?A('romans-line','failed-promise'):a);variants.push(['Romans expresses the same failure',r]);
+r=clone();replace(r,3,['good-source-limit','two-sources'],[A('source-rule','harmful-world')]);variants.push(['Use the explicit causal premise directly',r]);
+r=clone();replace(r,6,['apostolic-claim','bodily-spiritual'],[A('book-and-hands','spirit-baptism')]);variants.push(['Notice bodily/spiritual contrast directly',r]);
+r=clone();replace(r,7,['baptism-appointed','instrumental-baptism'],[A('dependent-grace','instituted-baptism')],2);variants.push(['Complete appointment premise without forced washing intermediate',r]);
+r=clone();replace(r,10,['no-wages','practice-not-price'],[A('body-practice','gift-acceptance')],3);variants.push(['Discipline directly tested against unearned acceptance',r]);
+r=clone();replace(r,11,['two-presence-accounts','three-supper-accounts'],[A('zwingli-reading','luther-word-makes'),A('luther-zwingli-contrast','eucharist-account')],1);variants.push(['Compare Luther and Zwingli before adding Aquinas',r]);
+r=clone();replace(r,12,['assisted-response','assisted-consent'],[A('trent-first-help','trent-can-refuse')]);variants.push(['Current help and consent premises directly combined',r]);
+r=clone();r[12].actions.push(A('fragment-unverified','calvin-even-genuine'));variants.push(['Optional Calvin authenticity/permission distinction',r]);
+r=clone();replace(r,14,['honour-needs-identity','recognition-pending','record-not-ruling','evidence-not-consensus'],[A('fragment-unverified','new-record'),A('record-adds-evidence','trent-new-relic'),A('record-not-ruling','calvin-even-genuine')],4);variants.push(['New evidence assessed before recognition rules',r]);
+r=clone();r[12].actions.push(A('fragment-unverified','calvin-even-genuine'));r[13].actions=r[13].actions.map(a=>def(a).out==='evidence-not-consensus'?A('record-not-ruling','authenticity-not-permission'):a);variants.push(['Earned authenticity distinction reused after new evidence',r]);
+const seen=new Set(s.checkpoints.at(-1).actions.filter(a=>a.type==='combine').map(a=>def(a).id)),evidence=[];
+for(const [name,rs]of variants)for(const width of [320,600])for(const reversed of [false,true]){
+ let g=M.createGame(s,width);const stages=[];
+ for(let n=0;n<rs.length;n++){
+  assert.equal(g.state.stage,n);let usedEarlierCreated=false;const earlierKinds=new Set(g.state.tokens.filter(t=>s.recipes.some(rr=>rr.out===t.kind)).map(t=>t.kind));
+  for(let a of rs[n].actions){if(earlierKinds.has(a.a)||earlierKinds.has(a.b))usedEarlierCreated=true;if(reversed)a={...a,a:a.b,b:a.a};const out=M.applyAction(s,g,a);assert(out.accepted,`${name} / ${n+1} / ${JSON.stringify(a)}: ${out.message}`);g=out.game;seen.add(out.recipe);}
+  assert(M.stageComplete(s,g.state),name+' incomplete '+(n+1));if(n)assert(usedEarlierCreated,name+' lacks earlier earned work '+(n+1));
+  stages.push({stage:n+1,combinations:rs[n].actions.length,earlierCreatedUsed:n?usedEarlierCreated:null});const adv=M.applyAction(s,g,{type:'advance'});assert(adv.accepted);g=adv.game;
+ }
+ assert(g.state.completed);assert.deepEqual(M.restore(s,JSON.stringify(g)),g);evidence.push({name,width,reversed,combinations:g.state.metrics.combinations,complete:true,stages});
+}
+assert.equal(seen.size,s.recipes.length,'Every authored recipe must be exercised by a real accepted journey. Missing: '+s.recipes.filter(r=>!seen.has(r.id)).map(r=>r.id));
+const out={status:'pass',candidateSha256:crypto.createHash('sha256').update(fs.readFileSync(new URL('conceptual-candidate.json',P))).digest('hex'),variants:variants.length,fullJourneyComparisons:evidence.length,allRecipesExercised:seen.size,noInjectedState:true,eachLaterStageUsesEarlierCreatedItem:true,results:evidence};fs.writeFileSync(new URL('alternative-evidence.json',P),JSON.stringify(out,null,2)+'\n');console.log(JSON.stringify({...out,results:undefined},null,2));

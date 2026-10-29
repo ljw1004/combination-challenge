@@ -1,0 +1,362 @@
+--- a/experiments/tangible-campaign/ui/campaigns/mars-return-cargo.ts
++++ b/experiments/tangible-campaign/ui/campaigns/mars-return-cargo.ts
+@@ -2233,7 +2233,7 @@
+     {
+       "id": "solar-lamp",
+       "label": "Solar lamp",
+-      "description": "An intact portable lamp with its own charging panel, stored in the crew’s camp equipment."
++      "description": "The recovered lamp, powered from the solar charging unit we assembled after landing."
+     },
+     {
+       "id": "message-camera",
+@@ -2253,12 +2253,12 @@
+     {
+       "id": "bench-lamp",
+       "label": "Bench lamp",
+-      "description": "The portable lamp on its adjustable bracket."
++      "description": "Our portable light fitted to its adjustable bracket. Any earlier lantern or directed signal lamp remains visible as the fitted light."
+     },
+     {
+       "id": "lit-workbench",
+       "label": "Lit workbench",
+-      "description": "The portable expedition workbench we assembled at camp, with its lamp still fitted. Its stiff mounting rails accept the guarded bench-top machine’s integral clamps.",
++      "description": "The portable expedition workbench we assembled at camp, with its fitted task light or intact signal beacon beside it. Its stiff mounting rails accept the guarded bench-top machine’s integral clamps.",
+       "slots": [
+         {
+           "id": "machine",
+@@ -4145,6 +4145,23 @@
+       }
+     },
+     {
++      "id": "signal-solar-lamp",
++      "a": "lamp",
++      "b": "solar-charger",
++      "out": "solar-lamp",
++      "description": "Connect the recovered lamp to the solar charging unit we built after landing.",
++      "lifecycle": {
++        "lamp": {
++          "role": "transform",
++          "reason": "The recovered lamp becomes our solar-powered task lamp. Keep an outside lamp only while its earlier lantern or inspection-light branch remains unmade."
++        },
++        "solar-charger": {
++          "role": "retain",
++          "reason": "The same solar charging unit supplies the lamp and remains available for rover traction, the weather station and the greenhouse grow light."
++        }
++      }
++    },
++    {
+       "id": "signal-3-reflector",
+       "a": "reflective-foil",
+       "b": "support-frame",
+@@ -6693,6 +6710,66 @@
+         "guarded-machine": {
+           "role": "incorporate",
+           "reason": "The machine stays visibly secured in the bench’s machine slot; there is no loose duplicate machine."
++        }
++      }
++    },
++    {
++      "id": "camp-lantern-bracket",
++      "a": "lantern",
++      "b": "lamp-bracket",
++      "out": "bench-lamp",
++      "description": "Fit our existing powered lantern to the movable bracket. It already supplies a useful task light.",
++      "preserve": [
++        "lantern"
++      ],
++      "lifecycle": {
++        "lantern": {
++          "role": "incorporate",
++          "reason": "The existing powered light stays visibly fitted to the bracket. Keep its outside source only while the earlier signal construction branch still needs it."
++        },
++        "lamp-bracket": {
++          "role": "transform",
++          "reason": "The bracket becomes a mounted bench light using the existing powered lamp; no new bulb, battery or panel appears."
++        }
++      }
++    },
++    {
++      "id": "camp-signal-lamp-bracket",
++      "a": "signal-lamp",
++      "b": "lamp-bracket",
++      "out": "bench-lamp",
++      "description": "Fit our existing directed signal lamp to the movable bracket; its reflector stays with it.",
++      "preserve": [
++        "signal-lamp"
++      ],
++      "lifecycle": {
++        "signal-lamp": {
++          "role": "incorporate",
++          "reason": "The existing powered light stays visibly fitted to the bracket. Keep its outside source only while the earlier signal construction branch still needs it."
++        },
++        "lamp-bracket": {
++          "role": "transform",
++          "reason": "The bracket becomes a mounted bench light using the existing powered lamp; no new bulb, battery or panel appears."
++        }
++      }
++    },
++    {
++      "id": "camp-beacon-light",
++      "a": "workbench",
++      "b": "signal-beacon",
++      "out": "lit-workbench",
++      "description": "Stand our intact signal beacon beside the workbench and aim its light at the work surface. Its reflector and tripod remain part of the beacon.",
++      "preserve": [
++        "signal-beacon"
++      ],
++      "lifecycle": {
++        "workbench": {
++          "role": "transform",
++          "reason": "The same workbench becomes a lit workstation, without rebuilding the existing light."
++        },
++        "signal-beacon": {
++          "role": "incorporate",
++          "reason": "The intact beacon remains visible with the lit workbench. A separate source stays only while an unfinished contact objective still needs the beacon."
+         }
+       }
+     }
+@@ -7061,12 +7138,11 @@
+         {
+           "id": "camp-cache",
+           "label": "Recovery camp stores",
+-          "narrative": "The camp stores hold a worktop with its folded legs beneath it, a lamp and bracket, and the crew’s message camera and antenna stand.",
++          "narrative": "The camp stores hold a worktop with its folded legs beneath it, a movable lamp bracket, and the crew’s message camera and antenna stand. Our recovered lamp and solar charger can light the bench.",
+           "items": [
+             "bench-legs",
+             "worktop",
+             "lamp-bracket",
+-            "solar-lamp",
+             "message-camera",
+             "antenna-stand"
+           ]
+@@ -7086,7 +7162,25 @@
+           "text": "Send crew message home"
+         }
+       ],
+-      "completionText": "We have a lit bench to share, and our families have heard our voices. This is starting to feel like a camp again."
++      "completionText": "We have a lit bench to share, and our families have heard our voices. This is starting to feel like a camp again.",
++      "carry": [
++        "lamp",
++        "solar-charger",
++        "solar-lamp",
++        "lantern",
++        "signal-lamp",
++        "signal-beacon",
++        "bench-lamp",
++        "workbench",
++        "lit-workbench",
++        "radio",
++        "solar-radio",
++        "dish-antenna",
++        "long-range-radio",
++        "provisioned-refuge",
++        "crew-message",
++        "message-home"
++      ]
+     },
+     {
+       "id": "cargo-return",
+@@ -9558,6 +9652,11 @@
+         },
+         {
+           "type": "combine",
++          "a": "lamp",
++          "b": "solar-charger"
++        },
++        {
++          "type": "combine",
+           "a": "solar-lamp",
+           "b": "lamp-bracket"
+         },
+@@ -9938,6 +10037,11 @@
+         },
+         {
+           "type": "combine",
++          "a": "lamp",
++          "b": "solar-charger"
++        },
++        {
++          "type": "combine",
+           "a": "solar-lamp",
+           "b": "lamp-bracket"
+         },
+@@ -10351,6 +10455,11 @@
+         },
+         {
+           "type": "combine",
++          "a": "lamp",
++          "b": "solar-charger"
++        },
++        {
++          "type": "combine",
+           "a": "solar-lamp",
+           "b": "lamp-bracket"
+         },
+@@ -10812,6 +10921,11 @@
+         },
+         {
+           "type": "combine",
++          "a": "lamp",
++          "b": "solar-charger"
++        },
++        {
++          "type": "combine",
+           "a": "solar-lamp",
+           "b": "lamp-bracket"
+         },
+@@ -11311,6 +11425,11 @@
+         },
+         {
+           "type": "combine",
++          "a": "lamp",
++          "b": "solar-charger"
++        },
++        {
++          "type": "combine",
+           "a": "solar-lamp",
+           "b": "lamp-bracket"
+         },
+@@ -11868,6 +11987,11 @@
+         },
+         {
+           "type": "combine",
++          "a": "lamp",
++          "b": "solar-charger"
++        },
++        {
++          "type": "combine",
+           "a": "solar-lamp",
+           "b": "lamp-bracket"
+         },
+@@ -12468,6 +12592,11 @@
+         },
+         {
+           "type": "combine",
++          "a": "lamp",
++          "b": "solar-charger"
++        },
++        {
++          "type": "combine",
+           "a": "solar-lamp",
+           "b": "lamp-bracket"
+         },
+@@ -13116,6 +13245,11 @@
+         },
+         {
+           "type": "combine",
++          "a": "lamp",
++          "b": "solar-charger"
++        },
++        {
++          "type": "combine",
+           "a": "solar-lamp",
+           "b": "lamp-bracket"
+         },
+@@ -13802,6 +13936,11 @@
+         },
+         {
+           "type": "combine",
++          "a": "lamp",
++          "b": "solar-charger"
++        },
++        {
++          "type": "combine",
+           "a": "solar-lamp",
+           "b": "lamp-bracket"
+         },
+@@ -14516,6 +14655,11 @@
+         },
+         {
+           "type": "combine",
++          "a": "lamp",
++          "b": "solar-charger"
++        },
++        {
++          "type": "combine",
+           "a": "solar-lamp",
+           "b": "lamp-bracket"
+         },
+@@ -15283,6 +15427,11 @@
+         },
+         {
+           "type": "combine",
++          "a": "lamp",
++          "b": "solar-charger"
++        },
++        {
++          "type": "combine",
+           "a": "solar-lamp",
+           "b": "lamp-bracket"
+         },
+@@ -16113,6 +16262,11 @@
+         },
+         {
+           "type": "combine",
++          "a": "lamp",
++          "b": "solar-charger"
++        },
++        {
++          "type": "combine",
+           "a": "solar-lamp",
+           "b": "lamp-bracket"
+         },
+@@ -16996,6 +17150,11 @@
+         },
+         {
+           "type": "combine",
++          "a": "lamp",
++          "b": "solar-charger"
++        },
++        {
++          "type": "combine",
+           "a": "solar-lamp",
+           "b": "lamp-bracket"
+         },
+@@ -17907,6 +18066,11 @@
+         },
+         {
+           "type": "combine",
++          "a": "lamp",
++          "b": "solar-charger"
++        },
++        {
++          "type": "combine",
+           "a": "solar-lamp",
+           "b": "lamp-bracket"
+         },
+@@ -18851,6 +19015,11 @@
+         },
+         {
+           "type": "combine",
++          "a": "lamp",
++          "b": "solar-charger"
++        },
++        {
++          "type": "combine",
+           "a": "solar-lamp",
+           "b": "lamp-bracket"
+         },
+@@ -19843,6 +20012,11 @@
+         },
+         {
+           "type": "combine",
++          "a": "lamp",
++          "b": "solar-charger"
++        },
++        {
++          "type": "combine",
+           "a": "solar-lamp",
+           "b": "lamp-bracket"
+         },
+@@ -20900,6 +21074,11 @@
+           "type": "combine",
+           "a": "worktop",
+           "b": "bench-legs"
++        },
++        {
++          "type": "combine",
++          "a": "lamp",
++          "b": "solar-charger"
+         },
+         {
+           "type": "combine",

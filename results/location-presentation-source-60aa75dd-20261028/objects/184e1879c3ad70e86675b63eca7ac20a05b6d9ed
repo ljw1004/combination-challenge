@@ -1,0 +1,11 @@
+--- source61a9/experiments/tangible-campaign/schema/lifecycle.ts
++++ morning/experiments/tangible-campaign/schema/lifecycle.ts
+@@ -1,7 +1,7 @@
+ import type {Recipe, Retirement, Scenario} from './scenario.ts';
+ 
+ /** Historical experiments may retain their old, explicitly grandfathered format. */
+-export const archivedScenarioIds=new Set(['theology','causation','chinese-thought','mars-story-expansion-candidate','atlas-of-questions-v6','elements-local-projects-v5']);
++export const archivedScenarioIds=new Set(['theology','causation','chinese-thought','mars-story-expansion-candidate','atlas-of-questions-v6','elements-local-projects-v5','mars-cargo-revision-v2','atlas-of-questions-v8-transmission-actions','elements-observation-revision-v6','food','causation-purpose-v4','doctrine-grace-and-matter-v1']);
+ 
+ /** The declarations are the sole source of input lifetime; graph exhaustion alone is never permission to delete. */
+ export function incorporations(r:Recipe):Retirement[]{

@@ -1,0 +1,6 @@
+{
+  "initialFailure": "Import-ablation assertion used an already-completed final-stage state.",
+  "cause": "The test entry map overwrote the last-stage entry when final advance retained the same stage index.",
+  "correction": "Keep the first entry for each stage; explicitly assert relevant outputs do not yet exist before ablation.",
+  "changedContentOrRuntime": false
+}

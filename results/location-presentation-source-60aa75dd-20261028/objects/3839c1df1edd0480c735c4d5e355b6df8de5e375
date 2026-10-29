@@ -1,0 +1,404 @@
+--- a/tests/crawler-identity-and-visible-crew.test.ts
++++ b/tests/crawler-identity-and-visible-crew.test.ts
+@@ -1,3 +1,4 @@
++import {currentMarsRouteActions} from '../experiments/tangible-campaign/integration/current-mars-route-actions.ts';
+ import test from 'node:test';
+ import assert from 'node:assert/strict';
+ import {readFileSync} from 'node:fs';
+@@ -77,7 +78,7 @@
+ 
+ test('canonical complete route and every saved checkpoint still work with crew intermediate goal',()=>{
+  assert.deepEqual([...M.validateScenario(s),...validateContentLifecycles([s]),...validateObjectiveFlow([s]),...validateConstructionContinuity([s])],[]);
+- const complete=M.replay(s,route);assert(complete.state.completed);
++ const complete=M.replay(s,currentMarsRouteActions(route));assert(complete.state.completed);
+  assert(!M.token(complete.state,'damaged-crawler'));assert(M.token(complete.state,'crawler'));
+  for(const checkpoint of s.checkpoints??[])assert(M.checkpoint(s,checkpoint.id));
+ });
+--- a/tests/divinity-light-text-workshop.test.ts
++++ b/tests/divinity-light-text-workshop.test.ts
+@@ -1,3 +1,5 @@
++import {beforeReviewedGraphAmendments} from '../experiments/tangible-campaign/integration/reviewed-graph-amendments.ts';
++import {beforeRetainedAnomalies} from '../experiments/tangible-campaign/integration/retained-anomaly-successor.ts';
+ import {expectedSourceHashAfterMarsNaturalOrders} from '../experiments/tangible-campaign/integration/mars-natural-orders-source-guard.ts';
+ import {applyIntuitiveAlternatives,beforeIntuitiveAlternatives} from '../experiments/tangible-campaign/integration/intuitive-story-alternatives.ts';
+ import test from 'node:test';import assert from 'node:assert/strict';import {readFileSync} from 'node:fs';import {createHash} from 'node:crypto';
+@@ -13,7 +15,7 @@
+ const rt=(g:M.Game)=>M.restore(s,JSON.stringify(decodeSave(encodeSave({game:g,tops:{},seen:[]})).game));
+ const text=(id:string)=>s.items.find(i=>i.id===id)!.reading!.text;
+ test('new four-desk module is bounded and does not rewrite the frozen broad diagnostic',()=>{
+- assert.notEqual(s.id,broad.id);assert.equal(s.stages.length,4);assert.equal(beforeIntuitiveAlternatives(s).recipes.length,28);assert.equal(s.recipes.length,29);assert.equal(s.items.length,47);
++ assert.notEqual(s.id,broad.id);assert.equal(s.stages.length,4);assert.equal(beforeIntuitiveAlternatives(beforeRetainedAnomalies(beforeReviewedGraphAmendments(s))).recipes.length,28);assert.equal(s.recipes.length,29);assert.equal(s.items.length,47);
+  assert.equal(createHash('sha256').update(readFileSync(new URL('../experiments/tangible-campaign/ui/campaigns/divinity-light-guide.ts',import.meta.url))).digest('hex'),'8ac7a5d52066a939e078d22456b78cb08597ca8cbec880974cfbfb611b91f6bd');
+ });
+ test('schema, source references, lifecycles, constructions and gold progression validate',()=>{
+--- a/tests/intuitive-story-alternatives.test.ts
++++ b/tests/intuitive-story-alternatives.test.ts
+@@ -1,3 +1,6 @@
++import {beforeReviewedGraphAmendments} from '../experiments/tangible-campaign/integration/reviewed-graph-amendments.ts';
++import {beforeRetainedAnomalies} from '../experiments/tangible-campaign/integration/retained-anomaly-successor.ts';
++import {expectedSourceHashAfterMarsNaturalOrders} from '../experiments/tangible-campaign/integration/mars-natural-orders-source-guard.ts';
+ // Source-informed, name/task/highlight-only engine regression. Not a blind human or browser test.
+ import test from 'node:test';
+ import assert from 'node:assert/strict';
+@@ -56,7 +59,7 @@
+ test('exact LIVE86 source successor preserves predecessors and rejects any guessed ancestry',()=>{
+  const manifest=json(review+'source-successors.json');assert.equal(manifest.baseCommit,'86c479746909412d775873d5bb250868ed7bf2d0');assert.equal(Object.keys(manifest.files).length,6);
+  for(const [path,row] of Object.entries<any>(manifest.files)){
+-  assert.equal(sha(row.predecessorSnapshotPath),row.beforeSha256,path);assert.equal(sha(path),row.afterSha256,path);
++  assert.equal(sha(row.predecessorSnapshotPath),row.beforeSha256,path);assert.equal(sha(path),expectedSourceHashAfterMarsNaturalOrders(path,row.beforeSha256),path);
+   assert.equal(expectedSourceHashAfterIntuitiveAlternatives(path,row.beforeSha256),row.afterSha256);
+   assert.throws(()=>expectedSourceHashAfterIntuitiveAlternatives(path,'0'.repeat(64)),/exact LIVE86 predecessor/);
+   assert.equal(sha(row.predecessorScenarioPath),row.predecessorScenarioSha256);
+@@ -66,9 +69,9 @@
+ 
+ test('only thirteen exact same-output aliases; same IDs, history, sources, canonical paths, checkpoints and milestones',()=>{
+  let total=0;
+- for(const {name,s,ids} of worlds){const before=old(name);assert.equal(s.id,before.id);assert.deepEqual(s.items.map(i=>i.id),before.items.map(i=>i.id));assert.deepEqual(s.locations,before.locations);assert.deepEqual(s.sources,before.sources);assert.deepEqual(s.checkpoints,before.checkpoints);assert.deepEqual(s.milestones,before.milestones);
++ for(const {name,s,ids} of worlds){const before=old(name),author=beforeRetainedAnomalies(beforeReviewedGraphAmendments(s));assert.equal(s.id,before.id);assert.deepEqual(s.items.map(i=>i.id),before.items.map(i=>i.id));assert.deepEqual(s.locations,before.locations);assert.deepEqual(s.sources,before.sources);assert.deepEqual(s.checkpoints,before.checkpoints);assert.deepEqual(s.milestones,before.milestones);
+   assert.deepEqual(s.recipes.slice(before.recipes.length).map(r=>r.id),ids);total+=ids.length;
+-  for(const r of before.recipes){const actual=structuredClone(s.recipes.find(x=>x.id===r.id)!);if(r.id==='make-positioned-sea-route')actual.description=r.description;assert.deepEqual(actual,r,`${s.id}/${r.id} canonical preserved`);}
++  for(const r of before.recipes){const actual=structuredClone(author.recipes.find(x=>x.id===r.id)!);if(r.id==='make-positioned-sea-route')actual.description=r.description;assert.deepEqual(actual,r,`${s.id}/${r.id} canonical preserved`);}
+   for(const r of s.recipes.slice(before.recipes.length)){assert(before.recipes.some(x=>x.out===r.out));assert(!r.requires&&!r.install);}
+   for(const errors of [M.validateScenario(s),validateContentLifecycles([s]),validateObjectiveFlow([s]),validateConstructionContinuity([s])])assert.deepEqual(errors,[],s.id);
+   for(const [i,st] of s.stages.entries()){
+--- a/tests/kitchen-caravan-content.test.ts
++++ b/tests/kitchen-caravan-content.test.ts
+@@ -1,3 +1,5 @@
++import {beforeReviewedGraphAmendments} from '../experiments/tangible-campaign/integration/reviewed-graph-amendments.ts';
++import {beforeRetainedAnomalies} from '../experiments/tangible-campaign/integration/retained-anomaly-successor.ts';
+ import {applyIntuitiveAlternatives,beforeIntuitiveAlternatives} from '../experiments/tangible-campaign/integration/intuitive-story-alternatives.ts';
+ import fs from 'node:fs';
+ import {scenario as integrated} from '../experiments/tangible-campaign/ui/campaigns/food-kitchen-caravan.ts';
+@@ -14,4 +16,4 @@
+ test('Optional historical readings remain intact and no reading action is required',()=>{assert.deepEqual(s.items.filter(i=>i.reading),base.items.filter(i=>i.reading));const sugar=checkpoint(s,'sugar');assert(playerView(s,sugar).things.find(i=>i.id==='sugar')?.reading);});
+ for(const name of names)test(`${name}: full cooking journey, ten stations, 10 stationary chapter handoffs, visible supper and save`,()=>{witness(name,360);});
+ 
+-test('Food integrated JSON follows the exact alias successor; historical author base has only the explicit 22-name bridge from played v5',()=>{assert.deepEqual(beforeIntuitiveAlternatives(integrated),s);assert.deepEqual(integrated,applyIntuitiveAlternatives(s));const bridge=JSON.parse(fs.readFileSync(new URL('../experiments/tangible-campaign/evidence/integration-20261028/kitchen-atlas-20261028/food-base-name-bridge.json',import.meta.url),'utf8'));assert.equal(bridge.changes.length,22);const copy=structuredClone(base);for(const row of bridge.changes){const x=copy.locations[row.index];assert.equal(x.id,row.id);assert.equal(x.label,row.namedPredecessorLabel);assert.equal(retained.locations[row.index].label,row.actualPlayedLabel);x.label=row.actualPlayedLabel;}assert.deepEqual(copy,retained);});
++test('Food integrated JSON follows the exact alias successor; historical author base has only the explicit 22-name bridge from played v5',()=>{assert.deepEqual(beforeIntuitiveAlternatives(beforeRetainedAnomalies(beforeReviewedGraphAmendments(integrated))),s);assert.deepEqual(beforeRetainedAnomalies(beforeReviewedGraphAmendments(integrated)),applyIntuitiveAlternatives(s));const bridge=JSON.parse(fs.readFileSync(new URL('../experiments/tangible-campaign/evidence/integration-20261028/kitchen-atlas-20261028/food-base-name-bridge.json',import.meta.url),'utf8'));assert.equal(bridge.changes.length,22);const copy=structuredClone(base);for(const row of bridge.changes){const x=copy.locations[row.index];assert.equal(x.id,row.id);assert.equal(x.label,row.namedPredecessorLabel);assert.equal(retained.locations[row.index].label,row.actualPlayedLabel);x.label=row.actualPlayedLabel;}assert.deepEqual(copy,retained);});
+--- a/tests/late-mars-archive-label-integration.test.mjs
++++ b/tests/late-mars-archive-label-integration.test.mjs
+@@ -1,3 +1,7 @@
++import {beforeReviewedGraphAmendments} from '../experiments/tangible-campaign/integration/reviewed-graph-amendments.ts';
++import {currentMarsRouteActions} from '../experiments/tangible-campaign/integration/current-mars-route-actions.ts';
++import {beforeSolarLampContinuity} from '../experiments/tangible-campaign/integration/solar-lamp-continuity.ts';
++import {beforeRetainedAnomalies} from '../experiments/tangible-campaign/integration/retained-anomaly-successor.ts';
+ import {beforeMarsNaturalOrders} from '../experiments/tangible-campaign/integration/mars-natural-orders.ts';
+ // Label-only successor: source-aware headless semantic/save checks, not fresh final-label or UI evidence.
+ import test from 'node:test';import assert from 'node:assert/strict';import fs from 'node:fs';
+@@ -6,7 +10,7 @@
+ import {scenarios} from '../experiments/tangible-campaign/ui/scenarios.ts';
+ import {readSource,evidenceRoot,digest} from '../experiments/tangible-campaign/integration/reviewed-routes.ts';
+ fs.mkdirSync(new URL('../results/content-late-20261028/',import.meta.url),{recursive:true});
+-const current=beforeMarsNaturalOrders(latest);
++const current=beforeMarsNaturalOrders(beforeSolarLampContinuity(beforeRetainedAnomalies(beforeReviewedGraphAmendments(latest))));
+ const override=JSON.parse(fs.readFileSync(new URL('late-label-successor-20261028/mars-archive-label-override.json',evidenceRoot),'utf8')),old=readSource(override.source),data='mars/late-return-consistency-20261028/';
+ const semantic=state=>({...state,tokens:state.tokens.map(({x,y,...t})=>t),places:state.places.map(({x,y,...p})=>p)});
+ test('Frozen predecessor: Mars archive override is exactly one label against frozen reviewed 3385 candidate; no graph, lifecycle, identity or save-version change',()=>{
+--- a/tests/late-mars-content-integration.test.ts
++++ b/tests/late-mars-content-integration.test.ts
+@@ -1,4 +1,8 @@
+-import {applyMarsNaturalOrders} from '../experiments/tangible-campaign/integration/mars-natural-orders.ts';
++import {beforeReviewedGraphAmendments} from '../experiments/tangible-campaign/integration/reviewed-graph-amendments.ts';
++import {currentMarsRouteActions} from '../experiments/tangible-campaign/integration/current-mars-route-actions.ts';
++import {beforeSolarLampContinuity} from '../experiments/tangible-campaign/integration/solar-lamp-continuity.ts';
++import {beforeRetainedAnomalies} from '../experiments/tangible-campaign/integration/retained-anomaly-successor.ts';
++import {applyMarsNaturalOrders,beforeMarsNaturalOrders} from '../experiments/tangible-campaign/integration/mars-natural-orders.ts';
+ // Current-runtime integration adaptation of reviewed Mars verify-cargo.ts; no UI/browser or fresh-player evidence.
+ import test from 'node:test';
+ import assert from 'node:assert/strict';
+@@ -24,9 +28,10 @@
+   if(action.type==='advance'&&s.stages[game.state.stage].id==='homebound'&&game.state.stage!==before.state.stage)transfers.push(...game.events.at(-1)!.transfers??[]);
+  }assert.ok(game.state.completed);return {game,points,stages,transfers};}
+ await check('Existing scenario, lifecycle, objective-flow and construction validators pass',()=>{const errors=[...M.validateScenario(s),...validateContentLifecycles([s]),...validateObjectiveFlow([s]),...validateConstructionContinuity([s])];assert.deepEqual(errors,[]);return errors;});
++const historical=beforeMarsNaturalOrders(beforeSolarLampContinuity(beforeRetainedAnomalies(beforeReviewedGraphAmendments(s))));
+ const runs=new Map<string,ReturnType<typeof trace>>();
+-await check('All five prior route sequences complete with only load input and final gesture changed; one fewer synthetic combination',()=>{
+- const out=[];for(const name of ['authored','beacon','tow','tow-old-alias','closed-reader.accepted']){const original:Action[]=read(`${name}.actions.json`),actions:Action[]=read(`${name}.cargo.actions.json`);assert.equal(actions.length,original.length);const diffs=actions.flatMap((a,i)=>JSON.stringify(a)!==JSON.stringify(original[i])?[{index:i+1,before:original[i],after:a}]:[]);assert.equal(diffs.length,2);assert.ok(JSON.stringify(diffs[0].after).includes('cushioned-capsule'));assert.deepEqual(diffs[1].after,{type:'place',item:'docked-vehicle',location:'orbital-hatch'});const run=trace(actions);runs.set(name,run);out.push({name,actions:actions.length,combinations:run.game.state.metrics.combinations,completed:true,diffs});}assert.equal(runs.get('closed-reader.accepted')!.game.state.metrics.combinations,203);return out;
++await check('Five immutable cargo route files retain their exact two historical edits; four current routes add one real lamp construction',()=>{
++ const out=[];for(const name of ['authored','beacon','tow','tow-old-alias','closed-reader.accepted']){const original:Action[]=read(`${name}.actions.json`),actions:Action[]=read(`${name}.cargo.actions.json`);assert.equal(actions.length,original.length);const diffs=actions.flatMap((a,i)=>JSON.stringify(a)!==JSON.stringify(original[i])?[{index:i+1,before:original[i],after:a}]:[]);assert.equal(diffs.length,2);assert.ok(JSON.stringify(diffs[0].after).includes('cushioned-capsule'));assert.deepEqual(diffs[1].after,{type:'place',item:'docked-vehicle',location:'orbital-hatch'});if(name==='tow-old-alias'){assert(M.replay(historical,actions).state.completed);out.push({name,historicalOnly:true,currentRoute:false,actions:actions.length,completed:true,diffs});continue;}const currentActions=currentMarsRouteActions(actions);assert.equal(currentActions.length,actions.length+1);const run=trace(currentActions);runs.set(name,run);out.push({name,currentRoute:true,actions:currentActions.length,combinations:run.game.state.metrics.combinations,completed:true,diffs});}assert.equal(runs.get('closed-reader.accepted')!.game.state.metrics.combinations,204);return out;
+ });
+ const run=runs.get('closed-reader.accepted')!;
+ await check('Cart preparation keeps precisely one filled capsule and does not snapshot any of its cargo',()=>{
+@@ -47,18 +52,18 @@
+ await check('Both operand directions perform the same single-owner transfer',()=>{const evidence=[];for(const id of ['departure-11-specimen-cart','homebound-5-loaded-capsule-dock','homebound-6-loaded-ascent-vehicle']){const before=run.points.get(id)!.before,r=s.recipes.find(x=>x.id===id)!;const x=M.applyAction(s,before,{type:'combine',a:r.a,b:r.b}),y=M.applyAction(s,before,{type:'combine',a:r.b,b:r.a});assert.ok(x.accepted&&y.accepted);assert.deepEqual(snapshot(x.game),snapshot(y.game));evidence.push({recipe:id,sameStateAndVisibleContents:true});}return evidence;});
+ await check('Final placement wins with real cargo visible on docked ship and creates no capsule badge',()=>{const view=M.playerView(s,run.game),ship=view.things.find(x=>x.id==='docked-vehicle')!;assert.equal(ship.location,'orbital-hatch');assert.ok(ship.gold);assert.equal(M.token(run.game.state,'returned-capsule'),undefined);assert.equal(s.recipes.find(r=>r.id==='homebound-13-reunited-crew'),undefined);assert.ok(ship.components.includes('Catalogued ice sample'));assert.ok(ship.components.includes('Complete field archive'));return {completed:run.game.state.completed,goals:view.objectives,ship,cart:view.things.find(x=>x.id==='specimen-cart'),completionText:view.completionText};});
+ await check('Undo restores single prior capsule owner; JSON restore retains final ownership',()=>{const before=run.points.get('homebound-5-loaded-capsule-dock')!.before,after=run.points.get('homebound-5-loaded-capsule-dock')!.after,undone=M.undo(after);assert.ok(undone.accepted);assert.deepEqual(snapshot(undone.game),snapshot(before));const restored=M.restore(s,JSON.stringify(run.game));assert.deepEqual(snapshot(restored),snapshot(run.game));return {undoMatchesBefore:true,restoreMatchesAfter:true};});
+-await check('Every embedded checkpoint still replays on unchanged engine',()=>{const results=[];for(const c of s.checkpoints??[]){const routes=['authored','beacon','tow','tow-old-alias','closed-reader.accepted'].map(name=>read(`${name}.cargo.actions.json`));assert(routes.some(route=>JSON.stringify(route.slice(0,c.actions.length))===JSON.stringify(c.actions)),c.id+' must be an exact accepted route prefix');const game=M.checkpoint(s,c.id);results.push({id:c.id,actions:c.actions.length,stage:s.stages[game.state.stage].id,completed:game.state.completed});}return results;});
++await check('Every current checkpoint is an exact Solar-adapted accepted route prefix',()=>{const results=[];for(const c of s.checkpoints??[]){const routes=['authored','beacon','tow','closed-reader.accepted'].map(name=>currentMarsRouteActions(read(`${name}.cargo.actions.json`)));assert(routes.some(route=>JSON.stringify(route.slice(0,c.actions.length))===JSON.stringify(c.actions)),c.id+' must be an exact accepted route prefix');const game=M.checkpoint(s,c.id);results.push({id:c.id,actions:c.actions.length,stage:s.stages[game.state.stage].id,completed:game.state.completed});}return results;});
+ 
+-await check('Exact recommended bytes plus declared archive-label and natural-order successor; carrier strings once and live predecessor save identity unchanged',()=>{
+- assert.equal(digest(readFileSync(new URL('recommended.candidate.scenario.json',data))),'3385e9d34941f15138fdde832347751f223128c59cbf209f4f590fd45827f29e');const expected=read('recommended.candidate.scenario.json');const override=JSON.parse(readFileSync(new URL('../experiments/tangible-campaign/evidence/integration-20261028/late-label-successor-20261028/mars-archive-label-override.json',import.meta.url),'utf8'));assert.equal(override.changes.length,1);for(const c of override.changes){const item=expected.items.find((i:any)=>i.id===c.item);assert.equal(item[c.field],c.before);item[c.field]=c.after;}assert.deepEqual(s,applyMarsNaturalOrders(expected));assert.deepEqual(oldMars,read('live.scenario.snapshot.json'));assert.equal(scenarios.find(x=>x.id===oldMars.id),oldMars);assert(featuredScenarioIds.includes(s.id));assert(!featuredScenarioIds.includes(oldMars.id));
++await check('Exact recommended bytes plus label/natural-order delta after exact Solar/crawler inverse; predecessor save identity unchanged',()=>{
++ assert.equal(digest(readFileSync(new URL('recommended.candidate.scenario.json',data))),'3385e9d34941f15138fdde832347751f223128c59cbf209f4f590fd45827f29e');const expected=read('recommended.candidate.scenario.json');const override=JSON.parse(readFileSync(new URL('../experiments/tangible-campaign/evidence/integration-20261028/late-label-successor-20261028/mars-archive-label-override.json',import.meta.url),'utf8'));assert.equal(override.changes.length,1);for(const c of override.changes){const item=expected.items.find((i:any)=>i.id===c.item);assert.equal(item[c.field],c.before);item[c.field]=c.after;}assert.deepEqual(beforeSolarLampContinuity(beforeRetainedAnomalies(beforeReviewedGraphAmendments(s))),applyMarsNaturalOrders(expected));assert.deepEqual(oldMars,read('live.scenario.snapshot.json'));assert.equal(scenarios.find(x=>x.id===oldMars.id),oldMars);assert(featuredScenarioIds.includes(s.id));assert(!featuredScenarioIds.includes(oldMars.id));
+  for(const [id,field] of [['padded-carrier','description'],['sample-carrier','description'],['mounted-sample-carrier','description'],['mounted-sample-carrier','label']] as const)assert.equal(s.items.find(i=>i.id===id)![field],oldMars.items.find(i=>i.id===id)![field]);
+- const old=M.checkpoint(oldMars,'complete');assert(M.restore(oldMars,JSON.stringify(old)).state.completed);assert.throws(()=>M.restore(s,JSON.stringify(old)),/Invalid campaign save/);return {exactSourceWithSingleLabelOverride:true,oldDirectRouteAndSavePreserved:true,carrierOverridesReapplied:false};
++ const old=M.checkpoint(oldMars,'complete');assert(M.restore(oldMars,JSON.stringify(old)).state.completed);assert.throws(()=>M.restore(s,JSON.stringify(old)),/Invalid campaign save/);return {exactHistoricalSourceWithLabelAndNaturalOrders:true,additionalSolarAndCrawlerExactlyReversed:true,oldDirectRouteAndSavePreserved:true,carrierOverridesReapplied:false};
+ });
+-await check('All five exact corrected route files preserve single ownership at each cargo milestone and all 23 earlier-created chapter connections',()=>{
++await check('All four current Solar-adapted route witnesses preserve single ownership at each cargo milestone and all 23 earlier-created chapter connections',()=>{
+  const rows=[];for(const [name,r] of runs){const cap=M.token(r.points.get('homebound-5-loaded-capsule-dock')!.before.state,'cushioned-capsule')!,payload=['cushioned-capsule',...Object.values(cap.slots),...(cap.components??[])];
+   assert.deepEqual(owners(r.points.get('departure-11-specimen-cart')!.after,'cushioned-capsule').map(t=>t.id),['cushioned-capsule']);
+   for(const id of ['homebound-5-loaded-capsule-dock','homebound-6-loaded-ascent-vehicle','homebound-9-flight-ready-vehicle','homebound-11-ascending-vehicle','homebound-12-docked-vehicle']){const g=r.points.get(id)!.after,o=owners(g,'cushioned-capsule');assert.equal(o.length,1);for(const k of payload)assert(o[0].components?.includes(k));for(const k of ['specimen-cart','hauler-platform','protected-controller'])assert(!o[0].components?.includes(k));}
+-  const a=auditRoute(s,read(`${name}.cargo.actions.json`));assert(a.game.state.completed);assert.deepEqual(a.missing,[]);assert.equal(a.rows.length,24);rows.push({name,completed:true,combinations:r.game.state.metrics.combinations,goalConnectedLaterChapters:23,ownershipMilestonesChecked:6});
++  const a=auditRoute(s,currentMarsRouteActions(read(`${name}.cargo.actions.json`)));assert(a.game.state.completed);assert.deepEqual(a.missing,[]);assert.equal(a.rows.length,24);rows.push({name,completed:true,combinations:r.game.state.metrics.combinations,goalConnectedLaterChapters:23,ownershipMilestonesChecked:6});
+  }return rows;
+ });
+ await check('Cabin record promises only restored fittings, missing fitting rejects, and optional fictional reading leaves full state untouched',()=>{
+@@ -66,7 +71,11 @@
+  for(const slot of Object.keys(cabin.slots))for(const [a,b] of [[recipe.a,recipe.b],[recipe.b,recipe.a]]){const g=structuredClone(p.before);delete M.token(g.state,'ascent-cabin')!.slots[slot];assert.equal(M.applyAction(s,g,{type:'combine',a,b}).accepted,false);}
+  const before=JSON.stringify(p.after),view=M.playerView(s,p.after),item=view.things.find(x=>x.id==='cabin-test-record')!;assert.match(item.reading!.text,/does not diagnose another fault or clear the final assembled vehicle for launch/);assert.match(item.reading!.attribution,/Fictional/);assert.equal(JSON.stringify(p.after),before);item.reading!.text='detached mutation';assert.equal(JSON.stringify(p.after),before);assert.match(s.items.find(x=>x.id==='cabin-test-record')!.reading!.text,/does not diagnose/);
+  const goal=s.stages.find(x=>x.id==='departure')!.objectives.find(x=>x.id==='departure-family')!,portrait=s.recipes.find(x=>x.id==='expansion-family-archive')!;assert.equal(goal.text,'Archive the crew portrait');assert.equal(goal.item,portrait.out);assert.equal(portrait.a,'crew-table-portrait');assert.equal(portrait.b,'archival-recorder');assert.deepEqual(portrait,oldMars.recipes.find(x=>x.id===portrait.id));
+- assert.match(s.stages.at(-1)!.completionText!,/copy of the picture/);return {missingFittingControls:8,readingDetachedAndNonmutating:true,portraitArchivingUnchangedRecipe:true,newActionAdded:false};
++ assert.match(s.stages.at(-1)!.completionText!,/copy of the picture/);return {missingFittingControls:8,readingDetachedAndNonmutating:true,portraitArchivingUnchangedRecipe:true,cabinRecordActionAdded:false};
+ });
+ 
+ save(`${prefix}.verification.json`,{evidenceClass:'Source-aware logical candidate verification, not a new blind playtest; no UI/browser testing',checks});save(`${prefix}.trace.json`,{metrics:run.game.state.metrics,transfers:run.transfers,stages:run.stages,final:snapshot(run.game)});console.log(JSON.stringify({passed:checks.length,failed:0,checks:checks.map(x=>x.name)},null,2));
++
++test('Solar action adapter preserves raw witnesses, changes exactly the first-use boundary, and is idempotent',()=>{
++ for(const name of ['authored','beacon','tow','tow-old-alias','closed-reader.accepted']){const raw:Action[]=read(`${name}.cargo.actions.json`),before=JSON.stringify(raw),now=currentMarsRouteActions(raw),index=raw.findIndex(a=>a.type==='combine'&&(a.a==='solar-lamp'||a.b==='solar-lamp'));assert(index>=0);assert.equal(JSON.stringify(raw),before);assert.equal(now.length,raw.length+1);assert.deepEqual(now.slice(0,index),raw.slice(0,index));assert.deepEqual(now[index],{type:'combine',a:'lamp',b:'solar-charger'});assert.deepEqual(now.slice(index+1),raw.slice(index));assert.deepEqual(currentMarsRouteActions(now),now);assert.deepEqual(currentMarsRouteActions(raw.slice(0,index)),raw.slice(0,index));}
++});
+--- a/tests/mars-natural-orders.test.ts
++++ b/tests/mars-natural-orders.test.ts
+@@ -1,3 +1,7 @@
++import {beforeReviewedGraphAmendments} from '../experiments/tangible-campaign/integration/reviewed-graph-amendments.ts';
++import {currentMarsRouteActions} from '../experiments/tangible-campaign/integration/current-mars-route-actions.ts';
++import {beforeSolarLampContinuity} from '../experiments/tangible-campaign/integration/solar-lamp-continuity.ts';
++import {beforeRetainedAnomalies} from '../experiments/tangible-campaign/integration/retained-anomaly-successor.ts';
+ import {applyMilestones} from '../experiments/tangible-campaign/ui/campaign-milestones.ts';
+ /** Source-aware headless semantic checks. No browser, usability or scientific validation claimed. */
+ import test from 'node:test';
+@@ -9,9 +13,10 @@
+ import {scenario as s} from '../experiments/tangible-campaign/ui/campaigns/mars-return-cargo.ts';
+ import {applyMarsNaturalOrders,beforeMarsNaturalOrders,marsNaturalOrdersDelta} from '../experiments/tangible-campaign/integration/mars-natural-orders.ts';
+ import {auditRoute} from '../experiments/tangible-campaign/integration/reviewed-routes.ts';
+-const old=beforeMarsNaturalOrders(s),root=new URL('../experiments/tangible-campaign/evidence/integration-20261028/sources/mars/late-return-consistency-20261028/',import.meta.url);
++const naturalBase=beforeSolarLampContinuity(beforeRetainedAnomalies(beforeReviewedGraphAmendments(s))),old=beforeMarsNaturalOrders(naturalBase),root=new URL('../experiments/tangible-campaign/evidence/integration-20261028/sources/mars/late-return-consistency-20261028/',import.meta.url);
+ const names=['authored','beacon','tow','tow-old-alias','closed-reader.accepted'];
+-const routes=names.map(name=>({name,actions:JSON.parse(readFileSync(new URL(name+'.cargo.actions.json',root),'utf8')) as Action[]}));
++const historicalRoutes=names.map(name=>({name,actions:JSON.parse(readFileSync(new URL(name+'.cargo.actions.json',root),'utf8')) as Action[]}));
++const routes=historicalRoutes.filter(r=>r.name!=='tow-old-alias').map(r=>({...r,actions:currentMarsRouteActions(r.actions)}));
+ const combine=(a:string,b:string):Action=>({type:'combine',a,b});
+ const routesForSeeds:Record<string,Action[]>={
+  'cover-first':[combine('seed-tray','clear-cover'),combine('covered-seed-tray','water-canister'),combine('watered-covered-tray','@warm-habitat')],
+@@ -27,12 +32,12 @@
+  return [a];
+  });}
+ const rows:any[]=[];
+-test('bounded successor preserves the same world, checkpoints and goals; both power facts are surface narrative',()=>{
+- assert.deepEqual(applyMarsNaturalOrders(old),s);assert.equal(s.id,old.id);assert.deepEqual(s.checkpoints,old.checkpoints);assert.deepEqual(s.stages.map(x=>x.objectives),old.stages.map(x=>x.objectives));assert.equal(s.items.length-old.items.length,2);assert.equal(s.recipes.length-old.recipes.length,5);
++test('historical natural-order successor preserves the same world, checkpoints and goals; both power facts are surface narrative',()=>{
++ assert.deepEqual(applyMarsNaturalOrders(old),naturalBase);assert.equal(s.id,old.id);assert.deepEqual(naturalBase.checkpoints,old.checkpoints);assert.deepEqual(naturalBase.stages.map(x=>x.objectives),old.stages.map(x=>x.objectives));assert.equal(naturalBase.items.length-old.items.length,2);assert.equal(naturalBase.recipes.length-old.recipes.length,5);
+  assert.deepEqual([...M.validateScenario(s),...validateContentLifecycles([s]),...validateObjectiveFlow([s]),...validateConstructionContinuity([s])],[]);
+  const loc=s.locations.find(x=>x.id==='sheltered-ice')!;assert.equal(loc.label,'Ice melt station');assert.equal(s.locations.find(x=>x.id==='distant-lookout')!.label,'Cliff viewpoint');assert.equal(s.locations.find(x=>x.id==='weather-apron')!.label,'Open weather site');assert.equal(s.stages.find(x=>x.id==='weather')!.area.label,'Open weather site');assert.match(loc.description!,/fixed electric melt head awaiting the solar charger/);assert.match(loc.description!,/surviving cabin service lead/);assert.match(s.stages.find(x=>x.id==='habitat')!.caches![0].narrative,/unpowered fixed melt head.*separate live cabin service lead/);
+ });
+-test('all 60 full routes: two melt methods, three cover orders, both object drag directions, five historic route families',()=>{
++test('all 48 current full routes: two melt methods, three cover orders, both object drag directions, four still-valid historic route families with explicit Solar construction',()=>{
+  for(const {name,actions} of routes)for(const heater of [false,true])for(const order of Object.keys(routesForSeeds))for(const reverse of [false,true]){
+   const altered=variant(actions,heater,order,reverse);const audit=auditRoute(s,altered);assert(audit.game.state.completed);assert.deepEqual(audit.missing,[]);assert.equal(audit.rows.length,24);
+   let g=M.createGame(s);let covered=false,checks=0,late=false;
+@@ -58,13 +63,20 @@
+  assert(!M.applyAction(s,g,combine('watered-covered-tray','@warm-habitat')).accepted);
+  const elsewhere=step(g,{type:'visit',area:'area-signal',carry:['heater']}).game;assert(!M.applyAction(s,elsewhere,combine('heater','@sheltered-ice')).accepted,'station cannot be used from another area');
+ });
+-test('all canonical old-save prefixes restore verbatim; pre-existing tray states can take each newly offered path',()=>{
+- let restores=0;
+- for(const {name,actions} of routes){let g=M.createGame(old);for(const a of actions){const r=M.applyAction(old,g,a);assert(r.accepted);g=r.game;assert.deepEqual(M.restore(s,JSON.stringify(g)),g);restores++;
++test('all canonical old-save prefixes preserve exact progress; only obsolete camp arrival provenance is normalized',()=>{
++ let restores=0,normalizedCampSnapshots=0;
++ for(const {name,actions} of historicalRoutes){let g=M.createGame(old);for(const a of actions){const r=M.applyAction(old,g,a);assert(r.accepted);g=r.game;const expected=structuredClone(g);
++  // Solar lamp was genuinely supplied in these immutable old camp saves. The
++  // current cache no longer supplies it, so the existing optional-metadata
++  // validator drops only that arrival and its divider, never real inventory.
++  for(const st of [...expected.history,expected.state])if(st.arrival?.stage===7&&st.stage===7&&st.arrival.area==='area-camp'&&st.arrival.supplies.some(x=>x.item==='solar-lamp'&&x.cache==='camp-cache'&&(x.sourceStage??st.stage)===7)){
++   delete st.arrival;delete st.arrivalLayout;normalizedCampSnapshots++;
++  }
++  assert.deepEqual(M.restore(s,JSON.stringify(g)),expected);restores++;
+   if(name==='authored'&&r.created==='seed-tray'){let h=M.restore(s,JSON.stringify(g));for(const x of routesForSeeds['cover-first'])h=step(h,x).game;assert(M.token(h.state,'propagator'));}
+   if(name==='authored'&&r.created==='watered-seed-tray'){let h=M.restore(s,JSON.stringify(g));h=step(h,combine('watered-seed-tray','clear-cover')).game;h=step(h,combine('watered-covered-tray','@warm-habitat')).game;assert(M.token(h.state,'propagator'));}
+- }}assert.equal(restores,1168);
+- mkdirSync(new URL('../results/mars-natural-orders-20261028/',import.meta.url),{recursive:true});writeFileSync(new URL('../results/mars-natural-orders-20261028/routes.json',import.meta.url),JSON.stringify({evidenceClass:'Source-aware logical verification; no UI/browser or fresh player evidence',oldSaveRestores:restores,worldId:s.id,sourceDeltaEntries:marsNaturalOrdersDelta.changes.length,routes:rows},null,2)+'\n');
++ }}assert.equal(restores,1168);assert(normalizedCampSnapshots>0);
++ mkdirSync(new URL('../results/mars-natural-orders-20261028/',import.meta.url),{recursive:true});writeFileSync(new URL('../results/mars-natural-orders-20261028/routes.json',import.meta.url),JSON.stringify({evidenceClass:'Source-aware logical verification; no UI/browser or fresh player evidence',oldSaveRestores:restores,oldSavePolicy:'Exact full game except removal of optional arrival/arrivalLayout only when an old camp-cache solar-lamp receipt is no longer declared; no invented provenance or physical/history changes',normalizedCampSnapshots,worldId:s.id,sourceDeltaEntries:marsNaturalOrdersDelta.changes.length,routes:rows},null,2)+'\n');
+ });
+ function forkScenario(exclusive:boolean):Scenario{const life=(role:'transform'|'retain'|'incorporate',unique=false)=>({role,reason:'Synthetic explicit lifecycle',...(unique?{exclusive:true as const}:{})});return {schemaVersion:1,id:'exclusive-test',title:'Exclusive test',premise:'Single physical input versus continuing supply',items:['tray','lid','water','covered','watered','done'].map(id=>({id,label:id})),locations:[],initialItems:['tray','lid','water'],recipes:[{id:'cover',a:'tray',b:'lid',out:'covered',preserve:['lid'],lifecycle:{tray:life('transform',exclusive),lid:life('incorporate',exclusive)}},{id:'water',a:'tray',b:'water',out:'watered',lifecycle:{tray:life('transform'),water:life('retain')}},{id:'other-lid',a:'water',b:'lid',out:'done',lifecycle:{water:life('retain'),lid:life('incorporate')}}],stages:[{id:'one',title:'One',speaker:'Test',motivation:'Test explicit event-local ownership',area:{id:'one',label:'One',travelText:'Here'},objectives:[{id:'done',text:'Cover tray',kind:'create',item:'covered'}]}]};}
+ test('exclusive is narrowly opt-in; unflagged shared supplies remain, unrelated work and restore do not remove them',()=>{
+@@ -89,3 +101,11 @@
+   assert(game.state.completed);assert.deepEqual(M.restore(playable,JSON.stringify(game)),game);assert.equal(game.state.milestones?.length,3);
+  }
+ });
++
++// This fifth file intentionally used the now-replaced disabled crawler again.
++// Preserve its exact historical witness, but never report it as a current route.
++test('historical tow-old-alias completes only on its exact inverse baseline; current crawler cannot be duplicated',()=>{
++ const actions=historicalRoutes.find(r=>r.name==='tow-old-alias')!.actions;assert(M.replay(old,actions).state.completed);
++ let g=M.createGame(s),rejected:Action|undefined;for(const a of currentMarsRouteActions(actions)){const result=M.applyAction(s,g,a);if(!result.accepted){rejected=a;break;}g=result.game;}
++ assert(rejected&&rejected.type==='combine'&&[rejected.a,rejected.b].includes('damaged-crawler'));assert(!M.token(g.state,'damaged-crawler'));assert(M.token(g.state,'towed-crawler'));
++});
+--- a/tests/milestones-engine.test.ts
++++ b/tests/milestones-engine.test.ts
+@@ -1,3 +1,4 @@
++import {currentMarsRouteActions} from '../experiments/tangible-campaign/integration/current-mars-route-actions.ts';
+ // Logical/headless evidence only. No native dialog, layout, motion, or human playtest claim.
+ import test from 'node:test';
+ import assert from 'node:assert/strict';
+@@ -49,7 +50,7 @@
+ test('real Mars route earns exactly the selected milestones, including Rover only after drive and solar power',()=>{
+  const evidence=JSON.parse(readFileSync(new URL('../experiments/tangible-campaign/evidence/'+mars.id+'-route-evidence.json',import.meta.url),'utf8'));
+  let g=M.createGame(mars);const earned:string[]=[];
+- for(const a of evidence.actionsLog){const before=g;const r=M.applyAction(mars,g,a);assert(r.accepted);g=r.game;
++ for(const a of currentMarsRouteActions(evidence.actionsLog)){const before=g;const r=M.applyAction(mars,g,a);assert(r.accepted);g=r.game;
+   for(const m of g.state.milestones??[])if(!(before.state.milestones??[]).some(x=>x.id===m.id)){earned.push(m.id);const def=mars.milestones!.find(x=>x.id===m.id)!;const t=M.token(g.state,def.item)!;assert(t);if(def.when==='functional')assert(M.capabilities(mars,t).includes(def.capability!));if(m.id==='mars-rover')assert.deepEqual([t.slots.drive,t.slots['traction-power']],['drive-unit','solar-charger']);if(m.id==='mars-oxygen')assert.equal(t.slots.intake,'filtered-intake');}
+  }
+  assert(g.state.completed);assert.deepEqual(earned,['mars-rover','mars-water','mars-oxygen']);
+--- a/tests/morning-content-integration.test.ts
++++ b/tests/morning-content-integration.test.ts
+@@ -1,3 +1,4 @@
++import {currentMarsRouteActions} from '../experiments/tangible-campaign/integration/current-mars-route-actions.ts';
+ import {expectedSourceHashAfterArrivals} from '../experiments/tangible-campaign/integration/arrival-source-guard.ts';
+ // Content/logic only. No controller, DOM, browser, layout or touch tests.
+ import test from 'node:test';
+@@ -54,7 +55,7 @@
+  assert(scenarios.some(s=>s.id==='causation-accidental-bell-probe-v1'),'Historical Riverside direct route remains registered');
+ });
+ for(const spec of routeSpecs)test(`${spec.key}: every debug checkpoint is an exact prefix earned by accepted actions`,()=>{
+- const s=scenarioFor(spec.key);const routes=[routeActions(spec.source),...spec.alternatives.map(a=>routeActions(a.source,a.witness))];
++ const s=scenarioFor(spec.key);const routes=[routeActions(spec.source),...spec.alternatives.filter(a=>spec.key!=='mars'||a.name!=='tow-old-alias').map(a=>routeActions(a.source,a.witness))].map(actions=>spec.key==='mars'?currentMarsRouteActions(actions):actions);
+  for(const cp of s.checkpoints??[]){
+   assert(routes.some(route=>JSON.stringify(route.slice(0,cp.actions.length))===JSON.stringify(cp.actions)),s.id+': unearned or undocumented checkpoint '+cp.id);
+   let game=M.createGame(s,360);for(const [i,action] of cp.actions.entries()){const result=M.applyAction(s,game,action);assert(result.accepted,`${s.id} ${cp.id} action ${i+1}: ${result.message}`);game=result.game;}
+--- a/tests/next-all-registered-routes.test.mjs
++++ b/tests/next-all-registered-routes.test.mjs
+@@ -1,3 +1,4 @@
++import {currentMarsRouteActions} from '../experiments/tangible-campaign/integration/current-mars-route-actions.ts';
+ // Headless extraction of the catalogue route/checkpoint coverage from the mixed tangible-campaign aggregate.
+ // No controller, DOM, browser, layout or touch imports. Evidence output is self-created.
+ import test from 'node:test';
+@@ -10,7 +11,7 @@
+ for(const s of scenarios)test(`Registered route and retained save identity: ${s.id}`,()=>{
+  assert.deepEqual(M.validateScenario(s),[]);
+  const evidence=JSON.parse(fs.readFileSync(new URL(`experiments/tangible-campaign/evidence/${s.id}-route-evidence.json`,root),'utf8'));
+- const game=M.replay(s,evidence.actionsLog);assert(game.state.completed);assert.equal(game.state.metrics.combinations,evidence.combinations);
++ const currentMars=s.id==='mars-connected-survival-v4-return-cargo-research',game=M.replay(s,currentMars?currentMarsRouteActions(evidence.actionsLog):evidence.actionsLog);assert(game.state.completed);assert.equal(game.state.metrics.combinations,evidence.combinations+(currentMars?1:0));
+  assert.deepEqual(M.restore(s,JSON.stringify(game)),game);
+  const checkpoints=[];for(const c of s.checkpoints??[]){const earned=M.checkpoint(s,c.id);assert.deepEqual(M.restore(s,JSON.stringify(earned)),earned);checkpoints.push({id:c.id,stage:earned.state.stage,completed:earned.state.completed,combinations:earned.state.metrics.combinations});}
+  fs.writeFileSync(new URL(s.id+'.json',output),JSON.stringify({scenarioId:s.id,completed:true,combinations:game.state.metrics.combinations,saveRestoreExact:true,checkpoints,limits:'Current-source replay of documented routes; not UI/browser or fresh-player evidence.'},null,2)+'\n');
+--- a/tests/next-purpose-checkpoint-integration.test.mjs
++++ b/tests/next-purpose-checkpoint-integration.test.mjs
+@@ -1,3 +1,5 @@
++import {beforeReviewedGraphAmendments} from '../experiments/tangible-campaign/integration/reviewed-graph-amendments.ts';
++import {beforeRetainedAnomalies} from '../experiments/tangible-campaign/integration/retained-anomaly-successor.ts';
+ import {applyIntuitiveAlternatives,beforeIntuitiveAlternatives} from '../experiments/tangible-campaign/integration/intuitive-story-alternatives.ts';
+ import {expectedSourceHashAfterArrivals} from '../experiments/tangible-campaign/integration/arrival-source-guard.ts';
+ // Self-contained current-engine adaptation of the archived 19 paired-content checks, plus integration preservation. No UI/browser/controller.
+@@ -60,7 +62,7 @@
+  assert.equal(s.stages[1].area.id,s.stages[2].area.id);
+ });
+ test('exact accepted source and pinned logical surface preserve the old packet plus exact approved content and implementation successors',()=>{
+- assert.deepEqual(beforeIntuitiveAlternatives(integrated),s);assert.deepEqual(integrated,applyIntuitiveAlternatives(s));assert.equal(sha(readFileSync(new URL('scenario.json',packet))),'0603859bf3a0cda2974cb58346c3349651559752fb154ce2a001cb8c2f724a19');
++ assert.deepEqual(beforeIntuitiveAlternatives(beforeRetainedAnomalies(beforeReviewedGraphAmendments(integrated))),s);assert.deepEqual(beforeRetainedAnomalies(beforeReviewedGraphAmendments(integrated)),applyIntuitiveAlternatives(s));assert.equal(sha(readFileSync(new URL('scenario.json',packet))),'0603859bf3a0cda2974cb58346c3349651559752fb154ce2a001cb8c2f724a19');
+  assert.equal(sha(readFileSync(new URL('surface.mjs',packet))),'86098df473650de49b8f9ec04a0bd46fe7846f9ca0fcc7025a97c976564da0c2');
+  const checked=[];for(const [path,metadata]of Object.entries(parent.files)){
+   if(!path.startsWith('src/')&&!/experiments\/tangible-campaign\/(engine|schema)\//.test(path)&&!(path.startsWith('experiments/tangible-campaign/ui/')&&!path.endsWith('/scenarios.ts')))continue;
+--- a/tests/reviewed-campaign-integration.test.ts
++++ b/tests/reviewed-campaign-integration.test.ts
+@@ -1,5 +1,9 @@
++import {beforeReviewedGraphAmendments} from '../experiments/tangible-campaign/integration/reviewed-graph-amendments.ts';
++import {currentMarsRouteActions} from '../experiments/tangible-campaign/integration/current-mars-route-actions.ts';
++import {beforeSolarLampContinuity} from '../experiments/tangible-campaign/integration/solar-lamp-continuity.ts';
++import {beforeRetainedAnomalies} from '../experiments/tangible-campaign/integration/retained-anomaly-successor.ts';
+ import {applyIntuitiveAlternatives,beforeIntuitiveAlternatives} from '../experiments/tangible-campaign/integration/intuitive-story-alternatives.ts';
+-import {applyMarsNaturalOrders} from '../experiments/tangible-campaign/integration/mars-natural-orders.ts';
++import {applyMarsNaturalOrders,beforeMarsNaturalOrders} from '../experiments/tangible-campaign/integration/mars-natural-orders.ts';
+ import {milestoneAtlasPredecessorScenarios} from '../experiments/tangible-campaign/ui/campaigns/milestone-atlas-predecessors-20261028.ts';
+ import {acceptedGoalAncestry,priorCreatedAncestors} from '../experiments/tangible-campaign/integration/accepted-goal-ancestry.ts';
+ import {kitchenAtlasAdditionalScenarios} from '../experiments/tangible-campaign/ui/campaigns/kitchen-atlas-experiments-20261028.ts';
+@@ -29,7 +33,7 @@
+ test('all input snapshots hash-verify; candidate data matches reviewed bytes except documented Mars presentation and Atlas checkpoints',()=>{
+  for(const row of sourceManifest.inputs)assert.equal(digest(readFileSync(new URL(row.snapshotPath,root))),row.sha256,row.snapshotPath);
+  const delta=JSON.parse(readFileSync(new URL('mars-presentation-delta.json',evidenceRoot),'utf8'));
+- for(const spec of routeSpecs){const source=readSource(sourceManifest.scenarioSources[spec.key]);if(spec.key==='mars')for(const change of delta.changes){const i=source.items.find((i:any)=>i.id===change.item);if(source.id==='mars-connected-survival-v4-return-cargo-research')assert.equal(i[change.field],change.after);else{assert.equal(i[change.field],change.before);i[change.field]=change.after;}}if(spec.key==='mars')for(const change of JSON.parse(readFileSync(new URL('late-label-successor-20261028/mars-archive-label-override.json',evidenceRoot),'utf8')).changes){const i=source.items.find((i:any)=>i.id===change.item);assert.equal(i[change.field],change.before);i[change.field]=change.after;}if(spec.key==='elements'&&source.id==='elements-gathering-refinement-v7-cue-research')for(const change of JSON.parse(readFileSync(new URL('late-revision-20261028/elements-label-override.json',evidenceRoot),'utf8')).changes){const i=source.items.find((i:any)=>i.id===change.item);assert.equal(i[change.field],change.before);i[change.field]=change.after;}if(spec.key==='purpose'&&source.id==='causation-accidental-bell-probe-v1')source.checkpoints=JSON.parse(readFileSync(new URL('morning-revision-20261028/purpose-checkpoint-addition.json',evidenceRoot),'utf8')).checkpoints;if(spec.key==='atlas'&&source.id!=='atlas-connected-questions-v9-evidence-repair-research')source.checkpoints=JSON.parse(readFileSync(new URL('morning-revision-20261028/atlas-checkpoint-addition.json',evidenceRoot),'utf8')).checkpoints;assert.deepEqual(scenarioFor(spec.key),applyIntuitiveAlternatives(spec.key==='mars'?applyMarsNaturalOrders(source):source));}
++ for(const spec of routeSpecs){const source=readSource(sourceManifest.scenarioSources[spec.key]);if(spec.key==='mars')for(const change of delta.changes){const i=source.items.find((i:any)=>i.id===change.item);if(source.id==='mars-connected-survival-v4-return-cargo-research')assert.equal(i[change.field],change.after);else{assert.equal(i[change.field],change.before);i[change.field]=change.after;}}if(spec.key==='mars')for(const change of JSON.parse(readFileSync(new URL('late-label-successor-20261028/mars-archive-label-override.json',evidenceRoot),'utf8')).changes){const i=source.items.find((i:any)=>i.id===change.item);assert.equal(i[change.field],change.before);i[change.field]=change.after;}if(spec.key==='elements'&&source.id==='elements-gathering-refinement-v7-cue-research')for(const change of JSON.parse(readFileSync(new URL('late-revision-20261028/elements-label-override.json',evidenceRoot),'utf8')).changes){const i=source.items.find((i:any)=>i.id===change.item);assert.equal(i[change.field],change.before);i[change.field]=change.after;}if(spec.key==='purpose'&&source.id==='causation-accidental-bell-probe-v1')source.checkpoints=JSON.parse(readFileSync(new URL('morning-revision-20261028/purpose-checkpoint-addition.json',evidenceRoot),'utf8')).checkpoints;if(spec.key==='atlas'&&source.id!=='atlas-connected-questions-v9-evidence-repair-research')source.checkpoints=JSON.parse(readFileSync(new URL('morning-revision-20261028/atlas-checkpoint-addition.json',evidenceRoot),'utf8')).checkpoints;assert.deepEqual(spec.key==='mars'?beforeSolarLampContinuity(beforeRetainedAnomalies(beforeReviewedGraphAmendments(scenarioFor(spec.key)))):beforeRetainedAnomalies(beforeReviewedGraphAmendments(scenarioFor(spec.key))),applyIntuitiveAlternatives(spec.key==='mars'?applyMarsNaturalOrders(source):source));}
+  assert.equal(delta.changes.length,4);
+ });
+ test('new scenarios are not grandfathered and every recipe has valid explicit input, objective and compound decisions',()=>{
+@@ -42,16 +46,25 @@
+  const active=scenarios.filter(s=>!archivedScenarioIds.has(s.id));assert.deepEqual(audit.recipes.map((r:any)=>r.world+':'+r.recipe).sort(),active.flatMap(s=>s.recipes.map(r=>s.id+':'+r.id)).sort());assert.equal(new Set(audit.recipes.map((r:any)=>r.world+':'+r.recipe)).size,audit.recipes.length,'No duplicate lifecycle rows');
+  for(const s of active)for(const r of s.recipes){const row=audit.recipes.find((x:any)=>x.world===s.id&&x.recipe===r.id);assert.deepEqual(row.lifecycles??row.lifecycle??row.decisions,r.lifecycle,s.id+':'+r.id);}
+ });
+-for(const spec of routeSpecs){const s=scenarioFor(spec.key),actions=routeActions(spec.source);
++for(const spec of routeSpecs){const s=scenarioFor(spec.key),historicalActions=routeActions(spec.source),actions=spec.key==='mars'?currentMarsRouteActions(historicalActions):historicalActions;
+  test(`${s.id}: canonical current-goal ancestry, event-local input lifetime and preserved fitted contents at three widths`,()=>{
+-  const evidence=JSON.parse(readFileSync(new URL(`../experiments/tangible-campaign/evidence/${s.id}-route-evidence.json`,import.meta.url),'utf8'));assert.deepEqual(evidence.actionsLog,actions);
+-  for(const width of [320,375,600]){const result=auditRoute(s,actions,width);assert(result.game.state.completed);assert.equal(result.rows.length,s.stages.length);assert.deepEqual(result.missing,[]);assert.equal(result.game.state.metrics.combinations,evidence.combinations);assert.deepEqual(normalized(M.restore(s,JSON.stringify(result.game)).state),normalized(result.game.state));if(width===375){assert.deepEqual(result.rows,evidence.goalContinuity);assert.deepEqual(result.stageEntries.map(({stateSha256,...row})=>row),evidence.stageEntries.map(({stateSha256,...row}:any)=>row));}}
++  const evidence=JSON.parse(readFileSync(new URL(`../experiments/tangible-campaign/evidence/${s.id}-route-evidence.json`,import.meta.url),'utf8'));assert.deepEqual(evidence.actionsLog,historicalActions);
++  const expectedContinuity=structuredClone(evidence.goalContinuity),expectedEntries=structuredClone(evidence.stageEntries);
++  if(spec.key==='mars'){
++   const historical=beforeMarsNaturalOrders(beforeSolarLampContinuity(beforeRetainedAnomalies(beforeReviewedGraphAmendments(s)))),prior=auditRoute(historical,historicalActions,375);
++   assert.deepEqual(prior.rows,evidence.goalContinuity);assert.deepEqual(prior.stageEntries.map(({stateSha256,...row})=>row),evidence.stageEntries.map(({stateSha256,...row}:any)=>row));assert.equal(prior.game.state.metrics.combinations,evidence.combinations);
++   // Exactly one new accepted construction uses the earlier charger at camp.
++   const camp=expectedContinuity.find((r:any)=>r.stage==='camp');camp.earlierUsed.unshift('solar-charger');camp.goalConnected.unshift('solar-charger');
++   const insertion=historicalActions.findIndex(a=>a.type==='combine'&&(a.a==='solar-lamp'||a.b==='solar-lamp'));assert(insertion>=0);
++   for(const entry of expectedEntries)if(entry.actionPrefixLength>insertion)entry.actionPrefixLength++;
++  }
++  for(const width of [320,375,600]){const result=auditRoute(s,actions,width);assert(result.game.state.completed);assert.equal(result.rows.length,s.stages.length);assert.deepEqual(result.missing,[]);assert.equal(result.game.state.metrics.combinations,evidence.combinations+(spec.key==='mars'?1:0));assert.deepEqual(normalized(M.restore(s,JSON.stringify(result.game)).state),normalized(result.game.state));if(width===375){assert.deepEqual(result.rows,expectedContinuity);assert.deepEqual(result.stageEntries.map(({stateSha256,...row})=>row),expectedEntries.map(({stateSha256,...row}:any)=>row));}}
+  });
+  test(`${s.id}: every authored checkpoint restores and remains separate from every historical save identity`,()=>{
+   for(const cp of s.checkpoints??[])for(const width of [320,375,600]){const g=M.checkpoint(s,cp.id,width);assert.deepEqual(normalized(M.restore(s,JSON.stringify(g)).state),normalized(g.state));for(const old of legacy)assert.throws(()=>M.restore(old,JSON.stringify(g)),/Invalid campaign save/);}
+  });
+- for(const alt of spec.alternatives)test(`${s.id}: documented ${alt.name} alternative completes with goal-connected reuse or explicitly earned early goals, and event-local behavior`,()=>{
+-  const actions=routeActions(alt.source,alt.witness),report=auditRoute(s,actions);assert(report.game.state.completed);
++ for(const alt of spec.alternatives)test(`${s.id}: ${spec.key==='mars'&&alt.name==='tow-old-alias'?'historical duplicate-dependent witness, not current: ':'documented '}${alt.name} alternative completes with goal-connected reuse or explicitly earned early goals, and event-local behavior`,()=>{
++  const raw=routeActions(alt.source,alt.witness),historicalOnly=spec.key==='mars'&&alt.name==='tow-old-alias',world=historicalOnly?beforeMarsNaturalOrders(beforeSolarLampContinuity(beforeRetainedAnomalies(beforeReviewedGraphAmendments(s)))):s,actions=spec.key==='mars'&&!historicalOnly?currentMarsRouteActions(raw):raw,report=auditRoute(world,actions);assert(report.game.state.completed);
+   if(spec.key!=='food'||!['early-kitchen-forward','early-kitchen-reverse'].includes(alt.name)){assert.deepEqual(report.missing,[]);return;}
+   // These two explicit witnesses do the second chapter's real cooking early at the
+   // same workstation. Do not invent fresh work or gates solely to satisfy an audit.
+--- a/tests/reviewed-copy-corrections.test.ts
++++ b/tests/reviewed-copy-corrections.test.ts
+@@ -1,3 +1,4 @@
++import {currentMarsRouteActions} from '../experiments/tangible-campaign/integration/current-mars-route-actions.ts';
+ import {expectedSourceHashAfterArrivals} from '../experiments/tangible-campaign/integration/arrival-source-guard.ts';
+ // Logical/data integrity checks only. No DOM, controller, browser, gestures or UI testing.
+ import test from 'node:test';
+@@ -50,6 +51,6 @@
+ for(const s of scenarios)test(`Logical route and earned checkpoints, including all preserved direct routes: ${s.id}`,()=>{
+  assert.deepEqual(M.validateScenario(s),[]);
+  const evidence=read(new URL(`../experiments/tangible-campaign/evidence/${s.id}-route-evidence.json`,import.meta.url));
+- const game=M.replay(s,evidence.actionsLog);assert(game.state.completed);assert.equal(game.state.metrics.combinations,evidence.combinations);
++ const currentMars=s.id==='mars-connected-survival-v4-return-cargo-research',game=M.replay(s,currentMars?currentMarsRouteActions(evidence.actionsLog):evidence.actionsLog);assert(game.state.completed);assert.equal(game.state.metrics.combinations,evidence.combinations+(currentMars?1:0));
+  for(const cp of s.checkpoints??[])assert(M.checkpoint(s,cp.id));
+ });
+--- a/tests/tangible-campaign.test.ts
++++ b/tests/tangible-campaign.test.ts
+@@ -1,3 +1,4 @@
++import {currentMarsRouteActions} from '../experiments/tangible-campaign/integration/current-mars-route-actions.ts';
+ import '../experiments/tangible-campaign/reviews/lifecycle/objective-flow.test.ts';
+ import '../experiments/tangible-campaign/reviews/lifecycle/lifecycle.test.ts';
+ import '../experiments/tangible-campaign/reviews/persistence/save-autosave.test.ts';
+@@ -9,7 +10,7 @@
+ import test from 'node:test';import assert from 'node:assert/strict';import {readFileSync} from 'node:fs';
+ import {scenarios} from '../experiments/tangible-campaign/ui/scenarios.ts';
+ import {validateScenario,replay,checkpoint} from '../experiments/tangible-campaign/engine/model.ts';
+-for(const s of scenarios)test('Shared browser data: '+s.id+' exact authored route and checkpoints',()=>{assert.deepEqual(validateScenario(s),[]);const evidence=JSON.parse(readFileSync(new URL('../experiments/tangible-campaign/evidence/'+s.id+'-route-evidence.json',import.meta.url),'utf8'));const game=replay(s,evidence.actionsLog);assert(game.state.completed);assert.equal(game.state.metrics.combinations,evidence.combinations);for(const c of s.checkpoints??[])assert(checkpoint(s,c.id));});
++for(const s of scenarios)test('Shared browser data: '+s.id+' exact historical or declared current route and checkpoints',()=>{assert.deepEqual(validateScenario(s),[]);const evidence=JSON.parse(readFileSync(new URL('../experiments/tangible-campaign/evidence/'+s.id+'-route-evidence.json',import.meta.url),'utf8'));const currentMars=s.id==='mars-connected-survival-v4-return-cargo-research',game=replay(s,currentMars?currentMarsRouteActions(evidence.actionsLog):evidence.actionsLog);assert(game.state.completed);assert.equal(game.state.metrics.combinations,evidence.combinations+(currentMars?1:0));for(const c of s.checkpoints??[])assert(checkpoint(s,c.id));});
+ 
+ import '../experiments/tangible-campaign/reviews/lifecycle/event-local.test.ts';
+ 
+--- /dev/null
++++ b/experiments/tangible-campaign/integration/current-mars-route-actions.ts
+@@ -0,0 +1,16 @@
++/** Current action witness adaptation only; immutable historical routes remain raw.
++ * Solar continuity adds exactly one real construction before the first use of
++ * the formerly supplied finished lamp. Crawler routes are not rewritten here:
++ * duplicate-dependent tow-old-alias must remain a historical witness. */
++import assert from 'node:assert/strict';
++import type {Action} from '../schema/scenario.ts';
++export function currentMarsRouteActions(source:readonly Action[]):Action[]{
++ const actions=structuredClone(source) as Action[];
++ const made=actions.flatMap((a,i)=>a.type==='combine'&&((a.a==='lamp'&&a.b==='solar-charger')||(a.b==='lamp'&&a.a==='solar-charger'))?[i]:[]);
++ assert(made.length<=1,'A route must not construct its unique solar lamp twice');
++ const use=actions.findIndex(a=>a.type==='combine'&&(a.a==='solar-lamp'||a.b==='solar-lamp')||a.type==='place'&&a.item==='solar-lamp');
++ if(use<0)return actions;
++ if(made.length){assert(made[0]<use,'Solar lamp construction must precede its use');return actions;}
++ actions.splice(use,0,{type:'combine',a:'lamp',b:'solar-charger'});
++ return actions;
++}

@@ -1,0 +1,99 @@
+(node:15) ExperimentalWarning: stripTypeScriptTypes is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ click creation, advance modal, exact placement gold, undo and reset (19.93018ms)
+✔ drag creation leaves source at origin and ordinary drop uses release position (8.287244ms)
+✔ cancelled drag and mission interruption do not combine (5.647391ms)
+✔ REGRESSION: unrelated pointerup must not finish active drag (4.370328ms)
+✔ lost capture cancels drag without a move; stale up does nothing (4.561646ms)
+✔ saved stage roundtrip and undo preserves prior places (18.891646ms)
+✔ incoming catalyst highlights receiver without explanatory text (9.186097ms)
+✔ second pointer cannot adopt drag or cancel first pointer (5.725147ms)
+✔ legacy fallback ignores second finger and commits only owned touch (5.089851ms)
+✔ resize and blur interrupt drag without committing transient coordinates (9.833672ms)
+✔ ordinary drop into prior area changes actual area with same unique ID and fixed area tops (13.002732ms)
+✔ checkpoint interruption cancels drag and opens replayed-stage mission (7.893021ms)
+✔ location gesture uses the shared resolver: new recipe first, then ordinary placement (9.08181ms)
+✔ completing a chapter shows the next challenge directly, and undo restores the earlier challenge (5.538056ms)
+✔ final challenge automatically finishes and shows its ending once; reload and undo work (11.834684ms)
+✔ moving an exact-placement objective away removes premature ending before Finish (4.920036ms)
+✔ checkpoint DEBUG marker lives in popup, restores from compact save and clears only on reset (18.883204ms)
+✔ active chooser hides archived school and causation, preserving direct archived routes (11.637467ms)
+✔ previous full campaigns remain playable directly but are unlisted in the active chooser (61.798436ms)
+✔ modern pointer ownership ignores compatibility Touch Events (6.448026ms)
+✔ async save status is truthful and updates without cancelling drag; failures expose retry (5.97888ms)
+✔ invalid save is reported without crashing and reset starts a playable new journey (6.645152ms)
+✔ small-screen scroll containment is explicit in CSS (not native layout evidence) (0.475867ms)
+✔ in-app navigation awaits durable save and stays on the current journey after failure (5.581191ms)
+✔ newer navigation wins and reset cancels an outstanding save-before-navigation request (5.552157ms)
+✔ after Finish, moved creations retain the recorded ending without claiming current placement (13.980093ms)
+✔ mission presents the challenge and local context without carried-item narration (8.285922ms)
+✔ objective card opens current description; dismissal preserves scroll and restores trigger focus (11.43364ms)
+✔ chapter completion lets birth finish, then opens only the next challenge with no acknowledgement (6.458862ms)
+✔ bug popup groups controls, survives repeated undo, and dismisses by close, Escape and backdrop (7.893311ms)
+✔ opening overlays cancels active pointer and legacy touch gestures without stale drop (29.92196ms)
+✔ save failures remain actionable outside closed debug; status updates preserve the open popup (5.038904ms)
+✔ earlier-area and current-area controls close popup without losing selection or save state (10.398122ms)
+✔ selection and ordinary actions use visual feedback without explanatory bubbles (7.717026ms)
+✔ automatic completion popup is cancelled by undo or reset and does not reopen after dismissal (32.01539ms)
+✔ resuming a completed challenge opens the next challenge rather than its completion recap (10.789651ms)
+✔ six selected journeys are prominent; undeveloped sketches are secondary and remain playable (13.993032ms)
+✔ readable metadata is optional, validated, copied into the player view, and never inferred from descriptions (4.988489ms)
+✔ source reading is deliberate, single-instance, and preserves selection, scroll, history and focus on every dismissal (8.701638ms)
+✔ reader escapes labels, passage text and attribution instead of injecting markup or links (6.314595ms)
+✔ reading a source in an older area is observational for clicks and touch-sized pointer taps (22.710841ms)
+✔ source marker and selection do not steal pointer or legacy-touch drags or synthesize a reading action (20.366011ms)
+✔ reader is transient across reset, checkpoints, other overlays and saved navigation (26.398846ms)
+✔ source reading defers but never loses automatic next-stage or final completion, including reopen before queued handoff (15.345329ms)
+✔ reading completion handoff cannot survive undo, reset, checkpoint or a placement goal being undone (35.342369ms)
+✔ text-heavy source tiles use engine-sized label lines at 320/375px without initial overlap (5.093316ms)
+✔ long observations use matching text height at 320/375px without acquiring source affordances (13.103224ms)
+✔ all existing campaign long names use the shared height and fresh 320/375px supplies remain separated (130.260643ms)
+✖ integrated chooser has exactly six ordered focuses, explicitly short workshop, and collapsed secondary sketches (6.202807ms)
+✔ all actual historical routes still open their original save identity after chooser replacement (83.853279ms)
+✔ Atlas UI selects every earned checkpoint at 320/375/600 without skipping its unfinished scene (58207.603604ms)
+ℹ tests 51
+ℹ suites 0
+ℹ pass 50
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 59630.632372
+
+✖ failing tests:
+
+test at experiments/tangible-campaign/ui/campaign-controller.test.ts:377:1
+✖ integrated chooser has exactly six ordered focuses, explicitly short workshop, and collapsed secondary sketches (6.202807ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+    [
+      'literature',
+      'restoration',
+      'shoreline',
+  +   'mars-connected-survival-v4',
+  +   'elements-gathering-refinement-v7',
+  +   'hearth-to-twinkie-v3',
+  +   'causation-fitting-forms-probe-v2',
+  +   'atlas-connected-questions-v4-methods-and-agreement-research',
+  +   'mars-connected-survival-v4-supply-copy-research',
+  +   'doctrine-argument-desks-v10-ceremony-clarity',
+  +   'mars-connected-survival-v4-readable-field-records',
+  +   'doctrine-ten-desks-v3-content-clarity',
+  +   'causation-accidental-bell-probe-v1'
+    ]
+  
+      at TestContext.<anonymous> (file:///workspace/shared/combination-fork-recovery-20261028/experiments/tangible-campaign/ui/campaign-controller.test.ts:382:148)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: [ 'literature', 'restoration', 'shoreline', 'mars-connected-survival-v4', 'elements-gathering-refinement-v7', 'hearth-to-twinkie-v3', 'causation-fitting-forms-probe-v2', 'atlas-connected-questions-v4-methods-and-agreement-research', 'mars-connected-survival-v4-supply-copy-research', 'doctrine-argument-desks-v10-ceremony-clarity', 'mars-connected-survival-v4-readable-field-records', 'doctrine-ten-desks-v3-content-clarity', 'causation-accidental-bell-probe-v1' ],
+    expected: [ 'literature', 'restoration', 'shoreline' ],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }

@@ -1,0 +1,50 @@
+import fs from 'node:fs';import path from 'node:path';import assert from 'node:assert/strict';
+import type {Scenario,Action,Recipe} from './schema/scenario.ts';
+import {applyAction,createGame,token,stageComplete} from './engine/model.ts';
+const root=path.dirname(new URL(import.meta.url).pathname);
+const read=(p:string)=>JSON.parse(fs.readFileSync(path.join(root,p),'utf8'));
+const s:Scenario=read('scenario.json'),base:Scenario=read('base-scenario.json'),plan=read('change-plan.json');
+export const names=['preserved-v3/canonical','preserved-v3/all-recipes','preserved-v3/reverse-ready','preserved-v3/reverse-directions','preserved-v3/early-discovery','preserved-v3/early-opening','plain-vinaigrette','direct-mustard','catalogue-plain-vinaigrette','catalogue-direct-mustard','plain-vinaigrette-reversed','direct-mustard-reversed','early-plain-vinaigrette'];
+const removed=new Set<string>(plan.removedItemIds),alias:Record<string,string>=plan.locationAliases;
+function remap(a:Action):Action|null{
+ if(a.type==='visit')return null;
+ if(a.type==='combine'&&[a.a,a.b].includes('processed-stew-tin')&&[a.a,a.b].includes('opener'))return null; // Old supply-recovery trips are redundant: whole-service packing brings these inputs on kitchen entry.
+ const b=structuredClone(a);
+ if(b.type==='combine'){for(const k of ['a','b'] as const)b[k]=plan.itemAliases[b[k]]??plan.primitiveAliases[b[k]]??b[k];if([b.a,b.b].includes('ground-almonds')&&[b.a,b.b].includes('sugar')){if(b.a==='sugar')b.a='powdered-sugar';if(b.b==='sugar')b.b='powdered-sugar';}}
+ if(b.type==='place'||b.type==='move')b.item=plan.itemAliases[b.item]??b.item;
+ if(b.type==='combine'){if(removed.has(b.a)||removed.has(b.b))return null;for(const k of ['a','b'] as const)if(b[k].startsWith('@'))b[k]='@'+(alias[b[k].slice(1)]??b[k].slice(1));}
+ if(b.type==='place'){if(removed.has(b.item))return null;if(b.location)b.location=alias[b.location]??b.location;}
+ return b;
+}
+function build(name:string,dessert:'vanilla-sandwich'|'iced-chocolate-cake'='vanilla-sandwich',allLoads=false){
+ const data=read('base-routes/'+name+'.json'),old:Action[]=Array.isArray(data)?data:data.actions;let g=createGame(s,360),oldStage=0;const actions:Action[]=[],omitted:Action[]=[];
+ function doAction(a:Action){const r=applyAction(s,g,a);assert(r.accepted,`${name} stage ${g.state.stage} ${JSON.stringify(a)}: ${r.message}`);g=r.game;actions.push(a);}
+ function make(id:string){if(g.state.discovered.includes(id))return;const r=s.recipes.find(r=>r.out===id);assert(r,`No recipe for ${id}`);for(const ingredient of [r.a,r.b])if(!ingredient.startsWith('@')&&!token(g.state,ingredient))make(ingredient);if(r.at){const target=[r.a,r.b].find(x=>!x.startsWith('@'))!;doAction({type:'place',item:target,location:r.at});doAction({type:'combine',a:r.b,b:r.a});}else doAction({type:'combine',a:r.a,b:r.b});}
+ for(const original of old){
+  if(oldStage===19){omitted.push(original);continue;}
+  if(original.type==='advance'){
+   if(oldStage===18){make('bean-supper');make(dessert);assert(stageComplete(s,g.state));doAction({type:'advance'});oldStage++;continue;}
+   doAction(original);oldStage++;continue;
+  }
+  const mapped=remap(original);if(mapped){
+   if(mapped.type==='combine'&&[mapped.a,mapped.b].includes('sugar-mill')&&g.state.discovered.includes('powdered-sugar')){omitted.push(original);continue;}
+   if(mapped.type==='combine'&&[mapped.a,mapped.b].includes('ground-almonds')&&[mapped.a,mapped.b].includes('powdered-sugar'))make('powdered-sugar');
+   doAction(mapped);
+  }else omitted.push(original);
+ }
+ assert.equal(g.state.stage,19);
+ const dessertLoad=dessert==='vanilla-sandwich'?'load-vanilla-cake':'load-chocolate-cake';
+ const loads=['load-supper-meal',dessertLoad,'load-apple-juice','load-sealed-provisions'];
+ if(allLoads){make('vanilla-sandwich');make('iced-chocolate-cake');loads.splice(2,0,dessert==='vanilla-sandwich'?'load-chocolate-cake':'load-vanilla-cake');}
+ for(const id of loads){const r=s.recipes.find(r=>r.id===id)!;doAction({type:'combine',a:r.a,b:r.b});}
+ doAction({type:'place',item:'supper-trolley',location:'dining-car'});doAction({type:'advance'});assert(g.state.completed);
+ return {actions,omitted,metrics:g.state.metrics};
+}
+fs.mkdirSync(path.join(root,'routes/preserved-v3'),{recursive:true});
+const results=[];
+for(const name of names){const b=build(name,'vanilla-sandwich',name.includes('all-recipes')||name.includes('catalogue'));fs.writeFileSync(path.join(root,'routes',name+'.json'),JSON.stringify(b.actions,null,2)+'\n');results.push({name,...b,actions:b.actions.length,omittedActions:b.omitted.length});}
+const chocolate=build('plain-vinaigrette','iced-chocolate-cake');fs.writeFileSync(path.join(root,'routes/chocolate-departure.json'),JSON.stringify(chocolate.actions,null,2)+'\n');results.push({name:'chocolate-departure',...chocolate,actions:chocolate.actions.length,omittedActions:chocolate.omitted.length});
+const canonical=JSON.parse(fs.readFileSync(path.join(root,'routes/preserved-v3/canonical.json'),'utf8')) as Action[];
+let stage=0,prefix:Action[]=[];s.checkpoints=[];for(const a of canonical){if(prefix.length===0)s.checkpoints.push({id:s.stages[0].id,label:s.stages[0].title,actions:[]});prefix.push(a);if(a.type==='advance'){stage++;s.checkpoints.push({id:stage<s.stages.length?s.stages[stage].id:'complete',label:stage<s.stages.length?s.stages[stage].title:'Departure supper aboard',actions:structuredClone(prefix)});}}
+fs.writeFileSync(path.join(root,'scenario.json'),JSON.stringify(s,null,2)+'\n');fs.writeFileSync(path.join(root,'evidence/route-migration.json'),JSON.stringify(results,null,2)+'\n');fs.writeFileSync(path.join(root,'candidate.ts'),"import type {Scenario} from './schema/scenario.ts';\n\n/** Isolated v6 candidate; not integrated or published. */\nexport const scenario: Scenario = "+JSON.stringify(s,null,2)+";\n");
+console.log(results.map(r=>({name:r.name,actions:r.actions,combinations:r.metrics.combinations,omitted:r.omittedActions})));console.log('Checkpoints',s.checkpoints.length);

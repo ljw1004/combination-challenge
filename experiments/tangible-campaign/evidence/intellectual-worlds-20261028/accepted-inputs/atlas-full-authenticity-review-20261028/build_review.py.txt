@@ -1,0 +1,62 @@
+import json,hashlib,collections,pathlib
+D=pathlib.Path('/workspace/shared/atlas-full-authenticity-review-20261028'); B=pathlib.Path('/workspace/shared/atlas-full-redesign-20261028')
+def read(p):return json.loads(p.read_text())
+def sha(p):return hashlib.sha256(p.read_bytes()).hexdigest()
+def write(n,x): (D/n).write_text(json.dumps(x,ensure_ascii=False,indent=2)+'\n')
+s=read(B/'candidate-v1/scenario.json');v2=read(B/'candidate-v2/scenario.json');ch=read(B/'candidate-v1/chapter-recipes.json');co=read(B/'candidate-v1/connections.json')
+items={x['id']:x for x in s['items']};items.update({'@'+x['id']:x for x in s['locations']});recipes={x['id']:x for x in s['recipes']};stages={x['id']:x for x in s['stages']};sources={x['id']:x for x in s['sources']}
+notes={}
+for line in (D/'v1-manual-notes.tsv').read_text().splitlines():
+ rid,verdict,note=line.split('\t',2);assert rid not in notes;notes[rid]=(verdict,note)
+assert set(notes)==set(recipes)
+cn={}
+for line in (D/'v1-connection-notes.tsv').read_text().splitlines():
+ i,v,n=line.split('\t',2);cn[int(i)]=(v,n)
+assert set(cn)==set(range(1,len(co)+1))
+chmap={r:c['id'] for c in ch for r in c['recipes']};assert len(chmap)==len(recipes)
+creator={r['out']:chmap[r['id']] for r in s['recipes']};stage_order={x['id']:i for i,x in enumerate(s['stages'])}
+consumers={iid:[r['id'] for r in s['recipes'] if iid in (r['a'],r['b'])] for iid in items}
+source_map={
+'make-blood-circuit':['harvey'], 'make-one-way-circulation':['harvey'], 'make-waterborne-pattern':['snow'],
+'make-nominal-kinds':['ockham'], 'make-white-light-components':['newton-optics'], 'make-microbial-growth':['pasteur'],
+'make-chemical-agency-in-cells':['buchner'], 'make-frame-dependent-simultaneity':['einstein'], 'make-mobile-plates':['usgs-plates'],
+'make-mechanical-procedure':['turing','shannon'], 'make-error-correcting-message':['hamming'], 'make-struggle-for-existence':['darwin','wallace'],
+'make-cumulative-evolution':['darwin'], 'make-clean-measurement-problem':['patterson'], 'make-planetary-archive':['ptolemy']}
+ledger=[]
+for i,r in enumerate(s['recipes'],1):
+ v,n=notes[r['id']];sid=chmap[r['id']]
+ ledger.append({'ordinal':i,'recipe_id':r['id'],'stage_id':sid,'stage_title':stages[sid]['title'],'pair':f"{items[r['a']]['label']} + {items[r['b']]['label']} → {items[r['out']]['label']}",'verdict':v,'individual_review':n,'minimal_rework':None if v=='ACCEPTED' else n,'recipe_payload':r,'operand_payloads':[items[r['a']],items[r['b']]],'output_payload':items[r['out']],'direct_consumers':consumers[r['out']],'stage_objectives_using_output':[x for x in stages[sid]['objectives'] if x.get('item')==r['out']],'cross_desk_connection_ordinals':[j for j,x in enumerate(co,1) if x['recipe']==r['id']],'author_bibliography':[sources[k] for k in r.get('sources',[])],'independently_counterchecked_sources':source_map.get(r['id'],[]),'review_basis':'Individual reading of actual operands, output, recipe, local chapter context, carry relation and caveats. Source associations are not blanket per-claim verification.'})
+write('v1-recipe-ledger.json',{'scenario_sha256':sha(B/'candidate-v1/scenario.json'),'counts':dict(collections.Counter(x['verdict'] for x in ledger)),'recipes':ledger})
+cl=[]
+for i,x in enumerate(co,1):
+ r=recipes[x['recipe']];v,n=cn[i]
+ assert x['item'] in (r['a'],r['b']),x
+ assert creator[x['item']]==x['from'],x
+ assert chmap[r['id']]==x['to'],x
+ assert stage_order[x['from']]<stage_order[x['to']],x
+ assert all(z in sources for z in x['sources'])
+ cl.append({'ordinal':i,**x,'verdict':v,'individual_review':n,'target_recipe_verdict':notes[r['id']][0],'review_limit':'Acceptance of relation classification does not erase an independently flagged target-recipe premise problem.'})
+write('v1-connections-ledger.json',{'connections_sha256':sha(B/'candidate-v1/connections.json'),'counts':dict(collections.Counter(x['verdict'] for x in cl)),'relation_counts':dict(collections.Counter(x['relation'] for x in cl)),'connections':cl})
+# Compare v2 independently, not solely via the author delta.
+a={x['id']:x for x in s['items']};b={x['id']:x for x in v2['items']};removed=set(a)-set(b);assert removed=={'long-voyage'}
+assert not any('long-voyage' in (r['a'],r['b'],r['out']) for r in s['recipes'])
+assert s['recipes']==v2['recipes']
+assert (B/'candidate-v1/connections.json').read_bytes()==(B/'candidate-v2/connections.json').read_bytes()
+changed=[]
+for iid in b:
+ if a[iid]!=b[iid]:
+  d={k:[a[iid].get(k),b[iid].get(k)] for k in set(a[iid])|set(b[iid]) if a[iid].get(k)!=b[iid].get(k)}
+  assert set(d)=={'reading'},(iid,d)
+  assert b[iid]['reading']['text']==a[iid]['description'],iid
+  changed.append(iid)
+assert len(changed)==502
+sd=[]
+for aa,bb in zip(s['stages'],v2['stages']):
+ if aa!=bb:sd.append({'id':aa['id'],'before':aa,'after':bb})
+assert {x['id'] for x in sd}=={'invisible','longitude'}
+top=[k for k in s if s[k]!=v2[k]];assert set(top)=={'items','stages'}
+v2counts=collections.Counter(x['verdict'] for x in ledger);v2counts['MEDIUM']-=1;v2counts['ACCEPTED']+=1
+write('v2-semantic-inheritance.json',{'scenario_sha256':sha(B/'candidate-v2/scenario.json'),'baseline_sha256':sha(B/'candidate-v1/scenario.json'),'recipe_objects_identical':True,'connections_byte_identical':True,'removed_unused_item':list(removed),'new_reading_ids':changed,'new_reading_text_equals_existing_description':True,'stage_changes':sd,'verdict_change':{'make-chemical-agency-in-cells':{'before':'MEDIUM','after':'ACCEPTED','reason':'Desk date now extends through Buchner 1897; no recipe inference was changed.'}},'inherited_individual_recipe_reviews':264,'counts':dict(v2counts),'still_blocked_by':['make-blood-circuit','make-waterborne-pattern','make-cross-checked-discovery']})
+checks={'recipe_count':len(recipes),'individual_recipe_notes':len(notes),'exact_recipe_ID_set':set(notes)==set(recipes),'duplicate_recipe_IDs':len(s['recipes'])-len(recipes),'chapter_count':len(ch),'exact_chapter_ID_set':set(chmap)==set(recipes),'connection_count':len(co),'individual_connection_notes':len(cn),'actual_operand_creator_target_and_forward_stage_checks':True,'connection_source_refs_exist':True,'all_recipe_source_refs_exist':all(k in sources for r in recipes.values() for k in r.get('sources',[])),'baseline_counts':dict(collections.Counter(x['verdict'] for x in ledger)),'v2_counts':dict(v2counts),'v2_no_recipe_changes':True,'v2_connections_byte_identical':True}
+write('coverage-verification.json',{'status':'PASS','checks':checks,'pins':{f'{v}/{name}':sha(B/v/name) for v in ['candidate-v1','candidate-v2'] for name in ['scenario.json','chapter-recipes.json','connections.json']},'limits':['No runtime or UI tests executed by this reviewer.','No claim of human playtesting.','106 author bibliography entries are retained, not all independently opened or validated per claim.','Each recipe and cross-desk relation has an individual authored review; JSON assembly and exact coverage were checked by script.']})
+print(json.dumps(checks,indent=2))

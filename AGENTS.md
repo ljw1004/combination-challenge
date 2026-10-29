@@ -1,5 +1,9 @@
 # Combination Challenge
 
+## Current canonical campaign API (28 October 2026)
+
+For new campaign authoring, a **location** is the whole persistent setting, a **hotspot** is an interactive point within it, and a **chapter** is a story beat. Use `experiments/tangible-campaign/schema/campaign.ts`, `engine/campaign.ts`, `ui/current-scenarios.ts`, `ui/current-campaign.ts` and `ui/stories/`. Old scenario/model/scenarios files are explicit v1 compatibility contracts. Read `docs/location-hotspot-terminology.md` before changing saves. Run `npm run campaign:check`, `npm run campaign:test` and `npm run campaign:build` for this shared campaign. The root app and its original scripts remain separate. The combined persistent-location/artwork implementation is documented in `docs/persistent-locations-and-artwork.md`. Start it at `campaign-start.html`; never replace the unrelated root index to mirror the isolated Site homepage. The historical instructions below retain their original checkpoint wording.
+
 ## Latest shared-runtime guidance (28 October 2026)
 
 The 61a9 live checkpoint supersedes the earlier statement below that the manuscript reader was not live. The shared reader, generalized long-label layout, event-local input retirement and immediate fitted-component preservation are live; story overhauls are still research. Follow the updated DESIGN_PRINCIPLES.md and experiments/tangible-campaign/reviews/lifecycle/EVENT_LOCAL_POLICY.md. A retained input is not retroactively absorbed by unrelated later actions or reload; preserve declared fitted contents on the new owner at the actual event, without modifying the surviving source. Keep conservative evidence-based legacy save limits explicit. Earlier combination/fun/empirical-evaluation goals and unmodified history below remain in force.

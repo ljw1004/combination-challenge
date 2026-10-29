@@ -1,0 +1,60 @@
+# Mars natural orders / visible place names — integration handoff
+
+## Result
+
+The isolated candidate supports two real melt-station inputs and all three cover timings without duplicate trays, lids, water outputs, or propagators. Both early-cover routes reach the existing late nursery and final return objectives. Read-independent location names now identify equipment/purpose: **Ice melt station**, **Cliff viewpoint**, **Open weather site**.
+
+## Frozen payload
+
+- Candidate: `/workspace/shared/combination-mars-natural-orders-20261028`
+- Base: clean live `86c479746909412d775873d5bb250868ed7bf2d0`
+- `source-overlay.tar.gz`: `b851151933e1a8a59302a9c751d1d28c16513baadb6edf8ef2d68329ba0f7446`
+- `OVERLAY.manifest.json` (18 paths): `c3ae32d364bd106e0024c78d7a82f3e41b4c67a3bfbc48fdc42ceb9f90abe9b4`
+- Source-successor manifest: `ab627a0f7208a350d740b01300073061b8cfcc6fab1040d3d3e64ae237884335`
+- Current Mars source: `f2fce1addcb353caad45ef5bda72f20fd02da01a71b43381b23841a50b599a6c`
+- Model: `cc6fcec8c8f686123319287653a0e52709ed7983857989da0993e4195475c826`
+
+The source overlay is frozen and contains no test-result directories, generated dist, dependencies, unrelated source, commits or deployment. Full changed-path inventory and before/after SHA-256 values are in the manifest.
+
+## Runtime boundary
+
+One optional `InputLifecycle.exclusive: true` field, accepted only for transform/incorporate inputs of an output recipe, means this one physical object takes one alternative upgrade route. Only the current combine event can consume that declared input. All other `needed()` retention safeguards and save behavior remain unchanged. See the included source README for why content-only additions would have incorrectly retained alternative trays and loose lids.
+
+Visible cover components propagate through explicit `preserve` declarations. Canister, solar charger and portable heater are retained equipment/supply. No crafted result or finished item is remotely or retrospectively deleted.
+
+## Save decision
+
+Keep the existing world ID and save version. This is a local additive correction during active play, not a redesigned campaign. All original IDs, checkpoints, goals, supplies, and the late-cover route survive. All 1,168 old route-prefix saves restore byte-equivalently as game objects; old planted and watered trays can branch into the new routes. Existing old snapshots are not reset or relaid out.
+
+## Verification receipts
+
+- `build-final.log`: `npm run build`, exit 0 (content validation, strict TypeScript, Vite). Existing large-bundle warning remains.
+- `focused-final.log`: 7/7, exit 0 on final names and source.
+- `routes.json`: 60 full variants = 5 historic route families × 2 melt inputs × 3 cover orders × both object drag directions; all complete, one evolving tray/lid, late nursery preserved. 1,168 old-save restores.
+- Focused suite additionally covers 18 composed-live runs across widths 320/375/600, water/warmth negative controls, empty-output guards, heater-before-charger route, physical scope, event-local consumption, positions, Undo/restore and default shared supplies.
+- `integration-final.log`: 33/33, exit 0 (late Mars, frozen archive-label predecessor, reactive chapters and exact source contracts).
+- `autosave-full.log`: 16/16, exit 0; diagnostic standalone run only.
+- `aggregate-final-complete.log`: authoritative unbounded aggregate ended **429/432** after 371.8s. Three historical-contract assertions required explicit successor handling; no gameplay-route failure. The separate supplement below fixes those contracts and its 75-test targeted rerun passes. The integrator owns the one final combined full suite. Earlier interrupted diagnostics are not completion evidence.
+
+Independent reviewer reported no blocking finding: 976 accepted actions, 800 unflagged-event exact differentials versus live86, physical canister/camera preservation, arrival-divider/Undo checks and early-cover rebranching. Its four reviewed semantic core pins remained unchanged except later requested caption-only Mars edits.
+
+No browser, native layout, human playtest or usability validation is claimed.
+
+## Integration obligations
+
+The parent has verified and applied the frozen overlay in `/workspace/shared/combination-playtest-repairs-integration-20261028`. Its location/UI changes touch the neighboring `Object.assign` birth-position branch and `partners()`, whereas this candidate changes only the removal hunk. Their exact composed engine receipt is `evidence/playtest-repairs-20261028/engine-merge-first-three.json`; composed model SHA reported as `3310057d8e3569f45148e11a0eb3825f45fb4f39265e0114200b5cdd5d381bcc`.
+
+Separate crawler/audit changes are not part of this payload. Compose their exact source/lifecycle deltas with this patch rather than weakening archived-byte assertions. Re-pin final combined hashes and run the relevant combined checks before publication. This worker never edited the actual live checkout, pushed or published.
+
+
+## Final contract supplement (separate from the immutable 18-file payload)
+
+Directory: `/workspace/shared/combination-mars-natural-contracts-20261028`.
+
+- `results/mars-natural-contracts-20261028/contract-supplement.tar.gz`: `bb377bd9c5fae42664b01758ea6a55f6e672aa0e7ed417c731d32f7764405caa`
+- `SUPPLEMENT.manifest.json`: `e62e00813e7f431709516521ccea8d24fed4911838c55ce1a8dbbe59afaba913`
+- Supplement expanded source-successor manifest: `b03b7d7edee5b28f90b7369563126efa014f8e3c02d2c385927ce1330fb3ccd6`
+- `contract-supplement.log`: 75/75, exit 0; covers reviewed-copy, morning-source, grouped-arrival full parity and arrival-source contracts.
+- `build-final.log`: exit 0.
+
+Three implementation/test paths change: `arrival-source-guard.ts` forwards its no-milestone branch into the existing downstream successor chain; `grouped-arrival-integration.test.ts` uses the exact pinned historical Mars content for its old-engine comparison (which cannot understand a later lifecycle flag); `arrival-source-contract.test.ts` sends its historical added-file expected hash through the same exact successor chain. No rule-state comparison is relaxed, and no old source snapshot/hash is overwritten. The fourth payload file is the supplement author's expanded manifest. The integrator will archive it as a separate versioned snapshot and represent these changes in the final combined successor, preserving the original 18-file manifest unchanged.

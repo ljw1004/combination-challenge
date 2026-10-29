@@ -1,0 +1,56 @@
+import {currentMarsRouteActions} from '../experiments/tangible-campaign/integration/current-mars-route-actions.ts';
+import {expectedSourceHashAfterArrivals} from '../experiments/tangible-campaign/integration/arrival-source-guard.ts';
+// Logical/data integrity checks only. No DOM, controller, browser, gestures or UI testing.
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {readFileSync} from 'node:fs';
+import {predecessorScenarios} from '../experiments/tangible-campaign/ui/campaigns/predecessors-20261028.ts';
+import {scenarios} from '../experiments/tangible-campaign/ui/pre-location-scenarios-v1.ts';
+import * as M from '../experiments/tangible-campaign/engine/model.ts';
+import {digest,evidenceRoot,readSource,scenarioFor,routeActions} from '../experiments/tangible-campaign/integration/reviewed-routes.ts';
+const root=new URL('../',import.meta.url),revision=new URL('copy-revision-20261028/',evidenceRoot);
+const read=(url:URL)=>JSON.parse(readFileSync(url,'utf8'));
+const manifest=read(new URL('revision-manifest.json',revision));
+function differences(a:any,b:any,path=''):any[]{
+ if(a===b)return [];
+ if(a===undefined)return [{path,after:b}];
+ if(b===undefined)return [{path,before:a}];
+ if(a===null||b===null||typeof a!=='object'||typeof b!=='object'||Array.isArray(a)!==Array.isArray(b))return [{path,before:a,after:b}];
+ return [...new Set([...Object.keys(a),...Object.keys(b)])].flatMap(k=>differences(a[k],b[k],path+'/'+k.replaceAll('~','~0').replaceAll('/','~1'))).sort((a,b)=>a.path.localeCompare(b.path));
+}
+for(const row of manifest.campaigns)test(`${row.campaign}: exact approved old/new copy diff; gameplay declarations and source readings unchanged`,()=>{
+ const before=readSource(row.previousSource),after=readSource(row.approvedSource),actual=differences(before,after),recorded=read(new URL(row.diffPath,root)).sort((a:any,b:any)=>a.path.localeCompare(b.path));
+ assert.deepEqual(actual,recorded);assert.deepEqual(actual.map(r=>r.path).sort(),row.allowedJsonPointers);assert.equal(actual.length,row.changedFieldCount);
+ assert.equal(digest(readFileSync(new URL('sources/'+row.previousSource,evidenceRoot))),row.previousSha256);
+ assert.equal(digest(readFileSync(new URL('sources/'+row.approvedSource,evidenceRoot))),row.approvedSha256);
+ for(const key of ['recipes','sources','checkpoints'])assert.deepEqual(after[key],before[key],row.campaign+': '+key);
+ assert.deepEqual(after.items.map((i:any)=>[i.id,i.reading]),before.items.map((i:any)=>[i.id,i.reading]));
+ assert.equal((scenarios.find(s=>s.id===row.currentId)??scenarioFor(row.campaign)).id,row.currentId);
+});
+test('protected pre-HUD source stays byte-identical except exact reviewed arrival successors',()=>{
+ const before=read(new URL('previous-source-manifest.json',revision));let checked=0;
+ for(const [path,metadata]of Object.entries<any>(before.files)){
+  if(!/experiments\/tangible-campaign\/(ui|engine|schema)\//.test(path)||/ui\/campaigns\/(mars|doctrine|elements|food|atlas|purpose)\.ts$/.test(path)||path.endsWith('/ui/pre-location-scenarios-v1.ts'))continue;
+  assert.equal(digest(readFileSync(new URL(path,root))),expectedSourceHashAfterArrivals(path,metadata.sha256),path);checked++;
+ }
+ assert(checked>10);
+});
+test('Mars carrier correction is still exactly four separate unchanged integration fields',()=>{
+ const row=manifest.campaigns.find((r:any)=>r.campaign==='mars'),carrier=read(new URL('mars-presentation-delta.json',evidenceRoot));
+ assert.equal(digest(readFileSync(new URL('mars-presentation-delta.json',evidenceRoot))),row.integrationDeltas[0].sha256);
+ const source=readSource(row.approvedSource);for(const c of carrier.changes){const item=source.items.find((i:any)=>i.id===c.item);assert.equal(item[c.field],c.before);item[c.field]=c.after;}
+ assert.equal(carrier.changes.length,4);assert.deepEqual(predecessorScenarios.find(s=>s.id===source.id),source);
+});
+test('Doctrine v10 route is the unchanged accepted v9 witness and every lifecycle row changes identity only',()=>{
+ assert.deepEqual(routeActions('doctrine/revision-10-ceremony-clarity/route-evidence.json'),routeActions('doctrine/revision-9-derived-premises/route-evidence.json'));
+ const prior=read(new URL('previous-lifecycle-audit.json',revision)),current=read(new URL('morning-revision-20261028/previous-lifecycle-audit.json',evidenceRoot));
+ const row=manifest.campaigns.find((r:any)=>r.campaign==='doctrine');
+ assert.deepEqual(current.recipes,prior.recipes.map((r:any)=>({...r,world:r.world===row.previousId?row.currentId:r.world})));
+ assert.deepEqual(current.counts,Object.fromEntries(Object.entries(prior.counts).map(([k,v])=>[k===row.previousId?row.currentId:k,v])));
+});
+for(const s of scenarios)test(`Logical route and earned checkpoints, including all preserved direct routes: ${s.id}`,()=>{
+ assert.deepEqual(M.validateScenario(s),[]);
+ const evidence=read(new URL(`../experiments/tangible-campaign/evidence/${s.id}-route-evidence.json`,import.meta.url));
+ const currentMars=s.id==='mars-connected-survival-v4-return-cargo-research',game=M.replay(s,currentMars?currentMarsRouteActions(evidence.actionsLog):evidence.actionsLog);assert(game.state.completed);assert.equal(game.state.metrics.combinations,evidence.combinations+(currentMars?1:0));
+ for(const cp of s.checkpoints??[])assert(M.checkpoint(s,cp.id));
+});

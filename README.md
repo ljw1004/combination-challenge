@@ -2,9 +2,36 @@
 
 ## Authoritative game design principles
 
-**Start with [DESIGN_PRINCIPLES.md](DESIGN_PRINCIPLES.md)** before changing game content, runtime or validation. It consolidates the user's rules: continuing locations versus story-beat chapters; whole-location-visit carry only on actual travel; no artwork yet; task-and-name-first understanding; natural forward combinations, useful purposes and authenticity; plus the earlier lifecycle, goal and continuity principles.
+**Start with [DESIGN_PRINCIPLES.md](DESIGN_PRINCIPLES.md)** before changing game content, runtime or validation. It consolidates the user's rules: whole persistent locations, interactive hotspots and story-beat chapters; whole-location-visit carry only on actual travel; subdued artwork and bounded panels; task-and-name-first understanding; natural forward combinations, useful purposes and authenticity; plus the earlier lifecycle, goal and continuity principles.
 
-**Direction is not delivery.** This docs-only update does not change the running Site or claim the next narrative overhaul or proposed Iron quarry rename is live. The latest preserved live source is [`61eaca8a` and its exact restore/evidence](docs/live-checkpoint-61eaca8a-20261028.md). The dated sections below remain unchanged historical records; their earlier “current”/“not live” statements apply to those checkpoints. [Documentation provenance and reconciliation](docs/design-principles-history/20261028-authoritative/RECONCILIATION.md).
+**Direction is not proof of player experience.** The combined location/artwork successor implements the new scoped campaign described below, with new scenario IDs and preserved pre-location versions. Source/build/logical and synthetic-controller checks do not establish browser, native-touch or human-enjoyment quality. It follows the separately published Iron quarry label-only Site source `f780990cdff4557aeb46dcbf7d0d622e9f6310e2`. The dated sections below remain unchanged historical records; their earlier “current”/“not live” statements apply to those checkpoints. [Documentation provenance and reconciliation](docs/design-principles-history/20261028-authoritative/RECONCILIATION.md).
+
+
+## Current campaign terminology and entry points
+
+**Location** means the whole persistent place/background and its arrangement and ordinary supplies. **Hotspot** means an interactive spot inside it (operand, catalyst setting or placement destination). **Chapter** means a story beat/objectives, possibly at the same location.
+
+`campaign.html` enters the canonical v2 UI/runtime. New campaign work uses `experiments/tangible-campaign/schema/campaign.ts`, `engine/campaign.ts`, `ui/current-scenarios.ts`, `ui/current-campaign.ts`, and `ui/stories/`. Old `schema/scenario.ts`, `engine/model.ts` and `ui/scenarios.ts` are explicitly v1 compatibility contracts/façades; they are not the current authoring API or a second rules engine. Browser save keys and v1 serialized state/history/event fields remain compatible. See the [migration, tests and legacy-exception guide](docs/location-hotspot-terminology.md). The unrelated original root `src/main.ts` game and its scripts remain separate.
+
+## Reproduce the current root campaign
+
+`npm run campaign:check`, `npm run campaign:test` and `npm run campaign:build` validate the actual root `campaign.html` dependency closure; the separate static output is `dist-campaign/`. The original root `src/main.ts`, `index.html`, package dependencies, lockfile and existing script meanings are unchanged. This combined successor includes 71 decorative location images and fixed-location/story-cue behavior; no browser/native-layout or human-enjoyment validation is claimed.
+
+The scoped root test entry preserves the original root shared-campaign engine/controller/save and registered-route/checkpoint coverage, adds canonical terminology/save parity and actual-root source contracts, and leaves unrelated pre-existing root tests active. Whole-Site checkout assertions are **not** copied into active root tests: their 95 exact final-successor test-entry inputs are retained as dated evidence in `docs/location-hotspot-root-sync-20261028/site-test-inputs/`, with the explicit [active/adapted/archived test map](docs/location-hotspot-root-sync-20261028/test-context-map.json). They are verified against the separately sealed Site source, not passed off as root-app verification.
+
+The complete immutable Site source (1,958 declared inputs plus its manifest) is retained in [`results/location-presentation-source-60aa75dd-20261028/`](results/location-presentation-source-60aa75dd-20261028/README.md), using content-addressed object aliases and exact pre-existing encoded checkpoint parts. `node scripts/verify-campaign-source-archive.mjs` verifies the full archive; add `--materialize /tmp/combination-site-60aa75` to reconstruct readable original paths in a fresh directory. The root keeps every actual runtime/config/test dependency raw; 224 historical-only paths are archival, not active code. No existing root path is deleted.
+
+The site source seal at `experiments/tangible-campaign/integration/source-manifest.json` is preserved as provenance of the isolated source package; its whole-tree verifier is **not** the root repository gate. The root gate is `scripts/check-current-campaign.mjs` with `scripts/current-campaign-manifest.json`. Before-bytes of overwritten root files, including old review artifacts, are preserved under `docs/location-hotspot-root-sync-20261028/before/`. Dated README chronology and existing-only repository paths remain unchanged. This adds the current root campaign source rather than pointing only at an archived snapshot.
+
+## Current shared campaign: persistent places and story artwork
+
+Open [`campaign-start.html`](campaign-start.html) for **Mars: A Light That Answers**, or [`campaign.html`](campaign.html) for the six featured successor worlds and retained snapshots. **The private-root `index.html` still opens the original unrelated root app; it is intentionally not replaced by the Site homepage.** The scoped campaign start page preserves the Site redirect as a separate entry.
+
+The unpublished new Mars successor now uses direct core photographs and basin photograph comparison instead of scale-card/specimen-rack processing; the historical Mars versions and their save identities remain unchanged. See [the exact simplification and limits](docs/mars-observation-streamline.md).
+
+Seven new scenario IDs introduce continuing locations, fixed 390 × 844 reference panels, one authored cue for unfinished chapter entry, and 71 subdued background images. All 40 pre-location versions retain separate URLs/save identities; the active catalogue contains 47 worlds. See [implementation and limits](docs/persistent-locations-and-artwork.md). Location means the whole setting; hotspot means an interactive point; chapter means a story beat. Same-location chapters retain tangible stock and arrangement; real travel plans carry across the visit rather than silently importing ingredients at later chapter boundaries.
+
+This is a source/build/test package, not evidence of native touch usability, browser layout, human comprehension or enjoyment. The root scoped build emits `dist-campaign/`; artwork uses root-relative `/assets/locations/` URLs and must be served from that output's web root. Original root sources/scripts remain separate.
 
 ## Current live shared runtime — 28 October 2026
 

@@ -1,0 +1,557 @@
+{
+  "candidate_scenario_sha256": "161f0eeb59d1ef55d22ef4b8d8427c8b7d918953ae39a9d73a6d4bd55f809e8e",
+  "scope": "Three HIGH clusters only. Every changed item/recipe/stage payload and all direct consumers read. These bounded PASS rows do not automatically close every broader baseline MEDIUM consideration.",
+  "changed_items_reviewed": [
+    "proof-roll",
+    "swapped-label",
+    "set-page",
+    "diagram-block",
+    "illustrated-form",
+    "inked-form",
+    "proof-impression",
+    "detected-error",
+    "corrected-proof",
+    "printed-quire",
+    "checked-edition",
+    "printed-anatomy",
+    "tycho-table",
+    "orbital-table",
+    "predictive-sky-record",
+    "circulation-book",
+    "probability-table",
+    "comparable-bills",
+    "mathematical-treatise",
+    "population-pamphlet",
+    "electromagnetic-record",
+    "boolean-specification",
+    "checked-logic",
+    "descent-book"
+  ],
+  "changed_stages_reviewed": {
+    "printing": "Names actual restored triangle and misprinted vertex, without requiring a new construction.",
+    "astronomy": "Cache explicitly identifies invented observations/rule/predictions, not a Tycho transcription.",
+    "logic": "Motivation correctly distinguishes four A/B cases from eight A/B/C cases and confirmation from correction."
+  },
+  "changed_recipe_count": 22,
+  "unchanged_direct_consumer_count": 15,
+  "rows": [
+    {
+      "kind": "changed_recipe",
+      "recipe_id": "make-proof-roll",
+      "inputs": [
+        "critical-text",
+        "geometrical-proof"
+      ],
+      "output": "proof-roll",
+      "baseline_verdict": "ACCEPTED",
+      "bounded_review": "PASS",
+      "rationale": "Completed roll now exposes the actual A/B/C argument and recorded D variant; both inherited premises and earlier repair support it.",
+      "high_finding_resolved": false,
+      "required_rework": null
+    },
+    {
+      "kind": "changed_recipe",
+      "recipe_id": "make-set-page",
+      "inputs": [
+        "proof-roll",
+        "type-case"
+      ],
+      "output": "set-page",
+      "baseline_verdict": "ACCEPTED",
+      "bounded_review": "PASS",
+      "rationale": "Retained triangle roll supplies this typeset triangle text; no unit-rate arithmetic is silently replaced downstream.",
+      "high_finding_resolved": false,
+      "required_rework": null
+    },
+    {
+      "kind": "changed_recipe",
+      "recipe_id": "make-diagram-block",
+      "inputs": [
+        "proof-roll",
+        "engraver"
+      ],
+      "output": "diagram-block",
+      "baseline_verdict": "ACCEPTED",
+      "bounded_review": "PASS",
+      "rationale": "Same retained roll supplies the actual triangle figure; the output explicitly contains the D-for-C transcription error to be checked.",
+      "high_finding_resolved": false,
+      "required_rework": null
+    },
+    {
+      "kind": "changed_recipe",
+      "recipe_id": "make-illustrated-form",
+      "inputs": [
+        "set-page",
+        "diagram-block"
+      ],
+      "output": "illustrated-form",
+      "baseline_verdict": "HIGH",
+      "bounded_review": "PASS",
+      "rationale": "Text and block now share one construction while visibly disagreeing about its endpoint; assembling a checkable imperfect page is coherent.",
+      "high_finding_resolved": true,
+      "required_rework": null
+    },
+    {
+      "kind": "changed_recipe",
+      "recipe_id": "make-inked-form",
+      "inputs": [
+        "illustrated-form",
+        "printing-ink"
+      ],
+      "output": "inked-form",
+      "baseline_verdict": "ACCEPTED",
+      "bounded_review": "PASS",
+      "rationale": "Inking preserves the actual C/D mismatch instead of silently correcting or changing document content.",
+      "high_finding_resolved": false,
+      "required_rework": null
+    },
+    {
+      "kind": "changed_recipe",
+      "recipe_id": "make-proof-impression",
+      "inputs": [
+        "inked-form",
+        "press"
+      ],
+      "output": "proof-impression",
+      "baseline_verdict": "ACCEPTED",
+      "bounded_review": "PASS",
+      "rationale": "Trial impression visibly has AC/BC instructions and A/B/D figure; the error is present rather than merely asserted later.",
+      "high_finding_resolved": false,
+      "required_rework": null
+    },
+    {
+      "kind": "changed_recipe",
+      "recipe_id": "make-detected-error",
+      "inputs": [
+        "proof-impression",
+        "swapped-label"
+      ],
+      "output": "detected-error",
+      "baseline_verdict": "HIGH",
+      "bounded_review": "PASS",
+      "rationale": "Missing C is a genuine unresolved reference in this actual trial; it is not a harmless consistent renaming or symmetric A/B swap.",
+      "high_finding_resolved": true,
+      "required_rework": null
+    },
+    {
+      "kind": "changed_recipe",
+      "recipe_id": "make-corrected-proof",
+      "inputs": [
+        "detected-error",
+        "critical-text"
+      ],
+      "output": "corrected-proof",
+      "baseline_verdict": "MEDIUM",
+      "bounded_review": "PASS",
+      "rationale": "Old critical text now concerns this same C/D referent and supplies a meaningful correction witness rather than a generic editing token.",
+      "high_finding_resolved": false,
+      "required_rework": null
+    },
+    {
+      "kind": "changed_recipe",
+      "recipe_id": "make-printed-quire",
+      "inputs": [
+        "corrected-proof",
+        "paper-stock"
+      ],
+      "output": "printed-quire",
+      "baseline_verdict": "ACCEPTED",
+      "bounded_review": "PASS",
+      "rationale": "Copies retain the corrected triangle argument and its source-to-copy correction record; routine press work is accepted existing-workshop compression.",
+      "high_finding_resolved": false,
+      "required_rework": null
+    },
+    {
+      "kind": "changed_recipe",
+      "recipe_id": "make-checked-edition",
+      "inputs": [
+        "printed-quire",
+        "proof-roll"
+      ],
+      "output": "checked-edition",
+      "baseline_verdict": "HIGH",
+      "bounded_review": "PASS",
+      "rationale": "Final source roll is the actual text/figure source; three equal sides and all endpoint references now agree across witness and copies.",
+      "high_finding_resolved": true,
+      "required_rework": null
+    },
+    {
+      "kind": "changed_recipe",
+      "recipe_id": "make-printed-anatomy",
+      "inputs": [
+        "anatomy-print-block",
+        "checked-edition"
+      ],
+      "output": "printed-anatomy",
+      "baseline_verdict": "MEDIUM",
+      "bounded_review": "PASS",
+      "rationale": "Edition now supplies a named checking practice for the anatomical block, not triangle evidence or magical replacement anatomy.",
+      "high_finding_resolved": false,
+      "required_rework": null
+    },
+    {
+      "kind": "changed_recipe",
+      "recipe_id": "make-orbital-table",
+      "inputs": [
+        "tycho-table",
+        "algebra-method"
+      ],
+      "output": "orbital-table",
+      "baseline_verdict": "HIGH",
+      "bounded_review": "PASS",
+      "rationale": "Real invented observations, explicit candidate rule and predictions yield the shown correct signed residuals; rejection is bounded to this candidate and tolerance.",
+      "high_finding_resolved": true,
+      "required_rework": null
+    },
+    {
+      "kind": "changed_recipe",
+      "recipe_id": "make-predictive-sky-record",
+      "inputs": [
+        "orbital-table",
+        "cycle-table"
+      ],
+      "output": "predictive-sky-record",
+      "baseline_verdict": "MEDIUM",
+      "bounded_review": "PASS",
+      "rationale": "Inherited numerical comparison remains attached; recurrence records and positional prediction are distinguished, with later interpolation explicitly conditional.",
+      "high_finding_resolved": false,
+      "required_rework": null
+    },
+    {
+      "kind": "changed_recipe",
+      "recipe_id": "make-circulation-book",
+      "inputs": [
+        "circulation-limits",
+        "checked-edition"
+      ],
+      "output": "circulation-book",
+      "baseline_verdict": "MEDIUM",
+      "bounded_review": "PASS",
+      "rationale": "Prior edition supplies source-to-copy checking; separate circulation argument and its unresolved tissue link remain the published contents.",
+      "high_finding_resolved": false,
+      "required_rework": null
+    },
+    {
+      "kind": "changed_recipe",
+      "recipe_id": "make-probability-table",
+      "inputs": [
+        "chance-letter",
+        "printed-quire"
+      ],
+      "output": "probability-table",
+      "baseline_verdict": "MEDIUM",
+      "bounded_review": "PASS",
+      "rationale": "Quire now supplies an explicit layout/source-checking practice for the new chance text rather than its triangle conclusion.",
+      "high_finding_resolved": false,
+      "required_rework": null
+    },
+    {
+      "kind": "changed_recipe",
+      "recipe_id": "make-comparable-bills",
+      "inputs": [
+        "weekly-bills",
+        "checked-edition"
+      ],
+      "output": "comparable-bills",
+      "baseline_verdict": "ACCEPTED",
+      "bounded_review": "PASS",
+      "rationale": "Clarification preserves the actual four-week sums and separate witness; printing is not itself evidence of census coverage.",
+      "high_finding_resolved": false,
+      "required_rework": null
+    },
+    {
+      "kind": "changed_recipe",
+      "recipe_id": "make-mathematical-treatise",
+      "inputs": [
+        "scope-of-law",
+        "checked-edition"
+      ],
+      "output": "mathematical-treatise",
+      "baseline_verdict": "MEDIUM",
+      "bounded_review": "PASS",
+      "rationale": "Publication practice is separated from the lunar scaling calculation; original idealizations and limited conclusion remain intact.",
+      "high_finding_resolved": false,
+      "required_rework": null
+    },
+    {
+      "kind": "changed_recipe",
+      "recipe_id": "make-population-pamphlet",
+      "inputs": [
+        "separated-conclusions",
+        "printed-quire"
+      ],
+      "output": "population-pamphlet",
+      "baseline_verdict": "MEDIUM",
+      "bounded_review": "PASS",
+      "rationale": "Explicit layout/checking transfer leaves the population argument as its own new text; publication is not endorsement.",
+      "high_finding_resolved": false,
+      "required_rework": null
+    },
+    {
+      "kind": "changed_recipe",
+      "recipe_id": "make-electromagnetic-record",
+      "inputs": [
+        "field-question",
+        "checked-edition"
+      ],
+      "output": "electromagnetic-record",
+      "baseline_verdict": "MEDIUM",
+      "bounded_review": "PASS",
+      "rationale": "Prior edition contributes source-to-copy checking, while the new field observations remain distinct and no later equations are smuggled in.",
+      "high_finding_resolved": false,
+      "required_rework": null
+    },
+    {
+      "kind": "changed_recipe",
+      "recipe_id": "make-boolean-specification",
+      "inputs": [
+        "entry-expression",
+        "not-table"
+      ],
+      "output": "boolean-specification",
+      "baseline_verdict": "ACCEPTED",
+      "bounded_review": "PASS",
+      "rationale": "All eight actual rows match inclusive OR plus the C inhibit, explicitly distinguishing two-input four-case and three-input eight-case domains.",
+      "high_finding_resolved": false,
+      "required_rework": null
+    },
+    {
+      "kind": "changed_recipe",
+      "recipe_id": "make-checked-logic",
+      "inputs": [
+        "boolean-specification",
+        "counterexample"
+      ],
+      "output": "checked-logic",
+      "baseline_verdict": "HIGH",
+      "bounded_review": "PASS",
+      "rationale": "Actual eight-row check confirms the supplied correct rule; no absent rival or fabricated correction is claimed.",
+      "high_finding_resolved": true,
+      "required_rework": null
+    },
+    {
+      "kind": "changed_recipe",
+      "recipe_id": "make-descent-book",
+      "inputs": [
+        "testable-evolution-case",
+        "checked-edition"
+      ],
+      "output": "descent-book",
+      "baseline_verdict": "MEDIUM",
+      "bounded_review": "PASS",
+      "rationale": "Source-to-copy discipline preserves the separately supplied invented selection ledger and limits, without using the triangle as biological evidence.",
+      "high_finding_resolved": false,
+      "required_rework": null
+    },
+    {
+      "kind": "unchanged_direct_consumer",
+      "recipe_id": "make-compared-witness",
+      "inputs": [
+        "proof-roll",
+        "syriac-witness"
+      ],
+      "output": "compared-witness",
+      "baseline_verdict": "ACCEPTED",
+      "bounded_review": "PASS",
+      "rationale": "Expanded roll still supplies C and equality AC=BC, so the later contrary inequality remains an actual distinct textual disagreement.",
+      "high_finding_resolved": false,
+      "required_rework": null
+    },
+    {
+      "kind": "unchanged_direct_consumer",
+      "recipe_id": "make-anatomical-commentary",
+      "inputs": [
+        "printed-anatomy",
+        "critical-text"
+      ],
+      "output": "anatomical-commentary",
+      "baseline_verdict": "ACCEPTED",
+      "bounded_review": "PASS",
+      "rationale": "Still applies variant-preserving correction to adult-jaw evidence, explicitly not treating C/D geometry as an anatomical observation.",
+      "high_finding_resolved": false,
+      "required_rework": null
+    },
+    {
+      "kind": "unchanged_direct_consumer",
+      "recipe_id": "make-classified-counts",
+      "inputs": [
+        "comparable-bills",
+        "category-key"
+      ],
+      "output": "classified-counts",
+      "baseline_verdict": "ACCEPTED",
+      "bounded_review": "PASS",
+      "rationale": "Source counts and all-cause sums unchanged; revised publication wording adds no new diagnoses or double counting.",
+      "high_finding_resolved": false,
+      "required_rework": null
+    },
+    {
+      "kind": "unchanged_direct_consumer",
+      "recipe_id": "make-variation-account",
+      "inputs": [
+        "rate-series",
+        "probability-table"
+      ],
+      "output": "variation-account",
+      "baseline_verdict": "ACCEPTED",
+      "bounded_review": "PASS",
+      "rationale": "Preserves distinct 28-day rates and their limits; clarified probability-table practice supplies no fabricated probability law.",
+      "high_finding_resolved": false,
+      "required_rework": null
+    },
+    {
+      "kind": "unchanged_direct_consumer",
+      "recipe_id": "make-orbital-geometry",
+      "inputs": [
+        "orbital-table",
+        "geometrical-proof"
+      ],
+      "output": "orbital-geometry",
+      "baseline_verdict": "MEDIUM",
+      "bounded_review": "PASS",
+      "rationale": "Carries comparison/geometric habits, then independently states its circular/tangent premises; invented angular residuals are not asserted to derive this orbit.",
+      "high_finding_resolved": false,
+      "required_rework": null
+    },
+    {
+      "kind": "unchanged_direct_consumer",
+      "recipe_id": "make-timescale-question",
+      "inputs": [
+        "repeated-processes",
+        "mathematical-treatise"
+      ],
+      "output": "timescale-question",
+      "baseline_verdict": "MEDIUM",
+      "bounded_review": "PASS",
+      "rationale": "Unchanged MEDIUM continuity consideration remains; publication clarification does not make lunar scaling geological timing evidence.",
+      "high_finding_resolved": false,
+      "required_rework": null
+    },
+    {
+      "kind": "unchanged_direct_consumer",
+      "recipe_id": "make-field-question",
+      "inputs": [
+        "changing-field-model",
+        "mathematical-treatise"
+      ],
+      "output": "field-question",
+      "baseline_verdict": "MEDIUM",
+      "bounded_review": "PASS",
+      "rationale": "New publication wording does not claim the earlier gravity calculation supplies Maxwell equations; existing question remains bounded.",
+      "high_finding_resolved": false,
+      "required_rework": null
+    },
+    {
+      "kind": "unchanged_direct_consumer",
+      "recipe_id": "make-struggle-condition",
+      "inputs": [
+        "population-pamphlet",
+        "offspring-record"
+      ],
+      "output": "struggle-condition",
+      "baseline_verdict": "ACCEPTED",
+      "bounded_review": "PASS",
+      "rationale": "Population constraint retains separate biological recruitment question; publication clarification changes no causal premise.",
+      "high_finding_resolved": false,
+      "required_rework": null
+    },
+    {
+      "kind": "unchanged_direct_consumer",
+      "recipe_id": "make-binary-switch",
+      "inputs": [
+        "relay-unit",
+        "electromagnetic-record"
+      ],
+      "output": "binary-switch",
+      "baseline_verdict": "ACCEPTED",
+      "bounded_review": "PASS",
+      "rationale": "Same conduction-state and ideal-relay qualification remains; publishing the field observations supplies no new instantaneous-switch proof.",
+      "high_finding_resolved": false,
+      "required_rework": null
+    },
+    {
+      "kind": "unchanged_direct_consumer",
+      "recipe_id": "make-specified-relay",
+      "inputs": [
+        "checked-logic",
+        "and-circuit"
+      ],
+      "output": "specified-relay",
+      "baseline_verdict": "ACCEPTED",
+      "bounded_review": "PASS",
+      "rationale": "Inherited eight-row rule remains exactly the target relay rule, with inclusive OR and inhibit unchanged.",
+      "high_finding_resolved": false,
+      "required_rework": null
+    },
+    {
+      "kind": "unchanged_direct_consumer",
+      "recipe_id": "make-source-counts",
+      "inputs": [
+        "symbol-batch",
+        "probability-table"
+      ],
+      "output": "source-counts",
+      "baseline_verdict": "ACCEPTED",
+      "bounded_review": "PASS",
+      "rationale": "New table-publication wording does not change empirical symbol counts or claim weights measure importance.",
+      "high_finding_resolved": false,
+      "required_rework": null
+    },
+    {
+      "kind": "unchanged_direct_consumer",
+      "recipe_id": "make-explicit-allocation",
+      "inputs": [
+        "rule-proposal",
+        "checked-logic"
+      ],
+      "output": "explicit-allocation",
+      "baseline_verdict": "ACCEPTED",
+      "bounded_review": "PASS",
+      "rationale": "Reuses case checking on explicitly new water-allocation branches, not the entry predicate as a normative allocation rule.",
+      "high_finding_resolved": false,
+      "required_rework": null
+    },
+    {
+      "kind": "unchanged_direct_consumer",
+      "recipe_id": "make-experiment-lattice",
+      "inputs": [
+        "checked-logic",
+        "trial-menu"
+      ],
+      "output": "experiment-lattice",
+      "baseline_verdict": "ACCEPTED",
+      "bounded_review": "PASS",
+      "rationale": "Four L/N rows concern a new two-input experimental domain, not a claim that the earlier A/B/C rule has only four cases.",
+      "high_finding_resolved": false,
+      "required_rework": null
+    },
+    {
+      "kind": "unchanged_direct_consumer",
+      "recipe_id": "make-next-question",
+      "inputs": [
+        "anomalous-growth",
+        "probability-table"
+      ],
+      "output": "next-question",
+      "baseline_verdict": "ACCEPTED",
+      "bounded_review": "PASS",
+      "rationale": "New probability-table wording leaves the explicit speculative equal-weight assumption and expected remaining-candidate computation unchanged.",
+      "high_finding_resolved": false,
+      "required_rework": null
+    },
+    {
+      "kind": "unchanged_direct_consumer",
+      "recipe_id": "make-lunar-time-scale",
+      "inputs": [
+        "nautical-table",
+        "predictive-sky-record"
+      ],
+      "output": "lunar-time-scale",
+      "baseline_verdict": "ACCEPTED",
+      "bounded_review": "PASS",
+      "rationale": "Uses the sky record as a prediction-comparison practice, then separately supplies the actual nautical angles/times; no false reuse of the 1605 numbers.",
+      "high_finding_resolved": false,
+      "required_rework": null
+    }
+  ]
+}

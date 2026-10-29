@@ -1,0 +1,136 @@
+{
+  "scenario": "copy-workroom-two-commissions-v1",
+  "title": "The Copy Workroom",
+  "kind": "Current event-local integration replay of documented author witness; not a fresh/human/browser playtest",
+  "baseCommit": "92cbad81f6c13d0a834196ecbbdfa8fd203c83bf",
+  "sourceWitness": "causation/next-logic-reconsideration-20261028/paired-v1/author-route.json",
+  "sourceWitnessSha256": "aacfe8ea312c01de7071708fae623f836daef30d59a168af8e52b08622405f0d",
+  "sourceScenario": "causation/next-logic-reconsideration-20261028/paired-v1/scenario.json",
+  "runtimeSha256": "793354131dc6b2cf9a5398e0dc163f5d834e62d477b719e7dedcfdcf6a2c8265",
+  "combinations": 4,
+  "actions": 9,
+  "actionsLog": [
+    {
+      "type": "combine",
+      "a": "papers",
+      "b": "@press"
+    },
+    {
+      "type": "advance"
+    },
+    {
+      "type": "combine",
+      "a": "master",
+      "b": "stock"
+    },
+    {
+      "type": "place",
+      "item": "block-readable",
+      "location": "display-frame"
+    },
+    {
+      "type": "advance"
+    },
+    {
+      "type": "combine",
+      "a": "master",
+      "b": "@window"
+    },
+    {
+      "type": "combine",
+      "a": "reverse",
+      "b": "stock"
+    },
+    {
+      "type": "place",
+      "item": "block-reflected",
+      "location": "printer-chest"
+    },
+    {
+      "type": "advance"
+    }
+  ],
+  "completed": true,
+  "metrics": {
+    "attempts": 9,
+    "accepted": 9,
+    "combinations": 4,
+    "creations": 4,
+    "installations": 0,
+    "moves": 0,
+    "placements": 2,
+    "advances": 3,
+    "visits": 0
+  },
+  "recipesTotal": 6,
+  "stages": 3,
+  "stageEntries": [
+    {
+      "stageIndex": 0,
+      "stageId": "sample",
+      "actionPrefixLength": 0,
+      "stateSha256": "b83702438eea587af72d2c78404ecb04ffed78b63f92b4f65fe743508ef521bd"
+    },
+    {
+      "stageIndex": 1,
+      "stageId": "commission",
+      "actionPrefixLength": 2,
+      "stateSha256": "a04eb3f46d7d07ecd6a163a319d146dbdef486e0c67bd4f8f555d3a98827d450"
+    },
+    {
+      "stageIndex": 2,
+      "stageId": "printer-commission",
+      "actionPrefixLength": 5,
+      "stateSha256": "454b73b116062c1b0ca5db78237b34108974ccdbcb45974f5c05183340061e33"
+    }
+  ],
+  "goalContinuity": [
+    {
+      "stage": "sample",
+      "earlierUsed": [],
+      "goalConnected": [],
+      "completed": true
+    },
+    {
+      "stage": "commission",
+      "earlierUsed": [
+        "master"
+      ],
+      "goalConnected": [
+        "master"
+      ],
+      "completed": true
+    },
+    {
+      "stage": "printer-commission",
+      "earlierUsed": [
+        "master"
+      ],
+      "goalConnected": [
+        "master"
+      ],
+      "completed": true
+    }
+  ],
+  "checkpoints": [
+    {
+      "id": "workroom-earned",
+      "actionPrefixLength": 2,
+      "stageIndex": 1,
+      "completed": false,
+      "stateSha256": "a04eb3f46d7d07ecd6a163a319d146dbdef486e0c67bd4f8f555d3a98827d450"
+    },
+    {
+      "id": "printer-arrival-earned",
+      "actionPrefixLength": 5,
+      "stageIndex": 2,
+      "completed": false,
+      "stateSha256": "454b73b116062c1b0ca5db78237b34108974ccdbcb45974f5c05183340061e33"
+    }
+  ],
+  "limits": [
+    "Only these documented routes are replayed; no exhaustive whole-campaign route claim.",
+    "Native/browser layout, touch and human enjoyment QA remain pending.",
+    "Exact paired workroom 0603859b source: two authored midpoint checkpoints, three scenes, six core drops (four combinations and two deliveries), same six manufacturing recipes. Short within-person transfer experiment, not solved causation or human fun. Prior Riverside preserved verbatim."
+  ]
+}

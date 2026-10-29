@@ -1,0 +1,26 @@
+/** Recipe-blind player surface. Author-side implementation; readers only invoke it. */
+import fs from 'node:fs';import path from 'node:path';import {fileURLToPath} from 'node:url';
+import * as M from '../frozen-runtime/engine/model.ts';import {execute} from './strict-surface.mjs';
+const root=path.dirname(fileURLToPath(import.meta.url));
+const [session,slice,op,...args]=process.argv.slice(2);
+if(!/^[a-z0-9_-]+$/.test(session??''))throw Error('Use a simple session name.');
+const slices={greek:{first:1,last:3},earthlife:{first:16,last:18}};
+if(!slices[slice])throw Error('Choose greek or earthlife.');
+const limit=slices[slice],s=JSON.parse(fs.readFileSync(path.join(root,'../candidate-v2/scenario.json'),'utf8'));
+const chapters=JSON.parse(fs.readFileSync(path.join(root,'../candidate-v2/chapter-recipes.json'),'utf8'));
+const aliases=new Map([...s.items.map((x,i)=>[x.id,'t'+String(i+1).padStart(3,'0')]),...s.locations.map((x,i)=>['@'+x.id,'p'+String(i+1).padStart(2,'0')]),...s.stages.map((x,i)=>[x.area.id,'a'+String(i+1).padStart(2,'0')])]);
+const real=new Map([...aliases].map(([a,b])=>[b,a]));
+const decode=x=>real.get(x)??x;
+const dir=path.join(root,'.sessions',session);fs.mkdirSync(dir,{recursive:true});const file=path.join(dir,'state.json');const metafile=path.join(dir,'metadata.json');
+const exists=fs.existsSync(file);if(op==='start'&&exists)throw Error('Session exists; use view.');if(op!=='start'&&!exists)throw Error('Start the session first.');
+let game;
+if(exists){const meta=JSON.parse(fs.readFileSync(metafile));if(meta.slice!==slice)throw Error('Session belongs to a different slice.');game=M.restore(s,fs.readFileSync(file,'utf8'));}
+else {const prefix=chapters.slice(0,limit.first).flatMap(c=>[...c.actions,{type:'advance'}]);game=M.replay(s,prefix,480);game.history=[];game.milestonesSeen=(game.state.milestones??[]).map(x=>x.id);fs.writeFileSync(metafile,JSON.stringify({slice,startingStage:limit.first+1,endingStage:limit.last+1,preparedActions:prefix.length,preparedBy:'Exact authored engine replay; not reader play.'},null,2));}
+if(game.state.stage>limit.last){console.log(JSON.stringify({stopped:true,reason:'The agreed three-desk slice is complete. Please report your experience; do not continue into another desk.'},null,2));process.exit(0)}
+const translated=args.map((x,i)=>['drop','place','highlight','read','move','visit'].includes(op)&&i<(op==='move'?1:2)?decode(x):x);
+const x=execute(M,s,game,op,translated);game=x.game;
+const milestones=[];let pending;while((pending=M.pendingMilestone(s,game))){milestones.push({title:pending.title,text:pending.text});game=M.acknowledgeMilestone(s,game,pending.id)}
+const cleanView=v=>({stage:v.stage,area:{label:v.area.label},objectives:v.objectives.map(({text,satisfied})=>({text,satisfied})),newSupplies:v.newSupplies,things:v.things.map(({id,label,gold,readable,location,components})=>({id:aliases.get(id),label,gold,readable,...location?{location:aliases.get('@'+location)}:{},...components.length?{components}:{} })),locations:v.locations.map(({id,label,gold})=>({id:aliases.get(id),label,gold})),completed:v.completed});
+const encode=o=>Array.isArray(o)?o.map(encode):o&&typeof o==='object'?Object.fromEntries(Object.entries(o).filter(([k])=>!['resolvedAction'].includes(k)).map(([k,v])=>[k,encode(v)])):typeof o==='string'&&aliases.has(o)?aliases.get(o):o;
+const bounded=game.state.stage>limit.last;const response={...(op==='start'?{preparedEntry:'Earlier creations were earned by an exact engine replay before your slice. These were not your actions. You may read the returning tiles; evaluate this slice from here.'}:{}),...encode(x.response),...(milestones.length?{earnedMilestones:milestones}:{}),transitions:x.transitions.map(t=>({completedStage:t.completedStage,finalCreations:t.visibleFinalCreation.things.filter(t=>t.gold).map(t=>t.label)})),...(bounded?{stopped:true,reason:'Three-desk slice complete. Stop here and report.'}:{view:cleanView(x.view)})};
+fs.writeFileSync(file,JSON.stringify(game));fs.appendFileSync(path.join(dir,'transcript.jsonl'),JSON.stringify({op,args,result:response})+'\n');console.log(JSON.stringify(response,null,2));

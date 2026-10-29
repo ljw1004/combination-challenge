@@ -1,0 +1,36 @@
+{
+  "status": "fail",
+  "observedStates": 176,
+  "overlapObservations": 70,
+  "uniqueOverlaps": 18,
+  "first": {
+    "width": 320,
+    "event": 19,
+    "stage": 4,
+    "a": "reason-effects",
+    "b": "two-not-forced",
+    "dx": 80,
+    "dy": 48
+  }
+}
+node:internal/modules/run_main:107
+    triggerUncaughtException(
+    ^
+
+AssertionError [ERR_ASSERTION]: New card rectangles overlap existing visible cards. This is a source-model layout failure, not a browser-test result.
+
+70 !== 0
+
+    at file:///workspace/shared/combination-campaign-research-20261028/doctrine/conceptual-desks-v2-20261028/verify-layout.mjs:10:8
+    at ModuleJob.run (node:internal/modules/esm/module_job:561:25)
+    at async node:internal/modules/esm/loader:647:26
+    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:101:5) {
+  generatedMessage: false,
+  code: 'ERR_ASSERTION',
+  actual: 70,
+  expected: 0,
+  operator: 'strictEqual',
+  diff: 'simple'
+}
+
+Node.js v24.22.1

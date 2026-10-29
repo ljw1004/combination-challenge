@@ -1,0 +1,9 @@
+import assert from 'node:assert/strict';
+import {readFileSync} from 'node:fs';
+const manifest=JSON.parse(readFileSync(new URL('../reviews/mars-observation-streamline/source-successors.json',import.meta.url),'utf8'));
+/** Chain exact hashes; the frozen location-artwork manifest is never rewritten. */
+export function expectedSourceHashAfterMarsObservationStreamline(path:string,parentSha256:string):string {
+ const row=manifest.files[path];if(!row)return parentSha256;
+ assert.equal(row.beforeSha256,parentSha256,path+': Mars observation overlay requires its exact frozen final-v2 predecessor');
+ return row.afterSha256;
+}

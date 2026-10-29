@@ -1,0 +1,66 @@
+DESK 12: bacon | Early-modern studies and workshops · c. 1600–1665 CE | The workshop asks back | Do not collect only the cases that flatter a theory. A workshop, a correspondence network and Burton’s unruly books offer different ways to make inherited learning answer back.
+GOALS: [{'id': 'bacon-bias-under-examination', 'text': 'Seek an unwelcome case', 'kind': 'create', 'item': 'bias-under-examination'}, {'id': 'bacon-melancholy-many-sources', 'text': 'Bring different kinds of experience together', 'kind': 'create', 'item': 'melancholy-many-sources'}, {'id': 'bacon-repeatable-wonder', 'text': 'Make a wonder inspectable', 'kind': 'create', 'item': 'repeatable-wonder'}, {'id': 'bacon-shared-heat-inquiry', 'text': 'Let another workshop test the heat claim', 'kind': 'create', 'item': 'shared-heat-inquiry'}]
+
+RECIPE make-working-natural-history
+A conditional-cause | An explanation tied to conditions | The account can be considered through the conditions under which it applies.
+B craft-records | Record what furnaces, gardens and workshops do | Practical making can contribute to inquiry, not only illustrate a finished theory.
+OUT working-natural-history | Natural history includes what crafts can do | Bacon’s program extends inquiry through organized observations and interventions.
+LIFECYCLE {'conditional-cause': 'retain', 'craft-records': 'retain'}
+LINK {"from": "explanations", "to": "bacon", "item": "conditional-cause", "recipe": "make-working-natural-history", "relation": "criticism", "evidence": "Bacon’s program responds critically to inherited natural philosophy, not to the invention of causality itself.", "sources": ["bacon", "natural-magic", "burton"]}
+
+RECIPE make-bias-under-examination
+A working-natural-history | Natural history includes what crafts can do | Bacon’s program extends inquiry through organized observations and interventions.
+B favoured-cases | We notice examples that favour our belief | A schematic case of a bias Bacon warns against.
+OUT bias-under-examination | An inquiry that looks for unwelcome cases | The aim is to counter a tendency, not to certify a researcher as bias-free.
+LIFECYCLE {'working-natural-history': 'retain', 'favoured-cases': 'retain'}
+
+RECIPE make-heat-light-conjecture
+A sun-warmth | Sunlight warms exposed things | One familiar instance in an inquiry about heat.
+B flame-warmth | A flame gives light and warmth | Another instance that makes a tempting association.
+OUT heat-light-conjecture | Heat seems tied to light | Two favourable instances suggest a candidate account, not a universal conclusion.
+LIFECYCLE {'sun-warmth': 'retain', 'flame-warmth': 'retain'}
+
+RECIPE make-light-not-sufficient
+A heat-light-conjecture | Heat seems tied to light | Two favourable instances suggest a candidate account, not a universal conclusion.
+B moonlight-cool | Moonlight is bright without comparable warmth | A qualitative negative instance, not a modern radiation measurement.
+OUT light-not-sufficient | Brightness is not sufficient for heat | A negative instance rejects the easiest version of the conjecture.
+LIFECYCLE {'heat-light-conjecture': 'retain', 'moonlight-cool': 'retain'}
+
+RECIPE make-heat-beyond-light
+A light-not-sufficient | Brightness is not sufficient for heat | A negative instance rejects the easiest version of the conjecture.
+B friction-warmth | Rubbing can warm without a flame | An ordinary phenomenon breaks the simple identification of heat with shining bodies.
+OUT heat-beyond-light | Heat must be sought beyond luminous bodies | The field of inquiry changes; no modern molecular theory has yet been established.
+LIFECYCLE {'light-not-sufficient': 'retain', 'friction-warmth': 'retain'}
+
+RECIPE make-rubbing-intervention
+A heat-beyond-light | Heat must be sought beyond luminous bodies | The field of inquiry changes; no modern molecular theory has yet been established.
+B matched-wood | Same wood: rubbed piece warms, untouched piece does not | An authored controlled comparison with its observed result stated on the tile.
+OUT rubbing-intervention | Rubbing changes the warming in this comparison | The matched case singles out an intervention instead of merely adding another agreeable example.
+LIFECYCLE {'heat-beyond-light': 'retain', 'matched-wood': 'retain'}
+
+RECIPE make-melancholy-many-sources
+A active-commentary | A commentary that changes the question | The received argument becomes a starting point for original criticism and elaboration.
+B burton-sources | Burton gathers Galen, poetry and lived melancholy | A historically situated compilation, not present medical advice.
+OUT melancholy-many-sources | Melancholy across bodies, books and experience | Burton’s work reuses inherited learning through an expansive literary and medical inquiry.
+LIFECYCLE {'active-commentary': 'retain', 'burton-sources': 'retain'}
+LINK {"from": "translation", "to": "bacon", "item": "active-commentary", "recipe": "make-melancholy-many-sources", "relation": "teaching-comparison", "evidence": "The earlier creation supplies a practice of active reading; Burton is not asserted to derive this work from one Arabic commentary.", "sources": ["bacon", "natural-magic", "burton"]}
+
+RECIPE make-public-trial
+A contested-publication | Printed knowledge under contention | A wider audience and new controls develop together, not as a simple freedom switch.
+B shared-method | Correspondents describe enough method to repeat a trial | An institutional practice, not a claim that print alone ensures reliability.
+OUT public-trial | A trial another workshop can repeat | Publication can expose methods to other practitioners without abolishing disputes over trust.
+LIFECYCLE {'contested-publication': 'retain', 'shared-method': 'retain'}
+LINK {"from": "editions", "to": "bacon", "item": "contested-publication", "recipe": "make-public-trial", "relation": "adaptation", "evidence": "Print and correspondence help make experimental practices public, while access and trust remain contested.", "sources": ["bacon", "natural-magic", "burton"]}
+
+RECIPE make-repeatable-wonder
+A pinhole-box | A prepared dark-room image box | The arrangement becomes a controlled setting for a projected image.
+B natural-magic-secrets | A marvellous optical effect has a repeatable arrangement | Della Porta’s natural magic connects hidden natural causes with crafted effects.
+OUT repeatable-wonder | An optical wonder with an inspectable arrangement | A repeatable effect can coexist with wonder; natural magic is not simply the absence of observation.
+LIFECYCLE {'pinhole-box': 'retain', 'natural-magic-secrets': 'retain'}
+LINK {"from": "light", "to": "bacon", "item": "pinhole-box", "recipe": "make-repeatable-wonder", "relation": "adaptation", "evidence": "Optical arrangements occur in early-modern natural magic as reproducible effects.", "sources": ["bacon", "natural-magic", "burton"]}
+
+RECIPE make-shared-heat-inquiry
+A rubbing-intervention | Rubbing changes the warming in this comparison | The matched case singles out an intervention instead of merely adding another agreeable example.
+B public-trial | A trial another workshop can repeat | Publication can expose methods to other practitioners without abolishing disputes over trust.
+OUT shared-heat-inquiry | The heat comparison crosses workshops | An explicitly described intervention can be checked and contested beyond its first setting.
+LIFECYCLE {'rubbing-intervention': 'retain', 'public-trial': 'retain'}

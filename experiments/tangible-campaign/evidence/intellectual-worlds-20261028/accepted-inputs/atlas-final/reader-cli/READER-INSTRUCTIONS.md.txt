@@ -1,0 +1,27 @@
+# Atlas · bounded recipe-blind logical reader
+
+Use only this guide and the CLI. Do not inspect the player implementation, candidate JSON, recipes, author route, checkpoints, source files, tests, other readers’ transcripts or reports. No native/browser UI. The task is to read and play, not optimize or reverse-engineer the graph.
+
+Two independent slices are available. A reader should receive only one:
+- `greek`: three desks, starting with Greek explanation and examining kinds and ways of living.
+- `earthlife`: three desks, starting with geological time and moving through changing species and the costs of progress.
+
+Earlier creations were earned by an exact engine replay; those actions are **not your play**. The CLI will stop after your three desks. It shows only the current scene, normal goals, existing tile labels, optional Read, ordinary selection highlighting, outcomes and milestones. It does not preview combinations’ results. A small timing delay and modal acknowledgement are settled automatically; this is not a visual UI test.
+
+Run from anywhere:
+
+```
+node /workspace/shared/atlas-full-redesign-20261028/reader-cli/player.mjs SESSION SLICE start
+node /workspace/shared/atlas-full-redesign-20261028/reader-cli/player.mjs SESSION SLICE view
+node /workspace/shared/atlas-full-redesign-20261028/reader-cli/player.mjs SESSION SLICE read t001
+node /workspace/shared/atlas-full-redesign-20261028/reader-cli/player.mjs SESSION SLICE highlight t001
+node /workspace/shared/atlas-full-redesign-20261028/reader-cli/player.mjs SESSION SLICE drop t001 t002
+node /workspace/shared/atlas-full-redesign-20261028/reader-cli/player.mjs SESSION SLICE note "What I expect, what I cannot understand, or why I choose this pair."
+node /workspace/shared/atlas-full-redesign-20261028/reader-cli/player.mjs SESSION SLICE stop "Reason for stopping."
+```
+
+Replace `SESSION` with your unique lowercase session ID, `SLICE` with your assigned slice, and tile IDs with the opaque IDs actually shown. `place t001 p01`, `undo`, and `mission` are available if relevant. Do not try guessed or hidden IDs. No reset, arbitrary stage jump or recipe command exists.
+
+Please record an expectation before uncertain moves and before ordinary highlighting when you have a guess. Highlighting is normal intended play, **not failure**. Use Read when useful, but identify labels that make it necessary to understand the basic operation. Do not pretend to be a human novice: this is a model-reader diagnostic.
+
+Report: the specific operations that felt intelligible or like prescribed summary assembly; whether returning creations changed the reasoning; concrete unclear words/context; one or more tempting rejected pairs and what you expected; whether different threads felt different. Preserve uncertainty and stopping reasons. Do not assign a human fun score or infer boredom from the mere use of highlights. Stop at the bound, or earlier if you cannot meaningfully continue. No need to finish optimally.

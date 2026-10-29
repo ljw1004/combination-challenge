@@ -1,0 +1,89 @@
+{
+  "status": "ready_for_root_integration",
+  "baseCommit": "217ce7428e8e95ea0c1bc18e7747ecdbf68c1b5c",
+  "candidate": "/workspace/shared/combination-grouped-arrival-20261028/candidate",
+  "sourceOverlay": {
+    "path": "/workspace/shared/combination-grouped-arrival-20261028/grouped-arrival-source-overlay.tar.gz",
+    "sha256": "358cab6191343039afcac02cc6335d0bd32eba456fd06838fcf0930d5905fbd8",
+    "files": 18
+  },
+  "patch": {
+    "path": "/workspace/shared/combination-grouped-arrival-20261028/grouped-arrival.patch",
+    "sha256": "a04c0f88c46c139d6e188630567862a5e5f686f6e9c4c51bccac0659f0a055bd",
+    "gitApplyCheck": "passed against untouched exact live217"
+  },
+  "manifest": {
+    "path": "/workspace/shared/combination-grouped-arrival-20261028/overlay-manifest.json",
+    "sha256": "02cf4400da3f8e5edd762a74f3d136732fd72834553468a67c15af28a0941dad"
+  },
+  "checks": {
+    "aggregate": {
+      "command": "node --test tests/tangible-campaign.test.ts",
+      "passed": 370,
+      "failed": 0,
+      "skipped": 0,
+      "log": "full-tangible-final.log"
+    },
+    "build": {
+      "command": "npm run build",
+      "exitCode": 0,
+      "log": "build-final.log"
+    },
+    "retainedHistoricalParity": {
+      "passed": 3,
+      "failed": 0,
+      "log": "historical-parity-final.log"
+    },
+    "independent": {
+      "authoredByIndependentReviewer": 8,
+      "implementationOwnerFollowupRegressions": 2,
+      "passed": 10,
+      "randomLayouts": 180,
+      "log": "independent-final.log"
+    },
+    "sourceChain": {
+      "passed": 3,
+      "log": "source-contract-final.log",
+      "alsoIncludedInAggregate": true
+    },
+    "computedMobileEntries": {
+      "entries": 243,
+      "widths": [
+        320,
+        375,
+        600
+      ],
+      "noSpeculativePadding": true,
+      "exactOldBottomToDividerGap": 20,
+      "exactDividerToNewTopGap": 26,
+      "maxBottomByWidth": {
+        "320": 808,
+        "375": 808,
+        "600": 692
+      },
+      "minDividerFraction": 0.3333333333333333,
+      "maxDividerFraction": 0.836,
+      "data": "mobile-entry-extents.json"
+    },
+    "baseline": "actual live217 checkout remained clean; all18 overlay old/new hashes and archive bytes verified"
+  },
+  "review": {
+    "independentReceipt": "independent-review.md",
+    "resolution": "review-resolution.md",
+    "currentContract": "candidate/experiments/tangible-campaign/reviews/grouped-arrivals/README.md"
+  },
+  "limits": [
+    "Browser/native UI testing deliberately not run, per user.",
+    "No human playtest claim.",
+    "A taller lower transformation retains its exact replacement center and may visually overlap the divider; it does not count as user mixing or silently dismiss the line. No future-height padding.",
+    "Cross-group detection is scoped to this chapter area; unrelated cross-area visits/carries retain the line.",
+    "First aggregate367/368 exposed an overstrict new test on newly authored locations; the corrected assertion preserves exact existing coordinates and final370/370 passes."
+  ],
+  "mutations": {
+    "actualCheckout": false,
+    "github": false,
+    "publication": false,
+    "milestoneUI": false
+  },
+  "blockers": []
+}

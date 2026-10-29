@@ -1,0 +1,278 @@
+{
+  "parentSourceSealSha256": "60aa75dd30d776867324f738b900ed86e5c5188558c148666c0e6111e2b1b9be",
+  "scope": "Exact before/after current-v5 observation rows; frozen original location audit remains unchanged. Removed unpublished rows are retained here, not counted as current recipes.",
+  "changes": [
+    {
+      "before": {
+        "world": "mars-persistent-locations-v5",
+        "recipe": "buried-story-11-layer-interpretation",
+        "inputs": [
+          "sediment-comparison",
+          "core-profile"
+        ],
+        "output": "layer-interpretation",
+        "lifecycles": {
+          "sediment-comparison": {
+            "role": "retain",
+            "reason": "Sediment comparison is reused as equipment, a source/reference, a subject of observation, or a continuing supply; this action does not consume it."
+          },
+          "core-profile": {
+            "role": "retain",
+            "reason": "Core profile is reused as equipment, a source/reference, a subject of observation, or a continuing supply; this action does not consume it."
+          }
+        },
+        "incorporated": "—",
+        "retained": "core-profile, sediment-comparison"
+      },
+      "after": {
+        "world": "mars-persistent-locations-v5",
+        "recipe": "buried-story-11-layer-interpretation",
+        "inputs": [
+          "sediment-comparison",
+          "core-profile"
+        ],
+        "output": "layer-interpretation",
+        "lifecycles": {
+          "sediment-comparison": {
+            "role": "retain",
+            "reason": "Sediment comparison is reused as equipment, a source/reference, a subject of observation, or a continuing supply; this action does not consume it."
+          },
+          "core-profile": {
+            "role": "retain",
+            "reason": "The core layer photograph remains a reference for comparing sites and for the return archive."
+          }
+        },
+        "incorporated": "—",
+        "retained": "core-profile, sediment-comparison"
+      }
+    },
+    {
+      "before": {
+        "world": "mars-persistent-locations-v5",
+        "recipe": "departure-6-complete-field-archive",
+        "inputs": [
+          "geology-archive",
+          "core-profile"
+        ],
+        "output": "complete-field-archive",
+        "lifecycles": {
+          "geology-archive": {
+            "role": "transform",
+            "reason": "Geology archive is the existing object changed into Complete field archive."
+          },
+          "core-profile": {
+            "role": "retain",
+            "reason": "Core profile is reused as equipment, a source/reference, a subject of observation, or a continuing supply; this action does not consume it."
+          }
+        },
+        "incorporated": "geology-archive",
+        "retained": "core-profile"
+      },
+      "after": {
+        "world": "mars-persistent-locations-v5",
+        "recipe": "departure-6-complete-field-archive",
+        "inputs": [
+          "geology-archive",
+          "core-profile"
+        ],
+        "output": "complete-field-archive",
+        "lifecycles": {
+          "geology-archive": {
+            "role": "transform",
+            "reason": "Geology archive is the existing object changed into Complete field archive."
+          },
+          "core-profile": {
+            "role": "retain",
+            "reason": "The core layer photograph remains a reference for comparing sites and for the return archive."
+          }
+        },
+        "incorporated": "geology-archive",
+        "retained": "core-profile"
+      }
+    },
+    {
+      "before": {
+        "world": "mars-persistent-locations-v5",
+        "recipe": "outcrop-12-core-rack",
+        "inputs": [
+          "ice-core",
+          "specimen-rack"
+        ],
+        "output": "core-rack",
+        "lifecycles": {
+          "ice-core": {
+            "role": "transform",
+            "reason": "Ice core is the existing object changed into Core rack."
+          },
+          "specimen-rack": {
+            "role": "incorporate",
+            "reason": "Specimen rack becomes part of the result; retain a supply only while another authored use needs it."
+          }
+        },
+        "incorporated": "ice-core, specimen-rack",
+        "retained": "—"
+      },
+      "after": null
+    },
+    {
+      "before": {
+        "world": "mars-persistent-locations-v5",
+        "recipe": "outcrop-13-scaled-core",
+        "inputs": [
+          "core-rack",
+          "scale-card"
+        ],
+        "output": "scaled-core",
+        "lifecycles": {
+          "core-rack": {
+            "role": "transform",
+            "reason": "Core rack is the existing object changed into Scaled core."
+          },
+          "scale-card": {
+            "role": "retain",
+            "reason": "Scale card is reused as equipment, a source/reference, a subject of observation, or a continuing supply; this action does not consume it."
+          }
+        },
+        "incorporated": "core-rack",
+        "retained": "scale-card"
+      },
+      "after": null
+    },
+    {
+      "before": {
+        "world": "mars-persistent-locations-v5",
+        "recipe": "outcrop-14-core-profile",
+        "inputs": [
+          "scaled-core",
+          "camera"
+        ],
+        "output": "core-profile",
+        "lifecycles": {
+          "scaled-core": {
+            "role": "retain",
+            "reason": "Scaled core is reused as equipment, a source/reference, a subject of observation, or a continuing supply; this action does not consume it."
+          },
+          "camera": {
+            "role": "retain",
+            "reason": "Camera is reused as equipment, a source/reference, a subject of observation, or a continuing supply; this action does not consume it."
+          }
+        },
+        "incorporated": "—",
+        "retained": "camera, scaled-core"
+      },
+      "after": {
+        "world": "mars-persistent-locations-v5",
+        "recipe": "outcrop-14-core-profile",
+        "inputs": [
+          "ice-core",
+          "camera"
+        ],
+        "output": "core-profile",
+        "lifecycles": {
+          "ice-core": {
+            "role": "retain",
+            "reason": "Photographing the ice core does not consume the specimen; it stays at the outcrop unless deliberately moved."
+          },
+          "camera": {
+            "role": "retain",
+            "reason": "The camera records the core and remains available for other photographs."
+          }
+        },
+        "incorporated": "—",
+        "retained": "camera, ice-core"
+      }
+    },
+    {
+      "before": {
+        "world": "mars-persistent-locations-v5",
+        "recipe": "contrast-scale",
+        "inputs": [
+          "gravel-view",
+          "scale-card"
+        ],
+        "output": "scaled-gravel-view",
+        "lifecycles": {
+          "gravel-view": {
+            "role": "transform",
+            "reason": "Gravel view is the existing object changed into Scaled gravel view."
+          },
+          "scale-card": {
+            "role": "retain",
+            "reason": "Scale card is reused as equipment, a source/reference, a subject of observation, or a continuing supply; this action does not consume it."
+          }
+        },
+        "incorporated": "gravel-view",
+        "retained": "scale-card"
+      },
+      "after": null
+    },
+    {
+      "before": {
+        "world": "mars-persistent-locations-v5",
+        "recipe": "contrast-pair",
+        "inputs": [
+          "ripple-view",
+          "scaled-gravel-view"
+        ],
+        "output": "paired-terrain-views",
+        "lifecycles": {
+          "ripple-view": {
+            "role": "retain",
+            "reason": "Ripple view is reused as equipment, a source/reference, a subject of observation, or a continuing supply; this action does not consume it."
+          },
+          "scaled-gravel-view": {
+            "role": "retain",
+            "reason": "Scaled gravel view is reused as equipment, a source/reference, a subject of observation, or a continuing supply; this action does not consume it."
+          }
+        },
+        "incorporated": "—",
+        "retained": "ripple-view, scaled-gravel-view"
+      },
+      "after": {
+        "world": "mars-persistent-locations-v5",
+        "recipe": "contrast-pair",
+        "inputs": [
+          "ripple-view",
+          "gravel-view"
+        ],
+        "output": "paired-terrain-views",
+        "lifecycles": {
+          "ripple-view": {
+            "role": "retain",
+            "reason": "Ripple view is reused as equipment, a source/reference, a subject of observation, or a continuing supply; this action does not consume it."
+          },
+          "gravel-view": {
+            "role": "retain",
+            "reason": "The original gravel photograph stays available alongside the comparison; comparing pictures does not alter or scale it."
+          }
+        },
+        "incorporated": "—",
+        "retained": "gravel-view, ripple-view"
+      }
+    },
+    {
+      "before": null,
+      "after": {
+        "world": "mars-persistent-locations-v5",
+        "recipe": "outcrop-core-photograph-field-camera",
+        "inputs": [
+          "ice-core",
+          "field-camera"
+        ],
+        "output": "core-profile",
+        "lifecycles": {
+          "ice-core": {
+            "role": "retain",
+            "reason": "Photographing the ice core does not consume the specimen; it stays at the outcrop unless deliberately moved."
+          },
+          "field-camera": {
+            "role": "retain",
+            "reason": "The camera on its tripod can photograph the core without losing its support or other uses."
+          }
+        },
+        "incorporated": "—",
+        "retained": "field-camera, ice-core"
+      }
+    }
+  ]
+}

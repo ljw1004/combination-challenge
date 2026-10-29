@@ -1,0 +1,52 @@
+import {applyChapterPolicies} from './campaign-reactivity.ts';
+import type {Milestone, Scenario} from '../schema/scenario.ts';
+
+/** Optional presentation rewards, kept outside frozen authored recipe graphs.
+ * Only these two current worlds opt in. No uniform quota, predecessor backfill or cooking rewards. */
+export const campaignMilestones:Record<string,Milestone[]> = {
+  "mars-connected-survival-v4-return-cargo-research": [
+    {
+      "id": "mars-rover",
+      "item": "rover",
+      "when": "functional",
+      "capability": "solar-travel",
+      "title": "The horizon opens",
+      "text": "Sunlight becomes motion. The ground beyond camp is no longer only something to look at; we can go there."
+    },
+    {
+      "id": "mars-water",
+      "item": "camp-water-system",
+      "when": "created",
+      "title": "Water, on tap",
+      "text": "A reserve becomes a working water circuit. What we once carried by hand can now flow through the camp."
+    },
+    {
+      "id": "mars-oxygen",
+      "item": "oxygen-plant",
+      "when": "functional",
+      "capability": "oxygen-production",
+      "title": "From this world, a way home",
+      "text": "The plant is ready to turn the air of Mars into oxygen. What once had to come from Earth can now begin here."
+    }
+  ],
+  "elements-house-and-craft-v1": [
+    {
+      "id": "elements-plant",
+      "item": "plant",
+      "when": "created",
+      "title": "The world takes root",
+      "text": "Fruits of the orchard, grain of the field, flowers of the meadow. From one green beginning, a world of living possibilities."
+    }
+  ]
+};
+
+/** Never mutate a registered scenario or overwrite directly authored metadata. */
+export function applyMilestones(s:Scenario):Scenario {
+ const milestones=s.milestones??campaignMilestones[s.id];
+ return applyChapterPolicies(milestones?{...s,milestones}:s);
+}
+
+/** Shared entry point for UI, a logical playtester or any headless replay. */
+export function getPlayableScenario(id:string,catalog:readonly Scenario[]):Scenario|undefined {
+ const scenario=catalog.find(s=>s.id===id);return scenario?applyMilestones(scenario):undefined;
+}

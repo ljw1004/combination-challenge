@@ -1,0 +1,109 @@
+{
+  "baselineSeal": "60aa75dd30d776867324f738b900ed86e5c5188558c148666c0e6111e2b1b9be",
+  "baselineSummarySha256": "0cfcb6363341728a2404ee18d35cc5d2fe0b78c9c71521f3ae695074d4eb6168",
+  "failures": [
+    {
+      "file": "tests/reactive-chapter-policies.test.ts",
+      "log": "/workspace/shared/combination-location-presentation-final-v2-evidence-20261028/receipts/tests__reactive-chapter-policies.test.ts.attempt-1.log",
+      "logSha256": "42d1a83b3d058363b573eab655e7243ddfea16b190054e36cf190943644771f2",
+      "counts": {
+        "tests": 4,
+        "pass": 3,
+        "fail": 1,
+        "cancelled": 0,
+        "skipped": 0,
+        "todo": 0
+      },
+      "failures": [
+        {
+          "name": "policies neither mutate frozen scenario records nor touch predecessor worlds and save identities",
+          "location": "'/workspace/shared/combination-location-presentation-final-v2-check-20261028/tests/reactive-chapter-policies.test.ts:43:1'",
+          "diagnosticSha256": "72e0e4cdb7791ccdb18cf9c2a128e67371875b764d565aafae10e8c5e70b4196",
+          "diagnosticPreview": "  error: |-\n    Values have same structure but are not reference-equal:\n    \n    ... Skipped lines\n    [\n      {\n        actions: [],\n        id: 'chapter-1',\n        label: '1. A voice above the ridge'\n      },\n      {\n        actions: [\n          {\n            a: 'broken-radio',\n            b: 'cable',\n            type: 'combine'\n          },\n          {\n            a: 'solar-panel',\n            b: 'battery',\n            type: 'combine'\n          },\n          {\n            a: 'radio',\n            b: 'solar-charger',\n            type: 'combine'\n          },\n          {\n            item: 'solar-radio',\n            location: 'contact-ridge',\n            type: 'place'\n          },\n          {\n            type: 'advance'\n          }\n        ],\n        id: 'chapter-2',\n        label: '2. Somewhere to come back to'\n      },\n      {\n        actions: [\n          {\n            a: 'broken-radio',\n            b: 'cable',\n            type: 'combine'\n          },\n          {\n            a: 'solar-panel',\n            b: 'battery',\n            type: 'combine'\n          },\n          {\n            a: 'radio',\n            b: 'solar-charger',\n    ...}\n    \n  code: 'ERR_ASSERTION'\n  name: 'AssertionError'\n  expected:\n    0:\n      id: 'chapter-1'\n      label: '1. A voice above the ridge'\n      actions:\n    1:\n      id: 'chapter-2'\n      label: '2. Somewhere to come back to'\n      actions:\n        0:\n          type: 'combine'\n          a: 'broken-radio'\n          b: 'cable'\n        1:\n          t"
+        }
+      ]
+    },
+    {
+      "file": "tests/reviewed-campaign-integration.test.ts",
+      "log": "/workspace/shared/combination-location-presentation-final-v2-evidence-20261028/receipts/tests__reviewed-campaign-integration.test.ts.attempt-1.log",
+      "logSha256": "0ebded11d33a3cdf7acb1ce8ab3fa0ce8180882228f31ccc6591068828161f2c",
+      "counts": {
+        "tests": 35,
+        "pass": 34,
+        "fail": 1,
+        "cancelled": 0,
+        "skipped": 0,
+        "todo": 0
+      },
+      "failures": [
+        {
+          "name": "new scenarios are not grandfathered and every recipe has valid explicit input, objective and compound decisions",
+          "location": "'/workspace/shared/combination-location-presentation-final-v2-check-20261028/tests/reviewed-campaign-integration.test.ts:40:1'",
+          "diagnosticSha256": "3cb426bc8a474d72cc5c272f836bf3b17b4e247b5463ab986237858ee29a10b6",
+          "diagnosticPreview": "  error: |-\n    Expected values to be strictly deep-equal:\n    + actual - expected\n    ... Skipped lines\n    \n      [\n        'atlas-connected-questions-v4-methods-and-agreement-research:correct-clock-from-voyage-after-comparison',\n        'atlas-connected-questions-v4-methods-and-agreement-research:make-acceleration-record',\n        'atlas-connected-questions-v4-methods-and-agreement-research:make-adaptive-cycle',\n        'atlas-connected-questions-v4-methods-and-agreement-research:make-addressed-deaths',\n    ...\n        'atlas-connected-questions-v9-evidence-repair-research:observe-clock-moon-discrepancy',\n    +   'atlas-intellectual-history-locations-v2:make-absolute-age-possible',\n    +   'atlas-intellectual-history-locations-v2:make-accountable-perspectives',\n    +   'atlas-intellectual-history-locations-v2:make-active-commentary',\n    +   'atlas-intellectual-history-locations-v2:make-age-still-open',\n    +   'atlas-intellectual-history-locations-v2:make-algebraic-relations',\n    +   'atlas-intellectual-history-locations-v2:make-alienated-work',\n    +   'atlas-intellectual-history-locations-v2:make-ancient-wisdom-claim',\n    +   'atlas-intellectual-history-locations-v2:make-animal-kinds',\n    +   'atlas-intellectual-history-locations-v2:make-another-work',\n    +   'atlas-intellectual-history-locations-v2:make-answerable-claims',\n    +   'atlas-intellectual-history-locations-v2:make-arabic-logic',\n    +   'atlas-intellectual-history-locations-v2:make-arabic-nature',\n    +"
+        }
+      ]
+    },
+    {
+      "file": "tests/reviewed-copy-corrections.test.ts",
+      "log": "/workspace/shared/combination-location-presentation-final-v2-evidence-20261028/receipts/tests__reviewed-copy-corrections.test.ts.attempt-1.log",
+      "logSha256": "7e8ce3859c83429f9559be4d6461715560946b5760000234a52c3976cc8b721e",
+      "counts": {
+        "tests": 47,
+        "pass": 46,
+        "fail": 1,
+        "cancelled": 0,
+        "skipped": 0,
+        "todo": 0
+      },
+      "failures": [
+        {
+          "name": "protected pre-HUD source stays byte-identical except exact reviewed arrival successors",
+          "location": "'/workspace/shared/combination-location-presentation-final-v2-check-20261028/tests/reviewed-copy-corrections.test.ts:30:1'",
+          "diagnosticSha256": "86ca13db794a1de06a29bcadfa6f1ff4b91f27c9ee1b6d9ab056cc55c4cb2e87",
+          "diagnosticPreview": "  error: |-\n    experiments/tangible-campaign/ui/scenarios.ts: integration must preserve exact author predecessor\n    + actual - expected\n    \n    + '1bedf8777f1faa0a2c4d586126b213d6d572f8f7df28bcbcf9163a44a8ac9cb7'\n    - '19dc2fdcfb3041c8acf51131950d410e789bb00f3bd656424f33aa6f09887a28'\n    \n  code: 'ERR_ASSERTION'\n  name: 'AssertionError'\n  expected: '19dc2fdcfb3041c8acf51131950d410e789bb00f3bd656424f33aa6f09887a28'\n  actual: '1bedf8777f1faa0a2c4d586126b213d6d572f8f7df28bcbcf9163a44a8ac9cb7'\n  operator: 'strictEqual'\n"
+        }
+      ]
+    },
+    {
+      "file": "tests/tangible-campaign.test.ts",
+      "log": "/workspace/shared/combination-location-presentation-final-v2-evidence-20261028/receipts/tests__tangible-campaign.test.ts.attempt-1.log",
+      "logSha256": "a28dc5d00fa14e06ba7e881a70c648cffaacb2c5f31f86ecb8f7da57125c6e22",
+      "counts": {
+        "tests": 444,
+        "pass": 440,
+        "fail": 4,
+        "cancelled": 0,
+        "skipped": 0,
+        "todo": 0
+      },
+      "failures": [
+        {
+          "name": "every active recipe has reviewed lifecycle metadata; locations never become consumed ingredients",
+          "location": "'/workspace/shared/combination-location-presentation-final-v2-check-20261028/experiments/tangible-campaign/reviews/lifecycle/lifecycle.test.ts:51:1'",
+          "diagnosticSha256": "7ed9193824fc2a0fe5246ecccc69e984a53f8b49ae3c138ab9528e1232423563",
+          "diagnosticPreview": "  error: |-\n    Expected values to be strictly equal:\n    + actual - expected\n    \n    + [\n    +   'ice-melter',\n    +   'heater'\n    + ]\n    - 'ice-melter + heater'\n    \n  code: 'ERR_ASSERTION'\n  name: 'AssertionError'\n  expected: 'ice-melter + heater'\n  actual:\n    0: 'ice-melter'\n    1: 'heater'\n  operator: 'strictEqual'\n"
+        },
+        {
+          "name": "every authored route removes only current authored inputs; movements and travel remove nothing",
+          "location": "'/workspace/shared/combination-location-presentation-final-v2-check-20261028/experiments/tangible-campaign/reviews/lifecycle/event-local.test.ts:16:1'",
+          "diagnosticSha256": "d20e4c89cfc89755641288eb9b911cd8a42607040b5896f6648f1249c358c58e",
+          "diagnosticPreview": "  error: \"ENOENT: no such file or directory, open '/workspace/shared/combination-location-presentation-final-v2-check-20261028/experiments/tangible-campaign/evidence/mars-persistent-locations-v5-route-evidence.json'\"\n  code: 'ENOENT'\n"
+        },
+        {
+          "name": "new scenarios are not grandfathered and every recipe has valid explicit input, objective and compound decisions",
+          "location": "'/workspace/shared/combination-location-presentation-final-v2-check-20261028/tests/reviewed-campaign-integration.test.ts:40:1'",
+          "diagnosticSha256": "3cb426bc8a474d72cc5c272f836bf3b17b4e247b5463ab986237858ee29a10b6",
+          "diagnosticPreview": "  error: |-\n    Expected values to be strictly deep-equal:\n    + actual - expected\n    ... Skipped lines\n    \n      [\n        'atlas-connected-questions-v4-methods-and-agreement-research:correct-clock-from-voyage-after-comparison',\n        'atlas-connected-questions-v4-methods-and-agreement-research:make-acceleration-record',\n        'atlas-connected-questions-v4-methods-and-agreement-research:make-adaptive-cycle',\n        'atlas-connected-questions-v4-methods-and-agreement-research:make-addressed-deaths',\n    ...\n        'atlas-connected-questions-v9-evidence-repair-research:observe-clock-moon-discrepancy',\n    +   'atlas-intellectual-history-locations-v2:make-absolute-age-possible',\n    +   'atlas-intellectual-history-locations-v2:make-accountable-perspectives',\n    +   'atlas-intellectual-history-locations-v2:make-active-commentary',\n    +   'atlas-intellectual-history-locations-v2:make-age-still-open',\n    +   'atlas-intellectual-history-locations-v2:make-algebraic-relations',\n    +   'atlas-intellectual-history-locations-v2:make-alienated-work',\n    +   'atlas-intellectual-history-locations-v2:make-ancient-wisdom-claim',\n    +   'atlas-intellectual-history-locations-v2:make-animal-kinds',\n    +   'atlas-intellectual-history-locations-v2:make-another-work',\n    +   'atlas-intellectual-history-locations-v2:make-answerable-claims',\n    +   'atlas-intellectual-history-locations-v2:make-arabic-logic',\n    +   'atlas-intellectual-history-locations-v2:make-arabic-nature',\n    +"
+        },
+        {
+          "name": "protected pre-HUD source stays byte-identical except exact reviewed arrival successors",
+          "location": "'/workspace/shared/combination-location-presentation-final-v2-check-20261028/tests/reviewed-copy-corrections.test.ts:30:1'",
+          "diagnosticSha256": "86ca13db794a1de06a29bcadfa6f1ff4b91f27c9ee1b6d9ab056cc55c4cb2e87",
+          "diagnosticPreview": "  error: |-\n    experiments/tangible-campaign/ui/scenarios.ts: integration must preserve exact author predecessor\n    + actual - expected\n    \n    + '1bedf8777f1faa0a2c4d586126b213d6d572f8f7df28bcbcf9163a44a8ac9cb7'\n    - '19dc2fdcfb3041c8acf51131950d410e789bb00f3bd656424f33aa6f09887a28'\n    \n  code: 'ERR_ASSERTION'\n  name: 'AssertionError'\n  expected: '19dc2fdcfb3041c8acf51131950d410e789bb00f3bd656424f33aa6f09887a28'\n  actual: '1bedf8777f1faa0a2c4d586126b213d6d572f8f7df28bcbcf9163a44a8ac9cb7'\n  operator: 'strictEqual'\n"
+        }
+      ]
+    }
+  ],
+  "note": "Original terminal logs and source seal retained. Tangible completed444 tests in1368s; output silence was buffered heavy computation, not a demonstrated deadlock."
+}

@@ -1,6 +1,8 @@
+import {acceptedTestRoute} from '../../integration/accepted-current-test-routes.ts';
+import {createHash} from 'node:crypto';
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {readFileSync} from 'node:fs';
+import {mkdirSync,writeFileSync} from 'node:fs';
 import * as M from '../../engine/model.ts';
 import {incorporations,validateContentLifecycles,validateConstructionContinuity} from '../../schema/lifecycle.ts';
 import type {Scenario,Action,Recipe} from '../../schema/scenario.ts';
@@ -8,17 +10,19 @@ import {scenarios} from '../../ui/scenarios.ts';
 const lifecycle=(...roles:[string,'retain'|'incorporate'|'transform'][])=>Object.fromEntries(roles.map(([k,role])=>[k,{role,reason:'Explicit test lifecycle: '+role}]));
 function scenario(id:string,items:string[],initialItems:string[],recipes:Recipe[],goal:string):Scenario{return {schemaVersion:1,id,title:id,premise:'Synthetic lifecycle regression',items:items.map(id=>({id,label:id})),initialItems,recipes,locations:[],stages:[{id:'one',title:'one',speaker:'Tester',motivation:'Observe tangible results',area:{id:'here',label:'here',travelText:'Start here'},objectives:[{id:'goal-one',text:'Make '+goal,kind:'create',item:goal}]}]};}
 function step(s:Scenario,g:M.Game,a:Action){const r=M.applyAction(s,g,a);assert(r.accepted,r.message);return r;}
-function route(s:Scenario):Action[]{return JSON.parse(readFileSync(new URL('../../evidence/'+s.id+'-route-evidence.json',import.meta.url),'utf8')).actionsLog;}
+function route(s:Scenario):Action[]{return acceptedTestRoute(s).actions;}
 function check(s:Scenario){assert.deepEqual(M.validateScenario(s),[]);assert.deepEqual(validateContentLifecycles([s]),[]);assert.deepEqual(validateConstructionContinuity([s]),[]);return s;}
 function roundtrip(s:Scenario,g:M.Game){const loaded=M.restore(s,JSON.stringify(g));assert.deepEqual(loaded,g);assert.deepEqual(M.restore(s,JSON.stringify(loaded)),loaded);return loaded;}
 
 test('every authored route removes only current authored inputs; movements and travel remove nothing',()=>{
- for(const s of scenarios){let g=M.createGame(s);for(const action of route(s)){
-  const before=g,r=step(s,g,action);g=r.game;const recipe=s.recipes.find(x=>x.id===r.recipe);
+ const reports:unknown[]=[];assert.equal(scenarios.length,47,'All40 preserved plus seven actual location worlds stay covered');
+ for(const s of scenarios){const accepted=acceptedTestRoute(s),recipeIds:string[]=[];let g=M.createGame(s);for(const action of accepted.actions){
+  const before=g,r=step(s,g,action);g=r.game;if(r.recipe)recipeIds.push(r.recipe);const recipe=s.recipes.find(x=>x.id===r.recipe);
   const permitted=recipe?.install?[recipe.install.component]:recipe?incorporations(recipe).map(x=>x.item):[];
   const removed=before.state.tokens.filter(t=>!M.token(g.state,t.id)).map(t=>t.id);
   assert.deepEqual(removed.slice().sort(),(r.retired??[]).slice().sort());assert(removed.every(id=>permitted.includes(id)),s.id+':'+JSON.stringify(action));
- }assert(g.state.completed,s.id);roundtrip(s,g);}
+ }assert(g.state.completed,s.id);roundtrip(s,g);reports.push({scenarioId:s.id,source:accepted.source,actionCount:accepted.actions.length,actionsSha256:createHash('sha256').update(JSON.stringify(accepted.actions)).digest('hex'),acceptedRecipeIds:recipeIds,completed:g.state.completed,saveRoundtripExact:true});}
+ const out=new URL('../../../../results/final-test-contract-20261029/',import.meta.url);mkdirSync(out,{recursive:true});writeFileSync(new URL('all47-event-local-route-evidence.json',out),JSON.stringify({scope:'All47 actual current catalogue objects; historical route inputs unchanged, seven successor routes accepted to full completion; no native UI claim',reports},null,2)+'\n');
 });
 
 test('actual Elements keeps millstone, untouched bread and river map; no distant owner collects them',()=>{

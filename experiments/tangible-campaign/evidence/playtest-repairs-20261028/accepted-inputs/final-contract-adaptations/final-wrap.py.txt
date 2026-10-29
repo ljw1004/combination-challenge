@@ -1,0 +1,32 @@
+from pathlib import Path
+root=Path('/workspace/shared/combination-playtest-repairs-integration-20261028');owned=Path('/workspace/shared/playtest-repairs-integration-20261028-state/mars-contracts/before/tests')
+imp="import {beforeReviewedGraphAmendments} from '../experiments/tangible-campaign/integration/reviewed-graph-amendments.ts';\n"
+for before in owned.iterdir():
+ if before.name=='arrival-combined-integration.test.ts':continue # parent-owned
+ p=root/'tests'/before.name;s=p.read_text();needle='beforeRetainedAnomalies(';offset=0;count=0
+ while True:
+  start=s.find(needle,offset)
+  if start<0:break
+  arg=start+len(needle);i=arg;depth=1
+  while depth:
+   if s[i]=='(':depth+=1
+   if s[i]==')':depth-=1
+   i+=1
+  end=i-1;body=s[arg:end];s=s[:arg]+'beforeReviewedGraphAmendments('+body+')'+s[end:];offset=end+len('beforeReviewedGraphAmendments(')+1;count+=1
+ if count:s=imp+s;p.write_text(s)
+p=root/'tests/mars-natural-orders.test.ts';s=p.read_text();s=s.replace("test('all canonical old-save prefixes restore verbatim; pre-existing tray states can take each newly offered path'", "test('all canonical old-save prefixes preserve exact progress; only obsolete camp arrival provenance is normalized'")
+s=s.replace(' let restores=0;\n for(const {name,actions}', ' let restores=0,normalizedCampSnapshots=0;\n for(const {name,actions}')
+old="g=r.game;assert.deepEqual(M.restore(s,JSON.stringify(g)),g);restores++;"
+new="""g=r.game;const expected=structuredClone(g);
+  // Solar lamp was genuinely supplied in these immutable old camp saves. The
+  // current cache no longer supplies it, so the existing optional-metadata
+  // validator drops only that arrival and its divider, never real inventory.
+  for(const st of [...expected.history,expected.state])if(st.arrival?.stage===7&&st.stage===7&&st.arrival.area==='area-camp'&&st.arrival.supplies.some(x=>x.item==='solar-lamp'&&x.cache==='camp-cache'&&(x.sourceStage??st.stage)===7)){
+   delete st.arrival;delete st.arrivalLayout;normalizedCampSnapshots++;
+  }
+  assert.deepEqual(M.restore(s,JSON.stringify(g)),expected);restores++;"""
+assert old in s;s=s.replace(old,new).replace('}}assert.equal(restores,1168);','}}assert.equal(restores,1168);assert(normalizedCampSnapshots>0);')
+s=s.replace('oldSaveRestores:restores,worldId:',"oldSaveRestores:restores,oldSavePolicy:'Exact full game except removal of optional arrival/arrivalLayout only when an old camp-cache solar-lamp receipt is no longer declared; no invented provenance or physical/history changes',normalizedCampSnapshots,worldId:")
+p.write_text(s)
+# Compute the exact author baseline once per world, not once per recipe.
+p=root/'tests/intuitive-story-alternatives.test.ts';s=p.read_text();s=s.replace("for(const {name,s,ids} of worlds){const before=old(name);", "for(const {name,s,ids} of worlds){const before=old(name),author=beforeRetainedAnomalies(beforeReviewedGraphAmendments(s));");s=s.replace('beforeRetainedAnomalies(beforeReviewedGraphAmendments(s)).recipes.find(x=>x.id===r.id)!','author.recipes.find(x=>x.id===r.id)!');p.write_text(s)

@@ -1,0 +1,60 @@
+DESK 21: fields-images | Laboratory, railway and darkroom · c. 1820–1895 | Messages, fields and captured light | A needle moves without a visible push. A message outruns a traveller. Light leaves a lasting trace, but the trace still has a viewpoint.
+GOALS: [{'id': 'fields-images-field-description', 'text': 'Make the field explanatory', 'kind': 'create', 'item': 'field-description'}, {'id': 'fields-images-electromagnetic-light', 'text': 'Connect light and electromagnetism', 'kind': 'create', 'item': 'electromagnetic-light'}, {'id': 'fields-images-standard-time', 'text': 'Coordinate distant clocks', 'kind': 'create', 'item': 'standard-time'}, {'id': 'fields-images-framed-photograph', 'text': 'Keep the frame visible', 'kind': 'create', 'item': 'framed-photograph'}, {'id': 'fields-images-reproducible-image', 'text': 'Let an image circulate', 'kind': 'create', 'item': 'reproducible-image'}]
+
+RECIPE make-electromagnetic-link
+A mechanical-nature | Nature investigated through matter and motion | A mechanistic account changes which explanatory questions take priority.
+B current-near-compass | A current deflects a nearby compass | Ørsted’s observation links electrical activity and magnetic direction.
+OUT electromagnetic-link | Electricity acts magnetically | A specific experiment expands the physical account beyond a simple picture of contacting parts.
+LIFECYCLE {'mechanical-nature': 'retain', 'current-near-compass': 'retain'}
+LINK {"from": "mechanism", "to": "fields-images", "item": "mechanical-nature", "recipe": "make-electromagnetic-link", "relation": "criticism", "evidence": "The contact-mechanism picture receives a particular phenomenon it must accommodate; fields are not presented as a total repudiation of mechanics.", "sources": ["field-oersted-observation", "field-ring-object", "maxwell", "photo", "photo-niepce", "benjamin"]}
+
+RECIPE make-induction
+A electromagnetic-link | Electricity acts magnetically | A specific experiment expands the physical account beyond a simple picture of contacting parts.
+B changing-magnet | Changing magnetism induces a current | Faraday’s experimental result makes a reciprocal connection without a gear or direct contact.
+OUT induction | A changing field can produce a current | The relationship becomes a source of electrical action, not merely a static attraction.
+LIFECYCLE {'electromagnetic-link': 'retain', 'changing-magnet': 'retain'}
+
+RECIPE make-field-description
+A induction | A changing field can produce a current | The relationship becomes a source of electrical action, not merely a static attraction.
+B field-lines | Faraday describes influence throughout space | A field is not simply an invisible wire between two objects.
+OUT field-description | The surrounding space becomes part of the account | The field description makes spatial relations explanatory rather than treating them as empty background.
+LIFECYCLE {'induction': 'retain', 'field-lines': 'retain'}
+
+RECIPE make-electromagnetic-light
+A maxwell-equations | Maxwell unifies electrical and magnetic relations | The equations are represented as a claim and its consequences; no calculation is required.
+B light-wave-speed | The predicted wave speed matches that of light | A conceptual comparison supports identifying light as electromagnetic radiation.
+OUT electromagnetic-light | Light belongs to the electromagnetic field | The prediction supplies a unification, not an arithmetic exercise for the player.
+LIFECYCLE {'maxwell-equations': 'retain', 'light-wave-speed': 'retain'}
+
+RECIPE make-networked-time
+A reference-timekeeper | A clock carrying another place’s time | The instrument carries a reference that is distinct from the Sun’s local noon.
+B telegraph-wire | Electrical signals carry a coded message | A technical communication channel, not the meaning of the message itself.
+OUT networked-time | Clock coordination travels over a network | A maintained reference can be communicated instead of only carried on a ship.
+LIFECYCLE {'reference-timekeeper': 'retain', 'telegraph-wire': 'retain'}
+LINK {"from": "longitude", "to": "fields-images", "item": "reference-timekeeper", "recipe": "make-networked-time", "relation": "adaptation", "evidence": "The shipborne reference-clock idea becomes the problem of communicating and maintaining synchronized references.", "sources": ["field-oersted-observation", "field-ring-object", "maxwell", "photo", "photo-niepce", "benjamin"]}
+
+RECIPE make-standard-time
+A networked-time | Clock coordination travels over a network | A maintained reference can be communicated instead of only carried on a ship.
+B railway-timetables | Distant stations must coordinate their clocks | Practical synchronization is not the same as assuming one naturally shared local noon.
+OUT standard-time | A shared railway time | A practical standard coordinates places while differing from their separate local solar times.
+LIFECYCLE {'networked-time': 'retain', 'railway-timetables': 'retain'}
+
+RECIPE make-photographic-trace
+A pinhole-box | A prepared dark-room image box | The arrangement becomes a controlled setting for a projected image.
+B light-sensitive-plate | A prepared surface changes when exposed to light | A physical recording surface; early processes differ in materials and exposure time.
+OUT photographic-trace | Light leaves a lasting image | The earlier image-producing arrangement gains a recording surface; this is a simplified conceptual reconstruction, not a claim of a single inventor.
+LIFECYCLE {'pinhole-box': 'retain', 'light-sensitive-plate': 'transform'}
+LINK {"from": "light", "to": "fields-images", "item": "pinhole-box", "recipe": "make-photographic-trace", "relation": "adaptation", "evidence": "An actual earlier image-forming construction gains a photosensitive receiver.", "sources": ["field-oersted-observation", "field-ring-object", "maxwell", "photo", "photo-niepce", "benjamin"]}
+
+RECIPE make-framed-photograph
+A photographic-trace | Light leaves a lasting image | The earlier image-producing arrangement gains a recording surface; this is a simplified conceptual reconstruction, not a claim of a single inventor.
+B viewpoint-occlusion | A fixed view leaves other surfaces hidden | The creation records a specific limit: a projection cannot show what its viewpoint occludes.
+OUT framed-photograph | A photograph records from a selected viewpoint | The old result about hidden surfaces and framing limits what the new physical trace can establish.
+LIFECYCLE {'photographic-trace': 'retain', 'viewpoint-occlusion': 'retain'}
+LINK {"from": "perspective", "to": "fields-images", "item": "viewpoint-occlusion", "recipe": "make-framed-photograph", "relation": "adaptation", "evidence": "The exact geometric limitation—what one station reveals or hides—constrains photographic inference.", "sources": ["field-oersted-observation", "field-ring-object", "maxwell", "photo", "photo-niepce", "benjamin"]}
+
+RECIPE make-reproducible-image
+A photographic-trace | Light leaves a lasting image | The earlier image-producing arrangement gains a recording surface; this is a simplified conceptual reconstruction, not a claim of a single inventor.
+B reproducible-negative | One negative can yield many prints | Talbot’s negative–positive process differs from a unique daguerreotype.
+OUT reproducible-image | The image can circulate in many copies | Technical reproduction changes the distribution of an image without making its content neutral.
+LIFECYCLE {'photographic-trace': 'retain', 'reproducible-negative': 'retain'}

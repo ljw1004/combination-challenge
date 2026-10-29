@@ -1,0 +1,837 @@
+{
+  "baselineCommit": "86c479746909412d775873d5bb250868ed7bf2d0",
+  "scenarioId": "mars-connected-survival-v4-return-cargo-research",
+  "changes": [
+    {
+      "section": "items",
+      "id": "heater",
+      "index": 16,
+      "before": {
+        "id": "heater",
+        "label": "Heater",
+        "description": "The expedition’s compatible enclosed electric heater. It can warm the refuge or an existing food pouch."
+      },
+      "after": {
+        "id": "heater",
+        "label": "Heater",
+        "description": "The expedition’s compatible enclosed electric heater. A surviving cabin service lead powers it at the ice station’s matched exchanger socket; it also fits the refuge and food-warming equipment."
+      }
+    },
+    {
+      "section": "items",
+      "id": "clear-cover",
+      "index": 21,
+      "before": {
+        "id": "clear-cover",
+        "label": "Clear cover",
+        "description": "Recovered clear cover from somewhere to come back to."
+      },
+      "after": {
+        "id": "clear-cover",
+        "label": "Clear cover",
+        "description": "The tray’s removable clear lid, protecting its growing medium and seedlings from disturbed entrance air."
+      }
+    },
+    {
+      "section": "items",
+      "id": "seed-tray",
+      "index": 31,
+      "before": {
+        "id": "seed-tray",
+        "label": "Seed tray",
+        "description": "The tray contains prepared terrestrial growing medium."
+      },
+      "after": {
+        "id": "seed-tray",
+        "label": "Seed tray",
+        "description": "Seeds planted in prepared terrestrial growing medium, not yet watered or germinated."
+      }
+    },
+    {
+      "section": "items",
+      "id": "watered-seed-tray",
+      "index": 32,
+      "before": {
+        "id": "watered-seed-tray",
+        "label": "Watered seed tray",
+        "description": "Water the prepared tray."
+      },
+      "after": {
+        "id": "watered-seed-tray",
+        "label": "Watered seed tray",
+        "description": "A planted tray with moist growing medium, still awaiting time in the warm pressurized cabin."
+      }
+    },
+    {
+      "section": "items",
+      "id": "covered-seed-tray",
+      "index": 33,
+      "before": null,
+      "after": {
+        "id": "covered-seed-tray",
+        "label": "Covered seed tray",
+        "description": "The original planted tray under its clear lid. The growing medium is still dry; a cover alone cannot start germination."
+      }
+    },
+    {
+      "section": "items",
+      "id": "watered-covered-tray",
+      "index": 34,
+      "before": null,
+      "after": {
+        "id": "watered-covered-tray",
+        "label": "Watered covered tray",
+        "description": "The same planted tray, watered beneath its removable clear lid. It still needs time in the warm pressurized cabin to germinate."
+      }
+    },
+    {
+      "section": "items",
+      "id": "propagator",
+      "index": 36,
+      "before": {
+        "id": "propagator",
+        "label": "Propagator",
+        "description": "Protect the living tray from the disturbed entrance air."
+      },
+      "after": {
+        "id": "propagator",
+        "label": "Propagator",
+        "description": "The original planted tray, watered and germinated in the warm cabin, protected by its clear cover."
+      }
+    },
+    {
+      "section": "locations",
+      "id": "sheltered-ice",
+      "index": 1,
+      "before": {
+        "id": "sheltered-ice",
+        "label": "Sheltered ice",
+        "description": "A small enclosed melt head is already fitted at this sheltered ice lens. Its matched low-volume electric feed accepts the solar charger; no open pool or improvised pressure vessel is involved."
+      },
+      "after": {
+        "id": "sheltered-ice",
+        "label": "Ice melt station",
+        "description": "At the sheltered ice lens, a sealed collection vessel has a fixed electric melt head awaiting the solar charger. A separate surviving cabin service lead can power the portable heater through the vessel’s matched exchanger socket. Neither route exposes water to the Martian air."
+      }
+    },
+    {
+      "section": "locations",
+      "id": "warm-habitat",
+      "index": 2,
+      "before": {
+        "id": "warm-habitat",
+        "label": "Warm habitat",
+        "description": "A fixed place encountered during somewhere to come back to."
+      },
+      "after": {
+        "id": "warm-habitat",
+        "label": "Warm habitat",
+        "description": "The surviving pressurized inner cabin stays warm enough for the planted tray to germinate over a narrated interval, once its growing medium is moist."
+      }
+    },
+    {
+      "section": "locations",
+      "id": "distant-lookout",
+      "index": 5,
+      "before": {
+        "id": "distant-lookout",
+        "label": "Distant lookout",
+        "description": "A fixed place encountered during what the cliff can tell us."
+      },
+      "after": {
+        "id": "distant-lookout",
+        "label": "Cliff viewpoint",
+        "description": "A viewing point beside the outcrop, facing the layered cliff across the route."
+      }
+    },
+    {
+      "section": "locations",
+      "id": "weather-apron",
+      "index": 6,
+      "before": {
+        "id": "weather-apron",
+        "label": "Weather apron",
+        "description": "A fixed place encountered during the sky is closing."
+      },
+      "after": {
+        "id": "weather-apron",
+        "label": "Open weather site",
+        "description": "An open instrument site where the restored weather station can record local conditions."
+      }
+    },
+    {
+      "section": "recipes",
+      "id": "habitat-4-watered-seed-tray",
+      "index": 78,
+      "before": {
+        "id": "habitat-4-watered-seed-tray",
+        "a": "seed-tray",
+        "b": "water-canister",
+        "description": "Water the prepared tray.",
+        "out": "watered-seed-tray",
+        "lifecycle": {
+          "seed-tray": {
+            "role": "transform",
+            "reason": "Seed tray is the existing object changed into Watered seed tray."
+          },
+          "water-canister": {
+            "role": "retain",
+            "reason": "Water canister is reused as equipment, a source/reference, a subject of observation, or a continuing supply; this action does not consume it."
+          }
+        }
+      },
+      "after": {
+        "id": "habitat-4-watered-seed-tray",
+        "a": "seed-tray",
+        "b": "water-canister",
+        "description": "Water the prepared tray.",
+        "out": "watered-seed-tray",
+        "lifecycle": {
+          "seed-tray": {
+            "role": "transform",
+            "reason": "Seed tray is the existing object changed into Watered seed tray. This is one physical tray or lid taking one order of assembly, not a second supply for alternative orders.",
+            "exclusive": true
+          },
+          "water-canister": {
+            "role": "retain",
+            "reason": "Water canister is reused as equipment, a source/reference, a subject of observation, or a continuing supply; this action does not consume it."
+          }
+        }
+      }
+    },
+    {
+      "section": "recipes",
+      "id": "habitat-5-sprouted-tray",
+      "index": 79,
+      "before": {
+        "id": "habitat-5-sprouted-tray",
+        "a": "watered-seed-tray",
+        "b": "@warm-habitat",
+        "description": "Time passes in the warm pressurized cabin; no instant real germination is implied.",
+        "out": "sprouted-tray",
+        "lifecycle": {
+          "watered-seed-tray": {
+            "role": "transform",
+            "reason": "Watered seed tray is the existing object changed into Sprouted tray."
+          }
+        }
+      },
+      "after": {
+        "id": "habitat-5-sprouted-tray",
+        "a": "watered-seed-tray",
+        "b": "@warm-habitat",
+        "description": "Time passes in the warm pressurized cabin; no instant real germination is implied.",
+        "out": "sprouted-tray",
+        "lifecycle": {
+          "watered-seed-tray": {
+            "role": "transform",
+            "reason": "Watered seed tray is the existing object changed into Sprouted tray. This is one physical tray or lid taking one order of assembly, not a second supply for alternative orders.",
+            "exclusive": true
+          }
+        }
+      }
+    },
+    {
+      "section": "recipes",
+      "id": "habitat-6-propagator",
+      "index": 80,
+      "before": {
+        "id": "habitat-6-propagator",
+        "a": "sprouted-tray",
+        "b": "clear-cover",
+        "description": "Protect the living tray from the disturbed entrance air.",
+        "out": "propagator",
+        "lifecycle": {
+          "sprouted-tray": {
+            "role": "transform",
+            "reason": "Sprouted tray is the existing object changed into Propagator."
+          },
+          "clear-cover": {
+            "role": "incorporate",
+            "reason": "Clear cover becomes part of the result; retain a supply only while another authored use needs it."
+          }
+        }
+      },
+      "after": {
+        "id": "habitat-6-propagator",
+        "a": "sprouted-tray",
+        "b": "clear-cover",
+        "description": "Protect the living tray from the disturbed entrance air.",
+        "out": "propagator",
+        "lifecycle": {
+          "sprouted-tray": {
+            "role": "transform",
+            "reason": "Sprouted tray is the existing object changed into Propagator. This is one physical tray or lid taking one order of assembly, not a second supply for alternative orders.",
+            "exclusive": true
+          },
+          "clear-cover": {
+            "role": "incorporate",
+            "reason": "Clear cover becomes part of the result; retain a supply only while another authored use needs it. This is one physical tray or lid taking one order of assembly, not a second supply for alternative orders.",
+            "exclusive": true
+          }
+        },
+        "preserve": [
+          "clear-cover"
+        ]
+      }
+    },
+    {
+      "section": "recipes",
+      "id": "habitat-meltwater-heater",
+      "index": 81,
+      "before": null,
+      "after": {
+        "id": "habitat-meltwater-heater",
+        "a": "heater",
+        "b": "@sheltered-ice",
+        "out": "meltwater",
+        "description": "Connect the portable heater to the sealed vessel’s matched exchanger socket and surviving cabin service lead. Over the same narrated collection interval, its powered exchanger collects the habitat’s water batch.",
+        "lifecycle": {
+          "heater": {
+            "role": "retain",
+            "reason": "The cabin service lead powers the compatible heater during collection. Disconnect it intact for refuge heating and later food preparation."
+          }
+        }
+      }
+    },
+    {
+      "section": "recipes",
+      "id": "habitat-cover-dry-tray",
+      "index": 82,
+      "before": null,
+      "after": {
+        "id": "habitat-cover-dry-tray",
+        "a": "seed-tray",
+        "b": "clear-cover",
+        "out": "covered-seed-tray",
+        "description": "Fit the removable clear lid over the planted tray. Its growing medium is still dry.",
+        "preserve": [
+          "seed-tray",
+          "clear-cover"
+        ],
+        "lifecycle": {
+          "seed-tray": {
+            "role": "transform",
+            "reason": "The one planted tray receives its lid; the uncovered version does not remain as another tray.",
+            "exclusive": true
+          },
+          "clear-cover": {
+            "role": "incorporate",
+            "reason": "The one clear lid is fitted to this tray, not left loose for an alternative assembly order.",
+            "exclusive": true
+          }
+        }
+      }
+    },
+    {
+      "section": "recipes",
+      "id": "habitat-water-covered-tray",
+      "index": 83,
+      "before": null,
+      "after": {
+        "id": "habitat-water-covered-tray",
+        "a": "covered-seed-tray",
+        "b": "water-canister",
+        "out": "watered-covered-tray",
+        "description": "Lift the lid briefly, water the growing medium, and replace the same lid. The planted tray has not yet germinated.",
+        "preserve": [
+          "covered-seed-tray"
+        ],
+        "lifecycle": {
+          "covered-seed-tray": {
+            "role": "transform",
+            "reason": "The same covered tray becomes moist, with its fitted lid preserved.",
+            "exclusive": true
+          },
+          "water-canister": {
+            "role": "retain",
+            "reason": "Only a small portion of the water is used; the sealed canister remains available for the later process-loop priming port."
+          }
+        }
+      }
+    },
+    {
+      "section": "recipes",
+      "id": "habitat-cover-watered-tray",
+      "index": 84,
+      "before": null,
+      "after": {
+        "id": "habitat-cover-watered-tray",
+        "a": "watered-seed-tray",
+        "b": "clear-cover",
+        "out": "watered-covered-tray",
+        "description": "Fit the clear lid over the moist planted tray before germination.",
+        "preserve": [
+          "watered-seed-tray",
+          "clear-cover"
+        ],
+        "lifecycle": {
+          "watered-seed-tray": {
+            "role": "transform",
+            "reason": "The one moist tray receives its lid rather than becoming a second planted tray.",
+            "exclusive": true
+          },
+          "clear-cover": {
+            "role": "incorporate",
+            "reason": "The one clear lid is fitted now, not saved as another copy for the late-cover route.",
+            "exclusive": true
+          }
+        }
+      }
+    },
+    {
+      "section": "recipes",
+      "id": "habitat-germinate-covered-tray",
+      "index": 85,
+      "before": null,
+      "after": {
+        "id": "habitat-germinate-covered-tray",
+        "a": "watered-covered-tray",
+        "b": "@warm-habitat",
+        "out": "propagator",
+        "description": "Time passes in the warm pressurized cabin. The watered seeds germinate beneath the fitted clear lid; no instant real germination is implied.",
+        "preserve": [
+          "watered-covered-tray"
+        ],
+        "lifecycle": {
+          "watered-covered-tray": {
+            "role": "transform",
+            "reason": "The same watered, covered tray germinates; it becomes the same propagator used by the later nursery.",
+            "exclusive": true
+          }
+        }
+      }
+    },
+    {
+      "section": "recipes",
+      "id": "weather-9-weather-record",
+      "index": 121,
+      "before": {
+        "id": "weather-9-weather-record",
+        "a": "weather-station",
+        "b": "@weather-apron",
+        "description": "On the open apron, the restored station records a period of changing weather. The passage of observation time is narrated.",
+        "out": "weather-record",
+        "requires": [
+          {
+            "item": "weather-station",
+            "capability": "weather-observing"
+          }
+        ],
+        "lifecycle": {
+          "weather-station": {
+            "role": "retain",
+            "reason": "Weather station is reused as equipment, a source/reference, a subject of observation, or a continuing supply; this action does not consume it."
+          }
+        }
+      },
+      "after": {
+        "id": "weather-9-weather-record",
+        "a": "weather-station",
+        "b": "@weather-apron",
+        "description": "At the open weather site, the restored station records a period of changing weather. The passage of observation time is narrated.",
+        "out": "weather-record",
+        "requires": [
+          {
+            "item": "weather-station",
+            "capability": "weather-observing"
+          }
+        ],
+        "lifecycle": {
+          "weather-station": {
+            "role": "retain",
+            "reason": "Weather station is reused as equipment, a source/reference, a subject of observation, or a continuing supply; this action does not consume it."
+          }
+        }
+      }
+    },
+    {
+      "section": "recipes",
+      "id": "nursery-label",
+      "index": 186,
+      "before": {
+        "id": "nursery-label",
+        "a": "propagator",
+        "b": "nursery-labels",
+        "out": "identified-seedlings",
+        "description": "Label the living seedlings kept alive since the landing; these are not new seed potatoes.",
+        "lifecycle": {
+          "propagator": {
+            "role": "transform",
+            "reason": "Propagator is the existing object changed into Identified seedlings."
+          },
+          "nursery-labels": {
+            "role": "incorporate",
+            "reason": "Nursery labels becomes part of the result; retain a supply only while another authored use needs it."
+          }
+        }
+      },
+      "after": {
+        "id": "nursery-label",
+        "a": "propagator",
+        "b": "nursery-labels",
+        "out": "identified-seedlings",
+        "description": "Label the living seedlings kept alive since the landing; these are not new seed potatoes.",
+        "lifecycle": {
+          "propagator": {
+            "role": "transform",
+            "reason": "Propagator is the existing object changed into Identified seedlings."
+          },
+          "nursery-labels": {
+            "role": "incorporate",
+            "reason": "Nursery labels becomes part of the result; retain a supply only while another authored use needs it."
+          }
+        },
+        "preserve": [
+          "propagator"
+        ]
+      }
+    },
+    {
+      "section": "recipes",
+      "id": "nursery-support",
+      "index": 187,
+      "before": {
+        "id": "nursery-support",
+        "a": "identified-seedlings",
+        "b": "seedling-support",
+        "out": "supported-seedlings",
+        "description": "Fit the ready support lattice to the original tray so the seedlings can stand without crowding.",
+        "lifecycle": {
+          "identified-seedlings": {
+            "role": "transform",
+            "reason": "Identified seedlings is the existing object changed into Supported seedlings."
+          },
+          "seedling-support": {
+            "role": "incorporate",
+            "reason": "Seedling support becomes part of the result; retain a supply only while another authored use needs it."
+          }
+        }
+      },
+      "after": {
+        "id": "nursery-support",
+        "a": "identified-seedlings",
+        "b": "seedling-support",
+        "out": "supported-seedlings",
+        "description": "Fit the ready support lattice to the original tray so the seedlings can stand without crowding.",
+        "lifecycle": {
+          "identified-seedlings": {
+            "role": "transform",
+            "reason": "Identified seedlings is the existing object changed into Supported seedlings."
+          },
+          "seedling-support": {
+            "role": "incorporate",
+            "reason": "Seedling support becomes part of the result; retain a supply only while another authored use needs it."
+          }
+        },
+        "preserve": [
+          "identified-seedlings"
+        ]
+      }
+    },
+    {
+      "section": "recipes",
+      "id": "nursery-settle",
+      "index": 188,
+      "before": {
+        "id": "nursery-settle",
+        "a": "supported-seedlings",
+        "b": "greenhouse",
+        "out": "camp-nursery",
+        "description": "Move the protected tray into the greenhouse nursery bay after a narrated visual check of the fitted diffuser against the shadow layout, not a quantitative light-sufficiency test. Future growth is narrated, not instantaneous.",
+        "requires": [
+          {
+            "item": "greenhouse",
+            "capability": "nursery-light"
+          }
+        ],
+        "lifecycle": {
+          "supported-seedlings": {
+            "role": "transform",
+            "reason": "Supported seedlings is the existing object changed into Camp nursery."
+          },
+          "greenhouse": {
+            "role": "retain",
+            "reason": "Greenhouse is reused as equipment, a source/reference, a subject of observation, or a continuing supply; this action does not consume it."
+          }
+        }
+      },
+      "after": {
+        "id": "nursery-settle",
+        "a": "supported-seedlings",
+        "b": "greenhouse",
+        "out": "camp-nursery",
+        "description": "Move the protected tray into the greenhouse nursery bay after a narrated visual check of the fitted diffuser against the shadow layout, not a quantitative light-sufficiency test. Future growth is narrated, not instantaneous.",
+        "requires": [
+          {
+            "item": "greenhouse",
+            "capability": "nursery-light"
+          }
+        ],
+        "lifecycle": {
+          "supported-seedlings": {
+            "role": "transform",
+            "reason": "Supported seedlings is the existing object changed into Camp nursery."
+          },
+          "greenhouse": {
+            "role": "retain",
+            "reason": "Greenhouse is reused as equipment, a source/reference, a subject of observation, or a continuing supply; this action does not consume it."
+          }
+        },
+        "preserve": [
+          "supported-seedlings"
+        ]
+      }
+    },
+    {
+      "section": "stages",
+      "id": "habitat",
+      "index": 1,
+      "before": {
+        "id": "habitat",
+        "title": "Somewhere to come back to",
+        "speaker": "Mission Control",
+        "motivation": "The inner cabin survived, but the landing tore its vestibule. Make the entry weather-tight, store water, and protect a living tray. Move our signal to the cabin’s clear-sky mast: the missing survey crew need a refuge to aim for, not just our crash site.",
+        "area": {
+          "id": "area-habitat",
+          "label": "Somewhere to come back to",
+          "travelText": "We return from the ridge to the surviving inner cabin and its torn entry."
+        },
+        "locations": [
+          "sheltered-ice",
+          "warm-habitat",
+          "refuge-contact-mast"
+        ],
+        "objectives": [
+          {
+            "kind": "create",
+            "item": "water-canister",
+            "text": "Store water",
+            "id": "habitat-goal-0",
+            "intermediate": true
+          },
+          {
+            "kind": "create",
+            "item": "propagator",
+            "text": "Protect the seedlings",
+            "id": "habitat-goal-1",
+            "after": [
+              "habitat-goal-0"
+            ]
+          },
+          {
+            "kind": "create",
+            "item": "insulated-vestibule",
+            "text": "Make insulated vestibule",
+            "id": "habitat-goal-2"
+          },
+          {
+            "id": "habitat-contact",
+            "kind": "place",
+            "capability": "orbiter-contact",
+            "location": "refuge-contact-mast",
+            "text": "Mark refuge for rescue"
+          }
+        ],
+        "caches": [
+          {
+            "id": "habitat-cache",
+            "label": "Cabin supplies and repair kit",
+            "narrative": "The cabin stores hold the heater, water kit, planting supplies and vestibule repair materials. At the sheltered ice, the fixed enclosed melt head is waiting for power.",
+            "items": [
+              "heater",
+              "water-filter",
+              "empty-canister",
+              "seeds",
+              "planting-tray",
+              "clear-cover",
+              "habitat-fabric",
+              "sealant",
+              "seam-roller",
+              "tie-downs",
+              "hatch-frame",
+              "insulating-blanket"
+            ]
+          }
+        ],
+        "completionText": "The entry is weather-tight, the water is stored, and the little tray has a sheltered home. Our signal now marks a refuge, not a crash site.",
+        "carry": [
+          "solar-radio",
+          "signal-beacon",
+          "long-range-radio",
+          "solar-charger",
+          "solar-panel",
+          "battery"
+        ]
+      },
+      "after": {
+        "id": "habitat",
+        "title": "Somewhere to come back to",
+        "speaker": "Mission Control",
+        "motivation": "The inner cabin survived, but the landing tore its vestibule. Make the entry weather-tight, store water, and protect a living tray. Move our signal to the cabin’s clear-sky mast: the missing survey crew need a refuge to aim for, not just our crash site.",
+        "area": {
+          "id": "area-habitat",
+          "label": "Somewhere to come back to",
+          "travelText": "We return from the ridge to the surviving inner cabin and its torn entry."
+        },
+        "locations": [
+          "sheltered-ice",
+          "warm-habitat",
+          "refuge-contact-mast"
+        ],
+        "objectives": [
+          {
+            "kind": "create",
+            "item": "water-canister",
+            "text": "Store water",
+            "id": "habitat-goal-0",
+            "intermediate": true
+          },
+          {
+            "kind": "create",
+            "item": "propagator",
+            "text": "Protect the seedlings",
+            "id": "habitat-goal-1",
+            "after": [
+              "habitat-goal-0"
+            ]
+          },
+          {
+            "kind": "create",
+            "item": "insulated-vestibule",
+            "text": "Make insulated vestibule",
+            "id": "habitat-goal-2"
+          },
+          {
+            "id": "habitat-contact",
+            "kind": "place",
+            "capability": "orbiter-contact",
+            "location": "refuge-contact-mast",
+            "text": "Mark refuge for rescue"
+          }
+        ],
+        "caches": [
+          {
+            "id": "habitat-cache",
+            "label": "Cabin supplies and repair kit",
+            "narrative": "The cabin stores hold the heater, water kit, planting supplies and vestibule repair materials. Beside the sheltered ice, the sealed melt station has an unpowered fixed melt head and a separate live cabin service lead for the portable heater.",
+            "items": [
+              "heater",
+              "water-filter",
+              "empty-canister",
+              "seeds",
+              "planting-tray",
+              "clear-cover",
+              "habitat-fabric",
+              "sealant",
+              "seam-roller",
+              "tie-downs",
+              "hatch-frame",
+              "insulating-blanket"
+            ]
+          }
+        ],
+        "completionText": "The entry is weather-tight, the water is stored, and the little tray has a sheltered home. Our signal now marks a refuge, not a crash site.",
+        "carry": [
+          "solar-radio",
+          "signal-beacon",
+          "long-range-radio",
+          "solar-charger",
+          "solar-panel",
+          "battery"
+        ]
+      }
+    },
+    {
+      "section": "stages",
+      "id": "weather",
+      "index": 4,
+      "before": {
+        "id": "weather",
+        "title": "The sky is closing",
+        "speaker": "Weather officer",
+        "motivation": "Dust is obscuring the route. Restore the station so we can watch for a clear interval, and protect our spare controller before we move on.",
+        "area": {
+          "id": "area-weather",
+          "label": "Weather station apron",
+          "travelText": "The mapped instrument apron is a short drive from the outcrop. We take the field kit and leave the sampling bench where it stands."
+        },
+        "locations": [
+          "weather-apron"
+        ],
+        "objectives": [
+          {
+            "kind": "create",
+            "item": "weather-route-map",
+            "text": "Make weather route map",
+            "id": "weather-goal-0"
+          },
+          {
+            "kind": "create",
+            "item": "protected-controller",
+            "text": "Make protected controller",
+            "id": "weather-goal-2"
+          }
+        ],
+        "caches": [
+          {
+            "id": "weather-cache",
+            "label": "Weather-station service cabinet",
+            "narrative": "The mothballed station was stored sensibly: its calibrated sensor mast, detached vane and complete logger are here together. A service enclosure and filter material can protect our spare controller.",
+            "items": [
+              "weather-mast",
+              "wind-vane",
+              "sensor-logger",
+              "filter-mesh",
+              "sealed-housing"
+            ]
+          }
+        ],
+        "completionText": "The station has given us a weather-informed route, and the spare controller is protected. We can move on without forgetting how quickly this place changes."
+      },
+      "after": {
+        "id": "weather",
+        "title": "The sky is closing",
+        "speaker": "Weather officer",
+        "motivation": "Dust is obscuring the route. Restore the station so we can watch for a clear interval, and protect our spare controller before we move on.",
+        "area": {
+          "id": "area-weather",
+          "label": "Open weather site",
+          "travelText": "The mapped weather site is a short drive from the outcrop. We take the field kit and leave the sampling bench where it stands."
+        },
+        "locations": [
+          "weather-apron"
+        ],
+        "objectives": [
+          {
+            "kind": "create",
+            "item": "weather-route-map",
+            "text": "Make weather route map",
+            "id": "weather-goal-0"
+          },
+          {
+            "kind": "create",
+            "item": "protected-controller",
+            "text": "Make protected controller",
+            "id": "weather-goal-2"
+          }
+        ],
+        "caches": [
+          {
+            "id": "weather-cache",
+            "label": "Weather-station service cabinet",
+            "narrative": "The mothballed station was stored sensibly: its calibrated sensor mast, detached vane and complete logger are here together. A service enclosure and filter material can protect our spare controller.",
+            "items": [
+              "weather-mast",
+              "wind-vane",
+              "sensor-logger",
+              "filter-mesh",
+              "sealed-housing"
+            ]
+          }
+        ],
+        "completionText": "The station has given us a weather-informed route, and the spare controller is protected. We can move on without forgetting how quickly this place changes."
+      }
+    }
+  ]
+}

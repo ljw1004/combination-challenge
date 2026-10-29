@@ -1,0 +1,135 @@
+import {beforeIronQuarryLabel} from '../experiments/tangible-campaign/integration/iron-quarry-label.ts';
+// Author-aware logical/source evidence only: no browser or native UI tests.
+import test from 'node:test';import assert from 'node:assert/strict';import fs from 'node:fs';
+import {scenario as s} from '../experiments/tangible-campaign/ui/campaigns/elements-house-and-craft.ts';
+import {scenario as house} from '../experiments/tangible-campaign/ui/campaigns/elements-house-components.ts';
+import * as M from '../experiments/tangible-campaign/engine/model.ts';
+import * as L from '../experiments/tangible-campaign/schema/lifecycle.ts';
+import type {Action} from '../experiments/tangible-campaign/schema/scenario.ts';
+const route=s.checkpoints!.find(cp=>cp.id==='complete')!.actions;
+const c=(a:string,b:string):Action=>({type:'combine',a,b});
+const pair=(a:string,b:string)=>[a,b].sort().join('|');
+const act=(g:M.Game,a:Action)=>{const r=M.applyAction(s,g,a);assert(r.accepted,`${g.state.stage+1} ${JSON.stringify(a)}: ${r.message}`);return r;};
+const output=new URL('../results/elements-house-and-craft-v1/',import.meta.url);fs.mkdirSync(output,{recursive:true});
+function run(actions:Action[]) {
+  let g=M.createGame(s);const createdAt=new Map<string,number>(),created:string[]=[];
+  const rows=s.stages.map(st=>({id:st.id,connected:[] as string[]}));let edges=new Map<string,Set<string>>();
+  for(const a of actions){const stage=g.state.stage,r=act(g,a);for(const t of g.state.tokens)if(!M.token(r.game.state,t.id))assert(a.type==='combine'&&[a.a,a.b].includes(t.id),`unrelated removal ${t.id}`);
+    if(a.type==='combine'){const out=r.created??r.updated;if(out){const deps=edges.get(out)??new Set<string>();for(const k of [a.a,a.b].filter(k=>!k.startsWith('@')))deps.add(k);edges.set(out,deps);}if(r.created){createdAt.set(r.created,stage);created.push(r.created);}}
+    if(a.type==='advance'){const connected=new Set<string>(),visited=new Set<string>();const walk=(id:string)=>{if(visited.has(id))return;visited.add(id);for(const k of edges.get(id)??[]){if(createdAt.has(k)&&createdAt.get(k)!<stage)connected.add(k);if(k!==id)walk(k);}};for(const o of M.objectiveStates(s,g.state))for(const id of o.witnesses.length?o.witnesses:o.intermediate&&o.item?[o.item]:[])walk(id);rows[stage].connected=[...connected];edges=new Map();}
+    g=r.game;g.history=[];
+  }return {game:g,created,rows};
+}
+function swap(actions:Action[],a:string,b:string,replacement:Action[]){let n=0;const out=actions.flatMap(x=>{if(x.type==='combine'&&pair(x.a,x.b)===pair(a,b)){n++;return replacement;}return [x];});assert.equal(n,1,`${a}+${b}`);return out;}
+function glassRoute(actions:Action[]){
+  const deferred=new Map<string,Action>([['glaze',c('sand','clay')],['glazed-bottle',c('jar','glaze')]]),out:Action[]=[];
+  const supply=(k:string)=>{const a=deferred.get(k);if(!a)return;deferred.delete(k);if(a.type==='combine')for(const input of [a.a,a.b])supply(input);out.push(a);};
+  for(const a of actions){if(a.type==='combine'&&[pair('sand','clay'),pair('jar','glaze')].includes(pair(a.a,a.b)))continue;
+    if(a.type==='combine'&&pair(a.a,a.b)===pair('cider','glazed-bottle')){out.push(c('glass','air'),c('cider','glass-bottle'));continue;}
+    for(const k of a.type==='combine'?[a.a,a.b]:a.type==='move'||a.type==='place'?[a.item]:[])supply(k);out.push(a);
+  }return out;
+}
+function directOre(actions:Action[]){return swap(swap(actions,'hammer','@quarry',[]),'stone','water',[c('stone','@quarry'),c('stone','water')]);}
+
+test('structural successor validates, preserves House predecessor and first ten exactly',()=>{
+  assert.equal(s.id,'elements-house-and-craft-v1');assert.deepEqual([...M.validateScenario(s),...L.validateContentLifecycles([s]),...L.validateObjectiveFlow([s]),...L.validateConstructionContinuity([s])],[]);
+  assert.deepEqual(s.checkpoints!.map(cp=>({id:cp.id,length:cp.actions.length})),house.checkpoints!.map(cp=>({id:cp.id,length:cp.actions.length})));assert.deepEqual(s.initialItems,house.initialItems);assert.deepEqual(beforeIronQuarryLabel(s).locations,house.locations);
+  assert.deepEqual(s.items.find(i=>i.id==='house'),house.items.find(i=>i.id==='house'));assert.deepEqual(s.stages.find(st=>st.id==='shelter'),house.stages.find(st=>st.id==='shelter'));
+  assert.equal(house.items.find(i=>i.id==='jar')!.label,'Jar');assert(!house.items.some(i=>i.id==='glass-bottle'));
+  const r=run(route);assert(r.game.state.completed);assert.deepEqual(r.created.slice(0,10),['clay','stone','brick','rain','plant','grain','flour','dough','flatbread','fruit']);for(const row of r.rows.slice(1))assert(row.connected.length,row.id);
+  fs.writeFileSync(new URL('canonical.json',output),JSON.stringify({completed:true,metrics:r.game.state.metrics,rows:r.rows},null,2)+'\n');
+});
+
+test('patterned cloth weaves dyed thread rather than finished cloth; optional whole-cloth dyeing survives',()=>{
+  assert.equal(s.recipes.find(r=>r.id==='patterned-cloth')!.b,'dyed-thread');assert(s.recipes.some(r=>pair(r.a,r.b)===pair('thread','dye')&&r.out==='dyed-thread'));
+  assert(s.recipes.some(r=>pair(r.a,r.b)===pair('cloth','dye')&&r.out==='dyed-cloth'));assert(!s.recipes.some(r=>pair(r.a,r.b)===pair('loom','dyed-cloth')));
+  const canonical=run(route);assert(canonical.game.state.discovered.includes('dyed-thread'));assert(!canonical.game.state.discovered.includes('dyed-cloth'));
+  const extra=swap(route,'thread','dye',[c('cloth','dye'),c('thread','dye')]);const optional=run(extra);assert(optional.game.state.completed);assert(optional.game.state.discovered.includes('dyed-cloth'));assert(optional.game.state.discovered.includes('patterned-cloth'));
+  const stage=canonical.rows.find(row=>row.id==='weaving')??canonical.rows[13];assert(stage.connected.includes('thread'));
+});
+
+test('all new pairs are unique; glass and clay filling have distinct honest identities and shared goal',()=>{
+  for(const p of [['glass','air'],['cider','glass-bottle'],['stone','@quarry'],['sand','glass-bottle']])assert.equal(s.recipes.filter(r=>pair(r.a,r.b)===pair(p[0],p[1])).length,1,p.join('+'));
+  assert.equal(s.recipes.find(r=>pair(r.a,r.b)===pair('glass','sand'))!.out,'lens');
+  assert.equal(s.items.find(i=>i.id==='glazed-bottle')!.label,'Glazed clay jar');assert.equal(s.items.find(i=>i.id==='cider-bottle')!.label,'Cider jar');assert.equal(s.items.find(i=>i.id==='glass-cider-bottle')!.label,'Cider bottle');
+  for(const k of ['cider-bottle','glass-cider-bottle'])assert(s.items.find(i=>i.id===k)!.capabilities!.includes('portable-cider'));
+  assert(s.stages.find(st=>st.id==='orchard')!.objectives.some(o=>o.capability==='portable-cider'&&!o.item));
+  assert(!s.recipes.some(r=>[r.a,r.b].includes('jar')&&[r.a,r.b].includes('cider')),'raw clay jar not falsely accepted');
+  assert.match(s.recipes.find(r=>r.id==='glazed-bottle')!.description!,/fires/);assert(!s.recipes.find(r=>r.id==='glazed-bottle')!.at,'no forced backtracking');
+});
+
+test('glass cider needs no Glaze or glazed clay vessel in orchard; deferred ceramics remain reachable later',()=>{
+  const actions=glassRoute(route);let g=M.createGame(s),orchardObserved=false;
+  for(const a of actions){g=act(g,a).game;g.history=[];if(g.state.stage===6&&M.stageComplete(s,g.state)){orchardObserved=true;assert(!g.state.discovered.includes('glaze'));assert(!g.state.discovered.includes('glazed-bottle'));assert(M.token(g.state,'glass-cider-bottle'));assert(!M.token(g.state,'cider-bottle'));}}
+  assert(orchardObserved);assert(g.state.completed);assert(g.state.discovered.includes('glaze'));assert(g.state.discovered.includes('glazed-bottle'));
+  fs.writeFileSync(new URL('glass-without-orchard-glaze.actions.json',output),JSON.stringify(actions,null,2)+'\n');
+});
+
+test('direct Stone mining works before the Stone hammer exists and keeps earlier-created continuity',()=>{
+  const actions=directOre(route);let g=M.createGame(s),checked=false;
+  for(const a of actions){const r=act(g,a);if(r.recipe==='ore-with-stone'){checked=true;assert(!g.state.discovered.includes('hammer'));assert(r.created==='ore');assert.deepEqual(M.token(r.game.state,'stone'),M.token(g.state,'stone'));}g=r.game;g.history=[];}
+  assert(checked);assert(g.state.completed);assert(g.state.recipesUsed.includes('nails'));assert(g.state.recipesUsed.includes('pier-post'));const audit=run(actions);for(const row of audit.rows.slice(1))assert(row.connected.length,row.id);
+  fs.writeFileSync(new URL('direct-stone-mining.actions.json',output),JSON.stringify(actions,null,2)+'\n');
+});
+
+test('nails use the existing stocked Forge with hot-working context and keep its reusable tools',()=>{
+  assert.equal(s.recipes.filter(r=>pair(r.a,r.b)===pair('iron','forge')).length,1);assert.equal(s.recipes.find(r=>r.id==='nails')!.b,'forge');assert(!s.recipes.some(r=>pair(r.a,r.b)===pair('iron','hammer')));
+  assert.match(s.recipes.find(r=>r.id==='nails')!.description!,/heats the iron/);let g=M.createGame(s),seen=false;
+  for(const a of route){const r=act(g,a);if(r.recipe==='nails'){seen=true;const forge=M.token(g.state,'forge')!;assert(forge);assert.equal(forge.area,g.state.currentArea);assert.deepEqual(M.token(r.game.state,'forge'),forge);assert(!r.retired?.includes('forge'));const undone=M.undo(r.game).game;assert.deepEqual({...undone.state,metrics:g.state.metrics},g.state);assert.deepEqual(M.restore(s,JSON.stringify(r.game)),r.game);}g=r.game;g.history=[];}
+  assert(seen);assert(g.state.completed);
+});
+
+test('either vessel satisfies cider objective; material and filled-object identity survive undo/save',()=>{
+  const cp=s.checkpoints!.find(cp=>cp.id==='chapter-7')!;const next=s.checkpoints!.find(cp=>cp.id==='chapter-8')!;
+  for(const glass of [false,true])for(const reverse of [false,true]){
+    const all=glass?glassRoute(route):route,start=all.findIndex((a,i)=>i>=cp.actions.length&&a.type==='combine'&&a.a==='fruit'&&a.b==='fire');assert(start>=0);
+    let g=M.checkpoint(s,'chapter-7');const local=all.slice(start);let done=false;
+    for(const a of local){if(a.type==='advance')break;const fill=a.type==='combine'&&pair(a.a,a.b)===pair('cider',glass?'glass-bottle':'glazed-bottle');
+      const before=structuredClone(g);const r=act(g,fill&&reverse&&a.type==='combine'?c(a.b,a.a):a);g=r.game;
+      if(fill){done=true;assert(M.stageComplete(s,g.state));assert.equal(r.created,glass?'glass-cider-bottle':'cider-bottle');assert.deepEqual(M.restore(s,JSON.stringify(g)),g);const u=M.undo(g).game;assert.deepEqual({...u.state,metrics:before.state.metrics},before.state);assert(!M.stageComplete(s,u.state));assert(M.token(u.state,glass?'glass-bottle':'glazed-bottle'));}
+    }assert(done);assert(next.actions.length>cp.actions.length);
+  }
+});
+
+test('optional Hourglass uses clear glass, retains an outside bottle for cider and stays reachable in either order',()=>{
+  for(const timerFirst of [false,true]){
+    let g=M.checkpoint(s,'chapter-7');g=act(g,c('glass','air')).game;g=act(g,c('starter','juice')).game;
+    const initial=M.token(g.state,'glass-bottle')!;
+    if(timerFirst){g=act(g,c('sand','glass-bottle')).game;assert.deepEqual(M.token(g.state,'glass-bottle'),initial);g=act(g,c('cider','glass-bottle')).game;}
+    else{g=act(g,c('cider','glass-bottle')).game;assert.deepEqual(M.token(g.state,'glass-bottle'),initial);g=act(g,c('sand','glass-bottle')).game;}
+    assert(M.token(g.state,'hourglass'));assert(M.token(g.state,'glass-cider-bottle'));assert(!M.token(g.state,'glass-bottle'));assert.deepEqual(M.restore(s,JSON.stringify(g)),g);
+  }
+  assert.equal(s.recipes.find(r=>r.id==='hourglass')!.b,'glass-bottle');assert(!s.recipes.some(r=>pair(r.a,r.b)===pair('sand','glazed-bottle')));
+});
+
+test('pouring prepared water into a covered jar retains the separate serving bowl',()=>{
+  let actions=swap(route,'boiled-water','glazed-bottle',[c('boiled-water','glazed-bowl'),c('glazed-bottle','jar-lid')]);
+  actions=swap(actions,'filled-water-bottle','jar-lid',[c('drinking-water','covered-urn')]);
+  let g=M.createGame(s),seen=false;
+  for(const a of actions){const r=act(g,a);if(r.recipe==='water-urn'){seen=true;assert.deepEqual(M.token(r.game.state,'drinking-water'),M.token(g.state,'drinking-water'));assert(!r.retired?.includes('drinking-water'));assert(!M.token(r.game.state,'water-urn')!.incorporated.includes('drinking-water'));}g=r.game;g.history=[];}
+  assert(seen);assert(g.state.completed);assert.equal(s.recipes.find(r=>r.id==='water-urn')!.lifecycle!['drinking-water'].role,'retain');
+});
+
+test('31 earned checkpoints and existing predecessor saves round-trip without migration',()=>{
+  for(const cp of s.checkpoints!){assert.deepEqual(cp.actions,route.slice(0,cp.actions.length));const g=M.checkpoint(s,cp.id);assert.deepEqual(M.restore(s,JSON.stringify(g)),g);}
+  const previous=M.checkpoint(house,'chapter-7');assert.deepEqual(M.restore(house,JSON.stringify(previous)),previous);assert.throws(()=>M.restore(s,JSON.stringify(previous)));
+});
+
+test('96 existing alternate families × two cider vessels × two mining paths: 384 complete connected routes',()=>{
+  const results=[];
+  for(const juice of [false,true])for(const wheel of [false,true])for(const slide of [false,true])for(const herb of [false,true])for(const weather of [0,1,2])for(const feast of [false,true])for(const glass of [false,true])for(const stone of [false,true]){
+    let a=route;if(juice)a=swap(a,'fruit','water',[c('fruit','stone')]);if(wheel)a=swap(a,'planks','water',[c('water','wheel')]);
+    if(slide){a=swap(a,'glass','planks',[]);a=swap(a,'pond-water','glass-slide',[c('pond-water','glass')]);}if(herb){a=swap(a,'plant','paper',[]);a=swap(a,'pressed-specimen','bound-book',[c('plant','bound-book')]);}
+    if(weather===1){a=swap(a,'paper','rain-gauge',[c('windsock','paper')]);a=swap(a,'windsock','rain-record',[c('wind-record','rain-gauge')]);}if(weather===2){a=swap(a,'paper','rain-gauge',[c('paper','rain-gauge'),c('windsock','paper')]);a=swap(a,'windsock','rain-record',[c('wind-record','rain-record')]);}
+    if(feast)a=swap(a,'porridge','compote',[c('bread','fruit')]);if(glass)a=glassRoute(a);if(stone)a=directOre(a);
+    const r=run(a);assert(r.game.state.completed);for(const row of r.rows.slice(1))assert(row.connected.length,row.id);results.push({juice,wheel,slide,herb,weather,feast,glass,stone,completed:true});
+  }assert.equal(results.length,384);fs.writeFileSync(new URL('alternate-routes.json',output),JSON.stringify({scope:'Author-aware logical routes; no UI/human evidence.',results},null,2)+'\n');
+});
+
+test('House warm/cold and reversed installation routes remain intact in the craft successor',()=>{
+  for(const warm of [false,true])for(const reverse of [false,true])for(const glass of [false,true])for(const stone of [false,true]){
+    let a=route;if(warm)a=swap(a,'sleeping-mat','house',[c('stone','fire'),c('hearth','house'),c('sleeping-mat','house')]);if(glass)a=glassRoute(a);if(stone)a=directOre(a);
+    if(reverse)a=a.map(x=>x.type==='combine'&&!x.b.startsWith('@')&&!s.recipes.some(r=>r.at&&pair(r.a,r.b)===pair(x.a,x.b))?c(x.b,x.a):x);
+    const r=run(a);assert(r.game.state.completed);const h=M.token(r.game.state,'house')!;assert.deepEqual(h.slots,warm?{window:'window',hearth:'hearth','sleeping-mat':'sleeping-mat'}:{window:'window','sleeping-mat':'sleeping-mat'});
+  }
+});

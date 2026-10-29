@@ -1,8 +1,9 @@
-import {incorporations,validateContentLifecycles,validateRecipeLifecycle,validateConstructionContinuity} from '../../schema/lifecycle.ts';
+import {archivedScenarioIds,incorporations,validateContentLifecycles,validateRecipeLifecycle,validateConstructionContinuity} from '../../schema/lifecycle.ts';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
-import {scenarios} from '../../ui/scenarios.ts';
+import {scenarios,integratedScenarios,featuredScenarioIds} from '../../ui/scenarios.ts';
+import {lifecycleAudit} from '../../integration/current-lifecycle-audit.ts';
 import * as M from '../../engine/model.ts';
 import {fixture} from '../../engine/fixture.ts';
 import type {Scenario} from '../../schema/scenario.ts';
@@ -48,16 +49,23 @@ test('bearing map retains reusable instrument and replaces the old map, not its 
  assert(!incorporations(mars.recipes.find(r=>r.id==='outcrop-3-ice-photograph')!).length);
 });
 test('every active recipe has reviewed lifecycle metadata; locations never become consumed ingredients',()=>{
- const audit=JSON.parse(readFileSync(new URL('./audit.json',import.meta.url),'utf8'));
- const archived=new Set(['theology','causation','chinese-thought','mars-story-expansion-candidate','atlas-of-questions-v6','elements-local-projects-v5']);
- const active=scenarios.filter(s=>!archived.has(s.id));assert.equal(active.length,9);
+ const audit=lifecycleAudit;
+ const priorAudit=JSON.parse(readFileSync(new URL('./audit.json',import.meta.url),'utf8'));
+ for(const row of priorAudit.recipes)assert.deepEqual(audit.historicalRecipes.find((r:any)=>r.world===row.world&&r.recipe===row.recipe),row,'Historical lifecycle rows remain exact in their preserved audit');
+ const active=scenarios.filter(s=>!archivedScenarioIds.has(s.id));
+ assert.equal(audit.activeScenarios,active.length);assert.equal(audit.activeRecipes,active.reduce((n,s)=>n+s.recipes.length,0));
+ assert.deepEqual(Object.keys(audit.counts),active.map(s=>s.id));
+ for(const s of active)assert.equal(audit.counts[s.id].recipes,s.recipes.length,s.id);
+ assert.deepEqual(featuredScenarioIds,integratedScenarios.map(s=>s.id));assert.equal(new Set(featuredScenarioIds).size,6);
+ for(const prefixes of [['mars-'],['atlas-'],['elements-'],['hearth-','kitchen-caravan-'],['causation-','copy-workroom-'],['doctrine-','divinity-']])assert.equal(featuredScenarioIds.filter(id=>prefixes.some(prefix=>id.startsWith(prefix))).length,1,prefixes.join('|')+' featured focus');
+ for(const id of featuredScenarioIds)assert(active.some(s=>s.id===id),id+' must be validated, never exempted');
  const expected:string[]=[];for(const s of active)for(const r of s.recipes){
   const entry=audit.recipes.find((row:any)=>row.world===s.id&&row.recipe===r.id);assert(entry,s.id+':'+r.id);
-  assert.equal(entry.inputs,r.a+' + '+r.b);assert.equal(entry.incorporated,r.install?r.install.component:incorporations(r).map(x=>x.item).sort().join(', ')||'—');
+  if(Array.isArray(entry.inputs))assert.deepEqual(entry.inputs,[r.a,r.b],s.id+':'+r.id+' exact operand tuple');else assert.equal(entry.inputs,r.a+' + '+r.b);assert.equal(entry.incorporated,r.install?r.install.component:incorporations(r).map(x=>x.item).sort().join(', ')||'—');
   expected.push(s.id+':'+r.id);assert.deepEqual(validateRecipeLifecycle(r,true),[],s.id+':'+r.id+' needs an explicit decision');
   for(const ret of incorporations(r)){assert([r.a,r.b].includes(ret.item));assert(!ret.item.startsWith('@'));assert(ret.reason.trim());}
  }
- assert.deepEqual(audit.recipes.map((r:any)=>r.world+':'+r.recipe),expected);assert.equal(expected.length,735);
+ assert.deepEqual(audit.recipes.map((r:any)=>r.world+':'+r.recipe),expected);assert.equal(expected.length,audit.activeRecipes);
 });
 
 test('nursery continues the same protected tray rather than requiring an obsolete duplicate',()=>{
@@ -123,7 +131,7 @@ test('old assembly saves recover fitted components from real history without res
 
 test('build rejects compound-to-simple recipes and missing preservation later in a chain',()=>{
  assert.deepEqual(validateConstructionContinuity(scenarios),[]);
- const broken=structuredClone(mars);delete broken.recipes.find(r=>r.id==='homebound-9-flight-ready-vehicle')!.preserve;
+ const broken=structuredClone(mars);broken.id='active-validation-fixture';delete broken.recipes.find(r=>r.id==='homebound-9-flight-ready-vehicle')!.preserve;
  assert(validateConstructionContinuity([broken]).some(e=>e.includes('homebound-9-flight-ready-vehicle')));
 });
 test('large fitted assemblies arrive fully inside their new chapter',()=>{

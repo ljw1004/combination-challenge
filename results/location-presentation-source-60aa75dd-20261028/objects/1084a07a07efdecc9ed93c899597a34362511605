@@ -1,0 +1,49 @@
+DESK 26: borges | Libraries, copies and imagined scholarship · c. 1930–1960 | The same words, another work | A manuscript can return word for word and still be read differently. A copy can travel farther than its original. Neither fact makes evidence irrelevant.
+GOALS: [{'id': 'borges-another-work', 'text': 'Change a reading without changing the words', 'kind': 'create', 'item': 'another-work'}, {'id': 'borges-useless-total-map', 'text': 'Find the cost of total representation', 'kind': 'create', 'item': 'useless-total-map'}, {'id': 'borges-branching-fiction', 'text': 'Keep alternatives in a story', 'kind': 'create', 'item': 'branching-fiction'}, {'id': 'borges-fictional-archive', 'text': 'Recognize a fictional scholarly apparatus', 'kind': 'create', 'item': 'fictional-archive'}, {'id': 'borges-politics-of-the-copy', 'text': 'Follow a copy into public life', 'kind': 'create', 'item': 'politics-of-the-copy'}]
+
+RECIPE make-word-identical-page
+A critical-edition | An edition that shows its doubts | Modern teaching comparison: a reader can inspect the editor’s uncertainty rather than inherit an invisible verdict.
+B menard-page | Menard’s imagined page repeats Cervantes word for word | Borges’s fiction invents a later writer producing the same text in another historical situation. This is a paraphrased setup, not quoted prose.
+OUT word-identical-page | The collation finds the same words | The earlier technique of comparing wording succeeds at its task but does not settle authorship or interpretation.
+LIFECYCLE {'critical-edition': 'retain', 'menard-page': 'retain'}
+LINK {"from": "world-models", "to": "borges", "item": "critical-edition", "recipe": "make-word-identical-page", "relation": "adaptation", "evidence": "The exact earlier practice of textual collation reveals a limitation: identical wording need not determine identical interpretation.", "sources": ["borges", "benjamin", "postmodern"]}
+
+RECIPE make-another-work
+A word-identical-page | The collation finds the same words | The earlier technique of comparing wording succeeds at its task but does not settle authorship or interpretation.
+B new-authorship | The same wording is attributed to a later life and purpose | The changed attribution and context are part of the imagined reading experiment.
+OUT another-work | The same words can become another work | The operation changes interpretive context, not the letters. It is not a claim that any reading is equally well supported.
+LIFECYCLE {'word-identical-page': 'retain', 'new-authorship': 'retain'}
+
+RECIPE make-useless-total-map
+A projection-tradeoff | Useful bearings, distorted areas | A map can be excellent for one purpose and misleading for another.
+B full-scale-map | A map grows to match every detail of its territory | A fictional limiting case asks when a representation stops serving as a useful selection.
+OUT useless-total-map | More detail can destroy a map’s usefulness | The prior selective representation is tested against a fictional demand for total duplication.
+LIFECYCLE {'projection-tradeoff': 'retain', 'full-scale-map': 'retain'}
+LINK {"from": "perspective", "to": "borges", "item": "projection-tradeoff", "recipe": "make-useless-total-map", "relation": "teaching-comparison", "evidence": "The actual necessity of selecting and distorting a map is brought against a fictional complete-copy demand.", "sources": ["borges", "benjamin", "postmodern"]}
+
+RECIPE make-branching-fiction
+A branching-descent | Resemblance can record shared descent | A branching history can explain geographical affinities; it is not a ladder with humans as its required summit.
+B forking-story | A story explores incompatible possible continuations | Narrative branching does not by itself establish a physical many-worlds theory.
+OUT branching-fiction | A narrative can keep incompatible paths open | Modern teaching comparison: biological branching and fictional alternatives share a representational device, not a causal or scientific identity.
+LIFECYCLE {'branching-descent': 'retain', 'forking-story': 'retain'}
+LINK {"from": "evolution", "to": "borges", "item": "branching-descent", "recipe": "make-branching-fiction", "relation": "teaching-comparison", "evidence": "The comparison is explicitly formal and modern, not an assertion that Borges borrowed Darwin’s diagram or described biological evolution.", "sources": ["borges", "benjamin", "postmodern"]}
+
+RECIPE make-fictional-archive
+A compared-edition | Printed copies with inspectable variants | Repeated copies make comparison easier without making editorial choices disappear.
+B invented-citation | A convincing scholarly reference names an invented book | Borges uses fabricated scholarship as a literary device, not permission to fabricate research sources.
+OUT fictional-archive | The apparatus of scholarship becomes fiction | A trusted-looking edition can be imitated as an artistic form; actual research still requires authentic sources.
+LIFECYCLE {'compared-edition': 'retain', 'invented-citation': 'retain'}
+LINK {"from": "editions", "to": "borges", "item": "compared-edition", "recipe": "make-fictional-archive", "relation": "adaptation", "evidence": "Borges’s imagined scholarship reuses recognizable editorial apparatus as fiction rather than historical evidence.", "sources": ["borges", "benjamin", "postmodern"]}
+
+RECIPE make-aura-and-reproduction
+A reproducible-image | The image can circulate in many copies | Technical reproduction changes the distribution of an image without making its content neutral.
+B unique-presence | An artwork’s particular place and history matter | Benjamin’s discussion of aura concerns historical modes of experience, not a simple rule that all copies are bad.
+OUT aura-and-reproduction | A copy changes the encounter with a work | The earlier technical achievement becomes a question about presence, tradition and access.
+LIFECYCLE {'reproducible-image': 'retain', 'unique-presence': 'retain'}
+LINK {"from": "fields-images", "to": "borges", "item": "reproducible-image", "recipe": "make-aura-and-reproduction", "relation": "criticism", "evidence": "Benjamin asks what the established reproduction technique changes in the encounter and political use of art.", "sources": ["borges", "benjamin", "postmodern"]}
+
+RECIPE make-politics-of-the-copy
+A aura-and-reproduction | A copy changes the encounter with a work | The earlier technical achievement becomes a question about presence, tradition and access.
+B political-circulation | Mass reproduction changes who can encounter and use art | The new audience and political uses may open possibilities and dangers together.
+OUT politics-of-the-copy | Reproduction changes art’s political reach | Do not reconcile every consequence into either liberation or decline.
+LIFECYCLE {'aura-and-reproduction': 'retain', 'political-circulation': 'retain'}

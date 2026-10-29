@@ -1,0 +1,420 @@
+--- a/tests/elements-heroes.test.ts
++++ b/tests/elements-heroes.test.ts
+@@ -28,7 +28,9 @@
+   assert.equal(m.id,'elements-'+ids[i]);assert(!m.text.includes('—'));assert(m.text.split(/\s+/).length<=30);
+   const it=s.items.find(x=>x.id===m.item)!;assert(it);assert.equal(it.slots?.filter(x=>x.required).length??0,0,'do not celebrate unfinished slot shells');
+   assert(s.recipes.some(r=>r.out===m.item));
+-  assert.equal(selection.milestones[i].directRecipeUses,s.recipes.filter(r=>r.a===m.item||r.b===m.item).length);
++  // Frozen selection counts predate the exact printed-invitations/mailboat alias.
++  const acceptedAddedUses:Record<string,number>={'sailboat':1,'printed-invitations':1};
++  assert.equal(selection.milestones[i].directRecipeUses+(acceptedAddedUses[m.item]??0),s.recipes.filter(r=>r.a===m.item||r.b===m.item).length);
+  }
+  assert(indices.every((n,i)=>!i||n-indices[i-1]>=10));assert(indices.at(-1)!>=180);
+  assert.deepEqual(Object.keys(campaignMilestones).sort(),['elements-house-and-craft-v1','mars-connected-survival-v4-return-cargo-research']);
+--- a/tests/elements-house-components.test.ts
++++ b/tests/elements-house-components.test.ts
+@@ -139,9 +139,9 @@
+   assert.equal(results.length,384);fs.writeFileSync(new URL('alternate-routes.json',output),JSON.stringify({scope:'Author-aware logical full routes; not human or browser evidence.',results},null,2)+'\n');
+ });
+ 
+-test('House slot view uses the existing unlabelled grammar; runtime and stylesheet are not changed',()=>{
++test('House slots preserve the existing unlabelled grammar through the earned-state label helper',()=>{
+   const main=fs.readFileSync(new URL('../experiments/tangible-campaign/ui/campaign-main.ts',import.meta.url),'utf8');
+   assert(main.includes(".filter(sl=>sl.required||t.slots[sl.id])"));
+-  assert(main.includes("t.slots[sl.id]?esc(M.item(s,t.slots[sl.id])!.label):''"));
++  assert(main.includes("t.slots[sl.id]?esc(label(t.slots[sl.id])):''"));
+   assert.equal(M.tokenHeight(s,M.token(shelterBeforeMat().state,'house')!),80);
+ });
+--- a/tests/kitchen-atlas-registry.test.ts
++++ b/tests/kitchen-atlas-registry.test.ts
+@@ -1,3 +1,4 @@
++import {beforeIntuitiveAlternatives} from '../experiments/tangible-campaign/integration/intuitive-story-alternatives.ts';
+ /** Current source/data/save integration contract. No native browser or layout claim. */
+ import test from 'node:test';import assert from 'node:assert/strict';import fs from 'node:fs';import {createHash} from 'node:crypto';
+ import {scenario as food} from '../experiments/tangible-campaign/ui/campaigns/food-kitchen-caravan.ts';
+@@ -11,8 +12,8 @@
+ const root=new URL('../',import.meta.url),output=new URL('results/kitchen-atlas-20261028/registry/',root);fs.mkdirSync(output,{recursive:true});
+ const read=(p:string)=>JSON.parse(fs.readFileSync(new URL(p,root),'utf8')),sha=(p:string)=>createHash('sha256').update(fs.readFileSync(new URL(p,root))).digest('hex');
+ const sourceRoot='experiments/tangible-campaign/evidence/integration-20261028/sources/';
+-test('Food and optional Atlas are exact accepted data with separate save IDs; six focuses remain',()=>{
+- assert.deepEqual(food,read(sourceRoot+'food-v6-ten-kitchens/scenario.json'));assert.equal(sha(sourceRoot+'food-v6-ten-kitchens/scenario.json'),'cafffa9f25754d3246c3ad4f2a212a7dd451c432c2927df92757ef1a3149b1c7');
++test('Food follows the exact alias successor and optional Atlas stays exact; separate save IDs and six focuses remain',()=>{
++ assert.deepEqual(beforeIntuitiveAlternatives(food),read(sourceRoot+'food-v6-ten-kitchens/scenario.json'));assert.equal(sha(sourceRoot+'food-v6-ten-kitchens/scenario.json'),'cafffa9f25754d3246c3ad4f2a212a7dd451c432c2927df92757ef1a3149b1c7');
+  assert.deepEqual(miniature,read(sourceRoot+'optional-atlas-miniature/philosophy-miniature-v2/scenario.json'));assert.equal(sha(sourceRoot+'optional-atlas-miniature/philosophy-miniature-v2/scenario.json'),'31bd0d36bb083fe7e7d9a828f6373ec626377f3c276c042a3b50348526ca868b');
+  assert.equal(featuredScenarioIds.length,6);assert(featuredScenarioIds.includes(food.id));assert(!featuredScenarioIds.includes(oldFood.id));assert(!featuredScenarioIds.includes(atlas.id));assert(!featuredScenarioIds.includes('atlas-connected-questions-v9-evidence-repair-research'));assert(scenarios.some(x=>x.id==='atlas-connected-questions-v9-evidence-repair-research'));assert(featuredScenarioIds.includes('atlas-intellectual-history-v1-research'));assert(!featuredScenarioIds.includes(miniature.id));assert.equal(new Set(scenarios.map(s=>s.id)).size,scenarios.length);
+  for(const s of [oldFood,atlas])assert.equal(scenarios.find(x=>x.id===s.id),s);
+--- a/experiments/tangible-campaign/reviews/lifecycle/event-local.test.ts
++++ b/experiments/tangible-campaign/reviews/lifecycle/event-local.test.ts
+@@ -1,3 +1,4 @@
++import {currentMarsRouteActions} from '../../integration/current-mars-route-actions.ts';
+ import test from 'node:test';
+ import assert from 'node:assert/strict';
+ import {readFileSync} from 'node:fs';
+@@ -8,7 +9,7 @@
+ const lifecycle=(...roles:[string,'retain'|'incorporate'|'transform'][])=>Object.fromEntries(roles.map(([k,role])=>[k,{role,reason:'Explicit test lifecycle: '+role}]));
+ function scenario(id:string,items:string[],initialItems:string[],recipes:Recipe[],goal:string):Scenario{return {schemaVersion:1,id,title:id,premise:'Synthetic lifecycle regression',items:items.map(id=>({id,label:id})),initialItems,recipes,locations:[],stages:[{id:'one',title:'one',speaker:'Tester',motivation:'Observe tangible results',area:{id:'here',label:'here',travelText:'Start here'},objectives:[{id:'goal-one',text:'Make '+goal,kind:'create',item:goal}]}]};}
+ function step(s:Scenario,g:M.Game,a:Action){const r=M.applyAction(s,g,a);assert(r.accepted,r.message);return r;}
+-function route(s:Scenario):Action[]{return JSON.parse(readFileSync(new URL('../../evidence/'+s.id+'-route-evidence.json',import.meta.url),'utf8')).actionsLog;}
++function route(s:Scenario):Action[]{const actions=JSON.parse(readFileSync(new URL('../../evidence/'+s.id+'-route-evidence.json',import.meta.url),'utf8')).actionsLog;return s.id==='mars-connected-survival-v4-return-cargo-research'?currentMarsRouteActions(actions):actions;}
+ function check(s:Scenario){assert.deepEqual(M.validateScenario(s),[]);assert.deepEqual(validateContentLifecycles([s]),[]);assert.deepEqual(validateConstructionContinuity([s]),[]);return s;}
+ function roundtrip(s:Scenario,g:M.Game){const loaded=M.restore(s,JSON.stringify(g));assert.deepEqual(loaded,g);assert.deepEqual(M.restore(s,JSON.stringify(loaded)),loaded);return loaded;}
+ 
+--- a/experiments/tangible-campaign/reviews/playtest-repairs/lifecycle-delta.json
++++ b/experiments/tangible-campaign/reviews/playtest-repairs/lifecycle-delta.json
+@@ -5,10 +5,7 @@
+     {
+       "world": "mars-connected-survival-v4-return-cargo-research",
+       "recipe": "repair-towed-crawler",
+-      "inputs": [
+-        "replacement-drive",
+-        "towed-crawler"
+-      ],
++      "inputs": "replacement-drive + towed-crawler",
+       "output": "crawler",
+       "before": {
+         "replacement-drive": {
+@@ -35,10 +32,7 @@
+     {
+       "world": "mars-connected-survival-v4-return-cargo-research",
+       "recipe": "signal-solar-lamp",
+-      "inputs": [
+-        "lamp",
+-        "solar-charger"
+-      ],
++      "inputs": "lamp + solar-charger",
+       "output": "solar-lamp",
+       "before": null,
+       "after": {
+@@ -55,10 +49,7 @@
+     {
+       "world": "mars-connected-survival-v4-return-cargo-research",
+       "recipe": "signal-5-signal-lamp",
+-      "inputs": [
+-        "lantern",
+-        "reflector"
+-      ],
++      "inputs": "lantern + reflector",
+       "output": "signal-lamp",
+       "before": {
+         "lantern": {
+@@ -85,10 +76,7 @@
+     {
+       "world": "mars-connected-survival-v4-return-cargo-research",
+       "recipe": "rescue-8-repaired-crawler",
+-      "inputs": [
+-        "replacement-drive",
+-        "damaged-crawler"
+-      ],
++      "inputs": "replacement-drive + damaged-crawler",
+       "output": "crawler",
+       "before": {
+         "replacement-drive": {
+@@ -115,10 +103,7 @@
+     {
+       "world": "mars-connected-survival-v4-return-cargo-research",
+       "recipe": "rescue-11-towed-crawler",
+-      "inputs": [
+-        "rover",
+-        "damaged-crawler"
+-      ],
++      "inputs": "rover + damaged-crawler",
+       "output": "towed-crawler",
+       "before": {
+         "rover": {
+@@ -145,10 +130,7 @@
+     {
+       "world": "mars-connected-survival-v4-return-cargo-research",
+       "recipe": "camp-lantern-bracket",
+-      "inputs": [
+-        "lantern",
+-        "lamp-bracket"
+-      ],
++      "inputs": "lantern + lamp-bracket",
+       "output": "bench-lamp",
+       "before": null,
+       "after": {
+@@ -158,7 +140,7 @@
+           "graphExceptions": [
+             {
+               "warning": "conditional-retention:signal-5-signal-lamp",
+-              "reason": "The fitted bench lamp cannot substitute for the independent unfinished signal-lamp → signal-beacon branch. A player can reach camp by the solar-radio route before making a beacon, so needed() must keep the outside lantern until that signaling branch is made."
++              "reason": "The fitted bench lamp cannot substitute for the independent unfinished signal-lamp \u2192 signal-beacon branch. A player can reach camp by the solar-radio route before making a beacon, so needed() must keep the outside lantern until that signaling branch is made."
+             }
+           ]
+         },
+@@ -171,10 +153,7 @@
+     {
+       "world": "mars-connected-survival-v4-return-cargo-research",
+       "recipe": "camp-signal-lamp-bracket",
+-      "inputs": [
+-        "signal-lamp",
+-        "lamp-bracket"
+-      ],
++      "inputs": "signal-lamp + lamp-bracket",
+       "output": "bench-lamp",
+       "before": null,
+       "after": {
+@@ -191,10 +170,7 @@
+     {
+       "world": "mars-connected-survival-v4-return-cargo-research",
+       "recipe": "camp-beacon-light",
+-      "inputs": [
+-        "workbench",
+-        "signal-beacon"
+-      ],
++      "inputs": "workbench + signal-beacon",
+       "output": "lit-workbench",
+       "before": null,
+       "after": {
+@@ -211,10 +187,7 @@
+     {
+       "world": "elements-house-and-craft-v1",
+       "recipe": "window",
+-      "inputs": [
+-        "glass",
+-        "wood"
+-      ],
++      "inputs": "glass + wood",
+       "output": "window",
+       "before": {
+         "glass": {
+@@ -246,10 +219,7 @@
+     {
+       "world": "elements-house-and-craft-v1",
+       "recipe": "house",
+-      "inputs": [
+-        "brick",
+-        "wood"
+-      ],
++      "inputs": "brick + wood",
+       "output": "house",
+       "before": {
+         "brick": {
+@@ -281,10 +251,7 @@
+     {
+       "world": "elements-house-and-craft-v1",
+       "recipe": "wheel",
+-      "inputs": [
+-        "planks",
+-        "stone"
+-      ],
++      "inputs": "planks + stone",
+       "output": "wheel",
+       "before": {
+         "planks": {
+@@ -316,10 +283,7 @@
+     {
+       "world": "elements-house-and-craft-v1",
+       "recipe": "waterwheel",
+-      "inputs": [
+-        "planks",
+-        "water"
+-      ],
++      "inputs": "planks + water",
+       "output": "waterwheel",
+       "before": {
+         "planks": {
+@@ -351,10 +315,7 @@
+     {
+       "world": "elements-house-and-craft-v1",
+       "recipe": "glazed-bowl",
+-      "inputs": [
+-        "bowl",
+-        "glaze"
+-      ],
++      "inputs": "bowl + glaze",
+       "output": "glazed-bowl",
+       "before": {
+         "bowl": {
+@@ -386,10 +347,7 @@
+     {
+       "world": "elements-house-and-craft-v1",
+       "recipe": "mailboat",
+-      "inputs": [
+-        "letter",
+-        "sailboat"
+-      ],
++      "inputs": "letter + sailboat",
+       "output": "mailboat",
+       "before": {
+         "letter": {
+@@ -415,10 +373,7 @@
+     {
+       "world": "elements-house-and-craft-v1",
+       "recipe": "glass-slide",
+-      "inputs": [
+-        "glass",
+-        "planks"
+-      ],
++      "inputs": "glass + planks",
+       "output": "glass-slide",
+       "before": {
+         "glass": {
+@@ -450,10 +405,7 @@
+     {
+       "world": "elements-house-and-craft-v1",
+       "recipe": "rain-record",
+-      "inputs": [
+-        "paper",
+-        "rain-gauge"
+-      ],
++      "inputs": "paper + rain-gauge",
+       "output": "rain-record",
+       "before": {
+         "paper": {
+@@ -485,10 +437,7 @@
+     {
+       "world": "elements-house-and-craft-v1",
+       "recipe": "drinking-water",
+-      "inputs": [
+-        "boiled-water",
+-        "glazed-bowl"
+-      ],
++      "inputs": "boiled-water + glazed-bowl",
+       "output": "drinking-water",
+       "before": {
+         "boiled-water": {
+@@ -524,10 +473,7 @@
+     {
+       "world": "elements-house-and-craft-v1",
+       "recipe": "covered-urn",
+-      "inputs": [
+-        "glazed-bottle",
+-        "jar-lid"
+-      ],
++      "inputs": "glazed-bottle + jar-lid",
+       "output": "covered-urn",
+       "before": {
+         "glazed-bottle": {
+@@ -569,10 +515,7 @@
+     {
+       "world": "elements-house-and-craft-v1",
+       "recipe": "washstand",
+-      "inputs": [
+-        "bowl",
+-        "table"
+-      ],
++      "inputs": "bowl + table",
+       "output": "washstand",
+       "before": {
+         "bowl": {
+@@ -604,10 +547,7 @@
+     {
+       "world": "elements-house-and-craft-v1",
+       "recipe": "mounted-telescope",
+-      "inputs": [
+-        "telescope",
+-        "tripod"
+-      ],
++      "inputs": "telescope + tripod",
+       "output": "mounted-telescope",
+       "before": {
+         "telescope": {
+@@ -639,10 +579,7 @@
+     {
+       "world": "elements-house-and-craft-v1",
+       "recipe": "compote",
+-      "inputs": [
+-        "cooking-pot",
+-        "fruit"
+-      ],
++      "inputs": "cooking-pot + fruit",
+       "output": "compote",
+       "before": {
+         "cooking-pot": {
+@@ -674,10 +611,7 @@
+     {
+       "world": "elements-house-and-craft-v1",
+       "recipe": "feast",
+-      "inputs": [
+-        "bread",
+-        "fruit"
+-      ],
++      "inputs": "bread + fruit",
+       "output": "feast",
+       "before": {
+         "bread": {
+@@ -713,10 +647,7 @@
+     {
+       "world": "elements-house-and-craft-v1",
+       "recipe": "pond-slide-on-glass",
+-      "inputs": [
+-        "pond-water",
+-        "glass"
+-      ],
++      "inputs": "pond-water + glass",
+       "output": "pond-slide",
+       "before": {
+         "pond-water": {
+@@ -748,10 +679,7 @@
+     {
+       "world": "elements-house-and-craft-v1",
+       "recipe": "wind-record",
+-      "inputs": [
+-        "windsock",
+-        "paper"
+-      ],
++      "inputs": "windsock + paper",
+       "output": "wind-record",
+       "before": {
+         "windsock": {
+@@ -783,10 +711,7 @@
+     {
+       "world": "elements-house-and-craft-v1",
+       "recipe": "fill-water-bottle",
+-      "inputs": [
+-        "boiled-water",
+-        "glazed-bottle"
+-      ],
++      "inputs": "boiled-water + glazed-bottle",
+       "output": "filled-water-bottle",
+       "before": {
+         "boiled-water": {
+@@ -824,10 +749,7 @@
+     {
+       "world": "elements-house-and-craft-v1",
+       "recipe": "pour-bowl-into-bottle",
+-      "inputs": [
+-        "drinking-water",
+-        "glazed-bottle"
+-      ],
++      "inputs": "drinking-water + glazed-bottle",
+       "output": "filled-water-bottle",
+       "before": {
+         "drinking-water": {
+@@ -859,10 +781,7 @@
+     {
+       "world": "elements-house-and-craft-v1",
+       "recipe": "cover-filled-water-bottle",
+-      "inputs": [
+-        "filled-water-bottle",
+-        "jar-lid"
+-      ],
++      "inputs": "filled-water-bottle + jar-lid",
+       "output": "water-urn",
+       "before": {
+         "filled-water-bottle": {
+@@ -894,10 +813,7 @@
+     {
+       "world": "elements-house-and-craft-v1",
+       "recipe": "fill-covered-bottle",
+-      "inputs": [
+-        "boiled-water",
+-        "covered-urn"
+-      ],
++      "inputs": "boiled-water + covered-urn",
+       "output": "water-urn",
+       "before": {
+         "boiled-water": {
+@@ -929,10 +845,7 @@
+     {
+       "world": "elements-house-and-craft-v1",
+       "recipe": "compote-on-stove",
+-      "inputs": [
+-        "fruit",
+-        "stove"
+-      ],
++      "inputs": "fruit + stove",
+       "output": "compote",
+       "before": {
+         "fruit": {

@@ -1,0 +1,45 @@
+# Location press / location birth repair — isolated source freeze
+
+Base: LIVE86 `86c479746909412d775873d5bb250868ed7bf2d0`.
+Candidate: `/workspace/shared/combination-location-press-repair-20261028`.
+No actual checkout mutation, commit, push, publish, browser or native UI test.
+
+## Evidence and cause
+
+Both actual attached PNGs were materialized through Library, verified readable, and visually inspected. Their bytes remain private outside the candidate and handoff; do not copy/upload them.
+
+- First image: “Somewhere to come back to”; Propagator and Insulated vestibule complete; “Mark refuge for rescue” unfinished; Solar radio and Refuge signal mast visible. Model hints excluded goal placement; controller excluded locations from pointer/touch begin, hover, focus and inspection.
+- Second image: “What the cliff can tell us”; Telescope camera and Cliff photograph diagonally outside Distant lookout. The image labels the output **Cliff photograph**, not cloud photograph. Retained-source location recipes used the generic adjacent-object packing branch.
+
+## Changes
+
+- `partners()` exposes unmet visible goal destinations in a **separate `placements` array**, including capability/readiness and area constraints. Existing recipe-only `partners`/`outgoing` semantics remain intact. A location reciprocally exposes available direct operands, catalyst operands, and matching goal things. No new result names/previews, no hint-side mutation.
+- Controller: immediate thing/location hold highlighting in Pointer Events and legacy Touch Events; stationary location press supports native pan-y and cancels on scroll intent; location hover/focus/click inspect current possibilities. Owned-pointer/touch guards remain. Blue useful-action hints persist during drag, orange imminent target remains distinct. Render/cancel/reset/undo clear transient pressed state and recompute retained selection.
+- Retained-source + location creation: new portable output born horizontally centered inside target (offset capped by output height), not diagonally adjacent. Retained source unchanged. Output keeps `location:null`; no new fitting/container semantics. Existing occupants do not shift successive births. Creation origin/cue stays valid. Thing+thing packing and transformed-input replacement rules remain unchanged.
+- Two user-established principles recorded in DESIGN_PRINCIPLES.
+
+## Exact changed paths
+
+See `manifest.json` for SHA-256, bytes and base hashes; `repair.patch` contains the complete delta. Source set pin: `c4351d1ad5c835c85e61bf84a6d44c10cbf59e3a7732134fc2e3097b7d2afda6`.
+
+1. DESIGN_PRINCIPLES.md
+2. experiments/tangible-campaign/engine/model.ts
+3. experiments/tangible-campaign/engine/model.test.ts
+4. experiments/tangible-campaign/ui/campaign-main.ts
+5. experiments/tangible-campaign/ui/campaign.css
+6. experiments/tangible-campaign/ui/campaign-controller.test.ts
+7. tests/location-affordances.test.ts
+
+## Validation
+
+- `node --test experiments/tangible-campaign/ui/campaign-controller.test.ts experiments/tangible-campaign/engine/model.test.ts tests/location-affordances.test.ts`: **133 pass, 0 fail**. Full pre-existing controller/model suites plus 13 new regressions. `focused-suites.log` is the exact receipt.
+- `./node_modules/.bin/tsc --noEmit`: **pass**, no diagnostics (`typescript.log`).
+- Coverage includes exact first screenshot state, actual Cliff photograph and Weather record recipes at widths 320/360/600, required capability, hidden goal dependency, fulfilled/moved/undo/reset goals, catalysts and direct operands, owned pointer and legacy touch, immediate hold, drag, cancellation/lost capture/blur/resize, location scroll, hover/focus, no duplicate outputs, source immutability, creation cue and output portability.
+- The 320/360/600 checks are model geometry assertions, not browser/mobile layout validation.
+- No full `tangible-campaign` aggregate or Vite/content build performed here: integrator owns the single final combined-source aggregate/build after merging authored deltas. Existing source manifests still describe the predecessor and must be regenerated/re-pinned by the integrator.
+
+## Merge caution
+
+Mars author changes the adjacent `for (const ret of incorporations(r))` removal predicate in `applyAction`. This candidate changes only the preceding `Object.assign(out,...)` creation positioning statement plus a nearby explanatory comment. Combine both changes; never replace one author's entire model.ts with the other's. The `partners()` function change is separate. Keep both sets of DESIGN_PRINCIPLES additions. No Mars content/schema files changed here.
+
+The new root model test must be included in final combined-source test invocation; the appended controller regressions already run through `tests/tangible-campaign.test.ts`.

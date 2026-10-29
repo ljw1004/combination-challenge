@@ -1,0 +1,66 @@
+"""Separate approved paired packaging; six v2 manufacturing rules stay unchanged."""
+from pathlib import Path
+from copy import deepcopy
+import json
+
+P=Path(__file__).parent
+V=P.parent/'candidate-v2'
+a=json.loads((V/'scenario-a.json').read_text())
+b=json.loads((V/'scenario-b.json').read_text())
+s=deepcopy(a)
+s['id']='copy-workroom-two-commissions-v1'
+s['premise']='A paper design travels from the print shop to a workroom with two customers.'
+s['locations']=[x for x in s['locations'] if x['id']!='dispatch']+[
+    {'id':'display-frame','label':'Shop’s display frame',
+     'description':'A prepared frame for the new portable relief panel. People will read the panel’s carved face here.'},
+    {'id':'printer-chest','label':'Travelling printer’s delivery chest',
+     'description':'The travelling printer brings this chest when the second commission begins. Place the newly made relief block here for delivery.'}
+]
+display=s['stages'][1]
+display['motivation']='“I need a carved panel for the shop. People will read the wooden face itself, like your paper master. Put the new panel in the display frame.”'
+display['locations']=['window','display-frame']
+display['objectives']=[{'id':'display-panel','kind':'place','capability':'readable-carved-face',
+                        'location':'display-frame','text':'Put a readable carved panel in the shop’s frame'}]
+
+printer=deepcopy(b['stages'][1])
+printer['id']='printer-commission'
+printer['title']='The travelling printer’s order'
+printer['speaker']='The travelling printer'
+printer['motivation']='With the panel delivered, a travelling printer arrives. “I need a new block to print that same design. People will read its paper impressions. Leave my block in the delivery chest.”'
+printer['area']={'id':'workroom','label':'Carving workroom',
+                 'travelText':'The travelling printer sets a delivery chest beside the same workbench.'}
+printer['locations']=['printer-chest']
+printer['carry']=[i['id'] for i in s['items']]
+printer.pop('caches',None)
+printer['objectives']=[{'id':'printer-block','kind':'place','capability':'readable-impressions',
+                        'location':'printer-chest','text':'Deliver a block that prints the customer’s design'}]
+s['stages'].append(printer)
+
+opening=[{'type':'combine','a':'papers','b':'@press'},{'type':'advance'}]
+first=opening+[
+    {'type':'combine','a':'master','b':'stock'},
+    {'type':'place','item':'block-readable','location':'display-frame'},
+    {'type':'advance'}
+]
+full=first+[
+    {'type':'combine','a':'master','b':'@window'},
+    {'type':'combine','a':'reverse','b':'stock'},
+    {'type':'place','item':'block-reflected','location':'printer-chest'},
+    {'type':'advance'}
+]
+s['checkpoints']=[
+    {'id':'workroom-earned','label':'At the workroom · master already printed (authored prior progress)','actions':opening},
+    {'id':'printer-arrival-earned','label':'Printer arrives · panel already delivered (authored prior progress)','actions':first}
+]
+s['notes']+= [
+    'Separate within-person transfer package, not two independent matched trials. Display then printing is the fixed order.',
+    'The display frame and newly arrived delivery chest are actual distinct destinations. Earlier preparation is allowed; the later commission requires only delivery if its block already exists.',
+    'All six manufacturing recipes, physical kinds, plural supplies and optional method Read are copied from matched v2 without changes.',
+    'The sealed neutral reader starts at the actual beginning. Scenario checkpoints replay explicit authored earlier actions and must not be credited to a fresh player.',
+    'Prior completed commissions are historical achievements under the existing engine; later moving an old delivered piece is not re-evaluated as a new duty. The final narrative concerns the new printer’s use only.'
+]
+(P/'scenario.json').write_text(json.dumps(s,indent=2,ensure_ascii=False)+'\n')
+(P/'author-route.json').write_text(json.dumps(full,indent=2)+'\n')
+print(json.dumps({'identity':s['id'],'scenes':3,'recipes':6,'items':8,'locations':4,
+                  'coreDrops':6,'coreCombinations':4,'corePlacements':2,'automaticAdvances':3,
+                  'earnedCheckpoints':2,'neutralReaderStartsAtActualBeginning':True}))

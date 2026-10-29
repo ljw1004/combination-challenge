@@ -1,0 +1,52 @@
+DESK 2: explanations | Greek arguments and cases · c. 500–380 BCE | What counts as an explanation? | A prediction is not yet an explanation. A confident answer about justice may not survive one inconvenient case.
+GOALS: [{'id': 'explanations-examined-life', 'text': 'Examine a way of life', 'kind': 'create', 'item': 'examined-life'}, {'id': 'explanations-cause-and-meaning', 'text': 'Distinguish cause from meaning', 'kind': 'create', 'item': 'cause-and-meaning'}, {'id': 'explanations-answerable-claims', 'text': 'Make claims answerable', 'kind': 'create', 'item': 'answerable-claims'}]
+
+RECIPE make-natural-eclipse
+A eclipse-pattern | Recurring eclipse seasons | Recurrence makes future watching worthwhile; it does not guarantee a visible eclipse at every place.
+B earth-between | Earth stands between Sun and Moon | The darkened Moon can be understood through the Earth’s shadow, rather than a personal intention of the Moon.
+OUT natural-eclipse | An eclipse has a natural cause | The recurring pattern receives an explanatory account: the Earth obstructs sunlight reaching the Moon.
+LIFECYCLE {'eclipse-pattern': 'retain', 'earth-between': 'retain'}
+LINK {"from": "sky", "to": "explanations", "item": "eclipse-pattern", "recipe": "make-natural-eclipse", "relation": "adaptation", "evidence": "Greek eclipse explanations address phenomena already recorded over generations; this is not a claim that Socrates read this tablet.", "sources": ["aristotle-eclipse", "plato-republic", "plato"]}
+
+RECIPE make-conditional-cause
+A natural-eclipse | An eclipse has a natural cause | The recurring pattern receives an explanatory account: the Earth obstructs sunlight reaching the Moon.
+B repeat-conditions | The same arrangement can happen again | A physical account identifies circumstances that can recur.
+OUT conditional-cause | An explanation tied to conditions | The account can be considered through the conditions under which it applies.
+LIFECYCLE {'natural-eclipse': 'retain', 'repeat-conditions': 'retain'}
+
+RECIPE make-justice-as-debt
+A justice-question | What makes an action just? | Socrates in Plato’s dialogue asks for an account, not merely a list of honoured people.
+B repay-debts | Justice means returning what is owed | An initial definition reconstructed from Republic I.
+OUT justice-as-debt | Justice as repayment | Reconstruct the proposal before testing it; making a position does not establish its truth.
+LIFECYCLE {'justice-question': 'retain', 'repay-debts': 'retain'}
+
+RECIPE make-debt-objection
+A justice-as-debt | Justice as repayment | Reconstruct the proposal before testing it; making a position does not establish its truth.
+B weapon-request | A deranged friend asks for his weapon back | A case in Republic I tests repayment as an adequate definition of justice.
+OUT debt-objection | Repayment can do harm | Returning the weapon exposes a difficulty in treating repayment as the whole of justice.
+LIFECYCLE {'justice-as-debt': 'retain', 'weapon-request': 'retain'}
+
+RECIPE make-examined-definition
+A debt-objection | Repayment can do harm | Returning the weapon exposes a difficulty in treating repayment as the whole of justice.
+B ask-common | What do all just actions have in common? | A demand for a definition that can answer to cases.
+OUT examined-definition | A definition still under examination | One counterexample reopens the inquiry rather than furnishing a complete replacement theory.
+LIFECYCLE {'debt-objection': 'retain', 'ask-common': 'retain'}
+
+RECIPE make-examined-life
+A examined-definition | A definition still under examination | One counterexample reopens the inquiry rather than furnishing a complete replacement theory.
+B prestige | Prestige does not settle how to live | The examined life subjects reputation and convention to questioning.
+OUT examined-life | The examined life | The practice of questioning reaches beyond a verbal puzzle to a way of living.
+LIFECYCLE {'examined-definition': 'retain', 'prestige': 'retain'}
+
+RECIPE make-cause-and-meaning
+A natural-eclipse | An eclipse has a natural cause | The recurring pattern receives an explanatory account: the Earth obstructs sunlight reaching the Moon.
+B portent-and-pattern | Prediction alongside portent | A regular sky and its political or religious interpretation can coexist.
+OUT cause-and-meaning | Cause need not erase meaning | Modern teaching comparison: a physical cause does not by itself settle what significance a community gives an event.
+LIFECYCLE {'natural-eclipse': 'retain', 'portent-and-pattern': 'retain'}
+LINK {"from": "sky", "to": "explanations", "item": "portent-and-pattern", "recipe": "make-cause-and-meaning", "relation": "teaching-comparison", "evidence": "The comparison separates kinds of question without inventing a documented dialogue between the traditions.", "sources": ["aristotle-eclipse", "plato-republic", "plato"]}
+
+RECIPE make-answerable-claims
+A conditional-cause | An explanation tied to conditions | The account can be considered through the conditions under which it applies.
+B examined-definition | A definition still under examination | One counterexample reopens the inquiry rather than furnishing a complete replacement theory.
+OUT answerable-claims | Claims answerable to objections | Modern teaching comparison: different inquiries can both expose their claims to difficulties rather than rely on status alone.
+LIFECYCLE {'conditional-cause': 'retain', 'examined-definition': 'retain'}

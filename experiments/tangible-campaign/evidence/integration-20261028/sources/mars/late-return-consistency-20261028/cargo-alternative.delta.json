@@ -1,0 +1,480 @@
+{
+  "scenarioId": "mars-connected-survival-v4-return-cargo-research",
+  "changedItems": [
+    {
+      "id": "geology-archive",
+      "before": {
+        "id": "geology-archive",
+        "label": "Geology archive",
+        "description": "Store the recorded observations and explicit uncertainties."
+      },
+      "after": {
+        "id": "geology-archive",
+        "label": "Geology archive",
+        "description": "An archive copy of the crew portrait and basin field record; the original records remain available."
+      }
+    },
+    {
+      "id": "complete-field-archive",
+      "before": {
+        "id": "complete-field-archive",
+        "label": "Complete field archive",
+        "description": "Keep the earlier profile with the later interpretation."
+      },
+      "after": {
+        "id": "complete-field-archive",
+        "label": "Complete field archive",
+        "description": "The archive keeps copies of the crew portrait, basin field record and earlier core profile together."
+      }
+    },
+    {
+      "id": "specimen-cart",
+      "before": {
+        "id": "specimen-cart",
+        "label": "Specimen cart",
+        "description": "Secure the return capsule for transfer."
+      },
+      "after": {
+        "id": "specimen-cart",
+        "label": "Specimen transport cart",
+        "description": "The recovered cargo hauler, with its cargo restraint fitted to transport the protected return capsule to the ascent depot."
+      }
+    }
+  ],
+  "removedItems": [
+    {
+      "id": "returned-capsule",
+      "label": "Returned capsule",
+      "description": "Cross the hatch together; the saved specimens and records remain tangible cargo."
+    }
+  ],
+  "changedRecipes": [
+    {
+      "id": "departure-5-geology-archive",
+      "before": {
+        "id": "departure-5-geology-archive",
+        "a": "family-record",
+        "b": "basin-field-record",
+        "description": "Store the recorded observations and explicit uncertainties.",
+        "out": "geology-archive",
+        "lifecycle": {
+          "family-record": {
+            "role": "retain",
+            "reason": "Family record is reused as equipment, a source/reference, a subject of observation, or a continuing supply; this action does not consume it."
+          },
+          "basin-field-record": {
+            "role": "retain",
+            "reason": "Basin field record is reused as equipment, a source/reference, a subject of observation, or a continuing supply; this action does not consume it."
+          }
+        }
+      },
+      "after": {
+        "id": "departure-5-geology-archive",
+        "a": "family-record",
+        "b": "basin-field-record",
+        "description": "Copy the crew portrait and basin field record into the expedition archive.",
+        "out": "geology-archive",
+        "lifecycle": {
+          "family-record": {
+            "role": "retain",
+            "reason": "Family record is reused as equipment, a source/reference, a subject of observation, or a continuing supply; this action does not consume it."
+          },
+          "basin-field-record": {
+            "role": "retain",
+            "reason": "Basin field record is reused as equipment, a source/reference, a subject of observation, or a continuing supply; this action does not consume it."
+          }
+        }
+      }
+    },
+    {
+      "id": "departure-6-complete-field-archive",
+      "before": {
+        "id": "departure-6-complete-field-archive",
+        "a": "geology-archive",
+        "b": "core-profile",
+        "description": "Keep the earlier profile with the later interpretation.",
+        "out": "complete-field-archive",
+        "lifecycle": {
+          "geology-archive": {
+            "role": "transform",
+            "reason": "Geology archive is the existing object changed into Complete field archive."
+          },
+          "core-profile": {
+            "role": "retain",
+            "reason": "Core profile is reused as equipment, a source/reference, a subject of observation, or a continuing supply; this action does not consume it."
+          }
+        }
+      },
+      "after": {
+        "id": "departure-6-complete-field-archive",
+        "a": "geology-archive",
+        "b": "core-profile",
+        "description": "Keep a copy of the earlier core profile with the basin observations and archived crew portrait.",
+        "out": "complete-field-archive",
+        "lifecycle": {
+          "geology-archive": {
+            "role": "transform",
+            "reason": "Geology archive is the existing object changed into Complete field archive."
+          },
+          "core-profile": {
+            "role": "retain",
+            "reason": "Core profile is reused as equipment, a source/reference, a subject of observation, or a continuing supply; this action does not consume it."
+          }
+        }
+      }
+    },
+    {
+      "id": "departure-11-specimen-cart",
+      "before": {
+        "id": "departure-11-specimen-cart",
+        "a": "secured-cart",
+        "b": "cushioned-capsule",
+        "description": "Secure the return capsule for transfer.",
+        "out": "specimen-cart",
+        "requires": [
+          {
+            "item": "cushioned-capsule",
+            "capability": "return-sample-set"
+          }
+        ],
+        "lifecycle": {
+          "secured-cart": {
+            "role": "transform",
+            "reason": "Secured cart is the existing object changed into Specimen cart."
+          },
+          "cushioned-capsule": {
+            "role": "incorporate",
+            "reason": "Return capsule becomes part of the result; retain a supply only while another authored use needs it."
+          }
+        },
+        "preserve": [
+          "secured-cart",
+          "cushioned-capsule"
+        ]
+      },
+      "after": {
+        "id": "departure-11-specimen-cart",
+        "a": "secured-cart",
+        "b": "cushioned-capsule",
+        "description": "Adjust the recovered hauler’s restraint to the packed capsule’s size. The prepared cart and protected capsule are ready for the trip to the ascent depot.",
+        "out": "specimen-cart",
+        "requires": [
+          {
+            "item": "cushioned-capsule",
+            "capability": "return-sample-set"
+          }
+        ],
+        "lifecycle": {
+          "secured-cart": {
+            "role": "transform",
+            "reason": "The secured cargo hauler becomes the fitted specimen transport cart; its own fitted hardware remains in that same cart."
+          },
+          "cushioned-capsule": {
+            "role": "retain",
+            "reason": "The packed capsule is used to fit the cart’s restraint. It stays a separate tangible load for the later transfer into the ship mount; this does not duplicate its contents inside the hauler."
+          }
+        },
+        "preserve": [
+          "secured-cart"
+        ]
+      }
+    },
+    {
+      "id": "homebound-5-loaded-capsule-dock",
+      "before": {
+        "id": "homebound-5-loaded-capsule-dock",
+        "a": "specimen-cart",
+        "b": "capsule-dock",
+        "description": "Transfer the secured capsule to its ship mount.",
+        "out": "loaded-capsule-dock",
+        "lifecycle": {
+          "specimen-cart": {
+            "role": "retain",
+            "reason": "Specimen cart is reused as equipment, a source/reference, a subject of observation, or a continuing supply; this action does not consume it."
+          },
+          "capsule-dock": {
+            "role": "transform",
+            "reason": "Capsule dock is the existing object changed into Loaded capsule dock."
+          }
+        }
+      },
+      "after": {
+        "id": "homebound-5-loaded-capsule-dock",
+        "a": "cushioned-capsule",
+        "b": "capsule-dock",
+        "description": "Move the protected capsule from the transport load into its ship mount. The empty hauler stays at the depot.",
+        "out": "loaded-capsule-dock",
+        "lifecycle": {
+          "capsule-dock": {
+            "role": "transform",
+            "reason": "Capsule dock is the existing object changed into Loaded capsule dock."
+          },
+          "cushioned-capsule": {
+            "role": "incorporate",
+            "reason": "The actual packed capsule moves into the ship mount with its fitted specimen and archive contents; no copy remains on the transport cart."
+          }
+        },
+        "preserve": [
+          "cushioned-capsule"
+        ],
+        "requires": [
+          {
+            "item": "cushioned-capsule",
+            "capability": "return-sample-set"
+          }
+        ]
+      }
+    },
+    {
+      "id": "homebound-6-loaded-ascent-vehicle",
+      "before": {
+        "id": "homebound-6-loaded-ascent-vehicle",
+        "a": "ascent-vehicle",
+        "b": "loaded-capsule-dock",
+        "description": "Install the specimen cargo without replacing the vehicle.",
+        "out": "loaded-ascent-vehicle",
+        "lifecycle": {
+          "ascent-vehicle": {
+            "role": "transform",
+            "reason": "Ascent vehicle is the existing object changed into Loaded ascent vehicle."
+          },
+          "loaded-capsule-dock": {
+            "role": "incorporate",
+            "reason": "Loaded capsule dock becomes part of the result; retain a supply only while another authored use needs it."
+          }
+        },
+        "preserve": [
+          "ascent-vehicle"
+        ]
+      },
+      "after": {
+        "id": "homebound-6-loaded-ascent-vehicle",
+        "a": "ascent-vehicle",
+        "b": "loaded-capsule-dock",
+        "description": "Install the specimen cargo without replacing the vehicle.",
+        "out": "loaded-ascent-vehicle",
+        "lifecycle": {
+          "ascent-vehicle": {
+            "role": "transform",
+            "reason": "Ascent vehicle is the existing object changed into Loaded ascent vehicle."
+          },
+          "loaded-capsule-dock": {
+            "role": "incorporate",
+            "reason": "Loaded capsule dock becomes part of the result; retain a supply only while another authored use needs it."
+          }
+        },
+        "preserve": [
+          "ascent-vehicle",
+          "loaded-capsule-dock"
+        ]
+      }
+    }
+  ],
+  "removedRecipes": [
+    {
+      "id": "homebound-13-reunited-crew",
+      "a": "docked-vehicle",
+      "b": "@orbital-hatch",
+      "description": "Cross the hatch together; the saved specimens and records remain tangible cargo.",
+      "out": "returned-capsule",
+      "lifecycle": {
+        "docked-vehicle": {
+          "role": "retain",
+          "reason": "Docked vehicle is reused as equipment, a source/reference, a subject of observation, or a continuing supply; this action does not consume it."
+        }
+      }
+    }
+  ],
+  "changedStages": [
+    {
+      "id": "departure",
+      "before": {
+        "id": "departure",
+        "title": "What we take with us",
+        "speaker": "Survey crew",
+        "motivation": "We came here to explore, and we leave with more than a survival story. Pack the specimens with their records, leave the camp useful to the next crew, and bring everyone to the ship.",
+        "area": {
+          "id": "area-departure",
+          "label": "What we take with us",
+          "travelText": "Before launch, we return to camp for the final packing and handover. We bring the restored cargo hauler to carry our specimens and records back to the ascent depot."
+        },
+        "locations": [],
+        "objectives": [
+          {
+            "kind": "create",
+            "item": "specimen-cart",
+            "text": "Make specimen cart",
+            "id": "departure-goal-1"
+          },
+          {
+            "kind": "create",
+            "item": "camp-handover-beacon",
+            "text": "Make camp handover beacon",
+            "id": "departure-goal-2"
+          },
+          {
+            "id": "departure-family",
+            "kind": "create",
+            "item": "family-record",
+            "text": "Keep crew portrait"
+          }
+        ],
+        "caches": [
+          {
+            "id": "departure-cache",
+            "label": "Camp departure stores",
+            "narrative": "The camp’s stored departure kit is ready for the final packing and handover.",
+            "items": [
+              "return-capsule",
+              "shock-mount",
+              "data-store",
+              "archival-card",
+              "cargo-strap",
+              "camp-beacon",
+              "maintenance-card"
+            ]
+          }
+        ],
+        "completionText": "The specimens, their records and our portrait are ready to travel. The handover beacon tells the next crew what we leave behind—including a living nursery."
+      },
+      "after": {
+        "id": "departure",
+        "title": "What we take with us",
+        "speaker": "Survey crew",
+        "motivation": "We came here to explore, and we leave with more than a survival story. Pack the specimens with their records, leave the camp useful to the next crew, and bring everyone to the ship.",
+        "area": {
+          "id": "area-departure",
+          "label": "What we take with us",
+          "travelText": "Before launch, we return to camp for the final packing and handover. We bring the restored cargo hauler to carry our specimens and records back to the ascent depot."
+        },
+        "locations": [],
+        "objectives": [
+          {
+            "kind": "create",
+            "item": "specimen-cart",
+            "text": "Prepare specimen transport cart",
+            "id": "departure-goal-1"
+          },
+          {
+            "kind": "create",
+            "item": "camp-handover-beacon",
+            "text": "Make camp handover beacon",
+            "id": "departure-goal-2"
+          },
+          {
+            "id": "departure-family",
+            "kind": "create",
+            "item": "family-record",
+            "text": "Keep crew portrait"
+          }
+        ],
+        "caches": [
+          {
+            "id": "departure-cache",
+            "label": "Camp departure stores",
+            "narrative": "The camp’s stored departure kit is ready for the final packing and handover.",
+            "items": [
+              "return-capsule",
+              "shock-mount",
+              "data-store",
+              "archival-card",
+              "cargo-strap",
+              "camp-beacon",
+              "maintenance-card"
+            ]
+          }
+        ],
+        "completionText": "The specimens, their records and our portrait are ready to travel. The handover beacon tells the next crew what we leave behind—including a living nursery."
+      }
+    },
+    {
+      "id": "homebound",
+      "before": {
+        "id": "homebound",
+        "title": "A light that answers",
+        "speaker": "Mission Control",
+        "motivation": "The recovered ascent vehicle is waiting at the depot. We have the cabin tests and agreed rendezvous, and the camp handover is in place. Bring everyone and their discoveries to the waiting orbiter.",
+        "area": {
+          "id": "area-homebound",
+          "label": "A light that answers",
+          "travelText": "We return from camp to the ascent depot with the crew, specimens and records. The handover beacon stays at camp; our final flight will take us to the waiting orbiter."
+        },
+        "locations": [
+          "orbital-hatch"
+        ],
+        "objectives": [
+          {
+            "id": "homebound-return",
+            "text": "Dock capsule with specimens",
+            "kind": "create",
+            "item": "returned-capsule"
+          }
+        ],
+        "caches": [
+          {
+            "id": "homebound-cache",
+            "label": "Ascent equipment and orbital destination",
+            "narrative": "The depot holds the ascent equipment. The orbital cabin is not part of these surface stores: it waits in orbit for our agreed rendezvous.",
+            "items": [
+              "certified-ascent-stage",
+              "receiver-latch",
+              "cargo-adapter",
+              "telemetry-recorder",
+              "launch-key",
+              "orbital-cabin"
+            ]
+          }
+        ],
+        "completionText": "We’re through the orbiter’s hatch together, with our specimens and the picture from our table. The light that answered us has become our way home."
+      },
+      "after": {
+        "id": "homebound",
+        "title": "A light that answers",
+        "speaker": "Mission Control",
+        "motivation": "The recovered ascent vehicle is waiting at the depot. We have the cabin tests and agreed rendezvous, and the camp handover is in place. Bring everyone and their discoveries to the waiting orbiter.",
+        "area": {
+          "id": "area-homebound",
+          "label": "A light that answers",
+          "travelText": "We bring the prepared hauler and its protected capsule load to the ascent depot with the crew. The handover beacon stays at camp, and the hauler will stay at the depot when we fly."
+        },
+        "locations": [
+          "orbital-hatch"
+        ],
+        "objectives": [
+          {
+            "id": "homebound-return",
+            "text": "Bring specimens to orbital hatch",
+            "kind": "place",
+            "item": "docked-vehicle",
+            "location": "orbital-hatch"
+          }
+        ],
+        "caches": [
+          {
+            "id": "homebound-cache",
+            "label": "Ascent equipment and orbital destination",
+            "narrative": "The depot holds the ascent equipment. The orbital cabin is not part of these surface stores: it waits in orbit for our agreed rendezvous.",
+            "items": [
+              "certified-ascent-stage",
+              "receiver-latch",
+              "cargo-adapter",
+              "telemetry-recorder",
+              "launch-key",
+              "orbital-cabin"
+            ]
+          }
+        ],
+        "completionText": "We’re through the orbiter’s hatch together. Our return capsule is still secured in the docked ship beside us, with the specimens, their records and a copy of the picture from our table. The light that answered us has become our way home.",
+        "carry": [
+          "ascent-cabin",
+          "cabin-test-record",
+          "agreed-rendezvous",
+          "specimen-cart",
+          "cushioned-capsule"
+        ]
+      }
+    }
+  ],
+  "checkpointActionListsChanged": 1,
+  "routeChange": "At homebound-5 replace specimen-cart with cushioned-capsule in the same combination. Replace final docked-vehicle + @orbital-hatch combination with existing placement action. No new action."
+}

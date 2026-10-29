@@ -1,0 +1,30 @@
+--- source61a9/experiments/tangible-campaign/ui/campaign-main.ts
++++ morning/experiments/tangible-campaign/ui/campaign-main.ts
+@@ -1,7 +1,8 @@
+ import './campaign.css';
+ import * as M from '../engine/model.ts';
+ import type {Action, Scenario} from '../schema/scenario.ts';
+-import {scenarios} from './scenarios.ts';
++import {scenarios,featuredScenarioIds,presentationFor} from './scenarios.ts';
++import {archivedScenarioIds} from '../schema/lifecycle.ts';
+ import {decodeSave} from './save-codec.ts';
+ import {createAutosave, installSaveLifecycle} from './save-autosave.ts';
+ const app=document.querySelector<HTMLDivElement>('#app')!;
+@@ -9,14 +10,13 @@
+ const id=new URLSearchParams(location.search).get('world');
+ // Archived experiments remain addressable by their original URLs, but are not
+ // recommendations in the active chooser. Do not delete their scenario data.
+-const archivedScenarioIds=new Set(['theology','causation','chinese-thought','mars-story-expansion-candidate','atlas-of-questions-v6','elements-local-projects-v5']);
+ const activeScenarios=scenarios.filter(s=>!archivedScenarioIds.has(s.id));
+-const developedIds=['mars-cargo-revision-v2','atlas-of-questions-v8-transmission-actions','elements-observation-revision-v6','food','causation-purpose-v4','doctrine-grace-and-matter-v1'];
++const developedIds=featuredScenarioIds;
+ const featuredScenarios=developedIds.flatMap(id=>activeScenarios.filter(s=>s.id===id));
+ const secondaryScenarios=activeScenarios.filter(s=>!developedIds.includes(s.id));
+-const journeyLink=(s:Scenario)=>`<a href="?world=${encodeURIComponent(s.id)}"><b>${esc(s.title)}</b><p>${esc(s.premise)}</p></a>`;
++const journeyLink=(s:Scenario)=>`<a href="?world=${encodeURIComponent(s.id)}"><b>${esc(presentationFor(s).title)}</b><p>${esc(presentationFor(s).premise)}</p></a>`;
+ const scenario=scenarios.find(s=>s.id===id);
+-if(!scenario){app.innerHTML=`<section class="chooser"><h1>Combination journeys</h1><p>Six journeys in development. Try them, then tell me where discovery turns into guesswork or busywork.</p>${featuredScenarios.map(journeyLink).join('')}${secondaryScenarios.length?`<details class="secondary-journeys"><summary>Early experiments · not developed</summary><p>These sketches are preserved, but are not part of the current development focus.</p>${secondaryScenarios.map(journeyLink).join('')}</details>`:''}<a href="mars-expedition.html">Original Mars checkpoint</a></section>`;}else start(scenario);
++if(!scenario){app.innerHTML=`<section class="chooser"><h1>Combination journeys</h1><p>Six development focuses, including a short purpose workshop. Try them, then tell me where discovery turns into guesswork or busywork.</p>${featuredScenarios.map(journeyLink).join('')}${secondaryScenarios.length?`<details class="secondary-journeys"><summary>Early experiments · not developed</summary><p>These sketches are preserved, but are not part of the current development focus.</p>${secondaryScenarios.map(journeyLink).join('')}</details>`:''}<a href="mars-expedition.html">Original Mars checkpoint</a></section>`;}else start(scenario);
+ function start(s:Scenario){
+  const key='tangible-campaign-v1:'+s.id;
+  const width=()=>Math.max(320,Math.min(600,document.querySelector<HTMLElement>('.board')?.clientWidth??innerWidth));

@@ -1,0 +1,21 @@
+from pathlib import Path
+import hashlib,json
+P=Path(__file__).resolve().parent
+H=lambda p:hashlib.sha256(p.read_bytes()).hexdigest()
+reviewed='cbea5ad5304a2a402cdf2a704e64d4ccb3447f1471898aebbbb3f5c037cb0184'
+snap=P/'snapshots/reviewed-cbea5ad'
+assert H(snap/'conceptual-candidate.json')==reviewed
+manifest=json.loads((snap/'snapshot-manifest.json').read_text())
+for name,sha in manifest.items():assert H(snap/name)==sha,name
+rows=[]
+for p in sorted((P/'sessions').glob('divinity-*-v2-ch*')):
+ info=json.loads((p/'session.json').read_text());assert info['status']=='stopped';assert info['candidateSha256']==reviewed
+ events=[json.loads(l) for l in (p/'events.jsonl').read_text().splitlines()]
+ assert events[-1]['command']=='stop'
+ for name in ['session.json','events.jsonl','game.json']:assert H(p/name)==H(snap/'sessions'/p.name/name)
+ comb=[x for x in events if x['command']=='combine'];reads=[x for x in events if x['command']=='read']
+ rows.append({'session':p.name,'checkpoint':info['checkpoint'],'stopped':True,'acceptedCombines':sum(x['result'].get('accepted') is True for x in comb),'rejectedCombines':sum(x['result'].get('accepted') is False for x in comb),'highlights':sum(x['command']=='partners' for x in events),'successfulReads':sum('text' in x['result'] for x in reads),'unavailableReads':sum('error' in x['result'] for x in reads),'journalSha256':H(p/'events.jsonl')})
+assert len(rows)==8
+reports=['opening-reader-v2-targeted-report.md','divinity-late-v2-targeted-report.md']
+result={'status':'pass','finalCandidateSha256':H(P/'conceptual-candidate.json'),'testedCandidateSha256':reviewed,'allEightSessionsStoppedAndSnapshotExact':True,'sessions':rows,'reports':{n:H(P/n) for n in reports},'limits':['Informed targeted prepared checkpoints, not fresh blind or full journeys','Final t118 assessment is supplied-text-only; final t070 edit is author-only','No human enjoyment, UI, or independent source accuracy claim']}
+(P/'review-evidence.json').write_text(json.dumps(result,indent=2)+'\n');print(json.dumps(result,indent=2))

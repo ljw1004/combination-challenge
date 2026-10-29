@@ -1,0 +1,78 @@
+001 START: 17
+002 NOTE: Desk 17 presents accessible observations, not specialist apparatus. Fossil animals unlike any living species plus earlier grouping by shared features should support extinction. A fossil shell plus lower-before-upper layers should instead give a relative sequence, with possible missing premise that fossil was once alive. I will test these independent guesses.
+003 DROP rejected: t044 Animals grouped by shared features + t282 Fossil animals unlike any living species
+004 DROP rejected: t277 A fossil shell enclosed in rock + t278 Undisturbed layers: lower before upper
+005 NOTE: Both direct geological guesses failed silently. I want to know whether animal grouping first makes the shell a once-living animal and whether conditional explanation is a route to sedimentary causes. Normal selection t044 should reveal what the inherited classification is for.
+006 HIGHLIGHT t044: [{'id': 't277', 'label': 'A fossil shell enclosed in rock'}]
+007 READ t277: A trace of an organism is part of the rock’s history, not simply a modern shell resting on its surface.
+008 READ t282: Comparative anatomy helped Cuvier make extinction a serious empirical conclusion.
+009 DROP accepted: t044 Animals grouped by shared features + t277 A fossil shell enclosed in rock
+010 NOTE: A fossil is former life makes the missing ontological premise explicit. I expect this now to combine with unknown living species for extinction and with lower/upper layers for relative history. I also expect conditions + stream erosion to establish present processes as an explanation of past rock.
+011 DROP accepted: t284 A fossil is a trace of former life + t282 Fossil animals unlike any living species
+012 DROP accepted: t284 A fossil is a trace of former life + t278 Undisturbed layers: lower before upper
+013 DROP accepted: t026 An explanation tied to conditions + t280 Streams wear down rock and lay sediment
+014 NOTE: Sequence + distant similar fossil succession should correlate landscapes, not measure years. Present stream processes + tilted beds below level ones should reconstruct erosion/deposition/uplift cycles; I can infer that but the tile phrase is compact. Read tilted beds first to check supplied context.
+015 READ t281: The Siccar Point unconformity requires deposition, deformation, erosion and renewed deposition.
+016 DROP accepted: t285 A sequence of deposited worlds + t279 Similar fossil successions in distant beds
+017 DROP accepted: t287 Present processes can explain ancient traces + t281 Tilted beds below younger level beds
+018 NOTE: Multiple makings of landscape plus comparable succession should combine process-history with stratigraphic history, perhaps recognizing deep time without exact duration. Yet multiple makings plus abrupt disruption is also tempting to make a varied past. I will try the two large historical summaries first.
+019 DROP rejected: t288 More than one making of the landscape + t286 Separated beds, a comparable succession
+020 NOTE: The two-history synthesis was rejected. I will use ordinary highlighting on the multiple-makings tile; my next guess remains abrupt disruption, but another relation may expose a missing premise about duration.
+021 HIGHLIGHT t288: [{'id': 't285', 'label': 'A sequence of deposited worlds'}]
+022 NOTE: Highlight points to the earlier local deposited sequence, not the more-developed distant correlation. I can infer repeated deposition needs extensive time, but rejecting the geographically broadened version seems route specificity rather than an intelligible factual contradiction. Trying indicated local sequence.
+023 DROP accepted: t288 More than one making of the landscape + t285 A sequence of deposited worlds
+024 NOTE: Deep past + abrupt disruptions should avoid treating long time as all gentle uniform change. Deep past + comparable distant succession should separate ordering events from timing them. The two final goals make these contrasts understandable, but they also disclose the expected summary direction.
+025 DROP accepted: t289 A landscape needs a deep past + t283 Some strata record abrupt disruption
+026 DROP accepted: t289 A landscape needs a deep past + t286 Separated beds, a comparable succession
+    Completed desk 17: ['Whole forms of life have disappeared', 'Long processes and abrupt events', 'Sequence is not duration']
+027 NOTE: Desk 18 returns classification and deep time meaningfully: naming should aid comparison but not imply permanence; deep time gives room for descendants to diverge. New inherited population-subsistence pressure is not from my play, so I will read it. First guess: shared animal features + two-part species names formalizes comparison. Highlight may show whether climate is also a live direction.
+028 READ t272: Malthus’s problem becomes available for later adaptation and criticism without requiring arithmetic.
+029 HIGHLIGHT t044: [{'id': 't293', 'label': 'Linnaeus gives each species a two-part name'}]
+030 DROP accepted: t044 Animals grouped by shared features + t293 Linnaeus gives each species a two-part name
+031 NOTE: Read on population pressure names Malthus but does not explain the pressure; because I did not play its origin I cannot say whether full-game players would lack this. Comparable names + climate changes should let naturalists track kinds across environments. Inherited variation + breeders retaining traits should demonstrate accumulated change. I will test those independent pairs.
+032 DROP accepted: t301 Comparable names for living kinds + t294 Plant communities change with height and climate
+033 DROP accepted: t296 Offspring differ, and some differences are inherited + t297 Breeders keep offspring with desired traits
+034 NOTE: Here a raw concrete pair did work: inherited variation + breeders -> accumulated differences. I expect population pressure + inherited variation to make unequal survival matter, and deep time + Lamarck changed habits to make species mutable over generations. I will test both.
+035 DROP accepted: t272 A population–subsistence pressure + t296 Offspring differ, and some differences are inherited
+036 DROP rejected: t289 A landscape needs a deep past + t295 Lamarck: changed habits can change descendants
+037 NOTE: Deep time with Lamarck failed. Perhaps named species rather than duration is the needed target: a stable name does not imply a changeless lineage, as stage motivation says. Highlight Lamarck. Separately excess offspring + differences leaving descendants should yield natural selection.
+038 HIGHLIGHT t295: [{'id': 't301', 'label': 'Comparable names for living kinds'}]
+039 DROP accepted: t305 More offspring than places to flourish + t298 Some inherited differences leave more descendants
+040 DROP accepted: t301 Comparable names for living kinds + t295 Lamarck: changed habits can change descendants
+041 NOTE: Unequal reproduction changes population plus deep landscape time should now make long divergence possible. Adding the unresolved transmission question should preserve rather than falsely solve the heredity mechanism, though perhaps the game requires a broader evolutionary summary first. Try long time before that test.
+042 DROP accepted: t306 Unequal reproduction changes a population + t289 A landscape needs a deep past
+043 NOTE: Selection across deep time plus resemblance to nearby mainland species should support common descent and branching rather than separate special creations. Changed species histories could also matter, but island relation is a clearer evidence-bearing next pair. I will test island relation, and independently selection across time + blending question for unresolved heredity.
+044 DROP accepted: t307 Selection can reshape life across deep time + t299 Island species resemble nearby mainland species
+045 DROP rejected: t307 Selection can reshape life across deep time + t300 How are differences transmitted without blending away?
+046 NOTE: The milestone says kinds become branching histories but that goal is not checked yet. My next synthesis is shared descent + species can change, joining geography with mutability. Heredity question has not accepted selection alone, so select it to see which existing claim the uncertainty applies to.
+047 DROP accepted: t308 Resemblance can record shared descent + t303 Species can have changing histories
+048 HIGHLIGHT t300: [{'id': 't306', 'label': 'Unequal reproduction changes a population'}]
+049 NOTE: Heredity uncertainty lights the unequal-reproduction step, not its extended deep-time result. This precision is not explained by the rejection. The intended relation is defensible because reproduction requires transmission, but I would expect uncertainty to remain applicable to the larger theory too. I will make the indicated pairing.
+050 DROP accepted: t306 Unequal reproduction changes a population + t300 How are differences transmitted without blending away?
+    Completed desk 18: ['Life patterned by place and conditions', 'Small inherited differences can accumulate', 'A species name does not freeze its history', 'Selection with inheritance still unresolved']
+051 NOTE: Desk 19 explicitly says parallel file, avoiding a simplistic timeline jump. First expected tension: unequal reproduction + cooperation should block deriving one social morality from competitive nature. Second: maker more than output + pleasure in making should revise what useful work means. Third: heat engine + continuing fuel directly expresses material dependence. Try all three independent hypotheses.
+052 DROP accepted: t306 Unequal reproduction changes a population + t315 Animals and people also survive by cooperation
+053 DROP rejected: t276 The maker is more than the output + t314 Morris: pleasure in making matters
+054 DROP rejected: t311 Heat drives a factory engine + t312 The engine needs a continuing fuel supply
+055 NOTE: Cooperation directly entered selection argument, good. The two other plainly related pairs failed. I suspect divided specialized tasks must first be joined to engines to make factory production, and maker more than output must first join ownership to make alienation. I will select maker and engine, expecting these paths, and read the inherited maker claim for context.
+056 HIGHLIGHT t276: [{'id': 't313', 'label': 'Workers sell labour; owners control the product'}]
+057 HIGHLIGHT t311: [{'id': 't269', 'label': 'Production divided into specialized tasks'}]
+058 READ t276: Modern teaching comparison: a cultivated life supplies a question that production totals alone cannot answer.
+059 DROP accepted: t276 The maker is more than the output + t313 Workers sell labour; owners control the product
+060 DROP accepted: t269 Production divided into specialized tasks + t311 Heat drives a factory engine
+061 NOTE: Mutual aid inside survival plus scarcity does not settle burdens should resist a single prescriptive moral story. These older creations really change the interpretation: the scarcity claim blocks deriving social duties from merely describing survival.
+062 DROP accepted: t321 Mutual aid belongs inside the question of survival + t273 Scarcity does not settle who should bear it
+063 NOTE: Now machine-scale labour + fuel should expose industrial material inputs; loss of control + Morris pleasure should offer an alternative rather than merely quantify productivity. Automatic machine pace + maker losing control is a tempting further synthesis, but the inherited life/motion distinction may instead supply the bridge. I will test direct work-control first after the two obvious continuations.
+064 DROP accepted: t317 Specialized labour at machine scale + t312 The engine needs a continuing fuel supply
+065 DROP accepted: t319 The maker can lose control of the work + t314 Morris: pleasure in making matters
+066 DROP rejected: t319 The maker can lose control of the work + t316 An automatic machine can dictate the pace
+067 NOTE: Direct control-loss + machine-pace failed although this seems the clearest literal relation. The other candidate, lifelike motion versus life + machine pace, should reopen who controls mechanical work; I need Read to understand why the old life distinction belongs here. I will read it and highlight machine pace.
+068 READ t218: The successful imitation leaves another question open.
+069 HIGHLIGHT t316: []
+070 NOTE: Machine pace has no current compatible target, so neither direct control-loss nor lifelike imitation suffices yet. Read on lifelike motion merely says another question open; it does not explain the new bridge. My best conceptual guess is lifelike motion distinction + machine-scale labour: work can be mechanized without resolving workers agency. I will select the inherited distinction.
+071 HIGHLIGHT t218: [{'id': 't317', 'label': 'Specialized labour at machine scale'}]
+072 DROP accepted: t218 Lifelike motion does not settle what life is + t317 Specialized labour at machine scale
+073 NOTE: Imitation and machinery enter workshop is a new summary but its inferential content is thinner than the older control-loss claim. Expected next pair is this workshop summary + machine dictates pace, producing the pending control-of-work goal. This thread is the clearest case of prescribed bridge assembly in this slice.
+074 DROP accepted: t323 Imitation and machinery enter the workshop + t316 An automatic machine can dictate the pace
+    Completed desk 19: ['Nature is not a competition-only morality tale', 'Industrial power has a material appetite', 'Useful work need not erase the maker', 'Less effort can mean less control']
+    STOPPED: Three-desk slice complete. Stop here and report.

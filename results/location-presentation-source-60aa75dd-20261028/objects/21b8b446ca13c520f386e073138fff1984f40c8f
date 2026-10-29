@@ -1,0 +1,65 @@
+DESK 18: evolution | Gardens, voyages and naturalists’ notebooks · c. 1735–1859 | Kinds acquire a history | A stable name helps naturalists compare specimens. It does not decide whether a species has always been the same. Deep time and population pressure now meet living variation.
+GOALS: [{'id': 'evolution-geography-of-life', 'text': 'Connect living kinds to environments', 'kind': 'create', 'item': 'geography-of-life'}, {'id': 'evolution-selection-analogy', 'text': 'Understand cumulative selection', 'kind': 'create', 'item': 'selection-analogy'}, {'id': 'evolution-changed-meaning-of-kinds', 'text': 'Give kinds a branching history', 'kind': 'create', 'item': 'changed-meaning-of-kinds'}, {'id': 'evolution-open-heredity', 'text': 'Keep heredity unresolved', 'kind': 'create', 'item': 'open-heredity'}]
+
+RECIPE make-named-species
+A animal-kinds | Animals grouped by shared features | Comparison makes similarities and differences available to inquiry.
+B binomial-names | Linnaeus gives each species a two-part name | A shared naming practice aids comparison; his classifications and racial hierarchy are not endorsed as natural truths.
+OUT named-species | Comparable names for living kinds | Earlier classification becomes a coordinated naming practice, while the categories remain revisable.
+LIFECYCLE {'animal-kinds': 'retain', 'binomial-names': 'retain'}
+LINK {"from": "kinds", "to": "evolution", "item": "animal-kinds", "recipe": "make-named-species", "relation": "adaptation", "evidence": "Natural history reworks inherited practices of comparing and naming organisms; Linnaeus is not simply Aristotle under another label.", "sources": ["aristotle-biology", "linnaeus", "humboldt", "darwin-selection", "darwin-malthus", "darwin-origin-wolves-primary", "wallace-varieties-primary", "lyell-darwin"]}
+
+RECIPE make-geography-of-life
+A named-species | Comparable names for living kinds | Earlier classification becomes a coordinated naming practice, while the categories remain revisable.
+B altitude-plants | Plant communities change with height and climate | Humboldt’s comparative geography connects living forms with physical conditions.
+OUT geography-of-life | Life patterned by place and conditions | The named collection becomes a comparison of environments, not just a shelf of specimens.
+LIFECYCLE {'named-species': 'retain', 'altitude-plants': 'retain'}
+
+RECIPE make-transforming-species
+A named-species | Comparable names for living kinds | Earlier classification becomes a coordinated naming practice, while the categories remain revisable.
+B use-disuse | Lamarck: changed habits can change descendants | A historical mechanism involving use, disuse and inherited acquired change; not merely a foolish prelude to Darwin.
+OUT transforming-species | Species can have changing histories | Reconstruct Lamarck’s alternative to fixed species without treating every proposed mechanism as established.
+LIFECYCLE {'named-species': 'retain', 'use-disuse': 'retain'}
+
+RECIPE make-selection-analogy
+A heritable-variation | Offspring differ, and some differences are inherited | A prerequisite of selection, stated without pretending the mechanism of inheritance was already known.
+B breeders-choices | Breeders keep offspring with desired traits | Human selection demonstrates accumulated change, but nature has no breeder’s intention.
+OUT selection-analogy | Small inherited differences can accumulate | The breeder’s practice makes cumulative change understandable without supplying a purposeful breeder in nature.
+LIFECYCLE {'heritable-variation': 'retain', 'breeders-choices': 'retain'}
+
+RECIPE make-struggle-for-existence
+A population-pressure | A population–subsistence pressure | Malthus’s problem becomes available for later adaptation and criticism without requiring arithmetic.
+B heritable-variation | Offspring differ, and some differences are inherited | A prerequisite of selection, stated without pretending the mechanism of inheritance was already known.
+OUT struggle-for-existence | More offspring than places to flourish | Darwin and Wallace adapt Malthusian population pressure to organisms; the inference is historical, not a moral instruction for society.
+LIFECYCLE {'population-pressure': 'retain', 'heritable-variation': 'retain'}
+LINK {"from": "exchange", "to": "evolution", "item": "population-pressure", "recipe": "make-struggle-for-existence", "relation": "transmission", "evidence": "Darwin and Wallace explicitly credited reading Malthus; the pressure is adapted from human populations to biological variation.", "sources": ["aristotle-biology", "linnaeus", "humboldt", "darwin-selection", "darwin-malthus", "darwin-origin-wolves-primary", "wallace-varieties-primary", "lyell-darwin"]}
+
+RECIPE make-natural-selection
+A struggle-for-existence | More offspring than places to flourish | Darwin and Wallace adapt Malthusian population pressure to organisms; the inference is historical, not a moral instruction for society.
+B differential-survival | Some inherited differences leave more descendants | A schematic comparison of reproductive outcomes, not a claim that the strongest always win.
+OUT natural-selection | Unequal reproduction changes a population | Heritable differences with different reproductive consequences can become more or less common.
+LIFECYCLE {'struggle-for-existence': 'retain', 'differential-survival': 'retain'}
+
+RECIPE make-cumulative-evolution
+A natural-selection | Unequal reproduction changes a population | Heritable differences with different reproductive consequences can become more or less common.
+B deep-time-world | A landscape needs a deep past | Repeated large changes make a vastly extended history intelligible before there is an accurate numerical age.
+OUT cumulative-evolution | Selection can reshape life across deep time | Geological duration removes the scale of a human lifetime as the limit of cumulative change.
+LIFECYCLE {'natural-selection': 'retain', 'deep-time-world': 'retain'}
+LINK {"from": "deep-time", "to": "evolution", "item": "deep-time-world", "recipe": "make-cumulative-evolution", "relation": "transmission", "evidence": "Lyell’s geology directly mattered to Darwin; geological duration supports a cumulative process without itself proving natural selection.", "sources": ["aristotle-biology", "linnaeus", "humboldt", "darwin-selection", "darwin-malthus", "darwin-origin-wolves-primary", "wallace-varieties-primary", "lyell-darwin"]}
+
+RECIPE make-branching-descent
+A cumulative-evolution | Selection can reshape life across deep time | Geological duration removes the scale of a human lifetime as the limit of cumulative change.
+B island-relations | Island species resemble nearby mainland species | Geographical relationships ask for explanation as well as classification.
+OUT branching-descent | Resemblance can record shared descent | A branching history can explain geographical affinities; it is not a ladder with humans as its required summit.
+LIFECYCLE {'cumulative-evolution': 'retain', 'island-relations': 'retain'}
+
+RECIPE make-changed-meaning-of-kinds
+A branching-descent | Resemblance can record shared descent | A branching history can explain geographical affinities; it is not a ladder with humans as its required summit.
+B transforming-species | Species can have changing histories | Reconstruct Lamarck’s alternative to fixed species without treating every proposed mechanism as established.
+OUT changed-meaning-of-kinds | A species name does not freeze its history | The earlier changing-species proposal remains distinct from the newer selection mechanism.
+LIFECYCLE {'branching-descent': 'retain', 'transforming-species': 'retain'}
+
+RECIPE make-open-heredity
+A natural-selection | Unequal reproduction changes a population | Heritable differences with different reproductive consequences can become more or less common.
+B inheritance-puzzle | How are differences transmitted without blending away? | A live nineteenth-century difficulty, not a genetic answer smuggled into 1859.
+OUT open-heredity | Selection with inheritance still unresolved | A fruitful account can retain an important unsolved problem. Later genetics must earn its arrival.
+LIFECYCLE {'natural-selection': 'retain', 'inheritance-puzzle': 'retain'}

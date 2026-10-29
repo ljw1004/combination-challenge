@@ -65,8 +65,33 @@ After a final objective is met, its creation animation finishes and the controll
 
 ## Follow-up: construction identity and doctrine replacement
 
-The active catalogue now has 735 recipes across nine journeys. The original 12-recipe Benedictine journey is archived, with its direct route and saves retained; the new 16-recipe, eight-chapter Doctrine journey has its own identity. Its input decisions are included in audit.json. The original correction counts above describe the earlier audit, not newly claimed fixes.
+At the historical 61a9b4e checkpoint, the active catalogue had 735 recipes across nine journeys. The original 12-recipe Benedictine journey is archived, with its direct route and saves retained; the new 16-recipe, eight-chapter Doctrine journey has its own identity. Its input decisions are included in audit.json. The original correction counts above describe the earlier audit, not newly claimed fixes.
 
 Ten Mars recipes now explicitly preserve fitted construction contents: eight assembly transformations/joins, plus installations of the long-range radio and comparison case. Visible fitted parts follow a changed assembly into later upgrades. Build validation tracks construction-producing recipes transitively, so a later transformation cannot bypass preservation just because its input definition has no direct slots. Existing save history supplies actual earlier fitted states during migration; the engine does not guess missing components.
 
 See the root DESIGN_PRINCIPLES.md and AGENTS.md for the continuing design contract.
+
+
+## Reviewed campaign integration candidate — 28 October 2026
+
+The pre-Doctrine integration candidate had **949 active recipes across nine scenarios**: six focus selections (one is the deliberately short Quarry purpose probe) and three undeveloped secondary sketches. Its twenty total scenario records contained 2,302 recipes, including eleven archived identities. Neither count is a claim about natural-route length or enjoyment.
+
+`audit.json` is the current active-row ledger, in exact scenario/recipe order. It incorporates selected author-reviewed Mars, Atlas, Elements and Food rows without changing their lifecycle declarations. Quarry's six rows are explicitly extracted from its reviewed pilot declarations; no nonexistent separate audit packet is claimed. All active recipes, including secondary sketches, retain validation; no new candidate is grandfathered.
+
+The complete earlier audit bytes, including original correction counts and the replaced campaigns' rows, remain in `../../evidence/integration-20261028/historical-lifecycle-audit-61a9b4e.json`. Historical correction counts above are not newly claimed fixes. The current event-local runtime is unchanged; the new Elements test intentionally rejects the old candidate report's deferred bread-removal behavior while preserving that frozen report as historical evidence.
+
+See `../../../../docs/reviewed-campaign-integration-20261028.md` for candidate provenance, bounded presentation/checkpoint additions and verification limits.
+
+
+## Final Doctrine v9 addition
+
+The combined integration has **1,021 active recipes across nine scenarios**, with **21 records / 2,390 definitions** total and twelve archived identities. Original Doctrine v1 is archived, not mutated or removed. Its new v9 counterpart contributes 88 exact reviewed lifecycle rows in active scenario/recipe order. The source packet names its declaration field `decisions`; tests compare that field exactly to recipe lifecycle metadata. The pre-Doctrine active ledger is retained at `../../evidence/integration-20261028/historical-pre-doctrine-v9-lifecycle-audit.json`. The content-only checkpoint uses the unchanged pre-HUD UI/runtime; the unfinished HUD revision is separately preserved and not included.
+
+## Approved v10 copy-only successor
+
+Doctrine v10 changes no recipes or lifecycle decisions. Its 88 rows retain all reviewed v9 fields except the scenario identity (`world`); the previous complete ledger is preserved at `../../evidence/integration-20261028/copy-revision-20261028/previous-lifecycle-audit.json`. Counts remain 1,021 active recipes/9 scenarios and 2,390 recipes/21 total records. Mars, Elements and Food copy corrections also leave all decisions unchanged. Native/UI testing is deferred by user.
+
+
+## Morning content successor
+
+The current ledger now includes prior integrated identities as fully validated direct-route content plus the latest approved successor stories. Schema grandfathering is unchanged. Every current row is deterministically derived from that scenario recipe's explicit lifecycle declaration; the previous ledger is preserved under `evidence/integration-20261028/morning-revision-20261028/previous-lifecycle-audit.json`. Recipe totals include these preserved versions and are not a count of required discoveries.

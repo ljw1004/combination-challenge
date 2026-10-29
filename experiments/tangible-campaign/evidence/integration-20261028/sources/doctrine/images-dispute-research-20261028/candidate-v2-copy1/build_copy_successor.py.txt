@@ -1,0 +1,22 @@
+from pathlib import Path
+import json,hashlib,copy,shutil,difflib
+R=Path('/workspace/shared/combination-campaign-research-20261028/doctrine/images-dispute-research-20261028')
+old=R/'candidate-v2';new=R/'candidate-v2-copy1';src=old/'doctrine-images-relics-local-v2-candidate.json'
+sha=lambda p:hashlib.sha256(p.read_bytes()).hexdigest()
+assert sha(src)=='66dc40a0daabd425e0502f610981ebed1c95513ed120b94bbcfebd11e65230eb'
+assert not new.exists();new.mkdir()
+protected={str(p):sha(p) for d in [R/'candidate-v1',old] for p in d.rglob('*') if p.is_file()}
+(new/'protected-predecessors-before.json').write_text(json.dumps(protected,indent=2)+'\n')
+s=json.loads(src.read_text());before=copy.deepcopy(s);s['id']='doctrine-images-relics-local-v2-copy1'
+i=next(i for i in s['items'] if i['id']=='images-new-fragment');oldlabel=i['label'];i['label']='Chip called bone by its donor: “John the Baptist — Amiens”'
+filename='doctrine-images-relics-local-v2-copy1-candidate.json';dst=new/filename;dst.write_text(json.dumps(s,ensure_ascii=False,indent=2)+'\n')
+changes=[{'path':'/id','before':before['id'],'after':s['id']},{'path':'/items/'+str(s['items'].index(i))+'/label','itemId':i['id'],'before':oldlabel,'after':i['label']}]
+(new/'exact-changes.json').write_text(json.dumps(changes,ensure_ascii=False,indent=2)+'\n')
+(new/'candidate-exact.diff').write_text(''.join(difflib.unified_diff(src.read_text().splitlines(True),dst.read_text().splitlines(True),fromfile='candidate-v2/doctrine-images-relics-local-v2-candidate.json',tofile='candidate-v2-copy1/'+filename)))
+for f in ['runtime-provenance.json','pinned-surface.mjs']:shutil.copyfile(old/f,new/f)
+shutil.copytree(old/'runtime',new/'runtime')
+m=json.loads((old/'authoring-manifest.json').read_text());m.update(status='Tiny copy-only successor. No fresh reader has played this exact copy. No new reader packet or session is created.',predecessorCandidatePath=str(src),predecessorCandidateSha256=sha(src),copyOnlyChanges=changes)
+(new/'authoring-manifest.json').write_text(json.dumps(m,ensure_ascii=False,indent=2)+'\n')
+shutil.copyfile(Path(__file__),new/'build_copy_successor.py')
+for p,h in protected.items():assert sha(Path(p))==h,p
+print(json.dumps({'path':str(dst),'sha256':sha(dst),'changes':changes,'protectedFiles':len(protected)},ensure_ascii=False,indent=2))

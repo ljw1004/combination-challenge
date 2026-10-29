@@ -1,0 +1,50 @@
+✔ crawler repair replaces disabled cabin at the same spot in either drag direction; Undo and restore are exact (99.434974ms)
+✔ tow-first transforms the same cabin; repair before shelter replaces its towed state, not a second cabin (42.633531ms)
+✔ tow-first shelter remains valid; a later drive repair also retains exactly one real crawler (33.9656ms)
+✔ tile and task names reveal crew without requiring prose; shelter changes them and Undo restores them (54.3264ms)
+✔ old duplicate saves are preserved verbatim; no reload, move, or chapter event retroactively culls things (63.100836ms)
+✔ canonical complete route and every saved checkpoint still work with crew intermediate goal (2151.862941ms)
+✔ conditional labels require a valid different item and a real alternate label, and stay presentation-only (49.506908ms)
+{
+  "passed": 14,
+  "failed": 0,
+  "checks": [
+    "Existing scenario, lifecycle, objective-flow and construction validators pass",
+    "Five immutable cargo route files retain their exact two historical edits; four current routes add one real lamp construction",
+    "Cart preparation keeps precisely one filled capsule and does not snapshot any of its cargo",
+    "Homebound carries prepared cart and capsule separately, plus cabin, record and rendezvous",
+    "Actual capsule transfer removes capsule once, preserves all cargo, leaves the empty hauler untouched",
+    "Every flight transformation has exactly one capsule owner, all same contents, no hauler aboard",
+    "Missing capsule compartment blocks both fitting and load, in both drag directions",
+    "Both operand directions perform the same single-owner transfer",
+    "Final placement wins with real cargo visible on docked ship and creates no capsule badge",
+    "Undo restores single prior capsule owner; JSON restore retains final ownership",
+    "Every current checkpoint is an exact Solar-adapted accepted route prefix",
+    "Exact recommended bytes plus declared archive-label and natural-order successor; carrier strings once and live predecessor save identity unchanged",
+    "All four current Solar-adapted route witnesses preserve single ownership at each cargo milestone and all 23 earlier-created chapter connections",
+    "Cabin record promises only restored fittings, missing fitting rejects, and optional fictional reading leaves full state untouched"
+  ]
+}
+✔ Existing scenario, lifecycle, objective-flow and construction validators pass (9.971706ms)
+✔ Five immutable cargo route files retain their exact two historical edits; four current routes add one real lamp construction (1185.512552ms)
+✔ Cart preparation keeps precisely one filled capsule and does not snapshot any of its cargo (1.117961ms)
+✔ Homebound carries prepared cart and capsule separately, plus cabin, record and rendezvous (0.240001ms)
+✔ Actual capsule transfer removes capsule once, preserves all cargo, leaves the empty hauler untouched (0.805201ms)
+✔ Every flight transformation has exactly one capsule owner, all same contents, no hauler aboard (0.696507ms)
+✔ Missing capsule compartment blocks both fitting and load, in both drag directions (1493.564982ms)
+✔ Both operand directions perform the same single-owner transfer (11.31763ms)
+✔ Final placement wins with real cargo visible on docked ship and creates no capsule badge (0.739873ms)
+✔ Undo restores single prior capsule owner; JSON restore retains final ownership (170.315458ms)
+✔ Every current checkpoint is an exact Solar-adapted accepted route prefix (1822.208157ms)
+✔ Exact recommended bytes plus declared archive-label and natural-order successor; carrier strings once and live predecessor save identity unchanged (376.038962ms)
+✔ All four current Solar-adapted route witnesses preserve single ownership at each cargo milestone and all 23 earlier-created chapter connections (643.059245ms)
+✔ Cabin record promises only restored fittings, missing fitting rejects, and optional fictional reading leaves full state untouched (456.356998ms)
+✔ Solar action adapter preserves raw witnesses, changes exactly the first-use boundary, and is idempotent (4.630561ms)
+ℹ tests 22
+ℹ suites 0
+ℹ pass 22
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 7065.877793

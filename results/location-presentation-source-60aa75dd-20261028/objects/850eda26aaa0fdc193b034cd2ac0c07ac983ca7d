@@ -1,0 +1,119 @@
+{
+  "scenario": "causation-accidental-bell-probe-v1",
+  "title": "The Riverside Workshop",
+  "kind": "Current event-local integration replay of documented author witness; not a fresh/human/browser playtest",
+  "baseCommit": "61a9b4ee8c6235bff07f97eb16d713ec6125c81e",
+  "sourceWitness": "causation/reconsideration/accidental-bell-v1/author-route.json",
+  "sourceWitnessSha256": "50394bcaa46065839f9699b865e16e3d3dca31dd1580a3f571d4d9d766349b10",
+  "sourceScenario": "causation/reconsideration/accidental-bell-v1/scenario.json",
+  "runtimeSha256": "793354131dc6b2cf9a5398e0dc163f5d834e62d477b719e7dedcfdcf6a2c8265",
+  "combinations": 3,
+  "actions": 7,
+  "actionsLog": [
+    {
+      "type": "combine",
+      "a": "blank",
+      "b": "mallet"
+    },
+    {
+      "type": "place",
+      "item": "basin",
+      "location": "wash"
+    },
+    {
+      "type": "advance"
+    },
+    {
+      "type": "combine",
+      "a": "basin",
+      "b": "hanger"
+    },
+    {
+      "type": "combine",
+      "a": "mallet",
+      "b": "gong"
+    },
+    {
+      "type": "place",
+      "item": "gong",
+      "location": "gate"
+    },
+    {
+      "type": "advance"
+    }
+  ],
+  "completed": true,
+  "metrics": {
+    "attempts": 7,
+    "accepted": 7,
+    "combinations": 3,
+    "creations": 2,
+    "installations": 1,
+    "moves": 0,
+    "placements": 2,
+    "advances": 2,
+    "visits": 0
+  },
+  "recipesTotal": 3,
+  "stages": 2,
+  "stageEntries": [
+    {
+      "stageIndex": 0,
+      "stageId": "rinse",
+      "actionPrefixLength": 0,
+      "stateSha256": "30b3428fe669b086768ddab59536154b4ce04381c2801ab89a1acc5f1a566bfb"
+    },
+    {
+      "stageIndex": 1,
+      "stageId": "call",
+      "actionPrefixLength": 3,
+      "stateSha256": "5cfbd49f9936f59cf54ca3497f8be9607bce3be32d2c8fce30dca1959977f9a8"
+    }
+  ],
+  "goalContinuity": [
+    {
+      "stage": "rinse",
+      "earlierUsed": [],
+      "goalConnected": [],
+      "completed": true
+    },
+    {
+      "stage": "call",
+      "earlierUsed": [
+        "basin"
+      ],
+      "goalConnected": [
+        "basin"
+      ],
+      "completed": true
+    }
+  ],
+  "checkpoints": [
+    {
+      "id": "chapter-1",
+      "actionPrefixLength": 0,
+      "stageIndex": 0,
+      "completed": false,
+      "stateSha256": "30b3428fe669b086768ddab59536154b4ce04381c2801ab89a1acc5f1a566bfb"
+    },
+    {
+      "id": "chapter-2",
+      "actionPrefixLength": 3,
+      "stageIndex": 1,
+      "completed": false,
+      "stateSha256": "5cfbd49f9936f59cf54ca3497f8be9607bce3be32d2c8fce30dca1959977f9a8"
+    },
+    {
+      "id": "complete",
+      "actionPrefixLength": 7,
+      "stageIndex": 1,
+      "completed": true,
+      "stateSha256": "3af79709e9bde780011339820c0e51e188c81f9f32fc1ba136c0c4284220b4ff"
+    }
+  ],
+  "limits": [
+    "Only these documented routes are replayed; no exhaustive whole-campaign route claim.",
+    "Native/browser layout, touch and human enjoyment QA remain pending.",
+    "Riverside has route-earned scene-entry and complete debug checkpoints; authored candidate fields otherwise exact. Chooser-only presentation override is recorded separately."
+  ]
+}

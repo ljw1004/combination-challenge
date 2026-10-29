@@ -1,0 +1,27 @@
+import fs from 'node:fs';import assert from 'node:assert/strict';
+import type {Scenario,Action} from './schema/scenario.ts';import {createGame,applyAction,stageComplete,capabilities,token} from './engine/model.ts';
+const s:Scenario=JSON.parse(fs.readFileSync(new URL('./scenario.json',import.meta.url),'utf8'));
+for(const reverse of [false,true]){
+ let g=createGame(s,360);const actions:Action[]=[];let recipeCount=0;
+ function act(a:Action){const r=applyAction(s,g,a);assert(r.accepted,JSON.stringify(a)+': '+r.message);g=r.game;actions.push(a);if(r.recipe)recipeCount++;}
+ let remaining=500;
+ while(!g.state.completed&&remaining--){
+  const recipes=reverse?[...s.recipes].reverse():s.recipes;
+  let made=false;
+  for(const r of recipes){
+   if(g.state.recipesUsed.includes(r.id)||r.out&&g.state.discovered.includes(r.out))continue;
+   const objects=[r.a,r.b].filter(x=>!x.startsWith('@')).map(x=>token(g.state,x));
+   if(objects.some(t=>!t||t.area!==g.state.currentArea))continue;
+   const locs=[r.a,r.b].filter(x=>x.startsWith('@')).map(x=>x.slice(1));if(r.at)locs.push(r.at);
+   if(locs.some(id=>!g.state.places.some(p=>p.id===id&&p.area===g.state.currentArea)))continue;
+   if(r.requires?.some(q=>!capabilities(s,token(g.state,q.item)!).includes(q.capability)))continue;
+   if(r.install&&token(g.state,r.install.target)!.slots[r.install.slot]===r.install.component)continue;
+   if(r.at){act({type:'place',item:r.b,location:r.at});act({type:'combine',a:r.a,b:r.b});}else act({type:'combine',a:r.a,b:r.b});made=true;break;
+  }
+  if(made)continue;
+  if(g.state.stage===19&&!stageComplete(s,g.state))act({type:'place',item:'supper-trolley',location:'dining-car'});
+  assert(stageComplete(s,g.state),'Early exploration stalled at '+s.stages[g.state.stage].id);
+  act({type:'advance'});
+ }
+ assert(g.state.completed);const name='early-kitchen-'+(reverse?'reverse':'forward');fs.writeFileSync(new URL('./routes/'+name+'.json',import.meta.url),JSON.stringify(actions,null,2)+'\n');console.log({name,actions:actions.length,recipes:recipeCount});
+}

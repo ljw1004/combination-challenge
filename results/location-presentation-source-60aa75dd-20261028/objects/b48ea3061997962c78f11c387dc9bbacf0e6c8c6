@@ -1,0 +1,12 @@
+import {expectedSourceHashAfterReactiveHeroes} from './reactive-heroes-source-guard.ts';
+/** Exact additive integration successor; never rewrites or excuses an author freeze. */
+import assert from 'node:assert/strict';
+import {readFileSync} from 'node:fs';
+const manifest=JSON.parse(readFileSync(new URL('../reviews/milestone-atlas/source-successors.json',import.meta.url),'utf8')) as {schemaVersion:number;files:Record<string,{beforeSha256:string;afterSha256:string}>};
+assert.equal(manifest.schemaVersion,1);
+for(const row of Object.values(manifest.files))for(const hash of [row.beforeSha256,row.afterSha256])assert.match(hash,/^[a-f0-9]{64}$/);
+export function expectedSourceHashAfterMilestoneAtlas(path:string,authorSha256:string):string{
+ const row=manifest.files[path];if(!row)return expectedSourceHashAfterReactiveHeroes(path,authorSha256);
+ assert.equal(row.beforeSha256,authorSha256,path+': integration must preserve exact author predecessor');
+ return expectedSourceHashAfterReactiveHeroes(path,row.afterSha256);
+}

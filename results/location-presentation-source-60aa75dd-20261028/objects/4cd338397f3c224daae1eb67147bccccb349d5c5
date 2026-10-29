@@ -1,0 +1,129 @@
+"""Author documentation generator. Does not edit the candidate or reader evidence."""
+from pathlib import Path
+import json,hashlib,re
+P=Path(__file__).resolve().parent; V1=P.parent/'conceptual-desks-20261028'
+read=lambda p:json.loads(p.read_text())
+hash=lambda p:hashlib.sha256(p.read_bytes()).hexdigest()
+write=lambda name,x:(P/name).write_text(json.dumps(x,ensure_ascii=False,indent=2)+'\n')
+s=read(P/'conceptual-candidate.json');sha=hash(P/'conceptual-candidate.json');old=read(P/'snapshots/reviewed-cbea5ad/conceptual-candidate.json')
+assert set(s)==set(old)
+for key in set(s)-{'items','sources'}:assert s[key]==old[key],key
+itemdelta=[{'id':a['id'],'before':a,'after':b} for a,b in zip(old['items'],s['items']) if a!=b]
+sourcedelta=[{'id':a['id'],'before':a,'after':b} for a,b in zip(old['sources'],s['sources']) if a!=b]
+assert [i['id'] for i in itemdelta]==['rites-different','luther-fruit','calvin-hearing','agency-not-permission','prayer-disagreement']
+write('final-text-delta.json',{'reviewedSha256':hash(P/'snapshots/reviewed-cbea5ad/conceptual-candidate.json'),'finalSha256':sha,'mechanicsUnchanged':True,'unchangedFields':sorted(set(s)-{'items','sources'}),'items':itemdelta,'sourceMetadata':sourcedelta,'limits':'t118 text-only informed assessment appended to late-reader report; t070 author clarity edit; Calvin input, carried distinction and prayer output corrected after independent source audit. None were independently replayed on this final pin.'})
+prior={x['id']:x for x in read(V1/'source-ledger.json')['sources']}
+entries=[]
+for x in s['sources']:
+ e={**x,'verifiedAt':'2026-10-28','verification':prior[x['id']]['verification'],'usedBy':[i['id'] for i in s['items'] if x['id'] in i['sources']]}
+ if x['id']=='calvin-prayer':e['verification']='Independent argument auditor identified the sole-mediation objection in III.20 §§20,27; author reopened §§19–21,27 and corrected the final output so Trent’s dependent-prayer account is not attributed to Calvin.'
+ if x['id']=='liberty-public-domain':e['verification']='Author reopened primary text during final clarification: bodily-discipline discussion and bishop analogy, web lines194–208; explicit before-God domain and no works-caused increase. Other claims retain earlier same-day primary check.'
+ if x['id']=='ritual':e['verification']='Critical primary text III.22–31, IV.3,15–21,32,49–53 checked through primary-domain indexed archived Rialto transcription; direct fetches failed (502/timeout). The source is not merged with Two Principles.'
+ if x['id']=='theses':e['verification']='Author primary-text check includes theses5–7,21,27–28 for authority limit, alongside1,36,43–46 for repentance and household choice.'
+ if x['id']=='later-luther-1529':e['verification']='Author primary-text check includes V §§8–18,20–29,33–37: what is received, named forgiveness/faith benefit, and reception through faith.'
+ if x['id']=='later-trent-1547':e['verification']='Author primary-text check of VI V–VIII, X, canon24; initial help/consent/no earning kept distinct from later growth of inward justice.'
+ if x['id']=='later-marburg-1529':e['verification']='Author primary-text check of articles1,5–8,15; through-faith is marked as gloss. No shared bodily mechanism or universal agreement inferred.'
+ entries.append(e)
+write('source-ledger.json',{'candidateSha256':sha,'method':'Author primary-source verification carried from the same-day v1/v2 work, with explicit final clarification recheck. Independent reader reports are not historical audits.','sources':entries})
+intro='''# Primary-source ledger — conceptual v2
+
+Candidate: `{sha}`. These are attributed religious arguments and original editorial paraphrases, not certified theological truths. The same-day author checks are described individually below; independent logical-reader success is not historical verification. A separate whole-graph argument audit is being coordinated by root.
+
+## Required distinctions
+
+- Augustine's healed wound illustrates loss; it does not prove created goodness or the inherited condition. Sick and healthy infants form an explicitly invented controlled case, not a claim that illness is personal guilt.
+- The Book of Two Principles and Lyon ritual are separate witnesses, not a universal Cathar creed. Juxtaposing Aquinas and a surviving dualist text is an editorial comparison, not invented correspondence.
+- Fire's effective functioning is not moral virtue or a sufficient defence of a creator. Aquinas's account of water's form is identified as medieval natural philosophy.
+- A tool analogy cannot establish divine appointment. A substance/appearance account cannot prove a Eucharistic change by taste.
+- The 1517 seller's guarantee is Luther's reported target, not official Catholic doctrine. The guilt/penalty distinction explains an indulgence's object; the separately visible authority premise challenges the guarantee.
+- The Marburg agreement leaves bodily presence disputed. The before-God domain of Luther's works claim does not deny useful practice, service, or growth of faith. Trent's initial unearned gift and later grace-enabled increase are distinct.
+- Calvin's devotional objection is not a ban on all art. Trent's category of relic veneration neither authenticates this fragment nor grants recognition. The same fictional cases survive the disagreement.
+
+## Access limits
+
+Rialto's direct critical-text fetch failed (502/timeout); the exact archived primary-domain transcription was read through its search index. The full Two Principles transcription similarly timed out directly but its I.8–10 primary-page text was accessible through the index. Aquinas q.60 is a supplementary inherited pointer, not the sole evidence for any new claim. No unavailable passage is invented.
+
+## Source entries
+
+'''.format(sha=sha)
+for e in entries:intro+=f"### {e['id']}\n\n[{e['title']}]({e['url']})\n\n{e['note']}\n\n**Verification:** {e['verification'].rstrip('.')} .\n\nUsed by {len(e['usedBy'])} cards; exact IDs are in `source-ledger.json`.\n\n"
+(P/'SOURCE_LEDGER.md').write_text(intro)
+q=read(V1/'quote-ledger.json');q['candidateSha256']=sha;q['method']='Seven unchanged brief quotations carried from the same-day verified v1 ledger; final headings checked for exact text (punctuation/capitalisation normalised). All other quotation marks label editorial terms or invented case dialogue.'
+norm=lambda t:re.sub(r'[^a-z0-9 ]','',t.lower()).split()
+items={i['id']:i for i in s['items']}
+for x in q['quotations']:assert ' '.join(norm(x['text'])) in ' '.join(norm(items[x['item']]['label'])),x
+q['totalQuotedWords']=sum(x['quotedWords'] for x in q['quotations']);write('quote-ledger.json',q)
+births=read(P/'computed-overlap-audit.json')['birthOverlapCount']
+labels=read(P/'label-evidence.json')['summary'];reads=[len(i['reading']['text'].split()) for i in s['items']]
+readme=f'''# Divinity: Disputed Questions — conceptual v2
+
+**Final content pin:** `{sha}`  
+**World ID:** `{s['id']}`  
+**Status:** complete isolated source candidate; final-pin mechanical tests pass. Independent whole-graph argument/source audit pending. No integration, publishing, browser/native UI or human-playtest claim.
+
+This is a new argument graph, not a wording patch to the preserved compact campaign: **14 desks, 158 cards, 85 recipes, 73 canonical combinations**. The original compact and frozen v1 remain unchanged. No arbitrary 200-item quota was used.
+
+## The conceptual redesign
+
+- Start with a healed wound and stolen meal; separate suffering from chosen wrongdoing. Later, this distinction decides a sick/well infant countercase rather than merely paraphrasing inherited sin.
+- Treat the Trinity as a problem about relationship, kind of being and genuine distinction; an explanation is not a proof. Keep the dualist creator-responsibility challenge open after Aquinas's limited fire argument.
+- Distinguish bodily ritual, claimed inward gift, authority, dependent agency and divine appointment. Baptism's instrumental account is not the Eucharistic claim about changed bread and unchanged appearances.
+- Give one coin competing human uses. The earned act of feeding a neighbour then becomes the concrete test of care versus a price for acceptance.
+- Name the missing indulgence premises, the supper's promised benefit and Luther's excluding claim about later works. Shared words or an initial gift do not force consensus.
+- Apply Calvin and Trent to the **same** request for prayer, panel and fragment. New evidence changes an inquiry without authenticating the object or dissolving disagreement about its use.
+- Every later desk uses an actually created earlier idea, including all tested alternative routes. Checkpoints replay accepted actions; no discoveries are injected.
+
+## Visible words, not a hidden glossary
+
+Heads carry the case or claim, including material qualifications; Read gives short explanations and attribution, never a hidden recipe. At the existing **96px** card width, actual-model measures are **{labels['maxLines']} lines / {labels['maxBaseHeight']}px maximum**, **{labels['maxWords']} words maximum**, **{labels['meanWords']} words mean**. Reads average **{sum(reads)/len(reads):.1f} words**, maximum **{max(reads)}**. These are computed text metrics, not UI fit or hit-testing evidence.
+
+## Evidence on the exact final pin
+
+- `logical-evidence.json`: schema/lifecycle/objective-flow/construction-continuity validators; **60 exact checkpoint replays** (15 checkpoints × two widths × both operand orders), restore equality, **87 undo/redo events**, and **42 read-only actual CLI checks**.
+- `alternative-evidence.json`: **40 full journeys** over ten authored alternatives, two widths and both orders; **all 85 recipes exercised**, no injected state, earned earlier-item use in every later chapter.
+- `computed-overlap-audit.json`: **348 transitions**, **zero newly introduced entry/transport overlaps**. **{births} partial birth overlaps are permitted** by the user's compact-output contract; zero geometric full containments. This is not a hit-target/unselectability test. The earlier over-strict zero-overlap experiment is retained as author-test history, not a bug list; runtime placement was not changed.
+- `typecheck.txt`: standalone strict TypeScript check against the copied reactive schema, exit0. Proposed module equals candidate data.
+- `protected-inputs.json`: original compact and frozen v1 SHA checks. `final-text-delta.json` proves recipes/objectives/checkpoints and every other non-item/non-source field unchanged after targeted review.
+
+The isolated engine/schema snapshot was copied from `/workspace/shared/combination-reactive-chapters-20261028`; exact hashes are in `logical-evidence.json`. This is not the reactive worker's final integration certification. Every stage explicitly authors skip/earned-fact bridge metadata (nine skips, five bridges); generic reactive semantics remain the engine owner's responsibility.
+
+## What independent readers established—and did not
+
+V1 was tested by two recipe-blind model readers using labels, intentional Read and normal highlighting without output previews. The later reader began from a replayed earned chapter8 checkpoint, not a full personal journey. They found missing concepts, one actual invalid inference and plausible rejected orders. V2 addressed these rather than treating successful completion as proof of clarity.
+
+V2's eight stopped **informed targeted** sessions are pinned to `cbea5ad…0184`: early chapters2/4/6/7 (14 accepted moves), late9/11/12/14 (15 accepted, one rejected, one highlight). The durable reports confirm the named repairs; they are not fresh-blind learning or human enjoyment evidence. Final text edits explicitly mark “before God” in Luther's input and simplify the two-rite conclusion. A subsequent independent source-audit correction makes Trent's denial of rival saviours its own claim, not a distinction Calvin accepts; Calvin's sole-mediation objection is explicit. The late report assesses the supplied Luther wording only; t070's simplification is an author edit, not a replayed reader result.
+
+Reviewed data, harness/runtime and all eight stopped sessions are preserved in `snapshots/reviewed-cbea5ad/`. Reader journals remain under `sessions/`; author verification sessions are clearly separate. Reports: `opening-reader-v2-targeted-report.md`, `divinity-late-v2-targeted-report.md`.
+
+Remaining evidence limits: no fresh newcomer run of the final pin, no whole-journey retention/pacing/human enjoyment test, and no browser/native UI or integrated application build. Predictable combine-then-qualify rhythm was raised in v1 and is not declared resolved by narrow rechecks.
+
+## Reproduce locally
+
+```sh
+python build.py
+node verify.mjs
+node verify-alternatives.mjs
+node verify-layout.mjs
+python build-docs.py
+```
+
+`typecheck.txt` records the standalone compiler command. `build.py` checks the frozen v1 hash and only writes this isolated package. The harness rejects old sessions if the candidate pin changes. Start a new session, not an overwritten journal:
+
+```sh
+node play.mjs NEW_READER start chapter-1
+node play.mjs NEW_READER look
+node play.mjs NEW_READER read t001
+node play.mjs NEW_READER partners t001
+node play.mjs NEW_READER note 'My expected relation before trying...'
+node play.mjs NEW_READER combine t001 t002
+```
+
+`start chapter-8` is a genuinely earned prepared checkpoint, not fabricated inventory. Consult `READER_TASK.md` for future trial constraints; do not give readers source, routes or this author documentation.
+
+## Integration boundary
+
+`divinity-disputed-questions.ts` is a proposed `ui/campaigns/` source module. Nothing was added to the actual checkout, catalogue, routes or save registry. An integrator must preserve all existing world IDs, raw routes and saves, use this new ID, and check against the final reactive runtime. Root decides inclusion after substantive audit; this package does not authorize automatic addition to the Milestone/Atlas checkpoint.
+'''
+(P/'README.md').write_text(readme)
+(P/'VISIBLE_SPECIMENS.md').write_text('# Actual visible specimens — final candidate\n\nThese are author inspection material, not a recipe-blind reader brief. All headings and Reads below are copied verbatim from the candidate. No future output previews are added to the player surface.\n\n'+f'Candidate `{sha}`.\n\n'+'\n'.join(f"## t{n+1:03d} — {i['label']}\n\n**Read:** {i['reading']['text']}\n\n**Attribution:** {i['reading']['attribution']}\n" for n,i in enumerate(s['items']) if i['id'] in ['two-infants','health-not-moral-test','condition-not-act','faith-beyond','spirit-baptism','rites-different','letter-penalties','papal-penalty-limit','faith-benefit','signed-supper','trent-growth','luther-fruit','works-dispute','record-adds-evidence']))
+print('Wrote final-pin docs, source/quote ledger, and exact semantic delta for',sha)

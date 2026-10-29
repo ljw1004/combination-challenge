@@ -1,0 +1,35 @@
+{
+  "scenarioSha256": "31bd0d36bb083fe7e7d9a828f6373ec626377f3c276c042a3b50348526ca868b",
+  "build": {
+    "command": "npm run build",
+    "exit": 0,
+    "log": "compat-build.log"
+  },
+  "selectedLogicalRegression": {
+    "command": "node --test experiments/tangible-campaign/engine/model.test.ts experiments/tangible-campaign/tests/independent-engine.test.ts experiments/tangible-campaign/reviews/lifecycle/lifecycle.test.ts experiments/tangible-campaign/reviews/lifecycle/objective-flow.test.ts experiments/tangible-campaign/reviews/lifecycle/event-local.test.ts experiments/tangible-campaign/reviews/persistence/save-autosave.test.ts tests/next-all-registered-routes.test.mjs",
+    "passed": 107,
+    "failed": 0,
+    "registeredRoutes": 32,
+    "originalTestsUnchanged": true,
+    "log": "compat-logical-tests.log"
+  },
+  "newIntegrationContract": {
+    "command": "node --test tests/atlas-miniature-semantic-alternatives.test.ts",
+    "passed": 4,
+    "failed": 0,
+    "log": "integration-contract-tests.log"
+  },
+  "checkpoint": [
+    {
+      "id": "after-babylon-watch",
+      "stage": 1,
+      "completed": false,
+      "combinations": 7
+    }
+  ],
+  "limits": [
+    "No browser/UI tests",
+    "No fresh reader or human evaluation of v2",
+    "Original featured route/save identity untouched"
+  ]
+}

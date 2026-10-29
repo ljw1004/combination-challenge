@@ -53,7 +53,7 @@ test('When both inputs disappear the replacement takes the drop target spot; ord
  assert.notDeepEqual([separate.x,separate.y],[b.x,b.y]);assert(ordinary.game.state.tokens.some(t=>t.id==='wheels'));
 });
 
-test('An object transformed by a location remains there; a reusable tool producing something separate does not',()=>{
+test('Location transformations keep placement identity; separate tool outputs are born inside but unattached',()=>{
  for(const width of [320,375,600])for(const transforms of [false,true]){
   const s=structuredClone(fixture);s.initialItems=['scoop'];s.stages=[{...s.stages[0],objectives:[{id:'result',text:'Make ice',kind:'create',item:'ice'}]}];
   s.recipes=[{id:'at-ridge',a:'scoop',b:'@ridge',out:'ice',...(transforms?{retire:[{item:'scoop',reason:'The carried object transforms at its destination'}]}:{})}];
@@ -67,7 +67,7 @@ test('An object transformed by a location remains there; a reusable tool produci
    assert.deepEqual(restore(s,JSON.stringify(r.game)),r.game);assert.deepEqual(undo(r.game).game.state.tokens,g.state.tokens);
    const moved=applyAction(s,r.game,{type:'move',item:'ice',x:150,y:400});assert(moved.accepted);assert.equal(moved.game.state.tokens.find(t=>t.id==='ice')!.location,null);
   }else{
-   assert.deepEqual(r.game.state.tokens.find(t=>t.id==='scoop'),source);assert.equal(out.location,null);assert.notDeepEqual([out.x,out.y],[destination.x,destination.y+16]);
+   assert.deepEqual(r.game.state.tokens.find(t=>t.id==='scoop'),source);assert.equal(out.location,null);assert.deepEqual([out.x,out.y],[destination.x,destination.y+16]);
   }
  }
 });

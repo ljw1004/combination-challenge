@@ -1,0 +1,85 @@
+import {expectedSourceHashAfterArrivals} from '../experiments/tangible-campaign/integration/arrival-source-guard.ts';
+// Content/logic only. No controller, DOM, browser, layout or touch tests.
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {readFileSync} from 'node:fs';
+import * as M from '../experiments/tangible-campaign/engine/model.ts';
+import type {Action,Scenario} from '../experiments/tangible-campaign/schema/scenario.ts';
+import {scenarios,integratedScenarios} from '../experiments/tangible-campaign/ui/scenarios.ts';
+import {predecessorScenarios} from '../experiments/tangible-campaign/ui/campaigns/predecessors-20261028.ts';
+import {digest,readSource,evidenceRoot,scenarioFor,routeSpecs,routeActions} from '../experiments/tangible-campaign/integration/reviewed-routes.ts';
+const root=new URL('../',import.meta.url), revision=new URL('morning-revision-20261028/',evidenceRoot);
+const read=(u:URL)=>JSON.parse(readFileSync(u,'utf8'));
+const manifest=read(new URL('revision-manifest.json',revision));
+const predecessorManifest=read(new URL('previous-source-manifest.json',revision));
+const normalize=(s:M.State)=>({...s,tokens:s.tokens.map(t=>({...t,components:t.components??[]}))});
+function differences(a:any,b:any,path=''):any[]{
+ if(JSON.stringify(a)===JSON.stringify(b))return [];
+ if(a===undefined)return [{path,after:b}];if(b===undefined)return [{path,before:a}];
+ if(Array.isArray(a)&&Array.isArray(b)&&a.length!==b.length)return [{path,before:a,after:b}];
+ if(a===null||b===null||typeof a!=='object'||typeof b!=='object'||Array.isArray(a)!==Array.isArray(b))return [{path,before:a,after:b}];
+ return [...new Set([...Object.keys(a),...Object.keys(b)])].sort().flatMap(k=>differences(a[k],b[k],path+'/'+k.replaceAll('~','~0').replaceAll('/','~1')));
+}
+for(const row of manifest.campaigns){
+ test(`${row.campaign}: approved frozen candidate with only documented integration deltas; exact predecessor preserved`,()=>{
+  const source=readSource(row.approvedSource);assert.equal(digest(readFileSync(new URL('sources/'+row.approvedSource,evidenceRoot))),row.approvedSha256);
+  const before=read(new URL(row.previousIntegratedSnapshot,root));
+  assert.deepEqual(predecessorScenarios.find(s=>s.id===row.previousId),before);
+  if(row.campaign==='mars')for(const c of read(new URL('mars-presentation-delta.json',evidenceRoot)).changes){const item=source.items.find((i:any)=>i.id===c.item);assert([c.before,c.after].includes(item[c.field]));item[c.field]=c.after;}
+  if(row.campaign==='purpose')source.checkpoints=read(new URL('purpose-checkpoint-addition.json',revision)).checkpoints;
+  if(row.campaign==='atlas')source.checkpoints=read(new URL('atlas-checkpoint-addition.json',revision)).checkpoints;
+  const actual=structuredClone(scenarios.find(s=>s.id===row.currentId)??scenarioFor(row.campaign));if(row.campaign==='elements'){const override=read(new URL('late-revision-20261028/elements-label-override.json',evidenceRoot)).changes[0];const item=actual.items.find(i=>i.id===override.item)!;assert.equal(item.label,override.after);item.label=override.before;}assert.deepEqual(actual,source);assert.notEqual(actual.id,before.id);
+  const diff=differences(before,actual);assert.deepEqual([...diff].sort((a,b)=>a.path.localeCompare(b.path)),read(new URL(row.diffPath,root)).sort((a:any,b:any)=>a.path.localeCompare(b.path)));assert.equal(diff.length,row.changedFieldCount);
+  const oldGame=M.createGame(before);assert.equal(M.restore(before,JSON.stringify(oldGame)).scenarioId,before.id);assert.throws(()=>M.restore(actual,JSON.stringify(oldGame)),/Invalid campaign save/);
+ });
+}
+test('Doctrine v10 content and nine earned checkpoint declarations are unchanged',()=>{
+ const source=readSource('doctrine/revision-10-ceremony-clarity/doctrine-argument-desks-v10-candidate.json');assert.deepEqual(predecessorScenarios.find(s=>s.id===source.id),source);assert.equal(source.checkpoints.length,9);
+ assert.equal(digest(readFileSync(new URL('sources/doctrine/revision-10-ceremony-clarity/doctrine-argument-desks-v10-candidate.json',evidenceRoot))),manifest.doctrineUnchangedSha256);
+});
+test('Every original and prior integrated route evidence file is byte-preserved',()=>{
+ for(const [path,metadata] of Object.entries<any>(predecessorManifest.files))if(/evidence\/[^/]+-route-evidence\.json$/.test(path))assert.equal(digest(readFileSync(new URL(path,root))),metadata.sha256,path);
+});
+test('protected engine, UI, schema, save and unrelated source bytes match historical or exact arrival successors',()=>{
+ let checked=0;
+ for(const [path,metadata] of Object.entries<any>(predecessorManifest.files)){
+  const protectedPath=path.startsWith('src/')||/experiments\/tangible-campaign\/(engine|schema)\//.test(path)||(/experiments\/tangible-campaign\/ui\//.test(path)&&!path.includes('/campaigns/')&&!path.endsWith('/scenarios.ts'));
+  if(!protectedPath)continue;assert.equal(digest(readFileSync(new URL(path,root))),expectedSourceHashAfterArrivals(path,metadata.sha256),path);checked++;
+ }
+ assert(checked>40);
+});
+test('New IDs are unique and every predecessor remains direct-addressable',()=>{
+ assert.equal(new Set(scenarios.map(s=>s.id)).size,scenarios.length);
+ for(const s of predecessorScenarios)assert.equal(scenarios.find(x=>x.id===s.id),s);
+ assert(scenarios.some(s=>s.id==='causation-accidental-bell-probe-v1'),'Historical Riverside direct route remains registered');
+});
+for(const spec of routeSpecs)test(`${spec.key}: every debug checkpoint is an exact prefix earned by accepted actions`,()=>{
+ const s=scenarioFor(spec.key);const routes=[routeActions(spec.source),...spec.alternatives.map(a=>routeActions(a.source,a.witness))];
+ for(const cp of s.checkpoints??[]){
+  assert(routes.some(route=>JSON.stringify(route.slice(0,cp.actions.length))===JSON.stringify(cp.actions)),s.id+': unearned or undocumented checkpoint '+cp.id);
+  let game=M.createGame(s,360);for(const [i,action] of cp.actions.entries()){const result=M.applyAction(s,game,action);assert(result.accepted,`${s.id} ${cp.id} action ${i+1}: ${result.message}`);game=result.game;}
+  assert.deepEqual(normalize(M.checkpoint(s,cp.id,360).state),normalize(game.state));
+ }
+});
+test('Every additional already-registered intermediate content/save identity is preserved exactly',()=>{
+ for(const row of manifest.additionalPreservedSnapshots??[]){const old=read(new URL(row.snapshotPath,root));assert.deepEqual(predecessorScenarios.find(s=>s.id===row.id),old);const g=M.createGame(old);assert.equal(M.restore(old,JSON.stringify(g)).scenarioId,row.id);}
+});
+test('Mars field-record successor changes only five readings, new identity and chapter19 payoff versus preserved supply-copy content',()=>{
+ const s=scenarios.find(s=>s.id==='mars-connected-survival-v4-readable-field-records')!,prior=predecessorScenarios.find(s=>s.id==='mars-connected-survival-v4-supply-copy-research')!;
+ const ids=['grain-images','basin-field-record','qualified-basin-story','comparison-board','sleeved-comparison'];const inverse=structuredClone(s);inverse.id=prior.id;inverse.stages[18].motivation=prior.stages[18].motivation;
+ for(const id of ids){assert(!prior.items.find(i=>i.id===id)!.reading);assert(inverse.items.find(i=>i.id===id)!.reading);delete inverse.items.find(i=>i.id===id)!.reading;}
+ assert.deepEqual(inverse,prior);assert.match(s.items.find(i=>i.id==='sleeved-comparison')!.reading!.text,/Keeping the specimens separate lets another team inspect our reasoning\./);
+});
+test('Mars optional field readings are real detached nonmutating player data; their facts precede packing and no read gates completion',()=>{
+ const s=scenarios.find(s=>s.id==='mars-connected-survival-v4-readable-field-records')!,ids=['grain-images','basin-field-record','qualified-basin-story','comparison-board','sleeved-comparison'],seen=new Set<string>();let game=M.createGame(s,360);let prospective=false,payoff=false;
+ for(const a of routeActions('mars/revision-v4/authored.actions.json')){
+  const result=M.applyAction(s,game,a);assert(result.accepted,result.message);game=result.game;
+  for(const id of ids){if(seen.has(id))continue;const before=JSON.stringify(game),source=JSON.stringify(s),view=M.playerView(s,game),t=view.things.find(t=>t.id===id);if(!t)continue;
+   assert(t.reading,id);assert.equal(t.reading!.attribution,'Fictional expedition field note; not a real mission measurement.');assert.deepEqual(t.reading,s.items.find(i=>i.id===id)!.reading);assert.equal(JSON.stringify(game),before);
+   t.reading!.text='Mutation of detached view only';assert.equal(JSON.stringify(s),source);assert.equal(JSON.stringify(game),before);assert.deepEqual(normalize(M.restore(s,JSON.stringify(game)).state),normalize(game.state));seen.add(id);
+  }
+  if(result.created==='sleeved-comparison'){assert.deepEqual(M.token(game.state,'two-cell-case')!.slots,{});assert(!M.token(game.state,'ripple-impression'));assert(!M.token(game.state,'logged-gravel-chip'));assert(!M.stageComplete(s,game.state));prospective=true;}
+  if(game.state.stage===18&&a.type==='advance'){assert(M.playerView(s,game).stage.motivation.startsWith('We can argue for ancient water, not for ancient life. '));payoff=true;}
+ }
+ assert(game.state.completed);assert.equal(game.state.metrics.combinations,200);assert.deepEqual([...seen].sort(),[...ids].sort());assert(prospective&&payoff);
+});

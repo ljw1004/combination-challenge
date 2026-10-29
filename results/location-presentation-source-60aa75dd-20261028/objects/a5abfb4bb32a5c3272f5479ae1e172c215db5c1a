@@ -1,0 +1,61 @@
+DESK 15: public-knowledge | Enlightenment reading rooms · c. 1750–1792 CE | Knowledge in public | A comprehensive account of knowledge makes an inviting promise. Who can contribute, who can inspect it, and who is left outside its universal language?
+GOALS: [{'id': 'public-knowledge-encyclopedic-network', 'text': 'Connect the branches of knowledge', 'kind': 'create', 'item': 'encyclopedic-network'}, {'id': 'public-knowledge-conditions-of-experience', 'text': 'Reconstruct Kant’s response', 'kind': 'create', 'item': 'conditions-of-experience'}, {'id': 'public-knowledge-sufficiency-against-status', 'text': 'Distinguish enough from status', 'kind': 'create', 'item': 'sufficiency-against-status'}, {'id': 'public-knowledge-rights-for-women', 'text': 'Challenge an exclusion from reason', 'kind': 'create', 'item': 'rights-for-women'}, {'id': 'public-knowledge-rights-against-slavery', 'text': 'Confront the denied liberty', 'kind': 'create', 'item': 'rights-against-slavery'}, {'id': 'public-knowledge-public-reasoning', 'text': 'Let new readers answer', 'kind': 'create', 'item': 'public-reasoning'}]
+
+RECIPE make-encyclopedic-craft
+A contested-publication | Printed knowledge under contention | A wider audience and new controls develop together, not as a simple freedom switch.
+B craft-plates | Engravings explain the work of crafts | The Encyclopédie attends to practices as well as learned abstractions.
+OUT encyclopedic-craft | Craft enters the public account of knowledge | Print can make practical arts part of an ambitious shared account, amid censorship and disagreement.
+LIFECYCLE {'contested-publication': 'retain', 'craft-plates': 'retain'}
+LINK {"from": "editions", "to": "public-knowledge", "item": "contested-publication", "recipe": "make-encyclopedic-craft", "relation": "adaptation", "evidence": "The Encyclopédie uses and contests an existing public print world.", "sources": ["encyclopedie", "hume", "kant", "wollstonecraft", "stoics"]}
+
+RECIPE make-encyclopedic-network
+A encyclopedic-craft | Craft enters the public account of knowledge | Print can make practical arts part of an ambitious shared account, amid censorship and disagreement.
+B cross-references | Articles send readers across the branches of knowledge | Connections can challenge a hierarchy as well as organize it.
+OUT encyclopedic-network | Knowledge joined by cross-reference | The reference work lets a reader move among practices and arguments rather than follow only a single hierarchy.
+LIFECYCLE {'encyclopedic-craft': 'retain', 'cross-references': 'retain'}
+
+RECIPE make-problem-of-induction
+A shared-heat-inquiry | The heat comparison crosses workshops | An explicitly described intervention can be checked and contested beyond its first setting.
+B causal-habit | Repeated succession does not show necessity itself | A simplified Humean challenge: experience does not directly display a necessary connection.
+OUT problem-of-induction | Past success does not guarantee the next case | Hume’s challenge asks what warrants extending an observed regularity beyond observed cases.
+LIFECYCLE {'shared-heat-inquiry': 'retain', 'causal-habit': 'retain'}
+LINK {"from": "bacon", "to": "public-knowledge", "item": "shared-heat-inquiry", "recipe": "make-problem-of-induction", "relation": "criticism", "evidence": "Repeated experimental success supplies the very kind of inference Hume asks us to justify.", "sources": ["encyclopedie", "hume", "kant", "wollstonecraft", "stoics"]}
+
+RECIPE make-conditions-of-experience
+A problem-of-induction | Past success does not guarantee the next case | Hume’s challenge asks what warrants extending an observed regularity beyond observed cases.
+B forms-of-experience | Kant asks what makes experience possible | A response concerning conditions of experience, not an empirical refutation of Hume.
+OUT conditions-of-experience | Kant: the mind helps structure experience | Reconstruct a philosophical response without declaring the entire dispute settled.
+LIFECYCLE {'problem-of-induction': 'retain', 'forms-of-experience': 'retain'}
+
+RECIPE make-sufficiency-against-status
+A cynic-sufficiency | Freedom by needing less | Reconstruct Cynic self-sufficiency as a practical response to the question of a good life.
+B luxury-status | Prestige demands ever more possessions | A teaching comparison with ancient sufficiency, not an assertion that every Enlightenment writer agreed.
+OUT sufficiency-against-status | Enough is not the same as higher status | Modern teaching comparison: an old practice questions a newer social demand, without claiming luxury is harmless or universally necessary.
+LIFECYCLE {'cynic-sufficiency': 'retain', 'luxury-status': 'retain'}
+LINK {"from": "lives", "to": "public-knowledge", "item": "cynic-sufficiency", "recipe": "make-sufficiency-against-status", "relation": "teaching-comparison", "evidence": "This is an explicit comparison between a prior ethical practice and a later problem, not an undocumented influence claim.", "sources": ["encyclopedie", "hume", "kant", "wollstonecraft", "stoics"]}
+
+RECIPE make-universal-rights
+A cosmopolis | Fellowship beyond one city | Self-command and concern for others can belong to the same Stoic ethical world.
+B rights-declaration | Rights are announced as universal | An attributed political aspiration whose exclusions remain available for criticism.
+OUT universal-rights | A claim to rights beyond inherited rank | A teaching comparison with ancient fellowship highlights both continuity of a question and difference in historical concepts.
+LIFECYCLE {'cosmopolis': 'retain', 'rights-declaration': 'retain'}
+LINK {"from": "lives", "to": "public-knowledge", "item": "cosmopolis", "recipe": "make-universal-rights", "relation": "teaching-comparison", "evidence": "Stoic fellowship and modern rights are related questions, not identical doctrines.", "sources": ["encyclopedie", "hume", "kant", "wollstonecraft", "stoics"]}
+
+RECIPE make-rights-for-women
+A universal-rights | A claim to rights beyond inherited rank | A teaching comparison with ancient fellowship highlights both continuity of a question and difference in historical concepts.
+B women-excluded | Women are denied the education invoked to justify equality | Wollstonecraft challenges an exclusion built into supposedly universal reason.
+OUT rights-for-women | Universal reason must include women | An announced principle is turned against an exclusion that limits its application.
+LIFECYCLE {'universal-rights': 'retain', 'women-excluded': 'retain'}
+
+RECIPE make-rights-against-slavery
+A universal-rights | A claim to rights beyond inherited rank | A teaching comparison with ancient fellowship highlights both continuity of a question and difference in historical concepts.
+B enslaved-testimony | Enslaved people describe the denial of their freedom | A schematic dossier representing testimony and political agency, not a fabricated quotation from a named person.
+OUT rights-against-slavery | Universal liberty confronts enslavement | The promise cannot be tested without the experience and agency of those it excludes.
+LIFECYCLE {'universal-rights': 'retain', 'enslaved-testimony': 'retain'}
+
+RECIPE make-public-reasoning
+A formal-disputation | An objection and an accountable reply | The disagreement receives a structured forum, not compulsory reconciliation.
+B public-readers | Readers outside a university can answer back | A wider public is neither automatically equal nor free of coercion.
+OUT public-reasoning | An argument answerable to a wider public | The setting for objection broadens, without claiming a direct institutional line from every medieval disputation.
+LIFECYCLE {'formal-disputation': 'retain', 'public-readers': 'retain'}
+LINK {"from": "objections", "to": "public-knowledge", "item": "formal-disputation", "recipe": "make-public-reasoning", "relation": "teaching-comparison", "evidence": "The player compares settings of accountable argument rather than inferring a single origin of public reason.", "sources": ["encyclopedie", "hume", "kant", "wollstonecraft", "stoics"]}

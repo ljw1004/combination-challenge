@@ -1,0 +1,21225 @@
+import type {Scenario} from '../../schema/campaign.ts';
+
+/** New full-length Atlas identity. Original routes and saves remain untouched. */
+export const scenario:Scenario = {
+  "schemaVersion": 2,
+  "id": "atlas-intellectual-history-v1-research",
+  "title": "Atlas of Questions",
+  "premise": "At a desk crowded with records, arguments, instruments and imagined worlds, follow ideas as they are preserved, translated, challenged and put to unfamiliar work. Build explanations without pretending that every later voice settles an earlier question. The last two desks are explicitly speculative futures, not forecasts.",
+  "items": [
+    {
+      "id": "watch-records",
+      "label": "Dated reports of seen eclipses",
+      "description": "Several generations have recorded celestial events; the cases here are schematic, not transcribed ancient dates.",
+      "sources": [
+        "babylon",
+        "cuneiform",
+        "salt"
+      ],
+      "reading": {
+        "text": "Several generations have recorded celestial events; the cases here are schematic, not transcribed ancient dates.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Francesca Rochberg, Science and Ancient Mesopotamia, Cambridge History of Science; Eleanor Robson: Digital Corpus of Cuneiform Mathematical Texts; Science History Institute: Salt of the Earth"
+      }
+    },
+    {
+      "id": "watch-gaps",
+      "label": "Clouded nights and unattended watches",
+      "description": "A gap in observation cannot be entered as an uneclipsed sky.",
+      "sources": [
+        "babylon",
+        "cuneiform",
+        "salt"
+      ],
+      "reading": {
+        "text": "A gap in observation cannot be entered as an uneclipsed sky.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Francesca Rochberg, Science and Ancient Mesopotamia, Cambridge History of Science; Eleanor Robson: Digital Corpus of Cuneiform Mathematical Texts; Science History Institute: Salt of the Earth"
+      }
+    },
+    {
+      "id": "lunar-calendar",
+      "label": "A calendar of lunar months",
+      "description": "A public convention makes observations from different nights comparable.",
+      "sources": [
+        "babylon",
+        "cuneiform",
+        "salt"
+      ],
+      "reading": {
+        "text": "A public convention makes observations from different nights comparable.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Francesca Rochberg, Science and Ancient Mesopotamia, Cambridge History of Science; Eleanor Robson: Digital Corpus of Cuneiform Mathematical Texts; Science History Institute: Salt of the Earth"
+      }
+    },
+    {
+      "id": "omen-series",
+      "label": "An eclipse may threaten the king",
+      "description": "A paraphrased divinatory position, not a physical account of darkening.",
+      "sources": [
+        "babylon",
+        "cuneiform",
+        "salt"
+      ],
+      "reading": {
+        "text": "A paraphrased divinatory position, not a physical account of darkening.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Francesca Rochberg, Science and Ancient Mesopotamia, Cambridge History of Science; Eleanor Robson: Digital Corpus of Cuneiform Mathematical Texts; Science History Institute: Salt of the Earth"
+      }
+    },
+    {
+      "id": "river-seasons",
+      "label": "Floods and harvests return seasonally",
+      "description": "Practical experience ties provisions to recurrent seasons.",
+      "sources": [
+        "babylon",
+        "cuneiform",
+        "salt"
+      ],
+      "reading": {
+        "text": "Practical experience ties provisions to recurrent seasons.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Francesca Rochberg, Science and Ancient Mesopotamia, Cambridge History of Science; Eleanor Robson: Digital Corpus of Cuneiform Mathematical Texts; Science History Institute: Salt of the Earth"
+      }
+    },
+    {
+      "id": "festival-days",
+      "label": "Festivals need shared dates",
+      "description": "Ritual, administration and observation can use the same calendar.",
+      "sources": [
+        "babylon",
+        "cuneiform",
+        "salt"
+      ],
+      "reading": {
+        "text": "Ritual, administration and observation can use the same calendar.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Francesca Rochberg, Science and Ancient Mesopotamia, Cambridge History of Science; Eleanor Robson: Digital Corpus of Cuneiform Mathematical Texts; Science History Institute: Salt of the Earth"
+      }
+    },
+    {
+      "id": "salt-crystals",
+      "label": "Salt",
+      "description": "A reusable supply represents preservation practice, not a finite stock puzzle.",
+      "sources": [
+        "babylon",
+        "cuneiform",
+        "salt"
+      ],
+      "reading": {
+        "text": "A reusable supply represents preservation practice, not a finite stock puzzle.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Francesca Rochberg, Science and Ancient Mesopotamia, Cambridge History of Science; Eleanor Robson: Digital Corpus of Cuneiform Mathematical Texts; Science History Institute: Salt of the Earth"
+      }
+    },
+    {
+      "id": "fresh-fish",
+      "label": "Fresh fish",
+      "description": "A particular perishable food supply.",
+      "sources": [
+        "babylon",
+        "cuneiform",
+        "salt"
+      ],
+      "reading": {
+        "text": "A particular perishable food supply.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Francesca Rochberg, Science and Ancient Mesopotamia, Cambridge History of Science; Eleanor Robson: Digital Corpus of Cuneiform Mathematical Texts; Science History Institute: Salt of the Earth"
+      }
+    },
+    {
+      "id": "grain-store",
+      "label": "Grain set aside for a journey",
+      "description": "A particular store of food.",
+      "sources": [
+        "babylon",
+        "cuneiform",
+        "salt"
+      ],
+      "reading": {
+        "text": "A particular store of food.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Francesca Rochberg, Science and Ancient Mesopotamia, Cambridge History of Science; Eleanor Robson: Digital Corpus of Cuneiform Mathematical Texts; Science History Institute: Salt of the Earth"
+      }
+    },
+    {
+      "id": "sky-archive",
+      "label": "A sky archive with its gaps",
+      "description": "The collection distinguishes observed events from nights that tell us nothing.",
+      "sources": [
+        "babylon",
+        "cuneiform",
+        "salt"
+      ],
+      "reading": {
+        "text": "The collection distinguishes observed events from nights that tell us nothing.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Francesca Rochberg, Science and Ancient Mesopotamia, Cambridge History of Science; Eleanor Robson: Digital Corpus of Cuneiform Mathematical Texts; Science History Institute: Salt of the Earth"
+      }
+    },
+    {
+      "id": "eclipse-pattern",
+      "label": "Recurring eclipse seasons",
+      "description": "Recurrence makes future watching worthwhile; it does not guarantee a visible eclipse at every place.",
+      "sources": [
+        "babylon",
+        "cuneiform",
+        "salt"
+      ],
+      "reading": {
+        "text": "Recurrence makes future watching worthwhile; it does not guarantee a visible eclipse at every place.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Francesca Rochberg, Science and Ancient Mesopotamia, Cambridge History of Science; Eleanor Robson: Digital Corpus of Cuneiform Mathematical Texts; Science History Institute: Salt of the Earth"
+      }
+    },
+    {
+      "id": "watch-window",
+      "label": "A watch, not a promised eclipse",
+      "description": "A predicted opportunity and a successfully observed event are different things.",
+      "sources": [
+        "babylon",
+        "cuneiform",
+        "salt"
+      ],
+      "reading": {
+        "text": "A predicted opportunity and a successfully observed event are different things.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Francesca Rochberg, Science and Ancient Mesopotamia, Cambridge History of Science; Eleanor Robson: Digital Corpus of Cuneiform Mathematical Texts; Science History Institute: Salt of the Earth"
+      }
+    },
+    {
+      "id": "portent-and-pattern",
+      "label": "Prediction alongside portent",
+      "description": "A regular sky and its political or religious interpretation can coexist.",
+      "sources": [
+        "babylon",
+        "cuneiform",
+        "salt"
+      ],
+      "reading": {
+        "text": "A regular sky and its political or religious interpretation can coexist.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Francesca Rochberg, Science and Ancient Mesopotamia, Cambridge History of Science; Eleanor Robson: Digital Corpus of Cuneiform Mathematical Texts; Science History Institute: Salt of the Earth"
+      }
+    },
+    {
+      "id": "seasonal-calendar",
+      "label": "A calendar for fields and stores",
+      "description": "The same act of ordering time supports practical work.",
+      "sources": [
+        "babylon",
+        "cuneiform",
+        "salt"
+      ],
+      "reading": {
+        "text": "The same act of ordering time supports practical work.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Francesca Rochberg, Science and Ancient Mesopotamia, Cambridge History of Science; Eleanor Robson: Digital Corpus of Cuneiform Mathematical Texts; Science History Institute: Salt of the Earth"
+      }
+    },
+    {
+      "id": "shared-year",
+      "label": "A publicly shared year",
+      "description": "Shared dates coordinate communal life without settling cosmology.",
+      "sources": [
+        "babylon",
+        "cuneiform",
+        "salt"
+      ],
+      "reading": {
+        "text": "Shared dates coordinate communal life without settling cosmology.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Francesca Rochberg, Science and Ancient Mesopotamia, Cambridge History of Science; Eleanor Robson: Digital Corpus of Cuneiform Mathematical Texts; Science History Institute: Salt of the Earth"
+      }
+    },
+    {
+      "id": "salted-fish",
+      "label": "Salt-preserved fish",
+      "description": "Preservation allows a perishable food to travel farther from the moment it was caught.",
+      "sources": [
+        "babylon",
+        "cuneiform",
+        "salt"
+      ],
+      "reading": {
+        "text": "Preservation allows a perishable food to travel farther from the moment it was caught.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Francesca Rochberg, Science and Ancient Mesopotamia, Cambridge History of Science; Eleanor Robson: Digital Corpus of Cuneiform Mathematical Texts; Science History Institute: Salt of the Earth"
+      }
+    },
+    {
+      "id": "travel-provisions",
+      "label": "Provisions for a longer journey",
+      "description": "Stored grain and preserved fish extend the practical reach of a journey.",
+      "sources": [
+        "babylon",
+        "cuneiform",
+        "salt"
+      ],
+      "reading": {
+        "text": "Stored grain and preserved fish extend the practical reach of a journey.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Francesca Rochberg, Science and Ancient Mesopotamia, Cambridge History of Science; Eleanor Robson: Digital Corpus of Cuneiform Mathematical Texts; Science History Institute: Salt of the Earth"
+      }
+    },
+    {
+      "id": "earth-between",
+      "label": "Earth stands between Sun and Moon",
+      "description": "The darkened Moon can be understood through the Earth’s shadow, rather than a personal intention of the Moon.",
+      "sources": [
+        "aristotle-eclipse",
+        "plato-republic",
+        "plato"
+      ],
+      "reading": {
+        "text": "The darkened Moon can be understood through the Earth’s shadow, rather than a personal intention of the Moon.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Aristotle, Posterior Analytics II.2 and II.8; Plato, Republic I and VII, translated primary text; Stanford Encyclopedia of Philosophy: Plato"
+      }
+    },
+    {
+      "id": "repeat-conditions",
+      "label": "The same arrangement can happen again",
+      "description": "A physical account identifies circumstances that can recur.",
+      "sources": [
+        "aristotle-eclipse",
+        "plato-republic",
+        "plato"
+      ],
+      "reading": {
+        "text": "A physical account identifies circumstances that can recur.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Aristotle, Posterior Analytics II.2 and II.8; Plato, Republic I and VII, translated primary text; Stanford Encyclopedia of Philosophy: Plato"
+      }
+    },
+    {
+      "id": "repay-debts",
+      "label": "Justice means returning what is owed",
+      "description": "An initial definition reconstructed from Republic I.",
+      "sources": [
+        "aristotle-eclipse",
+        "plato-republic",
+        "plato"
+      ],
+      "reading": {
+        "text": "An initial definition reconstructed from Republic I.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Aristotle, Posterior Analytics II.2 and II.8; Plato, Republic I and VII, translated primary text; Stanford Encyclopedia of Philosophy: Plato"
+      }
+    },
+    {
+      "id": "weapon-request",
+      "label": "A deranged friend asks for his weapon back",
+      "description": "A case in Republic I tests repayment as an adequate definition of justice.",
+      "sources": [
+        "aristotle-eclipse",
+        "plato-republic",
+        "plato"
+      ],
+      "reading": {
+        "text": "A case in Republic I tests repayment as an adequate definition of justice.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Aristotle, Posterior Analytics II.2 and II.8; Plato, Republic I and VII, translated primary text; Stanford Encyclopedia of Philosophy: Plato"
+      }
+    },
+    {
+      "id": "ask-common",
+      "label": "What do all just actions have in common?",
+      "description": "A demand for a definition that can answer to cases.",
+      "sources": [
+        "aristotle-eclipse",
+        "plato-republic",
+        "plato"
+      ],
+      "reading": {
+        "text": "A demand for a definition that can answer to cases.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Aristotle, Posterior Analytics II.2 and II.8; Plato, Republic I and VII, translated primary text; Stanford Encyclopedia of Philosophy: Plato"
+      }
+    },
+    {
+      "id": "prestige",
+      "label": "Prestige does not settle how to live",
+      "description": "The examined life subjects reputation and convention to questioning.",
+      "sources": [
+        "aristotle-eclipse",
+        "plato-republic",
+        "plato"
+      ],
+      "reading": {
+        "text": "The examined life subjects reputation and convention to questioning.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Aristotle, Posterior Analytics II.2 and II.8; Plato, Republic I and VII, translated primary text; Stanford Encyclopedia of Philosophy: Plato"
+      }
+    },
+    {
+      "id": "natural-eclipse",
+      "label": "An eclipse has a natural cause",
+      "description": "The recurring pattern receives an explanatory account: the Earth obstructs sunlight reaching the Moon.",
+      "sources": [
+        "aristotle-eclipse",
+        "plato-republic",
+        "plato"
+      ],
+      "reading": {
+        "text": "The recurring pattern receives an explanatory account: the Earth obstructs sunlight reaching the Moon.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Aristotle, Posterior Analytics II.2 and II.8; Plato, Republic I and VII, translated primary text; Stanford Encyclopedia of Philosophy: Plato"
+      }
+    },
+    {
+      "id": "conditional-cause",
+      "label": "An explanation tied to conditions",
+      "description": "The account can be considered through the conditions under which it applies.",
+      "sources": [
+        "aristotle-eclipse",
+        "plato-republic",
+        "plato"
+      ],
+      "reading": {
+        "text": "The account can be considered through the conditions under which it applies.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Aristotle, Posterior Analytics II.2 and II.8; Plato, Republic I and VII, translated primary text; Stanford Encyclopedia of Philosophy: Plato"
+      }
+    },
+    {
+      "id": "debt-objection",
+      "label": "Repayment can do harm",
+      "description": "The stated repayment definition meets a concrete counterexample directly: returning the weapon can harm its owner or others. It is no longer necessary to rename the definition first.",
+      "sources": [
+        "aristotle-eclipse",
+        "plato-republic",
+        "plato"
+      ],
+      "reading": {
+        "text": "The stated repayment definition meets a concrete counterexample directly: returning the weapon can harm its owner or others. It is no longer necessary to rename the definition first.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Aristotle, Posterior Analytics II.2 and II.8; Plato, Republic I and VII, translated primary text; Stanford Encyclopedia of Philosophy: Plato"
+      }
+    },
+    {
+      "id": "examined-definition",
+      "label": "A definition still under examination",
+      "description": "One counterexample reopens the inquiry rather than furnishing a complete replacement theory.",
+      "sources": [
+        "aristotle-eclipse",
+        "plato-republic",
+        "plato"
+      ],
+      "reading": {
+        "text": "One counterexample reopens the inquiry rather than furnishing a complete replacement theory.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Aristotle, Posterior Analytics II.2 and II.8; Plato, Republic I and VII, translated primary text; Stanford Encyclopedia of Philosophy: Plato"
+      }
+    },
+    {
+      "id": "examined-life",
+      "label": "The examined life",
+      "description": "The practice of questioning reaches beyond a verbal puzzle to a way of living.",
+      "sources": [
+        "aristotle-eclipse",
+        "plato-republic",
+        "plato"
+      ],
+      "reading": {
+        "text": "The practice of questioning reaches beyond a verbal puzzle to a way of living.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Aristotle, Posterior Analytics II.2 and II.8; Plato, Republic I and VII, translated primary text; Stanford Encyclopedia of Philosophy: Plato"
+      }
+    },
+    {
+      "id": "cause-and-meaning",
+      "label": "Cause need not erase meaning",
+      "description": "Modern teaching comparison: a physical cause does not by itself settle what significance a community gives an event.",
+      "sources": [
+        "aristotle-eclipse",
+        "plato-republic",
+        "plato"
+      ],
+      "reading": {
+        "text": "Modern teaching comparison: a physical cause does not by itself settle what significance a community gives an event.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Aristotle, Posterior Analytics II.2 and II.8; Plato, Republic I and VII, translated primary text; Stanford Encyclopedia of Philosophy: Plato"
+      }
+    },
+    {
+      "id": "answerable-claims",
+      "label": "Claims answerable to objections",
+      "description": "Modern teaching comparison: different inquiries can both expose their claims to difficulties rather than rely on status alone.",
+      "sources": [
+        "aristotle-eclipse",
+        "plato-republic",
+        "plato"
+      ],
+      "reading": {
+        "text": "Modern teaching comparison: different inquiries can both expose their claims to difficulties rather than rely on status alone.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Aristotle, Posterior Analytics II.2 and II.8; Plato, Republic I and VII, translated primary text; Stanford Encyclopedia of Philosophy: Plato"
+      }
+    },
+    {
+      "id": "changing-beauty",
+      "label": "Beautiful things change and disagree",
+      "description": "Plato’s problem is not solved by collecting more things that happen to please us.",
+      "sources": [
+        "plato",
+        "plato-republic",
+        "aristotle-biology",
+        "aristotle-causes",
+        "aristotle",
+        "aristotle-ethics"
+      ],
+      "reading": {
+        "text": "Plato’s problem is not solved by collecting more things that happen to please us.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Stanford Encyclopedia of Philosophy: Plato; Plato, Republic I and VII, translated primary text; Stanford Encyclopedia of Philosophy: Aristotle’s Biology; Stanford Encyclopedia of Philosophy: Aristotle on Causality; Aristotle: Prior Analytics, translated primary text; Aristotle, Nicomachean Ethics, translated primary text"
+      }
+    },
+    {
+      "id": "form-in-thing",
+      "label": "Aristotle: form belongs to this living thing",
+      "description": "A distinct account of form and substance, not an acceptance of separately existing Platonic Forms.",
+      "sources": [
+        "plato",
+        "plato-republic",
+        "aristotle-biology",
+        "aristotle-causes",
+        "aristotle",
+        "aristotle-ethics"
+      ],
+      "reading": {
+        "text": "A distinct account of form and substance, not an acceptance of separately existing Platonic Forms.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Stanford Encyclopedia of Philosophy: Plato; Plato, Republic I and VII, translated primary text; Stanford Encyclopedia of Philosophy: Aristotle’s Biology; Stanford Encyclopedia of Philosophy: Aristotle on Causality; Aristotle: Prior Analytics, translated primary text; Aristotle, Nicomachean Ethics, translated primary text"
+      }
+    },
+    {
+      "id": "animal-observations",
+      "label": "Animals share some parts, differ in others",
+      "description": "Observation provides material for grouping and explanation.",
+      "sources": [
+        "plato",
+        "plato-republic",
+        "aristotle-biology",
+        "aristotle-causes",
+        "aristotle",
+        "aristotle-ethics"
+      ],
+      "reading": {
+        "text": "Observation provides material for grouping and explanation.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Stanford Encyclopedia of Philosophy: Plato; Plato, Republic I and VII, translated primary text; Stanford Encyclopedia of Philosophy: Aristotle’s Biology; Stanford Encyclopedia of Philosophy: Aristotle on Causality; Aristotle: Prior Analytics, translated primary text; Aristotle, Nicomachean Ethics, translated primary text"
+      }
+    },
+    {
+      "id": "parts-work",
+      "label": "Wings serve flight; fins serve swimming",
+      "description": "A simplified comparison of what animal parts do; not every wing is used for flight.",
+      "sources": [
+        "plato",
+        "plato-republic",
+        "aristotle-biology",
+        "aristotle-causes",
+        "aristotle",
+        "aristotle-ethics"
+      ],
+      "reading": {
+        "text": "A simplified comparison of what animal parts do; not every wing is used for flight.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Stanford Encyclopedia of Philosophy: Plato; Plato, Republic I and VII, translated primary text; Stanford Encyclopedia of Philosophy: Aristotle’s Biology; Stanford Encyclopedia of Philosophy: Aristotle on Causality; Aristotle: Prior Analytics, translated primary text; Aristotle, Nicomachean Ethics, translated primary text"
+      }
+    },
+    {
+      "id": "statue-causes",
+      "label": "A statue has bronze, shape, maker and purpose",
+      "description": "A teaching case for distinct Aristotelian questions about why a thing is as it is.",
+      "sources": [
+        "plato",
+        "plato-republic",
+        "aristotle-biology",
+        "aristotle-causes",
+        "aristotle",
+        "aristotle-ethics"
+      ],
+      "reading": {
+        "text": "A teaching case for distinct Aristotelian questions about why a thing is as it is.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Stanford Encyclopedia of Philosophy: Plato; Plato, Republic I and VII, translated primary text; Stanford Encyclopedia of Philosophy: Aristotle’s Biology; Stanford Encyclopedia of Philosophy: Aristotle on Causality; Aristotle: Prior Analytics, translated primary text; Aristotle, Nicomachean Ethics, translated primary text"
+      }
+    },
+    {
+      "id": "mortal-premises",
+      "label": "All humans are mortal; Socrates is human",
+      "description": "An authored example of inference from stated premises.",
+      "sources": [
+        "plato",
+        "plato-republic",
+        "aristotle-biology",
+        "aristotle-causes",
+        "aristotle",
+        "aristotle-ethics"
+      ],
+      "reading": {
+        "text": "An authored example of inference from stated premises.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Stanford Encyclopedia of Philosophy: Plato; Plato, Republic I and VII, translated primary text; Stanford Encyclopedia of Philosophy: Aristotle’s Biology; Stanford Encyclopedia of Philosophy: Aristotle on Causality; Aristotle: Prior Analytics, translated primary text; Aristotle, Nicomachean Ethics, translated primary text"
+      }
+    },
+    {
+      "id": "false-premise",
+      "label": "An orderly argument can start from falsehood",
+      "description": "Validity concerns what follows, not whether every starting statement is true.",
+      "sources": [
+        "plato",
+        "plato-republic",
+        "aristotle-biology",
+        "aristotle-causes",
+        "aristotle",
+        "aristotle-ethics"
+      ],
+      "reading": {
+        "text": "Validity concerns what follows, not whether every starting statement is true.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Stanford Encyclopedia of Philosophy: Plato; Plato, Republic I and VII, translated primary text; Stanford Encyclopedia of Philosophy: Aristotle’s Biology; Stanford Encyclopedia of Philosophy: Aristotle on Causality; Aristotle: Prior Analytics, translated primary text; Aristotle, Nicomachean Ethics, translated primary text"
+      }
+    },
+    {
+      "id": "practised-courage",
+      "label": "Courage is practised between rashness and fear",
+      "description": "Aristotelian virtue requires habituation and practical judgment, not a numerical average.",
+      "sources": [
+        "plato",
+        "plato-republic",
+        "aristotle-biology",
+        "aristotle-causes",
+        "aristotle",
+        "aristotle-ethics"
+      ],
+      "reading": {
+        "text": "Aristotelian virtue requires habituation and practical judgment, not a numerical average.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Stanford Encyclopedia of Philosophy: Plato; Plato, Republic I and VII, translated primary text; Stanford Encyclopedia of Philosophy: Aristotle’s Biology; Stanford Encyclopedia of Philosophy: Aristotle on Causality; Aristotle: Prior Analytics, translated primary text; Aristotle, Nicomachean Ethics, translated primary text"
+      }
+    },
+    {
+      "id": "cave-shadows",
+      "label": "A freed prisoner turns from shadows toward their sources",
+      "description": "Plato’s cave image contrasts habitual shadow-taking with a difficult reorientation toward what produces the appearances. This paraphrased case supplies the turning, not an unseen diagram.",
+      "sources": [
+        "plato",
+        "plato-republic",
+        "aristotle-biology",
+        "aristotle-causes",
+        "aristotle",
+        "aristotle-ethics"
+      ],
+      "reading": {
+        "text": "Plato’s cave image contrasts habitual shadow-taking with a difficult reorientation toward what produces the appearances. This paraphrased case supplies the turning, not an unseen diagram.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Stanford Encyclopedia of Philosophy: Plato; Plato, Republic I and VII, translated primary text; Stanford Encyclopedia of Philosophy: Aristotle’s Biology; Stanford Encyclopedia of Philosophy: Aristotle on Causality; Aristotle: Prior Analytics, translated primary text; Aristotle, Nicomachean Ethics, translated primary text"
+      }
+    },
+    {
+      "id": "stable-forms",
+      "label": "Plato: stable Forms",
+      "description": "A stable object of understanding is proposed behind changing examples; this is a reconstructed Platonic position.",
+      "sources": [
+        "plato",
+        "plato-republic",
+        "aristotle-biology",
+        "aristotle-causes",
+        "aristotle",
+        "aristotle-ethics"
+      ],
+      "reading": {
+        "text": "A stable object of understanding is proposed behind changing examples; this is a reconstructed Platonic position.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Stanford Encyclopedia of Philosophy: Plato; Plato, Republic I and VII, translated primary text; Stanford Encyclopedia of Philosophy: Aristotle’s Biology; Stanford Encyclopedia of Philosophy: Aristotle on Causality; Aristotle: Prior Analytics, translated primary text; Aristotle, Nicomachean Ethics, translated primary text"
+      }
+    },
+    {
+      "id": "form-in-particular",
+      "label": "Aristotle: form in the particular",
+      "description": "A rival explanation relocates form in the thing rather than merely renaming Plato’s position.",
+      "sources": [
+        "plato",
+        "plato-republic",
+        "aristotle-biology",
+        "aristotle-causes",
+        "aristotle",
+        "aristotle-ethics"
+      ],
+      "reading": {
+        "text": "A rival explanation relocates form in the thing rather than merely renaming Plato’s position.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Stanford Encyclopedia of Philosophy: Plato; Plato, Republic I and VII, translated primary text; Stanford Encyclopedia of Philosophy: Aristotle’s Biology; Stanford Encyclopedia of Philosophy: Aristotle on Causality; Aristotle: Prior Analytics, translated primary text; Aristotle, Nicomachean Ethics, translated primary text"
+      }
+    },
+    {
+      "id": "animal-kinds",
+      "label": "Animals compared by structures and activities",
+      "description": "Shared parts and their different activities provide a concrete basis for comparison; not every similarity establishes one natural group.",
+      "sources": [
+        "plato",
+        "plato-republic",
+        "aristotle-biology",
+        "aristotle-causes",
+        "aristotle",
+        "aristotle-ethics"
+      ],
+      "reading": {
+        "text": "Shared parts and their different activities provide a concrete basis for comparison; not every similarity establishes one natural group.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Stanford Encyclopedia of Philosophy: Plato; Plato, Republic I and VII, translated primary text; Stanford Encyclopedia of Philosophy: Aristotle’s Biology; Stanford Encyclopedia of Philosophy: Aristotle on Causality; Aristotle: Prior Analytics, translated primary text; Aristotle, Nicomachean Ethics, translated primary text"
+      }
+    },
+    {
+      "id": "part-and-function",
+      "label": "An organ understood through the whole animal",
+      "description": "Aristotle’s account of form directs attention to how an organ participates in this living animal’s organization. The earlier conceptual result now changes the explanatory question rather than merely authorizing observation.",
+      "sources": [
+        "plato",
+        "plato-republic",
+        "aristotle-biology",
+        "aristotle-causes",
+        "aristotle",
+        "aristotle-ethics"
+      ],
+      "reading": {
+        "text": "Aristotle’s account of form directs attention to how an organ participates in this living animal’s organization. The earlier conceptual result now changes the explanatory question rather than merely authorizing observation.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Stanford Encyclopedia of Philosophy: Plato; Plato, Republic I and VII, translated primary text; Stanford Encyclopedia of Philosophy: Aristotle’s Biology; Stanford Encyclopedia of Philosophy: Aristotle on Causality; Aristotle: Prior Analytics, translated primary text; Aristotle, Nicomachean Ethics, translated primary text"
+      }
+    },
+    {
+      "id": "four-causes",
+      "label": "Different questions about why",
+      "description": "Material, form, source of change and end are distinct explanatory questions.",
+      "sources": [
+        "plato",
+        "plato-republic",
+        "aristotle-biology",
+        "aristotle-causes",
+        "aristotle",
+        "aristotle-ethics"
+      ],
+      "reading": {
+        "text": "Material, form, source of change and end are distinct explanatory questions.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Stanford Encyclopedia of Philosophy: Plato; Plato, Republic I and VII, translated primary text; Stanford Encyclopedia of Philosophy: Aristotle’s Biology; Stanford Encyclopedia of Philosophy: Aristotle on Causality; Aristotle: Prior Analytics, translated primary text; Aristotle, Nicomachean Ethics, translated primary text"
+      }
+    },
+    {
+      "id": "valid-inference",
+      "label": "A conclusion follows from premises",
+      "description": "The stated premises support a particular conclusion by the argument’s form.",
+      "sources": [
+        "plato",
+        "plato-republic",
+        "aristotle-biology",
+        "aristotle-causes",
+        "aristotle",
+        "aristotle-ethics"
+      ],
+      "reading": {
+        "text": "The stated premises support a particular conclusion by the argument’s form.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Stanford Encyclopedia of Philosophy: Plato; Plato, Republic I and VII, translated primary text; Stanford Encyclopedia of Philosophy: Aristotle’s Biology; Stanford Encyclopedia of Philosophy: Aristotle on Causality; Aristotle: Prior Analytics, translated primary text; Aristotle, Nicomachean Ethics, translated primary text"
+      }
+    },
+    {
+      "id": "valid-not-true",
+      "label": "Validity is not truth",
+      "description": "A sound-looking chain cannot repair a false premise simply by being orderly.",
+      "sources": [
+        "plato",
+        "plato-republic",
+        "aristotle-biology",
+        "aristotle-causes",
+        "aristotle",
+        "aristotle-ethics"
+      ],
+      "reading": {
+        "text": "A sound-looking chain cannot repair a false premise simply by being orderly.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Stanford Encyclopedia of Philosophy: Plato; Plato, Republic I and VII, translated primary text; Stanford Encyclopedia of Philosophy: Aristotle’s Biology; Stanford Encyclopedia of Philosophy: Aristotle on Causality; Aristotle: Prior Analytics, translated primary text; Aristotle, Nicomachean Ethics, translated primary text"
+      }
+    },
+    {
+      "id": "cultivated-virtue",
+      "label": "Virtue as cultivated judgment",
+      "description": "A good life is reconstructed as learned practical activity, not possession of a slogan.",
+      "sources": [
+        "plato",
+        "plato-republic",
+        "aristotle-biology",
+        "aristotle-causes",
+        "aristotle",
+        "aristotle-ethics"
+      ],
+      "reading": {
+        "text": "A good life is reconstructed as learned practical activity, not possession of a slogan.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Stanford Encyclopedia of Philosophy: Plato; Plato, Republic I and VII, translated primary text; Stanford Encyclopedia of Philosophy: Aristotle’s Biology; Stanford Encyclopedia of Philosophy: Aristotle on Causality; Aristotle: Prior Analytics, translated primary text; Aristotle, Nicomachean Ethics, translated primary text"
+      }
+    },
+    {
+      "id": "turning-attention",
+      "label": "Education as a turning of attention",
+      "description": "Plato’s image makes education a reorientation of understanding, not only the delivery of facts.",
+      "sources": [
+        "plato",
+        "plato-republic",
+        "aristotle-biology",
+        "aristotle-causes",
+        "aristotle",
+        "aristotle-ethics"
+      ],
+      "reading": {
+        "text": "Plato’s image makes education a reorientation of understanding, not only the delivery of facts.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Stanford Encyclopedia of Philosophy: Plato; Plato, Republic I and VII, translated primary text; Stanford Encyclopedia of Philosophy: Aristotle’s Biology; Stanford Encyclopedia of Philosophy: Aristotle on Causality; Aristotle: Prior Analytics, translated primary text; Aristotle, Nicomachean Ethics, translated primary text"
+      }
+    },
+    {
+      "id": "few-needs",
+      "label": "Diogenes practises needing very little",
+      "description": "Cynic independence is enacted through a life, not merely argued in a treatise.",
+      "sources": [
+        "cynics",
+        "stoics",
+        "epicurus",
+        "skeptics"
+      ],
+      "reading": {
+        "text": "Stories about Diogenes are later literary testimony. The game reconstructs the ideal of self-sufficiency rather than treating every anecdote as eyewitness fact.",
+        "attribution": "Authored paraphrase and teaching reconstruction; not a historical quotation."
+      }
+    },
+    {
+      "id": "royal-favour",
+      "label": "A ruler offers wealth and favour",
+      "description": "The offer tests dependence on powerful patrons.",
+      "sources": [
+        "cynics",
+        "stoics",
+        "epicurus",
+        "skeptics"
+      ],
+      "reading": {
+        "text": "The offer tests dependence on powerful patrons.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Internet Encyclopedia of Philosophy: Cynics; Stanford Encyclopedia of Philosophy: Stoicism; Epicurus, Letter to Menoeceus, translated primary text; Stanford Encyclopedia of Philosophy: Ancient Skepticism"
+      }
+    },
+    {
+      "id": "public-convention",
+      "label": "Respectability changes from city to city",
+      "description": "A Cynic challenge distinguishes a social convention from a necessary demand of nature.",
+      "sources": [
+        "cynics",
+        "stoics",
+        "epicurus",
+        "skeptics"
+      ],
+      "reading": {
+        "text": "A Cynic challenge distinguishes a social convention from a necessary demand of nature.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Internet Encyclopedia of Philosophy: Cynics; Stanford Encyclopedia of Philosophy: Stoicism; Epicurus, Letter to Menoeceus, translated primary text; Stanford Encyclopedia of Philosophy: Ancient Skepticism"
+      }
+    },
+    {
+      "id": "judgment-response",
+      "label": "Events are not wholly ours; responses can be",
+      "description": "A simplified Stoic distinction concerning what is up to us.",
+      "sources": [
+        "cynics",
+        "stoics",
+        "epicurus",
+        "skeptics"
+      ],
+      "reading": {
+        "text": "A simplified Stoic distinction concerning what is up to us.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Internet Encyclopedia of Philosophy: Cynics; Stanford Encyclopedia of Philosophy: Stoicism; Epicurus, Letter to Menoeceus, translated primary text; Stanford Encyclopedia of Philosophy: Ancient Skepticism"
+      }
+    },
+    {
+      "id": "shared-reason",
+      "label": "Other people also share in reason",
+      "description": "Stoic fellowship is not exhausted by withdrawing from public life.",
+      "sources": [
+        "cynics",
+        "stoics",
+        "epicurus",
+        "skeptics"
+      ],
+      "reading": {
+        "text": "Stoic fellowship is not exhausted by withdrawing from public life.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Internet Encyclopedia of Philosophy: Cynics; Stanford Encyclopedia of Philosophy: Stoicism; Epicurus, Letter to Menoeceus, translated primary text; Stanford Encyclopedia of Philosophy: Ancient Skepticism"
+      }
+    },
+    {
+      "id": "atoms-void",
+      "label": "Epicurus: mind and body are made of dispersible atoms",
+      "description": "A reconstructed Epicurean material account, not modern atomic physics. The soul is bodily and its dispersal removes sensation; this is part of the ancient argument about fear, not a claim the player must endorse.",
+      "sources": [
+        "cynics",
+        "stoics",
+        "epicurus",
+        "skeptics",
+        "epicurus-herodotus"
+      ],
+      "reading": {
+        "text": "A reconstructed Epicurean material account, not modern atomic physics. The soul is bodily and its dispersal removes sensation; this is part of the ancient argument about fear, not a claim the player must endorse.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Internet Encyclopedia of Philosophy: Cynics; Stanford Encyclopedia of Philosophy: Stoicism; Epicurus, Letter to Menoeceus, translated primary text; Stanford Encyclopedia of Philosophy: Ancient Skepticism; Epicurus, Letter to Herodotus §§63–66, primary text excerpt"
+      }
+    },
+    {
+      "id": "death-sensation",
+      "label": "Death is not an experience of suffering",
+      "description": "Epicurean argument addresses the fear of death, not a denial of grief.",
+      "sources": [
+        "cynics",
+        "stoics",
+        "epicurus",
+        "skeptics"
+      ],
+      "reading": {
+        "text": "Epicurean argument addresses the fear of death, not a denial of grief.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Internet Encyclopedia of Philosophy: Cynics; Stanford Encyclopedia of Philosophy: Stoicism; Epicurus, Letter to Menoeceus, translated primary text; Stanford Encyclopedia of Philosophy: Ancient Skepticism"
+      }
+    },
+    {
+      "id": "friendship-meal",
+      "label": "Friendship and a simple meal can suffice",
+      "description": "Epicurean pleasure is not identical with extravagance.",
+      "sources": [
+        "cynics",
+        "stoics",
+        "epicurus",
+        "skeptics"
+      ],
+      "reading": {
+        "text": "Epicurean pleasure is not identical with extravagance.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Internet Encyclopedia of Philosophy: Cynics; Stanford Encyclopedia of Philosophy: Stoicism; Epicurus, Letter to Menoeceus, translated primary text; Stanford Encyclopedia of Philosophy: Ancient Skepticism"
+      }
+    },
+    {
+      "id": "equal-appearances",
+      "label": "Competing appearances resist a verdict",
+      "description": "A schematic case of unresolved opposition, not proof that nothing can be known.",
+      "sources": [
+        "cynics",
+        "stoics",
+        "epicurus",
+        "skeptics"
+      ],
+      "reading": {
+        "text": "A schematic case of unresolved opposition, not proof that nothing can be known.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Internet Encyclopedia of Philosophy: Cynics; Stanford Encyclopedia of Philosophy: Stoicism; Epicurus, Letter to Menoeceus, translated primary text; Stanford Encyclopedia of Philosophy: Ancient Skepticism"
+      }
+    },
+    {
+      "id": "cynic-sufficiency",
+      "label": "Freedom by needing less",
+      "description": "Diogenes’s reduced dependence meets a ruler’s offer directly: fewer wants can make patronage less coercive. This reconstructed ideal does not imply that involuntary poverty is harmless.",
+      "sources": [
+        "cynics",
+        "stoics",
+        "epicurus",
+        "skeptics"
+      ],
+      "reading": {
+        "text": "Diogenes’s reduced dependence meets a ruler’s offer directly: fewer wants can make patronage less coercive. This reconstructed ideal does not imply that involuntary poverty is harmless.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Internet Encyclopedia of Philosophy: Cynics; Stanford Encyclopedia of Philosophy: Stoicism; Epicurus, Letter to Menoeceus, translated primary text; Stanford Encyclopedia of Philosophy: Ancient Skepticism"
+      }
+    },
+    {
+      "id": "convention-questioned",
+      "label": "Local respectability does not settle a good life",
+      "description": "The earlier demand to examine how one lives now tests a concrete rival standard: honourable custom varies between cities. Convention cannot settle the question merely by claiming local approval.",
+      "sources": [
+        "cynics",
+        "stoics",
+        "epicurus",
+        "skeptics"
+      ],
+      "reading": {
+        "text": "The earlier demand to examine how one lives now tests a concrete rival standard: honourable custom varies between cities. Convention cannot settle the question merely by claiming local approval.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Internet Encyclopedia of Philosophy: Cynics; Stanford Encyclopedia of Philosophy: Stoicism; Epicurus, Letter to Menoeceus, translated primary text; Stanford Encyclopedia of Philosophy: Ancient Skepticism"
+      }
+    },
+    {
+      "id": "stoic-control",
+      "label": "Care for the judgment that is yours",
+      "description": "Stoic practice redirects effort without making every external misfortune harmless.",
+      "sources": [
+        "cynics",
+        "stoics",
+        "epicurus",
+        "skeptics"
+      ],
+      "reading": {
+        "text": "Stoic practice redirects effort without making every external misfortune harmless.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Internet Encyclopedia of Philosophy: Cynics; Stanford Encyclopedia of Philosophy: Stoicism; Epicurus, Letter to Menoeceus, translated primary text; Stanford Encyclopedia of Philosophy: Ancient Skepticism"
+      }
+    },
+    {
+      "id": "cosmopolis",
+      "label": "Fellowship beyond one city",
+      "description": "Self-command and concern for others can belong to the same Stoic ethical world.",
+      "sources": [
+        "cynics",
+        "stoics",
+        "epicurus",
+        "skeptics"
+      ],
+      "reading": {
+        "text": "Self-command and concern for others can belong to the same Stoic ethical world.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Internet Encyclopedia of Philosophy: Cynics; Stanford Encyclopedia of Philosophy: Stoicism; Epicurus, Letter to Menoeceus, translated primary text; Stanford Encyclopedia of Philosophy: Ancient Skepticism"
+      }
+    },
+    {
+      "id": "release-from-terror",
+      "label": "Freedom from the terror of death",
+      "description": "The Epicurean material account meets the claim that suffering requires sensation. Reconstruct the argument against fearing a state without a surviving sufferer, while leaving grief and disagreement possible.",
+      "sources": [
+        "cynics",
+        "stoics",
+        "epicurus",
+        "skeptics",
+        "epicurus-herodotus"
+      ],
+      "reading": {
+        "text": "The Epicurean material account meets the claim that suffering requires sensation. Reconstruct the argument against fearing a state without a surviving sufferer, while leaving grief and disagreement possible.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Internet Encyclopedia of Philosophy: Cynics; Stanford Encyclopedia of Philosophy: Stoicism; Epicurus, Letter to Menoeceus, translated primary text; Stanford Encyclopedia of Philosophy: Ancient Skepticism; Epicurus, Letter to Herodotus §§63–66, primary text excerpt"
+      }
+    },
+    {
+      "id": "garden-pleasure",
+      "label": "Pleasure in friendship and sufficiency",
+      "description": "The good life here seeks security and modest enjoyment rather than limitless accumulation.",
+      "sources": [
+        "cynics",
+        "stoics",
+        "epicurus",
+        "skeptics"
+      ],
+      "reading": {
+        "text": "The good life here seeks security and modest enjoyment rather than limitless accumulation.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Internet Encyclopedia of Philosophy: Cynics; Stanford Encyclopedia of Philosophy: Stoicism; Epicurus, Letter to Menoeceus, translated primary text; Stanford Encyclopedia of Philosophy: Ancient Skepticism"
+      }
+    },
+    {
+      "id": "suspended-assent",
+      "label": "A judgment left suspended",
+      "description": "A live unresolved opposition can yield suspension rather than an invented reconciliation.",
+      "sources": [
+        "cynics",
+        "stoics",
+        "epicurus",
+        "skeptics"
+      ],
+      "reading": {
+        "text": "A live unresolved opposition can yield suspension rather than an invented reconciliation.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Internet Encyclopedia of Philosophy: Cynics; Stanford Encyclopedia of Philosophy: Stoicism; Epicurus, Letter to Menoeceus, translated primary text; Stanford Encyclopedia of Philosophy: Ancient Skepticism"
+      }
+    },
+    {
+      "id": "geometric-postulates",
+      "label": "A few stated geometric starting points",
+      "description": "Euclid orders proofs through definitions, postulates and common notions.",
+      "sources": [
+        "euclid",
+        "alexandria",
+        "antikythera",
+        "aristotle-eclipse"
+      ],
+      "reading": {
+        "text": "Euclid orders proofs through definitions, postulates and common notions.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Euclid: Elements, David Joyce edition; Francesca Schironi: Textual Scholarship in Alexandria and Beyond; National Archaeological Museum: Antikythera mechanism; Aristotle, Posterior Analytics II.2 and II.8"
+      }
+    },
+    {
+      "id": "curved-earth-signs",
+      "label": "Different stars and shadows at different places",
+      "description": "These qualitative observations support a curved Earth without requiring the player to calculate its size.",
+      "sources": [
+        "euclid",
+        "alexandria",
+        "antikythera",
+        "aristotle-eclipse"
+      ],
+      "reading": {
+        "text": "These qualitative observations support a curved Earth without requiring the player to calculate its size.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Euclid: Elements, David Joyce edition; Francesca Schironi: Textual Scholarship in Alexandria and Beyond; National Archaeological Museum: Antikythera mechanism; Aristotle, Posterior Analytics II.2 and II.8"
+      }
+    },
+    {
+      "id": "measured-journey",
+      "label": "A known journey connects two observing places",
+      "description": "Distance can relate local observations to the size of a larger world.",
+      "sources": [
+        "euclid",
+        "alexandria",
+        "antikythera",
+        "aristotle-eclipse"
+      ],
+      "reading": {
+        "text": "Distance can relate local observations to the size of a larger world.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Euclid: Elements, David Joyce edition; Francesca Schironi: Textual Scholarship in Alexandria and Beyond; National Archaeological Museum: Antikythera mechanism; Aristotle, Posterior Analytics II.2 and II.8"
+      }
+    },
+    {
+      "id": "planet-positions",
+      "label": "Planets wander against the stars",
+      "description": "A Greek astronomical dossier joins earlier traditions of recorded motion.",
+      "sources": [
+        "euclid",
+        "alexandria",
+        "antikythera",
+        "aristotle-eclipse"
+      ],
+      "reading": {
+        "text": "A Greek astronomical dossier joins earlier traditions of recorded motion.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Euclid: Elements, David Joyce edition; Francesca Schironi: Textual Scholarship in Alexandria and Beyond; National Archaeological Museum: Antikythera mechanism; Aristotle, Posterior Analytics II.2 and II.8"
+      }
+    },
+    {
+      "id": "circular-models",
+      "label": "Ptolemy combines circles around an Earth-centred frame",
+      "description": "A simplified representation of a sophisticated mathematical astronomy.",
+      "sources": [
+        "euclid",
+        "alexandria",
+        "antikythera",
+        "aristotle-eclipse"
+      ],
+      "reading": {
+        "text": "A simplified representation of a sophisticated mathematical astronomy.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Euclid: Elements, David Joyce edition; Francesca Schironi: Textual Scholarship in Alexandria and Beyond; National Archaeological Museum: Antikythera mechanism; Aristotle, Posterior Analytics II.2 and II.8"
+      }
+    },
+    {
+      "id": "forecast-check",
+      "label": "A planetary model predicts where to look",
+      "description": "Predictive success alone does not establish every physical assumption of a model.",
+      "sources": [
+        "euclid",
+        "alexandria",
+        "antikythera",
+        "aristotle-eclipse"
+      ],
+      "reading": {
+        "text": "Predictive success alone does not establish every physical assumption of a model.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Euclid: Elements, David Joyce edition; Francesca Schironi: Textual Scholarship in Alexandria and Beyond; National Archaeological Museum: Antikythera mechanism; Aristotle, Posterior Analytics II.2 and II.8"
+      }
+    },
+    {
+      "id": "geared-wheels",
+      "label": "Gears can turn at linked rates",
+      "description": "A supply of mechanism, not a task to calculate tooth ratios.",
+      "sources": [
+        "euclid",
+        "alexandria",
+        "antikythera",
+        "aristotle-eclipse"
+      ],
+      "reading": {
+        "text": "A supply of mechanism, not a task to calculate tooth ratios.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Euclid: Elements, David Joyce edition; Francesca Schironi: Textual Scholarship in Alexandria and Beyond; National Archaeological Museum: Antikythera mechanism; Aristotle, Posterior Analytics II.2 and II.8"
+      }
+    },
+    {
+      "id": "parallel-copies",
+      "label": "Two copies of a poem disagree",
+      "description": "Textual variants make the inherited work an object of comparison.",
+      "sources": [
+        "euclid",
+        "alexandria",
+        "antikythera",
+        "aristotle-eclipse"
+      ],
+      "reading": {
+        "text": "Textual variants make the inherited work an object of comparison.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Euclid: Elements, David Joyce edition; Francesca Schironi: Textual Scholarship in Alexandria and Beyond; National Archaeological Museum: Antikythera mechanism; Aristotle, Posterior Analytics II.2 and II.8"
+      }
+    },
+    {
+      "id": "editorial-marks",
+      "label": "Mark a doubtful reading instead of hiding it",
+      "description": "Alexandrian scholarship provides a historical setting for critical attention to texts.",
+      "sources": [
+        "euclid",
+        "alexandria",
+        "antikythera",
+        "aristotle-eclipse"
+      ],
+      "reading": {
+        "text": "Alexandrian scholarship provides a historical setting for critical attention to texts.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Euclid: Elements, David Joyce edition; Francesca Schironi: Textual Scholarship in Alexandria and Beyond; National Archaeological Museum: Antikythera mechanism; Aristotle, Posterior Analytics II.2 and II.8"
+      }
+    },
+    {
+      "id": "deductive-geometry",
+      "label": "A connected geometric proof",
+      "description": "Conclusions form a structured deductive account instead of an unconnected collection of claims.",
+      "sources": [
+        "euclid",
+        "alexandria",
+        "antikythera",
+        "aristotle-eclipse"
+      ],
+      "reading": {
+        "text": "Conclusions form a structured deductive account instead of an unconnected collection of claims.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Euclid: Elements, David Joyce edition; Francesca Schironi: Textual Scholarship in Alexandria and Beyond; National Archaeological Museum: Antikythera mechanism; Aristotle, Posterior Analytics II.2 and II.8"
+      }
+    },
+    {
+      "id": "spherical-earth",
+      "label": "A spherical Earth",
+      "description": "A geometric model relates different local appearances.",
+      "sources": [
+        "euclid",
+        "alexandria",
+        "antikythera",
+        "aristotle-eclipse"
+      ],
+      "reading": {
+        "text": "A geometric model relates different local appearances.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Euclid: Elements, David Joyce edition; Francesca Schironi: Textual Scholarship in Alexandria and Beyond; National Archaeological Museum: Antikythera mechanism; Aristotle, Posterior Analytics II.2 and II.8"
+      }
+    },
+    {
+      "id": "measurable-earth",
+      "label": "An Earth whose size can be investigated",
+      "description": "A known ground distance gives observations a relation to the whole Earth; no numerical answer is required.",
+      "sources": [
+        "euclid",
+        "alexandria",
+        "antikythera",
+        "aristotle-eclipse"
+      ],
+      "reading": {
+        "text": "A known ground distance gives observations a relation to the whole Earth; no numerical answer is required.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Euclid: Elements, David Joyce edition; Francesca Schironi: Textual Scholarship in Alexandria and Beyond; National Archaeological Museum: Antikythera mechanism; Aristotle, Posterior Analytics II.2 and II.8"
+      }
+    },
+    {
+      "id": "planetary-archive",
+      "label": "An archive of planetary motion",
+      "description": "Astronomical modeling depends on observations collected across time, including Babylonian records known in Greek astronomy.",
+      "sources": [
+        "euclid",
+        "alexandria",
+        "antikythera",
+        "aristotle-eclipse"
+      ],
+      "reading": {
+        "text": "Astronomical modeling depends on observations collected across time, including Babylonian records known in Greek astronomy.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Euclid: Elements, David Joyce edition; Francesca Schironi: Textual Scholarship in Alexandria and Beyond; National Archaeological Museum: Antikythera mechanism; Aristotle, Posterior Analytics II.2 and II.8"
+      }
+    },
+    {
+      "id": "ptolemaic-model",
+      "label": "Ptolemy’s predictive heavens",
+      "description": "Reconstruct an Earth-centred predictive scheme rather than treating it as mere ignorance.",
+      "sources": [
+        "euclid",
+        "alexandria",
+        "antikythera",
+        "aristotle-eclipse"
+      ],
+      "reading": {
+        "text": "Reconstruct an Earth-centred predictive scheme rather than treating it as mere ignorance.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Euclid: Elements, David Joyce edition; Francesca Schironi: Textual Scholarship in Alexandria and Beyond; National Archaeological Museum: Antikythera mechanism; Aristotle, Posterior Analytics II.2 and II.8"
+      }
+    },
+    {
+      "id": "model-not-cause",
+      "label": "A forecast is not its physical cause",
+      "description": "Modern teaching distinction: success at prediction leaves some explanatory questions open.",
+      "sources": [
+        "euclid",
+        "alexandria",
+        "antikythera",
+        "aristotle-eclipse"
+      ],
+      "reading": {
+        "text": "Modern teaching distinction: success at prediction leaves some explanatory questions open.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Euclid: Elements, David Joyce edition; Francesca Schironi: Textual Scholarship in Alexandria and Beyond; National Archaeological Museum: Antikythera mechanism; Aristotle, Posterior Analytics II.2 and II.8"
+      }
+    },
+    {
+      "id": "mechanical-sky",
+      "label": "A sky represented in gears",
+      "description": "Recurring celestial cycles can be embodied in a mechanism; no uninterrupted lineage to modern computers is asserted.",
+      "sources": [
+        "euclid",
+        "alexandria",
+        "antikythera",
+        "aristotle-eclipse"
+      ],
+      "reading": {
+        "text": "Recurring celestial cycles can be embodied in a mechanism; no uninterrupted lineage to modern computers is asserted.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Euclid: Elements, David Joyce edition; Francesca Schironi: Textual Scholarship in Alexandria and Beyond; National Archaeological Museum: Antikythera mechanism; Aristotle, Posterior Analytics II.2 and II.8"
+      }
+    },
+    {
+      "id": "textual-variants",
+      "label": "A text with visible alternatives",
+      "description": "Disagreement between copies becomes visible evidence rather than a secretly chosen correction.",
+      "sources": [
+        "euclid",
+        "alexandria",
+        "antikythera",
+        "aristotle-eclipse"
+      ],
+      "reading": {
+        "text": "Disagreement between copies becomes visible evidence rather than a secretly chosen correction.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Euclid: Elements, David Joyce edition; Francesca Schironi: Textual Scholarship in Alexandria and Beyond; National Archaeological Museum: Antikythera mechanism; Aristotle, Posterior Analytics II.2 and II.8"
+      }
+    },
+    {
+      "id": "critical-edition",
+      "label": "An edition that shows its doubts",
+      "description": "Modern teaching comparison: a reader can inspect the editor’s uncertainty rather than inherit an invisible verdict.",
+      "sources": [
+        "euclid",
+        "alexandria",
+        "antikythera",
+        "aristotle-eclipse"
+      ],
+      "reading": {
+        "text": "Modern teaching comparison: a reader can inspect the editor’s uncertainty rather than inherit an invisible verdict.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Euclid: Elements, David Joyce edition; Francesca Schironi: Textual Scholarship in Alexandria and Beyond; National Archaeological Museum: Antikythera mechanism; Aristotle, Posterior Analytics II.2 and II.8"
+      }
+    },
+    {
+      "id": "syriac-greek-copies",
+      "label": "Greek and Syriac manuscripts meet Arabic readers",
+      "description": "Multiple languages and scholarly communities participate in translation.",
+      "sources": [
+        "greek-arabic",
+        "arabic-latin",
+        "algebra",
+        "avicenna"
+      ],
+      "reading": {
+        "text": "Multiple languages and scholarly communities participate in translation.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Greek Sources in Arabic and Islamic Philosophy, Stanford Encyclopedia of Philosophy; Influence of Arabic and Islamic Philosophy on the Latin West, Stanford Encyclopedia of Philosophy; Oxford History of Science Museum: mathematics in Islamic cultures; Stanford Encyclopedia of Philosophy: Ibn Sina’s Metaphysics"
+      }
+    },
+    {
+      "id": "arabic-terms",
+      "label": "New Arabic terms for form, substance and cause",
+      "description": "Vocabulary has to carry distinctions rather than merely replace letters.",
+      "sources": [
+        "greek-arabic",
+        "arabic-latin",
+        "algebra",
+        "avicenna"
+      ],
+      "reading": {
+        "text": "Vocabulary has to carry distinctions rather than merely replace letters.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Greek Sources in Arabic and Islamic Philosophy, Stanford Encyclopedia of Philosophy; Influence of Arabic and Islamic Philosophy on the Latin West, Stanford Encyclopedia of Philosophy; Oxford History of Science Museum: mathematics in Islamic cultures; Stanford Encyclopedia of Philosophy: Ibn Sina’s Metaphysics"
+      }
+    },
+    {
+      "id": "revised-observations",
+      "label": "Fresh observations trouble inherited sky models",
+      "description": "Arabic-language astronomy includes criticism and original research.",
+      "sources": [
+        "greek-arabic",
+        "arabic-latin",
+        "algebra",
+        "avicenna"
+      ],
+      "reading": {
+        "text": "Arabic-language astronomy includes criticism and original research.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Greek Sources in Arabic and Islamic Philosophy, Stanford Encyclopedia of Philosophy; Influence of Arabic and Islamic Philosophy on the Latin West, Stanford Encyclopedia of Philosophy; Oxford History of Science Museum: mathematics in Islamic cultures; Stanford Encyclopedia of Philosophy: Ibn Sina’s Metaphysics"
+      }
+    },
+    {
+      "id": "indian-numerals",
+      "label": "Indian place-value numerals",
+      "description": "A separate mathematical inheritance enters Arabic-language practical calculation.",
+      "sources": [
+        "greek-arabic",
+        "arabic-latin",
+        "algebra",
+        "avicenna"
+      ],
+      "reading": {
+        "text": "A separate mathematical inheritance enters Arabic-language practical calculation.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Greek Sources in Arabic and Islamic Philosophy, Stanford Encyclopedia of Philosophy; Influence of Arabic and Islamic Philosophy on the Latin West, Stanford Encyclopedia of Philosophy; Oxford History of Science Museum: mathematics in Islamic cultures; Stanford Encyclopedia of Philosophy: Ibn Sina’s Metaphysics"
+      }
+    },
+    {
+      "id": "merchant-accounts",
+      "label": "Merchants need consistent accounts",
+      "description": "A practical use for notation, not a calculation exercise.",
+      "sources": [
+        "greek-arabic",
+        "arabic-latin",
+        "algebra",
+        "avicenna"
+      ],
+      "reading": {
+        "text": "A practical use for notation, not a calculation exercise.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Greek Sources in Arabic and Islamic Philosophy, Stanford Encyclopedia of Philosophy; Influence of Arabic and Islamic Philosophy on the Latin West, Stanford Encyclopedia of Philosophy; Oxford History of Science Museum: mathematics in Islamic cultures; Stanford Encyclopedia of Philosophy: Ibn Sina’s Metaphysics"
+      }
+    },
+    {
+      "id": "inheritance-relations",
+      "label": "Unknown shares can be related to known shares",
+      "description": "A schematic practical setting for algebra, with no arithmetic required.",
+      "sources": [
+        "greek-arabic",
+        "arabic-latin",
+        "algebra",
+        "avicenna"
+      ],
+      "reading": {
+        "text": "A schematic practical setting for algebra, with no arithmetic required.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Greek Sources in Arabic and Islamic Philosophy, Stanford Encyclopedia of Philosophy; Influence of Arabic and Islamic Philosophy on the Latin West, Stanford Encyclopedia of Philosophy; Oxford History of Science Museum: mathematics in Islamic cultures; Stanford Encyclopedia of Philosophy: Ibn Sina’s Metaphysics"
+      }
+    },
+    {
+      "id": "essence-existence",
+      "label": "What a thing is differs from whether it exists",
+      "description": "Avicenna’s distinction does not simply repeat Aristotle’s categories.",
+      "sources": [
+        "greek-arabic",
+        "arabic-latin",
+        "algebra",
+        "avicenna"
+      ],
+      "reading": {
+        "text": "Avicenna’s distinction does not simply repeat Aristotle’s categories.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Greek Sources in Arabic and Islamic Philosophy, Stanford Encyclopedia of Philosophy; Influence of Arabic and Islamic Philosophy on the Latin West, Stanford Encyclopedia of Philosophy; Oxford History of Science Museum: mathematics in Islamic cultures; Stanford Encyclopedia of Philosophy: Ibn Sina’s Metaphysics"
+      }
+    },
+    {
+      "id": "dependent-existence",
+      "label": "A contingent thing depends on another",
+      "description": "A reconstructed metaphysical argument, not a settled demonstration about reality.",
+      "sources": [
+        "greek-arabic",
+        "arabic-latin",
+        "algebra",
+        "avicenna"
+      ],
+      "reading": {
+        "text": "A reconstructed metaphysical argument, not a settled demonstration about reality.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Greek Sources in Arabic and Islamic Philosophy, Stanford Encyclopedia of Philosophy; Influence of Arabic and Islamic Philosophy on the Latin West, Stanford Encyclopedia of Philosophy; Oxford History of Science Museum: mathematics in Islamic cultures; Stanford Encyclopedia of Philosophy: Ibn Sina’s Metaphysics"
+      }
+    },
+    {
+      "id": "commentator-questions",
+      "label": "A commentary asks where an argument succeeds",
+      "description": "A reader can extend, revise or challenge a received text.",
+      "sources": [
+        "greek-arabic",
+        "arabic-latin",
+        "algebra",
+        "avicenna"
+      ],
+      "reading": {
+        "text": "A reader can extend, revise or challenge a received text.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Greek Sources in Arabic and Islamic Philosophy, Stanford Encyclopedia of Philosophy; Influence of Arabic and Islamic Philosophy on the Latin West, Stanford Encyclopedia of Philosophy; Oxford History of Science Museum: mathematics in Islamic cultures; Stanford Encyclopedia of Philosophy: Ibn Sina’s Metaphysics"
+      }
+    },
+    {
+      "id": "arabic-logic",
+      "label": "Logic in a new scholarly language",
+      "description": "The argument crosses a language boundary through learned translation.",
+      "sources": [
+        "greek-arabic",
+        "arabic-latin",
+        "algebra",
+        "avicenna"
+      ],
+      "reading": {
+        "text": "The argument crosses a language boundary through learned translation.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Greek Sources in Arabic and Islamic Philosophy, Stanford Encyclopedia of Philosophy; Influence of Arabic and Islamic Philosophy on the Latin West, Stanford Encyclopedia of Philosophy; Oxford History of Science Museum: mathematics in Islamic cultures; Stanford Encyclopedia of Philosophy: Ibn Sina’s Metaphysics"
+      }
+    },
+    {
+      "id": "arabic-nature",
+      "label": "Natural philosophy in Arabic",
+      "description": "Inherited explanatory distinctions become resources for further inquiry.",
+      "sources": [
+        "greek-arabic",
+        "arabic-latin",
+        "algebra",
+        "avicenna"
+      ],
+      "reading": {
+        "text": "Inherited explanatory distinctions become resources for further inquiry.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Greek Sources in Arabic and Islamic Philosophy, Stanford Encyclopedia of Philosophy; Influence of Arabic and Islamic Philosophy on the Latin West, Stanford Encyclopedia of Philosophy; Oxford History of Science Museum: mathematics in Islamic cultures; Stanford Encyclopedia of Philosophy: Ibn Sina’s Metaphysics"
+      }
+    },
+    {
+      "id": "ptolemy-questioned",
+      "label": "Ptolemy read critically",
+      "description": "Receiving a model also makes its difficulties available for criticism.",
+      "sources": [
+        "greek-arabic",
+        "arabic-latin",
+        "algebra",
+        "avicenna"
+      ],
+      "reading": {
+        "text": "Receiving a model also makes its difficulties available for criticism.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Greek Sources in Arabic and Islamic Philosophy, Stanford Encyclopedia of Philosophy; Influence of Arabic and Islamic Philosophy on the Latin West, Stanford Encyclopedia of Philosophy; Oxford History of Science Museum: mathematics in Islamic cultures; Stanford Encyclopedia of Philosophy: Ibn Sina’s Metaphysics"
+      }
+    },
+    {
+      "id": "positional-reckoning",
+      "label": "Place-value reckoning",
+      "description": "A practical notational inheritance is put to new work, not attributed to a single Greek origin.",
+      "sources": [
+        "greek-arabic",
+        "arabic-latin",
+        "algebra",
+        "avicenna"
+      ],
+      "reading": {
+        "text": "A practical notational inheritance is put to new work, not attributed to a single Greek origin.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Greek Sources in Arabic and Islamic Philosophy, Stanford Encyclopedia of Philosophy; Influence of Arabic and Islamic Philosophy on the Latin West, Stanford Encyclopedia of Philosophy; Oxford History of Science Museum: mathematics in Islamic cultures; Stanford Encyclopedia of Philosophy: Ibn Sina’s Metaphysics"
+      }
+    },
+    {
+      "id": "algebraic-relations",
+      "label": "Reasoning about an unknown share",
+      "description": "Relations among quantities can be expressed before a particular value is known.",
+      "sources": [
+        "greek-arabic",
+        "arabic-latin",
+        "algebra",
+        "avicenna"
+      ],
+      "reading": {
+        "text": "Relations among quantities can be expressed before a particular value is known.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Greek Sources in Arabic and Islamic Philosophy, Stanford Encyclopedia of Philosophy; Influence of Arabic and Islamic Philosophy on the Latin West, Stanford Encyclopedia of Philosophy; Oxford History of Science Museum: mathematics in Islamic cultures; Stanford Encyclopedia of Philosophy: Ibn Sina’s Metaphysics"
+      }
+    },
+    {
+      "id": "contingent-being",
+      "label": "Avicenna: contingent existence",
+      "description": "A distinction between essence and existence changes the metaphysical question.",
+      "sources": [
+        "greek-arabic",
+        "arabic-latin",
+        "algebra",
+        "avicenna"
+      ],
+      "reading": {
+        "text": "A distinction between essence and existence changes the metaphysical question.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Greek Sources in Arabic and Islamic Philosophy, Stanford Encyclopedia of Philosophy; Influence of Arabic and Islamic Philosophy on the Latin West, Stanford Encyclopedia of Philosophy; Oxford History of Science Museum: mathematics in Islamic cultures; Stanford Encyclopedia of Philosophy: Ibn Sina’s Metaphysics"
+      }
+    },
+    {
+      "id": "necessary-being",
+      "label": "Avicenna: a necessary source of existence",
+      "description": "Reconstruct an attributed argument from contingency; making it is not an assertion that all readers must accept it.",
+      "sources": [
+        "greek-arabic",
+        "arabic-latin",
+        "algebra",
+        "avicenna"
+      ],
+      "reading": {
+        "text": "Reconstruct an attributed argument from contingency; making it is not an assertion that all readers must accept it.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Greek Sources in Arabic and Islamic Philosophy, Stanford Encyclopedia of Philosophy; Influence of Arabic and Islamic Philosophy on the Latin West, Stanford Encyclopedia of Philosophy; Oxford History of Science Museum: mathematics in Islamic cultures; Stanford Encyclopedia of Philosophy: Ibn Sina’s Metaphysics"
+      }
+    },
+    {
+      "id": "active-commentary",
+      "label": "A commentary that changes the question",
+      "description": "The received argument becomes a starting point for original criticism and elaboration.",
+      "sources": [
+        "greek-arabic",
+        "arabic-latin",
+        "algebra",
+        "avicenna"
+      ],
+      "reading": {
+        "text": "The received argument becomes a starting point for original criticism and elaboration.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Greek Sources in Arabic and Islamic Philosophy, Stanford Encyclopedia of Philosophy; Influence of Arabic and Islamic Philosophy on the Latin West, Stanford Encyclopedia of Philosophy; Oxford History of Science Museum: mathematics in Islamic cultures; Stanford Encyclopedia of Philosophy: Ibn Sina’s Metaphysics"
+      }
+    },
+    {
+      "id": "emitted-sight",
+      "label": "Do rays leave the eye to make sight?",
+      "description": "An inherited theory of vision is posed as a question.",
+      "sources": [
+        "optics",
+        "optics-lamps-primary",
+        "optics-manuscript",
+        "lensmaking"
+      ],
+      "reading": {
+        "text": "An inherited theory of vision is posed as a question.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: A. I. Sabra and Jan Hogendijk, The Optics of Ibn al-Haytham Books IV–V, Warburg Institute / University of Chicago Press; Ibn al-Haytham, Optics I.6 §§85–87; A. I. Sabra translation (1989), pp.90–91; Cambridge Peterhouse MS209: Alhacen De Aspectibus; Museo Galileo: Lens-making"
+      }
+    },
+    {
+      "id": "bright-light",
+      "label": "Bright light affects the eye",
+      "description": "A qualitative reason to investigate what enters the eye; never an instruction to look at the Sun.",
+      "sources": [
+        "optics",
+        "optics-lamps-primary",
+        "optics-manuscript",
+        "lensmaking"
+      ],
+      "reading": {
+        "text": "A qualitative reason to investigate what enters the eye; never an instruction to look at the Sun.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: A. I. Sabra and Jan Hogendijk, The Optics of Ibn al-Haytham Books IV–V, Warburg Institute / University of Chicago Press; Ibn al-Haytham, Optics I.6 §§85–87; A. I. Sabra translation (1989), pp.90–91; Cambridge Peterhouse MS209: Alhacen De Aspectibus; Museo Galileo: Lens-making"
+      }
+    },
+    {
+      "id": "straight-paths",
+      "label": "Light follows straight paths in a uniform medium",
+      "description": "A conceptual relation; the player is not asked to infer an unseen diagram.",
+      "sources": [
+        "optics",
+        "optics-lamps-primary",
+        "optics-manuscript",
+        "lensmaking"
+      ],
+      "reading": {
+        "text": "A conceptual relation; the player is not asked to infer an unseen diagram.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: A. I. Sabra and Jan Hogendijk, The Optics of Ibn al-Haytham Books IV–V, Warburg Institute / University of Chicago Press; Ibn al-Haytham, Optics I.6 §§85–87; A. I. Sabra translation (1989), pp.90–91; Cambridge Peterhouse MS209: Alhacen De Aspectibus; Museo Galileo: Lens-making"
+      }
+    },
+    {
+      "id": "aperture-screen",
+      "label": "A closed box, small opening and receiving screen",
+      "description": "A particular optical arrangement ready to use.",
+      "sources": [
+        "optics",
+        "optics-lamps-primary",
+        "optics-manuscript",
+        "lensmaking"
+      ],
+      "reading": {
+        "text": "A particular optical arrangement ready to use.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: A. I. Sabra and Jan Hogendijk, The Optics of Ibn al-Haytham Books IV–V, Warburg Institute / University of Chicago Press; Ibn al-Haytham, Optics I.6 §§85–87; A. I. Sabra translation (1989), pp.90–91; Cambridge Peterhouse MS209: Alhacen De Aspectibus; Museo Galileo: Lens-making"
+      }
+    },
+    {
+      "id": "glass-blank",
+      "label": "A clear glass blank",
+      "description": "A particular piece of workable glass.",
+      "sources": [
+        "optics",
+        "optics-lamps-primary",
+        "optics-manuscript",
+        "lensmaking"
+      ],
+      "reading": {
+        "text": "A particular piece of workable glass.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: A. I. Sabra and Jan Hogendijk, The Optics of Ibn al-Haytham Books IV–V, Warburg Institute / University of Chicago Press; Ibn al-Haytham, Optics I.6 §§85–87; A. I. Sabra translation (1989), pp.90–91; Cambridge Peterhouse MS209: Alhacen De Aspectibus; Museo Galileo: Lens-making"
+      }
+    },
+    {
+      "id": "lens-grinding",
+      "label": "Curved surfaces can bend light",
+      "description": "Craft knowledge enables lenses without requiring a completed theory of the glass transition.",
+      "sources": [
+        "optics",
+        "optics-lamps-primary",
+        "optics-manuscript",
+        "lensmaking"
+      ],
+      "reading": {
+        "text": "Craft knowledge enables lenses without requiring a completed theory of the glass transition.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: A. I. Sabra and Jan Hogendijk, The Optics of Ibn al-Haytham Books IV–V, Warburg Institute / University of Chicago Press; Ibn al-Haytham, Optics I.6 §§85–87; A. I. Sabra translation (1989), pp.90–91; Cambridge Peterhouse MS209: Alhacen De Aspectibus; Museo Galileo: Lens-making"
+      }
+    },
+    {
+      "id": "size-illusion",
+      "label": "Distant things can mislead our judgment of size",
+      "description": "The optical stimulus and the judgment made from it are not identical.",
+      "sources": [
+        "optics",
+        "optics-lamps-primary",
+        "optics-manuscript",
+        "lensmaking"
+      ],
+      "reading": {
+        "text": "The optical stimulus and the judgment made from it are not identical.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: A. I. Sabra and Jan Hogendijk, The Optics of Ibn al-Haytham Books IV–V, Warburg Institute / University of Chicago Press; Ibn al-Haytham, Optics I.6 §§85–87; A. I. Sabra translation (1989), pp.90–91; Cambridge Peterhouse MS209: Alhacen De Aspectibus; Museo Galileo: Lens-making"
+      }
+    },
+    {
+      "id": "vision-dispute",
+      "label": "Rival accounts of sight",
+      "description": "Optical questions are investigated within a living philosophical tradition.",
+      "sources": [
+        "optics",
+        "optics-lamps-primary",
+        "optics-manuscript",
+        "lensmaking"
+      ],
+      "reading": {
+        "text": "Optical questions are investigated within a living philosophical tradition.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: A. I. Sabra and Jan Hogendijk, The Optics of Ibn al-Haytham Books IV–V, Warburg Institute / University of Chicago Press; Ibn al-Haytham, Optics I.6 §§85–87; A. I. Sabra translation (1989), pp.90–91; Cambridge Peterhouse MS209: Alhacen De Aspectibus; Museo Galileo: Lens-making"
+      }
+    },
+    {
+      "id": "light-into-eye",
+      "label": "Sight depends on light entering the eye",
+      "description": "Ibn al-Haytham’s account turns attention toward incoming light and the conditions of vision.",
+      "sources": [
+        "optics",
+        "optics-lamps-primary",
+        "optics-manuscript",
+        "lensmaking"
+      ],
+      "reading": {
+        "text": "Ibn al-Haytham’s account turns attention toward incoming light and the conditions of vision.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: A. I. Sabra and Jan Hogendijk, The Optics of Ibn al-Haytham Books IV–V, Warburg Institute / University of Chicago Press; Ibn al-Haytham, Optics I.6 §§85–87; A. I. Sabra translation (1989), pp.90–91; Cambridge Peterhouse MS209: Alhacen De Aspectibus; Museo Galileo: Lens-making"
+      }
+    },
+    {
+      "id": "geometric-optics",
+      "label": "Light paths as a geometric account",
+      "description": "A model of paths connects physical light with spatial reasoning.",
+      "sources": [
+        "optics",
+        "optics-lamps-primary",
+        "optics-manuscript",
+        "lensmaking"
+      ],
+      "reading": {
+        "text": "A model of paths connects physical light with spatial reasoning.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: A. I. Sabra and Jan Hogendijk, The Optics of Ibn al-Haytham Books IV–V, Warburg Institute / University of Chicago Press; Ibn al-Haytham, Optics I.6 §§85–87; A. I. Sabra translation (1989), pp.90–91; Cambridge Peterhouse MS209: Alhacen De Aspectibus; Museo Galileo: Lens-making"
+      }
+    },
+    {
+      "id": "pinhole-box",
+      "label": "A prepared dark-room image box",
+      "description": "The arrangement becomes a controlled setting for a projected image.",
+      "sources": [
+        "optics",
+        "optics-lamps-primary",
+        "optics-manuscript",
+        "lensmaking"
+      ],
+      "reading": {
+        "text": "The arrangement becomes a controlled setting for a projected image.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: A. I. Sabra and Jan Hogendijk, The Optics of Ibn al-Haytham Books IV–V, Warburg Institute / University of Chicago Press; Ibn al-Haytham, Optics I.6 §§85–87; A. I. Sabra translation (1989), pp.90–91; Cambridge Peterhouse MS209: Alhacen De Aspectibus; Museo Galileo: Lens-making"
+      }
+    },
+    {
+      "id": "inverted-image",
+      "label": "An inverted image on the screen",
+      "description": "The dark setting makes the aperture image visible. The box remains a reusable instrument.",
+      "sources": [
+        "optics",
+        "optics-lamps-primary",
+        "optics-manuscript",
+        "lensmaking"
+      ],
+      "reading": {
+        "text": "The dark setting makes the aperture image visible. The box remains a reusable instrument.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: A. I. Sabra and Jan Hogendijk, The Optics of Ibn al-Haytham Books IV–V, Warburg Institute / University of Chicago Press; Ibn al-Haytham, Optics I.6 §§85–87; A. I. Sabra translation (1989), pp.90–91; Cambridge Peterhouse MS209: Alhacen De Aspectibus; Museo Galileo: Lens-making"
+      }
+    },
+    {
+      "id": "ground-lens",
+      "label": "A convex magnifying lens",
+      "description": "A glass blank is ground into a convex lens. At a suitable close viewing distance it can enlarge the apparent object.",
+      "sources": [
+        "optics",
+        "optics-lamps-primary",
+        "optics-manuscript",
+        "lensmaking"
+      ],
+      "reading": {
+        "text": "A glass blank is ground into a convex lens. At a suitable close viewing distance it can enlarge the apparent object.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: A. I. Sabra and Jan Hogendijk, The Optics of Ibn al-Haytham Books IV–V, Warburg Institute / University of Chicago Press; Ibn al-Haytham, Optics I.6 §§85–87; A. I. Sabra translation (1989), pp.90–91; Cambridge Peterhouse MS209: Alhacen De Aspectibus; Museo Galileo: Lens-making"
+      }
+    },
+    {
+      "id": "magnified-view",
+      "label": "A magnified close-up view",
+      "description": "Place the object suitably close to the convex lens: the changed light paths produce an enlarged apparent view without requiring a focal-length calculation.",
+      "sources": [
+        "optics",
+        "optics-lamps-primary",
+        "optics-manuscript",
+        "lensmaking"
+      ],
+      "reading": {
+        "text": "Place the object suitably close to the convex lens: the changed light paths produce an enlarged apparent view without requiring a focal-length calculation.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: A. I. Sabra and Jan Hogendijk, The Optics of Ibn al-Haytham Books IV–V, Warburg Institute / University of Chicago Press; Ibn al-Haytham, Optics I.6 §§85–87; A. I. Sabra translation (1989), pp.90–91; Cambridge Peterhouse MS209: Alhacen De Aspectibus; Museo Galileo: Lens-making"
+      }
+    },
+    {
+      "id": "seeing-and-judging",
+      "label": "Seeing includes interpretation",
+      "description": "An account of light does not by itself eliminate every error in judging what is seen.",
+      "sources": [
+        "optics",
+        "optics-lamps-primary",
+        "optics-manuscript",
+        "lensmaking"
+      ],
+      "reading": {
+        "text": "An account of light does not by itself eliminate every error in judging what is seen.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: A. I. Sabra and Jan Hogendijk, The Optics of Ibn al-Haytham Books IV–V, Warburg Institute / University of Chicago Press; Ibn al-Haytham, Optics I.6 §§85–87; A. I. Sabra translation (1989), pp.90–91; Cambridge Peterhouse MS209: Alhacen De Aspectibus; Museo Galileo: Lens-making"
+      }
+    },
+    {
+      "id": "latin-translators",
+      "label": "Translators work from Arabic and Greek into Latin",
+      "description": "Distinct routes bring texts and commentaries to Latin readers; no single exclusive route is claimed.",
+      "sources": [
+        "arabic-latin",
+        "aquinas",
+        "ockham",
+        "plato"
+      ],
+      "reading": {
+        "text": "Distinct routes bring texts and commentaries to Latin readers; no single exclusive route is claimed.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Influence of Arabic and Islamic Philosophy on the Latin West, Stanford Encyclopedia of Philosophy; Stanford Encyclopedia of Philosophy: Thomas Aquinas; Stanford Encyclopedia of Philosophy: William of Ockham; Stanford Encyclopedia of Philosophy: Plato"
+      }
+    },
+    {
+      "id": "revelation-text",
+      "label": "Revelation makes claims reason must interpret",
+      "description": "A reconstructed theological concern, not an external proof of a particular faith.",
+      "sources": [
+        "arabic-latin",
+        "aquinas",
+        "ockham",
+        "plato"
+      ],
+      "reading": {
+        "text": "A reconstructed theological concern, not an external proof of a particular faith.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Influence of Arabic and Islamic Philosophy on the Latin West, Stanford Encyclopedia of Philosophy; Stanford Encyclopedia of Philosophy: Thomas Aquinas; Stanford Encyclopedia of Philosophy: William of Ockham; Stanford Encyclopedia of Philosophy: Plato"
+      }
+    },
+    {
+      "id": "objection-reply",
+      "label": "Set out an objection before answering it",
+      "description": "Disputation makes disagreement part of an organized intellectual practice.",
+      "sources": [
+        "arabic-latin",
+        "aquinas",
+        "ockham",
+        "plato"
+      ],
+      "reading": {
+        "text": "Disputation makes disagreement part of an organized intellectual practice.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Influence of Arabic and Islamic Philosophy on the Latin West, Stanford Encyclopedia of Philosophy; Stanford Encyclopedia of Philosophy: Thomas Aquinas; Stanford Encyclopedia of Philosophy: William of Ockham; Stanford Encyclopedia of Philosophy: Plato"
+      }
+    },
+    {
+      "id": "common-name",
+      "label": "One name applies to many distinct things",
+      "description": "Universals concern what, if anything, corresponds to that shared name.",
+      "sources": [
+        "arabic-latin",
+        "aquinas",
+        "ockham",
+        "plato"
+      ],
+      "reading": {
+        "text": "Universals concern what, if anything, corresponds to that shared name.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Influence of Arabic and Islamic Philosophy on the Latin West, Stanford Encyclopedia of Philosophy; Stanford Encyclopedia of Philosophy: Thomas Aquinas; Stanford Encyclopedia of Philosophy: William of Ockham; Stanford Encyclopedia of Philosophy: Plato"
+      }
+    },
+    {
+      "id": "extra-entities",
+      "label": "An explanation adds an entity it never uses",
+      "description": "A teaching case for economy of explanation, not a command to choose the simplest story regardless of evidence.",
+      "sources": [
+        "arabic-latin",
+        "aquinas",
+        "ockham",
+        "plato"
+      ],
+      "reading": {
+        "text": "A teaching case for economy of explanation, not a command to choose the simplest story regardless of evidence.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Influence of Arabic and Islamic Philosophy on the Latin West, Stanford Encyclopedia of Philosophy; Stanford Encyclopedia of Philosophy: Thomas Aquinas; Stanford Encyclopedia of Philosophy: William of Ockham; Stanford Encyclopedia of Philosophy: Plato"
+      }
+    },
+    {
+      "id": "created-nature",
+      "label": "A created world can have intelligible natural causes",
+      "description": "Aquinas’s synthesis does not replace every natural explanation with an immediate miracle.",
+      "sources": [
+        "arabic-latin",
+        "aquinas",
+        "ockham",
+        "plato"
+      ],
+      "reading": {
+        "text": "Aquinas’s synthesis does not replace every natural explanation with an immediate miracle.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Influence of Arabic and Islamic Philosophy on the Latin West, Stanford Encyclopedia of Philosophy; Stanford Encyclopedia of Philosophy: Thomas Aquinas; Stanford Encyclopedia of Philosophy: William of Ockham; Stanford Encyclopedia of Philosophy: Plato"
+      }
+    },
+    {
+      "id": "latin-aristotle",
+      "label": "Aristotle in Latin",
+      "description": "Translated logical works enter a new setting of study.",
+      "sources": [
+        "arabic-latin",
+        "aquinas",
+        "ockham",
+        "plato"
+      ],
+      "reading": {
+        "text": "Translated logical works enter a new setting of study.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Influence of Arabic and Islamic Philosophy on the Latin West, Stanford Encyclopedia of Philosophy; Stanford Encyclopedia of Philosophy: Thomas Aquinas; Stanford Encyclopedia of Philosophy: William of Ockham; Stanford Encyclopedia of Philosophy: Plato"
+      }
+    },
+    {
+      "id": "commentaries-in-dispute",
+      "label": "The commentators disagree",
+      "description": "Reception includes rival interpretations rather than a single official meaning.",
+      "sources": [
+        "arabic-latin",
+        "aquinas",
+        "ockham",
+        "plato"
+      ],
+      "reading": {
+        "text": "Reception includes rival interpretations rather than a single official meaning.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Influence of Arabic and Islamic Philosophy on the Latin West, Stanford Encyclopedia of Philosophy; Stanford Encyclopedia of Philosophy: Thomas Aquinas; Stanford Encyclopedia of Philosophy: William of Ockham; Stanford Encyclopedia of Philosophy: Plato"
+      }
+    },
+    {
+      "id": "reason-faith-distinction",
+      "label": "Reason and faith: distinct questions",
+      "description": "Aquinas distinguishes what natural reason can investigate from truths held through revelation.",
+      "sources": [
+        "arabic-latin",
+        "aquinas",
+        "ockham",
+        "plato"
+      ],
+      "reading": {
+        "text": "Aquinas distinguishes what natural reason can investigate from truths held through revelation.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Influence of Arabic and Islamic Philosophy on the Latin West, Stanford Encyclopedia of Philosophy; Stanford Encyclopedia of Philosophy: Thomas Aquinas; Stanford Encyclopedia of Philosophy: William of Ockham; Stanford Encyclopedia of Philosophy: Plato"
+      }
+    },
+    {
+      "id": "formal-disputation",
+      "label": "An objection and an accountable reply",
+      "description": "The disagreement receives a structured forum, not compulsory reconciliation.",
+      "sources": [
+        "arabic-latin",
+        "aquinas",
+        "ockham",
+        "plato"
+      ],
+      "reading": {
+        "text": "The disagreement receives a structured forum, not compulsory reconciliation.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Influence of Arabic and Islamic Philosophy on the Latin West, Stanford Encyclopedia of Philosophy; Stanford Encyclopedia of Philosophy: Thomas Aquinas; Stanford Encyclopedia of Philosophy: William of Ockham; Stanford Encyclopedia of Philosophy: Plato"
+      }
+    },
+    {
+      "id": "real-universal",
+      "label": "A shared nature beyond this instance",
+      "description": "A schematic realist position on universals is reconstructed; medieval realism is not identical to Plato’s full theory.",
+      "sources": [
+        "arabic-latin",
+        "aquinas",
+        "ockham",
+        "plato"
+      ],
+      "reading": {
+        "text": "A schematic realist position on universals is reconstructed; medieval realism is not identical to Plato’s full theory.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Influence of Arabic and Islamic Philosophy on the Latin West, Stanford Encyclopedia of Philosophy; Stanford Encyclopedia of Philosophy: Thomas Aquinas; Stanford Encyclopedia of Philosophy: William of Ockham; Stanford Encyclopedia of Philosophy: Plato"
+      }
+    },
+    {
+      "id": "nominal-kinds",
+      "label": "Common concepts, not a shared thing outside the mind",
+      "description": "A schematic nominalist alternative: common names and concepts signify many individuals, but no shared universal thing exists outside the mind. This goes beyond merely rejecting Plato’s separate Forms; Aristotle is not being made an Ockhamist.",
+      "sources": [
+        "arabic-latin",
+        "aquinas",
+        "ockham",
+        "plato"
+      ],
+      "reading": {
+        "text": "A schematic nominalist alternative: common names and concepts signify many individuals, but no shared universal thing exists outside the mind. This goes beyond merely rejecting Plato’s separate Forms; Aristotle is not being made an Ockhamist.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Influence of Arabic and Islamic Philosophy on the Latin West, Stanford Encyclopedia of Philosophy; Stanford Encyclopedia of Philosophy: Thomas Aquinas; Stanford Encyclopedia of Philosophy: William of Ockham; Stanford Encyclopedia of Philosophy: Plato"
+      }
+    },
+    {
+      "id": "universals-open",
+      "label": "One shared name, rival accounts",
+      "description": "Both accounts remain inspectable. This juxtaposition identifies the disagreement rather than proving a synthesis.",
+      "sources": [
+        "arabic-latin",
+        "aquinas",
+        "ockham",
+        "plato"
+      ],
+      "reading": {
+        "text": "Both accounts remain inspectable. This juxtaposition identifies the disagreement rather than proving a synthesis.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Influence of Arabic and Islamic Philosophy on the Latin West, Stanford Encyclopedia of Philosophy; Stanford Encyclopedia of Philosophy: Thomas Aquinas; Stanford Encyclopedia of Philosophy: William of Ockham; Stanford Encyclopedia of Philosophy: Plato"
+      }
+    },
+    {
+      "id": "explanatory-economy",
+      "label": "Do not multiply idle explanations",
+      "description": "Economy constrains an explanation without becoming an automatic truth test.",
+      "sources": [
+        "arabic-latin",
+        "aquinas",
+        "ockham",
+        "plato"
+      ],
+      "reading": {
+        "text": "Economy constrains an explanation without becoming an automatic truth test.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Influence of Arabic and Islamic Philosophy on the Latin West, Stanford Encyclopedia of Philosophy; Stanford Encyclopedia of Philosophy: Thomas Aquinas; Stanford Encyclopedia of Philosophy: William of Ockham; Stanford Encyclopedia of Philosophy: Plato"
+      }
+    },
+    {
+      "id": "intelligible-nature",
+      "label": "Aquinas: nature has its own intelligibility",
+      "description": "Theological commitment and investigation of natural causes need not be rival activities.",
+      "sources": [
+        "arabic-latin",
+        "aquinas",
+        "ockham",
+        "plato"
+      ],
+      "reading": {
+        "text": "Theological commitment and investigation of natural causes need not be rival activities.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Influence of Arabic and Islamic Philosophy on the Latin West, Stanford Encyclopedia of Philosophy; Stanford Encyclopedia of Philosophy: Thomas Aquinas; Stanford Encyclopedia of Philosophy: William of Ockham; Stanford Encyclopedia of Philosophy: Plato"
+      }
+    },
+    {
+      "id": "paper-sheets",
+      "label": "Paper sheets",
+      "description": "A material technology with a long history beyond Europe.",
+      "sources": [
+        "printing",
+        "ratdolt",
+        "alexandria",
+        "hermetic",
+        "arabic-latin"
+      ],
+      "reading": {
+        "text": "A material technology with a long history beyond Europe.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Library of Congress: printing in Asia; Smithsonian Libraries: 1482 printed Latin Euclid; Francesca Schironi: Textual Scholarship in Alexandria and Beyond; Stanford Encyclopedia of Philosophy: Marsilio Ficino; Influence of Arabic and Islamic Philosophy on the Latin West, Stanford Encyclopedia of Philosophy"
+      }
+    },
+    {
+      "id": "block-printing",
+      "label": "Printing from a prepared block",
+      "description": "A distinct Asian history of reproducible text, not an invention credited to Gutenberg.",
+      "sources": [
+        "printing",
+        "ratdolt",
+        "alexandria",
+        "hermetic",
+        "arabic-latin"
+      ],
+      "reading": {
+        "text": "A distinct Asian history of reproducible text, not an invention credited to Gutenberg.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Library of Congress: printing in Asia; Smithsonian Libraries: 1482 printed Latin Euclid; Francesca Schironi: Textual Scholarship in Alexandria and Beyond; Stanford Encyclopedia of Philosophy: Marsilio Ficino; Influence of Arabic and Islamic Philosophy on the Latin West, Stanford Encyclopedia of Philosophy"
+      }
+    },
+    {
+      "id": "movable-type",
+      "label": "Reusable metal type in a European press",
+      "description": "A particular early-modern printing system, not the first printing anywhere.",
+      "sources": [
+        "printing",
+        "ratdolt",
+        "alexandria",
+        "hermetic",
+        "arabic-latin"
+      ],
+      "reading": {
+        "text": "A particular early-modern printing system, not the first printing anywhere.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Library of Congress: printing in Asia; Smithsonian Libraries: 1482 printed Latin Euclid; Francesca Schironi: Textual Scholarship in Alexandria and Beyond; Stanford Encyclopedia of Philosophy: Marsilio Ficino; Influence of Arabic and Islamic Philosophy on the Latin West, Stanford Encyclopedia of Philosophy"
+      }
+    },
+    {
+      "id": "greek-codex",
+      "label": "A Greek manuscript brought by Byzantine scholars",
+      "description": "Another route of transmission, not a replacement for Arabic–Latin learning.",
+      "sources": [
+        "printing",
+        "ratdolt",
+        "alexandria",
+        "hermetic",
+        "arabic-latin"
+      ],
+      "reading": {
+        "text": "Another route of transmission, not a replacement for Arabic–Latin learning.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Library of Congress: printing in Asia; Smithsonian Libraries: 1482 printed Latin Euclid; Francesca Schironi: Textual Scholarship in Alexandria and Beyond; Stanford Encyclopedia of Philosophy: Marsilio Ficino; Influence of Arabic and Islamic Philosophy on the Latin West, Stanford Encyclopedia of Philosophy"
+      }
+    },
+    {
+      "id": "word-difference",
+      "label": "Two translators choose different meanings",
+      "description": "Disagreement may reflect interpretation rather than a damaged original.",
+      "sources": [
+        "printing",
+        "ratdolt",
+        "alexandria",
+        "hermetic",
+        "arabic-latin"
+      ],
+      "reading": {
+        "text": "Disagreement may reflect interpretation rather than a damaged original.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Library of Congress: printing in Asia; Smithsonian Libraries: 1482 printed Latin Euclid; Francesca Schironi: Textual Scholarship in Alexandria and Beyond; Stanford Encyclopedia of Philosophy: Marsilio Ficino; Influence of Arabic and Islamic Philosophy on the Latin West, Stanford Encyclopedia of Philosophy"
+      }
+    },
+    {
+      "id": "hermetic-dialogues",
+      "label": "Dialogues attributed to ancient Hermes",
+      "description": "Renaissance readers often assigned these writings an exceptionally ancient authority.",
+      "sources": [
+        "printing",
+        "ratdolt",
+        "alexandria",
+        "hermetic",
+        "arabic-latin"
+      ],
+      "reading": {
+        "text": "Renaissance readers often assigned these writings an exceptionally ancient authority.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Library of Congress: printing in Asia; Smithsonian Libraries: 1482 printed Latin Euclid; Francesca Schironi: Textual Scholarship in Alexandria and Beyond; Stanford Encyclopedia of Philosophy: Marsilio Ficino; Influence of Arabic and Islamic Philosophy on the Latin West, Stanford Encyclopedia of Philosophy"
+      }
+    },
+    {
+      "id": "datable-language",
+      "label": "The supposedly ancient text uses later Greek",
+      "description": "Philological evidence changes a claimed date; the example is simplified.",
+      "sources": [
+        "printing",
+        "ratdolt",
+        "alexandria",
+        "hermetic",
+        "arabic-latin"
+      ],
+      "reading": {
+        "text": "Philological evidence changes a claimed date; the example is simplified.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Library of Congress: printing in Asia; Smithsonian Libraries: 1482 printed Latin Euclid; Francesca Schironi: Textual Scholarship in Alexandria and Beyond; Stanford Encyclopedia of Philosophy: Marsilio Ficino; Influence of Arabic and Islamic Philosophy on the Latin West, Stanford Encyclopedia of Philosophy"
+      }
+    },
+    {
+      "id": "print-censors",
+      "label": "Authorities can license, ban or seize an edition",
+      "description": "Print widens circulation but does not abolish power over publication.",
+      "sources": [
+        "printing",
+        "ratdolt",
+        "alexandria",
+        "hermetic",
+        "arabic-latin"
+      ],
+      "reading": {
+        "text": "Print widens circulation but does not abolish power over publication.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Library of Congress: printing in Asia; Smithsonian Libraries: 1482 printed Latin Euclid; Francesca Schironi: Textual Scholarship in Alexandria and Beyond; Stanford Encyclopedia of Philosophy: Marsilio Ficino; Influence of Arabic and Islamic Philosophy on the Latin West, Stanford Encyclopedia of Philosophy"
+      }
+    },
+    {
+      "id": "reproducible-page",
+      "label": "A reproducible printed page",
+      "description": "A prepared surface produces repeated text; different printing traditions develop different forms of this possibility.",
+      "sources": [
+        "printing",
+        "ratdolt",
+        "alexandria",
+        "hermetic",
+        "arabic-latin"
+      ],
+      "reading": {
+        "text": "A prepared surface produces repeated text; different printing traditions develop different forms of this possibility.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Library of Congress: printing in Asia; Smithsonian Libraries: 1482 printed Latin Euclid; Francesca Schironi: Textual Scholarship in Alexandria and Beyond; Stanford Encyclopedia of Philosophy: Marsilio Ficino; Influence of Arabic and Islamic Philosophy on the Latin West, Stanford Encyclopedia of Philosophy"
+      }
+    },
+    {
+      "id": "type-printed-edition",
+      "label": "An edition made with reusable type",
+      "description": "European movable-type printing is one consequential realization of reproducibility.",
+      "sources": [
+        "printing",
+        "ratdolt",
+        "alexandria",
+        "hermetic",
+        "arabic-latin"
+      ],
+      "reading": {
+        "text": "European movable-type printing is one consequential realization of reproducibility.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Library of Congress: printing in Asia; Smithsonian Libraries: 1482 printed Latin Euclid; Francesca Schironi: Textual Scholarship in Alexandria and Beyond; Stanford Encyclopedia of Philosophy: Marsilio Ficino; Influence of Arabic and Islamic Philosophy on the Latin West, Stanford Encyclopedia of Philosophy"
+      }
+    },
+    {
+      "id": "compared-edition",
+      "label": "Printed copies with inspectable variants",
+      "description": "Repeated copies make comparison easier without making editorial choices disappear.",
+      "sources": [
+        "printing",
+        "ratdolt",
+        "alexandria",
+        "hermetic",
+        "arabic-latin"
+      ],
+      "reading": {
+        "text": "Repeated copies make comparison easier without making editorial choices disappear.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Library of Congress: printing in Asia; Smithsonian Libraries: 1482 printed Latin Euclid; Francesca Schironi: Textual Scholarship in Alexandria and Beyond; Stanford Encyclopedia of Philosophy: Marsilio Ficino; Influence of Arabic and Islamic Philosophy on the Latin West, Stanford Encyclopedia of Philosophy"
+      }
+    },
+    {
+      "id": "parallel-translations",
+      "label": "Greek and Latin versions side by side",
+      "description": "Different transmission routes let readers revisit a received rendering.",
+      "sources": [
+        "printing",
+        "ratdolt",
+        "alexandria",
+        "hermetic",
+        "arabic-latin"
+      ],
+      "reading": {
+        "text": "Different transmission routes let readers revisit a received rendering.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Library of Congress: printing in Asia; Smithsonian Libraries: 1482 printed Latin Euclid; Francesca Schironi: Textual Scholarship in Alexandria and Beyond; Stanford Encyclopedia of Philosophy: Marsilio Ficino; Influence of Arabic and Islamic Philosophy on the Latin West, Stanford Encyclopedia of Philosophy"
+      }
+    },
+    {
+      "id": "translation-choices",
+      "label": "A translation’s choices made visible",
+      "description": "A translated text is not a transparent container untouched by its reader.",
+      "sources": [
+        "printing",
+        "ratdolt",
+        "alexandria",
+        "hermetic",
+        "arabic-latin"
+      ],
+      "reading": {
+        "text": "A translated text is not a transparent container untouched by its reader.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Library of Congress: printing in Asia; Smithsonian Libraries: 1482 printed Latin Euclid; Francesca Schironi: Textual Scholarship in Alexandria and Beyond; Stanford Encyclopedia of Philosophy: Marsilio Ficino; Influence of Arabic and Islamic Philosophy on the Latin West, Stanford Encyclopedia of Philosophy"
+      }
+    },
+    {
+      "id": "ancient-wisdom-claim",
+      "label": "A claim to a primordial wisdom",
+      "description": "Renaissance Platonism and Hermetic reading can share a search for ancient wisdom; this reconstructs a historical attraction.",
+      "sources": [
+        "printing",
+        "ratdolt",
+        "alexandria",
+        "hermetic",
+        "arabic-latin"
+      ],
+      "reading": {
+        "text": "Renaissance Platonism and Hermetic reading can share a search for ancient wisdom; this reconstructs a historical attraction.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Library of Congress: printing in Asia; Smithsonian Libraries: 1482 printed Latin Euclid; Francesca Schironi: Textual Scholarship in Alexandria and Beyond; Stanford Encyclopedia of Philosophy: Marsilio Ficino; Influence of Arabic and Islamic Philosophy on the Latin West, Stanford Encyclopedia of Philosophy"
+      }
+    },
+    {
+      "id": "redated-hermetica",
+      "label": "Hermetic wisdom, later than claimed",
+      "description": "Dating can weaken an appeal to extreme antiquity without logically refuting every idea in the work.",
+      "sources": [
+        "printing",
+        "ratdolt",
+        "alexandria",
+        "hermetic",
+        "arabic-latin"
+      ],
+      "reading": {
+        "text": "Dating can weaken an appeal to extreme antiquity without logically refuting every idea in the work.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Library of Congress: printing in Asia; Smithsonian Libraries: 1482 printed Latin Euclid; Francesca Schironi: Textual Scholarship in Alexandria and Beyond; Stanford Encyclopedia of Philosophy: Marsilio Ficino; Influence of Arabic and Islamic Philosophy on the Latin West, Stanford Encyclopedia of Philosophy"
+      }
+    },
+    {
+      "id": "contested-publication",
+      "label": "Printed knowledge under contention",
+      "description": "A wider audience and new controls develop together, not as a simple freedom switch.",
+      "sources": [
+        "printing",
+        "ratdolt",
+        "alexandria",
+        "hermetic",
+        "arabic-latin"
+      ],
+      "reading": {
+        "text": "A wider audience and new controls develop together, not as a simple freedom switch.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Library of Congress: printing in Asia; Smithsonian Libraries: 1482 printed Latin Euclid; Francesca Schironi: Textual Scholarship in Alexandria and Beyond; Stanford Encyclopedia of Philosophy: Marsilio Ficino; Influence of Arabic and Islamic Philosophy on the Latin West, Stanford Encyclopedia of Philosophy"
+      }
+    },
+    {
+      "id": "printed-euclid",
+      "label": "A geometric proof that many readers can compare",
+      "description": "Printing connects a structured argument with repeated, shareable pages.",
+      "sources": [
+        "printing",
+        "ratdolt",
+        "alexandria",
+        "hermetic",
+        "arabic-latin"
+      ],
+      "reading": {
+        "text": "Printing connects a structured argument with repeated, shareable pages.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Library of Congress: printing in Asia; Smithsonian Libraries: 1482 printed Latin Euclid; Francesca Schironi: Textual Scholarship in Alexandria and Beyond; Stanford Encyclopedia of Philosophy: Marsilio Ficino; Influence of Arabic and Islamic Philosophy on the Latin West, Stanford Encyclopedia of Philosophy"
+      }
+    },
+    {
+      "id": "picture-plane",
+      "label": "A flat surface between eye and street",
+      "description": "The conceptual picture plane intersects the paths from the scene to an eye.",
+      "sources": [
+        "perspective",
+        "perspective-alberti-rays-primary",
+        "perspective-alberti-veil-primary",
+        "ratdolt"
+      ],
+      "reading": {
+        "text": "The conceptual picture plane intersects the paths from the scene to an eye.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: National Gallery: perspective; Leon Battista Alberti, On Painting, Book I: visual pyramid and its section; Leon Battista Alberti, On Painting, Book II: veil and changed viewpoint; Smithsonian Libraries: 1482 printed Latin Euclid"
+      }
+    },
+    {
+      "id": "receding-street",
+      "label": "Parallel street edges appear to converge",
+      "description": "The visible observation is stated; no unseen drawing is required.",
+      "sources": [
+        "perspective",
+        "perspective-alberti-rays-primary",
+        "perspective-alberti-veil-primary",
+        "ratdolt"
+      ],
+      "reading": {
+        "text": "The visible observation is stated; no unseen drawing is required.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: National Gallery: perspective; Leon Battista Alberti, On Painting, Book I: visual pyramid and its section; Leon Battista Alberti, On Painting, Book II: veil and changed viewpoint; Smithsonian Libraries: 1482 printed Latin Euclid"
+      }
+    },
+    {
+      "id": "fixed-eye",
+      "label": "Keep the eye at one fixed position",
+      "description": "A single-viewpoint construction has a condition of use.",
+      "sources": [
+        "perspective",
+        "perspective-alberti-rays-primary",
+        "perspective-alberti-veil-primary",
+        "ratdolt"
+      ],
+      "reading": {
+        "text": "A single-viewpoint construction has a condition of use.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: National Gallery: perspective; Leon Battista Alberti, On Painting, Book I: visual pyramid and its section; Leon Battista Alberti, On Painting, Book II: veil and changed viewpoint; Smithsonian Libraries: 1482 printed Latin Euclid"
+      }
+    },
+    {
+      "id": "viewer-moves",
+      "label": "From the side, previously hidden surfaces appear",
+      "description": "A changed viewpoint can reveal information not present in the first projection.",
+      "sources": [
+        "perspective",
+        "perspective-alberti-rays-primary",
+        "perspective-alberti-veil-primary",
+        "ratdolt"
+      ],
+      "reading": {
+        "text": "A changed viewpoint can reveal information not present in the first projection.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: National Gallery: perspective; Leon Battista Alberti, On Painting, Book I: visual pyramid and its section; Leon Battista Alberti, On Painting, Book II: veil and changed viewpoint; Smithsonian Libraries: 1482 printed Latin Euclid"
+      }
+    },
+    {
+      "id": "mirror-comparison",
+      "label": "Compare the painted view with the actual view",
+      "description": "A simplified optical check of a perspectival construction.",
+      "sources": [
+        "perspective",
+        "perspective-alberti-rays-primary",
+        "perspective-alberti-veil-primary",
+        "ratdolt"
+      ],
+      "reading": {
+        "text": "A simplified optical check of a perspectival construction.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: National Gallery: perspective; Leon Battista Alberti, On Painting, Book I: visual pyramid and its section; Leon Battista Alberti, On Painting, Book II: veil and changed viewpoint; Smithsonian Libraries: 1482 printed Latin Euclid"
+      }
+    },
+    {
+      "id": "coordinate-grid",
+      "label": "Locations named by a common coordinate grid",
+      "description": "The grid makes positions comparable, without a coordinate calculation.",
+      "sources": [
+        "perspective",
+        "perspective-alberti-rays-primary",
+        "perspective-alberti-veil-primary",
+        "ratdolt"
+      ],
+      "reading": {
+        "text": "The grid makes positions comparable, without a coordinate calculation.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: National Gallery: perspective; Leon Battista Alberti, On Painting, Book I: visual pyramid and its section; Leon Battista Alberti, On Painting, Book II: veil and changed viewpoint; Smithsonian Libraries: 1482 printed Latin Euclid"
+      }
+    },
+    {
+      "id": "flat-map-sheet",
+      "label": "A flat sheet for a map",
+      "description": "A particular drawing surface.",
+      "sources": [
+        "perspective",
+        "perspective-alberti-rays-primary",
+        "perspective-alberti-veil-primary",
+        "ratdolt"
+      ],
+      "reading": {
+        "text": "A particular drawing surface.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: National Gallery: perspective; Leon Battista Alberti, On Painting, Book I: visual pyramid and its section; Leon Battista Alberti, On Painting, Book II: veil and changed viewpoint; Smithsonian Libraries: 1482 printed Latin Euclid"
+      }
+    },
+    {
+      "id": "bearing-priority",
+      "label": "The sailor wants constant compass bearings",
+      "description": "A projection can be chosen for a task rather than universal fidelity.",
+      "sources": [
+        "perspective",
+        "perspective-alberti-rays-primary",
+        "perspective-alberti-veil-primary",
+        "ratdolt"
+      ],
+      "reading": {
+        "text": "A projection can be chosen for a task rather than universal fidelity.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: National Gallery: perspective; Leon Battista Alberti, On Painting, Book I: visual pyramid and its section; Leon Battista Alberti, On Painting, Book II: veil and changed viewpoint; Smithsonian Libraries: 1482 printed Latin Euclid"
+      }
+    },
+    {
+      "id": "polar-stretch",
+      "label": "Polar regions grow greatly on this chart",
+      "description": "The distortion is stated explicitly, not left for the player to infer from an invisible map.",
+      "sources": [
+        "perspective",
+        "perspective-alberti-rays-primary",
+        "perspective-alberti-veil-primary",
+        "ratdolt"
+      ],
+      "reading": {
+        "text": "The distortion is stated explicitly, not left for the player to infer from an invisible map.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: National Gallery: perspective; Leon Battista Alberti, On Painting, Book I: visual pyramid and its section; Leon Battista Alberti, On Painting, Book II: veil and changed viewpoint; Smithsonian Libraries: 1482 printed Latin Euclid"
+      }
+    },
+    {
+      "id": "window-projection",
+      "label": "A scene projected through a picture plane",
+      "description": "Light-path geometry supplies a relation between the scene, picture surface and viewer.",
+      "sources": [
+        "perspective",
+        "perspective-alberti-rays-primary",
+        "perspective-alberti-veil-primary",
+        "ratdolt"
+      ],
+      "reading": {
+        "text": "Light-path geometry supplies a relation between the scene, picture surface and viewer.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: National Gallery: perspective; Leon Battista Alberti, On Painting, Book I: visual pyramid and its section; Leon Battista Alberti, On Painting, Book II: veil and changed viewpoint; Smithsonian Libraries: 1482 printed Latin Euclid"
+      }
+    },
+    {
+      "id": "vanishing-direction",
+      "label": "One direction converges toward a point",
+      "description": "The parallel edges define a common vanishing direction in the constructed view.",
+      "sources": [
+        "perspective",
+        "perspective-alberti-rays-primary",
+        "perspective-alberti-veil-primary",
+        "ratdolt"
+      ],
+      "reading": {
+        "text": "The parallel edges define a common vanishing direction in the constructed view.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: National Gallery: perspective; Leon Battista Alberti, On Painting, Book I: visual pyramid and its section; Leon Battista Alberti, On Painting, Book II: veil and changed viewpoint; Smithsonian Libraries: 1482 printed Latin Euclid"
+      }
+    },
+    {
+      "id": "linear-perspective",
+      "label": "A single-viewpoint perspective",
+      "description": "A coherent projection is made for a chosen eye position, not for every possible viewer at once.",
+      "sources": [
+        "perspective",
+        "perspective-alberti-rays-primary",
+        "perspective-alberti-veil-primary",
+        "ratdolt"
+      ],
+      "reading": {
+        "text": "A coherent projection is made for a chosen eye position, not for every possible viewer at once.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: National Gallery: perspective; Leon Battista Alberti, On Painting, Book I: visual pyramid and its section; Leon Battista Alberti, On Painting, Book II: veil and changed viewpoint; Smithsonian Libraries: 1482 printed Latin Euclid"
+      }
+    },
+    {
+      "id": "viewpoint-occlusion",
+      "label": "A fixed view leaves other surfaces hidden",
+      "description": "The creation records a specific limit: a projection cannot show what its viewpoint occludes.",
+      "sources": [
+        "perspective",
+        "perspective-alberti-rays-primary",
+        "perspective-alberti-veil-primary",
+        "ratdolt"
+      ],
+      "reading": {
+        "text": "The creation records a specific limit: a projection cannot show what its viewpoint occludes.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: National Gallery: perspective; Leon Battista Alberti, On Painting, Book I: visual pyramid and its section; Leon Battista Alberti, On Painting, Book II: veil and changed viewpoint; Smithsonian Libraries: 1482 printed Latin Euclid"
+      }
+    },
+    {
+      "id": "checked-perspective",
+      "label": "A painted view checked from its viewing point",
+      "description": "A comparison tests the intended correspondence without claiming the picture is the whole place.",
+      "sources": [
+        "perspective",
+        "perspective-alberti-rays-primary",
+        "perspective-alberti-veil-primary",
+        "ratdolt"
+      ],
+      "reading": {
+        "text": "A comparison tests the intended correspondence without claiming the picture is the whole place.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: National Gallery: perspective; Leon Battista Alberti, On Painting, Book I: visual pyramid and its section; Leon Battista Alberti, On Painting, Book II: veil and changed viewpoint; Smithsonian Libraries: 1482 printed Latin Euclid"
+      }
+    },
+    {
+      "id": "mapped-globe",
+      "label": "An Earth with comparable positions",
+      "description": "A common positional framework joins local places into a geographic representation.",
+      "sources": [
+        "perspective",
+        "perspective-alberti-rays-primary",
+        "perspective-alberti-veil-primary",
+        "ratdolt"
+      ],
+      "reading": {
+        "text": "A common positional framework joins local places into a geographic representation.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: National Gallery: perspective; Leon Battista Alberti, On Painting, Book I: visual pyramid and its section; Leon Battista Alberti, On Painting, Book II: veil and changed viewpoint; Smithsonian Libraries: 1482 printed Latin Euclid"
+      }
+    },
+    {
+      "id": "flat-projection",
+      "label": "A curved world on a flat sheet",
+      "description": "Flattening the globe entails choices about what relationships to preserve.",
+      "sources": [
+        "perspective",
+        "perspective-alberti-rays-primary",
+        "perspective-alberti-veil-primary",
+        "ratdolt"
+      ],
+      "reading": {
+        "text": "Flattening the globe entails choices about what relationships to preserve.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: National Gallery: perspective; Leon Battista Alberti, On Painting, Book I: visual pyramid and its section; Leon Battista Alberti, On Painting, Book II: veil and changed viewpoint; Smithsonian Libraries: 1482 printed Latin Euclid"
+      }
+    },
+    {
+      "id": "bearing-chart",
+      "label": "A chart made for compass bearings",
+      "description": "The representation serves a navigation task rather than preserving every size and shape.",
+      "sources": [
+        "perspective",
+        "perspective-alberti-rays-primary",
+        "perspective-alberti-veil-primary",
+        "ratdolt"
+      ],
+      "reading": {
+        "text": "The representation serves a navigation task rather than preserving every size and shape.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: National Gallery: perspective; Leon Battista Alberti, On Painting, Book I: visual pyramid and its section; Leon Battista Alberti, On Painting, Book II: veil and changed viewpoint; Smithsonian Libraries: 1482 printed Latin Euclid"
+      }
+    },
+    {
+      "id": "projection-tradeoff",
+      "label": "Useful bearings, distorted areas",
+      "description": "A map can be excellent for one purpose and misleading for another.",
+      "sources": [
+        "perspective",
+        "perspective-alberti-rays-primary",
+        "perspective-alberti-veil-primary",
+        "ratdolt"
+      ],
+      "reading": {
+        "text": "A map can be excellent for one purpose and misleading for another.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: National Gallery: perspective; Leon Battista Alberti, On Painting, Book I: visual pyramid and its section; Leon Battista Alberti, On Painting, Book II: veil and changed viewpoint; Smithsonian Libraries: 1482 printed Latin Euclid"
+      }
+    },
+    {
+      "id": "telescope-tube",
+      "label": "A tube with a second lens",
+      "description": "A physical arrangement for making distant objects appear larger.",
+      "sources": [
+        "copernicus",
+        "galileo",
+        "kepler",
+        "newton-moon-test-primary"
+      ],
+      "reading": {
+        "text": "A physical arrangement for making distant objects appear larger.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Stanford Encyclopedia of Philosophy: Nicolaus Copernicus; Stanford Encyclopedia of Philosophy: Galileo Galilei; Museo Galileo: Kepler, Ad Vitellionem paralipomena; Isaac Newton, Principia, Book III, Proposition IV and scholium (primary text; printed pp. 391–393)"
+      }
+    },
+    {
+      "id": "moon-detail",
+      "label": "Moon shadows change like shadows on rough ground",
+      "description": "A schematic observation from telescopic lunar study.",
+      "sources": [
+        "copernicus",
+        "galileo",
+        "kepler",
+        "newton-moon-test-primary"
+      ],
+      "reading": {
+        "text": "A schematic observation from telescopic lunar study.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Stanford Encyclopedia of Philosophy: Nicolaus Copernicus; Stanford Encyclopedia of Philosophy: Galileo Galilei; Museo Galileo: Kepler, Ad Vitellionem paralipomena; Isaac Newton, Principia, Book III, Proposition IV and scholium (primary text; printed pp. 391–393)"
+      }
+    },
+    {
+      "id": "jupiter-points",
+      "label": "Points beside Jupiter change places but stay near it",
+      "description": "A series of observations, not a single mysterious dot.",
+      "sources": [
+        "copernicus",
+        "galileo",
+        "kepler",
+        "newton-moon-test-primary"
+      ],
+      "reading": {
+        "text": "A series of observations, not a single mysterious dot.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Stanford Encyclopedia of Philosophy: Nicolaus Copernicus; Stanford Encyclopedia of Philosophy: Galileo Galilei; Museo Galileo: Kepler, Ad Vitellionem paralipomena; Isaac Newton, Principia, Book III, Proposition IV and scholium (primary text; printed pp. 391–393)"
+      }
+    },
+    {
+      "id": "copernican-order",
+      "label": "Copernicus puts Earth among the planets",
+      "description": "A model that reorganizes motions around the Sun.",
+      "sources": [
+        "copernicus",
+        "galileo",
+        "kepler",
+        "newton-moon-test-primary"
+      ],
+      "reading": {
+        "text": "A model that reorganizes motions around the Sun.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Stanford Encyclopedia of Philosophy: Nicolaus Copernicus; Stanford Encyclopedia of Philosophy: Galileo Galilei; Museo Galileo: Kepler, Ad Vitellionem paralipomena; Isaac Newton, Principia, Book III, Proposition IV and scholium (primary text; printed pp. 391–393)"
+      }
+    },
+    {
+      "id": "retrograde-appearance",
+      "label": "A moving observer can see another body seem to reverse",
+      "description": "A qualitative relative-motion case, with no orbit calculation.",
+      "sources": [
+        "copernicus",
+        "galileo",
+        "kepler",
+        "newton-moon-test-primary"
+      ],
+      "reading": {
+        "text": "A qualitative relative-motion case, with no orbit calculation.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Stanford Encyclopedia of Philosophy: Nicolaus Copernicus; Stanford Encyclopedia of Philosophy: Galileo Galilei; Museo Galileo: Kepler, Ad Vitellionem paralipomena; Isaac Newton, Principia, Book III, Proposition IV and scholium (primary text; printed pp. 391–393)"
+      }
+    },
+    {
+      "id": "venus-phase-series",
+      "label": "Venus shows both crescent and nearly full phases",
+      "description": "The observation itself is on the tile.",
+      "sources": [
+        "copernicus",
+        "galileo",
+        "kepler",
+        "newton-moon-test-primary"
+      ],
+      "reading": {
+        "text": "The observation itself is on the tile.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Stanford Encyclopedia of Philosophy: Nicolaus Copernicus; Stanford Encyclopedia of Philosophy: Galileo Galilei; Museo Galileo: Kepler, Ad Vitellionem paralipomena; Isaac Newton, Principia, Book III, Proposition IV and scholium (primary text; printed pp. 391–393)"
+      }
+    },
+    {
+      "id": "tycho-model",
+      "label": "Tycho keeps Earth still while planets circle the Sun",
+      "description": "A geoheliocentric rival can accommodate observations that trouble strict Ptolemaic ordering.",
+      "sources": [
+        "copernicus",
+        "galileo",
+        "kepler",
+        "newton-moon-test-primary"
+      ],
+      "reading": {
+        "text": "A geoheliocentric rival can accommodate observations that trouble strict Ptolemaic ordering.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Stanford Encyclopedia of Philosophy: Nicolaus Copernicus; Stanford Encyclopedia of Philosophy: Galileo Galilei; Museo Galileo: Kepler, Ad Vitellionem paralipomena; Isaac Newton, Principia, Book III, Proposition IV and scholium (primary text; printed pp. 391–393)"
+      }
+    },
+    {
+      "id": "mars-mismatch",
+      "label": "Tycho’s Mars observations resist a perfect-circle fit",
+      "description": "The mismatch motivates revision; the player does not compute an orbit.",
+      "sources": [
+        "copernicus",
+        "galileo",
+        "kepler",
+        "newton-moon-test-primary"
+      ],
+      "reading": {
+        "text": "The mismatch motivates revision; the player does not compute an orbit.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Stanford Encyclopedia of Philosophy: Nicolaus Copernicus; Stanford Encyclopedia of Philosophy: Galileo Galilei; Museo Galileo: Kepler, Ad Vitellionem paralipomena; Isaac Newton, Principia, Book III, Proposition IV and scholium (primary text; printed pp. 391–393)"
+      }
+    },
+    {
+      "id": "harmony-ideal",
+      "label": "The heavens should form a harmonious order",
+      "description": "A philosophical and mathematical aspiration, not independent evidence for a particular orbit.",
+      "sources": [
+        "copernicus",
+        "galileo",
+        "kepler",
+        "newton-moon-test-primary"
+      ],
+      "reading": {
+        "text": "A philosophical and mathematical aspiration, not independent evidence for a particular orbit.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Stanford Encyclopedia of Philosophy: Nicolaus Copernicus; Stanford Encyclopedia of Philosophy: Galileo Galilei; Museo Galileo: Kepler, Ad Vitellionem paralipomena; Isaac Newton, Principia, Book III, Proposition IV and scholium (primary text; printed pp. 391–393)"
+      }
+    },
+    {
+      "id": "telescope",
+      "label": "A telescope",
+      "description": "The lens becomes part of a recognizable instrument; any still-needed outside lens remains available.",
+      "sources": [
+        "copernicus",
+        "galileo",
+        "kepler",
+        "newton-moon-test-primary"
+      ],
+      "reading": {
+        "text": "The lens becomes part of a recognizable instrument; any still-needed outside lens remains available.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Stanford Encyclopedia of Philosophy: Nicolaus Copernicus; Stanford Encyclopedia of Philosophy: Galileo Galilei; Museo Galileo: Kepler, Ad Vitellionem paralipomena; Isaac Newton, Principia, Book III, Proposition IV and scholium (primary text; printed pp. 391–393)"
+      }
+    },
+    {
+      "id": "rough-moon",
+      "label": "An earthly-looking Moon",
+      "description": "The observations challenge a sharp division between perfect heavens and rough Earth.",
+      "sources": [
+        "copernicus",
+        "galileo",
+        "kepler",
+        "newton-moon-test-primary"
+      ],
+      "reading": {
+        "text": "The observations challenge a sharp division between perfect heavens and rough Earth.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Stanford Encyclopedia of Philosophy: Nicolaus Copernicus; Stanford Encyclopedia of Philosophy: Galileo Galilei; Museo Galileo: Kepler, Ad Vitellionem paralipomena; Isaac Newton, Principia, Book III, Proposition IV and scholium (primary text; printed pp. 391–393)"
+      }
+    },
+    {
+      "id": "jupiter-moons",
+      "label": "A system of moons around Jupiter",
+      "description": "Not every celestial body circles Earth directly; that fact alone does not prove Earth moves.",
+      "sources": [
+        "copernicus",
+        "galileo",
+        "kepler",
+        "newton-moon-test-primary"
+      ],
+      "reading": {
+        "text": "Not every celestial body circles Earth directly; that fact alone does not prove Earth moves.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Stanford Encyclopedia of Philosophy: Nicolaus Copernicus; Stanford Encyclopedia of Philosophy: Galileo Galilei; Museo Galileo: Kepler, Ad Vitellionem paralipomena; Isaac Newton, Principia, Book III, Proposition IV and scholium (primary text; printed pp. 391–393)"
+      }
+    },
+    {
+      "id": "copernican-world",
+      "label": "Earth as a moving planet",
+      "description": "A new ordering reconstructs the inherited problem rather than erasing observations.",
+      "sources": [
+        "copernicus",
+        "galileo",
+        "kepler",
+        "newton-moon-test-primary"
+      ],
+      "reading": {
+        "text": "A new ordering reconstructs the inherited problem rather than erasing observations.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Stanford Encyclopedia of Philosophy: Nicolaus Copernicus; Stanford Encyclopedia of Philosophy: Galileo Galilei; Museo Galileo: Kepler, Ad Vitellionem paralipomena; Isaac Newton, Principia, Book III, Proposition IV and scholium (primary text; printed pp. 391–393)"
+      }
+    },
+    {
+      "id": "relative-retrograde",
+      "label": "Apparent reversal from relative motion",
+      "description": "Some puzzling appearances become consequences of observing from a moving Earth.",
+      "sources": [
+        "copernicus",
+        "galileo",
+        "kepler",
+        "newton-moon-test-primary"
+      ],
+      "reading": {
+        "text": "Some puzzling appearances become consequences of observing from a moving Earth.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Stanford Encyclopedia of Philosophy: Nicolaus Copernicus; Stanford Encyclopedia of Philosophy: Galileo Galilei; Museo Galileo: Kepler, Ad Vitellionem paralipomena; Isaac Newton, Principia, Book III, Proposition IV and scholium (primary text; printed pp. 391–393)"
+      }
+    },
+    {
+      "id": "venus-phases",
+      "label": "The full range of Venus’s phases",
+      "description": "The instrument and repeated observations establish a consequential phenomenon.",
+      "sources": [
+        "copernicus",
+        "galileo",
+        "kepler",
+        "newton-moon-test-primary"
+      ],
+      "reading": {
+        "text": "The instrument and repeated observations establish a consequential phenomenon.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Stanford Encyclopedia of Philosophy: Nicolaus Copernicus; Stanford Encyclopedia of Philosophy: Galileo Galilei; Museo Galileo: Kepler, Ad Vitellionem paralipomena; Isaac Newton, Principia, Book III, Proposition IV and scholium (primary text; printed pp. 391–393)"
+      }
+    },
+    {
+      "id": "strict-ptolemy-challenged",
+      "label": "Strict Ptolemaic Venus is challenged",
+      "description": "The full phase range conflicts with the standard Ptolemaic arrangement of Venus.",
+      "sources": [
+        "copernicus",
+        "galileo",
+        "kepler",
+        "newton-moon-test-primary"
+      ],
+      "reading": {
+        "text": "The full phase range conflicts with the standard Ptolemaic arrangement of Venus.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Stanford Encyclopedia of Philosophy: Nicolaus Copernicus; Stanford Encyclopedia of Philosophy: Galileo Galilei; Museo Galileo: Kepler, Ad Vitellionem paralipomena; Isaac Newton, Principia, Book III, Proposition IV and scholium (primary text; printed pp. 391–393)"
+      }
+    },
+    {
+      "id": "tycho-still-live",
+      "label": "A stationary-Earth alternative remains live",
+      "description": "The same evidence does not eliminate Tycho’s arrangement; underdetermination remains tangible.",
+      "sources": [
+        "copernicus",
+        "galileo",
+        "kepler",
+        "newton-moon-test-primary"
+      ],
+      "reading": {
+        "text": "The same evidence does not eliminate Tycho’s arrangement; underdetermination remains tangible.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Stanford Encyclopedia of Philosophy: Nicolaus Copernicus; Stanford Encyclopedia of Philosophy: Galileo Galilei; Museo Galileo: Kepler, Ad Vitellionem paralipomena; Isaac Newton, Principia, Book III, Proposition IV and scholium (primary text; printed pp. 391–393)"
+      }
+    },
+    {
+      "id": "kepler-ellipse",
+      "label": "An elliptical path for Mars",
+      "description": "Kepler abandons the privileged circle while working from an inherited Sun-centred problem.",
+      "sources": [
+        "copernicus",
+        "galileo",
+        "kepler",
+        "newton-moon-test-primary"
+      ],
+      "reading": {
+        "text": "Kepler abandons the privileged circle while working from an inherited Sun-centred problem.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Stanford Encyclopedia of Philosophy: Nicolaus Copernicus; Stanford Encyclopedia of Philosophy: Galileo Galilei; Museo Galileo: Kepler, Ad Vitellionem paralipomena; Isaac Newton, Principia, Book III, Proposition IV and scholium (primary text; printed pp. 391–393)"
+      }
+    },
+    {
+      "id": "revised-harmony",
+      "label": "A lawful sky without perfect circles",
+      "description": "The search for order survives the revision of what that order looks like.",
+      "sources": [
+        "copernicus",
+        "galileo",
+        "kepler",
+        "newton-moon-test-primary"
+      ],
+      "reading": {
+        "text": "The search for order survives the revision of what that order looks like.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Stanford Encyclopedia of Philosophy: Nicolaus Copernicus; Stanford Encyclopedia of Philosophy: Galileo Galilei; Museo Galileo: Kepler, Ad Vitellionem paralipomena; Isaac Newton, Principia, Book III, Proposition IV and scholium (primary text; printed pp. 391–393)"
+      }
+    },
+    {
+      "id": "craft-records",
+      "label": "Record what furnaces, gardens and workshops do",
+      "description": "Practical making can contribute to inquiry, not only illustrate a finished theory.",
+      "sources": [
+        "bacon",
+        "natural-magic",
+        "burton"
+      ],
+      "reading": {
+        "text": "Practical making can contribute to inquiry, not only illustrate a finished theory.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Stanford Encyclopedia of Philosophy: Francis Bacon; University of Oklahoma primary-book exhibit: Natural Magick; Wellcome Collection: The Anatomy of Melancholy"
+      }
+    },
+    {
+      "id": "favoured-cases",
+      "label": "We notice examples that favour our belief",
+      "description": "A schematic case of a bias Bacon warns against.",
+      "sources": [
+        "bacon",
+        "natural-magic",
+        "burton"
+      ],
+      "reading": {
+        "text": "A schematic case of a bias Bacon warns against.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Stanford Encyclopedia of Philosophy: Francis Bacon; University of Oklahoma primary-book exhibit: Natural Magick; Wellcome Collection: The Anatomy of Melancholy"
+      }
+    },
+    {
+      "id": "sun-warmth",
+      "label": "Sunlight warms exposed things",
+      "description": "One familiar instance in an inquiry about heat.",
+      "sources": [
+        "bacon",
+        "natural-magic",
+        "burton"
+      ],
+      "reading": {
+        "text": "One familiar instance in an inquiry about heat.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Stanford Encyclopedia of Philosophy: Francis Bacon; University of Oklahoma primary-book exhibit: Natural Magick; Wellcome Collection: The Anatomy of Melancholy"
+      }
+    },
+    {
+      "id": "flame-warmth",
+      "label": "A flame gives light and warmth",
+      "description": "Another instance that makes a tempting association.",
+      "sources": [
+        "bacon",
+        "natural-magic",
+        "burton"
+      ],
+      "reading": {
+        "text": "Another instance that makes a tempting association.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Stanford Encyclopedia of Philosophy: Francis Bacon; University of Oklahoma primary-book exhibit: Natural Magick; Wellcome Collection: The Anatomy of Melancholy"
+      }
+    },
+    {
+      "id": "moonlight-cool",
+      "label": "Moonlight is bright without comparable warmth",
+      "description": "A qualitative negative instance, not a modern radiation measurement.",
+      "sources": [
+        "bacon",
+        "natural-magic",
+        "burton"
+      ],
+      "reading": {
+        "text": "A qualitative negative instance, not a modern radiation measurement.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Stanford Encyclopedia of Philosophy: Francis Bacon; University of Oklahoma primary-book exhibit: Natural Magick; Wellcome Collection: The Anatomy of Melancholy"
+      }
+    },
+    {
+      "id": "friction-warmth",
+      "label": "Rubbing can warm without a flame",
+      "description": "An ordinary phenomenon breaks the simple identification of heat with shining bodies.",
+      "sources": [
+        "bacon",
+        "natural-magic",
+        "burton"
+      ],
+      "reading": {
+        "text": "An ordinary phenomenon breaks the simple identification of heat with shining bodies.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Stanford Encyclopedia of Philosophy: Francis Bacon; University of Oklahoma primary-book exhibit: Natural Magick; Wellcome Collection: The Anatomy of Melancholy"
+      }
+    },
+    {
+      "id": "matched-wood",
+      "label": "Same wood: rubbed piece warms, untouched piece does not",
+      "description": "An authored controlled comparison with its observed result stated on the tile.",
+      "sources": [
+        "bacon",
+        "natural-magic",
+        "burton"
+      ],
+      "reading": {
+        "text": "An authored controlled comparison with its observed result stated on the tile.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Stanford Encyclopedia of Philosophy: Francis Bacon; University of Oklahoma primary-book exhibit: Natural Magick; Wellcome Collection: The Anatomy of Melancholy"
+      }
+    },
+    {
+      "id": "burton-sources",
+      "label": "Burton gathers Galen, poetry and lived melancholy",
+      "description": "A historically situated compilation, not present medical advice.",
+      "sources": [
+        "bacon",
+        "natural-magic",
+        "burton"
+      ],
+      "reading": {
+        "text": "A historically situated compilation, not present medical advice.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Stanford Encyclopedia of Philosophy: Francis Bacon; University of Oklahoma primary-book exhibit: Natural Magick; Wellcome Collection: The Anatomy of Melancholy"
+      }
+    },
+    {
+      "id": "shared-method",
+      "label": "Correspondents describe enough method to repeat a trial",
+      "description": "An institutional practice, not a claim that print alone ensures reliability.",
+      "sources": [
+        "bacon",
+        "natural-magic",
+        "burton"
+      ],
+      "reading": {
+        "text": "An institutional practice, not a claim that print alone ensures reliability.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Stanford Encyclopedia of Philosophy: Francis Bacon; University of Oklahoma primary-book exhibit: Natural Magick; Wellcome Collection: The Anatomy of Melancholy"
+      }
+    },
+    {
+      "id": "natural-magic-secrets",
+      "label": "A marvellous optical effect has a repeatable arrangement",
+      "description": "Della Porta’s natural magic connects hidden natural causes with crafted effects.",
+      "sources": [
+        "bacon",
+        "natural-magic",
+        "burton"
+      ],
+      "reading": {
+        "text": "Della Porta’s natural magic connects hidden natural causes with crafted effects.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Stanford Encyclopedia of Philosophy: Francis Bacon; University of Oklahoma primary-book exhibit: Natural Magick; Wellcome Collection: The Anatomy of Melancholy"
+      }
+    },
+    {
+      "id": "working-natural-history",
+      "label": "Natural history includes what crafts can do",
+      "description": "Bacon’s program extends inquiry through organized observations and interventions.",
+      "sources": [
+        "bacon",
+        "natural-magic",
+        "burton"
+      ],
+      "reading": {
+        "text": "Bacon’s program extends inquiry through organized observations and interventions.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Stanford Encyclopedia of Philosophy: Francis Bacon; University of Oklahoma primary-book exhibit: Natural Magick; Wellcome Collection: The Anatomy of Melancholy"
+      }
+    },
+    {
+      "id": "bias-under-examination",
+      "label": "An inquiry that looks for unwelcome cases",
+      "description": "The aim is to counter a tendency, not to certify a researcher as bias-free.",
+      "sources": [
+        "bacon",
+        "natural-magic",
+        "burton"
+      ],
+      "reading": {
+        "text": "The aim is to counter a tendency, not to certify a researcher as bias-free.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Stanford Encyclopedia of Philosophy: Francis Bacon; University of Oklahoma primary-book exhibit: Natural Magick; Wellcome Collection: The Anatomy of Melancholy"
+      }
+    },
+    {
+      "id": "heat-light-conjecture",
+      "label": "Heat seems tied to light",
+      "description": "Two favourable instances suggest a candidate account, not a universal conclusion.",
+      "sources": [
+        "bacon",
+        "natural-magic",
+        "burton"
+      ],
+      "reading": {
+        "text": "Two favourable instances suggest a candidate account, not a universal conclusion.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Stanford Encyclopedia of Philosophy: Francis Bacon; University of Oklahoma primary-book exhibit: Natural Magick; Wellcome Collection: The Anatomy of Melancholy"
+      }
+    },
+    {
+      "id": "light-not-sufficient",
+      "label": "Brightness need not bring comparable felt warmth",
+      "description": "Bacon’s qualitative negative instance challenges a simple association of visible light and felt heat. It does not show that moonlight or visible radiation causes literally no heating.",
+      "sources": [
+        "bacon",
+        "natural-magic",
+        "burton"
+      ],
+      "reading": {
+        "text": "Bacon’s qualitative negative instance challenges a simple association of visible light and felt heat. It does not show that moonlight or visible radiation causes literally no heating.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Stanford Encyclopedia of Philosophy: Francis Bacon; University of Oklahoma primary-book exhibit: Natural Magick; Wellcome Collection: The Anatomy of Melancholy"
+      }
+    },
+    {
+      "id": "heat-beyond-light",
+      "label": "Heat must be sought beyond luminous bodies",
+      "description": "The field of inquiry changes; no modern molecular theory has yet been established.",
+      "sources": [
+        "bacon",
+        "natural-magic",
+        "burton"
+      ],
+      "reading": {
+        "text": "The field of inquiry changes; no modern molecular theory has yet been established.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Stanford Encyclopedia of Philosophy: Francis Bacon; University of Oklahoma primary-book exhibit: Natural Magick; Wellcome Collection: The Anatomy of Melancholy"
+      }
+    },
+    {
+      "id": "rubbing-intervention",
+      "label": "Rubbing changes the warming in this comparison",
+      "description": "The matched case singles out an intervention instead of merely adding another agreeable example.",
+      "sources": [
+        "bacon",
+        "natural-magic",
+        "burton"
+      ],
+      "reading": {
+        "text": "The matched case singles out an intervention instead of merely adding another agreeable example.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Stanford Encyclopedia of Philosophy: Francis Bacon; University of Oklahoma primary-book exhibit: Natural Magick; Wellcome Collection: The Anatomy of Melancholy"
+      }
+    },
+    {
+      "id": "melancholy-many-sources",
+      "label": "Melancholy across bodies, books and experience",
+      "description": "Burton’s work reuses inherited learning through an expansive literary and medical inquiry.",
+      "sources": [
+        "bacon",
+        "natural-magic",
+        "burton"
+      ],
+      "reading": {
+        "text": "Burton’s work reuses inherited learning through an expansive literary and medical inquiry.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Stanford Encyclopedia of Philosophy: Francis Bacon; University of Oklahoma primary-book exhibit: Natural Magick; Wellcome Collection: The Anatomy of Melancholy"
+      }
+    },
+    {
+      "id": "public-trial",
+      "label": "A trial another workshop can repeat",
+      "description": "Publication can expose methods to other practitioners without abolishing disputes over trust.",
+      "sources": [
+        "bacon",
+        "natural-magic",
+        "burton"
+      ],
+      "reading": {
+        "text": "Publication can expose methods to other practitioners without abolishing disputes over trust.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Stanford Encyclopedia of Philosophy: Francis Bacon; University of Oklahoma primary-book exhibit: Natural Magick; Wellcome Collection: The Anatomy of Melancholy"
+      }
+    },
+    {
+      "id": "repeatable-wonder",
+      "label": "An optical wonder with an inspectable arrangement",
+      "description": "A repeatable effect can coexist with wonder; natural magic is not simply the absence of observation.",
+      "sources": [
+        "bacon",
+        "natural-magic",
+        "burton"
+      ],
+      "reading": {
+        "text": "A repeatable effect can coexist with wonder; natural magic is not simply the absence of observation.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Stanford Encyclopedia of Philosophy: Francis Bacon; University of Oklahoma primary-book exhibit: Natural Magick; Wellcome Collection: The Anatomy of Melancholy"
+      }
+    },
+    {
+      "id": "shared-heat-inquiry",
+      "label": "The heat comparison crosses workshops",
+      "description": "An explicitly described intervention can be checked and contested beyond its first setting.",
+      "sources": [
+        "bacon",
+        "natural-magic",
+        "burton"
+      ],
+      "reading": {
+        "text": "An explicitly described intervention can be checked and contested beyond its first setting.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Stanford Encyclopedia of Philosophy: Francis Bacon; University of Oklahoma primary-book exhibit: Natural Magick; Wellcome Collection: The Anatomy of Melancholy"
+      }
+    },
+    {
+      "id": "matter-motion",
+      "label": "Explain bodies through matter and motion",
+      "description": "A mechanistic program challenges some inherited kinds of explanation.",
+      "sources": [
+        "descartes",
+        "automata",
+        "harvey-primary",
+        "newton-moon-test-primary",
+        "newton-light"
+      ],
+      "reading": {
+        "text": "A mechanistic program challenges some inherited kinds of explanation.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Stanford Encyclopedia of Philosophy: Descartes’ Physics; Metropolitan Museum: Art in Motion; Harvey, chapters IX and XIV, translated primary excerpts; Isaac Newton, Principia, Book III, Proposition IV and scholium (primary text; printed pp. 391–393); Newton Project: New Theory about Light and Colors"
+      }
+    },
+    {
+      "id": "moving-figure",
+      "label": "Jointed figure parts and a supply of small gears",
+      "description": "Material for a new automaton; the earlier sky mechanism remains a separate model to learn from.",
+      "sources": [
+        "descartes",
+        "automata",
+        "harvey-primary",
+        "newton-moon-test-primary",
+        "newton-light"
+      ],
+      "reading": {
+        "text": "Material for a new automaton; the earlier sky mechanism remains a separate model to learn from.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Stanford Encyclopedia of Philosophy: Descartes’ Physics; Metropolitan Museum: Art in Motion; Harvey, chapters IX and XIV, translated primary excerpts; Isaac Newton, Principia, Book III, Proposition IV and scholium (primary text; printed pp. 391–393); Newton Project: New Theory about Light and Colors"
+      }
+    },
+    {
+      "id": "lifelike-claim",
+      "label": "Living animals feed, grow and repair themselves",
+      "description": "These familiar activities give concrete comparisons for a mechanical figure’s imitated motions. The list is not a complete definition of life.",
+      "sources": [
+        "descartes",
+        "automata",
+        "harvey-primary",
+        "newton-moon-test-primary",
+        "newton-light"
+      ],
+      "reading": {
+        "text": "These familiar activities give concrete comparisons for a mechanical figure’s imitated motions. The list is not a complete definition of life.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Stanford Encyclopedia of Philosophy: Descartes’ Physics; Metropolitan Museum: Art in Motion; Harvey, chapters IX and XIV, translated primary excerpts; Isaac Newton, Principia, Book III, Proposition IV and scholium (primary text; printed pp. 391–393); Newton Project: New Theory about Light and Colors"
+      }
+    },
+    {
+      "id": "falling-stone",
+      "label": "A stone falls toward Earth",
+      "description": "An ordinary terrestrial motion to compare with orbital motion.",
+      "sources": [
+        "descartes",
+        "automata",
+        "harvey-primary",
+        "newton-moon-test-primary",
+        "newton-light"
+      ],
+      "reading": {
+        "text": "An ordinary terrestrial motion to compare with orbital motion.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Stanford Encyclopedia of Philosophy: Descartes’ Physics; Metropolitan Museum: Art in Motion; Harvey, chapters IX and XIV, translated primary excerpts; Isaac Newton, Principia, Book III, Proposition IV and scholium (primary text; printed pp. 391–393); Newton Project: New Theory about Light and Colors"
+      }
+    },
+    {
+      "id": "prism-spectrum",
+      "label": "Prism colours persist; reunited colours make white",
+      "description": "Newton compared a selected colour passed through another prism with recombined colours. The qualitative observations distinguish components of white light from the proposal that each prism simply manufactures new colours.",
+      "sources": [
+        "descartes",
+        "automata",
+        "harvey-primary",
+        "newton-moon-test-primary",
+        "newton-light"
+      ],
+      "reading": {
+        "text": "Newton compared a selected colour passed through another prism with recombined colours. The qualitative observations distinguish components of white light from the proposal that each prism simply manufactures new colours.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Stanford Encyclopedia of Philosophy: Descartes’ Physics; Metropolitan Museum: Art in Motion; Harvey, chapters IX and XIV, translated primary excerpts; Isaac Newton, Principia, Book III, Proposition IV and scholium (primary text; printed pp. 391–393); Newton Project: New Theory about Light and Colors"
+      }
+    },
+    {
+      "id": "one-way-valves",
+      "label": "Vein valves allow flow toward the heart",
+      "description": "Harvey’s qualitative tests on veins indicate the direction of return; they are not just an unspecified one-way gate.",
+      "sources": [
+        "descartes",
+        "automata",
+        "harvey-primary",
+        "newton-moon-test-primary",
+        "newton-light"
+      ],
+      "reading": {
+        "text": "Harvey’s qualitative tests on veins indicate the direction of return; they are not just an unspecified one-way gate.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Stanford Encyclopedia of Philosophy: Descartes’ Physics; Metropolitan Museum: Art in Motion; Harvey, chapters IX and XIV, translated primary excerpts; Isaac Newton, Principia, Book III, Proposition IV and scholium (primary text; printed pp. 391–393); Newton Project: New Theory about Light and Colors"
+      }
+    },
+    {
+      "id": "heart-contraction",
+      "label": "The heart drives blood out through arteries",
+      "description": "The outward direction is placed beside the independently investigated venous return. Harvey could not observe the tissue connections later identified as capillaries.",
+      "sources": [
+        "descartes",
+        "automata",
+        "harvey-primary",
+        "newton-moon-test-primary",
+        "newton-light"
+      ],
+      "reading": {
+        "text": "The outward direction is placed beside the independently investigated venous return. Harvey could not observe the tissue connections later identified as capillaries.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Stanford Encyclopedia of Philosophy: Descartes’ Physics; Metropolitan Museum: Art in Motion; Harvey, chapters IX and XIV, translated primary excerpts; Isaac Newton, Principia, Book III, Proposition IV and scholium (primary text; printed pp. 391–393); Newton Project: New Theory about Light and Colors"
+      }
+    },
+    {
+      "id": "universal-time",
+      "label": "Newton’s framework uses a common absolute time",
+      "description": "A reconstructed theoretical commitment, not a statement that every later theory agrees.",
+      "sources": [
+        "descartes",
+        "automata",
+        "harvey-primary",
+        "newton-moon-test-primary",
+        "newton-light"
+      ],
+      "reading": {
+        "text": "A reconstructed theoretical commitment, not a statement that every later theory agrees.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Stanford Encyclopedia of Philosophy: Descartes’ Physics; Metropolitan Museum: Art in Motion; Harvey, chapters IX and XIV, translated primary excerpts; Isaac Newton, Principia, Book III, Proposition IV and scholium (primary text; printed pp. 391–393); Newton Project: New Theory about Light and Colors"
+      }
+    },
+    {
+      "id": "mechanical-nature",
+      "label": "Nature investigated through matter and motion",
+      "description": "A mechanistic account changes which explanatory questions take priority.",
+      "sources": [
+        "descartes",
+        "automata",
+        "harvey-primary",
+        "newton-moon-test-primary",
+        "newton-light"
+      ],
+      "reading": {
+        "text": "A mechanistic account changes which explanatory questions take priority.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Stanford Encyclopedia of Philosophy: Descartes’ Physics; Metropolitan Museum: Art in Motion; Harvey, chapters IX and XIV, translated primary excerpts; Isaac Newton, Principia, Book III, Proposition IV and scholium (primary text; printed pp. 391–393); Newton Project: New Theory about Light and Colors"
+      }
+    },
+    {
+      "id": "clockwork-figure",
+      "label": "A figure moved by a copied gear linkage",
+      "description": "Modern teaching comparison: adapt a linkage represented in the earlier model into the supplied figure and gears. The retained sky model does not mysteriously power the new object, and no direct ancient-to-modern transmission is claimed.",
+      "sources": [
+        "descartes",
+        "automata",
+        "harvey-primary",
+        "newton-moon-test-primary",
+        "newton-light"
+      ],
+      "reading": {
+        "text": "Modern teaching comparison: adapt a linkage represented in the earlier model into the supplied figure and gears. The retained sky model does not mysteriously power the new object, and no direct ancient-to-modern transmission is claimed.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Stanford Encyclopedia of Philosophy: Descartes’ Physics; Metropolitan Museum: Art in Motion; Harvey, chapters IX and XIV, translated primary excerpts; Isaac Newton, Principia, Book III, Proposition IV and scholium (primary text; printed pp. 391–393); Newton Project: New Theory about Light and Colors"
+      }
+    },
+    {
+      "id": "imitation-limit",
+      "label": "Imitated motion does not establish a living animal",
+      "description": "A gear-driven figure performs a movement. That alone does not demonstrate nutrition, growth, repair or sensation. The wider question of how living processes can be explained remains open.",
+      "sources": [
+        "descartes",
+        "automata",
+        "harvey-primary",
+        "newton-moon-test-primary",
+        "newton-light"
+      ],
+      "reading": {
+        "text": "A gear-driven figure performs a movement. That alone does not demonstrate nutrition, growth, repair or sensation. The wider question of how living processes can be explained remains open.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Stanford Encyclopedia of Philosophy: Descartes’ Physics; Metropolitan Museum: Art in Motion; Harvey, chapters IX and XIV, translated primary excerpts; Isaac Newton, Principia, Book III, Proposition IV and scholium (primary text; printed pp. 391–393); Newton Project: New Theory about Light and Colors"
+      }
+    },
+    {
+      "id": "falling-moon",
+      "label": "An orbit considered as continual falling",
+      "description": "Newton’s comparison brings terrestrial falling and celestial motion into one problem without an inverse-square calculation.",
+      "sources": [
+        "descartes",
+        "automata",
+        "harvey-primary",
+        "newton-moon-test-primary",
+        "newton-light"
+      ],
+      "reading": {
+        "text": "Newton’s comparison brings terrestrial falling and celestial motion into one problem without an inverse-square calculation.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Stanford Encyclopedia of Philosophy: Descartes’ Physics; Metropolitan Museum: Art in Motion; Harvey, chapters IX and XIV, translated primary excerpts; Isaac Newton, Principia, Book III, Proposition IV and scholium (primary text; printed pp. 391–393); Newton Project: New Theory about Light and Colors"
+      }
+    },
+    {
+      "id": "universal-gravitation",
+      "label": "Newton proposes one attraction for Earth and sky",
+      "description": "Continual orbital falling and Keplerian regularities motivate a common dynamical account. This pair reconstructs Newton’s proposal; a desire for harmony alone does not prove universal attraction.",
+      "sources": [
+        "descartes",
+        "automata",
+        "harvey-primary",
+        "newton-moon-test-primary",
+        "newton-light"
+      ],
+      "reading": {
+        "text": "Continual orbital falling and Keplerian regularities motivate a common dynamical account. This pair reconstructs Newton’s proposal; a desire for harmony alone does not prove universal attraction.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Stanford Encyclopedia of Philosophy: Descartes’ Physics; Metropolitan Museum: Art in Motion; Harvey, chapters IX and XIV, translated primary excerpts; Isaac Newton, Principia, Book III, Proposition IV and scholium (primary text; printed pp. 391–393); Newton Project: New Theory about Light and Colors"
+      }
+    },
+    {
+      "id": "white-light-components",
+      "label": "White light contains differently refracted colours",
+      "description": "The inherited account of light paths meets colour-persistence and recombination observations. The glass redirects components rather than simply creating a fresh colour at each passage.",
+      "sources": [
+        "descartes",
+        "automata",
+        "harvey-primary",
+        "newton-moon-test-primary",
+        "newton-light"
+      ],
+      "reading": {
+        "text": "The inherited account of light paths meets colour-persistence and recombination observations. The glass redirects components rather than simply creating a fresh colour at each passage.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Stanford Encyclopedia of Philosophy: Descartes’ Physics; Metropolitan Museum: Art in Motion; Harvey, chapters IX and XIV, translated primary excerpts; Isaac Newton, Principia, Book III, Proposition IV and scholium (primary text; printed pp. 391–393); Newton Project: New Theory about Light and Colors"
+      }
+    },
+    {
+      "id": "one-way-circulation",
+      "label": "Venous valves direct blood back to the heart",
+      "description": "The observed work of the valves supplies a return direction, rather than merely asserting that circulation exists.",
+      "sources": [
+        "descartes",
+        "automata",
+        "harvey-primary",
+        "newton-moon-test-primary",
+        "newton-light"
+      ],
+      "reading": {
+        "text": "The observed work of the valves supplies a return direction, rather than merely asserting that circulation exists.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Stanford Encyclopedia of Philosophy: Descartes’ Physics; Metropolitan Museum: Art in Motion; Harvey, chapters IX and XIV, translated primary excerpts; Isaac Newton, Principia, Book III, Proposition IV and scholium (primary text; printed pp. 391–393); Newton Project: New Theory about Light and Colors"
+      }
+    },
+    {
+      "id": "blood-circuit",
+      "label": "Out through arteries, back through veins",
+      "description": "Reconstruct Harvey’s outward-and-return circulation account. The connecting passage through tissues remained unobserved by him; this is not a complete modern vascular diagram.",
+      "sources": [
+        "descartes",
+        "automata",
+        "harvey-primary",
+        "newton-moon-test-primary",
+        "newton-light"
+      ],
+      "reading": {
+        "text": "Reconstruct Harvey’s outward-and-return circulation account. The connecting passage through tissues remained unobserved by him; this is not a complete modern vascular diagram.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Stanford Encyclopedia of Philosophy: Descartes’ Physics; Metropolitan Museum: Art in Motion; Harvey, chapters IX and XIV, translated primary excerpts; Isaac Newton, Principia, Book III, Proposition IV and scholium (primary text; printed pp. 391–393); Newton Project: New Theory about Light and Colors"
+      }
+    },
+    {
+      "id": "newtonian-framework",
+      "label": "Universal mechanics in absolute space and time",
+      "description": "Reconstruct the framework whose successes and limits later theories will revisit.",
+      "sources": [
+        "descartes",
+        "automata",
+        "harvey-primary",
+        "newton-moon-test-primary",
+        "newton-light"
+      ],
+      "reading": {
+        "text": "Reconstruct the framework whose successes and limits later theories will revisit.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Stanford Encyclopedia of Philosophy: Descartes’ Physics; Metropolitan Museum: Art in Motion; Harvey, chapters IX and XIV, translated primary excerpts; Isaac Newton, Principia, Book III, Proposition IV and scholium (primary text; printed pp. 391–393); Newton Project: New Theory about Light and Colors"
+      }
+    },
+    {
+      "id": "regular-oscillation",
+      "label": "A clock divides time into regular intervals",
+      "description": "A schematic mechanical resource, not a claim that all clocks are equally accurate.",
+      "sources": [
+        "longitude",
+        "longitude-lunar-si",
+        "almanac-history",
+        "jaipur"
+      ],
+      "reading": {
+        "text": "A schematic mechanical resource, not a claim that all clocks are equally accurate.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Royal Museums Greenwich: Harrison and longitude; Smithsonian: Observing the skies — lunar distances; US Naval Observatory: History of the Nautical Almanac; UNESCO: The Jantar Mantar, Jaipur"
+      }
+    },
+    {
+      "id": "portable-clock",
+      "label": "A portable clock set to a reference meridian",
+      "description": "A particular instrument whose stability must be tested.",
+      "sources": [
+        "longitude",
+        "longitude-lunar-si",
+        "almanac-history",
+        "jaipur"
+      ],
+      "reading": {
+        "text": "A particular instrument whose stability must be tested.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Royal Museums Greenwich: Harrison and longitude; Smithsonian: Observing the skies — lunar distances; US Naval Observatory: History of the Nautical Almanac; UNESCO: The Jantar Mantar, Jaipur"
+      }
+    },
+    {
+      "id": "local-noon",
+      "label": "Local noon follows the Sun at this place",
+      "description": "The local reference differs from a clock carried from another longitude.",
+      "sources": [
+        "longitude",
+        "longitude-lunar-si",
+        "almanac-history",
+        "jaipur"
+      ],
+      "reading": {
+        "text": "The local reference differs from a clock carried from another longitude.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Royal Museums Greenwich: Harrison and longitude; Smithsonian: Observing the skies — lunar distances; US Naval Observatory: History of the Nautical Almanac; UNESCO: The Jantar Mantar, Jaipur"
+      }
+    },
+    {
+      "id": "moon-table",
+      "label": "The Moon’s changing sky position can mark reference time",
+      "description": "Lunar-distance navigation needs observations and an almanac; no angle arithmetic is required.",
+      "sources": [
+        "longitude",
+        "longitude-lunar-si",
+        "almanac-history",
+        "jaipur"
+      ],
+      "reading": {
+        "text": "Lunar-distance navigation needs observations and an almanac; no angle arithmetic is required.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Royal Museums Greenwich: Harrison and longitude; Smithsonian: Observing the skies — lunar distances; US Naval Observatory: History of the Nautical Almanac; UNESCO: The Jantar Mantar, Jaipur"
+      }
+    },
+    {
+      "id": "indian-persian-tables",
+      "label": "Indian and Persian astronomical tables in comparison",
+      "description": "Jai Singh’s project brings multiple astronomical traditions into active comparison.",
+      "sources": [
+        "longitude",
+        "longitude-lunar-si",
+        "almanac-history",
+        "jaipur"
+      ],
+      "reading": {
+        "text": "Jai Singh’s project brings multiple astronomical traditions into active comparison.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Royal Museums Greenwich: Harrison and longitude; Smithsonian: Observing the skies — lunar distances; US Naval Observatory: History of the Nautical Almanac; UNESCO: The Jantar Mantar, Jaipur"
+      }
+    },
+    {
+      "id": "masonry-sightlines",
+      "label": "Large masonry instruments fix precise lines of sight",
+      "description": "A different instrumental choice from a telescope, not an inferior historical stage.",
+      "sources": [
+        "longitude",
+        "longitude-lunar-si",
+        "almanac-history",
+        "jaipur"
+      ],
+      "reading": {
+        "text": "A different instrumental choice from a telescope, not an inferior historical stage.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Royal Museums Greenwich: Harrison and longitude; Smithsonian: Observing the skies — lunar distances; US Naval Observatory: History of the Nautical Almanac; UNESCO: The Jantar Mantar, Jaipur"
+      }
+    },
+    {
+      "id": "equal-hours",
+      "label": "A common sequence of equal hours",
+      "description": "A community’s shared calendar meets a finer instrumental division of time.",
+      "sources": [
+        "longitude",
+        "longitude-lunar-si",
+        "almanac-history",
+        "jaipur"
+      ],
+      "reading": {
+        "text": "A community’s shared calendar meets a finer instrumental division of time.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Royal Museums Greenwich: Harrison and longitude; Smithsonian: Observing the skies — lunar distances; US Naval Observatory: History of the Nautical Almanac; UNESCO: The Jantar Mantar, Jaipur"
+      }
+    },
+    {
+      "id": "reference-timekeeper",
+      "label": "A clock carrying another place’s time",
+      "description": "The instrument carries a reference that is distinct from the Sun’s local noon.",
+      "sources": [
+        "longitude",
+        "longitude-lunar-si",
+        "almanac-history",
+        "jaipur"
+      ],
+      "reading": {
+        "text": "The instrument carries a reference that is distinct from the Sun’s local noon.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Royal Museums Greenwich: Harrison and longitude; Smithsonian: Observing the skies — lunar distances; US Naval Observatory: History of the Nautical Almanac; UNESCO: The Jantar Mantar, Jaipur"
+      }
+    },
+    {
+      "id": "time-longitude",
+      "label": "Longitude from two kinds of time",
+      "description": "Comparing local time with reference time locates an east–west difference without a calculation exercise.",
+      "sources": [
+        "longitude",
+        "longitude-lunar-si",
+        "almanac-history",
+        "jaipur"
+      ],
+      "reading": {
+        "text": "Comparing local time with reference time locates an east–west difference without a calculation exercise.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Royal Museums Greenwich: Harrison and longitude; Smithsonian: Observing the skies — lunar distances; US Naval Observatory: History of the Nautical Almanac; UNESCO: The Jantar Mantar, Jaipur"
+      }
+    },
+    {
+      "id": "sea-tested-clock",
+      "label": "A reference clock tested at sea",
+      "description": "Workshop performance is not enough: a moving voyage tests whether the instrument can preserve its reference.",
+      "sources": [
+        "longitude",
+        "longitude-lunar-si",
+        "almanac-history",
+        "jaipur"
+      ],
+      "reading": {
+        "text": "Workshop performance is not enough: a moving voyage tests whether the instrument can preserve its reference.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Royal Museums Greenwich: Harrison and longitude; Smithsonian: Observing the skies — lunar distances; US Naval Observatory: History of the Nautical Almanac; UNESCO: The Jantar Mantar, Jaipur"
+      }
+    },
+    {
+      "id": "lunar-reference",
+      "label": "Reference time read from the Moon",
+      "description": "A long observational and tabular tradition supplies a different route to reference time.",
+      "sources": [
+        "longitude",
+        "longitude-lunar-si",
+        "almanac-history",
+        "jaipur"
+      ],
+      "reading": {
+        "text": "A long observational and tabular tradition supplies a different route to reference time.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Royal Museums Greenwich: Harrison and longitude; Smithsonian: Observing the skies — lunar distances; US Naval Observatory: History of the Nautical Almanac; UNESCO: The Jantar Mantar, Jaipur"
+      }
+    },
+    {
+      "id": "lunar-longitude",
+      "label": "A lunar route to longitude",
+      "description": "The lunar method remains a genuine alternative, with its own demands on sky conditions and observation.",
+      "sources": [
+        "longitude",
+        "longitude-lunar-si",
+        "almanac-history",
+        "jaipur"
+      ],
+      "reading": {
+        "text": "The lunar method remains a genuine alternative, with its own demands on sky conditions and observation.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Royal Museums Greenwich: Harrison and longitude; Smithsonian: Observing the skies — lunar distances; US Naval Observatory: History of the Nautical Almanac; UNESCO: The Jantar Mantar, Jaipur"
+      }
+    },
+    {
+      "id": "jaipur-comparison",
+      "label": "Astronomical traditions compared at Jaipur",
+      "description": "The earlier habit of revising tables returns in a documented South Asian astronomical project, not as a decorative detour.",
+      "sources": [
+        "longitude",
+        "longitude-lunar-si",
+        "almanac-history",
+        "jaipur"
+      ],
+      "reading": {
+        "text": "The earlier habit of revising tables returns in a documented South Asian astronomical project, not as a decorative detour.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Royal Museums Greenwich: Harrison and longitude; Smithsonian: Observing the skies — lunar distances; US Naval Observatory: History of the Nautical Almanac; UNESCO: The Jantar Mantar, Jaipur"
+      }
+    },
+    {
+      "id": "masonry-observatory",
+      "label": "An observatory made from architecture",
+      "description": "Large fixed structures serve astronomical measurement and the revision of tables.",
+      "sources": [
+        "longitude",
+        "longitude-lunar-si",
+        "almanac-history",
+        "jaipur"
+      ],
+      "reading": {
+        "text": "Large fixed structures serve astronomical measurement and the revision of tables.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Royal Museums Greenwich: Harrison and longitude; Smithsonian: Observing the skies — lunar distances; US Naval Observatory: History of the Nautical Almanac; UNESCO: The Jantar Mantar, Jaipur"
+      }
+    },
+    {
+      "id": "positioned-sea-route",
+      "label": "A sea route marked with longitude",
+      "description": "A longitude determination adds east–west position to the chart. Longitude alone does not supply a complete geographical position; latitude remains a separate determination.",
+      "sources": [
+        "longitude",
+        "longitude-lunar-si",
+        "almanac-history",
+        "jaipur"
+      ],
+      "reading": {
+        "text": "A longitude determination adds east–west position to the chart. Longitude alone does not supply a complete geographical position; latitude remains a separate determination.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Royal Museums Greenwich: Harrison and longitude; Smithsonian: Observing the skies — lunar distances; US Naval Observatory: History of the Nautical Almanac; UNESCO: The Jantar Mantar, Jaipur"
+      }
+    },
+    {
+      "id": "provisioned-route",
+      "label": "A voyage sustained beyond the fresh-food window",
+      "description": "Earlier preservation practice materially supports the reach of navigation.",
+      "sources": [
+        "longitude",
+        "longitude-lunar-si",
+        "almanac-history",
+        "jaipur"
+      ],
+      "reading": {
+        "text": "Earlier preservation practice materially supports the reach of navigation.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Royal Museums Greenwich: Harrison and longitude; Smithsonian: Observing the skies — lunar distances; US Naval Observatory: History of the Nautical Almanac; UNESCO: The Jantar Mantar, Jaipur"
+      }
+    },
+    {
+      "id": "craft-plates",
+      "label": "Engravings explain the work of crafts",
+      "description": "The Encyclopédie attends to practices as well as learned abstractions.",
+      "sources": [
+        "encyclopedie",
+        "hume",
+        "kant",
+        "wollstonecraft",
+        "stoics"
+      ],
+      "reading": {
+        "text": "The Encyclopédie attends to practices as well as learned abstractions.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: University of Chicago ARTFL Encyclopédie; Stanford Encyclopedia of Philosophy: David Hume; Stanford Encyclopedia of Philosophy: Immanuel Kant; Mary Wollstonecraft, A Vindication of the Rights of Woman; Stanford Encyclopedia of Philosophy: Stoicism"
+      }
+    },
+    {
+      "id": "cross-references",
+      "label": "Articles send readers across the branches of knowledge",
+      "description": "Connections can challenge a hierarchy as well as organize it.",
+      "sources": [
+        "encyclopedie",
+        "hume",
+        "kant",
+        "wollstonecraft",
+        "stoics"
+      ],
+      "reading": {
+        "text": "Connections can challenge a hierarchy as well as organize it.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: University of Chicago ARTFL Encyclopédie; Stanford Encyclopedia of Philosophy: David Hume; Stanford Encyclopedia of Philosophy: Immanuel Kant; Mary Wollstonecraft, A Vindication of the Rights of Woman; Stanford Encyclopedia of Philosophy: Stoicism"
+      }
+    },
+    {
+      "id": "causal-habit",
+      "label": "Repeated succession does not show necessity itself",
+      "description": "A simplified Humean challenge: experience does not directly display a necessary connection.",
+      "sources": [
+        "encyclopedie",
+        "hume",
+        "kant",
+        "wollstonecraft",
+        "stoics"
+      ],
+      "reading": {
+        "text": "A simplified Humean challenge: experience does not directly display a necessary connection.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: University of Chicago ARTFL Encyclopédie; Stanford Encyclopedia of Philosophy: David Hume; Stanford Encyclopedia of Philosophy: Immanuel Kant; Mary Wollstonecraft, A Vindication of the Rights of Woman; Stanford Encyclopedia of Philosophy: Stoicism"
+      }
+    },
+    {
+      "id": "forms-of-experience",
+      "label": "Kant asks what makes experience possible",
+      "description": "A response concerning conditions of experience, not an empirical refutation of Hume.",
+      "sources": [
+        "encyclopedie",
+        "hume",
+        "kant",
+        "wollstonecraft",
+        "stoics"
+      ],
+      "reading": {
+        "text": "A response concerning conditions of experience, not an empirical refutation of Hume.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: University of Chicago ARTFL Encyclopédie; Stanford Encyclopedia of Philosophy: David Hume; Stanford Encyclopedia of Philosophy: Immanuel Kant; Mary Wollstonecraft, A Vindication of the Rights of Woman; Stanford Encyclopedia of Philosophy: Stoicism"
+      }
+    },
+    {
+      "id": "luxury-status",
+      "label": "Prestige demands ever more possessions",
+      "description": "A teaching comparison with ancient sufficiency, not an assertion that every Enlightenment writer agreed.",
+      "sources": [
+        "encyclopedie",
+        "hume",
+        "kant",
+        "wollstonecraft",
+        "stoics"
+      ],
+      "reading": {
+        "text": "A teaching comparison with ancient sufficiency, not an assertion that every Enlightenment writer agreed.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: University of Chicago ARTFL Encyclopédie; Stanford Encyclopedia of Philosophy: David Hume; Stanford Encyclopedia of Philosophy: Immanuel Kant; Mary Wollstonecraft, A Vindication of the Rights of Woman; Stanford Encyclopedia of Philosophy: Stoicism"
+      }
+    },
+    {
+      "id": "rights-declaration",
+      "label": "Rights are announced as universal",
+      "description": "An attributed political aspiration whose exclusions remain available for criticism.",
+      "sources": [
+        "encyclopedie",
+        "hume",
+        "kant",
+        "wollstonecraft",
+        "stoics"
+      ],
+      "reading": {
+        "text": "An attributed political aspiration whose exclusions remain available for criticism.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: University of Chicago ARTFL Encyclopédie; Stanford Encyclopedia of Philosophy: David Hume; Stanford Encyclopedia of Philosophy: Immanuel Kant; Mary Wollstonecraft, A Vindication of the Rights of Woman; Stanford Encyclopedia of Philosophy: Stoicism"
+      }
+    },
+    {
+      "id": "women-excluded",
+      "label": "Women are denied the education invoked to justify equality",
+      "description": "Wollstonecraft challenges an exclusion built into supposedly universal reason.",
+      "sources": [
+        "encyclopedie",
+        "hume",
+        "kant",
+        "wollstonecraft",
+        "stoics"
+      ],
+      "reading": {
+        "text": "Wollstonecraft challenges an exclusion built into supposedly universal reason.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: University of Chicago ARTFL Encyclopédie; Stanford Encyclopedia of Philosophy: David Hume; Stanford Encyclopedia of Philosophy: Immanuel Kant; Mary Wollstonecraft, A Vindication of the Rights of Woman; Stanford Encyclopedia of Philosophy: Stoicism"
+      }
+    },
+    {
+      "id": "enslaved-testimony",
+      "label": "Enslaved people describe the denial of their freedom",
+      "description": "A schematic dossier representing testimony and political agency, not a fabricated quotation from a named person.",
+      "sources": [
+        "encyclopedie",
+        "hume",
+        "kant",
+        "wollstonecraft",
+        "stoics"
+      ],
+      "reading": {
+        "text": "A schematic dossier representing testimony and political agency, not a fabricated quotation from a named person.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: University of Chicago ARTFL Encyclopédie; Stanford Encyclopedia of Philosophy: David Hume; Stanford Encyclopedia of Philosophy: Immanuel Kant; Mary Wollstonecraft, A Vindication of the Rights of Woman; Stanford Encyclopedia of Philosophy: Stoicism"
+      }
+    },
+    {
+      "id": "public-readers",
+      "label": "Readers outside a university can answer back",
+      "description": "A wider public is neither automatically equal nor free of coercion.",
+      "sources": [
+        "encyclopedie",
+        "hume",
+        "kant",
+        "wollstonecraft",
+        "stoics"
+      ],
+      "reading": {
+        "text": "A wider public is neither automatically equal nor free of coercion.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: University of Chicago ARTFL Encyclopédie; Stanford Encyclopedia of Philosophy: David Hume; Stanford Encyclopedia of Philosophy: Immanuel Kant; Mary Wollstonecraft, A Vindication of the Rights of Woman; Stanford Encyclopedia of Philosophy: Stoicism"
+      }
+    },
+    {
+      "id": "encyclopedic-craft",
+      "label": "Craft enters the public account of knowledge",
+      "description": "Print can make practical arts part of an ambitious shared account, amid censorship and disagreement.",
+      "sources": [
+        "encyclopedie",
+        "hume",
+        "kant",
+        "wollstonecraft",
+        "stoics"
+      ],
+      "reading": {
+        "text": "Print can make practical arts part of an ambitious shared account, amid censorship and disagreement.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: University of Chicago ARTFL Encyclopédie; Stanford Encyclopedia of Philosophy: David Hume; Stanford Encyclopedia of Philosophy: Immanuel Kant; Mary Wollstonecraft, A Vindication of the Rights of Woman; Stanford Encyclopedia of Philosophy: Stoicism"
+      }
+    },
+    {
+      "id": "encyclopedic-network",
+      "label": "Knowledge joined by cross-reference",
+      "description": "The reference work lets a reader move among practices and arguments rather than follow only a single hierarchy.",
+      "sources": [
+        "encyclopedie",
+        "hume",
+        "kant",
+        "wollstonecraft",
+        "stoics"
+      ],
+      "reading": {
+        "text": "The reference work lets a reader move among practices and arguments rather than follow only a single hierarchy.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: University of Chicago ARTFL Encyclopédie; Stanford Encyclopedia of Philosophy: David Hume; Stanford Encyclopedia of Philosophy: Immanuel Kant; Mary Wollstonecraft, A Vindication of the Rights of Woman; Stanford Encyclopedia of Philosophy: Stoicism"
+      }
+    },
+    {
+      "id": "problem-of-induction",
+      "label": "Past success does not guarantee the next case",
+      "description": "Hume’s challenge asks what warrants extending an observed regularity beyond observed cases.",
+      "sources": [
+        "encyclopedie",
+        "hume",
+        "kant",
+        "wollstonecraft",
+        "stoics"
+      ],
+      "reading": {
+        "text": "Hume’s challenge asks what warrants extending an observed regularity beyond observed cases.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: University of Chicago ARTFL Encyclopédie; Stanford Encyclopedia of Philosophy: David Hume; Stanford Encyclopedia of Philosophy: Immanuel Kant; Mary Wollstonecraft, A Vindication of the Rights of Woman; Stanford Encyclopedia of Philosophy: Stoicism"
+      }
+    },
+    {
+      "id": "conditions-of-experience",
+      "label": "Kant: the mind helps structure experience",
+      "description": "Reconstruct a philosophical response without declaring the entire dispute settled.",
+      "sources": [
+        "encyclopedie",
+        "hume",
+        "kant",
+        "wollstonecraft",
+        "stoics"
+      ],
+      "reading": {
+        "text": "Reconstruct a philosophical response without declaring the entire dispute settled.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: University of Chicago ARTFL Encyclopédie; Stanford Encyclopedia of Philosophy: David Hume; Stanford Encyclopedia of Philosophy: Immanuel Kant; Mary Wollstonecraft, A Vindication of the Rights of Woman; Stanford Encyclopedia of Philosophy: Stoicism"
+      }
+    },
+    {
+      "id": "sufficiency-against-status",
+      "label": "Enough is not the same as higher status",
+      "description": "Modern teaching comparison: an old practice questions a newer social demand, without claiming luxury is harmless or universally necessary.",
+      "sources": [
+        "encyclopedie",
+        "hume",
+        "kant",
+        "wollstonecraft",
+        "stoics"
+      ],
+      "reading": {
+        "text": "Modern teaching comparison: an old practice questions a newer social demand, without claiming luxury is harmless or universally necessary.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: University of Chicago ARTFL Encyclopédie; Stanford Encyclopedia of Philosophy: David Hume; Stanford Encyclopedia of Philosophy: Immanuel Kant; Mary Wollstonecraft, A Vindication of the Rights of Woman; Stanford Encyclopedia of Philosophy: Stoicism"
+      }
+    },
+    {
+      "id": "universal-rights",
+      "label": "A claim to rights beyond inherited rank",
+      "description": "A teaching comparison with ancient fellowship highlights both continuity of a question and difference in historical concepts.",
+      "sources": [
+        "encyclopedie",
+        "hume",
+        "kant",
+        "wollstonecraft",
+        "stoics"
+      ],
+      "reading": {
+        "text": "A teaching comparison with ancient fellowship highlights both continuity of a question and difference in historical concepts.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: University of Chicago ARTFL Encyclopédie; Stanford Encyclopedia of Philosophy: David Hume; Stanford Encyclopedia of Philosophy: Immanuel Kant; Mary Wollstonecraft, A Vindication of the Rights of Woman; Stanford Encyclopedia of Philosophy: Stoicism"
+      }
+    },
+    {
+      "id": "rights-for-women",
+      "label": "Universal reason must include women",
+      "description": "An announced principle is turned against an exclusion that limits its application.",
+      "sources": [
+        "encyclopedie",
+        "hume",
+        "kant",
+        "wollstonecraft",
+        "stoics"
+      ],
+      "reading": {
+        "text": "An announced principle is turned against an exclusion that limits its application.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: University of Chicago ARTFL Encyclopédie; Stanford Encyclopedia of Philosophy: David Hume; Stanford Encyclopedia of Philosophy: Immanuel Kant; Mary Wollstonecraft, A Vindication of the Rights of Woman; Stanford Encyclopedia of Philosophy: Stoicism"
+      }
+    },
+    {
+      "id": "rights-against-slavery",
+      "label": "Universal liberty confronts enslavement",
+      "description": "The promise cannot be tested without the experience and agency of those it excludes.",
+      "sources": [
+        "encyclopedie",
+        "hume",
+        "kant",
+        "wollstonecraft",
+        "stoics"
+      ],
+      "reading": {
+        "text": "The promise cannot be tested without the experience and agency of those it excludes.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: University of Chicago ARTFL Encyclopédie; Stanford Encyclopedia of Philosophy: David Hume; Stanford Encyclopedia of Philosophy: Immanuel Kant; Mary Wollstonecraft, A Vindication of the Rights of Woman; Stanford Encyclopedia of Philosophy: Stoicism"
+      }
+    },
+    {
+      "id": "public-reasoning",
+      "label": "An argument answerable to a wider public",
+      "description": "The setting for objection broadens, without claiming a direct institutional line from every medieval disputation.",
+      "sources": [
+        "encyclopedie",
+        "hume",
+        "kant",
+        "wollstonecraft",
+        "stoics"
+      ],
+      "reading": {
+        "text": "The setting for objection broadens, without claiming a direct institutional line from every medieval disputation.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: University of Chicago ARTFL Encyclopédie; Stanford Encyclopedia of Philosophy: David Hume; Stanford Encyclopedia of Philosophy: Immanuel Kant; Mary Wollstonecraft, A Vindication of the Rights of Woman; Stanford Encyclopedia of Philosophy: Stoicism"
+      }
+    },
+    {
+      "id": "luxury-trade",
+      "label": "Demand for luxuries keeps many trades busy",
+      "description": "A premise in Mandeville’s provocative account, not the game’s ethical verdict.",
+      "sources": [
+        "mandeville",
+        "smith",
+        "malthus",
+        "morris"
+      ],
+      "reading": {
+        "text": "A premise in Mandeville’s provocative account, not the game’s ethical verdict.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Stanford Encyclopedia of Philosophy: Bernard Mandeville; Adam Smith, The Wealth of Nations; Thomas Malthus: Essay on the Principle of Population, 1798; William Morris Archive: Useful Work versus Useless Toil"
+      }
+    },
+    {
+      "id": "mandeville-hive",
+      "label": "Mandeville’s prosperous hive depends on vice",
+      "description": "An attributed satirical argument about private motives and public outcomes.",
+      "sources": [
+        "mandeville",
+        "smith",
+        "malthus",
+        "morris"
+      ],
+      "reading": {
+        "text": "An attributed satirical argument about private motives and public outcomes.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Stanford Encyclopedia of Philosophy: Bernard Mandeville; Adam Smith, The Wealth of Nations; Thomas Malthus: Essay on the Principle of Population, 1798; William Morris Archive: Useful Work versus Useless Toil"
+      }
+    },
+    {
+      "id": "pin-workshop",
+      "label": "A workshop divides pin-making into repeated tasks",
+      "description": "Smith’s familiar example is used conceptually, not as a production calculation.",
+      "sources": [
+        "mandeville",
+        "smith",
+        "malthus",
+        "morris"
+      ],
+      "reading": {
+        "text": "Smith’s familiar example is used conceptually, not as a production calculation.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Stanford Encyclopedia of Philosophy: Bernard Mandeville; Adam Smith, The Wealth of Nations; Thomas Malthus: Essay on the Principle of Population, 1798; William Morris Archive: Useful Work versus Useless Toil"
+      }
+    },
+    {
+      "id": "market-exchange",
+      "label": "Specialists exchange what they make",
+      "description": "Exchange coordinates separately divided activities.",
+      "sources": [
+        "mandeville",
+        "smith",
+        "malthus",
+        "morris"
+      ],
+      "reading": {
+        "text": "Exchange coordinates separately divided activities.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Stanford Encyclopedia of Philosophy: Bernard Mandeville; Adam Smith, The Wealth of Nations; Thomas Malthus: Essay on the Principle of Population, 1798; William Morris Archive: Useful Work versus Useless Toil"
+      }
+    },
+    {
+      "id": "narrowed-work",
+      "label": "A lifetime of one small task can narrow a worker’s powers",
+      "description": "Smith also recognizes costs of extreme specialization.",
+      "sources": [
+        "mandeville",
+        "smith",
+        "malthus",
+        "morris"
+      ],
+      "reading": {
+        "text": "Smith also recognizes costs of extreme specialization.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Stanford Encyclopedia of Philosophy: Bernard Mandeville; Adam Smith, The Wealth of Nations; Thomas Malthus: Essay on the Principle of Population, 1798; William Morris Archive: Useful Work versus Useless Toil"
+      }
+    },
+    {
+      "id": "population-growth",
+      "label": "Population can grow faster than subsistence",
+      "description": "Malthus’s proposed tension, not an eternal law that every society must satisfy identically.",
+      "sources": [
+        "mandeville",
+        "smith",
+        "malthus",
+        "morris"
+      ],
+      "reading": {
+        "text": "Malthus’s proposed tension, not an eternal law that every society must satisfy identically.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Stanford Encyclopedia of Philosophy: Bernard Mandeville; Adam Smith, The Wealth of Nations; Thomas Malthus: Essay on the Principle of Population, 1798; William Morris Archive: Useful Work versus Useless Toil"
+      }
+    },
+    {
+      "id": "food-constraints",
+      "label": "Food and access to it can become limiting",
+      "description": "Production and distribution must not be silently treated as the same problem.",
+      "sources": [
+        "mandeville",
+        "smith",
+        "malthus",
+        "morris"
+      ],
+      "reading": {
+        "text": "Production and distribution must not be silently treated as the same problem.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Stanford Encyclopedia of Philosophy: Bernard Mandeville; Adam Smith, The Wealth of Nations; Thomas Malthus: Essay on the Principle of Population, 1798; William Morris Archive: Useful Work versus Useless Toil"
+      }
+    },
+    {
+      "id": "regional-goods",
+      "label": "Distant regions exchange unlike goods",
+      "description": "Trade changes what people can obtain and what institutions can control.",
+      "sources": [
+        "mandeville",
+        "smith",
+        "malthus",
+        "morris"
+      ],
+      "reading": {
+        "text": "Trade changes what people can obtain and what institutions can control.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Stanford Encyclopedia of Philosophy: Bernard Mandeville; Adam Smith, The Wealth of Nations; Thomas Malthus: Essay on the Principle of Population, 1798; William Morris Archive: Useful Work versus Useless Toil"
+      }
+    },
+    {
+      "id": "coerced-labour",
+      "label": "Some exchanged goods are made through coercion",
+      "description": "A material and political condition of historical trade, not a harmless price adjustment.",
+      "sources": [
+        "mandeville",
+        "smith",
+        "malthus",
+        "morris"
+      ],
+      "reading": {
+        "text": "A material and political condition of historical trade, not a harmless price adjustment.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Stanford Encyclopedia of Philosophy: Bernard Mandeville; Adam Smith, The Wealth of Nations; Thomas Malthus: Essay on the Principle of Population, 1798; William Morris Archive: Useful Work versus Useless Toil"
+      }
+    },
+    {
+      "id": "private-vice-public-benefit",
+      "label": "Mandeville: private vice, public benefit",
+      "description": "Reconstruct the controversial thesis; it remains distinct from an endorsement of greed.",
+      "sources": [
+        "mandeville",
+        "smith",
+        "malthus",
+        "morris"
+      ],
+      "reading": {
+        "text": "Reconstruct the controversial thesis; it remains distinct from an endorsement of greed.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Stanford Encyclopedia of Philosophy: Bernard Mandeville; Adam Smith, The Wealth of Nations; Thomas Malthus: Essay on the Principle of Population, 1798; William Morris Archive: Useful Work versus Useless Toil"
+      }
+    },
+    {
+      "id": "division-of-labour",
+      "label": "Production divided into specialized tasks",
+      "description": "The organization of work, not only a new machine, changes productive capacity.",
+      "sources": [
+        "mandeville",
+        "smith",
+        "malthus",
+        "morris"
+      ],
+      "reading": {
+        "text": "The organization of work, not only a new machine, changes productive capacity.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Stanford Encyclopedia of Philosophy: Bernard Mandeville; Adam Smith, The Wealth of Nations; Thomas Malthus: Essay on the Principle of Population, 1798; William Morris Archive: Useful Work versus Useless Toil"
+      }
+    },
+    {
+      "id": "specialization-cost",
+      "label": "More output can narrow the maker’s life",
+      "description": "A gain in productive efficiency can coexist with a loss in human development.",
+      "sources": [
+        "mandeville",
+        "smith",
+        "malthus",
+        "morris"
+      ],
+      "reading": {
+        "text": "A gain in productive efficiency can coexist with a loss in human development.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Stanford Encyclopedia of Philosophy: Bernard Mandeville; Adam Smith, The Wealth of Nations; Thomas Malthus: Essay on the Principle of Population, 1798; William Morris Archive: Useful Work versus Useless Toil"
+      }
+    },
+    {
+      "id": "prosperity-not-good-life",
+      "label": "Prosperity and a good life can diverge",
+      "description": "Modern teaching comparison: the earlier account of sufficient pleasure does not measure success by total trade.",
+      "sources": [
+        "mandeville",
+        "smith",
+        "malthus",
+        "morris"
+      ],
+      "reading": {
+        "text": "Modern teaching comparison: the earlier account of sufficient pleasure does not measure success by total trade.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Stanford Encyclopedia of Philosophy: Bernard Mandeville; Adam Smith, The Wealth of Nations; Thomas Malthus: Essay on the Principle of Population, 1798; William Morris Archive: Useful Work versus Useless Toil"
+      }
+    },
+    {
+      "id": "population-pressure",
+      "label": "More offspring than available subsistence",
+      "description": "Malthus argued that the capacity for population increase could exceed the growth of subsistence, creating pressure and checks. The claim is available for later biological adaptation and social criticism; it does not specify a just policy.",
+      "sources": [
+        "mandeville",
+        "smith",
+        "malthus",
+        "morris"
+      ],
+      "reading": {
+        "text": "Malthus argued that the capacity for population increase could exceed the growth of subsistence, creating pressure and checks. The claim is available for later biological adaptation and social criticism; it does not specify a just policy.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Stanford Encyclopedia of Philosophy: Bernard Mandeville; Adam Smith, The Wealth of Nations; Thomas Malthus: Essay on the Principle of Population, 1798; William Morris Archive: Useful Work versus Useless Toil"
+      }
+    },
+    {
+      "id": "scarcity-and-justice",
+      "label": "Scarcity does not settle who should bear it",
+      "description": "A teaching comparison keeps a descriptive pressure distinct from a policy or moral permission.",
+      "sources": [
+        "mandeville",
+        "smith",
+        "malthus",
+        "morris"
+      ],
+      "reading": {
+        "text": "A teaching comparison keeps a descriptive pressure distinct from a policy or moral permission.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Stanford Encyclopedia of Philosophy: Bernard Mandeville; Adam Smith, The Wealth of Nations; Thomas Malthus: Essay on the Principle of Population, 1798; William Morris Archive: Useful Work versus Useless Toil"
+      }
+    },
+    {
+      "id": "long-distance-exchange",
+      "label": "An enlarged world of exchange",
+      "description": "Navigation and preservation materially widen the reach of exchange.",
+      "sources": [
+        "mandeville",
+        "smith",
+        "malthus",
+        "morris"
+      ],
+      "reading": {
+        "text": "Navigation and preservation materially widen the reach of exchange.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Stanford Encyclopedia of Philosophy: Bernard Mandeville; Adam Smith, The Wealth of Nations; Thomas Malthus: Essay on the Principle of Population, 1798; William Morris Archive: Useful Work versus Useless Toil"
+      }
+    },
+    {
+      "id": "coercive-exchange",
+      "label": "Exchange entangled with coercion",
+      "description": "The route carries political force as well as goods; technical reach alone does not explain the history.",
+      "sources": [
+        "mandeville",
+        "smith",
+        "malthus",
+        "morris"
+      ],
+      "reading": {
+        "text": "The route carries political force as well as goods; technical reach alone does not explain the history.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Stanford Encyclopedia of Philosophy: Bernard Mandeville; Adam Smith, The Wealth of Nations; Thomas Malthus: Essay on the Principle of Population, 1798; William Morris Archive: Useful Work versus Useless Toil"
+      }
+    },
+    {
+      "id": "work-as-a-human-question",
+      "label": "The maker is more than the output",
+      "description": "Modern teaching comparison: a cultivated life supplies a question that production totals alone cannot answer.",
+      "sources": [
+        "mandeville",
+        "smith",
+        "malthus",
+        "morris"
+      ],
+      "reading": {
+        "text": "Modern teaching comparison: a cultivated life supplies a question that production totals alone cannot answer.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Stanford Encyclopedia of Philosophy: Bernard Mandeville; Adam Smith, The Wealth of Nations; Thomas Malthus: Essay on the Principle of Population, 1798; William Morris Archive: Useful Work versus Useless Toil"
+      }
+    },
+    {
+      "id": "shell-in-rock",
+      "label": "A fossil shell enclosed in rock",
+      "description": "A trace of an organism is part of the rock’s history, not simply a modern shell resting on its surface.",
+      "sources": [
+        "hutton",
+        "deep-time",
+        "lyell-darwin",
+        "geologic-age-modern"
+      ],
+      "reading": {
+        "text": "A trace of an organism is part of the rock’s history, not simply a modern shell resting on its surface.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Siccar Point: geological evidence and Hutton; US Geological Survey: Geologic Time; Darwin Correspondence Project: Charles Lyell; USGS: Geologic Time, Then and Now"
+      }
+    },
+    {
+      "id": "layer-sequence",
+      "label": "Undisturbed layers: lower before upper",
+      "description": "An ordering principle for deposited strata; overturning and intrusion require separate attention.",
+      "sources": [
+        "hutton",
+        "deep-time",
+        "lyell-darwin",
+        "geologic-age-modern"
+      ],
+      "reading": {
+        "text": "An ordering principle for deposited strata; overturning and intrusion require separate attention.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Siccar Point: geological evidence and Hutton; US Geological Survey: Geologic Time; Darwin Correspondence Project: Charles Lyell; USGS: Geologic Time, Then and Now"
+      }
+    },
+    {
+      "id": "matching-fossils",
+      "label": "Similar fossil successions in distant beds",
+      "description": "Fossil assemblages can help correlate separated strata.",
+      "sources": [
+        "hutton",
+        "deep-time",
+        "lyell-darwin",
+        "geologic-age-modern"
+      ],
+      "reading": {
+        "text": "Fossil assemblages can help correlate separated strata.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Siccar Point: geological evidence and Hutton; US Geological Survey: Geologic Time; Darwin Correspondence Project: Charles Lyell; USGS: Geologic Time, Then and Now"
+      }
+    },
+    {
+      "id": "erosion-deposition",
+      "label": "Streams wear down rock and lay sediment",
+      "description": "Observable processes provide resources for reconstructing an inaccessible past.",
+      "sources": [
+        "hutton",
+        "deep-time",
+        "lyell-darwin",
+        "geologic-age-modern"
+      ],
+      "reading": {
+        "text": "Observable processes provide resources for reconstructing an inaccessible past.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Siccar Point: geological evidence and Hutton; US Geological Survey: Geologic Time; Darwin Correspondence Project: Charles Lyell; USGS: Geologic Time, Then and Now"
+      }
+    },
+    {
+      "id": "tilted-below-level",
+      "label": "Tilted beds below younger level beds",
+      "description": "The Siccar Point unconformity requires deposition, deformation, erosion and renewed deposition.",
+      "sources": [
+        "hutton",
+        "deep-time",
+        "lyell-darwin",
+        "geologic-age-modern"
+      ],
+      "reading": {
+        "text": "The Siccar Point unconformity requires deposition, deformation, erosion and renewed deposition.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Siccar Point: geological evidence and Hutton; US Geological Survey: Geologic Time; Darwin Correspondence Project: Charles Lyell; USGS: Geologic Time, Then and Now"
+      }
+    },
+    {
+      "id": "lost-animals",
+      "label": "Fossil animals unlike any living species",
+      "description": "Comparative anatomy helped Cuvier make extinction a serious empirical conclusion.",
+      "sources": [
+        "hutton",
+        "deep-time",
+        "lyell-darwin",
+        "geologic-age-modern"
+      ],
+      "reading": {
+        "text": "Comparative anatomy helped Cuvier make extinction a serious empirical conclusion.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Siccar Point: geological evidence and Hutton; US Geological Survey: Geologic Time; Darwin Correspondence Project: Charles Lyell; USGS: Geologic Time, Then and Now"
+      }
+    },
+    {
+      "id": "sudden-disruption",
+      "label": "Some strata record abrupt disruption",
+      "description": "An eventful history need not be a uniform, unchanging rate of alteration.",
+      "sources": [
+        "hutton",
+        "deep-time",
+        "lyell-darwin",
+        "geologic-age-modern"
+      ],
+      "reading": {
+        "text": "An eventful history need not be a uniform, unchanging rate of alteration.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Siccar Point: geological evidence and Hutton; US Geological Survey: Geologic Time; Darwin Correspondence Project: Charles Lyell; USGS: Geologic Time, Then and Now"
+      }
+    },
+    {
+      "id": "organic-fossil",
+      "label": "A fossil is a trace of former life",
+      "description": "Comparison with living forms turns the object into evidence about a past organism.",
+      "sources": [
+        "hutton",
+        "deep-time",
+        "lyell-darwin",
+        "geologic-age-modern"
+      ],
+      "reading": {
+        "text": "Comparison with living forms turns the object into evidence about a past organism.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Siccar Point: geological evidence and Hutton; US Geological Survey: Geologic Time; Darwin Correspondence Project: Charles Lyell; USGS: Geologic Time, Then and Now"
+      }
+    },
+    {
+      "id": "relative-strata",
+      "label": "A sequence of deposited worlds",
+      "description": "The fossil-bearing layers can be ordered without yet assigning ages in years.",
+      "sources": [
+        "hutton",
+        "deep-time",
+        "lyell-darwin",
+        "geologic-age-modern"
+      ],
+      "reading": {
+        "text": "The fossil-bearing layers can be ordered without yet assigning ages in years.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Siccar Point: geological evidence and Hutton; US Geological Survey: Geologic Time; Darwin Correspondence Project: Charles Lyell; USGS: Geologic Time, Then and Now"
+      }
+    },
+    {
+      "id": "correlated-strata",
+      "label": "Separated beds, a comparable succession",
+      "description": "Correlation extends the record beyond one exposed cliff.",
+      "sources": [
+        "hutton",
+        "deep-time",
+        "lyell-darwin",
+        "geologic-age-modern"
+      ],
+      "reading": {
+        "text": "Correlation extends the record beyond one exposed cliff.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Siccar Point: geological evidence and Hutton; US Geological Survey: Geologic Time; Darwin Correspondence Project: Charles Lyell; USGS: Geologic Time, Then and Now"
+      }
+    },
+    {
+      "id": "process-history",
+      "label": "Present processes can explain ancient traces",
+      "description": "A methodological comparison applies causal processes to traces; it is not a claim that Hutton inherited this particular Greek argument.",
+      "sources": [
+        "hutton",
+        "deep-time",
+        "lyell-darwin",
+        "geologic-age-modern"
+      ],
+      "reading": {
+        "text": "A methodological comparison applies causal processes to traces; it is not a claim that Hutton inherited this particular Greek argument.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Siccar Point: geological evidence and Hutton; US Geological Survey: Geologic Time; Darwin Correspondence Project: Charles Lyell; USGS: Geologic Time, Then and Now"
+      }
+    },
+    {
+      "id": "cycles-in-rock",
+      "label": "More than one making of the landscape",
+      "description": "The visible arrangement requires several episodes, with erosion between them.",
+      "sources": [
+        "hutton",
+        "deep-time",
+        "lyell-darwin",
+        "geologic-age-modern"
+      ],
+      "reading": {
+        "text": "The visible arrangement requires several episodes, with erosion between them.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Siccar Point: geological evidence and Hutton; US Geological Survey: Geologic Time; Darwin Correspondence Project: Charles Lyell; USGS: Geologic Time, Then and Now"
+      }
+    },
+    {
+      "id": "deep-time-world",
+      "label": "A landscape needs a deep past",
+      "description": "Repeated deposition, deformation and erosion across a correlated rock record support an extended history. The geographically developed succession is not rejected in favour of a less-developed local version; no exact duration has yet been measured.",
+      "sources": [
+        "hutton",
+        "deep-time",
+        "lyell-darwin",
+        "geologic-age-modern"
+      ],
+      "reading": {
+        "text": "Repeated deposition, deformation and erosion across a correlated rock record support an extended history. The geographically developed succession is not rejected in favour of a less-developed local version; no exact duration has yet been measured.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Siccar Point: geological evidence and Hutton; US Geological Survey: Geologic Time; Darwin Correspondence Project: Charles Lyell; USGS: Geologic Time, Then and Now"
+      }
+    },
+    {
+      "id": "extinction-real",
+      "label": "Whole forms of life have disappeared",
+      "description": "Extinction changes the meaning of a catalogue: some kinds belong only to the past.",
+      "sources": [
+        "hutton",
+        "deep-time",
+        "lyell-darwin",
+        "geologic-age-modern"
+      ],
+      "reading": {
+        "text": "Extinction changes the meaning of a catalogue: some kinds belong only to the past.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Siccar Point: geological evidence and Hutton; US Geological Survey: Geologic Time; Darwin Correspondence Project: Charles Lyell; USGS: Geologic Time, Then and Now"
+      }
+    },
+    {
+      "id": "eventful-geology",
+      "label": "Long processes and abrupt events",
+      "description": "Do not force every deposit into one rate or one worldwide catastrophe.",
+      "sources": [
+        "hutton",
+        "deep-time",
+        "lyell-darwin",
+        "geologic-age-modern"
+      ],
+      "reading": {
+        "text": "Do not force every deposit into one rate or one worldwide catastrophe.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Siccar Point: geological evidence and Hutton; US Geological Survey: Geologic Time; Darwin Correspondence Project: Charles Lyell; USGS: Geologic Time, Then and Now"
+      }
+    },
+    {
+      "id": "age-still-open",
+      "label": "Sequence is not duration",
+      "description": "The order and depth of the history are powerful results; its absolute age remains a distinct unresolved measurement problem.",
+      "sources": [
+        "hutton",
+        "deep-time",
+        "lyell-darwin",
+        "geologic-age-modern"
+      ],
+      "reading": {
+        "text": "The order and depth of the history are powerful results; its absolute age remains a distinct unresolved measurement problem.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Siccar Point: geological evidence and Hutton; US Geological Survey: Geologic Time; Darwin Correspondence Project: Charles Lyell; USGS: Geologic Time, Then and Now"
+      }
+    },
+    {
+      "id": "binomial-names",
+      "label": "Linnaeus gives each species a two-part name",
+      "description": "A shared naming practice aids comparison; his classifications and racial hierarchy are not endorsed as natural truths.",
+      "sources": [
+        "aristotle-biology",
+        "linnaeus",
+        "humboldt",
+        "darwin-selection",
+        "darwin-malthus",
+        "darwin-origin-wolves-primary",
+        "wallace-varieties-primary",
+        "lyell-darwin"
+      ],
+      "reading": {
+        "text": "A shared naming practice aids comparison; his classifications and racial hierarchy are not endorsed as natural truths.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Stanford Encyclopedia of Philosophy: Aristotle’s Biology; The Linnean Society: Linnaeus and race; Nature Ecology & Evolution: Humboldt’s legacy; Darwin Correspondence Project: Natural selection; A. R. Wallace to Darwin, 9 July 1881, Darwin Correspondence Project; Darwin, On the Origin of Species (1859), IV, pp.90–91 and 95–96: imaginary wolf/prey example and accumulation over time; Wallace, On the Tendency of Varieties to depart indefinitely from the Original Type (1858), pp.53–62, in the joint Darwin–Wallace publication; Darwin Correspondence Project: Charles Lyell"
+      }
+    },
+    {
+      "id": "altitude-plants",
+      "label": "Plant communities change with height and climate",
+      "description": "Humboldt’s comparative geography connects living forms with physical conditions.",
+      "sources": [
+        "aristotle-biology",
+        "linnaeus",
+        "humboldt",
+        "darwin-selection",
+        "darwin-malthus",
+        "darwin-origin-wolves-primary",
+        "wallace-varieties-primary",
+        "lyell-darwin"
+      ],
+      "reading": {
+        "text": "Humboldt’s comparative geography connects living forms with physical conditions.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Stanford Encyclopedia of Philosophy: Aristotle’s Biology; The Linnean Society: Linnaeus and race; Nature Ecology & Evolution: Humboldt’s legacy; Darwin Correspondence Project: Natural selection; A. R. Wallace to Darwin, 9 July 1881, Darwin Correspondence Project; Darwin, On the Origin of Species (1859), IV, pp.90–91 and 95–96: imaginary wolf/prey example and accumulation over time; Wallace, On the Tendency of Varieties to depart indefinitely from the Original Type (1858), pp.53–62, in the joint Darwin–Wallace publication; Darwin Correspondence Project: Charles Lyell"
+      }
+    },
+    {
+      "id": "use-disuse",
+      "label": "Lamarck: changed habits can change descendants",
+      "description": "A historical mechanism involving use, disuse and inherited acquired change; not merely a foolish prelude to Darwin.",
+      "sources": [
+        "aristotle-biology",
+        "linnaeus",
+        "humboldt",
+        "darwin-selection",
+        "darwin-malthus",
+        "darwin-origin-wolves-primary",
+        "wallace-varieties-primary",
+        "lyell-darwin"
+      ],
+      "reading": {
+        "text": "A historical mechanism involving use, disuse and inherited acquired change; not merely a foolish prelude to Darwin.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Stanford Encyclopedia of Philosophy: Aristotle’s Biology; The Linnean Society: Linnaeus and race; Nature Ecology & Evolution: Humboldt’s legacy; Darwin Correspondence Project: Natural selection; A. R. Wallace to Darwin, 9 July 1881, Darwin Correspondence Project; Darwin, On the Origin of Species (1859), IV, pp.90–91 and 95–96: imaginary wolf/prey example and accumulation over time; Wallace, On the Tendency of Varieties to depart indefinitely from the Original Type (1858), pp.53–62, in the joint Darwin–Wallace publication; Darwin Correspondence Project: Charles Lyell"
+      }
+    },
+    {
+      "id": "heritable-variation",
+      "label": "Offspring differ, and some differences are inherited",
+      "description": "A prerequisite of selection, stated without pretending the mechanism of inheritance was already known.",
+      "sources": [
+        "aristotle-biology",
+        "linnaeus",
+        "humboldt",
+        "darwin-selection",
+        "darwin-malthus",
+        "darwin-origin-wolves-primary",
+        "wallace-varieties-primary",
+        "lyell-darwin"
+      ],
+      "reading": {
+        "text": "A prerequisite of selection, stated without pretending the mechanism of inheritance was already known.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Stanford Encyclopedia of Philosophy: Aristotle’s Biology; The Linnean Society: Linnaeus and race; Nature Ecology & Evolution: Humboldt’s legacy; Darwin Correspondence Project: Natural selection; A. R. Wallace to Darwin, 9 July 1881, Darwin Correspondence Project; Darwin, On the Origin of Species (1859), IV, pp.90–91 and 95–96: imaginary wolf/prey example and accumulation over time; Wallace, On the Tendency of Varieties to depart indefinitely from the Original Type (1858), pp.53–62, in the joint Darwin–Wallace publication; Darwin Correspondence Project: Charles Lyell"
+      }
+    },
+    {
+      "id": "breeders-choices",
+      "label": "Breeders keep offspring with desired traits",
+      "description": "Human selection demonstrates accumulated change, but nature has no breeder’s intention.",
+      "sources": [
+        "aristotle-biology",
+        "linnaeus",
+        "humboldt",
+        "darwin-selection",
+        "darwin-malthus",
+        "darwin-origin-wolves-primary",
+        "wallace-varieties-primary",
+        "lyell-darwin"
+      ],
+      "reading": {
+        "text": "Human selection demonstrates accumulated change, but nature has no breeder’s intention.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Stanford Encyclopedia of Philosophy: Aristotle’s Biology; The Linnean Society: Linnaeus and race; Nature Ecology & Evolution: Humboldt’s legacy; Darwin Correspondence Project: Natural selection; A. R. Wallace to Darwin, 9 July 1881, Darwin Correspondence Project; Darwin, On the Origin of Species (1859), IV, pp.90–91 and 95–96: imaginary wolf/prey example and accumulation over time; Wallace, On the Tendency of Varieties to depart indefinitely from the Original Type (1858), pp.53–62, in the joint Darwin–Wallace publication; Darwin Correspondence Project: Charles Lyell"
+      }
+    },
+    {
+      "id": "differential-survival",
+      "label": "Some inherited differences leave more descendants",
+      "description": "A schematic comparison of reproductive outcomes, not a claim that the strongest always win.",
+      "sources": [
+        "aristotle-biology",
+        "linnaeus",
+        "humboldt",
+        "darwin-selection",
+        "darwin-malthus",
+        "darwin-origin-wolves-primary",
+        "wallace-varieties-primary",
+        "lyell-darwin"
+      ],
+      "reading": {
+        "text": "A schematic comparison of reproductive outcomes, not a claim that the strongest always win.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Stanford Encyclopedia of Philosophy: Aristotle’s Biology; The Linnean Society: Linnaeus and race; Nature Ecology & Evolution: Humboldt’s legacy; Darwin Correspondence Project: Natural selection; A. R. Wallace to Darwin, 9 July 1881, Darwin Correspondence Project; Darwin, On the Origin of Species (1859), IV, pp.90–91 and 95–96: imaginary wolf/prey example and accumulation over time; Wallace, On the Tendency of Varieties to depart indefinitely from the Original Type (1858), pp.53–62, in the joint Darwin–Wallace publication; Darwin Correspondence Project: Charles Lyell"
+      }
+    },
+    {
+      "id": "island-relations",
+      "label": "Island species resemble nearby mainland species",
+      "description": "Geographical relationships ask for explanation as well as classification.",
+      "sources": [
+        "aristotle-biology",
+        "linnaeus",
+        "humboldt",
+        "darwin-selection",
+        "darwin-malthus",
+        "darwin-origin-wolves-primary",
+        "wallace-varieties-primary",
+        "lyell-darwin"
+      ],
+      "reading": {
+        "text": "Geographical relationships ask for explanation as well as classification.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Stanford Encyclopedia of Philosophy: Aristotle’s Biology; The Linnean Society: Linnaeus and race; Nature Ecology & Evolution: Humboldt’s legacy; Darwin Correspondence Project: Natural selection; A. R. Wallace to Darwin, 9 July 1881, Darwin Correspondence Project; Darwin, On the Origin of Species (1859), IV, pp.90–91 and 95–96: imaginary wolf/prey example and accumulation over time; Wallace, On the Tendency of Varieties to depart indefinitely from the Original Type (1858), pp.53–62, in the joint Darwin–Wallace publication; Darwin Correspondence Project: Charles Lyell"
+      }
+    },
+    {
+      "id": "inheritance-puzzle",
+      "label": "How are differences transmitted without blending away?",
+      "description": "A live nineteenth-century difficulty, not a genetic answer smuggled into 1859.",
+      "sources": [
+        "aristotle-biology",
+        "linnaeus",
+        "humboldt",
+        "darwin-selection",
+        "darwin-malthus",
+        "darwin-origin-wolves-primary",
+        "wallace-varieties-primary",
+        "lyell-darwin"
+      ],
+      "reading": {
+        "text": "A live nineteenth-century difficulty, not a genetic answer smuggled into 1859.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Stanford Encyclopedia of Philosophy: Aristotle’s Biology; The Linnean Society: Linnaeus and race; Nature Ecology & Evolution: Humboldt’s legacy; Darwin Correspondence Project: Natural selection; A. R. Wallace to Darwin, 9 July 1881, Darwin Correspondence Project; Darwin, On the Origin of Species (1859), IV, pp.90–91 and 95–96: imaginary wolf/prey example and accumulation over time; Wallace, On the Tendency of Varieties to depart indefinitely from the Original Type (1858), pp.53–62, in the joint Darwin–Wallace publication; Darwin Correspondence Project: Charles Lyell"
+      }
+    },
+    {
+      "id": "named-species",
+      "label": "Comparable names for living kinds",
+      "description": "Earlier classification becomes a coordinated naming practice, while the categories remain revisable.",
+      "sources": [
+        "aristotle-biology",
+        "linnaeus",
+        "humboldt",
+        "darwin-selection",
+        "darwin-malthus",
+        "darwin-origin-wolves-primary",
+        "wallace-varieties-primary",
+        "lyell-darwin"
+      ],
+      "reading": {
+        "text": "Earlier classification becomes a coordinated naming practice, while the categories remain revisable.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Stanford Encyclopedia of Philosophy: Aristotle’s Biology; The Linnean Society: Linnaeus and race; Nature Ecology & Evolution: Humboldt’s legacy; Darwin Correspondence Project: Natural selection; A. R. Wallace to Darwin, 9 July 1881, Darwin Correspondence Project; Darwin, On the Origin of Species (1859), IV, pp.90–91 and 95–96: imaginary wolf/prey example and accumulation over time; Wallace, On the Tendency of Varieties to depart indefinitely from the Original Type (1858), pp.53–62, in the joint Darwin–Wallace publication; Darwin Correspondence Project: Charles Lyell"
+      }
+    },
+    {
+      "id": "geography-of-life",
+      "label": "Life patterned by place and conditions",
+      "description": "The named collection becomes a comparison of environments, not just a shelf of specimens.",
+      "sources": [
+        "aristotle-biology",
+        "linnaeus",
+        "humboldt",
+        "darwin-selection",
+        "darwin-malthus",
+        "darwin-origin-wolves-primary",
+        "wallace-varieties-primary",
+        "lyell-darwin"
+      ],
+      "reading": {
+        "text": "The named collection becomes a comparison of environments, not just a shelf of specimens.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Stanford Encyclopedia of Philosophy: Aristotle’s Biology; The Linnean Society: Linnaeus and race; Nature Ecology & Evolution: Humboldt’s legacy; Darwin Correspondence Project: Natural selection; A. R. Wallace to Darwin, 9 July 1881, Darwin Correspondence Project; Darwin, On the Origin of Species (1859), IV, pp.90–91 and 95–96: imaginary wolf/prey example and accumulation over time; Wallace, On the Tendency of Varieties to depart indefinitely from the Original Type (1858), pp.53–62, in the joint Darwin–Wallace publication; Darwin Correspondence Project: Charles Lyell"
+      }
+    },
+    {
+      "id": "transforming-species",
+      "label": "Species can have changing histories",
+      "description": "Reconstruct Lamarck’s alternative to fixed species without treating every proposed mechanism as established.",
+      "sources": [
+        "aristotle-biology",
+        "linnaeus",
+        "humboldt",
+        "darwin-selection",
+        "darwin-malthus",
+        "darwin-origin-wolves-primary",
+        "wallace-varieties-primary",
+        "lyell-darwin"
+      ],
+      "reading": {
+        "text": "Reconstruct Lamarck’s alternative to fixed species without treating every proposed mechanism as established.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Stanford Encyclopedia of Philosophy: Aristotle’s Biology; The Linnean Society: Linnaeus and race; Nature Ecology & Evolution: Humboldt’s legacy; Darwin Correspondence Project: Natural selection; A. R. Wallace to Darwin, 9 July 1881, Darwin Correspondence Project; Darwin, On the Origin of Species (1859), IV, pp.90–91 and 95–96: imaginary wolf/prey example and accumulation over time; Wallace, On the Tendency of Varieties to depart indefinitely from the Original Type (1858), pp.53–62, in the joint Darwin–Wallace publication; Darwin Correspondence Project: Charles Lyell"
+      }
+    },
+    {
+      "id": "selection-analogy",
+      "label": "Small inherited differences can accumulate",
+      "description": "The breeder’s practice makes cumulative change understandable without supplying a purposeful breeder in nature.",
+      "sources": [
+        "aristotle-biology",
+        "linnaeus",
+        "humboldt",
+        "darwin-selection",
+        "darwin-malthus",
+        "darwin-origin-wolves-primary",
+        "wallace-varieties-primary",
+        "lyell-darwin"
+      ],
+      "reading": {
+        "text": "The breeder’s practice makes cumulative change understandable without supplying a purposeful breeder in nature.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Stanford Encyclopedia of Philosophy: Aristotle’s Biology; The Linnean Society: Linnaeus and race; Nature Ecology & Evolution: Humboldt’s legacy; Darwin Correspondence Project: Natural selection; A. R. Wallace to Darwin, 9 July 1881, Darwin Correspondence Project; Darwin, On the Origin of Species (1859), IV, pp.90–91 and 95–96: imaginary wolf/prey example and accumulation over time; Wallace, On the Tendency of Varieties to depart indefinitely from the Original Type (1858), pp.53–62, in the joint Darwin–Wallace publication; Darwin Correspondence Project: Charles Lyell"
+      }
+    },
+    {
+      "id": "struggle-for-existence",
+      "label": "More offspring than places to flourish",
+      "description": "Darwin and Wallace adapt Malthusian population pressure to organisms; the inference is historical, not a moral instruction for society.",
+      "sources": [
+        "aristotle-biology",
+        "linnaeus",
+        "humboldt",
+        "darwin-selection",
+        "darwin-malthus",
+        "darwin-origin-wolves-primary",
+        "wallace-varieties-primary",
+        "lyell-darwin"
+      ],
+      "reading": {
+        "text": "Darwin and Wallace adapt Malthusian population pressure to organisms; the inference is historical, not a moral instruction for society.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Stanford Encyclopedia of Philosophy: Aristotle’s Biology; The Linnean Society: Linnaeus and race; Nature Ecology & Evolution: Humboldt’s legacy; Darwin Correspondence Project: Natural selection; A. R. Wallace to Darwin, 9 July 1881, Darwin Correspondence Project; Darwin, On the Origin of Species (1859), IV, pp.90–91 and 95–96: imaginary wolf/prey example and accumulation over time; Wallace, On the Tendency of Varieties to depart indefinitely from the Original Type (1858), pp.53–62, in the joint Darwin–Wallace publication; Darwin Correspondence Project: Charles Lyell"
+      }
+    },
+    {
+      "id": "natural-selection",
+      "label": "Unequal reproduction changes a population",
+      "description": "Heritable differences with different reproductive consequences can become more or less common.",
+      "sources": [
+        "aristotle-biology",
+        "linnaeus",
+        "humboldt",
+        "darwin-selection",
+        "darwin-malthus",
+        "darwin-origin-wolves-primary",
+        "wallace-varieties-primary",
+        "lyell-darwin"
+      ],
+      "reading": {
+        "text": "Heritable differences with different reproductive consequences can become more or less common.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Stanford Encyclopedia of Philosophy: Aristotle’s Biology; The Linnean Society: Linnaeus and race; Nature Ecology & Evolution: Humboldt’s legacy; Darwin Correspondence Project: Natural selection; A. R. Wallace to Darwin, 9 July 1881, Darwin Correspondence Project; Darwin, On the Origin of Species (1859), IV, pp.90–91 and 95–96: imaginary wolf/prey example and accumulation over time; Wallace, On the Tendency of Varieties to depart indefinitely from the Original Type (1858), pp.53–62, in the joint Darwin–Wallace publication; Darwin Correspondence Project: Charles Lyell"
+      }
+    },
+    {
+      "id": "cumulative-evolution",
+      "label": "Selection can reshape life across deep time",
+      "description": "Geological duration removes the scale of a human lifetime as the limit of cumulative change.",
+      "sources": [
+        "aristotle-biology",
+        "linnaeus",
+        "humboldt",
+        "darwin-selection",
+        "darwin-malthus",
+        "darwin-origin-wolves-primary",
+        "wallace-varieties-primary",
+        "lyell-darwin"
+      ],
+      "reading": {
+        "text": "Geological duration removes the scale of a human lifetime as the limit of cumulative change.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Stanford Encyclopedia of Philosophy: Aristotle’s Biology; The Linnean Society: Linnaeus and race; Nature Ecology & Evolution: Humboldt’s legacy; Darwin Correspondence Project: Natural selection; A. R. Wallace to Darwin, 9 July 1881, Darwin Correspondence Project; Darwin, On the Origin of Species (1859), IV, pp.90–91 and 95–96: imaginary wolf/prey example and accumulation over time; Wallace, On the Tendency of Varieties to depart indefinitely from the Original Type (1858), pp.53–62, in the joint Darwin–Wallace publication; Darwin Correspondence Project: Charles Lyell"
+      }
+    },
+    {
+      "id": "branching-descent",
+      "label": "Resemblance can record shared descent",
+      "description": "A branching history can explain geographical affinities; it is not a ladder with humans as its required summit.",
+      "sources": [
+        "aristotle-biology",
+        "linnaeus",
+        "humboldt",
+        "darwin-selection",
+        "darwin-malthus",
+        "darwin-origin-wolves-primary",
+        "wallace-varieties-primary",
+        "lyell-darwin"
+      ],
+      "reading": {
+        "text": "A branching history can explain geographical affinities; it is not a ladder with humans as its required summit.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Stanford Encyclopedia of Philosophy: Aristotle’s Biology; The Linnean Society: Linnaeus and race; Nature Ecology & Evolution: Humboldt’s legacy; Darwin Correspondence Project: Natural selection; A. R. Wallace to Darwin, 9 July 1881, Darwin Correspondence Project; Darwin, On the Origin of Species (1859), IV, pp.90–91 and 95–96: imaginary wolf/prey example and accumulation over time; Wallace, On the Tendency of Varieties to depart indefinitely from the Original Type (1858), pp.53–62, in the joint Darwin–Wallace publication; Darwin Correspondence Project: Charles Lyell"
+      }
+    },
+    {
+      "id": "changed-meaning-of-kinds",
+      "label": "Changing species, different accounts of how",
+      "description": "Lamarck’s transforming species and Darwin–Wallace selection both reject simple fixity, but they are not the same mechanism or complete historical theory. Their comparison keeps the disagreement visible rather than merely renaming species change.",
+      "sources": [
+        "aristotle-biology",
+        "linnaeus",
+        "humboldt",
+        "darwin-selection",
+        "darwin-malthus",
+        "darwin-origin-wolves-primary",
+        "wallace-varieties-primary",
+        "lyell-darwin"
+      ],
+      "reading": {
+        "text": "Lamarck’s transforming species and Darwin–Wallace selection both reject simple fixity, but they are not the same mechanism or complete historical theory. Their comparison keeps the disagreement visible rather than merely renaming species change.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Stanford Encyclopedia of Philosophy: Aristotle’s Biology; The Linnean Society: Linnaeus and race; Nature Ecology & Evolution: Humboldt’s legacy; Darwin Correspondence Project: Natural selection; A. R. Wallace to Darwin, 9 July 1881, Darwin Correspondence Project; Darwin, On the Origin of Species (1859), IV, pp.90–91 and 95–96: imaginary wolf/prey example and accumulation over time; Wallace, On the Tendency of Varieties to depart indefinitely from the Original Type (1858), pp.53–62, in the joint Darwin–Wallace publication; Darwin Correspondence Project: Charles Lyell"
+      }
+    },
+    {
+      "id": "open-heredity",
+      "label": "Cumulative evolution with heredity still unresolved",
+      "description": "Long-run cumulative change needs differences to persist across generations. If variation simply blended away, that raises a difficulty. The wider evolutionary account retains this unresolved mechanism rather than requiring a less-developed predecessor tile.",
+      "sources": [
+        "aristotle-biology",
+        "linnaeus",
+        "humboldt",
+        "darwin-selection",
+        "darwin-malthus",
+        "darwin-origin-wolves-primary",
+        "wallace-varieties-primary",
+        "lyell-darwin"
+      ],
+      "reading": {
+        "text": "Long-run cumulative change needs differences to persist across generations. If variation simply blended away, that raises a difficulty. The wider evolutionary account retains this unresolved mechanism rather than requiring a less-developed predecessor tile.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Stanford Encyclopedia of Philosophy: Aristotle’s Biology; The Linnean Society: Linnaeus and race; Nature Ecology & Evolution: Humboldt’s legacy; Darwin Correspondence Project: Natural selection; A. R. Wallace to Darwin, 9 July 1881, Darwin Correspondence Project; Darwin, On the Origin of Species (1859), IV, pp.90–91 and 95–96: imaginary wolf/prey example and accumulation over time; Wallace, On the Tendency of Varieties to depart indefinitely from the Original Type (1858), pp.53–62, in the joint Darwin–Wallace publication; Darwin Correspondence Project: Charles Lyell"
+      }
+    },
+    {
+      "id": "steam-engine",
+      "label": "Heat drives a factory engine",
+      "description": "A material technology changes the scale and organization of production.",
+      "sources": [
+        "morris",
+        "marx",
+        "kropotkin",
+        "smith",
+        "darwin-selection"
+      ],
+      "reading": {
+        "text": "A material technology changes the scale and organization of production.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: William Morris Archive: Useful Work versus Useless Toil; Stanford Encyclopedia of Philosophy: Karl Marx; Peter Kropotkin, Mutual Aid: A Factor of Evolution; Adam Smith, The Wealth of Nations; Darwin Correspondence Project: Natural selection"
+      }
+    },
+    {
+      "id": "coal-feed",
+      "label": "The engine needs a continuing fuel supply",
+      "description": "Power is not free of material sources or consequences.",
+      "sources": [
+        "morris",
+        "marx",
+        "kropotkin",
+        "smith",
+        "darwin-selection"
+      ],
+      "reading": {
+        "text": "Power is not free of material sources or consequences.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: William Morris Archive: Useful Work versus Useless Toil; Stanford Encyclopedia of Philosophy: Karl Marx; Peter Kropotkin, Mutual Aid: A Factor of Evolution; Adam Smith, The Wealth of Nations; Darwin Correspondence Project: Natural selection"
+      }
+    },
+    {
+      "id": "wage-owner",
+      "label": "Workers sell labour; owners control the product",
+      "description": "A relation of ownership and control, not simply an unhappy personality.",
+      "sources": [
+        "morris",
+        "marx",
+        "kropotkin",
+        "smith",
+        "darwin-selection"
+      ],
+      "reading": {
+        "text": "A relation of ownership and control, not simply an unhappy personality.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: William Morris Archive: Useful Work versus Useless Toil; Stanford Encyclopedia of Philosophy: Karl Marx; Peter Kropotkin, Mutual Aid: A Factor of Evolution; Adam Smith, The Wealth of Nations; Darwin Correspondence Project: Natural selection"
+      }
+    },
+    {
+      "id": "craft-pleasure",
+      "label": "Morris: pleasure in making matters",
+      "description": "A criticism of useless toil and poor work, not an automatic rejection of every machine.",
+      "sources": [
+        "morris",
+        "marx",
+        "kropotkin",
+        "smith",
+        "darwin-selection"
+      ],
+      "reading": {
+        "text": "A criticism of useless toil and poor work, not an automatic rejection of every machine.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: William Morris Archive: Useful Work versus Useless Toil; Stanford Encyclopedia of Philosophy: Karl Marx; Peter Kropotkin, Mutual Aid: A Factor of Evolution; Adam Smith, The Wealth of Nations; Darwin Correspondence Project: Natural selection"
+      }
+    },
+    {
+      "id": "mutual-survival",
+      "label": "Animals and people also survive by cooperation",
+      "description": "Kropotkin’s examples challenge a competition-only popular picture; cooperation and selection are not logical opposites.",
+      "sources": [
+        "morris",
+        "marx",
+        "kropotkin",
+        "smith",
+        "darwin-selection"
+      ],
+      "reading": {
+        "text": "Kropotkin’s examples challenge a competition-only popular picture; cooperation and selection are not logical opposites.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: William Morris Archive: Useful Work versus Useless Toil; Stanford Encyclopedia of Philosophy: Karl Marx; Peter Kropotkin, Mutual Aid: A Factor of Evolution; Adam Smith, The Wealth of Nations; Darwin Correspondence Project: Natural selection"
+      }
+    },
+    {
+      "id": "factory-speed",
+      "label": "A labour-saving machine dictates the worker’s pace",
+      "description": "Saving physical effort can coexist with less control over tempo and working conditions.",
+      "sources": [
+        "morris",
+        "marx",
+        "kropotkin",
+        "smith",
+        "darwin-selection"
+      ],
+      "reading": {
+        "text": "Saving physical effort can coexist with less control over tempo and working conditions.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: William Morris Archive: Useful Work versus Useless Toil; Stanford Encyclopedia of Philosophy: Karl Marx; Peter Kropotkin, Mutual Aid: A Factor of Evolution; Adam Smith, The Wealth of Nations; Darwin Correspondence Project: Natural selection"
+      }
+    },
+    {
+      "id": "industrial-production",
+      "label": "Specialized labour at machine scale",
+      "description": "Power and the organization of tasks jointly alter the workshop.",
+      "sources": [
+        "morris",
+        "marx",
+        "kropotkin",
+        "smith",
+        "darwin-selection"
+      ],
+      "reading": {
+        "text": "Power and the organization of tasks jointly alter the workshop.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: William Morris Archive: Useful Work versus Useless Toil; Stanford Encyclopedia of Philosophy: Karl Marx; Peter Kropotkin, Mutual Aid: A Factor of Evolution; Adam Smith, The Wealth of Nations; Darwin Correspondence Project: Natural selection"
+      }
+    },
+    {
+      "id": "fuel-dependent-industry",
+      "label": "Industrial power has a material appetite",
+      "description": "An expanded productive system depends on extracting and supplying fuel.",
+      "sources": [
+        "morris",
+        "marx",
+        "kropotkin",
+        "smith",
+        "darwin-selection"
+      ],
+      "reading": {
+        "text": "An expanded productive system depends on extracting and supplying fuel.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: William Morris Archive: Useful Work versus Useless Toil; Stanford Encyclopedia of Philosophy: Karl Marx; Peter Kropotkin, Mutual Aid: A Factor of Evolution; Adam Smith, The Wealth of Nations; Darwin Correspondence Project: Natural selection"
+      }
+    },
+    {
+      "id": "alienated-work",
+      "label": "The maker can lose control of the work",
+      "description": "Marx’s critique gives a specific social relation to the earlier question of what work does to a person.",
+      "sources": [
+        "morris",
+        "marx",
+        "kropotkin",
+        "smith",
+        "darwin-selection"
+      ],
+      "reading": {
+        "text": "Marx’s critique gives a specific social relation to the earlier question of what work does to a person.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: William Morris Archive: Useful Work versus Useless Toil; Stanford Encyclopedia of Philosophy: Karl Marx; Peter Kropotkin, Mutual Aid: A Factor of Evolution; Adam Smith, The Wealth of Nations; Darwin Correspondence Project: Natural selection"
+      }
+    },
+    {
+      "id": "useful-pleasurable-work",
+      "label": "Useful work need not erase the maker",
+      "description": "Morris’s alternative demands worthwhile activity as well as useful products; it is a proposal, not a solved economy.",
+      "sources": [
+        "morris",
+        "marx",
+        "kropotkin",
+        "smith",
+        "darwin-selection"
+      ],
+      "reading": {
+        "text": "Morris’s alternative demands worthwhile activity as well as useful products; it is a proposal, not a solved economy.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: William Morris Archive: Useful Work versus Useless Toil; Stanford Encyclopedia of Philosophy: Karl Marx; Peter Kropotkin, Mutual Aid: A Factor of Evolution; Adam Smith, The Wealth of Nations; Darwin Correspondence Project: Natural selection"
+      }
+    },
+    {
+      "id": "cooperation-in-evolution",
+      "label": "Mutual aid belongs inside the question of survival",
+      "description": "Cooperative behaviour can have evolutionary significance; making this result does not refute natural selection.",
+      "sources": [
+        "morris",
+        "marx",
+        "kropotkin",
+        "smith",
+        "darwin-selection"
+      ],
+      "reading": {
+        "text": "Cooperative behaviour can have evolutionary significance; making this result does not refute natural selection.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: William Morris Archive: Useful Work versus Useless Toil; Stanford Encyclopedia of Philosophy: Karl Marx; Peter Kropotkin, Mutual Aid: A Factor of Evolution; Adam Smith, The Wealth of Nations; Darwin Correspondence Project: Natural selection"
+      }
+    },
+    {
+      "id": "competitive-story-limited",
+      "label": "Nature is not a competition-only morality tale",
+      "description": "Modern comparison: neither competition nor cooperation alone supplies a political command from nature.",
+      "sources": [
+        "morris",
+        "marx",
+        "kropotkin",
+        "smith",
+        "darwin-selection"
+      ],
+      "reading": {
+        "text": "Modern comparison: neither competition nor cooperation alone supplies a political command from nature.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: William Morris Archive: Useful Work versus Useless Toil; Stanford Encyclopedia of Philosophy: Karl Marx; Peter Kropotkin, Mutual Aid: A Factor of Evolution; Adam Smith, The Wealth of Nations; Darwin Correspondence Project: Natural selection"
+      }
+    },
+    {
+      "id": "control-of-work",
+      "label": "Mechanized effort can deepen lost control",
+      "description": "The existing loss of control over work meets the concrete case of a machine-set pace. Saving physical labour does not guarantee control over tempo or decisions.",
+      "sources": [
+        "morris",
+        "marx",
+        "kropotkin",
+        "smith",
+        "darwin-selection"
+      ],
+      "reading": {
+        "text": "The existing loss of control over work meets the concrete case of a machine-set pace. Saving physical labour does not guarantee control over tempo or decisions.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: William Morris Archive: Useful Work versus Useless Toil; Stanford Encyclopedia of Philosophy: Karl Marx; Peter Kropotkin, Mutual Aid: A Factor of Evolution; Adam Smith, The Wealth of Nations; Darwin Correspondence Project: Natural selection"
+      }
+    },
+    {
+      "id": "small-specimens",
+      "label": "Thin specimens beneath a stronger lens",
+      "description": "A prepared viewing practice extends observation; not every observed organism causes illness.",
+      "sources": [
+        "lensmaking",
+        "snow",
+        "snow-myth",
+        "fermentation",
+        "buchner"
+      ],
+      "reading": {
+        "text": "A prepared viewing practice extends observation; not every observed organism causes illness.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Museo Galileo: Lens-making; UCLA: Snow’s grand experiment; UCLA: Broad Street outbreak context; From DNA to Beer, US National Library of Medicine; Eduard Buchner, Alcoholic Fermentation Without Yeast Cells (1897), translated primary text"
+      }
+    },
+    {
+      "id": "water-company-cases",
+      "label": "More cholera in intermixed homes using sewage-polluted water",
+      "description": "Snow compared households served by different companies in the same districts. Those supplied from the more contaminated source suffered substantially more cholera than those receiving cleaner-source water. This was an observational comparison, not randomized assignment.",
+      "sources": [
+        "lensmaking",
+        "snow",
+        "snow-myth",
+        "fermentation",
+        "buchner"
+      ],
+      "reading": {
+        "text": "Snow compared households served by different companies in the same districts. Those supplied from the more contaminated source suffered substantially more cholera than those receiving cleaner-source water. This was an observational comparison, not randomized assignment.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Museo Galileo: Lens-making; UCLA: Snow’s grand experiment; UCLA: Broad Street outbreak context; From DNA to Beer, US National Library of Medicine; Eduard Buchner, Alcoholic Fermentation Without Yeast Cells (1897), translated primary text"
+      }
+    },
+    {
+      "id": "bad-air-claim",
+      "label": "Miasma: foul surroundings produce disease",
+      "description": "A historical explanatory position that could coexist with useful sanitation.",
+      "sources": [
+        "lensmaking",
+        "snow",
+        "snow-myth",
+        "fermentation",
+        "buchner"
+      ],
+      "reading": {
+        "text": "A historical explanatory position that could coexist with useful sanitation.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Museo Galileo: Lens-making; UCLA: Snow’s grand experiment; UCLA: Broad Street outbreak context; From DNA to Beer, US National Library of Medicine; Eduard Buchner, Alcoholic Fermentation Without Yeast Cells (1897), translated primary text"
+      }
+    },
+    {
+      "id": "clean-water-change",
+      "label": "Exposure falls when contaminated water is avoided",
+      "description": "A route of prevention may be supported before a complete microscopic mechanism is accepted.",
+      "sources": [
+        "lensmaking",
+        "snow",
+        "snow-myth",
+        "fermentation",
+        "buchner"
+      ],
+      "reading": {
+        "text": "A route of prevention may be supported before a complete microscopic mechanism is accepted.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Museo Galileo: Lens-making; UCLA: Snow’s grand experiment; UCLA: Broad Street outbreak context; From DNA to Beer, US National Library of Medicine; Eduard Buchner, Alcoholic Fermentation Without Yeast Cells (1897), translated primary text"
+      }
+    },
+    {
+      "id": "sterile-broth",
+      "label": "Air reaches both broths; only dust-exposed broth grows",
+      "description": "A reconstructed microbial contrast: air enters both vessels, but the arrangement keeps dust and its microorganisms from one broth. That broth stays clear while the exposed comparison grows organisms. Not an instruction for culturing pathogens.",
+      "sources": [
+        "lensmaking",
+        "snow",
+        "snow-myth",
+        "fermentation",
+        "buchner"
+      ],
+      "reading": {
+        "text": "A reconstructed microbial contrast: air enters both vessels, but the arrangement keeps dust and its microorganisms from one broth. That broth stays clear while the exposed comparison grows organisms. Not an instruction for culturing pathogens.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Museo Galileo: Lens-making; UCLA: Snow’s grand experiment; UCLA: Broad Street outbreak context; From DNA to Beer, US National Library of Medicine; Eduard Buchner, Alcoholic Fermentation Without Yeast Cells (1897), translated primary text"
+      }
+    },
+    {
+      "id": "fermenting-cultures",
+      "label": "Different living cultures accompany different fermentations",
+      "description": "A biological account of transformation, not mere mechanical stirring.",
+      "sources": [
+        "lensmaking",
+        "snow",
+        "snow-myth",
+        "fermentation",
+        "buchner"
+      ],
+      "reading": {
+        "text": "A biological account of transformation, not mere mechanical stirring.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Museo Galileo: Lens-making; UCLA: Snow’s grand experiment; UCLA: Broad Street outbreak context; From DNA to Beer, US National Library of Medicine; Eduard Buchner, Alcoholic Fermentation Without Yeast Cells (1897), translated primary text"
+      }
+    },
+    {
+      "id": "cell-free-extract",
+      "label": "Yeast extract ferments without intact cells",
+      "description": "Buchner’s later result limits the claim that fermentation requires a whole living cell; this file extends to 1897 for that return.",
+      "sources": [
+        "lensmaking",
+        "snow",
+        "snow-myth",
+        "fermentation",
+        "buchner"
+      ],
+      "reading": {
+        "text": "Buchner’s later result limits the claim that fermentation requires a whole living cell; this file extends to 1897 for that return.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Museo Galileo: Lens-making; UCLA: Snow’s grand experiment; UCLA: Broad Street outbreak context; From DNA to Beer, US National Library of Medicine; Eduard Buchner, Alcoholic Fermentation Without Yeast Cells (1897), translated primary text"
+      }
+    },
+    {
+      "id": "microscopic-life",
+      "label": "A previously unseen living world",
+      "description": "Instrumental seeing enlarges the known collection without automatically identifying disease causes.",
+      "sources": [
+        "lensmaking",
+        "snow",
+        "snow-myth",
+        "fermentation",
+        "buchner"
+      ],
+      "reading": {
+        "text": "Instrumental seeing enlarges the known collection without automatically identifying disease causes.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Museo Galileo: Lens-making; UCLA: Snow’s grand experiment; UCLA: Broad Street outbreak context; From DNA to Beer, US National Library of Medicine; Eduard Buchner, Alcoholic Fermentation Without Yeast Cells (1897), translated primary text"
+      }
+    },
+    {
+      "id": "waterborne-pattern",
+      "label": "Cholera mortality tracks a water-supply difference",
+      "description": "An inspectable comparison of similarly situated households supplies a specific disease difference associated with water source. Confounding and the accuracy of records still require scrutiny.",
+      "sources": [
+        "lensmaking",
+        "snow",
+        "snow-myth",
+        "fermentation",
+        "buchner"
+      ],
+      "reading": {
+        "text": "An inspectable comparison of similarly situated households supplies a specific disease difference associated with water source. Confounding and the accuracy of records still require scrutiny.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Museo Galileo: Lens-making; UCLA: Snow’s grand experiment; UCLA: Broad Street outbreak context; From DNA to Beer, US National Library of Medicine; Eduard Buchner, Alcoholic Fermentation Without Yeast Cells (1897), translated primary text"
+      }
+    },
+    {
+      "id": "prevention-before-settlement",
+      "label": "A useful intervention before full agreement",
+      "description": "Action can be justified by a strong causal route while wider disease theory remains contested.",
+      "sources": [
+        "lensmaking",
+        "snow",
+        "snow-myth",
+        "fermentation",
+        "buchner"
+      ],
+      "reading": {
+        "text": "Action can be justified by a strong causal route while wider disease theory remains contested.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Museo Galileo: Lens-making; UCLA: Snow’s grand experiment; UCLA: Broad Street outbreak context; From DNA to Beer, US National Library of Medicine; Eduard Buchner, Alcoholic Fermentation Without Yeast Cells (1897), translated primary text"
+      }
+    },
+    {
+      "id": "competing-disease-accounts",
+      "label": "Foul air or a waterborne cause?",
+      "description": "The earlier account remains legible as a rival claim; naming it does not endorse equal evidential strength.",
+      "sources": [
+        "lensmaking",
+        "snow",
+        "snow-myth",
+        "fermentation",
+        "buchner"
+      ],
+      "reading": {
+        "text": "The earlier account remains legible as a rival claim; naming it does not endorse equal evidential strength.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Museo Galileo: Lens-making; UCLA: Snow’s grand experiment; UCLA: Broad Street outbreak context; From DNA to Beer, US National Library of Medicine; Eduard Buchner, Alcoholic Fermentation Without Yeast Cells (1897), translated primary text"
+      }
+    },
+    {
+      "id": "microbial-growth",
+      "label": "Broth growth tracks incoming microorganisms",
+      "description": "The same air access with different dust access strengthens the causal account. The contrast does not rely merely on sealing one broth and leaving the other open.",
+      "sources": [
+        "lensmaking",
+        "snow",
+        "snow-myth",
+        "fermentation",
+        "buchner"
+      ],
+      "reading": {
+        "text": "The same air access with different dust access strengthens the causal account. The contrast does not rely merely on sealing one broth and leaving the other open.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Museo Galileo: Lens-making; UCLA: Snow’s grand experiment; UCLA: Broad Street outbreak context; From DNA to Beer, US National Library of Medicine; Eduard Buchner, Alcoholic Fermentation Without Yeast Cells (1897), translated primary text"
+      }
+    },
+    {
+      "id": "living-fermentation",
+      "label": "Organisms participate in chemical change",
+      "description": "The process links a living world to a transformation of material.",
+      "sources": [
+        "lensmaking",
+        "snow",
+        "snow-myth",
+        "fermentation",
+        "buchner"
+      ],
+      "reading": {
+        "text": "The process links a living world to a transformation of material.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Museo Galileo: Lens-making; UCLA: Snow’s grand experiment; UCLA: Broad Street outbreak context; From DNA to Beer, US National Library of Medicine; Eduard Buchner, Alcoholic Fermentation Without Yeast Cells (1897), translated primary text"
+      }
+    },
+    {
+      "id": "chemical-agency-in-cells",
+      "label": "Living activity includes separable chemistry",
+      "description": "A later return revises an overly broad requirement for intact cells without erasing the microbial evidence.",
+      "sources": [
+        "lensmaking",
+        "snow",
+        "snow-myth",
+        "fermentation",
+        "buchner"
+      ],
+      "reading": {
+        "text": "A later return revises an overly broad requirement for intact cells without erasing the microbial evidence.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Museo Galileo: Lens-making; UCLA: Snow’s grand experiment; UCLA: Broad Street outbreak context; From DNA to Beer, US National Library of Medicine; Eduard Buchner, Alcoholic Fermentation Without Yeast Cells (1897), translated primary text"
+      }
+    },
+    {
+      "id": "current-near-compass",
+      "label": "A current deflects a nearby compass",
+      "description": "Ørsted’s observation links electrical activity and magnetic direction.",
+      "sources": [
+        "field-oersted-observation",
+        "field-ring-object",
+        "maxwell",
+        "photo",
+        "photo-niepce",
+        "benjamin"
+      ],
+      "reading": {
+        "text": "Ørsted’s observation links electrical activity and magnetic direction.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Oersted’s experiment — Institute of Physics; Michael Faraday’s ring-coil apparatus — Royal Institution; Royal Society: Maxwell’s dynamical theory of the electromagnetic field; Metropolitan Museum: Talbot and photography; Harry Ransom Center: The Niépce Heliograph; Stanford Encyclopedia of Philosophy: Walter Benjamin"
+      }
+    },
+    {
+      "id": "changing-magnet",
+      "label": "Changing magnetism induces a current",
+      "description": "Faraday’s experimental result makes a reciprocal connection without a gear or direct contact.",
+      "sources": [
+        "field-oersted-observation",
+        "field-ring-object",
+        "maxwell",
+        "photo",
+        "photo-niepce",
+        "benjamin"
+      ],
+      "reading": {
+        "text": "Faraday’s experimental result makes a reciprocal connection without a gear or direct contact.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Oersted’s experiment — Institute of Physics; Michael Faraday’s ring-coil apparatus — Royal Institution; Royal Society: Maxwell’s dynamical theory of the electromagnetic field; Metropolitan Museum: Talbot and photography; Harry Ransom Center: The Niépce Heliograph; Stanford Encyclopedia of Philosophy: Walter Benjamin"
+      }
+    },
+    {
+      "id": "field-lines",
+      "label": "Faraday describes influence throughout space",
+      "description": "A field is not simply an invisible wire between two objects.",
+      "sources": [
+        "field-oersted-observation",
+        "field-ring-object",
+        "maxwell",
+        "photo",
+        "photo-niepce",
+        "benjamin"
+      ],
+      "reading": {
+        "text": "A field is not simply an invisible wire between two objects.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Oersted’s experiment — Institute of Physics; Michael Faraday’s ring-coil apparatus — Royal Institution; Royal Society: Maxwell’s dynamical theory of the electromagnetic field; Metropolitan Museum: Talbot and photography; Harry Ransom Center: The Niépce Heliograph; Stanford Encyclopedia of Philosophy: Walter Benjamin"
+      }
+    },
+    {
+      "id": "maxwell-equations",
+      "label": "Maxwell unifies electrical and magnetic relations",
+      "description": "The equations are represented as a claim and its consequences; no calculation is required.",
+      "sources": [
+        "field-oersted-observation",
+        "field-ring-object",
+        "maxwell",
+        "photo",
+        "photo-niepce",
+        "benjamin"
+      ],
+      "reading": {
+        "text": "The equations are represented as a claim and its consequences; no calculation is required.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Oersted’s experiment — Institute of Physics; Michael Faraday’s ring-coil apparatus — Royal Institution; Royal Society: Maxwell’s dynamical theory of the electromagnetic field; Metropolitan Museum: Talbot and photography; Harry Ransom Center: The Niépce Heliograph; Stanford Encyclopedia of Philosophy: Walter Benjamin"
+      }
+    },
+    {
+      "id": "light-wave-speed",
+      "label": "The predicted wave speed matches that of light",
+      "description": "A conceptual comparison supports identifying light as electromagnetic radiation.",
+      "sources": [
+        "field-oersted-observation",
+        "field-ring-object",
+        "maxwell",
+        "photo",
+        "photo-niepce",
+        "benjamin"
+      ],
+      "reading": {
+        "text": "A conceptual comparison supports identifying light as electromagnetic radiation.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Oersted’s experiment — Institute of Physics; Michael Faraday’s ring-coil apparatus — Royal Institution; Royal Society: Maxwell’s dynamical theory of the electromagnetic field; Metropolitan Museum: Talbot and photography; Harry Ransom Center: The Niépce Heliograph; Stanford Encyclopedia of Philosophy: Walter Benjamin"
+      }
+    },
+    {
+      "id": "telegraph-wire",
+      "label": "Electrical signals carry a coded message",
+      "description": "A technical communication channel, not the meaning of the message itself.",
+      "sources": [
+        "field-oersted-observation",
+        "field-ring-object",
+        "maxwell",
+        "photo",
+        "photo-niepce",
+        "benjamin"
+      ],
+      "reading": {
+        "text": "A technical communication channel, not the meaning of the message itself.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Oersted’s experiment — Institute of Physics; Michael Faraday’s ring-coil apparatus — Royal Institution; Royal Society: Maxwell’s dynamical theory of the electromagnetic field; Metropolitan Museum: Talbot and photography; Harry Ransom Center: The Niépce Heliograph; Stanford Encyclopedia of Philosophy: Walter Benjamin"
+      }
+    },
+    {
+      "id": "railway-timetables",
+      "label": "Distant stations must coordinate their clocks",
+      "description": "Practical synchronization is not the same as assuming one naturally shared local noon.",
+      "sources": [
+        "field-oersted-observation",
+        "field-ring-object",
+        "maxwell",
+        "photo",
+        "photo-niepce",
+        "benjamin"
+      ],
+      "reading": {
+        "text": "Practical synchronization is not the same as assuming one naturally shared local noon.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Oersted’s experiment — Institute of Physics; Michael Faraday’s ring-coil apparatus — Royal Institution; Royal Society: Maxwell’s dynamical theory of the electromagnetic field; Metropolitan Museum: Talbot and photography; Harry Ransom Center: The Niépce Heliograph; Stanford Encyclopedia of Philosophy: Walter Benjamin"
+      }
+    },
+    {
+      "id": "light-sensitive-plate",
+      "label": "A prepared surface changes when exposed to light",
+      "description": "A physical recording surface; early processes differ in materials and exposure time.",
+      "sources": [
+        "field-oersted-observation",
+        "field-ring-object",
+        "maxwell",
+        "photo",
+        "photo-niepce",
+        "benjamin"
+      ],
+      "reading": {
+        "text": "A physical recording surface; early processes differ in materials and exposure time.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Oersted’s experiment — Institute of Physics; Michael Faraday’s ring-coil apparatus — Royal Institution; Royal Society: Maxwell’s dynamical theory of the electromagnetic field; Metropolitan Museum: Talbot and photography; Harry Ransom Center: The Niépce Heliograph; Stanford Encyclopedia of Philosophy: Walter Benjamin"
+      }
+    },
+    {
+      "id": "reproducible-negative",
+      "label": "One negative can yield many prints",
+      "description": "Talbot’s negative–positive process differs from a unique daguerreotype.",
+      "sources": [
+        "field-oersted-observation",
+        "field-ring-object",
+        "maxwell",
+        "photo",
+        "photo-niepce",
+        "benjamin"
+      ],
+      "reading": {
+        "text": "Talbot’s negative–positive process differs from a unique daguerreotype.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Oersted’s experiment — Institute of Physics; Michael Faraday’s ring-coil apparatus — Royal Institution; Royal Society: Maxwell’s dynamical theory of the electromagnetic field; Metropolitan Museum: Talbot and photography; Harry Ransom Center: The Niépce Heliograph; Stanford Encyclopedia of Philosophy: Walter Benjamin"
+      }
+    },
+    {
+      "id": "electromagnetic-link",
+      "label": "Electricity acts magnetically",
+      "description": "A specific experiment expands the physical account beyond a simple picture of contacting parts.",
+      "sources": [
+        "field-oersted-observation",
+        "field-ring-object",
+        "maxwell",
+        "photo",
+        "photo-niepce",
+        "benjamin"
+      ],
+      "reading": {
+        "text": "A specific experiment expands the physical account beyond a simple picture of contacting parts.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Oersted’s experiment — Institute of Physics; Michael Faraday’s ring-coil apparatus — Royal Institution; Royal Society: Maxwell’s dynamical theory of the electromagnetic field; Metropolitan Museum: Talbot and photography; Harry Ransom Center: The Niépce Heliograph; Stanford Encyclopedia of Philosophy: Walter Benjamin"
+      }
+    },
+    {
+      "id": "induction",
+      "label": "A changing field can produce a current",
+      "description": "The relationship becomes a source of electrical action, not merely a static attraction.",
+      "sources": [
+        "field-oersted-observation",
+        "field-ring-object",
+        "maxwell",
+        "photo",
+        "photo-niepce",
+        "benjamin"
+      ],
+      "reading": {
+        "text": "The relationship becomes a source of electrical action, not merely a static attraction.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Oersted’s experiment — Institute of Physics; Michael Faraday’s ring-coil apparatus — Royal Institution; Royal Society: Maxwell’s dynamical theory of the electromagnetic field; Metropolitan Museum: Talbot and photography; Harry Ransom Center: The Niépce Heliograph; Stanford Encyclopedia of Philosophy: Walter Benjamin"
+      }
+    },
+    {
+      "id": "field-description",
+      "label": "The surrounding space becomes part of the account",
+      "description": "The field description makes spatial relations explanatory rather than treating them as empty background.",
+      "sources": [
+        "field-oersted-observation",
+        "field-ring-object",
+        "maxwell",
+        "photo",
+        "photo-niepce",
+        "benjamin"
+      ],
+      "reading": {
+        "text": "The field description makes spatial relations explanatory rather than treating them as empty background.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Oersted’s experiment — Institute of Physics; Michael Faraday’s ring-coil apparatus — Royal Institution; Royal Society: Maxwell’s dynamical theory of the electromagnetic field; Metropolitan Museum: Talbot and photography; Harry Ransom Center: The Niépce Heliograph; Stanford Encyclopedia of Philosophy: Walter Benjamin"
+      }
+    },
+    {
+      "id": "electromagnetic-light",
+      "label": "Light belongs to the electromagnetic field",
+      "description": "The prediction supplies a unification, not an arithmetic exercise for the player.",
+      "sources": [
+        "field-oersted-observation",
+        "field-ring-object",
+        "maxwell",
+        "photo",
+        "photo-niepce",
+        "benjamin"
+      ],
+      "reading": {
+        "text": "The prediction supplies a unification, not an arithmetic exercise for the player.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Oersted’s experiment — Institute of Physics; Michael Faraday’s ring-coil apparatus — Royal Institution; Royal Society: Maxwell’s dynamical theory of the electromagnetic field; Metropolitan Museum: Talbot and photography; Harry Ransom Center: The Niépce Heliograph; Stanford Encyclopedia of Philosophy: Walter Benjamin"
+      }
+    },
+    {
+      "id": "networked-time",
+      "label": "Clock coordination travels over a network",
+      "description": "A maintained reference can be communicated instead of only carried on a ship.",
+      "sources": [
+        "field-oersted-observation",
+        "field-ring-object",
+        "maxwell",
+        "photo",
+        "photo-niepce",
+        "benjamin"
+      ],
+      "reading": {
+        "text": "A maintained reference can be communicated instead of only carried on a ship.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Oersted’s experiment — Institute of Physics; Michael Faraday’s ring-coil apparatus — Royal Institution; Royal Society: Maxwell’s dynamical theory of the electromagnetic field; Metropolitan Museum: Talbot and photography; Harry Ransom Center: The Niépce Heliograph; Stanford Encyclopedia of Philosophy: Walter Benjamin"
+      }
+    },
+    {
+      "id": "standard-time",
+      "label": "A shared railway time",
+      "description": "A practical standard coordinates places while differing from their separate local solar times.",
+      "sources": [
+        "field-oersted-observation",
+        "field-ring-object",
+        "maxwell",
+        "photo",
+        "photo-niepce",
+        "benjamin"
+      ],
+      "reading": {
+        "text": "A practical standard coordinates places while differing from their separate local solar times.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Oersted’s experiment — Institute of Physics; Michael Faraday’s ring-coil apparatus — Royal Institution; Royal Society: Maxwell’s dynamical theory of the electromagnetic field; Metropolitan Museum: Talbot and photography; Harry Ransom Center: The Niépce Heliograph; Stanford Encyclopedia of Philosophy: Walter Benjamin"
+      }
+    },
+    {
+      "id": "photographic-trace",
+      "label": "Light leaves a lasting image",
+      "description": "The earlier image-producing arrangement gains a recording surface; this is a simplified conceptual reconstruction, not a claim of a single inventor.",
+      "sources": [
+        "field-oersted-observation",
+        "field-ring-object",
+        "maxwell",
+        "photo",
+        "photo-niepce",
+        "benjamin"
+      ],
+      "reading": {
+        "text": "The earlier image-producing arrangement gains a recording surface; this is a simplified conceptual reconstruction, not a claim of a single inventor.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Oersted’s experiment — Institute of Physics; Michael Faraday’s ring-coil apparatus — Royal Institution; Royal Society: Maxwell’s dynamical theory of the electromagnetic field; Metropolitan Museum: Talbot and photography; Harry Ransom Center: The Niépce Heliograph; Stanford Encyclopedia of Philosophy: Walter Benjamin"
+      }
+    },
+    {
+      "id": "framed-photograph",
+      "label": "A photograph records from a selected viewpoint",
+      "description": "The old result about hidden surfaces and framing limits what the new physical trace can establish.",
+      "sources": [
+        "field-oersted-observation",
+        "field-ring-object",
+        "maxwell",
+        "photo",
+        "photo-niepce",
+        "benjamin"
+      ],
+      "reading": {
+        "text": "The old result about hidden surfaces and framing limits what the new physical trace can establish.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Oersted’s experiment — Institute of Physics; Michael Faraday’s ring-coil apparatus — Royal Institution; Royal Society: Maxwell’s dynamical theory of the electromagnetic field; Metropolitan Museum: Talbot and photography; Harry Ransom Center: The Niépce Heliograph; Stanford Encyclopedia of Philosophy: Walter Benjamin"
+      }
+    },
+    {
+      "id": "reproducible-image",
+      "label": "The image can circulate in many copies",
+      "description": "Technical reproduction changes the distribution of an image without making its content neutral.",
+      "sources": [
+        "field-oersted-observation",
+        "field-ring-object",
+        "maxwell",
+        "photo",
+        "photo-niepce",
+        "benjamin"
+      ],
+      "reading": {
+        "text": "Technical reproduction changes the distribution of an image without making its content neutral.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Oersted’s experiment — Institute of Physics; Michael Faraday’s ring-coil apparatus — Royal Institution; Royal Society: Maxwell’s dynamical theory of the electromagnetic field; Metropolitan Museum: Talbot and photography; Harry Ransom Center: The Niépce Heliograph; Stanford Encyclopedia of Philosophy: Walter Benjamin"
+      }
+    },
+    {
+      "id": "stream-of-thought",
+      "label": "James: experience flows rather than arriving as isolated atoms",
+      "description": "A psychological account of changing attention and continuity.",
+      "sources": [
+        "bergson",
+        "freud",
+        "james",
+        "surrealism",
+        "burton"
+      ],
+      "reading": {
+        "text": "A psychological account of changing attention and continuity.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Stanford Encyclopedia of Philosophy: Henri Bergson; Library of Congress: Sigmund Freud, Conflict and Culture; William James, The Principles of Psychology; Metropolitan Museum: Surrealism; Wellcome Collection: The Anatomy of Melancholy"
+      }
+    },
+    {
+      "id": "remembered-melody",
+      "label": "Earlier notes remain present in hearing a melody",
+      "description": "Bergson’s kind of example makes lived duration different from a row of identical units.",
+      "sources": [
+        "bergson",
+        "freud",
+        "james",
+        "surrealism",
+        "burton"
+      ],
+      "reading": {
+        "text": "Bergson’s kind of example makes lived duration different from a row of identical units.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Stanford Encyclopedia of Philosophy: Henri Bergson; Library of Congress: Sigmund Freud, Conflict and Culture; William James, The Principles of Psychology; Metropolitan Museum: Surrealism; Wellcome Collection: The Anatomy of Melancholy"
+      }
+    },
+    {
+      "id": "freud-dream",
+      "label": "Freud interprets dreams through wishes and conflicts",
+      "description": "A historically influential interpretive theory, not a settled universal explanation of dreaming.",
+      "sources": [
+        "bergson",
+        "freud",
+        "james",
+        "surrealism",
+        "burton"
+      ],
+      "reading": {
+        "text": "A historically influential interpretive theory, not a settled universal explanation of dreaming.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Stanford Encyclopedia of Philosophy: Henri Bergson; Library of Congress: Sigmund Freud, Conflict and Culture; William James, The Principles of Psychology; Metropolitan Museum: Surrealism; Wellcome Collection: The Anatomy of Melancholy"
+      }
+    },
+    {
+      "id": "free-association",
+      "label": "Words follow associations rather than a planned outline",
+      "description": "A practice adapted across therapeutic and artistic contexts with different aims.",
+      "sources": [
+        "bergson",
+        "freud",
+        "james",
+        "surrealism",
+        "burton"
+      ],
+      "reading": {
+        "text": "A practice adapted across therapeutic and artistic contexts with different aims.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Stanford Encyclopedia of Philosophy: Henri Bergson; Library of Congress: Sigmund Freud, Conflict and Culture; William James, The Principles of Psychology; Metropolitan Museum: Surrealism; Wellcome Collection: The Anatomy of Melancholy"
+      }
+    },
+    {
+      "id": "chance-encounter",
+      "label": "Unrelated everyday objects meet unexpectedly",
+      "description": "An artistic procedure can disrupt habitual recognition without making a scientific claim.",
+      "sources": [
+        "bergson",
+        "freud",
+        "james",
+        "surrealism",
+        "burton"
+      ],
+      "reading": {
+        "text": "An artistic procedure can disrupt habitual recognition without making a scientific claim.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Stanford Encyclopedia of Philosophy: Henri Bergson; Library of Congress: Sigmund Freud, Conflict and Culture; William James, The Principles of Psychology; Metropolitan Museum: Surrealism; Wellcome Collection: The Anatomy of Melancholy"
+      }
+    },
+    {
+      "id": "political-art",
+      "label": "Artists want more than a new decorative style",
+      "description": "Surrealism’s ambitions include transforming life and its social arrangements; the movement is not one uniform doctrine.",
+      "sources": [
+        "bergson",
+        "freud",
+        "james",
+        "surrealism",
+        "burton"
+      ],
+      "reading": {
+        "text": "Surrealism’s ambitions include transforming life and its social arrangements; the movement is not one uniform doctrine.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Stanford Encyclopedia of Philosophy: Henri Bergson; Library of Congress: Sigmund Freud, Conflict and Culture; William James, The Principles of Psychology; Metropolitan Museum: Surrealism; Wellcome Collection: The Anatomy of Melancholy"
+      }
+    },
+    {
+      "id": "inner-continuity",
+      "label": "Experience has a moving continuity",
+      "description": "A modern teaching comparison changes the old collection of inner troubles into a question about the form of conscious experience, not a claim that Burton anticipated James.",
+      "sources": [
+        "bergson",
+        "freud",
+        "james",
+        "surrealism",
+        "burton"
+      ],
+      "reading": {
+        "text": "A modern teaching comparison changes the old collection of inner troubles into a question about the form of conscious experience, not a claim that Burton anticipated James.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Stanford Encyclopedia of Philosophy: Henri Bergson; Library of Congress: Sigmund Freud, Conflict and Culture; William James, The Principles of Psychology; Metropolitan Museum: Surrealism; Wellcome Collection: The Anatomy of Melancholy"
+      }
+    },
+    {
+      "id": "lived-duration",
+      "label": "Lived time is not a row of clock units",
+      "description": "The clock’s successful public function does not exhaust the qualitative continuity of experience.",
+      "sources": [
+        "bergson",
+        "freud",
+        "james",
+        "surrealism",
+        "burton"
+      ],
+      "reading": {
+        "text": "The clock’s successful public function does not exhaust the qualitative continuity of experience.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Stanford Encyclopedia of Philosophy: Henri Bergson; Library of Congress: Sigmund Freud, Conflict and Culture; William James, The Principles of Psychology; Metropolitan Museum: Surrealism; Wellcome Collection: The Anatomy of Melancholy"
+      }
+    },
+    {
+      "id": "interpreted-dream",
+      "label": "A dream can be read for concealed conflict",
+      "description": "Reconstruct an influential interpretive proposal while keeping it distinct from established physical measurement.",
+      "sources": [
+        "bergson",
+        "freud",
+        "james",
+        "surrealism",
+        "burton"
+      ],
+      "reading": {
+        "text": "Reconstruct an influential interpretive proposal while keeping it distinct from established physical measurement.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Stanford Encyclopedia of Philosophy: Henri Bergson; Library of Congress: Sigmund Freud, Conflict and Culture; William James, The Principles of Psychology; Metropolitan Museum: Surrealism; Wellcome Collection: The Anatomy of Melancholy"
+      }
+    },
+    {
+      "id": "automatic-writing",
+      "label": "Writing without the usual planned control",
+      "description": "Surrealist practice adapts psychological interests into an artistic experiment, not a verified diagnosis.",
+      "sources": [
+        "bergson",
+        "freud",
+        "james",
+        "surrealism",
+        "burton"
+      ],
+      "reading": {
+        "text": "Surrealist practice adapts psychological interests into an artistic experiment, not a verified diagnosis.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Stanford Encyclopedia of Philosophy: Henri Bergson; Library of Congress: Sigmund Freud, Conflict and Culture; William James, The Principles of Psychology; Metropolitan Museum: Surrealism; Wellcome Collection: The Anatomy of Melancholy"
+      }
+    },
+    {
+      "id": "surreal-encounter",
+      "label": "The familiar becomes strangely connected",
+      "description": "A credible-looking image or object can be placed in an encounter that unsettles ordinary expectations.",
+      "sources": [
+        "bergson",
+        "freud",
+        "james",
+        "surrealism",
+        "burton"
+      ],
+      "reading": {
+        "text": "A credible-looking image or object can be placed in an encounter that unsettles ordinary expectations.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Stanford Encyclopedia of Philosophy: Henri Bergson; Library of Congress: Sigmund Freud, Conflict and Culture; William James, The Principles of Psychology; Metropolitan Museum: Surrealism; Wellcome Collection: The Anatomy of Melancholy"
+      }
+    },
+    {
+      "id": "art-beyond-illustration",
+      "label": "An artwork can challenge ordinary life",
+      "description": "The work is not merely a picture of a previously finished theory.",
+      "sources": [
+        "bergson",
+        "freud",
+        "james",
+        "surrealism",
+        "burton"
+      ],
+      "reading": {
+        "text": "The work is not merely a picture of a previously finished theory.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Stanford Encyclopedia of Philosophy: Henri Bergson; Library of Congress: Sigmund Freud, Conflict and Culture; William James, The Principles of Psychology; Metropolitan Museum: Surrealism; Wellcome Collection: The Anatomy of Melancholy"
+      }
+    },
+    {
+      "id": "plural-access-to-time",
+      "label": "Measured coordination and lived duration",
+      "description": "Two different questions about time coexist without treating subjective experience as a refutation of clocks.",
+      "sources": [
+        "bergson",
+        "freud",
+        "james",
+        "surrealism",
+        "burton"
+      ],
+      "reading": {
+        "text": "Two different questions about time coexist without treating subjective experience as a refutation of clocks.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Stanford Encyclopedia of Philosophy: Henri Bergson; Library of Congress: Sigmund Freud, Conflict and Culture; William James, The Principles of Psychology; Metropolitan Museum: Surrealism; Wellcome Collection: The Anatomy of Melancholy"
+      }
+    },
+    {
+      "id": "light-clock-rule",
+      "label": "Set distant clocks by equal outward and return light journeys",
+      "description": "Einstein’s synchronization procedure uses a convention about two-way light travel, not an instantly accessible universal clock.",
+      "sources": [
+        "einstein-time",
+        "einstein-spacetime"
+      ],
+      "reading": {
+        "text": "Einstein’s synchronization procedure uses a convention about two-way light travel, not an instantly accessible universal clock.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Einstein Online, Max Planck Institute: relativity of space and time; Einstein Online: spacetime"
+      }
+    },
+    {
+      "id": "platform-flashes",
+      "label": "Train-end flashes reach the platform midpoint together",
+      "description": "At emission, the ends of a moving train lie beside two platform marks, with the platform observer halfway between those marks. Simultaneous arrival over equal platform distances establishes simultaneous emission in that frame.",
+      "sources": [
+        "einstein-time",
+        "einstein-spacetime"
+      ],
+      "reading": {
+        "text": "At emission, the ends of a moving train lie beside two platform marks, with the platform observer halfway between those marks. Simultaneous arrival over equal platform distances establishes simultaneous emission in that frame.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Einstein Online, Max Planck Institute: relativity of space and time; Einstein Online: spacetime"
+      }
+    },
+    {
+      "id": "passenger-motion",
+      "label": "At the train’s midpoint, the passenger meets one flash first",
+      "description": "The passenger stays halfway between the train’s ends in the train frame. Relative to the platform, the passenger moves toward one arriving flash and away from the other. Equal train-frame paths therefore matter when applying the same light speed in that frame.",
+      "sources": [
+        "einstein-time",
+        "einstein-spacetime"
+      ],
+      "reading": {
+        "text": "The passenger stays halfway between the train’s ends in the train frame. Relative to the platform, the passenger moves toward one arriving flash and away from the other. Equal train-frame paths therefore matter when applying the same light speed in that frame.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Einstein Online, Max Planck Institute: relativity of space and time; Einstein Online: spacetime"
+      }
+    },
+    {
+      "id": "light-invariance",
+      "label": "Every inertial laboratory measures the same light speed",
+      "description": "The light postulate is paired with the relativity principle; it is not an invitation to add or subtract a train’s speed from light.",
+      "sources": [
+        "einstein-time",
+        "einstein-spacetime"
+      ],
+      "reading": {
+        "text": "The light postulate is paired with the relativity principle; it is not an invitation to add or subtract a train’s speed from light.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Einstein Online, Max Planck Institute: relativity of space and time; Einstein Online: spacetime"
+      }
+    },
+    {
+      "id": "relativity-principle",
+      "label": "The same physical laws hold in inertial laboratories",
+      "description": "A principle about physical descriptions, not a claim that all opinions are equally true.",
+      "sources": [
+        "einstein-time",
+        "einstein-spacetime"
+      ],
+      "reading": {
+        "text": "A principle about physical descriptions, not a claim that all opinions are equally true.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Einstein Online, Max Planck Institute: relativity of space and time; Einstein Online: spacetime"
+      }
+    },
+    {
+      "id": "falling-room",
+      "label": "A freely falling room removes the local sensation of weight",
+      "description": "A local thought experiment, not the claim that gravity disappears everywhere or that tidal differences vanish.",
+      "sources": [
+        "einstein-time",
+        "einstein-spacetime"
+      ],
+      "reading": {
+        "text": "A local thought experiment, not the claim that gravity disappears everywhere or that tidal differences vanish.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Einstein Online, Max Planck Institute: relativity of space and time; Einstein Online: spacetime"
+      }
+    },
+    {
+      "id": "curved-spacetime-claim",
+      "label": "Einstein models gravity through spacetime geometry",
+      "description": "A theoretical account whose consequences can be tested; geometry is represented conceptually here.",
+      "sources": [
+        "einstein-time",
+        "einstein-spacetime"
+      ],
+      "reading": {
+        "text": "A theoretical account whose consequences can be tested; geometry is represented conceptually here.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Einstein Online, Max Planck Institute: relativity of space and time; Einstein Online: spacetime"
+      }
+    },
+    {
+      "id": "light-deflection",
+      "label": "Starlight near the Sun is deflected",
+      "description": "The 1919 eclipse observations contributed evidence with measurement uncertainty; they were not the only possible test of the theory.",
+      "sources": [
+        "einstein-time",
+        "einstein-spacetime"
+      ],
+      "reading": {
+        "text": "The 1919 eclipse observations contributed evidence with measurement uncertainty; they were not the only possible test of the theory.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Einstein Online, Max Planck Institute: relativity of space and time; Einstein Online: spacetime"
+      }
+    },
+    {
+      "id": "signal-synchronized-clocks",
+      "label": "Distant agreement depends on a signal procedure",
+      "description": "The earlier practical clock network becomes a precise question about how distant clock settings are related.",
+      "sources": [
+        "einstein-time",
+        "einstein-spacetime"
+      ],
+      "reading": {
+        "text": "The earlier practical clock network becomes a precise question about how distant clock settings are related.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Einstein Online, Max Planck Institute: relativity of space and time; Einstein Online: spacetime"
+      }
+    },
+    {
+      "id": "platform-simultaneity",
+      "label": "Together according to the platform clocks",
+      "description": "The conclusion is tied to a specified frame and procedure, not simply to a person’s impression.",
+      "sources": [
+        "einstein-time",
+        "einstein-spacetime"
+      ],
+      "reading": {
+        "text": "The conclusion is tied to a specified frame and procedure, not simply to a person’s impression.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Einstein Online, Max Planck Institute: relativity of space and time; Einstein Online: spacetime"
+      }
+    },
+    {
+      "id": "unequal-passenger-reception",
+      "label": "The moving passenger receives the flashes separately",
+      "description": "A concrete comparison changes reception order; this alone is not yet the whole relativity argument.",
+      "sources": [
+        "einstein-time",
+        "einstein-spacetime"
+      ],
+      "reading": {
+        "text": "A concrete comparison changes reception order; this alone is not yet the whole relativity argument.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Einstein Online, Max Planck Institute: relativity of space and time; Einstein Online: spacetime"
+      }
+    },
+    {
+      "id": "frame-dependent-simultaneity",
+      "label": "Different frames need not agree on distant simultaneity",
+      "description": "The passenger is at the train midpoint, with equal paths from the train’s ends in that frame. Using the same light speed there, the separately received flashes were not emitted simultaneously in the train frame, although the platform’s midpoint test said they were. This is more than an uncorrected signal delay.",
+      "sources": [
+        "einstein-time",
+        "einstein-spacetime"
+      ],
+      "reading": {
+        "text": "The passenger is at the train midpoint, with equal paths from the train’s ends in that frame. Using the same light speed there, the separately received flashes were not emitted simultaneously in the train frame, although the platform’s midpoint test said they were. This is more than an uncorrected signal delay.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Einstein Online, Max Planck Institute: relativity of space and time; Einstein Online: spacetime"
+      }
+    },
+    {
+      "id": "special-relativity",
+      "label": "No preferred inertial frame or universal distant present",
+      "description": "The two principles reorganize the relations of space and time; everyday mechanics survives as an approximation in its domain.",
+      "sources": [
+        "einstein-time",
+        "einstein-spacetime"
+      ],
+      "reading": {
+        "text": "The two principles reorganize the relations of space and time; everyday mechanics survives as an approximation in its domain.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Einstein Online, Max Planck Institute: relativity of space and time; Einstein Online: spacetime"
+      }
+    },
+    {
+      "id": "newtonian-limit",
+      "label": "Newton’s shared time is a useful limit, not universal",
+      "description": "The earlier successful account is bounded rather than treated as worthless after a new theory appears.",
+      "sources": [
+        "einstein-time",
+        "einstein-spacetime"
+      ],
+      "reading": {
+        "text": "The earlier successful account is bounded rather than treated as worthless after a new theory appears.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Einstein Online, Max Planck Institute: relativity of space and time; Einstein Online: spacetime"
+      }
+    },
+    {
+      "id": "local-equivalence",
+      "label": "Free fall connects gravity and acceleration",
+      "description": "A local equivalence motivates a different account; the Newtonian attraction remains a meaningful predecessor and approximation.",
+      "sources": [
+        "einstein-time",
+        "einstein-spacetime"
+      ],
+      "reading": {
+        "text": "A local equivalence motivates a different account; the Newtonian attraction remains a meaningful predecessor and approximation.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Einstein Online, Max Planck Institute: relativity of space and time; Einstein Online: spacetime"
+      }
+    },
+    {
+      "id": "geometric-gravity",
+      "label": "Gravity changes the geometry of paths",
+      "description": "The physical question becomes how matter, geometry and motion relate.",
+      "sources": [
+        "einstein-time",
+        "einstein-spacetime"
+      ],
+      "reading": {
+        "text": "The physical question becomes how matter, geometry and motion relate.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Einstein Online, Max Planck Institute: relativity of space and time; Einstein Online: spacetime"
+      }
+    },
+    {
+      "id": "tested-light-bending",
+      "label": "A new geometry meets a light observation",
+      "description": "A consequence meets evidence, with the quality and interpretation of the observation still part of the historical record.",
+      "sources": [
+        "einstein-time",
+        "einstein-spacetime"
+      ],
+      "reading": {
+        "text": "A consequence meets evidence, with the quality and interpretation of the observation still part of the historical record.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Einstein Online, Max Planck Institute: relativity of space and time; Einstein Online: spacetime"
+      }
+    },
+    {
+      "id": "opposite-shores",
+      "label": "Opposite Atlantic margins have a suggestive fit",
+      "description": "Coastline resemblance suggests a question; continental margins and additional evidence matter more than a perfect jigsaw outline.",
+      "sources": [
+        "tectonics",
+        "plate-evidence",
+        "seafloor",
+        "radiometric-clock",
+        "geologic-age-modern",
+        "earth-age"
+      ],
+      "reading": {
+        "text": "Coastline resemblance suggests a question; continental margins and additional evidence matter more than a perfect jigsaw outline.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: US Geological Survey: This Dynamic Earth; USGS: Plate-tectonic map explanation; Alfred Wegener Institute: Seafloor spreading; NIST: How do you know the age of fossils and other old things?; USGS: Geologic Time, Then and Now; US Geological Survey: Age of the Earth"
+      }
+    },
+    {
+      "id": "shared-fossil-belts",
+      "label": "Matching fossils and rock belts cross today’s oceans",
+      "description": "The separation of matching geological and biological traces asks for an explanation.",
+      "sources": [
+        "tectonics",
+        "plate-evidence",
+        "seafloor",
+        "radiometric-clock",
+        "geologic-age-modern",
+        "earth-age"
+      ],
+      "reading": {
+        "text": "The separation of matching geological and biological traces asks for an explanation.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: US Geological Survey: This Dynamic Earth; USGS: Plate-tectonic map explanation; Alfred Wegener Institute: Seafloor spreading; NIST: How do you know the age of fossils and other old things?; USGS: Geologic Time, Then and Now; US Geological Survey: Age of the Earth"
+      }
+    },
+    {
+      "id": "weak-drift-force",
+      "label": "Wegener’s proposed driving forces are inadequate",
+      "description": "A serious historical objection to his mechanism; it does not erase every pattern he sought to explain.",
+      "sources": [
+        "tectonics",
+        "plate-evidence",
+        "seafloor",
+        "radiometric-clock",
+        "geologic-age-modern",
+        "earth-age"
+      ],
+      "reading": {
+        "text": "A serious historical objection to his mechanism; it does not erase every pattern he sought to explain.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: US Geological Survey: This Dynamic Earth; USGS: Plate-tectonic map explanation; Alfred Wegener Institute: Seafloor spreading; NIST: How do you know the age of fossils and other old things?; USGS: Geologic Time, Then and Now; US Geological Survey: Age of the Earth"
+      }
+    },
+    {
+      "id": "radioactive-decay",
+      "label": "Unstable isotopes change at measurable rates",
+      "description": "A physical clock requires known decay behaviour and attention to whether the mineral system remained closed.",
+      "sources": [
+        "tectonics",
+        "plate-evidence",
+        "seafloor",
+        "radiometric-clock",
+        "geologic-age-modern",
+        "earth-age"
+      ],
+      "reading": {
+        "text": "A physical clock requires known decay behaviour and attention to whether the mineral system remained closed.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: US Geological Survey: This Dynamic Earth; USGS: Plate-tectonic map explanation; Alfred Wegener Institute: Seafloor spreading; NIST: How do you know the age of fossils and other old things?; USGS: Geologic Time, Then and Now; US Geological Survey: Age of the Earth"
+      }
+    },
+    {
+      "id": "mineral-isotopes",
+      "label": "Parent and daughter isotopes survive in minerals",
+      "description": "The measured proportions can constrain when a mineral clock was set; no numerical calculation is asked of the player.",
+      "sources": [
+        "tectonics",
+        "plate-evidence",
+        "seafloor",
+        "radiometric-clock",
+        "geologic-age-modern",
+        "earth-age"
+      ],
+      "reading": {
+        "text": "The measured proportions can constrain when a mineral clock was set; no numerical calculation is asked of the player.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: US Geological Survey: This Dynamic Earth; USGS: Plate-tectonic map explanation; Alfred Wegener Institute: Seafloor spreading; NIST: How do you know the age of fossils and other old things?; USGS: Geologic Time, Then and Now; US Geological Survey: Age of the Earth"
+      }
+    },
+    {
+      "id": "meteorite-lead",
+      "label": "Lead measurements link ancient meteorites and Earth",
+      "description": "Patterson’s 1956 work gave an age close to the modern estimate by treating Earth and meteorites as parts of a common early solar system, not by choosing Earth’s oldest surviving rock.",
+      "sources": [
+        "tectonics",
+        "plate-evidence",
+        "seafloor",
+        "radiometric-clock",
+        "geologic-age-modern",
+        "earth-age"
+      ],
+      "reading": {
+        "text": "Patterson’s 1956 work gave an age close to the modern estimate by treating Earth and meteorites as parts of a common early solar system, not by choosing Earth’s oldest surviving rock.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: US Geological Survey: This Dynamic Earth; USGS: Plate-tectonic map explanation; Alfred Wegener Institute: Seafloor spreading; NIST: How do you know the age of fossils and other old things?; USGS: Geologic Time, Then and Now; US Geological Survey: Age of the Earth"
+      }
+    },
+    {
+      "id": "ocean-ridge",
+      "label": "A global ridge system marks newly made ocean floor",
+      "description": "Mid-ocean observations change the available mechanism in the mid-twentieth century.",
+      "sources": [
+        "tectonics",
+        "plate-evidence",
+        "seafloor",
+        "radiometric-clock",
+        "geologic-age-modern",
+        "earth-age"
+      ],
+      "reading": {
+        "text": "Mid-ocean observations change the available mechanism in the mid-twentieth century.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: US Geological Survey: This Dynamic Earth; USGS: Plate-tectonic map explanation; Alfred Wegener Institute: Seafloor spreading; NIST: How do you know the age of fossils and other old things?; USGS: Geologic Time, Then and Now; US Geological Survey: Age of the Earth"
+      }
+    },
+    {
+      "id": "magnetic-stripes",
+      "label": "Matching magnetic stripes lie on either side of ridges",
+      "description": "Their pattern and dated reversals support the creation and outward movement of ocean crust.",
+      "sources": [
+        "tectonics",
+        "plate-evidence",
+        "seafloor",
+        "radiometric-clock",
+        "geologic-age-modern",
+        "earth-age"
+      ],
+      "reading": {
+        "text": "Their pattern and dated reversals support the creation and outward movement of ocean crust.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: US Geological Survey: This Dynamic Earth; USGS: Plate-tectonic map explanation; Alfred Wegener Institute: Seafloor spreading; NIST: How do you know the age of fossils and other old things?; USGS: Geologic Time, Then and Now; US Geological Survey: Age of the Earth"
+      }
+    },
+    {
+      "id": "subduction-evidence",
+      "label": "Deep earthquakes and trenches mark descending slabs",
+      "description": "New crust is balanced by recycling at other boundaries; the entire Earth need not expand.",
+      "sources": [
+        "tectonics",
+        "plate-evidence",
+        "seafloor",
+        "radiometric-clock",
+        "geologic-age-modern",
+        "earth-age"
+      ],
+      "reading": {
+        "text": "New crust is balanced by recycling at other boundaries; the entire Earth need not expand.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: US Geological Survey: This Dynamic Earth; USGS: Plate-tectonic map explanation; Alfred Wegener Institute: Seafloor spreading; NIST: How do you know the age of fossils and other old things?; USGS: Geologic Time, Then and Now; US Geological Survey: Age of the Earth"
+      }
+    },
+    {
+      "id": "reassembled-continents",
+      "label": "Continents can be compared in an earlier arrangement",
+      "description": "The coordinate representation becomes a testable reconstruction rather than a fixed portrait of eternal positions.",
+      "sources": [
+        "tectonics",
+        "plate-evidence",
+        "seafloor",
+        "radiometric-clock",
+        "geologic-age-modern",
+        "earth-age"
+      ],
+      "reading": {
+        "text": "The coordinate representation becomes a testable reconstruction rather than a fixed portrait of eternal positions.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: US Geological Survey: This Dynamic Earth; USGS: Plate-tectonic map explanation; Alfred Wegener Institute: Seafloor spreading; NIST: How do you know the age of fossils and other old things?; USGS: Geologic Time, Then and Now; US Geological Survey: Age of the Earth"
+      }
+    },
+    {
+      "id": "continental-drift-case",
+      "label": "Separated lands share a geological past",
+      "description": "Several kinds of matching evidence strengthen the drift case beyond resemblance alone.",
+      "sources": [
+        "tectonics",
+        "plate-evidence",
+        "seafloor",
+        "radiometric-clock",
+        "geologic-age-modern",
+        "earth-age"
+      ],
+      "reading": {
+        "text": "Several kinds of matching evidence strengthen the drift case beyond resemblance alone.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: US Geological Survey: This Dynamic Earth; USGS: Plate-tectonic map explanation; Alfred Wegener Institute: Seafloor spreading; NIST: How do you know the age of fossils and other old things?; USGS: Geologic Time, Then and Now; US Geological Survey: Age of the Earth"
+      }
+    },
+    {
+      "id": "drift-without-drive",
+      "label": "A strong pattern, an unresolved driving account",
+      "description": "The evidence and mechanism can have different strengths; the old objection stays visible rather than being mocked away.",
+      "sources": [
+        "tectonics",
+        "plate-evidence",
+        "seafloor",
+        "radiometric-clock",
+        "geologic-age-modern",
+        "earth-age"
+      ],
+      "reading": {
+        "text": "The evidence and mechanism can have different strengths; the old objection stays visible rather than being mocked away.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: US Geological Survey: This Dynamic Earth; USGS: Plate-tectonic map explanation; Alfred Wegener Institute: Seafloor spreading; NIST: How do you know the age of fossils and other old things?; USGS: Geologic Time, Then and Now; US Geological Survey: Age of the Earth"
+      }
+    },
+    {
+      "id": "mineral-clock",
+      "label": "A rock can contain a measurable clock",
+      "description": "Physical decay connects material evidence to elapsed time, subject to the clock’s geological history.",
+      "sources": [
+        "tectonics",
+        "plate-evidence",
+        "seafloor",
+        "radiometric-clock",
+        "geologic-age-modern",
+        "earth-age"
+      ],
+      "reading": {
+        "text": "Physical decay connects material evidence to elapsed time, subject to the clock’s geological history.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: US Geological Survey: This Dynamic Earth; USGS: Plate-tectonic map explanation; Alfred Wegener Institute: Seafloor spreading; NIST: How do you know the age of fossils and other old things?; USGS: Geologic Time, Then and Now; US Geological Survey: Age of the Earth"
+      }
+    },
+    {
+      "id": "absolute-age-possible",
+      "label": "The sequence can acquire durations",
+      "description": "The earlier unresolved distinction is addressed with a genuinely new kind of evidence, not a number added to a label.",
+      "sources": [
+        "tectonics",
+        "plate-evidence",
+        "seafloor",
+        "radiometric-clock",
+        "geologic-age-modern",
+        "earth-age"
+      ],
+      "reading": {
+        "text": "The earlier unresolved distinction is addressed with a genuinely new kind of evidence, not a number added to a label.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: US Geological Survey: This Dynamic Earth; USGS: Plate-tectonic map explanation; Alfred Wegener Institute: Seafloor spreading; NIST: How do you know the age of fossils and other old things?; USGS: Geologic Time, Then and Now; US Geological Survey: Age of the Earth"
+      }
+    },
+    {
+      "id": "earth-age-measured",
+      "label": "Earth is about 4.54 billion years old",
+      "description": "The modern estimate is an evidence-based age of formation. The numerical conclusion is supplied as a finding, not a mental arithmetic exercise.",
+      "sources": [
+        "tectonics",
+        "plate-evidence",
+        "seafloor",
+        "radiometric-clock",
+        "geologic-age-modern",
+        "earth-age"
+      ],
+      "reading": {
+        "text": "The modern estimate is an evidence-based age of formation. The numerical conclusion is supplied as a finding, not a mental arithmetic exercise.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: US Geological Survey: This Dynamic Earth; USGS: Plate-tectonic map explanation; Alfred Wegener Institute: Seafloor spreading; NIST: How do you know the age of fossils and other old things?; USGS: Geologic Time, Then and Now; US Geological Survey: Age of the Earth"
+      }
+    },
+    {
+      "id": "seafloor-spreading",
+      "label": "Ocean floor is made and moves away from ridges",
+      "description": "A physical process explains a patterned record which coastlines alone could not supply.",
+      "sources": [
+        "tectonics",
+        "plate-evidence",
+        "seafloor",
+        "radiometric-clock",
+        "geologic-age-modern",
+        "earth-age"
+      ],
+      "reading": {
+        "text": "A physical process explains a patterned record which coastlines alone could not supply.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: US Geological Survey: This Dynamic Earth; USGS: Plate-tectonic map explanation; Alfred Wegener Institute: Seafloor spreading; NIST: How do you know the age of fossils and other old things?; USGS: Geologic Time, Then and Now; US Geological Survey: Age of the Earth"
+      }
+    },
+    {
+      "id": "mobile-plates",
+      "label": "Continents move with plates of rigid outer Earth",
+      "description": "The mobile plates are lithosphere: crust plus rigid uppermost mantle. The newer framework is not merely Wegener’s original driving mechanism declared correct.",
+      "sources": [
+        "tectonics",
+        "plate-evidence",
+        "seafloor",
+        "radiometric-clock",
+        "geologic-age-modern",
+        "earth-age"
+      ],
+      "reading": {
+        "text": "The mobile plates are lithosphere: crust plus rigid uppermost mantle. The newer framework is not merely Wegener’s original driving mechanism declared correct.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: US Geological Survey: This Dynamic Earth; USGS: Plate-tectonic map explanation; Alfred Wegener Institute: Seafloor spreading; NIST: How do you know the age of fossils and other old things?; USGS: Geologic Time, Then and Now; US Geological Survey: Age of the Earth"
+      }
+    },
+    {
+      "id": "recycled-crust",
+      "label": "Plates form, move and descend",
+      "description": "Several boundaries fit into one changing system without requiring a steadily swelling planet.",
+      "sources": [
+        "tectonics",
+        "plate-evidence",
+        "seafloor",
+        "radiometric-clock",
+        "geologic-age-modern",
+        "earth-age"
+      ],
+      "reading": {
+        "text": "Several boundaries fit into one changing system without requiring a steadily swelling planet.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: US Geological Survey: This Dynamic Earth; USGS: Plate-tectonic map explanation; Alfred Wegener Institute: Seafloor spreading; NIST: How do you know the age of fossils and other old things?; USGS: Geologic Time, Then and Now; US Geological Survey: Age of the Earth"
+      }
+    },
+    {
+      "id": "relocated-habitats",
+      "label": "Life’s changing map includes moving land",
+      "description": "Earlier environmental and distributional patterns can now be reconsidered on a mobile surface.",
+      "sources": [
+        "tectonics",
+        "plate-evidence",
+        "seafloor",
+        "radiometric-clock",
+        "geologic-age-modern",
+        "earth-age"
+      ],
+      "reading": {
+        "text": "Earlier environmental and distributional patterns can now be reconsidered on a mobile surface.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: US Geological Survey: This Dynamic Earth; USGS: Plate-tectonic map explanation; Alfred Wegener Institute: Seafloor spreading; NIST: How do you know the age of fossils and other old things?; USGS: Geologic Time, Then and Now; US Geological Survey: Age of the Earth"
+      }
+    },
+    {
+      "id": "boolean-operations",
+      "label": "Boole represents logical relations algebraically",
+      "description": "The symbols stand for logical operations; the player need not solve a symbolic calculation.",
+      "sources": [
+        "boole",
+        "turing",
+        "shannon",
+        "shannon1948"
+      ],
+      "reading": {
+        "text": "The symbols stand for logical operations; the player need not solve a symbolic calculation.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: George Boole: An Investigation of the Laws of Thought (1854); Alan Turing, On Computable Numbers, original paper; Claude Shannon, A Symbolic Analysis of Relay and Switching Circuits (1938), MIT-hosted copy; Shannon: A Mathematical Theory of Communication"
+      }
+    },
+    {
+      "id": "switching-circuit",
+      "label": "A circuit can implement on/off combinations",
+      "description": "Shannon’s switching analysis connects Boolean operations to electrical design.",
+      "sources": [
+        "boole",
+        "turing",
+        "shannon",
+        "shannon1948"
+      ],
+      "reading": {
+        "text": "Shannon’s switching analysis connects Boolean operations to electrical design.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: George Boole: An Investigation of the Laws of Thought (1854); Alan Turing, On Computable Numbers, original paper; Claude Shannon, A Symbolic Analysis of Relay and Switching Circuits (1938), MIT-hosted copy; Shannon: A Mathematical Theory of Communication"
+      }
+    },
+    {
+      "id": "finite-instructions",
+      "label": "A finite rule describes each step of a procedure",
+      "description": "Turing’s machine model specifies symbol reading, writing and movement rather than human understanding.",
+      "sources": [
+        "boole",
+        "turing",
+        "shannon",
+        "shannon1948"
+      ],
+      "reading": {
+        "text": "Turing’s machine model specifies symbol reading, writing and movement rather than human understanding.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: George Boole: An Investigation of the Laws of Thought (1854); Alan Turing, On Computable Numbers, original paper; Claude Shannon, A Symbolic Analysis of Relay and Switching Circuits (1938), MIT-hosted copy; Shannon: A Mathematical Theory of Communication"
+      }
+    },
+    {
+      "id": "universal-description",
+      "label": "A procedure itself can be encoded as data",
+      "description": "A universal machine can follow an encoded description of another machine.",
+      "sources": [
+        "boole",
+        "turing",
+        "shannon",
+        "shannon1948"
+      ],
+      "reading": {
+        "text": "A universal machine can follow an encoded description of another machine.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: George Boole: An Investigation of the Laws of Thought (1854); Alan Turing, On Computable Numbers, original paper; Claude Shannon, A Symbolic Analysis of Relay and Switching Circuits (1938), MIT-hosted copy; Shannon: A Mathematical Theory of Communication"
+      }
+    },
+    {
+      "id": "halting-demand",
+      "label": "Decide whether any given procedure will ever stop",
+      "description": "A precisely stated general demand, not a claim that every individual program is undecidable.",
+      "sources": [
+        "boole",
+        "turing",
+        "shannon",
+        "shannon1948"
+      ],
+      "reading": {
+        "text": "A precisely stated general demand, not a claim that every individual program is undecidable.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: George Boole: An Investigation of the Laws of Thought (1854); Alan Turing, On Computable Numbers, original paper; Claude Shannon, A Symbolic Analysis of Relay and Switching Circuits (1938), MIT-hosted copy; Shannon: A Mathematical Theory of Communication"
+      }
+    },
+    {
+      "id": "noisy-channel",
+      "label": "A signal can be corrupted in transmission",
+      "description": "A communication problem concerns recoverable distinctions, not whether the message is wise or true.",
+      "sources": [
+        "boole",
+        "turing",
+        "shannon",
+        "shannon1948"
+      ],
+      "reading": {
+        "text": "A communication problem concerns recoverable distinctions, not whether the message is wise or true.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: George Boole: An Investigation of the Laws of Thought (1854); Alan Turing, On Computable Numbers, original paper; Claude Shannon, A Symbolic Analysis of Relay and Switching Circuits (1938), MIT-hosted copy; Shannon: A Mathematical Theory of Communication"
+      }
+    },
+    {
+      "id": "redundant-code",
+      "label": "Structured redundancy can locate and correct the stipulated errors",
+      "description": "The proposed scheme uses enough organized redundancy to distinguish the assumed error cases and recover the original message. Mere repetition or error detection alone would not guarantee correction.",
+      "sources": [
+        "boole",
+        "turing",
+        "shannon",
+        "shannon1948"
+      ],
+      "reading": {
+        "text": "The proposed scheme uses enough organized redundancy to distinguish the assumed error cases and recover the original message. Mere repetition or error detection alone would not guarantee correction.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: George Boole: An Investigation of the Laws of Thought (1854); Alan Turing, On Computable Numbers, original paper; Claude Shannon, A Symbolic Analysis of Relay and Switching Circuits (1938), MIT-hosted copy; Shannon: A Mathematical Theory of Communication"
+      }
+    },
+    {
+      "id": "feedback-sensor",
+      "label": "A controller compares a measured result with a target",
+      "description": "An operational loop adjusts actions using observations; a target is still chosen by someone.",
+      "sources": [
+        "boole",
+        "turing",
+        "shannon",
+        "shannon1948"
+      ],
+      "reading": {
+        "text": "An operational loop adjusts actions using observations; a target is still chosen by someone.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: George Boole: An Investigation of the Laws of Thought (1854); Alan Turing, On Computable Numbers, original paper; Claude Shannon, A Symbolic Analysis of Relay and Switching Circuits (1938), MIT-hosted copy; Shannon: A Mathematical Theory of Communication"
+      }
+    },
+    {
+      "id": "boolean-logic",
+      "label": "Inference becomes a manipulable symbolic system",
+      "description": "An earlier concern with valid form becomes an explicit algebra of logical relations.",
+      "sources": [
+        "boole",
+        "turing",
+        "shannon",
+        "shannon1948"
+      ],
+      "reading": {
+        "text": "An earlier concern with valid form becomes an explicit algebra of logical relations.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: George Boole: An Investigation of the Laws of Thought (1854); Alan Turing, On Computable Numbers, original paper; Claude Shannon, A Symbolic Analysis of Relay and Switching Circuits (1938), MIT-hosted copy; Shannon: A Mathematical Theory of Communication"
+      }
+    },
+    {
+      "id": "logic-circuit",
+      "label": "Logical operations become switching actions",
+      "description": "The same organization can be embodied in a circuit; a true switch does not guarantee a true premise.",
+      "sources": [
+        "boole",
+        "turing",
+        "shannon",
+        "shannon1948"
+      ],
+      "reading": {
+        "text": "The same organization can be embodied in a circuit; a true switch does not guarantee a true premise.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: George Boole: An Investigation of the Laws of Thought (1854); Alan Turing, On Computable Numbers, original paper; Claude Shannon, A Symbolic Analysis of Relay and Switching Circuits (1938), MIT-hosted copy; Shannon: A Mathematical Theory of Communication"
+      }
+    },
+    {
+      "id": "mechanical-procedure",
+      "label": "A rule-governed symbol machine",
+      "description": "Modern teaching comparison of implementation and abstract procedure: Turing’s 1936 machine model did not derive from Shannon’s later switching work. The finite rule makes symbol operations explicit without claiming to explain every kind of intelligence.",
+      "sources": [
+        "boole",
+        "turing",
+        "shannon",
+        "shannon1948"
+      ],
+      "reading": {
+        "text": "Modern teaching comparison of implementation and abstract procedure: Turing’s 1936 machine model did not derive from Shannon’s later switching work. The finite rule makes symbol operations explicit without claiming to explain every kind of intelligence.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: George Boole: An Investigation of the Laws of Thought (1854); Alan Turing, On Computable Numbers, original paper; Claude Shannon, A Symbolic Analysis of Relay and Switching Circuits (1938), MIT-hosted copy; Shannon: A Mathematical Theory of Communication"
+      }
+    },
+    {
+      "id": "universal-computation",
+      "label": "One machine can follow many encoded procedures",
+      "description": "The distinction between a fixed device and a general interpreter becomes tangible.",
+      "sources": [
+        "boole",
+        "turing",
+        "shannon",
+        "shannon1948"
+      ],
+      "reading": {
+        "text": "The distinction between a fixed device and a general interpreter becomes tangible.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: George Boole: An Investigation of the Laws of Thought (1854); Alan Turing, On Computable Numbers, original paper; Claude Shannon, A Symbolic Analysis of Relay and Switching Circuits (1938), MIT-hosted copy; Shannon: A Mathematical Theory of Communication"
+      }
+    },
+    {
+      "id": "computation-limit",
+      "label": "No procedure solves every halting case",
+      "description": "Turing’s general impossibility result limits an exact universal demand; it does not mean useful computation is futile.",
+      "sources": [
+        "boole",
+        "turing",
+        "shannon",
+        "shannon1948"
+      ],
+      "reading": {
+        "text": "Turing’s general impossibility result limits an exact universal demand; it does not mean useful computation is futile.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: George Boole: An Investigation of the Laws of Thought (1854); Alan Turing, On Computable Numbers, original paper; Claude Shannon, A Symbolic Analysis of Relay and Switching Circuits (1938), MIT-hosted copy; Shannon: A Mathematical Theory of Communication"
+      }
+    },
+    {
+      "id": "communication-problem",
+      "label": "A transmitted message can lose distinctions",
+      "description": "The earlier electrical network becomes an example of a channel whose signal integrity matters.",
+      "sources": [
+        "boole",
+        "turing",
+        "shannon",
+        "shannon1948"
+      ],
+      "reading": {
+        "text": "The earlier electrical network becomes an example of a channel whose signal integrity matters.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: George Boole: An Investigation of the Laws of Thought (1854); Alan Turing, On Computable Numbers, original paper; Claude Shannon, A Symbolic Analysis of Relay and Switching Circuits (1938), MIT-hosted copy; Shannon: A Mathematical Theory of Communication"
+      }
+    },
+    {
+      "id": "error-correcting-message",
+      "label": "A message designed to recover from specified errors",
+      "description": "The stipulated correction scheme changes the representation so that the assumed error patterns can be located and corrected. It does not repair every possible corruption or establish the message’s truth.",
+      "sources": [
+        "boole",
+        "turing",
+        "shannon",
+        "shannon1948"
+      ],
+      "reading": {
+        "text": "The stipulated correction scheme changes the representation so that the assumed error patterns can be located and corrected. It does not repair every possible corruption or establish the message’s truth.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: George Boole: An Investigation of the Laws of Thought (1854); Alan Turing, On Computable Numbers, original paper; Claude Shannon, A Symbolic Analysis of Relay and Switching Circuits (1938), MIT-hosted copy; Shannon: A Mathematical Theory of Communication"
+      }
+    },
+    {
+      "id": "feedback-control",
+      "label": "A machine responds to its measured effects",
+      "description": "A specified target and observation loop support control without equating response with autonomy or understanding.",
+      "sources": [
+        "boole",
+        "turing",
+        "shannon",
+        "shannon1948"
+      ],
+      "reading": {
+        "text": "A specified target and observation loop support control without equating response with autonomy or understanding.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: George Boole: An Investigation of the Laws of Thought (1854); Alan Turing, On Computable Numbers, original paper; Claude Shannon, A Symbolic Analysis of Relay and Switching Circuits (1938), MIT-hosted copy; Shannon: A Mathematical Theory of Communication"
+      }
+    },
+    {
+      "id": "menard-page",
+      "label": "Menard’s imagined page repeats Cervantes word for word",
+      "description": "Borges’s fiction invents a later writer producing the same text in another historical situation. This is a paraphrased setup, not quoted prose.",
+      "sources": [
+        "borges",
+        "benjamin",
+        "postmodern"
+      ],
+      "reading": {
+        "text": "Borges’s fiction invents a later writer producing the same text in another historical situation. This is a paraphrased setup, not quoted prose.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Poetry Foundation: Jorge Luis Borges; Stanford Encyclopedia of Philosophy: Walter Benjamin; Stanford Encyclopedia of Philosophy: Postmodernism"
+      }
+    },
+    {
+      "id": "new-authorship",
+      "label": "The same wording is attributed to a later life and purpose",
+      "description": "The changed attribution and context are part of the imagined reading experiment.",
+      "sources": [
+        "borges",
+        "benjamin",
+        "postmodern"
+      ],
+      "reading": {
+        "text": "The changed attribution and context are part of the imagined reading experiment.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Poetry Foundation: Jorge Luis Borges; Stanford Encyclopedia of Philosophy: Walter Benjamin; Stanford Encyclopedia of Philosophy: Postmodernism"
+      }
+    },
+    {
+      "id": "full-scale-map",
+      "label": "A map grows to match every detail of its territory",
+      "description": "A fictional limiting case asks when a representation stops serving as a useful selection.",
+      "sources": [
+        "borges",
+        "benjamin",
+        "postmodern"
+      ],
+      "reading": {
+        "text": "A fictional limiting case asks when a representation stops serving as a useful selection.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Poetry Foundation: Jorge Luis Borges; Stanford Encyclopedia of Philosophy: Walter Benjamin; Stanford Encyclopedia of Philosophy: Postmodernism"
+      }
+    },
+    {
+      "id": "forking-story",
+      "label": "A story explores incompatible possible continuations",
+      "description": "Narrative branching does not by itself establish a physical many-worlds theory.",
+      "sources": [
+        "borges",
+        "benjamin",
+        "postmodern"
+      ],
+      "reading": {
+        "text": "Narrative branching does not by itself establish a physical many-worlds theory.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Poetry Foundation: Jorge Luis Borges; Stanford Encyclopedia of Philosophy: Walter Benjamin; Stanford Encyclopedia of Philosophy: Postmodernism"
+      }
+    },
+    {
+      "id": "invented-citation",
+      "label": "A convincing scholarly reference names an invented book",
+      "description": "Borges uses fabricated scholarship as a literary device, not permission to fabricate research sources.",
+      "sources": [
+        "borges",
+        "benjamin",
+        "postmodern"
+      ],
+      "reading": {
+        "text": "Borges uses fabricated scholarship as a literary device, not permission to fabricate research sources.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Poetry Foundation: Jorge Luis Borges; Stanford Encyclopedia of Philosophy: Walter Benjamin; Stanford Encyclopedia of Philosophy: Postmodernism"
+      }
+    },
+    {
+      "id": "unique-presence",
+      "label": "An artwork’s particular place and history matter",
+      "description": "Benjamin’s discussion of aura concerns historical modes of experience, not a simple rule that all copies are bad.",
+      "sources": [
+        "borges",
+        "benjamin",
+        "postmodern"
+      ],
+      "reading": {
+        "text": "Benjamin’s discussion of aura concerns historical modes of experience, not a simple rule that all copies are bad.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Poetry Foundation: Jorge Luis Borges; Stanford Encyclopedia of Philosophy: Walter Benjamin; Stanford Encyclopedia of Philosophy: Postmodernism"
+      }
+    },
+    {
+      "id": "political-circulation",
+      "label": "Mass reproduction changes who can encounter and use art",
+      "description": "The new audience and political uses may open possibilities and dangers together.",
+      "sources": [
+        "borges",
+        "benjamin",
+        "postmodern"
+      ],
+      "reading": {
+        "text": "The new audience and political uses may open possibilities and dangers together.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Poetry Foundation: Jorge Luis Borges; Stanford Encyclopedia of Philosophy: Walter Benjamin; Stanford Encyclopedia of Philosophy: Postmodernism"
+      }
+    },
+    {
+      "id": "word-identical-page",
+      "label": "The collation finds the same words",
+      "description": "The earlier technique of comparing wording succeeds at its task but does not settle authorship or interpretation.",
+      "sources": [
+        "borges",
+        "benjamin",
+        "postmodern"
+      ],
+      "reading": {
+        "text": "The earlier technique of comparing wording succeeds at its task but does not settle authorship or interpretation.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Poetry Foundation: Jorge Luis Borges; Stanford Encyclopedia of Philosophy: Walter Benjamin; Stanford Encyclopedia of Philosophy: Postmodernism"
+      }
+    },
+    {
+      "id": "another-work",
+      "label": "The same words can become another work",
+      "description": "The operation changes interpretive context, not the letters. It is not a claim that any reading is equally well supported.",
+      "sources": [
+        "borges",
+        "benjamin",
+        "postmodern"
+      ],
+      "reading": {
+        "text": "The operation changes interpretive context, not the letters. It is not a claim that any reading is equally well supported.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Poetry Foundation: Jorge Luis Borges; Stanford Encyclopedia of Philosophy: Walter Benjamin; Stanford Encyclopedia of Philosophy: Postmodernism"
+      }
+    },
+    {
+      "id": "useless-total-map",
+      "label": "More detail can destroy a map’s usefulness",
+      "description": "The prior selective representation is tested against a fictional demand for total duplication.",
+      "sources": [
+        "borges",
+        "benjamin",
+        "postmodern"
+      ],
+      "reading": {
+        "text": "The prior selective representation is tested against a fictional demand for total duplication.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Poetry Foundation: Jorge Luis Borges; Stanford Encyclopedia of Philosophy: Walter Benjamin; Stanford Encyclopedia of Philosophy: Postmodernism"
+      }
+    },
+    {
+      "id": "branching-fiction",
+      "label": "A narrative can keep incompatible paths open",
+      "description": "Modern teaching comparison: biological branching and fictional alternatives share a representational device, not a causal or scientific identity.",
+      "sources": [
+        "borges",
+        "benjamin",
+        "postmodern"
+      ],
+      "reading": {
+        "text": "Modern teaching comparison: biological branching and fictional alternatives share a representational device, not a causal or scientific identity.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Poetry Foundation: Jorge Luis Borges; Stanford Encyclopedia of Philosophy: Walter Benjamin; Stanford Encyclopedia of Philosophy: Postmodernism"
+      }
+    },
+    {
+      "id": "fictional-archive",
+      "label": "The apparatus of scholarship becomes fiction",
+      "description": "A trusted-looking edition can be imitated as an artistic form; actual research still requires authentic sources.",
+      "sources": [
+        "borges",
+        "benjamin",
+        "postmodern"
+      ],
+      "reading": {
+        "text": "A trusted-looking edition can be imitated as an artistic form; actual research still requires authentic sources.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Poetry Foundation: Jorge Luis Borges; Stanford Encyclopedia of Philosophy: Walter Benjamin; Stanford Encyclopedia of Philosophy: Postmodernism"
+      }
+    },
+    {
+      "id": "aura-and-reproduction",
+      "label": "A copy changes the encounter with a work",
+      "description": "The earlier technical achievement becomes a question about presence, tradition and access.",
+      "sources": [
+        "borges",
+        "benjamin",
+        "postmodern"
+      ],
+      "reading": {
+        "text": "The earlier technical achievement becomes a question about presence, tradition and access.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Poetry Foundation: Jorge Luis Borges; Stanford Encyclopedia of Philosophy: Walter Benjamin; Stanford Encyclopedia of Philosophy: Postmodernism"
+      }
+    },
+    {
+      "id": "politics-of-the-copy",
+      "label": "Reproduction changes art’s political reach",
+      "description": "Do not reconcile every consequence into either liberation or decline.",
+      "sources": [
+        "borges",
+        "benjamin",
+        "postmodern"
+      ],
+      "reading": {
+        "text": "Do not reconcile every consequence into either liberation or decline.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Poetry Foundation: Jorge Luis Borges; Stanford Encyclopedia of Philosophy: Walter Benjamin; Stanford Encyclopedia of Philosophy: Postmodernism"
+      }
+    },
+    {
+      "id": "value-history",
+      "label": "Nietzsche asks how moral valuations acquired authority",
+      "description": "Genealogy asks about formation and function; an origin story alone is not a logical disproof of a value.",
+      "sources": [
+        "nietzsche",
+        "levi-strauss",
+        "foucault",
+        "postmodern",
+        "linnaeus"
+      ],
+      "reading": {
+        "text": "Genealogy asks about formation and function; an origin story alone is not a logical disproof of a value.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Stanford Encyclopedia of Philosophy: Nietzsche’s Moral and Political Philosophy; Collège de France: Claude Lévi-Strauss, Social Anthropology; Stanford Encyclopedia of Philosophy: Michel Foucault; Stanford Encyclopedia of Philosophy: Postmodernism; The Linnean Society: Linnaeus and race"
+      }
+    },
+    {
+      "id": "kinship-relations",
+      "label": "Kinship terms gain roles through their relations",
+      "description": "Lévi-Strauss’s structural approach seeks systems of relations rather than treating unfamiliar customs as isolated curiosities.",
+      "sources": [
+        "nietzsche",
+        "levi-strauss",
+        "foucault",
+        "postmodern",
+        "linnaeus"
+      ],
+      "reading": {
+        "text": "Lévi-Strauss’s structural approach seeks systems of relations rather than treating unfamiliar customs as isolated curiosities.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Stanford Encyclopedia of Philosophy: Nietzsche’s Moral and Political Philosophy; Collège de France: Claude Lévi-Strauss, Social Anthropology; Stanford Encyclopedia of Philosophy: Michel Foucault; Stanford Encyclopedia of Philosophy: Postmodernism; The Linnean Society: Linnaeus and race"
+      }
+    },
+    {
+      "id": "institution-records",
+      "label": "Schools, clinics and prisons classify and train people",
+      "description": "Foucault studies historical practices connecting knowledge, norms and power; the institutions are not treated as identical.",
+      "sources": [
+        "nietzsche",
+        "levi-strauss",
+        "foucault",
+        "postmodern",
+        "linnaeus"
+      ],
+      "reading": {
+        "text": "Foucault studies historical practices connecting knowledge, norms and power; the institutions are not treated as identical.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Stanford Encyclopedia of Philosophy: Nietzsche’s Moral and Political Philosophy; Collège de France: Claude Lévi-Strauss, Social Anthropology; Stanford Encyclopedia of Philosophy: Michel Foucault; Stanford Encyclopedia of Philosophy: Postmodernism; The Linnean Society: Linnaeus and race"
+      }
+    },
+    {
+      "id": "classification-exclusions",
+      "label": "A supposedly universal taxonomy ranks some people as inferior",
+      "description": "A specific historical harm in racial classification, not a reason to abandon every distinction in biology.",
+      "sources": [
+        "nietzsche",
+        "levi-strauss",
+        "foucault",
+        "postmodern",
+        "linnaeus"
+      ],
+      "reading": {
+        "text": "A specific historical harm in racial classification, not a reason to abandon every distinction in biology.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Stanford Encyclopedia of Philosophy: Nietzsche’s Moral and Political Philosophy; Collège de France: Claude Lévi-Strauss, Social Anthropology; Stanford Encyclopedia of Philosophy: Michel Foucault; Stanford Encyclopedia of Philosophy: Postmodernism; The Linnean Society: Linnaeus and race"
+      }
+    },
+    {
+      "id": "textual-tension",
+      "label": "A critic calls copies passive, yet praises an identical later page as new",
+      "description": "Authored interpretive example, not a quotation: an essay says only the original work can create meaning, yet treats an identical later page as intellectually innovative. The original/copy hierarchy is the named distinction under examination.",
+      "sources": [
+        "nietzsche",
+        "levi-strauss",
+        "foucault",
+        "postmodern",
+        "linnaeus"
+      ],
+      "reading": {
+        "text": "Authored interpretive example, not a quotation: an essay says only the original work can create meaning, yet treats an identical later page as intellectually innovative. The original/copy hierarchy is the named distinction under examination.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Stanford Encyclopedia of Philosophy: Nietzsche’s Moral and Political Philosophy; Collège de France: Claude Lévi-Strauss, Social Anthropology; Stanford Encyclopedia of Philosophy: Michel Foucault; Stanford Encyclopedia of Philosophy: Postmodernism; The Linnean Society: Linnaeus and race"
+      }
+    },
+    {
+      "id": "situated-observer",
+      "label": "An observer’s position shapes access to evidence",
+      "description": "A standpoint affects what can be seen and checked; it does not make all claims equally accurate.",
+      "sources": [
+        "nietzsche",
+        "levi-strauss",
+        "foucault",
+        "postmodern",
+        "linnaeus"
+      ],
+      "reading": {
+        "text": "A standpoint affects what can be seen and checked; it does not make all claims equally accurate.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Stanford Encyclopedia of Philosophy: Nietzsche’s Moral and Political Philosophy; Collège de France: Claude Lévi-Strauss, Social Anthropology; Stanford Encyclopedia of Philosophy: Michel Foucault; Stanford Encyclopedia of Philosophy: Postmodernism; The Linnean Society: Linnaeus and race"
+      }
+    },
+    {
+      "id": "external-check",
+      "label": "Other investigators can test the same constrained claim",
+      "description": "Shared criticism and independent evidence remain possible despite partial perspectives.",
+      "sources": [
+        "nietzsche",
+        "levi-strauss",
+        "foucault",
+        "postmodern",
+        "linnaeus"
+      ],
+      "reading": {
+        "text": "Shared criticism and independent evidence remain possible despite partial perspectives.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Stanford Encyclopedia of Philosophy: Nietzsche’s Moral and Political Philosophy; Collège de France: Claude Lévi-Strauss, Social Anthropology; Stanford Encyclopedia of Philosophy: Michel Foucault; Stanford Encyclopedia of Philosophy: Postmodernism; The Linnean Society: Linnaeus and race"
+      }
+    },
+    {
+      "id": "genealogy-of-values",
+      "label": "A moral vocabulary has a contested history",
+      "description": "The earlier universal claim is questioned through the history of its values; its normative validity is not automatically settled by its origins.",
+      "sources": [
+        "nietzsche",
+        "levi-strauss",
+        "foucault",
+        "postmodern",
+        "linnaeus"
+      ],
+      "reading": {
+        "text": "The earlier universal claim is questioned through the history of its values; its normative validity is not automatically settled by its origins.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Stanford Encyclopedia of Philosophy: Nietzsche’s Moral and Political Philosophy; Collège de France: Claude Lévi-Strauss, Social Anthropology; Stanford Encyclopedia of Philosophy: Michel Foucault; Stanford Encyclopedia of Philosophy: Postmodernism; The Linnean Society: Linnaeus and race"
+      }
+    },
+    {
+      "id": "relational-categories",
+      "label": "A category gets meaning from a pattern of relations",
+      "description": "Modern comparison: a shared name is no longer enough; the relations among terms matter in the anthropological account.",
+      "sources": [
+        "nietzsche",
+        "levi-strauss",
+        "foucault",
+        "postmodern",
+        "linnaeus"
+      ],
+      "reading": {
+        "text": "Modern comparison: a shared name is no longer enough; the relations among terms matter in the anthropological account.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Stanford Encyclopedia of Philosophy: Nietzsche’s Moral and Political Philosophy; Collège de France: Claude Lévi-Strauss, Social Anthropology; Stanford Encyclopedia of Philosophy: Michel Foucault; Stanford Encyclopedia of Philosophy: Postmodernism; The Linnean Society: Linnaeus and race"
+      }
+    },
+    {
+      "id": "knowledge-and-discipline",
+      "label": "A classification can help organize conduct",
+      "description": "The earlier organization of knowledge is contrasted with specific institutional uses, not blamed for every form of power.",
+      "sources": [
+        "nietzsche",
+        "levi-strauss",
+        "foucault",
+        "postmodern",
+        "linnaeus"
+      ],
+      "reading": {
+        "text": "The earlier organization of knowledge is contrasted with specific institutional uses, not blamed for every form of power.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Stanford Encyclopedia of Philosophy: Nietzsche’s Moral and Political Philosophy; Collège de France: Claude Lévi-Strauss, Social Anthropology; Stanford Encyclopedia of Philosophy: Michel Foucault; Stanford Encyclopedia of Philosophy: Postmodernism; The Linnean Society: Linnaeus and race"
+      }
+    },
+    {
+      "id": "false-natural-hierarchy",
+      "label": "A classification can naturalize domination",
+      "description": "Linnaean racial categories expose a concrete error and political ordering; the biological naming method is not thereby wholly useless.",
+      "sources": [
+        "nietzsche",
+        "levi-strauss",
+        "foucault",
+        "postmodern",
+        "linnaeus"
+      ],
+      "reading": {
+        "text": "Linnaean racial categories expose a concrete error and political ordering; the biological naming method is not thereby wholly useless.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Stanford Encyclopedia of Philosophy: Nietzsche’s Moral and Political Philosophy; Collège de France: Claude Lévi-Strauss, Social Anthropology; Stanford Encyclopedia of Philosophy: Michel Foucault; Stanford Encyclopedia of Philosophy: Postmodernism; The Linnean Society: Linnaeus and race"
+      }
+    },
+    {
+      "id": "unequal-universalism",
+      "label": "A universal promise can coexist with exclusion",
+      "description": "The earlier challenge to excluded women becomes a specific comparison with another exclusion, not a claim that their histories are interchangeable.",
+      "sources": [
+        "nietzsche",
+        "levi-strauss",
+        "foucault",
+        "postmodern",
+        "linnaeus"
+      ],
+      "reading": {
+        "text": "The earlier challenge to excluded women becomes a specific comparison with another exclusion, not a claim that their histories are interchangeable.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Stanford Encyclopedia of Philosophy: Nietzsche’s Moral and Political Philosophy; Collège de France: Claude Lévi-Strauss, Social Anthropology; Stanford Encyclopedia of Philosophy: Michel Foucault; Stanford Encyclopedia of Philosophy: Postmodernism; The Linnean Society: Linnaeus and race"
+      }
+    },
+    {
+      "id": "unstable-distinction",
+      "label": "The original/copy hierarchy unsettles its own case",
+      "description": "Borges’s context-sensitive reading helps identify a concrete tension: the critic’s later-page example grants a copy the creative role the essay denies it. This is a teaching comparison, not a claim that every text or distinction defeats itself.",
+      "sources": [
+        "nietzsche",
+        "levi-strauss",
+        "foucault",
+        "postmodern",
+        "linnaeus"
+      ],
+      "reading": {
+        "text": "Borges’s context-sensitive reading helps identify a concrete tension: the critic’s later-page example grants a copy the creative role the essay denies it. This is a teaching comparison, not a claim that every text or distinction defeats itself.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Stanford Encyclopedia of Philosophy: Nietzsche’s Moral and Political Philosophy; Collège de France: Claude Lévi-Strauss, Social Anthropology; Stanford Encyclopedia of Philosophy: Michel Foucault; Stanford Encyclopedia of Philosophy: Postmodernism; The Linnean Society: Linnaeus and race"
+      }
+    },
+    {
+      "id": "situated-evidence",
+      "label": "A view can be partial without being arbitrary",
+      "description": "The exact earlier limit of a framed trace now informs an account of knowledge situated in practices and positions.",
+      "sources": [
+        "nietzsche",
+        "levi-strauss",
+        "foucault",
+        "postmodern",
+        "linnaeus"
+      ],
+      "reading": {
+        "text": "The exact earlier limit of a framed trace now informs an account of knowledge situated in practices and positions.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Stanford Encyclopedia of Philosophy: Nietzsche’s Moral and Political Philosophy; Collège de France: Claude Lévi-Strauss, Social Anthropology; Stanford Encyclopedia of Philosophy: Michel Foucault; Stanford Encyclopedia of Philosophy: Postmodernism; The Linnean Society: Linnaeus and race"
+      }
+    },
+    {
+      "id": "accountable-perspectives",
+      "label": "Partial perspectives can still answer to evidence",
+      "description": "The result retains constraints and possible correction instead of ending in all claims being equally good.",
+      "sources": [
+        "nietzsche",
+        "levi-strauss",
+        "foucault",
+        "postmodern",
+        "linnaeus"
+      ],
+      "reading": {
+        "text": "The result retains constraints and possible correction instead of ending in all claims being equally good.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Stanford Encyclopedia of Philosophy: Nietzsche’s Moral and Political Philosophy; Collège de France: Claude Lévi-Strauss, Social Anthropology; Stanford Encyclopedia of Philosophy: Michel Foucault; Stanford Encyclopedia of Philosophy: Postmodernism; The Linnean Society: Linnaeus and race"
+      }
+    },
+    {
+      "id": "segregating-factors",
+      "label": "Mendel’s experiments preserve distinct inherited factors",
+      "description": "The nineteenth-century experiments gained a new place in twentieth-century genetics; not every trait follows a simple one-gene pattern.",
+      "sources": [
+        "genetics",
+        "mendel",
+        "climate",
+        "patterson-lead",
+        "radiometric-clock"
+      ],
+      "reading": {
+        "text": "The nineteenth-century experiments gained a new place in twentieth-century genetics; not every trait follows a simple one-gene pattern.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: National Human Genome Research Institute: Talking Glossary; NHGRI: Mendelian Inheritance; NASA: Evidence for Climate Change; Caltech: Getting the Lead Out; NIST: How do you know the age of fossils and other old things?"
+      }
+    },
+    {
+      "id": "dna-inheritance",
+      "label": "DNA carries heritable sequence information",
+      "description": "Molecular inheritance gives material mechanisms to an older question; genes are not a complete description of an organism’s future.",
+      "sources": [
+        "genetics",
+        "mendel",
+        "climate",
+        "patterson-lead",
+        "radiometric-clock"
+      ],
+      "reading": {
+        "text": "Molecular inheritance gives material mechanisms to an older question; genes are not a complete description of an organism’s future.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: National Human Genome Research Institute: Talking Glossary; NHGRI: Mendelian Inheritance; NASA: Evidence for Climate Change; Caltech: Getting the Lead Out; NIST: How do you know the age of fossils and other old things?"
+      }
+    },
+    {
+      "id": "environment-development",
+      "label": "Development also depends on conditions and interactions",
+      "description": "Inherited differences act through development in an environment, not as a context-free destiny.",
+      "sources": [
+        "genetics",
+        "mendel",
+        "climate",
+        "patterson-lead",
+        "radiometric-clock"
+      ],
+      "reading": {
+        "text": "Inherited differences act through development in an environment, not as a context-free destiny.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: National Human Genome Research Institute: Talking Glossary; NHGRI: Mendelian Inheritance; NASA: Evidence for Climate Change; Caltech: Getting the Lead Out; NIST: How do you know the age of fossils and other old things?"
+      }
+    },
+    {
+      "id": "food-web",
+      "label": "Organisms feed, compete and cooperate in connected systems",
+      "description": "A network of ecological relations, not a claim that every ecosystem seeks a harmonious balance.",
+      "sources": [
+        "genetics",
+        "mendel",
+        "climate",
+        "patterson-lead",
+        "radiometric-clock"
+      ],
+      "reading": {
+        "text": "A network of ecological relations, not a claim that every ecosystem seeks a harmonious balance.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: National Human Genome Research Institute: Talking Glossary; NHGRI: Mendelian Inheritance; NASA: Evidence for Climate Change; Caltech: Getting the Lead Out; NIST: How do you know the age of fossils and other old things?"
+      }
+    },
+    {
+      "id": "greenhouse-absorption",
+      "label": "Carbon dioxide absorbs outgoing infrared radiation",
+      "description": "A physical mechanism of warming; light’s electromagnetic nature makes its spectral interactions intelligible.",
+      "sources": [
+        "genetics",
+        "mendel",
+        "climate",
+        "patterson-lead",
+        "radiometric-clock"
+      ],
+      "reading": {
+        "text": "A physical mechanism of warming; light’s electromagnetic nature makes its spectral interactions intelligible.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: National Human Genome Research Institute: Talking Glossary; NHGRI: Mendelian Inheritance; NASA: Evidence for Climate Change; Caltech: Getting the Lead Out; NIST: How do you know the age of fossils and other old things?"
+      }
+    },
+    {
+      "id": "industrial-carbon",
+      "label": "Burning fossil fuels adds long-stored carbon to the air",
+      "description": "A material connection between industrial energy and atmospheric change.",
+      "sources": [
+        "genetics",
+        "mendel",
+        "climate",
+        "patterson-lead",
+        "radiometric-clock"
+      ],
+      "reading": {
+        "text": "A material connection between industrial energy and atmospheric change.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: National Human Genome Research Institute: Talking Glossary; NHGRI: Mendelian Inheritance; NASA: Evidence for Climate Change; Caltech: Getting the Lead Out; NIST: How do you know the age of fossils and other old things?"
+      }
+    },
+    {
+      "id": "ice-core-air",
+      "label": "Ancient bubbles preserve samples of former air",
+      "description": "An archive of atmospheric composition that can be compared with other climate evidence.",
+      "sources": [
+        "genetics",
+        "mendel",
+        "climate",
+        "patterson-lead",
+        "radiometric-clock"
+      ],
+      "reading": {
+        "text": "An archive of atmospheric composition that can be compared with other climate evidence.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: National Human Genome Research Institute: Talking Glossary; NHGRI: Mendelian Inheritance; NASA: Evidence for Climate Change; Caltech: Getting the Lead Out; NIST: How do you know the age of fossils and other old things?"
+      }
+    },
+    {
+      "id": "modern-warming",
+      "label": "Instrumental records show a warming planet",
+      "description": "The assessment uses multiple independent lines of evidence, not a single warm day.",
+      "sources": [
+        "genetics",
+        "mendel",
+        "climate",
+        "patterson-lead",
+        "radiometric-clock"
+      ],
+      "reading": {
+        "text": "The assessment uses multiple independent lines of evidence, not a single warm day.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: National Human Genome Research Institute: Talking Glossary; NHGRI: Mendelian Inheritance; NASA: Evidence for Climate Change; Caltech: Getting the Lead Out; NIST: How do you know the age of fossils and other old things?"
+      }
+    },
+    {
+      "id": "lead-blank",
+      "label": "Lead appears even in supposedly clean laboratory blanks",
+      "description": "Contamination can arrive from equipment and surroundings, not only the ancient sample under study.",
+      "sources": [
+        "genetics",
+        "mendel",
+        "climate",
+        "patterson-lead",
+        "radiometric-clock"
+      ],
+      "reading": {
+        "text": "Contamination can arrive from equipment and surroundings, not only the ancient sample under study.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: National Human Genome Research Institute: Talking Glossary; NHGRI: Mendelian Inheritance; NASA: Evidence for Climate Change; Caltech: Getting the Lead Out; NIST: How do you know the age of fossils and other old things?"
+      }
+    },
+    {
+      "id": "old-new-lead",
+      "label": "Modern environments carry more industrial lead than older baselines",
+      "description": "Patterson’s measurements moved from an analytical nuisance to evidence of widespread pollution.",
+      "sources": [
+        "genetics",
+        "mendel",
+        "climate",
+        "patterson-lead",
+        "radiometric-clock"
+      ],
+      "reading": {
+        "text": "Patterson’s measurements moved from an analytical nuisance to evidence of widespread pollution.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: National Human Genome Research Institute: Talking Glossary; NHGRI: Mendelian Inheritance; NASA: Evidence for Climate Change; Caltech: Getting the Lead Out; NIST: How do you know the age of fossils and other old things?"
+      }
+    },
+    {
+      "id": "particulate-heredity",
+      "label": "Inheritance need not blend differences away",
+      "description": "The old open difficulty meets a distinct mechanism of inheritance, without pretending Darwin had modern genetics.",
+      "sources": [
+        "genetics",
+        "mendel",
+        "climate",
+        "patterson-lead",
+        "radiometric-clock"
+      ],
+      "reading": {
+        "text": "The old open difficulty meets a distinct mechanism of inheritance, without pretending Darwin had modern genetics.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: National Human Genome Research Institute: Talking Glossary; NHGRI: Mendelian Inheritance; NASA: Evidence for Climate Change; Caltech: Getting the Lead Out; NIST: How do you know the age of fossils and other old things?"
+      }
+    },
+    {
+      "id": "molecular-heredity",
+      "label": "The inherited difference has a molecular carrier",
+      "description": "A biological account acquires a material substrate, not a complete theory of every trait.",
+      "sources": [
+        "genetics",
+        "mendel",
+        "climate",
+        "patterson-lead",
+        "radiometric-clock"
+      ],
+      "reading": {
+        "text": "A biological account acquires a material substrate, not a complete theory of every trait.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: National Human Genome Research Institute: Talking Glossary; NHGRI: Mendelian Inheritance; NASA: Evidence for Climate Change; Caltech: Getting the Lead Out; NIST: How do you know the age of fossils and other old things?"
+      }
+    },
+    {
+      "id": "genes-in-context",
+      "label": "Inherited information acts in a developing world",
+      "description": "A useful explanation combines inheritance with environmental and developmental conditions.",
+      "sources": [
+        "genetics",
+        "mendel",
+        "climate",
+        "patterson-lead",
+        "radiometric-clock"
+      ],
+      "reading": {
+        "text": "A useful explanation combines inheritance with environmental and developmental conditions.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: National Human Genome Research Institute: Talking Glossary; NHGRI: Mendelian Inheritance; NASA: Evidence for Climate Change; Caltech: Getting the Lead Out; NIST: How do you know the age of fossils and other old things?"
+      }
+    },
+    {
+      "id": "ecosystem-relations",
+      "label": "A habitat is a network of living relations",
+      "description": "The earlier moving map becomes a setting for interacting organisms rather than merely a list of places.",
+      "sources": [
+        "genetics",
+        "mendel",
+        "climate",
+        "patterson-lead",
+        "radiometric-clock"
+      ],
+      "reading": {
+        "text": "The earlier moving map becomes a setting for interacting organisms rather than merely a list of places.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: National Human Genome Research Institute: Talking Glossary; NHGRI: Mendelian Inheritance; NASA: Evidence for Climate Change; Caltech: Getting the Lead Out; NIST: How do you know the age of fossils and other old things?"
+      }
+    },
+    {
+      "id": "carbon-energy-link",
+      "label": "Industrial power changes the atmospheric store",
+      "description": "The earlier material appetite of industry now connects to a planetary reservoir.",
+      "sources": [
+        "genetics",
+        "mendel",
+        "climate",
+        "patterson-lead",
+        "radiometric-clock"
+      ],
+      "reading": {
+        "text": "The earlier material appetite of industry now connects to a planetary reservoir.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: National Human Genome Research Institute: Talking Glossary; NHGRI: Mendelian Inheritance; NASA: Evidence for Climate Change; Caltech: Getting the Lead Out; NIST: How do you know the age of fossils and other old things?"
+      }
+    },
+    {
+      "id": "radiative-warming",
+      "label": "Added greenhouse gas changes Earth’s heat loss",
+      "description": "A physical interaction supplies a causal mechanism; no numerical radiation calculation is required.",
+      "sources": [
+        "genetics",
+        "mendel",
+        "climate",
+        "patterson-lead",
+        "radiometric-clock"
+      ],
+      "reading": {
+        "text": "A physical interaction supplies a causal mechanism; no numerical radiation calculation is required.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: National Human Genome Research Institute: Talking Glossary; NHGRI: Mendelian Inheritance; NASA: Evidence for Climate Change; Caltech: Getting the Lead Out; NIST: How do you know the age of fossils and other old things?"
+      }
+    },
+    {
+      "id": "climate-pressure",
+      "label": "The energy system creates a warming pressure",
+      "description": "Material emissions and radiative physics combine into an explanation, rather than climate being inferred from correlation alone.",
+      "sources": [
+        "genetics",
+        "mendel",
+        "climate",
+        "patterson-lead",
+        "radiometric-clock"
+      ],
+      "reading": {
+        "text": "Material emissions and radiative physics combine into an explanation, rather than climate being inferred from correlation alone.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: National Human Genome Research Institute: Talking Glossary; NHGRI: Mendelian Inheritance; NASA: Evidence for Climate Change; Caltech: Getting the Lead Out; NIST: How do you know the age of fossils and other old things?"
+      }
+    },
+    {
+      "id": "atmospheric-history",
+      "label": "The air has a readable history",
+      "description": "Modern comparison: the earlier distinction between order and elapsed time makes dated environmental archives a different kind of evidence from an undated sample.",
+      "sources": [
+        "genetics",
+        "mendel",
+        "climate",
+        "patterson-lead",
+        "radiometric-clock"
+      ],
+      "reading": {
+        "text": "Modern comparison: the earlier distinction between order and elapsed time makes dated environmental archives a different kind of evidence from an undated sample.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: National Human Genome Research Institute: Talking Glossary; NHGRI: Mendelian Inheritance; NASA: Evidence for Climate Change; Caltech: Getting the Lead Out; NIST: How do you know the age of fossils and other old things?"
+      }
+    },
+    {
+      "id": "human-driven-warming",
+      "label": "Human activity drives the recent warming",
+      "description": "Observed change is interpreted with the established physical mechanism and broader evidence; uncertainty in details is not uncertainty that greenhouse gases warm the planet.",
+      "sources": [
+        "genetics",
+        "mendel",
+        "climate",
+        "patterson-lead",
+        "radiometric-clock"
+      ],
+      "reading": {
+        "text": "Observed change is interpreted with the established physical mechanism and broader evidence; uncertainty in details is not uncertainty that greenhouse gases warm the planet.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: National Human Genome Research Institute: Talking Glossary; NHGRI: Mendelian Inheritance; NASA: Evidence for Climate Change; Caltech: Getting the Lead Out; NIST: How do you know the age of fossils and other old things?"
+      }
+    },
+    {
+      "id": "clean-measurement-problem",
+      "label": "The laboratory can contaminate an ancient clock",
+      "description": "A surprising return: precision work on Earth’s age requires separating the sample’s lead from lead introduced by the present.",
+      "sources": [
+        "genetics",
+        "mendel",
+        "climate",
+        "patterson-lead",
+        "radiometric-clock"
+      ],
+      "reading": {
+        "text": "A surprising return: precision work on Earth’s age requires separating the sample’s lead from lead introduced by the present.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: National Human Genome Research Institute: Talking Glossary; NHGRI: Mendelian Inheritance; NASA: Evidence for Climate Change; Caltech: Getting the Lead Out; NIST: How do you know the age of fossils and other old things?"
+      }
+    },
+    {
+      "id": "industrial-lead-footprint",
+      "label": "An analytical nuisance exposes industrial pollution",
+      "description": "A problem in geochronology opens an environmental-health inquiry through measured contamination, not by a thematic slogan.",
+      "sources": [
+        "genetics",
+        "mendel",
+        "climate",
+        "patterson-lead",
+        "radiometric-clock"
+      ],
+      "reading": {
+        "text": "A problem in geochronology opens an environmental-health inquiry through measured contamination, not by a thematic slogan.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: National Human Genome Research Institute: Talking Glossary; NHGRI: Mendelian Inheritance; NASA: Evidence for Climate Change; Caltech: Getting the Lead Out; NIST: How do you know the age of fossils and other old things?"
+      }
+    },
+    {
+      "id": "world-history-not-destiny",
+      "label": "Geography constrains history without writing it alone",
+      "description": "Modern teaching comparison: ecology and material routes matter alongside coercion, institutions and contingency. No single contested geographical theory is treated as settled history.",
+      "sources": [
+        "genetics",
+        "mendel",
+        "climate",
+        "patterson-lead",
+        "radiometric-clock"
+      ],
+      "reading": {
+        "text": "Modern teaching comparison: ecology and material routes matter alongside coercion, institutions and contingency. No single contested geographical theory is treated as settled history.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: National Human Genome Research Institute: Talking Glossary; NHGRI: Mendelian Inheritance; NASA: Evidence for Climate Change; Caltech: Getting the Lead Out; NIST: How do you know the age of fossils and other old things?"
+      }
+    },
+    {
+      "id": "learned-predictor",
+      "label": "A model learns patterns from a large archive",
+      "description": "Speculative design input: pattern prediction is useful but does not by itself establish a cause or guarantee a new case.",
+      "sources": [
+        "speculation",
+        "aegis",
+        "nist",
+        "turing"
+      ],
+      "reading": {
+        "text": "Speculative design input: pattern prediction is useful but does not by itself establish a cause or guarantee a new case.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Authored speculative constructions; background: Ostrom Nobel lecture; NASA/JPL: AEGIS autonomous science targeting; NIST AI RMF Core; Alan Turing, On Computable Numbers, original paper"
+      }
+    },
+    {
+      "id": "proposed-trial",
+      "label": "The model proposes changing one condition in a new trial",
+      "description": "A proposed intervention must be checked against real outcomes rather than accepted because its explanation sounds fluent.",
+      "sources": [
+        "speculation",
+        "aegis",
+        "nist",
+        "turing"
+      ],
+      "reading": {
+        "text": "A proposed intervention must be checked against real outcomes rather than accepted because its explanation sounds fluent.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Authored speculative constructions; background: Ostrom Nobel lecture; NASA/JPL: AEGIS autonomous science targeting; NIST AI RMF Core; Alan Turing, On Computable Numbers, original paper"
+      }
+    },
+    {
+      "id": "remote-delay",
+      "label": "The observatory cannot wait for an immediate reply from Earth",
+      "description": "Communication delay motivates bounded local decisions rather than universal machine authority.",
+      "sources": [
+        "speculation",
+        "aegis",
+        "nist",
+        "turing"
+      ],
+      "reading": {
+        "text": "Communication delay motivates bounded local decisions rather than universal machine authority.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Authored speculative constructions; background: Ostrom Nobel lecture; NASA/JPL: AEGIS autonomous science targeting; NIST AI RMF Core; Alan Turing, On Computable Numbers, original paper"
+      }
+    },
+    {
+      "id": "verified-source-records",
+      "label": "Each observation keeps its instrument, context and revision history",
+      "description": "A proposed provenance design, not a guarantee that every logged observation is correct.",
+      "sources": [
+        "speculation",
+        "aegis",
+        "nist",
+        "turing"
+      ],
+      "reading": {
+        "text": "A proposed provenance design, not a guarantee that every logged observation is correct.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Authored speculative constructions; background: Ostrom Nobel lecture; NASA/JPL: AEGIS autonomous science targeting; NIST AI RMF Core; Alan Turing, On Computable Numbers, original paper"
+      }
+    },
+    {
+      "id": "uncertain-novel-case",
+      "label": "The next observation differs from the training archive",
+      "description": "A concrete reason to test generalization and preserve uncertainty.",
+      "sources": [
+        "speculation",
+        "aegis",
+        "nist",
+        "turing"
+      ],
+      "reading": {
+        "text": "A concrete reason to test generalization and preserve uncertainty.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Authored speculative constructions; background: Ostrom Nobel lecture; NASA/JPL: AEGIS autonomous science targeting; NIST AI RMF Core; Alan Turing, On Computable Numbers, original paper"
+      }
+    },
+    {
+      "id": "independent-instruments",
+      "label": "Fictional result: separate instruments detect the same event",
+      "description": "In this explicitly imagined trial, two differently designed instruments record a matching candidate event, and routine local calibration checks pass. Shared assumptions and common disturbances remain possible.",
+      "sources": [
+        "speculation",
+        "aegis",
+        "nist",
+        "turing"
+      ],
+      "reading": {
+        "text": "In this explicitly imagined trial, two differently designed instruments record a matching candidate event, and routine local calibration checks pass. Shared assumptions and common disturbances remain possible.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Authored speculative constructions; background: Ostrom Nobel lecture; NASA/JPL: AEGIS autonomous science targeting; NIST AI RMF Core; Alan Turing, On Computable Numbers, original paper"
+      }
+    },
+    {
+      "id": "mission-boundary",
+      "label": "The local system may observe, but irreversible interventions need review",
+      "description": "An authored division of authority for this speculative mission.",
+      "sources": [
+        "speculation",
+        "aegis",
+        "nist",
+        "turing"
+      ],
+      "reading": {
+        "text": "An authored division of authority for this speculative mission.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Authored speculative constructions; background: Ostrom Nobel lecture; NASA/JPL: AEGIS autonomous science targeting; NIST AI RMF Core; Alan Turing, On Computable Numbers, original paper"
+      }
+    },
+    {
+      "id": "predictive-assistant",
+      "label": "A powerful predictor, not a universal oracle",
+      "description": "Speculative synthesis: a bounded machine can still be valuable without claiming every problem is decidable or every output reliable.",
+      "sources": [
+        "speculation",
+        "aegis",
+        "nist",
+        "turing"
+      ],
+      "reading": {
+        "text": "Speculative synthesis: a bounded machine can still be valuable without claiming every problem is decidable or every output reliable.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Authored speculative constructions; background: Ostrom Nobel lecture; NASA/JPL: AEGIS autonomous science targeting; NIST AI RMF Core; Alan Turing, On Computable Numbers, original paper"
+      }
+    },
+    {
+      "id": "trial-design-partner",
+      "label": "A model proposes an experiment that people can inspect",
+      "description": "The earlier concrete intervention-and-public-method practice shapes what a useful proposed experiment must expose.",
+      "sources": [
+        "speculation",
+        "aegis",
+        "nist",
+        "turing"
+      ],
+      "reading": {
+        "text": "The earlier concrete intervention-and-public-method practice shapes what a useful proposed experiment must expose.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Authored speculative constructions; background: Ostrom Nobel lecture; NASA/JPL: AEGIS autonomous science targeting; NIST AI RMF Core; Alan Turing, On Computable Numbers, original paper"
+      }
+    },
+    {
+      "id": "provenance-rich-observatory",
+      "label": "A record whose making can be examined",
+      "description": "Speculative comparison: the old demonstration that scholarly appearance can be fabricated motivates inspectable provenance, not automatic trust in a polished citation.",
+      "sources": [
+        "speculation",
+        "aegis",
+        "nist",
+        "turing"
+      ],
+      "reading": {
+        "text": "Speculative comparison: the old demonstration that scholarly appearance can be fabricated motivates inspectable provenance, not automatic trust in a polished citation.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Authored speculative constructions; background: Ostrom Nobel lecture; NASA/JPL: AEGIS autonomous science targeting; NIST AI RMF Core; Alan Turing, On Computable Numbers, original paper"
+      }
+    },
+    {
+      "id": "uncertainty-bearing-model",
+      "label": "A prediction keeps its unfamiliar case visible",
+      "description": "The new case remains a stated limitation rather than being hidden behind the model’s confident style.",
+      "sources": [
+        "speculation",
+        "aegis",
+        "nist",
+        "turing"
+      ],
+      "reading": {
+        "text": "The new case remains a stated limitation rather than being hidden behind the model’s confident style.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Authored speculative constructions; background: Ostrom Nobel lecture; NASA/JPL: AEGIS autonomous science targeting; NIST AI RMF Core; Alan Turing, On Computable Numbers, original paper"
+      }
+    },
+    {
+      "id": "cross-checked-discovery",
+      "label": "A fictional candidate survives distinct checks",
+      "description": "The proposed inquiry receives stipulated agreeing observations and calibration checks. These support the fictional candidate without guaranteeing truth or asserting that a real future discovery occurred.",
+      "sources": [
+        "speculation",
+        "aegis",
+        "nist",
+        "turing"
+      ],
+      "reading": {
+        "text": "The proposed inquiry receives stipulated agreeing observations and calibration checks. These support the fictional candidate without guaranteeing truth or asserting that a real future discovery occurred.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Authored speculative constructions; background: Ostrom Nobel lecture; NASA/JPL: AEGIS autonomous science targeting; NIST AI RMF Core; Alan Turing, On Computable Numbers, original paper"
+      }
+    },
+    {
+      "id": "remote-observation-agent",
+      "label": "A local observer can act while Earth is silent",
+      "description": "The inherited observation–action loop supports a bounded response to communication delay.",
+      "sources": [
+        "speculation",
+        "aegis",
+        "nist",
+        "turing"
+      ],
+      "reading": {
+        "text": "The inherited observation–action loop supports a bounded response to communication delay.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Authored speculative constructions; background: Ostrom Nobel lecture; NASA/JPL: AEGIS autonomous science targeting; NIST AI RMF Core; Alan Turing, On Computable Numbers, original paper"
+      }
+    },
+    {
+      "id": "bounded-autonomy",
+      "label": "Useful local action with a defined stopping boundary",
+      "description": "The mission can gain responsiveness while reserving some decisions for review.",
+      "sources": [
+        "speculation",
+        "aegis",
+        "nist",
+        "turing"
+      ],
+      "reading": {
+        "text": "The mission can gain responsiveness while reserving some decisions for review.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Authored speculative constructions; background: Ostrom Nobel lecture; NASA/JPL: AEGIS autonomous science targeting; NIST AI RMF Core; Alan Turing, On Computable Numbers, original paper"
+      }
+    },
+    {
+      "id": "repairable-discovery-record",
+      "label": "A distant finding remains inspectable and correctable",
+      "description": "Traceable evidence and recoverable transmission address different failure modes; neither is a guarantee of truth.",
+      "sources": [
+        "speculation",
+        "aegis",
+        "nist",
+        "turing"
+      ],
+      "reading": {
+        "text": "Traceable evidence and recoverable transmission address different failure modes; neither is a guarantee of truth.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Authored speculative constructions; background: Ostrom Nobel lecture; NASA/JPL: AEGIS autonomous science targeting; NIST AI RMF Core; Alan Turing, On Computable Numbers, original paper"
+      }
+    },
+    {
+      "id": "shared-workshop",
+      "label": "A community workshop lets makers set tasks and pause machines",
+      "description": "Speculative design: community ownership is paired with explicit maker rights to choose some tasks, revise operating arrangements and pause unsafe machinery. These rights still need institutions that make them effective.",
+      "sources": [
+        "speculation",
+        "ostrom-lecture-primary",
+        "morris",
+        "kropotkin",
+        "nist"
+      ],
+      "reading": {
+        "text": "Speculative design: community ownership is paired with explicit maker rights to choose some tasks, revise operating arrangements and pause unsafe machinery. These rights still need institutions that make them effective.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Authored speculative constructions; background: Ostrom Nobel lecture; Ostrom, Beyond Markets and States (2009), Nobel Prize lecture, pp.417, 419, 422, 429; William Morris Archive: Useful Work versus Useless Toil; Peter Kropotkin, Mutual Aid: A Factor of Evolution; NIST AI RMF Core"
+      }
+    },
+    {
+      "id": "maker-options",
+      "label": "People can choose some work for skill and pleasure",
+      "description": "A possible arrangement must also provide necessities and recognize work that is burdensome but essential.",
+      "sources": [
+        "speculation",
+        "ostrom-lecture-primary",
+        "morris",
+        "kropotkin",
+        "nist"
+      ],
+      "reading": {
+        "text": "A possible arrangement must also provide necessities and recognize work that is burdensome but essential.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Authored speculative constructions; background: Ostrom Nobel lecture; Ostrom, Beyond Markets and States (2009), Nobel Prize lecture, pp.417, 419, 422, 429; William Morris Archive: Useful Work versus Useless Toil; Peter Kropotkin, Mutual Aid: A Factor of Evolution; NIST AI RMF Core"
+      }
+    },
+    {
+      "id": "rapid-response",
+      "label": "A city controller can respond quickly to a looming hazard",
+      "description": "Speed can matter, but action may affect people who did not choose the controller’s priorities.",
+      "sources": [
+        "speculation",
+        "ostrom-lecture-primary",
+        "morris",
+        "kropotkin",
+        "nist"
+      ],
+      "reading": {
+        "text": "Speed can matter, but action may affect people who did not choose the controller’s priorities.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Authored speculative constructions; background: Ostrom Nobel lecture; Ostrom, Beyond Markets and States (2009), Nobel Prize lecture, pp.417, 419, 422, 429; William Morris Archive: Useful Work versus Useless Toil; Peter Kropotkin, Mutual Aid: A Factor of Evolution; NIST AI RMF Core"
+      }
+    },
+    {
+      "id": "contested-priorities",
+      "label": "Residents disagree about the acceptable risks and costs",
+      "description": "A real conflict, not a misunderstanding cured simply by revealing one more fact.",
+      "sources": [
+        "speculation",
+        "ostrom-lecture-primary",
+        "morris",
+        "kropotkin",
+        "nist"
+      ],
+      "reading": {
+        "text": "A real conflict, not a misunderstanding cured simply by revealing one more fact.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Authored speculative constructions; background: Ostrom Nobel lecture; Ostrom, Beyond Markets and States (2009), Nobel Prize lecture, pp.417, 419, 422, 429; William Morris Archive: Useful Work versus Useless Toil; Peter Kropotkin, Mutual Aid: A Factor of Evolution; NIST AI RMF Core"
+      }
+    },
+    {
+      "id": "local-rulemaking",
+      "label": "People affected by a shared resource can revise its rules",
+      "description": "Inspired by studies of governance, not a universal formula that every commons will succeed.",
+      "sources": [
+        "speculation",
+        "ostrom-lecture-primary",
+        "morris",
+        "kropotkin",
+        "nist"
+      ],
+      "reading": {
+        "text": "Inspired by studies of governance, not a universal formula that every commons will succeed.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Authored speculative constructions; background: Ostrom Nobel lecture; Ostrom, Beyond Markets and States (2009), Nobel Prize lecture, pp.417, 419, 422, 429; William Morris Archive: Useful Work versus Useless Toil; Peter Kropotkin, Mutual Aid: A Factor of Evolution; NIST AI RMF Core"
+      }
+    },
+    {
+      "id": "care-requirements",
+      "label": "Some useful work remains demanding and unevenly shared",
+      "description": "Care and maintenance cannot be wished away by declaring all labour pleasurable.",
+      "sources": [
+        "speculation",
+        "ostrom-lecture-primary",
+        "morris",
+        "kropotkin",
+        "nist"
+      ],
+      "reading": {
+        "text": "Care and maintenance cannot be wished away by declaring all labour pleasurable.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Authored speculative constructions; background: Ostrom Nobel lecture; Ostrom, Beyond Markets and States (2009), Nobel Prize lecture, pp.417, 419, 422, 429; William Morris Archive: Useful Work versus Useless Toil; Peter Kropotkin, Mutual Aid: A Factor of Evolution; NIST AI RMF Core"
+      }
+    },
+    {
+      "id": "public-appeal",
+      "label": "Residents can challenge a decision and inspect its reasons",
+      "description": "Contestability has a cost in time, staffing and possible delay; it is not free magic.",
+      "sources": [
+        "speculation",
+        "ostrom-lecture-primary",
+        "morris",
+        "kropotkin",
+        "nist"
+      ],
+      "reading": {
+        "text": "Contestability has a cost in time, staffing and possible delay; it is not free magic.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Authored speculative constructions; background: Ostrom Nobel lecture; Ostrom, Beyond Markets and States (2009), Nobel Prize lecture, pp.417, 419, 422, 429; William Morris Archive: Useful Work versus Useless Toil; Peter Kropotkin, Mutual Aid: A Factor of Evolution; NIST AI RMF Core"
+      }
+    },
+    {
+      "id": "automation-with-agency",
+      "label": "A workshop design reserves decisions for its makers",
+      "description": "Speculative institutional design joins labour-saving tools to specified task-setting and pause rights. It does not infer meaningful agency from community ownership alone or guarantee successful enforcement.",
+      "sources": [
+        "speculation",
+        "ostrom-lecture-primary",
+        "morris",
+        "kropotkin",
+        "nist"
+      ],
+      "reading": {
+        "text": "Speculative institutional design joins labour-saving tools to specified task-setting and pause rights. It does not infer meaningful agency from community ownership alone or guarantee successful enforcement.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Authored speculative constructions; background: Ostrom Nobel lecture; Ostrom, Beyond Markets and States (2009), Nobel Prize lecture, pp.417, 419, 422, 429; William Morris Archive: Useful Work versus Useless Toil; Peter Kropotkin, Mutual Aid: A Factor of Evolution; NIST AI RMF Core"
+      }
+    },
+    {
+      "id": "workshop-for-living",
+      "label": "A workshop can value skill as well as output",
+      "description": "The older account of worthwhile making shapes an institutional proposal without promising that all necessary labour becomes delightful.",
+      "sources": [
+        "speculation",
+        "ostrom-lecture-primary",
+        "morris",
+        "kropotkin",
+        "nist"
+      ],
+      "reading": {
+        "text": "The older account of worthwhile making shapes an institutional proposal without promising that all necessary labour becomes delightful.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Authored speculative constructions; background: Ostrom Nobel lecture; Ostrom, Beyond Markets and States (2009), Nobel Prize lecture, pp.417, 419, 422, 429; William Morris Archive: Useful Work versus Useless Toil; Peter Kropotkin, Mutual Aid: A Factor of Evolution; NIST AI RMF Core"
+      }
+    },
+    {
+      "id": "care-still-needed",
+      "label": "Pleasurable making does not eliminate care burdens",
+      "description": "An unresolved practical obligation remains inside the proposed good life.",
+      "sources": [
+        "speculation",
+        "ostrom-lecture-primary",
+        "morris",
+        "kropotkin",
+        "nist"
+      ],
+      "reading": {
+        "text": "An unresolved practical obligation remains inside the proposed good life.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Authored speculative constructions; background: Ostrom Nobel lecture; Ostrom, Beyond Markets and States (2009), Nobel Prize lecture, pp.417, 419, 422, 429; William Morris Archive: Useful Work versus Useless Toil; Peter Kropotkin, Mutual Aid: A Factor of Evolution; NIST AI RMF Core"
+      }
+    },
+    {
+      "id": "responsive-city",
+      "label": "A city can respond locally to urgent signals",
+      "description": "A bounded autonomous arrangement is adapted from an observatory to a social setting with much more contested consequences.",
+      "sources": [
+        "speculation",
+        "ostrom-lecture-primary",
+        "morris",
+        "kropotkin",
+        "nist"
+      ],
+      "reading": {
+        "text": "A bounded autonomous arrangement is adapted from an observatory to a social setting with much more contested consequences.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Authored speculative constructions; background: Ostrom Nobel lecture; Ostrom, Beyond Markets and States (2009), Nobel Prize lecture, pp.417, 419, 422, 429; William Morris Archive: Useful Work versus Useless Toil; Peter Kropotkin, Mutual Aid: A Factor of Evolution; NIST AI RMF Core"
+      }
+    },
+    {
+      "id": "control-tradeoff",
+      "label": "Faster response can reduce time to challenge it",
+      "description": "The conflict is kept explicit: responsiveness and prior contestability can pull in different directions.",
+      "sources": [
+        "speculation",
+        "ostrom-lecture-primary",
+        "morris",
+        "kropotkin",
+        "nist"
+      ],
+      "reading": {
+        "text": "The conflict is kept explicit: responsiveness and prior contestability can pull in different directions.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Authored speculative constructions; background: Ostrom Nobel lecture; Ostrom, Beyond Markets and States (2009), Nobel Prize lecture, pp.417, 419, 422, 429; William Morris Archive: Useful Work versus Useless Toil; Peter Kropotkin, Mutual Aid: A Factor of Evolution; NIST AI RMF Core"
+      }
+    },
+    {
+      "id": "contestable-control",
+      "label": "Rapid action has an inspectable appeal path",
+      "description": "Appeal supplies a partial institutional response, not a cure for damage already done or time already lost.",
+      "sources": [
+        "speculation",
+        "ostrom-lecture-primary",
+        "morris",
+        "kropotkin",
+        "nist"
+      ],
+      "reading": {
+        "text": "Appeal supplies a partial institutional response, not a cure for damage already done or time already lost.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Authored speculative constructions; background: Ostrom Nobel lecture; Ostrom, Beyond Markets and States (2009), Nobel Prize lecture, pp.417, 419, 422, 429; William Morris Archive: Useful Work versus Useless Toil; Peter Kropotkin, Mutual Aid: A Factor of Evolution; NIST AI RMF Core"
+      }
+    },
+    {
+      "id": "revisable-commons",
+      "label": "Cooperation receives rules people can revise",
+      "description": "Modern-to-future comparison: the possibility of cooperation does not itself design an institution; rulemaking does additional work.",
+      "sources": [
+        "speculation",
+        "ostrom-lecture-primary",
+        "morris",
+        "kropotkin",
+        "nist"
+      ],
+      "reading": {
+        "text": "Modern-to-future comparison: the possibility of cooperation does not itself design an institution; rulemaking does additional work.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Authored speculative constructions; background: Ostrom Nobel lecture; Ostrom, Beyond Markets and States (2009), Nobel Prize lecture, pp.417, 419, 422, 429; William Morris Archive: Useful Work versus Useless Toil; Peter Kropotkin, Mutual Aid: A Factor of Evolution; NIST AI RMF Core"
+      }
+    },
+    {
+      "id": "plural-good-lives",
+      "label": "A prosperous city need not prescribe one good life",
+      "description": "The older distinction between aggregate wealth and living well remains useful in judging what the new production system is for.",
+      "sources": [
+        "speculation",
+        "ostrom-lecture-primary",
+        "morris",
+        "kropotkin",
+        "nist"
+      ],
+      "reading": {
+        "text": "The older distinction between aggregate wealth and living well remains useful in judging what the new production system is for.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Authored speculative constructions; background: Ostrom Nobel lecture; Ostrom, Beyond Markets and States (2009), Nobel Prize lecture, pp.417, 419, 422, 429; William Morris Archive: Useful Work versus Useless Toil; Peter Kropotkin, Mutual Aid: A Factor of Evolution; NIST AI RMF Core"
+      }
+    },
+    {
+      "id": "unfinished-common-world",
+      "label": "A shared world with obligations still disputed",
+      "description": "The ending preserves an institutional proposal and an unresolved burden. It does not synthesize every disagreement into a universal solution.",
+      "sources": [
+        "speculation",
+        "ostrom-lecture-primary",
+        "morris",
+        "kropotkin",
+        "nist"
+      ],
+      "reading": {
+        "text": "The ending preserves an institutional proposal and an unresolved burden. It does not synthesize every disagreement into a universal solution.",
+        "attribution": "Authored paraphrase or teaching reconstruction; not a quotation. Sources: Authored speculative constructions; background: Ostrom Nobel lecture; Ostrom, Beyond Markets and States (2009), Nobel Prize lecture, pp.417, 419, 422, 429; William Morris Archive: Useful Work versus Useless Toil; Peter Kropotkin, Mutual Aid: A Factor of Evolution; NIST AI RMF Core"
+      }
+    }
+  ],
+  "hotspots": [
+    {
+      "id": "optical-darkroom",
+      "label": "Dark room",
+      "description": "A setting where the faint aperture image can be distinguished.",
+      "sources": [
+        "optics",
+        "optics-lamps-primary",
+        "optics-manuscript",
+        "lensmaking"
+      ]
+    },
+    {
+      "id": "longitude-sea",
+      "label": "Sea trial",
+      "description": "A moving, exposed setting in which a portable time reference must perform.",
+      "sources": [
+        "longitude",
+        "longitude-lunar-si",
+        "almanac-history",
+        "jaipur"
+      ]
+    }
+  ],
+  "initialItems": [],
+  "recipes": [
+    {
+      "id": "make-sky-archive",
+      "a": "watch-records",
+      "b": "watch-gaps",
+      "out": "sky-archive",
+      "description": "The collection distinguishes observed events from nights that tell us nothing.",
+      "sources": [
+        "babylon",
+        "cuneiform",
+        "salt"
+      ],
+      "lifecycle": {
+        "watch-records": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "watch-gaps": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-eclipse-pattern",
+      "a": "sky-archive",
+      "b": "lunar-calendar",
+      "out": "eclipse-pattern",
+      "description": "Recurrence makes future watching worthwhile; it does not guarantee a visible eclipse at every place.",
+      "sources": [
+        "babylon",
+        "cuneiform",
+        "salt"
+      ],
+      "lifecycle": {
+        "sky-archive": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "lunar-calendar": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-watch-window",
+      "a": "eclipse-pattern",
+      "b": "watch-gaps",
+      "out": "watch-window",
+      "description": "A predicted opportunity and a successfully observed event are different things.",
+      "sources": [
+        "babylon",
+        "cuneiform",
+        "salt"
+      ],
+      "lifecycle": {
+        "eclipse-pattern": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "watch-gaps": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-portent-and-pattern",
+      "a": "eclipse-pattern",
+      "b": "omen-series",
+      "out": "portent-and-pattern",
+      "description": "A regular sky and its political or religious interpretation can coexist.",
+      "sources": [
+        "babylon",
+        "cuneiform",
+        "salt"
+      ],
+      "lifecycle": {
+        "eclipse-pattern": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "omen-series": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-seasonal-calendar",
+      "a": "lunar-calendar",
+      "b": "river-seasons",
+      "out": "seasonal-calendar",
+      "description": "The same act of ordering time supports practical work.",
+      "sources": [
+        "babylon",
+        "cuneiform",
+        "salt"
+      ],
+      "lifecycle": {
+        "lunar-calendar": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "river-seasons": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-shared-year",
+      "a": "seasonal-calendar",
+      "b": "festival-days",
+      "out": "shared-year",
+      "description": "Shared dates coordinate communal life without settling cosmology.",
+      "sources": [
+        "babylon",
+        "cuneiform",
+        "salt"
+      ],
+      "lifecycle": {
+        "seasonal-calendar": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "festival-days": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-salted-fish",
+      "a": "salt-crystals",
+      "b": "fresh-fish",
+      "out": "salted-fish",
+      "description": "Preservation allows a perishable food to travel farther from the moment it was caught.",
+      "sources": [
+        "babylon",
+        "cuneiform",
+        "salt"
+      ],
+      "lifecycle": {
+        "salt-crystals": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "fresh-fish": {
+          "role": "transform",
+          "reason": "This particular material becomes part of the new object at the combining event; distinct reusable references remain separate."
+        }
+      }
+    },
+    {
+      "id": "make-travel-provisions",
+      "a": "salted-fish",
+      "b": "grain-store",
+      "out": "travel-provisions",
+      "description": "Stored grain and preserved fish extend the practical reach of a journey.",
+      "sources": [
+        "babylon",
+        "cuneiform",
+        "salt"
+      ],
+      "lifecycle": {
+        "salted-fish": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "grain-store": {
+          "role": "transform",
+          "reason": "This particular material becomes part of the new object at the combining event; distinct reusable references remain separate."
+        }
+      }
+    },
+    {
+      "id": "make-natural-eclipse",
+      "a": "eclipse-pattern",
+      "b": "earth-between",
+      "out": "natural-eclipse",
+      "description": "The recurring pattern receives an explanatory account: the Earth obstructs sunlight reaching the Moon.",
+      "sources": [
+        "aristotle-eclipse",
+        "plato-republic",
+        "plato"
+      ],
+      "lifecycle": {
+        "eclipse-pattern": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "earth-between": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-conditional-cause",
+      "a": "natural-eclipse",
+      "b": "repeat-conditions",
+      "out": "conditional-cause",
+      "description": "The account can be considered through the conditions under which it applies.",
+      "sources": [
+        "aristotle-eclipse",
+        "plato-republic",
+        "plato"
+      ],
+      "lifecycle": {
+        "natural-eclipse": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "repeat-conditions": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-debt-objection",
+      "a": "repay-debts",
+      "b": "weapon-request",
+      "out": "debt-objection",
+      "description": "The stated repayment definition meets a concrete counterexample directly: returning the weapon can harm its owner or others. It is no longer necessary to rename the definition first.",
+      "sources": [
+        "aristotle-eclipse",
+        "plato-republic",
+        "plato"
+      ],
+      "lifecycle": {
+        "repay-debts": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "weapon-request": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-examined-definition",
+      "a": "debt-objection",
+      "b": "ask-common",
+      "out": "examined-definition",
+      "description": "One counterexample reopens the inquiry rather than furnishing a complete replacement theory.",
+      "sources": [
+        "aristotle-eclipse",
+        "plato-republic",
+        "plato"
+      ],
+      "lifecycle": {
+        "debt-objection": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "ask-common": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-examined-life",
+      "a": "examined-definition",
+      "b": "prestige",
+      "out": "examined-life",
+      "description": "The practice of questioning reaches beyond a verbal puzzle to a way of living.",
+      "sources": [
+        "aristotle-eclipse",
+        "plato-republic",
+        "plato"
+      ],
+      "lifecycle": {
+        "examined-definition": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "prestige": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-cause-and-meaning",
+      "a": "natural-eclipse",
+      "b": "portent-and-pattern",
+      "out": "cause-and-meaning",
+      "description": "Modern teaching comparison: a physical cause does not by itself settle what significance a community gives an event.",
+      "sources": [
+        "aristotle-eclipse",
+        "plato-republic",
+        "plato"
+      ],
+      "lifecycle": {
+        "natural-eclipse": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "portent-and-pattern": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-answerable-claims",
+      "a": "conditional-cause",
+      "b": "examined-definition",
+      "out": "answerable-claims",
+      "description": "Modern teaching comparison: different inquiries can both expose their claims to difficulties rather than rely on status alone.",
+      "sources": [
+        "aristotle-eclipse",
+        "plato-republic",
+        "plato"
+      ],
+      "lifecycle": {
+        "conditional-cause": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "examined-definition": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-stable-forms",
+      "a": "examined-definition",
+      "b": "changing-beauty",
+      "out": "stable-forms",
+      "description": "A stable object of understanding is proposed behind changing examples; this is a reconstructed Platonic position.",
+      "sources": [
+        "plato",
+        "plato-republic",
+        "aristotle-biology",
+        "aristotle-causes",
+        "aristotle",
+        "aristotle-ethics"
+      ],
+      "lifecycle": {
+        "examined-definition": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "changing-beauty": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-form-in-particular",
+      "a": "stable-forms",
+      "b": "form-in-thing",
+      "out": "form-in-particular",
+      "description": "A rival explanation relocates form in the thing rather than merely renaming Plato’s position.",
+      "sources": [
+        "plato",
+        "plato-republic",
+        "aristotle-biology",
+        "aristotle-causes",
+        "aristotle",
+        "aristotle-ethics"
+      ],
+      "lifecycle": {
+        "stable-forms": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "form-in-thing": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-animal-kinds",
+      "a": "animal-observations",
+      "b": "parts-work",
+      "out": "animal-kinds",
+      "description": "Shared parts and their different activities provide a concrete basis for comparison; not every similarity establishes one natural group.",
+      "sources": [
+        "plato",
+        "plato-republic",
+        "aristotle-biology",
+        "aristotle-causes",
+        "aristotle",
+        "aristotle-ethics"
+      ],
+      "lifecycle": {
+        "animal-observations": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "parts-work": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-part-and-function",
+      "a": "animal-kinds",
+      "b": "form-in-particular",
+      "out": "part-and-function",
+      "description": "Aristotle’s account of form directs attention to how an organ participates in this living animal’s organization. The earlier conceptual result now changes the explanatory question rather than merely authorizing observation.",
+      "sources": [
+        "plato",
+        "plato-republic",
+        "aristotle-biology",
+        "aristotle-causes",
+        "aristotle",
+        "aristotle-ethics"
+      ],
+      "lifecycle": {
+        "animal-kinds": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "form-in-particular": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-four-causes",
+      "a": "part-and-function",
+      "b": "statue-causes",
+      "out": "four-causes",
+      "description": "Material, form, source of change and end are distinct explanatory questions.",
+      "sources": [
+        "plato",
+        "plato-republic",
+        "aristotle-biology",
+        "aristotle-causes",
+        "aristotle",
+        "aristotle-ethics"
+      ],
+      "lifecycle": {
+        "part-and-function": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "statue-causes": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-valid-inference",
+      "a": "answerable-claims",
+      "b": "mortal-premises",
+      "out": "valid-inference",
+      "description": "The stated premises support a particular conclusion by the argument’s form.",
+      "sources": [
+        "plato",
+        "plato-republic",
+        "aristotle-biology",
+        "aristotle-causes",
+        "aristotle",
+        "aristotle-ethics"
+      ],
+      "lifecycle": {
+        "answerable-claims": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "mortal-premises": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-valid-not-true",
+      "a": "valid-inference",
+      "b": "false-premise",
+      "out": "valid-not-true",
+      "description": "A sound-looking chain cannot repair a false premise simply by being orderly.",
+      "sources": [
+        "plato",
+        "plato-republic",
+        "aristotle-biology",
+        "aristotle-causes",
+        "aristotle",
+        "aristotle-ethics"
+      ],
+      "lifecycle": {
+        "valid-inference": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "false-premise": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-cultivated-virtue",
+      "a": "examined-life",
+      "b": "practised-courage",
+      "out": "cultivated-virtue",
+      "description": "A good life is reconstructed as learned practical activity, not possession of a slogan.",
+      "sources": [
+        "plato",
+        "plato-republic",
+        "aristotle-biology",
+        "aristotle-causes",
+        "aristotle",
+        "aristotle-ethics"
+      ],
+      "lifecycle": {
+        "examined-life": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "practised-courage": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-turning-attention",
+      "a": "stable-forms",
+      "b": "cave-shadows",
+      "out": "turning-attention",
+      "description": "Plato’s image makes education a reorientation of understanding, not only the delivery of facts.",
+      "sources": [
+        "plato",
+        "plato-republic",
+        "aristotle-biology",
+        "aristotle-causes",
+        "aristotle",
+        "aristotle-ethics"
+      ],
+      "lifecycle": {
+        "stable-forms": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "cave-shadows": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-cynic-sufficiency",
+      "a": "few-needs",
+      "b": "royal-favour",
+      "out": "cynic-sufficiency",
+      "description": "Diogenes’s reduced dependence meets a ruler’s offer directly: fewer wants can make patronage less coercive. This reconstructed ideal does not imply that involuntary poverty is harmless.",
+      "sources": [
+        "cynics",
+        "stoics",
+        "epicurus",
+        "skeptics"
+      ],
+      "lifecycle": {
+        "few-needs": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "royal-favour": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-convention-questioned",
+      "a": "examined-life",
+      "b": "public-convention",
+      "out": "convention-questioned",
+      "description": "The earlier demand to examine how one lives now tests a concrete rival standard: honourable custom varies between cities. Convention cannot settle the question merely by claiming local approval.",
+      "sources": [
+        "cynics",
+        "stoics",
+        "epicurus",
+        "skeptics"
+      ],
+      "lifecycle": {
+        "examined-life": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "public-convention": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-stoic-control",
+      "a": "cultivated-virtue",
+      "b": "judgment-response",
+      "out": "stoic-control",
+      "description": "Stoic practice redirects effort without making every external misfortune harmless.",
+      "sources": [
+        "cynics",
+        "stoics",
+        "epicurus",
+        "skeptics"
+      ],
+      "lifecycle": {
+        "cultivated-virtue": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "judgment-response": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-cosmopolis",
+      "a": "stoic-control",
+      "b": "shared-reason",
+      "out": "cosmopolis",
+      "description": "Self-command and concern for others can belong to the same Stoic ethical world.",
+      "sources": [
+        "cynics",
+        "stoics",
+        "epicurus",
+        "skeptics"
+      ],
+      "lifecycle": {
+        "stoic-control": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "shared-reason": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-release-from-terror",
+      "a": "atoms-void",
+      "b": "death-sensation",
+      "out": "release-from-terror",
+      "description": "The Epicurean material account meets the claim that suffering requires sensation. Reconstruct the argument against fearing a state without a surviving sufferer, while leaving grief and disagreement possible.",
+      "sources": [
+        "cynics",
+        "stoics",
+        "epicurus",
+        "skeptics",
+        "epicurus-herodotus"
+      ],
+      "lifecycle": {
+        "atoms-void": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "death-sensation": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-garden-pleasure",
+      "a": "release-from-terror",
+      "b": "friendship-meal",
+      "out": "garden-pleasure",
+      "description": "The good life here seeks security and modest enjoyment rather than limitless accumulation.",
+      "sources": [
+        "cynics",
+        "stoics",
+        "epicurus",
+        "skeptics"
+      ],
+      "lifecycle": {
+        "release-from-terror": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "friendship-meal": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-suspended-assent",
+      "a": "answerable-claims",
+      "b": "equal-appearances",
+      "out": "suspended-assent",
+      "description": "A live unresolved opposition can yield suspension rather than an invented reconciliation.",
+      "sources": [
+        "cynics",
+        "stoics",
+        "epicurus",
+        "skeptics"
+      ],
+      "lifecycle": {
+        "answerable-claims": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "equal-appearances": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-deductive-geometry",
+      "a": "valid-inference",
+      "b": "geometric-postulates",
+      "out": "deductive-geometry",
+      "description": "Conclusions form a structured deductive account instead of an unconnected collection of claims.",
+      "sources": [
+        "euclid",
+        "alexandria",
+        "antikythera",
+        "aristotle-eclipse"
+      ],
+      "lifecycle": {
+        "valid-inference": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "geometric-postulates": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-spherical-earth",
+      "a": "deductive-geometry",
+      "b": "curved-earth-signs",
+      "out": "spherical-earth",
+      "description": "A geometric model relates different local appearances.",
+      "sources": [
+        "euclid",
+        "alexandria",
+        "antikythera",
+        "aristotle-eclipse"
+      ],
+      "lifecycle": {
+        "deductive-geometry": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "curved-earth-signs": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-measurable-earth",
+      "a": "spherical-earth",
+      "b": "measured-journey",
+      "out": "measurable-earth",
+      "description": "A known ground distance gives observations a relation to the whole Earth; no numerical answer is required.",
+      "sources": [
+        "euclid",
+        "alexandria",
+        "antikythera",
+        "aristotle-eclipse"
+      ],
+      "lifecycle": {
+        "spherical-earth": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "measured-journey": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-planetary-archive",
+      "a": "sky-archive",
+      "b": "planet-positions",
+      "out": "planetary-archive",
+      "description": "Astronomical modeling depends on observations collected across time, including Babylonian records known in Greek astronomy.",
+      "sources": [
+        "euclid",
+        "alexandria",
+        "antikythera",
+        "aristotle-eclipse"
+      ],
+      "lifecycle": {
+        "sky-archive": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "planet-positions": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-ptolemaic-model",
+      "a": "planetary-archive",
+      "b": "circular-models",
+      "out": "ptolemaic-model",
+      "description": "Reconstruct an Earth-centred predictive scheme rather than treating it as mere ignorance.",
+      "sources": [
+        "euclid",
+        "alexandria",
+        "antikythera",
+        "aristotle-eclipse"
+      ],
+      "lifecycle": {
+        "planetary-archive": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "circular-models": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-model-not-cause",
+      "a": "ptolemaic-model",
+      "b": "forecast-check",
+      "out": "model-not-cause",
+      "description": "Modern teaching distinction: success at prediction leaves some explanatory questions open.",
+      "sources": [
+        "euclid",
+        "alexandria",
+        "antikythera",
+        "aristotle-eclipse"
+      ],
+      "lifecycle": {
+        "ptolemaic-model": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "forecast-check": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-mechanical-sky",
+      "a": "eclipse-pattern",
+      "b": "geared-wheels",
+      "out": "mechanical-sky",
+      "description": "Recurring celestial cycles can be embodied in a mechanism; no uninterrupted lineage to modern computers is asserted.",
+      "sources": [
+        "euclid",
+        "alexandria",
+        "antikythera",
+        "aristotle-eclipse"
+      ],
+      "lifecycle": {
+        "eclipse-pattern": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "geared-wheels": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-textual-variants",
+      "a": "parallel-copies",
+      "b": "editorial-marks",
+      "out": "textual-variants",
+      "description": "Disagreement between copies becomes visible evidence rather than a secretly chosen correction.",
+      "sources": [
+        "euclid",
+        "alexandria",
+        "antikythera",
+        "aristotle-eclipse"
+      ],
+      "lifecycle": {
+        "parallel-copies": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "editorial-marks": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-critical-edition",
+      "a": "textual-variants",
+      "b": "answerable-claims",
+      "out": "critical-edition",
+      "description": "Modern teaching comparison: a reader can inspect the editor’s uncertainty rather than inherit an invisible verdict.",
+      "sources": [
+        "euclid",
+        "alexandria",
+        "antikythera",
+        "aristotle-eclipse"
+      ],
+      "lifecycle": {
+        "textual-variants": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "answerable-claims": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-arabic-logic",
+      "a": "valid-inference",
+      "b": "syriac-greek-copies",
+      "out": "arabic-logic",
+      "description": "The argument crosses a language boundary through learned translation.",
+      "sources": [
+        "greek-arabic",
+        "arabic-latin",
+        "algebra",
+        "avicenna"
+      ],
+      "lifecycle": {
+        "valid-inference": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "syriac-greek-copies": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-arabic-nature",
+      "a": "four-causes",
+      "b": "arabic-terms",
+      "out": "arabic-nature",
+      "description": "Inherited explanatory distinctions become resources for further inquiry.",
+      "sources": [
+        "greek-arabic",
+        "arabic-latin",
+        "algebra",
+        "avicenna"
+      ],
+      "lifecycle": {
+        "four-causes": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "arabic-terms": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-ptolemy-questioned",
+      "a": "ptolemaic-model",
+      "b": "revised-observations",
+      "out": "ptolemy-questioned",
+      "description": "Receiving a model also makes its difficulties available for criticism.",
+      "sources": [
+        "greek-arabic",
+        "arabic-latin",
+        "algebra",
+        "avicenna"
+      ],
+      "lifecycle": {
+        "ptolemaic-model": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "revised-observations": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-positional-reckoning",
+      "a": "indian-numerals",
+      "b": "merchant-accounts",
+      "out": "positional-reckoning",
+      "description": "A practical notational inheritance is put to new work, not attributed to a single Greek origin.",
+      "sources": [
+        "greek-arabic",
+        "arabic-latin",
+        "algebra",
+        "avicenna"
+      ],
+      "lifecycle": {
+        "indian-numerals": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "merchant-accounts": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-algebraic-relations",
+      "a": "positional-reckoning",
+      "b": "inheritance-relations",
+      "out": "algebraic-relations",
+      "description": "Relations among quantities can be expressed before a particular value is known.",
+      "sources": [
+        "greek-arabic",
+        "arabic-latin",
+        "algebra",
+        "avicenna"
+      ],
+      "lifecycle": {
+        "positional-reckoning": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "inheritance-relations": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-contingent-being",
+      "a": "arabic-nature",
+      "b": "essence-existence",
+      "out": "contingent-being",
+      "description": "A distinction between essence and existence changes the metaphysical question.",
+      "sources": [
+        "greek-arabic",
+        "arabic-latin",
+        "algebra",
+        "avicenna"
+      ],
+      "lifecycle": {
+        "arabic-nature": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "essence-existence": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-necessary-being",
+      "a": "contingent-being",
+      "b": "dependent-existence",
+      "out": "necessary-being",
+      "description": "Reconstruct an attributed argument from contingency; making it is not an assertion that all readers must accept it.",
+      "sources": [
+        "greek-arabic",
+        "arabic-latin",
+        "algebra",
+        "avicenna"
+      ],
+      "lifecycle": {
+        "contingent-being": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "dependent-existence": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-active-commentary",
+      "a": "arabic-logic",
+      "b": "commentator-questions",
+      "out": "active-commentary",
+      "description": "The received argument becomes a starting point for original criticism and elaboration.",
+      "sources": [
+        "greek-arabic",
+        "arabic-latin",
+        "algebra",
+        "avicenna"
+      ],
+      "lifecycle": {
+        "arabic-logic": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "commentator-questions": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-vision-dispute",
+      "a": "arabic-nature",
+      "b": "emitted-sight",
+      "out": "vision-dispute",
+      "description": "Optical questions are investigated within a living philosophical tradition.",
+      "sources": [
+        "optics",
+        "optics-lamps-primary",
+        "optics-manuscript",
+        "lensmaking"
+      ],
+      "lifecycle": {
+        "arabic-nature": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "emitted-sight": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-light-into-eye",
+      "a": "vision-dispute",
+      "b": "bright-light",
+      "out": "light-into-eye",
+      "description": "Ibn al-Haytham’s account turns attention toward incoming light and the conditions of vision.",
+      "sources": [
+        "optics",
+        "optics-lamps-primary",
+        "optics-manuscript",
+        "lensmaking"
+      ],
+      "lifecycle": {
+        "vision-dispute": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "bright-light": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-geometric-optics",
+      "a": "light-into-eye",
+      "b": "straight-paths",
+      "out": "geometric-optics",
+      "description": "A model of paths connects physical light with spatial reasoning.",
+      "sources": [
+        "optics",
+        "optics-lamps-primary",
+        "optics-manuscript",
+        "lensmaking"
+      ],
+      "lifecycle": {
+        "light-into-eye": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "straight-paths": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-pinhole-box",
+      "a": "geometric-optics",
+      "b": "aperture-screen",
+      "out": "pinhole-box",
+      "description": "The arrangement becomes a controlled setting for a projected image.",
+      "sources": [
+        "optics",
+        "optics-lamps-primary",
+        "optics-manuscript",
+        "lensmaking"
+      ],
+      "lifecycle": {
+        "geometric-optics": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "aperture-screen": {
+          "role": "transform",
+          "reason": "This particular material becomes part of the new object at the combining event; distinct reusable references remain separate."
+        }
+      }
+    },
+    {
+      "id": "make-inverted-image",
+      "a": "pinhole-box",
+      "b": "@optical-darkroom",
+      "out": "inverted-image",
+      "description": "The dark setting makes the aperture image visible. The box remains a reusable instrument.",
+      "sources": [
+        "optics",
+        "optics-lamps-primary",
+        "optics-manuscript",
+        "lensmaking"
+      ],
+      "lifecycle": {
+        "pinhole-box": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-ground-lens",
+      "a": "glass-blank",
+      "b": "lens-grinding",
+      "out": "ground-lens",
+      "description": "A glass blank is ground into a convex lens. At a suitable close viewing distance it can enlarge the apparent object.",
+      "sources": [
+        "optics",
+        "optics-lamps-primary",
+        "optics-manuscript",
+        "lensmaking"
+      ],
+      "lifecycle": {
+        "glass-blank": {
+          "role": "transform",
+          "reason": "This particular material becomes part of the new object at the combining event; distinct reusable references remain separate."
+        },
+        "lens-grinding": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-magnified-view",
+      "a": "ground-lens",
+      "b": "geometric-optics",
+      "out": "magnified-view",
+      "description": "Place the object suitably close to the convex lens: the changed light paths produce an enlarged apparent view without requiring a focal-length calculation.",
+      "sources": [
+        "optics",
+        "optics-lamps-primary",
+        "optics-manuscript",
+        "lensmaking"
+      ],
+      "lifecycle": {
+        "ground-lens": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "geometric-optics": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-seeing-and-judging",
+      "a": "light-into-eye",
+      "b": "size-illusion",
+      "out": "seeing-and-judging",
+      "description": "An account of light does not by itself eliminate every error in judging what is seen.",
+      "sources": [
+        "optics",
+        "optics-lamps-primary",
+        "optics-manuscript",
+        "lensmaking"
+      ],
+      "lifecycle": {
+        "light-into-eye": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "size-illusion": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-latin-aristotle",
+      "a": "arabic-logic",
+      "b": "latin-translators",
+      "out": "latin-aristotle",
+      "description": "Translated logical works enter a new setting of study.",
+      "sources": [
+        "arabic-latin",
+        "aquinas",
+        "ockham",
+        "plato"
+      ],
+      "lifecycle": {
+        "arabic-logic": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "latin-translators": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-commentaries-in-dispute",
+      "a": "latin-aristotle",
+      "b": "active-commentary",
+      "out": "commentaries-in-dispute",
+      "description": "Reception includes rival interpretations rather than a single official meaning.",
+      "sources": [
+        "arabic-latin",
+        "aquinas",
+        "ockham",
+        "plato"
+      ],
+      "lifecycle": {
+        "latin-aristotle": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "active-commentary": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-reason-faith-distinction",
+      "a": "necessary-being",
+      "b": "revelation-text",
+      "out": "reason-faith-distinction",
+      "description": "Aquinas distinguishes what natural reason can investigate from truths held through revelation.",
+      "sources": [
+        "arabic-latin",
+        "aquinas",
+        "ockham",
+        "plato"
+      ],
+      "lifecycle": {
+        "necessary-being": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "revelation-text": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-formal-disputation",
+      "a": "commentaries-in-dispute",
+      "b": "objection-reply",
+      "out": "formal-disputation",
+      "description": "The disagreement receives a structured forum, not compulsory reconciliation.",
+      "sources": [
+        "arabic-latin",
+        "aquinas",
+        "ockham",
+        "plato"
+      ],
+      "lifecycle": {
+        "commentaries-in-dispute": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "objection-reply": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-real-universal",
+      "a": "stable-forms",
+      "b": "common-name",
+      "out": "real-universal",
+      "description": "A schematic realist position on universals is reconstructed; medieval realism is not identical to Plato’s full theory.",
+      "sources": [
+        "arabic-latin",
+        "aquinas",
+        "ockham",
+        "plato"
+      ],
+      "lifecycle": {
+        "stable-forms": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "common-name": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-nominal-kinds",
+      "a": "form-in-particular",
+      "b": "common-name",
+      "out": "nominal-kinds",
+      "description": "A schematic nominalist alternative: common names and concepts signify many individuals, but no shared universal thing exists outside the mind. This goes beyond merely rejecting Plato’s separate Forms; Aristotle is not being made an Ockhamist.",
+      "sources": [
+        "arabic-latin",
+        "aquinas",
+        "ockham",
+        "plato"
+      ],
+      "lifecycle": {
+        "form-in-particular": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "common-name": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-universals-open",
+      "a": "real-universal",
+      "b": "nominal-kinds",
+      "out": "universals-open",
+      "description": "Both accounts remain inspectable. This juxtaposition identifies the disagreement rather than proving a synthesis.",
+      "sources": [
+        "arabic-latin",
+        "aquinas",
+        "ockham",
+        "plato"
+      ],
+      "lifecycle": {
+        "real-universal": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "nominal-kinds": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-explanatory-economy",
+      "a": "four-causes",
+      "b": "extra-entities",
+      "out": "explanatory-economy",
+      "description": "Economy constrains an explanation without becoming an automatic truth test.",
+      "sources": [
+        "arabic-latin",
+        "aquinas",
+        "ockham",
+        "plato"
+      ],
+      "lifecycle": {
+        "four-causes": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "extra-entities": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-intelligible-nature",
+      "a": "reason-faith-distinction",
+      "b": "created-nature",
+      "out": "intelligible-nature",
+      "description": "Theological commitment and investigation of natural causes need not be rival activities.",
+      "sources": [
+        "arabic-latin",
+        "aquinas",
+        "ockham",
+        "plato"
+      ],
+      "lifecycle": {
+        "reason-faith-distinction": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "created-nature": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-reproducible-page",
+      "a": "paper-sheets",
+      "b": "block-printing",
+      "out": "reproducible-page",
+      "description": "A prepared surface produces repeated text; different printing traditions develop different forms of this possibility.",
+      "sources": [
+        "printing",
+        "ratdolt",
+        "alexandria",
+        "hermetic",
+        "arabic-latin"
+      ],
+      "lifecycle": {
+        "paper-sheets": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "block-printing": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-type-printed-edition",
+      "a": "paper-sheets",
+      "b": "movable-type",
+      "out": "type-printed-edition",
+      "description": "European movable-type printing is one consequential realization of reproducibility.",
+      "sources": [
+        "printing",
+        "ratdolt",
+        "alexandria",
+        "hermetic",
+        "arabic-latin"
+      ],
+      "lifecycle": {
+        "paper-sheets": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "movable-type": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-compared-edition",
+      "a": "critical-edition",
+      "b": "type-printed-edition",
+      "out": "compared-edition",
+      "description": "Repeated copies make comparison easier without making editorial choices disappear.",
+      "sources": [
+        "printing",
+        "ratdolt",
+        "alexandria",
+        "hermetic",
+        "arabic-latin"
+      ],
+      "lifecycle": {
+        "critical-edition": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "type-printed-edition": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-parallel-translations",
+      "a": "latin-aristotle",
+      "b": "greek-codex",
+      "out": "parallel-translations",
+      "description": "Different transmission routes let readers revisit a received rendering.",
+      "sources": [
+        "printing",
+        "ratdolt",
+        "alexandria",
+        "hermetic",
+        "arabic-latin"
+      ],
+      "lifecycle": {
+        "latin-aristotle": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "greek-codex": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-translation-choices",
+      "a": "parallel-translations",
+      "b": "word-difference",
+      "out": "translation-choices",
+      "description": "A translated text is not a transparent container untouched by its reader.",
+      "sources": [
+        "printing",
+        "ratdolt",
+        "alexandria",
+        "hermetic",
+        "arabic-latin"
+      ],
+      "lifecycle": {
+        "parallel-translations": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "word-difference": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-ancient-wisdom-claim",
+      "a": "stable-forms",
+      "b": "hermetic-dialogues",
+      "out": "ancient-wisdom-claim",
+      "description": "Renaissance Platonism and Hermetic reading can share a search for ancient wisdom; this reconstructs a historical attraction.",
+      "sources": [
+        "printing",
+        "ratdolt",
+        "alexandria",
+        "hermetic",
+        "arabic-latin"
+      ],
+      "lifecycle": {
+        "stable-forms": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "hermetic-dialogues": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-redated-hermetica",
+      "a": "ancient-wisdom-claim",
+      "b": "datable-language",
+      "out": "redated-hermetica",
+      "description": "Dating can weaken an appeal to extreme antiquity without logically refuting every idea in the work.",
+      "sources": [
+        "printing",
+        "ratdolt",
+        "alexandria",
+        "hermetic",
+        "arabic-latin"
+      ],
+      "lifecycle": {
+        "ancient-wisdom-claim": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "datable-language": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-contested-publication",
+      "a": "reproducible-page",
+      "b": "print-censors",
+      "out": "contested-publication",
+      "description": "A wider audience and new controls develop together, not as a simple freedom switch.",
+      "sources": [
+        "printing",
+        "ratdolt",
+        "alexandria",
+        "hermetic",
+        "arabic-latin"
+      ],
+      "lifecycle": {
+        "reproducible-page": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "print-censors": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-printed-euclid",
+      "a": "compared-edition",
+      "b": "deductive-geometry",
+      "out": "printed-euclid",
+      "description": "Printing connects a structured argument with repeated, shareable pages.",
+      "sources": [
+        "printing",
+        "ratdolt",
+        "alexandria",
+        "hermetic",
+        "arabic-latin"
+      ],
+      "lifecycle": {
+        "compared-edition": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "deductive-geometry": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-window-projection",
+      "a": "geometric-optics",
+      "b": "picture-plane",
+      "out": "window-projection",
+      "description": "Light-path geometry supplies a relation between the scene, picture surface and viewer.",
+      "sources": [
+        "perspective",
+        "perspective-alberti-rays-primary",
+        "perspective-alberti-veil-primary",
+        "ratdolt"
+      ],
+      "lifecycle": {
+        "geometric-optics": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "picture-plane": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-vanishing-direction",
+      "a": "window-projection",
+      "b": "receding-street",
+      "out": "vanishing-direction",
+      "description": "The parallel edges define a common vanishing direction in the constructed view.",
+      "sources": [
+        "perspective",
+        "perspective-alberti-rays-primary",
+        "perspective-alberti-veil-primary",
+        "ratdolt"
+      ],
+      "lifecycle": {
+        "window-projection": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "receding-street": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-linear-perspective",
+      "a": "vanishing-direction",
+      "b": "fixed-eye",
+      "out": "linear-perspective",
+      "description": "A coherent projection is made for a chosen eye position, not for every possible viewer at once.",
+      "sources": [
+        "perspective",
+        "perspective-alberti-rays-primary",
+        "perspective-alberti-veil-primary",
+        "ratdolt"
+      ],
+      "lifecycle": {
+        "vanishing-direction": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "fixed-eye": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-viewpoint-occlusion",
+      "a": "linear-perspective",
+      "b": "viewer-moves",
+      "out": "viewpoint-occlusion",
+      "description": "The creation records a specific limit: a projection cannot show what its viewpoint occludes.",
+      "sources": [
+        "perspective",
+        "perspective-alberti-rays-primary",
+        "perspective-alberti-veil-primary",
+        "ratdolt"
+      ],
+      "lifecycle": {
+        "linear-perspective": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "viewer-moves": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-checked-perspective",
+      "a": "linear-perspective",
+      "b": "mirror-comparison",
+      "out": "checked-perspective",
+      "description": "A comparison tests the intended correspondence without claiming the picture is the whole place.",
+      "sources": [
+        "perspective",
+        "perspective-alberti-rays-primary",
+        "perspective-alberti-veil-primary",
+        "ratdolt"
+      ],
+      "lifecycle": {
+        "linear-perspective": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "mirror-comparison": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-mapped-globe",
+      "a": "measurable-earth",
+      "b": "coordinate-grid",
+      "out": "mapped-globe",
+      "description": "A common positional framework joins local places into a geographic representation.",
+      "sources": [
+        "perspective",
+        "perspective-alberti-rays-primary",
+        "perspective-alberti-veil-primary",
+        "ratdolt"
+      ],
+      "lifecycle": {
+        "measurable-earth": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "coordinate-grid": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-flat-projection",
+      "a": "mapped-globe",
+      "b": "flat-map-sheet",
+      "out": "flat-projection",
+      "description": "Flattening the globe entails choices about what relationships to preserve.",
+      "sources": [
+        "perspective",
+        "perspective-alberti-rays-primary",
+        "perspective-alberti-veil-primary",
+        "ratdolt"
+      ],
+      "lifecycle": {
+        "mapped-globe": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "flat-map-sheet": {
+          "role": "transform",
+          "reason": "This particular material becomes part of the new object at the combining event; distinct reusable references remain separate."
+        }
+      }
+    },
+    {
+      "id": "make-bearing-chart",
+      "a": "flat-projection",
+      "b": "bearing-priority",
+      "out": "bearing-chart",
+      "description": "The representation serves a navigation task rather than preserving every size and shape.",
+      "sources": [
+        "perspective",
+        "perspective-alberti-rays-primary",
+        "perspective-alberti-veil-primary",
+        "ratdolt"
+      ],
+      "lifecycle": {
+        "flat-projection": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "bearing-priority": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-projection-tradeoff",
+      "a": "bearing-chart",
+      "b": "polar-stretch",
+      "out": "projection-tradeoff",
+      "description": "A map can be excellent for one purpose and misleading for another.",
+      "sources": [
+        "perspective",
+        "perspective-alberti-rays-primary",
+        "perspective-alberti-veil-primary",
+        "ratdolt"
+      ],
+      "lifecycle": {
+        "bearing-chart": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "polar-stretch": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-telescope",
+      "a": "ground-lens",
+      "b": "telescope-tube",
+      "out": "telescope",
+      "description": "The lens becomes part of a recognizable instrument; any still-needed outside lens remains available.",
+      "sources": [
+        "copernicus",
+        "galileo",
+        "kepler",
+        "newton-moon-test-primary"
+      ],
+      "lifecycle": {
+        "ground-lens": {
+          "role": "incorporate",
+          "reason": "This particular material becomes part of the new object at the combining event; distinct reusable references remain separate."
+        },
+        "telescope-tube": {
+          "role": "transform",
+          "reason": "This particular material becomes part of the new object at the combining event; distinct reusable references remain separate."
+        }
+      },
+      "preserve": [
+        "ground-lens"
+      ]
+    },
+    {
+      "id": "make-rough-moon",
+      "a": "telescope",
+      "b": "moon-detail",
+      "out": "rough-moon",
+      "description": "The observations challenge a sharp division between perfect heavens and rough Earth.",
+      "sources": [
+        "copernicus",
+        "galileo",
+        "kepler",
+        "newton-moon-test-primary"
+      ],
+      "lifecycle": {
+        "telescope": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "moon-detail": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-jupiter-moons",
+      "a": "telescope",
+      "b": "jupiter-points",
+      "out": "jupiter-moons",
+      "description": "Not every celestial body circles Earth directly; that fact alone does not prove Earth moves.",
+      "sources": [
+        "copernicus",
+        "galileo",
+        "kepler",
+        "newton-moon-test-primary"
+      ],
+      "lifecycle": {
+        "telescope": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "jupiter-points": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-copernican-world",
+      "a": "ptolemaic-model",
+      "b": "copernican-order",
+      "out": "copernican-world",
+      "description": "A new ordering reconstructs the inherited problem rather than erasing observations.",
+      "sources": [
+        "copernicus",
+        "galileo",
+        "kepler",
+        "newton-moon-test-primary"
+      ],
+      "lifecycle": {
+        "ptolemaic-model": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "copernican-order": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-relative-retrograde",
+      "a": "copernican-world",
+      "b": "retrograde-appearance",
+      "out": "relative-retrograde",
+      "description": "Some puzzling appearances become consequences of observing from a moving Earth.",
+      "sources": [
+        "copernicus",
+        "galileo",
+        "kepler",
+        "newton-moon-test-primary"
+      ],
+      "lifecycle": {
+        "copernican-world": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "retrograde-appearance": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-venus-phases",
+      "a": "telescope",
+      "b": "venus-phase-series",
+      "out": "venus-phases",
+      "description": "The instrument and repeated observations establish a consequential phenomenon.",
+      "sources": [
+        "copernicus",
+        "galileo",
+        "kepler",
+        "newton-moon-test-primary"
+      ],
+      "lifecycle": {
+        "telescope": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "venus-phase-series": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-strict-ptolemy-challenged",
+      "a": "venus-phases",
+      "b": "ptolemaic-model",
+      "out": "strict-ptolemy-challenged",
+      "description": "The full phase range conflicts with the standard Ptolemaic arrangement of Venus.",
+      "sources": [
+        "copernicus",
+        "galileo",
+        "kepler",
+        "newton-moon-test-primary"
+      ],
+      "lifecycle": {
+        "venus-phases": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "ptolemaic-model": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-tycho-still-live",
+      "a": "strict-ptolemy-challenged",
+      "b": "tycho-model",
+      "out": "tycho-still-live",
+      "description": "The same evidence does not eliminate Tycho’s arrangement; underdetermination remains tangible.",
+      "sources": [
+        "copernicus",
+        "galileo",
+        "kepler",
+        "newton-moon-test-primary"
+      ],
+      "lifecycle": {
+        "strict-ptolemy-challenged": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "tycho-model": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-kepler-ellipse",
+      "a": "copernican-world",
+      "b": "mars-mismatch",
+      "out": "kepler-ellipse",
+      "description": "Kepler abandons the privileged circle while working from an inherited Sun-centred problem.",
+      "sources": [
+        "copernicus",
+        "galileo",
+        "kepler",
+        "newton-moon-test-primary"
+      ],
+      "lifecycle": {
+        "copernican-world": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "mars-mismatch": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-revised-harmony",
+      "a": "kepler-ellipse",
+      "b": "harmony-ideal",
+      "out": "revised-harmony",
+      "description": "The search for order survives the revision of what that order looks like.",
+      "sources": [
+        "copernicus",
+        "galileo",
+        "kepler",
+        "newton-moon-test-primary"
+      ],
+      "lifecycle": {
+        "kepler-ellipse": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "harmony-ideal": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-working-natural-history",
+      "a": "conditional-cause",
+      "b": "craft-records",
+      "out": "working-natural-history",
+      "description": "Bacon’s program extends inquiry through organized observations and interventions.",
+      "sources": [
+        "bacon",
+        "natural-magic",
+        "burton"
+      ],
+      "lifecycle": {
+        "conditional-cause": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "craft-records": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-bias-under-examination",
+      "a": "working-natural-history",
+      "b": "favoured-cases",
+      "out": "bias-under-examination",
+      "description": "The aim is to counter a tendency, not to certify a researcher as bias-free.",
+      "sources": [
+        "bacon",
+        "natural-magic",
+        "burton"
+      ],
+      "lifecycle": {
+        "working-natural-history": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "favoured-cases": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-heat-light-conjecture",
+      "a": "sun-warmth",
+      "b": "flame-warmth",
+      "out": "heat-light-conjecture",
+      "description": "Two favourable instances suggest a candidate account, not a universal conclusion.",
+      "sources": [
+        "bacon",
+        "natural-magic",
+        "burton"
+      ],
+      "lifecycle": {
+        "sun-warmth": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "flame-warmth": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-light-not-sufficient",
+      "a": "heat-light-conjecture",
+      "b": "moonlight-cool",
+      "out": "light-not-sufficient",
+      "description": "Bacon’s qualitative negative instance challenges a simple association of visible light and felt heat. It does not show that moonlight or visible radiation causes literally no heating.",
+      "sources": [
+        "bacon",
+        "natural-magic",
+        "burton"
+      ],
+      "lifecycle": {
+        "heat-light-conjecture": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "moonlight-cool": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-heat-beyond-light",
+      "a": "light-not-sufficient",
+      "b": "friction-warmth",
+      "out": "heat-beyond-light",
+      "description": "The field of inquiry changes; no modern molecular theory has yet been established.",
+      "sources": [
+        "bacon",
+        "natural-magic",
+        "burton"
+      ],
+      "lifecycle": {
+        "light-not-sufficient": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "friction-warmth": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-rubbing-intervention",
+      "a": "heat-beyond-light",
+      "b": "matched-wood",
+      "out": "rubbing-intervention",
+      "description": "The matched case singles out an intervention instead of merely adding another agreeable example.",
+      "sources": [
+        "bacon",
+        "natural-magic",
+        "burton"
+      ],
+      "lifecycle": {
+        "heat-beyond-light": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "matched-wood": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-melancholy-many-sources",
+      "a": "active-commentary",
+      "b": "burton-sources",
+      "out": "melancholy-many-sources",
+      "description": "Burton’s work reuses inherited learning through an expansive literary and medical inquiry.",
+      "sources": [
+        "bacon",
+        "natural-magic",
+        "burton"
+      ],
+      "lifecycle": {
+        "active-commentary": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "burton-sources": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-public-trial",
+      "a": "contested-publication",
+      "b": "shared-method",
+      "out": "public-trial",
+      "description": "Publication can expose methods to other practitioners without abolishing disputes over trust.",
+      "sources": [
+        "bacon",
+        "natural-magic",
+        "burton"
+      ],
+      "lifecycle": {
+        "contested-publication": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "shared-method": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-repeatable-wonder",
+      "a": "pinhole-box",
+      "b": "natural-magic-secrets",
+      "out": "repeatable-wonder",
+      "description": "A repeatable effect can coexist with wonder; natural magic is not simply the absence of observation.",
+      "sources": [
+        "bacon",
+        "natural-magic",
+        "burton"
+      ],
+      "lifecycle": {
+        "pinhole-box": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "natural-magic-secrets": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-shared-heat-inquiry",
+      "a": "rubbing-intervention",
+      "b": "public-trial",
+      "out": "shared-heat-inquiry",
+      "description": "An explicitly described intervention can be checked and contested beyond its first setting.",
+      "sources": [
+        "bacon",
+        "natural-magic",
+        "burton"
+      ],
+      "lifecycle": {
+        "rubbing-intervention": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "public-trial": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-mechanical-nature",
+      "a": "four-causes",
+      "b": "matter-motion",
+      "out": "mechanical-nature",
+      "description": "A mechanistic account changes which explanatory questions take priority.",
+      "sources": [
+        "descartes",
+        "automata",
+        "harvey-primary",
+        "newton-moon-test-primary",
+        "newton-light"
+      ],
+      "lifecycle": {
+        "four-causes": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "matter-motion": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-clockwork-figure",
+      "a": "mechanical-sky",
+      "b": "moving-figure",
+      "out": "clockwork-figure",
+      "description": "Modern teaching comparison: adapt a linkage represented in the earlier model into the supplied figure and gears. The retained sky model does not mysteriously power the new object, and no direct ancient-to-modern transmission is claimed.",
+      "sources": [
+        "descartes",
+        "automata",
+        "harvey-primary",
+        "newton-moon-test-primary",
+        "newton-light"
+      ],
+      "lifecycle": {
+        "mechanical-sky": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "moving-figure": {
+          "role": "transform",
+          "reason": "This particular material becomes part of the new object at the combining event; distinct reusable references remain separate."
+        }
+      }
+    },
+    {
+      "id": "make-imitation-limit",
+      "a": "clockwork-figure",
+      "b": "lifelike-claim",
+      "out": "imitation-limit",
+      "description": "A gear-driven figure performs a movement. That alone does not demonstrate nutrition, growth, repair or sensation. The wider question of how living processes can be explained remains open.",
+      "sources": [
+        "descartes",
+        "automata",
+        "harvey-primary",
+        "newton-moon-test-primary",
+        "newton-light"
+      ],
+      "lifecycle": {
+        "clockwork-figure": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "lifelike-claim": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-falling-moon",
+      "a": "kepler-ellipse",
+      "b": "falling-stone",
+      "out": "falling-moon",
+      "description": "Newton’s comparison brings terrestrial falling and celestial motion into one problem without an inverse-square calculation.",
+      "sources": [
+        "descartes",
+        "automata",
+        "harvey-primary",
+        "newton-moon-test-primary",
+        "newton-light"
+      ],
+      "lifecycle": {
+        "kepler-ellipse": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "falling-stone": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-universal-gravitation",
+      "a": "falling-moon",
+      "b": "revised-harmony",
+      "out": "universal-gravitation",
+      "description": "Continual orbital falling and Keplerian regularities motivate a common dynamical account. This pair reconstructs Newton’s proposal; a desire for harmony alone does not prove universal attraction.",
+      "sources": [
+        "descartes",
+        "automata",
+        "harvey-primary",
+        "newton-moon-test-primary",
+        "newton-light"
+      ],
+      "lifecycle": {
+        "falling-moon": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "revised-harmony": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-white-light-components",
+      "a": "geometric-optics",
+      "b": "prism-spectrum",
+      "out": "white-light-components",
+      "description": "The inherited account of light paths meets colour-persistence and recombination observations. The glass redirects components rather than simply creating a fresh colour at each passage.",
+      "sources": [
+        "descartes",
+        "automata",
+        "harvey-primary",
+        "newton-moon-test-primary",
+        "newton-light"
+      ],
+      "lifecycle": {
+        "geometric-optics": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "prism-spectrum": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-one-way-circulation",
+      "a": "part-and-function",
+      "b": "one-way-valves",
+      "out": "one-way-circulation",
+      "description": "The observed work of the valves supplies a return direction, rather than merely asserting that circulation exists.",
+      "sources": [
+        "descartes",
+        "automata",
+        "harvey-primary",
+        "newton-moon-test-primary",
+        "newton-light"
+      ],
+      "lifecycle": {
+        "part-and-function": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "one-way-valves": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-blood-circuit",
+      "a": "one-way-circulation",
+      "b": "heart-contraction",
+      "out": "blood-circuit",
+      "description": "Reconstruct Harvey’s outward-and-return circulation account. The connecting passage through tissues remained unobserved by him; this is not a complete modern vascular diagram.",
+      "sources": [
+        "descartes",
+        "automata",
+        "harvey-primary",
+        "newton-moon-test-primary",
+        "newton-light"
+      ],
+      "lifecycle": {
+        "one-way-circulation": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "heart-contraction": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-newtonian-framework",
+      "a": "universal-gravitation",
+      "b": "universal-time",
+      "out": "newtonian-framework",
+      "description": "Reconstruct the framework whose successes and limits later theories will revisit.",
+      "sources": [
+        "descartes",
+        "automata",
+        "harvey-primary",
+        "newton-moon-test-primary",
+        "newton-light"
+      ],
+      "lifecycle": {
+        "universal-gravitation": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "universal-time": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-equal-hours",
+      "a": "shared-year",
+      "b": "regular-oscillation",
+      "out": "equal-hours",
+      "description": "A community’s shared calendar meets a finer instrumental division of time.",
+      "sources": [
+        "longitude",
+        "longitude-lunar-si",
+        "almanac-history",
+        "jaipur"
+      ],
+      "lifecycle": {
+        "shared-year": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "regular-oscillation": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-reference-timekeeper",
+      "a": "equal-hours",
+      "b": "portable-clock",
+      "out": "reference-timekeeper",
+      "description": "The instrument carries a reference that is distinct from the Sun’s local noon.",
+      "sources": [
+        "longitude",
+        "longitude-lunar-si",
+        "almanac-history",
+        "jaipur"
+      ],
+      "lifecycle": {
+        "equal-hours": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "portable-clock": {
+          "role": "transform",
+          "reason": "This particular material becomes part of the new object at the combining event; distinct reusable references remain separate."
+        }
+      }
+    },
+    {
+      "id": "make-time-longitude",
+      "a": "reference-timekeeper",
+      "b": "local-noon",
+      "out": "time-longitude",
+      "description": "Comparing local time with reference time locates an east–west difference without a calculation exercise.",
+      "sources": [
+        "longitude",
+        "longitude-lunar-si",
+        "almanac-history",
+        "jaipur"
+      ],
+      "lifecycle": {
+        "reference-timekeeper": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "local-noon": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-sea-tested-clock",
+      "a": "reference-timekeeper",
+      "b": "@longitude-sea",
+      "out": "sea-tested-clock",
+      "description": "Workshop performance is not enough: a moving voyage tests whether the instrument can preserve its reference.",
+      "sources": [
+        "longitude",
+        "longitude-lunar-si",
+        "almanac-history",
+        "jaipur"
+      ],
+      "lifecycle": {
+        "reference-timekeeper": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-lunar-reference",
+      "a": "planetary-archive",
+      "b": "moon-table",
+      "out": "lunar-reference",
+      "description": "A long observational and tabular tradition supplies a different route to reference time.",
+      "sources": [
+        "longitude",
+        "longitude-lunar-si",
+        "almanac-history",
+        "jaipur"
+      ],
+      "lifecycle": {
+        "planetary-archive": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "moon-table": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-lunar-longitude",
+      "a": "lunar-reference",
+      "b": "local-noon",
+      "out": "lunar-longitude",
+      "description": "The lunar method remains a genuine alternative, with its own demands on sky conditions and observation.",
+      "sources": [
+        "longitude",
+        "longitude-lunar-si",
+        "almanac-history",
+        "jaipur"
+      ],
+      "lifecycle": {
+        "lunar-reference": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "local-noon": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-jaipur-comparison",
+      "a": "ptolemy-questioned",
+      "b": "indian-persian-tables",
+      "out": "jaipur-comparison",
+      "description": "The earlier habit of revising tables returns in a documented South Asian astronomical project, not as a decorative detour.",
+      "sources": [
+        "longitude",
+        "longitude-lunar-si",
+        "almanac-history",
+        "jaipur"
+      ],
+      "lifecycle": {
+        "ptolemy-questioned": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "indian-persian-tables": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-masonry-observatory",
+      "a": "jaipur-comparison",
+      "b": "masonry-sightlines",
+      "out": "masonry-observatory",
+      "description": "Large fixed structures serve astronomical measurement and the revision of tables.",
+      "sources": [
+        "longitude",
+        "longitude-lunar-si",
+        "almanac-history",
+        "jaipur"
+      ],
+      "lifecycle": {
+        "jaipur-comparison": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "masonry-sightlines": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-positioned-sea-route",
+      "a": "bearing-chart",
+      "b": "time-longitude",
+      "out": "positioned-sea-route",
+      "description": "A longitude determination adds east–west position to the chart. Longitude alone does not supply a complete geographical position; latitude remains a separate determination.",
+      "sources": [
+        "longitude",
+        "longitude-lunar-si",
+        "almanac-history",
+        "jaipur"
+      ],
+      "lifecycle": {
+        "bearing-chart": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "time-longitude": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-provisioned-route",
+      "a": "positioned-sea-route",
+      "b": "travel-provisions",
+      "out": "provisioned-route",
+      "description": "Earlier preservation practice materially supports the reach of navigation.",
+      "sources": [
+        "longitude",
+        "longitude-lunar-si",
+        "almanac-history",
+        "jaipur"
+      ],
+      "lifecycle": {
+        "positioned-sea-route": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "travel-provisions": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-encyclopedic-craft",
+      "a": "contested-publication",
+      "b": "craft-plates",
+      "out": "encyclopedic-craft",
+      "description": "Print can make practical arts part of an ambitious shared account, amid censorship and disagreement.",
+      "sources": [
+        "encyclopedie",
+        "hume",
+        "kant",
+        "wollstonecraft",
+        "stoics"
+      ],
+      "lifecycle": {
+        "contested-publication": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "craft-plates": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-encyclopedic-network",
+      "a": "encyclopedic-craft",
+      "b": "cross-references",
+      "out": "encyclopedic-network",
+      "description": "The reference work lets a reader move among practices and arguments rather than follow only a single hierarchy.",
+      "sources": [
+        "encyclopedie",
+        "hume",
+        "kant",
+        "wollstonecraft",
+        "stoics"
+      ],
+      "lifecycle": {
+        "encyclopedic-craft": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "cross-references": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-problem-of-induction",
+      "a": "shared-heat-inquiry",
+      "b": "causal-habit",
+      "out": "problem-of-induction",
+      "description": "Hume’s challenge asks what warrants extending an observed regularity beyond observed cases.",
+      "sources": [
+        "encyclopedie",
+        "hume",
+        "kant",
+        "wollstonecraft",
+        "stoics"
+      ],
+      "lifecycle": {
+        "shared-heat-inquiry": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "causal-habit": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-conditions-of-experience",
+      "a": "problem-of-induction",
+      "b": "forms-of-experience",
+      "out": "conditions-of-experience",
+      "description": "Reconstruct a philosophical response without declaring the entire dispute settled.",
+      "sources": [
+        "encyclopedie",
+        "hume",
+        "kant",
+        "wollstonecraft",
+        "stoics"
+      ],
+      "lifecycle": {
+        "problem-of-induction": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "forms-of-experience": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-sufficiency-against-status",
+      "a": "cynic-sufficiency",
+      "b": "luxury-status",
+      "out": "sufficiency-against-status",
+      "description": "Modern teaching comparison: an old practice questions a newer social demand, without claiming luxury is harmless or universally necessary.",
+      "sources": [
+        "encyclopedie",
+        "hume",
+        "kant",
+        "wollstonecraft",
+        "stoics"
+      ],
+      "lifecycle": {
+        "cynic-sufficiency": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "luxury-status": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-universal-rights",
+      "a": "cosmopolis",
+      "b": "rights-declaration",
+      "out": "universal-rights",
+      "description": "A teaching comparison with ancient fellowship highlights both continuity of a question and difference in historical concepts.",
+      "sources": [
+        "encyclopedie",
+        "hume",
+        "kant",
+        "wollstonecraft",
+        "stoics"
+      ],
+      "lifecycle": {
+        "cosmopolis": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "rights-declaration": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-rights-for-women",
+      "a": "universal-rights",
+      "b": "women-excluded",
+      "out": "rights-for-women",
+      "description": "An announced principle is turned against an exclusion that limits its application.",
+      "sources": [
+        "encyclopedie",
+        "hume",
+        "kant",
+        "wollstonecraft",
+        "stoics"
+      ],
+      "lifecycle": {
+        "universal-rights": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "women-excluded": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-rights-against-slavery",
+      "a": "universal-rights",
+      "b": "enslaved-testimony",
+      "out": "rights-against-slavery",
+      "description": "The promise cannot be tested without the experience and agency of those it excludes.",
+      "sources": [
+        "encyclopedie",
+        "hume",
+        "kant",
+        "wollstonecraft",
+        "stoics"
+      ],
+      "lifecycle": {
+        "universal-rights": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "enslaved-testimony": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-public-reasoning",
+      "a": "formal-disputation",
+      "b": "public-readers",
+      "out": "public-reasoning",
+      "description": "The setting for objection broadens, without claiming a direct institutional line from every medieval disputation.",
+      "sources": [
+        "encyclopedie",
+        "hume",
+        "kant",
+        "wollstonecraft",
+        "stoics"
+      ],
+      "lifecycle": {
+        "formal-disputation": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "public-readers": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-private-vice-public-benefit",
+      "a": "luxury-trade",
+      "b": "mandeville-hive",
+      "out": "private-vice-public-benefit",
+      "description": "Reconstruct the controversial thesis; it remains distinct from an endorsement of greed.",
+      "sources": [
+        "mandeville",
+        "smith",
+        "malthus",
+        "morris"
+      ],
+      "lifecycle": {
+        "luxury-trade": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "mandeville-hive": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-division-of-labour",
+      "a": "pin-workshop",
+      "b": "market-exchange",
+      "out": "division-of-labour",
+      "description": "The organization of work, not only a new machine, changes productive capacity.",
+      "sources": [
+        "mandeville",
+        "smith",
+        "malthus",
+        "morris"
+      ],
+      "lifecycle": {
+        "pin-workshop": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "market-exchange": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-specialization-cost",
+      "a": "division-of-labour",
+      "b": "narrowed-work",
+      "out": "specialization-cost",
+      "description": "A gain in productive efficiency can coexist with a loss in human development.",
+      "sources": [
+        "mandeville",
+        "smith",
+        "malthus",
+        "morris"
+      ],
+      "lifecycle": {
+        "division-of-labour": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "narrowed-work": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-prosperity-not-good-life",
+      "a": "private-vice-public-benefit",
+      "b": "garden-pleasure",
+      "out": "prosperity-not-good-life",
+      "description": "Modern teaching comparison: the earlier account of sufficient pleasure does not measure success by total trade.",
+      "sources": [
+        "mandeville",
+        "smith",
+        "malthus",
+        "morris"
+      ],
+      "lifecycle": {
+        "private-vice-public-benefit": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "garden-pleasure": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-population-pressure",
+      "a": "population-growth",
+      "b": "food-constraints",
+      "out": "population-pressure",
+      "description": "Malthus argued that the capacity for population increase could exceed the growth of subsistence, creating pressure and checks. The claim is available for later biological adaptation and social criticism; it does not specify a just policy.",
+      "sources": [
+        "mandeville",
+        "smith",
+        "malthus",
+        "morris"
+      ],
+      "lifecycle": {
+        "population-growth": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "food-constraints": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-scarcity-and-justice",
+      "a": "population-pressure",
+      "b": "universal-rights",
+      "out": "scarcity-and-justice",
+      "description": "A teaching comparison keeps a descriptive pressure distinct from a policy or moral permission.",
+      "sources": [
+        "mandeville",
+        "smith",
+        "malthus",
+        "morris"
+      ],
+      "lifecycle": {
+        "population-pressure": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "universal-rights": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-long-distance-exchange",
+      "a": "provisioned-route",
+      "b": "regional-goods",
+      "out": "long-distance-exchange",
+      "description": "Navigation and preservation materially widen the reach of exchange.",
+      "sources": [
+        "mandeville",
+        "smith",
+        "malthus",
+        "morris"
+      ],
+      "lifecycle": {
+        "provisioned-route": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "regional-goods": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-coercive-exchange",
+      "a": "long-distance-exchange",
+      "b": "coerced-labour",
+      "out": "coercive-exchange",
+      "description": "The route carries political force as well as goods; technical reach alone does not explain the history.",
+      "sources": [
+        "mandeville",
+        "smith",
+        "malthus",
+        "morris"
+      ],
+      "lifecycle": {
+        "long-distance-exchange": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "coerced-labour": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-work-as-a-human-question",
+      "a": "specialization-cost",
+      "b": "cultivated-virtue",
+      "out": "work-as-a-human-question",
+      "description": "Modern teaching comparison: a cultivated life supplies a question that production totals alone cannot answer.",
+      "sources": [
+        "mandeville",
+        "smith",
+        "malthus",
+        "morris"
+      ],
+      "lifecycle": {
+        "specialization-cost": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "cultivated-virtue": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-organic-fossil",
+      "a": "animal-kinds",
+      "b": "shell-in-rock",
+      "out": "organic-fossil",
+      "description": "Comparison with living forms turns the object into evidence about a past organism.",
+      "sources": [
+        "hutton",
+        "deep-time",
+        "lyell-darwin",
+        "geologic-age-modern"
+      ],
+      "lifecycle": {
+        "animal-kinds": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "shell-in-rock": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-relative-strata",
+      "a": "organic-fossil",
+      "b": "layer-sequence",
+      "out": "relative-strata",
+      "description": "The fossil-bearing layers can be ordered without yet assigning ages in years.",
+      "sources": [
+        "hutton",
+        "deep-time",
+        "lyell-darwin",
+        "geologic-age-modern"
+      ],
+      "lifecycle": {
+        "organic-fossil": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "layer-sequence": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-correlated-strata",
+      "a": "relative-strata",
+      "b": "matching-fossils",
+      "out": "correlated-strata",
+      "description": "Correlation extends the record beyond one exposed cliff.",
+      "sources": [
+        "hutton",
+        "deep-time",
+        "lyell-darwin",
+        "geologic-age-modern"
+      ],
+      "lifecycle": {
+        "relative-strata": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "matching-fossils": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-process-history",
+      "a": "conditional-cause",
+      "b": "erosion-deposition",
+      "out": "process-history",
+      "description": "A methodological comparison applies causal processes to traces; it is not a claim that Hutton inherited this particular Greek argument.",
+      "sources": [
+        "hutton",
+        "deep-time",
+        "lyell-darwin",
+        "geologic-age-modern"
+      ],
+      "lifecycle": {
+        "conditional-cause": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "erosion-deposition": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-cycles-in-rock",
+      "a": "process-history",
+      "b": "tilted-below-level",
+      "out": "cycles-in-rock",
+      "description": "The visible arrangement requires several episodes, with erosion between them.",
+      "sources": [
+        "hutton",
+        "deep-time",
+        "lyell-darwin",
+        "geologic-age-modern"
+      ],
+      "lifecycle": {
+        "process-history": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "tilted-below-level": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-deep-time-world",
+      "a": "cycles-in-rock",
+      "b": "correlated-strata",
+      "out": "deep-time-world",
+      "description": "Repeated deposition, deformation and erosion across a correlated rock record support an extended history. The geographically developed succession is not rejected in favour of a less-developed local version; no exact duration has yet been measured.",
+      "sources": [
+        "hutton",
+        "deep-time",
+        "lyell-darwin",
+        "geologic-age-modern"
+      ],
+      "lifecycle": {
+        "cycles-in-rock": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "correlated-strata": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-extinction-real",
+      "a": "organic-fossil",
+      "b": "lost-animals",
+      "out": "extinction-real",
+      "description": "Extinction changes the meaning of a catalogue: some kinds belong only to the past.",
+      "sources": [
+        "hutton",
+        "deep-time",
+        "lyell-darwin",
+        "geologic-age-modern"
+      ],
+      "lifecycle": {
+        "organic-fossil": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "lost-animals": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-eventful-geology",
+      "a": "deep-time-world",
+      "b": "sudden-disruption",
+      "out": "eventful-geology",
+      "description": "Do not force every deposit into one rate or one worldwide catastrophe.",
+      "sources": [
+        "hutton",
+        "deep-time",
+        "lyell-darwin",
+        "geologic-age-modern"
+      ],
+      "lifecycle": {
+        "deep-time-world": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "sudden-disruption": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-age-still-open",
+      "a": "correlated-strata",
+      "b": "deep-time-world",
+      "out": "age-still-open",
+      "description": "The order and depth of the history are powerful results; its absolute age remains a distinct unresolved measurement problem.",
+      "sources": [
+        "hutton",
+        "deep-time",
+        "lyell-darwin",
+        "geologic-age-modern"
+      ],
+      "lifecycle": {
+        "correlated-strata": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "deep-time-world": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-named-species",
+      "a": "animal-kinds",
+      "b": "binomial-names",
+      "out": "named-species",
+      "description": "Earlier classification becomes a coordinated naming practice, while the categories remain revisable.",
+      "sources": [
+        "aristotle-biology",
+        "linnaeus",
+        "humboldt",
+        "darwin-selection",
+        "darwin-malthus",
+        "darwin-origin-wolves-primary",
+        "wallace-varieties-primary",
+        "lyell-darwin"
+      ],
+      "lifecycle": {
+        "animal-kinds": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "binomial-names": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-geography-of-life",
+      "a": "named-species",
+      "b": "altitude-plants",
+      "out": "geography-of-life",
+      "description": "The named collection becomes a comparison of environments, not just a shelf of specimens.",
+      "sources": [
+        "aristotle-biology",
+        "linnaeus",
+        "humboldt",
+        "darwin-selection",
+        "darwin-malthus",
+        "darwin-origin-wolves-primary",
+        "wallace-varieties-primary",
+        "lyell-darwin"
+      ],
+      "lifecycle": {
+        "named-species": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "altitude-plants": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-transforming-species",
+      "a": "named-species",
+      "b": "use-disuse",
+      "out": "transforming-species",
+      "description": "Reconstruct Lamarck’s alternative to fixed species without treating every proposed mechanism as established.",
+      "sources": [
+        "aristotle-biology",
+        "linnaeus",
+        "humboldt",
+        "darwin-selection",
+        "darwin-malthus",
+        "darwin-origin-wolves-primary",
+        "wallace-varieties-primary",
+        "lyell-darwin"
+      ],
+      "lifecycle": {
+        "named-species": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "use-disuse": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-selection-analogy",
+      "a": "heritable-variation",
+      "b": "breeders-choices",
+      "out": "selection-analogy",
+      "description": "The breeder’s practice makes cumulative change understandable without supplying a purposeful breeder in nature.",
+      "sources": [
+        "aristotle-biology",
+        "linnaeus",
+        "humboldt",
+        "darwin-selection",
+        "darwin-malthus",
+        "darwin-origin-wolves-primary",
+        "wallace-varieties-primary",
+        "lyell-darwin"
+      ],
+      "lifecycle": {
+        "heritable-variation": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "breeders-choices": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-struggle-for-existence",
+      "a": "population-pressure",
+      "b": "heritable-variation",
+      "out": "struggle-for-existence",
+      "description": "Darwin and Wallace adapt Malthusian population pressure to organisms; the inference is historical, not a moral instruction for society.",
+      "sources": [
+        "aristotle-biology",
+        "linnaeus",
+        "humboldt",
+        "darwin-selection",
+        "darwin-malthus",
+        "darwin-origin-wolves-primary",
+        "wallace-varieties-primary",
+        "lyell-darwin"
+      ],
+      "lifecycle": {
+        "population-pressure": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "heritable-variation": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-natural-selection",
+      "a": "struggle-for-existence",
+      "b": "differential-survival",
+      "out": "natural-selection",
+      "description": "Heritable differences with different reproductive consequences can become more or less common.",
+      "sources": [
+        "aristotle-biology",
+        "linnaeus",
+        "humboldt",
+        "darwin-selection",
+        "darwin-malthus",
+        "darwin-origin-wolves-primary",
+        "wallace-varieties-primary",
+        "lyell-darwin"
+      ],
+      "lifecycle": {
+        "struggle-for-existence": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "differential-survival": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-cumulative-evolution",
+      "a": "natural-selection",
+      "b": "deep-time-world",
+      "out": "cumulative-evolution",
+      "description": "Geological duration removes the scale of a human lifetime as the limit of cumulative change.",
+      "sources": [
+        "aristotle-biology",
+        "linnaeus",
+        "humboldt",
+        "darwin-selection",
+        "darwin-malthus",
+        "darwin-origin-wolves-primary",
+        "wallace-varieties-primary",
+        "lyell-darwin"
+      ],
+      "lifecycle": {
+        "natural-selection": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "deep-time-world": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-branching-descent",
+      "a": "cumulative-evolution",
+      "b": "island-relations",
+      "out": "branching-descent",
+      "description": "A branching history can explain geographical affinities; it is not a ladder with humans as its required summit.",
+      "sources": [
+        "aristotle-biology",
+        "linnaeus",
+        "humboldt",
+        "darwin-selection",
+        "darwin-malthus",
+        "darwin-origin-wolves-primary",
+        "wallace-varieties-primary",
+        "lyell-darwin"
+      ],
+      "lifecycle": {
+        "cumulative-evolution": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "island-relations": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-changed-meaning-of-kinds",
+      "a": "branching-descent",
+      "b": "transforming-species",
+      "out": "changed-meaning-of-kinds",
+      "description": "Lamarck’s transforming species and Darwin–Wallace selection both reject simple fixity, but they are not the same mechanism or complete historical theory. Their comparison keeps the disagreement visible rather than merely renaming species change.",
+      "sources": [
+        "aristotle-biology",
+        "linnaeus",
+        "humboldt",
+        "darwin-selection",
+        "darwin-malthus",
+        "darwin-origin-wolves-primary",
+        "wallace-varieties-primary",
+        "lyell-darwin"
+      ],
+      "lifecycle": {
+        "branching-descent": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "transforming-species": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-open-heredity",
+      "a": "cumulative-evolution",
+      "b": "inheritance-puzzle",
+      "out": "open-heredity",
+      "description": "Long-run cumulative change needs differences to persist across generations. If variation simply blended away, that raises a difficulty. The wider evolutionary account retains this unresolved mechanism rather than requiring a less-developed predecessor tile.",
+      "sources": [
+        "aristotle-biology",
+        "linnaeus",
+        "humboldt",
+        "darwin-selection",
+        "darwin-malthus",
+        "darwin-origin-wolves-primary",
+        "wallace-varieties-primary",
+        "lyell-darwin"
+      ],
+      "lifecycle": {
+        "cumulative-evolution": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "inheritance-puzzle": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-industrial-production",
+      "a": "division-of-labour",
+      "b": "steam-engine",
+      "out": "industrial-production",
+      "description": "Power and the organization of tasks jointly alter the workshop.",
+      "sources": [
+        "morris",
+        "marx",
+        "kropotkin",
+        "smith",
+        "darwin-selection"
+      ],
+      "lifecycle": {
+        "division-of-labour": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "steam-engine": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-fuel-dependent-industry",
+      "a": "industrial-production",
+      "b": "coal-feed",
+      "out": "fuel-dependent-industry",
+      "description": "An expanded productive system depends on extracting and supplying fuel.",
+      "sources": [
+        "morris",
+        "marx",
+        "kropotkin",
+        "smith",
+        "darwin-selection"
+      ],
+      "lifecycle": {
+        "industrial-production": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "coal-feed": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-alienated-work",
+      "a": "work-as-a-human-question",
+      "b": "wage-owner",
+      "out": "alienated-work",
+      "description": "Marx’s critique gives a specific social relation to the earlier question of what work does to a person.",
+      "sources": [
+        "morris",
+        "marx",
+        "kropotkin",
+        "smith",
+        "darwin-selection"
+      ],
+      "lifecycle": {
+        "work-as-a-human-question": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "wage-owner": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-useful-pleasurable-work",
+      "a": "alienated-work",
+      "b": "craft-pleasure",
+      "out": "useful-pleasurable-work",
+      "description": "Morris’s alternative demands worthwhile activity as well as useful products; it is a proposal, not a solved economy.",
+      "sources": [
+        "morris",
+        "marx",
+        "kropotkin",
+        "smith",
+        "darwin-selection"
+      ],
+      "lifecycle": {
+        "alienated-work": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "craft-pleasure": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-cooperation-in-evolution",
+      "a": "natural-selection",
+      "b": "mutual-survival",
+      "out": "cooperation-in-evolution",
+      "description": "Cooperative behaviour can have evolutionary significance; making this result does not refute natural selection.",
+      "sources": [
+        "morris",
+        "marx",
+        "kropotkin",
+        "smith",
+        "darwin-selection"
+      ],
+      "lifecycle": {
+        "natural-selection": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "mutual-survival": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-competitive-story-limited",
+      "a": "cooperation-in-evolution",
+      "b": "scarcity-and-justice",
+      "out": "competitive-story-limited",
+      "description": "Modern comparison: neither competition nor cooperation alone supplies a political command from nature.",
+      "sources": [
+        "morris",
+        "marx",
+        "kropotkin",
+        "smith",
+        "darwin-selection"
+      ],
+      "lifecycle": {
+        "cooperation-in-evolution": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "scarcity-and-justice": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-control-of-work",
+      "a": "alienated-work",
+      "b": "factory-speed",
+      "out": "control-of-work",
+      "description": "The existing loss of control over work meets the concrete case of a machine-set pace. Saving physical labour does not guarantee control over tempo or decisions.",
+      "sources": [
+        "morris",
+        "marx",
+        "kropotkin",
+        "smith",
+        "darwin-selection"
+      ],
+      "lifecycle": {
+        "alienated-work": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "factory-speed": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-microscopic-life",
+      "a": "magnified-view",
+      "b": "small-specimens",
+      "out": "microscopic-life",
+      "description": "Instrumental seeing enlarges the known collection without automatically identifying disease causes.",
+      "sources": [
+        "lensmaking",
+        "snow",
+        "snow-myth",
+        "fermentation",
+        "buchner"
+      ],
+      "lifecycle": {
+        "magnified-view": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "small-specimens": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-waterborne-pattern",
+      "a": "public-trial",
+      "b": "water-company-cases",
+      "out": "waterborne-pattern",
+      "description": "An inspectable comparison of similarly situated households supplies a specific disease difference associated with water source. Confounding and the accuracy of records still require scrutiny.",
+      "sources": [
+        "lensmaking",
+        "snow",
+        "snow-myth",
+        "fermentation",
+        "buchner"
+      ],
+      "lifecycle": {
+        "public-trial": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "water-company-cases": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-prevention-before-settlement",
+      "a": "waterborne-pattern",
+      "b": "clean-water-change",
+      "out": "prevention-before-settlement",
+      "description": "Action can be justified by a strong causal route while wider disease theory remains contested.",
+      "sources": [
+        "lensmaking",
+        "snow",
+        "snow-myth",
+        "fermentation",
+        "buchner"
+      ],
+      "lifecycle": {
+        "waterborne-pattern": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "clean-water-change": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-competing-disease-accounts",
+      "a": "waterborne-pattern",
+      "b": "bad-air-claim",
+      "out": "competing-disease-accounts",
+      "description": "The earlier account remains legible as a rival claim; naming it does not endorse equal evidential strength.",
+      "sources": [
+        "lensmaking",
+        "snow",
+        "snow-myth",
+        "fermentation",
+        "buchner"
+      ],
+      "lifecycle": {
+        "waterborne-pattern": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "bad-air-claim": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-microbial-growth",
+      "a": "microscopic-life",
+      "b": "sterile-broth",
+      "out": "microbial-growth",
+      "description": "The same air access with different dust access strengthens the causal account. The contrast does not rely merely on sealing one broth and leaving the other open.",
+      "sources": [
+        "lensmaking",
+        "snow",
+        "snow-myth",
+        "fermentation",
+        "buchner"
+      ],
+      "lifecycle": {
+        "microscopic-life": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "sterile-broth": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-living-fermentation",
+      "a": "microbial-growth",
+      "b": "fermenting-cultures",
+      "out": "living-fermentation",
+      "description": "The process links a living world to a transformation of material.",
+      "sources": [
+        "lensmaking",
+        "snow",
+        "snow-myth",
+        "fermentation",
+        "buchner"
+      ],
+      "lifecycle": {
+        "microbial-growth": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "fermenting-cultures": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-chemical-agency-in-cells",
+      "a": "living-fermentation",
+      "b": "cell-free-extract",
+      "out": "chemical-agency-in-cells",
+      "description": "A later return revises an overly broad requirement for intact cells without erasing the microbial evidence.",
+      "sources": [
+        "lensmaking",
+        "snow",
+        "snow-myth",
+        "fermentation",
+        "buchner"
+      ],
+      "lifecycle": {
+        "living-fermentation": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "cell-free-extract": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-electromagnetic-link",
+      "a": "mechanical-nature",
+      "b": "current-near-compass",
+      "out": "electromagnetic-link",
+      "description": "A specific experiment expands the physical account beyond a simple picture of contacting parts.",
+      "sources": [
+        "field-oersted-observation",
+        "field-ring-object",
+        "maxwell",
+        "photo",
+        "photo-niepce",
+        "benjamin"
+      ],
+      "lifecycle": {
+        "mechanical-nature": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "current-near-compass": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-induction",
+      "a": "electromagnetic-link",
+      "b": "changing-magnet",
+      "out": "induction",
+      "description": "The relationship becomes a source of electrical action, not merely a static attraction.",
+      "sources": [
+        "field-oersted-observation",
+        "field-ring-object",
+        "maxwell",
+        "photo",
+        "photo-niepce",
+        "benjamin"
+      ],
+      "lifecycle": {
+        "electromagnetic-link": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "changing-magnet": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-field-description",
+      "a": "induction",
+      "b": "field-lines",
+      "out": "field-description",
+      "description": "The field description makes spatial relations explanatory rather than treating them as empty background.",
+      "sources": [
+        "field-oersted-observation",
+        "field-ring-object",
+        "maxwell",
+        "photo",
+        "photo-niepce",
+        "benjamin"
+      ],
+      "lifecycle": {
+        "induction": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "field-lines": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-electromagnetic-light",
+      "a": "maxwell-equations",
+      "b": "light-wave-speed",
+      "out": "electromagnetic-light",
+      "description": "The prediction supplies a unification, not an arithmetic exercise for the player.",
+      "sources": [
+        "field-oersted-observation",
+        "field-ring-object",
+        "maxwell",
+        "photo",
+        "photo-niepce",
+        "benjamin"
+      ],
+      "lifecycle": {
+        "maxwell-equations": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "light-wave-speed": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-networked-time",
+      "a": "reference-timekeeper",
+      "b": "telegraph-wire",
+      "out": "networked-time",
+      "description": "A maintained reference can be communicated instead of only carried on a ship.",
+      "sources": [
+        "field-oersted-observation",
+        "field-ring-object",
+        "maxwell",
+        "photo",
+        "photo-niepce",
+        "benjamin"
+      ],
+      "lifecycle": {
+        "reference-timekeeper": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "telegraph-wire": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-standard-time",
+      "a": "networked-time",
+      "b": "railway-timetables",
+      "out": "standard-time",
+      "description": "A practical standard coordinates places while differing from their separate local solar times.",
+      "sources": [
+        "field-oersted-observation",
+        "field-ring-object",
+        "maxwell",
+        "photo",
+        "photo-niepce",
+        "benjamin"
+      ],
+      "lifecycle": {
+        "networked-time": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "railway-timetables": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-photographic-trace",
+      "a": "pinhole-box",
+      "b": "light-sensitive-plate",
+      "out": "photographic-trace",
+      "description": "The earlier image-producing arrangement gains a recording surface; this is a simplified conceptual reconstruction, not a claim of a single inventor.",
+      "sources": [
+        "field-oersted-observation",
+        "field-ring-object",
+        "maxwell",
+        "photo",
+        "photo-niepce",
+        "benjamin"
+      ],
+      "lifecycle": {
+        "pinhole-box": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "light-sensitive-plate": {
+          "role": "transform",
+          "reason": "This particular material becomes part of the new object at the combining event; distinct reusable references remain separate."
+        }
+      }
+    },
+    {
+      "id": "make-framed-photograph",
+      "a": "photographic-trace",
+      "b": "viewpoint-occlusion",
+      "out": "framed-photograph",
+      "description": "The old result about hidden surfaces and framing limits what the new physical trace can establish.",
+      "sources": [
+        "field-oersted-observation",
+        "field-ring-object",
+        "maxwell",
+        "photo",
+        "photo-niepce",
+        "benjamin"
+      ],
+      "lifecycle": {
+        "photographic-trace": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "viewpoint-occlusion": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-reproducible-image",
+      "a": "photographic-trace",
+      "b": "reproducible-negative",
+      "out": "reproducible-image",
+      "description": "Technical reproduction changes the distribution of an image without making its content neutral.",
+      "sources": [
+        "field-oersted-observation",
+        "field-ring-object",
+        "maxwell",
+        "photo",
+        "photo-niepce",
+        "benjamin"
+      ],
+      "lifecycle": {
+        "photographic-trace": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "reproducible-negative": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-inner-continuity",
+      "a": "melancholy-many-sources",
+      "b": "stream-of-thought",
+      "out": "inner-continuity",
+      "description": "A modern teaching comparison changes the old collection of inner troubles into a question about the form of conscious experience, not a claim that Burton anticipated James.",
+      "sources": [
+        "bergson",
+        "freud",
+        "james",
+        "surrealism",
+        "burton"
+      ],
+      "lifecycle": {
+        "melancholy-many-sources": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "stream-of-thought": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-lived-duration",
+      "a": "standard-time",
+      "b": "remembered-melody",
+      "out": "lived-duration",
+      "description": "The clock’s successful public function does not exhaust the qualitative continuity of experience.",
+      "sources": [
+        "bergson",
+        "freud",
+        "james",
+        "surrealism",
+        "burton"
+      ],
+      "lifecycle": {
+        "standard-time": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "remembered-melody": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-interpreted-dream",
+      "a": "inner-continuity",
+      "b": "freud-dream",
+      "out": "interpreted-dream",
+      "description": "Reconstruct an influential interpretive proposal while keeping it distinct from established physical measurement.",
+      "sources": [
+        "bergson",
+        "freud",
+        "james",
+        "surrealism",
+        "burton"
+      ],
+      "lifecycle": {
+        "inner-continuity": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "freud-dream": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-automatic-writing",
+      "a": "interpreted-dream",
+      "b": "free-association",
+      "out": "automatic-writing",
+      "description": "Surrealist practice adapts psychological interests into an artistic experiment, not a verified diagnosis.",
+      "sources": [
+        "bergson",
+        "freud",
+        "james",
+        "surrealism",
+        "burton"
+      ],
+      "lifecycle": {
+        "interpreted-dream": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "free-association": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-surreal-encounter",
+      "a": "framed-photograph",
+      "b": "chance-encounter",
+      "out": "surreal-encounter",
+      "description": "A credible-looking image or object can be placed in an encounter that unsettles ordinary expectations.",
+      "sources": [
+        "bergson",
+        "freud",
+        "james",
+        "surrealism",
+        "burton"
+      ],
+      "lifecycle": {
+        "framed-photograph": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "chance-encounter": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-art-beyond-illustration",
+      "a": "surreal-encounter",
+      "b": "political-art",
+      "out": "art-beyond-illustration",
+      "description": "The work is not merely a picture of a previously finished theory.",
+      "sources": [
+        "bergson",
+        "freud",
+        "james",
+        "surrealism",
+        "burton"
+      ],
+      "lifecycle": {
+        "surreal-encounter": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "political-art": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-plural-access-to-time",
+      "a": "lived-duration",
+      "b": "inner-continuity",
+      "out": "plural-access-to-time",
+      "description": "Two different questions about time coexist without treating subjective experience as a refutation of clocks.",
+      "sources": [
+        "bergson",
+        "freud",
+        "james",
+        "surrealism",
+        "burton"
+      ],
+      "lifecycle": {
+        "lived-duration": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "inner-continuity": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-signal-synchronized-clocks",
+      "a": "networked-time",
+      "b": "light-clock-rule",
+      "out": "signal-synchronized-clocks",
+      "description": "The earlier practical clock network becomes a precise question about how distant clock settings are related.",
+      "sources": [
+        "einstein-time",
+        "einstein-spacetime"
+      ],
+      "lifecycle": {
+        "networked-time": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "light-clock-rule": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-platform-simultaneity",
+      "a": "signal-synchronized-clocks",
+      "b": "platform-flashes",
+      "out": "platform-simultaneity",
+      "description": "The conclusion is tied to a specified frame and procedure, not simply to a person’s impression.",
+      "sources": [
+        "einstein-time",
+        "einstein-spacetime"
+      ],
+      "lifecycle": {
+        "signal-synchronized-clocks": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "platform-flashes": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-unequal-passenger-reception",
+      "a": "platform-simultaneity",
+      "b": "passenger-motion",
+      "out": "unequal-passenger-reception",
+      "description": "A concrete comparison changes reception order; this alone is not yet the whole relativity argument.",
+      "sources": [
+        "einstein-time",
+        "einstein-spacetime"
+      ],
+      "lifecycle": {
+        "platform-simultaneity": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "passenger-motion": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-frame-dependent-simultaneity",
+      "a": "unequal-passenger-reception",
+      "b": "light-invariance",
+      "out": "frame-dependent-simultaneity",
+      "description": "The passenger is at the train midpoint, with equal paths from the train’s ends in that frame. Using the same light speed there, the separately received flashes were not emitted simultaneously in the train frame, although the platform’s midpoint test said they were. This is more than an uncorrected signal delay.",
+      "sources": [
+        "einstein-time",
+        "einstein-spacetime"
+      ],
+      "lifecycle": {
+        "unequal-passenger-reception": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "light-invariance": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-special-relativity",
+      "a": "frame-dependent-simultaneity",
+      "b": "relativity-principle",
+      "out": "special-relativity",
+      "description": "The two principles reorganize the relations of space and time; everyday mechanics survives as an approximation in its domain.",
+      "sources": [
+        "einstein-time",
+        "einstein-spacetime"
+      ],
+      "lifecycle": {
+        "frame-dependent-simultaneity": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "relativity-principle": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-newtonian-limit",
+      "a": "special-relativity",
+      "b": "newtonian-framework",
+      "out": "newtonian-limit",
+      "description": "The earlier successful account is bounded rather than treated as worthless after a new theory appears.",
+      "sources": [
+        "einstein-time",
+        "einstein-spacetime"
+      ],
+      "lifecycle": {
+        "special-relativity": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "newtonian-framework": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-local-equivalence",
+      "a": "universal-gravitation",
+      "b": "falling-room",
+      "out": "local-equivalence",
+      "description": "A local equivalence motivates a different account; the Newtonian attraction remains a meaningful predecessor and approximation.",
+      "sources": [
+        "einstein-time",
+        "einstein-spacetime"
+      ],
+      "lifecycle": {
+        "universal-gravitation": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "falling-room": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-geometric-gravity",
+      "a": "local-equivalence",
+      "b": "curved-spacetime-claim",
+      "out": "geometric-gravity",
+      "description": "The physical question becomes how matter, geometry and motion relate.",
+      "sources": [
+        "einstein-time",
+        "einstein-spacetime"
+      ],
+      "lifecycle": {
+        "local-equivalence": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "curved-spacetime-claim": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-tested-light-bending",
+      "a": "geometric-gravity",
+      "b": "light-deflection",
+      "out": "tested-light-bending",
+      "description": "A consequence meets evidence, with the quality and interpretation of the observation still part of the historical record.",
+      "sources": [
+        "einstein-time",
+        "einstein-spacetime"
+      ],
+      "lifecycle": {
+        "geometric-gravity": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "light-deflection": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-reassembled-continents",
+      "a": "mapped-globe",
+      "b": "opposite-shores",
+      "out": "reassembled-continents",
+      "description": "The coordinate representation becomes a testable reconstruction rather than a fixed portrait of eternal positions.",
+      "sources": [
+        "tectonics",
+        "plate-evidence",
+        "seafloor",
+        "radiometric-clock",
+        "geologic-age-modern",
+        "earth-age"
+      ],
+      "lifecycle": {
+        "mapped-globe": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "opposite-shores": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-continental-drift-case",
+      "a": "reassembled-continents",
+      "b": "shared-fossil-belts",
+      "out": "continental-drift-case",
+      "description": "Several kinds of matching evidence strengthen the drift case beyond resemblance alone.",
+      "sources": [
+        "tectonics",
+        "plate-evidence",
+        "seafloor",
+        "radiometric-clock",
+        "geologic-age-modern",
+        "earth-age"
+      ],
+      "lifecycle": {
+        "reassembled-continents": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "shared-fossil-belts": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-drift-without-drive",
+      "a": "continental-drift-case",
+      "b": "weak-drift-force",
+      "out": "drift-without-drive",
+      "description": "The evidence and mechanism can have different strengths; the old objection stays visible rather than being mocked away.",
+      "sources": [
+        "tectonics",
+        "plate-evidence",
+        "seafloor",
+        "radiometric-clock",
+        "geologic-age-modern",
+        "earth-age"
+      ],
+      "lifecycle": {
+        "continental-drift-case": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "weak-drift-force": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-mineral-clock",
+      "a": "radioactive-decay",
+      "b": "mineral-isotopes",
+      "out": "mineral-clock",
+      "description": "Physical decay connects material evidence to elapsed time, subject to the clock’s geological history.",
+      "sources": [
+        "tectonics",
+        "plate-evidence",
+        "seafloor",
+        "radiometric-clock",
+        "geologic-age-modern",
+        "earth-age"
+      ],
+      "lifecycle": {
+        "radioactive-decay": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "mineral-isotopes": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-absolute-age-possible",
+      "a": "age-still-open",
+      "b": "mineral-clock",
+      "out": "absolute-age-possible",
+      "description": "The earlier unresolved distinction is addressed with a genuinely new kind of evidence, not a number added to a label.",
+      "sources": [
+        "tectonics",
+        "plate-evidence",
+        "seafloor",
+        "radiometric-clock",
+        "geologic-age-modern",
+        "earth-age"
+      ],
+      "lifecycle": {
+        "age-still-open": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "mineral-clock": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-earth-age-measured",
+      "a": "absolute-age-possible",
+      "b": "meteorite-lead",
+      "out": "earth-age-measured",
+      "description": "The modern estimate is an evidence-based age of formation. The numerical conclusion is supplied as a finding, not a mental arithmetic exercise.",
+      "sources": [
+        "tectonics",
+        "plate-evidence",
+        "seafloor",
+        "radiometric-clock",
+        "geologic-age-modern",
+        "earth-age"
+      ],
+      "lifecycle": {
+        "absolute-age-possible": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "meteorite-lead": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-seafloor-spreading",
+      "a": "ocean-ridge",
+      "b": "magnetic-stripes",
+      "out": "seafloor-spreading",
+      "description": "A physical process explains a patterned record which coastlines alone could not supply.",
+      "sources": [
+        "tectonics",
+        "plate-evidence",
+        "seafloor",
+        "radiometric-clock",
+        "geologic-age-modern",
+        "earth-age"
+      ],
+      "lifecycle": {
+        "ocean-ridge": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "magnetic-stripes": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-mobile-plates",
+      "a": "drift-without-drive",
+      "b": "seafloor-spreading",
+      "out": "mobile-plates",
+      "description": "The mobile plates are lithosphere: crust plus rigid uppermost mantle. The newer framework is not merely Wegener’s original driving mechanism declared correct.",
+      "sources": [
+        "tectonics",
+        "plate-evidence",
+        "seafloor",
+        "radiometric-clock",
+        "geologic-age-modern",
+        "earth-age"
+      ],
+      "lifecycle": {
+        "drift-without-drive": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "seafloor-spreading": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-recycled-crust",
+      "a": "mobile-plates",
+      "b": "subduction-evidence",
+      "out": "recycled-crust",
+      "description": "Several boundaries fit into one changing system without requiring a steadily swelling planet.",
+      "sources": [
+        "tectonics",
+        "plate-evidence",
+        "seafloor",
+        "radiometric-clock",
+        "geologic-age-modern",
+        "earth-age"
+      ],
+      "lifecycle": {
+        "mobile-plates": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "subduction-evidence": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-relocated-habitats",
+      "a": "recycled-crust",
+      "b": "geography-of-life",
+      "out": "relocated-habitats",
+      "description": "Earlier environmental and distributional patterns can now be reconsidered on a mobile surface.",
+      "sources": [
+        "tectonics",
+        "plate-evidence",
+        "seafloor",
+        "radiometric-clock",
+        "geologic-age-modern",
+        "earth-age"
+      ],
+      "lifecycle": {
+        "recycled-crust": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "geography-of-life": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-boolean-logic",
+      "a": "valid-inference",
+      "b": "boolean-operations",
+      "out": "boolean-logic",
+      "description": "An earlier concern with valid form becomes an explicit algebra of logical relations.",
+      "sources": [
+        "boole",
+        "turing",
+        "shannon",
+        "shannon1948"
+      ],
+      "lifecycle": {
+        "valid-inference": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "boolean-operations": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-logic-circuit",
+      "a": "boolean-logic",
+      "b": "switching-circuit",
+      "out": "logic-circuit",
+      "description": "The same organization can be embodied in a circuit; a true switch does not guarantee a true premise.",
+      "sources": [
+        "boole",
+        "turing",
+        "shannon",
+        "shannon1948"
+      ],
+      "lifecycle": {
+        "boolean-logic": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "switching-circuit": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-mechanical-procedure",
+      "a": "logic-circuit",
+      "b": "finite-instructions",
+      "out": "mechanical-procedure",
+      "description": "Modern teaching comparison of implementation and abstract procedure: Turing’s 1936 machine model did not derive from Shannon’s later switching work. The finite rule makes symbol operations explicit without claiming to explain every kind of intelligence.",
+      "sources": [
+        "boole",
+        "turing",
+        "shannon",
+        "shannon1948"
+      ],
+      "lifecycle": {
+        "logic-circuit": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "finite-instructions": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-universal-computation",
+      "a": "mechanical-procedure",
+      "b": "universal-description",
+      "out": "universal-computation",
+      "description": "The distinction between a fixed device and a general interpreter becomes tangible.",
+      "sources": [
+        "boole",
+        "turing",
+        "shannon",
+        "shannon1948"
+      ],
+      "lifecycle": {
+        "mechanical-procedure": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "universal-description": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-computation-limit",
+      "a": "universal-computation",
+      "b": "halting-demand",
+      "out": "computation-limit",
+      "description": "Turing’s general impossibility result limits an exact universal demand; it does not mean useful computation is futile.",
+      "sources": [
+        "boole",
+        "turing",
+        "shannon",
+        "shannon1948"
+      ],
+      "lifecycle": {
+        "universal-computation": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "halting-demand": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-communication-problem",
+      "a": "networked-time",
+      "b": "noisy-channel",
+      "out": "communication-problem",
+      "description": "The earlier electrical network becomes an example of a channel whose signal integrity matters.",
+      "sources": [
+        "boole",
+        "turing",
+        "shannon",
+        "shannon1948"
+      ],
+      "lifecycle": {
+        "networked-time": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "noisy-channel": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-error-correcting-message",
+      "a": "communication-problem",
+      "b": "redundant-code",
+      "out": "error-correcting-message",
+      "description": "The stipulated correction scheme changes the representation so that the assumed error patterns can be located and corrected. It does not repair every possible corruption or establish the message’s truth.",
+      "sources": [
+        "boole",
+        "turing",
+        "shannon",
+        "shannon1948"
+      ],
+      "lifecycle": {
+        "communication-problem": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "redundant-code": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-feedback-control",
+      "a": "mechanical-procedure",
+      "b": "feedback-sensor",
+      "out": "feedback-control",
+      "description": "A specified target and observation loop support control without equating response with autonomy or understanding.",
+      "sources": [
+        "boole",
+        "turing",
+        "shannon",
+        "shannon1948"
+      ],
+      "lifecycle": {
+        "mechanical-procedure": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "feedback-sensor": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-word-identical-page",
+      "a": "critical-edition",
+      "b": "menard-page",
+      "out": "word-identical-page",
+      "description": "The earlier technique of comparing wording succeeds at its task but does not settle authorship or interpretation.",
+      "sources": [
+        "borges",
+        "benjamin",
+        "postmodern"
+      ],
+      "lifecycle": {
+        "critical-edition": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "menard-page": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-another-work",
+      "a": "word-identical-page",
+      "b": "new-authorship",
+      "out": "another-work",
+      "description": "The operation changes interpretive context, not the letters. It is not a claim that any reading is equally well supported.",
+      "sources": [
+        "borges",
+        "benjamin",
+        "postmodern"
+      ],
+      "lifecycle": {
+        "word-identical-page": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "new-authorship": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-useless-total-map",
+      "a": "projection-tradeoff",
+      "b": "full-scale-map",
+      "out": "useless-total-map",
+      "description": "The prior selective representation is tested against a fictional demand for total duplication.",
+      "sources": [
+        "borges",
+        "benjamin",
+        "postmodern"
+      ],
+      "lifecycle": {
+        "projection-tradeoff": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "full-scale-map": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-branching-fiction",
+      "a": "branching-descent",
+      "b": "forking-story",
+      "out": "branching-fiction",
+      "description": "Modern teaching comparison: biological branching and fictional alternatives share a representational device, not a causal or scientific identity.",
+      "sources": [
+        "borges",
+        "benjamin",
+        "postmodern"
+      ],
+      "lifecycle": {
+        "branching-descent": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "forking-story": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-fictional-archive",
+      "a": "compared-edition",
+      "b": "invented-citation",
+      "out": "fictional-archive",
+      "description": "A trusted-looking edition can be imitated as an artistic form; actual research still requires authentic sources.",
+      "sources": [
+        "borges",
+        "benjamin",
+        "postmodern"
+      ],
+      "lifecycle": {
+        "compared-edition": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "invented-citation": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-aura-and-reproduction",
+      "a": "reproducible-image",
+      "b": "unique-presence",
+      "out": "aura-and-reproduction",
+      "description": "The earlier technical achievement becomes a question about presence, tradition and access.",
+      "sources": [
+        "borges",
+        "benjamin",
+        "postmodern"
+      ],
+      "lifecycle": {
+        "reproducible-image": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "unique-presence": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-politics-of-the-copy",
+      "a": "aura-and-reproduction",
+      "b": "political-circulation",
+      "out": "politics-of-the-copy",
+      "description": "Do not reconcile every consequence into either liberation or decline.",
+      "sources": [
+        "borges",
+        "benjamin",
+        "postmodern"
+      ],
+      "lifecycle": {
+        "aura-and-reproduction": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "political-circulation": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-genealogy-of-values",
+      "a": "universal-rights",
+      "b": "value-history",
+      "out": "genealogy-of-values",
+      "description": "The earlier universal claim is questioned through the history of its values; its normative validity is not automatically settled by its origins.",
+      "sources": [
+        "nietzsche",
+        "levi-strauss",
+        "foucault",
+        "postmodern",
+        "linnaeus"
+      ],
+      "lifecycle": {
+        "universal-rights": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "value-history": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-relational-categories",
+      "a": "nominal-kinds",
+      "b": "kinship-relations",
+      "out": "relational-categories",
+      "description": "Modern comparison: a shared name is no longer enough; the relations among terms matter in the anthropological account.",
+      "sources": [
+        "nietzsche",
+        "levi-strauss",
+        "foucault",
+        "postmodern",
+        "linnaeus"
+      ],
+      "lifecycle": {
+        "nominal-kinds": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "kinship-relations": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-knowledge-and-discipline",
+      "a": "encyclopedic-network",
+      "b": "institution-records",
+      "out": "knowledge-and-discipline",
+      "description": "The earlier organization of knowledge is contrasted with specific institutional uses, not blamed for every form of power.",
+      "sources": [
+        "nietzsche",
+        "levi-strauss",
+        "foucault",
+        "postmodern",
+        "linnaeus"
+      ],
+      "lifecycle": {
+        "encyclopedic-network": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "institution-records": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-false-natural-hierarchy",
+      "a": "named-species",
+      "b": "classification-exclusions",
+      "out": "false-natural-hierarchy",
+      "description": "Linnaean racial categories expose a concrete error and political ordering; the biological naming method is not thereby wholly useless.",
+      "sources": [
+        "nietzsche",
+        "levi-strauss",
+        "foucault",
+        "postmodern",
+        "linnaeus"
+      ],
+      "lifecycle": {
+        "named-species": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "classification-exclusions": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-unequal-universalism",
+      "a": "rights-for-women",
+      "b": "false-natural-hierarchy",
+      "out": "unequal-universalism",
+      "description": "The earlier challenge to excluded women becomes a specific comparison with another exclusion, not a claim that their histories are interchangeable.",
+      "sources": [
+        "nietzsche",
+        "levi-strauss",
+        "foucault",
+        "postmodern",
+        "linnaeus"
+      ],
+      "lifecycle": {
+        "rights-for-women": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "false-natural-hierarchy": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-unstable-distinction",
+      "a": "another-work",
+      "b": "textual-tension",
+      "out": "unstable-distinction",
+      "description": "Borges’s context-sensitive reading helps identify a concrete tension: the critic’s later-page example grants a copy the creative role the essay denies it. This is a teaching comparison, not a claim that every text or distinction defeats itself.",
+      "sources": [
+        "nietzsche",
+        "levi-strauss",
+        "foucault",
+        "postmodern",
+        "linnaeus"
+      ],
+      "lifecycle": {
+        "another-work": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "textual-tension": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-situated-evidence",
+      "a": "framed-photograph",
+      "b": "situated-observer",
+      "out": "situated-evidence",
+      "description": "The exact earlier limit of a framed trace now informs an account of knowledge situated in practices and positions.",
+      "sources": [
+        "nietzsche",
+        "levi-strauss",
+        "foucault",
+        "postmodern",
+        "linnaeus"
+      ],
+      "lifecycle": {
+        "framed-photograph": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "situated-observer": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-accountable-perspectives",
+      "a": "situated-evidence",
+      "b": "external-check",
+      "out": "accountable-perspectives",
+      "description": "The result retains constraints and possible correction instead of ending in all claims being equally good.",
+      "sources": [
+        "nietzsche",
+        "levi-strauss",
+        "foucault",
+        "postmodern",
+        "linnaeus"
+      ],
+      "lifecycle": {
+        "situated-evidence": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "external-check": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-particulate-heredity",
+      "a": "open-heredity",
+      "b": "segregating-factors",
+      "out": "particulate-heredity",
+      "description": "The old open difficulty meets a distinct mechanism of inheritance, without pretending Darwin had modern genetics.",
+      "sources": [
+        "genetics",
+        "mendel",
+        "climate",
+        "patterson-lead",
+        "radiometric-clock"
+      ],
+      "lifecycle": {
+        "open-heredity": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "segregating-factors": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-molecular-heredity",
+      "a": "particulate-heredity",
+      "b": "dna-inheritance",
+      "out": "molecular-heredity",
+      "description": "A biological account acquires a material substrate, not a complete theory of every trait.",
+      "sources": [
+        "genetics",
+        "mendel",
+        "climate",
+        "patterson-lead",
+        "radiometric-clock"
+      ],
+      "lifecycle": {
+        "particulate-heredity": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "dna-inheritance": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-genes-in-context",
+      "a": "molecular-heredity",
+      "b": "environment-development",
+      "out": "genes-in-context",
+      "description": "A useful explanation combines inheritance with environmental and developmental conditions.",
+      "sources": [
+        "genetics",
+        "mendel",
+        "climate",
+        "patterson-lead",
+        "radiometric-clock"
+      ],
+      "lifecycle": {
+        "molecular-heredity": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "environment-development": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-ecosystem-relations",
+      "a": "relocated-habitats",
+      "b": "food-web",
+      "out": "ecosystem-relations",
+      "description": "The earlier moving map becomes a setting for interacting organisms rather than merely a list of places.",
+      "sources": [
+        "genetics",
+        "mendel",
+        "climate",
+        "patterson-lead",
+        "radiometric-clock"
+      ],
+      "lifecycle": {
+        "relocated-habitats": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "food-web": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-carbon-energy-link",
+      "a": "fuel-dependent-industry",
+      "b": "industrial-carbon",
+      "out": "carbon-energy-link",
+      "description": "The earlier material appetite of industry now connects to a planetary reservoir.",
+      "sources": [
+        "genetics",
+        "mendel",
+        "climate",
+        "patterson-lead",
+        "radiometric-clock"
+      ],
+      "lifecycle": {
+        "fuel-dependent-industry": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "industrial-carbon": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-radiative-warming",
+      "a": "electromagnetic-light",
+      "b": "greenhouse-absorption",
+      "out": "radiative-warming",
+      "description": "A physical interaction supplies a causal mechanism; no numerical radiation calculation is required.",
+      "sources": [
+        "genetics",
+        "mendel",
+        "climate",
+        "patterson-lead",
+        "radiometric-clock"
+      ],
+      "lifecycle": {
+        "electromagnetic-light": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "greenhouse-absorption": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-climate-pressure",
+      "a": "carbon-energy-link",
+      "b": "radiative-warming",
+      "out": "climate-pressure",
+      "description": "Material emissions and radiative physics combine into an explanation, rather than climate being inferred from correlation alone.",
+      "sources": [
+        "genetics",
+        "mendel",
+        "climate",
+        "patterson-lead",
+        "radiometric-clock"
+      ],
+      "lifecycle": {
+        "carbon-energy-link": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "radiative-warming": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-atmospheric-history",
+      "a": "age-still-open",
+      "b": "ice-core-air",
+      "out": "atmospheric-history",
+      "description": "Modern comparison: the earlier distinction between order and elapsed time makes dated environmental archives a different kind of evidence from an undated sample.",
+      "sources": [
+        "genetics",
+        "mendel",
+        "climate",
+        "patterson-lead",
+        "radiometric-clock"
+      ],
+      "lifecycle": {
+        "age-still-open": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "ice-core-air": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-human-driven-warming",
+      "a": "climate-pressure",
+      "b": "modern-warming",
+      "out": "human-driven-warming",
+      "description": "Observed change is interpreted with the established physical mechanism and broader evidence; uncertainty in details is not uncertainty that greenhouse gases warm the planet.",
+      "sources": [
+        "genetics",
+        "mendel",
+        "climate",
+        "patterson-lead",
+        "radiometric-clock"
+      ],
+      "lifecycle": {
+        "climate-pressure": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "modern-warming": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-clean-measurement-problem",
+      "a": "earth-age-measured",
+      "b": "lead-blank",
+      "out": "clean-measurement-problem",
+      "description": "A surprising return: precision work on Earth’s age requires separating the sample’s lead from lead introduced by the present.",
+      "sources": [
+        "genetics",
+        "mendel",
+        "climate",
+        "patterson-lead",
+        "radiometric-clock"
+      ],
+      "lifecycle": {
+        "earth-age-measured": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "lead-blank": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-industrial-lead-footprint",
+      "a": "clean-measurement-problem",
+      "b": "old-new-lead",
+      "out": "industrial-lead-footprint",
+      "description": "A problem in geochronology opens an environmental-health inquiry through measured contamination, not by a thematic slogan.",
+      "sources": [
+        "genetics",
+        "mendel",
+        "climate",
+        "patterson-lead",
+        "radiometric-clock"
+      ],
+      "lifecycle": {
+        "clean-measurement-problem": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "old-new-lead": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-world-history-not-destiny",
+      "a": "coercive-exchange",
+      "b": "ecosystem-relations",
+      "out": "world-history-not-destiny",
+      "description": "Modern teaching comparison: ecology and material routes matter alongside coercion, institutions and contingency. No single contested geographical theory is treated as settled history.",
+      "sources": [
+        "genetics",
+        "mendel",
+        "climate",
+        "patterson-lead",
+        "radiometric-clock"
+      ],
+      "lifecycle": {
+        "coercive-exchange": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "ecosystem-relations": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-predictive-assistant",
+      "a": "computation-limit",
+      "b": "learned-predictor",
+      "out": "predictive-assistant",
+      "description": "Speculative synthesis: a bounded machine can still be valuable without claiming every problem is decidable or every output reliable.",
+      "sources": [
+        "speculation",
+        "aegis",
+        "nist",
+        "turing"
+      ],
+      "lifecycle": {
+        "computation-limit": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "learned-predictor": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-trial-design-partner",
+      "a": "shared-heat-inquiry",
+      "b": "proposed-trial",
+      "out": "trial-design-partner",
+      "description": "The earlier concrete intervention-and-public-method practice shapes what a useful proposed experiment must expose.",
+      "sources": [
+        "speculation",
+        "aegis",
+        "nist",
+        "turing"
+      ],
+      "lifecycle": {
+        "shared-heat-inquiry": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "proposed-trial": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-provenance-rich-observatory",
+      "a": "fictional-archive",
+      "b": "verified-source-records",
+      "out": "provenance-rich-observatory",
+      "description": "Speculative comparison: the old demonstration that scholarly appearance can be fabricated motivates inspectable provenance, not automatic trust in a polished citation.",
+      "sources": [
+        "speculation",
+        "aegis",
+        "nist",
+        "turing"
+      ],
+      "lifecycle": {
+        "fictional-archive": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "verified-source-records": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-uncertainty-bearing-model",
+      "a": "predictive-assistant",
+      "b": "uncertain-novel-case",
+      "out": "uncertainty-bearing-model",
+      "description": "The new case remains a stated limitation rather than being hidden behind the model’s confident style.",
+      "sources": [
+        "speculation",
+        "aegis",
+        "nist",
+        "turing"
+      ],
+      "lifecycle": {
+        "predictive-assistant": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "uncertain-novel-case": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-cross-checked-discovery",
+      "a": "trial-design-partner",
+      "b": "independent-instruments",
+      "out": "cross-checked-discovery",
+      "description": "The proposed inquiry receives stipulated agreeing observations and calibration checks. These support the fictional candidate without guaranteeing truth or asserting that a real future discovery occurred.",
+      "sources": [
+        "speculation",
+        "aegis",
+        "nist",
+        "turing"
+      ],
+      "lifecycle": {
+        "trial-design-partner": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "independent-instruments": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-remote-observation-agent",
+      "a": "feedback-control",
+      "b": "remote-delay",
+      "out": "remote-observation-agent",
+      "description": "The inherited observation–action loop supports a bounded response to communication delay.",
+      "sources": [
+        "speculation",
+        "aegis",
+        "nist",
+        "turing"
+      ],
+      "lifecycle": {
+        "feedback-control": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "remote-delay": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-bounded-autonomy",
+      "a": "remote-observation-agent",
+      "b": "mission-boundary",
+      "out": "bounded-autonomy",
+      "description": "The mission can gain responsiveness while reserving some decisions for review.",
+      "sources": [
+        "speculation",
+        "aegis",
+        "nist",
+        "turing"
+      ],
+      "lifecycle": {
+        "remote-observation-agent": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "mission-boundary": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-repairable-discovery-record",
+      "a": "provenance-rich-observatory",
+      "b": "error-correcting-message",
+      "out": "repairable-discovery-record",
+      "description": "Traceable evidence and recoverable transmission address different failure modes; neither is a guarantee of truth.",
+      "sources": [
+        "speculation",
+        "aegis",
+        "nist",
+        "turing"
+      ],
+      "lifecycle": {
+        "provenance-rich-observatory": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "error-correcting-message": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-automation-with-agency",
+      "a": "control-of-work",
+      "b": "shared-workshop",
+      "out": "automation-with-agency",
+      "description": "Speculative institutional design joins labour-saving tools to specified task-setting and pause rights. It does not infer meaningful agency from community ownership alone or guarantee successful enforcement.",
+      "sources": [
+        "speculation",
+        "ostrom-lecture-primary",
+        "morris",
+        "kropotkin",
+        "nist"
+      ],
+      "lifecycle": {
+        "control-of-work": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "shared-workshop": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-workshop-for-living",
+      "a": "useful-pleasurable-work",
+      "b": "maker-options",
+      "out": "workshop-for-living",
+      "description": "The older account of worthwhile making shapes an institutional proposal without promising that all necessary labour becomes delightful.",
+      "sources": [
+        "speculation",
+        "ostrom-lecture-primary",
+        "morris",
+        "kropotkin",
+        "nist"
+      ],
+      "lifecycle": {
+        "useful-pleasurable-work": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "maker-options": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-care-still-needed",
+      "a": "workshop-for-living",
+      "b": "care-requirements",
+      "out": "care-still-needed",
+      "description": "An unresolved practical obligation remains inside the proposed good life.",
+      "sources": [
+        "speculation",
+        "ostrom-lecture-primary",
+        "morris",
+        "kropotkin",
+        "nist"
+      ],
+      "lifecycle": {
+        "workshop-for-living": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "care-requirements": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-responsive-city",
+      "a": "bounded-autonomy",
+      "b": "rapid-response",
+      "out": "responsive-city",
+      "description": "A bounded autonomous arrangement is adapted from an observatory to a social setting with much more contested consequences.",
+      "sources": [
+        "speculation",
+        "ostrom-lecture-primary",
+        "morris",
+        "kropotkin",
+        "nist"
+      ],
+      "lifecycle": {
+        "bounded-autonomy": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "rapid-response": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-control-tradeoff",
+      "a": "responsive-city",
+      "b": "contested-priorities",
+      "out": "control-tradeoff",
+      "description": "The conflict is kept explicit: responsiveness and prior contestability can pull in different directions.",
+      "sources": [
+        "speculation",
+        "ostrom-lecture-primary",
+        "morris",
+        "kropotkin",
+        "nist"
+      ],
+      "lifecycle": {
+        "responsive-city": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "contested-priorities": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-contestable-control",
+      "a": "control-tradeoff",
+      "b": "public-appeal",
+      "out": "contestable-control",
+      "description": "Appeal supplies a partial institutional response, not a cure for damage already done or time already lost.",
+      "sources": [
+        "speculation",
+        "ostrom-lecture-primary",
+        "morris",
+        "kropotkin",
+        "nist"
+      ],
+      "lifecycle": {
+        "control-tradeoff": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "public-appeal": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-revisable-commons",
+      "a": "cooperation-in-evolution",
+      "b": "local-rulemaking",
+      "out": "revisable-commons",
+      "description": "Modern-to-future comparison: the possibility of cooperation does not itself design an institution; rulemaking does additional work.",
+      "sources": [
+        "speculation",
+        "ostrom-lecture-primary",
+        "morris",
+        "kropotkin",
+        "nist"
+      ],
+      "lifecycle": {
+        "cooperation-in-evolution": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "local-rulemaking": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-plural-good-lives",
+      "a": "prosperity-not-good-life",
+      "b": "automation-with-agency",
+      "out": "plural-good-lives",
+      "description": "The older distinction between aggregate wealth and living well remains useful in judging what the new production system is for.",
+      "sources": [
+        "speculation",
+        "ostrom-lecture-primary",
+        "morris",
+        "kropotkin",
+        "nist"
+      ],
+      "lifecycle": {
+        "prosperity-not-good-life": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "automation-with-agency": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-unfinished-common-world",
+      "a": "revisable-commons",
+      "b": "care-still-needed",
+      "out": "unfinished-common-world",
+      "description": "The ending preserves an institutional proposal and an unresolved burden. It does not synthesize every disagreement into a universal solution.",
+      "sources": [
+        "speculation",
+        "ostrom-lecture-primary",
+        "morris",
+        "kropotkin",
+        "nist"
+      ],
+      "lifecycle": {
+        "revisable-commons": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        },
+        "care-still-needed": {
+          "role": "retain",
+          "reason": "This distinct source, evidence, idea or reusable instrument remains available to inspect and reuse."
+        }
+      }
+    },
+    {
+      "id": "make-contested-type-publication",
+      "a": "type-printed-edition",
+      "b": "print-censors",
+      "out": "contested-publication",
+      "description": "An edition made with reusable type can also be licensed, banned or seized. Wider circulation does not remove censorship.",
+      "sources": [
+        "printing",
+        "ratdolt",
+        "alexandria",
+        "hermetic",
+        "arabic-latin"
+      ],
+      "lifecycle": {
+        "type-printed-edition": {
+          "role": "retain",
+          "reason": "This source, result or reusable instrument remains available for inspection and later use."
+        },
+        "print-censors": {
+          "role": "retain",
+          "reason": "This source, result or reusable instrument remains available for inspection and later use."
+        }
+      }
+    },
+    {
+      "id": "make-tested-clock-longitude",
+      "a": "sea-tested-clock",
+      "b": "local-noon",
+      "out": "time-longitude",
+      "description": "The tested reference clock still supplies the reference time for comparison with local noon.",
+      "sources": [
+        "longitude",
+        "longitude-lunar-si",
+        "almanac-history",
+        "jaipur"
+      ],
+      "lifecycle": {
+        "sea-tested-clock": {
+          "role": "retain",
+          "reason": "This source, result or reusable instrument remains available for inspection and later use."
+        },
+        "local-noon": {
+          "role": "retain",
+          "reason": "This source, result or reusable instrument remains available for inspection and later use."
+        }
+      }
+    },
+    {
+      "id": "make-lunar-positioned-sea-route",
+      "a": "bearing-chart",
+      "b": "lunar-longitude",
+      "out": "positioned-sea-route",
+      "description": "A longitude determination adds east–west position to the chart. Longitude alone does not supply a complete geographical position; latitude remains a separate determination.",
+      "sources": [
+        "longitude",
+        "longitude-lunar-si",
+        "almanac-history",
+        "jaipur"
+      ],
+      "lifecycle": {
+        "bearing-chart": {
+          "role": "retain",
+          "reason": "This source, result or reusable instrument remains available for inspection and later use."
+        },
+        "lunar-longitude": {
+          "role": "retain",
+          "reason": "This source, result or reusable instrument remains available for inspection and later use."
+        }
+      }
+    },
+    {
+      "id": "make-direct-redated-hermetica",
+      "a": "hermetic-dialogues",
+      "b": "datable-language",
+      "out": "redated-hermetica",
+      "description": "The text attributed to ancient Hermes can be dated against its later Greek directly. This weakens its claimed antiquity without refuting every idea in it.",
+      "sources": [
+        "printing",
+        "ratdolt",
+        "alexandria",
+        "hermetic",
+        "arabic-latin"
+      ],
+      "lifecycle": {
+        "hermetic-dialogues": {
+          "role": "retain",
+          "reason": "This source, result or reusable instrument remains available for inspection and later use."
+        },
+        "datable-language": {
+          "role": "retain",
+          "reason": "This source, result or reusable instrument remains available for inspection and later use."
+        }
+      }
+    }
+  ],
+  "chapters": [
+    {
+      "id": "sky",
+      "title": "A sky that can be consulted",
+      "speaker": "The researcher",
+      "motivation": "The watchers want to know when to return. The court wants to know what the sky means. A useful archive must preserve the difference.",
+      "location": {
+        "id": "desk-sky",
+        "label": "Mesopotamian archive · c. 700–500 BCE",
+        "travelText": "Mesopotamian archive"
+      },
+      "caches": [
+        {
+          "id": "sources-sky",
+          "label": "Newly opened sources",
+          "narrative": "New sources join the earlier creations needed for this question. Texts are attributed paraphrases or clearly identified teaching cases, not verbatim quotations.",
+          "items": [
+            "watch-records",
+            "watch-gaps",
+            "lunar-calendar",
+            "omen-series",
+            "river-seasons",
+            "festival-days",
+            "salt-crystals",
+            "fresh-fish",
+            "grain-store"
+          ]
+        }
+      ],
+      "objectives": [
+        {
+          "id": "sky-watch-window",
+          "text": "Plan another sky watch",
+          "kind": "create",
+          "item": "watch-window"
+        },
+        {
+          "id": "sky-portent-and-pattern",
+          "text": "Keep pattern and portent distinct",
+          "kind": "create",
+          "item": "portent-and-pattern"
+        },
+        {
+          "id": "sky-shared-year",
+          "text": "Make a shared calendar",
+          "kind": "create",
+          "item": "shared-year"
+        },
+        {
+          "id": "sky-travel-provisions",
+          "text": "Prepare lasting provisions",
+          "kind": "create",
+          "item": "travel-provisions"
+        }
+      ],
+      "carry": [],
+      "onAlreadyComplete": {
+        "mode": "skip"
+      }
+    },
+    {
+      "id": "explanations",
+      "title": "What counts as an explanation?",
+      "speaker": "The researcher",
+      "motivation": "A prediction is not yet an explanation. A confident answer about justice may not survive one inconvenient case.",
+      "location": {
+        "id": "desk-explanations",
+        "label": "Greek arguments and cases · c. 500–380 BCE",
+        "travelText": "Greek arguments and cases"
+      },
+      "caches": [
+        {
+          "id": "sources-explanations",
+          "label": "Newly opened sources",
+          "narrative": "New sources join the earlier creations needed for this question. Texts are attributed paraphrases or clearly identified teaching cases, not verbatim quotations.",
+          "items": [
+            "earth-between",
+            "repeat-conditions",
+            "repay-debts",
+            "weapon-request",
+            "ask-common",
+            "prestige"
+          ]
+        }
+      ],
+      "objectives": [
+        {
+          "id": "explanations-examined-life",
+          "text": "Examine a way of life",
+          "kind": "create",
+          "item": "examined-life"
+        },
+        {
+          "id": "explanations-cause-and-meaning",
+          "text": "Distinguish cause from meaning",
+          "kind": "create",
+          "item": "cause-and-meaning"
+        },
+        {
+          "id": "explanations-answerable-claims",
+          "text": "Make claims answerable",
+          "kind": "create",
+          "item": "answerable-claims"
+        }
+      ],
+      "carry": [
+        "eclipse-pattern",
+        "portent-and-pattern"
+      ],
+      "onAlreadyComplete": {
+        "mode": "skip"
+      }
+    },
+    {
+      "id": "kinds",
+      "title": "The same thing, or only alike?",
+      "speaker": "The researcher",
+      "motivation": "Beautiful things change. Animals resemble one another but are not identical. What can an explanation hold steady?",
+      "location": {
+        "id": "desk-kinds",
+        "label": "Academy and Lyceum · c. 380–320 BCE",
+        "travelText": "Academy and Lyceum"
+      },
+      "caches": [
+        {
+          "id": "sources-kinds",
+          "label": "Newly opened sources",
+          "narrative": "New sources join the earlier creations needed for this question. Texts are attributed paraphrases or clearly identified teaching cases, not verbatim quotations.",
+          "items": [
+            "changing-beauty",
+            "form-in-thing",
+            "animal-observations",
+            "parts-work",
+            "statue-causes",
+            "mortal-premises",
+            "false-premise",
+            "practised-courage",
+            "cave-shadows"
+          ]
+        }
+      ],
+      "objectives": [
+        {
+          "id": "kinds-four-causes",
+          "text": "Distinguish kinds of explanation",
+          "kind": "create",
+          "item": "four-causes"
+        },
+        {
+          "id": "kinds-valid-not-true",
+          "text": "Separate validity from truth",
+          "kind": "create",
+          "item": "valid-not-true"
+        },
+        {
+          "id": "kinds-cultivated-virtue",
+          "text": "Cultivate practical judgment",
+          "kind": "create",
+          "item": "cultivated-virtue"
+        },
+        {
+          "id": "kinds-turning-attention",
+          "text": "Reconsider what education changes",
+          "kind": "create",
+          "item": "turning-attention"
+        }
+      ],
+      "carry": [
+        "answerable-claims",
+        "examined-definition",
+        "examined-life"
+      ],
+      "onAlreadyComplete": {
+        "mode": "skip"
+      }
+    },
+    {
+      "id": "lives",
+      "title": "How little does a good life need?",
+      "speaker": "The researcher",
+      "motivation": "Power, possessions and fear promise safety. Several philosophers offer incompatible ways of refusing that promise.",
+      "location": {
+        "id": "desk-lives",
+        "label": "Schools, streets and gardens · c. 330 BCE–180 CE",
+        "travelText": "Schools, streets and gardens"
+      },
+      "caches": [
+        {
+          "id": "sources-lives",
+          "label": "Newly opened sources",
+          "narrative": "New sources join the earlier creations needed for this question. Texts are attributed paraphrases or clearly identified teaching cases, not verbatim quotations.",
+          "items": [
+            "few-needs",
+            "royal-favour",
+            "public-convention",
+            "judgment-response",
+            "shared-reason",
+            "atoms-void",
+            "death-sensation",
+            "friendship-meal",
+            "equal-appearances"
+          ]
+        }
+      ],
+      "objectives": [
+        {
+          "id": "lives-cynic-sufficiency",
+          "text": "Try independence from favour",
+          "kind": "create",
+          "item": "cynic-sufficiency"
+        },
+        {
+          "id": "lives-convention-questioned",
+          "text": "Challenge a convention",
+          "kind": "create",
+          "item": "convention-questioned"
+        },
+        {
+          "id": "lives-cosmopolis",
+          "text": "Extend fellowship",
+          "kind": "create",
+          "item": "cosmopolis"
+        },
+        {
+          "id": "lives-garden-pleasure",
+          "text": "Find a sufficient pleasure",
+          "kind": "create",
+          "item": "garden-pleasure"
+        },
+        {
+          "id": "lives-suspended-assent",
+          "text": "Leave a judgment open",
+          "kind": "create",
+          "item": "suspended-assent"
+        }
+      ],
+      "carry": [
+        "answerable-claims",
+        "cultivated-virtue",
+        "examined-life"
+      ],
+      "onAlreadyComplete": {
+        "mode": "skip"
+      }
+    },
+    {
+      "id": "world-models",
+      "title": "A world between covers",
+      "speaker": "The researcher",
+      "motivation": "A world can be organized in a proof, a geographical image, a planetary model or a book. Which kinds of success do these representations earn?",
+      "location": {
+        "id": "desk-world-models",
+        "label": "Hellenistic and Roman collections · c. 300 BCE–200 CE",
+        "travelText": "Hellenistic and Roman collections"
+      },
+      "caches": [
+        {
+          "id": "sources-world-models",
+          "label": "Newly opened sources",
+          "narrative": "New sources join the earlier creations needed for this question. Texts are attributed paraphrases or clearly identified teaching cases, not verbatim quotations.",
+          "items": [
+            "geometric-postulates",
+            "curved-earth-signs",
+            "measured-journey",
+            "planet-positions",
+            "circular-models",
+            "forecast-check",
+            "geared-wheels",
+            "parallel-copies",
+            "editorial-marks"
+          ]
+        }
+      ],
+      "objectives": [
+        {
+          "id": "world-models-measurable-earth",
+          "text": "Make the Earth investigable",
+          "kind": "create",
+          "item": "measurable-earth"
+        },
+        {
+          "id": "world-models-model-not-cause",
+          "text": "Distinguish forecast from cause",
+          "kind": "create",
+          "item": "model-not-cause"
+        },
+        {
+          "id": "world-models-mechanical-sky",
+          "text": "Build a mechanical sky",
+          "kind": "create",
+          "item": "mechanical-sky"
+        },
+        {
+          "id": "world-models-critical-edition",
+          "text": "Preserve a text’s alternatives",
+          "kind": "create",
+          "item": "critical-edition"
+        }
+      ],
+      "carry": [
+        "answerable-claims",
+        "eclipse-pattern",
+        "sky-archive",
+        "valid-inference"
+      ],
+      "onAlreadyComplete": {
+        "mode": "skip"
+      }
+    },
+    {
+      "id": "translation",
+      "title": "When Aristotle changes language",
+      "speaker": "The researcher",
+      "motivation": "Translation needs new words, but it also brings new objections and new work. These readers are not merely keeping someone else’s library safe.",
+      "location": {
+        "id": "desk-translation",
+        "label": "Arabic-language scholarship · c. 800–1100 CE",
+        "travelText": "Arabic-language scholarship"
+      },
+      "caches": [
+        {
+          "id": "sources-translation",
+          "label": "Newly opened sources",
+          "narrative": "New sources join the earlier creations needed for this question. Texts are attributed paraphrases or clearly identified teaching cases, not verbatim quotations.",
+          "items": [
+            "syriac-greek-copies",
+            "arabic-terms",
+            "revised-observations",
+            "indian-numerals",
+            "merchant-accounts",
+            "inheritance-relations",
+            "essence-existence",
+            "dependent-existence",
+            "commentator-questions"
+          ]
+        }
+      ],
+      "objectives": [
+        {
+          "id": "translation-ptolemy-questioned",
+          "text": "Question the inherited sky",
+          "kind": "create",
+          "item": "ptolemy-questioned"
+        },
+        {
+          "id": "translation-algebraic-relations",
+          "text": "Relate an unknown quantity",
+          "kind": "create",
+          "item": "algebraic-relations"
+        },
+        {
+          "id": "translation-necessary-being",
+          "text": "Reconstruct Avicenna’s argument",
+          "kind": "create",
+          "item": "necessary-being"
+        },
+        {
+          "id": "translation-active-commentary",
+          "text": "Turn reception into inquiry",
+          "kind": "create",
+          "item": "active-commentary"
+        }
+      ],
+      "carry": [
+        "four-causes",
+        "ptolemaic-model",
+        "valid-inference"
+      ],
+      "onAlreadyComplete": {
+        "mode": "skip"
+      }
+    },
+    {
+      "id": "light",
+      "title": "Light enters the argument",
+      "speaker": "The researcher",
+      "motivation": "An old account of sight meets a painful brightness and a controlled room. Glassmakers can help even before every property of glass is explained.",
+      "location": {
+        "id": "desk-light",
+        "label": "An optical workroom · c. 1000–1300 CE",
+        "travelText": "An optical workroom"
+      },
+      "caches": [
+        {
+          "id": "sources-light",
+          "label": "Newly opened sources",
+          "narrative": "New sources join the earlier creations needed for this question. Texts are attributed paraphrases or clearly identified teaching cases, not verbatim quotations.",
+          "items": [
+            "emitted-sight",
+            "bright-light",
+            "straight-paths",
+            "aperture-screen",
+            "glass-blank",
+            "lens-grinding",
+            "size-illusion"
+          ]
+        }
+      ],
+      "objectives": [
+        {
+          "id": "light-inverted-image",
+          "text": "Make a dark-room image",
+          "kind": "create",
+          "item": "inverted-image"
+        },
+        {
+          "id": "light-magnified-view",
+          "text": "Magnify a view",
+          "kind": "create",
+          "item": "magnified-view"
+        },
+        {
+          "id": "light-seeing-and-judging",
+          "text": "Separate sight and judgment",
+          "kind": "create",
+          "item": "seeing-and-judging"
+        }
+      ],
+      "carry": [
+        "arabic-nature"
+      ],
+      "onAlreadyComplete": {
+        "mode": "skip"
+      },
+      "hotspots": [
+        "optical-darkroom"
+      ]
+    },
+    {
+      "id": "objections",
+      "title": "A university of objections",
+      "speaker": "The researcher",
+      "motivation": "Aristotle returns with commentators, not alone. A serious objection earns a place on the desk, even when a master offers a reply.",
+      "location": {
+        "id": "desk-objections",
+        "label": "Latin classrooms and commentaries · c. 1150–1350 CE",
+        "travelText": "Latin classrooms and commentaries"
+      },
+      "caches": [
+        {
+          "id": "sources-objections",
+          "label": "Newly opened sources",
+          "narrative": "New sources join the earlier creations needed for this question. Texts are attributed paraphrases or clearly identified teaching cases, not verbatim quotations.",
+          "items": [
+            "latin-translators",
+            "revelation-text",
+            "objection-reply",
+            "common-name",
+            "extra-entities",
+            "created-nature"
+          ]
+        }
+      ],
+      "objectives": [
+        {
+          "id": "objections-formal-disputation",
+          "text": "Give an objection a hearing",
+          "kind": "create",
+          "item": "formal-disputation"
+        },
+        {
+          "id": "objections-universals-open",
+          "text": "Keep the universal dispute visible",
+          "kind": "create",
+          "item": "universals-open"
+        },
+        {
+          "id": "objections-explanatory-economy",
+          "text": "Remove an idle explanation",
+          "kind": "create",
+          "item": "explanatory-economy"
+        },
+        {
+          "id": "objections-intelligible-nature",
+          "text": "Reconstruct nature’s intelligibility",
+          "kind": "create",
+          "item": "intelligible-nature"
+        }
+      ],
+      "carry": [
+        "active-commentary",
+        "arabic-logic",
+        "form-in-particular",
+        "four-causes",
+        "necessary-being",
+        "stable-forms"
+      ],
+      "onAlreadyComplete": {
+        "mode": "skip"
+      }
+    },
+    {
+      "id": "editions",
+      "title": "Which antiquity should we believe?",
+      "speaker": "The researcher",
+      "motivation": "A page can now travel in many copies. An old-looking text can acquire enormous authority. Neither multiplication nor antiquity makes a sentence true.",
+      "location": {
+        "id": "desk-editions",
+        "label": "Printers, translators and readers · c. 1450–1614 CE",
+        "travelText": "Printers, translators and readers"
+      },
+      "caches": [
+        {
+          "id": "sources-editions",
+          "label": "Newly opened sources",
+          "narrative": "New sources join the earlier creations needed for this question. Texts are attributed paraphrases or clearly identified teaching cases, not verbatim quotations.",
+          "items": [
+            "paper-sheets",
+            "block-printing",
+            "movable-type",
+            "greek-codex",
+            "word-difference",
+            "hermetic-dialogues",
+            "datable-language",
+            "print-censors"
+          ]
+        }
+      ],
+      "objectives": [
+        {
+          "id": "editions-translation-choices",
+          "text": "Expose a translation’s choices",
+          "kind": "create",
+          "item": "translation-choices"
+        },
+        {
+          "id": "editions-redated-hermetica",
+          "text": "Reconsider a text’s claimed age",
+          "kind": "create",
+          "item": "redated-hermetica"
+        },
+        {
+          "id": "editions-contested-publication",
+          "text": "Make the contested page public",
+          "kind": "create",
+          "item": "contested-publication"
+        },
+        {
+          "id": "editions-printed-euclid",
+          "text": "Share a comparable proof",
+          "kind": "create",
+          "item": "printed-euclid"
+        }
+      ],
+      "carry": [
+        "critical-edition",
+        "deductive-geometry",
+        "latin-aristotle",
+        "stable-forms"
+      ],
+      "onAlreadyComplete": {
+        "mode": "skip"
+      }
+    },
+    {
+      "id": "perspective",
+      "title": "A window on paper",
+      "speaker": "The researcher",
+      "motivation": "A painter wants a believable street. A navigator wants a useful map. Each picture must choose which relation to preserve.",
+      "location": {
+        "id": "desk-perspective",
+        "label": "Renaissance workshop and chart room · c. 1480–1600 CE",
+        "travelText": "Renaissance workshop and chart room"
+      },
+      "caches": [
+        {
+          "id": "sources-perspective",
+          "label": "Newly opened sources",
+          "narrative": "New sources join the earlier creations needed for this question. Texts are attributed paraphrases or clearly identified teaching cases, not verbatim quotations.",
+          "items": [
+            "picture-plane",
+            "receding-street",
+            "fixed-eye",
+            "viewer-moves",
+            "mirror-comparison",
+            "coordinate-grid",
+            "flat-map-sheet",
+            "bearing-priority",
+            "polar-stretch"
+          ]
+        }
+      ],
+      "objectives": [
+        {
+          "id": "perspective-viewpoint-occlusion",
+          "text": "Find what one view conceals",
+          "kind": "create",
+          "item": "viewpoint-occlusion"
+        },
+        {
+          "id": "perspective-checked-perspective",
+          "text": "Check the intended viewpoint",
+          "kind": "create",
+          "item": "checked-perspective"
+        },
+        {
+          "id": "perspective-projection-tradeoff",
+          "text": "Expose the map’s trade-off",
+          "kind": "create",
+          "item": "projection-tradeoff"
+        }
+      ],
+      "carry": [
+        "geometric-optics",
+        "measurable-earth"
+      ],
+      "onAlreadyComplete": {
+        "mode": "skip"
+      }
+    },
+    {
+      "id": "moving-earth",
+      "title": "A different centre",
+      "speaker": "The researcher",
+      "motivation": "A new instrument makes the old heavens stranger. Evidence can defeat one arrangement without choosing uniquely among all its rivals.",
+      "location": {
+        "id": "desk-moving-earth",
+        "label": "European astronomical correspondence · c. 1543–1619 CE",
+        "travelText": "European astronomical correspondence"
+      },
+      "caches": [
+        {
+          "id": "sources-moving-earth",
+          "label": "Newly opened sources",
+          "narrative": "New sources join the earlier creations needed for this question. Texts are attributed paraphrases or clearly identified teaching cases, not verbatim quotations.",
+          "items": [
+            "telescope-tube",
+            "moon-detail",
+            "jupiter-points",
+            "copernican-order",
+            "retrograde-appearance",
+            "venus-phase-series",
+            "tycho-model",
+            "mars-mismatch",
+            "harmony-ideal"
+          ]
+        }
+      ],
+      "objectives": [
+        {
+          "id": "moving-earth-rough-moon",
+          "text": "Reconsider the Moon’s nature",
+          "kind": "create",
+          "item": "rough-moon"
+        },
+        {
+          "id": "moving-earth-jupiter-moons",
+          "text": "Find another orbital centre",
+          "kind": "create",
+          "item": "jupiter-moons"
+        },
+        {
+          "id": "moving-earth-relative-retrograde",
+          "text": "Explain an apparent reversal",
+          "kind": "create",
+          "item": "relative-retrograde"
+        },
+        {
+          "id": "moving-earth-tycho-still-live",
+          "text": "Keep a surviving rival",
+          "kind": "create",
+          "item": "tycho-still-live"
+        },
+        {
+          "id": "moving-earth-revised-harmony",
+          "text": "Find order beyond circles",
+          "kind": "create",
+          "item": "revised-harmony"
+        }
+      ],
+      "carry": [
+        "ground-lens",
+        "ptolemaic-model"
+      ],
+      "onAlreadyComplete": {
+        "mode": "skip"
+      }
+    },
+    {
+      "id": "bacon",
+      "title": "The workshop asks back",
+      "speaker": "The researcher",
+      "motivation": "Do not collect only the cases that flatter a theory. A workshop, a correspondence network and Burton’s unruly books offer different ways to make inherited learning answer back.",
+      "location": {
+        "id": "desk-bacon",
+        "label": "Early-modern studies and workshops · c. 1600–1665 CE",
+        "travelText": "Early-modern studies and workshops"
+      },
+      "caches": [
+        {
+          "id": "sources-bacon",
+          "label": "Newly opened sources",
+          "narrative": "New sources join the earlier creations needed for this question. Texts are attributed paraphrases or clearly identified teaching cases, not verbatim quotations.",
+          "items": [
+            "craft-records",
+            "favoured-cases",
+            "sun-warmth",
+            "flame-warmth",
+            "moonlight-cool",
+            "friction-warmth",
+            "matched-wood",
+            "burton-sources",
+            "shared-method",
+            "natural-magic-secrets"
+          ]
+        }
+      ],
+      "objectives": [
+        {
+          "id": "bacon-bias-under-examination",
+          "text": "Seek an unwelcome case",
+          "kind": "create",
+          "item": "bias-under-examination"
+        },
+        {
+          "id": "bacon-melancholy-many-sources",
+          "text": "Bring different kinds of experience together",
+          "kind": "create",
+          "item": "melancholy-many-sources"
+        },
+        {
+          "id": "bacon-repeatable-wonder",
+          "text": "Make a wonder inspectable",
+          "kind": "create",
+          "item": "repeatable-wonder"
+        },
+        {
+          "id": "bacon-shared-heat-inquiry",
+          "text": "Let another workshop test the heat claim",
+          "kind": "create",
+          "item": "shared-heat-inquiry"
+        }
+      ],
+      "carry": [
+        "active-commentary",
+        "conditional-cause",
+        "contested-publication",
+        "pinhole-box"
+      ],
+      "onAlreadyComplete": {
+        "mode": "skip"
+      }
+    },
+    {
+      "id": "mechanism",
+      "title": "Clockwork worlds",
+      "speaker": "The researcher",
+      "motivation": "If a machine can imitate a living action, what has it explained? If the Moon is a material body, can its motion belong to the same world as a falling stone?",
+      "location": {
+        "id": "desk-mechanism",
+        "label": "Mechanicians and natural philosophers · c. 1620–1687 CE",
+        "travelText": "Mechanicians and natural philosophers"
+      },
+      "caches": [
+        {
+          "id": "sources-mechanism",
+          "label": "Newly opened sources",
+          "narrative": "New sources join the earlier creations needed for this question. Texts are attributed paraphrases or clearly identified teaching cases, not verbatim quotations.",
+          "items": [
+            "matter-motion",
+            "moving-figure",
+            "lifelike-claim",
+            "falling-stone",
+            "prism-spectrum",
+            "one-way-valves",
+            "heart-contraction",
+            "universal-time"
+          ]
+        }
+      ],
+      "objectives": [
+        {
+          "id": "mechanism-mechanical-nature",
+          "text": "Try a mechanical account",
+          "kind": "create",
+          "item": "mechanical-nature"
+        },
+        {
+          "id": "mechanism-imitation-limit",
+          "text": "Keep imitation distinct from life",
+          "kind": "create",
+          "item": "imitation-limit"
+        },
+        {
+          "id": "mechanism-white-light-components",
+          "text": "Separate white light’s components",
+          "kind": "create",
+          "item": "white-light-components"
+        },
+        {
+          "id": "mechanism-blood-circuit",
+          "text": "Make a circulating account",
+          "kind": "create",
+          "item": "blood-circuit"
+        },
+        {
+          "id": "mechanism-newtonian-framework",
+          "text": "Unite terrestrial and celestial motion",
+          "kind": "create",
+          "item": "newtonian-framework"
+        }
+      ],
+      "carry": [
+        "four-causes",
+        "geometric-optics",
+        "kepler-ellipse",
+        "mechanical-sky",
+        "part-and-function",
+        "revised-harmony"
+      ],
+      "onAlreadyComplete": {
+        "mode": "skip"
+      }
+    },
+    {
+      "id": "longitude",
+      "title": "Whose time at sea?",
+      "speaker": "The researcher",
+      "motivation": "A useful time must survive a voyage. The Moon offers another clock. At Jaipur, old and new astronomical traditions are being tested in a different kind of instrument.",
+      "location": {
+        "id": "desk-longitude",
+        "label": "Observatories and sea trials · c. 1714–1770 CE",
+        "travelText": "Observatories and sea trials"
+      },
+      "caches": [
+        {
+          "id": "sources-longitude",
+          "label": "Newly opened sources",
+          "narrative": "New sources join the earlier creations needed for this question. Texts are attributed paraphrases or clearly identified teaching cases, not verbatim quotations.",
+          "items": [
+            "regular-oscillation",
+            "portable-clock",
+            "local-noon",
+            "moon-table",
+            "indian-persian-tables",
+            "masonry-sightlines"
+          ]
+        }
+      ],
+      "objectives": [
+        {
+          "id": "longitude-sea-tested-clock",
+          "text": "Test a reference at sea",
+          "kind": "create",
+          "item": "sea-tested-clock",
+          "intermediate": true
+        },
+        {
+          "id": "longitude-lunar-longitude",
+          "text": "Keep the lunar alternative working",
+          "kind": "create",
+          "item": "lunar-longitude",
+          "intermediate": true
+        },
+        {
+          "id": "longitude-masonry-observatory",
+          "text": "Build an architectural observatory",
+          "kind": "create",
+          "item": "masonry-observatory"
+        },
+        {
+          "id": "longitude-provisioned-route",
+          "text": "Sustain the charted voyage",
+          "kind": "create",
+          "item": "provisioned-route",
+          "after": [
+            "longitude-sea-tested-clock",
+            "longitude-lunar-longitude"
+          ]
+        }
+      ],
+      "carry": [
+        "bearing-chart",
+        "planetary-archive",
+        "ptolemy-questioned",
+        "shared-year",
+        "travel-provisions"
+      ],
+      "onAlreadyComplete": {
+        "mode": "skip"
+      },
+      "hotspots": [
+        "longitude-sea"
+      ]
+    },
+    {
+      "id": "public-knowledge",
+      "title": "Knowledge in public",
+      "speaker": "The researcher",
+      "motivation": "A comprehensive account of knowledge makes an inviting promise. Who can contribute, who can inspect it, and who is left outside its universal language?",
+      "location": {
+        "id": "desk-public-knowledge",
+        "label": "Enlightenment reading rooms · c. 1750–1792 CE",
+        "travelText": "Enlightenment reading rooms"
+      },
+      "caches": [
+        {
+          "id": "sources-public-knowledge",
+          "label": "Newly opened sources",
+          "narrative": "New sources join the earlier creations needed for this question. Texts are attributed paraphrases or clearly identified teaching cases, not verbatim quotations.",
+          "items": [
+            "craft-plates",
+            "cross-references",
+            "causal-habit",
+            "forms-of-experience",
+            "luxury-status",
+            "rights-declaration",
+            "women-excluded",
+            "enslaved-testimony",
+            "public-readers"
+          ]
+        }
+      ],
+      "objectives": [
+        {
+          "id": "public-knowledge-encyclopedic-network",
+          "text": "Connect the branches of knowledge",
+          "kind": "create",
+          "item": "encyclopedic-network"
+        },
+        {
+          "id": "public-knowledge-conditions-of-experience",
+          "text": "Reconstruct Kant’s response",
+          "kind": "create",
+          "item": "conditions-of-experience"
+        },
+        {
+          "id": "public-knowledge-sufficiency-against-status",
+          "text": "Distinguish enough from status",
+          "kind": "create",
+          "item": "sufficiency-against-status"
+        },
+        {
+          "id": "public-knowledge-rights-for-women",
+          "text": "Challenge an exclusion from reason",
+          "kind": "create",
+          "item": "rights-for-women"
+        },
+        {
+          "id": "public-knowledge-rights-against-slavery",
+          "text": "Confront the denied liberty",
+          "kind": "create",
+          "item": "rights-against-slavery"
+        },
+        {
+          "id": "public-knowledge-public-reasoning",
+          "text": "Let new readers answer",
+          "kind": "create",
+          "item": "public-reasoning"
+        }
+      ],
+      "carry": [
+        "contested-publication",
+        "cosmopolis",
+        "cynic-sufficiency",
+        "formal-disputation",
+        "shared-heat-inquiry"
+      ],
+      "onAlreadyComplete": {
+        "mode": "skip"
+      }
+    },
+    {
+      "id": "exchange",
+      "title": "A world made and exchanged",
+      "speaker": "The researcher",
+      "motivation": "Return to an overlapping eighteenth-century debate. The wealth of a society, the freedom of its workers and the good of a life are not necessarily the same achievement.",
+      "location": {
+        "id": "desk-exchange",
+        "label": "A parallel file: markets and workshops · c. 1705–1800 CE",
+        "travelText": "A parallel file: markets and workshops"
+      },
+      "caches": [
+        {
+          "id": "sources-exchange",
+          "label": "Newly opened sources",
+          "narrative": "New sources join the earlier creations needed for this question. Texts are attributed paraphrases or clearly identified teaching cases, not verbatim quotations.",
+          "items": [
+            "luxury-trade",
+            "mandeville-hive",
+            "pin-workshop",
+            "market-exchange",
+            "narrowed-work",
+            "population-growth",
+            "food-constraints",
+            "regional-goods",
+            "coerced-labour"
+          ]
+        }
+      ],
+      "objectives": [
+        {
+          "id": "exchange-prosperity-not-good-life",
+          "text": "Distinguish wealth from a good life",
+          "kind": "create",
+          "item": "prosperity-not-good-life"
+        },
+        {
+          "id": "exchange-scarcity-and-justice",
+          "text": "Keep scarcity and justice distinct",
+          "kind": "create",
+          "item": "scarcity-and-justice"
+        },
+        {
+          "id": "exchange-coercive-exchange",
+          "text": "Expose coercion in exchange",
+          "kind": "create",
+          "item": "coercive-exchange"
+        },
+        {
+          "id": "exchange-work-as-a-human-question",
+          "text": "Ask what work does to the maker",
+          "kind": "create",
+          "item": "work-as-a-human-question"
+        }
+      ],
+      "carry": [
+        "cultivated-virtue",
+        "garden-pleasure",
+        "provisioned-route",
+        "universal-rights"
+      ],
+      "onAlreadyComplete": {
+        "mode": "skip"
+      }
+    },
+    {
+      "id": "deep-time",
+      "title": "An Earth older than memory",
+      "speaker": "The researcher",
+      "motivation": "A shell lies high above the sea. Tilted beds lie beneath level ones. These are histories to reconstruct, not merely curiosities to name.",
+      "location": {
+        "id": "desk-deep-time",
+        "label": "Strata, shorelines and fossil cabinets · c. 1669–1833",
+        "travelText": "Strata, shorelines and fossil cabinets"
+      },
+      "caches": [
+        {
+          "id": "sources-deep-time",
+          "label": "Newly opened sources",
+          "narrative": "New sources join the earlier creations needed for this question. Texts are attributed paraphrases or clearly identified teaching cases, not verbatim quotations.",
+          "items": [
+            "shell-in-rock",
+            "layer-sequence",
+            "matching-fossils",
+            "erosion-deposition",
+            "tilted-below-level",
+            "lost-animals",
+            "sudden-disruption"
+          ]
+        }
+      ],
+      "objectives": [
+        {
+          "id": "deep-time-extinction-real",
+          "text": "Recognize extinction",
+          "kind": "create",
+          "item": "extinction-real"
+        },
+        {
+          "id": "deep-time-eventful-geology",
+          "text": "Keep an eventful deep past",
+          "kind": "create",
+          "item": "eventful-geology"
+        },
+        {
+          "id": "deep-time-age-still-open",
+          "text": "Distinguish sequence from duration",
+          "kind": "create",
+          "item": "age-still-open"
+        }
+      ],
+      "carry": [
+        "animal-kinds",
+        "conditional-cause"
+      ],
+      "onAlreadyComplete": {
+        "mode": "skip"
+      }
+    },
+    {
+      "id": "evolution",
+      "title": "Kinds acquire a history",
+      "speaker": "The researcher",
+      "motivation": "A stable name helps naturalists compare specimens. It does not decide whether a species has always been the same. Deep time and population pressure now meet living variation.",
+      "location": {
+        "id": "desk-evolution",
+        "label": "Gardens, voyages and naturalists’ notebooks · c. 1735–1859",
+        "travelText": "Gardens, voyages and naturalists’ notebooks"
+      },
+      "caches": [
+        {
+          "id": "sources-evolution",
+          "label": "Newly opened sources",
+          "narrative": "New sources join the earlier creations needed for this question. Texts are attributed paraphrases or clearly identified teaching cases, not verbatim quotations.",
+          "items": [
+            "binomial-names",
+            "altitude-plants",
+            "use-disuse",
+            "heritable-variation",
+            "breeders-choices",
+            "differential-survival",
+            "island-relations",
+            "inheritance-puzzle"
+          ]
+        }
+      ],
+      "objectives": [
+        {
+          "id": "evolution-geography-of-life",
+          "text": "Connect living kinds to environments",
+          "kind": "create",
+          "item": "geography-of-life"
+        },
+        {
+          "id": "evolution-selection-analogy",
+          "text": "Understand cumulative selection",
+          "kind": "create",
+          "item": "selection-analogy"
+        },
+        {
+          "id": "evolution-changed-meaning-of-kinds",
+          "text": "Give kinds a branching history",
+          "kind": "create",
+          "item": "changed-meaning-of-kinds"
+        },
+        {
+          "id": "evolution-open-heredity",
+          "text": "Keep heredity unresolved",
+          "kind": "create",
+          "item": "open-heredity"
+        }
+      ],
+      "carry": [
+        "animal-kinds",
+        "deep-time-world",
+        "population-pressure"
+      ],
+      "onAlreadyComplete": {
+        "mode": "skip"
+      }
+    },
+    {
+      "id": "progress-cost",
+      "title": "What does progress cost?",
+      "speaker": "The researcher",
+      "motivation": "Return to the workshop while keeping the new biology in view. More power and more output do not settle the lives of workers—or whether cooperation belongs in nature.",
+      "location": {
+        "id": "desk-progress-cost",
+        "label": "A parallel file: factories and communities · c. 1810–1902",
+        "travelText": "A parallel file: factories and communities"
+      },
+      "caches": [
+        {
+          "id": "sources-progress-cost",
+          "label": "Newly opened sources",
+          "narrative": "New sources join the earlier creations needed for this question. Texts are attributed paraphrases or clearly identified teaching cases, not verbatim quotations.",
+          "items": [
+            "steam-engine",
+            "coal-feed",
+            "wage-owner",
+            "craft-pleasure",
+            "mutual-survival",
+            "factory-speed"
+          ]
+        }
+      ],
+      "objectives": [
+        {
+          "id": "progress-cost-fuel-dependent-industry",
+          "text": "Expose industry’s material dependence",
+          "kind": "create",
+          "item": "fuel-dependent-industry"
+        },
+        {
+          "id": "progress-cost-useful-pleasurable-work",
+          "text": "Imagine useful work with pleasure",
+          "kind": "create",
+          "item": "useful-pleasurable-work"
+        },
+        {
+          "id": "progress-cost-competitive-story-limited",
+          "text": "Resist a single moral story from nature",
+          "kind": "create",
+          "item": "competitive-story-limited"
+        },
+        {
+          "id": "progress-cost-control-of-work",
+          "text": "Keep control of work in view",
+          "kind": "create",
+          "item": "control-of-work"
+        }
+      ],
+      "carry": [
+        "division-of-labour",
+        "natural-selection",
+        "scarcity-and-justice",
+        "work-as-a-human-question"
+      ],
+      "onAlreadyComplete": {
+        "mode": "skip"
+      }
+    },
+    {
+      "id": "invisible",
+      "title": "Neighbours too small to see",
+      "speaker": "The researcher",
+      "motivation": "Reopen the earlier lens beside nineteenth-century case records. Seeing a microorganism, tracing a route of illness and demonstrating a cause are different achievements.",
+      "location": {
+        "id": "desk-invisible",
+        "label": "A parallel file: lenses, water and disease · c. 1665–1897",
+        "travelText": "A parallel file: lenses, water and disease"
+      },
+      "caches": [
+        {
+          "id": "sources-invisible",
+          "label": "Newly opened sources",
+          "narrative": "New sources join the earlier creations needed for this question. Texts are attributed paraphrases or clearly identified teaching cases, not verbatim quotations.",
+          "items": [
+            "small-specimens",
+            "water-company-cases",
+            "bad-air-claim",
+            "clean-water-change",
+            "sterile-broth",
+            "fermenting-cultures",
+            "cell-free-extract"
+          ]
+        }
+      ],
+      "objectives": [
+        {
+          "id": "invisible-prevention-before-settlement",
+          "text": "Find a preventable route",
+          "kind": "create",
+          "item": "prevention-before-settlement"
+        },
+        {
+          "id": "invisible-competing-disease-accounts",
+          "text": "Keep the rival explanations legible",
+          "kind": "create",
+          "item": "competing-disease-accounts"
+        },
+        {
+          "id": "invisible-chemical-agency-in-cells",
+          "text": "Let the later experiment revise the claim",
+          "kind": "create",
+          "item": "chemical-agency-in-cells"
+        }
+      ],
+      "carry": [
+        "magnified-view",
+        "public-trial"
+      ],
+      "onAlreadyComplete": {
+        "mode": "skip"
+      }
+    },
+    {
+      "id": "fields-images",
+      "title": "Messages, fields and captured light",
+      "speaker": "The researcher",
+      "motivation": "A needle moves without a visible push. A message outruns a traveller. Light leaves a lasting trace, but the trace still has a viewpoint.",
+      "location": {
+        "id": "desk-fields-images",
+        "label": "Laboratory, railway and darkroom · c. 1820–1895",
+        "travelText": "Laboratory, railway and darkroom"
+      },
+      "caches": [
+        {
+          "id": "sources-fields-images",
+          "label": "Newly opened sources",
+          "narrative": "New sources join the earlier creations needed for this question. Texts are attributed paraphrases or clearly identified teaching cases, not verbatim quotations.",
+          "items": [
+            "current-near-compass",
+            "changing-magnet",
+            "field-lines",
+            "maxwell-equations",
+            "light-wave-speed",
+            "telegraph-wire",
+            "railway-timetables",
+            "light-sensitive-plate",
+            "reproducible-negative"
+          ]
+        }
+      ],
+      "objectives": [
+        {
+          "id": "fields-images-field-description",
+          "text": "Make the field explanatory",
+          "kind": "create",
+          "item": "field-description"
+        },
+        {
+          "id": "fields-images-electromagnetic-light",
+          "text": "Connect light and electromagnetism",
+          "kind": "create",
+          "item": "electromagnetic-light"
+        },
+        {
+          "id": "fields-images-standard-time",
+          "text": "Coordinate distant clocks",
+          "kind": "create",
+          "item": "standard-time"
+        },
+        {
+          "id": "fields-images-framed-photograph",
+          "text": "Keep the frame visible",
+          "kind": "create",
+          "item": "framed-photograph"
+        },
+        {
+          "id": "fields-images-reproducible-image",
+          "text": "Let an image circulate",
+          "kind": "create",
+          "item": "reproducible-image"
+        }
+      ],
+      "carry": [
+        "mechanical-nature",
+        "pinhole-box",
+        "reference-timekeeper",
+        "viewpoint-occlusion"
+      ],
+      "onAlreadyComplete": {
+        "mode": "skip"
+      }
+    },
+    {
+      "id": "experience",
+      "title": "What the clock leaves out",
+      "speaker": "The researcher",
+      "motivation": "A clock can coordinate trains without describing a remembered afternoon. A dream may become artistic material without becoming laboratory proof.",
+      "location": {
+        "id": "desk-experience",
+        "label": "A parallel file: mind, duration and dream · c. 1890–1930",
+        "travelText": "A parallel file: mind, duration and dream"
+      },
+      "caches": [
+        {
+          "id": "sources-experience",
+          "label": "Newly opened sources",
+          "narrative": "New sources join the earlier creations needed for this question. Texts are attributed paraphrases or clearly identified teaching cases, not verbatim quotations.",
+          "items": [
+            "stream-of-thought",
+            "remembered-melody",
+            "freud-dream",
+            "free-association",
+            "chance-encounter",
+            "political-art"
+          ]
+        }
+      ],
+      "objectives": [
+        {
+          "id": "experience-automatic-writing",
+          "text": "Transform interpretation into an artistic practice",
+          "kind": "create",
+          "item": "automatic-writing"
+        },
+        {
+          "id": "experience-art-beyond-illustration",
+          "text": "Make a strange encounter matter",
+          "kind": "create",
+          "item": "art-beyond-illustration"
+        },
+        {
+          "id": "experience-plural-access-to-time",
+          "text": "Keep two questions about time distinct",
+          "kind": "create",
+          "item": "plural-access-to-time"
+        }
+      ],
+      "carry": [
+        "framed-photograph",
+        "melancholy-many-sources",
+        "standard-time"
+      ],
+      "onAlreadyComplete": {
+        "mode": "skip"
+      }
+    },
+    {
+      "id": "relativity",
+      "title": "Whose clocks agree?",
+      "speaker": "The researcher",
+      "motivation": "The clocks work. The difficulty is deciding what it means for distant events to happen together. Keep the procedures visible rather than replacing them with unexplained equations.",
+      "location": {
+        "id": "desk-relativity",
+        "label": "Light signals and moving laboratories · 1905–1919",
+        "travelText": "Light signals and moving laboratories"
+      },
+      "caches": [
+        {
+          "id": "sources-relativity",
+          "label": "Newly opened sources",
+          "narrative": "New sources join the earlier creations needed for this question. Texts are attributed paraphrases or clearly identified teaching cases, not verbatim quotations.",
+          "items": [
+            "light-clock-rule",
+            "platform-flashes",
+            "passenger-motion",
+            "light-invariance",
+            "relativity-principle",
+            "falling-room",
+            "curved-spacetime-claim",
+            "light-deflection"
+          ]
+        }
+      ],
+      "objectives": [
+        {
+          "id": "relativity-newtonian-limit",
+          "text": "Bound the old account without erasing it",
+          "kind": "create",
+          "item": "newtonian-limit"
+        },
+        {
+          "id": "relativity-tested-light-bending",
+          "text": "Bring geometry to an observation",
+          "kind": "create",
+          "item": "tested-light-bending"
+        }
+      ],
+      "carry": [
+        "networked-time",
+        "newtonian-framework",
+        "universal-gravitation"
+      ],
+      "onAlreadyComplete": {
+        "mode": "skip"
+      }
+    },
+    {
+      "id": "moving-earth-geology",
+      "title": "An Earth that moves",
+      "speaker": "The researcher",
+      "motivation": "The old rocks already had an order. Now their age can be measured, and their present locations need not be where they formed. A persuasive fit still needs a physical account.",
+      "location": {
+        "id": "desk-moving-earth-geology",
+        "label": "Continental margins, isotopes and ocean floors · 1912–1968, with a return to the age question",
+        "travelText": "Continental margins, isotopes and ocean floors"
+      },
+      "caches": [
+        {
+          "id": "sources-moving-earth-geology",
+          "label": "Newly opened sources",
+          "narrative": "New sources join the earlier creations needed for this question. Texts are attributed paraphrases or clearly identified teaching cases, not verbatim quotations.",
+          "items": [
+            "opposite-shores",
+            "shared-fossil-belts",
+            "weak-drift-force",
+            "radioactive-decay",
+            "mineral-isotopes",
+            "meteorite-lead",
+            "ocean-ridge",
+            "magnetic-stripes",
+            "subduction-evidence"
+          ]
+        }
+      ],
+      "objectives": [
+        {
+          "id": "moving-earth-geology-earth-age-measured",
+          "text": "Measure the age, not just the order",
+          "kind": "create",
+          "item": "earth-age-measured"
+        },
+        {
+          "id": "moving-earth-geology-relocated-habitats",
+          "text": "Reinterpret life on a moving Earth",
+          "kind": "create",
+          "item": "relocated-habitats"
+        }
+      ],
+      "carry": [
+        "age-still-open",
+        "geography-of-life",
+        "mapped-globe"
+      ],
+      "onAlreadyComplete": {
+        "mode": "skip"
+      }
+    },
+    {
+      "id": "computing",
+      "title": "A procedure made portable",
+      "speaker": "The researcher",
+      "motivation": "A proof, a coded message and a machine instruction are not the same thing. Find what can be carried across between them without confusing information with meaning.",
+      "location": {
+        "id": "desk-computing",
+        "label": "Logic, code and feedback · c. 1847–1950: a parallel technical file",
+        "travelText": "Logic, code and feedback"
+      },
+      "caches": [
+        {
+          "id": "sources-computing",
+          "label": "Newly opened sources",
+          "narrative": "New sources join the earlier creations needed for this question. Texts are attributed paraphrases or clearly identified teaching cases, not verbatim quotations.",
+          "items": [
+            "boolean-operations",
+            "switching-circuit",
+            "finite-instructions",
+            "universal-description",
+            "halting-demand",
+            "noisy-channel",
+            "redundant-code",
+            "feedback-sensor"
+          ]
+        }
+      ],
+      "objectives": [
+        {
+          "id": "computing-computation-limit",
+          "text": "Find the boundary of a universal procedure",
+          "kind": "create",
+          "item": "computation-limit"
+        },
+        {
+          "id": "computing-error-correcting-message",
+          "text": "Protect a message from some errors",
+          "kind": "create",
+          "item": "error-correcting-message"
+        },
+        {
+          "id": "computing-feedback-control",
+          "text": "Close an observation–action loop",
+          "kind": "create",
+          "item": "feedback-control"
+        }
+      ],
+      "carry": [
+        "networked-time",
+        "valid-inference"
+      ],
+      "onAlreadyComplete": {
+        "mode": "skip"
+      }
+    },
+    {
+      "id": "borges",
+      "title": "The same words, another work",
+      "speaker": "The researcher",
+      "motivation": "A manuscript can return word for word and still be read differently. A copy can travel farther than its original. Neither fact makes evidence irrelevant.",
+      "location": {
+        "id": "desk-borges",
+        "label": "Libraries, copies and imagined scholarship · c. 1930–1960",
+        "travelText": "Libraries, copies and imagined scholarship"
+      },
+      "caches": [
+        {
+          "id": "sources-borges",
+          "label": "Newly opened sources",
+          "narrative": "New sources join the earlier creations needed for this question. Texts are attributed paraphrases or clearly identified teaching cases, not verbatim quotations.",
+          "items": [
+            "menard-page",
+            "new-authorship",
+            "full-scale-map",
+            "forking-story",
+            "invented-citation",
+            "unique-presence",
+            "political-circulation"
+          ]
+        }
+      ],
+      "objectives": [
+        {
+          "id": "borges-another-work",
+          "text": "Change a reading without changing the words",
+          "kind": "create",
+          "item": "another-work"
+        },
+        {
+          "id": "borges-useless-total-map",
+          "text": "Find the cost of total representation",
+          "kind": "create",
+          "item": "useless-total-map"
+        },
+        {
+          "id": "borges-branching-fiction",
+          "text": "Keep alternatives in a story",
+          "kind": "create",
+          "item": "branching-fiction"
+        },
+        {
+          "id": "borges-fictional-archive",
+          "text": "Recognize a fictional scholarly apparatus",
+          "kind": "create",
+          "item": "fictional-archive"
+        },
+        {
+          "id": "borges-politics-of-the-copy",
+          "text": "Follow a copy into public life",
+          "kind": "create",
+          "item": "politics-of-the-copy"
+        }
+      ],
+      "carry": [
+        "branching-descent",
+        "compared-edition",
+        "critical-edition",
+        "projection-tradeoff",
+        "reproducible-image"
+      ],
+      "onAlreadyComplete": {
+        "mode": "skip"
+      }
+    },
+    {
+      "id": "categories",
+      "title": "Who made these categories?",
+      "speaker": "The researcher",
+      "motivation": "Classification makes patterns visible. It can also turn a historical arrangement into an apparent necessity. A criticism must show which distinction fails and why—not dissolve every claim at once.",
+      "location": {
+        "id": "desk-categories",
+        "label": "Genealogy, anthropology and situated inquiry · c. 1887–1990: intersecting returns",
+        "travelText": "Genealogy, anthropology and situated inquiry"
+      },
+      "caches": [
+        {
+          "id": "sources-categories",
+          "label": "Newly opened sources",
+          "narrative": "New sources join the earlier creations needed for this question. Texts are attributed paraphrases or clearly identified teaching cases, not verbatim quotations.",
+          "items": [
+            "value-history",
+            "kinship-relations",
+            "institution-records",
+            "classification-exclusions",
+            "textual-tension",
+            "situated-observer",
+            "external-check"
+          ]
+        }
+      ],
+      "objectives": [
+        {
+          "id": "categories-genealogy-of-values",
+          "text": "Ask how a value gained authority",
+          "kind": "create",
+          "item": "genealogy-of-values"
+        },
+        {
+          "id": "categories-relational-categories",
+          "text": "Read a category through its relations",
+          "kind": "create",
+          "item": "relational-categories"
+        },
+        {
+          "id": "categories-knowledge-and-discipline",
+          "text": "Find a classification’s institutional work",
+          "kind": "create",
+          "item": "knowledge-and-discipline"
+        },
+        {
+          "id": "categories-unequal-universalism",
+          "text": "Expose an exclusion without erasing the promise",
+          "kind": "create",
+          "item": "unequal-universalism"
+        },
+        {
+          "id": "categories-unstable-distinction",
+          "text": "Test a specific textual division",
+          "kind": "create",
+          "item": "unstable-distinction"
+        },
+        {
+          "id": "categories-accountable-perspectives",
+          "text": "Keep criticism answerable",
+          "kind": "create",
+          "item": "accountable-perspectives"
+        }
+      ],
+      "carry": [
+        "another-work",
+        "encyclopedic-network",
+        "framed-photograph",
+        "named-species",
+        "nominal-kinds",
+        "rights-for-women",
+        "universal-rights"
+      ],
+      "onAlreadyComplete": {
+        "mode": "skip"
+      }
+    },
+    {
+      "id": "planet",
+      "title": "The planet enters the laboratory",
+      "speaker": "The researcher",
+      "motivation": "The inherited puzzles are not finished. Heredity becomes material; an ancient atmosphere can be sampled; the clean measurement of Earth’s age opens an unwelcome question about the present.",
+      "location": {
+        "id": "desk-planet",
+        "label": "Genes, ancient air and industrial traces · c. 1900–2020, returning to earlier experiments",
+        "travelText": "Genes, ancient air and industrial traces"
+      },
+      "caches": [
+        {
+          "id": "sources-planet",
+          "label": "Newly opened sources",
+          "narrative": "New sources join the earlier creations needed for this question. Texts are attributed paraphrases or clearly identified teaching cases, not verbatim quotations.",
+          "items": [
+            "segregating-factors",
+            "dna-inheritance",
+            "environment-development",
+            "food-web",
+            "greenhouse-absorption",
+            "industrial-carbon",
+            "ice-core-air",
+            "modern-warming",
+            "lead-blank",
+            "old-new-lead"
+          ]
+        }
+      ],
+      "objectives": [
+        {
+          "id": "planet-genes-in-context",
+          "text": "Join inheritance to development",
+          "kind": "create",
+          "item": "genes-in-context"
+        },
+        {
+          "id": "planet-atmospheric-history",
+          "text": "Recover an atmospheric past",
+          "kind": "create",
+          "item": "atmospheric-history"
+        },
+        {
+          "id": "planet-human-driven-warming",
+          "text": "Connect industrial power to planetary change",
+          "kind": "create",
+          "item": "human-driven-warming"
+        },
+        {
+          "id": "planet-industrial-lead-footprint",
+          "text": "Follow measurement into pollution",
+          "kind": "create",
+          "item": "industrial-lead-footprint"
+        },
+        {
+          "id": "planet-world-history-not-destiny",
+          "text": "Keep a many-cause history",
+          "kind": "create",
+          "item": "world-history-not-destiny"
+        }
+      ],
+      "carry": [
+        "age-still-open",
+        "coercive-exchange",
+        "earth-age-measured",
+        "electromagnetic-light",
+        "fuel-dependent-industry",
+        "open-heredity",
+        "relocated-habitats"
+      ],
+      "onAlreadyComplete": {
+        "mode": "skip"
+      }
+    },
+    {
+      "id": "future-laboratory",
+      "title": "A laboratory that can answer back",
+      "speaker": "The researcher",
+      "motivation": "The instruments can propose actions faster than their makers can inspect each one. Design an inquiry that remains useful when distance, uncertainty and a very persuasive machine get in the way.",
+      "location": {
+        "id": "desk-future-laboratory",
+        "label": "Speculative future: a distributed observatory · An imagined next century—not a forecast",
+        "travelText": "Speculative future: a distributed observatory"
+      },
+      "caches": [
+        {
+          "id": "sources-future-laboratory",
+          "label": "Newly opened sources",
+          "narrative": "New sources join the earlier creations needed for this question. Texts are attributed paraphrases or clearly identified teaching cases, not verbatim quotations.",
+          "items": [
+            "learned-predictor",
+            "proposed-trial",
+            "remote-delay",
+            "verified-source-records",
+            "uncertain-novel-case",
+            "independent-instruments",
+            "mission-boundary"
+          ]
+        }
+      ],
+      "objectives": [
+        {
+          "id": "future-laboratory-uncertainty-bearing-model",
+          "text": "Keep the unfamiliar case visible",
+          "kind": "create",
+          "item": "uncertainty-bearing-model"
+        },
+        {
+          "id": "future-laboratory-cross-checked-discovery",
+          "text": "Earn support for a possible discovery",
+          "kind": "create",
+          "item": "cross-checked-discovery"
+        },
+        {
+          "id": "future-laboratory-bounded-autonomy",
+          "text": "Give local action a real boundary",
+          "kind": "create",
+          "item": "bounded-autonomy"
+        },
+        {
+          "id": "future-laboratory-repairable-discovery-record",
+          "text": "Preserve a correctable record",
+          "kind": "create",
+          "item": "repairable-discovery-record"
+        }
+      ],
+      "carry": [
+        "computation-limit",
+        "error-correcting-message",
+        "feedback-control",
+        "fictional-archive",
+        "shared-heat-inquiry"
+      ],
+      "onAlreadyComplete": {
+        "mode": "bridge",
+        "text": "The historical archive ends here. These last desks are proposals to argue with, not technologies that history promises."
+      }
+    },
+    {
+      "id": "future-commons",
+      "title": "Who gets to shape the next world?",
+      "speaker": "The researcher",
+      "motivation": "The city can automate work and respond rapidly to environmental danger. Its people still disagree about worthwhile labour, acceptable risk and who may intervene. Build arrangements that expose those choices rather than announcing a perfect civilization.",
+      "location": {
+        "id": "desk-future-commons",
+        "label": "Speculative future: workshop and city · An imagined next century—not a forecast",
+        "travelText": "Speculative future: workshop and city"
+      },
+      "caches": [
+        {
+          "id": "sources-future-commons",
+          "label": "Newly opened sources",
+          "narrative": "New sources join the earlier creations needed for this question. Texts are attributed paraphrases or clearly identified teaching cases, not verbatim quotations.",
+          "items": [
+            "shared-workshop",
+            "maker-options",
+            "rapid-response",
+            "contested-priorities",
+            "local-rulemaking",
+            "care-requirements",
+            "public-appeal"
+          ]
+        }
+      ],
+      "objectives": [
+        {
+          "id": "future-commons-contestable-control",
+          "text": "Make speed and appeal visibly contend",
+          "kind": "create",
+          "item": "contestable-control"
+        },
+        {
+          "id": "future-commons-plural-good-lives",
+          "text": "Leave room for more than one good life",
+          "kind": "create",
+          "item": "plural-good-lives"
+        },
+        {
+          "id": "future-commons-unfinished-common-world",
+          "text": "Keep a common world open to revision",
+          "kind": "create",
+          "item": "unfinished-common-world"
+        }
+      ],
+      "carry": [
+        "bounded-autonomy",
+        "control-of-work",
+        "cooperation-in-evolution",
+        "prosperity-not-good-life",
+        "useful-pleasurable-work"
+      ],
+      "onAlreadyComplete": {
+        "mode": "skip"
+      }
+    }
+  ],
+  "milestones": [
+    {
+      "id": "milestone-critical-edition",
+      "item": "critical-edition",
+      "when": "created",
+      "title": "Copies become evidence",
+      "text": "Disagreement between manuscripts can help reconstruct a text. Keep the variants: a finished edition is not the end of transmission."
+    },
+    {
+      "id": "milestone-strict-ptolemy-challenged",
+      "item": "strict-ptolemy-challenged",
+      "when": "created",
+      "title": "One sky, more than one surviving model",
+      "text": "The phases challenge a strict Ptolemaic arrangement. They do not by themselves choose between every moving- and stationary-Earth alternative."
+    },
+    {
+      "id": "milestone-age-still-open",
+      "item": "age-still-open",
+      "when": "created",
+      "title": "The past has depth before it has a date",
+      "text": "The rocks can establish an ordered, eventful history while its numerical age remains open. This question will return with a new kind of clock."
+    },
+    {
+      "id": "milestone-branching-descent",
+      "item": "branching-descent",
+      "when": "created",
+      "title": "Kinds become histories",
+      "text": "A classification can be reread as a branching history. The mechanism of inheritance is still an unfinished part of the account."
+    },
+    {
+      "id": "milestone-earth-age-measured",
+      "item": "earth-age-measured",
+      "when": "created",
+      "title": "An old question, a new clock",
+      "text": "The numerical age is earned through physical decay and solar-system evidence, not supplied by the sequence of strata alone."
+    },
+    {
+      "id": "milestone-industrial-lead-footprint",
+      "item": "industrial-lead-footprint",
+      "when": "created",
+      "title": "The sample leads back to the world",
+      "text": "A difficulty in measuring the ancient Earth has exposed a trace of modern industry. A research nuisance has become a public question."
+    },
+    {
+      "id": "milestone-unfinished-common-world",
+      "item": "unfinished-common-world",
+      "when": "created",
+      "title": "The desk remains open",
+      "text": "The future arrangements have not abolished care, disagreement or the cost of decisions. The work ends with a common world still worth arguing about."
+    }
+  ],
+  "checkpoints": [
+    {
+      "id": "after-world-models",
+      "label": "After A world between covers",
+      "actions": [
+        {
+          "type": "combine",
+          "a": "watch-records",
+          "b": "watch-gaps"
+        },
+        {
+          "type": "combine",
+          "a": "sky-archive",
+          "b": "lunar-calendar"
+        },
+        {
+          "type": "combine",
+          "a": "eclipse-pattern",
+          "b": "watch-gaps"
+        },
+        {
+          "type": "combine",
+          "a": "eclipse-pattern",
+          "b": "omen-series"
+        },
+        {
+          "type": "combine",
+          "a": "lunar-calendar",
+          "b": "river-seasons"
+        },
+        {
+          "type": "combine",
+          "a": "seasonal-calendar",
+          "b": "festival-days"
+        },
+        {
+          "type": "combine",
+          "a": "salt-crystals",
+          "b": "fresh-fish"
+        },
+        {
+          "type": "combine",
+          "a": "salted-fish",
+          "b": "grain-store"
+        },
+        {
+          "type": "advance"
+        },
+        {
+          "type": "combine",
+          "a": "eclipse-pattern",
+          "b": "earth-between"
+        },
+        {
+          "type": "combine",
+          "a": "natural-eclipse",
+          "b": "repeat-conditions"
+        },
+        {
+          "type": "combine",
+          "a": "repay-debts",
+          "b": "weapon-request"
+        },
+        {
+          "type": "combine",
+          "a": "debt-objection",
+          "b": "ask-common"
+        },
+        {
+          "type": "combine",
+          "a": "examined-definition",
+          "b": "prestige"
+        },
+        {
+          "type": "combine",
+          "a": "natural-eclipse",
+          "b": "portent-and-pattern"
+        },
+        {
+          "type": "combine",
+          "a": "conditional-cause",
+          "b": "examined-definition"
+        },
+        {
+          "type": "advance"
+        },
+        {
+          "type": "combine",
+          "a": "examined-definition",
+          "b": "changing-beauty"
+        },
+        {
+          "type": "combine",
+          "a": "stable-forms",
+          "b": "form-in-thing"
+        },
+        {
+          "type": "combine",
+          "a": "animal-observations",
+          "b": "parts-work"
+        },
+        {
+          "type": "combine",
+          "a": "animal-kinds",
+          "b": "form-in-particular"
+        },
+        {
+          "type": "combine",
+          "a": "part-and-function",
+          "b": "statue-causes"
+        },
+        {
+          "type": "combine",
+          "a": "answerable-claims",
+          "b": "mortal-premises"
+        },
+        {
+          "type": "combine",
+          "a": "valid-inference",
+          "b": "false-premise"
+        },
+        {
+          "type": "combine",
+          "a": "examined-life",
+          "b": "practised-courage"
+        },
+        {
+          "type": "combine",
+          "a": "stable-forms",
+          "b": "cave-shadows"
+        },
+        {
+          "type": "advance"
+        },
+        {
+          "type": "combine",
+          "a": "few-needs",
+          "b": "royal-favour"
+        },
+        {
+          "type": "combine",
+          "a": "examined-life",
+          "b": "public-convention"
+        },
+        {
+          "type": "combine",
+          "a": "cultivated-virtue",
+          "b": "judgment-response"
+        },
+        {
+          "type": "combine",
+          "a": "stoic-control",
+          "b": "shared-reason"
+        },
+        {
+          "type": "combine",
+          "a": "atoms-void",
+          "b": "death-sensation"
+        },
+        {
+          "type": "combine",
+          "a": "release-from-terror",
+          "b": "friendship-meal"
+        },
+        {
+          "type": "combine",
+          "a": "answerable-claims",
+          "b": "equal-appearances"
+        },
+        {
+          "type": "advance"
+        },
+        {
+          "type": "combine",
+          "a": "valid-inference",
+          "b": "geometric-postulates"
+        },
+        {
+          "type": "combine",
+          "a": "deductive-geometry",
+          "b": "curved-earth-signs"
+        },
+        {
+          "type": "combine",
+          "a": "spherical-earth",
+          "b": "measured-journey"
+        },
+        {
+          "type": "combine",
+          "a": "sky-archive",
+          "b": "planet-positions"
+        },
+        {
+          "type": "combine",
+          "a": "planetary-archive",
+          "b": "circular-models"
+        },
+        {
+          "type": "combine",
+          "a": "ptolemaic-model",
+          "b": "forecast-check"
+        },
+        {
+          "type": "combine",
+          "a": "eclipse-pattern",
+          "b": "geared-wheels"
+        },
+        {
+          "type": "combine",
+          "a": "parallel-copies",
+          "b": "editorial-marks"
+        },
+        {
+          "type": "combine",
+          "a": "textual-variants",
+          "b": "answerable-claims"
+        },
+        {
+          "type": "advance"
+        }
+      ]
+    },
+    {
+      "id": "after-perspective",
+      "label": "After A window on paper",
+      "actions": [
+        {
+          "type": "combine",
+          "a": "watch-records",
+          "b": "watch-gaps"
+        },
+        {
+          "type": "combine",
+          "a": "sky-archive",
+          "b": "lunar-calendar"
+        },
+        {
+          "type": "combine",
+          "a": "eclipse-pattern",
+          "b": "watch-gaps"
+        },
+        {
+          "type": "combine",
+          "a": "eclipse-pattern",
+          "b": "omen-series"
+        },
+        {
+          "type": "combine",
+          "a": "lunar-calendar",
+          "b": "river-seasons"
+        },
+        {
+          "type": "combine",
+          "a": "seasonal-calendar",
+          "b": "festival-days"
+        },
+        {
+          "type": "combine",
+          "a": "salt-crystals",
+          "b": "fresh-fish"
+        },
+        {
+          "type": "combine",
+          "a": "salted-fish",
+          "b": "grain-store"
+        },
+        {
+          "type": "advance"
+        },
+        {
+          "type": "combine",
+          "a": "eclipse-pattern",
+          "b": "earth-between"
+        },
+        {
+          "type": "combine",
+          "a": "natural-eclipse",
+          "b": "repeat-conditions"
+        },
+        {
+          "type": "combine",
+          "a": "repay-debts",
+          "b": "weapon-request"
+        },
+        {
+          "type": "combine",
+          "a": "debt-objection",
+          "b": "ask-common"
+        },
+        {
+          "type": "combine",
+          "a": "examined-definition",
+          "b": "prestige"
+        },
+        {
+          "type": "combine",
+          "a": "natural-eclipse",
+          "b": "portent-and-pattern"
+        },
+        {
+          "type": "combine",
+          "a": "conditional-cause",
+          "b": "examined-definition"
+        },
+        {
+          "type": "advance"
+        },
+        {
+          "type": "combine",
+          "a": "examined-definition",
+          "b": "changing-beauty"
+        },
+        {
+          "type": "combine",
+          "a": "stable-forms",
+          "b": "form-in-thing"
+        },
+        {
+          "type": "combine",
+          "a": "animal-observations",
+          "b": "parts-work"
+        },
+        {
+          "type": "combine",
+          "a": "animal-kinds",
+          "b": "form-in-particular"
+        },
+        {
+          "type": "combine",
+          "a": "part-and-function",
+          "b": "statue-causes"
+        },
+        {
+          "type": "combine",
+          "a": "answerable-claims",
+          "b": "mortal-premises"
+        },
+        {
+          "type": "combine",
+          "a": "valid-inference",
+          "b": "false-premise"
+        },
+        {
+          "type": "combine",
+          "a": "examined-life",
+          "b": "practised-courage"
+        },
+        {
+          "type": "combine",
+          "a": "stable-forms",
+          "b": "cave-shadows"
+        },
+        {
+          "type": "advance"
+        },
+        {
+          "type": "combine",
+          "a": "few-needs",
+          "b": "royal-favour"
+        },
+        {
+          "type": "combine",
+          "a": "examined-life",
+          "b": "public-convention"
+        },
+        {
+          "type": "combine",
+          "a": "cultivated-virtue",
+          "b": "judgment-response"
+        },
+        {
+          "type": "combine",
+          "a": "stoic-control",
+          "b": "shared-reason"
+        },
+        {
+          "type": "combine",
+          "a": "atoms-void",
+          "b": "death-sensation"
+        },
+        {
+          "type": "combine",
+          "a": "release-from-terror",
+          "b": "friendship-meal"
+        },
+        {
+          "type": "combine",
+          "a": "answerable-claims",
+          "b": "equal-appearances"
+        },
+        {
+          "type": "advance"
+        },
+        {
+          "type": "combine",
+          "a": "valid-inference",
+          "b": "geometric-postulates"
+        },
+        {
+          "type": "combine",
+          "a": "deductive-geometry",
+          "b": "curved-earth-signs"
+        },
+        {
+          "type": "combine",
+          "a": "spherical-earth",
+          "b": "measured-journey"
+        },
+        {
+          "type": "combine",
+          "a": "sky-archive",
+          "b": "planet-positions"
+        },
+        {
+          "type": "combine",
+          "a": "planetary-archive",
+          "b": "circular-models"
+        },
+        {
+          "type": "combine",
+          "a": "ptolemaic-model",
+          "b": "forecast-check"
+        },
+        {
+          "type": "combine",
+          "a": "eclipse-pattern",
+          "b": "geared-wheels"
+        },
+        {
+          "type": "combine",
+          "a": "parallel-copies",
+          "b": "editorial-marks"
+        },
+        {
+          "type": "combine",
+          "a": "textual-variants",
+          "b": "answerable-claims"
+        },
+        {
+          "type": "advance"
+        },
+        {
+          "type": "combine",
+          "a": "valid-inference",
+          "b": "syriac-greek-copies"
+        },
+        {
+          "type": "combine",
+          "a": "four-causes",
+          "b": "arabic-terms"
+        },
+        {
+          "type": "combine",
+          "a": "ptolemaic-model",
+          "b": "revised-observations"
+        },
+        {
+          "type": "combine",
+          "a": "indian-numerals",
+          "b": "merchant-accounts"
+        },
+        {
+          "type": "combine",
+          "a": "positional-reckoning",
+          "b": "inheritance-relations"
+        },
+        {
+          "type": "combine",
+          "a": "arabic-nature",
+          "b": "essence-existence"
+        },
+        {
+          "type": "combine",
+          "a": "contingent-being",
+          "b": "dependent-existence"
+        },
+        {
+          "type": "combine",
+          "a": "arabic-logic",
+          "b": "commentator-questions"
+        },
+        {
+          "type": "advance"
+        },
+        {
+          "type": "combine",
+          "a": "arabic-nature",
+          "b": "emitted-sight"
+        },
+        {
+          "type": "combine",
+          "a": "vision-dispute",
+          "b": "bright-light"
+        },
+        {
+          "type": "combine",
+          "a": "light-into-eye",
+          "b": "straight-paths"
+        },
+        {
+          "type": "combine",
+          "a": "geometric-optics",
+          "b": "aperture-screen"
+        },
+        {
+          "type": "combine",
+          "a": "pinhole-box",
+          "b": "@optical-darkroom"
+        },
+        {
+          "type": "combine",
+          "a": "glass-blank",
+          "b": "lens-grinding"
+        },
+        {
+          "type": "combine",
+          "a": "ground-lens",
+          "b": "geometric-optics"
+        },
+        {
+          "type": "combine",
+          "a": "light-into-eye",
+          "b": "size-illusion"
+        },
+        {
+          "type": "advance"
+        },
+        {
+          "type": "combine",
+          "a": "arabic-logic",
+          "b": "latin-translators"
+        },
+        {
+          "type": "combine",
+          "a": "latin-aristotle",
+          "b": "active-commentary"
+        },
+        {
+          "type": "combine",
+          "a": "necessary-being",
+          "b": "revelation-text"
+        },
+        {
+          "type": "combine",
+          "a": "commentaries-in-dispute",
+          "b": "objection-reply"
+        },
+        {
+          "type": "combine",
+          "a": "stable-forms",
+          "b": "common-name"
+        },
+        {
+          "type": "combine",
+          "a": "form-in-particular",
+          "b": "common-name"
+        },
+        {
+          "type": "combine",
+          "a": "real-universal",
+          "b": "nominal-kinds"
+        },
+        {
+          "type": "combine",
+          "a": "four-causes",
+          "b": "extra-entities"
+        },
+        {
+          "type": "combine",
+          "a": "reason-faith-distinction",
+          "b": "created-nature"
+        },
+        {
+          "type": "advance"
+        },
+        {
+          "type": "combine",
+          "a": "paper-sheets",
+          "b": "block-printing"
+        },
+        {
+          "type": "combine",
+          "a": "paper-sheets",
+          "b": "movable-type"
+        },
+        {
+          "type": "combine",
+          "a": "critical-edition",
+          "b": "type-printed-edition"
+        },
+        {
+          "type": "combine",
+          "a": "latin-aristotle",
+          "b": "greek-codex"
+        },
+        {
+          "type": "combine",
+          "a": "parallel-translations",
+          "b": "word-difference"
+        },
+        {
+          "type": "combine",
+          "a": "stable-forms",
+          "b": "hermetic-dialogues"
+        },
+        {
+          "type": "combine",
+          "a": "ancient-wisdom-claim",
+          "b": "datable-language"
+        },
+        {
+          "type": "combine",
+          "a": "reproducible-page",
+          "b": "print-censors"
+        },
+        {
+          "type": "combine",
+          "a": "compared-edition",
+          "b": "deductive-geometry"
+        },
+        {
+          "type": "advance"
+        },
+        {
+          "type": "combine",
+          "a": "geometric-optics",
+          "b": "picture-plane"
+        },
+        {
+          "type": "combine",
+          "a": "window-projection",
+          "b": "receding-street"
+        },
+        {
+          "type": "combine",
+          "a": "vanishing-direction",
+          "b": "fixed-eye"
+        },
+        {
+          "type": "combine",
+          "a": "linear-perspective",
+          "b": "viewer-moves"
+        },
+        {
+          "type": "combine",
+          "a": "linear-perspective",
+          "b": "mirror-comparison"
+        },
+        {
+          "type": "combine",
+          "a": "measurable-earth",
+          "b": "coordinate-grid"
+        },
+        {
+          "type": "combine",
+          "a": "mapped-globe",
+          "b": "flat-map-sheet"
+        },
+        {
+          "type": "combine",
+          "a": "flat-projection",
+          "b": "bearing-priority"
+        },
+        {
+          "type": "combine",
+          "a": "bearing-chart",
+          "b": "polar-stretch"
+        },
+        {
+          "type": "advance"
+        }
+      ]
+    },
+    {
+      "id": "after-exchange",
+      "label": "After A world made and exchanged",
+      "actions": [
+        {
+          "type": "combine",
+          "a": "watch-records",
+          "b": "watch-gaps"
+        },
+        {
+          "type": "combine",
+          "a": "sky-archive",
+          "b": "lunar-calendar"
+        },
+        {
+          "type": "combine",
+          "a": "eclipse-pattern",
+          "b": "watch-gaps"
+        },
+        {
+          "type": "combine",
+          "a": "eclipse-pattern",
+          "b": "omen-series"
+        },
+        {
+          "type": "combine",
+          "a": "lunar-calendar",
+          "b": "river-seasons"
+        },
+        {
+          "type": "combine",
+          "a": "seasonal-calendar",
+          "b": "festival-days"
+        },
+        {
+          "type": "combine",
+          "a": "salt-crystals",
+          "b": "fresh-fish"
+        },
+        {
+          "type": "combine",
+          "a": "salted-fish",
+          "b": "grain-store"
+        },
+        {
+          "type": "advance"
+        },
+        {
+          "type": "combine",
+          "a": "eclipse-pattern",
+          "b": "earth-between"
+        },
+        {
+          "type": "combine",
+          "a": "natural-eclipse",
+          "b": "repeat-conditions"
+        },
+        {
+          "type": "combine",
+          "a": "repay-debts",
+          "b": "weapon-request"
+        },
+        {
+          "type": "combine",
+          "a": "debt-objection",
+          "b": "ask-common"
+        },
+        {
+          "type": "combine",
+          "a": "examined-definition",
+          "b": "prestige"
+        },
+        {
+          "type": "combine",
+          "a": "natural-eclipse",
+          "b": "portent-and-pattern"
+        },
+        {
+          "type": "combine",
+          "a": "conditional-cause",
+          "b": "examined-definition"
+        },
+        {
+          "type": "advance"
+        },
+        {
+          "type": "combine",
+          "a": "examined-definition",
+          "b": "changing-beauty"
+        },
+        {
+          "type": "combine",
+          "a": "stable-forms",
+          "b": "form-in-thing"
+        },
+        {
+          "type": "combine",
+          "a": "animal-observations",
+          "b": "parts-work"
+        },
+        {
+          "type": "combine",
+          "a": "animal-kinds",
+          "b": "form-in-particular"
+        },
+        {
+          "type": "combine",
+          "a": "part-and-function",
+          "b": "statue-causes"
+        },
+        {
+          "type": "combine",
+          "a": "answerable-claims",
+          "b": "mortal-premises"
+        },
+        {
+          "type": "combine",
+          "a": "valid-inference",
+          "b": "false-premise"
+        },
+        {
+          "type": "combine",
+          "a": "examined-life",
+          "b": "practised-courage"
+        },
+        {
+          "type": "combine",
+          "a": "stable-forms",
+          "b": "cave-shadows"
+        },
+        {
+          "type": "advance"
+        },
+        {
+          "type": "combine",
+          "a": "few-needs",
+          "b": "royal-favour"
+        },
+        {
+          "type": "combine",
+          "a": "examined-life",
+          "b": "public-convention"
+        },
+        {
+          "type": "combine",
+          "a": "cultivated-virtue",
+          "b": "judgment-response"
+        },
+        {
+          "type": "combine",
+          "a": "stoic-control",
+          "b": "shared-reason"
+        },
+        {
+          "type": "combine",
+          "a": "atoms-void",
+          "b": "death-sensation"
+        },
+        {
+          "type": "combine",
+          "a": "release-from-terror",
+          "b": "friendship-meal"
+        },
+        {
+          "type": "combine",
+          "a": "answerable-claims",
+          "b": "equal-appearances"
+        },
+        {
+          "type": "advance"
+        },
+        {
+          "type": "combine",
+          "a": "valid-inference",
+          "b": "geometric-postulates"
+        },
+        {
+          "type": "combine",
+          "a": "deductive-geometry",
+          "b": "curved-earth-signs"
+        },
+        {
+          "type": "combine",
+          "a": "spherical-earth",
+          "b": "measured-journey"
+        },
+        {
+          "type": "combine",
+          "a": "sky-archive",
+          "b": "planet-positions"
+        },
+        {
+          "type": "combine",
+          "a": "planetary-archive",
+          "b": "circular-models"
+        },
+        {
+          "type": "combine",
+          "a": "ptolemaic-model",
+          "b": "forecast-check"
+        },
+        {
+          "type": "combine",
+          "a": "eclipse-pattern",
+          "b": "geared-wheels"
+        },
+        {
+          "type": "combine",
+          "a": "parallel-copies",
+          "b": "editorial-marks"
+        },
+        {
+          "type": "combine",
+          "a": "textual-variants",
+          "b": "answerable-claims"
+        },
+        {
+          "type": "advance"
+        },
+        {
+          "type": "combine",
+          "a": "valid-inference",
+          "b": "syriac-greek-copies"
+        },
+        {
+          "type": "combine",
+          "a": "four-causes",
+          "b": "arabic-terms"
+        },
+        {
+          "type": "combine",
+          "a": "ptolemaic-model",
+          "b": "revised-observations"
+        },
+        {
+          "type": "combine",
+          "a": "indian-numerals",
+          "b": "merchant-accounts"
+        },
+        {
+          "type": "combine",
+          "a": "positional-reckoning",
+          "b": "inheritance-relations"
+        },
+        {
+          "type": "combine",
+          "a": "arabic-nature",
+          "b": "essence-existence"
+        },
+        {
+          "type": "combine",
+          "a": "contingent-being",
+          "b": "dependent-existence"
+        },
+        {
+          "type": "combine",
+          "a": "arabic-logic",
+          "b": "commentator-questions"
+        },
+        {
+          "type": "advance"
+        },
+        {
+          "type": "combine",
+          "a": "arabic-nature",
+          "b": "emitted-sight"
+        },
+        {
+          "type": "combine",
+          "a": "vision-dispute",
+          "b": "bright-light"
+        },
+        {
+          "type": "combine",
+          "a": "light-into-eye",
+          "b": "straight-paths"
+        },
+        {
+          "type": "combine",
+          "a": "geometric-optics",
+          "b": "aperture-screen"
+        },
+        {
+          "type": "combine",
+          "a": "pinhole-box",
+          "b": "@optical-darkroom"
+        },
+        {
+          "type": "combine",
+          "a": "glass-blank",
+          "b": "lens-grinding"
+        },
+        {
+          "type": "combine",
+          "a": "ground-lens",
+          "b": "geometric-optics"
+        },
+        {
+          "type": "combine",
+          "a": "light-into-eye",
+          "b": "size-illusion"
+        },
+        {
+          "type": "advance"
+        },
+        {
+          "type": "combine",
+          "a": "arabic-logic",
+          "b": "latin-translators"
+        },
+        {
+          "type": "combine",
+          "a": "latin-aristotle",
+          "b": "active-commentary"
+        },
+        {
+          "type": "combine",
+          "a": "necessary-being",
+          "b": "revelation-text"
+        },
+        {
+          "type": "combine",
+          "a": "commentaries-in-dispute",
+          "b": "objection-reply"
+        },
+        {
+          "type": "combine",
+          "a": "stable-forms",
+          "b": "common-name"
+        },
+        {
+          "type": "combine",
+          "a": "form-in-particular",
+          "b": "common-name"
+        },
+        {
+          "type": "combine",
+          "a": "real-universal",
+          "b": "nominal-kinds"
+        },
+        {
+          "type": "combine",
+          "a": "four-causes",
+          "b": "extra-entities"
+        },
+        {
+          "type": "combine",
+          "a": "reason-faith-distinction",
+          "b": "created-nature"
+        },
+        {
+          "type": "advance"
+        },
+        {
+          "type": "combine",
+          "a": "paper-sheets",
+          "b": "block-printing"
+        },
+        {
+          "type": "combine",
+          "a": "paper-sheets",
+          "b": "movable-type"
+        },
+        {
+          "type": "combine",
+          "a": "critical-edition",
+          "b": "type-printed-edition"
+        },
+        {
+          "type": "combine",
+          "a": "latin-aristotle",
+          "b": "greek-codex"
+        },
+        {
+          "type": "combine",
+          "a": "parallel-translations",
+          "b": "word-difference"
+        },
+        {
+          "type": "combine",
+          "a": "stable-forms",
+          "b": "hermetic-dialogues"
+        },
+        {
+          "type": "combine",
+          "a": "ancient-wisdom-claim",
+          "b": "datable-language"
+        },
+        {
+          "type": "combine",
+          "a": "reproducible-page",
+          "b": "print-censors"
+        },
+        {
+          "type": "combine",
+          "a": "compared-edition",
+          "b": "deductive-geometry"
+        },
+        {
+          "type": "advance"
+        },
+        {
+          "type": "combine",
+          "a": "geometric-optics",
+          "b": "picture-plane"
+        },
+        {
+          "type": "combine",
+          "a": "window-projection",
+          "b": "receding-street"
+        },
+        {
+          "type": "combine",
+          "a": "vanishing-direction",
+          "b": "fixed-eye"
+        },
+        {
+          "type": "combine",
+          "a": "linear-perspective",
+          "b": "viewer-moves"
+        },
+        {
+          "type": "combine",
+          "a": "linear-perspective",
+          "b": "mirror-comparison"
+        },
+        {
+          "type": "combine",
+          "a": "measurable-earth",
+          "b": "coordinate-grid"
+        },
+        {
+          "type": "combine",
+          "a": "mapped-globe",
+          "b": "flat-map-sheet"
+        },
+        {
+          "type": "combine",
+          "a": "flat-projection",
+          "b": "bearing-priority"
+        },
+        {
+          "type": "combine",
+          "a": "bearing-chart",
+          "b": "polar-stretch"
+        },
+        {
+          "type": "advance"
+        },
+        {
+          "type": "combine",
+          "a": "ground-lens",
+          "b": "telescope-tube"
+        },
+        {
+          "type": "combine",
+          "a": "telescope",
+          "b": "moon-detail"
+        },
+        {
+          "type": "combine",
+          "a": "telescope",
+          "b": "jupiter-points"
+        },
+        {
+          "type": "combine",
+          "a": "ptolemaic-model",
+          "b": "copernican-order"
+        },
+        {
+          "type": "combine",
+          "a": "copernican-world",
+          "b": "retrograde-appearance"
+        },
+        {
+          "type": "combine",
+          "a": "telescope",
+          "b": "venus-phase-series"
+        },
+        {
+          "type": "combine",
+          "a": "venus-phases",
+          "b": "ptolemaic-model"
+        },
+        {
+          "type": "combine",
+          "a": "strict-ptolemy-challenged",
+          "b": "tycho-model"
+        },
+        {
+          "type": "combine",
+          "a": "copernican-world",
+          "b": "mars-mismatch"
+        },
+        {
+          "type": "combine",
+          "a": "kepler-ellipse",
+          "b": "harmony-ideal"
+        },
+        {
+          "type": "advance"
+        },
+        {
+          "type": "combine",
+          "a": "conditional-cause",
+          "b": "craft-records"
+        },
+        {
+          "type": "combine",
+          "a": "working-natural-history",
+          "b": "favoured-cases"
+        },
+        {
+          "type": "combine",
+          "a": "sun-warmth",
+          "b": "flame-warmth"
+        },
+        {
+          "type": "combine",
+          "a": "heat-light-conjecture",
+          "b": "moonlight-cool"
+        },
+        {
+          "type": "combine",
+          "a": "light-not-sufficient",
+          "b": "friction-warmth"
+        },
+        {
+          "type": "combine",
+          "a": "heat-beyond-light",
+          "b": "matched-wood"
+        },
+        {
+          "type": "combine",
+          "a": "active-commentary",
+          "b": "burton-sources"
+        },
+        {
+          "type": "combine",
+          "a": "contested-publication",
+          "b": "shared-method"
+        },
+        {
+          "type": "combine",
+          "a": "pinhole-box",
+          "b": "natural-magic-secrets"
+        },
+        {
+          "type": "combine",
+          "a": "rubbing-intervention",
+          "b": "public-trial"
+        },
+        {
+          "type": "advance"
+        },
+        {
+          "type": "combine",
+          "a": "four-causes",
+          "b": "matter-motion"
+        },
+        {
+          "type": "combine",
+          "a": "mechanical-sky",
+          "b": "moving-figure"
+        },
+        {
+          "type": "combine",
+          "a": "clockwork-figure",
+          "b": "lifelike-claim"
+        },
+        {
+          "type": "combine",
+          "a": "kepler-ellipse",
+          "b": "falling-stone"
+        },
+        {
+          "type": "combine",
+          "a": "falling-moon",
+          "b": "revised-harmony"
+        },
+        {
+          "type": "combine",
+          "a": "geometric-optics",
+          "b": "prism-spectrum"
+        },
+        {
+          "type": "combine",
+          "a": "part-and-function",
+          "b": "one-way-valves"
+        },
+        {
+          "type": "combine",
+          "a": "one-way-circulation",
+          "b": "heart-contraction"
+        },
+        {
+          "type": "combine",
+          "a": "universal-gravitation",
+          "b": "universal-time"
+        },
+        {
+          "type": "advance"
+        },
+        {
+          "type": "combine",
+          "a": "shared-year",
+          "b": "regular-oscillation"
+        },
+        {
+          "type": "combine",
+          "a": "equal-hours",
+          "b": "portable-clock"
+        },
+        {
+          "type": "combine",
+          "a": "reference-timekeeper",
+          "b": "local-noon"
+        },
+        {
+          "type": "combine",
+          "a": "reference-timekeeper",
+          "b": "@longitude-sea"
+        },
+        {
+          "type": "combine",
+          "a": "planetary-archive",
+          "b": "moon-table"
+        },
+        {
+          "type": "combine",
+          "a": "lunar-reference",
+          "b": "local-noon"
+        },
+        {
+          "type": "combine",
+          "a": "ptolemy-questioned",
+          "b": "indian-persian-tables"
+        },
+        {
+          "type": "combine",
+          "a": "jaipur-comparison",
+          "b": "masonry-sightlines"
+        },
+        {
+          "type": "combine",
+          "a": "bearing-chart",
+          "b": "time-longitude"
+        },
+        {
+          "type": "combine",
+          "a": "positioned-sea-route",
+          "b": "travel-provisions"
+        },
+        {
+          "type": "advance"
+        },
+        {
+          "type": "combine",
+          "a": "contested-publication",
+          "b": "craft-plates"
+        },
+        {
+          "type": "combine",
+          "a": "encyclopedic-craft",
+          "b": "cross-references"
+        },
+        {
+          "type": "combine",
+          "a": "shared-heat-inquiry",
+          "b": "causal-habit"
+        },
+        {
+          "type": "combine",
+          "a": "problem-of-induction",
+          "b": "forms-of-experience"
+        },
+        {
+          "type": "combine",
+          "a": "cynic-sufficiency",
+          "b": "luxury-status"
+        },
+        {
+          "type": "combine",
+          "a": "cosmopolis",
+          "b": "rights-declaration"
+        },
+        {
+          "type": "combine",
+          "a": "universal-rights",
+          "b": "women-excluded"
+        },
+        {
+          "type": "combine",
+          "a": "universal-rights",
+          "b": "enslaved-testimony"
+        },
+        {
+          "type": "combine",
+          "a": "formal-disputation",
+          "b": "public-readers"
+        },
+        {
+          "type": "advance"
+        },
+        {
+          "type": "combine",
+          "a": "luxury-trade",
+          "b": "mandeville-hive"
+        },
+        {
+          "type": "combine",
+          "a": "pin-workshop",
+          "b": "market-exchange"
+        },
+        {
+          "type": "combine",
+          "a": "division-of-labour",
+          "b": "narrowed-work"
+        },
+        {
+          "type": "combine",
+          "a": "private-vice-public-benefit",
+          "b": "garden-pleasure"
+        },
+        {
+          "type": "combine",
+          "a": "population-growth",
+          "b": "food-constraints"
+        },
+        {
+          "type": "combine",
+          "a": "population-pressure",
+          "b": "universal-rights"
+        },
+        {
+          "type": "combine",
+          "a": "provisioned-route",
+          "b": "regional-goods"
+        },
+        {
+          "type": "combine",
+          "a": "long-distance-exchange",
+          "b": "coerced-labour"
+        },
+        {
+          "type": "combine",
+          "a": "specialization-cost",
+          "b": "cultivated-virtue"
+        },
+        {
+          "type": "advance"
+        }
+      ]
+    },
+    {
+      "id": "after-invisible",
+      "label": "After Neighbours too small to see",
+      "actions": [
+        {
+          "type": "combine",
+          "a": "watch-records",
+          "b": "watch-gaps"
+        },
+        {
+          "type": "combine",
+          "a": "sky-archive",
+          "b": "lunar-calendar"
+        },
+        {
+          "type": "combine",
+          "a": "eclipse-pattern",
+          "b": "watch-gaps"
+        },
+        {
+          "type": "combine",
+          "a": "eclipse-pattern",
+          "b": "omen-series"
+        },
+        {
+          "type": "combine",
+          "a": "lunar-calendar",
+          "b": "river-seasons"
+        },
+        {
+          "type": "combine",
+          "a": "seasonal-calendar",
+          "b": "festival-days"
+        },
+        {
+          "type": "combine",
+          "a": "salt-crystals",
+          "b": "fresh-fish"
+        },
+        {
+          "type": "combine",
+          "a": "salted-fish",
+          "b": "grain-store"
+        },
+        {
+          "type": "advance"
+        },
+        {
+          "type": "combine",
+          "a": "eclipse-pattern",
+          "b": "earth-between"
+        },
+        {
+          "type": "combine",
+          "a": "natural-eclipse",
+          "b": "repeat-conditions"
+        },
+        {
+          "type": "combine",
+          "a": "repay-debts",
+          "b": "weapon-request"
+        },
+        {
+          "type": "combine",
+          "a": "debt-objection",
+          "b": "ask-common"
+        },
+        {
+          "type": "combine",
+          "a": "examined-definition",
+          "b": "prestige"
+        },
+        {
+          "type": "combine",
+          "a": "natural-eclipse",
+          "b": "portent-and-pattern"
+        },
+        {
+          "type": "combine",
+          "a": "conditional-cause",
+          "b": "examined-definition"
+        },
+        {
+          "type": "advance"
+        },
+        {
+          "type": "combine",
+          "a": "examined-definition",
+          "b": "changing-beauty"
+        },
+        {
+          "type": "combine",
+          "a": "stable-forms",
+          "b": "form-in-thing"
+        },
+        {
+          "type": "combine",
+          "a": "animal-observations",
+          "b": "parts-work"
+        },
+        {
+          "type": "combine",
+          "a": "animal-kinds",
+          "b": "form-in-particular"
+        },
+        {
+          "type": "combine",
+          "a": "part-and-function",
+          "b": "statue-causes"
+        },
+        {
+          "type": "combine",
+          "a": "answerable-claims",
+          "b": "mortal-premises"
+        },
+        {
+          "type": "combine",
+          "a": "valid-inference",
+          "b": "false-premise"
+        },
+        {
+          "type": "combine",
+          "a": "examined-life",
+          "b": "practised-courage"
+        },
+        {
+          "type": "combine",
+          "a": "stable-forms",
+          "b": "cave-shadows"
+        },
+        {
+          "type": "advance"
+        },
+        {
+          "type": "combine",
+          "a": "few-needs",
+          "b": "royal-favour"
+        },
+        {
+          "type": "combine",
+          "a": "examined-life",
+          "b": "public-convention"
+        },
+        {
+          "type": "combine",
+          "a": "cultivated-virtue",
+          "b": "judgment-response"
+        },
+        {
+          "type": "combine",
+          "a": "stoic-control",
+          "b": "shared-reason"
+        },
+        {
+          "type": "combine",
+          "a": "atoms-void",
+          "b": "death-sensation"
+        },
+        {
+          "type": "combine",
+          "a": "release-from-terror",
+          "b": "friendship-meal"
+        },
+        {
+          "type": "combine",
+          "a": "answerable-claims",
+          "b": "equal-appearances"
+        },
+        {
+          "type": "advance"
+        },
+        {
+          "type": "combine",
+          "a": "valid-inference",
+          "b": "geometric-postulates"
+        },
+        {
+          "type": "combine",
+          "a": "deductive-geometry",
+          "b": "curved-earth-signs"
+        },
+        {
+          "type": "combine",
+          "a": "spherical-earth",
+          "b": "measured-journey"
+        },
+        {
+          "type": "combine",
+          "a": "sky-archive",
+          "b": "planet-positions"
+        },
+        {
+          "type": "combine",
+          "a": "planetary-archive",
+          "b": "circular-models"
+        },
+        {
+          "type": "combine",
+          "a": "ptolemaic-model",
+          "b": "forecast-check"
+        },
+        {
+          "type": "combine",
+          "a": "eclipse-pattern",
+          "b": "geared-wheels"
+        },
+        {
+          "type": "combine",
+          "a": "parallel-copies",
+          "b": "editorial-marks"
+        },
+        {
+          "type": "combine",
+          "a": "textual-variants",
+          "b": "answerable-claims"
+        },
+        {
+          "type": "advance"
+        },
+        {
+          "type": "combine",
+          "a": "valid-inference",
+          "b": "syriac-greek-copies"
+        },
+        {
+          "type": "combine",
+          "a": "four-causes",
+          "b": "arabic-terms"
+        },
+        {
+          "type": "combine",
+          "a": "ptolemaic-model",
+          "b": "revised-observations"
+        },
+        {
+          "type": "combine",
+          "a": "indian-numerals",
+          "b": "merchant-accounts"
+        },
+        {
+          "type": "combine",
+          "a": "positional-reckoning",
+          "b": "inheritance-relations"
+        },
+        {
+          "type": "combine",
+          "a": "arabic-nature",
+          "b": "essence-existence"
+        },
+        {
+          "type": "combine",
+          "a": "contingent-being",
+          "b": "dependent-existence"
+        },
+        {
+          "type": "combine",
+          "a": "arabic-logic",
+          "b": "commentator-questions"
+        },
+        {
+          "type": "advance"
+        },
+        {
+          "type": "combine",
+          "a": "arabic-nature",
+          "b": "emitted-sight"
+        },
+        {
+          "type": "combine",
+          "a": "vision-dispute",
+          "b": "bright-light"
+        },
+        {
+          "type": "combine",
+          "a": "light-into-eye",
+          "b": "straight-paths"
+        },
+        {
+          "type": "combine",
+          "a": "geometric-optics",
+          "b": "aperture-screen"
+        },
+        {
+          "type": "combine",
+          "a": "pinhole-box",
+          "b": "@optical-darkroom"
+        },
+        {
+          "type": "combine",
+          "a": "glass-blank",
+          "b": "lens-grinding"
+        },
+        {
+          "type": "combine",
+          "a": "ground-lens",
+          "b": "geometric-optics"
+        },
+        {
+          "type": "combine",
+          "a": "light-into-eye",
+          "b": "size-illusion"
+        },
+        {
+          "type": "advance"
+        },
+        {
+          "type": "combine",
+          "a": "arabic-logic",
+          "b": "latin-translators"
+        },
+        {
+          "type": "combine",
+          "a": "latin-aristotle",
+          "b": "active-commentary"
+        },
+        {
+          "type": "combine",
+          "a": "necessary-being",
+          "b": "revelation-text"
+        },
+        {
+          "type": "combine",
+          "a": "commentaries-in-dispute",
+          "b": "objection-reply"
+        },
+        {
+          "type": "combine",
+          "a": "stable-forms",
+          "b": "common-name"
+        },
+        {
+          "type": "combine",
+          "a": "form-in-particular",
+          "b": "common-name"
+        },
+        {
+          "type": "combine",
+          "a": "real-universal",
+          "b": "nominal-kinds"
+        },
+        {
+          "type": "combine",
+          "a": "four-causes",
+          "b": "extra-entities"
+        },
+        {
+          "type": "combine",
+          "a": "reason-faith-distinction",
+          "b": "created-nature"
+        },
+        {
+          "type": "advance"
+        },
+        {
+          "type": "combine",
+          "a": "paper-sheets",
+          "b": "block-printing"
+        },
+        {
+          "type": "combine",
+          "a": "paper-sheets",
+          "b": "movable-type"
+        },
+        {
+          "type": "combine",
+          "a": "critical-edition",
+          "b": "type-printed-edition"
+        },
+        {
+          "type": "combine",
+          "a": "latin-aristotle",
+          "b": "greek-codex"
+        },
+        {
+          "type": "combine",
+          "a": "parallel-translations",
+          "b": "word-difference"
+        },
+        {
+          "type": "combine",
+          "a": "stable-forms",
+          "b": "hermetic-dialogues"
+        },
+        {
+          "type": "combine",
+          "a": "ancient-wisdom-claim",
+          "b": "datable-language"
+        },
+        {
+          "type": "combine",
+          "a": "reproducible-page",
+          "b": "print-censors"
+        },
+        {
+          "type": "combine",
+          "a": "compared-edition",
+          "b": "deductive-geometry"
+        },
+        {
+          "type": "advance"
+        },
+        {
+          "type": "combine",
+          "a": "geometric-optics",
+          "b": "picture-plane"
+        },
+        {
+          "type": "combine",
+          "a": "window-projection",
+          "b": "receding-street"
+        },
+        {
+          "type": "combine",
+          "a": "vanishing-direction",
+          "b": "fixed-eye"
+        },
+        {
+          "type": "combine",
+          "a": "linear-perspective",
+          "b": "viewer-moves"
+        },
+        {
+          "type": "combine",
+          "a": "linear-perspective",
+          "b": "mirror-comparison"
+        },
+        {
+          "type": "combine",
+          "a": "measurable-earth",
+          "b": "coordinate-grid"
+        },
+        {
+          "type": "combine",
+          "a": "mapped-globe",
+          "b": "flat-map-sheet"
+        },
+        {
+          "type": "combine",
+          "a": "flat-projection",
+          "b": "bearing-priority"
+        },
+        {
+          "type": "combine",
+          "a": "bearing-chart",
+          "b": "polar-stretch"
+        },
+        {
+          "type": "advance"
+        },
+        {
+          "type": "combine",
+          "a": "ground-lens",
+          "b": "telescope-tube"
+        },
+        {
+          "type": "combine",
+          "a": "telescope",
+          "b": "moon-detail"
+        },
+        {
+          "type": "combine",
+          "a": "telescope",
+          "b": "jupiter-points"
+        },
+        {
+          "type": "combine",
+          "a": "ptolemaic-model",
+          "b": "copernican-order"
+        },
+        {
+          "type": "combine",
+          "a": "copernican-world",
+          "b": "retrograde-appearance"
+        },
+        {
+          "type": "combine",
+          "a": "telescope",
+          "b": "venus-phase-series"
+        },
+        {
+          "type": "combine",
+          "a": "venus-phases",
+          "b": "ptolemaic-model"
+        },
+        {
+          "type": "combine",
+          "a": "strict-ptolemy-challenged",
+          "b": "tycho-model"
+        },
+        {
+          "type": "combine",
+          "a": "copernican-world",
+          "b": "mars-mismatch"
+        },
+        {
+          "type": "combine",
+          "a": "kepler-ellipse",
+          "b": "harmony-ideal"
+        },
+        {
+          "type": "advance"
+        },
+        {
+          "type": "combine",
+          "a": "conditional-cause",
+          "b": "craft-records"
+        },
+        {
+          "type": "combine",
+          "a": "working-natural-history",
+          "b": "favoured-cases"
+        },
+        {
+          "type": "combine",
+          "a": "sun-warmth",
+          "b": "flame-warmth"
+        },
+        {
+          "type": "combine",
+          "a": "heat-light-conjecture",
+          "b": "moonlight-cool"
+        },
+        {
+          "type": "combine",
+          "a": "light-not-sufficient",
+          "b": "friction-warmth"
+        },
+        {
+          "type": "combine",
+          "a": "heat-beyond-light",
+          "b": "matched-wood"
+        },
+        {
+          "type": "combine",
+          "a": "active-commentary",
+          "b": "burton-sources"
+        },
+        {
+          "type": "combine",
+          "a": "contested-publication",
+          "b": "shared-method"
+        },
+        {
+          "type": "combine",
+          "a": "pinhole-box",
+          "b": "natural-magic-secrets"
+        },
+        {
+          "type": "combine",
+          "a": "rubbing-intervention",
+          "b": "public-trial"
+        },
+        {
+          "type": "advance"
+        },
+        {
+          "type": "combine",
+          "a": "four-causes",
+          "b": "matter-motion"
+        },
+        {
+          "type": "combine",
+          "a": "mechanical-sky",
+          "b": "moving-figure"
+        },
+        {
+          "type": "combine",
+          "a": "clockwork-figure",
+          "b": "lifelike-claim"
+        },
+        {
+          "type": "combine",
+          "a": "kepler-ellipse",
+          "b": "falling-stone"
+        },
+        {
+          "type": "combine",
+          "a": "falling-moon",
+          "b": "revised-harmony"
+        },
+        {
+          "type": "combine",
+          "a": "geometric-optics",
+          "b": "prism-spectrum"
+        },
+        {
+          "type": "combine",
+          "a": "part-and-function",
+          "b": "one-way-valves"
+        },
+        {
+          "type": "combine",
+          "a": "one-way-circulation",
+          "b": "heart-contraction"
+        },
+        {
+          "type": "combine",
+          "a": "universal-gravitation",
+          "b": "universal-time"
+        },
+        {
+          "type": "advance"
+        },
+        {
+          "type": "combine",
+          "a": "shared-year",
+          "b": "regular-oscillation"
+        },
+        {
+          "type": "combine",
+          "a": "equal-hours",
+          "b": "portable-clock"
+        },
+        {
+          "type": "combine",
+          "a": "reference-timekeeper",
+          "b": "local-noon"
+        },
+        {
+          "type": "combine",
+          "a": "reference-timekeeper",
+          "b": "@longitude-sea"
+        },
+        {
+          "type": "combine",
+          "a": "planetary-archive",
+          "b": "moon-table"
+        },
+        {
+          "type": "combine",
+          "a": "lunar-reference",
+          "b": "local-noon"
+        },
+        {
+          "type": "combine",
+          "a": "ptolemy-questioned",
+          "b": "indian-persian-tables"
+        },
+        {
+          "type": "combine",
+          "a": "jaipur-comparison",
+          "b": "masonry-sightlines"
+        },
+        {
+          "type": "combine",
+          "a": "bearing-chart",
+          "b": "time-longitude"
+        },
+        {
+          "type": "combine",
+          "a": "positioned-sea-route",
+          "b": "travel-provisions"
+        },
+        {
+          "type": "advance"
+        },
+        {
+          "type": "combine",
+          "a": "contested-publication",
+          "b": "craft-plates"
+        },
+        {
+          "type": "combine",
+          "a": "encyclopedic-craft",
+          "b": "cross-references"
+        },
+        {
+          "type": "combine",
+          "a": "shared-heat-inquiry",
+          "b": "causal-habit"
+        },
+        {
+          "type": "combine",
+          "a": "problem-of-induction",
+          "b": "forms-of-experience"
+        },
+        {
+          "type": "combine",
+          "a": "cynic-sufficiency",
+          "b": "luxury-status"
+        },
+        {
+          "type": "combine",
+          "a": "cosmopolis",
+          "b": "rights-declaration"
+        },
+        {
+          "type": "combine",
+          "a": "universal-rights",
+          "b": "women-excluded"
+        },
+        {
+          "type": "combine",
+          "a": "universal-rights",
+          "b": "enslaved-testimony"
+        },
+        {
+          "type": "combine",
+          "a": "formal-disputation",
+          "b": "public-readers"
+        },
+        {
+          "type": "advance"
+        },
+        {
+          "type": "combine",
+          "a": "luxury-trade",
+          "b": "mandeville-hive"
+        },
+        {
+          "type": "combine",
+          "a": "pin-workshop",
+          "b": "market-exchange"
+        },
+        {
+          "type": "combine",
+          "a": "division-of-labour",
+          "b": "narrowed-work"
+        },
+        {
+          "type": "combine",
+          "a": "private-vice-public-benefit",
+          "b": "garden-pleasure"
+        },
+        {
+          "type": "combine",
+          "a": "population-growth",
+          "b": "food-constraints"
+        },
+        {
+          "type": "combine",
+          "a": "population-pressure",
+          "b": "universal-rights"
+        },
+        {
+          "type": "combine",
+          "a": "provisioned-route",
+          "b": "regional-goods"
+        },
+        {
+          "type": "combine",
+          "a": "long-distance-exchange",
+          "b": "coerced-labour"
+        },
+        {
+          "type": "combine",
+          "a": "specialization-cost",
+          "b": "cultivated-virtue"
+        },
+        {
+          "type": "advance"
+        },
+        {
+          "type": "combine",
+          "a": "animal-kinds",
+          "b": "shell-in-rock"
+        },
+        {
+          "type": "combine",
+          "a": "organic-fossil",
+          "b": "layer-sequence"
+        },
+        {
+          "type": "combine",
+          "a": "relative-strata",
+          "b": "matching-fossils"
+        },
+        {
+          "type": "combine",
+          "a": "conditional-cause",
+          "b": "erosion-deposition"
+        },
+        {
+          "type": "combine",
+          "a": "process-history",
+          "b": "tilted-below-level"
+        },
+        {
+          "type": "combine",
+          "a": "cycles-in-rock",
+          "b": "correlated-strata"
+        },
+        {
+          "type": "combine",
+          "a": "organic-fossil",
+          "b": "lost-animals"
+        },
+        {
+          "type": "combine",
+          "a": "deep-time-world",
+          "b": "sudden-disruption"
+        },
+        {
+          "type": "combine",
+          "a": "correlated-strata",
+          "b": "deep-time-world"
+        },
+        {
+          "type": "advance"
+        },
+        {
+          "type": "combine",
+          "a": "animal-kinds",
+          "b": "binomial-names"
+        },
+        {
+          "type": "combine",
+          "a": "named-species",
+          "b": "altitude-plants"
+        },
+        {
+          "type": "combine",
+          "a": "named-species",
+          "b": "use-disuse"
+        },
+        {
+          "type": "combine",
+          "a": "heritable-variation",
+          "b": "breeders-choices"
+        },
+        {
+          "type": "combine",
+          "a": "population-pressure",
+          "b": "heritable-variation"
+        },
+        {
+          "type": "combine",
+          "a": "struggle-for-existence",
+          "b": "differential-survival"
+        },
+        {
+          "type": "combine",
+          "a": "natural-selection",
+          "b": "deep-time-world"
+        },
+        {
+          "type": "combine",
+          "a": "cumulative-evolution",
+          "b": "island-relations"
+        },
+        {
+          "type": "combine",
+          "a": "branching-descent",
+          "b": "transforming-species"
+        },
+        {
+          "type": "combine",
+          "a": "cumulative-evolution",
+          "b": "inheritance-puzzle"
+        },
+        {
+          "type": "advance"
+        },
+        {
+          "type": "combine",
+          "a": "division-of-labour",
+          "b": "steam-engine"
+        },
+        {
+          "type": "combine",
+          "a": "industrial-production",
+          "b": "coal-feed"
+        },
+        {
+          "type": "combine",
+          "a": "work-as-a-human-question",
+          "b": "wage-owner"
+        },
+        {
+          "type": "combine",
+          "a": "alienated-work",
+          "b": "craft-pleasure"
+        },
+        {
+          "type": "combine",
+          "a": "natural-selection",
+          "b": "mutual-survival"
+        },
+        {
+          "type": "combine",
+          "a": "cooperation-in-evolution",
+          "b": "scarcity-and-justice"
+        },
+        {
+          "type": "combine",
+          "a": "alienated-work",
+          "b": "factory-speed"
+        },
+        {
+          "type": "advance"
+        },
+        {
+          "type": "combine",
+          "a": "magnified-view",
+          "b": "small-specimens"
+        },
+        {
+          "type": "combine",
+          "a": "public-trial",
+          "b": "water-company-cases"
+        },
+        {
+          "type": "combine",
+          "a": "waterborne-pattern",
+          "b": "clean-water-change"
+        },
+        {
+          "type": "combine",
+          "a": "waterborne-pattern",
+          "b": "bad-air-claim"
+        },
+        {
+          "type": "combine",
+          "a": "microscopic-life",
+          "b": "sterile-broth"
+        },
+        {
+          "type": "combine",
+          "a": "microbial-growth",
+          "b": "fermenting-cultures"
+        },
+        {
+          "type": "combine",
+          "a": "living-fermentation",
+          "b": "cell-free-extract"
+        },
+        {
+          "type": "advance"
+        }
+      ]
+    },
+    {
+      "id": "after-moving-earth-geology",
+      "label": "After An Earth that moves",
+      "actions": [
+        {
+          "type": "combine",
+          "a": "watch-records",
+          "b": "watch-gaps"
+        },
+        {
+          "type": "combine",
+          "a": "sky-archive",
+          "b": "lunar-calendar"
+        },
+        {
+          "type": "combine",
+          "a": "eclipse-pattern",
+          "b": "watch-gaps"
+        },
+        {
+          "type": "combine",
+          "a": "eclipse-pattern",
+          "b": "omen-series"
+        },
+        {
+          "type": "combine",
+          "a": "lunar-calendar",
+          "b": "river-seasons"
+        },
+        {
+          "type": "combine",
+          "a": "seasonal-calendar",
+          "b": "festival-days"
+        },
+        {
+          "type": "combine",
+          "a": "salt-crystals",
+          "b": "fresh-fish"
+        },
+        {
+          "type": "combine",
+          "a": "salted-fish",
+          "b": "grain-store"
+        },
+        {
+          "type": "advance"
+        },
+        {
+          "type": "combine",
+          "a": "eclipse-pattern",
+          "b": "earth-between"
+        },
+        {
+          "type": "combine",
+          "a": "natural-eclipse",
+          "b": "repeat-conditions"
+        },
+        {
+          "type": "combine",
+          "a": "repay-debts",
+          "b": "weapon-request"
+        },
+        {
+          "type": "combine",
+          "a": "debt-objection",
+          "b": "ask-common"
+        },
+        {
+          "type": "combine",
+          "a": "examined-definition",
+          "b": "prestige"
+        },
+        {
+          "type": "combine",
+          "a": "natural-eclipse",
+          "b": "portent-and-pattern"
+        },
+        {
+          "type": "combine",
+          "a": "conditional-cause",
+          "b": "examined-definition"
+        },
+        {
+          "type": "advance"
+        },
+        {
+          "type": "combine",
+          "a": "examined-definition",
+          "b": "changing-beauty"
+        },
+        {
+          "type": "combine",
+          "a": "stable-forms",
+          "b": "form-in-thing"
+        },
+        {
+          "type": "combine",
+          "a": "animal-observations",
+          "b": "parts-work"
+        },
+        {
+          "type": "combine",
+          "a": "animal-kinds",
+          "b": "form-in-particular"
+        },
+        {
+          "type": "combine",
+          "a": "part-and-function",
+          "b": "statue-causes"
+        },
+        {
+          "type": "combine",
+          "a": "answerable-claims",
+          "b": "mortal-premises"
+        },
+        {
+          "type": "combine",
+          "a": "valid-inference",
+          "b": "false-premise"
+        },
+        {
+          "type": "combine",
+          "a": "examined-life",
+          "b": "practised-courage"
+        },
+        {
+          "type": "combine",
+          "a": "stable-forms",
+          "b": "cave-shadows"
+        },
+        {
+          "type": "advance"
+        },
+        {
+          "type": "combine",
+          "a": "few-needs",
+          "b": "royal-favour"
+        },
+        {
+          "type": "combine",
+          "a": "examined-life",
+          "b": "public-convention"
+        },
+        {
+          "type": "combine",
+          "a": "cultivated-virtue",
+          "b": "judgment-response"
+        },
+        {
+          "type": "combine",
+          "a": "stoic-control",
+          "b": "shared-reason"
+        },
+        {
+          "type": "combine",
+          "a": "atoms-void",
+          "b": "death-sensation"
+        },
+        {
+          "type": "combine",
+          "a": "release-from-terror",
+          "b": "friendship-meal"
+        },
+        {
+          "type": "combine",
+          "a": "answerable-claims",
+          "b": "equal-appearances"
+        },
+        {
+          "type": "advance"
+        },
+        {
+          "type": "combine",
+          "a": "valid-inference",
+          "b": "geometric-postulates"
+        },
+        {
+          "type": "combine",
+          "a": "deductive-geometry",
+          "b": "curved-earth-signs"
+        },
+        {
+          "type": "combine",
+          "a": "spherical-earth",
+          "b": "measured-journey"
+        },
+        {
+          "type": "combine",
+          "a": "sky-archive",
+          "b": "planet-positions"
+        },
+        {
+          "type": "combine",
+          "a": "planetary-archive",
+          "b": "circular-models"
+        },
+        {
+          "type": "combine",
+          "a": "ptolemaic-model",
+          "b": "forecast-check"
+        },
+        {
+          "type": "combine",
+          "a": "eclipse-pattern",
+          "b": "geared-wheels"
+        },
+        {
+          "type": "combine",
+          "a": "parallel-copies",
+          "b": "editorial-marks"
+        },
+        {
+          "type": "combine",
+          "a": "textual-variants",
+          "b": "answerable-claims"
+        },
+        {
+          "type": "advance"
+        },
+        {
+          "type": "combine",
+          "a": "valid-inference",
+          "b": "syriac-greek-copies"
+        },
+        {
+          "type": "combine",
+          "a": "four-causes",
+          "b": "arabic-terms"
+        },
+        {
+          "type": "combine",
+          "a": "ptolemaic-model",
+          "b": "revised-observations"
+        },
+        {
+          "type": "combine",
+          "a": "indian-numerals",
+          "b": "merchant-accounts"
+        },
+        {
+          "type": "combine",
+          "a": "positional-reckoning",
+          "b": "inheritance-relations"
+        },
+        {
+          "type": "combine",
+          "a": "arabic-nature",
+          "b": "essence-existence"
+        },
+        {
+          "type": "combine",
+          "a": "contingent-being",
+          "b": "dependent-existence"
+        },
+        {
+          "type": "combine",
+          "a": "arabic-logic",
+          "b": "commentator-questions"
+        },
+        {
+          "type": "advance"
+        },
+        {
+          "type": "combine",
+          "a": "arabic-nature",
+          "b": "emitted-sight"
+        },
+        {
+          "type": "combine",
+          "a": "vision-dispute",
+          "b": "bright-light"
+        },
+        {
+          "type": "combine",
+          "a": "light-into-eye",
+          "b": "straight-paths"
+        },
+        {
+          "type": "combine",
+          "a": "geometric-optics",
+          "b": "aperture-screen"
+        },
+        {
+          "type": "combine",
+          "a": "pinhole-box",
+          "b": "@optical-darkroom"
+        },
+        {
+          "type": "combine",
+          "a": "glass-blank",
+          "b": "lens-grinding"
+        },
+        {
+          "type": "combine",
+          "a": "ground-lens",
+          "b": "geometric-optics"
+        },
+        {
+          "type": "combine",
+          "a": "light-into-eye",
+          "b": "size-illusion"
+        },
+        {
+          "type": "advance"
+        },
+        {
+          "type": "combine",
+          "a": "arabic-logic",
+          "b": "latin-translators"
+        },
+        {
+          "type": "combine",
+          "a": "latin-aristotle",
+          "b": "active-commentary"
+        },
+        {
+          "type": "combine",
+          "a": "necessary-being",
+          "b": "revelation-text"
+        },
+        {
+          "type": "combine",
+          "a": "commentaries-in-dispute",
+          "b": "objection-reply"
+        },
+        {
+          "type": "combine",
+          "a": "stable-forms",
+          "b": "common-name"
+        },
+        {
+          "type": "combine",
+          "a": "form-in-particular",
+          "b": "common-name"
+        },
+        {
+          "type": "combine",
+          "a": "real-universal",
+          "b": "nominal-kinds"
+        },
+        {
+          "type": "combine",
+          "a": "four-causes",
+          "b": "extra-entities"
+        },
+        {
+          "type": "combine",
+          "a": "reason-faith-distinction",
+          "b": "created-nature"
+        },
+        {
+          "type": "advance"
+        },
+        {
+          "type": "combine",
+          "a": "paper-sheets",
+          "b": "block-printing"
+        },
+        {
+          "type": "combine",
+          "a": "paper-sheets",
+          "b": "movable-type"
+        },
+        {
+          "type": "combine",
+          "a": "critical-edition",
+          "b": "type-printed-edition"
+        },
+        {
+          "type": "combine",
+          "a": "latin-aristotle",
+          "b": "greek-codex"
+        },
+        {
+          "type": "combine",
+          "a": "parallel-translations",
+          "b": "word-difference"
+        },
+        {
+          "type": "combine",
+          "a": "stable-forms",
+          "b": "hermetic-dialogues"
+        },
+        {
+          "type": "combine",
+          "a": "ancient-wisdom-claim",
+          "b": "datable-language"
+        },
+        {
+          "type": "combine",
+          "a": "reproducible-page",
+          "b": "print-censors"
+        },
+        {
+          "type": "combine",
+          "a": "compared-edition",
+          "b": "deductive-geometry"
+        },
+        {
+          "type": "advance"
+        },
+        {
+          "type": "combine",
+          "a": "geometric-optics",
+          "b": "picture-plane"
+        },
+        {
+          "type": "combine",
+          "a": "window-projection",
+          "b": "receding-street"
+        },
+        {
+          "type": "combine",
+          "a": "vanishing-direction",
+          "b": "fixed-eye"
+        },
+        {
+          "type": "combine",
+          "a": "linear-perspective",
+          "b": "viewer-moves"
+        },
+        {
+          "type": "combine",
+          "a": "linear-perspective",
+          "b": "mirror-comparison"
+        },
+        {
+          "type": "combine",
+          "a": "measurable-earth",
+          "b": "coordinate-grid"
+        },
+        {
+          "type": "combine",
+          "a": "mapped-globe",
+          "b": "flat-map-sheet"
+        },
+        {
+          "type": "combine",
+          "a": "flat-projection",
+          "b": "bearing-priority"
+        },
+        {
+          "type": "combine",
+          "a": "bearing-chart",
+          "b": "polar-stretch"
+        },
+        {
+          "type": "advance"
+        },
+        {
+          "type": "combine",
+          "a": "ground-lens",
+          "b": "telescope-tube"
+        },
+        {
+          "type": "combine",
+          "a": "telescope",
+          "b": "moon-detail"
+        },
+        {
+          "type": "combine",
+          "a": "telescope",
+          "b": "jupiter-points"
+        },
+        {
+          "type": "combine",
+          "a": "ptolemaic-model",
+          "b": "copernican-order"
+        },
+        {
+          "type": "combine",
+          "a": "copernican-world",
+          "b": "retrograde-appearance"
+        },
+        {
+          "type": "combine",
+          "a": "telescope",
+          "b": "venus-phase-series"
+        },
+        {
+          "type": "combine",
+          "a": "venus-phases",
+          "b": "ptolemaic-model"
+        },
+        {
+          "type": "combine",
+          "a": "strict-ptolemy-challenged",
+          "b": "tycho-model"
+        },
+        {
+          "type": "combine",
+          "a": "copernican-world",
+          "b": "mars-mismatch"
+        },
+        {
+          "type": "combine",
+          "a": "kepler-ellipse",
+          "b": "harmony-ideal"
+        },
+        {
+          "type": "advance"
+        },
+        {
+          "type": "combine",
+          "a": "conditional-cause",
+          "b": "craft-records"
+        },
+        {
+          "type": "combine",
+          "a": "working-natural-history",
+          "b": "favoured-cases"
+        },
+        {
+          "type": "combine",
+          "a": "sun-warmth",
+          "b": "flame-warmth"
+        },
+        {
+          "type": "combine",
+          "a": "heat-light-conjecture",
+          "b": "moonlight-cool"
+        },
+        {
+          "type": "combine",
+          "a": "light-not-sufficient",
+          "b": "friction-warmth"
+        },
+        {
+          "type": "combine",
+          "a": "heat-beyond-light",
+          "b": "matched-wood"
+        },
+        {
+          "type": "combine",
+          "a": "active-commentary",
+          "b": "burton-sources"
+        },
+        {
+          "type": "combine",
+          "a": "contested-publication",
+          "b": "shared-method"
+        },
+        {
+          "type": "combine",
+          "a": "pinhole-box",
+          "b": "natural-magic-secrets"
+        },
+        {
+          "type": "combine",
+          "a": "rubbing-intervention",
+          "b": "public-trial"
+        },
+        {
+          "type": "advance"
+        },
+        {
+          "type": "combine",
+          "a": "four-causes",
+          "b": "matter-motion"
+        },
+        {
+          "type": "combine",
+          "a": "mechanical-sky",
+          "b": "moving-figure"
+        },
+        {
+          "type": "combine",
+          "a": "clockwork-figure",
+          "b": "lifelike-claim"
+        },
+        {
+          "type": "combine",
+          "a": "kepler-ellipse",
+          "b": "falling-stone"
+        },
+        {
+          "type": "combine",
+          "a": "falling-moon",
+          "b": "revised-harmony"
+        },
+        {
+          "type": "combine",
+          "a": "geometric-optics",
+          "b": "prism-spectrum"
+        },
+        {
+          "type": "combine",
+          "a": "part-and-function",
+          "b": "one-way-valves"
+        },
+        {
+          "type": "combine",
+          "a": "one-way-circulation",
+          "b": "heart-contraction"
+        },
+        {
+          "type": "combine",
+          "a": "universal-gravitation",
+          "b": "universal-time"
+        },
+        {
+          "type": "advance"
+        },
+        {
+          "type": "combine",
+          "a": "shared-year",
+          "b": "regular-oscillation"
+        },
+        {
+          "type": "combine",
+          "a": "equal-hours",
+          "b": "portable-clock"
+        },
+        {
+          "type": "combine",
+          "a": "reference-timekeeper",
+          "b": "local-noon"
+        },
+        {
+          "type": "combine",
+          "a": "reference-timekeeper",
+          "b": "@longitude-sea"
+        },
+        {
+          "type": "combine",
+          "a": "planetary-archive",
+          "b": "moon-table"
+        },
+        {
+          "type": "combine",
+          "a": "lunar-reference",
+          "b": "local-noon"
+        },
+        {
+          "type": "combine",
+          "a": "ptolemy-questioned",
+          "b": "indian-persian-tables"
+        },
+        {
+          "type": "combine",
+          "a": "jaipur-comparison",
+          "b": "masonry-sightlines"
+        },
+        {
+          "type": "combine",
+          "a": "bearing-chart",
+          "b": "time-longitude"
+        },
+        {
+          "type": "combine",
+          "a": "positioned-sea-route",
+          "b": "travel-provisions"
+        },
+        {
+          "type": "advance"
+        },
+        {
+          "type": "combine",
+          "a": "contested-publication",
+          "b": "craft-plates"
+        },
+        {
+          "type": "combine",
+          "a": "encyclopedic-craft",
+          "b": "cross-references"
+        },
+        {
+          "type": "combine",
+          "a": "shared-heat-inquiry",
+          "b": "causal-habit"
+        },
+        {
+          "type": "combine",
+          "a": "problem-of-induction",
+          "b": "forms-of-experience"
+        },
+        {
+          "type": "combine",
+          "a": "cynic-sufficiency",
+          "b": "luxury-status"
+        },
+        {
+          "type": "combine",
+          "a": "cosmopolis",
+          "b": "rights-declaration"
+        },
+        {
+          "type": "combine",
+          "a": "universal-rights",
+          "b": "women-excluded"
+        },
+        {
+          "type": "combine",
+          "a": "universal-rights",
+          "b": "enslaved-testimony"
+        },
+        {
+          "type": "combine",
+          "a": "formal-disputation",
+          "b": "public-readers"
+        },
+        {
+          "type": "advance"
+        },
+        {
+          "type": "combine",
+          "a": "luxury-trade",
+          "b": "mandeville-hive"
+        },
+        {
+          "type": "combine",
+          "a": "pin-workshop",
+          "b": "market-exchange"
+        },
+        {
+          "type": "combine",
+          "a": "division-of-labour",
+          "b": "narrowed-work"
+        },
+        {
+          "type": "combine",
+          "a": "private-vice-public-benefit",
+          "b": "garden-pleasure"
+        },
+        {
+          "type": "combine",
+          "a": "population-growth",
+          "b": "food-constraints"
+        },
+        {
+          "type": "combine",
+          "a": "population-pressure",
+          "b": "universal-rights"
+        },
+        {
+          "type": "combine",
+          "a": "provisioned-route",
+          "b": "regional-goods"
+        },
+        {
+          "type": "combine",
+          "a": "long-distance-exchange",
+          "b": "coerced-labour"
+        },
+        {
+          "type": "combine",
+          "a": "specialization-cost",
+          "b": "cultivated-virtue"
+        },
+        {
+          "type": "advance"
+        },
+        {
+          "type": "combine",
+          "a": "animal-kinds",
+          "b": "shell-in-rock"
+        },
+        {
+          "type": "combine",
+          "a": "organic-fossil",
+          "b": "layer-sequence"
+        },
+        {
+          "type": "combine",
+          "a": "relative-strata",
+          "b": "matching-fossils"
+        },
+        {
+          "type": "combine",
+          "a": "conditional-cause",
+          "b": "erosion-deposition"
+        },
+        {
+          "type": "combine",
+          "a": "process-history",
+          "b": "tilted-below-level"
+        },
+        {
+          "type": "combine",
+          "a": "cycles-in-rock",
+          "b": "correlated-strata"
+        },
+        {
+          "type": "combine",
+          "a": "organic-fossil",
+          "b": "lost-animals"
+        },
+        {
+          "type": "combine",
+          "a": "deep-time-world",
+          "b": "sudden-disruption"
+        },
+        {
+          "type": "combine",
+          "a": "correlated-strata",
+          "b": "deep-time-world"
+        },
+        {
+          "type": "advance"
+        },
+        {
+          "type": "combine",
+          "a": "animal-kinds",
+          "b": "binomial-names"
+        },
+        {
+          "type": "combine",
+          "a": "named-species",
+          "b": "altitude-plants"
+        },
+        {
+          "type": "combine",
+          "a": "named-species",
+          "b": "use-disuse"
+        },
+        {
+          "type": "combine",
+          "a": "heritable-variation",
+          "b": "breeders-choices"
+        },
+        {
+          "type": "combine",
+          "a": "population-pressure",
+          "b": "heritable-variation"
+        },
+        {
+          "type": "combine",
+          "a": "struggle-for-existence",
+          "b": "differential-survival"
+        },
+        {
+          "type": "combine",
+          "a": "natural-selection",
+          "b": "deep-time-world"
+        },
+        {
+          "type": "combine",
+          "a": "cumulative-evolution",
+          "b": "island-relations"
+        },
+        {
+          "type": "combine",
+          "a": "branching-descent",
+          "b": "transforming-species"
+        },
+        {
+          "type": "combine",
+          "a": "cumulative-evolution",
+          "b": "inheritance-puzzle"
+        },
+        {
+          "type": "advance"
+        },
+        {
+          "type": "combine",
+          "a": "division-of-labour",
+          "b": "steam-engine"
+        },
+        {
+          "type": "combine",
+          "a": "industrial-production",
+          "b": "coal-feed"
+        },
+        {
+          "type": "combine",
+          "a": "work-as-a-human-question",
+          "b": "wage-owner"
+        },
+        {
+          "type": "combine",
+          "a": "alienated-work",
+          "b": "craft-pleasure"
+        },
+        {
+          "type": "combine",
+          "a": "natural-selection",
+          "b": "mutual-survival"
+        },
+        {
+          "type": "combine",
+          "a": "cooperation-in-evolution",
+          "b": "scarcity-and-justice"
+        },
+        {
+          "type": "combine",
+          "a": "alienated-work",
+          "b": "factory-speed"
+        },
+        {
+          "type": "advance"
+        },
+        {
+          "type": "combine",
+          "a": "magnified-view",
+          "b": "small-specimens"
+        },
+        {
+          "type": "combine",
+          "a": "public-trial",
+          "b": "water-company-cases"
+        },
+        {
+          "type": "combine",
+          "a": "waterborne-pattern",
+          "b": "clean-water-change"
+        },
+        {
+          "type": "combine",
+          "a": "waterborne-pattern",
+          "b": "bad-air-claim"
+        },
+        {
+          "type": "combine",
+          "a": "microscopic-life",
+          "b": "sterile-broth"
+        },
+        {
+          "type": "combine",
+          "a": "microbial-growth",
+          "b": "fermenting-cultures"
+        },
+        {
+          "type": "combine",
+          "a": "living-fermentation",
+          "b": "cell-free-extract"
+        },
+        {
+          "type": "advance"
+        },
+        {
+          "type": "combine",
+          "a": "mechanical-nature",
+          "b": "current-near-compass"
+        },
+        {
+          "type": "combine",
+          "a": "electromagnetic-link",
+          "b": "changing-magnet"
+        },
+        {
+          "type": "combine",
+          "a": "induction",
+          "b": "field-lines"
+        },
+        {
+          "type": "combine",
+          "a": "maxwell-equations",
+          "b": "light-wave-speed"
+        },
+        {
+          "type": "combine",
+          "a": "reference-timekeeper",
+          "b": "telegraph-wire"
+        },
+        {
+          "type": "combine",
+          "a": "networked-time",
+          "b": "railway-timetables"
+        },
+        {
+          "type": "combine",
+          "a": "pinhole-box",
+          "b": "light-sensitive-plate"
+        },
+        {
+          "type": "combine",
+          "a": "photographic-trace",
+          "b": "viewpoint-occlusion"
+        },
+        {
+          "type": "combine",
+          "a": "photographic-trace",
+          "b": "reproducible-negative"
+        },
+        {
+          "type": "advance"
+        },
+        {
+          "type": "combine",
+          "a": "melancholy-many-sources",
+          "b": "stream-of-thought"
+        },
+        {
+          "type": "combine",
+          "a": "standard-time",
+          "b": "remembered-melody"
+        },
+        {
+          "type": "combine",
+          "a": "inner-continuity",
+          "b": "freud-dream"
+        },
+        {
+          "type": "combine",
+          "a": "interpreted-dream",
+          "b": "free-association"
+        },
+        {
+          "type": "combine",
+          "a": "framed-photograph",
+          "b": "chance-encounter"
+        },
+        {
+          "type": "combine",
+          "a": "surreal-encounter",
+          "b": "political-art"
+        },
+        {
+          "type": "combine",
+          "a": "lived-duration",
+          "b": "inner-continuity"
+        },
+        {
+          "type": "advance"
+        },
+        {
+          "type": "combine",
+          "a": "networked-time",
+          "b": "light-clock-rule"
+        },
+        {
+          "type": "combine",
+          "a": "signal-synchronized-clocks",
+          "b": "platform-flashes"
+        },
+        {
+          "type": "combine",
+          "a": "platform-simultaneity",
+          "b": "passenger-motion"
+        },
+        {
+          "type": "combine",
+          "a": "unequal-passenger-reception",
+          "b": "light-invariance"
+        },
+        {
+          "type": "combine",
+          "a": "frame-dependent-simultaneity",
+          "b": "relativity-principle"
+        },
+        {
+          "type": "combine",
+          "a": "special-relativity",
+          "b": "newtonian-framework"
+        },
+        {
+          "type": "combine",
+          "a": "universal-gravitation",
+          "b": "falling-room"
+        },
+        {
+          "type": "combine",
+          "a": "local-equivalence",
+          "b": "curved-spacetime-claim"
+        },
+        {
+          "type": "combine",
+          "a": "geometric-gravity",
+          "b": "light-deflection"
+        },
+        {
+          "type": "advance"
+        },
+        {
+          "type": "combine",
+          "a": "mapped-globe",
+          "b": "opposite-shores"
+        },
+        {
+          "type": "combine",
+          "a": "reassembled-continents",
+          "b": "shared-fossil-belts"
+        },
+        {
+          "type": "combine",
+          "a": "continental-drift-case",
+          "b": "weak-drift-force"
+        },
+        {
+          "type": "combine",
+          "a": "radioactive-decay",
+          "b": "mineral-isotopes"
+        },
+        {
+          "type": "combine",
+          "a": "age-still-open",
+          "b": "mineral-clock"
+        },
+        {
+          "type": "combine",
+          "a": "absolute-age-possible",
+          "b": "meteorite-lead"
+        },
+        {
+          "type": "combine",
+          "a": "ocean-ridge",
+          "b": "magnetic-stripes"
+        },
+        {
+          "type": "combine",
+          "a": "drift-without-drive",
+          "b": "seafloor-spreading"
+        },
+        {
+          "type": "combine",
+          "a": "mobile-plates",
+          "b": "subduction-evidence"
+        },
+        {
+          "type": "combine",
+          "a": "recycled-crust",
+          "b": "geography-of-life"
+        },
+        {
+          "type": "advance"
+        }
+      ]
+    },
+    {
+      "id": "after-planet",
+      "label": "After The planet enters the laboratory",
+      "actions": [
+        {
+          "type": "combine",
+          "a": "watch-records",
+          "b": "watch-gaps"
+        },
+        {
+          "type": "combine",
+          "a": "sky-archive",
+          "b": "lunar-calendar"
+        },
+        {
+          "type": "combine",
+          "a": "eclipse-pattern",
+          "b": "watch-gaps"
+        },
+        {
+          "type": "combine",
+          "a": "eclipse-pattern",
+          "b": "omen-series"
+        },
+        {
+          "type": "combine",
+          "a": "lunar-calendar",
+          "b": "river-seasons"
+        },
+        {
+          "type": "combine",
+          "a": "seasonal-calendar",
+          "b": "festival-days"
+        },
+        {
+          "type": "combine",
+          "a": "salt-crystals",
+          "b": "fresh-fish"
+        },
+        {
+          "type": "combine",
+          "a": "salted-fish",
+          "b": "grain-store"
+        },
+        {
+          "type": "advance"
+        },
+        {
+          "type": "combine",
+          "a": "eclipse-pattern",
+          "b": "earth-between"
+        },
+        {
+          "type": "combine",
+          "a": "natural-eclipse",
+          "b": "repeat-conditions"
+        },
+        {
+          "type": "combine",
+          "a": "repay-debts",
+          "b": "weapon-request"
+        },
+        {
+          "type": "combine",
+          "a": "debt-objection",
+          "b": "ask-common"
+        },
+        {
+          "type": "combine",
+          "a": "examined-definition",
+          "b": "prestige"
+        },
+        {
+          "type": "combine",
+          "a": "natural-eclipse",
+          "b": "portent-and-pattern"
+        },
+        {
+          "type": "combine",
+          "a": "conditional-cause",
+          "b": "examined-definition"
+        },
+        {
+          "type": "advance"
+        },
+        {
+          "type": "combine",
+          "a": "examined-definition",
+          "b": "changing-beauty"
+        },
+        {
+          "type": "combine",
+          "a": "stable-forms",
+          "b": "form-in-thing"
+        },
+        {
+          "type": "combine",
+          "a": "animal-observations",
+          "b": "parts-work"
+        },
+        {
+          "type": "combine",
+          "a": "animal-kinds",
+          "b": "form-in-particular"
+        },
+        {
+          "type": "combine",
+          "a": "part-and-function",
+          "b": "statue-causes"
+        },
+        {
+          "type": "combine",
+          "a": "answerable-claims",
+          "b": "mortal-premises"
+        },
+        {
+          "type": "combine",
+          "a": "valid-inference",
+          "b": "false-premise"
+        },
+        {
+          "type": "combine",
+          "a": "examined-life",
+          "b": "practised-courage"
+        },
+        {
+          "type": "combine",
+          "a": "stable-forms",
+          "b": "cave-shadows"
+        },
+        {
+          "type": "advance"
+        },
+        {
+          "type": "combine",
+          "a": "few-needs",
+          "b": "royal-favour"
+        },
+        {
+          "type": "combine",
+          "a": "examined-life",
+          "b": "public-convention"
+        },
+        {
+          "type": "combine",
+          "a": "cultivated-virtue",
+          "b": "judgment-response"
+        },
+        {
+          "type": "combine",
+          "a": "stoic-control",
+          "b": "shared-reason"
+        },
+        {
+          "type": "combine",
+          "a": "atoms-void",
+          "b": "death-sensation"
+        },
+        {
+          "type": "combine",
+          "a": "release-from-terror",
+          "b": "friendship-meal"
+        },
+        {
+          "type": "combine",
+          "a": "answerable-claims",
+          "b": "equal-appearances"
+        },
+        {
+          "type": "advance"
+        },
+        {
+          "type": "combine",
+          "a": "valid-inference",
+          "b": "geometric-postulates"
+        },
+        {
+          "type": "combine",
+          "a": "deductive-geometry",
+          "b": "curved-earth-signs"
+        },
+        {
+          "type": "combine",
+          "a": "spherical-earth",
+          "b": "measured-journey"
+        },
+        {
+          "type": "combine",
+          "a": "sky-archive",
+          "b": "planet-positions"
+        },
+        {
+          "type": "combine",
+          "a": "planetary-archive",
+          "b": "circular-models"
+        },
+        {
+          "type": "combine",
+          "a": "ptolemaic-model",
+          "b": "forecast-check"
+        },
+        {
+          "type": "combine",
+          "a": "eclipse-pattern",
+          "b": "geared-wheels"
+        },
+        {
+          "type": "combine",
+          "a": "parallel-copies",
+          "b": "editorial-marks"
+        },
+        {
+          "type": "combine",
+          "a": "textual-variants",
+          "b": "answerable-claims"
+        },
+        {
+          "type": "advance"
+        },
+        {
+          "type": "combine",
+          "a": "valid-inference",
+          "b": "syriac-greek-copies"
+        },
+        {
+          "type": "combine",
+          "a": "four-causes",
+          "b": "arabic-terms"
+        },
+        {
+          "type": "combine",
+          "a": "ptolemaic-model",
+          "b": "revised-observations"
+        },
+        {
+          "type": "combine",
+          "a": "indian-numerals",
+          "b": "merchant-accounts"
+        },
+        {
+          "type": "combine",
+          "a": "positional-reckoning",
+          "b": "inheritance-relations"
+        },
+        {
+          "type": "combine",
+          "a": "arabic-nature",
+          "b": "essence-existence"
+        },
+        {
+          "type": "combine",
+          "a": "contingent-being",
+          "b": "dependent-existence"
+        },
+        {
+          "type": "combine",
+          "a": "arabic-logic",
+          "b": "commentator-questions"
+        },
+        {
+          "type": "advance"
+        },
+        {
+          "type": "combine",
+          "a": "arabic-nature",
+          "b": "emitted-sight"
+        },
+        {
+          "type": "combine",
+          "a": "vision-dispute",
+          "b": "bright-light"
+        },
+        {
+          "type": "combine",
+          "a": "light-into-eye",
+          "b": "straight-paths"
+        },
+        {
+          "type": "combine",
+          "a": "geometric-optics",
+          "b": "aperture-screen"
+        },
+        {
+          "type": "combine",
+          "a": "pinhole-box",
+          "b": "@optical-darkroom"
+        },
+        {
+          "type": "combine",
+          "a": "glass-blank",
+          "b": "lens-grinding"
+        },
+        {
+          "type": "combine",
+          "a": "ground-lens",
+          "b": "geometric-optics"
+        },
+        {
+          "type": "combine",
+          "a": "light-into-eye",
+          "b": "size-illusion"
+        },
+        {
+          "type": "advance"
+        },
+        {
+          "type": "combine",
+          "a": "arabic-logic",
+          "b": "latin-translators"
+        },
+        {
+          "type": "combine",
+          "a": "latin-aristotle",
+          "b": "active-commentary"
+        },
+        {
+          "type": "combine",
+          "a": "necessary-being",
+          "b": "revelation-text"
+        },
+        {
+          "type": "combine",
+          "a": "commentaries-in-dispute",
+          "b": "objection-reply"
+        },
+        {
+          "type": "combine",
+          "a": "stable-forms",
+          "b": "common-name"
+        },
+        {
+          "type": "combine",
+          "a": "form-in-particular",
+          "b": "common-name"
+        },
+        {
+          "type": "combine",
+          "a": "real-universal",
+          "b": "nominal-kinds"
+        },
+        {
+          "type": "combine",
+          "a": "four-causes",
+          "b": "extra-entities"
+        },
+        {
+          "type": "combine",
+          "a": "reason-faith-distinction",
+          "b": "created-nature"
+        },
+        {
+          "type": "advance"
+        },
+        {
+          "type": "combine",
+          "a": "paper-sheets",
+          "b": "block-printing"
+        },
+        {
+          "type": "combine",
+          "a": "paper-sheets",
+          "b": "movable-type"
+        },
+        {
+          "type": "combine",
+          "a": "critical-edition",
+          "b": "type-printed-edition"
+        },
+        {
+          "type": "combine",
+          "a": "latin-aristotle",
+          "b": "greek-codex"
+        },
+        {
+          "type": "combine",
+          "a": "parallel-translations",
+          "b": "word-difference"
+        },
+        {
+          "type": "combine",
+          "a": "stable-forms",
+          "b": "hermetic-dialogues"
+        },
+        {
+          "type": "combine",
+          "a": "ancient-wisdom-claim",
+          "b": "datable-language"
+        },
+        {
+          "type": "combine",
+          "a": "reproducible-page",
+          "b": "print-censors"
+        },
+        {
+          "type": "combine",
+          "a": "compared-edition",
+          "b": "deductive-geometry"
+        },
+        {
+          "type": "advance"
+        },
+        {
+          "type": "combine",
+          "a": "geometric-optics",
+          "b": "picture-plane"
+        },
+        {
+          "type": "combine",
+          "a": "window-projection",
+          "b": "receding-street"
+        },
+        {
+          "type": "combine",
+          "a": "vanishing-direction",
+          "b": "fixed-eye"
+        },
+        {
+          "type": "combine",
+          "a": "linear-perspective",
+          "b": "viewer-moves"
+        },
+        {
+          "type": "combine",
+          "a": "linear-perspective",
+          "b": "mirror-comparison"
+        },
+        {
+          "type": "combine",
+          "a": "measurable-earth",
+          "b": "coordinate-grid"
+        },
+        {
+          "type": "combine",
+          "a": "mapped-globe",
+          "b": "flat-map-sheet"
+        },
+        {
+          "type": "combine",
+          "a": "flat-projection",
+          "b": "bearing-priority"
+        },
+        {
+          "type": "combine",
+          "a": "bearing-chart",
+          "b": "polar-stretch"
+        },
+        {
+          "type": "advance"
+        },
+        {
+          "type": "combine",
+          "a": "ground-lens",
+          "b": "telescope-tube"
+        },
+        {
+          "type": "combine",
+          "a": "telescope",
+          "b": "moon-detail"
+        },
+        {
+          "type": "combine",
+          "a": "telescope",
+          "b": "jupiter-points"
+        },
+        {
+          "type": "combine",
+          "a": "ptolemaic-model",
+          "b": "copernican-order"
+        },
+        {
+          "type": "combine",
+          "a": "copernican-world",
+          "b": "retrograde-appearance"
+        },
+        {
+          "type": "combine",
+          "a": "telescope",
+          "b": "venus-phase-series"
+        },
+        {
+          "type": "combine",
+          "a": "venus-phases",
+          "b": "ptolemaic-model"
+        },
+        {
+          "type": "combine",
+          "a": "strict-ptolemy-challenged",
+          "b": "tycho-model"
+        },
+        {
+          "type": "combine",
+          "a": "copernican-world",
+          "b": "mars-mismatch"
+        },
+        {
+          "type": "combine",
+          "a": "kepler-ellipse",
+          "b": "harmony-ideal"
+        },
+        {
+          "type": "advance"
+        },
+        {
+          "type": "combine",
+          "a": "conditional-cause",
+          "b": "craft-records"
+        },
+        {
+          "type": "combine",
+          "a": "working-natural-history",
+          "b": "favoured-cases"
+        },
+        {
+          "type": "combine",
+          "a": "sun-warmth",
+          "b": "flame-warmth"
+        },
+        {
+          "type": "combine",
+          "a": "heat-light-conjecture",
+          "b": "moonlight-cool"
+        },
+        {
+          "type": "combine",
+          "a": "light-not-sufficient",
+          "b": "friction-warmth"
+        },
+        {
+          "type": "combine",
+          "a": "heat-beyond-light",
+          "b": "matched-wood"
+        },
+        {
+          "type": "combine",
+          "a": "active-commentary",
+          "b": "burton-sources"
+        },
+        {
+          "type": "combine",
+          "a": "contested-publication",
+          "b": "shared-method"
+        },
+        {
+          "type": "combine",
+          "a": "pinhole-box",
+          "b": "natural-magic-secrets"
+        },
+        {
+          "type": "combine",
+          "a": "rubbing-intervention",
+          "b": "public-trial"
+        },
+        {
+          "type": "advance"
+        },
+        {
+          "type": "combine",
+          "a": "four-causes",
+          "b": "matter-motion"
+        },
+        {
+          "type": "combine",
+          "a": "mechanical-sky",
+          "b": "moving-figure"
+        },
+        {
+          "type": "combine",
+          "a": "clockwork-figure",
+          "b": "lifelike-claim"
+        },
+        {
+          "type": "combine",
+          "a": "kepler-ellipse",
+          "b": "falling-stone"
+        },
+        {
+          "type": "combine",
+          "a": "falling-moon",
+          "b": "revised-harmony"
+        },
+        {
+          "type": "combine",
+          "a": "geometric-optics",
+          "b": "prism-spectrum"
+        },
+        {
+          "type": "combine",
+          "a": "part-and-function",
+          "b": "one-way-valves"
+        },
+        {
+          "type": "combine",
+          "a": "one-way-circulation",
+          "b": "heart-contraction"
+        },
+        {
+          "type": "combine",
+          "a": "universal-gravitation",
+          "b": "universal-time"
+        },
+        {
+          "type": "advance"
+        },
+        {
+          "type": "combine",
+          "a": "shared-year",
+          "b": "regular-oscillation"
+        },
+        {
+          "type": "combine",
+          "a": "equal-hours",
+          "b": "portable-clock"
+        },
+        {
+          "type": "combine",
+          "a": "reference-timekeeper",
+          "b": "local-noon"
+        },
+        {
+          "type": "combine",
+          "a": "reference-timekeeper",
+          "b": "@longitude-sea"
+        },
+        {
+          "type": "combine",
+          "a": "planetary-archive",
+          "b": "moon-table"
+        },
+        {
+          "type": "combine",
+          "a": "lunar-reference",
+          "b": "local-noon"
+        },
+        {
+          "type": "combine",
+          "a": "ptolemy-questioned",
+          "b": "indian-persian-tables"
+        },
+        {
+          "type": "combine",
+          "a": "jaipur-comparison",
+          "b": "masonry-sightlines"
+        },
+        {
+          "type": "combine",
+          "a": "bearing-chart",
+          "b": "time-longitude"
+        },
+        {
+          "type": "combine",
+          "a": "positioned-sea-route",
+          "b": "travel-provisions"
+        },
+        {
+          "type": "advance"
+        },
+        {
+          "type": "combine",
+          "a": "contested-publication",
+          "b": "craft-plates"
+        },
+        {
+          "type": "combine",
+          "a": "encyclopedic-craft",
+          "b": "cross-references"
+        },
+        {
+          "type": "combine",
+          "a": "shared-heat-inquiry",
+          "b": "causal-habit"
+        },
+        {
+          "type": "combine",
+          "a": "problem-of-induction",
+          "b": "forms-of-experience"
+        },
+        {
+          "type": "combine",
+          "a": "cynic-sufficiency",
+          "b": "luxury-status"
+        },
+        {
+          "type": "combine",
+          "a": "cosmopolis",
+          "b": "rights-declaration"
+        },
+        {
+          "type": "combine",
+          "a": "universal-rights",
+          "b": "women-excluded"
+        },
+        {
+          "type": "combine",
+          "a": "universal-rights",
+          "b": "enslaved-testimony"
+        },
+        {
+          "type": "combine",
+          "a": "formal-disputation",
+          "b": "public-readers"
+        },
+        {
+          "type": "advance"
+        },
+        {
+          "type": "combine",
+          "a": "luxury-trade",
+          "b": "mandeville-hive"
+        },
+        {
+          "type": "combine",
+          "a": "pin-workshop",
+          "b": "market-exchange"
+        },
+        {
+          "type": "combine",
+          "a": "division-of-labour",
+          "b": "narrowed-work"
+        },
+        {
+          "type": "combine",
+          "a": "private-vice-public-benefit",
+          "b": "garden-pleasure"
+        },
+        {
+          "type": "combine",
+          "a": "population-growth",
+          "b": "food-constraints"
+        },
+        {
+          "type": "combine",
+          "a": "population-pressure",
+          "b": "universal-rights"
+        },
+        {
+          "type": "combine",
+          "a": "provisioned-route",
+          "b": "regional-goods"
+        },
+        {
+          "type": "combine",
+          "a": "long-distance-exchange",
+          "b": "coerced-labour"
+        },
+        {
+          "type": "combine",
+          "a": "specialization-cost",
+          "b": "cultivated-virtue"
+        },
+        {
+          "type": "advance"
+        },
+        {
+          "type": "combine",
+          "a": "animal-kinds",
+          "b": "shell-in-rock"
+        },
+        {
+          "type": "combine",
+          "a": "organic-fossil",
+          "b": "layer-sequence"
+        },
+        {
+          "type": "combine",
+          "a": "relative-strata",
+          "b": "matching-fossils"
+        },
+        {
+          "type": "combine",
+          "a": "conditional-cause",
+          "b": "erosion-deposition"
+        },
+        {
+          "type": "combine",
+          "a": "process-history",
+          "b": "tilted-below-level"
+        },
+        {
+          "type": "combine",
+          "a": "cycles-in-rock",
+          "b": "correlated-strata"
+        },
+        {
+          "type": "combine",
+          "a": "organic-fossil",
+          "b": "lost-animals"
+        },
+        {
+          "type": "combine",
+          "a": "deep-time-world",
+          "b": "sudden-disruption"
+        },
+        {
+          "type": "combine",
+          "a": "correlated-strata",
+          "b": "deep-time-world"
+        },
+        {
+          "type": "advance"
+        },
+        {
+          "type": "combine",
+          "a": "animal-kinds",
+          "b": "binomial-names"
+        },
+        {
+          "type": "combine",
+          "a": "named-species",
+          "b": "altitude-plants"
+        },
+        {
+          "type": "combine",
+          "a": "named-species",
+          "b": "use-disuse"
+        },
+        {
+          "type": "combine",
+          "a": "heritable-variation",
+          "b": "breeders-choices"
+        },
+        {
+          "type": "combine",
+          "a": "population-pressure",
+          "b": "heritable-variation"
+        },
+        {
+          "type": "combine",
+          "a": "struggle-for-existence",
+          "b": "differential-survival"
+        },
+        {
+          "type": "combine",
+          "a": "natural-selection",
+          "b": "deep-time-world"
+        },
+        {
+          "type": "combine",
+          "a": "cumulative-evolution",
+          "b": "island-relations"
+        },
+        {
+          "type": "combine",
+          "a": "branching-descent",
+          "b": "transforming-species"
+        },
+        {
+          "type": "combine",
+          "a": "cumulative-evolution",
+          "b": "inheritance-puzzle"
+        },
+        {
+          "type": "advance"
+        },
+        {
+          "type": "combine",
+          "a": "division-of-labour",
+          "b": "steam-engine"
+        },
+        {
+          "type": "combine",
+          "a": "industrial-production",
+          "b": "coal-feed"
+        },
+        {
+          "type": "combine",
+          "a": "work-as-a-human-question",
+          "b": "wage-owner"
+        },
+        {
+          "type": "combine",
+          "a": "alienated-work",
+          "b": "craft-pleasure"
+        },
+        {
+          "type": "combine",
+          "a": "natural-selection",
+          "b": "mutual-survival"
+        },
+        {
+          "type": "combine",
+          "a": "cooperation-in-evolution",
+          "b": "scarcity-and-justice"
+        },
+        {
+          "type": "combine",
+          "a": "alienated-work",
+          "b": "factory-speed"
+        },
+        {
+          "type": "advance"
+        },
+        {
+          "type": "combine",
+          "a": "magnified-view",
+          "b": "small-specimens"
+        },
+        {
+          "type": "combine",
+          "a": "public-trial",
+          "b": "water-company-cases"
+        },
+        {
+          "type": "combine",
+          "a": "waterborne-pattern",
+          "b": "clean-water-change"
+        },
+        {
+          "type": "combine",
+          "a": "waterborne-pattern",
+          "b": "bad-air-claim"
+        },
+        {
+          "type": "combine",
+          "a": "microscopic-life",
+          "b": "sterile-broth"
+        },
+        {
+          "type": "combine",
+          "a": "microbial-growth",
+          "b": "fermenting-cultures"
+        },
+        {
+          "type": "combine",
+          "a": "living-fermentation",
+          "b": "cell-free-extract"
+        },
+        {
+          "type": "advance"
+        },
+        {
+          "type": "combine",
+          "a": "mechanical-nature",
+          "b": "current-near-compass"
+        },
+        {
+          "type": "combine",
+          "a": "electromagnetic-link",
+          "b": "changing-magnet"
+        },
+        {
+          "type": "combine",
+          "a": "induction",
+          "b": "field-lines"
+        },
+        {
+          "type": "combine",
+          "a": "maxwell-equations",
+          "b": "light-wave-speed"
+        },
+        {
+          "type": "combine",
+          "a": "reference-timekeeper",
+          "b": "telegraph-wire"
+        },
+        {
+          "type": "combine",
+          "a": "networked-time",
+          "b": "railway-timetables"
+        },
+        {
+          "type": "combine",
+          "a": "pinhole-box",
+          "b": "light-sensitive-plate"
+        },
+        {
+          "type": "combine",
+          "a": "photographic-trace",
+          "b": "viewpoint-occlusion"
+        },
+        {
+          "type": "combine",
+          "a": "photographic-trace",
+          "b": "reproducible-negative"
+        },
+        {
+          "type": "advance"
+        },
+        {
+          "type": "combine",
+          "a": "melancholy-many-sources",
+          "b": "stream-of-thought"
+        },
+        {
+          "type": "combine",
+          "a": "standard-time",
+          "b": "remembered-melody"
+        },
+        {
+          "type": "combine",
+          "a": "inner-continuity",
+          "b": "freud-dream"
+        },
+        {
+          "type": "combine",
+          "a": "interpreted-dream",
+          "b": "free-association"
+        },
+        {
+          "type": "combine",
+          "a": "framed-photograph",
+          "b": "chance-encounter"
+        },
+        {
+          "type": "combine",
+          "a": "surreal-encounter",
+          "b": "political-art"
+        },
+        {
+          "type": "combine",
+          "a": "lived-duration",
+          "b": "inner-continuity"
+        },
+        {
+          "type": "advance"
+        },
+        {
+          "type": "combine",
+          "a": "networked-time",
+          "b": "light-clock-rule"
+        },
+        {
+          "type": "combine",
+          "a": "signal-synchronized-clocks",
+          "b": "platform-flashes"
+        },
+        {
+          "type": "combine",
+          "a": "platform-simultaneity",
+          "b": "passenger-motion"
+        },
+        {
+          "type": "combine",
+          "a": "unequal-passenger-reception",
+          "b": "light-invariance"
+        },
+        {
+          "type": "combine",
+          "a": "frame-dependent-simultaneity",
+          "b": "relativity-principle"
+        },
+        {
+          "type": "combine",
+          "a": "special-relativity",
+          "b": "newtonian-framework"
+        },
+        {
+          "type": "combine",
+          "a": "universal-gravitation",
+          "b": "falling-room"
+        },
+        {
+          "type": "combine",
+          "a": "local-equivalence",
+          "b": "curved-spacetime-claim"
+        },
+        {
+          "type": "combine",
+          "a": "geometric-gravity",
+          "b": "light-deflection"
+        },
+        {
+          "type": "advance"
+        },
+        {
+          "type": "combine",
+          "a": "mapped-globe",
+          "b": "opposite-shores"
+        },
+        {
+          "type": "combine",
+          "a": "reassembled-continents",
+          "b": "shared-fossil-belts"
+        },
+        {
+          "type": "combine",
+          "a": "continental-drift-case",
+          "b": "weak-drift-force"
+        },
+        {
+          "type": "combine",
+          "a": "radioactive-decay",
+          "b": "mineral-isotopes"
+        },
+        {
+          "type": "combine",
+          "a": "age-still-open",
+          "b": "mineral-clock"
+        },
+        {
+          "type": "combine",
+          "a": "absolute-age-possible",
+          "b": "meteorite-lead"
+        },
+        {
+          "type": "combine",
+          "a": "ocean-ridge",
+          "b": "magnetic-stripes"
+        },
+        {
+          "type": "combine",
+          "a": "drift-without-drive",
+          "b": "seafloor-spreading"
+        },
+        {
+          "type": "combine",
+          "a": "mobile-plates",
+          "b": "subduction-evidence"
+        },
+        {
+          "type": "combine",
+          "a": "recycled-crust",
+          "b": "geography-of-life"
+        },
+        {
+          "type": "advance"
+        },
+        {
+          "type": "combine",
+          "a": "valid-inference",
+          "b": "boolean-operations"
+        },
+        {
+          "type": "combine",
+          "a": "boolean-logic",
+          "b": "switching-circuit"
+        },
+        {
+          "type": "combine",
+          "a": "logic-circuit",
+          "b": "finite-instructions"
+        },
+        {
+          "type": "combine",
+          "a": "mechanical-procedure",
+          "b": "universal-description"
+        },
+        {
+          "type": "combine",
+          "a": "universal-computation",
+          "b": "halting-demand"
+        },
+        {
+          "type": "combine",
+          "a": "networked-time",
+          "b": "noisy-channel"
+        },
+        {
+          "type": "combine",
+          "a": "communication-problem",
+          "b": "redundant-code"
+        },
+        {
+          "type": "combine",
+          "a": "mechanical-procedure",
+          "b": "feedback-sensor"
+        },
+        {
+          "type": "advance"
+        },
+        {
+          "type": "combine",
+          "a": "critical-edition",
+          "b": "menard-page"
+        },
+        {
+          "type": "combine",
+          "a": "word-identical-page",
+          "b": "new-authorship"
+        },
+        {
+          "type": "combine",
+          "a": "projection-tradeoff",
+          "b": "full-scale-map"
+        },
+        {
+          "type": "combine",
+          "a": "branching-descent",
+          "b": "forking-story"
+        },
+        {
+          "type": "combine",
+          "a": "compared-edition",
+          "b": "invented-citation"
+        },
+        {
+          "type": "combine",
+          "a": "reproducible-image",
+          "b": "unique-presence"
+        },
+        {
+          "type": "combine",
+          "a": "aura-and-reproduction",
+          "b": "political-circulation"
+        },
+        {
+          "type": "advance"
+        },
+        {
+          "type": "combine",
+          "a": "universal-rights",
+          "b": "value-history"
+        },
+        {
+          "type": "combine",
+          "a": "nominal-kinds",
+          "b": "kinship-relations"
+        },
+        {
+          "type": "combine",
+          "a": "encyclopedic-network",
+          "b": "institution-records"
+        },
+        {
+          "type": "combine",
+          "a": "named-species",
+          "b": "classification-exclusions"
+        },
+        {
+          "type": "combine",
+          "a": "rights-for-women",
+          "b": "false-natural-hierarchy"
+        },
+        {
+          "type": "combine",
+          "a": "another-work",
+          "b": "textual-tension"
+        },
+        {
+          "type": "combine",
+          "a": "framed-photograph",
+          "b": "situated-observer"
+        },
+        {
+          "type": "combine",
+          "a": "situated-evidence",
+          "b": "external-check"
+        },
+        {
+          "type": "advance"
+        },
+        {
+          "type": "combine",
+          "a": "open-heredity",
+          "b": "segregating-factors"
+        },
+        {
+          "type": "combine",
+          "a": "particulate-heredity",
+          "b": "dna-inheritance"
+        },
+        {
+          "type": "combine",
+          "a": "molecular-heredity",
+          "b": "environment-development"
+        },
+        {
+          "type": "combine",
+          "a": "relocated-habitats",
+          "b": "food-web"
+        },
+        {
+          "type": "combine",
+          "a": "fuel-dependent-industry",
+          "b": "industrial-carbon"
+        },
+        {
+          "type": "combine",
+          "a": "electromagnetic-light",
+          "b": "greenhouse-absorption"
+        },
+        {
+          "type": "combine",
+          "a": "carbon-energy-link",
+          "b": "radiative-warming"
+        },
+        {
+          "type": "combine",
+          "a": "age-still-open",
+          "b": "ice-core-air"
+        },
+        {
+          "type": "combine",
+          "a": "climate-pressure",
+          "b": "modern-warming"
+        },
+        {
+          "type": "combine",
+          "a": "earth-age-measured",
+          "b": "lead-blank"
+        },
+        {
+          "type": "combine",
+          "a": "clean-measurement-problem",
+          "b": "old-new-lead"
+        },
+        {
+          "type": "combine",
+          "a": "coercive-exchange",
+          "b": "ecosystem-relations"
+        },
+        {
+          "type": "advance"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "aegis",
+      "title": "NASA/JPL: AEGIS autonomous science targeting",
+      "url": "https://ai.jpl.nasa.gov/public/projects/aegis/",
+      "note": "Actual bounded target-selection autonomy. It is not evidence that the fictional self-questioning laboratory exists."
+    },
+    {
+      "id": "alexandria",
+      "title": "Francesca Schironi: Textual Scholarship in Alexandria and Beyond",
+      "url": "https://sites.lsa.umich.edu/schironi/wp-content/uploads/sites/259/2024/10/43_Textual-Scholarship-in-Alexandria-.pdf",
+      "note": "Scholar-authored research on textual practices. Modern apparatus and translation terms in this game are not all ancient Alexandrian inventions."
+    },
+    {
+      "id": "algebra",
+      "title": "Oxford History of Science Museum: mathematics in Islamic cultures",
+      "url": "https://www.mhs.ox.ac.uk/scienceislam/mathematics.html",
+      "note": "Practical problems, inherited mathematics and original contributions cross languages and regions. No exclusive origin claim."
+    },
+    {
+      "id": "arabic-latin",
+      "title": "Influence of Arabic and Islamic Philosophy on the Latin West, Stanford Encyclopedia of Philosophy",
+      "url": "https://plato.stanford.edu/entries/arabic-islamic-influence/"
+    },
+    {
+      "id": "aristotle",
+      "title": "Aristotle: Prior Analytics, translated primary text",
+      "url": "https://classics.mit.edu/Aristotle/prior.html",
+      "note": "Ancient syllogistic; modern symbolic notation and toy examples are explanatory reconstructions."
+    },
+    {
+      "id": "babylon",
+      "title": "Francesca Rochberg, Science and Ancient Mesopotamia, Cambridge History of Science",
+      "url": "https://www.cambridge.org/core/books/cambridge-history-of-science/science-and-ancient-mesopotamia/C48D6E70188ED938863F479B692D465B"
+    },
+    {
+      "id": "boole",
+      "title": "George Boole: An Investigation of the Laws of Thought (1854)",
+      "url": "https://www.gutenberg.org/ebooks/15114",
+      "note": "Primary historical text; binary gate notation is a modern teaching representation."
+    },
+    {
+      "id": "buchner",
+      "title": "Eduard Buchner, Alcoholic Fermentation Without Yeast Cells (1897), translated primary text",
+      "url": "https://web.lemoyne.edu/~giunta/buchner.html"
+    },
+    {
+      "id": "cuneiform",
+      "title": "Eleanor Robson: Digital Corpus of Cuneiform Mathematical Texts",
+      "url": "https://oracc.museum.upenn.edu/dccmt/",
+      "note": "Scribal arithmetic and numerical records; game quantities are invented, not translated tablets."
+    },
+    {
+      "id": "euclid",
+      "title": "Euclid: Elements, David Joyce edition",
+      "url": "https://mathcs.clarku.edu/~djoyce/elements/",
+      "note": "Greek mathematical text in a modern explanatory edition. Diagram alone is not proof."
+    },
+    {
+      "id": "fermentation",
+      "title": "From DNA to Beer, US National Library of Medicine",
+      "url": "https://www.nlm.nih.gov/exhibition/from-dna-to-beer/index.html"
+    },
+    {
+      "id": "field-oersted-observation",
+      "title": "Oersted’s experiment — Institute of Physics",
+      "url": "https://spark.iop.org/oersteds-experiment",
+      "note": "Supports opposite compass directions above and below a current-carrying wire. Construction and power-supply instructions deliberately excluded."
+    },
+    {
+      "id": "field-ring-object",
+      "title": "Michael Faraday’s ring-coil apparatus — Royal Institution",
+      "url": "https://www.rigb.org/explore-science/explore/collection/michael-faradays-ring-coil-apparatus",
+      "note": "August 1831 apparatus and brief induced current in the other coil; object evidence anchors the reconstruction."
+    },
+    {
+      "id": "greek-arabic",
+      "title": "Greek Sources in Arabic and Islamic Philosophy, Stanford Encyclopedia of Philosophy",
+      "url": "https://plato.stanford.edu/entries/arabic-islamic-greek/"
+    },
+    {
+      "id": "hutton",
+      "title": "Siccar Point: geological evidence and Hutton",
+      "url": "https://iugs-geoheritage.org/geoheritage_sites/siccar-point/",
+      "note": "Hutton used an unconformity to support an existing account of repeated geological processes; one scene does not establish every feature of his theory."
+    },
+    {
+      "id": "kepler",
+      "title": "Museo Galileo: Kepler, Ad Vitellionem paralipomena",
+      "url": "https://brunelleschi.imss.fi.it/genscheda.asp?appl=MAM&chiave=900026&lingua=ENG&xsl=sezione",
+      "note": "Kepler revises inherited optics; telescope observation alone did not uniquely prove heliocentrism."
+    },
+    {
+      "id": "longitude",
+      "title": "Royal Museums Greenwich: Harrison and longitude",
+      "url": "https://www.rmg.co.uk/stories/time/harrisons-clocks-longitude-problem",
+      "note": "Chronometers and lunar distances coexisted. Sea trials, cost and reproducibility matter alongside invention."
+    },
+    {
+      "id": "lyell-darwin",
+      "title": "Darwin Correspondence Project: Charles Lyell",
+      "url": "https://darwin-editorial.darwinproject.ac.uk/charles-lyell",
+      "note": "Documented geological influence with continuing disagreement, not blanket acceptance."
+    },
+    {
+      "id": "malthus",
+      "title": "Thomas Malthus: Essay on the Principle of Population, 1798",
+      "url": "https://www.econlib.org/library/Malthus/malPop.html",
+      "note": "The ratios are Malthus’s argumentative model, not a universal empirical law or moral instruction."
+    },
+    {
+      "id": "nist",
+      "title": "NIST AI RMF Core",
+      "url": "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/",
+      "note": "Model validation, generalization limits and ongoing evaluation. A checklist is not a guarantee of trustworthiness."
+    },
+    {
+      "id": "optics",
+      "title": "A. I. Sabra and Jan Hogendijk, The Optics of Ibn al-Haytham Books IV–V, Warburg Institute / University of Chicago Press",
+      "url": "https://press.uchicago.edu/ucp/books/book/distributed/O/bo156866715.html"
+    },
+    {
+      "id": "optics-manuscript",
+      "title": "Cambridge Peterhouse MS209: Alhacen De Aspectibus",
+      "url": "https://medieval.lib.cam.ac.uk/catalogue/Peterhouse/MS-PETERHOUSE-00209",
+      "note": "A manuscript witness to the circulation of Ibn al-Haytham’s optical work. Optical recipes are modern demonstrations, not a transcription of this manuscript."
+    },
+    {
+      "id": "perspective",
+      "title": "National Gallery: perspective",
+      "url": "https://www.nationalgallery.org.uk/paintings/glossary/perspective",
+      "note": "Linear perspective is one historically specific representational practice, not the culmination of all painting."
+    },
+    {
+      "id": "photo",
+      "title": "Metropolitan Museum: Talbot and photography",
+      "url": "https://www.metmuseum.org/pt/essays/william-henry-fox-talbot-1800-1877-and-the-invention-of-photography",
+      "note": "Several processes and contributors; a reproducible negative differs from a unique direct-positive image. No chemical procedure is taught."
+    },
+    {
+      "id": "printing",
+      "title": "Library of Congress: printing in Asia",
+      "url": "https://blogs.loc.gov/international-collections/2021/06/the-history-of-printing-in-asia-according-to-library-of-congress-asian-collections-part-1/",
+      "note": "Collection-based context for coexisting block/type technologies. Our workshop orders and cost comparisons are fictional teaching cases, not historical data."
+    },
+    {
+      "id": "ratdolt",
+      "title": "Smithsonian Libraries: 1482 printed Latin Euclid",
+      "url": "https://library.si.edu/digital-library/book/preclarissimusl00eucl",
+      "note": "A specific printed geometric text and its Arabic–Latin lineage; no universal sole-transmission claim."
+    },
+    {
+      "id": "shannon",
+      "title": "Claude Shannon, A Symbolic Analysis of Relay and Switching Circuits (1938), MIT-hosted copy",
+      "url": "https://tubes.mit.edu/6S917/_static/2025/resources/shannon38.pdf"
+    },
+    {
+      "id": "shannon1948",
+      "title": "Shannon: A Mathematical Theory of Communication",
+      "url": "https://people.math.harvard.edu/~ctm/home/text/others/shannon/entropy/entropy.pdf",
+      "note": "Information-theoretic quantities do not measure truth, significance or wisdom."
+    },
+    {
+      "id": "snow",
+      "title": "UCLA: Snow’s grand experiment",
+      "url": "https://epi-snow.ph.ucla.edu/Stream3_GrandExperiment_d.html",
+      "note": "Compare water companies and denominators, not merely dots on a map. Observational comparisons have limitations."
+    },
+    {
+      "id": "snow-myth",
+      "title": "UCLA: Broad Street outbreak context",
+      "url": "https://epi-snow.ph.ucla.edu/Stream2_BSPoutbreak_f.html",
+      "note": "Do not claim a map alone revealed the cause, or pump-handle removal alone ended an already declining outbreak."
+    },
+    {
+      "id": "aristotle-eclipse",
+      "title": "Aristotle, Posterior Analytics II.2 and II.8",
+      "url": "https://classics.mit.edu/Aristotle/posterior.2.ii.html",
+      "note": "Primary text distinguishes the observed eclipse from inquiry into its cause, including Earth screening, rotation or extinction. The game dialogue and identical predictions are invented."
+    },
+    {
+      "id": "longitude-lunar-si",
+      "title": "Smithsonian: Observing the skies — lunar distances",
+      "url": "https://timeandnavigation.si.edu/navigating-at-sea/longitude-problem/observing-the-skies",
+      "note": "Lunar angle establishes reference time; longitude also requires local time."
+    },
+    {
+      "id": "almanac-history",
+      "title": "US Naval Observatory: History of the Nautical Almanac",
+      "url": "https://aa.usno.navy.mil/publications/na_history",
+      "note": "First data for 1767; mean-time change in 1834. Fictional rows are not copied ephemerides."
+    },
+    {
+      "id": "harvey-primary",
+      "title": "Harvey, chapters IX and XIV, translated primary excerpts",
+      "url": "https://bertie.ccsu.edu/naturesci/evolution/unit10background/HarveyNine.html",
+      "note": "Quantity, insufficient replacement and venous return belong together. Numerical dossier is invented."
+    },
+    {
+      "id": "optics-lamps-primary",
+      "title": "Ibn al-Haytham, Optics I.6 §§85–87; A. I. Sabra translation (1989), pp.90–91",
+      "url": "https://resources.warburg.sas.ac.uk/pdf/ffh360b2205460.pdf#page=50",
+      "note": "Primary multiple-lamp aperture and selective-screening case: the corresponding patch disappears and returns; crossing does not make the contributions inseparable. H/L labels, equal distances and unit offsets are an authored two-lamp adaptation. This case alone does not establish a complete account of eye sensing."
+    },
+    {
+      "id": "newton-moon-test-primary",
+      "title": "Isaac Newton, Principia, Book III, Proposition IV and scholium (primary text; printed pp. 391–393)",
+      "url": "https://sites.pitt.edu/~jdnorton/teaching/2682_confirmation/2010/Principia_fragments/Principia_Bk3_to_Prop_15.pdf#page=9",
+      "note": "The historical Moon test supplies the comparison structure. This chapter’s rounded modern-unit figures, one-second normalization and circular short-time calculation are authored teaching adaptations, not quoted historical measurements."
+    },
+    {
+      "id": "darwin-origin-wolves-primary",
+      "title": "Darwin, On the Origin of Species (1859), IV, pp.90–91 and 95–96: imaginary wolf/prey example and accumulation over time",
+      "url": "https://darwin-online.org.uk/converted/published/1859_Origin_F373/1859_Origin_F373.html",
+      "note": "Primary text. Darwin explicitly labels the wolf/prey illustration imaginary and requires retention of other needed abilities. Our 20-adult/40-pup/20-recruit counts, exact inheritance, pair grouping and non-overlapping cohorts are authored simplifications, not Darwin’s data."
+    },
+    {
+      "id": "wallace-varieties-primary",
+      "title": "Wallace, On the Tendency of Varieties to depart indefinitely from the Original Type (1858), pp.53–62, in the joint Darwin–Wallace publication",
+      "url": "https://darwin-online.org.uk/converted/published/1858_species_F350.html",
+      "note": "Primary text: opening challenge to inferred permanent natural bounds (pp.53–54), domestic/wild contrast and conclusion (pp.60–62); introductory letter records independent work. No numerical wolf data taken from this source; its caricature of Lamarck is not adopted."
+    },
+    {
+      "id": "perspective-alberti-rays-primary",
+      "title": "Leon Battista Alberti, On Painting, Book I: visual pyramid and its section",
+      "url": "https://www.noteaccess.com/Texts/Alberti/1.htm",
+      "note": "Primary text in John R. Spencer’s translation (Yale University Press, 1970; first printed 1956), pp.46–53. The historical text explains a picture as a section at a definite viewing position and discusses proportional triangles. The courtyard, coordinates and numerical comparisons are invented teaching reconstruction, not Alberti’s recorded experiment."
+    },
+    {
+      "id": "perspective-alberti-veil-primary",
+      "title": "Leon Battista Alberti, On Painting, Book II: veil and changed viewpoint",
+      "url": "https://www.noteaccess.com/Texts/Alberti/2.htm",
+      "note": "Primary text in John R. Spencer’s translation (Yale University Press, 1970; first printed 1956), pp.67–68. The veil passage links a stable view with the position and distance of its centre. The authored shifted-eye alignment is a geometric application, not a quoted historical trial."
+    },
+    {
+      "id": "ostrom-lecture-primary",
+      "title": "Ostrom, Beyond Markets and States (2009), Nobel Prize lecture, pp.417, 419, 422, 429",
+      "url": "https://www.nobelprize.org/uploads/2018/06/ostrom_lecture.pdf",
+      "note": "Primary Nobel lecture; PDF pages 10, 12 and 15 distinguish governed resources from open access and discuss contextual rules, affected-user revision and accountable monitoring; page 22 cautions that groups can fail. Paraphrased, not quoted. Alder/Birch numbers and institutional arrangements are invented, not empirical results from this text."
+    },
+    {
+      "id": "plato-republic",
+      "title": "Plato, Republic I and VII, translated primary text",
+      "url": "https://classics.mit.edu/Plato/republic.html"
+    },
+    {
+      "id": "plato",
+      "title": "Stanford Encyclopedia of Philosophy: Plato",
+      "url": "https://plato.stanford.edu/entries/plato/"
+    },
+    {
+      "id": "aristotle-biology",
+      "title": "Stanford Encyclopedia of Philosophy: Aristotle’s Biology",
+      "url": "https://plato.stanford.edu/entries/aristotle-biology/"
+    },
+    {
+      "id": "aristotle-causes",
+      "title": "Stanford Encyclopedia of Philosophy: Aristotle on Causality",
+      "url": "https://plato.stanford.edu/entries/aristotle-causality/"
+    },
+    {
+      "id": "aristotle-ethics",
+      "title": "Aristotle, Nicomachean Ethics, translated primary text",
+      "url": "https://classics.mit.edu/Aristotle/nicomachaen.html"
+    },
+    {
+      "id": "cynics",
+      "title": "Internet Encyclopedia of Philosophy: Cynics",
+      "url": "https://iep.utm.edu/cynics/"
+    },
+    {
+      "id": "stoics",
+      "title": "Stanford Encyclopedia of Philosophy: Stoicism",
+      "url": "https://plato.stanford.edu/entries/stoicism/"
+    },
+    {
+      "id": "epicurus",
+      "title": "Epicurus, Letter to Menoeceus, translated primary text",
+      "url": "https://classics.mit.edu/Epicurus/menoec.html"
+    },
+    {
+      "id": "skeptics",
+      "title": "Stanford Encyclopedia of Philosophy: Ancient Skepticism",
+      "url": "https://plato.stanford.edu/entries/skepticism-ancient/"
+    },
+    {
+      "id": "antikythera",
+      "title": "National Archaeological Museum: Antikythera mechanism",
+      "url": "https://antikythera-mechanism.namuseum.gr/en/what-is-the-mechanism-and-what-does-it-consist-of/"
+    },
+    {
+      "id": "avicenna",
+      "title": "Stanford Encyclopedia of Philosophy: Ibn Sina’s Metaphysics",
+      "url": "https://plato.stanford.edu/entries/ibn-sina-metaphysics/"
+    },
+    {
+      "id": "aquinas",
+      "title": "Stanford Encyclopedia of Philosophy: Thomas Aquinas",
+      "url": "https://plato.stanford.edu/entries/aquinas/"
+    },
+    {
+      "id": "ockham",
+      "title": "Stanford Encyclopedia of Philosophy: William of Ockham",
+      "url": "https://plato.stanford.edu/entries/ockham/"
+    },
+    {
+      "id": "bacon",
+      "title": "Stanford Encyclopedia of Philosophy: Francis Bacon",
+      "url": "https://plato.stanford.edu/entries/francis-bacon/"
+    },
+    {
+      "id": "natural-magic",
+      "title": "University of Oklahoma primary-book exhibit: Natural Magick",
+      "url": "https://galileo.ou.edu/exhibits/natural-magick-1658.html"
+    },
+    {
+      "id": "burton",
+      "title": "Wellcome Collection: The Anatomy of Melancholy",
+      "url": "https://wellcomecollection.org/works/ztn635y7"
+    },
+    {
+      "id": "lensmaking",
+      "title": "Museo Galileo: Lens-making",
+      "url": "https://catalogue.museogalileo.it/multimedia/LensmakingBis.html"
+    },
+    {
+      "id": "automata",
+      "title": "Metropolitan Museum: Art in Motion",
+      "url": "https://www.metmuseum.org/exhibitions/listings/2019/making-marvels-science-splendor/art-in-motion"
+    },
+    {
+      "id": "jaipur",
+      "title": "UNESCO: The Jantar Mantar, Jaipur",
+      "url": "https://whc.unesco.org/en/list/1338"
+    },
+    {
+      "id": "encyclopedie",
+      "title": "University of Chicago ARTFL Encyclopédie",
+      "url": "https://encyclopedie.uchicago.edu/"
+    },
+    {
+      "id": "hume",
+      "title": "Stanford Encyclopedia of Philosophy: David Hume",
+      "url": "https://plato.stanford.edu/entries/hume/"
+    },
+    {
+      "id": "kant",
+      "title": "Stanford Encyclopedia of Philosophy: Immanuel Kant",
+      "url": "https://plato.stanford.edu/entries/kant/"
+    },
+    {
+      "id": "wollstonecraft",
+      "title": "Mary Wollstonecraft, A Vindication of the Rights of Woman",
+      "url": "https://www.gutenberg.org/ebooks/3420"
+    },
+    {
+      "id": "mandeville",
+      "title": "Stanford Encyclopedia of Philosophy: Bernard Mandeville",
+      "url": "https://plato.stanford.edu/entries/mandeville/"
+    },
+    {
+      "id": "smith",
+      "title": "Adam Smith, The Wealth of Nations",
+      "url": "https://www.gutenberg.org/ebooks/3300"
+    },
+    {
+      "id": "linnaeus",
+      "title": "The Linnean Society: Linnaeus and race",
+      "url": "https://www.linnean.org/learning/who-was-linnaeus/linnaeus-and-race"
+    },
+    {
+      "id": "humboldt",
+      "title": "Nature Ecology & Evolution: Humboldt’s legacy",
+      "url": "https://www.nature.com/articles/s41559-019-0980-5"
+    },
+    {
+      "id": "darwin-malthus",
+      "title": "A. R. Wallace to Darwin, 9 July 1881, Darwin Correspondence Project",
+      "url": "https://www.darwinproject.ac.uk/view/letters/DCP-LETT-13238"
+    },
+    {
+      "id": "morris",
+      "title": "William Morris Archive: Useful Work versus Useless Toil",
+      "url": "https://morrisarchive.lib.uiowa.edu/items/show/1872"
+    },
+    {
+      "id": "kropotkin",
+      "title": "Peter Kropotkin, Mutual Aid: A Factor of Evolution",
+      "url": "https://www.gutenberg.org/cache/epub/4341/pg4341.html"
+    },
+    {
+      "id": "marx",
+      "title": "Stanford Encyclopedia of Philosophy: Karl Marx",
+      "url": "https://plato.stanford.edu/entries/marx/"
+    },
+    {
+      "id": "einstein-time",
+      "title": "Einstein Online, Max Planck Institute: relativity of space and time",
+      "url": "https://www.einstein-online.info/en/relativity_space_time/"
+    },
+    {
+      "id": "einstein-spacetime",
+      "title": "Einstein Online: spacetime",
+      "url": "https://www.einstein-online.info/en/spacetime/"
+    },
+    {
+      "id": "bergson",
+      "title": "Stanford Encyclopedia of Philosophy: Henri Bergson",
+      "url": "https://plato.stanford.edu/entries/bergson/"
+    },
+    {
+      "id": "surrealism",
+      "title": "Metropolitan Museum: Surrealism",
+      "url": "https://www.metmuseum.org/essays/surrealism"
+    },
+    {
+      "id": "borges",
+      "title": "Poetry Foundation: Jorge Luis Borges",
+      "url": "https://www.poetryfoundation.org/poets/jorge-luis-borges"
+    },
+    {
+      "id": "benjamin",
+      "title": "Stanford Encyclopedia of Philosophy: Walter Benjamin",
+      "url": "https://plato.stanford.edu/entries/benjamin/"
+    },
+    {
+      "id": "levi-strauss",
+      "title": "Collège de France: Claude Lévi-Strauss, Social Anthropology",
+      "url": "https://www.college-de-france.fr/en/chair/claude-levi-strauss-social-anthropology-statutory-chair"
+    },
+    {
+      "id": "nietzsche",
+      "title": "Stanford Encyclopedia of Philosophy: Nietzsche’s Moral and Political Philosophy",
+      "url": "https://plato.stanford.edu/entries/nietzsche-moral-political/"
+    },
+    {
+      "id": "foucault",
+      "title": "Stanford Encyclopedia of Philosophy: Michel Foucault",
+      "url": "https://plato.stanford.edu/entries/foucault/"
+    },
+    {
+      "id": "postmodern",
+      "title": "Stanford Encyclopedia of Philosophy: Postmodernism",
+      "url": "https://plato.stanford.edu/entries/postmodernism/"
+    },
+    {
+      "id": "tectonics",
+      "title": "US Geological Survey: This Dynamic Earth",
+      "url": "https://pubs.usgs.gov/gip/dynamic/dynamic.html"
+    },
+    {
+      "id": "deep-time",
+      "title": "US Geological Survey: Geologic Time",
+      "url": "https://pubs.usgs.gov/gip/geotime/"
+    },
+    {
+      "id": "earth-age",
+      "title": "US Geological Survey: Age of the Earth",
+      "url": "https://pubs.usgs.gov/gip/geotime/age.html"
+    },
+    {
+      "id": "climate",
+      "title": "NASA: Evidence for Climate Change",
+      "url": "https://science.nasa.gov/climate-change/evidence/"
+    },
+    {
+      "id": "genetics",
+      "title": "National Human Genome Research Institute: Talking Glossary",
+      "url": "https://www.genome.gov/genetics-glossary"
+    },
+    {
+      "id": "turing",
+      "title": "Alan Turing, On Computable Numbers, original paper",
+      "url": "https://www.cs.virginia.edu/~robins/Turing_Paper_1936.pdf"
+    },
+    {
+      "id": "descartes",
+      "title": "Stanford Encyclopedia of Philosophy: Descartes’ Physics",
+      "url": "https://plato.stanford.edu/entries/descartes-physics/"
+    },
+    {
+      "id": "hermetic",
+      "title": "Stanford Encyclopedia of Philosophy: Marsilio Ficino",
+      "url": "https://plato.stanford.edu/entries/ficino/"
+    },
+    {
+      "id": "galileo",
+      "title": "Stanford Encyclopedia of Philosophy: Galileo Galilei",
+      "url": "https://plato.stanford.edu/entries/galileo/"
+    },
+    {
+      "id": "copernicus",
+      "title": "Stanford Encyclopedia of Philosophy: Nicolaus Copernicus",
+      "url": "https://plato.stanford.edu/entries/copernicus/"
+    },
+    {
+      "id": "newton-light",
+      "title": "Newton Project: New Theory about Light and Colors",
+      "url": "https://www.newtonproject.ox.ac.uk/view/texts/normalized/NATP00006"
+    },
+    {
+      "id": "salt",
+      "title": "Science History Institute: Salt of the Earth",
+      "url": "https://www.sciencehistory.org/stories/magazine/salt-of-the-earth/"
+    },
+    {
+      "id": "speculation",
+      "title": "Authored speculative constructions; background: Ostrom Nobel lecture",
+      "url": "https://www.nobelprize.org/prizes/economic-sciences/2009/ostrom/lecture/"
+    },
+    {
+      "id": "geologic-age-modern",
+      "title": "USGS: Geologic Time, Then and Now",
+      "url": "https://www.usgs.gov/news/powell-expedition-geologic-time-then-and-now"
+    },
+    {
+      "id": "radiometric-clock",
+      "title": "NIST: How do you know the age of fossils and other old things?",
+      "url": "https://www.nist.gov/how-do-you-measure-it/how-do-you-know-age-fossils-and-other-old-things"
+    },
+    {
+      "id": "darwin-selection",
+      "title": "Darwin Correspondence Project: Natural selection",
+      "url": "https://darwin-editorial.darwinproject.ac.uk/commentary/evolution/natural-selection"
+    },
+    {
+      "id": "maxwell",
+      "title": "Royal Society: Maxwell’s dynamical theory of the electromagnetic field",
+      "url": "https://royalsocietypublishing.org/doi/10.1098/rstl.1865.0008"
+    },
+    {
+      "id": "photo-niepce",
+      "title": "Harry Ransom Center: The Niépce Heliograph",
+      "url": "https://www.hrc.utexas.edu/niepce-heliograph/"
+    },
+    {
+      "id": "freud",
+      "title": "Library of Congress: Sigmund Freud, Conflict and Culture",
+      "url": "https://www.loc.gov/exhibits/freud/"
+    },
+    {
+      "id": "james",
+      "title": "William James, The Principles of Psychology",
+      "url": "https://www.gutenberg.org/ebooks/57628"
+    },
+    {
+      "id": "plate-evidence",
+      "title": "USGS: Plate-tectonic map explanation",
+      "url": "https://pubs.usgs.gov/cp/41/report.pdf"
+    },
+    {
+      "id": "seafloor",
+      "title": "Alfred Wegener Institute: Seafloor spreading",
+      "url": "https://www.awi.de/en/ueber-uns/organisation/alfred-wegener/artikel/seafloor-spreading.html"
+    },
+    {
+      "id": "patterson-lead",
+      "title": "Caltech: Getting the Lead Out",
+      "url": "https://www.caltech.edu/about/news/getting-lead-out-47935"
+    },
+    {
+      "id": "mendel",
+      "title": "NHGRI: Mendelian Inheritance",
+      "url": "https://www.genome.gov/genetics-glossary/Mendelian-Inheritance"
+    },
+    {
+      "id": "epicurus-herodotus",
+      "title": "Epicurus, Letter to Herodotus §§63–66, primary text excerpt",
+      "url": "https://www.contrib.andrew.cmu.edu/~kk3n/80-300/epicurus-to-herodotus.htm"
+    }
+  ],
+  "notes": [
+    "Full-length independent Atlas research candidate. The original Atlas scenario, routes and saved-game identities are not modified.",
+    "All labels and descriptions are authored paraphrases or clearly marked teaching cases, not historical quotations. Optional Read text is supplementary; combinations must be intelligible from visible labels and descriptions.",
+    "Chronology is local to each dated desk. Explicit parallel files and later returns compare overlapping histories without asserting backwards causation.",
+    "Connections are separately classified as transmission, adaptation, criticism, teaching-comparison or future-speculation. An item being useful in a modern teaching comparison is not evidence of direct historical influence.",
+    "Creation reconstructs an argument, model, objection or object. It does not always certify the truth of the position created; competing explanations and limitations remain available.",
+    "The final two desks are authored speculative futures. Their institutions and technologies are proposals, not forecasts or claims of historical inevitability.",
+    "No finite-scarcity puzzle, hidden diagram, mental arithmetic, prerequisite lore, automatic creation, repeat-unlock toll or arbitrary end-of-desk culling is intended. Earlier creations are carried only when this desk uses them.",
+    "The full In Our Time collection was used privately as research inspiration, not a chapter template. The repository retains only original analysis, bibliographic metadata and source links; temporary BBC abstracts were deleted after mining."
+  ]
+};

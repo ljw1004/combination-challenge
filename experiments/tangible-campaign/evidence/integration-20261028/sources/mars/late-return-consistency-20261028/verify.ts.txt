@@ -1,0 +1,91 @@
+import assert from 'node:assert/strict';
+import {readFileSync,writeFileSync} from 'node:fs';
+import {createHash} from 'node:crypto';
+import * as M from './engine/model.ts';
+import {validateConstructionContinuity,validateContentLifecycles,validateObjectiveFlow} from './schema/lifecycle.ts';
+import type {Scenario,Action} from './schema/scenario.ts';
+
+const read=(name:string)=>JSON.parse(readFileSync(new URL(name,import.meta.url),'utf8'));
+const save=(name:string,value:unknown)=>writeFileSync(new URL(name,import.meta.url),JSON.stringify(value,null,2)+'\n');
+const baseline:Scenario=read('baseline.scenario.json');
+const candidate:Scenario=read('narrative-only.candidate.scenario.json');
+const manifest=read('input-manifest.json');
+const checks:any[]=[];
+const check=(name:string,fn:()=>unknown)=>{const evidence=fn();checks.push({name,passed:true,evidence});};
+const errors=(s:Scenario)=>[...M.validateScenario(s),...validateContentLifecycles([s]),...validateObjectiveFlow([s]),...validateConstructionContinuity([s])];
+const recipes=['departure-pack-ice','departure-pack-sediment','expansion-return-comparison','expansion-return-comparison-record','departure-pack-record','departure-11-specimen-cart','homebound-5-loaded-capsule-dock','homebound-6-loaded-ascent-vehicle','homebound-9-flight-ready-vehicle','homebound-11-ascending-vehicle','homebound-12-docked-vehicle','homebound-13-reunited-crew'];
+const watched=['cushioned-capsule','specimen-cart','loaded-capsule-dock','loaded-ascent-vehicle','flight-ready-vehicle','ascending-vehicle','docked-vehicle','returned-capsule','family-record'];
+const snapshot=(s:Scenario,g:M.Game)=>({raw:g.state.tokens.filter(t=>watched.includes(t.kind)),visible:M.playerView(s,g).things.filter(t=>watched.includes(t.id))});
+function trace(s:Scenario,actions:Action[]){
+ let game=M.createGame(s);const stages:any[]=[];const points=new Map<string,{before:M.Game,after:M.Game}>();
+ for(const [i,action] of actions.entries()){
+  const before=game,result=M.applyAction(s,game,action);assert.ok(result.accepted,`Action ${i+1}: ${JSON.stringify(action)}: ${result.message}`);game=result.game;
+  if(result.recipe)points.set(result.recipe,{before,after:game});
+  if(result.recipe&&recipes.includes(result.recipe))stages.push({acceptedActionIndex:i+1,recipe:result.recipe,action,retired:result.retired??[],before:snapshot(s,before),after:snapshot(s,game)});
+ }
+ assert.equal(game.state.completed,true);return {game,points,stages};
+}
+check('Pinned source copies and original inputs remain unchanged',()=>{
+ const hashes=manifest.inputs.map((input:any)=>{for(const path of [input.path,new URL(input.copiedAs,import.meta.url)])assert.equal(createHash('sha256').update(readFileSync(path)).digest('hex'),input.sha256);return {file:input.copiedAs,sha256:input.sha256};});
+ assert.equal(createHash('sha256').update(readFileSync(manifest.closedSession.path)).digest('hex'),manifest.closedSession.sha256);return hashes;
+});
+check('Both scenarios pass unchanged existing declarative validators',()=>{assert.deepEqual(errors(baseline),[]);assert.deepEqual(errors(candidate),[]);return {baseline:[],narrativeCandidate:[]};});
+const closedActions:Action[]=read('closed-reader.accepted.actions.json');
+const closed=trace(baseline,closedActions);save('closed-reader.current-source-trace.json',{evidenceClass:'Source-aware fresh replay of closed reader accepted action sequence against latest authored content and unchanged live engine; not a new blind trial. Rejected actions omitted.',metrics:closed.game.state.metrics,stages:closed.stages,final:snapshot(baseline,closed.game)});
+check('Closed-reader sequence completes with 204 combinations on current source',()=>{assert.equal(closed.game.state.metrics.combinations,204);return closed.game.state.metrics;});
+check('Packing preserves actual named capsule contents in specimen-cart',()=>{
+ const p=closed.points.get('departure-11-specimen-cart')!,cap=M.token(p.before.state,'cushioned-capsule')!,cart=M.token(p.after.state,'specimen-cart')!;
+ assert.equal(Object.keys(cap.slots).length,5);for(const k of Object.values(cap.slots))assert.ok(cart.components?.includes(k));for(const k of cap.components??[])assert.ok(cart.components?.includes(k));assert.ok(cart.components?.includes('cushioned-capsule'));assert.equal(M.token(p.after.state,'cushioned-capsule'),undefined);return {capsule:cap,cart};
+});
+check('First loss is actual homebound-5 state, not a player-surface filter',()=>{
+ const p=closed.points.get('homebound-5-loaded-capsule-dock')!,before=M.token(p.before.state,'specimen-cart')!,after=M.token(p.after.state,'specimen-cart')!,dock=M.token(p.after.state,'loaded-capsule-dock')!;
+ assert.deepEqual(after,before);assert.deepEqual(dock.slots,{});assert.deepEqual(dock.components??[],[]);assert.deepEqual(dock.incorporated,['capsule-dock','cargo-adapter','receiver-latch']);
+ const visible=M.playerView(baseline,p.after).things.find(x=>x.id==='loaded-capsule-dock')!;assert.deepEqual(visible.components,[]);
+ const tryExtract=M.applyAction(baseline,p.after,{type:'combine',a:'cushioned-capsule',b:'loaded-capsule-dock'});assert.equal(tryExtract.accepted,false);return {cartUnchanged:true,dock,visible,attemptToAddressNestedCapsule:{accepted:tryExtract.accepted,message:tryExtract.message}};
+});
+check('Ascent, docking, and returned capsule never acquire any packed specimen membership',()=>{
+ const packed=M.token(closed.points.get('departure-11-specimen-cart')!.after.state,'specimen-cart')!;
+ const science=packed.components!.filter(k=>!['protected-controller','hauler-platform'].includes(k));
+ const outputs=recipes.filter(id=>id.startsWith('homebound-')).map(id=>{const r=baseline.recipes.find(x=>x.id===id)!;const t=M.token(closed.points.get(id)!.after.state,r.out!)!;for(const k of science)assert.ok(!t.components?.includes(k),`${t.id} unexpectedly has ${k}`);return t;});
+ assert.deepEqual(M.token(closed.game.state,'returned-capsule')!.incorporated,[]);return {science,outputs};
+});
+check('Naive preservation from retained cart is illegal content and duplicates the physical load in engine execution',()=>{
+ const s=structuredClone(baseline),r=s.recipes.find(r=>r.id==='homebound-5-loaded-capsule-dock')!;r.preserve=['specimen-cart'];
+ const errs=validateConstructionContinuity([s]);assert.ok(errs.some(x=>x.includes(r.id)&&x.includes('preserve must name')));
+ // Deliberately run the engine after recording the content-validator refusal: a negative control, not a candidate.
+ const before=closed.points.get(r.id)!.before,result=M.applyAction(s,before,{type:'combine',a:r.a,b:r.b});assert.ok(result.accepted);
+ const cart=M.token(result.game.state,'specimen-cart')!,dock=M.token(result.game.state,'loaded-capsule-dock')!;
+ for(const k of cart.components!)assert.ok(dock.components!.includes(k));return {validationErrors:errs,cart,dock,warning:'Unsupported rejected content, executed only as an isolated negative control.'};
+});
+check('Making whole-parent preservation valid still puts hauler and cabin hardware inside returned capsule',()=>{
+ const s=structuredClone(baseline);const r5=s.recipes.find(r=>r.id==='homebound-5-loaded-capsule-dock')!;
+ r5.lifecycle!['specimen-cart']={role:'incorporate',reason:'Negative control: incorporate the whole cart.'};r5.preserve=['specimen-cart'];
+ s.recipes.find(r=>r.id==='homebound-6-loaded-ascent-vehicle')!.preserve=['ascent-vehicle','loaded-capsule-dock'];
+ const r13=s.recipes.find(r=>r.id==='homebound-13-reunited-crew')!;r13.lifecycle!['docked-vehicle']={role:'transform',reason:'Negative control: transform the entire vehicle into the capsule.'};r13.preserve=['docked-vehicle'];
+ assert.deepEqual(errors(s),[]);const result=trace(s,closedActions),cap=M.token(result.game.state,'returned-capsule')!;
+ assert.ok(cap.components!.includes('hauler-platform'));assert.ok(cap.components!.includes('ascent-cabin'));assert.ok(cap.components!.includes('catalogued-ice-sample'));
+ return {validationErrors:[],returnedCapsule:cap,warning:'Syntactically valid but physically false; this negative control is not a repair candidate.'};
+});
+check('Cabin test cannot run while any required slot is missing and adds no diagnosed failure',()=>{
+ const p=closed.points.get('ascent-13-cabin-test-record')!,cabin=M.token(p.before.state,'ascent-cabin')!,r=baseline.recipes.find(r=>r.id==='ascent-13-cabin-test-record')!;
+ assert.equal(Object.keys(cabin.slots).length,4);const failures=[];
+ for(const slot of Object.keys(cabin.slots)){const game=structuredClone(p.before);delete M.token(game.state,'ascent-cabin')!.slots[slot];const result=M.applyAction(baseline,game,{type:'combine',a:r.a,b:r.b});assert.equal(result.accepted,false);failures.push({missingSlot:slot,accepted:result.accepted,message:result.message});}
+ assert.equal(baseline.items.find(x=>x.id==='cabin-test-record')!.reading,undefined);assert.equal(baseline.recipes.filter(x=>[x.a,x.b].includes('cabin-test-record')).length,0);return {requiredSlots:cabin.slots,missingSlotControls:failures,baselineItem:baseline.items.find(x=>x.id==='cabin-test-record'),outgoingRecipeCount:0};
+});
+check('Portrait goal names the existing actual archiving recipe; no extra action added',()=>{
+ const goal=candidate.stages.find(x=>x.id==='departure')!.objectives.find(x=>x.id==='departure-family')!;
+ const recipe=candidate.recipes.find(x=>x.id==='expansion-family-archive')!;
+ assert.equal(goal.text,'Archive the crew portrait');assert.equal(goal.item,recipe.out);assert.equal(recipe.a,'crew-table-portrait');assert.equal(recipe.b,'archival-recorder');assert.deepEqual(candidate.recipes,baseline.recipes);return {goal,recipe};
+});
+check('Four authored route alternatives plus closed-reader route unchanged by narrative-only candidate',()=>{
+ const routes=[];
+ // Reading adds tile height and can change packing coordinates, but not campaign semantics.
+ const semantic=(g:M.Game)=>({...g.state,width:undefined,tokens:g.state.tokens.map(({x,y,...t})=>t)});
+ for(const name of ['authored','beacon','tow','tow-old-alias','closed-reader.accepted']){
+  const actions=read(`${name}.actions.json`),a=trace(baseline,actions),b=trace(candidate,actions);assert.deepEqual(semantic(b.game),semantic(a.game));assert.deepEqual(b.game.events.map(({message,...e})=>e),a.game.events.map(({message,...e})=>e));
+  const point=b.points.get('ascent-13-cabin-test-record')!;const view=M.playerView(candidate,point.after);assert.ok(view.things.find(x=>x.id==='cabin-test-record')!.reading?.text.includes('does not diagnose another fault'));routes.push({name,completed:b.game.state.completed,combinations:b.game.state.metrics.combinations,actions:actions.length,semanticsEqual:true});
+ }
+ return routes;
+});
+save('verification.json',{evidenceClass:'source-aware logical reproduction and narrative-only candidate verification; no UI/browser testing',checks});
+console.log(JSON.stringify({passed:checks.length,failed:0,checks:checks.map(x=>x.name)},null,2));

@@ -1,0 +1,60 @@
+DESK 9: editions | Printers, translators and readers · c. 1450–1614 CE | Which antiquity should we believe? | A page can now travel in many copies. An old-looking text can acquire enormous authority. Neither multiplication nor antiquity makes a sentence true.
+GOALS: [{'id': 'editions-translation-choices', 'text': 'Expose a translation’s choices', 'kind': 'create', 'item': 'translation-choices'}, {'id': 'editions-redated-hermetica', 'text': 'Reconsider a text’s claimed age', 'kind': 'create', 'item': 'redated-hermetica'}, {'id': 'editions-contested-publication', 'text': 'Make the contested page public', 'kind': 'create', 'item': 'contested-publication'}, {'id': 'editions-printed-euclid', 'text': 'Share a comparable proof', 'kind': 'create', 'item': 'printed-euclid'}]
+
+RECIPE make-reproducible-page
+A paper-sheets | Paper sheets | A material technology with a long history beyond Europe.
+B block-printing | Printing from a prepared block | A distinct Asian history of reproducible text, not an invention credited to Gutenberg.
+OUT reproducible-page | A reproducible printed page | A prepared surface produces repeated text; different printing traditions develop different forms of this possibility.
+LIFECYCLE {'paper-sheets': 'retain', 'block-printing': 'retain'}
+
+RECIPE make-type-printed-edition
+A paper-sheets | Paper sheets | A material technology with a long history beyond Europe.
+B movable-type | Reusable metal type in a European press | A particular early-modern printing system, not the first printing anywhere.
+OUT type-printed-edition | An edition made with reusable type | European movable-type printing is one consequential realization of reproducibility.
+LIFECYCLE {'paper-sheets': 'retain', 'movable-type': 'retain'}
+
+RECIPE make-compared-edition
+A critical-edition | An edition that shows its doubts | Modern teaching comparison: a reader can inspect the editor’s uncertainty rather than inherit an invisible verdict.
+B type-printed-edition | An edition made with reusable type | European movable-type printing is one consequential realization of reproducibility.
+OUT compared-edition | Printed copies with inspectable variants | Repeated copies make comparison easier without making editorial choices disappear.
+LIFECYCLE {'critical-edition': 'retain', 'type-printed-edition': 'retain'}
+LINK {"from": "world-models", "to": "editions", "item": "critical-edition", "recipe": "make-compared-edition", "relation": "adaptation", "evidence": "Textual comparison continues in printed editions rather than being invented by the press.", "sources": ["printing", "ratdolt", "alexandria", "hermetic", "arabic-latin"]}
+
+RECIPE make-parallel-translations
+A latin-aristotle | Aristotle in Latin | Translated logical works enter a new setting of study.
+B greek-codex | A Greek manuscript brought by Byzantine scholars | Another route of transmission, not a replacement for Arabic–Latin learning.
+OUT parallel-translations | Greek and Latin versions side by side | Different transmission routes let readers revisit a received rendering.
+LIFECYCLE {'latin-aristotle': 'retain', 'greek-codex': 'retain'}
+LINK {"from": "objections", "to": "editions", "item": "latin-aristotle", "recipe": "make-parallel-translations", "relation": "transmission", "evidence": "Greek manuscripts and Latin translations coexist in Renaissance scholarship.", "sources": ["printing", "ratdolt", "alexandria", "hermetic", "arabic-latin"]}
+
+RECIPE make-translation-choices
+A parallel-translations | Greek and Latin versions side by side | Different transmission routes let readers revisit a received rendering.
+B word-difference | Two translators choose different meanings | Disagreement may reflect interpretation rather than a damaged original.
+OUT translation-choices | A translation’s choices made visible | A translated text is not a transparent container untouched by its reader.
+LIFECYCLE {'parallel-translations': 'retain', 'word-difference': 'retain'}
+
+RECIPE make-ancient-wisdom-claim
+A stable-forms | Plato: stable Forms | A stable object of understanding is proposed behind changing examples; this is a reconstructed Platonic position.
+B hermetic-dialogues | Dialogues attributed to ancient Hermes | Renaissance readers often assigned these writings an exceptionally ancient authority.
+OUT ancient-wisdom-claim | A claim to a primordial wisdom | Renaissance Platonism and Hermetic reading can share a search for ancient wisdom; this reconstructs a historical attraction.
+LIFECYCLE {'stable-forms': 'retain', 'hermetic-dialogues': 'retain'}
+LINK {"from": "kinds", "to": "editions", "item": "stable-forms", "recipe": "make-ancient-wisdom-claim", "relation": "adaptation", "evidence": "Ficino’s Platonic scholarship and Hermetic translation belong to a historically connected Renaissance project.", "sources": ["printing", "ratdolt", "alexandria", "hermetic", "arabic-latin"]}
+
+RECIPE make-redated-hermetica
+A ancient-wisdom-claim | A claim to a primordial wisdom | Renaissance Platonism and Hermetic reading can share a search for ancient wisdom; this reconstructs a historical attraction.
+B datable-language | The supposedly ancient text uses later Greek | Philological evidence changes a claimed date; the example is simplified.
+OUT redated-hermetica | Hermetic wisdom, later than claimed | Dating can weaken an appeal to extreme antiquity without logically refuting every idea in the work.
+LIFECYCLE {'ancient-wisdom-claim': 'retain', 'datable-language': 'retain'}
+
+RECIPE make-contested-publication
+A reproducible-page | A reproducible printed page | A prepared surface produces repeated text; different printing traditions develop different forms of this possibility.
+B print-censors | Authorities can license, ban or seize an edition | Print widens circulation but does not abolish power over publication.
+OUT contested-publication | Printed knowledge under contention | A wider audience and new controls develop together, not as a simple freedom switch.
+LIFECYCLE {'reproducible-page': 'retain', 'print-censors': 'retain'}
+
+RECIPE make-printed-euclid
+A compared-edition | Printed copies with inspectable variants | Repeated copies make comparison easier without making editorial choices disappear.
+B deductive-geometry | A connected geometric proof | Conclusions form a structured deductive account instead of an unconnected collection of claims.
+OUT printed-euclid | A geometric proof that many readers can compare | Printing connects a structured argument with repeated, shareable pages.
+LIFECYCLE {'compared-edition': 'retain', 'deductive-geometry': 'retain'}
+LINK {"from": "world-models", "to": "editions", "item": "deductive-geometry", "recipe": "make-printed-euclid", "relation": "transmission", "evidence": "Printed editions disseminate the actual Euclidean tradition.", "sources": ["printing", "ratdolt", "alexandria", "hermetic", "arabic-latin"]}

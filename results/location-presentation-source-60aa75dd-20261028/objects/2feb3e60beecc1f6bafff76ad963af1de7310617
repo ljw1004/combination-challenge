@@ -1,0 +1,65 @@
+DESK 11: moving-earth | European astronomical correspondence · c. 1543–1619 CE | A different centre | A new instrument makes the old heavens stranger. Evidence can defeat one arrangement without choosing uniquely among all its rivals.
+GOALS: [{'id': 'moving-earth-rough-moon', 'text': 'Reconsider the Moon’s nature', 'kind': 'create', 'item': 'rough-moon'}, {'id': 'moving-earth-jupiter-moons', 'text': 'Find another orbital centre', 'kind': 'create', 'item': 'jupiter-moons'}, {'id': 'moving-earth-relative-retrograde', 'text': 'Explain an apparent reversal', 'kind': 'create', 'item': 'relative-retrograde'}, {'id': 'moving-earth-tycho-still-live', 'text': 'Keep a surviving rival', 'kind': 'create', 'item': 'tycho-still-live'}, {'id': 'moving-earth-revised-harmony', 'text': 'Find order beyond circles', 'kind': 'create', 'item': 'revised-harmony'}]
+
+RECIPE make-telescope
+A ground-lens | A shaped optical lens | A crafted glass surface changes the paths of light.
+B telescope-tube | A tube with a second lens | A physical arrangement for making distant objects appear larger.
+OUT telescope | A telescope | The lens becomes part of a recognizable instrument; any still-needed outside lens remains available.
+LIFECYCLE {'ground-lens': 'incorporate', 'telescope-tube': 'transform'}
+LINK {"from": "light", "to": "moving-earth", "item": "ground-lens", "recipe": "make-telescope", "relation": "adaptation", "evidence": "Optical craft makes telescopic instruments possible; no single inventor is assigned every lens tradition.", "sources": ["copernicus", "galileo", "kepler", "newton-moon-test-primary"]}
+
+RECIPE make-rough-moon
+A telescope | A telescope | The lens becomes part of a recognizable instrument; any still-needed outside lens remains available.
+B moon-detail | Moon shadows change like shadows on rough ground | A schematic observation from telescopic lunar study.
+OUT rough-moon | An earthly-looking Moon | The observations challenge a sharp division between perfect heavens and rough Earth.
+LIFECYCLE {'telescope': 'retain', 'moon-detail': 'retain'}
+
+RECIPE make-jupiter-moons
+A telescope | A telescope | The lens becomes part of a recognizable instrument; any still-needed outside lens remains available.
+B jupiter-points | Points beside Jupiter change places but stay near it | A series of observations, not a single mysterious dot.
+OUT jupiter-moons | A system of moons around Jupiter | Not every celestial body circles Earth directly; that fact alone does not prove Earth moves.
+LIFECYCLE {'telescope': 'retain', 'jupiter-points': 'retain'}
+
+RECIPE make-copernican-world
+A ptolemaic-model | Ptolemy’s predictive heavens | Reconstruct an Earth-centred predictive scheme rather than treating it as mere ignorance.
+B copernican-order | Copernicus puts Earth among the planets | A model that reorganizes motions around the Sun.
+OUT copernican-world | Earth as a moving planet | A new ordering reconstructs the inherited problem rather than erasing observations.
+LIFECYCLE {'ptolemaic-model': 'retain', 'copernican-order': 'retain'}
+LINK {"from": "world-models", "to": "moving-earth", "item": "ptolemaic-model", "recipe": "make-copernican-world", "relation": "criticism", "evidence": "Copernican ordering and telescopic evidence address a model the player already reconstructed.", "sources": ["copernicus", "galileo", "kepler", "newton-moon-test-primary"]}
+
+RECIPE make-relative-retrograde
+A copernican-world | Earth as a moving planet | A new ordering reconstructs the inherited problem rather than erasing observations.
+B retrograde-appearance | A moving observer can see another body seem to reverse | A qualitative relative-motion case, with no orbit calculation.
+OUT relative-retrograde | Apparent reversal from relative motion | Some puzzling appearances become consequences of observing from a moving Earth.
+LIFECYCLE {'copernican-world': 'retain', 'retrograde-appearance': 'retain'}
+
+RECIPE make-venus-phases
+A telescope | A telescope | The lens becomes part of a recognizable instrument; any still-needed outside lens remains available.
+B venus-phase-series | Venus shows both crescent and nearly full phases | The observation itself is on the tile.
+OUT venus-phases | The full range of Venus’s phases | The instrument and repeated observations establish a consequential phenomenon.
+LIFECYCLE {'telescope': 'retain', 'venus-phase-series': 'retain'}
+
+RECIPE make-strict-ptolemy-challenged
+A venus-phases | The full range of Venus’s phases | The instrument and repeated observations establish a consequential phenomenon.
+B ptolemaic-model | Ptolemy’s predictive heavens | Reconstruct an Earth-centred predictive scheme rather than treating it as mere ignorance.
+OUT strict-ptolemy-challenged | Strict Ptolemaic Venus is challenged | The full phase range conflicts with the standard Ptolemaic arrangement of Venus.
+LIFECYCLE {'venus-phases': 'retain', 'ptolemaic-model': 'retain'}
+LINK {"from": "world-models", "to": "moving-earth", "item": "ptolemaic-model", "recipe": "make-strict-ptolemy-challenged", "relation": "criticism", "evidence": "Copernican ordering and telescopic evidence address a model the player already reconstructed.", "sources": ["copernicus", "galileo", "kepler", "newton-moon-test-primary"]}
+
+RECIPE make-tycho-still-live
+A strict-ptolemy-challenged | Strict Ptolemaic Venus is challenged | The full phase range conflicts with the standard Ptolemaic arrangement of Venus.
+B tycho-model | Tycho keeps Earth still while planets circle the Sun | A geoheliocentric rival can accommodate observations that trouble strict Ptolemaic ordering.
+OUT tycho-still-live | A stationary-Earth alternative remains live | The same evidence does not eliminate Tycho’s arrangement; underdetermination remains tangible.
+LIFECYCLE {'strict-ptolemy-challenged': 'retain', 'tycho-model': 'retain'}
+
+RECIPE make-kepler-ellipse
+A copernican-world | Earth as a moving planet | A new ordering reconstructs the inherited problem rather than erasing observations.
+B mars-mismatch | Tycho’s Mars observations resist a perfect-circle fit | The mismatch motivates revision; the player does not compute an orbit.
+OUT kepler-ellipse | An elliptical path for Mars | Kepler abandons the privileged circle while working from an inherited Sun-centred problem.
+LIFECYCLE {'copernican-world': 'retain', 'mars-mismatch': 'retain'}
+
+RECIPE make-revised-harmony
+A kepler-ellipse | An elliptical path for Mars | Kepler abandons the privileged circle while working from an inherited Sun-centred problem.
+B harmony-ideal | The heavens should form a harmonious order | A philosophical and mathematical aspiration, not independent evidence for a particular orbit.
+OUT revised-harmony | A lawful sky without perfect circles | The search for order survives the revision of what that order looks like.
+LIFECYCLE {'kepler-ellipse': 'retain', 'harmony-ideal': 'retain'}

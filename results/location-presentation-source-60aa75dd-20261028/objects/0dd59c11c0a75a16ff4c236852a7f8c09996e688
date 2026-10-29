@@ -1,0 +1,24 @@
+{
+  "reviewerRole": "Milestone author, independent of reactive implementation worker",
+  "scope": "Narrow source and headless milestone/reactive chapter handoff. Not full reactive audit, final expanded-map integration, native UI or aggregate validation.",
+  "source": "/workspace/shared/combination-reactive-chapters-20261028",
+  "files": {
+    "experiments/tangible-campaign/engine/model.ts": "5aac952952708d28ed019f367ce5b443192d5f64edc736d70a952e3f48370630",
+    "experiments/tangible-campaign/ui/campaign-main.ts": "e7c55663aca96568ff129509baa8de5078cfddc9c8c552ac66ccb7fb467df249",
+    "experiments/tangible-campaign/ui/campaign-controller.test.ts": "d8cc3b884d861740a2394d44b5bbdec0b2a1149bbc871c09ded2a85194799cac",
+    "experiments/tangible-campaign/ui/campaign-milestones.ts": "59ca2fd3f477b9122d05ac41e984bca7756d59736f38d976fc3dd2521e526937"
+  },
+  "checks": [
+    "advanceWhenUnblocked prioritizes earned milestone queue before pending story bridges and ordinary advance",
+    "direct UI advance while pending reward redirects to reward",
+    "only acknowledged displayed reward clears; stale handler cannot dismiss next queued event",
+    "entry cascade clones state and adds chapter facts without inventing or deleting milestone events",
+    "reactive helper keeps shared applyMilestones composition accessible to UI and logical replayers"
+  ],
+  "tests": {
+    "passed": 4,
+    "command": "node --test --test-name-pattern='reactive pending milestones|headless-cascaded save|all remaining reactive entries|reactive debug checkpoint' experiments/tangible-campaign/ui/campaign-controller.test.ts",
+    "logSha256": "ce9e5861afbf7346660df60c1a9c0fa55972d361099ad119534af4690d565ce1"
+  },
+  "result": "PASS within stated scope; no queue blocker found"
+}

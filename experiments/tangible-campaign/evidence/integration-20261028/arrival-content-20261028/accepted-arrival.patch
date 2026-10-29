@@ -1,0 +1,404 @@
+--- a/DESIGN_PRINCIPLES.md
++++ b/DESIGN_PRINCIPLES.md
+@@ -34,6 +34,7 @@
+ - Every non-opening chapter must meaningfully use at least one, preferably several, objects or ideas created in an earlier chapter. An item merely remaining in inventory, or an old raw supply, does not satisfy this.
+ - The source chapter need not be the immediately preceding one. Earlier creations may return after a gap. Mars remains a single-narrator survival story, not alternating rover/farming narrators. Evaluate competing perspectives selectively, especially for Doctrine; do not force two threads into every journey.
+ - Carry useful existing creations forward; do not conjure missing prerequisites or replace continuity with an explanatory paragraph. Players should recognise what they made.
++- Distinguish newly supplied things from the actual objects carried forward. Use compact, non-gold arrival cues and recoverable entry details, not only a fleeting animation; a new creation is not a new supply. Reusing the same kitchen must not relabel existing things as new or move them merely to mark a chapter boundary. Older saves retain progress without invented arrival history.
+ - The food journey needs the same continuity. Preserve the value of older practices rather than portraying every later technique as simply superior.
+ 
+ ## Ideas have histories
+--- a/experiments/tangible-campaign/engine/model.ts
++++ b/experiments/tangible-campaign/engine/model.ts
+@@ -5,7 +5,10 @@
+ export type Place=Point&{id:string;area:string};
+ export type Area={id:string;label:string;enteredAtStage:number};
+ export type Metrics={attempts:number;accepted:number;combinations:number;creations:number;installations:number;moves:number;placements:number;advances:number;visits:number};
+-export type State={stage:number;currentArea:string;areas:Area[];places:Place[];tokens:Token[];discovered:string[];recipesUsed:string[];openedCaches:string[];width:number;metrics:Metrics;completed:boolean};
++/** A bounded chapter-entry snapshot, not a reconstruction from the event log.
++ * IDs remain here after use so the challenge can explain an arrival later. */
++export type Arrival={stage:number;area:string;supplies:{item:string;cache:string}[];carried:{item:string;from:string}[];here:string[]};
++export type State={stage:number;currentArea:string;areas:Area[];places:Place[];tokens:Token[];discovered:string[];recipesUsed:string[];openedCaches:string[];width:number;metrics:Metrics;completed:boolean;arrival?:Arrival};
+ export type Event={seq:number;action:Action|{type:'undo'};accepted:boolean;message:string;stage:number;recipe?:string;created?:string;installed?:boolean;retired?:string[];transfers?:{item:string;from:string;to:string}[]};
+ /** lifecycleVersion 2 records event-local removals and immutable construction snapshots. */
+ export type Game={version:1;lifecycleVersion?:2;scenarioId:string;state:State;history:State[];events:Event[]};
+@@ -149,7 +152,7 @@
+   for(let i=0;i<group.length;i++){const t=group[i],b=boxes[i];t.area=area;t.location=null;t.x=b.x+delta.x;t.y=b.y+delta.y;used.push({...t,...size(s,t)});}
+  }
+ }
+-function addItem(s:Scenario,state:State,kind:string,area:string){if(state.discovered.includes(kind))return;const t:Token={id:kind,kind,area,location:null,slots:{},incorporated:[],x:0,y:0};Object.assign(t,supplyPosition(s,state,area,tokenHeight(s,t)));state.tokens.push(t);state.discovered.push(kind);}
++function addItem(s:Scenario,state:State,kind:string,area:string){if(state.discovered.includes(kind))return false;const t:Token={id:kind,kind,area,location:null,slots:{},incorporated:[],x:0,y:0};Object.assign(t,supplyPosition(s,state,area,tokenHeight(s,t)));state.tokens.push(t);state.discovered.push(kind);return true;}
+ /** A safeguard at the current recipe event, never a pending retirement schedule. */
+ function needed(s:Scenario,state:State,t:Token,excluding?:string):boolean{
+  if(s.recipes.some(r=>r.id!==excluding&&!state.recipesUsed.includes(r.id)&&(!r.out||!state.discovered.includes(r.out))&&[r.a,r.b].includes(t.kind)))return true;
+@@ -173,11 +176,13 @@
+  if(!existing)state.areas.push({id:area,label:st.area.label,enteredAtStage:state.stage});
+  const wanted=first?[]:sceneCarry(s,state,st),carried=state.tokens.filter(t=>wanted.includes(t.kind)&&t.area!==area);
+  const transfers=carried.map(t=>({item:t.id,from:t.area,to:area}));
++ const arrival:Arrival={stage:state.stage,area,supplies:[],carried:transfers.map(({item,from})=>({item,from})),here:state.tokens.filter(t=>t.area===area).map(t=>t.id)};
+  arrive(s,state,area,carried);
+  state.currentArea=area;
+  for(const id of st.locations??[]){if(state.places.some(p=>p.id===id))continue;const pos=supplyPosition(s,state,area);state.places.push({id,area,x:pos.x,y:pos.y+25});}
+- for(const c of st.caches??[])if(!state.openedCaches.includes(c.id)){for(const k of c.items)addItem(s,state,k,area);state.openedCaches.push(c.id);}
+- if(first)for(const k of s.initialItems)addItem(s,state,k,area);
++ for(const c of st.caches??[])if(!state.openedCaches.includes(c.id)){for(const k of c.items)if(addItem(s,state,k,area))arrival.supplies.push({item:k,cache:c.id});state.openedCaches.push(c.id);}
++ if(first)for(const k of s.initialItems)if(addItem(s,state,k,area))arrival.here.push(k);
++ state.arrival=arrival;
+  return transfers;
+ }
+ export function createGame(s:Scenario,width=360):Game{
+@@ -241,6 +246,22 @@
+  }catch(e){return errorResult(g,a,(e as Error).message);}
+ }
+ export function undo(g:Game):Result{if(!g.history.length)return {accepted:false,game:g,message:'Nothing to undo.'};const game={...g,state:clone(g.history.at(-1)!),history:g.history.slice(0,-1),events:[...g.events,{seq:g.events.length+1,action:{type:'undo'} as const,accepted:true,message:'Undone.',stage:g.history.at(-1)!.stage}]};game.state.metrics=cumulativeMetrics(game.events);return {accepted:true,game,message:'Undone.'};}
++/** Supply arrivals are not creation effects. No cue is inferred from caches,
++ * recipe availability, a visited area, or a truncated undo/event history. */
++export function arrivalCue(state:State,id:string):'new'|'carried'|null{
++ const a=state.arrival,t=token(state,id);
++ if(!a||a.stage!==state.stage||!t||t.area!==a.area)return null;
++ return a.supplies.some(x=>x.item===id)?'new':a.carried.some(x=>x.item===id)?'carried':null;
++}
++/** Only witnessed, already-discovered things; never recipe results or hints. */
++export function arrivalView(s:Scenario,state:State){
++ const a=state.arrival;if(!a||a.stage!==state.stage)return null;
++ const known=(id:string)=>state.discovered.includes(id)&&!!item(s,id);
++ return {area:state.areas.find(x=>x.id===a.area)?.label??s.stages[state.stage].area.label,
++  supplies:a.supplies.filter(x=>known(x.item)).map(x=>({id:x.item,label:item(s,x.item)!.label,source:s.stages[a.stage].caches?.find(c=>c.id===x.cache)?.label??''})),
++  carried:a.carried.filter(x=>known(x.item)).map(x=>({id:x.item,label:item(s,x.item)!.label,from:state.areas.find(area=>area.id===x.from)?.label??''})),
++  here:a.here.filter(known).map(id=>({id,label:item(s,id)!.label}))};
++}
+ export function partners(s:Scenario,state:State,id:string){
+  const empty={message:'No new combinations with things currently in this area' as string|null,partners:[] as string[],outgoing:[] as string[],incoming:[] as string[],settings:[] as string[],directions:[] as {source:string;target:string;location?:string;text:string}[],settingHelp:[] as {source:string;target:string;location:string;text:string}[]};
+  const t=token(state,id);if(!t||t.area!==state.currentArea)return empty;
+@@ -279,6 +300,16 @@
+   });
+  };
+  if(g?.version!==1||g.lifecycleVersion!==undefined&&g.lifecycleVersion!==2||g.scenarioId!==s.id||!validState(g.state)||!Array.isArray(g.events)||!Array.isArray(g.history)||!g.history.every(validState)||!g.events.every((e,i)=>e.seq===i+1&&typeof e.accepted==='boolean'&&e.action&&typeof e.message==='string'&&!!s.stages[e.stage]&&(!e.recipe||s.recipes.some(r=>r.id===e.recipe))&&(!e.created||!!item(s,e.created))))throw Error('Invalid campaign save');
++ // Provenance is optional presentation metadata. Older saves have none; do
++ // not invent it or discard playable progress because it is absent/damaged.
++ for(const st of [...g.history,g.state])if(st.arrival!==undefined){
++  const a=st.arrival;
++  const valid=!!a&&a.stage===st.stage&&a.area===s.stages[st.stage].area.id&&Array.isArray(a.supplies)&&Array.isArray(a.carried)&&Array.isArray(a.here)
++   &&a.supplies.every(x=>x&&st.discovered.includes(x.item)&&s.stages[st.stage].caches?.some(c=>c.id===x.cache&&st.openedCaches.includes(c.id)&&c.items.includes(x.item)))
++   &&a.carried.every(x=>x&&st.discovered.includes(x.item)&&x.from!==a.area&&st.areas.some(area=>area.id===x.from))
++   &&a.here.every(id=>st.discovered.includes(id))&&unique([...a.supplies.map(x=>x.item),...a.carried.map(x=>x.item),...a.here]);
++  if(!valid)delete st.arrival;
++ }
+  // Unmarked old saves may lack visible construction details. Recover only
+  // from an observed recipe event's actual PRE-action snapshot, not a later
+  // upgraded loose copy or the catalogue. Missing history is not permission
+--- /dev/null
++++ b/experiments/tangible-campaign/engine/arrival.test.ts
+@@ -0,0 +1,71 @@
++import test from 'node:test';
++import assert from 'node:assert/strict';
++import * as M from './model.ts';
++import {decodeSave,encodeSave} from '../ui/save-codec.ts';
++import type {Action,Scenario} from '../schema/scenario.ts';
++
++const fixture:Scenario={schemaVersion:1,id:'arrivals',title:'A kitchen journey',premise:'Keep what you make.',
++ items:['grain','water','dough','bowl','bread','herbs','meal'].map(id=>({id,label:id})),locations:[],initialItems:['grain','water'],
++ recipes:[{id:'mix',a:'grain',b:'water',out:'dough'},{id:'bake',a:'dough',b:'bowl',out:'bread'},{id:'serve',a:'bread',b:'herbs',out:'meal'}],
++ stages:[
++  {id:'mix',title:'Mix',speaker:'Cook',motivation:'Mix.',area:{id:'camp',label:'Camp',travelText:'Start.'},objectives:[{id:'mix',text:'Mix dough',kind:'create',item:'dough'}]},
++  {id:'bake',title:'Bake',speaker:'Cook',motivation:'Bake.',area:{id:'kitchen',label:'Kitchen',travelText:'Arrive.'},carry:['dough'],caches:[{id:'shelf',label:'Kitchen shelf',narrative:'The tools and herbs are here.',items:['water','dough','bowl','herbs']}],objectives:[{id:'bake',text:'Bake bread',kind:'create',item:'bread'}]},
++  {id:'serve',title:'Serve',speaker:'Cook',motivation:'Stay here.',area:{id:'kitchen',label:'Kitchen',travelText:'Keep cooking.'},carry:[],caches:[],objectives:[{id:'serve',text:'Serve meal',kind:'create',item:'meal'}]},
++ ]};
++const arriveActions:Action[]=[{type:'combine',a:'grain',b:'water'},{type:'advance'}];
++const atKitchen=()=>M.replay(fixture,arriveActions);
++test('entry records actual new cache additions, carried creations and starting things separately',()=>{
++ const initial=M.createGame(fixture);assert.deepEqual(initial.state.arrival?.here,['grain','water']);assert.equal(M.arrivalCue(initial.state,'grain'),null);
++ const g=atKitchen();assert.deepEqual(g.state.arrival,{stage:1,area:'kitchen',supplies:[{item:'bowl',cache:'shelf'},{item:'herbs',cache:'shelf'}],carried:[{item:'dough',from:'camp'}],here:[]});
++ assert.equal(M.arrivalCue(g.state,'bowl'),'new');assert.equal(M.arrivalCue(g.state,'dough'),'carried');assert.equal(M.arrivalCue(g.state,'water'),null);
++ assert.equal(M.token(g.state,'water')?.area,'camp');assert.equal(g.state.tokens.filter(t=>t.kind==='dough').length,1);
++ const view=M.arrivalView(fixture,g.state)!;assert.deepEqual(view.supplies.map(x=>[x.label,x.source]),[['bowl','Kitchen shelf'],['herbs','Kitchen shelf']]);assert.equal(view.carried[0].from,'Camp');
++ assert(!JSON.stringify(view).includes('bread'));assert(!JSON.stringify(view).includes('meal'));
++});
++test('successful play does not erase unseen supply cues; creations are never supply arrivals',()=>{
++ let g=atKitchen();const manifest=structuredClone(g.state.arrival);
++ g=M.applyAction(fixture,g,{type:'move',item:'bowl',x:250,y:300}).game;
++ assert.equal(M.arrivalCue(g.state,'herbs'),'new');assert.deepEqual(g.state.arrival,manifest);
++ g=M.applyAction(fixture,g,{type:'combine',a:'dough',b:'bowl'}).game;
++ assert.equal(M.arrivalCue(g.state,'bread'),null);assert.deepEqual(g.state.arrival,manifest);
++ const undone=M.undo(g).game;assert.equal(M.arrivalCue(undone.state,'bread'),null);assert.equal(M.arrivalCue(undone.state,'dough'),'carried');
++});
++test('a chapter in the same kitchen neither re-grants supplies nor relocates existing things',()=>{
++ const g=M.applyAction(fixture,atKitchen(),{type:'combine',a:'dough',b:'bowl'}).game;
++ const next=M.applyAction(fixture,g,{type:'advance'}).game;
++ assert.deepEqual(next.state.tokens,g.state.tokens);assert.deepEqual(next.state.places,g.state.places);
++ assert.deepEqual(next.state.arrival?.supplies,[]);assert.deepEqual(next.state.arrival?.carried,[]);
++ for(const t of next.state.tokens)assert.equal(M.arrivalCue(next.state,t.id),null);
++ assert.deepEqual(next.state.arrival?.here,g.state.tokens.filter(t=>t.area==='kitchen').map(t=>t.id));
++ assert.deepEqual(M.undo(next).game.state.arrival,g.state.arrival);
++});
++test('a genuine same-area cache distinguishes additions from things already here',()=>{
++ const s=structuredClone(fixture);s.stages[2].caches=[{id:'late-shelf',label:'Later shelf',narrative:'A later delivery.',items:['herbs','meal']}];
++ const g=M.replay(s,[...arriveActions,{type:'combine',a:'dough',b:'bowl'},{type:'advance'}]);
++ assert.deepEqual(g.state.arrival?.supplies,[{item:'meal',cache:'late-shelf'}]);assert.equal(M.arrivalCue(g.state,'herbs'),null);assert.equal(M.arrivalCue(g.state,'meal'),'new');
++});
++test('visits and debug checkpoints cannot turn existing supplies or creations into fresh arrivals',()=>{
++ const s=structuredClone(fixture);s.checkpoints=[{id:'ready',label:'Ready',actions:arriveActions}];
++ const checkpoint=M.checkpoint(s,'ready');assert.deepEqual(checkpoint.state.arrival,atKitchen().state.arrival);
++ const absent=M.applyAction(s,checkpoint,{type:'visit',area:'camp',carry:['dough']}).game;
++ assert.equal(M.arrivalCue(absent.state,'dough'),null);assert.equal(M.arrivalCue(absent.state,'water'),null);
++ const returned=M.applyAction(s,absent,{type:'visit',area:'kitchen',carry:['dough','water']}).game;
++ assert.equal(M.arrivalCue(returned.state,'dough'),'carried');assert.equal(M.arrivalCue(returned.state,'water'),null);assert.deepEqual(returned.state.arrival,checkpoint.state.arrival);
++});
++test('compact save, bounded undo and restoration preserve exact arrival provenance',()=>{
++ let g=atKitchen();const manifest=structuredClone(g.state.arrival);
++ for(let i=0;i<105;i++)g=M.applyAction(fixture,g,{type:'move',item:'bowl',x:70+i%200,y:300}).game;
++ assert.equal(g.history.length,100);const raw=encodeSave({game:g,tops:{camp:0,kitchen:400},seen:[0,1]});
++ const restored=M.restore(fixture,JSON.stringify(decodeSave(raw).game));assert.deepEqual(restored,g);assert.deepEqual(restored.state.arrival,manifest);
++ assert.equal(M.arrivalCue(restored.state,'bowl'),'new');assert.equal(M.arrivalCue(M.undo(restored).game.state,'dough'),'carried');
++});
++test('old or damaged arrival metadata never resets progress or invents provenance from history',()=>{
++ const old=atKitchen();for(const st of [...old.history,old.state])delete st.arrival;
++ const restored=M.restore(fixture,JSON.stringify(old));assert.deepEqual(restored,old);assert.equal(M.arrivalView(fixture,restored.state),null);assert.equal(M.arrivalCue(restored.state,'bowl'),null);
++ assert.deepEqual(M.undo(restored).game.state.tokens,old.history.at(-1)!.tokens);
++ for(const invalid of [null,{}, {stage:0,area:'camp',supplies:[],carried:[],here:[]}, {stage:1,area:'kitchen',supplies:[{item:'meal',cache:'shelf'}],carried:[],here:[]}]){
++  const bad=structuredClone(old);(bad.state as any).arrival=invalid;assert.deepEqual(M.restore(fixture,JSON.stringify(bad)),old);
++ }
++ const next=M.replay(fixture,[...arriveActions,{type:'combine',a:'dough',b:'bowl'}]);delete next.state.arrival;
++ assert.equal(M.applyAction(fixture,next,{type:'advance'}).game.state.arrival?.stage,2);
++});
+--- /dev/null
++++ b/experiments/tangible-campaign/integration/arrival-source-guard.ts
+@@ -0,0 +1,22 @@
++/** Preserve the content-only release's frozen hashes. The later, explicitly
++ * requested arrival UI is an exact successor, never a blanket source exemption. */
++import assert from 'node:assert/strict';
++import {readFileSync} from 'node:fs';
++
++const manifest=JSON.parse(readFileSync(new URL('../reviews/arrivals/source-successors.json',import.meta.url),'utf8')) as {
++ schemaVersion:number;files:Record<string,{beforeSha256:string;afterSha256:string}>;
++};
++const reviewedPaths=[
++ 'experiments/tangible-campaign/engine/model.ts',
++ 'experiments/tangible-campaign/ui/campaign-controller.test.ts',
++ 'experiments/tangible-campaign/ui/campaign-main.ts',
++ 'experiments/tangible-campaign/ui/campaign.css',
++];
++assert.equal(manifest.schemaVersion,1);
++assert.deepEqual(Object.keys(manifest.files).sort(),reviewedPaths);
++for(const row of Object.values(manifest.files))for(const hash of [row.beforeSha256,row.afterSha256])assert.match(hash,/^[a-f0-9]{64}$/);
++export function expectedSourceHashAfterArrivals(path:string,historicalSha256:string):string{
++ const successor=manifest.files[path];if(!successor)return historicalSha256;
++ assert.equal(successor.beforeSha256,historicalSha256,path+': historical freeze was not replaced');
++ return successor.afterSha256;
++}
+--- a/experiments/tangible-campaign/ui/campaign-main.ts
++++ b/experiments/tangible-campaign/ui/campaign-main.ts
+@@ -68,7 +68,7 @@
+  function openMission(){reading='';if(M.playerView(s,game).canAdvance){commit({type:'advance'});return;}navigationRequest++;modal=true;debugOpen=false;modalScrollOnClose=false;render();}
+  function closeModal(){navigationRequest++;seen=[...new Set([...seen,game.state.stage])];modal=false;render();save();if(modalScrollOnClose)scrollArea();document.getElementById('purpose')?.focus();}
+  function closeDebug(){debugOpen=false;render();document.getElementById('debug-toggle')?.focus();resumeAdvance();}
+- function render(){stopDrag();ensureTops();const prior=document.querySelector<HTMLElement>('.viewport')?.scrollTop??0;const marks=M.gold(s,game.state),view=M.playerView(s,game),goals=view.objectives;
++ function render(){stopDrag();ensureTops();const prior=document.querySelector<HTMLElement>('.viewport')?.scrollTop??0;const marks=M.gold(s,game.state),view=M.playerView(s,game),goals=view.objectives,arrival=M.arrivalView(s,game.state);
+   const selectedItem=M.item(s,M.token(game.state,selected)?.kind??'');
+   const source=M.item(s,M.token(game.state,reading)?.kind??'');
+   if(reading&&(!source?.reading||modal||debugOpen))reading='';
+@@ -83,12 +83,12 @@
+    </div>
+    <button id="debug-toggle" class="debug-toggle" aria-label="Debug controls" aria-haspopup="dialog" aria-controls="debug-dialog" aria-expanded="${debugOpen}" title="Debug controls" data-debug="${!!debugName}"><svg aria-hidden="true" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M9 4 7 2m8 2 2-2M8 8h8v8a4 4 0 0 1-8 0V8Zm1 0V6a3 3 0 0 1 6 0v2M12 9v11M4 8l4 2m8 0 4-2M3 14h5m8 0h5M4 20l4-3m8 0 4 3"/></svg></button></div>
+    <button id="save-alert" class="save-alert" hidden aria-haspopup="dialog" aria-controls="debug-dialog">Save needs attention</button>
+-   <section class="viewport" aria-label="Scrollable world"><main class="board" style="height:${extent}px">${game.state.areas.map(a=>`<div class="area-label" style="top:${tops[a.id]}px">${esc(a.label)}</div>`).join('')}${game.state.places.map(p=>`<button class="location ${marks.places.includes(p.id)?'goal-met':''}" data-target="@${esc(p.id)}" style="left:${p.x}px;top:${tops[p.area]+p.y}px" aria-label="${esc(label('@'+p.id))}">${esc(label('@'+p.id))}</button>`).join('')}${game.state.tokens.map(t=>{const def=M.item(s,t.kind)!,lines=M.itemLabelLayout(def);const birth=last?.created===t.id;return `<button class="thing ${lines?'text-thing':''} ${def.reading?'reading-thing':''} ${selected===t.id?'selected':''} ${marks.items.includes(t.id)?'goal-met':''} ${birth?'born':''}" data-target="${esc(t.id)}" style="left:${t.x}px;top:${tops[t.area]+t.y}px;min-height:${height(t)}px;${birth&&last?.origin?`--birth-x:${last.origin.x-t.x}px;--birth-y:${last.origin.y-t.y}px`:''}" aria-label="${esc(def.label)}${marks.items.includes(t.id)?' — objective completed':''}${def.reading?' — readable source':''}">${def.reading?'<span class="source-marker" aria-hidden="true"><svg viewBox="0 0 16 16" width="11" height="11" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M8 3v10M8 3C6 1.5 3 2 1 2v10c2 0 5-.5 7 1 2-1.5 5-1 7-1V2c-2 0-5-.5-7 1Z"/></svg></span>':''}${lines?`<span class="item-label">${lines.map(line=>`<span class="item-label-line">${esc(line)}</span>`).join('')}</span>`:esc(def.label)}${(def.slots??[]).filter(sl=>sl.required||t.slots[sl.id]).map(sl=>`<span class="slot ${t.slots[sl.id]?'filled':''}">${t.slots[sl.id]?esc(M.item(s,t.slots[sl.id])!.label):''}</span>`).join('')}${M.componentLabels(s,t).map(label=>`<span class="slot filled">${esc(label)}</span>`).join('')}</button>`;}).join('')}</main></section>
++   <section class="viewport" aria-label="Scrollable world"><main class="board" style="height:${extent}px">${game.state.areas.map(a=>`<div class="area-label" style="top:${tops[a.id]}px">${esc(a.label)}</div>`).join('')}${game.state.places.map(p=>`<button class="location ${marks.places.includes(p.id)?'goal-met':''}" data-target="@${esc(p.id)}" style="left:${p.x}px;top:${tops[p.area]+p.y}px" aria-label="${esc(label('@'+p.id))}">${esc(label('@'+p.id))}</button>`).join('')}${game.state.tokens.map(t=>{const def=M.item(s,t.kind)!,lines=M.itemLabelLayout(def);const birth=last?.created===t.id,cue=M.arrivalCue(game.state,t.id),cueText=cue==='new'?'New supply this chapter':cue==='carried'?'Carried into this area for this chapter':'';return `<button class="thing ${lines?'text-thing':''} ${def.reading?'reading-thing':''} ${selected===t.id?'selected':''} ${marks.items.includes(t.id)?'goal-met':''} ${birth?'born':''}" data-target="${esc(t.id)}"${cue?` data-arrival="${cue}"`: ''} style="left:${t.x}px;top:${tops[t.area]+t.y}px;min-height:${height(t)}px;${birth&&last?.origin?`--birth-x:${last.origin.x-t.x}px;--birth-y:${last.origin.y-t.y}px`:''}" aria-label="${esc(def.label)}${cueText?' — '+cueText:''}${marks.items.includes(t.id)?' — objective completed':''}${def.reading?' — readable source':''}">${cue?`<span class="arrival-badge ${cue}" aria-hidden="true">${cue==='new'?'New':'Carried'}</span>`:''}${def.reading?'<span class="source-marker" aria-hidden="true"><svg viewBox="0 0 16 16" width="11" height="11" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M8 3v10M8 3C6 1.5 3 2 1 2v10c2 0 5-.5 7 1 2-1.5 5-1 7-1V2c-2 0-5-.5-7 1Z"/></svg></span>':''}${lines?`<span class="item-label">${lines.map(line=>`<span class="item-label-line">${esc(line)}</span>`).join('')}</span>`:esc(def.label)}${(def.slots??[]).filter(sl=>sl.required||t.slots[sl.id]).map(sl=>`<span class="slot ${t.slots[sl.id]?'filled':''}">${t.slots[sl.id]?esc(M.item(s,t.slots[sl.id])!.label):''}</span>`).join('')}${M.componentLabels(s,t).map(label=>`<span class="slot filled">${esc(label)}</span>`).join('')}</button>`;}).join('')}</main></section>
+    ${selectedItem?.reading&&!modal&&!debugOpen&&!reading?`<button id="read-source" class="read-source" aria-haspopup="dialog" aria-controls="source-reader">Read ${esc(selectedItem.label)}</button>`:''}
+    ${reading&&source?.reading?`<dialog id="source-reader" aria-labelledby="source-reader-title" aria-describedby="source-reader-attribution"><div class="reader-heading"><h1 id="source-reader-title">${esc(source.label)}</h1><button id="reader-close" aria-label="Close reading" autofocus>×</button></div><p class="reading-text">${esc(source.reading.text)}</p><p id="source-reader-attribution" class="reading-attribution">${esc(source.reading.attribution)}</p></dialog>`:''}
+    <p class="feedback" role="status" hidden></p>
+    <dialog id="debug-dialog" aria-labelledby="debug-title"><div class="debug-heading"><h1 id="debug-title">Journey controls</h1><button id="debug-close" aria-label="Close debug controls">×</button></div><p class="debug-journey-title">${esc(s.title)}</p>${debugName?`<p class="debug-marker" title="This journey began from a replayed checkpoint, not a fresh start.">DEBUG · ${esc(debugName)}</p>`:''}<div class="debug-actions"><button id="undo" ${game.history.length?'':'disabled'}>Undo</button><button id="reset">Reset journey</button><button id="current">Current area</button></div><label for="travel">Visit an earlier area</label><select id="travel"><option value="">Choose an area…</option>${game.state.areas.map(a=>`<option value="${esc(a.id)}">${esc(a.label)} · ${view.areas.find(x=>x.id===a.id)?.thingCount??0} things</option>`).join('')}</select><label for="jump">Prepared checkpoint</label><select id="jump"><option value="">Replayed checkpoint…</option>${(s.checkpoints??[]).map(c=>`<option value="${esc(c.id)}">${esc(c.label)}</option>`).join('')}</select><nav class="debug-links"><a id="go-chooser" href="campaign.html">Choose a journey</a><a id="go-original" href="mars-expedition.html">Original Mars</a></nav><p class="save-controls"><span id="save-status" role="status"></span><button id="retry-save" hidden>Retry save</button></p><small>${game.state.metrics.combinations} successful combinations</small></dialog>
+-   <dialog id="mission" aria-labelledby="mission-title"><span class="speaker">${esc(view.stage.speaker)}</span><h1 id="mission-title">${view.completed?'Journey complete':fulfilled?'Chapter complete · '+esc(view.stage.title):esc(view.stage.title)}</h1><p class="${fulfilled?'completion-story':'motivation'}">${esc(fulfilled?closure:view.stage.motivation)}</p>${!fulfilled&&!seen.includes(game.state.stage)?`${view.cacheNarrative.map(c=>`<p class="cache"><b>${esc(c.label)}</b><br>${esc(c.narrative)}</p>`).join('')}`:''}<ul>${goals.map(g=>`<li>${g.satisfied?'✓ ':''}${esc(g.text)}</li>`).join('')}</ul><div class="dialog-actions">${view.nextAction?`<button id="modal-next">${esc(view.nextAction)}</button>`:''}<button id="close">${view.completed?'Explore your creations':fulfilled?'Keep exploring':game.state.stage?'Understood.':'Begin.'}</button><button id="modal-reset" class="secondary">Start over</button></div></dialog>`;
++   <dialog id="mission" aria-labelledby="mission-title"><span class="speaker">${esc(view.stage.speaker)}</span><h1 id="mission-title">${view.completed?'Journey complete':fulfilled?'Chapter complete · '+esc(view.stage.title):esc(view.stage.title)}</h1><p class="${fulfilled?'completion-story':'motivation'}">${esc(fulfilled?closure:view.stage.motivation)}</p>${!fulfilled&&!seen.includes(game.state.stage)?`${view.cacheNarrative.map(c=>`<p class="cache"><b>${esc(c.label)}</b><br>${esc(c.narrative)}</p>`).join('')}`:''}<details class="arrival-details"><summary>New &amp; carried things</summary>${arrival?`<p class="arrival-context">At the start of this chapter · ${esc(arrival.area)}</p>${arrival.supplies.length?`<p><b>New supplies</b><br>${arrival.supplies.map(x=>`${esc(x.label)} <span>— ${esc(x.source)}</span>`).join('<br>')}</p>`:''}${arrival.carried.length?`<p><b>Carried in</b><br>${arrival.carried.map(x=>`${esc(x.label)} <span>— from ${esc(x.from)}</span>`).join('<br>')}</p>`:''}${arrival.here.length?`<p><b>${game.state.stage?'Already here':'Starting here'}</b><br>${arrival.here.map(x=>esc(x.label)).join(' · ')}</p>`:''}${!arrival.supplies.length&&!arrival.carried.length?'<p>No new supplies or carried arrivals this chapter.</p>':''}`:'<p>Arrival details are unavailable in this save. Your things and progress are unchanged.</p>'}</details><ul>${goals.map(g=>`<li>${g.satisfied?'✓ ':''}${esc(g.text)}</li>`).join('')}</ul><div class="dialog-actions">${view.nextAction?`<button id="modal-next">${esc(view.nextAction)}</button>`:''}<button id="close">${view.completed?'Explore your creations':fulfilled?'Keep exploring':game.state.stage?'Understood.':'Begin.'}</button><button id="modal-reset" class="secondary">Start over</button></div></dialog>`;
+   const actualWidth=width();if(actualWidth!==game.state.width){game=M.resizeGame(game,actualWidth);render();save();return;}
+   bind();updateSaveStatus();const v=document.querySelector<HTMLElement>('.viewport')!;v.scrollTop=prior;if(modal){const d=document.querySelector<HTMLDialogElement>('#mission')!;showDialog(d,closeModal);}else if(debugOpen){showDialog(document.querySelector<HTMLDialogElement>('#debug-dialog')!,closeDebug);}else if(reading){showDialog(document.querySelector<HTMLDialogElement>('#source-reader')!,closeReading);document.getElementById('reader-close')?.focus({preventScroll:true});}else if(last?.created){const t=M.token(game.state,last.created);if(t){const y=tops[t.area]+t.y;if(y+height(t)/2>v.scrollTop+v.clientHeight)v.scrollTop=y+height(t)/2+10-v.clientHeight;}}last=null;
+  }
+--- a/experiments/tangible-campaign/ui/campaign.css
++++ b/experiments/tangible-campaign/ui/campaign.css
+@@ -55,3 +55,12 @@
+    padding/border allowance. Only real readings add a 12px source marker. */
+ .text-thing{font-family:Arial,Helvetica,sans-serif;line-height:14px}
+ .item-label,.item-label-line{display:block}.item-label-line{white-space:pre}
++
++/* Chapter-local provenance: tiny border labels, never goal gold, and no new
++   tile height, packing rule, hit target or animation. Creations keep born. */
++.arrival-badge{position:absolute;top:-6px;left:4px;max-width:86px;height:11px;line-height:9px;padding:0 3px;border:1px solid #aebdcd;border-radius:3px;background:#edf2f8;color:#39516a;font-family:system-ui,sans-serif;font-size:9px;font-weight:500;white-space:nowrap;pointer-events:none}
++.arrival-badge.carried{border-color:#c4c4bb;background:#f2f1eb;color:#67695e}
++.arrival-details{border-top:1px solid #ddd5c5;margin:14px 0 10px;padding-top:4px}
++.arrival-details summary{min-height:44px;display:flex;align-items:center;font-size:12px;cursor:pointer;list-style:none}
++.arrival-details summary::before{content:'▸';margin-right:6px}.arrival-details[open] summary::before{content:'▾'}
++.arrival-details p{font-size:12px;line-height:1.5;margin:0 0 10px;overflow-wrap:anywhere}.arrival-details p span,.arrival-details .arrival-context{color:#696c64}
+--- a/experiments/tangible-campaign/ui/campaign-controller.test.ts
++++ b/experiments/tangible-campaign/ui/campaign-controller.test.ts
+@@ -374,12 +374,12 @@
+  assert(changed>0); // Audit is deliberately content-driven, not pinned to today's corpus count.
+ });
+ 
+-test('integrated chooser has exactly six ordered focuses, explicitly short workshop, and collapsed secondary sketches',()=>{
++test('integrated chooser has exactly six ordered focuses, explicitly short workshop, and the complete eligible secondary catalogue',()=>{
+  const h=harness(fixture,undefined,{worlds:campaignScenarios,search:''}),html=h.app.innerHTML;
+  const collapsed=html.indexOf('<details class="secondary-journeys">');assert(collapsed>0);assert(!html.includes('<details open'));assert.match(html,/Early experiments · not developed/);
+  const links=[...html.slice(0,collapsed).matchAll(/href="\?world=([^"]+)"/g)].map(m=>decodeURIComponent(m[1]));assert.deepEqual(links,featuredScenarioIds);assert.equal(links.length,6);
+  assert.match(html,/Why This Boat\? · Purpose workshop/);assert.match(html,/Short research prototype/);assert.match(html,/not a full game/);
+- const secondary=[...html.slice(collapsed,html.indexOf('</details>')).matchAll(/href="\?world=([^"]+)"/g)].map(m=>decodeURIComponent(m[1]));assert.deepEqual(secondary,['literature','restoration','shoreline']);
++ const secondary=[...html.slice(collapsed,html.indexOf('</details>')).matchAll(/href="\?world=([^"]+)"/g)].map(m=>decodeURIComponent(m[1]));const eligible=campaignScenarios.filter(s=>!archivedScenarioIds.has(s.id)&&!featuredScenarioIds.includes(s.id)).map(s=>s.id);assert.deepEqual(secondary,eligible);assert.equal(new Set(secondary).size,secondary.length);for(const id of ['literature','restoration','shoreline'])assert(secondary.includes(id));
+  for(const id of archivedScenarioIds)assert(!html.includes('?world='+id+'"'),id);
+  const quarry=campaignScenarios.find(s=>s.id==='causation-fitting-forms-probe-v2')!;assert.equal(quarry.title,'The Quarry Workshop');const direct=harness(quarry);assert.match(direct.app.innerHTML,/The Quarry Workshop/);
+ });
+@@ -396,3 +396,56 @@
+   h.click(h.button('close'));for(const timer of h.timers.filter(t=>t.ms===700))timer.fn();assert.equal(h.state().state.stage,expected.state.stage);assert.equal(h.state().state.completed,expected.state.completed);
+  }
+ });
++
++const arrivalFixture=()=>{
++ const world=structuredClone(fixture);world.items.push({id:'cloth',label:'Cloth'},{id:'packed',label:'Packed beacon'});
++ world.recipes.push({id:'pack',a:'beacon',b:'cloth',out:'packed'});
++ world.stages[1].caches=[{id:'hill-shelf',label:'Hill shelf',narrative:'A cloth waits beside the path.',items:['lamp','beacon','cloth']}];
++ world.stages[1].carry=['beacon'];world.stages[1].objectives=[{id:'pack',text:'Pack the beacon',kind:'create',item:'packed'}];
++ world.stages.push({id:'finish',title:'Signal from here',speaker:'Control',motivation:'Stay on the hill.',area:{id:'hill',label:'Hill',travelText:'Stay here.'},carry:[],caches:[],objectives:[{id:'final-place',text:'Place the packed beacon',kind:'place',item:'packed',location:'ridge'}]});
++ world.checkpoints=[{id:'arrival',label:'Hill arrival',actions:[{type:'combine',a:'lamp',b:'battery'},{type:'advance'}]}];
++ return world;
++};
++const arrivalHarness=()=>{const world=arrivalFixture(),h=harness(world);h.click(h.button('close'));h.click(h.thing('lamp'));h.click(h.thing('battery'));h.timers.filter(t=>t.ms===700).at(-1)?.fn();h.click(h.button('close'));return {world,h};};
++test('arrival UI distinguishes actual new supplies from carries and creations without recipe spoilers',()=>{
++ const {h}=arrivalHarness();assert.equal(h.thing('cloth').dataset.arrival,'new');assert.equal(h.thing('beacon').dataset.arrival,'carried');assert.equal(h.thing('lamp').dataset.arrival,undefined);
++ assert.match(h.thing('cloth').attrs['aria-label'],/New supply this chapter/);assert.match(h.thing('beacon').attrs['aria-label'],/Carried into this area for this chapter/);
++ assert(!h.thing('cloth').classes.has('born'));assert(!h.thing('cloth').classes.has('goal-met'));
++ assert(h.doc.querySelector('.arrival-details'));assert(!h.doc.querySelector('.arrival-details').attrs.open);
++ assert.match(h.app.innerHTML,/New supplies/);assert.match(h.app.innerHTML,/Cloth <span>— Hill shelf/);assert.match(h.app.innerHTML,/Beacon <span>— from Camp/);
++ assert(!h.app.innerHTML.includes('Packed beacon'));assert(!h.app.innerHTML.includes('data-arrival="here"'));
++ h.click(h.thing('beacon'));h.click(h.thing('cloth'));assert.equal(h.thing('packed').dataset.arrival,undefined);assert(h.thing('packed').classes.has('born'));assert(h.thing('packed').classes.has('goal-met'));
++});
++test('arrival labels survive interaction and reload without replaying a creation effect or changing geometry',()=>{
++ const {world,h}=arrivalHarness();const positions=h.state().state.tokens.map(({id,x,y,area,location})=>({id,x,y,area,location}));
++ h.click(h.thing('cloth'));assert.equal(h.thing('cloth').dataset.arrival,'new');assert(h.thing('cloth').classes.has('possible'));h.click(h.thing('cloth'));
++ h.click(h.button('debug-toggle'));h.click(h.button('debug-close'));h.click(h.button('purpose'));h.click(h.button('close'));
++ assert.deepEqual(h.state().state.tokens.map(({id,x,y,area,location})=>({id,x,y,area,location})),positions);
++ const loaded=harness(world,encodeSave(decodeSave(h.saved.get(h.key)!)));assert.equal(loaded.thing('cloth').dataset.arrival,'new');assert.equal(loaded.thing('beacon').dataset.arrival,'carried');assert(!loaded.thing('cloth').classes.has('born'));assert.deepEqual(loaded.state(),h.state());
++});
++test('same-kitchen chapter removes old arrival cues without moving things; undo restores the entry record',()=>{
++ const {h}=arrivalHarness();h.click(h.thing('beacon'));h.click(h.thing('cloth'));const before=h.state();
++ h.timers.filter(t=>t.ms===700).at(-1)?.fn();assert.equal(h.state().state.stage,2);assert.equal(h.thing('cloth').dataset.arrival,undefined);assert.equal(h.thing('beacon').dataset.arrival,undefined);assert.equal(h.thing('packed').dataset.arrival,undefined);assert.deepEqual(h.state().state.tokens,before.state.tokens);
++ assert.match(h.app.innerHTML,/No new supplies or carried arrivals this chapter/);
++ h.click(h.button('undo'));assert.equal(h.state().state.stage,1);assert.equal(h.thing('cloth').dataset.arrival,'new');assert.equal(h.thing('beacon').dataset.arrival,'carried');assert.equal(h.thing('packed').dataset.arrival,undefined);
++});
++test('arrival badges are inert children of unchanged tile targets and cancelled drags do not acknowledge them',()=>{
++ for(const width of [320,375,600]){
++  const world=arrivalFixture(),g=M.checkpoint(world,'arrival',width),h=harness(world,encodeSave({game:g,tops:{camp:0,hill:400},seen:[0,1]}),{width});
++  const before=h.state(),cloth=h.thing('cloth'),badge=cloth.children.find((e:any)=>e.classes.has('arrival-badge'));assert(badge);assert.equal(badge.attrs['aria-hidden'],'true');assert(!badge.dataset.target);
++  const board:any=h.doc.querySelector('.board');board.onpointerdown({target:badge,button:0,clientX:52,clientY:456,pointerId:7,preventDefault(){}});board.onpointermove({clientX:100,clientY:480,pointerId:7});board.onpointercancel({pointerId:7});assert.deepEqual(h.state(),before);assert.equal(h.thing('cloth').dataset.arrival,'new');
++  assert.match(cloth.attrs.style,new RegExp('min-height:'+M.tokenHeight(world,M.token(g.state,'cloth')!)+'px'));
++ }
++ const css=readFileSync(new URL('./campaign.css',import.meta.url),'utf8');assert.match(css,/\.arrival-badge\{position:absolute;[^}]*pointer-events:none/);assert.match(css,/\.arrival-details summary\{min-height:44px/);
++});
++test('legacy saves retain progress without guessed arrival badges, while new checkpoints record exact arrivals',()=>{
++ const world=arrivalFixture(),g=M.checkpoint(world,'arrival');for(const st of [...g.history,g.state])delete st.arrival;
++ const h=harness(world,encodeSave({game:g,tops:{camp:0,hill:400},seen:[0,1]}));assert.deepEqual(h.state(),g);assert.equal(h.thing('cloth').dataset.arrival,undefined);assert.equal(h.thing('beacon').dataset.arrival,undefined);assert.match(h.app.innerHTML,/Arrival details are unavailable in this save/);
++ h.button('jump').onchange({target:{value:'arrival'}});assert.equal(h.thing('cloth').dataset.arrival,'new');assert.equal(h.thing('beacon').dataset.arrival,'carried');assert.equal(h.thing('lamp').dataset.arrival,undefined);assert(!h.thing('cloth').classes.has('born'));
++ h.click(h.button('reset'));assert(!h.thing('cloth'));assert.equal(h.thing('lamp').dataset.arrival,undefined);assert.equal(h.state().state.arrival?.stage,0);
++});
++test('new readable supplies preserve intentional reading, selection and arrival state',()=>{
++ const world=arrivalFixture();world.items.find(t=>t.id==='cloth')!.reading={text:'The cloth is woven at home.',attribution:'Field record'};
++ const g=M.checkpoint(world,'arrival'),h=harness(world,encodeSave({game:g,tops:{camp:0,hill:400},seen:[0,1]}));h.click(h.thing('cloth'));const before=h.state();
++ assert(h.button('read-source'));assert.equal(h.thing('cloth').dataset.arrival,'new');h.click(h.button('read-source'));assert(h.button('source-reader').open);h.click(h.button('reader-close'));assert(h.thing('cloth').classes.has('selected'));assert.equal(h.thing('cloth').dataset.arrival,'new');assert.deepEqual(h.state(),before);
++});
+--- /dev/null
++++ b/experiments/tangible-campaign/reviews/arrivals/source-successors.json
+@@ -0,0 +1,23 @@
++{
++  "schemaVersion": 1,
++  "baseCommit": "51b6f9f5090c99174997793e49affff24fecd814",
++  "reason": "The user explicitly requested new-arrival versus carried-forward UI on 2026-10-28; these four reviewed successors replace only the source freeze expectation, never the historical manifests.",
++  "files": {
++    "experiments/tangible-campaign/engine/model.ts": {
++      "beforeSha256": "793354131dc6b2cf9a5398e0dc163f5d834e62d477b719e7dedcfdcf6a2c8265",
++      "afterSha256": "444c98f60a5650e696bc65d36e2ae6e5f5c1d5b293d388704e4d82929ef16600"
++    },
++    "experiments/tangible-campaign/ui/campaign-controller.test.ts": {
++      "beforeSha256": "bfe444d72d8b8b9c403c164cca7bd3fa0ef975e2bd24d6ffe8f185bb4fa51c64",
++      "afterSha256": "8a9b3fe1f4e440585efa7eb76a272bc3cecc592746579c56a3bfe88a787f2759"
++    },
++    "experiments/tangible-campaign/ui/campaign-main.ts": {
++      "beforeSha256": "94b4176eeee7602c2a1cede4a969f3f96f0427d8f642acd1add3952345df534d",
++      "afterSha256": "0f1ff3a04ea99c2390b3d287945e28041b9f1f2ecd4bc34548c8b3af3ded3ea8"
++    },
++    "experiments/tangible-campaign/ui/campaign.css": {
++      "beforeSha256": "2d0dd9477624e93e97aa21f84d57a89f266e7bbc5e4791cae78c90bd647f89ad",
++      "afterSha256": "5618ac29265d1e4107447361a599eef03a3b2ffac768f455e35b0863e74b7f55"
++    }
++  }
++}
+--- a/tests/tangible-campaign.test.ts
++++ b/tests/tangible-campaign.test.ts
+@@ -2,6 +2,8 @@
+ import '../experiments/tangible-campaign/reviews/lifecycle/lifecycle.test.ts';
+ import '../experiments/tangible-campaign/reviews/persistence/save-autosave.test.ts';
+ import '../experiments/tangible-campaign/engine/model.test.ts';
++import '../experiments/tangible-campaign/engine/arrival.test.ts';
++import './arrival-source-contract.test.ts';
+ import '../experiments/tangible-campaign/tests/independent-engine.test.ts';
+ import '../experiments/tangible-campaign/ui/campaign-controller.test.ts';
+ import test from 'node:test';import assert from 'node:assert/strict';import {readFileSync} from 'node:fs';
+--- /dev/null
++++ b/tests/arrival-source-contract.test.ts
+@@ -0,0 +1,19 @@
++import test from 'node:test';
++import assert from 'node:assert/strict';
++import {createHash} from 'node:crypto';
++import {readFileSync} from 'node:fs';
++import {expectedSourceHashAfterArrivals} from '../experiments/tangible-campaign/integration/arrival-source-guard.ts';
++const root=new URL('../',import.meta.url);
++const manifest=JSON.parse(readFileSync(new URL('experiments/tangible-campaign/reviews/arrivals/source-successors.json',root),'utf8')) as {files:Record<string,{beforeSha256:string;afterSha256:string}>};
++const digest=(text:string)=>createHash('sha256').update(text).digest('hex');
++test('arrival successor guard pins each complete reviewed file and rejects unreviewed source drift',()=>{
++ for(const [path,row] of Object.entries(manifest.files)){
++  const source=readFileSync(new URL(path,root),'utf8'),expected=expectedSourceHashAfterArrivals(path,row.beforeSha256);
++  assert.equal(digest(source),expected,path);assert.notEqual(digest(source+'\n// unreviewed drift\n'),expected,path);
++  assert.notEqual(row.afterSha256,row.beforeSha256,path);
++ }
++});
++test('arrival successor guard cannot silently replace a historical freeze or exempt unrelated source',()=>{
++ for(const path of Object.keys(manifest.files))assert.throws(()=>expectedSourceHashAfterArrivals(path,'0'.repeat(64)),/historical freeze was not replaced/);
++ const historical='a'.repeat(64);assert.equal(expectedSourceHashAfterArrivals('experiments/tangible-campaign/ui/save-codec.ts',historical),historical);
++});
+--- a/tests/morning-content-integration.test.ts
++++ b/tests/morning-content-integration.test.ts
+@@ -1,3 +1,4 @@
++import {expectedSourceHashAfterArrivals} from '../experiments/tangible-campaign/integration/arrival-source-guard.ts';
+ // Content/logic only. No controller, DOM, browser, layout or touch tests.
+ import test from 'node:test';
+ import assert from 'node:assert/strict';
+@@ -39,11 +40,11 @@
+ test('Every original and prior integrated route evidence file is byte-preserved',()=>{
+  for(const [path,metadata] of Object.entries<any>(predecessorManifest.files))if(/evidence\/[^/]+-route-evidence\.json$/.test(path))assert.equal(digest(readFileSync(new URL(path,root))),metadata.sha256,path);
+ });
+-test('All engine, rendering, controller, schema, save and unrelated source bytes stay unchanged',()=>{
++test('protected engine, UI, schema, save and unrelated source bytes match historical or exact arrival successors',()=>{
+  let checked=0;
+  for(const [path,metadata] of Object.entries<any>(predecessorManifest.files)){
+   const protectedPath=path.startsWith('src/')||/experiments\/tangible-campaign\/(engine|schema)\//.test(path)||(/experiments\/tangible-campaign\/ui\//.test(path)&&!path.includes('/campaigns/')&&!path.endsWith('/scenarios.ts'));
+-  if(!protectedPath)continue;assert.equal(digest(readFileSync(new URL(path,root))),metadata.sha256,path);checked++;
++  if(!protectedPath)continue;assert.equal(digest(readFileSync(new URL(path,root))),expectedSourceHashAfterArrivals(path,metadata.sha256),path);checked++;
+  }
+  assert(checked>40);
+ });
+--- a/tests/reviewed-copy-corrections.test.ts
++++ b/tests/reviewed-copy-corrections.test.ts
+@@ -1,3 +1,4 @@
++import {expectedSourceHashAfterArrivals} from '../experiments/tangible-campaign/integration/arrival-source-guard.ts';
+ // Logical/data integrity checks only. No DOM, controller, browser, gestures or UI testing.
+ import test from 'node:test';
+ import assert from 'node:assert/strict';
+@@ -25,11 +26,11 @@
+  assert.deepEqual(after.items.map((i:any)=>[i.id,i.reading]),before.items.map((i:any)=>[i.id,i.reading]));
+  assert.equal((predecessorScenarios.find(s=>s.id===row.currentId)??scenarioFor(row.campaign)).id,row.currentId);
+ });
+-test('existing pre-HUD UI, engine, schema contracts, save behavior and physical presentation remain byte-identical',()=>{
++test('protected pre-HUD source stays byte-identical except exact reviewed arrival successors',()=>{
+  const before=read(new URL('previous-source-manifest.json',revision));let checked=0;
+  for(const [path,metadata]of Object.entries<any>(before.files)){
+   if(!/experiments\/tangible-campaign\/(ui|engine|schema)\//.test(path)||/ui\/campaigns\/(mars|doctrine|elements|food|atlas|purpose)\.ts$/.test(path)||path.endsWith('/ui/scenarios.ts'))continue;
+-  assert.equal(digest(readFileSync(new URL(path,root))),metadata.sha256,path);checked++;
++  assert.equal(digest(readFileSync(new URL(path,root))),expectedSourceHashAfterArrivals(path,metadata.sha256),path);checked++;
+  }
+  assert(checked>10);
+ });

@@ -1,0 +1,55 @@
+"""Prepare one neutral actual-opening packet; do not start a reader."""
+from pathlib import Path
+import json,hashlib,shutil,os
+P=Path(__file__).parent
+out=Path('/workspace/shared/workroom-visit-reader-20261028')
+assert not out.exists(), f'Refuse to overwrite existing frozen packet: {out}'
+out.mkdir()
+files=['play.mjs','surface.mjs','package.json','engine/model.ts','schema/scenario.ts','schema/lifecycle.ts','scenario.json']
+for name in files:
+    target=out/name;target.parent.mkdir(parents=True,exist_ok=True);shutil.copyfile(P/name,target)
+task=f'''# The Copy Workroom — one short logical session
+
+Try this small combination game from its actual beginning. Make what the customers need. You may think aloud or leave notes, but explanations before each action are optional. Use only the visible player surface. Stop at the local ending, if you decide you have seen enough, or if you cannot find a next action after trying your plausible ideas and ordinary available help.
+
+This is a source-blind logical-controller session, not human playtesting. Do not open scenario data, recipes, runtime, tests, author notes, manifests, saved state, audit files or other sessions. Do not reset or create a second attempt after seeing the opening. Do not use scripts to enumerate solutions.
+
+The coordinator supplies the exact manifest pin and a fresh session name. Run:
+
+```sh
+node {out}/play.mjs PIN SESSION start
+```
+
+Use the same prefix, pin and session for later commands:
+
+- `view` — current scene and tiles.
+- `mission` — reopen the scene invitation.
+- `drop ITEM_ID OTHER_ITEM_ID` — bring two things together.
+- `drop ITEM_ID @PLACE_ID` — put a thing at a place, using a combination there if one is available.
+- `highlight ITEM_ID` — ordinary partner highlights, without output previews.
+- `read ITEM_ID` — only for an authored tile marked readable; generic descriptions are not a hidden inspection command.
+- `move ITEM_ID X Y` — move a thing to a free work-surface position; this also takes it off its named location.
+- `visit AREA_ID` or `visit AREA_ID ITEM_ID,ITEM_ID` — revisit a known area, optionally carrying the listed local things.
+- `undo` — one ordinary undo. If it undoes a chapter handoff, `mission` resumes that handoff.
+- `note "your observation"` — optional comment without changing progress.
+- `stop "your reason"` — end voluntarily and preserve this attempt.
+
+No manual advance is required. Successful chapters advance automatically. This logical surface omits animation and modal-dismissal gestures; it does not test browser, touch controls, artwork or layout. Optional `--expect "what you expect"` may be added to an action, but is not required.
+
+When finished, **first give your own account**: what stood out, what you tried, where you were confused, and what you would change. Was there a decision, or mainly following supplied pairings? Separate things you noticed during play from thoughts that occurred while writing the report. Do not inspect other files to explain the game. The coordinator may ask follow-up questions only after preserving that first report.
+'''
+(out/'PLAYER_TASK.md').write_text(task);files+=['PLAYER_TASK.md']
+sha=lambda b:hashlib.sha256(b).hexdigest()
+manifest={'candidate':'workroom-visit-reader','runtimeCommit':'61a9b4ee8c6235bff07f97eb16d713ec6125c81e',
+          'status':'frozen local logical trial; not published','files':{f:sha((out/f).read_bytes()) for f in files}}
+data=(json.dumps(manifest,indent=2)+'\n').encode();(out/'manifest.json').write_bytes(data)
+pin=sha(data);(out/'MANIFEST-SHA256.txt').write_text(pin+'\n')
+for f in out.rglob('*'):
+    if f.is_file():os.chmod(f,0o444)
+assert not (Path('/workspace/shared/sessions')/out.name).exists()
+record={'evidenceClass':'preparation only; no reader started','packet':str(out),'task':str(out/'PLAYER_TASK.md'),
+        'manifestSha256':pin,'scenarioSha256':sha((out/'scenario.json').read_bytes()),
+        'start':'actual beginning; earned checkpoints not invoked by reader wrapper',
+        'readerSessionDirectoryAbsentAtSeal':True}
+(P/'evidence/reader-packet.json').write_text(json.dumps(record,indent=2)+'\n')
+print(json.dumps(record,indent=2))

@@ -1,0 +1,114 @@
+{
+  "scenario": "causation-fitting-forms-probe-v2",
+  "title": "The Quarry Workshop",
+  "kind": "Current event-local integration replay of documented author witness; not a fresh/human/browser playtest",
+  "baseCommit": "61a9b4ee8c6235bff07f97eb16d713ec6125c81e",
+  "sourceWitness": "causation/second-probe/routes.json",
+  "sourceWitnessSha256": "aaa82ff3cf8710e4ecd1bfac799e01bc0e47fa0df446b7ed2876dc61d76d7963",
+  "sourceScenario": "causation/second-probe/pilot.json",
+  "runtimeSha256": "793354131dc6b2cf9a5398e0dc163f5d834e62d477b719e7dedcfdcf6a2c8265",
+  "combinations": 3,
+  "actions": 6,
+  "actionsLog": [
+    {
+      "type": "combine",
+      "a": "fiber",
+      "b": "twister"
+    },
+    {
+      "type": "combine",
+      "a": "willow",
+      "b": "rope"
+    },
+    {
+      "type": "place",
+      "item": "basket",
+      "location": "quarry"
+    },
+    {
+      "type": "advance"
+    },
+    {
+      "type": "combine",
+      "a": "rough-gravel",
+      "b": "basket"
+    },
+    {
+      "type": "advance"
+    }
+  ],
+  "completed": true,
+  "metrics": {
+    "attempts": 6,
+    "accepted": 6,
+    "combinations": 3,
+    "creations": 3,
+    "installations": 0,
+    "moves": 0,
+    "placements": 1,
+    "advances": 2,
+    "visits": 0
+  },
+  "recipesTotal": 6,
+  "stages": 2,
+  "stageEntries": [
+    {
+      "stageIndex": 0,
+      "stageId": "carrier",
+      "actionPrefixLength": 0,
+      "stateSha256": "8a314aa610a69fe94912ba7c19c1b63639262c91982188cafaa812b567aed5bd"
+    },
+    {
+      "stageIndex": 1,
+      "stageId": "sieve",
+      "actionPrefixLength": 4,
+      "stateSha256": "4d5ad0e952a1857609628d6b694feebcc2e2b1f36340f9061202d6f63dca64ba"
+    }
+  ],
+  "goalContinuity": [
+    {
+      "stage": "carrier",
+      "earlierUsed": [],
+      "goalConnected": [],
+      "completed": true
+    },
+    {
+      "stage": "sieve",
+      "earlierUsed": [
+        "basket"
+      ],
+      "goalConnected": [
+        "basket"
+      ],
+      "completed": true
+    }
+  ],
+  "checkpoints": [
+    {
+      "id": "chapter-1",
+      "actionPrefixLength": 0,
+      "stageIndex": 0,
+      "completed": false,
+      "stateSha256": "8a314aa610a69fe94912ba7c19c1b63639262c91982188cafaa812b567aed5bd"
+    },
+    {
+      "id": "chapter-2-basket",
+      "actionPrefixLength": 4,
+      "stageIndex": 1,
+      "completed": false,
+      "stateSha256": "4d5ad0e952a1857609628d6b694feebcc2e2b1f36340f9061202d6f63dca64ba"
+    },
+    {
+      "id": "chapter-2-crate",
+      "actionPrefixLength": 4,
+      "stageIndex": 1,
+      "completed": false,
+      "stateSha256": "64887913a7db16d7ba03b53527e1d950bd0287bbe110334e877305b69f3eed80"
+    }
+  ],
+  "limits": [
+    "Only these documented routes are replayed; no exhaustive whole-campaign route claim.",
+    "Native/browser layout, touch and human enjoyment QA remain pending.",
+    "Mars has a recorded carrier presentation-only patch; Atlas has route-earned debug checkpoints added. All other candidate fields are structurally exact."
+  ]
+}

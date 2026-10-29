@@ -1,0 +1,58 @@
+DESK 17: deep-time | Strata, shorelines and fossil cabinets · c. 1669–1833 | An Earth older than memory | A shell lies high above the sea. Tilted beds lie beneath level ones. These are histories to reconstruct, not merely curiosities to name.
+GOALS: [{'id': 'deep-time-extinction-real', 'text': 'Recognize extinction', 'kind': 'create', 'item': 'extinction-real'}, {'id': 'deep-time-eventful-geology', 'text': 'Keep an eventful deep past', 'kind': 'create', 'item': 'eventful-geology'}, {'id': 'deep-time-age-still-open', 'text': 'Distinguish sequence from duration', 'kind': 'create', 'item': 'age-still-open'}]
+
+RECIPE make-organic-fossil
+A animal-kinds | Animals grouped by shared features | Comparison makes similarities and differences available to inquiry.
+B shell-in-rock | A fossil shell enclosed in rock | A trace of an organism is part of the rock’s history, not simply a modern shell resting on its surface.
+OUT organic-fossil | A fossil is a trace of former life | Comparison with living forms turns the object into evidence about a past organism.
+LIFECYCLE {'animal-kinds': 'retain', 'shell-in-rock': 'retain'}
+LINK {"from": "kinds", "to": "deep-time", "item": "animal-kinds", "recipe": "make-organic-fossil", "relation": "adaptation", "evidence": "Comparative descriptions of living forms become tools for recognizing organisms in the fossil record, not a claim of a single uninterrupted taxonomy.", "sources": ["hutton", "deep-time", "lyell-darwin", "geologic-age-modern"]}
+
+RECIPE make-relative-strata
+A organic-fossil | A fossil is a trace of former life | Comparison with living forms turns the object into evidence about a past organism.
+B layer-sequence | Undisturbed layers: lower before upper | An ordering principle for deposited strata; overturning and intrusion require separate attention.
+OUT relative-strata | A sequence of deposited worlds | The fossil-bearing layers can be ordered without yet assigning ages in years.
+LIFECYCLE {'organic-fossil': 'retain', 'layer-sequence': 'retain'}
+
+RECIPE make-correlated-strata
+A relative-strata | A sequence of deposited worlds | The fossil-bearing layers can be ordered without yet assigning ages in years.
+B matching-fossils | Similar fossil successions in distant beds | Fossil assemblages can help correlate separated strata.
+OUT correlated-strata | Separated beds, a comparable succession | Correlation extends the record beyond one exposed cliff.
+LIFECYCLE {'relative-strata': 'retain', 'matching-fossils': 'retain'}
+
+RECIPE make-process-history
+A conditional-cause | An explanation tied to conditions | The account can be considered through the conditions under which it applies.
+B erosion-deposition | Streams wear down rock and lay sediment | Observable processes provide resources for reconstructing an inaccessible past.
+OUT process-history | Present processes can explain ancient traces | A methodological comparison applies causal processes to traces; it is not a claim that Hutton inherited this particular Greek argument.
+LIFECYCLE {'conditional-cause': 'retain', 'erosion-deposition': 'retain'}
+LINK {"from": "explanations", "to": "deep-time", "item": "conditional-cause", "recipe": "make-process-history", "relation": "teaching-comparison", "evidence": "A specific causal explanatory practice is applied to traces rather than made a historical influence claim.", "sources": ["hutton", "deep-time", "lyell-darwin", "geologic-age-modern"]}
+
+RECIPE make-cycles-in-rock
+A process-history | Present processes can explain ancient traces | A methodological comparison applies causal processes to traces; it is not a claim that Hutton inherited this particular Greek argument.
+B tilted-below-level | Tilted beds below younger level beds | The Siccar Point unconformity requires deposition, deformation, erosion and renewed deposition.
+OUT cycles-in-rock | More than one making of the landscape | The visible arrangement requires several episodes, with erosion between them.
+LIFECYCLE {'process-history': 'retain', 'tilted-below-level': 'retain'}
+
+RECIPE make-deep-time-world
+A cycles-in-rock | More than one making of the landscape | The visible arrangement requires several episodes, with erosion between them.
+B relative-strata | A sequence of deposited worlds | The fossil-bearing layers can be ordered without yet assigning ages in years.
+OUT deep-time-world | A landscape needs a deep past | Repeated large changes make a vastly extended history intelligible before there is an accurate numerical age.
+LIFECYCLE {'cycles-in-rock': 'retain', 'relative-strata': 'retain'}
+
+RECIPE make-extinction-real
+A organic-fossil | A fossil is a trace of former life | Comparison with living forms turns the object into evidence about a past organism.
+B lost-animals | Fossil animals unlike any living species | Comparative anatomy helped Cuvier make extinction a serious empirical conclusion.
+OUT extinction-real | Whole forms of life have disappeared | Extinction changes the meaning of a catalogue: some kinds belong only to the past.
+LIFECYCLE {'organic-fossil': 'retain', 'lost-animals': 'retain'}
+
+RECIPE make-eventful-geology
+A deep-time-world | A landscape needs a deep past | Repeated large changes make a vastly extended history intelligible before there is an accurate numerical age.
+B sudden-disruption | Some strata record abrupt disruption | An eventful history need not be a uniform, unchanging rate of alteration.
+OUT eventful-geology | Long processes and abrupt events | Do not force every deposit into one rate or one worldwide catastrophe.
+LIFECYCLE {'deep-time-world': 'retain', 'sudden-disruption': 'retain'}
+
+RECIPE make-age-still-open
+A correlated-strata | Separated beds, a comparable succession | Correlation extends the record beyond one exposed cliff.
+B deep-time-world | A landscape needs a deep past | Repeated large changes make a vastly extended history intelligible before there is an accurate numerical age.
+OUT age-still-open | Sequence is not duration | The order and depth of the history are powerful results; its absolute age remains a distinct unresolved measurement problem.
+LIFECYCLE {'correlated-strata': 'retain', 'deep-time-world': 'retain'}

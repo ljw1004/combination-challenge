@@ -1,0 +1,26 @@
+PASS Typed module exactly equals data; schema, lifecycle, goals, construction contracts valid
+PASS Original live/research snapshots and all source checkout files preserved
+PASS Every ID, goal, supply, carry and unaffected contract retained; exactly two operand substitutions
+node:internal/modules/run_main:107
+    triggerUncaughtException(
+    ^
+
+AssertionError [ERR_ASSERTION]: The input did not match the regular expression /source-to-copy/. Input:
+
+'Compare the quire with the same triangle roll that supplied its text and drawing: both use A/B/C, both join AC and BC, and both conclude AC=AB=BC. The D → C repair is recorded. This edition demonstrates a reusable publishing check: keep a source witness, compare wording and image references, record corrections, then verify the copies. Later books reuse that checking practice for their own new contents; they do not inherit the triangle’s conclusion as evidence.'
+
+    at file:///workspace/shared/combination-atlas-evidence-repair-20261028/verify.mjs:14:690
+    at check (file:///workspace/shared/combination-atlas-evidence-repair-20261028/verify.mjs:6:38)
+    at file:///workspace/shared/combination-atlas-evidence-repair-20261028/verify.mjs:14:1
+    at ModuleJob.run (node:internal/modules/esm/module_job:561:25)
+    at async node:internal/modules/esm/loader:647:26
+    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:101:5) {
+  generatedMessage: true,
+  code: 'ERR_ASSERTION',
+  actual: 'Compare the quire with the same triangle roll that supplied its text and drawing: both use A/B/C, both join AC and BC, and both conclude AC=AB=BC. The D → C repair is recorded. This edition demonstrates a reusable publishing check: keep a source witness, compare wording and image references, record corrections, then verify the copies. Later books reuse that checking practice for their own new contents; they do not inherit the triangle’s conclusion as evidence.',
+  expected: /source-to-copy/,
+  operator: 'match',
+  diff: 'simple'
+}
+
+Node.js v24.22.1

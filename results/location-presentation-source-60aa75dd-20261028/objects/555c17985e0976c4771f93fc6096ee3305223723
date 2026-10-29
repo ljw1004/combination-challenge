@@ -1,0 +1,106 @@
+{
+  "schemaVersion": 1,
+  "scope": "Four root-authorized graph resolutions: asymmetric Lantern upgrade vs independent beacon, truthful sailboat identity, independent microscope use. No broad waiver, no new items or recipe pairs.",
+  "changes": [
+    {
+      "world": "mars-connected-survival-v4-return-cargo-research",
+      "collection": "recipes",
+      "id": "signal-5-signal-lamp",
+      "path": [
+        "lifecycle",
+        "lantern",
+        "exclusive"
+      ],
+      "beforePresent": false,
+      "afterPresent": true,
+      "after": true
+    },
+    {
+      "world": "mars-connected-survival-v4-return-cargo-research",
+      "collection": "recipes",
+      "id": "camp-lantern-bracket",
+      "path": [
+        "lifecycle",
+        "lantern",
+        "graphExceptions"
+      ],
+      "beforePresent": false,
+      "afterPresent": true,
+      "after": [
+        {
+          "warning": "conditional-retention:signal-5-signal-lamp",
+          "reason": "The fitted bench lamp cannot substitute for the independent unfinished signal-lamp → signal-beacon branch. A player can reach camp by the solar-radio route before making a beacon, so needed() must keep the outside lantern until that signaling branch is made."
+        }
+      ]
+    },
+    {
+      "world": "elements-house-and-craft-v1",
+      "collection": "recipes",
+      "id": "mailboat",
+      "path": [
+        "lifecycle",
+        "sailboat"
+      ],
+      "beforePresent": true,
+      "before": {
+        "role": "retain",
+        "reason": "Sailboat is reused as equipment, a source/reference, a subject of observation, or a continuing supply; this action does not consume it."
+      },
+      "afterPresent": true,
+      "after": {
+        "role": "transform",
+        "reason": "The same sailboat becomes the mailboat carrying the letter; it is not a second supply of boats."
+      }
+    },
+    {
+      "world": "elements-house-and-craft-v1",
+      "collection": "recipes",
+      "id": "mailboat",
+      "path": [
+        "lifecycle",
+        "letter"
+      ],
+      "beforePresent": true,
+      "before": {
+        "role": "transform",
+        "reason": "Letter is the existing object changed into Mailboat."
+      },
+      "afterPresent": true,
+      "after": {
+        "role": "incorporate",
+        "reason": "The written letter is carried aboard the mailboat. This is its only authored use, so no loose duplicate letter is needed."
+      }
+    },
+    {
+      "world": "elements-house-and-craft-v1",
+      "collection": "recipes",
+      "id": "mailboat",
+      "path": [
+        "preserve"
+      ],
+      "beforePresent": false,
+      "afterPresent": true,
+      "after": [
+        "sailboat"
+      ]
+    },
+    {
+      "world": "elements-house-and-craft-v1",
+      "collection": "recipes",
+      "id": "mounted-telescope",
+      "path": [
+        "lifecycle",
+        "telescope",
+        "graphExceptions"
+      ],
+      "beforePresent": false,
+      "afterPresent": true,
+      "after": [
+        {
+          "warning": "conditional-retention:star-chart",
+          "reason": "The mounted telescope can make the star chart, but the independent microscope recipe still requires the loose telescope with a magnifier. There is no mounted-telescope microscope substitute, so keep the loose source while that distinct construction is unfinished."
+        }
+      ]
+    }
+  ]
+}

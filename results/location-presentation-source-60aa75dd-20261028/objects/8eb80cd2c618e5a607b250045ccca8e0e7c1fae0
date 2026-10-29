@@ -1,0 +1,51 @@
+import {milestoneAtlasPredecessorScenarios} from './campaigns/milestone-atlas-predecessors-20261028.ts';
+import {kitchenAtlasAdditionalScenarios} from './campaigns/kitchen-atlas-experiments-20261028.ts';
+import {arrivalContentPredecessorScenarios} from './campaigns/arrival-content-predecessors-20261028.ts';
+import {scenarios as legacyScenarios} from './legacy-scenarios.ts';
+import {scenario as mars} from './campaigns/mars-return-cargo.ts';
+import {scenario as elements} from './campaigns/elements-house-and-craft.ts';
+import {scenario as food} from './campaigns/food-kitchen-caravan.ts';
+import {scenario as repairedAtlas} from './campaigns/atlas-evidence-repair.ts';
+import {scenario as atlas} from './campaigns/atlas-intellectual-history.ts';
+import {scenario as deepDivinity} from './campaigns/divinity-disputed-questions.ts';
+import {scenario as light} from './campaigns/divinity-light-text-workshop.ts';
+import {scenario as originalAtlas} from './campaigns/atlas.ts';
+import {scenario as purpose} from './campaigns/purpose-copy-workroom.ts';
+import {scenario as doctrine} from './campaigns/doctrine-compact-opening.ts';
+import {predecessorScenarios} from './campaigns/predecessors-20261028.ts';
+import {checkpointPredecessorScenarios} from './campaigns/checkpoint-predecessors-20261028.ts';
+import type {Scenario} from '../schema/scenario.ts';
+
+/** Legacy records are not rewritten or migrated: original direct routes and save keys survive. */
+/** Exact c85 six-world source collection, retained for historical routes/evidence. */
+export const c85Scenarios: Scenario[] = [mars, repairedAtlas, elements, food, purpose, doctrine];
+export const intellectualWorldPredecessorScenarios: Scenario[] = [repairedAtlas, doctrine];
+export const optionalIntellectualScenarios: Scenario[] = [light];
+export const intellectualWorldScenarios: Scenario[] = [atlas, deepDivinity, light];
+export const integratedScenarios: Scenario[] = [mars, atlas, elements, food, purpose, deepDivinity];
+export const scenarios: Scenario[] = [...legacyScenarios, ...predecessorScenarios, ...checkpointPredecessorScenarios, ...arrivalContentPredecessorScenarios, ...kitchenAtlasAdditionalScenarios, ...milestoneAtlasPredecessorScenarios, ...intellectualWorldPredecessorScenarios, ...optionalIntellectualScenarios, ...integratedScenarios];
+export const featuredScenarioIds = [mars.id, atlas.id, elements.id, food.id, purpose.id, deepDivinity.id];
+/** Chooser-only labels: preserve every prototype's actual title and exact scenario data. */
+export const presentationFor = (s: Scenario) => s.id === originalAtlas.id
+ ? {title: 'Snapshot: Atlas before evidence repairs', premise: 'The complete earlier Atlas, preserved exactly with its original progress. Printing, sky-evidence and logic inconsistencies remain in this snapshot; a separate repaired snapshot and the fully redesigned featured Atlas remain available.'}
+ : s.id === repairedAtlas.id
+ ? {title: 'Snapshot: Atlas with evidence repairs', premise: 'The complete earlier Atlas with its bounded printing, sky-evidence and logic repairs, preserved with its own progress. The featured Atlas is a separate full redesign.'}
+ : s.id === deepDivinity.id
+ ? {title: 'Divinity: Disputed Questions', premise: 'Fourteen connected manuscript desks: reconstruct arguments through concrete cases, carry distinctions forward, and leave genuine disagreements open.'}
+ : s.id === light.id
+ ? {title: 'Divinity-light · Optional experiment: Who Is Still Outside?', premise: 'A small Gospel-and-print workshop for curious students. Follow changed questions, repeated gestures and a source that challenges a headline. Separate from the deeper Divinity journey.'}
+ : s.id === 'atlas-three-philosophical-cases-v2-research'
+ ? {title: 'Atlas · Optional experiment: three disputed desks', premise: 'Short research branch after the original Babylon watch · revised semantic alternatives, not a replacement Atlas or fresh-player-validated journey.'}
+ : s.id === food.id
+ ? {title: 'From Hearth to Supper · The Kitchen Caravan', premise: 'Twenty chapters in ten continuing workstations · carry earlier cooking into a real supper and provisions for the departing train.'}
+ : s.id === purpose.id
+ ? {title: 'Why This Boat? · The Copy Workroom', premise: 'Short research experiment · make one master, then choose forms for a display and a printing commission.'}
+ : s.id === 'causation-accidental-bell-probe-v1'
+ ? {title: 'Why This Boat? · The Riverside Workshop', premise: 'Short research prototype · turn an accidental sound into a deliberate call signal.'}
+ : s.id === 'causation-fitting-forms-probe-v2'
+ ? {title: 'Why This Boat? · Purpose workshop', premise: 'Short research prototype · two scenes, not a full game. Try different forms for carrying stone and separating gravel.'}
+ : s.id === doctrine.id
+ ? {title: 'Snapshot: Doctrine · Grace and Matter', premise: 'The earlier twelve-desk compact-wording journey, preserved with its original progress. Divinity: Disputed Questions is a separate new reconstruction.'}
+ : s.id === 'doctrine-images-relics-local-v2-copy1'
+ ? {title: 'Doctrine: Grace and Matter · Images and Relics', premise: 'Human checkpoint · ten continuing desks plus two experimental image and relic cases.'}
+ : {title: s.title, premise: s.premise};

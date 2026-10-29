@@ -1,0 +1,55 @@
+DESK 19: progress-cost | A parallel file: factories and communities · c. 1810–1902 | What does progress cost? | Return to the workshop while keeping the new biology in view. More power and more output do not settle the lives of workers—or whether cooperation belongs in nature.
+GOALS: [{'id': 'progress-cost-fuel-dependent-industry', 'text': 'Expose industry’s material dependence', 'kind': 'create', 'item': 'fuel-dependent-industry'}, {'id': 'progress-cost-useful-pleasurable-work', 'text': 'Imagine useful work with pleasure', 'kind': 'create', 'item': 'useful-pleasurable-work'}, {'id': 'progress-cost-competitive-story-limited', 'text': 'Resist a single moral story from nature', 'kind': 'create', 'item': 'competitive-story-limited'}, {'id': 'progress-cost-control-of-work', 'text': 'Keep control of work in view', 'kind': 'create', 'item': 'control-of-work'}]
+
+RECIPE make-industrial-production
+A division-of-labour | Production divided into specialized tasks | The organization of work, not only a new machine, changes productive capacity.
+B steam-engine | Heat drives a factory engine | A material technology changes the scale and organization of production.
+OUT industrial-production | Specialized labour at machine scale | Power and the organization of tasks jointly alter the workshop.
+LIFECYCLE {'division-of-labour': 'retain', 'steam-engine': 'retain'}
+LINK {"from": "exchange", "to": "progress-cost", "item": "division-of-labour", "recipe": "make-industrial-production", "relation": "transmission", "evidence": "Industrial organization expands an already analyzed division of tasks.", "sources": ["morris", "marx", "kropotkin", "smith", "darwin-selection"]}
+
+RECIPE make-fuel-dependent-industry
+A industrial-production | Specialized labour at machine scale | Power and the organization of tasks jointly alter the workshop.
+B coal-feed | The engine needs a continuing fuel supply | Power is not free of material sources or consequences.
+OUT fuel-dependent-industry | Industrial power has a material appetite | An expanded productive system depends on extracting and supplying fuel.
+LIFECYCLE {'industrial-production': 'retain', 'coal-feed': 'retain'}
+
+RECIPE make-alienated-work
+A work-as-a-human-question | The maker is more than the output | Modern teaching comparison: a cultivated life supplies a question that production totals alone cannot answer.
+B wage-owner | Workers sell labour; owners control the product | A relation of ownership and control, not simply an unhappy personality.
+OUT alienated-work | The maker can lose control of the work | Marx’s critique gives a specific social relation to the earlier question of what work does to a person.
+LIFECYCLE {'work-as-a-human-question': 'retain', 'wage-owner': 'retain'}
+LINK {"from": "exchange", "to": "progress-cost", "item": "work-as-a-human-question", "recipe": "make-alienated-work", "relation": "criticism", "evidence": "A prior critique of narrowed work becomes more specific through ownership and control; it is not claimed as Marx’s exact argument.", "sources": ["morris", "marx", "kropotkin", "smith", "darwin-selection"]}
+
+RECIPE make-useful-pleasurable-work
+A alienated-work | The maker can lose control of the work | Marx’s critique gives a specific social relation to the earlier question of what work does to a person.
+B craft-pleasure | Morris: pleasure in making matters | A criticism of useless toil and poor work, not an automatic rejection of every machine.
+OUT useful-pleasurable-work | Useful work need not erase the maker | Morris’s alternative demands worthwhile activity as well as useful products; it is a proposal, not a solved economy.
+LIFECYCLE {'alienated-work': 'retain', 'craft-pleasure': 'retain'}
+
+RECIPE make-cooperation-in-evolution
+A natural-selection | Unequal reproduction changes a population | Heritable differences with different reproductive consequences can become more or less common.
+B mutual-survival | Animals and people also survive by cooperation | Kropotkin’s examples challenge a competition-only popular picture; cooperation and selection are not logical opposites.
+OUT cooperation-in-evolution | Mutual aid belongs inside the question of survival | Cooperative behaviour can have evolutionary significance; making this result does not refute natural selection.
+LIFECYCLE {'natural-selection': 'retain', 'mutual-survival': 'retain'}
+LINK {"from": "evolution", "to": "progress-cost", "item": "natural-selection", "recipe": "make-cooperation-in-evolution", "relation": "criticism", "evidence": "Kropotkin explicitly placed mutual aid within evolutionary discussion rather than outside evolution.", "sources": ["morris", "marx", "kropotkin", "smith", "darwin-selection"]}
+
+RECIPE make-competitive-story-limited
+A cooperation-in-evolution | Mutual aid belongs inside the question of survival | Cooperative behaviour can have evolutionary significance; making this result does not refute natural selection.
+B scarcity-and-justice | Scarcity does not settle who should bear it | A teaching comparison keeps a descriptive pressure distinct from a policy or moral permission.
+OUT competitive-story-limited | Nature is not a competition-only morality tale | Modern comparison: neither competition nor cooperation alone supplies a political command from nature.
+LIFECYCLE {'cooperation-in-evolution': 'retain', 'scarcity-and-justice': 'retain'}
+LINK {"from": "exchange", "to": "progress-cost", "item": "scarcity-and-justice", "recipe": "make-competitive-story-limited", "relation": "teaching-comparison", "evidence": "The prior distinction blocks a direct move from a natural process to a social permission.", "sources": ["morris", "marx", "kropotkin", "smith", "darwin-selection"]}
+
+RECIPE make-automated-workshop
+A imitation-limit | Lifelike motion does not settle what life is | The successful imitation leaves another question open.
+B industrial-production | Specialized labour at machine scale | Power and the organization of tasks jointly alter the workshop.
+OUT automated-workshop | Imitation and machinery enter the workshop | An earlier distinction between performed motions and life now helps identify what automation does—and does not replace.
+LIFECYCLE {'imitation-limit': 'retain', 'industrial-production': 'retain'}
+LINK {"from": "mechanism", "to": "progress-cost", "item": "imitation-limit", "recipe": "make-automated-workshop", "relation": "teaching-comparison", "evidence": "The actual difference between performed movements and living agency is reused, not a generic warning against progress.", "sources": ["morris", "marx", "kropotkin", "smith", "darwin-selection"]}
+
+RECIPE make-control-of-work
+A automated-workshop | Imitation and machinery enter the workshop | An earlier distinction between performed motions and life now helps identify what automation does—and does not replace.
+B factory-speed | An automatic machine can dictate the pace | Labour-saving for one person may mean less control for another.
+OUT control-of-work | Less effort can mean less control | Keep a genuine trade-off alive: reducing toil and retaining agency are separate design demands.
+LIFECYCLE {'automated-workshop': 'retain', 'factory-speed': 'retain'}

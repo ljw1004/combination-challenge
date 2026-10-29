@@ -1,0 +1,53 @@
+DESK 6: translation | Arabic-language scholarship · c. 800–1100 CE | When Aristotle changes language | Translation needs new words, but it also brings new objections and new work. These readers are not merely keeping someone else’s library safe.
+GOALS: [{'id': 'translation-ptolemy-questioned', 'text': 'Question the inherited sky', 'kind': 'create', 'item': 'ptolemy-questioned'}, {'id': 'translation-algebraic-relations', 'text': 'Relate an unknown quantity', 'kind': 'create', 'item': 'algebraic-relations'}, {'id': 'translation-necessary-being', 'text': 'Reconstruct Avicenna’s argument', 'kind': 'create', 'item': 'necessary-being'}, {'id': 'translation-active-commentary', 'text': 'Turn reception into inquiry', 'kind': 'create', 'item': 'active-commentary'}]
+
+RECIPE make-arabic-logic
+A valid-inference | A conclusion follows from premises | The stated premises support a particular conclusion by the argument’s form.
+B syriac-greek-copies | Greek and Syriac manuscripts meet Arabic readers | Multiple languages and scholarly communities participate in translation.
+OUT arabic-logic | Logic in a new scholarly language | The argument crosses a language boundary through learned translation.
+LIFECYCLE {'valid-inference': 'retain', 'syriac-greek-copies': 'retain'}
+LINK {"from": "kinds", "to": "translation", "item": "valid-inference", "recipe": "make-arabic-logic", "relation": "transmission", "evidence": "Greek logical works reached Arabic scholarship through translations involving Greek and Syriac traditions.", "sources": ["greek-arabic", "arabic-latin", "algebra", "avicenna"]}
+
+RECIPE make-arabic-nature
+A four-causes | Different questions about why | Material, form, source of change and end are distinct explanatory questions.
+B arabic-terms | New Arabic terms for form, substance and cause | Vocabulary has to carry distinctions rather than merely replace letters.
+OUT arabic-nature | Natural philosophy in Arabic | Inherited explanatory distinctions become resources for further inquiry.
+LIFECYCLE {'four-causes': 'retain', 'arabic-terms': 'retain'}
+LINK {"from": "kinds", "to": "translation", "item": "four-causes", "recipe": "make-arabic-nature", "relation": "transmission", "evidence": "Aristotelian natural philosophy was translated and developed in Arabic.", "sources": ["greek-arabic", "arabic-latin", "algebra", "avicenna"]}
+
+RECIPE make-ptolemy-questioned
+A ptolemaic-model | Ptolemy’s predictive heavens | Reconstruct an Earth-centred predictive scheme rather than treating it as mere ignorance.
+B revised-observations | Fresh observations trouble inherited sky models | Arabic-language astronomy includes criticism and original research.
+OUT ptolemy-questioned | Ptolemy read critically | Receiving a model also makes its difficulties available for criticism.
+LIFECYCLE {'ptolemaic-model': 'retain', 'revised-observations': 'retain'}
+LINK {"from": "world-models", "to": "translation", "item": "ptolemaic-model", "recipe": "make-ptolemy-questioned", "relation": "transmission", "evidence": "Ptolemy’s astronomy was translated, studied and criticized in Arabic-language traditions.", "sources": ["greek-arabic", "arabic-latin", "algebra", "avicenna"]}
+
+RECIPE make-positional-reckoning
+A indian-numerals | Indian place-value numerals | A separate mathematical inheritance enters Arabic-language practical calculation.
+B merchant-accounts | Merchants need consistent accounts | A practical use for notation, not a calculation exercise.
+OUT positional-reckoning | Place-value reckoning | A practical notational inheritance is put to new work, not attributed to a single Greek origin.
+LIFECYCLE {'indian-numerals': 'retain', 'merchant-accounts': 'retain'}
+
+RECIPE make-algebraic-relations
+A positional-reckoning | Place-value reckoning | A practical notational inheritance is put to new work, not attributed to a single Greek origin.
+B inheritance-relations | Unknown shares can be related to known shares | A schematic practical setting for algebra, with no arithmetic required.
+OUT algebraic-relations | Reasoning about an unknown share | Relations among quantities can be expressed before a particular value is known.
+LIFECYCLE {'positional-reckoning': 'retain', 'inheritance-relations': 'retain'}
+
+RECIPE make-contingent-being
+A arabic-nature | Natural philosophy in Arabic | Inherited explanatory distinctions become resources for further inquiry.
+B essence-existence | What a thing is differs from whether it exists | Avicenna’s distinction does not simply repeat Aristotle’s categories.
+OUT contingent-being | Avicenna: contingent existence | A distinction between essence and existence changes the metaphysical question.
+LIFECYCLE {'arabic-nature': 'retain', 'essence-existence': 'retain'}
+
+RECIPE make-necessary-being
+A contingent-being | Avicenna: contingent existence | A distinction between essence and existence changes the metaphysical question.
+B dependent-existence | A contingent thing depends on another | A reconstructed metaphysical argument, not a settled demonstration about reality.
+OUT necessary-being | Avicenna: a necessary source of existence | Reconstruct an attributed argument from contingency; making it is not an assertion that all readers must accept it.
+LIFECYCLE {'contingent-being': 'retain', 'dependent-existence': 'retain'}
+
+RECIPE make-active-commentary
+A arabic-logic | Logic in a new scholarly language | The argument crosses a language boundary through learned translation.
+B commentator-questions | A commentary asks where an argument succeeds | A reader can extend, revise or challenge a received text.
+OUT active-commentary | A commentary that changes the question | The received argument becomes a starting point for original criticism and elaboration.
+LIFECYCLE {'arabic-logic': 'retain', 'commentator-questions': 'retain'}

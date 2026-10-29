@@ -1,0 +1,437 @@
+{
+  "baseCommit": "86c479746909412d775873d5bb250868ed7bf2d0",
+  "worlds": [
+    {
+      "path": "experiments/tangible-campaign/ui/campaigns/atlas-intellectual-history.ts",
+      "world": "atlas-intellectual-history-v1-research",
+      "beforeRecipes": 260,
+      "afterRecipes": 264,
+      "changes": [
+        {
+          "path": "/items/234/description",
+          "before": "Clock comparison adds east–west position to the chart. Longitude alone does not supply a complete geographical position; latitude remains a separate determination.",
+          "after": "A longitude determination adds east–west position to the chart. Longitude alone does not supply a complete geographical position; latitude remains a separate determination."
+        },
+        {
+          "path": "/items/234/reading/text",
+          "before": "Clock comparison adds east–west position to the chart. Longitude alone does not supply a complete geographical position; latitude remains a separate determination.",
+          "after": "A longitude determination adds east–west position to the chart. Longitude alone does not supply a complete geographical position; latitude remains a separate determination."
+        },
+        {
+          "path": "/recipes/120/description",
+          "before": "Clock comparison adds east–west position to the chart. Longitude alone does not supply a complete geographical position; latitude remains a separate determination.",
+          "after": "A longitude determination adds east–west position to the chart. Longitude alone does not supply a complete geographical position; latitude remains a separate determination."
+        },
+        {
+          "path": "/recipes/260",
+          "after": {
+            "id": "make-contested-type-publication",
+            "a": "type-printed-edition",
+            "b": "print-censors",
+            "out": "contested-publication",
+            "description": "An edition made with reusable type can also be licensed, banned or seized. Wider circulation does not remove censorship.",
+            "sources": [
+              "printing",
+              "ratdolt",
+              "alexandria",
+              "hermetic",
+              "arabic-latin"
+            ],
+            "lifecycle": {
+              "type-printed-edition": {
+                "role": "retain",
+                "reason": "This source, result or reusable instrument remains available for inspection and later use."
+              },
+              "print-censors": {
+                "role": "retain",
+                "reason": "This source, result or reusable instrument remains available for inspection and later use."
+              }
+            }
+          }
+        },
+        {
+          "path": "/recipes/261",
+          "after": {
+            "id": "make-tested-clock-longitude",
+            "a": "sea-tested-clock",
+            "b": "local-noon",
+            "out": "time-longitude",
+            "description": "The tested reference clock still supplies the reference time for comparison with local noon.",
+            "sources": [
+              "longitude",
+              "longitude-lunar-si",
+              "almanac-history",
+              "jaipur"
+            ],
+            "lifecycle": {
+              "sea-tested-clock": {
+                "role": "retain",
+                "reason": "This source, result or reusable instrument remains available for inspection and later use."
+              },
+              "local-noon": {
+                "role": "retain",
+                "reason": "This source, result or reusable instrument remains available for inspection and later use."
+              }
+            }
+          }
+        },
+        {
+          "path": "/recipes/262",
+          "after": {
+            "id": "make-lunar-positioned-sea-route",
+            "a": "bearing-chart",
+            "b": "lunar-longitude",
+            "out": "positioned-sea-route",
+            "description": "A longitude determination adds east–west position to the chart. Longitude alone does not supply a complete geographical position; latitude remains a separate determination.",
+            "sources": [
+              "longitude",
+              "longitude-lunar-si",
+              "almanac-history",
+              "jaipur"
+            ],
+            "lifecycle": {
+              "bearing-chart": {
+                "role": "retain",
+                "reason": "This source, result or reusable instrument remains available for inspection and later use."
+              },
+              "lunar-longitude": {
+                "role": "retain",
+                "reason": "This source, result or reusable instrument remains available for inspection and later use."
+              }
+            }
+          }
+        },
+        {
+          "path": "/recipes/263",
+          "after": {
+            "id": "make-direct-redated-hermetica",
+            "a": "hermetic-dialogues",
+            "b": "datable-language",
+            "out": "redated-hermetica",
+            "description": "The text attributed to ancient Hermes can be dated against its later Greek directly. This weakens its claimed antiquity without refuting every idea in it.",
+            "sources": [
+              "printing",
+              "ratdolt",
+              "alexandria",
+              "hermetic",
+              "arabic-latin"
+            ],
+            "lifecycle": {
+              "hermetic-dialogues": {
+                "role": "retain",
+                "reason": "This source, result or reusable instrument remains available for inspection and later use."
+              },
+              "datable-language": {
+                "role": "retain",
+                "reason": "This source, result or reusable instrument remains available for inspection and later use."
+              }
+            }
+          }
+        },
+        {
+          "path": "/stages/13/objectives/0/intermediate",
+          "after": true
+        },
+        {
+          "path": "/stages/13/objectives/1/intermediate",
+          "after": true
+        },
+        {
+          "path": "/stages/13/objectives/3/after",
+          "after": [
+            "longitude-sea-tested-clock",
+            "longitude-lunar-longitude"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "experiments/tangible-campaign/ui/campaigns/divinity-disputed-questions.ts",
+      "world": "divinity-disputed-questions-conceptual-v2-20261028",
+      "beforeRecipes": 85,
+      "afterRecipes": 86,
+      "changes": [
+        {
+          "path": "/recipes/85",
+          "after": {
+            "id": "bounded-agreement-direct-articles",
+            "a": "signed-trinity",
+            "b": "signed-supper",
+            "out": "bounded-agreement",
+            "description": "Compare the two signed articles directly: their common confession does not settle the remaining bodily-presence dispute.",
+            "sources": [
+              "later-marburg-1529"
+            ],
+            "lifecycle": {
+              "signed-trinity": {
+                "role": "retain",
+                "reason": "This source, result or reusable instrument remains available for inspection and later use."
+              },
+              "signed-supper": {
+                "role": "retain",
+                "reason": "This source, result or reusable instrument remains available for inspection and later use."
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "path": "experiments/tangible-campaign/ui/campaigns/divinity-light-text-workshop.ts",
+      "world": "divinity-light-text-workshop-v2-20261028",
+      "beforeRecipes": 28,
+      "afterRecipes": 29,
+      "changes": [
+        {
+          "path": "/items/27/label",
+          "before": "Mark: “like sheep without a shepherd”",
+          "after": "Mark: compassion leads to teaching; feeding follows"
+        },
+        {
+          "path": "/recipes/28",
+          "after": {
+            "id": "dl2-mark-reading-direct-passages",
+            "a": "mark-compassion",
+            "b": "mark-feeding",
+            "out": "mark-reading",
+            "lifecycle": {
+              "mark-compassion": {
+                "role": "retain",
+                "reason": "This source, result or reusable instrument remains available for inspection and later use."
+              },
+              "mark-feeding": {
+                "role": "retain",
+                "reason": "This source, result or reusable instrument remains available for inspection and later use."
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "path": "experiments/tangible-campaign/ui/campaigns/purpose-copy-workroom.ts",
+      "world": "copy-workroom-two-commissions-v1",
+      "beforeRecipes": 6,
+      "afterRecipes": 8,
+      "changes": [
+        {
+          "path": "/recipes/6",
+          "after": {
+            "id": "carve-from-reflected-proof",
+            "a": "proof-back",
+            "b": "stock",
+            "out": "block-reflected",
+            "description": "Keep the reflected proof face up over a separate carbon sheet, coated side toward a fresh block. Transfer and carve the same viewed design in relief, without reflecting it again.",
+            "lifecycle": {
+              "proof-back": {
+                "role": "retain",
+                "reason": "The proof remains an intact design reference; the separate transfer sheet carries its viewed lines to the wood."
+              },
+              "stock": {
+                "role": "retain",
+                "reason": "Another blank and transfer sheet come from the explicit plural stock; the tools remain reusable."
+              }
+            }
+          }
+        },
+        {
+          "path": "/recipes/7",
+          "after": {
+            "id": "carve-from-readable-proof",
+            "a": "proof-front",
+            "b": "stock",
+            "out": "block-readable",
+            "description": "Keep the readable proof face up over a separate carbon sheet, coated side toward a fresh block. Transfer and carve the same viewed RIVER and right arrow in relief.",
+            "lifecycle": {
+              "proof-front": {
+                "role": "retain",
+                "reason": "The proof remains an intact design reference; the separate transfer sheet carries its viewed lines to the wood."
+              },
+              "stock": {
+                "role": "retain",
+                "reason": "Another blank and transfer sheet come from the explicit plural stock; the tools remain reusable."
+              }
+            }
+          }
+        },
+        {
+          "path": "/notes/12",
+          "after": "Same-output alternatives: either actual proof sheet may supply its viewed design to fresh stocked wood. All six original manufacturing recipes remain unchanged; reflection occurs in printing, not in transferring a face-up design."
+        }
+      ]
+    },
+    {
+      "path": "experiments/tangible-campaign/ui/campaigns/food-kitchen-caravan.ts",
+      "world": "kitchen-caravan-v6",
+      "beforeRecipes": 189,
+      "afterRecipes": 192,
+      "changes": [
+        {
+          "path": "/items/120/description",
+          "before": "The syrup is carefully cooked into caramel; the game omits hazardous temperatures.",
+          "after": "Sugar is carefully cooked into caramel, with or without a preliminary syrup; the game omits hazardous temperatures."
+        },
+        {
+          "path": "/items/169/description",
+          "before": "The cook emulsifies chocolate with heated cream, then cools it to a filling.",
+          "after": "The cook emulsifies chocolate with heated cream and manages its consistency as a filling or topping."
+        },
+        {
+          "path": "/items/172/description",
+          "before": "Chocolate glaze finishes the filled cream puffs.",
+          "after": "A chocolate topping finishes the filled cream puffs."
+        },
+        {
+          "path": "/items/198/description",
+          "before": "Caramel sauce finishes a dish of frozen custard.",
+          "after": "Caramel sauce finishes a dish of frozen custard or milk ice cream."
+        },
+        {
+          "path": "/recipes/189",
+          "after": {
+            "id": "dry-caramel",
+            "a": "sugar",
+            "b": "@sugar-pan",
+            "out": "caramel",
+            "description": "The cook carefully cooks sugar directly into caramel at the confectioner’s saucepan. The game omits hazardous temperatures and handling instructions.",
+            "lifecycle": {
+              "sugar": {
+                "role": "retain",
+                "reason": "Use a measured portion of the sugar stock; the remaining supply is still present."
+              }
+            },
+            "caveat": "Authored culinary reconstruction: ingredients, proportions and handling are compressed. Technique references support a named process, not a complete formula or an invention date."
+          }
+        },
+        {
+          "path": "/recipes/190",
+          "after": {
+            "id": "ganache-profiteroles",
+            "a": "cream-puffs",
+            "b": "ganache",
+            "out": "profiteroles",
+            "description": "Chocolate ganache finishes a portion of the filled cream puffs; the cook manages its topping consistency.",
+            "lifecycle": {
+              "cream-puffs": {
+                "role": "retain",
+                "reason": "Use a portion of this prepared batch for chocolate profiteroles; the remaining batch stays available for other dishes."
+              },
+              "ganache": {
+                "role": "retain",
+                "reason": "Use a portion of this prepared batch for chocolate profiteroles; the remaining batch stays available for other dishes."
+              }
+            },
+            "caveat": "Authored culinary reconstruction: ingredients, proportions and handling are compressed. Technique references support a named process, not a complete formula or an invention date."
+          }
+        },
+        {
+          "path": "/recipes/191",
+          "after": {
+            "id": "milk-ice-caramel-sundae",
+            "a": "milk-ice-cream",
+            "b": "caramel-sauce",
+            "out": "caramel-sundae",
+            "description": "Caramel sauce finishes a dish of milk ice cream.",
+            "lifecycle": {
+              "milk-ice-cream": {
+                "role": "retain",
+                "reason": "Use a portion for this caramel sundae; the remaining prepared batch stays available for its other dishes and objectives."
+              },
+              "caramel-sauce": {
+                "role": "retain",
+                "reason": "Use a portion for this caramel sundae; the remaining prepared batch stays available for its other dishes and objectives."
+              }
+            },
+            "caveat": "Authored culinary reconstruction: ingredients, proportions and handling are compressed. Technique references support a named process, not a complete formula or an invention date."
+          }
+        },
+        {
+          "path": "/stages/15/motivation",
+          "before": "The station is still hot, and passengers are waiting for the evening train. In the dessert room, use the managed freezing churn for a custard sundae, fruit sorbet and plain ice cream for a frozen cake. Our earlier custard, syrup and compote do the work.",
+          "after": "The station is still hot, and passengers are waiting for the evening train. In the dessert room, use the managed freezing churn for a caramel sundae, fruit sorbet and plain ice cream for a frozen cake. Our earlier custard, syrup and compote do the work."
+        },
+        {
+          "path": "/stages/15/objectives/0/after",
+          "after": [
+            "ice-milk-ice-cream"
+          ]
+        },
+        {
+          "path": "/stages/15/objectives/2/intermediate",
+          "after": true
+        }
+      ]
+    },
+    {
+      "path": "experiments/tangible-campaign/ui/campaigns/elements-house-and-craft.ts",
+      "world": "elements-house-and-craft-v1",
+      "beforeRecipes": 224,
+      "afterRecipes": 226,
+      "changes": [
+        {
+          "path": "/recipes/224",
+          "after": {
+            "id": "star-chart-mounted-telescope",
+            "a": "mounted-telescope",
+            "b": "paper",
+            "out": "star-chart",
+            "description": "The steady mounted telescope guides the observations recorded on paper.",
+            "lifecycle": {
+              "mounted-telescope": {
+                "role": "retain",
+                "reason": "The mounted telescope remains the same reusable instrument and a completed visible objective."
+              },
+              "paper": {
+                "role": "transform",
+                "reason": "Paper becomes the star chart; retain an outside supply only while other authored paper work still needs it."
+              }
+            }
+          }
+        },
+        {
+          "path": "/recipes/225",
+          "after": {
+            "id": "mailboat-printed-invitations",
+            "a": "printed-invitations",
+            "b": "sailboat",
+            "out": "mailboat",
+            "description": "Load copies of the printed invitations aboard the sailboat for delivery upriver.",
+            "preserve": [
+              "sailboat"
+            ],
+            "lifecycle": {
+              "printed-invitations": {
+                "role": "retain",
+                "reason": "Copies are loaded from the printed batch; the remaining invitations stay available and satisfy their own visible objective."
+              },
+              "sailboat": {
+                "role": "transform",
+                "reason": "The same sailboat becomes the mailboat carrying the invitations; keep its existing construction and fitted parts."
+              }
+            }
+          }
+        },
+        {
+          "path": "/stages/14/objectives/0/after",
+          "after": [
+            "letters-printed-invitations"
+          ]
+        },
+        {
+          "path": "/stages/14/objectives/1/intermediate",
+          "after": true
+        },
+        {
+          "path": "/stages/27/objectives/0/after",
+          "after": [
+            "stars-mounted-telescope"
+          ]
+        },
+        {
+          "path": "/stages/27/objectives/1/intermediate",
+          "after": true
+        }
+      ]
+    }
+  ]
+}

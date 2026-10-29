@@ -1,0 +1,7 @@
+# Exact test/evidence-only successor
+
+The complete82-file fresh aggregate ran on source98a6; its terminal result is retained in final results/predecessor-98a6. Four stale assertions are corrected with exact accepted recipe-use deltas, the reviewed earned-state label helper, and the strict Food alias inverse. No expected author source/hash is rewritten. Three accepted log snapshots are relocated from an accidentally excluded nested `results` directory into `results-evidence`, with identical bytes and original path/hash ledger.
+
+Every runtime, campaign, schema, style, build configuration and all other preceding source files remain byte-identical; the only changed existing files are those four tests and audit display-format metadata, their additive exact-source guard and the accepted snapshot path manifest. Original source-chain manifests and the98a6 checkpoint inventory remain immutable. The final source-only copy reruns each complete affected test file, all relevant source contracts, build/content/type, twice-generated current world evidence, seal and delta. The predecessor and final build artifacts are compared byte-for-byte.
+
+This is not a second all-pass aggregate on the final seal. The handoff explicitly combines the completed predecessor aggregate with final affected-contract verification on identical runtime/content. No semantic changes were made to pass tests. Root alone publishes from verified LIVE86.

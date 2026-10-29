@@ -1,0 +1,2510 @@
+{
+  "actions": [
+    {
+      "index": 1,
+      "action": {
+        "type": "combine",
+        "a": "broken-radio",
+        "b": "cable"
+      },
+      "recipe": "signal-0-radio",
+      "beforeStateSha256": "8013baf4b849f7f8b5edd2c5afab3d93f23ae993b28e77598f852c9b623719b0",
+      "afterStateSha256": "4934bf97191963baddae90fb4d9d5310ad26a320bf2be156565cc5cb49ea4c4a"
+    },
+    {
+      "index": 2,
+      "action": {
+        "type": "combine",
+        "a": "solar-panel",
+        "b": "battery"
+      },
+      "recipe": "signal-1-solar-charger",
+      "beforeStateSha256": "4934bf97191963baddae90fb4d9d5310ad26a320bf2be156565cc5cb49ea4c4a",
+      "afterStateSha256": "736ff1eac35801ce844abf1db4fa766b200cf4ea171fc8b3ea54e2988a13e50e"
+    },
+    {
+      "index": 3,
+      "action": {
+        "type": "combine",
+        "a": "radio",
+        "b": "solar-charger"
+      },
+      "recipe": "signal-2-solar-radio",
+      "beforeStateSha256": "736ff1eac35801ce844abf1db4fa766b200cf4ea171fc8b3ea54e2988a13e50e",
+      "afterStateSha256": "1bede260e51770e17bb7e8ee702ab1ef2f79d58aa08414a665d78b29748b9b88"
+    },
+    {
+      "index": 4,
+      "action": {
+        "type": "place",
+        "item": "solar-radio",
+        "hotspot": "contact-ridge"
+      },
+      "recipe": null,
+      "beforeStateSha256": "1bede260e51770e17bb7e8ee702ab1ef2f79d58aa08414a665d78b29748b9b88",
+      "afterStateSha256": "bab88b13e0d1d3be5b81f229e312aaa4a60c46ef238d1680c02877ed22aebe08"
+    },
+    {
+      "index": 5,
+      "action": {
+        "type": "advance"
+      },
+      "recipe": null,
+      "beforeStateSha256": "bab88b13e0d1d3be5b81f229e312aaa4a60c46ef238d1680c02877ed22aebe08",
+      "afterStateSha256": "f8a1c2dfd4bf2296514382d135e7732d5dbf14e352329a93838be60f51e9d086"
+    },
+    {
+      "index": 6,
+      "action": {
+        "type": "combine",
+        "a": "solar-charger",
+        "b": "@sheltered-ice"
+      },
+      "recipe": "habitat-0-meltwater",
+      "beforeStateSha256": "f8a1c2dfd4bf2296514382d135e7732d5dbf14e352329a93838be60f51e9d086",
+      "afterStateSha256": "e1d7ba62cb5263b6044fd3e8ecd8963e3d464dd8db3208f38d7a6b096d79f92b"
+    },
+    {
+      "index": 7,
+      "action": {
+        "type": "combine",
+        "a": "meltwater",
+        "b": "water-filter"
+      },
+      "recipe": "habitat-1-filtered-water",
+      "beforeStateSha256": "e1d7ba62cb5263b6044fd3e8ecd8963e3d464dd8db3208f38d7a6b096d79f92b",
+      "afterStateSha256": "9746866573fd987bded2e8c80b8fdc0f436c5c541540ce8bd81475f58c410320"
+    },
+    {
+      "index": 8,
+      "action": {
+        "type": "combine",
+        "a": "filtered-water",
+        "b": "empty-canister"
+      },
+      "recipe": "habitat-2-water-canister",
+      "beforeStateSha256": "9746866573fd987bded2e8c80b8fdc0f436c5c541540ce8bd81475f58c410320",
+      "afterStateSha256": "8d4efb52fd9e5c07390175971e902a6e534eb95f03816d9962815dd2a064f3e9"
+    },
+    {
+      "index": 9,
+      "action": {
+        "type": "combine",
+        "a": "seeds",
+        "b": "planting-tray"
+      },
+      "recipe": "habitat-3-seed-tray",
+      "beforeStateSha256": "8d4efb52fd9e5c07390175971e902a6e534eb95f03816d9962815dd2a064f3e9",
+      "afterStateSha256": "6acf921196d2ae79ad6e8b4f3cc54c16ef0b6defcfec27d93cab75647745f93d"
+    },
+    {
+      "index": 10,
+      "action": {
+        "type": "combine",
+        "a": "seed-tray",
+        "b": "water-canister"
+      },
+      "recipe": "habitat-4-watered-seed-tray",
+      "beforeStateSha256": "6acf921196d2ae79ad6e8b4f3cc54c16ef0b6defcfec27d93cab75647745f93d",
+      "afterStateSha256": "4283e8700fbe255452397f109818148415e5ebe22a3f8d84f471b2ce378aa430"
+    },
+    {
+      "index": 11,
+      "action": {
+        "type": "combine",
+        "a": "watered-seed-tray",
+        "b": "@warm-habitat"
+      },
+      "recipe": "habitat-5-sprouted-tray",
+      "beforeStateSha256": "4283e8700fbe255452397f109818148415e5ebe22a3f8d84f471b2ce378aa430",
+      "afterStateSha256": "6e192f73ec0dee80cbb090bba984089dd28c905be205ed48e10e8e82c2256c48"
+    },
+    {
+      "index": 12,
+      "action": {
+        "type": "combine",
+        "a": "sprouted-tray",
+        "b": "clear-cover"
+      },
+      "recipe": "habitat-6-propagator",
+      "beforeStateSha256": "6e192f73ec0dee80cbb090bba984089dd28c905be205ed48e10e8e82c2256c48",
+      "afterStateSha256": "bd7729f15e772829b2a53bc7c47904dad8c7dc9aafb9a8b3855fcddeeaeeb0ff"
+    },
+    {
+      "index": 13,
+      "action": {
+        "type": "combine",
+        "a": "habitat-fabric",
+        "b": "sealant"
+      },
+      "recipe": "habitat-7-pressure-patch",
+      "beforeStateSha256": "bd7729f15e772829b2a53bc7c47904dad8c7dc9aafb9a8b3855fcddeeaeeb0ff",
+      "afterStateSha256": "c3446949e475dbbca101d9241ef1dcf9b3a02b794a8cab45dd207e1ca3b472fe"
+    },
+    {
+      "index": 14,
+      "action": {
+        "type": "combine",
+        "a": "pressure-patch",
+        "b": "seam-roller"
+      },
+      "recipe": "habitat-8-sealed-panel",
+      "beforeStateSha256": "c3446949e475dbbca101d9241ef1dcf9b3a02b794a8cab45dd207e1ca3b472fe",
+      "afterStateSha256": "47ff18a52ef80c20d0c5fec07797ea2025131c044110fcd33b2a458a4bc86089"
+    },
+    {
+      "index": 15,
+      "action": {
+        "type": "combine",
+        "a": "sealed-panel",
+        "b": "hatch-frame"
+      },
+      "recipe": "habitat-9-vestibule",
+      "beforeStateSha256": "47ff18a52ef80c20d0c5fec07797ea2025131c044110fcd33b2a458a4bc86089",
+      "afterStateSha256": "b6b2dbd5374d40c1255eb4e71ff067f308d2eb44410527510f9ffa9b28e14d0e"
+    },
+    {
+      "index": 16,
+      "action": {
+        "type": "combine",
+        "a": "vestibule",
+        "b": "tie-downs"
+      },
+      "recipe": "habitat-10-anchored-vestibule",
+      "beforeStateSha256": "b6b2dbd5374d40c1255eb4e71ff067f308d2eb44410527510f9ffa9b28e14d0e",
+      "afterStateSha256": "b6514af9671e2a58a6bf6d91e8da5349035591b5115c5b9395404721f680f8f9"
+    },
+    {
+      "index": 17,
+      "action": {
+        "type": "combine",
+        "a": "anchored-vestibule",
+        "b": "insulating-blanket"
+      },
+      "recipe": "habitat-11-insulated-vestibule",
+      "beforeStateSha256": "b6514af9671e2a58a6bf6d91e8da5349035591b5115c5b9395404721f680f8f9",
+      "afterStateSha256": "e740f35e0632c92cddcffc85f6fec9f7a54a5a80db39c35da842de0e39ec9610"
+    },
+    {
+      "index": 18,
+      "action": {
+        "type": "place",
+        "item": "solar-radio",
+        "hotspot": "refuge-contact-mast"
+      },
+      "recipe": null,
+      "beforeStateSha256": "e740f35e0632c92cddcffc85f6fec9f7a54a5a80db39c35da842de0e39ec9610",
+      "afterStateSha256": "7a672ba99d346df9436c2915de4f55f77724e2aa7c6f38e20797d38e1537caab"
+    },
+    {
+      "index": 19,
+      "action": {
+        "type": "advance"
+      },
+      "recipe": null,
+      "beforeStateSha256": "7a672ba99d346df9436c2915de4f55f77724e2aa7c6f38e20797d38e1537caab",
+      "afterStateSha256": "cd320e6073bf58513199929d69258facd1518ca99234c85fa97b5cb385f4aeb1"
+    },
+    {
+      "index": 20,
+      "action": {
+        "type": "combine",
+        "a": "support-frame",
+        "b": "wheels"
+      },
+      "recipe": "rover-0-rover-chassis",
+      "beforeStateSha256": "cd320e6073bf58513199929d69258facd1518ca99234c85fa97b5cb385f4aeb1",
+      "afterStateSha256": "b430998ee60d0699959576a731e66f3cd2189953810123223ee169053c36d3ef"
+    },
+    {
+      "index": 21,
+      "action": {
+        "type": "combine",
+        "a": "drive-motor",
+        "b": "motor-controller"
+      },
+      "recipe": "rover-1-drive-unit",
+      "beforeStateSha256": "b430998ee60d0699959576a731e66f3cd2189953810123223ee169053c36d3ef",
+      "afterStateSha256": "5008b0d5a6ecb1754e8c387fb97790f531fa4d3cbd38912d97f2f71ebd9fa190"
+    },
+    {
+      "index": 22,
+      "action": {
+        "type": "combine",
+        "a": "drive-unit",
+        "b": "rover"
+      },
+      "recipe": "rover-2-motorized-rover",
+      "beforeStateSha256": "5008b0d5a6ecb1754e8c387fb97790f531fa4d3cbd38912d97f2f71ebd9fa190",
+      "afterStateSha256": "f630f852f1b066972f35f3b83ca16575756ce2baaa9b428f562e6010c060ae5d"
+    },
+    {
+      "index": 23,
+      "action": {
+        "type": "combine",
+        "a": "solar-charger",
+        "b": "rover"
+      },
+      "recipe": "rover-3-solar-rover",
+      "beforeStateSha256": "f630f852f1b066972f35f3b83ca16575756ce2baaa9b428f562e6010c060ae5d",
+      "afterStateSha256": "ed8863b331279aaf7f4520fdd8963a2752128574fb6186690bd6585735764bc1"
+    },
+    {
+      "index": 24,
+      "action": {
+        "type": "combine",
+        "a": "seat-harness",
+        "b": "rover"
+      },
+      "recipe": "rover-6-belted-rover",
+      "beforeStateSha256": "ed8863b331279aaf7f4520fdd8963a2752128574fb6186690bd6585735764bc1",
+      "afterStateSha256": "352bfcc03d0729d64dd91e4f64662215def73db1f9f549c9d62864fd967cb4cf"
+    },
+    {
+      "index": 25,
+      "action": {
+        "type": "combine",
+        "a": "binoculars",
+        "b": "compass-module"
+      },
+      "recipe": "rover-10-bearing-scope",
+      "beforeStateSha256": "352bfcc03d0729d64dd91e4f64662215def73db1f9f549c9d62864fd967cb4cf",
+      "afterStateSha256": "7bf676e53a9aea27822c3094849e300b28989854ac6856cf8f836a12723a7e91"
+    },
+    {
+      "index": 26,
+      "action": {
+        "type": "combine",
+        "a": "camera",
+        "b": "tripod"
+      },
+      "recipe": "rover-7-field-camera",
+      "beforeStateSha256": "7bf676e53a9aea27822c3094849e300b28989854ac6856cf8f836a12723a7e91",
+      "afterStateSha256": "6613ad6394891143829328ea484b317026bfca0bfe45791a6aa1b6b15293ad6a"
+    },
+    {
+      "index": 27,
+      "action": {
+        "type": "combine",
+        "a": "field-camera",
+        "b": "@route-overlook"
+      },
+      "recipe": "rover-8-panorama",
+      "beforeStateSha256": "6613ad6394891143829328ea484b317026bfca0bfe45791a6aa1b6b15293ad6a",
+      "afterStateSha256": "4013bc79adead648ed2b31e4d278e1ed11d234cfb740e52e62034a37ea94053b"
+    },
+    {
+      "index": 28,
+      "action": {
+        "type": "combine",
+        "a": "panorama",
+        "b": "terrain-sheet"
+      },
+      "recipe": "rover-9-survey-map",
+      "beforeStateSha256": "4013bc79adead648ed2b31e4d278e1ed11d234cfb740e52e62034a37ea94053b",
+      "afterStateSha256": "24e3bff729d1b5e97af286ca4de6f1b5d49f4d5812e5b687c6748d99391cc488"
+    },
+    {
+      "index": 29,
+      "action": {
+        "type": "combine",
+        "a": "bearing-scope",
+        "b": "survey-map"
+      },
+      "recipe": "rover-11-bearing-map",
+      "beforeStateSha256": "24e3bff729d1b5e97af286ca4de6f1b5d49f4d5812e5b687c6748d99391cc488",
+      "afterStateSha256": "7cccf79ee2fe7cef029de9f8270e4be3de96b1709cac69f6d4fcdeee76d418e3"
+    },
+    {
+      "index": 30,
+      "action": {
+        "type": "advance"
+      },
+      "recipe": null,
+      "beforeStateSha256": "7cccf79ee2fe7cef029de9f8270e4be3de96b1709cac69f6d4fcdeee76d418e3",
+      "afterStateSha256": "af0178dea9d76058eb142471c2ea5b0037284f2934ea005fb425248b561b05f2"
+    },
+    {
+      "index": 31,
+      "action": {
+        "type": "combine",
+        "a": "sample-scoop",
+        "b": "@lookout-ice"
+      },
+      "recipe": "outcrop-0-ice-sample",
+      "beforeStateSha256": "af0178dea9d76058eb142471c2ea5b0037284f2934ea005fb425248b561b05f2",
+      "afterStateSha256": "a34b089071d5fbcba41c7de495bffa9eeecd64f106c2d85b18e5e62704c130e6"
+    },
+    {
+      "index": 32,
+      "action": {
+        "type": "combine",
+        "a": "ice-sample",
+        "b": "transparent-jar"
+      },
+      "recipe": "outcrop-1-sealed-ice-sample",
+      "beforeStateSha256": "a34b089071d5fbcba41c7de495bffa9eeecd64f106c2d85b18e5e62704c130e6",
+      "afterStateSha256": "0e2ad4a4238857c435471d8ceda966469663d569b09e683f88342c7dfb6ba050"
+    },
+    {
+      "index": 33,
+      "action": {
+        "type": "combine",
+        "a": "sealed-ice-sample",
+        "b": "sample-labels"
+      },
+      "recipe": "outcrop-2-catalogued-ice-sample",
+      "beforeStateSha256": "0e2ad4a4238857c435471d8ceda966469663d569b09e683f88342c7dfb6ba050",
+      "afterStateSha256": "6bbdb27fbe013562e412110d89f6e7e0845fd19e10f44a678e9cc212360dba18"
+    },
+    {
+      "index": 34,
+      "action": {
+        "type": "combine",
+        "a": "catalogued-ice-sample",
+        "b": "camera"
+      },
+      "recipe": "outcrop-3-ice-photograph",
+      "beforeStateSha256": "6bbdb27fbe013562e412110d89f6e7e0845fd19e10f44a678e9cc212360dba18",
+      "afterStateSha256": "262c6002afadea5004bca3b84da4833ee0401e0a248f2312dc24fdcbce9d659e"
+    },
+    {
+      "index": 35,
+      "action": {
+        "type": "combine",
+        "a": "lens",
+        "b": "optical-tube"
+      },
+      "recipe": "outcrop-4-telescope",
+      "beforeStateSha256": "262c6002afadea5004bca3b84da4833ee0401e0a248f2312dc24fdcbce9d659e",
+      "afterStateSha256": "474f2ee48ee6009c8ed35daedd40ec025f5a9dfe13677ab730e65e2e8d7ef62a"
+    },
+    {
+      "index": 36,
+      "action": {
+        "type": "combine",
+        "a": "telescope",
+        "b": "tripod"
+      },
+      "recipe": "outcrop-5-field-telescope",
+      "beforeStateSha256": "474f2ee48ee6009c8ed35daedd40ec025f5a9dfe13677ab730e65e2e8d7ef62a",
+      "afterStateSha256": "433c2d42008e4f4f8410bd7bd15027a1861ed49ffdbd851ba794e06f2a9f081b"
+    },
+    {
+      "index": 37,
+      "action": {
+        "type": "combine",
+        "a": "field-telescope",
+        "b": "camera"
+      },
+      "recipe": "outcrop-6-telescope-camera",
+      "beforeStateSha256": "433c2d42008e4f4f8410bd7bd15027a1861ed49ffdbd851ba794e06f2a9f081b",
+      "afterStateSha256": "a303544dec01aca1da3beceb18da04f7409f425c63e75bc40ec8a2c1dbd77cc2"
+    },
+    {
+      "index": 38,
+      "action": {
+        "type": "combine",
+        "a": "telescope-camera",
+        "b": "@distant-lookout"
+      },
+      "recipe": "outcrop-7-cliff-photograph",
+      "beforeStateSha256": "a303544dec01aca1da3beceb18da04f7409f425c63e75bc40ec8a2c1dbd77cc2",
+      "afterStateSha256": "279b7d4f5fd53175013a62d02214cd5a5acf43df7f0a9bedfdd400865d9f77ab"
+    },
+    {
+      "index": 39,
+      "action": {
+        "type": "combine",
+        "a": "cliff-photograph",
+        "b": "bearing-map"
+      },
+      "recipe": "outcrop-8-annotated-map",
+      "beforeStateSha256": "279b7d4f5fd53175013a62d02214cd5a5acf43df7f0a9bedfdd400865d9f77ab",
+      "afterStateSha256": "7da1bb3af806091299289148bc54fde554640dfed847fc2de075a8ecb292e6e2"
+    },
+    {
+      "index": 40,
+      "action": {
+        "type": "combine",
+        "a": "core-tube",
+        "b": "@lookout-ice"
+      },
+      "recipe": "outcrop-11-ice-core",
+      "beforeStateSha256": "7da1bb3af806091299289148bc54fde554640dfed847fc2de075a8ecb292e6e2",
+      "afterStateSha256": "a02ec80e7bf5a450166f4ed26c38f85d9be0f7a630d2a4ace3afa63743e40c10"
+    },
+    {
+      "index": 41,
+      "action": {
+        "type": "combine",
+        "a": "ice-core",
+        "b": "specimen-rack"
+      },
+      "recipe": "outcrop-12-core-rack",
+      "beforeStateSha256": "a02ec80e7bf5a450166f4ed26c38f85d9be0f7a630d2a4ace3afa63743e40c10",
+      "afterStateSha256": "56510cee732cb09a7b537a23b5817f577d9fd4fb3ff45b1e4465eb3c6996183f"
+    },
+    {
+      "index": 42,
+      "action": {
+        "type": "combine",
+        "a": "core-rack",
+        "b": "scale-card"
+      },
+      "recipe": "outcrop-13-scaled-core",
+      "beforeStateSha256": "56510cee732cb09a7b537a23b5817f577d9fd4fb3ff45b1e4465eb3c6996183f",
+      "afterStateSha256": "67cd2c9408af19db42797acdde9dc3de3259098fc51af38c4dd0a09b1b7e841f"
+    },
+    {
+      "index": 43,
+      "action": {
+        "type": "combine",
+        "a": "scaled-core",
+        "b": "camera"
+      },
+      "recipe": "outcrop-14-core-profile",
+      "beforeStateSha256": "67cd2c9408af19db42797acdde9dc3de3259098fc51af38c4dd0a09b1b7e841f",
+      "afterStateSha256": "8fbff67c6f824b7834ad604540490586dbf510e06c4b7fb2283154eb3681eb0b"
+    },
+    {
+      "index": 44,
+      "action": {
+        "type": "advance"
+      },
+      "recipe": null,
+      "beforeStateSha256": "8fbff67c6f824b7834ad604540490586dbf510e06c4b7fb2283154eb3681eb0b",
+      "afterStateSha256": "6556e1bebb462527fef6b278a83ecfa444dad475da75eb5a71dbecebe3cb8bcf"
+    },
+    {
+      "index": 45,
+      "action": {
+        "type": "combine",
+        "a": "weather-mast",
+        "b": "wind-vane"
+      },
+      "recipe": "weather-0-wind-direction-mast",
+      "beforeStateSha256": "6556e1bebb462527fef6b278a83ecfa444dad475da75eb5a71dbecebe3cb8bcf",
+      "afterStateSha256": "c677b8a780123e65e482f8189c9760e201ef7731a3a8816606b07c4f86dde169"
+    },
+    {
+      "index": 46,
+      "action": {
+        "type": "combine",
+        "a": "sensor-logger",
+        "b": "weather-station"
+      },
+      "recipe": "weather-5-wind-station",
+      "beforeStateSha256": "c677b8a780123e65e482f8189c9760e201ef7731a3a8816606b07c4f86dde169",
+      "afterStateSha256": "b0c759d07fd6942bfc96a30eb1a6d57f6c3c7b28fa3ba64f5da113eb0a272c68"
+    },
+    {
+      "index": 47,
+      "action": {
+        "type": "combine",
+        "a": "solar-charger",
+        "b": "weather-station"
+      },
+      "recipe": "weather-8-autonomous-weather-station",
+      "beforeStateSha256": "b0c759d07fd6942bfc96a30eb1a6d57f6c3c7b28fa3ba64f5da113eb0a272c68",
+      "afterStateSha256": "42e728a0c13fbb42e08b51e23ebca0fe4e254ea82579a6f8a94db6d7dfab9b87"
+    },
+    {
+      "index": 48,
+      "action": {
+        "type": "combine",
+        "a": "weather-station",
+        "b": "@weather-apron"
+      },
+      "recipe": "weather-9-weather-record",
+      "beforeStateSha256": "42e728a0c13fbb42e08b51e23ebca0fe4e254ea82579a6f8a94db6d7dfab9b87",
+      "afterStateSha256": "2d8540992933e6934c9c75fae3c80ae3fa5df6f1a91b426b78e5444f85ccdcca"
+    },
+    {
+      "index": 49,
+      "action": {
+        "type": "combine",
+        "a": "weather-record",
+        "b": "annotated-map"
+      },
+      "recipe": "weather-13-weather-route-map",
+      "beforeStateSha256": "2d8540992933e6934c9c75fae3c80ae3fa5df6f1a91b426b78e5444f85ccdcca",
+      "afterStateSha256": "dbd522756efc7f42f569017d2ca1ef14438593eb62ec34e3597c2e08b4336fd3"
+    },
+    {
+      "index": 50,
+      "action": {
+        "type": "combine",
+        "a": "filter-mesh",
+        "b": "sealed-housing"
+      },
+      "recipe": "weather-11-dust-screen",
+      "beforeStateSha256": "dbd522756efc7f42f569017d2ca1ef14438593eb62ec34e3597c2e08b4336fd3",
+      "afterStateSha256": "26ad6e0a4bbb340f4f17bd4080ffb005d96de58c3e5e84b8f5127dd40a50b3ab"
+    },
+    {
+      "index": 51,
+      "action": {
+        "type": "combine",
+        "a": "dust-screen",
+        "b": "motor-controller"
+      },
+      "recipe": "weather-12-protected-controller",
+      "beforeStateSha256": "26ad6e0a4bbb340f4f17bd4080ffb005d96de58c3e5e84b8f5127dd40a50b3ab",
+      "afterStateSha256": "9b0ee47830610bb8b87a3941226da0c04ec6079446dca65cc4df18436b139545"
+    },
+    {
+      "index": 52,
+      "action": {
+        "type": "advance"
+      },
+      "recipe": null,
+      "beforeStateSha256": "9b0ee47830610bb8b87a3941226da0c04ec6079446dca65cc4df18436b139545",
+      "afterStateSha256": "bb224d24806bfa5d7ce1b139bd3df41799d04b7cd55afc5ac3e27181959b88b8"
+    },
+    {
+      "index": 53,
+      "action": {
+        "type": "combine",
+        "a": "relay-transceiver",
+        "b": "spare-fuse"
+      },
+      "recipe": "relay-0-working-transceiver",
+      "beforeStateSha256": "bb224d24806bfa5d7ce1b139bd3df41799d04b7cd55afc5ac3e27181959b88b8",
+      "afterStateSha256": "498659e8d90f938bc6cbcdbe7418fcc9084ee8ada438b86c2fab57a7e0f1b830"
+    },
+    {
+      "index": 54,
+      "action": {
+        "type": "combine",
+        "a": "relay-antenna",
+        "b": "relay"
+      },
+      "recipe": "relay-6-directional-relay",
+      "beforeStateSha256": "498659e8d90f938bc6cbcdbe7418fcc9084ee8ada438b86c2fab57a7e0f1b830",
+      "afterStateSha256": "b22829a5ac8c06924aa7f37b36fe93d44b861c9ba556d338239fcb2fd51b945d"
+    },
+    {
+      "index": 55,
+      "action": {
+        "type": "combine",
+        "a": "relay-powerpack",
+        "b": "relay"
+      },
+      "recipe": "relay-9-powered-relay",
+      "beforeStateSha256": "b22829a5ac8c06924aa7f37b36fe93d44b861c9ba556d338239fcb2fd51b945d",
+      "afterStateSha256": "7e63f3f2d0ed9c8141ad3c7e41d966cac4b41e500db89b8ecd1988d3ca086515"
+    },
+    {
+      "index": 56,
+      "action": {
+        "type": "combine",
+        "a": "relay",
+        "b": "@relay-knoll"
+      },
+      "recipe": "relay-12-distress-recording",
+      "beforeStateSha256": "7e63f3f2d0ed9c8141ad3c7e41d966cac4b41e500db89b8ecd1988d3ca086515",
+      "afterStateSha256": "112eb8c76e8cabcf5d364dc7ddaf970985e9bd2bb7b617280007776ed615ddd7"
+    },
+    {
+      "index": 57,
+      "action": {
+        "type": "combine",
+        "a": "distress-recording",
+        "b": "weather-route-map"
+      },
+      "recipe": "relay-13-rescue-route",
+      "beforeStateSha256": "112eb8c76e8cabcf5d364dc7ddaf970985e9bd2bb7b617280007776ed615ddd7",
+      "afterStateSha256": "ee5891991cf0bc352abc992ddd91d17ab521ce91d0bad1b63a2e38e131ac0d08"
+    },
+    {
+      "index": 58,
+      "action": {
+        "type": "advance"
+      },
+      "recipe": null,
+      "beforeStateSha256": "ee5891991cf0bc352abc992ddd91d17ab521ce91d0bad1b63a2e38e131ac0d08",
+      "afterStateSha256": "60a54e5818b3cbed2fa22098db5ecffb2d288fb4093ca0f829b448bb7c7ba5b7"
+    },
+    {
+      "index": 59,
+      "action": {
+        "type": "combine",
+        "a": "spare-drive",
+        "b": "toolkit"
+      },
+      "recipe": "rescue-6-serviced-drive",
+      "beforeStateSha256": "60a54e5818b3cbed2fa22098db5ecffb2d288fb4093ca0f829b448bb7c7ba5b7",
+      "afterStateSha256": "14d689cd57d3950b6d5acae5c8759a8edd3d94ad23df66d4435761fd802da854"
+    },
+    {
+      "index": 60,
+      "action": {
+        "type": "combine",
+        "a": "serviced-drive",
+        "b": "drive-coupling"
+      },
+      "recipe": "rescue-7-replacement-drive",
+      "beforeStateSha256": "14d689cd57d3950b6d5acae5c8759a8edd3d94ad23df66d4435761fd802da854",
+      "afterStateSha256": "21976f065f272d82f40927663394119ee1899be076d8233c3db21bfb63bc3d91"
+    },
+    {
+      "index": 61,
+      "action": {
+        "type": "combine",
+        "a": "replacement-drive",
+        "b": "damaged-crawler"
+      },
+      "recipe": "rescue-8-repaired-crawler",
+      "beforeStateSha256": "21976f065f272d82f40927663394119ee1899be076d8233c3db21bfb63bc3d91",
+      "afterStateSha256": "23c09084a83b7a5e21e9c51e8cbf7d001236e3735f16b15f345e81c41244e4b0"
+    },
+    {
+      "index": 62,
+      "action": {
+        "type": "combine",
+        "a": "folding-bed",
+        "b": "bedding"
+      },
+      "recipe": "rescue-2-prepared-bed",
+      "beforeStateSha256": "23c09084a83b7a5e21e9c51e8cbf7d001236e3735f16b15f345e81c41244e4b0",
+      "afterStateSha256": "ef1fe55ea29b3d427bc5e175ecc102b7737d91c6d0c465ba75072463e6c31c6b"
+    },
+    {
+      "index": 63,
+      "action": {
+        "type": "combine",
+        "a": "service-shelter",
+        "b": "pressure-patch"
+      },
+      "recipe": "rescue-0-sealed-refuge",
+      "beforeStateSha256": "ef1fe55ea29b3d427bc5e175ecc102b7737d91c6d0c465ba75072463e6c31c6b",
+      "afterStateSha256": "12edd37f5838be2525ec2dcfc487473bba0efea6ec21185d15562dcbab71c00e"
+    },
+    {
+      "index": 64,
+      "action": {
+        "type": "combine",
+        "a": "sealed-refuge",
+        "b": "heater"
+      },
+      "recipe": "rescue-1-warm-refuge",
+      "beforeStateSha256": "12edd37f5838be2525ec2dcfc487473bba0efea6ec21185d15562dcbab71c00e",
+      "afterStateSha256": "cee7cab5d0cf02edcbfca71e90a29306e0140432bb620bef1434047b809e040e"
+    },
+    {
+      "index": 65,
+      "action": {
+        "type": "combine",
+        "a": "prepared-bed",
+        "b": "warm-refuge"
+      },
+      "recipe": "rescue-3-rest-refuge",
+      "beforeStateSha256": "cee7cab5d0cf02edcbfca71e90a29306e0140432bb620bef1434047b809e040e",
+      "afterStateSha256": "b0cb7a0e02f244431d7d3c782e59cb3d167a0298885193edb554df7e293b4b77"
+    },
+    {
+      "index": 66,
+      "action": {
+        "type": "combine",
+        "a": "crawler",
+        "b": "rest-refuge"
+      },
+      "recipe": "rescue-12-sheltered-crew",
+      "beforeStateSha256": "b0cb7a0e02f244431d7d3c782e59cb3d167a0298885193edb554df7e293b4b77",
+      "afterStateSha256": "8e0a240ffd2209d92c65676ee2f7cab55b99225ae42b361935daebeb678c713d"
+    },
+    {
+      "index": 67,
+      "action": {
+        "type": "combine",
+        "a": "prepared-soup",
+        "b": "heater"
+      },
+      "recipe": "rescue-4-warm-soup",
+      "beforeStateSha256": "8e0a240ffd2209d92c65676ee2f7cab55b99225ae42b361935daebeb678c713d",
+      "afterStateSha256": "977e9e9b48834c357187a5bf065b2b3ea12b963a80709d508ffeb923a246d589"
+    },
+    {
+      "index": 68,
+      "action": {
+        "type": "combine",
+        "a": "warm-soup",
+        "b": "insulated-flask"
+      },
+      "recipe": "rescue-5-soup-flask",
+      "beforeStateSha256": "977e9e9b48834c357187a5bf065b2b3ea12b963a80709d508ffeb923a246d589",
+      "afterStateSha256": "3d63da304d3057c08d31a6f881bf73f642dd054717d73ec02d47c2a9ff340b58"
+    },
+    {
+      "index": 69,
+      "action": {
+        "type": "combine",
+        "a": "occupied-refuge",
+        "b": "soup-flask"
+      },
+      "recipe": "rescue-14-rested-crew",
+      "beforeStateSha256": "3d63da304d3057c08d31a6f881bf73f642dd054717d73ec02d47c2a9ff340b58",
+      "afterStateSha256": "aeecd5e2e1d3bf03d3e5bc0a60e2f563fb06db7bcdbab39508fe323cd33f37d2"
+    },
+    {
+      "index": 70,
+      "action": {
+        "type": "advance"
+      },
+      "recipe": null,
+      "beforeStateSha256": "aeecd5e2e1d3bf03d3e5bc0a60e2f563fb06db7bcdbab39508fe323cd33f37d2",
+      "afterStateSha256": "33cc494846496bf2ba20377d7e685bca2f962b0e8f941823ae7f2d4352f24181"
+    },
+    {
+      "index": 71,
+      "action": {
+        "type": "combine",
+        "a": "worktop",
+        "b": "bench-legs"
+      },
+      "recipe": "camp-bench",
+      "beforeStateSha256": "33cc494846496bf2ba20377d7e685bca2f962b0e8f941823ae7f2d4352f24181",
+      "afterStateSha256": "613a7bd43a55048f5184f7a4c32c708a6bbc396b0448d452019aed1413a70bc6"
+    },
+    {
+      "index": 72,
+      "action": {
+        "type": "combine",
+        "a": "lamp",
+        "b": "solar-charger"
+      },
+      "recipe": "signal-solar-lamp",
+      "beforeStateSha256": "613a7bd43a55048f5184f7a4c32c708a6bbc396b0448d452019aed1413a70bc6",
+      "afterStateSha256": "e4abe1ae968cc8ba539fda534cf33ba748068b701569600199016d1a8d7e07bd"
+    },
+    {
+      "index": 73,
+      "action": {
+        "type": "combine",
+        "a": "solar-lamp",
+        "b": "lamp-bracket"
+      },
+      "recipe": "camp-lamp",
+      "beforeStateSha256": "e4abe1ae968cc8ba539fda534cf33ba748068b701569600199016d1a8d7e07bd",
+      "afterStateSha256": "db6578306548f49ef7d2947ed4243c4548ad1bbdaab0b1394cd511e97d65d9df"
+    },
+    {
+      "index": 74,
+      "action": {
+        "type": "combine",
+        "a": "workbench",
+        "b": "bench-lamp"
+      },
+      "recipe": "camp-light",
+      "beforeStateSha256": "db6578306548f49ef7d2947ed4243c4548ad1bbdaab0b1394cd511e97d65d9df",
+      "afterStateSha256": "c59fd10e9dfbd9a8372d5b8eefc39e1bdd3f0cdcc71cc801a1ddb8305c68df9a"
+    },
+    {
+      "index": 75,
+      "action": {
+        "type": "combine",
+        "a": "message-camera",
+        "b": "provisioned-refuge"
+      },
+      "recipe": "camp-message",
+      "beforeStateSha256": "c59fd10e9dfbd9a8372d5b8eefc39e1bdd3f0cdcc71cc801a1ddb8305c68df9a",
+      "afterStateSha256": "12f9ffa6d97da95653409717cca0abed6d6669e73fe3d6da7b034705ff2b137e"
+    },
+    {
+      "index": 76,
+      "action": {
+        "type": "combine",
+        "a": "solar-radio",
+        "b": "dish-antenna"
+      },
+      "recipe": "rover-4-long-range-radio",
+      "beforeStateSha256": "12f9ffa6d97da95653409717cca0abed6d6669e73fe3d6da7b034705ff2b137e",
+      "afterStateSha256": "9d307d1625dce4ae67f5fa08e0170689a747f51aaf32b27b2a9bd5bb25be88d5"
+    },
+    {
+      "index": 77,
+      "action": {
+        "type": "combine",
+        "a": "antenna-stand",
+        "b": "long-range-radio"
+      },
+      "recipe": "camp-radio",
+      "beforeStateSha256": "9d307d1625dce4ae67f5fa08e0170689a747f51aaf32b27b2a9bd5bb25be88d5",
+      "afterStateSha256": "1e6d58f0930940e7c8e5e445804ccfe493f68fecb1c26f48bbf3d6d358225626"
+    },
+    {
+      "index": 78,
+      "action": {
+        "type": "combine",
+        "a": "crew-message",
+        "b": "long-range-radio"
+      },
+      "recipe": "camp-send",
+      "beforeStateSha256": "1e6d58f0930940e7c8e5e445804ccfe493f68fecb1c26f48bbf3d6d358225626",
+      "afterStateSha256": "07008043d50525a3fdc322f5102a22aa62a181b533f722f5cf9c5948582f5ea2"
+    },
+    {
+      "index": 79,
+      "action": {
+        "type": "advance"
+      },
+      "recipe": null,
+      "beforeStateSha256": "07008043d50525a3fdc322f5102a22aa62a181b533f722f5cf9c5948582f5ea2",
+      "afterStateSha256": "8530d3e18e624be473d5e157ace862d84fc370efe00c6028d6afb2193b976a8b"
+    },
+    {
+      "index": 80,
+      "action": {
+        "type": "combine",
+        "a": "recovery-rope",
+        "b": "sled-padding"
+      },
+      "recipe": "cargo-sling",
+      "beforeStateSha256": "8530d3e18e624be473d5e157ace862d84fc370efe00c6028d6afb2193b976a8b",
+      "afterStateSha256": "e145580ab1bf41884c78426e6e14c5198d3ac64e981b9a7ba48db2ef6c243d16"
+    },
+    {
+      "index": 81,
+      "action": {
+        "type": "combine",
+        "a": "padded-recovery-sling",
+        "b": "@cargo-shoulder"
+      },
+      "recipe": "cargo-bring",
+      "beforeStateSha256": "e145580ab1bf41884c78426e6e14c5198d3ac64e981b9a7ba48db2ef6c243d16",
+      "afterStateSha256": "fca6c18f487326f90a13c865db7fb4d09dca020736c43260ea0f9607170d6e5c"
+    },
+    {
+      "index": 82,
+      "action": {
+        "type": "combine",
+        "a": "recovered-mess-crate",
+        "b": "toolkit"
+      },
+      "recipe": "cargo-unfold",
+      "beforeStateSha256": "fca6c18f487326f90a13c865db7fb4d09dca020736c43260ea0f9607170d6e5c",
+      "afterStateSha256": "fe1db948e71d13e9dcc64de01014841fdf151e96e756e63255194d693d8a1f54"
+    },
+    {
+      "index": 83,
+      "action": {
+        "type": "combine",
+        "a": "picture-roll",
+        "b": "mess-table"
+      },
+      "recipe": "cargo-pictures",
+      "beforeStateSha256": "fe1db948e71d13e9dcc64de01014841fdf151e96e756e63255194d693d8a1f54",
+      "afterStateSha256": "231b972e453e85324f05f764e3f0344b691960e849f60fe98db1215ac47244c7"
+    },
+    {
+      "index": 84,
+      "action": {
+        "type": "combine",
+        "a": "personal-table",
+        "b": "soup-flask"
+      },
+      "recipe": "cargo-supper",
+      "beforeStateSha256": "231b972e453e85324f05f764e3f0344b691960e849f60fe98db1215ac47244c7",
+      "afterStateSha256": "367047145152ae326f721f00064c8fbce294b7bcec82c341e862f9e8db597673"
+    },
+    {
+      "index": 85,
+      "action": {
+        "type": "combine",
+        "a": "message-camera",
+        "b": "shared-supper"
+      },
+      "recipe": "cargo-portrait",
+      "beforeStateSha256": "367047145152ae326f721f00064c8fbce294b7bcec82c341e862f9e8db597673",
+      "afterStateSha256": "5922a85710dd1971106c143f75508f35b3ba55dacade3940ee3a8af09e11bdb3"
+    },
+    {
+      "index": 86,
+      "action": {
+        "type": "advance"
+      },
+      "recipe": null,
+      "beforeStateSha256": "5922a85710dd1971106c143f75508f35b3ba55dacade3940ee3a8af09e11bdb3",
+      "afterStateSha256": "f3e69fbf7bb2ee67aef4fd0255aa67c3fab517a66e5b300aab30f8cb84dd94b2"
+    },
+    {
+      "index": 87,
+      "action": {
+        "type": "place",
+        "item": "wall-coupon",
+        "hotspot": "thermal-chamber"
+      },
+      "recipe": null,
+      "beforeStateSha256": "f3e69fbf7bb2ee67aef4fd0255aa67c3fab517a66e5b300aab30f8cb84dd94b2",
+      "afterStateSha256": "b09e4030426f0d6350d98ed5e186a14e670c0c0a2618b83382bec40f853cf4da"
+    },
+    {
+      "index": 88,
+      "action": {
+        "type": "combine",
+        "a": "temperature-logger",
+        "b": "wall-coupon"
+      },
+      "recipe": "night-trace",
+      "beforeStateSha256": "b09e4030426f0d6350d98ed5e186a14e670c0c0a2618b83382bec40f853cf4da",
+      "afterStateSha256": "0bf3380391ea177833ddbbc8b85f73353de75ad2f5900c5308fca1f0cfa1cc35"
+    },
+    {
+      "index": 89,
+      "action": {
+        "type": "combine",
+        "a": "wall-coupon",
+        "b": "insulation-swatch"
+      },
+      "recipe": "night-insulate",
+      "beforeStateSha256": "0bf3380391ea177833ddbbc8b85f73353de75ad2f5900c5308fca1f0cfa1cc35",
+      "afterStateSha256": "a7c165a2c1d4e2ca0559223158713515023d10a74bb350e7669fbdea19b91ff1"
+    },
+    {
+      "index": 90,
+      "action": {
+        "type": "place",
+        "item": "insulated-coupon",
+        "hotspot": "thermal-chamber"
+      },
+      "recipe": null,
+      "beforeStateSha256": "a7c165a2c1d4e2ca0559223158713515023d10a74bb350e7669fbdea19b91ff1",
+      "afterStateSha256": "d9b69e39ab17c460cdb7d12a6da370a157ab89659a910299e41cbcb31595aa2c"
+    },
+    {
+      "index": 91,
+      "action": {
+        "type": "combine",
+        "a": "temperature-logger",
+        "b": "insulated-coupon"
+      },
+      "recipe": "night-insulated-trace",
+      "beforeStateSha256": "d9b69e39ab17c460cdb7d12a6da370a157ab89659a910299e41cbcb31595aa2c",
+      "afterStateSha256": "280d2edd5ee31b5cb8baa995dc1d31c6509a165a1bb28f5b2095eb87ca03e964"
+    },
+    {
+      "index": 92,
+      "action": {
+        "type": "combine",
+        "a": "cooling-trace",
+        "b": "insulated-cooling-trace"
+      },
+      "recipe": "night-compare",
+      "beforeStateSha256": "280d2edd5ee31b5cb8baa995dc1d31c6509a165a1bb28f5b2095eb87ca03e964",
+      "afterStateSha256": "b4e17b971380c7f152c8a9cb1af37a84cf7c9ca378ecf1b0c3e9ebc64d490947"
+    },
+    {
+      "index": 93,
+      "action": {
+        "type": "combine",
+        "a": "wall-template",
+        "b": "thermal-blanket"
+      },
+      "recipe": "night-fit",
+      "beforeStateSha256": "b4e17b971380c7f152c8a9cb1af37a84cf7c9ca378ecf1b0c3e9ebc64d490947",
+      "afterStateSha256": "c6eb8ac23f6f4b0adebffe90c1c0a76f9574f5ce8c716480576b79ebdce2baa1"
+    },
+    {
+      "index": 94,
+      "action": {
+        "type": "combine",
+        "a": "fitted-blanket",
+        "b": "clip-frame"
+      },
+      "recipe": "night-screen",
+      "beforeStateSha256": "c6eb8ac23f6f4b0adebffe90c1c0a76f9574f5ce8c716480576b79ebdce2baa1",
+      "afterStateSha256": "5efebc563b7853076e46d6e82dd32273483b8de7b98bf66aa8085cf989941daa"
+    },
+    {
+      "index": 95,
+      "action": {
+        "type": "combine",
+        "a": "thermal-screen",
+        "b": "provisioned-refuge"
+      },
+      "recipe": "night-cabin",
+      "beforeStateSha256": "5efebc563b7853076e46d6e82dd32273483b8de7b98bf66aa8085cf989941daa",
+      "afterStateSha256": "b8cd27bc4b1a05056f41b5609fc24ef742bfc94e36a79f4490ae74d70b3ba2fa"
+    },
+    {
+      "index": 96,
+      "action": {
+        "type": "advance"
+      },
+      "recipe": null,
+      "beforeStateSha256": "b8cd27bc4b1a05056f41b5609fc24ef742bfc94e36a79f4490ae74d70b3ba2fa",
+      "afterStateSha256": "ddc62863a5182ad6d304d935b4338c88c2a7cbc08ef78d429340098105713d38"
+    },
+    {
+      "index": 97,
+      "action": {
+        "type": "combine",
+        "a": "circulation-pump",
+        "b": "return-hose"
+      },
+      "recipe": "waterworks-loop",
+      "beforeStateSha256": "ddc62863a5182ad6d304d935b4338c88c2a7cbc08ef78d429340098105713d38",
+      "afterStateSha256": "ef5f5ef2a8d34653e35bc161187aeb96e4452d736ad37d7d90667ebd80c6abd0"
+    },
+    {
+      "index": 98,
+      "action": {
+        "type": "combine",
+        "a": "ice-melter",
+        "b": "heater"
+      },
+      "recipe": "waterworks-3-heated-melter",
+      "beforeStateSha256": "ef5f5ef2a8d34653e35bc161187aeb96e4452d736ad37d7d90667ebd80c6abd0",
+      "afterStateSha256": "a918ec4c33699f8b6251efe662d880e54dce27a88d661614337c8ece82383dc2"
+    },
+    {
+      "index": 99,
+      "action": {
+        "type": "combine",
+        "a": "heated-melter",
+        "b": "@ice-works"
+      },
+      "recipe": "waterworks-4-collected-water",
+      "beforeStateSha256": "a918ec4c33699f8b6251efe662d880e54dce27a88d661614337c8ece82383dc2",
+      "afterStateSha256": "79d716452519da66b3532348404a7f9df824f2bdb988819c4c9349caab3e5835"
+    },
+    {
+      "index": 100,
+      "action": {
+        "type": "combine",
+        "a": "collected-water",
+        "b": "treatment-skid"
+      },
+      "recipe": "waterworks-treatment",
+      "beforeStateSha256": "79d716452519da66b3532348404a7f9df824f2bdb988819c4c9349caab3e5835",
+      "afterStateSha256": "41ade81666b9b1738a0a9f284d3f414b1c489da8d110f20a32244718f6f4ee68"
+    },
+    {
+      "index": 101,
+      "action": {
+        "type": "combine",
+        "a": "monitored-tank",
+        "b": "process-water"
+      },
+      "recipe": "waterworks-9-water-reserve",
+      "beforeStateSha256": "41ade81666b9b1738a0a9f284d3f414b1c489da8d110f20a32244718f6f4ee68",
+      "afterStateSha256": "e63d8f15fb639f083f78c67a18e6b249e9d9f9996c5f998613484516ebcb964f"
+    },
+    {
+      "index": 102,
+      "action": {
+        "type": "combine",
+        "a": "water-canister",
+        "b": "circulating-water-loop"
+      },
+      "recipe": "waterworks-prime",
+      "beforeStateSha256": "e63d8f15fb639f083f78c67a18e6b249e9d9f9996c5f998613484516ebcb964f",
+      "afterStateSha256": "f80fa51092291bc35857bbfde3a9a2db0cde4093439a4a5fba5caf5564a868dd"
+    },
+    {
+      "index": 103,
+      "action": {
+        "type": "combine",
+        "a": "primed-water-loop",
+        "b": "water-reserve"
+      },
+      "recipe": "waterworks-12-camp-water-system",
+      "beforeStateSha256": "f80fa51092291bc35857bbfde3a9a2db0cde4093439a4a5fba5caf5564a868dd",
+      "afterStateSha256": "a17af282de5158fdffdc8f03a442bc6370a0e02d6322273982fc6c7309e49431"
+    },
+    {
+      "index": 104,
+      "action": {
+        "type": "advance"
+      },
+      "recipe": null,
+      "beforeStateSha256": "a17af282de5158fdffdc8f03a442bc6370a0e02d6322273982fc6c7309e49431",
+      "afterStateSha256": "ddf8bb107817f81f9ae9416dbd8076b50d070d37711870b9ab79723adcd1928a"
+    },
+    {
+      "index": 105,
+      "action": {
+        "type": "combine",
+        "a": "greenhouse-shell",
+        "b": "pressure-patch"
+      },
+      "recipe": "garden-repair",
+      "beforeStateSha256": "ddf8bb107817f81f9ae9416dbd8076b50d070d37711870b9ab79723adcd1928a",
+      "afterStateSha256": "218479250aad2f98d417278fdcf32a3108d9ac2337bd8158ce0770a965c24a6d"
+    },
+    {
+      "index": 106,
+      "action": {
+        "type": "combine",
+        "a": "growing-bed",
+        "b": "prepared-substrate"
+      },
+      "recipe": "garden-bed",
+      "beforeStateSha256": "218479250aad2f98d417278fdcf32a3108d9ac2337bd8158ce0770a965c24a6d",
+      "afterStateSha256": "e571aba22dfaf8578fd2efafaad0603430d9d4b3c392a748065402457768d747"
+    },
+    {
+      "index": 107,
+      "action": {
+        "type": "combine",
+        "a": "planting-bed",
+        "b": "seed-potato"
+      },
+      "recipe": "garden-plant",
+      "beforeStateSha256": "e571aba22dfaf8578fd2efafaad0603430d9d4b3c392a748065402457768d747",
+      "afterStateSha256": "d84d40cbff42a53d39f5a7e436580bc341162eba7da5cecaacd42cc5f3f84547"
+    },
+    {
+      "index": 108,
+      "action": {
+        "type": "combine",
+        "a": "drip-line",
+        "b": "camp-water-system"
+      },
+      "recipe": "garden-5-irrigation-line",
+      "beforeStateSha256": "d84d40cbff42a53d39f5a7e436580bc341162eba7da5cecaacd42cc5f3f84547",
+      "afterStateSha256": "09df9049ccba740ec3cfe87f698f4de41b30e4f7a14d3285ed033fa30a15e86d"
+    },
+    {
+      "index": 109,
+      "action": {
+        "type": "combine",
+        "a": "planted-potatoes",
+        "b": "irrigation-line"
+      },
+      "recipe": "garden-6-watered-potatoes",
+      "beforeStateSha256": "09df9049ccba740ec3cfe87f698f4de41b30e4f7a14d3285ed033fa30a15e86d",
+      "afterStateSha256": "3f78d27b6291aa23fa7ba63b230266a06b3f6dfd9eab5fd62cdfda7ed2565182"
+    },
+    {
+      "index": 110,
+      "action": {
+        "type": "combine",
+        "a": "watered-potatoes",
+        "b": "greenhouse"
+      },
+      "recipe": "garden-install-bed",
+      "beforeStateSha256": "3f78d27b6291aa23fa7ba63b230266a06b3f6dfd9eab5fd62cdfda7ed2565182",
+      "afterStateSha256": "52a6959c8f6eb21c58299e458cd4f3bd6b482333aa6c23814cac07cdafc47072"
+    },
+    {
+      "index": 111,
+      "action": {
+        "type": "combine",
+        "a": "grow-light",
+        "b": "solar-charger"
+      },
+      "recipe": "garden-8-powered-grow-light",
+      "beforeStateSha256": "52a6959c8f6eb21c58299e458cd4f3bd6b482333aa6c23814cac07cdafc47072",
+      "afterStateSha256": "624e82ab55b1e44fe42c019b3aab4584cebb9bfd85d0a544f4028cda60c8577e"
+    },
+    {
+      "index": 112,
+      "action": {
+        "type": "combine",
+        "a": "powered-grow-light",
+        "b": "greenhouse"
+      },
+      "recipe": "garden-install-light",
+      "beforeStateSha256": "624e82ab55b1e44fe42c019b3aab4584cebb9bfd85d0a544f4028cda60c8577e",
+      "afterStateSha256": "709806a76448b4f98881c32ee1fea63efef004c07f99ae4f51504df15a2f4c71"
+    },
+    {
+      "index": 113,
+      "action": {
+        "type": "combine",
+        "a": "circulation-fan",
+        "b": "greenhouse"
+      },
+      "recipe": "garden-install-air",
+      "beforeStateSha256": "709806a76448b4f98881c32ee1fea63efef004c07f99ae4f51504df15a2f4c71",
+      "afterStateSha256": "6945e720d9add0767d4746ac74662354289b16838560e35cceb33eae0b0bfe70"
+    },
+    {
+      "index": 114,
+      "action": {
+        "type": "combine",
+        "a": "greenhouse",
+        "b": "harvest-basket"
+      },
+      "recipe": "garden-harvest",
+      "beforeStateSha256": "6945e720d9add0767d4746ac74662354289b16838560e35cceb33eae0b0bfe70",
+      "afterStateSha256": "14cc0c553596b535991e5c895a315034090feabe6352ebd6682d604a22558fc4"
+    },
+    {
+      "index": 115,
+      "action": {
+        "type": "combine",
+        "a": "potato-harvest",
+        "b": "heater"
+      },
+      "recipe": "garden-14-warm-potatoes",
+      "beforeStateSha256": "14cc0c553596b535991e5c895a315034090feabe6352ebd6682d604a22558fc4",
+      "afterStateSha256": "c777e381349e6506ddefa438929162965ed9e385e2b97d335c1f2d2f532b85d3"
+    },
+    {
+      "index": 116,
+      "action": {
+        "type": "advance"
+      },
+      "recipe": null,
+      "beforeStateSha256": "c777e381349e6506ddefa438929162965ed9e385e2b97d335c1f2d2f532b85d3",
+      "afterStateSha256": "ff8df1796cb35990c40f44afdd6c9b45ec8c9212fa8a2ec85f4cd2854e01bc7a"
+    },
+    {
+      "index": 117,
+      "action": {
+        "type": "combine",
+        "a": "propagator",
+        "b": "nursery-labels"
+      },
+      "recipe": "nursery-label",
+      "beforeStateSha256": "ff8df1796cb35990c40f44afdd6c9b45ec8c9212fa8a2ec85f4cd2854e01bc7a",
+      "afterStateSha256": "b3affeee1ece7396893e1b6fda1e47b1f4ac5c21e277ab74c7698ab06e40cd41"
+    },
+    {
+      "index": 118,
+      "action": {
+        "type": "combine",
+        "a": "identified-seedlings",
+        "b": "seedling-support"
+      },
+      "recipe": "nursery-support",
+      "beforeStateSha256": "b3affeee1ece7396893e1b6fda1e47b1f4ac5c21e277ab74c7698ab06e40cd41",
+      "afterStateSha256": "38d69236b88ce63a07af1d4ea57c82efa579fd4b6e703f66d9205252615c2288"
+    },
+    {
+      "index": 119,
+      "action": {
+        "type": "combine",
+        "a": "diffuser-sheet",
+        "b": "diffuser-frame"
+      },
+      "recipe": "nursery-diffuser",
+      "beforeStateSha256": "38d69236b88ce63a07af1d4ea57c82efa579fd4b6e703f66d9205252615c2288",
+      "afterStateSha256": "277e156036cb73d8e80630aa1b0aec3893372728d9d094a81ac0b0cedcbe4f6f"
+    },
+    {
+      "index": 120,
+      "action": {
+        "type": "combine",
+        "a": "field-camera",
+        "b": "@nursery-test-shelf"
+      },
+      "recipe": "nursery-photo",
+      "beforeStateSha256": "277e156036cb73d8e80630aa1b0aec3893372728d9d094a81ac0b0cedcbe4f6f",
+      "afterStateSha256": "4db0d57d6406c1e25b8c01dc67739aff65a401c31342815872cb23f50e927b19"
+    },
+    {
+      "index": 121,
+      "action": {
+        "type": "combine",
+        "a": "shelf-shadow-view",
+        "b": "nursery-grid"
+      },
+      "recipe": "nursery-map",
+      "beforeStateSha256": "4db0d57d6406c1e25b8c01dc67739aff65a401c31342815872cb23f50e927b19",
+      "afterStateSha256": "604a0624fb11a17e88aa261e150bd6419642d1f8864586ee45241756e66b23d9"
+    },
+    {
+      "index": 122,
+      "action": {
+        "type": "combine",
+        "a": "framed-diffuser",
+        "b": "shadow-layout"
+      },
+      "recipe": "nursery-position",
+      "beforeStateSha256": "604a0624fb11a17e88aa261e150bd6419642d1f8864586ee45241756e66b23d9",
+      "afterStateSha256": "b41f4700317f6a0e9c56395beb6a9cd9b40a2969635caae949805f51e1611864"
+    },
+    {
+      "index": 123,
+      "action": {
+        "type": "combine",
+        "a": "positioned-diffuser",
+        "b": "greenhouse"
+      },
+      "recipe": "nursery-install",
+      "beforeStateSha256": "b41f4700317f6a0e9c56395beb6a9cd9b40a2969635caae949805f51e1611864",
+      "afterStateSha256": "b849bdb6ecd9bcaa3b285a80881540c14bf1a1d816b445aad1b183c0ea3d7c06"
+    },
+    {
+      "index": 124,
+      "action": {
+        "type": "combine",
+        "a": "supported-seedlings",
+        "b": "greenhouse"
+      },
+      "recipe": "nursery-settle",
+      "beforeStateSha256": "b849bdb6ecd9bcaa3b285a80881540c14bf1a1d816b445aad1b183c0ea3d7c06",
+      "afterStateSha256": "3ec3c9c711a74ae799ab45d2014db47f01121ce0234a69dde91551b83d790aa8"
+    },
+    {
+      "index": 125,
+      "action": {
+        "type": "advance"
+      },
+      "recipe": null,
+      "beforeStateSha256": "3ec3c9c711a74ae799ab45d2014db47f01121ce0234a69dde91551b83d790aa8",
+      "afterStateSha256": "5bd467b304e7d191522f1d9eb44716941bc36176eabcacf38cf3c19ab1f27df8"
+    },
+    {
+      "index": 126,
+      "action": {
+        "type": "combine",
+        "a": "guarded-machine",
+        "b": "lit-workbench"
+      },
+      "recipe": "workshop-mount-machine",
+      "beforeStateSha256": "5bd467b304e7d191522f1d9eb44716941bc36176eabcacf38cf3c19ab1f27df8",
+      "afterStateSha256": "fd5a71848c653bde216dec7589ade896a7a970bf959963737fe1ca0d97e32e37"
+    },
+    {
+      "index": 127,
+      "action": {
+        "type": "combine",
+        "a": "carrier-shell",
+        "b": "shock-foam"
+      },
+      "recipe": "workshop-8-padded-carrier",
+      "beforeStateSha256": "fd5a71848c653bde216dec7589ade896a7a970bf959963737fe1ca0d97e32e37",
+      "afterStateSha256": "68338965cd21c1edf0ff7698a08102944ba7d70ad83851f2329c5fff7026fcec"
+    },
+    {
+      "index": 128,
+      "action": {
+        "type": "combine",
+        "a": "padded-carrier",
+        "b": "latch"
+      },
+      "recipe": "workshop-9-sample-carrier",
+      "beforeStateSha256": "68338965cd21c1edf0ff7698a08102944ba7d70ad83851f2329c5fff7026fcec",
+      "afterStateSha256": "362d03ba89c8835b93969d63a7c3f791f15ea868d96f9a731cdce6f0a3221f26"
+    },
+    {
+      "index": 129,
+      "action": {
+        "type": "combine",
+        "a": "blank-bracket",
+        "b": "lit-workbench"
+      },
+      "recipe": "workshop-10-mounting-bracket",
+      "beforeStateSha256": "362d03ba89c8835b93969d63a7c3f791f15ea868d96f9a731cdce6f0a3221f26",
+      "afterStateSha256": "b650cae1c894f3c1053165499668ca96127295ad3eefd4e425790cb898dd541c"
+    },
+    {
+      "index": 130,
+      "action": {
+        "type": "combine",
+        "a": "sample-carrier",
+        "b": "mounting-bracket"
+      },
+      "recipe": "workshop-11-mounted-sample-carrier",
+      "beforeStateSha256": "b650cae1c894f3c1053165499668ca96127295ad3eefd4e425790cb898dd541c",
+      "afterStateSha256": "0971d7b965f23eb14f3664e8b42a049638333c09c6ed47dee5c95a7dc60e11d2"
+    },
+    {
+      "index": 131,
+      "action": {
+        "type": "combine",
+        "a": "mounted-sample-carrier",
+        "b": "crawler"
+      },
+      "recipe": "workshop-13-science-crawler",
+      "beforeStateSha256": "0971d7b965f23eb14f3664e8b42a049638333c09c6ed47dee5c95a7dc60e11d2",
+      "afterStateSha256": "f6295cea9b08a0f39cc532e28b7497f15bec2a210a9aebd34e0d7f05f6997553"
+    },
+    {
+      "index": 132,
+      "action": {
+        "type": "combine",
+        "a": "lit-workbench",
+        "b": "machining-stock"
+      },
+      "recipe": "workshop-3-machined-axle",
+      "beforeStateSha256": "f6295cea9b08a0f39cc532e28b7497f15bec2a210a9aebd34e0d7f05f6997553",
+      "afterStateSha256": "084c43e835d99f113703a14ca2e5dd8303532205246932e8699f3e2de10adebb"
+    },
+    {
+      "index": 133,
+      "action": {
+        "type": "combine",
+        "a": "replacement-wheel",
+        "b": "machined-axle"
+      },
+      "recipe": "workshop-7-wheel-module",
+      "beforeStateSha256": "084c43e835d99f113703a14ca2e5dd8303532205246932e8699f3e2de10adebb",
+      "afterStateSha256": "c2bd1a05fb5dbceafcb5d264698dde6234f06028722ed4d667dea9a150f94ae8"
+    },
+    {
+      "index": 134,
+      "action": {
+        "type": "combine",
+        "a": "wheel-module",
+        "b": "crawler"
+      },
+      "recipe": "workshop-12-field-crawler",
+      "beforeStateSha256": "c2bd1a05fb5dbceafcb5d264698dde6234f06028722ed4d667dea9a150f94ae8",
+      "afterStateSha256": "b51475935422f6f8332da74cb2991f9dbd0b58fd413f36fb207eafc7c61f4d19"
+    },
+    {
+      "index": 135,
+      "action": {
+        "type": "advance"
+      },
+      "recipe": null,
+      "beforeStateSha256": "b51475935422f6f8332da74cb2991f9dbd0b58fd413f36fb207eafc7c61f4d19",
+      "afterStateSha256": "0c8aa7fb6dbc5dfa0f843a1122067f932a21ee7a4d31d7c8e770586cc37690bf"
+    },
+    {
+      "index": 136,
+      "action": {
+        "type": "combine",
+        "a": "scout-airframe",
+        "b": "counter-rotating-rotors"
+      },
+      "recipe": "traverse-0-rotorcraft-frame",
+      "beforeStateSha256": "0c8aa7fb6dbc5dfa0f843a1122067f932a21ee7a4d31d7c8e770586cc37690bf",
+      "afterStateSha256": "0bd4cdec24d48315ee4a354808e606e0281181c8c227ff37f39f4e44a5f3e0e5"
+    },
+    {
+      "index": 137,
+      "action": {
+        "type": "combine",
+        "a": "scout-battery",
+        "b": "scout"
+      },
+      "recipe": "traverse-4-powered-scout",
+      "beforeStateSha256": "0bd4cdec24d48315ee4a354808e606e0281181c8c227ff37f39f4e44a5f3e0e5",
+      "afterStateSha256": "be414c24683cf6d9d1eb25464260a81cbcdcd6c5950f84495d918d4cf2bf35dd"
+    },
+    {
+      "index": 138,
+      "action": {
+        "type": "combine",
+        "a": "scout",
+        "b": "@lava-overlook"
+      },
+      "recipe": "traverse-6-scout-panorama",
+      "beforeStateSha256": "be414c24683cf6d9d1eb25464260a81cbcdcd6c5950f84495d918d4cf2bf35dd",
+      "afterStateSha256": "51b8cd1270dffc8de5a3a4461cebd9bd5aa6c84e02725ae35333c3b1f2b05f79"
+    },
+    {
+      "index": 139,
+      "action": {
+        "type": "combine",
+        "a": "scout-panorama",
+        "b": "route-tablet"
+      },
+      "recipe": "traverse-7-terrain-model",
+      "beforeStateSha256": "51b8cd1270dffc8de5a3a4461cebd9bd5aa6c84e02725ae35333c3b1f2b05f79",
+      "afterStateSha256": "86af6742fcbc2fde87d90b41064df4678e9d99ddf376f4ce322a78fd9717b84f"
+    },
+    {
+      "index": 140,
+      "action": {
+        "type": "combine",
+        "a": "terrain-model",
+        "b": "annotated-map"
+      },
+      "recipe": "traverse-8-traverse-map",
+      "beforeStateSha256": "86af6742fcbc2fde87d90b41064df4678e9d99ddf376f4ce322a78fd9717b84f",
+      "afterStateSha256": "19c100c6215cd6ce144199fb800c90cc7d6b9b94411435b250d74ba87e23a537"
+    },
+    {
+      "index": 141,
+      "action": {
+        "type": "combine",
+        "a": "traverse-map",
+        "b": "hazard-marker"
+      },
+      "recipe": "traverse-11-marked-traverse",
+      "beforeStateSha256": "19c100c6215cd6ce144199fb800c90cc7d6b9b94411435b250d74ba87e23a537",
+      "afterStateSha256": "7462688b9a90ea3fe94b7f79d66b6d0db2399d37d74f414ac32494d233b1b651"
+    },
+    {
+      "index": 142,
+      "action": {
+        "type": "combine",
+        "a": "marked-traverse",
+        "b": "crawler"
+      },
+      "recipe": "traverse-12-traverse-ready-crawler",
+      "beforeStateSha256": "7462688b9a90ea3fe94b7f79d66b6d0db2399d37d74f414ac32494d233b1b651",
+      "afterStateSha256": "328e42e20a328c15428a30406465ac3adef24a4b91ece5c9d26069df8e3a6616"
+    },
+    {
+      "index": 143,
+      "action": {
+        "type": "advance"
+      },
+      "recipe": null,
+      "beforeStateSha256": "328e42e20a328c15428a30406465ac3adef24a4b91ece5c9d26069df8e3a6616",
+      "afterStateSha256": "d471f770da04f3a526dd18f9c7848f2560c3ac6560efa7eaba9724ffaf46e8c9"
+    },
+    {
+      "index": 144,
+      "action": {
+        "type": "combine",
+        "a": "ground-probe",
+        "b": "@channel-approach"
+      },
+      "recipe": "crossing-profile",
+      "beforeStateSha256": "d471f770da04f3a526dd18f9c7848f2560c3ac6560efa7eaba9724ffaf46e8c9",
+      "afterStateSha256": "2293567f86c227d2b4c1497035b0ce330d074d61244a23f2b1828f4a1b2bb81b"
+    },
+    {
+      "index": 145,
+      "action": {
+        "type": "combine",
+        "a": "ground-profile",
+        "b": "terrain-model"
+      },
+      "recipe": "crossing-route",
+      "beforeStateSha256": "2293567f86c227d2b4c1497035b0ce330d074d61244a23f2b1828f4a1b2bb81b",
+      "afterStateSha256": "b3cac6aa99238ddb9544a2c4e53d32f2c0219eae831cd1cc877bea48cb44b856"
+    },
+    {
+      "index": 146,
+      "action": {
+        "type": "combine",
+        "a": "firm-ground-route",
+        "b": "route-overlay"
+      },
+      "recipe": "crossing-overlay",
+      "beforeStateSha256": "b3cac6aa99238ddb9544a2c4e53d32f2c0219eae831cd1cc877bea48cb44b856",
+      "afterStateSha256": "0f8fa5097bc758969db22ed7ab26ecafc9873c0c755be34a61a24db58f07ac84"
+    },
+    {
+      "index": 147,
+      "action": {
+        "type": "combine",
+        "a": "crossing-map",
+        "b": "crossing-marker"
+      },
+      "recipe": "crossing-marker",
+      "beforeStateSha256": "0f8fa5097bc758969db22ed7ab26ecafc9873c0c755be34a61a24db58f07ac84",
+      "afterStateSha256": "3b3a143307a655afee3223a681f4de319d8e90663af2e59ca2c43a3ed2bf4c64"
+    },
+    {
+      "index": 148,
+      "action": {
+        "type": "place",
+        "item": "crawler",
+        "hotspot": "channel-approach"
+      },
+      "recipe": null,
+      "beforeStateSha256": "3b3a143307a655afee3223a681f4de319d8e90663af2e59ca2c43a3ed2bf4c64",
+      "afterStateSha256": "39cc84c5b6ae8d5600a546c23b61cf377ed98f608dc9b12fc585a166577115b5"
+    },
+    {
+      "index": 149,
+      "action": {
+        "type": "advance"
+      },
+      "recipe": null,
+      "beforeStateSha256": "39cc84c5b6ae8d5600a546c23b61cf377ed98f608dc9b12fc585a166577115b5",
+      "afterStateSha256": "491320045a68603e654ca3fa9f7145c07bcdaa3f8120f30c84964946c70b2585"
+    },
+    {
+      "index": 150,
+      "action": {
+        "type": "combine",
+        "a": "core-drill",
+        "b": "sterile-liner"
+      },
+      "recipe": "buried-story-1-lined-core-drill",
+      "beforeStateSha256": "491320045a68603e654ca3fa9f7145c07bcdaa3f8120f30c84964946c70b2585",
+      "afterStateSha256": "cda93966a8859e199316ee5634d8c0d0dfe66d0a2f76fbc3905e16aea070772d"
+    },
+    {
+      "index": 151,
+      "action": {
+        "type": "combine",
+        "a": "lined-core-drill",
+        "b": "@layered-basin"
+      },
+      "recipe": "buried-story-2-sediment-core",
+      "beforeStateSha256": "cda93966a8859e199316ee5634d8c0d0dfe66d0a2f76fbc3905e16aea070772d",
+      "afterStateSha256": "53407d864d1ae76caadab84e42cd38ff121f4634312f278282ea6d20c0cdf619"
+    },
+    {
+      "index": 152,
+      "action": {
+        "type": "combine",
+        "a": "sediment-core",
+        "b": "core-cradle"
+      },
+      "recipe": "buried-story-3-supported-core",
+      "beforeStateSha256": "53407d864d1ae76caadab84e42cd38ff121f4634312f278282ea6d20c0cdf619",
+      "afterStateSha256": "0b40f51d53e8832205a3f7fdff5fe05b24c4a62622d15f9b4253ecfb9b738c01"
+    },
+    {
+      "index": 153,
+      "action": {
+        "type": "combine",
+        "a": "supported-core",
+        "b": "lit-microscope"
+      },
+      "recipe": "buried-story-5-grain-images",
+      "beforeStateSha256": "0b40f51d53e8832205a3f7fdff5fe05b24c4a62622d15f9b4253ecfb9b738c01",
+      "afterStateSha256": "8a92d9a0767aeb7e2018921327909a5fb62f643ca2e20573906fba73239bb196"
+    },
+    {
+      "index": 154,
+      "action": {
+        "type": "combine",
+        "a": "sediment-core",
+        "b": "sample-vial"
+      },
+      "recipe": "buried-story-7-retained-sediment",
+      "beforeStateSha256": "8a92d9a0767aeb7e2018921327909a5fb62f643ca2e20573906fba73239bb196",
+      "afterStateSha256": "ae845746c4f577c3b2c65a36b483221405f7c7a17ac866cf7b51b6cc5ca08b26"
+    },
+    {
+      "index": 155,
+      "action": {
+        "type": "combine",
+        "a": "spectrometer",
+        "b": "calibration-target"
+      },
+      "recipe": "buried-story-6-calibrated-spectrometer",
+      "beforeStateSha256": "ae845746c4f577c3b2c65a36b483221405f7c7a17ac866cf7b51b6cc5ca08b26",
+      "afterStateSha256": "2c105739e97ba0be39c28fb4da44b4ef8d017d6dfaee600416d88e43b23c9858"
+    },
+    {
+      "index": 156,
+      "action": {
+        "type": "combine",
+        "a": "retained-sediment",
+        "b": "calibrated-spectrometer"
+      },
+      "recipe": "buried-story-8-mineral-spectrum",
+      "beforeStateSha256": "2c105739e97ba0be39c28fb4da44b4ef8d017d6dfaee600416d88e43b23c9858",
+      "afterStateSha256": "02a75128fa41c931162b7241d514640d3308bf87d686619398406d346a6b6db6"
+    },
+    {
+      "index": 157,
+      "action": {
+        "type": "combine",
+        "a": "grain-images",
+        "b": "mineral-spectrum"
+      },
+      "recipe": "buried-story-10-sediment-comparison",
+      "beforeStateSha256": "02a75128fa41c931162b7241d514640d3308bf87d686619398406d346a6b6db6",
+      "afterStateSha256": "2409df118b383e13eb34aa0d2bf279af2abdb458a69b985ba52a11bc1433b985"
+    },
+    {
+      "index": 158,
+      "action": {
+        "type": "combine",
+        "a": "sediment-comparison",
+        "b": "core-profile"
+      },
+      "recipe": "buried-story-11-layer-interpretation",
+      "beforeStateSha256": "2409df118b383e13eb34aa0d2bf279af2abdb458a69b985ba52a11bc1433b985",
+      "afterStateSha256": "9cf6c4bf0321ff3143718e463c0b896943a1d2b81de796dfd8cd7ea95ddd0b55"
+    },
+    {
+      "index": 159,
+      "action": {
+        "type": "combine",
+        "a": "layer-interpretation",
+        "b": "specimen-log"
+      },
+      "recipe": "buried-story-12-basin-field-record",
+      "beforeStateSha256": "9cf6c4bf0321ff3143718e463c0b896943a1d2b81de796dfd8cd7ea95ddd0b55",
+      "afterStateSha256": "80522e965b982a5fa6e2d0d0653bace9604966f63d06b27fcd91b9200dadb236"
+    },
+    {
+      "index": 160,
+      "action": {
+        "type": "advance"
+      },
+      "recipe": null,
+      "beforeStateSha256": "80522e965b982a5fa6e2d0d0653bace9604966f63d06b27fcd91b9200dadb236",
+      "afterStateSha256": "50898d71fa92b3f3762cc359208ceea578391e45769238483c74d1434ee306b1"
+    },
+    {
+      "index": 161,
+      "action": {
+        "type": "combine",
+        "a": "field-camera",
+        "b": "@ripple-window"
+      },
+      "recipe": "contrast-ripple-image",
+      "beforeStateSha256": "50898d71fa92b3f3762cc359208ceea578391e45769238483c74d1434ee306b1",
+      "afterStateSha256": "879d0c3503e081077301c5e3a7b1f29504e79bb17216a6719acd512e874d354e"
+    },
+    {
+      "index": 162,
+      "action": {
+        "type": "combine",
+        "a": "field-camera",
+        "b": "@gravel-window"
+      },
+      "recipe": "contrast-gravel-image",
+      "beforeStateSha256": "879d0c3503e081077301c5e3a7b1f29504e79bb17216a6719acd512e874d354e",
+      "afterStateSha256": "3711c4de889c6ee582b8b01adc0c5c6c2ab0a8df8b2cafcc4b52f1545116c2f2"
+    },
+    {
+      "index": 163,
+      "action": {
+        "type": "combine",
+        "a": "gravel-view",
+        "b": "scale-card"
+      },
+      "recipe": "contrast-scale",
+      "beforeStateSha256": "3711c4de889c6ee582b8b01adc0c5c6c2ab0a8df8b2cafcc4b52f1545116c2f2",
+      "afterStateSha256": "d05d6922c724f8ccaf161328e576de946aaedf63b586f9d87e609dd118004aa2"
+    },
+    {
+      "index": 164,
+      "action": {
+        "type": "combine",
+        "a": "ripple-view",
+        "b": "scaled-gravel-view"
+      },
+      "recipe": "contrast-pair",
+      "beforeStateSha256": "d05d6922c724f8ccaf161328e576de946aaedf63b586f9d87e609dd118004aa2",
+      "afterStateSha256": "f91c78e71806bbdc2e423ddf2e5421da58a680955f1e18c6b5e3e5265fd7e7ad"
+    },
+    {
+      "index": 165,
+      "action": {
+        "type": "combine",
+        "a": "paired-terrain-views",
+        "b": "terrain-model"
+      },
+      "recipe": "contrast-context",
+      "beforeStateSha256": "f91c78e71806bbdc2e423ddf2e5421da58a680955f1e18c6b5e3e5265fd7e7ad",
+      "afterStateSha256": "c230a776caf723e6a841fc8c6164a64d42993bcf00de1aad3e77fd908d858b7c"
+    },
+    {
+      "index": 166,
+      "action": {
+        "type": "combine",
+        "a": "deposition-context",
+        "b": "basin-field-record"
+      },
+      "recipe": "contrast-revise",
+      "beforeStateSha256": "c230a776caf723e6a841fc8c6164a64d42993bcf00de1aad3e77fd908d858b7c",
+      "afterStateSha256": "25f1cd4584e2b0fa5a618e5f8803d085774346fe10398db0f25f9818faaa6bce"
+    },
+    {
+      "index": 167,
+      "action": {
+        "type": "combine",
+        "a": "qualified-basin-story",
+        "b": "context-board"
+      },
+      "recipe": "contrast-board",
+      "beforeStateSha256": "25f1cd4584e2b0fa5a618e5f8803d085774346fe10398db0f25f9818faaa6bce",
+      "afterStateSha256": "7bbbc5bb86e190b8d0a1c7bdba38e939bc978db8a448dccdfd00eeeb0c7400be"
+    },
+    {
+      "index": 168,
+      "action": {
+        "type": "combine",
+        "a": "comparison-board",
+        "b": "comparison-sleeve"
+      },
+      "recipe": "contrast-archive",
+      "beforeStateSha256": "7bbbc5bb86e190b8d0a1c7bdba38e939bc978db8a448dccdfd00eeeb0c7400be",
+      "afterStateSha256": "21daef21f5806f66227c8a23ee052a32ab3fadf75b894ba24bca89d6d9df7596"
+    },
+    {
+      "index": 169,
+      "action": {
+        "type": "combine",
+        "a": "ripple-cast-sheet",
+        "b": "@ripple-window"
+      },
+      "recipe": "contrast-impression",
+      "beforeStateSha256": "21daef21f5806f66227c8a23ee052a32ab3fadf75b894ba24bca89d6d9df7596",
+      "afterStateSha256": "7598eb359dd8c974aef61e9daf1a2e9c65749396b6c8bf2d76895bb8c08e1b68"
+    },
+    {
+      "index": 170,
+      "action": {
+        "type": "combine",
+        "a": "ripple-impression",
+        "b": "two-cell-case"
+      },
+      "recipe": "contrast-pack-ripple",
+      "beforeStateSha256": "7598eb359dd8c974aef61e9daf1a2e9c65749396b6c8bf2d76895bb8c08e1b68",
+      "afterStateSha256": "f09dbf6bd04d0e367df5a9d43412f1122b28da09fe14910687490af135c4a01d"
+    },
+    {
+      "index": 171,
+      "action": {
+        "type": "combine",
+        "a": "sample-scoop",
+        "b": "@gravel-window"
+      },
+      "recipe": "collect-gravel-chip",
+      "beforeStateSha256": "f09dbf6bd04d0e367df5a9d43412f1122b28da09fe14910687490af135c4a01d",
+      "afterStateSha256": "2308ee4adcbdb8aa61835515e9c14126185819713adfca81a4a929626650ac64"
+    },
+    {
+      "index": 172,
+      "action": {
+        "type": "combine",
+        "a": "loose-gravel-chip",
+        "b": "specimen-log"
+      },
+      "recipe": "contrast-chip",
+      "beforeStateSha256": "2308ee4adcbdb8aa61835515e9c14126185819713adfca81a4a929626650ac64",
+      "afterStateSha256": "d342049fd79222c40406297490c182efd4da0d0fa2ef3f82e9dae092536ff0a8"
+    },
+    {
+      "index": 173,
+      "action": {
+        "type": "combine",
+        "a": "logged-gravel-chip",
+        "b": "two-cell-case"
+      },
+      "recipe": "contrast-pack-gravel",
+      "beforeStateSha256": "d342049fd79222c40406297490c182efd4da0d0fa2ef3f82e9dae092536ff0a8",
+      "afterStateSha256": "f44dbff16be5e71c95ee5627041316801777de7f7a2b430c9b74ba26a2888588"
+    },
+    {
+      "index": 174,
+      "action": {
+        "type": "advance"
+      },
+      "recipe": null,
+      "beforeStateSha256": "f44dbff16be5e71c95ee5627041316801777de7f7a2b430c9b74ba26a2888588",
+      "afterStateSha256": "a18d668c0b902a57d79883a62fcf6cfdad60bd1eec008f5b96387618260eff8e"
+    },
+    {
+      "index": 175,
+      "action": {
+        "type": "combine",
+        "a": "folded-route-sign",
+        "b": "sign-foot"
+      },
+      "recipe": "depot-sign-base",
+      "beforeStateSha256": "a18d668c0b902a57d79883a62fcf6cfdad60bd1eec008f5b96387618260eff8e",
+      "afterStateSha256": "8c2b0aab68a2727d8e3006c55048bf97e51e325fc433bc868d8eda8dad881595"
+    },
+    {
+      "index": 176,
+      "action": {
+        "type": "combine",
+        "a": "marker-cleaning-pad",
+        "b": "@depot-marker-line"
+      },
+      "recipe": "depot-clean",
+      "beforeStateSha256": "8c2b0aab68a2727d8e3006c55048bf97e51e325fc433bc868d8eda8dad881595",
+      "afterStateSha256": "9e19d1a860132767ec35a09039c2e460ab7102534edf4ae22b8d31a641363b02"
+    },
+    {
+      "index": 177,
+      "action": {
+        "type": "combine",
+        "a": "field-camera",
+        "b": "@depot-marker-line"
+      },
+      "recipe": "depot-rephoto",
+      "beforeStateSha256": "9e19d1a860132767ec35a09039c2e460ab7102534edf4ae22b8d31a641363b02",
+      "afterStateSha256": "f7790b7ea45bb6b59f31df839e6b3ca1b1722f545b4eca499afd3f7c1d3cb17a"
+    },
+    {
+      "index": 178,
+      "action": {
+        "type": "combine",
+        "a": "current-marker-view",
+        "b": "depot-survey-print"
+      },
+      "recipe": "depot-register",
+      "beforeStateSha256": "f7790b7ea45bb6b59f31df839e6b3ca1b1722f545b4eca499afd3f7c1d3cb17a",
+      "afterStateSha256": "40698a29b89e0964c11b735fd2a7241c701ec53612c82601b5613426cdb8d72c"
+    },
+    {
+      "index": 179,
+      "action": {
+        "type": "combine",
+        "a": "registered-route-views",
+        "b": "weather-record"
+      },
+      "recipe": "depot-wind",
+      "beforeStateSha256": "40698a29b89e0964c11b735fd2a7241c701ec53612c82601b5613426cdb8d72c",
+      "afterStateSha256": "344dc4c0230fde6f76cac8fe814344141ba72a54128f1746e1bd18fc2c774a35"
+    },
+    {
+      "index": 180,
+      "action": {
+        "type": "combine",
+        "a": "revealed-socket-mark",
+        "b": "track-disagreement"
+      },
+      "recipe": "depot-route",
+      "beforeStateSha256": "344dc4c0230fde6f76cac8fe814344141ba72a54128f1746e1bd18fc2c774a35",
+      "afterStateSha256": "d6026bd80e68e255b2d6574b7a230ec030b8a0e9fd9c048ebe027048c9801340"
+    },
+    {
+      "index": 181,
+      "action": {
+        "type": "combine",
+        "a": "standing-route-sign",
+        "b": "identified-service-route"
+      },
+      "recipe": "depot-sign",
+      "beforeStateSha256": "d6026bd80e68e255b2d6574b7a230ec030b8a0e9fd9c048ebe027048c9801340",
+      "afterStateSha256": "74b87095ff5d16aec253d0135615bf41b9c51727461cdd6b0ad26d21f2938618"
+    },
+    {
+      "index": 182,
+      "action": {
+        "type": "combine",
+        "a": "protected-controller",
+        "b": "depot-hauler"
+      },
+      "recipe": "depot-hauler-controller",
+      "beforeStateSha256": "74b87095ff5d16aec253d0135615bf41b9c51727461cdd6b0ad26d21f2938618",
+      "afterStateSha256": "3dc7f4b3540b75c483f02a4985eb96bef9fd8ed077b2de76bce272ed020c098d"
+    },
+    {
+      "index": 183,
+      "action": {
+        "type": "combine",
+        "a": "hauler-platform",
+        "b": "depot-hauler"
+      },
+      "recipe": "depot-hauler-platform",
+      "beforeStateSha256": "3dc7f4b3540b75c483f02a4985eb96bef9fd8ed077b2de76bce272ed020c098d",
+      "afterStateSha256": "c310c464479bf060753f39e665637d4a3e801d0286edd17defb8e9edf62e3c93"
+    },
+    {
+      "index": 184,
+      "action": {
+        "type": "combine",
+        "a": "depot-hauler",
+        "b": "depot-route-sign"
+      },
+      "recipe": "depot-deliver",
+      "beforeStateSha256": "c310c464479bf060753f39e665637d4a3e801d0286edd17defb8e9edf62e3c93",
+      "afterStateSha256": "dbde8c0ce2d8dc24d2c9c2f63c1de67905d1e8af189580ef82b9bbd709b157ae"
+    },
+    {
+      "index": 185,
+      "action": {
+        "type": "advance"
+      },
+      "recipe": null,
+      "beforeStateSha256": "dbde8c0ce2d8dc24d2c9c2f63c1de67905d1e8af189580ef82b9bbd709b157ae",
+      "afterStateSha256": "5e8ae11f8c2ed3e0385cde3905e3af7b1115b100b1b4416ff29db3dc6c77aa4c"
+    },
+    {
+      "index": 186,
+      "action": {
+        "type": "combine",
+        "a": "electrolyzer-stack",
+        "b": "process-controller"
+      },
+      "recipe": "oxygen-2-controlled-electrolyzer",
+      "beforeStateSha256": "5e8ae11f8c2ed3e0385cde3905e3af7b1115b100b1b4416ff29db3dc6c77aa4c",
+      "afterStateSha256": "9752f5af70f64b8c81f47c9d6e34d6fa662e9bc15e2156fdbedbc7595b8db1e3"
+    },
+    {
+      "index": 187,
+      "action": {
+        "type": "combine",
+        "a": "filtered-intake",
+        "b": "oxygen-plant"
+      },
+      "recipe": "oxygen-3-oxygen-generator",
+      "beforeStateSha256": "9752f5af70f64b8c81f47c9d6e34d6fa662e9bc15e2156fdbedbc7595b8db1e3",
+      "afterStateSha256": "f5967f6d0fd1189dc9e40156fba50da93d6a97cd6e550a762e0e400739a6a2bf"
+    },
+    {
+      "index": 188,
+      "action": {
+        "type": "place",
+        "item": "flight-oxygen-module",
+        "hotspot": "ascent-plant"
+      },
+      "recipe": null,
+      "beforeStateSha256": "f5967f6d0fd1189dc9e40156fba50da93d6a97cd6e550a762e0e400739a6a2bf",
+      "afterStateSha256": "151451264a6409220bb3f3277f4a33644b92b894ac5f77a3158e584a39fcebb8"
+    },
+    {
+      "index": 189,
+      "action": {
+        "type": "combine",
+        "a": "depot-cargo-shuttle",
+        "b": "flight-oxygen-module"
+      },
+      "recipe": "oxygen-dock-module",
+      "beforeStateSha256": "151451264a6409220bb3f3277f4a33644b92b894ac5f77a3158e584a39fcebb8",
+      "afterStateSha256": "73e8f353da07313df048e0b92d3c57633bfb084f98888fc7f48694e0c69b0256"
+    },
+    {
+      "index": 190,
+      "action": {
+        "type": "combine",
+        "a": "oxygen-plant",
+        "b": "docked-oxygen-module"
+      },
+      "recipe": "oxygen-service",
+      "beforeStateSha256": "73e8f353da07313df048e0b92d3c57633bfb084f98888fc7f48694e0c69b0256",
+      "afterStateSha256": "c6088d7452fe5097b4b0b7e84cc9504e2549f112b22237efe2d2e6e14591bdaa"
+    },
+    {
+      "index": 191,
+      "action": {
+        "type": "advance"
+      },
+      "recipe": null,
+      "beforeStateSha256": "c6088d7452fe5097b4b0b7e84cc9504e2549f112b22237efe2d2e6e14591bdaa",
+      "afterStateSha256": "61d66a83a69582ce18970a14a2b6bfc7c086b1fed911805e3ca32f95ff676558"
+    },
+    {
+      "index": 192,
+      "action": {
+        "type": "combine",
+        "a": "damaged-ascent-cabin",
+        "b": "hatch-seal"
+      },
+      "recipe": "ascent-0-sealed-ascent-cabin",
+      "beforeStateSha256": "61d66a83a69582ce18970a14a2b6bfc7c086b1fed911805e3ca32f95ff676558",
+      "afterStateSha256": "943f2c7360c86dd042fb9c49fa1dd6a74d00ddd3688f71172cadd9305a3608d6"
+    },
+    {
+      "index": 193,
+      "action": {
+        "type": "combine",
+        "a": "docking-ring",
+        "b": "ascent-cabin"
+      },
+      "recipe": "ascent-1-dockable-cabin",
+      "beforeStateSha256": "943f2c7360c86dd042fb9c49fa1dd6a74d00ddd3688f71172cadd9305a3608d6",
+      "afterStateSha256": "f9f56fa2d49651786d89eb777dcab30239d242496002e0f450f2984f92fd36bb"
+    },
+    {
+      "index": 194,
+      "action": {
+        "type": "combine",
+        "a": "oxygen-service-module",
+        "b": "ascent-cabin"
+      },
+      "recipe": "ascent-3-ventilated-ascent-cabin",
+      "beforeStateSha256": "f9f56fa2d49651786d89eb777dcab30239d242496002e0f450f2984f92fd36bb",
+      "afterStateSha256": "d440a4091b2644a5ba053888659d9fefc9c72e0f6e9d1fdab7ed4ae8f5ce6a4f"
+    },
+    {
+      "index": 195,
+      "action": {
+        "type": "combine",
+        "a": "flight-console",
+        "b": "ascent-cabin"
+      },
+      "recipe": "ascent-9-operable-ascent-cabin",
+      "beforeStateSha256": "d440a4091b2644a5ba053888659d9fefc9c72e0f6e9d1fdab7ed4ae8f5ce6a4f",
+      "afterStateSha256": "ceb26a64e37446d530b81b1c34769b5f53786bb799d0d4d98ed26641eebdeeb1"
+    },
+    {
+      "index": 196,
+      "action": {
+        "type": "combine",
+        "a": "suited-flight-seat",
+        "b": "ascent-cabin"
+      },
+      "recipe": "ascent-12-crewed-ascent-cabin",
+      "beforeStateSha256": "ceb26a64e37446d530b81b1c34769b5f53786bb799d0d4d98ed26641eebdeeb1",
+      "afterStateSha256": "501049c9b87a6839707ee90ebe5d316495496cc55409e75bc46e8130f04197b3"
+    },
+    {
+      "index": 197,
+      "action": {
+        "type": "combine",
+        "a": "ascent-cabin",
+        "b": "@ascent-pad"
+      },
+      "recipe": "ascent-13-cabin-test-record",
+      "beforeStateSha256": "501049c9b87a6839707ee90ebe5d316495496cc55409e75bc46e8130f04197b3",
+      "afterStateSha256": "e732293c6c57e49e62f8412d09fffebd46f64360912e0d18e6c1b506d836df8e"
+    },
+    {
+      "index": 198,
+      "action": {
+        "type": "advance"
+      },
+      "recipe": null,
+      "beforeStateSha256": "e732293c6c57e49e62f8412d09fffebd46f64360912e0d18e6c1b506d836df8e",
+      "afterStateSha256": "77dacdda5f3edcabe3efeb4b11d7423c9e245b210dc8e2814e05cc35cd576dc6"
+    },
+    {
+      "index": 199,
+      "action": {
+        "type": "combine",
+        "a": "range-transponder",
+        "b": "long-range-radio"
+      },
+      "recipe": "rendezvous-10-ranging-link",
+      "beforeStateSha256": "77dacdda5f3edcabe3efeb4b11d7423c9e245b210dc8e2814e05cc35cd576dc6",
+      "afterStateSha256": "f45423d4045d6255fc6fc165cd0beef61ff815d8facf33957ea9b1d99f64e9d1"
+    },
+    {
+      "index": 200,
+      "action": {
+        "type": "combine",
+        "a": "star-tracker",
+        "b": "alignment-target"
+      },
+      "recipe": "rendezvous-4-aligned-star-tracker",
+      "beforeStateSha256": "f45423d4045d6255fc6fc165cd0beef61ff815d8facf33957ea9b1d99f64e9d1",
+      "afterStateSha256": "202cbbaf0dadbdac54d779717b916b8ccc1fd5993f4accf277b0690c3879af45"
+    },
+    {
+      "index": 201,
+      "action": {
+        "type": "combine",
+        "a": "aligned-star-tracker",
+        "b": "@clear-sky-station"
+      },
+      "recipe": "rendezvous-5-sky-fix",
+      "beforeStateSha256": "202cbbaf0dadbdac54d779717b916b8ccc1fd5993f4accf277b0690c3879af45",
+      "afterStateSha256": "387d4b88b6a6e284496ef20ecd77e79027892fa2c43f554273728abc1ad57e37"
+    },
+    {
+      "index": 202,
+      "action": {
+        "type": "combine",
+        "a": "sky-fix",
+        "b": "navigation-terminal"
+      },
+      "recipe": "rendezvous-8-ground-reference",
+      "beforeStateSha256": "387d4b88b6a6e284496ef20ecd77e79027892fa2c43f554273728abc1ad57e37",
+      "afterStateSha256": "aacbf9934f9c91735f664817641302419f930d6f2f5f3d5fb1b6ce578e78b603"
+    },
+    {
+      "index": 203,
+      "action": {
+        "type": "combine",
+        "a": "timed-receiver",
+        "b": "disciplined-clock"
+      },
+      "recipe": "rendezvous-2-timing-station",
+      "beforeStateSha256": "aacbf9934f9c91735f664817641302419f930d6f2f5f3d5fb1b6ce578e78b603",
+      "afterStateSha256": "76daabfdf266a2da4563ce4dd254ac53b52b9b90fb671a7fb8b278cc3a1bca68"
+    },
+    {
+      "index": 204,
+      "action": {
+        "type": "combine",
+        "a": "timing-station",
+        "b": "@clear-sky-station"
+      },
+      "recipe": "rendezvous-6-beacon-times",
+      "beforeStateSha256": "76daabfdf266a2da4563ce4dd254ac53b52b9b90fb671a7fb8b278cc3a1bca68",
+      "afterStateSha256": "1da832cb7caf731e33940ac488300bd5fd6f3febef88594873494be58286b1d1"
+    },
+    {
+      "index": 205,
+      "action": {
+        "type": "combine",
+        "a": "beacon-times",
+        "b": "ephemeris-card"
+      },
+      "recipe": "rendezvous-7-orbiter-pass-prediction",
+      "beforeStateSha256": "1da832cb7caf731e33940ac488300bd5fd6f3febef88594873494be58286b1d1",
+      "afterStateSha256": "1f66abf0b602ae533245c08c0c1e746959717ff6d4b6e9b257ed35f509f5be87"
+    },
+    {
+      "index": 206,
+      "action": {
+        "type": "combine",
+        "a": "ground-reference",
+        "b": "orbiter-pass-prediction"
+      },
+      "recipe": "rendezvous-9-rendezvous-solution",
+      "beforeStateSha256": "1f66abf0b602ae533245c08c0c1e746959717ff6d4b6e9b257ed35f509f5be87",
+      "afterStateSha256": "fc82acd7cdddd4b251c530d51afd4801287a0ade55cbb43356f111c6f9887127"
+    },
+    {
+      "index": 207,
+      "action": {
+        "type": "combine",
+        "a": "ranging-link",
+        "b": "rendezvous-solution"
+      },
+      "recipe": "rendezvous-11-agreed-rendezvous",
+      "beforeStateSha256": "fc82acd7cdddd4b251c530d51afd4801287a0ade55cbb43356f111c6f9887127",
+      "afterStateSha256": "453079e3124a932120215bbbaa8b86e8e8e69a642dab61a12d9405fd4cbe4548"
+    },
+    {
+      "index": 208,
+      "action": {
+        "type": "advance"
+      },
+      "recipe": null,
+      "beforeStateSha256": "453079e3124a932120215bbbaa8b86e8e8e69a642dab61a12d9405fd4cbe4548",
+      "afterStateSha256": "37d548e57408b45e790e873a701da6c4b2d81e66d34d4e49ebd8d71454927b9a"
+    },
+    {
+      "index": 209,
+      "action": {
+        "type": "combine",
+        "a": "depot-cargo-shuttle",
+        "b": "cargo-strap"
+      },
+      "recipe": "departure-10-secured-cart",
+      "beforeStateSha256": "37d548e57408b45e790e873a701da6c4b2d81e66d34d4e49ebd8d71454927b9a",
+      "afterStateSha256": "20c6d445d632909e0344cba1d10580678aa9eb6658ffc0293594ad7c374a6d0f"
+    },
+    {
+      "index": 210,
+      "action": {
+        "type": "combine",
+        "a": "return-capsule",
+        "b": "shock-mount"
+      },
+      "recipe": "departure-0-cushioned-capsule",
+      "beforeStateSha256": "20c6d445d632909e0344cba1d10580678aa9eb6658ffc0293594ad7c374a6d0f",
+      "afterStateSha256": "86993319ba146366d0074a6aab91ad9f6a2d1f8f1604aaee9b91080309c14462"
+    },
+    {
+      "index": 211,
+      "action": {
+        "type": "combine",
+        "a": "catalogued-ice-sample",
+        "b": "cushioned-capsule"
+      },
+      "recipe": "departure-pack-ice",
+      "beforeStateSha256": "86993319ba146366d0074a6aab91ad9f6a2d1f8f1604aaee9b91080309c14462",
+      "afterStateSha256": "a4676bb1c4f43b34b2d838cee84cb8c928a5c1e599e2a12bc1fd01df0c132e54"
+    },
+    {
+      "index": 212,
+      "action": {
+        "type": "combine",
+        "a": "retained-sediment",
+        "b": "cushioned-capsule"
+      },
+      "recipe": "departure-pack-sediment",
+      "beforeStateSha256": "a4676bb1c4f43b34b2d838cee84cb8c928a5c1e599e2a12bc1fd01df0c132e54",
+      "afterStateSha256": "252c7d2fc36e5108572c28d21805be97a0bcb7ed5c71aadb587e3f0b97e48dad"
+    },
+    {
+      "index": 213,
+      "action": {
+        "type": "combine",
+        "a": "data-store",
+        "b": "archival-card"
+      },
+      "recipe": "departure-4-archival-recorder",
+      "beforeStateSha256": "252c7d2fc36e5108572c28d21805be97a0bcb7ed5c71aadb587e3f0b97e48dad",
+      "afterStateSha256": "8f97c46cee4b281ac46ed6682d6529769c97707dcb8b7ff7c9c80d0dd55adb9d"
+    },
+    {
+      "index": 214,
+      "action": {
+        "type": "combine",
+        "a": "crew-table-portrait",
+        "b": "archival-recorder"
+      },
+      "recipe": "expansion-family-archive",
+      "beforeStateSha256": "8f97c46cee4b281ac46ed6682d6529769c97707dcb8b7ff7c9c80d0dd55adb9d",
+      "afterStateSha256": "6aab900b59c2e3efc07820f005d384b35be19e4b2c11b25424dbaf3bec98c302"
+    },
+    {
+      "index": 215,
+      "action": {
+        "type": "combine",
+        "a": "family-record",
+        "b": "basin-field-record"
+      },
+      "recipe": "departure-5-geology-archive",
+      "beforeStateSha256": "6aab900b59c2e3efc07820f005d384b35be19e4b2c11b25424dbaf3bec98c302",
+      "afterStateSha256": "033e42847f5d7f8d7ba6767a86162a0e1034ceaa15df5421feb862bf8c9e6639"
+    },
+    {
+      "index": 216,
+      "action": {
+        "type": "combine",
+        "a": "geology-archive",
+        "b": "core-profile"
+      },
+      "recipe": "departure-6-complete-field-archive",
+      "beforeStateSha256": "033e42847f5d7f8d7ba6767a86162a0e1034ceaa15df5421feb862bf8c9e6639",
+      "afterStateSha256": "68177ebf3cbfdbb7ce15ac87a075d9259bdf784bb45d4b7b19d6f0bf25cc3a40"
+    },
+    {
+      "index": 217,
+      "action": {
+        "type": "combine",
+        "a": "complete-field-archive",
+        "b": "cushioned-capsule"
+      },
+      "recipe": "departure-pack-record",
+      "beforeStateSha256": "68177ebf3cbfdbb7ce15ac87a075d9259bdf784bb45d4b7b19d6f0bf25cc3a40",
+      "afterStateSha256": "74ada987209d04dad09365c392d5d3ea008f7879a043e1e6f4835ffd965593df"
+    },
+    {
+      "index": 218,
+      "action": {
+        "type": "combine",
+        "a": "two-cell-case",
+        "b": "cushioned-capsule"
+      },
+      "recipe": "expansion-return-comparison",
+      "beforeStateSha256": "74ada987209d04dad09365c392d5d3ea008f7879a043e1e6f4835ffd965593df",
+      "afterStateSha256": "47a442e5585906b42a99790c6c663af4e4aa461cc48d6171395a86bdcafeb85d"
+    },
+    {
+      "index": 219,
+      "action": {
+        "type": "combine",
+        "a": "sleeved-comparison",
+        "b": "cushioned-capsule"
+      },
+      "recipe": "expansion-return-comparison-record",
+      "beforeStateSha256": "47a442e5585906b42a99790c6c663af4e4aa461cc48d6171395a86bdcafeb85d",
+      "afterStateSha256": "767a76a96f8976d8a524517a0788a1ed9530ebd2d76ddede098f1380081882d4"
+    },
+    {
+      "index": 220,
+      "action": {
+        "type": "combine",
+        "a": "secured-cart",
+        "b": "cushioned-capsule"
+      },
+      "recipe": "departure-11-specimen-cart",
+      "beforeStateSha256": "767a76a96f8976d8a524517a0788a1ed9530ebd2d76ddede098f1380081882d4",
+      "afterStateSha256": "c7038d4d6b296f86e42c9bc2509e3e1effe8c55b42ca711d1f475528bdf4206e"
+    },
+    {
+      "index": 221,
+      "action": {
+        "type": "combine",
+        "a": "camp-beacon",
+        "b": "maintenance-card"
+      },
+      "recipe": "departure-8-camp-handover-beacon",
+      "beforeStateSha256": "c7038d4d6b296f86e42c9bc2509e3e1effe8c55b42ca711d1f475528bdf4206e",
+      "afterStateSha256": "1dc981d20285063572a9649c9fb40d0b2245fd74849e684954674a3fddfee899"
+    },
+    {
+      "index": 222,
+      "action": {
+        "type": "advance"
+      },
+      "recipe": null,
+      "beforeStateSha256": "1dc981d20285063572a9649c9fb40d0b2245fd74849e684954674a3fddfee899",
+      "afterStateSha256": "e56cc3d895d2fc57dbb1f3c2c44673455305cf28d635b3d6e7551a08839b985a"
+    },
+    {
+      "index": 223,
+      "action": {
+        "type": "combine",
+        "a": "certified-ascent-stage",
+        "b": "ascent-cabin"
+      },
+      "recipe": "homebound-0-ascent-vehicle",
+      "beforeStateSha256": "e56cc3d895d2fc57dbb1f3c2c44673455305cf28d635b3d6e7551a08839b985a",
+      "afterStateSha256": "6af8eeed1dd4a3424073cc60fc99128cfdc6b4fb5effc0bbb607cf37d2628e12"
+    },
+    {
+      "index": 224,
+      "action": {
+        "type": "combine",
+        "a": "cargo-adapter",
+        "b": "receiver-latch"
+      },
+      "recipe": "homebound-4-capsule-dock",
+      "beforeStateSha256": "6af8eeed1dd4a3424073cc60fc99128cfdc6b4fb5effc0bbb607cf37d2628e12",
+      "afterStateSha256": "c7cf1a345b31da061bbf2d22029074fba6f75440f1f35b45c82436fb8fc00266"
+    },
+    {
+      "index": 225,
+      "action": {
+        "type": "combine",
+        "a": "cushioned-capsule",
+        "b": "capsule-dock"
+      },
+      "recipe": "homebound-5-loaded-capsule-dock",
+      "beforeStateSha256": "c7cf1a345b31da061bbf2d22029074fba6f75440f1f35b45c82436fb8fc00266",
+      "afterStateSha256": "4599a6409ce9532d356e30651b6dee2415819299ce1453fded97ebdfb6c4cde6"
+    },
+    {
+      "index": 226,
+      "action": {
+        "type": "combine",
+        "a": "ascent-vehicle",
+        "b": "loaded-capsule-dock"
+      },
+      "recipe": "homebound-6-loaded-ascent-vehicle",
+      "beforeStateSha256": "4599a6409ce9532d356e30651b6dee2415819299ce1453fded97ebdfb6c4cde6",
+      "afterStateSha256": "f694d5c575ec9df9703e2b12109e7acbf45410dfb14414826c936437cda2f7de"
+    },
+    {
+      "index": 227,
+      "action": {
+        "type": "combine",
+        "a": "telemetry-recorder",
+        "b": "agreed-rendezvous"
+      },
+      "recipe": "homebound-8-rendezvous-program",
+      "beforeStateSha256": "f694d5c575ec9df9703e2b12109e7acbf45410dfb14414826c936437cda2f7de",
+      "afterStateSha256": "45d3c22bca14d370d311864ca558abc7dfb95d03e7fe0eee7b5455c6f46ef437"
+    },
+    {
+      "index": 228,
+      "action": {
+        "type": "combine",
+        "a": "loaded-ascent-vehicle",
+        "b": "rendezvous-program"
+      },
+      "recipe": "homebound-9-flight-ready-vehicle",
+      "beforeStateSha256": "45d3c22bca14d370d311864ca558abc7dfb95d03e7fe0eee7b5455c6f46ef437",
+      "afterStateSha256": "8f41b11646f93a5ff9da13f407126131dd19e79ae6e80c1ed959339a6be88242"
+    },
+    {
+      "index": 229,
+      "action": {
+        "type": "combine",
+        "a": "flight-ready-vehicle",
+        "b": "launch-key"
+      },
+      "recipe": "homebound-11-ascending-vehicle",
+      "beforeStateSha256": "8f41b11646f93a5ff9da13f407126131dd19e79ae6e80c1ed959339a6be88242",
+      "afterStateSha256": "0f174f50968964505e72955987899113383ff7e8aa36461e59e30a8320889cb7"
+    },
+    {
+      "index": 230,
+      "action": {
+        "type": "combine",
+        "a": "ascending-vehicle",
+        "b": "@orbital-cabin"
+      },
+      "recipe": "homebound-12-docked-vehicle",
+      "beforeStateSha256": "0f174f50968964505e72955987899113383ff7e8aa36461e59e30a8320889cb7",
+      "afterStateSha256": "0704aa8ecae27598030c96def113287bd739952f8a6e3a042820c8ba492aebd8"
+    },
+    {
+      "index": 231,
+      "action": {
+        "type": "place",
+        "item": "docked-vehicle",
+        "hotspot": "orbital-hatch"
+      },
+      "recipe": null,
+      "beforeStateSha256": "0704aa8ecae27598030c96def113287bd739952f8a6e3a042820c8ba492aebd8",
+      "afterStateSha256": "0db3500ab42537d5effb35b430d8b80774895779032a1eec3caac651e9ab3421"
+    },
+    {
+      "index": 232,
+      "action": {
+        "type": "advance"
+      },
+      "recipe": null,
+      "beforeStateSha256": "0db3500ab42537d5effb35b430d8b80774895779032a1eec3caac651e9ab3421",
+      "afterStateSha256": "29b0f0b8ca659848c3926197c0983d30a274612f5f0d7412e8f434f86ee5a386"
+    }
+  ],
+  "completed": true,
+  "combinations": 201
+}

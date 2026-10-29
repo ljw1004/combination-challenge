@@ -1,0 +1,162 @@
+{
+  "baseCommit": "86c479746909412d775873d5bb250868ed7bf2d0",
+  "changes": [
+    {
+      "world": "mars-connected-survival-v4-return-cargo-research",
+      "recipe": "habitat-4-watered-seed-tray",
+      "before": {
+        "seed-tray": {
+          "role": "transform",
+          "reason": "Seed tray is the existing object changed into Watered seed tray."
+        },
+        "water-canister": {
+          "role": "retain",
+          "reason": "Water canister is reused as equipment, a source/reference, a subject of observation, or a continuing supply; this action does not consume it."
+        }
+      },
+      "after": {
+        "seed-tray": {
+          "role": "transform",
+          "reason": "Seed tray is the existing object changed into Watered seed tray. This is one physical tray or lid taking one order of assembly, not a second supply for alternative orders.",
+          "exclusive": true
+        },
+        "water-canister": {
+          "role": "retain",
+          "reason": "Water canister is reused as equipment, a source/reference, a subject of observation, or a continuing supply; this action does not consume it."
+        }
+      },
+      "inputs": "seed-tray + water-canister",
+      "output": "watered-seed-tray"
+    },
+    {
+      "world": "mars-connected-survival-v4-return-cargo-research",
+      "recipe": "habitat-5-sprouted-tray",
+      "before": {
+        "watered-seed-tray": {
+          "role": "transform",
+          "reason": "Watered seed tray is the existing object changed into Sprouted tray."
+        }
+      },
+      "after": {
+        "watered-seed-tray": {
+          "role": "transform",
+          "reason": "Watered seed tray is the existing object changed into Sprouted tray. This is one physical tray or lid taking one order of assembly, not a second supply for alternative orders.",
+          "exclusive": true
+        }
+      },
+      "inputs": "watered-seed-tray + @warm-habitat",
+      "output": "sprouted-tray"
+    },
+    {
+      "world": "mars-connected-survival-v4-return-cargo-research",
+      "recipe": "habitat-6-propagator",
+      "before": {
+        "sprouted-tray": {
+          "role": "transform",
+          "reason": "Sprouted tray is the existing object changed into Propagator."
+        },
+        "clear-cover": {
+          "role": "incorporate",
+          "reason": "Clear cover becomes part of the result; retain a supply only while another authored use needs it."
+        }
+      },
+      "after": {
+        "sprouted-tray": {
+          "role": "transform",
+          "reason": "Sprouted tray is the existing object changed into Propagator. This is one physical tray or lid taking one order of assembly, not a second supply for alternative orders.",
+          "exclusive": true
+        },
+        "clear-cover": {
+          "role": "incorporate",
+          "reason": "Clear cover becomes part of the result; retain a supply only while another authored use needs it. This is one physical tray or lid taking one order of assembly, not a second supply for alternative orders.",
+          "exclusive": true
+        }
+      },
+      "inputs": "sprouted-tray + clear-cover",
+      "output": "propagator"
+    },
+    {
+      "world": "mars-connected-survival-v4-return-cargo-research",
+      "recipe": "habitat-meltwater-heater",
+      "before": null,
+      "after": {
+        "heater": {
+          "role": "retain",
+          "reason": "The cabin service lead powers the compatible heater during collection. Disconnect it intact for refuge heating and later food preparation."
+        }
+      },
+      "inputs": "heater + @sheltered-ice",
+      "output": "meltwater"
+    },
+    {
+      "world": "mars-connected-survival-v4-return-cargo-research",
+      "recipe": "habitat-cover-dry-tray",
+      "before": null,
+      "after": {
+        "seed-tray": {
+          "role": "transform",
+          "reason": "The one planted tray receives its lid; the uncovered version does not remain as another tray.",
+          "exclusive": true
+        },
+        "clear-cover": {
+          "role": "incorporate",
+          "reason": "The one clear lid is fitted to this tray, not left loose for an alternative assembly order.",
+          "exclusive": true
+        }
+      },
+      "inputs": "seed-tray + clear-cover",
+      "output": "covered-seed-tray"
+    },
+    {
+      "world": "mars-connected-survival-v4-return-cargo-research",
+      "recipe": "habitat-water-covered-tray",
+      "before": null,
+      "after": {
+        "covered-seed-tray": {
+          "role": "transform",
+          "reason": "The same covered tray becomes moist, with its fitted lid preserved.",
+          "exclusive": true
+        },
+        "water-canister": {
+          "role": "retain",
+          "reason": "Only a small portion of the water is used; the sealed canister remains available for the later process-loop priming port."
+        }
+      },
+      "inputs": "covered-seed-tray + water-canister",
+      "output": "watered-covered-tray"
+    },
+    {
+      "world": "mars-connected-survival-v4-return-cargo-research",
+      "recipe": "habitat-cover-watered-tray",
+      "before": null,
+      "after": {
+        "watered-seed-tray": {
+          "role": "transform",
+          "reason": "The one moist tray receives its lid rather than becoming a second planted tray.",
+          "exclusive": true
+        },
+        "clear-cover": {
+          "role": "incorporate",
+          "reason": "The one clear lid is fitted now, not saved as another copy for the late-cover route.",
+          "exclusive": true
+        }
+      },
+      "inputs": "watered-seed-tray + clear-cover",
+      "output": "watered-covered-tray"
+    },
+    {
+      "world": "mars-connected-survival-v4-return-cargo-research",
+      "recipe": "habitat-germinate-covered-tray",
+      "before": null,
+      "after": {
+        "watered-covered-tray": {
+          "role": "transform",
+          "reason": "The same watered, covered tray germinates; it becomes the same propagator used by the later nursery.",
+          "exclusive": true
+        }
+      },
+      "inputs": "watered-covered-tray + @warm-habitat",
+      "output": "propagator"
+    }
+  ]
+}

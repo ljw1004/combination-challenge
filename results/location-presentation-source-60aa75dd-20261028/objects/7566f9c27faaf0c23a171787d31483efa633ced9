@@ -1,0 +1,12 @@
+# Primary-source review for the composed v7
+
+No historical claim was introduced by composition. The four supplied cases and the chapter14 goal patch were independently challenged before this package was accepted; the full evidence and remaining risks are in `independent-review.md`.
+
+- **Perspective:** [Alberti, Book I](https://www.noteaccess.com/Texts/Alberti/1.htm) and [Book II](https://www.noteaccess.com/Texts/Alberti/2.htm), primary text in Spencer's translation, were directly reopened. The eye-centred section and veil passages support the fixed/changed-view comparison. The courtyard, coordinates and measurements are expressly invented. The panel construction does not copy aperture inversion or claim a direct exclusive historical lineage.
+- **Population:** [Graunt's 1662 primary-text transcription](https://neonatology.net/pdf/graunt.pdf), preserved in the isolated package, was checked at PDF pp.54,84,96,98–99. Weekly publication, category uncertainty, unequal parishes and explicit population assumptions support the framing. Independent resident estimates, fictional A/B returns and the four-week ratio calculation are not Graunt's data or his exact inference.
+- **Switching:** [Shannon's 1938 primary paper](https://tubes.mit.edu/6S917/_static/2025/resources/shannon38.pdf), preserved scan pp.472–474, was visually rechecked as historical document inspection, not UI testing. Shannon's hindrance convention is opposite to the disclosed modern conduction convention. The invented lamp case establishes ideal static equivalence and one fewer contact, not equivalent faults, safety or actual equipment behavior.
+- **Commons:** [Ostrom's official 2009 lecture](https://www.nobelprize.org/uploads/2018/06/ostrom_lecture.pdf), preserved primary text, was read at PDF pp.10,12,15,22. Governed resources, local fit, affected-user revision, monitoring and possible failure support the bounded framing. It retrospectively informs the 1990 chapter; Alder/Birch and the ration are not field measurements or a universally best institution.
+
+The motion change is objective wording only. Its existing comparison → limits → checked-treatise sequence and original historical material remain untouched.
+
+All concrete arithmetic was also recomputed in the new combined verifier. Source review, numerical correctness and logical routes do not establish fresh-player comprehension, enjoyment, retention or UI fit. No full copyrighted primary source was copied into this new package; original research caches remain unchanged.

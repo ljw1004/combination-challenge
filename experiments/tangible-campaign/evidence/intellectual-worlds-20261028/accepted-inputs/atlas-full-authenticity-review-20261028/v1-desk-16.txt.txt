@@ -1,0 +1,60 @@
+DESK 16: exchange | A parallel file: markets and workshops · c. 1705–1800 CE | A world made and exchanged | Return to an overlapping eighteenth-century debate. The wealth of a society, the freedom of its workers and the good of a life are not necessarily the same achievement.
+GOALS: [{'id': 'exchange-prosperity-not-good-life', 'text': 'Distinguish wealth from a good life', 'kind': 'create', 'item': 'prosperity-not-good-life'}, {'id': 'exchange-scarcity-and-justice', 'text': 'Keep scarcity and justice distinct', 'kind': 'create', 'item': 'scarcity-and-justice'}, {'id': 'exchange-coercive-exchange', 'text': 'Expose coercion in exchange', 'kind': 'create', 'item': 'coercive-exchange'}, {'id': 'exchange-work-as-a-human-question', 'text': 'Ask what work does to the maker', 'kind': 'create', 'item': 'work-as-a-human-question'}]
+
+RECIPE make-private-vice-public-benefit
+A luxury-trade | Demand for luxuries keeps many trades busy | A premise in Mandeville’s provocative account, not the game’s ethical verdict.
+B mandeville-hive | Mandeville’s prosperous hive depends on vice | An attributed satirical argument about private motives and public outcomes.
+OUT private-vice-public-benefit | Mandeville: private vice, public benefit | Reconstruct the controversial thesis; it remains distinct from an endorsement of greed.
+LIFECYCLE {'luxury-trade': 'retain', 'mandeville-hive': 'retain'}
+
+RECIPE make-division-of-labour
+A pin-workshop | A workshop divides pin-making into repeated tasks | Smith’s familiar example is used conceptually, not as a production calculation.
+B market-exchange | Specialists exchange what they make | Exchange coordinates separately divided activities.
+OUT division-of-labour | Production divided into specialized tasks | The organization of work, not only a new machine, changes productive capacity.
+LIFECYCLE {'pin-workshop': 'retain', 'market-exchange': 'retain'}
+
+RECIPE make-specialization-cost
+A division-of-labour | Production divided into specialized tasks | The organization of work, not only a new machine, changes productive capacity.
+B narrowed-work | A lifetime of one small task can narrow a worker’s powers | Smith also recognizes costs of extreme specialization.
+OUT specialization-cost | More output can narrow the maker’s life | A gain in productive efficiency can coexist with a loss in human development.
+LIFECYCLE {'division-of-labour': 'retain', 'narrowed-work': 'retain'}
+
+RECIPE make-prosperity-not-good-life
+A private-vice-public-benefit | Mandeville: private vice, public benefit | Reconstruct the controversial thesis; it remains distinct from an endorsement of greed.
+B garden-pleasure | Pleasure in friendship and sufficiency | The good life here seeks security and modest enjoyment rather than limitless accumulation.
+OUT prosperity-not-good-life | Prosperity and a good life can diverge | Modern teaching comparison: the earlier account of sufficient pleasure does not measure success by total trade.
+LIFECYCLE {'private-vice-public-benefit': 'retain', 'garden-pleasure': 'retain'}
+LINK {"from": "lives", "to": "exchange", "item": "garden-pleasure", "recipe": "make-prosperity-not-good-life", "relation": "teaching-comparison", "evidence": "Epicurean sufficiency is a meaningful alternative criterion, not a claim of direct influence on Mandeville.", "sources": ["mandeville", "smith", "malthus", "morris"]}
+
+RECIPE make-population-pressure
+A population-growth | Population can grow faster than subsistence | Malthus’s proposed tension, not an eternal law that every society must satisfy identically.
+B food-constraints | Food and access to it can become limiting | Production and distribution must not be silently treated as the same problem.
+OUT population-pressure | A population–subsistence pressure | Malthus’s problem becomes available for later adaptation and criticism without requiring arithmetic.
+LIFECYCLE {'population-growth': 'retain', 'food-constraints': 'retain'}
+
+RECIPE make-scarcity-and-justice
+A population-pressure | A population–subsistence pressure | Malthus’s problem becomes available for later adaptation and criticism without requiring arithmetic.
+B universal-rights | A claim to rights beyond inherited rank | A teaching comparison with ancient fellowship highlights both continuity of a question and difference in historical concepts.
+OUT scarcity-and-justice | Scarcity does not settle who should bear it | A teaching comparison keeps a descriptive pressure distinct from a policy or moral permission.
+LIFECYCLE {'population-pressure': 'retain', 'universal-rights': 'retain'}
+LINK {"from": "public-knowledge", "to": "exchange", "item": "universal-rights", "recipe": "make-scarcity-and-justice", "relation": "teaching-comparison", "evidence": "The parallel dossier compares late-eighteenth-century rights claims and population arguments without making Kant a cause of Mandeville.", "sources": ["mandeville", "smith", "malthus", "morris"]}
+
+RECIPE make-long-distance-exchange
+A provisioned-route | A voyage sustained beyond the fresh-food window | Earlier preservation practice materially supports the reach of navigation.
+B regional-goods | Distant regions exchange unlike goods | Trade changes what people can obtain and what institutions can control.
+OUT long-distance-exchange | An enlarged world of exchange | Navigation and preservation materially widen the reach of exchange.
+LIFECYCLE {'provisioned-route': 'retain', 'regional-goods': 'retain'}
+LINK {"from": "longitude", "to": "exchange", "item": "provisioned-route", "recipe": "make-long-distance-exchange", "relation": "adaptation", "evidence": "An actual earlier material system enables longer commercial routes.", "sources": ["mandeville", "smith", "malthus", "morris"]}
+
+RECIPE make-coercive-exchange
+A long-distance-exchange | An enlarged world of exchange | Navigation and preservation materially widen the reach of exchange.
+B coerced-labour | Some exchanged goods are made through coercion | A material and political condition of historical trade, not a harmless price adjustment.
+OUT coercive-exchange | Exchange entangled with coercion | The route carries political force as well as goods; technical reach alone does not explain the history.
+LIFECYCLE {'long-distance-exchange': 'retain', 'coerced-labour': 'retain'}
+
+RECIPE make-work-as-a-human-question
+A specialization-cost | More output can narrow the maker’s life | A gain in productive efficiency can coexist with a loss in human development.
+B cultivated-virtue | Virtue as cultivated judgment | A good life is reconstructed as learned practical activity, not possession of a slogan.
+OUT work-as-a-human-question | The maker is more than the output | Modern teaching comparison: a cultivated life supplies a question that production totals alone cannot answer.
+LIFECYCLE {'specialization-cost': 'retain', 'cultivated-virtue': 'retain'}
+LINK {"from": "kinds", "to": "exchange", "item": "cultivated-virtue", "recipe": "make-work-as-a-human-question", "relation": "teaching-comparison", "evidence": "Aristotle’s account of activity is compared with the human effects of specialized work; the doctrines remain distinct.", "sources": ["mandeville", "smith", "malthus", "morris"]}

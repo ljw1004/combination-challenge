@@ -1,0 +1,25 @@
+from pathlib import Path
+root=Path('/workspace/shared/combination-playtest-repairs-integration-20261028');out=Path('/workspace/shared/playtest-repairs-integration-20261028-state/mars-contracts/before/tests')
+ret="import {beforeRetainedAnomalies} from '../experiments/tangible-campaign/integration/retained-anomaly-successor.ts';\n"
+imports="import {currentMarsRouteActions} from '../experiments/tangible-campaign/integration/current-mars-route-actions.ts';\nimport {beforeSolarLampContinuity} from '../experiments/tangible-campaign/integration/solar-lamp-continuity.ts';\n"+ret
+for name in ['kitchen-caravan-content.test.ts','next-purpose-checkpoint-integration.test.mjs','divinity-light-text-workshop.test.ts']:
+ p=root/'tests'/name;out.joinpath(name).write_bytes(p.read_bytes());s=p.read_text();s=ret+s;s=s.replace('beforeIntuitiveAlternatives(integrated)','beforeIntuitiveAlternatives(beforeRetainedAnomalies(integrated))').replace('assert.deepEqual(integrated,applyIntuitiveAlternatives(s))','assert.deepEqual(beforeRetainedAnomalies(integrated),applyIntuitiveAlternatives(s))').replace('beforeIntuitiveAlternatives(s).recipes.length','beforeIntuitiveAlternatives(beforeRetainedAnomalies(s)).recipes.length');p.write_text(s)
+p=root/'tests/reviewed-campaign-integration.test.ts';s=p.read_text();s=imports+s.replace('import {applyMarsNaturalOrders}','import {applyMarsNaturalOrders,beforeMarsNaturalOrders}')
+s=s.replace('assert.deepEqual(scenarioFor(spec.key),applyIntuitiveAlternatives(',"assert.deepEqual(spec.key==='mars'?beforeSolarLampContinuity(beforeRetainedAnomalies(scenarioFor(spec.key))):beforeRetainedAnomalies(scenarioFor(spec.key)),applyIntuitiveAlternatives(")
+s=s.replace("for(const spec of routeSpecs){const s=scenarioFor(spec.key),actions=routeActions(spec.source);", "for(const spec of routeSpecs){const s=scenarioFor(spec.key),historicalActions=routeActions(spec.source),actions=spec.key==='mars'?currentMarsRouteActions(historicalActions):historicalActions;")
+s=s.replace('assert.deepEqual(evidence.actionsLog,actions);','''assert.deepEqual(evidence.actionsLog,historicalActions);
+  const expectedContinuity=structuredClone(evidence.goalContinuity),expectedEntries=structuredClone(evidence.stageEntries);
+  if(spec.key==='mars'){
+   const historical=beforeMarsNaturalOrders(beforeSolarLampContinuity(beforeRetainedAnomalies(s))),prior=auditRoute(historical,historicalActions,375);
+   assert.deepEqual(prior.rows,evidence.goalContinuity);assert.deepEqual(prior.stageEntries.map(({stateSha256,...row})=>row),evidence.stageEntries.map(({stateSha256,...row}:any)=>row));assert.equal(prior.game.state.metrics.combinations,evidence.combinations);
+   // Exactly one new accepted construction uses the earlier charger at camp.
+   const camp=expectedContinuity.find((r:any)=>r.stage==='camp');camp.earlierUsed.unshift('solar-charger');camp.goalConnected.unshift('solar-charger');
+   const insertion=historicalActions.findIndex(a=>a.type==='combine'&&(a.a==='solar-lamp'||a.b==='solar-lamp'));assert(insertion>=0);
+   for(const entry of expectedEntries)if(entry.actionPrefixLength>insertion)entry.actionPrefixLength++;
+  }''')
+s=s.replace('result.game.state.metrics.combinations,evidence.combinations)',"result.game.state.metrics.combinations,evidence.combinations+(spec.key==='mars'?1:0))")
+s=s.replace('assert.deepEqual(result.rows,evidence.goalContinuity);assert.deepEqual(result.stageEntries.map(({stateSha256,...row})=>row),evidence.stageEntries.map(({stateSha256,...row}:any)=>row))','assert.deepEqual(result.rows,expectedContinuity);assert.deepEqual(result.stageEntries.map(({stateSha256,...row})=>row),expectedEntries.map(({stateSha256,...row}:any)=>row))')
+s=s.replace('`${s.id}: documented ${alt.name} alternative completes', "`${s.id}: ${spec.key==='mars'&&alt.name==='tow-old-alias'?'historical duplicate-dependent witness, not current: ':'documented '}${alt.name} alternative completes")
+s=s.replace("const actions=routeActions(alt.source,alt.witness),report=auditRoute(s,actions);assert(report.game.state.completed);", "const raw=routeActions(alt.source,alt.witness),historicalOnly=spec.key==='mars'&&alt.name==='tow-old-alias',world=historicalOnly?beforeMarsNaturalOrders(beforeSolarLampContinuity(beforeRetainedAnomalies(s))):s,actions=spec.key==='mars'&&!historicalOnly?currentMarsRouteActions(raw):raw,report=auditRoute(world,actions);assert(report.game.state.completed);")
+p.write_text(s)
+p=root/'tests/intuitive-story-alternatives.test.ts';out.joinpath(p.name).write_bytes(p.read_bytes());s=ret+"import {expectedSourceHashAfterMarsNaturalOrders} from '../experiments/tangible-campaign/integration/mars-natural-orders-source-guard.ts';\n"+p.read_text();s=s.replace('assert.equal(sha(path),row.afterSha256,path);','assert.equal(sha(path),expectedSourceHashAfterMarsNaturalOrders(path,row.beforeSha256),path);');s=s.replace('const actual=structuredClone(s.recipes.find(x=>x.id===r.id)!);','const actual=structuredClone(beforeRetainedAnomalies(s).recipes.find(x=>x.id===r.id)!);');p.write_text(s)

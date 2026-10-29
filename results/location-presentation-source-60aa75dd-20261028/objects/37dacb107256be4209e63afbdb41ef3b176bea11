@@ -1,0 +1,7 @@
+# Project instructions
+
+Before changing or adding a game, read [DESIGN_PRINCIPLES.md](DESIGN_PRINCIPLES.md). It records the user's playtest decisions and applies to all current and future combination games in this project. Update it when the user establishes a new principle; implement the principle in content, runtime behaviour and build validation where appropriate.
+
+For tangible campaigns, author explicit input lifecycles, intermediate-goal dependencies and construction-preservation declarations. Run `npm run build` and `node --test tests/tangible-campaign.test.ts` for changes affecting campaign semantics. Preserve saved progress and existing archived direct routes. Do not treat research candidates or continuity-audit findings as implemented improvements.
+
+For current campaign authoring, a **location** is the whole persistent place, a **hotspot** is an interactive spot within it, and a **chapter** is a story beat. Use `experiments/tangible-campaign/schema/campaign.ts`, `engine/campaign.ts`, `ui/current-scenarios.ts` and `ui/current-campaign.ts`; new story sources live in `ui/stories/`. The old `scenario.ts`/`model.ts`/`scenarios.ts` paths are explicit v1 compatibility contracts/façades. Read `docs/location-hotspot-terminology.md` before touching saves or historical sources.

@@ -1,0 +1,138 @@
+// Source-informed, name/task/highlight-only engine regression. Not a blind human or browser test.
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {readFileSync,writeFileSync,mkdirSync} from 'node:fs';
+import {createHash} from 'node:crypto';
+import * as M from '../experiments/tangible-campaign/engine/model.ts';
+import type {Action,Scenario,Recipe} from '../experiments/tangible-campaign/schema/scenario.ts';
+import {validateContentLifecycles,validateObjectiveFlow,validateConstructionContinuity} from '../experiments/tangible-campaign/schema/lifecycle.ts';
+import {expectedSourceHashAfterIntuitiveAlternatives} from '../experiments/tangible-campaign/integration/intuitive-story-alternatives-source-guard.ts';
+import {scenario as atlas} from '../experiments/tangible-campaign/ui/campaigns/atlas-intellectual-history.ts';
+import {scenario as divinity} from '../experiments/tangible-campaign/ui/campaigns/divinity-disputed-questions.ts';
+import {scenario as light} from '../experiments/tangible-campaign/ui/campaigns/divinity-light-text-workshop.ts';
+import {scenario as workroom} from '../experiments/tangible-campaign/ui/campaigns/purpose-copy-workroom.ts';
+import {scenario as food} from '../experiments/tangible-campaign/ui/campaigns/food-kitchen-caravan.ts';
+import {scenario as elements} from '../experiments/tangible-campaign/ui/campaigns/elements-house-and-craft.ts';
+const root=new URL('../',import.meta.url),review='experiments/tangible-campaign/reviews/intuitive-story-alternatives/';
+const read=(p:string)=>readFileSync(new URL(p,root),'utf8');
+const json=(p:string)=>JSON.parse(read(p));
+const sha=(p:string)=>createHash('sha256').update(readFileSync(new URL(p,root))).digest('hex');
+const worlds:{name:string;s:Scenario;ids:string[]}[]=[
+ {name:'atlas-intellectual-history',s:atlas,ids:['make-contested-type-publication','make-tested-clock-longitude','make-lunar-positioned-sea-route','make-direct-redated-hermetica']},
+ {name:'divinity-disputed-questions',s:divinity,ids:['bounded-agreement-direct-articles']},
+ {name:'divinity-light-text-workshop',s:light,ids:['dl2-mark-reading-direct-passages']},
+ {name:'purpose-copy-workroom',s:workroom,ids:['carve-from-reflected-proof','carve-from-readable-proof']},
+ {name:'food-kitchen-caravan',s:food,ids:['dry-caramel','ganache-profiteroles','milk-ice-caramel-sundae']},
+ {name:'elements-house-and-craft',s:elements,ids:['star-chart-mounted-telescope','mailboat-printed-invitations']},
+];
+const old=(name:string):Scenario=>json(review+'predecessor/'+name+'.scenario.json');
+const routeFor=(s:Scenario):Action[]=>s===atlas?json('experiments/tangible-campaign/evidence/intellectual-worlds-20261028/atlas-author-route.json').actionsLog:json('experiments/tangible-campaign/evidence/'+s.id+'-route-evidence.json').actionsLog;
+const accepted=(s:Scenario,g:M.Game,a:Action)=>{const r=M.applyAction(s,g,a);assert(r.accepted,`${s.id} ${JSON.stringify(a)}: ${r.message}`);return r.game;};
+const combine=(a:string,b:string):Action=>({type:'combine',a,b});
+const match=(s:Scenario,a:Action)=>a.type==='combine'?s.recipes.find(r=>[r.a,r.b].sort().join('|')===[a.a,a.b].sort().join('|')):undefined;
+const local=(g:M.Game,id:string)=>id.startsWith('@')?g.state.places.some(p=>p.id===id.slice(1)&&p.area===g.state.currentArea):g.state.tokens.some(t=>t.id===id&&t.area===g.state.currentArea);
+function prepare(s:Scenario,r:Recipe,width=375):{game:M.Game;prefix:Action[];suffix:Action[]}{
+ if(s===workroom){
+  const prefix:Action[]=[combine('papers','@press'),{type:'advance'}];
+  if(r.a==='proof-back')prefix.push(combine('master','stock'),combine('block-readable','papers'));
+  else prefix.push(combine('master','@window'),combine('reverse','stock'),combine('block-reflected','papers'));
+  return {game:M.replay(s,prefix,width),prefix,suffix:[{type:'place',item:'block-readable',location:'display-frame'},{type:'advance'},{type:'place',item:'block-reflected',location:'printer-chest'},{type:'advance'}]};
+ }
+ const route=routeFor(s),prefix:Action[]=[];let g=M.createGame(s,width);
+ for(let n=0;n<=route.length;n++){
+  if(!g.state.discovered.includes(r.out!)&&local(g,r.a)&&local(g,r.b))return {game:g,prefix,suffix:route.slice(n)};
+  assert(n<route.length,`No legal prefix for ${r.id}`);const a=route[n];
+  if(match(s,a)?.out===r.out)continue; // Defer only the exact older result, never conjure its prerequisites.
+  g=accepted(s,g,a);prefix.push(a);
+ }
+ throw Error('unreachable');
+}
+function finish(s:Scenario,g:M.Game,suffix:Action[]){
+ for(const a of suffix){const r=match(s,a);if(r?.out&&g.state.discovered.includes(r.out))continue;g=accepted(s,g,a);}
+ assert(g.state.completed);return g;
+}
+const summaries:any[]=[];let completedDirectionCases=0;
+
+test('exact LIVE86 source successor preserves predecessors and rejects any guessed ancestry',()=>{
+ const manifest=json(review+'source-successors.json');assert.equal(manifest.baseCommit,'86c479746909412d775873d5bb250868ed7bf2d0');assert.equal(Object.keys(manifest.files).length,6);
+ for(const [path,row] of Object.entries<any>(manifest.files)){
+  assert.equal(sha(row.predecessorSnapshotPath),row.beforeSha256,path);assert.equal(sha(path),row.afterSha256,path);
+  assert.equal(expectedSourceHashAfterIntuitiveAlternatives(path,row.beforeSha256),row.afterSha256);
+  assert.throws(()=>expectedSourceHashAfterIntuitiveAlternatives(path,'0'.repeat(64)),/exact LIVE86 predecessor/);
+  assert.equal(sha(row.predecessorScenarioPath),row.predecessorScenarioSha256);
+ }
+ assert.equal(expectedSourceHashAfterIntuitiveAlternatives('unrelated','a'.repeat(64)),'a'.repeat(64));
+});
+
+test('only thirteen exact same-output aliases; same IDs, history, sources, canonical paths, checkpoints and milestones',()=>{
+ let total=0;
+ for(const {name,s,ids} of worlds){const before=old(name);assert.equal(s.id,before.id);assert.deepEqual(s.items.map(i=>i.id),before.items.map(i=>i.id));assert.deepEqual(s.locations,before.locations);assert.deepEqual(s.sources,before.sources);assert.deepEqual(s.checkpoints,before.checkpoints);assert.deepEqual(s.milestones,before.milestones);
+  assert.deepEqual(s.recipes.slice(before.recipes.length).map(r=>r.id),ids);total+=ids.length;
+  for(const r of before.recipes){const actual=structuredClone(s.recipes.find(x=>x.id===r.id)!);if(r.id==='make-positioned-sea-route')actual.description=r.description;assert.deepEqual(actual,r,`${s.id}/${r.id} canonical preserved`);}
+  for(const r of s.recipes.slice(before.recipes.length)){assert(before.recipes.some(x=>x.out===r.out));assert(!r.requires&&!r.install);}
+  for(const errors of [M.validateScenario(s),validateContentLifecycles([s]),validateObjectiveFlow([s]),validateConstructionContinuity([s])])assert.deepEqual(errors,[],s.id);
+  for(const [i,st] of s.stages.entries()){
+   assert.deepEqual(st.objectives.map(({intermediate,after,...g})=>g),before.stages[i].objectives.map(({intermediate,after,...g})=>g));
+   for(const field of ['id','area','carry','caches','locations','onAlreadyComplete'] as const)assert.deepEqual(st[field],before.stages[i][field],s.id+'/'+st.id+'/'+field);
+  }
+ }
+ assert.equal(total,13);
+});
+
+for(const {name,s,ids} of worlds){
+ test(`${s.id}: original route, all checkpoints and existing saves retain completion`,()=>{
+  const before=old(name),route=routeFor(s);
+  for(const width of [320,375,600]){
+   const prior=M.replay(before,route,width),now=M.replay(s,route,width);assert(prior.state.completed);assert(now.state.completed);assert.equal(now.state.metrics.combinations,prior.state.metrics.combinations);
+   assert.deepEqual(M.restore(s,JSON.stringify(prior)),prior,'same-ID saved completion retained');
+  }
+  for(const cp of before.checkpoints??[]){const prior=M.checkpoint(before,cp.id),restored=M.restore(s,JSON.stringify(prior));assert.deepEqual(restored,prior);assert(M.checkpoint(s,cp.id));}
+ });
+ for(const id of ids)test(`${s.id}/${id}: normal local availability, both drops, lifecycle, objectives, consumers, undo, saves and duplicates`,()=>{
+  const r=s.recipes.find(r=>r.id===id)!;
+  for(const width of [320,600])for(const reverse of r.b.startsWith('@')?[false]:[false,true]){
+   const {game:before,prefix,suffix}=prepare(s,r,width);assert(!before.state.discovered.includes(r.out!));assert(local(before,r.a)&&local(before,r.b));
+   const a=reverse?r.b:r.a,b=reverse?r.a:r.b;
+   const state=JSON.stringify(before);const view=M.playerView(s,before);const hints=M.partners(s,before.state,a);assert(hints.directions.some(d=>d.source===a&&d.target===b),id+' highlighted');assert.equal(JSON.stringify(before),state,'view/highlight requires no Read and changes nothing');
+   const action=M.dropAction(s,before.state,a,b);assert.equal(action.type,'combine');const after=accepted(s,before,action);assert(after.state.discovered.includes(r.out!));assert.equal(after.state.tokens.filter(t=>t.kind===r.out).length,1);
+   for(const input of [r.a,r.b].filter(x=>!x.startsWith('@')))if(r.lifecycle![input].role==='retain')assert.deepEqual(M.token(after.state,input),M.token(before.state,input),id+'/'+input+' retained');
+   if(id==='mailboat-printed-invitations'){
+    assert(!M.token(after.state,'sailboat'));assert(M.token(after.state,'printed-invitations'));const previous=M.token(before.state,'sailboat')!,result=M.token(after.state,'mailboat')!;
+    assert.equal(result.x,previous.x);assert.equal(result.y,previous.y);for(const part of previous.incorporated)assert(result.incorporated.includes(part));
+    for(const part of [...Object.values(previous.slots),...previous.components??[]])assert(result.components?.includes(part));
+   }
+   assert.deepEqual(M.restore(s,JSON.stringify(after)),after);const u=M.undo(after);assert(u.accepted);assert.deepEqual(u.game.state.tokens,before.state.tokens);assert.deepEqual(u.game.state.discovered,before.state.discovered);assert(accepted(s,u.game,action));
+   for(const pair of [[r.a,r.b],[r.b,r.a]]){const repeat=M.applyAction(s,after,combine(pair[0],pair[1]));assert(!repeat.accepted,id+' cannot duplicate output');assert.deepEqual(repeat.game.state.tokens,after.state.tokens);}
+   const completed=finish(s,after,suffix);assert.equal(completed.state.tokens.filter(t=>t.kind===r.out).length<=1,true);
+   // Real predecessor state, not a new-world migration or inventory injection.
+   const legacy=M.replay(old(name),prefix,width),upgraded=M.restore(s,JSON.stringify(legacy));assert.deepEqual(upgraded,legacy);assert(accepted(s,upgraded,action));
+   completedDirectionCases++;
+   if(width===320&&!reverse)summaries.push({world:s.id,recipe:id,stage:s.stages[before.state.stage].id,taskLabels:view.objectives.map(o=>o.text),inputLabels:[r.a,r.b].map(x=>x.startsWith('@')?s.locations.find(l=>l.id===x.slice(1))!.label:s.items.find(i=>i.id===x)!.label),output:r.out,outputAbsentBefore:true,localInputs:true,canonicalPrefixActions:prefix.length,completed:true});
+  }
+ });
+}
+
+test('visible Mark premise supports direct sequence; doctrines, optional richer readings and consumers remain',()=>{
+ assert.equal(light.items.find(i=>i.id==='mark-compassion')!.label,'Mark: compassion leads to teaching; feeding follows');
+ assert(light.recipes.some(r=>r.id==='dl2-compassion-care'));assert(light.recipes.some(r=>r.id==='dl2-mark-reading'));
+ assert(light.stages[2].objectives.find(o=>o.id==='hill-mark')!.intermediate);assert(light.recipes.some(r=>r.out==='bread-panel'&&[r.a,r.b].includes('mark-reading')));
+ assert(divinity.recipes.some(r=>r.id==='shared-trinity'));assert(divinity.recipes.some(r=>r.id==='bounded-agreement'));
+ assert.match(divinity.items.find(i=>i.id==='bounded-agreement')!.label,/dispute open/);
+ assert(atlas.recipes.some(r=>r.id==='make-ancient-wisdom-claim'));assert(atlas.recipes.some(r=>r.id==='make-redated-hermetica'));
+ assert.match(atlas.items.find(i=>i.id==='positioned-sea-route')!.description!,/^A longitude determination/);assert.match(atlas.items.find(i=>i.id==='positioned-sea-route')!.description!,/latitude remains a separate determination/);
+ assert.equal(food.stages.find(s=>s.id==='ice')!.objectives.find(o=>o.item==='caramel-sundae')!.text,'Make caramel sundae.');assert.match(food.items.find(i=>i.id==='caramel-sundae')!.description!,/frozen custard or milk ice cream/);
+});
+
+test('necessary other ingredients and article identities are not turned into blanket topical acceptance',()=>{
+ const cases:[Scenario,string,string,string][]=[
+  [atlas,'make-direct-redated-hermetica','hermetic-dialogues','print-censors'],
+  [light,'dl2-mark-reading-direct-passages','mark-compassion','john-feeding'],
+  [workroom,'carve-from-reflected-proof','proof-back','papers'],
+  [elements,'mailboat-printed-invitations','printed-invitations','ink'],
+ ];
+ for(const[s,id,a,b]of cases){const{game}=prepare(s,s.recipes.find(r=>r.id===id)!);assert(local(game,a)&&local(game,b));const rejected=M.applyAction(s,game,combine(a,b));assert(!rejected.accepted,`${a}+${b}`);}
+});
+
+test('record exact logical acceptance evidence and honest scope',()=>{
+ assert.equal(summaries.length,13);assert.equal(completedDirectionCases,50);const path=new URL('results/intuitive-story-alternatives-20261028/',root);mkdirSync(path,{recursive:true});writeFileSync(new URL('verification.json',path),JSON.stringify({status:'PASS',newRoutes:13,directions:'Both object-pair directions; the fixed saucepan is only a drop target under unchanged engine rules',completedDirectionCases,widths:[320,600],cases:summaries,limits:['Source-informed engine tests, not independent fresh-reader testing','No Read calls; visible labels/tasks/highlights observed, not browser layout','No human enjoyment or historical truth claim','Full combined aggregate and global source-chain integration are integrator-owned']},null,2)+'\n');
+});

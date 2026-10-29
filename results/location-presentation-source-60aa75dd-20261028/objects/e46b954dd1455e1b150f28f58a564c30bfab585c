@@ -1,0 +1,62 @@
+DESK 13: mechanism | Mechanicians and natural philosophers · c. 1620–1687 CE | Clockwork worlds | If a machine can imitate a living action, what has it explained? If the Moon is a material body, can its motion belong to the same world as a falling stone?
+GOALS: [{'id': 'mechanism-mechanical-nature', 'text': 'Try a mechanical account', 'kind': 'create', 'item': 'mechanical-nature'}, {'id': 'mechanism-imitation-limit', 'text': 'Keep imitation distinct from life', 'kind': 'create', 'item': 'imitation-limit'}, {'id': 'mechanism-white-light-components', 'text': 'Separate white light’s components', 'kind': 'create', 'item': 'white-light-components'}, {'id': 'mechanism-blood-circuit', 'text': 'Make a circulating account', 'kind': 'create', 'item': 'blood-circuit'}, {'id': 'mechanism-newtonian-framework', 'text': 'Unite terrestrial and celestial motion', 'kind': 'create', 'item': 'newtonian-framework'}]
+
+RECIPE make-mechanical-nature
+A four-causes | Different questions about why | Material, form, source of change and end are distinct explanatory questions.
+B matter-motion | Explain bodies through matter and motion | A mechanistic program challenges some inherited kinds of explanation.
+OUT mechanical-nature | Nature investigated through matter and motion | A mechanistic account changes which explanatory questions take priority.
+LIFECYCLE {'four-causes': 'retain', 'matter-motion': 'retain'}
+LINK {"from": "kinds", "to": "mechanism", "item": "four-causes", "recipe": "make-mechanical-nature", "relation": "criticism", "evidence": "Early-modern mechanism contests inherited explanatory priorities.", "sources": ["descartes", "automata", "harvey-primary", "newton-moon-test-primary", "newton-light"]}
+
+RECIPE make-clockwork-figure
+A mechanical-sky | A sky represented in gears | Recurring celestial cycles can be embodied in a mechanism; no uninterrupted lineage to modern computers is asserted.
+B moving-figure | A crafted figure can bow and turn | A particular automaton body awaiting a mechanism.
+OUT clockwork-figure | An animated clockwork figure | The mechanism moves a lifelike figure; the inherited device is a teaching comparison, not a claimed continuous artifact lineage.
+LIFECYCLE {'mechanical-sky': 'retain', 'moving-figure': 'transform'}
+LINK {"from": "world-models", "to": "mechanism", "item": "mechanical-sky", "recipe": "make-clockwork-figure", "relation": "teaching-comparison", "evidence": "Both devices embody an account in motion; no unbroken transmission from Antikythera is implied.", "sources": ["descartes", "automata", "harvey-primary", "newton-moon-test-primary", "newton-light"]}
+
+RECIPE make-imitation-limit
+A clockwork-figure | An animated clockwork figure | The mechanism moves a lifelike figure; the inherited device is a teaching comparison, not a claimed continuous artifact lineage.
+B lifelike-claim | Imitating an action is not reproducing every living process | A limitation of inference from appearance, not a denial that organisms have mechanisms.
+OUT imitation-limit | Lifelike motion does not settle what life is | The successful imitation leaves another question open.
+LIFECYCLE {'clockwork-figure': 'retain', 'lifelike-claim': 'retain'}
+
+RECIPE make-falling-moon
+A kepler-ellipse | An elliptical path for Mars | Kepler abandons the privileged circle while working from an inherited Sun-centred problem.
+B falling-stone | A stone falls toward Earth | An ordinary terrestrial motion to compare with orbital motion.
+OUT falling-moon | An orbit considered as continual falling | Newton’s comparison brings terrestrial falling and celestial motion into one problem without an inverse-square calculation.
+LIFECYCLE {'kepler-ellipse': 'retain', 'falling-stone': 'retain'}
+LINK {"from": "moving-earth", "to": "mechanism", "item": "kepler-ellipse", "recipe": "make-falling-moon", "relation": "adaptation", "evidence": "Newtonian dynamics explains orbital relations developed through Kepler’s work.", "sources": ["descartes", "automata", "harvey-primary", "newton-moon-test-primary", "newton-light"]}
+
+RECIPE make-universal-gravitation
+A falling-moon | An orbit considered as continual falling | Newton’s comparison brings terrestrial falling and celestial motion into one problem without an inverse-square calculation.
+B revised-harmony | A lawful sky without perfect circles | The search for order survives the revision of what that order looks like.
+OUT universal-gravitation | One gravitation for Earth and heavens | A common dynamical account relates the previously separate domains.
+LIFECYCLE {'falling-moon': 'retain', 'revised-harmony': 'retain'}
+LINK {"from": "moving-earth", "to": "mechanism", "item": "revised-harmony", "recipe": "make-universal-gravitation", "relation": "adaptation", "evidence": "Keplerian regularities become constraints for a dynamical explanation.", "sources": ["descartes", "automata", "harvey-primary", "newton-moon-test-primary", "newton-light"]}
+
+RECIPE make-white-light-components
+A geometric-optics | Light paths as a geometric account | A model of paths connects physical light with spatial reasoning.
+B prism-spectrum | A prism separates white light into colours | A supplied observed effect, not an instruction to build or aim a laser.
+OUT white-light-components | White light contains separable colours | An optical experiment changes the account of white light; a prism does not simply stain it.
+LIFECYCLE {'geometric-optics': 'retain', 'prism-spectrum': 'retain'}
+LINK {"from": "light", "to": "mechanism", "item": "geometric-optics", "recipe": "make-white-light-components", "relation": "adaptation", "evidence": "Geometric optics supplies an inherited framework for experiments on colour.", "sources": ["descartes", "automata", "harvey-primary", "newton-moon-test-primary", "newton-light"]}
+
+RECIPE make-one-way-circulation
+A part-and-function | A part understood through its work | Functional explanation asks why a part is present in an organism.
+B one-way-valves | Valves permit flow in one direction | A qualitative anatomical observation.
+OUT one-way-circulation | Blood flow constrained by valves | The work of an anatomical part supplies a directional constraint.
+LIFECYCLE {'part-and-function': 'retain', 'one-way-valves': 'retain'}
+LINK {"from": "kinds", "to": "mechanism", "item": "part-and-function", "recipe": "make-one-way-circulation", "relation": "adaptation", "evidence": "Anatomical function is re-examined through observed directional constraints and motion.", "sources": ["descartes", "automata", "harvey-primary", "newton-moon-test-primary", "newton-light"]}
+
+RECIPE make-blood-circuit
+A one-way-circulation | Blood flow constrained by valves | The work of an anatomical part supplies a directional constraint.
+B heart-contraction | The contracting heart drives blood onward | A simplified mechanical relation in Harvey’s circulation argument.
+OUT blood-circuit | Blood in a circulating system | Heart action and directional pathways form a circulation account, not a sequence of volume sums.
+LIFECYCLE {'one-way-circulation': 'retain', 'heart-contraction': 'retain'}
+
+RECIPE make-newtonian-framework
+A universal-gravitation | One gravitation for Earth and heavens | A common dynamical account relates the previously separate domains.
+B universal-time | Newton’s framework uses a common absolute time | A reconstructed theoretical commitment, not a statement that every later theory agrees.
+OUT newtonian-framework | Universal mechanics in absolute space and time | Reconstruct the framework whose successes and limits later theories will revisit.
+LIFECYCLE {'universal-gravitation': 'retain', 'universal-time': 'retain'}

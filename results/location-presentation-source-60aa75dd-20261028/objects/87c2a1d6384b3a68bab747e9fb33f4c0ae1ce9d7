@@ -1,0 +1,81 @@
+DESK 28: planet | Genes, ancient air and industrial traces · c. 1900–2020, returning to earlier experiments | The planet enters the laboratory | The inherited puzzles are not finished. Heredity becomes material; an ancient atmosphere can be sampled; the clean measurement of Earth’s age opens an unwelcome question about the present.
+GOALS: [{'id': 'planet-genes-in-context', 'text': 'Join inheritance to development', 'kind': 'create', 'item': 'genes-in-context'}, {'id': 'planet-atmospheric-history', 'text': 'Recover an atmospheric past', 'kind': 'create', 'item': 'atmospheric-history'}, {'id': 'planet-human-driven-warming', 'text': 'Connect industrial power to planetary change', 'kind': 'create', 'item': 'human-driven-warming'}, {'id': 'planet-industrial-lead-footprint', 'text': 'Follow measurement into pollution', 'kind': 'create', 'item': 'industrial-lead-footprint'}, {'id': 'planet-world-history-not-destiny', 'text': 'Keep a many-cause history', 'kind': 'create', 'item': 'world-history-not-destiny'}]
+
+RECIPE make-particulate-heredity
+A open-heredity | Selection with inheritance still unresolved | A fruitful account can retain an important unsolved problem. Later genetics must earn its arrival.
+B segregating-factors | Mendel’s experiments preserve distinct inherited factors | The nineteenth-century experiments gained a new place in twentieth-century genetics; not every trait follows a simple one-gene pattern.
+OUT particulate-heredity | Inheritance need not blend differences away | The old open difficulty meets a distinct mechanism of inheritance, without pretending Darwin had modern genetics.
+LIFECYCLE {'open-heredity': 'retain', 'segregating-factors': 'retain'}
+LINK {"from": "evolution", "to": "planet", "item": "open-heredity", "recipe": "make-particulate-heredity", "relation": "criticism", "evidence": "The exact Darwinian-era inheritance difficulty is revisited through later genetics, not silently resolved in 1859.", "sources": ["genetics", "mendel", "climate", "patterson-lead", "radiometric-clock"]}
+
+RECIPE make-molecular-heredity
+A particulate-heredity | Inheritance need not blend differences away | The old open difficulty meets a distinct mechanism of inheritance, without pretending Darwin had modern genetics.
+B dna-inheritance | DNA carries heritable sequence information | Molecular inheritance gives material mechanisms to an older question; genes are not a complete description of an organism’s future.
+OUT molecular-heredity | The inherited difference has a molecular carrier | A biological account acquires a material substrate, not a complete theory of every trait.
+LIFECYCLE {'particulate-heredity': 'retain', 'dna-inheritance': 'retain'}
+
+RECIPE make-genes-in-context
+A molecular-heredity | The inherited difference has a molecular carrier | A biological account acquires a material substrate, not a complete theory of every trait.
+B environment-development | Development also depends on conditions and interactions | Inherited differences act through development in an environment, not as a context-free destiny.
+OUT genes-in-context | Inherited information acts in a developing world | A useful explanation combines inheritance with environmental and developmental conditions.
+LIFECYCLE {'molecular-heredity': 'retain', 'environment-development': 'retain'}
+
+RECIPE make-ecosystem-relations
+A relocated-habitats | Life’s changing map includes moving land | Earlier environmental and distributional patterns can now be reconsidered on a mobile surface.
+B food-web | Organisms feed, compete and cooperate in connected systems | A network of ecological relations, not a claim that every ecosystem seeks a harmonious balance.
+OUT ecosystem-relations | A habitat is a network of living relations | The earlier moving map becomes a setting for interacting organisms rather than merely a list of places.
+LIFECYCLE {'relocated-habitats': 'retain', 'food-web': 'retain'}
+LINK {"from": "moving-earth-geology", "to": "planet", "item": "relocated-habitats", "recipe": "make-ecosystem-relations", "relation": "adaptation", "evidence": "The earlier spatial and historical account of habitats is extended with ecological interactions.", "sources": ["genetics", "mendel", "climate", "patterson-lead", "radiometric-clock"]}
+
+RECIPE make-carbon-energy-link
+A fuel-dependent-industry | Industrial power has a material appetite | An expanded productive system depends on extracting and supplying fuel.
+B industrial-carbon | Burning fossil fuels adds long-stored carbon to the air | A material connection between industrial energy and atmospheric change.
+OUT carbon-energy-link | Industrial power changes the atmospheric store | The earlier material appetite of industry now connects to a planetary reservoir.
+LIFECYCLE {'fuel-dependent-industry': 'retain', 'industrial-carbon': 'retain'}
+LINK {"from": "progress-cost", "to": "planet", "item": "fuel-dependent-industry", "recipe": "make-carbon-energy-link", "relation": "adaptation", "evidence": "An established material dependence is followed into the fate of its carbon, an actual physical connection.", "sources": ["genetics", "mendel", "climate", "patterson-lead", "radiometric-clock"]}
+
+RECIPE make-radiative-warming
+A electromagnetic-light | Light belongs to the electromagnetic field | The prediction supplies a unification, not an arithmetic exercise for the player.
+B greenhouse-absorption | Carbon dioxide absorbs outgoing infrared radiation | A physical mechanism of warming; light’s electromagnetic nature makes its spectral interactions intelligible.
+OUT radiative-warming | Added greenhouse gas changes Earth’s heat loss | A physical interaction supplies a causal mechanism; no numerical radiation calculation is required.
+LIFECYCLE {'electromagnetic-light': 'retain', 'greenhouse-absorption': 'retain'}
+LINK {"from": "fields-images", "to": "planet", "item": "electromagnetic-light", "recipe": "make-radiative-warming", "relation": "adaptation", "evidence": "Radiation is part of the electromagnetic spectrum; its interaction with gases supplies a specific mechanism.", "sources": ["genetics", "mendel", "climate", "patterson-lead", "radiometric-clock"]}
+
+RECIPE make-climate-pressure
+A carbon-energy-link | Industrial power changes the atmospheric store | The earlier material appetite of industry now connects to a planetary reservoir.
+B radiative-warming | Added greenhouse gas changes Earth’s heat loss | A physical interaction supplies a causal mechanism; no numerical radiation calculation is required.
+OUT climate-pressure | The energy system creates a warming pressure | Material emissions and radiative physics combine into an explanation, rather than climate being inferred from correlation alone.
+LIFECYCLE {'carbon-energy-link': 'retain', 'radiative-warming': 'retain'}
+
+RECIPE make-atmospheric-history
+A age-still-open | Sequence is not duration | The order and depth of the history are powerful results; its absolute age remains a distinct unresolved measurement problem.
+B ice-core-air | Ancient bubbles preserve samples of former air | An archive of atmospheric composition that can be compared with other climate evidence.
+OUT atmospheric-history | The air has a readable history | Modern comparison: the earlier distinction between order and elapsed time makes dated environmental archives a different kind of evidence from an undated sample.
+LIFECYCLE {'age-still-open': 'retain', 'ice-core-air': 'retain'}
+LINK {"from": "deep-time", "to": "planet", "item": "age-still-open", "recipe": "make-atmospheric-history", "relation": "teaching-comparison", "evidence": "The older distinction between temporal sequence and duration is reused when interpreting an archive, not presented as an unsolved question in 2020.", "sources": ["genetics", "mendel", "climate", "patterson-lead", "radiometric-clock"]}
+
+RECIPE make-human-driven-warming
+A climate-pressure | The energy system creates a warming pressure | Material emissions and radiative physics combine into an explanation, rather than climate being inferred from correlation alone.
+B modern-warming | Instrumental records show a warming planet | The assessment uses multiple independent lines of evidence, not a single warm day.
+OUT human-driven-warming | Human activity drives the recent warming | Observed change is interpreted with the established physical mechanism and broader evidence; uncertainty in details is not uncertainty that greenhouse gases warm the planet.
+LIFECYCLE {'climate-pressure': 'retain', 'modern-warming': 'retain'}
+
+RECIPE make-clean-measurement-problem
+A earth-age-measured | Earth is about 4.54 billion years old | The modern estimate is an evidence-based age of formation. The numerical conclusion is supplied as a finding, not a mental arithmetic exercise.
+B lead-blank | Lead appears even in supposedly clean laboratory blanks | Contamination can arrive from equipment and surroundings, not only the ancient sample under study.
+OUT clean-measurement-problem | The laboratory can contaminate an ancient clock | A surprising return: precision work on Earth’s age requires separating the sample’s lead from lead introduced by the present.
+LIFECYCLE {'earth-age-measured': 'retain', 'lead-blank': 'retain'}
+LINK {"from": "moving-earth-geology", "to": "planet", "item": "earth-age-measured", "recipe": "make-clean-measurement-problem", "relation": "transmission", "evidence": "Patterson’s precision lead work and control of contamination connected his geochronology research to investigation of modern lead pollution.", "sources": ["genetics", "mendel", "climate", "patterson-lead", "radiometric-clock"]}
+
+RECIPE make-industrial-lead-footprint
+A clean-measurement-problem | The laboratory can contaminate an ancient clock | A surprising return: precision work on Earth’s age requires separating the sample’s lead from lead introduced by the present.
+B old-new-lead | Modern environments carry more industrial lead than older baselines | Patterson’s measurements moved from an analytical nuisance to evidence of widespread pollution.
+OUT industrial-lead-footprint | An analytical nuisance exposes industrial pollution | A problem in geochronology opens an environmental-health inquiry through measured contamination, not by a thematic slogan.
+LIFECYCLE {'clean-measurement-problem': 'retain', 'old-new-lead': 'retain'}
+
+RECIPE make-world-history-not-destiny
+A coercive-exchange | Exchange entangled with coercion | The route carries political force as well as goods; technical reach alone does not explain the history.
+B ecosystem-relations | A habitat is a network of living relations | The earlier moving map becomes a setting for interacting organisms rather than merely a list of places.
+OUT world-history-not-destiny | Geography constrains history without writing it alone | Modern teaching comparison: ecology and material routes matter alongside coercion, institutions and contingency. No single contested geographical theory is treated as settled history.
+LIFECYCLE {'coercive-exchange': 'retain', 'ecosystem-relations': 'retain'}
+LINK {"from": "exchange", "to": "planet", "item": "coercive-exchange", "recipe": "make-world-history-not-destiny", "relation": "teaching-comparison", "evidence": "The earlier result that exchange included political coercion prevents a later ecological account from swallowing human history.", "sources": ["genetics", "mendel", "climate", "patterson-lead", "radiometric-clock"]}

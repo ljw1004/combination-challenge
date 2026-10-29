@@ -1,0 +1,605 @@
+{
+  "scenarioId": "mars-persistent-locations-v5",
+  "oldSha256": "07b218ed3bd1384e4d76727e1c1daee74e216aec6999afb099a2fccc39a30eb3",
+  "newSha256": "cf96ced8f47d5bc86e5b636a150945ccd92ad0f973d1c20633155bceb7d6119b",
+  "removedItems": [
+    {
+      "id": "scale-card",
+      "label": "Scale card",
+      "description": "Available with the equipment at Landing cargo yard from the first arrival."
+    },
+    {
+      "id": "specimen-rack",
+      "label": "Specimen rack",
+      "description": "Available with the equipment at Landing cargo yard from the first arrival."
+    },
+    {
+      "id": "core-rack",
+      "label": "Core rack",
+      "description": "Support the fragile sample for a profile photograph."
+    },
+    {
+      "id": "scaled-core",
+      "label": "Scaled core",
+      "description": "Place a visible scale beside the core without treating the label as a discovery."
+    },
+    {
+      "id": "scaled-gravel-view",
+      "label": "Scaled gravel view",
+      "description": "Add the in-scene scale reference to the image record so the pebble dimensions can be interpreted; capture and annotation are compressed."
+    }
+  ],
+  "changedItems": [
+    {
+      "before": {
+        "id": "core-profile",
+        "label": "Core profile",
+        "description": "Record visible structure; the image is evidence, not a proof of ancient life."
+      },
+      "after": {
+        "id": "core-profile",
+        "label": "Core layer photograph",
+        "description": "Photograph the visible layers in the actual ice core. The photograph records their order, not calibrated dimensions, a shared age with another site, or evidence of life."
+      }
+    },
+    {
+      "before": {
+        "id": "layer-interpretation",
+        "label": "Layer interpretation",
+        "description": "The earlier profile records layers in an ice exposure; this core records sediment at another site. Here, grain sizes differ from one layer to the next. Comparing the records does not establish a shared age or cause."
+      },
+      "after": {
+        "id": "layer-interpretation",
+        "label": "Fine–coarse–fine layers",
+        "description": "The earlier photograph records layers in ice; the basin core records sediment at another site. Here, grain sizes differ between layers. Comparing these records does not establish a shared age or cause."
+      }
+    },
+    {
+      "before": {
+        "id": "basin-field-record",
+        "label": "Basin field record",
+        "description": "This fictional mission record preserves a coarse band between two fine-grained layers at the core site. Grain sizes and layer order are recorded; age and transport agent remain unresolved. Nearby exposures may help test a water-transport explanation.",
+        "reading": {
+          "text": "At this core site, a coarse band separates two fine-grained layers. We kept a labelled specimen. The saved ice profile is a comparison, not proof that the two places share an age or history. Nearby exposures may help us interpret the change.",
+          "attribution": "Fictional expedition field note; not a real mission measurement."
+        }
+      },
+      "after": {
+        "id": "basin-field-record",
+        "label": "Basin field record",
+        "description": "This fictional mission record preserves a coarse band between two fine-grained layers at the core site. Grain sizes and layer order are recorded; age and transport agent remain unresolved. Nearby exposures may help test a water-transport explanation.",
+        "reading": {
+          "text": "At this core site, a coarse band separates two fine-grained layers. We kept a labelled specimen. The saved ice-core photograph is a comparison, not proof that the two places share an age or history. Nearby exposures may help us interpret the change.",
+          "attribution": "Fictional expedition field note; not a real mission measurement."
+        }
+      }
+    },
+    {
+      "before": {
+        "id": "ripple-view",
+        "label": "Ripple view",
+        "description": "Record the rippled surface and its surroundings, not just an attractive crop of the pattern."
+      },
+      "after": {
+        "id": "ripple-view",
+        "label": "Ripple photograph",
+        "description": "Record the rippled surface and its surroundings, not just an attractive crop of the pattern."
+      }
+    },
+    {
+      "before": {
+        "id": "gravel-view",
+        "label": "Gravel view",
+        "description": "Record the rounded gravel in its rock matrix and the neighbouring layers."
+      },
+      "after": {
+        "id": "gravel-view",
+        "label": "Gravel photograph",
+        "description": "Record the rounded gravel in its rock matrix and the neighbouring layers."
+      }
+    },
+    {
+      "before": {
+        "id": "paired-terrain-views",
+        "label": "Paired terrain views",
+        "description": "Put the two source views beside each other: similar-looking surface patterns need not share one origin."
+      },
+      "after": {
+        "id": "paired-terrain-views",
+        "label": "Paired terrain photographs",
+        "description": "Put the two source views beside each other: similar-looking surface patterns need not share one origin."
+      }
+    }
+  ],
+  "removedRecipes": [
+    {
+      "id": "outcrop-12-core-rack",
+      "a": "ice-core",
+      "b": "specimen-rack",
+      "description": "Support the fragile sample for a profile photograph.",
+      "out": "core-rack",
+      "lifecycle": {
+        "ice-core": {
+          "role": "transform",
+          "reason": "Ice core is the existing object changed into Core rack."
+        },
+        "specimen-rack": {
+          "role": "incorporate",
+          "reason": "Specimen rack becomes part of the result; retain a supply only while another authored use needs it."
+        }
+      }
+    },
+    {
+      "id": "outcrop-13-scaled-core",
+      "a": "core-rack",
+      "b": "scale-card",
+      "description": "Place a visible scale beside the core without treating the label as a discovery.",
+      "out": "scaled-core",
+      "lifecycle": {
+        "core-rack": {
+          "role": "transform",
+          "reason": "Core rack is the existing object changed into Scaled core."
+        },
+        "scale-card": {
+          "role": "retain",
+          "reason": "Scale card is reused as equipment, a source/reference, a subject of observation, or a continuing supply; this action does not consume it."
+        }
+      }
+    },
+    {
+      "id": "contrast-scale",
+      "a": "gravel-view",
+      "b": "scale-card",
+      "out": "scaled-gravel-view",
+      "description": "Add the in-scene scale reference to the image record so the pebble dimensions can be interpreted; capture and annotation are compressed.",
+      "lifecycle": {
+        "gravel-view": {
+          "role": "transform",
+          "reason": "Gravel view is the existing object changed into Scaled gravel view."
+        },
+        "scale-card": {
+          "role": "retain",
+          "reason": "Scale card is reused as equipment, a source/reference, a subject of observation, or a continuing supply; this action does not consume it."
+        }
+      }
+    }
+  ],
+  "addedRecipes": [
+    {
+      "id": "outcrop-core-photograph-field-camera",
+      "a": "ice-core",
+      "b": "field-camera",
+      "description": "Photograph the visible layers in the actual ice core. The photograph records their order, not calibrated dimensions, a shared age with another site, or evidence of life.",
+      "out": "core-profile",
+      "lifecycle": {
+        "ice-core": {
+          "role": "retain",
+          "reason": "Photographing the ice core does not consume the specimen; it stays at the outcrop unless deliberately moved."
+        },
+        "field-camera": {
+          "role": "retain",
+          "reason": "The camera on its tripod can photograph the core without losing its support or other uses."
+        }
+      }
+    }
+  ],
+  "changedRecipes": [
+    {
+      "before": {
+        "id": "buried-story-11-layer-interpretation",
+        "a": "sediment-comparison",
+        "b": "core-profile",
+        "description": "The earlier profile records layers in an ice exposure; this core records sediment at another site. Here, grain sizes differ from one layer to the next. Comparing the records does not establish a shared age or cause.",
+        "out": "layer-interpretation",
+        "lifecycle": {
+          "sediment-comparison": {
+            "role": "retain",
+            "reason": "Sediment comparison is reused as equipment, a source/reference, a subject of observation, or a continuing supply; this action does not consume it."
+          },
+          "core-profile": {
+            "role": "retain",
+            "reason": "Core profile is reused as equipment, a source/reference, a subject of observation, or a continuing supply; this action does not consume it."
+          }
+        }
+      },
+      "after": {
+        "id": "buried-story-11-layer-interpretation",
+        "a": "sediment-comparison",
+        "b": "core-profile",
+        "description": "The earlier photograph records layers in ice; the basin core records sediment at another site. Here, grain sizes differ between layers. Comparing these records does not establish a shared age or cause.",
+        "out": "layer-interpretation",
+        "lifecycle": {
+          "sediment-comparison": {
+            "role": "retain",
+            "reason": "Sediment comparison is reused as equipment, a source/reference, a subject of observation, or a continuing supply; this action does not consume it."
+          },
+          "core-profile": {
+            "role": "retain",
+            "reason": "The core layer photograph remains a reference for comparing sites and for the return archive."
+          }
+        }
+      }
+    },
+    {
+      "before": {
+        "id": "departure-6-complete-field-archive",
+        "a": "geology-archive",
+        "b": "core-profile",
+        "description": "Keep a copy of the earlier core profile with the basin observations and archived crew portrait.",
+        "out": "complete-field-archive",
+        "lifecycle": {
+          "geology-archive": {
+            "role": "transform",
+            "reason": "Geology archive is the existing object changed into Complete field archive."
+          },
+          "core-profile": {
+            "role": "retain",
+            "reason": "Core profile is reused as equipment, a source/reference, a subject of observation, or a continuing supply; this action does not consume it."
+          }
+        }
+      },
+      "after": {
+        "id": "departure-6-complete-field-archive",
+        "a": "geology-archive",
+        "b": "core-profile",
+        "description": "Keep the earlier core layer photograph with the basin observations and the archived crew portrait.",
+        "out": "complete-field-archive",
+        "lifecycle": {
+          "geology-archive": {
+            "role": "transform",
+            "reason": "Geology archive is the existing object changed into Complete field archive."
+          },
+          "core-profile": {
+            "role": "retain",
+            "reason": "The core layer photograph remains a reference for comparing sites and for the return archive."
+          }
+        }
+      }
+    },
+    {
+      "before": {
+        "id": "outcrop-14-core-profile",
+        "a": "scaled-core",
+        "b": "camera",
+        "description": "Record visible structure; the image is evidence, not a proof of ancient life.",
+        "out": "core-profile",
+        "lifecycle": {
+          "scaled-core": {
+            "role": "retain",
+            "reason": "Scaled core is reused as equipment, a source/reference, a subject of observation, or a continuing supply; this action does not consume it."
+          },
+          "camera": {
+            "role": "retain",
+            "reason": "Camera is reused as equipment, a source/reference, a subject of observation, or a continuing supply; this action does not consume it."
+          }
+        }
+      },
+      "after": {
+        "id": "outcrop-14-core-profile",
+        "a": "ice-core",
+        "b": "camera",
+        "description": "Photograph the visible layers in the actual ice core. The photograph records their order, not calibrated dimensions, a shared age with another site, or evidence of life.",
+        "out": "core-profile",
+        "lifecycle": {
+          "ice-core": {
+            "role": "retain",
+            "reason": "Photographing the ice core does not consume the specimen; it stays at the outcrop unless deliberately moved."
+          },
+          "camera": {
+            "role": "retain",
+            "reason": "The camera records the core and remains available for other photographs."
+          }
+        }
+      }
+    },
+    {
+      "before": {
+        "id": "contrast-pair",
+        "a": "ripple-view",
+        "b": "scaled-gravel-view",
+        "out": "paired-terrain-views",
+        "description": "Put the two source views beside each other: similar-looking surface patterns need not share one origin.",
+        "lifecycle": {
+          "ripple-view": {
+            "role": "retain",
+            "reason": "Ripple view is reused as equipment, a source/reference, a subject of observation, or a continuing supply; this action does not consume it."
+          },
+          "scaled-gravel-view": {
+            "role": "retain",
+            "reason": "Scaled gravel view is reused as equipment, a source/reference, a subject of observation, or a continuing supply; this action does not consume it."
+          }
+        }
+      },
+      "after": {
+        "id": "contrast-pair",
+        "a": "ripple-view",
+        "b": "gravel-view",
+        "out": "paired-terrain-views",
+        "description": "Compare the two photographs: the gravel is rounded and embedded in rock, while a ripple pattern alone does not establish what formed it. No calibrated pebble dimensions are claimed.",
+        "lifecycle": {
+          "ripple-view": {
+            "role": "retain",
+            "reason": "Ripple view is reused as equipment, a source/reference, a subject of observation, or a continuing supply; this action does not consume it."
+          },
+          "gravel-view": {
+            "role": "retain",
+            "reason": "The original gravel photograph stays available alongside the comparison; comparing pictures does not alter or scale it."
+          }
+        }
+      }
+    }
+  ],
+  "changedChapters": [
+    {
+      "id": "outcrop",
+      "changedFields": [
+        {
+          "field": "motivation",
+          "before": "Exposed ice and layered cliffs interrupt the route; the only equipment here is the field kit we brought.\n\nThe route crosses exposed ice and a layered cliff. I will keep what I find separate from what I only suspect.",
+          "after": "Exposed ice and layered cliffs interrupt the route; the only equipment here is the field kit we brought.\n\nThe ice preserves its layers. I will photograph what is visible and keep it separate from what I only suspect."
+        },
+        {
+          "field": "objectives",
+          "before": [
+            {
+              "kind": "create",
+              "item": "catalogued-ice-sample",
+              "text": "Label the ice sample",
+              "id": "outcrop-goal-0",
+              "intermediate": true
+            },
+            {
+              "kind": "create",
+              "item": "ice-photograph",
+              "text": "Photograph the sample",
+              "id": "outcrop-goal-1",
+              "after": [
+                "outcrop-goal-0"
+              ]
+            },
+            {
+              "kind": "create",
+              "item": "annotated-map",
+              "text": "Make annotated map",
+              "id": "outcrop-goal-2"
+            },
+            {
+              "kind": "create",
+              "item": "core-profile",
+              "text": "Make core profile",
+              "id": "outcrop-goal-3"
+            }
+          ],
+          "after": [
+            {
+              "kind": "create",
+              "item": "catalogued-ice-sample",
+              "text": "Label the ice sample",
+              "id": "outcrop-goal-0",
+              "intermediate": true
+            },
+            {
+              "kind": "create",
+              "item": "ice-photograph",
+              "text": "Photograph the sample",
+              "id": "outcrop-goal-1",
+              "after": [
+                "outcrop-goal-0"
+              ]
+            },
+            {
+              "kind": "create",
+              "item": "annotated-map",
+              "text": "Make annotated map",
+              "id": "outcrop-goal-2"
+            },
+            {
+              "kind": "create",
+              "item": "core-profile",
+              "text": "Photograph core layers",
+              "id": "outcrop-goal-3"
+            }
+          ]
+        },
+        {
+          "field": "entryCue",
+          "before": {
+            "id": "mars-persistent-locations-v5:outcrop:entry-v1",
+            "mode": "arrival-and-beat",
+            "format": "silent-title-card",
+            "voice": "Expedition journal",
+            "sourceCaption": "Ice outcrop",
+            "text": "Exposed ice and layered cliffs interrupt the route; the only equipment here is the field kit we brought.\n\nThe route crosses exposed ice and a layered cliff. I will keep what I find separate from what I only suspect."
+          },
+          "after": {
+            "id": "mars-persistent-locations-v5:outcrop:entry-v1",
+            "mode": "arrival-and-beat",
+            "format": "silent-title-card",
+            "voice": "Expedition journal",
+            "sourceCaption": "Ice outcrop",
+            "text": "Exposed ice and layered cliffs interrupt the route; the only equipment here is the field kit we brought.\n\nThe ice preserves its layers. I will photograph what is visible and keep it separate from what I only suspect."
+          }
+        }
+      ]
+    },
+    {
+      "id": "contrast",
+      "changedFields": [
+        {
+          "field": "objectives",
+          "before": [
+            {
+              "id": "contrast-sleeved-comparison",
+              "kind": "create",
+              "item": "sleeved-comparison",
+              "text": "Sleeved comparison"
+            },
+            {
+              "id": "contrast-specimens",
+              "kind": "create",
+              "capability": "comparison-specimens",
+              "text": "Keep specimens separate"
+            }
+          ],
+          "after": [
+            {
+              "id": "contrast-photographs",
+              "kind": "create",
+              "item": "paired-terrain-views",
+              "text": "Compare basin photographs",
+              "intermediate": true
+            },
+            {
+              "id": "contrast-sleeved-comparison",
+              "kind": "create",
+              "item": "sleeved-comparison",
+              "text": "Save basin comparison",
+              "after": [
+                "contrast-photographs"
+              ]
+            },
+            {
+              "id": "contrast-specimens",
+              "kind": "create",
+              "capability": "comparison-specimens",
+              "text": "Keep specimens separate"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "milestonesUnchanged": true,
+  "hotspotsUnchanged": true,
+  "travelHooksUnchanged": true,
+  "locationArtworkUnchanged": true,
+  "routeActionsBefore": 232,
+  "routeActionsAfter": 229,
+  "checkpointActions": [
+    {
+      "id": "chapter-1",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "id": "chapter-2",
+      "before": 5,
+      "after": 5
+    },
+    {
+      "id": "chapter-3",
+      "before": 19,
+      "after": 19
+    },
+    {
+      "id": "chapter-4",
+      "before": 30,
+      "after": 30
+    },
+    {
+      "id": "chapter-5",
+      "before": 44,
+      "after": 42
+    },
+    {
+      "id": "chapter-6",
+      "before": 52,
+      "after": 50
+    },
+    {
+      "id": "chapter-7",
+      "before": 58,
+      "after": 56
+    },
+    {
+      "id": "chapter-8",
+      "before": 70,
+      "after": 68
+    },
+    {
+      "id": "chapter-9",
+      "before": 79,
+      "after": 77
+    },
+    {
+      "id": "chapter-10",
+      "before": 86,
+      "after": 84
+    },
+    {
+      "id": "chapter-11",
+      "before": 96,
+      "after": 94
+    },
+    {
+      "id": "chapter-12",
+      "before": 104,
+      "after": 102
+    },
+    {
+      "id": "chapter-13",
+      "before": 116,
+      "after": 114
+    },
+    {
+      "id": "chapter-14",
+      "before": 125,
+      "after": 123
+    },
+    {
+      "id": "chapter-15",
+      "before": 135,
+      "after": 133
+    },
+    {
+      "id": "chapter-16",
+      "before": 143,
+      "after": 141
+    },
+    {
+      "id": "chapter-17",
+      "before": 149,
+      "after": 147
+    },
+    {
+      "id": "chapter-18",
+      "before": 160,
+      "after": 158
+    },
+    {
+      "id": "chapter-19",
+      "before": 174,
+      "after": 171
+    },
+    {
+      "id": "chapter-20",
+      "before": 185,
+      "after": 182
+    },
+    {
+      "id": "chapter-21",
+      "before": 191,
+      "after": 188
+    },
+    {
+      "id": "chapter-22",
+      "before": 198,
+      "after": 195
+    },
+    {
+      "id": "chapter-23",
+      "before": 208,
+      "after": 205
+    },
+    {
+      "id": "chapter-24",
+      "before": 222,
+      "after": 219
+    },
+    {
+      "id": "complete",
+      "before": 232,
+      "after": 229
+    }
+  ]
+}

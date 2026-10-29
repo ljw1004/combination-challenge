@@ -1,7 +1,7 @@
 import type {Recipe, Retirement, Scenario} from './scenario.ts';
 
 /** Historical experiments may retain their old, explicitly grandfathered format. */
-export const archivedScenarioIds=new Set(['theology','causation','chinese-thought','mars-story-expansion-candidate','atlas-of-questions-v6','elements-local-projects-v5']);
+export const archivedScenarioIds=new Set(['theology','causation','chinese-thought','mars-story-expansion-candidate','atlas-of-questions-v6','elements-local-projects-v5','mars-cargo-revision-v2','atlas-of-questions-v8-transmission-actions','elements-observation-revision-v6','food','causation-purpose-v4','doctrine-grace-and-matter-v1']);
 
 /** The declarations are the sole source of input lifetime; graph exhaustion alone is never permission to delete. */
 export function incorporations(r:Recipe):Retirement[]{
@@ -20,6 +20,7 @@ export function validateRecipeLifecycle(r:Recipe,required=false):string[]{
   if(!inputs.includes(id))bad(`lifecycle annotation "${id}" is not an object input`);
   if(!v||!['transform','incorporate','retain'].includes(v.role))bad(`invalid lifecycle role for "${id}"`);
   if(!v||typeof v.reason!=='string'||!v.reason.trim())bad(`explain the lifecycle of "${id}"`);
+  if(v?.exclusive!==undefined&&(v.exclusive!==true||v.role==='retain'||!r.out))bad(`exclusive input "${id}" must transform or incorporate into a created result`);
  }
  if(Object.values(r.lifecycle).filter(v=>v?.role==='transform').length>1)bad('at most one input can be the transformed object');
  if(r.install){if(r.lifecycle[r.install.target]?.role!=='retain')bad('installation must retain the same construction');if(r.lifecycle[r.install.component]?.role!=='incorporate')bad('installation must incorporate its component');}

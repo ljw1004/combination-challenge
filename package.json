@@ -3,7 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "type": "module",
-  "engines": { "node": ">=22.18.0" },
+  "engines": {
+    "node": ">=22.18.0"
+  },
   "scripts": {
     "dev": "vite --host 127.0.0.1",
     "story": "node experiments/story-server.ts",
@@ -21,7 +23,10 @@
     "evaluate-logic": "node experiments/logical-evaluate.ts",
     "evaluate-fun": "node experiments/fun-evaluate.ts",
     "verify": "node experiments/verify.ts",
-    "browser-test": "playwright test"
+    "browser-test": "playwright test",
+    "campaign:check": "node scripts/check-current-campaign.mjs && node experiments/tangible-campaign/schema/check-content.ts && tsc --noEmit -p campaign.tsconfig.json",
+    "campaign:test": "node scripts/test-current-campaign.mjs",
+    "campaign:build": "npm run campaign:check && vite build --config campaign.vite.config.ts"
   },
   "devDependencies": {
     "@playwright/test": "1.64.1",
