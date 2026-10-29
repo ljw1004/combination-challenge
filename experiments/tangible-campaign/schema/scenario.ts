@@ -11,5 +11,5 @@ export type AlreadyComplete = {mode:'skip'}|{mode:'bridge';text:string};
 export type Stage = {onAlreadyComplete?:AlreadyComplete;id:string;title:string;speaker:string;motivation:string;completionText?:string;area:{id:string;label:string;travelText:string};locations?:string[];caches?:{id:string;label:string;narrative:string;items:string[]}[];objectives:Objective[];carry?:string[]};
 export type Action = {type:'combine';a:string;b:string}|{type:'place';item:string;location:string|null;x?:number;y?:number}|{type:'move';item:string;x:number;y:number}|{type:'advance'}|{type:'visit';area:string;carry?:string[]};
 /** Rare rewards for pivotal inventions, separate from chapter narration. */
-export type Milestone = {id:string;item:string;when:'created'|'functional';capability?:string;title:string;text:string};
+export type Milestone = {id:string;item:string;when:'created'|'functional';capability?:string;title:string;text:string;eyebrow?:string;artwork?:{src:string;alt:string;width:number;height:number}};
 export type Scenario = {schemaVersion:1;id:string;title:string;premise:string;items:Item[];locations:Location[];initialItems:string[];recipes:Recipe[];stages:Stage[];milestones?:Milestone[];checkpoints?:{id:string;label:string;actions:Action[]}[];sources?:{id:string;title:string;url:string;note?:string}[];notes?:string[]};

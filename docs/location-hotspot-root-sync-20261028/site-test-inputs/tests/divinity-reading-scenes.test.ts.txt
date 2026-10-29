@@ -1,0 +1,93 @@
+import assert from 'node:assert/strict';
+import test from 'node:test';
+import {readFileSync} from 'node:fs';
+import type {Action,Scenario} from '../experiments/tangible-campaign/schema/campaign.ts';
+import * as M from '../experiments/tangible-campaign/engine/campaign.ts';
+import {toLegacyGame} from '../experiments/tangible-campaign/compatibility/v1.ts';
+import {scenario as s,divinityReadingScenes} from '../experiments/tangible-campaign/ui/stories/divinity-reading-scenes.ts';
+import {divinityLocations as merged} from '../experiments/tangible-campaign/ui/stories/intellectual-locations.ts';
+import {scenario as prior} from '../experiments/tangible-campaign/ui/stories/divinity-disputed-questions.ts';
+import {divinityCueProse} from '../experiments/tangible-campaign/ui/stories/intellectual-cue-prose.ts';
+import {locationHarness} from '../experiments/tangible-campaign/ui/location-controller-harness.ts';
+const route=s.checkpoints!.at(-1)!.actions;
+const step=(g:M.Game,a:Action)=>{const r=M.applyAction(s,g,a);assert(r.accepted,JSON.stringify(a)+' '+r.message);return r.game;};
+const local=(g:M.Game)=>g.state.tokens.filter(t=>t.location===g.state.storyLocation);
+const noMetrics=({metrics,...rest}:M.State)=>rest;
+const measure=(world:Scenario)=>{let g=M.createGame(world,375);const rows:{entry:number;peak:number;items:string[]}[]=[];for(const a of route){const things=g.state.tokens.filter(t=>t.location===(g.state.storyLocation??g.state.currentLocation)),row=rows[g.state.chapter]??={entry:things.length,peak:0,items:things.map(t=>t.kind).sort()};row.peak=Math.max(row.peak,things.length);const r=M.applyAction(world,g,a);assert(r.accepted,r.message);g=r.game;}assert(g.state.completed);return rows;};
+
+test('fourteen distinct desks restore substantive source groups without rewriting gameplay or old save identities',()=>{
+ assert.equal(s.id,'divinity-reading-scenes-v4');assert.notEqual(s.id,merged.id);
+ assert.deepEqual(s.items,merged.items);assert.deepEqual(s.recipes,merged.recipes);assert.deepEqual(s.hotspots,merged.hotspots);
+ assert.deepEqual(s.chapters.map(c=>[c.id,c.objectives,c.onAlreadyComplete,c.sourceUpdate]),merged.chapters.map(c=>[c.id,c.objectives,c.onAlreadyComplete,c.sourceUpdate]));
+ assert.equal(s.locationPlan!.locations.length,14);assert.equal(new Set(s.locationPlan!.locations.map(l=>l.settingId)).size,6);assert(s.locationPlan!.visits.every(v=>v.chapterIds.length===1&&!v.carry));
+ const originalStock=prior.chapters.flatMap(c=>c.caches??[]).flatMap(b=>b.items).sort();
+ const newStock=[...s.locationPlan!.locations.flatMap(l=>l.stockBatches.flatMap(b=>b.items)),...s.chapters.flatMap(c=>c.sourceUpdate?.items??[])].sort();assert.deepEqual(newStock,originalStock);
+ for(const scene of divinityReadingScenes){const c=s.chapters.find(c=>c.id===scene.chapter)!,l=s.locationPlan!.locations.find(l=>l.id===scene.id)!;assert.equal(c.location.id,l.id);assert.equal(l.background.stableKey,l.id);assert(c.entryCue!.text.endsWith(divinityCueProse[c.id]));assert.equal(c.entryCue!.sourceCaption,merged.chapters.find(x=>x.id===c.id)!.entryCue!.sourceCaption);assert(readFileSync(new URL('../public'+l.background.asset,import.meta.url)).length>1000);assert(l.stockBatches.flatMap(b=>b.items).length>=4,'not three-item sparsity');}
+ assert.deepEqual(M.validateScenario(s),[]);
+ for(const old of [prior,merged]){const g=M.createGame(old);assert.deepEqual(M.restore(old,JSON.stringify(toLegacyGame(g))),g);assert.throws(()=>M.restore(s,JSON.stringify(g)),/Invalid campaign save/);}
+});
+
+test('normal authored route exactly matches prior entry items and peaks, rather than the merged union',()=>{
+ const now=measure(s);assert.deepEqual(now,measure(prior));
+ assert.deepEqual(now.map(r=>[r.entry,r.peak]),[[5,7],[9,14],[6,10],[6,10],[7,11],[6,10],[8,14],[6,11],[8,12],[7,11],[9,15],[7,12],[10,15],[11,19]]);
+ assert.equal(Math.max(...measure(merged).map(r=>r.peak)),33);
+});
+
+for(const width of [320,375,390])for(const mode of ['combine','drop','reverse-drop'])test(`87-action Doctrine route ${width}/${mode}: ownership, arrivals, bounds, no carry-overlap increase, save and Undo`,()=>{
+ let g=M.createGame(s,width);
+ for(const source of route){const a:Action=source.type==='combine'&&mode!=='combine'?{type:'drop',item:mode==='reverse-drop'?source.b:source.a,target:mode==='reverse-drop'?source.a:source.b}:source;const before=g;g=step(g,a);
+  if(a.type==='advance'){
+   for(const t of before.state.tokens)assert(M.token(g.state,t.id),'travel deleted a surviving manuscript/argument');
+   for(const t of before.state.tokens.filter(t=>M.token(g.state,t.id)!.location===t.location))assert.deepEqual(M.token(g.state,t.id),t,'left-behind object changed');
+   const newIds=g.state.tokens.filter(t=>!M.token(before.state,t.id)).map(t=>t.id).sort();assert.deepEqual(newIds,(g.state.arrival?.supplies??[]).filter(x=>!M.token(before.state,x.item)).map(x=>x.item).sort());
+   assert.deepEqual(noMetrics(M.undo(g).game.state),noMetrics(before.state));assert.deepEqual(M.restore(s,JSON.stringify(toLegacyGame(g))).state,g.state);
+   const area=(a:M.Token,b:M.Token)=>Math.max(0,96-Math.abs(a.x-b.x))*Math.max(0,(M.tokenHeight(s,a)+M.tokenHeight(s,b))/2-Math.abs(a.y-b.y));
+   for(const t of g.state.tokens.filter(t=>M.token(before.state,t.id)&&M.token(before.state,t.id)!.location!==t.location))for(const b of g.state.tokens.filter(b=>b.id!==t.id&&b.location===t.location&&M.token(before.state,b.id))){const a0=M.token(before.state,t.id)!,b0=M.token(before.state,b.id)!;assert(area(t,b)<=(a0.location===b0.location?area(a0,b0):0)+.01,`${t.id}/${b.id}: new carry overlap`);}
+  }
+  for(const t of g.state.tokens){assert(t.x>=48&&t.x<=g.state.width-48);assert(t.y-M.tokenHeight(s,t)/2>=0&&t.y+M.tokenHeight(s,t)/2<=844);}
+ }
+ assert(g.state.completed);assert.equal(g.state.locations.length,14);assert.deepEqual(M.restore(s,JSON.stringify(g)).state,g.state);
+});
+
+test('all earned checkpoints keep earlier panels, source leaves and created arguments accessible',()=>{
+ for(const c of s.checkpoints!){const g=M.replay(s,c.actions,375);assert.deepEqual(M.restore(s,JSON.stringify(g)).state,g.state);assert.equal(g.state.locations.length,g.state.chapter+1);}
+ const g=M.replay(s,route,375),h=locationHarness(s,JSON.stringify({game:toLegacyGame(g),seen:[],tops:{}}),{width:375});
+ for(const scene of divinityReadingScenes)assert(h.app.innerHTML.includes(`data-background="${scene.id}"`));
+ assert.match(h.app.innerHTML,/height:11816px/);for(const t of g.state.tokens)assert(h.thing(t.id),t.id);
+});
+
+test('independent arguments accept multiple legal preparation orders in every chapter',()=>{
+ const blocks:Action[][]=[[]];for(const a of route){if(a.type==='advance')blocks.push([]);else blocks.at(-1)!.push(a);}blocks.pop();
+ for(const seed of [1,7,29,101]){let n=seed,g=M.createGame(s,375);const rand=()=>{n=(n*1664525+1013904223)>>>0;return n/4294967296;};for(const actions of blocks){let pending=[...actions];while(pending.length){const start=Math.floor(rand()*pending.length);let chosen=-1,next:M.Game|undefined;for(let i=0;i<pending.length;i++){const index=(start+i)%pending.length,r=M.applyAction(s,g,pending[index]);if(r.accepted){chosen=index;next=r.game;break;}}assert(chosen>=0,`seed${seed}, chapter${g.state.chapter}: no legal remaining preparation`);pending.splice(chosen,1);g=next!;}g=step(g,{type:'advance'});}assert(g.state.completed);assert.deepEqual(M.restore(s,JSON.stringify(g)).state,g.state);}
+});
+
+test('optional early distinctions remain earned and travel as useful alternatives without duplicate recreation',()=>{
+ let g=M.replay(s,route.slice(0,77),375);assert.equal(g.state.chapter,12);assert(M.chapterComplete(s,g.state));
+ g=step(g,{type:'combine',a:'fragment-unverified',b:'calvin-even-genuine'});const before=g;g=step(g,{type:'advance'});
+ assert(local(g).some(t=>t.id==='authenticity-not-permission'));assert.equal(M.token(g.state,'authenticity-not-permission')!.location,'divinity-reply-records-desk');
+ assert.equal(g.state.tokens.filter(t=>t.id==='authenticity-not-permission').length,1);assert.deepEqual(noMetrics(M.undo(g).game.state),noMetrics(before.state));
+ for(const a of route.slice(78)){if(a.type==='combine'&&a.a==='record-not-ruling')g=step(g,{...a,b:'authenticity-not-permission'});else g=step(g,a);}assert(g.state.completed);
+});
+
+test('final new custody record is a single explicit update; the alternate evidence-first route remains valid',()=>{
+ const before=M.replay(s,route.slice(0,77),375);assert(!M.token(before.state,'new-record'));
+ for(const reverse of [false,true]){let g=step(before,{type:'advance'});assert.equal(g.state.tokens.filter(t=>t.id==='new-record').length,1);assert.equal(g.state.arrival!.supplies.find(x=>x.item==='new-record')!.cache,'divinity-custody-record-update-v1');
+  assert.equal(M.currentEntryCue(s,g)!.mode,'source-update-and-beat');assert.match(M.currentEntryCue(s,g)!.text,/new.*record/i);const prep=route.slice(78,82);
+  const alt:Action[]=[...prep,{type:'combine',a:'fragment-unverified',b:'new-record'},{type:'combine',a:'record-adds-evidence',b:'trent-new-relic'},{type:'combine',a:'record-not-ruling',b:'calvin-even-genuine'}];
+  for(const a of alt)g=step(g,a.type==='combine'&&reverse?{...a,a:a.b,b:a.a}:a);assert(M.chapterComplete(s,g.state));assert(!M.applyAction(s,g,{type:'combine',a:'fragment-unverified',b:'new-record'}).accepted);g=step(g,{type:'advance'});assert(g.state.completed);assert.deepEqual(M.restore(s,JSON.stringify(g)).state,g.state);
+ }
+});
+
+test('all authored direct-premise alternatives still complete downstream in both drag directions',()=>{
+ const variants:{name:string;remove:string[];at:string;actions:Action[]}[]=[
+  {name:'Paul rather than duty',remove:['known-duty+failed-promise'],at:'known-duty+failed-promise',actions:[{type:'combine',a:'romans-line',b:'failed-promise'}]},
+  {name:'Two Principles direct causal rule',remove:['tree-line+source-rule','good-source-limit+harmful-world'],at:'tree-line+source-rule',actions:[{type:'combine',a:'source-rule',b:'harmful-world'}]},
+  {name:'Lyon bodily rite direct comparison',remove:['spirit-baptism+acts-hands-line','book-and-hands+apostolic-claim'],at:'spirit-baptism+acts-hands-line',actions:[{type:'combine',a:'book-and-hands',b:'spirit-baptism'}]},
+  {name:'baptism appointment direct premise',remove:['water-washes+instituted-baptism','dependent-grace+baptism-appointed'],at:'dependent-grace+baptism-appointed',actions:[{type:'combine',a:'dependent-grace',b:'instituted-baptism'}]},
+  {name:'discipline with unearned acceptance',remove:['body-practice+no-wages'],at:'body-practice+no-wages',actions:[{type:'combine',a:'body-practice',b:'gift-acceptance'}]},
+  {name:'Luther and Zwingli first, then Aquinas',remove:['eucharist-account+luther-word-makes','two-presence-accounts+zwingli-reading'],at:'eucharist-account+luther-word-makes',actions:[{type:'combine',a:'zwingli-reading',b:'luther-word-makes'},{type:'combine',a:'luther-zwingli-contrast',b:'eucharist-account'}]},
+  {name:'signed articles directly',remove:['signed-trinity+trinity-bounded','shared-trinity+signed-supper'],at:'signed-trinity+trinity-bounded',actions:[{type:'combine',a:'signed-trinity',b:'signed-supper'}]},
+  {name:'Trent two current premises',remove:['trent-first-help+aided-choice','assisted-response+trent-can-refuse'],at:'trent-first-help+aided-choice',actions:[{type:'combine',a:'trent-first-help',b:'trent-can-refuse'}]},
+ ];
+ for(const variant of variants)for(const reverse of [false,true]){let g=M.createGame(s,375);for(const a of route){const key=a.type==='combine'?a.a+'+'+a.b:'';const actions=key===variant.at?variant.actions:variant.remove.includes(key)?[]:[a];for(const action of actions){if(action.type==='combine'){assert(!g.state.discovered.includes(s.recipes.find(r=>[r.a,r.b].includes(action.a)&&[r.a,r.b].includes(action.b))!.out!),variant.name);assert.equal(M.token(g.state,action.a)!.location,g.state.storyLocation,variant.name+' input A must be on the active desk');assert.equal(M.token(g.state,action.b)!.location,g.state.storyLocation,variant.name+' input B must be on the active desk');}g=step(g,action.type==='combine'?{type:'drop',item:reverse?action.b:action.a,target:reverse?action.a:action.b}:action);}}assert(g.state.completed,variant.name);assert.deepEqual(M.restore(s,JSON.stringify(g)).state,g.state);}
+});

@@ -1,5 +1,15 @@
 # Combination Challenge
 
+## Current queued-checkpoint consolidation — 29 October 2026
+
+Current Site source is `66fee3deba591308ff42f5c7600f34a3d0e3ce84`, exact seal `7629a2f122270c3b08a19a24e6251ae63f2f0178639b7576258b15ae003a4395`. The active campaign retains all earlier worlds and adds reviewed wider cadence, optional Mars creature, authenticity repairs and the Elements journey cleanup. The main catalogue has 57 worlds; the optional creature remains separate at `mars-ice-creature.html?world=mars-creature-field-scenes-v3`. The original root `index.html`, app and script meanings are unchanged. `campaign-start.html` remains the scoped campaign homepage.
+
+The [working-set principle](DESIGN_PRINCIPLES.md#the-working-set-is-a-clue-not-just-a-space-budget) remains authoritative. Final current source and every intermediate release are separately restorable with `node scripts/verify-campaign-source-archive.mjs --archive NAME --materialize NEW_DIRECTORY`; names are `current`, `wider-cadence`, `optional-creature`, `authenticity`, `journey-cleanup` and `hotfix`. Older selectors remain unchanged. This preserves exact source/evidence; no native iOS, universal density, universal no-flash or human-comprehension claim is made.
+
+Run `npm run campaign:check`, `npm run campaign:build` and `npm run campaign:test` for the scoped actual-root gate; serve `dist-campaign/` from its web root. Both campaign and optional creature entries use the shared runtime. Whole-Site provenance reads in adapted tests resolve the independently verified source archive, while gameplay imports execute root code; generated evidence is redirected away from sealed source. [Final verification and retained release reports](results/queued-successors-validation-20261029/REPORT.md).
+
+The dated sections below preserve previous checkpoint statements, not claims that their then-current counts still apply.
+
 ## Authoritative game design principles
 
 **Start with [DESIGN_PRINCIPLES.md](DESIGN_PRINCIPLES.md)** before changing game content, runtime or validation. It consolidates the user's rules: whole persistent locations, interactive hotspots and story-beat chapters; whole-location-visit carry only on actual travel; subdued artwork and bounded panels; task-and-name-first understanding; natural forward combinations, useful purposes and authenticity; plus the earlier lifecycle, goal and continuity principles.

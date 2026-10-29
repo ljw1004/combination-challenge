@@ -44,10 +44,32 @@ for(const row of smallSceneAdditions.recipes){
  assert(!byKey.has(key),'Duplicate small-scene recipe '+key);
  assert.deepEqual({...row,world:'elements-river-locations-v2'},byKey.get('elements-river-locations-v2:'+row.recipe),'Exact inherited Elements lifecycle '+key);byKey.set(key,row);
 }
+const cadenceAdditions=JSON.parse(readFileSync(new URL('../reviews/wider-cadence-integration-20261029/lifecycle-additions.json',import.meta.url),'utf8'));
+for(const row of cadenceAdditions.recipes){
+ const parent=cadenceAdditions.parents[row.world];assert(parent,'Named predecessor for '+row.world);const key=row.world+':'+row.recipe;
+ assert(!byKey.has(key),'Duplicate cadence recipe '+key);assert.deepEqual({...row,world:parent},byKey.get(parent+':'+row.recipe),'Exact inherited cadence lifecycle '+key);byKey.set(key,row);
+}
+const atlasAdditions=JSON.parse(readFileSync(new URL('../reviews/wider-cadence-integration-20261029/atlas-lifecycle-additions.json',import.meta.url),'utf8'));
+assert.equal(atlasAdditions.parentWorld,'atlas-intellectual-history-locations-v2');assert.equal(atlasAdditions.newWorld,'atlas-civilization-locations-v4');
+for(const change of atlasAdditions.changes){
+ const row=change.after,key=row.world+':'+row.recipe;assert.equal(row.world,atlasAdditions.newWorld);assert(!byKey.has(key),'Duplicate civic Atlas lifecycle '+key);
+ assert.deepEqual(byKey.get(atlasAdditions.parentWorld+':'+row.recipe)??null,change.before,'Exact published Atlas lifecycle predecessor '+key);assert(change.review.length>20,'Explicit lifecycle review '+key);byKey.set(key,row);
+}
+const authenticityAdditions=JSON.parse(readFileSync(new URL('../reviews/authenticity-release-20261029/lifecycle-additions.json',import.meta.url),'utf8'));
+for(const change of authenticityAdditions.changes){
+ const row=change.after,parent=authenticityAdditions.parents[row.world],key=row.world+':'+row.recipe;assert(parent,'Named authenticity predecessor '+row.world);assert(!byKey.has(key),'Duplicate authenticity lifecycle '+key);
+ assert.deepEqual(byKey.get(parent+':'+row.recipe)??null,change.before,'Exact authenticity lifecycle predecessor '+key);assert(change.review.length>20,'Explicit scoped review '+key);byKey.set(key,row);
+}
+const journeyAdditions=JSON.parse(readFileSync(new URL('../reviews/journey-cleanup-release-20261029/lifecycle-additions.json',import.meta.url),'utf8'));
+assert.equal(journeyAdditions.parentWorld,'elements-material-repairs-v6');assert.equal(journeyAdditions.newWorld,'elements-journey-cleanup-v8');
+for(const change of journeyAdditions.changes){
+ const row=change.after,key=row.world+':'+row.recipe;assert.equal(row.world,journeyAdditions.newWorld);assert(!byKey.has(key),'Duplicate journey cleanup lifecycle '+key);
+ assert.deepEqual(byKey.get(journeyAdditions.parentWorld+':'+row.recipe)??null,change.before,'Exact journey cleanup lifecycle predecessor '+key);assert(change.review.length>20,'Explicit scoped review '+key);byKey.set(key,row);
+}
 const active=scenarios.filter(s=>!archivedScenarioIds.has(s.id));
 const recipes=active.flatMap(s=>s.recipes.map(r=>{
  const row=byKey.get(s.id+':'+r.id);assert(row,'Missing audited recipe '+s.id+':'+r.id);
  assert.deepEqual(row.lifecycles??row.lifecycle??row.decisions,r.lifecycle,'Exact authored lifecycle '+s.id+':'+r.id);return row;
 }));
 assert.equal(recipes.length,byKey.size,'No historical audit row may disappear');
-export const lifecycleAudit={...prior,scope:'Exact current catalogue with immutable historical rows, explicit lifecycle successors and eight location successors, including the Mars observation simplification and exact small-scene Elements lifecycle inheritance.',historicalRecipes,lifecycleSuccessor,playtestRepairsSuccessor,observationSuccessor,supersededUnpublishedRecipes,counts:Object.fromEntries(active.map(s=>[s.id,{recipes:s.recipes.length}])),activeScenarios:active.length,activeRecipes:recipes.length,recipes};
+export const lifecycleAudit={...prior,scope:'Exact current catalogue with immutable historical rows, explicit lifecycle successors and all retained location editions and five additive cadence editions; exact inherited lifecycle declarations remain fully covered.',historicalRecipes,lifecycleSuccessor,playtestRepairsSuccessor,observationSuccessor,supersededUnpublishedRecipes,counts:Object.fromEntries(active.map(s=>[s.id,{recipes:s.recipes.length}])),activeScenarios:active.length,activeRecipes:recipes.length,recipes};

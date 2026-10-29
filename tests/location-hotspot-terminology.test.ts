@@ -1,5 +1,7 @@
+import {readSiteSourceForRootTests,writeRootTestOutput} from '../scripts/site-source-test-context.ts';
+const readFileSync=readSiteSourceForRootTests;
 /** Current naming, one engine, exact v1 behavior. Logical/source tests only. */
-import test from 'node:test';import assert from 'node:assert/strict';import {readFileSync} from 'node:fs';
+import test from 'node:test';import assert from 'node:assert/strict';import {readFileSync as originalReadFileSync} from 'node:fs';
 import * as C from '../experiments/tangible-campaign/engine/campaign.ts';
 import * as V1 from '../experiments/tangible-campaign/engine/model.ts';
 import * as Before from '../experiments/tangible-campaign/reviews/location-hotspot-terminology/predecessor-runtime/engine/model.ts';
@@ -65,7 +67,7 @@ test('adapters leave arbitrary dictionary keys, quotations and URL strings opaqu
 });
 test('UI and logical surfaces share canonical composition; platform API names and v1 save keys are preserved',()=>{
  const ui=read('experiments/tangible-campaign/ui/campaign-main.ts'),css=read('experiments/tangible-campaign/ui/campaign.css');
- assert.match(ui,/from '..\/engine\/campaign.ts'/);assert.match(ui,/from '..\/schema\/campaign.ts'/);assert.match(ui,/from '.\/current-scenarios.ts'/);assert.match(ui,/from '.\/current-campaign.ts'/);assert.match(ui,/new URLSearchParams\(location.search\)/);assert.match(ui,/location.assign\(link.href\)/);assert(!ui.includes('hotspot.search')&&!ui.includes('hotspot.assign'));
+ assert.match(ui,/from '..\/engine\/campaign.ts'/);assert.match(ui,/from '..\/schema\/campaign.ts'/);assert.match(ui,/from '.\/campaign-page-catalogue.ts'/);const pageCatalogue=read('experiments/tangible-campaign/ui/campaign-page-catalogue.ts');assert.match(pageCatalogue,/import \* as current from '.\/current-scenarios.ts'/);assert.match(pageCatalogue,/export let scenarios=current.scenarios/);assert.match(pageCatalogue,/export let featuredScenarioIds=current.featuredScenarioIds/);assert.match(ui,/from '.\/current-campaign.ts'/);assert.match(ui,/new URLSearchParams\(location.search\)/);assert.match(ui,/location.assign\(link.href\)/);assert(!ui.includes('hotspot.search')&&!ui.includes('hotspot.assign'));
  assert.match(ui,/game:toLegacyGame\(game\)/);assert.match(ui,/tangible-campaign-v1:/);assert.match(ui,/class="hotspot /);assert.match(ui,/class="location-label"/);assert.match(css,/\.hotspot\{/);assert.match(css,/\.location-label\{/);assert.match(css,/safe-area-inset-top/);assert(!css.includes('safe-location-inset'));
  for(const s of active)assert.deepEqual(getPlayableScenario(s.id,scenarios),applyMilestones(s));
  const legacy=read('experiments/tangible-campaign/engine/model.ts');assert.match(legacy,/@deprecated V1 logical API/);assert(!legacy.includes('function resolveRecipe('),'no second rules engine');

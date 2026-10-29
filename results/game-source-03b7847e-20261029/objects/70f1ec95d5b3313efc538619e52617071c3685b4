@@ -1,0 +1,194 @@
+import assert from 'node:assert/strict';
+import test from 'node:test';
+import {readFileSync,writeFileSync} from 'node:fs';
+import {createHash} from 'node:crypto';
+import type {Action,Scenario} from '../experiments/tangible-campaign/schema/campaign.ts';
+import * as M from '../experiments/tangible-campaign/engine/campaign.ts';
+import {scenario as variant} from '../experiments/tangible-campaign/ui/stories/mars-creature-field-scenes.ts';
+import {scenario as survival} from '../experiments/tangible-campaign/ui/stories/mars-field-scenes.ts';
+import {scenarios as current} from '../experiments/tangible-campaign/ui/current-scenarios.ts';
+const optional=[variant];
+import {toLegacyScenario,toLegacyGame} from '../experiments/tangible-campaign/compatibility/v1.ts';
+import {encodeSave,decodeSave} from '../experiments/tangible-campaign/ui/save-codec.ts';
+import {validateLocationPlan} from '../experiments/tangible-campaign/schema/location-plan.ts';
+import {validateContentLifecycles,validateConstructionContinuity,validateObjectiveFlow} from '../experiments/tangible-campaign/schema/lifecycle.ts';
+import {validateLifecycleGraph} from '../experiments/tangible-campaign/schema/lifecycle-graph.ts';
+import {locationHarness} from '../experiments/tangible-campaign/ui/location-controller-harness.ts';
+
+const s=variant,route=s.checkpoints!.find(c=>c.id==='complete')!.actions;
+const sroot=new URL('../',import.meta.url);
+const withoutMetrics=(state:M.State)=>{const {metrics,...rest}=state;return rest;};
+const recipe=(a:Action)=>a.type==='combine'?s.recipes.find(r=>[r.a,r.b].sort().join('|')===[a.a,a.b].sort().join('|')):undefined;
+const apply=(g:M.Game,a:Action)=>{const r=M.applyAction(s,g,a);assert(r.accepted,JSON.stringify(a)+': '+r.message);return r.game;};
+const prefix=(id:string,width=390)=>M.replay(s,route.slice(0,route.findIndex(a=>recipe(a)?.id===id)),width);
+const acknowledge=(g:M.Game)=>{while(M.pendingMilestone(s,g))g=M.acknowledgeMilestone(s,g,M.pendingMilestone(s,g)!.id);return g;};
+const envelope=(g:M.Game)=>JSON.stringify({game:toLegacyGame(g),tops:{},seen:[]});
+function earlyRoute():Action[]{return route.flatMap(a=>{
+ if(recipe(a)?.id==='ice-creature-microscope')return [];
+ const use=a.type==='combine'&&[a.a,a.b].includes('ice-core')?{...a,a:a.a==='ice-core'?'creature-core':a.a,b:a.b==='ice-core'?'creature-core':a.b}:a;
+ if(recipe(a)?.id==='outcrop-11-ice-core')return [a,{type:'combine',a:'windowed-box',b:'glove-ports'},{type:'combine',a:'glovebox',b:'lamp'},{type:'combine',a:'ice-core',b:'illuminated-glovebox'}] as Action[];
+ return [use];
+});}
+function towing(actions:Action[]):Action[]{
+ const start=actions.findIndex(a=>recipe(a)?.id==='rescue-6-serviced-drive');assert(start>=0);
+ return actions.slice(0,start).concat([{type:'combine',a:'recovery-rope',b:'tow-eye'},{type:'combine',a:'rover',b:'tow-line'},{type:'combine',a:'rover',b:'damaged-crawler'}],actions.slice(start+3).flatMap(a=>a.type==='combine'&&a.a==='crawler'&&a.b==='rest-refuge'?[{...a,a:'towed-crawler'},{type:'combine',a:'spare-drive',b:'toolkit'},{type:'combine',a:'serviced-drive',b:'drive-coupling'},{type:'combine',a:'replacement-drive',b:'towed-crawler'}] as Action[]:[a]));
+}
+function assertSave(g:M.Game){
+ assert.deepEqual(M.restore(s,JSON.stringify(g)),g);
+ const e={game:toLegacyGame(g),tops:{},seen:[]};
+ for(const input of [JSON.stringify(e),encodeSave(e)])assert.deepEqual(M.restore(s,JSON.stringify(decodeSave(input).game)),g);
+}
+function specimen(g:M.Game){return g.state.tokens.filter(t=>['ice-core','creature-core'].includes(t.kind));}
+
+ test('isolated optional identity, untouched current world, no new stock and complete lifecycle declarations',()=>{
+ assert.equal(s.id,'mars-creature-field-scenes-v3');assert.deepEqual(optional.map(x=>x.id),[s.id]);assert(!current.some(x=>x.id===s.id));
+ assert(!survival.items.some(x=>x.id==='creature-core'));assert(!survival.locationPlan!.visits.some(v=>v.carryAlong));
+ assert.equal(s.chapters.findIndex(c=>c.id==='buried-story'),16);assert.equal(s.chapters[16].location.id,'M14');
+ assert.equal(route.length,225);assert.equal(s.items.length,survival.items.length-7);
+ assert.deepEqual(s.locationPlan!.locations.map(l=>({id:l.id,stock:l.stockBatches.map(b=>b.items),background:l.background,hotspots:l.hotspots})),survival.locationPlan!.locations.map(l=>({id:l.id,stock:l.stockBatches.map(b=>b.items.filter(id=>!['transparent-jar','sample-labels'].includes(id))),background:l.background,hotspots:l.hotspots})));
+ assert.deepEqual(s.initialItems,survival.initialItems);assert.deepEqual(s.locationPlan!.panel,{width:390,height:844});
+ const oldPhoto=survival.recipes.find(r=>r.id==='outcrop-14-core-profile')!;assert.equal(oldPhoto.a,'ice-core');
+ const legacy=toLegacyScenario(s);for(const errors of [M.validateScenario(s),validateContentLifecycles([legacy]),validateObjectiveFlow([legacy]),validateConstructionContinuity([legacy]),validateLifecycleGraph([legacy])])assert.deepEqual(errors,[]);
+ assert.equal(s.items.find(i=>i.id==='cushioned-capsule')!.slots!.find(x=>x.id==='ice')!.accepts[0],'creature-core');
+ assert(!s.items.some(i=>/proof|verification|cold-case/.test(i.id)));
+ assert(!s.notes!.at(-1)!.includes('inspection light'));
+ });
+
+ test('carryAlong is additive, validated, portable-token only, and inert in all existing scenarios',()=>{
+ let g=prefix('ice-creature-microscope');const visit=s.locationPlan!.visits.find(v=>v.chapterIds.includes('buried-story'))!;
+ const plain=structuredClone(s);for(const v of plain.locationPlan!.visits)delete v.carryAlong;
+ const original=M.visitCarry(plain,g.state,visit.id),augmented=M.visitCarry(s,g.state,visit.id);
+ assert.deepEqual(augmented,[...new Set([...original,'ice-core','creature-core'])]);
+ const originalState=structuredClone(g.state);M.visitCarry(s,g.state,visit.id);assert.deepEqual(g.state,originalState);
+ const invalid=structuredClone(s);invalid.locationPlan!.visits[0].carryAlong=['absent'];assert(validateLocationPlan(invalid).some(e=>e.includes('unknown visit carry')));
+ invalid.locationPlan!.visits[0].carryAlong=['ice-core','ice-core'];assert(validateLocationPlan(invalid).some(e=>e.includes('invalid continuing cargo')));
+ (invalid.locationPlan!.visits[0] as any).carryAlong='ice-core';assert(validateLocationPlan(invalid).some(e=>e.includes('invalid continuing cargo')));
+ for(const world of current)assert(!world.locationPlan?.visits.some(v=>v.carryAlong));
+ });
+
+for(const width of [320,375,390,600])for(const name of ['canonical','tow','early','early-tow'] as const)test(`${width}px ${name}: full route, continuous specimen, both real journeys, bounds and durable transfers`,()=>{
+ const actions=name==='canonical'?route:name==='tow'?towing(route):name==='early'?earlyRoute():towing(earlyRoute());
+ let g=M.createGame(s,width);let seenCreature=0;const trace:any[]=[];
+ for(const [i,a]of actions.entries()){
+  const before=g;g=apply(g,a);
+  for(const l of g.state.locations)assert.deepEqual(M.locationFootprint(s,g.state,l.id).outOfBounds,[],`action ${i+1} ${l.id}`);
+  const overlap=(a:M.Token,b:M.Token)=>Math.max(0,96-Math.abs(a.x-b.x))*Math.max(0,(M.tokenHeight(s,a)+M.tokenHeight(s,b))/2-Math.abs(a.y-b.y));
+  for(const t of g.state.tokens.filter(t=>M.token(before.state,t.id)&&M.token(before.state,t.id)!.location!==t.location))for(const b of g.state.tokens.filter(b=>b.id!==t.id&&b.location===t.location&&M.token(before.state,b.id))){const oldT=M.token(before.state,t.id)!,oldB=M.token(before.state,b.id)!;assert(overlap(t,b)<=(oldT.location===oldB.location?overlap(oldT,oldB):0)+.01,`new arrival overlap ${i+1} ${t.id}/${b.id}`);}
+  assert(specimen(g).length<=1,'never two versions of original core');
+  if(g.state.discovered.includes('ice-core'))assert(!M.token(g.state,'core-tube'),'tube is not duplicated outside its sample');
+  if(g.state.discovered.includes('creature-core'))assert(!M.token(g.state,'ice-core'),'original core state was transformed, never resurrected');
+  const creation=g.events.at(-1)?.created;
+  if(creation==='creature-core'){
+   seenCreature++;assert.equal(s.chapters[g.state.chapter].id,name.startsWith('early')?'outcrop':'buried-story');
+   const c=M.token(g.state,'creature-core')!;assert.deepEqual(c.components,['core-tube']);assert(c.incorporated.includes('ice-core'));
+   assert.deepEqual(withoutMetrics(M.undo(g).game.state),withoutMetrics(before.state));assertSave(g);
+  }
+  const moved=(g.events.at(-1)?.transfers??[]).filter(t=>['ice-core','creature-core'].includes(t.item));
+  for(const t of moved){const old=M.token(before.state,t.item);assert(old,`transfer ${t.item} must originate in a live token`);assert.equal(t.from,old!.location);assert.equal(M.token(g.state,t.item)!.location,t.to);trace.push({action:i+1,...t});}
+  if(before.state.storyLocation!==g.state.storyLocation){
+   // The specimen travels continuously with the expedition, never arrives out
+   // of an old location just as a later science/packing chapter needs it.
+   for(const t of specimen(g))assert.equal(t.location,g.state.storyLocation);
+   if(specimen(before).length)for(const t of moved)assert.equal(t.from,before.state.storyLocation);
+   assert.deepEqual(withoutMetrics(M.undo(g).game.state),withoutMetrics(before.state));assertSave(g);
+  }else if(before.state.chapter!==g.state.chapter){assert.deepEqual(g.state.tokens,before.state.tokens,'same-place beat preserves board');}
+  if(g.events.at(-1)?.recipe==='departure-pack-ice'){
+   assert.equal(specimen(g).length,0);const c=M.token(g.state,'cushioned-capsule')!;assert.equal(c.slots.ice,'creature-core');assert(c.components!.includes('core-tube'));assertSave(g);assert.deepEqual(withoutMetrics(M.undo(g).game.state),withoutMetrics(before.state));
+  }
+  g=acknowledge(g);
+ }
+ assert(g.state.completed);assert.equal(seenCreature,1);assert.equal(g.state.milestones!.filter(x=>x.id==='mars-ice-creature').length,1);assert(g.milestonesSeen!.includes('mars-ice-creature'));
+ assert.equal(g.state.enteredTravels!.filter(x=>x==='crawler-to-recovery-camp').length,1);assert.equal(g.state.enteredTravels!.filter(x=>x==='ascent-to-orbital-rendezvous').length,1);
+ assert(trace.some(t=>t.from==='M07'&&t.to==='M08'),'rescue internal move carries whichever specimen state exists');
+ const ship=M.token(g.state,'docked-vehicle')!;assert.equal(ship.location,'M18');assert.equal(ship.hotspot,'orbital-hatch');assert(ship.components!.includes('creature-core'));assert(ship.components!.includes('core-tube'));assert.equal(specimen(g).length,0);assertSave(g);
+ if(width===390)writeFileSync(new URL(`../experiments/tangible-campaign/reviews/mars-creature-field-scenes/${name}-route-summary.json`,import.meta.url),JSON.stringify({scenario:s.id,route:name,width,actions:actions.length,metrics:g.state.metrics,revealChapter:name.startsWith('early')?'outcrop':'buried-story',trace,finalCargo:ship},null,2)+'\n');
+});
+
+ test('all rewritten checkpoints restore and preserve their original stage targets',()=>{
+ assert.equal(s.checkpoints!.length,survival.checkpoints!.length);
+ for(const [i,c]of s.checkpoints!.entries()){const g=M.checkpoint(s,c.id,390),old=M.checkpoint(survival,survival.checkpoints![i].id,390);assert.equal(g.state.chapter,old.state.chapter,c.id);assert.equal(g.state.completed,old.state.completed,c.id);assertSave(g);assert.equal(M.pendingMilestone(s,g),null,'checkpoint achievements are historical');}
+ });
+
+for(const name of ['microscope','glovebox'] as const)test(`${name}: both drop directions, original core position/components, one hero, no duplicate and Undo`,()=>{
+ const g=name==='microscope'?prefix('ice-creature-microscope'):(()=>{let p=prefix('outcrop-14-core-profile');p=apply(p,{type:'combine',a:'windowed-box',b:'glove-ports'});return apply(p,{type:'combine',a:'glovebox',b:'lamp'});})();
+ const instrument=name==='microscope'?'lit-microscope':'illuminated-glovebox';
+ for(const reverse of [false,true]){
+  const before=acknowledge(g),core=M.token(before.state,'ice-core')!,a=reverse?instrument:'ice-core',b=reverse?'ice-core':instrument;
+  assert(M.partners(s,before.state,a).directions.some(d=>d.source===a&&d.target===b));
+  const made=apply(before,{type:'drop',item:a,target:b});const c=M.token(made.state,'creature-core')!;assert.equal(c.x,core.x);assert.equal(c.y,core.y);assert.equal(c.location,core.location);assert.deepEqual(c.components,core.components);
+  assert.equal(M.pendingMilestone(s,made)!.id,'mars-ice-creature');assertSave(made);
+  const undo=M.undo(made).game;assert(M.token(undo.state,'ice-core'));assert(!M.token(undo.state,'creature-core'));assert.equal(M.pendingMilestone(s,undo),null);
+  const dismissed=M.acknowledgeMilestone(s,made,'mars-ice-creature');assert.equal(M.pendingMilestone(s,dismissed),null);assertSave(dismissed);
+  const redone=apply(M.undo(dismissed).game,{type:'combine',a:'ice-core',b:instrument});assert.equal(M.pendingMilestone(s,redone),null,'acknowledged hero never replays');assert.equal(redone.state.milestones!.filter(m=>m.id==='mars-ice-creature').length,1);
+  const duplicate=M.applyAction(s,redone,{type:'combine',a:'creature-core',b:instrument});assert(!duplicate.accepted);assert.equal(duplicate.game.history.length,redone.history.length);
+ }
+ });
+
+ test('both cameras still photograph the same creature-bearing core if discovery came first',()=>{
+ let g=prefix('outcrop-14-core-profile');g=apply(g,{type:'combine',a:'windowed-box',b:'glove-ports'});g=apply(g,{type:'combine',a:'glovebox',b:'lamp'});g=apply(g,{type:'combine',a:'ice-core',b:'illuminated-glovebox'});
+ for(const camera of ['camera','field-camera']){const p=apply(g,{type:'combine',a:camera,b:'creature-core'});assert(M.token(p.state,'core-profile'));assert.deepEqual(M.token(p.state,'creature-core'),M.token(g.state,'creature-core'));assert(!M.token(p.state,'ice-core'));assertSave(p);}
+ });
+
+for(const width of [320,390])test(`${width}px synthetic controller: image-led lab hero survives pending reload, dismisses once, leaves specimen on board`,()=>{
+ const g=acknowledge(prefix('ice-creature-microscope',width)),h=locationHarness(s,envelope(g),{width});
+ assert(h.app.innerHTML.includes('Examine ice core'));if(h.button('close'))h.click(h.button('close'));
+ h.click(h.thing('ice-core'));h.click(h.thing('lit-microscope'));h.timers.filter(t=>t.ms===700).forEach(t=>t.fn());h.flush();
+ assert(h.button('milestone')?.open);assert(h.app.innerHTML.includes('assets/discoveries/mars-ice-creature.png'));assert(h.app.innerHTML.includes('Fictional game illustration.'));assert(h.app.innerHTML.includes('A creature in the ice'));assert(h.thing('creature-core'));assert(!h.thing('ice-core'));
+ const pending=h.saved.get(h.key)!,loaded=locationHarness(s,pending,{width});loaded.flush();assert(loaded.button('milestone')?.open);loaded.click(loaded.button('milestone-continue'));loaded.flush();assert(!loaded.button('milestone'));assert(loaded.thing('creature-core'));
+ const restored=locationHarness(s,loaded.saved.get(loaded.key),{width});restored.flush();assert(!restored.button('milestone'),'dismissal is durable');
+ restored.click(restored.button('debug-toggle'));restored.click(restored.button('undo'));assert(restored.thing('ice-core'));assert(!restored.thing('creature-core'));if(restored.button('debug-close'))restored.click(restored.button('debug-close'));restored.click(restored.thing('ice-core'));restored.click(restored.thing('lit-microscope'));restored.timers.filter(t=>t.ms===700).forEach(t=>t.fn());restored.flush();assert(!restored.button('milestone'),'redo does not replay acknowledged hero');
+ });
+
+
+ test('microscope works at its actual first availability on basin arrival, before sediment work',()=>{
+ let g=M.createGame(s,390),found=false;
+ for(const a of route){if(recipe(a)?.id==='ice-creature-microscope')continue;g=apply(g,a);if(!found&&g.state.storyLocation==='M14'){assert.equal(s.chapters[g.state.chapter].id,'buried-story');assert(M.token(g.state,'lit-microscope'));assert(!M.token(g.state,'grain-images'));g=apply(g,{type:'combine',a:'lit-microscope',b:'ice-core'});assertSave(g);found=true;}}
+ assert(found);assert(g.state.completed);assert.equal(g.state.milestones!.filter(m=>m.id==='mars-ice-creature').length,1);assert(M.token(g.state,'docked-vehicle')!.components!.includes('creature-core'));
+ });
+ test('reviewed narrative corrections and obsolete branch cleanup remain exact',()=>{
+ const outcrop=s.chapters.find(c=>c.id==='outcrop')!;assert.equal(outcrop.completionText,'The sealed core and its layer photograph are secure; the cliff has given our map more detail.');assert(!/label/i.test(outcrop.completionText));
+ assert(s.items.find(i=>i.id==='creature-core')!.description!.includes('Close inspection'));
+ for(const id of ['outcrop-14-core-profile','outcrop-core-photograph-field-camera'])assert(s.recipes.find(r=>r.id===id)!.lifecycle!['ice-core'].reason.includes('continues with the expedition'));
+ const removed=['transparent-jar','sample-labels','ice-sample','sealed-ice-sample','catalogued-ice-sample','ice-photograph','ice-return-capsule','layer-interpretation'];
+ for(const id of removed){assert(!s.items.some(i=>i.id===id),id);assert(!s.recipes.some(r=>[r.a,r.b,r.out,r.install?.component].includes(id)),id);assert(!s.chapters.some(c=>c.objectives.some(o=>o.item===id)),id);assert(!s.locationPlan!.locations.some(l=>l.stockBatches.some(b=>b.items.includes(id))),id);}
+ assert(s.recipes.some(r=>r.id==='collect-gravel-chip'&&r.a==='sample-scoop'));assert(s.recipes.find(r=>r.id==='departure-6-complete-field-archive')!.lifecycle!['core-profile']);
+ assert.equal(s.recipes.find(r=>r.id==='buried-story-12-basin-field-record')!.a,'sediment-comparison');
+ assert(s.items.find(i=>i.id==='sleeved-comparison')!.reading!.text.includes('their age remains unknown'));
+ });
+ test('all53 registered worlds and chooser/default remain exact; shared current controller has only generic launch/image changes',()=>{
+ const review='experiments/tangible-campaign/reviews/mars-creature-field-scenes/';const hashes=JSON.parse(readFileSync(new URL(review+'current-scenario-hashes.json',sroot),'utf8'));assert.equal(current.length,53);
+ const sha=(x:string|Buffer)=>createHash('sha256').update(x).digest('hex');for(const world of current)assert.equal(sha(JSON.stringify(world)),hashes[world.id],world.id);
+ const manifest=JSON.parse(readFileSync(new URL(review+'source-successors.json',sroot),'utf8'));for(const [p,row]of Object.entries<any>(manifest.files)){assert.equal(sha(readFileSync(new URL(p,sroot))),row.afterSha256,p);assert.equal(sha(readFileSync(new URL(row.predecessorSnapshotPath,sroot))),row.beforeSha256,p);}
+ const code=readFileSync(new URL('../experiments/tangible-campaign/ui/campaign-main.ts',import.meta.url),'utf8'),entry=readFileSync(new URL('../experiments/tangible-campaign/ui/mars-creature-entry.ts',import.meta.url),'utf8');assert(code.includes('reconcileLocationDom'));assert(code.includes('milestone.artwork'));assert(!code.includes('mars-creature-field-scenes'));assert(entry.includes("import('./campaign-main.ts')"));assert(!entry.includes('function render'));
+ const css=readFileSync(new URL('../experiments/tangible-campaign/ui/campaign.css',import.meta.url),'utf8');assert(css.includes('object-fit: contain'));assert(css.includes('prefers-reduced-motion'));
+ const image=readFileSync(new URL('../public/assets/discoveries/mars-ice-creature.png',import.meta.url));assert.equal(sha(image),'22659f59d9970d76f52b1c23bff3ef2e368dda721467756c3af8d119712ab8f0');
+ const bad=structuredClone(s);bad.milestones!.at(-1)!.artwork!.src='https://untrusted.example/image.png';assert(M.validateScenario(bad).some(e=>e.includes('Invalid milestone artwork')));
+ });
+ test('discovery uses persistent current scene DOM, plain prose mission and guarded once-only interaction',()=>{
+ const g=acknowledge(prefix('ice-creature-microscope')),h=locationHarness(s,envelope(g),{width:390});
+ assert(!h.button('mission')!.innerHTML.includes('mission-eyebrow'));if(h.button('close'))h.click(h.button('close'));
+ const image=h.doc.querySelector('.location-scene img'),board=h.doc.querySelector('.board'),scope=h.thing('lit-microscope');
+ h.click(h.thing('ice-core'));assert.equal(h.doc.querySelector('.location-scene img'),image);h.click(scope);h.timers.filter(t=>t.ms===700).forEach(t=>t.fn());h.flush();
+ assert(h.button('milestone')?.open);assert.equal(h.doc.querySelector('.board'),board);assert.equal(h.doc.querySelector('.location-scene img'),image);assert.equal(h.thing('lit-microscope'),scope);
+ const before=h.state();h.click(h.thing('creature-core'));h.click(h.button('debug-toggle'));assert.deepEqual(h.state(),before);assert(h.button('milestone')?.open);h.click(h.button('milestone-continue'));h.flush();assert(!h.button('milestone'));assert.equal(h.doc.querySelector('.location-scene img'),image);
+ });
+ test('ordinary milestone keeps current presentation and standard build retains every previous HTML entry',()=>{
+ let g=M.createGame(s,390);for(const a of route){g=apply(g,a);if(M.pendingMilestone(s,g)?.id==='mars-rover')break;}const h=locationHarness(s,envelope(g));h.flush();assert(h.button('milestone')?.open);assert(h.app.innerHTML.includes('A new possibility'));assert(!h.app.innerHTML.includes('class="discovery-illustration"'));
+ const path='../experiments/tangible-campaign/reviews/mars-creature-field-scenes/predecessor/vite.config.ts.txt';const old=readFileSync(new URL(path,import.meta.url),'utf8'),now=readFileSync(new URL('../vite.config.ts',import.meta.url),'utf8');assert.equal(now,old.replace("history:'history.html'","history:'history.html',marsIceCreature:'mars-ice-creature.html'"));
+ });
+
+test('nested return specimen cannot be extracted, resurrected, moved or rediscovered by carryAlong',()=>{
+ const index=route.findIndex(a=>recipe(a)?.id==='departure-pack-ice');assert(index>=0);let g=M.replay(s,route.slice(0,index+1),390);assert(!M.token(g.state,'creature-core'));assert(!M.token(g.state,'ice-core'));const cargo=structuredClone(M.token(g.state,'cushioned-capsule'));
+ for(const a of [{type:'relocate',item:'creature-core',location:'M04',x:80,y:80},{type:'combine',a:'ice-core',b:'lit-microscope'},{type:'combine',a:'creature-core',b:'lit-microscope'}] as Action[]){const result=M.applyAction(s,g,a);assert(!result.accepted);assert.deepEqual(result.game.state.tokens,g.state.tokens);assert.equal(result.game.history.length,g.history.length);}
+ const moved=M.applyAction(s,g,{type:'visit',location:'M04',carry:['ice-core','creature-core']});assert(!moved.accepted,'fixed-location ownership rejects a synthetic retrieval');assert.deepEqual(moved.game.state.tokens,g.state.tokens);assert.equal(moved.game.history.length,g.history.length);assert(!M.token(g.state,'creature-core'));assert(!M.token(g.state,'ice-core'));assert.deepEqual(M.token(g.state,'cushioned-capsule'),cargo);assertSave(g);
+});
+test('carryAlong does not import or rearrange cargo at a same-location chapter boundary',()=>{
+ const f:Scenario={schemaVersion:2,id:'same-place-carry-fixture',title:'A worktable',premise:'Two jobs at one table.',items:[{id:'core',label:'Protected core'},{id:'tool',label:'Tool'},{id:'blank',label:'Blank'},{id:'first',label:'First part'},{id:'second',label:'Second part'}],hotspots:[],initialItems:[],recipes:[{id:'first',a:'blank',b:'tool',out:'first',lifecycle:{blank:{role:'retain',reason:'A supply remains.'},tool:{role:'retain',reason:'Reusable tool.'}}},{id:'second',a:'first',b:'tool',out:'second',lifecycle:{first:{role:'retain',reason:'The reference stays.'},tool:{role:'retain',reason:'Reusable tool.'}}}],chapters:[{id:'one',title:'One',speaker:'Journal',motivation:'Make the first part.',location:{id:'A',label:'Table',travelText:'The table.'},visitId:'A-visit',objectives:[{id:'one-goal',kind:'create',item:'first',text:'Make first part'}],onAlreadyComplete:{mode:'skip'}},{id:'two',title:'Two',speaker:'Journal',motivation:'Make the second part.',location:{id:'A',label:'Table',travelText:'The table.'},visitId:'A-visit',objectives:[{id:'two-goal',kind:'create',item:'second',text:'Make second part'}],onAlreadyComplete:{mode:'skip'}}],locationPlan:{panel:{width:390,height:844},locations:[{id:'A',label:'Table',travelText:'The table.',background:{stableKey:'A',sceneBrief:'A table'},stockBatches:[{id:'stock',label:'Tools',narrative:'The tools are here.',items:['core','tool','blank']}],hotspots:[]}],visits:[{id:'A-visit',locationId:'A',chapterIds:['one','two'],carryAlong:['core']}]}};
+ for(const c of f.chapters)c.entryCue={id:c.id+'-entry',mode:c.id==='one'?'arrival-and-beat':'beat',format:'silent-title-card',voice:'Journal',text:c.motivation};
+ let g=M.createGame(f,390);g=M.applyAction(f,g,{type:'move',item:'core',x:290,y:190}).game;g=M.applyAction(f,g,{type:'combine',a:'blank',b:'tool'}).game;const before=structuredClone(g);const next=M.applyAction(f,g,{type:'advance'});assert(next.accepted);assert.equal(next.game.state.chapter,1);assert.deepEqual(next.game.state.tokens,before.state.tokens);assert.deepEqual(next.game.state.locations,before.state.locations);assert.deepEqual(withoutMetrics(M.undo(next.game).game.state),withoutMetrics(before.state));assert.deepEqual(M.restore(f,JSON.stringify(next.game)),next.game);
+});
+test('generic optional page configuration keeps canonical defaults, rejects malformed/repeated registration and never mutates the main roster',async()=>{
+ const page=await import('../experiments/tangible-campaign/ui/campaign-page-catalogue.ts');const canonical=await import('../experiments/tangible-campaign/ui/current-scenarios.ts');assert.equal(page.scenarios,canonical.scenarios);assert.equal(page.featuredScenarioIds,canonical.featuredScenarioIds);assert.equal(page.presentationFor,canonical.presentationFor);
+ assert.throws(()=>page.configureCampaignPage({scenarios:[],featuredScenarioIds:[],presentationFor:canonical.presentationFor}),/Invalid/);assert.throws(()=>page.configureCampaignPage({scenarios:[s,s],featuredScenarioIds:[s.id],presentationFor:canonical.presentationFor}),/Invalid/);
+ page.configureCampaignPage({scenarios:[s],featuredScenarioIds:[s.id],presentationFor:x=>({title:x.title,premise:x.premise})});assert.deepEqual(page.scenarios,[s]);assert.equal(canonical.scenarios.length,53);assert(!canonical.scenarios.includes(s));assert.throws(()=>page.configureCampaignPage({scenarios:[s],featuredScenarioIds:[s.id],presentationFor:canonical.presentationFor}),/already configured/);
+});

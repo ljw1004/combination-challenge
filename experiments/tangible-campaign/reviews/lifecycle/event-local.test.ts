@@ -15,14 +15,14 @@ function check(s:Scenario){assert.deepEqual(M.validateScenario(s),[]);assert.dee
 function roundtrip(s:Scenario,g:M.Game){const loaded=M.restore(s,JSON.stringify(g));assert.deepEqual(loaded,g);assert.deepEqual(M.restore(s,JSON.stringify(loaded)),loaded);return loaded;}
 
 test('every authored route removes only current authored inputs; movements and travel remove nothing',()=>{
- const reports:unknown[]=[];assert.equal(scenarios.length,48,'All40 pre-location worlds, seven preserved location worlds and the small-scene successor stay covered');
+ const reports:unknown[]=[];assert.equal(scenarios.length,57,'All56 published worlds plus one distinct journey cleanup edition stay covered');
  for(const s of scenarios){const accepted=acceptedTestRoute(s),recipeIds:string[]=[];let g=M.createGame(s);for(const action of accepted.actions){
   const before=g,r=step(s,g,action);g=r.game;if(r.recipe)recipeIds.push(r.recipe);const recipe=s.recipes.find(x=>x.id===r.recipe);
   const permitted=recipe?.install?[recipe.install.component]:recipe?incorporations(recipe).map(x=>x.item):[];
   const removed=before.state.tokens.filter(t=>!M.token(g.state,t.id)).map(t=>t.id);
   assert.deepEqual(removed.slice().sort(),(r.retired??[]).slice().sort());assert(removed.every(id=>permitted.includes(id)),s.id+':'+JSON.stringify(action));
  }assert(g.state.completed,s.id);roundtrip(s,g);reports.push({scenarioId:s.id,source:accepted.source,actionCount:accepted.actions.length,actionsSha256:createHash('sha256').update(JSON.stringify(accepted.actions)).digest('hex'),acceptedRecipeIds:recipeIds,completed:g.state.completed,saveRoundtripExact:true});}
- const out=new URL('../../../../results/small-scene-hotfix-20261029/',import.meta.url);mkdirSync(out,{recursive:true});writeFileSync(new URL('all48-event-local-route-evidence.json',out),JSON.stringify({scope:'All48 actual catalogue objects; historical route inputs and all seven prior location routes unchanged, new small-scene route accepted to full completion; no native UI claim',reports},null,2)+'\n');
+ const out=new URL('../../../../results/journey-cleanup-release-20261029/',import.meta.url);mkdirSync(out,{recursive:true});writeFileSync(new URL('all57-event-local-route-evidence.json',out),JSON.stringify({scope:'All57 registered catalogue objects; all56 prior routes unchanged and one new journey cleanup edition accepted to full completion; separate optional creature page retained unchanged; no native UI claim',reports},null,2)+'\n');
 });
 
 test('actual Elements keeps millstone, untouched bread and river map; no distant owner collects them',()=>{

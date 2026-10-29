@@ -1,0 +1,4595 @@
+{
+  "status": "Unpublished additive v2 candidate for independent challenge; v1 source and failed-scope report preserved unchanged",
+  "priorCandidateRoot": "/workspace/shared/authenticity-repairs-successor-20261029/source",
+  "priorCandidateSeal": "48ab071ebb25e315ccf546d9af9a0ac381f6bf8f810c03ab3e5a55987477a4f5",
+  "priorIndependentReview": "/workspace/shared/review-authenticity-repairs-20261029/REPORT.md",
+  "priorIndependentReviewSha256": "430f32a60423a151075b1991e59e5b4d3a6fbbefe5da6f8c78b608c38d3c39d4",
+  "candidateModule": "experiments/tangible-campaign/ui/stories/authenticity-repairs-v2.ts",
+  "candidateModuleSha256": "cba5dd3f2433f3800d1684222f74b8e7480d8e470a7194e44cd670b4cc7139e3",
+  "beforeId": "elements-material-repairs-v5",
+  "afterId": "elements-material-repairs-v6",
+  "decision": "Remove the unsupported Iron + unfired bowl → Bell → Dinner bell terminal branch, not replace it with another tool or foundry process. The existing timetable serves the keeper, who calls departures aloud.",
+  "allChangedItems": [
+    {
+      "before": {
+        "id": "rain-record",
+        "label": "Rain record",
+        "description": "Written measurements from repeated readings of the rain gauge."
+      },
+      "after": {
+        "id": "rain-record",
+        "label": "Rain record",
+        "description": "Written comparisons of repeated relative collector levels, using the same vessel over equal collection intervals."
+      }
+    },
+    {
+      "before": {
+        "id": "weather-record",
+        "label": "Weather record",
+        "description": "An account bringing rainfall and wind observations together."
+      },
+      "after": {
+        "id": "weather-record",
+        "label": "Weather record",
+        "description": "An account bringing relative collected-rain levels and wind observations together."
+      }
+    },
+    {
+      "before": {
+        "id": "wind-record",
+        "label": "Wind record",
+        "description": "Notes of the windsock's changing direction and lift. They describe the wind, not rainfall; a rain reading can complete the weather record."
+      },
+      "after": {
+        "id": "wind-record",
+        "label": "Wind record",
+        "description": "Notes of the windsock’s changing direction and lift. A relative level from the rain collector can complete the weather record."
+      }
+    }
+  ],
+  "removedItems": [
+    {
+      "id": "bell",
+      "label": "Bell",
+      "description": "A hollow metal body shaped to ring when struck."
+    },
+    {
+      "id": "dinner-bell",
+      "label": "Dinner bell",
+      "description": "A bell hung with a pull line, ready to call people together."
+    }
+  ],
+  "allChangedRecipes": [
+    {
+      "before": {
+        "id": "glazed-bowl",
+        "a": "bowl",
+        "b": "glaze",
+        "out": "glazed-bowl",
+        "at": "kiln-yard",
+        "lifecycle": {
+          "bowl": {
+            "role": "transform",
+            "reason": "The formed clay vessel is glazed and fired; a dry form remains only for distinct shaping work still needed."
+          },
+          "glaze": {
+            "role": "incorporate",
+            "reason": "Glaze becomes part of the result; retain a supply only while another authored use needs it."
+          }
+        },
+        "description": "At the kiln, coat and fire the formed bowl to make a water-ready glazed vessel."
+      },
+      "after": {
+        "id": "glazed-bowl",
+        "a": "bowl",
+        "b": "glaze",
+        "out": "glazed-bowl",
+        "at": "kiln-yard",
+        "lifecycle": {
+          "bowl": {
+            "role": "transform",
+            "reason": "The same formed clay vessel is glazed and fired. Retain a dry shaping form only while an unfinished basket or jar still independently needs it; there is no later metalworking use."
+          },
+          "glaze": {
+            "role": "incorporate",
+            "reason": "Glaze becomes part of the result; retain a supply only while another authored use needs it."
+          }
+        },
+        "description": "At the kiln, coat and fire the formed bowl to make a water-ready glazed vessel."
+      }
+    },
+    {
+      "before": {
+        "id": "rain-record",
+        "a": "paper",
+        "b": "rain-gauge",
+        "out": "rain-record",
+        "lifecycle": {
+          "paper": {
+            "role": "transform",
+            "reason": "Paper is the existing object changed into Rain record.",
+            "graphExceptions": [
+              {
+                "warning": "conditional-retention:wind-record",
+                "reason": "Rain notes use one sheet from the paper supply; wind notes may begin on another. Either record can later gain its missing observation from the windsock or rain gauge, so converging on a weather record does not exhaust all paper."
+              }
+            ]
+          },
+          "rain-gauge": {
+            "role": "retain",
+            "reason": "Rain gauge is reused as equipment, a source/reference, a subject of observation, or a continuing supply; this action does not consume it."
+          }
+        }
+      },
+      "after": {
+        "id": "rain-record",
+        "a": "paper",
+        "b": "rain-gauge",
+        "out": "rain-record",
+        "lifecycle": {
+          "paper": {
+            "role": "transform",
+            "reason": "Paper is the existing object changed into Rain record.",
+            "graphExceptions": [
+              {
+                "warning": "conditional-retention:wind-record",
+                "reason": "Rain notes use one sheet from the paper supply; wind notes may begin on another. Either record can later gain its missing observation from the windsock or rain gauge, so converging on a weather record does not exhaust all paper."
+              }
+            ]
+          },
+          "rain-gauge": {
+            "role": "retain",
+            "reason": "Rain gauge is reused as equipment, a source/reference, a subject of observation, or a continuing supply; this action does not consume it."
+          }
+        },
+        "description": "Record the clear collector’s relative fill level, comparing the same vessel over equal collection intervals."
+      }
+    },
+    {
+      "before": {
+        "id": "wind-record",
+        "a": "windsock",
+        "b": "paper",
+        "out": "wind-record",
+        "description": "You record how the windsock turns and lifts, leaving room beside the wind notes for rainfall.",
+        "lifecycle": {
+          "windsock": {
+            "role": "retain",
+            "reason": "Windsock is reused as equipment, a source/reference, a subject of observation, or a continuing supply; this action does not consume it."
+          },
+          "paper": {
+            "role": "transform",
+            "reason": "Paper is the existing object changed into Wind record.",
+            "graphExceptions": [
+              {
+                "warning": "conditional-retention:rain-record",
+                "reason": "Wind notes use one sheet, leaving paper for a separate rain record. Adding the rain-gauge observation to wind notes or the windsock observation to rain notes yields the same weather record by different routes, not by consuming the whole paper supply."
+              }
+            ]
+          }
+        }
+      },
+      "after": {
+        "id": "wind-record",
+        "a": "windsock",
+        "b": "paper",
+        "out": "wind-record",
+        "description": "Record how the windsock turns and lifts, leaving room beside the wind notes for relative collector levels.",
+        "lifecycle": {
+          "windsock": {
+            "role": "retain",
+            "reason": "Windsock is reused as equipment, a source/reference, a subject of observation, or a continuing supply; this action does not consume it."
+          },
+          "paper": {
+            "role": "transform",
+            "reason": "Paper is the existing object changed into Wind record.",
+            "graphExceptions": [
+              {
+                "warning": "conditional-retention:rain-record",
+                "reason": "Wind notes use one sheet, leaving paper for a separate rain record. Adding the rain-gauge observation to wind notes or the windsock observation to rain notes yields the same weather record by different routes, not by consuming the whole paper supply."
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "before": {
+        "id": "weather-from-wind-record",
+        "a": "wind-record",
+        "b": "rain-gauge",
+        "out": "weather-record",
+        "description": "The rain reading joins the wind notes: both kinds of observation now appear in the weather record.",
+        "lifecycle": {
+          "wind-record": {
+            "role": "transform",
+            "reason": "Wind record is the existing object changed into Weather record."
+          },
+          "rain-gauge": {
+            "role": "retain",
+            "reason": "Rain gauge is reused as equipment, a source/reference, a subject of observation, or a continuing supply; this action does not consume it."
+          }
+        }
+      },
+      "after": {
+        "id": "weather-from-wind-record",
+        "a": "wind-record",
+        "b": "rain-gauge",
+        "out": "weather-record",
+        "description": "The relative collector level joins the wind notes: both observations now appear in the weather record.",
+        "lifecycle": {
+          "wind-record": {
+            "role": "transform",
+            "reason": "Wind record is the existing object changed into Weather record."
+          },
+          "rain-gauge": {
+            "role": "retain",
+            "reason": "Rain gauge is reused as equipment, a source/reference, a subject of observation, or a continuing supply; this action does not consume it."
+          }
+        }
+      }
+    }
+  ],
+  "removedRecipes": [
+    {
+      "id": "bell",
+      "a": "iron",
+      "b": "bowl",
+      "out": "bell",
+      "lifecycle": {
+        "iron": {
+          "role": "transform",
+          "reason": "Iron is the existing object changed into Bell."
+        },
+        "bowl": {
+          "role": "retain",
+          "reason": "Bowl is reused as equipment, a source/reference, a subject of observation, or a continuing supply; this action does not consume it."
+        }
+      }
+    },
+    {
+      "id": "dinner-bell",
+      "a": "bell",
+      "b": "rope",
+      "out": "dinner-bell",
+      "lifecycle": {
+        "bell": {
+          "role": "transform",
+          "reason": "Bell is the existing object changed into Dinner bell."
+        },
+        "rope": {
+          "role": "incorporate",
+          "reason": "Rope becomes part of the result; retain a supply only while another authored use needs it."
+        }
+      }
+    }
+  ],
+  "beforeFormedBowlTrace": {
+    "direct": [
+      {
+        "id": "basket",
+        "a": "fiber",
+        "b": "bowl",
+        "out": "basket",
+        "lifecycle": {
+          "fiber": {
+            "role": "transform",
+            "reason": "Plant fiber is the existing object changed into Basket."
+          },
+          "bowl": {
+            "role": "retain",
+            "reason": "Bowl is reused as equipment, a source/reference, a subject of observation, or a continuing supply; this action does not consume it."
+          }
+        }
+      },
+      {
+        "id": "jar",
+        "a": "clay",
+        "b": "bowl",
+        "out": "jar",
+        "lifecycle": {
+          "clay": {
+            "role": "transform",
+            "reason": "Clay is the existing object changed into Jar."
+          },
+          "bowl": {
+            "role": "retain",
+            "reason": "Bowl is reused as equipment, a source/reference, a subject of observation, or a continuing supply; this action does not consume it."
+          }
+        }
+      },
+      {
+        "id": "glazed-bowl",
+        "a": "bowl",
+        "b": "glaze",
+        "out": "glazed-bowl",
+        "at": "kiln-yard",
+        "lifecycle": {
+          "bowl": {
+            "role": "transform",
+            "reason": "The formed clay vessel is glazed and fired; a dry form remains only for distinct shaping work still needed."
+          },
+          "glaze": {
+            "role": "incorporate",
+            "reason": "Glaze becomes part of the result; retain a supply only while another authored use needs it."
+          }
+        },
+        "description": "At the kiln, coat and fire the formed bowl to make a water-ready glazed vessel."
+      },
+      {
+        "id": "bell",
+        "a": "iron",
+        "b": "bowl",
+        "out": "bell",
+        "lifecycle": {
+          "iron": {
+            "role": "transform",
+            "reason": "Iron is the existing object changed into Bell."
+          },
+          "bowl": {
+            "role": "retain",
+            "reason": "Bowl is reused as equipment, a source/reference, a subject of observation, or a continuing supply; this action does not consume it."
+          }
+        }
+      }
+    ],
+    "allDescendantItems": [
+      "bowl",
+      "basket",
+      "jar",
+      "glazed-bowl",
+      "bell",
+      "picnic-basket",
+      "jar-lid",
+      "preserve-jar",
+      "glazed-bottle",
+      "drum",
+      "pickle-jar",
+      "crock",
+      "paint",
+      "pond-water",
+      "brine",
+      "drinking-water",
+      "oil-lamp",
+      "cooking-pot",
+      "washstand",
+      "dinner-bell",
+      "sealed-preserves",
+      "covered-urn",
+      "sealed-crock",
+      "water-urn",
+      "cider-bottle",
+      "float",
+      "filled-water-bottle",
+      "picture",
+      "pond-slide",
+      "salt",
+      "watch-lamp",
+      "paper-lantern",
+      "porridge",
+      "compote",
+      "wash-station",
+      "fruit-crock",
+      "mooring-buoy",
+      "floating-lantern",
+      "picture-book",
+      "gallery",
+      "pond-life-study",
+      "feast",
+      "exhibition-catalogue",
+      "feast-table"
+    ],
+    "allConsumerRecipes": [
+      {
+        "id": "basket",
+        "a": "fiber",
+        "b": "bowl",
+        "out": "basket",
+        "lifecycle": {
+          "fiber": {
+            "role": "transform",
+            "reason": "Plant fiber is the existing object changed into Basket."
+          },
+          "bowl": {
+            "role": "retain",
+            "reason": "Bowl is reused as equipment, a source/reference, a subject of observation, or a continuing supply; this action does not consume it."
+          }
+        }
+      },
+      {
+        "id": "picnic-basket",
+        "a": "bread",
+        "b": "basket",
+        "out": "picnic-basket",
+        "lifecycle": {
+          "bread": {
+            "role": "incorporate",
+            "reason": "Bread becomes part of the result; retain a supply only while another authored use needs it."
+          },
+          "basket": {
+            "role": "transform",
+            "reason": "Basket is the existing object changed into Picnic basket."
+          }
+        }
+      },
+      {
+        "id": "jar",
+        "a": "clay",
+        "b": "bowl",
+        "out": "jar",
+        "lifecycle": {
+          "clay": {
+            "role": "transform",
+            "reason": "Clay is the existing object changed into Jar."
+          },
+          "bowl": {
+            "role": "retain",
+            "reason": "Bowl is reused as equipment, a source/reference, a subject of observation, or a continuing supply; this action does not consume it."
+          }
+        }
+      },
+      {
+        "id": "jar-lid",
+        "a": "wood",
+        "b": "jar",
+        "out": "jar-lid",
+        "lifecycle": {
+          "wood": {
+            "role": "transform",
+            "reason": "Wood is the existing object changed into Jar lid."
+          },
+          "jar": {
+            "role": "retain",
+            "reason": "Jar is reused as equipment, a source/reference, a subject of observation, or a continuing supply; this action does not consume it."
+          }
+        }
+      },
+      {
+        "id": "preserve-jar",
+        "a": "jam",
+        "b": "jar",
+        "out": "preserve-jar",
+        "lifecycle": {
+          "jam": {
+            "role": "incorporate",
+            "reason": "Jam becomes part of the result; retain a supply only while another authored use needs it."
+          },
+          "jar": {
+            "role": "transform",
+            "reason": "Jar is the existing object changed into Preserve jar."
+          }
+        }
+      },
+      {
+        "id": "sealed-preserves",
+        "a": "preserve-jar",
+        "b": "jar-lid",
+        "out": "sealed-preserves",
+        "lifecycle": {
+          "preserve-jar": {
+            "role": "transform",
+            "reason": "Preserve jar is the existing object changed into Sealed preserves."
+          },
+          "jar-lid": {
+            "role": "incorporate",
+            "reason": "Jar lid becomes part of the result; retain a supply only while another authored use needs it."
+          }
+        }
+      },
+      {
+        "id": "glazed-bottle",
+        "a": "jar",
+        "b": "glaze",
+        "out": "glazed-bottle",
+        "lifecycle": {
+          "jar": {
+            "role": "transform",
+            "reason": "The same clay jar is coated and fired; it does not become a differently shaped bottle."
+          },
+          "glaze": {
+            "role": "incorporate",
+            "reason": "The mineral coating fuses onto the jar during firing."
+          }
+        },
+        "description": "The potter coats and fires the clay jar. The glaze melts into a glassy surface; the vessel keeps its jar shape.",
+        "caveat": "Coating, kiln firing and cooling are compressed into one craft action. Glaze alone does not fire pottery, and a glassy coating does not make the whole vessel glass.",
+        "sources": [
+          "pottery-glaze-firing"
+        ]
+      },
+      {
+        "id": "cider-bottle",
+        "a": "cider",
+        "b": "glazed-bottle",
+        "out": "cider-bottle",
+        "lifecycle": {
+          "cider": {
+            "role": "incorporate",
+            "reason": "Cider becomes part of the result; retain a supply only while another authored use needs it."
+          },
+          "glazed-bottle": {
+            "role": "transform",
+            "reason": "The existing glazed clay jar becomes its filled and closed state; its ceramic body and shape remain."
+          }
+        },
+        "description": "Cider fills the glazed clay jar; a fitted closure makes it ready to carry.",
+        "caveat": "Fitting an ordinary closure is compressed into filling the vessel; this is not a preservation or food-safety procedure."
+      },
+      {
+        "id": "glazed-bowl",
+        "a": "bowl",
+        "b": "glaze",
+        "out": "glazed-bowl",
+        "at": "kiln-yard",
+        "lifecycle": {
+          "bowl": {
+            "role": "transform",
+            "reason": "The formed clay vessel is glazed and fired; a dry form remains only for distinct shaping work still needed."
+          },
+          "glaze": {
+            "role": "incorporate",
+            "reason": "Glaze becomes part of the result; retain a supply only while another authored use needs it."
+          }
+        },
+        "description": "At the kiln, coat and fire the formed bowl to make a water-ready glazed vessel."
+      },
+      {
+        "id": "float",
+        "a": "wood",
+        "b": "glazed-bottle",
+        "out": "float",
+        "lifecycle": {
+          "wood": {
+            "role": "incorporate",
+            "reason": "Wood becomes part of the result; retain a supply only while another authored use needs it."
+          },
+          "glazed-bottle": {
+            "role": "incorporate",
+            "reason": "The closed, air-filled ceramic jar becomes the buoyant body held by the wooden support."
+          }
+        },
+        "description": "The closed, empty ceramic jar is held in a wooden support, trapping air to make a float.",
+        "caveat": "A suitable seal and support are compressed into the craft action; an open vessel would fill with water."
+      },
+      {
+        "id": "mooring-buoy",
+        "a": "float",
+        "b": "rope",
+        "out": "mooring-buoy",
+        "lifecycle": {
+          "float": {
+            "role": "transform",
+            "reason": "Float is the existing object changed into Mooring buoy."
+          },
+          "rope": {
+            "role": "incorporate",
+            "reason": "Rope becomes part of the result; retain a supply only while another authored use needs it."
+          }
+        }
+      },
+      {
+        "id": "drum",
+        "a": "cloth",
+        "b": "jar",
+        "out": "drum",
+        "lifecycle": {
+          "cloth": {
+            "role": "incorporate",
+            "reason": "Cloth becomes part of the result; retain a supply only while another authored use needs it."
+          },
+          "jar": {
+            "role": "transform",
+            "reason": "Jar is the existing object changed into Drum."
+          }
+        }
+      },
+      {
+        "id": "paint",
+        "a": "dye",
+        "b": "glazed-bowl",
+        "out": "paint",
+        "lifecycle": {
+          "dye": {
+            "role": "transform",
+            "reason": "Dye is the existing object changed into Paint."
+          },
+          "glazed-bowl": {
+            "role": "retain",
+            "reason": "The fired, glazed bowl supplies the liquid-holding vessel; an unfired clay form is not used for wet service."
+          }
+        }
+      },
+      {
+        "id": "picture",
+        "a": "paint",
+        "b": "paper",
+        "out": "picture",
+        "lifecycle": {
+          "paint": {
+            "role": "incorporate",
+            "reason": "Paint becomes part of the result; retain a supply only while another authored use needs it."
+          },
+          "paper": {
+            "role": "incorporate",
+            "reason": "Paper becomes part of the result; retain a supply only while another authored use needs it."
+          }
+        }
+      },
+      {
+        "id": "picture-book",
+        "a": "bound-book",
+        "b": "picture",
+        "out": "picture-book",
+        "lifecycle": {
+          "bound-book": {
+            "role": "transform",
+            "reason": "Bound book is the existing object changed into Picture book."
+          },
+          "picture": {
+            "role": "incorporate",
+            "reason": "Picture becomes part of the result; retain a supply only while another authored use needs it."
+          }
+        }
+      },
+      {
+        "id": "pond-water",
+        "a": "glazed-bowl",
+        "b": "@pond",
+        "out": "pond-water",
+        "lifecycle": {
+          "glazed-bowl": {
+            "role": "retain",
+            "reason": "The fired, glazed bowl supplies the liquid-holding vessel; an unfired clay form is not used for wet service."
+          }
+        }
+      },
+      {
+        "id": "pond-slide",
+        "a": "pond-water",
+        "b": "glass-slide",
+        "out": "pond-slide",
+        "lifecycle": {
+          "pond-water": {
+            "role": "incorporate",
+            "reason": "Pond water becomes part of the result; retain a supply only while another authored use needs it."
+          },
+          "glass-slide": {
+            "role": "transform",
+            "reason": "Glass slide is the existing object changed into Pond slide."
+          }
+        }
+      },
+      {
+        "id": "brine",
+        "a": "glazed-bowl",
+        "b": "@tidal-shore",
+        "out": "brine",
+        "lifecycle": {
+          "glazed-bowl": {
+            "role": "retain",
+            "reason": "The fired, glazed bowl supplies the liquid-holding vessel; an unfired clay form is not used for wet service."
+          }
+        }
+      },
+      {
+        "id": "salt",
+        "a": "brine",
+        "b": "fire",
+        "out": "salt",
+        "lifecycle": {
+          "brine": {
+            "role": "transform",
+            "reason": "Brine is the existing object changed into Salt."
+          },
+          "fire": {
+            "role": "retain",
+            "reason": "Fire is reused as equipment, a source/reference, a subject of observation, or a continuing supply; this action does not consume it."
+          }
+        }
+      },
+      {
+        "id": "pickle-jar",
+        "a": "pickles",
+        "b": "jar",
+        "out": "pickle-jar",
+        "lifecycle": {
+          "pickles": {
+            "role": "incorporate",
+            "reason": "Pickles becomes part of the result; retain a supply only while another authored use needs it."
+          },
+          "jar": {
+            "role": "transform",
+            "reason": "Jar is the existing object changed into Pickle jar."
+          }
+        }
+      },
+      {
+        "id": "drinking-water",
+        "a": "boiled-water",
+        "b": "glazed-bowl",
+        "out": "drinking-water",
+        "caveat": "Narrative craft abstraction; not a real-world water safety claim. Filtering and boiling do not remove every contaminant.",
+        "lifecycle": {
+          "boiled-water": {
+            "role": "incorporate",
+            "reason": "Boiled water becomes part of the result; retain a supply only while another authored use needs it.",
+            "graphExceptions": [
+              {
+                "warning": "conditional-retention:fill-water-bottle",
+                "reason": "The serving bowl receives a portion of prepared water. A separate portion can fill the clay jar directly, even though pouring from the bowl is another route to that filled jar."
+              },
+              {
+                "warning": "conditional-retention:fill-covered-bottle",
+                "reason": "Water served in the bowl is a portion of the prepared batch. The already-covered clay jar can receive a different portion; neither vessel exhausts the whole batch."
+              }
+            ]
+          },
+          "glazed-bowl": {
+            "role": "incorporate",
+            "reason": "Glazed bowl becomes part of the result; retain a supply only while another authored use needs it."
+          }
+        }
+      },
+      {
+        "id": "covered-urn",
+        "a": "glazed-bottle",
+        "b": "jar-lid",
+        "out": "covered-urn",
+        "lifecycle": {
+          "glazed-bottle": {
+            "role": "transform",
+            "reason": "The existing glazed clay jar is fitted with a cover; its ceramic body and shape stay the same.",
+            "graphExceptions": [
+              {
+                "warning": "conditional-retention:fill-water-bottle",
+                "reason": "The pottery craft supplies more than one ceramic vessel for cider, a float and water service. Covering a water jar therefore keeps an outside jar supply; cover-first and fill-first are alternative preparations, not globally exclusive pottery."
+              },
+              {
+                "warning": "conditional-retention:pour-bowl-into-bottle",
+                "reason": "A covered serving jar does not exhaust the pottery craft used for cider or the float. An open jar can still receive water from the bowl; these are separately allocated vessels, not duplicated occupants or cargo."
+              }
+            ]
+          },
+          "jar-lid": {
+            "role": "incorporate",
+            "reason": "Jar lid becomes part of the result; retain a supply only while another authored use needs it.",
+            "graphExceptions": [
+              {
+                "warning": "conditional-retention:cover-filled-water-bottle",
+                "reason": "One wooden lid is fitted to this jar. The lid-making craft also supplies covers for sealed preserves and the crock; the alternate fill-before-cover route does not mean all covers became this one lid."
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "water-urn",
+        "a": "drinking-water",
+        "b": "covered-urn",
+        "out": "water-urn",
+        "caveat": "Narrative craft abstraction; not a real-world water safety claim. Filtering and boiling do not remove every contaminant.",
+        "lifecycle": {
+          "drinking-water": {
+            "role": "retain",
+            "reason": "A portion of prepared water is poured from the serving bowl; the reusable bowl remains outside the clay jar."
+          },
+          "covered-urn": {
+            "role": "transform",
+            "reason": "The same covered clay jar is filled with prepared water."
+          }
+        }
+      },
+      {
+        "id": "crock",
+        "a": "jar",
+        "b": "clay",
+        "out": "crock",
+        "lifecycle": {
+          "jar": {
+            "role": "transform",
+            "reason": "Jar is the existing object changed into Crock."
+          },
+          "clay": {
+            "role": "incorporate",
+            "reason": "Clay becomes part of the result; retain a supply only while another authored use needs it."
+          }
+        }
+      },
+      {
+        "id": "sealed-crock",
+        "a": "crock",
+        "b": "jar-lid",
+        "out": "sealed-crock",
+        "lifecycle": {
+          "crock": {
+            "role": "transform",
+            "reason": "Crock is the existing object changed into Sealed crock."
+          },
+          "jar-lid": {
+            "role": "incorporate",
+            "reason": "Jar lid becomes part of the result; retain a supply only while another authored use needs it."
+          }
+        }
+      },
+      {
+        "id": "fruit-crock",
+        "a": "dried-fruit",
+        "b": "sealed-crock",
+        "out": "fruit-crock",
+        "lifecycle": {
+          "dried-fruit": {
+            "role": "incorporate",
+            "reason": "Dried fruit becomes part of the result; retain a supply only while another authored use needs it."
+          },
+          "sealed-crock": {
+            "role": "transform",
+            "reason": "Sealed crock is the existing object changed into Fruit crock."
+          }
+        }
+      },
+      {
+        "id": "oil-lamp",
+        "a": "wick",
+        "b": "glazed-bowl",
+        "out": "oil-lamp",
+        "lifecycle": {
+          "wick": {
+            "role": "incorporate",
+            "reason": "Wick becomes part of the result; retain a supply only while another authored use needs it."
+          },
+          "glazed-bowl": {
+            "role": "incorporate",
+            "reason": "The fired, glazed bowl supplies the liquid-holding vessel; an unfired clay form is not used for wet service."
+          }
+        }
+      },
+      {
+        "id": "watch-lamp",
+        "a": "oil-lamp",
+        "b": "glass",
+        "out": "watch-lamp",
+        "lifecycle": {
+          "oil-lamp": {
+            "role": "transform",
+            "reason": "Oil lamp is the existing object changed into Watch lamp."
+          },
+          "glass": {
+            "role": "incorporate",
+            "reason": "Glass becomes part of the result; retain a supply only while another authored use needs it."
+          }
+        }
+      },
+      {
+        "id": "paper-lantern",
+        "a": "lantern-frame",
+        "b": "oil-lamp",
+        "out": "paper-lantern",
+        "lifecycle": {
+          "lantern-frame": {
+            "role": "transform",
+            "reason": "Paper lantern frame is the existing object changed into Paper lantern."
+          },
+          "oil-lamp": {
+            "role": "incorporate",
+            "reason": "Oil lamp becomes part of the result; retain a supply only while another authored use needs it."
+          }
+        }
+      },
+      {
+        "id": "floating-lantern",
+        "a": "paper-lantern",
+        "b": "float",
+        "out": "floating-lantern",
+        "lifecycle": {
+          "paper-lantern": {
+            "role": "transform",
+            "reason": "Paper lantern is the existing object changed into Floating lantern."
+          },
+          "float": {
+            "role": "incorporate",
+            "reason": "Float becomes part of the result; retain a supply only while another authored use needs it."
+          }
+        }
+      },
+      {
+        "id": "bell",
+        "a": "iron",
+        "b": "bowl",
+        "out": "bell",
+        "lifecycle": {
+          "iron": {
+            "role": "transform",
+            "reason": "Iron is the existing object changed into Bell."
+          },
+          "bowl": {
+            "role": "retain",
+            "reason": "Bowl is reused as equipment, a source/reference, a subject of observation, or a continuing supply; this action does not consume it."
+          }
+        }
+      },
+      {
+        "id": "dinner-bell",
+        "a": "bell",
+        "b": "rope",
+        "out": "dinner-bell",
+        "lifecycle": {
+          "bell": {
+            "role": "transform",
+            "reason": "Bell is the existing object changed into Dinner bell."
+          },
+          "rope": {
+            "role": "incorporate",
+            "reason": "Rope becomes part of the result; retain a supply only while another authored use needs it."
+          }
+        }
+      },
+      {
+        "id": "gallery",
+        "a": "arcade",
+        "b": "picture",
+        "out": "gallery",
+        "lifecycle": {
+          "arcade": {
+            "role": "transform",
+            "reason": "Arcade is the existing object changed into Gallery."
+          },
+          "picture": {
+            "role": "incorporate",
+            "reason": "Picture becomes part of the result; retain a supply only while another authored use needs it."
+          }
+        }
+      },
+      {
+        "id": "exhibition-catalogue",
+        "a": "gallery",
+        "b": "paper",
+        "out": "exhibition-catalogue",
+        "lifecycle": {
+          "gallery": {
+            "role": "retain",
+            "reason": "Gallery is reused as equipment, a source/reference, a subject of observation, or a continuing supply; this action does not consume it."
+          },
+          "paper": {
+            "role": "transform",
+            "reason": "Paper is the existing object changed into Exhibition catalogue."
+          }
+        }
+      },
+      {
+        "id": "wash-station",
+        "a": "soap",
+        "b": "washstand",
+        "out": "wash-station",
+        "lifecycle": {
+          "soap": {
+            "role": "retain",
+            "reason": "Soap is reused as equipment, a source/reference, a subject of observation, or a continuing supply; this action does not consume it."
+          },
+          "washstand": {
+            "role": "transform",
+            "reason": "Washstand is the existing object changed into Wash station."
+          }
+        }
+      },
+      {
+        "id": "cooking-pot",
+        "a": "iron",
+        "b": "glazed-bowl",
+        "out": "cooking-pot",
+        "lifecycle": {
+          "iron": {
+            "role": "incorporate",
+            "reason": "Iron becomes part of the result; retain a supply only while another authored use needs it."
+          },
+          "glazed-bowl": {
+            "role": "transform",
+            "reason": "Glazed bowl is the existing object changed into Cooking pot."
+          }
+        }
+      },
+      {
+        "id": "porridge",
+        "a": "cooking-pot",
+        "b": "grain",
+        "out": "porridge",
+        "at": "kitchen-hearth",
+        "lifecycle": {
+          "cooking-pot": {
+            "role": "retain",
+            "reason": "Cooking pot is reused as equipment, a source/reference, a subject of observation, or a continuing supply; this action does not consume it."
+          },
+          "grain": {
+            "role": "transform",
+            "reason": "Grain is the existing object changed into Porridge."
+          }
+        }
+      },
+      {
+        "id": "compote",
+        "a": "cooking-pot",
+        "b": "fruit",
+        "out": "compote",
+        "at": "kitchen-hearth",
+        "lifecycle": {
+          "cooking-pot": {
+            "role": "retain",
+            "reason": "Cooking pot is reused as equipment, a source/reference, a subject of observation, or a continuing supply; this action does not consume it."
+          },
+          "fruit": {
+            "role": "transform",
+            "reason": "Fruit is the existing object changed into Fruit compote.",
+            "graphExceptions": [
+              {
+                "warning": "conditional-retention:feast",
+                "reason": "A portion of fruit is cooked in the pot. Fresh fruit remains for the bread-and-fruit feast and for preserves; cooked and fresh servings are separate portions even though either can feed the gathering."
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "feast-table",
+        "a": "feast",
+        "b": "tiled-table",
+        "out": "feast-table",
+        "lifecycle": {
+          "feast": {
+            "role": "incorporate",
+            "reason": "Feast becomes part of the result; retain a supply only while another authored use needs it."
+          },
+          "tiled-table": {
+            "role": "transform",
+            "reason": "Tiled table is the existing object changed into Feast table."
+          }
+        }
+      },
+      {
+        "id": "pond-life-study",
+        "a": "pond-slide",
+        "b": "microscope",
+        "out": "pond-life-study",
+        "description": "You bring the drop into focus. Green specks drift past; a transparent swimmer turns, then slips out of view. The naturalist moves aside so the child beside you can take a look.",
+        "caveat": "An illustrative fictional observation, not a species identification or a test of water safety.",
+        "lifecycle": {
+          "pond-slide": {
+            "role": "retain",
+            "reason": "Pond slide is reused as equipment, a source/reference, a subject of observation, or a continuing supply; this action does not consume it."
+          },
+          "microscope": {
+            "role": "retain",
+            "reason": "Microscope is reused as equipment, a source/reference, a subject of observation, or a continuing supply; this action does not consume it."
+          }
+        }
+      },
+      {
+        "id": "pond-slide-on-glass",
+        "a": "pond-water",
+        "b": "glass",
+        "out": "pond-slide",
+        "description": "A thin drop is spread on a small piece of clear glass, ready for the microscope.",
+        "caveat": "Accepts the player's direct sample-on-glass action. Preparing the small, flat support is compressed; the separate glass-slide route remains available.",
+        "lifecycle": {
+          "pond-water": {
+            "role": "incorporate",
+            "reason": "Pond water becomes part of the result; retain a supply only while another authored use needs it."
+          },
+          "glass": {
+            "role": "transform",
+            "reason": "Glass is the existing object changed into Pond slide.",
+            "graphExceptions": [
+              {
+                "warning": "conditional-retention:glass-slide",
+                "reason": "The direct sample route uses a small piece of glass, not the entire glass supply. A clean slide and other glasswork may still be made from the remaining stock."
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "feast-from-warm-meal",
+        "a": "porridge",
+        "b": "compote",
+        "out": "feast",
+        "description": "Bowls of warm porridge and fruit compote make a meal to share. The bread-and-fruit feast is still welcome, too.",
+        "lifecycle": {
+          "porridge": {
+            "role": "incorporate",
+            "reason": "Porridge becomes part of the result; retain a supply only while another authored use needs it."
+          },
+          "compote": {
+            "role": "incorporate",
+            "reason": "Fruit compote becomes part of the result; retain a supply only while another authored use needs it."
+          }
+        }
+      },
+      {
+        "id": "washstand-from-glazed-bowl",
+        "a": "glazed-bowl",
+        "b": "table",
+        "out": "washstand",
+        "description": "The smooth basin sits on the wooden stand, ready for the visitors to wash.",
+        "lifecycle": {
+          "glazed-bowl": {
+            "role": "incorporate",
+            "reason": "A glazed bowl is a suitable washing basin; the shared ceramic stock remains while other authored uses need it."
+          },
+          "table": {
+            "role": "transform",
+            "reason": "The existing table becomes the basin stand."
+          }
+        }
+      },
+      {
+        "id": "fill-water-bottle",
+        "a": "boiled-water",
+        "b": "glazed-bottle",
+        "out": "filled-water-bottle",
+        "description": "Prepared water fills the glazed clay jar. Its lid can be fitted next.",
+        "lifecycle": {
+          "boiled-water": {
+            "role": "incorporate",
+            "reason": "Prepared water is poured into the serving jar.",
+            "graphExceptions": [
+              {
+                "warning": "conditional-retention:fill-covered-bottle",
+                "reason": "Filling the open jar uses one portion of the prepared-water batch. Water remains for bowl service and a covered vessel; the two fill orders do not consume the entire batch."
+              }
+            ]
+          },
+          "glazed-bottle": {
+            "role": "transform",
+            "reason": "The existing clay jar becomes its filled state; no new vessel is conjured.",
+            "graphExceptions": [
+              {
+                "warning": "conditional-retention:covered-urn",
+                "reason": "Filling one serving jar preserves the outside ceramic-vessel supply used for cider and the float. The cover-first route is still optional for another vessel; the filled jar itself remains one evolving object."
+              }
+            ]
+          }
+        },
+        "caveat": "Narrative craft abstraction; not a real-world water safety claim. Filtering and boiling do not remove every contaminant."
+      },
+      {
+        "id": "pour-bowl-into-bottle",
+        "a": "drinking-water",
+        "b": "glazed-bottle",
+        "out": "filled-water-bottle",
+        "description": "You pour prepared water from the serving bowl into the glazed clay jar; the bowl remains available.",
+        "lifecycle": {
+          "drinking-water": {
+            "role": "retain",
+            "reason": "This is a serving bowl and shared supply; pouring a portion does not consume the ceramic bowl."
+          },
+          "glazed-bottle": {
+            "role": "transform",
+            "reason": "The existing clay jar becomes its filled state.",
+            "graphExceptions": [
+              {
+                "warning": "conditional-retention:covered-urn",
+                "reason": "Pouring from the bowl fills one ceramic serving vessel. The pottery craft still provides jars for cider and the float, so an outside jar may remain despite the alternate cover-first route."
+              }
+            ]
+          }
+        },
+        "caveat": "Narrative craft abstraction; not a real-world water safety claim. Filtering and boiling do not remove every contaminant."
+      },
+      {
+        "id": "cover-filled-water-bottle",
+        "a": "filled-water-bottle",
+        "b": "jar-lid",
+        "out": "water-urn",
+        "description": "The lid fits the filled clay jar, ready to serve the visitors.",
+        "lifecycle": {
+          "filled-water-bottle": {
+            "role": "transform",
+            "reason": "The same filled clay jar is now covered for serving."
+          },
+          "jar-lid": {
+            "role": "incorporate",
+            "reason": "The fitted lid becomes part of the covered clay jar.",
+            "graphExceptions": [
+              {
+                "warning": "conditional-retention:covered-urn",
+                "reason": "One cover closes the water jar, while covers remain available for preserves and the crock. Cover-before-fill is an alternative for a serving vessel, not a claim that the whole lid supply was fitted."
+              }
+            ]
+          }
+        },
+        "caveat": "Narrative craft abstraction; not a real-world water safety claim. Filtering and boiling do not remove every contaminant."
+      },
+      {
+        "id": "fill-covered-bottle",
+        "a": "boiled-water",
+        "b": "covered-urn",
+        "out": "water-urn",
+        "description": "You lift the lid, fill the clay jar with prepared water and put the lid back.",
+        "lifecycle": {
+          "boiled-water": {
+            "role": "incorporate",
+            "reason": "The prepared water fills the covered serving vessel.",
+            "graphExceptions": [
+              {
+                "warning": "conditional-retention:fill-water-bottle",
+                "reason": "The covered jar receives a portion, with prepared water left for bowl service or another open jar. The alternative order changes the vessel state, not the amount of water represented by the whole supply."
+              }
+            ]
+          },
+          "covered-urn": {
+            "role": "transform",
+            "reason": "The same covered clay jar is filled; its removable lid stays with it."
+          }
+        },
+        "caveat": "Narrative craft abstraction; not a real-world water safety claim. Filtering and boiling do not remove every contaminant."
+      }
+    ],
+    "relatedGoals": [
+      {
+        "chapter": "bakery",
+        "location": {
+          "id": "E02-bakehouse",
+          "label": "Mill bakehouse",
+          "travelText": "The adjoining bakehouse has a sheltered workfloor beside its warm cellar."
+        },
+        "goal": {
+          "id": "bakery-picnic-basket",
+          "text": "Pack a picnic basket",
+          "kind": "create",
+          "item": "picnic-basket",
+          "after": [
+            "bakery-bread"
+          ]
+        }
+      },
+      {
+        "chapter": "orchard",
+        "location": {
+          "id": "E03",
+          "label": "Orchard preserving place",
+          "travelText": "An open work area beneath the orchard trees is ready for the fruit harvest."
+        },
+        "goal": {
+          "id": "orchard-sealed-preserves",
+          "text": "Make Sealed preserves",
+          "kind": "create",
+          "item": "sealed-preserves"
+        }
+      },
+      {
+        "chapter": "pottery",
+        "location": {
+          "id": "E04",
+          "label": "Potter’s yard",
+          "travelText": "The kiln and sheltered clay workyard stand beside the river path."
+        },
+        "goal": {
+          "id": "pottery-glazed-bowl",
+          "text": "Fire and glaze the bowl",
+          "kind": "create",
+          "item": "glazed-bowl"
+        }
+      },
+      {
+        "chapter": "harbour",
+        "location": {
+          "id": "E07",
+          "label": "Harbour headland",
+          "travelText": "The high coastal viewpoint overlooks the harbour approach."
+        },
+        "goal": {
+          "id": "harbour-mooring-buoy",
+          "text": "Make Mooring buoy",
+          "kind": "create",
+          "item": "mooring-buoy"
+        }
+      },
+      {
+        "chapter": "music",
+        "location": {
+          "id": "E08-music-afternoon",
+          "label": "Square · music afternoon",
+          "travelText": "The square’s next afternoon work is preparing a place for music."
+        },
+        "goal": {
+          "id": "music-drum",
+          "text": "Make Drum",
+          "kind": "create",
+          "item": "drum"
+        }
+      },
+      {
+        "chapter": "theatre",
+        "location": {
+          "id": "E08-story-service",
+          "label": "Square · story service",
+          "travelText": "For a later storytelling service, the square has a cleared working space for the puppets and pictures."
+        },
+        "goal": {
+          "id": "theatre-picture-book",
+          "text": "Make Picture book",
+          "kind": "create",
+          "item": "picture-book"
+        }
+      },
+      {
+        "chapter": "optics",
+        "location": {
+          "id": "E02-pond-bank",
+          "label": "Millpond bank",
+          "travelText": "At water level, a quiet bank gives a close view into the millpond."
+        },
+        "goal": {
+          "id": "optics-observe-pond-life",
+          "text": "Examine pond slide",
+          "kind": "create",
+          "item": "pond-life-study"
+        }
+      },
+      {
+        "chapter": "saltshore",
+        "location": {
+          "id": "E07-tidal-shore",
+          "label": "Tidal shore",
+          "travelText": "The path descends to an open working place beside the exposed tidal shore."
+        },
+        "goal": {
+          "id": "saltshore-pickle-jar",
+          "text": "Make Pickle jar",
+          "kind": "create",
+          "item": "pickle-jar"
+        }
+      },
+      {
+        "chapter": "cleanwater",
+        "location": {
+          "id": "E08-welcome-morning",
+          "label": "Square · welcome morning",
+          "travelText": "The arrival morning clears a fresh service space in the square for guests to drink and wash."
+        },
+        "goal": {
+          "id": "cleanwater-washstand",
+          "text": "Make Washstand",
+          "kind": "create",
+          "item": "washstand"
+        }
+      },
+      {
+        "chapter": "cleanwater",
+        "location": {
+          "id": "E08-welcome-morning",
+          "label": "Square · welcome morning",
+          "travelText": "The arrival morning clears a fresh service space in the square for guests to drink and wash."
+        },
+        "goal": {
+          "id": "cleanwater-water-urn",
+          "text": "Fill and cover the water jar",
+          "kind": "create",
+          "item": "water-urn"
+        }
+      },
+      {
+        "chapter": "washday",
+        "location": {
+          "id": "E08-washing-corner",
+          "label": "Washing corner",
+          "travelText": "A separate drained corner beside the square provides space for washing."
+        },
+        "goal": {
+          "id": "washday-wash-station",
+          "text": "Make Wash station",
+          "kind": "create",
+          "item": "wash-station"
+        }
+      },
+      {
+        "chapter": "kitchen",
+        "location": {
+          "id": "E08-hearth-side",
+          "label": "Communal kitchen hearth",
+          "travelText": "Close beside the square’s built-in kitchen hearth is a separate cooking and serving area."
+        },
+        "goal": {
+          "id": "kitchen-porridge",
+          "text": "Cook porridge",
+          "kind": "create",
+          "item": "porridge",
+          "intermediate": true
+        }
+      },
+      {
+        "chapter": "kitchen",
+        "location": {
+          "id": "E08-hearth-side",
+          "label": "Communal kitchen hearth",
+          "travelText": "Close beside the square’s built-in kitchen hearth is a separate cooking and serving area."
+        },
+        "goal": {
+          "id": "kitchen-compote",
+          "text": "Cook fruit compote",
+          "kind": "create",
+          "item": "compote",
+          "intermediate": true
+        }
+      },
+      {
+        "chapter": "kitchen",
+        "location": {
+          "id": "E08-hearth-side",
+          "label": "Communal kitchen hearth",
+          "travelText": "Close beside the square’s built-in kitchen hearth is a separate cooking and serving area."
+        },
+        "goal": {
+          "id": "kitchen-shared-feast-table",
+          "text": "Lay a feast table",
+          "kind": "create",
+          "item": "feast-table",
+          "after": [
+            "kitchen-porridge",
+            "kitchen-compote"
+          ]
+        }
+      },
+      {
+        "chapter": "stores",
+        "location": {
+          "id": "E08-dry-store",
+          "label": "Village dry store",
+          "travelText": "An airy store off the square has a bare floor and sheltered space for provisions."
+        },
+        "goal": {
+          "id": "stores-fruit-crock",
+          "text": "Make Fruit crock",
+          "kind": "create",
+          "item": "fruit-crock"
+        }
+      },
+      {
+        "chapter": "lanterns",
+        "location": {
+          "id": "E06-dusk",
+          "label": "Landing · dusk",
+          "travelText": "The same landing becomes a new evening workspace as the river darkens."
+        },
+        "goal": {
+          "id": "lanterns-floating-lantern",
+          "text": "Make Floating lantern",
+          "kind": "create",
+          "item": "floating-lantern"
+        }
+      },
+      {
+        "chapter": "lanterns",
+        "location": {
+          "id": "E06-dusk",
+          "label": "Landing · dusk",
+          "travelText": "The same landing becomes a new evening workspace as the river darkens."
+        },
+        "goal": {
+          "id": "lanterns-watch-lamp",
+          "text": "Make Watch lamp",
+          "kind": "create",
+          "item": "watch-lamp"
+        }
+      },
+      {
+        "chapter": "timekeeping",
+        "location": {
+          "id": "E06-next-morning",
+          "label": "Landing · next morning",
+          "travelText": "The following morning brings a clear working space at the landing for directions and departure times."
+        },
+        "goal": {
+          "id": "timekeeping-dinner-bell",
+          "text": "Make Dinner bell",
+          "kind": "create",
+          "item": "dinner-bell"
+        }
+      },
+      {
+        "chapter": "gallery",
+        "location": {
+          "id": "E08-gallery-day",
+          "label": "Square · exhibition day",
+          "travelText": "The next day’s square service sets aside cooking and performance work for a small exhibition."
+        },
+        "goal": {
+          "id": "gallery-exhibition-catalogue",
+          "text": "Make Exhibition catalogue",
+          "kind": "create",
+          "item": "exhibition-catalogue"
+        }
+      },
+      {
+        "chapter": "gathering",
+        "location": {
+          "id": "E06-final-evening",
+          "label": "Landing · gathering evening",
+          "travelText": "The final evening returns to the same landing for the neighbours’ gathering."
+        },
+        "goal": {
+          "id": "gathering-lantern",
+          "kind": "place",
+          "item": "floating-lantern",
+          "hotspot": "gathering-landing",
+          "text": "Place floating lantern at the gathering landing"
+        }
+      }
+    ],
+    "fixedCarryReferences": [],
+    "stockReferences": []
+  },
+  "afterFormedBowlTrace": {
+    "direct": [
+      {
+        "id": "basket",
+        "a": "fiber",
+        "b": "bowl",
+        "out": "basket",
+        "lifecycle": {
+          "fiber": {
+            "role": "transform",
+            "reason": "Plant fiber is the existing object changed into Basket."
+          },
+          "bowl": {
+            "role": "retain",
+            "reason": "Bowl is reused as equipment, a source/reference, a subject of observation, or a continuing supply; this action does not consume it."
+          }
+        }
+      },
+      {
+        "id": "jar",
+        "a": "clay",
+        "b": "bowl",
+        "out": "jar",
+        "lifecycle": {
+          "clay": {
+            "role": "transform",
+            "reason": "Clay is the existing object changed into Jar."
+          },
+          "bowl": {
+            "role": "retain",
+            "reason": "Bowl is reused as equipment, a source/reference, a subject of observation, or a continuing supply; this action does not consume it."
+          }
+        }
+      },
+      {
+        "id": "glazed-bowl",
+        "a": "bowl",
+        "b": "glaze",
+        "out": "glazed-bowl",
+        "at": "kiln-yard",
+        "lifecycle": {
+          "bowl": {
+            "role": "transform",
+            "reason": "The same formed clay vessel is glazed and fired. Retain a dry shaping form only while an unfinished basket or jar still independently needs it; there is no later metalworking use."
+          },
+          "glaze": {
+            "role": "incorporate",
+            "reason": "Glaze becomes part of the result; retain a supply only while another authored use needs it."
+          }
+        },
+        "description": "At the kiln, coat and fire the formed bowl to make a water-ready glazed vessel."
+      }
+    ],
+    "allDescendantItems": [
+      "bowl",
+      "basket",
+      "jar",
+      "glazed-bowl",
+      "picnic-basket",
+      "jar-lid",
+      "preserve-jar",
+      "glazed-bottle",
+      "drum",
+      "pickle-jar",
+      "crock",
+      "paint",
+      "pond-water",
+      "brine",
+      "drinking-water",
+      "oil-lamp",
+      "cooking-pot",
+      "washstand",
+      "sealed-preserves",
+      "covered-urn",
+      "sealed-crock",
+      "water-urn",
+      "cider-bottle",
+      "float",
+      "filled-water-bottle",
+      "picture",
+      "pond-slide",
+      "salt",
+      "watch-lamp",
+      "paper-lantern",
+      "porridge",
+      "compote",
+      "wash-station",
+      "fruit-crock",
+      "mooring-buoy",
+      "floating-lantern",
+      "picture-book",
+      "gallery",
+      "pond-life-study",
+      "feast",
+      "exhibition-catalogue",
+      "feast-table"
+    ],
+    "allConsumerRecipes": [
+      {
+        "id": "basket",
+        "a": "fiber",
+        "b": "bowl",
+        "out": "basket",
+        "lifecycle": {
+          "fiber": {
+            "role": "transform",
+            "reason": "Plant fiber is the existing object changed into Basket."
+          },
+          "bowl": {
+            "role": "retain",
+            "reason": "Bowl is reused as equipment, a source/reference, a subject of observation, or a continuing supply; this action does not consume it."
+          }
+        }
+      },
+      {
+        "id": "picnic-basket",
+        "a": "bread",
+        "b": "basket",
+        "out": "picnic-basket",
+        "lifecycle": {
+          "bread": {
+            "role": "incorporate",
+            "reason": "Bread becomes part of the result; retain a supply only while another authored use needs it."
+          },
+          "basket": {
+            "role": "transform",
+            "reason": "Basket is the existing object changed into Picnic basket."
+          }
+        }
+      },
+      {
+        "id": "jar",
+        "a": "clay",
+        "b": "bowl",
+        "out": "jar",
+        "lifecycle": {
+          "clay": {
+            "role": "transform",
+            "reason": "Clay is the existing object changed into Jar."
+          },
+          "bowl": {
+            "role": "retain",
+            "reason": "Bowl is reused as equipment, a source/reference, a subject of observation, or a continuing supply; this action does not consume it."
+          }
+        }
+      },
+      {
+        "id": "jar-lid",
+        "a": "wood",
+        "b": "jar",
+        "out": "jar-lid",
+        "lifecycle": {
+          "wood": {
+            "role": "transform",
+            "reason": "Wood is the existing object changed into Jar lid."
+          },
+          "jar": {
+            "role": "retain",
+            "reason": "Jar is reused as equipment, a source/reference, a subject of observation, or a continuing supply; this action does not consume it."
+          }
+        }
+      },
+      {
+        "id": "preserve-jar",
+        "a": "jam",
+        "b": "jar",
+        "out": "preserve-jar",
+        "lifecycle": {
+          "jam": {
+            "role": "incorporate",
+            "reason": "Jam becomes part of the result; retain a supply only while another authored use needs it."
+          },
+          "jar": {
+            "role": "transform",
+            "reason": "Jar is the existing object changed into Preserve jar."
+          }
+        }
+      },
+      {
+        "id": "sealed-preserves",
+        "a": "preserve-jar",
+        "b": "jar-lid",
+        "out": "sealed-preserves",
+        "lifecycle": {
+          "preserve-jar": {
+            "role": "transform",
+            "reason": "Preserve jar is the existing object changed into Sealed preserves."
+          },
+          "jar-lid": {
+            "role": "incorporate",
+            "reason": "Jar lid becomes part of the result; retain a supply only while another authored use needs it."
+          }
+        }
+      },
+      {
+        "id": "glazed-bottle",
+        "a": "jar",
+        "b": "glaze",
+        "out": "glazed-bottle",
+        "lifecycle": {
+          "jar": {
+            "role": "transform",
+            "reason": "The same clay jar is coated and fired; it does not become a differently shaped bottle."
+          },
+          "glaze": {
+            "role": "incorporate",
+            "reason": "The mineral coating fuses onto the jar during firing."
+          }
+        },
+        "description": "The potter coats and fires the clay jar. The glaze melts into a glassy surface; the vessel keeps its jar shape.",
+        "caveat": "Coating, kiln firing and cooling are compressed into one craft action. Glaze alone does not fire pottery, and a glassy coating does not make the whole vessel glass.",
+        "sources": [
+          "pottery-glaze-firing"
+        ]
+      },
+      {
+        "id": "cider-bottle",
+        "a": "cider",
+        "b": "glazed-bottle",
+        "out": "cider-bottle",
+        "lifecycle": {
+          "cider": {
+            "role": "incorporate",
+            "reason": "Cider becomes part of the result; retain a supply only while another authored use needs it."
+          },
+          "glazed-bottle": {
+            "role": "transform",
+            "reason": "The existing glazed clay jar becomes its filled and closed state; its ceramic body and shape remain."
+          }
+        },
+        "description": "Cider fills the glazed clay jar; a fitted closure makes it ready to carry.",
+        "caveat": "Fitting an ordinary closure is compressed into filling the vessel; this is not a preservation or food-safety procedure."
+      },
+      {
+        "id": "glazed-bowl",
+        "a": "bowl",
+        "b": "glaze",
+        "out": "glazed-bowl",
+        "at": "kiln-yard",
+        "lifecycle": {
+          "bowl": {
+            "role": "transform",
+            "reason": "The same formed clay vessel is glazed and fired. Retain a dry shaping form only while an unfinished basket or jar still independently needs it; there is no later metalworking use."
+          },
+          "glaze": {
+            "role": "incorporate",
+            "reason": "Glaze becomes part of the result; retain a supply only while another authored use needs it."
+          }
+        },
+        "description": "At the kiln, coat and fire the formed bowl to make a water-ready glazed vessel."
+      },
+      {
+        "id": "float",
+        "a": "wood",
+        "b": "glazed-bottle",
+        "out": "float",
+        "lifecycle": {
+          "wood": {
+            "role": "incorporate",
+            "reason": "Wood becomes part of the result; retain a supply only while another authored use needs it."
+          },
+          "glazed-bottle": {
+            "role": "incorporate",
+            "reason": "The closed, air-filled ceramic jar becomes the buoyant body held by the wooden support."
+          }
+        },
+        "description": "The closed, empty ceramic jar is held in a wooden support, trapping air to make a float.",
+        "caveat": "A suitable seal and support are compressed into the craft action; an open vessel would fill with water."
+      },
+      {
+        "id": "mooring-buoy",
+        "a": "float",
+        "b": "rope",
+        "out": "mooring-buoy",
+        "lifecycle": {
+          "float": {
+            "role": "transform",
+            "reason": "Float is the existing object changed into Mooring buoy."
+          },
+          "rope": {
+            "role": "incorporate",
+            "reason": "Rope becomes part of the result; retain a supply only while another authored use needs it."
+          }
+        }
+      },
+      {
+        "id": "drum",
+        "a": "cloth",
+        "b": "jar",
+        "out": "drum",
+        "lifecycle": {
+          "cloth": {
+            "role": "incorporate",
+            "reason": "Cloth becomes part of the result; retain a supply only while another authored use needs it."
+          },
+          "jar": {
+            "role": "transform",
+            "reason": "Jar is the existing object changed into Drum."
+          }
+        }
+      },
+      {
+        "id": "paint",
+        "a": "dye",
+        "b": "glazed-bowl",
+        "out": "paint",
+        "lifecycle": {
+          "dye": {
+            "role": "transform",
+            "reason": "Dye is the existing object changed into Paint."
+          },
+          "glazed-bowl": {
+            "role": "retain",
+            "reason": "The fired, glazed bowl supplies the liquid-holding vessel; an unfired clay form is not used for wet service."
+          }
+        }
+      },
+      {
+        "id": "picture",
+        "a": "paint",
+        "b": "paper",
+        "out": "picture",
+        "lifecycle": {
+          "paint": {
+            "role": "incorporate",
+            "reason": "Paint becomes part of the result; retain a supply only while another authored use needs it."
+          },
+          "paper": {
+            "role": "incorporate",
+            "reason": "Paper becomes part of the result; retain a supply only while another authored use needs it."
+          }
+        }
+      },
+      {
+        "id": "picture-book",
+        "a": "bound-book",
+        "b": "picture",
+        "out": "picture-book",
+        "lifecycle": {
+          "bound-book": {
+            "role": "transform",
+            "reason": "Bound book is the existing object changed into Picture book."
+          },
+          "picture": {
+            "role": "incorporate",
+            "reason": "Picture becomes part of the result; retain a supply only while another authored use needs it."
+          }
+        }
+      },
+      {
+        "id": "pond-water",
+        "a": "glazed-bowl",
+        "b": "@pond",
+        "out": "pond-water",
+        "lifecycle": {
+          "glazed-bowl": {
+            "role": "retain",
+            "reason": "The fired, glazed bowl supplies the liquid-holding vessel; an unfired clay form is not used for wet service."
+          }
+        }
+      },
+      {
+        "id": "pond-slide",
+        "a": "pond-water",
+        "b": "glass-slide",
+        "out": "pond-slide",
+        "lifecycle": {
+          "pond-water": {
+            "role": "incorporate",
+            "reason": "Pond water becomes part of the result; retain a supply only while another authored use needs it."
+          },
+          "glass-slide": {
+            "role": "transform",
+            "reason": "Glass slide is the existing object changed into Pond slide."
+          }
+        }
+      },
+      {
+        "id": "brine",
+        "a": "glazed-bowl",
+        "b": "@tidal-shore",
+        "out": "brine",
+        "lifecycle": {
+          "glazed-bowl": {
+            "role": "retain",
+            "reason": "The fired, glazed bowl supplies the liquid-holding vessel; an unfired clay form is not used for wet service."
+          }
+        }
+      },
+      {
+        "id": "salt",
+        "a": "brine",
+        "b": "fire",
+        "out": "salt",
+        "lifecycle": {
+          "brine": {
+            "role": "transform",
+            "reason": "Brine is the existing object changed into Salt."
+          },
+          "fire": {
+            "role": "retain",
+            "reason": "Fire is reused as equipment, a source/reference, a subject of observation, or a continuing supply; this action does not consume it."
+          }
+        }
+      },
+      {
+        "id": "pickle-jar",
+        "a": "pickles",
+        "b": "jar",
+        "out": "pickle-jar",
+        "lifecycle": {
+          "pickles": {
+            "role": "incorporate",
+            "reason": "Pickles becomes part of the result; retain a supply only while another authored use needs it."
+          },
+          "jar": {
+            "role": "transform",
+            "reason": "Jar is the existing object changed into Pickle jar."
+          }
+        }
+      },
+      {
+        "id": "drinking-water",
+        "a": "boiled-water",
+        "b": "glazed-bowl",
+        "out": "drinking-water",
+        "caveat": "Narrative craft abstraction; not a real-world water safety claim. Filtering and boiling do not remove every contaminant.",
+        "lifecycle": {
+          "boiled-water": {
+            "role": "incorporate",
+            "reason": "Boiled water becomes part of the result; retain a supply only while another authored use needs it.",
+            "graphExceptions": [
+              {
+                "warning": "conditional-retention:fill-water-bottle",
+                "reason": "The serving bowl receives a portion of prepared water. A separate portion can fill the clay jar directly, even though pouring from the bowl is another route to that filled jar."
+              },
+              {
+                "warning": "conditional-retention:fill-covered-bottle",
+                "reason": "Water served in the bowl is a portion of the prepared batch. The already-covered clay jar can receive a different portion; neither vessel exhausts the whole batch."
+              }
+            ]
+          },
+          "glazed-bowl": {
+            "role": "incorporate",
+            "reason": "Glazed bowl becomes part of the result; retain a supply only while another authored use needs it."
+          }
+        }
+      },
+      {
+        "id": "covered-urn",
+        "a": "glazed-bottle",
+        "b": "jar-lid",
+        "out": "covered-urn",
+        "lifecycle": {
+          "glazed-bottle": {
+            "role": "transform",
+            "reason": "The existing glazed clay jar is fitted with a cover; its ceramic body and shape stay the same.",
+            "graphExceptions": [
+              {
+                "warning": "conditional-retention:fill-water-bottle",
+                "reason": "The pottery craft supplies more than one ceramic vessel for cider, a float and water service. Covering a water jar therefore keeps an outside jar supply; cover-first and fill-first are alternative preparations, not globally exclusive pottery."
+              },
+              {
+                "warning": "conditional-retention:pour-bowl-into-bottle",
+                "reason": "A covered serving jar does not exhaust the pottery craft used for cider or the float. An open jar can still receive water from the bowl; these are separately allocated vessels, not duplicated occupants or cargo."
+              }
+            ]
+          },
+          "jar-lid": {
+            "role": "incorporate",
+            "reason": "Jar lid becomes part of the result; retain a supply only while another authored use needs it.",
+            "graphExceptions": [
+              {
+                "warning": "conditional-retention:cover-filled-water-bottle",
+                "reason": "One wooden lid is fitted to this jar. The lid-making craft also supplies covers for sealed preserves and the crock; the alternate fill-before-cover route does not mean all covers became this one lid."
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "water-urn",
+        "a": "drinking-water",
+        "b": "covered-urn",
+        "out": "water-urn",
+        "caveat": "Narrative craft abstraction; not a real-world water safety claim. Filtering and boiling do not remove every contaminant.",
+        "lifecycle": {
+          "drinking-water": {
+            "role": "retain",
+            "reason": "A portion of prepared water is poured from the serving bowl; the reusable bowl remains outside the clay jar."
+          },
+          "covered-urn": {
+            "role": "transform",
+            "reason": "The same covered clay jar is filled with prepared water."
+          }
+        }
+      },
+      {
+        "id": "crock",
+        "a": "jar",
+        "b": "clay",
+        "out": "crock",
+        "lifecycle": {
+          "jar": {
+            "role": "transform",
+            "reason": "Jar is the existing object changed into Crock."
+          },
+          "clay": {
+            "role": "incorporate",
+            "reason": "Clay becomes part of the result; retain a supply only while another authored use needs it."
+          }
+        }
+      },
+      {
+        "id": "sealed-crock",
+        "a": "crock",
+        "b": "jar-lid",
+        "out": "sealed-crock",
+        "lifecycle": {
+          "crock": {
+            "role": "transform",
+            "reason": "Crock is the existing object changed into Sealed crock."
+          },
+          "jar-lid": {
+            "role": "incorporate",
+            "reason": "Jar lid becomes part of the result; retain a supply only while another authored use needs it."
+          }
+        }
+      },
+      {
+        "id": "fruit-crock",
+        "a": "dried-fruit",
+        "b": "sealed-crock",
+        "out": "fruit-crock",
+        "lifecycle": {
+          "dried-fruit": {
+            "role": "incorporate",
+            "reason": "Dried fruit becomes part of the result; retain a supply only while another authored use needs it."
+          },
+          "sealed-crock": {
+            "role": "transform",
+            "reason": "Sealed crock is the existing object changed into Fruit crock."
+          }
+        }
+      },
+      {
+        "id": "oil-lamp",
+        "a": "wick",
+        "b": "glazed-bowl",
+        "out": "oil-lamp",
+        "lifecycle": {
+          "wick": {
+            "role": "incorporate",
+            "reason": "Wick becomes part of the result; retain a supply only while another authored use needs it."
+          },
+          "glazed-bowl": {
+            "role": "incorporate",
+            "reason": "The fired, glazed bowl supplies the liquid-holding vessel; an unfired clay form is not used for wet service."
+          }
+        }
+      },
+      {
+        "id": "watch-lamp",
+        "a": "oil-lamp",
+        "b": "glass",
+        "out": "watch-lamp",
+        "lifecycle": {
+          "oil-lamp": {
+            "role": "transform",
+            "reason": "Oil lamp is the existing object changed into Watch lamp."
+          },
+          "glass": {
+            "role": "incorporate",
+            "reason": "Glass becomes part of the result; retain a supply only while another authored use needs it."
+          }
+        }
+      },
+      {
+        "id": "paper-lantern",
+        "a": "lantern-frame",
+        "b": "oil-lamp",
+        "out": "paper-lantern",
+        "lifecycle": {
+          "lantern-frame": {
+            "role": "transform",
+            "reason": "Paper lantern frame is the existing object changed into Paper lantern."
+          },
+          "oil-lamp": {
+            "role": "incorporate",
+            "reason": "Oil lamp becomes part of the result; retain a supply only while another authored use needs it."
+          }
+        }
+      },
+      {
+        "id": "floating-lantern",
+        "a": "paper-lantern",
+        "b": "float",
+        "out": "floating-lantern",
+        "lifecycle": {
+          "paper-lantern": {
+            "role": "transform",
+            "reason": "Paper lantern is the existing object changed into Floating lantern."
+          },
+          "float": {
+            "role": "incorporate",
+            "reason": "Float becomes part of the result; retain a supply only while another authored use needs it."
+          }
+        }
+      },
+      {
+        "id": "gallery",
+        "a": "arcade",
+        "b": "picture",
+        "out": "gallery",
+        "lifecycle": {
+          "arcade": {
+            "role": "transform",
+            "reason": "Arcade is the existing object changed into Gallery."
+          },
+          "picture": {
+            "role": "incorporate",
+            "reason": "Picture becomes part of the result; retain a supply only while another authored use needs it."
+          }
+        }
+      },
+      {
+        "id": "exhibition-catalogue",
+        "a": "gallery",
+        "b": "paper",
+        "out": "exhibition-catalogue",
+        "lifecycle": {
+          "gallery": {
+            "role": "retain",
+            "reason": "Gallery is reused as equipment, a source/reference, a subject of observation, or a continuing supply; this action does not consume it."
+          },
+          "paper": {
+            "role": "transform",
+            "reason": "Paper is the existing object changed into Exhibition catalogue."
+          }
+        }
+      },
+      {
+        "id": "wash-station",
+        "a": "soap",
+        "b": "washstand",
+        "out": "wash-station",
+        "lifecycle": {
+          "soap": {
+            "role": "retain",
+            "reason": "Soap is reused as equipment, a source/reference, a subject of observation, or a continuing supply; this action does not consume it."
+          },
+          "washstand": {
+            "role": "transform",
+            "reason": "Washstand is the existing object changed into Wash station."
+          }
+        }
+      },
+      {
+        "id": "cooking-pot",
+        "a": "iron",
+        "b": "glazed-bowl",
+        "out": "cooking-pot",
+        "lifecycle": {
+          "iron": {
+            "role": "incorporate",
+            "reason": "Iron becomes part of the result; retain a supply only while another authored use needs it."
+          },
+          "glazed-bowl": {
+            "role": "transform",
+            "reason": "Glazed bowl is the existing object changed into Cooking pot."
+          }
+        }
+      },
+      {
+        "id": "porridge",
+        "a": "cooking-pot",
+        "b": "grain",
+        "out": "porridge",
+        "at": "kitchen-hearth",
+        "lifecycle": {
+          "cooking-pot": {
+            "role": "retain",
+            "reason": "Cooking pot is reused as equipment, a source/reference, a subject of observation, or a continuing supply; this action does not consume it."
+          },
+          "grain": {
+            "role": "transform",
+            "reason": "Grain is the existing object changed into Porridge."
+          }
+        }
+      },
+      {
+        "id": "compote",
+        "a": "cooking-pot",
+        "b": "fruit",
+        "out": "compote",
+        "at": "kitchen-hearth",
+        "lifecycle": {
+          "cooking-pot": {
+            "role": "retain",
+            "reason": "Cooking pot is reused as equipment, a source/reference, a subject of observation, or a continuing supply; this action does not consume it."
+          },
+          "fruit": {
+            "role": "transform",
+            "reason": "Fruit is the existing object changed into Fruit compote.",
+            "graphExceptions": [
+              {
+                "warning": "conditional-retention:feast",
+                "reason": "A portion of fruit is cooked in the pot. Fresh fruit remains for the bread-and-fruit feast and for preserves; cooked and fresh servings are separate portions even though either can feed the gathering."
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "feast-table",
+        "a": "feast",
+        "b": "tiled-table",
+        "out": "feast-table",
+        "lifecycle": {
+          "feast": {
+            "role": "incorporate",
+            "reason": "Feast becomes part of the result; retain a supply only while another authored use needs it."
+          },
+          "tiled-table": {
+            "role": "transform",
+            "reason": "Tiled table is the existing object changed into Feast table."
+          }
+        }
+      },
+      {
+        "id": "pond-life-study",
+        "a": "pond-slide",
+        "b": "microscope",
+        "out": "pond-life-study",
+        "description": "You bring the drop into focus. Green specks drift past; a transparent swimmer turns, then slips out of view. The naturalist moves aside so the child beside you can take a look.",
+        "caveat": "An illustrative fictional observation, not a species identification or a test of water safety.",
+        "lifecycle": {
+          "pond-slide": {
+            "role": "retain",
+            "reason": "Pond slide is reused as equipment, a source/reference, a subject of observation, or a continuing supply; this action does not consume it."
+          },
+          "microscope": {
+            "role": "retain",
+            "reason": "Microscope is reused as equipment, a source/reference, a subject of observation, or a continuing supply; this action does not consume it."
+          }
+        }
+      },
+      {
+        "id": "pond-slide-on-glass",
+        "a": "pond-water",
+        "b": "glass",
+        "out": "pond-slide",
+        "description": "A thin drop is spread on a small piece of clear glass, ready for the microscope.",
+        "caveat": "Accepts the player's direct sample-on-glass action. Preparing the small, flat support is compressed; the separate glass-slide route remains available.",
+        "lifecycle": {
+          "pond-water": {
+            "role": "incorporate",
+            "reason": "Pond water becomes part of the result; retain a supply only while another authored use needs it."
+          },
+          "glass": {
+            "role": "transform",
+            "reason": "Glass is the existing object changed into Pond slide.",
+            "graphExceptions": [
+              {
+                "warning": "conditional-retention:glass-slide",
+                "reason": "The direct sample route uses a small piece of glass, not the entire glass supply. A clean slide and other glasswork may still be made from the remaining stock."
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "feast-from-warm-meal",
+        "a": "porridge",
+        "b": "compote",
+        "out": "feast",
+        "description": "Bowls of warm porridge and fruit compote make a meal to share. The bread-and-fruit feast is still welcome, too.",
+        "lifecycle": {
+          "porridge": {
+            "role": "incorporate",
+            "reason": "Porridge becomes part of the result; retain a supply only while another authored use needs it."
+          },
+          "compote": {
+            "role": "incorporate",
+            "reason": "Fruit compote becomes part of the result; retain a supply only while another authored use needs it."
+          }
+        }
+      },
+      {
+        "id": "washstand-from-glazed-bowl",
+        "a": "glazed-bowl",
+        "b": "table",
+        "out": "washstand",
+        "description": "The smooth basin sits on the wooden stand, ready for the visitors to wash.",
+        "lifecycle": {
+          "glazed-bowl": {
+            "role": "incorporate",
+            "reason": "A glazed bowl is a suitable washing basin; the shared ceramic stock remains while other authored uses need it."
+          },
+          "table": {
+            "role": "transform",
+            "reason": "The existing table becomes the basin stand."
+          }
+        }
+      },
+      {
+        "id": "fill-water-bottle",
+        "a": "boiled-water",
+        "b": "glazed-bottle",
+        "out": "filled-water-bottle",
+        "description": "Prepared water fills the glazed clay jar. Its lid can be fitted next.",
+        "lifecycle": {
+          "boiled-water": {
+            "role": "incorporate",
+            "reason": "Prepared water is poured into the serving jar.",
+            "graphExceptions": [
+              {
+                "warning": "conditional-retention:fill-covered-bottle",
+                "reason": "Filling the open jar uses one portion of the prepared-water batch. Water remains for bowl service and a covered vessel; the two fill orders do not consume the entire batch."
+              }
+            ]
+          },
+          "glazed-bottle": {
+            "role": "transform",
+            "reason": "The existing clay jar becomes its filled state; no new vessel is conjured.",
+            "graphExceptions": [
+              {
+                "warning": "conditional-retention:covered-urn",
+                "reason": "Filling one serving jar preserves the outside ceramic-vessel supply used for cider and the float. The cover-first route is still optional for another vessel; the filled jar itself remains one evolving object."
+              }
+            ]
+          }
+        },
+        "caveat": "Narrative craft abstraction; not a real-world water safety claim. Filtering and boiling do not remove every contaminant."
+      },
+      {
+        "id": "pour-bowl-into-bottle",
+        "a": "drinking-water",
+        "b": "glazed-bottle",
+        "out": "filled-water-bottle",
+        "description": "You pour prepared water from the serving bowl into the glazed clay jar; the bowl remains available.",
+        "lifecycle": {
+          "drinking-water": {
+            "role": "retain",
+            "reason": "This is a serving bowl and shared supply; pouring a portion does not consume the ceramic bowl."
+          },
+          "glazed-bottle": {
+            "role": "transform",
+            "reason": "The existing clay jar becomes its filled state.",
+            "graphExceptions": [
+              {
+                "warning": "conditional-retention:covered-urn",
+                "reason": "Pouring from the bowl fills one ceramic serving vessel. The pottery craft still provides jars for cider and the float, so an outside jar may remain despite the alternate cover-first route."
+              }
+            ]
+          }
+        },
+        "caveat": "Narrative craft abstraction; not a real-world water safety claim. Filtering and boiling do not remove every contaminant."
+      },
+      {
+        "id": "cover-filled-water-bottle",
+        "a": "filled-water-bottle",
+        "b": "jar-lid",
+        "out": "water-urn",
+        "description": "The lid fits the filled clay jar, ready to serve the visitors.",
+        "lifecycle": {
+          "filled-water-bottle": {
+            "role": "transform",
+            "reason": "The same filled clay jar is now covered for serving."
+          },
+          "jar-lid": {
+            "role": "incorporate",
+            "reason": "The fitted lid becomes part of the covered clay jar.",
+            "graphExceptions": [
+              {
+                "warning": "conditional-retention:covered-urn",
+                "reason": "One cover closes the water jar, while covers remain available for preserves and the crock. Cover-before-fill is an alternative for a serving vessel, not a claim that the whole lid supply was fitted."
+              }
+            ]
+          }
+        },
+        "caveat": "Narrative craft abstraction; not a real-world water safety claim. Filtering and boiling do not remove every contaminant."
+      },
+      {
+        "id": "fill-covered-bottle",
+        "a": "boiled-water",
+        "b": "covered-urn",
+        "out": "water-urn",
+        "description": "You lift the lid, fill the clay jar with prepared water and put the lid back.",
+        "lifecycle": {
+          "boiled-water": {
+            "role": "incorporate",
+            "reason": "The prepared water fills the covered serving vessel.",
+            "graphExceptions": [
+              {
+                "warning": "conditional-retention:fill-water-bottle",
+                "reason": "The covered jar receives a portion, with prepared water left for bowl service or another open jar. The alternative order changes the vessel state, not the amount of water represented by the whole supply."
+              }
+            ]
+          },
+          "covered-urn": {
+            "role": "transform",
+            "reason": "The same covered clay jar is filled; its removable lid stays with it."
+          }
+        },
+        "caveat": "Narrative craft abstraction; not a real-world water safety claim. Filtering and boiling do not remove every contaminant."
+      }
+    ],
+    "relatedGoals": [
+      {
+        "chapter": "bakery",
+        "location": {
+          "id": "E02-bakehouse",
+          "label": "Mill bakehouse",
+          "travelText": "The adjoining bakehouse has a sheltered workfloor beside its warm cellar."
+        },
+        "goal": {
+          "id": "bakery-picnic-basket",
+          "text": "Pack a picnic basket",
+          "kind": "create",
+          "item": "picnic-basket",
+          "after": [
+            "bakery-bread"
+          ]
+        }
+      },
+      {
+        "chapter": "orchard",
+        "location": {
+          "id": "E03",
+          "label": "Orchard preserving place",
+          "travelText": "An open work area beneath the orchard trees is ready for the fruit harvest."
+        },
+        "goal": {
+          "id": "orchard-sealed-preserves",
+          "text": "Make Sealed preserves",
+          "kind": "create",
+          "item": "sealed-preserves"
+        }
+      },
+      {
+        "chapter": "pottery",
+        "location": {
+          "id": "E04",
+          "label": "Potter’s yard",
+          "travelText": "The kiln and sheltered clay workyard stand beside the river path."
+        },
+        "goal": {
+          "id": "pottery-glazed-bowl",
+          "text": "Fire and glaze the bowl",
+          "kind": "create",
+          "item": "glazed-bowl"
+        }
+      },
+      {
+        "chapter": "harbour",
+        "location": {
+          "id": "E07",
+          "label": "Harbour headland",
+          "travelText": "The high coastal viewpoint overlooks the harbour approach."
+        },
+        "goal": {
+          "id": "harbour-mooring-buoy",
+          "text": "Make Mooring buoy",
+          "kind": "create",
+          "item": "mooring-buoy"
+        }
+      },
+      {
+        "chapter": "music",
+        "location": {
+          "id": "E08-music-afternoon",
+          "label": "Square · music afternoon",
+          "travelText": "The square’s next afternoon work is preparing a place for music."
+        },
+        "goal": {
+          "id": "music-drum",
+          "text": "Make Drum",
+          "kind": "create",
+          "item": "drum"
+        }
+      },
+      {
+        "chapter": "theatre",
+        "location": {
+          "id": "E08-story-service",
+          "label": "Square · story service",
+          "travelText": "For a later storytelling service, the square has a cleared working space for the puppets and pictures."
+        },
+        "goal": {
+          "id": "theatre-picture-book",
+          "text": "Make Picture book",
+          "kind": "create",
+          "item": "picture-book"
+        }
+      },
+      {
+        "chapter": "optics",
+        "location": {
+          "id": "E02-pond-bank",
+          "label": "Millpond bank",
+          "travelText": "At water level, a quiet bank gives a close view into the millpond."
+        },
+        "goal": {
+          "id": "optics-observe-pond-life",
+          "text": "Examine pond slide",
+          "kind": "create",
+          "item": "pond-life-study"
+        }
+      },
+      {
+        "chapter": "saltshore",
+        "location": {
+          "id": "E07-tidal-shore",
+          "label": "Tidal shore",
+          "travelText": "The path descends to an open working place beside the exposed tidal shore."
+        },
+        "goal": {
+          "id": "saltshore-pickle-jar",
+          "text": "Make Pickle jar",
+          "kind": "create",
+          "item": "pickle-jar"
+        }
+      },
+      {
+        "chapter": "cleanwater",
+        "location": {
+          "id": "E08-welcome-morning",
+          "label": "Square · welcome morning",
+          "travelText": "The arrival morning clears a fresh service space in the square for guests to drink and wash."
+        },
+        "goal": {
+          "id": "cleanwater-washstand",
+          "text": "Make Washstand",
+          "kind": "create",
+          "item": "washstand"
+        }
+      },
+      {
+        "chapter": "cleanwater",
+        "location": {
+          "id": "E08-welcome-morning",
+          "label": "Square · welcome morning",
+          "travelText": "The arrival morning clears a fresh service space in the square for guests to drink and wash."
+        },
+        "goal": {
+          "id": "cleanwater-water-urn",
+          "text": "Fill and cover the water jar",
+          "kind": "create",
+          "item": "water-urn"
+        }
+      },
+      {
+        "chapter": "washday",
+        "location": {
+          "id": "E08-washing-corner",
+          "label": "Washing corner",
+          "travelText": "A separate drained corner beside the square provides space for washing."
+        },
+        "goal": {
+          "id": "washday-wash-station",
+          "text": "Make Wash station",
+          "kind": "create",
+          "item": "wash-station"
+        }
+      },
+      {
+        "chapter": "kitchen",
+        "location": {
+          "id": "E08-hearth-side",
+          "label": "Communal kitchen hearth",
+          "travelText": "Close beside the square’s built-in kitchen hearth is a separate cooking and serving area."
+        },
+        "goal": {
+          "id": "kitchen-porridge",
+          "text": "Cook porridge",
+          "kind": "create",
+          "item": "porridge",
+          "intermediate": true
+        }
+      },
+      {
+        "chapter": "kitchen",
+        "location": {
+          "id": "E08-hearth-side",
+          "label": "Communal kitchen hearth",
+          "travelText": "Close beside the square’s built-in kitchen hearth is a separate cooking and serving area."
+        },
+        "goal": {
+          "id": "kitchen-compote",
+          "text": "Cook fruit compote",
+          "kind": "create",
+          "item": "compote",
+          "intermediate": true
+        }
+      },
+      {
+        "chapter": "kitchen",
+        "location": {
+          "id": "E08-hearth-side",
+          "label": "Communal kitchen hearth",
+          "travelText": "Close beside the square’s built-in kitchen hearth is a separate cooking and serving area."
+        },
+        "goal": {
+          "id": "kitchen-shared-feast-table",
+          "text": "Lay a feast table",
+          "kind": "create",
+          "item": "feast-table",
+          "after": [
+            "kitchen-porridge",
+            "kitchen-compote"
+          ]
+        }
+      },
+      {
+        "chapter": "stores",
+        "location": {
+          "id": "E08-dry-store",
+          "label": "Village dry store",
+          "travelText": "An airy store off the square has a bare floor and sheltered space for provisions."
+        },
+        "goal": {
+          "id": "stores-fruit-crock",
+          "text": "Make Fruit crock",
+          "kind": "create",
+          "item": "fruit-crock"
+        }
+      },
+      {
+        "chapter": "lanterns",
+        "location": {
+          "id": "E06-dusk",
+          "label": "Landing · dusk",
+          "travelText": "The same landing becomes a new evening workspace as the river darkens."
+        },
+        "goal": {
+          "id": "lanterns-floating-lantern",
+          "text": "Make Floating lantern",
+          "kind": "create",
+          "item": "floating-lantern"
+        }
+      },
+      {
+        "chapter": "lanterns",
+        "location": {
+          "id": "E06-dusk",
+          "label": "Landing · dusk",
+          "travelText": "The same landing becomes a new evening workspace as the river darkens."
+        },
+        "goal": {
+          "id": "lanterns-watch-lamp",
+          "text": "Make Watch lamp",
+          "kind": "create",
+          "item": "watch-lamp"
+        }
+      },
+      {
+        "chapter": "gallery",
+        "location": {
+          "id": "E08-gallery-day",
+          "label": "Square · exhibition day",
+          "travelText": "The next day’s square service sets aside cooking and performance work for a small exhibition."
+        },
+        "goal": {
+          "id": "gallery-exhibition-catalogue",
+          "text": "Make Exhibition catalogue",
+          "kind": "create",
+          "item": "exhibition-catalogue"
+        }
+      },
+      {
+        "chapter": "gathering",
+        "location": {
+          "id": "E06-final-evening",
+          "label": "Landing · gathering evening",
+          "travelText": "The final evening returns to the same landing for the neighbours’ gathering."
+        },
+        "goal": {
+          "id": "gathering-lantern",
+          "kind": "place",
+          "item": "floating-lantern",
+          "hotspot": "gathering-landing",
+          "text": "Place floating lantern at the gathering landing"
+        }
+      }
+    ],
+    "fixedCarryReferences": [],
+    "stockReferences": []
+  },
+  "allRelevantConsumers": [
+    {
+      "id": "bowl",
+      "before": [
+        {
+          "id": "basket",
+          "a": "fiber",
+          "b": "bowl",
+          "out": "basket",
+          "lifecycle": {
+            "fiber": {
+              "role": "transform",
+              "reason": "Plant fiber is the existing object changed into Basket."
+            },
+            "bowl": {
+              "role": "retain",
+              "reason": "Bowl is reused as equipment, a source/reference, a subject of observation, or a continuing supply; this action does not consume it."
+            }
+          }
+        },
+        {
+          "id": "jar",
+          "a": "clay",
+          "b": "bowl",
+          "out": "jar",
+          "lifecycle": {
+            "clay": {
+              "role": "transform",
+              "reason": "Clay is the existing object changed into Jar."
+            },
+            "bowl": {
+              "role": "retain",
+              "reason": "Bowl is reused as equipment, a source/reference, a subject of observation, or a continuing supply; this action does not consume it."
+            }
+          }
+        },
+        {
+          "id": "glazed-bowl",
+          "a": "bowl",
+          "b": "glaze",
+          "out": "glazed-bowl",
+          "at": "kiln-yard",
+          "lifecycle": {
+            "bowl": {
+              "role": "transform",
+              "reason": "The formed clay vessel is glazed and fired; a dry form remains only for distinct shaping work still needed."
+            },
+            "glaze": {
+              "role": "incorporate",
+              "reason": "Glaze becomes part of the result; retain a supply only while another authored use needs it."
+            }
+          },
+          "description": "At the kiln, coat and fire the formed bowl to make a water-ready glazed vessel."
+        },
+        {
+          "id": "bell",
+          "a": "iron",
+          "b": "bowl",
+          "out": "bell",
+          "lifecycle": {
+            "iron": {
+              "role": "transform",
+              "reason": "Iron is the existing object changed into Bell."
+            },
+            "bowl": {
+              "role": "retain",
+              "reason": "Bowl is reused as equipment, a source/reference, a subject of observation, or a continuing supply; this action does not consume it."
+            }
+          }
+        }
+      ],
+      "after": [
+        {
+          "id": "basket",
+          "a": "fiber",
+          "b": "bowl",
+          "out": "basket",
+          "lifecycle": {
+            "fiber": {
+              "role": "transform",
+              "reason": "Plant fiber is the existing object changed into Basket."
+            },
+            "bowl": {
+              "role": "retain",
+              "reason": "Bowl is reused as equipment, a source/reference, a subject of observation, or a continuing supply; this action does not consume it."
+            }
+          }
+        },
+        {
+          "id": "jar",
+          "a": "clay",
+          "b": "bowl",
+          "out": "jar",
+          "lifecycle": {
+            "clay": {
+              "role": "transform",
+              "reason": "Clay is the existing object changed into Jar."
+            },
+            "bowl": {
+              "role": "retain",
+              "reason": "Bowl is reused as equipment, a source/reference, a subject of observation, or a continuing supply; this action does not consume it."
+            }
+          }
+        },
+        {
+          "id": "glazed-bowl",
+          "a": "bowl",
+          "b": "glaze",
+          "out": "glazed-bowl",
+          "at": "kiln-yard",
+          "lifecycle": {
+            "bowl": {
+              "role": "transform",
+              "reason": "The same formed clay vessel is glazed and fired. Retain a dry shaping form only while an unfinished basket or jar still independently needs it; there is no later metalworking use."
+            },
+            "glaze": {
+              "role": "incorporate",
+              "reason": "Glaze becomes part of the result; retain a supply only while another authored use needs it."
+            }
+          },
+          "description": "At the kiln, coat and fire the formed bowl to make a water-ready glazed vessel."
+        }
+      ]
+    },
+    {
+      "id": "glazed-bowl",
+      "before": [
+        {
+          "id": "paint",
+          "a": "dye",
+          "b": "glazed-bowl",
+          "out": "paint",
+          "lifecycle": {
+            "dye": {
+              "role": "transform",
+              "reason": "Dye is the existing object changed into Paint."
+            },
+            "glazed-bowl": {
+              "role": "retain",
+              "reason": "The fired, glazed bowl supplies the liquid-holding vessel; an unfired clay form is not used for wet service."
+            }
+          }
+        },
+        {
+          "id": "pond-water",
+          "a": "glazed-bowl",
+          "b": "@pond",
+          "out": "pond-water",
+          "lifecycle": {
+            "glazed-bowl": {
+              "role": "retain",
+              "reason": "The fired, glazed bowl supplies the liquid-holding vessel; an unfired clay form is not used for wet service."
+            }
+          }
+        },
+        {
+          "id": "brine",
+          "a": "glazed-bowl",
+          "b": "@tidal-shore",
+          "out": "brine",
+          "lifecycle": {
+            "glazed-bowl": {
+              "role": "retain",
+              "reason": "The fired, glazed bowl supplies the liquid-holding vessel; an unfired clay form is not used for wet service."
+            }
+          }
+        },
+        {
+          "id": "drinking-water",
+          "a": "boiled-water",
+          "b": "glazed-bowl",
+          "out": "drinking-water",
+          "caveat": "Narrative craft abstraction; not a real-world water safety claim. Filtering and boiling do not remove every contaminant.",
+          "lifecycle": {
+            "boiled-water": {
+              "role": "incorporate",
+              "reason": "Boiled water becomes part of the result; retain a supply only while another authored use needs it.",
+              "graphExceptions": [
+                {
+                  "warning": "conditional-retention:fill-water-bottle",
+                  "reason": "The serving bowl receives a portion of prepared water. A separate portion can fill the clay jar directly, even though pouring from the bowl is another route to that filled jar."
+                },
+                {
+                  "warning": "conditional-retention:fill-covered-bottle",
+                  "reason": "Water served in the bowl is a portion of the prepared batch. The already-covered clay jar can receive a different portion; neither vessel exhausts the whole batch."
+                }
+              ]
+            },
+            "glazed-bowl": {
+              "role": "incorporate",
+              "reason": "Glazed bowl becomes part of the result; retain a supply only while another authored use needs it."
+            }
+          }
+        },
+        {
+          "id": "oil-lamp",
+          "a": "wick",
+          "b": "glazed-bowl",
+          "out": "oil-lamp",
+          "lifecycle": {
+            "wick": {
+              "role": "incorporate",
+              "reason": "Wick becomes part of the result; retain a supply only while another authored use needs it."
+            },
+            "glazed-bowl": {
+              "role": "incorporate",
+              "reason": "The fired, glazed bowl supplies the liquid-holding vessel; an unfired clay form is not used for wet service."
+            }
+          }
+        },
+        {
+          "id": "cooking-pot",
+          "a": "iron",
+          "b": "glazed-bowl",
+          "out": "cooking-pot",
+          "lifecycle": {
+            "iron": {
+              "role": "incorporate",
+              "reason": "Iron becomes part of the result; retain a supply only while another authored use needs it."
+            },
+            "glazed-bowl": {
+              "role": "transform",
+              "reason": "Glazed bowl is the existing object changed into Cooking pot."
+            }
+          }
+        },
+        {
+          "id": "washstand-from-glazed-bowl",
+          "a": "glazed-bowl",
+          "b": "table",
+          "out": "washstand",
+          "description": "The smooth basin sits on the wooden stand, ready for the visitors to wash.",
+          "lifecycle": {
+            "glazed-bowl": {
+              "role": "incorporate",
+              "reason": "A glazed bowl is a suitable washing basin; the shared ceramic stock remains while other authored uses need it."
+            },
+            "table": {
+              "role": "transform",
+              "reason": "The existing table becomes the basin stand."
+            }
+          }
+        }
+      ],
+      "after": [
+        {
+          "id": "paint",
+          "a": "dye",
+          "b": "glazed-bowl",
+          "out": "paint",
+          "lifecycle": {
+            "dye": {
+              "role": "transform",
+              "reason": "Dye is the existing object changed into Paint."
+            },
+            "glazed-bowl": {
+              "role": "retain",
+              "reason": "The fired, glazed bowl supplies the liquid-holding vessel; an unfired clay form is not used for wet service."
+            }
+          }
+        },
+        {
+          "id": "pond-water",
+          "a": "glazed-bowl",
+          "b": "@pond",
+          "out": "pond-water",
+          "lifecycle": {
+            "glazed-bowl": {
+              "role": "retain",
+              "reason": "The fired, glazed bowl supplies the liquid-holding vessel; an unfired clay form is not used for wet service."
+            }
+          }
+        },
+        {
+          "id": "brine",
+          "a": "glazed-bowl",
+          "b": "@tidal-shore",
+          "out": "brine",
+          "lifecycle": {
+            "glazed-bowl": {
+              "role": "retain",
+              "reason": "The fired, glazed bowl supplies the liquid-holding vessel; an unfired clay form is not used for wet service."
+            }
+          }
+        },
+        {
+          "id": "drinking-water",
+          "a": "boiled-water",
+          "b": "glazed-bowl",
+          "out": "drinking-water",
+          "caveat": "Narrative craft abstraction; not a real-world water safety claim. Filtering and boiling do not remove every contaminant.",
+          "lifecycle": {
+            "boiled-water": {
+              "role": "incorporate",
+              "reason": "Boiled water becomes part of the result; retain a supply only while another authored use needs it.",
+              "graphExceptions": [
+                {
+                  "warning": "conditional-retention:fill-water-bottle",
+                  "reason": "The serving bowl receives a portion of prepared water. A separate portion can fill the clay jar directly, even though pouring from the bowl is another route to that filled jar."
+                },
+                {
+                  "warning": "conditional-retention:fill-covered-bottle",
+                  "reason": "Water served in the bowl is a portion of the prepared batch. The already-covered clay jar can receive a different portion; neither vessel exhausts the whole batch."
+                }
+              ]
+            },
+            "glazed-bowl": {
+              "role": "incorporate",
+              "reason": "Glazed bowl becomes part of the result; retain a supply only while another authored use needs it."
+            }
+          }
+        },
+        {
+          "id": "oil-lamp",
+          "a": "wick",
+          "b": "glazed-bowl",
+          "out": "oil-lamp",
+          "lifecycle": {
+            "wick": {
+              "role": "incorporate",
+              "reason": "Wick becomes part of the result; retain a supply only while another authored use needs it."
+            },
+            "glazed-bowl": {
+              "role": "incorporate",
+              "reason": "The fired, glazed bowl supplies the liquid-holding vessel; an unfired clay form is not used for wet service."
+            }
+          }
+        },
+        {
+          "id": "cooking-pot",
+          "a": "iron",
+          "b": "glazed-bowl",
+          "out": "cooking-pot",
+          "lifecycle": {
+            "iron": {
+              "role": "incorporate",
+              "reason": "Iron becomes part of the result; retain a supply only while another authored use needs it."
+            },
+            "glazed-bowl": {
+              "role": "transform",
+              "reason": "Glazed bowl is the existing object changed into Cooking pot."
+            }
+          }
+        },
+        {
+          "id": "washstand-from-glazed-bowl",
+          "a": "glazed-bowl",
+          "b": "table",
+          "out": "washstand",
+          "description": "The smooth basin sits on the wooden stand, ready for the visitors to wash.",
+          "lifecycle": {
+            "glazed-bowl": {
+              "role": "incorporate",
+              "reason": "A glazed bowl is a suitable washing basin; the shared ceramic stock remains while other authored uses need it."
+            },
+            "table": {
+              "role": "transform",
+              "reason": "The existing table becomes the basin stand."
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "bell",
+      "before": [
+        {
+          "id": "dinner-bell",
+          "a": "bell",
+          "b": "rope",
+          "out": "dinner-bell",
+          "lifecycle": {
+            "bell": {
+              "role": "transform",
+              "reason": "Bell is the existing object changed into Dinner bell."
+            },
+            "rope": {
+              "role": "incorporate",
+              "reason": "Rope becomes part of the result; retain a supply only while another authored use needs it."
+            }
+          }
+        }
+      ],
+      "after": []
+    },
+    {
+      "id": "dinner-bell",
+      "before": [],
+      "after": []
+    },
+    {
+      "id": "rain-gauge",
+      "before": [
+        {
+          "id": "rain-record",
+          "a": "paper",
+          "b": "rain-gauge",
+          "out": "rain-record",
+          "lifecycle": {
+            "paper": {
+              "role": "transform",
+              "reason": "Paper is the existing object changed into Rain record.",
+              "graphExceptions": [
+                {
+                  "warning": "conditional-retention:wind-record",
+                  "reason": "Rain notes use one sheet from the paper supply; wind notes may begin on another. Either record can later gain its missing observation from the windsock or rain gauge, so converging on a weather record does not exhaust all paper."
+                }
+              ]
+            },
+            "rain-gauge": {
+              "role": "retain",
+              "reason": "Rain gauge is reused as equipment, a source/reference, a subject of observation, or a continuing supply; this action does not consume it."
+            }
+          }
+        },
+        {
+          "id": "weather-from-wind-record",
+          "a": "wind-record",
+          "b": "rain-gauge",
+          "out": "weather-record",
+          "description": "The rain reading joins the wind notes: both kinds of observation now appear in the weather record.",
+          "lifecycle": {
+            "wind-record": {
+              "role": "transform",
+              "reason": "Wind record is the existing object changed into Weather record."
+            },
+            "rain-gauge": {
+              "role": "retain",
+              "reason": "Rain gauge is reused as equipment, a source/reference, a subject of observation, or a continuing supply; this action does not consume it."
+            }
+          }
+        }
+      ],
+      "after": [
+        {
+          "id": "rain-record",
+          "a": "paper",
+          "b": "rain-gauge",
+          "out": "rain-record",
+          "lifecycle": {
+            "paper": {
+              "role": "transform",
+              "reason": "Paper is the existing object changed into Rain record.",
+              "graphExceptions": [
+                {
+                  "warning": "conditional-retention:wind-record",
+                  "reason": "Rain notes use one sheet from the paper supply; wind notes may begin on another. Either record can later gain its missing observation from the windsock or rain gauge, so converging on a weather record does not exhaust all paper."
+                }
+              ]
+            },
+            "rain-gauge": {
+              "role": "retain",
+              "reason": "Rain gauge is reused as equipment, a source/reference, a subject of observation, or a continuing supply; this action does not consume it."
+            }
+          },
+          "description": "Record the clear collector’s relative fill level, comparing the same vessel over equal collection intervals."
+        },
+        {
+          "id": "weather-from-wind-record",
+          "a": "wind-record",
+          "b": "rain-gauge",
+          "out": "weather-record",
+          "description": "The relative collector level joins the wind notes: both observations now appear in the weather record.",
+          "lifecycle": {
+            "wind-record": {
+              "role": "transform",
+              "reason": "Wind record is the existing object changed into Weather record."
+            },
+            "rain-gauge": {
+              "role": "retain",
+              "reason": "Rain gauge is reused as equipment, a source/reference, a subject of observation, or a continuing supply; this action does not consume it."
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "rain-record",
+      "before": [
+        {
+          "id": "weather-record",
+          "a": "windsock",
+          "b": "rain-record",
+          "out": "weather-record",
+          "lifecycle": {
+            "windsock": {
+              "role": "retain",
+              "reason": "Windsock is reused as equipment, a source/reference, a subject of observation, or a continuing supply; this action does not consume it."
+            },
+            "rain-record": {
+              "role": "transform",
+              "reason": "Rain record is the existing object changed into Weather record."
+            }
+          }
+        },
+        {
+          "id": "weather-from-both-records",
+          "a": "wind-record",
+          "b": "rain-record",
+          "out": "weather-record",
+          "description": "The separate wind and rain notes become one weather record.",
+          "lifecycle": {
+            "wind-record": {
+              "role": "incorporate",
+              "reason": "Wind record becomes part of the result; retain a supply only while another authored use needs it."
+            },
+            "rain-record": {
+              "role": "incorporate",
+              "reason": "Rain record becomes part of the result; retain a supply only while another authored use needs it."
+            }
+          }
+        }
+      ],
+      "after": [
+        {
+          "id": "weather-record",
+          "a": "windsock",
+          "b": "rain-record",
+          "out": "weather-record",
+          "lifecycle": {
+            "windsock": {
+              "role": "retain",
+              "reason": "Windsock is reused as equipment, a source/reference, a subject of observation, or a continuing supply; this action does not consume it."
+            },
+            "rain-record": {
+              "role": "transform",
+              "reason": "Rain record is the existing object changed into Weather record."
+            }
+          }
+        },
+        {
+          "id": "weather-from-both-records",
+          "a": "wind-record",
+          "b": "rain-record",
+          "out": "weather-record",
+          "description": "The separate wind and rain notes become one weather record.",
+          "lifecycle": {
+            "wind-record": {
+              "role": "incorporate",
+              "reason": "Wind record becomes part of the result; retain a supply only while another authored use needs it."
+            },
+            "rain-record": {
+              "role": "incorporate",
+              "reason": "Rain record becomes part of the result; retain a supply only while another authored use needs it."
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "wind-record",
+      "before": [
+        {
+          "id": "weather-from-wind-record",
+          "a": "wind-record",
+          "b": "rain-gauge",
+          "out": "weather-record",
+          "description": "The rain reading joins the wind notes: both kinds of observation now appear in the weather record.",
+          "lifecycle": {
+            "wind-record": {
+              "role": "transform",
+              "reason": "Wind record is the existing object changed into Weather record."
+            },
+            "rain-gauge": {
+              "role": "retain",
+              "reason": "Rain gauge is reused as equipment, a source/reference, a subject of observation, or a continuing supply; this action does not consume it."
+            }
+          }
+        },
+        {
+          "id": "weather-from-both-records",
+          "a": "wind-record",
+          "b": "rain-record",
+          "out": "weather-record",
+          "description": "The separate wind and rain notes become one weather record.",
+          "lifecycle": {
+            "wind-record": {
+              "role": "incorporate",
+              "reason": "Wind record becomes part of the result; retain a supply only while another authored use needs it."
+            },
+            "rain-record": {
+              "role": "incorporate",
+              "reason": "Rain record becomes part of the result; retain a supply only while another authored use needs it."
+            }
+          }
+        }
+      ],
+      "after": [
+        {
+          "id": "weather-from-wind-record",
+          "a": "wind-record",
+          "b": "rain-gauge",
+          "out": "weather-record",
+          "description": "The relative collector level joins the wind notes: both observations now appear in the weather record.",
+          "lifecycle": {
+            "wind-record": {
+              "role": "transform",
+              "reason": "Wind record is the existing object changed into Weather record."
+            },
+            "rain-gauge": {
+              "role": "retain",
+              "reason": "Rain gauge is reused as equipment, a source/reference, a subject of observation, or a continuing supply; this action does not consume it."
+            }
+          }
+        },
+        {
+          "id": "weather-from-both-records",
+          "a": "wind-record",
+          "b": "rain-record",
+          "out": "weather-record",
+          "description": "The separate wind and rain notes become one weather record.",
+          "lifecycle": {
+            "wind-record": {
+              "role": "incorporate",
+              "reason": "Wind record becomes part of the result; retain a supply only while another authored use needs it."
+            },
+            "rain-record": {
+              "role": "incorporate",
+              "reason": "Rain record becomes part of the result; retain a supply only while another authored use needs it."
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "weather-record",
+      "before": [
+        {
+          "id": "weather-book",
+          "a": "weather-record",
+          "b": "bound-book",
+          "out": "weather-book",
+          "lifecycle": {
+            "weather-record": {
+              "role": "retain",
+              "reason": "Weather record is reused as equipment, a source/reference, a subject of observation, or a continuing supply; this action does not consume it."
+            },
+            "bound-book": {
+              "role": "transform",
+              "reason": "Bound book is the existing object changed into Weather book."
+            }
+          }
+        }
+      ],
+      "after": [
+        {
+          "id": "weather-book",
+          "a": "weather-record",
+          "b": "bound-book",
+          "out": "weather-book",
+          "lifecycle": {
+            "weather-record": {
+              "role": "retain",
+              "reason": "Weather record is reused as equipment, a source/reference, a subject of observation, or a continuing supply; this action does not consume it."
+            },
+            "bound-book": {
+              "role": "transform",
+              "reason": "Bound book is the existing object changed into Weather book."
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "timekeeping": {
+    "before": {
+      "id": "timekeeping",
+      "title": "The boats home",
+      "speaker": "By the river",
+      "motivation": "By morning, people are asking which way to go and when the boats leave. We set aside the evening work to make the landing easier to understand.",
+      "location": {
+        "id": "E06-next-morning",
+        "label": "Landing · next morning",
+        "travelText": "The following morning brings a clear working space at the landing for directions and departure times."
+      },
+      "objectives": [
+        {
+          "id": "timekeeping-landing-clock",
+          "text": "Make ferry timetable",
+          "kind": "create",
+          "item": "landing-clock"
+        },
+        {
+          "id": "timekeeping-dinner-bell",
+          "text": "Make Dinner bell",
+          "kind": "create",
+          "item": "dinner-bell"
+        }
+      ],
+      "completionText": "The keeper reads the return times aloud and rings the bell. The first homeward passengers wave from the steps, while others settle in for the evening. No one has to leave before their own boat is called.",
+      "onAlreadyComplete": {
+        "mode": "skip"
+      },
+      "visitId": "E06-next-morning-visit-1",
+      "entryCue": {
+        "id": "elements-material-repairs-v5:timekeeping:entry-v1",
+        "mode": "arrival-and-beat",
+        "format": "silent-title-card",
+        "voice": "By the river",
+        "sourceCaption": "Landing · next morning",
+        "text": "By morning, people are asking which way to go and when the boats leave. We set aside the evening work to make the landing easier to understand."
+      }
+    },
+    "after": {
+      "id": "timekeeping",
+      "title": "The boats home",
+      "speaker": "By the river",
+      "motivation": "By morning, people are asking which way to go and when the boats leave. We set aside the evening work to make the landing easier to understand.",
+      "location": {
+        "id": "E06-next-morning",
+        "label": "Landing · next morning",
+        "travelText": "The following morning brings a clear working space at the landing for directions and departure times."
+      },
+      "objectives": [
+        {
+          "id": "timekeeping-landing-clock",
+          "text": "Make ferry timetable",
+          "kind": "create",
+          "item": "landing-clock"
+        }
+      ],
+      "completionText": "The keeper reads the return times aloud and calls the boats in order. The first homeward passengers wave from the steps, while others settle in for the evening. No one has to leave before their own boat is called.",
+      "onAlreadyComplete": {
+        "mode": "skip"
+      },
+      "visitId": "E06-next-morning-visit-1",
+      "entryCue": {
+        "id": "elements-material-repairs-v6:timekeeping:entry-v1",
+        "mode": "arrival-and-beat",
+        "format": "silent-title-card",
+        "voice": "By the river",
+        "sourceCaption": "Landing · next morning",
+        "text": "By morning, people are asking which way to go and when the boats leave. We set aside the evening work to make the landing easier to understand."
+      }
+    }
+  },
+  "milestoneDelta": {
+    "before": {
+      "id": "elements-iron",
+      "item": "iron",
+      "when": "created",
+      "title": "A new age in our hands",
+      "text": "From stubborn rock comes metal we can shape. Edges, hinges, fastenings and ringing bells lie within reach."
+    },
+    "after": {
+      "id": "elements-iron",
+      "item": "iron",
+      "when": "created",
+      "title": "A new age in our hands",
+      "text": "From stubborn rock comes metal we can shape. Edges, hinges and fastenings lie within reach."
+    }
+  },
+  "route": {
+    "beforeCount": 233,
+    "afterCount": 231,
+    "removedActions": [
+      {
+        "index": 214,
+        "action": {
+          "type": "combine",
+          "a": "iron",
+          "b": "bowl"
+        }
+      },
+      {
+        "index": 215,
+        "action": {
+          "type": "combine",
+          "a": "bell",
+          "b": "rope"
+        }
+      }
+    ],
+    "newActions": [],
+    "exactAfterActions": [
+      {
+        "type": "combine",
+        "a": "earth",
+        "b": "water"
+      },
+      {
+        "type": "combine",
+        "a": "earth",
+        "b": "fire"
+      },
+      {
+        "type": "combine",
+        "a": "clay",
+        "b": "fire"
+      },
+      {
+        "type": "advance"
+      },
+      {
+        "type": "combine",
+        "a": "air",
+        "b": "water"
+      },
+      {
+        "type": "combine",
+        "a": "earth",
+        "b": "rain"
+      },
+      {
+        "type": "combine",
+        "a": "plant",
+        "b": "air"
+      },
+      {
+        "type": "combine",
+        "a": "grain",
+        "b": "stone"
+      },
+      {
+        "type": "combine",
+        "a": "flour",
+        "b": "water"
+      },
+      {
+        "type": "combine",
+        "a": "dough",
+        "b": "fire"
+      },
+      {
+        "type": "combine",
+        "a": "plant",
+        "b": "water"
+      },
+      {
+        "type": "combine",
+        "a": "fruit",
+        "b": "water"
+      },
+      {
+        "type": "advance"
+      },
+      {
+        "type": "combine",
+        "a": "plant",
+        "b": "earth"
+      },
+      {
+        "type": "combine",
+        "a": "brick",
+        "b": "wood"
+      },
+      {
+        "type": "combine",
+        "a": "earth",
+        "b": "air"
+      },
+      {
+        "type": "combine",
+        "a": "sand",
+        "b": "fire"
+      },
+      {
+        "type": "combine",
+        "a": "glass",
+        "b": "wood"
+      },
+      {
+        "type": "combine",
+        "a": "window",
+        "b": "house"
+      },
+      {
+        "type": "combine",
+        "a": "plant",
+        "b": "stone"
+      },
+      {
+        "type": "combine",
+        "a": "fiber",
+        "b": "wood"
+      },
+      {
+        "type": "combine",
+        "a": "thread",
+        "b": "wood"
+      },
+      {
+        "type": "combine",
+        "a": "fiber",
+        "b": "cloth"
+      },
+      {
+        "type": "combine",
+        "a": "sleeping-mat",
+        "b": "house"
+      },
+      {
+        "type": "advance"
+      },
+      {
+        "type": "combine",
+        "a": "wood",
+        "b": "stone"
+      },
+      {
+        "type": "combine",
+        "a": "axe",
+        "b": "wood"
+      },
+      {
+        "type": "combine",
+        "a": "fiber",
+        "b": "thread"
+      },
+      {
+        "type": "combine",
+        "a": "planks",
+        "b": "rope"
+      },
+      {
+        "type": "combine",
+        "a": "planks",
+        "b": "stone"
+      },
+      {
+        "type": "combine",
+        "a": "wheel",
+        "b": "wood"
+      },
+      {
+        "type": "combine",
+        "a": "planks",
+        "b": "axle"
+      },
+      {
+        "type": "combine",
+        "a": "fiber",
+        "b": "water"
+      },
+      {
+        "type": "combine",
+        "a": "pulp",
+        "b": "cloth"
+      },
+      {
+        "type": "combine",
+        "a": "footbridge",
+        "b": "paper"
+      },
+      {
+        "type": "advance"
+      },
+      {
+        "type": "combine",
+        "a": "planks",
+        "b": "water"
+      },
+      {
+        "type": "combine",
+        "a": "wheel",
+        "b": "axe"
+      },
+      {
+        "type": "combine",
+        "a": "waterwheel",
+        "b": "wooden-gear"
+      },
+      {
+        "type": "combine",
+        "a": "stone",
+        "b": "wheel"
+      },
+      {
+        "type": "combine",
+        "a": "mill-gearing",
+        "b": "millstone"
+      },
+      {
+        "type": "combine",
+        "a": "cloth",
+        "b": "thread"
+      },
+      {
+        "type": "combine",
+        "a": "sack",
+        "b": "flour"
+      },
+      {
+        "type": "combine",
+        "a": "plant",
+        "b": "fruit"
+      },
+      {
+        "type": "combine",
+        "a": "millstone",
+        "b": "planks"
+      },
+      {
+        "type": "combine",
+        "a": "seeds",
+        "b": "seed-press"
+      },
+      {
+        "type": "advance"
+      },
+      {
+        "type": "combine",
+        "a": "flour",
+        "b": "air"
+      },
+      {
+        "type": "place",
+        "item": "dough",
+        "hotspot": "cellar"
+      },
+      {
+        "type": "combine",
+        "a": "starter",
+        "b": "dough"
+      },
+      {
+        "type": "combine",
+        "a": "risen-dough",
+        "b": "fire"
+      },
+      {
+        "type": "combine",
+        "a": "clay",
+        "b": "wheel"
+      },
+      {
+        "type": "combine",
+        "a": "fiber",
+        "b": "bowl"
+      },
+      {
+        "type": "combine",
+        "a": "bread",
+        "b": "basket"
+      },
+      {
+        "type": "advance"
+      },
+      {
+        "type": "combine",
+        "a": "fruit",
+        "b": "fire"
+      },
+      {
+        "type": "combine",
+        "a": "clay",
+        "b": "bowl"
+      },
+      {
+        "type": "combine",
+        "a": "jam",
+        "b": "jar"
+      },
+      {
+        "type": "combine",
+        "a": "wood",
+        "b": "jar"
+      },
+      {
+        "type": "combine",
+        "a": "preserve-jar",
+        "b": "jar-lid"
+      },
+      {
+        "type": "combine",
+        "a": "starter",
+        "b": "juice"
+      },
+      {
+        "type": "combine",
+        "a": "sand",
+        "b": "clay"
+      },
+      {
+        "type": "combine",
+        "a": "jar",
+        "b": "glaze"
+      },
+      {
+        "type": "combine",
+        "a": "cider",
+        "b": "glazed-bottle"
+      },
+      {
+        "type": "advance"
+      },
+      {
+        "type": "place",
+        "item": "glaze",
+        "hotspot": "kiln-yard"
+      },
+      {
+        "type": "combine",
+        "a": "bowl",
+        "b": "glaze"
+      },
+      {
+        "type": "combine",
+        "a": "planks",
+        "b": "wood"
+      },
+      {
+        "type": "combine",
+        "a": "clay",
+        "b": "planks"
+      },
+      {
+        "type": "combine",
+        "a": "table",
+        "b": "tile"
+      },
+      {
+        "type": "advance"
+      },
+      {
+        "type": "combine",
+        "a": "stone",
+        "b": "water"
+      },
+      {
+        "type": "combine",
+        "a": "hammer",
+        "b": "@quarry"
+      },
+      {
+        "type": "combine",
+        "a": "brick",
+        "b": "fire"
+      },
+      {
+        "type": "combine",
+        "a": "cloth",
+        "b": "air"
+      },
+      {
+        "type": "combine",
+        "a": "kiln",
+        "b": "bellows"
+      },
+      {
+        "type": "combine",
+        "a": "ore",
+        "b": "forge"
+      },
+      {
+        "type": "combine",
+        "a": "iron",
+        "b": "wood"
+      },
+      {
+        "type": "combine",
+        "a": "iron",
+        "b": "forge"
+      },
+      {
+        "type": "combine",
+        "a": "planks",
+        "b": "nails"
+      },
+      {
+        "type": "combine",
+        "a": "iron",
+        "b": "nails"
+      },
+      {
+        "type": "combine",
+        "a": "wooden-chest",
+        "b": "hinge"
+      },
+      {
+        "type": "advance"
+      },
+      {
+        "type": "combine",
+        "a": "planks",
+        "b": "hammer"
+      },
+      {
+        "type": "combine",
+        "a": "pier-post",
+        "b": "planks"
+      },
+      {
+        "type": "combine",
+        "a": "wood",
+        "b": "rope"
+      },
+      {
+        "type": "combine",
+        "a": "cloth",
+        "b": "rope"
+      },
+      {
+        "type": "combine",
+        "a": "raft",
+        "b": "sail"
+      },
+      {
+        "type": "combine",
+        "a": "crossing-map",
+        "b": "dock"
+      },
+      {
+        "type": "advance"
+      },
+      {
+        "type": "combine",
+        "a": "brick",
+        "b": "window"
+      },
+      {
+        "type": "combine",
+        "a": "fiber",
+        "b": "oil"
+      },
+      {
+        "type": "combine",
+        "a": "wick",
+        "b": "wood"
+      },
+      {
+        "type": "combine",
+        "a": "glass",
+        "b": "torch"
+      },
+      {
+        "type": "place",
+        "item": "lantern",
+        "hotspot": "headland"
+      },
+      {
+        "type": "combine",
+        "a": "tower",
+        "b": "lantern"
+      },
+      {
+        "type": "combine",
+        "a": "wood",
+        "b": "glazed-bottle"
+      },
+      {
+        "type": "combine",
+        "a": "float",
+        "b": "rope"
+      },
+      {
+        "type": "combine",
+        "a": "river-map",
+        "b": "lighthouse"
+      },
+      {
+        "type": "advance"
+      },
+      {
+        "type": "combine",
+        "a": "seeds",
+        "b": "water"
+      },
+      {
+        "type": "combine",
+        "a": "seedlings",
+        "b": "rope"
+      },
+      {
+        "type": "combine",
+        "a": "seedlings",
+        "b": "trellis"
+      },
+      {
+        "type": "combine",
+        "a": "window",
+        "b": "seedlings"
+      },
+      {
+        "type": "advance"
+      },
+      {
+        "type": "combine",
+        "a": "iron",
+        "b": "stone"
+      },
+      {
+        "type": "combine",
+        "a": "iron",
+        "b": "carving-tool"
+      },
+      {
+        "type": "combine",
+        "a": "saw",
+        "b": "wood"
+      },
+      {
+        "type": "combine",
+        "a": "hollow-pipe",
+        "b": "planks"
+      },
+      {
+        "type": "combine",
+        "a": "clay",
+        "b": "brick"
+      },
+      {
+        "type": "combine",
+        "a": "wheel",
+        "b": "hollow-pipe"
+      },
+      {
+        "type": "combine",
+        "a": "pump",
+        "b": "waterwheel"
+      },
+      {
+        "type": "combine",
+        "a": "reservoir",
+        "b": "water-pump"
+      },
+      {
+        "type": "combine",
+        "a": "water-channel",
+        "b": "filled-reservoir"
+      },
+      {
+        "type": "combine",
+        "a": "irrigation-channel",
+        "b": "climbing-garden"
+      },
+      {
+        "type": "advance"
+      },
+      {
+        "type": "combine",
+        "a": "thread",
+        "b": "planks"
+      },
+      {
+        "type": "combine",
+        "a": "plant",
+        "b": "rain"
+      },
+      {
+        "type": "combine",
+        "a": "flowers",
+        "b": "water"
+      },
+      {
+        "type": "combine",
+        "a": "thread",
+        "b": "dye"
+      },
+      {
+        "type": "combine",
+        "a": "loom",
+        "b": "dyed-thread"
+      },
+      {
+        "type": "combine",
+        "a": "patterned-cloth",
+        "b": "wood"
+      },
+      {
+        "type": "combine",
+        "a": "cloth",
+        "b": "planks"
+      },
+      {
+        "type": "combine",
+        "a": "awning",
+        "b": "rope"
+      },
+      {
+        "type": "advance"
+      },
+      {
+        "type": "combine",
+        "a": "wood",
+        "b": "kiln"
+      },
+      {
+        "type": "combine",
+        "a": "charcoal",
+        "b": "water"
+      },
+      {
+        "type": "combine",
+        "a": "paper",
+        "b": "ink"
+      },
+      {
+        "type": "combine",
+        "a": "letter",
+        "b": "sailboat"
+      },
+      {
+        "type": "combine",
+        "a": "carving-tool",
+        "b": "planks"
+      },
+      {
+        "type": "combine",
+        "a": "printing-block",
+        "b": "ink"
+      },
+      {
+        "type": "combine",
+        "a": "inked-block",
+        "b": "paper"
+      },
+      {
+        "type": "advance"
+      },
+      {
+        "type": "combine",
+        "a": "wood",
+        "b": "carving-tool"
+      },
+      {
+        "type": "combine",
+        "a": "hollow-tube",
+        "b": "air"
+      },
+      {
+        "type": "combine",
+        "a": "cloth",
+        "b": "jar"
+      },
+      {
+        "type": "combine",
+        "a": "planks",
+        "b": "brick"
+      },
+      {
+        "type": "combine",
+        "a": "platform",
+        "b": "canopy"
+      },
+      {
+        "type": "advance"
+      },
+      {
+        "type": "combine",
+        "a": "cloth",
+        "b": "window"
+      },
+      {
+        "type": "combine",
+        "a": "curtain",
+        "b": "platform"
+      },
+      {
+        "type": "combine",
+        "a": "wood",
+        "b": "cloth"
+      },
+      {
+        "type": "combine",
+        "a": "stage",
+        "b": "puppet"
+      },
+      {
+        "type": "combine",
+        "a": "paper",
+        "b": "thread"
+      },
+      {
+        "type": "combine",
+        "a": "dye",
+        "b": "glazed-bowl"
+      },
+      {
+        "type": "combine",
+        "a": "paint",
+        "b": "paper"
+      },
+      {
+        "type": "combine",
+        "a": "bound-book",
+        "b": "picture"
+      },
+      {
+        "type": "advance"
+      },
+      {
+        "type": "combine",
+        "a": "glazed-bowl",
+        "b": "@pond"
+      },
+      {
+        "type": "combine",
+        "a": "glass",
+        "b": "planks"
+      },
+      {
+        "type": "combine",
+        "a": "pond-water",
+        "b": "glass-slide"
+      },
+      {
+        "type": "combine",
+        "a": "glass",
+        "b": "sand"
+      },
+      {
+        "type": "combine",
+        "a": "lens",
+        "b": "wood"
+      },
+      {
+        "type": "combine",
+        "a": "lens",
+        "b": "hollow-tube"
+      },
+      {
+        "type": "combine",
+        "a": "magnifier",
+        "b": "telescope"
+      },
+      {
+        "type": "combine",
+        "a": "pond-slide",
+        "b": "microscope"
+      },
+      {
+        "type": "advance"
+      },
+      {
+        "type": "combine",
+        "a": "lens",
+        "b": "plant"
+      },
+      {
+        "type": "combine",
+        "a": "leaf-study",
+        "b": "ink"
+      },
+      {
+        "type": "combine",
+        "a": "plant",
+        "b": "paper"
+      },
+      {
+        "type": "combine",
+        "a": "pressed-specimen",
+        "b": "bound-book"
+      },
+      {
+        "type": "combine",
+        "a": "botanical-drawing",
+        "b": "herbarium"
+      },
+      {
+        "type": "advance"
+      },
+      {
+        "type": "combine",
+        "a": "cloth",
+        "b": "hollow-tube"
+      },
+      {
+        "type": "combine",
+        "a": "glass",
+        "b": "air"
+      },
+      {
+        "type": "combine",
+        "a": "glass-bottle",
+        "b": "paper"
+      },
+      {
+        "type": "combine",
+        "a": "measuring-jar",
+        "b": "rain"
+      },
+      {
+        "type": "combine",
+        "a": "paper",
+        "b": "rain-gauge"
+      },
+      {
+        "type": "combine",
+        "a": "windsock",
+        "b": "rain-record"
+      },
+      {
+        "type": "advance"
+      },
+      {
+        "type": "combine",
+        "a": "wood",
+        "b": "fire"
+      },
+      {
+        "type": "combine",
+        "a": "thread",
+        "b": "rope"
+      },
+      {
+        "type": "combine",
+        "a": "net",
+        "b": "@tidal-shore"
+      },
+      {
+        "type": "combine",
+        "a": "smoke",
+        "b": "fish"
+      },
+      {
+        "type": "combine",
+        "a": "cider",
+        "b": "air"
+      },
+      {
+        "type": "combine",
+        "a": "vinegar",
+        "b": "fruit"
+      },
+      {
+        "type": "combine",
+        "a": "pickles",
+        "b": "jar"
+      },
+      {
+        "type": "advance"
+      },
+      {
+        "type": "combine",
+        "a": "glazed-bowl",
+        "b": "table"
+      },
+      {
+        "type": "combine",
+        "a": "sand",
+        "b": "charcoal"
+      },
+      {
+        "type": "combine",
+        "a": "filter-bed",
+        "b": "hollow-pipe"
+      },
+      {
+        "type": "combine",
+        "a": "water",
+        "b": "water-filter"
+      },
+      {
+        "type": "combine",
+        "a": "filtered-water",
+        "b": "fire"
+      },
+      {
+        "type": "combine",
+        "a": "boiled-water",
+        "b": "glazed-bottle"
+      },
+      {
+        "type": "combine",
+        "a": "filled-water-bottle",
+        "b": "jar-lid"
+      },
+      {
+        "type": "advance"
+      },
+      {
+        "type": "combine",
+        "a": "charcoal",
+        "b": "fire"
+      },
+      {
+        "type": "combine",
+        "a": "ash",
+        "b": "water"
+      },
+      {
+        "type": "combine",
+        "a": "lye",
+        "b": "oil"
+      },
+      {
+        "type": "combine",
+        "a": "soap",
+        "b": "washstand"
+      },
+      {
+        "type": "advance"
+      },
+      {
+        "type": "combine",
+        "a": "brick",
+        "b": "iron"
+      },
+      {
+        "type": "combine",
+        "a": "grain",
+        "b": "stove"
+      },
+      {
+        "type": "combine",
+        "a": "fruit",
+        "b": "stove"
+      },
+      {
+        "type": "combine",
+        "a": "porridge",
+        "b": "compote"
+      },
+      {
+        "type": "combine",
+        "a": "feast",
+        "b": "tiled-table"
+      },
+      {
+        "type": "advance"
+      },
+      {
+        "type": "combine",
+        "a": "planks",
+        "b": "wooden-chest"
+      },
+      {
+        "type": "combine",
+        "a": "planks",
+        "b": "net"
+      },
+      {
+        "type": "combine",
+        "a": "fruit",
+        "b": "drying-rack"
+      },
+      {
+        "type": "combine",
+        "a": "jar",
+        "b": "clay"
+      },
+      {
+        "type": "combine",
+        "a": "crock",
+        "b": "jar-lid"
+      },
+      {
+        "type": "combine",
+        "a": "dried-fruit",
+        "b": "sealed-crock"
+      },
+      {
+        "type": "advance"
+      },
+      {
+        "type": "combine",
+        "a": "paper",
+        "b": "planks"
+      },
+      {
+        "type": "combine",
+        "a": "wick",
+        "b": "glazed-bowl"
+      },
+      {
+        "type": "combine",
+        "a": "lantern-frame",
+        "b": "oil-lamp"
+      },
+      {
+        "type": "combine",
+        "a": "paper-lantern",
+        "b": "float"
+      },
+      {
+        "type": "combine",
+        "a": "oil-lamp",
+        "b": "glass"
+      },
+      {
+        "type": "advance"
+      },
+      {
+        "type": "combine",
+        "a": "stone",
+        "b": "rope"
+      },
+      {
+        "type": "combine",
+        "a": "pendulum",
+        "b": "wooden-gear"
+      },
+      {
+        "type": "combine",
+        "a": "clockwork",
+        "b": "planks"
+      },
+      {
+        "type": "combine",
+        "a": "clock",
+        "b": "river-map"
+      },
+      {
+        "type": "advance"
+      },
+      {
+        "type": "combine",
+        "a": "telescope",
+        "b": "paper"
+      },
+      {
+        "type": "combine",
+        "a": "planks",
+        "b": "hinge"
+      },
+      {
+        "type": "combine",
+        "a": "telescope",
+        "b": "tripod"
+      },
+      {
+        "type": "combine",
+        "a": "harbour-map",
+        "b": "star-chart"
+      },
+      {
+        "type": "advance"
+      },
+      {
+        "type": "combine",
+        "a": "stone",
+        "b": "brick"
+      },
+      {
+        "type": "combine",
+        "a": "arch",
+        "b": "planks"
+      },
+      {
+        "type": "combine",
+        "a": "arcade",
+        "b": "picture"
+      },
+      {
+        "type": "combine",
+        "a": "gallery",
+        "b": "paper"
+      },
+      {
+        "type": "combine",
+        "a": "glass",
+        "b": "stone"
+      },
+      {
+        "type": "combine",
+        "a": "mosaic-pieces",
+        "b": "clay"
+      },
+      {
+        "type": "advance"
+      },
+      {
+        "type": "combine",
+        "a": "weather-record",
+        "b": "bound-book"
+      },
+      {
+        "type": "combine",
+        "a": "navigation-chart",
+        "b": "weather-book"
+      },
+      {
+        "type": "place",
+        "item": "floating-lantern",
+        "hotspot": "gathering-landing"
+      },
+      {
+        "type": "advance"
+      }
+    ]
+  },
+  "unchanged": {
+    "runtime": true,
+    "catalogue53": true,
+    "locationPlan": true,
+    "openingSupplies": true,
+    "newRecipes": 0,
+    "newItems": 0,
+    "marsAtlas": true
+  },
+  "openConcerns": [
+    "Press mill density10/17 remains a documented design regression; unchanged in v2",
+    "Mounted lamp remains unresolved and unchanged",
+    "Adjacent Cooking pot and formed-jar food-storage mechanisms are not claimed solved"
+  ]
+}

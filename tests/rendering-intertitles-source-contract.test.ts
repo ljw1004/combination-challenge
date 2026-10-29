@@ -1,13 +1,12 @@
-
-// Root context: exact whole-Site provenance bytes resolve explicit immutable snapshots; gameplay imports remain active.
-const sourcePaths=JSON.parse(readFileSync(new URL('docs/location-hotspot-root-sync-20261028/test-context-map.json',new URL('../',import.meta.url)),'utf8')).siteSourceInputPathBySitePath;
+import {readSiteSourceForRootTests,writeRootTestOutput} from '../scripts/site-source-test-context.ts';
+const readFileSync=readSiteSourceForRootTests;
 import {expectedSourceHashAfterSmallSceneHotfix} from '../experiments/tangible-campaign/integration/small-scene-hotfix-source-guard.ts';
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {readFileSync} from 'node:fs';
+import {readFileSync as originalReadFileSync} from 'node:fs';
 import {createHash} from 'node:crypto';
 import {expectedSourceHashAfterRenderingIntertitles} from '../experiments/tangible-campaign/integration/rendering-intertitles-source-guard.ts';
-const root=new URL('../',import.meta.url),read=(p:string)=>readFileSync(new URL(sourcePaths[p]??p,root)),sha=(p:string)=>createHash('sha256').update(read(p)).digest('hex');
+const root=new URL('../',import.meta.url),read=(p:string)=>readFileSync(new URL(p,root)),sha=(p:string)=>createHash('sha256').update(read(p)).digest('hex');
 test('rendering successor pins exact predecessors, new helpers and tests without rewriting historical freezes',()=>{
  const manifest=JSON.parse(read('experiments/tangible-campaign/reviews/rendering-intertitles-20261029/source-successors.json').toString());
  assert.equal(manifest.publishedSourceCommit,'ca4be1e53099dc308c72e21fbde77d76d86ba943');

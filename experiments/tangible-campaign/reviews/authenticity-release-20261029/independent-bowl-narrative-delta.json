@@ -1,0 +1,210 @@
+{
+  "scope": "Independent source composition and graph/narrative delta inspection only; no route replay, build or aggregate while creature aggregate owns the heavy slot.",
+  "ids": {
+    "elements": "elements-material-repairs-v6",
+    "mars": "mars-evidence-repairs-v7",
+    "atlas": "atlas-selection-repairs-v5"
+  },
+  "removedItems": [
+    {
+      "id": "bell",
+      "label": "Bell",
+      "description": "A hollow metal body shaped to ring when struck."
+    },
+    {
+      "id": "dinner-bell",
+      "label": "Dinner bell",
+      "description": "A bell hung with a pull line, ready to call people together."
+    }
+  ],
+  "removedRecipes": [
+    {
+      "id": "bell",
+      "a": "iron",
+      "b": "bowl",
+      "out": "bell",
+      "lifecycle": {
+        "iron": {
+          "role": "transform",
+          "reason": "Iron is the existing object changed into Bell."
+        },
+        "bowl": {
+          "role": "retain",
+          "reason": "Bowl is reused as equipment, a source/reference, a subject of observation, or a continuing supply; this action does not consume it."
+        }
+      }
+    },
+    {
+      "id": "dinner-bell",
+      "a": "bell",
+      "b": "rope",
+      "out": "dinner-bell",
+      "lifecycle": {
+        "bell": {
+          "role": "transform",
+          "reason": "Bell is the existing object changed into Dinner bell."
+        },
+        "rope": {
+          "role": "incorporate",
+          "reason": "Rope becomes part of the result; retain a supply only while another authored use needs it."
+        }
+      }
+    }
+  ],
+  "removedActionIndices": [
+    214,
+    215
+  ],
+  "actions": {
+    "before": 233,
+    "after": 231
+  },
+  "sameLocationsStockInitialPrimitivesHotspots": true,
+  "allLaterChaptersExactExceptIdentityCues": true,
+  "laterChapters": [
+    {
+      "id": "stars",
+      "objectives": [
+        {
+          "id": "stars-star-chart",
+          "text": "Chart the stars",
+          "kind": "create",
+          "item": "star-chart",
+          "intermediate": true,
+          "after": [
+            "stars-mounted-telescope"
+          ]
+        },
+        {
+          "id": "stars-mounted-telescope",
+          "text": "Make Mounted telescope",
+          "kind": "create",
+          "item": "mounted-telescope",
+          "intermediate": true
+        },
+        {
+          "id": "stars-navigation-chart",
+          "text": "Make a navigation chart",
+          "kind": "create",
+          "item": "navigation-chart",
+          "after": [
+            "stars-star-chart"
+          ]
+        }
+      ],
+      "completionText": "A boatwoman follows the river landmarks on the chart, then takes a turn at the steady telescope. She points out the same stars to her companions. They take the route you have recorded, not a promise of directions later."
+    },
+    {
+      "id": "gallery",
+      "objectives": [
+        {
+          "id": "gallery-exhibition-catalogue",
+          "text": "Make Exhibition catalogue",
+          "kind": "create",
+          "item": "exhibition-catalogue"
+        },
+        {
+          "id": "gallery-mosaic",
+          "text": "Make Mosaic",
+          "kind": "create",
+          "item": "mosaic"
+        }
+      ],
+      "completionText": "Children trace the river in the pictures while their parents compare the mosaic. A visitor tucks the catalogue beside her flora. The artist leaves the gallery open and comes with you for one last look at the landing."
+    },
+    {
+      "id": "gathering",
+      "objectives": [
+        {
+          "id": "gathering-river-atlas",
+          "text": "Make River atlas",
+          "kind": "create",
+          "item": "river-atlas"
+        },
+        {
+          "id": "gathering-lantern",
+          "kind": "place",
+          "item": "floating-lantern",
+          "hotspot": "gathering-landing",
+          "text": "Place floating lantern at the gathering landing"
+        }
+      ],
+      "completionText": "The atlas is passed from hand to hand, and a lantern floats safely inside the sheltered landing basin. At the table, someone saves your seat. From four beginnings, a river full of things and people to return to."
+    }
+  ],
+  "remainingTimekeeping": {
+    "objectives": [
+      {
+        "id": "timekeeping-landing-clock",
+        "text": "Make ferry timetable",
+        "kind": "create",
+        "item": "landing-clock"
+      }
+    ],
+    "cue": {
+      "id": "elements-material-repairs-v6:timekeeping:entry-v1",
+      "mode": "arrival-and-beat",
+      "format": "silent-title-card",
+      "voice": "By the river",
+      "sourceCaption": "Landing · next morning",
+      "text": "By morning, people are asking which way to go and when the boats leave. We set aside the evening work to make the landing easier to understand."
+    },
+    "completionText": "The keeper reads the return times aloud and calls the boats in order. The first homeward passengers wave from the steps, while others settle in for the evening. No one has to leave before their own boat is called."
+  },
+  "directBowlConsumers": [
+    {
+      "id": "basket",
+      "a": "fiber",
+      "b": "bowl",
+      "out": "basket",
+      "lifecycle": {
+        "fiber": {
+          "role": "transform",
+          "reason": "Plant fiber is the existing object changed into Basket."
+        },
+        "bowl": {
+          "role": "retain",
+          "reason": "Bowl is reused as equipment, a source/reference, a subject of observation, or a continuing supply; this action does not consume it."
+        }
+      }
+    },
+    {
+      "id": "jar",
+      "a": "clay",
+      "b": "bowl",
+      "out": "jar",
+      "lifecycle": {
+        "clay": {
+          "role": "transform",
+          "reason": "Clay is the existing object changed into Jar."
+        },
+        "bowl": {
+          "role": "retain",
+          "reason": "Bowl is reused as equipment, a source/reference, a subject of observation, or a continuing supply; this action does not consume it."
+        }
+      }
+    },
+    {
+      "id": "glazed-bowl",
+      "a": "bowl",
+      "b": "glaze",
+      "out": "glazed-bowl",
+      "lifecycle": {
+        "bowl": {
+          "role": "transform",
+          "reason": "The same formed clay vessel is glazed and fired. Retain a dry shaping form only while an unfinished basket or jar still independently needs it; there is no later metalworking use."
+        },
+        "glaze": {
+          "role": "incorporate",
+          "reason": "Glaze becomes part of the result; retain a supply only while another authored use needs it."
+        }
+      }
+    }
+  ],
+  "bellDescendants": [
+    "bell",
+    "dinner-bell"
+  ],
+  "noExecutableOrPlayerFacingBellPromise": true,
+  "formedBowlState": "transform declared only at firing; actual replacement/runtime replay is author/reviewer evidence, not rerun in this short source check"
+}

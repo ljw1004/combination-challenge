@@ -1,0 +1,25 @@
+import {readSiteSourceForRootTests,writeRootTestOutput} from '../scripts/site-source-test-context.ts';
+const readFileSync=readSiteSourceForRootTests;
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {readFileSync as originalReadFileSync} from 'node:fs';
+import {createHash} from 'node:crypto';
+import {expectedSourceHashAfterWiderCadence} from '../experiments/tangible-campaign/integration/wider-cadence-source-guard.ts';
+const root=new URL('../',import.meta.url),sha=(p:string)=>createHash('sha256').update(readFileSync(new URL(p,root))).digest('hex');
+test('wider cadence preserves exact published-hotfix source ancestry and rejects drift',()=>{
+ const dir='experiments/tangible-campaign/reviews/wider-cadence-integration-20261029/',m=JSON.parse(readFileSync(new URL(dir+'source-successors.json',root),'utf8'));
+ assert.equal(sha(dir+'predecessor-source-manifest.json'),m.parentSourceSeal);
+ assert.equal(sha('experiments/tangible-campaign/ui/pre-cadence-scenarios.ts'),m.files['experiments/tangible-campaign/ui/current-scenarios.ts'].beforeSha256);
+ for(const [p,r] of Object.entries<any>(m.files)){assert.equal(sha(r.predecessorSnapshotPath),r.beforeSha256,p);assert.equal(sha(p),expectedSourceHashAfterWiderCadence(p,r.beforeSha256),p);assert.throws(()=>expectedSourceHashAfterWiderCadence(p,'0'.repeat(64)),/exact published hotfix predecessor/);}
+ assert.equal(expectedSourceHashAfterWiderCadence('untouched.ts','a'.repeat(64)),'a'.repeat(64));
+});
+
+test('every published base file is exact or has a pinned full-source successor; no deletion or hidden drift',()=>{
+ const dir='experiments/tangible-campaign/reviews/wider-cadence-integration-20261029/',base=JSON.parse(readFileSync(new URL(dir+'predecessor-source-manifest.json',root),'utf8'));
+ for(const [p,r]of Object.entries<any>(base.files))assert.equal(sha(p),expectedSourceHashAfterWiderCadence(p,r.sha256),p);
+});
+test('all frozen cadence, original/repaired Atlas and civic art inputs remain manifest-exact',()=>{
+ const inputs=JSON.parse(readFileSync(new URL('experiments/tangible-campaign/reviews/wider-cadence-integration-20261029/accepted-inputs.json',root),'utf8'));
+ assert.equal(inputs.packages.length,12);
+ for(const p of inputs.packages){assert.equal(sha(p.manifest),p.sha256,p.package);const manifest=JSON.parse(readFileSync(new URL(p.manifest,root),'utf8'));for(const row of manifest.files){assert.equal(sha(row.path),row.sha256,p.package+':'+row.path);}}
+});

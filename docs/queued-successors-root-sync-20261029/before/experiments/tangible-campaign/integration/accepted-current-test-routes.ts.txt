@@ -1,0 +1,28 @@
+/** Test route provider: all historical route files stay exact; current locations
+ * use the same accepted complete routes as their full-width/runtime probes. */
+import {readFileSync} from 'node:fs';
+import {createHash} from 'node:crypto';
+import type {Action,Scenario} from '../schema/scenario.ts';
+import {toLegacyAction} from '../compatibility/v1.ts';
+import {scenarios as registeredScenarios} from '../ui/current-scenarios.ts';
+import {currentMarsRouteActions} from './current-mars-route-actions.ts';
+const sha=(x:string)=>createHash('sha256').update(x).digest('hex');
+export function acceptedTestRoute(s:Scenario):{actions:Action[];source:Record<string,unknown>} {
+ // Retained location snapshots still use their exact authored location route,
+ // even when they are no longer featured. Pre-location historical files stay exact.
+ const current=registeredScenarios.find(x=>x.id===s.id&&x.locationPlan);
+ if(!current){
+  const path='../evidence/'+s.id+'-route-evidence.json',raw=readFileSync(new URL(path,import.meta.url),'utf8'),actions=JSON.parse(raw).actionsLog as Action[];
+  return {actions:s.id==='mars-connected-survival-v4-return-cargo-research'?currentMarsRouteActions(actions):actions,source:{kind:'unchanged-historical-route-file',scenarioId:s.id,path,sha256:sha(raw),existingSolarContinuityAdapter:s.id==='mars-connected-survival-v4-return-cargo-research'}};
+ }
+ if(current.id==='atlas-intellectual-history-locations-v2'){
+  const path='../evidence/intellectual-worlds-20261028/atlas-author-route.json',raw=readFileSync(new URL(path,import.meta.url),'utf8');
+  return {actions:JSON.parse(raw).actionsLog,source:{kind:'accepted-Atlas-authored-route',scenarioId:s.id,path,sha256:sha(raw)}};
+ }
+ if(current.id==='copy-workroom-locations-v2'){
+  const cp=current.checkpoints!.at(-1)!;const completion:Action[]=[{type:'combine',a:'master',b:'@window'},{type:'combine',a:'reverse',b:'stock'},{type:'place',item:'block-reflected',location:'printer-chest'},{type:'advance'}];
+  return {actions:cp.actions.map(toLegacyAction).concat(completion),source:{kind:'authored-checkpoint-plus-accepted-printer-completion',scenarioId:s.id,checkpoint:cp.id,checkpointSha256:sha(JSON.stringify(cp.actions)),completion,priorAcceptance:'reviews/location-presentation/probe.ts and physical-location-runtime.test.ts'}};
+ }
+ const cp=current.checkpoints?.find(c=>c.id==='complete');if(!cp)throw Error('Missing accepted complete checkpoint '+s.id);
+ return {actions:cp.actions.map(toLegacyAction),source:{kind:'authored-complete-checkpoint',scenarioId:s.id,checkpoint:cp.id,checkpointSha256:sha(JSON.stringify(cp.actions))}};
+}

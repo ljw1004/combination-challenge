@@ -1,0 +1,73 @@
+import {readSiteSourceForRootTests,writeRootTestOutput} from '../scripts/site-source-test-context.ts';
+const readFileSync=readSiteSourceForRootTests;
+import assert from 'node:assert/strict';
+import test from 'node:test';
+import {readFileSync as originalReadFileSync} from 'node:fs';
+import type {Action} from '../experiments/tangible-campaign/schema/campaign.ts';
+import * as M from '../experiments/tangible-campaign/engine/campaign.ts';
+import {toLegacyGame} from '../experiments/tangible-campaign/compatibility/v1.ts';
+import {scenario as s,laterElementsScenes} from '../experiments/tangible-campaign/ui/stories/elements-river-scenes.ts';
+import {scenario as opening} from '../experiments/tangible-campaign/ui/stories/elements-small-scenes.ts';
+import {scenario as original} from '../experiments/tangible-campaign/ui/stories/elements-house-and-craft.ts';
+const route=s.checkpoints!.find(c=>c.id==='complete')!.actions;
+const step=(g:M.Game,a:Action)=>{const r=M.applyAction(s,g,a);assert(r.accepted,JSON.stringify(a)+' '+r.message);return r.game;};
+const local=(g:M.Game)=>g.state.tokens.filter(t=>t.location===g.state.storyLocation);
+const noMetrics=({metrics,...rest}:M.State)=>rest;
+
+test('later scenes are a separate stock-free geography successor; all assets and honest time/place distinctions exist',()=>{
+ assert.equal(s.id,'elements-river-scenes-v4');assert.equal(opening.id,'elements-small-scenes-v3');assert.equal(s.locationPlan!.locations.length,30);
+ assert.deepEqual(s.recipes,opening.recipes);assert.deepEqual(s.items,opening.items);assert.deepEqual(s.hotspots,opening.hotspots);assert.deepEqual(s.chapters.map(c=>[c.id,c.objectives,c.onAlreadyComplete]),opening.chapters.map(c=>[c.id,c.objectives,c.onAlreadyComplete]));
+ assert.deepEqual(s.locationPlan!.locations.flatMap(l=>l.stockBatches),opening.locationPlan!.locations.flatMap(l=>l.stockBatches));
+ assert.equal(s.locationPlan!.visits.length,30);assert(s.locationPlan!.visits.every(v=>v.chapterIds.length===1&&!v.carry));
+ assert.deepEqual(s.locationPlan!.locations.flatMap(l=>l.hotspots).sort(),s.hotspots.map(h=>h.id).sort());
+ for(const scene of laterElementsScenes){const l=s.locationPlan!.locations.find(l=>l.id===scene.id)!;assert(readFileSync(new URL('../public'+l.background.asset,import.meta.url)).length>1000);assert.equal(l.settingId,scene.setting);assert.equal(l.timeLabel,scene.time);assert(l.travelText.length>30);assert.deepEqual(l.stockBatches,[]);assert.deepEqual(l.hotspots,original.chapters.find(c=>c.id===scene.chapter)!.hotspots??[]);}
+ assert.deepEqual(M.validateScenario(s),[]);
+ for(const world of [opening,original]){const g=M.createGame(world);assert.deepEqual(M.restore(world,JSON.stringify(g)),g);assert.throws(()=>M.restore(s,JSON.stringify(g)),/Invalid campaign save/);}
+});
+
+for(const width of [320,375,390])for(const mode of ['combine','drop'])test(`all30 scenes ${width}/${mode}: full route, ownership, no new carry overlaps, durable saves and Undo`,()=>{
+ let g=M.createGame(s,width),rows:{entry:number;peak:number}[]=[];
+ for(const source of route){const row=rows[g.state.chapter]??={entry:local(g).length,peak:0};row.peak=Math.max(row.peak,local(g).length);
+  const a:Action=mode==='drop'&&source.type==='combine'?{type:'drop',item:source.a,target:source.b}:source;
+  const before=g;g=step(g,a);
+  if(a.type==='advance'){
+   assert.deepEqual(g.state.tokens.map(t=>t.id).sort(),before.state.tokens.map(t=>t.id).sort(),'no travel deletion or grant');
+   assert.deepEqual(noMetrics(M.undo(g).game.state),noMetrics(before.state));assert.deepEqual(M.restore(s,JSON.stringify(toLegacyGame(g))).state,g.state);
+   const area=(a:M.Token,b:M.Token)=>Math.max(0,96-Math.abs(a.x-b.x))*Math.max(0,(M.tokenHeight(s,a)+M.tokenHeight(s,b))/2-Math.abs(a.y-b.y));
+   for(const t of g.state.tokens.filter(t=>M.token(before.state,t.id)!.location!==t.location))for(const b of g.state.tokens.filter(b=>b.id!==t.id&&b.location===t.location)){const a0=M.token(before.state,t.id)!,b0=M.token(before.state,b.id)!;assert(area(t,b)<=(a0.location===b0.location?area(a0,b0):0)+.01,`${t.id}/${b.id}: new arrival overlap`);}
+   for(const t of before.state.tokens.filter(t=>M.token(g.state,t.id)!.location===t.location))assert.deepEqual(M.token(g.state,t.id),t,'left-behind token moved');
+   assert.deepEqual(g.state.arrival?.supplies??[],[],'no primitive at later scene');
+  }
+  for(const t of g.state.tokens){assert(t.x>=48&&t.x<=g.state.width-48);assert(t.y-M.tokenHeight(s,t)/2>=0&&t.y+M.tokenHeight(s,t)/2<=844);}
+ }
+ assert(g.state.completed);assert.equal(g.state.locations.length,30);assert(rows.every(r=>r.entry>=4&&r.entry<=10));assert.equal(Math.max(...rows.map(r=>r.peak)),16);
+ assert.deepEqual(rows[12],{entry:9,peak:14});assert.deepEqual(rows[16],{entry:8,peak:10});
+ assert.deepEqual(rows.slice(21,25).map(r=>r.entry),[10,6,7,7]);
+});
+
+test('every earned checkpoint remains playable with its own persistent earlier panels',()=>{
+ for(const c of s.checkpoints!){const g=M.replay(s,c.actions,375);assert.deepEqual(M.restore(s,JSON.stringify(g)).state,g.state);assert(g.state.locations.length>=g.state.chapter+1);}
+});
+
+test('independent preparations accept alternate action orders in every chapter, not just the authored order',()=>{
+ const blocks:Action[][]=[[]];for(const a of route){if(a.type==='advance')blocks.push([]);else blocks.at(-1)!.push(a);}blocks.pop();
+ for(const seed of [1,7,29,101]){let n=seed,g=M.createGame(s,375);const rand=()=>{n=(n*1664525+1013904223)>>>0;return n/4294967296;};
+  for(const actions of blocks){let pending=[...actions];while(pending.length){const start=Math.floor(rand()*pending.length);let chosen=-1,next:M.Game|undefined;for(let i=0;i<pending.length;i++){const index=(start+i)%pending.length,r=M.applyAction(s,g,pending[index]);if(r.accepted){chosen=index;next=r.game;break;}}assert(chosen>=0,`seed${seed}, chapter${g.state.chapter}: no legal remaining preparation`);pending.splice(chosen,1);g=next!;}g=step(g,{type:'advance'});}
+  assert(g.state.completed);assert.deepEqual(M.restore(s,JSON.stringify(g)).state,g.state);
+ }
+});
+
+test('the two cider vessels and both water-jar orders still complete their chapters from local supplies',()=>{
+ const orchardStart=s.checkpoints!.find(c=>c.id==='chapter-7')!.actions;
+ for(const glass of [false,true]){let g=M.replay(s,orchardStart,375);const end=s.checkpoints!.find(c=>c.id==='chapter-8')!.actions.length;for(const a of route.slice(orchardStart.length,end)){
+   if(glass&&a.type==='combine'&&a.a==='cider'&&a.b==='glazed-bottle'){g=step(g,{type:'combine',a:'glass',b:'air'});g=step(g,{type:'combine',a:'cider',b:'glass-bottle'});}else g=step(g,a);
+  }assert.equal(g.state.chapter,7);assert(M.token(g.state,glass?'glass-cider-bottle':'cider-bottle'));assert.deepEqual(M.restore(s,JSON.stringify(g)).state,g.state);}
+ const waterStart=s.checkpoints!.find(c=>c.id==='chapter-22')!.actions;
+ const preparations=route.slice(waterStart.length,waterStart.length+5);
+ const orders:Action[][]=[
+  [{type:'combine',a:'boiled-water',b:'glazed-bottle'},{type:'combine',a:'filled-water-bottle',b:'jar-lid'}],
+  [{type:'combine',a:'glazed-bottle',b:'jar-lid'},{type:'combine',a:'boiled-water',b:'covered-urn'}],
+  [{type:'combine',a:'boiled-water',b:'glazed-bowl'},{type:'combine',a:'glazed-bottle',b:'jar-lid'},{type:'combine',a:'drinking-water',b:'covered-urn'}],
+ ];
+ for(const order of orders){let g=M.replay(s,waterStart,375);for(const a of [...preparations,...order,{type:'advance'}] as Action[])g=step(g,a);assert.equal(g.state.chapter,22);assert(M.token(g.state,'water-urn'));assert.deepEqual(M.restore(s,JSON.stringify(g)).state,g.state);}
+});

@@ -82,6 +82,8 @@ export function validateScenario(s:Scenario):string[]{
     if(!m.id||!def||!m.title?.trim()||!m.text?.trim()||!['created','functional'].includes(m.when))bad(`Invalid milestone ${m.id}`);
     if(m.when==='functional'&&(!m.capability||!caps.includes(m.capability)))bad(`Milestone needs an actual functional capability ${m.id}`);
     if(m.when==='created'&&(m.capability!==undefined||!s.recipes.some(r=>r.out===m.item)))bad(`Creation milestone needs a recipe output ${m.id}`);
+    if(m.eyebrow!==undefined&&(typeof m.eyebrow!=='string'||!m.eyebrow.trim()))bad(`Invalid milestone eyebrow ${m.id}`);
+    if(m.artwork&&(!/^assets\/discoveries\/[a-zA-Z0-9._-]+\.(png|webp|jpg)$/.test(m.artwork.src)||!m.artwork.alt?.trim()||![m.artwork.width,m.artwork.height].every(n=>Number.isInteger(n)&&n>0&&n<=8192)))bad(`Invalid milestone artwork ${m.id}`);
    }
   }
  }
@@ -298,8 +300,8 @@ const stockBatches=(s:Scenario,chapter:number)=>s.locationPlan?[...(s.locationPl
 /** Whole imminent visit closure includes alternatives, never later visits. */
 export function visitCarry(s:Scenario,state:State,visitId:string):string[]{
  const visit=s.locationPlan?.visits.find(v=>v.id===visitId);if(!visit)return [];
- if(visit.carry)return [...new Set(visit.carry)];
- return [...new Set(visit.chapterIds.flatMap(id=>sceneCarry(s,state,{...s.chapters.find(ch=>ch.id===id)!,carry:undefined})))];
+ const work=visit.carry??visit.chapterIds.flatMap(id=>sceneCarry(s,state,{...s.chapters.find(ch=>ch.id===id)!,carry:undefined}));
+ return [...new Set([...work,...(visit.carryAlong??[])])];
 }
 /** Minimum vertical height with x and existing overlap clusters held fixed.
  * Difference constraints preserve every pair's column order and never introduce

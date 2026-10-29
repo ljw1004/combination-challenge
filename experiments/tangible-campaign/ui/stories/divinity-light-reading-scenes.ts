@@ -1,0 +1,17 @@
+import type {LocationDefinition} from '../../schema/campaign.ts';
+import {lightLocations as merged} from './intellectual-locations.ts';
+import {scenario as prior} from './divinity-light-text-workshop.ts';
+/** Four real reading/production stations in one exhibition workshop. The
+ * biblical settings are texts on the desks, not imaginary player travel. */
+export const scenario=structuredClone(merged);
+scenario.id='divinity-light-reading-scenes-v4';
+export const lightReadingScenes=[
+ {chapter:'road',id:'divinity-light-roadside-desk',label:'Entrance reading desk',brief:'An entrance-side desk holds the roadside passage packet, apart from the later comparison and proof stations.',text:'At the entrance reading desk, let’s begin with the roadside story. Is the question who counts—or who actually helps?'},
+ {chapter:'doorway',id:'divinity-light-family-alcove',label:'Family-story reading alcove',brief:'Across the workshop, a separate alcove desk holds the family story and its two complaints.',text:'Across the workshop, the family-story alcove opens a different packet. The father goes outside twice, but not for the same son. Who might still be outside when the story ends?'},
+ {chapter:'hillside',id:'divinity-light-comparison-table',label:'Window-side comparison table',brief:'The window-side comparison table has room to place Mark’s and John’s feeding passages beside earlier panels.',text:'At the window-side table, Mark and John both tell of feeding the crowd, but they do not arrange it in the same way. What makes each panel worth keeping?'},
+ {chapter:'press-room',id:'divinity-light-exhibition-worktable',label:'Proof-press worktable',brief:'The final worktable stands beside the small hand press and the exhibition’s blank hanging spaces.',text:'At the proof-press worktable, a dangerously catchy headline needs checking before we hang the exhibit. Luther’s own line is beside it. Print our roadside paraphrase—not your exhibit caption.'},
+] as const;
+const locations:LocationDefinition[]=lightReadingScenes.map(scene=>{const original=prior.chapters.find(c=>c.id===scene.chapter)!;return{id:scene.id,settingId:'school-exhibition-workshop',label:scene.label,travelText:scene.brief,background:{stableKey:scene.id,asset:`/assets/locations/${scene.id}.webp`,sceneBrief:scene.brief,focalPoint:{x:.5,y:.5}},stockBatches:structuredClone(original.caches??[]),hotspots:[...original.hotspots??[]]};});
+scenario.locationPlan={locations,visits:lightReadingScenes.map(scene=>({id:scene.id+'-visit-1',locationId:scene.id,chapterIds:[scene.chapter],carry:[...prior.chapters.find(c=>c.id===scene.chapter)!.carry??[]]})),panel:{width:390,height:844}};
+for(const scene of lightReadingScenes){const chapter=scenario.chapters.find(c=>c.id===scene.chapter)!;chapter.location={id:scene.id,label:scene.label,travelText:scene.brief};chapter.visitId=scene.id+'-visit-1';chapter.entryCue={...chapter.entryCue!,id:`${scenario.id}:${chapter.id}:entry-v1`,mode:'arrival-and-beat',sourceCaption:scene.label,text:scene.text};chapter.motivation=scene.text;delete chapter.caches;delete chapter.hotspots;delete chapter.carry;}
+scenario.notes!.push('29 October small-workstation successor: four distinct reading/production desks restore the exact earlier source groups and authored carry. Biblical places remain the subject of the source cards, not a claim of physical travel there. All source leaves and created panels remain tangible in scrollback; no recipe, wording of an item, goal, or historical save identity is changed.');

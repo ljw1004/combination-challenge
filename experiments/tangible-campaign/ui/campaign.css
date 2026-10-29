@@ -104,3 +104,15 @@ dialog button,dialog select{min-height:44px}
 .fixed-locations .hotspot{background:#f3eddfd9}
 .location-hud .objective-line{background:#f3eddfed;box-shadow:0 0 4px 2px #f3eddf80}
 .location-hud .debug-toggle{filter:drop-shadow(0 0 2px #fffaf0) drop-shadow(0 0 3px #fffaf0)}
+
+/* Only the optional discovery card uses raster artwork. Existing milestones
+   retain their component-led presentation and acknowledgement behavior. */
+#milestone.illustrated-milestone .milestone-content { gap: 12px; width: min(100%, 370px); min-height: 100%; max-height: none; overflow: visible; padding: 12px; }
+#milestone.illustrated-milestone .discovery-illustration { display: block; width: 100%; height: min(47dvh, 395px); min-height: 160px; object-fit: contain; border-radius: 12px; background: #17232a; }
+#milestone.illustrated-milestone .milestone-eyebrow { margin: 0; }
+#milestone.illustrated-milestone h1 { font-size: clamp(23px, 6.8vw, 30px); margin: 0; }
+#milestone.illustrated-milestone #milestone-text { font-size: 17px; line-height: 1.35; margin: 0; }
+#milestone.illustrated-milestone #milestone-continue { min-height: 44px; flex-shrink: 0; }
+@media (prefers-reduced-motion: reduce) { #milestone.illustrated-milestone *, #milestone.illustrated-milestone::backdrop { animation: none !important; transition: none !important; } }
+
+#milestone.illustrated-milestone { padding: max(12px, env(safe-area-inset-top)) max(12px, env(safe-area-inset-right)) max(12px, env(safe-area-inset-bottom)) max(12px, env(safe-area-inset-left)); }

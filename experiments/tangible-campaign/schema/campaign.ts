@@ -9,7 +9,7 @@ export type ChapterEntryCue = {id:string;mode:'arrival-and-beat'|'beat'|'source-
 export type StockBatch = {id:string;label:string;narrative:string;items:string[]};
 /** Stable art belongs to the whole location, never the current chapter. */
 export type LocationDefinition = Location & {settingId?:string;timeLabel?:string;background:{stableKey:string;sceneBrief:string;asset?:string;focalPoint?:{x:number;y:number}};stockBatches:StockBatch[];hotspots:string[]};
-export type LocationVisit = {id:string;locationId:string;chapterIds:string[];carry?:string[]};
+export type LocationVisit = {id:string;locationId:string;chapterIds:string[];carry?:string[];/** Explicit continuing expedition cargo, in addition to current-visit work. */ carryAlong?:string[]};
 export type SourceUpdate = {id:string;label:string;narrative:string;items:string[];arrivalFact:string};
 /** Opt-in successors only. Historical worlds retain their exact old geometry. */
 export type LocationPlan = {locations:LocationDefinition[];visits:LocationVisit[];panel:{width:390;height:844}};

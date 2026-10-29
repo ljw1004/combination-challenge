@@ -1,6 +1,8 @@
+import {readSiteSourceForRootTests,writeRootTestOutput} from '../scripts/site-source-test-context.ts';
+const readFileSync=readSiteSourceForRootTests;
 import assert from 'node:assert/strict';
 import test from 'node:test';
-import {readFileSync} from 'node:fs';
+import {readFileSync as originalReadFileSync} from 'node:fs';
 import type {Action,Scenario} from '../experiments/tangible-campaign/schema/campaign.ts';
 import * as M from '../experiments/tangible-campaign/engine/campaign.ts';
 import {toLegacyGame} from '../experiments/tangible-campaign/compatibility/v1.ts';

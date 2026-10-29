@@ -1,0 +1,3457 @@
+{
+  "baseSourceSeal": "dacaaa3832d19900f790a9cd5e571bf790a2cf435e2f32f1bb259861008c80b9",
+  "fromScenario": "mars-field-scenes-v6",
+  "toScenario": "mars-creature-field-scenes-v3",
+  "items": {
+    "removed": [
+      {
+        "id": "transparent-jar",
+        "label": "Transparent jar",
+        "description": "Available with the equipment at Ice-outcrop field station from the first arrival."
+      },
+      {
+        "id": "sample-labels",
+        "label": "Sample labels",
+        "description": "Available with the equipment at Ice-outcrop field station from the first arrival."
+      },
+      {
+        "id": "ice-sample",
+        "label": "Ice sample",
+        "description": "Collect ice from the exposed outcrop beside the current viewpoint."
+      },
+      {
+        "id": "sealed-ice-sample",
+        "label": "Sealed ice sample",
+        "description": "Seal the actual specimen in its jar."
+      },
+      {
+        "id": "catalogued-ice-sample",
+        "label": "Catalogued ice sample",
+        "description": "Retain provenance on the specimen container."
+      },
+      {
+        "id": "ice-photograph",
+        "label": "Ice photograph",
+        "description": "Photograph through the transparent jar."
+      },
+      {
+        "id": "layer-interpretation",
+        "label": "Fine–coarse–fine layers",
+        "description": "The earlier photograph records layers in ice; the basin core records sediment at another site. Here, grain sizes differ between layers. Comparing these records does not establish a shared age or cause."
+      },
+      {
+        "id": "ice-return-capsule",
+        "label": "Ice return capsule",
+        "description": "Pack the actual labelled ice specimen."
+      }
+    ],
+    "added": [
+      {
+        "id": "creature-core",
+        "label": "Creature in ice",
+        "description": "The same sealed ice core from the outcrop. Close inspection reveals a small articulated creature inside it; the core and its protective tube have not been opened or replaced. A fictional discovery: its age, origin and viability are not established."
+      }
+    ],
+    "changed": [
+      {
+        "id": "core-tube",
+        "before": {
+          "id": "core-tube",
+          "label": "Core tube",
+          "description": "Available with the equipment at Ice-outcrop field station from the first arrival."
+        },
+        "after": {
+          "id": "core-tube",
+          "label": "Sealed core tube",
+          "description": "The mission sampling tube includes a clear sealed liner and a powered protective sleeve. Its matched expedition and return-cargo connections keep a collected core protected without opening it."
+        }
+      },
+      {
+        "id": "ice-core",
+        "before": {
+          "id": "ice-core",
+          "label": "Ice core",
+          "description": "Recover a short core with its layer order retained."
+        },
+        "after": {
+          "id": "ice-core",
+          "label": "Ice core",
+          "description": "The original ice core inside its sealed sampling tube and protective sleeve. We keep this specimen with the expedition for examination at the field laboratory."
+        }
+      },
+      {
+        "id": "sediment-comparison",
+        "before": {
+          "id": "sediment-comparison",
+          "label": "Sediment comparison",
+          "description": "The images distinguish fine and coarse layers. The spectrum does not settle their origin. The comparison keeps the useful result and the inconclusive one side by side."
+        },
+        "after": {
+          "id": "sediment-comparison",
+          "label": "Fine–coarse–fine; spectrum inconclusive",
+          "description": "The basin grain images show a coarse band between two fine layers. Its mineral spectrum remains inconclusive: neither age nor transport agent is established.",
+          "reading": {
+            "text": "The basin grain images show a coarse band between two fine layers. Its mineral spectrum remains inconclusive: neither age nor transport agent is established.",
+            "attribution": "Fictional expedition observations; not a real mission measurement."
+          }
+        }
+      },
+      {
+        "id": "basin-field-record",
+        "before": {
+          "id": "basin-field-record",
+          "label": "Basin field record",
+          "description": "This fictional mission record preserves a coarse band between two fine-grained layers at the core site. Grain sizes and layer order are recorded; age and transport agent remain unresolved. Nearby exposures may help test a water-transport explanation.",
+          "reading": {
+            "text": "At this core site, a coarse band separates two fine-grained layers. We kept a labelled specimen. The saved ice-core photograph is a comparison, not proof that the two places share an age or history. Nearby exposures may help us interpret the change.",
+            "attribution": "Fictional expedition field note; not a real mission measurement."
+          }
+        },
+        "after": {
+          "id": "basin-field-record",
+          "label": "Basin field record",
+          "description": "This fictional mission record preserves a coarse band between two fine-grained layers at the core site. Grain sizes and layer order are recorded; age and transport agent remain unresolved. Nearby exposures may help test a water-transport explanation.",
+          "reading": {
+            "text": "At this core site, a coarse band separates two fine-grained layers. The mineral spectrum remains inconclusive. The specimen log connects these observations to the retained sediment. Age and transport agent remain unresolved; nearby exposures may help test a water-transport explanation.",
+            "attribution": "Fictional expedition field note; not a real mission measurement."
+          }
+        }
+      },
+      {
+        "id": "return-capsule",
+        "before": {
+          "id": "return-capsule",
+          "label": "Return capsule",
+          "description": "Available with the equipment at Camp return-packing alcove from the first arrival."
+        },
+        "after": {
+          "id": "return-capsule",
+          "label": "Return capsule",
+          "description": "The mission return capsule at the ascent depot has a matched protected ice-core bay and separate compartments for the other specimens and records."
+        }
+      },
+      {
+        "id": "cushioned-capsule",
+        "before": {
+          "id": "cushioned-capsule",
+          "label": "Return capsule",
+          "description": "The same protected return capsule. Its specimen compartments and record pouch keep the scientific evidence together.",
+          "capabilities": [
+            "return-sample-set"
+          ],
+          "slots": [
+            {
+              "id": "ice",
+              "accepts": [
+                "catalogued-ice-sample"
+              ],
+              "required": true
+            },
+            {
+              "id": "sediment",
+              "accepts": [
+                "retained-sediment"
+              ],
+              "required": true
+            },
+            {
+              "id": "record",
+              "accepts": [
+                "complete-field-archive"
+              ],
+              "required": true
+            },
+            {
+              "id": "comparison",
+              "accepts": [
+                "two-cell-case"
+              ],
+              "required": true
+            },
+            {
+              "id": "comparison-record",
+              "accepts": [
+                "sleeved-comparison"
+              ],
+              "required": true
+            }
+          ]
+        },
+        "after": {
+          "id": "cushioned-capsule",
+          "label": "Return capsule",
+          "description": "The same protected return capsule. Its matched ice-core bay keeps the original sealed tube protected beside the separately contained sediment and field records.",
+          "capabilities": [
+            "return-sample-set"
+          ],
+          "slots": [
+            {
+              "id": "ice",
+              "accepts": [
+                "creature-core"
+              ],
+              "required": true
+            },
+            {
+              "id": "sediment",
+              "accepts": [
+                "retained-sediment"
+              ],
+              "required": true
+            },
+            {
+              "id": "record",
+              "accepts": [
+                "complete-field-archive"
+              ],
+              "required": true
+            },
+            {
+              "id": "comparison",
+              "accepts": [
+                "two-cell-case"
+              ],
+              "required": true
+            },
+            {
+              "id": "comparison-record",
+              "accepts": [
+                "sleeved-comparison"
+              ],
+              "required": true
+            }
+          ]
+        }
+      },
+      {
+        "id": "sleeved-comparison",
+        "before": {
+          "id": "sleeved-comparison",
+          "label": "Sleeved comparison",
+          "description": "Protect the annotated comparison for the journey home. The separate specimen case retains its source labels.",
+          "reading": {
+            "text": "Our paired record travels with its source labels intact. The gravel in its rock setting supports an ancient-water interpretation; the ripple impression alone does not prove a river. Keeping the specimens separate lets another team inspect our reasoning. We have not established an age or detected life.",
+            "attribution": "Fictional expedition field note; not a real mission measurement."
+          }
+        },
+        "after": {
+          "id": "sleeved-comparison",
+          "label": "Sleeved comparison",
+          "description": "Protect the annotated comparison for the journey home. The separate specimen case retains its source labels.",
+          "reading": {
+            "text": "Our paired record travels with its source labels intact. The gravel in its rock setting supports an ancient-water interpretation; the ripple impression alone does not prove a river. Keeping the specimens separate lets another team inspect our reasoning. The layers preserve a sequence of events; their age remains unknown.",
+            "attribution": "Fictional expedition field note; not a real mission measurement."
+          }
+        }
+      }
+    ]
+  },
+  "recipes": {
+    "removed": [
+      {
+        "id": "buried-story-11-layer-interpretation",
+        "a": "sediment-comparison",
+        "b": "core-profile",
+        "description": "The earlier photograph records layers in ice; the basin core records sediment at another site. Here, grain sizes differ between layers. Comparing these records does not establish a shared age or cause.",
+        "out": "layer-interpretation",
+        "lifecycle": {
+          "sediment-comparison": {
+            "role": "retain",
+            "reason": "Sediment comparison is reused as equipment, a source/reference, a subject of observation, or a continuing supply; this action does not consume it."
+          },
+          "core-profile": {
+            "role": "retain",
+            "reason": "The core layer photograph remains a reference for comparing sites and for the return archive."
+          }
+        }
+      },
+      {
+        "id": "outcrop-0-ice-sample",
+        "a": "sample-scoop",
+        "b": "@lookout-ice",
+        "description": "Collect ice from the exposed outcrop beside the current viewpoint.",
+        "out": "ice-sample",
+        "lifecycle": {
+          "sample-scoop": {
+            "role": "retain",
+            "reason": "Sample scoop is reused as equipment, a source/reference, a subject of observation, or a continuing supply; this action does not consume it."
+          }
+        }
+      },
+      {
+        "id": "outcrop-1-sealed-ice-sample",
+        "a": "ice-sample",
+        "b": "transparent-jar",
+        "description": "Seal the actual specimen in its jar.",
+        "out": "sealed-ice-sample",
+        "lifecycle": {
+          "ice-sample": {
+            "role": "incorporate",
+            "reason": "Ice sample becomes part of the result; retain a supply only while another authored use needs it."
+          },
+          "transparent-jar": {
+            "role": "transform",
+            "reason": "Transparent jar is the existing object changed into Sealed ice sample."
+          }
+        }
+      },
+      {
+        "id": "outcrop-2-catalogued-ice-sample",
+        "a": "sealed-ice-sample",
+        "b": "sample-labels",
+        "description": "Retain provenance on the specimen container.",
+        "out": "catalogued-ice-sample",
+        "lifecycle": {
+          "sealed-ice-sample": {
+            "role": "transform",
+            "reason": "Sealed ice sample is the existing object changed into Catalogued ice sample."
+          },
+          "sample-labels": {
+            "role": "incorporate",
+            "reason": "Sample labels becomes part of the result; retain a supply only while another authored use needs it."
+          }
+        }
+      },
+      {
+        "id": "outcrop-3-ice-photograph",
+        "a": "catalogued-ice-sample",
+        "b": "camera",
+        "description": "Photograph through the transparent jar.",
+        "out": "ice-photograph",
+        "lifecycle": {
+          "catalogued-ice-sample": {
+            "role": "retain",
+            "reason": "Catalogued ice sample is reused as equipment, a source/reference, a subject of observation, or a continuing supply; this action does not consume it."
+          },
+          "camera": {
+            "role": "retain",
+            "reason": "Camera is reused as equipment, a source/reference, a subject of observation, or a continuing supply; this action does not consume it."
+          }
+        }
+      }
+    ],
+    "added": [
+      {
+        "id": "ice-creature-microscope",
+        "a": "ice-core",
+        "b": "lit-microscope",
+        "out": "creature-core",
+        "description": "Through the sealed tube, the small shape resolves into a curled body with jointed limbs. The creature remains inside the original protected core.",
+        "lifecycle": {
+          "ice-core": {
+            "role": "transform",
+            "exclusive": true,
+            "reason": "This is the same physical core, now recognised as containing a creature. Its tube, protection and position survive; it is not a new evidence token or another specimen."
+          },
+          "lit-microscope": {
+            "role": "retain",
+            "reason": "The existing illuminated instrument reveals detail through the sealed tube and remains available for the other field observations."
+          }
+        },
+        "preserve": [
+          "ice-core"
+        ]
+      },
+      {
+        "id": "ice-creature-glovebox",
+        "a": "ice-core",
+        "b": "illuminated-glovebox",
+        "out": "creature-core",
+        "description": "Through the sealed tube, the small shape resolves into a curled body with jointed limbs. The creature remains inside the original protected core.",
+        "lifecycle": {
+          "ice-core": {
+            "role": "transform",
+            "exclusive": true,
+            "reason": "This is the same physical core, now recognised as containing a creature. Its tube, protection and position survive; it is not a new evidence token or another specimen."
+          },
+          "illuminated-glovebox": {
+            "role": "retain",
+            "reason": "The existing illuminated instrument reveals detail through the sealed tube and remains available for the other field observations."
+          }
+        },
+        "preserve": [
+          "ice-core"
+        ]
+      },
+      {
+        "id": "creature-core-photograph",
+        "a": "creature-core",
+        "b": "camera",
+        "out": "core-profile",
+        "description": "Photograph the layers in the same sealed core without consuming the creature or its tube.",
+        "lifecycle": {
+          "creature-core": {
+            "role": "retain",
+            "reason": "Photographing the specimen leaves the original core and its creature intact for return."
+          },
+          "camera": {
+            "role": "retain",
+            "reason": "The existing camera remains available after making the photograph."
+          }
+        }
+      },
+      {
+        "id": "creature-core-field-photograph",
+        "a": "creature-core",
+        "b": "field-camera",
+        "out": "core-profile",
+        "description": "Photograph the layers in the same sealed core without consuming the creature or its tube.",
+        "lifecycle": {
+          "creature-core": {
+            "role": "retain",
+            "reason": "Photographing the specimen leaves the original core and its creature intact for return."
+          },
+          "field-camera": {
+            "role": "retain",
+            "reason": "The existing camera remains available after making the photograph."
+          }
+        }
+      }
+    ],
+    "changed": [
+      {
+        "id": "buried-story-10-sediment-comparison",
+        "before": {
+          "id": "buried-story-10-sediment-comparison",
+          "a": "grain-images",
+          "b": "mineral-spectrum",
+          "description": "The images distinguish fine and coarse layers. The spectrum does not settle their origin. The comparison keeps the useful result and the inconclusive one side by side.",
+          "out": "sediment-comparison",
+          "lifecycle": {
+            "grain-images": {
+              "role": "retain",
+              "reason": "Grain images is reused as equipment, a source/reference, a subject of observation, or a continuing supply; this action does not consume it."
+            },
+            "mineral-spectrum": {
+              "role": "retain",
+              "reason": "Mineral spectrum is reused as equipment, a source/reference, a subject of observation, or a continuing supply; this action does not consume it."
+            }
+          }
+        },
+        "after": {
+          "id": "buried-story-10-sediment-comparison",
+          "a": "grain-images",
+          "b": "mineral-spectrum",
+          "description": "The basin grain images show a coarse band between two fine layers. Its mineral spectrum remains inconclusive: neither age nor transport agent is established.",
+          "out": "sediment-comparison",
+          "lifecycle": {
+            "grain-images": {
+              "role": "retain",
+              "reason": "Grain images is reused as equipment, a source/reference, a subject of observation, or a continuing supply; this action does not consume it."
+            },
+            "mineral-spectrum": {
+              "role": "retain",
+              "reason": "Mineral spectrum is reused as equipment, a source/reference, a subject of observation, or a continuing supply; this action does not consume it."
+            }
+          }
+        }
+      },
+      {
+        "id": "buried-story-12-basin-field-record",
+        "before": {
+          "id": "buried-story-12-basin-field-record",
+          "a": "layer-interpretation",
+          "b": "specimen-log",
+          "description": "This fictional mission record preserves a coarse band between two fine-grained layers at the core site. Grain sizes and layer order are recorded; age and transport agent remain unresolved. Nearby exposures may help test a water-transport explanation.",
+          "out": "basin-field-record",
+          "lifecycle": {
+            "layer-interpretation": {
+              "role": "transform",
+              "reason": "Layer interpretation is the existing object changed into Basin field record."
+            },
+            "specimen-log": {
+              "role": "retain",
+              "reason": "Specimen log is reused as equipment, a source/reference, a subject of observation, or a continuing supply; this action does not consume it."
+            }
+          }
+        },
+        "after": {
+          "id": "buried-story-12-basin-field-record",
+          "a": "sediment-comparison",
+          "b": "specimen-log",
+          "description": "This fictional mission record preserves a coarse band between two fine-grained layers at the core site. Grain sizes and layer order are recorded; age and transport agent remain unresolved. Nearby exposures may help test a water-transport explanation.",
+          "out": "basin-field-record",
+          "lifecycle": {
+            "specimen-log": {
+              "role": "retain",
+              "reason": "Specimen log is reused as equipment, a source/reference, a subject of observation, or a continuing supply; this action does not consume it."
+            },
+            "sediment-comparison": {
+              "role": "retain",
+              "reason": "The two basin observations are recorded together with the specimen identity; this does not use another site’s ice photograph."
+            }
+          }
+        }
+      },
+      {
+        "id": "departure-6-complete-field-archive",
+        "before": {
+          "id": "departure-6-complete-field-archive",
+          "a": "geology-archive",
+          "b": "core-profile",
+          "description": "Keep the earlier core layer photograph with the basin observations and the archived crew portrait.",
+          "out": "complete-field-archive",
+          "lifecycle": {
+            "geology-archive": {
+              "role": "transform",
+              "reason": "Geology archive is the existing object changed into Complete field archive."
+            },
+            "core-profile": {
+              "role": "retain",
+              "reason": "The core layer photograph remains a reference for comparing sites and for the return archive."
+            }
+          }
+        },
+        "after": {
+          "id": "departure-6-complete-field-archive",
+          "a": "geology-archive",
+          "b": "core-profile",
+          "description": "Keep the earlier core layer photograph with the basin observations and the archived crew portrait.",
+          "out": "complete-field-archive",
+          "lifecycle": {
+            "geology-archive": {
+              "role": "transform",
+              "reason": "Geology archive is the existing object changed into Complete field archive."
+            },
+            "core-profile": {
+              "role": "retain",
+              "reason": "The earlier ice-core photograph remains a separately identified record in the return archive."
+            }
+          }
+        }
+      },
+      {
+        "id": "outcrop-11-ice-core",
+        "before": {
+          "id": "outcrop-11-ice-core",
+          "a": "core-tube",
+          "b": "@lookout-ice",
+          "description": "Recover a short core with its layer order retained.",
+          "out": "ice-core",
+          "lifecycle": {
+            "core-tube": {
+              "role": "retain",
+              "reason": "Core tube is reused as equipment, a source/reference, a subject of observation, or a continuing supply; this action does not consume it."
+            }
+          }
+        },
+        "after": {
+          "id": "outcrop-11-ice-core",
+          "a": "core-tube",
+          "b": "@lookout-ice",
+          "description": "Take a short core into the mission tube and close its seal. The protected core stays with us for the field laboratory.",
+          "out": "ice-core",
+          "lifecycle": {
+            "core-tube": {
+              "role": "incorporate",
+              "exclusive": true,
+              "reason": "The one mission sampling tube now contains this actual ice core. Its sealed liner and protective sleeve stay visibly with the specimen; no empty duplicate tube remains."
+            }
+          },
+          "preserve": [
+            "core-tube"
+          ]
+        }
+      },
+      {
+        "id": "outcrop-14-core-profile",
+        "before": {
+          "id": "outcrop-14-core-profile",
+          "a": "ice-core",
+          "b": "camera",
+          "description": "Photograph the visible layers in the actual ice core. The photograph records their order, not calibrated dimensions, a shared age with another site, or evidence of life.",
+          "out": "core-profile",
+          "lifecycle": {
+            "ice-core": {
+              "role": "retain",
+              "reason": "Photographing the ice core does not consume the specimen; it stays at the outcrop unless deliberately moved."
+            },
+            "camera": {
+              "role": "retain",
+              "reason": "The camera records the core and remains available for other photographs."
+            }
+          }
+        },
+        "after": {
+          "id": "outcrop-14-core-profile",
+          "a": "ice-core",
+          "b": "camera",
+          "description": "Photograph the visible layers in the actual ice core. The photograph records their order, not calibrated dimensions, a shared age with another site, or evidence of life.",
+          "out": "core-profile",
+          "lifecycle": {
+            "ice-core": {
+              "role": "retain",
+              "reason": "Photographing leaves the original sealed core intact; it continues with the expedition for field-laboratory examination and return."
+            },
+            "camera": {
+              "role": "retain",
+              "reason": "The camera records the core and remains available for other photographs."
+            }
+          }
+        }
+      },
+      {
+        "id": "departure-pack-ice",
+        "before": {
+          "id": "departure-pack-ice",
+          "a": "cushioned-capsule",
+          "b": "catalogued-ice-sample",
+          "install": {
+            "target": "cushioned-capsule",
+            "slot": "ice",
+            "component": "catalogued-ice-sample"
+          },
+          "description": "Pack the catalogued ice sample into its compartment in the return capsule.",
+          "lifecycle": {
+            "cushioned-capsule": {
+              "role": "retain",
+              "reason": "Return capsule is reused as equipment, a source/reference, a subject of observation, or a continuing supply; this action does not consume it."
+            },
+            "catalogued-ice-sample": {
+              "role": "incorporate",
+              "reason": "Catalogued ice sample becomes part of the existing construction; retain a supply only while another authored use needs it."
+            }
+          }
+        },
+        "after": {
+          "id": "departure-pack-ice",
+          "a": "cushioned-capsule",
+          "b": "creature-core",
+          "install": {
+            "target": "cushioned-capsule",
+            "slot": "ice",
+            "component": "creature-core"
+          },
+          "description": "Fit the original sealed creature-bearing core into the return capsule’s matched bay. The same specimen is now aboard the return load.",
+          "lifecycle": {
+            "cushioned-capsule": {
+              "role": "retain",
+              "reason": "The existing return capsule receives the real specimen, without being replaced."
+            },
+            "creature-core": {
+              "role": "incorporate",
+              "reason": "The actual creature-bearing ice core moves into the capsule; its sealed sampling tube remains part of that same return cargo."
+            }
+          },
+          "preserve": [
+            "creature-core"
+          ]
+        }
+      },
+      {
+        "id": "outcrop-core-photograph-field-camera",
+        "before": {
+          "id": "outcrop-core-photograph-field-camera",
+          "a": "ice-core",
+          "b": "field-camera",
+          "description": "Photograph the visible layers in the actual ice core. The photograph records their order, not calibrated dimensions, a shared age with another site, or evidence of life.",
+          "out": "core-profile",
+          "lifecycle": {
+            "ice-core": {
+              "role": "retain",
+              "reason": "Photographing the ice core does not consume the specimen; it stays at the outcrop unless deliberately moved."
+            },
+            "field-camera": {
+              "role": "retain",
+              "reason": "The camera on its tripod can photograph the core without losing its support or other uses."
+            }
+          }
+        },
+        "after": {
+          "id": "outcrop-core-photograph-field-camera",
+          "a": "ice-core",
+          "b": "field-camera",
+          "description": "Photograph the visible layers in the actual ice core. The photograph records their order, not calibrated dimensions, a shared age with another site, or evidence of life.",
+          "out": "core-profile",
+          "lifecycle": {
+            "ice-core": {
+              "role": "retain",
+              "reason": "Photographing leaves the original sealed core intact; it continues with the expedition for field-laboratory examination and return."
+            },
+            "field-camera": {
+              "role": "retain",
+              "reason": "The camera on its tripod can photograph the core without losing its support or other uses."
+            }
+          }
+        }
+      }
+    ]
+  },
+  "chapters": {
+    "removed": [],
+    "added": [],
+    "changed": [
+      {
+        "id": "signal",
+        "before": {
+          "id": "signal",
+          "title": "A voice above the ridge",
+          "speaker": "Last received message · orbital control",
+          "motivation": "The contact ridge looks over the landing site. We lost your signal on landing. If you can make yourself heard, we are listening.",
+          "location": {
+            "id": "M01",
+            "label": "Contact ridge",
+            "travelText": "The contact ridge looks over the landing site."
+          },
+          "objectives": [
+            {
+              "id": "radio-repair",
+              "text": "Repair radio",
+              "kind": "create",
+              "item": "radio",
+              "intermediate": true
+            },
+            {
+              "id": "signal-contact",
+              "text": "Place powered radio / beacon",
+              "kind": "place",
+              "capability": "orbiter-contact",
+              "hotspot": "contact-ridge",
+              "after": [
+                "radio-repair"
+              ]
+            }
+          ],
+          "completionText": "We hear you. That light above the ridge means someone is still there—and now we can answer.",
+          "onAlreadyComplete": {
+            "mode": "bridge",
+            "text": "The light above the ridge has been answered. Someone knows we are still here."
+          },
+          "visitId": "M01-visit-1",
+          "entryCue": {
+            "id": "mars-field-scenes-v6:signal:entry-v1",
+            "mode": "arrival-and-beat",
+            "format": "radio",
+            "voice": "Last received message · orbital control",
+            "sourceCaption": "Contact ridge",
+            "text": "The contact ridge looks over the landing site. We lost your signal on landing. If you can make yourself heard, we are listening."
+          }
+        },
+        "after": {
+          "id": "signal",
+          "title": "A voice above the ridge",
+          "speaker": "Last received message · orbital control",
+          "motivation": "The contact ridge looks over the landing site. We lost your signal on landing. If you can make yourself heard, we are listening.",
+          "location": {
+            "id": "M01",
+            "label": "Contact ridge",
+            "travelText": "The contact ridge looks over the landing site."
+          },
+          "objectives": [
+            {
+              "id": "radio-repair",
+              "text": "Repair radio",
+              "kind": "create",
+              "item": "radio",
+              "intermediate": true
+            },
+            {
+              "id": "signal-contact",
+              "text": "Place powered radio / beacon",
+              "kind": "place",
+              "capability": "orbiter-contact",
+              "hotspot": "contact-ridge",
+              "after": [
+                "radio-repair"
+              ]
+            }
+          ],
+          "completionText": "We hear you. That light above the ridge means someone is still there—and now we can answer.",
+          "onAlreadyComplete": {
+            "mode": "bridge",
+            "text": "The light above the ridge has been answered. Someone knows we are still here."
+          },
+          "visitId": "M01-visit-1",
+          "entryCue": {
+            "id": "mars-creature-field-scenes-v3:signal:entry-v1",
+            "mode": "arrival-and-beat",
+            "format": "radio",
+            "voice": "Last received message · orbital control",
+            "sourceCaption": "Contact ridge",
+            "text": "The contact ridge looks over the landing site. We lost your signal on landing. If you can make yourself heard, we are listening."
+          }
+        }
+      },
+      {
+        "id": "habitat",
+        "before": {
+          "id": "habitat",
+          "title": "Somewhere to come back to",
+          "speaker": "Expedition journal",
+          "motivation": "Back below the ridge, the surviving cabin and its torn outer entry need attention. The inner cabin survived. I need somewhere we can come back to, and a signal the missing survey crew can find.",
+          "location": {
+            "id": "M02",
+            "label": "Surviving habitat",
+            "travelText": "Back below the ridge, the surviving cabin and its torn outer entry need attention."
+          },
+          "objectives": [
+            {
+              "kind": "create",
+              "item": "water-canister",
+              "text": "Store water",
+              "id": "habitat-goal-0",
+              "intermediate": true
+            },
+            {
+              "kind": "create",
+              "item": "propagator",
+              "text": "Protect the seedlings",
+              "id": "habitat-goal-1",
+              "after": [
+                "habitat-goal-0"
+              ]
+            },
+            {
+              "kind": "create",
+              "item": "insulated-vestibule",
+              "text": "Make insulated vestibule",
+              "id": "habitat-goal-2"
+            },
+            {
+              "id": "habitat-contact",
+              "kind": "place",
+              "capability": "orbiter-contact",
+              "hotspot": "refuge-contact-mast",
+              "text": "Mark refuge for rescue"
+            }
+          ],
+          "completionText": "The entry is weather-tight, the water is stored, and the little tray has a sheltered home. Our signal now marks a refuge, not a crash site.",
+          "onAlreadyComplete": {
+            "mode": "skip"
+          },
+          "visitId": "M02-visit-1",
+          "entryCue": {
+            "id": "mars-field-scenes-v6:habitat:entry-v1",
+            "mode": "arrival-and-beat",
+            "format": "silent-title-card",
+            "voice": "Expedition journal",
+            "sourceCaption": "Surviving habitat",
+            "text": "Back below the ridge, the surviving cabin and its torn outer entry need attention. The inner cabin survived. I need somewhere we can come back to, and a signal the missing survey crew can find."
+          }
+        },
+        "after": {
+          "id": "habitat",
+          "title": "Somewhere to come back to",
+          "speaker": "Expedition journal",
+          "motivation": "Back below the ridge, the surviving cabin and its torn outer entry need attention. The inner cabin survived. I need somewhere we can come back to, and a signal the missing survey crew can find.",
+          "location": {
+            "id": "M02",
+            "label": "Surviving habitat",
+            "travelText": "Back below the ridge, the surviving cabin and its torn outer entry need attention."
+          },
+          "objectives": [
+            {
+              "kind": "create",
+              "item": "water-canister",
+              "text": "Store water",
+              "id": "habitat-goal-0",
+              "intermediate": true
+            },
+            {
+              "kind": "create",
+              "item": "propagator",
+              "text": "Protect the seedlings",
+              "id": "habitat-goal-1",
+              "after": [
+                "habitat-goal-0"
+              ]
+            },
+            {
+              "kind": "create",
+              "item": "insulated-vestibule",
+              "text": "Make insulated vestibule",
+              "id": "habitat-goal-2"
+            },
+            {
+              "id": "habitat-contact",
+              "kind": "place",
+              "capability": "orbiter-contact",
+              "hotspot": "refuge-contact-mast",
+              "text": "Mark refuge for rescue"
+            }
+          ],
+          "completionText": "The entry is weather-tight, the water is stored, and the little tray has a sheltered home. Our signal now marks a refuge, not a crash site.",
+          "onAlreadyComplete": {
+            "mode": "skip"
+          },
+          "visitId": "M02-visit-1",
+          "entryCue": {
+            "id": "mars-creature-field-scenes-v3:habitat:entry-v1",
+            "mode": "arrival-and-beat",
+            "format": "silent-title-card",
+            "voice": "Expedition journal",
+            "sourceCaption": "Surviving habitat",
+            "text": "Back below the ridge, the surviving cabin and its torn outer entry need attention. The inner cabin survived. I need somewhere we can come back to, and a signal the missing survey crew can find."
+          }
+        }
+      },
+      {
+        "id": "rover",
+        "before": {
+          "id": "rover",
+          "title": "The route out",
+          "speaker": "Expedition journal",
+          "motivation": "Beside the landed cargo sled, there is room to assemble the vehicle and look out along the route. The survey crawler is overdue. Our landed equipment can take us beyond the ridge; first I need a route worth following.",
+          "location": {
+            "id": "M03-sled-build",
+            "label": "Cargo-sled assembly area",
+            "travelText": "Beside the landed cargo sled, there is room to assemble the vehicle and look out along the route."
+          },
+          "objectives": [
+            {
+              "id": "rover-powered",
+              "text": "Make Rover drive under solar power",
+              "kind": "create",
+              "capability": "solar-travel"
+            },
+            {
+              "kind": "create",
+              "capability": "rover-restraint",
+              "text": "Fit rover harness",
+              "id": "rover-goal-0"
+            },
+            {
+              "kind": "create",
+              "item": "bearing-map",
+              "text": "Make bearing map",
+              "id": "rover-goal-1"
+            }
+          ],
+          "completionText": "The rover can carry us, and the bearings give us a route to follow. Now let’s find our missing crew.",
+          "onAlreadyComplete": {
+            "mode": "skip"
+          },
+          "visitId": "M03-sled-build-visit-1",
+          "entryCue": {
+            "id": "mars-field-scenes-v6:rover:entry-v1",
+            "mode": "arrival-and-beat",
+            "format": "silent-title-card",
+            "voice": "Expedition journal",
+            "sourceCaption": "Cargo-sled assembly area",
+            "text": "Beside the landed cargo sled, there is room to assemble the vehicle and look out along the route. The survey crawler is overdue. Our landed equipment can take us beyond the ridge; first I need a route worth following."
+          }
+        },
+        "after": {
+          "id": "rover",
+          "title": "The route out",
+          "speaker": "Expedition journal",
+          "motivation": "Beside the landed cargo sled, there is room to assemble the vehicle and look out along the route. The survey crawler is overdue. Our landed equipment can take us beyond the ridge; first I need a route worth following.",
+          "location": {
+            "id": "M03-sled-build",
+            "label": "Cargo-sled assembly area",
+            "travelText": "Beside the landed cargo sled, there is room to assemble the vehicle and look out along the route."
+          },
+          "objectives": [
+            {
+              "id": "rover-powered",
+              "text": "Make Rover drive under solar power",
+              "kind": "create",
+              "capability": "solar-travel"
+            },
+            {
+              "kind": "create",
+              "capability": "rover-restraint",
+              "text": "Fit rover harness",
+              "id": "rover-goal-0"
+            },
+            {
+              "kind": "create",
+              "item": "bearing-map",
+              "text": "Make bearing map",
+              "id": "rover-goal-1"
+            }
+          ],
+          "completionText": "The rover can carry us, and the bearings give us a route to follow. Now let’s find our missing crew.",
+          "onAlreadyComplete": {
+            "mode": "skip"
+          },
+          "visitId": "M03-sled-build-visit-1",
+          "entryCue": {
+            "id": "mars-creature-field-scenes-v3:rover:entry-v1",
+            "mode": "arrival-and-beat",
+            "format": "silent-title-card",
+            "voice": "Expedition journal",
+            "sourceCaption": "Cargo-sled assembly area",
+            "text": "Beside the landed cargo sled, there is room to assemble the vehicle and look out along the route. The survey crawler is overdue. Our landed equipment can take us beyond the ridge; first I need a route worth following."
+          }
+        }
+      },
+      {
+        "id": "outcrop",
+        "before": {
+          "id": "outcrop",
+          "title": "What the cliff can tell us",
+          "speaker": "Expedition journal",
+          "motivation": "At the outcrop, the expedition sampling case is opened beside the exposed layers. The route crosses exposed ice and a layered cliff. I will keep what I find separate from what I only suspect.",
+          "location": {
+            "id": "M04",
+            "label": "Ice-outcrop field station",
+            "travelText": "At the outcrop, the expedition sampling case is opened beside the exposed layers."
+          },
+          "objectives": [
+            {
+              "kind": "create",
+              "item": "catalogued-ice-sample",
+              "text": "Label the ice sample",
+              "id": "outcrop-goal-0",
+              "intermediate": true
+            },
+            {
+              "kind": "create",
+              "item": "ice-photograph",
+              "text": "Photograph the sample",
+              "id": "outcrop-goal-1",
+              "after": [
+                "outcrop-goal-0"
+              ]
+            },
+            {
+              "kind": "create",
+              "item": "annotated-map",
+              "text": "Make annotated map",
+              "id": "outcrop-goal-2"
+            },
+            {
+              "kind": "create",
+              "item": "core-profile",
+              "text": "Photograph core layers",
+              "id": "outcrop-goal-3"
+            }
+          ],
+          "completionText": "The ice has its label and photograph; the cliff has given our map more detail. We can carry the evidence without pretending we know the whole story.",
+          "onAlreadyComplete": {
+            "mode": "skip"
+          },
+          "visitId": "M04-visit-1",
+          "entryCue": {
+            "id": "mars-field-scenes-v6:outcrop:entry-v1",
+            "mode": "arrival-and-beat",
+            "format": "silent-title-card",
+            "voice": "Expedition journal",
+            "sourceCaption": "Ice-outcrop field station",
+            "text": "At the outcrop, the expedition sampling case is opened beside the exposed layers. The route crosses exposed ice and a layered cliff. I will keep what I find separate from what I only suspect."
+          }
+        },
+        "after": {
+          "id": "outcrop",
+          "title": "What the cliff can tell us",
+          "speaker": "Expedition journal",
+          "motivation": "Exposed ice interrupts the route. I will keep a sealed core with our equipment so we can examine it properly at the field laboratory.",
+          "location": {
+            "id": "M04",
+            "label": "Ice-outcrop field station",
+            "travelText": "At the outcrop, the expedition sampling case is opened beside the exposed layers."
+          },
+          "objectives": [
+            {
+              "kind": "create",
+              "item": "annotated-map",
+              "text": "Make annotated map",
+              "id": "outcrop-goal-2"
+            },
+            {
+              "kind": "create",
+              "item": "core-profile",
+              "text": "Photograph core layers",
+              "id": "outcrop-goal-3"
+            }
+          ],
+          "completionText": "The sealed core and its layer photograph are secure; the cliff has given our map more detail.",
+          "onAlreadyComplete": {
+            "mode": "skip"
+          },
+          "visitId": "M04-visit-1",
+          "entryCue": {
+            "id": "mars-creature-field-scenes-v3:outcrop:entry-v1",
+            "mode": "arrival-and-beat",
+            "format": "silent-title-card",
+            "voice": "Expedition journal",
+            "sourceCaption": "Ice-outcrop field station",
+            "text": "Exposed ice interrupts the route. I will keep a sealed core with our equipment so we can examine it properly at the field laboratory."
+          }
+        }
+      },
+      {
+        "id": "weather",
+        "before": {
+          "id": "weather",
+          "title": "The sky is closing",
+          "speaker": "Expedition journal",
+          "motivation": "The disused weather station has its own service apron and instrument stores. Dust is closing over the route. This old station may show us when to move, if I can bring it back to work.",
+          "location": {
+            "id": "M05",
+            "label": "Weather-station apron",
+            "travelText": "The disused weather station has its own service apron and instrument stores."
+          },
+          "objectives": [
+            {
+              "kind": "create",
+              "item": "weather-route-map",
+              "text": "Make weather route map",
+              "id": "weather-goal-0"
+            },
+            {
+              "kind": "create",
+              "item": "protected-controller",
+              "text": "Make protected controller",
+              "id": "weather-goal-2"
+            }
+          ],
+          "completionText": "The station has given us a weather-informed route, and the spare controller is protected. We can move on without forgetting how quickly this place changes.",
+          "onAlreadyComplete": {
+            "mode": "skip"
+          },
+          "visitId": "M05-visit-1",
+          "entryCue": {
+            "id": "mars-field-scenes-v6:weather:entry-v1",
+            "mode": "arrival-and-beat",
+            "format": "silent-title-card",
+            "voice": "Expedition journal",
+            "sourceCaption": "Weather-station apron",
+            "text": "The disused weather station has its own service apron and instrument stores. Dust is closing over the route. This old station may show us when to move, if I can bring it back to work."
+          }
+        },
+        "after": {
+          "id": "weather",
+          "title": "The sky is closing",
+          "speaker": "Expedition journal",
+          "motivation": "The disused weather station has its own service apron and instrument stores. Dust is closing over the route. This old station may show us when to move, if I can bring it back to work.",
+          "location": {
+            "id": "M05",
+            "label": "Weather-station apron",
+            "travelText": "The disused weather station has its own service apron and instrument stores."
+          },
+          "objectives": [
+            {
+              "kind": "create",
+              "item": "weather-route-map",
+              "text": "Make weather route map",
+              "id": "weather-goal-0"
+            },
+            {
+              "kind": "create",
+              "item": "protected-controller",
+              "text": "Make protected controller",
+              "id": "weather-goal-2"
+            }
+          ],
+          "completionText": "The station has given us a weather-informed route, and the spare controller is protected. We can move on without forgetting how quickly this place changes.",
+          "onAlreadyComplete": {
+            "mode": "skip"
+          },
+          "visitId": "M05-visit-1",
+          "entryCue": {
+            "id": "mars-creature-field-scenes-v3:weather:entry-v1",
+            "mode": "arrival-and-beat",
+            "format": "silent-title-card",
+            "voice": "Expedition journal",
+            "sourceCaption": "Weather-station apron",
+            "text": "The disused weather station has its own service apron and instrument stores. Dust is closing over the route. This old station may show us when to move, if I can bring it back to work."
+          }
+        }
+      },
+      {
+        "id": "relay",
+        "before": {
+          "id": "relay",
+          "title": "A voice in the static",
+          "speaker": "Orbital control",
+          "motivation": "The relay mast stands beyond the station on its rocky knoll. The survey crew missed their check-in. This relay reaches beyond the ridge; see whether anyone answers.",
+          "location": {
+            "id": "M06",
+            "label": "Relay knoll",
+            "travelText": "The relay mast stands beyond the station on its rocky knoll."
+          },
+          "objectives": [
+            {
+              "kind": "create",
+              "item": "rescue-route",
+              "text": "Make rescue route",
+              "id": "relay-goal-0"
+            }
+          ],
+          "completionText": "We have their voices—and a route to them. Their cabin is intact; it’s the drive that failed. Let’s bring them to shelter.",
+          "onAlreadyComplete": {
+            "mode": "bridge",
+            "text": "The missing crew have answered. Their cabin is intact; its drive has failed. We know where they are."
+          },
+          "visitId": "M06-visit-1",
+          "entryCue": {
+            "id": "mars-field-scenes-v6:relay:entry-v1",
+            "mode": "arrival-and-beat",
+            "format": "radio",
+            "voice": "Orbital control",
+            "sourceCaption": "Relay knoll",
+            "text": "The relay mast stands beyond the station on its rocky knoll. The survey crew missed their check-in. This relay reaches beyond the ridge; see whether anyone answers."
+          }
+        },
+        "after": {
+          "id": "relay",
+          "title": "A voice in the static",
+          "speaker": "Orbital control",
+          "motivation": "The relay mast stands beyond the station on its rocky knoll. The survey crew missed their check-in. This relay reaches beyond the ridge; see whether anyone answers.",
+          "location": {
+            "id": "M06",
+            "label": "Relay knoll",
+            "travelText": "The relay mast stands beyond the station on its rocky knoll."
+          },
+          "objectives": [
+            {
+              "kind": "create",
+              "item": "rescue-route",
+              "text": "Make rescue route",
+              "id": "relay-goal-0"
+            }
+          ],
+          "completionText": "We have their voices—and a route to them. Their cabin is intact; it’s the drive that failed. Let’s bring them to shelter.",
+          "onAlreadyComplete": {
+            "mode": "bridge",
+            "text": "The missing crew have answered. Their cabin is intact; its drive has failed. We know where they are."
+          },
+          "visitId": "M06-visit-1",
+          "entryCue": {
+            "id": "mars-creature-field-scenes-v3:relay:entry-v1",
+            "mode": "arrival-and-beat",
+            "format": "radio",
+            "voice": "Orbital control",
+            "sourceCaption": "Relay knoll",
+            "text": "The relay mast stands beyond the station on its rocky knoll. The survey crew missed their check-in. This relay reaches beyond the ridge; see whether anyone answers."
+          }
+        }
+      },
+      {
+        "id": "rescue",
+        "before": {
+          "id": "rescue",
+          "title": "Not the only ones stranded",
+          "speaker": "Survey crew",
+          "motivation": "The crew wait in their intact cabin beside the crawler’s failed drive. Our cabin is intact, but the drive has failed. We can reach the nearby refuge if you can get the crawler moving.",
+          "location": {
+            "id": "M07",
+            "label": "Stranded crawler",
+            "travelText": "The crew wait in their intact cabin beside the crawler’s failed drive."
+          },
+          "objectives": [
+            {
+              "id": "rescue-bring-crew",
+              "kind": "create",
+              "item": "occupied-refuge",
+              "text": "Bring crew to shelter",
+              "intermediate": true
+            },
+            {
+              "kind": "create",
+              "item": "provisioned-refuge",
+              "text": "Feed sheltered crew",
+              "id": "rescue-goal-0",
+              "after": [
+                "rescue-bring-crew"
+              ]
+            }
+          ],
+          "completionText": "Everyone is sheltered and fed. Our stocked mission habitat supports the months until the scheduled return window; we can prepare for it together, not race through chores in danger.",
+          "onAlreadyComplete": {
+            "mode": "bridge",
+            "text": "Everyone is sheltered and fed. With the recovered crew beside us, we can prepare together for the scheduled return window."
+          },
+          "visitId": "M07-visit-1",
+          "entryCue": {
+            "id": "mars-field-scenes-v6:rescue:entry-v1",
+            "mode": "arrival-and-beat",
+            "format": "radio",
+            "voice": "Survey crew",
+            "sourceCaption": "Stranded crawler",
+            "text": "The crew wait in their intact cabin beside the crawler’s failed drive. Our cabin is intact, but the drive has failed. We can reach the nearby refuge if you can get the crawler moving."
+          },
+          "travel": {
+            "id": "crawler-to-recovery-camp",
+            "afterCreated": [
+              "crawler",
+              "towed-crawler"
+            ],
+            "locationId": "M08",
+            "carry": [
+              "crawler",
+              "towed-crawler",
+              "heater",
+              "pressure-patch",
+              "toolkit",
+              "spare-drive",
+              "drive-coupling",
+              "serviced-drive",
+              "replacement-drive"
+            ],
+            "entryCue": {
+              "id": "mars-field-scenes-v6:crawler-to-recovery-camp:entry-v1",
+              "mode": "arrival-and-beat",
+              "format": "silent-title-card",
+              "voice": "Expedition journal",
+              "sourceCaption": "Service refuge",
+              "text": "The crew have reached the nearby service refuge. Its shelter and bedding stores are here; first I need to make it warm and welcoming."
+            }
+          }
+        },
+        "after": {
+          "id": "rescue",
+          "title": "Not the only ones stranded",
+          "speaker": "Survey crew",
+          "motivation": "The crew wait in their intact cabin beside the crawler’s failed drive. Our cabin is intact, but the drive has failed. We can reach the nearby refuge if you can get the crawler moving.",
+          "location": {
+            "id": "M07",
+            "label": "Stranded crawler",
+            "travelText": "The crew wait in their intact cabin beside the crawler’s failed drive."
+          },
+          "objectives": [
+            {
+              "id": "rescue-bring-crew",
+              "kind": "create",
+              "item": "occupied-refuge",
+              "text": "Bring crew to shelter",
+              "intermediate": true
+            },
+            {
+              "kind": "create",
+              "item": "provisioned-refuge",
+              "text": "Feed sheltered crew",
+              "id": "rescue-goal-0",
+              "after": [
+                "rescue-bring-crew"
+              ]
+            }
+          ],
+          "completionText": "Everyone is sheltered and fed. Our stocked mission habitat supports the months until the scheduled return window; we can prepare for it together, not race through chores in danger.",
+          "onAlreadyComplete": {
+            "mode": "bridge",
+            "text": "Everyone is sheltered and fed. With the recovered crew beside us, we can prepare together for the scheduled return window."
+          },
+          "visitId": "M07-visit-1",
+          "entryCue": {
+            "id": "mars-creature-field-scenes-v3:rescue:entry-v1",
+            "mode": "arrival-and-beat",
+            "format": "radio",
+            "voice": "Survey crew",
+            "sourceCaption": "Stranded crawler",
+            "text": "The crew wait in their intact cabin beside the crawler’s failed drive. Our cabin is intact, but the drive has failed. We can reach the nearby refuge if you can get the crawler moving."
+          },
+          "travel": {
+            "id": "crawler-to-recovery-camp",
+            "afterCreated": [
+              "crawler",
+              "towed-crawler"
+            ],
+            "locationId": "M08",
+            "carry": [
+              "crawler",
+              "towed-crawler",
+              "heater",
+              "pressure-patch",
+              "toolkit",
+              "spare-drive",
+              "drive-coupling",
+              "serviced-drive",
+              "replacement-drive",
+              "ice-core",
+              "creature-core"
+            ],
+            "entryCue": {
+              "id": "mars-creature-field-scenes-v3:crawler-to-recovery-camp:entry-v1",
+              "mode": "arrival-and-beat",
+              "format": "silent-title-card",
+              "voice": "Expedition journal",
+              "sourceCaption": "Service refuge",
+              "text": "The crew have reached the nearby service refuge. Its shelter and bedding stores are here; first I need to make it warm and welcoming."
+            }
+          }
+        }
+      },
+      {
+        "id": "camp",
+        "before": {
+          "id": "camp",
+          "title": "A place to work, a voice home",
+          "speaker": "Expedition journal",
+          "motivation": "With the crew settled, we move round the refuge to its sheltered workcourt. Everyone is warm and fed. I can finally make us a place to work—and let our families hear us.",
+          "location": {
+            "id": "M08-workcourt",
+            "label": "Sheltered workcourt",
+            "travelText": "With the crew settled, we move round the refuge to its sheltered workcourt."
+          },
+          "objectives": [
+            {
+              "id": "camp-lit-workbench",
+              "kind": "create",
+              "item": "lit-workbench",
+              "text": "Make shared lit workbench"
+            },
+            {
+              "id": "camp-message-home",
+              "kind": "create",
+              "item": "message-home",
+              "text": "Send crew message home"
+            }
+          ],
+          "completionText": "We have a lit bench to share, and our families have heard our voices. This is starting to feel like a camp again.",
+          "onAlreadyComplete": {
+            "mode": "skip"
+          },
+          "visitId": "M08-workcourt-visit-1",
+          "entryCue": {
+            "id": "mars-field-scenes-v6:camp:entry-v1",
+            "mode": "arrival-and-beat",
+            "format": "silent-title-card",
+            "voice": "Expedition journal",
+            "sourceCaption": "Sheltered workcourt",
+            "text": "With the crew settled, we move round the refuge to its sheltered workcourt. Everyone is warm and fed. I can finally make us a place to work—and let our families hear us."
+          }
+        },
+        "after": {
+          "id": "camp",
+          "title": "A place to work, a voice home",
+          "speaker": "Expedition journal",
+          "motivation": "Everyone is warm and fed. Our equipment and the protected core are here too. I can make us a place to work—and let our families hear us.",
+          "location": {
+            "id": "M08-workcourt",
+            "label": "Sheltered workcourt",
+            "travelText": "With the crew settled, we move round the refuge to its sheltered workcourt."
+          },
+          "objectives": [
+            {
+              "id": "camp-lit-workbench",
+              "kind": "create",
+              "item": "lit-workbench",
+              "text": "Make shared lit workbench"
+            },
+            {
+              "id": "camp-message-home",
+              "kind": "create",
+              "item": "message-home",
+              "text": "Send crew message home"
+            }
+          ],
+          "completionText": "We have a lit bench to share, and our families have heard our voices. This is starting to feel like a camp again.",
+          "onAlreadyComplete": {
+            "mode": "skip"
+          },
+          "visitId": "M08-workcourt-visit-1",
+          "entryCue": {
+            "id": "mars-creature-field-scenes-v3:camp:entry-v1",
+            "mode": "arrival-and-beat",
+            "format": "silent-title-card",
+            "voice": "Expedition journal",
+            "sourceCaption": "Sheltered workcourt",
+            "text": "Everyone is warm and fed. Our equipment and the protected core are here too. I can make us a place to work—and let our families hear us."
+          }
+        }
+      },
+      {
+        "id": "cargo-return",
+        "before": {
+          "id": "cargo-return",
+          "title": "The things we left behind",
+          "speaker": "Survey crew",
+          "motivation": "A short path leads from camp to the crew’s furniture sled and its belongings locker. Our table is still on the sled just along the path. Let’s bring it home and take a picture of everyone together.",
+          "location": {
+            "id": "M08-sled-path",
+            "label": "Furniture-sled path",
+            "travelText": "A short path leads from camp to the crew’s furniture sled and its belongings locker."
+          },
+          "objectives": [
+            {
+              "id": "cargo-return-crew-table-portrait",
+              "kind": "create",
+              "item": "crew-table-portrait",
+              "text": "Take crew supper portrait"
+            }
+          ],
+          "completionText": "Our own table, our pictures, all of us together on this first safe evening. Keep that portrait—we’ll want to remember more than the breakdown.",
+          "onAlreadyComplete": {
+            "mode": "skip"
+          },
+          "visitId": "M08-sled-path-visit-1",
+          "entryCue": {
+            "id": "mars-field-scenes-v6:cargo-return:entry-v1",
+            "mode": "arrival-and-beat",
+            "format": "speech-bubble",
+            "voice": "Survey crew",
+            "sourceCaption": "Furniture-sled path",
+            "text": "A short path leads from camp to the crew’s furniture sled and its belongings locker. Our table is still on the sled just along the path. Let’s bring it home and take a picture of everyone together."
+          }
+        },
+        "after": {
+          "id": "cargo-return",
+          "title": "The things we left behind",
+          "speaker": "Survey crew",
+          "motivation": "A short path leads from camp to the crew’s furniture sled and its belongings locker. Our table is still on the sled just along the path. Let’s bring it home and take a picture of everyone together.",
+          "location": {
+            "id": "M08-sled-path",
+            "label": "Furniture-sled path",
+            "travelText": "A short path leads from camp to the crew’s furniture sled and its belongings locker."
+          },
+          "objectives": [
+            {
+              "id": "cargo-return-crew-table-portrait",
+              "kind": "create",
+              "item": "crew-table-portrait",
+              "text": "Take crew supper portrait"
+            }
+          ],
+          "completionText": "Our own table, our pictures, all of us together on this first safe evening. Keep that portrait—we’ll want to remember more than the breakdown.",
+          "onAlreadyComplete": {
+            "mode": "skip"
+          },
+          "visitId": "M08-sled-path-visit-1",
+          "entryCue": {
+            "id": "mars-creature-field-scenes-v3:cargo-return:entry-v1",
+            "mode": "arrival-and-beat",
+            "format": "speech-bubble",
+            "voice": "Survey crew",
+            "sourceCaption": "Furniture-sled path",
+            "text": "A short path leads from camp to the crew’s furniture sled and its belongings locker. Our table is still on the sled just along the path. Let’s bring it home and take a picture of everyone together."
+          }
+        }
+      },
+      {
+        "id": "night",
+        "before": {
+          "id": "night",
+          "title": "The long night",
+          "speaker": "Expedition journal",
+          "motivation": "After dark, the camp’s separate thermal test bay becomes the next work area. The refuge loses heat after dark. I want a reason for the screen I fit, not just a hopeful extra layer.",
+          "location": {
+            "id": "M08-thermal-bay",
+            "label": "Thermal test bay",
+            "travelText": "After dark, the camp’s separate thermal test bay becomes the next work area."
+          },
+          "objectives": [
+            {
+              "id": "night-compare-wall",
+              "kind": "create",
+              "item": "insulation-comparison",
+              "text": "Compare wall cooling",
+              "intermediate": true
+            },
+            {
+              "id": "night-screened-cabin",
+              "kind": "create",
+              "item": "screened-cabin",
+              "text": "Insulate our refuge",
+              "after": [
+                "night-compare-wall"
+              ]
+            }
+          ],
+          "completionText": "The chamber comparison gave us a reason to fit this screen. The refuge still holds the bed we made for the rescued crew; now its exposed service wall is covered too.",
+          "onAlreadyComplete": {
+            "mode": "skip"
+          },
+          "visitId": "M08-thermal-bay-visit-1",
+          "entryCue": {
+            "id": "mars-field-scenes-v6:night:entry-v1",
+            "mode": "arrival-and-beat",
+            "format": "silent-title-card",
+            "voice": "Expedition journal",
+            "sourceCaption": "Thermal test bay",
+            "text": "After dark, the camp’s separate thermal test bay becomes the next work area. The refuge loses heat after dark. I want a reason for the screen I fit, not just a hopeful extra layer."
+          }
+        },
+        "after": {
+          "id": "night",
+          "title": "The long night",
+          "speaker": "Expedition journal",
+          "motivation": "After dark, the camp’s separate thermal test bay becomes the next work area. The refuge loses heat after dark. I want a reason for the screen I fit, not just a hopeful extra layer.",
+          "location": {
+            "id": "M08-thermal-bay",
+            "label": "Thermal test bay",
+            "travelText": "After dark, the camp’s separate thermal test bay becomes the next work area."
+          },
+          "objectives": [
+            {
+              "id": "night-compare-wall",
+              "kind": "create",
+              "item": "insulation-comparison",
+              "text": "Compare wall cooling",
+              "intermediate": true
+            },
+            {
+              "id": "night-screened-cabin",
+              "kind": "create",
+              "item": "screened-cabin",
+              "text": "Insulate our refuge",
+              "after": [
+                "night-compare-wall"
+              ]
+            }
+          ],
+          "completionText": "The chamber comparison gave us a reason to fit this screen. The refuge still holds the bed we made for the rescued crew; now its exposed service wall is covered too.",
+          "onAlreadyComplete": {
+            "mode": "skip"
+          },
+          "visitId": "M08-thermal-bay-visit-1",
+          "entryCue": {
+            "id": "mars-creature-field-scenes-v3:night:entry-v1",
+            "mode": "arrival-and-beat",
+            "format": "silent-title-card",
+            "voice": "Expedition journal",
+            "sourceCaption": "Thermal test bay",
+            "text": "After dark, the camp’s separate thermal test bay becomes the next work area. The refuge loses heat after dark. I want a reason for the screen I fit, not just a hopeful extra layer."
+          }
+        }
+      },
+      {
+        "id": "waterworks",
+        "before": {
+          "id": "waterworks",
+          "title": "Enough water to stay",
+          "speaker": "Expedition journal",
+          "motivation": "The enclosed ice-processing site lies beyond camp, with its drained circulation loop. The crew know an ice-processing site. Our saved water may be enough to restart its loop and make the camp easier to live in.",
+          "location": {
+            "id": "M09",
+            "label": "Enclosed ice works",
+            "travelText": "The enclosed ice-processing site lies beyond camp, with its drained circulation loop."
+          },
+          "objectives": [
+            {
+              "kind": "create",
+              "item": "camp-water-system",
+              "text": "Make camp water system",
+              "id": "waterworks-goal-0"
+            }
+          ],
+          "completionText": "The camp’s process-water loop is working again. We can supply the enclosed growing system without treating an unknown water sample as a promise of drinking safety.",
+          "onAlreadyComplete": {
+            "mode": "skip"
+          },
+          "visitId": "M09-visit-1",
+          "entryCue": {
+            "id": "mars-field-scenes-v6:waterworks:entry-v1",
+            "mode": "arrival-and-beat",
+            "format": "silent-title-card",
+            "voice": "Expedition journal",
+            "sourceCaption": "Enclosed ice works",
+            "text": "The enclosed ice-processing site lies beyond camp, with its drained circulation loop. The crew know an ice-processing site. Our saved water may be enough to restart its loop and make the camp easier to live in."
+          }
+        },
+        "after": {
+          "id": "waterworks",
+          "title": "Enough water to stay",
+          "speaker": "Expedition journal",
+          "motivation": "The enclosed ice-processing site lies beyond camp, with its drained circulation loop. The crew know an ice-processing site. Our saved water may be enough to restart its loop and make the camp easier to live in.",
+          "location": {
+            "id": "M09",
+            "label": "Enclosed ice works",
+            "travelText": "The enclosed ice-processing site lies beyond camp, with its drained circulation loop."
+          },
+          "objectives": [
+            {
+              "kind": "create",
+              "item": "camp-water-system",
+              "text": "Make camp water system",
+              "id": "waterworks-goal-0"
+            }
+          ],
+          "completionText": "The camp’s process-water loop is working again. We can supply the enclosed growing system without treating an unknown water sample as a promise of drinking safety.",
+          "onAlreadyComplete": {
+            "mode": "skip"
+          },
+          "visitId": "M09-visit-1",
+          "entryCue": {
+            "id": "mars-creature-field-scenes-v3:waterworks:entry-v1",
+            "mode": "arrival-and-beat",
+            "format": "silent-title-card",
+            "voice": "Expedition journal",
+            "sourceCaption": "Enclosed ice works",
+            "text": "The enclosed ice-processing site lies beyond camp, with its drained circulation loop. The crew know an ice-processing site. Our saved water may be enough to restart its loop and make the camp easier to live in."
+          }
+        }
+      },
+      {
+        "id": "garden",
+        "before": {
+          "id": "garden",
+          "title": "A meal that grew here",
+          "speaker": "Orbital control",
+          "motivation": "Inside the greenhouse, the main growing bed and its cultivation stores are ready for work. The return window is months away, and the mission stores are secure. You have time to make something grow for the crews who follow.",
+          "location": {
+            "id": "M10",
+            "label": "Greenhouse growing bed",
+            "travelText": "Inside the greenhouse, the main growing bed and its cultivation stores are ready for work."
+          },
+          "objectives": [
+            {
+              "id": "garden-meal",
+              "kind": "create",
+              "item": "warm-potatoes",
+              "text": "Grow potatoes; share meal"
+            }
+          ],
+          "completionText": "After the growing weeks, a warm meal from our own greenhouse. The mission stores kept us fed; this tastes like something we made together.",
+          "onAlreadyComplete": {
+            "mode": "bridge",
+            "text": "After the growing weeks, we have shared a warm meal from our greenhouse. The mission stores kept us fed; this is something we grew together."
+          },
+          "visitId": "M10-visit-1",
+          "entryCue": {
+            "id": "mars-field-scenes-v6:garden:entry-v1",
+            "mode": "arrival-and-beat",
+            "format": "radio",
+            "voice": "Orbital control",
+            "sourceCaption": "Greenhouse growing bed",
+            "text": "Inside the greenhouse, the main growing bed and its cultivation stores are ready for work. The return window is months away, and the mission stores are secure. You have time to make something grow for the crews who follow."
+          }
+        },
+        "after": {
+          "id": "garden",
+          "title": "A meal that grew here",
+          "speaker": "Orbital control",
+          "motivation": "Inside the greenhouse, the main growing bed and its cultivation stores are ready for work. The return window is months away, and the mission stores are secure. You have time to make something grow for the crews who follow.",
+          "location": {
+            "id": "M10",
+            "label": "Greenhouse growing bed",
+            "travelText": "Inside the greenhouse, the main growing bed and its cultivation stores are ready for work."
+          },
+          "objectives": [
+            {
+              "id": "garden-meal",
+              "kind": "create",
+              "item": "warm-potatoes",
+              "text": "Grow potatoes; share meal"
+            }
+          ],
+          "completionText": "After the growing weeks, a warm meal from our own greenhouse. The mission stores kept us fed; this tastes like something we made together.",
+          "onAlreadyComplete": {
+            "mode": "bridge",
+            "text": "After the growing weeks, we have shared a warm meal from our greenhouse. The mission stores kept us fed; this is something we grew together."
+          },
+          "visitId": "M10-visit-1",
+          "entryCue": {
+            "id": "mars-creature-field-scenes-v3:garden:entry-v1",
+            "mode": "arrival-and-beat",
+            "format": "radio",
+            "voice": "Orbital control",
+            "sourceCaption": "Greenhouse growing bed",
+            "text": "Inside the greenhouse, the main growing bed and its cultivation stores are ready for work. The return window is months away, and the mission stores are secure. You have time to make something grow for the crews who follow."
+          }
+        }
+      },
+      {
+        "id": "nursery",
+        "before": {
+          "id": "nursery",
+          "title": "Something for the next crew",
+          "speaker": "Expedition journal",
+          "motivation": "Across the greenhouse, the smaller propagation bench has its own test shelf and nursery stores. The potatoes fed us. The little tray from landing is still alive too; I want the next crew to find more than an empty camp.",
+          "location": {
+            "id": "M10-propagation-bench",
+            "label": "Propagation bench",
+            "travelText": "Across the greenhouse, the smaller propagation bench has its own test shelf and nursery stores."
+          },
+          "objectives": [
+            {
+              "id": "nursery-camp-nursery",
+              "kind": "create",
+              "item": "camp-nursery",
+              "text": "Camp nursery"
+            }
+          ],
+          "completionText": "The little tray from landing has a supported place in the greenhouse nursery. We’re leaving something living for the next crew, not just repaired equipment.",
+          "onAlreadyComplete": {
+            "mode": "skip"
+          },
+          "visitId": "M10-propagation-bench-visit-1",
+          "entryCue": {
+            "id": "mars-field-scenes-v6:nursery:entry-v1",
+            "mode": "arrival-and-beat",
+            "format": "silent-title-card",
+            "voice": "Expedition journal",
+            "sourceCaption": "Propagation bench",
+            "text": "Across the greenhouse, the smaller propagation bench has its own test shelf and nursery stores. The potatoes fed us. The little tray from landing is still alive too; I want the next crew to find more than an empty camp."
+          }
+        },
+        "after": {
+          "id": "nursery",
+          "title": "Something for the next crew",
+          "speaker": "Expedition journal",
+          "motivation": "Across the greenhouse, the smaller propagation bench has its own test shelf and nursery stores. The potatoes fed us. The little tray from landing is still alive too; I want the next crew to find more than an empty camp.",
+          "location": {
+            "id": "M10-propagation-bench",
+            "label": "Propagation bench",
+            "travelText": "Across the greenhouse, the smaller propagation bench has its own test shelf and nursery stores."
+          },
+          "objectives": [
+            {
+              "id": "nursery-camp-nursery",
+              "kind": "create",
+              "item": "camp-nursery",
+              "text": "Camp nursery"
+            }
+          ],
+          "completionText": "The little tray from landing has a supported place in the greenhouse nursery. We’re leaving something living for the next crew, not just repaired equipment.",
+          "onAlreadyComplete": {
+            "mode": "skip"
+          },
+          "visitId": "M10-propagation-bench-visit-1",
+          "entryCue": {
+            "id": "mars-creature-field-scenes-v3:nursery:entry-v1",
+            "mode": "arrival-and-beat",
+            "format": "silent-title-card",
+            "voice": "Expedition journal",
+            "sourceCaption": "Propagation bench",
+            "text": "Across the greenhouse, the smaller propagation bench has its own test shelf and nursery stores. The potatoes fed us. The little tray from landing is still alive too; I want the next crew to find more than an empty camp."
+          }
+        }
+      },
+      {
+        "id": "workshop",
+        "before": {
+          "id": "workshop",
+          "title": "Make what cannot be shipped",
+          "speaker": "Expedition journal",
+          "motivation": "The guarded machine and crawler parts wait in the enclosed machine shop. The crawler needs a wheel and a way to carry our samples. Our lit bench belongs beside the shop’s waiting machine.",
+          "location": {
+            "id": "M11",
+            "label": "Camp machine shop",
+            "travelText": "The guarded machine and crawler parts wait in the enclosed machine shop."
+          },
+          "objectives": [
+            {
+              "kind": "create",
+              "capability": "crawler-sample-carrier",
+              "text": "Fit crawler sample carrier",
+              "id": "workshop-goal-0"
+            },
+            {
+              "id": "workshop-wheel",
+              "kind": "create",
+              "capability": "crawler-wheel",
+              "text": "Fit replacement wheel"
+            }
+          ],
+          "completionText": "The replacement wheel is fitted, and our samples have a protected carrier. The crawler can take the next leg with the things we worked to save.",
+          "onAlreadyComplete": {
+            "mode": "skip"
+          },
+          "visitId": "M11-visit-1",
+          "entryCue": {
+            "id": "mars-field-scenes-v6:workshop:entry-v1",
+            "mode": "arrival-and-beat",
+            "format": "silent-title-card",
+            "voice": "Expedition journal",
+            "sourceCaption": "Camp machine shop",
+            "text": "The guarded machine and crawler parts wait in the enclosed machine shop. The crawler needs a wheel and a way to carry our samples. Our lit bench belongs beside the shop’s waiting machine."
+          }
+        },
+        "after": {
+          "id": "workshop",
+          "title": "Make what cannot be shipped",
+          "speaker": "Expedition journal",
+          "motivation": "The guarded machine and crawler parts wait in the enclosed machine shop. The crawler needs a wheel and a way to carry our samples. Our lit bench belongs beside the shop’s waiting machine.",
+          "location": {
+            "id": "M11",
+            "label": "Camp machine shop",
+            "travelText": "The guarded machine and crawler parts wait in the enclosed machine shop."
+          },
+          "objectives": [
+            {
+              "kind": "create",
+              "capability": "crawler-sample-carrier",
+              "text": "Fit crawler sample carrier",
+              "id": "workshop-goal-0"
+            },
+            {
+              "id": "workshop-wheel",
+              "kind": "create",
+              "capability": "crawler-wheel",
+              "text": "Fit replacement wheel"
+            }
+          ],
+          "completionText": "The replacement wheel is fitted, and our samples have a protected carrier. The crawler can take the next leg with the things we worked to save.",
+          "onAlreadyComplete": {
+            "mode": "skip"
+          },
+          "visitId": "M11-visit-1",
+          "entryCue": {
+            "id": "mars-creature-field-scenes-v3:workshop:entry-v1",
+            "mode": "arrival-and-beat",
+            "format": "silent-title-card",
+            "voice": "Expedition journal",
+            "sourceCaption": "Camp machine shop",
+            "text": "The guarded machine and crawler parts wait in the enclosed machine shop. The crawler needs a wheel and a way to carry our samples. Our lit bench belongs beside the shop’s waiting machine."
+          }
+        }
+      },
+      {
+        "id": "traverse",
+        "before": {
+          "id": "traverse",
+          "title": "Across the dark ground",
+          "speaker": "Expedition journal",
+          "motivation": "The scout’s equipment is stored at the lava-rim station, overlooking the next traverse. The old ascent depot lies beyond rough lava. The geology station’s scout and field kit can help us choose where to go.",
+          "location": {
+            "id": "M12",
+            "label": "Lava-rim scout station",
+            "travelText": "The scout’s equipment is stored at the lava-rim station, overlooking the next traverse."
+          },
+          "objectives": [
+            {
+              "kind": "create",
+              "capability": "crawler-route",
+              "text": "Fit crawler traverse",
+              "id": "traverse-goal-0"
+            }
+          ],
+          "completionText": "The scout’s images have become a marked route for the crawler. A view from above helps—but we still need to look at the ground beneath our wheels.",
+          "onAlreadyComplete": {
+            "mode": "skip"
+          },
+          "visitId": "M12-visit-1",
+          "entryCue": {
+            "id": "mars-field-scenes-v6:traverse:entry-v1",
+            "mode": "arrival-and-beat",
+            "format": "silent-title-card",
+            "voice": "Expedition journal",
+            "sourceCaption": "Lava-rim scout station",
+            "text": "The scout’s equipment is stored at the lava-rim station, overlooking the next traverse. The old ascent depot lies beyond rough lava. The geology station’s scout and field kit can help us choose where to go."
+          }
+        },
+        "after": {
+          "id": "traverse",
+          "title": "Across the dark ground",
+          "speaker": "Expedition journal",
+          "motivation": "The scout’s equipment is stored at the lava-rim station, overlooking the next traverse. The old ascent depot lies beyond rough lava. The geology station’s scout and field kit can help us choose where to go.",
+          "location": {
+            "id": "M12",
+            "label": "Lava-rim scout station",
+            "travelText": "The scout’s equipment is stored at the lava-rim station, overlooking the next traverse."
+          },
+          "objectives": [
+            {
+              "kind": "create",
+              "capability": "crawler-route",
+              "text": "Fit crawler traverse",
+              "id": "traverse-goal-0"
+            }
+          ],
+          "completionText": "The scout’s images have become a marked route for the crawler. A view from above helps—but we still need to look at the ground beneath our wheels.",
+          "onAlreadyComplete": {
+            "mode": "skip"
+          },
+          "visitId": "M12-visit-1",
+          "entryCue": {
+            "id": "mars-creature-field-scenes-v3:traverse:entry-v1",
+            "mode": "arrival-and-beat",
+            "format": "silent-title-card",
+            "voice": "Expedition journal",
+            "sourceCaption": "Lava-rim scout station",
+            "text": "The scout’s equipment is stored at the lava-rim station, overlooking the next traverse. The old ascent depot lies beyond rough lava. The geology station’s scout and field kit can help us choose where to go."
+          }
+        }
+      },
+      {
+        "id": "crossing",
+        "before": {
+          "id": "crossing",
+          "title": "The route is not the ground",
+          "speaker": "Expedition journal",
+          "motivation": "At the channel approach, we open the ground-survey case beside the possible crossing. From above, this was a possible crossing. On the ground, I still have to find what will carry the crawler.",
+          "location": {
+            "id": "M13",
+            "label": "Channel survey station",
+            "travelText": "At the channel approach, we open the ground-survey case beside the possible crossing."
+          },
+          "objectives": [
+            {
+              "id": "crossing-marked-crossing",
+              "kind": "create",
+              "item": "marked-crossing",
+              "text": "Mark surveyed channel"
+            },
+            {
+              "id": "crossing-wheel",
+              "kind": "place",
+              "capability": "crawler-wheel",
+              "hotspot": "channel-approach",
+              "text": "Place crawler at channel"
+            }
+          ],
+          "completionText": "The approach is marked, and the crawler is here on the wheel we fitted at camp, with its sample carrier aboard. The checks cover this approach, not the whole channel. We can take the next leg together.",
+          "onAlreadyComplete": {
+            "mode": "skip"
+          },
+          "visitId": "M13-visit-1",
+          "entryCue": {
+            "id": "mars-field-scenes-v6:crossing:entry-v1",
+            "mode": "arrival-and-beat",
+            "format": "silent-title-card",
+            "voice": "Expedition journal",
+            "sourceCaption": "Channel survey station",
+            "text": "At the channel approach, we open the ground-survey case beside the possible crossing. From above, this was a possible crossing. On the ground, I still have to find what will carry the crawler."
+          }
+        },
+        "after": {
+          "id": "crossing",
+          "title": "The route is not the ground",
+          "speaker": "Expedition journal",
+          "motivation": "At the channel approach, we open the ground-survey case beside the possible crossing. From above, this was a possible crossing. On the ground, I still have to find what will carry the crawler.",
+          "location": {
+            "id": "M13",
+            "label": "Channel survey station",
+            "travelText": "At the channel approach, we open the ground-survey case beside the possible crossing."
+          },
+          "objectives": [
+            {
+              "id": "crossing-marked-crossing",
+              "kind": "create",
+              "item": "marked-crossing",
+              "text": "Mark surveyed channel"
+            },
+            {
+              "id": "crossing-wheel",
+              "kind": "place",
+              "capability": "crawler-wheel",
+              "hotspot": "channel-approach",
+              "text": "Place crawler at channel"
+            }
+          ],
+          "completionText": "The approach is marked, and the crawler is here on the wheel we fitted at camp, with its sample carrier aboard. The checks cover this approach, not the whole channel. We can take the next leg together.",
+          "onAlreadyComplete": {
+            "mode": "skip"
+          },
+          "visitId": "M13-visit-1",
+          "entryCue": {
+            "id": "mars-creature-field-scenes-v3:crossing:entry-v1",
+            "mode": "arrival-and-beat",
+            "format": "silent-title-card",
+            "voice": "Expedition journal",
+            "sourceCaption": "Channel survey station",
+            "text": "At the channel approach, we open the ground-survey case beside the possible crossing. From above, this was a possible crossing. On the ground, I still have to find what will carry the crawler."
+          }
+        }
+      },
+      {
+        "id": "buried-story",
+        "before": {
+          "id": "buried-story",
+          "title": "What lies beneath",
+          "speaker": "Expedition journal",
+          "motivation": "In the layered basin, the field laboratory is unpacked beside the core site. The basin has kept its layers. I will bring out a core without turning their order into a story I have not earned.",
+          "location": {
+            "id": "M14",
+            "label": "Basin coring station",
+            "travelText": "In the layered basin, the field laboratory is unpacked beside the core site."
+          },
+          "objectives": [
+            {
+              "kind": "create",
+              "item": "basin-field-record",
+              "text": "Record the basin findings",
+              "id": "buried-story-goal-0",
+              "after": [
+                "buried-story-goal-1"
+              ]
+            },
+            {
+              "kind": "create",
+              "item": "retained-sediment",
+              "text": "Store sediment sample",
+              "id": "buried-story-goal-1",
+              "intermediate": true
+            }
+          ],
+          "completionText": "A coarse band lies between two finer ones. We can show that change, and we have kept the specimen; we cannot yet say what carried the grains here. Nearby, a rippled surface and a gravel ledge offer another comparison. Let’s take our question to them.",
+          "onAlreadyComplete": {
+            "mode": "skip"
+          },
+          "visitId": "M14-visit-1",
+          "entryCue": {
+            "id": "mars-field-scenes-v6:buried-story:entry-v1",
+            "mode": "arrival-and-beat",
+            "format": "silent-title-card",
+            "voice": "Expedition journal",
+            "sourceCaption": "Basin coring station",
+            "text": "In the layered basin, the field laboratory is unpacked beside the core site. The basin has kept its layers. I will bring out a core without turning their order into a story I have not earned."
+          }
+        },
+        "after": {
+          "id": "buried-story",
+          "title": "What lies beneath",
+          "speaker": "Expedition journal",
+          "motivation": "The field microscope is ready. I can examine the ice core we kept from the outcrop, then record what this basin has preserved.",
+          "location": {
+            "id": "M14",
+            "label": "Basin coring station",
+            "travelText": "In the layered basin, the field laboratory is unpacked beside the core site."
+          },
+          "objectives": [
+            {
+              "id": "lab-examine-ice-core",
+              "kind": "create",
+              "item": "creature-core",
+              "text": "Examine ice core",
+              "intermediate": true
+            },
+            {
+              "kind": "create",
+              "item": "basin-field-record",
+              "text": "Record the basin findings",
+              "id": "buried-story-goal-0",
+              "after": [
+                "buried-story-goal-1",
+                "lab-examine-ice-core"
+              ]
+            },
+            {
+              "kind": "create",
+              "item": "retained-sediment",
+              "text": "Store sediment sample",
+              "id": "buried-story-goal-1",
+              "intermediate": true
+            }
+          ],
+          "completionText": "The little creature stays inside its sealed core. We have kept the basin observations too. I want to bring both home.",
+          "onAlreadyComplete": {
+            "mode": "skip"
+          },
+          "visitId": "M14-visit-1",
+          "entryCue": {
+            "id": "mars-creature-field-scenes-v3:buried-story:entry-v1",
+            "mode": "arrival-and-beat",
+            "format": "silent-title-card",
+            "voice": "Expedition journal",
+            "sourceCaption": "Basin coring station",
+            "text": "The field microscope is ready. I can examine the ice core we kept from the outcrop, then record what this basin has preserved."
+          }
+        }
+      },
+      {
+        "id": "contrast",
+        "before": {
+          "id": "contrast",
+          "title": "Not every ripple is a river",
+          "speaker": "Expedition journal",
+          "motivation": "A closer station at the ripple-and-gravel edge gives the comparison kit a separate working surface. Those nearby ripples are not the whole story. The gravel gives us another view, and I need to keep the two sources apart.",
+          "location": {
+            "id": "M14-gravel-edge",
+            "label": "Ripple and gravel edge",
+            "travelText": "A closer station at the ripple-and-gravel edge gives the comparison kit a separate working surface."
+          },
+          "objectives": [
+            {
+              "id": "contrast-photographs",
+              "kind": "create",
+              "item": "paired-terrain-views",
+              "text": "Compare basin photographs",
+              "intermediate": true
+            },
+            {
+              "id": "contrast-sleeved-comparison",
+              "kind": "create",
+              "item": "sleeved-comparison",
+              "text": "Save basin comparison",
+              "after": [
+                "contrast-photographs"
+              ]
+            },
+            {
+              "id": "contrast-specimens",
+              "kind": "create",
+              "capability": "comparison-specimens",
+              "text": "Keep specimens separate"
+            }
+          ],
+          "completionText": "Those ripples alone don’t prove a river. The gravel and its setting tell a stronger ancient-water story; we’ve kept both sources distinct so others can examine our reasoning.",
+          "onAlreadyComplete": {
+            "mode": "skip"
+          },
+          "visitId": "M14-gravel-edge-visit-1",
+          "entryCue": {
+            "id": "mars-field-scenes-v6:contrast:entry-v1",
+            "mode": "arrival-and-beat",
+            "format": "silent-title-card",
+            "voice": "Expedition journal",
+            "sourceCaption": "Ripple and gravel edge",
+            "text": "A closer station at the ripple-and-gravel edge gives the comparison kit a separate working surface. Those nearby ripples are not the whole story. The gravel gives us another view, and I need to keep the two sources apart."
+          }
+        },
+        "after": {
+          "id": "contrast",
+          "title": "Not every ripple is a river",
+          "speaker": "Expedition journal",
+          "motivation": "A closer station at the ripple-and-gravel edge gives the comparison kit a separate working surface. Those nearby ripples are not the whole story. The gravel gives us another view, and I need to keep the two sources apart.",
+          "location": {
+            "id": "M14-gravel-edge",
+            "label": "Ripple and gravel edge",
+            "travelText": "A closer station at the ripple-and-gravel edge gives the comparison kit a separate working surface."
+          },
+          "objectives": [
+            {
+              "id": "contrast-photographs",
+              "kind": "create",
+              "item": "paired-terrain-views",
+              "text": "Compare basin photographs",
+              "intermediate": true
+            },
+            {
+              "id": "contrast-sleeved-comparison",
+              "kind": "create",
+              "item": "sleeved-comparison",
+              "text": "Save basin comparison",
+              "after": [
+                "contrast-photographs"
+              ]
+            },
+            {
+              "id": "contrast-specimens",
+              "kind": "create",
+              "capability": "comparison-specimens",
+              "text": "Keep specimens separate"
+            }
+          ],
+          "completionText": "Those ripples alone don’t prove a river. The gravel and its setting tell a stronger ancient-water story; we’ve kept both sources distinct so others can examine our reasoning.",
+          "onAlreadyComplete": {
+            "mode": "skip"
+          },
+          "visitId": "M14-gravel-edge-visit-1",
+          "entryCue": {
+            "id": "mars-creature-field-scenes-v3:contrast:entry-v1",
+            "mode": "arrival-and-beat",
+            "format": "silent-title-card",
+            "voice": "Expedition journal",
+            "sourceCaption": "Ripple and gravel edge",
+            "text": "A closer station at the ripple-and-gravel edge gives the comparison kit a separate working surface. Those nearby ripples are not the whole story. The gravel gives us another view, and I need to keep the two sources apart."
+          }
+        }
+      },
+      {
+        "id": "depot-way",
+        "before": {
+          "id": "depot-way",
+          "title": "The tracks that were not ours",
+          "speaker": "Expedition journal",
+          "motivation": "Beyond the basin, the old marker line leads past the depot’s stored cargo hauler. The dark tracks have shifted, but the old depot markers should still be here. Our spare controller may make its hauler useful again.",
+          "location": {
+            "id": "M15",
+            "label": "Depot marker line",
+            "travelText": "Beyond the basin, the old marker line leads past the depot’s stored cargo hauler."
+          },
+          "objectives": [
+            {
+              "id": "depot-way-depot-cargo-shuttle",
+              "kind": "create",
+              "item": "depot-cargo-shuttle",
+              "text": "Depot cargo shuttle"
+            }
+          ],
+          "completionText": "The permanent markers led us back to the service route, not the wandering dark tracks. That controller we protected now runs the hauler that will carry our samples to the ship.",
+          "onAlreadyComplete": {
+            "mode": "skip"
+          },
+          "visitId": "M15-visit-1",
+          "entryCue": {
+            "id": "mars-field-scenes-v6:depot-way:entry-v1",
+            "mode": "arrival-and-beat",
+            "format": "silent-title-card",
+            "voice": "Expedition journal",
+            "sourceCaption": "Depot marker line",
+            "text": "Beyond the basin, the old marker line leads past the depot’s stored cargo hauler. The dark tracks have shifted, but the old depot markers should still be here. Our spare controller may make its hauler useful again."
+          }
+        },
+        "after": {
+          "id": "depot-way",
+          "title": "The tracks that were not ours",
+          "speaker": "Expedition journal",
+          "motivation": "We have a crew to bring home, and something extraordinary in our core. The old depot route may lead us to a ship.",
+          "location": {
+            "id": "M15",
+            "label": "Depot marker line",
+            "travelText": "Beyond the basin, the old marker line leads past the depot’s stored cargo hauler."
+          },
+          "objectives": [
+            {
+              "id": "depot-way-depot-cargo-shuttle",
+              "kind": "create",
+              "item": "depot-cargo-shuttle",
+              "text": "Depot cargo shuttle"
+            }
+          ],
+          "completionText": "The permanent markers led us back to the service route, not the wandering dark tracks. That controller we protected now runs the hauler that will carry our samples to the ship.",
+          "onAlreadyComplete": {
+            "mode": "skip"
+          },
+          "visitId": "M15-visit-1",
+          "entryCue": {
+            "id": "mars-creature-field-scenes-v3:depot-way:entry-v1",
+            "mode": "arrival-and-beat",
+            "format": "silent-title-card",
+            "voice": "Expedition journal",
+            "sourceCaption": "Depot marker line",
+            "text": "We have a crew to bring home, and something extraordinary in our core. The old depot route may lead us to a ship."
+          }
+        }
+      },
+      {
+        "id": "oxygen",
+        "before": {
+          "id": "oxygen",
+          "title": "The plant that breathes stone air",
+          "speaker": "Expedition journal",
+          "motivation": "At the ascent depot, the oxygen-plant service bay is separate from the vehicle assembly area. The ascent depot is still standing. Its oxygen plant, vehicle and return equipment are here; I can start putting them back to work.",
+          "location": {
+            "id": "M16-oxygen-bay",
+            "label": "Oxygen-plant service bay",
+            "travelText": "At the ascent depot, the oxygen-plant service bay is separate from the vehicle assembly area."
+          },
+          "objectives": [
+            {
+              "id": "oxygen-service",
+              "kind": "create",
+              "item": "oxygen-service-module",
+              "text": "Restore plant; service oxygen"
+            }
+          ],
+          "completionText": "The hauler we restored has brought the heavy module onto its proper interface, and the depot plant has serviced it. The module now has a real place in the waiting vehicle; the hauler is free for our specimens.",
+          "onAlreadyComplete": {
+            "mode": "skip"
+          },
+          "visitId": "M16-oxygen-bay-visit-1",
+          "entryCue": {
+            "id": "mars-field-scenes-v6:oxygen:entry-v1",
+            "mode": "arrival-and-beat",
+            "format": "silent-title-card",
+            "voice": "Expedition journal",
+            "sourceCaption": "Oxygen-plant service bay",
+            "text": "At the ascent depot, the oxygen-plant service bay is separate from the vehicle assembly area. The ascent depot is still standing. Its oxygen plant, vehicle and return equipment are here; I can start putting them back to work."
+          }
+        },
+        "after": {
+          "id": "oxygen",
+          "title": "The plant that breathes stone air",
+          "speaker": "Expedition journal",
+          "motivation": "At the ascent depot, the oxygen-plant service bay is separate from the vehicle assembly area. The ascent depot is still standing. Its oxygen plant, vehicle and return equipment are here; I can start putting them back to work.",
+          "location": {
+            "id": "M16-oxygen-bay",
+            "label": "Oxygen-plant service bay",
+            "travelText": "At the ascent depot, the oxygen-plant service bay is separate from the vehicle assembly area."
+          },
+          "objectives": [
+            {
+              "id": "oxygen-service",
+              "kind": "create",
+              "item": "oxygen-service-module",
+              "text": "Restore plant; service oxygen"
+            }
+          ],
+          "completionText": "The hauler we restored has brought the heavy module onto its proper interface, and the depot plant has serviced it. The module now has a real place in the waiting vehicle; the hauler is free for our specimens.",
+          "onAlreadyComplete": {
+            "mode": "skip"
+          },
+          "visitId": "M16-oxygen-bay-visit-1",
+          "entryCue": {
+            "id": "mars-creature-field-scenes-v3:oxygen:entry-v1",
+            "mode": "arrival-and-beat",
+            "format": "silent-title-card",
+            "voice": "Expedition journal",
+            "sourceCaption": "Oxygen-plant service bay",
+            "text": "At the ascent depot, the oxygen-plant service bay is separate from the vehicle assembly area. The ascent depot is still standing. Its oxygen plant, vehicle and return equipment are here; I can start putting them back to work."
+          }
+        }
+      },
+      {
+        "id": "ascent",
+        "before": {
+          "id": "ascent",
+          "title": "A ship with an unfinished job",
+          "speaker": "Expedition journal",
+          "motivation": "Across the depot, the cabin preparation bay holds the stored shell and its replacement fittings. The oxygen plant is working. I can turn to the waiting cabin and prepare a ship that will bring the crew home.",
+          "location": {
+            "id": "M16-cabin-bay",
+            "label": "Cabin preparation bay",
+            "travelText": "Across the depot, the cabin preparation bay holds the stored shell and its replacement fittings."
+          },
+          "objectives": [
+            {
+              "kind": "create",
+              "item": "cabin-test-record",
+              "text": "Make cabin test record",
+              "id": "ascent-goal-0"
+            }
+          ],
+          "completionText": "The cabin is restored, and its built-in test record is in hand. Now we can turn from repairing our ship to agreeing where it will meet the orbiter.",
+          "onAlreadyComplete": {
+            "mode": "skip"
+          },
+          "visitId": "M16-cabin-bay-visit-1",
+          "entryCue": {
+            "id": "mars-field-scenes-v6:ascent:entry-v1",
+            "mode": "arrival-and-beat",
+            "format": "silent-title-card",
+            "voice": "Expedition journal",
+            "sourceCaption": "Cabin preparation bay",
+            "text": "Across the depot, the cabin preparation bay holds the stored shell and its replacement fittings. The oxygen plant is working. I can turn to the waiting cabin and prepare a ship that will bring the crew home."
+          }
+        },
+        "after": {
+          "id": "ascent",
+          "title": "A ship with an unfinished job",
+          "speaker": "Expedition journal",
+          "motivation": "Across the depot, the cabin preparation bay holds the stored shell and its replacement fittings. The oxygen plant is working. I can turn to the waiting cabin and prepare a ship that will bring the crew home.",
+          "location": {
+            "id": "M16-cabin-bay",
+            "label": "Cabin preparation bay",
+            "travelText": "Across the depot, the cabin preparation bay holds the stored shell and its replacement fittings."
+          },
+          "objectives": [
+            {
+              "kind": "create",
+              "item": "cabin-test-record",
+              "text": "Make cabin test record",
+              "id": "ascent-goal-0"
+            }
+          ],
+          "completionText": "The cabin is restored, and its built-in test record is in hand. Now we can turn from repairing our ship to agreeing where it will meet the orbiter.",
+          "onAlreadyComplete": {
+            "mode": "skip"
+          },
+          "visitId": "M16-cabin-bay-visit-1",
+          "entryCue": {
+            "id": "mars-creature-field-scenes-v3:ascent:entry-v1",
+            "mode": "arrival-and-beat",
+            "format": "silent-title-card",
+            "voice": "Expedition journal",
+            "sourceCaption": "Cabin preparation bay",
+            "text": "Across the depot, the cabin preparation bay holds the stored shell and its replacement fittings. The oxygen plant is working. I can turn to the waiting cabin and prepare a ship that will bring the crew home."
+          }
+        }
+      },
+      {
+        "id": "rendezvous",
+        "before": {
+          "id": "rendezvous",
+          "title": "A moving meeting place",
+          "speaker": "Orbital control",
+          "motivation": "A separate observation station has the clear view and navigation instruments for the orbital meeting. We will not be overhead all the time. Let’s agree on the same clock and the same meeting place before you launch.",
+          "location": {
+            "id": "M17",
+            "label": "Clear-sky station",
+            "travelText": "A separate observation station has the clear view and navigation instruments for the orbital meeting."
+          },
+          "objectives": [
+            {
+              "kind": "create",
+              "item": "agreed-rendezvous",
+              "text": "Make agreed rendezvous",
+              "id": "rendezvous-goal-0"
+            }
+          ],
+          "completionText": "Our clocks, observations and beacon measurements have become an agreed meeting. After all that waiting, we know which light we’re going toward.",
+          "onAlreadyComplete": {
+            "mode": "skip"
+          },
+          "visitId": "M17-visit-1",
+          "entryCue": {
+            "id": "mars-field-scenes-v6:rendezvous:entry-v1",
+            "mode": "arrival-and-beat",
+            "format": "radio",
+            "voice": "Orbital control",
+            "sourceCaption": "Clear-sky station",
+            "text": "A separate observation station has the clear view and navigation instruments for the orbital meeting. We will not be overhead all the time. Let’s agree on the same clock and the same meeting place before you launch."
+          }
+        },
+        "after": {
+          "id": "rendezvous",
+          "title": "A moving meeting place",
+          "speaker": "Orbital control",
+          "motivation": "A separate observation station has the clear view and navigation instruments for the orbital meeting. We will not be overhead all the time. Let’s agree on the same clock and the same meeting place before you launch.",
+          "location": {
+            "id": "M17",
+            "label": "Clear-sky station",
+            "travelText": "A separate observation station has the clear view and navigation instruments for the orbital meeting."
+          },
+          "objectives": [
+            {
+              "kind": "create",
+              "item": "agreed-rendezvous",
+              "text": "Make agreed rendezvous",
+              "id": "rendezvous-goal-0"
+            }
+          ],
+          "completionText": "Our clocks, observations and beacon measurements have become an agreed meeting. After all that waiting, we know which light we’re going toward.",
+          "onAlreadyComplete": {
+            "mode": "skip"
+          },
+          "visitId": "M17-visit-1",
+          "entryCue": {
+            "id": "mars-creature-field-scenes-v3:rendezvous:entry-v1",
+            "mode": "arrival-and-beat",
+            "format": "radio",
+            "voice": "Orbital control",
+            "sourceCaption": "Clear-sky station",
+            "text": "A separate observation station has the clear view and navigation instruments for the orbital meeting. We will not be overhead all the time. Let’s agree on the same clock and the same meeting place before you launch."
+          }
+        }
+      },
+      {
+        "id": "departure",
+        "before": {
+          "id": "departure",
+          "title": "What we take with us",
+          "speaker": "Expedition journal",
+          "motivation": "Back at camp, the return-packing alcove opens for our final service before departure. Before we leave, I want the samples protected, the portrait saved and this camp useful to whoever follows us.",
+          "location": {
+            "id": "M08-packing-bay",
+            "label": "Camp return-packing alcove",
+            "travelText": "Back at camp, the return-packing alcove opens for our final service before departure."
+          },
+          "objectives": [
+            {
+              "kind": "create",
+              "item": "specimen-cart",
+              "text": "Prepare specimen transport cart",
+              "id": "departure-goal-1"
+            },
+            {
+              "kind": "create",
+              "item": "camp-handover-beacon",
+              "text": "Make camp handover beacon",
+              "id": "departure-goal-2"
+            },
+            {
+              "id": "departure-family",
+              "kind": "create",
+              "item": "family-record",
+              "text": "Archive the crew portrait"
+            }
+          ],
+          "completionText": "The specimens, their records and our portrait are ready to travel. The handover beacon tells the next crew what we leave behind—including a living nursery.",
+          "onAlreadyComplete": {
+            "mode": "skip"
+          },
+          "visitId": "M08-packing-bay-visit-1",
+          "entryCue": {
+            "id": "mars-field-scenes-v6:departure:entry-v1",
+            "mode": "arrival-and-beat",
+            "format": "silent-title-card",
+            "voice": "Expedition journal",
+            "sourceCaption": "Camp return-packing alcove",
+            "text": "Back at camp, the return-packing alcove opens for our final service before departure. Before we leave, I want the samples protected, the portrait saved and this camp useful to whoever follows us."
+          }
+        },
+        "after": {
+          "id": "departure",
+          "title": "What we take with us",
+          "speaker": "Expedition journal",
+          "motivation": "Our crew is ready to leave. I want the creature’s sealed core aboard, the portrait saved, and this camp useful to whoever follows us.",
+          "location": {
+            "id": "M08-packing-bay",
+            "label": "Camp return-packing alcove",
+            "travelText": "Back at camp, the return-packing alcove opens for our final service before departure."
+          },
+          "objectives": [
+            {
+              "kind": "create",
+              "item": "specimen-cart",
+              "text": "Prepare the core for return",
+              "id": "departure-goal-1"
+            },
+            {
+              "kind": "create",
+              "item": "camp-handover-beacon",
+              "text": "Make camp handover beacon",
+              "id": "departure-goal-2"
+            },
+            {
+              "id": "departure-family",
+              "kind": "create",
+              "item": "family-record",
+              "text": "Archive the crew portrait"
+            }
+          ],
+          "completionText": "The creature’s core, our records and the crew portrait are ready for the journey. The handover beacon will guide whoever comes next.",
+          "onAlreadyComplete": {
+            "mode": "skip"
+          },
+          "visitId": "M08-packing-bay-visit-1",
+          "entryCue": {
+            "id": "mars-creature-field-scenes-v3:departure:entry-v1",
+            "mode": "arrival-and-beat",
+            "format": "silent-title-card",
+            "voice": "Expedition journal",
+            "sourceCaption": "Camp return-packing alcove",
+            "text": "Our crew is ready to leave. I want the creature’s sealed core aboard, the portrait saved, and this camp useful to whoever follows us."
+          }
+        }
+      },
+      {
+        "id": "homebound",
+        "before": {
+          "id": "homebound",
+          "title": "A light that answers",
+          "speaker": "Orbital control",
+          "motivation": "We return to the depot’s final assembly pad, where the qualified ascent stage and launch equipment wait. We have the rendezvous. Bring everyone and the records home; we will be waiting at the hatch.",
+          "location": {
+            "id": "M16-launchpad",
+            "label": "Final assembly pad",
+            "travelText": "We return to the depot’s final assembly pad, where the qualified ascent stage and launch equipment wait."
+          },
+          "objectives": [
+            {
+              "id": "homebound-return",
+              "text": "Bring specimens to orbital hatch",
+              "kind": "place",
+              "item": "docked-vehicle",
+              "hotspot": "orbital-hatch"
+            }
+          ],
+          "completionText": "We’re through the orbiter’s hatch together. Our return capsule is still secured in the docked ship beside us, with the specimens, their records and a copy of the picture from our table. The light that answered us has become our way home.",
+          "onAlreadyComplete": {
+            "mode": "bridge",
+            "text": "We are through the orbiter’s hatch together. The light that answered us has become our way home."
+          },
+          "visitId": "M16-launchpad-visit-1",
+          "entryCue": {
+            "id": "mars-field-scenes-v6:homebound:entry-v1",
+            "mode": "arrival-and-beat",
+            "format": "radio",
+            "voice": "Orbital control",
+            "sourceCaption": "Final assembly pad",
+            "text": "We return to the depot’s final assembly pad, where the qualified ascent stage and launch equipment wait. We have the rendezvous. Bring everyone and the records home; we will be waiting at the hatch."
+          },
+          "travel": {
+            "id": "ascent-to-orbital-rendezvous",
+            "afterCreated": [
+              "ascending-vehicle"
+            ],
+            "locationId": "M18",
+            "carry": [
+              "ascending-vehicle"
+            ],
+            "entryCue": {
+              "id": "mars-field-scenes-v6:ascent-to-orbital-rendezvous:entry-v1",
+              "mode": "arrival-and-beat",
+              "format": "radio",
+              "voice": "Orbital control",
+              "sourceCaption": "Orbital rendezvous",
+              "text": "The surface falls away. At the agreed rendezvous, the waiting orbiter is finally in front of us.\n\nWe have you in sight. Bring your ship alongside; the hatch is waiting."
+            }
+          }
+        },
+        "after": {
+          "id": "homebound",
+          "title": "A light that answers",
+          "speaker": "Orbital control",
+          "motivation": "We have the rendezvous. Bring everyone—and that sealed core—home. We will be waiting at the hatch.",
+          "location": {
+            "id": "M16-launchpad",
+            "label": "Final assembly pad",
+            "travelText": "We return to the depot’s final assembly pad, where the qualified ascent stage and launch equipment wait."
+          },
+          "objectives": [
+            {
+              "id": "homebound-return",
+              "text": "Bring crew and core to the orbiter",
+              "kind": "place",
+              "item": "docked-vehicle",
+              "hotspot": "orbital-hatch"
+            }
+          ],
+          "completionText": "We’re through the orbiter’s hatch together. In the docked ship, the little creature is still inside its sealed core, beside our records and the picture from our table. The light that answered us has become our way home.",
+          "onAlreadyComplete": {
+            "mode": "bridge",
+            "text": "We are through the orbiter’s hatch together. The creature’s sealed core and our crew portrait are coming home too."
+          },
+          "visitId": "M16-launchpad-visit-1",
+          "entryCue": {
+            "id": "mars-creature-field-scenes-v3:homebound:entry-v1",
+            "mode": "arrival-and-beat",
+            "format": "radio",
+            "voice": "Orbital control",
+            "sourceCaption": "Final assembly pad",
+            "text": "We have the rendezvous. Bring everyone—and that sealed core—home. We will be waiting at the hatch."
+          },
+          "travel": {
+            "id": "ascent-to-orbital-rendezvous",
+            "afterCreated": [
+              "ascending-vehicle"
+            ],
+            "locationId": "M18",
+            "carry": [
+              "ascending-vehicle"
+            ],
+            "entryCue": {
+              "id": "mars-creature-field-scenes-v3:ascent-to-orbital-rendezvous:entry-v1",
+              "mode": "arrival-and-beat",
+              "format": "radio",
+              "voice": "Orbital control",
+              "sourceCaption": "Orbital rendezvous",
+              "text": "The surface falls away. At the agreed rendezvous, the waiting orbiter is finally in front of us.\n\nWe have you in sight. Bring your ship alongside; the hatch is waiting."
+            }
+          }
+        }
+      }
+    ]
+  },
+  "locations": {
+    "removed": [],
+    "added": [],
+    "changed": [
+      {
+        "id": "M04",
+        "before": {
+          "id": "M04",
+          "settingId": "ice-outcrop",
+          "label": "Ice-outcrop field station",
+          "travelText": "At the outcrop, the expedition sampling case is opened beside the exposed layers.",
+          "background": {
+            "stableKey": "M04",
+            "sceneBrief": "At the outcrop, the expedition sampling case is opened beside the exposed layers.",
+            "asset": "/assets/locations/M04.webp",
+            "focalPoint": {
+              "x": 0.5,
+              "y": 0.5
+            }
+          },
+          "stockBatches": [
+            {
+              "id": "outcrop-cache@M04",
+              "label": "Expedition sampling equipment",
+              "narrative": "At the outcrop, the expedition sampling case is opened with its scoop, jar, core tube and labels, handling enclosure and glove ports.",
+              "items": [
+                "sample-scoop",
+                "transparent-jar",
+                "core-tube",
+                "sample-labels",
+                "windowed-box",
+                "glove-ports"
+              ]
+            }
+          ],
+          "hotspots": [
+            "lookout-ice",
+            "distant-lookout"
+          ]
+        },
+        "after": {
+          "id": "M04",
+          "settingId": "ice-outcrop",
+          "label": "Ice-outcrop field station",
+          "travelText": "At the outcrop, the expedition sampling case is opened beside the exposed layers.",
+          "background": {
+            "stableKey": "M04",
+            "sceneBrief": "At the outcrop, the expedition sampling case is opened beside the exposed layers.",
+            "asset": "/assets/locations/M04.webp",
+            "focalPoint": {
+              "x": 0.5,
+              "y": 0.5
+            }
+          },
+          "stockBatches": [
+            {
+              "id": "outcrop-cache@M04",
+              "label": "Expedition sampling equipment",
+              "narrative": "At the outcrop, the sampling case holds the scoop and sealed core tube, with the handling enclosure and glove ports packed beside them. The core tube has its own mission protective sleeve.",
+              "items": [
+                "sample-scoop",
+                "core-tube",
+                "windowed-box",
+                "glove-ports"
+              ]
+            }
+          ],
+          "hotspots": [
+            "lookout-ice",
+            "distant-lookout"
+          ]
+        }
+      }
+    ]
+  },
+  "visits": {
+    "removed": [],
+    "added": [],
+    "changed": [
+      {
+        "id": "M05-visit-1",
+        "before": {
+          "id": "M05-visit-1",
+          "locationId": "M05",
+          "chapterIds": [
+            "weather"
+          ]
+        },
+        "after": {
+          "id": "M05-visit-1",
+          "locationId": "M05",
+          "chapterIds": [
+            "weather"
+          ],
+          "carryAlong": [
+            "ice-core",
+            "creature-core"
+          ]
+        }
+      },
+      {
+        "id": "M06-visit-1",
+        "before": {
+          "id": "M06-visit-1",
+          "locationId": "M06",
+          "chapterIds": [
+            "relay"
+          ]
+        },
+        "after": {
+          "id": "M06-visit-1",
+          "locationId": "M06",
+          "chapterIds": [
+            "relay"
+          ],
+          "carryAlong": [
+            "ice-core",
+            "creature-core"
+          ]
+        }
+      },
+      {
+        "id": "M07-visit-1",
+        "before": {
+          "id": "M07-visit-1",
+          "locationId": "M07",
+          "chapterIds": [
+            "rescue"
+          ]
+        },
+        "after": {
+          "id": "M07-visit-1",
+          "locationId": "M07",
+          "chapterIds": [
+            "rescue"
+          ],
+          "carryAlong": [
+            "ice-core",
+            "creature-core"
+          ]
+        }
+      },
+      {
+        "id": "M08-workcourt-visit-1",
+        "before": {
+          "id": "M08-workcourt-visit-1",
+          "locationId": "M08-workcourt",
+          "chapterIds": [
+            "camp"
+          ],
+          "carry": [
+            "lamp",
+            "solar-charger",
+            "solar-lamp",
+            "lantern",
+            "signal-lamp",
+            "signal-beacon",
+            "bench-lamp",
+            "workbench",
+            "lit-workbench",
+            "radio",
+            "solar-radio",
+            "dish-antenna",
+            "long-range-radio",
+            "provisioned-refuge",
+            "crew-message",
+            "message-home"
+          ]
+        },
+        "after": {
+          "id": "M08-workcourt-visit-1",
+          "locationId": "M08-workcourt",
+          "chapterIds": [
+            "camp"
+          ],
+          "carry": [
+            "lamp",
+            "solar-charger",
+            "solar-lamp",
+            "lantern",
+            "signal-lamp",
+            "signal-beacon",
+            "bench-lamp",
+            "workbench",
+            "lit-workbench",
+            "radio",
+            "solar-radio",
+            "dish-antenna",
+            "long-range-radio",
+            "provisioned-refuge",
+            "crew-message",
+            "message-home"
+          ],
+          "carryAlong": [
+            "ice-core",
+            "creature-core"
+          ]
+        }
+      },
+      {
+        "id": "M08-sled-path-visit-1",
+        "before": {
+          "id": "M08-sled-path-visit-1",
+          "locationId": "M08-sled-path",
+          "chapterIds": [
+            "cargo-return"
+          ]
+        },
+        "after": {
+          "id": "M08-sled-path-visit-1",
+          "locationId": "M08-sled-path",
+          "chapterIds": [
+            "cargo-return"
+          ],
+          "carryAlong": [
+            "ice-core",
+            "creature-core"
+          ]
+        }
+      },
+      {
+        "id": "M08-thermal-bay-visit-1",
+        "before": {
+          "id": "M08-thermal-bay-visit-1",
+          "locationId": "M08-thermal-bay",
+          "chapterIds": [
+            "night"
+          ]
+        },
+        "after": {
+          "id": "M08-thermal-bay-visit-1",
+          "locationId": "M08-thermal-bay",
+          "chapterIds": [
+            "night"
+          ],
+          "carryAlong": [
+            "ice-core",
+            "creature-core"
+          ]
+        }
+      },
+      {
+        "id": "M09-visit-1",
+        "before": {
+          "id": "M09-visit-1",
+          "locationId": "M09",
+          "chapterIds": [
+            "waterworks"
+          ]
+        },
+        "after": {
+          "id": "M09-visit-1",
+          "locationId": "M09",
+          "chapterIds": [
+            "waterworks"
+          ],
+          "carryAlong": [
+            "ice-core",
+            "creature-core"
+          ]
+        }
+      },
+      {
+        "id": "M10-visit-1",
+        "before": {
+          "id": "M10-visit-1",
+          "locationId": "M10",
+          "chapterIds": [
+            "garden"
+          ]
+        },
+        "after": {
+          "id": "M10-visit-1",
+          "locationId": "M10",
+          "chapterIds": [
+            "garden"
+          ],
+          "carryAlong": [
+            "ice-core",
+            "creature-core"
+          ]
+        }
+      },
+      {
+        "id": "M10-propagation-bench-visit-1",
+        "before": {
+          "id": "M10-propagation-bench-visit-1",
+          "locationId": "M10-propagation-bench",
+          "chapterIds": [
+            "nursery"
+          ]
+        },
+        "after": {
+          "id": "M10-propagation-bench-visit-1",
+          "locationId": "M10-propagation-bench",
+          "chapterIds": [
+            "nursery"
+          ],
+          "carryAlong": [
+            "ice-core",
+            "creature-core"
+          ]
+        }
+      },
+      {
+        "id": "M11-visit-1",
+        "before": {
+          "id": "M11-visit-1",
+          "locationId": "M11",
+          "chapterIds": [
+            "workshop"
+          ]
+        },
+        "after": {
+          "id": "M11-visit-1",
+          "locationId": "M11",
+          "chapterIds": [
+            "workshop"
+          ],
+          "carryAlong": [
+            "ice-core",
+            "creature-core"
+          ]
+        }
+      },
+      {
+        "id": "M12-visit-1",
+        "before": {
+          "id": "M12-visit-1",
+          "locationId": "M12",
+          "chapterIds": [
+            "traverse"
+          ]
+        },
+        "after": {
+          "id": "M12-visit-1",
+          "locationId": "M12",
+          "chapterIds": [
+            "traverse"
+          ],
+          "carryAlong": [
+            "ice-core",
+            "creature-core"
+          ]
+        }
+      },
+      {
+        "id": "M13-visit-1",
+        "before": {
+          "id": "M13-visit-1",
+          "locationId": "M13",
+          "chapterIds": [
+            "crossing"
+          ]
+        },
+        "after": {
+          "id": "M13-visit-1",
+          "locationId": "M13",
+          "chapterIds": [
+            "crossing"
+          ],
+          "carryAlong": [
+            "ice-core",
+            "creature-core"
+          ]
+        }
+      },
+      {
+        "id": "M14-visit-1",
+        "before": {
+          "id": "M14-visit-1",
+          "locationId": "M14",
+          "chapterIds": [
+            "buried-story"
+          ]
+        },
+        "after": {
+          "id": "M14-visit-1",
+          "locationId": "M14",
+          "chapterIds": [
+            "buried-story"
+          ],
+          "carryAlong": [
+            "ice-core",
+            "creature-core"
+          ]
+        }
+      },
+      {
+        "id": "M14-gravel-edge-visit-1",
+        "before": {
+          "id": "M14-gravel-edge-visit-1",
+          "locationId": "M14-gravel-edge",
+          "chapterIds": [
+            "contrast"
+          ]
+        },
+        "after": {
+          "id": "M14-gravel-edge-visit-1",
+          "locationId": "M14-gravel-edge",
+          "chapterIds": [
+            "contrast"
+          ],
+          "carryAlong": [
+            "ice-core",
+            "creature-core"
+          ]
+        }
+      },
+      {
+        "id": "M15-visit-1",
+        "before": {
+          "id": "M15-visit-1",
+          "locationId": "M15",
+          "chapterIds": [
+            "depot-way"
+          ]
+        },
+        "after": {
+          "id": "M15-visit-1",
+          "locationId": "M15",
+          "chapterIds": [
+            "depot-way"
+          ],
+          "carryAlong": [
+            "ice-core",
+            "creature-core"
+          ]
+        }
+      },
+      {
+        "id": "M16-oxygen-bay-visit-1",
+        "before": {
+          "id": "M16-oxygen-bay-visit-1",
+          "locationId": "M16-oxygen-bay",
+          "chapterIds": [
+            "oxygen"
+          ]
+        },
+        "after": {
+          "id": "M16-oxygen-bay-visit-1",
+          "locationId": "M16-oxygen-bay",
+          "chapterIds": [
+            "oxygen"
+          ],
+          "carryAlong": [
+            "ice-core",
+            "creature-core"
+          ]
+        }
+      },
+      {
+        "id": "M16-cabin-bay-visit-1",
+        "before": {
+          "id": "M16-cabin-bay-visit-1",
+          "locationId": "M16-cabin-bay",
+          "chapterIds": [
+            "ascent"
+          ]
+        },
+        "after": {
+          "id": "M16-cabin-bay-visit-1",
+          "locationId": "M16-cabin-bay",
+          "chapterIds": [
+            "ascent"
+          ],
+          "carryAlong": [
+            "ice-core",
+            "creature-core"
+          ]
+        }
+      },
+      {
+        "id": "M17-visit-1",
+        "before": {
+          "id": "M17-visit-1",
+          "locationId": "M17",
+          "chapterIds": [
+            "rendezvous"
+          ]
+        },
+        "after": {
+          "id": "M17-visit-1",
+          "locationId": "M17",
+          "chapterIds": [
+            "rendezvous"
+          ],
+          "carryAlong": [
+            "ice-core",
+            "creature-core"
+          ]
+        }
+      },
+      {
+        "id": "M08-packing-bay-visit-1",
+        "before": {
+          "id": "M08-packing-bay-visit-1",
+          "locationId": "M08-packing-bay",
+          "chapterIds": [
+            "departure"
+          ]
+        },
+        "after": {
+          "id": "M08-packing-bay-visit-1",
+          "locationId": "M08-packing-bay",
+          "chapterIds": [
+            "departure"
+          ],
+          "carryAlong": [
+            "ice-core",
+            "creature-core"
+          ]
+        }
+      },
+      {
+        "id": "M16-launchpad-visit-1",
+        "before": {
+          "id": "M16-launchpad-visit-1",
+          "locationId": "M16-launchpad",
+          "chapterIds": [
+            "homebound"
+          ],
+          "carry": [
+            "ascent-cabin",
+            "cabin-test-record",
+            "agreed-rendezvous",
+            "specimen-cart",
+            "cushioned-capsule"
+          ]
+        },
+        "after": {
+          "id": "M16-launchpad-visit-1",
+          "locationId": "M16-launchpad",
+          "chapterIds": [
+            "homebound"
+          ],
+          "carry": [
+            "ascent-cabin",
+            "cabin-test-record",
+            "agreed-rendezvous",
+            "specimen-cart",
+            "cushioned-capsule"
+          ],
+          "carryAlong": [
+            "ice-core",
+            "creature-core"
+          ]
+        }
+      }
+    ]
+  },
+  "milestones": {
+    "removed": [],
+    "added": [
+      {
+        "id": "mars-ice-creature",
+        "item": "creature-core",
+        "when": "created",
+        "title": "A creature in the ice",
+        "text": "A small, jointed body. Still inside our sealed core.",
+        "eyebrow": "A discovery",
+        "artwork": {
+          "src": "assets/discoveries/mars-ice-creature.png",
+          "alt": "A small curled creature with jointed limbs, embedded inside the expedition’s sealed ice core. Fictional game illustration.",
+          "width": 1123,
+          "height": 1401
+        }
+      }
+    ],
+    "changed": []
+  },
+  "checkpoints": [
+    {
+      "id": "chapter-1",
+      "beforeActions": 0,
+      "afterActions": 0,
+      "beforeSha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "afterSha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    {
+      "id": "chapter-2",
+      "beforeActions": 5,
+      "afterActions": 5,
+      "beforeSha256": "beb95e5ce193eca5929d4f94e04a3c9cad89a53069d89ba1f16a2be8bd0bd5ed",
+      "afterSha256": "beb95e5ce193eca5929d4f94e04a3c9cad89a53069d89ba1f16a2be8bd0bd5ed"
+    },
+    {
+      "id": "chapter-3",
+      "beforeActions": 19,
+      "afterActions": 19,
+      "beforeSha256": "12e959573743c953e9e731b4cf55b103a5f4556984a1bc924e6bf24182732061",
+      "afterSha256": "12e959573743c953e9e731b4cf55b103a5f4556984a1bc924e6bf24182732061"
+    },
+    {
+      "id": "chapter-4",
+      "beforeActions": 30,
+      "afterActions": 30,
+      "beforeSha256": "f68f90f857dbdc82f722d352d34e4eee69916fc15c06b2c33f1247df8a179b1d",
+      "afterSha256": "f68f90f857dbdc82f722d352d34e4eee69916fc15c06b2c33f1247df8a179b1d"
+    },
+    {
+      "id": "chapter-5",
+      "beforeActions": 42,
+      "afterActions": 38,
+      "beforeSha256": "c5f8226bbcde4a1fe7f05eb990fe7c7b27d3efc7c2a81f6daad0a55aee7b46ca",
+      "afterSha256": "693b87297ff740d8e0b8bd20ad5bea31e7a4383e0edeeef5efd59e6c51557143"
+    },
+    {
+      "id": "chapter-6",
+      "beforeActions": 50,
+      "afterActions": 46,
+      "beforeSha256": "3a69ef0f69dcb17d6d495409f96192d24f053fe19aa661bd11822e9ec3e85988",
+      "afterSha256": "2add78f970a9672a58819817a4b2f986982f4c8c61f4a2d0632df8f8abca0b46"
+    },
+    {
+      "id": "chapter-7",
+      "beforeActions": 56,
+      "afterActions": 52,
+      "beforeSha256": "4949949fbc7e2f3e0a83943b16ba48bca7b4462fcc3314dbc6eaa25cb80b0fd6",
+      "afterSha256": "638cbc28186c10522c0c016fc8ac8c0b486c1e4922c9d4542503d810087e6174"
+    },
+    {
+      "id": "chapter-8",
+      "beforeActions": 68,
+      "afterActions": 64,
+      "beforeSha256": "2bfee5ad40bc0fc2f5e4e3a31bd1b7444b046fea36e9a9bc24d7c2ec04861db3",
+      "afterSha256": "4b7861f7592bc980c995f5a56b0883d326c4ddb3d9ae8794e186e75139a83aa6"
+    },
+    {
+      "id": "chapter-9",
+      "beforeActions": 77,
+      "afterActions": 73,
+      "beforeSha256": "bf5ec79c802ff6b8b6c05bcde623aa6f433a0cbb30ed3b77c09ab989fc731924",
+      "afterSha256": "7de5bb89e01107ffb435236759ca6180ee5709a8178a9c17bf9872887b9db01c"
+    },
+    {
+      "id": "chapter-10",
+      "beforeActions": 84,
+      "afterActions": 80,
+      "beforeSha256": "aedabef6af493aba157652b5fb49d5c815f80090596d3f42207f492db49b1c0b",
+      "afterSha256": "8a957b4f3edb65021438bbe4820c87a22cd8752f4f6b3b87f5412ff214735abb"
+    },
+    {
+      "id": "chapter-11",
+      "beforeActions": 94,
+      "afterActions": 90,
+      "beforeSha256": "6939d775b3a109de6e2c880b691256664c9214d9142b23b6498de82b7cd588eb",
+      "afterSha256": "77a90bd084c53d31d31e2a1d64ac1346997588f2d7ab017b2c37c7513650b225"
+    },
+    {
+      "id": "chapter-12",
+      "beforeActions": 102,
+      "afterActions": 98,
+      "beforeSha256": "9f5043118e5319616e8d375aeb83d689f4a9d0a345e71c686959ec22fa926020",
+      "afterSha256": "564a3d187793fe12f594299373365e1d9f288711b302b25a6230b1f5c5d908d1"
+    },
+    {
+      "id": "chapter-13",
+      "beforeActions": 114,
+      "afterActions": 110,
+      "beforeSha256": "44f4454ca1a4de1fd3f02b9c851fd8a5826c6856e88858557e8ae2483eebbd64",
+      "afterSha256": "e99402eca44ac9055a8fa4e88853e882a700cad1f3ce3b98284706a9d5c470f3"
+    },
+    {
+      "id": "chapter-14",
+      "beforeActions": 123,
+      "afterActions": 119,
+      "beforeSha256": "9b99b8f8d424a903ce97b38c75c2e58efd4497bd2779b650de9d65f11063eca4",
+      "afterSha256": "b551de2e479d7c0b31ad6290488dc20cd1edc0ef081ba04ceb79bee89b73b714"
+    },
+    {
+      "id": "chapter-15",
+      "beforeActions": 133,
+      "afterActions": 129,
+      "beforeSha256": "767ba246937455ba83e231b84dadaf43cdcfc9b753b2744ed5a10f696fb8b3ed",
+      "afterSha256": "4edf40475fdb259aa7fd80e0ab68f39e92bb95d606c23b35d5ecde296e8ce88f"
+    },
+    {
+      "id": "chapter-16",
+      "beforeActions": 141,
+      "afterActions": 137,
+      "beforeSha256": "de93a907dd4fcd2bcd628d5e58e0b21130502f48d22cab566650362cac80ca76",
+      "afterSha256": "b71051a71d481a9e55850c4cf5fac85e94d80beedd85335b9e4f06e0abe135ed"
+    },
+    {
+      "id": "chapter-17",
+      "beforeActions": 147,
+      "afterActions": 143,
+      "beforeSha256": "211c48d462f1e90864738a3a83fd56985e92f6a6555431c6076650abb9e6f3da",
+      "afterSha256": "a115a246fb17a024a44df7bcac1132a6b262627400676d59299fef2a5eb9f1a0"
+    },
+    {
+      "id": "chapter-18",
+      "beforeActions": 158,
+      "afterActions": 154,
+      "beforeSha256": "c77f70713c04e05eb9621952a32494bcc52edbbfdcea94baeb77e72bd0500125",
+      "afterSha256": "654a8b44d894acfaa12b9b4e889b2e27bc641813d4967c42d8cd9caf719d8344"
+    },
+    {
+      "id": "chapter-19",
+      "beforeActions": 171,
+      "afterActions": 167,
+      "beforeSha256": "1ea64895e099f67534e4e7a7630b8e607d8ed1808b0c72426386638bb6e209e3",
+      "afterSha256": "373751af2df42953d2f7eaeaf79dc771a72ac148baeb52a46b9390226bb84e92"
+    },
+    {
+      "id": "chapter-20",
+      "beforeActions": 182,
+      "afterActions": 178,
+      "beforeSha256": "fdbdcfd1cfd56fe01b37ba5f9ba6f511f4d0c3145690d91f085f959e52051b1e",
+      "afterSha256": "aee92f0d85f1bb2cc3aede0387f8220e31c48e2a60804c8b2e30346bcdc5053f"
+    },
+    {
+      "id": "chapter-21",
+      "beforeActions": 188,
+      "afterActions": 184,
+      "beforeSha256": "6066c4d16a11e1858a2af66cc27d72db14840a5d89c786cce0b6355131384a26",
+      "afterSha256": "4cb6b1938a2ebf011e7d2b884cb8e2300201c04af2778522e226d05b4c60953f"
+    },
+    {
+      "id": "chapter-22",
+      "beforeActions": 195,
+      "afterActions": 191,
+      "beforeSha256": "de525ad40d63407e1711184c3ca479dac4d408d2199bad441703bff04b1c1d04",
+      "afterSha256": "c31437ba2ee31d3d94ad215339a432a7c9c879701320eb636cbac8921c88f53e"
+    },
+    {
+      "id": "chapter-23",
+      "beforeActions": 205,
+      "afterActions": 201,
+      "beforeSha256": "d7f2dac917766d05beb6c0299e4d141bf3d143c480413778668b9f8376cd41a2",
+      "afterSha256": "3db0795268af49f662719268f8d15f52c6c19d578ccc31e7461c5bdb5c60a8c5"
+    },
+    {
+      "id": "chapter-24",
+      "beforeActions": 219,
+      "afterActions": 215,
+      "beforeSha256": "ecc697703acd3c844a167021858058f1735c16e23424e1580b800ca8333e2b17",
+      "afterSha256": "912e695fa565ab57b9721587a7656302dd6552072dd4ec554aa7d686999e3ddf"
+    },
+    {
+      "id": "complete",
+      "beforeActions": 229,
+      "afterActions": 225,
+      "beforeSha256": "4a40f84ae7c2f516a6a00869b2272b2f9a7589e386cf5b26ed157e2bc47337d4",
+      "afterSha256": "f69e70c3882d94ff24d546f093bf9ac5658f0e66def742035422918ad63c7e2f"
+    }
+  ],
+  "sharedController": {
+    "beforeSha256": "3372f0270f6eea2ba49ac5c7e161275c6bbca5025b43d33bcd815135716174dd",
+    "afterSha256": "86894b370440c0f94b61c41b67c19b56bbd03f5c0e4d80cce31b1a65b5b3365e",
+    "changedLines": [
+      {
+        "line": 6,
+        "before": "import {scenarios,featuredScenarioIds,presentationFor} from './current-scenarios.ts';",
+        "after": "import {scenarios,featuredScenarioIds,presentationFor} from './campaign-page-catalogue.ts';"
+      },
+      {
+        "line": 117,
+        "before": "   ${milestone?`<dialog id=\"milestone\" class=\"milestone\" aria-labelledby=\"milestone-title\" aria-describedby=\"milestone-text\"><div class=\"milestone-content\"><p class=\"milestone-eyebrow\">A new possibility</p><div class=\"milestone-object\" role=\"img\" aria-label=\"${esc(label(milestone.item))}\"><span class=\"milestone-item-label\">${esc(label(milestone.item))}</span>${milestone.components.map((id,i)=>`<span class=\"milestone-component\" style=\"--part:${i}\">${esc(label(id))}</span>`).join('')}</div><h1 id=\"milestone-title\">${esc(milestone.title)}</h1><p id=\"milestone-text\">${esc(milestone.text)}</p><button id=\"milestone-continue\" autofocus>Continue</button></div></dialog>`:''}",
+        "after": "   ${milestone?`<dialog id=\"milestone\" class=\"milestone ${milestone.artwork?'illustrated-milestone':''}\" aria-labelledby=\"milestone-title\" aria-describedby=\"milestone-text\"><div class=\"milestone-content\"><p class=\"milestone-eyebrow\">${esc(milestone.eyebrow??'A new possibility')}</p>${milestone.artwork?`<img class=\"discovery-illustration\" src=\"${esc(milestone.artwork.src)}\" alt=\"${esc(milestone.artwork.alt)}\" width=\"${milestone.artwork.width}\" height=\"${milestone.artwork.height}\"/>`:`<div class=\"milestone-object\" role=\"img\" aria-label=\"${esc(label(milestone.item))}\"><span class=\"milestone-item-label\">${esc(label(milestone.item))}</span>${milestone.components.map((id,i)=>`<span class=\"milestone-component\" style=\"--part:${i}\">${esc(label(id))}</span>`).join('')}</div>`}<h1 id=\"milestone-title\">${esc(milestone.title)}</h1><p id=\"milestone-text\">${esc(milestone.text)}</p><button id=\"milestone-continue\" autofocus>Continue</button></div></dialog>`:''}"
+      }
+    ],
+    "scope": "Exactly two current-controller lines: generic catalogue import and declarative image/eyebrow markup. Persistent DOM, input, save, prose-only mission and acknowledgement control flow unchanged."
+  }
+}

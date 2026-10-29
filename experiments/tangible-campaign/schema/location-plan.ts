@@ -21,6 +21,7 @@ export function validateLocationPlan(s:Scenario):string[]{
   if(positions.some((n,i)=>n<0||i>0&&n!==positions[i-1]+1))bad('visit chapters must be contiguous '+v.id);
   for(const id of v.chapterIds){covered.push(id);const ch=s.chapters.find(ch=>ch.id===id);if(ch&&(ch.visitId!==v.id||ch.location.id!==v.locationId))bad('chapter/visit/location disagreement '+id);}
   for(const k of v.carry??[])if(!items.has(k))bad('unknown visit carry '+k);
+  if(v.carryAlong!==undefined){if(!Array.isArray(v.carryAlong)||!unique(v.carryAlong))bad('invalid continuing cargo '+v.id);else for(const k of v.carryAlong)if(!items.has(k))bad('unknown visit carry '+k);}
  }
  if(!unique(covered)||covered.length!==s.chapters.length||chapterIds.some(id=>!covered.includes(id)))bad('every chapter must belong to exactly one visit');
  for(const ch of s.chapters){

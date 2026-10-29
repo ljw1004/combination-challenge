@@ -1,6 +1,8 @@
+import {readSiteSourceForRootTests,writeRootTestOutput} from '../scripts/site-source-test-context.ts';
+const readFileSync=readSiteSourceForRootTests;
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {readFileSync} from 'node:fs';
+import {readFileSync as originalReadFileSync} from 'node:fs';
 import {locationHarness} from '../experiments/tangible-campaign/ui/location-controller-harness.ts';
 import {fixture} from './location-story-model.test.ts';
 import {fromLegacyGame} from '../experiments/tangible-campaign/compatibility/v1.ts';

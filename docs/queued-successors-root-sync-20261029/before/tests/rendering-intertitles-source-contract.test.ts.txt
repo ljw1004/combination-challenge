@@ -1,0 +1,17 @@
+
+// Root context: exact whole-Site provenance bytes resolve explicit immutable snapshots; gameplay imports remain active.
+const sourcePaths=JSON.parse(readFileSync(new URL('docs/location-hotspot-root-sync-20261028/test-context-map.json',new URL('../',import.meta.url)),'utf8')).siteSourceInputPathBySitePath;
+import {expectedSourceHashAfterSmallSceneHotfix} from '../experiments/tangible-campaign/integration/small-scene-hotfix-source-guard.ts';
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {readFileSync} from 'node:fs';
+import {createHash} from 'node:crypto';
+import {expectedSourceHashAfterRenderingIntertitles} from '../experiments/tangible-campaign/integration/rendering-intertitles-source-guard.ts';
+const root=new URL('../',import.meta.url),read=(p:string)=>readFileSync(new URL(sourcePaths[p]??p,root)),sha=(p:string)=>createHash('sha256').update(read(p)).digest('hex');
+test('rendering successor pins exact predecessors, new helpers and tests without rewriting historical freezes',()=>{
+ const manifest=JSON.parse(read('experiments/tangible-campaign/reviews/rendering-intertitles-20261029/source-successors.json').toString());
+ assert.equal(manifest.publishedSourceCommit,'ca4be1e53099dc308c72e21fbde77d76d86ba943');
+ for(const [path,row] of Object.entries<any>(manifest.files)){assert.equal(sha(row.predecessorSnapshotPath),row.beforeSha256,path);assert.equal(sha(path),expectedSourceHashAfterRenderingIntertitles(path,row.beforeSha256),path);assert.throws(()=>expectedSourceHashAfterRenderingIntertitles(path,'0'.repeat(64)),/exact published final-v4 predecessor/);}
+ for(const [path,hash] of Object.entries(manifest.addedFiles))assert.equal(sha(path),expectedSourceHashAfterSmallSceneHotfix(path,hash as string),path);
+ assert.equal(expectedSourceHashAfterRenderingIntertitles('untouched.ts','a'.repeat(64)),'a'.repeat(64));
+});

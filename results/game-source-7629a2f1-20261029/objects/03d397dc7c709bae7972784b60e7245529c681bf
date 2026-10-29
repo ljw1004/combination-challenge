@@ -1,0 +1,2641 @@
+{
+  "status": "FROZEN UNREGISTERED UNPUBLISHED source-only candidate; tests/build NOT EXECUTED; ownership/cadence unverified",
+  "scope": "Six removed wrappers; direct schedule operand replacement; related goals, route preparation and endpoint coherence. No other family changes.",
+  "beforeId": "elements-material-repairs-v6",
+  "afterId": "elements-journey-cleanup-v7",
+  "baseSource": "/workspace/shared/authenticity-repairs-bowl-v2-20261029/source",
+  "baseSeal": "bab7052d4b503b9bd73e80c48cfee0cd09a0ec577f4f78417199a7a983beda53",
+  "baselineGradesPreserved": [
+    [
+      "crossing-map",
+      "Q791d561f110e",
+      3,
+      "near"
+    ],
+    [
+      "river-map",
+      "Q73050385733b",
+      3,
+      "absent"
+    ],
+    [
+      "harbour-map",
+      "Q8670677180d7",
+      3,
+      "absent"
+    ],
+    [
+      "navigation-chart",
+      "Q211706c364cb",
+      4,
+      "anticipated"
+    ],
+    [
+      "hinge",
+      "Qd807b069652c",
+      4,
+      "absent"
+    ],
+    [
+      "wooden-chest",
+      "Q6cb90b09ec5e",
+      5,
+      "near"
+    ],
+    [
+      "tool-chest",
+      "Qe1bec4044ff9",
+      5,
+      "near"
+    ]
+  ],
+  "before": [
+    {
+      "id": "crossing-map",
+      "item": {
+        "id": "crossing-map",
+        "label": "Crossing map",
+        "description": "A portable record of the brook crossing, so the bridge itself can stay where it belongs."
+      },
+      "producers": [
+        {
+          "id": "crossing-map",
+          "a": "footbridge",
+          "b": "paper",
+          "out": "crossing-map",
+          "lifecycle": {
+            "footbridge": {
+              "role": "retain",
+              "reason": "Footbridge is reused as equipment, a source/reference, a subject of observation, or a continuing supply; this action does not consume it."
+            },
+            "paper": {
+              "role": "transform",
+              "reason": "Paper is the existing object changed into Crossing map."
+            }
+          }
+        }
+      ],
+      "consumers": [
+        {
+          "id": "river-map",
+          "a": "crossing-map",
+          "b": "dock",
+          "out": "river-map",
+          "lifecycle": {
+            "crossing-map": {
+              "role": "transform",
+              "reason": "Crossing map is the existing object changed into River map."
+            },
+            "dock": {
+              "role": "retain",
+              "reason": "Dock is reused as equipment, a source/reference, a subject of observation, or a continuing supply; this action does not consume it."
+            }
+          }
+        }
+      ],
+      "goals": [
+        {
+          "chapter": "crossing",
+          "id": "crossing-record",
+          "text": "Map the crossing",
+          "kind": "create",
+          "item": "crossing-map",
+          "after": [
+            "crossing-footbridge"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "river-map",
+      "item": {
+        "id": "river-map",
+        "label": "River map",
+        "description": "A record linking the crossing and boat landing along the river."
+      },
+      "producers": [
+        {
+          "id": "river-map",
+          "a": "crossing-map",
+          "b": "dock",
+          "out": "river-map",
+          "lifecycle": {
+            "crossing-map": {
+              "role": "transform",
+              "reason": "Crossing map is the existing object changed into River map."
+            },
+            "dock": {
+              "role": "retain",
+              "reason": "Dock is reused as equipment, a source/reference, a subject of observation, or a continuing supply; this action does not consume it."
+            }
+          }
+        }
+      ],
+      "consumers": [
+        {
+          "id": "landing-clock",
+          "a": "clock",
+          "b": "river-map",
+          "out": "landing-clock",
+          "description": "A timetable records departure times against stops on the river.",
+          "lifecycle": {
+            "clock": {
+              "role": "retain",
+              "reason": "Clock is reused as equipment, a source/reference, a subject of observation, or a continuing supply; this action does not consume it."
+            },
+            "river-map": {
+              "role": "retain",
+              "reason": "River map is reused as equipment, a source/reference, a subject of observation, or a continuing supply; this action does not consume it."
+            }
+          }
+        },
+        {
+          "id": "harbour-map",
+          "a": "river-map",
+          "b": "lighthouse",
+          "out": "harbour-map",
+          "lifecycle": {
+            "river-map": {
+              "role": "transform",
+              "reason": "River map is the existing object changed into Harbour map."
+            },
+            "lighthouse": {
+              "role": "retain",
+              "reason": "Lighthouse is reused as equipment, a source/reference, a subject of observation, or a continuing supply; this action does not consume it."
+            }
+          }
+        }
+      ],
+      "goals": [
+        {
+          "chapter": "ferry",
+          "id": "ferry-record",
+          "text": "Map the river",
+          "kind": "create",
+          "item": "river-map",
+          "after": [
+            "ferry-dock"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "harbour-map",
+      "item": {
+        "id": "harbour-map",
+        "label": "Harbour map",
+        "description": "The river map extended to include the harbour's light and approach."
+      },
+      "producers": [
+        {
+          "id": "harbour-map",
+          "a": "river-map",
+          "b": "lighthouse",
+          "out": "harbour-map",
+          "lifecycle": {
+            "river-map": {
+              "role": "transform",
+              "reason": "River map is the existing object changed into Harbour map."
+            },
+            "lighthouse": {
+              "role": "retain",
+              "reason": "Lighthouse is reused as equipment, a source/reference, a subject of observation, or a continuing supply; this action does not consume it."
+            }
+          }
+        }
+      ],
+      "consumers": [
+        {
+          "id": "navigation-chart",
+          "a": "harbour-map",
+          "b": "star-chart",
+          "out": "navigation-chart",
+          "lifecycle": {
+            "harbour-map": {
+              "role": "incorporate",
+              "reason": "Harbour map becomes part of the result; retain a supply only while another authored use needs it."
+            },
+            "star-chart": {
+              "role": "incorporate",
+              "reason": "Star chart becomes part of the result; retain a supply only while another authored use needs it."
+            }
+          }
+        }
+      ],
+      "goals": [
+        {
+          "chapter": "harbour",
+          "id": "harbour-record",
+          "text": "Map the harbour",
+          "kind": "create",
+          "item": "harbour-map",
+          "after": [
+            "harbour-lighthouse"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "navigation-chart",
+      "item": {
+        "id": "navigation-chart",
+        "label": "Navigation chart",
+        "description": "A route record joined to the night sky, for someone who has not made this journey before."
+      },
+      "producers": [
+        {
+          "id": "navigation-chart",
+          "a": "harbour-map",
+          "b": "star-chart",
+          "out": "navigation-chart",
+          "lifecycle": {
+            "harbour-map": {
+              "role": "incorporate",
+              "reason": "Harbour map becomes part of the result; retain a supply only while another authored use needs it."
+            },
+            "star-chart": {
+              "role": "incorporate",
+              "reason": "Star chart becomes part of the result; retain a supply only while another authored use needs it."
+            }
+          }
+        }
+      ],
+      "consumers": [
+        {
+          "id": "river-atlas",
+          "a": "navigation-chart",
+          "b": "weather-book",
+          "out": "river-atlas",
+          "lifecycle": {
+            "navigation-chart": {
+              "role": "incorporate",
+              "reason": "Navigation chart becomes part of the result; retain a supply only while another authored use needs it."
+            },
+            "weather-book": {
+              "role": "incorporate",
+              "reason": "Weather book becomes part of the result; retain a supply only while another authored use needs it."
+            }
+          }
+        }
+      ],
+      "goals": [
+        {
+          "chapter": "stars",
+          "id": "stars-navigation-chart",
+          "text": "Make a navigation chart",
+          "kind": "create",
+          "item": "navigation-chart",
+          "after": [
+            "stars-star-chart"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "river-atlas",
+      "item": {
+        "id": "river-atlas",
+        "label": "River atlas",
+        "description": "A durable account of the route and its changing weather, left for future travellers."
+      },
+      "producers": [
+        {
+          "id": "river-atlas",
+          "a": "navigation-chart",
+          "b": "weather-book",
+          "out": "river-atlas",
+          "lifecycle": {
+            "navigation-chart": {
+              "role": "incorporate",
+              "reason": "Navigation chart becomes part of the result; retain a supply only while another authored use needs it."
+            },
+            "weather-book": {
+              "role": "incorporate",
+              "reason": "Weather book becomes part of the result; retain a supply only while another authored use needs it."
+            }
+          }
+        }
+      ],
+      "consumers": [],
+      "goals": [
+        {
+          "chapter": "gathering",
+          "id": "gathering-river-atlas",
+          "text": "Make River atlas",
+          "kind": "create",
+          "item": "river-atlas"
+        }
+      ]
+    },
+    {
+      "id": "wooden-chest",
+      "item": {
+        "id": "wooden-chest",
+        "label": "Wooden chest",
+        "description": "A box assembled from boards, with room to protect things inside."
+      },
+      "producers": [
+        {
+          "id": "wooden-chest",
+          "a": "planks",
+          "b": "nails",
+          "out": "wooden-chest",
+          "lifecycle": {
+            "planks": {
+              "role": "incorporate",
+              "reason": "Planks becomes part of the result; retain a supply only while another authored use needs it."
+            },
+            "nails": {
+              "role": "incorporate",
+              "reason": "Nails becomes part of the result; retain a supply only while another authored use needs it."
+            }
+          }
+        }
+      ],
+      "consumers": [
+        {
+          "id": "tool-chest",
+          "a": "wooden-chest",
+          "b": "hinge",
+          "out": "tool-chest",
+          "lifecycle": {
+            "wooden-chest": {
+              "role": "transform",
+              "reason": "Wooden chest is the existing object changed into Tool chest."
+            },
+            "hinge": {
+              "role": "incorporate",
+              "reason": "Hinge becomes part of the result; retain a supply only while another authored use needs it."
+            }
+          }
+        },
+        {
+          "id": "grain-bin",
+          "a": "planks",
+          "b": "wooden-chest",
+          "out": "grain-bin",
+          "lifecycle": {
+            "planks": {
+              "role": "incorporate",
+              "reason": "Planks becomes part of the result; retain a supply only while another authored use needs it."
+            },
+            "wooden-chest": {
+              "role": "transform",
+              "reason": "Wooden chest is the existing object changed into Grain bin."
+            }
+          }
+        }
+      ],
+      "goals": []
+    },
+    {
+      "id": "tool-chest",
+      "item": {
+        "id": "tool-chest",
+        "label": "Tool chest",
+        "description": "A wooden chest with a hinged lid, keeping shared tools together."
+      },
+      "producers": [
+        {
+          "id": "tool-chest",
+          "a": "wooden-chest",
+          "b": "hinge",
+          "out": "tool-chest",
+          "lifecycle": {
+            "wooden-chest": {
+              "role": "transform",
+              "reason": "Wooden chest is the existing object changed into Tool chest."
+            },
+            "hinge": {
+              "role": "incorporate",
+              "reason": "Hinge becomes part of the result; retain a supply only while another authored use needs it."
+            }
+          }
+        }
+      ],
+      "consumers": [],
+      "goals": [
+        {
+          "chapter": "workshop",
+          "id": "workshop-tool-chest",
+          "text": "Make Tool chest",
+          "kind": "create",
+          "item": "tool-chest"
+        }
+      ]
+    },
+    {
+      "id": "hinge",
+      "item": {
+        "id": "hinge",
+        "label": "Hinge",
+        "description": "Two metal leaves joined around a pin so one side can swing relative to the other."
+      },
+      "producers": [
+        {
+          "id": "hinge",
+          "a": "iron",
+          "b": "nails",
+          "out": "hinge",
+          "description": "Metal leaves joined around a pin can swing while remaining connected.",
+          "lifecycle": {
+            "iron": {
+              "role": "incorporate",
+              "reason": "Iron becomes part of the result; retain a supply only while another authored use needs it."
+            },
+            "nails": {
+              "role": "incorporate",
+              "reason": "Nails becomes part of the result; retain a supply only while another authored use needs it."
+            }
+          }
+        }
+      ],
+      "consumers": [
+        {
+          "id": "tool-chest",
+          "a": "wooden-chest",
+          "b": "hinge",
+          "out": "tool-chest",
+          "lifecycle": {
+            "wooden-chest": {
+              "role": "transform",
+              "reason": "Wooden chest is the existing object changed into Tool chest."
+            },
+            "hinge": {
+              "role": "incorporate",
+              "reason": "Hinge becomes part of the result; retain a supply only while another authored use needs it."
+            }
+          }
+        },
+        {
+          "id": "tripod",
+          "a": "planks",
+          "b": "hinge",
+          "out": "tripod",
+          "lifecycle": {
+            "planks": {
+              "role": "incorporate",
+              "reason": "Planks becomes part of the result; retain a supply only while another authored use needs it."
+            },
+            "hinge": {
+              "role": "incorporate",
+              "reason": "Hinge becomes part of the result; retain a supply only while another authored use needs it."
+            }
+          }
+        }
+      ],
+      "goals": []
+    },
+    {
+      "id": "landing-clock",
+      "item": {
+        "id": "landing-clock",
+        "label": "Ferry timetable",
+        "description": "A written timetable relating departure times to stops on the river."
+      },
+      "producers": [
+        {
+          "id": "landing-clock",
+          "a": "clock",
+          "b": "river-map",
+          "out": "landing-clock",
+          "description": "A timetable records departure times against stops on the river.",
+          "lifecycle": {
+            "clock": {
+              "role": "retain",
+              "reason": "Clock is reused as equipment, a source/reference, a subject of observation, or a continuing supply; this action does not consume it."
+            },
+            "river-map": {
+              "role": "retain",
+              "reason": "River map is reused as equipment, a source/reference, a subject of observation, or a continuing supply; this action does not consume it."
+            }
+          }
+        }
+      ],
+      "consumers": [],
+      "goals": [
+        {
+          "chapter": "timekeeping",
+          "id": "timekeeping-landing-clock",
+          "text": "Make ferry timetable",
+          "kind": "create",
+          "item": "landing-clock"
+        }
+      ]
+    },
+    {
+      "id": "star-chart",
+      "item": {
+        "id": "star-chart",
+        "label": "Star chart",
+        "description": "A drawn record of the stars' positions, used to recognize the sky."
+      },
+      "producers": [
+        {
+          "id": "star-chart",
+          "a": "telescope",
+          "b": "paper",
+          "out": "star-chart",
+          "lifecycle": {
+            "telescope": {
+              "role": "retain",
+              "reason": "Telescope is reused as equipment, a source/reference, a subject of observation, or a continuing supply; this action does not consume it."
+            },
+            "paper": {
+              "role": "transform",
+              "reason": "Paper is the existing object changed into Star chart."
+            }
+          }
+        },
+        {
+          "id": "star-chart-mounted-telescope",
+          "a": "mounted-telescope",
+          "b": "paper",
+          "out": "star-chart",
+          "description": "The steady mounted telescope guides the observations recorded on paper.",
+          "lifecycle": {
+            "mounted-telescope": {
+              "role": "retain",
+              "reason": "The mounted telescope remains the same reusable instrument and a completed visible objective."
+            },
+            "paper": {
+              "role": "transform",
+              "reason": "Paper becomes the star chart; retain an outside supply only while other authored paper work still needs it."
+            }
+          }
+        }
+      ],
+      "consumers": [
+        {
+          "id": "navigation-chart",
+          "a": "harbour-map",
+          "b": "star-chart",
+          "out": "navigation-chart",
+          "lifecycle": {
+            "harbour-map": {
+              "role": "incorporate",
+              "reason": "Harbour map becomes part of the result; retain a supply only while another authored use needs it."
+            },
+            "star-chart": {
+              "role": "incorporate",
+              "reason": "Star chart becomes part of the result; retain a supply only while another authored use needs it."
+            }
+          }
+        }
+      ],
+      "goals": [
+        {
+          "chapter": "stars",
+          "id": "stars-star-chart",
+          "text": "Chart the stars",
+          "kind": "create",
+          "item": "star-chart",
+          "intermediate": true,
+          "after": [
+            "stars-mounted-telescope"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "weather-book",
+      "item": {
+        "id": "weather-book",
+        "label": "Weather book",
+        "description": "A bound record preserving the season's observations of wind and rain."
+      },
+      "producers": [
+        {
+          "id": "weather-book",
+          "a": "weather-record",
+          "b": "bound-book",
+          "out": "weather-book",
+          "lifecycle": {
+            "weather-record": {
+              "role": "retain",
+              "reason": "Weather record is reused as equipment, a source/reference, a subject of observation, or a continuing supply; this action does not consume it."
+            },
+            "bound-book": {
+              "role": "transform",
+              "reason": "Bound book is the existing object changed into Weather book."
+            }
+          }
+        }
+      ],
+      "consumers": [
+        {
+          "id": "river-atlas",
+          "a": "navigation-chart",
+          "b": "weather-book",
+          "out": "river-atlas",
+          "lifecycle": {
+            "navigation-chart": {
+              "role": "incorporate",
+              "reason": "Navigation chart becomes part of the result; retain a supply only while another authored use needs it."
+            },
+            "weather-book": {
+              "role": "incorporate",
+              "reason": "Weather book becomes part of the result; retain a supply only while another authored use needs it."
+            }
+          }
+        }
+      ],
+      "goals": []
+    }
+  ],
+  "after": [
+    {
+      "id": "crossing-map",
+      "producers": [],
+      "consumers": [],
+      "goals": []
+    },
+    {
+      "id": "river-map",
+      "producers": [],
+      "consumers": [],
+      "goals": []
+    },
+    {
+      "id": "harbour-map",
+      "producers": [],
+      "consumers": [],
+      "goals": []
+    },
+    {
+      "id": "navigation-chart",
+      "producers": [],
+      "consumers": [],
+      "goals": []
+    },
+    {
+      "id": "river-atlas",
+      "producers": [],
+      "consumers": [],
+      "goals": []
+    },
+    {
+      "id": "wooden-chest",
+      "item": {
+        "id": "wooden-chest",
+        "label": "Wooden chest",
+        "description": "A box assembled from boards, with room to protect things inside."
+      },
+      "producers": [
+        {
+          "id": "wooden-chest",
+          "a": "planks",
+          "b": "nails",
+          "out": "wooden-chest",
+          "lifecycle": {
+            "planks": {
+              "role": "incorporate",
+              "reason": "Planks becomes part of the result; retain a supply only while another authored use needs it."
+            },
+            "nails": {
+              "role": "incorporate",
+              "reason": "Nails becomes part of the result; retain a supply only while another authored use needs it."
+            }
+          }
+        }
+      ],
+      "consumers": [
+        {
+          "id": "grain-bin",
+          "a": "planks",
+          "b": "wooden-chest",
+          "out": "grain-bin",
+          "lifecycle": {
+            "planks": {
+              "role": "incorporate",
+              "reason": "Planks becomes part of the result; retain a supply only while another authored use needs it."
+            },
+            "wooden-chest": {
+              "role": "transform",
+              "reason": "Wooden chest is the existing object changed into Grain bin."
+            }
+          }
+        }
+      ],
+      "goals": [
+        {
+          "chapter": "workshop",
+          "id": "workshop-wooden-chest",
+          "text": "Make a wooden chest for tools",
+          "kind": "create",
+          "item": "wooden-chest"
+        }
+      ]
+    },
+    {
+      "id": "tool-chest",
+      "producers": [],
+      "consumers": [],
+      "goals": []
+    },
+    {
+      "id": "hinge",
+      "item": {
+        "id": "hinge",
+        "label": "Hinge",
+        "description": "Two metal leaves joined around a pin so one side can swing relative to the other."
+      },
+      "producers": [
+        {
+          "id": "hinge",
+          "a": "iron",
+          "b": "nails",
+          "out": "hinge",
+          "description": "Metal leaves joined around a pin can swing while remaining connected.",
+          "lifecycle": {
+            "iron": {
+              "role": "incorporate",
+              "reason": "Iron becomes part of the result; retain a supply only while another authored use needs it."
+            },
+            "nails": {
+              "role": "incorporate",
+              "reason": "Nails becomes part of the result; retain a supply only while another authored use needs it."
+            }
+          }
+        }
+      ],
+      "consumers": [
+        {
+          "id": "tripod",
+          "a": "planks",
+          "b": "hinge",
+          "out": "tripod",
+          "lifecycle": {
+            "planks": {
+              "role": "incorporate",
+              "reason": "Planks becomes part of the result; retain a supply only while another authored use needs it."
+            },
+            "hinge": {
+              "role": "incorporate",
+              "reason": "Hinge becomes part of the result; retain a supply only while another authored use needs it."
+            }
+          }
+        }
+      ],
+      "goals": []
+    },
+    {
+      "id": "landing-clock",
+      "item": {
+        "id": "landing-clock",
+        "label": "Return boats: 09:00 \u00b7 10:00 \u00b7 11:00",
+        "description": "A concrete hourly morning return-boat timetable, set by the landing clock. It gives departure times, not map directions."
+      },
+      "producers": [
+        {
+          "id": "landing-clock",
+          "a": "clock",
+          "b": "paper",
+          "out": "landing-clock",
+          "description": "Use the clock to agree and write three hourly morning return departures: 09:00, 10:00 and 11:00. The clock remains available to call each departure.",
+          "lifecycle": {
+            "clock": {
+              "role": "retain",
+              "reason": "Clock is reused as equipment, a source/reference, a subject of observation, or a continuing supply; this action does not consume it."
+            },
+            "paper": {
+              "role": "transform",
+              "reason": "Paper becomes the written return-boat schedule; keep a paper supply only while another independent paper use still needs it."
+            }
+          }
+        }
+      ],
+      "consumers": [],
+      "goals": [
+        {
+          "chapter": "timekeeping",
+          "id": "timekeeping-landing-clock",
+          "text": "Schedule hourly return boats",
+          "kind": "create",
+          "item": "landing-clock"
+        }
+      ]
+    },
+    {
+      "id": "star-chart",
+      "item": {
+        "id": "star-chart",
+        "label": "Star chart",
+        "description": "A drawn record of the stars' positions, used to recognize the sky."
+      },
+      "producers": [
+        {
+          "id": "star-chart",
+          "a": "telescope",
+          "b": "paper",
+          "out": "star-chart",
+          "lifecycle": {
+            "telescope": {
+              "role": "retain",
+              "reason": "Telescope is reused as equipment, a source/reference, a subject of observation, or a continuing supply; this action does not consume it."
+            },
+            "paper": {
+              "role": "transform",
+              "reason": "Paper is the existing object changed into Star chart."
+            }
+          }
+        },
+        {
+          "id": "star-chart-mounted-telescope",
+          "a": "mounted-telescope",
+          "b": "paper",
+          "out": "star-chart",
+          "description": "The steady mounted telescope guides the observations recorded on paper.",
+          "lifecycle": {
+            "mounted-telescope": {
+              "role": "retain",
+              "reason": "The mounted telescope remains the same reusable instrument and a completed visible objective."
+            },
+            "paper": {
+              "role": "transform",
+              "reason": "Paper becomes the star chart; retain an outside supply only while other authored paper work still needs it."
+            }
+          }
+        }
+      ],
+      "consumers": [],
+      "goals": [
+        {
+          "chapter": "stars",
+          "id": "stars-star-chart",
+          "text": "Chart the stars",
+          "kind": "create",
+          "item": "star-chart",
+          "after": [
+            "stars-mounted-telescope"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "weather-book",
+      "item": {
+        "id": "weather-book",
+        "label": "Weather book",
+        "description": "A bound record preserving the season's observations of wind and rain."
+      },
+      "producers": [
+        {
+          "id": "weather-book",
+          "a": "weather-record",
+          "b": "bound-book",
+          "out": "weather-book",
+          "lifecycle": {
+            "weather-record": {
+              "role": "retain",
+              "reason": "Weather record is reused as equipment, a source/reference, a subject of observation, or a continuing supply; this action does not consume it."
+            },
+            "bound-book": {
+              "role": "transform",
+              "reason": "Bound book is the existing object changed into Weather book."
+            }
+          }
+        }
+      ],
+      "consumers": [],
+      "goals": []
+    }
+  ],
+  "visibleBefore": [
+    {
+      "id": "crossing",
+      "title": "Across the brook",
+      "speaker": "By the river",
+      "motivation": "The brook divides the clearing. A bridge and cart would be easier.",
+      "location": {
+        "id": "E01-stream-bank",
+        "label": "Stream bank",
+        "travelText": "A close view of the brook shows the two banks and a bare working space beside the water."
+      },
+      "objectives": [
+        {
+          "id": "crossing-footbridge",
+          "text": "Build a footbridge",
+          "kind": "create",
+          "item": "footbridge",
+          "intermediate": true
+        },
+        {
+          "id": "crossing-handcart",
+          "text": "Make Handcart",
+          "kind": "create",
+          "item": "handcart"
+        },
+        {
+          "id": "crossing-record",
+          "text": "Map the crossing",
+          "kind": "create",
+          "item": "crossing-map",
+          "after": [
+            "crossing-footbridge"
+          ]
+        }
+      ],
+      "completionText": "A bridge for our feet, a cart for our loads, and a map for the next traveller. Downstream, the miller has been watching that same water go to waste.",
+      "onAlreadyComplete": {
+        "mode": "skip"
+      },
+      "visitId": "E01-stream-bank-visit-1",
+      "entryCue": {
+        "id": "elements-material-repairs-v6:crossing:entry-v1",
+        "mode": "arrival-and-beat",
+        "format": "silent-title-card",
+        "voice": "By the river",
+        "sourceCaption": "Stream bank",
+        "text": "The brook divides the clearing. A bridge and cart would be easier."
+      }
+    },
+    {
+      "id": "workshop",
+      "title": "Tools to lend",
+      "speaker": "By the river",
+      "motivation": "The quarry can give more than loose stones. A useful tool left here will help the next pair of hands too.",
+      "location": {
+        "id": "E05",
+        "label": "Quarry workshop",
+        "travelText": "An exposed iron seam and rough workbench share the quarry yard."
+      },
+      "objectives": [
+        {
+          "id": "workshop-pickaxe",
+          "text": "Make Pickaxe",
+          "kind": "create",
+          "item": "pickaxe"
+        },
+        {
+          "id": "workshop-tool-chest",
+          "text": "Make Tool chest",
+          "kind": "create",
+          "item": "tool-chest"
+        }
+      ],
+      "completionText": "A pickaxe for hard ground and a chest to keep our tools together. Leave them within reach of the next pair of hands; there is wider water ahead.",
+      "onAlreadyComplete": {
+        "mode": "skip"
+      },
+      "visitId": "E05-visit-1",
+      "entryCue": {
+        "id": "elements-material-repairs-v6:workshop:entry-v1",
+        "mode": "arrival-and-beat",
+        "format": "silent-title-card",
+        "voice": "By the river",
+        "sourceCaption": "Quarry workshop",
+        "text": "The quarry can give more than loose stones. A useful tool left here will help the next pair of hands too."
+      }
+    },
+    {
+      "id": "ferry",
+      "title": "A river wide enough",
+      "speaker": "By the river",
+      "motivation": "The river is wider here. A landing and sail can turn the far bank from a view into a place to go.",
+      "location": {
+        "id": "E06",
+        "label": "River landing",
+        "travelText": "The broad river opens beyond a working place on its near bank."
+      },
+      "objectives": [
+        {
+          "id": "ferry-dock",
+          "text": "Build a dock",
+          "kind": "create",
+          "item": "dock",
+          "intermediate": true
+        },
+        {
+          "id": "ferry-sailboat",
+          "text": "Make Sailboat",
+          "kind": "create",
+          "item": "sailboat"
+        },
+        {
+          "id": "ferry-record",
+          "text": "Map the river",
+          "kind": "create",
+          "item": "river-map",
+          "after": [
+            "ferry-dock"
+          ]
+        }
+      ],
+      "completionText": "A landing, a sailboat, and another stretch added to the map. The river is beginning to join our villages instead of keeping them apart.",
+      "onAlreadyComplete": {
+        "mode": "skip"
+      },
+      "visitId": "E06-visit-1",
+      "entryCue": {
+        "id": "elements-material-repairs-v6:ferry:entry-v1",
+        "mode": "arrival-and-beat",
+        "format": "silent-title-card",
+        "voice": "By the river",
+        "sourceCaption": "River landing",
+        "text": "The river is wider here. A landing and sail can turn the far bank from a view into a place to go."
+      }
+    },
+    {
+      "id": "harbour",
+      "title": "A light to come home to",
+      "speaker": "By the river",
+      "motivation": "From the headland, the river and harbour make one broad view. Visitors will need to find this way back after dark.",
+      "location": {
+        "id": "E07",
+        "label": "Harbour headland",
+        "travelText": "The high coastal viewpoint overlooks the harbour approach."
+      },
+      "objectives": [
+        {
+          "id": "harbour-lighthouse",
+          "text": "Build a lighthouse",
+          "kind": "create",
+          "item": "lighthouse",
+          "intermediate": true
+        },
+        {
+          "id": "harbour-mooring-buoy",
+          "text": "Make Mooring buoy",
+          "kind": "create",
+          "item": "mooring-buoy"
+        },
+        {
+          "id": "harbour-record",
+          "text": "Map the harbour",
+          "kind": "create",
+          "item": "harbour-map",
+          "after": [
+            "harbour-lighthouse"
+          ]
+        }
+      ],
+      "completionText": "A light above the water, a buoy below it, and a harbour marked on the map. Now let us think about the people those boats will bring.",
+      "onAlreadyComplete": {
+        "mode": "skip"
+      },
+      "visitId": "E07-visit-1",
+      "entryCue": {
+        "id": "elements-material-repairs-v6:harbour:entry-v1",
+        "mode": "arrival-and-beat",
+        "format": "silent-title-card",
+        "voice": "By the river",
+        "sourceCaption": "Harbour headland",
+        "text": "From the headland, the river and harbour make one broad view. Visitors will need to find this way back after dark."
+      }
+    },
+    {
+      "id": "letters",
+      "title": "News before the boats",
+      "speaker": "By the river",
+      "motivation": "Back at the landing on another morning, we set aside the boatbuilding work. Distant neighbours still need to hear about the gathering.",
+      "location": {
+        "id": "E06-letter-morning",
+        "label": "Landing \u00b7 message morning",
+        "travelText": "On a later morning the same landing has a clear working space for sending messages."
+      },
+      "objectives": [
+        {
+          "id": "letters-mailboat",
+          "text": "Make Mailboat",
+          "kind": "create",
+          "item": "mailboat",
+          "after": [
+            "letters-printed-invitations"
+          ]
+        },
+        {
+          "id": "letters-printed-invitations",
+          "text": "Make Printed invitations",
+          "kind": "create",
+          "item": "printed-invitations",
+          "intermediate": true
+        }
+      ],
+      "completionText": "The invitations are printed and the mailboat is ready. We have something to tell our neighbours\u2014and soon we will need something for them to hear.",
+      "onAlreadyComplete": {
+        "mode": "skip"
+      },
+      "visitId": "E06-letter-morning-visit-1",
+      "entryCue": {
+        "id": "elements-material-repairs-v6:letters:entry-v1",
+        "mode": "arrival-and-beat",
+        "format": "silent-title-card",
+        "voice": "By the river",
+        "sourceCaption": "Landing \u00b7 message morning",
+        "text": "Back at the landing on another morning, we set aside the boatbuilding work. Distant neighbours still need to hear about the gathering."
+      }
+    },
+    {
+      "id": "timekeeping",
+      "title": "The boats home",
+      "speaker": "By the river",
+      "motivation": "By morning, people are asking which way to go and when the boats leave. We set aside the evening work to make the landing easier to understand.",
+      "location": {
+        "id": "E06-next-morning",
+        "label": "Landing \u00b7 next morning",
+        "travelText": "The following morning brings a clear working space at the landing for directions and departure times."
+      },
+      "objectives": [
+        {
+          "id": "timekeeping-landing-clock",
+          "text": "Make ferry timetable",
+          "kind": "create",
+          "item": "landing-clock"
+        }
+      ],
+      "completionText": "The keeper reads the return times aloud and calls the boats in order. The first homeward passengers wave from the steps, while others settle in for the evening. No one has to leave before their own boat is called.",
+      "onAlreadyComplete": {
+        "mode": "skip"
+      },
+      "visitId": "E06-next-morning-visit-1",
+      "entryCue": {
+        "id": "elements-material-repairs-v6:timekeeping:entry-v1",
+        "mode": "arrival-and-beat",
+        "format": "silent-title-card",
+        "voice": "By the river",
+        "sourceCaption": "Landing \u00b7 next morning",
+        "text": "By morning, people are asking which way to go and when the boats leave. We set aside the evening work to make the landing easier to understand."
+      }
+    },
+    {
+      "id": "stars",
+      "title": "A route home through the night",
+      "speaker": "By the river",
+      "motivation": "The next evening, some visitors stay for the stars. We return to the headland with space for a steady view before the last boats go.",
+      "location": {
+        "id": "E07-star-evening",
+        "label": "Headland \u00b7 stargazing evening",
+        "travelText": "On the next clear evening, the headland is ready for a separate stargazing session."
+      },
+      "objectives": [
+        {
+          "id": "stars-star-chart",
+          "text": "Chart the stars",
+          "kind": "create",
+          "item": "star-chart",
+          "intermediate": true,
+          "after": [
+            "stars-mounted-telescope"
+          ]
+        },
+        {
+          "id": "stars-mounted-telescope",
+          "text": "Make Mounted telescope",
+          "kind": "create",
+          "item": "mounted-telescope",
+          "intermediate": true
+        },
+        {
+          "id": "stars-navigation-chart",
+          "text": "Make a navigation chart",
+          "kind": "create",
+          "item": "navigation-chart",
+          "after": [
+            "stars-star-chart"
+          ]
+        }
+      ],
+      "completionText": "A boatwoman follows the river landmarks on the chart, then takes a turn at the steady telescope. She points out the same stars to her companions. They take the route you have recorded, not a promise of directions later.",
+      "onAlreadyComplete": {
+        "mode": "skip"
+      },
+      "visitId": "E07-star-evening-visit-1",
+      "entryCue": {
+        "id": "elements-material-repairs-v6:stars:entry-v1",
+        "mode": "arrival-and-beat",
+        "format": "silent-title-card",
+        "voice": "By the river",
+        "sourceCaption": "Headland \u00b7 stargazing evening",
+        "text": "The next evening, some visitors stay for the stars. We return to the headland with space for a steady view before the last boats go."
+      }
+    },
+    {
+      "id": "gathering",
+      "title": "A river worth returning to",
+      "speaker": "By the river",
+      "motivation": "On the final evening, the last boats gather at the landing. What we made stays here\u2014for our neighbours, and for the day we return.",
+      "location": {
+        "id": "E06-final-evening",
+        "label": "Landing \u00b7 gathering evening",
+        "travelText": "The final evening returns to the same landing for the neighbours\u2019 gathering."
+      },
+      "objectives": [
+        {
+          "id": "gathering-river-atlas",
+          "text": "Make River atlas",
+          "kind": "create",
+          "item": "river-atlas"
+        },
+        {
+          "id": "gathering-lantern",
+          "kind": "place",
+          "item": "floating-lantern",
+          "hotspot": "gathering-landing",
+          "text": "Place floating lantern at the gathering landing"
+        }
+      ],
+      "completionText": "The atlas is passed from hand to hand, and a lantern floats safely inside the sheltered landing basin. At the table, someone saves your seat. From four beginnings, a river full of things and people to return to.",
+      "onAlreadyComplete": {
+        "mode": "bridge",
+        "text": "The lantern floats inside the sheltered landing basin. At the table, someone has saved your seat: a river full of things and people to return to."
+      },
+      "visitId": "E06-final-evening-visit-1",
+      "entryCue": {
+        "id": "elements-material-repairs-v6:gathering:entry-v1",
+        "mode": "arrival-and-beat",
+        "format": "silent-title-card",
+        "voice": "By the river",
+        "sourceCaption": "Landing \u00b7 gathering evening",
+        "text": "On the final evening, the last boats gather at the landing. What we made stays here\u2014for our neighbours, and for the day we return."
+      }
+    }
+  ],
+  "visibleAfter": [
+    {
+      "id": "crossing",
+      "title": "Across the brook",
+      "speaker": "By the river",
+      "motivation": "The brook divides the clearing. A bridge and cart would be easier.",
+      "location": {
+        "id": "E01-stream-bank",
+        "label": "Stream bank",
+        "travelText": "A close view of the brook shows the two banks and a bare working space beside the water."
+      },
+      "objectives": [
+        {
+          "id": "crossing-footbridge",
+          "text": "Build a footbridge",
+          "kind": "create",
+          "item": "footbridge"
+        },
+        {
+          "id": "crossing-handcart",
+          "text": "Make Handcart",
+          "kind": "create",
+          "item": "handcart"
+        }
+      ],
+      "completionText": "A bridge for our feet and a cart for our loads. Downstream, the miller has been watching that same water go to waste.",
+      "onAlreadyComplete": {
+        "mode": "skip"
+      },
+      "visitId": "E01-stream-bank-visit-1",
+      "entryCue": {
+        "id": "elements-journey-cleanup-v7:crossing:entry-v1",
+        "mode": "arrival-and-beat",
+        "format": "silent-title-card",
+        "voice": "By the river",
+        "sourceCaption": "Stream bank",
+        "text": "The brook divides the clearing. A bridge and cart would be easier."
+      }
+    },
+    {
+      "id": "workshop",
+      "title": "Tools to lend",
+      "speaker": "By the river",
+      "motivation": "The quarry can give more than loose stones. A useful tool left here will help the next pair of hands too.",
+      "location": {
+        "id": "E05",
+        "label": "Quarry workshop",
+        "travelText": "An exposed iron seam and rough workbench share the quarry yard."
+      },
+      "objectives": [
+        {
+          "id": "workshop-pickaxe",
+          "text": "Make Pickaxe",
+          "kind": "create",
+          "item": "pickaxe"
+        },
+        {
+          "id": "workshop-wooden-chest",
+          "text": "Make a wooden chest for tools",
+          "kind": "create",
+          "item": "wooden-chest"
+        }
+      ],
+      "completionText": "A pickaxe for hard ground and a chest to keep our tools together. Leave them within reach of the next pair of hands; there is wider water ahead.",
+      "onAlreadyComplete": {
+        "mode": "skip"
+      },
+      "visitId": "E05-visit-1",
+      "entryCue": {
+        "id": "elements-journey-cleanup-v7:workshop:entry-v1",
+        "mode": "arrival-and-beat",
+        "format": "silent-title-card",
+        "voice": "By the river",
+        "sourceCaption": "Quarry workshop",
+        "text": "The quarry can give more than loose stones. A useful tool left here will help the next pair of hands too."
+      }
+    },
+    {
+      "id": "ferry",
+      "title": "A river wide enough",
+      "speaker": "By the river",
+      "motivation": "The river is wider here. A landing and sail can turn the far bank from a view into a place to go.",
+      "location": {
+        "id": "E06",
+        "label": "River landing",
+        "travelText": "The broad river opens beyond a working place on its near bank."
+      },
+      "objectives": [
+        {
+          "id": "ferry-dock",
+          "text": "Build a dock",
+          "kind": "create",
+          "item": "dock"
+        },
+        {
+          "id": "ferry-sailboat",
+          "text": "Make Sailboat",
+          "kind": "create",
+          "item": "sailboat"
+        }
+      ],
+      "completionText": "A landing and a sailboat join the two banks. The river is beginning to connect our villages instead of keeping them apart.",
+      "onAlreadyComplete": {
+        "mode": "skip"
+      },
+      "visitId": "E06-visit-1",
+      "entryCue": {
+        "id": "elements-journey-cleanup-v7:ferry:entry-v1",
+        "mode": "arrival-and-beat",
+        "format": "silent-title-card",
+        "voice": "By the river",
+        "sourceCaption": "River landing",
+        "text": "The river is wider here. A landing and sail can turn the far bank from a view into a place to go."
+      }
+    },
+    {
+      "id": "harbour",
+      "title": "A light to come home to",
+      "speaker": "By the river",
+      "motivation": "From the headland, the river and harbour make one broad view. Visitors will need to find this way back after dark.",
+      "location": {
+        "id": "E07",
+        "label": "Harbour headland",
+        "travelText": "The high coastal viewpoint overlooks the harbour approach."
+      },
+      "objectives": [
+        {
+          "id": "harbour-lighthouse",
+          "text": "Build a lighthouse",
+          "kind": "create",
+          "item": "lighthouse"
+        },
+        {
+          "id": "harbour-mooring-buoy",
+          "text": "Make Mooring buoy",
+          "kind": "create",
+          "item": "mooring-buoy"
+        }
+      ],
+      "completionText": "A light above the water and a buoy at the mooring. Now let us think about the people those boats will bring.",
+      "onAlreadyComplete": {
+        "mode": "skip"
+      },
+      "visitId": "E07-visit-1",
+      "entryCue": {
+        "id": "elements-journey-cleanup-v7:harbour:entry-v1",
+        "mode": "arrival-and-beat",
+        "format": "silent-title-card",
+        "voice": "By the river",
+        "sourceCaption": "Harbour headland",
+        "text": "From the headland, the river and harbour make one broad view. Visitors will need to find this way back after dark."
+      }
+    },
+    {
+      "id": "letters",
+      "title": "News before the boats",
+      "speaker": "By the river",
+      "motivation": "Back at the landing on another morning, we set aside the boatbuilding work. Distant neighbours still need to hear about the gathering.",
+      "location": {
+        "id": "E06-letter-morning",
+        "label": "Landing \u00b7 message morning",
+        "travelText": "On a later morning the same landing has a clear working space for sending messages."
+      },
+      "objectives": [
+        {
+          "id": "letters-mailboat",
+          "text": "Make Mailboat",
+          "kind": "create",
+          "item": "mailboat",
+          "after": [
+            "letters-printed-invitations"
+          ]
+        },
+        {
+          "id": "letters-printed-invitations",
+          "text": "Make Printed invitations",
+          "kind": "create",
+          "item": "printed-invitations",
+          "intermediate": true
+        }
+      ],
+      "completionText": "The invitations are printed and the mailboat is ready. We have something to tell our neighbours\u2014and soon we will need something for them to hear.",
+      "onAlreadyComplete": {
+        "mode": "skip"
+      },
+      "visitId": "E06-letter-morning-visit-1",
+      "entryCue": {
+        "id": "elements-journey-cleanup-v7:letters:entry-v1",
+        "mode": "arrival-and-beat",
+        "format": "silent-title-card",
+        "voice": "By the river",
+        "sourceCaption": "Landing \u00b7 message morning",
+        "text": "Back at the landing on another morning, we set aside the boatbuilding work. Distant neighbours still need to hear about the gathering."
+      }
+    },
+    {
+      "id": "timekeeping",
+      "title": "The boats home",
+      "speaker": "By the river",
+      "motivation": "By morning, people are asking when their boats leave. The keeper needs departure times everyone can read and follow by the landing clock.",
+      "location": {
+        "id": "E06-next-morning",
+        "label": "Landing \u00b7 next morning",
+        "travelText": "The following morning brings a clear working space at the landing for directions and departure times."
+      },
+      "objectives": [
+        {
+          "id": "timekeeping-landing-clock",
+          "text": "Schedule hourly return boats",
+          "kind": "create",
+          "item": "landing-clock"
+        }
+      ],
+      "completionText": "The keeper calls the nine o\u2019clock boat, then the ten and eleven o\u2019clock departures on the written schedule. Passengers can see when their boat leaves and wait for its turn.",
+      "onAlreadyComplete": {
+        "mode": "skip"
+      },
+      "visitId": "E06-next-morning-visit-1",
+      "entryCue": {
+        "id": "elements-journey-cleanup-v7:timekeeping:entry-v1",
+        "mode": "arrival-and-beat",
+        "format": "silent-title-card",
+        "voice": "By the river",
+        "sourceCaption": "Landing \u00b7 next morning",
+        "text": "By morning, people are asking when their boats leave. The keeper needs departure times everyone can read and follow by the landing clock."
+      }
+    },
+    {
+      "id": "stars",
+      "title": "A steady view of the stars",
+      "speaker": "By the river",
+      "motivation": "The next evening, some visitors stay for the stars. We return to the headland with space for a steady view before the last boats go.",
+      "location": {
+        "id": "E07-star-evening",
+        "label": "Headland \u00b7 stargazing evening",
+        "travelText": "On the next clear evening, the headland is ready for a separate stargazing session."
+      },
+      "objectives": [
+        {
+          "id": "stars-star-chart",
+          "text": "Chart the stars",
+          "kind": "create",
+          "item": "star-chart",
+          "after": [
+            "stars-mounted-telescope"
+          ]
+        },
+        {
+          "id": "stars-mounted-telescope",
+          "text": "Make Mounted telescope",
+          "kind": "create",
+          "item": "mounted-telescope",
+          "intermediate": true
+        }
+      ],
+      "completionText": "A visitor takes a turn at the steady telescope, then points out the same star patterns on the chart. Her companions can look through the instrument and find those patterns for themselves.",
+      "onAlreadyComplete": {
+        "mode": "skip"
+      },
+      "visitId": "E07-star-evening-visit-1",
+      "entryCue": {
+        "id": "elements-journey-cleanup-v7:stars:entry-v1",
+        "mode": "arrival-and-beat",
+        "format": "silent-title-card",
+        "voice": "By the river",
+        "sourceCaption": "Headland \u00b7 stargazing evening",
+        "text": "The next evening, some visitors stay for the stars. We return to the headland with space for a steady view before the last boats go."
+      }
+    },
+    {
+      "id": "gathering",
+      "title": "A river worth returning to",
+      "speaker": "By the river",
+      "motivation": "On the final evening, the last boats gather at the landing. What we made stays here\u2014for our neighbours, and for the day we return.",
+      "location": {
+        "id": "E06-final-evening",
+        "label": "Landing \u00b7 gathering evening",
+        "travelText": "The final evening returns to the same landing for the neighbours\u2019 gathering."
+      },
+      "objectives": [
+        {
+          "id": "gathering-lantern",
+          "kind": "place",
+          "item": "floating-lantern",
+          "hotspot": "gathering-landing",
+          "text": "Place floating lantern at the gathering landing"
+        }
+      ],
+      "completionText": "A lantern floats inside the sheltered landing basin. Around the table, neighbours remember the bridge, the boats and the things we made together. Someone saves your seat: from four beginnings, a river full of people and places to return to.",
+      "onAlreadyComplete": {
+        "mode": "bridge",
+        "text": "The lantern floats inside the sheltered landing basin. At the table, someone has saved your seat: a river full of things and people to return to."
+      },
+      "visitId": "E06-final-evening-visit-1",
+      "entryCue": {
+        "id": "elements-journey-cleanup-v7:gathering:entry-v1",
+        "mode": "arrival-and-beat",
+        "format": "silent-title-card",
+        "voice": "By the river",
+        "sourceCaption": "Landing \u00b7 gathering evening",
+        "text": "On the final evening, the last boats gather at the landing. What we made stays here\u2014for our neighbours, and for the day we return."
+      }
+    }
+  ],
+  "routeCounts": {
+    "before": 231,
+    "after": 224,
+    "net": -7
+  },
+  "route": [
+    {
+      "type": "combine",
+      "a": "earth",
+      "b": "water"
+    },
+    {
+      "type": "combine",
+      "a": "earth",
+      "b": "fire"
+    },
+    {
+      "type": "combine",
+      "a": "clay",
+      "b": "fire"
+    },
+    {
+      "type": "advance"
+    },
+    {
+      "type": "combine",
+      "a": "air",
+      "b": "water"
+    },
+    {
+      "type": "combine",
+      "a": "earth",
+      "b": "rain"
+    },
+    {
+      "type": "combine",
+      "a": "plant",
+      "b": "air"
+    },
+    {
+      "type": "combine",
+      "a": "grain",
+      "b": "stone"
+    },
+    {
+      "type": "combine",
+      "a": "flour",
+      "b": "water"
+    },
+    {
+      "type": "combine",
+      "a": "dough",
+      "b": "fire"
+    },
+    {
+      "type": "combine",
+      "a": "plant",
+      "b": "water"
+    },
+    {
+      "type": "combine",
+      "a": "fruit",
+      "b": "water"
+    },
+    {
+      "type": "advance"
+    },
+    {
+      "type": "combine",
+      "a": "plant",
+      "b": "earth"
+    },
+    {
+      "type": "combine",
+      "a": "brick",
+      "b": "wood"
+    },
+    {
+      "type": "combine",
+      "a": "earth",
+      "b": "air"
+    },
+    {
+      "type": "combine",
+      "a": "sand",
+      "b": "fire"
+    },
+    {
+      "type": "combine",
+      "a": "glass",
+      "b": "wood"
+    },
+    {
+      "type": "combine",
+      "a": "window",
+      "b": "house"
+    },
+    {
+      "type": "combine",
+      "a": "plant",
+      "b": "stone"
+    },
+    {
+      "type": "combine",
+      "a": "fiber",
+      "b": "wood"
+    },
+    {
+      "type": "combine",
+      "a": "thread",
+      "b": "wood"
+    },
+    {
+      "type": "combine",
+      "a": "fiber",
+      "b": "cloth"
+    },
+    {
+      "type": "combine",
+      "a": "sleeping-mat",
+      "b": "house"
+    },
+    {
+      "type": "advance"
+    },
+    {
+      "type": "combine",
+      "a": "wood",
+      "b": "stone"
+    },
+    {
+      "type": "combine",
+      "a": "axe",
+      "b": "wood"
+    },
+    {
+      "type": "combine",
+      "a": "fiber",
+      "b": "thread"
+    },
+    {
+      "type": "combine",
+      "a": "planks",
+      "b": "rope"
+    },
+    {
+      "type": "combine",
+      "a": "planks",
+      "b": "stone"
+    },
+    {
+      "type": "combine",
+      "a": "wheel",
+      "b": "wood"
+    },
+    {
+      "type": "combine",
+      "a": "planks",
+      "b": "axle"
+    },
+    {
+      "type": "advance"
+    },
+    {
+      "type": "combine",
+      "a": "planks",
+      "b": "water"
+    },
+    {
+      "type": "combine",
+      "a": "wheel",
+      "b": "axe"
+    },
+    {
+      "type": "combine",
+      "a": "waterwheel",
+      "b": "wooden-gear"
+    },
+    {
+      "type": "combine",
+      "a": "stone",
+      "b": "wheel"
+    },
+    {
+      "type": "combine",
+      "a": "mill-gearing",
+      "b": "millstone"
+    },
+    {
+      "type": "combine",
+      "a": "cloth",
+      "b": "thread"
+    },
+    {
+      "type": "combine",
+      "a": "sack",
+      "b": "flour"
+    },
+    {
+      "type": "combine",
+      "a": "plant",
+      "b": "fruit"
+    },
+    {
+      "type": "combine",
+      "a": "millstone",
+      "b": "planks"
+    },
+    {
+      "type": "combine",
+      "a": "seeds",
+      "b": "seed-press"
+    },
+    {
+      "type": "advance"
+    },
+    {
+      "type": "combine",
+      "a": "flour",
+      "b": "air"
+    },
+    {
+      "type": "place",
+      "item": "dough",
+      "hotspot": "cellar"
+    },
+    {
+      "type": "combine",
+      "a": "starter",
+      "b": "dough"
+    },
+    {
+      "type": "combine",
+      "a": "risen-dough",
+      "b": "fire"
+    },
+    {
+      "type": "combine",
+      "a": "clay",
+      "b": "wheel"
+    },
+    {
+      "type": "combine",
+      "a": "fiber",
+      "b": "bowl"
+    },
+    {
+      "type": "combine",
+      "a": "bread",
+      "b": "basket"
+    },
+    {
+      "type": "advance"
+    },
+    {
+      "type": "combine",
+      "a": "fruit",
+      "b": "fire"
+    },
+    {
+      "type": "combine",
+      "a": "clay",
+      "b": "bowl"
+    },
+    {
+      "type": "combine",
+      "a": "jam",
+      "b": "jar"
+    },
+    {
+      "type": "combine",
+      "a": "wood",
+      "b": "jar"
+    },
+    {
+      "type": "combine",
+      "a": "preserve-jar",
+      "b": "jar-lid"
+    },
+    {
+      "type": "combine",
+      "a": "starter",
+      "b": "juice"
+    },
+    {
+      "type": "combine",
+      "a": "sand",
+      "b": "clay"
+    },
+    {
+      "type": "combine",
+      "a": "jar",
+      "b": "glaze"
+    },
+    {
+      "type": "combine",
+      "a": "cider",
+      "b": "glazed-bottle"
+    },
+    {
+      "type": "advance"
+    },
+    {
+      "type": "place",
+      "item": "glaze",
+      "hotspot": "kiln-yard"
+    },
+    {
+      "type": "combine",
+      "a": "bowl",
+      "b": "glaze"
+    },
+    {
+      "type": "combine",
+      "a": "planks",
+      "b": "wood"
+    },
+    {
+      "type": "combine",
+      "a": "clay",
+      "b": "planks"
+    },
+    {
+      "type": "combine",
+      "a": "table",
+      "b": "tile"
+    },
+    {
+      "type": "advance"
+    },
+    {
+      "type": "combine",
+      "a": "stone",
+      "b": "water"
+    },
+    {
+      "type": "combine",
+      "a": "hammer",
+      "b": "@quarry"
+    },
+    {
+      "type": "combine",
+      "a": "brick",
+      "b": "fire"
+    },
+    {
+      "type": "combine",
+      "a": "cloth",
+      "b": "air"
+    },
+    {
+      "type": "combine",
+      "a": "kiln",
+      "b": "bellows"
+    },
+    {
+      "type": "combine",
+      "a": "ore",
+      "b": "forge"
+    },
+    {
+      "type": "combine",
+      "a": "iron",
+      "b": "wood"
+    },
+    {
+      "type": "combine",
+      "a": "iron",
+      "b": "forge"
+    },
+    {
+      "type": "combine",
+      "a": "iron",
+      "b": "nails"
+    },
+    {
+      "type": "combine",
+      "a": "planks",
+      "b": "nails"
+    },
+    {
+      "type": "advance"
+    },
+    {
+      "type": "combine",
+      "a": "planks",
+      "b": "hammer"
+    },
+    {
+      "type": "combine",
+      "a": "pier-post",
+      "b": "planks"
+    },
+    {
+      "type": "combine",
+      "a": "wood",
+      "b": "rope"
+    },
+    {
+      "type": "combine",
+      "a": "cloth",
+      "b": "rope"
+    },
+    {
+      "type": "combine",
+      "a": "raft",
+      "b": "sail"
+    },
+    {
+      "type": "advance"
+    },
+    {
+      "type": "combine",
+      "a": "brick",
+      "b": "window"
+    },
+    {
+      "type": "combine",
+      "a": "fiber",
+      "b": "oil"
+    },
+    {
+      "type": "combine",
+      "a": "wick",
+      "b": "wood"
+    },
+    {
+      "type": "combine",
+      "a": "glass",
+      "b": "torch"
+    },
+    {
+      "type": "place",
+      "item": "lantern",
+      "hotspot": "headland"
+    },
+    {
+      "type": "combine",
+      "a": "tower",
+      "b": "lantern"
+    },
+    {
+      "type": "combine",
+      "a": "wood",
+      "b": "glazed-bottle"
+    },
+    {
+      "type": "combine",
+      "a": "float",
+      "b": "rope"
+    },
+    {
+      "type": "advance"
+    },
+    {
+      "type": "combine",
+      "a": "seeds",
+      "b": "water"
+    },
+    {
+      "type": "combine",
+      "a": "seedlings",
+      "b": "rope"
+    },
+    {
+      "type": "combine",
+      "a": "seedlings",
+      "b": "trellis"
+    },
+    {
+      "type": "combine",
+      "a": "window",
+      "b": "seedlings"
+    },
+    {
+      "type": "advance"
+    },
+    {
+      "type": "combine",
+      "a": "iron",
+      "b": "stone"
+    },
+    {
+      "type": "combine",
+      "a": "iron",
+      "b": "carving-tool"
+    },
+    {
+      "type": "combine",
+      "a": "saw",
+      "b": "wood"
+    },
+    {
+      "type": "combine",
+      "a": "hollow-pipe",
+      "b": "planks"
+    },
+    {
+      "type": "combine",
+      "a": "clay",
+      "b": "brick"
+    },
+    {
+      "type": "combine",
+      "a": "wheel",
+      "b": "hollow-pipe"
+    },
+    {
+      "type": "combine",
+      "a": "pump",
+      "b": "waterwheel"
+    },
+    {
+      "type": "combine",
+      "a": "reservoir",
+      "b": "water-pump"
+    },
+    {
+      "type": "combine",
+      "a": "water-channel",
+      "b": "filled-reservoir"
+    },
+    {
+      "type": "combine",
+      "a": "irrigation-channel",
+      "b": "climbing-garden"
+    },
+    {
+      "type": "advance"
+    },
+    {
+      "type": "combine",
+      "a": "thread",
+      "b": "planks"
+    },
+    {
+      "type": "combine",
+      "a": "plant",
+      "b": "rain"
+    },
+    {
+      "type": "combine",
+      "a": "flowers",
+      "b": "water"
+    },
+    {
+      "type": "combine",
+      "a": "thread",
+      "b": "dye"
+    },
+    {
+      "type": "combine",
+      "a": "loom",
+      "b": "dyed-thread"
+    },
+    {
+      "type": "combine",
+      "a": "patterned-cloth",
+      "b": "wood"
+    },
+    {
+      "type": "combine",
+      "a": "cloth",
+      "b": "planks"
+    },
+    {
+      "type": "combine",
+      "a": "awning",
+      "b": "rope"
+    },
+    {
+      "type": "advance"
+    },
+    {
+      "type": "combine",
+      "a": "fiber",
+      "b": "water"
+    },
+    {
+      "type": "combine",
+      "a": "pulp",
+      "b": "cloth"
+    },
+    {
+      "type": "combine",
+      "a": "wood",
+      "b": "kiln"
+    },
+    {
+      "type": "combine",
+      "a": "charcoal",
+      "b": "water"
+    },
+    {
+      "type": "combine",
+      "a": "paper",
+      "b": "ink"
+    },
+    {
+      "type": "combine",
+      "a": "letter",
+      "b": "sailboat"
+    },
+    {
+      "type": "combine",
+      "a": "carving-tool",
+      "b": "planks"
+    },
+    {
+      "type": "combine",
+      "a": "printing-block",
+      "b": "ink"
+    },
+    {
+      "type": "combine",
+      "a": "inked-block",
+      "b": "paper"
+    },
+    {
+      "type": "advance"
+    },
+    {
+      "type": "combine",
+      "a": "wood",
+      "b": "carving-tool"
+    },
+    {
+      "type": "combine",
+      "a": "hollow-tube",
+      "b": "air"
+    },
+    {
+      "type": "combine",
+      "a": "cloth",
+      "b": "jar"
+    },
+    {
+      "type": "combine",
+      "a": "planks",
+      "b": "brick"
+    },
+    {
+      "type": "combine",
+      "a": "platform",
+      "b": "canopy"
+    },
+    {
+      "type": "advance"
+    },
+    {
+      "type": "combine",
+      "a": "cloth",
+      "b": "window"
+    },
+    {
+      "type": "combine",
+      "a": "curtain",
+      "b": "platform"
+    },
+    {
+      "type": "combine",
+      "a": "wood",
+      "b": "cloth"
+    },
+    {
+      "type": "combine",
+      "a": "stage",
+      "b": "puppet"
+    },
+    {
+      "type": "combine",
+      "a": "paper",
+      "b": "thread"
+    },
+    {
+      "type": "combine",
+      "a": "dye",
+      "b": "glazed-bowl"
+    },
+    {
+      "type": "combine",
+      "a": "paint",
+      "b": "paper"
+    },
+    {
+      "type": "combine",
+      "a": "bound-book",
+      "b": "picture"
+    },
+    {
+      "type": "advance"
+    },
+    {
+      "type": "combine",
+      "a": "glazed-bowl",
+      "b": "@pond"
+    },
+    {
+      "type": "combine",
+      "a": "glass",
+      "b": "planks"
+    },
+    {
+      "type": "combine",
+      "a": "pond-water",
+      "b": "glass-slide"
+    },
+    {
+      "type": "combine",
+      "a": "glass",
+      "b": "sand"
+    },
+    {
+      "type": "combine",
+      "a": "lens",
+      "b": "wood"
+    },
+    {
+      "type": "combine",
+      "a": "lens",
+      "b": "hollow-tube"
+    },
+    {
+      "type": "combine",
+      "a": "magnifier",
+      "b": "telescope"
+    },
+    {
+      "type": "combine",
+      "a": "pond-slide",
+      "b": "microscope"
+    },
+    {
+      "type": "advance"
+    },
+    {
+      "type": "combine",
+      "a": "lens",
+      "b": "plant"
+    },
+    {
+      "type": "combine",
+      "a": "leaf-study",
+      "b": "ink"
+    },
+    {
+      "type": "combine",
+      "a": "plant",
+      "b": "paper"
+    },
+    {
+      "type": "combine",
+      "a": "pressed-specimen",
+      "b": "bound-book"
+    },
+    {
+      "type": "combine",
+      "a": "botanical-drawing",
+      "b": "herbarium"
+    },
+    {
+      "type": "advance"
+    },
+    {
+      "type": "combine",
+      "a": "cloth",
+      "b": "hollow-tube"
+    },
+    {
+      "type": "combine",
+      "a": "glass",
+      "b": "air"
+    },
+    {
+      "type": "combine",
+      "a": "glass-bottle",
+      "b": "paper"
+    },
+    {
+      "type": "combine",
+      "a": "measuring-jar",
+      "b": "rain"
+    },
+    {
+      "type": "combine",
+      "a": "paper",
+      "b": "rain-gauge"
+    },
+    {
+      "type": "combine",
+      "a": "windsock",
+      "b": "rain-record"
+    },
+    {
+      "type": "advance"
+    },
+    {
+      "type": "combine",
+      "a": "wood",
+      "b": "fire"
+    },
+    {
+      "type": "combine",
+      "a": "thread",
+      "b": "rope"
+    },
+    {
+      "type": "combine",
+      "a": "net",
+      "b": "@tidal-shore"
+    },
+    {
+      "type": "combine",
+      "a": "smoke",
+      "b": "fish"
+    },
+    {
+      "type": "combine",
+      "a": "cider",
+      "b": "air"
+    },
+    {
+      "type": "combine",
+      "a": "vinegar",
+      "b": "fruit"
+    },
+    {
+      "type": "combine",
+      "a": "pickles",
+      "b": "jar"
+    },
+    {
+      "type": "advance"
+    },
+    {
+      "type": "combine",
+      "a": "glazed-bowl",
+      "b": "table"
+    },
+    {
+      "type": "combine",
+      "a": "sand",
+      "b": "charcoal"
+    },
+    {
+      "type": "combine",
+      "a": "filter-bed",
+      "b": "hollow-pipe"
+    },
+    {
+      "type": "combine",
+      "a": "water",
+      "b": "water-filter"
+    },
+    {
+      "type": "combine",
+      "a": "filtered-water",
+      "b": "fire"
+    },
+    {
+      "type": "combine",
+      "a": "boiled-water",
+      "b": "glazed-bottle"
+    },
+    {
+      "type": "combine",
+      "a": "filled-water-bottle",
+      "b": "jar-lid"
+    },
+    {
+      "type": "advance"
+    },
+    {
+      "type": "combine",
+      "a": "charcoal",
+      "b": "fire"
+    },
+    {
+      "type": "combine",
+      "a": "ash",
+      "b": "water"
+    },
+    {
+      "type": "combine",
+      "a": "lye",
+      "b": "oil"
+    },
+    {
+      "type": "combine",
+      "a": "soap",
+      "b": "washstand"
+    },
+    {
+      "type": "advance"
+    },
+    {
+      "type": "combine",
+      "a": "brick",
+      "b": "iron"
+    },
+    {
+      "type": "combine",
+      "a": "grain",
+      "b": "stove"
+    },
+    {
+      "type": "combine",
+      "a": "fruit",
+      "b": "stove"
+    },
+    {
+      "type": "combine",
+      "a": "porridge",
+      "b": "compote"
+    },
+    {
+      "type": "combine",
+      "a": "feast",
+      "b": "tiled-table"
+    },
+    {
+      "type": "advance"
+    },
+    {
+      "type": "combine",
+      "a": "planks",
+      "b": "wooden-chest"
+    },
+    {
+      "type": "combine",
+      "a": "planks",
+      "b": "net"
+    },
+    {
+      "type": "combine",
+      "a": "fruit",
+      "b": "drying-rack"
+    },
+    {
+      "type": "combine",
+      "a": "jar",
+      "b": "clay"
+    },
+    {
+      "type": "combine",
+      "a": "crock",
+      "b": "jar-lid"
+    },
+    {
+      "type": "combine",
+      "a": "dried-fruit",
+      "b": "sealed-crock"
+    },
+    {
+      "type": "advance"
+    },
+    {
+      "type": "combine",
+      "a": "paper",
+      "b": "planks"
+    },
+    {
+      "type": "combine",
+      "a": "wick",
+      "b": "glazed-bowl"
+    },
+    {
+      "type": "combine",
+      "a": "lantern-frame",
+      "b": "oil-lamp"
+    },
+    {
+      "type": "combine",
+      "a": "paper-lantern",
+      "b": "float"
+    },
+    {
+      "type": "combine",
+      "a": "oil-lamp",
+      "b": "glass"
+    },
+    {
+      "type": "advance"
+    },
+    {
+      "type": "combine",
+      "a": "stone",
+      "b": "rope"
+    },
+    {
+      "type": "combine",
+      "a": "pendulum",
+      "b": "wooden-gear"
+    },
+    {
+      "type": "combine",
+      "a": "clockwork",
+      "b": "planks"
+    },
+    {
+      "type": "combine",
+      "a": "clock",
+      "b": "paper"
+    },
+    {
+      "type": "advance"
+    },
+    {
+      "type": "combine",
+      "a": "planks",
+      "b": "hinge"
+    },
+    {
+      "type": "combine",
+      "a": "telescope",
+      "b": "tripod"
+    },
+    {
+      "type": "combine",
+      "a": "mounted-telescope",
+      "b": "paper"
+    },
+    {
+      "type": "advance"
+    },
+    {
+      "type": "combine",
+      "a": "stone",
+      "b": "brick"
+    },
+    {
+      "type": "combine",
+      "a": "arch",
+      "b": "planks"
+    },
+    {
+      "type": "combine",
+      "a": "arcade",
+      "b": "picture"
+    },
+    {
+      "type": "combine",
+      "a": "gallery",
+      "b": "paper"
+    },
+    {
+      "type": "combine",
+      "a": "glass",
+      "b": "stone"
+    },
+    {
+      "type": "combine",
+      "a": "mosaic-pieces",
+      "b": "clay"
+    },
+    {
+      "type": "advance"
+    },
+    {
+      "type": "place",
+      "item": "floating-lantern",
+      "hotspot": "gathering-landing"
+    },
+    {
+      "type": "advance"
+    }
+  ],
+  "reviewQuestions": [
+    "Do cuts genuinely remove forced purpose rather than disguise it?",
+    "Does Clock + Paper with task Schedule hourly return boats and printed 09:00/10:00/11:00 result have natural useful forward meaning independent of hidden prose?",
+    "Is collapsing the chest upgrade preferable to renaming it, with shared-tool chest and later grain-bin use retained?",
+    "Does telescope observation still deliver a real payoff, and does lantern-only gathering work as a coherent ending without an invented anthology?"
+  ],
+  "limitations": [
+    "No native/browser pixels or human enjoyment evidence.",
+    "Canonical paper deferral may increase letters arrival/peak; hinge remains prepared at the workshop before its final chest goal and should stay there until the stars visit. Measurements pending slot release.",
+    "All historical evidence and grades are copied as unchanged context, not regraded.",
+    "Unchanged Hinge recipe permits remote manufacture as an inherited gameplay abstraction. Prior forge-context acceptance is not proof of physically complete forging at the headland."
+  ],
+  "helperSha256": "d8d7c792f099f7fb4a40147391ee99f7763f51eec021da6534aed19fef332290",
+  "sourceRoot": "/workspace/shared/elements-journey-cleanup-20261029/source",
+  "sourceManifest": "/workspace/shared/elements-journey-cleanup-20261029/evidence/SOURCE-ONLY-MANIFEST.json",
+  "sourceSeal": "3cd82373f2b7bf04a8d2974424d150d09f4fa21f3416470b139c07e9c35180ac"
+}

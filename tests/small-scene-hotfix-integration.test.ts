@@ -1,6 +1,8 @@
+import {readSiteSourceForRootTests,writeRootTestOutput} from '../scripts/site-source-test-context.ts';
+const readFileSync=readSiteSourceForRootTests;
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {readFileSync} from 'node:fs';
+import {readFileSync as originalReadFileSync} from 'node:fs';
 import {scenarios,featuredScenarioIds,presentationFor} from '../experiments/tangible-campaign/ui/current-scenarios.ts';
 import {scenario as v2} from '../experiments/tangible-campaign/ui/stories/elements-locations.ts';
 import {scenario as v3} from '../experiments/tangible-campaign/ui/stories/elements-small-scenes.ts';
@@ -9,9 +11,9 @@ import {lifecycleAudit} from '../experiments/tangible-campaign/integration/curre
 import * as M from '../experiments/tangible-campaign/engine/campaign.ts';
 import {acceptedTestRoute} from '../experiments/tangible-campaign/integration/accepted-current-test-routes.ts';
 import {toLegacyScenario,toLegacyGame} from '../experiments/tangible-campaign/compatibility/v1.ts';
-test('featured small opening is distinct from exact retained v2 object, direct route and save identity',()=>{
+test('retained small opening is distinct from exact retained v2 object, direct route and save identity',()=>{
  assert.equal(scenarios.find(s=>s.id===v2.id),v2);assert.equal(scenarios.find(s=>s.id===v3.id),v3);
- assert(featuredScenarioIds.includes(v3.id));assert(!featuredScenarioIds.includes(v2.id));assert.match(presentationFor(v2).title,/^Snapshot:/);
+ assert(!featuredScenarioIds.includes(v3.id));assert.match(presentationFor(v3).title,/^Snapshot:/);assert(!featuredScenarioIds.includes(v2.id));assert.match(presentationFor(v2).title,/^Snapshot:/);
  assert.deepEqual(v3.recipes,v2.recipes);assert.deepEqual(v3.milestones,v2.milestones);
  for(const s of [v2,v3]){
   const accepted=acceptedTestRoute(toLegacyScenario(s));assert.equal(accepted.source.kind,'authored-complete-checkpoint');assert.equal(accepted.actions.length,s.checkpoints!.find(c=>c.id==='complete')!.actions.length);

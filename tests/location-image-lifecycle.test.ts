@@ -1,6 +1,8 @@
+import {readSiteSourceForRootTests,writeRootTestOutput} from '../scripts/site-source-test-context.ts';
+const readFileSync=readSiteSourceForRootTests;
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {readFileSync} from 'node:fs';
+import {readFileSync as originalReadFileSync} from 'node:fs';
 import {locationHarness} from '../experiments/tangible-campaign/ui/location-controller-harness.ts';
 import {reconcileLocationDom} from '../experiments/tangible-campaign/ui/location-dom.ts';
 import {syntheticDocument} from '../experiments/tangible-campaign/ui/synthetic-dom.ts';

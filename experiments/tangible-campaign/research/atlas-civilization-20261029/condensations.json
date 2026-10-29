@@ -1,0 +1,48 @@
+[
+  {
+    "chapter": "perspective",
+    "retire": [
+      "make-window-projection",
+      "make-vanishing-direction",
+      "make-linear-perspective"
+    ],
+    "replace": "civ-direct-perspective",
+    "before": 3,
+    "after": 1,
+    "reason": "One drawing operation replaces two intermediate renamings; viewpoint tests remain."
+  },
+  {
+    "chapter": "perspective",
+    "retire": [
+      "make-flat-projection",
+      "make-bearing-chart"
+    ],
+    "replace": "civ-direct-bearing-chart",
+    "before": 2,
+    "after": 1,
+    "reason": "The chart’s use is visible before it is made; distortion is still tested separately."
+  },
+  {
+    "chapter": "longitude",
+    "retire": [
+      "make-equal-hours",
+      "make-reference-timekeeper"
+    ],
+    "replace": "civ-direct-reference-clock",
+    "before": 2,
+    "after": 1,
+    "reason": "Shared time plus the already supplied calibrated portable clock makes a reference; no equal-hours relabel gate."
+  },
+  {
+    "chapter": "relativity",
+    "retire": [
+      "make-signal-synchronized-clocks",
+      "make-platform-simultaneity",
+      "make-unequal-passenger-reception"
+    ],
+    "replace": "civ-direct-train-comparison",
+    "before": 3,
+    "after": 1,
+    "reason": "A single fully specified teaching case replaces clock-procedure and reception-order relabels. Invariant light speed is still a separate required premise."
+  }
+]

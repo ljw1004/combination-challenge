@@ -1,10 +1,9 @@
-
-// Root context: exact whole-Site provenance bytes resolve explicit immutable snapshots; gameplay imports remain active.
-const sourcePaths=JSON.parse(readFileSync(new URL('docs/location-hotspot-root-sync-20261028/test-context-map.json',new URL('../',import.meta.url)),'utf8')).siteSourceInputPathBySitePath;
+import {readSiteSourceForRootTests,writeRootTestOutput} from '../scripts/site-source-test-context.ts';
+const readFileSync=readSiteSourceForRootTests;
 import {expectedSourceHashAfterFinalTestContracts} from '../experiments/tangible-campaign/integration/final-test-contract-source-guard.ts';
 import assert from 'node:assert/strict';
 import test from 'node:test';
-import {readFileSync} from 'node:fs';
+import {readFileSync as originalReadFileSync} from 'node:fs';
 import {createHash} from 'node:crypto';
 import type {Action,Scenario} from '../experiments/tangible-campaign/schema/campaign.ts';
 import * as M from '../experiments/tangible-campaign/engine/campaign.ts';
@@ -40,7 +39,7 @@ function assertSaved(g:M.Game){
 test('exact frozen source lineage, all forty historical scenario objects and old observation chains stay unchanged',()=>{
  const manifest=JSON.parse(readFileSync(new URL(review+'source-successors.json',root),'utf8'));
  assert.equal(manifest.parentSourceSealSha256,'60aa75dd30d776867324f738b900ed86e5c5188558c148666c0e6111e2b1b9be');
- const sha=(path:string)=>createHash('sha256').update(readFileSync(new URL(sourcePaths[path]??path,root))).digest('hex');
+ const sha=(path:string)=>createHash('sha256').update(readFileSync(new URL(path,root))).digest('hex');
  for(const [path,row]of Object.entries<any>(manifest.files)){assert.equal(sha(path),expectedSourceHashAfterFinalTestContracts(path,row.afterSha256),path);assert.equal(sha(row.predecessorSnapshotPath),row.beforeSha256,path);}
  const prior=JSON.parse(readFileSync(new URL(review+'historical-scenario-hashes.json',root),'utf8'));assert.equal(historical.length,40);
  for(const s of historical)assert.equal(createHash('sha256').update(JSON.stringify(s)).digest('hex'),prior[s.id],s.id);
