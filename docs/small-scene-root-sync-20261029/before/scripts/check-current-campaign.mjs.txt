@@ -1,0 +1,45 @@
+import {verifySourceArchive} from './verify-campaign-source-archive.mjs';
+/** Root campaign-only gate. It deliberately does not treat a Site snapshot seal as the root repository seal. */
+import assert from 'node:assert/strict';
+import {readFileSync,existsSync} from 'node:fs';
+import {createHash} from 'node:crypto';
+import {resolve,dirname,relative} from 'node:path';
+import {fileURLToPath} from 'node:url';
+const root=resolve(dirname(fileURLToPath(import.meta.url)),'..');
+const read=p=>readFileSync(resolve(root,p));
+const sha=b=>createHash('sha256').update(b).digest('hex');
+const manifest=JSON.parse(read('scripts/current-campaign-manifest.json'));
+for(const [path,want]of Object.entries(manifest.files))assert.equal(sha(read(path)),want.sha256,'campaign source drift: '+path);
+for(const [path,want]of Object.entries(manifest.protectedRootFiles))assert.equal(sha(read(path)),want.sha256,'unrelated root source changed: '+path);
+const pkg=JSON.parse(read('package.json'));
+for(const [k,v]of Object.entries(manifest.originalScripts))assert.equal(pkg.scripts[k],v,'original root script changed: '+k);
+assert.deepEqual(pkg.devDependencies,manifest.originalDevDependencies,'original dependencies changed');
+const pending=[...manifest.runtimeEntries],seen=new Set();
+while(pending.length){
+ const rel=pending.pop();if(seen.has(rel))continue;seen.add(rel);
+ const content=read(rel).toString();
+ const imports=rel.endsWith('.html')?[...content.matchAll(/<script\b[^>]*\bsrc=["']([^"']+)["']/g)].map(m=>m[1]):(/\.[cm]?[jt]sx?$/.test(rel)?[...content.matchAll(/(?:\bfrom\s*|\bimport\s*|\bimport\s*\()(["'])([^"']+)\1/g)].map(x=>x[2]):[]);
+ imports.push(...[...content.matchAll(/\bnew\s+URL\(\s*(["'])([^"']+)\1\s*,\s*import\.meta\.url/g)].map(x=>x[2]));
+ for(const spec of imports){
+  if(!spec.startsWith('.')&&!spec.startsWith('/'))continue;
+  let target=spec.startsWith('/')?resolve(root,'.'+spec):resolve(root,dirname(rel),spec);
+  assert(target.startsWith(root+'/'),'import escapes repo: '+rel+' -> '+spec);
+  if(!existsSync(target)){target=['.ts','.tsx','.js','/index.ts','/index.js'].map(ext=>target+ext).find(existsSync)??target;}
+  assert(existsSync(target),'missing root runtime import: '+rel+' -> '+spec);
+  pending.push(relative(root,target));
+ }
+}
+assert.deepEqual([...seen].sort(),manifest.runtimeClosure,'actual root transitive closure changed');
+for(const rel of seen)assert(manifest.files[rel],'runtime dependency omitted from publication payload: '+rel);
+// Data-defined background URLs are runtime dependencies even though they are not module imports.
+const {locationSuccessorScenarios}=await import('../experiments/tangible-campaign/ui/current-scenarios.ts');
+const used=[...new Set(locationSuccessorScenarios.flatMap(s=>s.locationPlan.locations.map(l=>l.background.asset)))].sort();
+assert.deepEqual(used,manifest.runtimeAssets.map(a=>a.runtimeUrl).sort(),'actual scenario artwork closure changed');
+for(const asset of manifest.runtimeAssets){assert.equal(asset.path,'public'+asset.runtimeUrl);assert(manifest.files[asset.path]);assert.equal(sha(read(asset.path)),asset.sha256,'active artwork drift: '+asset.path);}
+assert.equal(used.length,71);
+const archived=verifySourceArchive().report;assert.equal(archived.sourceSealSha256,manifest.sourceSealSha256);
+const predecessor=verifySourceArchive({archive:'predecessor'}).report;assert.equal(predecessor.sourceSealSha256,manifest.predecessorSourceArchive.sourceSealSha256);
+const intermediate=verifySourceArchive({archive:'intermediate'}).report;assert.equal(intermediate.sourceSealSha256,manifest.intermediateSourceArchive.sourceSealSha256);
+const readme=read('README.md').toString(),marker='## Current live shared runtime — 28 October 2026';
+assert.equal(sha(Buffer.from(readme.slice(readme.indexOf(marker)))),manifest.historicalReadmeTailSha256,'dated README chronology changed');
+console.log(`PASS root campaign: ${Object.keys(manifest.files).length} declared files; ${seen.size} actual runtime/content-gate dependencies + ${used.length} referenced artwork assets; ${Object.keys(manifest.protectedRootFiles).length} unrelated root files and ${Object.keys(manifest.originalScripts).length} original scripts unchanged; full ${archived.materializedFiles}-file source archive verified.`);

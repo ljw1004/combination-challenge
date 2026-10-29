@@ -38,10 +38,16 @@ for(const change of observationSuccessor.changes){
  assert.deepEqual(byKey.get(key)??null,change.before,'Exact observation lifecycle predecessor '+key);
  if(change.after)byKey.set(key,change.after);else{supersededUnpublishedRecipes.push(change.before);byKey.delete(key);}
 }
+const smallSceneAdditions=JSON.parse(readFileSync(new URL('../reviews/small-scene-hotfix-20261029/lifecycle-additions.json',import.meta.url),'utf8'));
+for(const row of smallSceneAdditions.recipes){
+ assert.equal(row.world,'elements-small-scenes-v3');const key=row.world+':'+row.recipe;
+ assert(!byKey.has(key),'Duplicate small-scene recipe '+key);
+ assert.deepEqual({...row,world:'elements-river-locations-v2'},byKey.get('elements-river-locations-v2:'+row.recipe),'Exact inherited Elements lifecycle '+key);byKey.set(key,row);
+}
 const active=scenarios.filter(s=>!archivedScenarioIds.has(s.id));
 const recipes=active.flatMap(s=>s.recipes.map(r=>{
  const row=byKey.get(s.id+':'+r.id);assert(row,'Missing audited recipe '+s.id+':'+r.id);
  assert.deepEqual(row.lifecycles??row.lifecycle??row.decisions,r.lifecycle,'Exact authored lifecycle '+s.id+':'+r.id);return row;
 }));
 assert.equal(recipes.length,byKey.size,'No historical audit row may disappear');
-export const lifecycleAudit={...prior,scope:'Exact current catalogue with immutable historical rows, explicit lifecycle successors and seven location successors, including the unpublished Mars observation simplification.',historicalRecipes,lifecycleSuccessor,playtestRepairsSuccessor,observationSuccessor,supersededUnpublishedRecipes,counts:Object.fromEntries(active.map(s=>[s.id,{recipes:s.recipes.length}])),activeScenarios:active.length,activeRecipes:recipes.length,recipes};
+export const lifecycleAudit={...prior,scope:'Exact current catalogue with immutable historical rows, explicit lifecycle successors and eight location successors, including the Mars observation simplification and exact small-scene Elements lifecycle inheritance.',historicalRecipes,lifecycleSuccessor,playtestRepairsSuccessor,observationSuccessor,supersededUnpublishedRecipes,counts:Object.fromEntries(active.map(s=>[s.id,{recipes:s.recipes.length}])),activeScenarios:active.length,activeRecipes:recipes.length,recipes};

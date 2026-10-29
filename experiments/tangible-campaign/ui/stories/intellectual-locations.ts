@@ -6,6 +6,7 @@ import {scenario as light} from './divinity-light-text-workshop.ts';
 import {atlasStations} from './intellectual-stations.ts';
 import {locationCardLabels} from './location-card-labels.ts';
 import {intellectualLocationData} from './intellectual-location-data.ts';
+import {withEssentialCueProse} from './intellectual-cue-prose.ts';
 const endings={atlas:'The last page does not describe a perfect civilization. It keeps the instruments, arguments and disagreements that made this world possible—and leaves its people a way to change it.',divinity:'The request, the panel and the fragment are still the same cases. Better evidence has changed one question without settling every disagreement. You can now say where these accounts meet, and where they remain opposed.',light:'The exhibit is up. A stranger stops; a father steps outside; a crowd eats. The headline survived only by changing. Four panels—and room for another visitor to ask a better question.'};
 function successor(key:keyof typeof intellectualLocationData,original:Scenario):Scenario{
  const source=structuredClone(applyMilestones(original)),data=structuredClone(intellectualLocationData[key]);
@@ -22,7 +23,7 @@ function successor(key:keyof typeof intellectualLocationData,original:Scenario):
   return {...chapter,...entry,location:{id:location.id,label:location.label,travelText:location.travelText},hotspots:[],caches:[],carry:[],...(index===source.chapters.length-1?{completionText:endings[key]}:{})};
  }),notes:[...(source.notes??[]),'Location successor: stable fixed 390 × 844 reference panels; chapters preserve all objects and arrangement. Sources are comparative reading settings, not a claim that all represented authors met there. Artwork and popup presentation do not certify phone usability.']};
 }
-export const atlasLocations=successor('atlas',atlas);
-export const divinityLocations=successor('divinity',divinity);
+export const atlasLocations=withEssentialCueProse(successor('atlas',atlas),'atlas');
+export const divinityLocations=withEssentialCueProse(successor('divinity',divinity),'divinity');
 export const lightLocations=successor('light',light);
 export const intellectualLocationScenarios=[atlasLocations,divinityLocations,lightLocations];

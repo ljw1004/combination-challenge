@@ -1,0 +1,24 @@
+# Connected scenery and plain story cards — 29 October 2026
+
+UI-only successor of the published final-v4 source (`ca4be1e53099dc308c72e21fbde77d76d86ba943`). No recipes, goal logic, supplies, locations, saves, or historical scenario definitions are changed here. Scene-density and intellectual-story revisions are separate work.
+
+## Diagnosis and change
+
+The predecessor's `render()` replaced `app.innerHTML`, including the viewport, board and every `loading="lazy"` background image, after ordinary selection and combinations. A subtree-aware synthetic regression demonstrates that those actual image nodes were destroyed. A matching URL or a browser cache hit is not a guarantee that a newly created image has a decoded, painted surface. This is a concrete lifecycle fault consistent with the reported blank flashing, not an iOS reproduction or an assertion that every possible flash has the same cause.
+
+Location campaigns now reconcile connected DOM nodes by identity. Existing scenes and their image nodes are not removed/reinserted; unchanged `src` attributes are not rewritten. Inert templates do not initiate speculative replacement-image loads. Genuinely new discovered scenes are added, and Undo/reset remove only scenes that cease to exist. Newly inserted art loads eagerly with async decoding. There is no flash-hiding overlay or artificial delay. Non-art historical campaigns retain their existing renderer.
+
+The viewport, board, surviving object controls and native dialog nodes also remain stable. Native dialog `open` state is controller-owned; an ordinary patch cannot strip the top-layer state. Pointer and fallback touch listeners attach once per board, not once per render. The autoscroll loop retains one timer owner; completion, cancellation, capture loss, blur and resize cancel it and explicitly release any owned pointer capture. State is cleared before release so synchronous capture-loss events cannot re-enter cancellation.
+
+Background opacity rises from `.46` to `.94`, saturation from `.68` to `1.08`, and the pale wash is substantially reduced. Solid object cards preserve label contrast; fixed-location objectives and hotspots have local backing instead of fading the entire artwork.
+
+Ordinary current story cards contain one prose block. The prose is itself a native button, with an accessible Continue name and the story text as the dialog description. Tap/click, Enter/Space, Escape and outside dismissal remain available; there is no visible title, speaker, caption, duplicated goal checklist or Start over control. Genuine invention celebrations and completed-ending controls remain separate. The objective overlay continues to own goals. Essential chronology/attribution must be authored into the prose rather than relied upon in a removed caption; coordinate that content migration before publication. No automatic text truncation or goal rewrite is performed.
+
+## Verification boundaries
+
+- Source/synthetic checks cover exact connected-node and `src` persistence over repeated selection, drag/combine, Undo, source updates, visits, added locations, reset, dialog ownership, focus, save notifications and world navigation. Sustained edge scrolling and all interruption owners are tested separately.
+- The predecessor fails the exact image-identity regression; the candidate passes it. This is structural evidence, not a simulated claim about iOS decode timing.
+- A narrow supported Sites preview in cloud Chrome visually displayed the plain card and stronger artwork; click creation and a legal native drag (Solar panel + Battery → Solar charger) worked, and Undo restored Solar panel. Browser protocol timeouts interrupted one earlier drag attempt and a later debug-close attempt. A controlled rerun on unchanged predecessor source completed drag → Undo → Close. After explicit pointer-capture cleanup, the final candidate completed that same sequence, then scroll, story reopening and Escape dismissal with `scrollTop=87` preserved. Earlier timeouts remain unclassified; successful reruns do not prove their cause or erase the incomplete attempts. The fixed board was 390 logical pixels inside a desktop viewport; no phone-viewport emulation, mobile Safari, continuous-frame flash recording or human-fun claim is made.
+- Player screenshots were inspected privately and are not included in repository files or publication assets.
+
+Exact predecessor bytes, successor hashes and test transcripts accompany this change. Historical seals are not rewritten. Two obsolete experiment-controller harnesses predate the milestone/save adapters and still fail before exercising the controller (`applyMilestones` is undefined); the same failure is present on the predecessor. The maintained controller suite is `ui/campaign-controller.test.ts` plus the location and current Mars controller checks.

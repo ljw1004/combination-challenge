@@ -1,7 +1,7 @@
 {
-  "sourceSealSha256": "4f7eac1e1532adab0184271f3550ac7494bdfdfe2ca94875073ad9b4df3805c7",
+  "sourceSealSha256": "4242e81914f4d3a6a6afc20a16123c19e100947d3cef941b40d7a43e3e6bbf26",
   "supersedes": "Terminology-only root projection and invalid 52-active-Site-test proposal. Full final Site aggregate is separate; root preserves its unrelated app/docs/configs/tests.",
-  "siteAggregateEntries": 95,
+  "siteAggregateEntries": 101,
   "activeRootEntries": [
     "tests/tangible-campaign.test.ts",
     "tests/location-hotspot-terminology.test.ts",
@@ -11,7 +11,13 @@
     "tests/physical-location-successors.test.ts",
     "tests/location-current-registry.test.ts",
     "tests/mars-observation-streamline.test.ts",
-    "tests/current-campaign-root-contract.test.ts"
+    "tests/current-campaign-root-contract.test.ts",
+    "tests/elements-small-scenes.test.ts",
+    "tests/intellectual-cue-prose.test.ts",
+    "tests/location-image-lifecycle.test.ts",
+    "tests/rendering-intertitles-source-contract.test.ts",
+    "tests/small-scene-hotfix-integration.test.ts",
+    "tests/small-scene-hotfix-source-contract.test.ts"
   ],
   "activeRootCoverage": [
     "Original root lifecycle/objective/event-local/engine/independent-engine/controller/autosave imports retained",
@@ -33,17 +39,31 @@
   "adaptedSiteTests": [
     {
       "path": "tests/location-current-registry.test.ts",
-      "siteSha256": "105255e8a04f563cc27087f3a77fd45d50b3486cf8074dc8815f2ca2d6463d14",
-      "afterSha256": "9de1d48a48800aaa41c50951015c8fc128161aeeb4158cce5c0fbde46dac3f9c",
+      "siteSha256": "0d9458fdef68af3372982ec2f4f883667d1778500ce76cdbcc2b59d10cd4f1dc",
+      "afterSha256": "b50306d6c4ed72a3293b43419d02285689946153a4bf8319e10a6cddfb3e7852",
       "siteSnapshotPath": "docs/location-hotspot-root-sync-20261028/site-test-inputs/tests/location-current-registry.test.ts.txt",
-      "rationale": "Scoped campaign-start homepage plus explicit Site-source reads; all active47 registry/save/art/chooser assertions remain actual root."
+      "rationale": "Explicit source-provenance snapshots only; runtime, controllers and artwork assertions execute actual root."
     },
     {
       "path": "tests/mars-observation-streamline.test.ts",
-      "siteSha256": "bcd3982774231e203225333f231f8f9c2152d457d5b8e1dd904c3c216a59ebf0",
-      "afterSha256": "720d2f9d4e518df1e341e22006d929f09dc5dd1042eae7c2392b625807f2dab7",
+      "siteSha256": "4cde8d088264dbcbf473aedadb76fbb53ca0a1d7ccfe62b0d96cec1142ad7206",
+      "afterSha256": "aaf211c39eca4fe635454f0823df28c6e7f3863450c5337e2d0ed761faefc182",
       "siteSnapshotPath": "docs/location-hotspot-root-sync-20261028/site-test-inputs/tests/mars-observation-streamline.test.ts.txt",
-      "rationale": "Only nine whole-Site provenance SHA reads can resolve via explicit archived Site paths; all gameplay/controller/save/Undo/lifecycle/scenario-object assertions remain active root. Exact original test retained."
+      "rationale": "Explicit source-provenance snapshots only; runtime, controllers and artwork assertions execute actual root."
+    },
+    {
+      "path": "tests/rendering-intertitles-source-contract.test.ts",
+      "siteSha256": "a29f0d8d33155cd9bb0d2591171f15912a5b654e145657a0bf68a99976ff9a98",
+      "afterSha256": "e036489f5829963fee7c907b643751e32791195c10b9c75470f6b287499b309e",
+      "siteSnapshotPath": "docs/location-hotspot-root-sync-20261028/site-test-inputs/tests/rendering-intertitles-source-contract.test.ts.txt",
+      "rationale": "Explicit source-provenance snapshots only; runtime, controllers and artwork assertions execute actual root."
+    },
+    {
+      "path": "tests/small-scene-hotfix-source-contract.test.ts",
+      "siteSha256": "f734e6ded8f628b24acd50a49e9e65e23db0249e9f6eace9378287f5c1de0d36",
+      "afterSha256": "922c74689f46d4c5aaf1d48ed0557c9babffbf2b07749718c74fced6b662d75f",
+      "siteSnapshotPath": "docs/location-hotspot-root-sync-20261028/site-test-inputs/tests/small-scene-hotfix-source-contract.test.ts.txt",
+      "rationale": "Explicit source-provenance snapshots only; runtime, controllers and artwork assertions execute actual root."
     }
   ],
   "exactSiteActiveTests": [
@@ -66,6 +86,22 @@
     {
       "path": "tests/physical-location-successors.test.ts",
       "sha256": "c573b46e237e7efac5c1718026f1f4929554c76ba35a5e5d3a1ee7713187833d"
+    },
+    {
+      "path": "tests/elements-small-scenes.test.ts",
+      "sha256": "bbc1ebbca0ef88417249740660907bfe2a3c3d03cc2b940ae7859bff81f79417"
+    },
+    {
+      "path": "tests/intellectual-cue-prose.test.ts",
+      "sha256": "8bab3c2f4965517309f49980c0714fe025dbdec4f0dccf44a7b55fc2007dc9ac"
+    },
+    {
+      "path": "tests/location-image-lifecycle.test.ts",
+      "sha256": "1478fdc7e936365a6b9ee8a82db9fde737cbb9e200dbc0059aaea8984422cf44"
+    },
+    {
+      "path": "tests/small-scene-hotfix-integration.test.ts",
+      "sha256": "ebd9d478633b8c8a8f66d4b3b6dc8b10647aac3ea93109661d643de8817d273a"
     }
   ],
   "archivedSiteTestInputs": [
@@ -74,687 +110,914 @@
       "archivePath": "docs/location-hotspot-root-sync-20261028/site-test-inputs/experiments/tangible-campaign/engine/arrival.test.ts.txt",
       "sha256": "35e695cae796107a8ba4679f7d58179efcd4453c1802949c9f3a04af81525f0c",
       "bytes": 6850,
-      "purpose": "Exact final-v4 Site input. Original94 frozen60aa75 tests remain independently recoverable in predecessor source archive; composite receipts distinguish final reruns from equivalent unchanged inputs."
+      "purpose": "Exact hotfix Site input; historical inputs preserved before overwrite and in immutable archive."
     },
     {
       "sitePath": "experiments/tangible-campaign/engine/model.test.ts",
       "archivePath": "docs/location-hotspot-root-sync-20261028/site-test-inputs/experiments/tangible-campaign/engine/model.test.ts.txt",
       "sha256": "361c1918c07aae1ca9a5bab9c67988ec947d41edf071415f189908c78616d687",
       "bytes": 20290,
-      "purpose": "Exact final-v4 Site input. Original94 frozen60aa75 tests remain independently recoverable in predecessor source archive; composite receipts distinguish final reruns from equivalent unchanged inputs."
+      "purpose": "Exact hotfix Site input; historical inputs preserved before overwrite and in immutable archive."
     },
     {
       "sitePath": "experiments/tangible-campaign/engine/reactive-chapters.test.ts",
       "archivePath": "docs/location-hotspot-root-sync-20261028/site-test-inputs/experiments/tangible-campaign/engine/reactive-chapters.test.ts.txt",
       "sha256": "3ffad7a9e0868dff6e4ce2b13937b2b60b48cf3746ea4bc00c2e334af8dd6d8d",
       "bytes": 14848,
-      "purpose": "Exact final-v4 Site input. Original94 frozen60aa75 tests remain independently recoverable in predecessor source archive; composite receipts distinguish final reruns from equivalent unchanged inputs."
+      "purpose": "Exact hotfix Site input; historical inputs preserved before overwrite and in immutable archive."
     },
     {
       "sitePath": "tests/arrival-combined-integration.test.ts",
       "archivePath": "docs/location-hotspot-root-sync-20261028/site-test-inputs/tests/arrival-combined-integration.test.ts.txt",
       "sha256": "1a07180b68674cc95a75b69287dbe0320e4e7252cfcd9070d3d78550baca04ac",
       "bytes": 7238,
-      "purpose": "Exact final-v4 Site input. Original94 frozen60aa75 tests remain independently recoverable in predecessor source archive; composite receipts distinguish final reruns from equivalent unchanged inputs."
+      "purpose": "Exact hotfix Site input; historical inputs preserved before overwrite and in immutable archive."
     },
     {
       "sitePath": "tests/arrival-doctrine-compact.test.mjs",
       "archivePath": "docs/location-hotspot-root-sync-20261028/site-test-inputs/tests/arrival-doctrine-compact.test.mjs.txt",
       "sha256": "b9b0325464218af11c0f89a0f5c81ef1eda68e8d3215fadd101c579dce46508f",
       "bytes": 7812,
-      "purpose": "Exact final-v4 Site input. Original94 frozen60aa75 tests remain independently recoverable in predecessor source archive; composite receipts distinguish final reruns from equivalent unchanged inputs."
+      "purpose": "Exact hotfix Site input; historical inputs preserved before overwrite and in immutable archive."
     },
     {
       "sitePath": "tests/arrival-elements-alternatives.test.ts",
       "archivePath": "docs/location-hotspot-root-sync-20261028/site-test-inputs/tests/arrival-elements-alternatives.test.ts.txt",
       "sha256": "f4802a41837c038010627ecc6c48399754fe647a636e79dfe68861c9d5ce7239",
       "bytes": 3509,
-      "purpose": "Exact final-v4 Site input. Original94 frozen60aa75 tests remain independently recoverable in predecessor source archive; composite receipts distinguish final reruns from equivalent unchanged inputs."
+      "purpose": "Exact hotfix Site input; historical inputs preserved before overwrite and in immutable archive."
     },
     {
       "sitePath": "tests/arrival-elements-opening.test.ts",
       "archivePath": "docs/location-hotspot-root-sync-20261028/site-test-inputs/tests/arrival-elements-opening.test.ts.txt",
       "sha256": "dc0badacb0bc2d2d3fbf9a3fff421871a539b55522cd8f5624f1c58d80df5d1f",
       "bytes": 6323,
-      "purpose": "Exact final-v4 Site input. Original94 frozen60aa75 tests remain independently recoverable in predecessor source archive; composite receipts distinguish final reruns from equivalent unchanged inputs."
+      "purpose": "Exact hotfix Site input; historical inputs preserved before overwrite and in immutable archive."
     },
     {
       "sitePath": "tests/arrival-source-contract.test.ts",
       "archivePath": "docs/location-hotspot-root-sync-20261028/site-test-inputs/tests/arrival-source-contract.test.ts.txt",
       "sha256": "d95160dcf5a6212ac3dcfb4b3b7bebd46752642fa9cc6fdf65b25711b1cf0d0c",
       "bytes": 3360,
-      "purpose": "Exact final-v4 Site input. Original94 frozen60aa75 tests remain independently recoverable in predecessor source archive; composite receipts distinguish final reruns from equivalent unchanged inputs."
+      "purpose": "Exact hotfix Site input; historical inputs preserved before overwrite and in immutable archive."
     },
     {
       "sitePath": "tests/atlas-evidence-repair-integration.test.mjs",
       "archivePath": "docs/location-hotspot-root-sync-20261028/site-test-inputs/tests/atlas-evidence-repair-integration.test.mjs.txt",
       "sha256": "36cd8c77f4ad1d4e45eb40b4097f9c316969f81dca9e29ff8f8e4ac5cb7e23d7",
       "bytes": 16314,
-      "purpose": "Exact final-v4 Site input. Original94 frozen60aa75 tests remain independently recoverable in predecessor source archive; composite receipts distinguish final reruns from equivalent unchanged inputs."
+      "purpose": "Exact hotfix Site input; historical inputs preserved before overwrite and in immutable archive."
     },
     {
       "sitePath": "tests/atlas-miniature-exhaustive.test.mjs",
       "archivePath": "docs/location-hotspot-root-sync-20261028/site-test-inputs/tests/atlas-miniature-exhaustive.test.mjs.txt",
       "sha256": "e30b8febfc425a01e4632e3111c4da551d4e19540913cca90744fbb2a0ab824c",
       "bytes": 8121,
-      "purpose": "Exact final-v4 Site input. Original94 frozen60aa75 tests remain independently recoverable in predecessor source archive; composite receipts distinguish final reruns from equivalent unchanged inputs."
+      "purpose": "Exact hotfix Site input; historical inputs preserved before overwrite and in immutable archive."
     },
     {
       "sitePath": "tests/atlas-miniature-semantic-alternatives.test.ts",
       "archivePath": "docs/location-hotspot-root-sync-20261028/site-test-inputs/tests/atlas-miniature-semantic-alternatives.test.ts.txt",
       "sha256": "14e81822815a47d5e8c645c93c19be0340cf4cf03faf070b56fd1adf1ad66209",
       "bytes": 3486,
-      "purpose": "Exact final-v4 Site input. Original94 frozen60aa75 tests remain independently recoverable in predecessor source archive; composite receipts distinguish final reruns from equivalent unchanged inputs."
+      "purpose": "Exact hotfix Site input; historical inputs preserved before overwrite and in immutable archive."
     },
     {
       "sitePath": "tests/campaign-refinement-branches.test.ts",
       "archivePath": "docs/location-hotspot-root-sync-20261028/site-test-inputs/tests/campaign-refinement-branches.test.ts.txt",
       "sha256": "1d6d981b3dca0b2b20820ca3c7b34e87c7b7fcdd3e02b7afc7a1e27ea164026d",
       "bytes": 7758,
-      "purpose": "Exact final-v4 Site input. Original94 frozen60aa75 tests remain independently recoverable in predecessor source archive; composite receipts distinguish final reruns from equivalent unchanged inputs."
+      "purpose": "Exact hotfix Site input; historical inputs preserved before overwrite and in immutable archive."
     },
     {
       "sitePath": "tests/checkpoint.test.ts",
       "archivePath": "docs/location-hotspot-root-sync-20261028/site-test-inputs/tests/checkpoint.test.ts.txt",
       "sha256": "8d664780f18d620b7468d69a0fd286ab12879b06011380939f2bfea9e00cd971",
       "bytes": 2895,
-      "purpose": "Exact final-v4 Site input. Original94 frozen60aa75 tests remain independently recoverable in predecessor source archive; composite receipts distinguish final reruns from equivalent unchanged inputs."
+      "purpose": "Exact hotfix Site input; historical inputs preserved before overwrite and in immutable archive."
     },
     {
       "sitePath": "tests/compact-stage-independent.test.ts",
       "archivePath": "docs/location-hotspot-root-sync-20261028/site-test-inputs/tests/compact-stage-independent.test.ts.txt",
       "sha256": "79a72cda51a560ec745ed1826fda469eb06536d62f3487113f37f524c41e64cc",
       "bytes": 6796,
-      "purpose": "Exact final-v4 Site input. Original94 frozen60aa75 tests remain independently recoverable in predecessor source archive; composite receipts distinguish final reruns from equivalent unchanged inputs."
+      "purpose": "Exact hotfix Site input; historical inputs preserved before overwrite and in immutable archive."
     },
     {
       "sitePath": "tests/crawler-identity-and-visible-crew.test.ts",
       "archivePath": "docs/location-hotspot-root-sync-20261028/site-test-inputs/tests/crawler-identity-and-visible-crew.test.ts.txt",
       "sha256": "38170d1d81869c1b5bf46f42f8613dcb087473f066ce403a1f2289fb362cf4d6",
       "bytes": 7263,
-      "purpose": "Exact final-v4 Site input. Original94 frozen60aa75 tests remain independently recoverable in predecessor source archive; composite receipts distinguish final reruns from equivalent unchanged inputs."
+      "purpose": "Exact hotfix Site input; historical inputs preserved before overwrite and in immutable archive."
     },
     {
       "sitePath": "tests/divinity-light-guide.test.ts",
       "archivePath": "docs/location-hotspot-root-sync-20261028/site-test-inputs/tests/divinity-light-guide.test.ts.txt",
       "sha256": "f7b4b3cdd7689f5e596243880d1a8eb1cec463936c42a8762e1b94e08ebd8b35",
       "bytes": 9748,
-      "purpose": "Exact final-v4 Site input. Original94 frozen60aa75 tests remain independently recoverable in predecessor source archive; composite receipts distinguish final reruns from equivalent unchanged inputs."
+      "purpose": "Exact hotfix Site input; historical inputs preserved before overwrite and in immutable archive."
     },
     {
       "sitePath": "tests/divinity-light-text-workshop.test.ts",
       "archivePath": "docs/location-hotspot-root-sync-20261028/site-test-inputs/tests/divinity-light-text-workshop.test.ts.txt",
       "sha256": "0a66b458a91069d7e051044366b126b5320f1056e28087cb6abfa3e2e7b75752",
       "bytes": 9428,
-      "purpose": "Exact final-v4 Site input. Original94 frozen60aa75 tests remain independently recoverable in predecessor source archive; composite receipts distinguish final reruns from equivalent unchanged inputs."
+      "purpose": "Exact hotfix Site input; historical inputs preserved before overwrite and in immutable archive."
     },
     {
       "sitePath": "tests/doctrine-v9-integration.test.ts",
       "archivePath": "docs/location-hotspot-root-sync-20261028/site-test-inputs/tests/doctrine-v9-integration.test.ts.txt",
       "sha256": "ff9d8f9fdc02b51802eaa299b3617a17c2ae038a29bca48b9b6b000ff2696633",
       "bytes": 7724,
-      "purpose": "Exact final-v4 Site input. Original94 frozen60aa75 tests remain independently recoverable in predecessor source archive; composite receipts distinguish final reruns from equivalent unchanged inputs."
+      "purpose": "Exact hotfix Site input; historical inputs preserved before overwrite and in immutable archive."
     },
     {
       "sitePath": "tests/elements-compact-birth.test.ts",
       "archivePath": "docs/location-hotspot-root-sync-20261028/site-test-inputs/tests/elements-compact-birth.test.ts.txt",
       "sha256": "13d426a3e3857e05b4cb8630541457121d7b8eb79add2f662979d529c84f43f5",
       "bytes": 2615,
-      "purpose": "Exact final-v4 Site input. Original94 frozen60aa75 tests remain independently recoverable in predecessor source archive; composite receipts distinguish final reruns from equivalent unchanged inputs."
+      "purpose": "Exact hotfix Site input; historical inputs preserved before overwrite and in immutable archive."
     },
     {
       "sitePath": "tests/elements-discovery-browser.test.ts",
       "archivePath": "docs/location-hotspot-root-sync-20261028/site-test-inputs/tests/elements-discovery-browser.test.ts.txt",
       "sha256": "11e0245619183d2d28099fd89d3d3f57de116add142d9a998d20597e9be3e03d",
       "bytes": 3562,
-      "purpose": "Exact final-v4 Site input. Original94 frozen60aa75 tests remain independently recoverable in predecessor source archive; composite receipts distinguish final reruns from equivalent unchanged inputs."
+      "purpose": "Exact hotfix Site input; historical inputs preserved before overwrite and in immutable archive."
     },
     {
       "sitePath": "tests/elements-discovery-dom.test.ts",
       "archivePath": "docs/location-hotspot-root-sync-20261028/site-test-inputs/tests/elements-discovery-dom.test.ts.txt",
       "sha256": "40b8df285eed752fb81dfcb74f4450c606a28c19cf77d885c4ac04f0006614e6",
       "bytes": 12955,
-      "purpose": "Exact final-v4 Site input. Original94 frozen60aa75 tests remain independently recoverable in predecessor source archive; composite receipts distinguish final reruns from equivalent unchanged inputs."
+      "purpose": "Exact hotfix Site input; historical inputs preserved before overwrite and in immutable archive."
     },
     {
       "sitePath": "tests/elements-discovery-independent-audit.test.ts",
       "archivePath": "docs/location-hotspot-root-sync-20261028/site-test-inputs/tests/elements-discovery-independent-audit.test.ts.txt",
       "sha256": "167cd6a2df55b3512eaef178d6dca083601e1aa0315f643e2fcb51321b0429b1",
       "bytes": 4770,
-      "purpose": "Exact final-v4 Site input. Original94 frozen60aa75 tests remain independently recoverable in predecessor source archive; composite receipts distinguish final reruns from equivalent unchanged inputs."
+      "purpose": "Exact hotfix Site input; historical inputs preserved before overwrite and in immutable archive."
     },
     {
       "sitePath": "tests/elements-discovery-mobile-layout.test.ts",
       "archivePath": "docs/location-hotspot-root-sync-20261028/site-test-inputs/tests/elements-discovery-mobile-layout.test.ts.txt",
       "sha256": "318f360e21e2354af9cacb2e5c9cda51d66717aa3528d1fc864de87121cc7ecb",
       "bytes": 6303,
-      "purpose": "Exact final-v4 Site input. Original94 frozen60aa75 tests remain independently recoverable in predecessor source archive; composite receipts distinguish final reruns from equivalent unchanged inputs."
+      "purpose": "Exact hotfix Site input; historical inputs preserved before overwrite and in immutable archive."
     },
     {
       "sitePath": "tests/elements-discovery-model.test.ts",
       "archivePath": "docs/location-hotspot-root-sync-20261028/site-test-inputs/tests/elements-discovery-model.test.ts.txt",
       "sha256": "b7127de407676a53395a9b8ab3a8d3810e34ec995fbfa1b419c8eb53c7e6ac28",
       "bytes": 3233,
-      "purpose": "Exact final-v4 Site input. Original94 frozen60aa75 tests remain independently recoverable in predecessor source archive; composite receipts distinguish final reruns from equivalent unchanged inputs."
+      "purpose": "Exact hotfix Site input; historical inputs preserved before overwrite and in immutable archive."
     },
     {
       "sitePath": "tests/elements-heroes.test.ts",
       "archivePath": "docs/location-hotspot-root-sync-20261028/site-test-inputs/tests/elements-heroes.test.ts.txt",
       "sha256": "a0b12010169db3777e2bd3eece89ebb871e35f865ff5eb2058cc4bc61c60c5dc",
       "bytes": 7255,
-      "purpose": "Exact final-v4 Site input. Original94 frozen60aa75 tests remain independently recoverable in predecessor source archive; composite receipts distinguish final reruns from equivalent unchanged inputs."
+      "purpose": "Exact hotfix Site input; historical inputs preserved before overwrite and in immutable archive."
     },
     {
       "sitePath": "tests/elements-house-and-craft.test.ts",
       "archivePath": "docs/location-hotspot-root-sync-20261028/site-test-inputs/tests/elements-house-and-craft.test.ts.txt",
       "sha256": "eac1d207953154ca26d028b779b92bed132ae2932a597cd2e3cbc231ae6a7561",
       "bytes": 15227,
-      "purpose": "Exact final-v4 Site input. Original94 frozen60aa75 tests remain independently recoverable in predecessor source archive; composite receipts distinguish final reruns from equivalent unchanged inputs."
+      "purpose": "Exact hotfix Site input; historical inputs preserved before overwrite and in immutable archive."
     },
     {
       "sitePath": "tests/elements-house-components.test.ts",
       "archivePath": "docs/location-hotspot-root-sync-20261028/site-test-inputs/tests/elements-house-components.test.ts.txt",
       "sha256": "2366b980526f3e6e16dea016985ca06bdec1be59d8cc125119a087d1cbafbc0f",
       "bytes": 12865,
-      "purpose": "Exact final-v4 Site input. Original94 frozen60aa75 tests remain independently recoverable in predecessor source archive; composite receipts distinguish final reruns from equivalent unchanged inputs."
+      "purpose": "Exact hotfix Site input; historical inputs preserved before overwrite and in immutable archive."
+    },
+    {
+      "sitePath": "tests/elements-small-scenes.test.ts",
+      "archivePath": "docs/location-hotspot-root-sync-20261028/site-test-inputs/tests/elements-small-scenes.test.ts.txt",
+      "sha256": "bbc1ebbca0ef88417249740660907bfe2a3c3d03cc2b940ae7859bff81f79417",
+      "bytes": 11085,
+      "purpose": "Exact hotfix Site input; historical inputs preserved before overwrite and in immutable archive."
     },
     {
       "sitePath": "tests/estuary-play-model.test.ts",
       "archivePath": "docs/location-hotspot-root-sync-20261028/site-test-inputs/tests/estuary-play-model.test.ts.txt",
       "sha256": "c9bfb0a4086c5019af0b26f77706754e8bf261d1c74387129f0fa41b95b6ede8",
       "bytes": 2508,
-      "purpose": "Exact final-v4 Site input. Original94 frozen60aa75 tests remain independently recoverable in predecessor source archive; composite receipts distinguish final reruns from equivalent unchanged inputs."
+      "purpose": "Exact hotfix Site input; historical inputs preserved before overwrite and in immutable archive."
     },
     {
       "sitePath": "tests/estuary-play-ui.test.ts",
       "archivePath": "docs/location-hotspot-root-sync-20261028/site-test-inputs/tests/estuary-play-ui.test.ts.txt",
       "sha256": "d2c12e6e67f71448c5d8e8203fa6c04d2e6163eea60aca759921b3f7746743fe",
       "bytes": 9398,
-      "purpose": "Exact final-v4 Site input. Original94 frozen60aa75 tests remain independently recoverable in predecessor source archive; composite receipts distinguish final reruns from equivalent unchanged inputs."
+      "purpose": "Exact hotfix Site input; historical inputs preserved before overwrite and in immutable archive."
     },
     {
       "sitePath": "tests/grouped-arrival-independent.test.ts",
       "archivePath": "docs/location-hotspot-root-sync-20261028/site-test-inputs/tests/grouped-arrival-independent.test.ts.txt",
       "sha256": "069bc65f72d926d4a7d643569ef53333905a461e0cf63c1f74a74cba1441cbd3",
       "bytes": 13859,
-      "purpose": "Exact final-v4 Site input. Original94 frozen60aa75 tests remain independently recoverable in predecessor source archive; composite receipts distinguish final reruns from equivalent unchanged inputs."
+      "purpose": "Exact hotfix Site input; historical inputs preserved before overwrite and in immutable archive."
     },
     {
       "sitePath": "tests/grouped-arrival-integration.test.ts",
       "archivePath": "docs/location-hotspot-root-sync-20261028/site-test-inputs/tests/grouped-arrival-integration.test.ts.txt",
       "sha256": "38ece4d3c77bdad05b238e973c6215592aca08b8003c533f8265c92f4225180c",
       "bytes": 3245,
-      "purpose": "Exact final-v4 Site input. Original94 frozen60aa75 tests remain independently recoverable in predecessor source archive; composite receipts distinguish final reruns from equivalent unchanged inputs."
+      "purpose": "Exact hotfix Site input; historical inputs preserved before overwrite and in immutable archive."
     },
     {
       "sitePath": "tests/history-ideas-compact-objectives.test.ts",
       "archivePath": "docs/location-hotspot-root-sync-20261028/site-test-inputs/tests/history-ideas-compact-objectives.test.ts.txt",
       "sha256": "58992eb9d31c5ac5727fe07a465414501f7dc47908d5c6b71b8d24e796a0880d",
       "bytes": 3289,
-      "purpose": "Exact final-v4 Site input. Original94 frozen60aa75 tests remain independently recoverable in predecessor source archive; composite receipts distinguish final reruns from equivalent unchanged inputs."
+      "purpose": "Exact hotfix Site input; historical inputs preserved before overwrite and in immutable archive."
     },
     {
       "sitePath": "tests/history-ideas-independent-controller.test.ts",
       "archivePath": "docs/location-hotspot-root-sync-20261028/site-test-inputs/tests/history-ideas-independent-controller.test.ts.txt",
       "sha256": "154758016cbbba659fab42a540fd65523278a6287d44d5b3297f052707083fbf",
       "bytes": 11948,
-      "purpose": "Exact final-v4 Site input. Original94 frozen60aa75 tests remain independently recoverable in predecessor source archive; composite receipts distinguish final reruns from equivalent unchanged inputs."
+      "purpose": "Exact hotfix Site input; historical inputs preserved before overwrite and in immutable archive."
     },
     {
       "sitePath": "tests/history-ideas-independent-model.test.ts",
       "archivePath": "docs/location-hotspot-root-sync-20261028/site-test-inputs/tests/history-ideas-independent-model.test.ts.txt",
       "sha256": "d9eb3e7f2cfb09090b791da6963331b5ff1c79278cffbf1e49fdedb32003f6fd",
       "bytes": 3357,
-      "purpose": "Exact final-v4 Site input. Original94 frozen60aa75 tests remain independently recoverable in predecessor source archive; composite receipts distinguish final reruns from equivalent unchanged inputs."
+      "purpose": "Exact hotfix Site input; historical inputs preserved before overwrite and in immutable archive."
     },
     {
       "sitePath": "tests/history-ideas-mobile-policy.test.ts",
       "archivePath": "docs/location-hotspot-root-sync-20261028/site-test-inputs/tests/history-ideas-mobile-policy.test.ts.txt",
       "sha256": "adaf99975b0d51fabb02bee46ff1ac0b49fb3c53c9ac0a6af50f7155dbed02bf",
       "bytes": 17753,
-      "purpose": "Exact final-v4 Site input. Original94 frozen60aa75 tests remain independently recoverable in predecessor source archive; composite receipts distinguish final reruns from equivalent unchanged inputs."
+      "purpose": "Exact hotfix Site input; historical inputs preserved before overwrite and in immutable archive."
     },
     {
       "sitePath": "tests/history-ideas-model.test.ts",
       "archivePath": "docs/location-hotspot-root-sync-20261028/site-test-inputs/tests/history-ideas-model.test.ts.txt",
       "sha256": "56514c7d6431783857079b2473facff86f692448ca7d80c30f64def75e4109dd",
       "bytes": 3374,
-      "purpose": "Exact final-v4 Site input. Original94 frozen60aa75 tests remain independently recoverable in predecessor source archive; composite receipts distinguish final reruns from equivalent unchanged inputs."
+      "purpose": "Exact hotfix Site input; historical inputs preserved before overwrite and in immutable archive."
+    },
+    {
+      "sitePath": "tests/intellectual-cue-prose.test.ts",
+      "archivePath": "docs/location-hotspot-root-sync-20261028/site-test-inputs/tests/intellectual-cue-prose.test.ts.txt",
+      "sha256": "8bab3c2f4965517309f49980c0714fe025dbdec4f0dccf44a7b55fc2007dc9ac",
+      "bytes": 2820,
+      "purpose": "Exact hotfix Site input; historical inputs preserved before overwrite and in immutable archive."
     },
     {
       "sitePath": "tests/intellectual-worlds-source-contract.test.ts",
       "archivePath": "docs/location-hotspot-root-sync-20261028/site-test-inputs/tests/intellectual-worlds-source-contract.test.ts.txt",
       "sha256": "016a2d192fdd77c089b222445b7ecc5f8e5b4ba2015ff18a2ed6b3519d39b9bd",
       "bytes": 3194,
-      "purpose": "Exact final-v4 Site input. Original94 frozen60aa75 tests remain independently recoverable in predecessor source archive; composite receipts distinguish final reruns from equivalent unchanged inputs."
+      "purpose": "Exact hotfix Site input; historical inputs preserved before overwrite and in immutable archive."
     },
     {
       "sitePath": "tests/intellectual-worlds.test.ts",
       "archivePath": "docs/location-hotspot-root-sync-20261028/site-test-inputs/tests/intellectual-worlds.test.ts.txt",
       "sha256": "c7beb636c8a456d8214633ca793348b1b8fa508ab877b6f3cd3e5b99cced25e5",
       "bytes": 12510,
-      "purpose": "Exact final-v4 Site input. Original94 frozen60aa75 tests remain independently recoverable in predecessor source archive; composite receipts distinguish final reruns from equivalent unchanged inputs."
+      "purpose": "Exact hotfix Site input; historical inputs preserved before overwrite and in immutable archive."
     },
     {
       "sitePath": "tests/intuitive-story-alternatives.test.ts",
       "archivePath": "docs/location-hotspot-root-sync-20261028/site-test-inputs/tests/intuitive-story-alternatives.test.ts.txt",
       "sha256": "959a234675f1835e99f75827d3b3a5581bc087a0af210e7029b817be5d3f79a2",
       "bytes": 14284,
-      "purpose": "Exact final-v4 Site input. Original94 frozen60aa75 tests remain independently recoverable in predecessor source archive; composite receipts distinguish final reruns from equivalent unchanged inputs."
+      "purpose": "Exact hotfix Site input; historical inputs preserved before overwrite and in immutable archive."
     },
     {
       "sitePath": "tests/iron-quarry-label.test.ts",
       "archivePath": "docs/location-hotspot-root-sync-20261028/site-test-inputs/tests/iron-quarry-label.test.ts.txt",
       "sha256": "477120f681d9b4fc7dfee4852e60ef83e4a17c2f1349fccb5b2e3b2cea4d4e1e",
       "bytes": 4708,
-      "purpose": "Exact final-v4 Site input. Original94 frozen60aa75 tests remain independently recoverable in predecessor source archive; composite receipts distinguish final reruns from equivalent unchanged inputs."
+      "purpose": "Exact hotfix Site input; historical inputs preserved before overwrite and in immutable archive."
     },
     {
       "sitePath": "tests/kitchen-atlas-registry.test.ts",
       "archivePath": "docs/location-hotspot-root-sync-20261028/site-test-inputs/tests/kitchen-atlas-registry.test.ts.txt",
       "sha256": "75dc1a5e8bf295d3557182c59c360d71c13d583bc88e0d32822884d728e2e6b4",
       "bytes": 4576,
-      "purpose": "Exact final-v4 Site input. Original94 frozen60aa75 tests remain independently recoverable in predecessor source archive; composite receipts distinguish final reruns from equivalent unchanged inputs."
+      "purpose": "Exact hotfix Site input; historical inputs preserved before overwrite and in immutable archive."
     },
     {
       "sitePath": "tests/kitchen-caravan-content.test.ts",
       "archivePath": "docs/location-hotspot-root-sync-20261028/site-test-inputs/tests/kitchen-caravan-content.test.ts.txt",
       "sha256": "21ac980b2e3ad77d4fc3d6290943be062cbdcdb22ecc3402ac5e384494b145dd",
       "bytes": 3541,
-      "purpose": "Exact final-v4 Site input. Original94 frozen60aa75 tests remain independently recoverable in predecessor source archive; composite receipts distinguish final reruns from equivalent unchanged inputs."
+      "purpose": "Exact hotfix Site input; historical inputs preserved before overwrite and in immutable archive."
     },
     {
       "sitePath": "tests/kitchen-caravan-full-verification.test.ts",
       "archivePath": "docs/location-hotspot-root-sync-20261028/site-test-inputs/tests/kitchen-caravan-full-verification.test.ts.txt",
       "sha256": "f952dadd1b369162ef59611a60c4eb1abf7d28ec7dd36d91429fccfad82be1ca",
       "bytes": 507,
-      "purpose": "Exact final-v4 Site input. Original94 frozen60aa75 tests remain independently recoverable in predecessor source archive; composite receipts distinguish final reruns from equivalent unchanged inputs."
+      "purpose": "Exact hotfix Site input; historical inputs preserved before overwrite and in immutable archive."
     },
     {
       "sitePath": "tests/late-doctrine-content-integration.test.mjs",
       "archivePath": "docs/location-hotspot-root-sync-20261028/site-test-inputs/tests/late-doctrine-content-integration.test.mjs.txt",
       "sha256": "c64adf8e1bdcd19e551eccf33d822775cf5d559eb6cfb7c15f565b705a7ff6aa",
       "bytes": 11164,
-      "purpose": "Exact final-v4 Site input. Original94 frozen60aa75 tests remain independently recoverable in predecessor source archive; composite receipts distinguish final reruns from equivalent unchanged inputs."
+      "purpose": "Exact hotfix Site input; historical inputs preserved before overwrite and in immutable archive."
     },
     {
       "sitePath": "tests/late-elements-label-integration.test.mjs",
       "archivePath": "docs/location-hotspot-root-sync-20261028/site-test-inputs/tests/late-elements-label-integration.test.mjs.txt",
       "sha256": "901ea944e462460bdb64422437d359701f4c81d4af402f88df528bfdc6186cd4",
       "bytes": 2983,
-      "purpose": "Exact final-v4 Site input. Original94 frozen60aa75 tests remain independently recoverable in predecessor source archive; composite receipts distinguish final reruns from equivalent unchanged inputs."
+      "purpose": "Exact hotfix Site input; historical inputs preserved before overwrite and in immutable archive."
     },
     {
       "sitePath": "tests/late-mars-archive-label-integration.test.mjs",
       "archivePath": "docs/location-hotspot-root-sync-20261028/site-test-inputs/tests/late-mars-archive-label-integration.test.mjs.txt",
       "sha256": "2a21b809f4a2ae050eb618654a478708b8a780cf04b0a82c56fe9a583090712d",
       "bytes": 4427,
-      "purpose": "Exact final-v4 Site input. Original94 frozen60aa75 tests remain independently recoverable in predecessor source archive; composite receipts distinguish final reruns from equivalent unchanged inputs."
+      "purpose": "Exact hotfix Site input; historical inputs preserved before overwrite and in immutable archive."
     },
     {
       "sitePath": "tests/late-mars-content-integration.test.ts",
       "archivePath": "docs/location-hotspot-root-sync-20261028/site-test-inputs/tests/late-mars-content-integration.test.ts.txt",
       "sha256": "008793daf964e8b3cda9d19ac0f4a7a6b4da288de9269feb78e0c9cb41c7654d",
       "bytes": 17264,
-      "purpose": "Exact final-v4 Site input. Original94 frozen60aa75 tests remain independently recoverable in predecessor source archive; composite receipts distinguish final reruns from equivalent unchanged inputs."
+      "purpose": "Exact hotfix Site input; historical inputs preserved before overwrite and in immutable archive."
     },
     {
       "sitePath": "tests/lifecycle-graph-anomalies.test.ts",
       "archivePath": "docs/location-hotspot-root-sync-20261028/site-test-inputs/tests/lifecycle-graph-anomalies.test.ts.txt",
       "sha256": "6e97fc48490050c1226504f997771fe01e4921a93f4655129d4d7c4df61a814e",
       "bytes": 11754,
-      "purpose": "Exact final-v4 Site input. Original94 frozen60aa75 tests remain independently recoverable in predecessor source archive; composite receipts distinguish final reruns from equivalent unchanged inputs."
+      "purpose": "Exact hotfix Site input; historical inputs preserved before overwrite and in immutable archive."
     },
     {
       "sitePath": "tests/location-affordances.test.ts",
       "archivePath": "docs/location-hotspot-root-sync-20261028/site-test-inputs/tests/location-affordances.test.ts.txt",
       "sha256": "408384d09440d93759880c8e26d5211f2a8f52ecd09947ef93cde6f5a9d120d8",
       "bytes": 7163,
-      "purpose": "Exact final-v4 Site input. Original94 frozen60aa75 tests remain independently recoverable in predecessor source archive; composite receipts distinguish final reruns from equivalent unchanged inputs."
+      "purpose": "Exact hotfix Site input; historical inputs preserved before overwrite and in immutable archive."
     },
     {
       "sitePath": "tests/location-current-registry.test.ts",
       "archivePath": "docs/location-hotspot-root-sync-20261028/site-test-inputs/tests/location-current-registry.test.ts.txt",
-      "sha256": "105255e8a04f563cc27087f3a77fd45d50b3486cf8074dc8815f2ca2d6463d14",
-      "bytes": 4940,
-      "purpose": "Exact final-v4 Site input. Original94 frozen60aa75 tests remain independently recoverable in predecessor source archive; composite receipts distinguish final reruns from equivalent unchanged inputs."
+      "sha256": "0d9458fdef68af3372982ec2f4f883667d1778500ce76cdbcc2b59d10cd4f1dc",
+      "bytes": 5296,
+      "purpose": "Exact hotfix Site input; historical inputs preserved before overwrite and in immutable archive."
     },
     {
       "sitePath": "tests/location-hotspot-terminology.test.ts",
       "archivePath": "docs/location-hotspot-root-sync-20261028/site-test-inputs/tests/location-hotspot-terminology.test.ts.txt",
       "sha256": "924d54cc63915230f6c9b03125c4e25223e1c3774297cdc1bb87ecd1d73f356d",
       "bytes": 13221,
-      "purpose": "Exact final-v4 Site input. Original94 frozen60aa75 tests remain independently recoverable in predecessor source archive; composite receipts distinguish final reruns from equivalent unchanged inputs."
+      "purpose": "Exact hotfix Site input; historical inputs preserved before overwrite and in immutable archive."
+    },
+    {
+      "sitePath": "tests/location-image-lifecycle.test.ts",
+      "archivePath": "docs/location-hotspot-root-sync-20261028/site-test-inputs/tests/location-image-lifecycle.test.ts.txt",
+      "sha256": "1478fdc7e936365a6b9ee8a82db9fde737cbb9e200dbc0059aaea8984422cf44",
+      "bytes": 10194,
+      "purpose": "Exact hotfix Site input; historical inputs preserved before overwrite and in immutable archive."
     },
     {
       "sitePath": "tests/location-story-controller.test.ts",
       "archivePath": "docs/location-hotspot-root-sync-20261028/site-test-inputs/tests/location-story-controller.test.ts.txt",
       "sha256": "8fb56d28994af36cb332610d81dd997da89df130aa6b782a8f51c076f5cc7a9a",
       "bytes": 9798,
-      "purpose": "Exact final-v4 Site input. Original94 frozen60aa75 tests remain independently recoverable in predecessor source archive; composite receipts distinguish final reruns from equivalent unchanged inputs."
+      "purpose": "Exact hotfix Site input; historical inputs preserved before overwrite and in immutable archive."
     },
     {
       "sitePath": "tests/location-story-model.test.ts",
       "archivePath": "docs/location-hotspot-root-sync-20261028/site-test-inputs/tests/location-story-model.test.ts.txt",
       "sha256": "f7155801e06b969743353a0c89fec6c69506031eb3ad74afdb571d0f38bd3ce4",
       "bytes": 11235,
-      "purpose": "Exact final-v4 Site input. Original94 frozen60aa75 tests remain independently recoverable in predecessor source archive; composite receipts distinguish final reruns from equivalent unchanged inputs."
+      "purpose": "Exact hotfix Site input; historical inputs preserved before overwrite and in immutable archive."
     },
     {
       "sitePath": "tests/mars-expedition-dom.test.ts",
       "archivePath": "docs/location-hotspot-root-sync-20261028/site-test-inputs/tests/mars-expedition-dom.test.ts.txt",
       "sha256": "8aeb88aa67a0bedbe422b78be8ab00f8e14c37239b4b7eeff13ff445099baea1",
       "bytes": 22955,
-      "purpose": "Exact final-v4 Site input. Original94 frozen60aa75 tests remain independently recoverable in predecessor source archive; composite receipts distinguish final reruns from equivalent unchanged inputs."
+      "purpose": "Exact hotfix Site input; historical inputs preserved before overwrite and in immutable archive."
     },
     {
       "sitePath": "tests/mars-expedition-mobile-policy.test.ts",
       "archivePath": "docs/location-hotspot-root-sync-20261028/site-test-inputs/tests/mars-expedition-mobile-policy.test.ts.txt",
       "sha256": "8da7425a2b7753b4711d3e98b7998b54874da1cd2e571ee44901032bf3b4895b",
       "bytes": 2769,
-      "purpose": "Exact final-v4 Site input. Original94 frozen60aa75 tests remain independently recoverable in predecessor source archive; composite receipts distinguish final reruns from equivalent unchanged inputs."
+      "purpose": "Exact hotfix Site input; historical inputs preserved before overwrite and in immutable archive."
     },
     {
       "sitePath": "tests/mars-expedition-stage-refinement.test.ts",
       "archivePath": "docs/location-hotspot-root-sync-20261028/site-test-inputs/tests/mars-expedition-stage-refinement.test.ts.txt",
       "sha256": "3623c535add2ff19a9e55f76994eb2bcea2dbf5fc6a86be59548a9e89382abab",
       "bytes": 2560,
-      "purpose": "Exact final-v4 Site input. Original94 frozen60aa75 tests remain independently recoverable in predecessor source archive; composite receipts distinguish final reruns from equivalent unchanged inputs."
+      "purpose": "Exact hotfix Site input; historical inputs preserved before overwrite and in immutable archive."
     },
     {
       "sitePath": "tests/mars-expedition-tangible-areas.test.ts",
       "archivePath": "docs/location-hotspot-root-sync-20261028/site-test-inputs/tests/mars-expedition-tangible-areas.test.ts.txt",
       "sha256": "2205773d038f525924ca0e382021499c63e6db0ad0c26de1a2db1787d85a03b2",
       "bytes": 5226,
-      "purpose": "Exact final-v4 Site input. Original94 frozen60aa75 tests remain independently recoverable in predecessor source archive; composite receipts distinguish final reruns from equivalent unchanged inputs."
+      "purpose": "Exact hotfix Site input; historical inputs preserved before overwrite and in immutable archive."
     },
     {
       "sitePath": "tests/mars-named-capabilities.test.ts",
       "archivePath": "docs/location-hotspot-root-sync-20261028/site-test-inputs/tests/mars-named-capabilities.test.ts.txt",
       "sha256": "2f8910f878b08a1a024b7a93c2c80de4b2e353e50bb87e849ffd9f6e958ffd7e",
       "bytes": 15226,
-      "purpose": "Exact final-v4 Site input. Original94 frozen60aa75 tests remain independently recoverable in predecessor source archive; composite receipts distinguish final reruns from equivalent unchanged inputs."
+      "purpose": "Exact hotfix Site input; historical inputs preserved before overwrite and in immutable archive."
     },
     {
       "sitePath": "tests/mars-named-content-retirement.test.ts",
       "archivePath": "docs/location-hotspot-root-sync-20261028/site-test-inputs/tests/mars-named-content-retirement.test.ts.txt",
       "sha256": "f7089ad6dec2d1b3db98affaa0216c76caf72b8870786c2061d01090130cc9bd",
       "bytes": 1611,
-      "purpose": "Exact final-v4 Site input. Original94 frozen60aa75 tests remain independently recoverable in predecessor source archive; composite receipts distinguish final reruns from equivalent unchanged inputs."
+      "purpose": "Exact hotfix Site input; historical inputs preserved before overwrite and in immutable archive."
     },
     {
       "sitePath": "tests/mars-named-independent-dom.test.ts",
       "archivePath": "docs/location-hotspot-root-sync-20261028/site-test-inputs/tests/mars-named-independent-dom.test.ts.txt",
       "sha256": "d44c7e7089445abe07f4d38f184e22410df0b4495c1c82690d2011f1fc8785fc",
       "bytes": 30781,
-      "purpose": "Exact final-v4 Site input. Original94 frozen60aa75 tests remain independently recoverable in predecessor source archive; composite receipts distinguish final reruns from equivalent unchanged inputs."
+      "purpose": "Exact hotfix Site input; historical inputs preserved before overwrite and in immutable archive."
     },
     {
       "sitePath": "tests/mars-named-independent.test.ts",
       "archivePath": "docs/location-hotspot-root-sync-20261028/site-test-inputs/tests/mars-named-independent.test.ts.txt",
       "sha256": "6ba8d1b3efcbc3ba7919b726af4b7f3a83e2a4f4ddeea6b360d93ca0d9624721",
       "bytes": 21145,
-      "purpose": "Exact final-v4 Site input. Original94 frozen60aa75 tests remain independently recoverable in predecessor source archive; composite receipts distinguish final reruns from equivalent unchanged inputs."
+      "purpose": "Exact hotfix Site input; historical inputs preserved before overwrite and in immutable archive."
     },
     {
       "sitePath": "tests/mars-named-model.test.ts",
       "archivePath": "docs/location-hotspot-root-sync-20261028/site-test-inputs/tests/mars-named-model.test.ts.txt",
       "sha256": "7fe9b4f79c486d73b0390e13bd5febd976a98822c7a406f9e337fb06197b7c11",
       "bytes": 7683,
-      "purpose": "Exact final-v4 Site input. Original94 frozen60aa75 tests remain independently recoverable in predecessor source archive; composite receipts distinguish final reruns from equivalent unchanged inputs."
+      "purpose": "Exact hotfix Site input; historical inputs preserved before overwrite and in immutable archive."
     },
     {
       "sitePath": "tests/mars-natural-orders.test.ts",
       "archivePath": "docs/location-hotspot-root-sync-20261028/site-test-inputs/tests/mars-natural-orders.test.ts.txt",
       "sha256": "8aa56b9c752bafef5a5087bb73894d8638d1aac7cc1a8eb753ad8e38e0a82c19",
       "bytes": 15426,
-      "purpose": "Exact final-v4 Site input. Original94 frozen60aa75 tests remain independently recoverable in predecessor source archive; composite receipts distinguish final reruns from equivalent unchanged inputs."
+      "purpose": "Exact hotfix Site input; historical inputs preserved before overwrite and in immutable archive."
     },
     {
       "sitePath": "tests/mars-observation-streamline.test.ts",
       "archivePath": "docs/location-hotspot-root-sync-20261028/site-test-inputs/tests/mars-observation-streamline.test.ts.txt",
-      "sha256": "bcd3982774231e203225333f231f8f9c2152d457d5b8e1dd904c3c216a59ebf0",
-      "bytes": 13622,
-      "purpose": "Exact final-v4 Site input. Original94 frozen60aa75 tests remain independently recoverable in predecessor source archive; composite receipts distinguish final reruns from equivalent unchanged inputs."
+      "sha256": "4cde8d088264dbcbf473aedadb76fbb53ca0a1d7ccfe62b0d96cec1142ad7206",
+      "bytes": 13810,
+      "purpose": "Exact hotfix Site input; historical inputs preserved before overwrite and in immutable archive."
     },
     {
       "sitePath": "tests/mars-play-dom.test.ts",
       "archivePath": "docs/location-hotspot-root-sync-20261028/site-test-inputs/tests/mars-play-dom.test.ts.txt",
       "sha256": "e3296190441164ba98c573977aa07448f69fd29dcec6efbb45ca64bac41774ed",
       "bytes": 10042,
-      "purpose": "Exact final-v4 Site input. Original94 frozen60aa75 tests remain independently recoverable in predecessor source archive; composite receipts distinguish final reruns from equivalent unchanged inputs."
+      "purpose": "Exact hotfix Site input; historical inputs preserved before overwrite and in immutable archive."
     },
     {
       "sitePath": "tests/mars-play-independent.test.ts",
       "archivePath": "docs/location-hotspot-root-sync-20261028/site-test-inputs/tests/mars-play-independent.test.ts.txt",
       "sha256": "5634eeb075fd3c6db6a39350b6032b9221b6a66a5d711ffde36597893840befc",
       "bytes": 12649,
-      "purpose": "Exact final-v4 Site input. Original94 frozen60aa75 tests remain independently recoverable in predecessor source archive; composite receipts distinguish final reruns from equivalent unchanged inputs."
+      "purpose": "Exact hotfix Site input; historical inputs preserved before overwrite and in immutable archive."
     },
     {
       "sitePath": "tests/mars-play-model.test.ts",
       "archivePath": "docs/location-hotspot-root-sync-20261028/site-test-inputs/tests/mars-play-model.test.ts.txt",
       "sha256": "f5d271416248575fafbab13b01a60a1bbabe70944743ed3f4d1e2321561acd25",
       "bytes": 9794,
-      "purpose": "Exact final-v4 Site input. Original94 frozen60aa75 tests remain independently recoverable in predecessor source archive; composite receipts distinguish final reruns from equivalent unchanged inputs."
+      "purpose": "Exact hotfix Site input; historical inputs preserved before overwrite and in immutable archive."
     },
     {
       "sitePath": "tests/mars-purpose-dom.test.ts",
       "archivePath": "docs/location-hotspot-root-sync-20261028/site-test-inputs/tests/mars-purpose-dom.test.ts.txt",
       "sha256": "77bbfe13f5c26edf08fd7d54bd6c7ce83665c780b0f252de3fd74766a613e30e",
       "bytes": 23281,
-      "purpose": "Exact final-v4 Site input. Original94 frozen60aa75 tests remain independently recoverable in predecessor source archive; composite receipts distinguish final reruns from equivalent unchanged inputs."
+      "purpose": "Exact hotfix Site input; historical inputs preserved before overwrite and in immutable archive."
     },
     {
       "sitePath": "tests/mars-slots-independent.test.ts",
       "archivePath": "docs/location-hotspot-root-sync-20261028/site-test-inputs/tests/mars-slots-independent.test.ts.txt",
       "sha256": "23e1a8ab7b8792e95f2772223b4b20708250f860d1b96182fa53333ef40736db",
       "bytes": 15046,
-      "purpose": "Exact final-v4 Site input. Original94 frozen60aa75 tests remain independently recoverable in predecessor source archive; composite receipts distinguish final reruns from equivalent unchanged inputs."
+      "purpose": "Exact hotfix Site input; historical inputs preserved before overwrite and in immutable archive."
     },
     {
       "sitePath": "tests/mars-v4-refinement.test.ts",
       "archivePath": "docs/location-hotspot-root-sync-20261028/site-test-inputs/tests/mars-v4-refinement.test.ts.txt",
       "sha256": "879a1e0f67279cfaf71922f8f0c732bc4709c359004dac5d62767281b8ac6ef0",
       "bytes": 15010,
-      "purpose": "Exact final-v4 Site input. Original94 frozen60aa75 tests remain independently recoverable in predecessor source archive; composite receipts distinguish final reruns from equivalent unchanged inputs."
+      "purpose": "Exact hotfix Site input; historical inputs preserved before overwrite and in immutable archive."
     },
     {
       "sitePath": "tests/mars-v4-ui.test.ts",
       "archivePath": "docs/location-hotspot-root-sync-20261028/site-test-inputs/tests/mars-v4-ui.test.ts.txt",
       "sha256": "a016275c6355c483df2e104fdc8a5d8148c73271a82bd5db73d3d4030886beab",
       "bytes": 10285,
-      "purpose": "Exact final-v4 Site input. Original94 frozen60aa75 tests remain independently recoverable in predecessor source archive; composite receipts distinguish final reruns from equivalent unchanged inputs."
+      "purpose": "Exact hotfix Site input; historical inputs preserved before overwrite and in immutable archive."
     },
     {
       "sitePath": "tests/milestones-engine.test.ts",
       "archivePath": "docs/location-hotspot-root-sync-20261028/site-test-inputs/tests/milestones-engine.test.ts.txt",
       "sha256": "c38085215d658c5fde1cc11c831a52aa18ed423988c983c073e224f259267922",
       "bytes": 8885,
-      "purpose": "Exact final-v4 Site input. Original94 frozen60aa75 tests remain independently recoverable in predecessor source archive; composite receipts distinguish final reruns from equivalent unchanged inputs."
+      "purpose": "Exact hotfix Site input; historical inputs preserved before overwrite and in immutable archive."
     },
     {
       "sitePath": "tests/milestones-source-contract.test.ts",
       "archivePath": "docs/location-hotspot-root-sync-20261028/site-test-inputs/tests/milestones-source-contract.test.ts.txt",
       "sha256": "50ec5ed0037bcca3c89892e036e16dc13452fddde26fc5e3e3c63555471fd5fc",
       "bytes": 2390,
-      "purpose": "Exact final-v4 Site input. Original94 frozen60aa75 tests remain independently recoverable in predecessor source archive; composite receipts distinguish final reruns from equivalent unchanged inputs."
+      "purpose": "Exact hotfix Site input; historical inputs preserved before overwrite and in immutable archive."
     },
     {
       "sitePath": "tests/mobile-retention-independent.test.ts",
       "archivePath": "docs/location-hotspot-root-sync-20261028/site-test-inputs/tests/mobile-retention-independent.test.ts.txt",
       "sha256": "9f806513ca127f94ac55d2efc46d63d6b032ec7b55e6014773e4831d70cd038c",
       "bytes": 11786,
-      "purpose": "Exact final-v4 Site input. Original94 frozen60aa75 tests remain independently recoverable in predecessor source archive; composite receipts distinguish final reruns from equivalent unchanged inputs."
+      "purpose": "Exact hotfix Site input; historical inputs preserved before overwrite and in immutable archive."
     },
     {
       "sitePath": "tests/morning-content-integration.test.ts",
       "archivePath": "docs/location-hotspot-root-sync-20261028/site-test-inputs/tests/morning-content-integration.test.ts.txt",
       "sha256": "bab921a160df7e48ea4a74d0501736a356a6001eb51c3f7e2a23884e093a6ac0",
       "bytes": 9583,
-      "purpose": "Exact final-v4 Site input. Original94 frozen60aa75 tests remain independently recoverable in predecessor source archive; composite receipts distinguish final reruns from equivalent unchanged inputs."
+      "purpose": "Exact hotfix Site input; historical inputs preserved before overwrite and in immutable archive."
     },
     {
       "sitePath": "tests/next-all-registered-routes.test.mjs",
       "archivePath": "docs/location-hotspot-root-sync-20261028/site-test-inputs/tests/next-all-registered-routes.test.mjs.txt",
       "sha256": "ab8094749bf491d059cdf2312ec4962bd52aee2d96501ec84dbe59e4169b0483",
       "bytes": 1922,
-      "purpose": "Exact final-v4 Site input. Original94 frozen60aa75 tests remain independently recoverable in predecessor source archive; composite receipts distinguish final reruns from equivalent unchanged inputs."
+      "purpose": "Exact hotfix Site input; historical inputs preserved before overwrite and in immutable archive."
     },
     {
       "sitePath": "tests/next-doctrine-checkpoint-integration.test.mjs",
       "archivePath": "docs/location-hotspot-root-sync-20261028/site-test-inputs/tests/next-doctrine-checkpoint-integration.test.mjs.txt",
       "sha256": "aec94429e7584576a985f803d36203132338a411579daf7ef74f5181fa5cbad2",
       "bytes": 24475,
-      "purpose": "Exact final-v4 Site input. Original94 frozen60aa75 tests remain independently recoverable in predecessor source archive; composite receipts distinguish final reruns from equivalent unchanged inputs."
+      "purpose": "Exact hotfix Site input; historical inputs preserved before overwrite and in immutable archive."
     },
     {
       "sitePath": "tests/next-purpose-checkpoint-integration.test.mjs",
       "archivePath": "docs/location-hotspot-root-sync-20261028/site-test-inputs/tests/next-purpose-checkpoint-integration.test.mjs.txt",
       "sha256": "5786202752c5f7d4bd3412e02848a9ff298b65005d79dd751ef5067940decdde",
       "bytes": 18874,
-      "purpose": "Exact final-v4 Site input. Original94 frozen60aa75 tests remain independently recoverable in predecessor source archive; composite receipts distinguish final reruns from equivalent unchanged inputs."
+      "purpose": "Exact hotfix Site input; historical inputs preserved before overwrite and in immutable archive."
     },
     {
       "sitePath": "tests/physical-location-runtime.test.ts",
       "archivePath": "docs/location-hotspot-root-sync-20261028/site-test-inputs/tests/physical-location-runtime.test.ts.txt",
       "sha256": "d163ab0bdbc0f4bd1f8b67025cb1c26a1800a5043be8e282467920d13f6bbdf6",
       "bytes": 7311,
-      "purpose": "Exact final-v4 Site input. Original94 frozen60aa75 tests remain independently recoverable in predecessor source archive; composite receipts distinguish final reruns from equivalent unchanged inputs."
+      "purpose": "Exact hotfix Site input; historical inputs preserved before overwrite and in immutable archive."
     },
     {
       "sitePath": "tests/physical-location-successors.test.ts",
       "archivePath": "docs/location-hotspot-root-sync-20261028/site-test-inputs/tests/physical-location-successors.test.ts.txt",
       "sha256": "c573b46e237e7efac5c1718026f1f4929554c76ba35a5e5d3a1ee7713187833d",
       "bytes": 6417,
-      "purpose": "Exact final-v4 Site input. Original94 frozen60aa75 tests remain independently recoverable in predecessor source archive; composite receipts distinguish final reruns from equivalent unchanged inputs."
+      "purpose": "Exact hotfix Site input; historical inputs preserved before overwrite and in immutable archive."
     },
     {
       "sitePath": "tests/playspace-dom-review.test.ts",
       "archivePath": "docs/location-hotspot-root-sync-20261028/site-test-inputs/tests/playspace-dom-review.test.ts.txt",
       "sha256": "bf8cb5bd0f5e491580bcf4d3fdf5e3497218537272c415d455dd942906752945",
       "bytes": 8908,
-      "purpose": "Exact final-v4 Site input. Original94 frozen60aa75 tests remain independently recoverable in predecessor source archive; composite receipts distinguish final reruns from equivalent unchanged inputs."
+      "purpose": "Exact hotfix Site input; historical inputs preserved before overwrite and in immutable archive."
     },
     {
       "sitePath": "tests/playspace-independent-review.test.ts",
       "archivePath": "docs/location-hotspot-root-sync-20261028/site-test-inputs/tests/playspace-independent-review.test.ts.txt",
       "sha256": "84b43a6748af63f014143bbe107466233e1c9d3367112c4f1e2444122fce1608",
       "bytes": 4907,
-      "purpose": "Exact final-v4 Site input. Original94 frozen60aa75 tests remain independently recoverable in predecessor source archive; composite receipts distinguish final reruns from equivalent unchanged inputs."
+      "purpose": "Exact hotfix Site input; historical inputs preserved before overwrite and in immutable archive."
     },
     {
       "sitePath": "tests/playspace-model.test.ts",
       "archivePath": "docs/location-hotspot-root-sync-20261028/site-test-inputs/tests/playspace-model.test.ts.txt",
       "sha256": "5652ed82660317b407291910d16dd5db130c9c2c7d01ba12ec6e790198b76038",
       "bytes": 3251,
-      "purpose": "Exact final-v4 Site input. Original94 frozen60aa75 tests remain independently recoverable in predecessor source archive; composite receipts distinguish final reruns from equivalent unchanged inputs."
+      "purpose": "Exact hotfix Site input; historical inputs preserved before overwrite and in immutable archive."
     },
     {
       "sitePath": "tests/playtest-contract-final-source-contract.test.ts",
       "archivePath": "docs/location-hotspot-root-sync-20261028/site-test-inputs/tests/playtest-contract-final-source-contract.test.ts.txt",
       "sha256": "635d10d199da9a4c79117c06a3421ae167f413107b6caf6f8a7b20c032780967",
       "bytes": 3023,
-      "purpose": "Exact final-v4 Site input. Original94 frozen60aa75 tests remain independently recoverable in predecessor source archive; composite receipts distinguish final reruns from equivalent unchanged inputs."
+      "purpose": "Exact hotfix Site input; historical inputs preserved before overwrite and in immutable archive."
     },
     {
       "sitePath": "tests/playtest-repairs-source-contract.test.ts",
       "archivePath": "docs/location-hotspot-root-sync-20261028/site-test-inputs/tests/playtest-repairs-source-contract.test.ts.txt",
       "sha256": "913d15738ce9c44c19397c3337a4b34e36e7e6dd29435baf8ad62f068507535b",
       "bytes": 3652,
-      "purpose": "Exact final-v4 Site input. Original94 frozen60aa75 tests remain independently recoverable in predecessor source archive; composite receipts distinguish final reruns from equivalent unchanged inputs."
+      "purpose": "Exact hotfix Site input; historical inputs preserved before overwrite and in immutable archive."
     },
     {
       "sitePath": "tests/purpose-workshop-integration.test.ts",
       "archivePath": "docs/location-hotspot-root-sync-20261028/site-test-inputs/tests/purpose-workshop-integration.test.ts.txt",
       "sha256": "22cd366b79759d00015a7b84e260ce1ca449e4b34a84529571f06614806da19d",
       "bytes": 8860,
-      "purpose": "Exact final-v4 Site input. Original94 frozen60aa75 tests remain independently recoverable in predecessor source archive; composite receipts distinguish final reruns from equivalent unchanged inputs."
+      "purpose": "Exact hotfix Site input; historical inputs preserved before overwrite and in immutable archive."
     },
     {
       "sitePath": "tests/reactive-chapter-policies.test.ts",
       "archivePath": "docs/location-hotspot-root-sync-20261028/site-test-inputs/tests/reactive-chapter-policies.test.ts.txt",
       "sha256": "9c6fbb7683c76ab7b4ca9d3987b1879c544548bc059f58828c98ee38411cd1ef",
       "bytes": 3637,
-      "purpose": "Exact final-v4 Site input. Original94 frozen60aa75 tests remain independently recoverable in predecessor source archive; composite receipts distinguish final reruns from equivalent unchanged inputs."
+      "purpose": "Exact hotfix Site input; historical inputs preserved before overwrite and in immutable archive."
     },
     {
       "sitePath": "tests/reactive-chapters.test.ts",
       "archivePath": "docs/location-hotspot-root-sync-20261028/site-test-inputs/tests/reactive-chapters.test.ts.txt",
       "sha256": "9e26188c425ec1715501bc31bbab764b4bb15b4844278049aae3d3d6e4d1221c",
       "bytes": 76,
-      "purpose": "Exact final-v4 Site input. Original94 frozen60aa75 tests remain independently recoverable in predecessor source archive; composite receipts distinguish final reruns from equivalent unchanged inputs."
+      "purpose": "Exact hotfix Site input; historical inputs preserved before overwrite and in immutable archive."
     },
     {
       "sitePath": "tests/reactive-heroes-source-contract.test.ts",
       "archivePath": "docs/location-hotspot-root-sync-20261028/site-test-inputs/tests/reactive-heroes-source-contract.test.ts.txt",
       "sha256": "08f47c2510a7c7cf7a3ed568dccb57113636957ba4f8f1e14958ca05045b7464",
       "bytes": 3705,
-      "purpose": "Exact final-v4 Site input. Original94 frozen60aa75 tests remain independently recoverable in predecessor source archive; composite receipts distinguish final reruns from equivalent unchanged inputs."
+      "purpose": "Exact hotfix Site input; historical inputs preserved before overwrite and in immutable archive."
+    },
+    {
+      "sitePath": "tests/rendering-intertitles-source-contract.test.ts",
+      "archivePath": "docs/location-hotspot-root-sync-20261028/site-test-inputs/tests/rendering-intertitles-source-contract.test.ts.txt",
+      "sha256": "a29f0d8d33155cd9bb0d2591171f15912a5b654e145657a0bf68a99976ff9a98",
+      "bytes": 1549,
+      "purpose": "Exact hotfix Site input; historical inputs preserved before overwrite and in immutable archive."
     },
     {
       "sitePath": "tests/reviewed-campaign-integration.test.ts",
       "archivePath": "docs/location-hotspot-root-sync-20261028/site-test-inputs/tests/reviewed-campaign-integration.test.ts.txt",
       "sha256": "0379870de240f4ff525fd3e30c0eb28aedb56aaffc9ad0a2c990be1e1c9f9f8f",
       "bytes": 15353,
-      "purpose": "Exact final-v4 Site input. Original94 frozen60aa75 tests remain independently recoverable in predecessor source archive; composite receipts distinguish final reruns from equivalent unchanged inputs."
+      "purpose": "Exact hotfix Site input; historical inputs preserved before overwrite and in immutable archive."
     },
     {
       "sitePath": "tests/reviewed-copy-corrections.test.ts",
       "archivePath": "docs/location-hotspot-root-sync-20261028/site-test-inputs/tests/reviewed-copy-corrections.test.ts.txt",
       "sha256": "1cc0865f513977a79fe7e30bc72627b455ef8066623ff412dc66f72d155f0924",
       "bytes": 5310,
-      "purpose": "Exact final-v4 Site input. Original94 frozen60aa75 tests remain independently recoverable in predecessor source archive; composite receipts distinguish final reruns from equivalent unchanged inputs."
+      "purpose": "Exact hotfix Site input; historical inputs preserved before overwrite and in immutable archive."
     },
     {
       "sitePath": "tests/riverside-content-integration.test.ts",
       "archivePath": "docs/location-hotspot-root-sync-20261028/site-test-inputs/tests/riverside-content-integration.test.ts.txt",
       "sha256": "900e647e7237cce7bb5bab176871e063ef79394c9163c804aedb0f4e79674a77",
       "bytes": 10477,
-      "purpose": "Exact final-v4 Site input. Original94 frozen60aa75 tests remain independently recoverable in predecessor source archive; composite receipts distinguish final reruns from equivalent unchanged inputs."
+      "purpose": "Exact hotfix Site input; historical inputs preserved before overwrite and in immutable archive."
+    },
+    {
+      "sitePath": "tests/small-scene-hotfix-integration.test.ts",
+      "archivePath": "docs/location-hotspot-root-sync-20261028/site-test-inputs/tests/small-scene-hotfix-integration.test.ts.txt",
+      "sha256": "ebd9d478633b8c8a8f66d4b3b6dc8b10647aac3ea93109661d643de8817d273a",
+      "bytes": 2601,
+      "purpose": "Exact hotfix Site input; historical inputs preserved before overwrite and in immutable archive."
+    },
+    {
+      "sitePath": "tests/small-scene-hotfix-source-contract.test.ts",
+      "archivePath": "docs/location-hotspot-root-sync-20261028/site-test-inputs/tests/small-scene-hotfix-source-contract.test.ts.txt",
+      "sha256": "f734e6ded8f628b24acd50a49e9e65e23db0249e9f6eace9378287f5c1de0d36",
+      "bytes": 1159,
+      "purpose": "Exact hotfix Site input; historical inputs preserved before overwrite and in immutable archive."
     },
     {
       "sitePath": "tests/solar-lamp-continuity.test.mjs",
       "archivePath": "docs/location-hotspot-root-sync-20261028/site-test-inputs/tests/solar-lamp-continuity.test.mjs.txt",
       "sha256": "c04078cd65258e6f3270bb0e67e1cf5926c4643d934638821e0e84f8c31a2297",
       "bytes": 10337,
-      "purpose": "Exact final-v4 Site input. Original94 frozen60aa75 tests remain independently recoverable in predecessor source archive; composite receipts distinguish final reruns from equivalent unchanged inputs."
+      "purpose": "Exact hotfix Site input; historical inputs preserved before overwrite and in immutable archive."
     },
     {
       "sitePath": "tests/tangible-area-independent.test.ts",
       "archivePath": "docs/location-hotspot-root-sync-20261028/site-test-inputs/tests/tangible-area-independent.test.ts.txt",
       "sha256": "f9c16228ab5705bbcfead51b7f33251abf0945566e1f788fe4e9f6c94457318e",
       "bytes": 10621,
-      "purpose": "Exact final-v4 Site input. Original94 frozen60aa75 tests remain independently recoverable in predecessor source archive; composite receipts distinguish final reruns from equivalent unchanged inputs."
+      "purpose": "Exact hotfix Site input; historical inputs preserved before overwrite and in immutable archive."
     },
     {
       "sitePath": "tests/tangible-campaign.test.ts",
       "archivePath": "docs/location-hotspot-root-sync-20261028/site-test-inputs/tests/tangible-campaign.test.ts.txt",
       "sha256": "585515c95b9e0013abc08c4edb069cfb3620549029c7e60ea0938b0e123996ff",
       "bytes": 2324,
-      "purpose": "Exact final-v4 Site input. Original94 frozen60aa75 tests remain independently recoverable in predecessor source archive; composite receipts distinguish final reruns from equivalent unchanged inputs."
+      "purpose": "Exact hotfix Site input; historical inputs preserved before overwrite and in immutable archive."
     }
   ],
   "additionalArchivedSiteInputs": [
     {
-      "sitePath": "AGENTS.md",
-      "archivePath": "docs/location-hotspot-root-sync-20261028/site-source-inputs/AGENTS.md.txt",
-      "sha256": "9ffb9b37e0e44e0650aa5ceb9d9d6ebe139c5ce7d3ec587303ccb3bddfe797bf"
-    },
-    {
       "sitePath": "DESIGN_PRINCIPLES.md",
-      "archivePath": "docs/location-hotspot-root-sync-20261028/site-source-inputs/DESIGN_PRINCIPLES.md.txt",
-      "sha256": "606f141120f8f4c50decabe88029ac7b60663f077d4cf03f5d3afc899799cc60"
+      "archivePath": "docs/small-scene-root-sync-20261029/site-source-inputs/DESIGN_PRINCIPLES.md.txt",
+      "sha256": "0d5d86ec06e0f781bf7c58ed37c725464bedba7b81ba8c077a7a8a017be059a6"
     },
     {
       "sitePath": "README.md",
-      "archivePath": "docs/location-hotspot-root-sync-20261028/site-source-inputs/README.md.txt",
-      "sha256": "2684e2631c1b4f6e6120eb1f5409428bcf4ef61ce891d99c6ac49b1bc806e308"
+      "archivePath": "docs/small-scene-root-sync-20261029/site-source-inputs/README.md.txt",
+      "sha256": "ad97b9b0aff1d835b075ecc0c9cd5b700cc137dc42dc22db4c0bc256edca56a5"
+    },
+    {
+      "sitePath": "docs/elements-compact-stage-20261027.md",
+      "archivePath": "docs/small-scene-root-sync-20261029/site-source-inputs/docs/elements-compact-stage-20261027.md.txt",
+      "sha256": "b0fbe24fac255787ff58636b22be9a9543200437c65d2e059d129e50f544ee5c"
+    },
+    {
+      "sitePath": "docs/elements-discovery-checkpoint.md",
+      "archivePath": "docs/small-scene-root-sync-20261029/site-source-inputs/docs/elements-discovery-checkpoint.md.txt",
+      "sha256": "9859a0f4cec808027369f87f0b33594f2ccb2d46ea184f8f8fee7406f9dd6883"
+    },
+    {
+      "sitePath": "docs/elements-mobile-workspace-2026-10-27.md",
+      "archivePath": "docs/small-scene-root-sync-20261029/site-source-inputs/docs/elements-mobile-workspace-2026-10-27.md.txt",
+      "sha256": "bb7758d0f7d7ca2fac8f2b56f96ef1b7f17672cb4b4094e2f96d0ed0018adae6"
+    },
+    {
+      "sitePath": "docs/elements-tangible-areas-2026-10-27.md",
+      "archivePath": "docs/small-scene-root-sync-20261029/site-source-inputs/docs/elements-tangible-areas-2026-10-27.md.txt",
+      "sha256": "bab5f4151a859ca4ea3dff08e84fcd0921622ca7f2004c040d936b39efbc2537"
+    },
+    {
+      "sitePath": "docs/estuary-browser-checkpoint.md",
+      "archivePath": "docs/small-scene-root-sync-20261029/site-source-inputs/docs/estuary-browser-checkpoint.md.txt",
+      "sha256": "228122785f302875cc7891426780a2c410598fd0bdfb1f86326a9fbba34e1c0d"
+    },
+    {
+      "sitePath": "docs/evidence/ideas-mobile-final.txt",
+      "archivePath": "docs/small-scene-root-sync-20261029/site-source-inputs/docs/evidence/ideas-mobile-final.txt.txt",
+      "sha256": "6bf18c2fd6828331b98be84b98c0649b2efa8a10a82dfcfc66ce2a019153f8e3"
+    },
+    {
+      "sitePath": "docs/evidence/ideas-mobile-legacy-first.txt",
+      "archivePath": "docs/small-scene-root-sync-20261029/site-source-inputs/docs/evidence/ideas-mobile-legacy-first.txt.txt",
+      "sha256": "d732465e9f2f072af04162e642cdb78f1b0a7b89e4e378f293a187b87a006193"
+    },
+    {
+      "sitePath": "docs/evidence/ideas-mobile-policy.txt",
+      "archivePath": "docs/small-scene-root-sync-20261029/site-source-inputs/docs/evidence/ideas-mobile-policy.txt.txt",
+      "sha256": "106ac4a9ecc2006af5d7c073ad8d1a6b228cca3e4150170653de13409ae4393d"
+    },
+    {
+      "sitePath": "docs/evidence/ideas-tangibility-final.txt",
+      "archivePath": "docs/small-scene-root-sync-20261029/site-source-inputs/docs/evidence/ideas-tangibility-final.txt.txt",
+      "sha256": "26a2e79b81ef46b6cba1739b11300eef71296707615f80c423f27c938cc5b094"
+    },
+    {
+      "sitePath": "docs/evidence/ideas-tangibility-first.txt",
+      "archivePath": "docs/small-scene-root-sync-20261029/site-source-inputs/docs/evidence/ideas-tangibility-first.txt.txt",
+      "sha256": "964abac970890ed9659865413c9778297ad6f295c745364f5dac67263331b1eb"
+    },
+    {
+      "sitePath": "docs/history-ideas-remake.md",
+      "archivePath": "docs/small-scene-root-sync-20261029/site-source-inputs/docs/history-ideas-remake.md.txt",
+      "sha256": "987aa06a87b4e65c334e24ad8994459b5f7ade83eb28ced52bbcf857be692572"
+    },
+    {
+      "sitePath": "docs/ideas-compact-objectives-2026-10-27.md",
+      "archivePath": "docs/small-scene-root-sync-20261029/site-source-inputs/docs/ideas-compact-objectives-2026-10-27.md.txt",
+      "sha256": "ba8f63bcb4fc985d691c176a95199024dad892a0de390a157d25b66bb32dda7e"
+    },
+    {
+      "sitePath": "docs/ideas-mobile-policy.md",
+      "archivePath": "docs/small-scene-root-sync-20261029/site-source-inputs/docs/ideas-mobile-policy.md.txt",
+      "sha256": "e5da83da0b1cd1fd27ed7fab27a5966de2b246dbdab693bdc931d24dd58ae4e4"
+    },
+    {
+      "sitePath": "docs/ideas-tangible-areas.md",
+      "archivePath": "docs/small-scene-root-sync-20261029/site-source-inputs/docs/ideas-tangible-areas.md.txt",
+      "sha256": "b35d7f0f6d4a4b3a5b1bafbef24f8ef08d515414513402b12787ed68ce192e83"
+    },
+    {
+      "sitePath": "docs/late-campaign-integration-20261028.md",
+      "archivePath": "docs/small-scene-root-sync-20261029/site-source-inputs/docs/late-campaign-integration-20261028.md.txt",
+      "sha256": "a0637c3d34b339ebcdc8d5615ddbe16ecb03fc7ec9ad5c686ad891afb5a8471e"
+    },
+    {
+      "sitePath": "docs/mars-expedition-browser-contract.md",
+      "archivePath": "docs/small-scene-root-sync-20261029/site-source-inputs/docs/mars-expedition-browser-contract.md.txt",
+      "sha256": "c81bd319f52bac34b44a5278bed084706639a11caf4795df7d42803763af039b"
+    },
+    {
+      "sitePath": "docs/mars-mobile-board-policy.md",
+      "archivePath": "docs/small-scene-root-sync-20261029/site-source-inputs/docs/mars-mobile-board-policy.md.txt",
+      "sha256": "59897571f818fb2d4c15bfb721df9321eb39d95fb77f12f1f98c13d712efc4bb"
+    },
+    {
+      "sitePath": "docs/mars-named-contract.md",
+      "archivePath": "docs/small-scene-root-sync-20261029/site-source-inputs/docs/mars-named-contract.md.txt",
+      "sha256": "b164c9bf39f53854b758ea89211a49a1a788ea340dcbd0543408bd5b2d379d59"
+    },
+    {
+      "sitePath": "docs/mars-named-implementation.md",
+      "archivePath": "docs/small-scene-root-sync-20261029/site-source-inputs/docs/mars-named-implementation.md.txt",
+      "sha256": "bb606905b4a6967820409f65cae9d30cbef6fd101645935a004cc73aa1652fd8"
+    },
+    {
+      "sitePath": "docs/mars-named-independent-review.md",
+      "archivePath": "docs/small-scene-root-sync-20261029/site-source-inputs/docs/mars-named-independent-review.md.txt",
+      "sha256": "6e4fc4845087196f3bc69d6a8a155d8fca18c350493b963617bd0f46eb01cdcd"
+    },
+    {
+      "sitePath": "docs/mars-next-goals-upgrades-contract.md",
+      "archivePath": "docs/small-scene-root-sync-20261029/site-source-inputs/docs/mars-next-goals-upgrades-contract.md.txt",
+      "sha256": "4de07f96d8347155c305d35980a33f877e92092a16b62090f397ad77fa29ef26"
+    },
+    {
+      "sitePath": "docs/mars-play-coverage.md",
+      "archivePath": "docs/small-scene-root-sync-20261029/site-source-inputs/docs/mars-play-coverage.md.txt",
+      "sha256": "6038e0355cba8e6252192cbb7f62ac89421b2427f020395ae3d0fcab86f8adcb"
+    },
+    {
+      "sitePath": "docs/mars-play-independent-review.md",
+      "archivePath": "docs/small-scene-root-sync-20261029/site-source-inputs/docs/mars-play-independent-review.md.txt",
+      "sha256": "5c215fc3a03394b7886c458c8e97cf1d75fae0c040d6dc878844e3b014395428"
+    },
+    {
+      "sitePath": "docs/mars-purpose-browser-contract.md",
+      "archivePath": "docs/small-scene-root-sync-20261029/site-source-inputs/docs/mars-purpose-browser-contract.md.txt",
+      "sha256": "e3fff74d815819362a195bafd9f559acfb1798b35ac94c3485263a85cd5f22bd"
+    },
+    {
+      "sitePath": "docs/mars-remote-next-continuation.md",
+      "archivePath": "docs/small-scene-root-sync-20261029/site-source-inputs/docs/mars-remote-next-continuation.md.txt",
+      "sha256": "1b66fb79b27956f884da5164afb96bea73f210af20f7dc665d6b733ee65b2a70"
+    },
+    {
+      "sitePath": "docs/mars-rover-slots-revision.md",
+      "archivePath": "docs/small-scene-root-sync-20261029/site-source-inputs/docs/mars-rover-slots-revision.md.txt",
+      "sha256": "7a3d6f215563b235ce3e99bafc1d9fe413877d0f286fc789a19a641d5c705354"
+    },
+    {
+      "sitePath": "docs/mars-stage-refinement-2026-10-27.md",
+      "archivePath": "docs/small-scene-root-sync-20261029/site-source-inputs/docs/mars-stage-refinement-2026-10-27.md.txt",
+      "sha256": "fb7b1751e67add44ebe6e3d89eb2f9b27c29800f473c99148b08215c7e39664b"
+    },
+    {
+      "sitePath": "docs/mars-tangible-areas.md",
+      "archivePath": "docs/small-scene-root-sync-20261029/site-source-inputs/docs/mars-tangible-areas.md.txt",
+      "sha256": "d8e88503d7f2bfa170156a0f3ec33bbfcd6596a7eab568e0fc4a0e6ddda88084"
+    },
+    {
+      "sitePath": "docs/morning-campaign-integration-20261028.md",
+      "archivePath": "docs/small-scene-root-sync-20261029/site-source-inputs/docs/morning-campaign-integration-20261028.md.txt",
+      "sha256": "b007c65f63c1ed73b639a8e621f219ca80dfcab3d803e780107b0e673b9f55e2"
+    },
+    {
+      "sitePath": "docs/next-human-checkpoint-20261028.md",
+      "archivePath": "docs/small-scene-root-sync-20261029/site-source-inputs/docs/next-human-checkpoint-20261028.md.txt",
+      "sha256": "f1655a0d21bbf87430b14c655ca529b79054f00869568de2db0963ae8ef2def2"
+    },
+    {
+      "sitePath": "docs/playspace-independent-review.md",
+      "archivePath": "docs/small-scene-root-sync-20261029/site-source-inputs/docs/playspace-independent-review.md.txt",
+      "sha256": "8f3aea510b4376c0e8eab6a3f53c63eed07e1ac0098c7554ea7f43fec57c85fb"
+    },
+    {
+      "sitePath": "docs/playspace-ux-experiment.md",
+      "archivePath": "docs/small-scene-root-sync-20261029/site-source-inputs/docs/playspace-ux-experiment.md.txt",
+      "sha256": "7c96235685317f7ed4d481f49dbc93ef239e83917a72fa6ddb1b33d933a52a07"
+    },
+    {
+      "sitePath": "docs/reviewed-campaign-integration-20261028.md",
+      "archivePath": "docs/small-scene-root-sync-20261029/site-source-inputs/docs/reviewed-campaign-integration-20261028.md.txt",
+      "sha256": "d1c3a80dd19513c6917ec2e7af3609e16367274ddb2fc39e6b6bea4d08208a36"
+    },
+    {
+      "sitePath": "docs/shared-campaign-ui-20261027.md",
+      "archivePath": "docs/small-scene-root-sync-20261029/site-source-inputs/docs/shared-campaign-ui-20261027.md.txt",
+      "sha256": "2ea3bb2c860a8ae8eef36a0edf1a6ef93945e3f894b2414559d51ebc807b64e8"
     },
     {
       "sitePath": "index.html",
-      "archivePath": "docs/location-hotspot-root-sync-20261028/site-source-inputs/index.html.txt",
+      "archivePath": "docs/small-scene-root-sync-20261029/site-source-inputs/index.html.txt",
       "sha256": "06e6be0a9b7215078f475e7107900444424587bd2cb8739af07363bf120ac7ec"
+    },
+    {
+      "sitePath": "package-lock.json",
+      "archivePath": "docs/small-scene-root-sync-20261029/site-source-inputs/package-lock.json.txt",
+      "sha256": "3527aa825151cf83fbf7d5e27dae2e362318ba900dd1abeba94092668b3ae503"
+    },
+    {
+      "sitePath": "package.json",
+      "archivePath": "docs/small-scene-root-sync-20261029/site-source-inputs/package.json.txt",
+      "sha256": "8d690cb419b3a37811ad118decb324843f8bda254396a6bc183d8d60c46275bd"
+    },
+    {
+      "sitePath": "tests/fixtures/mars-named-legacy-travel-partway.json",
+      "archivePath": "docs/small-scene-root-sync-20261029/site-source-inputs/tests/fixtures/mars-named-legacy-travel-partway.json.txt",
+      "sha256": "887fdf2f0c0418629956af40759f18b1650396408308139f5477b2a774ed7588"
+    },
+    {
+      "sitePath": "tsconfig.json",
+      "archivePath": "docs/small-scene-root-sync-20261029/site-source-inputs/tsconfig.json.txt",
+      "sha256": "92ac640e4799f90fe417eb6c744a616de5531f70bed55d4115926effbfd9fc26"
     }
   ],
   "siteSourceInputPathBySitePath": {
@@ -785,6 +1048,7 @@
     "tests/elements-heroes.test.ts": "docs/location-hotspot-root-sync-20261028/site-test-inputs/tests/elements-heroes.test.ts.txt",
     "tests/elements-house-and-craft.test.ts": "docs/location-hotspot-root-sync-20261028/site-test-inputs/tests/elements-house-and-craft.test.ts.txt",
     "tests/elements-house-components.test.ts": "docs/location-hotspot-root-sync-20261028/site-test-inputs/tests/elements-house-components.test.ts.txt",
+    "tests/elements-small-scenes.test.ts": "docs/location-hotspot-root-sync-20261028/site-test-inputs/tests/elements-small-scenes.test.ts.txt",
     "tests/estuary-play-model.test.ts": "docs/location-hotspot-root-sync-20261028/site-test-inputs/tests/estuary-play-model.test.ts.txt",
     "tests/estuary-play-ui.test.ts": "docs/location-hotspot-root-sync-20261028/site-test-inputs/tests/estuary-play-ui.test.ts.txt",
     "tests/grouped-arrival-independent.test.ts": "docs/location-hotspot-root-sync-20261028/site-test-inputs/tests/grouped-arrival-independent.test.ts.txt",
@@ -794,6 +1058,7 @@
     "tests/history-ideas-independent-model.test.ts": "docs/location-hotspot-root-sync-20261028/site-test-inputs/tests/history-ideas-independent-model.test.ts.txt",
     "tests/history-ideas-mobile-policy.test.ts": "docs/location-hotspot-root-sync-20261028/site-test-inputs/tests/history-ideas-mobile-policy.test.ts.txt",
     "tests/history-ideas-model.test.ts": "docs/location-hotspot-root-sync-20261028/site-test-inputs/tests/history-ideas-model.test.ts.txt",
+    "tests/intellectual-cue-prose.test.ts": "docs/location-hotspot-root-sync-20261028/site-test-inputs/tests/intellectual-cue-prose.test.ts.txt",
     "tests/intellectual-worlds-source-contract.test.ts": "docs/location-hotspot-root-sync-20261028/site-test-inputs/tests/intellectual-worlds-source-contract.test.ts.txt",
     "tests/intellectual-worlds.test.ts": "docs/location-hotspot-root-sync-20261028/site-test-inputs/tests/intellectual-worlds.test.ts.txt",
     "tests/intuitive-story-alternatives.test.ts": "docs/location-hotspot-root-sync-20261028/site-test-inputs/tests/intuitive-story-alternatives.test.ts.txt",
@@ -809,6 +1074,7 @@
     "tests/location-affordances.test.ts": "docs/location-hotspot-root-sync-20261028/site-test-inputs/tests/location-affordances.test.ts.txt",
     "tests/location-current-registry.test.ts": "docs/location-hotspot-root-sync-20261028/site-test-inputs/tests/location-current-registry.test.ts.txt",
     "tests/location-hotspot-terminology.test.ts": "docs/location-hotspot-root-sync-20261028/site-test-inputs/tests/location-hotspot-terminology.test.ts.txt",
+    "tests/location-image-lifecycle.test.ts": "docs/location-hotspot-root-sync-20261028/site-test-inputs/tests/location-image-lifecycle.test.ts.txt",
     "tests/location-story-controller.test.ts": "docs/location-hotspot-root-sync-20261028/site-test-inputs/tests/location-story-controller.test.ts.txt",
     "tests/location-story-model.test.ts": "docs/location-hotspot-root-sync-20261028/site-test-inputs/tests/location-story-model.test.ts.txt",
     "tests/mars-expedition-dom.test.ts": "docs/location-hotspot-root-sync-20261028/site-test-inputs/tests/mars-expedition-dom.test.ts.txt",
@@ -847,16 +1113,56 @@
     "tests/reactive-chapter-policies.test.ts": "docs/location-hotspot-root-sync-20261028/site-test-inputs/tests/reactive-chapter-policies.test.ts.txt",
     "tests/reactive-chapters.test.ts": "docs/location-hotspot-root-sync-20261028/site-test-inputs/tests/reactive-chapters.test.ts.txt",
     "tests/reactive-heroes-source-contract.test.ts": "docs/location-hotspot-root-sync-20261028/site-test-inputs/tests/reactive-heroes-source-contract.test.ts.txt",
+    "tests/rendering-intertitles-source-contract.test.ts": "docs/location-hotspot-root-sync-20261028/site-test-inputs/tests/rendering-intertitles-source-contract.test.ts.txt",
     "tests/reviewed-campaign-integration.test.ts": "docs/location-hotspot-root-sync-20261028/site-test-inputs/tests/reviewed-campaign-integration.test.ts.txt",
     "tests/reviewed-copy-corrections.test.ts": "docs/location-hotspot-root-sync-20261028/site-test-inputs/tests/reviewed-copy-corrections.test.ts.txt",
     "tests/riverside-content-integration.test.ts": "docs/location-hotspot-root-sync-20261028/site-test-inputs/tests/riverside-content-integration.test.ts.txt",
+    "tests/small-scene-hotfix-integration.test.ts": "docs/location-hotspot-root-sync-20261028/site-test-inputs/tests/small-scene-hotfix-integration.test.ts.txt",
+    "tests/small-scene-hotfix-source-contract.test.ts": "docs/location-hotspot-root-sync-20261028/site-test-inputs/tests/small-scene-hotfix-source-contract.test.ts.txt",
     "tests/solar-lamp-continuity.test.mjs": "docs/location-hotspot-root-sync-20261028/site-test-inputs/tests/solar-lamp-continuity.test.mjs.txt",
     "tests/tangible-area-independent.test.ts": "docs/location-hotspot-root-sync-20261028/site-test-inputs/tests/tangible-area-independent.test.ts.txt",
     "tests/tangible-campaign.test.ts": "docs/location-hotspot-root-sync-20261028/site-test-inputs/tests/tangible-campaign.test.ts.txt",
-    "AGENTS.md": "docs/location-hotspot-root-sync-20261028/site-source-inputs/AGENTS.md.txt",
-    "DESIGN_PRINCIPLES.md": "docs/location-hotspot-root-sync-20261028/site-source-inputs/DESIGN_PRINCIPLES.md.txt",
-    "README.md": "docs/location-hotspot-root-sync-20261028/site-source-inputs/README.md.txt",
-    "index.html": "docs/location-hotspot-root-sync-20261028/site-source-inputs/index.html.txt"
+    "DESIGN_PRINCIPLES.md": "docs/small-scene-root-sync-20261029/site-source-inputs/DESIGN_PRINCIPLES.md.txt",
+    "README.md": "docs/small-scene-root-sync-20261029/site-source-inputs/README.md.txt",
+    "docs/elements-compact-stage-20261027.md": "docs/small-scene-root-sync-20261029/site-source-inputs/docs/elements-compact-stage-20261027.md.txt",
+    "docs/elements-discovery-checkpoint.md": "docs/small-scene-root-sync-20261029/site-source-inputs/docs/elements-discovery-checkpoint.md.txt",
+    "docs/elements-mobile-workspace-2026-10-27.md": "docs/small-scene-root-sync-20261029/site-source-inputs/docs/elements-mobile-workspace-2026-10-27.md.txt",
+    "docs/elements-tangible-areas-2026-10-27.md": "docs/small-scene-root-sync-20261029/site-source-inputs/docs/elements-tangible-areas-2026-10-27.md.txt",
+    "docs/estuary-browser-checkpoint.md": "docs/small-scene-root-sync-20261029/site-source-inputs/docs/estuary-browser-checkpoint.md.txt",
+    "docs/evidence/ideas-mobile-final.txt": "docs/small-scene-root-sync-20261029/site-source-inputs/docs/evidence/ideas-mobile-final.txt.txt",
+    "docs/evidence/ideas-mobile-legacy-first.txt": "docs/small-scene-root-sync-20261029/site-source-inputs/docs/evidence/ideas-mobile-legacy-first.txt.txt",
+    "docs/evidence/ideas-mobile-policy.txt": "docs/small-scene-root-sync-20261029/site-source-inputs/docs/evidence/ideas-mobile-policy.txt.txt",
+    "docs/evidence/ideas-tangibility-final.txt": "docs/small-scene-root-sync-20261029/site-source-inputs/docs/evidence/ideas-tangibility-final.txt.txt",
+    "docs/evidence/ideas-tangibility-first.txt": "docs/small-scene-root-sync-20261029/site-source-inputs/docs/evidence/ideas-tangibility-first.txt.txt",
+    "docs/history-ideas-remake.md": "docs/small-scene-root-sync-20261029/site-source-inputs/docs/history-ideas-remake.md.txt",
+    "docs/ideas-compact-objectives-2026-10-27.md": "docs/small-scene-root-sync-20261029/site-source-inputs/docs/ideas-compact-objectives-2026-10-27.md.txt",
+    "docs/ideas-mobile-policy.md": "docs/small-scene-root-sync-20261029/site-source-inputs/docs/ideas-mobile-policy.md.txt",
+    "docs/ideas-tangible-areas.md": "docs/small-scene-root-sync-20261029/site-source-inputs/docs/ideas-tangible-areas.md.txt",
+    "docs/late-campaign-integration-20261028.md": "docs/small-scene-root-sync-20261029/site-source-inputs/docs/late-campaign-integration-20261028.md.txt",
+    "docs/mars-expedition-browser-contract.md": "docs/small-scene-root-sync-20261029/site-source-inputs/docs/mars-expedition-browser-contract.md.txt",
+    "docs/mars-mobile-board-policy.md": "docs/small-scene-root-sync-20261029/site-source-inputs/docs/mars-mobile-board-policy.md.txt",
+    "docs/mars-named-contract.md": "docs/small-scene-root-sync-20261029/site-source-inputs/docs/mars-named-contract.md.txt",
+    "docs/mars-named-implementation.md": "docs/small-scene-root-sync-20261029/site-source-inputs/docs/mars-named-implementation.md.txt",
+    "docs/mars-named-independent-review.md": "docs/small-scene-root-sync-20261029/site-source-inputs/docs/mars-named-independent-review.md.txt",
+    "docs/mars-next-goals-upgrades-contract.md": "docs/small-scene-root-sync-20261029/site-source-inputs/docs/mars-next-goals-upgrades-contract.md.txt",
+    "docs/mars-play-coverage.md": "docs/small-scene-root-sync-20261029/site-source-inputs/docs/mars-play-coverage.md.txt",
+    "docs/mars-play-independent-review.md": "docs/small-scene-root-sync-20261029/site-source-inputs/docs/mars-play-independent-review.md.txt",
+    "docs/mars-purpose-browser-contract.md": "docs/small-scene-root-sync-20261029/site-source-inputs/docs/mars-purpose-browser-contract.md.txt",
+    "docs/mars-remote-next-continuation.md": "docs/small-scene-root-sync-20261029/site-source-inputs/docs/mars-remote-next-continuation.md.txt",
+    "docs/mars-rover-slots-revision.md": "docs/small-scene-root-sync-20261029/site-source-inputs/docs/mars-rover-slots-revision.md.txt",
+    "docs/mars-stage-refinement-2026-10-27.md": "docs/small-scene-root-sync-20261029/site-source-inputs/docs/mars-stage-refinement-2026-10-27.md.txt",
+    "docs/mars-tangible-areas.md": "docs/small-scene-root-sync-20261029/site-source-inputs/docs/mars-tangible-areas.md.txt",
+    "docs/morning-campaign-integration-20261028.md": "docs/small-scene-root-sync-20261029/site-source-inputs/docs/morning-campaign-integration-20261028.md.txt",
+    "docs/next-human-checkpoint-20261028.md": "docs/small-scene-root-sync-20261029/site-source-inputs/docs/next-human-checkpoint-20261028.md.txt",
+    "docs/playspace-independent-review.md": "docs/small-scene-root-sync-20261029/site-source-inputs/docs/playspace-independent-review.md.txt",
+    "docs/playspace-ux-experiment.md": "docs/small-scene-root-sync-20261029/site-source-inputs/docs/playspace-ux-experiment.md.txt",
+    "docs/reviewed-campaign-integration-20261028.md": "docs/small-scene-root-sync-20261029/site-source-inputs/docs/reviewed-campaign-integration-20261028.md.txt",
+    "docs/shared-campaign-ui-20261027.md": "docs/small-scene-root-sync-20261029/site-source-inputs/docs/shared-campaign-ui-20261027.md.txt",
+    "index.html": "docs/small-scene-root-sync-20261029/site-source-inputs/index.html.txt",
+    "package-lock.json": "docs/small-scene-root-sync-20261029/site-source-inputs/package-lock.json.txt",
+    "package.json": "docs/small-scene-root-sync-20261029/site-source-inputs/package.json.txt",
+    "tests/fixtures/mars-named-legacy-travel-partway.json": "docs/small-scene-root-sync-20261029/site-source-inputs/tests/fixtures/mars-named-legacy-travel-partway.json.txt",
+    "tsconfig.json": "docs/small-scene-root-sync-20261029/site-source-inputs/tsconfig.json.txt"
   },
   "unrelatedPreExistingRootTests": "Retained through existing base-tree overlay; no deletion, disabled file or npm test change.",
   "noFullRootRepositoryAggregateClaim": true,
@@ -871,6 +1177,6 @@
   },
   "predecessorSiteSourceSealSha256": "60aa75dd30d776867324f738b900ed86e5c5188558c148666c0e6111e2b1b9be",
   "predecessorSiteAggregateEntries": 94,
-  "finalSiteEvidencePolicy": "Composite: full unchanged60aa75 predecessor94 retained including scope failure; final-v4 affected full files/build/source contracts rerun, only exact proven unaffected actual inputs may reuse prior terminal receipts. Not95 direct final reruns.",
+  "finalSiteEvidencePolicy": "Hotfix final source: focused156, maintained-controller145, event-local10 and intact tangible aggregate444 pass. Not101-file full-catalogue coverage; prior Site composite remains historical.",
   "intermediateSiteSourceSealSha256": "27aed85488612d79b0126365f1ddf9471775a7f15fa954cefde19e01af6f16a5"
 }

@@ -77,11 +77,11 @@ dialog button,dialog select{min-height:44px}
 @media(max-height:480px){#milestone{padding:20px}.milestone-content{justify-content:flex-start}#milestone .milestone-eyebrow{margin-bottom:14px}#milestone h1{margin-top:20px}.milestone-object{padding:12px}}
 
 /* One real place is one phone-sized panel, including on a desktop. Artwork is
-   decorative, dimmed, never a source of inventory or a reason to reflow tiles. */
+   decorative, richly visible, never a source of inventory or a reason to reflow tiles. */
 .board.fixed-locations{max-width:390px;min-height:0;isolation:isolate}
 .location-scene{position:absolute;left:0;right:0;overflow:hidden;pointer-events:none;z-index:-2;background:#e8dfcd}
-.location-scene img{display:block;width:100%;height:100%;object-fit:cover;opacity:.46;filter:saturate(.68);pointer-events:none}
-.location-scrim{position:absolute;inset:0;background:linear-gradient(#f3eddf20,#f3eddf77 24%,#f3eddf9c 80%);pointer-events:none}
+.location-scene img{display:block;width:100%;height:100%;object-fit:cover;opacity:.94;filter:saturate(1.08);pointer-events:none}
+.location-scrim{position:absolute;inset:0;background:linear-gradient(#f3eddf0a,#f3eddf14 24%,#f3eddf24 80%);pointer-events:none}
 .fixed-locations .location-label{z-index:0;background:#f3eddfc9;min-height:24px;padding:5px 7px;color:#665c4b;border-top:1px solid #b8aa91}
 .fixed-locations .thing.selected,.fixed-locations .thing:focus-visible{z-index:20}
 .fixed-locations .hotspot{background:#f3eddf75}
@@ -92,3 +92,15 @@ dialog button,dialog select{min-height:44px}
 /* The source marker is a corner annotation in fixed panels, not an extra
    blank text row on every manuscript. Read remains a deliberate selected action. */
 .fixed-locations .source-marker{position:absolute;right:-2px;top:-3px;width:12px;height:12px;line-height:12px;background:#fffaf0;border-radius:3px;opacity:.8;pointer-events:none}
+
+/* Ordinary story beats are a single tappable intertitle, not a second goals UI.
+   The prose itself is the native button: pointer, Enter, Space and Escape work. */
+#mission.intertitle{padding:0;border-radius:8px}
+#mission.intertitle .intertitle-dismiss{display:block;width:100%;min-height:100px;border:0;border-radius:8px;padding:30px 26px;background:transparent;text-align:center;font-family:Georgia,serif;font-size:clamp(18px,4.6vw,23px);line-height:1.55;white-space:pre-line}
+#mission.intertitle .intertitle-dismiss:focus-visible{outline-offset:-5px}
+/* Solid object cards carry label contrast; art does not need a blanket wash. */
+.fixed-locations .thing{background:#fffaf0;box-shadow:0 2px 5px #302b2533}
+.fixed-locations .thing.goal-met{background:#fff1c6}
+.fixed-locations .hotspot{background:#f3eddfd9}
+.location-hud .objective-line{background:#f3eddfed;box-shadow:0 0 4px 2px #f3eddf80}
+.location-hud .debug-toggle{filter:drop-shadow(0 0 2px #fffaf0) drop-shadow(0 0 3px #fffaf0)}

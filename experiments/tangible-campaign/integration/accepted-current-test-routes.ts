@@ -4,11 +4,13 @@ import {readFileSync} from 'node:fs';
 import {createHash} from 'node:crypto';
 import type {Action,Scenario} from '../schema/scenario.ts';
 import {toLegacyAction} from '../compatibility/v1.ts';
-import {locationSuccessorScenarios} from '../ui/current-scenarios.ts';
+import {scenarios as registeredScenarios} from '../ui/current-scenarios.ts';
 import {currentMarsRouteActions} from './current-mars-route-actions.ts';
 const sha=(x:string)=>createHash('sha256').update(x).digest('hex');
 export function acceptedTestRoute(s:Scenario):{actions:Action[];source:Record<string,unknown>} {
- const current=locationSuccessorScenarios.find(x=>x.id===s.id);
+ // Retained location snapshots still use their exact authored location route,
+ // even when they are no longer featured. Pre-location historical files stay exact.
+ const current=registeredScenarios.find(x=>x.id===s.id&&x.locationPlan);
  if(!current){
   const path='../evidence/'+s.id+'-route-evidence.json',raw=readFileSync(new URL(path,import.meta.url),'utf8'),actions=JSON.parse(raw).actionsLog as Action[];
   return {actions:s.id==='mars-connected-survival-v4-return-cargo-research'?currentMarsRouteActions(actions):actions,source:{kind:'unchanged-historical-route-file',scenarioId:s.id,path,sha256:sha(raw),existingSolarContinuityAdapter:s.id==='mars-connected-survival-v4-return-cargo-research'}};

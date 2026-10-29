@@ -1,3 +1,7 @@
+
+// Root context: exact whole-Site provenance bytes resolve explicit immutable snapshots; gameplay imports remain active.
+const sourcePaths=JSON.parse(readFileSync(new URL('docs/location-hotspot-root-sync-20261028/test-context-map.json',new URL('../',import.meta.url)),'utf8')).siteSourceInputPathBySitePath;
+import {expectedSourceHashAfterFinalTestContracts} from '../experiments/tangible-campaign/integration/final-test-contract-source-guard.ts';
 import assert from 'node:assert/strict';
 import test from 'node:test';
 import {readFileSync} from 'node:fs';
@@ -16,9 +20,6 @@ import {lifecycleAudit} from '../experiments/tangible-campaign/integration/curre
 import {scenarios as current} from '../experiments/tangible-campaign/ui/current-scenarios.ts';
 
 const root=new URL('../',import.meta.url),review='experiments/tangible-campaign/reviews/mars-observation-streamline/';
-// Only whole-Site provenance SHA reads are contextual. Gameplay/controller/lifecycle imports and data remain actual root.
-const sourcePaths=JSON.parse(readFileSync(new URL('docs/location-hotspot-root-sync-20261028/test-context-map.json',root),'utf8')).siteSourceInputPathBySitePath;
-
 const retired=['scale-card','specimen-rack','core-rack','scaled-core','scaled-gravel-view'];
 const route=mars.checkpoints!.find(c=>c.id==='complete')!.actions;
 const match=(s:Scenario,a:Action)=>a.type==='combine'?s.recipes.find(r=>[r.a,r.b].sort().join('|')===[a.a,a.b].sort().join('|')):undefined;
@@ -40,7 +41,7 @@ test('exact frozen source lineage, all forty historical scenario objects and old
  const manifest=JSON.parse(readFileSync(new URL(review+'source-successors.json',root),'utf8'));
  assert.equal(manifest.parentSourceSealSha256,'60aa75dd30d776867324f738b900ed86e5c5188558c148666c0e6111e2b1b9be');
  const sha=(path:string)=>createHash('sha256').update(readFileSync(new URL(sourcePaths[path]??path,root))).digest('hex');
- for(const [path,row]of Object.entries<any>(manifest.files)){assert.equal(sha(path),row.afterSha256,path);assert.equal(sha(row.predecessorSnapshotPath),row.beforeSha256,path);}
+ for(const [path,row]of Object.entries<any>(manifest.files)){assert.equal(sha(path),expectedSourceHashAfterFinalTestContracts(path,row.afterSha256),path);assert.equal(sha(row.predecessorSnapshotPath),row.beforeSha256,path);}
  const prior=JSON.parse(readFileSync(new URL(review+'historical-scenario-hashes.json',root),'utf8'));assert.equal(historical.length,40);
  for(const s of historical)assert.equal(createHash('sha256').update(JSON.stringify(s)).digest('hex'),prior[s.id],s.id);
  for(const id of retired)assert(oldMars.items.some(i=>i.id===id));

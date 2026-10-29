@@ -1,3 +1,4 @@
+import {expectedSourceHashAfterFinalTestContracts} from '../experiments/tangible-campaign/integration/final-test-contract-source-guard.ts';
 import assert from 'node:assert/strict';
 import test from 'node:test';
 import {readFileSync} from 'node:fs';
@@ -37,7 +38,7 @@ test('exact frozen source lineage, all forty historical scenario objects and old
  const manifest=JSON.parse(readFileSync(new URL(review+'source-successors.json',root),'utf8'));
  assert.equal(manifest.parentSourceSealSha256,'60aa75dd30d776867324f738b900ed86e5c5188558c148666c0e6111e2b1b9be');
  const sha=(path:string)=>createHash('sha256').update(readFileSync(new URL(path,root))).digest('hex');
- for(const [path,row]of Object.entries<any>(manifest.files)){assert.equal(sha(path),row.afterSha256,path);assert.equal(sha(row.predecessorSnapshotPath),row.beforeSha256,path);}
+ for(const [path,row]of Object.entries<any>(manifest.files)){assert.equal(sha(path),expectedSourceHashAfterFinalTestContracts(path,row.afterSha256),path);assert.equal(sha(row.predecessorSnapshotPath),row.beforeSha256,path);}
  const prior=JSON.parse(readFileSync(new URL(review+'historical-scenario-hashes.json',root),'utf8'));assert.equal(historical.length,40);
  for(const s of historical)assert.equal(createHash('sha256').update(JSON.stringify(s)).digest('hex'),prior[s.id],s.id);
  for(const id of retired)assert(oldMars.items.some(i=>i.id===id));

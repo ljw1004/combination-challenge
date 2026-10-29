@@ -36,10 +36,12 @@ const {locationSuccessorScenarios}=await import('../experiments/tangible-campaig
 const used=[...new Set(locationSuccessorScenarios.flatMap(s=>s.locationPlan.locations.map(l=>l.background.asset)))].sort();
 assert.deepEqual(used,manifest.runtimeAssets.map(a=>a.runtimeUrl).sort(),'actual scenario artwork closure changed');
 for(const asset of manifest.runtimeAssets){assert.equal(asset.path,'public'+asset.runtimeUrl);assert(manifest.files[asset.path]);assert.equal(sha(read(asset.path)),asset.sha256,'active artwork drift: '+asset.path);}
-assert.equal(used.length,71);
+assert.equal(used.length,74);
 const archived=verifySourceArchive().report;assert.equal(archived.sourceSealSha256,manifest.sourceSealSha256);
 const predecessor=verifySourceArchive({archive:'predecessor'}).report;assert.equal(predecessor.sourceSealSha256,manifest.predecessorSourceArchive.sourceSealSha256);
 const intermediate=verifySourceArchive({archive:'intermediate'}).report;assert.equal(intermediate.sourceSealSha256,manifest.intermediateSourceArchive.sourceSealSha256);
 const readme=read('README.md').toString(),marker='## Current live shared runtime — 28 October 2026';
 assert.equal(sha(Buffer.from(readme.slice(readme.indexOf(marker)))),manifest.historicalReadmeTailSha256,'dated README chronology changed');
 console.log(`PASS root campaign: ${Object.keys(manifest.files).length} declared files; ${seen.size} actual runtime/content-gate dependencies + ${used.length} referenced artwork assets; ${Object.keys(manifest.protectedRootFiles).length} unrelated root files and ${Object.keys(manifest.originalScripts).length} original scripts unchanged; full ${archived.materializedFiles}-file source archive verified.`);
+
+const beforeHotfix=verifySourceArchive({archive:'before-hotfix'}).report;assert.equal(beforeHotfix.sourceSealSha256,manifest.beforeHotfixSourceArchive.sourceSealSha256);
