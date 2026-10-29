@@ -1,0 +1,78 @@
+import {expectedCurrentScenario} from '../experiments/tangible-campaign/ui/current-scenarios.ts';
+import {expectedSourceHashAfterMarsCreature} from '../experiments/tangible-campaign/integration/mars-creature-source-guard.ts';
+import {scenarios as preserved53} from '../experiments/tangible-campaign/ui/pre-authenticity-scenarios.ts';
+import test from 'node:test';import assert from 'node:assert/strict';import {readFileSync,mkdirSync,writeFileSync} from 'node:fs';import {createHash} from 'node:crypto';
+import * as M from '../experiments/tangible-campaign/engine/campaign.ts';
+import type {Action,Scenario} from '../experiments/tangible-campaign/schema/campaign.ts';
+import {authenticitySuccessors,elements,mars,atlas} from '../experiments/tangible-campaign/ui/stories/authenticity-repairs-v1.ts';
+import {scenario as oldElements} from '../experiments/tangible-campaign/ui/stories/elements-river-scenes.ts';
+import {scenario as oldMars} from '../experiments/tangible-campaign/ui/stories/mars-field-scenes.ts';
+import {scenario as oldAtlas} from '../experiments/tangible-campaign/ui/stories/atlas-civilization-locations.ts';
+import {scenarios} from '../experiments/tangible-campaign/ui/current-scenarios.ts';
+import {toLegacyGame,toLegacyScenario} from '../experiments/tangible-campaign/compatibility/v1.ts';
+import {validateContentLifecycles,validateObjectiveFlow,validateConstructionContinuity} from '../experiments/tangible-campaign/schema/lifecycle.ts';
+import {validateLifecycleGraph} from '../experiments/tangible-campaign/schema/lifecycle-graph.ts';
+import {encodeSave,decodeSave} from '../experiments/tangible-campaign/ui/save-codec.ts';
+import {locationHarness} from '../experiments/tangible-campaign/ui/location-controller-harness.ts';
+import {expectedSourceHashAfterAuthenticityRepairs} from '../experiments/tangible-campaign/integration/authenticity-repairs-source-guard.ts';
+const root=new URL('../',import.meta.url),path='experiments/tangible-campaign/research/atlas-civilization-reviewed-20261029/canonical-route.json';
+const routes=new Map(authenticitySuccessors.map(s=>[s.id,s===atlas?JSON.parse(readFileSync(new URL(path,root),'utf8')).actions as Action[]:s.checkpoints!.find(c=>c.id==='complete')!.actions]));
+const prior=new Map([[elements,oldElements],[mars,oldMars],[atlas,oldAtlas]]);
+const noMetrics=({metrics,...rest}:M.State)=>rest;
+const changed=(s:Scenario)=>new Set(s.recipes.filter(r=>JSON.stringify(r)!==JSON.stringify(prior.get(s)!.recipes.find(x=>x.id===r.id))).map(r=>r.id));
+const recipeFor=(s:Scenario,a:Action)=>a.type==='combine'?s.recipes.find(r=>[r.a,r.b].includes(a.a)&&[r.a,r.b].includes(a.b)):undefined;
+const step=(s:Scenario,g:M.Game,a:Action)=>{const r=M.applyAction(s,g,a);assert(r.accepted,s.id+' '+JSON.stringify(a)+' '+r.message);return r.game;};
+const durable=(s:Scenario,g:M.Game)=>{assert.deepEqual(M.restore(s,JSON.stringify(g)),g);assert.deepEqual(M.restore(s,JSON.stringify(toLegacyGame(g))),g);assert.deepEqual(M.restore(s,JSON.stringify(decodeSave(encodeSave({game:toLegacyGame(g),seen:[],tops:{}})).game)),g);};
+const resultDir=new URL('../results/authenticity-repairs-candidate/',import.meta.url);mkdirSync(resultDir,{recursive:true});
+
+test('exact source-successor ancestry preserves all53 prior identities while only final reviewed editions register',()=>{
+ const manifest=JSON.parse(readFileSync(new URL('experiments/tangible-campaign/reviews/authenticity-release-20261029/dacaaa-source-manifest.json',root),'utf8'));assert.equal(createHash('sha256').update(readFileSync(new URL('experiments/tangible-campaign/reviews/authenticity-release-20261029/dacaaa-source-manifest.json',root))).digest('hex'),'dacaaa3832d19900f790a9cd5e571bf790a2cf435e2f32f1bb259861008c80b9');
+ for(const [p,row] of Object.entries<any>(manifest.files))assert.equal(createHash('sha256').update(readFileSync(new URL(p,root))).digest('hex'),expectedSourceHashAfterMarsCreature(p,row.sha256),p);
+ assert.equal(scenarios.length,61);assert.equal(preserved53.length,53);for(const old of preserved53)assert.equal(scenarios.find(s=>s.id===old.id),expectedCurrentScenario(old));for(const s of authenticitySuccessors)assert.equal(scenarios.some(x=>x.id===s.id),s.id!=='elements-material-repairs-v5');
+ assert.equal(expectedSourceHashAfterAuthenticityRepairs('untouched.ts','a'.repeat(64)),'a'.repeat(64));
+});
+test('three candidates have explicit legal lifecycle, goal flow, construction and graph declarations',()=>{
+ for(const s of authenticitySuccessors){const old=prior.get(s)!;const legacy=toLegacyScenario(s);for(const errs of [M.validateScenario(s),validateContentLifecycles([legacy]),validateObjectiveFlow([legacy]),validateConstructionContinuity([legacy]),validateLifecycleGraph([legacy])])assert.deepEqual(errs,[],s.id);
+  assert.deepEqual(s.initialItems,old.initialItems);assert.deepEqual(s.locationPlan!.locations,old.locationPlan!.locations);assert.equal(s.chapters.length,old.chapters.length);assert.deepEqual(s.hotspots,old.hotspots);assert.throws(()=>M.restore(s,JSON.stringify(M.createGame(old))),/Invalid campaign save/);
+ }
+ assert.deepEqual(elements.locationPlan!.locations.flatMap(l=>l.stockBatches.flatMap(b=>b.items)).sort(),['water','earth','fire','air'].sort());assert.equal(elements.items.filter(i=>!oldElements.items.some(x=>x.id===i.id)).length,1);assert.equal(elements.recipes.filter(r=>!oldElements.recipes.some(x=>x.id===r.id)).length,1);
+});
+for(const s of authenticitySuccessors)for(const mode of ['combine','drop','reverse'] as const)test(`${s.id}/${mode}: complete local route, highlights, positions, scoped Undo and all save paths`,()=>{
+ let g=M.createGame(s,375);const rows:{chapter:string;arrival:number;peak:number}[]=[];const witnesses:any[]=[];
+ for(const [n,a] of routes.get(s.id)!.entries()){
+  const row=rows[g.state.chapter]??={chapter:s.chapters[g.state.chapter].id,arrival:g.state.tokens.filter(t=>t.location===g.state.storyLocation).length,peak:0};row.peak=Math.max(row.peak,g.state.tokens.filter(t=>t.location===g.state.storyLocation).length);
+  const r=recipeFor(s,a);const before=g;
+  if(a.type==='combine'){for(const id of [a.a,a.b])if(!id.startsWith('@'))assert.equal(M.token(g.state,id)?.location,g.state.currentLocation,`${n}/${id} local`);assert(M.partners(s,g.state,a.a).outgoing.includes(a.b),`${n}: normal highlight ${a.a} -> ${a.b}`);}
+  const reversed=mode==='reverse'&&a.type==='combine'&&!a.b.startsWith('@')&&!a.a.startsWith('@')&&!r?.at;
+  const action:Action=a.type==='combine'&&mode!=='combine'?{type:'drop',item:reversed?a.b:a.a,target:reversed?a.a:a.b}:a;
+  if(reversed&&a.type==='combine')assert(M.partners(s,g.state,a.b).outgoing.includes(a.a));
+  g=step(s,g,action);
+  for(const t of g.state.tokens){assert(t.x>=48&&t.x<=g.state.width-48,t.id+' x');assert(t.y-M.tokenHeight(s,t)/2>=0&&t.y+M.tokenHeight(s,t)/2<=844,t.id+' y');}
+  if(r&&changed(s).has(r.id)){assert.deepEqual(noMetrics(M.undo(g).game.state),noMetrics(before.state));durable(s,g);assert(!M.applyAction(s,g,a).accepted,'output duplication rejected by combine API');const view=M.playerView(s,g);witnesses.push({index:n,recipe:r.id,action,chapter:s.chapters[before.state.chapter].id,pre:M.playerView(s,before),post:view});}
+ }
+ assert(g.state.completed);durable(s,g);writeFileSync(new URL(s.id+'-'+mode+'.json',resultDir),JSON.stringify({scenario:s.id,mode,complete:true,actions:routes.get(s.id)!.length,density:rows,witnesses,limits:'Logical and synthetic API evidence; no native pixels or human comprehension/fun claim.'},null,2));
+});
+
+test('all authored checkpoint prefixes still replay and serialize under distinct candidate IDs',()=>{for(const s of [elements,mars])for(const c of s.checkpoints!){const g=M.replay(s,c.actions,375);assert.deepEqual(M.restore(s,JSON.stringify(g)).state,g.state);}});
+
+test('seed press may be built before the grain mill without deleting its independently required stone',()=>{
+ const route=routes.get(elements.id)!;const build=route.findIndex(a=>a.type==='combine'&&a.a==='millstone'&&a.b==='planks');const grain=route.findIndex(a=>a.type==='combine'&&a.a==='mill-gearing'&&a.b==='millstone');assert(build>grain);const actions=route.filter((_,i)=>i!==build);actions.splice(grain,0,route[build]);const g=M.replay(elements,actions,375);assert(g.state.completed);durable(elements,g);
+});
+
+test('two independent preparation orders preserve every chapter and new material/evidence route',()=>{
+ for(const s of [elements,mars])for(const seed of [7,29]){let n=seed,g=M.createGame(s,375);const rand=()=>{n=(n*1664525+1013904223)>>>0;return n/4294967296;};const blocks:Action[][]=[[]];for(const a of routes.get(s.id)!){if(a.type==='advance')blocks.push([]);else blocks.at(-1)!.push(a);}blocks.pop();for(const block of blocks){let pending=[...block];while(pending.length){const offset=Math.floor(rand()*pending.length);let chosen=-1,next:M.Game|undefined;for(let i=0;i<pending.length;i++){const at=(offset+i)%pending.length,r=M.applyAction(s,g,pending[at]);if(r.accepted){chosen=at;next=r.game;break;}}assert(chosen>=0,`${s.id}/${seed}/${g.state.chapter}: no valid next preparation`);pending.splice(chosen,1);g=next!;}g=step(s,g,{type:'advance'});}assert(g.state.completed);}
+});
+
+test('scientific and material repairs remove old invalid pairs while preserving the distinct evidence and stronger finished bowl',()=>{
+ assert(!mars.recipes.some(r=>r.id==='buried-story-11-layer-interpretation'));assert(!mars.items.some(i=>i.id==='layer-interpretation'));assert(mars.recipes.some(r=>r.a==='geology-archive'&&r.b==='core-profile'));assert(!(mars.locationPlan!.visits.find(v=>v.chapterIds.includes('buried-story'))!.carry??[]).includes('core-profile'));
+ assert.equal(atlas.items.find(i=>i.id==='struggle-for-existence')!.label,'Heritably varied offspring face limited resources');assert.equal(atlas.recipes.find(r=>r.id==='make-natural-selection')!.b,'differential-survival');
+ for(const id of ['paint','pond-water','brine','oil-lamp','washstand-from-glazed-bowl'])assert([elements.recipes.find(r=>r.id===id)!.a,elements.recipes.find(r=>r.id===id)!.b].includes('glazed-bowl'));assert(!elements.recipes.some(r=>r.id==='washstand'));
+ assert.equal(elements.recipes.find(r=>r.id==='measuring-jar')!.a,'glass-bottle');assert.equal(elements.recipes.find(r=>r.id==='torch')!.a,'wick');assert.equal(elements.recipes.find(r=>r.id==='oil')!.b,'seed-press');
+ // Prior accepted mapping/chest families are not turned into new tasks or recipes.
+ for(const id of ['crossing-map','river-map','harbour-map','wooden-chest','tool-chest'])assert.deepEqual(elements.recipes.find(r=>r.id===id),oldElements.recipes.find(r=>r.id===id));
+ for(const id of ['camp-lantern-bracket','camp-signal-lamp-bracket','signal-6-signal-beacon'])assert.deepEqual(mars.recipes.find(r=>r.id===id),oldMars.recipes.find(r=>r.id===id),'unresolved lamp semantics left untouched, not declared repaired');
+});
+
+test('name-first synthetic rendering binds the repaired visible labels without opening Read',()=>{
+ for(const [s,id] of [[mars,'buried-story-10-sediment-comparison'],[atlas,'make-struggle-for-existence'],[elements,'measuring-jar']] as const){const route=routes.get(s.id)!;const n=route.findIndex(a=>recipeFor(s,a)?.id===id);const g=M.replay(s,route.slice(0,n+1),375);const h=locationHarness(s,JSON.stringify({game:toLegacyGame(g),seen:[],tops:{}}),{width:375});const output=s.recipes.find(r=>r.id===id)!.out!;assert(h.thing(output));assert(h.app.innerHTML.includes(s.items.find(i=>i.id===output)!.label));writeFileSync(new URL(s.id+'-label-binding.html',resultDir),h.app.innerHTML);}
+});

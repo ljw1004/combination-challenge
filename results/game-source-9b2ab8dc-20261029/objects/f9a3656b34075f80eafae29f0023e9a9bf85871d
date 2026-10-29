@@ -1,0 +1,101 @@
+{
+  "contract": {
+    "source": "/workspace/shared/combination-ux-content-integration-20261029/source",
+    "executionCopy": "/workspace/shared/combination-ux-content-integration-20261029/candidate",
+    "sourceSealSha256": "5403365c57d5602f50c6b1aa4a5c7f3167f6596793af84a15835cd38dd89dc30",
+    "parentSourceSealSha256": "7629a2f122270c3b08a19a24e6251ae63f2f0178639b7576258b15ae003a4395",
+    "unpublishedStagedSourceSealSha256": "ee7d05bd7150fd7c7e34ce15317589e9e0068ba7393304eb36d4312cb1fbb503",
+    "publishedParentCommit": "66fee3deba591308ff42f5c7600f34a3d0e3ce84",
+    "preflight": [
+      "actual61-and-current-geometry",
+      "actual-current-full-controllers",
+      "final-complete-ui-semantic-files",
+      "final-complete-registration-files",
+      "final-original53-equivalence",
+      "final-preseal-build"
+    ],
+    "registeredWorlds": 61,
+    "allOldIdentities": 57,
+    "editorialSameIdentityUpdates": 3,
+    "newGraphIdentities": 4,
+    "optionalCreatureV3AndV4": "separate optional page, outside main61",
+    "acceptedVisibleInventorySha256": "5a8fdc736ff94b3998b1f769161c4caa1378796f4ae07b83596ff94c567fcf7d",
+    "aggregate": "tests/tangible-campaign.test.ts",
+    "execution": "ONE intact aggregate on this final integrated source. No test-name filter, import/hook modification, test timeout, or interruption for silence. Serial build and strict source verification on exact seal.",
+    "limits": [
+      "Native iOS/Safari not tested",
+      "Narrow source-owned Chrome checks, not a full browser route",
+      "No universal no-blank-flash guarantee",
+      "AI review not human comprehension/enjoyment",
+      "No all-location authenticity certification; resident-refuge follow-on excluded",
+      "Private screenshots excluded",
+      "No publication/GitHub/Sites mutations by integrator"
+    ]
+  },
+  "receipts": [
+    {
+      "name": "initial-sealed-source-verification",
+      "argv": [
+        "python",
+        "experiments/tangible-campaign/integration/verify-manifest.py"
+      ],
+      "cwd": "/workspace/shared/combination-ux-content-integration-20261029/candidate",
+      "seal": "5403365c57d5602f50c6b1aa4a5c7f3167f6596793af84a15835cd38dd89dc30",
+      "startUtc": "2026-10-29T15:02:08.837234+00:00",
+      "status": "complete",
+      "log": "/workspace/shared/combination-ux-content-integration-20261029/evidence/initial-sealed-source-verification.log",
+      "pid": 8,
+      "exitCode": 0,
+      "durationSeconds": 0.722,
+      "counts": {},
+      "logSha256": "59a8c6c41a71d4f59c4d051cd2b796f9a9846c41d27382b83d574659ed0b224d"
+    },
+    {
+      "name": "build-sealed-final",
+      "argv": [
+        "npm",
+        "run",
+        "build"
+      ],
+      "cwd": "/workspace/shared/combination-ux-content-integration-20261029/candidate",
+      "seal": "5403365c57d5602f50c6b1aa4a5c7f3167f6596793af84a15835cd38dd89dc30",
+      "startUtc": "2026-10-29T15:02:09.559153+00:00",
+      "status": "complete",
+      "log": "/workspace/shared/combination-ux-content-integration-20261029/evidence/build-sealed-final.log",
+      "pid": 9,
+      "exitCode": 0,
+      "durationSeconds": 7.461,
+      "counts": {},
+      "logSha256": "1e264e807c2cdd9d889bf81954800621dd34b5896c99f4a7e04826a331d9b157"
+    },
+    {
+      "name": "tangible-aggregate-final",
+      "argv": [
+        "node",
+        "--test",
+        "--test-concurrency=1",
+        "--test-reporter=tap",
+        "tests/tangible-campaign.test.ts"
+      ],
+      "cwd": "/workspace/shared/combination-ux-content-integration-20261029/candidate",
+      "seal": "5403365c57d5602f50c6b1aa4a5c7f3167f6596793af84a15835cd38dd89dc30",
+      "startUtc": "2026-10-29T15:02:17.020146+00:00",
+      "status": "complete",
+      "log": "/workspace/shared/combination-ux-content-integration-20261029/evidence/tangible-aggregate-final.log",
+      "pid": 102,
+      "exitCode": 1,
+      "durationSeconds": 1233.401,
+      "counts": {
+        "tests": 444,
+        "pass": 440,
+        "fail": 4,
+        "cancelled": 0,
+        "skipped": 0,
+        "todo": 0
+      },
+      "logSha256": "40f923e4c10455671e910310a17475fd72845284e770a3f03ca712fd2474abf5"
+    }
+  ],
+  "allComplete": false,
+  "allPassed": false
+}

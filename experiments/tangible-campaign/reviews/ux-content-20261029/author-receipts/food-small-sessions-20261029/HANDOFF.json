@@ -1,0 +1,48 @@
+{
+  "status": "ready-for-parent-integration",
+  "source": "/workspace/shared/food-small-sessions-20261029/source",
+  "overlay": "/workspace/shared/food-small-sessions-20261029/overlay",
+  "manifest": "/workspace/shared/food-small-sessions-20261029/MANIFEST.json",
+  "scenarioId": "kitchen-caravan-small-sessions-v8",
+  "predecessorId": "kitchen-caravan-stations-v7",
+  "files": [
+    "experiments/tangible-campaign/ui/stories/food-small-sessions-v1.ts",
+    "experiments/tangible-campaign/ui/stories/food-small-sessions-route.ts",
+    "experiments/tangible-campaign/integration/food-small-session-checks.ts",
+    "tests/food-small-sessions.test.ts",
+    "docs/food-small-sessions.md"
+  ],
+  "mapping": "/workspace/shared/food-small-sessions-20261029/evidence/source-mapping.json",
+  "checks": {
+    "focusedCombinedLayout": "10/10 passed; evidence/layout-qa-focused.log",
+    "fullRouteCases": 6,
+    "recipesCovered": 192,
+    "checkpointsRestored": 36,
+    "peakMovable": 11,
+    "arrivalMovable": 9,
+    "sessionsAtOrBelow10Peak": 33,
+    "sessions": 35,
+    "hotspotsPerSession": "0\u20132",
+    "layoutArrivals": "210/210 arrivals across 6 full routes at 320/375/390: centre 844/3, 0 newly introduced overlaps, 0 clipping; evidence/layout-all-arrivals.json",
+    "typecheck": "passed",
+    "workerBuild": "passed (new story not yet registered); evidence/build.log",
+    "workerTangibleAggregate": "INTENTIONALLY INCOMPLETE exit130; parent owns final registered aggregate"
+  },
+  "integration": [
+    "Register new Food scenario as featured successor, retain kitchen-caravan-stations-v7 exact and all other earlier identities.",
+    "Apply source plan entryLayout weighted-third only with exact approved layout runtime.",
+    "Compose plain-copy successor by cloning this scenario; item IDs and 35 chapter IDs stable. Do not overwrite older Food source.",
+    "Parent owns final full registered aggregate and native UI checks.",
+    "No GitHub, Sites, Clio, unto.me, new artwork or external writes were made."
+  ],
+  "limitations": [
+    "Logical and geometry verification only; not native touch/human enjoyment evidence.",
+    "Private screenshot never copied to source or assets."
+  ],
+  "evidenceDirectory": "/workspace/shared/food-small-sessions-20261029/evidence",
+  "finalPresentationDeltas": [
+    "Cider workbench wording matches reused farm-kitchen art.",
+    "Meringue and browned-dessert work reuse K06 oven art; refrigerator art stays with freezing bench.",
+    "No inherited split-session completion recaps; final service text keeps trolley station-side."
+  ]
+}

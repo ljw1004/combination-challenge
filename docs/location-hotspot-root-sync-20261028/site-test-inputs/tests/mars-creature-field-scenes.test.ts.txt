@@ -7,6 +7,7 @@ import type {Action,Scenario} from '../experiments/tangible-campaign/schema/camp
 import * as M from '../experiments/tangible-campaign/engine/campaign.ts';
 import {scenario as variant} from '../experiments/tangible-campaign/ui/stories/mars-creature-field-scenes.ts';
 import {scenario as survival} from '../experiments/tangible-campaign/ui/stories/mars-field-scenes.ts';
+import {scenarios as preservedPublished} from '../experiments/tangible-campaign/ui/pre-waterworks-scenarios.ts';
 import {scenarios as current} from '../experiments/tangible-campaign/ui/current-scenarios.ts';
 const optional=[variant];
 import {toLegacyScenario,toLegacyGame} from '../experiments/tangible-campaign/compatibility/v1.ts';
@@ -17,6 +18,10 @@ import {validateLifecycleGraph} from '../experiments/tangible-campaign/schema/li
 import {locationHarness} from '../experiments/tangible-campaign/ui/location-controller-harness.ts';
 
 const s=variant,route=s.checkpoints!.find(c=>c.id==='complete')!.actions;
+// Deliberate UI contract migration: the old click-pair fixture is archived.
+// Actual pointer-owned drag now performs the same complete discovery operation.
+function drag(h:ReturnType<typeof locationHarness>,source:string,target:string){h.advanceTime(500);const board=h.doc.querySelector('.board');board.onpointerdown({target:h.thing(source),button:0,clientX:60,clientY:100,pointerId:1,preventDefault(){}});h.setHit(h.thing(target));board.onpointermove({clientX:210,clientY:250,pointerId:1});board.onpointerup({clientX:210,clientY:250,pointerId:1});}
+
 const sroot=new URL('../',import.meta.url);
 const withoutMetrics=(state:M.State)=>{const {metrics,...rest}=state;return rest;};
 const recipe=(a:Action)=>a.type==='combine'?s.recipes.find(r=>[r.a,r.b].sort().join('|')===[a.a,a.b].sort().join('|')):undefined;
@@ -55,7 +60,7 @@ function specimen(g:M.Game){return g.state.tokens.filter(t=>['ice-core','creatur
  assert(!s.notes!.at(-1)!.includes('inspection light'));
  });
 
- test('carryAlong is additive, validated, portable-token only, and inert in all existing scenarios',()=>{
+ test('carryAlong is additive, validated, portable-token only, and inert in all published predecessor scenarios; new uses remain explicitly validated',()=>{
  let g=prefix('ice-creature-microscope');const visit=s.locationPlan!.visits.find(v=>v.chapterIds.includes('buried-story'))!;
  const plain=structuredClone(s);for(const v of plain.locationPlan!.visits)delete v.carryAlong;
  const original=M.visitCarry(plain,g.state,visit.id),augmented=M.visitCarry(s,g.state,visit.id);
@@ -64,7 +69,7 @@ function specimen(g:M.Game){return g.state.tokens.filter(t=>['ice-core','creatur
  const invalid=structuredClone(s);invalid.locationPlan!.visits[0].carryAlong=['absent'];assert(validateLocationPlan(invalid).some(e=>e.includes('unknown visit carry')));
  invalid.locationPlan!.visits[0].carryAlong=['ice-core','ice-core'];assert(validateLocationPlan(invalid).some(e=>e.includes('invalid continuing cargo')));
  (invalid.locationPlan!.visits[0] as any).carryAlong='ice-core';assert(validateLocationPlan(invalid).some(e=>e.includes('invalid continuing cargo')));
- for(const world of current)assert(!world.locationPlan?.visits.some(v=>v.carryAlong));
+ for(const world of preservedPublished)assert(!world.locationPlan?.visits.some(v=>v.carryAlong));for(const world of current)assert.deepEqual(validateLocationPlan(world),[]);
  });
 
 for(const width of [320,375,390,600])for(const name of ['canonical','tow','early','early-tow'] as const)test(`${width}px ${name}: full route, continuous specimen, both real journeys, bounds and durable transfers`,()=>{
@@ -133,11 +138,11 @@ for(const name of ['microscope','glovebox'] as const)test(`${name}: both drop di
 for(const width of [320,390])test(`${width}px synthetic controller: image-led lab hero survives pending reload, dismisses once, leaves specimen on board`,()=>{
  const g=acknowledge(prefix('ice-creature-microscope',width)),h=locationHarness(s,envelope(g),{width});
  assert(h.app.innerHTML.includes('Examine ice core'));if(h.button('close'))h.click(h.button('close'));
- h.click(h.thing('ice-core'));h.click(h.thing('lit-microscope'));h.timers.filter(t=>t.ms===700).forEach(t=>t.fn());h.flush();
+ drag(h,'ice-core','lit-microscope');h.timers.filter(t=>t.ms===700).forEach(t=>t.fn());h.flush();
  assert(h.button('milestone')?.open);assert(h.app.innerHTML.includes('assets/discoveries/mars-ice-creature.png'));assert(h.app.innerHTML.includes('Fictional game illustration.'));assert(h.app.innerHTML.includes('A creature in the ice'));assert(h.thing('creature-core'));assert(!h.thing('ice-core'));
  const pending=h.saved.get(h.key)!,loaded=locationHarness(s,pending,{width});loaded.flush();assert(loaded.button('milestone')?.open);loaded.click(loaded.button('milestone-continue'));loaded.flush();assert(!loaded.button('milestone'));assert(loaded.thing('creature-core'));
  const restored=locationHarness(s,loaded.saved.get(loaded.key),{width});restored.flush();assert(!restored.button('milestone'),'dismissal is durable');
- restored.click(restored.button('debug-toggle'));restored.click(restored.button('undo'));assert(restored.thing('ice-core'));assert(!restored.thing('creature-core'));if(restored.button('debug-close'))restored.click(restored.button('debug-close'));restored.click(restored.thing('ice-core'));restored.click(restored.thing('lit-microscope'));restored.timers.filter(t=>t.ms===700).forEach(t=>t.fn());restored.flush();assert(!restored.button('milestone'),'redo does not replay acknowledged hero');
+ restored.click(restored.button('debug-toggle'));restored.click(restored.button('undo'));assert(restored.thing('ice-core'));assert(!restored.thing('creature-core'));if(restored.button('debug-close'))restored.click(restored.button('debug-close'));drag(restored,'ice-core','lit-microscope');restored.timers.filter(t=>t.ms===700).forEach(t=>t.fn());restored.flush();assert(!restored.button('milestone'),'redo does not replay acknowledged hero');
  });
 
 
@@ -157,8 +162,8 @@ for(const width of [320,390])test(`${width}px synthetic controller: image-led la
  assert(s.items.find(i=>i.id==='sleeved-comparison')!.reading!.text.includes('their age remains unknown'));
  });
  test('all53 predecessor worlds and optional page remain exact while three reviewed editions extend the canonical catalogue',()=>{
- const review='experiments/tangible-campaign/reviews/mars-creature-field-scenes/';const hashes=JSON.parse(readFileSync(new URL(review+'current-scenario-hashes.json',sroot),'utf8'));assert.equal(current.length,57);assert.equal(Object.keys(hashes).length,53);
- const sha=(x:string|Buffer)=>createHash('sha256').update(x).digest('hex');for(const [id,hash]of Object.entries(hashes)){const world=current.find(s=>s.id===id);assert(world,'Missing preserved world '+id);assert.equal(sha(JSON.stringify(world)),hash,id);}
+ const review='experiments/tangible-campaign/reviews/mars-creature-field-scenes/';const hashes=JSON.parse(readFileSync(new URL(review+'current-scenario-hashes.json',sroot),'utf8'));assert.equal(current.length,61);assert.equal(Object.keys(hashes).length,53);
+ const sha=(x:string|Buffer)=>createHash('sha256').update(x).digest('hex');for(const [id,hash]of Object.entries(hashes)){const world=preservedPublished.find(s=>s.id===id);assert(world,'Missing preserved world '+id);assert.equal(sha(JSON.stringify(world)),hash,id);}
  const manifest=JSON.parse(readFileSync(new URL(review+'source-successors.json',sroot),'utf8'));for(const [p,row]of Object.entries<any>(manifest.files)){assert.equal(sha(readFileSync(new URL(p,sroot))),expectedSourceHashAfterAuthenticityRelease(p,row.afterSha256),p);assert.equal(sha(readFileSync(new URL(row.predecessorSnapshotPath,sroot))),row.beforeSha256,p);}
  const code=readFileSync(new URL('../experiments/tangible-campaign/ui/campaign-main.ts',import.meta.url),'utf8'),entry=readFileSync(new URL('../experiments/tangible-campaign/ui/mars-creature-entry.ts',import.meta.url),'utf8');assert(code.includes('reconcileLocationDom'));assert(code.includes('milestone.artwork'));assert(!code.includes('mars-creature-field-scenes'));assert(entry.includes("import('./campaign-main.ts')"));assert(!entry.includes('function render'));
  const css=readFileSync(new URL('../experiments/tangible-campaign/ui/campaign.css',import.meta.url),'utf8');assert(css.includes('object-fit: contain'));assert(css.includes('prefers-reduced-motion'));
@@ -169,7 +174,7 @@ for(const width of [320,390])test(`${width}px synthetic controller: image-led la
  const g=acknowledge(prefix('ice-creature-microscope')),h=locationHarness(s,envelope(g),{width:390});
  assert(!h.button('mission')!.innerHTML.includes('mission-eyebrow'));if(h.button('close'))h.click(h.button('close'));
  const image=h.doc.querySelector('.location-scene img'),board=h.doc.querySelector('.board'),scope=h.thing('lit-microscope');
- h.click(h.thing('ice-core'));assert.equal(h.doc.querySelector('.location-scene img'),image);h.click(scope);h.timers.filter(t=>t.ms===700).forEach(t=>t.fn());h.flush();
+ h.click(h.thing('ice-core'));assert.equal(h.doc.querySelector('.location-scene img'),image);drag(h,'ice-core','lit-microscope');h.timers.filter(t=>t.ms===700).forEach(t=>t.fn());h.flush();
  assert(h.button('milestone')?.open);assert.equal(h.doc.querySelector('.board'),board);assert.equal(h.doc.querySelector('.location-scene img'),image);assert.equal(h.thing('lit-microscope'),scope);
  const before=h.state();h.click(h.thing('creature-core'));h.click(h.button('debug-toggle'));assert.deepEqual(h.state(),before);assert(h.button('milestone')?.open);h.click(h.button('milestone-continue'));h.flush();assert(!h.button('milestone'));assert.equal(h.doc.querySelector('.location-scene img'),image);
  });
@@ -191,5 +196,5 @@ test('carryAlong does not import or rearrange cargo at a same-location chapter b
 test('generic optional page configuration keeps canonical defaults, rejects malformed/repeated registration and never mutates the main roster',async()=>{
  const page=await import('../experiments/tangible-campaign/ui/campaign-page-catalogue.ts');const canonical=await import('../experiments/tangible-campaign/ui/current-scenarios.ts');assert.equal(page.scenarios,canonical.scenarios);assert.equal(page.featuredScenarioIds,canonical.featuredScenarioIds);assert.equal(page.presentationFor,canonical.presentationFor);
  assert.throws(()=>page.configureCampaignPage({scenarios:[],featuredScenarioIds:[],presentationFor:canonical.presentationFor}),/Invalid/);assert.throws(()=>page.configureCampaignPage({scenarios:[s,s],featuredScenarioIds:[s.id],presentationFor:canonical.presentationFor}),/Invalid/);
- page.configureCampaignPage({scenarios:[s],featuredScenarioIds:[s.id],presentationFor:x=>({title:x.title,premise:x.premise})});assert.deepEqual(page.scenarios,[s]);assert.equal(canonical.scenarios.length,57);assert(!canonical.scenarios.includes(s));assert.throws(()=>page.configureCampaignPage({scenarios:[s],featuredScenarioIds:[s.id],presentationFor:canonical.presentationFor}),/already configured/);
+ page.configureCampaignPage({scenarios:[s],featuredScenarioIds:[s.id],presentationFor:x=>({title:x.title,premise:x.premise})});assert.deepEqual(page.scenarios,[s]);assert.equal(canonical.scenarios.length,61);assert(!canonical.scenarios.includes(s));assert.throws(()=>page.configureCampaignPage({scenarios:[s],featuredScenarioIds:[s.id],presentationFor:canonical.presentationFor}),/already configured/);
 });

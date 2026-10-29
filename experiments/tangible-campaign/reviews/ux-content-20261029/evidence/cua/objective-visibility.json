@@ -1,0 +1,37 @@
+{
+  "utc": "2026-10-29T14:15:40Z",
+  "surface": "Dedicated Chrome tab; source-owned QA entry running actual shared controller and composed Elements v10",
+  "url": "http://127.0.0.1:4173/tests/browser/ux-visibility.html?world=elements-basket-continuity-v10",
+  "interaction": "Actual CUA native drag Earth to Fire; Stone created; no injected browser events or state",
+  "observer": "Source-owned DOM output recorded computed styles after actual pointer events; read-only CUA DOM evaluation summarized it",
+  "events": 11,
+  "phases": {
+    "pointerdown": 1,
+    "pointermove": 9,
+    "pointerup": 1
+  },
+  "draggingSamples": 7,
+  "allSamplesFullOpacity": true,
+  "allSamplesSameColor": true,
+  "color": "rgb(53, 56, 47)",
+  "after": {
+    "dragging": false,
+    "hudOpacity": "1",
+    "objectiveOpacity": "1",
+    "objectiveText": "\u2713 Make Stone\u25cb Make Brick",
+    "stoneCreated": true,
+    "hudZ": "2",
+    "bornTileZ": "15"
+  },
+  "sourceHashes": {
+    "experiments/tangible-campaign/ui/campaign-main.ts": "8e7454b1c749705039da002eaa7185f661bfa48426224ff21fa60e117e50fbab",
+    "experiments/tangible-campaign/ui/campaign.css": "8468e605d4638cc4898b9e1a26fd765820da03043854b2a62912269fc349f2b0",
+    "tests/browser/ux-visibility.html": "0ffe4851f791aca26756aeae7244b591fd72f1ee0e772732214cd5abd0e069f8"
+  },
+  "limits": [
+    "Chrome desktop only, no native iOS guarantee.",
+    "Actual pointer cancellation is covered by complete synthetic controller/class tests, not claimed as a browser cancellation measurement.",
+    "The DOM observer microtask may run before the later bubble handler on pointerup; post-action read separately confirms dragging false and final complete marker.",
+    "Screenshot visually inspected through CUA; no screenshot file added to source."
+  ]
+}

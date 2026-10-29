@@ -1,0 +1,160 @@
+{
+  "schemaVersion": "verified-location-artwork/1",
+  "status": "VERIFIED_PIXELS",
+  "verification": {
+    "method": "Direct visual inspection of generated PNG and separately of the final WebP using view_image; authored observations, not automatic prompt paraphrase.",
+    "inspectedAtUTC": "2026-10-29T12:53:26Z",
+    "inspector": "replace_incorrect_scene_art",
+    "scope": "Visible depicted setting, geometry, objects, state and approximate regions; not engineering certification or integrated UI acceptance."
+  },
+  "coordinateSystem": {
+    "origin": "top-left",
+    "range": [
+      0,
+      1
+    ],
+    "regionShape": "x,y,width,height",
+    "precision": "approximate visual bounds; not exact hotspot anchors"
+  },
+  "cacheRule": "These observations are valid only while the exact final asset SHA-256 matches. Any byte change invalidates this VERIFIED record and requires renewed pixel inspection. The prompt describes intention and cannot substitute for verified observations.",
+  "generation": {
+    "method": "built-in image_gen.imagegen",
+    "strategy": "one new image in one tool call per asset; no reference image or user screenshot",
+    "transparentBackground": false,
+    "assetPreparation": "Copy generated PNG; ordinary format conversion only using Pillow WebP quality=92, method=6; no crop, compositing, repainting or Python image editing."
+  },
+  "panel": {
+    "width": 390,
+    "height": 844,
+    "fit": "cover",
+    "position": "50% 50%",
+    "integratedUIQA": "not performed in this isolated asset task"
+  },
+  "asset": {
+    "path": "assets/M18-orbital-approach-v1.webp",
+    "sha256": "dc3c8ee3162452bf886fc45f5f42b84836af7e33d2a87bfc5b6d54fbbffecd67",
+    "bytes": 272754,
+    "width": 853,
+    "height": 1844,
+    "mode": "RGB"
+  },
+  "sourceImage": {
+    "path": "assets/M18-orbital-approach-v1.png",
+    "sha256": "030a7c4cc859762829c9018b825fb79733052d503e44efec978b3286c38af764",
+    "bytes": 2238827,
+    "width": 853,
+    "height": 1844,
+    "mode": "RGB"
+  },
+  "intendedPrompt": {
+    "path": "prompts/M18-orbital-approach-v1.txt",
+    "sha256": "464c0c2a3a6805eb4270f5390424187e3a8b2eae834f28e1100c4a977b6ac4d6",
+    "bytes": 2569
+  },
+  "sourceRelation": {
+    "sourceSeal": "7629a2 (parent-provided)",
+    "sourceLocationId": "M18",
+    "sourceLocationLabel": "Orbital rendezvous",
+    "sourceChapter": "homebound",
+    "sourceTravel": "ascent-to-orbital-rendezvous",
+    "sourceArtBefore": {
+      "path": "originals/M18-before-correction.webp",
+      "sha256": "6df8fac5b6fe65da7d56f860e54e4449a5e9037a788ed6548ef32f61bb880334",
+      "bytes": 87998,
+      "width": 853,
+      "height": 1844,
+      "mode": "RGB"
+    },
+    "confirmedMismatch": "Previous image is inside an orbital corridor while travel arrives before the ascent craft has docked.",
+    "proposedRuntimeAsset": "/assets/locations/M18-orbital-approach-v1.webp",
+    "integrationRule": "Reference additive exterior asset only from the corrected successor; leave previous M18.webp and archived source versions unchanged. This does not change docking graph semantics."
+  },
+  "depicted": {
+    "setting": "Exterior orbital space beside a receiving spacecraft over Mars",
+    "indoorOutdoor": "outdoor/exterior vacuum",
+    "scale": "Close orbital vehicle encounter, receiving collar fills roughly two-thirds of image width; planet below is distant.",
+    "viewpoint": "Outside and ahead of the receiving module, facing its closed circular hatch; the cylindrical body recedes toward upper right. No camera spacecraft, cockpit or window frame is visible.",
+    "state": "Waiting receiving module alone; closed hatch and unobstructed docking collar; no attached arriving craft.",
+    "colorAndLight": "Deep navy/black open space, orange-red planetary terrain, off-white sunlit hull, blue-grey shadows and amber collar lights; full color with no washout."
+  },
+  "features": [
+    {
+      "name": "Open orbital space",
+      "region": {
+        "x": 0,
+        "y": 0,
+        "width": 1,
+        "height": 0.38
+      },
+      "visibility": "Clear upper field with sparse stars and subtle upper-left glow; no interior enclosure."
+    },
+    {
+      "name": "Curved Mars surface and limb",
+      "region": {
+        "x": 0,
+        "y": 0.38,
+        "width": 1,
+        "height": 0.62
+      },
+      "visibility": "Rust-orange terrain sweeps diagonally down-right with a thin blue rim; partly occluded by orbital module and solar panels."
+    },
+    {
+      "name": "Receiving orbital module exterior",
+      "region": {
+        "x": 0.29,
+        "y": 0.325,
+        "width": 0.71,
+        "height": 0.415
+      },
+      "visibility": "Near side and closed front docking assembly clearly visible, rear recedes upward/right, outer right side cropped by frame."
+    },
+    {
+      "name": "Round docking collar and closed inner hatch",
+      "region": {
+        "x": 0.34,
+        "y": 0.48,
+        "width": 0.6,
+        "height": 0.25
+      },
+      "center": {
+        "x": 0.625,
+        "y": 0.61
+      },
+      "visibility": "Complete dark circular collar rim with closed pale segmented hatch, clearly visible; four amber lights at its cardinal sides. No second vessel contacts it."
+    },
+    {
+      "name": "Solar arrays",
+      "region": {
+        "x": 0,
+        "y": 0.46,
+        "width": 0.34,
+        "height": 0.12
+      },
+      "visibility": "Dark-blue panel wing extends left from behind module and is cropped at left frame; additional panel sections partly cropped at right."
+    },
+    {
+      "name": "Outer handrail and antenna fixtures",
+      "region": {
+        "x": 0.5,
+        "y": 0.29,
+        "width": 0.44,
+        "height": 0.17
+      },
+      "visibility": "Gold-toned rail above collar; slim antenna and small dish on the rear module. Fixed hull fixtures, not floating tools."
+    }
+  ],
+  "explicitNegatives": [
+    "No interior floor, ceiling or corridor.",
+    "No visible cockpit or camera-craft window frame.",
+    "No arriving/player craft painted as already docked.",
+    "No people, astronauts, loose cargo or floating inventory.",
+    "No legible text, UI, title, label, logo or border.",
+    "No mission-complete celebration."
+  ],
+  "unresolvedAmbiguities": [
+    "Exact scale and engineering correctness of this fictional collar are not independently validated.",
+    "Precise final hotspot-to-feature alignment and tile occlusion need the parent integrated 390x844 UI check; feature bounds are not instructions to redesign hotspots.",
+    "The exterior receiving-module artwork does not by itself resolve whether later story beats require an interior panel."
+  ],
+  "disposition": "Accepted as art-only correction for pre-docking exterior rendezvous, subject to parent successor integration and UI review."
+}

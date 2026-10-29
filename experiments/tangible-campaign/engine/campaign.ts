@@ -2,6 +2,7 @@
 import {fromLegacyGame,toLegacyGame} from '../compatibility/v1.ts';
 import {validateLocationPlan} from '../schema/location-plan.ts';
 import {groupedArrivalPlan} from './arrival-layout.ts';
+import {firstSceneEntryPlan} from './scene-entry-layout.ts';
 import {incorporations,transformedInput,validateRecipeLifecycle} from '../schema/lifecycle.ts';
 import type {Action, Item, Objective, Recipe, Scenario, Chapter, ChapterEntryCue} from '../schema/campaign.ts';
 export type Point={x:number;y:number};
@@ -37,6 +38,8 @@ export function validateScenario(s:Scenario):string[]{
  if(!s.chapters.length)bad('No chapters');if(!unique(s.initialItems))bad('Duplicate starting item');
  for(const id of s.initialItems)if(!kinds.has(id))bad(`Unknown initial item ${id}`);
  for(const x of s.items){if(!x.label)bad(`Missing item label ${x.id}`);if(x.labelAfterCreated!==undefined&&(!x.labelAfterCreated||!kinds.has(x.labelAfterCreated.item)||x.labelAfterCreated.item===x.id||typeof x.labelAfterCreated.label!=='string'||!x.labelAfterCreated.label.trim()||x.labelAfterCreated.label===x.label))bad(`Invalid conditional label ${x.id}`);if(x.reading!==undefined&&(!x.reading||typeof x.reading.text!=='string'||!x.reading.text.trim()||typeof x.reading.attribution!=='string'||!x.reading.attribution.trim()))bad(`Reading needs text and attribution ${x.id}`);if(x.slots){if(!unique(x.slots.map(y=>y.id)))bad(`Duplicate slot ${x.id}`);for(const slot of x.slots){if(!slot.accepts.length||slot.accepts.some(k=>!kinds.has(k)))bad(`Unknown/empty slot accepts ${x.id}.${slot.id}`);}}}
+ const knownLabelLocations=new Set([...s.chapters.flatMap(ch=>[ch.location?.id,...(ch.travel?[ch.travel.locationId]:[])]),...(Array.isArray(s.locationPlan?.locations)?s.locationPlan.locations.map(location=>location.id):[])]);
+ for(const def of s.items)if(def.labelByLocation!==undefined){const labels=def.labelByLocation;if(!labels||typeof labels!=='object'||Array.isArray(labels)||Object.entries(labels).some(([location,label])=>!location.trim()||!knownLabelLocations.has(location)||typeof label!=='string'||!label.trim()))bad(`Invalid location labels ${def.id}`);}
  for(const r of s.recipes){
   if(!operand(r.a)||!operand(r.b)||r.a===r.b||r.a.startsWith('@')&&r.b.startsWith('@'))bad(`Invalid operands ${r.id}`);
   if(!!r.out===!!r.install)bad(`Exactly one out/install required ${r.id}`);
@@ -82,6 +85,7 @@ export function validateScenario(s:Scenario):string[]{
     if(!m.id||!def||!m.title?.trim()||!m.text?.trim()||!['created','functional'].includes(m.when))bad(`Invalid milestone ${m.id}`);
     if(m.when==='functional'&&(!m.capability||!caps.includes(m.capability)))bad(`Milestone needs an actual functional capability ${m.id}`);
     if(m.when==='created'&&(m.capability!==undefined||!s.recipes.some(r=>r.out===m.item)))bad(`Creation milestone needs a recipe output ${m.id}`);
+    if(m.presentation!==undefined&&!['explanation','celebration'].includes(m.presentation))bad(`Invalid milestone presentation ${m.id}`);
     if(m.eyebrow!==undefined&&(typeof m.eyebrow!=='string'||!m.eyebrow.trim()))bad(`Invalid milestone eyebrow ${m.id}`);
     if(m.artwork&&(!/^assets\/discoveries\/[a-zA-Z0-9._-]+\.(png|webp|jpg)$/.test(m.artwork.src)||!m.artwork.alt?.trim()||![m.artwork.width,m.artwork.height].every(n=>Number.isInteger(n)&&n>0&&n<=8192)))bad(`Invalid milestone artwork ${m.id}`);
    }
@@ -106,11 +110,14 @@ export function visibleObjectives(s:Scenario,state:State){
 }
 export function gold(s:Scenario,state:State){if(state.completed&&state.skippedChapters?.includes(s.chapters[state.chapter].id))return {items:[] as string[],hotspots:[] as string[]};const final=visibleObjectives(s,state).filter(o=>!o.intermediate);return {items:[...new Set(final.flatMap(o=>o.witnesses))],hotspots:[...new Set(final.flatMap(o=>o.hotspots))]};}
 export const chapterComplete=(s:Scenario,state:State)=>objectiveStates(s,state).every(o=>o.satisfied);
-export const componentLabels=(s:Scenario,t:Token,state?:Pick<State,'discovered'>)=>(t.components??[]).filter(k=>!Object.values(t.slots).includes(k)).map(k=>state?itemDisplayLabel(s,state,k):item(s,k)!.label);
+type LabelState=Pick<State,'discovered'>&Partial<Pick<State,'tokens'>>;
+export const componentLabels=(s:Scenario,t:Token,state?:LabelState)=>(t.components??[]).filter(k=>!Object.values(t.slots).includes(k)).map(k=>state?itemDisplayLabel(s,state,k,t.location):item(s,k)!.label);
 function preserveConstruction(r:Recipe,owner:Token,input:Token){if(!r.preserve?.includes(input.kind))return;owner.components=[...new Set([...(owner.components??[]),...(r.lifecycle?.[input.kind]?.role==='incorporate'?[input.kind]:[]),...Object.values(input.slots),...(input.components??[])])];}
 /** Presentation only: an earned creation can change a label without changing identity or save data. */
-export function itemDisplayLabel(s:Scenario,state:Pick<State,'discovered'>,kind:string):string{
+export function itemDisplayLabel(s:Scenario,state:LabelState,kind:string,ownerLocation?:string):string{
  const def=item(s,kind);if(!def)return kind;
+ const location=ownerLocation??state.tokens?.find(t=>t.kind===kind)?.location;
+ if(location&&def.labelByLocation&&Object.hasOwn(def.labelByLocation,location))return def.labelByLocation[location];
  return def.labelAfterCreated&&state.discovered.includes(def.labelAfterCreated.item)?def.labelAfterCreated.label:def.label;
 }
 /** Conservative 12px Arial advances keep browser and packing layouts aligned. */
@@ -128,7 +135,7 @@ export function itemLabelLines(label:string):string[]{
 /** Ordinary two-line names keep their existing styling. Longer observations,
  * arguments and sources share the same explicit text layout, not fake readings. */
 export function itemLabelLayout(def:Item):string[]|null{const lines=itemLabelLines(def.label);return def.reading||lines.length>2?lines:null;}
-export const tokenHeight=(s:Scenario,t:Token)=>{const def=item(s,t.kind),labels=def?[def, ...(def.labelAfterCreated?[{...def,label:def.labelAfterCreated.label}]:[])]:[],lines=labels.map(itemLabelLayout).sort((a,b)=>(b?.length??0)-(a?.length??0))[0]??null;return Math.max(44,(lines?10+(def?.reading&&!s.locationPlan?12:0)+lines.length*14:38)+((def?.slots??[]).filter(x=>x.required||t.slots[x.id]).length+componentLabels(s,t).length)*21);};
+export const tokenHeight=(s:Scenario,t:Token)=>{const def=item(s,t.kind),labels=def?[def, ...(def.labelAfterCreated?[{...def,label:def.labelAfterCreated.label}]:[]),...Object.values(def.labelByLocation??{}).map(label=>({...def,label}))]:[],lines=labels.map(itemLabelLayout).sort((a,b)=>(b?.length??0)-(a?.length??0))[0]??null;return Math.max(44,(lines?10+(def?.reading&&!s.locationPlan?12:0)+lines.length*14:38)+((def?.slots??[]).filter(x=>x.required||t.slots[x.id]).length+componentLabels(s,t).length)*21);};
 /** Reserve the shape of an actual authored upgrade when placing an arriving
  * construction, so fitting its known compartments need not move its anchor. */
 export function placementHeight(s:Scenario,t:Token):number{
@@ -345,6 +352,20 @@ function separateLocationArrival(s:Scenario,state:State,arrival:Arrival,firstArr
  for(const t of supplies){const {w,h}=size(s,t);let found:Point|undefined;for(let y=floor+36+h/2;y<=s.locationPlan!.panel.height-12-h/2&&!found;y+=18)for(let x=52;x<=state.width-52;x+=100){const p={x,y};if(fixed.every(b=>overlap(p,w,h,b)===0)){found=p;break;}}if(!found)throw Error('This location needs room for the new supplies. Move a few things to an earlier location.');arranged.push(found);fixed.push({...found,w,h});}
  supplies.forEach((t,i)=>Object.assign(t,arranged[i]));state.arrivalLayout={chapter:state.chapter,location,dividerY:floor+16,active:true};
 }
+/** First entry only: movable items target one third while newly introduced
+ * hotspots settle independently into a lower playable band. Neither operation
+ * is a render rule or permission to reflow residents/saves/ordinary creations. */
+function arrangeNewLocationEntry(s:Scenario,state:State,location:string){
+ if(s.locationPlan?.entryLayout!=='weighted-third')return;
+ const tokens=state.tokens.filter(t=>t.location===location),hotspots=state.hotspots.filter(h=>h.location===location);
+ const boxes=tokens.map(t=>({...t,...size(s,t),reserveH:placementHeight(s,t)})),fixed=hotspots.map(h=>({...h,id:'@'+h.id,w:106,h:82,reserveH:hotspotPlacementHeight(s,h.id)}));
+ const divider=state.arrivalLayout?.location===location?state.arrivalLayout:undefined;
+ const plan=firstSceneEntryPlan(boxes,fixed,s.locationPlan.panel.height,{bottom:availableBottom(s,state,location)!-12,dividerY:divider?.dividerY});
+ if(!plan)return; // Dense reserved shapes retain the existing bounded arrival.
+ for(const t of tokens)Object.assign(t,plan.positions.get(t.id));
+ for(const h of hotspots)Object.assign(h,plan.hotspotPositions.get('@'+h.id));
+ if(divider&&plan.dividerY!==undefined)divider.dividerY=plan.dividerY;
+}
 /** A genuine physical leg is earned by work, including work completed ahead
  * of its chapter. It never recreates an already-made vehicle or its contents. */
 function enterEarnedTravel(s:Scenario,state:State,created?:string){
@@ -358,7 +379,7 @@ function enterEarnedTravel(s:Scenario,state:State,created?:string){
    arrive(s,state,definition.id,carried,true);
    if(!existing){for(const id of definition.hotspots){const p=supplyPosition(s,state,definition.id,hotspotPlacementHeight(s,id));state.hotspots.push({id,location:definition.id,...panelPoint(s,state,p,82,106)});}for(const batch of definition.stockBatches){for(const k of batch.items)if(addItem(s,state,k,definition.id))arrival.supplies.push({item:k,cache:batch.id,sourceChapter:state.chapter,location:definition.id});state.openedCaches.push(batch.id);}}
    state.currentLocation=definition.id;state.storyLocation=definition.id;state.arrival=arrival;delete state.arrivalLayout;delete state.arrivalLayouts;
-   separateLocationArrival(s,state,arrival,!existing);state.enteredTravels=[...(state.enteredTravels??[]),travel.id];state.travelCue=travel.entryCue;
+   separateLocationArrival(s,state,arrival,!existing);if(!existing)arrangeNewLocationEntry(s,state,definition.id);state.enteredTravels=[...(state.enteredTravels??[]),travel.id];state.travelCue=travel.entryCue;
    return transfers;
 }
 function enterLocationChapter(s:Scenario,state:State,first=false,inherited?:Arrival){
@@ -391,6 +412,7 @@ function enterLocationChapter(s:Scenario,state:State,first=false,inherited?:Arri
   if(inherited){const incoming=inherited.supplies.filter(x=>state.tokens.some(t=>t.id===x.item));arrival.supplies=[...incoming.map(x=>({...x,sourceChapter:x.sourceChapter??inherited.chapter,location:token(state,x.item)?.location??inherited.location})),...arrival.supplies];const fresh=new Set(arrival.supplies.map(x=>x.item));arrival.here=arrival.here.filter(id=>!fresh.has(id));arrival.carried=arrival.carried.filter(x=>!fresh.has(x.item));}
   state.arrival=arrival;delete state.arrivalLayout;delete state.arrivalLayouts;
   separateLocationArrival(s,state,arrival,!existing);
+  if(!existing)arrangeNewLocationEntry(s,state,location);
  }
  transfers.push(...enterEarnedTravel(s,state));
  if(st.onAlreadyComplete)state.chapterEntry={chapter:state.chapter,alreadyComplete:chapterComplete(s,state)};else delete state.chapterEntry;
@@ -467,7 +489,7 @@ export function resolveChapterEntry(s:Scenario,g:Game):Game{
 }
 /** Bridge facts follow Undo; dismissals, like invention celebrations, do not. */
 export function pendingChapterBridges(s:Scenario,g:Game){
- return [...(g.state.entryFacts??[]).filter(f=>!g.bridgesSeen?.includes(f.id)),...(g.state.skippedChapters??[]).filter(id=>!g.bridgesSeen?.includes(id)).flatMap(id=>{const chapter=s.chapters.find(st=>st.id===id);return chapter?.onAlreadyComplete?.mode==='bridge'?[{id,text:chapter.onAlreadyComplete.text}]:[];})];
+ return [...(g.state.entryFacts??[]).filter(f=>!g.bridgesSeen?.includes(f.id)).map(f=>({id:f.id,text:s.chapters.find(ch=>ch.sourceUpdate?.id===f.id)?.sourceUpdate?.presentationText??f.text})),...(g.state.skippedChapters??[]).filter(id=>!g.bridgesSeen?.includes(id)).flatMap(id=>{const chapter=s.chapters.find(st=>st.id===id);return chapter?.onAlreadyComplete?.mode==='bridge'?[{id,text:chapter.onAlreadyComplete.text}]:[];})];
 }
 export function acknowledgeChapterBridges(s:Scenario,g:Game,ids:string[]):Game{
  const pending=new Set(pendingChapterBridges(s,g).map(b=>b.id)),accepted=ids.filter(id=>pending.has(id));
@@ -665,7 +687,7 @@ export function partners(s:Scenario,state:State,id:string){
 export function playerView(s:Scenario,g:Game){
  const state=g.state,st=s.chapters[state.chapter],marks=gold(s,state);
  return {scenario:{id:s.id,title:s.title,premise:s.premise},chapter:{number:state.chapter+1,title:st.title,speaker:st.speaker,motivation:st.motivation,travelText:st.location.travelText},location:state.locations.find(a=>a.id===state.currentLocation),locations:state.locations.map(a=>({id:a.id,label:a.label,current:a.id===state.currentLocation,thingCount:state.tokens.filter(t=>t.location===a.id).length})),objectives:(state.completed&&state.skippedChapters?.includes(st.id)?[]:visibleObjectives(s,state)).map(({id,text,satisfied})=>({id,text,satisfied})),canAdvance:chapterComplete(s,state)&&!state.completed,nextAction:chapterComplete(s,state)&&!state.completed?(state.chapter===s.chapters.length-1?'Finish this journey':'Continue · '+s.chapters[state.chapter+1].title):null,completionText:chapterComplete(s,state)?st.completionText??null:null,completed:state.completed,bridges:pendingChapterBridges(s,g),
-  things:state.tokens.filter(t=>t.location===state.currentLocation).map(t=>{const def=item(s,t.kind)!;return {id:t.id,label:itemDisplayLabel(s,state,t.kind),description:def.description??'',...(def.reading?{reading:{...def.reading}}:{}),x:t.x,y:t.y,hotspot:t.hotspot,gold:marks.items.includes(t.id),slots:(def.slots??[]).filter(sl=>sl.required||t.slots[sl.id]).map((sl,index)=>({id:'slot'+(index+1),filled:!!t.slots[sl.id],label:t.slots[sl.id]?itemDisplayLabel(s,state,t.slots[sl.id]):null})),components:componentLabels(s,t,state),functional:functional(s,t)};}),
+  things:state.tokens.filter(t=>t.location===state.currentLocation).map(t=>{const def=item(s,t.kind)!;return {id:t.id,label:itemDisplayLabel(s,state,t.kind),description:def.description??'',...(def.reading?{reading:{...def.reading}}:{}),x:t.x,y:t.y,hotspot:t.hotspot,gold:marks.items.includes(t.id),slots:(def.slots??[]).filter(sl=>sl.required||t.slots[sl.id]).map((sl,index)=>({id:'slot'+(index+1),filled:!!t.slots[sl.id],label:t.slots[sl.id]?itemDisplayLabel(s,state,t.slots[sl.id],t.location):null})),components:componentLabels(s,t,state),functional:functional(s,t)};}),
   hotspots:state.hotspots.filter(p=>p.location===state.currentLocation).map(p=>({...p,label:s.hotspots.find(l=>l.id===p.id)!.label,description:s.hotspots.find(l=>l.id===p.id)!.description??'',gold:marks.hotspots.includes(p.id)})),cacheNarrative:(st.entryCue?[]:st.caches??[]).map(c=>({label:c.label,narrative:c.narrative})),metrics:state.metrics};
 }
 export function replay(s:Scenario,actions:Action[],width=360){let g=createGame(s,width);for(let i=0;i<actions.length;i++){const r=applyAction(s,g,actions[i]);if(!r.accepted)throw Error(`Replay action ${i+1}: ${r.message}`);g=r.game;}return g;}

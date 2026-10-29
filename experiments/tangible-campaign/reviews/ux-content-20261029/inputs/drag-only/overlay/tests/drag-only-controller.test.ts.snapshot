@@ -1,0 +1,79 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {readFileSync} from 'node:fs';
+import {locationHarness} from '../experiments/tangible-campaign/ui/location-controller-harness.ts';
+import {fixture} from './location-story-model.test.ts';
+import {fromLegacyGame,toLegacyGame} from '../experiments/tangible-campaign/compatibility/v1.ts';
+import * as M from '../experiments/tangible-campaign/engine/campaign.ts';
+type H=ReturnType<typeof locationHarness>;
+const get=(h:H)=>fromLegacyGame(h.state());
+const press=(h:H,id:string,pointer=1,x=52,y=100)=>h.doc.querySelector('.board').onpointerdown({target:h.thing(id),button:0,clientX:x,clientY:y,pointerId:pointer,preventDefault(){}});
+const release=(h:H,pointer=1,x=52,y=100)=>h.doc.querySelector('.board').onpointerup({clientX:x,clientY:y,pointerId:pointer});
+const tap=(h:H,id:string,pointer=1)=>{press(h,id,pointer);release(h,pointer);};
+const doubleTap=(h:H,id:string)=>{tap(h,id,1);h.advanceTime(100);tap(h,id,2);};
+const doubleClick=(h:H,id:string)=>h.thing(id).ondblclick({preventDefault(){},stopPropagation(){}});
+const drag=(h:H,id:string,target:string|null,pointer=1,x=210,y=220)=>{h.advanceTime(500);press(h,id,pointer);h.setHit(target?h.thing(target):null);const b=h.doc.querySelector('.board');b.onpointermove({clientX:x,clientY:y,pointerId:pointer});release(h,pointer,x,y);h.flush();};
+const tick=(h:H)=>h.timers.filter(t=>t.ms===700&&!t.ran&&!t.cancelled).forEach(t=>t.fn());
+const start=()=>{const h=locationHarness(fixture());h.click(h.button('close'));return h;};
+
+test('single taps and ordinary clicks never select, combine, visit or leave partner highlights',()=>{
+ const h=start(),before=get(h);press(h,'a');assert(h.thing('b').classList.contains('possible'));release(h);assert(!h.thing('b').classList.contains('possible'));tap(h,'b',2);h.click(h.thing('a'));h.click(h.thing('b'));assert.deepEqual(get(h),before);assert(!h.button('read-source'));assert(!h.app.innerHTML.includes(' selected'));assert(!h.button('source-reader'));
+});
+test('double tap reads plain explanation or quotation; no attribution chrome or saved-state mutation',()=>{
+ const s=fixture();s.items.find(i=>i.id==='a')!.description='A plain explanation.';s.items.find(i=>i.id==='kept')!.reading={text:'Words worth reading.',attribution:'Citation must remain metadata.'};const h=locationHarness(s);h.click(h.button('close'));const before=get(h),saved=h.saved.get(h.key);doubleTap(h,'a');assert(h.button('source-reader').open);assert(h.button('source-reader').textContent.includes('A plain explanation.'));h.click(h.button('reader-close'));assert.equal(h.doc.activeElement,h.thing('a'));doubleClick(h,'kept');assert(h.button('source-reader').textContent.includes('Words worth reading.'));assert(!h.button('source-reader').textContent.includes('Citation'));assert(!h.button('source-reader-attribution'));assert.deepEqual(get(h),before);assert.equal(h.saved.get(h.key),saved);
+});
+test('second tap cannot turn into a drag or accidental combination, including a following native dblclick',()=>{
+ const h=start(),before=get(h);tap(h,'a');h.advanceTime(100);press(h,'a',2);h.setHit(h.thing('b'));h.doc.querySelector('.board').onpointermove({clientX:210,clientY:220,pointerId:2});release(h,2,210,220);doubleClick(h,'a');assert.deepEqual(get(h),before);assert(!h.thing('c'));assert(!h.button('source-reader'));assert(!h.thing('a').classList.contains('dragging'));
+});
+test('release displacement without a pointermove is not a tap, double tap or game action',()=>{
+ const h=start(),before=get(h);tap(h,'a');press(h,'a',2);release(h,2,210,220);assert(!h.button('source-reader'));assert.deepEqual(get(h),before);
+});
+test('a real drag combines, preserves retained input geometry and waits at its completed chapter',()=>{
+ const h=start(),before=get(h),viewport=h.doc.querySelector('.viewport');viewport.scrollTop=100;drag(h,'a','b');assert(h.thing('c'));assert.deepEqual(M.token(get(h).state,'a'),M.token(before.state,'a'));assert.equal(get(h).state.chapter,0);tick(h);h.flush();assert.equal(get(h).state.chapter,0);assert(!h.button('mission').open);assert.equal(h.button('chapter-next').dataset.direction,'right');assert.equal(viewport.scrollTop,100);h.click(h.button('chapter-next'));assert.equal(get(h).state.chapter,1);assert(h.button('mission').open);assert.equal(viewport.scrollTop,100);
+});
+test('right/down arrows reflect actual next location and only the arrow performs handoff',()=>{
+ const h=start();for(const [left,right]of [['a','b'],['c','d'],['e','record']]){drag(h,left,right);tick(h);const before=get(h).state.chapter;assert.equal(h.button('chapter-next').dataset.direction,before===2?'down':'right');h.click(h.button('purpose'));h.click(h.button('close'));assert.equal(get(h).state.chapter,before);h.click(h.button('chapter-next'));assert.equal(get(h).state.chapter,before+1);assert(h.button('mission').open);h.click(h.button('close'));}assert.equal(h.doc.querySelector('.viewport').scrollTop,844);
+});
+test('reload of an objective-complete chapter keeps its arrow without auto-advance',()=>{
+ const s=fixture(),h=locationHarness(s);h.click(h.button('close'));drag(h,'a','b');const loaded=locationHarness(s,h.saved.get(h.key));tick(loaded);loaded.flush();assert.equal(get(loaded).state.chapter,0);assert(!loaded.button('mission').open);assert.equal(loaded.button('chapter-next').dataset.direction,'right');loaded.click(loaded.button('chapter-next'));assert.equal(get(loaded).state.chapter,1);
+});
+test('automatic wonder precedes explicit handoff; repeated replay preserves earned/seen/history/save',()=>{
+ const s=fixture();s.milestones=[{id:'c-wonder',item:'c',when:'created',title:'A new possibility',text:'A meaningful invention.'}];const h=locationHarness(s);h.click(h.button('close'));drag(h,'a','b');tick(h);assert(h.button('milestone').open);assert.equal(get(h).state.chapter,0);h.click(h.button('milestone-continue'));h.flush();assert.equal(get(h).state.chapter,0);assert(h.button('chapter-next'));const before=get(h),saved=h.saved.get(h.key);for(let n=0;n<3;n++){doubleTap(h,'c');assert(h.button('milestone').open);h.click(h.button('milestone-continue'));h.flush();assert.deepEqual(get(h),before);assert.equal(h.saved.get(h.key),saved);}h.click(h.button('chapter-next'));assert.equal(get(h).state.chapter,1);h.click(h.button('close'));h.click(h.button('undo'));assert.equal(get(h).state.chapter,0);h.click(h.button('undo'));assert(!h.thing('c'));drag(h,'a','b');tick(h);assert(!h.button('milestone'));assert.deepEqual(get(h).milestonesSeen,['c-wonder']);doubleTap(h,'c');assert(h.button('milestone').open);
+});
+test('reading the new creation can finish before the pending automatic wonder and never advances',()=>{
+ const s=fixture();s.items.find(i=>i.id==='a')!.description='A useful source.';s.milestones=[{id:'c-wonder',item:'c',when:'created',title:'Wonder',text:'A new possibility.'}];const h=locationHarness(s);h.click(h.button('close'));drag(h,'a','b');doubleTap(h,'a');tick(h);assert(h.button('source-reader').open);assert(!h.button('milestone'));h.click(h.button('reader-close'));h.flush();assert(h.button('milestone').open);h.click(h.button('milestone-continue'));h.flush();assert.equal(get(h).state.chapter,0);assert(h.button('chapter-next'));
+});
+test('illustrated earned wonder replays without replacing art or changing acknowledgements',()=>{
+ const s=fixture();s.milestones=[{id:'illustrated',item:'c',when:'created',title:'Discovery',text:'It moves.',artwork:{src:'assets/discoveries/creature.png',alt:'An animal in the ice',width:640,height:640}}];const h=locationHarness(s);h.click(h.button('close'));drag(h,'a','b');tick(h);assert(h.doc.querySelector('.discovery-illustration'));h.click(h.button('milestone-continue'));h.flush();const before=get(h);doubleTap(h,'c');const image=h.doc.querySelector('.discovery-illustration');assert.equal(image.getAttribute('src'),'assets/discoveries/creature.png');h.click(h.button('milestone-continue'));assert.deepEqual(get(h),before);
+});
+test('functional wonders cannot replay from an unearned shell',()=>{
+ const s=fixture();s.milestones=[{id:'kept-functional',item:'kept',when:'functional',capability:'ready',title:'Ready',text:'Only once ready.'}];s.items.find(i=>i.id==='kept')!.description='An unfinished shell.';s.items.find(i=>i.id==='kept')!.slots=[{id:'power',accepts:['b'],required:true,capabilities:['ready']}];const h=locationHarness(s);h.click(h.button('close'));doubleTap(h,'kept');assert(!h.button('milestone'));assert(h.button('source-reader').textContent.includes('unfinished shell'));
+});
+test('cancel, lost capture, blur and resize discard transient drag geometry and tap memory',()=>{
+ for(const ending of ['cancel','capture','blur','resize']){const h=start(),before=get(h),board=h.doc.querySelector('.board'),node=h.thing('a');press(h,'a');board.onpointermove({clientX:200,clientY:320,pointerId:1});if(ending==='cancel')board.onpointercancel({pointerId:1});else if(ending==='capture')board.onlostpointercapture({pointerId:1});else h.windowEvents[ending]();h.setHit(h.thing('b'));release(h);assert.deepEqual(get(h),before);assert.equal(board.capturedPointers.size,0);assert(!h.thing('a').classList.contains('pressed'));assert(!h.thing('a').classList.contains('dragging'));assert.equal(h.thing('a'),node);assert.equal(node.style.left,M.token(before.state,'a')!.x+'px');}
+});
+test('touch fallback supports taps and owned double-tap without adopting another finger',()=>{
+ const h=start(),before=get(h),board=h.doc.querySelector('.board');const touch=(identifier:number,clientX=52,clientY=100)=>({identifier,clientX,clientY});const fire=(name:string,args:any)=>board.listeners[name][0]({preventDefault(){},...args});fire('touchstart',{target:h.thing('a'),changedTouches:[touch(1)]});fire('touchstart',{target:h.thing('b'),changedTouches:[touch(2)]});fire('touchend',{changedTouches:[touch(2)]});assert(!h.button('source-reader'));fire('touchend',{changedTouches:[touch(1)]});assert.deepEqual(get(h),before);h.advanceTime(100);fire('touchstart',{target:h.thing('a'),changedTouches:[touch(3)]});fire('touchend',{changedTouches:[touch(3)]});assert(h.button('source-reader').open);assert.deepEqual(get(h),before);
+});
+test('modern touch-like pointer stream ignores compatibility touch events and other pointer endings',()=>{
+ const h=locationHarness(fixture(),undefined,{modernPointer:true});h.click(h.button('close'));const before=get(h),board=h.doc.querySelector('.board');press(h,'a',1);board.listeners.touchstart[0]({target:h.thing('a'),changedTouches:[{identifier:99,clientX:52,clientY:100}],preventDefault(){}});release(h,2);assert(board.capturedPointers.has(1));release(h,1);h.advanceTime(100);press(h,'a',3);release(h,3);assert(h.button('source-reader').open);assert.deepEqual(get(h),before);
+});
+test('hotspot press highlights eligible partners without selecting, dragging or mutating',()=>{
+ const s=fixture();s.recipes[0].b='@shelf';delete s.recipes[0].lifecycle!.b;const h=locationHarness(s);h.click(h.button('close'));const before=get(h);press(h,'@shelf');assert(h.thing('a').classList.contains('possible'));release(h);assert(!h.thing('a').classList.contains('possible'));assert.deepEqual(get(h),before);press(h,'a');assert(h.thing('@shelf').classList.contains('possible'));h.doc.querySelector('.board').onpointercancel({pointerId:1});assert.equal(h.thing('@shelf').textContent,'Shelf');
+});
+test('completed-on-entry skip/bridge policy remains engine-owned and arrow predicts the cascade destination',()=>{
+ const s=fixture();s.chapters[1].objectives=[{id:'already',text:'Make c',kind:'create',item:'c'}];s.chapters[1].onAlreadyComplete={mode:'bridge',text:'An important earlier fact.'};s.chapters[2].objectives=[{id:'also',text:'Make c',kind:'create',item:'c'}];const h=locationHarness(s);h.click(h.button('close'));drag(h,'a','b');assert.equal(h.button('chapter-next').dataset.direction,'down');assert.equal(get(h).state.chapter,0);h.click(h.button('chapter-next'));assert.equal(get(h).state.chapter,3);assert(h.button('mission').textContent.includes('An important earlier fact.'));assert.deepEqual(get(h).state.skippedChapters,['two','three']);
+});
+test('meaningful context heading is optional italic metadata; body stays plain and title-free',()=>{
+ const s=fixture();s.chapters[0].entryCue!.contextHeading='Athens 300 BC';const h=locationHarness(s);assert.equal(h.doc.querySelector('.context-heading').tagName,'EM');assert.equal(h.doc.querySelector('.context-heading').textContent,'Athens 300 BC');assert(!h.button('mission').innerHTML.includes('<h1'));assert(!h.button('mission').textContent.includes(s.chapters[0].title));const plain=locationHarness(fixture());assert(!plain.doc.querySelector('.context-heading'));
+});
+test('objective overlay is in the same stacking context below thing hit targets, not a selected tile',()=>{
+ const h=start();assert.equal(h.button('purpose').closest('.board'),h.doc.querySelector('.board'));assert(!h.button('purpose').getAttribute('data-target'));h.click(h.button('purpose'));assert(h.button('mission').open);const css=readFileSync(new URL('../experiments/tangible-campaign/ui/campaign.css',import.meta.url),'utf8');assert.match(css,/\.hud-stack\{position:fixed;z-index:2;/);assert.match(css,/\.thing\{[^}]*z-index:3;/);assert.match(css,/\.objective-overlay,\.objective-overlay \*\{user-select:none/);assert.match(css,/\.possible\{[^}]*outline:2px dashed/);assert.match(css,/prefers-reduced-motion:reduce\)\{\.chapter-next/);
+});
+test('image and board identity survive drag, replay, repeated taps and Undo without reconnecting',()=>{
+ const h=start(),scene=h.doc.querySelector('.location-scene'),image=scene.querySelector('img'),board=h.doc.querySelector('.board');for(let i=0;i<5;i++){tap(h,'kept');h.advanceTime(500);drag(h,'a','b',i+1);doubleTap(h,'c');h.click(h.button('reader-close'));h.click(h.button('undo'));assert.equal(h.doc.querySelector('.board'),board);assert.equal(h.doc.querySelector('.location-scene'),scene);assert.equal(scene.querySelector('img'),image);assert.equal(image.connectionBreaks,0);assert.equal(image.srcWrites,1);}for(const kind of ['touchstart','touchmove','touchend','touchcancel'])assert.equal(board.listeners[kind].length,1);
+});
+
+test('manual replay of a pending wonder does not acknowledge it or consume its later automatic showing',()=>{
+ const s=fixture();s.milestones=[{id:'c-wonder',item:'c',when:'created',title:'Wonder',text:'A new possibility.'}];const h=locationHarness(s);h.click(h.button('close'));drag(h,'a','b');const before=get(h),saved=h.saved.get(h.key);doubleTap(h,'c');assert(h.button('milestone').open);tick(h);h.click(h.button('milestone-continue'));assert.deepEqual(get(h),before);assert.equal(h.saved.get(h.key),saved);h.flush();assert(h.button('milestone').open);h.click(h.button('milestone-continue'));h.flush();assert.deepEqual(get(h).milestonesSeen,['c-wonder']);assert.equal(get(h).state.chapter,0);assert(h.button('chapter-next'));
+});

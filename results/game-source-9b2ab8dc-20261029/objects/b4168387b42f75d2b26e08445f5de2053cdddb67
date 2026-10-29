@@ -1,0 +1,98 @@
+import {expectedSourceHashAfterWaterworks} from '../experiments/tangible-campaign/integration/waterworks-source-guard.ts';
+import {scenarios} from '../experiments/tangible-campaign/ui/current-scenarios.ts';
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {mkdirSync,writeFileSync,readFileSync} from 'node:fs';
+import {createHash} from 'node:crypto';
+import * as M from '../experiments/tangible-campaign/engine/campaign.ts';
+import type {Action,Scenario} from '../experiments/tangible-campaign/schema/campaign.ts';
+import {elements as s} from '../experiments/tangible-campaign/ui/stories/elements-waterworks-v1.ts';
+import {elements as before} from '../experiments/tangible-campaign/ui/stories/elements-journey-cleanup-v2.ts';
+import {toLegacyGame,toLegacyScenario,fromLegacyGame} from '../experiments/tangible-campaign/compatibility/v1.ts';
+import {validateContentLifecycles,validateObjectiveFlow,validateConstructionContinuity} from '../experiments/tangible-campaign/schema/lifecycle.ts';
+import {validateLifecycleGraph} from '../experiments/tangible-campaign/schema/lifecycle-graph.ts';
+import {encodeSave,decodeSave} from '../experiments/tangible-campaign/ui/save-codec.ts';
+import {locationHarness} from '../experiments/tangible-campaign/ui/location-controller-harness.ts';
+const dir=new URL('../results/elements-waterworks-v1/',import.meta.url);mkdirSync(dir,{recursive:true});
+const route=s.checkpoints!.find(c=>c.id==='complete')!.actions;
+const pair=(a:string,b:string)=>[a,b].sort().join('|');
+const recipe=(a:Action,world=s)=>a.type==='combine'?world.recipes.find(r=>pair(r.a,r.b)===pair(a.a,a.b)):undefined;
+const local=(g:M.Game)=>g.state.tokens.filter(t=>t.location===g.state.storyLocation);
+const labels=(g:M.Game,world=s)=>local(g).map(t=>world.items.find(i=>i.id===t.kind)!.label);
+const noMetrics=({metrics,...rest}:M.State)=>rest;
+const step=(g:M.Game,a:Action,world=s)=>{const r=M.applyAction(world,g,a);assert(r.accepted,`${world.id}/${world.chapters[g.state.chapter]?.id}: ${JSON.stringify(a)} ${r.message}`);return r.game;};
+const durable=(g:M.Game)=>{assert.deepEqual(M.restore(s,JSON.stringify(g)),g);assert.deepEqual(M.restore(s,JSON.stringify(toLegacyGame(g))),g);assert.deepEqual(M.restore(s,JSON.stringify(decodeSave(encodeSave({game:toLegacyGame(g),seen:[],tops:{}})).game)),g);};
+const idx=(id:string)=>s.chapters.findIndex(c=>c.id===id);
+const prefix=(id:string)=>s.checkpoints![idx(id)].actions;
+const earned=(id:string,width=320)=>M.checkpoint(s,`chapter-${idx(id)+1}`,width);
+const rest=(id:string)=>route.slice(prefix(id).length);
+const block=()=>{const a=rest('waterworks');return a.slice(0,a.findIndex(x=>x.type==='advance'));};
+function finish(g:M.Game,actions:Action[]){for(const a of actions)g=step(g,a);assert(g.state.completed);durable(g);return g;}
+const write=(name:string,x:unknown)=>writeFileSync(new URL(name+'.json',dir),JSON.stringify(x,null,2)+'\n');
+
+test('all 2411 inherited files have exact ancestry; v8 remains exact and v9 is a distinct registered identity',()=>{
+ const root=new URL('../',import.meta.url),p='experiments/tangible-campaign/reviews/waterworks-release-20261029/predecessor-source-manifest.json',raw=readFileSync(new URL(p,root));assert.equal(createHash('sha256').update(raw).digest('hex'),'7629a2f122270c3b08a19a24e6251ae63f2f0178639b7576258b15ae003a4395');
+ const files=JSON.parse(raw.toString()).files;assert.equal(Object.keys(files).length,2411);for(const[path,r]of Object.entries<any>(files))assert.equal(createHash('sha256').update(readFileSync(new URL(path,root))).digest('hex'),expectedSourceHashAfterWaterworks(path,r.sha256),path);
+ assert.equal(scenarios.length,58);assert.equal(scenarios.find(x=>x.id===s.id),s);assert.equal(scenarios.find(x=>x.id===before.id),before);assert.equal(before.id,'elements-journey-cleanup-v8');assert(before.recipes.some(r=>r.id==='pump'));assert(!before.items.some(i=>i.id==='water-lifting-wheel'));assert.throws(()=>M.restore(s,JSON.stringify(M.createGame(before))),/Invalid campaign save/);
+});
+test('bounded closure delta, four primitives, unchanged goals/places/stock and clean lifecycle graphs',()=>{
+ const l=toLegacyScenario(s);for(const errors of [M.validateScenario(s),validateContentLifecycles([l]),validateObjectiveFlow([l]),validateConstructionContinuity([l]),validateLifecycleGraph([l])])assert.deepEqual(errors,[]);
+ assert.equal(route.length,223);assert.equal(s.items.length,before.items.length-1);assert.equal(s.recipes.length,before.recipes.length-1);assert.deepEqual(s.initialItems,before.initialItems);assert.deepEqual(s.locationPlan,before.locationPlan);assert.deepEqual(s.hotspots,before.hotspots);assert.deepEqual(s.milestones,before.milestones);assert.deepEqual(s.chapters.map(c=>c.objectives),before.chapters.map(c=>c.objectives));
+ assert.deepEqual(s.locationPlan!.locations.flatMap(l=>l.stockBatches.flatMap(b=>b.items)),['earth','water','air','fire']);
+ assert.deepEqual(s.recipes.filter(r=>before.recipes.some(x=>x.id===r.id)&&JSON.stringify(r)!==JSON.stringify(before.recipes.find(x=>x.id===r.id))).map(r=>r.id),['filled-reservoir']);
+ for(const cp of s.checkpoints!)assert.deepEqual(cp.actions,route.slice(0,cp.actions.length));
+ const uses=(id:string)=>s.recipes.filter(r=>[r.a,r.b].includes(id)).map(r=>r.id);assert.deepEqual(uses('water-lifting-wheel'),['filled-reservoir']);assert.deepEqual(uses('hollow-pipe'),['water-channel','water-filter']);assert.deepEqual(uses('waterwheel'),['mill-gearing','water-lifting-wheel']);
+ const executable=JSON.stringify({items:s.items,recipes:s.recipes,goals:s.chapters.map(c=>c.objectives),checkpoints:s.checkpoints});for(const id of ['pump','water-pump'])assert(!executable.includes('"'+id+'"'));
+ for(const id of ['hammer','telescope'])assert.deepEqual(s.recipes.find(r=>r.id===id),before.recipes.find(r=>r.id===id));
+ write('consumer-closure',{removed:['pump','water-pump'],added:s.recipes.find(r=>r.id==='water-lifting-wheel'),consumers:Object.fromEntries(['waterwheel','glazed-bottle','hollow-pipe','water-lifting-wheel','reservoir','filled-reservoir','water-channel','irrigation-channel','irrigated-garden'].map(id=>[id,uses(id)])),goals:s.chapters.map(c=>({id:c.id,objectives:c.objectives})),primitiveStock:['earth','water','air','fire']});
+});
+for(const[mode,width]of [['combine',375],['drop',320],['reverse',390]]as const)test(`complete ${mode}/${width}: local carry, highlights, lifecycle, goals, bounds, saves and Undo`,()=>{
+ let g=M.createGame(s,width);const density:any[]=[];const witnesses:any[]=[];
+ for(const[n,a]of route.entries()){
+  const row=density[g.state.chapter]??={chapter:s.chapters[g.state.chapter].id,arrival:local(g).length,arrivalLabels:labels(g),peak:0,peakLabels:[]};if(local(g).length>row.peak){row.peak=local(g).length;row.peakLabels=labels(g);}
+  const r=recipe(a),old=g;if(a.type==='combine'){for(const id of[a.a,a.b])if(!id.startsWith('@'))assert.equal(M.token(g.state,id)?.location,g.state.currentLocation,n+'/'+id);assert(M.partners(s,g.state,a.a).outgoing.includes(a.b));}
+  const reverse=mode==='reverse'&&a.type==='combine'&&!a.a.startsWith('@')&&!a.b.startsWith('@')&&!r?.at;
+  if(reverse&&a.type==='combine')assert(M.partners(s,g.state,a.b).outgoing.includes(a.a));
+  const actual:Action=a.type==='combine'&&mode!=='combine'?{type:'drop',item:reverse?a.b:a.a,target:reverse?a.a:a.b}:a;g=step(g,actual);
+  for(const t of g.state.tokens){assert(t.x>=48&&t.x<=g.state.width-48,t.id+' x');assert(t.y-M.tokenHeight(s,t)/2>=0&&t.y+M.tokenHeight(s,t)/2<=844,t.id+' y');}
+  if(a.type==='advance'){assert.deepEqual(old.state.tokens.map(t=>t.id).sort(),g.state.tokens.map(t=>t.id).sort());assert.deepEqual(noMetrics(M.undo(g).game.state),noMetrics(old.state));}
+  if(r&&['water-lifting-wheel','filled-reservoir','irrigation-channel','irrigated-garden','fill-water-bottle','cover-filled-water-bottle','water-filter'].includes(r.id)){
+   assert.deepEqual(noMetrics(M.undo(g).game.state),noMetrics(old.state));durable(g);assert(!M.applyAction(s,g,a).accepted);witnesses.push({recipe:r.id,before:M.playerView(s,old),after:M.playerView(s,g)});
+  }
+  if(r?.id==='water-lifting-wheel'){assert(!M.token(g.state,'waterwheel'),'the already-used mill supply is transformed now, not invisibly later');assert(M.token(g.state,'glazed-bottle'),'remaining ceramic water service stays tangible');}
+  if(g.state.chapter>idx('waterworks'))for(const id of ['water-lifting-wheel','filled-reservoir','irrigated-garden'])assert.equal(M.token(g.state,id)?.location,'E03-irrigation-bank');
+ }
+ assert(g.state.completed);durable(g);write(mode+'-'+width,{completed:true,actions:route.length,density,witnesses,evidenceLevel:'Logical API, not native/browser/human evidence.'});
+});
+test('v8 remains playable and gives honest arrival/peak comparison',()=>{
+ let g=M.createGame(before,320);const density:any[]=[];for(const a of before.checkpoints!.at(-1)!.actions){const row=density[g.state.chapter]??={chapter:before.chapters[g.state.chapter].id,arrival:local(g).length,arrivalLabels:labels(g,before),peak:0,peakLabels:[]};if(local(g).length>row.peak){row.peak=local(g).length;row.peakLabels=labels(g,before);}g=step(g,a,before);}assert(g.state.completed);assert.deepEqual(M.restore(before,JSON.stringify(g)),g);write('v8-density',{completed:true,actions:224,density});
+});
+for(const mode of ['wheel-first','reservoir-first','random7','random29'])test(`waterworks independent preparations ${mode} and complete downstream route`,()=>{
+ let g=earned('waterworks'),pending=block(),n=mode==='random7'?7:29;const actions:Action[]=[];let peak=local(g).length;const arrivalLabels=labels(g);
+ while(pending.length){const available=pending.map((a,i)=>({a,i})).filter(({a})=>a.type==='combine'&&M.partners(s,g.state,a.a).outgoing.includes(a.b));assert(available.length);n=(n*1664525+1013904223)>>>0;const chosen=mode==='wheel-first'?available.find(x=>recipe(x.a)?.id==='water-lifting-wheel')??available[0]:mode==='reservoir-first'?available.find(x=>recipe(x.a)?.id==='reservoir')??available[0]:available[n%available.length];pending.splice(chosen.i,1);actions.push(chosen.a);g=step(g,chosen.a);peak=Math.max(peak,local(g).length);}
+ assert(M.chapterComplete(s,g.state));durable(g);const end=rest('waterworks').findIndex(a=>a.type==='advance');g=finish(g,rest('waterworks').slice(end));write(mode,{completed:true,actions,arrivalLabels,peak});
+});
+test('both ordinary waterwheel inputs and both downstream cover/fill orders remain usable',()=>{
+ const alternate=route.map(a=>recipe(a)?.id==='waterwheel'?{type:'combine',a:'water',b:'wheel'} as Action:a);finish(M.createGame(s,320),alternate);
+ const coverFirst:Action[]=[];for(const a of route){if(recipe(a)?.id==='fill-water-bottle')coverFirst.push({type:'combine',a:'glazed-bottle',b:'jar-lid'},{type:'combine',a:'boiled-water',b:'covered-urn'});else if(recipe(a)?.id!=='cover-filled-water-bottle')coverFirst.push(a);}const g=finish(M.createGame(s,320),coverFirst);assert(M.token(g.state,'water-urn'));write('alternative-consumers',{alternateWaterwheelComplete:true,coverFirstComplete:true,canonicalFillFirstComplete:true,limits:'Logical authored alternatives, not engineering specification.'});
+});
+test('earned completed waterworks skips on re-entry without replacement work; partial entry keeps the real garden goal',()=>{
+ let g=earned('waterworks');const actions=block();for(const a of actions.slice(0,-1))g=step(g,a);
+ const partial=structuredClone(g);partial.state.chapterEntry={chapter:partial.state.chapter,alreadyComplete:false};const still=M.resolveChapterEntry(s,partial);assert.equal(still.state.chapter,idx('waterworks'));assert.equal(M.playerView(s,still).objectives.filter(o=>!o.satisfied).length,1);
+ g=step(g,actions.at(-1)!);assert(M.chapterComplete(s,g.state));g=structuredClone(g);g.state.chapterEntry={chapter:g.state.chapter,alreadyComplete:true};g=M.resolveChapterEntry(s,g);assert.equal(g.state.chapter,idx('waterworks')+1);assert(g.state.skippedChapters?.includes('waterworks'));assert.equal(M.pendingEntryCue(s,g)?.id,s.chapters[g.state.chapter].entryCue?.id);
+ const suffix=rest('waterworks'),end=suffix.findIndex(a=>a.type==='advance');finish(g,suffix.slice(end+1));write('prepared-entry',{earnedCompleteSkip:true,partialRealGoal:true,completed:true,limits:'Earned recipe states with synthetic entry metadata reset, not native travel.'});
+});
+const hstate=(h:ReturnType<typeof locationHarness>)=>fromLegacyGame(h.state());
+const harness=(g:M.Game)=>locationHarness(s,JSON.stringify({game:toLegacyGame(g),seen:[],tops:{}}),{width:320,modernPointer:true});
+function settle(h:ReturnType<typeof locationHarness>,chapter:number){for(let n=0;n<100;n++){if(hstate(h).state.chapter!==chapter||hstate(h).state.completed)return;if(h.button('milestone')?.open){h.click(h.button('milestone-continue'));continue;}if(h.button('mission')?.open){h.click(h.button('close'));continue;}const t=h.timers.find(t=>!t.ran&&!t.cancelled&&(t.ms===0||t.ms===700));if(t){t.fn();continue;}return;}throw Error('Unsettled controller queue');}
+for(const mode of ['authored','reverse','random29'])test(`synthetic actual controller ${mode}: labels, pointer highlights, reload/Undo and automatic handoff`,()=>{
+ let h=harness(earned('waterworks'));settle(h,idx('waterworks'));let pending=block(),n=29,peak=local(hstate(h)).length;const actions:Action[]=[];
+ while(hstate(h).state.chapter===idx('waterworks')){const legal=pending.map((a,i)=>({a,i})).filter(({a})=>a.type==='combine'&&M.partners(s,hstate(h).state,a.a).outgoing.includes(a.b));assert(legal.length);n=(n*1664525+1013904223)>>>0;const chosen=mode==='random29'?legal[n%legal.length]:legal[0];pending.splice(chosen.i,1);const a=chosen.a;assert.equal(a.type,'combine');if(a.type!=='combine')throw Error('expected combine');const source=mode==='reverse'?a.b:a.a,target=mode==='reverse'?a.a:a.b;const old=hstate(h),board:any=h.doc.querySelector('.board'),src=h.thing(source),dst=h.thing(target);assert(src);assert(dst);
+  board.onpointerdown({target:src,button:0,clientX:60,clientY:100,pointerId:1,preventDefault(){}});assert(dst.classes.has('possible'));h.setHit(dst);board.onpointermove({clientX:210,clientY:250,pointerId:1});assert(dst.classes.has('possible'));board.onpointerup({clientX:210,clientY:250,pointerId:1});let g=hstate(h);assert.equal(g.events.length,old.events.length+1,'pointer handler commits exactly one action');assert(g.events.at(-1)!.accepted);assert.equal(g.events.at(-1)!.action.type,'drop');actions.push({type:'drop',item:source,target});peak=Math.max(peak,local(g).length);
+  if(recipe(a)?.id==='water-lifting-wheel'){
+   assert(h.app.innerHTML.includes('Waterwheel with jars'));assert(!h.thing('waterwheel'));assert(h.thing('glazed-bottle'));h=harness(g);assert.deepEqual(hstate(h).state.tokens,g.state.tokens);h.click(h.button('undo'));assert.deepEqual(hstate(h).state.tokens,old.state.tokens);assert(!h.thing('water-lifting-wheel'));h=harness(g);writeFileSync(new URL('name-task-'+mode+'.html',dir),h.app.innerHTML);
+  }
+  settle(h,idx('waterworks'));
+ }
+ const after=hstate(h);assert.equal(after.state.chapter,idx('waterworks')+1);assert(h.button('mission').open);assert.equal(after.events.at(-1)!.action.type,'advance');assert.equal(pending.length,0);const loaded=harness(after);assert.deepEqual(hstate(loaded).state.tokens,after.state.tokens);write('controller-'+mode,{actions,peak,automaticHandoff:true,reloadUndo:true,evidenceLevel:'Synthetic DOM running actual pointer handlers and controller timers; not browser/native pixels/touch or human comprehension.'});
+});

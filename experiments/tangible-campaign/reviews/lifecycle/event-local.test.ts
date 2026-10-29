@@ -7,6 +7,7 @@ import * as M from '../../engine/model.ts';
 import {incorporations,validateContentLifecycles,validateConstructionContinuity} from '../../schema/lifecycle.ts';
 import type {Scenario,Action,Recipe} from '../../schema/scenario.ts';
 import {scenarios} from '../../ui/scenarios.ts';
+import {scenarios as published} from '../../ui/pre-waterworks-scenarios.ts';
 const lifecycle=(...roles:[string,'retain'|'incorporate'|'transform'][])=>Object.fromEntries(roles.map(([k,role])=>[k,{role,reason:'Explicit test lifecycle: '+role}]));
 function scenario(id:string,items:string[],initialItems:string[],recipes:Recipe[],goal:string):Scenario{return {schemaVersion:1,id,title:id,premise:'Synthetic lifecycle regression',items:items.map(id=>({id,label:id})),initialItems,recipes,locations:[],stages:[{id:'one',title:'one',speaker:'Tester',motivation:'Observe tangible results',area:{id:'here',label:'here',travelText:'Start here'},objectives:[{id:'goal-one',text:'Make '+goal,kind:'create',item:goal}]}]};}
 function step(s:Scenario,g:M.Game,a:Action){const r=M.applyAction(s,g,a);assert(r.accepted,r.message);return r;}
@@ -15,14 +16,14 @@ function check(s:Scenario){assert.deepEqual(M.validateScenario(s),[]);assert.dee
 function roundtrip(s:Scenario,g:M.Game){const loaded=M.restore(s,JSON.stringify(g));assert.deepEqual(loaded,g);assert.deepEqual(M.restore(s,JSON.stringify(loaded)),loaded);return loaded;}
 
 test('every authored route removes only current authored inputs; movements and travel remove nothing',()=>{
- const reports:unknown[]=[];assert.equal(scenarios.length,57,'All56 published worlds plus one distinct journey cleanup edition stay covered');
+ const reports:unknown[]=[];assert.equal(scenarios.length,61,'All 57 published identities plus four structural successors stay covered');assert.equal(new Set(scenarios.map(s=>s.id)).size,61);assert.equal(published.length,57);for(const old of published)assert(scenarios.some(s=>s.id===old.id),old.id);assert.deepEqual(scenarios.filter(s=>!published.some(old=>old.id===s.id)).map(s=>s.id).sort(),['atlas-focused-sessions-v6','elements-basket-continuity-v10','kitchen-caravan-small-sessions-v8','mars-purposeful-fieldwork-v8']);
  for(const s of scenarios){const accepted=acceptedTestRoute(s),recipeIds:string[]=[];let g=M.createGame(s);for(const action of accepted.actions){
   const before=g,r=step(s,g,action);g=r.game;if(r.recipe)recipeIds.push(r.recipe);const recipe=s.recipes.find(x=>x.id===r.recipe);
   const permitted=recipe?.install?[recipe.install.component]:recipe?incorporations(recipe).map(x=>x.item):[];
   const removed=before.state.tokens.filter(t=>!M.token(g.state,t.id)).map(t=>t.id);
   assert.deepEqual(removed.slice().sort(),(r.retired??[]).slice().sort());assert(removed.every(id=>permitted.includes(id)),s.id+':'+JSON.stringify(action));
  }assert(g.state.completed,s.id);roundtrip(s,g);reports.push({scenarioId:s.id,source:accepted.source,actionCount:accepted.actions.length,actionsSha256:createHash('sha256').update(JSON.stringify(accepted.actions)).digest('hex'),acceptedRecipeIds:recipeIds,completed:g.state.completed,saveRoundtripExact:true});}
- const out=new URL('../../../../results/journey-cleanup-release-20261029/',import.meta.url);mkdirSync(out,{recursive:true});writeFileSync(new URL('all57-event-local-route-evidence.json',out),JSON.stringify({scope:'All57 registered catalogue objects; all56 prior routes unchanged and one new journey cleanup edition accepted to full completion; separate optional creature page retained unchanged; no native UI claim',reports},null,2)+'\n');
+ const out=new URL('../../../../results/ux-content-20261029/',import.meta.url);mkdirSync(out,{recursive:true});writeFileSync(new URL('all61-event-local-route-evidence.json',out),JSON.stringify({scope:'All 61 actual registered catalogue objects: all 57 identities retained (three explicit save-compatible editorials) plus four graph/session successors; source-preserved waterworks v9 is not separately exposed. All current route events and final restores checked; optional creature routes have their separate complete tests. No native UI claim',reports},null,2)+'\n');
 });
 
 test('actual Elements keeps millstone, untouched bread and river map; no distant owner collects them',()=>{

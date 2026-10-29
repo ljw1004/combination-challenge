@@ -1,0 +1,574 @@
+{
+  "predecessorId": "kitchen-caravan-stations-v7",
+  "successorId": "kitchen-caravan-small-sessions-v8",
+  "sourceMap": {
+    "grain": "hearth",
+    "millstone": "hearth",
+    "water": "hearth",
+    "fruit": "hearth",
+    "press": "hearth",
+    "milk": "dairy",
+    "yogurt-culture": "dairy",
+    "cream": "dairy",
+    "churn": "dairy",
+    "yeast-culture": "bread",
+    "cloth": "spread",
+    "herbs": "spread",
+    "cucumber": "spread",
+    "cider-yeast": "cider",
+    "vinegar-culture": "cider",
+    "olive-oil": "cider",
+    "salad-leaves": "cider",
+    "roots": "soup",
+    "onions": "soup",
+    "cooked-beans": "roast",
+    "ground-mustard": "salads",
+    "evelyn-lettuce": "salads",
+    "bread-knife": "pasta-prep",
+    "eggs": "pasta-prep",
+    "rolling-pin": "pasta-prep",
+    "cutting-wheel": "pasta-prep",
+    "grated-cheese": "pastry",
+    "cauliflower": "gratin",
+    "sugar": "preserves",
+    "citrus": "preserves",
+    "sugar-mill": "almonds",
+    "almonds": "almonds",
+    "mortar": "almonds",
+    "dates": "almonds",
+    "egg-yolks": "custard",
+    "vanilla": "custard",
+    "starch": "custard",
+    "whisk": "choux-filling",
+    "cocoa": "sponge",
+    "cacao-nibs": "chocolate",
+    "cocoa-butter": "chocolate",
+    "baking-powder": "tea",
+    "baking-soda": "crew-baking",
+    "freezing-churn": "ices",
+    "egg-whites": "meringue",
+    "empty-jar": "cannery",
+    "opener": "cannery",
+    "empty-tin": "cannery",
+    "supper-trolley": "trolley"
+  },
+  "hotspotMap": {
+    "hearth-fire-hearth": "hearth-fire",
+    "culture-room-dairy": "culture-room",
+    "culture-room-bread": "culture-room",
+    "bakehouse-oven-bread": "bakehouse-oven",
+    "air-fed-vat-cider": "air-fed-vat",
+    "orchard-grill-orchard-lunch": "orchard-grill",
+    "orchard-stove-orchard-lunch": "orchard-stove",
+    "soup-stove-soup": "soup-stove",
+    "roasting-oven-roast": "roasting-oven",
+    "pasta-pot-pasta-service": "pasta-pot",
+    "pasta-pan-pasta-service": "pasta-pan",
+    "pastry-bench-pastry-prep": "pastry-bench",
+    "pastry-oven-pastry": "pastry-oven",
+    "saucepan-sauce": "saucepan",
+    "steamer-gratin": "steamer",
+    "supper-oven-gratin": "supper-oven",
+    "saucepan-preserves": "saucepan",
+    "supper-oven-fruit-baking": "supper-oven",
+    "sugar-pan-caramel": "sugar-pan",
+    "sugar-pan-custard": "sugar-pan",
+    "custard-oven-custard-baking": "custard-oven",
+    "choux-pan-choux": "choux-pan",
+    "choux-oven-choux": "choux-oven",
+    "choux-oven-sponge": "choux-oven",
+    "tea-oven-tea": "tea-oven",
+    "chocolate-pan-tea": "chocolate-pan",
+    "tea-oven-crew-baking": "tea-oven",
+    "meringue-oven-meringue": "meringue-oven",
+    "meringue-oven-dessert-service": "meringue-oven",
+    "controlled-fruit-line-cannery": "controlled-fruit-line",
+    "controlled-stew-line-cannery": "controlled-stew-line",
+    "dining-car-trolley": "dining-car"
+  },
+  "chapters": [
+    {
+      "id": "hearth",
+      "from": "hearth",
+      "location": "KS-hearth",
+      "recipeIds": [
+        "flour",
+        "dough",
+        "flatbread",
+        "juice",
+        "soaked-grain",
+        "porridge",
+        "fruit-porridge"
+      ]
+    },
+    {
+      "id": "dairy",
+      "from": "dairy",
+      "location": "KS-dairy",
+      "recipeIds": [
+        "yogurt",
+        "butter",
+        "fruit-yogurt"
+      ]
+    },
+    {
+      "id": "bread",
+      "from": "dairy",
+      "location": "KS-bread",
+      "recipeIds": [
+        "leavened-dough",
+        "bread",
+        "bread-and-butter"
+      ]
+    },
+    {
+      "id": "spread",
+      "from": "dairy",
+      "location": "KS-spread",
+      "recipeIds": [
+        "strained-yogurt",
+        "herb-labneh",
+        "labneh-flatbread",
+        "cucumber-yogurt"
+      ]
+    },
+    {
+      "id": "cider",
+      "from": "orchard",
+      "location": "KS-cider",
+      "recipeIds": [
+        "cider",
+        "cider-vinegar",
+        "vinaigrette",
+        "dressed-salad"
+      ]
+    },
+    {
+      "id": "orchard-lunch",
+      "from": "orchard",
+      "location": "KS-orchard-lunch",
+      "recipeIds": [
+        "herb-butter",
+        "herb-bread",
+        "herb-toast",
+        "compote",
+        "compote-yogurt"
+      ]
+    },
+    {
+      "id": "soup",
+      "from": "soup",
+      "location": "KS-soup",
+      "recipeIds": [
+        "stock-pot",
+        "broth",
+        "bread-soup",
+        "soft-onions",
+        "onion-soup",
+        "onion-supper"
+      ]
+    },
+    {
+      "id": "roast",
+      "from": "soup",
+      "location": "KS-roast",
+      "recipeIds": [
+        "bean-stew",
+        "roast-roots",
+        "roast-bean-stew",
+        "filled-flatbread",
+        "croutons"
+      ]
+    },
+    {
+      "id": "salads",
+      "from": "salads",
+      "location": "KS-salads",
+      "recipeIds": [
+        "mustard-paste",
+        "mustard-dressing",
+        "root-salad",
+        "root-salad-vinaigrette",
+        "mustard-dressing-direct",
+        "crisp-green-salad"
+      ]
+    },
+    {
+      "id": "pasta-prep",
+      "from": "noodles",
+      "location": "KS-pasta-prep",
+      "recipeIds": [
+        "breadcrumbs",
+        "egg-dough",
+        "pasta-sheets",
+        "noodles",
+        "root-filling",
+        "ravioli"
+      ]
+    },
+    {
+      "id": "pasta-service",
+      "from": "noodles",
+      "location": "KS-pasta-service",
+      "recipeIds": [
+        "cooked-noodles",
+        "buttered-noodles",
+        "toasted-crumbs",
+        "crisp-buttered-noodles",
+        "cooked-ravioli",
+        "butter-ravioli"
+      ]
+    },
+    {
+      "id": "pastry-prep",
+      "from": "pastry",
+      "location": "KS-pastry-prep",
+      "recipeIds": [
+        "pastry-crumbs",
+        "shortcrust",
+        "laminated-dough"
+      ]
+    },
+    {
+      "id": "pastry",
+      "from": "pastry",
+      "location": "KS-pastry",
+      "recipeIds": [
+        "unbaked-fruit-tart",
+        "fruit-tart",
+        "puff-pastry",
+        "unbaked-bean-pie",
+        "bean-pie",
+        "cheese-straw-dough",
+        "cheese-straws"
+      ]
+    },
+    {
+      "id": "sauce",
+      "from": "sauce",
+      "location": "KS-sauce",
+      "recipeIds": [
+        "white-roux",
+        "bechamel",
+        "cheese-sauce",
+        "veloute"
+      ]
+    },
+    {
+      "id": "gratin",
+      "from": "sauce",
+      "location": "KS-gratin",
+      "recipeIds": [
+        "cooked-cauliflower",
+        "coated-cauliflower",
+        "cauliflower-gratin",
+        "cheese-noodles",
+        "baked-cheese-noodles",
+        "buttered-cauliflower"
+      ]
+    },
+    {
+      "id": "preserves",
+      "from": "sugar",
+      "location": "KS-preserves",
+      "recipeIds": [
+        "macerated-fruit",
+        "jam",
+        "fruit-syrup",
+        "soft-citrus",
+        "marmalade"
+      ]
+    },
+    {
+      "id": "fruit-baking",
+      "from": "sugar",
+      "location": "KS-fruit-baking",
+      "recipeIds": [
+        "crumble-topping",
+        "unbaked-jam-tart",
+        "jam-tart",
+        "unbaked-crumble",
+        "fruit-crumble",
+        "glazed-fruit-tart"
+      ]
+    },
+    {
+      "id": "almonds",
+      "from": "confection",
+      "location": "KS-almonds",
+      "recipeIds": [
+        "powdered-sugar",
+        "ground-almonds",
+        "almond-sugar",
+        "marzipan",
+        "almond-pastry",
+        "marzipan-fruit"
+      ]
+    },
+    {
+      "id": "caramel",
+      "from": "confection",
+      "location": "KS-caramel",
+      "recipeIds": [
+        "sugar-syrup",
+        "caramel",
+        "dry-caramel",
+        "almond-brittle",
+        "caramel-sauce"
+      ]
+    },
+    {
+      "id": "custard",
+      "from": "custard",
+      "location": "KS-custard",
+      "recipeIds": [
+        "sweet-yolks",
+        "custard-mixture",
+        "custard",
+        "vanilla-custard",
+        "starchy-yolks",
+        "pastry-cream-base",
+        "pastry-cream"
+      ]
+    },
+    {
+      "id": "custard-baking",
+      "from": "custard",
+      "location": "KS-custard-baking",
+      "recipeIds": [
+        "tart-case",
+        "cream-tart",
+        "fruit-cream-tart",
+        "soaked-bread",
+        "bread-pudding",
+        "caramel-bread-pudding"
+      ]
+    },
+    {
+      "id": "choux",
+      "from": "choux",
+      "location": "KS-choux",
+      "recipeIds": [
+        "butter-water",
+        "panade",
+        "choux-paste",
+        "choux-buns",
+        "cheese-choux",
+        "cheese-puffs"
+      ]
+    },
+    {
+      "id": "choux-filling",
+      "from": "choux",
+      "location": "KS-choux-filling",
+      "recipeIds": [
+        "whipped-cream",
+        "filled-choux",
+        "cream-puffs",
+        "caramel-choux"
+      ]
+    },
+    {
+      "id": "sponge",
+      "from": "sponge",
+      "location": "KS-sponge",
+      "recipeIds": [
+        "egg-foam",
+        "sweet-egg-foam",
+        "sponge-batter",
+        "sponge-cake",
+        "chocolate-batter",
+        "chocolate-sponge"
+      ]
+    },
+    {
+      "id": "sponge-filling",
+      "from": "sponge",
+      "location": "KS-sponge-filling",
+      "recipeIds": [
+        "jam-roll",
+        "cream-jam-roll",
+        "trifle-base",
+        "fruit-trifle",
+        "finished-trifle"
+      ]
+    },
+    {
+      "id": "chocolate",
+      "from": "chocolate",
+      "location": "KS-chocolate",
+      "recipeIds": [
+        "cocoa-paste",
+        "sweet-cocoa-paste",
+        "dark-chocolate",
+        "ganache",
+        "chocolate-glaze"
+      ]
+    },
+    {
+      "id": "chocolate-finish",
+      "from": "chocolate",
+      "location": "KS-chocolate-finish",
+      "recipeIds": [
+        "ganache-cake",
+        "chocolate-marzipan",
+        "profiteroles",
+        "ganache-profiteroles"
+      ]
+    },
+    {
+      "id": "tea",
+      "from": "quickbread",
+      "location": "KS-tea",
+      "recipeIds": [
+        "self-raising-flour",
+        "scone-crumbs",
+        "scone-dough",
+        "scones",
+        "jam-scones",
+        "cream-tea",
+        "hot-chocolate"
+      ]
+    },
+    {
+      "id": "crew-baking",
+      "from": "quickbread",
+      "location": "KS-crew-baking",
+      "recipeIds": [
+        "muffin-wet-mixture",
+        "enriched-muffin-mixture",
+        "muffin-batter",
+        "fruit-muffin-batter",
+        "fruit-muffins",
+        "foaming-yogurt",
+        "soda-dough",
+        "soda-bread"
+      ]
+    },
+    {
+      "id": "ices",
+      "from": "ice",
+      "location": "KS-ices",
+      "recipeIds": [
+        "frozen-custard",
+        "sorbet-base",
+        "fruit-sorbet",
+        "ice-cream-base",
+        "sweet-cream-base",
+        "milk-ice-cream"
+      ]
+    },
+    {
+      "id": "meringue",
+      "from": "meringue",
+      "location": "KS-meringue",
+      "recipeIds": [
+        "white-foam",
+        "meringue",
+        "meringue-nests",
+        "cream-nests",
+        "fruit-meringues",
+        "macaron-batter",
+        "macaron-shells",
+        "chocolate-macarons"
+      ]
+    },
+    {
+      "id": "dessert-service",
+      "from": "ice",
+      "location": "KS-dessert-service",
+      "recipeIds": [
+        "caramel-sundae",
+        "milk-ice-caramel-sundae",
+        "chocolate-sundae",
+        "frozen-cake",
+        "baked-alaska"
+      ]
+    },
+    {
+      "id": "cannery",
+      "from": "cannery",
+      "location": "KS-cannery",
+      "recipeIds": [
+        "syrup-apples",
+        "filled-fruit-jar",
+        "processed-fruit-jar",
+        "bottled-fruit",
+        "fruit-custard",
+        "filled-stew-tin",
+        "processed-stew-tin"
+      ]
+    },
+    {
+      "id": "departure",
+      "from": "precision",
+      "location": "KS-departure",
+      "recipeIds": [
+        "bean-supper",
+        "buttercream",
+        "vanilla-buttercream",
+        "vanilla-sandwich",
+        "water-icing",
+        "iced-chocolate-cake"
+      ]
+    },
+    {
+      "id": "trolley",
+      "from": "snack",
+      "location": "KS-trolley",
+      "recipeIds": [
+        "load-supper-meal",
+        "load-vanilla-cake",
+        "load-chocolate-cake",
+        "load-apple-juice",
+        "load-sealed-provisions"
+      ]
+    }
+  ],
+  "transforms": {
+    "bread": "leavened-dough",
+    "labneh-flatbread": "herb-labneh",
+    "herb-labneh": "strained-yogurt",
+    "vinaigrette": "cider-vinegar",
+    "mustard-dressing": "mustard-paste",
+    "root-filling": "strained-yogurt",
+    "ravioli": "root-filling",
+    "puff-pastry": "laminated-dough",
+    "cheese-straw-dough": "laminated-dough",
+    "bechamel": "white-roux",
+    "cheese-sauce": "bechamel",
+    "coated-cauliflower": "cooked-cauliflower",
+    "cheese-noodles": "cooked-noodles",
+    "veloute": "white-roux",
+    "buttered-cauliflower": "cooked-cauliflower",
+    "glazed-fruit-tart": "fruit-tart",
+    "almond-sugar": "ground-almonds",
+    "almond-pastry": "puff-pastry",
+    "caramel": "sugar-syrup",
+    "custard-mixture": "sweet-yolks",
+    "custard": "custard-mixture",
+    "vanilla-custard": "custard",
+    "starchy-yolks": "sweet-yolks",
+    "tart-case": "shortcrust",
+    "choux-buns": "choux-paste",
+    "cheese-choux": "choux-paste",
+    "filled-choux": "choux-buns",
+    "cream-puffs": "choux-buns",
+    "sweet-egg-foam": "egg-foam",
+    "sponge-batter": "sweet-egg-foam",
+    "sponge-cake": "sponge-batter",
+    "chocolate-batter": "sponge-batter",
+    "ganache-cake": "chocolate-sponge",
+    "profiteroles": "cream-puffs",
+    "ganache-profiteroles": "cream-puffs",
+    "chocolate-marzipan": "marzipan",
+    "scone-crumbs": "self-raising-flour",
+    "frozen-custard": "vanilla-custard",
+    "caramel-sundae": "frozen-custard",
+    "chocolate-sundae": "milk-ice-cream",
+    "milk-ice-caramel-sundae": "milk-ice-cream",
+    "meringue-nests": "meringue",
+    "macaron-batter": "meringue",
+    "frozen-cake": "sponge-cake"
+  }
+}

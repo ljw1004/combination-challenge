@@ -1,18 +1,24 @@
 /** Current authoring contract (v2). A LOCATION is a persistent whole place;
  * a HOTSPOT is an interactive spot within it; a CHAPTER is a story beat which
  * can continue at the same location. Old schema/scenario.ts is v1 compatibility only. */
-export type {Item, Retirement, InputLifecycle, Recipe, AlreadyComplete, Milestone} from './scenario.ts';
-import type {Item, Recipe, AlreadyComplete, Milestone} from './scenario.ts';
+export type {Retirement, InputLifecycle, Recipe, AlreadyComplete} from './scenario.ts';
+import type {Item as LegacyItem, Recipe, AlreadyComplete, Milestone as LegacyMilestone} from './scenario.ts';
+/** Reversible presentation at a thing's owned place. Original attribution remains
+ * the fallback outside these explicitly authored location IDs. */
+export type Item = LegacyItem & {labelByLocation?:Record<string,string>};
+/** Explanation is prose-first with the actual item caption, not a rhetorical title.
+ * Absent preserves existing component-led physical celebrations. */
+export type Milestone = LegacyMilestone & {presentation?:'explanation'|'celebration'};
 /** Persistent place/background and arrangement. Reuse its id across chapters. */
 export type Location = {id:string;label:string;travelText:string};
-export type ChapterEntryCue = {id:string;mode:'arrival-and-beat'|'beat'|'source-update-and-beat';format:'silent-title-card'|'speech-bubble'|'radio'|'source-update-card';voice:string;sourceCaption?:string;text:string};
+export type ChapterEntryCue = {id:string;mode:'arrival-and-beat'|'beat'|'source-update-and-beat';format:'silent-title-card'|'speech-bubble'|'radio'|'source-update-card';voice:string;sourceCaption?:string;/** Optional meaningful era/place, never a chapter title. */contextHeading?:string;text:string};
 export type StockBatch = {id:string;label:string;narrative:string;items:string[]};
 /** Stable art belongs to the whole location, never the current chapter. */
 export type LocationDefinition = Location & {settingId?:string;timeLabel?:string;background:{stableKey:string;sceneBrief:string;asset?:string;focalPoint?:{x:number;y:number}};stockBatches:StockBatch[];hotspots:string[]};
 export type LocationVisit = {id:string;locationId:string;chapterIds:string[];carry?:string[];/** Explicit continuing expedition cargo, in addition to current-visit work. */ carryAlong?:string[]};
-export type SourceUpdate = {id:string;label:string;narrative:string;items:string[];arrivalFact:string};
+export type SourceUpdate = {id:string;label:string;narrative:string;items:string[];arrivalFact:string;/** Display-only editorial override; stored arrivalFact remains an exact save witness. */presentationText?:string};
 /** Opt-in successors only. Historical worlds retain their exact old geometry. */
-export type LocationPlan = {locations:LocationDefinition[];visits:LocationVisit[];panel:{width:390;height:844}};
+export type LocationPlan = {/** One-time first-location-entry layout; omitted keeps historical geometry. */entryLayout?:'weighted-third';locations:LocationDefinition[];visits:LocationVisit[];panel:{width:390;height:844}};
 /** A stationary interaction target: @id operand, Recipe.at setting, or placement goal. */
 export type Hotspot = {id:string;label:string;description?:string;sources?:string[]};
 export type Objective = {id:string;intermediate?:boolean;after?:string[];text:string;kind:'create'|'place';item?:string;capability?:string;hotspot?:string};

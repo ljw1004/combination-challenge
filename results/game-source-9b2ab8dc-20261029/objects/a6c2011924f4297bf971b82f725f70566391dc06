@@ -1,0 +1,36 @@
+import assert from 'node:assert/strict';
+import {writeFileSync} from 'node:fs';
+import * as M from '../candidate/experiments/tangible-campaign/engine/campaign.ts';
+import {elements as s} from '../candidate/experiments/tangible-campaign/ui/stories/elements-waterworks-v1.ts';
+import {elements as before} from '../candidate/experiments/tangible-campaign/ui/stories/elements-journey-cleanup-v2.ts';
+const started=performance.now(),out={scope:'Independent bounded logical probes only; no native/browser/human claim',checks:[]};
+const route=s.checkpoints.find(c=>c.id==='complete').actions;
+const chapterIndex=id=>s.chapters.findIndex(c=>c.id===id);
+const cp=id=>M.checkpoint(s,`chapter-${chapterIndex(id)+1}`,320);
+const suffix=id=>route.slice(s.checkpoints[chapterIndex(id)].actions.length);
+const key=(a,b)=>[a,b].sort().join('|');
+const recipe=a=>a.type==='combine'?s.recipes.find(r=>key(r.a,r.b)===key(a.a,a.b)):undefined;
+const step=(g,a)=>{const r=M.applyAction(s,g,a);assert(r.accepted,JSON.stringify(a)+': '+r.message);return r.game};
+const kinds=g=>g.state.tokens.map(t=>t.kind).sort();
+const local=g=>g.state.tokens.filter(t=>t.location===g.state.storyLocation);
+const start=cp('waterworks');const block=suffix('waterworks').slice(0,suffix('waterworks').findIndex(a=>a.type==='advance'));
+let paths=0,nodes=0,peak=local(start).length,terminalKinds;
+function walk(g,left,trace=[]){nodes++;peak=Math.max(peak,local(g).length);if(!left.length){assert(M.chapterComplete(s,g.state));assert(M.token(g.state,'glazed-bottle'));assert(!M.token(g.state,'waterwheel'));if(terminalKinds)assert.deepEqual(kinds(g),terminalKinds);else terminalKinds=kinds(g);paths++;return;}
+ const available=left.filter(a=>M.partners(s,g.state,a.a).outgoing.includes(a.b));assert(available.length);
+ for(const a of available){const r=recipe(a);const next=step(g,{type:'drop',item:a.b,target:a.a});if(r.id==='water-lifting-wheel'){assert(M.token(next.state,'glazed-bottle'));assert(!M.token(next.state,'waterwheel'));assert(M.token(next.state,'water-lifting-wheel'));assert.equal(M.token(next.state,'water-lifting-wheel').x,M.token(g.state,'waterwheel').x);assert.equal(M.token(next.state,'water-lifting-wheel').y,M.token(g.state,'waterwheel').y);assert(!M.applyAction(s,next,a).accepted);assert.deepEqual(M.undo(next).game.state.tokens,g.state.tokens);}walk(next,left.filter(x=>x!==a),[...trace,r.id]);}
+}
+walk(start,block);out.checks.push({name:'Every legal local preparation order, reverse drops',paths,nodes,peak,arrival:local(start).length,terminalKindsInvariant:true,jarSupplyRetained:true,wheelTransformsAtItsOwnPosition:true,undoAndDuplicateSuppression:true});console.log(JSON.stringify(out.checks.at(-1)));
+for(const variant of ['bowl-fill-then-cover','cover-then-bowl-fill']){
+ let g=cp('cleanwater'),actions=[];
+ for(const a of suffix('cleanwater')){
+  const id=recipe(a)?.id;
+  if(id==='fill-water-bottle'){
+   const portion={type:'combine',a:'boiled-water',b:'glazed-bowl'};
+   if(variant==='bowl-fill-then-cover')actions.push(portion,{type:'combine',a:'drinking-water',b:'glazed-bottle'});
+   else actions.push({type:'combine',a:'glazed-bottle',b:'jar-lid'},portion,{type:'combine',a:'drinking-water',b:'covered-urn'});
+  }else if(variant==='cover-then-bowl-fill'&&id==='cover-filled-water-bottle')continue;else actions.push(a);
+ }
+ for(const a of actions)g=step(g,a);
+ assert(g.state.completed);assert(M.token(g.state,'water-urn'));assert(M.token(g.state,'water-lifting-wheel'));assert.equal(M.token(g.state,'water-lifting-wheel').location,'E03-irrigation-bank');assert.deepEqual(M.restore(s,JSON.stringify(g)).state.tokens,g.state.tokens);out.checks.push({name:variant,complete:true,actions:actions.length,waterLiftRemainsAtGarden:true,saveRoundtrip:true});console.log(JSON.stringify(out.checks.at(-1)));
+}
+const changed={};for(const field of new Set([...Object.keys(before),...Object.keys(s)])){if(JSON.stringify(before[field])!==JSON.stringify(s[field]))changed[field]=true;}out.resolvedTopLevelDelta=Object.keys(changed);out.durationMs=performance.now()-started;writeFileSync(new URL('probe-results.json',import.meta.url),JSON.stringify(out,null,2)+'\n');console.log(JSON.stringify({durationMs:out.durationMs,status:'PASS'}));

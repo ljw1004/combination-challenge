@@ -16,10 +16,10 @@ export function syntheticDocument(width=360) {
  });
  class N {
   nodeType:number;nodeValue:string|null;tagName='';parentNode:N|null=null;childNodes:N[]=[];
-  attrs:Record<string,string>={};dataset:Record<string,string>={};classes=new Set<string>();listeners:Record<string,Function[]>={};style:any;
+  attrs:Record<string,string>={};dataset:Record<string,string>={};classes=new Set<string>();listeners:Record<string,Function[]>={};style:any;styleValues:Record<string,string>={};
   value='';clientWidth=width;clientHeight=500;scrollTop=0;scrollLeft=0;connectionBreaks=0;srcWrites=0;showCount=0;content?:N;
   [key:string]:any;
-  constructor(type=1,tag='DIV',text:string|null=null){this.nodeType=type;this.tagName=type===1?tag.toUpperCase():'';this.nodeValue=text;this.style=new Proxy({} as Record<string,string>,{set:(o,k,v)=>{o[String(k)]=v;this.attrs.style=Object.entries(o).map(([k,v])=>`${k.replace(/[A-Z]/g,c=>'-'+c.toLowerCase())}:${v}`).join(';');return true;}});if(this.tagName==='TEMPLATE')this.content=new N(11);}
+  constructor(type=1,tag='DIV',text:string|null=null){this.nodeType=type;this.tagName=type===1?tag.toUpperCase():'';this.nodeValue=text;this.style=new Proxy(this.styleValues,{set:(o,k,v)=>{o[String(k)]=v;this.attrs.style=Object.entries(o).map(([k,v])=>`${k.replace(/[A-Z]/g,c=>'-'+c.toLowerCase())}:${v}`).join(';');return true;}});if(this.tagName==='TEMPLATE')this.content=new N(11);}
   get ownerDocument(){return doc;}
   get id(){return this.attrs.id??'';}set id(v:string){this.attrs.id=v;}
   get attributes(){return Object.entries(this.attrs).map(([name,value])=>({name,value}));}
@@ -34,7 +34,7 @@ export function syntheticDocument(width=360) {
   get href(){return this.attrs.href;}
   get textContent():string{return this.nodeType===3?this.nodeValue??'':this.childNodes.map(n=>n.textContent).join('');}
   set textContent(v:string){if(this.nodeType===3){this.nodeValue=v;return;}for(const n of [...this.childNodes])this.removeChild(n);if(v)this.appendChild(new N(3,'',v));}
-  setAttribute(name:string,value:string){this.attrs[name]=String(value);if(name==='class')this.classes=new Set(value.split(/\s+/).filter(Boolean));if(name.startsWith('data-'))this.dataset[name.slice(5)]=value;if(name==='src')this.srcWrites++;if(name==='value')this.value=value;}
+  setAttribute(name:string,value:string){this.attrs[name]=String(value);if(name==='style'){for(const key of Object.keys(this.styleValues))delete this.styleValues[key];for(const rule of value.split(';')){const colon=rule.indexOf(':');if(colon>0)this.styleValues[rule.slice(0,colon).trim().replace(/-([a-z])/g,(_,letter)=>letter.toUpperCase())]=rule.slice(colon+1).trim();}}if(name==='class')this.classes=new Set(value.split(/\s+/).filter(Boolean));if(name.startsWith('data-'))this.dataset[name.slice(5)]=value;if(name==='src')this.srcWrites++;if(name==='value')this.value=value;}
   getAttribute(name:string){return this.attrs[name]??null;}
   hasAttribute(name:string){return name in this.attrs;}
   removeAttribute(name:string){delete this.attrs[name];if(name==='class')this.classes.clear();if(name.startsWith('data-'))delete this.dataset[name.slice(5)];}

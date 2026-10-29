@@ -1,0 +1,151 @@
+TAP version 13
+# Subtest: every authored route removes only current authored inputs; movements and travel remove nothing
+ok 1 - every authored route removes only current authored inputs; movements and travel remove nothing
+  ---
+  duration_ms: 423249.160044
+  type: 'test'
+  ...
+# Subtest: actual Elements keeps millstone, untouched bread and river map; no distant owner collects them
+ok 2 - actual Elements keeps millstone, untouched bread and river map; no distant owner collects them
+  ---
+  duration_ms: 6298.446472
+  type: 'test'
+  ...
+# Subtest: actual Mars current retain leaves pressure patch and loose solar charger without changing old installed slots
+ok 3 - actual Mars current retain leaves pressure patch and loose solar charger without changing old installed slots
+  ---
+  duration_ms: 5863.880672
+  type: 'test'
+  ...
+# Subtest: an outside retained supply can be consumed by a later explicit event, never by an unrelated alternative
+ok 4 - an outside retained supply can be consumed by a later explicit event, never by an unrelated alternative
+  ---
+  duration_ms: 3.622704
+  type: 'test'
+  ...
+# Subtest: finished outside copy remains in its old area on advance, movement, visit and unmarked restore/history
+ok 5 - finished outside copy remains in its old area on advance, movement, visit and unmarked restore/history
+  ---
+  duration_ms: 4.313244
+  type: 'test'
+  ...
+# Subtest: fitted chassis preserves parts immediately in either direction while original copy stays intact; no retroactive upgrades
+ok 6 - fitted chassis preserves parts immediately in either direction while original copy stays intact; no retroactive upgrades
+  ---
+  duration_ms: 9.104136
+  type: 'test'
+  ...
+# Subtest: actual optional Mars fitted radio preserves stand at installation while outside radio remains, both directions
+ok 7 - actual optional Mars fitted radio preserves stand at installation while outside radio remains, both directions
+  ---
+  duration_ms: 313.062069
+  type: 'test'
+  ...
+# Subtest: legacy construction recovery uses actual pre-event parts; later fitted additions do not flow backward
+ok 8 - legacy construction recovery uses actual pre-event parts; later fitted additions do not flow backward
+  ---
+  duration_ms: 2.760896
+  type: 'test'
+  ...
+# Subtest: unmarked legacy installation recovers actual nested parts without removing source or inventing absent history
+ok 9 - unmarked legacy installation recovers actual nested parts without removing source or inventing absent history
+  ---
+  duration_ms: 169.279409
+  type: 'test'
+  ...
+# Subtest: an immediate fitted transformation stays in place, preserves components and does not resurrect the retired input on load
+ok 10 - an immediate fitted transformation stays in place, preserves components and does not resurrect the retired input on load
+  ---
+  duration_ms: 2.713485
+  type: 'test'
+  ...
+# (node:23) ExperimentalWarning: stripTypeScriptTypes is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: Mars v4 current controller waits for both Night goals and then explicit arrow; buildFirst=false
+not ok 11 - Mars v4 current controller waits for both Night goals and then explicit arrow; buildFirst=false
+  ---
+  duration_ms: 268.975985
+  type: 'test'
+  location: '/workspace/shared/combination-ux-content-integration-20261029/candidate/tests/mars-v4-ui.test.ts:15:38'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly equal:
+    
+    'place' !== 'drop'
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: 'drop'
+  actual: 'place'
+  operator: 'strictEqual'
+  stack: |-
+    drop (file:///workspace/shared/combination-ux-content-integration-20261029/candidate/tests/mars-v4-ui.test.ts:13:652)
+    TestContext.<anonymous> (file:///workspace/shared/combination-ux-content-integration-20261029/candidate/tests/mars-v4-ui.test.ts:15:238)
+    Test.runInAsyncScope (node:async_hooks:227:14)
+    Test.run (node:internal/test_runner/test:1402:25)
+    Test.start (node:internal/test_runner/test:1262:17)
+    startSubtestAfterBootstrap (node:internal/test_runner/harness:387:17)
+  ...
+# Subtest: Mars v4 current controller waits for both Night goals and then explicit arrow; buildFirst=true
+not ok 12 - Mars v4 current controller waits for both Night goals and then explicit arrow; buildFirst=true
+  ---
+  duration_ms: 268.751022
+  type: 'test'
+  location: '/workspace/shared/combination-ux-content-integration-20261029/candidate/tests/mars-v4-ui.test.ts:15:38'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly equal:
+    
+    'combine' !== 'drop'
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: 'drop'
+  actual: 'combine'
+  operator: 'strictEqual'
+  stack: |-
+    drop (file:///workspace/shared/combination-ux-content-integration-20261029/candidate/tests/mars-v4-ui.test.ts:13:652)
+    TestContext.<anonymous> (file:///workspace/shared/combination-ux-content-integration-20261029/candidate/tests/mars-v4-ui.test.ts:15:238)
+    Test.runInAsyncScope (node:async_hooks:227:14)
+    Test.run (node:internal/test_runner/test:1402:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+    Test.postRun (node:internal/test_runner/test:1542:19)
+    Test.run (node:internal/test_runner/test:1467:12)
+    async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3)
+  ...
+# Subtest: Mars v4 Undo before explicit Night travel restores comparison progress and invalidates stale arrow
+not ok 13 - Mars v4 Undo before explicit Night travel restores comparison progress and invalidates stale arrow
+  ---
+  duration_ms: 243.785497
+  type: 'test'
+  location: '/workspace/shared/combination-ux-content-integration-20261029/candidate/tests/mars-v4-ui.test.ts:16:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly equal:
+    
+    'combine' !== 'drop'
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: 'drop'
+  actual: 'combine'
+  operator: 'strictEqual'
+  stack: |-
+    drop (file:///workspace/shared/combination-ux-content-integration-20261029/candidate/tests/mars-v4-ui.test.ts:13:652)
+    TestContext.<anonymous> (file:///workspace/shared/combination-ux-content-integration-20261029/candidate/tests/mars-v4-ui.test.ts:16:162)
+    Test.runInAsyncScope (node:async_hooks:227:14)
+    Test.run (node:internal/test_runner/test:1402:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+    Test.postRun (node:internal/test_runner/test:1542:19)
+    Test.run (node:internal/test_runner/test:1467:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:974:7)
+  ...
+1..13
+# tests 13
+# suites 0
+# pass 10
+# fail 3
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 439707.693003

@@ -1,5 +1,15 @@
 # Combination Challenge
 
+## Current UX/content checkpoint — 29 October 2026
+
+Active campaign source: Site `4329506c07241252692c604c069aca6d4cf7b662`, seal `9b2ab8dc7ce61cffd7d306aabd81a585b4c9d3ccfda1d3d251d7e5ed1d701eda`. Main catalogue61 worlds, with four reviewed successor identities, three explicit same-ID editorial updates and a separate optional creature (`mars-ice-creature.html?world=mars-creature-plain-v4`). Includes small working sessions, physical continuity, drag-only interaction, readable objectives, story-caption/body presentation and corrective artwork. The original root app/index and script meanings remain untouched; use `campaign-start.html` for the campaign.
+
+[Authoritative design direction](DESIGN_PRINCIPLES.md) preserves root-only guidance and incorporates the exact new approved source delta. Design aspirations are not blanket implementation claims. [Verification, known limits and retained failures](results/ux-content-validation-20261029/REPORT.md).
+
+Restore exact source: `node scripts/verify-campaign-source-archive.mjs --archive ux-content --materialize NEW_DIRECTORY`. All earlier selectors and snapshots remain. Scoped root checks are `npm run campaign:check`, `npm run campaign:build`, and `npm run campaign:test`; serve `dist-campaign/` from its web root. The current publication runs the affected root gate, not a second full aggregate. No native iOS/Safari, full browser route, universal density/no-flash or human-enjoyment claim.
+
+The dated sections below are historical checkpoint statements.
+
 ## Current queued-checkpoint consolidation — 29 October 2026
 
 Current Site source is `66fee3deba591308ff42f5c7600f34a3d0e3ce84`, exact seal `7629a2f122270c3b08a19a24e6251ae63f2f0178639b7576258b15ae003a4395`. The active campaign retains all earlier worlds and adds reviewed wider cadence, optional Mars creature, authenticity repairs and the Elements journey cleanup. The main catalogue has 57 worlds; the optional creature remains separate at `mars-ice-creature.html?world=mars-creature-field-scenes-v3`. The original root `index.html`, app and script meanings are unchanged. `campaign-start.html` remains the scoped campaign homepage.

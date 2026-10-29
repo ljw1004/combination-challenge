@@ -1,0 +1,39 @@
+✔ Food small sessions: new identity, all192 recipes, sole stock ownership and scoped lifecycle declarations (55.710391ms)
+✔ Food canonical: complete route, arrivals/peaks, earlier ownership, highlights, bounds, Undo and saves (3616.787385ms)
+✔ Food alternate: complete route, arrivals/peaks, earlier ownership, highlights, bounds, Undo and saves (6542.27427ms)
+✔ Food catalogue: complete route, arrivals/peaks, earlier ownership, highlights, bounds, Undo and saves (3484.864037ms)
+✔ Food reverse: complete route, arrivals/peaks, earlier ownership, highlights, bounds, Undo and saves (7128.587624ms)
+✔ Food order7: complete route, arrivals/peaks, earlier ownership, highlights, bounds, Undo and saves (2916.21718ms)
+✔ Food order29: complete route, arrivals/peaks, earlier ownership, highlights, bounds, Undo and saves (3363.996881ms)
+✔ Food checkpoints remain exact, restorable canonical prefixes and every supported recipe has a complete-route witness (4547.897768ms)
+✖ Food early herb-butter preparation changes carry, not ownership or chapter cleanup (77.624285ms)
+✔ Food service hatch needs all four actual courses and leaves the trolley station-side (2747.790404ms)
+ℹ tests 10
+ℹ suites 0
+ℹ pass 9
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 34762.817983
+
+✖ failing tests:
+
+test at tests/food-small-sessions.test.ts:38:1
+✖ Food early herb-butter preparation changes carry, not ownership or chapter cleanup (77.624285ms)
+  AssertionError [ERR_ASSERTION]: Choose a thing in this location.
+      at step (file:///workspace/shared/food-small-sessions-20261029/source/tests/food-small-sessions.test.ts:40:78)
+      at TestContext.<anonymous> (file:///workspace/shared/food-small-sessions-20261029/source/tests/food-small-sessions.test.ts:44:3)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }

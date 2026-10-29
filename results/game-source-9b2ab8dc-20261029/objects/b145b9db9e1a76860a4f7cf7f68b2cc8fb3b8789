@@ -1,0 +1,26 @@
+import {expectedCurrentScenario} from '../experiments/tangible-campaign/ui/current-scenarios.ts';
+import test from 'node:test';import assert from 'node:assert/strict';import {readFileSync} from 'node:fs';import {createHash} from 'node:crypto';
+import {scenarios,featuredScenarioIds,authenticitySuccessorScenarios,presentationFor} from '../experiments/tangible-campaign/ui/current-scenarios.ts';
+import {scenarios as before} from '../experiments/tangible-campaign/ui/pre-authenticity-scenarios.ts';
+import {elements,mars,atlas} from '../experiments/tangible-campaign/ui/stories/authenticity-repairs-v2.ts';
+import {elements as v1} from '../experiments/tangible-campaign/ui/stories/authenticity-repairs-v1.ts';
+import {scenario as oldMars} from '../experiments/tangible-campaign/ui/stories/mars-field-scenes.ts';
+import {acceptedTestRoute} from '../experiments/tangible-campaign/integration/accepted-current-test-routes.ts';
+import {lifecycleAudit} from '../experiments/tangible-campaign/integration/current-lifecycle-audit.ts';
+import {toLegacyScenario,fromLegacyAction} from '../experiments/tangible-campaign/compatibility/v1.ts';
+const root=new URL('../',import.meta.url),read=(p:string)=>JSON.parse(readFileSync(new URL(p,root),'utf8')),sha=(x:unknown)=>createHash('sha256').update(JSON.stringify(x)).digest('hex');
+test('61 distinct worlds retain all53 published objects, source hashes, exact route actions/provenance and separate optional page',()=>{
+ assert.equal(scenarios.length,61);assert.equal(new Set(scenarios.map(s=>s.id)).size,61);assert.equal(before.length,53);assert.deepEqual(authenticitySuccessorScenarios,[mars,atlas,elements]);assert.deepEqual(featuredScenarioIds,['mars-purposeful-fieldwork-v8','atlas-focused-sessions-v6','elements-basket-continuity-v10','kitchen-caravan-small-sessions-v8','copy-workroom-locations-v2','divinity-final-reading-scenes-v7']);
+ const hashes=read('experiments/tangible-campaign/reviews/mars-creature-field-scenes/current-scenario-hashes.json'),baseline=read('experiments/tangible-campaign/reviews/mars-creature-field-scenes/existing53-baseline.json');assert.equal(baseline.records.length,53);
+ for(const old of before){assert.equal(scenarios.find(s=>s.id===old.id),expectedCurrentScenario(old));assert.equal(sha(old),hashes[old.id],old.id);const row=baseline.records.find((r:any)=>r.id===old.id);assert(row);const route=acceptedTestRoute(toLegacyScenario(old));assert.deepEqual(route.source,row.routeSource,old.id);assert.deepEqual(route.actions.map(fromLegacyAction),row.routeActions,old.id);}
+ for(const id of ['mars-field-scenes-v6','atlas-civilization-locations-v4','elements-river-scenes-v4'])assert.match(presentationFor(scenarios.find(s=>s.id===id)!).title,/^Snapshot:/);
+ assert(!scenarios.some(s=>s.id==='elements-material-repairs-v5'));assert(!scenarios.some(s=>s.id==='mars-creature-field-scenes-v3'));
+});
+test('all726 new recipe rows are explicitly audited; old rows and old meanings are not replaced',()=>{
+ let count=0;for(const s of authenticitySuccessorScenarios)for(const r of s.recipes){const rows=lifecycleAudit.recipes.filter((row:any)=>row.world===s.id&&row.recipe===r.id);assert.equal(rows.length,1,s.id+':'+r.id);assert.deepEqual(rows[0].lifecycles??rows[0].lifecycle??rows[0].decisions,r.lifecycle);count++;}assert.equal(count,726);
+});
+test('bell removal preserves timekeeping and all later narrative; the unresolved lamp is unchanged',()=>{
+ const index=v1.chapters.findIndex(c=>c.id==='timekeeping'),clean=(s:typeof elements)=>s.chapters.slice(index+1).map(c=>{const x=structuredClone(c);if(x.entryCue)x.entryCue.id='normalized';if(x.travel?.entryCue)x.travel.entryCue.id='normalized';return x;});assert.deepEqual(clean(elements),clean(v1));assert.deepEqual(clean(elements).map(c=>c.id),['stars','gallery','gathering']);const time=elements.chapters[index];assert.equal(time.objectives.length,1);assert.equal(time.objectives[0].text,'Make ferry timetable');assert.match(time.completionText!,/reads the return times aloud/);
+ assert.deepEqual(elements.recipes.filter(r=>[r.a,r.b].includes('bowl')).map(r=>r.id).sort(),['basket','glazed-bowl','jar']);assert(!JSON.stringify({items:elements.items,recipes:elements.recipes,chapters:elements.chapters,milestones:elements.milestones}).match(/\bbell\b/i));
+ for(const id of ['camp-lantern-bracket','camp-signal-lamp-bracket','signal-6-signal-beacon'])assert.deepEqual(mars.recipes.find(r=>r.id===id),oldMars.recipes.find(r=>r.id===id));
+});

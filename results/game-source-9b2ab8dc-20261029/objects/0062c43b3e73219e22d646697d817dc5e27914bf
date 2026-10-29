@@ -1,0 +1,123 @@
+import {expectedCurrentScenario} from '../experiments/tangible-campaign/ui/current-scenarios.ts';
+import {expectedSourceHashAfterJourneyCleanup} from '../experiments/tangible-campaign/integration/journey-cleanup-source-guard.ts';
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {readFileSync,mkdirSync,writeFileSync} from 'node:fs';
+import {createHash} from 'node:crypto';
+import * as M from '../experiments/tangible-campaign/engine/campaign.ts';
+import type {Action,Scenario} from '../experiments/tangible-campaign/schema/campaign.ts';
+import {elements as s} from '../experiments/tangible-campaign/ui/stories/elements-journey-cleanup-v2.ts';
+import {elements as before} from '../experiments/tangible-campaign/ui/stories/authenticity-repairs-v2.ts';
+import {scenarios} from '../experiments/tangible-campaign/ui/current-scenarios.ts';
+import {toLegacyGame,toLegacyScenario} from '../experiments/tangible-campaign/compatibility/v1.ts';
+import {validateContentLifecycles,validateObjectiveFlow,validateConstructionContinuity} from '../experiments/tangible-campaign/schema/lifecycle.ts';
+import {validateLifecycleGraph} from '../experiments/tangible-campaign/schema/lifecycle-graph.ts';
+import {encodeSave,decodeSave} from '../experiments/tangible-campaign/ui/save-codec.ts';
+import {locationHarness} from '../experiments/tangible-campaign/ui/location-controller-harness.ts';
+const root=new URL('../',import.meta.url);
+const resultDir=new URL('../results/elements-journey-cleanup-v2/',import.meta.url);mkdirSync(resultDir,{recursive:true});
+const route=s.checkpoints!.find(c=>c.id==='complete')!.actions;
+const removed=['crossing-map','river-map','harbour-map','navigation-chart','river-atlas','tool-chest'];
+const pair=(a:string,b:string)=>[a,b].sort().join('|');
+const recipeFor=(world:Scenario,a:Action)=>a.type==='combine'?world.recipes.find(r=>pair(r.a,r.b)===pair(a.a,a.b)):undefined;
+const local=(g:M.Game)=>g.state.tokens.filter(t=>t.location===g.state.storyLocation);
+const noMetrics=({metrics,...rest}:M.State)=>rest;
+const step=(world:Scenario,g:M.Game,a:Action)=>{const r=M.applyAction(world,g,a);assert(r.accepted,`${world.id}/${world.chapters[g.state.chapter].id}: ${JSON.stringify(a)} ${r.message}`);return r.game;};
+const durable=(g:M.Game)=>{assert.deepEqual(M.restore(s,JSON.stringify(g)),g);assert.deepEqual(M.restore(s,JSON.stringify(toLegacyGame(g))),g);assert.deepEqual(M.restore(s,JSON.stringify(decodeSave(encodeSave({game:toLegacyGame(g),seen:[],tops:{}})).game)),g);};
+const earned=(id:string)=>M.checkpoint(s,`chapter-${s.chapters.findIndex(c=>c.id===id)+1}`,375);
+const restFrom=(id:string)=>{const n=s.checkpoints!.find(cp=>cp.id===`chapter-${s.chapters.findIndex(c=>c.id===id)+1}`)!.actions.length;return route.slice(n);};
+const finish=(g:M.Game,actions:Action[])=>{for(const a of actions)g=step(s,g,a);assert(g.state.completed);return g;};
+
+test('all 2,365 baseline entries retain exact snapshots or explicit successors; all56 original identities and registered v8 survive',()=>{
+ const p='experiments/tangible-campaign/research/elements-journey-cleanup-v2-20261029/predecessor-source-manifest.json';const bytes=readFileSync(new URL(p,root));assert.equal(createHash('sha256').update(bytes).digest('hex'),'90106433ef62b5d0ed3af21a6b7da6333534ea70d9b41db60ce8bd5c6c77e6f3');
+ const m=JSON.parse(bytes.toString());assert.equal(Object.keys(m.files).length,2365);assert.equal(createHash('sha256').update(readFileSync(new URL(p,root))).digest('hex'),'90106433ef62b5d0ed3af21a6b7da6333534ea70d9b41db60ce8bd5c6c77e6f3');for(const[path,row]of Object.entries<any>(m.files))assert.equal(createHash('sha256').update(readFileSync(new URL(path,root))).digest('hex'),expectedSourceHashAfterJourneyCleanup(path,row.sha256),path);
+ assert.equal(scenarios.length,61);assert.equal(scenarios.find(x=>x.id===s.id),expectedCurrentScenario(s));assert(scenarios.some(x=>x.id===before.id));assert.equal(before.id,'elements-material-repairs-v6');assert(before.recipes.some(r=>r.id==='crossing-map'));assert(before.recipes.some(r=>r.id==='tool-chest'));assert.throws(()=>M.restore(s,JSON.stringify(M.createGame(before))),/Invalid campaign save/);
+});
+
+test('only the bounded six wrappers disappear; all useful outcomes, stock, locations and lifecycle rules survive',()=>{
+ const l=toLegacyScenario(s);for(const errors of [M.validateScenario(s),validateContentLifecycles([l]),validateObjectiveFlow([l]),validateConstructionContinuity([l]),validateLifecycleGraph([l])])assert.deepEqual(errors,[]);
+ assert.equal(s.chapters.length,30);assert.equal(route.length,224);assert.equal(before.checkpoints!.at(-1)!.actions.length-route.length,7);assert.equal(before.recipes.length-s.recipes.length,6);assert.equal(before.items.length-s.items.length,6);
+ assert.deepEqual(s.initialItems,before.initialItems);const expectedPlan=structuredClone(before.locationPlan!);const revised=expectedPlan.locations.find(l=>l.id==='E06-next-morning')!;revised.travelText=revised.background.sceneBrief='The following morning brings a clear working space at the landing for return-boat departure times.';assert.deepEqual(s.locationPlan,expectedPlan);assert.deepEqual(s.hotspots,before.hotspots);assert.deepEqual(s.milestones,before.milestones);
+ assert.deepEqual(s.recipes.filter(r=>JSON.stringify(r)!==JSON.stringify(before.recipes.find(x=>x.id===r.id))).map(r=>r.id),['landing-clock']);
+ assert.deepEqual(s.recipes.filter(r=>[r.a,r.b].includes('wooden-chest')).map(r=>r.id),['grain-bin']);assert.deepEqual(s.recipes.filter(r=>[r.a,r.b].includes('hinge')).map(r=>r.id),['tripod']);
+ const executable={items:s.items,recipes:s.recipes,goals:s.chapters.map(c=>c.objectives),stock:s.locationPlan,milestones:s.milestones,initialItems:s.initialItems,checkpoints:s.checkpoints};for(const id of removed)assert(!JSON.stringify(executable).includes('"'+id+'"'),id);
+ assert(s.recipes.some(r=>r.id==='weather-book'));assert(!route.some(a=>recipeFor(s,a)?.id==='weather-book'));
+ for(const c of s.chapters)assert.deepEqual(c.onAlreadyComplete,before.chapters.find(x=>x.id===c.id)!.onAlreadyComplete);
+ for(const cp of s.checkpoints!)assert.deepEqual(cp.actions,route.slice(0,cp.actions.length),cp.id+' exact route prefix');
+});
+
+for(const[mode,width]of [['combine',375],['drop',320],['reverse',390]]as const)test(`${mode}/${width}: complete local route, highlights, bounds, Undo, saves and measured arrivals/peaks`,()=>{
+ let g=M.createGame(s,width);const rows:any[]=[];const witnesses:any[]=[];
+ for(const[n,a]of route.entries()){
+  const row=rows[g.state.chapter]??={chapter:s.chapters[g.state.chapter].id,arrival:local(g).length,arrivalLabels:local(g).map(t=>s.items.find(i=>i.id===t.kind)!.label),peak:0,peakLabels:[]};
+  if(local(g).length>row.peak){row.peak=local(g).length;row.peakLabels=local(g).map(t=>s.items.find(i=>i.id===t.kind)!.label);}
+  const r=recipeFor(s,a),old=g;
+  if(a.type==='combine'){for(const id of[a.a,a.b])if(!id.startsWith('@'))assert.equal(M.token(g.state,id)?.location,g.state.currentLocation,n+'/'+id+' local');assert(M.partners(s,g.state,a.a).outgoing.includes(a.b),n+' legal normal highlight');}
+  const reverse=mode==='reverse'&&a.type==='combine'&&!a.a.startsWith('@')&&!a.b.startsWith('@')&&!r?.at;
+  const actual:Action=a.type==='combine'&&mode!=='combine'?{type:'drop',item:reverse?a.b:a.a,target:reverse?a.a:a.b}:a;
+  if(reverse&&a.type==='combine')assert(M.partners(s,g.state,a.b).outgoing.includes(a.a));
+  g=step(s,g,actual);
+  const hinge=M.token(g.state,'hinge');if(hinge&&g.state.chapter>s.chapters.findIndex(c=>c.id==='workshop')&&g.state.chapter<s.chapters.findIndex(c=>c.id==='stars'))assert.equal(hinge.location,'E05','future tripod hinge stays at its workshop, not hauled through intervening scenes');
+  for(const t of g.state.tokens){assert(t.x>=48&&t.x<=g.state.width-48,t.id+' x');assert(t.y-M.tokenHeight(s,t)/2>=0&&t.y+M.tokenHeight(s,t)/2<=844,t.id+' y');}
+  if(a.type==='advance'){assert.deepEqual(old.state.tokens.map(t=>t.id).sort(),g.state.tokens.map(t=>t.id).sort(),'travel neither grants nor removes');assert.deepEqual(noMetrics(M.undo(g).game.state),noMetrics(old.state));}
+  if(r&&['wooden-chest','grain-bin','landing-clock','star-chart','star-chart-mounted-telescope'].includes(r.id)){assert.deepEqual(noMetrics(M.undo(g).game.state),noMetrics(old.state));durable(g);assert(!M.applyAction(s,g,a).accepted,'no duplicate output');witnesses.push({recipe:r.id,action:actual,before:M.playerView(s,old),after:M.playerView(s,g)});}
+ }
+ assert(g.state.completed);durable(g);writeFileSync(new URL(mode+'-'+width+'.json',resultDir),JSON.stringify({actions:route.length,completed:true,density:rows,witnesses,evidenceLevel:'Logical API; not native pixels, touch or human comprehension.'},null,2));
+});
+
+test('original route stays complete and supplies honest before/after working-set comparison',()=>{
+ let g=M.createGame(before,375);const rows:any[]=[];for(const a of before.checkpoints!.at(-1)!.actions){const row=rows[g.state.chapter]??={chapter:before.chapters[g.state.chapter].id,arrival:local(g).length,arrivalLabels:local(g).map(t=>before.items.find(i=>i.id===t.kind)!.label),peak:0,peakLabels:[]};if(local(g).length>row.peak){row.peak=local(g).length;row.peakLabels=local(g).map(t=>before.items.find(i=>i.id===t.kind)!.label);}g=step(before,g,a);}assert(g.state.completed);writeFileSync(new URL('predecessor-density.json',resultDir),JSON.stringify({actions:231,density:rows},null,2));
+});
+
+test('both telescope orders and optional early paper remain complete; inherited late-hinge abstraction is identified separately',()=>{
+ const out:any[]=[];
+ for(const kind of ['loose-observation','late-hinge-inherited-abstraction','early-paper']as const){
+  let g:M.Game,actions:Action[];
+  if(kind==='loose-observation'){g=earned('stars');actions=restFrom('stars');const star=actions.findIndex(a=>recipeFor(s,a)?.id==='star-chart-mounted-telescope');actions.splice(star,1);actions.unshift({type:'combine',a:'telescope',b:'paper'});}
+  else {g=earned(kind==='late-hinge-inherited-abstraction'?'workshop':'crossing');actions=restFrom(kind==='late-hinge-inherited-abstraction'?'workshop':'crossing');const ids=kind==='late-hinge-inherited-abstraction'?['hinge']:['pulp','paper'];const moved=actions.filter(a=>ids.includes(recipeFor(s,a)?.id??''));actions=actions.filter(a=>!ids.includes(recipeFor(s,a)?.id??''));const beforeGoal=actions.findIndex(a=>recipeFor(s,a)?.id===(kind==='late-hinge-inherited-abstraction'?'tripod':'handcart'));assert(beforeGoal>=0);const retrieval:Action[]=kind==='early-paper'?['water','cloth'].filter(id=>M.token(g.state,id)!.location!==g.state.currentLocation).map((id,i)=>({type:'relocate',item:id,location:g.state.currentLocation,x:48+i*110,y:735})):[];actions.splice(beforeGoal,0,...retrieval,...moved);}
+  const rows:any[]=[];for(const a of actions){const row=rows[g.state.chapter]??={chapter:s.chapters[g.state.chapter].id,arrival:local(g).length,peak:0};row.peak=Math.max(row.peak,local(g).length);g=step(s,g,a);}assert(g.state.completed);durable(g);out.push({kind,density:rows.filter(Boolean),limits:kind==='early-paper'?'Optional early paper preparation deliberately retrieves existing Water/Cloth from earlier panels; normal crossing carry correctly excludes them.':kind==='late-hinge-inherited-abstraction'?'Inherited unrestricted remote crafting, not physically validated forging.':'Both existing observational alternatives preserved.'});
+ }
+ writeFileSync(new URL('preparation-alternatives.json',resultDir),JSON.stringify(out,null,2));
+});
+
+test('workshop pre-made chest, pre-made pickaxe and both pre-made honor partial/skip semantics without fake goals',()=>{
+ const cp=earned('workshop');const original=restFrom('workshop');const end=original.findIndex(a=>a.type==='advance');const preparations=original.slice(0,end);const cases:any[]=[];
+ for(const outcomes of [['wooden-chest'],['pickaxe'],['wooden-chest','pickaxe']]){
+  // Earn the actual objects with their recipes, then model arriving at the same
+  // workshop with those established creations: only entry metadata is renewed.
+  let g=cp;for(const a of preparations){const r=recipeFor(s,a);if(r&&['wooden-chest','pickaxe'].includes(r.id)&&!outcomes.includes(r.id))continue;g=step(s,g,a);}
+  g=structuredClone(g);g.state.chapterEntry={chapter:g.state.chapter,alreadyComplete:M.chapterComplete(s,g.state)};g=M.resolveChapterEntry(s,g);
+  if(outcomes.length===2){assert.equal(s.chapters[g.state.chapter].id,'ferry');assert(g.state.skippedChapters?.includes('workshop'));assert.equal(M.pendingEntryCue(s,g)?.id,s.chapters[g.state.chapter].entryCue?.id);g=finish(g,original.slice(end+1));}
+  else {assert.equal(s.chapters[g.state.chapter].id,'workshop');const view=M.playerView(s,g);assert.equal(view.objectives.filter(o=>!o.satisfied).length,1);const missing=preparations.find(a=>{const r=recipeFor(s,a);return r&&['wooden-chest','pickaxe'].includes(r.id)&&!outcomes.includes(r.id);})!;g=step(s,g,missing);g=finish(g,original.slice(end));}
+  cases.push({preMade:outcomes,completed:g.state.completed});
+ }
+ writeFileSync(new URL('workshop-prepared-entry.json',resultDir),JSON.stringify({cases,evidenceLevel:'Earned recipe states with synthetic entry-metadata reset; not a native travel gesture.'},null,2));
+});
+
+test('logical API only: two independent within-scene preparation orders preserve all 30 chapters and report their peak working sets',()=>{
+ const blocks:Action[][]=[[]];for(const a of route){if(a.type==='advance')blocks.push([]);else blocks.at(-1)!.push(a);}blocks.pop();const report:any[]=[];
+ for(const seed of[7,29]){let n=seed,g=M.createGame(s,375);const rows:any[]=[];const rand=()=>{n=(n*1664525+1013904223)>>>0;return n/4294967296;};for(const block of blocks){const row={chapter:s.chapters[g.state.chapter].id,arrival:local(g).length,peak:local(g).length};let pending=[...block];while(pending.length){const offset=Math.floor(rand()*pending.length);let chosen=-1,next:M.Game|undefined;for(let i=0;i<pending.length;i++){const at=(offset+i)%pending.length,r=M.applyAction(s,g,pending[at]);if(r.accepted){chosen=at;next=r.game;break;}}assert(chosen>=0,`${seed}/${row.chapter}: no legal next preparation`);pending.splice(chosen,1);g=next!;row.peak=Math.max(row.peak,local(g).length);}rows.push(row);g=step(s,g,{type:'advance'});}assert(g.state.completed);report.push({seed,density:rows});}
+ writeFileSync(new URL('independent-order-density.json',resultDir),JSON.stringify(report,null,2));
+});
+
+test('name/task-only synthetic DOM prints the real timetable and no required tool-chest promotion',()=>{
+ for(const id of ['workshop','timekeeping','stars','gathering']){let g=earned(id);if(id==='timekeeping'){for(const a of restFrom(id)){if(a.type==='advance')break;g=step(s,g,a);}}
+  const h=locationHarness(s,JSON.stringify({game:toLegacyGame(g),seen:[],tops:{}}),{width:320});if(id==='timekeeping'){assert(h.thing('landing-clock'));assert(h.app.innerHTML.includes('09:00'));assert(h.app.innerHTML.includes('10:00'));assert(h.app.innerHTML.includes('11:00'));}if(id==='workshop')assert(h.app.innerHTML.includes('Make a wooden chest for tools'));
+  writeFileSync(new URL(id+'-name-task.html',resultDir),h.app.innerHTML);
+ }
+});
+
+
+test('optional weather book is still deliberately reachable, with tangible storage and no final-goal obligation',()=>{
+ let g=earned('weather');const actions=restFrom('weather'),end=actions.findIndex(a=>a.type==='advance');for(const a of actions.slice(0,end))g=step(s,g,a);
+ const book=M.token(g.state,'bound-book')!;assert(book);assert.notEqual(book.location,g.state.currentLocation);const old=g;g=step(s,g,{type:'relocate',item:book.id,location:g.state.currentLocation,x:48,y:735});assert.deepEqual(noMetrics(M.undo(g).game.state),noMetrics(old.state));
+ assert(M.partners(s,g.state,'weather-record').outgoing.includes('bound-book'));const beforeBook=g;g=step(s,g,{type:'combine',a:'weather-record',b:'bound-book'});assert(M.token(g.state,'weather-book'));assert(M.token(g.state,'weather-record'));assert.deepEqual(noMetrics(M.undo(g).game.state),noMetrics(beforeBook.state));durable(g);
+ const place=M.token(g.state,'weather-book')!.location;g=finish(g,actions.slice(end));assert.equal(M.token(g.state,'weather-book')!.location,place);assert(!s.chapters.at(-1)!.objectives.some(o=>o.item==='weather-book'));
+});
+
+
+test('already-complete workshop with no optional Hinge skips without replacement work and later stars remains solvable',()=>{
+ let g=earned('workshop');const original=restFrom('workshop'),end=original.findIndex(a=>a.type==='advance');for(const a of original.slice(0,end))if(recipeFor(s,a)?.id!=='hinge')g=step(s,g,a);assert(!M.token(g.state,'hinge'));
+ g=structuredClone(g);g.state.chapterEntry={chapter:g.state.chapter,alreadyComplete:M.chapterComplete(s,g.state)};g=M.resolveChapterEntry(s,g);assert.equal(s.chapters[g.state.chapter].id,'ferry');assert(g.state.skippedChapters?.includes('workshop'));assert.equal(M.pendingEntryCue(s,g)?.id,s.chapters[g.state.chapter].entryCue?.id);
+ const actions=original.slice(end+1);let witness:any;for(const a of actions){if(recipeFor(s,a)?.id==='tripod'){assert(!M.token(g.state,'hinge'));assert.equal(M.token(g.state,'iron')!.location,g.state.currentLocation);assert.equal(M.token(g.state,'nails')!.location,g.state.currentLocation);const old=g;g=step(s,g,{type:'combine',a:'iron',b:'nails'});assert.deepEqual(noMetrics(M.undo(g).game.state),noMetrics(old.state));witness={before:M.playerView(s,old),after:M.playerView(s,g)};}g=step(s,g,a);}assert(g.state.completed);durable(g);writeFileSync(new URL('workshop-skip-without-hinge.json',resultDir),JSON.stringify({completed:true,witness,limits:'Synthetic earned workshop re-entry. Remote Hinge fabrication is inherited unrestricted gameplay, not physically established forging.'},null,2));
+});

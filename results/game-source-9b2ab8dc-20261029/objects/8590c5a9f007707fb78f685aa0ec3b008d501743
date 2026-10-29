@@ -1,0 +1,1568 @@
+TAP version 13
+# (node:14) ExperimentalWarning: stripTypeScriptTypes is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: drag creation, explicit advance, exact placement gold, undo and reset
+ok 1 - drag creation, explicit advance, exact placement gold, undo and reset
+  ---
+  duration_ms: 22.879702
+  type: 'test'
+  ...
+# Subtest: drag creation leaves source at origin and ordinary drop uses release position
+ok 2 - drag creation leaves source at origin and ordinary drop uses release position
+  ---
+  duration_ms: 11.122774
+  type: 'test'
+  ...
+# Subtest: cancelled drag and mission interruption do not combine
+ok 3 - cancelled drag and mission interruption do not combine
+  ---
+  duration_ms: 7.557457
+  type: 'test'
+  ...
+# Subtest: REGRESSION: unrelated pointerup must not finish active drag
+ok 4 - REGRESSION: unrelated pointerup must not finish active drag
+  ---
+  duration_ms: 5.703015
+  type: 'test'
+  ...
+# Subtest: lost capture cancels drag without a move; stale up does nothing
+ok 5 - lost capture cancels drag without a move; stale up does nothing
+  ---
+  duration_ms: 4.724422
+  type: 'test'
+  ...
+# Subtest: saved stage roundtrip and undo preserves prior places
+ok 6 - saved stage roundtrip and undo preserves prior places
+  ---
+  duration_ms: 11.944521
+  type: 'test'
+  ...
+# Subtest: incoming catalyst highlights receiver without explanatory text
+ok 7 - incoming catalyst highlights receiver without explanatory text
+  ---
+  duration_ms: 6.518793
+  type: 'test'
+  ...
+# Subtest: second pointer cannot adopt drag or cancel first pointer
+ok 8 - second pointer cannot adopt drag or cancel first pointer
+  ---
+  duration_ms: 4.778293
+  type: 'test'
+  ...
+# Subtest: legacy fallback ignores second finger and commits only owned touch
+ok 9 - legacy fallback ignores second finger and commits only owned touch
+  ---
+  duration_ms: 4.86249
+  type: 'test'
+  ...
+# Subtest: resize and blur interrupt drag without committing transient coordinates
+ok 10 - resize and blur interrupt drag without committing transient coordinates
+  ---
+  duration_ms: 9.088121
+  type: 'test'
+  ...
+# Subtest: ordinary no-growth drop into prior area changes actual area with same unique ID and fixed area tops
+ok 11 - ordinary no-growth drop into prior area changes actual area with same unique ID and fixed area tops
+  ---
+  duration_ms: 7.141761
+  type: 'test'
+  ...
+# Subtest: checkpoint interruption cancels drag and opens replayed-stage mission
+ok 12 - checkpoint interruption cancels drag and opens replayed-stage mission
+  ---
+  duration_ms: 5.419178
+  type: 'test'
+  ...
+# Subtest: location gesture uses the shared resolver: new recipe first, then ordinary placement
+ok 13 - location gesture uses the shared resolver: new recipe first, then ordinary placement
+  ---
+  duration_ms: 7.917508
+  type: 'test'
+  ...
+# Subtest: completed chapter arrow shows the next challenge, and undo restores the earlier challenge
+ok 14 - completed chapter arrow shows the next challenge, and undo restores the earlier challenge
+  ---
+  duration_ms: 14.978855
+  type: 'test'
+  ...
+# Subtest: final challenge explicitly finishes and shows its ending once; reload and undo work
+ok 15 - final challenge explicitly finishes and shows its ending once; reload and undo work
+  ---
+  duration_ms: 19.611299
+  type: 'test'
+  ...
+# Subtest: moving an exact-placement objective away removes premature ending before Finish
+ok 16 - moving an exact-placement objective away removes premature ending before Finish
+  ---
+  duration_ms: 7.034039
+  type: 'test'
+  ...
+# Subtest: checkpoint DEBUG marker lives in popup, restores from compact save and clears only on reset
+ok 17 - checkpoint DEBUG marker lives in popup, restores from compact save and clears only on reset
+  ---
+  duration_ms: 12.085664
+  type: 'test'
+  ...
+# Subtest: active chooser hides archived school and causation, preserving direct archived routes
+ok 18 - active chooser hides archived school and causation, preserving direct archived routes
+  ---
+  duration_ms: 10.958276
+  type: 'test'
+  ...
+# Subtest: previous full campaigns remain playable directly but are unlisted in the active chooser
+ok 19 - previous full campaigns remain playable directly but are unlisted in the active chooser
+  ---
+  duration_ms: 45.776621
+  type: 'test'
+  ...
+# Subtest: modern pointer ownership ignores compatibility Touch Events
+ok 20 - modern pointer ownership ignores compatibility Touch Events
+  ---
+  duration_ms: 5.031935
+  type: 'test'
+  ...
+# Subtest: async save status is truthful and updates without cancelling drag; failures expose retry
+ok 21 - async save status is truthful and updates without cancelling drag; failures expose retry
+  ---
+  duration_ms: 5.221491
+  type: 'test'
+  ...
+# Subtest: invalid save is reported without crashing and reset starts a playable new journey
+ok 22 - invalid save is reported without crashing and reset starts a playable new journey
+  ---
+  duration_ms: 5.74607
+  type: 'test'
+  ...
+# Subtest: small-screen scroll containment is explicit in CSS (not native layout evidence)
+ok 23 - small-screen scroll containment is explicit in CSS (not native layout evidence)
+  ---
+  duration_ms: 0.475135
+  type: 'test'
+  ...
+# Subtest: in-app navigation awaits durable save and stays on the current journey after failure
+ok 24 - in-app navigation awaits durable save and stays on the current journey after failure
+  ---
+  duration_ms: 4.431812
+  type: 'test'
+  ...
+# Subtest: newer navigation wins and reset cancels an outstanding save-before-navigation request
+ok 25 - newer navigation wins and reset cancels an outstanding save-before-navigation request
+  ---
+  duration_ms: 4.480736
+  type: 'test'
+  ...
+# Subtest: after Finish, moved creations retain the recorded ending without claiming current placement
+ok 26 - after Finish, moved creations retain the recorded ending without claiming current placement
+  ---
+  duration_ms: 6.335888
+  type: 'test'
+  ...
+# Subtest: mission presents the challenge and local context without carried-item narration
+ok 27 - mission presents the challenge and local context without carried-item narration
+  ---
+  duration_ms: 7.51963
+  type: 'test'
+  ...
+# Subtest: objective card opens current description; dismissal preserves scroll and restores trigger focus
+ok 28 - objective card opens current description; dismissal preserves scroll and restores trigger focus
+  ---
+  duration_ms: 6.254014
+  type: 'test'
+  ...
+# Subtest: chapter completion keeps the birth visible until its arrow opens the next challenge
+ok 29 - chapter completion keeps the birth visible until its arrow opens the next challenge
+  ---
+  duration_ms: 6.720137
+  type: 'test'
+  ...
+# Subtest: bug popup groups controls, survives repeated undo, and dismisses by close, Escape and backdrop
+ok 30 - bug popup groups controls, survives repeated undo, and dismisses by close, Escape and backdrop
+  ---
+  duration_ms: 11.387882
+  type: 'test'
+  ...
+# Subtest: opening overlays cancels active pointer and legacy touch gestures without stale drop
+ok 31 - opening overlays cancels active pointer and legacy touch gestures without stale drop
+  ---
+  duration_ms: 21.01138
+  type: 'test'
+  ...
+# Subtest: save failures remain actionable outside closed debug; status updates preserve the open popup
+ok 32 - save failures remain actionable outside closed debug; status updates preserve the open popup
+  ---
+  duration_ms: 4.014613
+  type: 'test'
+  ...
+# Subtest: earlier-area and current-area controls are observational and never carry a tapped thing
+ok 33 - earlier-area and current-area controls are observational and never carry a tapped thing
+  ---
+  duration_ms: 8.587177
+  type: 'test'
+  ...
+# Subtest: single taps never select; ordinary drags use visual feedback without explanatory bubbles
+ok 34 - single taps never select; ordinary drags use visual feedback without explanatory bubbles
+  ---
+  duration_ms: 5.100338
+  type: 'test'
+  ...
+# Subtest: completion readiness is cancelled by undo or reset and never opens a popup by itself
+ok 35 - completion readiness is cancelled by undo or reset and never opens a popup by itself
+  ---
+  duration_ms: 31.749676
+  type: 'test'
+  ...
+# Subtest: resuming a ready challenge preserves the explicit next arrow
+ok 36 - resuming a ready challenge preserves the explicit next arrow
+  ---
+  duration_ms: 8.519785
+  type: 'test'
+  ...
+# Subtest: six selected journeys are prominent; undeveloped sketches are secondary and remain playable
+ok 37 - six selected journeys are prominent; undeveloped sketches are secondary and remain playable
+  ---
+  duration_ms: 13.476958
+  type: 'test'
+  ...
+# Subtest: readable metadata is optional, validated, copied into the player view, and never inferred from descriptions
+ok 38 - readable metadata is optional, validated, copied into the player view, and never inferred from descriptions
+  ---
+  duration_ms: 4.564512
+  type: 'test'
+  ...
+# Subtest: double-tap reading is single-instance and preserves scroll history and item focus on every dismissal
+ok 39 - double-tap reading is single-instance and preserves scroll history and item focus on every dismissal
+  ---
+  duration_ms: 6.055356
+  type: 'test'
+  ...
+# Subtest: reader escapes labels and passage text and omits attribution instead of injecting markup
+ok 40 - reader escapes labels and passage text and omits attribution instead of injecting markup
+  ---
+  duration_ms: 5.302152
+  type: 'test'
+  ...
+# Subtest: double-click or touch double-tap on an older source is observational and never selects cargo
+ok 41 - double-click or touch double-tap on an older source is observational and never selects cargo
+  ---
+  duration_ms: 16.325586
+  type: 'test'
+  ...
+# Subtest: source marker preserves pointer and touch drags without synthesizing a reading action
+ok 42 - source marker preserves pointer and touch drags without synthesizing a reading action
+  ---
+  duration_ms: 13.930805
+  type: 'test'
+  ...
+# Subtest: reader is transient across reset, checkpoints, other overlays and saved navigation
+ok 43 - reader is transient across reset, checkpoints, other overlays and saved navigation
+  ---
+  duration_ms: 28.057794
+  type: 'test'
+  ...
+# Subtest: reading and rereading a final creation never advance until the explicit arrow
+ok 44 - reading and rereading a final creation never advance until the explicit arrow
+  ---
+  duration_ms: 16.008317
+  type: 'test'
+  ...
+# Subtest: reading cannot retain a stale readiness arrow across undo reset checkpoint or undone placement
+ok 45 - reading cannot retain a stale readiness arrow across undo reset checkpoint or undone placement
+  ---
+  duration_ms: 31.683662
+  type: 'test'
+  ...
+# Subtest: text-heavy source tiles use engine-sized label lines at 320/375px without initial overlap
+ok 46 - text-heavy source tiles use engine-sized label lines at 320/375px without initial overlap
+  ---
+  duration_ms: 5.822198
+  type: 'test'
+  ...
+# Subtest: long observations use matching text height at 320/375px without acquiring source affordances
+ok 47 - long observations use matching text height at 320/375px without acquiring source affordances
+  ---
+  duration_ms: 11.03671
+  type: 'test'
+  ...
+# Subtest: all existing campaign long names use the shared height and fresh 320/375px supplies remain separated
+ok 48 - all existing campaign long names use the shared height and fresh 320/375px supplies remain separated
+  ---
+  duration_ms: 1926.690127
+  type: 'test'
+  ...
+# Subtest: integrated chooser has exactly six ordered focuses, explicitly short workshop, and the complete eligible secondary catalogue
+ok 49 - integrated chooser has exactly six ordered focuses, explicitly short workshop, and the complete eligible secondary catalogue
+  ---
+  duration_ms: 56.395927
+  type: 'test'
+  ...
+# Subtest: all actual historical routes still open their original save identity after chooser replacement
+ok 50 - all actual historical routes still open their original save identity after chooser replacement
+  ---
+  duration_ms: 142.296543
+  type: 'test'
+  ...
+# Subtest: Atlas UI selects every earned checkpoint at 320/375/600 without skipping its unfinished scene
+ok 51 - Atlas UI selects every earned checkpoint at 320/375/600 without skipping its unfinished scene
+  ---
+  duration_ms: 59572.704237
+  type: 'test'
+  ...
+# Subtest: mixed arrivals use a dotted new-items separator, never New/Carried badges or lists
+ok 52 - mixed arrivals use a dotted new-items separator, never New/Carried badges or lists
+  ---
+  duration_ms: 13.577093
+  type: 'test'
+  ...
+# Subtest: taps, same-side placement, dialogs, scroll, resize and compact reload preserve division
+ok 53 - taps, same-side placement, dialogs, scroll, resize and compact reload preserve division
+  ---
+  duration_ms: 22.577865
+  type: 'test'
+  ...
+# Subtest: the first committed move across either side removes the line; transient crossing and undo are exact
+ok 54 - the first committed move across either side removes the line; transient crossing and undo are exact
+  ---
+  duration_ms: 22.715032
+  type: 'test'
+  ...
+# Subtest: accepted cross-group drags and location placements mix groups even when a tool snaps back
+ok 55 - accepted cross-group drags and location placements mix groups even when a tool snaps back
+  ---
+  duration_ms: 12.748585
+  type: 'test'
+  ...
+# Subtest: rejected cross-group drops snap back without removing the divider
+ok 56 - rejected cross-group drops snap back without removing the divider
+  ---
+  duration_ms: 11.659556
+  type: 'test'
+  ...
+# Subtest: cancelled, interrupted and unowned pointer gestures cannot remove the divider
+ok 57 - cancelled, interrupted and unowned pointer gestures cannot remove the divider
+  ---
+  duration_ms: 64.053294
+  type: 'test'
+  ...
+# Subtest: owned legacy touch crossings dismiss once, while a second finger and cancellation do not
+ok 58 - owned legacy touch crossings dismiss once, while a second finger and cancellation do not
+  ---
+  duration_ms: 10.783196
+  type: 'test'
+  ...
+# Subtest: same-kitchen no-delivery chapter leaves every object in place; undo restores the right mixing state
+ok 59 - same-kitchen no-delivery chapter leaves every object in place; undo restores the right mixing state
+  ---
+  duration_ms: 13.47563
+  type: 'test'
+  ...
+# Subtest: old saves remain unmoved without invented division, checkpoints/reset retain exact current grammar
+ok 60 - old saves remain unmoved without invented division, checkpoints/reset retain exact current grammar
+  ---
+  duration_ms: 9.146262
+  type: 'test'
+  ...
+# Subtest: new readable supplies preserve double-tap reading, scroll and divider state
+ok 61 - new readable supplies preserve double-tap reading, scroll and divider state
+  ---
+  duration_ms: 8.407789
+  type: 'test'
+  ...
+# Subtest: policy-less historical chapters keep explicit entry acknowledgement and explicit arrows without recursion
+ok 62 - policy-less historical chapters keep explicit entry acknowledgement and explicit arrows without recursion
+  ---
+  duration_ms: 11.770884
+  type: 'test'
+  ...
+# Subtest: reload preserves seen entry popup state and requires an arrow for an already-earned historical task
+ok 63 - reload preserves seen entry popup state and requires an arrow for an already-earned historical task
+  ---
+  duration_ms: 17.743216
+  type: 'test'
+  ...
+# Subtest: already-earned final task requires its acknowledgement and records the ending only once
+ok 64 - already-earned final task requires its acknowledgement and records the ending only once
+  ---
+  duration_ms: 14.553914
+  type: 'test'
+  ...
+# Subtest: actual Kitchen future-first orchard task waits on ready reload then explicitly skips to unfinished soup
+ok 65 - actual Kitchen future-first orchard task waits on ready reload then explicitly skips to unfinished soup
+  ---
+  duration_ms: 217.894861
+  type: 'test'
+  ...
+# Subtest: milestone: tangible creation appears first, then full-screen reward before next chapter
+ok 66 - milestone: tangible creation appears first, then full-screen reward before next chapter
+  ---
+  duration_ms: 11.574438
+  type: 'test'
+  ...
+# Subtest: milestone: pending survives compact reload, acknowledgement prevents repeat on reload
+ok 67 - milestone: pending survives compact reload, acknowledgement prevents repeat on reload
+  ---
+  duration_ms: 18.775319
+  type: 'test'
+  ...
+# Subtest: milestone: intentional reading preserves scroll then reward resumes before the explicit chapter arrow
+ok 68 - milestone: intentional reading preserves scroll then reward resumes before the explicit chapter arrow
+  ---
+  duration_ms: 9.176076
+  type: 'test'
+  ...
+# Subtest: milestone: debug pauses reward; Undo cancels the unearned reward without a stale timer
+ok 69 - milestone: debug pauses reward; Undo cancels the unearned reward without a stale timer
+  ---
+  duration_ms: 8.308831
+  type: 'test'
+  ...
+# Subtest: milestone: current challenge interruption retains its handoff instead of stranding the reward
+ok 70 - milestone: current challenge interruption retains its handoff instead of stranding the reward
+  ---
+  duration_ms: 7.29311
+  type: 'test'
+  ...
+# Subtest: milestone: a rejected or unrelated action during the creation cue cannot lose the reward
+ok 71 - milestone: a rejected or unrelated action during the creation cue cannot lose the reward
+  ---
+  duration_ms: 15.575352
+  type: 'test'
+  ...
+# Subtest: milestone: active drag delays reward, cancellation resumes without committing
+ok 72 - milestone: active drag delays reward, cancellation resumes without committing
+  ---
+  duration_ms: 8.297854
+  type: 'test'
+  ...
+# Subtest: milestone: Escape is an accessible Continue, resize does not duplicate acknowledgement
+ok 73 - milestone: Escape is an accessible Continue, resize does not duplicate acknowledgement
+  ---
+  duration_ms: 13.806277
+  type: 'test'
+  ...
+# Subtest: milestone: undo and redo after acknowledgement do not celebrate twice; reset starts a new run
+ok 74 - milestone: undo and redo after acknowledgement do not celebrate twice; reset starts a new run
+  ---
+  duration_ms: 13.840139
+  type: 'test'
+  ...
+# Subtest: milestone: checkpoint replacement clears pending reward and marks replayed inventions as historical
+ok 75 - milestone: checkpoint replacement clears pending reward and marks replayed inventions as historical
+  ---
+  duration_ms: 8.511957
+  type: 'test'
+  ...
+# Subtest: milestone: simultaneous rewards queue in authored order, then expose the chapter arrow
+ok 76 - milestone: simultaneous rewards queue in authored order, then expose the chapter arrow
+  ---
+  duration_ms: 10.40011
+  type: 'test'
+  ...
+# Subtest: milestone: cancelled pointer and rejected combination never invent an achievement
+ok 77 - milestone: cancelled pointer and rejected combination never invent an achievement
+  ---
+  duration_ms: 5.911722
+  type: 'test'
+  ...
+# Subtest: milestone: reward styles occupy viewport, allow overflow, respect reduced motion and never lock Continue behind animation
+ok 78 - milestone: reward styles occupy viewport, allow overflow, respect reduced motion and never lock Continue behind animation
+  ---
+  duration_ms: 8.10916
+  type: 'test'
+  ...
+# Subtest: milestone: review regression, held stationary pointer resumes deferred reward on release
+ok 79 - milestone: review regression, held stationary pointer resumes deferred reward on release
+  ---
+  duration_ms: 8.775533
+  type: 'test'
+  ...
+# Subtest: milestone: review regression, Undo of a later move preserves the earned pending reward
+ok 80 - milestone: review regression, Undo of a later move preserves the earned pending reward
+  ---
+  duration_ms: 10.954124
+  type: 'test'
+  ...
+# Subtest: milestone: stale Continue or cancel cannot acknowledge the next queued reward
+ok 81 - milestone: stale Continue or cancel cannot acknowledge the next queued reward
+  ---
+  duration_ms: 6.84779
+  type: 'test'
+  ...
+# Subtest: milestone: actual UI decorates active Mars and housecraft before restore and event creation
+ok 82 - milestone: actual UI decorates active Mars and housecraft before restore and event creation
+  ---
+  duration_ms: 156.747091
+  type: 'test'
+  ...
+# Subtest: milestone: Continue cannot consume the acknowledgement of an already-earned next chapter
+ok 83 - milestone: Continue cannot consume the acknowledgement of an already-earned next chapter
+  ---
+  duration_ms: 12.094871
+  type: 'test'
+  ...
+# Subtest: milestone: pending reward reload then ready-chapter reload preserves both separate acknowledgements
+ok 84 - milestone: pending reward reload then ready-chapter reload preserves both separate acknowledgements
+  ---
+  duration_ms: 20.82086
+  type: 'test'
+  ...
+# Subtest: milestone: static handoff review keeps objective clicks read-only and removes recursive chapter skipping
+ok 85 - milestone: static handoff review keeps objective clicks read-only and removes recursive chapter skipping
+  ---
+  duration_ms: 0.367143
+  type: 'test'
+  ...
+# Subtest: reactive controller cascades skips, prefixes ordered bridges once, and preserves reload/undo/reset
+ok 86 - reactive controller cascades skips, prefixes ordered bridges once, and preserves reload/undo/reset
+  ---
+  duration_ms: 23.990011
+  type: 'test'
+  ...
+# Subtest: reactive partial chapter shows two fulfilled goals and its one real remaining placement
+ok 87 - reactive partial chapter shows two fulfilled goals and its one real remaining placement
+  ---
+  duration_ms: 7.360884
+  type: 'test'
+  ...
+# Subtest: reactive ready save waits for its arrow; normal completion is not reported as skipped
+ok 88 - reactive ready save waits for its arrow; normal completion is not reported as skipped
+  ---
+  duration_ms: 6.599847
+  type: 'test'
+  ...
+# Subtest: reactive pending milestones finish in queue order before the cascade and next narrative
+ok 89 - reactive pending milestones finish in queue order before the cascade and next narrative
+  ---
+  duration_ms: 17.558047
+  type: 'test'
+  ...
+# Subtest: headless-cascaded save with pending rewards returns to the unseen next narrative after rewards, not a blank board
+ok 90 - headless-cascaded save with pending rewards returns to the unseen next narrative after rewards, not a blank board
+  ---
+  duration_ms: 10.263544
+  type: 'test'
+  ...
+# Subtest: all remaining reactive entries complete: show ending bridges once, no skipped objectives or invented combinations
+ok 91 - all remaining reactive entries complete: show ending bridges once, no skipped objectives or invented combinations
+  ---
+  duration_ms: 13.201518
+  type: 'test'
+  ...
+# Subtest: reactive debug checkpoint bridges are historical and no stale mission button can act on the next chapter
+ok 92 - reactive debug checkpoint bridges are historical and no stale mission button can act on the next chapter
+  ---
+  duration_ms: 4.840959
+  type: 'test'
+  ...
+# Subtest: location press: held touch shows goal destination before movement, keeps hints during drag and distinguishes imminent placement
+ok 93 - location press: held touch shows goal destination before movement, keeps hints during drag and distinguishes imminent placement
+  ---
+  duration_ms: 6.120606
+  type: 'test'
+  ...
+# Subtest: location press reveals reciprocal partners transiently; click and release never select
+ok 94 - location press reveals reciprocal partners transiently; click and release never select
+  ---
+  duration_ms: 4.158602
+  type: 'test'
+  ...
+# Subtest: location press: scroll intent, capture loss, cancel, blur, resize and reset clear transient state without committing
+ok 95 - location press: scroll intent, capture loss, cancel, blur, resize and reset clear transient state without committing
+  ---
+  duration_ms: 29.514149
+  type: 'test'
+  ...
+# Subtest: location press: legacy Touch Events expose immediate hints, preserve location scrolling and ignore unrelated fingers
+ok 96 - location press: legacy Touch Events expose immediate hints, preserve location scrolling and ignore unrelated fingers
+  ---
+  duration_ms: 5.161151
+  type: 'test'
+  ...
+# Subtest: location press: recipe operand/catalyst reciprocity has no output previews and consumed discoveries disappear
+ok 97 - location press: recipe operand/catalyst reciprocity has no output previews and consumed discoveries disappear
+  ---
+  duration_ms: 11.634027
+  type: 'test'
+  ...
+# Subtest: location birth: controller gives inside-location creation cue, source returns unchanged, output stays portable and repeat cannot create twice
+ok 98 - location birth: controller gives inside-location creation cue, source returns unchanged, output stays portable and repeat cannot create twice
+  ---
+  duration_ms: 6.135388
+  type: 'test'
+  ...
+# Subtest: location press: actual screenshot chapter responds to Solar radio touch and Refuge signal mast touch before any movement
+ok 99 - location press: actual screenshot chapter responds to Solar radio touch and Refuge signal mast touch before any movement
+  ---
+  duration_ms: 37.388254
+  type: 'test'
+  ...
+# Subtest: area growth: actual Mars chapter10 fresh controller, reload and Undo stay separated at 320/375/600
+ok 100 - area growth: actual Mars chapter10 fresh controller, reload and Undo stay separated at 320/375/600
+  ---
+  duration_ms: 9862.59743
+  type: 'test'
+  ...
+# Subtest: area growth: old saved Mars tops repair only presentation, preserving tokens, history and active divider
+ok 101 - area growth: old saved Mars tops repair only presentation, preserving tokens, history and active divider
+  ---
+  duration_ms: 2505.489312
+  type: 'test'
+  ...
+# Subtest: area growth: explicit travel scrolls to destination; later scroll anchor and gaps remain stable
+ok 102 - area growth: explicit travel scrolls to destination; later scroll anchor and gaps remain stable
+  ---
+  duration_ms: 19.301813
+  type: 'test'
+  ...
+# Subtest: conditional item labels agree on tile text, accessibility, dragging, reload and Undo
+ok 103 - conditional item labels agree on tile text, accessibility, dragging, reload and Undo
+  ---
+  duration_ms: 13.600941
+  type: 'test'
+  ...
+# Subtest: conditional labels reserve the larger footprint without changing token coordinates or revealing future text
+ok 104 - conditional labels reserve the larger footprint without changing token coordinates or revealing future text
+  ---
+  duration_ms: 7.089781
+  type: 'test'
+  ...
+# (node:22) ExperimentalWarning: stripTypeScriptTypes is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: same-place and known-return arrows point right; genuinely new panel points down; accessible return label and real scroll destination agree
+ok 105 - same-place and known-return arrows point right; genuinely new panel points down; accessible return label and real scroll destination agree
+  ---
+  duration_ms: 83.647345
+  type: 'test'
+  ...
+# (node:30) ExperimentalWarning: stripTypeScriptTypes is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: same-location chapter is an exact board no-op
+ok 106 - same-location chapter is an exact board no-op
+  ---
+  duration_ms: 11.634988
+  type: 'test'
+  ...
+# Subtest: first entry stocks whole visit, future source update remains absent, and first-arrival groups separate
+ok 107 - first entry stocks whole visit, future source update remains absent, and first-arrival groups separate
+  ---
+  duration_ms: 7.356587
+  type: 'test'
+  ...
+# Subtest: one-record update and real return never move any settled token or hotspot
+ok 108 - one-record update and real return never move any settled token or hotspot
+  ---
+  duration_ms: 6.204582
+  type: 'test'
+  ...
+# Subtest: cross-panel relocation is one undoable ownership event, not story travel or a new grant
+ok 109 - cross-panel relocation is one undoable ownership event, not story travel or a new grant
+  ---
+  duration_ms: 6.48297
+  type: 'test'
+  ...
+# Subtest: visit carry uses later chapters in this visit but not unrelated future campaign work
+ok 110 - visit carry uses later chapters in this visit but not unrelated future campaign work
+  ---
+  duration_ms: 1.039465
+  type: 'test'
+  ...
+# Subtest: entry cue acknowledgements survive save and Undo without regranting stocks
+ok 111 - entry cue acknowledgements survive save and Undo without regranting stocks
+  ---
+  duration_ms: 1.820842
+  type: 'test'
+  ...
+# Subtest: corrupt or duplicate declarative stock and chapter-owned grant are rejected
+ok 112 - corrupt or duplicate declarative stock and chapter-owned grant are rejected
+  ---
+  duration_ms: 0.638802
+  type: 'test'
+  ...
+# Subtest: all ordinary moves, creations and known-location storage stay in fixed bounds at phone and desktop widths
+ok 113 - all ordinary moves, creations and known-location storage stay in fixed bounds at phone and desktop widths
+  ---
+  duration_ms: 4.82834
+  type: 'test'
+  ...
+# Subtest: a shared transform input that survives future use gives the same ordinary birth geometry for combine and actual drop
+ok 114 - a shared transform input that survives future use gives the same ordinary birth geometry for combine and actual drop
+  ---
+  duration_ms: 2.765164
+  type: 'test'
+  ...
+# Subtest: an earned-ahead internal journey happens once on chapter entry and remains independent of board inspection
+ok 115 - an earned-ahead internal journey happens once on chapter entry and remains independent of board inspection
+  ---
+  duration_ms: 2.381235
+  type: 'test'
+  ...
+# Subtest: fitting a nested assembly at a player-moved edge rejects atomically instead of restoring an out-of-bounds source
+ok 116 - fitting a nested assembly at a player-moved edge rejects atomically instead of restoring an out-of-bounds source
+  ---
+  duration_ms: 3.285517
+  type: 'test'
+  ...
+# Subtest: single taps and ordinary clicks never select, combine, visit or leave partner highlights
+ok 117 - single taps and ordinary clicks never select, combine, visit or leave partner highlights
+  ---
+  duration_ms: 25.103828
+  type: 'test'
+  ...
+# Subtest: double tap reads plain explanation or quotation; no attribution chrome or saved-state mutation
+ok 118 - double tap reads plain explanation or quotation; no attribution chrome or saved-state mutation
+  ---
+  duration_ms: 25.521166
+  type: 'test'
+  ...
+# Subtest: second tap cannot turn into a drag or accidental combination, including a following native dblclick
+ok 119 - second tap cannot turn into a drag or accidental combination, including a following native dblclick
+  ---
+  duration_ms: 13.765776
+  type: 'test'
+  ...
+# Subtest: release displacement without a pointermove is not a tap, double tap or game action
+ok 120 - release displacement without a pointermove is not a tap, double tap or game action
+  ---
+  duration_ms: 12.089993
+  type: 'test'
+  ...
+# Subtest: a real drag combines, preserves retained input geometry and waits at its completed chapter
+ok 121 - a real drag combines, preserves retained input geometry and waits at its completed chapter
+  ---
+  duration_ms: 25.144209
+  type: 'test'
+  ...
+# Subtest: right/down arrows reflect actual next location and only the arrow performs handoff
+ok 122 - right/down arrows reflect actual next location and only the arrow performs handoff
+  ---
+  duration_ms: 66.084201
+  type: 'test'
+  ...
+# Subtest: reload of an objective-complete chapter keeps its arrow without auto-advance
+ok 123 - reload of an objective-complete chapter keeps its arrow without auto-advance
+  ---
+  duration_ms: 26.334385
+  type: 'test'
+  ...
+# Subtest: automatic wonder precedes explicit handoff; repeated replay preserves earned/seen/history/save
+ok 124 - automatic wonder precedes explicit handoff; repeated replay preserves earned/seen/history/save
+  ---
+  duration_ms: 43.968807
+  type: 'test'
+  ...
+# Subtest: reading the new creation can finish before the pending automatic wonder and never advances
+ok 125 - reading the new creation can finish before the pending automatic wonder and never advances
+  ---
+  duration_ms: 20.87477
+  type: 'test'
+  ...
+# Subtest: illustrated earned wonder replays without replacing art or changing acknowledgements
+ok 126 - illustrated earned wonder replays without replacing art or changing acknowledgements
+  ---
+  duration_ms: 18.568979
+  type: 'test'
+  ...
+# Subtest: functional wonders cannot replay from an unearned shell
+ok 127 - functional wonders cannot replay from an unearned shell
+  ---
+  duration_ms: 12.002112
+  type: 'test'
+  ...
+# Subtest: cancel, lost capture, blur and resize discard transient drag geometry and tap memory
+ok 128 - cancel, lost capture, blur and resize discard transient drag geometry and tap memory
+  ---
+  duration_ms: 54.493028
+  type: 'test'
+  ...
+# Subtest: touch fallback supports taps and owned double-tap without adopting another finger
+ok 129 - touch fallback supports taps and owned double-tap without adopting another finger
+  ---
+  duration_ms: 10.771489
+  type: 'test'
+  ...
+# Subtest: modern touch-like pointer stream ignores compatibility touch events and other pointer endings
+ok 130 - modern touch-like pointer stream ignores compatibility touch events and other pointer endings
+  ---
+  duration_ms: 11.816441
+  type: 'test'
+  ...
+# Subtest: hotspot press highlights eligible partners without selecting, dragging or mutating
+ok 131 - hotspot press highlights eligible partners without selecting, dragging or mutating
+  ---
+  duration_ms: 13.736562
+  type: 'test'
+  ...
+# Subtest: completed-on-entry skip/bridge policy remains engine-owned and arrow predicts the cascade destination
+ok 132 - completed-on-entry skip/bridge policy remains engine-owned and arrow predicts the cascade destination
+  ---
+  duration_ms: 20.560597
+  type: 'test'
+  ...
+# Subtest: meaningful context heading is optional italic metadata; body stays plain and title-free
+ok 133 - meaningful context heading is optional italic metadata; body stays plain and title-free
+  ---
+  duration_ms: 17.705608
+  type: 'test'
+  ...
+# Subtest: objective overlay is in the same stacking context below thing hit targets, not a selected tile
+ok 134 - objective overlay is in the same stacking context below thing hit targets, not a selected tile
+  ---
+  duration_ms: 10.74637
+  type: 'test'
+  ...
+# Subtest: image and board identity survive drag, replay, repeated taps and Undo without reconnecting
+ok 135 - image and board identity survive drag, replay, repeated taps and Undo without reconnecting
+  ---
+  duration_ms: 54.943026
+  type: 'test'
+  ...
+# Subtest: manual replay of a pending wonder does not acknowledge it or consume its later automatic showing
+ok 136 - manual replay of a pending wonder does not acknowledge it or consume its later automatic showing
+  ---
+  duration_ms: 25.79642
+  type: 'test'
+  ...
+# (node:38) ExperimentalWarning: stripTypeScriptTypes is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: actual controller workshop/authored: pointer drops, visible highlights and explicit arrow handoff
+ok 137 - actual controller workshop/authored: pointer drops, visible highlights and explicit arrow handoff
+  ---
+  duration_ms: 2048.331003
+  type: 'test'
+  ...
+# Subtest: actual controller workshop/random7: pointer drops, visible highlights and explicit arrow handoff
+ok 138 - actual controller workshop/random7: pointer drops, visible highlights and explicit arrow handoff
+  ---
+  duration_ms: 2173.281334
+  type: 'test'
+  ...
+# Subtest: actual controller workshop/random29: pointer drops, visible highlights and explicit arrow handoff
+ok 139 - actual controller workshop/random29: pointer drops, visible highlights and explicit arrow handoff
+  ---
+  duration_ms: 2216.909207
+  type: 'test'
+  ...
+# Subtest: actual controller letters/authored: pointer drops, visible highlights and explicit arrow handoff
+ok 140 - actual controller letters/authored: pointer drops, visible highlights and explicit arrow handoff
+  ---
+  duration_ms: 4033.730699
+  type: 'test'
+  ...
+# Subtest: actual controller letters/random7: pointer drops, visible highlights and explicit arrow handoff
+ok 141 - actual controller letters/random7: pointer drops, visible highlights and explicit arrow handoff
+  ---
+  duration_ms: 4019.460079
+  type: 'test'
+  ...
+# Subtest: actual controller letters/random29: pointer drops, visible highlights and explicit arrow handoff
+ok 142 - actual controller letters/random29: pointer drops, visible highlights and explicit arrow handoff
+  ---
+  duration_ms: 4763.882494
+  type: 'test'
+  ...
+# Subtest: actual controller timekeeping/authored: pointer drops, visible highlights and explicit arrow handoff
+ok 143 - actual controller timekeeping/authored: pointer drops, visible highlights and explicit arrow handoff
+  ---
+  duration_ms: 4143.139884
+  type: 'test'
+  ...
+# Subtest: actual controller timekeeping/random7: pointer drops, visible highlights and explicit arrow handoff
+ok 144 - actual controller timekeeping/random7: pointer drops, visible highlights and explicit arrow handoff
+  ---
+  duration_ms: 3905.333697
+  type: 'test'
+  ...
+# Subtest: actual controller timekeeping/random29: pointer drops, visible highlights and explicit arrow handoff
+ok 145 - actual controller timekeeping/random29: pointer drops, visible highlights and explicit arrow handoff
+  ---
+  duration_ms: 4413.032272
+  type: 'test'
+  ...
+# Subtest: actual controller stars/authored: pointer drops, visible highlights and explicit arrow handoff
+ok 146 - actual controller stars/authored: pointer drops, visible highlights and explicit arrow handoff
+  ---
+  duration_ms: 2921.442205
+  type: 'test'
+  ...
+# Subtest: actual controller stars/random7: pointer drops, visible highlights and explicit arrow handoff
+ok 147 - actual controller stars/random7: pointer drops, visible highlights and explicit arrow handoff
+  ---
+  duration_ms: 2975.955329
+  type: 'test'
+  ...
+# Subtest: actual controller stars/random29: pointer drops, visible highlights and explicit arrow handoff
+ok 148 - actual controller stars/random29: pointer drops, visible highlights and explicit arrow handoff
+  ---
+  duration_ms: 2949.070515
+  type: 'test'
+  ...
+# Subtest: actual controller gathering/authored: pointer drops, visible highlights and explicit arrow handoff
+ok 149 - actual controller gathering/authored: pointer drops, visible highlights and explicit arrow handoff
+  ---
+  duration_ms: 1752.860193
+  type: 'test'
+  ...
+# Subtest: actual controller gathering/random7: pointer drops, visible highlights and explicit arrow handoff
+ok 150 - actual controller gathering/random7: pointer drops, visible highlights and explicit arrow handoff
+  ---
+  duration_ms: 1655.652954
+  type: 'test'
+  ...
+# Subtest: actual controller gathering/random29: pointer drops, visible highlights and explicit arrow handoff
+ok 151 - actual controller gathering/random29: pointer drops, visible highlights and explicit arrow handoff
+  ---
+  duration_ms: 2068.152577
+  type: 'test'
+  ...
+# Subtest: goal-following workshop arrow handoff without optional Hinge, then local later construction and star arrow handoff
+ok 152 - goal-following workshop arrow handoff without optional Hinge, then local later construction and star arrow handoff
+  ---
+  duration_ms: 4578.260454
+  type: 'test'
+  ...
+# (node:46) ExperimentalWarning: stripTypeScriptTypes is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: same-location chapter is an exact board no-op
+ok 153 - same-location chapter is an exact board no-op
+  ---
+  duration_ms: 11.343988
+  type: 'test'
+  ...
+# Subtest: first entry stocks whole visit, future source update remains absent, and first-arrival groups separate
+ok 154 - first entry stocks whole visit, future source update remains absent, and first-arrival groups separate
+  ---
+  duration_ms: 1.762062
+  type: 'test'
+  ...
+# Subtest: one-record update and real return never move any settled token or hotspot
+ok 155 - one-record update and real return never move any settled token or hotspot
+  ---
+  duration_ms: 5.755064
+  type: 'test'
+  ...
+# Subtest: cross-panel relocation is one undoable ownership event, not story travel or a new grant
+ok 156 - cross-panel relocation is one undoable ownership event, not story travel or a new grant
+  ---
+  duration_ms: 5.149683
+  type: 'test'
+  ...
+# Subtest: visit carry uses later chapters in this visit but not unrelated future campaign work
+ok 157 - visit carry uses later chapters in this visit but not unrelated future campaign work
+  ---
+  duration_ms: 0.707946
+  type: 'test'
+  ...
+# Subtest: entry cue acknowledgements survive save and Undo without regranting stocks
+ok 158 - entry cue acknowledgements survive save and Undo without regranting stocks
+  ---
+  duration_ms: 1.327388
+  type: 'test'
+  ...
+# Subtest: corrupt or duplicate declarative stock and chapter-owned grant are rejected
+ok 159 - corrupt or duplicate declarative stock and chapter-owned grant are rejected
+  ---
+  duration_ms: 0.462816
+  type: 'test'
+  ...
+# Subtest: all ordinary moves, creations and known-location storage stay in fixed bounds at phone and desktop widths
+ok 160 - all ordinary moves, creations and known-location storage stay in fixed bounds at phone and desktop widths
+  ---
+  duration_ms: 3.355492
+  type: 'test'
+  ...
+# Subtest: a shared transform input that survives future use gives the same ordinary birth geometry for combine and actual drop
+ok 161 - a shared transform input that survives future use gives the same ordinary birth geometry for combine and actual drop
+  ---
+  duration_ms: 1.941392
+  type: 'test'
+  ...
+# Subtest: an earned-ahead internal journey happens once on chapter entry and remains independent of board inspection
+ok 162 - an earned-ahead internal journey happens once on chapter entry and remains independent of board inspection
+  ---
+  duration_ms: 1.97296
+  type: 'test'
+  ...
+# Subtest: fitting a nested assembly at a player-moved edge rejects atomically instead of restoring an out-of-bounds source
+ok 163 - fitting a nested assembly at a player-moved edge rejects atomically instead of restoring an out-of-bounds source
+  ---
+  duration_ms: 2.400654
+  type: 'test'
+  ...
+# Subtest: source reader explains first, names the item in italic below, and never renders source chrome
+ok 164 - source reader explains first, names the item in italic below, and never renders source chrome
+  ---
+  duration_ms: 17.814628
+  type: 'test'
+  ...
+# Subtest: explanation caption uses the current conditional item name rather than a stored label or rhetorical title
+ok 165 - explanation caption uses the current conditional item name rather than a stored label or rhetorical title
+  ---
+  duration_ms: 14.661852
+  type: 'test'
+  ...
+# Subtest: new explanatory wonders show paragraph then italic actual item name in both automatic and replay modes
+ok 166 - new explanatory wonders show paragraph then italic actual item name in both automatic and replay modes
+  ---
+  duration_ms: 18.368912
+  type: 'test'
+  ...
+# Subtest: explanatory image cards retain their illustration without adding a title above their prose
+ok 167 - explanatory image cards retain their illustration without adding a title above their prose
+  ---
+  duration_ms: 9.240991
+  type: 'test'
+  ...
+# Subtest: physical default celebrations preserve their component-led and illustrated presentation
+ok 168 - physical default celebrations preserve their component-led and illustrated presentation
+  ---
+  duration_ms: 17.559124
+  type: 'test'
+  ...
+# Subtest: a newly authored creation wonder replays from an old created item without earning acknowledging or replaying a backlog
+ok 169 - a newly authored creation wonder replays from an old created item without earning acknowledging or replaying a backlog
+  ---
+  duration_ms: 28.330779
+  type: 'test'
+  ...
+# Subtest: old-save explanatory replay accepts two touch-like taps in pointer and fallback streams without a combine or save mutation
+ok 170 - old-save explanatory replay accepts two touch-like taps in pointer and fallback streams without a combine or save mutation
+  ---
+  duration_ms: 23.464603
+  type: 'test'
+  ...
+# Subtest: old-save replay uses durable recipe-use evidence, not a bounded event or Undo history
+ok 171 - old-save replay uses durable recipe-use evidence, not a bounded event or Undo history
+  ---
+  duration_ms: 8.134505
+  type: 'test'
+  ...
+# Subtest: Undo of an old creation removes replay availability; redo earns the first actual new automatic wonder
+ok 172 - Undo of an old creation removes replay availability; redo earns the first actual new automatic wonder
+  ---
+  duration_ms: 16.469583
+  type: 'test'
+  ...
+# Subtest: a supplied recipe-output tile is not falsely treated as a newly created wonder; primitives remain ordinary explanations
+ok 173 - a supplied recipe-output tile is not falsely treated as a newly created wonder; primitives remain ordinary explanations
+  ---
+  duration_ms: 13.255484
+  type: 'test'
+  ...
+# Subtest: functional old-save replay requires the actual completed capability, never just an unfinished shell
+ok 174 - functional old-save replay requires the actual completed capability, never just an unfinished shell
+  ---
+  duration_ms: 16.355702
+  type: 'test'
+  ...
+# Subtest: location labels follow actual carried ownership; old scrollback stays local and mixed-thinker scenes restore attribution
+ok 175 - location labels follow actual carried ownership; old scrollback stays local and mixed-thinker scenes restore attribution
+  ---
+  duration_ms: 34.468549
+  type: 'test'
+  ...
+# Subtest: explanatory wonder captions use owned-location labels, not milestone title or active scene
+ok 176 - explanatory wonder captions use owned-location labels, not milestone title or active scene
+  ---
+  duration_ms: 23.786348
+  type: 'test'
+  ...
+# Subtest: component labels use their actual owner even when a retained independent copy remains elsewhere
+ok 177 - component labels use their actual owner even when a retained independent copy remains elsewhere
+  ---
+  duration_ms: 3.317494
+  type: 'test'
+  ...
+# Subtest: labels outside overrides preserve conditional names and token footprint reserves every authored variant
+ok 178 - labels outside overrides preserve conditional names and token footprint reserves every authored variant
+  ---
+  duration_ms: 2.141123
+  type: 'test'
+  ...
+# Subtest: canonical metadata validation rejects unsafe label maps and unknown wonder presentation without changing legacy types
+ok 179 - canonical metadata validation rejects unsafe label maps and unknown wonder presentation without changing legacy types
+  ---
+  duration_ms: 0.742768
+  type: 'test'
+  ...
+# Subtest: divinity-final-reading-scenes-v7: final registered editorial instance preserves graph, predicates and every old save while footprints never grow
+ok 180 - divinity-final-reading-scenes-v7: final registered editorial instance preserves graph, predicates and every old save while footprints never grow
+  ---
+  duration_ms: 4248.966718
+  type: 'test'
+  ...
+# Subtest: divinity-light-reading-scenes-v4: final registered editorial instance preserves graph, predicates and every old save while footprints never grow
+ok 181 - divinity-light-reading-scenes-v4: final registered editorial instance preserves graph, predicates and every old save while footprints never grow
+  ---
+  duration_ms: 346.30326
+  type: 'test'
+  ...
+# Subtest: copy-workroom-locations-v2: final registered editorial instance preserves graph, predicates and every old save while footprints never grow
+ok 182 - copy-workroom-locations-v2: final registered editorial instance preserves graph, predicates and every old save while footprints never grow
+  ---
+  duration_ms: 19.69082
+  type: 'test'
+  ...
+# (node:62) ExperimentalWarning: stripTypeScriptTypes is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: same-location chapter is an exact board no-op
+ok 183 - same-location chapter is an exact board no-op
+  ---
+  duration_ms: 10.72484
+  type: 'test'
+  ...
+# Subtest: first entry stocks whole visit, future source update remains absent, and first-arrival groups separate
+ok 184 - first entry stocks whole visit, future source update remains absent, and first-arrival groups separate
+  ---
+  duration_ms: 1.565557
+  type: 'test'
+  ...
+# Subtest: one-record update and real return never move any settled token or hotspot
+ok 185 - one-record update and real return never move any settled token or hotspot
+  ---
+  duration_ms: 11.64491
+  type: 'test'
+  ...
+# Subtest: cross-panel relocation is one undoable ownership event, not story travel or a new grant
+ok 186 - cross-panel relocation is one undoable ownership event, not story travel or a new grant
+  ---
+  duration_ms: 7.482887
+  type: 'test'
+  ...
+# Subtest: visit carry uses later chapters in this visit but not unrelated future campaign work
+ok 187 - visit carry uses later chapters in this visit but not unrelated future campaign work
+  ---
+  duration_ms: 1.299036
+  type: 'test'
+  ...
+# Subtest: entry cue acknowledgements survive save and Undo without regranting stocks
+ok 188 - entry cue acknowledgements survive save and Undo without regranting stocks
+  ---
+  duration_ms: 2.139832
+  type: 'test'
+  ...
+# Subtest: corrupt or duplicate declarative stock and chapter-owned grant are rejected
+ok 189 - corrupt or duplicate declarative stock and chapter-owned grant are rejected
+  ---
+  duration_ms: 0.590499
+  type: 'test'
+  ...
+# Subtest: all ordinary moves, creations and known-location storage stay in fixed bounds at phone and desktop widths
+ok 190 - all ordinary moves, creations and known-location storage stay in fixed bounds at phone and desktop widths
+  ---
+  duration_ms: 4.394838
+  type: 'test'
+  ...
+# Subtest: a shared transform input that survives future use gives the same ordinary birth geometry for combine and actual drop
+ok 191 - a shared transform input that survives future use gives the same ordinary birth geometry for combine and actual drop
+  ---
+  duration_ms: 2.786907
+  type: 'test'
+  ...
+# Subtest: an earned-ahead internal journey happens once on chapter entry and remains independent of board inspection
+ok 192 - an earned-ahead internal journey happens once on chapter entry and remains independent of board inspection
+  ---
+  duration_ms: 1.666559
+  type: 'test'
+  ...
+# Subtest: fitting a nested assembly at a player-moved edge rejects atomically instead of restoring an out-of-bounds source
+ok 193 - fitting a nested assembly at a player-moved edge rejects atomically instead of restoring an out-of-bounds source
+  ---
+  duration_ms: 3.277865
+  type: 'test'
+  ...
+# Subtest: scene, decoded-image identity, viewport, focus and input owner survive repeated taps, drag-combine and Undo
+ok 194 - scene, decoded-image identity, viewport, focus and input owner survive repeated taps, drag-combine and Undo
+  ---
+  duration_ms: 65.534089
+  type: 'test'
+  ...
+# Subtest: sustained edge scrolling has one timer owner; pointerup, cancel, lost capture, blur and resize release it
+ok 195 - sustained edge scrolling has one timer owner; pointerup, cancel, lost capture, blur and resize release it
+  ---
+  duration_ms: 65.638817
+  type: 'test'
+  ...
+# Subtest: same-place beats, source updates, new locations, visits, Undo and reset reconcile only actual scene additions/removals
+ok 196 - same-place beats, source updates, new locations, visits, Undo and reset reconcile only actual scene additions/removals
+  ---
+  duration_ms: 56.660737
+  type: 'test'
+  ...
+# Subtest: ordinary story dialog has exactly one prose block, a native keyboard dismissal and no duplicate goals/decorations
+ok 197 - ordinary story dialog has exactly one prose block, a native keyboard dismissal and no duplicate goals/decorations
+  ---
+  duration_ms: 10.666531
+  type: 'test'
+  ...
+# Subtest: stable dialogs keep ownership/focus and explicit handoffs, while the scene survives reading and save status changes
+ok 198 - stable dialogs keep ownership/focus and explicit handoffs, while the scene survives reading and save status changes
+  ---
+  duration_ms: 19.410007
+  type: 'test'
+  ...
+# Subtest: plain cards preserve completed ending controls and separate earned invention celebrations
+ok 199 - plain cards preserve completed ending controls and separate earned invention celebrations
+  ---
+  duration_ms: 17.869067
+  type: 'test'
+  ...
+# Subtest: navigation flushes save before changing worlds; renderer never reuses another world asset accidentally
+ok 200 - navigation flushes save before changing worlds; renderer never reuses another world asset accidentally
+  ---
+  duration_ms: 10.160048
+  type: 'test'
+  ...
+# Subtest: source contract: image retention is connected patching, eager paint and stronger artwork, not a flash-hiding overlay
+ok 201 - source contract: image retention is connected patching, eager paint and stronger artwork, not a flash-hiding overlay
+  ---
+  duration_ms: 0.58434
+  type: 'test'
+  ...
+# (node:70) ExperimentalWarning: stripTypeScriptTypes is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: same-location chapter is an exact board no-op
+ok 202 - same-location chapter is an exact board no-op
+  ---
+  duration_ms: 12.941807
+  type: 'test'
+  ...
+# Subtest: first entry stocks whole visit, future source update remains absent, and first-arrival groups separate
+ok 203 - first entry stocks whole visit, future source update remains absent, and first-arrival groups separate
+  ---
+  duration_ms: 9.750131
+  type: 'test'
+  ...
+# Subtest: one-record update and real return never move any settled token or hotspot
+ok 204 - one-record update and real return never move any settled token or hotspot
+  ---
+  duration_ms: 6.164793
+  type: 'test'
+  ...
+# Subtest: cross-panel relocation is one undoable ownership event, not story travel or a new grant
+ok 205 - cross-panel relocation is one undoable ownership event, not story travel or a new grant
+  ---
+  duration_ms: 6.341359
+  type: 'test'
+  ...
+# Subtest: visit carry uses later chapters in this visit but not unrelated future campaign work
+ok 206 - visit carry uses later chapters in this visit but not unrelated future campaign work
+  ---
+  duration_ms: 1.007196
+  type: 'test'
+  ...
+# Subtest: entry cue acknowledgements survive save and Undo without regranting stocks
+ok 207 - entry cue acknowledgements survive save and Undo without regranting stocks
+  ---
+  duration_ms: 1.71358
+  type: 'test'
+  ...
+# Subtest: corrupt or duplicate declarative stock and chapter-owned grant are rejected
+ok 208 - corrupt or duplicate declarative stock and chapter-owned grant are rejected
+  ---
+  duration_ms: 0.658873
+  type: 'test'
+  ...
+# Subtest: all ordinary moves, creations and known-location storage stay in fixed bounds at phone and desktop widths
+ok 209 - all ordinary moves, creations and known-location storage stay in fixed bounds at phone and desktop widths
+  ---
+  duration_ms: 4.727098
+  type: 'test'
+  ...
+# Subtest: a shared transform input that survives future use gives the same ordinary birth geometry for combine and actual drop
+ok 210 - a shared transform input that survives future use gives the same ordinary birth geometry for combine and actual drop
+  ---
+  duration_ms: 3.608213
+  type: 'test'
+  ...
+# Subtest: an earned-ahead internal journey happens once on chapter entry and remains independent of board inspection
+ok 211 - an earned-ahead internal journey happens once on chapter entry and remains independent of board inspection
+  ---
+  duration_ms: 2.385101
+  type: 'test'
+  ...
+# Subtest: fitting a nested assembly at a player-moved edge rejects atomically instead of restoring an out-of-bounds source
+ok 212 - fitting a nested assembly at a player-moved edge rejects atomically instead of restoring an out-of-bounds source
+  ---
+  duration_ms: 3.323764
+  type: 'test'
+  ...
+# Subtest: one authored cue replaces legacy motivation/cache paragraphs and scene artwork is stable across same-place beats
+ok 213 - one authored cue replaces legacy motivation/cache paragraphs and scene artwork is stable across same-place beats
+  ---
+  duration_ms: 49.723682
+  type: 'test'
+  ...
+# Subtest: fixed panels stack exactly and dragged storage move is atomic, bounded, saved, undoable and leaves chapter location alone
+ok 214 - fixed panels stack exactly and dragged storage move is atomic, bounded, saved, undoable and leaves chapter location alone
+  ---
+  duration_ms: 39.500779
+  type: 'test'
+  ...
+# Subtest: a crowded thing is focusable through the layer finder without a selected state
+ok 215 - a crowded thing is focusable through the layer finder without a selected state
+  ---
+  duration_ms: 18.327327
+  type: 'test'
+  ...
+# Subtest: cross-panel target drops reject atomically, combine in one undo, and preserve a surviving dragged source at its origin
+ok 216 - cross-panel target drops reject atomically, combine in one undo, and preserve a surviving dragged source at its origin
+  ---
+  duration_ms: 34.484946
+  type: 'test'
+  ...
+# Subtest: cross-panel hotspot placement is one actual move; cancellation and inspection create no history
+ok 217 - cross-panel hotspot placement is one actual move; cancellation and inspection create no history
+  ---
+  duration_ms: 24.525134
+  type: 'test'
+  ...
+# Subtest: layer finder dismissal leaves completion ready for an explicit chapter arrow
+ok 218 - layer finder dismissal leaves completion ready for an explicit chapter arrow
+  ---
+  duration_ms: 19.772723
+  type: 'test'
+  ...
+# Subtest: blocked source delivery warns once without an automatic retry loop, then retries after a real arrangement change
+ok 219 - blocked source delivery warns once without an automatic retry loop, then retries after a real arrangement change
+  ---
+  duration_ms: 26.755007
+  type: 'test'
+  ...
+# (node:78) ExperimentalWarning: stripTypeScriptTypes is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: same-location chapter is an exact board no-op
+ok 220 - same-location chapter is an exact board no-op
+  ---
+  duration_ms: 8.907923
+  type: 'test'
+  ...
+# Subtest: first entry stocks whole visit, future source update remains absent, and first-arrival groups separate
+ok 221 - first entry stocks whole visit, future source update remains absent, and first-arrival groups separate
+  ---
+  duration_ms: 5.562956
+  type: 'test'
+  ...
+# Subtest: one-record update and real return never move any settled token or hotspot
+ok 222 - one-record update and real return never move any settled token or hotspot
+  ---
+  duration_ms: 6.262941
+  type: 'test'
+  ...
+# Subtest: cross-panel relocation is one undoable ownership event, not story travel or a new grant
+ok 223 - cross-panel relocation is one undoable ownership event, not story travel or a new grant
+  ---
+  duration_ms: 5.874565
+  type: 'test'
+  ...
+# Subtest: visit carry uses later chapters in this visit but not unrelated future campaign work
+ok 224 - visit carry uses later chapters in this visit but not unrelated future campaign work
+  ---
+  duration_ms: 0.903561
+  type: 'test'
+  ...
+# Subtest: entry cue acknowledgements survive save and Undo without regranting stocks
+ok 225 - entry cue acknowledgements survive save and Undo without regranting stocks
+  ---
+  duration_ms: 1.957387
+  type: 'test'
+  ...
+# Subtest: corrupt or duplicate declarative stock and chapter-owned grant are rejected
+ok 226 - corrupt or duplicate declarative stock and chapter-owned grant are rejected
+  ---
+  duration_ms: 0.678121
+  type: 'test'
+  ...
+# Subtest: all ordinary moves, creations and known-location storage stay in fixed bounds at phone and desktop widths
+ok 227 - all ordinary moves, creations and known-location storage stay in fixed bounds at phone and desktop widths
+  ---
+  duration_ms: 3.544066
+  type: 'test'
+  ...
+# Subtest: a shared transform input that survives future use gives the same ordinary birth geometry for combine and actual drop
+ok 228 - a shared transform input that survives future use gives the same ordinary birth geometry for combine and actual drop
+  ---
+  duration_ms: 1.985891
+  type: 'test'
+  ...
+# Subtest: an earned-ahead internal journey happens once on chapter entry and remains independent of board inspection
+ok 229 - an earned-ahead internal journey happens once on chapter entry and remains independent of board inspection
+  ---
+  duration_ms: 1.810686
+  type: 'test'
+  ...
+# Subtest: fitting a nested assembly at a player-moved edge rejects atomically instead of restoring an out-of-bounds source
+ok 230 - fitting a nested assembly at a player-moved edge rejects atomically instead of restoring an out-of-bounds source
+  ---
+  duration_ms: 2.594346
+  type: 'test'
+  ...
+# Subtest: objective text remains full-strength through pointer down, move, cancel and successful drop; tiles alone may cover it
+ok 231 - objective text remains full-strength through pointer down, move, cancel and successful drop; tiles alone may cover it
+  ---
+  duration_ms: 26.043465
+  type: 'test'
+  ...
+# Subtest: exact independent-review helper changes only254 explicit metadata fields across unchanged graph/session identities
+ok 232 - exact independent-review helper changes only254 explicit metadata fields across unchanged graph/session identities
+  ---
+  duration_ms: 151.692894
+  type: 'test'
+  ...
+# Subtest: exact review changes cannot silently bind to a different predecessor or alter Light objective counts
+ok 233 - exact review changes cannot silently bind to a different predecessor or alter Light objective counts
+  ---
+  duration_ms: 3.340349
+  type: 'test'
+  ...
+# Subtest: 320: initial visible-item centroid is one third; new hotspots are lower, bounded and separate
+ok 234 - 320: initial visible-item centroid is one third; new hotspots are lower, bounded and separate
+  ---
+  duration_ms: 9.026629
+  type: 'test'
+  ...
+# Subtest: 375: initial visible-item centroid is one third; new hotspots are lower, bounded and separate
+ok 235 - 375: initial visible-item centroid is one third; new hotspots are lower, bounded and separate
+  ---
+  duration_ms: 2.82843
+  type: 'test'
+  ...
+# Subtest: 390: initial visible-item centroid is one third; new hotspots are lower, bounded and separate
+ok 236 - 390: initial visible-item centroid is one third; new hotspots are lower, bounded and separate
+  ---
+  duration_ms: 1.344555
+  type: 'test'
+  ...
+# Subtest: 320: sparse carried arrangement compresses proportionately, fresh stock remains below, scrollback is untouched
+ok 237 - 320: sparse carried arrangement compresses proportionately, fresh stock remains below, scrollback is untouched
+  ---
+  duration_ms: 19.292635
+  type: 'test'
+  ...
+# Subtest: 375: sparse carried arrangement compresses proportionately, fresh stock remains below, scrollback is untouched
+ok 238 - 375: sparse carried arrangement compresses proportionately, fresh stock remains below, scrollback is untouched
+  ---
+  duration_ms: 12.835255
+  type: 'test'
+  ...
+# Subtest: 390: sparse carried arrangement compresses proportionately, fresh stock remains below, scrollback is untouched
+ok 239 - 390: sparse carried arrangement compresses proportionately, fresh stock remains below, scrollback is untouched
+  ---
+  duration_ms: 11.611952
+  type: 'test'
+  ...
+# Subtest: 320: no recenter for creations, manual moves, same-place beats, resize, restore or return
+ok 240 - 320: no recenter for creations, manual moves, same-place beats, resize, restore or return
+  ---
+  duration_ms: 8.97746
+  type: 'test'
+  ...
+# Subtest: 375: no recenter for creations, manual moves, same-place beats, resize, restore or return
+ok 241 - 375: no recenter for creations, manual moves, same-place beats, resize, restore or return
+  ---
+  duration_ms: 6.941223
+  type: 'test'
+  ...
+# Subtest: 390: no recenter for creations, manual moves, same-place beats, resize, restore or return
+ok 242 - 390: no recenter for creations, manual moves, same-place beats, resize, restore or return
+  ---
+  duration_ms: 4.185223
+  type: 'test'
+  ...
+# Subtest: opt-in only: an older saved board is never retroactively centered or re-hotspotted
+ok 243 - opt-in only: an older saved board is never retroactively centered or re-hotspotted
+  ---
+  duration_ms: 1.152406
+  type: 'test'
+  ...
+# Subtest: context headings validate when present, including earned travel cues
+ok 244 - context headings validate when present, including earned travel cues
+  ---
+  duration_ms: 0.470609
+  type: 'test'
+  ...
+# Subtest: long-text area weight is not equal-token weight; reservations do not add visual mass
+ok 245 - long-text area weight is not equal-token weight; reservations do not add visual mass
+  ---
+  duration_ms: 0.23881
+  type: 'test'
+  ...
+# Subtest: dense irreducible scenes clamp safely; impossible scenes decline rather than overlap or clip
+ok 246 - dense irreducible scenes clamp safely; impossible scenes decline rather than overlap or clip
+  ---
+  duration_ms: 0.320122
+  type: 'test'
+  ...
+# Subtest: fixed furniture constrains movable centering and never moves; lower hotspot group retains internal geometry
+ok 247 - fixed furniture constrains movable centering and never moves; lower hotspot group retains internal geometry
+  ---
+  duration_ms: 0.429597
+  type: 'test'
+  ...
+# Subtest: 360 seeded layouts: full sizes, ordering, divider and no-new-overlap property at narrow widths
+ok 248 - 360 seeded layouts: full sizes, ordering, divider and no-new-overlap property at narrow widths
+  ---
+  duration_ms: 28.909086
+  type: 'test'
+  ...
+# Subtest: 320: earned physical travel gets first-entry layout once and is one save/Undo event
+ok 249 - 320: earned physical travel gets first-entry layout once and is one save/Undo event
+  ---
+  duration_ms: 5.74378
+  type: 'test'
+  ...
+# Subtest: 375: earned physical travel gets first-entry layout once and is one save/Undo event
+ok 250 - 375: earned physical travel gets first-entry layout once and is one save/Undo event
+  ---
+  duration_ms: 3.760874
+  type: 'test'
+  ...
+# Subtest: 390: earned physical travel gets first-entry layout once and is one save/Undo event
+ok 251 - 390: earned physical travel gets first-entry layout once and is one save/Undo event
+  ---
+  duration_ms: 4.527939
+  type: 'test'
+  ...
+# Subtest: rare source update leaves every old item/hotspot and its arrangement fixed
+ok 252 - rare source update leaves every old item/hotspot and its arrangement fixed
+  ---
+  duration_ms: 1.456133
+  type: 'test'
+  ...
+# Subtest: hotspot-operand creation stays at the new lower furniture without recentering the board
+ok 253 - hotspot-operand creation stays at the new lower furniture without recentering the board
+  ---
+  duration_ms: 1.483855
+  type: 'test'
+  ...
+# Subtest: display-only source-update correction retains exact stored facts, old save/history and Undo
+ok 254 - display-only source-update correction retains exact stored facts, old save/history and Undo
+  ---
+  duration_ms: 415.481536
+  type: 'test'
+  ...
+# Subtest: presentation override does not weaken exact invalid-fact sanitization or introduce stored metadata
+ok 255 - presentation override does not weaken exact invalid-fact sanitization or introduce stored metadata
+  ---
+  duration_ms: 398.174255
+  type: 'test'
+  ...
+# Subtest: source-update display override is optional but must be nonblank text
+ok 256 - source-update display override is optional but must be nonblank text
+  ---
+  duration_ms: 5.90285
+  type: 'test'
+  ...
+# Subtest: prepared source-update skip stores the unchanged arrivalFact and presents only the override
+ok 257 - prepared source-update skip stores the unchanged arrivalFact and presents only the override
+  ---
+  duration_ms: 189.574487
+  type: 'test'
+  ...
+1..257
+# tests 257
+# suites 0
+# pass 257
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 147698.326927

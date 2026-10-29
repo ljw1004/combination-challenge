@@ -16,5 +16,5 @@ test('all ten accepted author inputs and full v2 seal retain exact originals wit
 });
 test('generic engine/controller/carryAlong/artwork and the optional creature page remain byte-exact',()=>{
  const base=read(R+'predecessor-source-manifest.json');const paths=['vite.config.ts','mars-ice-creature.html','experiments/tangible-campaign/engine/campaign.ts','experiments/tangible-campaign/schema/scenario.ts','experiments/tangible-campaign/schema/campaign.ts','experiments/tangible-campaign/schema/location-plan.ts','experiments/tangible-campaign/ui/campaign-main.ts','experiments/tangible-campaign/ui/campaign.css','experiments/tangible-campaign/ui/campaign-page-catalogue.ts','experiments/tangible-campaign/ui/mars-creature-entry.ts','experiments/tangible-campaign/ui/stories/mars-creature-field-scenes.ts','public/assets/discoveries/mars-ice-creature.png'];
- for(const path of paths){assert(base.files[path],path);assert.equal(sha(path),base.files[path].sha256,path);}
+ for(const path of paths){assert(base.files[path],path);assert.equal(sha(path),expectedSourceHashAfterAuthenticityRelease(path,base.files[path].sha256),path);}
 });

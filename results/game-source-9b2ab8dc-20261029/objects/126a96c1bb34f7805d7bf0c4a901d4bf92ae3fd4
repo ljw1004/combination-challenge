@@ -1,0 +1,202 @@
+[
+  {
+    "issue": "ML-B1",
+    "severity": "BLOCKING",
+    "title": "83 unresolved Mars reader descriptions use chapter titles as recovery locations",
+    "occurrences": 166,
+    "detailsFile": "blocking-mars-placeholders.json"
+  },
+  {
+    "issue": "ML-B2",
+    "severity": "BLOCKING",
+    "title": "All four Light objectives remain recipes rather than short open questions",
+    "details": [
+      {
+        "id": "ML1125",
+        "text": "Compare the two neighbour questions\nMake the roadside panel",
+        "occurrences": [
+          {
+            "row": 4925,
+            "world": "divinity-light-reading-scenes-v4",
+            "surface": "objective",
+            "owner": "road",
+            "field": "objectives"
+          }
+        ],
+        "problem": "Two commands name the comparison and final product, rather than asking an open question.",
+        "suggested": "Who acts as a neighbour?"
+      },
+      {
+        "id": "ML1127",
+        "text": "Connect the father’s two trips outside\nMake the doorway panel",
+        "occurrences": [
+          {
+            "row": 4928,
+            "world": "divinity-light-reading-scenes-v4",
+            "surface": "objective",
+            "owner": "doorway",
+            "field": "objectives"
+          }
+        ],
+        "problem": "Two commands name the connection and final product, rather than asking an open question.",
+        "suggested": "Who is still outside?"
+      },
+      {
+        "id": "ML1129",
+        "text": "Connect Mark’s compassion, teaching and meal\nMake the two-voices panel",
+        "occurrences": [
+          {
+            "row": 4931,
+            "world": "divinity-light-reading-scenes-v4",
+            "surface": "objective",
+            "owner": "hillside",
+            "field": "objectives"
+          }
+        ],
+        "problem": "Two commands dictate the connection and final product, rather than asking an open question.",
+        "suggested": "How do Mark and John describe the feeding?"
+      },
+      {
+        "id": "ML1131",
+        "text": "Print our roadside paraphrase\nFit the four panels into the exhibit",
+        "occurrences": [
+          {
+            "row": 4934,
+            "world": "divinity-light-reading-scenes-v4",
+            "surface": "objective",
+            "owner": "press-room",
+            "field": "objectives"
+          }
+        ],
+        "problem": "Printing/assembly instructions remain in the objective rather than a short open question.",
+        "suggested": "Does the headline fit Luther’s words?"
+      }
+    ]
+  },
+  {
+    "issue": "ML-B3",
+    "severity": "BLOCKING",
+    "title": "Light captions expose verse-reference/source-apparatus wording",
+    "details": [
+      {
+        "id": "ML1034",
+        "text": "Our Luke 10:33–35 paraphrase: a Samaritan tends the traveller and pays",
+        "occurrences": [
+          {
+            "row": 4832,
+            "world": "divinity-light-reading-scenes-v4",
+            "surface": "tile/reader-caption",
+            "owner": "samaritan-leaf",
+            "field": "label"
+          }
+        ],
+        "problem": "The visible item caption includes an editorial “Our” and a verse citation.",
+        "suggested": "A Samaritan tends the traveller and pays for care"
+      },
+      {
+        "id": "ML1118",
+        "text": "Proof: our Luke 10:33–35 paraphrase",
+        "occurrences": [
+          {
+            "row": 4916,
+            "world": "divinity-light-reading-scenes-v4",
+            "surface": "tile/reader-caption",
+            "owner": "proof-sheet",
+            "field": "label"
+          }
+        ],
+        "problem": "The visible proof caption includes an editorial “our” and a verse citation.",
+        "suggested": "Proof of the roadside story"
+      },
+      {
+        "id": "ML1119",
+        "text": "Our Luke 10:33–35 paraphrase in print",
+        "occurrences": [
+          {
+            "row": 4918,
+            "world": "divinity-light-reading-scenes-v4",
+            "surface": "tile/reader-caption",
+            "owner": "printed-passage",
+            "field": "label"
+          }
+        ],
+        "problem": "The visible printed-item caption includes an editorial “Our” and a verse citation.",
+        "suggested": "The roadside story in print"
+      }
+    ]
+  },
+  {
+    "issue": "ML-B4",
+    "severity": "BLOCKING",
+    "title": "Light still contains explicit author-defense tails",
+    "details": [
+      {
+        "id": "ML1027",
+        "text": "A small text workshop for curious students: discover a changed question, a repeated gesture, two voices in one scene, and a headline that a source will not support. Four connected desks, not a curriculum checklist. Catholic perspectives are named; interpretations and historical claims remain distinct. Independent experiment, not school-approved material or a test of personal belief.",
+        "occurrences": [
+          {
+            "row": 4825,
+            "world": "divinity-light-reading-scenes-v4",
+            "surface": "chooser",
+            "owner": "divinity-light-reading-scenes-v4",
+            "field": "premise"
+          }
+        ],
+        "problem": "The chooser defends the material against an imaginary curriculum checklist, school approval, and a test of belief instead of introducing its story.",
+        "suggested": "Read a roadside story, a family reunion and two accounts of a feeding, then check what Luther says about helping people in need."
+      },
+      {
+        "id": "ML1053",
+        "text": "The Samaritan helps across a religious boundary, while Jewish Scripture already teaches care for strangers. These points do not require portraying Judaism as lacking mercy or as a failed version of Christianity.",
+        "occurrences": [
+          {
+            "row": 4851,
+            "world": "divinity-light-reading-scenes-v4",
+            "surface": "reader-body",
+            "owner": "road-panel",
+            "field": "reading.text ?? description"
+          }
+        ],
+        "problem": "The second sentence explains what the author is not portraying rather than stating the relationship in plain English.",
+        "suggested": "The Samaritan helps across a religious boundary. Jewish Scripture already teaches care for strangers."
+      },
+      {
+        "id": "ML1051",
+        "text": "The Gospel’s discussion of neighbor-love does not start from a Judaism without mercy. The Leviticus passage already connects love of the stranger with Israel’s memory of being foreigners.",
+        "occurrences": [
+          {
+            "row": 4849,
+            "world": "divinity-light-reading-scenes-v4",
+            "surface": "reader-body",
+            "owner": "jewish-mercy",
+            "field": "reading.text ?? description"
+          }
+        ],
+        "problem": "The first sentence negates a misconception not introduced by the story, instead of directly giving the relevant continuity.",
+        "suggested": "Leviticus connects love of strangers with Israel’s memory of being foreigners. Jesus and the lawyer discuss neighbour-love within that Jewish tradition."
+      }
+    ]
+  },
+  {
+    "issue": "ML-B5",
+    "severity": "BLOCKING",
+    "title": "Mars main outcrop completion claims a cliff photograph that is not required",
+    "details": [
+      {
+        "id": "ML0959",
+        "text": "The ice sample is labelled, and the photographs record the specimen and cliff layers. These observations do not yet establish how old the layers are or how they formed.",
+        "occurrences": [
+          {
+            "row": 968,
+            "world": "mars-purposeful-fieldwork-v8",
+            "surface": "completion/ending",
+            "owner": "outcrop",
+            "field": "completionText"
+          }
+        ],
+        "problem": "Completion requires catalogued-ice-sample, ice-photograph and core-profile; cliff-photograph is explicitly optional. The ending therefore claims cliff layers were photographed even when the player only photographed the core.",
+        "suggested": "The ice sample is labelled, and the photographs record the specimen and the core’s layers. These observations do not yet establish how old the layers are or how they formed."
+      }
+    ]
+  }
+]

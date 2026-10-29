@@ -1,0 +1,109 @@
+import {acceptedTestRoute} from '../../integration/accepted-current-test-routes.ts';
+import {createHash} from 'node:crypto';
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {mkdirSync,writeFileSync} from 'node:fs';
+import * as M from '../../engine/model.ts';
+import {incorporations,validateContentLifecycles,validateConstructionContinuity} from '../../schema/lifecycle.ts';
+import type {Scenario,Action,Recipe} from '../../schema/scenario.ts';
+import {scenarios} from '../../ui/scenarios.ts';
+import {scenarios as published} from '../../ui/pre-waterworks-scenarios.ts';
+const lifecycle=(...roles:[string,'retain'|'incorporate'|'transform'][])=>Object.fromEntries(roles.map(([k,role])=>[k,{role,reason:'Explicit test lifecycle: '+role}]));
+function scenario(id:string,items:string[],initialItems:string[],recipes:Recipe[],goal:string):Scenario{return {schemaVersion:1,id,title:id,premise:'Synthetic lifecycle regression',items:items.map(id=>({id,label:id})),initialItems,recipes,locations:[],stages:[{id:'one',title:'one',speaker:'Tester',motivation:'Observe tangible results',area:{id:'here',label:'here',travelText:'Start here'},objectives:[{id:'goal-one',text:'Make '+goal,kind:'create',item:goal}]}]};}
+function step(s:Scenario,g:M.Game,a:Action){const r=M.applyAction(s,g,a);assert(r.accepted,r.message);return r;}
+function route(s:Scenario):Action[]{return acceptedTestRoute(s).actions;}
+function check(s:Scenario){assert.deepEqual(M.validateScenario(s),[]);assert.deepEqual(validateContentLifecycles([s]),[]);assert.deepEqual(validateConstructionContinuity([s]),[]);return s;}
+function roundtrip(s:Scenario,g:M.Game){const loaded=M.restore(s,JSON.stringify(g));assert.deepEqual(loaded,g);assert.deepEqual(M.restore(s,JSON.stringify(loaded)),loaded);return loaded;}
+
+test('every authored route removes only current authored inputs; movements and travel remove nothing',()=>{
+ const reports:unknown[]=[];assert.equal(scenarios.length,61,'All 57 published identities plus four structural successors stay covered');assert.equal(new Set(scenarios.map(s=>s.id)).size,61);assert.equal(published.length,57);for(const old of published)assert(scenarios.some(s=>s.id===old.id),old.id);assert.deepEqual(scenarios.filter(s=>!published.some(old=>old.id===s.id)).map(s=>s.id).sort(),['atlas-focused-sessions-v6','elements-basket-continuity-v10','kitchen-caravan-small-sessions-v8','mars-purposeful-fieldwork-v8']);
+ for(const s of scenarios){const accepted=acceptedTestRoute(s),recipeIds:string[]=[];let g=M.createGame(s);for(const action of accepted.actions){
+  const before=g,r=step(s,g,action);g=r.game;if(r.recipe)recipeIds.push(r.recipe);const recipe=s.recipes.find(x=>x.id===r.recipe);
+  const permitted=recipe?.install?[recipe.install.component]:recipe?incorporations(recipe).map(x=>x.item):[];
+  const removed=before.state.tokens.filter(t=>!M.token(g.state,t.id)).map(t=>t.id);
+  assert.deepEqual(removed.slice().sort(),(r.retired??[]).slice().sort());assert(removed.every(id=>permitted.includes(id)),s.id+':'+JSON.stringify(action));
+ }assert(g.state.completed,s.id);roundtrip(s,g);reports.push({scenarioId:s.id,source:accepted.source,actionCount:accepted.actions.length,actionsSha256:createHash('sha256').update(JSON.stringify(accepted.actions)).digest('hex'),acceptedRecipeIds:recipeIds,completed:g.state.completed,saveRoundtripExact:true});}
+ const out=new URL('../../../../results/ux-content-20261029/',import.meta.url);mkdirSync(out,{recursive:true});writeFileSync(new URL('all61-event-local-route-evidence.json',out),JSON.stringify({scope:'All 61 actual registered catalogue objects: all 57 identities retained (three explicit save-compatible editorials) plus four graph/session successors; source-preserved waterworks v9 is not separately exposed. All current route events and final restores checked; optional creature routes have their separate complete tests. No native UI claim',reports},null,2)+'\n');
+});
+
+test('actual Elements keeps millstone, untouched bread and river map; no distant owner collects them',()=>{
+ const s=scenarios.find(s=>s.id==='elements-observation-revision-v6')!,wanted=new Map([['oil','millstone'],['feast-from-warm-meal','bread'],['landing-clock','river-map']]);let g=M.createGame(s),checked=0;
+ for(const action of route(s)){const before=g,r=step(s,g,action);g=r.game;const id=wanted.get(r.recipe??'');if(!id)continue;checked++;
+  assert.deepEqual(M.token(g.state,id),M.token(before.state,id));assert(M.token(g.state,id));assert(!r.retired?.includes(id));
+  for(const old of before.state.tokens.filter(t=>t.id!==r.created))if(old.id!==id&&M.token(g.state,old.id)&&![action.type==='combine'?action.a:'',action.type==='combine'?action.b:''].includes(old.id))assert.deepEqual(M.token(g.state,old.id),old);
+  roundtrip(s,g);assert.deepEqual(M.undo(g).game.state.tokens,before.state.tokens);
+ }assert.equal(checked,3);
+});
+
+test('actual Mars current retain leaves pressure patch and loose solar charger without changing old installed slots',()=>{
+ const s=scenarios.find(s=>s.id==='mars-cargo-revision-v2')!,wanted=new Map([['garden-repair','pressure-patch'],['garden-8-powered-grow-light','solar-charger']]);let g=M.createGame(s),checked=0;
+ for(const action of route(s)){const before=g,r=step(s,g,action);g=r.game;const id=wanted.get(r.recipe??'');if(!id)continue;checked++;
+  assert.deepEqual(M.token(g.state,id),M.token(before.state,id));assert(!r.retired?.includes(id));assert.deepEqual(M.token(g.state,'rover')!.slots,M.token(before.state,'rover')!.slots);roundtrip(s,g);
+ }assert.equal(checked,2);
+});
+
+test('an outside retained supply can be consumed by a later explicit event, never by an unrelated alternative',()=>{
+ const s=check(scenario('event-local',['bread','basket','picnic','fruit','porridge','compote','feast'],['bread','basket','fruit','porridge','compote'],[
+ {id:'pack',a:'bread',b:'basket',out:'picnic',lifecycle:lifecycle(['bread','incorporate'],['basket','transform'])},
+ {id:'cold',a:'bread',b:'fruit',out:'feast',lifecycle:lifecycle(['bread','incorporate'],['fruit','incorporate'])},
+ {id:'warm',a:'porridge',b:'compote',out:'feast',lifecycle:lifecycle(['porridge','incorporate'],['compote','incorporate'])}], 'feast'));
+ const packed=step(s,M.createGame(s),{type:'combine',a:'bread',b:'basket'}).game;assert(M.token(packed.state,'bread'));
+ const warm=step(s,packed,{type:'combine',a:'porridge',b:'compote'}).game;assert.deepEqual(M.token(warm.state,'bread'),M.token(packed.state,'bread'));assert(!M.token(warm.state,'picnic')!.incorporated.includes('bread'));roundtrip(s,warm);
+ const cold=step(s,packed,{type:'combine',a:'bread',b:'fruit'}).game;assert(!M.token(cold.state,'bread'));assert(M.token(cold.state,'feast')!.incorporated.includes('bread'));roundtrip(s,cold);
+});
+
+test('finished outside copy remains in its old area on advance, movement, visit and unmarked restore/history',()=>{
+ const s=check(scenario('stage',['a','b','c'],['a','b'],[{id:'c',a:'a',b:'b',out:'c',lifecycle:lifecycle(['a','incorporate'],['b','retain'])}],'a'));
+ s.stages.push({...structuredClone(s.stages[0]),id:'two',area:{id:'there',label:'there',travelText:'Go there'},objectives:[{id:'goal-two',text:'Have c',kind:'create',item:'c'}]});
+ let g=step(s,M.createGame(s),{type:'combine',a:'a',b:'b'}).game;const source=structuredClone(M.token(g.state,'a'))!;assert(M.gold(s,g.state).items.includes('a'));
+ g=step(s,g,{type:'advance'}).game;assert.deepEqual(M.token(g.state,'a'),source);assert.equal(M.token(g.state,'c')!.area,'there');
+ g=step(s,g,{type:'move',item:'c',x:180,y:200}).game;g=step(s,g,{type:'visit',area:'here'}).game;assert.deepEqual(M.token(g.state,'a'),source);roundtrip(s,g);
+ const legacy=structuredClone(g);delete legacy.lifecycleVersion;const migrated=M.restore(s,JSON.stringify(legacy));assert.deepEqual(migrated.state,g.state);assert.deepEqual(migrated.history,g.history);assert.deepEqual(migrated.events,g.events);roundtrip(s,migrated);
+});
+
+function chassis(){const s=scenario('chassis',['chassis','wheel','paint','sensor','upgrade','scan','trim','battery'],['chassis','wheel','paint','sensor','trim','battery'],[
+ {id:'wheel',a:'wheel',b:'chassis',install:{target:'chassis',slot:'wheel',component:'wheel'},lifecycle:lifecycle(['wheel','incorporate'],['chassis','retain'])},
+ {id:'upgrade',a:'chassis',b:'paint',out:'upgrade',preserve:['chassis'],lifecycle:lifecycle(['chassis','transform'],['paint','incorporate'])},
+ {id:'scan',a:'chassis',b:'sensor',out:'scan',lifecycle:lifecycle(['chassis','retain'],['sensor','retain'])},
+ {id:'trim',a:'trim',b:'chassis',install:{target:'chassis',slot:'trim',component:'trim'},lifecycle:lifecycle(['trim','incorporate'],['chassis','retain'])},
+ {id:'battery',a:'battery',b:'chassis',install:{target:'chassis',slot:'battery',component:'battery'},lifecycle:lifecycle(['battery','incorporate'],['chassis','retain'])}], 'scan');
+ s.items.find(x=>x.id==='chassis')!.slots=[{id:'wheel',accepts:['wheel']},{id:'trim',accepts:['trim']},{id:'battery',accepts:['battery']}];return check(s);}
+
+test('fitted chassis preserves parts immediately in either direction while original copy stays intact; no retroactive upgrades',()=>{
+ for(const reverse of [false,true]){const s=chassis();let g=step(s,M.createGame(s),{type:'combine',a:'wheel',b:'chassis'}).game;const source=structuredClone(M.token(g.state,'chassis'))!;const before=g;
+  const r=step(s,g,{type:'combine',a:reverse?'paint':'chassis',b:reverse?'chassis':'paint'});g=r.game;
+  assert.deepEqual(M.token(g.state,'chassis'),source);assert.deepEqual(M.token(g.state,'upgrade')!.components,['wheel']);assert.deepEqual(M.playerView(s,g).things.find(x=>x.id==='upgrade')!.components,['wheel']);roundtrip(s,g);assert.deepEqual(M.undo(g).game.state.tokens,before.state.tokens);
+  g=step(s,g,{type:'combine',a:'trim',b:'chassis'}).game;g=step(s,g,{type:'combine',a:'battery',b:'chassis'}).game;g=step(s,g,{type:'combine',a:'chassis',b:'sensor'}).game;
+  assert(M.token(g.state,'chassis'));assert.deepEqual(M.token(g.state,'upgrade')!.components,['wheel']);roundtrip(s,g);
+ }
+});
+
+test('actual optional Mars fitted radio preserves stand at installation while outside radio remains, both directions',()=>{
+ const s=scenarios.find(s=>s.id==='mars-cargo-revision-v2')!,actions=route(s),index=actions.findIndex(a=>a.type==='combine'&&[a.a,a.b].includes('antenna-stand'));assert(index>=0);
+ for(const reverse of [false,true]){let g=M.replay(s,actions.slice(0,index+1));g=step(s,g,{type:'visit',area:M.token(g.state,'rover')!.area,carry:['long-range-radio']}).game;
+  const before=g,radio=structuredClone(M.token(g.state,'long-range-radio'))!;const r=step(s,g,{type:'combine',a:reverse?'rover':'long-range-radio',b:reverse?'long-range-radio':'rover'});g=r.game;
+  assert.equal(r.recipe,'rover-5-survey-rover');assert.deepEqual(M.token(g.state,'long-range-radio'),radio);assert.equal(M.token(g.state,'rover')!.slots.radio,'long-range-radio');assert(M.token(g.state,'rover')!.components?.includes('antenna-stand'));
+  const view=M.playerView(s,g).things.find(x=>x.id==='rover')!;assert(view.components.includes('Antenna stand'));assert(!view.components.includes('Long range radio'),'direct slot label is not duplicated');roundtrip(s,g);assert.deepEqual(M.undo(g).game.state.tokens,before.state.tokens);
+ }
+});
+
+test('legacy construction recovery uses actual pre-event parts; later fitted additions do not flow backward',()=>{
+ const s=chassis(),old=structuredClone(s);delete old.recipes.find(r=>r.id==='upgrade')!.preserve;
+ let g=step(old,M.createGame(old),{type:'combine',a:'wheel',b:'chassis'}).game;g=step(old,g,{type:'combine',a:'chassis',b:'paint'}).game;g=step(old,g,{type:'combine',a:'trim',b:'chassis'}).game;delete g.lifecycleVersion;
+ const loaded=M.restore(s,JSON.stringify(g));assert.deepEqual(M.token(loaded.state,'upgrade')!.components,['wheel']);assert.equal(M.token(loaded.state,'chassis')!.slots.trim,'trim');assert.deepEqual(loaded.events,g.events);assert.deepEqual(loaded.state.metrics,g.state.metrics);roundtrip(s,loaded);
+ const trimmed=structuredClone(g);trimmed.history=[];const insufficient=M.restore(s,JSON.stringify(trimmed));assert.equal(M.token(insufficient.state,'upgrade')!.components,undefined,'no retained pre-event snapshot means no guess from the later source');roundtrip(s,insufficient);
+});
+
+test('unmarked legacy installation recovers actual nested parts without removing source or inventing absent history',()=>{
+ const s=scenarios.find(s=>s.id==='mars-cargo-revision-v2')!,old=structuredClone(s),actions=route(s);delete old.recipes.find(r=>r.id==='rover-5-survey-rover')!.preserve;
+ const index=actions.findIndex(a=>a.type==='combine'&&[a.a,a.b].includes('antenna-stand'));let g=M.replay(old,actions.slice(0,index+1));g=step(old,g,{type:'visit',area:M.token(g.state,'rover')!.area,carry:['long-range-radio']}).game;g=step(old,g,{type:'combine',a:'rover',b:'long-range-radio'}).game;delete g.lifecycleVersion;
+ const loaded=M.restore(s,JSON.stringify(g));assert(M.token(loaded.state,'rover')!.components?.includes('antenna-stand'));assert.deepEqual(M.token(loaded.state,'long-range-radio'),M.token(g.state,'long-range-radio'));assert.deepEqual(loaded.events,g.events);roundtrip(s,loaded);
+ const noHistory=structuredClone(g);noHistory.history=[];assert.equal(M.token(M.restore(s,JSON.stringify(noHistory)).state,'rover')!.components,undefined);
+});
+
+test('an immediate fitted transformation stays in place, preserves components and does not resurrect the retired input on load',()=>{
+ const s=chassis();s.recipes=s.recipes.filter(r=>!['scan','trim','battery'].includes(r.id));s.stages[0].objectives=[{id:'done',text:'Make upgrade',kind:'create',item:'upgrade'}];
+ let g=step(s,M.createGame(s),{type:'combine',a:'wheel',b:'chassis'}).game;g=step(s,g,{type:'move',item:'chassis',x:180,y:240}).game;const source=structuredClone(M.token(g.state,'chassis'))!;
+ g=step(s,g,{type:'combine',a:'paint',b:'chassis'}).game;assert(!M.token(g.state,'chassis'));const out=M.token(g.state,'upgrade')!;assert.deepEqual([out.x,out.y],[source.x,source.y]);assert.deepEqual(out.components,['wheel']);roundtrip(s,g);
+ delete g.lifecycleVersion;const oldLoaded=M.restore(s,JSON.stringify(g));assert(!M.token(oldLoaded.state,'chassis'));assert.deepEqual(oldLoaded.state.tokens,g.state.tokens);roundtrip(s,oldLoaded);
+});

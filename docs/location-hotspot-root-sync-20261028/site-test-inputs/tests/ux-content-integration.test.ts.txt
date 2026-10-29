@@ -1,0 +1,41 @@
+import test from 'node:test';import assert from 'node:assert/strict';import {readFileSync,mkdirSync,writeFileSync} from 'node:fs';import {createHash} from 'node:crypto';
+import {scenarios,featuredScenarioIds,expectedCurrentScenario,uxContentSuccessorScenarios,editorialScenarioUpdates} from '../experiments/tangible-campaign/ui/current-scenarios.ts';
+import {scenarios as published} from '../experiments/tangible-campaign/ui/pre-waterworks-scenarios.ts';
+import {currentFamilies,creature} from '../experiments/tangible-campaign/ui/stories/current-ux-content.ts';
+import {scenario as oldCreature} from '../experiments/tangible-campaign/ui/stories/mars-creature-field-scenes.ts';
+import {acceptedTestRoute} from '../experiments/tangible-campaign/integration/accepted-current-test-routes.ts';import {lifecycleAudit} from '../experiments/tangible-campaign/integration/current-lifecycle-audit.ts';
+import {toLegacyScenario,fromLegacyAction,toLegacyGame} from '../experiments/tangible-campaign/compatibility/v1.ts';import * as M from '../experiments/tangible-campaign/engine/campaign.ts';
+import {sceneEntryCenter} from '../experiments/tangible-campaign/engine/scene-entry-layout.ts';import {locationHarness} from '../experiments/tangible-campaign/ui/location-controller-harness.ts';
+import {expectedSourceHashAfterUxContent} from '../experiments/tangible-campaign/integration/ux-content-source-guard.ts';
+const root=new URL('../',import.meta.url),review='experiments/tangible-campaign/reviews/ux-content-20261029/',read=(p:string)=>JSON.parse(readFileSync(new URL(p,root),'utf8')),sha=(x:unknown)=>createHash('sha256').update(JSON.stringify(x)).digest('hex');
+const out=new URL('../results/ux-content-20261029/',import.meta.url);mkdirSync(out,{recursive:true});
+test('actual 61-world catalogue retains all published 57 identities, exact original definitions/routes and three explicit editorial replacements',()=>{
+ const baseline=read('experiments/tangible-campaign/reviews/waterworks-release-20261029/published-all57-contracts.json');assert.equal(published.length,57);assert.equal(scenarios.length,61);assert.equal(new Set(scenarios.map(s=>s.id)).size,61);assert.equal(editorialScenarioUpdates.length,3);assert.deepEqual(scenarios.filter(s=>!published.some(p=>p.id===s.id)),uxContentSuccessorScenarios);
+ for(const old of published){const row=baseline.records.find((r:any)=>r.id===old.id);assert(row);assert.equal(sha(old),row.scenarioSha256);assert.equal(scenarios.find(s=>s.id===old.id),expectedCurrentScenario(old));assert.deepEqual(acceptedTestRoute(toLegacyScenario(old)),{actions:row.actions,source:row.source});}
+ assert.deepEqual(featuredScenarioIds,['mars-purposeful-fieldwork-v8','atlas-focused-sessions-v6','elements-basket-continuity-v10','kitchen-caravan-small-sessions-v8','copy-workroom-locations-v2','divinity-final-reading-scenes-v7']);assert(!scenarios.some(s=>[creature.id,oldCreature.id,'elements-waterworks-v9'].includes(s.id)));
+});
+test('all 914 new lifecycle rows have exact named predecessors; unpublished v9 ledger retained separately, none removed',()=>{
+ const delta=read(review+'lifecycle-additions.json');assert.equal(delta.changes.length,914);for(const s of uxContentSuccessorScenarios)for(const r of s.recipes){const row=lifecycleAudit.recipes.filter((x:any)=>x.world===s.id&&x.recipe===r.id);assert.equal(row.length,1);assert.deepEqual(row[0].lifecycles,r.lifecycle);}assert.equal(lifecycleAudit.stagedUnpublishedRecipes.length,217);assert.equal(lifecycleAudit.activeScenarios,49);assert.equal(lifecycleAudit.activeRecipes,7939);
+});
+test('exact staged ancestry retains every source/test byte or pins an explicit successor and immutable predecessor',()=>{
+ const base=read(review+'predecessor-source-manifest.json'),delta=read(review+'source-successors.json'),hash=(p:string)=>createHash('sha256').update(readFileSync(new URL(p,root))).digest('hex');assert.equal(Object.keys(base.files).length,2460);assert.equal(hash(review+'predecessor-source-manifest.json'),'ee7d05bd7150fd7c7e34ce15317589e9e0068ba7393304eb36d4312cb1fbb503');
+ for(const [path,row]of Object.entries<any>(base.files))assert.equal(hash(path),expectedSourceHashAfterUxContent(path,row.sha256),path);
+ for(const [path,row]of Object.entries<any>(delta.files)){assert.equal(hash(row.predecessorSnapshotPath),row.beforeSha256);assert.equal(hash(path),row.afterSha256);assert.throws(()=>expectedSourceHashAfterUxContent(path,'0'.repeat(64)),/exact predecessor/);}
+});
+for(const s of scenarios)test(`${s.id}: actual registered complete route validates and restores`,()=>{
+ assert.deepEqual(M.validateScenario(s),[]);const route=acceptedTestRoute(toLegacyScenario(s));let g=M.createGame(s,375);for(const [i,a]of route.actions.map(fromLegacyAction).entries()){const r=M.applyAction(s,g,a);assert(r.accepted,`${i}: ${r.message}`);g=r.game;}assert(g.state.completed);assert.deepEqual(M.restore(s,JSON.stringify(toLegacyGame(g))),g);writeFileSync(new URL(s.id+'-registered.json',out),JSON.stringify({id:s.id,actions:route.actions.length,completed:true,routeSource:route.source,geometryWidth:375})+'\n');
+});
+const overlap=(a:M.Token,b:M.Token,s:typeof creature)=>Math.max(0,96-Math.abs(a.x-b.x))*Math.max(0,(M.tokenHeight(s,a)+M.tokenHeight(s,b))/2-Math.abs(a.y-b.y));
+for(const s of currentFamilies)for(const width of [320,375,390])test(`${s.id} ${width}: final composed fresh entries, bounds, old residents, save/Undo and actual route`,()=>{
+ const actions=s===creature?s.checkpoints!.find(c=>c.id==='complete')!.actions:acceptedTestRoute(toLegacyScenario(s)).actions.map(fromLegacyAction);let g=M.createGame(s,width);const density:any[]=[];
+ const note=(before?:M.Game)=>{const local=g.state.tokens.filter(t=>t.location===g.state.storyLocation);for(let i=0;i<local.length;i++)for(let j=i+1;j<local.length;j++){const a=local[i],b=local[j],pa=before&&M.token(before.state,a.id),pb=before&&M.token(before.state,b.id),prior=pa&&pb&&pa.location===pb.location?overlap(pa,pb,s):0;assert(overlap(a,b,s)<=prior+.01,`entry added overlap ${a.id}/${b.id}`);}density.push({chapter:s.chapters[g.state.chapter].id,location:g.state.storyLocation,arrival:local.length,peak:local.length,weightedCenter:sceneEntryCenter(local.map(t=>({...t,w:96,h:M.tokenHeight(s,t)})))});};note();
+ for(const [i,a]of actions.entries()){const before=g,r=M.applyAction(s,g,a);assert(r.accepted,`${i}: ${r.message}`);g=r.game;
+  for(const t of g.state.tokens){assert(t.x>=48-.01&&t.x<=g.state.width-48+.01,t.id+' horizontal');assert(t.y-M.tokenHeight(s,t)/2>=-.01&&t.y+M.tokenHeight(s,t)/2<=844.01,t.id+' vertical');}
+  if(g.state.storyLocation!==before.state.storyLocation){for(const resident of before.state.tokens.filter(t=>t.location===g.state.storyLocation))assert.deepEqual(M.token(g.state,resident.id),resident,'old resident fixed');assert.deepEqual(M.restore(s,JSON.stringify(g)),g);const clean=({metrics,...x}:M.State)=>x;assert.deepEqual(clean(M.undo(g).game.state),clean(before.state));note(before);}
+  else density.at(-1).peak=Math.max(density.at(-1).peak,g.state.tokens.filter(t=>t.location===g.state.storyLocation).length);
+ }
+ assert(g.state.completed);writeFileSync(new URL(s.id+'-'+width+'-geometry.json',out),JSON.stringify({world:s.id,width,actions:actions.length,completed:true,density,limits:'Logical geometry and save/Undo, not browser/native or human evidence. Peak overlaps after legitimate creation are not erased/rearranged.'},null,2)+'\n');
+});
+test('optional page preserves original v3 source/query/save and exposes distinct v4 without entering main registry',()=>{
+ const entry=readFileSync(new URL('experiments/tangible-campaign/ui/mars-creature-entry.ts',root),'utf8');assert(entry.includes('scenarios:[previous,creature]'));assert(entry.includes('featuredScenarioIds:[creature.id]'));for(const s of [oldCreature,creature]){const h=locationHarness(s,undefined,{worlds:[oldCreature,creature],search:'?world='+s.id});assert.equal(h.key,'tangible-campaign-v1:'+s.id);h.click(h.button('close'));assert.equal(h.state().scenarioId,s.id);}assert.throws(()=>M.restore(creature,JSON.stringify(M.createGame(oldCreature))),/Invalid campaign save/);
+});

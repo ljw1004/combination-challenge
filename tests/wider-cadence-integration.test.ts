@@ -1,6 +1,7 @@
 import {readSiteSourceForRootTests,writeRootTestOutput} from '../scripts/site-source-test-context.ts';
 const readFileSync=readSiteSourceForRootTests;
 const writeFileSync=writeRootTestOutput;
+import {expectedCurrentScenario} from '../experiments/tangible-campaign/ui/current-scenarios.ts';
 import test from 'node:test';import assert from 'node:assert/strict';import {readFileSync as originalReadFileSync,mkdirSync,writeFileSync as originalWriteFileSync} from 'node:fs';import {createHash} from 'node:crypto';
 import {scenarios,cadenceSuccessorScenarios} from '../experiments/tangible-campaign/ui/current-scenarios.ts';
 import {scenarios as previous} from '../experiments/tangible-campaign/ui/pre-cadence-scenarios.ts';
@@ -14,8 +15,8 @@ import * as M from '../experiments/tangible-campaign/engine/campaign.ts';
 import type {Action} from '../experiments/tangible-campaign/schema/campaign.ts';
 const root=new URL('../',import.meta.url),read=(p:string)=>JSON.parse(readFileSync(new URL(p,root),'utf8')),sha=(v:unknown)=>createHash('sha256').update(JSON.stringify(v)).digest('hex');
 test('all 48 published route inputs and provenance remain byte-for-byte semantically exact',()=>{
- const prior=read('experiments/tangible-campaign/reviews/wider-cadence-integration-20261029/published-all48-route-evidence.json');assert.equal(prior.reports.length,48);assert.equal(previous.length,48);assert.equal(scenarios.length,57);
- for(const s of previous){const old=prior.reports.find((r:any)=>r.scenarioId===s.id);assert(old,s.id);const route=acceptedTestRoute(toLegacyScenario(s));assert.equal(sha(route.actions),old.actionsSha256,s.id);assert.deepEqual(route.source,old.source,s.id+' route provenance');assert.equal(scenarios.find(x=>x.id===s.id),s);}
+ const prior=read('experiments/tangible-campaign/reviews/wider-cadence-integration-20261029/published-all48-route-evidence.json');assert.equal(prior.reports.length,48);assert.equal(previous.length,48);assert.equal(scenarios.length,61);
+ for(const s of previous){const old=prior.reports.find((r:any)=>r.scenarioId===s.id);assert(old,s.id);const route=acceptedTestRoute(toLegacyScenario(s));assert.equal(sha(route.actions),old.actionsSha256,s.id);assert.deepEqual(route.source,old.source,s.id+' route provenance');assert.equal(scenarios.find(x=>x.id===s.id),expectedCurrentScenario(s));}
  assert.equal(cadenceSuccessorScenarios.length,5);
 });
 test('final Atlas is only a distinct presentation identity plus four bound civic backgrounds',()=>{

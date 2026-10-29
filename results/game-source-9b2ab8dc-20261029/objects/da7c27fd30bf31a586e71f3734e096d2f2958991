@@ -1,0 +1,7 @@
+<!doctype html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Source-owned objective visibility probe</title></head><body><div id="app"></div><output id="objective-visibility-evidence" hidden></output><script type="module">
+import {configureCampaignPage} from '../../experiments/tangible-campaign/ui/campaign-page-catalogue.ts';
+import {elements} from '../../experiments/tangible-campaign/ui/stories/current-ux-content.ts';
+configureCampaignPage({scenarios:[elements],featuredScenarioIds:[elements.id],presentationFor:s=>({title:s.title,premise:s.premise})});
+const records=[];for(const type of ['pointerdown','pointermove','pointerup','pointercancel'])document.addEventListener(type,event=>{if(!event.target.closest?.('.board'))return;queueMicrotask(()=>{const purpose=document.getElementById('purpose'),hud=purpose?.closest('.hud-stack');if(!purpose||!hud)return;const values=[purpose,hud,...purpose.querySelectorAll('.objective-line')].map(e=>{const s=getComputedStyle(e);return {element:e.id||e.className,opacity:s.opacity,visibility:s.visibility,display:s.display,color:s.color,hidden:e.hidden,text:e.textContent};});records.push({type,dragging:document.getElementById('app').classList.contains('is-dragging'),values});document.getElementById('objective-visibility-evidence').textContent=JSON.stringify(records);});},true);
+await import('../../experiments/tangible-campaign/ui/campaign-main.ts');
+</script></body></html>

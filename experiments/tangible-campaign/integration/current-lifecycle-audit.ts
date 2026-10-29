@@ -66,10 +66,25 @@ for(const change of journeyAdditions.changes){
  const row=change.after,key=row.world+':'+row.recipe;assert.equal(row.world,journeyAdditions.newWorld);assert(!byKey.has(key),'Duplicate journey cleanup lifecycle '+key);
  assert.deepEqual(byKey.get(journeyAdditions.parentWorld+':'+row.recipe)??null,change.before,'Exact journey cleanup lifecycle predecessor '+key);assert(change.review.length>20,'Explicit scoped review '+key);byKey.set(key,row);
 }
+const waterworksAdditions=JSON.parse(readFileSync(new URL('../reviews/waterworks-release-20261029/lifecycle-additions.json',import.meta.url),'utf8'));
+assert.equal(waterworksAdditions.parentWorld,'elements-journey-cleanup-v8');assert.equal(waterworksAdditions.newWorld,'elements-waterworks-v9');
+for(const change of waterworksAdditions.changes){
+ const row=change.after,key=row.world+':'+row.recipe;assert.equal(row.world,waterworksAdditions.newWorld);assert(!byKey.has(key),'Duplicate waterworks lifecycle '+key);
+ assert.deepEqual(byKey.get(waterworksAdditions.parentWorld+':'+row.recipe)??null,change.before,'Exact waterworks lifecycle predecessor '+key);assert(change.review.length>20,'Explicit scoped review '+key);byKey.set(key,row);
+}
+const uxAdditions=JSON.parse(readFileSync(new URL('../reviews/ux-content-20261029/lifecycle-additions.json',import.meta.url),'utf8'));
+for(const change of uxAdditions.changes){
+ const row=change.after,parent=uxAdditions.parents[row.world],key=row.world+':'+row.recipe;assert(parent,'Named UX content predecessor '+row.world);assert(!byKey.has(key),'Duplicate UX content lifecycle '+key);
+ assert.deepEqual(byKey.get(parent+':'+row.recipe)??null,change.before,'Exact UX lifecycle predecessor '+key);assert(change.review.length>20,'Explicit scoped operation review '+key);byKey.set(key,row);
+}
+// v9 was frozen but never published. Its complete ledger remains inspectable;
+// the featured v10 composes it without exposing an unnecessary interim save.
+const stagedUnpublishedRecipes=[...byKey.values()].filter(row=>row.world==='elements-waterworks-v9');
+assert.equal(stagedUnpublishedRecipes.length,217);
 const active=scenarios.filter(s=>!archivedScenarioIds.has(s.id));
 const recipes=active.flatMap(s=>s.recipes.map(r=>{
  const row=byKey.get(s.id+':'+r.id);assert(row,'Missing audited recipe '+s.id+':'+r.id);
  assert.deepEqual(row.lifecycles??row.lifecycle??row.decisions,r.lifecycle,'Exact authored lifecycle '+s.id+':'+r.id);return row;
 }));
-assert.equal(recipes.length,byKey.size,'No historical audit row may disappear');
-export const lifecycleAudit={...prior,scope:'Exact current catalogue with immutable historical rows, explicit lifecycle successors and all retained location editions and five additive cadence editions; exact inherited lifecycle declarations remain fully covered.',historicalRecipes,lifecycleSuccessor,playtestRepairsSuccessor,observationSuccessor,supersededUnpublishedRecipes,counts:Object.fromEntries(active.map(s=>[s.id,{recipes:s.recipes.length}])),activeScenarios:active.length,activeRecipes:recipes.length,recipes};
+assert.equal(recipes.length+stagedUnpublishedRecipes.length,byKey.size,'No published or unpublished audit row may disappear');
+export const lifecycleAudit={...prior,scope:'Exact current catalogue with immutable historical rows, explicit lifecycle successors and all retained location editions and five additive cadence editions; exact inherited lifecycle declarations remain fully covered.',historicalRecipes,stagedUnpublishedRecipes,uxAdditions,lifecycleSuccessor,playtestRepairsSuccessor,observationSuccessor,supersededUnpublishedRecipes,counts:Object.fromEntries(active.map(s=>[s.id,{recipes:s.recipes.length}])),activeScenarios:active.length,activeRecipes:recipes.length,recipes};

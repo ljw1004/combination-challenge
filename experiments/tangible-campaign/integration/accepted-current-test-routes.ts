@@ -5,15 +5,28 @@ import {createHash} from 'node:crypto';
 import type {Action,Scenario} from '../schema/scenario.ts';
 import {toLegacyAction} from '../compatibility/v1.ts';
 import {scenarios as registeredScenarios} from '../ui/current-scenarios.ts';
+import {elements as stagedWaterworks} from '../ui/stories/elements-waterworks-v1.ts';
+import {atlasFocusedRoute} from '../ui/stories/atlas-focused-session-route.ts';
+import {foodSmallSessionRoute} from '../ui/stories/food-small-sessions-route.ts';
 import {currentMarsRouteActions} from './current-mars-route-actions.ts';
 const sha=(x:string)=>createHash('sha256').update(x).digest('hex');
 export function acceptedTestRoute(s:Scenario):{actions:Action[];source:Record<string,unknown>} {
  // Retained location snapshots still use their exact authored location route,
  // even when they are no longer featured. Pre-location historical files stay exact.
- const current=registeredScenarios.find(x=>x.id===s.id&&x.locationPlan);
+ const current=registeredScenarios.find(x=>x.id===s.id&&x.locationPlan)??(s.id===stagedWaterworks.id?stagedWaterworks:undefined);
  if(!current){
   const path='../evidence/'+s.id+'-route-evidence.json',raw=readFileSync(new URL(path,import.meta.url),'utf8'),actions=JSON.parse(raw).actionsLog as Action[];
   return {actions:s.id==='mars-connected-survival-v4-return-cargo-research'?currentMarsRouteActions(actions):actions,source:{kind:'unchanged-historical-route-file',scenarioId:s.id,path,sha256:sha(raw),existingSolarContinuityAdapter:s.id==='mars-connected-survival-v4-return-cargo-research'}};
+ }
+ if(current.id==='atlas-focused-sessions-v6')return {actions:atlasFocusedRoute.map(toLegacyAction),source:{kind:'accepted-focused-Atlas-full-route',scenarioId:s.id,module:'ui/stories/atlas-focused-session-route.ts',actionsSha256:sha(JSON.stringify(atlasFocusedRoute))}};
+ if(current.id==='kitchen-caravan-small-sessions-v8')return {actions:foodSmallSessionRoute.map(toLegacyAction),source:{kind:'accepted-Food-small-session-route',scenarioId:s.id,module:'ui/stories/food-small-sessions-route.ts',actionsSha256:sha(JSON.stringify(foodSmallSessionRoute))}};
+ if(['elements-basket-continuity-v10','mars-purposeful-fieldwork-v8'].includes(current.id)){
+  const cp=current.checkpoints!.find(c=>c.id==='complete')!;
+  return {actions:cp.actions.map(toLegacyAction),source:{kind:'accepted-playtest-successor-checkpoint',scenarioId:s.id,checkpoint:cp.id,checkpointSha256:sha(JSON.stringify(cp.actions)),compositionModule:'ui/stories/current-ux-content.ts'}};
+ }
+ if(current.id==='elements-waterworks-v9'){
+  const cp=current.checkpoints!.find(c=>c.id==='complete')!;
+  return {actions:cp.actions.map(toLegacyAction),source:{kind:'accepted-reviewed-Elements-waterworks-checkpoint',scenarioId:s.id,checkpoint:cp.id,checkpointSha256:sha(JSON.stringify(cp.actions)),authoredModule:'ui/stories/elements-waterworks-v1.ts',review:'reviews/waterworks-release-20261029/independent-review/REVIEW.md'}};
  }
  if(current.id==='elements-journey-cleanup-v8'){
   const cp=current.checkpoints!.find(c=>c.id==='complete')!;

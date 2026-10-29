@@ -1,0 +1,56 @@
+import test from 'node:test';import assert from 'node:assert/strict';import {mkdirSync,writeFileSync} from 'node:fs';
+import {scenario as s,foodSessionPlan,foodSmallSessionMapping as mapping} from '../experiments/tangible-campaign/ui/stories/food-small-sessions-v1.ts';
+import {scenario as before} from '../experiments/tangible-campaign/ui/stories/kitchen-locations.ts';
+import * as M from '../experiments/tangible-campaign/engine/campaign.ts';
+import {toLegacyScenario,toLegacyGame} from '../experiments/tangible-campaign/compatibility/v1.ts';
+import {validateContentLifecycles,validateObjectiveFlow,validateConstructionContinuity} from '../experiments/tangible-campaign/schema/lifecycle.ts';
+import {validateLifecycleGraph} from '../experiments/tangible-campaign/schema/lifecycle-graph.ts';
+import {encodeSave,decodeSave} from '../experiments/tangible-campaign/ui/save-codec.ts';
+import {replayFood} from '../experiments/tangible-campaign/integration/food-small-session-checks.ts';
+const output=new URL('../results/food-small-sessions/',import.meta.url);mkdirSync(output,{recursive:true});
+const save=(name:string,v:unknown)=>writeFileSync(new URL(name+'.json',output),JSON.stringify(v,null,2));
+
+test('Food small sessions: new identity, all192 recipes, sole stock ownership and scoped lifecycle declarations',()=>{
+ assert.equal(s.id,'kitchen-caravan-small-sessions-v8');assert.notEqual(s.id,before.id);assert.equal(s.chapters.length,35);assert.equal(s.recipes.length,192);assert.deepEqual(s.items,before.items);assert.deepEqual(s.sources,before.sources);assert.deepEqual(s.milestones,before.milestones);
+ const old=toLegacyScenario(s);for(const e of[M.validateScenario(s),validateContentLifecycles([old]),validateObjectiveFlow([old]),validateConstructionContinuity([old]),validateLifecycleGraph([old])])assert.deepEqual(e,[]);
+ const normalize=(r:typeof s.recipes[number])=>({...r,a:r.a.startsWith('@')?'@'+(mapping.hotspotMap[r.a.slice(1)]??r.a.slice(1)):r.a,b:r.b.startsWith('@')?'@'+(mapping.hotspotMap[r.b.slice(1)]??r.b.slice(1)):r.b,at:r.at?mapping.hotspotMap[r.at]??r.at:undefined});
+ for(const r of s.recipes){const prior=before.recipes.find(p=>p.id===r.id)!;const changed=normalize(r);if(mapping.transforms[r.id]){const k=mapping.transforms[r.id];assert.equal(r.lifecycle![k].role,'transform');assert.equal(prior.lifecycle![k].role,'retain');changed.lifecycle={...changed.lifecycle,[k]:prior.lifecycle![k]};}assert.deepEqual(changed,{...prior,at:prior.at},r.id+' operands, results and other lifecycle rules unchanged');}
+ const sources=s.locationPlan!.locations.flatMap(l=>l.stockBatches.flatMap(b=>b.items));assert.equal(new Set(sources).size,sources.length);const primitive=s.items.filter(i=>!s.recipes.some(r=>r.out===i.id)).map(i=>i.id).sort();assert.deepEqual([...sources].sort(),primitive);
+ for(const c of s.chapters){assert(!c.caches?.length&&!c.hotspots?.length&&!c.carry?.length&&!c.sourceUpdate);assert.equal(c.onAlreadyComplete?.mode,'skip');}
+ for(const l of s.locationPlan!.locations)assert(l.hotspots.length<=2);
+ assert.throws(()=>M.restore(s,JSON.stringify(M.createGame(before))),/Invalid campaign save/);save('mapping',mapping);
+});
+
+const reports:ReturnType<typeof replayFood>[]=[];
+for(const [name,options]of Object.entries({canonical:{width:375,mode:'required' as const,verifyEach:true},alternate:{width:320,mode:'alternate' as const,drop:true,reverse:true,verifyEach:true},catalogue:{width:390,mode:'all' as const,verifyEach:true},reverse:{width:320,mode:'all' as const,drop:true,reverse:true,verifyEach:true},order7:{width:375,mode:'all' as const,seed:7},order29:{width:320,mode:'all' as const,seed:29}}))test(`Food ${name}: complete route, arrivals/peaks, earlier ownership, highlights, bounds, Undo and saves`,()=>{
+ const r=replayFood(options);reports.push(r);assert(Math.max(...r.rows.map(x=>x.arrival))<=9);assert(Math.max(...r.rows.map(x=>x.peak))<=11);assert(r.rows.filter(x=>x.peak<=10).length>=33);
+ const durable=decodeSave(encodeSave({game:toLegacyGame(r.game),seen:[],tops:{}}));assert.deepEqual(M.restore(s,JSON.stringify(durable.game)),r.game);
+ const {game,...evidence}=r;save(name,{...evidence,completed:game.state.completed,evidenceLevel:'Current-engine source-aware logical route; not native touch or independent enjoyment evidence.'});
+});
+
+test('Food checkpoints remain exact, restorable canonical prefixes and every supported recipe has a complete-route witness',()=>{
+ for(const cp of s.checkpoints!){const g=M.checkpoint(s,cp.id,375);assert.deepEqual(M.restore(s,JSON.stringify(g)),g);if(cp.id==='complete')assert(g.state.completed);else assert.equal(s.chapters[g.state.chapter].id,cp.id);}
+ const used=new Set(reports.flatMap(r=>r.used));assert.equal(used.size,s.recipes.length,'All alternatives exercised across complete routes');
+ assert(reports.some(r=>r.retirements.some(x=>x.recipe==='bread'&&x.retired.includes('leavened-dough'))));assert(reports.some(r=>r.retirements.some(x=>x.recipe==='herb-labneh'&&x.retainedTransformedInput==='strained-yogurt')),'Keep strained yogurt for later pasta filling');
+ assert(reports.every(r=>r.game.state.tokens.some(t=>t.kind==='fruit-porridge'&&t.location==='KS-hearth')),'Unneeded breakfast remains tangible at its original panel');
+});
+
+test('Food early herb-butter preparation changes carry, not ownership or chapter cleanup',()=>{
+ const cp=s.checkpoints!.find(c=>c.id==='spread')!,route=s.checkpoints!.find(c=>c.id==='complete')!.actions;let g=M.checkpoint(s,'spread',375);const butter=M.token(g.state,'butter')!;assert.equal(butter.location,'KS-bread');
+ const step=(a:typeof route[number])=>{const before=g,r=M.applyAction(s,g,a);assert(r.accepted,r.message);g=r.game;assert.deepEqual(M.undo(g).game.state.tokens,before.state.tokens);};
+ step({type:'relocate',item:'butter',location:g.state.currentLocation,x:330,y:700});step({type:'combine',a:'butter',b:'herbs'});let witness:unknown;
+ for(const a of route.slice(cp.actions.length)){
+  if(a.type==='combine'&&[a.a,a.b].sort().join('|')==='butter|herbs')continue;
+  step(a);
+  if(a.type==='advance'&&s.chapters[g.state.chapter].id==='orchard-lunch'){assert.equal(M.token(g.state,'herb-butter')!.location,'KS-orchard-lunch');assert.equal(M.token(g.state,'butter')!.location,'KS-spread');assert.equal(M.token(g.state,'herbs')!.location,'KS-spread');witness={arrival:g.state.arrival,items:g.state.tokens.filter(t=>t.location===g.state.currentLocation)};}
+ }
+ assert(g.state.completed);assert(witness);save('early-herb-butter',{completed:true,witness,limit:'Deliberate relocation from an already visited panel, not an automatic new grant.'});
+});
+
+test('Food service hatch needs all four actual courses and leaves the trolley station-side',()=>{
+ const start=M.checkpoint(s,'trolley',320),foods=['bean-supper','vanilla-sandwich','juice','processed-stew-tin'];
+ for(let mask=0;mask<16;mask++){let g=structuredClone(start);for(let i=0;i<foods.length;i++)if(mask&(1<<i)){const r=M.applyAction(s,g,{type:'combine',a:foods[i],b:'supper-trolley'});assert(r.accepted);g=r.game;}
+  const r=M.applyAction(s,g,{type:'place',item:'supper-trolley',hotspot:'dining-car-trolley'});assert(r.accepted);g=r.game;assert.equal(M.chapterComplete(s,g.state),mask===15);assert.equal(M.token(g.state,'supper-trolley')!.location,'KS-trolley');assert.deepEqual(M.restore(s,JSON.stringify(g)),g);
+ }
+ assert.match(s.hotspots.find(h=>h.id==='dining-car-trolley')!.description!,/trolley stays on the station side/);
+});

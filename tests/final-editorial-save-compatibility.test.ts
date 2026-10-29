@@ -1,0 +1,29 @@
+import {readSiteSourceForRootTests,writeRootTestOutput} from '../scripts/site-source-test-context.ts';
+const writeFileSync=writeRootTestOutput;
+import test from 'node:test';import assert from 'node:assert/strict';import {mkdirSync,writeFileSync as originalWriteFileSync} from 'node:fs';
+import {divinity,light,copy} from '../experiments/tangible-campaign/ui/stories/current-ux-content.ts';import {scenarios as previous} from '../experiments/tangible-campaign/ui/pre-waterworks-scenarios.ts';import {acceptedTestRoute} from '../experiments/tangible-campaign/integration/accepted-current-test-routes.ts';import {toLegacyScenario,fromLegacyAction,toLegacyGame} from '../experiments/tangible-campaign/compatibility/v1.ts';import {encodeSave,decodeSave} from '../experiments/tangible-campaign/ui/save-codec.ts';import * as M from '../experiments/tangible-campaign/engine/campaign.ts';import type {Scenario} from '../experiments/tangible-campaign/schema/campaign.ts';
+import {reviewedPlayerTextChanges} from '../experiments/tangible-campaign/ui/stories/reviewed-player-text.ts';
+const out=new URL('../results/final-editorial-compatibility/',import.meta.url);mkdirSync(out,{recursive:true});
+function mechanics(world:Scenario){const s=structuredClone(world) as any;
+ // Only the hash-bound review's exact metadata deltas are normalized; saved facts remain compared.
+ for(const change of reviewedPlayerTextChanges.filter(c=>c.world===s.id&&(c.field==='label'||c.field==='premise'||c.field==='sourceUpdate.presentationText'))){
+  const owner=change.collection==='root'?s:change.collection==='objectives'?s.chapters.flatMap((c:any)=>c.objectives).find((o:any)=>o.id===change.owner):s[change.collection]?.find((o:any)=>o.id===change.owner);
+  const keys=change.field.split('.'),last=keys.pop()!,target=keys.reduce((v:any,k)=>v[k],owner),value=target[last]??null;
+  assert(value===change.before||value===change.after,`${s.id}/${change.owner}/${change.field}: exact accepted metadata only`);
+  if(change.witnessField)assert.equal(change.witnessField.split('.').reduce((v:any,k)=>v[k],owner),change.witnessText);
+  if(change.before===null)delete target[last];else target[last]=change.before;
+ }
+ delete s.milestones;delete s.locationPlan.entryLayout;
+ for(const i of s.items){delete i.description;delete i.labelByLocation;if(i.id==='trinity-bounded')i.label='[exact authorized shorter Trinity caption]';if(i.reading)delete i.reading.text;}
+ const loc=(l:any)=>{delete l.label;delete l.travelText;if(l.background)delete l.background.sceneBrief;delete l.timeLabel;for(const b of l.stockBatches??[])delete b.narrative;};
+ for(const c of s.chapters){delete c.motivation;delete c.completionText;loc(c.location);if(c.entryCue){delete c.entryCue.text;delete c.entryCue.contextHeading;}if(c.travel?.entryCue){delete c.travel.entryCue.text;delete c.travel.entryCue.contextHeading;}for(const o of c.objectives)delete o.text;if(c.onAlreadyComplete)delete c.onAlreadyComplete.text;}
+ for(const l of s.locationPlan.locations)loc(l);return s;
+}
+for(const after of [divinity,light,copy])test(`${after.id}: final registered editorial instance preserves graph, predicates and every old save while footprints never grow`,()=>{
+ const before=previous.find(s=>s.id===after.id)!;assert(before);assert.deepEqual(mechanics(after),mechanics(before));assert.deepEqual(after.recipes,before.recipes);assert.deepEqual(after.checkpoints,before.checkpoints);const sizes=[];
+ for(const i of before.items){const next=after.items.find(n=>n.id===i.id)!;if(i.id==='trinity-bounded'){assert.equal(i.label,'Trinity: one God, real distinctions—explained here, not proved');assert.equal(next.label,'Trinity: one God as Father, Son and Holy Spirit');}else {const c=reviewedPlayerTextChanges.find(c=>c.world===after.id&&c.collection==='items'&&c.owner===i.id&&c.field==='label');if(c){assert.equal(i.label,c.before);assert.equal(next.label,c.after);}else assert.equal(next.label,i.label,i.id);}const t={id:i.id,kind:i.id,x:100,y:100,location:before.chapters[0].location.id,hotspot:null,slots:{},incorporated:[]};const oldHeight=M.tokenHeight(before,t),newHeight=M.tokenHeight(after,t);assert(newHeight<=oldHeight,i.id);sizes.push({id:i.id,oldHeight,newHeight});}
+ for(const old of before.milestones??[]){const next=after.milestones!.find(m=>m.id===old.id)!;const predicate=({title,text,presentation,...x}:any)=>x;assert.deepEqual(predicate(next),predicate(old));}
+ const actions=acceptedTestRoute(toLegacyScenario(before)).actions.map(fromLegacyAction);let g=M.createGame(before,375),saved=0;const check=(old:M.Game)=>{for(const payload of [JSON.stringify(old),JSON.stringify(toLegacyGame(old)),JSON.stringify(decodeSave(encodeSave({game:toLegacyGame(old),seen:[],tops:{}})).game)]){assert.deepEqual(M.restore(after,payload),old,'exact old coordinates, history/events/earned achievements and progress');saved++;}};
+ check(g);for(const a of actions){const r=M.applyAction(before,g,a);assert(r.accepted,r.message);g=r.game;if(a.type==='advance')check(g);}assert(g.state.completed);check(g);for(const c of before.checkpoints??[])check(M.checkpoint(before,c.id,375));
+ writeFileSync(new URL(after.id+'.json',out),JSON.stringify({id:after.id,registeredIdentityRetained:true,exactGraphStockCarryGoalAndCheckpointPredicates:true,oldSaveDecodes:saved,nonGrowingFootprints:sizes,limits:'Fresh-entry centering and exact approved non-growing captions may change new-run presentation geometry; no false fresh-state byte equality is claimed. Every old save restores exactly without reflow.'},null,2)+'\n');
+});

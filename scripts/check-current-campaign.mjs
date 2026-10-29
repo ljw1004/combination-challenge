@@ -36,7 +36,7 @@ const {locationSuccessorScenarios}=await import('../experiments/tangible-campaig
 const used=[...new Set(locationSuccessorScenarios.flatMap(s=>s.locationPlan.locations.map(l=>l.background.asset)))].sort();
 assert.deepEqual(used,manifest.runtimeAssets.map(a=>a.runtimeUrl).sort(),'actual scenario artwork closure changed');
 for(const asset of manifest.runtimeAssets){assert.equal(asset.path,'public'+asset.runtimeUrl);assert(manifest.files[asset.path]);assert.equal(sha(read(asset.path)),asset.sha256,'active artwork drift: '+asset.path);}
-assert.equal(used.length,108);
+assert.equal(used.length,109);
 const archived=verifySourceArchive().report;assert.equal(archived.sourceSealSha256,manifest.sourceSealSha256);
 const predecessor=verifySourceArchive({archive:'predecessor'}).report;assert.equal(predecessor.sourceSealSha256,manifest.predecessorSourceArchive.sourceSealSha256);
 const intermediate=verifySourceArchive({archive:'intermediate'}).report;assert.equal(intermediate.sourceSealSha256,manifest.intermediateSourceArchive.sourceSealSha256);

@@ -1,6 +1,7 @@
 import {readSiteSourceForRootTests,writeRootTestOutput} from '../scripts/site-source-test-context.ts';
 const readFileSync=readSiteSourceForRootTests;
 const writeFileSync=writeRootTestOutput;
+import {expectedCurrentScenario} from '../experiments/tangible-campaign/ui/current-scenarios.ts';
 import {expectedSourceHashAfterMarsCreature} from '../experiments/tangible-campaign/integration/mars-creature-source-guard.ts';
 import {scenarios as preserved53} from '../experiments/tangible-campaign/ui/pre-authenticity-scenarios.ts';
 import test from 'node:test';import assert from 'node:assert/strict';import {readFileSync as originalReadFileSync,mkdirSync,writeFileSync as originalWriteFileSync} from 'node:fs';import {createHash} from 'node:crypto';
@@ -30,7 +31,7 @@ const resultDir=new URL('../results/authenticity-repairs-candidate/',import.meta
 test('exact source-successor ancestry preserves all53 prior identities while only final reviewed editions register',()=>{
  const manifest=JSON.parse(readFileSync(new URL('experiments/tangible-campaign/reviews/authenticity-release-20261029/dacaaa-source-manifest.json',root),'utf8'));assert.equal(createHash('sha256').update(readFileSync(new URL('experiments/tangible-campaign/reviews/authenticity-release-20261029/dacaaa-source-manifest.json',root))).digest('hex'),'dacaaa3832d19900f790a9cd5e571bf790a2cf435e2f32f1bb259861008c80b9');
  for(const [p,row] of Object.entries<any>(manifest.files))assert.equal(createHash('sha256').update(readFileSync(new URL(p,root))).digest('hex'),expectedSourceHashAfterMarsCreature(p,row.sha256),p);
- assert.equal(scenarios.length,57);assert.equal(preserved53.length,53);for(const old of preserved53)assert.equal(scenarios.find(s=>s.id===old.id),old);for(const s of authenticitySuccessors)assert.equal(scenarios.some(x=>x.id===s.id),s.id!=='elements-material-repairs-v5');
+ assert.equal(scenarios.length,61);assert.equal(preserved53.length,53);for(const old of preserved53)assert.equal(scenarios.find(s=>s.id===old.id),expectedCurrentScenario(old));for(const s of authenticitySuccessors)assert.equal(scenarios.some(x=>x.id===s.id),s.id!=='elements-material-repairs-v5');
  assert.equal(expectedSourceHashAfterAuthenticityRepairs('untouched.ts','a'.repeat(64)),'a'.repeat(64));
 });
 test('three candidates have explicit legal lifecycle, goal flow, construction and graph declarations',()=>{

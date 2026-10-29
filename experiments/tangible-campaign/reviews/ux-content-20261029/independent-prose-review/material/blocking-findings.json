@@ -1,0 +1,86 @@
+{
+  "inventorySha256": "a10ed94640236c80a81997d1c988b3993bd13ef364e916075f7a626f31fe7da6",
+  "status": "Final assigned-family review findings",
+  "findings": [
+    {
+      "findingId": "M1",
+      "severity": "BLOCKING",
+      "family": "kitchen-caravan-small-sessions-v8",
+      "owner": "kitchen-caravan-small-sessions-v8",
+      "surface": "chooser",
+      "field": "premise",
+      "currentText": "Travel with a kitchen caravan from a roadside breakfast through an orchard, a rainy market and the railway kitchens. Keep cooking in each kitchen while its people need you, then take your useful preparations onward. The journey ends by sending a real supper aboard the departing train. This fictional collection is not a chronology of invention; time, proportions and safe handling are compressed, not taught. A staffed pantry cart and managed cold storage keep saved ingredients and preparations under the cooks\u2019 care between stops; some of the breakfast juice is reserved for the journey.",
+      "suggestedReplacement": "Travel with a kitchen caravan from a roadside breakfast through an orchard, a rainy market and the railway kitchens. Keep cooking in each kitchen while its people need you, then take your useful preparations onward. The journey ends by sending a real supper aboard the departing train. A staffed pantry cart and managed cold storage keep saved ingredients and preparations under the cooks\u2019 care between stops; some of the breakfast juice is reserved for the journey.",
+      "reason": "Remove the meta-author chronology/compression defense; retain the concrete pantry/cold-storage explanation.",
+      "allExactTextOccurrences": [
+        {
+          "rowIndexZeroBased": 3641,
+          "world": "kitchen-caravan-small-sessions-v8",
+          "surface": "chooser",
+          "owner": "kitchen-caravan-small-sessions-v8",
+          "field": "premise"
+        }
+      ]
+    },
+    {
+      "findingId": "M2",
+      "severity": "BLOCKING",
+      "family": "kitchen-caravan-small-sessions-v8",
+      "owner": "jam",
+      "surface": "reader-body",
+      "field": "reading.text ?? description",
+      "currentText": "The cook heats the fruit into a soft-set jam for immediate use; no shelf-life is claimed.",
+      "suggestedReplacement": "The cook heats the fruit into a soft-set jam to serve now.",
+      "reason": "\u201cNo shelf-life is claimed\u201d is an author-defense tail. Retain immediate-use information as a concrete fact.",
+      "allExactTextOccurrences": [
+        {
+          "rowIndexZeroBased": 3847,
+          "world": "kitchen-caravan-small-sessions-v8",
+          "surface": "reader-body",
+          "owner": "jam",
+          "field": "reading.text ?? description"
+        }
+      ]
+    },
+    {
+      "findingId": "M3a",
+      "severity": "BLOCKING",
+      "family": "copy-workroom-locations-v2",
+      "owner": "press",
+      "surface": "fixed-place label",
+      "field": "label",
+      "currentText": "Shop press \u2014 reflected RIVER matrix",
+      "suggestedReplacement": "Shop press \u2014 reversed RIVER design",
+      "reason": "Unexplained specialist \u201cmatrix\u201d is unnecessary here.",
+      "allExactTextOccurrences": [
+        {
+          "rowIndexZeroBased": 4297,
+          "world": "copy-workroom-locations-v2",
+          "surface": "fixed-place label",
+          "owner": "press",
+          "field": "label"
+        }
+      ]
+    },
+    {
+      "findingId": "M3b",
+      "severity": "BLOCKING",
+      "family": "copy-workroom-locations-v2",
+      "owner": "sample",
+      "surface": "completion/ending",
+      "field": "completionText",
+      "currentText": "The impression reads RIVER \u2192. You take that same thin master sheet to the workroom; the shop keeps its original working matrix.",
+      "suggestedReplacement": "The impression reads RIVER \u2192. You take that same thin master sheet to the workroom; the shop keeps its original printing surface.",
+      "reason": "Same unexplained \u201cmatrix\u201d jargon also remains on the completion surface.",
+      "allExactTextOccurrences": [
+        {
+          "rowIndexZeroBased": 4303,
+          "world": "copy-workroom-locations-v2",
+          "surface": "completion/ending",
+          "owner": "sample",
+          "field": "completionText"
+        }
+      ]
+    }
+  ]
+}

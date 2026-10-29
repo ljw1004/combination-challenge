@@ -1,0 +1,179 @@
+{
+  "schemaVersion": "verified-location-artwork/1",
+  "status": "VERIFIED_PIXELS",
+  "verification": {
+    "method": "Direct visual inspection of generated PNG and separately of the final WebP using view_image; authored observations, not automatic prompt paraphrase.",
+    "inspectedAtUTC": "2026-10-29T12:53:26Z",
+    "inspector": "replace_incorrect_scene_art",
+    "scope": "Visible depicted setting, geometry, objects, state and approximate regions; not engineering certification or integrated UI acceptance."
+  },
+  "coordinateSystem": {
+    "origin": "top-left",
+    "range": [
+      0,
+      1
+    ],
+    "regionShape": "x,y,width,height",
+    "precision": "approximate visual bounds; not exact hotspot anchors"
+  },
+  "cacheRule": "These observations are valid only while the exact final asset SHA-256 matches. Any byte change invalidates this VERIFIED record and requires renewed pixel inspection. The prompt describes intention and cannot substitute for verified observations.",
+  "generation": {
+    "method": "built-in image_gen.imagegen",
+    "strategy": "one new image in one tool call per asset; no reference image or user screenshot",
+    "transparentBackground": false,
+    "assetPreparation": "Copy generated PNG; ordinary format conversion only using Pillow WebP quality=92, method=6; no crop, compositing, repainting or Python image editing."
+  },
+  "panel": {
+    "width": 390,
+    "height": 844,
+    "fit": "cover",
+    "position": "50% 50%",
+    "integratedUIQA": "not performed in this isolated asset task"
+  },
+  "asset": {
+    "path": "assets/M02-entrance-v1.webp",
+    "sha256": "4d3df5aabc9213395b664c3aa508d0459a2ede52df2d99c967990a819b49f712",
+    "bytes": 524962,
+    "width": 853,
+    "height": 1844,
+    "mode": "RGB"
+  },
+  "sourceImage": {
+    "path": "assets/M02-entrance-v1.png",
+    "sha256": "3acfcac696eac79ec262257f447705a1703ac331000fe664a26a7f0264846c5a",
+    "bytes": 2973416,
+    "width": 853,
+    "height": 1844,
+    "mode": "RGB"
+  },
+  "intendedPrompt": {
+    "path": "prompts/M02-entrance-v1.txt",
+    "sha256": "638ccd64d2b695716313fde9db49cee5280f77b6d78d3d9c4ed0e9510ab59687",
+    "bytes": 3300
+  },
+  "sourceRelation": {
+    "sourceSeal": "7629a2 (parent-provided)",
+    "sourceLocationId": "M02",
+    "sourceLocationLabel": "Surviving habitat",
+    "sourceChapter": "habitat",
+    "successorLocationId": "M02-entrance",
+    "successorLocationLabel": "Habitat entrance",
+    "sourceArtBefore": {
+      "path": "originals/M02-before-correction.webp",
+      "sha256": "4bc56daa7132ec0a84bdd0b6a323ab81d2d7f70fe620706418b173026978cdfe",
+      "bytes": 67630,
+      "width": 853,
+      "height": 1844,
+      "mode": "RGB"
+    },
+    "confirmedMismatch": "Original M02 is an enclosed empty cabin while current work also includes outdoor ice, mast and outer vestibule. An exterior-only replacement would wrongly move seedlings outdoors.",
+    "approvedBriefSource": "Mars scene author message 2026-10-29T12:50:49Z: genuine exterior/interior split, existing fixed sealed melt station, damaged entrance, intact mast.",
+    "proposedRuntimeAsset": "/assets/locations/M02-entrance.webp",
+    "integrationRule": "Use only for new exterior M02-entrance. Keep original M02.webp byte-identical for separate warm inner Habitat cabin/seedlings chapter. Do not merely replace M02.webp or use artwork as substitute for source graph split."
+  },
+  "depicted": {
+    "setting": "Outdoor entrance apron of a small pressure habitat on rocky Mars terrain",
+    "indoorOutdoor": "outdoor/exterior surface",
+    "scale": "Close building entrance, hatch and damaged vestibule are human-scale; foreground rocks and adjoining fixed ice/melt station are near the camera; distant canyon ridges beyond.",
+    "viewpoint": "Outside, slightly raised three-quarter view toward the habitat front and right side; inner closed hatch is visible through ripped outer vestibule.",
+    "state": "Intact curved pressure cabin, closed inner hatch, visibly torn outer vestibule with large open gaps and exposed frame; no completed repair.",
+    "colorAndLight": "Vivid rust-orange ground and ochre sky in low warm sunlight; off-white cabin, dark rocky shadows, cool blue-white exposed ice; not bleached."
+  },
+  "features": [
+    {
+      "name": "Open sky, low sun and distant layered ridges",
+      "region": {
+        "x": 0,
+        "y": 0,
+        "width": 1,
+        "height": 0.43
+      },
+      "visibility": "Large ochre sky in upper fifth, bright sun at upper left, canyon ridges below; mast crosses sky on right."
+    },
+    {
+      "name": "Intact curved habitat pressure shell",
+      "region": {
+        "x": 0.49,
+        "y": 0.36,
+        "width": 0.51,
+        "height": 0.285
+      },
+      "visibility": "Close off-white domed/ribbed shell on right, cropped at right frame, round side porthole visible; no indoor room shown."
+    },
+    {
+      "name": "Damaged outer vestibule and support frame",
+      "region": {
+        "x": 0.385,
+        "y": 0.43,
+        "width": 0.535,
+        "height": 0.26
+      },
+      "visibility": "Torn ragged fabric hangs around metal frame on both sides, large open gap on right and open front; visibly not a sealed repaired vestibule."
+    },
+    {
+      "name": "Closed inner hatch and short gridded threshold",
+      "region": {
+        "x": 0.49,
+        "y": 0.46,
+        "width": 0.29,
+        "height": 0.19
+      },
+      "visibility": "Inner cream hatch with round small window visible behind torn fabric; narrow metal threshold/ramp leads out to red terrain. It is not a broad indoor floor."
+    },
+    {
+      "name": "Sheltered exposed ice lens",
+      "region": {
+        "x": 0,
+        "y": 0.5,
+        "width": 0.265,
+        "height": 0.135
+      },
+      "visibility": "Blue-white faceted exposed ice at left under dark rock overhang; clear at foreground edge, some portions occluded by rock and connected pipe."
+    },
+    {
+      "name": "Fixed connected sealed melt unit",
+      "region": {
+        "x": 0.14,
+        "y": 0.565,
+        "width": 0.25,
+        "height": 0.09
+      },
+      "visibility": "Squat silver cylindrical vessel with closed lid on base/feet, connected by short dark pipe toward ice; near left side of entry. It reads as installed utility apparatus rather than loose stock."
+    },
+    {
+      "name": "Tall fixed signal mast",
+      "region": {
+        "x": 0.81,
+        "y": 0.055,
+        "width": 0.14,
+        "height": 0.315
+      },
+      "visibility": "Long mast fixed at habitat top; thin antenna and rectangular fixture near upper portion. No obvious portable radio or bright signal beacon."
+    },
+    {
+      "name": "Rocky entrance apron and foreground",
+      "region": {
+        "x": 0,
+        "y": 0.66,
+        "width": 1,
+        "height": 0.34
+      },
+      "visibility": "Continuous open rust-red terrain with coarse rocks, gravel and a clear route to the threshold; no furnishings or loose supply inventory."
+    }
+  ],
+  "explicitNegatives": [
+    "No people or astronauts.",
+    "No seedlings, vegetation, soup, table, bed, water cans, rover or loose crates.",
+    "No finished sealed replacement vestibule, repaired blanket, completed tie-down assembly or freestanding repaired pressure tent.",
+    "No interior room or broad continuous indoor floor.",
+    "No legible text, UI, title, labels, logos or border.",
+    "No obvious portable player radio or lit beacon painted onto mast."
+  ],
+  "unresolvedAmbiguities": [
+    "The mast includes a small fixed rectangular fixture. Pixels alone do not establish its internal function; do not identify it as the player-crafted powered radio/beacon.",
+    "The connected vessel is visibly a closed fixed unit, but its internal melt mechanism is not visible or engineering-validated.",
+    "Static artwork depicts initial damage. A later repaired-state art swap was not authorized or generated in this bounded correction.",
+    "Final UI crop, item occlusion and hotspot-feature alignment remain to be checked by parent; approximate regions are not a hotspot redesign."
+  ],
+  "disposition": "Accepted for genuine new outdoor entrance panel only; original cabin remains for indoor filtering/planting."
+}

@@ -1,3 +1,4 @@
+import {expectedCurrentScenario} from '../experiments/tangible-campaign/ui/current-scenarios.ts';
 import {expectedSourceHashAfterJourneyCleanup} from '../experiments/tangible-campaign/integration/journey-cleanup-source-guard.ts';
 import test from 'node:test';
 import assert from 'node:assert/strict';
@@ -30,7 +31,7 @@ const finish=(g:M.Game,actions:Action[])=>{for(const a of actions)g=step(s,g,a);
 test('all 2,365 baseline entries retain exact snapshots or explicit successors; all56 original identities and registered v8 survive',()=>{
  const p='experiments/tangible-campaign/research/elements-journey-cleanup-v2-20261029/predecessor-source-manifest.json';const bytes=readFileSync(new URL(p,root));assert.equal(createHash('sha256').update(bytes).digest('hex'),'90106433ef62b5d0ed3af21a6b7da6333534ea70d9b41db60ce8bd5c6c77e6f3');
  const m=JSON.parse(bytes.toString());assert.equal(Object.keys(m.files).length,2365);assert.equal(createHash('sha256').update(readFileSync(new URL(p,root))).digest('hex'),'90106433ef62b5d0ed3af21a6b7da6333534ea70d9b41db60ce8bd5c6c77e6f3');for(const[path,row]of Object.entries<any>(m.files))assert.equal(createHash('sha256').update(readFileSync(new URL(path,root))).digest('hex'),expectedSourceHashAfterJourneyCleanup(path,row.sha256),path);
- assert.equal(scenarios.length,57);assert.equal(scenarios.find(x=>x.id===s.id),s);assert(scenarios.some(x=>x.id===before.id));assert.equal(before.id,'elements-material-repairs-v6');assert(before.recipes.some(r=>r.id==='crossing-map'));assert(before.recipes.some(r=>r.id==='tool-chest'));assert.throws(()=>M.restore(s,JSON.stringify(M.createGame(before))),/Invalid campaign save/);
+ assert.equal(scenarios.length,61);assert.equal(scenarios.find(x=>x.id===s.id),expectedCurrentScenario(s));assert(scenarios.some(x=>x.id===before.id));assert.equal(before.id,'elements-material-repairs-v6');assert(before.recipes.some(r=>r.id==='crossing-map'));assert(before.recipes.some(r=>r.id==='tool-chest'));assert.throws(()=>M.restore(s,JSON.stringify(M.createGame(before))),/Invalid campaign save/);
 });
 
 test('only the bounded six wrappers disappear; all useful outcomes, stock, locations and lifecycle rules survive',()=>{

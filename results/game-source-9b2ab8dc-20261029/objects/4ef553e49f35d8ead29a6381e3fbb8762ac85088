@@ -1,0 +1,48 @@
+import {expectedCurrentScenario} from '../experiments/tangible-campaign/ui/current-scenarios.ts';
+import test from 'node:test';import assert from 'node:assert/strict';import {readFileSync,mkdirSync,writeFileSync} from 'node:fs';import {createHash} from 'node:crypto';
+import {scenarios,cadenceSuccessorScenarios} from '../experiments/tangible-campaign/ui/current-scenarios.ts';
+import {scenarios as previous} from '../experiments/tangible-campaign/ui/pre-cadence-scenarios.ts';
+import {scenario as atlas} from '../experiments/tangible-campaign/ui/stories/atlas-civilization-locations.ts';
+import {scenario as reviewed} from '../experiments/tangible-campaign/ui/stories/atlas-civilization-reviewed.ts';
+import {scenario as original} from '../experiments/tangible-campaign/ui/stories/atlas-civilization.ts';
+import {acceptedTestRoute} from '../experiments/tangible-campaign/integration/accepted-current-test-routes.ts';
+import {lifecycleAudit} from '../experiments/tangible-campaign/integration/current-lifecycle-audit.ts';
+import {toLegacyScenario} from '../experiments/tangible-campaign/compatibility/v1.ts';
+import * as M from '../experiments/tangible-campaign/engine/campaign.ts';
+import type {Action} from '../experiments/tangible-campaign/schema/campaign.ts';
+const root=new URL('../',import.meta.url),read=(p:string)=>JSON.parse(readFileSync(new URL(p,root),'utf8')),sha=(v:unknown)=>createHash('sha256').update(JSON.stringify(v)).digest('hex');
+test('all 48 published route inputs and provenance remain byte-for-byte semantically exact',()=>{
+ const prior=read('experiments/tangible-campaign/reviews/wider-cadence-integration-20261029/published-all48-route-evidence.json');assert.equal(prior.reports.length,48);assert.equal(previous.length,48);assert.equal(scenarios.length,61);
+ for(const s of previous){const old=prior.reports.find((r:any)=>r.scenarioId===s.id);assert(old,s.id);const route=acceptedTestRoute(toLegacyScenario(s));assert.equal(sha(route.actions),old.actionsSha256,s.id);assert.deepEqual(route.source,old.source,s.id+' route provenance');assert.equal(scenarios.find(x=>x.id===s.id),expectedCurrentScenario(s));}
+ assert.equal(cadenceSuccessorScenarios.length,5);
+});
+test('final Atlas is only a distinct presentation identity plus four bound civic backgrounds',()=>{
+ const expected=structuredClone(reviewed);expected.id=atlas.id;expected.title=atlas.title;expected.notes!.push(atlas.notes!.at(-1)!);
+ const ids=['atlas-civilization-civic-rule','atlas-civilization-law-status','atlas-civilization-consent-rule','atlas-civilization-freedom-empire'];
+ for(const id of ids){const loc=expected.locationPlan!.locations.find(l=>l.id===id)!;assert.equal(loc.background.asset,undefined);loc.background.asset='/assets/locations/'+id+'.webp';}
+ assert.deepEqual(atlas,expected);assert.equal(atlas.chapters.length,34);assert.equal(atlas.recipes.length,283);assert.equal(atlas.locationPlan!.locations.length,34);
+ assert(!scenarios.some(s=>[original.id,reviewed.id,'atlas-reading-scenes-v3'].includes(s.id)));assert.deepEqual(M.validateScenario(atlas),[]);
+});
+test('reviewed source fixes remain narrow and retain both legitimate rights comparisons',()=>{
+ for(const key of ['chapters','locationPlan','checkpoints','milestones','initialItems','hotspots'] as const)assert.deepEqual(reviewed[key],original[key],key);
+ assert.equal(reviewed.items.length,original.items.length);assert.equal(reviewed.recipes.length,original.recipes.length);
+ for(const r of reviewed.recipes){const before=original.recipes.find(x=>x.id===r.id)!;const {sources:s1,...a}=r,{sources:s2,...b}=before;assert.deepEqual(a,b);}
+ for(const i of reviewed.items)assert.equal(i.label,original.items.find(x=>x.id===i.id)!.label);
+ const rights=reviewed.items.find(i=>i.id==='universal-rights')!;assert.match(rights.reading!.text,/shared humanity or political consent/);assert(rights.sources!.includes('civ-locke'));assert.match(rights.reading!.attribution,/John Locke/);assert.equal(reviewed.recipes.filter(r=>r.out==='universal-rights').length,2);
+});
+test('all five final successors have exact explicit lifecycle-ledger coverage without changing old declarations',()=>{
+ for(const s of cadenceSuccessorScenarios)for(const r of s.recipes){const rows=lifecycleAudit.recipes.filter((row:any)=>row.world===s.id&&row.recipe===r.id);assert.equal(rows.length,1,s.id+':'+r.id);assert.deepEqual(rows[0].lifecycles??rows[0].lifecycle??rows[0].decisions,r.lifecycle);}
+});
+for(const mode of ['canonical','reverse'])test(`final Atlas ${mode}: complete 34-desk atomic-drop route, local inputs, fixed bounds, durable entries`,()=>{
+ const route=read('experiments/tangible-campaign/research/atlas-civilization-reviewed-20261029/'+mode+'-route.json').actions as Action[];let g=M.createGame(atlas,375);const entered=new Set([g.state.chapter]);const density:any[]=[];
+ const note=()=>{const local=g.state.tokens.filter(t=>t.location===g.state.storyLocation);density.push({chapter:atlas.chapters[g.state.chapter].id,entry:local.length,peak:local.length});};note();
+ for(const [i,a]of route.entries()){
+  const before=g;const action=a.type==='combine'?{type:'drop' as const,item:a.a,target:a.b}:a;
+  if(a.type==='combine')for(const id of [a.a,a.b]){if(!id.startsWith('@'))assert.equal(M.token(g.state,id)!.location,g.state.currentLocation,`${mode} ${i} ${id}`);}
+  const r=M.applyAction(atlas,g,action);assert(r.accepted,`${mode} ${i}: ${r.message}`);g=r.game;
+  for(const t of g.state.tokens){assert(t.x>=48&&t.x<=g.state.width-48,t.id+' x bounds');assert(t.y-M.tokenHeight(atlas,t)/2>=0&&t.y+M.tokenHeight(atlas,t)/2<=844,t.id+' y bounds');}
+  if(g.state.chapter!==before.state.chapter){assert.deepEqual(M.restore(atlas,JSON.stringify(g)).state,g.state);const {metrics:m1,...s1}=M.undo(g).game.state,{metrics:m2,...s2}=before.state;assert.deepEqual(s1,s2);entered.add(g.state.chapter);note();}
+  else density.at(-1).peak=Math.max(density.at(-1).peak,g.state.tokens.filter(t=>t.location===g.state.storyLocation).length);
+ }
+ assert(g.state.completed);assert.equal(entered.size,34);assert.deepEqual(M.restore(atlas,JSON.stringify(g)).state,g.state);const out=new URL('../results/wider-cadence-integration-20261029/',import.meta.url);mkdirSync(out,{recursive:true});writeFileSync(new URL('final-atlas-'+mode+'.json',out),JSON.stringify({scenarioId:atlas.id,mode,completed:true,actions:route.length,entered:entered.size,density,limits:'Logical engine and atomic-drop API checks, not browser/native or human comprehension.'},null,2)+'\n');
+});

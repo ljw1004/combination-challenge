@@ -1,0 +1,180 @@
+[
+  {
+    "id": "D1",
+    "severity": "BLOCKING against requested voice/self-containment criteria",
+    "reviewUnit": "C1127",
+    "text": "The archivist has sent one newly found custody record for this invented fragment case.",
+    "occurrences": [
+      {
+        "row": 4736,
+        "world": "divinity-final-reading-scenes-v7",
+        "surface": "source-update arrival fact",
+        "owner": "prayer-panel-fragment",
+        "field": "sourceUpdate.arrivalFact"
+      }
+    ],
+    "problem": "Explicit author-defense leak on a rendered arrival/bridge field. “invented fragment case” describes the author’s construction, not what the archivist sent. “custody record” also hides a simple meaning.",
+    "minimalSuggestedReplacement": "The archivist has sent a newly found record of who kept the bone."
+  },
+  {
+    "id": "D2",
+    "severity": "BLOCKING against requested voice/self-containment criteria",
+    "reviewUnit": "C0870",
+    "text": "Aquinas: “grace does not destroy nature, but perfects it” — gloss: God’s help develops human powers rather than erasing them",
+    "occurrences": [
+      {
+        "row": 4464,
+        "world": "divinity-final-reading-scenes-v7",
+        "surface": "tile/reader-caption",
+        "owner": "nature-perfected-line",
+        "field": "label"
+      }
+    ],
+    "problem": "The caption contains the scholarly apparatus marker “— gloss:”. The actual quotation can remain exactly as written; its plain explanation already exists in the reader body.",
+    "minimalSuggestedReplacement": "Aquinas: “grace does not destroy nature, but perfects it”"
+  },
+  {
+    "id": "D3",
+    "severity": "BLOCKING against requested voice/self-containment criteria",
+    "reviewUnit": "C0857",
+    "text": "Hands and a book show that the rite uses physical objects. They do not establish whether its community believed in one good creator or opposed sources. The Lyon ritual and the Book of Two Principles must not be merged into one universal Cathar doctrine.",
+    "occurrences": [
+      {
+        "row": 4451,
+        "world": "divinity-final-reading-scenes-v7",
+        "surface": "reader-body",
+        "owner": "ritual-not-cosmology",
+        "field": "reading.text ?? description"
+      },
+      {
+        "row": 4769,
+        "world": "divinity-final-reading-scenes-v7",
+        "surface": "wonder body",
+        "owner": "plain-divinity-ritual-not-cosmology",
+        "field": "text"
+      }
+    ],
+    "problem": "The explanatory wonder never identifies what the rite does before referring to it, and introduces “Cathar doctrine” without explanation. Its final sentence gives an instruction about combining sources rather than explaining the actual distinction. A reader who skipped primitives needs the ceremony and the separate claims named here.",
+    "minimalSuggestedReplacement": "In the Lyon ritual, ministers lay hands and a Gospel book on a believer while promising forgiveness and God’s Spirit. Using physical objects does not tell us whether this community believed in one good creator or opposed sources of good and evil. The Book of Two Principles argues for opposed sources; the ritual does not state that account."
+  },
+  {
+    "id": "D4",
+    "severity": "BLOCKING against requested voice/self-containment criteria",
+    "reviewUnit": "C0879",
+    "text": "For Aquinas, baptism washes the body while God works through the rite to give inward grace. The water is God's instrument, not a second god. This depends on his further belief that God appointed baptism; ordinary water is not automatically a sacrament.",
+    "occurrences": [
+      {
+        "row": 4473,
+        "world": "divinity-final-reading-scenes-v7",
+        "surface": "reader-body",
+        "owner": "instrumental-baptism",
+        "field": "reading.text ?? description"
+      },
+      {
+        "row": 4773,
+        "world": "divinity-final-reading-scenes-v7",
+        "surface": "wonder body",
+        "owner": "plain-divinity-instrumental-baptism",
+        "field": "text"
+      }
+    ],
+    "problem": "The standalone wonder relies on “inward grace” and “sacrament” being explained elsewhere. Its key claim should define the gift in the paragraph, not require opening the primitive.",
+    "minimalSuggestedReplacement": "For Aquinas, baptism washes the body while God works through the water to give grace: a new life within the soul. The water is a tool, not a second god. This depends on his belief that God chose baptism to give that gift."
+  },
+  {
+    "id": "D5",
+    "severity": "BLOCKING against requested voice/self-containment criteria",
+    "reviewUnit": "C0899",
+    "text": "Tasting the bread cannot prove the change Aquinas describes, because he says its taste remains. His account rests on faith in divine authority, not on a hidden change detected by the senses.",
+    "occurrences": [
+      {
+        "row": 4493,
+        "world": "divinity-final-reading-scenes-v7",
+        "surface": "reader-body",
+        "owner": "not-sensory-proof",
+        "field": "reading.text ?? description"
+      },
+      {
+        "row": 4779,
+        "world": "divinity-final-reading-scenes-v7",
+        "surface": "wonder body",
+        "owner": "plain-divinity-not-sensory-proof",
+        "field": "text"
+      }
+    ],
+    "problem": "The standalone wonder says “the change Aquinas describes” without saying what the change is. Neither its caption nor the paragraph supplies the missing claim.",
+    "minimalSuggestedReplacement": "Aquinas says the bread becomes Christ’s body while its taste remains. Tasting it therefore cannot prove the change he claims. His account rests on faith in divine authority, not a change detected by the senses."
+  },
+  {
+    "id": "D6",
+    "severity": "BLOCKING against requested voice/self-containment criteria",
+    "reviewUnit": "C0919",
+    "text": "A person can serve God without controlling God's gifts. Comparing Luther's limits on church authority with Aquinas's dependent instrument clarifies that distinction without making their doctrines identical.",
+    "occurrences": [
+      {
+        "row": 4513,
+        "world": "divinity-final-reading-scenes-v7",
+        "surface": "reader-body",
+        "owner": "ministry-not-sale",
+        "field": "reading.text ?? description"
+      },
+      {
+        "row": 4785,
+        "world": "divinity-final-reading-scenes-v7",
+        "surface": "wonder body",
+        "owner": "plain-divinity-ministry-not-sale",
+        "field": "text"
+      }
+    ],
+    "problem": "The wonder depends on an unexplained “Aquinas’s dependent instrument” reference and unspecified limits on church authority. The paragraph needs the actual comparison, rather than saying that making a comparison clarifies it.",
+    "minimalSuggestedReplacement": "Luther says church ministers can announce God’s forgiveness but cannot make God forgive for money. Aquinas says baptism’s water acts through God’s power, not its own. Both distinguish serving God from independently controlling God’s gifts, although they address different practices."
+  },
+  {
+    "id": "D7",
+    "severity": "BLOCKING against requested voice/self-containment criteria",
+    "reviewUnit": "C1014",
+    "text": "God’s working through baptism shows a possible role for created means; water is not a person being asked for prayer. That example does not authorize addressing departed saints.\n\nCalvin affirms Christ’s unique, continuing work of bringing people before God. He says asking departed saints lacks biblical permission and obscures that work. He is objecting to the practice, not doubting Christ’s role.",
+    "occurrences": [
+      {
+        "row": 4609,
+        "world": "divinity-final-reading-scenes-v7",
+        "surface": "reader-body",
+        "owner": "agency-not-permission",
+        "field": "reading.text ?? description"
+      },
+      {
+        "row": 4811,
+        "world": "divinity-final-reading-scenes-v7",
+        "surface": "wonder body",
+        "owner": "plain-divinity-agency-not-permission",
+        "field": "text"
+      }
+    ],
+    "problem": "The opening presents God’s working through baptism as an unqualified fact rather than Aquinas’s account, and uses the unexplained term “created means”. This obscures which tradition is claiming what.",
+    "minimalSuggestedReplacement": "Aquinas says God can work through baptism’s water. But water is not a person being asked to pray, so this example does not decide whether people should address saints who have died. Calvin rejects those requests: he says they lack biblical permission and obscure Christ’s unique work of bringing people before God."
+  },
+  {
+    "id": "D8",
+    "severity": "BLOCKING against requested voice/self-containment criteria",
+    "reviewUnit": "C0917",
+    "text": "Luther gives household necessities and help for poor neighbours priority over buying an indulgence. With one coin and no supper, the household should buy food first.",
+    "occurrences": [
+      {
+        "row": 4511,
+        "world": "divinity-final-reading-scenes-v7",
+        "surface": "reader-body",
+        "owner": "feed-before-letter",
+        "field": "reading.text ?? description"
+      },
+      {
+        "row": 4783,
+        "world": "divinity-final-reading-scenes-v7",
+        "surface": "wonder body",
+        "owner": "plain-divinity-feed-before-letter",
+        "field": "text"
+      }
+    ],
+    "problem": "The wonder’s central contrast depends on “indulgence” without explaining it; a player who did not read the primitive cannot know what the other proposed purchase is.",
+    "minimalSuggestedReplacement": "Luther says a household with one coin and no supper should buy food before an indulgence letter—a grant of relief from penalties for sins already forgiven. Feeding the family and helping poor neighbours come first."
+  }
+]

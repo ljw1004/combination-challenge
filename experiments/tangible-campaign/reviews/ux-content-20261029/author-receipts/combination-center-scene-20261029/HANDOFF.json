@@ -1,0 +1,46 @@
+{
+  "status": "ready-for-parent-integration",
+  "baselineSource": "/workspace/shared/combination-journey-cleanup-integration-20261029/source",
+  "baselineSeal": "7629a2f122270c3b08a19a24e6251ae63f2f0178639b7576258b15ae003a4395",
+  "source": "/workspace/shared/combination-center-scene-20261029/source",
+  "overlay": "/workspace/shared/combination-center-scene-20261029/overlay",
+  "patch": "/workspace/shared/combination-center-scene-20261029/scene-entry.patch",
+  "manifest": "/workspace/shared/combination-center-scene-20261029/MANIFEST.json",
+  "files": [
+    "experiments/tangible-campaign/engine/campaign.ts",
+    "experiments/tangible-campaign/engine/scene-entry-layout.ts",
+    "experiments/tangible-campaign/schema/campaign.ts",
+    "experiments/tangible-campaign/schema/location-plan.ts",
+    "tests/scene-entry-weighted.test.ts",
+    "docs/scene-entry-weighted-layout.md"
+  ],
+  "checks": [
+    {
+      "command": "node --test tests/scene-entry-weighted.test.ts tests/location-story-model.test.ts tests/grouped-arrival-independent.test.ts",
+      "passed": true,
+      "tests": 41,
+      "log": "/workspace/shared/combination-center-scene-20261029/focused-tests.log"
+    },
+    {
+      "command": "./node_modules/.bin/tsc --noEmit",
+      "passed": true,
+      "log": "/workspace/shared/combination-center-scene-20261029/typecheck.log"
+    }
+  ],
+  "additionalEvidence": {
+    "kind": "temporary current-story opt-in clones at logical width375, not final successor validation",
+    "path": "/workspace/shared/combination-center-scene-20261029/provisional-route-smoke.json",
+    "results": "Mars, Elements, Kitchen, Divinity complete; no arrival clipping; safe dense centroid clamps and already possible carried partial overlaps remain in old Kitchen/Divinity."
+  },
+  "limitations": [
+    "Logical geometry only; no browser/native-touch or human visual judgment.",
+    "Parent owns final content/build/full aggregate and final authored successors.",
+    "No story opt-ins, registry, controller, CSS, artwork, publication or GitHub changes.",
+    "Future artwork-anchored hotspots must constrain placement, not reuse provisional lower-band translation."
+  ],
+  "mergeNotes": [
+    "ChapterEntryCue.contextHeading is mirrored from UI worker solely for compilation; merge once. LocationPlan.entryLayout is this worker change.",
+    "UI worker requested contextHeading nonempty-string validation in location-plan.ts; included and tested.",
+    "Parent owns DESIGN_PRINCIPLES.md merge; standalone implementation note included."
+  ]
+}
