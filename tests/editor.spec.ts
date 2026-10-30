@@ -342,7 +342,9 @@ test('diagnostics keep source order and scroll while their related locations nav
 
   const mixed = entries.filter({hasText: 'Frame has mixed fates'});
   await expect(mixed).toContainText('preserve (1), consume (1), transform (1)');
-  await expect(mixed).toHaveText(/^\d+: \[mixed-fates\] Frame has mixed fates: preserve \(1\), consume \(1\), transform \(1\)$/);
+  await expect(mixed).toContainText('Frame has mixed fates: preserve (1), consume (1), transform (1)');
+  await expect(mixed).toContainText('visibility and placement hints');
+  await expect(mixed).toContainText('can be intentional');
   const group = page.locator('.editor-diagnostic-entry').filter({hasText: 'Frame has mixed fates'});
   await mixed.click();
   await expect(mixed).toHaveAttribute('aria-pressed', 'true');

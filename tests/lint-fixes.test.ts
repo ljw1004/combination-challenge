@@ -93,4 +93,9 @@ test('slot-imposed fates constrain fixes without rewriting construction semantic
   const bothRoles = text + '\n**Items**\n- Carrier (compound)\n  - slot: Frame, accepts Frame';
   const conflicting = warning(bothRoles, 'Frame');
   assert(conflicting.fixes!.every(fix => fix.disabledReason?.includes('preserve and consume') && fix.edits.length === 0));
+  for (const fix of conflicting.fixes!) {
+    assert.match(fix.disabledReason!, /while retaining that structure/);
+    assert.match(fix.disabledReason!, /lifecycle roles can be intentional/);
+    assert.doesNotMatch(fix.disabledReason!, /Change the slot declarations/);
+  }
 });

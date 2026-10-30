@@ -16,7 +16,7 @@ This document owns implementation boundaries, technical constraints and testing 
 
 Token statuses record visibility and incorporation, while `State.excluded` records permanent exclusive choices. Hidden tokens remain in state. Keep chapter progression, goal latching, slot installation and input hiding in the shared engine so browser and logical play agree.
 
-Assess candidate hidden inputs jointly at the combination event. Do not independently approve two removals that together block progress, or retroactively hide retained inputs on unrelated actions or reload. Include unfinished intermediate goals in continuation checks. These are implementation obligations for the specification's protection rules.
+Assess candidate hidden inputs jointly at the combination event. Do not independently approve two removals that together block progress, or retroactively hide retained inputs on unrelated actions or reload. Include every unfinished goal in each `next:` chain in continuation checks, even if the chain's final goal has already been achieved. Use the same complete-chain predicate for chapter completion and skipping; sequential display never waives a predecessor. These are implementation obligations for the specification's protection rules.
 
 The analysis enumerates unresolved exclusive pairs, then computes reachable constructions with the chosen branch and chronological hotspot availability. It has an explicit limit of 12 unresolved exclusive pairs rather than silently claiming exhaustive analysis after truncation. This is an implementation of the specified retention model, not an independent formal proof of its invariant.
 

@@ -1,6 +1,6 @@
 import type { Story, Recipe, Ref, Goal, Condition } from '../story/types.ts';
 import type { State, Token, Action } from './types.ts';
-import { activeHotspots, chainEnds, chapterNeeds, continuationPossible, indexStory } from './analysis.ts';
+import { activeHotspots, goalChains, chapterGoalsSatisfied, chapterNeeds, continuationPossible, indexStory } from './analysis.ts';
 export type { State, Token, Action } from './types.ts';
 
 export function label(story: Story, state: State, id: string): string {
@@ -16,16 +16,12 @@ function latch(story: Story, state: State) {
 }
 export function chapterComplete(story: Story, state: State, chapter = state.chapter): boolean {
   const c = story.chapters[chapter]; if (!c) return true;
-  const ends = chainEnds(c.goals); return !ends.length || (c.goalOperator === 'and' ? ends.every(g => state.achieved.includes(g.id)) : ends.some(g => state.achieved.includes(g.id)));
+  return chapterGoalsSatisfied(c, g => state.achieved.includes(g.id));
 }
 export function visibleGoals(story: Story, state: State): Goal[] {
   const goals = story.chapters[state.chapter]?.goals ?? [], visible: Goal[] = [];
-  for (let start = 0; start < goals.length;) {
-    let end = start; while (goals[end + 1]?.next) end++;
-    if (!state.achieved.includes(goals[end].id)) {
-      const first = goals.slice(start, end + 1).find(g => !state.achieved.includes(g.id)); if (first) visible.push(first);
-    }
-    start = end + 1;
+  for (const chain of goalChains(goals)) {
+    const first = chain.find(g => !state.achieved.includes(g.id)); if (first) visible.push(first);
   }
   return visible;
 }

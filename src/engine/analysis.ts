@@ -1,4 +1,4 @@
-import type { Story, Ref, Condition, Recipe, Goal } from '../story/types.ts';
+import type { Story, Ref, Condition, Recipe, Goal, Chapter } from '../story/types.ts';
 import type { State } from './types.ts';
 
 export interface Index { producers: Map<string, Recipe[]>; primitives: Set<string>; pairs: [string, string][] }
@@ -12,7 +12,16 @@ export function indexStory(story: Story): Index {
   for (const item of Object.values(story.items)) if (item.exclusiveWith && item.id < item.exclusiveWith) pairs.push([item.id, item.exclusiveWith]);
   index = { producers, primitives, pairs }; indices.set(story, index); return index;
 }
-export function chainEnds(goals: Goal[]): Goal[] { return goals.filter((_, i) => !goals[i + 1]?.next); }
+/** `next:` groups display stages; every stage remains a requirement. */
+export function goalChains(goals: Goal[]): Goal[][] {
+  const chains: Goal[][] = [];
+  for (const goal of goals) { if (!goal.next || !chains.length) chains.push([]); chains.at(-1)!.push(goal); }
+  return chains;
+}
+export function chapterGoalsSatisfied(chapter: Chapter, satisfied: (goal: Goal) => boolean): boolean {
+  const chains = goalChains(chapter.goals), complete = (chain: Goal[]) => chain.every(satisfied);
+  return !chains.length || (chapter.goalOperator === 'and' ? chains.every(complete) : chains.some(complete));
+}
 export function activeHotspots(story: Story, chapter: number): string[] {
   const c = story.chapters[chapter]; return !c ? [] : c.image || !chapter ? c.hotspots : activeHotspots(story, chapter - 1);
 }
@@ -45,8 +54,8 @@ export function continuationPossible(story: Story, state: State, removed: Set<st
     for (const primitive of index.primitives) if (!denied.has(primitive) && !state.tokens[primitive]) available.set(primitive, new Set());
     const hotspots = new Set(state.visited.flatMap(i => activeHotspots(story, i)));
     for (let chapter = state.chapter; chapter < story.chapters.length; chapter++) {
-      const current = story.chapters[chapter], ends = chainEnds(current.goals);
-      if (chapter > state.chapter && ends.length && (current.goalOperator === 'and' ? ends.every(g=>state.achieved.includes(g.id)) : ends.some(g=>state.achieved.includes(g.id)))) continue;
+      const current = story.chapters[chapter];
+      if (chapter > state.chapter && current.goals.length && chapterGoalsSatisfied(current, g => state.achieved.includes(g.id))) continue;
       activeHotspots(story, chapter).forEach(h => hotspots.add(h));
       let changed = true;
       while (changed) {
@@ -59,11 +68,9 @@ export function continuationPossible(story: Story, state: State, removed: Set<st
           for (const slot of r.result.slots) if (!slots.has(slot)) { slots.add(slot); changed = true; }
         }
       }
-      const c = story.chapters[chapter], chains: Goal[][] = [];
-      for (const goal of c.goals) { if (!goal.next || !chains.length) chains.push([]); chains.at(-1)!.push(goal); }
+      const c = story.chapters[chapter];
       const checkGoal = (g: Goal) => state.achieved.includes(g.id) || goalPossible(g, available, hotspots);
-      const checkChain = (goals: Goal[]) => state.achieved.includes(goals.at(-1)!.id) || goals.every(checkGoal);
-      if (chains.length && !(c.goalOperator === 'and' ? chains.every(checkChain) : chains.some(checkChain))) return false;
+      if (!chapterGoalsSatisfied(c, checkGoal)) return false;
       // Excluded optional alternatives do not become mandatory through an Items listing.
       if ((chapter > state.chapter || includeCurrentItems) && c.items.some(r => {
         const token = state.tokens[r.id];

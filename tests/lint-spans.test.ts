@@ -44,6 +44,8 @@ test('mixed fates explain every use, including defaults and implicit slot behavi
   const diagnostics = lintStory(parseStory(markdown, {file: 'fixture/story.md'}), {analysis: false});
   const part = diagnostics.find(d => d.code === 'mixed-fates' && d.message.startsWith('Part '))!;
   assert.match(part.message, /preserve \(2\), consume \(2\), transform \(1\)/);
+  assert.match(part.message, /visibility and placement hints/);
+  assert.match(part.message, /can be intentional/);
   assert.deepEqual(part.related!.map(location => location.message), [
     'preserve (default): Part + Tool → First result',
     'preserve (explicit): Part + Tool → Second result',
@@ -69,6 +71,9 @@ test('many visible goals point at their first Goals heading with original CRLF o
   const markdown = '# 🪴 Garden\r\n## Workshop\r\n![room](room.webp)\r\n\r\n**Goals**\r\n- First -- A\r\n- Second -- B\r\n**Goals**\r\n- Third -- C';
   const story = parseStory(markdown);
   const diagnostic = lintStory(story, {analysis: false}).find(d => d.code === 'many-visible-goals')!;
+  assert.match(diagnostic.message, /3 goal chains/);
+  assert.match(diagnostic.message, /next: for sequential disclosure/);
+  assert.match(diagnostic.message, /all goals remain required/);
   assert.equal(diagnostic.source.line, 5);
   assert.equal(diagnostic.span.from, markdown.indexOf('**Goals**'));
   assert.equal(markdown.slice(diagnostic.span.from, diagnostic.span.to), '**Goals**');

@@ -1,5 +1,6 @@
 import type { Story, Goal } from '../story/types.ts';
 import type { State, Action } from '../engine/types.ts';
+import { goalChains } from '../engine/analysis.ts';
 import { act, newGame, restore } from '../engine/game.ts';
 
 /** Browser-only arrival snapshot: geometry is not part of the logical replay. */
@@ -46,11 +47,9 @@ export function chapterRecovery(session: ChapterSession, state: State): 'chapter
 /** Show one stage per goal chain, retaining finished chains as checked rows. */
 export function displayedGoals(story: Story, state: State): {goal:Goal;done:boolean}[] {
   const goals=story.chapters[state.chapter]?.goals??[],rows:{goal:Goal;done:boolean}[]=[];
-  for(let start=0;start<goals.length;){
-    let end=start;while(goals[end+1]?.next)end++;
-    const done=state.achieved.includes(goals[end].id);
-    rows.push({goal:done?goals[end]:goals.slice(start,end+1).find(g=>!state.achieved.includes(g.id))!,done});
-    start=end+1;
+  for(const chain of goalChains(goals)){
+    const unfinished=chain.find(g=>!state.achieved.includes(g.id));
+    rows.push({goal:unfinished??chain.at(-1)!,done:!unfinished});
   }
   return rows;
 }

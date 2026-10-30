@@ -50,7 +50,7 @@ export function lintStory(story: Story, options: {analysis?: boolean} = {}): Dia
       const fixes: DiagnosticFix[] = (['preserve', 'transform', 'consume'] as const).filter(fate => fates.includes(fate)).map(fate => {
         const label = `always ${fate}`;
         if ([...fixed].some(value => value !== fate)) return {
-          label, edits: [], disabledReason: `Slot installation fixes ${story.items[id].name} to ${[...fixed].join(' and ')}. Change the slot declarations to use ${fate} everywhere.`,
+          label, edits: [], disabledReason: `The current slot structure requires ${story.items[id].name}'s implicit fates to include ${[...fixed].join(' and ')}. No uniform ${fate} edit is available while retaining that structure; different lifecycle roles can be intentional.`,
         };
         const changed = sites?.filter(site => site.fate !== fate);
         if (!sites?.length || changed?.some(site => !site.edit)) return {
@@ -62,7 +62,7 @@ export function lintStory(story: Story, options: {analysis?: boolean} = {}): Dia
         };
         return {label, edits};
       });
-      warning('mixed-fates',`${story.items[id].name} has mixed fates: ${counts.join(', ')}`,list[0].source,list.map(use=>use.location),fixes,story.items[id].name);
+      warning('mixed-fates',`${story.items[id].name} has mixed fates: ${counts.join(', ')}. Review these visibility and placement hints; different roles can be intentional.`,list[0].source,list.map(use=>use.location),fixes,story.items[id].name);
     }
   }
   const declaredHotspots = new Set(story.chapters.flatMap(c=>c.hotspots));
@@ -76,7 +76,8 @@ export function lintStory(story: Story, options: {analysis?: boolean} = {}): Dia
     if (!i && !c.image) error('missing-opening-image','The opening chapter needs a background image.',c.source);
     const earlier = new Set(story.chapters.slice(0,i).flatMap(c=>c.items.map(r=>r.id)));
     if (i && !c.image && c.items.some(r=>index.primitives.has(r.id) && !earlier.has(r.id))) warning('new-primitives-without-image',`${c.name} introduces primitive items without a new setting image.`,c.source);
-    if (c.goals.filter(g=>!g.next).length>2) warning('many-visible-goals',`${c.name} starts with more than two goal chains; consider next: for manageable presentation.`,c.goalsSource ?? c.goals[0]?.source ?? c.source);
+    const goalChains=c.goals.filter(g=>!g.next).length;
+    if (goalChains>2) warning('many-visible-goals',`${c.name} starts with ${goalChains} goal chains (more than two). Review their presentation; consider next: for sequential disclosure when it makes the goals easier to follow; all goals remain required.`,c.goalsSource ?? c.goals[0]?.source ?? c.source);
     for (const ref of c.items) checkRef(ref,c.source);
     for (const [a,b] of index.pairs) if (c.items.some(r=>r.id===a)&&c.items.some(r=>r.id===b)) error('exclusive-needs',`${c.name} lists both mutually exclusive items ${story.items[a].name} and ${story.items[b].name}.`,c.source);
     for (const goal of c.goals) for (const cond of goal.conditions) {
