@@ -1,0 +1,42 @@
+{
+  "engineManuscriptFrozenSeparately": true,
+  "wrapperIsNotPartOfEngineRuntimeHash": true,
+  "retainedInterfaceFiles": [
+    {
+      "file": "player-v1-before-modal-parity.mjs",
+      "sha256": "369d510d888963f0c4750d7c1a9e89651d66a4ff2c85b0c87318bfe41cf17cf3"
+    },
+    {
+      "file": "player.mjs",
+      "sha256": "be5950f33b3696a57dc45c79fd367950700dcbf096d083673ecceeb4406951d5"
+    },
+    {
+      "file": "player-actions.mjs",
+      "sha256": "abacffafa991b1e6bde2494bdaa7456a29f208a3002f83080f92c4bf28593e8d"
+    },
+    {
+      "file": "PLAYER-CONTRACT.txt",
+      "sha256": "e324a6661413245fb6043058a61484b774257218b9749e4119fca959c90ec56d"
+    }
+  ],
+  "epochs": [
+    {
+      "version": 1,
+      "description": "Original wrapper allowed item actions behind reading cards; affected sequences documented and retained."
+    },
+    {
+      "version": 2,
+      "description": "Modal guard introduced; subsequently JSON-only errors and per-session single-writer lock. Exact intermediate wrapper bytes were not separately frozen; actual game observations and rejected wrapper actions retained."
+    },
+    {
+      "version": 3,
+      "description": "Complete documented action schemas and place alias; ordinary finite-coordinate move, no outcome hint. All later role cohorts received stable neutral contract."
+    }
+  ],
+  "limits": [
+    "Not a byte-identical interface across all sessions. Engine/story hashes do not certify wrapper version.",
+    "Global partners and all-history items differ from current-panel browser presentation.",
+    "Replacement participants and surviving cohorts can have different prior interface experience.",
+    "Technical waits/schema errors are excluded from game pacing conclusions."
+  ]
+}

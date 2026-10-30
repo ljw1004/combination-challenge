@@ -46,6 +46,12 @@ Review mixed-fate warnings in context. Keeping a tool visible after using it and
 
 Use a named compound and slots when independently fitted parts should remain legible. Use a transformation when a genuine change of identity should wrap up those internal details. Existing parts satisfy their owner's slot requirements; they do not imply independently usable outside tools. Use exclusivity to express meaningful alternative histories, with consequences the player can understand before choosing.
 
+## Review warnings against played behavior
+
+Goal-count and mixed-fate warnings are invitations to inspect the player experience, not a target of zero warnings. Use `next:` when sequential disclosure helps; every stage still remains required. Independent goals may be clearer when shown together.
+
+Fate annotations are visibility/placement hints, and future-use protection can retain an input despite a hiding hint. Compare what a player actually sees across earlier and later uses before normalizing annotations. A consistent authored fate can still produce different visible behavior; preserving an old object beside its upgraded replacement can also blur identity. Keep tool reuse, material incorporation and genuine state changes legible. Test a concrete alternative and retain negative results rather than equating fewer warnings with more fun.
+
 ## Write wonders and attribution
 
 Explain a useful distinction or what the result makes possible, and why it matters. Do not write operating instructions, an upcoming recipe list, an unearned capability claim or cryptic teasing prose. The [UX guide](ux.md) owns how these cards are presented.

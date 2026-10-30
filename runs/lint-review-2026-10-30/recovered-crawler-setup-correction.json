@@ -1,0 +1,52 @@
+{
+  "retainedNonTargetSessions": [
+    "scene-720340d1c2",
+    "scene-885d2c5941"
+  ],
+  "created": [
+    {
+      "id": "mars-06-role-baseline-towed-branch",
+      "case": "mars-06",
+      "item": "Recovered crawler",
+      "story": "mars",
+      "condition": "role-baseline",
+      "sessions": [
+        "scene-3391629723",
+        "scene-eced65cd10"
+      ],
+      "setupCorrection": "Explicit legal towing branch; flagged target available, unlike old repaired-Crawler checkpoints"
+    },
+    {
+      "id": "mars-06-role-preserve-candidate-towed-branch",
+      "case": "mars-06",
+      "item": "Recovered crawler",
+      "story": "mars",
+      "condition": "role-preserve-candidate",
+      "sessions": [
+        "scene-5b52071510",
+        "scene-457793a14b"
+      ],
+      "setupCorrection": "Explicit legal towing branch; flagged target available, unlike old repaired-Crawler checkpoints"
+    }
+  ],
+  "legalTowingActions": [
+    {
+      "type": "dismiss"
+    },
+    {
+      "type": "combine",
+      "a": "name:Recovery rope",
+      "b": "name:Tow eye"
+    },
+    {
+      "type": "combine",
+      "a": "name:Tow line",
+      "b": "name:Rover"
+    },
+    {
+      "type": "combine",
+      "a": "name:Rover",
+      "b": "name:Disabled crawler"
+    }
+  ]
+}

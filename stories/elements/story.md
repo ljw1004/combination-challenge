@@ -484,7 +484,7 @@ We need to invite our neighbours to the meal and music. Back at the landing, pre
 - Carving tool + Planks [transform] -> Printing block
 - Printing block [transform] + Ink -> Inked printing block
 - Inked printing block [preserve] + Paper [transform] -> Printed invitations
-- Paper [transform] + Ink [consume] -> Letter
+- Paper [transform] + Ink -> Letter
 - Letter [consume] + Sailboat [transform] -> Mailboat
 - Printed invitations [preserve] + Sailboat [transform] -> Mailboat
 
@@ -586,7 +586,7 @@ On another orchard morning, visitors want to identify the plants. Make illustrat
 - Plant + Paper [transform] -> Pressed plant specimen
 - Pressed plant specimen [consume] + Bound book [transform] -> Herbarium
 - Lens + Plant -> Leaf study
-- Leaf study [consume] + Ink [consume] -> Botanical drawing
+- Leaf study [consume] + Ink -> Botanical drawing
 - Botanical drawing [consume] + Herbarium [transform] -> Illustrated flora
 - Plant + Bound book [transform] -> Herbarium
 
