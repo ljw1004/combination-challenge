@@ -23,12 +23,21 @@ This document owns player interaction and visual presentation. Preserve the old 
   - If no chapter reset is available and this is not the first chapter, offer **Restart story** instead. Never show both recovery actions together. Both are visually subordinate to Close: quiet text-style buttons without peer-sized boxes, retaining accessible names, focus treatment and usable touch targets.
   - Restarting the story requires a separate confirmation explaining that it discards this story's progress and returns to its beginning. Cancelling leaves the story unchanged. The final confirmation remains an explicit destructive decision, not a quiet recovery link.
 - Reading earlier chapters means scrolling upward to their existing panels. Ordinary play does not need a chapter selector or a within-game story menu.
-- The intended release model gives each story its own URL, with any directory of stories outside this game. This is a product direction, not a claim that separate story URLs have already been implemented.
+- Each story has its own URL, with the catalogue outside the game. Loading routes and deployment layout belong to the [README](../README.md#run-the-game).
 
 ## Debugging controls
 
 - The top-right control is solely a debugging aid: a subtly shaded insect/bug glyph, without a large button rectangle. Keep it keyboard accessible and give it an accessible name and a usable touch target even though its visible treatment is discreet.
 - Keep story switching, chapter checkpoints, recipes and provenance inside the debugging window. Story switching remains available there during development, not in the natural chapter flow. Mark synthesized checkpoints visibly and do not count them as fresh-play evidence.
+
+## Live editor
+
+- Editor opens from the debug menu as a resizable right-hand panel on desktop. Keep the game on the left and wrap Markdown within the available editor width. Closing the panel preserves its text, selection, scroll and undo history.
+- A red square pen at the game's top right identifies an edited draft and toggles the panel. Game items take precedence when they overlap it. A saved draft opens the panel automatically on desktop.
+- Game readings stay within the game area so their text can be edited while they are open. Updating a reading must not steal editor focus. Preserve connected game/image nodes, settled item positions and both panes' scroll positions during ordinary text updates.
+- Incomplete syntax still produces a usable preview. If the current chapter disappears, make the temporary fallback clear; restoring it recovers the earlier position until a deliberate game interaction establishes a new one.
+- Diagnostics have hoverable squiggles and a scrollable, clickable list below the editor. Prioritize the current line. Map existing diagnostics through text changes while analysis is pending instead of clearing them.
+- Show whether the buffer was saved. Keep Copy and Download available on errors. Closing the panel and deleting its saved draft are separate actions; deletion requires explicit confirmation. The [README](../README.md#edit-a-story-live) owns storage and recovery instructions.
 
 Implementation and browser-testing practices are in [engineering](engineering.md#browser-implementation).
 

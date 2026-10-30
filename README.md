@@ -13,6 +13,30 @@ npm run dev
 
 Open the local address printed by Vite. Drag things together; compatible partners are highlighted without revealing the future result. Goals sit at the bottom and become the next-chapter arrow when complete. Reopen the chapter text through its goals for the applicable recovery action; automatic chapter introductions have only **Begin**. The discreet bug icon opens development tools, including story switching and generated checkpoints. See [UX](docs/ux.md) for the interaction and recovery rules.
 
+The player fetches Markdown as an ordinary file. These routes work in development and the production build:
+
+| Player URL | Markdown fetched |
+|---|---|
+| `/combinations.html?story=mars` | `/mars/story.md` |
+| `/mars/combinations.html` | `/mars/story.md` |
+| `/combinations.html` | `/story.md` (supply this file to use this route) |
+
+Paths resolve relative to the player page, so the same layout works under a website subdirectory. A missing story displays an error. The `story` selector accepts a folder name, not an arbitrary URL. Relative artwork references resolve against the Markdown file's directory; absolute HTTP(S) image URLs also work. Markdown is rendered without executing embedded HTML or scripts.
+
+`npm run build` produces `dist/` with separate bundled JavaScript/CSS, ordinary story Markdown/artwork files, a catalogue, and a copy of `combinations.html` beside each story. Deploy the whole directory to a static web server. The HTML currently depends on the shared `assets/` bundles; it is not a standalone file. Editing a deployed `story.md` or its artwork does not require rebuilding JavaScript. The catalogue's titles/descriptions are generated at build time.
+
+## Edit a story live
+
+Open **bug icon → Editor**. On desktop, the resizable Markdown panel sits beside the game. Edits save immediately and update the current game view, including open readings, goals, rules and backgrounds. The red pen marks an edited story and toggles its editor; cached drafts reopen the editor automatically on desktop.
+
+Each draft shadows its original story URL in this browser. Closing the editor, restarting the game and reloading keep the draft. **Delete draft…** is a separate, confirmed action that reloads the original file. **Copy Markdown** and **Download** export the exact current buffer, including incomplete edits, for you to publish yourself. Nothing uploads automatically.
+
+Invalid Markdown still produces a best-effort preview. Temporarily deleting the current chapter can move that preview elsewhere; restoring the text returns to the previous game position until you interact with the game. Game actions, deliberate reading/dismissal and scrolling establish a new position. Editing alone does not commit these provisional changes.
+
+Fast diagnostics update shortly after typing; continuation and exclusivity analysis runs in one background worker. Squiggles have hover explanations. The scrollable diagnostics list prioritizes the current line; click an entry to select its text. Existing diagnostics follow insertions/deletions while updated analysis is pending.
+
+Drafts use browser local storage, keyed by the full Markdown URL. Two player routes resolving to the same URL share a draft; changing the website origin or story path creates a separate one. Other tabs' versions remain available under **Saved copies**, without replacing your open buffer. A failed save produces a visible warning and leaves the text available to copy/download. Browser data clearing, storage eviction and private browsing can remove local drafts; download a copy when you want a backup outside this browser.
+
 ## Story layout
 
 Each story owns its text and artwork:
@@ -22,13 +46,14 @@ stories/<slug>/story.md
 stories/<slug>/assets/...
 ```
 
-The folder identifies the story for loading and saves; it is not the player-facing title. Start with the [authoring guide](docs/story-authoring.md) when writing a story and consult the [specification](docs/story-format-spec.md) for syntax and semantics.
+The folder identifies the story for CLI tools; the browser uses its Markdown URL for drafts and saves. Neither is the player-facing title. Vite serves the contents of `stories/` at the site root. Start with the [authoring guide](docs/story-authoring.md) when writing a story and consult the [specification](docs/story-format-spec.md) for syntax and semantics.
 
 ## Tools
 
 | Tool | Command | Purpose |
 |---|---|---|
 | Browser game | `npm run dev` | Start the local Vite server. |
+| Live story editor | **bug icon → Editor** | Edit a durable local draft with live preview and diagnostics. |
 | Story linter | `npm run lint` | Check all stories against the specification; errors fail the command, warnings require author review. |
 | Type checker | `npm run check` | Check active TypeScript source. |
 | Default tests | `npm test` | Run semantic tests and Chromium interaction checks. |
@@ -48,7 +73,7 @@ npm run lint -- --json
 npm run checkpoint -- mars 3 /tmp/mars-chapter-4.json
 ```
 
-Lint details include source lines; JSON also includes related locations for contrasting rules. Checkpoints work through preceding goals and their dependencies, preferring preparations whose inputs already exist and avoiding unrelated combinations. Chapter indices are zero-based. These are legal developer witnesses, not fresh player experiences or a claim of globally shortest solutions.
+Lint details include source lines; JSON includes a UTF-16 text span (`from`, `to`, end-exclusive) for every diagnostic and related locations for contrasting rules. Checkpoints work through preceding goals and their dependencies, preferring preparations whose inputs already exist and avoiding unrelated combinations. Chapter indices are zero-based. These are legal developer witnesses, not fresh player experiences or a claim of globally shortest solutions.
 
 ## Logical playtesting
 

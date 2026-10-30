@@ -1,4 +1,5 @@
 import type { Story, Source, Ref, Item, Recipe, Ingredient, Fate, Chapter, Goal, Condition } from './types.ts';
+import {sourceMap} from './source-map.ts';
 
 interface Line { text: string; line: number }
 interface Bullet { text: string; line: number; indent: number; children: Bullet[]; prose: string[] }
@@ -41,9 +42,12 @@ function bullets(lines: Line[]): Bullet[] {
 }
 
 export function parseStory(markdown: string, options: { id?: string; file?: string } = {}): Story {
-  const file = options.file ?? 'story.md', source = (line: number): Source => ({ file, line });
+  const file = options.file ?? 'story.md', source = sourceMap(markdown, file).line;
   const story: Story = { id: options.id ?? 'story', title: '', description: '', chapters: [], items: {}, hotspots: {}, recipes: [], diagnostics: [], source: source(1) };
-  const error = (code: string, message: string, line: number) => story.diagnostics.push({ severity: 'error', code, message, source: source(line) });
+  const error = (code: string, message: string, line: number, fragment?: string) => {
+    const location = source(line, fragment);
+    story.diagnostics.push({ severity: 'error', code, message, source: location, span: location.span!, stage: 'fast' });
+  };
   const declared = new Map<string, string>(), recipes = new Map<string, Recipe>();
   const lines: Line[] = []; let note = false;
   markdown.replace(/\r\n?/g, '\n').split('\n').forEach((text, index) => {
@@ -66,7 +70,7 @@ export function parseStory(markdown: string, options: { id?: string; file?: stri
     const name = named ? unquote(named[2] ?? named[1]) : text;
     if (!text) error('empty-reference', 'Expected a named item or hotspot.', line);
     if (named?.[2]) {
-      if (declared.has(id) && declared.get(id) !== name) error('identifier-clash', `Identifier ${named[1]} was already declared as ${declared.get(id)}; the first declaration is used.`, line);
+      if (declared.has(id) && declared.get(id) !== name) error('identifier-clash', `Identifier ${named[1]} was already declared as ${declared.get(id)}; the first declaration is used.`, line, '`' + named[1] + '`');
       else declared.set(id, name);
     }
     if (kind === 'item') {
@@ -159,7 +163,7 @@ export function parseStory(markdown: string, options: { id?: string; file?: stri
     for (const node of bullets(sections.get('Goals') ?? [])) {
       const prefix = operator(node.text), parts = splitOutside(prefix.text, '--'); if (prefix.operator) goalOps.add(prefix.operator);
       const goal: Goal = { id: `${chapter.id}/goal:${chapter.goals.length}`, text: unquote(parts[0]), next: prefix.next, operator: 'or', conditions: [], source: source(node.line) };
-      if (goal.next && !chapter.goals.length) error('first-next', 'The first goal cannot use next:.', node.line);
+      if (goal.next && !chapter.goals.length) error('first-next', 'The first goal cannot use next:.', node.line, 'next:');
       if (parts[1] && node.children.length) error('mixed-goal-form', 'An inline goal condition cannot also have condition sub-bullets.', node.line);
       const conditions = parts[1] ? [{ text: parts.slice(1).join('--'), line: node.line, children: [] as Bullet[] }] : node.children;
       const ops = new Set<string>();

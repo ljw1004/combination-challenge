@@ -2,9 +2,9 @@ import type { Story, Diagnostic, Source, Ref, Fate } from '../story/types.ts';
 import { continuationPossible, indexStory, activeHotspots } from '../engine/analysis.ts';
 import { newGame } from '../engine/game.ts';
 
-export function lintStory(story: Story): Diagnostic[] {
+export function lintStory(story: Story, options: {analysis?: boolean} = {}): Diagnostic[] {
   const diagnostics = [...story.diagnostics];
-  const add = (severity: Diagnostic['severity'],code:string,message:string,source:Source,related?:Source[]) => diagnostics.push({severity,code,message,source,...(related?.length?{related}:{})});
+  const add = (severity: Diagnostic['severity'],code:string,message:string,source:Source,related?:Source[]) => diagnostics.push({severity,code,message,source,span:source.span??{from:0,to:0},stage:'fast',...(related?.length?{related}:{})});
   const error = (code:string,message:string,source:Source) => add('error',code,message,source);
   const warning = (code:string,message:string,source:Source,related?:Source[]) => add('warning',code,message,source,related);
   const index = indexStory(story), uses = new Map<string,{fate:Fate; explicit:boolean; source:Source}[]>();
@@ -58,9 +58,21 @@ export function lintStory(story: Story): Diagnostic[] {
       }
     }
   }
-  if (!diagnostics.some(d=>d.severity==='error')) {
-    try { if (!continuationPossible(story,newGame(story),new Set(),true)) error('no-continuation','There is no consistent exclusive branch that can satisfy the story requirements. Check cycles, goals and top-level needs.',story.source); }
-    catch(e) { error('analysis-limit',(e as Error).message,story.source); }
-  }
+  if (options.analysis !== false) diagnostics.push(...lintStoryAnalysis(story, diagnostics));
   return diagnostics;
+}
+
+/** Potentially expensive global reachability/exclusivity analysis. Run in the browser worker. */
+export function lintStoryAnalysis(story: Story, fastDiagnostics: readonly Diagnostic[] = lintStory(story, {analysis: false})): Diagnostic[] {
+  if (fastDiagnostics.some(diagnostic => diagnostic.severity === 'error')) return [];
+  const error = (code: string, message: string): Diagnostic[] => [{
+    severity: 'error', code, message, source: story.source,
+    span: story.source.span ?? {from: 0, to: 0}, stage: 'deep',
+  }];
+  try {
+    if (!continuationPossible(story, newGame(story), new Set(), true)) {
+      return error('no-continuation', 'There is no consistent exclusive branch that can satisfy the story requirements. Check cycles, goals and top-level needs.');
+    }
+  } catch (exception) { return error('analysis-limit', (exception as Error).message); }
+  return [];
 }

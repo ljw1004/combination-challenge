@@ -6,9 +6,9 @@ This document owns implementation boundaries, technical constraints and testing 
 
 - Use one parser/model and one deterministic game core for the browser, linter, checkpoint planner and logical runner. Do not copy transition logic into individual clients.
 - Story semantics stay in `src/engine/`; browser code owns geometry, pointer handling, dialogs and local storage.
-- Parsing preserves file/line provenance, declarations, qualifiers and explicit/default fate distinctions. Diagnostics cite source locations rather than only output IDs.
-- Node-only story discovery and file I/O live outside browser modules. Vite bundles each story's Markdown and referenced local images.
-- Saves are versioned action histories bound to a story fingerprint. Replay reconstructs logical state; browser positions are presentation metadata.
+- Parsing preserves file/line provenance, declarations, qualifiers and explicit/default fate distinctions. Every diagnostic has a UTF-16 text span into the original buffer, including CRLF offsets, as well as readable source locations.
+- Node-only story discovery and file I/O live outside browser modules. The browser fetches ordinary Markdown and artwork files; Vite bundles application code and generates catalogue metadata. See the [loading routes](../README.md#run-the-game).
+- Ordinary saves are versioned action histories bound to a story fingerprint. Replay reconstructs logical state; browser positions are presentation metadata. Edited previews need the separate snapshot boundary described below because changed rules cannot replay the old history faithfully.
 - Logical observations expose only normal player information. Keep developer recipes and checkpoint routes out of fresh-player observations; the [README protocol](../README.md#logical-playtesting) defines the runner's interface.
 - Apply the [archive policy](../archive/README.md) when consulting historical implementations.
 
@@ -31,6 +31,18 @@ Do not snapshot whole stories, pin incidental counts or rerun historical tests. 
 Implement the interaction contract in [UX](ux.md). Preserve connected image and scene DOM nodes rather than replacing the world after each move; do not rewrite unchanged image URLs. Suppress native HTML drag, own pointer timers and capture through completion, cancellation, focus loss and resize, and measure long labels as well as simple physical-item names. Test real pointer events, and distinguish browser touch emulation from a native-device test.
 
 Keep script/test source boundaries explicit so archived snapshots cannot accidentally enter the active build.
+
+## Live authoring boundary
+
+The core engine accepts a `Story`, a `State` and game actions. It has no editor, storage, worker or text-buffer dependencies. Authoring is a browser adapter around that interface:
+
+- `story-document.ts` resolves URLs and owns draft storage. `authoring.ts` coordinates the buffer, saved copies and explicit deletion. Raw input is written synchronously before parsing, linting or preview updates; neither game reset nor a parser failure can delete it. Independent tab records preserve concurrent copies, and failed writes retain an in-memory exportable buffer.
+- `editor.ts` owns the persistent CodeMirror view, mapped diagnostic decorations/list, selection and scroll. Gameplay rendering never replaces its subtree.
+- `live-story.ts` turns partial parsed models into playable previews and reconciles state between manuscripts. It matches chapters and item declarations, preserves surviving placements/constructions, reevaluates changed goals and supplies an empty chapter when necessary. It uses shared engine operations for game semantics.
+- `main.ts` keeps the last game-interaction anchor (source, state, chapter entry, reader and scroll position). Every edit projects from that anchor rather than committing the previous provisional preview. Restoring deleted text can therefore restore the corresponding position and constructions. A subsequent game interaction commits the displayed state. Edited snapshots are structurally checked on reload; Undo starts at the current edited baseline and does not replay obsolete rules.
+- `live-diagnostics.ts` runs deterministic checks after the short preview debounce and queues global analysis to `lint-worker.ts`. There is one worker and at most one newest pending buffer. Revisions invalidate old results immediately on input, before debouncing. Fast results replace fast diagnostics while retaining mapped deep diagnostics; complete results replace both. CodeMirror maps existing spans through each text transaction, so insertions/deletions do not clear the panel while work is pending.
+
+Draft persistence, diagnostics and preview state have separate failure paths. Keep saving the raw text even when interpretation fails. Browser partner hints report analysis limits without throwing out of pointer handlers. The CLI additionally checks local artwork files on disk; browser lint checks the text and logical model. Avoid accumulating editor-specific exceptions in the deterministic engine. The [README](../README.md#edit-a-story-live) owns user-facing editing and recovery instructions.
 
 ## Evidence integrity
 
