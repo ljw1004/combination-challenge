@@ -216,11 +216,18 @@ Prepare a glaze mixture suited to the clay, then coat and fire the jars before f
   - either: Cider jar
   - or: Cider bottle
 
+**Items**
+- Fired glazed jar
+
+  The clay jar has been coated, fired and left to cool. The glaze has melted into a glassy surface; the vessel is still pottery, ready to fill.
+
+  *Fired glazed jar*
+
 **Combinations**
 - Clay [transform] + Wheel -> Formed clay bowl
 - Fruit [transform] + Fire -> Jam
 - Clay [transform] + Formed clay bowl -> Clay jar
-- Wood [transform] + Clay jar -> Jar lid
+- Planks [transform] + Fired glazed jar -> Jar lid
 - Jam [consume] + Fired glazed jar [transform] -> Preserve jar
 - Preserve jar [transform] + Jar lid [consume] -> Covered preserves
 - Wild starter + Fruit juice [transform] -> Cider
