@@ -11,7 +11,7 @@ npm install
 npm run dev
 ```
 
-Open the local address printed by Vite. Drag things together; compatible partners are highlighted without revealing the future result. Use the game menu for instructions, Undo, reset, save export and generated checkpoints.
+Open the local address printed by Vite. Drag things together; compatible partners are highlighted without revealing the future result. Goals sit at the bottom and become the next-chapter arrow when complete. Reopen the chapter text through its goals for the applicable recovery action; automatic chapter introductions have only **Begin**. The discreet bug icon opens development tools, including story switching and generated checkpoints. See [UX](docs/ux.md) for the interaction and recovery rules.
 
 ## Story layout
 
