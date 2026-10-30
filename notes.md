@@ -148,6 +148,12 @@ Remember the editor's open/closed preference separately for each Markdown URL. O
 Verification: all 46 Node tests and 13 Chromium tests pass in about 14 seconds combined. Type checking and production build pass; the five stories still have zero lint errors and 64 warnings. Inspected desktop screenshots of the Sand fix menu and chapter-heading bulb, with no browser page errors. The existing bundle-size advisory remains. No engine semantics, stories or archives changed.
 
 
+## 30 October 2026 minimal desktop and mobile debugging
+
+Removed game Undo, save export and the recipe inspector. The desktop game occupies 390px and the editor fills the remaining width. Below 900px, debugging offers only a chapter picker, with the current chapter highlighted. Responsive hiding retains the desktop buffer, editor Undo history and open preference. Drafts still load on mobile.
+
+Verification: 46 Node and 13 Chromium tests pass in about 14 seconds. Build, type checking and whitespace checks pass; story lint remains zero errors and 64 warnings. Inspected desktop and mobile screenshots and confirmed draft retention through a mobile reload and return to desktop. Mobile coverage uses Chromium emulation. The engine, stories and archive are unchanged.
+
 ## 30 October 2026 consolidated debug pane
 
 Goal: make the right-hand pane the single home for debugging, primarily live Markdown editing. One game-area button now toggles it directly: a bug for the published story, replaced by the red pencil when a local draft exists. Its icon changes only with draft state, and items retain precedence where they overlap it. Existing draft-or-last-open startup behavior is preserved.

@@ -9,15 +9,12 @@ import type { Diagnostic as EditorDiagnostic } from '@codemirror/lint';
 import type { Diagnostic, Source, TextSpan } from '../story/types.ts';
 import { chapterCheckpoints } from './editor-checkpoints.ts';
 import { sourceFixWidgets } from './editor-fix-widgets.ts';
-import { createDebugTools, type DebugToolsState } from './debug-tools.ts';
 import './editor.css';
 
 export interface EditorRecovery { id: string; label: string; text: string }
 export interface StoryEditorOptions {
   parent: HTMLElement;
   text: string;
-  onUndo(): void;
-  onExport(): void;
   /** Called synchronously for each document change. Save before scheduling validation. */
   onChange(text: string): void;
   onCursorChange?(position: number, line: number): void;
@@ -32,7 +29,6 @@ export interface StoryEditor {
   /** An explicit replacement retains editor undo history and does not call onChange. */
   setText(text: string): void;
   setOpen(open: boolean): void;
-  setDebugTools(state: DebugToolsState): void;
   setDiagnostics(diagnostics: readonly Diagnostic[], phase?: 'fast' | 'complete'): void;
   setStatus(message: string, kind?: 'saved' | 'error' | 'info'): void;
   setPreviewStatus(message: string): void;
@@ -59,20 +55,13 @@ export function createStoryEditor(options: StoryEditorOptions): StoryEditor {
   const element = node('aside', 'story-editor');
   element.id = 'debug-panel';
   element.setAttribute('aria-label', 'Debug panel');
-  const resizeHandle = node('div', 'editor-resize');
-  resizeHandle.setAttribute('role', 'separator');
-  resizeHandle.setAttribute('aria-label', 'Resize debug panel');
-  resizeHandle.setAttribute('aria-orientation', 'vertical');
-  resizeHandle.tabIndex = 0;
-
   const header = node('header', 'editor-header');
-  const debug = createDebugTools(options.onUndo, options.onExport);
   const close = button('×', 'editor-close');
   close.setAttribute('aria-label', 'Close debug panel');
   close.title = 'Close debug panel';
   close.addEventListener('click', options.onClose);
   const remove = button('Delete draft…', 'editor-delete');
-  header.append(debug.actions, remove, close);
+  header.append(remove, close);
   const status = node('p', 'editor-save-status');
   status.hidden = true;
   status.setAttribute('role', 'status');
@@ -113,7 +102,7 @@ export function createStoryEditor(options: StoryEditorOptions): StoryEditor {
   const diagnosticsHeading = node('h3', 'editor-diagnostics-heading', 'Diagnostics');
   const diagnosticsList = node('div', 'editor-diagnostics-list');
   diagnosticsPane.append(diagnosticsHeading, diagnosticsList);
-  element.append(resizeHandle, header, debug.error, status, preview, confirmation, recovery, debug.inspector, editorHost, diagnosticsPane);
+  element.append(header, status, preview, confirmation, recovery, editorHost, diagnosticsPane);
   options.parent.append(element);
 
   let replacing = false;
@@ -177,36 +166,6 @@ export function createStoryEditor(options: StoryEditorOptions): StoryEditor {
   recoveryLoad.addEventListener('click', () => {
     const saved = recoveries.find(entry => entry.id === recoverySelect.value);
     if (saved) restoreRecovery?.(saved.text, saved.id);
-  });
-
-  const layout = options.parent.closest<HTMLElement>('#workspace') ?? options.parent;
-  function resize(width: number) {
-    const maximum = Math.max(280, layout.clientWidth - 390);
-    const clamped = Math.round(Math.max(280, Math.min(maximum, width)));
-    layout.style.setProperty('--editor-width', `${clamped}px`);
-    resizeHandle.setAttribute('aria-valuenow', String(clamped));
-    resizeHandle.setAttribute('aria-valuemin', '280');
-    resizeHandle.setAttribute('aria-valuemax', String(maximum));
-    view.requestMeasure();
-    element.dispatchEvent(new CustomEvent('editorresize', { bubbles: true }));
-  }
-  let resizing: { pointer: number; x: number; width: number } | undefined;
-  resizeHandle.addEventListener('pointerdown', event => {
-    if (event.button !== 0) return;
-    event.preventDefault();
-    resizing = { pointer: event.pointerId, x: event.clientX, width: element.getBoundingClientRect().width };
-    resizeHandle.setPointerCapture(event.pointerId);
-  });
-  resizeHandle.addEventListener('pointermove', event => {
-    if (resizing?.pointer === event.pointerId) resize(resizing.width + resizing.x - event.clientX);
-  });
-  resizeHandle.addEventListener('pointerup', () => { resizing = undefined; });
-  resizeHandle.addEventListener('pointercancel', () => { resizing = undefined; });
-  resizeHandle.addEventListener('lostpointercapture', () => { resizing = undefined; });
-  resizeHandle.addEventListener('keydown', event => {
-    if (event.key !== 'ArrowLeft' && event.key !== 'ArrowRight') return;
-    event.preventDefault();
-    resize(element.getBoundingClientRect().width + (event.key === 'ArrowLeft' ? 24 : -24));
   });
 
   function focusLine(number: number) {
@@ -404,7 +363,6 @@ export function createStoryEditor(options: StoryEditorOptions): StoryEditor {
       element.hidden = !open;
       if (open) view.requestMeasure();
     },
-    setDebugTools: debug.update,
     setDiagnostics(diagnostics, phase = 'complete') {
       const fresh = diagnostics.map(locateDiagnostic);
       currentDiagnostics = phase === 'fast' ? [...fresh, ...currentDiagnostics.filter(isDeep)] : fresh;

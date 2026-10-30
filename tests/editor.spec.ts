@@ -108,9 +108,6 @@ test('live edits update the current view and survive temporary deletion of its c
   await edit(page, revised);
   await expect(page.locator('dialog')).toContainText('The workshop has changed.');
   await expect(card.locator('.item-label')).toHaveText('Polished frame');
-  await page.locator('.debug-recipes summary').click();
-  await expect(page.locator('.debug-recipes li').first()).toHaveText('Polished frame + Tool → Kit');
-  await page.locator('.debug-recipes summary').click();
   await expect(page.locator('.objective-line')).toContainText('Assemble the kit');
   await expect(page.locator('.scene-art')).toHaveAttribute('src', /\/fixture\/assets\/revised\.svg$/);
   expect(await image!.evaluate(element => element.isConnected)).toBe(true);
@@ -166,19 +163,15 @@ test('drafts save before preview, reopen on desktop, and only explicit deletion 
   await expect(toggle).toHaveAttribute('aria-expanded', 'true');
   await expect(page.getByRole('complementary', {name: 'Debug panel'})).toBeVisible();
   await expect(page.getByRole('heading', {name: 'Story editor'})).toHaveCount(0);
-  await expect(page.getByRole('button', {name: /^(Copy Markdown|Download|Generate checkpoint|Restart story|Stories)$/})).toHaveCount(0);
+  await expect(page.getByRole('button', {name: /^(Copy Markdown|Download|Generate checkpoint|Restart story|Stories|Undo|Export save)$/})).toHaveCount(0);
   await expect(page.locator('.editor-save-status')).toBeHidden();
+  await expect(page.getByText('Recipe inspector', {exact: true})).toHaveCount(0);
   await page.setViewportSize({width: 1600, height: 800});
-  expect((await page.locator('.story-editor').boundingBox())!.width).toBe(840);
+  expect((await page.locator('#app').boundingBox())!.width).toBe(390);
+  expect((await page.locator('.story-editor').boundingBox())!.width).toBe(1210);
   await page.setViewportSize({width: 1000, height: 800});
   expect((await page.locator('#app').boundingBox())!.width).toBe(390);
   expect((await page.locator('.story-editor').boundingBox())!.width).toBe(610);
-  await page.setViewportSize({width: 1600, height: 800});
-  const divider = page.getByRole('separator', {name: 'Resize debug panel'});
-  await divider.focus();
-  await page.keyboard.press('ArrowLeft');
-  expect((await page.locator('.story-editor').boundingBox())!.width).toBe(864);
-  await page.keyboard.press('ArrowRight');
   await page.setViewportSize({width: 1280, height: 800});
   expect(await savedText(page, manuscript)).toBe(false);
   await page.reload();
@@ -196,6 +189,25 @@ test('drafts save before preview, reopen on desktop, and only explicit deletion 
   await toggle.click();
   await expect(page.locator('.story-editor')).toBeVisible();
   await expect(page.locator('.editor-save-status')).toBeHidden();
+  const editorNode = await page.getByRole('textbox', {name: 'Story Markdown'}).elementHandle();
+  await page.setViewportSize({width: 390, height: 800});
+  await expect(page.locator('.story-editor')).toBeHidden();
+  await expect(toggle).toHaveAttribute('aria-expanded', 'false');
+  await expect(toggle).toHaveClass(/edit-indicator/);
+  await jumpToChapter(page, 'Field');
+  await expect(page.locator('.chapter-panel[data-chapter="1"]')).toHaveCount(1);
+  await page.getByRole('button', {name: 'Begin', exact: true}).click();
+  await page.setViewportSize({width: 1280, height: 800});
+  await expect(page.locator('.story-editor')).toBeVisible();
+  expect(await editorNode!.evaluate(element => element.isConnected)).toBe(true);
+  await expect(page.getByRole('textbox', {name: 'Story Markdown'})).toContainText('A durable draft introduction.');
+  await page.getByRole('textbox', {name: 'Story Markdown'}).focus();
+  await page.keyboard.press('ControlOrMeta+z');
+  await expect(page.getByRole('textbox', {name: 'Story Markdown'})).toContainText('Workshop introduction.');
+  await page.keyboard.press('ControlOrMeta+Shift+z');
+  await expect(page.getByRole('textbox', {name: 'Story Markdown'})).toContainText('A durable draft introduction.');
+  await jumpToChapter(page, 'Workshop');
+  await page.getByRole('button', {name: 'Begin', exact: true}).click();
   expect(await savedText(page, changed)).toBe(true);
   await page.reload();
   await expect(page.getByRole('textbox', { name: 'Story Markdown' })).toBeVisible();
@@ -430,7 +442,7 @@ test('chapter heading checkpoint buttons use live text and preserve the draft an
   await expect(page.locator('.checkpoint-badge')).toBeVisible();
 });
 
-test('successive renames keep readers live and edited play retains its undo and reset baselines', async ({ page }) => {
+test('successive renames keep readers live and edited play retains its reset baseline', async ({ page }) => {
   const errors: string[] = [];
   page.on('pageerror', error => errors.push(error.message));
   const chain = `# Editing a construction
@@ -442,7 +454,7 @@ test('successive renames keep readers live and edited play retains its undo and 
 Build a two-stage construction.
 
 **Goals**
-- Finish the chain -- D
+- Finish the chain -- E
 
 **Items**
 - Frame
@@ -452,10 +464,12 @@ Build a two-stage construction.
 - Tool
 - C
 - D
+- E
 
 **Combinations**
 - Frame [preserve] + Tool [preserve] -> C
 - C [preserve] + Tool [preserve] -> D
+- D [preserve] + Tool [preserve] -> E
 `;
   await serveFixture(page, chain);
   await page.goto('/combinations.html?story=fixture');
@@ -473,10 +487,6 @@ Build a two-stage construction.
   await page.getByRole('button', { name: 'Close', exact: true }).click();
 
   const combine = async (a: string, b: string) => page.locator(`[data-item="name:${a}"]`).dragTo(page.locator(`[data-item="name:${b}"]`));
-  const undo = async () => {
-    await openEditor(page);
-    await page.getByRole('button', { name: 'Undo', exact: true }).click();
-  };
   await combine('Second rename', 'Tool');
   await expect(page.locator('[data-item="name:C"]')).toHaveCount(1);
   await edit(page, renamedAgain.replace('Finish the chain', 'Complete the chain'));
@@ -485,9 +495,6 @@ Build a two-stage construction.
   await expect(page.locator('[data-item="name:D"]')).toHaveCount(1);
   await page.reload();
   await expect(page.locator('[data-item="name:D"]')).toHaveCount(1);
-  await undo();
-  await expect(page.locator('[data-item="name:C"]')).toHaveCount(1);
-  await expect(page.locator('[data-item="name:D"]')).toHaveCount(0);
 
   await page.getByRole('button', { name: 'Read this chapter' }).click();
   await page.getByRole('button', { name: 'Restart this chapter' }).click();
@@ -496,7 +503,8 @@ Build a two-stage construction.
   await expect(page.getByRole('textbox', { name: 'Story Markdown' })).toContainText('Complete the chain');
   await combine('Second rename', 'Tool');
   await expect(page.locator('[data-item="name:C"]')).toHaveCount(1);
-  await undo();
+  await jumpToChapter(page, 'Workshop');
+  await page.getByRole('button', {name: 'Begin', exact: true}).click();
   await expect(page.locator('[data-item="name:C"]')).toHaveCount(0);
   await expect(page.locator('[data-item="name:Second rename"]')).toHaveCount(1);
 

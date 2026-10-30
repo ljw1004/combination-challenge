@@ -2,8 +2,7 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  flex: 0 1 var(--editor-width, 840px);
-  width: var(--editor-width, 840px);
+  flex: 1 1 0;
   max-width: 100%;
   min-width: 0;
   height: 100dvh;
@@ -21,14 +20,10 @@
 .editor-button:focus-visible { outline: 2px solid #267c79; outline-offset: 2px; }
 .editor-close { border: 0; background: transparent; width: 34px; height: 34px; padding: 0; font-size: 25px; }
 .editor-delete { margin-left: auto; color: #96382c; border-color: transparent; background: transparent; }
-.editor-save-status, .editor-preview-status, .debug-save-error { margin: 0; padding: 3px 16px 8px; font-size: 11px; overflow-wrap: anywhere; }
+.editor-save-status, .editor-preview-status { margin: 0; padding: 3px 16px 8px; font-size: 11px; overflow-wrap: anywhere; }
 .editor-save-status { color: #716858; }
-.editor-save-status[data-state="error"], .debug-save-error { color: #96382c; background: #fff0e6; font-weight: 600; }
+.editor-save-status[data-state="error"] { color: #96382c; background: #fff0e6; font-weight: 600; }
 .editor-preview-status { color: #85591d; background: #fff3da; padding-top: 7px; }
-.debug-actions { display: flex; flex-wrap: wrap; gap: 6px; }
-.debug-recipes { flex: 0 1 auto; min-height: 0; overflow: auto; padding: 0 16px 6px; font-size: 11px; }
-.debug-recipes summary { cursor: pointer; color: #6c634f; }
-.debug-recipes ul { max-height: 25dvh; overflow: auto; padding-left: 18px; margin-block: 6px; }
 .editor-delete-confirmation { padding: 10px 16px; background: #fff0e6; border-block: 1px solid #deb5a0; }
 .editor-delete-confirmation p { margin: 0 0 9px; }
 .editor-delete-confirmation .editor-button + .editor-button { margin-left: 7px; }
@@ -89,7 +84,3 @@
 .editor-fix-option { display: block; width: 100%; padding: 4px 7px; border: 0; background: transparent; text-align: left; }
 .editor-fix-option:disabled { opacity: .6; cursor: default; }
 .editor-fix-reason { display: block; font-size: 10px; color: #82725b; }
-.editor-resize { position: absolute; top: 0; bottom: 0; left: -4px; width: 8px; z-index: 5; cursor: col-resize; touch-action: none; }
-.editor-resize::after { content: ''; position: absolute; left: 3px; top: 45%; width: 2px; height: 40px; border-radius: 2px; background: #b5a58a; }
-.editor-resize:hover, .editor-resize:focus-visible { background: #267c7924; outline: none; }
-@media (max-width: 700px) { .editor-resize { display: none; } }

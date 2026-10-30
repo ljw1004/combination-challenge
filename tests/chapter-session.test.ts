@@ -28,7 +28,7 @@ Keep going.
 **Combinations**
 - C [preserve] + E [preserve] -> D`,{id:'session'});
 
-test('chapter reset eligibility ignores reading and no-op movement but remembers changes through Undo and reload',()=>{
+test('chapter reset eligibility ignores reading and no-op movement but remembers changes through reload',()=>{
   let state=newGame(story);state.tokens['name:A'].x=40;state.tokens['name:A'].y=270;
   const session=captureChapter(state);assert.equal(chapterRecovery(session,state),undefined);
   noteChapterAction(session,state,{type:'dismiss'});assert.equal(session.changed,false);
@@ -36,8 +36,7 @@ test('chapter reset eligibility ignores reading and no-op movement but remembers
   assert(isNoopMove(state,noop));noteChapterAction(session,state,noop);assert.equal(session.changed,false);
   const move={...noop,x:90};noteChapterAction(session,state,move);state=act(story,state,move);
   assert.equal(chapterRecovery(session,state),'chapter');
-  const undone=structuredClone(session.entry);assert.equal(chapterRecovery(session,undone),'chapter');
-  const loaded=restoreChapterSession(story,undone,JSON.parse(JSON.stringify(session)))!;
+  const loaded=restoreChapterSession(story,state,JSON.parse(JSON.stringify(session)))!;
   assert.equal(loaded.changed,true);assert.equal(loaded.entry.tokens['name:A'].x,40);assert.equal(loaded.entry.tokens['name:A'].y,270);
   const reset=captureChapter(loaded.entry);assert.equal(chapterRecovery(reset,reset.entry),undefined);
   assert.deepEqual(reset.entry,session.entry);

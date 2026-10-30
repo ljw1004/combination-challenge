@@ -1,15 +1,12 @@
 import type { Diagnostic } from '../story/types.ts';
 import { createStoryEditor, type StoryEditor } from './editor.ts';
 import { DraftStore, loadStoryDocument, type StoryDocument } from './story-document.ts';
-import type { DebugToolsState } from './debug-tools.ts';
 
 interface Callbacks {
   onText(text: string): void;
   onLayout(): void;
   onDraft(edited: boolean): void;
   onCheckpoint(line: number): void;
-  onUndo(): void;
-  onExport(): void;
 }
 
 /** Draft durability is independent of parser, linter, preview and game progress. */
@@ -20,6 +17,8 @@ export class AuthoringSession {
   assetBaseURL: string;
   edited: boolean;
   isOpen = false;
+  private available = false;
+  private requestedOpen: boolean;
   private editor?: StoryEditor;
   private diagnostics: Diagnostic[] = [];
   private saveMessage: string;
@@ -43,6 +42,7 @@ export class AuthoringSession {
     this.text = document.text;
     this.assetBaseURL = document.assetBaseURL;
     this.edited = document.edited;
+    this.requestedOpen = document.edited || this.wasOpen;
     this.saveMessage = document.warning ?? '';
     this.saveKind = document.warning ? 'error' : this.edited ? 'saved' : 'info';
     window.addEventListener('beforeunload', event => {
@@ -59,11 +59,36 @@ export class AuthoringSession {
   }
 
   open() {
+    this.requestedOpen = true;
+    this.rememberOpen(true);
+    this.updateVisibility();
+  }
+
+  close() {
+    this.requestedOpen = false;
+    this.rememberOpen(false);
+    this.updateVisibility();
+  }
+
+  /** Responsive hiding preserves the desktop session and its open preference. */
+  setAvailable(available: boolean) {
+    this.available = available;
+    this.updateVisibility();
+  }
+
+  private updateVisibility() {
+    const open = this.available && this.requestedOpen;
+    if (open === this.isOpen) return;
+    if (!open) {
+      this.isOpen = false;
+      this.editor?.setOpen(false);
+      this.parent.classList.remove('editor-open');
+      this.callbacks.onLayout();
+      return;
+    }
     if (!this.editor) {
       this.editor = createStoryEditor({
         parent: this.parent, text: this.text,
-        onUndo: () => this.callbacks.onUndo(),
-        onExport: () => this.callbacks.onExport(),
         onChange: text => this.change(text),
         onClose: () => this.close(),
         onCheckpoint: line => this.callbacks.onCheckpoint(line),
@@ -75,20 +100,11 @@ export class AuthoringSession {
       this.refreshRecoveries();
     }
     this.isOpen = true;
-    this.rememberOpen(true);
     this.parent.classList.add('editor-open');
     this.editor.setOpen(true);
     this.callbacks.onLayout();
     // Best effort: browsers may refuse persistence; saves still report their actual result.
     void navigator.storage?.persist?.().catch(() => false);
-  }
-
-  close() {
-    this.isOpen = false;
-    this.rememberOpen(false);
-    this.editor?.setOpen(false);
-    this.parent.classList.remove('editor-open');
-    this.callbacks.onLayout();
   }
 
   toggle() { if (this.isOpen) this.close(); else this.open(); }
@@ -117,8 +133,6 @@ export class AuthoringSession {
     this.previewMessage = message;
     this.editor?.setPreviewStatus(message);
   }
-
-  setDebugTools(state: DebugToolsState) { this.editor?.setDebugTools(state); }
 
   private refreshRecoveries() {
     const saved = this.store.read();

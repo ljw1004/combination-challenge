@@ -14,7 +14,7 @@ test('goals wait for every pending wonder, then leave once before arrow settles'
   // An optional later wonder does not reintroduce an already earned arrow.
   assert.equal(goalPresentation(view,'elements:3',true,true,false),view);
 });
-test('readiness interruption, Undo, new chapter, reload and reduced motion do not replay stale entrances',()=>{
+test('readiness interruption, new chapter, reload and reduced motion do not replay stale entrances',()=>{
   const leaving=goalPresentation({key:'a:0',phase:'goals'},'a:0',true,false,false);
   assert.equal(goalPresentation(leaving,'a:0',true,true,false).phase,'goals');
   assert.equal(goalPresentation(leaving,'a:0',false,false,false).phase,'goals');

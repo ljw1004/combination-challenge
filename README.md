@@ -11,7 +11,7 @@ npm install
 npm run dev
 ```
 
-Open the local address printed by Vite. Drag things together; compatible partners are highlighted without revealing the future result. Goals sit at the bottom and become the next-chapter arrow when complete. Reopen the chapter text through its goals for the applicable recovery action; automatic chapter introductions have only **Begin**. The discreet bug icon toggles the debug pane for live story editing, checkpoint jumps and game inspection. See [UX](docs/ux.md) for the interaction and recovery rules.
+Open the local address printed by Vite. Drag things together; compatible partners are highlighted without revealing the future result. Goals sit at the bottom and become the next-chapter arrow when complete. Reopen the chapter text through its goals for the applicable recovery action; automatic chapter introductions have only **Begin**. The discreet bug icon toggles the debug pane for live story editing and checkpoint jumps. See [UX](docs/ux.md) for the interaction and recovery rules.
 
 The player fetches Markdown as an ordinary file. These routes work in development and the production build:
 
@@ -27,11 +27,13 @@ Paths resolve relative to the player page, so the same layout works under a webs
 
 ## Edit a story live
 
-Click the **bug icon** to toggle the debug pane. On desktop, the pane sits beside the game, with a resizable Markdown editor that defaults to 840px wide. As the window narrows, the pane shrinks while the game keeps its natural width.
+Click the **bug icon** to toggle the debug pane. On desktop, the game uses its natural 390px width and the Markdown editor fills all remaining window space.
 
 Edits save immediately and update the current game view, including open readings, goals, rules and backgrounds. When there are local edits, a red pen replaces the bug icon; both toggle the same pane. The panel opens automatically on desktop if the story URL has a saved draft **or** its editor was last left open; closing it is remembered but does not override a saved draft.
 
-Hover a chapter heading (or keyboard-focus its control) for the cyan **Jump to checkpoint** lightbulb, which generates the chapter using the current text and retains the draft. Use the first chapter to start again. **Undo** reverses the last game action, **Export save** downloads game progress, and the collapsed **Recipe inspector** reveals recipe results for debugging.
+Hover a chapter heading (or keyboard-focus its control) for the cyan **Jump to checkpoint** lightbulb, which generates the chapter using the current text and retains the draft. Use the first chapter to start again.
+
+On screens narrower than 900px, the icon opens a compact **Jump to chapter** picker instead. Tap a chapter to generate its checkpoint; the current chapter is highlighted. The Markdown editor is unavailable at that width. Local drafts still power the game and retain their red-pencil indicator. Resizing back to desktop restores the editor session.
 
 Each draft shadows its original story URL in this browser. Closing the editor, restarting the game and reloading keep the draft. **Delete draft…** is a separate, confirmed action that reloads the original file. To export your Markdown, focus the text, select all (Cmd+A or Ctrl+A), and copy (Cmd+C or Ctrl+C) into a file for you to publish yourself. Nothing uploads automatically.
 
@@ -59,7 +61,7 @@ The folder identifies the story for CLI tools; the browser uses its Markdown URL
 | Tool | Command | Purpose |
 |---|---|---|
 | Browser game | `npm run dev` | Start the local Vite server. |
-| Debug pane | **bug/red pen icon** | Edit a durable local draft, inspect recipes, undo gameplay and export progress. |
+| Debug pane | **bug/red pen icon** | Edit a durable local draft on desktop; jump to a chapter on mobile. |
 | Story linter | `npm run lint` | Check all stories against the specification; errors fail the command, warnings require author review. |
 | Type checker | `npm run check` | Check active TypeScript source. |
 | Default tests | `npm test` | Run semantic tests and Chromium interaction checks. |
