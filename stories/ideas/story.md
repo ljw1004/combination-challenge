@@ -200,7 +200,7 @@ It is evening. The worktable is cleared for a new session. A dangerous request f
 
 - "Claims answerable to objections"
 
-  A claim should be open to questions and difficult examples. The standing of the person making it is not enough to settle whether it is right.
+  A physical explanation must say when it applies; a definition must survive difficult counterexamples. Both give us ways to challenge a claim against a particular case. The standing of the person making a claim does not answer those challenges.
 
 **Combinations**
 - "Justice means returning what is owed" [preserve] + "A deranged friend asks for his weapon back" [preserve] -> "A definition still under examination"
