@@ -59,3 +59,19 @@ test('a hotspot operand creates its result at the receiving chapter, even when i
 test('all manuscripts lint and have legal complete replay witnesses',()=>{
   for(const id of storyIds()){const {story}=loadStory(id);assert.deepEqual(lintStory(story).filter(d=>d.severity==='error'),[],id);const state=checkpoint(story,story.chapters.length);assert(state.completed,id);assert.deepEqual(replay(story,state.actions),state,id);}
 });
+test('Mars telescope camera records the outcrop route instead of rejecting the stronger tool',()=>{
+  const {story}=loadStory('mars');
+  const chapter=story.chapters.findIndex(c=>c.name==='Cargo-sled assembly area');
+  assert(chapter>=0);
+  let state=checkpoint(story,chapter);
+  for(const [a,b] of [['Lens','Optical tube'],['Telescope','Tripod'],['Field telescope','Camera']])state=combine(story,state,a,b);
+  state=act(story,state,{type:'combine',a:'name:Telescope camera',hotspot:'name:Route overlook',chapter});
+  const view=state.tokens['name:Outcrop approach view'];
+  assert.equal(view?.chapter,chapter);
+  assert.equal(view?.hotspot,'name:Route overlook');
+  state=combine(story,state,'Outcrop approach view','Regional map navchip');
+  const routeGoal=story.chapters[chapter].goals.find(g=>g.conditions.some(c=>c.item.id==='name:Outcrop navchip'));
+  assert(routeGoal && state.achieved.includes(routeGoal.id));
+  // The telescope construction must not strand later field-camera work.
+  assert(checkpoint(story,story.chapters.length,state).completed);
+});

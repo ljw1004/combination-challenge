@@ -2,13 +2,13 @@
 
 Work through the history of ideas. You're the philosopher now.
 
-> NOTE: Complete author-source conversion of `atlas-focused-sessions-v6`, composed from `ui/current-scenarios.ts` at source commit `1c95988a4e3771abcf2be28183ce009d38645d2c`. The 85 work sessions, 151 objectives and 283 recipes are retained. Item explanations reflect the individual promotion review in conversion issue 19. This Markdown has not run in a production parser.
+> NOTE: Originally converted from `atlas-focused-sessions-v6`, composed from `ui/current-scenarios.ts` at source commit `1c95988a4e3771abcf2be28183ce009d38645d2c`. The 30 October 2026 authenticity revision removes redundant conversions and clarifies premises, comparisons and provenance. The session source lists and references to the conversion report below preserve the original conversion history; they are not an exact inventory of the revised manuscript.
 
 > NOTE: Item statements are authored paraphrases or teaching reconstructions, not historical quotations. Combining them reconstructs an argument, comparison, model or object; it does not certify its truth. Chronology belongs to each dated reading desk. Teaching comparisons do not assert direct historical influence. The final observatory and common workshop are speculative proposals, not forecasts.
 
 > NOTE: Recipes are global. Items lists provide the sources and optional constructions relevant to that session; a listed construction must still be made. All single-condition goals use the inline form and latch when satisfied. Separate evening and next-morning sessions remain separate chapters even when their picture is reused. The new format brings needed work forward and does not reopen an earlier board.
 
-> NOTE: Reviewed milestone text supplies 269 creation explanations. Of nine other crafted readings initially promoted to wonders, four routine explanations have been removed and five are retained for their explanatory value. The 252 primitive items retain their authored readings, available on deliberate reading because those sources arrive pre-existing. No generic description was separately promoted. The source’s telescope preservation metadata is intentionally absent: this ordinary construction wraps up its internal details.
+> NOTE: Creation explanations and optional primitive readings began with the individual promotion review in conversion issue 19 and have since been edited with their recipes. Primitive readings remain optional; essential distinctions should be visible in the task, item or earned result. The source’s telescope preservation metadata is intentionally absent: this ordinary construction wraps up its internal details.
 
 ## Calendar table
 
@@ -186,17 +186,9 @@ It is evening. The worktable is cleared for a new session. A dangerous request f
 
   A friend asks for a weapon back when he may harm himself or others. This tests whether returning what you owe is always just.
 
-- "What do all just actions have in common?"
-
-  A definition of justice should explain what just actions have in common. Difficult examples can show where a proposed definition fails.
-
 - "Prestige does not settle how to live"
 
   Being admired or following custom does not prove that someone lives well. Their choices can still be questioned.
-
-- "Repayment can do harm"
-
-  A proposed rule says justice means returning what you owe. But returning a weapon to someone who may harm others would cause harm. This example shows why repayment alone cannot define justice.
 
 - "A definition still under examination"
 
@@ -211,8 +203,7 @@ It is evening. The worktable is cleared for a new session. A dangerous request f
   A claim should be open to questions and difficult examples. The standing of the person making it is not enough to settle whether it is right.
 
 **Combinations**
-- "Justice means returning what is owed" [preserve] + "A deranged friend asks for his weapon back" [preserve] -> "Repayment can do harm"
-- "Repayment can do harm" [preserve] + "What do all just actions have in common?" [preserve] -> "A definition still under examination"
+- "Justice means returning what is owed" [preserve] + "A deranged friend asks for his weapon back" [preserve] -> "A definition still under examination"
 - "A definition still under examination" + "Prestige does not settle how to live" [preserve] -> "The examined life"
 - "An explanation tied to conditions" + "A definition still under examination" -> "Claims answerable to objections"
 
@@ -511,13 +502,13 @@ It is evening. The worktable is cleared for a new session. Compare an argument a
 - Must we reach a verdict? -- "A judgment left suspended"
 
 **Items**
-- "Epicurus: mind and body are made of dispersible atoms"
+- "Epicurus: the soul disperses at death, ending sensation"
 
-  Epicurus describes mind and body as made of atoms that disperse at death. This ancient view differs from modern atomic physics and forms part of his argument against fearing death.
+  Epicurus describes the soul as bodily: when its atoms scatter at death, sensation ends. This is his ancient account of body and soul, not modern atomic physics.
 
-- "Death is not an experience of suffering"
+- "Suffering requires sensation"
 
-  Epicurus argues that suffering requires sensation, while death ends sensation. His argument addresses fear of being dead, not the grief of losing someone.
+  For Epicurus, suffering requires someone who can feel it. This premise does not yet say what death is like.
 
 - "Friendship and a simple meal can suffice"
 
@@ -527,21 +518,21 @@ It is evening. The worktable is cleared for a new session. Compare an argument a
 
   The available accounts conflict, and neither has settled the question. This is a reason to withhold a verdict, not proof that nothing can ever be known.
 
-- "Freedom from the terror of death"
+- "Epicurus: an argument against fearing death"
 
-  Epicurus argues that there is no suffering after death because there is no remaining sensation. The argument offers relief from fear without denying grief or ending disagreement.
+  If death ends sensation and suffering requires sensation, Epicurus argues that being dead cannot be an experience of suffering. He offers a reason against fearing death, not a guarantee that fear disappears or a denial of painful dying and grief.
 
 - "Pleasure in friendship and sufficiency"
 
-  Epicurus places friendship, security and simple enjoyment at the centre of a good life. Seeking pleasure in this account does not mean endlessly increasing wealth or indulgence.
+  Epicurus joins reasoning against fear with friendship, security and simple enjoyment. Pleasure in this account is not endless accumulation or indulgence: a good life also depends on which desires and fears govern it.
 
 - "A judgment left suspended"
 
   When the available accounts conflict and neither settles the question, a skeptic can withhold agreement. Leaving judgment open is different from proving that both sides are false or that knowledge is impossible.
 
 **Combinations**
-- "Epicurus: mind and body are made of dispersible atoms" [preserve] + "Death is not an experience of suffering" [preserve] -> "Freedom from the terror of death"
-- "Freedom from the terror of death" [preserve] + "Friendship and a simple meal can suffice" [preserve] -> "Pleasure in friendship and sufficiency"
+- "Epicurus: the soul disperses at death, ending sensation" [preserve] + "Suffering requires sensation" [preserve] -> "Epicurus: an argument against fearing death"
+- "Epicurus: an argument against fearing death" [preserve] + "Friendship and a simple meal can suffice" [preserve] -> "Pleasure in friendship and sufficiency"
 - "Claims answerable to objections" + "Competing appearances resist a verdict" [preserve] -> "A judgment left suspended"
 
 > NOTE: Sources for this session: cynics, stoics, epicurus, skeptics, epicurus-herodotus. Source IDs identify bibliography entries recorded at their first relevant session; precise item and recipe attribution is retained in the conversion report.
@@ -576,7 +567,7 @@ Geometry and observations make Earth's shape and size things people can investig
 
   A geometric proof connects a conclusion to stated starting points through logical steps. It explains why the conclusion follows.
 
-- "A spherical Earth"
+- "A spherical model of Earth"
 
   A spherical Earth helps explain why observers in different places see different stars and shadows. It joins local observations into one model.
 
@@ -586,8 +577,8 @@ Geometry and observations make Earth's shape and size things people can investig
 
 **Combinations**
 - "A conclusion follows from premises" + "A few stated geometric starting points" [preserve] -> "A connected geometric proof"
-- "A connected geometric proof" + "Different stars and shadows at different places" [preserve] -> "A spherical Earth"
-- "A spherical Earth" [preserve] + "A known journey connects two observing places" [preserve] -> "An Earth whose size can be investigated"
+- "A connected geometric proof" + "Different stars and shadows at different places" [preserve] -> "A spherical model of Earth"
+- "A spherical model of Earth" [preserve] + "A known journey connects two observing places" [preserve] -> "An Earth whose size can be investigated"
 
 > NOTE: Sources for this session: euclid, alexandria, antikythera, aristotle-eclipse. Source IDs identify bibliography entries recorded at their first relevant session; precise item and recipe attribution is retained in the conversion report.
 
@@ -601,16 +592,16 @@ Geometry and observations make Earth's shape and size things people can investig
 
 ![Same worktable · evening](assets/atlas-hellenistic-library.webp)
 
-It is evening. The worktable is cleared for a new session. At the model bench, compare records of planetary motion with a predictive model and a gear mechanism. Representing or predicting the sky does not explain every cause of its motion.
+It is evening. The worktable is cleared for a new session. A separate collection of dated planetary sightings is now on the model bench. Use the earlier eclipse archive’s recordkeeping practice to compare these sightings with a predictive model and a gear mechanism. Representing or predicting the sky does not explain every cause of its motion.
 
 **Goals**
 - Does a forecast explain its cause? -- "A forecast is not its physical cause"
 - Can gears represent the sky? -- "A sky represented in gears"
 
 **Items**
-- "Planets wander against the stars"
+- "Dated sightings of planets against the stars"
 
-  Planets change position against the background stars. Records made over time allow astronomers to compare their movements.
+  These newly supplied records give dates and positions of planets against the stars. They are a separate collection, not observations hidden inside the earlier eclipse archive.
 
 - "Ptolemy combines circles around an Earth-centred frame"
 
@@ -626,7 +617,7 @@ It is evening. The worktable is cleared for a new session. At the model bench, c
 
 - "An archive of planetary motion"
 
-  Records collected over generations let astronomers compare planetary movements. Greek astronomy also drew on earlier Babylonian observations.
+  The dated planetary sightings become a comparable record. The earlier eclipse archive contributes the practice of keeping dates and gaps visible, not the planetary sightings themselves.
 
 - "Ptolemy’s predictive heavens"
 
@@ -641,7 +632,7 @@ It is evening. The worktable is cleared for a new session. At the model bench, c
   Gears can represent repeating movements in the sky. A physical model makes those cycles visible without explaining every cause of them.
 
 **Combinations**
-- "A sky archive with its gaps" + "Planets wander against the stars" [preserve] -> "An archive of planetary motion"
+- "A sky archive with its gaps" + "Dated sightings of planets against the stars" [preserve] -> "An archive of planetary motion"
 - "An archive of planetary motion" + "Ptolemy combines circles around an Earth-centred frame" [preserve] -> "Ptolemy’s predictive heavens"
 - "Ptolemy’s predictive heavens" + "A planetary model predicts where to look" [preserve] -> "A forecast is not its physical cause"
 - "Recurring eclipse seasons" + "Gears can turn at linked rates" [preserve] -> "A sky represented in gears"
@@ -1180,7 +1171,7 @@ It is evening. The worktable is cleared for a new session. Compare translations 
 - Who can control a printed argument? -- "Printed knowledge under contention"
 
 **Items**
-- "A Greek manuscript brought by Byzantine scholars"
+- "A Greek manuscript of Aristotle brought by Byzantine scholars"
 
   Byzantine scholars bring Greek manuscripts to new readers. This is another route of learning alongside Arabic-to-Latin transmission.
 
@@ -1205,7 +1196,7 @@ It is evening. The worktable is cleared for a new session. Compare translations 
   Printing brings knowledge to more readers while also creating new struggles over censorship and authority. Wider circulation is not the same as unrestricted speech.
 
 **Combinations**
-- "Aristotle in Latin" + "A Greek manuscript brought by Byzantine scholars" [preserve] -> "Greek and Latin versions side by side"
+- "Aristotle in Latin" + "A Greek manuscript of Aristotle brought by Byzantine scholars" [preserve] -> "Greek and Latin versions side by side"
 - "Greek and Latin versions side by side" [preserve] + "Two translators choose different meanings" [preserve] -> "A translation’s choices made visible"
 - "A reproducible printed page" [preserve] + "Authorities can license, ban or seize an edition" -> "Printed knowledge under contention"
 - "An edition made with reusable type" + "Authorities can license, ban or seize an edition" -> "Printed knowledge under contention"
@@ -1216,7 +1207,7 @@ It is evening. The worktable is cleared for a new session. Compare translations 
 
 ![Same worktable · the next morning](assets/atlas-renaissance-print-workshop.webp)
 
-The next morning, we return to a cleared worktable. The adjoining desk tests a text's claim to great antiquity against evidence in its language. A later date changes that claim without automatically refuting every idea in the text.
+The next morning, we return to a cleared worktable. Some Renaissance readers treated Plato and writings attributed to Hermes as witnesses to one ancient wisdom. The adjoining desk tests the Hermetic texts' claim to great antiquity against evidence in their language. A later date changes that claim without automatically refuting every idea in the text.
 
 **Goals**
 - How ancient is this text? -- "Hermetic wisdom, later than claimed"
@@ -1313,9 +1304,9 @@ It is evening. The worktable is cleared for a new session. At the chart desk, co
 
   On this chart, areas near the poles appear much larger relative to other regions. The map's useful direction lines come with distortion.
 
-- "A flat chart designed for constant compass bearings"
+- "A navigator needs constant-bearing routes drawn as straight lines"
 
-  This flat chart is designed to make constant compass directions easy to follow. That choice changes how it represents areas.
+  The navigator wants a flat map on which a steady compass direction traces a straight line. This is a desired property, not a chart already made; it need not give the shortest route.
 
 - "An Earth with comparable positions"
 
@@ -1331,7 +1322,7 @@ It is evening. The worktable is cleared for a new session. At the chart desk, co
 
 **Combinations**
 - "An Earth whose size can be investigated" [preserve] + "Locations named by a common coordinate grid" [preserve] -> "An Earth with comparable positions"
-- "An Earth with comparable positions" + "A flat chart designed for constant compass bearings" [preserve] -> "A chart made for compass bearings"
+- "An Earth with comparable positions" + "A navigator needs constant-bearing routes drawn as straight lines" [preserve] -> "A chart made for compass bearings"
 - "A chart made for compass bearings" + "Polar regions grow greatly on this chart" [preserve] -> "Useful bearings, distorted areas"
 
 > NOTE: Sources for this session: civ-nga-coordinates, civ-usgs-projection-use. Source IDs identify bibliography entries recorded at their first relevant session; precise item and recipe attribution is retained in the conversion report.
@@ -1366,9 +1357,9 @@ The telescope reveals details of the Moon, Jupiter and Venus. Record what is obs
 
   Small points near Jupiter change position over several observations but remain nearby. The sequence matters more than any single sighting.
 
-- "Venus shows both crescent and nearly full phases"
+- "Watch Venus over several months"
 
-  Venus appears as a crescent at some times and nearly full at others. A model of its motion must explain this range of phases.
+  Watch Venus repeatedly and compare the shape of its illuminated part. One evening’s view is not the whole record.
 
 - "A telescope"
 
@@ -1390,7 +1381,7 @@ The telescope reveals details of the Moon, Jupiter and Venus. Record what is obs
 - "A convex magnifying lens" [consume] + "A tube with a second lens" [transform] -> "A telescope"
 - "A telescope" + "Moon shadows change like shadows on rough ground" [preserve] -> "An earthly-looking Moon"
 - "A telescope" + "Points beside Jupiter change places but stay near it" [preserve] -> "A system of moons around Jupiter"
-- "A telescope" + "Venus shows both crescent and nearly full phases" [preserve] -> "The full range of Venus’s phases"
+- "A telescope" + "Watch Venus over several months" [preserve] -> "The full range of Venus’s phases"
 
 > NOTE: Sources for this session: copernicus, galileo, kepler, newton-moon-test-primary. Source IDs identify bibliography entries recorded at their first relevant session; precise item and recipe attribution is retained in the conversion report.
 
@@ -1536,11 +1527,11 @@ These writers use workshop records and question how preferred beliefs shape obse
 
 ![Same worktable · evening](assets/atlas-natural-philosophy-workshop.webp)
 
-It is evening. The worktable is cleared for a new session. At the heat table, compare warm and bright objects with cases that do not fit a simple heat–light link. Describe a method that another workshop can repeat.
+It is evening. The worktable is cleared for a new session. At the heat table, compare warm and bright objects with cases that do not fit a simple heat–light link. Put the trial’s instructions into print so other workshops can inspect and try the method.
 
 **Goals**
 - Does heat always need light? -- "Heat must be sought beyond luminous bodies"
-- Can someone else repeat the test? -- "A trial another workshop can repeat"
+- How can another workshop obtain the method? -- "Printed trial instructions for other workshops"
 
 **Items**
 - "Sunlight warms exposed things"
@@ -1559,9 +1550,9 @@ It is evening. The worktable is cleared for a new session. At the heat table, co
 
   Rubbing can warm an object without producing a flame. An account of heat must explain this case too.
 
-- "Instructions let others repeat the trial"
+- "Step-by-step trial instructions"
 
-  Clear instructions let another workshop repeat a trial. Repetition provides a chance to check the result, not a guarantee that it is reliable.
+  The instructions describe the setup, what to change and what to observe. Having a procedure on this desk is different from making it available elsewhere.
 
 - "Heat seems tied to light"
 
@@ -1575,15 +1566,15 @@ It is evening. The worktable is cleared for a new session. At the heat table, co
 
   Rubbing can produce warmth without a glowing source. An account that ties heat only to shining objects therefore misses an ordinary case and must be reconsidered.
 
-- "A trial another workshop can repeat"
+- "Printed trial instructions for other workshops"
 
-  Another workshop can inspect the method and repeat the trial. Sharing the procedure makes checking possible, though disputes about trust can remain.
+  Printing puts the procedure into circulation beyond this workshop. Other readers can inspect and try it; publication does not show that anyone has repeated it successfully or settle disputes about trust and permission.
 
 **Combinations**
 - "Sunlight warms exposed things" [preserve] + "Flame: light and warmth" [preserve] -> "Heat seems tied to light"
 - "Heat seems tied to light" [preserve] + "Bright moonlight, little warmth" [preserve] -> "Brightness need not bring comparable felt warmth"
 - "Brightness need not bring comparable felt warmth" [preserve] + "Rubbing warms without flame" [preserve] -> "Heat must be sought beyond luminous bodies"
-- "Printed knowledge under contention" + "Instructions let others repeat the trial" [preserve] -> "A trial another workshop can repeat"
+- "Printed knowledge under contention" + "Step-by-step trial instructions" [preserve] -> "Printed trial instructions for other workshops"
 
 > NOTE: Sources for this session: bacon, natural-magic, burton. Source IDs identify bibliography entries recorded at their first relevant session; precise item and recipe attribution is retained in the conversion report.
 
@@ -1621,7 +1612,7 @@ The next morning, we return to a cleared worktable. Compare rubbed wood with an 
 **Combinations**
 - "Heat must be sought beyond luminous bodies" [preserve] + `matched-wood` [preserve] -> "Rubbing changes the warming in this comparison"
 - "A prepared dark-room image box" + `natural-magic-secrets` [preserve] -> "An optical wonder with an inspectable arrangement"
-- "Rubbing changes the warming in this comparison" [preserve] + "A trial another workshop can repeat" -> "The heat comparison crosses workshops"
+- "Rubbing changes the warming in this comparison" [preserve] + "Printed trial instructions for other workshops" -> "The heat comparison crosses workshops"
 
 > NOTE: Sources for this session: bacon, natural-magic, burton. Source IDs identify bibliography entries recorded at their first relevant session; precise item and recipe attribution is retained in the conversion report.
 
@@ -1847,7 +1838,7 @@ It is evening. The worktable is cleared for a new session. Compare Locke's conse
 
 ![Time and lunar records](assets/atlas-longitude-chart-room.webp)
 
-These records cover c. 1714–1770 CE. Compare using a reference clock with using observations of the Moon to find longitude. Read the sea-trial record: a clock's workshop performance is not enough to show that it works on a voyage.
+These records cover c. 1714–1770 CE. Compare a reference clock with a lunar method for finding longitude. The lunar readings and prepared tables are new; the earlier planetary archive contributes the practice of comparing dated sky records, not an eighteenth-century almanac. Read the sea-trial record: workshop calibration does not prove performance on a voyage.
 
 **Goals**
 - Can the Moon help locate a ship? -- "A lunar route to longitude"
@@ -1861,25 +1852,21 @@ These records cover c. 1714–1770 CE. Compare using a reference clock with usin
 
   Local noon is determined by the Sun at this place. It need not occur at the same moment as noon at the clock's reference place.
 
-- "The Moon’s changing sky position can mark reference time"
+- "New lunar readings and prepared reference-time tables"
 
-  The Moon's changing position can be compared with tables to find a reference time. This gives an alternative to carrying an accurate clock.
+  These readings measure the Moon against the stars, and the prepared tables relate its changing position to reference time. They supply current material for the lunar-distance method, not a voyage already completed.
 
 - "A calibrated portable clock set to a reference meridian"
 
-  This calibrated clock is set to a reference place's time. It still needs testing to show that it keeps time accurately during a voyage.
+  The portable clock already carries a reference place’s time. Comparing it with local noon can give an east–west difference; workshop calibration alone does not show that it will keep time accurately during a voyage. The sea-trial report supplies separate performance evidence.
 
-- "Reference time read from the Moon"
+- "A lunar method for finding reference time"
 
   The Moon changes position against the stars as time passes. A navigator can compare its measured position with prepared tables to find the time at a known place.
 
 - "A lunar route to longitude"
 
   A navigator compares the Moon’s measured position with prepared tables to find the time at a known place. Comparing that time with local time gives the east–west position. This is an alternative to carrying a sea clock, but needs a clear view of the sky.
-
-- "A clock carrying another place’s time"
-
-  The clock carries the time of a reference place. Comparing it with local noon explains how to find an east–west difference. This describes the method; a separate voyage report provides evidence about performance at sea.
 
 - "Longitude from two kinds of time"
 
@@ -1890,12 +1877,11 @@ These records cover c. 1714–1770 CE. Compare using a reference clock with usin
   The report describes how Harrison's H4 clock kept the time of a known place during a sea voyage. Comparing that reference time with local noon gives longitude: how far east or west the observer is from that place. The successful trial supports the method, but does not certify every clock. Further testing and the reward remained disputed.
 
 **Combinations**
-- "An archive of planetary motion" + "The Moon’s changing sky position can mark reference time" [preserve] -> "Reference time read from the Moon"
-- "Reference time read from the Moon" [preserve] + "Local noon follows the Sun at this place" -> "A lunar route to longitude"
-- "A publicly shared year" [preserve] + "A calibrated portable clock set to a reference meridian" [preserve] -> "A clock carrying another place’s time"
-- "A clock carrying another place’s time" + "Local noon follows the Sun at this place" -> "Longitude from two kinds of time"
+- "An archive of planetary motion" + "New lunar readings and prepared reference-time tables" [preserve] -> "A lunar method for finding reference time"
+- "A lunar method for finding reference time" [preserve] + "Local noon follows the Sun at this place" -> "A lunar route to longitude"
+- "A calibrated portable clock set to a reference meridian" + "Local noon follows the Sun at this place" -> "Longitude from two kinds of time"
 - "Sea-tested reference time" [preserve] + "Local noon follows the Sun at this place" -> "Longitude from two kinds of time"
-- "A clock carrying another place’s time" @ "H4 sea-trial report" -> "Sea-tested reference time"
+- "A calibrated portable clock set to a reference meridian" @ "H4 sea-trial report" -> "Sea-tested reference time"
 
 > NOTE: Sources for this session: longitude, longitude-lunar-si, almanac-history, jaipur, longitude-harrison-trial-record, longitude-h4-trial-history. Source IDs identify bibliography entries recorded at their first relevant session; precise item and recipe attribution is retained in the conversion report.
 
@@ -1917,7 +1903,7 @@ These records cover c. 1714–1770 CE. Compare using a reference clock with usin
 
 ![Same worktable · evening](assets/atlas-longitude-chart-room.webp)
 
-It is evening. The worktable is cleared for a new session. Compare astronomical work at Jaipur with the methods used for a voyage. Add longitude to the route and provide food for the journey.
+It is evening. The worktable is cleared for a new session. Compare astronomical work at Jaipur with the methods used for a voyage. Sketch how longitude would help chart a sea route, and provide food for the journey.
 
 **Goals**
 - What makes an observatory useful? -- "Plan for a masonry observatory"
@@ -1940,18 +1926,18 @@ It is evening. The worktable is cleared for a new session. Compare astronomical 
 
   Large fixed instruments are designed for measuring the sky and checking astronomical tables. Their scale and stable sightlines serve that work.
 
-- "A sea route marked with longitude"
+- "A sea-route sketch using longitude"
 
-  Longitude adds an east–west position to the charted route. Latitude is still needed to specify a complete position.
+  The sketch shows how an east–west position would help chart a sea route. It is not a record of voyage readings, and latitude is still needed for a complete position.
 
 - "A voyage sustained beyond the fresh-food window"
 
 **Combinations**
 - "Ptolemy read critically" [preserve] + "Indian and Persian astronomical tables in comparison" [preserve] -> "Astronomical traditions compared at Jaipur"
 - "Astronomical traditions compared at Jaipur" [preserve] + "Large masonry instruments fix precise lines of sight" [preserve] -> "Plan for a masonry observatory"
-- "A chart made for compass bearings" + "Longitude from two kinds of time" [preserve] -> "A sea route marked with longitude"
-- "A chart made for compass bearings" + "A lunar route to longitude" [preserve] -> "A sea route marked with longitude"
-- "A sea route marked with longitude" [preserve] + "Provisions for a longer journey" [preserve] -> "A voyage sustained beyond the fresh-food window"
+- "A chart made for compass bearings" + "Longitude from two kinds of time" [preserve] -> "A sea-route sketch using longitude"
+- "A chart made for compass bearings" + "A lunar route to longitude" [preserve] -> "A sea-route sketch using longitude"
+- "A sea-route sketch using longitude" [preserve] + "Provisions for a longer journey" [preserve] -> "A voyage sustained beyond the fresh-food window"
 
 > NOTE: Sources for this session: longitude, longitude-lunar-si, almanac-history, jaipur. Source IDs identify bibliography entries recorded at their first relevant session; precise item and recipe attribution is retained in the conversion report.
 
@@ -2459,7 +2445,7 @@ These records cover c. 1735–1859. Shared species names and geographical observ
 
   Living things vary with place, climate and altitude. Comparing these patterns connects classification with the conditions of life.
 
-- "Species can have changing histories"
+- "Species can have changing histories" (or from chapter "Descent and inheritance", "Lamarck: acquired changes can pass to descendants")
 
   Lamarck argues that use and disuse change an organism's body, and those changes can pass to its offspring. This differs from natural selection, which acts on inherited differences already present.
 
@@ -2553,7 +2539,7 @@ The next morning, we return to a cleared worktable. Connect selection with deep 
 
 - "Changing species, different accounts of how"
 
-  Lamarck explains species change through bodily changes acquired during life and passed to offspring. Darwin and Wallace's account of natural selection instead concerns inherited differences that affect survival and reproduction. They agree that species change, but differ about how.
+  Lamarck explains species change through bodily changes acquired during life and passed to offspring. Darwin and Wallace's account of natural selection instead concerns inherited differences that affect survival and reproduction. These are distinct mechanisms, not wholly exclusive theories: Darwin also accepted inherited effects of use and disuse.
 
 - "Cumulative evolution with heredity still unresolved"
 
@@ -2683,9 +2669,9 @@ This comparison covers c. 1665–1897. Compare cholera deaths among households w
 
   The miasma theory blamed disease on foul air from unhealthy surroundings. Some sanitation measures could help even when this explanation was mistaken.
 
-- "Cholera mortality tracks a water-supply difference"
+- "A water-supply comparison others can check"
 
-  Cholera deaths differ between comparable households using different water supplies. This supports investigating water as a cause while still checking other differences and the quality of records.
+  Snow publishes deaths, how water suppliers were identified, and house counts used to compare mortality rates. Others can inspect the water-supply association and look for errors or other differences. Checking these records is not assigning households to supplies or repeating an outbreak.
 
 - "A useful intervention before full agreement"
 
@@ -2696,13 +2682,15 @@ This comparison covers c. 1665–1897. Compare cholera deaths among households w
   One account blames cholera on foul air; another connects it with contaminated water. Comparing the water-supply evidence challenges the rival explanations without pretending they have equal support.
 
 **Combinations**
-- "A trial another workshop can repeat" + "More cholera in intermixed homes using sewage-polluted water" [preserve] -> "Cholera mortality tracks a water-supply difference"
-- "Cholera mortality tracks a water-supply difference" + "Exposure falls when contaminated water is avoided" [preserve] -> "A useful intervention before full agreement"
-- "Cholera mortality tracks a water-supply difference" + "Miasma: foul surroundings produce disease" [preserve] -> "Foul air or a waterborne cause?"
+- "Printed trial instructions for other workshops" + "More cholera in intermixed homes using sewage-polluted water" [preserve] -> "A water-supply comparison others can check"
+- "A water-supply comparison others can check" + "Exposure falls when contaminated water is avoided" [preserve] -> "A useful intervention before full agreement"
+- "A water-supply comparison others can check" + "Miasma: foul surroundings produce disease" [preserve] -> "Foul air or a waterborne cause?"
 
 > NOTE: Sources for this session: lensmaking, snow, snow-myth, fermentation, buchner. Source IDs identify bibliography entries recorded at their first relevant session; precise item and recipe attribution is retained in the conversion report.
 
 > NOTE: Source `snow`: [UCLA: Snow’s grand experiment](https://epi-snow.ph.ucla.edu/Stream3_GrandExperiment_d.html). Compare water companies and denominators, not merely dots on a map. Observational comparisons have limitations.
+
+> NOTE: Source `snow-primary`: [John Snow, On the Mode of Communication of Cholera, second edition (1855), pp.78–80 and Table IX, p.86](https://www.gutenberg.org/files/72894/72894-h/72894-h.htm). Primary text: supplier identification, published death records for verification, and house-count denominators. This teaching comparison does not claim direct influence from the earlier workshop or successful independent replication.
 
 > NOTE: Source `snow-myth`: [UCLA: Broad Street outbreak context](https://epi-snow.ph.ucla.edu/Stream2_BSPoutbreak_f.html). Do not claim a map alone revealed the cause, or pump-handle removal alone ended an already declining outbreak.
 
@@ -2777,7 +2765,7 @@ These records cover c. 1820–1895. Experiments link electricity and magnetism. 
 
 - "Changing magnetism induces a current"
 
-  Changing magnetism produces an electrical current. Faraday's result connects magnetic change with electrical action.
+  Faraday’s induction experiments connect changing magnetic flux—the magnetic field passing through a circuit—with an induced voltage. A current can flow when the circuit is closed; a steady magnetic field alone is not enough.
 
 - "Faraday describes influence throughout space"
 
@@ -2795,9 +2783,9 @@ These records cover c. 1820–1895. Experiments link electricity and magnetism. 
 
   An electric current makes a nearby compass needle turn. This shows that electricity can have a magnetic effect without a visible mechanical push.
 
-- "A changing field can produce a current"
+- "Current affects magnets; magnetic change can induce current"
 
-  Changing a magnetic field can produce a current. The effect provides a way to generate electrical action.
+  Ørsted’s current deflects a magnet; Faraday’s changing magnetic flux can induce a current in a closed circuit. Together they connect electrical and magnetic effects, but induction needs change: it is not simply the first effect run backwards.
 
 - "The surrounding space becomes part of the account"
 
@@ -2809,13 +2797,15 @@ These records cover c. 1820–1895. Experiments link electricity and magnetism. 
 
 **Combinations**
 - "Nature investigated through matter and motion" [preserve] + "A current deflects a nearby compass" [preserve] -> "Electricity acts magnetically"
-- "Electricity acts magnetically" [preserve] + "Changing magnetism induces a current" [preserve] -> "A changing field can produce a current"
-- "A changing field can produce a current" [preserve] + "Faraday describes influence throughout space" [preserve] -> "The surrounding space becomes part of the account"
+- "Electricity acts magnetically" [preserve] + "Changing magnetism induces a current" [preserve] -> "Current affects magnets; magnetic change can induce current"
+- "Current affects magnets; magnetic change can induce current" [preserve] + "Faraday describes influence throughout space" [preserve] -> "The surrounding space becomes part of the account"
 - "Maxwell unifies electrical and magnetic relations" [preserve] + "The predicted wave speed matches that of light" [preserve] -> "Light belongs to the electromagnetic field"
 
 > NOTE: Sources for this session: field-oersted-observation, field-ring-object, maxwell, photo, photo-niepce, benjamin. Source IDs identify bibliography entries recorded at their first relevant session; precise item and recipe attribution is retained in the conversion report.
 
 > NOTE: Source `field-oersted-observation`: [Oersted’s experiment — Institute of Physics](https://spark.iop.org/oersteds-experiment). Supports opposite compass directions above and below a current-carrying wire. Construction and power-supply instructions deliberately excluded.
+
+> NOTE: Source `field-induction-teaching`: [Institute of Physics, Electromagnetic induction](https://spark.iop.org/episode-414-electromagnetic-induction). Modern flux language clarifies the changing-field condition; it is not presented as Faraday’s exact historical wording.
 
 > NOTE: Source `field-ring-object`: [Michael Faraday’s ring-coil apparatus — Royal Institution](https://www.rigb.org/explore-science/explore/collection/michael-faradays-ring-coil-apparatus). August 1831 apparatus and brief induced current in the other coil; object evidence anchors the reconstruction.
 
@@ -2825,7 +2815,7 @@ These records cover c. 1820–1895. Experiments link electricity and magnetism. 
 
 > NOTE: Source `photo-niepce`: [Harry Ransom Center: The Niépce Heliograph](https://www.hrc.utexas.edu/niepce-heliograph/).
 
-> NOTE: Source `benjamin`: [Stanford Encyclopedia of Philosophy: Walter Benjamin](https://plato.stanford.edu/entries/benjamin/).
+> NOTE: Source `benjamin`: [Benjamin, The Work of Art in the Age of Mechanical Reproduction, II, IV–VI, Harry Zohn translation](https://www.marxists.org/reference/subject/philosophy/works/ge/benjamin.htm). Primary translated discussion of displaced encounters, political function and captions directing a photograph’s reading. The rival crowd captions are an authored example, not Benjamin’s historical evidence. Background: [Stanford Encyclopedia of Philosophy](https://plato.stanford.edu/entries/benjamin/).
 
 ## Time-network desk
 
@@ -2854,8 +2844,8 @@ It is evening. The worktable is cleared for a new session. Electrical signals ca
   Railway stations adopt a shared time so that timetables agree. That practical standard differs from each place's own solar time.
 
 **Combinations**
-- "A clock carrying another place’s time" + "Electrical signals carry a coded message" [preserve] -> "Clock coordination travels over a network"
-- "Clock coordination travels over a network" + "Distant stations must coordinate their clocks" [preserve] -> "A shared railway time"
+- "A calibrated portable clock set to a reference meridian" + "Electrical signals carry a coded message" [preserve] -> "Clock coordination travels over a network"
+- "Clock coordination travels over a network" [preserve] + "Distant stations must coordinate their clocks" [preserve] -> "A shared railway time"
 
 > NOTE: Sources for this session: field-oersted-observation, field-ring-object, maxwell, photo, photo-niepce, benjamin. Source IDs identify bibliography entries recorded at their first relevant session; precise item and recipe attribution is retained in the conversion report.
 
@@ -2931,13 +2921,13 @@ This comparison covers c. 1890–1930. Compare clock time with the continuing ex
 **Combinations**
 - "Melancholy across bodies, books and experience" [preserve] + "James: experience flows rather than arriving as isolated atoms" [preserve] -> "Experience has a moving continuity"
 - "A shared railway time" [preserve] + "Earlier notes remain present in hearing a melody" [preserve] -> "Lived time is not a row of clock units"
-- "Lived time is not a row of clock units" [preserve] + "Experience has a moving continuity" -> "Measured coordination and lived duration"
+- "Lived time is not a row of clock units" [preserve] + "Experience has a moving continuity" [preserve] -> "Measured coordination and lived duration"
 
 > NOTE: Sources for this session: bergson, freud, james, surrealism, burton. Source IDs identify bibliography entries recorded at their first relevant session; precise item and recipe attribution is retained in the conversion report.
 
 > NOTE: Source `bergson`: [Stanford Encyclopedia of Philosophy: Henri Bergson](https://plato.stanford.edu/entries/bergson/).
 
-> NOTE: Source `freud`: [Library of Congress: Sigmund Freud, Conflict and Culture](https://www.loc.gov/exhibits/freud/).
+> NOTE: Source `freud`: [Freud, Dream Psychology, chapters II–III, M. D. Eder translation](https://www.gutenberg.org/cache/epub/15489/pg15489-images.html). Primary translated account of wishes, dream-work and conflict; reconstructing it does not establish universal or clinical validity. Background: [Library of Congress, Conflict and Culture](https://www.loc.gov/exhibits/freud/).
 
 > NOTE: Source `james`: [William James, The Principles of Psychology](https://www.gutenberg.org/ebooks/57628).
 
@@ -2954,10 +2944,6 @@ It is evening. The worktable is cleared for a new session. Compare Freud's dream
 - Can art change how we see ordinary life? -- "An artwork can challenge ordinary life"
 
 **Items**
-- "Freud interprets dreams through wishes and conflicts"
-
-  Freud interprets dreams as expressions of wishes and conflicts. His theory does not establish that every dream has such an explanation.
-
 - "Words follow associations rather than a planned outline"
 
   Words are followed through their associations rather than a planned outline. Therapy and art can use related practices for different purposes.
@@ -2972,7 +2958,7 @@ It is evening. The worktable is cleared for a new session. Compare Freud's dream
 
 - "A dream can be read for concealed conflict"
 
-  Freud's approach reads a dream for hidden wishes and conflicts. It is an interpretive proposal, not the same kind of result as a physical measurement.
+  Freud’s approach reads dreams for hidden wishes and conflicts. This is a supplied interpretive proposal, not a physical measurement or an established explanation of every dream.
 
 - "Writing without the usual planned control"
 
@@ -2987,7 +2973,6 @@ It is evening. The worktable is cleared for a new session. Compare Freud's dream
   An artwork can raise questions about ordinary life and society. It need not merely illustrate an already finished theory.
 
 **Combinations**
-- "Experience has a moving continuity" + "Freud interprets dreams through wishes and conflicts" [preserve] -> "A dream can be read for concealed conflict"
 - "A dream can be read for concealed conflict" [preserve] + "Words follow associations rather than a planned outline" [preserve] -> "Writing without the usual planned control"
 - "A photograph records from a selected viewpoint" + "Unrelated everyday objects meet unexpectedly" [preserve] -> "The familiar becomes strangely connected"
 - "The familiar becomes strangely connected" [preserve] + "Artists want more than a new decorative style" [preserve] -> "An artwork can challenge ordinary life"
@@ -3014,11 +2999,7 @@ These records cover 1905–1919. The train example distinguishes when flashes ar
 
 - `platform-flashes` Train-end flashes: platform midpoint together; moving train midpoint apart
 
-  Flashes are simultaneous according to synchronized platform clocks. They reach the platform midpoint together, but reach the moving train's midpoint at different times. Reception order alone does not yet establish emission order.
-
-- `unequal-passenger-reception` The moving midpoint receives platform-simultaneous flashes separately
-
-  Two flashes occur at a train's ends at the same time according to platform clocks. A passenger at the moving train's midpoint travels toward one flash and away from the other, so their light reaches the passenger at different times. These arrival times alone do not yet show when the flashes happened for the passenger.
+  Flashes at the train’s ends are simultaneous by platform clocks and reach the platform midpoint together. In that frame, the train’s midpoint moves toward one flash and away from the other, receiving them separately. Arrival order alone does not yet establish when the flashes were emitted in the train’s frame.
 
 - "Different frames need not agree on distant simultaneity"
 
@@ -3033,8 +3014,7 @@ These records cover 1905–1919. The train example distinguishes when flashes ar
   Newton treats time as passing the same way for everyone. Relativity says moving observers can disagree about whether distant events happen at the same time. Newton's account still works well at everyday speeds.
 
 **Combinations**
-- "Clock coordination travels over a network" + `platform-flashes` [preserve] -> `unequal-passenger-reception`
-- `unequal-passenger-reception` [preserve] + `light-invariance` [preserve] -> "Different frames need not agree on distant simultaneity"
+- `platform-flashes` [preserve] + `light-invariance` [preserve] -> "Different frames need not agree on distant simultaneity"
 - "Different frames need not agree on distant simultaneity" [preserve] + "The same physical laws hold in inertial laboratories" [preserve] -> "No universal time for distant events"
 - "No universal time for distant events" [preserve] + "Universal mechanics in absolute space and time" [preserve] -> "Newton’s shared time is a useful limit, not universal"
 
@@ -3390,7 +3370,7 @@ These records cover c. 1930–1960. In Borges's fictional example, the same word
 
 > NOTE: Sources for this session: borges, benjamin, postmodern. Source IDs identify bibliography entries recorded at their first relevant session; precise item and recipe attribution is retained in the conversion report.
 
-> NOTE: Source `borges`: [Poetry Foundation: Jorge Luis Borges](https://www.poetryfoundation.org/poets/jorge-luis-borges).
+> NOTE: Source `borges`: [Borges, El jardín de senderos que se bifurcan, Spanish transcription](https://www.literatura.us/borges/jardin.html). The comparison paraphrases branching and sometimes meeting fictional possibilities, not a verified English quotation or a claim that Borges derived them from Darwin. Transcription has typographical defects; no critical edition collated. Background: [Poetry Foundation](https://www.poetryfoundation.org/poets/jorge-luis-borges).
 
 > NOTE: Source `postmodern`: [Stanford Encyclopedia of Philosophy: Postmodernism](https://plato.stanford.edu/entries/postmodernism/).
 
@@ -3402,8 +3382,8 @@ It is evening. The worktable is cleared for a new session. Compare an unusably c
 
 **Goals**
 - Can a map contain too much detail? -- "More detail can destroy a map’s usefulness"
-- Must a story choose one path? -- "A narrative can keep incompatible paths open"
-- Who gains power when art is copied? -- "Reproduction changes art’s political reach"
+- How do story paths resemble ancestry? -- "Story paths and ancestry share a branching shape"
+- How can a copied image become politically contested? -- "Reproduction changes art’s political reach"
 
 **Items**
 - "A map matches every detail of its territory"
@@ -3418,17 +3398,17 @@ It is evening. The worktable is cleared for a new session. Compare an unusably c
 
   Benjamin asks how an artwork's particular place and history shape the experience of it. His idea of aura is not simply a rule that every copy is bad.
 
-- "Mass copies change who encounters and uses art"
+- `rival-photo-captions` Imagined crowd photo: captions claim support or coercion
 
-  Mass copies change who can encounter and use art. Wider access can bring both political opportunities and dangers.
+  Imagine two copies of the same crowd photograph: one caption calls the gathering public support, the other says people were compelled to attend. These are invented rival captions, not historical evidence or a verdict on what the crowd thought.
 
 - "More detail can destroy a map’s usefulness"
 
   A map that reproduces everything at full size loses the usefulness of selection. More detail is not always a better guide.
 
-- "A narrative can keep incompatible paths open"
+- "Story paths and ancestry share a branching shape"
 
-  A story can keep incompatible paths open instead of selecting one ending. Its branching resembles a diagram of ancestry without being the same kind of explanation.
+  Darwin’s ancestry and Borges’s incompatible story continuations can both be drawn as branching paths. The resemblance is a shape, not a shared mechanism or evidence of direct influence. Fiction can also bring paths together; it does not establish a physical multiverse.
 
 - "A copy changes the encounter with a work"
 
@@ -3436,13 +3416,13 @@ It is evening. The worktable is cleared for a new session. Compare an unusably c
 
 - "Reproduction changes art’s political reach"
 
-  Reproduction can extend art's audience and alter its political uses. Those changes cannot all be reduced to either liberation or decline.
+  Copies carry an image beyond its original setting; rival captions try to direct its political meaning. In Benjamin’s account, reproduction changes art’s public uses, not just its quantity. Circulation and editorial framing can serve criticism or manipulation, without guaranteeing either response.
 
 **Combinations**
 - "Useful bearings, distorted areas" [preserve] + "A map matches every detail of its territory" [preserve] -> "More detail can destroy a map’s usefulness"
-- "Resemblance can record shared descent" + "A story explores incompatible continuations" [preserve] -> "A narrative can keep incompatible paths open"
+- "Resemblance can record shared descent" + "A story explores incompatible continuations" [preserve] -> "Story paths and ancestry share a branching shape"
 - "The image can circulate in many copies" [preserve] + "An artwork’s particular place and history" [preserve] -> "A copy changes the encounter with a work"
-- "A copy changes the encounter with a work" [preserve] + "Mass copies change who encounters and uses art" [preserve] -> "Reproduction changes art’s political reach"
+- "A copy changes the encounter with a work" [preserve] + `rival-photo-captions` [preserve] -> "Reproduction changes art’s political reach"
 
 > NOTE: Sources for this session: borges, benjamin, postmodern. Source IDs identify bibliography entries recorded at their first relevant session; precise item and recipe attribution is retained in the conversion report.
 
@@ -3610,7 +3590,7 @@ This comparison covers c. 1900–2020. Distinct inherited factors and DNA addres
 
 > NOTE: Source `mendel`: [NHGRI: Mendelian Inheritance](https://www.genome.gov/genetics-glossary/Mendelian-Inheritance).
 
-> NOTE: Source `climate`: [NASA: Evidence for Climate Change](https://science.nasa.gov/climate-change/evidence/).
+> NOTE: Source `climate`: [NASA: Evidence for Climate Change](https://science.nasa.gov/climate-change/evidence/). The short electromagnetic/heat-loss bridge is supported by [NASA, Infrared Waves](https://science.nasa.gov/ems/07_infraredwaves/), especially its electromagnetic-spectrum and Earth-emission sections.
 
 > NOTE: Source `patterson-lead`: [Caltech: Getting the Lead Out](https://www.caltech.edu/about/news/getting-lead-out-47935).
 
@@ -3618,7 +3598,7 @@ This comparison covers c. 1900–2020. Distinct inherited factors and DNA addres
 
 ![Same worktable · evening](assets/atlas-planetary-evidence-laboratory.webp)
 
-It is evening. The worktable is cleared for a new session. Connect fossil-fuel emissions with the way greenhouse gases affect heat loss. Compare that explanation with records of global warming.
+It is evening. The worktable is cleared for a new session. Earth loses heat through infrared radiation, an invisible part of the electromagnetic spectrum. Connect fossil-fuel emissions with the way greenhouse gases affect that heat loss. Compare that explanation with records of global warming.
 
 **Goals**
 - How does industry change the climate? -- "Human activity drives the recent warming"
@@ -3734,7 +3714,7 @@ Later that day, the worktable is ready for another session. Connect organisms th
 
 ![Model and trial desk](assets/atlas-future-remote-observatory.webp)
 
-Imagine a remote observatory. Compare a model's predictions with a proposed trial, an unfamiliar case and readings from separate instruments.
+Imagine a remote observatory testing a candidate signal. A model proposes pointing away from its target, then back. Compare that plan with two instruments’ readings, while keeping an unfamiliar case visible.
 
 [If skipped] Imagine an observatory far from Earth. It needs ways to check its findings and decide what it may do before a reply arrives.
 
@@ -3747,17 +3727,17 @@ Imagine a remote observatory. Compare a model's predictions with a proposed tria
 
   In this imagined future, a model learns patterns from an archive. A useful prediction does not automatically explain a cause or guarantee a new case.
 
-- "The model proposes changing one condition in a new trial"
+- "A model proposes pointing away from the target, then back"
 
-  The model proposes changing one condition in a test. The proposal must be checked against outcomes, not accepted because it sounds convincing.
+  In this imagined test, change the pointing direction and compare readings off-target and on-target. The model proposes a checkable action, not a result to accept on its authority.
 
 - "The next observation differs from the training archive"
 
   The new observation differs from the examples used to train the model. Its prediction needs extra caution and testing.
 
-- "Separate instruments detect the same event"
+- "Two instruments lose the signal off-target and recover it on-target"
 
-  Two differently designed instruments detect the same candidate event and pass local checks. Shared errors or disturbances are still possible.
+  In the imagined trial, two differently designed instruments lose the candidate signal when pointed away and recover it when pointed back. They pass local checks, but could still share a pointing error or disturbance.
 
 - "A powerful predictor, not a universal oracle"
 
@@ -3765,7 +3745,7 @@ Imagine a remote observatory. Compare a model's predictions with a proposed tria
 
 - "A model proposes an experiment that people can inspect"
 
-  The model proposes a test with a method people can inspect. A useful suggestion must expose what changes, what is measured and how it can be checked.
+  As with the shared heat comparison, the proposed method exposes what changes and what is observed: point away, point back, and compare the signal readings. People can inspect or challenge this plan before trusting the model’s account.
 
 - "A prediction keeps its unfamiliar case visible"
 
@@ -3773,13 +3753,13 @@ Imagine a remote observatory. Compare a model's predictions with a proposed tria
 
 - "A candidate survives distinct checks"
 
-  Differently designed instruments detect the same candidate event and pass local checks. Their agreement strengthens the finding, but shared errors or disturbances may still explain it.
+  Both instruments lose the signal off-target and recover it on-target, matching the proposed comparison. This links the signal to viewing direction and strengthens the candidate finding. It does not yet explain its cause or rule out shared pointing errors and disturbances.
 
 **Combinations**
 - "No procedure solves every halting case" [preserve] + "A model learns patterns from a large archive" [preserve] -> "A powerful predictor, not a universal oracle"
-- "The heat comparison crosses workshops" + "The model proposes changing one condition in a new trial" [preserve] -> "A model proposes an experiment that people can inspect"
+- "The heat comparison crosses workshops" + "A model proposes pointing away from the target, then back" [preserve] -> "A model proposes an experiment that people can inspect"
 - "A powerful predictor, not a universal oracle" [preserve] + "The next observation differs from the training archive" [preserve] -> "A prediction keeps its unfamiliar case visible"
-- "A model proposes an experiment that people can inspect" [preserve] + "Separate instruments detect the same event" [preserve] -> "A candidate survives distinct checks"
+- "A model proposes an experiment that people can inspect" [preserve] + "Two instruments lose the signal off-target and recover it on-target" [preserve] -> "A candidate survives distinct checks"
 
 > NOTE: Sources for this session: speculation, aegis, nist, turing. Source IDs identify bibliography entries recorded at their first relevant session; precise item and recipe attribution is retained in the conversion report.
 

@@ -31,7 +31,7 @@ Begin beside the river with earth, water, air and fire. Combine them to make use
 
 ![Orchard edge](assets/E01-orchard-edge.webp)
 
-There is a place to cook at the orchard's edge. Prepare bread and juice for the journey.
+There is a place to cook at the orchard's edge. Harvest and thresh ripe grain, then let moving air separate it from the chaff. Prepare bread and juice for the journey.
 
 **Goals**
 - Make Flatbread -- Flatbread
@@ -43,6 +43,11 @@ There is a place to cook at the orchard's edge. Prepare bread and juice for the 
   Plants can provide food, fibres, seeds and wood. Growing them supplies materials people can harvest and use.
 
   *Plant*
+- Grain
+
+  After harvesting and threshing, the breeze blows the lighter chaff aside while the heavier grain falls. This is winnowing: separating the grain before milling or cooking it.
+
+  *Grain*
 
 **Combinations**
 - Air + Water -> Rain
@@ -54,6 +59,8 @@ There is a place to cook at the orchard's edge. Prepare bread and juice for the 
 - Plant + Water -> Fruit
 - Fruit [transform] + Water -> Fruit juice
 - Fruit [transform] + Stone -> Fruit juice
+
+> NOTE: Grain: Harvesting and threshing are compressed into the Plant-and-Air action; Air represents winnowing, not the growth of grain from air. [FAO: Processing of cereals, sections 12.1–12.2](https://www.fao.org/4/x0039e/x0039e06.htm) distinguishes threshing from separation by moving air. Not every cereal uses the same processing sequence.
 
 > NOTE: Fruit juice: Crushing the fruit releases its juice. Represents pressing and collecting the liquid, not a complete food-preparation procedure.
 
@@ -139,6 +146,11 @@ The moving stream can power a mill. Grind grain for the village and press the ga
   The waterwheel, gears and grinding stone are connected. Flowing water can now do the repeated work of grinding grain for the village.
 
   *Grain mill*
+- Weighted seed press
+
+  The planks form a lever and a draining bed; the millstone supplies the weight. Prepared seeds can be squeezed here, and the oil drains into the collecting bed.
+
+  *Weighted seed press*
 
 **Combinations**
 - Planks [transform] + Water -> Waterwheel
@@ -165,7 +177,7 @@ The moving stream can power a mill. Grind grain for the village and press the ga
 
 ![Mill bakehouse](assets/E02-bakehouse.webp)
 
-The bakehouse beside the mill has a warm place for dough to rise. Bake bread and pack some for the journey.
+At the bakehouse, mix flour with water and tend a wild starter over time. There is a warm place for dough to rise. Bake bread and pack some for the journey.
 
 **Goals**
 - Bake bread -- Bread
@@ -174,6 +186,13 @@ The bakehouse beside the mill has a warm place for dough to rise. Bake bread and
 **Hotspots**
 - Warm cellar
 
+**Items**
+- Wild starter
+
+  Moistened flour, tended over time, has become a living culture of yeasts and bacteria from the flour and its surroundings. The bubbling starter can help bread dough rise.
+
+  *Wild starter*
+
 **Combinations**
 - Flour [transform] + Air -> Wild starter
 - Wild starter + Dough [transform] @ Warm cellar -> Risen dough
@@ -181,16 +200,18 @@ The bakehouse beside the mill has a warm place for dough to rise. Bake bread and
 - Plant fiber [transform] + Rope [consume] -> Basket
 - Bread [consume] + Basket [transform] -> Picnic basket
 
+> NOTE: Wild starter: [Colorado State University Extension: Sourdough Starter Best Practices](https://extension.colostate.edu/resource/sourdough-starter-best-practices/) supports flour, water, time and microbial growth, and says deliberate capture of yeast from air is unnecessary. Air represents contact with the surroundings, not a dry flour mixture or microbes arriving only on a breeze. Moistening and tending are compressed; this is not a complete starter procedure or a claim that one culture suits every fermentation.
+
 > NOTE: Basket: Weave the plant fibers into a carrier and bind its rim and handle with rope.
 
 ## Keep the summer
 
 ![Orchard preserving place](assets/E03.webp)
 
-We have a lot of fruit. Let's preserve it.
+Prepare a glaze mixture suited to the clay, then coat and fire the jars before filling them. Cook the fruit, cover the preserves with a wooden lid, and pack cider for the journey.
 
 **Goals**
-- Make Sealed preserves -- Sealed preserves
+- Make Covered preserves -- Covered preserves
 - Pack cider to carry
   - either: Cider jar
   - or: Cider bottle
@@ -200,18 +221,22 @@ We have a lot of fruit. Let's preserve it.
 - Fruit [transform] + Fire -> Jam
 - Clay [transform] + Formed clay bowl -> Clay jar
 - Wood [transform] + Clay jar -> Jar lid
-- Jam [consume] + Clay jar [transform] -> Preserve jar
-- Preserve jar [transform] + Jar lid [consume] -> Sealed preserves
+- Jam [consume] + Fired glazed jar [transform] -> Preserve jar
+- Preserve jar [transform] + Jar lid [consume] -> Covered preserves
 - Wild starter + Fruit juice [transform] -> Cider
-- Sand [consume] + Clay [consume] -> Glaze
-- Clay jar [transform] + Glaze [consume] -> Glazed clay jar
-- Cider [consume] + Glazed clay jar [transform] -> Cider jar
+- Sand [consume] + Clay [consume] -> Glaze mixture
+- Clay jar [transform] + Glaze mixture [consume] -> Fired glazed jar
+- Cider [consume] + Fired glazed jar [transform] -> Cider jar
 - Glass [transform] + Air -> Glass bottle
 - Cider [consume] + Glass bottle [transform] -> Cider bottle
 
 > NOTE: Formed clay bowl: Hand-shape the clay on the turning wooden disc and let the form stiffen for dry shaping work. Hand shaping and drying are compressed; firing is not implied. Liquid service uses the later glazed, fired bowl. Sources: [pottery-forming](#source-pottery-forming).
 
-> NOTE: Glazed clay jar: The potter coats and fires the clay jar. The glaze melts into a glassy surface; the vessel keeps its jar shape. Coating, kiln firing and cooling are compressed into one craft action. Glaze alone does not fire pottery, and a glassy coating does not make the whole vessel glass. Sources: [pottery-glaze-firing](#source-pottery-glaze-firing).
+> NOTE: Glaze mixture: The potter selects a mixture suited to the fictional local clay and firing conditions. Sand and Clay stand for that selected mineral mixture, not a universal glaze formula. [MFA CAMEO: Albany slip clay](https://cameo.mfa.org/wiki/Albany_slip_clay) documents one particular mineral-rich clay used as a glaze; it does not establish that arbitrary sand and clay will work. No food-contact or heat-resistance certification is implied.
+
+> NOTE: Covered preserves: A wooden cover is not a canning seal. The filled, fired jar and lid represent covered storage under the cooks' care, not a shelf-stable preservation or food-safety procedure.
+
+> NOTE: Fired glazed jar: The potter coats and fires the clay jar. The glaze melts into a glassy surface; the vessel keeps its jar shape. Coating, kiln firing and cooling are compressed into one craft action. Glaze alone does not fire pottery, and a glassy coating does not make the whole vessel glass. Sources: [pottery-glaze-firing](#source-pottery-glaze-firing).
 
 > NOTE: Cider jar: Cider fills the glazed clay jar; a fitted closure makes it ready to carry. Fitting an ordinary closure is compressed into filling the vessel; this is not a preservation or food-safety procedure.
 
@@ -234,7 +259,7 @@ The potter's yard has space for firing and glazing. Finish a bowl that can hold 
 
 **Combinations**
 - Clay [transform] + Planks -> Tile
-- Formed clay bowl [transform] + Glaze [consume] @ Kiln yard -> Fired glazed bowl
+- Formed clay bowl [transform] + Glaze mixture [consume] @ Kiln yard -> Fired glazed bowl
 - Planks [consume] + Wood [consume] -> Table
 - Table [transform] + Tile [consume] -> Tiled table
 
@@ -259,6 +284,16 @@ At the quarry workshop, make a tool for breaking hard ground and a chest for sto
   Iron can be shaped into strong cutting edges, fasteners and fittings. It adds new possibilities for tools and construction.
 
   *Iron*
+- Stone hammer
+
+  You choose a river-worn cobble as a hand-held hammer. The river has rounded its edges over time.
+
+  *Stone hammer*
+- Carving tool
+
+  This stout workshop chisel has an edge hardened for cutting softer iron as well as shaping wood.
+
+  *Carving tool*
 
 **Combinations**
 - Brick [transform] + Fire -> Kiln
@@ -277,6 +312,8 @@ At the quarry workshop, make a tool for breaking hard ground and a chest for sto
 > NOTE: Stone hammer: A rounded river stone selected for use as a hand-held hammer. Storybook compression of river abrasion and selecting a suitable cobble. Water does not instantly turn any rock into a safe striking tool. Sources: [river-rounding](#source-river-rounding), [hammerstone](#source-hammerstone).
 
 > NOTE: Iron ore: The stone hammer chips ore from the exposed seam at the quarry. Sources: [hammerstone-mining](#source-hammerstone-mining).
+
+> NOTE: Carving tool: Authorial choice: this is a metal-capable workshop chisel, not a wood-only knife. Shaping, hardening and grinding its edge are ordinary workshop work compressed into Iron + Stone. [London Museum: iron cold chisel](https://www.londonmuseum.org.uk/collections/v/object-281229/chisel-iron-cold-chisel/) documents a metal-cutting tool class, not this fictional tool's exact manufacture or a universal cutting capability. Saw manufacture likewise compresses shaping, tooth cutting and finishing; no practical toolmaking instructions are supplied.
 
 > NOTE: Nails: At the stocked forge, the smith heats the iron, draws it to points and forms the nail heads with hammer, anvil and heading tool. Reheating, drawing, cutting and heading are compressed into one smithing action; striking arbitrary cold iron with a stone is not the recipe. Sources: [forged-nails](#source-forged-nails).
 
@@ -326,7 +363,7 @@ Visitors need to find the harbour after dark and secure their boats. Build a lig
 - Glass [consume] + Oil-wick torch [transform] -> Lantern
 - Brick [consume] + Window [consume] -> Tower
 - Tower [transform] + Lantern [consume] @ Harbour headland -> Lighthouse
-- Wood [consume] + Glazed clay jar [consume] -> Float
+- Wood [consume] + Fired glazed jar [consume] -> Float
 - Float [transform] + Rope [consume] -> Mooring buoy
 - Plant fiber [consume] + Seed oil [consume] -> Oil-soaked fiber wick
 
@@ -341,13 +378,13 @@ Visitors need to find the harbour after dark and secure their boats. Build a lig
 On a later morning, return to the orchard for planting. The preserving work stays in the earlier workspace while you prepare support and shelter for growing plants.
 
 **Goals**
-- Make Climbing garden -- Climbing garden
+- Make Supported garden -- Supported garden
 - Make Greenhouse -- Greenhouse
 
 **Combinations**
 - Oil-bearing seeds [transform] + Water -> Seedlings
 - Seedlings + Rope [transform] -> Trellis
-- Seedlings [consume] + Trellis [transform] -> Climbing garden
+- Seedlings [consume] + Trellis [transform] -> Supported garden
 - Window [transform] + Seedlings [consume] -> Greenhouse
 
 ## Water without the climb
@@ -366,8 +403,8 @@ The stream is below the growing beds. Use the current to lift water into a raise
 - Reservoir [transform] + Waterwheel with jars [preserve] -> Filled reservoir
 - Hollow pipe [consume] + Planks [consume] -> Water channel
 - Water channel [transform] + Filled reservoir [preserve] -> Irrigation channel
-- Irrigation channel [consume] + Climbing garden [transform] -> Irrigated garden
-- Waterwheel [transform] + Glazed clay jar [consume] -> Waterwheel with jars
+- Irrigation channel [consume] + Supported garden [transform] -> Irrigated garden
+- Waterwheel [transform] + Fired glazed jar [consume] -> Waterwheel with jars
 
 > NOTE: Filled reservoir: The stream-driven jars tip their water into the basin at the top of the wheel, above the growing beds.
 
@@ -620,7 +657,7 @@ At the tidal shore, boats are preparing for a crossing without a cooking hearth.
 - Smoke [preserve] + Fish [transform] -> Smoked fish
 - Cider [transform] + Air -> Vinegar
 - Vinegar [consume] + Fruit [consume] -> Pickles
-- Pickles [consume] + Clay jar [transform] -> Pickle jar
+- Pickles [consume] + Fired glazed jar [transform] -> Pickle jar
 
 ## The first boats are here
 
@@ -638,11 +675,11 @@ Our visitors have arrived. Prepare a place to wash and a covered jar of water fo
 - Water + Water filter [preserve] -> Filtered water
 - Filtered water [transform] + Fire -> Boiled water
 - Boiled water [consume] + Fired glazed bowl [consume] -> Drinking-water bowl
-- Glazed clay jar [transform] + Jar lid [consume] -> Covered clay jar
+- Fired glazed jar [transform] + Jar lid [consume] -> Covered clay jar
 - Drinking-water bowl + Covered clay jar [transform] -> Covered water jar
 - Fired glazed bowl [consume] + Table [transform] -> Washstand
-- Boiled water [consume] + Glazed clay jar [transform] -> Filled water jar
-- Drinking-water bowl + Glazed clay jar [transform] -> Filled water jar
+- Boiled water [consume] + Fired glazed jar [transform] -> Filled water jar
+- Drinking-water bowl + Fired glazed jar [transform] -> Filled water jar
 - Filled water jar [transform] + Jar lid [consume] -> Covered water jar
 - Boiled water [consume] + Covered clay jar [transform] -> Covered water jar
 
@@ -692,7 +729,7 @@ The visiting cooks want to help. Finish the washing station around the corner be
 
 ![Communal kitchen hearth](assets/E08.webp)
 
-The cooks and guests are here. Prepare porridge and fruit compote, then set the table for a shared meal.
+The cooks and guests are here, with water at hand for cooking. Prepare porridge and fruit compote, then set the table for a shared meal.
 
 **Goals**
 - Cook porridge and fruit compote
@@ -705,9 +742,9 @@ The cooks and guests are here. Prepare porridge and fruit compote, then set the 
 
 **Combinations**
 - Brick [consume] + Iron [consume] -> Stove
-- Iron [consume] + Fired glazed bowl [transform] -> Cooking pot
-- Cooking pot + Grain [transform] @ Kitchen hearth -> Porridge
-- Cooking pot + Fruit [transform] @ Kitchen hearth -> Fruit compote
+- Iron [consume] + Fired glazed bowl [transform] -> Iron-handled cooking pot
+- Iron-handled cooking pot + Grain [transform] @ Kitchen hearth -> Porridge
+- Iron-handled cooking pot + Fruit [transform] @ Kitchen hearth -> Fruit compote
 - Bread [consume] + Fruit [consume] -> Feast
 - Feast [consume] + Tiled table [transform] -> Feast table
 - Porridge [consume] + Fruit compote [consume] -> Feast
@@ -734,9 +771,7 @@ After preparing the meal, put food aside in the village's dry store. Leave grain
 - Planks [consume] + Wooden chest [transform] -> Grain bin
 - Planks [consume] + Net [consume] -> Drying rack
 - Fruit [transform] + Drying rack [preserve] -> Dried fruit
-- Clay jar [transform] + Clay [consume] -> Crock
-- Crock [transform] + Jar lid [consume] -> Lidded crock
-- Dried fruit [consume] + Lidded crock [transform] -> Fruit crock
+- Dried fruit [consume] + Covered clay jar [transform] -> Fruit crock
 
 ## Lights beside the gathering
 

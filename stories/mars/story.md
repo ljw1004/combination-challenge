@@ -2,7 +2,7 @@
 
 A damaged landing strands a small expedition. Recovery becomes a rescue, then a return journey carrying people and evidence. This is an engineering story with recovered qualified systems, not real survival instructions.
 
-> NOTE: Complete Markdown adaptation of `mars-purposeful-fieldwork-v8`, exported from the composed current scenario at source commit `1c95988a4e3771abcf2be28183ce009d38645d2c`. The first six chapters follow the reviewed Markdown example. All combinations are global; goal satisfaction latches. Later visits are new chapter surfaces. This authoring text has not run in a Markdown game engine.
+> NOTE: Complete Markdown adaptation of `mars-purposeful-fieldwork-v8`, exported from the composed current scenario at source commit `1c95988a4e3771abcf2be28183ce009d38645d2c`. The first six chapters follow the reviewed Markdown example. All combinations are global; goal satisfaction latches. Later visits are new chapter surfaces. This manuscript now runs in the shared Markdown engine. The 30 October 2026 authenticity pass clarifies recovered equipment and evidence roles; legal replays are developer diagnostics, not proof of physical reproducibility or player enjoyment.
 
 ## Contact Ridge
 
@@ -74,8 +74,8 @@ The intact signal mast has a clear orbiter sightline. Our signal here will mark 
 **Combinations**
 - Solar charger @ Ice melt station -> Dirty water
 - Heater @ Ice melt station -> Dirty water
-- Habitat fabric [consume] + Sealant [consume] -> Pressure patch
-- Pressure patch [transform] + Seam roller [preserve] -> Sealed panel
+- Habitat fabric [consume] + Sealant [consume] -> Patch supplies
+- Patch supplies [transform] + Seam roller [preserve] -> Sealed panel
 - Sealed panel [transform] + Hatch frame [consume] -> Vestibule
 - Vestibule [transform] + Tie downs [consume] -> Secured vestibule (exclusive with Wrapped vestibule)
 - Secured vestibule [transform] + Insulating blanket [consume] -> Insulated vestibule
@@ -114,14 +114,19 @@ The mission filter is made for this enclosed water source. Once the growing mate
 - Covered seed tray [transform] + Water -> Watered covered tray (exclusive with Sprouted tray)
 - Watered seed tray [transform] + Clear cover [consume] -> Watered covered tray
 - Watered seed tray [transform] @ Warm habitat -> Sprouted tray (exclusive with Watered covered tray)
+
+  After time in the warm cabin, the seeds have sprouted in their moist tray.
+
 - Sprouted tray [transform] + Clear cover [consume] -> Propagator
 - Watered covered tray [transform] @ Warm habitat -> Propagator
+
+  After time in the warm cabin, the seeds have sprouted. The clear cover shelters the young plants while they establish.
 
 ## Cargo-sled assembly area
 
 ![The landed cargo sled and its rover assembly area](assets/M03-sled-build.webp)
 
-The water is filtered and the seedlings have a warm, sheltered home. The regional map already shows the ice outcrop and the stations beyond it. The landed sled holds the rover parts, camera and viewing equipment. I can match the visible landmarks to the map and prepare the rover to follow the approach.
+The water is filtered and the seedlings have a warm, sheltered home. To reach the missing crew, we need the relay beyond the ice outcrop. The regional map shows these stations, and the landed sled holds the rover parts, camera and viewing equipment. I can match the visible landmarks to the map and prepare the rover to follow the approach.
 
 From the route overlook beside the sled, the outcrop and nearby landmarks are visible. A supported photograph can be compared with the expedition's existing regional map.
 
@@ -162,6 +167,7 @@ From the route overlook beside the sled, the outcrop and nearby landmarks are vi
 - Solar radio [transform] + Dish antenna [consume] -> Long range radio
 - Camera + Tripod [transform] -> Field camera
 - Field camera @ Route overlook -> Outcrop approach view
+- Telescope camera @ Route overlook -> Outcrop approach view
 - Outcrop approach view [preserve] + Regional map navchip [transform] -> Outcrop navchip
 - Lens [consume] + Optical tube [transform] -> Telescope
 - Telescope [transform] + Tripod [consume] -> Field telescope
@@ -207,7 +213,7 @@ The expedition sampling case holds a scoop, a transparent jar, a core tube and l
 - Ice core + Field camera -> Core layer photograph
 - Camera @ Cliff viewpoint -> Cliff photograph
 - Field camera @ Cliff viewpoint -> Cliff photograph
-- Telescope camera [preserve] @ Cliff viewpoint -> Cliff photograph
+- Telescope camera @ Cliff viewpoint -> Cliff photograph
 - Windowed box [transform] + Glove ports [consume] -> Glovebox
 - Glovebox [transform] + Lamp -> Illuminated glovebox
 
@@ -320,14 +326,14 @@ The service refuge has bedding, a folding bed, soup and an insulated flask. The 
 - next: Feed sheltered crew -- Provisioned refuge
 
 **Items**
-- Service shelter
+- Service shelter · torn seam
 - Bedding
 - Soup pouch
 - Insulated flask
 - Folding bed
 
 **Combinations**
-- Service shelter [transform] + Pressure patch -> Sealed refuge
+- Service shelter · torn seam [transform] + Patch supplies -> Sealed refuge
 - Sealed refuge [transform] + Heater -> Warm refuge
 - Folding bed [transform] + Bedding [consume] -> Prepared bed
 - Prepared bed [consume] + Warm refuge [transform] -> Prepared refuge
@@ -481,7 +487,7 @@ The growing beds use the camp’s process-water system. Growing the crop takes s
 - Grow potatoes; share meal -- Warm potatoes
 
 **Items**
-- Greenhouse shell
+- Greenhouse with torn seam
 - Prepared substrate
 - Drip line
 - Circulation fan
@@ -496,13 +502,13 @@ The growing beds use the camp’s process-water system. Growing the crop takes s
   - unnamed slot: accepts Positioned diffuser
 
 **Combinations**
-- Drip line [transform] + Camp water system [preserve] -> Irrigation line
-- Planted potatoes [transform] + Irrigation line [preserve] -> Watered potatoes
+- Drip line [transform] + Camp water system [preserve] -> Connected drip line
+- Planted potatoes [transform] + Connected drip line [preserve] -> Watered potatoes
 - Grow light [transform] + Solar charger -> Powered grow light
 - Potato harvest [transform] + Heater -> Warm potatoes
 - Growing bed [transform] + Prepared substrate [consume] -> Planting bed
 - Planting bed [transform] + Seed potato [consume] -> Planted potatoes
-- Greenhouse shell [transform] + Pressure patch -> Greenhouse
+- Greenhouse with torn seam [transform] + Patch supplies -> Greenhouse
 - Greenhouse[Watered potatoes, Powered grow light, Circulation fan] + Harvest basket [preserve] -> Potato harvest
 
 ## Propagation bench
@@ -671,7 +677,7 @@ The field laboratory unpacked at the basin core site contains the coring, handli
 
 ![Ripple and gravel edge](assets/M14-gravel-edge.webp)
 
-The rippled surface and nearby gravel are different sources of evidence. I will compare their photographs and keep the specimens and records separate.
+The rippled surface and nearby gravel are different sources of evidence. I will mark both photographed sites on the terrain model, compare them with the basin record, and keep the specimens and records separate.
 
 The comparison case is opened at the ripple-and-gravel edge. A loose chip must still be collected visibly from the gravel ledge.
 
@@ -700,8 +706,8 @@ The earlier core has a band of larger grains between two finer layers. Its miner
 - Field camera @ Ripple window -> Ripple photograph
 - Field camera @ Gravel window -> Gravel photograph
 - Ripple photograph [preserve] + Gravel photograph [preserve] -> Paired terrain photographs
-- Paired terrain photographs [preserve] + Terrain model -> Deposition context
-- Deposition context [preserve] + Basin field record -> Qualified basin story
+- Paired terrain photographs [preserve] + Terrain model -> Mapped ripple and gravel sites
+- Mapped ripple and gravel sites [preserve] + Basin field record -> Qualified basin story
 - Ripple impression sheet [transform] @ Ripple window -> Ripple impression
 - Loose gravel chip [transform] + Specimen log [preserve] -> Logged gravel chip
 - Qualified basin story [preserve] + Context board [transform] -> Comparison board
@@ -736,10 +742,12 @@ Our basin comparison keeps the ripple and gravel sites separate. Rounded gravel 
 
 **Combinations**
 - Field camera @ Depot marker line -> Current marker view
-- Current marker view [preserve] + Depot survey print [preserve] -> Registered route views
-- Registered route views [preserve] + Weather record [preserve] -> Track disagreement
-- Marker cleaning pad [preserve] @ Depot marker line -> Revealed socket mark
-- Revealed socket mark [preserve] + Track disagreement [preserve] -> Identified service route
+- Current marker view [preserve] + Depot survey print [preserve] -> Track disagreement
+
+  The fixed markers line up in the survey print and the new photograph, but the dark surface tracks differ. This comparison shows change, not when it happened or what caused it; the fixed route identifiers remain our guide.
+
+- Marker cleaning pad [preserve] @ Depot marker line -> Readable route identifier
+- Readable route identifier [preserve] + Track disagreement [preserve] -> Identified service route
 - Folded route sign [transform] + Sign foot [consume] -> Standing route sign
 - Standing route sign [transform] + Identified service route [preserve] -> Depot route sign
 - Depot hauler[Protected controller, Hauler platform] [transform] + Depot route sign [preserve] -> Depot cargo shuttle
@@ -777,7 +785,7 @@ The oxygen plant holds its stored processing stack, controller and filtered inta
 
 ![Cabin preparation bay](assets/M16-cabin-bay.webp)
 
-The oxygen plant is working. Across the depot, I can repair the waiting cabin and check its test record before planning the flight home.
+The oxygen plant is working. Across the depot, I can repair and fit the waiting cabin, then check its hatch closure and console responses at the ascent pad and record what happens.
 
 The cabin shell survived, but its hatch seal is damaged. The depot stores hold the replacement seal, docking ring, flight console and stowed flight seat.
 
@@ -803,17 +811,19 @@ The cabin shell survived, but its hatch seal is damaged. The depot stores hold t
 - Ascent cabin shell [transform] + Hatch seal [consume] -> Ascent cabin
 - Ascent cabin[Docking ring, Serviced oxygen module, Flight console, Flight seat] @ Ascent pad -> Cabin test record
 
+  The repaired hatch closes and the fitted console responds during the pad check. This records a limited functional check of the cabin, not clearance to launch. The rendezvous and final vehicle assembly still need preparation.
+
 ## Clear-sky station
 
 ![Clear-sky station](assets/M17.webp)
 
 At the clear-sky station, I can compare clocks, observations and beacon measurements with the orbiter. We need to agree where and when the ships will meet.
 
-The clear-sky station’s stored navigation kit holds the ephemeris card, terminal and clock, with the tracker, alignment target, timing receiver and range transponder.
+The clear-sky station’s stored navigation kit holds the orbiter position table, terminal and clock, with the tracker, alignment target, timing receiver and range transponder. The tracker records the stars; the terminal relates that observation to its stored station survey and tracker-mount calibration. That establishes the station’s orientation, not the orbiter’s location.
 
-The cabin’s hatch seal, docking ring, oxygen module, console and seat are fitted. Its test record documents that repair. The meeting with the orbiter and the final vehicle assembly are still to come.
+The cabin check is recorded. We still need the orbiter’s pass prediction and a ranging link to agree our rendezvous, then assemble the final vehicle.
 
-> NOTE: The cabin record is fictional mission equipment, not a spacecraft test result or operating procedure.
+> NOTE: The cabin check, stored station survey and mount calibration are fictional mission premises, not a spacecraft test result or navigation procedure. [JPL’s ephemerides overview](https://ssd.jpl.nasa.gov/orbits.html) and [Horizons manual](https://ssd.jpl.nasa.gov/horizons/manual.html) support time-related position information; [NASA’s Orion navigation overview](https://www.nasa.gov/missions/lasers-stars-and-sensors-will-guide-nasas-orion-spacecraft/) distinguishes star-tracker orientation from broader navigation. Sources checked 30 October 2026; they do not validate this fictional rendezvous solution.
 
 **Goals**
 - Make agreed rendezvous -- Agreed rendezvous
@@ -822,7 +832,10 @@ The cabin’s hatch seal, docking ring, oxygen module, console and seat are fitt
 - Clear sky station
 
 **Items**
-- Ephemeris card
+- Orbiter position table
+
+  The table gives predicted orbiter positions at reference-clock times. Comparing it with the received beacon times helps predict a pass; it is one input to the rendezvous, not a complete flight plan.
+
 - Navigation terminal
 - Alignment target
 - Range transponder
@@ -833,11 +846,11 @@ The cabin’s hatch seal, docking ring, oxygen module, console and seat are fitt
 **Combinations**
 - Timing receiver [transform] + Reference clock [consume] -> Timing station
 - Star tracker [transform] + Alignment target [preserve] -> Aligned star tracker
-- Aligned star tracker [preserve] @ Clear sky station -> Sky fix
+- Aligned star tracker [preserve] @ Clear sky station -> Star observation
 - Timing station [preserve] @ Clear sky station -> Beacon times
-- Beacon times [preserve] + Ephemeris card [preserve] -> Orbiter pass prediction
-- Sky fix [preserve] + Navigation terminal [preserve] -> Ground reference
-- Ground reference [preserve] + Orbiter pass prediction [preserve] -> Rendezvous solution
+- Beacon times [preserve] + Orbiter position table [preserve] -> Orbiter pass prediction
+- Star observation [preserve] + Navigation terminal [preserve] -> Station orientation
+- Station orientation [preserve] + Orbiter pass prediction [preserve] -> Rendezvous solution
 - Range transponder [transform] + Long range radio -> Ranging link
 - Ranging link [preserve] + Rendezvous solution [preserve] -> Agreed rendezvous
 
@@ -847,7 +860,7 @@ The cabin’s hatch seal, docking ring, oxygen module, console and seat are fitt
 
 Back at camp, I will pack the specimens, save the crew portrait and prepare a handover signal for the next crew.
 
-The packing materials, record storage and handover equipment are ready.
+The complete card recorder and its matching archival card can save a copy of the crew portrait alongside our field records. The hauler’s platform and cargo strap match the removable return capsule. Its shock mount and cargo can be fitted in any order; after the ground journey, that same capsule will transfer from the cart’s restraint to the flight dock. The camp handover equipment is ready too.
 
 **Goals**
 - Prepare specimen transport cart -- Specimen transport cart
@@ -856,7 +869,7 @@ The packing materials, record storage and handover equipment are ready.
 
 **Items**
 - Shock mount
-- Data store
+- Card recorder
 - Archival card
 - Cargo strap
 - Camp beacon
@@ -870,12 +883,15 @@ The packing materials, record storage and handover equipment are ready.
   - slot: comparison record, accepts Sleeved comparison
 
 **Combinations**
-- Data store [transform] + Archival card [consume] -> Archival recorder
+- Card recorder [transform] + Archival card [consume] -> Archival recorder
 - Family record [preserve] + Basin field record -> Expedition archive
 - Expedition archive [transform] + Core layer photograph [preserve] -> Complete field archive
 - Camp beacon [transform] + Maintenance card [consume] -> Camp handover beacon
 - Depot cargo shuttle [transform] + Cargo strap [consume] -> Secured cart
 - Secured cart [transform] + Return capsule[Shock mount, Catalogued ice sample, Retained sediment, Complete field archive, Two-cell comparison case, Sleeved comparison] -> Specimen transport cart
+
+  The cart carries the packed return capsule to the ascent pad. The cart stays on the ground; the same removable capsule, with its specimens and records, will go into the flight dock.
+
 - Crew portrait [preserve] + Archival recorder [preserve] -> Family record
 
 ## Final assembly pad

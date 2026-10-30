@@ -2,7 +2,7 @@
 
 A manuscript desk, not a test of faith. Follow a wound, a failed promise, bread, a hungry household and a request for prayer through changing arguments. Build what each writer is claiming, test it against a case, and leave real disagreements open. New chapters reuse distinctions you have made. Each item has a short explanation you can revisit.
 
-> NOTE: Converted from `divinity-final-reading-scenes-v7`, the composed current scenario at source commit `1c95988a4e3771abcf2be28183ce009d38645d2c`. This is authoring text for the proposed Markdown language; it has not been run by a Markdown game runtime. All combinations are global. Completed goals remain satisfied.
+> NOTE: Converted from `divinity-final-reading-scenes-v7`, the composed current scenario at source commit `1c95988a4e3771abcf2be28183ce009d38645d2c`. The conversion predates the current Markdown runtime. The active manuscript now runs through the shared parser and engine; subsequent authenticity revisions are recorded in the repository review history. All combinations are global. Completed goals remain satisfied.
 
 > NOTE: Reconstructing an attributed religious argument is not endorsement, demonstration of a miracle, or authentication of an object. These desks compare texts; they do not claim that the writers met. The Book of Two Principles and the Lyon ritual are distinct witnesses, not a single creed for everyone called Cathar. Invented cases remain labelled as cases.
 
@@ -12,7 +12,7 @@ A manuscript desk, not a test of faith. Follow a wound, a failed promise, bread,
 
 ![Augustine’s study](assets/divinity-augustine-study.webp)
 
-*Augustine’s study, North Africa, c. 421*
+*St Augustine, Hippo, 421 AD*
 
 Augustine explains evil as damage to, or loss of, something good. Compare a wound with stealing a meal: suffering harm is not the same as choosing to harm someone.
 
@@ -488,9 +488,9 @@ The next morning, the desk is ready for a new comparison. Aquinas compares a rel
 
   > NOTE: Earlier separate reading, superseded here by the unified explanation above: Augustine's helped person still chooses, and Aquinas's tool still acts. The comparison shows that dependent action can be real; it does not mean people are merely tools.
 
-- `rites-different` Both rites use bodies; they disagree about what God appointed
+- `rites-different` Both rites use bodies; that does not settle their authority claims
 
-  The Lyon rite uses hands and a Gospel book; Aquinas discusses baptism with water. Both claim an inward gift through physical actions, but disagree about the authorized rite and how it gives that gift.
+  Lyon appeals to apostolic laying on of hands; Aquinas says God appointed baptism with water. Bodily action alone cannot decide which claim to accept. Comparing these texts does not establish a direct debate between them.
 
 **Combinations**
 - Aquinas’s example: the axe cuts the wood [preserve] + The craftsperson uses the axe to make a bed [preserve] -> `dependent-tool`
@@ -633,7 +633,7 @@ A household has one coin and no supper. Compare Luther's priority for helping pe
 
 - Luther: a paid guarantee cannot replace a changed life
 
-  Luther describes repentance as a lifetime of turning away from wrong. A seller's promise that a coin guarantees release for a dead soul cannot replace that changed life or give the seller control over God's mercy. His criticism does not declare every church rite or payment fraudulent.
+  Luther separates two matters: the dead person's release and the living buyer's repentance. He denies that a coin guarantees the first; buying such a promise cannot replace the buyer's lifetime of turning away from wrong. The reported sales promise is not official teaching, and his criticism does not reject every rite or payment.
 
   > NOTE: Earlier separate reading, superseded here by the unified explanation above: For Luther, a guarantee based on payment cannot replace repentance and a changed life. This criticism is not a blanket claim that every church rite or payment is fraudulent.
 
@@ -654,7 +654,7 @@ A household has one coin and no supper. Compare Luther's priority for helping pe
 
 > NOTE: Source completion text, retained for author reference rather than an additional completion popup: Luther gives food for the household priority over an indulgence. A seller's promise cannot guarantee release for a dead soul or give the seller control over God's mercy.
 
-> NOTE: Source `theses`: [Luther, Ninety-Five Theses (1517), Taylor edition](https://editions.mml.ox.ac.uk/editions/luther-95-theses/luther-95-theses-eng.shtml). Especially theses 1, 27–28, 36, 43 and 62; indulgences concern penalties, not a legitimate purchase of guilt’s forgiveness.
+> NOTE: Source `theses`: [Luther, Ninety-Five Theses (1517), Taylor edition](https://editions.mml.ox.ac.uk/editions/luther-95-theses/luther-95-theses-eng.shtml). Especially theses 1, 27–28, 35–36, 43 and 62; indulgences concern penalties, not a legitimate purchase of guilt’s forgiveness.
 
 ## If it is a gift, why do anything?
 

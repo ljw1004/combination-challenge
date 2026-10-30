@@ -2,7 +2,7 @@
 
 Travel with a kitchen caravan from a roadside breakfast through an orchard, a rainy market and the railway kitchens. Keep cooking in each kitchen while its people need you, then take your useful preparations onward. The journey ends by sending a real supper aboard the departing train. A staffed pantry cart and managed cold storage keep saved ingredients and preparations under the cooks’ care between stops; some of the breakfast juice is reserved for the journey.
 
-> NOTE: Adapted from `kitchen-caravan-small-sessions-v8`, composed through `ui/current-scenarios.ts` at source commit `1c95988a4e3771abcf2be28183ce009d38645d2c`. All 35 cooking sessions and active recipe alternatives are retained. This is an authoring manuscript; there is no production Markdown parser yet.
+> NOTE: Adapted from `kitchen-caravan-small-sessions-v8`, composed through `ui/current-scenarios.ts` at source commit `1c95988a4e3771abcf2be28183ce009d38645d2c`. The 35 cooking sessions and their recipe alternatives were retained in the Markdown conversion. This manuscript now runs in the shared Markdown engine; subsequent wording revisions are recorded in the repository history.
 
 > NOTE: This is a continuous culinary journey, not a universal chronology or an invention ladder. Ingredients and shared preparation batches represent usable portions. Recipes compress proportions, preparation, waiting, heating and cooling under the cooks’ care. They are not complete formulas, home-preservation procedures or shelf-life guarantees. Referenced techniques support named processes, not invention dates.
 
@@ -822,12 +822,14 @@ The tea room needs scones for waiting passengers. Jam and whipped cream are read
 
 **Combinations**
 - Flour + Baking powder [preserve] -> Self-raising flour
-- Self-raising flour [transform] + Butter -> Scone crumbs
-- Scone crumbs [transform] + Milk -> Scone dough
+- Self-raising flour [transform] + Butter -> Rubbed-in scone mix
+- Rubbed-in scone mix [transform] + Milk -> Scone dough
 - Scone dough [transform] @ `tea-oven-tea` -> Scones
 - Scones [transform] + Soft-set fruit jam -> Jam-filled scones
 - Jam-filled scones [transform] + Whipped cream -> Cream tea plate
 - Cocoa powder + Milk @ `chocolate-pan-tea` -> Hot chocolate
+
+> NOTE: Rubbed-in scone mix: This is the unbaked flour-and-fat mixture, not crumbs from baked scones. [British Dietetic Association: Basic Scones](https://www.bda.uk.com/resource/basic-scones.html) distinguishes rubbing fat into flour from adding milk to form dough and then baking. Proportions and shaping remain compressed.
 
 ## Station tea ovens — later shift
 
