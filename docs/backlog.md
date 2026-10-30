@@ -14,7 +14,7 @@ Ideas are options to test, not obligations to implement. The current engine rema
 
 Editorial priorities:
 
-1. Work through [authenticity follow-up](authenticity-backlog.md), starting with verified current P1 counterparts. Keep the original review unchanged. It includes 70 cards with distinct mandatory, optional, unresolved and not-required statuses.
+1. Work through the single [authenticity backlog](authenticity-backlog.md), starting with the current concrete candidates. Its 70 stable finding IDs distinguish proposed changes, optional polish, investigations, keep decisions and absent editions. Original ratings and evidence remain historical; do not treat them as current test results.
 2. Review linter warnings for mixed fates, future supplies and too many visible goal chains. Explain a deliberate exception specifically; do not erase a warning merely to make output green.
 3. Review arrival and peak working sets in the browser, especially long Ideas/Divinity labels and constructed compounds. Coordinate-free hotspots currently use a stable default lower-panel layout; author image-relative positions where a precise feature matters.
 4. Run fresh agent trials through the player-only interface, then compare a concrete revision. Confirm the enjoyed old feel through human play; browser tests cannot certify that experience.

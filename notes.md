@@ -49,3 +49,14 @@ Verification: 191 local Markdown links across 13 active/index documents resolve,
 ## Archive index placement — 30 October 2026
 
 Moved the salvage index into `archive/` because it documents the archive and the provenance of recovered guidance. Rebased its outgoing links and updated all active references; checked local targets and heading anchors.
+
+
+## 30 October 2026 authenticity consolidation and implementation
+
+At 14:43 UTC, after restructuring the repository, Lucian requested one consolidated `docs/authenticity-backlog.md`, a running build on the existing private working site, and then implementation and testing of the justified authenticity improvements. On completion, the backlog is to move into the archive with a dated header explaining its purpose and outcome. This resumes repository work for that task; it does not restore old source over the Markdown rebuild.
+
+At 14:45 UTC Lucian explicitly granted sole control of this repository and permission to check in changes. Use the supported GitHub batch route where possible; if an approval is still required, surface it rather than claiming a push succeeded. The requested private working-site deployment is authorized separately from the original local-only rebuild. Preserve its existing access level; no changes to unto.me are authorized.
+
+The consolidation compares the five current manuscripts at `f5125875dc25080e68be63061861426c9129de74` with the proposal baseline `1e8567d343a36d8280f54cf5e6bc41a98b7fcd47`. Their changes are image-path relocation only. The proposals therefore retain their manuscript counterparts, but their old claim that no new-format linter or playtester exists is obsolete. Current syntax, infinite-resource semantics and verification requirements come from the active specification and tools.
+
+The original pre-Markdown review remains byte-for-byte in `archive/legacy-2026-10-30/docs/story-authenticity-review-2026-10-30.md`. Removing its duplicate active copy does not alter historical grades or evidence. The consolidated backlog records current work and separate keep, absent-edition and unresolved decisions; consolidation itself is not implementation or playtest evidence.
