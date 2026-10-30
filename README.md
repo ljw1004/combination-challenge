@@ -129,7 +129,7 @@ Each document owns one aspect of working here. Update the owning document and li
 | [Engineering](docs/engineering.md) | Implementation boundaries, technical constraints and testing policy. |
 | [Fun and evaluation](docs/fun-and-evaluation.md) | Research, experience criteria and the experimental method. |
 | [Backlog](docs/backlog.md) | Current story directions, unresolved work and future ideas. |
-| [Authenticity backlog](docs/authenticity-backlog.md) | Consolidated findings, current proposals, decisions and verification; links to preserved historical evidence. |
+| [Completed authenticity pass](archive/authenticity-improvements-2026-10-30.md) | Consolidated discoveries, implemented improvements, retained decisions and bounded verification evidence. |
 | [Archive](archive/README.md) and [salvage index](archive/salvage-index.md) | Archival policy, preservation and provenance of recovered guidance. |
 | [Working notes](notes.md) | Dated hypotheses, decisions, work performed and evidence limits. |
 | [Agent instructions](AGENTS.md) | Repository-specific instructions for coding agents. |

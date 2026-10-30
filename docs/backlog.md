@@ -14,11 +14,13 @@ Ideas are options to test, not obligations to implement. The current engine rema
 
 Editorial priorities:
 
-1. Work through the single [authenticity backlog](authenticity-backlog.md), starting with the current concrete candidates. Its 70 stable finding IDs distinguish proposed changes, optional polish, investigations, keep decisions and absent editions. Original ratings and evidence remain historical; do not treat them as current test results.
+1. The [authenticity implementation pass](../archive/authenticity-improvements-2026-10-30.md) is complete: 42 original findings changed, 24 retained after review and four absent-edition findings recorded separately. Consult its actual outcomes and evidence before reopening an issue; original ratings are not current test results.
 2. Review linter warnings for mixed fates, future supplies and too many visible goal chains. Explain a deliberate exception specifically; do not erase a warning merely to make output green.
 3. Review arrival and peak working sets in the browser, especially long Ideas/Divinity labels and constructed compounds. Coordinate-free hotspots currently use a stable default lower-panel layout; author image-relative positions where a precise feature matters.
 4. Run fresh agent trials through the player-only interface, then compare a concrete revision. Confirm the enjoyed old feel through human play; browser tests cannot certify that experience.
 5. Revisit intellectual continuity and forward intuition separately from physical/factual authenticity. A method, measurement and established conclusion should not be interchangeable labels.
+
+Optional future physical specificity: if a more literal Mars surface-copying scene becomes useful, choose compatible substrate/contact wording and align its artwork. [AF-sandy-impression-method](../archive/authenticity-improvements-2026-10-30.md#af-sandy-impression-method-keep-the-material-specific-hold) was retained as a bounded abstraction, not repaired or certified. This is not a requirement for a full molding procedure or a blocker on the completed pass.
 
 An approximate 200-decision campaign remains an inherited research ambition, not a minimum enforced by the engine or evidence about current stories. Assess actual decisions and experience under the [evaluation method](fun-and-evaluation.md).
 
