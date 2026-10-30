@@ -360,7 +360,7 @@ export function createStoryEditor(options: StoryEditorOptions): StoryEditor {
   document.addEventListener('pointerdown', dismissFixMenu, true);
   element.addEventListener('wheel', closeFixMenu, {passive: true});
   function fixControl(diagnostic: Diagnostic) {
-    const bulb = button('💡', 'editor-diagnostic-fix');
+    const bulb = button('', 'editor-diagnostic-fix');
     bulb.setAttribute('aria-label', `Fix ${diagnostic.code}: ${diagnostic.message}`);
     bulb.setAttribute('aria-haspopup', 'menu'); bulb.setAttribute('aria-expanded', 'false');
     bulb.addEventListener('click', () => openFixMenu(diagnostic, bulb));

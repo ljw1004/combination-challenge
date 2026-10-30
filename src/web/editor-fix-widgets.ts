@@ -26,7 +26,7 @@ export function sourceFixWidgets(onOpen: (diagnostic: Diagnostic, anchor: HTMLEl
     }
     toDOM() {
       const button = document.createElement('button');
-      button.type = 'button'; button.className = 'editor-source-fix'; button.textContent = '💡';
+      button.type = 'button'; button.className = 'editor-source-fix';
       button.setAttribute('aria-haspopup', 'menu');
       button.addEventListener('mousedown', event => event.preventDefault());
       this.configure(button);
