@@ -131,7 +131,7 @@ export function act(story: Story, original: State, action: Action): State {
     latch(story,state);
     if (excluded && !continuationPossible(story,state)) throw new Error('This exclusive choice would remove every continuation through the remaining story.');
     const expendable = [recipe.a, ...(recipe.b ? [recipe.b] : [])].filter(i => i.fate !== 'preserve' && i.ref.id !== recipe.result.id);
-    // Try joint removal first, then each individual removal. Never assess two removals independently.
+    // Try hiding both inputs first, then each individually. These infinite resources are never depleted.
     const choices = [expendable, ...expendable.map(i => [i]), []];
     const retiring = choices.find(inputs => continuationPossible(story,state,new Set(inputs.map(i => i.ref.id))));
     if (!retiring) throw new Error('This action would remove every continuation through the remaining story.');

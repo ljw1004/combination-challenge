@@ -28,8 +28,8 @@ export function goalPossible(goal: Goal, available: Map<string, Set<string>>, ho
 }
 
 /** Monotone planning closure for a fixed set of permanent exclusive choices.
- * Retention makes resources reusable whenever future requirements need them.
- * No hidden or consumed object is reintroduced, and future hotspots enter in order.
+ * All resources are infinite; retention keeps those needed for future work visible.
+ * Hidden tokens stay hidden under the needs rules, and future hotspots enter in order.
  */
 export function continuationPossible(story: Story, state: State, removed: Set<string> = new Set(), includeCurrentItems=false): boolean {
   const index = indexStory(story), banned = new Set(state.excluded);

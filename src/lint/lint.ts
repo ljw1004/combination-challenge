@@ -30,7 +30,7 @@ export function lintStory(story: Story): Diagnostic[] {
   }
   for (const [id,list] of uses) {
     if (list.length===1 && !list[0].explicit) error('single-use-fate',`${story.items[id].name} is a reagent in only one combination. Annotate its fate explicitly.`,list[0].source);
-    if (new Set(list.map(u=>u.fate==='preserve'?'preserve':'remove')).size>1) warning('mixed-fates',`${story.items[id].name} is preserved in some combinations and consumed/transformed in others (including slot installation). Review whether the visible role explains this.`,list[0].source,list.slice(1).map(u=>u.source));
+    if (new Set(list.map(u=>u.fate==='preserve'?'preserve':'hide')).size>1) warning('mixed-fates',`${story.items[id].name} is kept visible in some combinations and eligible to be hidden in others (including slot installation). Review whether the action explains these visibility hints.`,list[0].source,list.slice(1).map(u=>u.source));
   }
   const declaredHotspots = new Set(story.chapters.flatMap(c=>c.hotspots));
   for (const hotspot of Object.values(story.hotspots)) {

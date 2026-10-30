@@ -4,11 +4,31 @@ Ideas are options to test, not obligations to implement. The current engine rema
 
 ## Current stories
 
+| Story | Direction |
+|---|---|
+| Mars | Recognizable salvaged equipment, coherent fieldwork, rescue and useful retained observations. Avoid rebuilding civilization from raw elements, redundant map categories and fiddly measurement chores. |
+| Elements | A storybook elemental world, not literal chemistry. Keep its tangible home/craft/community arc and useful continuity. Review internal fabrication-stage consistency without expanding it into a detailed manufacturing simulation. |
+| Kitchen | Preserve the enjoyed cooking core and familiar equipment. Alternative dishes should feed a meaningful purpose. Earn the conclusion through earlier preparations and an actual meal, without forcing a branded destination. |
+| Ideas | Intellectual connections across time; methods become useful through evidence, comparison and application. Distinguish a proposed method, an actual observation and a tested result. |
+| Divinity | A desk of arguments, cases and attributed texts; disagreements remain substantive. Do not silently equate distinct traditions or hide an essential story event in an unread primitive explanation. |
+
+Editorial priorities:
+
 1. Work through [authenticity follow-up](authenticity-backlog.md), starting with verified current P1 counterparts. Keep the original review unchanged. It includes 70 cards with distinct mandatory, optional, unresolved and not-required statuses.
 2. Review linter warnings for mixed fates, future supplies and too many visible goal chains. Explain a deliberate exception specifically; do not erase a warning merely to make output green.
 3. Review arrival and peak working sets in the browser, especially long Ideas/Divinity labels and constructed compounds. Coordinate-free hotspots currently use a stable default lower-panel layout; author image-relative positions where a precise feature matters.
 4. Run fresh agent trials through the player-only interface, then compare a concrete revision. Confirm the enjoyed old feel through human play; browser tests cannot certify that experience.
 5. Revisit intellectual continuity and forward intuition separately from physical/factual authenticity. A method, measurement and established conclusion should not be interchangeable labels.
+
+An approximate 200-decision campaign remains an inherited research ambition, not a minimum enforced by the engine or evidence about current stories. Assess actual decisions and experience under the [evaluation method](fun-and-evaluation.md).
+
+## Format and tooling ideas
+
+These are proposals, not existing tools or syntax:
+
+- Define an optional canonical manuscript form and, if useful, a transformer into it. One proposal declares each chapter's items separately from the combinations needed for its goals, with remaining global combinations collected at the end. Preserve which items each chapter introduces; do not require this form for ordinary authoring.
+- Explore item icons for stories that benefit from them.
+- Add useful exclusivity examples and investigate a proof of the specification's continuation invariant.
 
 ## Story ideas worth retaining
 

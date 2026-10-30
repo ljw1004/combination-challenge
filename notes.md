@@ -29,3 +29,23 @@ The logical runner freezes source, story, assignment and model label; exposes pl
 Archive verification passed for all 15,871 original tracked files, including an exact comparison of the active authenticity review with its archived original. All 103 story image references resolve locally. TypeScript, linter and production build passed. The measured complete default suite (12 Node tests plus 3 Chromium interaction tests) passed in 7.09 seconds on this workspace, including all five complete legal witnesses and exact replays. Browser checks cover mouse combination/highlights, Undo, reload, reset from instructions, a 320px checkpoint, touch-card movement and empty-space touch scrolling. The touch checks are browser emulation, not a native-device claim.
 
 Final visual inspection of early and later Ideas scenes found and repaired a delivery divider whose position was being removed during reconciliation. Arrival packing now separates colliding carried cards while retaining the relative placement of noncolliding cards, and keeps the working group's centre near one-third of the panel. Ordinary settled boards are not repacked. The game retains warning/backlog work rather than claiming the stories have been editorially repaired or proven fun.
+
+## Infinite resources clarification — 30 October 2026
+
+The user clarified that every item is an infinite resource. Consume/transform are presentation hints for hiding inputs and placing results; only mutual exclusivity encodes finiteness. The working hypothesis is that this clarifies the existing retention model: required inputs stay visible, hidden tokens remain in state, and exclusive alternatives are recorded separately. The spec's existing needs rules still exclude hidden tokens from later introduction.
+
+Aligned current principles, authoring/engineering guidance, agent instructions and engine comments with that distinction. Mixed-fate lint warnings now ask about visibility hints; the spec still explicitly requests these author-review warnings. Runtime behaviour and manuscripts remain unchanged.
+
+Verification: TypeScript and diff whitespace checks passed. Lint still reports zero errors and 64 warnings across the five stories. No new tests were added for documentation or diagnostic wording.
+
+## Documentation consolidation — 30 October 2026
+
+Goal: give each document one purpose and one area of authority. The working hypothesis is that linking to a rule's owning document prevents the competing copies that accumulated during the rebuild. Consolidated writing conventions and design advice in the authoring guide; kept grammar, game semantics and diagnostics in the specification. Moved layout, tool usage and the complete playtesting protocol into the README, with a documentation map. Engineering now concentrates on implementation and testing, UX on presentation, and the archive README on historical-source policy. Current story directions and unimplemented format/tool ideas live in the backlog.
+
+Removed the superseded design-principles and playtesting documents after moving their useful content and updating active references. The user's infinite-resource wording is retained in the specification's combinations section. Research provenance and evaluation limits remain in their existing guides; the authenticity review remains untouched.
+
+Verification: 191 local Markdown links across 13 active/index documents resolve, including checked heading anchors. All npm tools are represented in the README. The original authenticity review, story sources and legacy archive are unchanged. Lint still reports zero errors and 64 warnings; diff whitespace checks pass. No runtime changes or new tests were needed for this reorganization.
+
+## Archive index placement — 30 October 2026
+
+Moved the salvage index into `archive/` because it documents the archive and the provenance of recovered guidance. Rebased its outgoing links and updated all active references; checked local targets and heading anchors.

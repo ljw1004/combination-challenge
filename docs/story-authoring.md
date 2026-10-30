@@ -1,49 +1,69 @@
 # Writing a combination story
 
-Author `stories/<slug>/story.md`; put its images in that directory's `assets/`. The folder identifies the story for loading/saves. The `#` heading and introduction supply its menu name and description. References to images are relative to `story.md`.
+This is the guide to designing, writing and revising stories. The [format specification](story-format-spec.md) defines syntax and game semantics; the [README](../README.md) covers file layout, tools and playtesting. These are authoring aims, not claims that every current manuscript already meets them.
 
-The [specification](story-format-spec.md) defines the language. This guide collects editorial lessons rather than adding hidden grammar.
+## Make combining worthwhile
+
+The player chooses and combines the things themselves. Give each operation a recognizable purpose, contribution and result. Keep the interaction predictable within the format's small grammar; if a passage appears to need several outputs at once, rethink its combinations.
+
+Learning, comfortable construction, curiosity, beauty, conceptual resonance and a satisfying ending can all reward play. A plan may span several combinations, and straightforward enactment after an insight can be enjoyable. Keep clever short solutions. Do not manufacture a dilemma for every gesture, pad recipe counts or require every optional branch. Revise or discard an idea that does not further combination, enjoyable play and empirical learning. The [fun and evaluation guide](fun-and-evaluation.md) explains the working theory and how to test it.
 
 ## Make the action understandable
 
-Assume chapter prose and primitive explanations may be skipped. Necessary premises belong in the visible task, item name, component or observed result. Review a combination forwards: why would these two things suggest trying this operation, and what does each contribute? Reject an input that already states the complete output unless the operation adds a meaningful change.
+Assume chapter prose and primitive explanations may be skipped. Necessary premises belong in the visible task, item name, component or observed result. Review a combination forwards: why would these two things suggest trying this operation, and what does each contribute? Reject an input that already states the complete output unless the operation adds a meaningful change. A longer explanation cannot repair a missing ingredient, premise or purpose.
 
 Use simple names and direct English. A quotation can be the item itself; do not compress an important 5–12 word claim into an obscure icon or slogan. A stronger tool should retain its applicable uses through explicitly authored alternative recipes. Do not grant capabilities just because an unrelated component is somewhere inside a construction.
 
-## Chapters, goals and continuity
+Names, artwork, physical access, supplies and task must agree. A whole greenhouse is not a portable tool. A photo, map or observation must answer a real story question. Avoid calibration, labelling and paperwork steps that merely lengthen a route. Keep crafting meaningful: an optional earlier construction should not arrive ready-made later if the player skipped making it.
 
-Give the chapter a particular purpose, place, time or speaker when useful. A new table need not require a new city or invented date. A next-morning visit can explain a refreshed surface. Match the stated time and indoor/outdoor setting to its actual artwork.
+## Give chapters a purpose and a manageable working set
 
-State the next purpose without a mechanical recap or routine first-person intention. “Time to collect a core from this basin, and record its findings against the terrain” is sufficient. Bring the earlier Terrain model into the actual combination rather than merely mentioning that a survey happened.
+Chapters should usually have a particular place, time or speaker. A new table need not require a new city or invented date. Prefer “How does evil exist?” to routine first-person intentions such as “I need to know how evil exists.” Historical scenes can introduce a speaker with `![portrait](...) *Person, Place, Year*` in the chapter text.
 
-Prefer no more than two visible goal chains. `next:` stages presentation while leaving recipes globally available and later ingredients protected. Accept alternative useful results when either serves the purpose. Require both only when both matter. Do not add a goal solely to preserve an otherwise purposeless optional recipe.
+State the next purpose or new information without retelling what play has shown. “Time to collect a core from this basin, and record its findings against the terrain” needs no recap of how the survey brought the player there. Bring the earlier Terrain model into the actual combination.
 
-Goals remain achieved after their witness moves or transforms. Already-complete chapters skip their routine introductions; important `[If skipped]` paragraphs join the next unfinished introduction. A final text-only chapter can provide an ending. Earlier shortcuts remain valid.
+Use chapters to focus a smaller task as well as to change locations or introduce hotspots. Prefer roughly 2–5 things for difficult abstract reasoning and up to about 9 for familiar physical scenes. These are aims, not hard limits; keep worthwhile alternatives and review both arrival and peak clutter in the browser. A next-morning visit can explain a refreshed surface in the same location. Match the stated time and indoor/outdoor setting to the artwork.
 
-## Wonders and reading
+Work with the specification's chapter-needs rules when deciding what to list at top level. An optional output can bring in all its ingredients. A goal referring far ahead can pull later supplies into the present; review future-supply warnings in that light. A return visit is a new story beat: give it a purpose and choose what matters now.
 
-Explain a useful distinction or what the result makes possible, and why it matters. Body first, current item name as an italic caption afterward. Do not write operating instructions, an upcoming recipe list, an unearned capability claim or cryptic teasing prose.
+## Write purposeful goals and continuity
 
-Frequency depends on the story. Abstract Ideas and Divinity advances often need immediate explanation. Divinity's confusing intermediate arguments intentionally retain their explanations even when a later result revisits the topic. Familiar preparations such as Salt-preserved fish need not get a popup. Review individual cases; neither a fixed wonder quota nor old reader-only status decides quality.
+Prefer no more than two active goals at a time. Use `next:` chains to stage required preparations, while allowing early discovery. If two preparations must precede a third, put them in a single “both/and” goal followed by the next goal. Phrase the task so it stays understandable as its conditions are completed.
 
-Primitive explanations are available for deliberate reading; supplying a primitive is not an invented discovery award. Compound wonders can require fitted slots, so a bare rover shell is not celebrated as a working rover. Chapter-based renames update captions everywhere, including scrollback; permanent explanatory text remains stable.
+Accept alternative results when either serves the purpose. “Cook a cauliflower dish” can accept Cauliflower gratin or Buttered cauliflower; the player need not make both. Require both only when both matter: plain Puff pastry for later almond pastries and Cheese straws for the current meal, for example. Give optional products a useful choice, discovery or later use. Cut purposeless branches instead of inventing goals solely to retain them.
 
-## Choose fates that fit the action
+Later chapters should make useful earlier creations matter. Carrying an unused token or raw supply is not continuity. Reuse can cross a gap and should change what the player can do or understand. Accept plausible tools and preparation orders through explicit alternatives.
 
-Write fate annotations beside reagents. Cooking dough into pastry is a transformation; using a reusable tool normally preserves it. A meaningful future goal may protect part of a shared supply. Do not declare every food permanently reusable to keep incidental options.
+Keep shortcuts legitimate. Put essential continuity in `[If skipped]` text when a chapter's work might already be complete. A final text-only chapter can give the story a satisfying conclusion without adding chores.
 
-When installing an independent part, use a compound slot. When genuinely changing the construction's identity, an explicit transformation can hide old internal details. Permanent exclusivity expresses alternative histories: after creating one branch, the other remains ruled out even if the first item later transforms.
+## Choose fates and constructions that fit the action
 
-Review mixed-fate warnings in context. They identify a possible inconsistency, not a demand to preserve everything. Top-level Items and goals seed the needs graph, so adding an optional top-level output can bring in its ingredients. Later-supply warnings help catch accidental early introductions.
+Apply the specification's infinite-resource model through believable visibility and placement choices. Cooking dough into pastry or preparing a cauliflower dish suggests `[transform]`; using water, fire or a tool often suggests leaving it visible. Avoid turning these hints into stock accounting, replenishment chores, production rates or an action-credit economy.
 
-## Current story directions and future work
+Make the reason for retaining a shared ingredient visible through meaningful goals. In the pastry example, another required preparation protects the ingredient it still needs. Do not change a fitting transformation to preservation merely to keep an incidental recipe available. Use the specification's default and single-use annotation rules when writing the actual reagents.
 
-- **Mars:** recognizable salvaged equipment, coherent fieldwork, rescue and useful retained observations. Avoid rebuilding civilization from raw elements, redundant map categories and fiddly measurement chores.
-- **Elements:** a storybook elemental world, not literal chemistry. Keep its tangible home/craft/community arc and useful continuity. Review internal fabrication-stage consistency without expanding it into a detailed manufacturing simulation.
-- **Kitchen:** preserve the enjoyed cooking core and familiar equipment. Alternative dishes should feed a meaningful purpose. Earn the conclusion through earlier preparations and an actual meal, without forcing a branded destination.
-- **Ideas:** intellectual connections across time; methods become useful through evidence, comparison and application. Distinguish a proposed method, an actual observation and a tested result.
-- **Divinity:** a desk of arguments, cases and attributed texts; disagreements remain substantive. Do not silently equate distinct traditions or hide an essential story event in an unread primitive explanation.
+Review mixed-fate warnings in context. Keeping a tool visible after using it and hiding its outside copy after fitting it into a construction can both make sense. Explain the changed role through the action. The warning is an invitation to review the presentation, not to preserve everything.
 
-The old Copy Workroom translation was explicitly rejected and removed. Why This Boat and other sketches remain archival research, not active stories to restore automatically. Further possibilities are in [the backlog](backlog.md).
+Use a named compound and slots when independently fitted parts should remain legible. Use a transformation when a genuine change of identity should wrap up those internal details. Existing parts satisfy their owner's slot requirements; they do not imply independently usable outside tools. Use exclusivity to express meaningful alternative histories, with consequences the player can understand before choosing.
 
-Sources: [archived design principles](../archive/legacy-2026-10-30/DESIGN_PRINCIPLES.md), [late manuscript decisions](../archive/legacy-2026-10-30/notes.md), [observation simplification](../archive/legacy-2026-10-30/docs/mars-observation-streamline.md), [authenticity review](story-authenticity-review-2026-10-30.md).
+## Write wonders and attribution
+
+Explain a useful distinction or what the result makes possible, and why it matters. Do not write operating instructions, an upcoming recipe list, an unearned capability claim or cryptic teasing prose. The [UX guide](ux.md) owns how these cards are presented.
+
+Frequency depends on the story. Abstract Ideas and Divinity advances often need immediate explanation, and most items in a small abstract scene may merit wonders. Divinity's confusing intermediate arguments intentionally retain their explanations even when a later result revisits the topic. Familiar preparations such as Salt-preserved fish need not get a popup. Reserve them for what matters to the story or needs explanation about further uses; neither a fixed quota nor old reader-only status decides quality.
+
+Treat primitive explanations as optional reading, not invented discovery awards. Use slot-qualified wonders to celebrate a completed construction rather than its bare shell. In complex multi-voice narratives, the current speaker's item can be “Foo” and become “Previous speaker: Foo” in later chapters through an authored rename. This keeps ownership clear while the explanation remains a stable record.
+
+## Keep intellectual and factual claims honest
+
+Distinguish physical transformation, historical transmission, analogy, interpretation, criticism and deduction. A historical or artistic synthesis need not be a logically forced theorem. A new name alone is not a new intellectual achievement, either.
+
+Do not make intellectual history an inevitable ladder toward the latest speaker. Religious and natural explanations can coexist. Attribute doctrinal claims to particular texts and traditions; completing their combination reconstructs a position, not a proof of religious truth. Keep genuine quotations accurate. Put source references and factual qualifications in `> NOTE:` author comments when they do not belong in gameplay.
+
+Review factual authenticity separately from forward player intuition. A defensible retrospective explanation does not make a contrived combination understandable. Use the [authenticity follow-up](authenticity-backlog.md) for specific findings and the [backlog](backlog.md) for current story directions and future ideas.
+
+## Revise with evidence
+
+Run the linter and inspect the working sets and explanations in the browser. State what a change should improve, then use the [playtesting tools](../README.md#logical-playtesting) under the [evaluation method](fun-and-evaluation.md#a-closed-loop-that-can-change-its-mind). Keep an observed success and its limitations together; a simulated report cannot overrule the user's enjoyment.
+
+Sources: archived [human design decisions](../archive/legacy-2026-10-30/DESIGN_PRINCIPLES.md), [design contract](../archive/legacy-2026-10-30/docs/design-contract.md), [late manuscript decisions](../archive/legacy-2026-10-30/notes.md), [observation simplification](../archive/legacy-2026-10-30/docs/mars-observation-streamline.md), and [fun theory revision 9](../archive/legacy-2026-10-30/docs/what-is-fun.md). The [salvage index](../archive/salvage-index.md) records superseded historical directions.

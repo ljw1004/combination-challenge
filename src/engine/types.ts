@@ -1,5 +1,6 @@
 export interface Token {
   id: string; slots: string[]; chapter: number; x: number; y: number; hotspot?: string;
+  /** Visibility/incorporation of an infinite resource, never a depleted quantity. */
   status: 'available' | 'consume' | 'transform' | 'installed';
 }
 export interface Notice { key: string; kind: 'chapter' | 'wonder'; markdown: string; item?: string }

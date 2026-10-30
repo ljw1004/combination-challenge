@@ -47,6 +47,6 @@ Count accepted combinations, placements, reading, administrative actions and rej
 
 Historical counterexamples worth remembering: a high-scoring flood dashboard was rejected by the human; resource-management variants conflicted with the intended experience; short Bell/Mneme/Frontier endings had reported local value without reaching the long-game target; a long Working Materials route exposed pacing problems despite mechanical completion. Preserve those observations and their exact version limits rather than promoting any of them into universal laws.
 
-The rebuilt harness implements frozen sessions, shared rules, player-only observations, rejected-attempt capture, agent reports, replay verification and an evidence profile. Actual external AI trials require an agent process or endpoint. Real browser behavior, native touch and human enjoyment require their own evidence.
+Use the [README playtesting instructions](../README.md#logical-playtesting) to collect and evaluate evidence with the current tools. Real browser behavior, native touch and human enjoyment require their own evidence.
 
 Further provenance: [fun theory revision 9](../archive/legacy-2026-10-30/docs/what-is-fun.md), [long-play protocol](../archive/legacy-2026-10-30/docs/long-play-evaluation-protocol.md), [evaluator audit](../archive/legacy-2026-10-30/docs/fun-evaluator-audit-1.md), [pacing failure](../archive/legacy-2026-10-30/docs/working-materials-play-review.md), [earlier closed loop](../archive/legacy-2026-10-30/docs/fun-evaluation-cycle.md).
