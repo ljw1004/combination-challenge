@@ -6,7 +6,7 @@ import { defaultHighlightStyle, syntaxHighlighting } from '@codemirror/language'
 import { highlightSelectionMatches, searchKeymap } from '@codemirror/search';
 import { lintGutter, setDiagnostics as setEditorDiagnostics } from '@codemirror/lint';
 import type { Diagnostic as EditorDiagnostic } from '@codemirror/lint';
-import type { Diagnostic } from '../story/types.ts';
+import type { Diagnostic, Source, TextSpan } from '../story/types.ts';
 import './editor.css';
 
 export interface EditorRecovery { id: string; label: string; text: string }
@@ -127,7 +127,9 @@ export function createStoryEditor(options: StoryEditorOptions): StoryEditor {
   let destroyed = false;
   let currentDiagnostics: Diagnostic[] = [];
   let currentLine = 1;
-  let refreshPriorities = () => {};
+  let carriageReturns = [...options.text.matchAll(/\r(?=\n)/g)].map(match => match.index!);
+  let refreshDiagnostics = () => {};
+  let highlightCurrentLine = () => {};
   const view = new EditorView({
     parent: editorHost,
     state: EditorState.create({
@@ -140,21 +142,30 @@ export function createStoryEditor(options: StoryEditorOptions): StoryEditor {
         EditorState.tabSize.of(2),
         EditorView.contentAttributes.of({ 'aria-label': 'Story Markdown', spellcheck: 'false' }),
         EditorView.updateListener.of(update => {
-          if (update.docChanged && !replacing) options.onChange(update.state.doc.toString());
+          if (update.docChanged && !replacing) {
+            carriageReturns = []; // CodeMirror's serialized buffer uses LF.
+            options.onChange(update.state.doc.toString());
+          }
           if (update.docChanged) {
-            currentDiagnostics = currentDiagnostics.map(diagnostic => {
-              const from = update.changes.mapPos(diagnostic.span.from, 1);
-              const to = Math.max(from, update.changes.mapPos(diagnostic.span.to, -1));
+            const mapLocation = (source: Source, span: TextSpan) => {
+              const from = update.changes.mapPos(span.from, 1);
+              const to = Math.max(from, update.changes.mapPos(span.to, -1));
               const line = update.state.doc.lineAt(from);
-              return {...diagnostic, span: {from, to}, source: {...diagnostic.source, line: line.number, column: from - line.from + 1}};
-            });
+              return {...source, span: {from, to}, line: line.number, column: from - line.from + 1};
+            };
+            for (const diagnostic of currentDiagnostics) {
+              diagnostic.source = mapLocation(diagnostic.source, diagnostic.span);
+              diagnostic.span = diagnostic.source.span!;
+              // Hover links retain these objects, so map them in place too.
+              for (const related of diagnostic.related ?? []) Object.assign(related, mapLocation(related, related.span));
+            }
+            refreshDiagnostics();
           }
           if (update.docChanged || update.selectionSet) {
             const position = update.state.selection.main.head;
             const line = update.state.doc.lineAt(position).number;
-            const changedLine = line !== currentLine;
             currentLine = line;
-            if (changedLine || update.docChanged) refreshPriorities();
+            highlightCurrentLine();
             options.onCursorChange?.(position, line);
           }
         }),
@@ -236,44 +247,100 @@ export function createStoryEditor(options: StoryEditorOptions): StoryEditor {
     return diagnostic.stage === 'deep' || diagnostic.code === 'no-continuation' || diagnostic.code === 'analysis-limit';
   }
   function locateDiagnostic(diagnostic: Diagnostic): Diagnostic {
-    const from = Math.max(0, Math.min(view.state.doc.length, diagnostic.span.from));
-    const to = Math.max(from, Math.min(view.state.doc.length, diagnostic.span.to));
-    const actualLine = view.state.doc.lineAt(from);
-    return {...diagnostic, span: {from, to}, source: {...diagnostic.source, line: actualLine.number, column: from - actualLine.from + 1}};
+    // Parser offsets address the original file; CodeMirror counts CRLF as one
+    // character. After the first input both use the editor's serialized buffer.
+    const editorOffset = (offset: number) => {
+      let low = 0, high = carriageReturns.length;
+      while (low < high) {
+        const middle = (low + high) >>> 1;
+        if (carriageReturns[middle] < offset) low = middle + 1;
+        else high = middle;
+      }
+      return Math.max(0, Math.min(view.state.doc.length, offset - low));
+    };
+    const locate = (source: Source, span: TextSpan) => {
+      const from = editorOffset(span.from);
+      const to = Math.max(from, editorOffset(span.to));
+      const actualLine = view.state.doc.lineAt(from);
+      return {...source, span: {from, to}, line: actualLine.number, column: from - actualLine.from + 1};
+    };
+    const source = locate(diagnostic.source, diagnostic.span);
+    return {...diagnostic, span: source.span, source,
+      related: diagnostic.related?.map(related => ({...related, ...locate(related, related.span)}))};
   }
-  refreshPriorities = () => {
+  function navigate(span: TextSpan) {
+    view.dispatch({selection: {anchor: span.from, head: span.to}, effects: EditorView.scrollIntoView(span.from, {y: 'center'})});
+    view.focus();
+  }
+  function relatedLinks(diagnostic: Diagnostic) {
+    const links = node('span', 'editor-related-locations');
+    for (const related of diagnostic.related ?? []) {
+      const link = button('', 'editor-related-location');
+      link.dataset.line = String(related.line);
+      link.append(node('span', 'editor-diagnostic-location', `Line ${related.line}`), node('span', '', related.message));
+      link.addEventListener('click', event => { event.preventDefault(); event.stopPropagation(); navigate(related.span); });
+      links.append(link);
+    }
+    return links;
+  }
+  let displayed: {diagnostic: Diagnostic; button: HTMLButtonElement}[] = [];
+  highlightCurrentLine = () => {
     const selectedLine = view.state.doc.line(Math.min(view.state.doc.lines, currentLine));
-    const onCurrentLine = (diagnostic: Diagnostic) => diagnostic.span.from <= selectedLine.to && diagnostic.span.to >= selectedLine.from;
-    const ordered = [...currentDiagnostics].sort((a, b) => Number(onCurrentLine(b)) - Number(onCurrentLine(a)) ||
-      Number(b.severity === 'error') - Number(a.severity === 'error') || a.span.from - b.span.from);
-    const signature = `${currentLine}:${JSON.stringify(ordered)}`;
+    const contains = (span: TextSpan) => span.from <= selectedLine.to && span.to >= selectedLine.from;
+    for (const {diagnostic, button} of displayed) button.dataset.currentLine = String(
+      contains(diagnostic.span) || diagnostic.related?.some(location => contains(location.span)) || false);
+  };
+  refreshDiagnostics = () => {
+    // Cursor movement must never sort, replace or scroll the diagnostics list.
+    const ordered = [...currentDiagnostics].sort((a, b) => a.span.from - b.span.from || a.code.localeCompare(b.code) || a.message.localeCompare(b.message));
+    const signature = JSON.stringify(ordered);
     if (signature === diagnosticSignature) return;
     diagnosticSignature = signature;
     const scroll = diagnosticsList.scrollTop;
+    const previous = [...diagnosticsList.children] as HTMLElement[];
+    const top = diagnosticsList.getBoundingClientRect().top;
+    const visible = previous.find(entry => entry.getBoundingClientRect().bottom > top);
+    const visibleOffset = visible ? visible.getBoundingClientRect().top - top : 0;
+    const expanded = new Set(previous.filter(entry => entry.querySelector('details')?.open).map(entry => entry.dataset.key));
     const errors = ordered.filter(diagnostic => diagnostic.severity === 'error').length;
     const warnings = ordered.length - errors;
     diagnosticsPane.hidden = ordered.length === 0;
     diagnosticsHeading.textContent = `Diagnostics · ${errors} error${errors === 1 ? '' : 's'}, ${warnings} warning${warnings === 1 ? '' : 's'}`;
     diagnosticsList.replaceChildren();
+    displayed = [];
+    const occurrences = new Map<string, number>();
     for (const diagnostic of ordered) {
+      const identity = JSON.stringify([diagnostic.source.file, diagnostic.code, diagnostic.message]);
+      const occurrence = occurrences.get(identity) ?? 0;
+      occurrences.set(identity, occurrence + 1);
+      const group = node('div', 'editor-diagnostic-entry');
+      group.dataset.key = `${identity}:${occurrence}`;
       const entry = button('', 'editor-diagnostic');
       entry.dataset.severity = diagnostic.severity;
       entry.dataset.line = String(diagnostic.source.line);
-      entry.dataset.currentLine = String(onCurrentLine(diagnostic));
-      entry.append(node('span', 'editor-diagnostic-location', `${onCurrentLine(diagnostic) ? 'Current line · ' : ''}Line ${diagnostic.source.line} · ${diagnostic.code}`));
+      entry.append(node('span', 'editor-diagnostic-location', `Line ${diagnostic.source.line} · ${diagnostic.code}`));
       entry.append(node('span', 'editor-diagnostic-message', diagnostic.message));
-      entry.addEventListener('click', () => {
-        view.dispatch({selection: {anchor: diagnostic.span.from, head: diagnostic.span.to}, effects: EditorView.scrollIntoView(diagnostic.span.from, {y: 'center'})});
-        view.focus();
-      });
-      diagnosticsList.append(entry);
+      entry.addEventListener('click', () => navigate(diagnostic.span));
+      group.append(entry);
+      if (diagnostic.related?.length) {
+        const related = node('details', 'editor-diagnostic-related');
+        related.open = expanded.has(group.dataset.key);
+        related.append(node('summary', '', `Related locations (${diagnostic.related.length})`), relatedLinks(diagnostic));
+        group.append(related);
+      }
+      diagnosticsList.append(group);
+      displayed.push({diagnostic, button: entry});
     }
     diagnosticsList.scrollTop = scroll;
+    const replacement = [...diagnosticsList.children].find(entry => (entry as HTMLElement).dataset.key === visible?.dataset.key);
+    if (replacement) diagnosticsList.scrollTop += replacement.getBoundingClientRect().top - diagnosticsList.getBoundingClientRect().top - visibleOffset;
+    highlightCurrentLine();
   };
   return {
     element,
     getText: () => view.state.doc.toString(),
     setText(text) {
+      carriageReturns = [...text.matchAll(/\r(?=\n)/g)].map(match => match.index!);
       if (text === view.state.doc.toString()) return;
       replacing = true;
       try { view.dispatch({ changes: { from: 0, to: view.state.doc.length, insert: text } }); }
@@ -292,9 +359,14 @@ export function createStoryEditor(options: StoryEditorOptions): StoryEditor {
         severity: diagnostic.severity,
         source: diagnostic.code,
         message: diagnostic.message,
+        ...(diagnostic.related?.length ? {renderMessage: () => {
+          const message = node('span', 'editor-diagnostic-details', diagnostic.message);
+          message.append(relatedLinks(diagnostic));
+          return message;
+        }} : {}),
       }));
       view.dispatch(setEditorDiagnostics(view.state, mapped));
-      refreshPriorities();
+      refreshDiagnostics();
     },
     setStatus(message, kind = 'info') {
       status.textContent = message;

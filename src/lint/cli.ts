@@ -19,7 +19,10 @@ if(args.includes('--json'))console.log(JSON.stringify(reports,null,2));
 else for(const report of reports){
   const errors=report.diagnostics.filter(d=>d.severity==='error'),warnings=report.diagnostics.filter(d=>d.severity==='warning');
   console.log(`${report.story}: ${errors.length} errors, ${warnings.length} warnings; ${report.chapters} chapters, ${report.recipes} combinations`);
-  for(const d of report.diagnostics.filter(d=>d.severity==='error'||args.includes('--details'))) console.log(`  ${d.source.file}:${d.source.line} ${d.severity} ${d.code}: ${d.message}`);
+  for(const d of report.diagnostics.filter(d=>d.severity==='error'||args.includes('--details'))) {
+    console.log(`  ${d.source.file}:${d.source.line} ${d.severity} ${d.code}: ${d.message}`);
+    for (const location of d.related ?? []) console.log(`    ${location.file}:${location.line} ${location.message}`);
+  }
 }
 if(!args.includes('--json')&&!args.includes('--details'))console.log('Use --details for author-review warnings and --json for all source locations.');
 if(reports.some(r=>r.diagnostics.some(d=>d.severity==='error')))process.exitCode=1;

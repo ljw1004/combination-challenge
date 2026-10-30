@@ -30,3 +30,47 @@ test('fast lint omits global reachability and deep analysis adds separately attr
   assert.equal(deep[0].stage, 'deep'); assert.deepEqual(deep[0].span, {from: 0, to: 7});
   assert.deepEqual(lintStory(story), [...fast, ...deep]);
 });
+
+test('mixed fates explain every use, including defaults and implicit slot behavior', () => {
+  const markdown = [
+    '# Fates', '## Workshop', '![room](room.webp)', '**Items**',
+    '- Frame (compound)', '  - slot: Fitting, accepts Part', '**Combinations**',
+    '- Part + Tool [preserve] -> First result',
+    '- Part [preserve] + Tool [preserve] -> Second result',
+    '- Part [consume] + Tool [preserve] -> Third result',
+    '- Part [transform] + Tool [preserve] -> Fourth result',
+    '- Frame [transform] + Tool [preserve] -> Fifth result',
+  ].join('\r\n');
+  const diagnostics = lintStory(parseStory(markdown, {file: 'fixture/story.md'}), {analysis: false});
+  const part = diagnostics.find(d => d.code === 'mixed-fates' && d.message.startsWith('Part '))!;
+  assert.match(part.message, /preserve \(2\), consume \(2\), transform \(1\)/);
+  assert.deepEqual(part.related!.map(location => location.message), [
+    'preserve (default): Part + Tool → First result',
+    'preserve (explicit): Part + Tool → Second result',
+    'consume (explicit): Part + Tool → Third result',
+    'transform (explicit): Part + Tool → Fourth result',
+    'consume (implicit slot installation): Frame + Part → Frame[Part]',
+  ]);
+  assert.deepEqual(part.related![0].span, part.span, 'the primary use is also explained');
+  assert.deepEqual(part.related!.map(location => markdown.slice(location.span.from, location.span.to)), [
+    '- Part + Tool [preserve] -> First result',
+    '- Part [preserve] + Tool [preserve] -> Second result',
+    '- Part [consume] + Tool [preserve] -> Third result',
+    '- Part [transform] + Tool [preserve] -> Fourth result',
+    '- slot: Fitting, accepts Part',
+  ]);
+  const frame = diagnostics.find(d => d.code === 'mixed-fates' && d.message.startsWith('Frame '))!;
+  assert.match(frame.related![1].message, /^preserve \(implicit slot-owner preservation\):/);
+  const hidingOnly = markdown.split('\r\n').filter(line => !line.includes('First result') && !line.includes('Second result')).join('\r\n');
+  assert(!lintStory(parseStory(hidingOnly), {analysis: false}).some(d => d.code === 'mixed-fates' && d.message.startsWith('Part ')), 'consume and transform alone do not introduce a new warning');
+});
+
+test('many visible goals point at their first Goals heading with original CRLF offsets', () => {
+  const markdown = '# 🪴 Garden\r\n## Workshop\r\n![room](room.webp)\r\n\r\n**Goals**\r\n- First -- A\r\n- Second -- B\r\n**Goals**\r\n- Third -- C';
+  const story = parseStory(markdown);
+  const diagnostic = lintStory(story, {analysis: false}).find(d => d.code === 'many-visible-goals')!;
+  assert.equal(diagnostic.source.line, 5);
+  assert.equal(diagnostic.span.from, markdown.indexOf('**Goals**'));
+  assert.equal(markdown.slice(diagnostic.span.from, diagnostic.span.to), '**Goals**');
+  assert.deepEqual(diagnostic.source, story.chapters[0].goalsSource);
+});

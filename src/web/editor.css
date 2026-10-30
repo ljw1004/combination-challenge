@@ -51,7 +51,7 @@
 .story-editor .cm-selectionBackground, .story-editor .cm-focused .cm-selectionBackground { background: #b8d9d4!important; }
 .story-editor .cm-cursor { border-left-color: #267c79; }
 .story-editor .cm-tooltip { border: 1px solid #c6b99e; background: #fffaf0; color: #35382f; font: 12px/1.45 system-ui, sans-serif; box-shadow: 0 3px 12px #51422b22; }
-.story-editor .cm-tooltip-lint { max-width: min(420px, 80vw); }
+.story-editor .cm-tooltip-lint { max-width: min(420px, 80vw); max-height: min(360px, 50dvh); overflow-y: auto; }
 .story-editor .cm-diagnostic { padding: 7px 10px 7px 9px; }
 .story-editor .cm-diagnosticSource { color: #7e705c; }
 .story-editor .cm-search { background: #f3eddf; padding: 7px; font-size: 12px; }
@@ -64,6 +64,12 @@
 .editor-diagnostic[data-current-line="true"] { background: #edf3e8; }
 .editor-diagnostic-location { display: block; margin-bottom: 2px; font-size: 10px; color: #82725b; }
 .editor-diagnostic-message { display: block; overflow-wrap: anywhere; font-size: 11px; }
+.editor-diagnostic-entry { margin-bottom: 4px; }
+.editor-diagnostic-entry > .editor-diagnostic { margin-bottom: 0; }
+.editor-diagnostic-related { padding: 3px 9px 7px 12px; background: #fffaf0; font-size: 11px; }
+.editor-diagnostic-related summary { cursor: pointer; color: #72624b; }
+.editor-related-locations { display: grid; gap: 4px; padding-top: 5px; }
+.editor-related-location { display: block; width: 100%; border: 0; border-left: 1px solid #c6b99e; border-radius: 0; background: transparent; text-align: left; font-size: 11px; overflow-wrap: anywhere; }
 .editor-resize { position: absolute; top: 0; bottom: 0; left: -4px; width: 8px; z-index: 5; cursor: col-resize; touch-action: none; }
 .editor-resize::after { content: ''; position: absolute; left: 3px; top: 45%; width: 2px; height: 40px; border-radius: 2px; background: #b5a58a; }
 .editor-resize:hover, .editor-resize:focus-visible { background: #267c7924; outline: none; }

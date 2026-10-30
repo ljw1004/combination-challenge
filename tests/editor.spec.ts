@@ -271,6 +271,61 @@ test('same-directory loading, missing-story errors and failed storage keep the e
   await expect(page.locator('.chapter-panel')).toHaveCount(0);
 });
 
+test('diagnostics keep source order and scroll while their related locations navigate and track edits', async ({ page }) => {
+  const text = manuscript.replace('- Build the kit -- `kit`', '- Build the kit -- `kit`\n- Keep the frame -- `frame`\n- Keep the tool -- `tool`')
+    + '\n- `frame` [consume] + `probe` [preserve] -> Scrap\n- `frame` [transform] + `tool` [preserve] -> Shaped frame\n'
+    + '\n**Goals**\n' + Array.from({length: 12}, (_, i) => `- Incomplete goal ${i}\n`).join('');
+  await serveFixture(page, text.replaceAll('\n', '\r\n'));
+  await page.goto('/combinations.html?story=fixture');
+  await page.getByRole('button', {name: 'Begin', exact: true}).click();
+  await openEditor(page);
+  const entries = page.locator('.editor-diagnostic');
+  const list = page.locator('.editor-diagnostics-list');
+  const last = entries.filter({hasText: 'empty-goal'}).last();
+  await last.scrollIntoViewIfNeeded();
+  const order = await entries.allTextContents();
+  const lastNode = await last.elementHandle();
+  const scroll = await list.evaluate(element => element.scrollTop);
+  expect(scroll).toBeGreaterThan(0);
+  await last.click();
+  await expect(page.locator('.cm-activeLine')).toContainText('Incomplete goal 11');
+  expect(await entries.allTextContents()).toEqual(order);
+  expect(await lastNode!.evaluate(element => element.isConnected)).toBe(true);
+  expect(await list.evaluate(element => element.scrollTop)).toBe(scroll);
+
+  const goals = entries.filter({hasText: 'many-visible-goals'}).filter({hasText: 'Workshop'});
+  await goals.click();
+  await expect(page.locator('.cm-activeLine')).toHaveText('**Goals**');
+  expect(await entries.allTextContents()).toEqual(order);
+
+  const mixed = entries.filter({hasText: 'Frame has mixed fates'});
+  await expect(mixed).toContainText('preserve (1), consume (1), transform (1)');
+  const group = mixed.locator('..');
+  await group.locator('summary').click();
+  const transform = group.locator('.editor-related-location').filter({hasText: 'transform (explicit)'});
+  await transform.scrollIntoViewIfNeeded();
+  const relatedScroll = await list.evaluate(element => element.scrollTop);
+  const line = Number(await transform.getAttribute('data-line'));
+  await transform.click();
+  await expect(page.locator('.cm-activeLine')).toContainText('`frame` [transform]');
+  expect(await list.evaluate(element => element.scrollTop)).toBe(relatedScroll);
+  expect(await entries.allTextContents()).toEqual(order);
+  await page.keyboard.press('ControlOrMeta+Home');
+  await page.keyboard.insertText('\n\n');
+  expect(Number(await transform.getAttribute('data-line'))).toBe(line + 2);
+  await expect(group.locator('details')).toHaveAttribute('open', '');
+  await transform.click();
+  await expect(page.locator('.cm-activeLine')).toContainText('`frame` [transform]');
+
+  // Hover details expose the same links as the diagnostics panel.
+  await mixed.click();
+  await page.locator('.cm-activeLine .cm-lintRange-warning').first().hover();
+  const tooltip = page.locator('.cm-tooltip-lint');
+  await expect(tooltip).toContainText('consume (explicit)');
+  await tooltip.locator('.editor-related-location').filter({hasText: 'consume (explicit)'}).click();
+  await expect(page.locator('.cm-activeLine')).toContainText('`frame` [consume]');
+});
+
 test('successive renames keep readers live and edited play retains its undo and reset baselines', async ({ page }) => {
   const errors: string[] = [];
   page.on('pageerror', error => errors.push(error.message));

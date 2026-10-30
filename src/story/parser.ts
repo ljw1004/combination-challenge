@@ -151,7 +151,11 @@ export function parseStory(markdown: string, options: { id?: string; file?: stri
     const sections = new Map<string, Line[]>(); let current = 'intro'; sections.set(current, []);
     for (const line of block.lines) {
       const section = /^\*\*(Goals|Hotspots|Items|Combinations)\*\*\s*$/.exec(line.text);
-      if (section) { current = section[1]; if (!sections.has(current)) sections.set(current, []); }
+      if (section) {
+        current = section[1];
+        if (!sections.has(current)) sections.set(current, []);
+        if (current === 'Goals' && !chapter.goalsSource) chapter.goalsSource = source(line.line);
+      }
       else sections.get(current)!.push(line);
     }
     const intro = sections.get('intro')!.map(l => l.text).join('\n').trim().split(/\n\s*\n/);
