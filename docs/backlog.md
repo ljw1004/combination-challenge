@@ -1,0 +1,39 @@
+# Editorial and research backlog
+
+Ideas are options to test, not obligations to implement. The current engine remains the simple Markdown combination language; experiments that need fundamentally different laws require a separate, justified proposal.
+
+## Current stories
+
+1. Work through [authenticity follow-up](authenticity-backlog.md), starting with verified current P1 counterparts. Keep the original review unchanged. It includes 70 cards with distinct mandatory, optional, unresolved and not-required statuses.
+2. Review linter warnings for mixed fates, future supplies and too many visible goal chains. Explain a deliberate exception specifically; do not erase a warning merely to make output green.
+3. Review arrival and peak working sets in the browser, especially long Ideas/Divinity labels and constructed compounds. Coordinate-free hotspots currently use a stable default lower-panel layout; author image-relative positions where a precise feature matters.
+4. Run fresh agent trials through the player-only interface, then compare a concrete revision. Confirm the enjoyed old feel through human play; browser tests cannot certify that experience.
+5. Revisit intellectual continuity and forward intuition separately from physical/factual authenticity. A method, measurement and established conclusion should not be interchangeable labels.
+
+## Story ideas worth retaining
+
+| Idea | Useful question or operation | Source and caution |
+|---|---|---|
+| Fork Kinship / Many-Bodied Citizen | What persists when related minds diverge, and what requires new consent? | [Future sketch](../archive/legacy-2026-10-30/docs/future-ideas-independent-sketch.md). Fictional minds; avoid permission-ledger chores. |
+| Witness Forests / Landscape Testimony | Combine independent environmental traces and contest what they establish. | Same sketch. A trace is not an intention; missing evidence is not proof of absence. |
+| Constitutional Seasons / Asynchronous Republic | Institutions change with circumstances; promises cross delays and unlike successors. | Same sketch. Ecological analogy is not moral inevitability. |
+| Reversible City / Unbuilt Inheritance | Meet present needs while leaving genuine alternative futures possible. | Same sketch. Reversibility must change reachable possibilities, not award option tokens. |
+| Error Commons / Foreign Sciences | Reuse a recorded failure when its assumptions change; cooperate across imperfect translations. | Same sketch. Preserve the old failure and substantive disagreement. |
+| Species Apprenticeship / Right to Remain Untranslated | Learn situated signals without claiming universal comprehension or consent. | Same sketch. Translation is bounded; signals need not imply human concepts. |
+| Promise Constellations / Reunion Without Erasure | Share memory and reconnect people without silently merging authority. | [Future ontology](../archive/legacy-2026-10-30/docs/future-ideas-ontology.md). Earlier related trials became clerical; enact an actual consequence. |
+| Institutions that generate new intellectual problems | An invention changes what a society or intelligence can ask next. | [SMAC-inspired research](../archive/legacy-2026-10-30/docs/smac-tech-tree-research.md). Original proposals are not descriptions of SMAC or forecasts. |
+| Interpretations meeting a shared case | Reconstruct differing consequences while preserving which premises support them. | [Intellectual-history sources](../archive/legacy-2026-10-30/docs/ideas-history-sources.md). Affiliation, transmission and discovery are different claims. |
+| Restoration, shoreline, literature and Chinese thought | Reuse the act of combining in different physical or conceptual contexts. | [Seven-theme checkpoint](../archive/legacy-2026-10-30/docs/shared-campaign-ui-20261027.md) and archived tangible-campaign sketches. No automatic promotion to active stories. |
+| Why This Boat / alternative causality | Make a different causal structure perceptible through actions and outcomes. | [Legacy design direction](../archive/legacy-2026-10-30/DESIGN_PRINCIPLES.md). Requires a playable distinction, not philosophical labels alone. |
+
+## Mechanic hypotheses beyond the current format
+
+Keep cheap, bounded alternatives: geometry-sensitive joining; process/order transformations; evidence that distinguishes explanations; remembered places; a creation that becomes an acting capability; a counterpart with a readable policy. These come from [transformation experiments](../archive/legacy-2026-10-30/docs/transformations-and-ideas.md), [emergent primitives](../archive/legacy-2026-10-30/docs/emergent-primitives-proposals.md), [faculty proposal](../archive/legacy-2026-10-30/docs/faculty-proposal.md), and [challenge revisit](../archive/legacy-2026-10-30/docs/challenge-research-revisit.md).
+
+Potential nonresource tensions include coupling versus independence, precision versus coverage, stability versus revisability, exposure versus privacy, and committing a form versus preserving flexibility. Test whether one harmless universal preparation dominates before claiming a tradeoff. Do not force these tensions into every current story.
+
+## Rejected directions and negative evidence
+
+Do not resurrect the flood dashboard, output-first construction, finite-stock “grocer” play, obligatory apparatus delivery, recipe padding, hidden result previews in discovery mode, or the deleted Copy Workroom translation merely because they have substantial code in the archive.
+
+Short finite worlds and satisfied endings were sometimes valued; their failure to reach a long-game target does not erase that. Longer Working Materials and Estuary investigations exposed pacing, provenance paperwork and multi-operand interface problems. Preserve those findings when borrowing a theme. The archive inventory links every original proposal/review and its version, including ideas not shortlisted here.

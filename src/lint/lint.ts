@@ -1,0 +1,66 @@
+import type { Story, Diagnostic, Source, Ref, Fate } from '../story/types.ts';
+import { continuationPossible, indexStory, activeHotspots } from '../engine/analysis.ts';
+import { newGame } from '../engine/game.ts';
+
+export function lintStory(story: Story): Diagnostic[] {
+  const diagnostics = [...story.diagnostics];
+  const add = (severity: Diagnostic['severity'],code:string,message:string,source:Source,related?:Source[]) => diagnostics.push({severity,code,message,source,...(related?.length?{related}:{})});
+  const error = (code:string,message:string,source:Source) => add('error',code,message,source);
+  const warning = (code:string,message:string,source:Source,related?:Source[]) => add('warning',code,message,source,related);
+  const index = indexStory(story), uses = new Map<string,{fate:Fate; explicit:boolean; source:Source}[]>();
+  function checkRef(ref: Ref,source:Source) {
+    const item = story.items[ref.id];
+    for (const slot of ref.slots) if (!item?.slots.some(s=>s.accepts===slot)) error('unknown-slot',`${item?.name ?? ref.id} has no slot accepting ${story.items[slot]?.name ?? slot}.`,source);
+  }
+  for (const item of Object.values(story.items)) {
+    if (story.hotspots[item.id]) error('namespace-clash',`${item.name} names both an item and a hotspot; use distinct backtick identifiers.`,item.source);
+    if (item.exclusiveWith === item.id) error('self-exclusion',`${item.name} cannot exclude itself.`,item.source);
+    if (item.exclusiveWith && story.items[item.exclusiveWith]?.exclusiveWith !== item.id) error('asymmetric-exclusion',`${item.name}'s exclusivity must also be declared on ${story.items[item.exclusiveWith]?.name ?? item.exclusiveWith}.`,item.source);
+    if (item.slots.length && !item.compound) error('slots-on-simple-item',`${item.name} has slots but is not marked (compound).`,item.source);
+    if (item.compound && !item.slots.length) error('empty-compound',`${item.name} needs one or more slot declarations.`,item.source);
+    const accepted = new Set<string>();
+    for (const slot of item.slots) { if (accepted.has(slot.accepts)) error('duplicate-slot',`${item.name} has two slots accepting ${story.items[slot.accepts]?.name}.`,slot.source); accepted.add(slot.accepts); }
+    for (const rename of item.renames) if (!story.chapters.some(c=>c.name===rename.chapter || c.id===rename.chapter)) error('rename-chapter',`Unknown rename chapter ${rename.chapter}.`,item.source);
+    for (const wonder of item.wonders) checkRef({id:item.id,slots:wonder.requires},wonder.source);
+  }
+  for (const recipe of story.recipes) {
+    if (recipe.b?.ref.id===recipe.a.ref.id) error('self-combination','A single item cannot combine with itself; author distinct item identities.',recipe.source);
+    for (const reagent of [recipe.a,...(recipe.b?[recipe.b]:[])]) { checkRef(reagent.ref,recipe.source); const list=uses.get(reagent.ref.id)??[];list.push({fate:reagent.fate,explicit:reagent.explicit,source:recipe.source});uses.set(reagent.ref.id,list); }
+    checkRef(recipe.result,recipe.source);
+  }
+  for (const [id,list] of uses) {
+    if (list.length===1 && !list[0].explicit) error('single-use-fate',`${story.items[id].name} is a reagent in only one combination. Annotate its fate explicitly.`,list[0].source);
+    if (new Set(list.map(u=>u.fate==='preserve'?'preserve':'remove')).size>1) warning('mixed-fates',`${story.items[id].name} is preserved in some combinations and consumed/transformed in others (including slot installation). Review whether the visible role explains this.`,list[0].source,list.slice(1).map(u=>u.source));
+  }
+  const declaredHotspots = new Set(story.chapters.flatMap(c=>c.hotspots));
+  for (const hotspot of Object.values(story.hotspots)) {
+    if (!declaredHotspots.has(hotspot.id)) error('undeclared-hotspot',`${hotspot.name} has no Hotspots declaration.`,hotspot.source);
+    if ((hotspot.x!==undefined && (hotspot.x<0 || hotspot.x>1)) || (hotspot.y!==undefined && (hotspot.y<0 || hotspot.y>1))) error('hotspot-position','Hotspot coordinates must be between 0% and 100%.',hotspot.source);
+  }
+  for (let i=0;i<story.chapters.length;i++) {
+    const c=story.chapters[i];
+    if (c.hotspots.length && !c.image) error('hotspots-without-image',`${c.name} declares hotspots without an explicit chapter image.`,c.source);
+    if (!i && !c.image) error('missing-opening-image','The opening chapter needs a background image.',c.source);
+    const earlier = new Set(story.chapters.slice(0,i).flatMap(c=>c.items.map(r=>r.id)));
+    if (i && !c.image && c.items.some(r=>index.primitives.has(r.id) && !earlier.has(r.id))) warning('new-primitives-without-image',`${c.name} introduces primitive items without a new setting image.`,c.source);
+    if (c.goals.filter(g=>!g.next).length>2) warning('many-visible-goals',`${c.name} starts with more than two goal chains; consider next: for manageable presentation.`,c.source);
+    for (const ref of c.items) checkRef(ref,c.source);
+    for (const [a,b] of index.pairs) if (c.items.some(r=>r.id===a)&&c.items.some(r=>r.id===b)) error('exclusive-needs',`${c.name} lists both mutually exclusive items ${story.items[a].name} and ${story.items[b].name}.`,c.source);
+    for (const goal of c.goals) for (const cond of goal.conditions) {
+      checkRef(cond.item,cond.source);
+      if (cond.hotspot && !story.chapters.slice(0,i+1).some((_,j)=>activeHotspots(story,j).includes(cond.hotspot!))) error('future-goal-hotspot',`Goal ${goal.text} needs a hotspot that is not available by this chapter.`,cond.source);
+      for (const id of [cond.item.id,...cond.item.slots]) {
+        const later = story.chapters.slice(i+1).find(c=>c.items.some(r=>r.id===id));
+        const alreadyListed = story.chapters.slice(0,i+1).some(c=>c.items.some(r=>r.id===id));
+        const endLine = story.chapters[i+1]?.source.line ?? Infinity;
+        const alreadyProduced = story.recipes.some(r=>!r.installation && r.result.id===id && r.source.line<endLine);
+        if (later && !alreadyListed && !alreadyProduced) warning('future-supply',`Goal "${goal.text}" references ${story.items[id]?.name}, listed later in "${later.name}". Global recipes may pull later supplies into this chapter.`,cond.source,[later.source]);
+      }
+    }
+  }
+  if (!diagnostics.some(d=>d.severity==='error')) {
+    try { if (!continuationPossible(story,newGame(story),new Set(),true)) error('no-continuation','There is no consistent exclusive branch that can satisfy the story requirements. Check cycles, goals and top-level needs.',story.source); }
+    catch(e) { error('analysis-limit',(e as Error).message,story.source); }
+  }
+  return diagnostics;
+}

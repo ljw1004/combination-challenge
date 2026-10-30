@@ -1,0 +1,143 @@
+:root{font-family:system-ui,sans-serif;color:#35382f;background:#f3eddf;font-synthesis:none}
+*{box-sizing:border-box}[hidden]{display:none!important}
+body{margin:0;min-width:0;overflow:hidden}
+button,select{font:inherit;color:inherit}button{cursor:pointer}
+button:focus-visible,select:focus-visible,a:focus-visible{outline:3px solid #267c79;outline-offset:3px}
+#app{height:100dvh;position:relative;overflow:hidden}
+/* The world is the whole viewport; the HUD never takes layout height. */
+.viewport{position:absolute;inset:0;overflow-y:auto;overflow-x:hidden;touch-action:pan-y;overscroll-behavior:contain}
+.board{position:relative;width:100%;max-width:600px;margin-inline:auto;min-height:100%;touch-action:pan-y;isolation:isolate}.location-label{position:absolute;left:5px;right:5px;pointer-events:none;border-top:1px solid #cfbfa5;color:#8b715b;font-size:10px;padding-top:3px}.thing,.hotspot{position:absolute;transform:translate(-50%,-50%);user-select:none;-webkit-user-select:none}.thing{width:96px;min-height:44px;border:1px solid #8d8068;border-radius:8px;padding:4px;background:#fffaf0;box-shadow:0 2px 4px #53422e15;font-size:12px;line-height:1.15;z-index:3;touch-action:none;-webkit-touch-callout:none;overflow-wrap:anywhere}.hotspot{width:104px;height:82px;border:1.5px solid #9a8b70;border-radius:0;background:transparent;font-size:11px;padding:5px;display:flex;align-items:flex-start;justify-content:center;z-index:1;touch-action:pan-y}.thing .slot{display:block;height:18px;line-height:16px;border:1px dashed #b5a58a;border-radius:3px;margin-top:3px;font-size:9px;overflow:hidden;white-space:nowrap}.thing .slot.filled{border-style:solid;background:#ebe9dc}.pressed{outline:3px solid #163d46;outline-offset:3px;box-shadow:0 0 0 3px #fffaf0!important}.possible{border-color:#063e53!important;outline:2px dashed #fffaf0!important;outline-offset:4px;box-shadow:0 0 0 2px #fffaf0,0 0 0 5px #063e53,0 4px 12px #14252c88!important}.thing.possible{z-index:8}.hotspot.possible{z-index:2}.thing.pressed{z-index:20}.will-create,.will-place{outline:3px solid #6b2e04!important;outline-offset:3px;background:#ffe2a0!important;box-shadow:0 0 0 3px #fffaf0,0 0 0 6px #b25108,0 5px 16px #29190088!important}.goal-met{border-color:#b58b23;box-shadow:0 0 10px #d4aa5366;outline:2px solid #d6ad48;outline-offset:1px}.thing.goal-met{background:#fff1c6}.dragging{z-index:30!important;pointer-events:none;animation:none!important;transition:none!important}.born{z-index:15;animation:arrival .65s ease-out}@keyframes arrival{0%{transform:translate(calc(-50% + var(--birth-x,0px)),calc(-50% + var(--birth-y,0px))) scale(.75);background:#ffe3a3;box-shadow:0 0 18px #d58b36}55%{background:#ffecc1;box-shadow:0 0 12px #d58b36}100%{transform:translate(-50%,-50%) scale(1)}}
+/* Objectives share the board stacking context: uncovered text opens the story,
+   but every thing remains visually above it and owns overlapping pointer hits. */
+.hud-stack{position:fixed;z-index:2;right:max(6px,calc((100vw - 600px)/2 + 6px),env(safe-area-inset-right));bottom:max(10px,env(safe-area-inset-bottom));width:max-content;max-width:min(55vw,210px);user-select:none;-webkit-user-select:none;display:flex;flex-direction:column;align-items:flex-end;gap:0;pointer-events:none}
+.objective-dock{display:flex;flex-direction:column;align-items:flex-end;gap:0;max-width:100%;pointer-events:auto}
+.objective-overlay{max-width:100%;min-height:44px;border:0;border-radius:0;background:transparent;box-shadow:none;padding:3px 2px 3px 6px;text-align:right;font-size:11px;line-height:1.4}
+.objectives{display:block;max-height:min(20dvh,140px);overflow-y:auto;overscroll-behavior:contain}
+.objective-line{display:block;overflow-wrap:anywhere}.objective-line+.objective-line{margin-top:3px}.objective-line.done{color:#805d11}
+.debug-toggle{position:absolute;z-index:35;right:max(4px,env(safe-area-inset-right));top:max(4px,env(safe-area-inset-top));width:44px;height:44px;display:grid;place-items:center end;padding:0 2px 0 0;border:0;border-radius:0;background:transparent;box-shadow:none;pointer-events:auto}
+.debug-toggle[data-debug="true"]::after{content:"";position:absolute;right:0;top:0;width:9px;height:9px;border-radius:50%;background:#b58b23;border:1px solid #fffaf0}
+.debug-toggle[data-save-error="true"]::after{content:"!";position:absolute;right:-2px;top:-3px;border-radius:50%;background:#96382c;color:white;font-weight:700;font-size:11px;line-height:16px;width:16px;height:16px}
+.save-alert{position:absolute;z-index:36;top:max(10px,env(safe-area-inset-top));right:max(10px,env(safe-area-inset-right));min-height:44px;max-width:220px;border:1px solid #96382c;border-radius:8px;background:#fff4e9;color:#96382c;font-size:12px;padding:8px 12px}
+.is-dragging .debug-toggle,.is-dragging .save-alert{opacity:.15;pointer-events:none}
+.is-dragging .hud-stack *{pointer-events:none!important}
+.feedback{position:absolute;top:max(10px,env(safe-area-inset-top));left:50%;transform:translateX(-50%);max-width:calc(100% - 20px);width:max-content;pointer-events:none;z-index:34;padding:6px 9px;background:#fff8e7ee;font-size:12px;border-radius:6px;margin:0}
+dialog{width:min(92vw,470px);border:1px solid #c6b99e;border-radius:12px;padding:22px;background:#fffaf0;color:inherit;max-height:88dvh;overflow:auto}dialog::backdrop{background:#26372f88}dialog .speaker{text-transform:uppercase;letter-spacing:.1em;font-size:10px;color:#6c735d}dialog h1{font-size:23px;margin:8px 0 15px}dialog p{line-height:1.55;font-size:14px}dialog ul{font-size:13px;line-height:1.6;padding-left:20px}dialog button{border:1px solid #718571;border-radius:7px;padding:9px 13px;background:#e6edde;font-size:14px}dialog .secondary{background:transparent;margin-left:7px;font-size:12px}.cache{border-left:3px solid #b8a781;padding-left:12px}
+dialog button,dialog select{min-height:44px}
+.dialog-actions{display:flex;flex-wrap:wrap;gap:8px}.dialog-actions button{max-width:100%;overflow-wrap:anywhere}dialog .dialog-actions .secondary{margin-left:0}
+.completion-story{line-height:1.5;white-space:pre-line;overflow-wrap:anywhere}
+.debug-heading{display:flex;align-items:center;gap:10px}.debug-heading h1{flex:1;margin:0;font-size:20px}.debug-heading button{width:44px;min-width:44px;padding:0;font-size:22px;background:transparent}
+#debug-dialog{width:min(92vw,400px);padding:18px}
+#debug-dialog label{display:block;font-size:11px;margin:15px 0 5px}
+#debug-dialog select{width:100%;max-width:100%;font-size:12px;padding:7px;border:1px solid #b5a58a;border-radius:6px;background:#fffaf0}
+#debug-dialog .debug-journey-title{font-size:12px;margin:8px 0 16px;color:#6c735d}
+.debug-actions{display:flex;flex-wrap:wrap;gap:7px}.debug-actions button{font-size:12px;flex:1}
+.debug-links{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}.debug-links a{display:flex;align-items:center;min-height:44px;color:inherit;font-size:12px;padding:6px 8px}
+.debug-marker{font-size:11px!important;line-height:1.3;border:1px solid #cbb56d;border-radius:4px;padding:5px 7px;color:#805d11;overflow-wrap:anywhere}
+.save-controls{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+#save-status{font-size:11px;line-height:1.4;max-width:100%;overflow-wrap:anywhere}#save-status[data-state="error"]{color:#96382c}
+#retry-save{font-size:12px}#debug-dialog small{font-size:10px;color:#72664f}
+/* The chooser remains its own scroll surface, not a full-height board. */
+.chooser{height:100%;min-height:0;width:min(100%,600px);margin:0 auto;padding:24px 12px 40px;overflow-y:auto;overflow-x:hidden;overscroll-behavior:contain}
+.chooser a{display:block;margin:10px 0;padding:14px;border:1px solid #b5a58a;border-radius:8px;color:inherit;text-decoration:none;background:#fffaf0}.chooser p{line-height:1.5;font-size:14px}.chooser a,.chooser p{overflow-wrap:anywhere}
+@media(max-height:420px){.hud-stack{max-width:min(68vw,240px)}.objectives{max-height:18dvh}.objective-overlay{padding:3px 2px 3px 6px}dialog{max-height:94dvh;padding:16px}}
+@media(prefers-reduced-motion:reduce){.born{animation:none}}
+
+/* Source fragments stay ordinary rounded things. A small mark offers reading,
+   never a different object grammar or an automatic instructional popup. */
+.source-marker{display:block;height:12px;line-height:12px;text-align:right;color:#6c735d;pointer-events:none}
+#source-reader{width:min(92vw,430px);padding:18px;max-height:82dvh}
+.reader-dismiss{float:right;width:44px;min-width:44px;height:44px;padding:0;margin:-4px -4px 8px 12px;font-size:22px;background:transparent}
+#source-reader .reading-text{white-space:pre-wrap;overflow-wrap:anywhere;margin:14px 0;font-family:Georgia,serif;font-size:17px;line-height:1.65}
+
+
+/* Explicit long-label lines share the engine's 14px line box and 10px
+   padding/border allowance. Only real readings add a 12px source marker. */
+.text-thing{font-family:Arial,Helvetica,sans-serif;line-height:14px}
+.item-label,.item-label-line{display:block}.item-label-line{white-space:pre}
+
+/* Chapter-entry grouping is scenery, not a tile, goal, or interaction target. */
+.arrival-divider{position:absolute;left:8px;right:8px;height:1px;border-top:1px dotted #9a8b70;pointer-events:none;z-index:2;text-align:center;color:#716858;font-size:10px;line-height:16px}.arrival-divider span{position:relative;top:-9px;padding:0 8px;background:#f3eddf}
+
+/* Rare invention celebrations step outside the board without replacing its object.
+   Native dialog supplies focus containment; the single explicit action is always available. */
+#milestone{position:fixed;inset:0;margin:0;width:100%;max-width:none;height:100%;height:100dvh;max-height:none;border:0;border-radius:0;padding:max(24px,env(safe-area-inset-top)) max(24px,env(safe-area-inset-right)) max(24px,env(safe-area-inset-bottom)) max(24px,env(safe-area-inset-left));background:radial-gradient(ellipse at 50% 32%,#fff5d7 0%,#f3eddf 60%);overflow:auto;overscroll-behavior:contain}
+#milestone::backdrop{background:#f3eddf}
+.milestone-content{min-height:100%;max-width:600px;margin:auto;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}
+#milestone .milestone-eyebrow{text-transform:uppercase;letter-spacing:.17em;font-size:11px;color:#71634c;margin:0 0 26px}
+.milestone-object{width:clamp(144px,38vw,206px);max-width:100%;padding:18px;border:1px solid #a98b55;border-radius:12px;background:#fffaf0;box-shadow:0 8px 48px #ba92583d;animation:milestone-reveal 1.1s ease-out both}
+.milestone-item-label{font-size:19px;line-height:1.3;overflow-wrap:anywhere}
+.milestone-component{display:block;margin-top:8px;border:1px solid #b5a58a;border-radius:5px;padding:5px 8px;background:#ebe9dc;font-size:12px;line-height:1.3;overflow-wrap:anywhere;animation:milestone-fit .65s ease-out both;animation-delay:calc(.15s + var(--part)*.12s)}
+#milestone h1{font-family:Georgia,serif;font-weight:400;font-size:clamp(30px,7vw,46px);line-height:1.12;max-width:100%;overflow-wrap:anywhere;margin:30px 0 14px}
+#milestone #milestone-text{font-family:Georgia,serif;font-size:clamp(17px,4vw,21px);line-height:1.6;max-width:29em;margin:0 0 28px;overflow-wrap:anywhere}
+#milestone-continue{min-width:140px;min-height:48px;background:#52694f;color:#fffaf0;border-color:#52694f}
+@keyframes milestone-reveal{from{opacity:0;transform:scale(.78);box-shadow:0 0 0 #ba925800}to{opacity:1;transform:scale(1);box-shadow:0 8px 48px #ba92583d}}
+@keyframes milestone-fit{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+@media(prefers-reduced-motion:reduce){.milestone-object,.milestone-component{animation:none}}
+@media(max-height:480px){#milestone{padding:20px}.milestone-content{justify-content:flex-start}#milestone .milestone-eyebrow{margin-bottom:14px}#milestone h1{margin-top:20px}.milestone-object{padding:12px}}
+
+/* One real place is one phone-sized panel, including on a desktop. Artwork is
+   decorative, richly visible, never a source of inventory or a reason to reflow tiles. */
+.board.fixed-locations{max-width:390px;min-height:0;isolation:isolate}
+.location-scene{position:absolute;left:0;right:0;overflow:hidden;pointer-events:none;z-index:-2;background:#e8dfcd}
+.location-scene img{display:block;width:100%;height:100%;object-fit:cover;opacity:.94;filter:saturate(1.08);pointer-events:none}
+.location-scrim{position:absolute;inset:0;background:linear-gradient(#f3eddf0a,#f3eddf14 24%,#f3eddf24 80%);pointer-events:none}
+.fixed-locations .location-label{z-index:0;background:#f3eddfc9;min-height:24px;padding:5px 7px;color:#665c4b;border-top:1px solid #b8aa91}
+.fixed-locations .thing:focus-visible{z-index:20}
+.fixed-locations .hotspot{background:#f3eddf75}
+#mission[data-format="radio"]{border-left:4px solid #557574;background:#f5faf4}
+#mission[data-format="speech-bubble"]{border-radius:20px 20px 20px 4px}
+#mission[data-format="source-update-card"]{border-top:4px solid #9d8657}
+#mission .source-caption{font-size:11px;line-height:1.4;color:#756c5a;margin:8px 0 0}
+/* The source marker is a corner annotation in fixed panels, not an extra
+   blank text row on every manuscript. Double-tap opens the quotation without creating a selected state. */
+.fixed-locations .source-marker{position:absolute;right:-2px;top:-3px;width:12px;height:12px;line-height:12px;background:#fffaf0;border-radius:3px;opacity:.8;pointer-events:none}
+
+/* Ordinary story beats are a single tappable intertitle, not a second goals UI.
+   The prose itself is the native button: pointer, Enter, Space and Escape work. */
+#mission.intertitle{padding:0;border-radius:8px}
+#mission.intertitle .intertitle-dismiss{display:block;width:100%;min-height:100px;border:0;border-radius:8px;padding:30px 26px;background:transparent;text-align:center;font-family:Georgia,serif;font-size:clamp(18px,4.6vw,23px);line-height:1.55;white-space:pre-line}
+#mission.intertitle .intertitle-dismiss:focus-visible{outline-offset:-5px}
+/* Solid object cards carry label contrast; art does not need a blanket wash. */
+.fixed-locations .thing{background:#fffaf0;box-shadow:0 2px 5px #302b2533}
+.fixed-locations .thing.goal-met{background:#fff1c6}
+.fixed-locations .hotspot{background:#f3eddfd9}
+.location-hud .objective-line{background:#f3eddfed;box-shadow:0 0 4px 2px #f3eddf80}
+.location-hud .debug-toggle{filter:drop-shadow(0 0 2px #fffaf0) drop-shadow(0 0 3px #fffaf0)}
+
+/* Only the optional discovery card uses raster artwork. Existing milestones
+   retain their component-led presentation and acknowledgement behavior. */
+#milestone.illustrated-milestone .milestone-content { gap: 12px; width: min(100%, 370px); min-height: 100%; max-height: none; overflow: visible; padding: 12px; }
+#milestone.illustrated-milestone .discovery-illustration { display: block; width: 100%; height: min(47dvh, 395px); min-height: 160px; object-fit: contain; border-radius: 12px; background: #17232a; }
+#milestone.illustrated-milestone .milestone-eyebrow { margin: 0; }
+#milestone.illustrated-milestone h1 { font-size: clamp(23px, 6.8vw, 30px); margin: 0; }
+#milestone.illustrated-milestone #milestone-text { font-size: 17px; line-height: 1.35; margin: 0; }
+#milestone.illustrated-milestone #milestone-continue { min-height: 44px; flex-shrink: 0; }
+@media (prefers-reduced-motion: reduce) { #milestone.illustrated-milestone *, #milestone.illustrated-milestone::backdrop { animation: none !important; transition: none !important; } }
+
+#milestone.illustrated-milestone { padding: max(12px, env(safe-area-inset-top)) max(12px, env(safe-area-inset-right)) max(12px, env(safe-area-inset-bottom)) max(12px, env(safe-area-inset-left)); }
+
+.location-hud{right:max(6px,calc((100vw - 390px)/2 + 6px),env(safe-area-inset-right))}
+.objective-overlay,.objective-overlay *{user-select:none;-webkit-user-select:none}
+.context-heading{display:block;margin-bottom:1em;font-size:.82em;line-height:1.35;font-weight:400}
+/* Readiness is not navigation. The player chooses when to leave a creation. */
+.chapter-next{position:absolute;z-index:35;bottom:max(12px,env(safe-area-inset-bottom));left:50%;transform:translateX(-50%);width:52px;height:52px;border:2px solid #334f45;border-radius:50%;padding:0;background:#fffaf0;color:#173e32;box-shadow:0 2px 9px #172b3366;font-size:35px;line-height:1;display:grid;place-items:center}
+.chapter-next span{display:block;animation:next-down 1.3s ease-in-out infinite}
+.chapter-next.right{border-radius:15px;animation:next-button 1.3s ease-in-out infinite}
+.chapter-next.right span{animation-name:next-right}
+@keyframes next-down{0%,100%{transform:translateY(-3px)}50%{transform:translateY(4px)}}
+@keyframes next-right{0%,100%{transform:translateX(-3px)}50%{transform:translateX(4px)}}
+@keyframes next-button{0%,100%{box-shadow:0 2px 9px #172b3366}50%{box-shadow:0 0 0 4px #fffaf0b3,0 2px 9px #172b3366}}
+@media(prefers-reduced-motion:reduce){.chapter-next,.chapter-next span{animation:none}}
+
+/* A note explains itself before naming the result. Its caption is the live item
+   label, not a second rhetorical title or a source attribution. */
+.result-caption{display:block;clear:both;font-family:Georgia,serif;font-size:16px;line-height:1.5;font-weight:400;font-style:italic;overflow-wrap:anywhere}
+#source-reader .result-caption{margin:18px 0 2px}
+#milestone.explanation-milestone .milestone-content{align-items:stretch;text-align:left;max-width:530px}
+#milestone.explanation-milestone #milestone-text{margin:0;font-size:clamp(18px,4vw,22px);line-height:1.6;max-width:none;white-space:pre-line}
+#milestone.explanation-milestone .result-caption{font-size:clamp(16px,3.8vw,20px);margin:22px 0 28px}
+#milestone.explanation-milestone #milestone-continue{align-self:center}
+#milestone.explanation-milestone .discovery-illustration{margin:0 auto 22px;max-width:100%}
+/* Markdown runtime: retain the successful workshop palette, card grammar and motion. */
+.world{position:relative;margin:0 auto}.board.fixed-locations{width:390px;transform-origin:top left;margin:0;isolation:isolate}.chapter-panel{position:absolute;width:390px;height:844px;overflow:visible;isolation:isolate;border-bottom:8px solid #f3eddf}.scene-art{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2}.chapter-panel .location-scrim{z-index:-1}.chapter-panel .thing{transform:none;width:112px;padding:7px 6px;line-height:1.2;min-height:44px;font-size:12px;overflow-wrap:normal}.thing .slot{font-size:9px;line-height:17px;height:19px;text-overflow:ellipsis}.item-label{white-space:normal}.chapter-panel .hotspot{width:108px;min-height:76px;height:auto;background:#f3eddfd9}.chapter-panel .thing.born{animation:markdown-arrival .6s ease-out}.reading-text{font-family:Georgia,serif;font-size:20px;line-height:1.55}.reading-text p{font-size:inherit;line-height:inherit}.reading-text img{max-width:100%;max-height:45dvh;object-fit:contain;border-radius:6px}.intertitle{text-align:center}.wonder{width:min(94vw,560px);padding:28px;background:#fff9e9}.wonder .reading-text{font-size:21px}.wonder .result-caption{margin:22px 0}.dialog-actions{justify-content:center;margin-top:22px}dialog details{font-size:12px;margin-top:24px}dialog details ul{padding-left:16px;max-height:40vh;overflow:auto}.eyebrow{text-transform:uppercase;letter-spacing:.16em;font-size:11px!important;color:#716858}.chooser{max-width:560px;padding:42px 20px}.chooser h1{font:normal 38px/1.13 Georgia,serif;letter-spacing:-.03em;margin:20px 0}.chooser nav{margin-top:28px}.chooser a{padding:20px;border-radius:10px}.chooser a strong{font:normal 24px Georgia,serif}.chooser a p{font-size:13px;margin-bottom:0;color:#666656}.debug-toggle{right:max(8px,calc((100vw - 390px)/2 + 8px));background:#fffaf0dd;border-radius:8px;width:42px;height:42px;display:grid;place-items:center;font-size:25px}.checkpoint-badge{position:fixed;left:8px;top:8px;background:#fff3cf;padding:6px;font-size:10px;z-index:30}.hud-stack .objective-line{background:#fffaf0e8;padding:3px 5px;border-radius:3px}.objective-overlay{font-size:12px}.chapter-next{bottom:20px}.arrival-divider{z-index:0}.thing.dragging{z-index:100!important}.chapter-panel:has(.dragging){z-index:100}.is-dragging .hud-stack{opacity:1!important}.crowded::after{content:' ';display:block}.thing:focus-visible{outline:3px solid #267c79;outline-offset:3px}@keyframes markdown-arrival{from{scale:.8;background:#ffe3a3;box-shadow:0 0 18px #d58b36}to{scale:1}}@media(prefers-reduced-motion:reduce){.thing.born{animation:none!important}}@media(max-width:350px){.hud-stack{max-width:55vw}}
+.chapter-panel .thing{font-size:calc(12px / var(--board-scale,1));min-height:calc(44px / var(--board-scale,1))}.chapter-panel .slot{font-size:calc(9px / var(--board-scale,1));height:calc(19px / var(--board-scale,1));line-height:calc(17px / var(--board-scale,1))}.chapter-panel .hotspot{font-size:calc(11px / var(--board-scale,1))}.scene-art{-webkit-user-drag:none;pointer-events:none}

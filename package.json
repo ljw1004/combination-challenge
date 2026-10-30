@@ -1,32 +1,21 @@
 {
   "name": "combination-challenge",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": true,
   "type": "module",
-  "engines": {
-    "node": ">=22.18.0"
-  },
+  "engines": { "node": ">=22.18.0" },
   "scripts": {
     "dev": "vite --host 127.0.0.1",
-    "story": "node experiments/story-server.ts",
-    "build": "tsc --noEmit && vite build",
-    "test": "node --test tests/*.test.ts",
-    "screen": "node experiments/screen.ts",
-    "candidates": "node experiments/candidate-screen.ts",
-    "branches": "node experiments/branches.ts",
-    "evaluate": "node experiments/evaluate.ts",
-    "grade-gestures": "node experiments/grade-gestures.ts",
-    "grade-canvas": "node experiments/grade-constellation.ts",
-    "screen-canvas": "node experiments/constellation-screen.ts",
-    "play": "node experiments/play.ts",
-    "play-logic": "node experiments/logical-play.ts",
-    "evaluate-logic": "node experiments/logical-evaluate.ts",
-    "evaluate-fun": "node experiments/fun-evaluate.ts",
-    "verify": "node experiments/verify.ts",
+    "check": "tsc --noEmit",
+    "lint": "node src/lint/cli.ts",
+    "test": "node --test tests/*.test.ts && playwright test",
+    "build": "npm run lint && npm run check && vite build",
+    "play": "node src/playtest/cli.ts",
+    "playtest": "node src/playtest/run-ai.ts",
+    "evaluate": "node src/playtest/evaluate-cli.ts",
+    "checkpoint": "node src/debug/cli.ts",
     "browser-test": "playwright test",
-    "campaign:check": "node scripts/check-current-campaign.mjs && node experiments/tangible-campaign/schema/check-content.ts && tsc --noEmit -p campaign.tsconfig.json",
-    "campaign:test": "node scripts/test-current-campaign.mjs",
-    "campaign:build": "npm run campaign:check && vite build --config campaign.vite.config.ts"
+    "archive:verify": "node scripts/verify-archive.ts"
   },
   "devDependencies": {
     "@playwright/test": "1.64.1",
