@@ -1,0 +1,139 @@
+import './style.css';
+import { parseStory } from '../story/parser.ts';
+import type { Story } from '../story/types.ts';
+import { newGame, act, replay, restore, availableTokens, label, legalActions, chapterComplete, visibleGoals, readings, matches } from '../engine/game.ts';
+import { activeHotspots, background } from '../engine/analysis.ts';
+import type { State, Action } from '../engine/types.ts';
+import { checkpoint } from '../debug/checkpoint.ts';
+import { markdown, escape } from './markdown.ts';
+import { reconcile } from './reconcile.ts';
+
+const manuscripts = import.meta.glob('../../stories/*/story.md',{eager:true,query:'?raw',import:'default'}) as Record<string,string>;
+const assets = import.meta.glob('../../stories/*/assets/*',{eager:true,query:'?url',import:'default'}) as Record<string,string>;
+const catalogue = Object.entries(manuscripts).map(([path,text])=>{
+  const id=path.split('/').at(-2)!; let hash=2166136261;for(const c of text)hash=Math.imul(hash^c.charCodeAt(0),16777619);
+  return {story:parseStory(text,{id,file:`stories/${id}/story.md`}),hash:(hash>>>0).toString(16)};
+});
+const app=document.querySelector<HTMLDivElement>('#app')!;
+let story:Story, state:State, hash='', debugCheckpoint=false, saveError='';
+const asset=(path:string)=>assets[`../../stories/${story.id}/${path}`]??path;
+const name=(id:string)=>label(story,state,id);
+const key=()=>`combination-markdown-v1:${story.id}`;
+function save(){try{localStorage.setItem(key(),JSON.stringify({hash,state,debugCheckpoint}));saveError='';}catch{saveError='Progress could not be saved on this device. Export it from the debug menu.';}}
+function choose(){
+  app.innerHTML=`<main class="chooser"><p class="eyebrow">Combination Workshop</p><h1>Make something<br>worth discovering.</h1><p>Five stories told through the things you bring together.</p><nav>${catalogue.map(({story:s})=>`<a href="#${s.id}" data-story="${s.id}"><strong>${escape(s.title)}</strong>${markdown(s.description)}</a>`).join('')}</nav></main>`;
+}
+function start(id:string){
+  const entry=catalogue.find(c=>c.story.id===id);if(!entry){choose();return;}
+  story=entry.story;hash=entry.hash;state=newGame(story);debugCheckpoint=false;
+  try{const saved=JSON.parse(localStorage.getItem(key())??'null');if(saved?.hash===hash){state=restore(story,saved.state);state.seen=[...new Set([...state.seen,...saved.state.seen])];state.pending=state.pending.filter(n=>!state.seen.includes(n.key));debugCheckpoint=!!saved.debugCheckpoint;for(const t of availableTokens(state)){const p=saved.state.tokens[t.id];if(p&&[p.x,p.y].every(Number.isFinite)){t.x=Math.max(0,Math.min(275,p.x));t.y=Math.max(0,Math.min(790,p.y));}}}}catch{saveError='The saved run could not be restored. A fresh story is ready.';}
+  render(true);
+  if(!localStorage.getItem(`combination-instructions:${id}`))instructions();
+}
+function modal(content:string,kind='ordinary'){
+  document.querySelector('dialog')?.remove();const dialog=document.createElement('dialog');dialog.className=kind;
+  dialog.innerHTML=content;app.append(dialog);dialog.addEventListener('cancel',e=>{e.preventDefault();if(dialog.dataset.pending)commit({type:'dismiss'});else{dialog.remove();showPending();}});dialog.showModal();return dialog;
+}
+function showPending(){
+  if(document.querySelector('dialog')||!state?.pending.length)return;
+  const notice=state.pending[0],d=modal(`<div class="reading-text">${markdown(notice.markdown,asset)}</div>${notice.item?`<p class="result-caption">${escape(name(notice.item))}</p>`:''}<div class="dialog-actions"><button data-command="dismiss">Continue</button><button class="secondary" data-command="instructions">How to play</button></div>`,notice.kind==='wonder'?'wonder':'intertitle');d.dataset.pending='true';
+}
+function instructions(){modal(`<h1>Bring things together</h1><p>Drag a thing onto another to combine them. Hold or hover over a thing to see its compatible partners.</p><p>Square frames are places to work or leave something. The goals tell you what matters now.</p><p>Double-tap a thing to read about it. Drag empty space to scroll through your story. When you are ready to continue, use the arrow.</p><div class="dialog-actions"><button data-command="instructions-done">Let’s begin</button><button class="secondary" data-command="reset">Start over</button><button class="secondary" data-command="menu">Stories</button></div>`);}
+function read(id:string){const text=readings(story,state,id).map(w=>w.markdown).join('\n\n');if(text)modal(`<div class="reading-text">${markdown(text,asset)}</div><p class="result-caption">${escape(name(id))}</p><button data-command="close">Close</button>`);}
+function debug(){modal(`<div class="debug-heading"><h1>${escape(story.title)}</h1><button data-command="close" aria-label="Close">×</button></div>${debugCheckpoint?'<p class="debug-marker">Generated checkpoint · historical replay, not fresh play</p>':''}<label for="chapter">Replay to chapter</label><select id="chapter">${story.chapters.map((c,i)=>`<option value="${i}" ${i===state.chapter?'selected':''}>${i+1}. ${escape(c.name)}</option>`).join('')}</select><p><button data-command="checkpoint">Generate checkpoint</button></p><div class="debug-actions"><button data-command="undo">Undo</button><button data-command="instructions">How to play</button><button data-command="reset">Start over</button><button data-command="export">Export save</button><button data-command="menu">Stories</button></div><details><summary>Developer recipe inspector</summary><p>These result names are not shown during discovery play.</p><ul>${story.recipes.map(r=>`<li>${escape(name(r.a.ref.id))}${r.b?' + '+escape(name(r.b.ref.id)):''}${r.hotspot?' @ '+escape(name(r.hotspot)):''} → ${escape(name(r.result.id))}</li>`).join('')}</ul></details>${saveError?`<p role="alert">${escape(saveError)}</p>`:''}`);}
+function commit(action:Action){try{const before=state,previous=state.chapter;state=act(story,state,action);document.querySelector('dialog')?.remove();save();render(previous!==state.chapter);if(action.type==='combine'){const born=Object.keys(state.tokens).find(id=>!before.tokens[id]);if(born)tile(born)?.classList.add('born');}}catch(e){modal(`<p>${escape((e as Error).message)}</p><button data-command="close">Close</button>`);}}
+function tile(id:string){return [...app.querySelectorAll<HTMLElement>('[data-item]')].find(el=>el.dataset.item===id);}
+function panel(chapter:number){return app.querySelector<HTMLElement>(`.chapter-panel[data-chapter="${chapter}"]`);}
+function packArrival(){
+  const tokens=availableTokens(state).filter(t=>t.chapter===state.chapter&&!t.hotspot),fresh=new Set(state.newItems);
+  let y=82;const x=[14,139,264];
+  const carried=tokens.filter(t=>!fresh.has(t.id)).sort((a,b)=>a.y-b.y),arrivals=tokens.filter(t=>fresh.has(t.id));
+  if(carried.length){
+    const top=carried[0].y;let compression=0,previousBottom=top;const placed:{x:number;y:number;height:number}[]=[];
+    for(const t of carried){
+      const el=tile(t.id)!,height=el.offsetHeight,gap=t.y-previousBottom;if(gap>24)compression+=gap-24;previousBottom=Math.max(previousBottom,t.y+height);t.y=Math.max(65,t.y-top+82-compression);t.x=Math.max(10,Math.min(268,t.x));
+      const clear=(p:{x:number;y:number})=>placed.every(r=>p.x+120<=r.x||r.x+120<=p.x||p.y+height+8<=r.y||r.y+r.height+8<=p.y);
+      if(!clear(t)){const candidates=Array.from({length:12},(_,row)=>x.map(column=>({x:column,y:82+row*64}))).flat().sort((a,b)=>Math.abs(a.x-t.x)+Math.abs(a.y-t.y)-Math.abs(b.x-t.x)-Math.abs(b.y-t.y));const space=candidates.find(clear);if(space){t.x=space.x;t.y=space.y;}}
+      placed.push({x:t.x,y:t.y,height});el.style.left=`${t.x}px`;el.style.top=`${t.y}px`;y=Math.max(y,t.y+height+34);
+    }
+  }
+  for(let i=0;i<arrivals.length;i+=3){
+    const row=arrivals.slice(i,i+3);let height=44;row.forEach((t,j)=>{const el=tile(t.id)!;t.x=x[j];t.y=y;el.style.left=`${t.x}px`;el.style.top=`${t.y}px`;height=Math.max(height,el.offsetHeight);});y+=height+16;
+  }
+  if(tokens.length){const centre=tokens.reduce((sum,t)=>sum+t.y+tile(t.id)!.offsetHeight/2,0)/tokens.length,min=Math.min(...tokens.map(t=>t.y)),max=Math.max(...tokens.map(t=>t.y+tile(t.id)!.offsetHeight));const shift=Math.max(65-min,Math.min(281-centre,745-max));for(const t of tokens){t.y+=shift;tile(t.id)!.style.top=`${t.y}px`;}}
+  const divider=panel(state.chapter)?.querySelector<HTMLElement>('.arrival-divider');if(divider){const first=tokens.find(t=>fresh.has(t.id));divider.style.top=`${Math.max(65,(first?.y??y)-18)}px`;}
+  // Report actual overflow for author review; never silently shrink text or hide cards.
+  if(y>760)panel(state.chapter)?.classList.add('crowded');
+}
+function render(arrival=false){
+  const scroll=app.querySelector('.viewport')?.scrollTop??0;
+  const goals=visibleGoals(story,state),finished=chapterComplete(story,state),scale=Math.min(1,innerWidth/390);
+  const gold=new Set<string>();for(const [i,g] of story.chapters[state.chapter].goals.entries())if(state.achieved.includes(g.id)&&!story.chapters[state.chapter].goals[i+1]?.next)for(const c of g.conditions)if(matches(state.tokens[c.item.id],c.item)&&(!c.hotspot||state.tokens[c.item.id].hotspot===c.hotspot)){gold.add(c.item.id);if(c.hotspot)gold.add(c.hotspot);}
+  reconcile(app,`<div class="viewport"><div class="world" style="width:${390*scale}px;height:${state.visited.length*844*scale}px"><div class="board fixed-locations" style="height:${state.visited.length*844}px;transform:scale(${scale});--board-scale:${scale}">${state.visited.map((chapter,position)=>{
+    const bg=background(story,chapter),c=story.chapters[chapter];
+    return `<section class="chapter-panel" data-chapter="${chapter}" style="top:${position*844}px" aria-label="${escape(story.title)} scene ${position+1}">${bg?`<img class="scene-art" src="${escape(asset(bg))}" alt="">`:''}<div class="location-scrim"></div>${activeHotspots(story,chapter).map((id,i)=>{const h=story.hotspots[id],x=(h.x??(.19+(i%3)*.31))*390,y=(h.y??(.70+Math.floor(i/3)*.13))*844;return `<div class="hotspot" data-hotspot="${escape(id)}" style="left:${x}px;top:${y}px">${escape(h.name)}</div>`;}).join('')}${availableTokens(state).filter(t=>t.chapter===chapter).map(t=>{
+      const item=story.items[t.id],filled=t.slots,applicable=readings(story,state,t.id).length;
+      return `<button class="thing text-thing ${chapter===state.chapter&&gold.has(t.id)?'goal-met':''}" data-item="${escape(t.id)}" style="left:${t.x}px;top:${t.y}px" aria-label="${escape(name(t.id))}" title="${escape(applicable?'Double-click or long-press to read':'Drag to combine or move')}"><span class="item-label">${escape(name(t.id))}</span>${item.slots.map(s=>`<span class="slot ${filled.includes(s.accepts)?'filled':''}">${filled.includes(s.accepts)?escape(name(s.accepts)):escape(s.name??'\u00a0')}</span>`).join('')}${applicable?'<span class="source-marker" aria-hidden="true">◦</span>':''}</button>`;
+    }).join('')}${chapter===state.chapter&&state.arrivalDivider&&state.newItems.length?`<div class="arrival-divider" style="top:${Math.max(65,Math.min(...state.newItems.map(id=>state.tokens[id]?.y??844))-18)}px"><span>new items</span></div>`:''}</section>`;
+  }).join('')}</div></div></div><button class="debug-toggle" data-command="debug" aria-label="Open game menu" data-save-error="${!!saveError}">☷</button>${saveError?`<button class="save-alert" data-command="debug">${escape(saveError)}</button>`:''}${debugCheckpoint?'<span class="checkpoint-badge">Generated checkpoint</span>':''}<div class="hud-stack location-hud"><button class="objective-overlay" data-command="story" aria-label="Read this chapter"><span class="objectives">${goals.map(g=>`<span class="objective-line">${escape(g.text)}</span>`).join('')}${state.completed?'<span class="objective-line">The End</span>':''}</span></button></div>${finished&&!state.completed?`<button class="chapter-next ${story.chapters[state.chapter+1]?.image?'':'right'}" data-command="advance" aria-label="Continue story"><span>${story.chapters[state.chapter+1]?.image?'↓':'→'}</span></button>`:''}`);
+  const viewport=app.querySelector('.viewport')!;viewport.scrollTop=arrival?Math.max(0,(state.visited.length-1)*844*scale):scroll;
+  if(arrival){packArrival();save();}showPending();
+}
+function highlight(id:string){clearHighlights();tile(id)?.classList.add('pressed');for(const action of legalActions(story,state).filter(a=>a.a===id)){if(action.b)tile(action.b)?.classList.add('possible');else if(action.hotspot)app.querySelectorAll<HTMLElement>('[data-hotspot]').forEach(h=>{if(h.dataset.hotspot===action.hotspot)h.classList.add('possible');});}for(const g of visibleGoals(story,state))for(const c of g.conditions)if(c.item.id===id&&c.hotspot)app.querySelectorAll<HTMLElement>('[data-hotspot]').forEach(h=>{if(h.dataset.hotspot===c.hotspot)h.classList.add('possible');});}
+function clearHighlights(){app.querySelectorAll('.pressed,.possible,.will-create,.will-place').forEach(el=>el.classList.remove('pressed','possible','will-create','will-place'));}
+let drag:{id:string;pointer:number;el:HTMLElement;startX:number;startY:number;x:number;y:number;moved:boolean;timer:ReturnType<typeof setTimeout>;read:boolean}|undefined;
+let lastTap={id:'',at:0};
+function dropTarget(x:number,y:number){return document.elementsFromPoint(x,y).map(e=>e.closest<HTMLElement>('[data-item],[data-hotspot]')).find(e=>e&&e.dataset.item!==drag?.id);}
+app.addEventListener('pointerdown',e=>{
+  const el=(e.target as Element).closest<HTMLElement>('[data-item]');if(!el||document.querySelector('dialog')||e.button!==0)return;
+  e.preventDefault();const id=el.dataset.item!,t=state.tokens[id];highlight(id);el.setPointerCapture(e.pointerId);
+  const timer=setTimeout(()=>{if(drag&&!drag.moved){drag.read=true;read(id);clearHighlights();}},550);
+  drag={id,pointer:e.pointerId,el,startX:e.clientX,startY:e.clientY,x:t.x,y:t.y,moved:false,timer,read:false};
+});
+document.addEventListener('pointermove',e=>{
+  if(!drag||e.pointerId!==drag.pointer)return;const scale=Math.min(1,innerWidth/390),dx=(e.clientX-drag.startX)/scale,dy=(e.clientY-drag.startY)/scale;
+  if(Math.hypot(dx,dy)>5){drag.moved=true;clearTimeout(drag.timer);}if(!drag.moved||drag.read)return;
+  drag.el.classList.add('dragging');app.classList.add('is-dragging');drag.el.style.left=`${drag.x+dx}px`;drag.el.style.top=`${drag.y+dy}px`;
+  app.querySelectorAll('.will-create,.will-place').forEach(e=>e.classList.remove('will-create','will-place'));
+  const target=dropTarget(e.clientX,e.clientY),action=legalActions(story,state).find(a=>a.a===drag!.id&&(target?.dataset.item?a.b===target.dataset.item:!a.b&&a.hotspot===target?.dataset.hotspot));
+  if(target&&(action||target.dataset.hotspot))target.classList.add(action?'will-create':'will-place');
+  const viewport=app.querySelector('.viewport');if(viewport){if(e.clientY<55)viewport.scrollTop-=12;else if(e.clientY>innerHeight-55)viewport.scrollTop+=12;}
+});
+function endDrag(e:PointerEvent,cancel=false){
+  if(!drag||drag.pointer!==e.pointerId)return;const d=drag;clearTimeout(d.timer);const target=dropTarget(e.clientX,e.clientY);drag=undefined;d.el.classList.remove('dragging');app.classList.remove('is-dragging');clearHighlights();
+  if(cancel||d.read){render();return;}
+  if(!d.moved){if(lastTap.id===d.id&&Date.now()-lastTap.at<400){read(d.id);lastTap={id:'',at:0};}else lastTap={id:d.id,at:Date.now()};return;}
+  const action=legalActions(story,state).find(a=>a.a===d.id&&(target?.dataset.item?a.b===target.dataset.item:!a.b&&a.hotspot===target?.dataset.hotspot));
+  if(action){commit(target?.dataset.hotspot?{...action,chapter:Number(target.closest<HTMLElement>('[data-chapter]')!.dataset.chapter)}:action);return;}
+  if(target?.dataset.item){render();return;}
+  const scale=Math.min(1,innerWidth/390),world=app.querySelector('.world')!.getBoundingClientRect(),position=Math.floor((e.clientY-world.top)/(844*scale)),chapter=state.visited[Math.max(0,Math.min(state.visited.length-1,position))];
+  const rect=panel(chapter)!.getBoundingClientRect();commit({type:'move',item:d.id,chapter,x:(e.clientX-rect.left)/scale-56,y:(e.clientY-rect.top)/scale-22,...(target?.dataset.hotspot?{hotspot:target.dataset.hotspot}:{})});
+}
+document.addEventListener('pointerup',e=>endDrag(e));document.addEventListener('pointercancel',e=>endDrag(e,true));
+function cancelGesture(){if(!drag)return;clearTimeout(drag.timer);drag=undefined;app.classList.remove('is-dragging');clearHighlights();render();}
+window.addEventListener('blur',cancelGesture);
+app.addEventListener('lostpointercapture',()=>{if(drag)cancelGesture();});
+app.addEventListener('dragstart',e=>e.preventDefault());
+app.addEventListener('pointerover',e=>{if(e.pointerType==='mouse'&&!drag){const el=(e.target as Element).closest<HTMLElement>('[data-item]');if(el&&!document.querySelector('dialog'))highlight(el.dataset.item!);}});
+app.addEventListener('pointerout',()=>{if(!drag)clearHighlights();});
+app.addEventListener('dblclick',e=>{const el=(e.target as Element).closest<HTMLElement>('[data-item]');if(el)read(el.dataset.item!);});
+app.addEventListener('click',e=>{
+  const target=(e.target as Element).closest<HTMLElement>('[data-command],[data-story]');if(!target)return;
+  if(target.dataset.story){e.preventDefault();location.hash=target.dataset.story;start(target.dataset.story);return;}
+  const command=target.dataset.command;
+  if(command==='dismiss')commit({type:'dismiss'});
+  else if(command==='advance')commit({type:'advance'});
+  else if(command==='debug')debug();
+  else if(command==='instructions')instructions();
+  else if(command==='instructions-done'){localStorage.setItem(`combination-instructions:${story.id}`,'1');document.querySelector('dialog')?.remove();showPending();}
+  else if(command==='close'){document.querySelector('dialog')?.remove();showPending();}
+  else if(command==='menu'){location.hash='';choose();}
+  else if(command==='reset'){state=newGame(story);debugCheckpoint=false;save();render(true);instructions();}
+  else if(command==='story'){modal(`<div class="reading-text">${markdown(story.chapters[state.chapter].intro,asset)}</div><button data-command="close">Close</button>`);}
+  else if(command==='checkpoint'){try{const index=Number(app.querySelector<HTMLSelectElement>('#chapter')!.value);state=checkpoint(story,index);state.seen.push(...state.pending.filter(n=>n.kind==='wonder').map(n=>n.key));state.pending=state.pending.filter(n=>n.kind==='chapter');debugCheckpoint=true;save();render(true);}catch(error){modal(`<p>${escape((error as Error).message)}</p><button data-command="close">Close</button>`);}}
+  else if(command==='undo'){let i=state.actions.length-1;while(i>=0&&state.actions[i].type==='dismiss')i--;if(i>=0){const seen=state.seen;state=replay(story,state.actions.slice(0,i));state.seen=[...new Set([...state.seen,...seen])];state.pending=state.pending.filter(n=>!state.seen.includes(n.key));save();render();}}
+  else if(command==='export'){const url=URL.createObjectURL(new Blob([JSON.stringify({hash,state,debugCheckpoint},null,2)],{type:'application/json'}));const a=document.createElement('a');a.href=url;a.download=`${story.id}-save.json`;a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);}
+});
+window.addEventListener('resize',()=>{if(drag)cancelGesture();else if(state&&!document.querySelector('.chooser')&&!document.querySelector('dialog'))render();});
+window.addEventListener('hashchange',()=>{const id=location.hash.slice(1);if(id&&story?.id!==id)start(id);else if(!id)choose();});
+if(location.hash)start(location.hash.slice(1));else choose();
