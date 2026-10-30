@@ -3,10 +3,13 @@
 export interface TextSpan { from: number; to: number }
 export interface Source { file: string; line: number; column?: number; span?: TextSpan }
 export interface RelatedLocation extends Source { message: string; span: TextSpan }
-export interface Diagnostic { severity: 'error' | 'warning'; code: string; message: string; source: Source; span: TextSpan; stage?: 'fast' | 'deep'; related?: RelatedLocation[] }
+export interface DiagnosticFix { label: string; edits: {span: TextSpan; text: string}[]; disabledReason?: string }
+export interface Diagnostic { severity: 'error' | 'warning'; code: string; message: string; source: Source; span: TextSpan; stage?: 'fast' | 'deep'; related?: RelatedLocation[]; fixes?: DiagnosticFix[] }
 export interface Ref { id: string; slots: string[] }
 export type Fate = 'preserve' | 'consume' | 'transform';
 export interface Ingredient { ref: Ref; fate: Fate; explicit: boolean }
+/** Authored uses are retained separately from deduplicated logical recipes. */
+export interface FateSite { item: string; fate: Fate; edit?: {span: TextSpan; prefix: string; suffix: string} }
 export interface Slot { name?: string; accepts: string; source: Source }
 export interface Wonder { markdown: string; requires: string[]; source: Source }
 export interface Item {
@@ -30,5 +33,5 @@ export interface Recipe {
 export interface Story {
   id: string; title: string; description: string; chapters: Chapter[];
   items: Record<string, Item>; hotspots: Record<string, Hotspot>; recipes: Recipe[];
-  diagnostics: Diagnostic[]; source: Source;
+  diagnostics: Diagnostic[]; source: Source; fateSites?: FateSite[];
 }

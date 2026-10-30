@@ -1,12 +1,16 @@
-import type { Story, Source, Ref, Item, Recipe, Ingredient, Fate, Chapter, Goal, Condition } from './types.ts';
+import type { Story, Source, Ref, Item, Recipe, Ingredient, Fate, Chapter, Goal, Condition, FateSite } from './types.ts';
 import {sourceMap} from './source-map.ts';
 
 interface Line { text: string; line: number }
 interface Bullet { text: string; line: number; indent: number; children: Bullet[]; prose: string[] }
 
 /** Split grammar punctuation only outside quoted names, code identifiers and brackets. */
-export function splitOutside(text: string, delimiter: string): string[] {
-  const parts: string[] = []; let start = 0, depth = 0, quote = '', emphasis = '';
+function splitLocated(text: string, delimiter: string): {text: string; from: number; to: number}[] {
+  const parts: {text: string; from: number; to: number}[] = []; let start = 0, depth = 0, quote = '', emphasis = '';
+  const push = (end: number) => {
+    const raw = text.slice(start, end), from = start + raw.length - raw.trimStart().length;
+    parts.push({text: raw.trim(), from, to: Math.max(from, start + raw.trimEnd().length)});
+  };
   for (let i = 0; i < text.length; i++) {
     const c = text[i];
     if (quote) { if (c === quote && text[i - 1] !== '\\') quote = ''; continue; }
@@ -15,9 +19,12 @@ export function splitOutside(text: string, delimiter: string): string[] {
     if ((c === '*' || c === '_') && (i === 0 || /[\s+@,]/.test(text[i - 1]))) { emphasis = text.slice(i, i + 2) === c + c ? c + c : c; i += emphasis.length - 1; continue; }
     if ('[('.includes(c)) depth++;
     else if ('])'.includes(c)) depth--;
-    else if (!depth && text.startsWith(delimiter, i)) { parts.push(text.slice(start, i).trim()); i += delimiter.length - 1; start = i + 1; }
+    else if (!depth && text.startsWith(delimiter, i)) { push(i); i += delimiter.length - 1; start = i + 1; }
   }
-  parts.push(text.slice(start).trim()); return parts;
+  push(text.length); return parts;
+}
+export function splitOutside(text: string, delimiter: string): string[] {
+  return splitLocated(text, delimiter).map(part => part.text);
 }
 export function unquote(raw: string): string {
   let text = raw.trim();
@@ -43,7 +50,8 @@ function bullets(lines: Line[]): Bullet[] {
 
 export function parseStory(markdown: string, options: { id?: string; file?: string } = {}): Story {
   const file = options.file ?? 'story.md', source = sourceMap(markdown, file).line;
-  const story: Story = { id: options.id ?? 'story', title: '', description: '', chapters: [], items: {}, hotspots: {}, recipes: [], diagnostics: [], source: source(1) };
+  const story: Story = { id: options.id ?? 'story', title: '', description: '', chapters: [], items: {}, hotspots: {}, recipes: [], diagnostics: [], source: source(1), fateSites: [] };
+  const originalLines = markdown.split(/\r\n?|\n/), spellings = new WeakMap<Ref, string>();
   const error = (code: string, message: string, line: number, fragment?: string) => {
     const location = source(line, fragment);
     story.diagnostics.push({ severity: 'error', code, message, source: location, span: location.span!, stage: 'fast' });
@@ -89,23 +97,60 @@ export function parseStory(markdown: string, options: { id?: string; file?: stri
       if (named?.[2]) story.hotspots[id].name = declared.get(id) ?? name;
       if (coordinate) { story.hotspots[id].x = +coordinate[1] / 100; story.hotspots[id].y = +coordinate[2] / 100; }
     }
-    return { id, slots };
+    const result = {id, slots}; spellings.set(result, raw.trim()); return result;
   }
   function ingredient(raw: string, line: number): Ingredient {
     const match = /\s+\[(consume|transform|preserve)\]$/.exec(raw.trim());
     return { ref: ref(match ? raw.trim().slice(0, match.index) : raw, line), fate: (match?.[1] ?? 'preserve') as Fate, explicit: !!match };
   }
+  function operandSpelling(value: Ref): string | undefined {
+    const atom = (id: string): string | undefined => {
+      if (id.startsWith('id:')) return `\`${id.slice(3)}\``;
+      const name = id.slice(5);
+      const marker = ['"', "'", '**', '__'].find(mark => !name.includes(mark) && (mark.length > 1 || !name.endsWith('\\')));
+      return marker ? `${marker}${name}${marker}` : undefined;
+    };
+    if (value.id.startsWith('id:')) {
+      const slots = value.slots.map(atom);
+      if (slots.some(slot => slot === undefined)) return;
+      return `${atom(value.id)}${slots.length ? `[${slots.join(',')}]` : ''}`;
+    }
+    const original = spellings.get(value);
+    if (original && ['+', '@', '->'].every(delimiter => splitOutside(original, delimiter).length === 1)) return original;
+    const name = atom(value.id), slots = value.slots.map(atom);
+    if (!name || slots.some(slot => slot === undefined)) return;
+    return `${name}${slots.length ? `[${slots.join(',')}]` : ''}`;
+  }
   function rule(raw: string, line: number, parent?: Ref, at?: string): Recipe | undefined {
-    const arrow = splitOutside(raw, '->'); if (arrow.length !== 2) { error('recipe-syntax', `Expected a single -> in ${raw}.`, line); return; }
-    const context = splitOutside(arrow[0], '@');
+    const arrow = splitLocated(raw, '->'); if (arrow.length !== 2) { error('recipe-syntax', `Expected a single -> in ${raw}.`, line); return; }
+    const context = splitLocated(arrow[0].text, '@');
     if (context.length > 2) error('recipe-context', 'A combination can have only one hotspot.', line);
-    const plus = splitOutside(context[0], '+');
-    const reagent = plus[0] ? ingredient(plus[0], line) : parent ? { ref: parent, fate: 'preserve' as Fate, explicit: false } : undefined;
+    const plus = splitLocated(context[0].text, '+');
+    const reagent = plus[0].text ? ingredient(plus[0].text, line) : parent ? { ref: parent, fate: 'preserve' as Fate, explicit: false } : undefined;
     if (!reagent) { error('missing-parent', 'A shorthand combination needs a parent item or result.', line); return; }
     if (plus.length > 2) error('binary-combination', 'A combination accepts at most two items.', line);
-    const recipe: Recipe = { id: '', a: reagent, ...(plus[1] ? { b: ingredient(plus[1], line) } : {}), ...(context[1] ? { hotspot: ref(context[1], line, 'hotspot').id } : at ? { hotspot: at } : {}), result: ref(arrow[1], line), source: source(line) };
+    const recipe: Recipe = { id: '', a: reagent, ...(plus[1]?.text ? { b: ingredient(plus[1].text, line) } : {}), ...(context[1]?.text ? { hotspot: ref(context[1].text, line, 'hotspot').id } : at ? { hotspot: at } : {}), result: ref(arrow[1].text, line), source: source(line) };
     if (!recipe.b && !recipe.hotspot) error('missing-operand', 'Combine two items, one item at a hotspot, or two items at a hotspot.', line);
     if (parent && ![recipe.a.ref.id, recipe.b?.ref.id].includes(parent.id)) error('nested-reagent', 'A nested rule must use its parent item or result.', line);
+    const original = originalLines[line - 1], offset = original?.lastIndexOf(raw) ?? -1;
+    const rawStart = source(line).span!.from - (source(line).column! - 1) + offset;
+    for (const [position, input] of [recipe.a, recipe.b].entries()) {
+      if (!input) continue;
+      const part = plus[position], annotation = /\[(consume|transform|preserve)\]$/.exec(part.text);
+      const site: FateSite = {item: input.ref.id, fate: input.fate};
+      if (offset >= 0) {
+        const start = rawStart + arrow[0].from + context[0].from + part.from;
+        if (!part.text) {
+          const spelling = operandSpelling(input.ref);
+          if (spelling) site.edit = {span: {from: start, to: start}, prefix: `${spelling} `, suffix: ' '};
+        } else if (input.explicit && annotation) {
+          site.edit = {span: {from: start + annotation.index, to: start + part.text.length}, prefix: '', suffix: ''};
+        } else {
+          site.edit = {span: {from: start + part.text.length, to: start + part.text.length}, prefix: ' ', suffix: ''};
+        }
+      }
+      story.fateSites!.push(site);
+    }
     const key = JSON.stringify([recipe.a, recipe.b, recipe.hotspot, recipe.result]);
     if (recipes.has(key)) return recipes.get(key)!;
     recipe.id = `recipe:${story.recipes.length + 1}`; recipes.set(key, recipe); story.recipes.push(recipe); return recipe;

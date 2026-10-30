@@ -1,12 +1,14 @@
-import { EditorState } from '@codemirror/state';
+import { EditorState, Transaction } from '@codemirror/state';
 import { EditorView, drawSelection, highlightActiveLine, highlightActiveLineGutter, keymap, lineNumbers } from '@codemirror/view';
-import { defaultKeymap, history, historyKeymap, indentWithTab } from '@codemirror/commands';
+import { defaultKeymap, history, historyKeymap, indentWithTab, isolateHistory } from '@codemirror/commands';
 import { markdown } from '@codemirror/lang-markdown';
 import { defaultHighlightStyle, syntaxHighlighting } from '@codemirror/language';
 import { highlightSelectionMatches, searchKeymap } from '@codemirror/search';
 import { lintGutter, setDiagnostics as setEditorDiagnostics } from '@codemirror/lint';
 import type { Diagnostic as EditorDiagnostic } from '@codemirror/lint';
 import type { Diagnostic, Source, TextSpan } from '../story/types.ts';
+import { chapterCheckpoints } from './editor-checkpoints.ts';
+import { sourceFixWidgets } from './editor-fix-widgets.ts';
 import './editor.css';
 
 export interface EditorRecovery { id: string; label: string; text: string }
@@ -17,6 +19,7 @@ export interface StoryEditorOptions {
   /** Called synchronously for each document change. Save before scheduling validation. */
   onChange(text: string): void;
   onCursorChange?(position: number, line: number): void;
+  onCheckpoint?(line: number): void;
   onClose(): void;
   /** Called only after the user confirms the separate Delete draft action. */
   onDelete(): void;
@@ -126,10 +129,15 @@ export function createStoryEditor(options: StoryEditorOptions): StoryEditor {
   let replacing = false;
   let destroyed = false;
   let currentDiagnostics: Diagnostic[] = [];
+  let selectedDiagnostic: Diagnostic | undefined;
+  let relatedExpanded = false;
+  let fixesStale = false;
   let currentLine = 1;
   let carriageReturns = [...options.text.matchAll(/\r(?=\n)/g)].map(match => match.index!);
+  let fixMenu: {element: HTMLElement; anchor: HTMLButtonElement} | undefined;
   let refreshDiagnostics = () => {};
   let highlightCurrentLine = () => {};
+  const sourceFixes = sourceFixWidgets(openFixMenu);
   const view = new EditorView({
     parent: editorHost,
     state: EditorState.create({
@@ -138,6 +146,8 @@ export function createStoryEditor(options: StoryEditorOptions): StoryEditor {
         lineNumbers(), highlightActiveLineGutter(), history(), drawSelection(),
         markdown(), syntaxHighlighting(defaultHighlightStyle), highlightActiveLine(),
         highlightSelectionMatches(), lintGutter(), EditorView.lineWrapping,
+        sourceFixes.extension,
+        ...(options.onCheckpoint ? [chapterCheckpoints(options.onCheckpoint)] : []),
         keymap.of([...defaultKeymap, ...historyKeymap, ...searchKeymap, indentWithTab]),
         EditorState.tabSize.of(2),
         EditorView.contentAttributes.of({ 'aria-label': 'Story Markdown', spellcheck: 'false' }),
@@ -147,6 +157,8 @@ export function createStoryEditor(options: StoryEditorOptions): StoryEditor {
             options.onChange(update.state.doc.toString());
           }
           if (update.docChanged) {
+            closeFixMenu();
+            fixesStale = true;
             const mapLocation = (source: Source, span: TextSpan) => {
               const from = update.changes.mapPos(span.from, 1);
               const to = Math.max(from, update.changes.mapPos(span.to, -1));
@@ -266,22 +278,106 @@ export function createStoryEditor(options: StoryEditorOptions): StoryEditor {
     };
     const source = locate(diagnostic.source, diagnostic.span);
     return {...diagnostic, span: source.span, source,
+      fixes: diagnostic.fixes?.map(fix => ({...fix, edits: fix.edits.map(edit => ({...edit,
+        span: {from: editorOffset(edit.span.from), to: editorOffset(edit.span.to)},
+      }))})),
       related: diagnostic.related?.map(related => ({...related, ...locate(related, related.span)}))};
   }
   function navigate(span: TextSpan) {
     view.dispatch({selection: {anchor: span.from, head: span.to}, effects: EditorView.scrollIntoView(span.from, {y: 'center'})});
     view.focus();
   }
+  function diagnosticKey(diagnostic: Diagnostic) {
+    return JSON.stringify([diagnostic.source.file, diagnostic.code, diagnostic.message, diagnostic.span.from]);
+  }
+  function isSelected(diagnostic: Diagnostic) {
+    return !!selectedDiagnostic && diagnosticKey(selectedDiagnostic) === diagnosticKey(diagnostic);
+  }
+  function selectDiagnostic(diagnostic: Diagnostic, toggle = true) {
+    const entry = displayed.find(entry => diagnosticKey(entry.diagnostic) === diagnosticKey(diagnostic));
+    const offset = entry ? entry.button.getBoundingClientRect().top - diagnosticsList.getBoundingClientRect().top : 0;
+    relatedExpanded = isSelected(diagnostic) && toggle ? !relatedExpanded : true;
+    selectedDiagnostic = currentDiagnostics.find(candidate => diagnosticKey(candidate) === diagnosticKey(diagnostic)) ?? diagnostic;
+    updateSelection();
+    if (entry) diagnosticsList.scrollTop += entry.button.getBoundingClientRect().top - diagnosticsList.getBoundingClientRect().top - offset;
+  }
   function relatedLinks(diagnostic: Diagnostic) {
-    const links = node('span', 'editor-related-locations');
+    const links = node('ul', 'editor-related-locations');
+    links.dataset.diagnosticKey = diagnosticKey(diagnostic);
+    links.hidden = !isSelected(diagnostic) || !relatedExpanded;
     for (const related of diagnostic.related ?? []) {
-      const link = button('', 'editor-related-location');
+      const row = node('li', '');
+      const link = button(`${related.line}: ${related.message}`, 'editor-related-location');
       link.dataset.line = String(related.line);
-      link.append(node('span', 'editor-diagnostic-location', `Line ${related.line}`), node('span', '', related.message));
-      link.addEventListener('click', event => { event.preventDefault(); event.stopPropagation(); navigate(related.span); });
-      links.append(link);
+      link.addEventListener('click', event => { event.preventDefault(); event.stopPropagation(); selectDiagnostic(diagnostic, false); navigate(related.span); });
+      row.append(link); links.append(row);
     }
     return links;
+  }
+  function closeFixMenu() {
+    fixMenu?.anchor.setAttribute('aria-expanded', 'false');
+    fixMenu?.element.remove(); fixMenu = undefined;
+  }
+  function openFixMenu(diagnostic: Diagnostic, anchor: HTMLElement) {
+    closeFixMenu();
+    const current = currentDiagnostics.find(candidate => diagnosticKey(candidate) === diagnosticKey(diagnostic));
+    if (!current?.fixes?.length || fixesStale) return;
+    selectDiagnostic(current, false);
+    const menu = node('div', 'editor-fix-menu'); menu.setAttribute('role', 'menu'); menu.setAttribute('aria-label', 'Consolidate fate');
+    for (const fix of current.fixes) {
+      const choice = button(fix.label, 'editor-fix-option'); choice.setAttribute('role', 'menuitem');
+      choice.disabled = !!fix.disabledReason;
+      if (fix.disabledReason) choice.append(node('span', 'editor-fix-reason', fix.disabledReason));
+      choice.addEventListener('click', () => {
+        closeFixMenu();
+        if (fixesStale || fix.disabledReason || !fix.edits.length) return;
+        view.dispatch({changes: fix.edits.map(edit => ({from: edit.span.from, to: edit.span.to, insert: edit.text})),
+          annotations: [Transaction.userEvent.of('input.fix'), isolateHistory.of('full')]});
+        view.focus();
+      });
+      menu.append(choice);
+    }
+    fixMenu = {element: menu, anchor: anchor as HTMLButtonElement};
+    anchor.setAttribute('aria-expanded', 'true');
+    element.append(menu);
+    const rect = anchor.getBoundingClientRect();
+    menu.style.left = `${Math.max(8, Math.min(rect.left, innerWidth - menu.offsetWidth - 8))}px`;
+    menu.style.top = `${Math.max(8, Math.min(rect.bottom + 3, innerHeight - menu.offsetHeight - 8))}px`;
+    const choices = [...menu.querySelectorAll<HTMLButtonElement>('button:not(:disabled)')];
+    choices[0]?.focus({preventScroll: true});
+    menu.addEventListener('keydown', event => {
+      if (event.key === 'Escape') { event.preventDefault(); closeFixMenu(); anchor.focus({preventScroll: true}); }
+      if (event.key === 'ArrowDown' || event.key === 'ArrowUp') {
+        event.preventDefault();
+        const index = choices.indexOf(document.activeElement as HTMLButtonElement);
+        choices[(index + (event.key === 'ArrowDown' ? 1 : choices.length - 1)) % choices.length]?.focus({preventScroll: true});
+      }
+    });
+  }
+  const dismissFixMenu = (event: PointerEvent) => {
+    if (fixMenu && !fixMenu.element.contains(event.target as Node) && !fixMenu.anchor.contains(event.target as Node)) closeFixMenu();
+  };
+  document.addEventListener('pointerdown', dismissFixMenu, true);
+  element.addEventListener('wheel', closeFixMenu, {passive: true});
+  function fixControl(diagnostic: Diagnostic) {
+    const bulb = button('💡', 'editor-diagnostic-fix');
+    bulb.setAttribute('aria-label', `Fix ${diagnostic.code}: ${diagnostic.message}`);
+    bulb.setAttribute('aria-haspopup', 'menu'); bulb.setAttribute('aria-expanded', 'false');
+    bulb.addEventListener('click', () => openFixMenu(diagnostic, bulb));
+    return bulb;
+  }
+  function updateSelection() {
+    const key = selectedDiagnostic && diagnosticKey(selectedDiagnostic);
+    for (const {diagnostic, button} of displayed) {
+      const active = isSelected(diagnostic);
+      button.dataset.active = String(active); button.setAttribute('aria-pressed', String(active));
+      if (diagnostic.related?.length) button.setAttribute('aria-expanded', String(active && relatedExpanded));
+    }
+    for (const links of element.querySelectorAll<HTMLElement>('.editor-related-locations')) links.hidden = links.dataset.diagnosticKey !== key || !relatedExpanded;
+    for (const fix of element.querySelectorAll<HTMLButtonElement>('.editor-diagnostic-fix,.editor-source-fix')) {
+      fix.disabled = fixesStale;
+      fix.title = fixesStale ? 'Waiting for updated diagnostics' : 'Consolidate every use to the selected fate';
+    }
   }
   let displayed: {diagnostic: Diagnostic; button: HTMLButtonElement}[] = [];
   highlightCurrentLine = () => {
@@ -294,14 +390,13 @@ export function createStoryEditor(options: StoryEditorOptions): StoryEditor {
     // Cursor movement must never sort, replace or scroll the diagnostics list.
     const ordered = [...currentDiagnostics].sort((a, b) => a.span.from - b.span.from || a.code.localeCompare(b.code) || a.message.localeCompare(b.message));
     const signature = JSON.stringify(ordered);
-    if (signature === diagnosticSignature) return;
+    if (signature === diagnosticSignature) { updateSelection(); return; }
     diagnosticSignature = signature;
     const scroll = diagnosticsList.scrollTop;
     const previous = [...diagnosticsList.children] as HTMLElement[];
     const top = diagnosticsList.getBoundingClientRect().top;
     const visible = previous.find(entry => entry.getBoundingClientRect().bottom > top);
     const visibleOffset = visible ? visible.getBoundingClientRect().top - top : 0;
-    const expanded = new Set(previous.filter(entry => entry.querySelector('details')?.open).map(entry => entry.dataset.key));
     const errors = ordered.filter(diagnostic => diagnostic.severity === 'error').length;
     const warnings = ordered.length - errors;
     diagnosticsPane.hidden = ordered.length === 0;
@@ -315,19 +410,14 @@ export function createStoryEditor(options: StoryEditorOptions): StoryEditor {
       occurrences.set(identity, occurrence + 1);
       const group = node('div', 'editor-diagnostic-entry');
       group.dataset.key = `${identity}:${occurrence}`;
-      const entry = button('', 'editor-diagnostic');
+      const entry = button(`${diagnostic.source.line}: [${diagnostic.code}] ${diagnostic.message}`, 'editor-diagnostic');
       entry.dataset.severity = diagnostic.severity;
       entry.dataset.line = String(diagnostic.source.line);
-      entry.append(node('span', 'editor-diagnostic-location', `Line ${diagnostic.source.line} · ${diagnostic.code}`));
-      entry.append(node('span', 'editor-diagnostic-message', diagnostic.message));
-      entry.addEventListener('click', () => navigate(diagnostic.span));
-      group.append(entry);
-      if (diagnostic.related?.length) {
-        const related = node('details', 'editor-diagnostic-related');
-        related.open = expanded.has(group.dataset.key);
-        related.append(node('summary', '', `Related locations (${diagnostic.related.length})`), relatedLinks(diagnostic));
-        group.append(related);
-      }
+      entry.addEventListener('click', () => { selectDiagnostic(diagnostic); navigate(diagnostic.span); });
+      const row = node('div', 'editor-diagnostic-row'); row.append(entry);
+      group.append(row);
+      if (diagnostic.fixes?.length) row.append(fixControl(diagnostic));
+      if (diagnostic.related?.length) group.append(relatedLinks(diagnostic));
       diagnosticsList.append(group);
       displayed.push({diagnostic, button: entry});
     }
@@ -335,6 +425,7 @@ export function createStoryEditor(options: StoryEditorOptions): StoryEditor {
     const replacement = [...diagnosticsList.children].find(entry => (entry as HTMLElement).dataset.key === visible?.dataset.key);
     if (replacement) diagnosticsList.scrollTop += replacement.getBoundingClientRect().top - diagnosticsList.getBoundingClientRect().top - visibleOffset;
     highlightCurrentLine();
+    updateSelection();
   };
   return {
     element,
@@ -347,25 +438,37 @@ export function createStoryEditor(options: StoryEditorOptions): StoryEditor {
       finally { replacing = false; }
     },
     setOpen(open) {
+      if (!open) closeFixMenu();
       element.hidden = !open;
       if (open) view.requestMeasure();
     },
     setDiagnostics(diagnostics, phase = 'complete') {
       const fresh = diagnostics.map(locateDiagnostic);
       currentDiagnostics = phase === 'fast' ? [...fresh, ...currentDiagnostics.filter(isDeep)] : fresh;
+      if (selectedDiagnostic) {
+        const previous = selectedDiagnostic;
+        const candidates = currentDiagnostics.filter(candidate => candidate.code === previous.code && candidate.source.file === previous.source.file);
+        selectedDiagnostic = candidates.find(candidate => diagnosticKey(candidate) === diagnosticKey(previous))
+          ?? candidates.find(candidate => candidate.message === previous.message)
+          ?? (candidates.filter(candidate => candidate.span.from === previous.span.from).length === 1 ? candidates.find(candidate => candidate.span.from === previous.span.from) : undefined);
+      }
+      fixesStale = false;
       const mapped: EditorDiagnostic[] = currentDiagnostics.map(diagnostic => ({
         from: diagnostic.span.from,
         to: diagnostic.span.to,
         severity: diagnostic.severity,
-        source: diagnostic.code,
         message: diagnostic.message,
-        ...(diagnostic.related?.length ? {renderMessage: () => {
-          const message = node('span', 'editor-diagnostic-details', diagnostic.message);
-          message.append(relatedLinks(diagnostic));
+        renderMessage: () => {
+          const message = node('span', 'editor-diagnostic-details');
+          const heading = button(`${diagnostic.source.line}: [${diagnostic.code}] ${diagnostic.message}`, 'editor-hover-diagnostic');
+          heading.addEventListener('click', () => { selectDiagnostic(diagnostic); navigate(diagnostic.span); });
+          message.append(heading);
+          if (diagnostic.related?.length) message.append(relatedLinks(diagnostic));
           return message;
-        }} : {}),
+        },
       }));
       view.dispatch(setEditorDiagnostics(view.state, mapped));
+      sourceFixes.update(view, currentDiagnostics);
       refreshDiagnostics();
     },
     setStatus(message, kind = 'info') {
@@ -394,6 +497,7 @@ export function createStoryEditor(options: StoryEditorOptions): StoryEditor {
     focusLine,
     destroy() {
       destroyed = true;
+      closeFixMenu(); document.removeEventListener('pointerdown', dismissFixMenu, true);
       view.destroy();
       element.remove();
     },

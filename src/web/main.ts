@@ -153,6 +153,11 @@ async function start() {
     const document = await loadStoryDocument(documentURL, drafts);
     authoring = new AuthoringSession(document, drafts, workspace, {
       onText: schedulePreview, onLayout: layoutChanged, onDraft: updateEditingIndicators,
+      onCheckpoint: line => {
+        flushPreview();
+        const index = story.chapters.findIndex(chapter => chapter.source.line === line);
+        if (index >= 0) jumpToCheckpoint(index);
+      },
     });
     previewText = document.text; hash = fingerprint(previewText);
     const parsed = parse(previewText); story = recoverPreviewStory(parsed);
@@ -229,6 +234,17 @@ function debugContent() {
   return `<div class="debug-heading"><h1>${escape(story.title)}</h1><button data-command="close" aria-label="Close">×</button></div><p><button data-command="editor">Editor</button></p>${debugCheckpoint ? '<p class="debug-marker">Generated checkpoint · historical replay, not fresh play</p>' : ''}<label for="chapter">Replay to chapter</label><select id="chapter">${story.chapters.map((c, i) => `<option value="${i}" ${i === state.chapter ? 'selected' : ''}>${i + 1}. ${escape(c.name)}</option>`).join('')}</select><p><button data-command="checkpoint">Generate checkpoint</button></p><div class="debug-actions"><button data-command="undo">Undo</button><button data-command="confirm-reset-story">Restart story</button><button data-command="export">Export save</button><button data-command="menu">Stories</button></div><details><summary>Developer recipe inspector</summary><p>These result names are not shown during discovery play.</p><ul>${story.recipes.map(r => `<li>${escape(name(r.a.ref.id))}${r.b ? ' + ' + escape(name(r.b.ref.id)) : ''}${r.hotspot ? ' @ ' + escape(name(r.hotspot)) : ''} → ${escape(name(r.result.id))}</li>`).join('')}</ul></details>${saveError ? `<p role="alert">${escape(saveError)}</p>` : ''}`;
 }
 function debug() { modal(debugContent(), 'ordinary', { kind: 'debug' }); }
+function jumpToCheckpoint(index: number) {
+  try {
+    flushPreview();
+    const next = checkpoint(story, index);
+    resetGoalView(); cancelGesture();
+    state = next; editedSnapshot = false;
+    state.seen.push(...state.pending.filter(notice => notice.kind === 'wonder').map(notice => notice.key));
+    state.pending = state.pending.filter(notice => notice.kind === 'chapter');
+    debugCheckpoint = true; closeDialog(); render(true); rememberInteraction(); save();
+  } catch (error) { modal(`<p>${escape((error as Error).message)}</p><button data-command="close">Close</button>`); }
+}
 function refreshDialog() {
   if (dialogContext?.kind === 'pending') {
     if (state.pending.length) modal(pendingContent(), state.pending[0].kind === 'wonder' ? 'wonder' : 'intertitle', { kind: 'pending' });
@@ -377,7 +393,7 @@ app.addEventListener('click',e=>{
   else if(command==='reset-story'){resetGoalView();closeDialog();state=newGame(story);debugCheckpoint=false;render(true);undoBase=structuredClone(state);rememberInteraction();save();}
   else if(command==='reset-chapter'){resetGoalView();closeDialog();state=structuredClone(chapterSession.entry);if(editedSnapshot){state.actions=[];undoBase=structuredClone(state);}chapterSession=captureChapter(state);render();scrollToCurrentChapter();rememberInteraction();save();}
   else if(command==='story')reopenChapter();
-  else if(command==='checkpoint'){try{resetGoalView();const index=Number(app.querySelector<HTMLSelectElement>('#chapter')!.value);state=checkpoint(story,index);editedSnapshot=false;state.seen.push(...state.pending.filter(n=>n.kind==='wonder').map(n=>n.key));state.pending=state.pending.filter(n=>n.kind==='chapter');debugCheckpoint=true;closeDialog();render(true);rememberInteraction();save();}catch(error){modal(`<p>${escape((error as Error).message)}</p><button data-command="close">Close</button>`);}}
+  else if(command==='checkpoint')jumpToCheckpoint(Number(app.querySelector<HTMLSelectElement>('#chapter')!.value));
   else if(command==='undo'){let i=state.actions.length-1;while(i>=0&&state.actions[i].type==='dismiss')i--;if(i>=0){const seen=state.seen,previous=state.chapter;state=editedSnapshot?state.actions.slice(0,i).reduce((s,a)=>act(story,s,a),structuredClone(undoBase)):i>=chapterSession.entry.actions.length?state.actions.slice(chapterSession.entry.actions.length,i).reduce((s,a)=>act(story,s,a),structuredClone(chapterSession.entry)):replay(story,state.actions.slice(0,i));state.seen=[...new Set([...state.seen,...seen])];state.pending=state.pending.filter(n=>!state.seen.includes(n.key));closeDialog();if(previous!==state.chapter){const current=state;state=editedChapterEntry(current);render(true,false);chapterSession=captureChapter(state);chapterSession.changed=current.actions.slice(state.actions.length).some(a=>a.type==='move'||a.type==='combine');state=current;}render();rememberInteraction();save();}}
   else if(command==='export'){const url=URL.createObjectURL(new Blob([JSON.stringify({hash,state,debugCheckpoint,chapterSession},null,2)],{type:'application/json'}));const a=document.createElement('a');a.href=url;a.download=`${story.id}-save.json`;a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);}
 });

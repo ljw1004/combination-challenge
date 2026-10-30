@@ -6,6 +6,7 @@ interface Callbacks {
   onText(text: string): void;
   onLayout(): void;
   onDraft(edited: boolean): void;
+  onCheckpoint(line: number): void;
 }
 
 /** Draft durability is independent of parser, linter, preview and game progress. */
@@ -50,6 +51,7 @@ export class AuthoringSession {
         parent: this.parent, text: this.text, storyUrl: this.url,
         onChange: text => this.change(text),
         onClose: () => this.close(),
+        onCheckpoint: line => this.callbacks.onCheckpoint(line),
         onDelete: () => { void this.deleteDraft(); },
       });
       this.editor.setDiagnostics(this.diagnostics);

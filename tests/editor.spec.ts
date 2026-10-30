@@ -273,7 +273,7 @@ test('same-directory loading, missing-story errors and failed storage keep the e
 
 test('diagnostics keep source order and scroll while their related locations navigate and track edits', async ({ page }) => {
   const text = manuscript.replace('- Build the kit -- `kit`', '- Build the kit -- `kit`\n- Keep the frame -- `frame`\n- Keep the tool -- `tool`')
-    + '\n- `frame` [consume] + `probe` [preserve] -> Scrap\n- `frame` [transform] + `tool` [preserve] -> Shaped frame\n'
+    + '\n- `frame` [consume] + `probe` [preserve] -> Scrap\n- `frame` [transform] + `tool` [preserve] -> Shaped frame\n- `tool` [consume] + `probe` [preserve] -> Toolbox\n'
     + '\n**Goals**\n' + Array.from({length: 12}, (_, i) => `- Incomplete goal ${i}\n`).join('');
   await serveFixture(page, text.replaceAll('\n', '\r\n'));
   await page.goto('/combinations.html?story=fixture');
@@ -300,8 +300,20 @@ test('diagnostics keep source order and scroll while their related locations nav
 
   const mixed = entries.filter({hasText: 'Frame has mixed fates'});
   await expect(mixed).toContainText('preserve (1), consume (1), transform (1)');
-  const group = mixed.locator('..');
-  await group.locator('summary').click();
+  await expect(mixed).toHaveText(/^\d+: \[mixed-fates\] Frame has mixed fates: preserve \(1\), consume \(1\), transform \(1\)$/);
+  const group = page.locator('.editor-diagnostic-entry').filter({hasText: 'Frame has mixed fates'});
+  await mixed.click();
+  await expect(mixed).toHaveAttribute('aria-pressed', 'true');
+  await expect(group.locator('.editor-related-locations')).toBeVisible();
+  await mixed.click();
+  await expect(mixed).toHaveAttribute('aria-pressed', 'true');
+  await expect(group.locator('.editor-related-locations')).toBeHidden();
+  await mixed.click();
+  const tool = entries.filter({hasText: 'Tool has mixed fates'});
+  await tool.click();
+  await expect(group.locator('.editor-related-locations')).toBeHidden();
+  expect(await list.locator('.editor-related-locations:visible').count()).toBe(1);
+  await mixed.click();
   const transform = group.locator('.editor-related-location').filter({hasText: 'transform (explicit)'});
   await transform.scrollIntoViewIfNeeded();
   const relatedScroll = await list.evaluate(element => element.scrollTop);
@@ -313,17 +325,59 @@ test('diagnostics keep source order and scroll while their related locations nav
   await page.keyboard.press('ControlOrMeta+Home');
   await page.keyboard.insertText('\n\n');
   expect(Number(await transform.getAttribute('data-line'))).toBe(line + 2);
-  await expect(group.locator('details')).toHaveAttribute('open', '');
+  await expect(group.locator('.editor-related-locations')).toBeVisible();
   await transform.click();
   await expect(page.locator('.cm-activeLine')).toContainText('`frame` [transform]');
 
   // Hover details expose the same links as the diagnostics panel.
   await mixed.click();
+  await mixed.click();
   await page.locator('.cm-activeLine .cm-lintRange-warning').first().hover();
   const tooltip = page.locator('.cm-tooltip-lint');
   await expect(tooltip).toContainText('consume (explicit)');
-  await tooltip.locator('.editor-related-location').filter({hasText: 'consume (explicit)'}).click();
+  await tooltip.locator('.editor-related-location:visible').filter({hasText: 'consume (explicit)'}).click();
   await expect(page.locator('.cm-activeLine')).toContainText('`frame` [consume]');
+
+  const toolGroup = page.locator('.editor-diagnostic-entry').filter({hasText: 'Tool has mixed fates'});
+  await toolGroup.locator('.editor-diagnostic-fix').click();
+  const menu = page.getByRole('menu', {name: 'Consolidate fate'});
+  expect(await menu.getByRole('menuitem').allTextContents()).toEqual(['preserve', 'consume']);
+  await menu.getByRole('menuitem', {name: 'consume', exact: true}).click();
+  await expect(tool).toHaveCount(0);
+  expect(await savedText(page, '\n\n' + text.replaceAll('`tool` [preserve]', '`tool` [consume]'))).toBe(true);
+  await page.keyboard.press('ControlOrMeta+z');
+  await expect(tool).toBeVisible();
+  expect(await savedText(page, '\n\n' + text)).toBe(true);
+  await tool.click();
+  const sourceFix = page.locator('.cm-activeLine .editor-source-fix[aria-label*="Tool has mixed fates"]');
+  await expect(sourceFix).toBeVisible();
+  await sourceFix.click();
+  expect(await menu.getByRole('menuitem').allTextContents()).toEqual(['preserve', 'consume']);
+  await menu.getByRole('menuitem', {name: 'preserve', exact: true}).click();
+  await expect(tool).toHaveCount(0);
+  expect(await savedText(page, '\n\n' + text.replaceAll('`tool` [consume]', '`tool` [preserve]'))).toBe(true);
+});
+
+test('chapter heading checkpoint buttons use live text and preserve the draft and editor position', async ({ page }) => {
+  await openFixture(page);
+  const edited = manuscript.replace('Workshop introduction.', 'A saved checkpoint draft.');
+  await edit(page, edited);
+  await page.keyboard.press('ControlOrMeta+Home');
+  await page.keyboard.press('ControlOrMeta+f');
+  await page.locator('.cm-search input[name="search"]').fill('## Field');
+  await page.keyboard.press('Enter');
+  await page.keyboard.press('Escape');
+  const heading = page.locator('.cm-chapter-heading').filter({hasText: '## Field'});
+  const jump = heading.getByRole('button', {name: 'Jump to checkpoint: Field', exact: true});
+  await heading.hover();
+  await expect(jump).toHaveCSS('opacity', '1');
+  const scroll = await page.locator('.cm-scroller').evaluate(element => element.scrollTop);
+  await jump.click();
+  await expect(page.locator('dialog')).toContainText('Field introduction.');
+  await expect(page.locator('.chapter-panel[data-chapter="1"]')).toHaveCount(1);
+  expect(await savedText(page, edited)).toBe(true);
+  expect(await page.locator('.cm-scroller').evaluate(element => element.scrollTop)).toBe(scroll);
+  await expect(page.locator('.checkpoint-badge')).toBeVisible();
 });
 
 test('successive renames keep readers live and edited play retains its undo and reset baselines', async ({ page }) => {
