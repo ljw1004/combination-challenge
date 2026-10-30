@@ -31,7 +31,7 @@ let undoBase: State;
 let expectedScroll = 0;
 let previewTimer: ReturnType<typeof setTimeout> | undefined;
 let goalView: GoalPresentation | undefined, goalTimers: ReturnType<typeof setTimeout>[] = [];
-type DialogContext = { kind: 'pending' | 'chapter' | 'debug' | 'confirm' | 'error' } | { kind: 'reading'; item: string };
+type DialogContext = { kind: 'pending' | 'chapter' | 'confirm' | 'error' } | { kind: 'reading'; item: string };
 let dialogContext: DialogContext | undefined;
 const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
 const scale = () => Math.min(1, app.clientWidth / 390);
@@ -79,25 +79,33 @@ function showSaveError(error: string) {
   saveError = error;
   const toggle = app.querySelector<HTMLElement>('.debug-toggle'); if (toggle) toggle.dataset.saveError = String(!!saveError);
   let alert = app.querySelector<HTMLButtonElement>('.save-alert');
-  if (error) { if (!alert) { alert = document.createElement('button'); alert.className = 'save-alert'; alert.dataset.command = 'debug'; app.append(alert); } alert.setAttribute('role', 'alert'); alert.textContent = error; }
+  if (error) { if (!alert) { alert = document.createElement('button'); alert.className = 'save-alert'; alert.dataset.command = 'save-error'; app.append(alert); } alert.setAttribute('role', 'alert'); alert.textContent = error; }
   else alert?.remove();
+  updateDebugTools();
 }
 function updateEditingIndicators() {
-  workspace.classList.toggle('has-draft', !!authoring?.edited);
-  let indicator = app.querySelector<HTMLButtonElement>('.edit-indicator');
-  if (authoring?.edited) {
-    if (!indicator) {
-      indicator = document.createElement('button'); indicator.className = 'edit-indicator'; indicator.dataset.command = 'editor';
-      indicator.setAttribute('aria-label', 'Toggle story editor'); indicator.title = 'Edited draft — open or close editor';
-      indicator.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="m15 4 5 5M4 20l5-1L21 7a2 2 0 0 0-4-4L5 15l-1 5Z"/></svg>';
-      app.append(indicator);
-    }
-    indicator.setAttribute('aria-expanded', String(authoring.isOpen));
-  } else indicator?.remove();
+  if (!authoring) return;
+  let toggle = app.querySelector<HTMLButtonElement>('.debug-toggle');
+  if (!toggle) {
+    toggle = document.createElement('button'); toggle.className = 'debug-toggle'; toggle.dataset.command = 'debug';
+    toggle.setAttribute('aria-label', 'Toggle debug panel'); toggle.setAttribute('aria-controls', 'debug-panel');
+    app.append(toggle);
+  }
+  const edited = String(authoring.edited);
+  if (toggle.dataset.edited !== edited) {
+    toggle.dataset.edited = edited;
+    toggle.classList.toggle('edit-indicator', authoring.edited);
+    toggle.innerHTML = authoring.edited
+      ? '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="m15 4 5 5M4 20l5-1L21 7a2 2 0 0 0-4-4L5 15l-1 5Z"/></svg>'
+      : '<svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M9 4 7 2m8 2 2-2M8 8V7a4 4 0 0 1 8 0v1M12 9v12M5 9H2m3 5H1m5 5-3 3m16-13h3m-3 5h4m-5 5 3 3"/><rect x="5" y="8" width="14" height="13" rx="6"/></svg>';
+  }
+  toggle.title = authoring.edited ? 'Local edits — toggle debug panel' : 'Toggle debug panel';
+  toggle.dataset.saveError = String(!!saveError);
+  toggle.setAttribute('aria-expanded', String(authoring.isOpen));
   let warning = app.querySelector<HTMLElement>('.draft-warning');
-  if (authoring?.store.unsaved && !authoring.isOpen) {
+  if (authoring.store.unsaved && !authoring.isOpen) {
     if (!warning) { warning = document.createElement('p'); warning.className = 'draft-warning'; warning.setAttribute('role', 'alert'); app.append(warning); }
-    warning.textContent = 'Your edit is only in memory. Open the editor to copy or download it before leaving.';
+    warning.textContent = 'Your edit is only in memory. Open the debug panel and copy the text before leaving.';
   } else warning?.remove();
   clearGoalsAroundCards();
 }
@@ -124,7 +132,7 @@ function applyText(text: string) {
   const parsed = parse(text), next = recoverPreviewStory(parsed);
   checkText(parsed, text);
   cancelGesture(); feedback.clear();
-  const context = dialogContext && ['debug','confirm','error'].includes(dialogContext.kind) ? dialogContext : anchor.dialog;
+  const context = dialogContext && ['confirm','error'].includes(dialogContext.kind) ? dialogContext : anchor.dialog;
   const update = reconcileLiveStory(anchor.story, next, anchor.state);
   story = update.story; state = update.state; previewText = text; hash = fingerprint(text); editedSnapshot = true;
   undoBase = structuredClone(state);
@@ -153,6 +161,7 @@ async function start() {
     const document = await loadStoryDocument(documentURL, drafts);
     authoring = new AuthoringSession(document, drafts, workspace, {
       onText: schedulePreview, onLayout: layoutChanged, onDraft: updateEditingIndicators,
+      onUndo: undoGame, onExport: exportSave,
       onCheckpoint: line => {
         flushPreview();
         const index = story.chapters.findIndex(chapter => chapter.source.line === line);
@@ -170,7 +179,7 @@ async function start() {
         const prior = restoreLiveState(source, saved.anchor.state);
         if (prior) {
           const entry = restoreLiveState(source, saved.anchor.chapterSession?.entry) ?? prior;
-          anchor = { text: saved.anchor.text, story: source, state: prior, chapterSession: { entry, changed: !!saved.anchor.chapterSession?.changed }, scrollTop: Number.isFinite(saved.anchor.scrollTop) ? saved.anchor.scrollTop : 0, dialog: saved.anchor.dialog };
+          anchor = { text: saved.anchor.text, story: source, state: prior, chapterSession: { entry, changed: !!saved.anchor.chapterSession?.changed }, scrollTop: Number.isFinite(saved.anchor.scrollTop) ? saved.anchor.scrollTop : 0, dialog: saved.anchor.dialog?.kind === 'debug' ? undefined : saved.anchor.dialog };
         }
       }
       if (saved?.hash === hash) {
@@ -210,7 +219,7 @@ function modal(content: string, kind = 'ordinary', context: DialogContext = { ki
   dialog.scrollTop = scroll;
   dialogContext = context; dialogLayer.hidden = false; surface.inert = true;
   if (!dialog.open) dialog.show();
-  dialog.setAttribute('aria-label', context.kind === 'debug' ? 'Debugging tools' : 'Story reading');
+  dialog.setAttribute('aria-label', 'Story reading');
   if (focused?.closest('.story-editor')) focused.focus({ preventScroll: true });
   return dialog;
 }
@@ -230,10 +239,14 @@ function chapterContent() {
 function reopenChapter() { flushPreview(); modal(chapterContent(), 'intertitle', { kind: 'chapter' }); rememberInteraction(); }
 function confirmRestart() { modal('<h1>Restart this story?</h1><p>This removes all progress in this story on this device, including completed chapters, discoveries and item positions. Your Markdown draft is kept. You will begin again at the first chapter. This cannot be undone. Your other stories are unchanged.</p><div class="dialog-actions"><button data-command="cancel-reset-story">Cancel</button><button class="danger" data-command="reset-story">Restart story</button></div>', 'ordinary', { kind: 'confirm' }); }
 function read(id: string) { flushPreview(); const text = readings(story, state, id).map(w => w.markdown).join('\n\n'); if (!text) return false; modal(`${readingBody(text, asset)}<button data-command="close">Close</button>`, 'wonder', { kind: 'reading', item: id }); rememberInteraction(); return true; }
-function debugContent() {
-  return `<div class="debug-heading"><h1>${escape(story.title)}</h1><button data-command="close" aria-label="Close">×</button></div><p><button data-command="editor">Editor</button></p>${debugCheckpoint ? '<p class="debug-marker">Generated checkpoint · historical replay, not fresh play</p>' : ''}<label for="chapter">Replay to chapter</label><select id="chapter">${story.chapters.map((c, i) => `<option value="${i}" ${i === state.chapter ? 'selected' : ''}>${i + 1}. ${escape(c.name)}</option>`).join('')}</select><p><button data-command="checkpoint">Generate checkpoint</button></p><div class="debug-actions"><button data-command="undo">Undo</button><button data-command="confirm-reset-story">Restart story</button><button data-command="export">Export save</button><button data-command="menu">Stories</button></div><details><summary>Developer recipe inspector</summary><p>These result names are not shown during discovery play.</p><ul>${story.recipes.map(r => `<li>${escape(name(r.a.ref.id))}${r.b ? ' + ' + escape(name(r.b.ref.id)) : ''}${r.hotspot ? ' @ ' + escape(name(r.hotspot)) : ''} → ${escape(name(r.result.id))}</li>`).join('')}</ul></details>${saveError ? `<p role="alert">${escape(saveError)}</p>` : ''}`;
+function updateDebugTools() {
+  if (!authoring?.isOpen || !state) return;
+  authoring.setDebugTools({
+    canUndo: state.actions.some(action => action.type !== 'dismiss'),
+    recipes: story.recipes.map(recipe => `${name(recipe.a.ref.id)}${recipe.b ? ' + ' + name(recipe.b.ref.id) : ''}${recipe.hotspot ? ' @ ' + name(recipe.hotspot) : ''} → ${name(recipe.result.id)}`),
+    saveError,
+  });
 }
-function debug() { modal(debugContent(), 'ordinary', { kind: 'debug' }); }
 function jumpToCheckpoint(index: number) {
   try {
     flushPreview();
@@ -253,7 +266,7 @@ function refreshDialog() {
   else if (dialogContext?.kind === 'reading') {
     const text = readings(story, state, dialogContext.item).map(w => w.markdown).join('\n\n');
     modal(`${readingBody(text, asset)}<button data-command="close">Close</button>`, 'wonder', dialogContext);
-  } else if (dialogContext?.kind === 'debug') modal(debugContent(), 'ordinary', dialogContext);
+  }
   if (!dialogContext) showPending();
 }
 function editedChapterEntry(current: State): State {
@@ -297,7 +310,7 @@ function packArrival(){
   if(y>760)panel(state.chapter)?.classList.add('crowded');
 }
 function clearGoalsAroundCards(){
-  for(const overlay of app.querySelectorAll<HTMLElement>('.objective-overlay,.edit-indicator')){
+  for(const overlay of app.querySelectorAll<HTMLElement>('.objective-overlay,.debug-toggle')){
     const r=overlay.getBoundingClientRect();
     overlay.style.clipPath=goalClipPath(r.width,r.height,[...app.querySelectorAll<HTMLElement>('[data-item]')].map(el=>{const c=el.getBoundingClientRect();return {left:c.left-r.left,top:c.top-r.top,right:c.right-r.left,bottom:c.bottom-r.top};}));
   }
@@ -318,9 +331,10 @@ function render(arrival=false,finish=true){
       const item=story.items[t.id],filled=t.slots,applicable=readings(story,state,t.id).length;
       return `<button class="thing text-thing ${chapter===state.chapter&&gold.has(t.id)?'goal-met':''}" data-item="${escape(t.id)}" style="left:${t.x}px;top:${t.y}px" aria-label="${escape(name(t.id))}" title="${escape(applicable?'Double-click or long-press to read':'Drag to combine or move')}"><span class="item-label">${escape(name(t.id))}</span>${item.slots.map(s=>`<span class="slot ${filled.includes(s.accepts)?'filled':''}">${filled.includes(s.accepts)?escape(name(s.accepts)):escape(s.name??'\u00a0')}</span>`).join('')}${applicable?'<span class="source-marker" aria-hidden="true">◦</span>':''}</button>`;
     }).join('')}${chapter===state.chapter&&state.arrivalDivider&&state.newItems.length?`<div class="arrival-divider" style="top:${Math.max(65,Math.min(...state.newItems.map(id=>state.tokens[id]?.y??844))-18)}px"><span>new items</span></div>`:''}</section>`;
-  }).join('')}</div></div></div><button class="debug-toggle" data-command="debug" aria-label="Open debugging tools" title="Debugging tools" data-save-error="${!!saveError}"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M9 4 7 2m8 2 2-2M8 8V7a4 4 0 0 1 8 0v1M12 9v12M5 9H2m3 5H1m5 5-3 3m16-13h3m-3 5h4m-5 5 3 3"/><rect x="5" y="8" width="14" height="13" rx="6"/></svg></button>${saveError?`<button class="save-alert" data-command="debug">${escape(saveError)}</button>`:''}${debugCheckpoint?'<span class="checkpoint-badge">Generated checkpoint</span>':''}${showGoals?`<div class="hud-stack location-hud ${transitioning?'goals-leaving':''}" ${transitioning?'aria-hidden="true"':''}><button class="objective-overlay" ${leaving?'disabled':''} data-command="story" aria-label="Read this chapter"><span class="objectives">${goals.map(({goal,done})=>`<span class="objective-line ${done?'done':''}"><span class="goal-checkbox" aria-hidden="true">${done?'✓':''}</span><span>${escape(goal.text)}</span><span class="sr-only">${done?'Completed':'Not completed'}</span></span>`).join('')}${state.completed?'<span class="objective-line ending">The End</span>':''}</span></button></div>`:''}${goalView?.phase!=='goals'&&!state.completed?`<button class="chapter-next ${story.chapters[state.chapter+1]?.image?'':'right'} ${transitioning?'entering':''}" ${leaving?'disabled':''} data-command="advance" aria-label="Continue story"><span>${story.chapters[state.chapter+1]?.image?'↓':'→'}</span></button>`:''}`);
+  }).join('')}</div></div></div>${debugCheckpoint?'<span class="checkpoint-badge">Generated checkpoint</span>':''}${showGoals?`<div class="hud-stack location-hud ${transitioning?'goals-leaving':''}" ${transitioning?'aria-hidden="true"':''}><button class="objective-overlay" ${leaving?'disabled':''} data-command="story" aria-label="Read this chapter"><span class="objectives">${goals.map(({goal,done})=>`<span class="objective-line ${done?'done':''}"><span class="goal-checkbox" aria-hidden="true">${done?'✓':''}</span><span>${escape(goal.text)}</span><span class="sr-only">${done?'Completed':'Not completed'}</span></span>`).join('')}${state.completed?'<span class="objective-line ending">The End</span>':''}</span></button></div>`:''}${goalView?.phase!=='goals'&&!state.completed?`<button class="chapter-next ${story.chapters[state.chapter+1]?.image?'':'right'} ${transitioning?'entering':''}" ${leaving?'disabled':''} data-command="advance" aria-label="Continue story"><span>${story.chapters[state.chapter+1]?.image?'↓':'→'}</span></button>`:''}`);
   const viewport=app.querySelector<HTMLElement>('.viewport')!;viewport.onscroll=()=>{scheduleGoalClearance();if(viewport.scrollTop!==expectedScroll){expectedScroll=viewport.scrollTop;rememberInteraction();save();}};setScroll(arrival?Math.max(0,(state.visited.length-1)*844*scale):scroll);
   if(arrival){packArrival();if(finish)chapterSession=captureChapter(state);}clearGoalsAroundCards();if(changedView&&transitioning)animateGoalEntrance();if(finish)showPending();
+  updateEditingIndicators(); updateDebugTools();
 }
 function partnerActions(): ReturnType<typeof legalActions> {
   try { return legalActions(story, state); }
@@ -376,26 +390,51 @@ app.addEventListener('lostpointercapture',e=>{if(drag?.pointer===(e as PointerEv
 app.addEventListener('dragstart',e=>e.preventDefault());
 app.addEventListener('pointerover',e=>{if(e.pointerType==='mouse'&&!drag){const el=(e.target as Element).closest<HTMLElement>('[data-item]');if(el&&!document.querySelector('dialog'))feedback.hover(el.dataset.item!);}});
 app.addEventListener('pointerout',()=>{if(!drag)feedback.hover();});
+function undoGame() {
+  flushPreview();
+  let index = state.actions.length - 1;
+  while (index >= 0 && state.actions[index].type === 'dismiss') index--;
+  if (index < 0) return;
+  const seen = state.seen, previous = state.chapter;
+  if (editedSnapshot) {
+    state = state.actions.slice(0, index).reduce((state, action) => act(story, state, action), structuredClone(undoBase));
+  } else if (index >= chapterSession.entry.actions.length) {
+    state = state.actions.slice(chapterSession.entry.actions.length, index)
+      .reduce((state, action) => act(story, state, action), structuredClone(chapterSession.entry));
+  } else state = replay(story, state.actions.slice(0, index));
+  state.seen = [...new Set([...state.seen, ...seen])];
+  state.pending = state.pending.filter(notice => !state.seen.includes(notice.key));
+  closeDialog();
+  if (previous !== state.chapter) {
+    const current = state;
+    state = editedChapterEntry(current); render(true, false); chapterSession = captureChapter(state);
+    chapterSession.changed = current.actions.slice(state.actions.length).some(action => action.type === 'move' || action.type === 'combine');
+    state = current;
+  }
+  render(); rememberInteraction(); save();
+}
+function exportSave() {
+  flushPreview();
+  const url = URL.createObjectURL(new Blob([JSON.stringify({hash, state, debugCheckpoint, chapterSession}, null, 2)], {type: 'application/json'}));
+  const link = document.createElement('a'); link.href = url; link.download = `${story.id}-save.json`; link.click();
+  setTimeout(() => URL.revokeObjectURL(url), 1000);
+}
 app.addEventListener('click',e=>{
   if(suppressReleaseClick&&e.detail>0){suppressReleaseClick=false;e.preventDefault();return;}
-  const target=(e.target as Element).closest<HTMLElement>('[data-command],[data-story]');if(!target)return;
+  const target=(e.target as Element).closest<HTMLElement>('[data-command]');if(!target)return;
   const command=target.dataset.command;
   if(command==='retry'){void start();return;}
-  if(command==='editor'){if(dialogContext?.kind==='debug')closeDialog();authoring.toggle();return;}
+  if(command==='debug'){authoring.toggle();return;}
+  if(command==='save-error'){authoring.open();return;}
   flushPreview();
   if(command==='dismiss')commit({type:'dismiss'});
   else if(command==='advance')commit({type:'advance'});
-  else if(command==='debug')debug();
   else if(command==='close'){closeDialog();showPending();rememberInteraction();save();}
-  else if(command==='menu'){location.href=new URL(document.body.dataset.catalogue??'./index.html',location.href).href;}
   else if(command==='confirm-reset-story')confirmRestart();
   else if(command==='cancel-reset-story')reopenChapter();
   else if(command==='reset-story'){resetGoalView();closeDialog();state=newGame(story);debugCheckpoint=false;render(true);undoBase=structuredClone(state);rememberInteraction();save();}
   else if(command==='reset-chapter'){resetGoalView();closeDialog();state=structuredClone(chapterSession.entry);if(editedSnapshot){state.actions=[];undoBase=structuredClone(state);}chapterSession=captureChapter(state);render();scrollToCurrentChapter();rememberInteraction();save();}
   else if(command==='story')reopenChapter();
-  else if(command==='checkpoint')jumpToCheckpoint(Number(app.querySelector<HTMLSelectElement>('#chapter')!.value));
-  else if(command==='undo'){let i=state.actions.length-1;while(i>=0&&state.actions[i].type==='dismiss')i--;if(i>=0){const seen=state.seen,previous=state.chapter;state=editedSnapshot?state.actions.slice(0,i).reduce((s,a)=>act(story,s,a),structuredClone(undoBase)):i>=chapterSession.entry.actions.length?state.actions.slice(chapterSession.entry.actions.length,i).reduce((s,a)=>act(story,s,a),structuredClone(chapterSession.entry)):replay(story,state.actions.slice(0,i));state.seen=[...new Set([...state.seen,...seen])];state.pending=state.pending.filter(n=>!state.seen.includes(n.key));closeDialog();if(previous!==state.chapter){const current=state;state=editedChapterEntry(current);render(true,false);chapterSession=captureChapter(state);chapterSession.changed=current.actions.slice(state.actions.length).some(a=>a.type==='move'||a.type==='combine');state=current;}render();rememberInteraction();save();}}
-  else if(command==='export'){const url=URL.createObjectURL(new Blob([JSON.stringify({hash,state,debugCheckpoint,chapterSession},null,2)],{type:'application/json'}));const a=document.createElement('a');a.href=url;a.download=`${story.id}-save.json`;a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);}
 });
 window.addEventListener('resize',()=>{cancelGesture();if(state&&!document.querySelector('.chooser')&&!document.querySelector('dialog'))render();});
 workspace.addEventListener('editorresize',layoutChanged);

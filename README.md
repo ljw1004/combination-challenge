@@ -11,7 +11,7 @@ npm install
 npm run dev
 ```
 
-Open the local address printed by Vite. Drag things together; compatible partners are highlighted without revealing the future result. Goals sit at the bottom and become the next-chapter arrow when complete. Reopen the chapter text through its goals for the applicable recovery action; automatic chapter introductions have only **Begin**. The discreet bug icon opens development tools, including story switching and generated checkpoints. See [UX](docs/ux.md) for the interaction and recovery rules.
+Open the local address printed by Vite. Drag things together; compatible partners are highlighted without revealing the future result. Goals sit at the bottom and become the next-chapter arrow when complete. Reopen the chapter text through its goals for the applicable recovery action; automatic chapter introductions have only **Begin**. The discreet bug icon toggles the debug pane for live story editing, checkpoint jumps and game inspection. See [UX](docs/ux.md) for the interaction and recovery rules.
 
 The player fetches Markdown as an ordinary file. These routes work in development and the production build:
 
@@ -27,9 +27,13 @@ Paths resolve relative to the player page, so the same layout works under a webs
 
 ## Edit a story live
 
-Open **bug icon → Editor**. On desktop, the resizable Markdown panel sits beside the game. Edits save immediately and update the current game view, including open readings, goals, rules and backgrounds. The red pen marks an edited story and toggles its editor. The panel opens automatically on desktop if the story URL has a saved draft **or** its editor was last left open; closing it is remembered but does not override a saved draft. Hover a chapter heading (or keyboard-focus its control) for the cyan **Jump to checkpoint** lightbulb, which generates the chapter using the current text and retains the draft.
+Click the **bug icon** to toggle the debug pane. On desktop, the pane sits beside the game, with a resizable Markdown editor that defaults to 840px wide. As the window narrows, the pane shrinks while the game keeps its natural width.
 
-Each draft shadows its original story URL in this browser. Closing the editor, restarting the game and reloading keep the draft. **Delete draft…** is a separate, confirmed action that reloads the original file. **Copy Markdown** and **Download** export the exact current buffer, including incomplete edits, for you to publish yourself. Nothing uploads automatically.
+Edits save immediately and update the current game view, including open readings, goals, rules and backgrounds. When there are local edits, a red pen replaces the bug icon; both toggle the same pane. The panel opens automatically on desktop if the story URL has a saved draft **or** its editor was last left open; closing it is remembered but does not override a saved draft.
+
+Hover a chapter heading (or keyboard-focus its control) for the cyan **Jump to checkpoint** lightbulb, which generates the chapter using the current text and retains the draft. Use the first chapter to start again. **Undo** reverses the last game action, **Export save** downloads game progress, and the collapsed **Recipe inspector** reveals recipe results for debugging.
+
+Each draft shadows its original story URL in this browser. Closing the editor, restarting the game and reloading keep the draft. **Delete draft…** is a separate, confirmed action that reloads the original file. To export your Markdown, focus the text, select all (Cmd+A or Ctrl+A), and copy (Cmd+C or Ctrl+C) into a file for you to publish yourself. Nothing uploads automatically.
 
 Invalid Markdown still produces a best-effort preview. Temporarily deleting the current chapter can move that preview elsewhere; restoring the text returns to the previous game position until you interact with the game. Game actions, deliberate reading/dismissal and scrolling establish a new position. Editing alone does not commit these provisional changes.
 
@@ -37,7 +41,7 @@ Fast diagnostics update shortly after typing; continuation and exclusivity analy
 
 Mixed-fate warnings break down preservation, consumption and transformation, including defaults and implicit slot installation. Their lightbulbs appear at the end of the diagnostic row and overlay the source line without changing its layout. The popup names the item and offers **always preserve**, **always transform** or **always consume**, limited to fates already present. Long item headings are truncated; hover the heading for the full name. A fix consolidates the authored uses in one saved, undoable edit. Choices incompatible with implicit slot behavior explain the constraint. Fixes wait for current diagnostics after typing.
 
-Drafts use browser local storage, keyed by the full Markdown URL. Two player routes resolving to the same URL share a draft; changing the website origin or story path creates a separate one. Other tabs' versions remain available under **Saved copies**, without replacing your open buffer. Each editing session retains its latest saved buffer; loading a saved copy also preserves the current buffer. Older session copies are currently kept without automatic pruning, and the list shows copies differing from the open text. A failed save produces a visible warning and leaves the text available to copy/download. Browser data clearing, storage eviction and private browsing can remove local drafts; download a copy when you want a backup outside this browser.
+Drafts use browser local storage, keyed by the full Markdown URL. Two player routes resolving to the same URL share a draft; changing the website origin or story path creates a separate one. Other tabs' versions remain available under **Saved copies**, without replacing your open buffer. Each editing session retains its latest saved buffer; loading a saved copy also preserves the current buffer. Older session copies are currently kept without automatic pruning, and the list shows copies differing from the open text. A failed save produces a visible warning and leaves the text available to select and copy. Browser data clearing, storage eviction and private browsing can remove local drafts; copy the Markdown into a file when you want a backup outside this browser.
 
 ## Story layout
 
@@ -55,7 +59,7 @@ The folder identifies the story for CLI tools; the browser uses its Markdown URL
 | Tool | Command | Purpose |
 |---|---|---|
 | Browser game | `npm run dev` | Start the local Vite server. |
-| Live story editor | **bug icon → Editor** | Edit a durable local draft with live preview and diagnostics. |
+| Debug pane | **bug/red pen icon** | Edit a durable local draft, inspect recipes, undo gameplay and export progress. |
 | Story linter | `npm run lint` | Check all stories against the specification; errors fail the command, warnings require author review. |
 | Type checker | `npm run check` | Check active TypeScript source. |
 | Default tests | `npm test` | Run semantic tests and Chromium interaction checks. |

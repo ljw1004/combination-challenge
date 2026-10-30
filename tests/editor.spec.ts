@@ -1,5 +1,6 @@
 import { test, expect } from '@playwright/test';
 import type { Page } from '@playwright/test';
+import { openDebugPanel as openEditor, jumpToChapter } from './debug-helpers.ts';
 
 test.use({ viewport: { width: 1280, height: 800 }, reducedMotion: 'reduce' });
 
@@ -60,12 +61,6 @@ async function openFixture(page: Page) {
   await openEditor(page);
 }
 
-async function openEditor(page: Page) {
-  await page.getByRole('button', { name: 'Open debugging tools' }).click();
-  await page.getByRole('button', { name: 'Editor', exact: true }).click();
-  await expect(page.getByRole('textbox', { name: 'Story Markdown' })).toBeVisible();
-}
-
 async function edit(page: Page, text: string) {
   await page.getByRole('textbox', { name: 'Story Markdown' }).focus();
   await page.keyboard.press('ControlOrMeta+A');
@@ -113,6 +108,9 @@ test('live edits update the current view and survive temporary deletion of its c
   await edit(page, revised);
   await expect(page.locator('dialog')).toContainText('The workshop has changed.');
   await expect(card.locator('.item-label')).toHaveText('Polished frame');
+  await page.locator('.debug-recipes summary').click();
+  await expect(page.locator('.debug-recipes li').first()).toHaveText('Polished frame + Tool → Kit');
+  await page.locator('.debug-recipes summary').click();
   await expect(page.locator('.objective-line')).toContainText('Assemble the kit');
   await expect(page.locator('.scene-art')).toHaveAttribute('src', /\/fixture\/assets\/revised\.svg$/);
   expect(await image!.evaluate(element => element.isConnected)).toBe(true);
@@ -142,9 +140,7 @@ test('live edits update the current view and survive temporary deletion of its c
   await edit(page, explained);
   await expect(card.locator('.item-label')).toHaveText('Polished frame');
 
-  await page.getByRole('button', { name: 'Open debugging tools' }).click();
-  await page.locator('#chapter').selectOption('1');
-  await page.getByRole('button', { name: 'Generate checkpoint' }).click();
+  await jumpToChapter(page, 'Field');
   await page.getByRole('button', { name: 'Begin', exact: true }).click();
   await expect(page.locator('.chapter-panel[data-chapter="1"]')).toHaveCount(1);
   const withoutField = explained.split('\n## Field')[0];
@@ -164,29 +160,54 @@ test('live edits update the current view and survive temporary deletion of its c
 
 test('drafts save before preview, reopen on desktop, and only explicit deletion removes them', async ({ page }) => {
   await openFixture(page);
+  const toggle = page.getByRole('button', {name: 'Toggle debug panel'});
+  await expect(toggle).toHaveCount(1);
+  await expect(toggle).not.toHaveClass(/edit-indicator/);
+  await expect(toggle).toHaveAttribute('aria-expanded', 'true');
+  await expect(page.getByRole('complementary', {name: 'Debug panel'})).toBeVisible();
+  await expect(page.getByRole('heading', {name: 'Story editor'})).toHaveCount(0);
+  await expect(page.getByRole('button', {name: /^(Copy Markdown|Download|Generate checkpoint|Restart story|Stories)$/})).toHaveCount(0);
+  await expect(page.locator('.editor-save-status')).toBeHidden();
+  await page.setViewportSize({width: 1600, height: 800});
+  expect((await page.locator('.story-editor').boundingBox())!.width).toBe(840);
+  await page.setViewportSize({width: 1000, height: 800});
+  expect((await page.locator('#app').boundingBox())!.width).toBe(390);
+  expect((await page.locator('.story-editor').boundingBox())!.width).toBe(610);
+  await page.setViewportSize({width: 1600, height: 800});
+  const divider = page.getByRole('separator', {name: 'Resize debug panel'});
+  await divider.focus();
+  await page.keyboard.press('ArrowLeft');
+  expect((await page.locator('.story-editor').boundingBox())!.width).toBe(864);
+  await page.keyboard.press('ArrowRight');
+  await page.setViewportSize({width: 1280, height: 800});
   expect(await savedText(page, manuscript)).toBe(false);
   await page.reload();
   await expect(page.getByRole('textbox', {name: 'Story Markdown'})).toBeVisible();
-  await page.getByRole('button', {name: 'Close editor'}).click();
+  await page.getByRole('button', {name: 'Close debug panel'}).click();
   await page.reload();
   await expect(page.locator('.story-editor')).toHaveCount(0);
   await openEditor(page);
   const changed = manuscript.replace('Workshop introduction.', 'A durable draft introduction.');
   await edit(page, changed);
+  await expect(toggle).toHaveClass(/edit-indicator/);
+  await expect(toggle).toHaveCount(1);
+  await toggle.click();
+  await expect(page.locator('.story-editor')).toBeHidden();
+  await toggle.click();
+  await expect(page.locator('.story-editor')).toBeVisible();
+  await expect(page.locator('.editor-save-status')).toBeHidden();
   expect(await savedText(page, changed)).toBe(true);
   await page.reload();
   await expect(page.getByRole('textbox', { name: 'Story Markdown' })).toBeVisible();
   await expect(page.getByRole('textbox', { name: 'Story Markdown' })).toContainText('A durable draft introduction.');
 
-  await page.getByRole('button', { name: 'Close editor' }).click();
+  await page.getByRole('button', { name: 'Close debug panel' }).click();
   await expect(page.locator('.story-editor')).toBeHidden();
   expect(await savedText(page, changed)).toBe(true);
   await page.reload();
   await expect(page.getByRole('textbox', {name: 'Story Markdown'})).toBeVisible();
-  await page.getByRole('button', {name: 'Close editor'}).click();
-  await page.getByRole('button', { name: 'Open debugging tools' }).click();
-  await page.getByRole('button', { name: 'Restart story', exact: true }).click();
-  await page.getByRole('button', { name: 'Restart story', exact: true }).click();
+  await page.getByRole('button', {name: 'Close debug panel'}).click();
+  await jumpToChapter(page, 'Workshop');
   await expect(page.locator('dialog')).toContainText('A durable draft introduction.');
   await page.getByRole('button', { name: 'Begin', exact: true }).click();
   await openEditor(page);
@@ -222,7 +243,7 @@ test('drafts save before preview, reopen on desktop, and only explicit deletion 
 
   const localBeforeRemote = newer + '\n> NOTE: Retained in this tab.\n';
   await edit(page, localBeforeRemote);
-  await expect(page.locator('.editor-save-status')).toHaveAttribute('data-state', 'saved');
+  expect(await savedText(page, localBeforeRemote)).toBe(true);
   const otherTab = await page.context().newPage();
   await serveFixture(otherTab);
   await otherTab.goto('/combinations.html?story=fixture');
@@ -242,6 +263,7 @@ test('drafts save before preview, reopen on desktop, and only explicit deletion 
   expect(await savedText(page, localBeforeRemote)).toBe(true);
   await page.getByRole('button', { name: 'Delete saved draft', exact: true }).click();
   await expect(page.getByRole('textbox', { name: 'Story Markdown' })).toContainText('Workshop introduction.');
+  await expect(toggle).not.toHaveClass(/edit-indicator/);
   expect(await page.evaluate(() => Object.keys(localStorage).filter(key => key.startsWith('combination-draft-v1:')))).toEqual([]);
 });
 
@@ -266,13 +288,11 @@ test('same-directory loading, missing-story errors and failed storage keep the e
   await edit(page, unsaved);
   await expect(page.locator('.editor-save-status')).toHaveAttribute('data-state', 'error');
   await expect(page.getByRole('textbox', { name: 'Story Markdown' })).toContainText('Still available in this editor.');
-  const download = page.waitForEvent('download');
-  await page.getByRole('button', { name: 'Download', exact: true }).click();
-  const downloaded = await download;
-  const stream = await downloaded.createReadStream();
-  let recovered = '';
-  for await (const chunk of stream!) recovered += chunk.toString();
-  expect(recovered).toBe(unsaved);
+  await page.getByRole('textbox', { name: 'Story Markdown' }).focus();
+  await page.keyboard.press('ControlOrMeta+A');
+  await page.context().grantPermissions(['clipboard-read', 'clipboard-write']);
+  await page.keyboard.press('ControlOrMeta+C');
+  expect(await page.evaluate(() => navigator.clipboard.readText())).toBe(unsaved);
 
   page.on('dialog', dialog => dialog.accept());
   await page.route('**/missing/story.md', route => route.fulfill({ status: 404, contentType: 'text/plain', body: 'Missing' }));
@@ -394,7 +414,7 @@ test('chapter heading checkpoint buttons use live text and preserve the draft an
   await edit(page, edited);
   await page.keyboard.press('ControlOrMeta+Home');
   await page.keyboard.press('ControlOrMeta+f');
-  await page.locator('.cm-search input[name="search"]').fill('## Field');
+  await page.locator('.cm-search input[name="search"]').pressSequentially('## Field');
   await page.keyboard.press('Enter');
   await page.keyboard.press('Escape');
   const heading = page.locator('.cm-chapter-heading').filter({hasText: '## Field'});
@@ -454,7 +474,7 @@ Build a two-stage construction.
 
   const combine = async (a: string, b: string) => page.locator(`[data-item="name:${a}"]`).dragTo(page.locator(`[data-item="name:${b}"]`));
   const undo = async () => {
-    await page.getByRole('button', { name: 'Open debugging tools' }).click();
+    await openEditor(page);
     await page.getByRole('button', { name: 'Undo', exact: true }).click();
   };
   await combine('Second rename', 'Tool');

@@ -1,12 +1,15 @@
 import type { Diagnostic } from '../story/types.ts';
 import { createStoryEditor, type StoryEditor } from './editor.ts';
 import { DraftStore, loadStoryDocument, type StoryDocument } from './story-document.ts';
+import type { DebugToolsState } from './debug-tools.ts';
 
 interface Callbacks {
   onText(text: string): void;
   onLayout(): void;
   onDraft(edited: boolean): void;
   onCheckpoint(line: number): void;
+  onUndo(): void;
+  onExport(): void;
 }
 
 /** Draft durability is independent of parser, linter, preview and game progress. */
@@ -40,7 +43,7 @@ export class AuthoringSession {
     this.text = document.text;
     this.assetBaseURL = document.assetBaseURL;
     this.edited = document.edited;
-    this.saveMessage = document.warning ?? (this.edited ? 'Saved on this device' : 'Original story — edits save on this device');
+    this.saveMessage = document.warning ?? '';
     this.saveKind = document.warning ? 'error' : this.edited ? 'saved' : 'info';
     window.addEventListener('beforeunload', event => {
       if (this.store.unsaved) { event.preventDefault(); event.returnValue = ''; }
@@ -58,7 +61,9 @@ export class AuthoringSession {
   open() {
     if (!this.editor) {
       this.editor = createStoryEditor({
-        parent: this.parent, text: this.text, storyUrl: this.url,
+        parent: this.parent, text: this.text,
+        onUndo: () => this.callbacks.onUndo(),
+        onExport: () => this.callbacks.onExport(),
         onChange: text => this.change(text),
         onClose: () => this.close(),
         onCheckpoint: line => this.callbacks.onCheckpoint(line),
@@ -94,7 +99,7 @@ export class AuthoringSession {
     this.changeRevision++;
     const saved = this.store.save(text);
     this.edited = true;
-    this.saveMessage = saved.error ?? saved.warning ?? 'Saved on this device';
+    this.saveMessage = saved.error ?? saved.warning ?? '';
     this.saveKind = saved.persisted ? 'saved' : 'error';
     this.editor?.setStatus(this.saveMessage, this.saveKind);
     this.callbacks.onDraft(true);
@@ -113,6 +118,8 @@ export class AuthoringSession {
     this.editor?.setPreviewStatus(message);
   }
 
+  setDebugTools(state: DebugToolsState) { this.editor?.setDebugTools(state); }
+
   private refreshRecoveries() {
     const saved = this.store.read();
     const copies = [saved.draft, ...saved.recoveries].filter(record => record && record.text !== this.text);
@@ -129,7 +136,7 @@ export class AuthoringSession {
       this.changeRevision++;
       this.edited = true;
       this.editor?.setText(text);
-      this.saveMessage = replacement.error ?? 'Saved on this device';
+      this.saveMessage = replacement.error ?? '';
       this.saveKind = replacement.persisted ? 'saved' : 'error';
       this.editor?.setStatus(this.saveMessage, this.saveKind);
       this.refreshRecoveries();
@@ -156,7 +163,7 @@ export class AuthoringSession {
       this.store.setAssetBaseURL(original.assetBaseURL);
       this.edited = false;
       this.editor?.setText(this.text);
-      this.saveMessage = 'Original story — saved draft deleted';
+      this.saveMessage = '';
       this.saveKind = 'info';
       this.editor?.setStatus(this.saveMessage, this.saveKind);
       this.refreshRecoveries();

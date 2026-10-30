@@ -9,13 +9,15 @@ import type { Diagnostic as EditorDiagnostic } from '@codemirror/lint';
 import type { Diagnostic, Source, TextSpan } from '../story/types.ts';
 import { chapterCheckpoints } from './editor-checkpoints.ts';
 import { sourceFixWidgets } from './editor-fix-widgets.ts';
+import { createDebugTools, type DebugToolsState } from './debug-tools.ts';
 import './editor.css';
 
 export interface EditorRecovery { id: string; label: string; text: string }
 export interface StoryEditorOptions {
   parent: HTMLElement;
   text: string;
-  storyUrl: string;
+  onUndo(): void;
+  onExport(): void;
   /** Called synchronously for each document change. Save before scheduling validation. */
   onChange(text: string): void;
   onCursorChange?(position: number, line: number): void;
@@ -30,6 +32,7 @@ export interface StoryEditor {
   /** An explicit replacement retains editor undo history and does not call onChange. */
   setText(text: string): void;
   setOpen(open: boolean): void;
+  setDebugTools(state: DebugToolsState): void;
   setDiagnostics(diagnostics: readonly Diagnostic[], phase?: 'fast' | 'complete'): void;
   setStatus(message: string, kind?: 'saved' | 'error' | 'info'): void;
   setPreviewStatus(message: string): void;
@@ -54,45 +57,33 @@ function button(label: string, className = ''): HTMLButtonElement {
 /** The editor owns its DOM; game rendering must never replace this subtree. */
 export function createStoryEditor(options: StoryEditorOptions): StoryEditor {
   const element = node('aside', 'story-editor');
-  element.setAttribute('aria-label', 'Story editor');
+  element.id = 'debug-panel';
+  element.setAttribute('aria-label', 'Debug panel');
   const resizeHandle = node('div', 'editor-resize');
   resizeHandle.setAttribute('role', 'separator');
-  resizeHandle.setAttribute('aria-label', 'Resize story editor');
+  resizeHandle.setAttribute('aria-label', 'Resize debug panel');
   resizeHandle.setAttribute('aria-orientation', 'vertical');
   resizeHandle.tabIndex = 0;
 
   const header = node('header', 'editor-header');
-  const heading = node('div', 'editor-heading');
-  heading.append(node('h2', '', 'Story editor'));
-  const source = node('p', 'editor-source', new URL(options.storyUrl, location.href).pathname);
-  source.title = options.storyUrl;
-  heading.append(source);
+  const debug = createDebugTools(options.onUndo, options.onExport);
   const close = button('×', 'editor-close');
-  close.setAttribute('aria-label', 'Close editor');
-  close.title = 'Close editor — your saved draft is kept';
+  close.setAttribute('aria-label', 'Close debug panel');
+  close.title = 'Close debug panel';
   close.addEventListener('click', options.onClose);
-  header.append(heading, close);
-
-  const toolbar = node('div', 'editor-toolbar');
-  const copy = button('Copy Markdown');
-  const download = button('Download');
-  download.title = 'Download the current Markdown, including invalid edits';
   const remove = button('Delete draft…', 'editor-delete');
-  toolbar.append(copy, download, remove);
-  const status = node('p', 'editor-save-status', 'Original story — edits save on this device');
-  status.dataset.state = 'info';
+  header.append(debug.actions, remove, close);
+  const status = node('p', 'editor-save-status');
+  status.hidden = true;
   status.setAttribute('role', 'status');
   const preview = node('p', 'editor-preview-status');
   preview.hidden = true;
   preview.setAttribute('role', 'status');
-  const feedback = node('p', 'editor-action-status');
-  feedback.hidden = true;
-  feedback.setAttribute('role', 'status');
 
   const confirmation = node('div', 'editor-delete-confirmation');
   confirmation.hidden = true;
   confirmation.setAttribute('role', 'alert');
-  confirmation.append(node('p', '', 'Delete the saved draft for this story and return to the published version? Download a copy first if you want to keep it.'));
+  confirmation.append(node('p', '', 'Delete the saved draft for this story and return to the published version? Copy the text first if you want to keep it.'));
   const confirmDelete = button('Delete saved draft', 'editor-danger');
   const cancelDelete = button('Keep editing');
   confirmation.append(confirmDelete, cancelDelete);
@@ -110,8 +101,7 @@ export function createStoryEditor(options: StoryEditorOptions): StoryEditor {
   const recoverySelect = node('select', 'editor-recovery-select');
   recoverySelect.setAttribute('aria-label', 'Saved draft copies');
   const recoveryLoad = button('Load saved copy');
-  const recoveryDownload = button('Download copy');
-  recoveryControls.append(recoverySelect, recoveryLoad, recoveryDownload);
+  recoveryControls.append(recoverySelect, recoveryLoad);
   recovery.append(recoverySummary, recoveryControls);
   let recoveries: readonly EditorRecovery[] = [];
   let restoreRecovery: ((text: string, id: string) => void) | undefined;
@@ -123,11 +113,10 @@ export function createStoryEditor(options: StoryEditorOptions): StoryEditor {
   const diagnosticsHeading = node('h3', 'editor-diagnostics-heading', 'Diagnostics');
   const diagnosticsList = node('div', 'editor-diagnostics-list');
   diagnosticsPane.append(diagnosticsHeading, diagnosticsList);
-  element.append(resizeHandle, header, toolbar, status, preview, feedback, confirmation, recovery, editorHost, diagnosticsPane);
+  element.append(resizeHandle, header, debug.error, status, preview, confirmation, recovery, debug.inspector, editorHost, diagnosticsPane);
   options.parent.append(element);
 
   let replacing = false;
-  let destroyed = false;
   let currentDiagnostics: Diagnostic[] = [];
   let selectedDiagnostic: Diagnostic | undefined;
   let relatedExpanded = false;
@@ -185,43 +174,14 @@ export function createStoryEditor(options: StoryEditorOptions): StoryEditor {
     }),
   });
 
-  function showFeedback(message: string) {
-    feedback.textContent = message;
-    feedback.hidden = !message;
-  }
-  function downloadText(text: string, filename = 'story.md') {
-    const url = URL.createObjectURL(new Blob([text], { type: 'text/markdown;charset=utf-8' }));
-    const link = document.createElement('a');
-    link.href = url;
-    link.download = filename;
-    link.click();
-    setTimeout(() => URL.revokeObjectURL(url), 1000);
-  }
-  copy.addEventListener('click', async () => {
-    const text = view.state.doc.toString();
-    try {
-      await navigator.clipboard.writeText(text);
-      if (!destroyed) showFeedback('Markdown copied.');
-    } catch {
-      if (destroyed) return;
-      view.dispatch({ selection: { anchor: 0, head: view.state.doc.length } });
-      view.focus();
-      showFeedback('Clipboard access is unavailable. The Markdown is selected; copy it with your keyboard, or use Download.');
-    }
-  });
-  download.addEventListener('click', () => downloadText(view.state.doc.toString()));
   recoveryLoad.addEventListener('click', () => {
     const saved = recoveries.find(entry => entry.id === recoverySelect.value);
     if (saved) restoreRecovery?.(saved.text, saved.id);
   });
-  recoveryDownload.addEventListener('click', () => {
-    const saved = recoveries.find(entry => entry.id === recoverySelect.value);
-    if (saved) downloadText(saved.text, 'story-recovered.md');
-  });
 
   const layout = options.parent.closest<HTMLElement>('#workspace') ?? options.parent;
   function resize(width: number) {
-    const maximum = Math.max(280, layout.clientWidth - 280);
+    const maximum = Math.max(280, layout.clientWidth - 390);
     const clamped = Math.round(Math.max(280, Math.min(maximum, width)));
     layout.style.setProperty('--editor-width', `${clamped}px`);
     resizeHandle.setAttribute('aria-valuenow', String(clamped));
@@ -444,6 +404,7 @@ export function createStoryEditor(options: StoryEditorOptions): StoryEditor {
       element.hidden = !open;
       if (open) view.requestMeasure();
     },
+    setDebugTools: debug.update,
     setDiagnostics(diagnostics, phase = 'complete') {
       const fresh = diagnostics.map(locateDiagnostic);
       currentDiagnostics = phase === 'fast' ? [...fresh, ...currentDiagnostics.filter(isDeep)] : fresh;
@@ -476,6 +437,7 @@ export function createStoryEditor(options: StoryEditorOptions): StoryEditor {
     setStatus(message, kind = 'info') {
       status.textContent = message;
       status.dataset.state = kind;
+      status.hidden = !message;
       status.setAttribute('role', kind === 'error' ? 'alert' : 'status');
     },
     setPreviewStatus(message) {
@@ -498,7 +460,6 @@ export function createStoryEditor(options: StoryEditorOptions): StoryEditor {
     },
     focusLine,
     destroy() {
-      destroyed = true;
       closeFixMenu(); document.removeEventListener('pointerdown', dismissFixMenu, true);
       view.destroy();
       element.remove();

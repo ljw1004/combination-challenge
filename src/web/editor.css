@@ -2,7 +2,8 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  width: var(--editor-width, 560px);
+  flex: 0 1 var(--editor-width, 840px);
+  width: var(--editor-width, 840px);
   max-width: 100%;
   min-width: 0;
   height: 100dvh;
@@ -13,23 +14,21 @@
   font: 13px/1.45 system-ui, sans-serif;
   isolation: isolate;
 }
-.editor-header { display: flex; align-items: center; gap: 12px; padding: 15px 16px 8px; }
-.editor-heading { flex: 1; min-width: 0; }
-.editor-heading h2 { margin: 0; font: normal 23px/1.2 Georgia, serif; }
-.editor-source { margin: 4px 0 0; font-size: 11px; color: #776c5b; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
+.editor-header { display: flex; align-items: center; flex-wrap: wrap; gap: 6px; padding: 6px 10px; }
 .editor-button { display: inline-block; padding: 6px 9px; border: 1px solid #c8bba2; border-radius: 5px; background: #fffdf7; color: #514a3d; font: 12px/1.4 system-ui, sans-serif; text-align: center; cursor: pointer; }
 .editor-button:hover { background: #eee8da; border-color: #a99a80; }
+.editor-button:disabled { opacity: .45; cursor: default; }
 .editor-button:focus-visible { outline: 2px solid #267c79; outline-offset: 2px; }
 .editor-close { border: 0; background: transparent; width: 34px; height: 34px; padding: 0; font-size: 25px; }
-.editor-toolbar { display: flex; flex-wrap: wrap; gap: 6px; padding: 0 16px 8px; }
 .editor-delete { margin-left: auto; color: #96382c; border-color: transparent; background: transparent; }
-.editor-save-status, .editor-preview-status, .editor-action-status { margin: 0; padding: 3px 16px 8px; font-size: 11px; overflow-wrap: anywhere; }
+.editor-save-status, .editor-preview-status, .debug-save-error { margin: 0; padding: 3px 16px 8px; font-size: 11px; overflow-wrap: anywhere; }
 .editor-save-status { color: #716858; }
-.editor-save-status[data-state="saved"] { color: #3a6852; }
-.editor-save-status[data-state="saved"]::before { content: '●'; margin-right: 6px; font-size: 9px; }
-.editor-save-status[data-state="error"] { color: #96382c; background: #fff0e6; font-weight: 600; }
+.editor-save-status[data-state="error"], .debug-save-error { color: #96382c; background: #fff0e6; font-weight: 600; }
 .editor-preview-status { color: #85591d; background: #fff3da; padding-top: 7px; }
-.editor-action-status { color: #52694f; }
+.debug-actions { display: flex; flex-wrap: wrap; gap: 6px; }
+.debug-recipes { flex: 0 1 auto; min-height: 0; overflow: auto; padding: 0 16px 6px; font-size: 11px; }
+.debug-recipes summary { cursor: pointer; color: #6c634f; }
+.debug-recipes ul { max-height: 25dvh; overflow: auto; padding-left: 18px; margin-block: 6px; }
 .editor-delete-confirmation { padding: 10px 16px; background: #fff0e6; border-block: 1px solid #deb5a0; }
 .editor-delete-confirmation p { margin: 0 0 9px; }
 .editor-delete-confirmation .editor-button + .editor-button { margin-left: 7px; }
@@ -93,4 +92,4 @@
 .editor-resize { position: absolute; top: 0; bottom: 0; left: -4px; width: 8px; z-index: 5; cursor: col-resize; touch-action: none; }
 .editor-resize::after { content: ''; position: absolute; left: 3px; top: 45%; width: 2px; height: 40px; border-radius: 2px; background: #b5a58a; }
 .editor-resize:hover, .editor-resize:focus-visible { background: #267c7924; outline: none; }
-@media (max-width: 700px) { .editor-resize { display: none; } .editor-toolbar { padding-inline: 10px; } .editor-delete { margin-left: 0; } }
+@media (max-width: 700px) { .editor-resize { display: none; } }

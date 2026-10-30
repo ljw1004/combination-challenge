@@ -186,7 +186,7 @@ export class DraftStore {
     const persisted = branchSaved;
     this.lastWrite = {
       record, persisted,
-      ...(!persisted ? {error: 'This edit is only in memory: browser storage could not save it. Copy or download the Markdown before leaving this page.'} : {}),
+      ...(!persisted ? {error: 'This edit is only in memory: browser storage could not save it. Select and copy the Markdown before leaving this page.'} : {}),
       ...(persisted && previous.damaged.length ? {warning: 'Your edit was saved separately; unreadable older draft data has been preserved for recovery.'} : {}),
     };
     return this.lastWrite;
