@@ -9,6 +9,7 @@ import { markdown, escape } from './markdown.ts';
 import { reconcile } from './reconcile.ts';
 import { saveProgress } from './persistence.ts';
 import { goalClipPath } from './goal-clearance.ts';
+import { readingBody, goalPresentation, type GoalPresentation } from './presentation.ts';
 import { captureChapter, chapterEntry, restorePresentation, restoreChapterSession, isNoopMove, noteChapterAction, chapterRecovery, displayedGoals, type ChapterSession } from './chapter-session.ts';
 
 const manuscripts = import.meta.glob('../../stories/*/story.md',{eager:true,query:'?raw',import:'default'}) as Record<string,string>;
@@ -22,6 +23,22 @@ let story:Story, state:State, chapterSession:ChapterSession, hash='', debugCheck
 const asset=(path:string)=>assets[`../../stories/${story.id}/${path}`]??path;
 const name=(id:string)=>label(story,state,id);
 const key=()=>`combination-markdown-v1:${story.id}`;
+let goalView:GoalPresentation|undefined,goalTimers:ReturnType<typeof setTimeout>[]=[];
+const reducedMotion=matchMedia('(prefers-reduced-motion: reduce)');
+function cancelGoalTimers(){goalTimers.forEach(clearTimeout);goalTimers=[];}
+function resetGoalView(){cancelGoalTimers();goalView=undefined;}
+function settleGoalEntrance(){
+  if(goalView?.phase!=='leaving'&&goalView?.phase!=='entering')return;
+  cancelGoalTimers();goalView={...goalView,phase:'arrow'};
+  app.querySelector('.goals-leaving')?.remove();
+  const arrow=app.querySelector<HTMLButtonElement>('.chapter-next');if(arrow){arrow.classList.remove('entering');arrow.disabled=false;}
+}
+function animateGoalEntrance(){
+  const current=goalView;
+  goalTimers.push(setTimeout(()=>{if(goalView===current&&current){current.phase='entering';app.querySelector('.goals-leaving')?.remove();const arrow=app.querySelector<HTMLButtonElement>('.chapter-next');if(arrow)arrow.disabled=false;}},220));
+  goalTimers.push(setTimeout(()=>{if(goalView===current)settleGoalEntrance();},620));
+}
+reducedMotion.addEventListener('change',()=>{if(reducedMotion.matches)settleGoalEntrance();});
 function save(){
   saveProgress(()=>localStorage.setItem(key(),JSON.stringify({hash,state,debugCheckpoint,chapterSession})),showSaveError);
 }
@@ -35,11 +52,12 @@ function showSaveError(error:string){
   else alert?.remove();
 }
 function choose(){
+  resetGoalView();
   app.innerHTML=`<main class="chooser"><p class="eyebrow">Combination Workshop</p><h1>Make something<br>worth discovering.</h1><p>Five stories told through the things you bring together.</p><nav>${catalogue.map(({story:s})=>`<a href="#${s.id}" data-story="${s.id}"><strong>${escape(s.title)}</strong>${markdown(s.description)}</a>`).join('')}</nav></main>`;
 }
 function start(id:string){
   const entry=catalogue.find(c=>c.story.id===id);if(!entry){choose();return;}
-  story=entry.story;hash=entry.hash;state=newGame(story);debugCheckpoint=false;saveError='';
+  resetGoalView();story=entry.story;hash=entry.hash;state=newGame(story);debugCheckpoint=false;saveError='';
   let loaded=false,session:ChapterSession|undefined;
   try{const saved=JSON.parse(localStorage.getItem(key())??'null');if(saved?.hash===hash){state=restorePresentation(story,saved.state);debugCheckpoint=!!saved.debugCheckpoint;session=restoreChapterSession(story,state,saved.chapterSession);loaded=true;}}catch{saveError='The saved run could not be restored. A fresh story is ready.';}
   document.querySelector('dialog')?.remove();
@@ -49,28 +67,29 @@ function start(id:string){
     const current=state;state=chapterEntry(story,current);render(true,false);session=captureChapter(state);
     session.changed=current.actions.slice(state.actions.length).some(a=>a.type==='move'||a.type==='combine');state=current;
   }
-  chapterSession=session??captureChapter(state);
+  chapterSession=session??captureChapter(state);resetGoalView();
   render(!loaded);save();
   scrollToCurrentChapter();
 }
 function scrollToCurrentChapter(){app.querySelector('.viewport')!.scrollTop=Math.max(0,(state.visited.length-1)*844*Math.min(1,innerWidth/390));clearGoalsAroundCards();}
 function modal(content:string,kind='ordinary'){
+  settleGoalEntrance();
   document.querySelector('dialog')?.remove();const dialog=document.createElement('dialog');dialog.className=kind;
   dialog.innerHTML=content;app.append(dialog);dialog.addEventListener('cancel',e=>{e.preventDefault();if(dialog.dataset.pending)commit({type:'dismiss'});else{dialog.remove();showPending();}});dialog.showModal();return dialog;
 }
 function showPending(){
   if(document.querySelector('dialog')||!state?.pending.length)return;
-  const notice=state.pending[0],d=modal(`<div class="reading-text">${markdown(notice.markdown,asset)}</div>${notice.item?`<p class="result-caption">${escape(name(notice.item))}</p>`:''}<div class="dialog-actions"><button data-command="dismiss">${notice.kind==='chapter'?'Begin':'Continue'}</button></div>`,notice.kind==='wonder'?'wonder':'intertitle');d.dataset.pending='true';
+  const notice=state.pending[0],d=modal(`${readingBody(notice.markdown,asset)}<div class="dialog-actions"><button data-command="dismiss">${notice.kind==='chapter'?'Begin':'Continue'}</button></div>`,notice.kind==='wonder'?'wonder':'intertitle');d.dataset.pending='true';
 }
 function reopenChapter(){
   const recovery=chapterRecovery(chapterSession,state);
   const text=chapterSession.entry.pending.find(n=>n.kind==='chapter')?.markdown??story.chapters[state.chapter].intro;
-  modal(`<div class="reading-text">${markdown(text,asset)}</div><div class="dialog-actions"><button data-command="close">Close</button>${recovery==='chapter'?'<button class="secondary" data-command="reset-chapter"><span aria-hidden="true">↻</span> Restart this chapter</button>':recovery==='story'?'<button class="secondary" data-command="confirm-reset-story">Restart story</button>':''}</div>`,'intertitle');
+  modal(`<div class="reading-text">${markdown(text,asset)}</div><div class="dialog-actions"><button data-command="close">Close</button>${recovery==='chapter'?'<button class="recovery-action" data-command="reset-chapter"><span aria-hidden="true">↻</span> Restart this chapter</button>':recovery==='story'?'<button class="recovery-action" data-command="confirm-reset-story">Restart story</button>':''}</div>`,'intertitle');
 }
 function confirmRestart(){
   modal(`<h1>Restart this story?</h1><p>This removes all progress in this story on this device, including completed chapters, discoveries and item positions. You will begin again at the first chapter. This cannot be undone. Your other stories are unchanged.</p><div class="dialog-actions"><button data-command="cancel-reset-story">Cancel</button><button class="danger" data-command="reset-story">Restart story</button></div>`);
 }
-function read(id:string){const text=readings(story,state,id).map(w=>w.markdown).join('\n\n');if(text)modal(`<div class="reading-text">${markdown(text,asset)}</div><p class="result-caption">${escape(name(id))}</p><button data-command="close">Close</button>`);}
+function read(id:string){const text=readings(story,state,id).map(w=>w.markdown).join('\n\n');if(text)modal(`${readingBody(text,asset)}<button data-command="close">Close</button>`);}
 function debug(){modal(`<div class="debug-heading"><h1>${escape(story.title)}</h1><button data-command="close" aria-label="Close">×</button></div>${debugCheckpoint?'<p class="debug-marker">Generated checkpoint · historical replay, not fresh play</p>':''}<label for="chapter">Replay to chapter</label><select id="chapter">${story.chapters.map((c,i)=>`<option value="${i}" ${i===state.chapter?'selected':''}>${i+1}. ${escape(c.name)}</option>`).join('')}</select><p><button data-command="checkpoint">Generate checkpoint</button></p><div class="debug-actions"><button data-command="undo">Undo</button><button data-command="confirm-reset-story">Restart story</button><button data-command="export">Export save</button><button data-command="menu">Stories</button></div><details><summary>Developer recipe inspector</summary><p>These result names are not shown during discovery play.</p><ul>${story.recipes.map(r=>`<li>${escape(name(r.a.ref.id))}${r.b?' + '+escape(name(r.b.ref.id)):''}${r.hotspot?' @ '+escape(name(r.hotspot)):''} → ${escape(name(r.result.id))}</li>`).join('')}</ul></details>${saveError?`<p role="alert">${escape(saveError)}</p>`:''}`);}
 function commit(action:Action){try{
   if(isNoopMove(state,action)){render();return;}
@@ -111,6 +130,10 @@ function scheduleGoalClearance(){cancelAnimationFrame(clearanceFrame);clearanceF
 function render(arrival=false,finish=true){
   const scroll=app.querySelector('.viewport')?.scrollTop??0;
   const goals=displayedGoals(story,state),finished=chapterComplete(story,state),scale=Math.min(1,innerWidth/390);
+  const nextView=goalPresentation(goalView,`${story.id}:${state.chapter}`,finished&&!state.completed,state.pending.length>0,reducedMotion.matches);
+  const changedView=goalView?.key!==nextView.key||goalView.phase!==nextView.phase;
+  if(changedView){cancelGoalTimers();goalView=nextView;}
+  const transitioning=goalView?.phase==='leaving'||goalView?.phase==='entering',leaving=goalView?.phase==='leaving',showGoals=goalView?.phase==='goals'||leaving||state.completed;
   const gold=new Set<string>();for(const [i,g] of story.chapters[state.chapter].goals.entries())if(state.achieved.includes(g.id)&&!story.chapters[state.chapter].goals[i+1]?.next)for(const c of g.conditions)if(matches(state.tokens[c.item.id],c.item)&&(!c.hotspot||state.tokens[c.item.id].hotspot===c.hotspot)){gold.add(c.item.id);if(c.hotspot)gold.add(c.hotspot);}
   reconcile(app,`<div class="viewport"><div class="world" style="width:${390*scale}px;height:${state.visited.length*844*scale}px"><div class="board fixed-locations" style="height:${state.visited.length*844}px;transform:scale(${scale});--board-scale:${scale}">${state.visited.map((chapter,position)=>{
     const bg=background(story,chapter),c=story.chapters[chapter];
@@ -118,9 +141,9 @@ function render(arrival=false,finish=true){
       const item=story.items[t.id],filled=t.slots,applicable=readings(story,state,t.id).length;
       return `<button class="thing text-thing ${chapter===state.chapter&&gold.has(t.id)?'goal-met':''}" data-item="${escape(t.id)}" style="left:${t.x}px;top:${t.y}px" aria-label="${escape(name(t.id))}" title="${escape(applicable?'Double-click or long-press to read':'Drag to combine or move')}"><span class="item-label">${escape(name(t.id))}</span>${item.slots.map(s=>`<span class="slot ${filled.includes(s.accepts)?'filled':''}">${filled.includes(s.accepts)?escape(name(s.accepts)):escape(s.name??'\u00a0')}</span>`).join('')}${applicable?'<span class="source-marker" aria-hidden="true">◦</span>':''}</button>`;
     }).join('')}${chapter===state.chapter&&state.arrivalDivider&&state.newItems.length?`<div class="arrival-divider" style="top:${Math.max(65,Math.min(...state.newItems.map(id=>state.tokens[id]?.y??844))-18)}px"><span>new items</span></div>`:''}</section>`;
-  }).join('')}</div></div></div><button class="debug-toggle" data-command="debug" aria-label="Open debugging tools" title="Debugging tools" data-save-error="${!!saveError}"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M9 4 7 2m8 2 2-2M8 8V7a4 4 0 0 1 8 0v1M12 9v12M5 9H2m3 5H1m5 5-3 3m16-13h3m-3 5h4m-5 5 3 3"/><rect x="5" y="8" width="14" height="13" rx="6"/></svg></button>${saveError?`<button class="save-alert" data-command="debug">${escape(saveError)}</button>`:''}${debugCheckpoint?'<span class="checkpoint-badge">Generated checkpoint</span>':''}${!finished||state.completed?`<div class="hud-stack location-hud"><button class="objective-overlay" data-command="story" aria-label="Read this chapter"><span class="objectives">${goals.map(({goal,done})=>`<span class="objective-line ${done?'done':''}"><span class="goal-checkbox" aria-hidden="true">${done?'✓':''}</span><span>${escape(goal.text)}</span><span class="sr-only">${done?'Completed':'Not completed'}</span></span>`).join('')}${state.completed?'<span class="objective-line ending">The End</span>':''}</span></button></div>`:''}${finished&&!state.completed?`<button class="chapter-next ${story.chapters[state.chapter+1]?.image?'':'right'}" data-command="advance" aria-label="Continue story"><span>${story.chapters[state.chapter+1]?.image?'↓':'→'}</span></button>`:''}`);
+  }).join('')}</div></div></div><button class="debug-toggle" data-command="debug" aria-label="Open debugging tools" title="Debugging tools" data-save-error="${!!saveError}"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M9 4 7 2m8 2 2-2M8 8V7a4 4 0 0 1 8 0v1M12 9v12M5 9H2m3 5H1m5 5-3 3m16-13h3m-3 5h4m-5 5 3 3"/><rect x="5" y="8" width="14" height="13" rx="6"/></svg></button>${saveError?`<button class="save-alert" data-command="debug">${escape(saveError)}</button>`:''}${debugCheckpoint?'<span class="checkpoint-badge">Generated checkpoint</span>':''}${showGoals?`<div class="hud-stack location-hud ${transitioning?'goals-leaving':''}" ${transitioning?'aria-hidden="true"':''}><button class="objective-overlay" ${leaving?'disabled':''} data-command="story" aria-label="Read this chapter"><span class="objectives">${goals.map(({goal,done})=>`<span class="objective-line ${done?'done':''}"><span class="goal-checkbox" aria-hidden="true">${done?'✓':''}</span><span>${escape(goal.text)}</span><span class="sr-only">${done?'Completed':'Not completed'}</span></span>`).join('')}${state.completed?'<span class="objective-line ending">The End</span>':''}</span></button></div>`:''}${goalView?.phase!=='goals'&&!state.completed?`<button class="chapter-next ${story.chapters[state.chapter+1]?.image?'':'right'} ${transitioning?'entering':''}" ${leaving?'disabled':''} data-command="advance" aria-label="Continue story"><span>${story.chapters[state.chapter+1]?.image?'↓':'→'}</span></button>`:''}`);
   const viewport=app.querySelector<HTMLElement>('.viewport')!;viewport.onscroll=scheduleGoalClearance;viewport.scrollTop=arrival?Math.max(0,(state.visited.length-1)*844*scale):scroll;
-  if(arrival){packArrival();if(finish)chapterSession=captureChapter(state);}clearGoalsAroundCards();if(finish)showPending();
+  if(arrival){packArrival();if(finish)chapterSession=captureChapter(state);}clearGoalsAroundCards();if(changedView&&transitioning)animateGoalEntrance();if(finish)showPending();
 }
 function highlight(id:string){clearHighlights();tile(id)?.classList.add('pressed');for(const action of legalActions(story,state).filter(a=>a.a===id)){if(action.b)tile(action.b)?.classList.add('possible');else if(action.hotspot)app.querySelectorAll<HTMLElement>('[data-hotspot]').forEach(h=>{if(h.dataset.hotspot===action.hotspot)h.classList.add('possible');});}for(const g of visibleGoals(story,state))for(const c of g.conditions)if(c.item.id===id&&c.hotspot)app.querySelectorAll<HTMLElement>('[data-hotspot]').forEach(h=>{if(h.dataset.hotspot===c.hotspot)h.classList.add('possible');});}
 function clearHighlights(){app.querySelectorAll('.pressed,.possible,.will-create,.will-place').forEach(el=>el.classList.remove('pressed','possible','will-create','will-place'));}
@@ -171,10 +194,10 @@ app.addEventListener('click',e=>{
   else if(command==='menu'){location.hash='';choose();}
   else if(command==='confirm-reset-story')confirmRestart();
   else if(command==='cancel-reset-story')reopenChapter();
-  else if(command==='reset-story'){document.querySelector('dialog')?.remove();state=newGame(story);debugCheckpoint=false;render(true);save();}
-  else if(command==='reset-chapter'){document.querySelector('dialog')?.remove();state=structuredClone(chapterSession.entry);chapterSession=captureChapter(state);render();scrollToCurrentChapter();save();}
+  else if(command==='reset-story'){resetGoalView();document.querySelector('dialog')?.remove();state=newGame(story);debugCheckpoint=false;render(true);save();}
+  else if(command==='reset-chapter'){resetGoalView();document.querySelector('dialog')?.remove();state=structuredClone(chapterSession.entry);chapterSession=captureChapter(state);render();scrollToCurrentChapter();save();}
   else if(command==='story')reopenChapter();
-  else if(command==='checkpoint'){try{const index=Number(app.querySelector<HTMLSelectElement>('#chapter')!.value);state=checkpoint(story,index);state.seen.push(...state.pending.filter(n=>n.kind==='wonder').map(n=>n.key));state.pending=state.pending.filter(n=>n.kind==='chapter');debugCheckpoint=true;document.querySelector('dialog')?.remove();render(true);save();}catch(error){modal(`<p>${escape((error as Error).message)}</p><button data-command="close">Close</button>`);}}
+  else if(command==='checkpoint'){try{resetGoalView();const index=Number(app.querySelector<HTMLSelectElement>('#chapter')!.value);state=checkpoint(story,index);state.seen.push(...state.pending.filter(n=>n.kind==='wonder').map(n=>n.key));state.pending=state.pending.filter(n=>n.kind==='chapter');debugCheckpoint=true;document.querySelector('dialog')?.remove();render(true);save();}catch(error){modal(`<p>${escape((error as Error).message)}</p><button data-command="close">Close</button>`);}}
   else if(command==='undo'){let i=state.actions.length-1;while(i>=0&&state.actions[i].type==='dismiss')i--;if(i>=0){const seen=state.seen,previous=state.chapter;state=i>=chapterSession.entry.actions.length?state.actions.slice(chapterSession.entry.actions.length,i).reduce((s,a)=>act(story,s,a),structuredClone(chapterSession.entry)):replay(story,state.actions.slice(0,i));state.seen=[...new Set([...state.seen,...seen])];state.pending=state.pending.filter(n=>!state.seen.includes(n.key));document.querySelector('dialog')?.remove();if(previous!==state.chapter){const current=state;state=chapterEntry(story,current);render(true,false);chapterSession=captureChapter(state);chapterSession.changed=current.actions.slice(state.actions.length).some(a=>a.type==='move'||a.type==='combine');state=current;}save();render();}}
   else if(command==='export'){const url=URL.createObjectURL(new Blob([JSON.stringify({hash,state,debugCheckpoint,chapterSession},null,2)],{type:'application/json'}));const a=document.createElement('a');a.href=url;a.download=`${story.id}-save.json`;a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);}
 });
