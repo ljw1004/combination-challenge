@@ -24,6 +24,16 @@ export class AuthoringSession {
   private previewMessage = '';
   private changeRevision = 0;
 
+  get wasOpen(): boolean {
+    try { return localStorage.getItem(`combination-editor-open-v1:${encodeURIComponent(this.url)}`) === 'true'; }
+    catch { return false; }
+  }
+
+  private rememberOpen(open: boolean) {
+    try { localStorage.setItem(`combination-editor-open-v1:${encodeURIComponent(this.url)}`, String(open)); }
+    catch { /* An unavailable UI preference must not block editing or draft saves. */ }
+  }
+
   constructor(document: StoryDocument, store: DraftStore, private parent: HTMLElement, private callbacks: Callbacks) {
     this.url = document.url;
     this.store = store;
@@ -60,6 +70,7 @@ export class AuthoringSession {
       this.refreshRecoveries();
     }
     this.isOpen = true;
+    this.rememberOpen(true);
     this.parent.classList.add('editor-open');
     this.editor.setOpen(true);
     this.callbacks.onLayout();
@@ -69,6 +80,7 @@ export class AuthoringSession {
 
   close() {
     this.isOpen = false;
+    this.rememberOpen(false);
     this.editor?.setOpen(false);
     this.parent.classList.remove('editor-open');
     this.callbacks.onLayout();

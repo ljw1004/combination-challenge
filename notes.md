@@ -136,3 +136,13 @@ Verification: all 46 Node tests and 13 Chromium tests pass in about 14 seconds c
 ## 30 October 2026 visible blue fix icons
 
 The user found the lightbulb emoji difficult to see. Both source and diagnostic buttons now share a solid blue SVG mask, with blue hover/focus styling and their existing accessible names. This makes the icon color consistent across operating systems. Type checking, whitespace checks and the existing diagnostic navigation/fix browser test pass. A Chromium screenshot was inspected and both icon locations were verified to render blue; no new tests or game semantics were needed.
+
+## 30 October 2026 contextual fix menus and remembered editor visibility
+
+The user refined the controls: fix popups now name their affected item and offer “always preserve”, “always transform” and “always consume”, restricted to current fates. The linter supplies the item name explicitly rather than requiring the browser to extract it from diagnostic prose. Long headings truncate within the popup and retain their full name in the hover title and accessible text.
+
+Lightbulbs now use the requested bright cyan outline. Source bulbs are positioned over their line, with separate positions for multiple diagnostics, so they do not affect wrapping or line height. Chapter checkpoint buttons use the same outlined bulb and no longer reserve room for a text label; hover and keyboard focus reveal them with an explanatory tooltip.
+
+Remember the editor's open/closed preference separately for each Markdown URL. On desktop, either a saved draft or a last-open preference opens the editor. A closed preference does not override an existing draft. Saving this UI preference never creates a Markdown draft, and preference-storage failures cannot block editing or draft saves. Expanded existing browser coverage checks all three startup cases, popup context and long headings, and equal source-line height with bulbs shown or hidden.
+
+Verification: all 46 Node tests and 13 Chromium tests pass in about 14 seconds combined. Type checking and production build pass; the five stories still have zero lint errors and 64 warnings. Inspected desktop screenshots of the Sand fix menu and chapter-heading bulb, with no browser page errors. The existing bundle-size advisory remains. No engine semantics, stories or archives changed.

@@ -4,7 +4,7 @@ export interface TextSpan { from: number; to: number }
 export interface Source { file: string; line: number; column?: number; span?: TextSpan }
 export interface RelatedLocation extends Source { message: string; span: TextSpan }
 export interface DiagnosticFix { label: string; edits: {span: TextSpan; text: string}[]; disabledReason?: string }
-export interface Diagnostic { severity: 'error' | 'warning'; code: string; message: string; source: Source; span: TextSpan; stage?: 'fast' | 'deep'; related?: RelatedLocation[]; fixes?: DiagnosticFix[] }
+export interface Diagnostic { severity: 'error' | 'warning'; code: string; message: string; source: Source; span: TextSpan; stage?: 'fast' | 'deep'; related?: RelatedLocation[]; fixes?: DiagnosticFix[]; fixTitle?: string }
 export interface Ref { id: string; slots: string[] }
 export type Fate = 'preserve' | 'consume' | 'transform';
 export interface Ingredient { ref: Ref; fate: Fate; explicit: boolean }

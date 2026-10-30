@@ -323,7 +323,9 @@ export function createStoryEditor(options: StoryEditorOptions): StoryEditor {
     const current = currentDiagnostics.find(candidate => diagnosticKey(candidate) === diagnosticKey(diagnostic));
     if (!current?.fixes?.length || fixesStale) return;
     selectDiagnostic(current, false);
-    const menu = node('div', 'editor-fix-menu'); menu.setAttribute('role', 'menu'); menu.setAttribute('aria-label', 'Consolidate fate');
+    const title = current.fixTitle || current.code;
+    const menu = node('div', 'editor-fix-menu'); menu.setAttribute('role', 'menu'); menu.setAttribute('aria-label', title);
+    const heading = node('h3', 'editor-fix-heading', title); heading.title = title; menu.append(heading);
     for (const fix of current.fixes) {
       const choice = button(fix.label, 'editor-fix-option'); choice.setAttribute('role', 'menuitem');
       choice.disabled = !!fix.disabledReason;

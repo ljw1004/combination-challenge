@@ -164,6 +164,13 @@ test('live edits update the current view and survive temporary deletion of its c
 
 test('drafts save before preview, reopen on desktop, and only explicit deletion removes them', async ({ page }) => {
   await openFixture(page);
+  expect(await savedText(page, manuscript)).toBe(false);
+  await page.reload();
+  await expect(page.getByRole('textbox', {name: 'Story Markdown'})).toBeVisible();
+  await page.getByRole('button', {name: 'Close editor'}).click();
+  await page.reload();
+  await expect(page.locator('.story-editor')).toHaveCount(0);
+  await openEditor(page);
   const changed = manuscript.replace('Workshop introduction.', 'A durable draft introduction.');
   await edit(page, changed);
   expect(await savedText(page, changed)).toBe(true);
@@ -174,6 +181,9 @@ test('drafts save before preview, reopen on desktop, and only explicit deletion 
   await page.getByRole('button', { name: 'Close editor' }).click();
   await expect(page.locator('.story-editor')).toBeHidden();
   expect(await savedText(page, changed)).toBe(true);
+  await page.reload();
+  await expect(page.getByRole('textbox', {name: 'Story Markdown'})).toBeVisible();
+  await page.getByRole('button', {name: 'Close editor'}).click();
   await page.getByRole('button', { name: 'Open debugging tools' }).click();
   await page.getByRole('button', { name: 'Restart story', exact: true }).click();
   await page.getByRole('button', { name: 'Restart story', exact: true }).click();
@@ -340,9 +350,10 @@ test('diagnostics keep source order and scroll while their related locations nav
 
   const toolGroup = page.locator('.editor-diagnostic-entry').filter({hasText: 'Tool has mixed fates'});
   await toolGroup.locator('.editor-diagnostic-fix').click();
-  const menu = page.getByRole('menu', {name: 'Consolidate fate'});
-  expect(await menu.getByRole('menuitem').allTextContents()).toEqual(['preserve', 'consume']);
-  await menu.getByRole('menuitem', {name: 'consume', exact: true}).click();
+  const menu = page.getByRole('menu', {name: 'Tool', exact: true});
+  await expect(menu.getByRole('heading', {name: 'Tool', exact: true})).toBeVisible();
+  expect(await menu.getByRole('menuitem').allTextContents()).toEqual(['always preserve', 'always consume']);
+  await menu.getByRole('menuitem', {name: 'always consume', exact: true}).click();
   await expect(tool).toHaveCount(0);
   expect(await savedText(page, '\n\n' + text.replaceAll('`tool` [preserve]', '`tool` [consume]'))).toBe(true);
   await page.keyboard.press('ControlOrMeta+z');
@@ -351,11 +362,30 @@ test('diagnostics keep source order and scroll while their related locations nav
   await tool.click();
   const sourceFix = page.locator('.cm-activeLine .editor-source-fix[aria-label*="Tool has mixed fates"]');
   await expect(sourceFix).toBeVisible();
+  const geometry = await page.locator('.cm-activeLine').evaluate(line => {
+    const bulbs = [...line.querySelectorAll<HTMLElement>('.editor-source-fix')];
+    const withIcons = line.getBoundingClientRect().height;
+    const bounds = bulbs.map(bulb => bulb.getBoundingClientRect());
+    bulbs.forEach(bulb => bulb.style.display = 'none');
+    const withoutIcons = line.getBoundingClientRect().height;
+    bulbs.forEach(bulb => bulb.style.removeProperty('display'));
+    return {withIcons, withoutIcons, overlap: bounds.some((a, i) => bounds.slice(i + 1).some(b => a.left < b.right && b.left < a.right))};
+  });
+  expect(geometry.withIcons).toBe(geometry.withoutIcons);
+  expect(geometry.overlap).toBe(false);
   await sourceFix.click();
-  expect(await menu.getByRole('menuitem').allTextContents()).toEqual(['preserve', 'consume']);
-  await menu.getByRole('menuitem', {name: 'preserve', exact: true}).click();
+  await expect(menu.getByRole('heading', {name: 'Tool', exact: true})).toBeVisible();
+  expect(await menu.getByRole('menuitem').allTextContents()).toEqual(['always preserve', 'always consume']);
+  await menu.getByRole('menuitem', {name: 'always preserve', exact: true}).click();
   await expect(tool).toHaveCount(0);
   expect(await savedText(page, '\n\n' + text.replaceAll('`tool` [consume]', '`tool` [preserve]'))).toBe(true);
+  const longName = 'A tool with an unusually long title that explains its place in this story in considerable detail';
+  await edit(page, text.replace('`tool` Tool', '`tool` ' + longName));
+  await page.locator('.editor-diagnostic-entry').filter({hasText: `${longName} has mixed fates`}).locator('.editor-diagnostic-fix').click();
+  const longHeading = page.getByRole('menu', {name: longName, exact: true}).getByRole('heading');
+  await expect(longHeading).toHaveAttribute('title', longName);
+  expect(await longHeading.evaluate(heading => heading.scrollWidth > heading.clientWidth)).toBe(true);
+  expect((await longHeading.boundingBox())!.width).toBeLessThanOrEqual(350);
 });
 
 test('chapter heading checkpoint buttons use live text and preserve the draft and editor position', async ({ page }) => {

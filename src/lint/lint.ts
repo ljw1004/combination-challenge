@@ -4,9 +4,9 @@ import { newGame } from '../engine/game.ts';
 
 export function lintStory(story: Story, options: {analysis?: boolean} = {}): Diagnostic[] {
   const diagnostics = [...story.diagnostics];
-  const add = (severity: Diagnostic['severity'],code:string,message:string,source:Source,related?:RelatedLocation[],fixes?:DiagnosticFix[]) => diagnostics.push({severity,code,message,source,span:source.span??{from:0,to:0},stage:'fast',...(related?.length?{related}:{}),...(fixes?.length?{fixes}:{})});
+  const add = (severity: Diagnostic['severity'],code:string,message:string,source:Source,related?:RelatedLocation[],fixes?:DiagnosticFix[],fixTitle?:string) => diagnostics.push({severity,code,message,source,span:source.span??{from:0,to:0},stage:'fast',...(related?.length?{related}:{}),...(fixes?.length?{fixes,fixTitle}:{})});
   const error = (code:string,message:string,source:Source) => add('error',code,message,source);
-  const warning = (code:string,message:string,source:Source,related?:RelatedLocation[],fixes?:DiagnosticFix[]) => add('warning',code,message,source,related,fixes);
+  const warning = (code:string,message:string,source:Source,related?:RelatedLocation[],fixes?:DiagnosticFix[],fixTitle?:string) => add('warning',code,message,source,related,fixes,fixTitle);
   const related = (source: Source, message: string): RelatedLocation => ({...source, span: source.span ?? {from: 0, to: 0}, message});
   const index = indexStory(story), uses = new Map<string,{fate:Fate; explicit:boolean; implicit:boolean; source:Source; location:RelatedLocation}[]>();
   const name = (id: string) => story.items[id]?.name ?? story.hotspots[id]?.name ?? id;
@@ -47,21 +47,22 @@ export function lintStory(story: Story, options: {analysis?: boolean} = {}): Dia
       const counts = fates.map(fate => `${fate} (${list.filter(use => use.fate === fate).length})`);
       const sites = story.fateSites?.filter(site => site.item === id);
       const fixed = new Set(list.filter(use => use.implicit).map(use => use.fate));
-      const fixes: DiagnosticFix[] = fates.map(fate => {
+      const fixes: DiagnosticFix[] = (['preserve', 'transform', 'consume'] as const).filter(fate => fates.includes(fate)).map(fate => {
+        const label = `always ${fate}`;
         if ([...fixed].some(value => value !== fate)) return {
-          label: fate, edits: [], disabledReason: `Slot installation fixes ${story.items[id].name} to ${[...fixed].join(' and ')}. Change the slot declarations to use ${fate} everywhere.`,
+          label, edits: [], disabledReason: `Slot installation fixes ${story.items[id].name} to ${[...fixed].join(' and ')}. Change the slot declarations to use ${fate} everywhere.`,
         };
         const changed = sites?.filter(site => site.fate !== fate);
         if (!sites?.length || changed?.some(site => !site.edit)) return {
-          label: fate, edits: [], disabledReason: 'Some authored uses cannot be located safely in the current text.',
+          label, edits: [], disabledReason: 'Some authored uses cannot be located safely in the current text.',
         };
         const edits = changed!.map(site => ({span: {...site.edit!.span}, text: `${site.edit!.prefix}[${fate}]${site.edit!.suffix}`})).sort((a, b) => a.span.from - b.span.from);
         if (edits.some((edit, i) => i > 0 && edit.span.from < edits[i - 1].span.to)) return {
-          label: fate, edits: [], disabledReason: 'Some authored uses overlap in the current text.',
+          label, edits: [], disabledReason: 'Some authored uses overlap in the current text.',
         };
-        return {label: fate, edits};
+        return {label, edits};
       });
-      warning('mixed-fates',`${story.items[id].name} has mixed fates: ${counts.join(', ')}`,list[0].source,list.map(use=>use.location),fixes);
+      warning('mixed-fates',`${story.items[id].name} has mixed fates: ${counts.join(', ')}`,list[0].source,list.map(use=>use.location),fixes,story.items[id].name);
     }
   }
   const declaredHotspots = new Set(story.chapters.flatMap(c=>c.hotspots));

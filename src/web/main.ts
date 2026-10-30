@@ -192,7 +192,7 @@ async function start() {
     setScroll(anchor?.scrollTop ?? Math.max(0, (state.visited.length - 1) * 844 * scale()));
     if (!anchor) rememberInteraction();
     checkText(parsed, previewText);
-    if (document.edited && matchMedia('(min-width: 900px)').matches) authoring.open();
+    if ((document.edited || authoring.wasOpen) && matchMedia('(min-width: 900px)').matches) authoring.open();
     updateEditingIndicators(); save();
   } catch (error) {
     surface.innerHTML = `<div class="load-error"><h1>Story could not be loaded</h1><p>${escape((error as Error).message)}</p><button data-command="retry">Try again</button></div>`;

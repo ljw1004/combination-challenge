@@ -15,11 +15,13 @@ export function sourceFixWidgets(onOpen: (diagnostic: Diagnostic, anchor: HTMLEl
 
   class FixButton extends WidgetType {
     readonly diagnostic: Diagnostic;
-    constructor(diagnostic: Diagnostic) { super(); this.diagnostic = diagnostic; }
-    eq(other: FixButton) { return this.diagnostic === other.diagnostic; }
+    readonly column: number;
+    constructor(diagnostic: Diagnostic, column: number) { super(); this.diagnostic = diagnostic; this.column = column; }
+    eq(other: FixButton) { return this.diagnostic === other.diagnostic && this.column === other.column; }
     private configure(button: HTMLButtonElement) {
       button.setAttribute('aria-label', `Fix ${this.diagnostic.code}: ${this.diagnostic.message}`);
       button.title = `Fix ${this.diagnostic.code}`;
+      button.style.setProperty('--fix-column', String(this.column));
       button.onclick = event => {
         event.preventDefault(); event.stopPropagation(); onOpen(this.diagnostic, button);
       };
@@ -36,9 +38,15 @@ export function sourceFixWidgets(onOpen: (diagnostic: Diagnostic, anchor: HTMLEl
   }
 
   function widgets(state: EditorState, locations: readonly Located[]): Widgets {
-    return {locations, decorations: Decoration.set(locations.map(({diagnostic, from}) =>
-      Decoration.widget({widget: new FixButton(diagnostic), side: 1})
-        .range(state.doc.lineAt(Math.max(0, Math.min(state.doc.length, from))).to)), true)};
+    const columns = new Map<number, number>(), decorations = [];
+    for (const {diagnostic, from} of locations) {
+      const line = state.doc.lineAt(Math.max(0, Math.min(state.doc.length, from)));
+      const column = columns.get(line.from) ?? 0;
+      if (!column) decorations.push(Decoration.line({class: 'cm-line-with-fixes'}).range(line.from));
+      decorations.push(Decoration.widget({widget: new FixButton(diagnostic, column), side: column + 1}).range(line.to));
+      columns.set(line.from, column + 1);
+    }
+    return {locations, decorations: Decoration.set(decorations, true)};
   }
   const field = StateField.define<Widgets>({
     create: () => ({locations: [], decorations: Decoration.none}),

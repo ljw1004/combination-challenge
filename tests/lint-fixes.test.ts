@@ -28,8 +28,9 @@ test('fate fixes preserve unrelated source and consolidate every authored duplic
   assert.equal(story.recipes.length, 3, 'source metadata must not defeat logical recipe deduplication');
   assert.equal(story.fateSites!.filter(site => site.item === 'id:part').length, 4);
   const diagnostic = warning(text, 'Widget');
+  assert.equal(diagnostic.fixTitle, 'Widget');
   for (const fate of ['preserve', 'consume', 'transform'] as const) {
-    const fixed = apply(text, diagnostic.fixes!.find(fix => fix.label === fate)!);
+    const fixed = apply(text, diagnostic.fixes!.find(fix => fix.label === `always ${fate}`)!);
     const parsed = parseStory(fixed);
     assert(parsed.fateSites!.filter(site => site.item === 'id:part').every(site => site.fate === fate));
     assert(parsed.fateSites!.filter(site => site.item !== 'id:part').every(site => site.fate === 'preserve'));
@@ -55,16 +56,16 @@ test('fate fixes expand implied parents safely and leave quoted punctuation and 
     '  - + Heat [preserve] -> Soup',
     '- "Food + water" [consume] + Bowl [preserve] -> Served',
   ].join('\n');
-  const fix = (source: string, name: string, fate: Fate) => apply(source, warning(source, name).fixes!.find(fix => fix.label === fate)!);
+  const fix = (source: string, name: string, fate: Fate) => apply(source, warning(source, name).fixes!.find(fix => fix.label === `always ${fate}`)!);
   const first = fix(text, 'Fruit + stone', 'consume');
   assert(first.includes('  - "Fruit + stone" [consume] + Tool [preserve] -> Crushed'));
   assert(first.includes('  - "Fruit + stone" [consume] @ Bench -> Pulp'));
   assert.equal(warning(first, 'Fruit + stone'), undefined);
-  assert.deepEqual(warning(first, 'Fruit').fixes!.map(fix => fix.label), ['preserve', 'consume']);
+  assert.deepEqual(warning(first, 'Fruit').fixes!.map(fix => fix.label), ['always preserve', 'always consume']);
   const second = fix(first, 'Fruit', 'consume');
   assert(second.includes('  - `fruit` [consume] + Tool [preserve] -> Juice'));
   assert.equal(warning(second, 'Fruit'), undefined);
-  assert.deepEqual(warning(second, 'Stone').fixes!.map(fix => fix.label), ['preserve', 'transform']);
+  assert.deepEqual(warning(second, 'Stone').fixes!.map(fix => fix.label), ['always preserve', 'always transform']);
   const third = fix(second, 'Stone', 'transform');
   assert(third.includes('- Case[Part] [preserve] + Stone [transform] -> Balanced'));
   assert.equal(warning(third, 'Stone'), undefined);
@@ -82,12 +83,12 @@ test('slot-imposed fates constrain fixes without rewriting construction semantic
     '- Frame [consume] + Tool [preserve] -> Crate',
   ].join('\n');
   const component = warning(text, 'Part');
-  assert.deepEqual(component.fixes!.filter(fix => !fix.disabledReason).map(fix => fix.label), ['consume']);
-  const fixedComponent = apply(text, component.fixes!.find(fix => fix.label === 'consume')!);
+  assert.deepEqual(component.fixes!.filter(fix => !fix.disabledReason).map(fix => fix.label), ['always consume']);
+  const fixedComponent = apply(text, component.fixes!.find(fix => fix.label === 'always consume')!);
   assert.equal(warning(fixedComponent, 'Part'), undefined);
   assert(fixedComponent.includes('  - slot: Fitting, accepts Part'));
   const owner = warning(text, 'Frame');
-  assert.deepEqual(owner.fixes!.filter(fix => !fix.disabledReason).map(fix => fix.label), ['preserve']);
+  assert.deepEqual(owner.fixes!.filter(fix => !fix.disabledReason).map(fix => fix.label), ['always preserve']);
   assert.equal(warning(apply(text, owner.fixes![0]), 'Frame'), undefined);
   const bothRoles = text + '\n**Items**\n- Carrier (compound)\n  - slot: Frame, accepts Frame';
   const conflicting = warning(bothRoles, 'Frame');

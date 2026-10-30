@@ -10,7 +10,7 @@ export function chapterCheckpoints(onJump: (line: number) => void): Extension {
     toDOM() {
       const button = document.createElement('button');
       button.type = 'button'; button.className = 'editor-chapter-checkpoint';
-      button.textContent = 'Jump to checkpoint';
+      button.title = `Jump to checkpoint: ${this.heading}`;
       button.setAttribute('aria-label', `Jump to checkpoint: ${this.heading}`);
       button.addEventListener('mousedown', event => event.preventDefault());
       button.addEventListener('click', event => { event.preventDefault(); event.stopPropagation(); onJump(this.line); });
