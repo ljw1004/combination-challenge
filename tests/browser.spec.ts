@@ -56,3 +56,20 @@ test('a card covering centered goals keeps native pointer precedence',async({pag
   expect((await card.boundingBox())!.y).toBeLessThan(overlap.y-100);await expect(page.locator('dialog')).toHaveCount(0);
   await goals.click();await expect(page.getByRole('button',{name:'Restart this chapter'})).toBeVisible();
 });
+
+test('long hold reader survives release and closes on the next deliberate click',async({page})=>{
+  await openMars(page);await page.getByRole('button',{name:'Open debugging tools'}).click();
+  await page.getByRole('button',{name:'Stories',exact:true}).click();await page.locator('[data-story="elements"]').click();
+  await page.getByRole('button',{name:'Begin',exact:true}).click();
+  await page.getByRole('button',{name:'Open debugging tools'}).click();await page.locator('#chapter').selectOption('18');
+  await page.getByRole('button',{name:'Generate checkpoint'}).click();await page.getByRole('button',{name:'Begin',exact:true}).click();
+  const plant=page.locator('[data-item="name:Plant"]');await plant.scrollIntoViewIfNeeded();const box=(await plant.boundingBox())!;
+  await page.mouse.move(box.x+20,box.y+20);await page.mouse.down();await page.waitForTimeout(650);
+  await expect(page.locator('dialog')).toBeVisible();await page.mouse.up();await expect(page.locator('dialog')).toBeVisible();
+  await page.getByRole('button',{name:'Close',exact:true}).click();await expect(page.locator('dialog')).toHaveCount(0);
+});
+test('first-release partner highlights linger after the pointer leaves the card',async({page})=>{
+  await openMars(page);const radio=page.locator('[data-item="name:Broken radio"]'),cable=page.locator('[data-item="name:Cable"]');
+  await radio.click();await page.mouse.move(5,600);await expect(cable).toHaveClass(/possible/);
+  await page.waitForTimeout(450);await expect(cable).not.toHaveClass(/possible/);
+});

@@ -9,6 +9,7 @@ import { markdown, escape } from './markdown.ts';
 import { reconcile } from './reconcile.ts';
 import { saveProgress } from './persistence.ts';
 import { goalClipPath } from './goal-clearance.ts';
+import { ItemFeedback } from './item-feedback.ts';
 import { readingBody, goalPresentation, type GoalPresentation } from './presentation.ts';
 import { captureChapter, chapterEntry, restorePresentation, restoreChapterSession, isNoopMove, noteChapterAction, chapterRecovery, displayedGoals, type ChapterSession } from './chapter-session.ts';
 
@@ -52,12 +53,12 @@ function showSaveError(error:string){
   else alert?.remove();
 }
 function choose(){
-  resetGoalView();
+  cancelGesture();feedback.clear();resetGoalView();
   app.innerHTML=`<main class="chooser"><p class="eyebrow">Combination Workshop</p><h1>Make something<br>worth discovering.</h1><p>Five stories told through the things you bring together.</p><nav>${catalogue.map(({story:s})=>`<a href="#${s.id}" data-story="${s.id}"><strong>${escape(s.title)}</strong>${markdown(s.description)}</a>`).join('')}</nav></main>`;
 }
 function start(id:string){
   const entry=catalogue.find(c=>c.story.id===id);if(!entry){choose();return;}
-  resetGoalView();story=entry.story;hash=entry.hash;state=newGame(story);debugCheckpoint=false;saveError='';
+  cancelGesture();feedback.clear();resetGoalView();story=entry.story;hash=entry.hash;state=newGame(story);debugCheckpoint=false;saveError='';
   let loaded=false,session:ChapterSession|undefined;
   try{const saved=JSON.parse(localStorage.getItem(key())??'null');if(saved?.hash===hash){state=restorePresentation(story,saved.state);debugCheckpoint=!!saved.debugCheckpoint;session=restoreChapterSession(story,state,saved.chapterSession);loaded=true;}}catch{saveError='The saved run could not be restored. A fresh story is ready.';}
   document.querySelector('dialog')?.remove();
@@ -73,7 +74,7 @@ function start(id:string){
 }
 function scrollToCurrentChapter(){app.querySelector('.viewport')!.scrollTop=Math.max(0,(state.visited.length-1)*844*Math.min(1,innerWidth/390));clearGoalsAroundCards();}
 function modal(content:string,kind='ordinary'){
-  settleGoalEntrance();
+  feedback.clear();settleGoalEntrance();
   document.querySelector('dialog')?.remove();const dialog=document.createElement('dialog');dialog.className=kind;
   dialog.innerHTML=content;app.append(dialog);dialog.addEventListener('cancel',e=>{e.preventDefault();if(dialog.dataset.pending)commit({type:'dismiss'});else{dialog.remove();showPending();}});dialog.showModal();return dialog;
 }
@@ -89,7 +90,7 @@ function reopenChapter(){
 function confirmRestart(){
   modal(`<h1>Restart this story?</h1><p>This removes all progress in this story on this device, including completed chapters, discoveries and item positions. You will begin again at the first chapter. This cannot be undone. Your other stories are unchanged.</p><div class="dialog-actions"><button data-command="cancel-reset-story">Cancel</button><button class="danger" data-command="reset-story">Restart story</button></div>`);
 }
-function read(id:string){const text=readings(story,state,id).map(w=>w.markdown).join('\n\n');if(text)modal(`${readingBody(text,asset)}<button data-command="close">Close</button>`);}
+function read(id:string){const text=readings(story,state,id).map(w=>w.markdown).join('\n\n');if(!text)return false;modal(`${readingBody(text,asset)}<button data-command="close">Close</button>`);return true;}
 function debug(){modal(`<div class="debug-heading"><h1>${escape(story.title)}</h1><button data-command="close" aria-label="Close">×</button></div>${debugCheckpoint?'<p class="debug-marker">Generated checkpoint · historical replay, not fresh play</p>':''}<label for="chapter">Replay to chapter</label><select id="chapter">${story.chapters.map((c,i)=>`<option value="${i}" ${i===state.chapter?'selected':''}>${i+1}. ${escape(c.name)}</option>`).join('')}</select><p><button data-command="checkpoint">Generate checkpoint</button></p><div class="debug-actions"><button data-command="undo">Undo</button><button data-command="confirm-reset-story">Restart story</button><button data-command="export">Export save</button><button data-command="menu">Stories</button></div><details><summary>Developer recipe inspector</summary><p>These result names are not shown during discovery play.</p><ul>${story.recipes.map(r=>`<li>${escape(name(r.a.ref.id))}${r.b?' + '+escape(name(r.b.ref.id)):''}${r.hotspot?' @ '+escape(name(r.hotspot)):''} → ${escape(name(r.result.id))}</li>`).join('')}</ul></details>${saveError?`<p role="alert">${escape(saveError)}</p>`:''}`);}
 function commit(action:Action){try{
   if(isNoopMove(state,action)){render();return;}
@@ -148,12 +149,15 @@ function render(arrival=false,finish=true){
 function highlight(id:string){clearHighlights();tile(id)?.classList.add('pressed');for(const action of legalActions(story,state).filter(a=>a.a===id)){if(action.b)tile(action.b)?.classList.add('possible');else if(action.hotspot)app.querySelectorAll<HTMLElement>('[data-hotspot]').forEach(h=>{if(h.dataset.hotspot===action.hotspot)h.classList.add('possible');});}for(const g of visibleGoals(story,state))for(const c of g.conditions)if(c.item.id===id&&c.hotspot)app.querySelectorAll<HTMLElement>('[data-hotspot]').forEach(h=>{if(h.dataset.hotspot===c.hotspot)h.classList.add('possible');});}
 function clearHighlights(){app.querySelectorAll('.pressed,.possible,.will-create,.will-place').forEach(el=>el.classList.remove('pressed','possible','will-create','will-place'));}
 let drag:{id:string;pointer:number;el:HTMLElement;startX:number;startY:number;x:number;y:number;moved:boolean;timer:ReturnType<typeof setTimeout>;read:boolean}|undefined;
-let lastTap={id:'',at:0};
+const feedback=new ItemFeedback(highlight,clearHighlights);
+let suppressReleaseClick=false;
+// Only the next physical press, not the release that opened a reader, can act on it.
+document.addEventListener('pointerdown',()=>{suppressReleaseClick=false;},true);
 function dropTarget(x:number,y:number){return document.elementsFromPoint(x,y).map(e=>e.closest<HTMLElement>('[data-item],[data-hotspot]')).find(e=>e&&e.dataset.item!==drag?.id);}
 app.addEventListener('pointerdown',e=>{
-  const el=(e.target as Element).closest<HTMLElement>('[data-item]');if(!el||document.querySelector('dialog')||e.button!==0)return;
-  e.preventDefault();const id=el.dataset.item!,t=state.tokens[id];highlight(id);el.setPointerCapture(e.pointerId);
-  const timer=setTimeout(()=>{if(drag&&!drag.moved){drag.read=true;read(id);clearHighlights();}},550);
+  const el=(e.target as Element).closest<HTMLElement>('[data-item]');if(!el||drag||document.querySelector('dialog')||e.button!==0)return;
+  e.preventDefault();const id=el.dataset.item!,t=state.tokens[id];feedback.begin(id);el.setPointerCapture(e.pointerId);
+  const timer=setTimeout(()=>{if(drag&&!drag.moved){const d=drag;if(!readings(story,state,id).length)return;d.read=true;suppressReleaseClick=true;read(id);}},550);
   drag={id,pointer:e.pointerId,el,startX:e.clientX,startY:e.clientY,x:t.x,y:t.y,moved:false,timer,read:false};
 });
 document.addEventListener('pointermove',e=>{
@@ -165,25 +169,32 @@ document.addEventListener('pointermove',e=>{
   if(target&&(action||target.dataset.hotspot))target.classList.add(action?'will-create':'will-place');
   const viewport=app.querySelector('.viewport');if(viewport){if(e.clientY<55)viewport.scrollTop-=12;else if(e.clientY>innerHeight-55)viewport.scrollTop+=12;}
 });
+function restoreGestureTile(d:NonNullable<typeof drag>){
+  d.el.classList.remove('dragging');app.classList.remove('is-dragging');
+  const token=state.tokens[d.id];if(token){d.el.style.left=`${token.x}px`;d.el.style.top=`${token.y}px`;}
+  clearGoalsAroundCards();
+}
 function endDrag(e:PointerEvent,cancel=false){
-  if(!drag||drag.pointer!==e.pointerId)return;const d=drag;clearTimeout(d.timer);const target=dropTarget(e.clientX,e.clientY);drag=undefined;d.el.classList.remove('dragging');app.classList.remove('is-dragging');clearHighlights();
-  if(cancel||d.read){render();return;}
-  if(!d.moved){if(lastTap.id===d.id&&Date.now()-lastTap.at<400){read(d.id);lastTap={id:'',at:0};}else lastTap={id:d.id,at:Date.now()};return;}
+  if(!drag||drag.pointer!==e.pointerId)return;const d=drag;clearTimeout(d.timer);const target=dropTarget(e.clientX,e.clientY);drag=undefined;restoreGestureTile(d);
+  if(cancel||d.read){feedback.clear();return;}
+  if(!d.moved){if(feedback.release(d.id,true)){suppressReleaseClick=true;read(d.id);}return;}
   const action=legalActions(story,state).find(a=>a.a===d.id&&(target?.dataset.item?a.b===target.dataset.item:!a.b&&a.hotspot===target?.dataset.hotspot));
-  if(action){commit(target?.dataset.hotspot?{...action,chapter:Number(target.closest<HTMLElement>('[data-chapter]')!.dataset.chapter)}:action);return;}
-  if(target?.dataset.item){render();return;}
-  const scale=Math.min(1,innerWidth/390),world=app.querySelector('.world')!.getBoundingClientRect(),position=Math.floor((e.clientY-world.top)/(844*scale)),chapter=state.visited[Math.max(0,Math.min(state.visited.length-1,position))];
-  const rect=panel(chapter)!.getBoundingClientRect();commit({type:'move',item:d.id,chapter,x:(e.clientX-rect.left)/scale-56,y:(e.clientY-rect.top)/scale-22,...(target?.dataset.hotspot?{hotspot:target.dataset.hotspot}:{})});
+  if(action)commit(target?.dataset.hotspot?{...action,chapter:Number(target.closest<HTMLElement>('[data-chapter]')!.dataset.chapter)}:action);
+  else if(!target?.dataset.item){
+    const scale=Math.min(1,innerWidth/390),world=app.querySelector('.world')!.getBoundingClientRect(),position=Math.floor((e.clientY-world.top)/(844*scale)),chapter=state.visited[Math.max(0,Math.min(state.visited.length-1,position))];
+    const rect=panel(chapter)!.getBoundingClientRect();commit({type:'move',item:d.id,chapter,x:(e.clientX-rect.left)/scale-56,y:(e.clientY-rect.top)/scale-22,...(target?.dataset.hotspot?{hotspot:target.dataset.hotspot}:{})});
+  }
+  if(!document.querySelector('dialog')&&state.tokens[d.id]?.status==='available')feedback.release(d.id,false);else feedback.clear();
 }
 document.addEventListener('pointerup',e=>endDrag(e));document.addEventListener('pointercancel',e=>endDrag(e,true));
-function cancelGesture(){if(!drag)return;clearTimeout(drag.timer);drag=undefined;app.classList.remove('is-dragging');clearHighlights();render();}
-window.addEventListener('blur',cancelGesture);
-app.addEventListener('lostpointercapture',()=>{if(drag)cancelGesture();});
+function cancelGesture(){if(!drag)return;const d=drag;clearTimeout(d.timer);drag=undefined;restoreGestureTile(d);feedback.clear();}
+window.addEventListener('blur',()=>{cancelGesture();feedback.clear();});
+app.addEventListener('lostpointercapture',e=>{if(drag?.pointer===(e as PointerEvent).pointerId)cancelGesture();});
 app.addEventListener('dragstart',e=>e.preventDefault());
-app.addEventListener('pointerover',e=>{if(e.pointerType==='mouse'&&!drag){const el=(e.target as Element).closest<HTMLElement>('[data-item]');if(el&&!document.querySelector('dialog'))highlight(el.dataset.item!);}});
-app.addEventListener('pointerout',()=>{if(!drag)clearHighlights();});
-app.addEventListener('dblclick',e=>{const el=(e.target as Element).closest<HTMLElement>('[data-item]');if(el)read(el.dataset.item!);});
+app.addEventListener('pointerover',e=>{if(e.pointerType==='mouse'&&!drag){const el=(e.target as Element).closest<HTMLElement>('[data-item]');if(el&&!document.querySelector('dialog'))feedback.hover(el.dataset.item!);}});
+app.addEventListener('pointerout',()=>{if(!drag)feedback.hover();});
 app.addEventListener('click',e=>{
+  if(suppressReleaseClick&&e.detail>0){suppressReleaseClick=false;e.preventDefault();return;}
   const target=(e.target as Element).closest<HTMLElement>('[data-command],[data-story]');if(!target)return;
   if(target.dataset.story){e.preventDefault();location.hash=target.dataset.story;start(target.dataset.story);return;}
   const command=target.dataset.command;
@@ -201,6 +212,6 @@ app.addEventListener('click',e=>{
   else if(command==='undo'){let i=state.actions.length-1;while(i>=0&&state.actions[i].type==='dismiss')i--;if(i>=0){const seen=state.seen,previous=state.chapter;state=i>=chapterSession.entry.actions.length?state.actions.slice(chapterSession.entry.actions.length,i).reduce((s,a)=>act(story,s,a),structuredClone(chapterSession.entry)):replay(story,state.actions.slice(0,i));state.seen=[...new Set([...state.seen,...seen])];state.pending=state.pending.filter(n=>!state.seen.includes(n.key));document.querySelector('dialog')?.remove();if(previous!==state.chapter){const current=state;state=chapterEntry(story,current);render(true,false);chapterSession=captureChapter(state);chapterSession.changed=current.actions.slice(state.actions.length).some(a=>a.type==='move'||a.type==='combine');state=current;}save();render();}}
   else if(command==='export'){const url=URL.createObjectURL(new Blob([JSON.stringify({hash,state,debugCheckpoint,chapterSession},null,2)],{type:'application/json'}));const a=document.createElement('a');a.href=url;a.download=`${story.id}-save.json`;a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);}
 });
-window.addEventListener('resize',()=>{if(drag)cancelGesture();else if(state&&!document.querySelector('.chooser')&&!document.querySelector('dialog'))render();});
+window.addEventListener('resize',()=>{cancelGesture();if(state&&!document.querySelector('.chooser')&&!document.querySelector('dialog'))render();});
 window.addEventListener('hashchange',()=>{const id=location.hash.slice(1);if(id&&story?.id!==id)start(id);else if(!id)choose();});
 if(location.hash)start(location.hash.slice(1));else choose();
