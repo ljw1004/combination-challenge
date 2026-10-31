@@ -5,10 +5,11 @@ This document owns implementation boundaries, technical constraints and testing 
 ## Boundaries
 
 - Use one parser/model and one deterministic game core for the browser, linter, checkpoint planner and logical runner. Do not copy transition logic into individual clients.
-- Story semantics stay in `src/engine/`; browser code owns geometry, pointer handling, dialogs and local storage.
+- Story semantics stay in `src/engine/`; browser code owns geometry, pointer handling, dialogs and local storage. The engine retains finite move coordinates exactly; the browser constrains drops and new creations using measured tile bounds, rather than fixed text-card limits.
 - Parsing preserves file/line provenance, section headings, declarations, qualifiers and explicit/default fate distinctions. Every diagnostic and related location has a UTF-16 text span into the original buffer, including CRLF offsets, as well as readable source locations. Related locations include explanatory messages, not just addresses.
 - Node-only story discovery and file I/O live outside browser modules. The browser fetches ordinary Markdown and artwork files; Vite bundles application code and generates catalogue metadata. See the [loading routes](../README.md#run-the-game).
 - Ordinary saves are versioned action histories bound to a story fingerprint. Replay reconstructs logical state; browser positions are presentation metadata. Edited previews need the separate snapshot boundary described below because changed rules cannot replay the old history faithfully.
+- New-result placement uses the engine's computed receiver status after retention checks. Capture the receiving tile's rectangle before rendering removes it; then use measured result dimensions to centre a replacement or find adjacent space. Compound fitting updates the existing owner without applying new-result placement.
 - Logical observations expose only normal player information. Keep developer recipes and checkpoint routes out of fresh-player observations; the [README protocol](../README.md#logical-playtesting) defines the runner's interface.
 - Apply the [archive policy](../archive/README.md) when consulting historical implementations.
 
@@ -35,6 +36,8 @@ The story cover is a presentation gate, not an engine action. Unstarted covers d
 Implement the interaction contract in [UX](ux.md). Preserve connected image and scene DOM nodes rather than replacing the world after each move; do not rewrite unchanged image URLs. Suppress native HTML drag, own pointer timers and capture through completion, cancellation, focus loss and resize, and measure long labels as well as simple physical-item names. Test real pointer events, and distinguish browser touch emulation from a native-device test.
 
 The encyclopedia book renderer is separate from standalone readings. Preserve its dialog and index DOM while selecting details; page visibility must update inertness and accessibility state along with the visual slide at every viewport width. Page-local headings and controls move within the same track as the index and reading, with the central fold separating them. Live text refresh must not commit a new interaction anchor or steal editor focus.
+
+Partner hints combine strict legal actions with useful preparatory placements from the engine. Preparatory placements set an unsatisfied hotspot prerequisite of an unfinished recipe or goal; the shared planning closure checks whether missing ingredients/fittings can coexist on a remaining branch without requiring unrelated goals to be complete. Result eligibility is shared with recipe matching. The browser projects these useful drags into reciprocal hover hints and outgoing drag targets; it does not interpret recipes independently. Actual combinations retain strict ingredient, fitting and placement checks.
 
 Keep script/test source boundaries explicit so archived snapshots cannot accidentally enter the active build.
 

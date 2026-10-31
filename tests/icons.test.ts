@@ -117,3 +117,88 @@ test('CLI artwork lint checks item and slot icon files relative to the manuscrip
     assert.deepEqual(diagnostics, []);
   } finally { rmSync(folder, {recursive: true, force: true}); }
 });
+
+test('hotspot artwork retains coordinates and contextual recipes without introducing item icons', () => {
+  const text = manuscript(`**Goals**
+- Shape it -- Bowl
+**Hotspots**
+- Kiln yard (at 78%, 65%)
+  - icon: ![yard](yard.png)
+  - Clay [transform] + Fire [preserve] -> Bowl
+> NOTE: Hotspot centre is on the right firing ground.
+**Items**
+- Clay
+- Fire
+## Return
+![yard](https://example.com/yard.webp)
+**Hotspots**
+- Kiln yard (at 78%, 65%)
+  - icon: ![same yard](yard.png)
+  - icon: ![conflicting](other.png)
+`);
+  const story = parseStory(text), hotspot = story.hotspots['name:Kiln yard'];
+  assert.deepEqual(Object.keys(story.items).sort(), ['name:Bowl', 'name:Clay', 'name:Fire']);
+  assert.equal(hotspot.x, .78); assert.equal(hotspot.y, .65);
+  assert.equal(hotspot.icon?.url, 'yard.png');
+  assert.equal(story.recipes.length, 1);
+  assert.equal(story.recipes[0].hotspot, hotspot.id);
+  assert.deepEqual(iconErrors(text).map(d => d.code), ['conflicting-icon']);
+  assert.deepEqual(Object.keys(newGame(story).tokens).sort(), ['name:Clay', 'name:Fire']);
+  const missing = lintStoryImages(story, text).filter(d => d.code === 'missing-image');
+  assert(missing.length > 0);
+  assert(missing.every(d => text.slice(d.span.from, d.span.to) === 'yard.png'));
+});
+
+test('primitive icon centres accept either marker order and preserve authoritative metadata', () => {
+  const text = manuscript(`**Items**
+- Air
+  - icon: ![air](air.png) (at 70%, 80%) (circular)
+  - icon: ![same](air.png) (circular) (at 70%, 80%)
+- House (compound)
+  - icon: ![house](house.png) (at 20.5%, 30%)
+  - unnamed slot: accepts Window, icon: ![fitted](fitted.png)
+- Window
+  - icon: ![window](window.png)
+`).replaceAll('\n', '\r\n');
+  const story = parseStory(text), icon = story.items['name:Air'].icon!;
+  assert.deepEqual(icon.position, {x:.7,y:.8}); assert.equal(icon.circular,true);
+  assert.equal(text.slice(icon.source.span!.from,icon.source.span!.to),'icon: ![air](air.png) (at 70%, 80%) (circular)');
+  assert.deepEqual(iconErrors(text),[], 'implicit installation does not make a compound derived');
+  const conflict=text.replace('![same](air.png) (circular) (at 70%, 80%)','![same](air.png) (at 71%, 80%) (circular)');
+  assert.deepEqual(iconErrors(conflict).map(d=>d.code),['conflicting-icon']);
+  assert.deepEqual(parseStory(conflict).items['name:Air'].icon?.position,{x:.7,y:.8});
+});
+
+test('icon starting positions reject derived identities even when their producer appears later', () => {
+  const text=manuscript(`**Items**
+- Steam
+  - icon: ![steam](steam.png) (at 70%, 80%)
+- Water
+  - icon: ![water](water.png)
+- Fire
+  - icon: ![fire](fire.png)
+## Later
+![place](https://example.com/room.webp)
+**Combinations**
+- Water [preserve] + Fire [preserve] -> Steam
+`);
+  const errors=iconErrors(text);
+  assert.deepEqual(errors.map(d=>d.code),['derived-icon-position']);
+  assert(text.slice(errors[0].span.from,errors[0].span.to).startsWith('icon: ![steam]'));
+});
+
+test('icon start coordinates validate ranges, duplicate markers and placement context', () => {
+  for(const suffix of ['(at -1%, 20%)','(at 20%, 101%)'])assert.deepEqual(iconErrors(manuscript(`**Items**\n- Air\n  - icon: ![air](air.png) ${suffix}`)).map(d=>d.code),['icon-position']);
+  for(const suffix of ['(at 20, 30%)','(at NaN%, 20%)','(circular) (circular)','(at 20%, 30%) (at 20%, 30%)','(square)'])assert(iconErrors(manuscript(`**Items**\n- Air\n  - icon: ![air](air.png) ${suffix}`)).some(d=>d.code==='icon-syntax'));
+  const text=manuscript(`**Hotspots**
+- Shore (at 70%, 80%)
+  - icon: ![shore](shore.png) (at 20%, 30%)
+**Items**
+- House (compound)
+  - icon: ![house](house.png)
+  - unnamed slot: accepts Window, icon: ![fitted](fitted.png) (at 20%, 30%)
+- Window
+  - icon: ![window](window.png)
+`);
+  assert.deepEqual(iconErrors(text).map(d=>d.code),['icon-position','icon-position']);
+});

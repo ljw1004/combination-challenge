@@ -1,6 +1,6 @@
 # Combination Workshop
 
-Five combination stories and seven short icon-comparison stories, authored in Markdown. The browser game, story linter, checkpoint generator and logical AI playtester share one parser and game engine. The project has three commitments: combination, enjoyable interactive play and an empirical loop that can reject weak ideas.
+Five combination stories, an illustrated Elements edition and seven short icon-comparison stories, authored in Markdown. The browser game, story linter, checkpoint generator and logical AI playtester share one parser and game engine. The project has three commitments: combination, enjoyable interactive play and an empirical loop that can reject weak ideas.
 
 ## Run the game
 
@@ -14,6 +14,8 @@ npm run dev
 Open the local address printed by Vite. Drag things together; compatible partners are highlighted without revealing the future result. Goals sit at the bottom and become the next-chapter arrow when complete. Reopen the chapter text through its goals for the applicable recovery action; automatic chapter introductions have only **Begin**. The discreet bug icon toggles the debug pane for live story editing and checkpoint jumps. See [UX](docs/ux.md) for the interaction and recovery rules.
 
 The catalogue includes seven versions of **The maker's clearing** for trying icon styles. Start with `/combinations.html?story=icon-test-woodcut-color`; the [icon study](docs/icon-study/README.md) links every style and records its artwork, prompts and recognition reviews.
+
+**Elements - Icons** is the complete rustic coloured-woodcut edition: `/combinations.html?story=elements-icons`. The [illustrated edition notes](docs/elements-icons/README.md) cover its artwork and continuity; the [local review gallery](docs/elements-icons/index.html) contains all 31 chapter screenshots and the complete icon set.
 
 The player fetches Markdown as an ordinary file. These routes work in development and the production build:
 

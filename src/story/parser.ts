@@ -166,13 +166,30 @@ export function parseStory(markdown: string, options: { id?: string; file?: stri
     if (qualified) markdown = markdown.slice(qualified[0].length);
     if (!item.wonders.some(w => w.markdown === markdown && JSON.stringify(w.requires) === JSON.stringify(requires))) item.wonders.push({ markdown, requires, source: source(line) });
   }
-  function icon(raw: string, line: number): Icon | undefined {
-    const match = /^icon:\s*!\[[^\]]*\]\(([^)]+)\)(?:\s+(\(circular\)))?\s*$/.exec(raw);
+  function icon(raw: string, line: number, itemPosition = false): Icon | undefined {
+    const match = /^icon:\s*!\[[^\]]*\]\(([^)]+)\)(.*)$/.exec(raw);
+    const invalid = () => error('icon-syntax', 'Use icon: ![icon](path), optionally followed by (circular) and (at 70%, 80%) in either order, each at most once.', line, raw);
     if (!match || !match[1].trim()) {
-      error('icon-syntax', 'Use icon: ![icon](path), optionally followed by (circular).', line, raw);
+      invalid();
       return;
     }
-    return {url: match[1].trim(), circular: !!match[2], source: source(line, raw)};
+    let tail = match[2].trim(), circular = false, position: Icon['position'];
+    while (tail) {
+      const marker = /^(\(circular\)|\(at (-?\d+(?:\.\d+)?)%,\s*(-?\d+(?:\.\d+)?)%\))/.exec(tail);
+      if (!marker || (marker[1] === '(circular)' ? circular : position !== undefined)) { invalid(); return; }
+      if (marker[1] === '(circular)') circular = true;
+      else position = {x: +marker[2] / 100, y: +marker[3] / 100};
+      tail = tail.slice(marker[0].length).trim();
+    }
+    if (position && !itemPosition) error('icon-position', 'Starting coordinates belong only to primitive item icons; hotspot centres belong on the hotspot declaration and slot overlays align with their owner.', line, raw);
+    return {url: match[1].trim(), circular, ...(position ? {position} : {}), source: source(line, raw)};
+  }
+  function assignIcon(target: {name: string; icon?: Icon}, node: Bullet, itemPosition = false) {
+    const value = icon(node.text, node.line, itemPosition);
+    if (node.children.length || node.prose.some(text => text.trim())) error('icon-syntax', 'An icon declaration contains only its image and optional markers.', node.line, node.text);
+    if (!value) return;
+    if (target.icon && (target.icon.url !== value.url || target.icon.circular !== value.circular || target.icon.position?.x !== value.position?.x || target.icon.position?.y !== value.position?.y)) error('conflicting-icon', `${target.name} already has a different icon; the first declaration is used.`, node.line, node.text);
+    else target.icon ??= value;
   }
   function itemNode(node: Bullet, parent?: Ref, at?: string, topLevelItem = false): Ref | undefined {
     if (/^icon\s*:/.test(node.text)) {
@@ -189,12 +206,7 @@ export function parseStory(markdown: string, options: { id?: string; file?: stri
           error('icon-placement', 'An item icon belongs directly beneath a top-level Items declaration.', child.line, child.text);
           continue;
         }
-        const value = icon(child.text, child.line);
-        if (child.children.length || child.prose.some(text => text.trim())) error('icon-syntax', 'An icon declaration contains only its image and optional (circular) marker.', child.line, child.text);
-        if (value) {
-          if (item.icon && (item.icon.url !== value.url || item.icon.circular !== value.circular)) error('conflicting-icon', `${item.name} already has a different icon; the first declaration is used.`, child.line, child.text);
-          else item.icon ??= value;
-        }
+        assignIcon(item, child, true);
         continue;
       }
       const slot = /^(?:slot:\s*(.+?),\s*|unnamed slot:\s*)accepts\s+(.+)$/.exec(child.text);
@@ -261,7 +273,13 @@ export function parseStory(markdown: string, options: { id?: string; file?: stri
     }
     if (goalOps.size > 1) error('mixed-goals', 'Do not mix conjunction and disjunction between goal chains.', block.heading.line);
     if (goalOps.has('or')) chapter.goalOperator = 'or';
-    for (const node of bullets(sections.get('Hotspots') ?? [])) { const h = ref(node.text, node.line, 'hotspot'); chapter.hotspots.push(h.id); for (const child of node.children) itemNode(child, undefined, h.id); }
+    for (const node of bullets(sections.get('Hotspots') ?? [])) {
+      const h = ref(node.text, node.line, 'hotspot'); chapter.hotspots.push(h.id);
+      for (const child of node.children) {
+        if (/^icon\s*:/.test(child.text)) assignIcon(story.hotspots[h.id], child);
+        else itemNode(child, undefined, h.id);
+      }
+    }
     for (const node of bullets(sections.get('Items') ?? [])) { const result = itemNode(node, undefined, undefined, true); if (result) chapter.items.push(result); }
     for (const node of bullets(sections.get('Combinations') ?? [])) itemNode(node);
     story.chapters.push(chapter);

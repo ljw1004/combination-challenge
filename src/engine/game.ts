@@ -39,7 +39,7 @@ function enter(story: Story, state: State, start: number) {
     old.forEach(token => {
       token.chapter = i;
       if (!inherited || !activeHotspots(story, i).includes(token.hotspot ?? '')) delete token.hotspot;
-      // The browser translates the carried arrangement using measured card sizes.
+      // Preserve coordinates; the browser only makes room when new supplies need it.
     });
     const primitives = indexStory(story).primitives;
     for (const id of needed) if (!state.tokens[id] && primitives.has(id) && !state.excluded.includes(id)) {
@@ -60,6 +60,19 @@ export function newGame(story: Story): State {
   enter(story,state,0); return state;
 }
 export function availableTokens(state: State): Token[] { return Object.values(state.tokens).filter(t => t.status === 'available'); }
+/** Result eligibility is shared by executable recipes and preparatory placement hints. */
+export function canCreateResult(story:Story,state:State,recipe:Recipe,source?:Token):boolean {
+  if(state.completed || state.excluded.includes(recipe.result.id))return false;
+  if(recipe.installation){
+    if(state.tokens[recipe.result.id]?.slots.includes(recipe.installation))return false;
+  }else if(state.tokens[recipe.result.id] || Object.values(state.tokens).some(token=>token.slots.includes(recipe.result.id)))return false;
+  const excluded=story.items[recipe.result.id]?.exclusiveWith;
+  if(excluded){
+    const candidate:State={...state,tokens:{...state.tokens,[recipe.result.id]:{chapter:state.chapter,x:0,y:0,...source,id:recipe.result.id,status:'available',slots:recipe.result.slots}},excluded:[...state.excluded,excluded],achieved:[...state.achieved]};
+    latch(story,candidate);if(!continuationPossible(story,candidate))return false;
+  }
+  return true;
+}
 export function recipeFor(story: Story, state: State, action: Extract<Action,{type:'combine'}>): Recipe | undefined {
   if (action.a === action.b || state.completed) return;
   if (action.hotspot && !state.visited.some(i => activeHotspots(story,i).includes(action.hotspot!))) return;
@@ -73,11 +86,7 @@ export function recipeFor(story: Story, state: State, action: Extract<Action,{ty
     if (!forward && !reverse) continue;
     if (r.hotspot !== action.hotspot) continue;
     if (r.hotspot && b && b.hotspot !== r.hotspot) continue;
-    if (r.installation) {
-      const owner = state.tokens[r.result.id]; if (owner?.slots.includes(r.installation)) continue;
-    } else if (state.tokens[r.result.id] || Object.values(state.tokens).some(t => t.slots.includes(r.result.id))) continue;
-    const excluded=story.items[r.result.id]?.exclusiveWith;
-    if(excluded){const candidate={...state,tokens:{...state.tokens,[r.result.id]:{...a,id:r.result.id,slots:r.result.slots}},excluded:[...state.excluded,excluded],achieved:[...state.achieved]};latch(story,candidate);if(!continuationPossible(story,candidate))continue;}
+    if(!canCreateResult(story,state,r,a))continue;
     return r;
   }
 }
@@ -112,7 +121,8 @@ export function act(story: Story, original: State, action: Action, retirementChe
     if (!state.visited.includes(action.chapter)) throw new Error('That chapter has not been visited.');
     if (![action.x,action.y].every(Number.isFinite)) throw new Error('Position must be finite.');
     if (action.hotspot && !activeHotspots(story,action.chapter).includes(action.hotspot)) throw new Error('That hotspot is not in this chapter.');
-    token.chapter = action.chapter; token.x = Math.max(0,Math.min(230,action.x)); token.y = Math.max(0,Math.min(770,action.y));
+    // Clients own measured board bounds; the shared engine retains finite placements exactly.
+    token.chapter = action.chapter; token.x = action.x; token.y = action.y;
     if (action.hotspot) token.hotspot = action.hotspot; else delete token.hotspot;
     if (state.newItems.includes(token.id)) { state.newItems = state.newItems.filter(id => id !== token.id); state.arrivalDivider=false; }
     latch(story,state);
@@ -124,7 +134,7 @@ export function act(story: Story, original: State, action: Action, retirementChe
     else {
       const destination=action.hotspot&&!action.b?(action.chapter??[...state.visited].reverse().find(i=>activeHotspots(story,i).includes(action.hotspot!))!):receiver.chapter;
       const hotspot=action.hotspot&&!action.b?story.hotspots[action.hotspot]:undefined,index=hotspot?activeHotspots(story,destination).indexOf(hotspot.id):0;
-      state.tokens[recipe.result.id] = { id:recipe.result.id, firstSeen:nextEncounter(state), status:'available', slots:[...recipe.result.slots], chapter:destination, x:hotspot?(hotspot.x??(.19+(index%3)*.31))*390-56:Math.min(225,receiver.x+12), y:hotspot?(hotspot.y??(.70+Math.floor(index/3)*.13))*844-22:Math.min(730,receiver.y+42), ...(hotspot ? { hotspot:hotspot.id } : {}) };
+      state.tokens[recipe.result.id] = { id:recipe.result.id, firstSeen:nextEncounter(state), status:'available', slots:[...recipe.result.slots], chapter:destination, x:hotspot?(hotspot.x??(.19+(index%3)*.31))*390-56:receiver.x+12, y:hotspot?(hotspot.y??(.70+Math.floor(index/3)*.13))*844-22:receiver.y+42, ...(hotspot ? { hotspot:hotspot.id } : {}) };
     }
     const excluded = story.items[recipe.result.id]?.exclusiveWith;
     if (excluded && !state.excluded.includes(excluded)) state.excluded.push(excluded);
@@ -137,7 +147,13 @@ export function act(story: Story, original: State, action: Action, retirementChe
     if (!retiring) throw new Error('This action would remove every continuation through the remaining story.');
     for (const input of retiring) {
       const token = state.tokens[input.ref.id]; token.status = recipe.installation ? 'installed' : input.fate as 'consume' | 'transform';
-      if (input.fate === 'transform' && !recipe.installation && !recipe.hotspot) { const result = state.tokens[recipe.result.id]; result.x = token.x; result.y = token.y; result.chapter = token.chapter; if (token.hotspot) result.hotspot = token.hotspot; }
+    }
+    // Placement follows the actual receiver and its computed disposition, not recipe order.
+    // The browser centres the replacement using measured tile sizes.
+    if(action.b && !recipe.installation && receiver.status!=='available'){
+      const result=state.tokens[recipe.result.id];
+      result.x=receiver.x;result.y=receiver.y;result.chapter=receiver.chapter;
+      if(receiver.hotspot)result.hotspot=receiver.hotspot;
     }
     state.newItems = state.newItems.filter(id => ![action.a,action.b].includes(id));
     queueWonders(story,state,recipe.result.id); latch(story,state);

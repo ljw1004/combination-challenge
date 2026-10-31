@@ -1,4 +1,4 @@
-import type {Item, Story} from '../story/types.ts';
+import type {Hotspot, Icon, Item, Story} from '../story/types.ts';
 import {escape} from './markdown.ts';
 
 interface Artwork { width: number; height: number; failed: boolean; complete: boolean; ready: Promise<void> }
@@ -8,9 +8,24 @@ export class ItemArtwork {
   private images = new Map<string, Artwork>();
 
   prepare(story: Story, asset: (path: string) => string): Promise<void> | undefined {
-    const urls = new Set(Object.values(story.items).flatMap(item => [item.icon, ...item.slots.map(slot => slot.icon)].flatMap(icon => icon ? [asset(icon.url)] : [])));
+    const icons = [...Object.values(story.items).flatMap(item => [item.icon, ...item.slots.map(slot => slot.icon)]), ...Object.values(story.hotspots).map(hotspot => hotspot.icon)];
+    const urls = new Set(icons.flatMap(icon => icon ? [asset(icon.url)] : []));
     const pending = [...urls].flatMap(url => { const entry = this.images.get(url); return entry?.complete ? [] : [entry?.ready ?? this.load(url)]; });
     return pending.length ? Promise.all(pending).then(() => {}) : undefined;
+  }
+
+  private size(icon: Icon, asset: (path: string) => string) {
+    const base = this.images.get(asset(icon.url)), fit = Math.min(1, 1448 / (base?.width ?? 224));
+    return `--icon-width:${(base?.width ?? 224) / 4 * fit}px;--icon-height:${(base?.height ?? 224) / 4 * fit}px;`;
+  }
+
+  hotspot(hotspot: Hotspot, asset: (path: string) => string) {
+    const icon = hotspot.icon;
+    if (!icon || this.images.get(asset(icon.url))?.failed) return {className: '', style: '', html: escape(hotspot.name)};
+    return {
+      className: `hotspot-icon${icon.circular ? ' hotspot-circular' : ''}`, style: this.size(icon, asset),
+      html: `<span class="icon-stack" aria-hidden="true"><img class="hotspot-art" src="${escape(asset(icon.url))}" alt="" draggable="false"></span><span class="icon-name" aria-hidden="true">${escape(hotspot.name)}</span>`,
+    };
   }
 
   private load(url: string): Promise<void> {
@@ -39,10 +54,9 @@ export class ItemArtwork {
       icon: false, className: 'text-thing', style: '',
       html: `<span class="item-label">${escape(name(item.id))}</span>${item.slots.map(slot => `<span class="slot ${filled.includes(slot.accepts) ? 'filled' : ''}">${escape(filled.includes(slot.accepts) ? name(slot.accepts) : slot.name ?? '\u00a0')}</span>`).join('')}`,
     };
-    const fit = Math.min(1, 1448 / (base?.width ?? 224)), width = (base?.width ?? 224) / 4 * fit, height = (base?.height ?? 224) / 4 * fit;
     return {
       icon: true, className: `icon-thing${icon.circular ? ' icon-circular' : ''}`,
-      style: `--icon-width:${width}px;--icon-height:${height}px;`,
+      style: this.size(icon, asset),
       html: `<span class="icon-stack" aria-hidden="true"><img class="item-icon" src="${escape(asset(icon.url))}" alt="" draggable="false">${fitted.map(slot => `<img class="slot-icon" data-icon-slot="${escape(slot.accepts)}" src="${escape(asset(slot.icon!.url))}" alt="" draggable="false">`).join('')}</span><span class="item-label icon-name" aria-hidden="true">${escape(name(item.id))}</span>`,
     };
   }

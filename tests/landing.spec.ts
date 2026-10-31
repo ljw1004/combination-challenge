@@ -153,5 +153,5 @@ test('an explicit debug checkpoint bypasses Start even for chapter one', async (
   await expect(page.getByRole('button', { name: 'Start', exact: true })).toHaveCount(0);
   await expect(page.getByRole('button', { name: 'Begin', exact: true })).toBeVisible();
   await expect(page.locator('[data-item="name:Frame"]')).toHaveCount(1);
-  await expect(page.getByText('Generated checkpoint', { exact: true })).toBeVisible();
+  await expect(page.getByText('Generated checkpoint', { exact: true })).toHaveCount(0);
 });

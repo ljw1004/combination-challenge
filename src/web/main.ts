@@ -3,8 +3,8 @@ import './workspace.css';
 import './item-artwork.css';
 import { parseStory } from '../story/parser.ts';
 import type { Story } from '../story/types.ts';
-import { newGame, act, availableTokens, label, legalActions, chapterComplete, visibleGoals, readings, matches } from '../engine/game.ts';
-import { activeHotspots, background } from '../engine/analysis.ts';
+import { newGame, act, availableTokens, label, legalActions, chapterComplete, readings, matches } from '../engine/game.ts';
+import { activeHotspots, background, indexStory } from '../engine/analysis.ts';
 import type { State, Action } from '../engine/types.ts';
 import { checkpoint } from '../debug/checkpoint.ts';
 import { LiveDiagnostics } from './live-diagnostics.ts';
@@ -23,6 +23,8 @@ import { MobileDebug } from './mobile-debug.ts';
 import { recoverPreviewStory, reconcileLiveStory, restoreLiveState } from './live-story.ts';
 import { ItemArtwork } from './item-artwork.ts';
 import { iconArrival } from './icon-layout.ts';
+import { fitOnBoard, placeCreation } from './board-geometry.ts';
+import { partnerHints } from './partner-hints.ts';
 
 const app = document.querySelector<HTMLDivElement>('#app')!;
 const workspace = document.querySelector<HTMLElement>('#workspace')!;
@@ -30,7 +32,7 @@ const surface = document.createElement('div'); surface.className = 'game-surface
 const dialogLayer = document.createElement('div'); dialogLayer.className = 'game-dialog-layer'; dialogLayer.hidden = true;
 app.append(surface, dialogLayer);
 let story: Story, state: State, chapterSession: ChapterSession, authoring: AuthoringSession;
-let documentURL = '', storyID = '', previewText = '', hash = '', debugCheckpoint = false, saveError = '', editedSnapshot = false;
+let documentURL = '', storyID = '', previewText = '', hash = '', saveError = '', editedSnapshot = false;
 interface Anchor { text: string; story: Story; state: State; chapterSession: ChapterSession; scrollTop: number; dialog?: DialogContext }
 let anchor: Anchor;
 let expectedScroll = 0;
@@ -44,6 +46,14 @@ let encyclopediaScroll = 0;
 const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
 const desktopDebug = matchMedia('(min-width: 900px)');
 const itemArtwork = new ItemArtwork();
+const creationLabels = new Map<string, ReturnType<typeof setTimeout>>();
+function clearCreationLabels() {
+  creationLabels.forEach(timer => clearTimeout(timer)); creationLabels.clear();
+}
+function announceCreation(id: string) {
+  clearTimeout(creationLabels.get(id));
+  creationLabels.set(id, setTimeout(() => { creationLabels.delete(id); tile(id)?.classList.remove('newly-created'); }, 1700));
+}
 const mobileDebug = new MobileDebug(jumpToCheckpoint, updateEditingIndicators);
 const scale = () => Math.min(1, app.clientWidth / 390);
 const name = (id: string) => label(story, state, id);
@@ -83,7 +93,7 @@ function rememberInteraction() {
 function save() {
   if (!storyStarted) return;
   saveProgress(() => localStorage.setItem(key(), JSON.stringify({
-    hash, state, debugCheckpoint, chapterSession, editedSnapshot,
+    hash, state, chapterSession, editedSnapshot,
     anchor: anchor && { text: anchor.text, state: anchor.state, chapterSession: anchor.chapterSession, scrollTop: anchor.scrollTop, dialog: anchor.dialog },
   })), showSaveError);
 }
@@ -145,7 +155,7 @@ function flushPreview() {
 function applyText(text: string) {
   const parsed = parse(text), next = recoverPreviewStory(parsed);
   checkText(parsed, text);
-  cancelGesture(); feedback.clear();
+  cancelGesture(); feedback.clear(); clearCreationLabels();
   if (!storyStarted) {
     // There is no played inventory to preserve on a cover. Begin the edited
     // manuscript afresh rather than carrying supplies from an unstarted draft.
@@ -209,7 +219,7 @@ async function start() {
       if (saved?.hash === hash) {
         const restored = saved.editedSnapshot ? restoreLiveState(story, saved.state) : restorePresentation(story, saved.state);
         if (restored) {
-          state = restored; editedSnapshot = !!saved.editedSnapshot; debugCheckpoint = !!saved.debugCheckpoint;
+          state = restored; editedSnapshot = !!saved.editedSnapshot;
           const entry = editedSnapshot ? restoreLiveState(story, saved.chapterSession?.entry) : undefined;
           chapterSession = editedSnapshot ? { entry: entry ?? structuredClone(state), changed: !!saved.chapterSession?.changed } : restoreChapterSession(story, state, saved.chapterSession) ?? captureChapter(state);
           loaded = true;
@@ -332,11 +342,11 @@ function jumpToCheckpoint(index: number) {
   try {
     flushPreview();
     const next = checkpoint(story, index);
-    resetGoalView(); cancelGesture();
+    resetGoalView(); cancelGesture(); clearCreationLabels();
     state = next; editedSnapshot = false; storyStarted = true;
     state.seen.push(...state.pending.filter(notice => notice.kind === 'wonder').map(notice => notice.key));
     state.pending = state.pending.filter(notice => notice.kind === 'chapter');
-    debugCheckpoint = true; closeDialog(); render(true); rememberInteraction(); save();
+    closeDialog(); render(true); rememberInteraction(); save();
   } catch (error) { modal(`<p>${escape((error as Error).message)}</p><button data-command="close">Close</button>`); }
 }
 function refreshDialog() {
@@ -354,16 +364,37 @@ function refreshDialog() {
 function commit(action: Action) { try {
   flushPreview();
   if (isNoopMove(state, action)) { render(); return; }
+  const receiver=action.type==='combine'&&action.b?state.tokens[action.b]:undefined,receivingTile=receiver?tile(receiver.id):undefined;
+  const receivingRect=receiver&&receivingTile?{x:receiver.x,y:receiver.y,width:receivingTile.offsetWidth,height:receivingTile.offsetHeight}:undefined;
   const before = state, previous = state.chapter; state = act(story, state, action); noteChapterAction(chapterSession, before, action);
-  closeDialog(); render(previous !== state.chapter); rememberInteraction(); save();
-  if (action.type === 'combine') { const born = Object.keys(state.tokens).find(id => !before.tokens[id]); if (born) tile(born)?.classList.add('born'); }
+  if (previous !== state.chapter) clearCreationLabels();
+  const born = action.type === 'combine' ? Object.keys(state.tokens).find(id => !before.tokens[id]) : undefined;
+  if (born) announceCreation(born);
+  closeDialog(); render(previous !== state.chapter);
+  if (born) {
+    const token=state.tokens[born],element=tile(born);
+    if(element){
+      const position=receivingRect&&receiver
+        ?placeCreation(receivingRect,{width:element.offsetWidth,height:element.offsetHeight},state.tokens[receiver.id].status!=='available')
+        :fitOnBoard(token.x,token.y,element.offsetWidth,element.offsetHeight);
+      token.x=position.x;token.y=position.y;element.style.left=`${token.x}px`;element.style.top=`${token.y}px`;element.classList.add('born');
+      clearGoalsAroundCards();
+    }
+  }
+  rememberInteraction(); save();
 } catch (error) { modal(`<p>${escape((error as Error).message)}</p><button data-command="close">Close</button>`); } }
 function tile(id: string) { return [...app.querySelectorAll<HTMLElement>('[data-item]')].find(el => el.dataset.item === id); }
 function panel(chapter: number) { return app.querySelector<HTMLElement>(`.chapter-panel[data-chapter="${chapter}"]`); }
 function packArrival(){
   const tokens=availableTokens(state).filter(t=>t.chapter===state.chapter&&!t.hotspot),fresh=new Set(state.newItems);
+  if(!tokens.some(t=>fresh.has(t.id)))return;
   if(tokens.some(t=>tile(t.id)?.classList.contains('icon-thing'))){
-    const layout=iconArrival(tokens.map(t=>({id:t.id,x:t.x,y:t.y,width:tile(t.id)!.offsetWidth,height:tile(t.id)!.offsetHeight,fresh:fresh.has(t.id)})));
+    const primitives=indexStory(story).primitives;
+    const layout=iconArrival(tokens.map(t=>{
+      const position=story.items[t.id].icon?.position;
+      const start=primitives.has(t.id)&&position&&Object.values(position).every(value=>Number.isFinite(value)&&value>=0&&value<=1)?position:undefined;
+      return {id:t.id,x:t.x,y:t.y,width:tile(t.id)!.offsetWidth,height:tile(t.id)!.offsetHeight,fresh:fresh.has(t.id),start};
+    }));
     for(const t of tokens){const p=layout.positions.get(t.id)!;t.x=p.x;t.y=p.y;const el=tile(t.id)!;el.style.left=`${t.x}px`;el.style.top=`${t.y}px`;}
     const divider=panel(state.chapter)?.querySelector<HTMLElement>('.arrival-divider');if(divider&&layout.divider!==undefined)divider.style.top=`${layout.divider}px`;
     panel(state.chapter)?.classList.toggle('crowded',layout.crowded);return;
@@ -406,8 +437,8 @@ function beginStory() {
   render(true); rememberInteraction(); save();
 }
 function restartStory() {
-  resetGoalView(); closeDialog(); cancelGesture(); feedback.clear();
-  storyStarted = false; state = newGame(story); chapterSession = captureChapter(state); debugCheckpoint = false;
+  resetGoalView(); closeDialog(); cancelGesture(); feedback.clear(); clearCreationLabels();
+  storyStarted = false; state = newGame(story); chapterSession = captureChapter(state);
   // A landing is not a saved game. Removing the old save also makes reload stay here.
   saveProgress(() => {
     localStorage.removeItem(key());
@@ -427,11 +458,11 @@ function render(arrival=false,finish=true){
   const gold=new Set<string>();for(const {goal:g,done} of goals)if(done)for(const c of g.conditions)if(matches(state.tokens[c.item.id],c.item)&&(!c.hotspot||state.tokens[c.item.id].hotspot===c.hotspot)){gold.add(c.item.id);if(c.hotspot)gold.add(c.hotspot);}
   reconcile(surface,`<div class="viewport"><div class="world" style="width:${390*scale}px;height:${state.visited.length*844*scale}px"><div class="board fixed-locations" style="height:${state.visited.length*844}px;transform:scale(${scale});--board-scale:${scale}">${state.visited.map((chapter,position)=>{
     const bg=background(story,chapter),c=story.chapters[chapter];
-    return `<section class="chapter-panel" data-chapter="${chapter}" style="top:${position*844}px" aria-label="${escape(story.title)} scene ${position+1}">${bg?`<img class="scene-art" src="${escape(asset(bg))}" alt="">`:''}<div class="location-scrim"></div>${activeHotspots(story,chapter).map((id,i)=>{const h=story.hotspots[id],x=(h.x??(.19+(i%3)*.31))*390,y=(h.y??(.70+Math.floor(i/3)*.13))*844;return `<div class="hotspot" data-hotspot="${escape(id)}" style="left:${x}px;top:${y}px">${escape(h.name)}</div>`;}).join('')}${availableTokens(state).filter(t=>t.chapter===chapter).map(t=>{
+    return `<section class="chapter-panel" data-chapter="${chapter}" style="top:${position*844}px" aria-label="${escape(story.title)} scene ${position+1}">${bg?`<img class="scene-art" src="${escape(asset(bg))}" alt="">`:''}<div class="location-scrim"></div>${activeHotspots(story,chapter).map((id,i)=>{const h=story.hotspots[id],x=(h.x??(.19+(i%3)*.31))*390,y=(h.y??(.70+Math.floor(i/3)*.13))*844,visual=itemArtwork.hotspot(h,asset);return `<div class="hotspot ${visual.className}" data-hotspot="${escape(id)}" tabindex="0" role="img" aria-label="${escape(h.name)}" style="left:${x}px;top:${y}px;${visual.style}">${visual.html}</div>`;}).join('')}${availableTokens(state).filter(t=>t.chapter===chapter).map(t=>{
       const item=story.items[t.id],applicable=readings(story,state,t.id).some(reading=>reading.markdown.trim()),selected=tile(t.id)?.classList.contains('reading-selected'),visual=itemArtwork.visual(item,t.slots,name,asset);
-      return `<button class="thing ${visual.className} ${selected?'reading-selected pressed':''} ${chapter===state.chapter&&gold.has(t.id)?'goal-met':''}" data-item="${escape(t.id)}" style="left:${t.x}px;top:${t.y}px;${visual.style}" aria-label="${escape(name(t.id))}" title="${escape(applicable?'Double-click or double-tap to read':'Drag to combine or move')}">${visual.html}${applicable?'<span class="reading-indicator" aria-hidden="true">' + openBook + '</span>':''}</button>`;
+      return `<button class="thing ${visual.className} ${creationLabels.has(t.id)?'newly-created':''} ${selected?'reading-selected pressed':''} ${chapter===state.chapter&&gold.has(t.id)?'goal-met':''}" data-item="${escape(t.id)}" style="left:${t.x}px;top:${t.y}px;${visual.style}" aria-label="${escape(name(t.id))}" title="${escape(applicable?'Double-click or double-tap to read':'Drag to combine or move')}">${visual.html}${applicable?'<span class="reading-indicator" aria-hidden="true">' + openBook + '</span>':''}</button>`;
     }).join('')}${chapter===state.chapter&&state.arrivalDivider&&state.newItems.length?`<div class="arrival-divider" style="top:${Math.max(65,Math.min(...state.newItems.map(id=>state.tokens[id]?.y??844))-18)}px"><span>new items</span></div>`:''}</section>`;
-  }).join('')}</div></div></div>${debugCheckpoint?'<span class="checkpoint-badge">Generated checkpoint</span>':''}${showGoals?`<div class="hud-stack location-hud ${transitioning?'goals-leaving':''}" ${transitioning?'aria-hidden="true"':''}><button class="objective-overlay" ${leaving?'disabled':''} data-command="story" aria-label="Read this chapter"><span class="objectives">${goals.map(({goal,done})=>`<span class="objective-line ${done?'done':''}"><span class="goal-checkbox" aria-hidden="true">${done?'✓':''}</span><span>${escape(goal.text)}</span><span class="sr-only">${done?'Completed':'Not completed'}</span></span>`).join('')}${state.completed?'<span class="objective-line ending">The End</span>':''}</span></button></div>`:''}${goalView?.phase!=='goals'&&!state.completed?`<button class="chapter-next ${story.chapters[state.chapter+1]?.image?'':'right'} ${transitioning?'entering':''}" ${leaving?'disabled':''} data-command="advance" aria-label="Continue story"><span>${story.chapters[state.chapter+1]?.image?'↓':'→'}</span></button>`:''}`);
+  }).join('')}</div></div></div>${showGoals?`<div class="hud-stack location-hud ${transitioning?'goals-leaving':''}" ${transitioning?'aria-hidden="true"':''}><button class="objective-overlay" ${leaving?'disabled':''} data-command="story" aria-label="Read this chapter"><span class="objectives">${goals.map(({goal,done})=>`<span class="objective-line ${done?'done':''}"><span class="goal-checkbox" aria-hidden="true">${done?'✓':''}</span><span>${escape(goal.text)}</span><span class="sr-only">${done?'Completed':'Not completed'}</span></span>`).join('')}${state.completed?'<span class="objective-line ending">The End</span>':''}</span></button></div>`:''}${goalView?.phase!=='goals'&&!state.completed?`<button class="chapter-next ${story.chapters[state.chapter+1]?.image?'':'right'} ${transitioning?'entering':''}" ${leaving?'disabled':''} data-command="advance" aria-label="Continue story"><span>${story.chapters[state.chapter+1]?.image?'↓':'→'}</span></button>`:''}`);
   const viewport=app.querySelector<HTMLElement>('.viewport')!;viewport.onscroll=()=>{scheduleGoalClearance();if(viewport.scrollTop!==expectedScroll){expectedScroll=viewport.scrollTop;rememberInteraction();save();}};setScroll(arrival?Math.max(0,(state.visited.length-1)*844*scale):scroll);
   if(arrival){packArrival();if(finish)chapterSession=captureChapter(state);}clearGoalsAroundCards();if(changedView&&transitioning)animateGoalEntrance();if(finish)showPending();
   updateEditingIndicators();
@@ -443,27 +474,43 @@ function partnerActions(): ReturnType<typeof legalActions> {
     return [];
   }
 }
-function highlight(id:string,pressed=false){const selected=tile(id);clearHighlights(selected);selected?.classList.add('pressed');selected?.classList.toggle('reading-selected',pressed);for(const action of partnerActions().filter(a=>a.a===id)){if(action.b)tile(action.b)?.classList.add('possible');else if(action.hotspot)app.querySelectorAll<HTMLElement>('[data-hotspot]').forEach(h=>{if(h.dataset.hotspot===action.hotspot)h.classList.add('possible');});}for(const g of visibleGoals(story,state))for(const c of g.conditions)if(c.item.id===id&&c.hotspot)app.querySelectorAll<HTMLElement>('[data-hotspot]').forEach(h=>{if(h.dataset.hotspot===c.hotspot)h.classList.add('possible');});}
+// Item IDs are name:/id: identities; the separate prefix keeps hotspot feedback unambiguous.
+function feedbackKey(element:HTMLElement){return element.dataset.item??`hotspot:${element.dataset.hotspot}`;}
+function highlight(key:string,pressed=false){
+  const isHotspot=key.startsWith('hotspot:'),id=isHotspot?key.slice(8):key,selected=isHotspot?undefined:tile(id);
+  clearHighlights(selected);selected?.classList.add('pressed');selected?.classList.toggle('reading-selected',pressed);
+  const locations=[...app.querySelectorAll<HTMLElement>('[data-hotspot]')];
+  if(isHotspot)locations.filter(el=>el.dataset.hotspot===id).forEach(el=>el.classList.add('pressed'));
+  try{
+    const hints=partnerHints(story,state,{kind:isHotspot?'hotspot':'item',id},drag?.id===id&&drag.moved?'from':'either');
+    hints.items.forEach(item=>tile(item)?.classList.add('possible'));
+    locations.filter(el=>hints.hotspots.has(el.dataset.hotspot!)).forEach(el=>el.classList.add('possible'));
+  }catch(error){authoring.setPreviewStatus(`Partner analysis is unavailable: ${(error as Error).message}`);}
+}
 function clearHighlights(keep?:HTMLElement){app.querySelectorAll<HTMLElement>('.reading-selected').forEach(el=>{if(el!==keep)el.classList.remove('reading-selected');});app.querySelectorAll('.pressed,.possible,.will-create,.will-place').forEach(el=>el.classList.remove('pressed','possible','will-create','will-place'));}
 let drag:{id:string;pointer:number;el:HTMLElement;startX:number;startY:number;grabX:number;grabY:number;x:number;y:number;moved:boolean}|undefined;
+function movedEnough(d:NonNullable<typeof drag>,e:PointerEvent){return Math.hypot(e.clientX-d.startX,e.clientY-d.startY)>5*scale();}
+let hotspotPress:{key:string;pointer:number}|undefined;
 const feedback=new ItemFeedback(highlight,()=>clearHighlights());
 let suppressReleaseClick=false;
 // Suppress the native click belonging to the double-tap that opened a reader.
 document.addEventListener('pointerdown',()=>{suppressReleaseClick=false;},true);
 function dropTarget(x:number,y:number){return document.elementsFromPoint(x,y).map(e=>e.closest<HTMLElement>('[data-item],[data-hotspot]')).find(e=>e&&e.dataset.item!==drag?.id);}
 app.addEventListener('pointerdown',e=>{
-  const el=(e.target as Element).closest<HTMLElement>('[data-item]');if(!el||drag||document.querySelector('dialog')||e.button!==0)return;
+  const el=(e.target as Element).closest<HTMLElement>('[data-item],[data-hotspot]');if(!el||drag||hotspotPress||document.querySelector('dialog')||e.button!==0)return;
+  if(el.dataset.hotspot){hotspotPress={key:feedbackKey(el),pointer:e.pointerId};feedback.begin(hotspotPress.key);el.setPointerCapture(e.pointerId);return;}
   e.preventDefault();const id=el.dataset.item!,t=state.tokens[id];feedback.begin(id);el.setPointerCapture(e.pointerId);
   const bounds=el.getBoundingClientRect(),boardScale=scale();
   drag={id,pointer:e.pointerId,el,startX:e.clientX,startY:e.clientY,grabX:(e.clientX-bounds.left)/boardScale,grabY:(e.clientY-bounds.top)/boardScale,x:t.x,y:t.y,moved:false};
 });
 document.addEventListener('pointermove',e=>{
   if(!drag||e.pointerId!==drag.pointer)return;const scale=Math.min(1,app.clientWidth/390),dx=(e.clientX-drag.startX)/scale,dy=(e.clientY-drag.startY)/scale;
-  if(Math.hypot(dx,dy)>5)drag.moved=true;if(!drag.moved)return;
-  drag.el.classList.add('dragging');app.classList.add('is-dragging');drag.el.style.left=`${drag.x+dx}px`;drag.el.style.top=`${drag.y+dy}px`;
+  if(!drag.moved&&movedEnough(drag,e)){drag.moved=true;highlight(drag.id,true);}if(!drag.moved)return;
+  const position=fitOnBoard(drag.x+dx,drag.y+dy,drag.el.offsetWidth,drag.el.offsetHeight);
+  drag.el.classList.add('dragging');app.classList.add('is-dragging');drag.el.style.left=`${position.x}px`;drag.el.style.top=`${drag.y+dy}px`;
   app.querySelectorAll('.will-create,.will-place').forEach(e=>e.classList.remove('will-create','will-place'));
   const target=dropTarget(e.clientX,e.clientY),action=partnerActions().find(a=>a.a===drag!.id&&(target?.dataset.item?a.b===target.dataset.item:!a.b&&a.hotspot===target?.dataset.hotspot));
-  if(target&&(action||target.dataset.hotspot))target.classList.add(action?'will-create':'will-place');
+  if(target&&(action||(target.dataset.hotspot&&target.classList.contains('possible'))))target.classList.add(action?'will-create':'will-place');
   const viewport=app.querySelector('.viewport');if(viewport){if(e.clientY<55)viewport.scrollTop-=12;else if(e.clientY>innerHeight-55)viewport.scrollTop+=12;}
 });
 function restoreGestureTile(d:NonNullable<typeof drag>){
@@ -472,27 +519,30 @@ function restoreGestureTile(d:NonNullable<typeof drag>){
   clearGoalsAroundCards();
 }
 function endDrag(e:PointerEvent,cancel=false){
+  if(hotspotPress?.pointer===e.pointerId){const press=hotspotPress;hotspotPress=undefined;if(cancel)feedback.clear();else feedback.release(press.key,false);return;}
   if(!drag||drag.pointer!==e.pointerId)return;const d=drag;const target=dropTarget(e.clientX,e.clientY);drag=undefined;restoreGestureTile(d);
   if(cancel){feedback.clear();return;}
-  if(!d.moved){if(feedback.release(d.id,true)){suppressReleaseClick=true;read(d.id);}return;}
+  // A quick release can be the first event reporting travel beyond click tolerance.
+  if(!d.moved&&!movedEnough(d,e)){if(feedback.release(d.id,true)){suppressReleaseClick=true;read(d.id);}return;}
   const action=partnerActions().find(a=>a.a===d.id&&(target?.dataset.item?a.b===target.dataset.item:!a.b&&a.hotspot===target?.dataset.hotspot));
   if(action)commit(target?.dataset.hotspot?{...action,chapter:Number(target.closest<HTMLElement>('[data-chapter]')!.dataset.chapter)}:action);
   else if(!target?.dataset.item){
     const scale=Math.min(1,app.clientWidth/390),world=app.querySelector('.world')!.getBoundingClientRect(),position=Math.floor((e.clientY-world.top)/(844*scale)),chapter=state.visited[Math.max(0,Math.min(state.visited.length-1,position))];
     const rect=panel(chapter)!.getBoundingClientRect();
-    commit({type:'move',item:d.id,chapter,x:(e.clientX-rect.left)/scale-d.grabX,y:(e.clientY-rect.top)/scale-d.grabY,...(target?.dataset.hotspot?{hotspot:target.dataset.hotspot}:{})});
+    const placement=fitOnBoard((e.clientX-rect.left)/scale-d.grabX,(e.clientY-rect.top)/scale-d.grabY,d.el.offsetWidth,d.el.offsetHeight);
+    commit({type:'move',item:d.id,chapter,...placement,...(target?.dataset.hotspot?{hotspot:target.dataset.hotspot}:{})});
   }
   if(!document.querySelector('dialog')&&state.tokens[d.id]?.status==='available')feedback.release(d.id,false);else feedback.clear();
 }
 document.addEventListener('pointerup',e=>endDrag(e));document.addEventListener('pointercancel',e=>endDrag(e,true));
-function cancelGesture(){if(!drag)return;const d=drag;drag=undefined;restoreGestureTile(d);feedback.clear();}
+function cancelGesture(){if(hotspotPress){hotspotPress=undefined;feedback.clear();}if(!drag)return;const d=drag;drag=undefined;restoreGestureTile(d);feedback.clear();}
 window.addEventListener('blur',()=>{cancelGesture();feedback.clear();});
-app.addEventListener('lostpointercapture',e=>{if(drag?.pointer===(e as PointerEvent).pointerId)cancelGesture();});
+app.addEventListener('lostpointercapture',e=>{const pointer=(e as PointerEvent).pointerId;if(drag?.pointer===pointer||hotspotPress?.pointer===pointer)cancelGesture();});
 app.addEventListener('dragstart',e=>e.preventDefault());
-app.addEventListener('pointerover',e=>{if(e.pointerType==='mouse'&&!drag){const el=(e.target as Element).closest<HTMLElement>('[data-item]');if(el&&!document.querySelector('dialog'))feedback.hover(el.dataset.item!);}});
-app.addEventListener('pointerout',()=>{if(!drag)feedback.hover();});
-app.addEventListener('focusin',e=>{const el=(e.target as Element).closest<HTMLElement>('[data-item]');if(el&&!drag&&!document.querySelector('dialog'))feedback.hover(el.dataset.item!);});
-app.addEventListener('focusout',()=>{if(!drag)feedback.hover();});
+app.addEventListener('pointerover',e=>{if(e.pointerType==='mouse'&&!drag&&!hotspotPress){const el=(e.target as Element).closest<HTMLElement>('[data-item],[data-hotspot]');if(el&&!document.querySelector('dialog'))feedback.hover(feedbackKey(el));}});
+app.addEventListener('pointerout',()=>{if(!drag&&!hotspotPress)feedback.hover();});
+app.addEventListener('focusin',e=>{const el=(e.target as Element).closest<HTMLElement>('[data-item],[data-hotspot]');if(el&&!drag&&!hotspotPress&&!document.querySelector('dialog'))feedback.hover(feedbackKey(el));});
+app.addEventListener('focusout',()=>{if(!drag&&!hotspotPress)feedback.hover();});
 app.addEventListener('click',e=>{
   if(suppressReleaseClick&&e.detail>0){suppressReleaseClick=false;e.preventDefault();return;}
   const element=e.target as Element;
@@ -509,7 +559,7 @@ app.addEventListener('click',e=>{
   else if(command==='confirm-reset-story')confirmRestart();
   else if(command==='cancel-reset-story')reopenChapter();
   else if(command==='reset-story')restartStory();
-  else if(command==='reset-chapter'){resetGoalView();closeDialog();state=structuredClone(chapterSession.entry);if(editedSnapshot){state.actions=[];}chapterSession=captureChapter(state);render();scrollToCurrentChapter();rememberInteraction();save();}
+  else if(command==='reset-chapter'){clearCreationLabels();resetGoalView();closeDialog();state=structuredClone(chapterSession.entry);if(editedSnapshot){state.actions=[];}chapterSession=captureChapter(state);render();scrollToCurrentChapter();rememberInteraction();save();}
   else if(command==='story')reopenChapter();
   else if(command==='encyclopedia')openEncyclopedia();
   else if(command==='encyclopedia-read')openEncyclopedia(target.dataset.reading!,true);

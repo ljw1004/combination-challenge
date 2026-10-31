@@ -12,7 +12,7 @@
   width: max(100%, calc(44px / var(--board-scale, 1))); height: max(100%, calc(44px / var(--board-scale, 1)));
 }
 .icon-thing::after { content: ''; position: absolute; inset: 0; border-radius: 8px; pointer-events: none; }
-.icon-thing.icon-circular::after {
+.icon-thing.icon-circular::after, .hotspot-icon.hotspot-circular::after {
   inset: auto; left: 50%; top: 50%; translate: -50% -50%; border-radius: 50%;
   width: min(var(--icon-width), var(--icon-height)); height: min(var(--icon-width), var(--icon-height));
 }
@@ -23,13 +23,34 @@
   border: 3px dotted #fff1b5; box-shadow: 0 0 0 2px #a75a0e, 0 0 14px 4px #ffce65;
 }
 .icon-thing.goal-met .icon-stack { filter: drop-shadow(0 0 4px #e0b54d); }
-.icon-thing .icon-name {
-  display: none; position: absolute; top: 100%; left: 50%; transform: translateX(-50%);
+.icon-thing .icon-name, .hotspot-icon .icon-name {
+  display: none; position: absolute; bottom: 100%; left: 50%; transform: translateX(-50%);
   width: max-content; max-width: 132px; padding: 3px 6px; border: 1px solid #ffffff66; border-radius: 5px;
   background: #080d14bf; color: #fff; font: calc(12px / var(--board-scale, 1))/1.2 Arial, Helvetica, sans-serif;
   white-space: normal; overflow-wrap: anywhere; text-align: center; pointer-events: none;
 }
 .icon-thing:is(.pressed, .possible, .dragging, .will-create, :focus-visible) .icon-name { display: block; }
+.icon-thing.newly-created .icon-name { display: block; animation: creation-name 1.7s linear forwards; }
+.icon-thing:is(.pressed, .possible, .dragging, .will-create, :focus-visible) .icon-name { opacity: 1 !important; }
+@keyframes creation-name { 0%, 88.235294% { opacity: 1; } 100% { opacity: 0; } }
+/* The reading cue sits just inside the icon so it cannot cover its name above. */
+.icon-thing .reading-indicator { top: 0; }
 .chapter-panel .icon-thing.born { animation: icon-arrival .6s ease-out; }
 @keyframes icon-arrival { from { scale: .8; filter: drop-shadow(0 0 12px #efbd5a); } to { scale: 1; } }
 @media (prefers-reduced-motion: reduce) { .chapter-panel .icon-thing.born { animation: none; } }
+
+/* Location art stays centered on the authored point and remains a fixed drop target. */
+.chapter-panel .hotspot.hotspot-icon {
+  display: block; width: var(--icon-width); height: var(--icon-height); min-height: 0;
+  padding: 0; border: 0 !important; background: transparent !important; box-shadow: none !important; outline: none !important;
+}
+.hotspot-icon::before {
+  content: ''; position: absolute; left: 50%; top: 50%; translate: -50% -50%;
+  width: max(100%, calc(44px / var(--board-scale, 1))); height: max(100%, calc(44px / var(--board-scale, 1)));
+}
+.hotspot-icon::after { content: ''; position: absolute; inset: 0; pointer-events: none; }
+.hotspot-icon:is(:hover, :active, :focus-visible, .pressed, .possible, .will-create, .will-place)::after {
+  border: 2px dotted #000; box-shadow: none;
+}
+.hotspot-icon:is(.will-create, .will-place)::after { border: 3px solid #fff1b5; box-shadow: 0 0 0 2px #a75a0e, 0 0 14px 4px #ffce65; }
+.hotspot-icon:is(:hover, :active, :focus-visible, .pressed, .possible, .will-create, .will-place) .icon-name { display: block; }

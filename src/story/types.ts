@@ -10,14 +10,14 @@ export type Fate = 'preserve' | 'consume' | 'transform';
 export interface Ingredient { ref: Ref; fate: Fate; explicit: boolean }
 /** Authored uses are retained separately from deduplicated logical recipes. */
 export interface FateSite { item: string; fate: Fate; edit?: {span: TextSpan; prefix: string; suffix: string} }
-export interface Icon { url: string; circular: boolean; source: Source }
+export interface Icon { url: string; circular: boolean; position?: {x: number; y: number}; source: Source }
 export interface Slot { name?: string; accepts: string; icon?: Icon; source: Source }
 export interface Wonder { markdown: string; requires: string[]; source: Source }
 export interface Item {
   id: string; name: string; compound: boolean; slots: Slot[]; wonders: Wonder[];
   icon?: Icon; exclusiveWith?: string; renames: { chapter: string; name: string }[]; source: Source;
 }
-export interface Hotspot { id: string; name: string; x?: number; y?: number; source: Source }
+export interface Hotspot { id: string; name: string; x?: number; y?: number; icon?: Icon; source: Source }
 export interface Condition { item: Ref; hotspot?: string; source: Source }
 export interface Goal {
   id: string; text: string; next: boolean; operator: 'and' | 'or'; conditions: Condition[]; source: Source;

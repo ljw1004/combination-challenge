@@ -444,7 +444,7 @@ test('chapter heading checkpoint buttons use live text and preserve the draft an
   await expect(page.locator('.chapter-panel[data-chapter="1"]')).toHaveCount(1);
   expect(await savedText(page, edited)).toBe(true);
   expect(await page.locator('.cm-scroller').evaluate(element => element.scrollTop)).toBe(scroll);
-  await expect(page.locator('.checkpoint-badge')).toBeVisible();
+  await expect(page.getByText('Generated checkpoint', {exact: true})).toHaveCount(0);
 });
 
 test('successive renames keep readers live and edited play retains its reset baseline', async ({ page }) => {

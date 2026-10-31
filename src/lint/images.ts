@@ -12,6 +12,7 @@ export function lintStoryImages(story: Story, markdown: string): Diagnostic[] {
     ...story.chapters.flatMap(chapter => chapter.image ? [chapter.image] : []),
     ...prose.flatMap(text => [...text.matchAll(/!\[[^\]]*\]\(([^)]+)\)/g)].map(match => match[1])),
     ...items.flatMap(item => [item.icon, ...item.slots.map(slot => slot.icon)].flatMap(icon => icon ? [icon.url] : [])),
+    ...Object.values(story.hotspots).flatMap(hotspot => hotspot.icon ? [hotspot.icon.url] : []),
   ]);
   const locations = sourceMap(markdown, story.source.file), diagnostics: Diagnostic[] = [];
   for (const match of markdown.matchAll(/!\[[^\]]*\]\(([^)]+)\)/g)) {

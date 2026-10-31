@@ -31,6 +31,7 @@ try {
       page.on('pageerror', error => errors.push(error.message));
       page.on('response', response => {if (response.status() >= 400) errors.push(`${response.status()} ${response.url()}`);});
       await page.goto(new URL(`/combinations.html?story=icon-test-${style}`, baseURL).href);
+      await page.getByRole('button', {name: 'Start', exact: true}).click();
       await page.getByRole('button', {name: 'Begin', exact: true}).click();
       await expect(page.locator('.icon-thing')).toHaveCount(20);
       await page.mouse.move(389, 843);
@@ -83,7 +84,7 @@ for(const id of ['overview','strip'])document.getElementById(id).addEventListene
   writeFileSync(resolve(directory, 'manifest.json'), JSON.stringify({
     sourceCommit: execFileSync('git', ['rev-parse', 'HEAD'], {encoding: 'utf8'}).trim(),
     capturedAt: new Date().toISOString(), browser: browser.version(), viewport, deviceScaleFactor: 2,
-    state: 'Fresh opening after Begin; no combinations, hover labels or readers.', captures,
+    state: 'Fresh opening after Start and Begin; no combinations, hover labels or readers.', captures,
   }, null, 2) + '\n');
   console.log(`Gallery saved to ${directory}`);
 } finally {await browser.close();}

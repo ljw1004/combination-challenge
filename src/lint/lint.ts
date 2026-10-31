@@ -25,6 +25,10 @@ export function lintStory(story: Story, options: LintOptions = {}): Diagnostic[]
   }
   for (const item of Object.values(story.items)) {
     if (usesIcons && !item.icon) error('missing-item-icon', `${item.name} needs an icon beneath a top-level Items declaration because this story uses icons.`, item.source);
+    if (item.icon?.position) {
+      if (!index.primitives.has(item.id)) error('derived-icon-position', `${item.name} is derived; only primitive items can specify an icon starting position.`, item.icon.source);
+      if (Object.values(item.icon.position).some(value => !Number.isFinite(value) || value < 0 || value > 1)) error('icon-position', 'Icon starting coordinates must be between 0% and 100%.', item.icon.source);
+    }
     if (story.hotspots[item.id]) error('namespace-clash',`${item.name} names both an item and a hotspot; use distinct backtick identifiers.`,item.source);
     if (item.exclusiveWith === item.id) error('self-exclusion',`${item.name} cannot exclude itself.`,item.source);
     if (item.exclusiveWith && story.items[item.exclusiveWith]?.exclusiveWith !== item.id) error('asymmetric-exclusion',`${item.name}'s exclusivity must also be declared on ${story.items[item.exclusiveWith]?.name ?? item.exclusiveWith}.`,item.source);

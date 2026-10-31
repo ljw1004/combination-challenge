@@ -55,6 +55,15 @@ test('snapshot reconstruction uses actual visited boundaries including skipped c
   assert.equal(restoreChapterSession(story,newGame(story),session),undefined);
   assert.equal(restoreChapterSession(story,state,{entry:{},changed:false}),undefined);
 });
+test('edge placements survive actions, no-op detection and saved presentation without text-card caps',()=>{
+  const move={type:'move' as const,item:'name:A',chapter:0,x:321.5,y:781.25};
+  const state=act(story,newGame(story),move);
+  assert.equal(state.tokens['name:A'].x,move.x);assert.equal(state.tokens['name:A'].y,move.y);
+  assert(isNoopMove(state,move));assert(!isNoopMove(state,{...move,x:320}));
+  const loaded=restorePresentation(story,JSON.parse(JSON.stringify(state)));
+  assert.deepEqual(loaded,state);
+  assert.throws(()=>act(story,state,{...move,x:Infinity}),/finite/);
+});
 test('partial goals retain checked rows while remaining goals are unchecked',()=>{
   let state=newGame(story);
   assert.deepEqual(displayedGoals(story,state).map(r=>r.done),[false,false]);

@@ -19,6 +19,46 @@ test('touch dragging moves a card while empty-space touch scrolls the story',asy
   const before=await page.locator('.viewport').evaluate(el=>el.scrollTop);await cdp.send('Input.dispatchTouchEvent',{type:'touchStart',touchPoints:[{x:8,y:300}]});for(let y=320;y<=650;y+=20){await cdp.send('Input.dispatchTouchEvent',{type:'touchMove',touchPoints:[{x:8,y}]});await page.waitForTimeout(16);}await cdp.send('Input.dispatchTouchEvent',{type:'touchEnd',touchPoints:[]});await expect.poll(()=>page.locator('.viewport').evaluate(el=>el.scrollTop)).toBeLessThan(before);
   await context.close();
 });
+test('text cards use their full measured rectangle at every board edge, including narrow screens',async({page})=>{
+  await page.route('**/text-edge-fixture/story.md',route=>route.fulfill({contentType:'text/markdown',body:`# Card edges
+## Workshop
+Fit the cabinet.
+**Goals**
+- Finish the cabinet -- Tall wooden cabinet[Panel,Shelf]
+**Items**
+- Tall wooden cabinet (compound)
+  - unnamed slot: accepts Panel
+  - unnamed slot: accepts Shelf
+- Panel
+- Shelf
+`}));
+  await page.goto('/combinations.html?story=text-edge-fixture');
+  await page.getByRole('button',{name:'Start',exact:true}).click();
+  await page.getByRole('button',{name:'Begin',exact:true}).click();
+  const card=page.locator('[data-item="name:Tall wooden cabinet"]');
+  for(const width of [390,320]){
+    await page.setViewportSize({width,height:844});
+    await expect(card).toHaveClass(/text-thing/);
+    await expect.poll(async()=>(await page.locator('.chapter-panel').boundingBox())!.width).toBeCloseTo(width,1);
+    const board=(await page.locator('.chapter-panel').boundingBox())!,short=(await page.locator('[data-item="name:Panel"]').boundingBox())!;
+    expect((await card.boundingBox())!.height).toBeGreaterThan(short.height+30);
+    for(const edge of ['right','left','bottom','top']){
+      const before=(await card.boundingBox())!;
+      const x=edge==='right'?width-1:edge==='left'?1:width/2;
+      const y=edge==='bottom'?board.y+board.height-1:edge==='top'?board.y+1:450;
+      await page.mouse.move(before.x+5,before.y+7);await page.mouse.down();
+      await page.mouse.move(x,y,{steps:6});
+      const preview=(await card.boundingBox())!;
+      await page.mouse.up();
+      const placed=(await card.boundingBox())!;
+      if(edge==='right'||edge==='left')expect(placed).toEqual(preview);
+      const boundary=edge==='right'?placed.x+placed.width:edge==='left'?placed.x:edge==='bottom'?placed.y+placed.height:placed.y;
+      const expected=edge==='right'?width:edge==='left'?0:edge==='bottom'?board.y+board.height:board.y;
+      expect(Math.abs(boundary-expected)).toBeLessThan(1);
+      await page.reload();await expect(card).toBeVisible();expect(await card.boundingBox()).toEqual(placed);
+    }
+  }
+});
 test('generated checkpoint has readable cards and assets at phone width',async({page})=>{
   await page.setViewportSize({width:320,height:740});await openMars(page);
   await openDebugPanel(page);
@@ -29,8 +69,8 @@ test('generated checkpoint has readable cards and assets at phone width',async({
   await expect(page.locator('.mobile-debug button')).toHaveCount(choices+1);
   await page.getByRole('button',{name:'Close debug panel'}).click();
   await expect(page.locator('.chapter-panel')).toHaveCount(1);
-  await jumpToChapter(page,chapter('mars',3),true);await page.getByRole('button',{name:'Begin',exact:true}).click();await expect(page.getByText('Generated checkpoint',{exact:true})).toBeVisible();
-  expect(await page.locator('.scene-art').evaluateAll(images=>images.every(i=>(i as HTMLImageElement).complete&&(i as HTMLImageElement).naturalWidth>0))).toBe(true);
+  await jumpToChapter(page,chapter('mars',3),true);await page.getByRole('button',{name:'Begin',exact:true}).click();await expect(page.getByText('Generated checkpoint',{exact:true})).toHaveCount(0);
+  await expect.poll(()=>page.locator('.scene-art').evaluateAll(images=>images.every(i=>(i as HTMLImageElement).complete&&(i as HTMLImageElement).naturalWidth>0))).toBe(true);
   expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
   const cards=page.locator('.chapter-panel').last().locator('.thing');await expect(cards.filter({hasText:'Wheels'})).toBeVisible();
   expect(await cards.evaluateAll(els=>els.every(el=>el.scrollWidth<=el.clientWidth&&el.getBoundingClientRect().height>=43))).toBe(true);

@@ -20,7 +20,9 @@ export function restorePresentation(story: Story, raw: State): State {
   state.pending=state.pending.filter(n=>!state.seen.includes(n.key));
   for(const token of Object.values(state.tokens)){
     const saved=raw.tokens?.[token.id];
-    if(saved&&[saved.x,saved.y].every(Number.isFinite)){token.x=Math.max(0,Math.min(278,saved.x));token.y=Math.max(0,Math.min(800,saved.y));}
+    if(saved&&[saved.x,saved.y].every(Number.isFinite)){
+      token.x=saved.x; token.y=saved.y;
+    }
   }
   return state;
 }
@@ -36,7 +38,7 @@ export function restoreChapterSession(story: Story, state: State, raw: unknown):
 export function isNoopMove(state: State, action: Action): boolean {
   if(action.type!=='move')return false;
   const token=state.tokens[action.item];
-  return !!token&&token.chapter===action.chapter&&token.hotspot===action.hotspot&&token.x===Math.max(0,Math.min(230,action.x))&&token.y===Math.max(0,Math.min(770,action.y));
+  return !!token&&token.chapter===action.chapter&&token.hotspot===action.hotspot&&token.x===action.x&&token.y===action.y;
 }
 export function noteChapterAction(session: ChapterSession, before: State, action: Action): void {
   if(action.type==='combine'||(action.type==='move'&&!isNoopMove(before,action)))session.changed=true;
