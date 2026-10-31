@@ -1,0 +1,17 @@
+import type { Story } from '../story/types.ts';
+import type { State } from '../engine/types.ts';
+import { readings } from '../engine/game.ts';
+import { encyclopediaEntries } from './encyclopedia.ts';
+import { escape } from './markdown.ts';
+import { readingBody } from './presentation.ts';
+
+/** One connected book: selection changes its facing page, not the dialog. */
+export function encyclopediaBook(story: Story, state: State, selected: string | undefined, detail: boolean, asset: (path: string) => string): string {
+  const entries = encyclopediaEntries(story, state), chapters = [...new Set(entries.map(entry => entry.chapter))];
+  const text = selected ? readings(story, state, selected).map(reading => reading.markdown).join('\n\n') : '';
+  return `<header class="encyclopedia-header"><h1>Encyclopedia</h1><button data-command="close">Close</button></header>
+    <div class="encyclopedia-pages ${detail ? 'show-detail' : ''}"><div class="encyclopedia-track">
+      <nav class="encyclopedia-index" aria-label="Encyclopedia index"><div class="encyclopedia-list">${chapters.map(chapter => `<section class="encyclopedia-chapter"><h2>${escape(chapter === null ? 'Earlier discoveries' : story.chapters[chapter]?.name ?? 'Earlier discoveries')}</h2><ul>${entries.filter(entry => entry.chapter === chapter).map(entry => `<li><a href="#encyclopedia-detail" data-command="encyclopedia-read" data-reading="${escape(entry.id)}"${entry.id === selected ? ' aria-current="true"' : ''}>${escape(entry.name)}</a></li>`).join('')}</ul></section>`).join('')}</div></nav>
+      <section class="encyclopedia-detail" id="encyclopedia-detail" aria-label="Encyclopedia entry"><div class="encyclopedia-detail-toolbar"><button data-command="encyclopedia-back"${selected ? '' : ' hidden'}><span aria-hidden="true">←</span> Back</button></div><div class="encyclopedia-reading">${text ? readingBody(text, asset) : '<p class="encyclopedia-placeholder">Choose an item from the index.</p>'}</div></section>
+    </div></div>`;
+}

@@ -32,6 +32,8 @@ Do not snapshot whole stories, pin incidental counts or rerun historical tests. 
 
 Implement the interaction contract in [UX](ux.md). Preserve connected image and scene DOM nodes rather than replacing the world after each move; do not rewrite unchanged image URLs. Suppress native HTML drag, own pointer timers and capture through completion, cancellation, focus loss and resize, and measure long labels as well as simple physical-item names. Test real pointer events, and distinguish browser touch emulation from a native-device test.
 
+The encyclopedia book renderer is separate from standalone readings. Preserve its dialog and index DOM while selecting details; responsive pane visibility must update inertness and accessibility state along with the visual slide. Live text refresh must not commit a new interaction anchor or steal editor focus.
+
 Keep script/test source boundaries explicit so archived snapshots cannot accidentally enter the active build.
 
 ## Live authoring boundary
