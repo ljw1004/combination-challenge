@@ -23,7 +23,9 @@ The player fetches Markdown as an ordinary file. These routes work in developmen
 
 Paths resolve relative to the player page, so the same layout works under a website subdirectory. A missing story displays an error. The `story` selector accepts a folder name, not an arbitrary URL. Relative artwork references resolve against the Markdown file's directory; absolute HTTP(S) image URLs also work. Markdown is rendered without executing embedded HTML or scripts.
 
-`npm run build` produces `dist/` with separate bundled JavaScript/CSS, ordinary story Markdown/artwork files, a catalogue, and a copy of `combinations.html` beside each story. Deploy the whole directory to a static web server. The HTML currently depends on the shared `assets/` bundles; it is not a standalone file. Editing a deployed `story.md` or its artwork does not require rebuilding JavaScript. The catalogue's titles/descriptions are generated at build time.
+`npm run build` runs story lint, TypeScript checking and Vite bundling in sequence. Lint errors stop the command; warnings allow it to continue. This check runs when the build command is invoked; `npm run dev` and ordinary story loading do not run the CLI lint check. The live editor displays its own diagnostics without blocking saving or preview.
+
+The build produces `dist/` with separate bundled JavaScript/CSS, ordinary story Markdown/artwork files, a catalogue, and a copy of `combinations.html` beside each story. Deploy the whole directory to a static web server. The HTML currently depends on the shared `assets/` bundles; it is not a standalone file. Editing a deployed `story.md` or its artwork does not require rebuilding JavaScript. The catalogue's titles/descriptions are generated at build time.
 
 ## Edit a story live
 
@@ -80,6 +82,17 @@ npm run lint -- mars --details
 npm run lint -- --json
 npm run checkpoint -- mars 3 /tmp/mars-chapter-4.json
 ```
+
+Lint also checks optional content against goal-directed progression using the pessimistic construction-set calculation in the [formal lint catalogue](docs/story-format-spec.md#lint-rules). Opportunity warnings name a blocking chapter/dependency and link to relevant source rules. Fast editor diagnostics remain available while deep checks run in the worker.
+
+Measure construction-set analysis:
+
+```sh
+npm run lint -- --analysis-stats
+npm run lint -- --json --analysis-stats
+```
+
+Analysis stops at the 101st distinct alternative in a construction-set family or merged chapter frontier. Each set has one working state; independent goals do not generate a search over partially completed subsets. Statistics distinguish cumulative construction-set evaluations, engine operations and the largest family of alternatives. JSON adds chapter counts, OPTIONAL item counts and phase/timing details. The [specification](docs/story-format-spec.md#opportunities-for-authored-content) defines the algorithm and its deliberate approximation; [working notes](notes.md#31-october-2026-retained-opportunity-linter) record its acceptance and verification.
 
 Lint details include source lines; JSON includes a UTF-16 text span (`from`, `to`, end-exclusive) for every diagnostic and related locations for contrasting rules. Checkpoints work through preceding goals and their dependencies, preferring preparations whose inputs already exist and avoiding unrelated combinations. Chapter indices are zero-based. These are legal developer witnesses, not fresh player experiences or a claim of globally shortest solutions.
 

@@ -83,7 +83,7 @@ export function parseStory(markdown: string, options: { id?: string; file?: stri
     }
     if (kind === 'item') {
       let item = story.items[id];
-      if (!item) item = story.items[id] = { id, name, compound, slots: [], wonders: [], renames: [], source: source(line) };
+      if (!item) item = story.items[id] = { id, name, compound, slots: [], wonders: [], renames: [], source: source(line, raw.trim()) };
       if (named?.[2] && declared.get(id) === name) item.name = name;
       item.compound ||= compound;
       if (exclusive) {

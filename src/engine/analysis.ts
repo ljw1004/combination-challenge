@@ -1,16 +1,31 @@
 import type { Story, Ref, Condition, Recipe, Goal, Chapter } from '../story/types.ts';
 import type { State } from './types.ts';
 
-export interface Index { producers: Map<string, Recipe[]>; primitives: Set<string>; pairs: [string, string][] }
+export interface Index { producers: Map<string, Recipe[]>; primitives: Set<string>; pairs: [string, string][]; operands: Map<string, Recipe[]> }
 const indices = new WeakMap<Story, Index>();
+function operandKey(a: string, b?: string, hotspot?: string): string {
+  return JSON.stringify([b ? [a, b].sort() : [a], hotspot ?? '']);
+}
 export function indexStory(story: Story): Index {
   let index = indices.get(story); if (index) return index;
-  const producers = new Map<string, Recipe[]>();
-  for (const r of story.recipes) if (!r.installation) { const list = producers.get(r.result.id) ?? []; list.push(r); producers.set(r.result.id, list); }
+  const producers = new Map<string, Recipe[]>(), operands = new Map<string, Recipe[]>();
+  for (const r of story.recipes) {
+    if (!r.installation) { const list = producers.get(r.result.id) ?? []; list.push(r); producers.set(r.result.id, list); }
+    const key = operandKey(r.a.ref.id, r.b?.ref.id, r.hotspot), matches = operands.get(key) ?? [];
+    matches.push(r); operands.set(key, matches);
+  }
   const primitives = new Set(Object.keys(story.items).filter(id => !producers.has(id)));
   const pairs: [string, string][] = [];
   for (const item of Object.values(story.items)) if (item.exclusiveWith && item.id < item.exclusiveWith) pairs.push([item.id, item.exclusiveWith]);
-  index = { producers, primitives, pairs }; indices.set(story, index); return index;
+  index = { producers, primitives, pairs, operands }; indices.set(story, index); return index;
+}
+export function recipeCandidates(story: Story, a: string, b?: string, hotspot?: string): readonly Recipe[] {
+  return indexStory(story).operands.get(operandKey(a, b, hotspot)) ?? [];
+}
+/** Only primitive declarations request chapter supplies; derived declarations are metadata. */
+export function chapterSupplies(story: Story, chapter: number): Ref[] {
+  const primitives = indexStory(story).primitives;
+  return story.chapters[chapter].items.filter(ref => primitives.has(ref.id));
 }
 /** `next:` groups display stages; every stage remains a requirement. */
 export function goalChains(goals: Goal[]): Goal[][] {
@@ -72,7 +87,7 @@ export function continuationPossible(story: Story, state: State, removed: Set<st
       const checkGoal = (g: Goal) => state.achieved.includes(g.id) || goalPossible(g, available, hotspots);
       if (!chapterGoalsSatisfied(c, checkGoal)) return false;
       // Excluded optional alternatives do not become mandatory through an Items listing.
-      if ((chapter > state.chapter || includeCurrentItems) && c.items.some(r => {
+      if ((chapter > state.chapter || includeCurrentItems) && chapterSupplies(story, chapter).some(r => {
         const token = state.tokens[r.id];
         const excludedChoice = state.excluded.includes(r.id) || index.pairs.some(pair => pair.includes(r.id) && denied.has(r.id) && !banned.has(r.id));
         const alreadyRetired = token && token.status !== 'available' && !removed.has(r.id);
@@ -107,7 +122,7 @@ export function chapterNeeds(story: Story, state: State, chapter: number): Set<s
     }
   }
   const c = story.chapters[chapter];
-  for (const ref of c.items) need(ref);
+  for (const ref of chapterSupplies(story, chapter)) need(ref);
   for (const g of c.goals) if (!state.achieved.includes(g.id)) for (const cond of g.conditions) need(cond.item);
   return needed;
 }

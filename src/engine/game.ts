@@ -1,6 +1,6 @@
 import type { Story, Recipe, Ref, Goal, Condition } from '../story/types.ts';
 import type { State, Token, Action } from './types.ts';
-import { activeHotspots, goalChains, chapterGoalsSatisfied, chapterNeeds, continuationPossible, indexStory } from './analysis.ts';
+import { activeHotspots, goalChains, chapterGoalsSatisfied, chapterNeeds, continuationPossible, indexStory, recipeCandidates } from './analysis.ts';
 export type { State, Token, Action } from './types.ts';
 
 export function label(story: Story, state: State, id: string): string {
@@ -65,7 +65,7 @@ export function recipeFor(story: Story, state: State, action: Extract<Action,{ty
   if (action.chapter!==undefined && (!state.visited.includes(action.chapter) || !action.hotspot || !activeHotspots(story,action.chapter).includes(action.hotspot))) return;
   const a = state.tokens[action.a], b = action.b ? state.tokens[action.b] : undefined;
   if (!a || a.status !== 'available' || (action.b && (!b || b.status !== 'available'))) return;
-  for (const r of story.recipes) {
+  for (const r of recipeCandidates(story, action.a, action.b, action.hotspot)) {
     if (!!r.b !== !!b || state.excluded.includes(r.result.id)) continue;
     const forward = r.a.ref.id === a.id && matches(a,r.a.ref) && (!r.b || (r.b.ref.id === b?.id && matches(b,r.b.ref)));
     const reverse = !!r.b && r.a.ref.id === b?.id && matches(b,r.a.ref) && r.b.ref.id === a.id && matches(a,r.b.ref);
@@ -96,7 +96,10 @@ function queueWonders(story: Story, state: State, id: string) {
     if (!state.seen.includes(key) && !state.pending.some(n => n.key === key)) state.pending.push({ key, kind:'wonder', item:id, markdown:w.markdown });
   }
 }
-export function act(story: Story, original: State, action: Action): State {
+/** Abstract clients can allow additional retirement possibilities without
+ * changing recipe matching, exclusions, goal latching or the player policy. */
+export type RetirementCheck = (state: State, removed: Set<string>) => boolean;
+export function act(story: Story, original: State, action: Action, retirementCheck?: RetirementCheck): State {
   const state = structuredClone(original);
   if (action.type === 'dismiss') { const notice = state.pending.shift(); if (notice && !state.seen.includes(notice.key)) state.seen.push(notice.key); }
   else if (action.type === 'advance') {
@@ -129,7 +132,7 @@ export function act(story: Story, original: State, action: Action): State {
     const expendable = [recipe.a, ...(recipe.b ? [recipe.b] : [])].filter(i => i.fate !== 'preserve' && i.ref.id !== recipe.result.id);
     // Try hiding both inputs first, then each individually. These infinite resources are never depleted.
     const choices = [expendable, ...expendable.map(i => [i]), []];
-    const retiring = choices.find(inputs => continuationPossible(story,state,new Set(inputs.map(i => i.ref.id))));
+    const retiring = choices.find(inputs => (retirementCheck ?? ((s, removed) => continuationPossible(story,s,removed)))(state,new Set(inputs.map(i => i.ref.id))));
     if (!retiring) throw new Error('This action would remove every continuation through the remaining story.');
     for (const input of retiring) {
       const token = state.tokens[input.ref.id]; token.status = recipe.installation ? 'installed' : input.fate as 'consume' | 'transform';

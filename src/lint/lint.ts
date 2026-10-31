@@ -1,8 +1,15 @@
 import type { Story, Diagnostic, Source, Ref, Fate, RelatedLocation, DiagnosticFix } from '../story/types.ts';
-import { continuationPossible, indexStory, activeHotspots } from '../engine/analysis.ts';
+import { continuationPossible, indexStory, activeHotspots, chapterSupplies } from '../engine/analysis.ts';
 import { newGame } from '../engine/game.ts';
+import { analyzeOpportunities, type OpportunityOptions, type OpportunityReport } from './opportunities.ts';
 
-export function lintStory(story: Story, options: {analysis?: boolean} = {}): Diagnostic[] {
+export interface LintOptions {
+  analysis?: boolean;
+  /** Focused semantic tests may omit opportunity enumeration; normal lint always includes it. */
+  opportunities?: OpportunityOptions | false;
+  onOpportunityAnalysis?: (report: OpportunityReport) => void;
+}
+export function lintStory(story: Story, options: LintOptions = {}): Diagnostic[] {
   const diagnostics = [...story.diagnostics];
   const add = (severity: Diagnostic['severity'],code:string,message:string,source:Source,related?:RelatedLocation[],fixes?:DiagnosticFix[],fixTitle?:string) => diagnostics.push({severity,code,message,source,span:source.span??{from:0,to:0},stage:'fast',...(related?.length?{related}:{}),...(fixes?.length?{fixes,fixTitle}:{})});
   const error = (code:string,message:string,source:Source) => add('error',code,message,source);
@@ -79,11 +86,13 @@ export function lintStory(story: Story, options: {analysis?: boolean} = {}): Dia
     const goalChains=c.goals.filter(g=>!g.next).length;
     if (goalChains>2) warning('many-visible-goals',`${c.name} starts with ${goalChains} goal chains (more than two). Review their presentation; consider next: for sequential disclosure when it makes the goals easier to follow; all goals remain required.`,c.goalsSource ?? c.goals[0]?.source ?? c.source);
     for (const ref of c.items) checkRef(ref,c.source);
-    for (const [a,b] of index.pairs) if (c.items.some(r=>r.id===a)&&c.items.some(r=>r.id===b)) error('exclusive-needs',`${c.name} lists both mutually exclusive items ${story.items[a].name} and ${story.items[b].name}.`,c.source);
+    const supplies = chapterSupplies(story, i);
+    for (const [a,b] of index.pairs) if (supplies.some(r=>r.id===a)&&supplies.some(r=>r.id===b)) error('exclusive-needs',`${c.name} supplies both mutually exclusive primitives ${story.items[a].name} and ${story.items[b].name}.`,c.source);
     for (const goal of c.goals) for (const cond of goal.conditions) {
       checkRef(cond.item,cond.source);
       if (cond.hotspot && !story.chapters.slice(0,i+1).some((_,j)=>activeHotspots(story,j).includes(cond.hotspot!))) error('future-goal-hotspot',`Goal ${goal.text} needs a hotspot that is not available by this chapter.`,cond.source);
       for (const id of [cond.item.id,...cond.item.slots]) {
+        if (!index.primitives.has(id)) continue;
         const later = story.chapters.slice(i+1).find(c=>c.items.some(r=>r.id===id));
         const alreadyListed = story.chapters.slice(0,i+1).some(c=>c.items.some(r=>r.id===id));
         const endLine = story.chapters[i+1]?.source.line ?? Infinity;
@@ -92,12 +101,12 @@ export function lintStory(story: Story, options: {analysis?: boolean} = {}): Dia
       }
     }
   }
-  if (options.analysis !== false) diagnostics.push(...lintStoryAnalysis(story, diagnostics));
+  if (options.analysis !== false) diagnostics.push(...lintStoryAnalysis(story, diagnostics, options));
   return diagnostics;
 }
 
 /** Potentially expensive global reachability/exclusivity analysis. Run in the browser worker. */
-export function lintStoryAnalysis(story: Story, fastDiagnostics: readonly Diagnostic[] = lintStory(story, {analysis: false})): Diagnostic[] {
+export function lintStoryAnalysis(story: Story, fastDiagnostics: readonly Diagnostic[] = lintStory(story, {analysis: false}), options: LintOptions = {}): Diagnostic[] {
   if (fastDiagnostics.some(diagnostic => diagnostic.severity === 'error')) return [];
   const error = (code: string, message: string): Diagnostic[] => [{
     severity: 'error', code, message, source: story.source,
@@ -108,5 +117,29 @@ export function lintStoryAnalysis(story: Story, fastDiagnostics: readonly Diagno
       return error('no-continuation', 'There is no consistent exclusive branch that can satisfy the story requirements. Check cycles, goals and top-level needs.');
     }
   } catch (exception) { return error('analysis-limit', (exception as Error).message); }
-  return [];
+  if (options.opportunities === false) return [];
+  const report = analyzeOpportunities(story, options.opportunities);
+  options.onOpportunityAnalysis?.(report);
+  if (!report.complete) {
+    const location = story.chapters[report.stats.activeChapter]?.source ?? story.source;
+    return [{severity: 'error', code: 'opportunity-analysis-limit', stage: 'deep', source: location,
+      span: location.span ?? {from: 0, to: 0},
+      message: `${report.limit} Evaluated ${report.stats.constructionSets} construction sets; largest set of alternatives ${report.stats.peakFrontier}.`}];
+  }
+  const primitives = indexStory(story).primitives;
+  return Object.values(story.items).filter(item => !report.opportunities.has(item.id)).map(item => {
+    const primitive = primitives.has(item.id);
+    const explanation = report.explanations.get(item.id);
+    const related = story.recipes.filter(recipe => !recipe.installation && recipe.result.id === item.id).map(recipe => ({
+      ...recipe.source, span: recipe.source.span ?? {from: 0, to: 0}, message: `Producing combination for ${item.name}.`,
+    }));
+    related.push(...explanation?.related ?? []);
+    return {
+      severity: 'warning', code: primitive ? 'unsupplied-primitive' : 'no-item-opportunity', stage: 'deep',
+      source: item.source, span: item.source.span ?? {from: 0, to: 0}, ...(related.length ? {related} : {}),
+      message: primitive
+        ? `${item.name} never enters an analyzed chapter through its goals or primitive Items supplies. Add a primitive Items entry in a chapter where it should be available, or connect it to that chapter's goal dependencies.`
+        : `${item.name} has no construction opportunity on a current chapter board under the pessimistic analysis. ${explanation?.message ?? 'Its dependencies never yield a legal construction in the analyzed goal-only histories.'}`,
+    } satisfies Diagnostic;
+  });
 }

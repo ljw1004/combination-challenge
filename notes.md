@@ -189,3 +189,39 @@ All 21 goal-density cases received paired guided scenes. Results do not establis
 Verification: all 183 recorded scenes were replay/hash verified without errors. They are not 183 independent cases or human trials. Both comparison arms used the corrected shared runtime; source isolation was an assignment contract, not an OS sandbox. The logical interface exposes global partners and items from visited panels, and cannot establish visual crowding, touch usability or human enjoyment. Original interface-confounded and wrong-branch records were preserved and excluded from the affected conclusions.
 
 Final production checks: 49 Node tests, type checking and build pass; story lint has zero errors and 63 reviewed warnings. Actual browser checks covered printing at 390px, botany at 320px and reverse Ink drag at 390px; Illustrated flora remained reachable and retained Ink did not cover goals/arrows. Some creation-position overlaps remained manageable with ordinary dragging. These were narrow desktop-browser frames, not native iPhone/iPad/Safari tests or a fun judgment. Automated Playwright was not run.
+
+## 31 October 2026 retained opportunity linter
+
+The user accepted the pessimistic construction-set algorithm as useful authoring assistance at an acceptable cost. Their new Principles section in the [format specification](docs/story-format-spec.md#principles) makes the intent explicit: allow optional worldbuilding, let the engine manage supply and cleanup, and catch likely fruitless authoring without adding author annotations. The [lint catalogue](docs/story-format-spec.md#lint-rules) owns each rule's motivation and formal definition.
+
+The shared gameplay engine now seeds chapter needs from goals and top-level primitive Items entries, expanding global recipe dependencies. Derived declarations provide metadata without supplying ingredients, carrying existing results or protecting ingredients against cleanup. Implicit slot installation does not make its owner derived. The browser, live preview and checkpoint planner use the shared engine.
+
+The retained linter builds complete construction sets backwards and deduplicates constructed identities and filled slots before combining requirements. Each set has one working state, evaluated through actual engine actions. Earlier chapters contribute goal-directed work only; optional local probes retain the actual goals and never seed later histories. The analyser does not enumerate partial inventories, action permutations or independent OPTIONAL expansions. Its deliberate pessimism can reject a real but fragile gameplay route.
+
+Chapter histories first merge compatible construction histories, collapsing possible retirement and placement. They can also merge identical available/installed inventories that differ only in retired-versus-uncreated intermediates. Possible creation still blocks recreation and supply. Possible noncreation survives separately and relaxes historical records only in retirement queries; otherwise, removing future alternatives can accidentally invent protection for another ingredient. Small regression fixtures cover that counterexample, both merge insertion orders and persistent uncertainty. The cap remains 100 elements per construction-set family or merged frontier, not 100 cumulative evaluations.
+
+Opportunity diagnostics include a blocking chapter and ingredient, with source links to relevant declarations and recipes. These are illustrative blockers from the completed analysis, not unique historical explanations or proof of absolute impossibility. Explanation selection never changes acceptance.
+
+Accepted analysis results (content findings are now warnings; tests and bundling ran concurrently, so timings are not controlled benchmarks):
+
+| Story | Opportunity warnings | Peak alternatives | Construction sets evaluated | Time |
+|---|---:|---:|---:|---:|
+| Divinity | 0 | 8 | 47 | 0.20 s |
+| Elements | 4 | 48 | 406 | 2.95 s |
+| Ideas | 0 | 2 | 128 | 1.69 s |
+| Kitchen | 5 | 2 | 44 | 0.26 s |
+| Mars | 1 | 90 | 906 | 10.11 s |
+
+All five analyses complete within the default limit. Before the identical-inventory merge, an explicitly authorized 10,000-limit Elements trial peaked at 1,152 alternatives and 9,206 evaluations in about 33 seconds. The retained merge finds the same four problems with 48 alternatives and 406 evaluations. Kitchen and Mars findings are also unchanged; the 63 existing warnings remain.
+
+The ten content findings are retained for [editorial review](docs/backlog.md), without editing stories to silence them:
+
+- Elements: Brush encounters retired Plant fiber; Weather book encounters retired Bound book; Salt and Brine need Fired glazed bowl from an earlier board.
+- Kitchen: Mustard paste encounters retired Cider vinegar; Glazed fruit tart needs an earlier-board Fruit tart; Buttercream and Vanilla buttercream need earlier-board Butter; Vanilla sandwich cake needs earlier-board Butter, Confectioner's sugar and Vanilla.
+- Mars: Illuminated glovebox needs a Lamp left on an earlier board at the field station.
+
+Removed the superseded exhaustive action-search implementation, its CLI flags and state/transition budgets, witness traces and temporary experiment files. Its useful counterexamples remain as small explicit gameplay replays beside their stricter lint expectations. Consolidated the intermediate investigation notes here; the production analyser and its statistics remain available through the documented CLI.
+
+Verification: all 71 Node tests and 13 Chromium tests pass, as do type checking and independent Vite bundling (with the existing bundle-size advisory). Gameplay regressions cover primitive cache protection and arrival, derived declarations not supplying or carrying results, and compound goals carrying their owner while supplying missing components. All five manuscripts retain legal complete gameplay replays. There are no opportunity-analysis-limit errors. No stories, user icon work, archives, deployments or external services were changed.
+
+The user clarified that content-opportunity findings should be author-review warnings. Both `unsupplied-primitive` and `no-item-opportunity` now have warning severity, with the algorithm and explanations unchanged; incomplete analysis remains an error. The existing `npm run build` script runs CLI story lint, TypeScript checking and Vite bundling in sequence, stopping on errors but permitting warnings. It builds the web application and copies ordinary story files; editing or loading Markdown does not require it. The README now explains that boundary. After the severity change, all 20 opportunity tests and the complete production build pass: story lint reports zero errors and 73 warnings (the previous 63 plus these ten).

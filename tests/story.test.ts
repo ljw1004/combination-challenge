@@ -56,8 +56,9 @@ test('a hotspot operand creates its result at the receiving chapter, even when i
   const s=fixture('**Goals**\n- First -- C\n**Combinations**\n- A [consume] + B [consume] -> C\n\n## Workshop\n\n![room](room.webp)\n\n**Goals**\n- Finish -- D\n**Hotspots**\n- Bench\n**Combinations**\n- Raw [transform] @ Bench -> D');
   let state=combine(s,newGame(s),'A','B');while(state.pending.length)state=act(s,state,{type:'dismiss'});state=act(s,state,{type:'advance'});state=act(s,state,{type:'move',item:'name:Raw',chapter:0,x:20,y:100});state=act(s,state,{type:'combine',a:'name:Raw',hotspot:'name:Bench',chapter:1});assert.equal(state.tokens['name:D'].chapter,1);assert.equal(state.tokens['name:D'].hotspot,'name:Bench');assert.equal(state.tokens['name:Raw'].status,'transform');
 });
-test('all manuscripts lint and have legal complete replay witnesses',()=>{
-  for(const id of storyIds()){const {story}=loadStory(id);assert.deepEqual(lintStory(story).filter(d=>d.severity==='error'),[],id);const state=checkpoint(story,story.chapters.length);assert(state.completed,id);assert.deepEqual(replay(story,state.actions),state,id);}
+test('all manuscripts pass structural/continuation lint and have legal complete replay witnesses',()=>{
+  // Opportunity coverage has its own authoring criterion and resource limits.
+  for(const id of storyIds()){const {story}=loadStory(id);assert.deepEqual(lintStory(story,{opportunities:false}).filter(d=>d.severity==='error'),[],id);const state=checkpoint(story,story.chapters.length);assert(state.completed,id);assert.deepEqual(replay(story,state.actions),state,id);}
 });
 test('Mars telescope camera records the outcrop route instead of rejecting the stronger tool',()=>{
   const {story}=loadStory('mars');

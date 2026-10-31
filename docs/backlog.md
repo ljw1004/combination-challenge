@@ -32,6 +32,8 @@ These are proposals, not existing tools or syntax:
 - Explore item icons for stories that benefit from them.
 - Add useful exclusivity examples and investigate a proof of the specification's continuation invariant.
 
+The retained [opportunity lint](story-format-spec.md#opportunities-for-authored-content) completes all five stories within its 100-element cap. Review Elements' four findings (Brush, Weather book, Salt and Brine), the five Kitchen findings and Mars's Illuminated glovebox using their blocking examples and related source rules, without automatically making optional content mandatory. Current evidence and limits are in the [working notes](../notes.md#31-october-2026-retained-opportunity-linter); these are new findings, not reopened historical lint reviews.
+
 ## Story ideas worth retaining
 
 | Idea | Useful question or operation | Source and caution |
