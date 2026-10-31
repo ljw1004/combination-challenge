@@ -14,6 +14,12 @@ Seven playable versions of **The maker's clearing** compare the same twenty belo
 
 Each story owns 20 item PNGs, two transparent House overlays, one background JPEG and its Markdown. These deliberately dense comparison boards are not proposed twenty-item opening chapters for Elements. The full Elements manuscript remains unchanged. Syntax belongs to the [specification](../story-format-spec.md); interaction belongs to [UX](../ux.md).
 
+## Compare the screenshots
+
+Open the [comparison gallery](screenshots/index.html) for an overview or a horizontally scrollable row at phone size. Click any screenshot to see its full resolution. The [overview PNG](screenshots/comparison.png) and [single-row PNG](screenshots/side-by-side.png) can be saved or shared directly. With `npm run dev` running, the gallery is also available at [the local comparison page](http://127.0.0.1:5173/docs/icon-study/screenshots/index.html).
+
+All seven captures show fresh opening states after Begin, with the same 390×844 viewport and a 2× pixel density. They include every item and its matching background; no combinations have been performed and hover labels are cleared. The [capture manifest](screenshots/manifest.json) records the source commit, browser, dimensions and files. Reproduce them against a running development or production-preview server with `node scripts/capture-icon-study.ts`; set `ICON_STUDY_URL` to use a server other than `http://127.0.0.1:5173`. These are ordinary Chromium captures, not generated mockups or native-phone photographs.
+
 ## Visual language
 
 Keep a recognizable silhouette before texture. At the usual 56px display size, one or two identifying structures matter more than surface detail. Most source PNGs are 224×224; long or tall unframed objects can be 288px wide or 272px tall. House and its registered layers are 384×320. The renderer uses one quarter of natural pixel dimensions, then the board's responsive scale. Base silhouettes and fitted layers use a common canvas; overlays are not standalone item portraits.

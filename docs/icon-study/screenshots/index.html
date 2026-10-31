@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Icon styles — side by side</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#e9e4da;color:#292d25;font:16px/1.5 system-ui,sans-serif}
+main{max-width:1656px;margin:auto;padding:24px}header{margin-bottom:24px}h1{font:600 30px/1.2 Georgia,serif;margin:0 0 8px}p{margin:0 0 16px;color:#54594e}
+nav{display:flex;flex-wrap:wrap;gap:8px;align-items:center}button,nav a{font:inherit;border:1px solid #a2a596;border-radius:6px;padding:7px 13px;color:inherit;background:#faf8f1;text-decoration:none;cursor:pointer}button[aria-pressed="true"]{background:#34483d;color:white;border-color:#34483d}a:focus-visible,button:focus-visible{outline:3px solid #aa6429;outline-offset:3px}
+.gallery{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;align-items:start}figure{margin:0;background:#faf8f1;border-radius:6px;overflow:hidden;box-shadow:0 2px 5px #30251d20}figcaption{padding:9px 12px;font-weight:600;font-size:15px;line-height:22px}.gallery img{display:block;width:100%;height:auto}.gallery a{display:block}footer{font-size:13px;color:#606457;margin-top:20px}
+body.strip main{max-width:none}body.strip .gallery{grid-template-columns:repeat(7,390px);overflow-x:auto;padding-bottom:12px}
+@media(max-width:1100px){.gallery{grid-template-columns:repeat(3,minmax(0,1fr))}}@media(max-width:760px){.gallery{grid-template-columns:repeat(2,minmax(0,1fr))}main{padding:16px}}@media(max-width:480px){.gallery{grid-template-columns:1fr}}
+</style>
+<main><header><h1>Icon styles — side by side</h1><p>The same twenty belongings, each with its matching background.</p>
+<nav aria-label="Comparison layout"><button id="overview" aria-pressed="true">Overview</button><button id="strip" aria-pressed="false">Side by side · phone size</button><a href="comparison.png" download>Download overview</a><a href="side-by-side.png" download>Download single row</a></nav></header>
+<section class="gallery" aria-label="Seven art styles"><figure><figcaption>Coloured woodcut</figcaption><a href="woodcut-color.png" target="_blank" rel="noopener" aria-label="Open full-size Coloured woodcut screenshot"><img src="woodcut-color.png" width="780" height="1688" alt="Coloured woodcut: opening scene with all twenty objects and the first house-fitting goal"></a></figure>
+<figure><figcaption>Wood engraving</figcaption><a href="woodcut.png" target="_blank" rel="noopener" aria-label="Open full-size Wood engraving screenshot"><img src="woodcut.png" width="780" height="1688" alt="Wood engraving: opening scene with all twenty objects and the first house-fitting goal"></a></figure>
+<figure><figcaption>Risograph</figcaption><a href="riso.png" target="_blank" rel="noopener" aria-label="Open full-size Risograph screenshot"><img src="riso.png" width="780" height="1688" alt="Risograph: opening scene with all twenty objects and the first house-fitting goal"></a></figure>
+<figure><figcaption>Medieval manuscript</figcaption><a href="medieval.png" target="_blank" rel="noopener" aria-label="Open full-size Medieval manuscript screenshot"><img src="medieval.png" width="780" height="1688" alt="Medieval manuscript: opening scene with all twenty objects and the first house-fitting goal"></a></figure>
+<figure><figcaption>Traditional · 20% circles</figcaption><a href="traditional-game.png" target="_blank" rel="noopener" aria-label="Open full-size Traditional · 20% circles screenshot"><img src="traditional-game.png" width="780" height="1688" alt="Traditional · 20% circles: opening scene with all twenty objects and the first house-fitting goal"></a></figure>
+<figure><figcaption>Japanese Edo</figcaption><a href="japanese-edo.png" target="_blank" rel="noopener" aria-label="Open full-size Japanese Edo screenshot"><img src="japanese-edo.png" width="780" height="1688" alt="Japanese Edo: opening scene with all twenty objects and the first house-fitting goal"></a></figure>
+<figure><figcaption>Encyclopedic engraving</figcaption><a href="diderot.png" target="_blank" rel="noopener" aria-label="Open full-size Encyclopedic engraving screenshot"><img src="diderot.png" width="780" height="1688" alt="Encyclopedic engraving: opening scene with all twenty objects and the first house-fitting goal"></a></figure></section>
+<footer>Fresh opening states · 390 × 844 viewport · click any image for the full-resolution capture</footer></main>
+<script>
+for(const id of ['overview','strip'])document.getElementById(id).addEventListener('click',()=>{document.body.classList.toggle('strip',id==='strip');for(const other of ['overview','strip'])document.getElementById(other).setAttribute('aria-pressed',String(other===id));});
+</script></html>
