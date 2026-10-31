@@ -29,3 +29,14 @@ test('reader/navigation cancellation clears feedback and prevents a stale timeou
   assert.equal(h.timers.size,0);h.advance(1000);assert.deepEqual(h.events,['Plant','Plant','clear']);
   h.feedback.begin('Plant');assert.equal(h.feedback.release('Plant',true),false);
 });
+test('hover is distinguished from pressed feedback and release keeps the pressed indicator until expiry',()=>{
+  let now=0,expiry:(()=>void)|undefined;
+  const events:Array<[string,boolean]|'clear'>=[];
+  const schedule=((run:()=>void)=>{expiry=run;return 1;}) as unknown as typeof setTimeout;
+  const unschedule=(()=>{expiry=undefined;}) as unknown as typeof clearTimeout;
+  const feedback=new ItemFeedback((id,pressed)=>events.push([id,pressed]),()=>events.push('clear'),()=>now,schedule,unschedule);
+  feedback.hover('Plant');feedback.begin('Plant');feedback.release('Plant',false);feedback.hover('Water');
+  assert.deepEqual(events,[['Plant',false],['Plant',true],['Plant',true]]);
+  now+=DOUBLE_TAP_MS;expiry?.();assert.equal(events.at(-1),'clear');
+  feedback.hover('Water');assert.deepEqual(events.at(-1),['Water',false]);
+});

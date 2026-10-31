@@ -229,3 +229,11 @@ The user clarified that content-opportunity findings should be author-review war
 ## 31 October 2026 icon project brief
 
 The [icon project brief](docs/icons.md) records the proposed Elements icon presentation and art-generation experiments; the [art-style references](references/icon-sets/art-styles/index.md) collect six visual directions. The brief remains a design proposal, with implementation and art-style selection pending. Recognition, touch usability and consistency across a complete icon set have not yet been evaluated. This checkpoint preserves the brief and reference assets for the next phase.
+
+## 31 October 2026 encountered-item encyclopedia
+
+Implemented the authorized encyclopedia against main `4d25ff532145b2fa52b96d8de8f98736ad19d492`, preserving the newer construction-set linter and the separate icon project. Entries derive from all current token identities and applicable nonempty readings, including supplied and retired/incorporated resources; no discovery ledger or game-state/schema changes. The manual chapter dialog unlocks the alphabetical reader list at three entries; automatic introductions retain Begin alone. The shared gold-and-paper book is decorative in every wonder and appears on only the pressed/dragged described card through its existing release window, independent of that threshold. It is not an item-icon asset.
+
+Interaction rules and reset behavior are owned by [UX](docs/ux.md). Verification evidence is recorded with the final integration checkpoint; native-device behavior is not implied by browser emulation.
+
+Implementation checks: all 75 Node tests pass (including retention after consume/transform/install, replay/reset derivation, renamed alphabetical labels, empty/conditional readings, and press-versus-hover feedback). TypeScript and the production build pass; the five production manuscripts retain zero lint errors and 73 author-review warnings, with the existing bundle-size advisory. The three new Playwright cases are retained, but this executor cannot launch Chromium because its headless-shell executable is absent; the full browser suite is not claimed as passed. Supported Sites/CUA preview verification is tracked separately from that executable limitation.
