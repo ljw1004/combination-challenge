@@ -12,6 +12,10 @@ export function partnerHints(story:Story,state:State,target:HintTarget,direction
     if(action.b){
       if(target.kind==='item' && action.a===target.id)items.add(action.b);
       if(direction==='either' && target.kind==='item' && action.b===target.id)items.add(action.a);
+      if(action.hotspot){
+        if(target.kind==='item' && action.a===target.id)hotspots.add(action.hotspot);
+        if(target.kind==='hotspot' && action.hotspot===target.id)items.add(action.a);
+      }
     }else if(action.hotspot){
       if(target.kind==='item' && action.a===target.id)hotspots.add(action.hotspot);
       if(target.kind==='hotspot' && action.hotspot===target.id)items.add(action.a);

@@ -8,6 +8,7 @@ Use Node.js 22.18 or later.
 
 ```sh
 npm install
+npx playwright install chromium
 npm run dev
 ```
 
@@ -31,6 +32,8 @@ The player fetches Markdown as an ordinary file. These routes work in developmen
 The `story` parameter points to a `.md` file on the same server. Relative paths resolve against the player page, so the same layout works under a website subdirectory; root-relative paths also work. Without the parameter, the player always requests `story.md` beside itself. A missing story displays an error. Relative artwork references resolve against the Markdown file's directory; absolute HTTP(S) image URLs also work. Markdown is rendered without executing embedded HTML or scripts.
 
 `npm run build` runs story lint, TypeScript checking and Vite bundling in sequence. Lint errors stop the command; warnings allow it to continue. This check runs when the build command is invoked; `npm run dev` and ordinary story loading do not run the CLI lint check. The live editor displays its own diagnostics without blocking saving or preview.
+
+Chromium supports the browser tests and measures actual hotspot hit rectangles for `place:` lint. Only manuscripts containing `place:` entries launch it during lint/build. The [specification](docs/story-format-spec.md) owns placement syntax and validation.
 
 The build produces `dist/` with separate bundled JavaScript/CSS, ordinary story Markdown/artwork files, a catalogue, and a copy of `combinations.html` in each manuscript directory. Deploy the whole directory to a static web server. The HTML currently depends on the shared `assets/` bundles; it is not a standalone file. Editing a deployed Markdown file or its artwork does not require rebuilding JavaScript. The catalogue's entries, titles and descriptions are generated at build time.
 
@@ -136,6 +139,8 @@ Actions:
 | `read` | `item` | Open an available item's applicable explanation. |
 | `dismiss` | none | Close the current story/discovery card. |
 | `advance` | none | Continue after the current goals and cards are complete. |
+
+Browser saves may also record `resultPlacement: {x, y}` on a combination when a hotspot's authored `place:` destination succeeds. These are unscaled item top-left coordinates after measuring its artwork. Replay applies that placement and hotspot membership in the same action. Logical clients normally use the listed partner actions without this presentation field.
 
 ### Agent transport
 

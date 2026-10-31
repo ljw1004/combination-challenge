@@ -17,7 +17,8 @@ export interface Item {
   id: string; name: string; compound: boolean; slots: Slot[]; wonders: Wonder[];
   icon?: Icon; exclusiveWith?: string; renames: { chapter: string; name: string }[]; source: Source;
 }
-export interface Hotspot { id: string; name: string; x?: number; y?: number; icon?: Icon; source: Source }
+export interface Placement { item: Ref; x: number; y: number; source: Source }
+export interface Hotspot { id: string; name: string; x?: number; y?: number; icon?: Icon; placements?: Placement[]; source: Source }
 export interface Condition { item: Ref; hotspot?: string; source: Source }
 export interface Goal {
   id: string; text: string; next: boolean; operator: 'and' | 'or'; conditions: Condition[]; source: Source;

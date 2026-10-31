@@ -20,6 +20,8 @@ Primitive icons can begin at an authored point in the landscape: a water supply 
 
 Compose hotspots together with their backgrounds, following the [scene integration rule](ux.md#item-artwork). Use existing landscape features where suitable; architecture should meet the ground and surrounding walls naturally. A fully transparent hotspot icon can define a hit area over a feature painted into the background. In author comments, record its centre, display dimensions and the physical feature it covers. Check every appearance, including repeated locations, at phone size; retain enough blank space for arranging items and avoid painting future constructions before the player makes them.
 
+Use a hotspot's `place:` entries when an item should settle at a particular point in the scenery: a tower on a cape, a beacon on a mast, or a cooked result inside an oven. List the receiving ingredient as well as the result when both should share a destination. The [specification](story-format-spec.md) defines centre coordinates, containment lint and occupied-space fallback. Choose a centre inside the hotspot's hit rectangle and leave room for the whole item and its name; placement does not introduce a supply or require a goal.
+
 ## Give chapters a purpose and a manageable working set
 
 Chapters should usually have a particular place, time or speaker. A new table need not require a new city or invented date. Prefer “How does evil exist?” to routine first-person intentions such as “I need to know how evil exists.” Historical scenes can introduce a speaker with `![portrait](...) *Person, Place, Year*` in the chapter text.

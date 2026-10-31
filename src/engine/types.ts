@@ -12,7 +12,7 @@ export interface State {
   seen: string[]; pending: Notice[]; completed: boolean; actions: Action[];
 }
 export type Action =
-  | { type: 'combine'; a: string; b?: string; hotspot?: string; chapter?: number }
+  | { type: 'combine'; a: string; b?: string; hotspot?: string; chapter?: number; resultPlacement?: {x: number; y: number} }
   | { type: 'move'; item: string; chapter: number; x: number; y: number; hotspot?: string }
   | { type: 'advance' }
   | { type: 'dismiss' };

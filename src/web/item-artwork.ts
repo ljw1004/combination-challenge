@@ -1,5 +1,6 @@
 import type {Hotspot, Icon, Item, Story} from '../story/types.ts';
 import {escape} from './markdown.ts';
+import {iconDimensions} from './hotspot-view.ts';
 
 interface Artwork { width: number; height: number; failed: boolean; complete: boolean; ready: Promise<void> }
 
@@ -15,8 +16,8 @@ export class ItemArtwork {
   }
 
   private size(icon: Icon, asset: (path: string) => string) {
-    const base = this.images.get(asset(icon.url)), fit = Math.min(1, 1448 / (base?.width ?? 224));
-    return `--icon-width:${(base?.width ?? 224) / 4 * fit}px;--icon-height:${(base?.height ?? 224) / 4 * fit}px;`;
+    const base = this.images.get(asset(icon.url)), size = iconDimensions(base?.width ?? 224, base?.height ?? 224);
+    return `--icon-width:${size.width}px;--icon-height:${size.height}px;`;
   }
 
   hotspot(hotspot: Hotspot, asset: (path: string) => string) {

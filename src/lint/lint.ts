@@ -86,6 +86,14 @@ export function lintStory(story: Story, options: LintOptions = {}): Diagnostic[]
   for (const hotspot of Object.values(story.hotspots)) {
     if (!declaredHotspots.has(hotspot.id)) error('undeclared-hotspot',`${hotspot.name} has no Hotspots declaration.`,hotspot.source);
     if ((hotspot.x!==undefined && (hotspot.x<0 || hotspot.x>1)) || (hotspot.y!==undefined && (hotspot.y<0 || hotspot.y>1))) error('hotspot-position','Hotspot coordinates must be between 0% and 100%.',hotspot.source);
+    for (const [i, placement] of (hotspot.placements ?? []).entries()) {
+      const {item, x, y, source} = placement;
+      if ([item.id, ...item.slots].some(id => !story.items[id])) error('undefined-place-item', 'Every item in a place: reference must be defined elsewhere in the story; place: does not define items.', source);
+      else checkRef(item, source);
+      if (![x, y].every(n => Number.isFinite(n) && n >= 0 && n <= 1)) error('place-position', 'Placement coordinates must be between 0% and 100%.', source);
+      const previous = hotspot.placements!.slice(0, i).find(p => p.item.id === item.id && (p.x !== x || p.y !== y));
+      if (previous) add('error', 'conflicting-place', `${name(item.id)} has conflicting destinations at ${hotspot.name}.`, source, [related(previous.source, 'Previous destination for this item.')]);
+    }
   }
   for (let i=0;i<story.chapters.length;i++) {
     const c=story.chapters[i];

@@ -8,6 +8,14 @@ export function fitOnBoard(x: number, y: number, width: number, height: number) 
 
 export interface BoardRect {x:number;y:number;width:number;height:number}
 
+/** An authored centre is exact: an occupied or out-of-board rectangle falls back. */
+export function placeAtCentre(centre: {x:number;y:number}, size: {width:number;height:number}, occupied: BoardRect[]) {
+  const x = centre.x - size.width / 2, y = centre.y - size.height / 2;
+  if (![x,y,size.width,size.height].every(Number.isFinite) || x < 0 || y < 0 || x + size.width > 390 || y + size.height > 844) return;
+  if (occupied.some(r => x < r.x+r.width && x+size.width > r.x && y < r.y+r.height && y+size.height > r.y)) return;
+  return {x,y};
+}
+
 /** Fill a retired receiver's space, or put a new result beside a surviving receiver. */
 export function placeCreation(receiver:BoardRect,result:{width:number;height:number},replace:boolean){
   const x=receiver.x+(receiver.width-result.width)/2,y=receiver.y+(receiver.height-result.height)/2;

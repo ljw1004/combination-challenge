@@ -235,7 +235,7 @@ export function restoreLiveState(story: Story, raw: unknown): State | undefined 
       if (!action || typeof action !== 'object') return false;
       if (action.type === 'dismiss' || action.type === 'advance') return true;
       if (action.type === 'move') return typeof action.item === 'string' && !!story.items[action.item] && chapter(action.chapter) && [action.x, action.y].every(Number.isFinite) && (action.hotspot === undefined || !!story.hotspots[action.hotspot]);
-      return action.type === 'combine' && typeof action.a === 'string' && !!story.items[action.a] && (action.b === undefined || !!story.items[action.b]) && (action.hotspot === undefined || !!story.hotspots[action.hotspot]) && (action.chapter === undefined || chapter(action.chapter));
+      return action.type === 'combine' && typeof action.a === 'string' && !!story.items[action.a] && (action.b === undefined || !!story.items[action.b]) && (action.hotspot === undefined || !!story.hotspots[action.hotspot]) && (action.chapter === undefined || chapter(action.chapter)) && (action.resultPlacement === undefined || !!action.resultPlacement && [action.resultPlacement.x, action.resultPlacement.y].every(Number.isFinite));
     })) return;
     backfillEncounters(story, state);
     return state;

@@ -24,8 +24,10 @@ import { MobileDebug } from './mobile-debug.ts';
 import { recoverPreviewStory, reconcileLiveStory, restoreLiveState } from './live-story.ts';
 import { ItemArtwork } from './item-artwork.ts';
 import { iconArrival } from './icon-layout.ts';
-import { fitOnBoard, placeCreation } from './board-geometry.ts';
+import { fitOnBoard, placeCreation, placeAtCentre } from './board-geometry.ts';
 import { partnerHints } from './partner-hints.ts';
+import {hotspotDrop} from '../engine/hotspot-drop.ts';
+import {containsPoint, hotspotCentre, hotspotRect, hotspotHTML, hotspotProbeHTML, measureHotspots} from './hotspot-view.ts';
 
 const app = document.querySelector<HTMLDivElement>('#app')!;
 const workspace = document.querySelector<HTMLElement>('#workspace')!;
@@ -142,7 +144,23 @@ const diagnostics = new LiveDiagnostics(
   (results, phase) => authoring?.setDiagnostics(results, phase),
   message => authoring?.setPreviewStatus(message),
 );
-function checkText(parsed: Story, text: string) { diagnostics.check(parsed, text); }
+function checkText(parsed: Story, text: string) {
+  const prepared = itemArtwork.prepare(parsed, asset);
+  if (prepared) {
+    diagnostics.check(parsed, text);
+    void prepared.then(() => {
+      if (previewText === text && authoring.text === text) { diagnostics.invalidate(); checkText(parsed, text); }
+    });
+    return;
+  }
+  const probe = document.createElement('div');
+  probe.className = 'board fixed-locations';
+  probe.style.cssText = 'position:fixed;left:-10000px;top:0;width:390px;--board-scale:1;visibility:hidden;pointer-events:none';
+  probe.innerHTML = hotspotProbeHTML(parsed, h => itemArtwork.hotspot(h, asset));
+  document.body.append(probe);
+  try { diagnostics.check(parsed, text, measureHotspots(probe)); }
+  finally { probe.remove(); }
+}
 function schedulePreview() {
   diagnostics.invalidate();
   clearTimeout(previewTimer);
@@ -363,8 +381,29 @@ function refreshDialog() {
   else if (dialogContext?.kind === 'encyclopedia') openEncyclopedia(dialogContext.item, !!dialogContext.detail, false);
   if (!dialogContext) showPending();
 }
+function preferredPosition(id: string, hotspot: string | undefined, chapter: number) {
+  if (!hotspot) return;
+  const h = story.hotspots[hotspot], token = state.tokens[id], el = tile(id);
+  const place = h?.placements?.find(p => p.item.id === id && matches(token, p.item));
+  const location = [...(panel(chapter)?.querySelectorAll<HTMLElement>('[data-hotspot]') ?? [])].find(el => el.dataset.hotspot === hotspot);
+  if (!place || !el || !location) return;
+  const centre = {x: place.x * 390, y: place.y * 844};
+  const bounds = location.getBoundingClientRect(), boardScale = scale();
+  const rect = hotspotRect(h, activeHotspots(story, chapter).indexOf(hotspot), {width: bounds.width / boardScale, height: bounds.height / boardScale}, boardScale);
+  // Invalid live drafts use ordinary placement; never attach an outside authored point.
+  if (!containsPoint(rect, centre)) return;
+  const occupied = availableTokens(state).filter(t => t.id !== id && t.chapter === chapter).flatMap(t => {
+    const element = tile(t.id);
+    return element ? [{x:t.x, y:t.y, width:element.offsetWidth, height:element.offsetHeight}] : [];
+  });
+  return placeAtCentre(centre, {width: el.offsetWidth, height: el.offsetHeight}, occupied);
+}
 function commit(action: Action) { try {
   flushPreview();
+  if (action.type === 'move') {
+    const position = preferredPosition(action.item, action.hotspot, action.chapter);
+    if (position) action = {...action, ...position};
+  }
   if (isNoopMove(state, action)) { render(); return; }
   const receiver=action.type==='combine'&&action.b?state.tokens[action.b]:undefined,receivingTile=receiver?tile(receiver.id):undefined;
   const receivingRect=receiver&&receivingTile?{x:receiver.x,y:receiver.y,width:receivingTile.offsetWidth,height:receivingTile.offsetHeight}:undefined;
@@ -374,11 +413,21 @@ function commit(action: Action) { try {
   if (born) announceCreation(born);
   closeDialog(); render(previous !== state.chapter);
   if (born) {
-    const token=state.tokens[born],element=tile(born);
+    let token=state.tokens[born],element=tile(born);
     if(element){
-      const position=receivingRect&&receiver
+      const hotspot = action.type === 'combine' ? action.hotspot ?? receiver?.hotspot : undefined;
+      const preferred = preferredPosition(born, hotspot, token.chapter);
+      if (preferred && action.type === 'combine') {
+        // Record the successful authored placement in the same action so @H goals
+        // and saves replay exactly, including when the receiving ingredient survives.
+        action = {...action, resultPlacement: preferred};
+        state = act(story, before, action); render(false, false);
+        token = state.tokens[born]; element = tile(born)!;
+      }
+      const centre = hotspot && !receiver ? hotspotCentre(story.hotspots[hotspot], activeHotspots(story, token.chapter).indexOf(hotspot)) : undefined;
+      const position=preferred ?? (receivingRect&&receiver
         ?placeCreation(receivingRect,{width:element.offsetWidth,height:element.offsetHeight},state.tokens[receiver.id].status!=='available')
-        :fitOnBoard(token.x,token.y,element.offsetWidth,element.offsetHeight);
+        :fitOnBoard(centre ? centre.x-element.offsetWidth/2 : token.x,centre ? centre.y-element.offsetHeight/2 : token.y,element.offsetWidth,element.offsetHeight));
       token.x=position.x;token.y=position.y;element.style.left=`${token.x}px`;element.style.top=`${token.y}px`;element.classList.add('born');
       clearGoalsAroundCards();
     }
@@ -460,7 +509,7 @@ function render(arrival=false,finish=true){
   const gold=new Set<string>();for(const {goal:g,done} of goals)if(done)for(const c of g.conditions)if(matches(state.tokens[c.item.id],c.item)&&(!c.hotspot||state.tokens[c.item.id].hotspot===c.hotspot)){gold.add(c.item.id);if(c.hotspot)gold.add(c.hotspot);}
   reconcile(surface,`<div class="viewport"><div class="world" style="width:${390*scale}px;height:${state.visited.length*844*scale}px"><div class="board fixed-locations" style="height:${state.visited.length*844}px;transform:scale(${scale});--board-scale:${scale}">${state.visited.map((chapter,position)=>{
     const bg=background(story,chapter),c=story.chapters[chapter];
-    return `<section class="chapter-panel" data-chapter="${chapter}" style="top:${position*844}px" aria-label="${escape(story.title)} scene ${position+1}">${bg?`<img class="scene-art" src="${escape(asset(bg))}" alt="">`:''}<div class="location-scrim"></div>${activeHotspots(story,chapter).map((id,i)=>{const h=story.hotspots[id],x=(h.x??(.19+(i%3)*.31))*390,y=(h.y??(.70+Math.floor(i/3)*.13))*844,visual=itemArtwork.hotspot(h,asset);return `<div class="hotspot ${visual.className}" data-hotspot="${escape(id)}" tabindex="0" role="img" aria-label="${escape(h.name)}" style="left:${x}px;top:${y}px;${visual.style}">${visual.html}</div>`;}).join('')}${availableTokens(state).filter(t=>t.chapter===chapter).map(t=>{
+    return `<section class="chapter-panel" data-chapter="${chapter}" style="top:${position*844}px" aria-label="${escape(story.title)} scene ${position+1}">${bg?`<img class="scene-art" src="${escape(asset(bg))}" alt="">`:''}<div class="location-scrim"></div>${activeHotspots(story,chapter).map((id,i)=>hotspotHTML(story.hotspots[id],i,itemArtwork.hotspot(story.hotspots[id],asset))).join('')}${availableTokens(state).filter(t=>t.chapter===chapter).map(t=>{
       const item=story.items[t.id],applicable=readings(story,state,t.id).some(reading=>reading.markdown.trim()),selected=tile(t.id)?.classList.contains('reading-selected'),visual=itemArtwork.visual(item,t.slots,name,asset);
       return `<button class="thing ${visual.className} ${creationLabels.has(t.id)?'newly-created':''} ${selected?'reading-selected pressed':''} ${chapter===state.chapter&&gold.has(t.id)?'goal-met':''}" data-item="${escape(t.id)}" style="left:${t.x}px;top:${t.y}px;${visual.style}" aria-label="${escape(name(t.id))}" title="${escape(applicable?'Double-click or double-tap to read':'Drag to combine or move')}">${visual.html}${applicable?'<span class="reading-indicator" aria-hidden="true">' + openBook + '</span>':''}</button>`;
     }).join('')}${chapter===state.chapter&&state.arrivalDivider&&state.newItems.length?`<div class="arrival-divider" style="top:${Math.max(65,Math.min(...state.newItems.map(id=>state.tokens[id]?.y??844))-18)}px"><span>new items</span></div>`:''}</section>`;
@@ -497,7 +546,18 @@ const feedback=new ItemFeedback(highlight,()=>clearHighlights());
 let suppressReleaseClick=false;
 // Suppress the native click belonging to the double-tap that opened a reader.
 document.addEventListener('pointerdown',()=>{suppressReleaseClick=false;},true);
-function dropTarget(x:number,y:number){return document.elementsFromPoint(x,y).map(e=>e.closest<HTMLElement>('[data-item],[data-hotspot]')).find(e=>e&&e.dataset.item!==drag?.id);}
+function dropAt(x: number, y: number, item: string) {
+  const targets = [...new Set(document.elementsFromPoint(x,y).map(e => e.closest<HTMLElement>('[data-item],[data-hotspot]')).filter((el): el is HTMLElement => !!el && app.contains(el) && el.dataset.item !== item))];
+  const actions = partnerActions(), top = targets[0];
+  if (top?.dataset.item) {
+    const action = actions.find(a => a.a === item && a.b === top.dataset.item);
+    if (action) return {target: top, action, ambiguous: []};
+  }
+  // An unrelated card must not mask the usable location underneath it.
+  const target = targets.find(el => el.dataset.hotspot);
+  if (target) return {target, ...hotspotDrop(story, state, item, target.dataset.hotspot!, Number(target.closest<HTMLElement>('[data-chapter]')!.dataset.chapter), actions)};
+  return {target: top, action: undefined, ambiguous: []};
+}
 app.addEventListener('pointerdown',e=>{
   const el=(e.target as Element).closest<HTMLElement>('[data-item],[data-hotspot]');if(!el||drag||hotspotPress||document.querySelector('dialog')||e.button!==0)return;
   if(el.dataset.hotspot){hotspotPress={key:feedbackKey(el),pointer:e.pointerId};feedback.begin(hotspotPress.key);el.setPointerCapture(e.pointerId);return;}
@@ -511,8 +571,10 @@ document.addEventListener('pointermove',e=>{
   const position=fitOnBoard(drag.x+dx,drag.y+dy,drag.el.offsetWidth,drag.el.offsetHeight);
   drag.el.classList.add('dragging');app.classList.add('is-dragging');drag.el.style.left=`${position.x}px`;drag.el.style.top=`${drag.y+dy}px`;
   app.querySelectorAll('.will-create,.will-place').forEach(e=>e.classList.remove('will-create','will-place'));
-  const target=dropTarget(e.clientX,e.clientY),action=partnerActions().find(a=>a.a===drag!.id&&(target?.dataset.item?a.b===target.dataset.item:!a.b&&a.hotspot===target?.dataset.hotspot));
-  if(target&&(action||(target.dataset.hotspot&&target.classList.contains('possible'))))target.classList.add(action?'will-create':'will-place');
+  const {target, action, ambiguous}=dropAt(e.clientX,e.clientY,drag.id);
+  if(target&&!ambiguous.length&&(action||(target.dataset.hotspot&&target.classList.contains('possible'))))target.classList.add(action?'will-create':'will-place');
+  if (action?.b) tile(action.b)?.classList.add('will-create');
+  ambiguous.forEach(id => tile(id)?.classList.add('possible'));
   const viewport=app.querySelector('.viewport');if(viewport){if(e.clientY<55)viewport.scrollTop-=12;else if(e.clientY>innerHeight-55)viewport.scrollTop+=12;}
 });
 function restoreGestureTile(d:NonNullable<typeof drag>){
@@ -522,13 +584,13 @@ function restoreGestureTile(d:NonNullable<typeof drag>){
 }
 function endDrag(e:PointerEvent,cancel=false){
   if(hotspotPress?.pointer===e.pointerId){const press=hotspotPress;hotspotPress=undefined;if(cancel)feedback.clear();else feedback.release(press.key,false);return;}
-  if(!drag||drag.pointer!==e.pointerId)return;const d=drag;const target=dropTarget(e.clientX,e.clientY);drag=undefined;restoreGestureTile(d);
+  if(!drag||drag.pointer!==e.pointerId)return;const d=drag;drag=undefined;restoreGestureTile(d);
   if(cancel){feedback.clear();return;}
   // A quick release can be the first event reporting travel beyond click tolerance.
   if(!d.moved&&!movedEnough(d,e)){if(feedback.release(d.id,true)){suppressReleaseClick=true;read(d.id);}return;}
-  const action=partnerActions().find(a=>a.a===d.id&&(target?.dataset.item?a.b===target.dataset.item:!a.b&&a.hotspot===target?.dataset.hotspot));
-  if(action)commit(target?.dataset.hotspot?{...action,chapter:Number(target.closest<HTMLElement>('[data-chapter]')!.dataset.chapter)}:action);
-  else if(!target?.dataset.item){
+  const {target,action,ambiguous}=dropAt(e.clientX,e.clientY,d.id);
+  if(action)commit(action);
+  else if(!ambiguous.length&&!target?.dataset.item){
     const scale=Math.min(1,app.clientWidth/390),world=app.querySelector('.world')!.getBoundingClientRect(),position=Math.floor((e.clientY-world.top)/(844*scale)),chapter=state.visited[Math.max(0,Math.min(state.visited.length-1,position))];
     const rect=panel(chapter)!.getBoundingClientRect();
     const placement=fitOnBoard((e.clientX-rect.left)/scale-d.grabX,(e.clientY-rect.top)/scale-d.grabY,d.el.offsetWidth,d.el.offsetHeight);

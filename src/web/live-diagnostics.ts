@@ -1,6 +1,8 @@
 import type { Diagnostic, Story } from '../story/types.ts';
 import { lintStory } from '../lint/lint.ts';
 import type { LintWorkerRequest, LintWorkerResponse } from './lint-worker.ts';
+import {lintPlacementGeometry} from '../lint/placement.ts';
+import type {HotspotMeasurement} from './hotspot-view.ts';
 
 export interface DiagnosticWorker {
   postMessage(request: LintWorkerRequest): void;
@@ -40,8 +42,8 @@ export class LiveDiagnostics {
   /** Invalidate immediately on input, before the short preview debounce expires. */
   invalidate() { this.revision++; this.pending = undefined; }
 
-  check(story: Story, text: string) {
-    try { this.publish(lintStory(story, { analysis: false }), 'fast'); }
+  check(story: Story, text: string, hotspotMeasurements: HotspotMeasurement[] = []) {
+    try { this.publish([...lintStory(story, { analysis: false }), ...lintPlacementGeometry(story, hotspotMeasurements)], 'fast'); }
     catch (error) {
       const endOfLine = text.search(/[\r\n]/);
       this.publish([...story.diagnostics, {
@@ -49,7 +51,7 @@ export class LiveDiagnostics {
         source: story.source, span: { from: 0, to: endOfLine < 0 ? text.length : endOfLine }, stage: 'fast',
       }], 'fast');
     }
-    this.pending = { revision: this.revision, text, id: story.id, file: story.source.file };
+    this.pending = { revision: this.revision, text, id: story.id, file: story.source.file, hotspotMeasurements };
     this.send();
   }
 

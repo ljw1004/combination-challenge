@@ -553,6 +553,8 @@ Visitors need to find the harbour after dark and secure their boats. Build a lig
 **Hotspots**
 - Harbour headland (at 87%, 24%)
   - icon: ![Harbour headland](assets/hotspots/harbour-headland.png)
+  - place: Tower (at 90%, 18%)
+  - place: Lighthouse (at 90%, 18%)
 
 **Items**
 - Lighthouse

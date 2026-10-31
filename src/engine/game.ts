@@ -86,6 +86,7 @@ export function recipeFor(story: Story, state: State, action: Extract<Action,{ty
     if (!forward && !reverse) continue;
     if (r.hotspot !== action.hotspot) continue;
     if (r.hotspot && b && b.hotspot !== r.hotspot) continue;
+    if (r.hotspot && b && action.chapter !== undefined && b.chapter !== action.chapter) continue;
     if(!canCreateResult(story,state,r,a))continue;
     return r;
   }
@@ -136,6 +137,12 @@ export function act(story: Story, original: State, action: Action, retirementChe
       const hotspot=action.hotspot&&!action.b?story.hotspots[action.hotspot]:undefined,index=hotspot?activeHotspots(story,destination).indexOf(hotspot.id):0;
       state.tokens[recipe.result.id] = { id:recipe.result.id, firstSeen:nextEncounter(state), status:'available', slots:[...recipe.result.slots], chapter:destination, x:hotspot?(hotspot.x??(.19+(index%3)*.31))*390-56:receiver.x+12, y:hotspot?(hotspot.y??(.70+Math.floor(index/3)*.13))*844-22:receiver.y+42, ...(hotspot ? { hotspot:hotspot.id } : {}) };
     }
+    if (action.resultPlacement) {
+      const hotspot = action.hotspot ?? receiver.hotspot, result = state.tokens[recipe.result.id];
+      if (recipe.installation || !hotspot || ![action.resultPlacement.x, action.resultPlacement.y].every(Number.isFinite) ||
+        !story.hotspots[hotspot]?.placements?.some(p => p.item.id === result.id && p.item.slots.every(id => result.slots.includes(id)))) throw new Error('Invalid authored result placement.');
+      result.x = action.resultPlacement.x; result.y = action.resultPlacement.y; result.hotspot = hotspot;
+    }
     const excluded = story.items[recipe.result.id]?.exclusiveWith;
     if (excluded && !state.excluded.includes(excluded)) state.excluded.push(excluded);
     latch(story,state);
@@ -150,7 +157,7 @@ export function act(story: Story, original: State, action: Action, retirementChe
     }
     // Placement follows the actual receiver and its computed disposition, not recipe order.
     // The browser centres the replacement using measured tile sizes.
-    if(action.b && !recipe.installation && receiver.status!=='available'){
+    if(action.b && !recipe.installation && !action.resultPlacement && receiver.status!=='available'){
       const result=state.tokens[recipe.result.id];
       result.x=receiver.x;result.y=receiver.y;result.chapter=receiver.chapter;
       if(receiver.hotspot)result.hotspot=receiver.hotspot;

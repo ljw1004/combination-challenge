@@ -516,3 +516,128 @@ test('Settlement carries exact placements into chapter two when no primitives ar
   expect(await placements()).toEqual(before);
   await page.reload();await expect.poll(placements).toEqual(before);
 });
+
+const placedCellar = cellarManuscript.replace('  - icon: ![cellar](assets/location.svg)', `  - icon: ![cellar](assets/location-empty.svg)
+  - place: Dough (at 70%, 65%)
+  - place: Risen dough (at 78%, 65%)`);
+
+async function dragToPoint(page: Page, item: ReturnType<Page['locator']>, x: number, y: number) {
+  const box = (await item.boundingBox())!;
+  await page.mouse.move(box.x + box.width/2, box.y + box.height/2); await page.mouse.down();
+  await page.mouse.move(x, y, {steps: 6}); await page.mouse.up();
+}
+async function itemCentre(page: Page, id: string) {
+  return page.locator(`[data-item="name:${id}"]`).evaluate(el => {
+    const item = el as HTMLElement;
+    return {x: item.offsetLeft + item.offsetWidth/2, y: item.offsetTop + item.offsetHeight/2};
+  });
+}
+
+for (const onto of ['hotspot','occupant']) test(`authored placement snaps a contextual result dropped onto its ${onto} and survives reload`, async ({page}) => {
+  await openFixture(page, placedCellar);
+  const dough = page.locator('[data-item="name:Dough"]'), starter = page.locator('[data-item="name:Wild starter"]'), cellar = page.locator('[data-hotspot="name:Warm cellar"]');
+  await dough.dragTo(cellar);
+  const centre = await itemCentre(page, 'Dough');
+  expect(centre.x).toBeCloseTo(390*.70,0); expect(centre.y).toBeCloseTo(844*.65,0);
+  if (onto === 'occupant') await starter.dragTo(dough);
+  else {
+    const box = (await cellar.boundingBox())!, from = (await starter.boundingBox())!;
+    await page.mouse.move(from.x+from.width/2,from.y+from.height/2); await page.mouse.down();
+    await page.mouse.move(box.x+box.width-5,box.y+box.height-5,{steps:5});
+    await expect(cellar).toHaveClass(/will-create/); await expect(dough).toHaveClass(/will-create/);
+    await page.mouse.up();
+  }
+  const risen = page.locator('[data-item="name:Risen dough"]'); await expect(risen).toBeVisible();
+  const result = await itemCentre(page,'Risen dough');
+  expect(result.x).toBeCloseTo(390*.78,0); expect(result.y).toBeCloseTo(844*.65,0);
+  await page.reload(); await expect(risen).toBeVisible(); expect(await itemCentre(page,'Risen dough')).toEqual(result);
+  await page.setViewportSize({width:320,height:740});
+  await expect.poll(async () => (await risen.boundingBox())!.width).toBeCloseTo(56*320/390,1);
+  expect(await itemCentre(page,'Risen dough')).toEqual(result);
+});
+
+test('an occupied destination falls back, an unrelated card does not mask the hotspot, and redropping after completion snaps again', async ({page}) => {
+  const text = placedCellar.replace('- Let the dough rise -- Risen dough','- Place dough -- Dough @ Warm cellar').replace('- Wild starter [preserve] + Dough [transform] @ Warm cellar -> Risen dough','');
+  await openFixture(page,text);
+  const cellar = page.locator('[data-hotspot="name:Warm cellar"]'), dough = page.locator('[data-item="name:Dough"]'), salt = page.locator('[data-item="name:Salt"]');
+  const board = (await page.locator('.chapter-panel').boundingBox())!, box = (await cellar.boundingBox())!;
+  await dragToPoint(page,salt,board.x+390*.70,board.y+844*.65);
+  // The desired centre is occupied; the pointer is also over Salt, which has no recipe.
+  await dragToPoint(page,dough,board.x+390*.70+20,board.y+844*.65+20);
+  const fallback = await itemCentre(page,'Dough'); expect(fallback.x).toBeCloseTo(390*.70+20,0);
+  await expect(dough).toHaveClass(/goal-met/);
+  await dragToPoint(page,dough,board.x+100,board.y+350);
+  await dragToPoint(page,salt,board.x+100,board.y+460);
+  await dragToPoint(page,dough,box.x+box.width-5,box.y+box.height-5);
+  expect((await itemCentre(page,'Dough')).x).toBeCloseTo(390*.70,0);
+});
+
+test('ambiguous hotspot drops leave the incoming item in place until an occupant is targeted', async ({page}) => {
+  const text = `# Ambiguous bench
+## Work
+![room](assets/background.svg)
+Choose an ingredient.
+**Goals**
+- Make C -- C
+**Hotspots**
+- Bench (at 50%, 65%)
+  - icon: ![bench](assets/house-large.svg)
+  - place: A (at 40%, 65%)
+  - place: B (at 60%, 65%)
+**Items**
+- A
+  - icon: ![a](assets/a.svg) (at 20%, 25%)
+- B
+  - icon: ![b](assets/b.svg) (at 60%, 25%)
+- X
+  - icon: ![x](assets/x.svg) (at 20%, 40%)
+- C
+  - icon: ![c](assets/c.svg)
+- D
+  - icon: ![d](assets/d.svg)
+**Combinations**
+- A [preserve] + X [preserve] @ Bench -> C
+- B [preserve] + X [preserve] @ Bench -> D`;
+  await openFixture(page,text);
+  const bench = page.locator('[data-hotspot="name:Bench"]'), a = page.locator('[data-item="name:A"]'), b = page.locator('[data-item="name:B"]'), x = page.locator('[data-item="name:X"]');
+  await a.dragTo(bench); await b.dragTo(bench);
+  const before = await x.boundingBox(), box = (await bench.boundingBox())!;
+  await dragToPoint(page,x,box.x+box.width/2,box.y+box.height-5);
+  expect(await x.boundingBox()).toEqual(before);
+  await expect(page.locator('[data-item="name:C"],[data-item="name:D"]')).toHaveCount(0);
+  await x.dragTo(a); await expect(page.locator('[data-item="name:C"]')).toBeVisible();
+});
+
+test('live placement diagnostics report an outside centre and undefined references', async ({page}) => {
+  await page.setViewportSize({width:1100,height:900});
+  await openFixture(page,placedCellar.replace('place: Risen dough (at 78%, 65%)','place: Typo (at 10%, 10%)'));
+  await openDebugPanel(page);
+  await expect(page.locator('.editor-diagnostics')).toContainText('undefined-place-item');
+  await expect(page.locator('.editor-diagnostics')).toContainText('place-outside-hotspot');
+});
+
+test('single-item hotspot operations place the result at its authored centre using its measured icon size', async ({page}) => {
+  const text = hotspotManuscript.replace('  - icon: ![landing](assets/location.svg)', '  - icon: ![landing](assets/location.svg)\n  - place: Marker (at 82%, 65%)').replace('- Stone\n', '- Stone\n  - icon: ![stone](assets/stone.svg)\n- Marker\n  - icon: ![marker](assets/marker.svg)\n');
+  await openFixture(page,text);
+  await page.locator('[data-item="name:Stone"]').dragTo(page.locator('[data-hotspot="name:Landing"]'));
+  const centre = await itemCentre(page,'Marker');
+  expect(centre.x).toBeCloseTo(390*.82,0); expect(centre.y).toBeCloseTo(844*.65,0);
+  await page.reload(); expect(await itemCentre(page,'Marker')).toEqual(centre);
+});
+
+test('a touch drop on the bare hotspot combines with its snapped occupant on a narrow screen', async ({browser}) => {
+  const context = await browser.newContext({viewport:{width:320,height:740},isMobile:true,hasTouch:true});
+  try {
+    const page = await context.newPage(); await openFixture(page,placedCellar);
+    const cellar = page.locator('[data-hotspot="name:Warm cellar"]');
+    await page.locator('[data-item="name:Dough"]').dragTo(cellar);
+    const source = (await page.locator('[data-item="name:Wild starter"]').boundingBox())!, target = (await cellar.boundingBox())!;
+    const cdp = await context.newCDPSession(page);
+    await cdp.send('Input.dispatchTouchEvent',{type:'touchStart',touchPoints:[{x:source.x+source.width/2,y:source.y+source.height/2}]});
+    await cdp.send('Input.dispatchTouchEvent',{type:'touchMove',touchPoints:[{x:target.x+target.width-4,y:target.y+target.height-4}]});
+    await expect(cellar).toHaveClass(/will-create/);
+    await cdp.send('Input.dispatchTouchEvent',{type:'touchEnd',touchPoints:[]});
+    await expect(page.locator('[data-item="name:Risen dough"]')).toBeVisible();
+    expect((await itemCentre(page,'Risen dough')).x).toBeCloseTo(390*.78,0);
+  } finally { await context.close(); }
+});

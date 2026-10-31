@@ -2,18 +2,21 @@ import { loadStory, storyIds } from '../story/load.ts';
 import { lintStory } from './lint.ts';
 import { lintStoryImages } from './images.ts';
 import type { OpportunityReport } from './opportunities.ts';
+import {PlacementBrowser} from './placement-browser.ts';
 const args=process.argv.slice(2),selected=args.filter(a=>!a.startsWith('--'));
 const flags = new Set(['--json', '--details', '--analysis-stats']);
 for (const arg of args) if (arg.startsWith('--') && !flags.has(arg)) throw new Error(`Unknown lint option: ${arg}. Use --details, --json or --analysis-stats.`);
-const reports=(selected.length?selected:storyIds()).map(id=>{
+const geometry = new PlacementBrowser();
+const reports=[];
+try { for (const id of selected.length ? selected : storyIds()) {
   const {story,markdown}=loadStory(id);
   let opportunity: OpportunityReport | undefined;
-  const diagnostics=[...lintStory(story, {onOpportunityAnalysis: report => { opportunity = report; }}), ...lintStoryImages(story, markdown)];
-  return {story:id,chapters:story.chapters.length,items:Object.keys(story.items).length,recipes:story.recipes.length,diagnostics,
+  const diagnostics=[...lintStory(story, {onOpportunityAnalysis: report => { opportunity = report; }}), ...lintStoryImages(story, markdown), ...await geometry.lint(story)];
+  reports.push({story:id,chapters:story.chapters.length,items:Object.keys(story.items).length,recipes:story.recipes.length,diagnostics,
     ...(args.includes('--analysis-stats') && opportunity ? {opportunityAnalysis: {
       complete: opportunity.complete, coveredItems: opportunity.opportunities.size, ...opportunity.stats,
-    }} : {})};
-});
+    }} : {})});
+} } finally { await geometry.close(); }
 if(args.includes('--json'))console.log(JSON.stringify(reports,null,2));
 else for(const report of reports){
   const errors=report.diagnostics.filter(d=>d.severity==='error'),warnings=report.diagnostics.filter(d=>d.severity==='warning');

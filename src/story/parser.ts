@@ -68,20 +68,27 @@ export function parseStory(markdown: string, options: { id?: string; file?: stri
     if (note && /^\s*>/.test(text)) return;
     note = false; lines.push({ text, line: index + 1 });
   });
-  function ref(raw: string, line: number, kind: 'item' | 'hotspot' = 'item'): Ref {
+  function ref(raw: string, line: number, kind: 'item' | 'hotspot' = 'item', mode: 'reference' | 'hotspot-declaration' | 'placement' = 'reference'): Ref {
     let text = unquote(raw.trim()), exclusive: string | undefined, rename: { chapter: string; name: string } | undefined, compound = false;
     let match: RegExpExecArray | null;
     if ((match = /\s+\(exclusive with (.+)\)$/.exec(text))) { exclusive = match[1]; text = text.slice(0, match.index); }
     if ((match = /\s+\(or from chapter (.+)\)$/.exec(text))) { const parts = splitOutside(match[1], ','); rename = { chapter: unquote(parts.shift() ?? ''), name: unquote(parts.join(', ')) }; text = text.slice(0, match.index); }
     if (/\s+\(compound\)$/.test(text)) { compound = true; text = text.replace(/\s+\(compound\)$/, ''); }
     const coordinate = /\s+\(at (-?\d+(?:\.\d+)?)%,\s*(-?\d+(?:\.\d+)?)%\)$/.exec(text);
-    if (coordinate) text = text.slice(0, coordinate.index);
+    if (coordinate) {
+      text = text.slice(0, coordinate.index);
+      if (mode !== 'hotspot-declaration') error('coordinate-context', 'Hotspot coordinates belong on its Hotspots declaration; item destinations belong in a place: child.', line, raw);
+    }
     let slots: string[] = [];
-    if ((match = /\[([^\[\]]*)\]$/.exec(text))) { slots = match[1].trim() ? splitOutside(match[1], ',').map(x => ref(x, line).id) : []; text = text.slice(0, match.index); }
+    if ((match = /\[([^\[\]]*)\]$/.exec(text))) { slots = match[1].trim() ? splitOutside(match[1], ',').map(x => ref(x, line, 'item', mode === 'placement' ? mode : 'reference').id) : []; text = text.slice(0, match.index); }
     text = unquote(text);
     const named = /^`([^`]+)`(?:\s+(.+))?$/.exec(text), id = named ? `id:${named[1]}` : `name:${text}`;
     const name = named ? unquote(named[2] ?? named[1]) : text;
     if (!text) error('empty-reference', 'Expected a named item or hotspot.', line);
+    if (mode === 'placement') {
+      if (named?.[2] || exclusive || rename || compound) error('place-syntax', 'place: accepts an item reference, not an item declaration or qualifier.', line, raw);
+      return {id, slots};
+    }
     if (named?.[2]) {
       if (declared.has(id) && declared.get(id) !== name) error('identifier-clash', `Identifier ${named[1]} was already declared as ${declared.get(id)}; the first declaration is used.`, line, '`' + named[1] + '`');
       else declared.set(id, name);
@@ -100,7 +107,7 @@ export function parseStory(markdown: string, options: { id?: string; file?: stri
     } else {
       if (!story.hotspots[id]) story.hotspots[id] = { id, name, source: source(line) };
       if (named?.[2]) story.hotspots[id].name = declared.get(id) ?? name;
-      if (coordinate) { story.hotspots[id].x = +coordinate[1] / 100; story.hotspots[id].y = +coordinate[2] / 100; }
+      if (coordinate && mode === 'hotspot-declaration') { story.hotspots[id].x = +coordinate[1] / 100; story.hotspots[id].y = +coordinate[2] / 100; }
     }
     const result = {id, slots}; spellings.set(result, raw.trim()); return result;
   }
@@ -192,6 +199,10 @@ export function parseStory(markdown: string, options: { id?: string; file?: stri
     else target.icon ??= value;
   }
   function itemNode(node: Bullet, parent?: Ref, at?: string, topLevelItem = false): Ref | undefined {
+    if (/^place\s*:/.test(node.text)) {
+      error('place-context', 'place: belongs directly beneath a Hotspots declaration.', node.line, node.text);
+      return;
+    }
     if (/^icon\s*:/.test(node.text)) {
       error('icon-placement', 'An item icon belongs directly beneath a top-level Items declaration.', node.line, node.text);
       return;
@@ -225,7 +236,11 @@ export function parseStory(markdown: string, options: { id?: string; file?: stri
     while ((match = /^(next|either|or|both|and):\s*/.exec(text))) { if (match[1] === 'next') next = true; else op = ['both','and'].includes(match[1]) ? 'and' : 'or'; text = text.slice(match[0].length); }
     return { text, operator: op, next };
   }
-  function condition(raw: string, line: number): Condition {
+  function condition(raw: string, line: number): Condition | undefined {
+    if (/^place\s*:/.test(raw)) {
+      error('place-context', 'place: belongs directly beneath a Hotspots declaration.', line, raw);
+      return;
+    }
     if (splitOutside(raw, '->').length > 1) { const result = rule(raw, line)?.result ?? ref('', line); return { item: result, source: source(line) }; }
     const parts = splitOutside(raw, '@'); return { item: ref(parts[0], line), ...(parts[1] ? { hotspot: ref(parts[1], line, 'hotspot').id } : {}), source: source(line) };
   }
@@ -265,7 +280,7 @@ export function parseStory(markdown: string, options: { id?: string; file?: stri
       if (parts[1] && node.children.length) error('mixed-goal-form', 'An inline goal condition cannot also have condition sub-bullets.', node.line);
       const conditions = parts[1] ? [{ text: parts.slice(1).join('--'), line: node.line, children: [] as Bullet[] }] : node.children;
       const ops = new Set<string>();
-      for (const child of conditions) { const p = operator(child.text); if (p.operator) ops.add(p.operator); goal.conditions.push(condition(p.text, child.line)); if (child.children.length) error('nested-condition', 'Goal conditions cannot have nested compositions.', child.line); }
+      for (const child of conditions) { const p = operator(child.text); if (p.operator) ops.add(p.operator); const parsed = condition(p.text, child.line); if (parsed) goal.conditions.push(parsed); if (child.children.length) error('nested-condition', 'Goal conditions cannot have nested compositions.', child.line); }
       if (ops.size > 1) error('mixed-conditions', 'Do not mix conjunction and disjunction in a goal.', node.line);
       if (ops.has('and')) goal.operator = 'and';
       if (!goal.conditions.length) error('empty-goal', 'A goal needs one or more conditions.', node.line);
@@ -274,9 +289,19 @@ export function parseStory(markdown: string, options: { id?: string; file?: stri
     if (goalOps.size > 1) error('mixed-goals', 'Do not mix conjunction and disjunction between goal chains.', block.heading.line);
     if (goalOps.has('or')) chapter.goalOperator = 'or';
     for (const node of bullets(sections.get('Hotspots') ?? [])) {
-      const h = ref(node.text, node.line, 'hotspot'); chapter.hotspots.push(h.id);
+      if (/^place\s*:/.test(node.text)) { error('place-context', 'place: belongs directly beneath a Hotspots declaration.', node.line, node.text); continue; }
+      const h = ref(node.text, node.line, 'hotspot', 'hotspot-declaration'); chapter.hotspots.push(h.id);
       for (const child of node.children) {
         if (/^icon\s*:/.test(child.text)) assignIcon(story.hotspots[h.id], child);
+        else if (/^place\s*:/.test(child.text)) {
+          const match = /^place:\s*(.+?)\s+\(at (-?\d+(?:\.\d+)?)%,\s*(-?\d+(?:\.\d+)?)%\)$/.exec(child.text);
+          if (!match || child.children.length || child.prose.some(text => text.trim())) {
+            error('place-syntax', 'Use place: Item (at X%, Y%) without nested content.', child.line, child.text);
+            continue;
+          }
+          const item = ref(match[1], child.line, 'item', 'placement');
+          (story.hotspots[h.id].placements ??= []).push({item, x: +match[2] / 100, y: +match[3] / 100, source: source(child.line, child.text)});
+        }
         else itemNode(child, undefined, h.id);
       }
     }
