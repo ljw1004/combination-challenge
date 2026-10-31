@@ -85,6 +85,7 @@ Observers record eclipses and use a shared calendar to compare dates. Find patte
 It is evening. The worktable is cleared for a new session. Plan a sky watch and prepare travel food. Compare what the eclipse pattern predicts with the meaning the king's omen text gives it.
 
 **Goals**
+- (three goals are a lot but okay here because the departure scene keeps sky prediction, the meaning of an eclipse, and food preparation as distinct purposes; the reviewed two-track display did not clarify their relationship)
 - When should we watch the sky? -- "A watch, not a promised eclipse"
 - What does an eclipse mean? -- "Prediction alongside portent"
 - What food will last the journey? -- "Provisions for a longer journey"
@@ -434,6 +435,7 @@ It is evening. The worktable is cleared for a new session. Compare who can parti
 Compare ways to live with fewer wants, question custom and respond to events beyond your control. Concern for other people remains part of the discussion.
 
 **Goals**
+- (three goals are a lot but okay here because need, custom, and concern for others are separate comparisons in one public scene; staging them did not resolve the reviewed concern about proposition assembly)
 - How much do we need? -- "Freedom by needing less"
 - Does custom tell us how to live? -- "Local respectability does not settle a good life"
 - Who deserves our concern? -- "Fellowship beyond one city"
@@ -682,6 +684,7 @@ The law collection calls slavery contrary to nature while still regulating it. D
 [If skipped] The legal collection calls slavery contrary to nature while still regulating it. Freeing one person does not abolish the institution.
 
 **Goals**
+- (three goals are a lot but okay here because legal status, an individual release, and the authority of a legal text must remain distinguishable; the review found value in the textual comparison without a demonstrated benefit from hiding a question)
 - What does legal status decide? -- "A different legal order still divides people by status"
 - Does freeing one person end slavery? -- "An individual route to freedom is not abolition"
 - Who decides which law has authority? -- "Older law edited under imperial authority"
@@ -1340,6 +1343,7 @@ It is evening. The worktable is cleared for a new session. At the chart desk, co
 The telescope reveals details of the Moon, Jupiter and Venus. Record what is observed before deciding which model of the sky it supports.
 
 **Goals**
+- (three goals are a lot but okay here because all three observations reuse one telescope to test distinct claims; both reviewed displays supported coherent tool reuse)
 - Is the Moon's surface smooth? -- "An earthly-looking Moon"
 - Must everything circle Earth? -- "A system of moons around Jupiter"
 - How does Venus's appearance change? -- "The full range of Venus’s phases"
@@ -3381,6 +3385,7 @@ These records cover c. 1930–1960. In Borges's fictional example, the same word
 It is evening. The worktable is cleared for a new session. Compare an unusably complete map, a branching story and copied artwork. Each asks what a representation selects or changes rather than merely duplicates.
 
 **Goals**
+- (three goals are a lot but okay here because map detail, branching analogy, and contested copies pose distinct representational questions; the review pointed to inspectable captions rather than a benefit from staging the questions)
 - Can a map contain too much detail? -- "More detail can destroy a map’s usefulness"
 - How do story paths resemble ancestry? -- "Story paths and ancestry share a branching shape"
 - How can a copied image become politically contested? -- "Reproduction changes art’s political reach"

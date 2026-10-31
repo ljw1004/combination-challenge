@@ -6,9 +6,10 @@ import { defaultHighlightStyle, syntaxHighlighting } from '@codemirror/language'
 import { highlightSelectionMatches, searchKeymap } from '@codemirror/search';
 import { lintGutter, setDiagnostics as setEditorDiagnostics } from '@codemirror/lint';
 import type { Diagnostic as EditorDiagnostic } from '@codemirror/lint';
-import type { Diagnostic, Source, TextSpan } from '../story/types.ts';
+import type { Diagnostic, DiagnosticFix, Source, TextSpan } from '../story/types.ts';
 import { chapterCheckpoints } from './editor-checkpoints.ts';
 import { sourceFixWidgets } from './editor-fix-widgets.ts';
+import {actionAnchor, actionAnchorLayout} from './editor-action-anchor.ts';
 import './editor.css';
 
 export interface EditorRecovery { id: string; label: string; text: string }
@@ -124,9 +125,10 @@ export function createStoryEditor(options: StoryEditorOptions): StoryEditor {
         lineNumbers(), highlightActiveLineGutter(), history(), drawSelection(),
         markdown(), syntaxHighlighting(defaultHighlightStyle), highlightActiveLine(),
         highlightSelectionMatches(), lintGutter(), EditorView.lineWrapping,
-        sourceFixes.extension,
-        ...(options.onCheckpoint ? [chapterCheckpoints(options.onCheckpoint)] : []),
-        keymap.of([...defaultKeymap, ...historyKeymap, ...searchKeymap, indentWithTab]),
+        sourceFixes.extension, actionAnchorLayout,
+        ...(options.onCheckpoint ? [chapterCheckpoints((line, heading, anchor) => openActionMenu(heading,
+          [{label: 'Jump to checkpoint', run: () => options.onCheckpoint?.(line)}], anchor))] : []),
+        keymap.of([{key: 'Mod-.', run: openActionsAtCaret}, ...defaultKeymap, ...historyKeymap, ...searchKeymap, indentWithTab]),
         EditorState.tabSize.of(2),
         EditorView.contentAttributes.of({ 'aria-label': 'Story Markdown', spellcheck: 'false' }),
         EditorView.updateListener.of(update => {
@@ -197,7 +199,11 @@ export function createStoryEditor(options: StoryEditorOptions): StoryEditor {
     };
     const source = locate(diagnostic.source, diagnostic.span);
     return {...diagnostic, span: source.span, source,
-      fixes: diagnostic.fixes?.map(fix => ({...fix, edits: fix.edits.map(edit => ({...edit,
+      fixes: diagnostic.fixes?.map(fix => ({...fix,
+        ...(fix.selection ? {selection: {...fix.selection,
+          from: fix.edits[fix.selection.edit].text.slice(0, fix.selection.from).replace(/\r\n?/g, '\n').length,
+          to: fix.edits[fix.selection.edit].text.slice(0, fix.selection.to).replace(/\r\n?/g, '\n').length}} : {}),
+        edits: fix.edits.map(edit => ({...edit, text: edit.text.replace(/\r\n?/g, '\n'),
         span: {from: editorOffset(edit.span.from), to: editorOffset(edit.span.to)},
       }))})),
       related: diagnostic.related?.map(related => ({...related, ...locate(related, related.span)}))};
@@ -237,24 +243,55 @@ export function createStoryEditor(options: StoryEditorOptions): StoryEditor {
     fixMenu?.anchor.setAttribute('aria-expanded', 'false');
     fixMenu?.element.remove(); fixMenu = undefined;
   }
+  function applyFix(fix: DiagnosticFix) {
+    if (fixesStale || fix.disabledReason || !fix.edits.length) return;
+    let selection: {anchor: number; head: number} | undefined;
+    if (fix.selection) {
+      const selected = fix.edits[fix.selection.edit];
+      const offset = selected.span.from + fix.edits.filter(edit => edit !== selected && edit.span.to <= selected.span.from)
+        .reduce((delta, edit) => delta + edit.text.length - (edit.span.to - edit.span.from), 0);
+      selection = {anchor: offset + fix.selection.from, head: offset + fix.selection.to};
+    }
+    view.dispatch({changes: fix.edits.map(edit => ({from: edit.span.from, to: edit.span.to, insert: edit.text})),
+      ...(selection ? {selection, scrollIntoView: true} : {}),
+      annotations: [Transaction.userEvent.of('input.fix'), isolateHistory.of('full')]});
+    view.focus();
+  }
+  function fixChoices(diagnostic: Diagnostic) {
+    return diagnostic.fixes!.map(fix => ({label: fix.label, disabledReason: fix.disabledReason, run: () => applyFix(fix)}));
+  }
+  function openActionsAtCaret(editor: EditorView): boolean {
+    const line = editor.state.doc.lineAt(editor.state.selection.main.head);
+    const position = editor.domAtPos(line.from);
+    const lineDOM = (position.node instanceof HTMLElement ? position.node : position.node.parentElement)?.closest('.cm-line');
+    const bulbs = [...lineDOM?.querySelectorAll<HTMLButtonElement>('.editor-source-fix:not(:disabled),.editor-chapter-checkpoint') ?? []];
+    if (!bulbs.length) return false;
+    if (bulbs.length === 1) bulbs[0].click();
+    else {
+      const diagnostics = currentDiagnostics.filter(d => d.fixes?.length && d.span.to >= line.from && d.span.to <= line.to);
+      openActionMenu('Quick actions', diagnostics.flatMap(d => fixChoices(d).map(choice => ({...choice, label: `${d.fixTitle || d.code}: ${choice.label}`}))), bulbs[0]);
+    }
+    return true;
+  }
   function openFixMenu(diagnostic: Diagnostic, anchor: HTMLElement) {
-    closeFixMenu();
     const current = currentDiagnostics.find(candidate => diagnosticKey(candidate) === diagnosticKey(diagnostic));
     if (!current?.fixes?.length || fixesStale) return;
     selectDiagnostic(current, false);
-    const title = current.fixTitle || current.code;
+    openActionMenu(current.fixTitle || current.code, fixChoices(current), anchor);
+  }
+  function openActionMenu(title: string, actions: {label: string; disabledReason?: string; run(): void}[], anchor: HTMLElement) {
+    closeFixMenu();
+    const returnToEditor = view.hasFocus;
     const menu = node('div', 'editor-fix-menu'); menu.setAttribute('role', 'menu'); menu.setAttribute('aria-label', title);
+    menu.tabIndex = -1;
     const heading = node('h3', 'editor-fix-heading', title); heading.title = title; menu.append(heading);
-    for (const fix of current.fixes) {
-      const choice = button(fix.label, 'editor-fix-option'); choice.setAttribute('role', 'menuitem');
-      choice.disabled = !!fix.disabledReason;
-      if (fix.disabledReason) choice.append(node('span', 'editor-fix-reason', fix.disabledReason));
+    for (const action of actions) {
+      const choice = button(action.label, 'editor-fix-option'); choice.setAttribute('role', 'menuitem');
+      choice.disabled = !!action.disabledReason;
+      if (action.disabledReason) choice.append(node('span', 'editor-fix-reason', action.disabledReason));
       choice.addEventListener('click', () => {
         closeFixMenu();
-        if (fixesStale || fix.disabledReason || !fix.edits.length) return;
-        view.dispatch({changes: fix.edits.map(edit => ({from: edit.span.from, to: edit.span.to, insert: edit.text})),
-          annotations: [Transaction.userEvent.of('input.fix'), isolateHistory.of('full')]});
-        view.focus();
+        if (!action.disabledReason) action.run();
       });
       menu.append(choice);
     }
@@ -265,13 +302,18 @@ export function createStoryEditor(options: StoryEditorOptions): StoryEditor {
     menu.style.left = `${Math.max(8, Math.min(rect.left, innerWidth - menu.offsetWidth - 8))}px`;
     menu.style.top = `${Math.max(8, Math.min(rect.bottom + 3, innerHeight - menu.offsetHeight - 8))}px`;
     const choices = [...menu.querySelectorAll<HTMLButtonElement>('button:not(:disabled)')];
-    choices[0]?.focus({preventScroll: true});
+    (choices[0] ?? menu).focus({preventScroll: true});
     menu.addEventListener('keydown', event => {
-      if (event.key === 'Escape') { event.preventDefault(); closeFixMenu(); anchor.focus({preventScroll: true}); }
-      if (event.key === 'ArrowDown' || event.key === 'ArrowUp') {
+      if (event.key === 'Escape' || event.key === 'Tab') {
+        event.preventDefault(); event.stopPropagation(); closeFixMenu();
+        if (returnToEditor || !anchor.isConnected) view.focus(); else anchor.focus({preventScroll: true});
+      }
+      if (['ArrowDown', 'ArrowUp', 'Home', 'End'].includes(event.key)) {
         event.preventDefault();
         const index = choices.indexOf(document.activeElement as HTMLButtonElement);
-        choices[(index + (event.key === 'ArrowDown' ? 1 : choices.length - 1)) % choices.length]?.focus({preventScroll: true});
+        const next = event.key === 'Home' ? 0 : event.key === 'End' ? choices.length - 1
+          : (index + (event.key === 'ArrowDown' ? 1 : choices.length - 1)) % choices.length;
+        choices[next]?.focus({preventScroll: true});
       }
     });
   }
@@ -280,6 +322,8 @@ export function createStoryEditor(options: StoryEditorOptions): StoryEditor {
   };
   document.addEventListener('pointerdown', dismissFixMenu, true);
   element.addEventListener('wheel', closeFixMenu, {passive: true});
+  editorHost.addEventListener('scroll', closeFixMenu, true);
+  window.addEventListener('resize', closeFixMenu);
   function fixControl(diagnostic: Diagnostic) {
     const bulb = button('', 'editor-diagnostic-fix');
     bulb.setAttribute('aria-label', `Fix ${diagnostic.code}: ${diagnostic.message}`);
@@ -297,10 +341,12 @@ export function createStoryEditor(options: StoryEditorOptions): StoryEditor {
     for (const links of element.querySelectorAll<HTMLElement>('.editor-related-locations')) links.hidden = links.dataset.diagnosticKey !== key || !relatedExpanded;
     for (const fix of element.querySelectorAll<HTMLButtonElement>('.editor-diagnostic-fix,.editor-source-fix')) {
       fix.disabled = fixesStale;
-      fix.title = fixesStale ? 'Waiting for updated diagnostics' : 'Consolidate every use to the selected fate';
+      fix.title = fixesStale ? 'Waiting for updated diagnostics' : 'Quick actions';
     }
   }
   let displayed: {diagnostic: Diagnostic; button: HTMLButtonElement}[] = [];
+  const diagnosticAnchors = new WeakMap<Element, () => void>();
+  const diagnosticResize = new ResizeObserver(entries => entries.forEach(entry => diagnosticAnchors.get(entry.target)?.()));
   highlightCurrentLine = () => {
     const selectedLine = view.state.doc.line(Math.min(view.state.doc.lines, currentLine));
     const contains = (span: TextSpan) => span.from <= selectedLine.to && span.to >= selectedLine.from;
@@ -322,6 +368,7 @@ export function createStoryEditor(options: StoryEditorOptions): StoryEditor {
     const warnings = ordered.length - errors;
     diagnosticsPane.hidden = ordered.length === 0;
     diagnosticsHeading.textContent = `Diagnostics · ${errors} error${errors === 1 ? '' : 's'}, ${warnings} warning${warnings === 1 ? '' : 's'}`;
+    diagnosticResize.disconnect();
     diagnosticsList.replaceChildren();
     displayed = [];
     const occurrences = new Map<string, number>();
@@ -331,13 +378,25 @@ export function createStoryEditor(options: StoryEditorOptions): StoryEditor {
       occurrences.set(identity, occurrence + 1);
       const group = node('div', 'editor-diagnostic-entry');
       group.dataset.key = `${identity}:${occurrence}`;
-      const entry = button(`${diagnostic.source.line}: [${diagnostic.code}] ${diagnostic.message}`, 'editor-diagnostic');
+      const entry = button('', 'editor-diagnostic');
+      const text = node('span', 'editor-diagnostic-text', `${diagnostic.source.line}: [${diagnostic.code}] ${diagnostic.message}`);
+      entry.append(text);
       entry.dataset.severity = diagnostic.severity;
       entry.dataset.line = String(diagnostic.source.line);
       entry.addEventListener('click', () => { selectDiagnostic(diagnostic); navigate(diagnostic.span); });
       const row = node('div', 'editor-diagnostic-row'); row.append(entry);
       group.append(row);
-      if (diagnostic.fixes?.length) row.append(fixControl(diagnostic));
+      if (diagnostic.fixes?.length) {
+        // A sibling control overlays the final text fragment; never nest buttons.
+        const anchor = actionAnchor(fixControl(diagnostic)); row.append(anchor);
+        const place = () => {
+          if (!anchor.isConnected) return;
+          const range = document.createRange(); range.selectNodeContents(text);
+          const end = [...range.getClientRects()].at(-1), bounds = row.getBoundingClientRect();
+          if (end) { anchor.style.left = `${Math.min(end.right, bounds.right - 22) - bounds.left}px`; anchor.style.top = `${end.bottom - bounds.top}px`; }
+        };
+        diagnosticAnchors.set(row, place); diagnosticResize.observe(row); place();
+      }
       if (diagnostic.related?.length) group.append(relatedLinks(diagnostic));
       diagnosticsList.append(group);
       displayed.push({diagnostic, button: entry});
@@ -419,6 +478,7 @@ export function createStoryEditor(options: StoryEditorOptions): StoryEditor {
     focusLine,
     destroy() {
       closeFixMenu(); document.removeEventListener('pointerdown', dismissFixMenu, true);
+      window.removeEventListener('resize', closeFixMenu); diagnosticResize.disconnect();
       view.destroy();
       element.remove();
     },

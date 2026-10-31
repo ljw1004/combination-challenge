@@ -15,7 +15,7 @@ Ideas are options to test, not obligations to implement. The current engine rema
 Editorial priorities:
 
 1. The [authenticity backlog](<backlog - authenticity improvements.md>) remains active. Its completed pass records 42 original findings changed, 24 retained after review and four absent-edition findings separately. Consult those historical outcomes and evidence before reopening an issue; original ratings are not current test results.
-2. Review linter warnings for mixed fates, future supplies and too many visible goal chains. Explain a deliberate exception specifically; do not erase a warning merely to make output green.
+2. Review linter warnings for mixed fates, future supplies and optional-content opportunities. The [lint review](<backlog - lint review.md>) records the completed goal-count implementation and its historical evidence: the reviewed three-chain chapters now carry specific explanations under the [current count rules](story-format-spec.md#lint-rules). Remaining experience concerns are separate editorial questions, not unsuppressed goal-count work.
 3. Review arrival and peak working sets in the browser, especially long Ideas/Theology labels and constructed compounds. Coordinate-free hotspots currently use a stable default lower-panel layout; author image-relative positions where a precise feature matters.
 4. Run fresh agent trials through the player-only interface, then compare a concrete revision. Confirm the enjoyed old feel through human play; browser tests cannot certify that experience.
 5. Revisit intellectual continuity and forward intuition separately from physical/factual authenticity. A method, measurement and established conclusion should not be interchangeable labels.

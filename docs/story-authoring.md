@@ -36,6 +36,8 @@ Work with the specification's chapter-needs rules when deciding what to list at 
 
 Prefer no more than two active goals at a time. Use `next:` chains to stage required preparations, while allowing early discovery. If two preparations must precede a third, put them in a single “both/and” goal followed by the next goal. Phrase the task so it stays understandable as its conditions are completed.
 
+When three independent goals are clearer together, explain the specific reason in the Goals section using the [specification's exact acknowledgment syntax](story-format-spec.md). The editor's suppression action inserts the template and selects the reason to replace. Explain the scene's relationship, reuse or comparison; do not merely say that the warning is acceptable. Four visible chains require restructuring, and an obsolete acknowledgment should be removed when the count falls.
+
 Accept alternative results when either serves the purpose. “Cook a cauliflower dish” can accept Cauliflower gratin or Buttered cauliflower; the player need not make both. Require both only when both matter: plain Puff pastry for later almond pastries and Cheese straws for the current meal, for example. Give optional products a useful choice, discovery or later use. Cut purposeless branches instead of inventing goals solely to retain them.
 
 Later chapters should make useful earlier creations matter. Carrying an unused token or raw supply is not continuity. Reuse can cross a gap and should change what the player can do or understand. Accept plausible tools and preparation orders through explicit alternatives.
@@ -54,7 +56,7 @@ Use a named compound and slots when independently fitted parts should remain leg
 
 ## Review warnings against played behavior
 
-Goal-count and mixed-fate warnings are invitations to inspect the player experience, not a target of zero warnings. Use `next:` when sequential disclosure helps; every stage still remains required. Independent goals may be clearer when shown together.
+Three-goal and mixed-fate warnings are invitations to inspect the player experience, not a target of zero warnings. Use `next:` when sequential disclosure helps; every stage still remains required. Independent goals may be clearer when shown together, subject to the [count limit and acknowledgment rules](story-format-spec.md#lint-rules).
 
 Fate annotations are visibility/placement hints, and future-use protection can retain an input despite a hiding hint. Compare what a player actually sees across earlier and later uses before normalizing annotations. A consistent authored fate can still produce different visible behavior; preserving an old object beside its upgraded replacement can also blur identity. Keep tool reuse, material incorporation and genuine state changes legible. Test a concrete alternative and retain negative results rather than equating fewer warnings with more fun.
 

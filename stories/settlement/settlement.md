@@ -208,6 +208,7 @@ A brook blocks the path. Build a footbridge to cross it and a handcart to move s
 The moving stream can power a mill. Grind grain for the village and press the garden's oil-bearing seeds for lamp fuel.
 
 **Goals**
+- (three goals are a lot but okay here because building the mill, obtaining flour, and discovering seed oil are related but distinct uses of the bend; the review found coherent machinery and an oil-press surprise without an established benefit from staging)
 - Make Grain mill -- Grain mill
 - Make Flour sack -- Flour sack
 - Press seed oil -- Seed oil
@@ -787,6 +788,7 @@ We need to invite our neighbours to the meal and music. Back at the landing, pre
 The following afternoon, the square is ready for music. Make instruments and a raised place for the players.
 
 **Goals**
+- (three goals are a lot but okay here because flute, drum, and bandstand form one legible music-making scene; the reviewed construction stayed clear and supported optional curiosity with all three goals visible)
 - Make Flute -- Flute
 - Make Drum -- Drum
 - Make Bandstand -- Bandstand

@@ -28,5 +28,6 @@ export async function jumpToChapter(page: Page, heading: string, closePanel = fa
   const jump = page.getByRole('button', {name: `Jump to checkpoint: ${heading}`, exact: true});
   await jump.focus();
   await jump.click();
+  await page.getByRole('menuitem', {name: 'Jump to checkpoint', exact: true}).click();
   if (closePanel) await page.getByRole('button', {name: 'Close debug panel'}).click();
 }

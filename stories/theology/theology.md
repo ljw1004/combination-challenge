@@ -586,6 +586,7 @@ A household has one coin and no supper. Compare Luther's priority for helping pe
 > NOTE: Source context: Luther · Wittenberg, 1517.
 
 **Goals**
+- (three goals are a lot but okay here because the household payment case compares care, control of gifts, and repentance; the review found these distinctions concrete and did not establish a benefit from hiding one question)
 - What should the household's coin pay for? -- `feed-before-letter`
 - Does serving God mean controlling God's gifts? -- Working for God does not mean controlling God’s gifts
 - Can a payment replace repentance? -- Luther: a paid guarantee cannot replace a changed life
@@ -669,6 +670,7 @@ Luther says that good deeds do not earn acceptance by God. At this desk, conside
 > NOTE: Source context: Luther · Christian Liberty, 1520.
 
 **Goals**
+- (three goals are a lot but okay here because helping others, comparing accounts of grace, and bodily discipline ask different questions; the review valued the Augustine-Luther comparison and located repetition in the explanations rather than the goal count)
 - Why help if help does not earn salvation? -- `care-not-purchase`
 - Are these writers asking the same question about grace? -- `two-grace-questions`
 - What is bodily discipline for? -- `practice-not-price`
@@ -737,6 +739,7 @@ Compare texts from the years before Marburg with its signed articles. The writer
 > NOTE: Source context: Marburg · 1526–1529 texts beside the signed articles.
 
 **Goals**
+- (three goals are a lot but okay here because the Communion positions, the unbelieving guest, and shared agreement are distinct comparisons; the review found the three simultaneous questions intelligible)
 - What is received in Communion? -- `three-supper-accounts`
 - Does receiving the gift guarantee its benefit? -- `received-not-benefited`
 - What can these opponents agree on? -- Shared belief in the Trinity leaves their Communion dispute open
@@ -841,6 +844,7 @@ The council distinguishes God's first help, an adult's response and later growth
 > NOTE: Source context: Council of Trent · Catholic bishops, 1547; earlier texts reopened.
 
 **Goals**
+- (three goals are a lot but okay here because accepting help, shared ground, and later good deeds distinguish related claims about grace; reducing the display did not resolve the reviewed concern that labels supplied the answers)
 - Does accepting a gift mean earning it? -- `response-not-price`
 - Where do Luther and Trent agree? -- `gift-common-ground`
 - What do later good deeds change? -- `works-dispute`
@@ -916,9 +920,10 @@ Calvin's writings from 1543–1559 raise objections about prayer, images and rel
 
 **Goals**
 - Can a friend pray for us? -- Calvin: asking a living friend to pray does not replace Christ
-- May we ask a departed saint to pray? -- `agency-not-permission`
+- next: May we ask a departed saint to pray? -- `agency-not-permission`
 - What is wrong with honouring this picture? -- `calvin-panel-answer`
 - Whose bone is this? -- The name on the bone does not establish whose bone it is
+- (three goals are a lot but okay here because prayer forms a guided two-step sequence, while the picture and bone pose separate questions)
 
 **Items**
 - `friend-request` Case: “Please pray for my child,” to a living friend
@@ -1016,6 +1021,7 @@ The archivist has sent a newly found record of who kept the bone.
 > NOTE: Source context: Council of Trent · Catholic bishops, 1563; Calvin’s objections retained.
 
 **Goals**
+- (three goals are a lot but okay here because prayer, picture honour, and a bone's identity revisit distinct earlier disputes; the review supported transferring those distinctions and identified evidence quality rather than goal count as the unresolved concern)
 - Does asking saints put Christ aside? -- `prayer-disagreement`
 - Who receives the honour given to a picture? -- `panel-still-disputed`
 - Would proving the bone's identity settle the dispute? -- A better history for the bone would not remove Calvin’s objection

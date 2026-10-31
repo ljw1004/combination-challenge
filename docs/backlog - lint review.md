@@ -2,6 +2,19 @@
 
 Completed 30 October 2026. Purpose: preserve the review of all baseline lint warnings, the tested alternatives, the decisions and the limits of the evidence.
 
+## Three-goal acknowledgment implementation — complete, 31 October 2026
+
+**Status: complete.** Validated all five current manuscripts after the user's final Theology edit: zero goal-related lint errors or warnings and zero lint errors overall. All 21 chapters with three visible chains now have valid, specific acknowledgments. The production build passes; 52 non-goal author-review warnings remain. This closes the goal-lint work only.
+
+The user approved an explicit exception for three visible goal chains and a hard error for four or more. The [specification](story-format-spec.md) owns the exact acknowledgment grammar and diagnostics; [UX](ux.md#debug-pane) owns the shared lightbulb/menu behavior. This is a new authoring-policy decision, not new evidence of improved enjoyment or visual load.
+
+- Added chapter-specific explanations to all 20 currently three-chain cases below: five Ideas, five Kitchen, three Mars, two Settlement and five Theology chapters. The reasons retain the review's distinctions and evidence limits; the manuscripts use the current Settlement/Theology names.
+- The user resolved the historical four-chain case, **May I ask a saint as I ask a friend?**, by making the departed-saint question the `next:` stage after the living-friend question. Their acknowledgment explains the guided prayer sequence alongside the separate picture and bone questions. All four goals remain required within three visible chains; both the former hard error and the subsequent missing-acknowledgment warning are resolved.
+- Goal acknowledgments are metadata. Malformed Goals content, unfinished reasons and duplicate acknowledgments are errors; obsolete acknowledgments have a removal action. Suppression inserts the template and selects its reason. Every editor lightbulb overlays its applicable text endpoint and opens a keyboard-accessible action menu, including checkpoint bulbs.
+- Mixed-fate decisions below remain as reviewed. Remaining experience questions belong in the [editorial backlog](backlog.md); this implementation does not reopen the completed comparisons.
+
+The original review and its dated validation below describe the 30 October baseline. Current implementation verification is recorded in [working notes](../notes.md#31-october-2026-three-goal-acknowledgments-and-quick-actions).
+
 ## Implementation and verification
 
 - [Corrective core commit](https://github.com/ljw1004/combination-challenge/commit/5942b7b84abef0e3136d960fd0cc6f1238c2abd7): every `next:` predecessor is required in completion, visibility, chapter skipping and reachability/retention. Sequential disclosure does not waive a goal. Actual browser testing verified the final-result-first case.
@@ -21,11 +34,11 @@ Completed 30 October 2026. Purpose: preserve the review of all baseline lint war
 
 Engine/manuscript hashes and wrapper epochs are separate. Both main density arms use the same corrected conjunctive-next runtime; candidate disclosure preserves all goal obligations. The logical interface exposes all compatible partners and all-history items, unlike the browser’s per-item hints/current panel. It cannot establish visual burden, touch quality, human timing or human enjoyment. Focal names and checkpoints were supplied; unplayed history is not earned experience. Command-schema errors, waits and behind-card actions are not story-pacing evidence. See interface provenance and session-qualified citation corrections.
 
-The [retained evidence bundle](<2026.10.30 lint review/bundle-manifest.json>) contains complete compact case/session metadata, reports, focal event excerpts and hashes. They are **not a full replayable archive**: full exact raw observations and frozen sources remain local. No huge duplicated runtime trees are included.
+The [retained evidence bundle](<../archive/2026.10.30 lint review/bundle-manifest.json>) contains complete compact case/session metadata, reports, focal event excerpts and hashes. They are **not a full replayable archive**: full exact raw observations and frozen sources remain local. No huge duplicated runtime trees are included.
 
 ## Goal-density cases
 
-Every case below tested unchanged display against two tracks; effect remained unclear, so retain baseline. Original source lines refer to baseline commit 4ef30baff0bc9fe64b85b68066a9d95dece72e92. Exact arms, visible goals, chosen stops and events are in [density-cases.json](<2026.10.30 lint review/density-cases.json>).
+Every case below tested unchanged display against two tracks; effect remained unclear, so retain baseline. Original source lines refer to baseline commit 4ef30baff0bc9fe64b85b68066a9d95dece72e92. Exact arms, visible goals, chosen stops and events are in [density-cases.json](<../archive/2026.10.30 lint review/density-cases.json>).
 
 | Case | Chapter | Initial goals | Case-specific evidence and uncertainty |
 |---|---|---|---|
@@ -53,13 +66,13 @@ Every case below tested unchanged display against two tracks; effect remained un
 
 ## Mixed-fate cases
 
-Full hypotheses, target-use events, before/after item panels and remaining partners are in [mixed-fate-cases.json](<2026.10.30 lint review/mixed-fate-cases.json>). All source declarations remain author-review questions, not automatically player-facing defects.
+Full hypotheses, target-use events, before/after item panels and remaining partners are in [mixed-fate-cases.json](<../archive/2026.10.30 lint review/mixed-fate-cases.json>). All source declarations remain author-review questions, not automatically player-facing defects.
 
 | Case | Item | Review / uncertainty |
 |---|---|---|
 | elements-01 | Stone | Retain. Tool reuse supported milling/crushing predictions. Uniform-preserve was observation-equivalent on both developer and probed player routes; no behavioral improvement demonstrated. |
 | elements-02 | Sand | Retain. Glass learning transferred; glaze/lens recipes were less explained. Neither tested route exposed a preserve difference, so those recipe-intuition concerns are not evidence for changing fates. |
-| elements-03 | Wood | Retain/investigate. Later Wood retirement was noticed, but not predicted before action and blocked no intended use. Burning naturally changes material. Preserve adds one current-panel idle token with no listed partners. See [wood-ink-challenge.json](<2026.10.30 lint review/wood-ink-challenge.json>); no proven benefit. |
+| elements-03 | Wood | Retain/investigate. Later Wood retirement was noticed, but not predicted before action and blocked no intended use. Burning naturally changes material. Preserve adds one current-panel idle token with no listed partners. See [wood-ink-challenge.json](<../archive/2026.10.30 lint review/wood-ink-challenge.json>); no proven benefit. |
 | elements-04 | Cloth | Retain. Both arms discovered plausible crafts and found weather continuation unclear. No clear reported benefit from preserving the cloth after windsock construction; broader path-finding concern is not a fate effect. |
 | elements-05 | Planks | Retain. Both arms found connected optional construction and a late glass-slide dead end. Different side routes, not preservation, explain activity differences. No demonstrated benefit from an extra plank token. |
 | elements-06 | Wheel | Retain pending stronger evidence. Optional player route revealed retirement missed by deterministic screening, so a fresh candidate was tested. Baseline noticed Wheel removal into Millstone; candidate offered no clear improved decision or payoff. Altering a wheel into a grinding component has a plausible distinct role. |
@@ -67,7 +80,7 @@ Full hypotheses, target-use events, before/after item panels and remaining partn
 | elements-08 | Fired glazed jar | Retain. Candidate completed fruit storage where baseline stopped, but the drying-rack path existed in both arms. Baseline's inventory filtering and guessed cellar move, not a missing path, explain the difference. Do not attribute completion to preservation. |
 | elements-09 | Kiln | Retain. Player-route screen exposed an optional difference missed by the initial route. Baseline found bellows-to-forge; candidate did not. That exploration difference is not causal evidence for fate uniformity. Charcoal reuse was coherent in both. |
 | elements-10 | Seedlings | Retain. Both orders built garden and greenhouse intelligibly. Baseline noticed final removal; no blocked intended action or clear confidence loss. Installing seedlings versus using their arrangement as a construction cue can have distinct roles. |
-| elements-11 | Ink | Final design judgment: adopt bounded preserve change for the same writing/printing/drawing medium role. The comparison has one participant per arm and demonstrated no blocked progress. Baseline learned reuse before later drawing retirement; candidate adds one current-panel Ink plus the old Letter option. This is a design judgment supported by model-surprise evidence, NOT measured fun gain. See [wood-ink-challenge.json](<2026.10.30 lint review/wood-ink-challenge.json>) and [reviewer-citation-corrections.json](<2026.10.30 lint review/reviewer-citation-corrections.json>). |
+| elements-11 | Ink | Final design judgment: adopt bounded preserve change for the same writing/printing/drawing medium role. The comparison has one participant per arm and demonstrated no blocked progress. Baseline learned reuse before later drawing retirement; candidate adds one current-panel Ink plus the old Letter option. This is a design judgment supported by model-surprise evidence, NOT measured fun gain. See [wood-ink-challenge.json](<../archive/2026.10.30 lint review/wood-ink-challenge.json>) and [reviewer-citation-corrections.json](<../archive/2026.10.30 lint review/reviewer-citation-corrections.json>). |
 | elements-12 | Fired glazed bowl | Retain. Both arms used the bowl as mixing vessel, source for a cooking pot/lamp, and for brine. Clear construction and transfer, without demonstrated uniform-preserve benefit. Different completion amounts reflect chosen exploration. |
 | elements-13 | Lens | Retain. Actual player route exposed a difference absent from the initial screen; fresh candidate supplied comparison. Both arms obtained coherent microscope/plant-study construction. Looking through a lens and incorporating it into a tool are distinct roles; no clear benefit from retaining the loose part. |
 | elements-14 | Telescope | Reject uniform-preserve as an improvement on this evidence. Candidate retained Telescope at the older headland while Mounted telescope appeared in the current chapter, and player reported weakened spatial continuity. Both arms' location experiments and routine assembly were otherwise similar. |

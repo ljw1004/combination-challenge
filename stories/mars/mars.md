@@ -51,6 +51,7 @@ The orbiter has answered. The inner cabin survived, but its outer entrance is to
 The intact signal mast has a clear orbiter sightline. Our signal here will mark the refuge rather than only the crash site. Beside it, a fixed electric melt head collects water inside a sealed vessel. The solar charger can power it; a surviving cabin service lead can instead power the portable heater through the vessel's matching connection.
 
 **Goals**
+- (three goals are a lot but okay here because water, shelter, and rescue signalling are separate immediate refuge needs; the reviewed signal affordance problem was not resolved by hiding a goal)
 - Collect water -- Dirty water
 - Secure and insulate vestibule -- Insulated vestibule
 - Mark refuge for rescue
@@ -131,6 +132,7 @@ The water is filtered and the seedlings have a warm, sheltered home. To reach th
 From the route overlook beside the sled, the outcrop and nearby landmarks are visible. A supported photograph can be compared with the expedition's existing regional map.
 
 **Goals**
+- (three goals are a lot but okay here because solar drive, a fitted harness, and an outcrop route express the vehicle and navigation preparations together; the reviewed drive-to-harness staging showed no established benefit)
 - Make Rover drive under solar power -- Rover[Drive unit, Solar charger]
 - Fit rover harness -- Rover[Drive unit, Solar charger, Seat harness]
 - Find route to the outcrop -- Outcrop navchip
@@ -863,6 +865,7 @@ Back at camp, I will pack the specimens, save the crew portrait and prepare a ha
 The complete card recorder and its matching archival card can save a copy of the crew portrait alongside our field records. The hauler’s platform and cargo strap match the removable return capsule. Its shock mount and cargo can be fitted in any order; after the ground journey, that same capsule will transfer from the cart’s restraint to the flight dock. The camp handover equipment is ready too.
 
 **Goals**
+- (three goals are a lot but okay here because specimen transport, a handover beacon, and the crew portrait have separate return purposes; the reviewed cart-to-handover staging did not resolve the packing repetition)
 - Prepare specimen transport cart -- Specimen transport cart
 - Make camp handover beacon -- Camp handover beacon
 - Archive the crew portrait -- Family record

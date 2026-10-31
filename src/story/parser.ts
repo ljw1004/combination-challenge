@@ -34,7 +34,7 @@ export function unquote(raw: string): string {
 function bullets(lines: Line[]): Bullet[] {
   const roots: Bullet[] = [], stack: Bullet[] = [];
   for (const { text, line } of lines) {
-    const match = /^(\s*)[-*] (.*)$/.exec(text);
+    const match = /^([\t ]*)[-*][\t ]+(.*)$/.exec(text);
     if (match) {
       const node: Bullet = { text: match[2], line, indent: match[1].length, children: [], prose: [] };
       while (stack.length && stack.at(-1)!.indent >= node.indent) stack.pop();
@@ -237,12 +237,18 @@ export function parseStory(markdown: string, options: { id?: string; file?: stri
     return { text, operator: op, next };
   }
   function condition(raw: string, line: number): Condition | undefined {
+    if (/^\(three (?:goals|rules)\b/i.test(raw)) {
+      error('goal-syntax', 'A three-goal acknowledgment belongs at the top level of Goals, not among a goal\'s conditions.', line, raw);
+      return;
+    }
     if (/^place\s*:/.test(raw)) {
       error('place-context', 'place: belongs directly beneath a Hotspots declaration.', line, raw);
       return;
     }
     if (splitOutside(raw, '->').length > 1) { const result = rule(raw, line)?.result ?? ref('', line); return { item: result, source: source(line) }; }
-    const parts = splitOutside(raw, '@'); return { item: ref(parts[0], line), ...(parts[1] ? { hotspot: ref(parts[1], line, 'hotspot').id } : {}), source: source(line) };
+    const parts = splitOutside(raw, '@');
+    if (parts.length > 2 || (parts.length === 2 && !parts[1])) error('goal-syntax', 'A placement condition needs one item and one hotspot separated by @.', line, raw);
+    return { item: ref(parts[0], line), ...(parts[1] ? { hotspot: ref(parts[1], line, 'hotspot').id } : {}), source: source(line) };
   }
   const chapterLines: { heading: Line; lines: Line[] }[] = []; let preamble: Line[] = [];
   for (const line of lines) {
@@ -263,7 +269,11 @@ export function parseStory(markdown: string, options: { id?: string; file?: stri
       if (section) {
         current = section[1];
         if (!sections.has(current)) sections.set(current, []);
-        if (current === 'Goals' && !chapter.goalsSource) chapter.goalsSource = source(line.line);
+        if (current === 'Goals' && !chapter.goalsSource) {
+          chapter.goalsSource = source(line.line);
+          const offset = chapter.goalsSource.span!.from - (chapter.goalsSource.column! - 1) + originalLines[line.line - 1].length;
+          chapter.goalsInsertion = {offset, newline: /^(\r\n?|\n)/.exec(markdown.slice(offset))?.[0] ?? '\n', indent: ''};
+        }
       }
       else sections.get(current)!.push(line);
     }
@@ -273,9 +283,31 @@ export function parseStory(markdown: string, options: { id?: string; file?: stri
     chapter.intro = intro.filter(p => !p.startsWith('[If skipped]')).join('\n\n').trim();
     chapter.skipped = intro.filter(p => p.startsWith('[If skipped]')).map(p => p.replace(/^\[If skipped\]\s*/, '')).join('\n\n');
     const goalOps = new Set<string>();
-    for (const node of bullets(sections.get('Goals') ?? [])) {
+    const goalLines = sections.get('Goals') ?? [];
+    for (const line of goalLines) if (line.text.trim() && !/^[\t ]*[-*][\t ]+/.test(line.text)) {
+      error('goal-syntax', 'Goals entries and their conditions must be Markdown bullets; prose is not a goal or an acknowledgment.', line.line);
+    }
+    const goalNodes = bullets(goalLines);
+    if (chapter.goalsInsertion && goalNodes.length) chapter.goalsInsertion.indent = /^[\t ]*/.exec(originalLines[goalNodes[0].line - 1])![0];
+    for (const node of goalNodes) {
+      const acknowledgment = /^[\t ]*-[\t ]+\(three goals are a lot but okay here because (.*)\)$/.exec(originalLines[node.line - 1]);
+      if (acknowledgment) {
+        if (node.children.length || node.prose.some(text => text.trim())) {
+          error('goal-syntax', 'A three-goal acknowledgment must be a single top-level bullet without nested content.', node.line);
+          continue;
+        }
+        const location = source(node.line), start = location.span!.from - (location.column! - 1);
+        const end = start + originalLines[node.line - 1].length;
+        (chapter.goalAcknowledgments ??= []).push({reason: acknowledgment[1], source: location,
+          removalSpan: {from: start, to: end + (/^(\r\n?|\n)/.exec(markdown.slice(end))?.[0].length ?? 0)}});
+        if (!acknowledgment[1].trim() || acknowledgment[1].includes('<REASON>')) {
+          error('goal-acknowledgment-reason', 'Replace <REASON> with a nonempty explanation for keeping three goals.', node.line);
+        }
+        continue;
+      }
       const prefix = operator(node.text), parts = splitOutside(prefix.text, '--'); if (prefix.operator) goalOps.add(prefix.operator);
       const goal: Goal = { id: `${chapter.id}/goal:${chapter.goals.length}`, text: unquote(parts[0]), next: prefix.next, operator: 'or', conditions: [], source: source(node.line) };
+      if (!goal.text || parts.length > 2 || (parts.length === 2 && !parts[1]) || node.prose.some(text => text.trim())) error('goal-syntax', 'Use nonempty goal text with one inline -- condition or condition sub-bullets.', node.line);
       if (goal.next && !chapter.goals.length) error('first-next', 'The first goal cannot use next:.', node.line, 'next:');
       if (parts[1] && node.children.length) error('mixed-goal-form', 'An inline goal condition cannot also have condition sub-bullets.', node.line);
       const conditions = parts[1] ? [{ text: parts.slice(1).join('--'), line: node.line, children: [] as Bullet[] }] : node.children;

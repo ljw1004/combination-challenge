@@ -29,4 +29,4 @@ The [evidence index](<2026.10.30 authenticity improvements/authenticity-evidence
 
 ### Lint review evidence
 
-[`2026.10.30 lint review/`](<2026.10.30 lint review/>) holds the compact supporting evidence for the [completed lint review](lint-review-2026-10-30.md). Its [bundle manifest](<2026.10.30 lint review/bundle-manifest.json>) records retained files and hashes. These summaries and attributed reports are not full replayable sessions.
+[`2026.10.30 lint review/`](<2026.10.30 lint review/>) holds the compact supporting evidence for the [lint review and current implementation record](<../docs/backlog - lint review.md>). Its [bundle manifest](<2026.10.30 lint review/bundle-manifest.json>) records retained files and hashes. These summaries and attributed reports are not full replayable sessions.

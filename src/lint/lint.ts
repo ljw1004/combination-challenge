@@ -2,6 +2,7 @@ import type { Story, Diagnostic, Source, Ref, Fate, RelatedLocation, DiagnosticF
 import { continuationPossible, indexStory, activeHotspots, chapterSupplies } from '../engine/analysis.ts';
 import { newGame } from '../engine/game.ts';
 import { analyzeOpportunities, type OpportunityOptions, type OpportunityReport } from './opportunities.ts';
+import { goalCountDiagnostics } from './goal-count.ts';
 
 export interface LintOptions {
   analysis?: boolean;
@@ -101,8 +102,7 @@ export function lintStory(story: Story, options: LintOptions = {}): Diagnostic[]
     if (!i && !c.image) error('missing-opening-image','The opening chapter needs a background image.',c.source);
     const earlier = new Set(story.chapters.slice(0,i).flatMap(c=>c.items.map(r=>r.id)));
     if (i && !c.image && c.items.some(r=>index.primitives.has(r.id) && !earlier.has(r.id))) warning('new-primitives-without-image',`${c.name} introduces primitive items without a new setting image.`,c.source);
-    const goalChains=c.goals.filter(g=>!g.next).length;
-    if (goalChains>2) warning('many-visible-goals',`${c.name} starts with ${goalChains} goal chains (more than two). Review their presentation; consider next: for sequential disclosure when it makes the goals easier to follow; all goals remain required.`,c.goalsSource ?? c.goals[0]?.source ?? c.source);
+    diagnostics.push(...goalCountDiagnostics(c));
     for (const ref of c.items) checkRef(ref,c.source);
     const supplies = chapterSupplies(story, i);
     for (const [a,b] of index.pairs) if (supplies.some(r=>r.id===a)&&supplies.some(r=>r.id===b)) error('exclusive-needs',`${c.name} supplies both mutually exclusive primitives ${story.items[a].name} and ${story.items[b].name}.`,c.source);

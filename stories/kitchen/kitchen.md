@@ -13,6 +13,7 @@ Travel with a kitchen caravan from a roadside breakfast through an orchard, a ra
 We have stopped beside the road. The children want porridge, flatbread and apple juice before we leave.
 
 **Goals**
+- (three goals are a lot but okay here because flatbread, juice, and porridge form a familiar breakfast that can be prepared in different orders; the review found no demonstrated benefit from showing only two dishes)
 - Make flatbread. -- Flatbread
 - Make apple juice. -- Apple juice
 - Make fruit porridge. -- Fruit porridge
@@ -276,6 +277,7 @@ The next morning, the gardener brings mustard to the salad counter. Our roast ro
 The market cookshop needs pasta for lunch. At the pasta bench, prepare noodles and filled pasta, and make crumbs from our bread.
 
 **Goals**
+- (three goals are a lot but okay here because noodles and filled ravioli share reusable pasta sheets while breadcrumbs are a separate preparation; the reviewed scanning burden concerned the pantry rather than the third goal)
 - Make fresh noodles. -- Fresh noodles
 - Make filled ravioli. -- Filled ravioli
 - Make breadcrumbs. -- Breadcrumbs
@@ -453,6 +455,7 @@ The fruit cook needs jam and marmalade for tomorrow, and syrup for the railway k
 These are preparations for the cooks to use, not a claim of shelf-stable preservation. The actual preserving line comes later.
 
 **Goals**
+- (three goals are a lot but okay here because jam, syrup, and marmalade show distinct uses of the preserving stove; the reviewed friction was the citrus handling sequence rather than the number of visible goals)
 - Make soft-set fruit jam. -- Soft-set fruit jam
 - Prepare fruit syrup for later desserts and preserves. -- Fruit syrup
 - Make marmalade. -- Marmalade
@@ -779,6 +782,7 @@ The roasted cacao nibs have already been fermented and processed. The chocolate 
 The chocolate counter has space to finish our sponge, almond sweets and cream puffs. The birthday guests are waiting.
 
 **Goals**
+- (three goals are a lot but okay here because cake, coated marzipan, and profiteroles are distinct finishing tasks at one counter; hiding a task did not remove it or establish a benefit in the review)
 - Make ganache-filled chocolate cake. -- Ganache-filled chocolate cake
 - Make chocolate-coated marzipan. -- Chocolate-coated marzipan
 - Make chocolate profiteroles. -- Chocolate profiteroles
@@ -871,6 +875,7 @@ Later, another shift takes over the cleared baking bench. The crew needs fruit m
 The afternoon is hot. At the freezing bench, make a custard ice, fruit sorbet and a plain milk ice cream for the dessert cook.
 
 **Goals**
+- (three goals are a lot but okay here because three prepared bases teach the same churn operation through different frozen results; all three outcomes remained intelligible in both reviewed displays)
 - Make frozen custard. -- Frozen custard
 - Make fruit sorbet. -- Fruit sorbet
 - Make milk ice cream. -- Milk ice cream

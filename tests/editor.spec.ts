@@ -76,6 +76,25 @@ async function savedText(page: Page, text: string): Promise<boolean> {
   }), text);
 }
 
+async function expectTextOverlay(bulb: ReturnType<Page['locator']>) {
+  const geometry = await bulb.evaluate(control => {
+    const row = control.closest('.cm-line,.editor-diagnostic-row')!;
+    const range = document.createRange();
+    const text = row.querySelector('.editor-diagnostic-text');
+    if (text) range.selectNodeContents(text);
+    else { range.selectNodeContents(row); range.setEndBefore(control.parentElement!); }
+    const end = [...range.getClientRects()].filter(rect => rect.width > 0).at(-1)!;
+    const bounds = control.getBoundingClientRect(), before = row.getBoundingClientRect().height;
+    (control as HTMLElement).style.display = 'none';
+    const after = row.getBoundingClientRect().height;
+    (control as HTMLElement).style.removeProperty('display');
+    return {left: bounds.left, bottom: bounds.bottom, textRight: end.right, textBottom: end.bottom, before, after};
+  });
+  expect(geometry.before).toBe(geometry.after);
+  expect(Math.abs(geometry.left - geometry.textRight)).toBeLessThan(2);
+  expect(Math.abs(geometry.bottom - geometry.textBottom)).toBeLessThan(6);
+}
+
 async function beginDelayedDeletion(page: Page) {
   let release!: () => void;
   let requested!: () => void;
@@ -412,10 +431,21 @@ test('diagnostics keep source order and scroll while their related locations nav
   });
   expect(geometry.withIcons).toBe(geometry.withoutIcons);
   expect(geometry.overlap).toBe(false);
+  await page.keyboard.press('ControlOrMeta+.');
+  const rowMenu = page.getByRole('menu', {name: 'Quick actions', exact: true});
+  await expect(rowMenu).toBeVisible();
+  await page.keyboard.press('End');
+  await expect(rowMenu.getByRole('menuitem', {name: 'Tool: always consume', exact: true})).toBeFocused();
+  await page.keyboard.press('Home');
+  await expect(rowMenu.getByRole('menuitem').first()).toBeFocused();
+  await page.keyboard.press('Escape');
   await sourceFix.click();
   await expect(menu.getByRole('heading', {name: 'Tool', exact: true})).toBeVisible();
   expect(await menu.getByRole('menuitem').allTextContents()).toEqual(['always preserve', 'always consume']);
-  await menu.getByRole('menuitem', {name: 'always preserve', exact: true}).click();
+  await page.keyboard.press('ArrowDown');
+  await expect(menu.getByRole('menuitem', {name: 'always consume', exact: true})).toBeFocused();
+  await page.keyboard.press('ArrowUp');
+  await page.keyboard.press('Enter');
   await expect(tool).toHaveCount(0);
   expect(await savedText(page, '\n\n' + text.replaceAll('`tool` [consume]', '`tool` [preserve]'))).toBe(true);
   const longName = 'A tool with an unusually long title that explains its place in this story in considerable detail';
@@ -440,13 +470,81 @@ test('chapter heading checkpoint buttons use live text and preserve the draft an
   const jump = heading.getByRole('button', {name: 'Jump to checkpoint: Field', exact: true});
   await heading.hover();
   await expect(jump).toHaveCSS('opacity', '1');
+  await expectTextOverlay(jump);
   const scroll = await page.locator('.cm-scroller').evaluate(element => element.scrollTop);
   await jump.click();
+  await expect(page.locator('dialog')).toHaveCount(0);
+  await page.getByRole('menuitem', {name: 'Jump to checkpoint', exact: true}).click();
   await expect(page.locator('dialog')).toContainText('Field introduction.');
   await expect(page.locator('.chapter-panel[data-chapter="1"]')).toHaveCount(1);
   expect(await savedText(page, edited)).toBe(true);
   expect(await page.locator('.cm-scroller').evaluate(element => element.scrollTop)).toBe(scroll);
   await expect(page.getByText('Generated checkpoint', {exact: true})).toHaveCount(0);
+});
+
+test('three-goal quick actions select the reason, save and undo, and remove a stale wrapped acknowledgment', async ({page}) => {
+  const text = manuscript.replace('- Build the kit -- `kit`', '- Build the kit -- `kit`\n- Keep the frame -- `frame`\n- Keep the tool -- `tool`');
+  await serveFixture(page, text.replaceAll('\n', '\r\n'));
+  await page.goto('/combinations.html?story=fixture/story.md');
+  await openEditor(page);
+  const group = page.locator('.editor-diagnostic-entry').filter({hasText: 'many-visible-goals'});
+  await expectTextOverlay(group.locator('.editor-diagnostic-fix'));
+  await group.locator('.editor-diagnostic').click();
+  const bulb = page.locator('.cm-activeLine .editor-source-fix');
+  await expectTextOverlay(bulb);
+  await page.keyboard.press('ControlOrMeta+.');
+  const choice = page.getByRole('menuitem', {name: 'Suppress warning with an explanation', exact: true});
+  await expect(choice).toBeFocused();
+  await page.keyboard.press('Escape');
+  await expect(page.getByRole('textbox', {name: 'Story Markdown'})).toBeFocused();
+  expect(await savedText(page, text)).toBe(false);
+  await page.keyboard.press('ControlOrMeta+.');
+  await page.keyboard.press('Enter');
+  const inserted = text.replace('**Goals**', '**Goals**\n- (three goals are a lot but okay here because <REASON>)');
+  await expect.poll(() => savedText(page, inserted)).toBe(true);
+  await expect(page.locator('.editor-diagnostic').filter({hasText: 'goal-acknowledgment-reason'})).toBeVisible();
+  const reason = 'the shared tools make three independent preparations clear, while a forced sequence would hide their relationship';
+  await page.keyboard.insertText(reason);
+  const explained = inserted.replace('<REASON>', reason);
+  await expect.poll(() => savedText(page, explained)).toBe(true);
+  await expect(group).toHaveCount(0);
+  await expect(page.locator('.editor-diagnostic').filter({hasText: 'goal-acknowledgment-reason'})).toHaveCount(0);
+  await page.keyboard.press('ControlOrMeta+z');
+  await expect.poll(() => savedText(page, inserted)).toBe(true);
+  await page.keyboard.press('ControlOrMeta+z');
+  await expect.poll(() => savedText(page, text)).toBe(true);
+
+  await edit(page, explained.replace('- Keep the tool -- `tool`\n', ''));
+  await page.setViewportSize({width: 1000, height: 800});
+  const stale = page.locator('.editor-diagnostic-entry').filter({hasText: 'stale-goal-acknowledgment'});
+  await stale.locator('.editor-diagnostic').click();
+  await expectTextOverlay(stale.locator('.editor-diagnostic-fix'));
+  await expectTextOverlay(page.locator('.cm-activeLine .editor-source-fix'));
+  await page.keyboard.press('ControlOrMeta+.');
+  await page.keyboard.press('Enter');
+  await expect(stale).toHaveCount(0);
+  await expect.poll(() => savedText(page, text.replace('- Keep the tool -- `tool`\n', ''))).toBe(true);
+});
+
+test('checkpoint quick actions open at the caret and require a keyboard menu choice', async ({page}) => {
+  await openFixture(page);
+  await page.getByRole('textbox', {name: 'Story Markdown'}).focus();
+  await page.keyboard.press('ControlOrMeta+Home');
+  await page.keyboard.press('ControlOrMeta+f');
+  await page.locator('.cm-search input[name="search"]').pressSequentially('## Field');
+  await page.keyboard.press('Enter');
+  await page.keyboard.press('Escape');
+  await expect(page.locator('.cm-activeLine')).toHaveText('## Field');
+  await page.keyboard.press('ControlOrMeta+.');
+  const choice = page.getByRole('menuitem', {name: 'Jump to checkpoint', exact: true});
+  await expect(choice).toBeFocused();
+  await expect(page.locator('.chapter-panel[data-chapter="1"]')).toHaveCount(0);
+  await page.keyboard.press('Escape');
+  await expect(page.getByRole('textbox', {name: 'Story Markdown'})).toBeFocused();
+  await page.keyboard.press('ControlOrMeta+.');
+  await page.keyboard.press('ArrowDown');
+  await page.keyboard.press('Enter');
+  await expect(page.locator('dialog')).toContainText('Field introduction.');
 });
 
 test('successive renames keep readers live and edited play retains its reset baseline', async ({ page }) => {
