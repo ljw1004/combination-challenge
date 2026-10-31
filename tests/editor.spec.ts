@@ -131,6 +131,8 @@ test('live edits update the current view and survive temporary deletion of its c
   await expect(page.locator('dialog')).toContainText('This reading also updates live.');
   await page.getByRole('button', {name: 'Close', exact: true}).focus();
   await page.keyboard.press('Escape');
+  await expect(page.getByRole('heading', { name: 'Index', exact: true })).toBeVisible();
+  await page.keyboard.press('Escape');
   await edit(page, explained.replace('Polished frame', 'Live despite error') + '\n**Goals**\n- Missing condition\n');
   await expect(card.locator('.item-label')).toHaveText('Live despite error');
   await expect(page.locator('dialog')).toHaveCount(0);

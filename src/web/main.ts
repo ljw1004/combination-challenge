@@ -1,3 +1,4 @@
+import { restoreDialogContext, type DialogContext } from './dialog-context.ts';
 import './style.css';
 import './workspace.css';
 import './item-artwork.css';
@@ -38,7 +39,6 @@ let anchor: Anchor;
 let expectedScroll = 0;
 let previewTimer: ReturnType<typeof setTimeout> | undefined;
 let goalView: GoalPresentation | undefined, goalTimers: ReturnType<typeof setTimeout>[] = [];
-type DialogContext = { kind: 'pending' | 'chapter' | 'confirm' | 'error' } | { kind: 'encyclopedia'; item?: string; detail?: boolean } | { kind: 'reading'; item: string; fromEncyclopedia?: boolean };
 let storyStarted = false;
 let dialogContext: DialogContext | undefined;
 let dialogOpener: HTMLElement | undefined;
@@ -171,7 +171,7 @@ function applyText(text: string) {
   story = update.story; state = update.state; previewText = text; hash = fingerprint(text); editedSnapshot = true;
   const entry = reconcileLiveStory(anchor.story, next, anchor.chapterSession.entry).state;
   chapterSession = { entry: entry.chapter === state.chapter ? entry : structuredClone(state), changed: anchor.chapterSession.changed };
-  dialogContext = context?.kind === 'encyclopedia' ? { ...context, item: context.item ? update.items.get(context.item) ?? context.item : undefined } : context?.kind === 'reading' ? { kind: 'reading', item: update.items.get(context.item) ?? context.item, fromEncyclopedia: context.fromEncyclopedia } : context;
+  dialogContext = context?.kind === 'encyclopedia' ? { ...context, item: context.item ? update.items.get(context.item) ?? context.item : undefined } : context;
   authoring.setPreviewStatus(update.chapterRemoved ? 'The current chapter is temporarily missing. Restoring it brings you back until you interact with the game.' : '');
   render(false, false);
   const prepared = itemArtwork.prepare(story, asset);
@@ -213,7 +213,7 @@ async function start() {
         const prior = restoreLiveState(source, saved.anchor.state);
         if (prior) {
           const entry = restoreLiveState(source, saved.anchor.chapterSession?.entry) ?? prior;
-          anchor = { text: saved.anchor.text, story: source, state: prior, chapterSession: { entry, changed: !!saved.anchor.chapterSession?.changed }, scrollTop: Number.isFinite(saved.anchor.scrollTop) ? saved.anchor.scrollTop : 0, dialog: saved.anchor.dialog?.kind === 'debug' ? undefined : saved.anchor.dialog };
+          anchor = { text: saved.anchor.text, story: source, state: prior, chapterSession: { entry, changed: !!saved.anchor.chapterSession?.changed }, scrollTop: Number.isFinite(saved.anchor.scrollTop) ? saved.anchor.scrollTop : 0, dialog: restoreDialogContext(saved.anchor.dialog) };
         }
       }
       if (saved?.hash === hash) {
@@ -252,7 +252,7 @@ function modal(content: string, kind = 'ordinary', context: DialogContext = { ki
   feedback.clear(); settleGoalEntrance();
   let dialog = dialogLayer.querySelector('dialog');
   const focused = document.activeElement as HTMLElement | null;
-  const changing = dialogContext?.kind !== context.kind || (context.kind === 'reading' && dialogContext?.kind === 'reading' && dialogContext.item !== context.item);
+  const changing = dialogContext?.kind !== context.kind;
   if (!dialog) { dialogOpener = focused ?? undefined; dialog = document.createElement('dialog'); dialog.addEventListener('cancel', event => { event.preventDefault(); escapeDialog(); }); dialogLayer.append(dialog); }
   if (dialogContext?.kind === 'encyclopedia') encyclopediaScroll = dialog.querySelector('.encyclopedia-list')?.scrollTop ?? 0;
   dialog.className = kind;
@@ -319,12 +319,15 @@ function openEncyclopedia(item?: string, detail = false, focus = true) {
 function backToEncyclopediaIndex() {
   if (dialogContext?.kind === 'encyclopedia') openEncyclopedia(dialogContext.item, false);
 }
-function readingActions() { return '<div class="dialog-actions"><button data-command="close">Close</button></div>'; }
 function dismissReading() {
-  if (dialogContext?.kind === 'reading' && dialogContext.fromEncyclopedia) { openEncyclopedia(); return; }
   closeDialog(); showPending(); rememberInteraction(); save();
 }
-function read(id: string, fromEncyclopedia = false) { flushPreview(); const text = readings(story, state, id).map(w => w.markdown).join('\n\n'); if (!text) return false; modal(`${readingBody(text, asset)}${readingActions()}`, 'wonder', { kind: 'reading', item: id, fromEncyclopedia }); rememberInteraction(); return true; }
+function read(id: string) {
+  flushPreview();
+  if (!readings(story, state, id).some(reading => reading.markdown.trim())) return false;
+  openEncyclopedia(id, true);
+  return true;
+}
 function toggleDebugPanel() {
   if (desktopDebug.matches) { authoring.toggle(); return; }
   if (mobileDebug.isOpen) { mobileDebug.close(); return; }
@@ -355,10 +358,6 @@ function refreshDialog() {
     else closeDialog();
   } else if (dialogContext?.kind === 'chapter') modal(chapterContent(), 'intertitle', dialogContext);
   else if (dialogContext?.kind === 'encyclopedia') openEncyclopedia(dialogContext.item, !!dialogContext.detail, false);
-  else if (dialogContext?.kind === 'reading') {
-    const text = readings(story, state, dialogContext.item).map(w => w.markdown).join('\n\n');
-    modal(`${readingBody(text, asset)}${readingActions()}`, 'wonder', dialogContext);
-  }
   if (!dialogContext) showPending();
 }
 function commit(action: Action) { try {
