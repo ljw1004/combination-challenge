@@ -37,7 +37,7 @@ async function openFixture(page: Page, text = manuscript) {
   await page.getByRole('button', { name: 'Begin', exact: true }).click();
 }
 
-test('retired discoveries unlock the manual encyclopedia; reading, Back, global Close, reload and reset preserve their boundaries', async ({ page }) => {
+test('retired discoveries unlock the manual encyclopedia; reading, Back, index Close, reload and reset preserve their boundaries', async ({ page }) => {
   await openFixture(page);
   await page.getByRole('button', { name: 'Read this chapter' }).click();
   await expect(page.getByRole('button', { name: 'Encyclopedia', exact: true })).toHaveCount(0);
@@ -53,7 +53,7 @@ test('retired discoveries unlock the manual encyclopedia; reading, Back, global 
   await page.getByRole('link', { name: 'Grain', exact: true }).click();
   await expect(page.locator('dialog .reading-text')).toHaveText('A grain explanation.');
   await expect(page.locator('dialog.wonder .open-book')).toHaveCount(0);
-  await expect(page.getByRole('button', { name: 'Close', exact: true })).toHaveCount(1);
+  await expect(page.getByRole('button', { name: 'Close', exact: true })).toHaveCount(0);
   await page.getByRole('button', { name: 'Back', exact: true }).click();
   await expect(page.getByRole('dialog', { name: 'Encyclopedia', exact: true })).toBeVisible();
   await expect(page.getByRole('link', { name: 'Grain', exact: true })).toBeFocused();
@@ -117,7 +117,15 @@ test('long mobile encyclopedia scrolls without horizontal overflow and supports 
   expect(await indexNode.evaluate(el => el.isConnected)).toBe(true);
   await expect(page.locator('.encyclopedia-index')).toHaveAttribute('inert', '');
   await expect(page.locator('.encyclopedia-index')).toHaveAttribute('aria-hidden', 'true');
-  await page.getByRole('button', { name: 'Back', exact: true }).focus();
+  const back = page.getByRole('button', { name: 'Back', exact: true });
+  await expect(page.getByRole('button', { name: 'Close', exact: true })).toHaveCount(0);
+  await expect(page.locator('.encyclopedia-detail [data-command="close"]')).toHaveCount(0);
+  await back.focus();
+  const inactiveClose = page.locator('.encyclopedia-index [data-command="close"]');
+  await inactiveClose.evaluate(el => (el as HTMLElement).focus());
+  await expect(inactiveClose).not.toBeFocused();
+  await expect(back).toBeFocused();
+  // Enter must activate Back, never the off-page index Close.
   await page.keyboard.press('Enter');
   await expect(entry).toBeFocused();
   expect(await list.evaluate(el => el.scrollTop)).toBeCloseTo(scroll, 0);
@@ -177,8 +185,8 @@ test('one whole page and facing sliver at desktop and phone widths; page-local c
     await expect(detail).toHaveAttribute('aria-hidden', 'false');
     expect(await index.evaluate(el => (el as HTMLElement).inert)).toBe(true);
     await expect(page.getByRole('heading', { name: 'Index', exact: true })).toHaveCount(0);
-    await expect(page.getByRole('button', { name: 'Close', exact: true })).toHaveCount(1);
-    expect(await page.getByRole('button', { name: 'Close', exact: true }).evaluate(el => !!el.closest('.encyclopedia-detail .encyclopedia-header'))).toBe(true);
+    await expect(page.getByRole('button', { name: 'Close', exact: true })).toHaveCount(0);
+    await expect(detail.locator('[data-command="close"]')).toHaveCount(0);
     expect(await page.getByRole('button', { name: 'Back', exact: true }).evaluate(el => !!el.closest('.encyclopedia-detail .encyclopedia-header'))).toBe(true);
     const turned = (await detail.boundingBox())!;
     expect(turned.x - viewport.x).toBeCloseTo(24, 0);
@@ -191,6 +199,7 @@ test('one whole page and facing sliver at desktop and phone widths; page-local c
     await expect(page.getByRole('link', { name: 'Stone', exact: true })).toHaveAttribute('aria-current', 'true');
   }
   await page.getByRole('link', { name: 'Grain', exact: true }).click();
+  await page.getByRole('button', { name: 'Back', exact: true }).click();
   await page.getByRole('button', { name: 'Close', exact: true }).click();
   await expect(page.locator('dialog')).toHaveCount(0);
   await expect(page.getByRole('button', { name: 'Read this chapter' })).toBeEnabled();

@@ -170,9 +170,11 @@ dialog button,dialog select{min-height:44px}
 .encyclopedia-list a{display:block;color:inherit;text-decoration:none;overflow-wrap:anywhere;min-height:28px;padding:3px 4px;font-size:14px;line-height:22px;border-radius:2px}
 .encyclopedia-list a:hover,.encyclopedia-list a:focus-visible{text-decoration:underline;text-underline-offset:3px}
 .encyclopedia-list a[aria-current]{background:#f3eddf;color:#4d3b18}
-.encyclopedia-detail{display:flex;flex-direction:column;box-shadow:inset 7px 0 9px -9px #806d48}
-.encyclopedia-index{box-shadow:inset -7px 0 9px -9px #806d48}
-.encyclopedia-spine{flex:0 0 12px;position:relative;background:linear-gradient(90deg,#f1ecdf 0%,#d9cfb9 38%,#b9aa8a 49%,#e1d7c3 58%,#faf7ef 100%);border-inline:1px solid #d6cbb8;pointer-events:none}
+.encyclopedia-detail{display:flex;flex-direction:column}
+/* A single crease, with soft page shading deepening toward it; no band borders. */
+.encyclopedia-spine{flex:0 0 12px;position:relative;z-index:1;background:#fff;pointer-events:none}
+.encyclopedia-spine::before{content:"";position:absolute;inset:0 -16px;background:linear-gradient(90deg,transparent 0%,#46392406 20%,#46392426 50%,#46392406 80%,transparent 100%)}
+.encyclopedia-spine::after{content:"";position:absolute;top:0;bottom:0;left:50%;width:1px;transform:translateX(-50%);background:#4e412d52}
 .encyclopedia-detail-toolbar{gap:8px}
 .encyclopedia-detail-toolbar [data-command="encyclopedia-back"]{background:transparent;border:0;padding:6px 0;min-height:44px}
 .encyclopedia-reading{flex:1;min-height:0;overflow-y:auto;overscroll-behavior:contain;padding:0 20px 18px}
