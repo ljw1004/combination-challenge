@@ -3,7 +3,7 @@ export function reconcile(parent:Element,html:string){
   const template=document.createElement('template');template.innerHTML=html;
   function key(node:Node,index:number):string{
     if(!(node instanceof Element))return `text:${index}`;
-    for(const attr of ['data-item','data-chapter','data-hotspot','data-command'])if(node.hasAttribute(attr))return `${node.tagName}:${attr}:${node.getAttribute(attr)}`;
+    for(const attr of ['data-item','data-chapter','data-hotspot','data-command','data-icon-slot'])if(node.hasAttribute(attr))return `${node.tagName}:${attr}:${node.getAttribute(attr)}`;
     return `${node.tagName}:${node.classList[0]??''}:${index}`;
   }
   function sync(target:Node,desired:Node){

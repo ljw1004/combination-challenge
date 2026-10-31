@@ -18,18 +18,24 @@ export function lintStory(story: Story, options: LintOptions = {}): Diagnostic[]
   const index = indexStory(story), uses = new Map<string,{fate:Fate; explicit:boolean; implicit:boolean; source:Source; location:RelatedLocation}[]>();
   const name = (id: string) => story.items[id]?.name ?? story.hotspots[id]?.name ?? id;
   const reference = (ref: Ref) => `${name(ref.id)}${ref.slots.length ? `[${ref.slots.map(name).join(', ')}]` : ''}`;
+  const usesIcons = Object.values(story.items).some(item => item.icon || item.slots.some(slot => slot.icon));
   function checkRef(ref: Ref,source:Source) {
     const item = story.items[ref.id];
     for (const slot of ref.slots) if (!item?.slots.some(s=>s.accepts===slot)) error('unknown-slot',`${item?.name ?? ref.id} has no slot accepting ${story.items[slot]?.name ?? slot}.`,source);
   }
   for (const item of Object.values(story.items)) {
+    if (usesIcons && !item.icon) error('missing-item-icon', `${item.name} needs an icon beneath a top-level Items declaration because this story uses icons.`, item.source);
     if (story.hotspots[item.id]) error('namespace-clash',`${item.name} names both an item and a hotspot; use distinct backtick identifiers.`,item.source);
     if (item.exclusiveWith === item.id) error('self-exclusion',`${item.name} cannot exclude itself.`,item.source);
     if (item.exclusiveWith && story.items[item.exclusiveWith]?.exclusiveWith !== item.id) error('asymmetric-exclusion',`${item.name}'s exclusivity must also be declared on ${story.items[item.exclusiveWith]?.name ?? item.exclusiveWith}.`,item.source);
     if (item.slots.length && !item.compound) error('slots-on-simple-item',`${item.name} has slots but is not marked (compound).`,item.source);
     if (item.compound && !item.slots.length) error('empty-compound',`${item.name} needs one or more slot declarations.`,item.source);
     const accepted = new Set<string>();
-    for (const slot of item.slots) { if (accepted.has(slot.accepts)) error('duplicate-slot',`${item.name} has two slots accepting ${story.items[slot.accepts]?.name}.`,slot.source); accepted.add(slot.accepts); }
+    for (const slot of item.slots) {
+      if (usesIcons && !slot.icon) error('missing-slot-icon', `${item.name}'s slot accepting ${name(slot.accepts)} needs an icon overlay because this story uses icons.`, slot.source);
+      if (accepted.has(slot.accepts)) error('duplicate-slot',`${item.name} has two slots accepting ${story.items[slot.accepts]?.name}.`,slot.source);
+      accepted.add(slot.accepts);
+    }
     for (const rename of item.renames) if (!story.chapters.some(c=>c.name===rename.chapter || c.id===rename.chapter)) error('rename-chapter',`Unknown rename chapter ${rename.chapter}.`,item.source);
     for (const wonder of item.wonders) checkRef({id:item.id,slots:wonder.requires},wonder.source);
   }

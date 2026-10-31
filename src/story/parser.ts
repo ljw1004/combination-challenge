@@ -1,4 +1,4 @@
-import type { Story, Source, Ref, Item, Recipe, Ingredient, Fate, Chapter, Goal, Condition, FateSite } from './types.ts';
+import type { Story, Source, Ref, Item, Icon, Recipe, Ingredient, Fate, Chapter, Goal, Condition, FateSite } from './types.ts';
 import {sourceMap} from './source-map.ts';
 
 interface Line { text: string; line: number }
@@ -161,14 +161,44 @@ export function parseStory(markdown: string, options: { id?: string; file?: stri
     if (qualified) markdown = markdown.slice(qualified[0].length);
     if (!item.wonders.some(w => w.markdown === markdown && JSON.stringify(w.requires) === JSON.stringify(requires))) item.wonders.push({ markdown, requires, source: source(line) });
   }
-  function itemNode(node: Bullet, parent?: Ref, at?: string): Ref | undefined {
+  function icon(raw: string, line: number): Icon | undefined {
+    const match = /^icon:\s*!\[[^\]]*\]\(([^)]+)\)(?:\s+(\(circular\)))?\s*$/.exec(raw);
+    if (!match || !match[1].trim()) {
+      error('icon-syntax', 'Use icon: ![icon](path), optionally followed by (circular).', line, raw);
+      return;
+    }
+    return {url: match[1].trim(), circular: !!match[2], source: source(line, raw)};
+  }
+  function itemNode(node: Bullet, parent?: Ref, at?: string, topLevelItem = false): Ref | undefined {
+    if (/^icon\s*:/.test(node.text)) {
+      error('icon-placement', 'An item icon belongs directly beneath a top-level Items declaration.', node.line, node.text);
+      return;
+    }
     const isRule = splitOutside(node.text, '->').length > 1;
     const result = isRule ? rule(node.text, node.line, parent, at)?.result : ref(node.text, node.line);
     if (!result) return;
     const item = story.items[result.id]; wonder(item, node.prose, node.line);
     for (const child of node.children) {
+      if (/^icon\s*:/.test(child.text)) {
+        if (!topLevelItem || isRule) {
+          error('icon-placement', 'An item icon belongs directly beneath a top-level Items declaration.', child.line, child.text);
+          continue;
+        }
+        const value = icon(child.text, child.line);
+        if (child.children.length || child.prose.some(text => text.trim())) error('icon-syntax', 'An icon declaration contains only its image and optional (circular) marker.', child.line, child.text);
+        if (value) {
+          if (item.icon && (item.icon.url !== value.url || item.icon.circular !== value.circular)) error('conflicting-icon', `${item.name} already has a different icon; the first declaration is used.`, child.line, child.text);
+          else item.icon ??= value;
+        }
+        continue;
+      }
       const slot = /^(?:slot:\s*(.+?),\s*|unnamed slot:\s*)accepts\s+(.+)$/.exec(child.text);
-      if (slot) { item.slots.push({ ...(slot[1] ? { name: unquote(slot[1]) } : {}), accepts: ref(slot[2], child.line).id, source: source(child.line) }); }
+      if (slot) {
+        const parts = splitLocated(slot[2], ','), iconIndex = parts.findIndex(part => /^icon\s*:/.test(part.text));
+        const accepts = iconIndex < 0 ? slot[2] : slot[2].slice(0, iconIndex ? parts[iconIndex - 1].to : 0);
+        const value = iconIndex < 0 ? undefined : icon(slot[2].slice(parts[iconIndex].from), child.line);
+        item.slots.push({ ...(slot[1] ? { name: unquote(slot[1]) } : {}), accepts: ref(accepts, child.line).id, ...(value ? {icon: value} : {}), source: source(child.line) });
+      }
       else itemNode(child, result, at);
     }
     return result;
@@ -225,7 +255,7 @@ export function parseStory(markdown: string, options: { id?: string; file?: stri
     if (goalOps.size > 1) error('mixed-goals', 'Do not mix conjunction and disjunction between goal chains.', block.heading.line);
     if (goalOps.has('or')) chapter.goalOperator = 'or';
     for (const node of bullets(sections.get('Hotspots') ?? [])) { const h = ref(node.text, node.line, 'hotspot'); chapter.hotspots.push(h.id); for (const child of node.children) itemNode(child, undefined, h.id); }
-    for (const node of bullets(sections.get('Items') ?? [])) { const result = itemNode(node); if (result) chapter.items.push(result); }
+    for (const node of bullets(sections.get('Items') ?? [])) { const result = itemNode(node, undefined, undefined, true); if (result) chapter.items.push(result); }
     for (const node of bullets(sections.get('Combinations') ?? [])) itemNode(node);
     story.chapters.push(chapter);
   }

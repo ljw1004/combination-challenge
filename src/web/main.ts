@@ -1,5 +1,6 @@
 import './style.css';
 import './workspace.css';
+import './item-artwork.css';
 import { parseStory } from '../story/parser.ts';
 import type { Story } from '../story/types.ts';
 import { newGame, act, availableTokens, label, legalActions, chapterComplete, visibleGoals, readings, matches } from '../engine/game.ts';
@@ -19,6 +20,8 @@ import { DraftStore, loadStoryDocument, resolveStoryURL, resolveStoryAsset } fro
 import { AuthoringSession } from './authoring.ts';
 import { MobileDebug } from './mobile-debug.ts';
 import { recoverPreviewStory, reconcileLiveStory, restoreLiveState } from './live-story.ts';
+import { ItemArtwork } from './item-artwork.ts';
+import { iconArrival } from './icon-layout.ts';
 
 const app = document.querySelector<HTMLDivElement>('#app')!;
 const workspace = document.querySelector<HTMLElement>('#workspace')!;
@@ -38,6 +41,7 @@ let dialogOpener: HTMLElement | undefined;
 let encyclopediaScroll = 0;
 const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
 const desktopDebug = matchMedia('(min-width: 900px)');
+const itemArtwork = new ItemArtwork();
 const mobileDebug = new MobileDebug(jumpToCheckpoint, updateEditingIndicators);
 const scale = () => Math.min(1, app.clientWidth / 390);
 const name = (id: string) => label(story, state, id);
@@ -147,6 +151,8 @@ function applyText(text: string) {
   dialogContext = context?.kind === 'reading' ? { kind: 'reading', item: update.items.get(context.item) ?? context.item, fromEncyclopedia: context.fromEncyclopedia } : context;
   authoring.setPreviewStatus(update.chapterRemoved ? 'The current chapter is temporarily missing. Restoring it brings you back until you interact with the game.' : '');
   render(false, false);
+  const prepared = itemArtwork.prepare(story, asset);
+  if (prepared) void prepared.then(() => { if (previewText === text) { render(false, false); refreshDialog(); } });
   setScroll(anchor.scrollTop);
   refreshDialog();
   save();
@@ -201,6 +207,7 @@ async function start() {
       const update = reconcileLiveStory(anchor.story, story, anchor.state); story = update.story; state = update.state;
       chapterSession = captureChapter(state); editedSnapshot = true; loaded = true;
     }
+    await itemArtwork.prepare(story, asset);
     render(!loaded);
     setScroll(anchor?.scrollTop ?? Math.max(0, (state.visited.length - 1) * 844 * scale()));
     if (!anchor) rememberInteraction();
@@ -308,6 +315,12 @@ function tile(id: string) { return [...app.querySelectorAll<HTMLElement>('[data-
 function panel(chapter: number) { return app.querySelector<HTMLElement>(`.chapter-panel[data-chapter="${chapter}"]`); }
 function packArrival(){
   const tokens=availableTokens(state).filter(t=>t.chapter===state.chapter&&!t.hotspot),fresh=new Set(state.newItems);
+  if(tokens.some(t=>tile(t.id)?.classList.contains('icon-thing'))){
+    const layout=iconArrival(tokens.map(t=>({id:t.id,x:t.x,y:t.y,width:tile(t.id)!.offsetWidth,height:tile(t.id)!.offsetHeight,fresh:fresh.has(t.id)})));
+    for(const t of tokens){const p=layout.positions.get(t.id)!;t.x=p.x;t.y=p.y;const el=tile(t.id)!;el.style.left=`${t.x}px`;el.style.top=`${t.y}px`;}
+    const divider=panel(state.chapter)?.querySelector<HTMLElement>('.arrival-divider');if(divider&&layout.divider!==undefined)divider.style.top=`${layout.divider}px`;
+    panel(state.chapter)?.classList.toggle('crowded',layout.crowded);return;
+  }
   let y=82;const x=[14,139,264];
   const carried=tokens.filter(t=>!fresh.has(t.id)).sort((a,b)=>a.y-b.y),arrivals=tokens.filter(t=>fresh.has(t.id));
   if(carried.length){
@@ -330,7 +343,7 @@ function packArrival(){
 function clearGoalsAroundCards(){
   for(const overlay of app.querySelectorAll<HTMLElement>('.objective-overlay,.debug-toggle')){
     const r=overlay.getBoundingClientRect();
-    overlay.style.clipPath=goalClipPath(r.width,r.height,[...app.querySelectorAll<HTMLElement>('[data-item]')].map(el=>{const c=el.getBoundingClientRect();return {left:c.left-r.left,top:c.top-r.top,right:c.right-r.left,bottom:c.bottom-r.top};}));
+    overlay.style.clipPath=goalClipPath(r.width,r.height,[...app.querySelectorAll<HTMLElement>('[data-item]')].map(el=>{const c=el.getBoundingClientRect(),icon=el.classList.contains('icon-thing'),x=icon?Math.max(0,(44-c.width)/2):0,y=icon?Math.max(0,(44-c.height)/2):0;return {left:c.left-r.left-x,top:c.top-r.top-y,right:c.right-r.left+x,bottom:c.bottom-r.top+y};}));
   }
 }
 let clearanceFrame=0;
@@ -346,8 +359,8 @@ function render(arrival=false,finish=true){
   reconcile(surface,`<div class="viewport"><div class="world" style="width:${390*scale}px;height:${state.visited.length*844*scale}px"><div class="board fixed-locations" style="height:${state.visited.length*844}px;transform:scale(${scale});--board-scale:${scale}">${state.visited.map((chapter,position)=>{
     const bg=background(story,chapter),c=story.chapters[chapter];
     return `<section class="chapter-panel" data-chapter="${chapter}" style="top:${position*844}px" aria-label="${escape(story.title)} scene ${position+1}">${bg?`<img class="scene-art" src="${escape(asset(bg))}" alt="">`:''}<div class="location-scrim"></div>${activeHotspots(story,chapter).map((id,i)=>{const h=story.hotspots[id],x=(h.x??(.19+(i%3)*.31))*390,y=(h.y??(.70+Math.floor(i/3)*.13))*844;return `<div class="hotspot" data-hotspot="${escape(id)}" style="left:${x}px;top:${y}px">${escape(h.name)}</div>`;}).join('')}${availableTokens(state).filter(t=>t.chapter===chapter).map(t=>{
-      const item=story.items[t.id],filled=t.slots,applicable=readings(story,state,t.id).some(reading=>reading.markdown.trim()),selected=tile(t.id)?.classList.contains('reading-selected');
-      return `<button class="thing text-thing ${selected?'reading-selected pressed':''} ${chapter===state.chapter&&gold.has(t.id)?'goal-met':''}" data-item="${escape(t.id)}" style="left:${t.x}px;top:${t.y}px" aria-label="${escape(name(t.id))}" title="${escape(applicable?'Double-click or double-tap to read':'Drag to combine or move')}"><span class="item-label">${escape(name(t.id))}</span>${item.slots.map(s=>`<span class="slot ${filled.includes(s.accepts)?'filled':''}">${filled.includes(s.accepts)?escape(name(s.accepts)):escape(s.name??'\u00a0')}</span>`).join('')}${applicable?'<span class="reading-indicator" aria-hidden="true">' + openBook + '</span>':''}</button>`;
+      const item=story.items[t.id],applicable=readings(story,state,t.id).some(reading=>reading.markdown.trim()),selected=tile(t.id)?.classList.contains('reading-selected'),visual=itemArtwork.visual(item,t.slots,name,asset);
+      return `<button class="thing ${visual.className} ${selected?'reading-selected pressed':''} ${chapter===state.chapter&&gold.has(t.id)?'goal-met':''}" data-item="${escape(t.id)}" style="left:${t.x}px;top:${t.y}px;${visual.style}" aria-label="${escape(name(t.id))}" title="${escape(applicable?'Double-click or double-tap to read':'Drag to combine or move')}">${visual.html}${applicable?'<span class="reading-indicator" aria-hidden="true">' + openBook + '</span>':''}</button>`;
     }).join('')}${chapter===state.chapter&&state.arrivalDivider&&state.newItems.length?`<div class="arrival-divider" style="top:${Math.max(65,Math.min(...state.newItems.map(id=>state.tokens[id]?.y??844))-18)}px"><span>new items</span></div>`:''}</section>`;
   }).join('')}</div></div></div>${debugCheckpoint?'<span class="checkpoint-badge">Generated checkpoint</span>':''}${showGoals?`<div class="hud-stack location-hud ${transitioning?'goals-leaving':''}" ${transitioning?'aria-hidden="true"':''}><button class="objective-overlay" ${leaving?'disabled':''} data-command="story" aria-label="Read this chapter"><span class="objectives">${goals.map(({goal,done})=>`<span class="objective-line ${done?'done':''}"><span class="goal-checkbox" aria-hidden="true">${done?'✓':''}</span><span>${escape(goal.text)}</span><span class="sr-only">${done?'Completed':'Not completed'}</span></span>`).join('')}${state.completed?'<span class="objective-line ending">The End</span>':''}</span></button></div>`:''}${goalView?.phase!=='goals'&&!state.completed?`<button class="chapter-next ${story.chapters[state.chapter+1]?.image?'':'right'} ${transitioning?'entering':''}" ${leaving?'disabled':''} data-command="advance" aria-label="Continue story"><span>${story.chapters[state.chapter+1]?.image?'↓':'→'}</span></button>`:''}`);
   const viewport=app.querySelector<HTMLElement>('.viewport')!;viewport.onscroll=()=>{scheduleGoalClearance();if(viewport.scrollTop!==expectedScroll){expectedScroll=viewport.scrollTop;rememberInteraction();save();}};setScroll(arrival?Math.max(0,(state.visited.length-1)*844*scale):scroll);
@@ -363,7 +376,7 @@ function partnerActions(): ReturnType<typeof legalActions> {
 }
 function highlight(id:string,pressed=false){const selected=tile(id);clearHighlights(selected);selected?.classList.add('pressed');selected?.classList.toggle('reading-selected',pressed);for(const action of partnerActions().filter(a=>a.a===id)){if(action.b)tile(action.b)?.classList.add('possible');else if(action.hotspot)app.querySelectorAll<HTMLElement>('[data-hotspot]').forEach(h=>{if(h.dataset.hotspot===action.hotspot)h.classList.add('possible');});}for(const g of visibleGoals(story,state))for(const c of g.conditions)if(c.item.id===id&&c.hotspot)app.querySelectorAll<HTMLElement>('[data-hotspot]').forEach(h=>{if(h.dataset.hotspot===c.hotspot)h.classList.add('possible');});}
 function clearHighlights(keep?:HTMLElement){app.querySelectorAll<HTMLElement>('.reading-selected').forEach(el=>{if(el!==keep)el.classList.remove('reading-selected');});app.querySelectorAll('.pressed,.possible,.will-create,.will-place').forEach(el=>el.classList.remove('pressed','possible','will-create','will-place'));}
-let drag:{id:string;pointer:number;el:HTMLElement;startX:number;startY:number;x:number;y:number;moved:boolean}|undefined;
+let drag:{id:string;pointer:number;el:HTMLElement;startX:number;startY:number;grabX:number;grabY:number;x:number;y:number;moved:boolean}|undefined;
 const feedback=new ItemFeedback(highlight,()=>clearHighlights());
 let suppressReleaseClick=false;
 // Suppress the native click belonging to the double-tap that opened a reader.
@@ -372,7 +385,8 @@ function dropTarget(x:number,y:number){return document.elementsFromPoint(x,y).ma
 app.addEventListener('pointerdown',e=>{
   const el=(e.target as Element).closest<HTMLElement>('[data-item]');if(!el||drag||document.querySelector('dialog')||e.button!==0)return;
   e.preventDefault();const id=el.dataset.item!,t=state.tokens[id];feedback.begin(id);el.setPointerCapture(e.pointerId);
-  drag={id,pointer:e.pointerId,el,startX:e.clientX,startY:e.clientY,x:t.x,y:t.y,moved:false};
+  const bounds=el.getBoundingClientRect(),boardScale=scale();
+  drag={id,pointer:e.pointerId,el,startX:e.clientX,startY:e.clientY,grabX:(e.clientX-bounds.left)/boardScale,grabY:(e.clientY-bounds.top)/boardScale,x:t.x,y:t.y,moved:false};
 });
 document.addEventListener('pointermove',e=>{
   if(!drag||e.pointerId!==drag.pointer)return;const scale=Math.min(1,app.clientWidth/390),dx=(e.clientX-drag.startX)/scale,dy=(e.clientY-drag.startY)/scale;
@@ -396,7 +410,8 @@ function endDrag(e:PointerEvent,cancel=false){
   if(action)commit(target?.dataset.hotspot?{...action,chapter:Number(target.closest<HTMLElement>('[data-chapter]')!.dataset.chapter)}:action);
   else if(!target?.dataset.item){
     const scale=Math.min(1,app.clientWidth/390),world=app.querySelector('.world')!.getBoundingClientRect(),position=Math.floor((e.clientY-world.top)/(844*scale)),chapter=state.visited[Math.max(0,Math.min(state.visited.length-1,position))];
-    const rect=panel(chapter)!.getBoundingClientRect();commit({type:'move',item:d.id,chapter,x:(e.clientX-rect.left)/scale-56,y:(e.clientY-rect.top)/scale-22,...(target?.dataset.hotspot?{hotspot:target.dataset.hotspot}:{})});
+    const rect=panel(chapter)!.getBoundingClientRect();
+    commit({type:'move',item:d.id,chapter,x:(e.clientX-rect.left)/scale-d.grabX,y:(e.clientY-rect.top)/scale-d.grabY,...(target?.dataset.hotspot?{hotspot:target.dataset.hotspot}:{})});
   }
   if(!document.querySelector('dialog')&&state.tokens[d.id]?.status==='available')feedback.release(d.id,false);else feedback.clear();
 }
@@ -407,6 +422,8 @@ app.addEventListener('lostpointercapture',e=>{if(drag?.pointer===(e as PointerEv
 app.addEventListener('dragstart',e=>e.preventDefault());
 app.addEventListener('pointerover',e=>{if(e.pointerType==='mouse'&&!drag){const el=(e.target as Element).closest<HTMLElement>('[data-item]');if(el&&!document.querySelector('dialog'))feedback.hover(el.dataset.item!);}});
 app.addEventListener('pointerout',()=>{if(!drag)feedback.hover();});
+app.addEventListener('focusin',e=>{const el=(e.target as Element).closest<HTMLElement>('[data-item]');if(el&&!drag&&!document.querySelector('dialog'))feedback.hover(el.dataset.item!);});
+app.addEventListener('focusout',()=>{if(!drag)feedback.hover();});
 app.addEventListener('click',e=>{
   if(suppressReleaseClick&&e.detail>0){suppressReleaseClick=false;e.preventDefault();return;}
   const element=e.target as Element;

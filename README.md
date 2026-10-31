@@ -1,6 +1,6 @@
 # Combination Workshop
 
-Five combination stories, authored in Markdown. The browser game, story linter, checkpoint generator and logical AI playtester share one parser and game engine. The project has three commitments: combination, enjoyable interactive play and an empirical loop that can reject weak ideas.
+Five combination stories and seven short icon-comparison stories, authored in Markdown. The browser game, story linter, checkpoint generator and logical AI playtester share one parser and game engine. The project has three commitments: combination, enjoyable interactive play and an empirical loop that can reject weak ideas.
 
 ## Run the game
 
@@ -12,6 +12,8 @@ npm run dev
 ```
 
 Open the local address printed by Vite. Drag things together; compatible partners are highlighted without revealing the future result. Goals sit at the bottom and become the next-chapter arrow when complete. Reopen the chapter text through its goals for the applicable recovery action; automatic chapter introductions have only **Begin**. The discreet bug icon toggles the debug pane for live story editing and checkpoint jumps. See [UX](docs/ux.md) for the interaction and recovery rules.
+
+The catalogue includes seven versions of **The maker's clearing** for trying icon styles. Start with `/combinations.html?story=icon-test-woodcut-color`; the [icon study](docs/icon-study/README.md) links every style and records its artwork, prompts and recognition reviews.
 
 The player fetches Markdown as an ordinary file. These routes work in development and the production build:
 
@@ -178,6 +180,7 @@ Each document owns one aspect of working here. Update the owning document and li
 | [Completed authenticity pass](archive/authenticity-improvements-2026-10-30.md) | Consolidated discoveries, implemented improvements, retained decisions and bounded verification evidence. |
 | [Archive](archive/README.md) and [salvage index](archive/salvage-index.md) | Archival policy, preservation and provenance of recovered guidance. |
 | [Working notes](notes.md) | Dated hypotheses, decisions, work performed and evidence limits. |
+| [Icon study](docs/icon-study/README.md) | Seven playable art comparisons, style guides, generation prompts and recognition evidence; implements the [original brief](docs/icons.md). |
 | [Agent instructions](AGENTS.md) | Repository-specific instructions for coding agents. |
 
 ## Repository map

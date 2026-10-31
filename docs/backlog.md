@@ -29,10 +29,13 @@ An approximate 200-decision campaign remains an inherited research ambition, not
 These are proposals, not existing tools or syntax:
 
 - Define an optional canonical manuscript form and, if useful, a transformer into it. One proposal declares each chapter's items separately from the combinations needed for its goals, with remaining global combinations collected at the end. Preserve which items each chapter introduces; do not require this form for ordinary authoring.
-- Explore item icons for stories that benefit from them.
 - Add useful exclusivity examples and investigate a proof of the specification's continuation invariant.
 
 The retained [opportunity lint](story-format-spec.md#opportunities-for-authored-content) completes all five stories within its 100-element cap. Review Elements' four findings (Brush, Weather book, Salt and Brine), the five Kitchen findings and Mars's Illuminated glovebox using their blocking examples and related source rules, without automatically making optional content mandatory. Current evidence and limits are in the [working notes](../notes.md#31-october-2026-retained-opportunity-linter); these are new findings, not reopened historical lint reviews.
+
+## Icon comparison awaiting human choice
+
+Icon syntax, player support and seven playable samples are implemented. The [icon study](icon-study/README.md) owns their style guides, review evidence and unresolved visual distinctions. Compare the coloured woodcut, monochrome wood engraving and riso with the other four styles before selecting or extending a set across Elements. In particular, validate recognition speed and material/content distinctions on a phone; repeat-exposure agent reviews do not establish those outcomes.
 
 ## Story ideas worth retaining
 
