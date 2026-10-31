@@ -56,7 +56,7 @@ async function serveFixture(page: Page, text = manuscript) {
 
 async function openFixture(page: Page) {
   await serveFixture(page);
-  await page.goto('/combinations.html?story=fixture');
+  await page.goto('/combinations.html?story=fixture/story.md');
   await page.getByRole('button', { name: 'Start', exact: true }).click();
   await page.getByRole('button', { name: 'Begin', exact: true }).click();
   await openEditor(page);
@@ -261,7 +261,7 @@ test('drafts save before preview, reopen on desktop, and only explicit deletion 
   expect(await savedText(page, localBeforeRemote)).toBe(true);
   const otherTab = await page.context().newPage();
   await serveFixture(otherTab);
-  await otherTab.goto('/combinations.html?story=fixture');
+  await otherTab.goto('/combinations.html?story=fixture/story.md');
   await expect(otherTab.getByRole('textbox', { name: 'Story Markdown' })).toBeVisible();
   const releaseRemoteDelete = await beginDelayedDeletion(page);
   const remoteEdit = localBeforeRemote.replace('New edit made during deletion.', 'A newer copy from another tab.');
@@ -312,7 +312,7 @@ test('same-directory loading, missing-story errors and failed storage keep the e
 
   page.on('dialog', dialog => dialog.accept());
   await page.route('**/missing/story.md', route => route.fulfill({ status: 404, contentType: 'text/plain', body: 'Missing' }));
-  await page.goto('/combinations.html?story=missing');
+  await page.goto('/combinations.html?story=missing/story.md');
   await expect(page.getByText(/Could not load the story.*HTTP 404/)).toBeVisible();
   await expect(page.locator('.chapter-panel')).toHaveCount(0);
 });
@@ -322,7 +322,7 @@ test('diagnostics keep source order and scroll while their related locations nav
     + '\n- `frame` [consume] + `probe` [preserve] -> Scrap\n- `frame` [transform] + `tool` [preserve] -> Shaped frame\n- `tool` [consume] + `probe` [preserve] -> Toolbox\n'
     + '\n**Goals**\n' + Array.from({length: 12}, (_, i) => `- Incomplete goal ${i}\n`).join('');
   await serveFixture(page, text.replaceAll('\n', '\r\n'));
-  await page.goto('/combinations.html?story=fixture');
+  await page.goto('/combinations.html?story=fixture/story.md');
   await page.getByRole('button', { name: 'Start', exact: true }).click();
   await page.getByRole('button', {name: 'Begin', exact: true}).click();
   await openEditor(page);
@@ -479,7 +479,7 @@ Build a two-stage construction.
 - D [preserve] + Tool [preserve] -> E
 `;
   await serveFixture(page, chain);
-  await page.goto('/combinations.html?story=fixture');
+  await page.goto('/combinations.html?story=fixture/story.md');
   await page.getByRole('button', { name: 'Start', exact: true }).click();
   await page.getByRole('button', { name: 'Begin', exact: true }).click();
   await openEditor(page);

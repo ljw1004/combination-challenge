@@ -15,23 +15,24 @@ Open the local address printed by Vite. Drag things together; compatible partner
 
 Seven icon styles are retained as [reference collections](references/icon-sets/), each with its own description and preview.
 
-**Settlement: A River Worth Returning To** uses rustic coloured woodcuts: `/combinations.html?story=settlement`.
+**Settlement: A River Worth Returning To** uses rustic coloured woodcuts: `/combinations.html?story=settlement/settlement.md`.
 
 The player fetches Markdown as an ordinary file. These routes work in development and the production build:
 
 | Player URL | Markdown fetched |
 |---|---|
-| `/combinations.html?story=settlement` | `/settlement/story.md` |
-| `/combinations.html?story=theology` | `/theology/story.md` |
-| `/combinations.html?story=mars` | `/mars/story.md` |
-| `/mars/combinations.html` | `/mars/story.md` |
+| `/combinations.html?story=settlement/settlement.md` | `/settlement/settlement.md` |
+| `/combinations.html?story=theology/theology.md` | `/theology/theology.md` |
+| `/combinations.html?story=mars/mars.md` | `/mars/mars.md` |
+| `/mars/combinations.html?story=mars.md` | `/mars/mars.md` |
+| `/mars/combinations.html` | `/mars/story.md` (supply this file to use this route) |
 | `/combinations.html` | `/story.md` (supply this file to use this route) |
 
-Paths resolve relative to the player page, so the same layout works under a website subdirectory. A missing story displays an error. The `story` selector accepts a folder name, not an arbitrary URL. Relative artwork references resolve against the Markdown file's directory; absolute HTTP(S) image URLs also work. Markdown is rendered without executing embedded HTML or scripts.
+The `story` parameter points to a `.md` file on the same server. Relative paths resolve against the player page, so the same layout works under a website subdirectory; root-relative paths also work. Without the parameter, the player always requests `story.md` beside itself. A missing story displays an error. Relative artwork references resolve against the Markdown file's directory; absolute HTTP(S) image URLs also work. Markdown is rendered without executing embedded HTML or scripts.
 
 `npm run build` runs story lint, TypeScript checking and Vite bundling in sequence. Lint errors stop the command; warnings allow it to continue. This check runs when the build command is invoked; `npm run dev` and ordinary story loading do not run the CLI lint check. The live editor displays its own diagnostics without blocking saving or preview.
 
-The build produces `dist/` with separate bundled JavaScript/CSS, ordinary story Markdown/artwork files, a catalogue, and a copy of `combinations.html` beside each story. Deploy the whole directory to a static web server. The HTML currently depends on the shared `assets/` bundles; it is not a standalone file. Editing a deployed `story.md` or its artwork does not require rebuilding JavaScript. The catalogue's titles/descriptions are generated at build time.
+The build produces `dist/` with separate bundled JavaScript/CSS, ordinary story Markdown/artwork files, a catalogue, and a copy of `combinations.html` in each manuscript directory. Deploy the whole directory to a static web server. The HTML currently depends on the shared `assets/` bundles; it is not a standalone file. Editing a deployed Markdown file or its artwork does not require rebuilding JavaScript. The catalogue's entries, titles and descriptions are generated at build time.
 
 ## Edit a story live
 
@@ -55,16 +56,20 @@ Drafts use browser local storage, keyed by the full Markdown URL. Two player rou
 
 ## Story layout
 
-Each story owns its text and artwork:
+The five bundled manuscripts use their story names as filenames:
 
 ```text
-stories/<slug>/story.md
+stories/<slug>/<slug>.md
 stories/<slug>/assets/...
 ```
 
-The folder identifies the story for CLI tools; the browser uses its Markdown URL for drafts and saves. Neither is the player-facing title. Vite serves the contents of `stories/` at the site root. Start with the [authoring guide](docs/story-authoring.md) when writing a story and consult the [specification](docs/story-format-spec.md) for syntax and semantics.
+Multiple manuscripts can share a directory and its artwork: for example, `stories/theology/theology.md` and `stories/theology/alternate.md` can both reference `assets/scene.webp` in `stories/theology/assets/`. The catalogue and CLI tools discover all `.md` files under `stories/`. Keep non-story documentation outside that directory.
+
+CLI tools accept the path relative to `stories/`, such as `theology/theology.md`, or a filename without `.md`, such as `theology`, when that short name is unique. `npm run play -- list` lists the full paths. The browser uses each Markdown URL for independent drafts and saves, including when manuscripts share a directory. Neither the path nor filename is the player-facing title. Vite serves the contents of `stories/` at the site root. Start with the [authoring guide](docs/story-authoring.md) when writing a story and consult the [specification](docs/story-format-spec.md) for syntax and semantics.
 
 Settlement (`settlement`) and Theology (`theology`) were renamed from Elements (`elements`) and Divinity (`divinity`) on 31 October 2026. The old story routes, including the earlier `elements-icons` route, are no longer served. Existing browser saves and drafts remain under their original URLs; the renames do not migrate or delete them.
+
+The manuscripts were subsequently renamed from `story.md` to `<slug>.md`, and folder-only `?story=<slug>` links were replaced by file paths. Saves and drafts for those former Markdown URLs likewise remain at their old keys; they are not migrated to the new filenames.
 
 ## Tools
 

@@ -1,14 +1,14 @@
 import { existsSync, readFileSync, mkdirSync, writeFileSync } from 'node:fs';
-import { resolve } from 'node:path';
+import { resolve, dirname } from 'node:path';
 import { defineConfig, type Plugin } from 'vite';
 import { loadStory, storyIds } from './src/story/load.ts';
 
 /** Story files stay ordinary public files; only menu metadata is generated. */
 function storyPages(): Plugin {
   let output = 'dist';
-  const catalogue = () => JSON.stringify(storyIds().map(id => {
-    const { story } = loadStory(id);
-    return { id, title: story.title, description: story.description };
+  const catalogue = () => JSON.stringify(storyIds().map(path => {
+    const { story } = loadStory(path);
+    return { path, title: story.title, description: story.description };
   }));
   return {
     name: 'story-pages',
@@ -21,14 +21,15 @@ function storyPages(): Plugin {
           response.end(catalogue());
           return;
         }
-        if (/^\/[^/]+\/combinations\.html$/.test(path)) {
-          const html = readFileSync(resolve('combinations.html'), 'utf8').replace('data-catalogue="./index.html"', 'data-catalogue="../index.html"');
+        if (path !== '/combinations.html' && path.endsWith('/combinations.html')) {
+          const prefix = '../'.repeat(path.split('/').length - 2);
+          const html = readFileSync(resolve('combinations.html'), 'utf8').replace('data-catalogue="./index.html"', `data-catalogue="${prefix}index.html"`);
           response.setHeader('Content-Type', 'text/html');
           response.end(await server.transformIndexHtml(path, html));
           return;
         }
         // A missing manuscript must be a 404, never Vite's HTML fallback.
-        if (path.endsWith('/story.md') && !existsSync(resolve(server.config.publicDir, `.${path}`))) {
+        if (/\.md$/i.test(path) && !existsSync(resolve(server.config.publicDir, `.${decodeURIComponent(path)}`))) {
           response.statusCode = 404;
           response.end('Story not found.');
           return;
@@ -42,9 +43,11 @@ function storyPages(): Plugin {
     closeBundle() {
       const html = readFileSync(resolve(output, 'combinations.html'), 'utf8');
       // Separate JS/CSS remain shared and inspectable during development.
-      for (const id of storyIds()) {
-        mkdirSync(resolve(output, id), { recursive: true });
-        writeFileSync(resolve(output, id, 'combinations.html'), html.replaceAll('="./assets/', '="../assets/').replace('data-catalogue="./index.html"', 'data-catalogue="../index.html"'));
+      for (const folder of new Set(storyIds().map(path => dirname(path)))) {
+        if (folder === '.') continue;
+        const prefix = '../'.repeat(folder.split('/').length);
+        mkdirSync(resolve(output, folder), { recursive: true });
+        writeFileSync(resolve(output, folder, 'combinations.html'), html.replaceAll('="./assets/', `="${prefix}assets/`).replace('data-catalogue="./index.html"', `data-catalogue="${prefix}index.html"`));
       }
     },
   };

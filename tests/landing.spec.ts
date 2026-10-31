@@ -35,7 +35,7 @@ Field introduction.
 async function openFixture(page: Page, text = manuscript) {
   await page.route('**/landing-fixture/story.md', route => route.fulfill({ contentType: 'text/markdown', body: text }));
   await page.route('**/landing-fixture/assets/*.svg', route => route.fulfill({ contentType: 'image/svg+xml', body: '<svg xmlns="http://www.w3.org/2000/svg" width="390" height="844"><rect width="390" height="844" fill="#d6dbc2"/></svg>' }));
-  await page.goto('/combinations.html?story=landing-fixture');
+  await page.goto('/combinations.html?story=landing-fixture/story.md');
 }
 async function progressKeys(page: Page) {
   return page.evaluate(() => Object.keys(localStorage).filter(key => key.startsWith('combination-progress-v2:')));

@@ -32,7 +32,7 @@ async function openFixture(page: Page, text = manuscript) {
     const shape = filename==='location-empty.svg' ? '' : filename.includes('-window') ? '<rect x="270" y="90" width="70" height="70" fill="#8ab8b0"/>' : filename.includes('-mat') ? '<rect x="50" y="230" width="170" height="40" fill="#79764d"/>' : `<rect width="${width}" height="${height}" rx="24" fill="#b8ad80"/>`;
     return route.fulfill({contentType: 'image/svg+xml', body: `<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}">${shape}</svg>`});
   });
-  await page.goto('/combinations.html?story=icon-fixture');
+  await page.goto('/combinations.html?story=icon-fixture/story.md');
   await page.getByRole('button', { name: 'Start', exact: true }).click();
   await page.getByRole('button', {name: 'Begin', exact: true}).click();
 }
@@ -481,7 +481,7 @@ test('creation names stay above new icons for 1.5 seconds and then fade, without
 
 test('main catalogue opens the illustrated Settlement story with supplies placed in its landscape', async ({page}) => {
   await page.goto('/');
-  const link=page.locator('[data-story="settlement"]');
+  const link=page.locator('[data-story="settlement/settlement.md"]');
   await expect(link.locator('strong')).toHaveText('Settlement: A River Worth Returning To');await link.click();
   await page.getByRole('button',{name:'Start',exact:true}).click();
   await page.getByRole('button',{name:'Begin',exact:true}).click();
@@ -494,7 +494,7 @@ test('main catalogue opens the illustrated Settlement story with supplies placed
 
 test('Settlement carries exact placements into chapter two when no primitives arrive', async ({page}) => {
   await page.emulateMedia({reducedMotion:'reduce'});
-  await page.goto('/combinations.html?story=settlement');
+  await page.goto('/combinations.html?story=settlement/settlement.md');
   await page.getByRole('button',{name:'Start',exact:true}).click();
   await page.getByRole('button',{name:'Begin',exact:true}).click();
   const item=(name:string)=>page.locator(`[data-item="name:${name}"]`);

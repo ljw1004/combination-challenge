@@ -33,7 +33,7 @@ const surface = document.createElement('div'); surface.className = 'game-surface
 const dialogLayer = document.createElement('div'); dialogLayer.className = 'game-dialog-layer'; dialogLayer.hidden = true;
 app.append(surface, dialogLayer);
 let story: Story, state: State, chapterSession: ChapterSession, authoring: AuthoringSession;
-let documentURL = '', storyID = '', previewText = '', hash = '', saveError = '', editedSnapshot = false;
+let documentURL = '', storyID = '', legacySaveKey = '', previewText = '', hash = '', saveError = '', editedSnapshot = false;
 interface Anchor { text: string; story: Story; state: State; chapterSession: ChapterSession; scrollTop: number; dialog?: DialogContext }
 let anchor: Anchor;
 let expectedScroll = 0;
@@ -191,7 +191,10 @@ async function start() {
   surface.innerHTML = '<div class="load-error"><p>Loading story…</p></div>';
   try {
     documentURL = resolveStoryURL(location.href);
-    storyID = new URL(documentURL).pathname.split('/').at(-2) || 'story';
+    const path = new URL(documentURL).pathname;
+    // Only the former story.md route may inherit a folder-keyed legacy save.
+    storyID = path.endsWith('/story.md') ? path.split('/').at(-2) || 'story' : documentURL;
+    legacySaveKey = path.endsWith('/story.md') ? `combination-markdown-v1:${storyID}` : '';
     const drafts = new DraftStore(documentURL);
     const document = await loadStoryDocument(documentURL, drafts);
     authoring = new AuthoringSession(document, drafts, workspace, {
@@ -207,7 +210,7 @@ async function start() {
     state = newGame(story); chapterSession = captureChapter(state);
     let loaded = false;
     try {
-      const saved = JSON.parse(localStorage.getItem(key()) ?? localStorage.getItem(`combination-markdown-v1:${storyID}`) ?? 'null');
+      const saved = JSON.parse(localStorage.getItem(key()) ?? (legacySaveKey ? localStorage.getItem(legacySaveKey) : null) ?? 'null');
       if (saved?.anchor && typeof saved.anchor.text === 'string') {
         const source = recoverPreviewStory(parse(saved.anchor.text));
         const prior = restoreLiveState(source, saved.anchor.state);
@@ -441,7 +444,7 @@ function restartStory() {
   // A landing is not a saved game. Removing the old save also makes reload stay here.
   saveProgress(() => {
     localStorage.removeItem(key());
-    localStorage.removeItem(`combination-markdown-v1:${storyID}`);
+    if (legacySaveKey) localStorage.removeItem(legacySaveKey);
   }, showSaveError);
   render(); rememberInteraction();
   surface.querySelector<HTMLElement>('.story-start')?.focus({ preventScroll: true });

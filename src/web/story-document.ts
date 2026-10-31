@@ -60,10 +60,12 @@ export function canonicalStoryURL(input: string | URL): string {
 export function resolveStoryURL(pageURL: string | URL): string {
   const page = httpURL(pageURL);
   const selectors = page.searchParams.getAll('story');
-  if (selectors.length > 1 || (selectors.length === 1 && !/^[a-zA-Z0-9][a-zA-Z0-9_-]*$/.test(selectors[0]))) {
-    throw new Error('Choose a story folder using letters, numbers, hyphens or underscores, for example ?story=mars.');
+  const path = selectors[0] ?? 'story.md';
+  if (selectors.length > 1 || !/\.md$/i.test(path) || path !== path.trim() ||
+    /[:\\?#\u0000-\u001f\u007f]/.test(path) || path.startsWith('//')) {
+    throw new Error('Choose a Markdown file path on this server, for example ?story=theology/theology.md.');
   }
-  return new URL(selectors.length ? `${selectors[0]}/story.md` : 'story.md', page).href;
+  return new URL(path, page).href;
 }
 
 export function resolveStoryAsset(reference: string, storyURL: string): string {
@@ -230,7 +232,7 @@ export async function loadStoryDocument(url: string, drafts: DraftStore, fetcher
   }
   let response: Response;
   try { response = await fetcher(canonical, {credentials: 'same-origin', cache: 'no-cache'}); }
-  catch { throw new Error(`Could not load the story at ${canonical}. Check that story.md is available on this server.`); }
+  catch { throw new Error(`Could not load the story at ${canonical}. Check that the Markdown file is available on this server.`); }
   if (!response.ok) throw new Error(`Could not load the story at ${canonical} (HTTP ${response.status}).`);
   if (/text\/html/i.test(response.headers.get('content-type') ?? '')) {
     throw new Error(`No Markdown story was found at ${canonical}; the server returned an HTML page.`);

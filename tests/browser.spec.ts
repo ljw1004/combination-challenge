@@ -1,7 +1,7 @@
 import {test,expect} from '@playwright/test';
 import {readFileSync} from 'node:fs';
 import {jumpToChapter, openDebugPanel} from './debug-helpers.ts';
-const chapter = (story: string, index: number) => [...readFileSync(`stories/${story}/story.md`, 'utf8').matchAll(/^## (.+)$/gm)][index][1];
+const chapter = (story: string, index: number) => [...readFileSync(`stories/${story}/${story}.md`, 'utf8').matchAll(/^## (.+)$/gm)][index][1];
 async function openMars(page:import('@playwright/test').Page){await page.goto('/#mars');await page.getByRole('button',{name:'Start',exact:true}).click();await page.getByRole('button',{name:'Begin',exact:true}).click();}
 test('real pointer combine, surviving source, reload and chapter reset without instructions',async({page})=>{
   await openMars(page);const radio=page.locator('[data-item="name:Broken radio"]'),cable=page.locator('[data-item="name:Cable"]');const a=(await radio.boundingBox())!,b=(await cable.boundingBox())!;
@@ -32,7 +32,7 @@ Fit the cabinet.
 - Panel
 - Shelf
 `}));
-  await page.goto('/combinations.html?story=text-edge-fixture');
+  await page.goto('/combinations.html?story=text-edge-fixture/story.md');
   await page.getByRole('button',{name:'Start',exact:true}).click();
   await page.getByRole('button',{name:'Begin',exact:true}).click();
   const card=page.locator('[data-item="name:Tall wooden cabinet"]');
@@ -109,7 +109,7 @@ test('a card covering centered goals keeps native pointer precedence',async({pag
 });
 
 test('holding a described item does not read or obstruct a later drag; double-click still reads',async({page})=>{
-  await page.goto('/');await page.locator('[data-story="settlement"]').click();
+  await page.goto('/');await page.locator('[data-story="settlement/settlement.md"]').click();
   await page.getByRole('button',{name:'Start',exact:true}).click();
   await page.getByRole('button',{name:'Begin',exact:true}).click();
   await jumpToChapter(page,chapter('settlement',18),true);await page.getByRole('button',{name:'Begin',exact:true}).click();

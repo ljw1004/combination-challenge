@@ -12,19 +12,37 @@ class Storage implements DraftStorage {
   setItem(key: string, value: string) { if (this.fail?.(key)) throw new Error('Quota exceeded'); this.values.set(key, value); }
   removeItem(key: string) { this.values.delete(key); }
 }
-const url = 'https://example.test/work/mars/story.md';
+const url = 'https://example.test/work/mars/mars.md';
 
 test('portable story paths and artwork resolve from their own documents, rejecting remote selectors and unsafe schemes', () => {
   assert.equal(resolveStoryURL('https://example.test/work/combinations.html'), 'https://example.test/work/story.md');
-  assert.equal(resolveStoryURL('https://example.test/work/combinations.html?story=mars#ignored'), url);
+  assert.equal(resolveStoryURL('https://example.test/work/mars/combinations.html'), 'https://example.test/work/mars/story.md');
+  assert.equal(resolveStoryURL('https://example.test/work/combinations.html?story=mars/mars.md#ignored'), url);
+  assert.equal(resolveStoryURL('https://example.test/work/mars/combinations.html?story=mars.md'), url);
+  assert.equal(resolveStoryURL('https://example.test/work/player/combinations.html?story=../mars/mars.md'), url);
+  assert.equal(resolveStoryURL('https://example.test/work/combinations.html?story=mars%2Fmars.md'), url);
+  assert.equal(resolveStoryURL('https://example.test/work/combinations.html?story=/work/mars/mars.md'), url);
+  assert.equal(resolveStoryURL('https://example.test/work/combinations.html?story=shared/another%20story.md'), 'https://example.test/work/shared/another%20story.md');
   assert.equal(resolveStoryAsset('assets/scene.webp', url), 'https://example.test/work/mars/assets/scene.webp');
   assert.equal(resolveStoryAsset('https://art.test/scene.webp', url), 'https://art.test/scene.webp');
-  for (const selector of ['', '../private', 'https://other.test/story.md', '%2e%2e', 'mars&story=kitchen']) {
+  for (const selector of ['', 'mars', '../private', 'https://other.test/story.md', '//other.test/story.md', 'javascript:story.md', 'mars%5Cmars.md', 'mars/mars.md%23fragment', 'mars/mars.md%3Fquery', '%2e%2e', 'mars/mars.md&story=kitchen/kitchen.md']) {
     assert.throws(() => resolveStoryURL(`https://example.test/work/combinations.html?story=${selector}`));
   }
   for (const asset of ['javascript:alert(1)', 'data:text/html,hello', 'https://user:secret@example.test/a.webp']) {
     assert.throws(() => resolveStoryAsset(asset, url));
   }
+});
+
+test('stories sharing artwork keep independent drafts, while routes to the same file share a draft', () => {
+  const storage = new Storage();
+  const otherURL = resolveStoryURL('https://example.test/work/combinations.html?story=mars/alternate.md');
+  const first = new DraftStore(url, {storage}), second = new DraftStore(otherURL, {storage});
+  assert.equal(resolveStoryAsset('assets/scene.webp', url), resolveStoryAsset('assets/scene.webp', otherURL));
+  first.save('First manuscript'); second.save('Second manuscript');
+  const adjacentURL = resolveStoryURL('https://example.test/work/mars/combinations.html?story=mars.md');
+  assert.equal(new DraftStore(adjacentURL, {storage}).read().draft?.text, 'First manuscript');
+  first.delete();
+  assert.equal(second.read().draft?.text, 'Second manuscript');
 });
 
 test('cached invalid and empty drafts override the server without a network request, and explicit deletion removes all branches', async () => {

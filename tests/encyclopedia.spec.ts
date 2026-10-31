@@ -31,7 +31,7 @@ Workshop introduction.
 
 async function openFixture(page: Page, text = manuscript) {
   await page.route('**/library-fixture/story.md', route => route.fulfill({ contentType: 'text/markdown', body: text }));
-  await page.goto('/combinations.html?story=library-fixture');
+  await page.goto('/combinations.html?story=library-fixture/story.md');
   await page.getByRole('button', { name: 'Start', exact: true }).click();
   await expect(page.locator('dialog button')).toHaveCount(1);
   await page.getByRole('button', { name: 'Begin', exact: true }).click();
