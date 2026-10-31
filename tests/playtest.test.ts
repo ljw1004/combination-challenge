@@ -16,6 +16,11 @@ test('agent protocol, frozen source and evaluator work end to end without a mode
     const env={...process.env,COMBINATION_RUNS_DIR:join(folder,'runs')};
     execFileSync(process.execPath,['src/playtest/run-ai.ts','--story','mars','--session','protocol','--model','protocol-fixture','--agent',JSON.stringify([process.execPath,agent])],{cwd:resolve(import.meta.dirname,'..'),env,stdio:'pipe'});
     execFileSync(process.execPath,['src/playtest/evaluate-cli.ts','protocol'],{cwd:resolve(import.meta.dirname,'..'),env,stdio:'pipe'});
-    const report=JSON.parse(readFileSync(join(folder,'runs/protocol/evaluation.json'),'utf8'));assert.equal(report.replayVerified,true);assert.equal(report.mechanics.combinations,0);assert.equal(report.experienceProfile.find((p:{id:string})=>p.id==='construction').assessment,'unknown');assert.equal(report.outcome,'stopped');
+    const evaluation=join(folder,'runs/protocol/evaluation.json');
+    const report=JSON.parse(readFileSync(evaluation,'utf8'));assert.equal(report.replayVerified,true);assert.equal(report.mechanics.combinations,0);assert.equal(report.experienceProfile.find((p:{id:string})=>p.id==='construction').assessment,'unknown');assert.equal(report.outcome,'stopped');
+    // Historical evaluations must remain untouched by a replay-only check.
+    const retained=JSON.stringify({...report,retainedNote:'Original assessment'});writeFileSync(evaluation,retained);
+    const verified=JSON.parse(execFileSync(process.execPath,['src/playtest/evaluate-cli.ts','protocol','--verify-only'],{cwd:resolve(import.meta.dirname,'..'),env,encoding:'utf8'}));
+    assert.equal(verified.replayVerified,true);assert.equal(readFileSync(evaluation,'utf8'),retained);
   }finally{rmSync(folder,{recursive:true,force:true});}
 });

@@ -89,7 +89,6 @@ The manuscripts were subsequently renamed from `story.md` to `<slug>.md`, and fo
 | Logical player | `npm run play -- list` | List stories and session commands. |
 | AI playtester | `npm run playtest -- ...` | Run a JSON agent process or service through the player interface. |
 | Evaluator | `npm run evaluate -- SESSION` | Verify frozen replay and write an evidence profile. |
-| Archive verifier | `npm run archive:verify` | Check preservation against the archive manifest; see [archive documentation](archive/README.md). |
 
 Useful authoring commands:
 
@@ -172,13 +171,13 @@ For an evaluable experience profile, `report.criteria` maps the supplied criteri
 
 ### Frozen evidence and evaluation
 
-Each run folder contains `story.md`, a snapshot of active runtime source and package metadata, and `session.json`. The session retains story/runtime hashes, assignment, participant/model label, exact observations, accepted and rejected actions, optional accounts and outcome. Changing the runtime prevents continuing an old session; it does not rewrite the old record. The evaluator uses that run's frozen runtime to verify replay.
+Each session folder contains `story.md`, a snapshot of active runtime source and package metadata, and `session.json`. The session retains story/runtime hashes, assignment, participant/model label, exact observations, accepted and rejected actions, optional accounts and outcome. Changing the runtime prevents continuing an old session; it does not rewrite the old record. The evaluator uses that session's frozen runtime to verify replay.
 
-`npm run evaluate -- SESSION` writes `evaluation.json`. Mechanical evidence and player reports remain separate. Counts exclude reading and card dismissal from combinations. An absent report remains absent. The evaluation carries concrete accounts and a next-experiment hypothesis rather than claiming a computed human-fun score.
+`npm run evaluate -- SESSION` writes `evaluation.json`; add `--verify-only` to check the frozen hashes and replay without rewriting the evaluation. Mechanical evidence and player reports remain separate. Counts exclude reading and card dismissal from combinations. An absent report remains absent. The evaluation carries concrete accounts and a next-experiment hypothesis rather than claiming a computed human-fun score.
 
 Use different session IDs for different versions and conditions. Preserve a baseline before editing a story. If a player or author has seen developer recipes, choose a diagnostic condition through the session API and do not relabel it fresh. Checkpoint generation is a separate developer tool.
 
-Generated runs are ignored by Git to avoid rebuilding the old evidence sprawl. Deliberately retain a small, useful evidence bundle with `git add -f runs/<id>` when its hypothesis or counterexample matters. Do not discard negative evidence from a retained comparison. `COMBINATION_RUNS_DIR` can place temporary protocol tests outside the repository.
+`runs/` is ignored temporary output, created as needed by the playtesting tools. Follow the [directory hygiene rules](AGENTS.md#directory-hygiene) when retaining evidence for a project or archiving completed work. Move complete session folders, keeping their frozen manuscripts, source, sessions and original evaluations together. Preserve negative evidence from retained comparisons. `COMBINATION_RUNS_DIR` selects another output or verification directory, including temporary protocol-test folders. Use `--verify-only` when checking retained historical evidence; see the [archive guide](archive/README.md#project-evidence) for the existing bundles.
 
 ## Documentation map
 
@@ -193,12 +192,14 @@ Each document owns one aspect of working here. Update the owning document and li
 | [Engineering](docs/engineering.md) | Implementation boundaries, technical constraints and testing policy. |
 | [Fun and evaluation](docs/fun-and-evaluation.md) | Research, experience criteria and the experimental method. |
 | [Backlog](docs/backlog.md) | Current story directions, unresolved work and future ideas. |
-| [Completed authenticity pass](archive/authenticity-improvements-2026-10-30.md) | Consolidated discoveries, implemented improvements, retained decisions and bounded verification evidence. |
+| [Authenticity backlog](<docs/backlog - authenticity improvements.md>) | Active authenticity work, completed findings and decisions, and links to historical supporting evidence. |
 | [Archive](archive/README.md) and [salvage index](archive/salvage-index.md) | Archival policy, preservation and provenance of recovered guidance. |
 | [Working notes](notes.md) | Dated hypotheses, decisions, work performed and evidence limits. |
 | [Agent instructions](AGENTS.md) | Repository-specific instructions for coding agents. |
 
 ## Repository map
+
+Maintain the [strict directory hygiene defined in AGENTS.md](AGENTS.md#directory-hygiene).
 
 - `src/story/`: source-located Markdown model and parser.
 - `src/engine/`: deterministic state, actions, needs, exclusivity and retention analysis.
@@ -208,5 +209,5 @@ Each document owns one aspect of working here. Update the owning document and li
 - `src/playtest/`: player observations, frozen sessions, AI transport and evaluation.
 - `docs/`: the documents listed above.
 - `stories/`: active stories and their assets.
-- `runs/`: generated playtest evidence, retained as described above.
+- `runs/`: ignored temporary playtest output; retained evidence moves to its named project directory.
 - `archive/`: historical source and research; follow its [usage policy](archive/README.md).

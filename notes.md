@@ -64,7 +64,7 @@ The original pre-Markdown review remains byte-for-byte in `archive/legacy-2026-1
 
 ## 30 October 2026 authenticity pass completed
 
-Content and verification work closed at 15:32:24 UTC. The single [completed record](archive/authenticity-improvements-2026-10-30.md) replaces the active authenticity backlog: all 70 original IDs and 82 case bindings are preserved, with 42 changed findings, 24 retained decisions and four absent-edition outcomes, plus five calibration examples. Four separate new repairs and additional clarity observations retain their own evidence; they do not inflate the original audit. The original legacy review remains unchanged.
+Content and verification work closed at 15:32:24 UTC. The single [completed record](<docs/backlog - authenticity improvements.md>) replaces the active authenticity backlog: all 70 original IDs and 82 case bindings are preserved, with 42 changed findings, 24 retained decisions and four absent-edition outcomes, plus five calibration examples. Four separate new repairs and additional clarity observations retain their own evidence; they do not inflate the original audit. The original legacy review remains unchanged.
 
 Final story source is commit `e7c8cce7526ba618ee2f3bfb628edbaf60d8bdd8`. Build, type checking, lint and 13 Node tests pass; 64 warnings remain under reviewable authorial interpretations. Focused and independent legal witnesses, actual browser checks across five stories, and 23 replay-verified logical sessions from 15 fresh participants support the bounded conclusions in the completed record. The trials are short or guided, not whole-story human enjoyment evidence. Automated Playwright and native-device tests were not run in this pass.
 
@@ -440,3 +440,17 @@ Geometry lint shares hotspot markup, CSS, icon sizing and hit-rectangle calculat
 Added Tower and Lighthouse destinations at (90%, 18%) inside the existing headland hit rectangle. A developer checkpoint followed by actual browser drops of Tower onto Headland and Lantern onto the bare Headland produced Lighthouse at the authored point; inspected the 390px scene and confirmed its base sits on the cape. The temporary screenshot was `/tmp/combination-headland-placement.png`; checkpoint inventory layout is diagnostic rather than fresh-play evidence.
 
 Validation: the full Node suite and 58 Chromium tests passed, followed by focused checks after cancellation/parser review (13 Node and nine Chromium checks). Two additional browser cases passed for single-item result placement and a contextual touch drop at 320px. Coverage includes unique/ambiguous occupant selection, unary priority, repeated chapter surfaces, collision fallback, unrelated-card occlusion, completed-goal redrops, saved placement/replay, live diagnostics, forward/undefined references, CRLF source spans, and measured transparent/fractional/minimum-size/text hotspot rectangles. Production lint, TypeScript and Vite passed with zero lint errors and the existing 73 author-review warnings and bundle-size advisory. Browser touch is emulation, not native-device or human-enjoyment evidence. No hosted publication or access changes were made.
+
+## 31 October 2026 — remove the archive verifier
+
+At the user's request, removed the archive-verification script and its now-empty directory. The command failed in this checkout because the legacy source manifest was absent. Removed the npm command, TypeScript directory inclusion and active documentation references. Historical verification records remain unchanged.
+
+Validation: TypeScript checking, directory/reference checks and scoped diff whitespace checks passed. No runtime behavior changed; the gameplay suite was not rerun.
+
+## 31 October 2026 — project evidence and directory hygiene
+
+Moved all 124 retained files out of `runs/` into `archive/2026.10.30 authenticity improvements/` and `archive/2026.10.30 lint review/`, using the projects' completion date. The authenticity backlog remains active in `docs/`; its supporting comparison evidence is historical. Updated navigation links, the authenticity evidence index and the lint bundle manifest. Frozen source, manuscripts, sessions, original evaluations and evidence payloads remain unchanged.
+
+The [directory hygiene rules](AGENTS.md#directory-hygiene) now require temporary output in scratch locations, artifacts retained for ongoing work in named project directories, and completed work in dated project archives. `runs/` remains the playtest tools' default ignored temporary output location, created when needed; it is not a permanent evidence library. Added `evaluate --verify-only` to verify frozen sessions without rewriting original evaluations.
+
+Validation: all 122 evidence payload files match their pre-move SHA-256 hashes; the two navigation metadata files reflect the new paths. All four retained sessions pass frozen replay verification, and all 19 lint-manifest entries pass size/hash checks. The playtest protocol integration test, including preservation of an existing evaluation during verification, and TypeScript checking passed. This is preservation evidence, not a new gameplay or player-experience finding.
