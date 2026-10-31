@@ -1,6 +1,6 @@
 # Combination Workshop
 
-Five combination stories, an illustrated Elements edition and seven short icon-comparison stories, authored in Markdown. The browser game, story linter, checkpoint generator and logical AI playtester share one parser and game engine. The project has three commitments: combination, enjoyable interactive play and an empirical loop that can reject weak ideas.
+Five combination stories, including the illustrated Settlement campaign, authored in Markdown. The browser game, story linter, checkpoint generator and logical AI playtester share one parser and game engine. The project has three commitments: combination, enjoyable interactive play and an empirical loop that can reject weak ideas.
 
 ## Run the game
 
@@ -13,14 +13,16 @@ npm run dev
 
 Open the local address printed by Vite. Drag things together; compatible partners are highlighted without revealing the future result. Goals sit at the bottom and become the next-chapter arrow when complete. Reopen the chapter text through its goals for the applicable recovery action; automatic chapter introductions have only **Begin**. The discreet bug icon toggles the debug pane for live story editing and checkpoint jumps. See [UX](docs/ux.md) for the interaction and recovery rules.
 
-The catalogue includes seven versions of **The maker's clearing** for trying icon styles. Start with `/combinations.html?story=icon-test-woodcut-color`; the [icon study](docs/icon-study/README.md) links every style and records its artwork, prompts and recognition reviews.
+Seven icon styles are retained as [reference collections](references/icon-sets/), each with its own description and preview.
 
-**Elements - Icons** is the complete rustic coloured-woodcut edition: `/combinations.html?story=elements-icons`. The [illustrated edition notes](docs/elements-icons/README.md) cover its artwork and continuity; the [local review gallery](docs/elements-icons/index.html) contains all 31 chapter screenshots and the complete icon set.
+**Settlement: A River Worth Returning To** uses rustic coloured woodcuts: `/combinations.html?story=settlement`.
 
 The player fetches Markdown as an ordinary file. These routes work in development and the production build:
 
 | Player URL | Markdown fetched |
 |---|---|
+| `/combinations.html?story=settlement` | `/settlement/story.md` |
+| `/combinations.html?story=theology` | `/theology/story.md` |
 | `/combinations.html?story=mars` | `/mars/story.md` |
 | `/mars/combinations.html` | `/mars/story.md` |
 | `/combinations.html` | `/story.md` (supply this file to use this route) |
@@ -61,6 +63,8 @@ stories/<slug>/assets/...
 ```
 
 The folder identifies the story for CLI tools; the browser uses its Markdown URL for drafts and saves. Neither is the player-facing title. Vite serves the contents of `stories/` at the site root. Start with the [authoring guide](docs/story-authoring.md) when writing a story and consult the [specification](docs/story-format-spec.md) for syntax and semantics.
+
+Settlement (`settlement`) and Theology (`theology`) were renamed from Elements (`elements`) and Divinity (`divinity`) on 31 October 2026. The old story routes, including the earlier `elements-icons` route, are no longer served. Existing browser saves and drafts remain under their original URLs; the renames do not migrate or delete them.
 
 ## Tools
 
@@ -182,7 +186,6 @@ Each document owns one aspect of working here. Update the owning document and li
 | [Completed authenticity pass](archive/authenticity-improvements-2026-10-30.md) | Consolidated discoveries, implemented improvements, retained decisions and bounded verification evidence. |
 | [Archive](archive/README.md) and [salvage index](archive/salvage-index.md) | Archival policy, preservation and provenance of recovered guidance. |
 | [Working notes](notes.md) | Dated hypotheses, decisions, work performed and evidence limits. |
-| [Icon study](docs/icon-study/README.md) | Seven playable art comparisons, style guides, generation prompts and recognition evidence; implements the [original brief](docs/icons.md). |
 | [Agent instructions](AGENTS.md) | Repository-specific instructions for coding agents. |
 
 ## Repository map

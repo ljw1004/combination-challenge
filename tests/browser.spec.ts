@@ -109,10 +109,10 @@ test('a card covering centered goals keeps native pointer precedence',async({pag
 });
 
 test('holding a described item does not read or obstruct a later drag; double-click still reads',async({page})=>{
-  await page.goto('/');await page.locator('[data-story="elements"]').click();
+  await page.goto('/');await page.locator('[data-story="settlement"]').click();
   await page.getByRole('button',{name:'Start',exact:true}).click();
   await page.getByRole('button',{name:'Begin',exact:true}).click();
-  await jumpToChapter(page,chapter('elements',18),true);await page.getByRole('button',{name:'Begin',exact:true}).click();
+  await jumpToChapter(page,chapter('settlement',18),true);await page.getByRole('button',{name:'Begin',exact:true}).click();
   const plant=page.locator('[data-item="name:Plant"]');await plant.scrollIntoViewIfNeeded();const box=(await plant.boundingBox())!;
   await page.mouse.move(box.x+20,box.y+20);await page.mouse.down();await page.waitForTimeout(650);
   await expect(page.locator('dialog')).toHaveCount(0);

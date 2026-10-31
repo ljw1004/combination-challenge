@@ -7,16 +7,16 @@ Ideas are options to test, not obligations to implement. The current engine rema
 | Story | Direction |
 |---|---|
 | Mars | Recognizable salvaged equipment, coherent fieldwork, rescue and useful retained observations. Avoid rebuilding civilization from raw elements, redundant map categories and fiddly measurement chores. |
-| Elements | A storybook elemental world, not literal chemistry. Keep its tangible home/craft/community arc and useful continuity. Review internal fabrication-stage consistency without expanding it into a detailed manufacturing simulation. |
+| Settlement | A storybook elemental world, not literal chemistry. Keep its tangible home/craft/community arc and useful continuity. Review internal fabrication-stage consistency without expanding it into a detailed manufacturing simulation. |
 | Kitchen | Preserve the enjoyed cooking core and familiar equipment. Alternative dishes should feed a meaningful purpose. Earn the conclusion through earlier preparations and an actual meal, without forcing a branded destination. |
 | Ideas | Intellectual connections across time; methods become useful through evidence, comparison and application. Distinguish a proposed method, an actual observation and a tested result. |
-| Divinity | A desk of arguments, cases and attributed texts; disagreements remain substantive. Do not silently equate distinct traditions or hide an essential story event in an unread primitive explanation. |
+| Theology | A desk of arguments, cases and attributed texts; disagreements remain substantive. Do not silently equate distinct traditions or hide an essential story event in an unread primitive explanation. |
 
 Editorial priorities:
 
 1. The [authenticity implementation pass](../archive/authenticity-improvements-2026-10-30.md) is complete: 42 original findings changed, 24 retained after review and four absent-edition findings recorded separately. Consult its actual outcomes and evidence before reopening an issue; original ratings are not current test results.
 2. Review linter warnings for mixed fates, future supplies and too many visible goal chains. Explain a deliberate exception specifically; do not erase a warning merely to make output green.
-3. Review arrival and peak working sets in the browser, especially long Ideas/Divinity labels and constructed compounds. Coordinate-free hotspots currently use a stable default lower-panel layout; author image-relative positions where a precise feature matters.
+3. Review arrival and peak working sets in the browser, especially long Ideas/Theology labels and constructed compounds. Coordinate-free hotspots currently use a stable default lower-panel layout; author image-relative positions where a precise feature matters.
 4. Run fresh agent trials through the player-only interface, then compare a concrete revision. Confirm the enjoyed old feel through human play; browser tests cannot certify that experience.
 5. Revisit intellectual continuity and forward intuition separately from physical/factual authenticity. A method, measurement and established conclusion should not be interchangeable labels.
 
@@ -31,11 +31,11 @@ These are proposals, not existing tools or syntax:
 - Define an optional canonical manuscript form and, if useful, a transformer into it. One proposal declares each chapter's items separately from the combinations needed for its goals, with remaining global combinations collected at the end. Preserve which items each chapter introduces; do not require this form for ordinary authoring.
 - Add useful exclusivity examples and investigate a proof of the specification's continuation invariant.
 
-The retained [opportunity lint](story-format-spec.md#opportunities-for-authored-content) completes all five stories within its 100-element cap. Review Elements' four findings (Brush, Weather book, Salt and Brine), the five Kitchen findings and Mars's Illuminated glovebox using their blocking examples and related source rules, without automatically making optional content mandatory. Current evidence and limits are in the [working notes](../notes.md#31-october-2026-retained-opportunity-linter); these are new findings, not reopened historical lint reviews.
+The retained [opportunity lint](story-format-spec.md#opportunities-for-authored-content) completes all five stories within its 100-element cap. Review Settlement's four findings (Brush, Weather book, Salt and Brine), the five Kitchen findings and Mars's Illuminated glovebox using their blocking examples and related source rules, without automatically making optional content mandatory. Current evidence and limits are in the [working notes](../notes.md#31-october-2026-retained-opportunity-linter); these are new findings, not reopened historical lint reviews.
 
-## Icon comparison awaiting human choice
+## Icon recognition awaiting human trials
 
-Icon syntax, player support and seven playable samples are implemented. The [icon study](icon-study/README.md) owns their style guides, review evidence and unresolved visual distinctions. Compare the coloured woodcut, monochrome wood engraving and riso with the other four styles before selecting or extending a set across Elements. In particular, validate recognition speed and material/content distinctions on a phone; repeat-exposure agent reviews do not establish those outcomes.
+Settlement uses the selected coloured woodcut artwork; the seven former playable samples are retained as [reference collections](../references/icon-sets/). Validate recognition speed and material/content distinctions on a phone; repeat-exposure agent reviews do not establish those outcomes.
 
 ## Story ideas worth retaining
 

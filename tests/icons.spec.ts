@@ -479,10 +479,10 @@ test('creation names stay above new icons for 1.5 seconds and then fade, without
   await item.hover();await expect(name).toBeVisible();
 });
 
-test('main catalogue opens the illustrated Elements story with supplies placed in its landscape', async ({page}) => {
+test('main catalogue opens the illustrated Settlement story with supplies placed in its landscape', async ({page}) => {
   await page.goto('/');
-  const link=page.locator('[data-story="elements-icons"]');
-  await expect(link).toHaveText(/Elements - Icons/);await link.click();
+  const link=page.locator('[data-story="settlement"]');
+  await expect(link.locator('strong')).toHaveText('Settlement: A River Worth Returning To');await link.click();
   await page.getByRole('button',{name:'Start',exact:true}).click();
   await page.getByRole('button',{name:'Begin',exact:true}).click();
   for(const [name,x,y] of [['Earth',28,53],['Water',54,24],['Air',55,7],['Fire',75,36]] as const){
@@ -492,9 +492,9 @@ test('main catalogue opens the illustrated Elements story with supplies placed i
   }
 });
 
-test('Elements Icons carries exact placements into chapter two when no primitives arrive', async ({page}) => {
+test('Settlement carries exact placements into chapter two when no primitives arrive', async ({page}) => {
   await page.emulateMedia({reducedMotion:'reduce'});
-  await page.goto('/combinations.html?story=elements-icons');
+  await page.goto('/combinations.html?story=settlement');
   await page.getByRole('button',{name:'Start',exact:true}).click();
   await page.getByRole('button',{name:'Begin',exact:true}).click();
   const item=(name:string)=>page.locator(`[data-item="name:${name}"]`);

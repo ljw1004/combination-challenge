@@ -108,12 +108,12 @@ test('Dough prepares the cellar before Wild starter exists, while Flour is only 
   assert.equal(partnerHints(prep,state,hotspot('Warm cellar')).items.size,0,'blocked starter preparation cannot justify placement');
 });
 
-test('Elements bread chapter hints Dough before creating its Wild starter',()=>{
-  const {story:elements}=loadStory('elements-icons');
-  const chapter=elements.chapters.findIndex(c=>c.name==='Bread for the journey'),state=checkpoint(elements,chapter);
+test('Settlement bread chapter hints Dough before creating its Wild starter',()=>{
+  const {story:settlement}=loadStory('settlement');
+  const chapter=settlement.chapters.findIndex(c=>c.name==='Bread for the journey'),state=checkpoint(settlement,chapter);
   assert.equal(state.tokens['name:Dough']?.status,'available');
   assert.equal(state.tokens['name:Flour']?.status,'available');
   assert(!state.tokens['name:Wild starter']);
-  const hints=partnerHints(elements,state,hotspot('Warm cellar'));
+  const hints=partnerHints(settlement,state,hotspot('Warm cellar'));
   assert(hints.items.has('name:Dough'));assert(!hints.items.has('name:Flour'));
 });
