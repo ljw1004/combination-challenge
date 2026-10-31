@@ -150,12 +150,14 @@ dialog button,dialog select{min-height:44px}
 .open-book{display:inline-block;width:25px;height:23px;vertical-align:middle;pointer-events:none}
 .reading-indicator{display:none;position:absolute;left:50%;top:-15px;transform:translateX(-50%);pointer-events:none;line-height:0;filter:drop-shadow(0 1px 2px #503a2066)}
 .thing.reading-selected .reading-indicator{display:block;animation:book-entrance .18s ease-out}
-.wonder-book{height:24px;margin:-12px 0 14px -10px;pointer-events:none;text-align:left}
 .encyclopedia[open]{display:flex;flex-direction:column;min-height:0}
 .encyclopedia h1{flex:none;margin-top:0}
-.encyclopedia-list{list-style:none;margin:0;padding:3px!important;overflow-y:auto;min-height:0;overscroll-behavior:contain;touch-action:pan-y}
-.encyclopedia-list li+li{margin-top:5px}
-.encyclopedia-list button{width:100%;text-align:left;background:#fffdf7;border-color:#d5c6a7;overflow-wrap:anywhere}
+.encyclopedia-list{margin:0;padding:3px;overflow-y:auto;min-height:0;overscroll-behavior:contain;touch-action:pan-y}
+.encyclopedia-chapter h2{font:normal 19px/1.35 Georgia,serif;margin:16px 0 4px;color:#766548}
+.encyclopedia-chapter:first-child h2{margin-top:0}
+.encyclopedia-chapter ul{list-style:none;padding:0;margin:0}
+.encyclopedia-list a{display:block;min-height:44px;padding:10px 0;color:inherit;text-decoration:none;font-size:16px;line-height:1.5;overflow-wrap:anywhere}
+.encyclopedia-list a:hover,.encyclopedia-list a:focus-visible{text-decoration:underline;text-underline-offset:3px}
 .encyclopedia .dialog-actions{flex:none;margin-top:14px}
 @keyframes book-entrance{from{opacity:0;scale:.75;translate:0 3px}to{opacity:1;scale:1;translate:0 0}}
 @media(prefers-reduced-motion:reduce){.thing.reading-selected .reading-indicator{animation:none}}

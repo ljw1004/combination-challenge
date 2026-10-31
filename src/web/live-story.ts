@@ -1,6 +1,7 @@
 import type { Chapter, Goal, Hotspot, Item, Ref, Story, Wonder } from '../story/types.ts';
 import type { Action, Notice, State, Token } from '../engine/types.ts';
-import { chapterComplete, matches } from '../engine/game.ts';
+import { nextEncounter } from '../engine/encounters.ts';
+import { chapterComplete, matches, replay } from '../engine/game.ts';
 import { activeHotspots, chapterNeeds, indexStory } from '../engine/analysis.ts';
 
 export interface LiveStoryUpdate {
@@ -128,6 +129,8 @@ function newPosition(state: State): { x: number; y: number } {
 export function reconcileLiveStory(previous: Story, next: Story, current: State): LiveStoryUpdate {
   previous = recoverPreviewStory(previous);
   next = recoverPreviewStory(next);
+  current = structuredClone(current);
+  backfillEncounters(previous, current);
   const chapters = matchChapters(previous, next);
   const items = matchEntities(previous, next, previous.items, next.items, chapters, 'item');
   const hotspots = matchEntities(previous, next, previous.hotspots, next.hotspots, chapters, 'hotspot');
@@ -149,6 +152,7 @@ export function reconcileLiveStory(previous: Story, next: Story, current: State)
     const hotspot = token.hotspot ? hotspots.get(token.hotspot) : undefined;
     state.tokens[id] = {
       ...token, id, chapter: tokenChapter,
+      firstSeen: { chapter: token.firstSeen!.chapter === null ? null : chapters.get(token.firstSeen!.chapter) ?? null, order: token.firstSeen!.order },
       slots: token.slots.flatMap(slot => items.has(slot) ? [items.get(slot)!] : []).filter(slot => item.slots.some(s => s.accepts === slot)),
       ...(hotspot && activeHotspots(next, tokenChapter).includes(hotspot) ? { hotspot } : {}),
     };
@@ -172,7 +176,7 @@ export function reconcileLiveStory(previous: Story, next: Story, current: State)
   }
   const primitives = indexStory(next).primitives;
   for (const id of chapterNeeds(next, state, chapter)) if (primitives.has(id) && !state.tokens[id] && !state.excluded.includes(id)) {
-    state.tokens[id] = { id, chapter, slots: [], status: 'available', ...newPosition(state) };
+    state.tokens[id] = { id, chapter, firstSeen: nextEncounter(state), slots: [], status: 'available', ...newPosition(state) };
     state.newItems.push(id);
     const partner = next.items[id].exclusiveWith;
     if (partner && !state.excluded.includes(partner)) state.excluded.push(partner);
@@ -215,8 +219,14 @@ export function restoreLiveState(story: Story, raw: unknown): State | undefined 
     if (typeof state.completed !== 'boolean' || typeof state.arrivalDivider !== 'boolean' || !Array.isArray(state.pending) || !Array.isArray(state.actions)) return;
     const goalIds = new Set(story.chapters.flatMap(c => c.goals.map(g => g.id)));
     if (state.achieved.some(id => !goalIds.has(id)) || state.excluded.some(id => !story.items[id])) return;
+    const encounterOrders = new Set<number>();
     for (const [id, token] of Object.entries(state.tokens)) {
       if (!token || !story.items[id] || token.id !== id || !chapter(token.chapter) || !state.visited.includes(token.chapter) || ![token.x, token.y].every(Number.isFinite) || !['available', 'consume', 'transform', 'installed'].includes(token.status) || !strings(token.slots)) return;
+      if (token.firstSeen !== undefined) {
+        const seen = token.firstSeen;
+        if (!seen || typeof seen !== 'object' || (seen.chapter !== null && !chapter(seen.chapter)) || !Number.isSafeInteger(seen.order) || seen.order < 0 || encounterOrders.has(seen.order)) return;
+        encounterOrders.add(seen.order);
+      }
       if (token.slots.some(slot => !story.items[id].slots.some(s => s.accepts === slot)) || token.hotspot !== undefined && (typeof token.hotspot !== 'string' || !activeHotspots(story, token.chapter).includes(token.hotspot))) return;
     }
     if (state.newItems.some(id => !state.tokens[id])) return;
@@ -227,6 +237,29 @@ export function restoreLiveState(story: Story, raw: unknown): State | undefined 
       if (action.type === 'move') return typeof action.item === 'string' && !!story.items[action.item] && chapter(action.chapter) && [action.x, action.y].every(Number.isFinite) && (action.hotspot === undefined || !!story.hotspots[action.hotspot]);
       return action.type === 'combine' && typeof action.a === 'string' && !!story.items[action.a] && (action.b === undefined || !!story.items[action.b]) && (action.hotspot === undefined || !!story.hotspots[action.hotspot]) && (action.chapter === undefined || chapter(action.chapter));
     })) return;
+    backfillEncounters(story, state);
     return state;
   } catch { return; }
+}
+
+/** Old ordinary saves have replayable action histories; old edited snapshots may
+ * not. Never pretend their current placement is a historical encounter chapter. */
+function backfillEncounters(story: Story, state: State): void {
+  const missing = Object.values(state.tokens).filter(token => !token.firstSeen);
+  if (!missing.length) return;
+  let reconstructed: State | undefined;
+  try {
+    const candidate = replay(story, state.actions);
+    const logical = (value: State) => JSON.stringify({
+      chapter: value.chapter, visited: value.visited, achieved: [...value.achieved].sort(), excluded: [...value.excluded].sort(),
+      tokens: Object.values(value.tokens).map(t => [t.id, t.chapter, t.status, [...t.slots].sort()]).sort((a, b) => String(a[0]).localeCompare(String(b[0]))),
+    });
+    if (logical(candidate) === logical(state)) reconstructed = candidate;
+  } catch { /* Edited recipes cannot necessarily replay the original history. */ }
+  const used = new Set(Object.values(state.tokens).flatMap(token => token.firstSeen ? [token.firstSeen.order] : []));
+  for (const token of missing) {
+    const known = reconstructed?.tokens[token.id]?.firstSeen;
+    token.firstSeen = known && !used.has(known.order) ? { ...known } : { ...nextEncounter(state), chapter: null };
+    used.add(token.firstSeen.order);
+  }
 }

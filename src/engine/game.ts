@@ -1,6 +1,7 @@
 import type { Story, Recipe, Ref, Goal, Condition } from '../story/types.ts';
 import type { State, Token, Action } from './types.ts';
 import { activeHotspots, goalChains, chapterGoalsSatisfied, chapterNeeds, continuationPossible, indexStory, recipeCandidates } from './analysis.ts';
+import { nextEncounter } from './encounters.ts';
 export type { State, Token, Action } from './types.ts';
 
 export function label(story: Story, state: State, id: string): string {
@@ -42,7 +43,7 @@ function enter(story: Story, state: State, start: number) {
     });
     const primitives = indexStory(story).primitives;
     for (const id of needed) if (!state.tokens[id] && primitives.has(id) && !state.excluded.includes(id)) {
-      state.tokens[id] = createToken(id, i, old.length + state.newItems.length); state.newItems.push(id);
+      state.tokens[id] = { ...createToken(id, i, old.length + state.newItems.length), firstSeen: nextEncounter(state) }; state.newItems.push(id);
       const other = story.items[id].exclusiveWith; if (other && !state.excluded.includes(other)) state.excluded.push(other);
     }
     state.arrivalDivider=old.length>0&&state.newItems.length>0;
@@ -123,7 +124,7 @@ export function act(story: Story, original: State, action: Action, retirementChe
     else {
       const destination=action.hotspot&&!action.b?(action.chapter??[...state.visited].reverse().find(i=>activeHotspots(story,i).includes(action.hotspot!))!):receiver.chapter;
       const hotspot=action.hotspot&&!action.b?story.hotspots[action.hotspot]:undefined,index=hotspot?activeHotspots(story,destination).indexOf(hotspot.id):0;
-      state.tokens[recipe.result.id] = { id:recipe.result.id, status:'available', slots:[...recipe.result.slots], chapter:destination, x:hotspot?(hotspot.x??(.19+(index%3)*.31))*390-56:Math.min(225,receiver.x+12), y:hotspot?(hotspot.y??(.70+Math.floor(index/3)*.13))*844-22:Math.min(730,receiver.y+42), ...(hotspot ? { hotspot:hotspot.id } : {}) };
+      state.tokens[recipe.result.id] = { id:recipe.result.id, firstSeen:nextEncounter(state), status:'available', slots:[...recipe.result.slots], chapter:destination, x:hotspot?(hotspot.x??(.19+(index%3)*.31))*390-56:Math.min(225,receiver.x+12), y:hotspot?(hotspot.y??(.70+Math.floor(index/3)*.13))*844-22:Math.min(730,receiver.y+42), ...(hotspot ? { hotspot:hotspot.id } : {}) };
     }
     const excluded = story.items[recipe.result.id]?.exclusiveWith;
     if (excluded && !state.excluded.includes(excluded)) state.excluded.push(excluded);

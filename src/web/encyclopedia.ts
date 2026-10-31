@@ -2,13 +2,20 @@ import type { Story } from '../story/types.ts';
 import type { State } from '../engine/types.ts';
 import { label, readings } from '../engine/game.ts';
 
-/** Encountered resources remain tokens even after consumption or incorporation.
- * Derive this view from the current state so reset/replay needs no discovery ledger. */
-export function encyclopediaEntries(story: Story, state: State): { id: string; name: string }[] {
-  return [...new Set(Object.values(state.tokens).map(token => token.id))]
-    .filter(id => readings(story, state, id).some(reading => reading.markdown.trim()))
-    .map(id => ({ id, name: label(story, state, id) }))
-    .sort((a, b) => a.name.localeCompare(b.name, 'en', { sensitivity: 'base' }) || a.id.localeCompare(b.id));
+/** Readings follow encounter chronology, not current placement or label spelling.
+ * Unknown legacy edited history stays explicit rather than inventing a chapter. */
+export function encyclopediaEntries(story: Story, state: State): { id: string; name: string; chapter: number | null }[] {
+  const entries = new Map<string, { id: string; name: string; chapter: number | null; order: number }>();
+  Object.values(state.tokens).forEach((token, index) => {
+    if (entries.has(token.id) || !readings(story, state, token.id).some(reading => reading.markdown.trim())) return;
+    entries.set(token.id, {
+      id: token.id, name: label(story, state, token.id),
+      chapter: token.firstSeen?.chapter ?? null, order: token.firstSeen?.order ?? index,
+    });
+  });
+  return [...entries.values()]
+    .sort((a, b) => (a.chapter ?? -1) - (b.chapter ?? -1) || a.order - b.order)
+    .map(({ id, name, chapter }) => ({ id, name, chapter }));
 }
 
 /** Decorative shared vocabulary, not a control or a generated item icon. */

@@ -68,13 +68,18 @@ test('a card covering centered goals keeps native pointer precedence',async({pag
   await goals.click();await expect(page.getByRole('button',{name:'Restart this chapter'})).toBeVisible();
 });
 
-test('long hold reader survives release and closes on the next deliberate click',async({page})=>{
+test('holding a described item does not read or obstruct a later drag; double-click still reads',async({page})=>{
   await page.goto('/');await page.locator('[data-story="elements"]').click();
   await page.getByRole('button',{name:'Begin',exact:true}).click();
   await jumpToChapter(page,chapter('elements',18),true);await page.getByRole('button',{name:'Begin',exact:true}).click();
   const plant=page.locator('[data-item="name:Plant"]');await plant.scrollIntoViewIfNeeded();const box=(await plant.boundingBox())!;
   await page.mouse.move(box.x+20,box.y+20);await page.mouse.down();await page.waitForTimeout(650);
-  await expect(page.locator('dialog')).toBeVisible();await page.mouse.up();await expect(page.locator('dialog')).toBeVisible();
+  await expect(page.locator('dialog')).toHaveCount(0);
+  await page.mouse.move(75,580,{steps:5});await page.mouse.up();
+  await expect(page.locator('dialog')).toHaveCount(0);
+  expect(Math.abs((await plant.boundingBox())!.y-box.y)).toBeGreaterThan(30);
+  await page.waitForTimeout(450);await plant.dblclick();
+  await expect(page.locator('dialog')).toBeVisible();
   await page.getByRole('button',{name:'Close',exact:true}).click();await expect(page.locator('dialog')).toHaveCount(0);
 });
 test('first-release partner highlights linger after the pointer leaves the card',async({page})=>{

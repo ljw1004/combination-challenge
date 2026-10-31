@@ -1,5 +1,7 @@
 export interface Token {
   id: string; slots: string[]; chapter: number; x: number; y: number; hotspot?: string;
+  /** Immutable encounter history, separate from mutable placement. Null marks unknown legacy/deleted history. */
+  firstSeen?: { chapter: number | null; order: number };
   /** Visibility/incorporation of an infinite resource, never a depleted quantity. */
   status: 'available' | 'consume' | 'transform' | 'installed';
 }

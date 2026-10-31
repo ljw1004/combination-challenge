@@ -225,7 +225,7 @@ function modal(content: string, kind = 'ordinary', context: DialogContext = { ki
   if (dialogContext?.kind === 'encyclopedia') encyclopediaScroll = dialog.querySelector('.encyclopedia-list')?.scrollTop ?? 0;
   dialog.className = kind;
   const scroll = dialog.scrollTop;
-  reconcile(dialog, (kind === 'wonder' ? '<div class="wonder-book">' + openBook + '</div>' : '') + content);
+  reconcile(dialog, content);
   dialog.scrollTop = changing ? 0 : scroll;
   if (context.kind === 'encyclopedia') { const list = dialog.querySelector('.encyclopedia-list'); if (list) list.scrollTop = encyclopediaScroll; }
   dialogContext = context; dialogLayer.hidden = false; surface.inert = true;
@@ -251,11 +251,16 @@ function chapterContent() {
 function reopenChapter() { flushPreview(); modal(chapterContent(), 'intertitle', { kind: 'chapter' }); rememberInteraction(); }
 function confirmRestart() { modal('<h1>Restart this story?</h1><p>This removes all progress in this story on this device, including completed chapters, discoveries and item positions. Your Markdown draft is kept. You will begin again at the first chapter. This cannot be undone. Your other stories are unchanged.</p><div class="dialog-actions"><button data-command="cancel-reset-story">Cancel</button><button class="danger" data-command="reset-story">Restart story</button></div>', 'ordinary', { kind: 'confirm' }); }
 function encyclopediaContent() {
-  return `<h1>Encyclopedia</h1><ul class="encyclopedia-list">${encyclopediaEntries(story, state).map(entry => `<li><button data-command="encyclopedia-read" data-reading="${escape(entry.id)}">${escape(entry.name)}</button></li>`).join('')}</ul><div class="dialog-actions"><button data-command="chapter-back">Back</button><button data-command="close">Close</button></div>`;
+  const entries = encyclopediaEntries(story, state), chapters = [...new Set(entries.map(entry => entry.chapter))];
+  return `<h1>Encyclopedia</h1><div class="encyclopedia-list">${chapters.map(chapter => `<section class="encyclopedia-chapter"><h2>${escape(chapter === null ? 'Earlier discoveries' : story.chapters[chapter]?.name ?? 'Earlier discoveries')}</h2><ul>${entries.filter(entry => entry.chapter === chapter).map(entry => `<li><a href="#encyclopedia-entry" data-command="encyclopedia-read" data-reading="${escape(entry.id)}">${escape(entry.name)}</a></li>`).join('')}</ul></section>`).join('')}</div><div class="dialog-actions"><button data-command="close">Close</button></div>`;
 }
 function openEncyclopedia() { modal(encyclopediaContent(), 'encyclopedia', { kind: 'encyclopedia' }); rememberInteraction(); }
-function readingActions(fromEncyclopedia = false) { return `<div class="dialog-actions">${fromEncyclopedia ? '<button data-command="encyclopedia">Back to encyclopedia</button>' : ''}<button data-command="close">Close</button></div>`; }
-function read(id: string, fromEncyclopedia = false) { flushPreview(); const text = readings(story, state, id).map(w => w.markdown).join('\n\n'); if (!text) return false; modal(`${readingBody(text, asset)}${readingActions(fromEncyclopedia)}`, 'wonder', { kind: 'reading', item: id, fromEncyclopedia }); rememberInteraction(); return true; }
+function readingActions() { return '<div class="dialog-actions"><button data-command="close">Close</button></div>'; }
+function dismissReading() {
+  if (dialogContext?.kind === 'reading' && dialogContext.fromEncyclopedia) { openEncyclopedia(); return; }
+  closeDialog(); showPending(); rememberInteraction(); save();
+}
+function read(id: string, fromEncyclopedia = false) { flushPreview(); const text = readings(story, state, id).map(w => w.markdown).join('\n\n'); if (!text) return false; modal(`${readingBody(text, asset)}${readingActions()}`, 'wonder', { kind: 'reading', item: id, fromEncyclopedia }); rememberInteraction(); return true; }
 function toggleDebugPanel() {
   if (desktopDebug.matches) { authoring.toggle(); return; }
   if (mobileDebug.isOpen) { mobileDebug.close(); return; }
@@ -288,7 +293,7 @@ function refreshDialog() {
   else if (dialogContext?.kind === 'encyclopedia') modal(encyclopediaContent(), 'encyclopedia', dialogContext);
   else if (dialogContext?.kind === 'reading') {
     const text = readings(story, state, dialogContext.item).map(w => w.markdown).join('\n\n');
-    modal(`${readingBody(text, asset)}${readingActions(dialogContext.fromEncyclopedia)}`, 'wonder', dialogContext);
+    modal(`${readingBody(text, asset)}${readingActions()}`, 'wonder', dialogContext);
   }
   if (!dialogContext) showPending();
 }
@@ -342,7 +347,7 @@ function render(arrival=false,finish=true){
     const bg=background(story,chapter),c=story.chapters[chapter];
     return `<section class="chapter-panel" data-chapter="${chapter}" style="top:${position*844}px" aria-label="${escape(story.title)} scene ${position+1}">${bg?`<img class="scene-art" src="${escape(asset(bg))}" alt="">`:''}<div class="location-scrim"></div>${activeHotspots(story,chapter).map((id,i)=>{const h=story.hotspots[id],x=(h.x??(.19+(i%3)*.31))*390,y=(h.y??(.70+Math.floor(i/3)*.13))*844;return `<div class="hotspot" data-hotspot="${escape(id)}" style="left:${x}px;top:${y}px">${escape(h.name)}</div>`;}).join('')}${availableTokens(state).filter(t=>t.chapter===chapter).map(t=>{
       const item=story.items[t.id],filled=t.slots,applicable=readings(story,state,t.id).some(reading=>reading.markdown.trim()),selected=tile(t.id)?.classList.contains('reading-selected');
-      return `<button class="thing text-thing ${selected?'reading-selected pressed':''} ${chapter===state.chapter&&gold.has(t.id)?'goal-met':''}" data-item="${escape(t.id)}" style="left:${t.x}px;top:${t.y}px" aria-label="${escape(name(t.id))}" title="${escape(applicable?'Double-click or long-press to read':'Drag to combine or move')}"><span class="item-label">${escape(name(t.id))}</span>${item.slots.map(s=>`<span class="slot ${filled.includes(s.accepts)?'filled':''}">${filled.includes(s.accepts)?escape(name(s.accepts)):escape(s.name??'\u00a0')}</span>`).join('')}${applicable?'<span class="reading-indicator" aria-hidden="true">' + openBook + '</span>':''}</button>`;
+      return `<button class="thing text-thing ${selected?'reading-selected pressed':''} ${chapter===state.chapter&&gold.has(t.id)?'goal-met':''}" data-item="${escape(t.id)}" style="left:${t.x}px;top:${t.y}px" aria-label="${escape(name(t.id))}" title="${escape(applicable?'Double-click or double-tap to read':'Drag to combine or move')}"><span class="item-label">${escape(name(t.id))}</span>${item.slots.map(s=>`<span class="slot ${filled.includes(s.accepts)?'filled':''}">${filled.includes(s.accepts)?escape(name(s.accepts)):escape(s.name??'\u00a0')}</span>`).join('')}${applicable?'<span class="reading-indicator" aria-hidden="true">' + openBook + '</span>':''}</button>`;
     }).join('')}${chapter===state.chapter&&state.arrivalDivider&&state.newItems.length?`<div class="arrival-divider" style="top:${Math.max(65,Math.min(...state.newItems.map(id=>state.tokens[id]?.y??844))-18)}px"><span>new items</span></div>`:''}</section>`;
   }).join('')}</div></div></div>${debugCheckpoint?'<span class="checkpoint-badge">Generated checkpoint</span>':''}${showGoals?`<div class="hud-stack location-hud ${transitioning?'goals-leaving':''}" ${transitioning?'aria-hidden="true"':''}><button class="objective-overlay" ${leaving?'disabled':''} data-command="story" aria-label="Read this chapter"><span class="objectives">${goals.map(({goal,done})=>`<span class="objective-line ${done?'done':''}"><span class="goal-checkbox" aria-hidden="true">${done?'✓':''}</span><span>${escape(goal.text)}</span><span class="sr-only">${done?'Completed':'Not completed'}</span></span>`).join('')}${state.completed?'<span class="objective-line ending">The End</span>':''}</span></button></div>`:''}${goalView?.phase!=='goals'&&!state.completed?`<button class="chapter-next ${story.chapters[state.chapter+1]?.image?'':'right'} ${transitioning?'entering':''}" ${leaving?'disabled':''} data-command="advance" aria-label="Continue story"><span>${story.chapters[state.chapter+1]?.image?'↓':'→'}</span></button>`:''}`);
   const viewport=app.querySelector<HTMLElement>('.viewport')!;viewport.onscroll=()=>{scheduleGoalClearance();if(viewport.scrollTop!==expectedScroll){expectedScroll=viewport.scrollTop;rememberInteraction();save();}};setScroll(arrival?Math.max(0,(state.visited.length-1)*844*scale):scroll);
@@ -358,21 +363,20 @@ function partnerActions(): ReturnType<typeof legalActions> {
 }
 function highlight(id:string,pressed=false){const selected=tile(id);clearHighlights(selected);selected?.classList.add('pressed');selected?.classList.toggle('reading-selected',pressed);for(const action of partnerActions().filter(a=>a.a===id)){if(action.b)tile(action.b)?.classList.add('possible');else if(action.hotspot)app.querySelectorAll<HTMLElement>('[data-hotspot]').forEach(h=>{if(h.dataset.hotspot===action.hotspot)h.classList.add('possible');});}for(const g of visibleGoals(story,state))for(const c of g.conditions)if(c.item.id===id&&c.hotspot)app.querySelectorAll<HTMLElement>('[data-hotspot]').forEach(h=>{if(h.dataset.hotspot===c.hotspot)h.classList.add('possible');});}
 function clearHighlights(keep?:HTMLElement){app.querySelectorAll<HTMLElement>('.reading-selected').forEach(el=>{if(el!==keep)el.classList.remove('reading-selected');});app.querySelectorAll('.pressed,.possible,.will-create,.will-place').forEach(el=>el.classList.remove('pressed','possible','will-create','will-place'));}
-let drag:{id:string;pointer:number;el:HTMLElement;startX:number;startY:number;x:number;y:number;moved:boolean;timer:ReturnType<typeof setTimeout>;read:boolean}|undefined;
+let drag:{id:string;pointer:number;el:HTMLElement;startX:number;startY:number;x:number;y:number;moved:boolean}|undefined;
 const feedback=new ItemFeedback(highlight,()=>clearHighlights());
 let suppressReleaseClick=false;
-// Only the next physical press, not the release that opened a reader, can act on it.
+// Suppress the native click belonging to the double-tap that opened a reader.
 document.addEventListener('pointerdown',()=>{suppressReleaseClick=false;},true);
 function dropTarget(x:number,y:number){return document.elementsFromPoint(x,y).map(e=>e.closest<HTMLElement>('[data-item],[data-hotspot]')).find(e=>e&&e.dataset.item!==drag?.id);}
 app.addEventListener('pointerdown',e=>{
   const el=(e.target as Element).closest<HTMLElement>('[data-item]');if(!el||drag||document.querySelector('dialog')||e.button!==0)return;
   e.preventDefault();const id=el.dataset.item!,t=state.tokens[id];feedback.begin(id);el.setPointerCapture(e.pointerId);
-  const timer=setTimeout(()=>{if(drag&&!drag.moved){const d=drag;if(!readings(story,state,id).length)return;d.read=true;suppressReleaseClick=true;read(id);}},550);
-  drag={id,pointer:e.pointerId,el,startX:e.clientX,startY:e.clientY,x:t.x,y:t.y,moved:false,timer,read:false};
+  drag={id,pointer:e.pointerId,el,startX:e.clientX,startY:e.clientY,x:t.x,y:t.y,moved:false};
 });
 document.addEventListener('pointermove',e=>{
   if(!drag||e.pointerId!==drag.pointer)return;const scale=Math.min(1,app.clientWidth/390),dx=(e.clientX-drag.startX)/scale,dy=(e.clientY-drag.startY)/scale;
-  if(Math.hypot(dx,dy)>5){drag.moved=true;clearTimeout(drag.timer);}if(!drag.moved||drag.read)return;
+  if(Math.hypot(dx,dy)>5)drag.moved=true;if(!drag.moved)return;
   drag.el.classList.add('dragging');app.classList.add('is-dragging');drag.el.style.left=`${drag.x+dx}px`;drag.el.style.top=`${drag.y+dy}px`;
   app.querySelectorAll('.will-create,.will-place').forEach(e=>e.classList.remove('will-create','will-place'));
   const target=dropTarget(e.clientX,e.clientY),action=partnerActions().find(a=>a.a===drag!.id&&(target?.dataset.item?a.b===target.dataset.item:!a.b&&a.hotspot===target?.dataset.hotspot));
@@ -385,8 +389,8 @@ function restoreGestureTile(d:NonNullable<typeof drag>){
   clearGoalsAroundCards();
 }
 function endDrag(e:PointerEvent,cancel=false){
-  if(!drag||drag.pointer!==e.pointerId)return;const d=drag;clearTimeout(d.timer);const target=dropTarget(e.clientX,e.clientY);drag=undefined;restoreGestureTile(d);
-  if(cancel||d.read){feedback.clear();return;}
+  if(!drag||drag.pointer!==e.pointerId)return;const d=drag;const target=dropTarget(e.clientX,e.clientY);drag=undefined;restoreGestureTile(d);
+  if(cancel){feedback.clear();return;}
   if(!d.moved){if(feedback.release(d.id,true)){suppressReleaseClick=true;read(d.id);}return;}
   const action=partnerActions().find(a=>a.a===d.id&&(target?.dataset.item?a.b===target.dataset.item:!a.b&&a.hotspot===target?.dataset.hotspot));
   if(action)commit(target?.dataset.hotspot?{...action,chapter:Number(target.closest<HTMLElement>('[data-chapter]')!.dataset.chapter)}:action);
@@ -397,7 +401,7 @@ function endDrag(e:PointerEvent,cancel=false){
   if(!document.querySelector('dialog')&&state.tokens[d.id]?.status==='available')feedback.release(d.id,false);else feedback.clear();
 }
 document.addEventListener('pointerup',e=>endDrag(e));document.addEventListener('pointercancel',e=>endDrag(e,true));
-function cancelGesture(){if(!drag)return;const d=drag;clearTimeout(d.timer);drag=undefined;restoreGestureTile(d);feedback.clear();}
+function cancelGesture(){if(!drag)return;const d=drag;drag=undefined;restoreGestureTile(d);feedback.clear();}
 window.addEventListener('blur',()=>{cancelGesture();feedback.clear();});
 app.addEventListener('lostpointercapture',e=>{if(drag?.pointer===(e as PointerEvent).pointerId)cancelGesture();});
 app.addEventListener('dragstart',e=>e.preventDefault());
@@ -408,22 +412,22 @@ app.addEventListener('click',e=>{
   const element=e.target as Element;
   const item=element.closest<HTMLElement>('[data-item]');if(item&&e.detail===0){read(item.dataset.item!);return;}
   const target=element.closest<HTMLElement>('[data-command]');if(!target)return;
-  const command=target.dataset.command;
+  const command=target.dataset.command;if(target instanceof HTMLAnchorElement)e.preventDefault();
   if(command==='retry'){void start();return;}
   if(command==='debug'){toggleDebugPanel();return;}
   flushPreview();
   if(command==='dismiss')commit({type:'dismiss'});
   else if(command==='advance')commit({type:'advance'});
-  else if(command==='close'){closeDialog();showPending();rememberInteraction();save();}
+  else if(command==='close')dismissReading();
   else if(command==='confirm-reset-story')confirmRestart();
   else if(command==='cancel-reset-story')reopenChapter();
   else if(command==='reset-story'){resetGoalView();closeDialog();state=newGame(story);debugCheckpoint=false;render(true);rememberInteraction();save();}
   else if(command==='reset-chapter'){resetGoalView();closeDialog();state=structuredClone(chapterSession.entry);if(editedSnapshot){state.actions=[];}chapterSession=captureChapter(state);render();scrollToCurrentChapter();rememberInteraction();save();}
-  else if(command==='story'||command==='chapter-back')reopenChapter();
+  else if(command==='story')reopenChapter();
   else if(command==='encyclopedia')openEncyclopedia();
   else if(command==='encyclopedia-read')read(target.dataset.reading!,true);
 });
 window.addEventListener('resize',()=>{cancelGesture();if(state&&!document.querySelector('.chooser')&&!document.querySelector('dialog'))render();});
 new ResizeObserver(()=>{if(state)render(false,false);}).observe(app);
-dialogLayer.addEventListener('keydown',event=>{if(event.key==='Escape'){event.preventDefault();if(dialogContext?.kind==='pending')commit({type:'dismiss'});else if(dialogContext?.kind==='reading'&&dialogContext.fromEncyclopedia)openEncyclopedia();else if(dialogContext?.kind==='encyclopedia')reopenChapter();else{closeDialog();showPending();rememberInteraction();save();}}});
+dialogLayer.addEventListener('keydown',event=>{if(event.key==='Escape'){event.preventDefault();if(dialogContext?.kind==='pending')commit({type:'dismiss'});else dismissReading();}});
 void start();
