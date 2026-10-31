@@ -148,34 +148,48 @@ dialog button,dialog select{min-height:44px}
 
 /* Reading vocabulary is decorative; only the chapter's labelled button navigates. */
 .open-book{display:inline-block;width:25px;height:23px;vertical-align:middle;pointer-events:none}
-.reading-indicator{display:none;position:absolute;left:50%;top:-15px;transform:translateX(-50%);pointer-events:none;line-height:0;filter:drop-shadow(0 1px 2px #503a2066)}
+.reading-indicator{display:none;position:absolute;left:50%;top:-8px;transform:translateX(-50%);pointer-events:none;line-height:0;opacity:.7;filter:saturate(.3)}
+.reading-indicator .open-book{width:12.5px;height:11.5px}
 .thing.reading-selected .reading-indicator{display:block;animation:book-entrance .18s ease-out}
 @keyframes book-entrance{from{opacity:0;scale:.75;translate:0 3px}to{opacity:1;scale:1;translate:0 0}}
 @media(prefers-reduced-motion:reduce){.thing.reading-selected .reading-indicator{animation:none}}
 
-/* Facing pages stay within one dialog. Narrow game surfaces slide, not re-open. */
-.game-dialog-layer dialog.encyclopedia{width:min(100%,860px);height:min(84dvh,680px);max-height:calc(100dvh - 28px);padding:14px;overflow:hidden;display:flex;flex-direction:column;gap:12px}
-.encyclopedia-header{display:flex;align-items:center;justify-content:space-between;gap:12px;flex:none}
+/* One page fills the book viewport at every width. The central fold and a
+   narrow facing-page sliver travel with the whole page, including its controls. */
+.game-dialog-layer dialog.encyclopedia{width:min(100%,560px);height:min(84dvh,680px);max-height:calc(100dvh - 28px);padding:0;overflow:hidden;display:flex;flex-direction:column;border-radius:8px;background:#fff}
+.encyclopedia-header{display:flex;align-items:center;justify-content:space-between;gap:12px;flex:none;padding:14px 16px 10px;min-height:68px}
 .encyclopedia-header h1{font:normal 25px/1.2 Georgia,serif;margin:0}
-.encyclopedia-pages{flex:1;min-height:0;overflow:hidden;border:1px solid #d6cbb8;border-radius:4px;background:#fff}
+.encyclopedia-pages{flex:1;min-height:0;overflow:hidden;background:#fff;isolation:isolate}
 .encyclopedia-track{display:flex;width:100%;height:100%;transform:translateX(0);transition:transform .24s ease-in-out}
-.encyclopedia-index,.encyclopedia-detail{flex:0 0 50%;min-width:0;min-height:0;height:100%;background:#fff}
+.encyclopedia-index,.encyclopedia-detail{flex:0 0 calc(100% - 24px);min-width:0;min-height:0;height:100%;background:#fff;position:relative}
 .encyclopedia-index{display:flex;flex-direction:column}
-.encyclopedia .encyclopedia-list{flex:1;min-height:0;touch-action:pan-y;margin:0;overflow-anchor:none;overflow-y:auto;padding:14px 12px;scrollbar-gutter:stable;overscroll-behavior:contain}
+.encyclopedia .encyclopedia-list{flex:1;min-height:0;touch-action:pan-y;margin:0;overflow-anchor:none;overflow-y:auto;padding:4px 16px 16px;scrollbar-gutter:stable;overscroll-behavior:contain}
 .encyclopedia-chapter h2{font:normal 17px/1.3 Georgia,serif;margin:16px 0 5px;color:#65553e}
 .encyclopedia-chapter:first-child h2{margin-top:0}
 .encyclopedia-chapter ul{padding:0 0 0 16px;margin:0;list-style:none}
 .encyclopedia-list a{display:block;color:inherit;text-decoration:none;overflow-wrap:anywhere;min-height:28px;padding:3px 4px;font-size:14px;line-height:22px;border-radius:2px}
 .encyclopedia-list a:hover,.encyclopedia-list a:focus-visible{text-decoration:underline;text-underline-offset:3px}
 .encyclopedia-list a[aria-current]{background:#f3eddf;color:#4d3b18}
-.encyclopedia-detail{display:flex;flex-direction:column;border-left:1px solid #d6cbb8;box-shadow:inset 5px 0 9px -8px #766344}
-.encyclopedia-detail-toolbar{padding:6px 10px 0;flex:none;min-height:50px}
-.encyclopedia-detail-toolbar button{background:transparent;border:0;padding:6px 8px;min-height:44px}
+.encyclopedia-detail{display:flex;flex-direction:column;box-shadow:inset 7px 0 9px -9px #806d48}
+.encyclopedia-index{box-shadow:inset -7px 0 9px -9px #806d48}
+.encyclopedia-spine{flex:0 0 12px;position:relative;background:linear-gradient(90deg,#f1ecdf 0%,#d9cfb9 38%,#b9aa8a 49%,#e1d7c3 58%,#faf7ef 100%);border-inline:1px solid #d6cbb8;pointer-events:none}
+.encyclopedia-detail-toolbar{gap:8px}
+.encyclopedia-detail-toolbar [data-command="encyclopedia-back"]{background:transparent;border:0;padding:6px 0;min-height:44px}
 .encyclopedia-reading{flex:1;min-height:0;overflow-y:auto;overscroll-behavior:contain;padding:0 20px 18px}
 .encyclopedia-reading .reading-text{font-size:19px;line-height:1.5;overflow-wrap:anywhere}
 .encyclopedia-reading .reading-text>:first-child{margin-top:8px}
 .encyclopedia-placeholder{color:#857b69;font:italic 17px/1.5 Georgia,serif;margin-top:16px}
-.book-narrow .encyclopedia-index,.book-narrow .encyclopedia-detail{flex-basis:100%}
-.book-narrow .encyclopedia-detail{border-left:0;box-shadow:none}
-.book-narrow .encyclopedia-pages.show-detail .encyclopedia-track{transform:translateX(-100%)}
+.encyclopedia-pages.show-detail .encyclopedia-track{transform:translateX(calc(-100% + 36px))}
 @media(prefers-reduced-motion:reduce){.encyclopedia-track{transition:none}}
+/* The facing-page edge is paper, not an inactive scrollbar. Keep its gutter
+   allocated so hiding the thumb never changes wrapping or scroll position. */
+.encyclopedia-index[inert] .encyclopedia-list{scrollbar-color:transparent transparent}
+.encyclopedia-index[inert] .encyclopedia-list::-webkit-scrollbar-thumb,
+.encyclopedia-index[inert] .encyclopedia-list::-webkit-scrollbar-track{background:transparent}
+
+/* A new run first offers an uncluttered, top-aligned view of its opening scene. */
+.story-landing{overflow:hidden}
+.story-landing .scene-art{object-position:center top}
+.story-start{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);z-index:3;min-width:112px;min-height:48px;padding:10px 24px;border:1px solid #718571;border-radius:8px;background:#fffaf0;color:#35382f;font:20px/1.3 Georgia,serif;box-shadow:0 2px 9px #302b2533}
+
+.chooser img{display:block;max-width:100%;height:auto}

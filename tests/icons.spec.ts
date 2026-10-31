@@ -33,6 +33,7 @@ async function openFixture(page: Page, text = manuscript) {
     return route.fulfill({contentType: 'image/svg+xml', body: `<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}">${shape}</svg>`});
   });
   await page.goto('/combinations.html?story=icon-fixture');
+  await page.getByRole('button', { name: 'Start', exact: true }).click();
   await page.getByRole('button', {name: 'Begin', exact: true}).click();
 }
 

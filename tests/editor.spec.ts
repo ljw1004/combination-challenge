@@ -57,6 +57,7 @@ async function serveFixture(page: Page, text = manuscript) {
 async function openFixture(page: Page) {
   await serveFixture(page);
   await page.goto('/combinations.html?story=fixture');
+  await page.getByRole('button', { name: 'Start', exact: true }).click();
   await page.getByRole('button', { name: 'Begin', exact: true }).click();
   await openEditor(page);
 }
@@ -286,6 +287,7 @@ test('same-directory loading, missing-story errors and failed storage keep the e
     await route.fulfill({response});
   });
   await page.goto('/fixture/combinations.html');
+  await page.getByRole('button', { name: 'Start', exact: true }).click();
   await page.getByRole('button', { name: 'Begin', exact: true }).click();
   await expect(page.locator('.scene-art')).toHaveAttribute('src', /\/fixture\/assets\/bg\.svg$/);
   await openEditor(page);
@@ -319,6 +321,7 @@ test('diagnostics keep source order and scroll while their related locations nav
     + '\n**Goals**\n' + Array.from({length: 12}, (_, i) => `- Incomplete goal ${i}\n`).join('');
   await serveFixture(page, text.replaceAll('\n', '\r\n'));
   await page.goto('/combinations.html?story=fixture');
+  await page.getByRole('button', { name: 'Start', exact: true }).click();
   await page.getByRole('button', {name: 'Begin', exact: true}).click();
   await openEditor(page);
   const entries = page.locator('.editor-diagnostic');
@@ -475,6 +478,7 @@ Build a two-stage construction.
 `;
   await serveFixture(page, chain);
   await page.goto('/combinations.html?story=fixture');
+  await page.getByRole('button', { name: 'Start', exact: true }).click();
   await page.getByRole('button', { name: 'Begin', exact: true }).click();
   await openEditor(page);
   await page.locator('[data-item="name:Frame"]').dblclick();

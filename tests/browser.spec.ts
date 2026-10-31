@@ -2,7 +2,7 @@ import {test,expect} from '@playwright/test';
 import {readFileSync} from 'node:fs';
 import {jumpToChapter, openDebugPanel} from './debug-helpers.ts';
 const chapter = (story: string, index: number) => [...readFileSync(`stories/${story}/story.md`, 'utf8').matchAll(/^## (.+)$/gm)][index][1];
-async function openMars(page:import('@playwright/test').Page){await page.goto('/#mars');await page.getByRole('button',{name:'Begin',exact:true}).click();}
+async function openMars(page:import('@playwright/test').Page){await page.goto('/#mars');await page.getByRole('button',{name:'Start',exact:true}).click();await page.getByRole('button',{name:'Begin',exact:true}).click();}
 test('real pointer combine, surviving source, reload and chapter reset without instructions',async({page})=>{
   await openMars(page);const radio=page.locator('[data-item="name:Broken radio"]'),cable=page.locator('[data-item="name:Cable"]');const a=(await radio.boundingBox())!,b=(await cable.boundingBox())!;
   await page.mouse.move(a.x+20,a.y+20);await page.mouse.down();await expect(cable).toHaveClass(/possible/);await page.mouse.move(b.x+20,b.y+20,{steps:6});await expect(cable).toHaveClass(/will-create/);await page.mouse.up();await expect(page.locator('[data-item="name:Radio"]')).toHaveCount(1);
@@ -54,7 +54,7 @@ test('manual recovery controls are conditional and story restart requires confir
   await page.getByRole('button',{name:'Restart this chapter'}).click();await page.getByRole('button',{name:'Begin',exact:true}).click();
   const restored=(await card.boundingBox())!;expect(restored.x).toBeCloseTo(before.x,1);expect(restored.y).toBeCloseTo(before.y,1);
   await page.getByRole('button',{name:'Read this chapter'}).click();await page.getByRole('button',{name:'Restart story',exact:true}).click();await page.getByRole('button',{name:'Restart story',exact:true}).click();
-  await expect(page.locator('.chapter-panel')).toHaveCount(1);await expect(page.locator('dialog button')).toHaveCount(1);await expect(page.getByRole('button',{name:'Begin',exact:true})).toBeVisible();
+  await expect(page.getByRole('button',{name:'Start',exact:true})).toBeVisible();await expect(page.locator('dialog')).toHaveCount(0);await expect(page.locator('[data-item]')).toHaveCount(0);
 });
 
 test('a card covering centered goals keeps native pointer precedence',async({page})=>{
@@ -70,6 +70,7 @@ test('a card covering centered goals keeps native pointer precedence',async({pag
 
 test('holding a described item does not read or obstruct a later drag; double-click still reads',async({page})=>{
   await page.goto('/');await page.locator('[data-story="elements"]').click();
+  await page.getByRole('button',{name:'Start',exact:true}).click();
   await page.getByRole('button',{name:'Begin',exact:true}).click();
   await jumpToChapter(page,chapter('elements',18),true);await page.getByRole('button',{name:'Begin',exact:true}).click();
   const plant=page.locator('[data-item="name:Plant"]');await plant.scrollIntoViewIfNeeded();const box=(await plant.boundingBox())!;

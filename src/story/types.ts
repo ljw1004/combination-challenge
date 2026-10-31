@@ -32,7 +32,7 @@ export interface Recipe {
   installation?: string; source: Source;
 }
 export interface Story {
-  id: string; title: string; description: string; chapters: Chapter[];
+  id: string; title: string; description: string; cover?: string; chapters: Chapter[];
   items: Record<string, Item>; hotspots: Record<string, Hotspot>; recipes: Recipe[];
   diagnostics: Diagnostic[]; source: Source; fateSites?: FateSite[];
 }

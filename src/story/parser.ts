@@ -48,6 +48,11 @@ function bullets(lines: Line[]): Bullet[] {
   return roots;
 }
 
+/** Backgrounds use a whole image paragraph, never an image embedded in prose. */
+function paragraphImage(paragraph: string): string | undefined {
+  return /^!\[[^\]]*\]\(([^)]+)\)$/.exec(paragraph.trim())?.[1];
+}
+
 export function parseStory(markdown: string, options: { id?: string; file?: string } = {}): Story {
   const file = options.file ?? 'story.md', source = sourceMap(markdown, file).line;
   const story: Story = { id: options.id ?? 'story', title: '', description: '', chapters: [], items: {}, hotspots: {}, recipes: [], diagnostics: [], source: source(1), fateSites: [] };
@@ -221,6 +226,8 @@ export function parseStory(markdown: string, options: { id?: string; file?: stri
   const title = preamble.find(l => /^# /.test(l.text)); story.title = title?.text.slice(2).trim() ?? options.id ?? 'Untitled story';
   if (!title) error('missing-title', 'A story needs a # title.', 1);
   story.description = preamble.filter(l => l !== title).map(l => l.text).join('\n').trim();
+  const cover = paragraphImage(story.description.split(/\n\s*\n/)[0] ?? '');
+  if (cover) story.cover = cover;
   for (const block of chapterLines) {
     const chapter: Chapter = { id: `chapter:${story.chapters.length}`, name: block.heading.text.slice(3).trim(), intro: '', skipped: '', hotspots: [], items: [], goals: [], goalOperator: 'and', source: source(block.heading.line) };
     const sections = new Map<string, Line[]>(); let current = 'intro'; sections.set(current, []);
@@ -234,8 +241,8 @@ export function parseStory(markdown: string, options: { id?: string; file?: stri
       else sections.get(current)!.push(line);
     }
     const intro = sections.get('intro')!.map(l => l.text).join('\n').trim().split(/\n\s*\n/);
-    const background = /^!\[[^\]]*\]\(([^)]+)\)$/.exec(intro[0]?.trim() ?? '');
-    if (background) { chapter.image = background[1]; intro.shift(); }
+    const background = paragraphImage(intro[0] ?? '');
+    if (background) { chapter.image = background; intro.shift(); }
     chapter.intro = intro.filter(p => !p.startsWith('[If skipped]')).join('\n\n').trim();
     chapter.skipped = intro.filter(p => p.startsWith('[If skipped]')).map(p => p.replace(/^\[If skipped\]\s*/, '')).join('\n\n');
     const goalOps = new Set<string>();

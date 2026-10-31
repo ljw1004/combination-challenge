@@ -32,6 +32,7 @@ Workshop introduction.
 async function openFixture(page: Page, text = manuscript) {
   await page.route('**/library-fixture/story.md', route => route.fulfill({ contentType: 'text/markdown', body: text }));
   await page.goto('/combinations.html?story=library-fixture');
+  await page.getByRole('button', { name: 'Start', exact: true }).click();
   await expect(page.locator('dialog button')).toHaveCount(1);
   await page.getByRole('button', { name: 'Begin', exact: true }).click();
 }
@@ -79,6 +80,9 @@ test('only pressed described items get a book, through drag and lingering releas
   await expect(stone).toHaveClass(/possible/);
   await expect(stone.locator('.reading-indicator')).toBeHidden();
   expect(await book.evaluate(el => getComputedStyle(el).animationName)).toBe('none');
+  expect(await book.locator('.open-book').evaluate(el => [getComputedStyle(el).width, getComputedStyle(el).height])).toEqual(['12.5px', '11.5px']);
+  expect(await book.evaluate(el => getComputedStyle(el).opacity)).toBe('0.7');
+  expect(await book.evaluate(el => getComputedStyle(el).filter)).toBe('saturate(0.3)');
   await page.mouse.move(70, 550, { steps: 4 });
   await expect(book).toBeVisible();
   await page.mouse.up(); await page.mouse.move(5, 700);
@@ -143,35 +147,49 @@ test('two touch taps still open a direct reading and Close returns to the board'
   await context.close();
 });
 
-test('facing pages adapt to actual dialog width without losing selection; global Close exits from detail', async ({ page }) => {
+test('one whole page and facing sliver at desktop and phone widths; page-local controls slide with it', async ({ page }) => {
   await page.setViewportSize({ width: 1100, height: 800 });
   await page.emulateMedia({ reducedMotion: 'reduce' });
   await openFixture(page, manuscript.replace('- Tool\n', '- Extra\n\n  Extra description.\n\n- Tool\n'));
   await page.getByRole('button', { name: 'Read this chapter' }).click();
+  const glyph = page.getByRole('button', { name: 'Encyclopedia', exact: true }).locator('.open-book');
+  expect(await glyph.evaluate(el => [getComputedStyle(el).width, getComputedStyle(el).height])).toEqual(['25px', '23px']);
   await page.getByRole('button', { name: 'Encyclopedia', exact: true }).click();
   const dialog = page.getByRole('dialog', { name: 'Encyclopedia', exact: true });
   const index = page.locator('.encyclopedia-index'), detail = page.locator('.encyclopedia-detail');
-  await expect(dialog).not.toHaveClass(/book-narrow/);
-  await page.getByRole('link', { name: 'Stone', exact: true }).click();
-  await expect(index).toHaveAttribute('aria-hidden', 'false');
-  await expect(detail).toHaveAttribute('aria-hidden', 'false');
-  expect(await index.evaluate(el => (el as HTMLElement).inert)).toBe(false);
-  expect(await detail.evaluate(el => (el as HTMLElement).inert)).toBe(false);
-  const left = (await index.boundingBox())!, right = (await detail.boundingBox())!;
-  expect(right.x).toBeGreaterThanOrEqual(left.x + left.width - 1);
-  expect(await page.locator('.encyclopedia-track').evaluate(el => getComputedStyle(el).transitionDuration)).toBe('0s');
+  const pages = page.locator('.encyclopedia-pages'), spine = page.locator('.encyclopedia-spine');
   const node = (await dialog.elementHandle())!;
-  await page.setViewportSize({ width: 390, height: 844 });
-  await expect(dialog).toHaveClass(/book-narrow/);
-  await expect(index).toHaveAttribute('aria-hidden', 'true');
-  await expect(detail.locator('.reading-text')).toHaveText('A stone explanation.');
-  expect(await node.evaluate(el => el.isConnected)).toBe(true);
-  await page.getByRole('button', { name: 'Back', exact: true }).click();
-  await expect(page.getByRole('link', { name: 'Stone', exact: true })).toBeFocused();
-  await page.setViewportSize({ width: 1100, height: 800 });
-  await expect(dialog).not.toHaveClass(/book-narrow/);
-  await expect(detail).toHaveAttribute('aria-hidden', 'false');
-  await expect(detail.locator('.reading-text')).toHaveText('A stone explanation.');
+  for (const width of [1100, 390]) {
+    await page.setViewportSize({ width, height: 800 });
+    await expect(index).toHaveAttribute('aria-hidden', 'false');
+    await expect(detail).toHaveAttribute('aria-hidden', 'true');
+    expect(await detail.evaluate(el => (el as HTMLElement).inert)).toBe(true);
+    await expect(page.getByRole('heading', { name: 'Index', exact: true })).toBeVisible();
+    await expect(page.getByRole('button', { name: 'Close', exact: true })).toHaveCount(1);
+    expect(await page.getByRole('heading', { name: 'Index', exact: true }).evaluate(el => !!el.closest('.encyclopedia-index .encyclopedia-header'))).toBe(true);
+    expect(await page.getByRole('button', { name: 'Close', exact: true }).evaluate(el => !!el.closest('.encyclopedia-index'))).toBe(true);
+    const viewport = (await pages.boundingBox())!, left = (await index.boundingBox())!, fold = (await spine.boundingBox())!, right = (await detail.boundingBox())!;
+    expect(left.width).toBeCloseTo(viewport.width - 24, 0);
+    expect(fold.width).toBeCloseTo(12, 0);
+    expect(right.x - viewport.x).toBeCloseTo(viewport.width - 12, 0);
+    await page.getByRole('link', { name: 'Stone', exact: true }).click();
+    await expect(index).toHaveAttribute('aria-hidden', 'true');
+    await expect(detail).toHaveAttribute('aria-hidden', 'false');
+    expect(await index.evaluate(el => (el as HTMLElement).inert)).toBe(true);
+    await expect(page.getByRole('heading', { name: 'Index', exact: true })).toHaveCount(0);
+    await expect(page.getByRole('button', { name: 'Close', exact: true })).toHaveCount(1);
+    expect(await page.getByRole('button', { name: 'Close', exact: true }).evaluate(el => !!el.closest('.encyclopedia-detail .encyclopedia-header'))).toBe(true);
+    expect(await page.getByRole('button', { name: 'Back', exact: true }).evaluate(el => !!el.closest('.encyclopedia-detail .encyclopedia-header'))).toBe(true);
+    const turned = (await detail.boundingBox())!;
+    expect(turned.x - viewport.x).toBeCloseTo(24, 0);
+    expect(turned.width).toBeCloseTo(viewport.width - 24, 0);
+    expect(await page.locator('.encyclopedia-track').evaluate(el => getComputedStyle(el).transitionDuration)).toBe('0s');
+    await expect(detail.locator('.reading-text')).toHaveText('A stone explanation.');
+    expect(await node.evaluate(el => el.isConnected)).toBe(true);
+    await page.getByRole('button', { name: 'Back', exact: true }).click();
+    await expect(page.getByRole('link', { name: 'Stone', exact: true })).toBeFocused();
+    await expect(page.getByRole('link', { name: 'Stone', exact: true })).toHaveAttribute('aria-current', 'true');
+  }
   await page.getByRole('link', { name: 'Grain', exact: true }).click();
   await page.getByRole('button', { name: 'Close', exact: true }).click();
   await expect(page.locator('dialog')).toHaveCount(0);

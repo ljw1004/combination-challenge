@@ -30,9 +30,11 @@ Do not snapshot whole stories, pin incidental counts or rerun historical tests. 
 
 ## Browser implementation
 
+The story cover is a presentation gate, not an engine action. Unstarted covers do not persist game progress; Start captures the ordinary arrival state, while valid existing saves and explicit debug checkpoints bypass the gate. Pre-start live edits regenerate a fresh initial game rather than reconciling inventory the player has never seen. Story restart removes only that story’s progress before returning to its cover; chapter restart restores its existing arrival snapshot and popup.
+
 Implement the interaction contract in [UX](ux.md). Preserve connected image and scene DOM nodes rather than replacing the world after each move; do not rewrite unchanged image URLs. Suppress native HTML drag, own pointer timers and capture through completion, cancellation, focus loss and resize, and measure long labels as well as simple physical-item names. Test real pointer events, and distinguish browser touch emulation from a native-device test.
 
-The encyclopedia book renderer is separate from standalone readings. Preserve its dialog and index DOM while selecting details; responsive pane visibility must update inertness and accessibility state along with the visual slide. Live text refresh must not commit a new interaction anchor or steal editor focus.
+The encyclopedia book renderer is separate from standalone readings. Preserve its dialog and index DOM while selecting details; page visibility must update inertness and accessibility state along with the visual slide at every viewport width. Page-local headings and controls move within the same track as the index and reading, with the central fold separating them. Live text refresh must not commit a new interaction anchor or steal editor focus.
 
 Keep script/test source boundaries explicit so archived snapshots cannot accidentally enter the active build.
 
