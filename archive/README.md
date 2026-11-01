@@ -30,3 +30,7 @@ The [evidence index](<2026.10.30 authenticity improvements/authenticity-evidence
 ### Lint review evidence
 
 [`2026.10.30 lint review/`](<2026.10.30 lint review/>) holds the compact supporting evidence for the [lint review and current implementation record](<../docs/backlog - lint review.md>). Its [bundle manifest](<2026.10.30 lint review/bundle-manifest.json>) records retained files and hashes. These summaries and attributed reports are not full replayable sessions.
+
+### Icon development evidence
+
+[`icon-generation/`](icon-generation/) retains the original [icon brief](icon-generation/instructions.md), formerly `docs/icons.md`, the seven-style comparison and its iterative review records, and the full Settlement production evidence and scripts. The [icon guide](../docs/icon-guide.md) reconstructs the process and maps current evidence locations. Some archived links and script output paths predate relocation; treat them as historical references, not active regeneration commands. Source paintings and reference collections remain in [`references/icon-sets/`](../references/icon-sets/).

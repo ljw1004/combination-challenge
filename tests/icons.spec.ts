@@ -615,7 +615,7 @@ test('live placement diagnostics report an outside centre and undefined referenc
   await page.setViewportSize({width:1100,height:900});
   await openFixture(page,placedCellar.replace('place: Risen dough (at 78%, 65%)','place: Typo (at 10%, 10%)'));
   await openDebugPanel(page);
-  await expect(page.locator('.editor-diagnostics')).toContainText('undefined-place-item');
+  await expect(page.locator('.editor-diagnostics')).toContainText('undeclared-item');
   await expect(page.locator('.editor-diagnostics')).toContainText('place-outside-hotspot');
 });
 

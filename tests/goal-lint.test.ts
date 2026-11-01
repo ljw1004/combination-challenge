@@ -55,7 +55,7 @@ test('suppression inserts and selects the required placeholder, preserving origi
 
 test('acknowledgments require verbatim text and a real reason, with ordinary Markdown bullet whitespace', () => {
   const inline = '- Finish -- A\n- Other -- B\n- Last -- C\n';
-  const base = '# Test\n## Workshop\n![room](room.webp)\n**Combinations**\n- X [preserve] + Y [preserve] -> Z (tutorial)\n**Goals**\n';
+  const base = '# Test\n## Workshop\n![room](room.webp)\n**Items**\n- A\n- B\n- C\n- X\n- Y\n- Z\n**Combinations**\n- X [preserve] + Y [preserve] -> Z (tutorial)\n**Goals**\n';
   for (const bullet of ['- ', '-  ', '-\t', '  -\t ']) {
     const indent = bullet.match(/^ */)![0];
     const text = base + bullet + acknowledgment.slice(2) + '\n' + inline.split('\n').filter(Boolean).map(line => indent + line).join('\n');

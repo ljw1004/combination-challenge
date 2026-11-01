@@ -39,16 +39,15 @@ export class StoryLanguageDocument implements StoryLanguageService {
   private images: ImageHover[];
 
   constructor(text: string, file = 'story.md') {
-    const references: SourceReference[] = [];
     const comments: SemanticToken[] = [];
-    this.story = parseStory(text, {file, onReference: reference => references.push(reference),
+    this.story = parseStory(text, {file,
       onComment: source => { if (source.span) comments.push({range: source.span, kind: 'comment'}); },
     });
     this.images = [...text.matchAll(/!\[([^\]\r\n]*)\]\(([^)\r\n]+)\)/g)].map(match => ({
       kind: 'image', range: {from: match.index!, to: match.index! + match[0].length}, alt: match[1], url: match[2].trim(),
     }));
     const lines = text.split(/\r\n?|\n/);
-    this.occurrences = references.sort((a, b) => a.source.span.from - b.source.span.from || a.source.span.to - b.source.span.to)
+    this.occurrences = [...this.story.sourceReferences].sort((a, b) => a.source.span.from - b.source.span.from || a.source.span.to - b.source.span.to)
       .map(reference => ({...reference,
         chapter: this.story.chapters.findLast(chapter => chapter.source.line <= reference.source.line)?.name,
         excerpt: lines[reference.source.line - 1].trim(),

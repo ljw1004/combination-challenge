@@ -27,6 +27,9 @@ We have stopped beside the road. The children want porridge, flatbread and apple
 - Water
 - Apples
 - Fruit press
+- Soaked grain
+- Porridge
+- Fruit porridge
 
 **Combinations**
 - Grain + Millstone [preserve] -> Flour (tutorial)
@@ -58,6 +61,7 @@ The yogurt starter is a milk culture, different from the yeast used for bread. C
 - Cream
 - Churn
 - Apples
+- Fruit yogurt
 
 **Combinations**
 - Milk + Yogurt starter [preserve] @ Warm shelf -> Yogurt
@@ -83,6 +87,8 @@ The baker is starting breakfast next door. Bring the dough from the roadside hea
 - Baker’s yeast
 - Dough
 - Butter
+- Leavened dough
+- Bread and butter
 
 **Combinations**
 - Dough + Baker’s yeast [preserve] @ Proofing shelf -> Leavened dough
@@ -105,6 +111,9 @@ The dairy keeper is draining yogurt at the side table. There is flatbread for a 
 - Cucumber
 - Yogurt
 - Flatbread
+- Herbed strained yogurt
+- Flatbread with herbed yogurt
+- Cucumber yogurt
 
 **Combinations**
 - Yogurt + Straining cloth [preserve] -> Strained yogurt
@@ -132,6 +141,7 @@ The cider maker manages the fermentation and supplies air when making vinegar. T
 - Olive oil
 - Salad leaves
 - Apple juice
+- Hard cider
 
 **Combinations**
 - Apple juice + Cider yeast [preserve] -> Hard cider
@@ -162,6 +172,8 @@ By lunchtime, the farm stove is free. The crew would like warm herb toast and yo
 - Apples
 - Apple juice
 - Yogurt
+- Herb-buttered bread
+- Compote yogurt
 
 **Combinations**
 - Butter + Herbs -> Herb butter
@@ -190,6 +202,11 @@ Rain has stopped the caravan at an inn. The guests want bread soup and onion sou
 - Bread
 - Butter
 - Herb toast
+- Vegetable stock pot
+- Bread soup
+- Softened onions
+- Onion soup
+- Onion soup with herb toast
 
 **Combinations**
 - Root vegetables + Water -> Vegetable stock pot
@@ -220,6 +237,8 @@ The drivers are still outside unloading. At the roasting oven, make them a bean-
 - Herb butter
 - Flatbread
 - Bread
+- Bean stew with roasted roots
+- Root-and-bean flatbread
 
 **Combinations**
 - Cooked beans [preserve] + Vegetable broth -> Bean stew
@@ -253,6 +272,10 @@ The next morning, the gardener brings mustard to the salad counter. Our roast ro
 - Roasted roots
 - Dressed salad
 - Croutons
+- Mustard paste
+- Mustard dressing
+- Roasted-root salad
+- Green salad with croutons
 
 **Combinations**
 - Ground mustard seed + Cider vinegar -> Mustard paste
@@ -291,6 +314,9 @@ The market cookshop needs pasta for lunch. At the pasta bench, prepare noodles a
 - Flour
 - Roasted roots
 - Strained yogurt
+- Egg pasta dough
+- Pasta sheets
+- Root and yogurt filling
 
 **Combinations**
 - Bread + Bread knife [preserve] -> Breadcrumbs
@@ -321,6 +347,11 @@ The lunch queue has arrived. Take the pasta and crumbs across to the cooking pot
 - Herb butter
 - Breadcrumbs
 - Filled ravioli
+- Herb-buttered noodles
+- Toasted crumbs
+- Noodles with toasted crumbs
+- Cooked ravioli
+- Ravioli with herb butter
 
 **Combinations**
 - Fresh noodles [transform] @ Cooking pot -> Cooked noodles
@@ -350,6 +381,7 @@ Butter rubbed through flour makes crumbs that need water to bind them. For puff 
 - Butter
 - Water
 - Dough
+- Buttery pastry crumbs
 
 **Combinations**
 - Flour + Butter @ Pastry bench -> Buttery pastry crumbs
@@ -381,6 +413,11 @@ At the ovens, the cook is filling the pastry cases. Our bean stew can become a p
 - Apples
 - Laminated dough
 - Bean stew
+- Unbaked fruit tart
+- Unbaked bean pie
+- Bean pie
+- Cheese-straw twists
+- Cheese straws
 
 **Combinations**
 - Shortcrust + Apples -> Unbaked fruit tart
@@ -410,6 +447,8 @@ Here the flour and butter cook together into a pale roux, unlike the cold crumbs
 - Butter
 - Milk
 - Grated cheese
+- White roux
+- Béchamel
 
 **Combinations**
 - Flour + Butter @ `saucepan-sauce` -> White roux
@@ -437,6 +476,12 @@ The supper cook has a cauliflower and our remaining noodles ready. The workers w
 - Cheese sauce
 - Cooked noodles
 - Butter
+- Cooked cauliflower
+- Cauliflower in cheese sauce
+- Cauliflower gratin
+- Noodles in cheese sauce
+- Baked cheese noodles
+- Buttered cauliflower
 
 **Combinations**
 - Cauliflower [preserve] @ Steamer -> Cooked cauliflower
@@ -474,6 +519,9 @@ These are preparations for the cooks to use, not a claim of shelf-stable preserv
 - Apples
 - Apple juice
 - Water
+- Macerated fruit
+- Softened citrus
+- Marmalade
 
 **Combinations**
 - Apples + Sugar -> Macerated fruit
@@ -508,6 +556,11 @@ After supper service, the oven bench is clear for dessert. Bring the jam, pastry
 - Fruit tart
 - Fruit syrup
 - Glazed fruit tart
+- Buttery crumble topping
+- Unbaked jam tart
+- Jam tart
+- Unbaked fruit crumble
+- Fruit crumble
 
 **Combinations**
 - Breadcrumbs + Butter -> Buttery crumble topping
@@ -535,6 +588,8 @@ The fair’s confectioner is making almond pastries at the nut counter. The suga
 - Water
 - Puff pastry
 - Marzipan-stuffed dates
+- Ground almonds
+- Almond-filled puff pastry
 
 **Combinations**
 - Sugar + Sugar mill [preserve] -> Confectioner’s sugar
@@ -564,6 +619,9 @@ At the sugar stove, the confectioner needs brittle for the stall and caramel sau
 - Water
 - Almonds
 - Cream
+- Sugar syrup
+- Caramel
+- Almond brittle
 
 **Combinations**
 - Sugar + Water @ `sugar-pan-caramel` -> Sugar syrup
@@ -594,6 +652,10 @@ Pouring custard and pastry cream are different preparations. Starch thickens the
 - Corn starch
 - Sugar
 - Milk
+- Sweetened yolks
+- Pouring custard
+- Starch-thickened yolk base
+- Pastry cream mixture
 
 **Combinations**
 - Egg yolks [preserve] + Sugar -> Sweetened yolks
@@ -626,6 +688,12 @@ At the pudding oven, use our dry bread for a caramel pudding and fill a pastry c
 - Bread
 - Custard mixture
 - Caramel sauce
+- Baked tart case
+- Cream-filled tart
+- Fruit cream tart
+- Custard-soaked bread
+- Bread pudding
+- Caramel bread pudding
 
 **Combinations**
 - Shortcrust [transform] @ `custard-oven-custard-baking` -> Baked tart case
@@ -657,6 +725,11 @@ The cooked flour paste is enriched with eggs after appropriate cooling. Steam ex
 - Flour
 - Eggs
 - Grated cheese
+- Choux cooking liquid
+- Cooked flour paste
+- Choux paste
+- Cheese choux paste
+- Cheese puffs
 
 **Combinations**
 - Butter + Water @ `choux-pan-choux` -> Choux cooking liquid
@@ -685,6 +758,8 @@ The buns have cooled at the filling table. Our pastry cream and caramel sauce ar
 - Hollow choux buns
 - Pastry cream
 - Caramel sauce
+- Custard-filled choux
+- Caramel choux
 
 **Combinations**
 - Cream + Whisk -> Whipped cream
@@ -711,6 +786,10 @@ The next morning, the bakery has cleared a cake bench for a family’s birthday.
 - Whisk
 - Sugar
 - Flour
+- Egg foam
+- Sweet egg foam
+- Sponge batter
+- Chocolate sponge batter
 
 **Combinations**
 - Eggs + Whisk -> Egg foam
@@ -736,6 +815,11 @@ The cakes have cooled. At the finishing table, use one for a jam roll and some c
 - Whipped cream
 - Vanilla custard
 - Apple compote
+- Jam roll
+- Jam-and-cream roll
+- Trifle base
+- Fruit trifle
+- Cream-topped trifle
 
 **Combinations**
 - Sponge cake + Soft-set fruit jam -> Jam roll
@@ -765,6 +849,8 @@ The roasted cacao nibs have already been fermented and processed. The chocolate 
 - Sugar
 - Cream
 - Butter
+- Ground cacao paste
+- Sweetened cacao paste
 
 **Combinations**
 - Roasted cacao nibs [preserve] + Mortar -> Ground cacao paste
@@ -794,6 +880,8 @@ The chocolate counter has space to finish our sponge, almond sweets and cream pu
 - Dark chocolate
 - Cream puffs
 - Chocolate glaze
+- Chocolate-coated marzipan
+- Chocolate profiteroles
 
 **Combinations**
 - Chocolate sponge [transform] + Chocolate ganache -> Ganache-filled chocolate cake
@@ -823,6 +911,11 @@ The tea room needs scones for waiting passengers. Jam and whipped cream are read
 - Whipped cream
 - Cocoa powder
 - Hot chocolate
+- Rubbed-in scone mix
+- Scone dough
+- Scones
+- Jam-filled scones
+- Cream tea plate
 
 **Combinations**
 - Flour + Baking powder [preserve] -> Self-raising flour
@@ -857,6 +950,13 @@ Later, another shift takes over the cleared baking bench. The crew needs fruit m
 - Apples
 - Yogurt
 - Flour
+- Beaten egg-and-milk mixture
+- Buttery muffin mixture
+- Muffin batter
+- Fruit muffin batter
+- Fruit muffins
+- Yogurt and soda mixture
+- Soda bread dough
 
 **Combinations**
 - Eggs + Milk -> Beaten egg-and-milk mixture
@@ -888,6 +988,10 @@ The afternoon is hot. At the freezing bench, make a custard ice, fruit sorbet an
 - Cream
 - Milk
 - Sugar
+- Fruit sorbet base
+- Fruit sorbet
+- Milk-and-cream base
+- Sweetened cream base
 
 **Combinations**
 - Vanilla custard [transform] + Freezing churn -> Frozen custard
@@ -918,6 +1022,13 @@ The pastry cook saved the egg whites from the custards. At the meringue ovens, u
 - Apples
 - Almond and sugar mixture
 - Chocolate ganache
+- Egg-white foam
+- Meringue nests
+- Cream-filled meringue nests
+- Fruit meringue nests
+- Macaron batter
+- Macaron shells
+- Chocolate macarons
 
 **Combinations**
 - Egg whites [preserve] + Whisk -> Egg-white foam
@@ -953,6 +1064,10 @@ The ices and meringues are ready at the dessert counter. Serve a sundae with car
 - Milk ice cream
 - Meringue
 - Chocolate glaze
+- Caramel sundae
+- Ice-cream cake
+- Baked Alaska
+- Chocolate sundae
 
 **Combinations**
 - Frozen custard [transform] + Caramel sauce -> Caramel sundae
@@ -985,6 +1100,12 @@ Closing a jar or tin is not enough to preserve its contents. The specialist mana
 - Fruit syrup
 - Vanilla custard
 - Bean stew
+- Apples in syrup
+- Fruit-filled jar
+- Processed fruit jar
+- Opened bottled fruit
+- Bottled fruit with custard
+- Stew-filled tin
 
 **Combinations**
 - Apples + Fruit syrup -> Apples in syrup
@@ -1020,6 +1141,11 @@ The passengers need supper before departure. At the supper bench, put our stew w
 - Sponge cake
 - Water
 - Ganache-filled chocolate cake
+- Buttercream
+- Vanilla buttercream
+- Vanilla sandwich cake
+- Water icing
+- Iced chocolate cake
 
 **Combinations**
 - Bean stew + Soda bread [consume] -> Bean stew and soda bread

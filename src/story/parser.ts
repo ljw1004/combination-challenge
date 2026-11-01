@@ -56,7 +56,7 @@ function paragraphImage(paragraph: string): string | undefined {
 
 export function parseStory(markdown: string, options: { id?: string; file?: string; onReference?: (reference: SourceReference) => void; onComment?: (source: Source) => void } = {}): Story {
   const file = options.file ?? 'story.md', locations = sourceMap(markdown, file), source = locations.line;
-  const story: Story = { id: options.id ?? 'story', title: '', description: '', chapters: [], items: {}, hotspots: {}, recipes: [], diagnostics: [], source: source(1), fateSites: [] };
+  const story: Story = { id: options.id ?? 'story', title: '', description: '', chapters: [], items: {}, hotspots: {}, recipes: [], diagnostics: [], source: source(1), fateSites: [], sourceReferences: [] };
   const originalLines = markdown.split(/\r\n?|\n/), spellings = new WeakMap<Ref, string>();
   const error = (code: string, message: string, line: number, fragment?: string) => {
     const location = source(line, fragment);
@@ -74,7 +74,10 @@ export function parseStory(markdown: string, options: { id?: string; file?: stri
     return location.span!.from - (location.column! - 1) + Math.max(0, originalLines[line - 1].lastIndexOf(raw));
   }
   function record(id: string, kind: SourceReference['kind'], role: ReferenceRole, from: number, to: number, declaration = false, implicit = false) {
-    if (to > from) options.onReference?.({id, kind, role, declaration, ...(implicit ? {implicit: true} : {}), source: locations.range(from, to) as Source & {span: {from: number; to: number}}});
+    if (to <= from) return;
+    const reference: SourceReference = {id, kind, role, declaration, ...(implicit ? {implicit: true} : {}), source: locations.range(from, to) as SourceReference['source']};
+    story.sourceReferences.push(reference);
+    options.onReference?.(reference);
   }
   function ref(raw: string, line: number, kind: 'item' | 'hotspot' = 'item', mode: 'reference' | 'hotspot-declaration' | 'placement' = 'reference', role: ReferenceRole = 'reference', from = startOf(raw, line)): Ref {
     let text = unquote(raw.trim()), exclusive: string | undefined, rename: { chapter: string; name: string } | undefined, compound = false;
@@ -381,7 +384,6 @@ export function parseStory(markdown: string, options: { id?: string; file?: stri
     story.chapters.push(chapter);
   }
   for (const item of Object.values(story.items)) {
-    if (item.id.startsWith('id:') && !declared.has(item.id)) error('undeclared-id', `Backtick identifier ${item.id.slice(3)} has no declaration with a display name.`, item.source.line);
     for (const slot of item.slots) story.recipes.push({ id: `install:${item.id}:${slot.accepts}`, a: { ref: { id: item.id, slots: [] }, fate: 'preserve', explicit: true }, b: { ref: { id: slot.accepts, slots: [] }, fate: 'consume', explicit: true }, result: { id: item.id, slots: [slot.accepts] }, installation: slot.accepts, source: slot.source });
   }
   if (!story.chapters.length) error('missing-chapters', 'A story needs at least one ## chapter.', 1);

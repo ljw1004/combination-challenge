@@ -31,6 +31,13 @@ I have landed on Mars, but the radio is damaged. I need to contact the orbiter f
 - Support frame
 - Tripod
 - Toolkit
+- Radio
+- Solar radio
+- Solar lamp
+- Reflector
+- Lantern
+- Signal lamp
+- Signal beacon
 
 **Combinations**
 - Broken radio [transform] + Cable [consume] -> Radio (tutorial)
@@ -71,6 +78,12 @@ The intact signal mast has a clear orbiter sightline. Our signal here will mark 
 - Tie downs
 - Hatch frame
 - Insulating blanket
+- Patch supplies
+- Sealed panel
+- Vestibule
+- Secured vestibule
+- Insulated vestibule
+- Wrapped vestibule
 
 **Combinations**
 - Solar charger @ Ice melt station -> Dirty water
@@ -104,6 +117,14 @@ The mission filter is made for this enclosed water source. Once the growing mate
 - Seeds
 - Planting tray
 - Clear cover
+- Water
+- Seed tray
+- Wet seeds
+- Watered seed tray
+- Covered seed tray
+- Watered covered tray
+- Sprouted tray
+- Propagator
 
 **Combinations**
 - Dirty water [transform] + Water filter [preserve] -> Water
@@ -162,6 +183,12 @@ From the route overlook beside the sled, the outcrop and nearby landmarks are vi
   - unnamed slot: accepts Crew navchip
 
   [Drive unit, Solar charger] The rover now has the drive and solar-power equipment it needs to travel. It can carry the expedition beyond the landing area.
+- Drive unit
+- Field camera
+- Outcrop approach view
+- Telescope
+- Field telescope
+- Telescope camera
 
 **Combinations**
 - Support frame [transform] + Wheels [consume] -> Rover
@@ -203,6 +230,13 @@ The expedition sampling case holds a scoop, a transparent jar, a core tube and l
 - Sample labels
 - Windowed box
 - Glove ports
+- Ice sample
+- Sealed ice sample
+- Catalogued ice sample
+- Ice photograph
+- Ice core
+- Core layer photograph
+- Glovebox
 
 **Combinations**
 - Sample scoop @ Lookout ice -> Ice sample
@@ -246,6 +280,9 @@ The mothballed station was stored sensibly: its calibrated sensor mast, detached
 - Weather station (compound)
   - slot: recorder, accepts Sensor logger
   - slot: power, accepts Solar charger
+- Weather record
+- Dust screen
+- Protected controller
 
 **Combinations**
 - Sensor mast [transform] + Wind vane [consume] -> Weather station
@@ -276,6 +313,8 @@ The relay itself is still here, with its complete antenna and charged powerpack 
 - Relay (compound)
   - slot: antenna, accepts Directional antenna
   - slot: power, accepts Relay powerpack
+- Distress recording
+- Crew navchip
 
 **Combinations**
 - Relay transceiver [transform] + Spare fuse [consume] -> Relay
@@ -305,6 +344,10 @@ The crew wait in the intact crawler cabin. Its service compartment holds the spa
 - Disabled crawler
 - Toolkit
 - Rover
+- Serviced drive
+- Replacement drive
+- Tow line
+- Recovered crawler
 
 **Combinations**
 - Spare drive [transform] + Toolkit -> Serviced drive
@@ -333,6 +376,14 @@ The service refuge has bedding, a folding bed, soup and an insulated flask. The 
 - Soup pouch
 - Insulated flask
 - Folding bed
+- Sealed refuge
+- Warm refuge
+- Prepared bed
+- Prepared refuge
+- Warm soup
+- Hot meal flask
+- Occupied refuge
+- Provisioned refuge
 
 **Combinations**
 - Service shelter · torn seam [transform] + Patch supplies -> Sealed refuge
@@ -365,6 +416,10 @@ The camp stores hold a worktop with its folded legs beneath it, a movable lamp b
 - Antenna stand
 - Long range radio (compound)
   - unnamed slot: accepts Antenna stand
+- Workbench
+- Bench lamp
+- Crew message
+- Message home
 
 **Combinations**
 - Worktop [transform] + Bench legs [consume] -> Workbench
@@ -393,6 +448,12 @@ The furniture sled’s belongings locker contains protective padding and the cre
 **Items**
 - Sled padding
 - Picture roll
+- Padded sling
+- Recovered mess crate
+- Mess table
+- Personal table
+- Shared supper
+- Crew portrait
 
 **Combinations**
 - Recovery rope + Sled padding [transform] -> Padded sling
@@ -428,6 +489,13 @@ The chamber runs matched 20-minute tests. Both samples start at 20°C, with the 
 - Clip frame
 - Measured wall template
 - Insulation swatch
+- Bare: 20 → 8°C
+- Insulated wall sample
+- Wrapped: 20 → 16°C
+- Wrapping slows cooling
+- Fitted blanket
+- Thermal screen
+- Insulated refuge
 
 **Combinations**
 - Temperature logger + Wall sample @ Thermal chamber -> Bare: 20 → 8°C
@@ -463,6 +531,12 @@ The exposed service wall is now covered. The test showed that the wrapped sample
 - Camp water system
 
   The protected tank and working pump loop now supply the camp’s enclosed growing system. This process water is for the equipment and growing beds, not drinking.
+- Heated melter
+- Collected water
+- Water reserve
+- Process water
+- Dry water loop
+- Primed water loop
 
 **Combinations**
 - Ice melter [transform] + Heater -> Heated melter
@@ -502,6 +576,13 @@ The growing beds use the camp’s process-water system. Growing the crop takes s
   - slot: light, accepts Powered grow light
   - slot: air, accepts Circulation fan
   - unnamed slot: accepts Positioned diffuser
+- Connected drip line
+- Watered potatoes
+- Powered grow light
+- Warm potatoes
+- Planting bed
+- Planted potatoes
+- Potato harvest
 
 **Combinations**
 - Drip line [transform] + Camp water system [preserve] -> Connected drip line
@@ -535,6 +616,13 @@ The growing bed and its fitted equipment remain in the greenhouse. The propagati
 - Diffuser frame
 - Seedling support
 - Nursery labels
+- Shelf shadow view
+- Shadow layout
+- Framed diffuser
+- Positioned diffuser
+- Identified seedlings
+- Supported seedlings
+- Camp nursery
 
 **Combinations**
 - Field camera @ Nursery test shelf -> Shelf shadow view
@@ -573,6 +661,12 @@ The camp machine-shop cabinet holds the guarded bench-top machine, stock, carrie
   - unnamed slot: accepts Marked traverse
 - Lit workbench (compound)
   - unnamed slot: accepts Guarded bench-top machine
+- Machined axle
+- Wheel module
+- Padded carrier
+- Sample carrier
+- Mounting bracket
+- Bracketed sample carrier
 
 **Combinations**
 - Lit workbench[Guarded bench-top machine] + Machining stock [transform] -> Machined axle
@@ -605,6 +699,10 @@ The geology depot holds a stored Mars scout. Its delicate rotor assembly and bat
 - Hazard marker
 - Scout (compound)
   - slot: battery, accepts Scout battery
+- Scout panorama
+- Terrain model
+- Traverse map
+- Marked traverse
 
 **Combinations**
 - Scout airframe [transform] + Counter rotating rotors [consume] -> Scout
@@ -632,6 +730,10 @@ At the channel survey station, the opened field case holds the ground probe, map
 - Ground probe
 - Route overlay
 - Crossing marker
+- Ground profile
+- Firm-ground route
+- Crossing map
+- Marked crossing
 
 **Combinations**
 - Ground probe [preserve] @ Channel approach -> Ground profile
@@ -663,6 +765,14 @@ The field laboratory unpacked at the basin core site contains the coring, handli
 - Specimen log
 - Core drill
 - Illuminated microscope
+- Lined core drill
+- Sediment core
+- Supported core
+- Grain images
+- Calibrated spectrometer
+- Retained sediment
+- Mineral spectrum
+- Basin field record
 
 **Combinations**
 - Core drill [transform] + Sterile liner [consume] -> Lined core drill
@@ -703,6 +813,16 @@ The earlier core has a band of larger grains between two finer layers. Its miner
   - slot: gravel, accepts Logged gravel chip
 - Ripple impression sheet
 - Comparison sleeve
+- Ripple photograph
+- Gravel photograph
+- Paired terrain photographs
+- Mapped ripple and gravel sites
+- Qualified basin story
+- Ripple impression
+- Logged gravel chip
+- Comparison board
+- Sleeved comparison
+- Loose gravel chip
 
 **Combinations**
 - Field camera @ Ripple window -> Ripple photograph
@@ -741,6 +861,13 @@ Our basin comparison keeps the ripple and gravel sites separate. Rounded gravel 
   - slot: controller, accepts Protected controller
   - slot: platform, accepts Hauler platform
 - Hauler platform
+- Current marker view
+- Track disagreement
+- Readable route identifier
+- Identified service route
+- Standing route sign
+- Depot route sign
+- Depot cargo shuttle
 
 **Combinations**
 - Field camera @ Depot marker line -> Current marker view
@@ -777,6 +904,8 @@ The oxygen plant holds its stored processing stack, controller and filtered inta
   - slot: intake, accepts Filtered intake
 
   [Filtered intake] The restored plant is ready to process the Martian atmosphere into oxygen using its fitted mission equipment. This gives the return expedition a local oxygen source.
+- Serviced oxygen module
+- Docked oxygen module
 
 **Combinations**
 - Electrolyzer stack [transform] + Process controller [consume] -> Oxygen plant
@@ -808,6 +937,7 @@ The cabin shell survived, but its hatch seal is damaged. The depot stores hold t
   - slot: oxygen, accepts Serviced oxygen module
   - slot: console, accepts Flight console
   - slot: seat, accepts Flight seat
+- Cabin test record
 
 **Combinations**
 - Ascent cabin shell [transform] + Hatch seal [consume] -> Ascent cabin
@@ -844,6 +974,15 @@ The cabin check is recorded. We still need the orbiter’s pass prediction and a
 - Reference clock
 - Timing receiver
 - Star tracker
+- Timing station
+- Aligned star tracker
+- Star observation
+- Beacon times
+- Orbiter pass prediction
+- Station orientation
+- Rendezvous solution
+- Ranging link
+- Agreed rendezvous
 
 **Combinations**
 - Timing receiver [transform] + Reference clock [consume] -> Timing station
@@ -884,6 +1023,13 @@ The complete card recorder and its matching archival card can save a copy of the
   - slot: archive, accepts Complete field archive
   - slot: comparison, accepts Two-cell comparison case
   - slot: comparison record, accepts Sleeved comparison
+- Archival recorder
+- Expedition archive
+- Complete field archive
+- Camp handover beacon
+- Secured cart
+- Specimen transport cart
+- Family record
 
 **Combinations**
 - Card recorder [transform] + Archival card [consume] -> Archival recorder
@@ -914,6 +1060,13 @@ The qualified ascent stage, receiver latch, cargo adapter, telemetry recorder an
 - Cargo adapter
 - Telemetry recorder
 - Launch key
+- Ascent vehicle
+- Capsule dock
+- Loaded capsule dock
+- Loaded ascent vehicle
+- Rendezvous program
+- Flight ready vehicle
+- Ascending vehicle
 
 **Combinations**
 - Certified ascent stage [transform] + Ascent cabin[Docking ring, Serviced oxygen module, Flight console, Flight seat] [consume] -> Ascent vehicle
@@ -940,6 +1093,9 @@ We have you in sight. Bring your ship alongside; the hatch is waiting.
 **Hotspots**
 - Waiting orbital cabin
 - Orbital hatch
+
+**Items**
+- Docked vehicle
 
 **Combinations**
 - Ascending vehicle [transform] @ Waiting orbital cabin -> Docked vehicle

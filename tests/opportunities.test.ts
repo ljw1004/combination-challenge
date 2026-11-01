@@ -36,7 +36,13 @@ test('warns about disconnected primitive chains at their first reference, with p
 - Finish -- Done
 **Combinations**
 - Flag [consume] + Pole [preserve] -> Done (tutorial)
-- Missing [consume] + Tool [preserve] -> Decoration`);
+- Missing [consume] + Tool [preserve] -> Decoration
+- Flag
+- Pole
+- Done
+- Missing
+- Tool
+- Decoration`);
   const diagnostics = lintStory(story).filter(d => ['unsupplied-primitive', 'no-item-opportunity'].includes(d.code));
   assert.deepEqual(diagnostics.map(d => d.code).sort(), ['no-item-opportunity', 'unsupplied-primitive', 'unsupplied-primitive']);
   assert(diagnostics.every(d => d.severity === 'warning'), 'content opportunities guide authors without blocking the site build');
@@ -298,7 +304,14 @@ test('exceeding the frontier limit reports analysis failure without absent-item 
 **Combinations**
 - A [preserve] + Tool [preserve] -> Left (tutorial)
 - B [preserve] + Tool [preserve] -> Right
-- Missing [preserve] + Tool [preserve] -> Unreachable`);
+- Missing [preserve] + Tool [preserve] -> Unreachable
+- A
+- B
+- Tool
+- Left
+- Right
+- Missing
+- Unreachable`);
   const diagnostics = lintStory(story, {opportunities: {maxFrontier: 1}});
   assert(diagnostics.some(d => d.code === 'opportunity-analysis-limit' && d.severity === 'error' && d.message.includes('1-element construction-set')));
   assert(!diagnostics.some(d => ['unsupplied-primitive', 'no-item-opportunity'].includes(d.code)));
@@ -450,7 +463,13 @@ ${later('Display')}
 - Display stand
 **Combinations**
 - Fresh [consume] + Tool [preserve] -> Finished
-- Decoration [preserve] + Tool [preserve] @ Display stand -> Displayed decoration`);
+- Decoration [preserve] + Tool [preserve] @ Display stand -> Displayed decoration
+- Seed
+- Tool
+- Done
+- Fresh
+- Finished
+- Displayed decoration`);
   const diagnostic = lintStory(story).find(d => d.code === 'no-item-opportunity')!;
   assert.match(diagnostic.message, /Decoration is left on an earlier board/);
   const location = diagnostic.related!.find(location => location.message.startsWith('Decoration is left'))!;

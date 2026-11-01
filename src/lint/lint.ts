@@ -4,6 +4,7 @@ import { newGame } from '../engine/game.ts';
 import { analyzeOpportunities, type OpportunityOptions, type OpportunityReport } from './opportunities.ts';
 import { goalCountDiagnostics } from './goal-count.ts';
 import { tutorialAction } from '../engine/tutorial.ts';
+import { declarationDiagnostics } from './declarations.ts';
 
 export interface LintOptions {
   analysis?: boolean;
@@ -12,7 +13,7 @@ export interface LintOptions {
   onOpportunityAnalysis?: (report: OpportunityReport) => void;
 }
 export function lintStory(story: Story, options: LintOptions = {}): Diagnostic[] {
-  const diagnostics = [...story.diagnostics];
+  const diagnostics = [...story.diagnostics, ...declarationDiagnostics(story)];
   const add = (severity: Diagnostic['severity'],code:string,message:string,source:Source,related?:RelatedLocation[],fixes?:DiagnosticFix[],fixTitle?:string) => diagnostics.push({severity,code,message,source,span:source.span??{from:0,to:0},stage:'fast',...(related?.length?{related}:{}),...(fixes?.length?{fixes,fixTitle}:{})});
   const error = (code:string,message:string,source:Source) => add('error',code,message,source);
   const warning = (code:string,message:string,source:Source,related?:RelatedLocation[],fixes?:DiagnosticFix[],fixTitle?:string) => add('warning',code,message,source,related,fixes,fixTitle);
@@ -88,14 +89,11 @@ export function lintStory(story: Story, options: LintOptions = {}): Diagnostic[]
       warning('mixed-fates',`${story.items[id].name} has mixed fates: ${counts.join(', ')}. Review these visibility and placement hints; different roles can be intentional.`,list[0].source,list.map(use=>use.location),fixes,story.items[id].name);
     }
   }
-  const declaredHotspots = new Set(story.chapters.flatMap(c=>c.hotspots));
   for (const hotspot of Object.values(story.hotspots)) {
-    if (!declaredHotspots.has(hotspot.id)) error('undeclared-hotspot',`${hotspot.name} has no Hotspots declaration.`,hotspot.source);
     if ((hotspot.x!==undefined && (hotspot.x<0 || hotspot.x>1)) || (hotspot.y!==undefined && (hotspot.y<0 || hotspot.y>1))) error('hotspot-position','Hotspot coordinates must be between 0% and 100%.',hotspot.source);
     for (const [i, placement] of (hotspot.placements ?? []).entries()) {
       const {item, x, y, source} = placement;
-      if ([item.id, ...item.slots].some(id => !story.items[id])) error('undefined-place-item', 'Every item in a place: reference must be defined elsewhere in the story; place: does not define items.', source);
-      else checkRef(item, source);
+      if ([item.id, ...item.slots].every(id => story.items[id])) checkRef(item, source);
       if (![x, y].every(n => Number.isFinite(n) && n >= 0 && n <= 1)) error('place-position', 'Placement coordinates must be between 0% and 100%.', source);
       const previous = hotspot.placements!.slice(0, i).find(p => p.item.id === item.id && (p.x !== x || p.y !== y));
       if (previous) add('error', 'conflicting-place', `${name(item.id)} has conflicting destinations at ${hotspot.name}.`, source, [related(previous.source, 'Previous destination for this item.')]);

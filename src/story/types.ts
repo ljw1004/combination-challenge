@@ -1,3 +1,5 @@
+import type { SourceReference } from './source-reference.ts';
+
 /** The shared, source-located Markdown model. No browser or Node dependencies. */
 /** UTF-16 offsets: inclusive start and exclusive end, matching browser editors. */
 export interface TextSpan { from: number; to: number }
@@ -42,6 +44,8 @@ export interface Story {
   id: string; title: string; description: string; cover?: string; chapters: Chapter[];
   items: Record<string, Item>; hotspots: Record<string, Hotspot>; recipes: Recipe[];
   diagnostics: Diagnostic[]; source: Source; fateSites?: FateSite[];
+  /** Exact authored occurrences shared by declaration lint and language operations. */
+  sourceReferences: SourceReference[];
   /** Authored markers, including repeated declarations of a deduplicated recipe. */
   tutorials?: {recipe: string; chapter: number; source: Source}[];
 }

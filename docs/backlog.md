@@ -37,6 +37,8 @@ The retained [opportunity lint](story-format-spec.md#opportunities-for-authored-
 
 Settlement uses the selected coloured woodcut artwork; the seven former playable samples are retained as [reference collections](../references/icon-sets/). Validate recognition speed and material/content distinctions on a phone; repeat-exposure agent reviews do not establish those outcomes.
 
+Kitchen may benefit from icons. Consider a small comparison focused on similar ingredients and preparation states, using the [reconstructed Settlement process](icon-guide.md) and its original brief. This is a hypothesis; Kitchen's style and any full conversion remain undecided.
+
 ## Story ideas worth retaining
 
 | Idea | Useful question or operation | Source and caution |

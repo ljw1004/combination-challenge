@@ -104,6 +104,36 @@ test('reference lists refresh source positions after edits and remain separate f
   await expect(editor).toBeFocused();
 });
 
+test('undeclared references and unused declarations update live without blocking draft saves', async ({page}) => {
+  const source = '# Names\n## Workshop\n![room](assets/room.svg)\n**Goals**\n- Repair -- Radio\n**Items**\n- Wire\n- Battery\n- Radio\n- Relic\n**Combinations**\n- Wire [preserve] + Battery [preserve] -> Radio (tutorial)\n';
+  await page.route('**/language/assets/room.svg', route => route.fulfill({contentType: 'image/svg+xml', body: '<svg xmlns="http://www.w3.org/2000/svg" width="390" height="844"/>'}));
+  await open(page, source);
+  const editor = page.getByRole('textbox', {name: 'Story Markdown'});
+  const errors = page.locator('.editor-diagnostic[data-severity="error"]');
+  const unused = page.locator('.editor-diagnostic').filter({hasText: '[unused-declaration] Relic'});
+  await expect(unused).toBeVisible();
+  await expect(errors).toHaveCount(0);
+  const typo = source.replace('Repair -- Radio', 'Repair -- Raido');
+  await editor.focus(); await page.keyboard.press('ControlOrMeta+a'); await page.keyboard.insertText(typo);
+  await expect.poll(() => page.evaluate(text => Object.entries(localStorage).some(([key, value]) => key.startsWith('combination-draft-v1:') && JSON.parse(value).text === text), typo)).toBe(true);
+  await expect(errors).toHaveCount(1);
+  await expect(errors).toContainText('[undeclared-item] Raido');
+  await errors.click();
+  expect(await page.evaluate(() => window.getSelection()?.toString())).toBe('Raido');
+  await expect(page.locator('.cm-lintRange-error')).toHaveText('Raido');
+  await page.keyboard.press('ControlOrMeta+End'); await page.keyboard.insertText('\n- Raido\n');
+  await expect(errors).toHaveCount(0);
+  await expect(unused).toBeVisible();
+  await page.keyboard.press('ControlOrMeta+z');
+  await expect(errors).toHaveCount(1);
+  await errors.click(); await page.keyboard.insertText('Radio');
+  await expect(errors).toHaveCount(0);
+  await page.reload();
+  await expect(editor).toContainText('Repair -- Radio');
+  await expect(unused).toBeVisible();
+  await expect(errors).toHaveCount(0);
+});
+
 test('reference colors and subdued notes follow the grammar through live edits', async ({page}) => {
   await open(page, manuscript + '\n> NOTE: **Frame** is only prose here.\n> This note continues.\n\n> An ordinary quotation.\n');
   const declaration = page.locator('.cm-line').filter({hasText: /^- Frame$/});

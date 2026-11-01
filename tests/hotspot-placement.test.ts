@@ -20,6 +20,7 @@ const source = `# Placement
 - A
 - B
 **Combinations**
+- C
 - A [transform] + B [consume] @ H -> C (tutorial)`;
 const errors = (text: string) => lintStory(parseStory(text), {analysis:false}).filter(d => d.severity === 'error');
 
@@ -30,8 +31,8 @@ test('place references resolve forwards without supplying items or defining miss
   assert.deepEqual(story.chapters[0].items.map(r => r.id), ['name:A', 'name:B']);
   const typo = source.replace('place: C', 'place: Typo');
   assert(!parseStory(typo).items['name:Typo']);
-  assert.deepEqual(errors(typo).map(d => d.code), ['undefined-place-item']);
-  assert.deepEqual(errors(typo.replace('place: A', 'place: Typo')).map(d => d.code).filter(c => c === 'undefined-place-item'), ['undefined-place-item','undefined-place-item']);
+  assert.deepEqual(errors(typo).map(d => d.code), ['undeclared-item']);
+  assert.deepEqual(errors(typo.replace('place: A', 'place: Typo')).map(d => d.code).filter(c => c === 'undeclared-item'), ['undeclared-item','undeclared-item']);
   const identified = source.replace('place: A', 'place: `a`').replace('- A\n', '- `a` A\n').replace('- A [transform]', '- `a` [transform]');
   assert.equal(errors(identified).length, 0);
 });

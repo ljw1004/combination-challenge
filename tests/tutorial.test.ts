@@ -7,7 +7,7 @@ import {tutorialAction} from '../src/engine/tutorial.ts';
 import {TutorialProgress} from '../src/web/tutorial-progress.ts';
 
 const recipe = 'A [preserve] + B [preserve] -> C';
-const fixture = (rules: string) => `# Tutorial\n## First\n![room](room.webp)\n**Goals**\n- Make C -- C\n**Combinations**\n${rules}`;
+const fixture = (rules: string) => `# Tutorial\n## First\n![room](room.webp)\n**Goals**\n- Make C -- C\n**Items**\n- A\n- B\n- C\n**Combinations**\n${rules}`;
 const errors = (text: string) => lintStory(parseStory(text), {opportunities: false}).filter(d => d.code.startsWith('tutorial-'));
 
 test('tutorial markers preserve identities, source spans and authored occurrences through recipe deduplication', () => {
@@ -43,7 +43,7 @@ test('lint requires one opening marker and a legal first drag without preparatio
   assert.deepEqual(errors(fixture(`- ${recipe} (tutorial)`)), []);
   assert.equal(tutorialAction(parseStory(fixture(`- ${recipe} (tutorial)`)), newGame(parseStory(fixture(`- ${recipe} (tutorial)`))))?.a, 'name:A');
   assert.deepEqual(errors(fixture(`- ${recipe}\n## Later\n**Combinations**\n- ${recipe} (tutorial)`)).map(d => d.code), ['tutorial-chapter']);
-  const dependent = fixture(`- ${recipe}\n- C [preserve] + B [preserve] -> D (tutorial)`);
+  const dependent = fixture(`- D\n- ${recipe}\n- C [preserve] + B [preserve] -> D (tutorial)`);
   assert.equal(errors(dependent)[0].code, 'tutorial-unavailable');
   const context = fixture(`- A [preserve] + B [preserve] @ Bench -> C (tutorial)`).replace('**Combinations**', '**Hotspots**\n- Bench\n**Combinations**');
   assert.equal(errors(context)[0].code, 'tutorial-unavailable', 'receiving placement must already hold');

@@ -57,6 +57,8 @@ Invalid Markdown still produces a best-effort preview. Temporarily deleting the 
 
 Fast diagnostics update shortly after typing; continuation and exclusivity analysis runs in one background worker. Squiggles have hover explanations. The scrollable diagnostics list stays in source order; click an entry to select its text and show its compact related-location bullets. Clicking it again collapses the bullets while keeping it selected. Only the selected diagnostic's related locations are shown. Existing diagnostics and related locations follow insertions/deletions while updated analysis is pending.
 
+Items and hotspots require explicit declarations, including recipe results. Missing declarations are errors; declarations without references produce warnings. Forward references are supported, and incomplete drafts still save and preview. See the [specification](docs/story-format-spec.md#specification) for declaration syntax and the [authoring guide](docs/story-authoring.md#give-chapters-a-purpose-and-a-manageable-working-set) for keeping primitive supplies in their intended chapters.
+
 Every blue lightbulb overlays the bottom-right of its applicable text and toggles a menu, without expanding or collapsing diagnostics. Cmd+. (Ctrl+. on other platforms) opens actions on the caret's row; use arrow keys and Enter to choose, or Escape to dismiss. See [UX](docs/ux.md#debug-pane) for the interaction contract.
 
 Mixed-fate warnings break down preservation, consumption and transformation, including defaults and implicit slot installation. Their popup names the item and offers **always preserve**, **always transform** or **always consume**, limited to fates already present. Long item headings are truncated; hover the heading for the full name. A fix consolidates the authored uses in one saved, undoable edit. Choices incompatible with implicit slot behavior explain the constraint. Fixes wait for current diagnostics after typing. A three-goal warning offers **Suppress warning with an explanation**, inserting the [required acknowledgment](docs/story-format-spec.md) and selecting its reason placeholder.
@@ -194,6 +196,7 @@ Each document owns one aspect of working here. Update the owning document and li
 | This README | Setup, directory layout, tool catalog and playtesting commands/protocol. |
 | [Story format](docs/story-format-spec.md) | Markdown syntax, game semantics and required diagnostics. |
 | [Story authoring](docs/story-authoring.md) | How to design, write and revise a compelling story. |
+| [Icon guide](docs/icon-guide.md) | Settlement's original icon brief, iterative review process, production workflow and evidence limits. |
 | [UX](docs/ux.md) | All current player and authoring UX decisions, their known motivations, and maintenance rules; no historical log. |
 | [Engineering](docs/engineering.md) | Implementation boundaries, technical constraints and testing policy. |
 | [Fun and evaluation](docs/fun-and-evaluation.md) | Research, experience criteria and the experimental method. |
