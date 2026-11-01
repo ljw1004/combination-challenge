@@ -671,12 +671,14 @@ test('find counts selected matches and navigates from the current caret', async 
   await expect(panel.getByRole('button', {name: /^(all|select all matches)$/i})).toHaveCount(0);
   await expect(panel.getByText(/^(regexp|by word)$/i)).toHaveCount(0);
   await find.fill('needle');
-  await expect(count).toHaveText('? of 4');
-  await find.press('Enter');
   await expect(count).toHaveText('1 of 4');
-  await next.click();
+  await find.press('Enter');
   await expect(count).toHaveText('2 of 4');
+  await next.click();
+  await expect(count).toHaveText('3 of 4');
   await previous.click();
+  await expect(count).toHaveText('2 of 4');
+  await find.press('Shift+Enter');
   await expect(count).toHaveText('1 of 4');
   await find.press('Shift+Enter');
   await expect(count).toHaveText('4 of 4');
@@ -696,11 +698,11 @@ test('find counts selected matches and navigates from the current caret', async 
   await expect(count).toHaveText('2 of 3');
 
   await find.fill('[x].*');
-  await expect(count).toHaveText('? of 1');
+  await expect(count).toHaveText('1 of 1');
   await find.press('Enter');
   await expect(count).toHaveText('1 of 1');
   await find.fill('\\n');
-  await expect(count).toHaveText('? of 1');
+  await expect(count).toHaveText('1 of 1');
   await find.fill('no such text');
   await expect(count).toHaveText('0 of 0');
   await expect(next).toBeDisabled();
@@ -712,6 +714,71 @@ test('find counts selected matches and navigates from the current caret', async 
   await expect(editor).toBeFocused();
 });
 
+test('find follows each typed letter from the current match and Escape keeps the found location', async ({page}) => {
+  const text = manuscript.replace('Workshop introduction.', 'quill first.\n\nquest second.\n\nquill third.\n\nqueue fourth.')
+    .replace('Field introduction.', `${'A filler line.\n\n'.repeat(40)}quartz last.`);
+  await openFixture(page, text);
+  const editor = page.getByRole('textbox', {name: 'Story Markdown'});
+  await editor.focus();
+  await page.keyboard.press('ControlOrMeta+Home');
+  await page.keyboard.press('ControlOrMeta+f');
+  const panel = page.locator('.cm-search');
+  const find = panel.getByRole('textbox', {name: 'Find', exact: true});
+  const count = panel.getByRole('status', {name: 'Search matches'});
+  const selected = editor.locator('.cm-searchMatch-selected');
+  for (const query of ['q', 'qu']) {
+    await find.pressSequentially(query.at(-1)!);
+    await expect(find).toHaveValue(query);
+    await expect(find).toBeFocused();
+    await expect(selected).toHaveText(query);
+    await expect(count).toHaveText('1 of 5');
+    await expect(page.locator('.cm-activeLine')).toHaveText('quill first.');
+  }
+  await find.pressSequentially('e');
+  await expect(selected).toHaveText('que');
+  await expect(count).toHaveText('1 of 2');
+  await expect(page.locator('.cm-activeLine')).toHaveText('quest second.');
+  await find.press('Backspace');
+  await expect(selected).toHaveText('qu');
+  await expect(count).toHaveText('2 of 5');
+  for (const query of ['qui', 'quil', 'quill']) {
+    await find.pressSequentially(query.at(-1)!);
+    await expect(selected).toHaveText(query);
+    await expect(count).toHaveText('2 of 2');
+    await expect(page.locator('.cm-activeLine')).toHaveText('quill third.');
+  }
+  // Changing the query wraps forward when no later occurrence matches.
+  await find.fill('quest');
+  await expect(selected).toHaveText('quest');
+  await expect(page.locator('.cm-activeLine')).toHaveText('quest second.');
+  await find.fill('qu');
+  for (const query of ['qua', 'quar', 'quart', 'quartz']) {
+    await find.pressSequentially(query.at(-1)!);
+    await expect(selected).toHaveText(query);
+    await expect(count).toHaveText('1 of 1');
+    await expect(selected).toBeInViewport();
+    await expect(page.locator('.cm-activeLine')).toHaveText('quartz last.');
+  }
+  // A failed or empty query leaves the last found location intact.
+  await find.pressSequentially('!');
+  await expect(count).toHaveText('0 of 0');
+  await expect(page.locator('.cm-activeLine')).toHaveText('quartz last.');
+  await find.press('Backspace');
+  await expect(selected).toHaveText('quartz');
+  await find.fill('');
+  await expect(count).toHaveText('');
+  await expect(page.locator('.cm-activeLine')).toHaveText('quartz last.');
+  await find.fill('quartz');
+  await expect(selected).toHaveText('quartz');
+  await find.press('Escape');
+  await expect(panel).toHaveCount(0);
+  await expect(editor).toBeFocused();
+  expect(await editor.evaluate(() => window.getSelection()?.toString())).toBe('quartz');
+  await expect(page.locator('.cm-activeLine')).toHaveText('quartz last.');
+  await expect(page.locator('.cm-activeLine')).toBeInViewport();
+  expect(await page.locator('.cm-scroller').evaluate(element => element.scrollTop)).toBeGreaterThan(0);
+});
+
 test('find totals stay current after replacements, edits and reopening from a selection', async ({page}) => {
   const text = manuscript.replace('Workshop introduction.', 'signal signal signal.');
   await openFixture(page, text);
@@ -721,7 +788,7 @@ test('find totals stay current after replacements, edits and reopening from a se
   const panel = page.locator('.cm-search');
   const find = panel.getByRole('textbox', {name: 'Find', exact: true});
   const count = panel.getByRole('status', {name: 'Search matches'});
-  await find.fill('signal'); await find.press('Enter');
+  await find.fill('signal');
   await expect(count).toHaveText('1 of 3');
   await panel.getByRole('textbox', {name: 'Replace', exact: true}).fill('echo');
   await panel.getByRole('button', {name: 'Replace', exact: true}).click();

@@ -72,7 +72,14 @@ function createSearchPanel(view: EditorView): Panel {
   }
   function commit() {
     const nextQuery = new SearchQuery({search: find.value, replace: replacement.value, caseSensitive: matchCase.checked, literal: true});
+    const textChanged = nextQuery.search !== query.search;
     if (!nextQuery.eq(query)) view.dispatch({effects: setSearchQuery.of(nextQuery)});
+    if (textChanged) {
+      // Include the current match so typing can extend it, and keep the Find input's caret intact.
+      const from = view.state.selection.main.from;
+      const match = matches.find(match => match.from >= from) ?? matches[0];
+      if (match) view.dispatch({selection: {anchor: match.from, head: match.to}, scrollIntoView: true, userEvent: 'select.search'});
+    }
   }
   find.addEventListener('input', commit);
   replacement.addEventListener('input', commit);
