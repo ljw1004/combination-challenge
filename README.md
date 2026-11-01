@@ -6,7 +6,7 @@
 
 ## Project
 
-Five combination stories authored in Markdown, with complete artwork for Settlement and Cookbook. The browser game, story linter, checkpoint generator and logical AI playtester share one parser and game engine. The project has three commitments: combination, enjoyable interactive play and an empirical loop that can reject weak ideas.
+Five combination stories authored in Markdown, with complete artwork for Settlement and a finished Cook’s Pen collection for Cookbook, including its revised dishes and domestic tea and dinner scenes. The browser game, story linter, checkpoint generator and logical AI playtester share one parser and game engine. The project has three commitments: combination, enjoyable interactive play and an empirical loop that can reject weak ideas.
 
 ## Run the game
 
@@ -24,7 +24,7 @@ Seven icon styles are retained as [reference collections](references/icon-sets/)
 
 **Settlement: A River Worth Returning To** uses rustic coloured woodcuts: `/combinations.html?story=settlement/settlement.md`.
 
-**Cookbook** develops a cookbook through pen-and-wash illustrations: `/combinations.html?story=cookbook/cookbook.md`. The ongoing [Cookbook study](projects/cookbook-study/README.md) brings together the cookbook adaptation, icon research and comparisons, thematic backgrounds, page composition and pencil stations. Its curated collection retains artistic directions and verdicts, inspiration references, selected finished comparisons, production source art and all 35 completed page PNGs.
+**Cookbook** teaches practical cooking through pen-and-wash illustrations, from breakfast through afternoon tea to a dinner feast: `/combinations.html?story=cookbook/cookbook.md`. The ongoing [Cookbook study](projects/cookbook-study/README.md) brings together the cookbook adaptation, icon research and comparisons, thematic backgrounds, page composition and pencil stations. Its curated collection retains artistic directions and verdicts, inspiration references, selected finished comparisons, production source art and all 35 completed page PNGs.
 
 The player fetches Markdown as an ordinary file. These routes work in development and the production build:
 

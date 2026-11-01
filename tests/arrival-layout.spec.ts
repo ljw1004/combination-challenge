@@ -86,5 +86,5 @@ test('short viewport arrivals keep measured text cards above multi-line goals an
   const positions=await page.locator('.thing').evaluateAll(els=>els.map(el=>{const r=el.getBoundingClientRect();return {x:r.x,y:r.y,bottom:r.bottom,right:r.right};}));
   for(const p of positions){expect(p.bottom).toBeLessThan(goals.y-10);expect(p.right).toBeLessThanOrEqual(320);expect(p.x).toBeGreaterThanOrEqual(0);}
   await page.reload();
-  expect(await page.locator('.thing').evaluateAll(els=>els.map(el=>{const r=el.getBoundingClientRect();return {x:r.x,y:r.y,bottom:r.bottom,right:r.right};}))).toEqual(positions);
+  await expect.poll(()=>page.locator('.thing').evaluateAll(els=>els.map(el=>{const r=el.getBoundingClientRect();return {x:r.x,y:r.y,bottom:r.bottom,right:r.right};}))).toEqual(positions);
 });

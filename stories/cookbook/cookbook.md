@@ -1,29 +1,33 @@
 # Cookbook
 
-Open a notebook on the kitchen table and develop a cookbook, one useful preparation at a time. Follow ingredients into doughs, sauces, fillings and dishes worth sharing. Try the variations that interest you, notice what changes, and find the connections between the pages. The final test is a supper made from the work of the book.
+Write a cookbook. Make doughs, sauces, fillings, pastries and cakes.
 
-> NOTE: Adapted from `kitchen-caravan-small-sessions-v8`, composed through `ui/current-scenarios.ts` at source commit `1c95988a4e3771abcf2be28183ce009d38645d2c`. The 35 cooking sessions and their recipe alternatives were retained in the Markdown conversion. This cookbook adaptation retains their order and mechanics while replacing the travelling narrative; subsequent wording revisions are recorded in the repository history.
+> NOTE: Adapted from `kitchen-caravan-small-sessions-v8` at source commit `1c95988a4e3771abcf2be28183ce009d38645d2c`. The original conversion retained its sessions and mechanics; the practical-cookbook revision changes introductions, selected preparations, fixed equipment and the final feast. Decision history and evidence limits are in notes.md and the Cookbook study outcomes.
 
-> NOTE: The book develops over many kitchen sessions, with portions and saved preparation batches under the cooks’ care, including appropriate cold storage. Ingredients represent usable portions, not one batch kept indefinitely. Recipes compress proportions, preparation, waiting, heating and cooling. They are not complete formulas, home-preservation procedures or shelf-life guarantees. Referenced techniques support named processes, not invention dates or a universal culinary chronology.
+> NOTE: These are cooking sessions with usable portions and appropriate storage between them. Recipes compress proportions, seasoning, preparation, waiting, heating and cooling; they are not complete formulas, preservation procedures or shelf-life guarantees. Heat is explicit where it explains a transformation or keeps a sequence intelligible, not as a requirement for every warm dish.
 
-> NOTE: Cook’s Pen artwork uses physically informed proportions with a 60px minimum standalone longest edge at the 390 × 844 reference surface; oversized apparatus is compressed. The trolley is a registered 190px compound, with smaller fitted servings. Fixed apparatus uses unlabelled pencil schematics above the working area, with a shared lower edge near y=201px. A sole station is centred at x=195px; pairs are spaced across the page. Each transparent receiving rectangle is registered to its own drawing with room around the contour; the proofing shelf has 7px padding. The player supplies station names. The ending inherits the tasting page.
+> NOTE: Cook’s Pen illustrations remain the art direction. The revised dishes, equipment and serving furniture use finished pen-and-wash art; source paintings are retained in the Cookbook study. Afternoon tea takes place in a home parlour and the feast in a home dining room. Standalone icons have a 60px minimum longest edge at the 390 × 844 reference surface. The feast table is a 320 × 260px compound with seven required servings and space for both cake choices; the tiered tea stand is 220 × 240px. Each chapter has at most two fixed stations; names and receiving outlines come from the player. See docs/ux.md for current interaction and artwork decisions.
 
 
-## Begin with breakfast
+## Breakfast
+![Begin with breakfast](assets/rework/backgrounds/breakfast.webp)
 
-![Begin with breakfast](assets/cooks-pen/backgrounds/grain-to-breakfast.webp)
+*Breakfast from scratch*
 
-There is a clean page on the kitchen table, and breakfast seems a sensible place to begin. What can a little grain become? We can grind it for flatbread or soften it into porridge. Apples belong here too: something to bite into, something to drink. Let us cook before we decide what to write.
+Juice, porridge, bread.
 
 **Goals**
-- (three goals are a lot but okay here because flatbread, juice, and porridge form a familiar breakfast that can be prepared in different orders; the review found no demonstrated benefit from showing only two dishes)
-- Bake flatbread. -- Flatbread
+- (three goals are a lot but okay here because flatbread, juice, and porridge form a familiar breakfast that can be prepared in different orders)
+- Cook flatbread. -- Flatbread
 - Press apple juice. -- Apple juice
-- Cook fruit porridge. -- Fruit porridge
+- Cook porridge. -- Porridge
 
 **Hotspots**
-- Hearth fire (at 50.000000%, 19.016588%)
-  - icon: ![Hearth fire receiving area](assets/cooks-pen/hotspots/hearth-fire.png)
+- Cookstove (at 27%, 17.5%)
+  - icon: ![Cookstove receiving area](assets/rework/stations/receiving-area.png)
+
+- Fruit press (at 73%, 17.5%)
+  - icon: ![Fruit press](assets/rework/stations/receiving-area.png)
 
 **Items**
 - Grain
@@ -34,39 +38,36 @@ There is a clean page on the kitchen table, and breakfast seems a sensible place
   - icon: ![Water](assets/cooks-pen/items/water.png)
 - Apples
   - icon: ![Apples](assets/cooks-pen/items/apples.png)
-- Fruit press
-  - icon: ![Fruit press](assets/cooks-pen/items/fruit-press.png)
 - Soaked grain
   - icon: ![Soaked grain](assets/cooks-pen/items/soaked-grain.png)
 - Porridge
   - icon: ![Porridge](assets/cooks-pen/items/porridge.png)
-- Fruit porridge
-  - icon: ![Fruit porridge](assets/cooks-pen/items/fruit-porridge.png)
 
 **Combinations**
 - Grain + Millstone [preserve] -> Flour (tutorial)
 - Flour + Water -> Dough
-- Dough @ Hearth fire -> Flatbread
-- Apples + Fruit press [preserve] -> Apple juice
+- Dough @ Cookstove -> Flatbread
+- Apples @ Fruit press -> Apple juice
 - Grain + Water -> Soaked grain
-- Soaked grain [transform] @ Hearth fire -> Porridge
-- Porridge [transform] + Apples -> Fruit porridge
+- Soaked grain [transform] @ Cookstove -> Porridge
 
-## Milk, two ways
+## Dairy
+![Milk, two ways](assets/rework/backgrounds/dairy.webp)
 
-![Milk, two ways](assets/cooks-pen/backgrounds/milk-and-golden-butter.webp)
+*Dairy*
 
-A cookbook starts to become useful when one ingredient opens several doors. Here are milk for yogurt and cream for butter. We want a cultured bowl with a little tang, and butter good enough to spread on warm bread.
-
-The yogurt starter is a milk culture, different from bread yeast. Churning cream separates butter; later, straining yogurt will make a thicker spread.
+Yoghurt and butter.
 
 **Goals**
 - Churn butter. -- Butter
 - Prepare fruit yogurt. -- Fruit yogurt
 
 **Hotspots**
-- Warm shelf (at 50.000000%, 17.654028%)
-  - icon: ![Warm shelf receiving area](assets/cooks-pen/hotspots/warm-shelf.png)
+- Warm shelf (at 27%, 17.654028%)
+  - icon: ![Warm shelf receiving area](assets/rework/stations/receiving-area.png)
+
+- Butter churn (at 73%, 17.5%)
+  - icon: ![Butter churn](assets/rework/stations/receiving-area.png)
 
 **Items**
 - Milk
@@ -75,24 +76,23 @@ The yogurt starter is a milk culture, different from bread yeast. Churning cream
   - icon: ![Yogurt starter](assets/cooks-pen/items/yogurt-starter.png)
 - Cream
   - icon: ![Cream](assets/cooks-pen/items/cream.png)
-- Churn
-  - icon: ![Churn](assets/cooks-pen/items/churn.png)
 - Apples
 - Fruit yogurt
   - icon: ![Fruit yogurt](assets/cooks-pen/items/fruit-yogurt.png)
 
 **Combinations**
 - Milk + Yogurt starter [preserve] @ Warm shelf -> Yogurt
-- Cream + Churn [preserve] -> Butter
+- Cream @ Butter churn -> Butter
 - Yogurt + Apples -> Fruit yogurt
 
 > NOTE: [OpenStax: What Our Ancestors Knew](https://openstax.org/books/microbiology/pages/1-1-what-our-ancestors-knew). Fermentation history; not exact recipe ratios or a universal chronology.
 
-## A loaf worth buttering
-
+## Home-made bread
 ![A loaf worth buttering](assets/cooks-pen/backgrounds/the-open-crumb.webp)
 
-The flatbread page needs a neighbour. What changes when dough is given yeast and time? Leave room in the notebook for the rise, the crust, and the pleasure of cutting a warm loaf. We already have the butter.
+*Home-made bread*
+
+What could be nicer than freshly baked bread with butter?
 
 **Goals**
 - Serve bread and butter. -- Bread and butter
@@ -102,6 +102,7 @@ The flatbread page needs a neighbour. What changes when dough is given yeast and
   - icon: ![Proofing shelf receiving area](assets/cooks-pen/hotspots/proofing-shelf.png)
 - `bakehouse-oven-bread` Oven (at 74.615385%, 17.417062%)
   - icon: ![Oven receiving area](assets/cooks-pen/hotspots/bakehouse-oven-bread.png)
+  - place: Bread (at 74.615385%, 19.417062%)
 
 **Items**
 - Baker’s yeast
@@ -113,24 +114,27 @@ The flatbread page needs a neighbour. What changes when dough is given yeast and
 - Leavened dough
   - icon: ![Leavened dough](assets/cooks-pen/items/leavened-dough.png)
 - Bread and butter
-  - icon: ![Bread and butter](assets/cooks-pen/items/bread-and-butter.png)
+  - icon: ![Bread and butter](assets/rework/items/bread-and-butter.png)
 
 **Combinations**
 - Dough + Baker’s yeast [preserve] @ Proofing shelf -> Leavened dough
 - Leavened dough [transform] @ `bakehouse-oven-bread` -> Bread
 - Bread + Butter -> Bread and butter
 
-## Yogurt, thick and fresh
-
+## Strained yogurt
 ![Yogurt, thick and fresh](assets/cooks-pen/backgrounds/cucumber-dill-and-yogurt.webp)
 
-The yogurt page is acquiring branches. Strain some for a thick herb spread, then leave another bowl soft enough to take cucumber. The flatbread gives us a way to taste the spread as part of something we would actually eat for lunch.
+*Strained yoghurt*
+
+Herbs, cucumber and flatbread.
 
 **Goals**
 - Serve flatbread with herbed yogurt. -- Flatbread with herbed yogurt
 - Prepare cucumber yogurt. -- Cucumber yogurt
 
 **Items**
+- Strained yogurt
+  - icon: ![Strained yogurt](assets/cooks-pen/items/strained-yogurt.png)
 - Straining cloth
   - icon: ![Straining cloth](assets/cooks-pen/items/straining-cloth.png)
 - Herbs
@@ -154,13 +158,14 @@ The yogurt page is acquiring branches. Strain some for a thick herb spread, then
 - Flatbread + Herbed strained yogurt [transform] -> Flatbread with herbed yogurt
 - Yogurt + Cucumber [preserve] -> Cucumber yogurt
 
-## A little sharpness
-
+## Vinegar and salad dressing
 ![A little sharpness](assets/cooks-pen/backgrounds/apples-into-sharpness.webp)
 
-Apple juice has another life beyond the breakfast glass. For this page, a cider maker helps us follow it through fermentation into vinegar. We want enough sharpness to wake up a bowl of leaves.
+*Vinegar and dressing*
 
-The cider maker manages the fermentation and supplies air when making vinegar. This dressing is for a meal; the culture alone does not establish a safe acidity for preserving food.
+Cider vinegar and a green salad.
+
+Acidity balances richness.
 
 **Goals**
 - Dress a green salad. -- Dressed salad
@@ -191,11 +196,12 @@ The cider maker manages the fermentation and supplies air when making vinegar. T
 
 > NOTE: [Aspall: Vinegar Production](https://www.aspall.co.uk/blogs/our-story/vinegar-production). Producer account of alcohol-to-acid conversion and oxygen supply; no home-preservation guarantee.
 
-## Toast and warm apples
-
+## Herb toast and apple compote
 ![Toast and warm apples](assets/cooks-pen/backgrounds/warm-apples-cool-yogurt.webp)
 
-Some pages begin with appetite. Today I want the smell of herbs warming on toast and a spoonful of soft apple against cool yogurt. The butter, bread and apples have already earned their places in the book. A little heat gives us reasons to return to them.
+*Toast and compote*
+
+Herb butter, warm apples and yoghurt.
 
 **Goals**
 - Grill herb toast. -- Herb toast
@@ -204,10 +210,13 @@ Some pages begin with appetite. Today I want the smell of herbs warming on toast
 **Hotspots**
 - Grill (at 26.923077%, 20.912322%)
   - icon: ![Grill receiving area](assets/cooks-pen/hotspots/grill.png)
-- `orchard-stove-orchard-lunch` Stove (at 73.076923%, 17.357820%)
+- `orchard-stove-orchard-lunch` Hob (at 73.076923%, 17.357820%)
   - icon: ![Stove receiving area](assets/cooks-pen/hotspots/orchard-stove-orchard-lunch.png)
+  - place: Apple compote (at 73.076923%, 14.357820%)
 
 **Items**
+- Herb butter
+  - icon: ![Herb butter](assets/cooks-pen/items/herb-butter.png)
 - Butter
 - Herbs
 - Bread
@@ -222,24 +231,27 @@ Some pages begin with appetite. Today I want the smell of herbs warming on toast
 
 **Combinations**
 - Butter + Herbs -> Herb butter
-- Bread + Herb butter -> Herb-buttered bread
+- Bread + Herb butter [consume] -> Herb-buttered bread
 - Herb-buttered bread [transform] @ Grill -> Herb toast
 - Apples + Apple juice @ `orchard-stove-orchard-lunch` -> Apple compote
 - Yogurt + Apple compote -> Compote yogurt
 
-## A pot of broth
-
+## Vegetable broth and onion soup
 ![A pot of broth](assets/cooks-pen/backgrounds/onions-and-a-bowl-of-broth.webp)
 
-The savoury pages need something to build on. A pot of vegetable broth can soften bread into a plain soup or carry the sweetness of onions cooked in butter. Try both. Our herb toast has a particularly good reason to be here.
+*Soup*
+
+Onion soup.
 
 **Goals**
 - Cook bread soup. -- Bread soup
 - Serve onion soup with herb toast. -- Onion soup with herb toast
 
 **Hotspots**
-- `soup-stove-soup` Stove (at 50.000000%, 17.357820%)
+- `soup-stove-soup` Hob (at 50.000000%, 17.357820%)
   - icon: ![Stove receiving area](assets/cooks-pen/hotspots/soup-stove-soup.png)
+  - place: Vegetable broth (at 50.000000%, 14.357820%)
+  - place: Softened onions (at 50.000000%, 14.357820%)
 
 **Items**
 - Root vegetables
@@ -270,11 +282,12 @@ The savoury pages need something to build on. A pot of vegetable broth can softe
 - Softened onions [transform] + Vegetable broth -> Onion soup
 - Onion soup [transform] + Herb toast [preserve] -> Onion soup with herb toast
 
-## Roots, beans and crisp edges
-
+## Roast vegetables and beans
 ![Roots, beans and crisp edges](assets/cooks-pen/backgrounds/roasted-roots-and-beans.webp)
 
-Roasting gives the roots a different character from the vegetables in our broth. Fold some into bean stew and flatbread for lunch. There should also be a place in this book for crisp bread cubes: a small preparation that makes a soft dish more interesting.
+*Roast vegetables and beans*
+
+A hearty filling for flatbread.
 
 **Goals**
 - Roast the roots. -- Roasted roots
@@ -284,15 +297,16 @@ Roasting gives the roots a different character from the vegetables in our broth.
 **Hotspots**
 - `roasting-oven-roast` Oven (at 50.000000%, 17.417062%)
   - icon: ![Oven receiving area](assets/cooks-pen/hotspots/roasting-oven-roast.png)
+  - place: Roasted roots (at 50.000000%, 19.417062%)
+  - place: Croutons (at 50.000000%, 19.417062%)
 
 **Items**
+- Olive oil
 - Cooked beans
   - icon: ![Cooked beans](assets/cooks-pen/items/cooked-beans.png)
 - Vegetable broth
   - icon: ![Vegetable broth](assets/cooks-pen/items/vegetable-broth.png)
 - Root vegetables
-- Herb butter
-  - icon: ![Herb butter](assets/cooks-pen/items/herb-butter.png)
 - Flatbread
 - Bread
 - Bean stew with roasted roots
@@ -302,16 +316,19 @@ Roasting gives the roots a different character from the vegetables in our broth.
 
 **Combinations**
 - Cooked beans [preserve] + Vegetable broth -> Bean stew
-- Root vegetables + Herb butter @ `roasting-oven-roast` -> Roasted roots
+- Root vegetables + Olive oil @ `roasting-oven-roast` -> Roasted roots
 - Bean stew + Roasted roots -> Bean stew with roasted roots
 - Flatbread + Bean stew with roasted roots [consume] -> Root-and-bean flatbread
 - Bread @ `roasting-oven-roast` -> Croutons
 
-## A salad wants contrast
-
+## Salads and mustard dressing
 ![A salad wants contrast](assets/cooks-pen/backgrounds/leaves-mustard-and-crunch.webp)
 
-A salad page ought to say more than “add dressing.” Here we can set soft roasted roots against sharpness, and tender leaves against crisp bread. Try a mustard dressing if it appeals. In the margin lies a copied passage from John Evelyn’s old salad book: a reminder that cookbooks carry their authors’ ideas as well as their recipes.
+*Salads*
+
+Leaves, croutons, roasted roots.
+
+Add variety through texture
 
 **Goals**
 - Dress a roasted-root salad. -- Roasted-root salad
@@ -320,15 +337,6 @@ A salad page ought to say more than “add dressing.” Here we can set soft roa
 **Items**
 - Ground mustard seed
   - icon: ![Ground mustard seed](assets/cooks-pen/items/ground-mustard-seed.png)
-- Evelyn calls lettuce cold and moist
-  - icon: ![Evelyn calls lettuce cold and moist](assets/cooks-pen/items/evelyn-calls-lettuce-cold-and-moist.png)
-
-  “It is indeed of Nature more cold and moist than any of the rest”
-
-  Evelyn describes lettuce using an old medical theory that classified foods as hot, cold, wet or dry. That theory is no longer an accepted explanation of how food affects health.
-
-  > NOTE: John Evelyn, Acetaria (1699), catalogue entry 34: Lettuce. Excerpt spelling modernised; contextual note by the game author.
-
 - Cider vinegar
   - icon: ![Cider vinegar](assets/cooks-pen/items/cider-vinegar.png)
 - Vinaigrette
@@ -339,8 +347,6 @@ A salad page ought to say more than “add dressing.” Here we can set soft roa
   - icon: ![Dressed salad](assets/cooks-pen/items/dressed-salad.png)
 - Croutons
   - icon: ![Croutons](assets/cooks-pen/items/croutons.png)
-- Mustard paste
-  - icon: ![Mustard paste](assets/cooks-pen/items/mustard-paste.png)
 - Mustard dressing
   - icon: ![Mustard dressing](assets/cooks-pen/items/mustard-dressing.png)
 - Roasted-root salad
@@ -349,272 +355,24 @@ A salad page ought to say more than “add dressing.” Here we can set soft roa
   - icon: ![Green salad with croutons](assets/cooks-pen/items/green-salad-with-croutons.png)
 
 **Combinations**
-- Ground mustard seed + Cider vinegar -> Mustard paste
-- Mustard paste [transform] + Vinaigrette -> Mustard dressing
 - Roasted roots + Mustard dressing [preserve] -> Roasted-root salad
 - Dressed salad [transform] + Croutons [preserve] -> Green salad with croutons
 - Roasted roots + Vinaigrette -> Roasted-root salad
-- Ground mustard seed + Vinaigrette -> Mustard dressing
-
-> NOTE: [John Evelyn: Acetaria (1699)](https://www.gutenberg.org/files/15517/15517-h/15517-h.htm). Primary historical salad text; period health beliefs are not accepted science.
-
-> NOTE: [NLM: Shakespeare and the Four Humors](https://www.nlm.nih.gov/exhibition/shakespeare-and-the-four-humors/index.html). Discarded historical theory; no medical efficacy mechanic.
+- Ground mustard seed [consume] + Vinaigrette -> Mustard dressing
 
 > NOTE: [Giada De Laurentiis: Roasted Root Vegetable Salad](https://www.foodnetwork.com/recipes/giada-de-laurentiis/roasted-root-vegetable-salad-recipe-2095657). Pairing support only, not an exact reproduction.
 
 > NOTE: [Colman’s Mustard: Foodservice](https://colmansusa.com/foodservice). Producer guidance lists mustard powder for vinaigrettes. It does not specify this game’s exact quantity or mixing order.
 
-## One sheet, two pastas
-
-![One sheet, two pastas](assets/cooks-pen/backgrounds/ribbons-and-ravioli.webp)
-
-Roll out a sheet of egg pasta and the next page almost writes itself. We could cut noodles, or fold the sheet around a filling of roasted roots and strained yogurt. Try both shapes. Keep bread crumbs beside the pasta notes; they will have a use when we cook.
-
-**Goals**
-- (three goals are a lot but okay here because noodles and filled ravioli share reusable pasta sheets while breadcrumbs are a separate preparation; the reviewed scanning burden concerned the pantry rather than the third goal)
-- Cut fresh noodles. -- Fresh noodles
-- Fill ravioli. -- Filled ravioli
-- Prepare breadcrumbs. -- Breadcrumbs
-
-**Items**
-- Bread knife
-  - icon: ![Bread knife](assets/cooks-pen/items/bread-knife.png)
-- Eggs
-  - icon: ![Eggs](assets/cooks-pen/items/eggs.png)
-- Rolling pin
-  - icon: ![Rolling pin](assets/cooks-pen/items/rolling-pin.png)
-- Cutting wheel
-  - icon: ![Cutting wheel](assets/cooks-pen/items/cutting-wheel.png)
-- Bread
-- Flour
-  - icon: ![Flour](assets/cooks-pen/items/flour.png)
-- Roasted roots
-- Strained yogurt
-  - icon: ![Strained yogurt](assets/cooks-pen/items/strained-yogurt.png)
-- Egg pasta dough
-  - icon: ![Egg pasta dough](assets/cooks-pen/items/egg-pasta-dough.png)
-- Pasta sheets
-  - icon: ![Pasta sheets](assets/cooks-pen/items/pasta-sheets.png)
-- Root and yogurt filling
-  - icon: ![Root and yogurt filling](assets/cooks-pen/items/root-and-yogurt-filling.png)
-
-**Combinations**
-- Bread + Bread knife [preserve] -> Breadcrumbs
-- Flour + Eggs -> Egg pasta dough
-- Egg pasta dough [transform] + Rolling pin [preserve] -> Pasta sheets
-- Pasta sheets + Cutting wheel [preserve] -> Fresh noodles
-- Roasted roots + Strained yogurt [transform] -> Root and yogurt filling
-- Pasta sheets + Root and yogurt filling [transform] -> Filled ravioli
-
-> NOTE: [A. Escoffier: A Guide to Modern Cookery](https://www.gutenberg.org/cache/epub/71395/pg71395-images.html). Primary culinary source for sauces, pastry, puddings and desserts; not invention dates. Common game preparations are simplified, not exact reproductions.
-
-## Pasta at the table
-
-![Pasta at the table](assets/cooks-pen/backgrounds/herb-butter-and-pasta.webp)
-
-Now we can find out how those shapes eat. The noodles need something crisp among their folds; the filled pasta needs room for its own flavour. Herb butter can serve both. Taste the crumbs toasted, rather than assuming that bread is bread however we use it.
-
-**Goals**
-- Finish noodles with toasted crumbs. -- Noodles with toasted crumbs
-- Serve ravioli with herb butter. -- Ravioli with herb butter
-
-**Hotspots**
-- Cooking pot (at 26.923077%, 17.357820%)
-  - icon: ![Cooking pot receiving area](assets/cooks-pen/hotspots/cooking-pot.png)
-- Frying pan (at 73.076923%, 20.793839%)
-  - icon: ![Frying pan receiving area](assets/cooks-pen/hotspots/frying-pan.png)
-
-**Items**
-- Fresh noodles
-  - icon: ![Fresh noodles](assets/cooks-pen/items/fresh-noodles.png)
-- Herb butter
-- Breadcrumbs
-  - icon: ![Breadcrumbs](assets/cooks-pen/items/breadcrumbs.png)
-- Filled ravioli
-  - icon: ![Filled ravioli](assets/cooks-pen/items/filled-ravioli.png)
-- Herb-buttered noodles
-  - icon: ![Herb-buttered noodles](assets/cooks-pen/items/herb-buttered-noodles.png)
-- Toasted crumbs
-  - icon: ![Toasted crumbs](assets/cooks-pen/items/toasted-crumbs.png)
-- Noodles with toasted crumbs
-  - icon: ![Noodles with toasted crumbs](assets/cooks-pen/items/noodles-with-toasted-crumbs.png)
-- Cooked ravioli
-  - icon: ![Cooked ravioli](assets/cooks-pen/items/cooked-ravioli.png)
-- Ravioli with herb butter
-  - icon: ![Ravioli with herb butter](assets/cooks-pen/items/ravioli-with-herb-butter.png)
-
-**Combinations**
-- Fresh noodles [transform] @ Cooking pot -> Cooked noodles
-- Cooked noodles + Herb butter -> Herb-buttered noodles
-- Breadcrumbs @ Frying pan -> Toasted crumbs
-- Herb-buttered noodles [transform] + Toasted crumbs [preserve] -> Noodles with toasted crumbs
-- Filled ravioli [transform] @ Cooking pot -> Cooked ravioli
-- Cooked ravioli [transform] + Herb butter -> Ravioli with herb butter
-
-## Two ways with butter
-
-![Two ways with butter](assets/cooks-pen/backgrounds/butter-between-the-layers.webp)
-
-Put these preparations on facing pages. Butter rubbed through flour makes crumbs that need water to bind them into shortcrust. For puff pastry, cold butter is folded between layers of dough instead of stirred through it.
-
-The same familiar ingredients are doing different work. That distinction deserves a clear drawing and a careful sentence.
-
-**Goals**
-- Prepare shortcrust. -- Shortcrust
-- Fold laminated dough. -- Laminated dough
-
-**Hotspots**
-- Pastry bench (at 50.000000%, 19.194313%)
-  - icon: ![Pastry bench receiving area](assets/cooks-pen/hotspots/pastry-bench.png)
-
-**Items**
-- Flour
-- Butter
-- Water
-- Dough
-- Buttery pastry crumbs
-  - icon: ![Buttery pastry crumbs](assets/cooks-pen/items/buttery-pastry-crumbs.png)
-
-**Combinations**
-- Flour + Butter @ Pastry bench -> Buttery pastry crumbs
-- Buttery pastry crumbs [transform] + Water -> Shortcrust
-- Dough + Butter @ Pastry bench -> Laminated dough
-
-> NOTE: [King Arthur: Pie Crust guide](https://www.kingarthurbaking.com/learn/guides/pie-crust). Fat-in-flour crumbs need water to become dough.
-
-> NOTE: [King Arthur: Classic Puff Pastry](https://www.kingarthurbaking.com/recipes/classic-puff-pastry-pate-feuilletee-recipe). Distinct folded butter layers; preparation is compressed.
-
-## What pastry can hold
-
-![What pastry can hold](assets/cooks-pen/backgrounds/pastry-shells-and-twists.webp)
-
-The pastry pages need supper as well as dessert. Shortcrust can hold bean stew or apples; the folded dough can become plain puff pastry or crisp cheese straws. Keep a plain puff for the almond page. The cheese straws deserve a place on the table now.
-
-**Goals**
-- Bake a bean pie. -- Bean pie
-- next: Bake a fruit tart. -- Fruit tart
-- Bake plain puff pastry. -- Puff pastry
-- next: Bake cheese straws. -- Cheese straws
-
-**Hotspots**
-- `pastry-oven-pastry` Oven (at 50.000000%, 17.417062%)
-  - icon: ![Oven receiving area](assets/cooks-pen/hotspots/pastry-oven-pastry.png)
-
-**Items**
-- Grated cheese
-  - icon: ![Grated cheese](assets/cooks-pen/items/grated-cheese.png)
-- Shortcrust
-  - icon: ![Shortcrust](assets/cooks-pen/items/shortcrust.png)
-- Apples
-- Laminated dough
-  - icon: ![Laminated dough](assets/cooks-pen/items/laminated-dough.png)
-- Bean stew
-  - icon: ![Bean stew](assets/cooks-pen/items/bean-stew.png)
-- Unbaked fruit tart
-  - icon: ![Unbaked fruit tart](assets/cooks-pen/items/unbaked-fruit-tart.png)
-- Unbaked bean pie
-  - icon: ![Unbaked bean pie](assets/cooks-pen/items/unbaked-bean-pie.png)
-- Bean pie
-  - icon: ![Bean pie](assets/cooks-pen/items/bean-pie.png)
-- Cheese-straw twists
-  - icon: ![Cheese-straw twists](assets/cooks-pen/items/cheese-straw-twists.png)
-- Cheese straws
-  - icon: ![Cheese straws](assets/cooks-pen/items/cheese-straws.png)
-
-**Combinations**
-- Shortcrust + Apples -> Unbaked fruit tart
-- Unbaked fruit tart [transform] @ `pastry-oven-pastry` -> Fruit tart
-- Laminated dough [transform] @ `pastry-oven-pastry` -> Puff pastry
-- Shortcrust + Bean stew -> Unbaked bean pie
-- Unbaked bean pie [transform] @ `pastry-oven-pastry` -> Bean pie
-- Laminated dough [transform] + Grated cheese -> Cheese-straw twists
-- Cheese-straw twists [transform] @ `pastry-oven-pastry` -> Cheese straws
-
-## The sauce page
-
-![The sauce page](assets/cooks-pen/backgrounds/the-ribbon-of-white-sauce.webp)
-
-Flour and butter again, but this time they meet in a saucepan. Cooking them into a pale roux leads to a smooth white sauce with milk, ready to enrich with cheese. Beside the pastry notes, write down the distinction: warm roux and cold crumbs are different beginnings.
-
-**Goals**
-- Prepare cheese sauce. -- Cheese sauce
-
-**Hotspots**
-- `saucepan-sauce` Saucepan (at 50.000000%, 19.135071%)
-  - icon: ![Saucepan receiving area](assets/cooks-pen/hotspots/saucepan-sauce.png)
-
-**Items**
-- Flour
-- Butter
-- Milk
-- Grated cheese
-- White roux
-  - icon: ![White roux](assets/cooks-pen/items/white-roux.png)
-- Béchamel
-  - icon: ![Béchamel](assets/cooks-pen/items/bechamel.png)
-
-**Combinations**
-- Flour + Butter @ `saucepan-sauce` -> White roux
-- White roux [transform] + Milk -> Béchamel
-- Béchamel [transform] + Grated cheese -> Cheese sauce
-
-## A vegetable supper
-
-![A vegetable supper](assets/cooks-pen/backgrounds/cauliflower-to-gratin.webp)
-
-A recipe earns its place by being useful on an ordinary evening. We have cauliflower, cooked noodles and the cheese sauce. The noodles can go into the oven; the cauliflower can follow as a gratin, or stay simple with butter. Either version belongs beside this supper.
-
-**Goals**
-- Cook a cauliflower dish.
-  - either: Cauliflower gratin
-  - or: Buttered cauliflower
-- Bake cheese noodles. -- Baked cheese noodles
-
-**Hotspots**
-- Steamer (at 26.923077%, 17.357820%)
-  - icon: ![Steamer receiving area](assets/cooks-pen/hotspots/steamer.png)
-- `supper-oven-gratin` Oven (at 73.076923%, 17.417062%)
-  - icon: ![Oven receiving area](assets/cooks-pen/hotspots/supper-oven-gratin.png)
-
-**Items**
-- Cauliflower
-  - icon: ![Cauliflower](assets/cooks-pen/items/cauliflower.png)
-- Cheese sauce
-  - icon: ![Cheese sauce](assets/cooks-pen/items/cheese-sauce.png)
-- Cooked noodles
-  - icon: ![Cooked noodles](assets/cooks-pen/items/cooked-noodles.png)
-- Butter
-- Cooked cauliflower
-  - icon: ![Cooked cauliflower](assets/cooks-pen/items/cooked-cauliflower.png)
-- Cauliflower in cheese sauce
-  - icon: ![Cauliflower in cheese sauce](assets/cooks-pen/items/cauliflower-in-cheese-sauce.png)
-- Cauliflower gratin
-  - icon: ![Cauliflower gratin](assets/cooks-pen/items/cauliflower-gratin.png)
-- Noodles in cheese sauce
-  - icon: ![Noodles in cheese sauce](assets/cooks-pen/items/noodles-in-cheese-sauce.png)
-- Baked cheese noodles
-  - icon: ![Baked cheese noodles](assets/cooks-pen/items/baked-cheese-noodles.png)
-- Buttered cauliflower
-  - icon: ![Buttered cauliflower](assets/cooks-pen/items/buttered-cauliflower.png)
-
-**Combinations**
-- Cauliflower [consume] @ Steamer -> Cooked cauliflower
-- Cooked cauliflower + Cheese sauce -> Cauliflower in cheese sauce
-- Cauliflower in cheese sauce [transform] @ `supper-oven-gratin` -> Cauliflower gratin
-- Cooked noodles [transform] + Cheese sauce -> Noodles in cheese sauce
-- Noodles in cheese sauce [transform] @ `supper-oven-gratin` -> Baked cheese noodles
-- Cooked cauliflower + Butter -> Buttered cauliflower
-
-## Fruit, sugar and time
-
+## Jam, syrup and marmalade
 ![Fruit, sugar and time](assets/cooks-pen/backgrounds/citrus-peel-and-marmalade.webp)
 
-The fruit pages need three different preparations: soft jam, a pouring syrup, and marmalade with softened citrus. Think about where each will be useful when the cakes and puddings arrive.
+*Preserves*
 
-An ingredient’s history belongs in a cookbook too. The sugar note records one part of its connection to plantation slavery. These preparations are for the cooks to use; they make no claim of shelf-stable preservation.
+Jam, syrup and marmalade.
 
 **Goals**
-- (three goals are a lot but okay here because jam, syrup, and marmalade show distinct uses of the preserving stove; the reviewed friction was the citrus handling sequence rather than the number of visible goals)
+- (three goals are a lot but okay here because jam, syrup, and marmalade show distinct uses of the preserving stove)
 - Cook soft-set fruit jam. -- Soft-set fruit jam
 - Prepare fruit syrup for later pages. -- Fruit syrup
 - Cook marmalade. -- Marmalade
@@ -654,11 +412,465 @@ An ingredient’s history belongs in a cookbook too. The sugar note records one 
 
 > NOTE: [Richard Ligon: A True & Exact History of the Island of Barbados (1657), pp. 22–23, 113–116](https://www.gutenberg.org/cache/epub/70489/pg70489-images.html). Primary colonial account, consulted directly. Supports this optional, geographically and temporally bounded game-author paraphrase; not a modern recipe method or enslaved people’s own testimony.
 
-## Tarts from earlier pages
+## Sponge cake
+![Cake lightened with air](assets/cooks-pen/backgrounds/air-in-the-sponge.webp)
 
+*Sponge cake*
+
+Plain and chocolate.
+
+**Goals**
+- Bake a plain sponge cake. -- Sponge cake
+- Bake a chocolate sponge. -- Chocolate sponge
+
+**Hotspots**
+- `choux-oven-sponge` Oven (at 50.000000%, 17.417062%)
+  - icon: ![Oven receiving area](assets/cooks-pen/hotspots/choux-oven-sponge.png)
+  - place: Sponge cake (at 50.000000%, 19.417062%)
+  - place: Chocolate sponge (at 50.000000%, 19.417062%)
+
+**Items**
+- Cocoa powder
+  - icon: ![Cocoa powder](assets/cooks-pen/items/cocoa-powder.png)
+- Eggs
+- Whisk
+- Sugar
+- Flour
+- Egg foam
+  - icon: ![Egg foam](assets/cooks-pen/items/egg-foam.png)
+- Sweet egg foam
+  - icon: ![Sweet egg foam](assets/cooks-pen/items/sweet-egg-foam.png)
+- Sponge batter
+  - icon: ![Sponge batter](assets/cooks-pen/items/sponge-batter.png)
+- Chocolate sponge batter
+  - icon: ![Chocolate sponge batter](assets/cooks-pen/items/chocolate-sponge-batter.png)
+
+**Combinations**
+- Eggs + Whisk -> Egg foam
+- Egg foam [transform] + Sugar -> Sweet egg foam
+- Sweet egg foam [transform] + Flour -> Sponge batter
+- Sponge batter [transform] @ `choux-oven-sponge` -> Sponge cake
+- Sponge batter [transform] + Cocoa powder [consume] -> Chocolate sponge batter
+- Chocolate sponge batter [transform] @ `choux-oven-sponge` -> Chocolate sponge
+
+## Scones and brown-butter biscuits
+![Scones for tea](assets/cooks-pen/backgrounds/scones-jam-and-cream.webp)
+
+*Baking for tea*
+
+Scones and brown-butter biscuits.
+
+**Goals**
+- Bake scones. -- Scones
+- Bake brown-butter biscuits. -- Brown-butter biscuits
+
+**Hotspots**
+- `tea-oven-tea` Oven (at 26.923077%, 17.417062%)
+  - icon: ![Oven receiving area](assets/cooks-pen/hotspots/tea-oven-tea.png)
+  - place: Scones (at 26.923077%, 19.417062%)
+  - place: Brown-butter biscuits (at 26.923077%, 19.417062%)
+- `chocolate-pan-tea` Saucepan (at 73.076923%, 19.431280%)
+  - icon: ![Saucepan receiving area](assets/cooks-pen/hotspots/chocolate-pan-tea.png)
+
+**Items**
+- Sugar
+- Sugar mill
+  - icon: ![Sugar mill](assets/cooks-pen/items/sugar-mill.png)
+- Confectioner’s sugar
+- Baking powder
+  - icon: ![Baking powder](assets/cooks-pen/items/baking-powder.png)
+- Flour
+- Butter
+- Milk
+- Brown butter
+  - icon: ![Brown butter](assets/rework/items/brown-butter.png)
+- Rubbed-in scone mix
+  - icon: ![Rubbed-in scone mix](assets/cooks-pen/items/rubbed-in-scone-mix.png)
+- Scone dough
+  - icon: ![Scone dough](assets/cooks-pen/items/scone-dough.png)
+- Scones
+  - icon: ![Scones](assets/cooks-pen/items/scones.png)
+- Sweetened brown butter
+  - icon: ![Sweetened brown butter](assets/rework/items/sweetened-brown-butter.png)
+- Biscuit dough
+  - icon: ![Biscuit dough](assets/rework/items/biscuit-dough.png)
+- Brown-butter biscuits
+  - icon: ![Brown-butter biscuits](assets/rework/items/brown-butter-biscuits.png)
+
+**Combinations**
+- Flour + Baking powder [preserve] -> Self-raising flour
+- Self-raising flour [transform] + Butter -> Rubbed-in scone mix
+- Rubbed-in scone mix [transform] + Milk -> Scone dough
+- Scone dough [transform] @ `tea-oven-tea` -> Scones
+- Butter @ `chocolate-pan-tea` -> Brown butter
+- Sugar + Sugar mill [preserve] -> Confectioner’s sugar
+- Brown butter + Confectioner’s sugar -> Sweetened brown butter
+- Sweetened brown butter [transform] + Flour -> Biscuit dough
+- Biscuit dough [transform] @ `tea-oven-tea` -> Brown-butter biscuits
+
+> NOTE: [British Dietetic Association: Basic Scones](https://www.bda.uk.com/resource/basic-scones.html) distinguishes rubbing fat into flour from adding milk to form dough and then baking. [King Arthur: Shortbread Cookies](https://www.kingarthurbaking.com/recipes/shortbread-cookies-recipe) and [Brown butter](https://www.kingarthurbaking.com/blog/2020/01/08/brown-butter) support the simplified biscuit preparation. Proportions, salt, shaping and cooling remain compressed. Assembly and tea-making belong to the next chapter.
+
+## Afternoon tea
+![Afternoon tea](assets/rework/backgrounds/afternoon-parlour.webp)
+
+*Afternoon tea*
+
+Scones, biscuits, cake, bread and butter.
+
+**Goals**
+- Fill the tea stand. -- Tea stand[Bread and butter, Scones, Brown-butter biscuits, Sponge cake, Soft-set fruit jam]
+- Brew a pot of tea. -- Pot of tea
+
+**Hotspots**
+- `afternoon-tea-hob` Hob (at 50%, 19%)
+  - icon: ![Hob](assets/rework/stations/hob.png)
+
+**Items**
+- Tea stand (compound)
+  - icon: ![Tea stand](assets/rework/compounds/tea-stand.png) (at 50%, 47.3%)
+  - unnamed slot: accepts Bread and butter, icon: ![Fitted bread and butter](assets/rework/compounds/tea-stand-bread-and-butter.png)
+  - unnamed slot: accepts Scones, icon: ![Fitted scones](assets/rework/compounds/tea-stand-scones.png)
+  - unnamed slot: accepts Brown-butter biscuits, icon: ![Fitted biscuits](assets/rework/compounds/tea-stand-brown-butter-biscuits.png)
+  - unnamed slot: accepts Sponge cake, icon: ![Fitted sponge cake](assets/rework/compounds/tea-stand-sponge-cake.png)
+  - unnamed slot: accepts Soft-set fruit jam, icon: ![Fitted jam](assets/rework/compounds/tea-stand-soft-set-fruit-jam.png)
+- Bread and butter
+- Scones
+- Brown-butter biscuits
+- Sponge cake
+- Soft-set fruit jam
+- Water
+- Tea leaves
+  - icon: ![Tea leaves](assets/rework/items/tea-leaves.png)
+- Boiling water
+  - icon: ![Boiling water](assets/rework/items/boiling-water.png)
+- Pot of tea
+  - icon: ![Pot of tea](assets/rework/items/pot-of-tea.png)
+
+**Combinations**
+- Water @ `afternoon-tea-hob` -> Boiling water
+- Boiling water [transform] + Tea leaves [preserve] -> Pot of tea
+
+> NOTE: The [Ritz afternoon tea](https://www.theritzlondon.com/dine-with-us/afternoon-tea/) and [Orangery](https://www.hrp.org.uk/kensington-palace/visit/the-orangery-restaurant/) provide the serving reference. The game uses its existing breads and cakes rather than reproducing either menu. Tea is a separate preparation, not a fitted part of the stand; no delivery location is required.
+
+## Fresh pasta and mushroom filling
+![One sheet, two pastas](assets/cooks-pen/backgrounds/ribbons-and-ravioli.webp)
+
+*Fresh pasta*
+
+Noodles and mushroom ravioli.
+
+**Goals**
+- (three goals are a lot but okay here because noodles and filled ravioli share reusable pasta sheets while breadcrumbs are a separate preparation)
+- Cut fresh noodles. -- Fresh noodles
+- Fill ravioli. -- Filled ravioli
+- Prepare breadcrumbs. -- Breadcrumbs
+
+**Hotspots**
+- `mushroom-pan` Frying pan (at 50%, 17.5%)
+  - icon: ![Frying pan](assets/rework/stations/mushroom-pan.png)
+
+**Items**
+- Softened onions
+- Kitchen knife
+  - icon: ![Kitchen knife](assets/cooks-pen/items/bread-knife.png)
+- Eggs
+  - icon: ![Eggs](assets/cooks-pen/items/eggs.png)
+- Rolling pin
+  - icon: ![Rolling pin](assets/cooks-pen/items/rolling-pin.png)
+- Cutting wheel
+  - icon: ![Cutting wheel](assets/cooks-pen/items/cutting-wheel.png)
+- Bread
+- Flour
+  - icon: ![Flour](assets/cooks-pen/items/flour.png)
+- Egg pasta dough
+  - icon: ![Egg pasta dough](assets/cooks-pen/items/egg-pasta-dough.png)
+- Pasta sheets
+  - icon: ![Pasta sheets](assets/cooks-pen/items/pasta-sheets.png)
+
+- Mushrooms
+  - icon: ![Mushrooms](assets/rework/items/mushrooms.png)
+- Chopped mushrooms
+  - icon: ![Chopped mushrooms](assets/rework/items/chopped-mushrooms.png)
+- Mushroom filling
+  - icon: ![Mushroom filling](assets/rework/items/mushroom-filling.png)
+
+**Combinations**
+- Bread + Rolling pin [preserve] -> Breadcrumbs
+- Flour + Eggs -> Egg pasta dough
+- Egg pasta dough [transform] + Rolling pin [preserve] -> Pasta sheets
+- Pasta sheets + Cutting wheel [preserve] -> Fresh noodles
+- Mushrooms [transform] + Kitchen knife [preserve] -> Chopped mushrooms
+- Chopped mushrooms [transform] + Softened onions [transform] @ `mushroom-pan` -> Mushroom filling
+- Pasta sheets + Mushroom filling -> Filled ravioli
+
+> NOTE: [A. Escoffier: A Guide to Modern Cookery](https://www.gutenberg.org/cache/epub/71395/pg71395-images.html). Primary culinary source for sauces, pastry, puddings and desserts; not invention dates. Common game preparations are simplified, not exact reproductions.
+
+## Pasta with butter and toasted crumbs
+![Pasta at the table](assets/cooks-pen/backgrounds/herb-butter-and-pasta.webp)
+
+*Pasta for supper*
+
+Noodles with toasted crumbs; ravioli with brown butter.
+
+**Goals**
+- Finish noodles with toasted crumbs. -- Noodles with toasted crumbs
+- Serve ravioli with brown butter. -- Ravioli with brown butter
+
+**Hotspots**
+- Cooking pot (at 26.923077%, 17.357820%)
+  - icon: ![Cooking pot receiving area](assets/cooks-pen/hotspots/cooking-pot.png)
+- Frying pan (at 73.076923%, 20.793839%)
+  - icon: ![Frying pan receiving area](assets/cooks-pen/hotspots/frying-pan.png)
+
+**Items**
+- Fresh noodles
+  - icon: ![Fresh noodles](assets/cooks-pen/items/fresh-noodles.png)
+- Butter
+- Breadcrumbs
+  - icon: ![Breadcrumbs](assets/cooks-pen/items/breadcrumbs.png)
+- Filled ravioli
+  - icon: ![Filled ravioli](assets/cooks-pen/items/filled-ravioli.png)
+- Buttered noodles
+  - icon: ![Buttered noodles](assets/rework/items/buttered-noodles.png)
+- Toasted crumbs
+  - icon: ![Toasted crumbs](assets/cooks-pen/items/toasted-crumbs.png)
+- Noodles with toasted crumbs
+  - icon: ![Noodles with toasted crumbs](assets/rework/items/noodles-with-toasted-crumbs.png)
+- Cooked ravioli
+  - icon: ![Cooked ravioli](assets/cooks-pen/items/cooked-ravioli.png)
+- Ravioli with brown butter
+  - icon: ![Ravioli with brown butter](assets/rework/items/ravioli-with-brown-butter.png)
+
+- Brown butter
+  - icon: ![Brown butter](assets/rework/items/brown-butter.png)
+
+**Combinations**
+- Fresh noodles [transform] @ Cooking pot -> Cooked noodles
+- Cooked noodles + Butter -> Buttered noodles
+- Breadcrumbs @ Frying pan -> Toasted crumbs
+- Buttered noodles [transform] + Toasted crumbs [preserve] -> Noodles with toasted crumbs
+- Filled ravioli [transform] @ Cooking pot -> Cooked ravioli
+- Cooked ravioli [transform] + Brown butter -> Ravioli with brown butter
+
+> NOTE: [King Arthur: Brown butter](https://www.kingarthurbaking.com/blog/2020/01/08/brown-butter). Browning the milk solids changes flavour; heating and cooling are compressed.
+
+## Shortcrust and puff pastry
+![Two ways with butter](assets/cooks-pen/backgrounds/butter-between-the-layers.webp)
+
+*Pastry*
+
+Shortcrust and puff pastry.
+
+**Goals**
+- Prepare shortcrust. -- Shortcrust
+- Fold laminated dough. -- Laminated dough
+
+**Hotspots**
+- Pastry bench (at 50.000000%, 19.194313%)
+  - icon: ![Pastry bench receiving area](assets/cooks-pen/hotspots/pastry-bench.png)
+
+**Items**
+- Flour
+- Butter
+- Water
+- Dough
+- Buttery pastry crumbs
+  - icon: ![Buttery pastry crumbs](assets/cooks-pen/items/buttery-pastry-crumbs.png)
+
+**Combinations**
+- Flour + Butter @ Pastry bench -> Buttery pastry crumbs
+- Buttery pastry crumbs [transform] + Water -> Shortcrust
+- Dough + Butter @ Pastry bench -> Laminated dough
+
+> NOTE: [King Arthur: Pie Crust guide](https://www.kingarthurbaking.com/learn/guides/pie-crust). Fat-in-flour crumbs need water to become dough.
+
+> NOTE: [King Arthur: Classic Puff Pastry](https://www.kingarthurbaking.com/recipes/classic-puff-pastry-pate-feuilletee-recipe). Distinct folded butter layers; preparation is compressed.
+
+## Pies, tarts and cheese straws
+![What pastry can hold](assets/cooks-pen/backgrounds/pastry-shells-and-twists.webp)
+
+*Pies and tarts*
+
+Fruit tart, bean pie and cheese straws.
+
+**Goals**
+- Bake a bean pie. -- Bean pie
+- next: Bake a fruit tart. -- Fruit tart
+- Bake plain puff pastry. -- Puff pastry
+- next: Bake cheese straws. -- Cheese straws
+
+**Hotspots**
+- `pastry-oven-pastry` Oven (at 50.000000%, 17.417062%)
+  - icon: ![Oven receiving area](assets/cooks-pen/hotspots/pastry-oven-pastry.png)
+  - place: Fruit tart (at 50.000000%, 19.417062%)
+  - place: Puff pastry (at 50.000000%, 19.417062%)
+  - place: Bean pie (at 50.000000%, 19.417062%)
+  - place: Cheese straws (at 50.000000%, 19.417062%)
+
+**Items**
+- Grated cheese
+  - icon: ![Grated cheese](assets/cooks-pen/items/grated-cheese.png)
+- Shortcrust
+  - icon: ![Shortcrust](assets/cooks-pen/items/shortcrust.png)
+- Apples
+- Laminated dough
+  - icon: ![Laminated dough](assets/cooks-pen/items/laminated-dough.png)
+- Bean stew
+  - icon: ![Bean stew](assets/cooks-pen/items/bean-stew.png)
+- Unbaked fruit tart
+  - icon: ![Unbaked fruit tart](assets/cooks-pen/items/unbaked-fruit-tart.png)
+- Unbaked bean pie
+  - icon: ![Unbaked bean pie](assets/cooks-pen/items/unbaked-bean-pie.png)
+- Bean pie
+  - icon: ![Bean pie](assets/cooks-pen/items/bean-pie.png)
+- Cheese-straw twists
+  - icon: ![Cheese-straw twists](assets/cooks-pen/items/cheese-straw-twists.png)
+- Cheese straws
+  - icon: ![Cheese straws](assets/cooks-pen/items/cheese-straws.png)
+
+**Combinations**
+- Shortcrust + Apples -> Unbaked fruit tart
+- Unbaked fruit tart [transform] @ `pastry-oven-pastry` -> Fruit tart
+- Laminated dough [transform] @ `pastry-oven-pastry` -> Puff pastry
+- Shortcrust + Bean stew -> Unbaked bean pie
+- Unbaked bean pie [transform] @ `pastry-oven-pastry` -> Bean pie
+- Laminated dough [transform] + Grated cheese -> Cheese-straw twists
+- Cheese-straw twists [transform] @ `pastry-oven-pastry` -> Cheese straws
+
+## Béchamel and cheese sauce
+![The sauce page](assets/cooks-pen/backgrounds/the-ribbon-of-white-sauce.webp)
+
+*Sauces*
+
+Béchamel and cheese sauce.
+
+**Goals**
+- Prepare cheese sauce. -- Cheese sauce
+
+**Hotspots**
+- `saucepan-sauce` Saucepan (at 50.000000%, 19.135071%)
+  - icon: ![Saucepan receiving area](assets/cooks-pen/hotspots/saucepan-sauce.png)
+
+**Items**
+- Flour
+- Butter
+- Milk
+- Grated cheese
+- White roux
+  - icon: ![White roux](assets/rework/items/white-roux.png)
+- Béchamel
+  - icon: ![Béchamel](assets/rework/items/bechamel.png)
+
+**Combinations**
+- Flour + Butter @ `saucepan-sauce` -> White roux
+- White roux [transform] + Milk @ `saucepan-sauce` -> Béchamel
+- Béchamel [transform] + Grated cheese -> Cheese sauce
+
+> NOTE: Le Cordon Bleu, Kitchen Essentials (2001), p. 119: roux, gradual milk addition and heating. [BDA: White Sauce](https://www.bda.uk.com/asset/255D726C-811E-4FFD-A8E1A57D396768BF/) supports adding cheese after removing from the heat.
+
+## Cauliflower cheese and baked noodles
+![A vegetable supper](assets/cooks-pen/backgrounds/cauliflower-to-gratin.webp)
+
+*A vegetable supper*
+
+Cauliflower cheese and baked noodles.
+
+**Goals**
+- Cook a cauliflower dish.
+  - either: Cauliflower gratin
+  - or: Buttered cauliflower
+- Bake cheese noodles. -- Baked cheese noodles
+
+**Hotspots**
+- Steamer (at 26.923077%, 17.357820%)
+  - icon: ![Steamer receiving area](assets/cooks-pen/hotspots/steamer.png)
+- `supper-oven-gratin` Oven (at 73.076923%, 17.417062%)
+  - icon: ![Oven receiving area](assets/cooks-pen/hotspots/supper-oven-gratin.png)
+  - place: Cauliflower gratin (at 73.076923%, 19.417062%)
+  - place: Baked cheese noodles (at 73.076923%, 19.417062%)
+
+**Items**
+- Cauliflower
+  - icon: ![Cauliflower](assets/cooks-pen/items/cauliflower.png)
+- Cheese sauce
+  - icon: ![Cheese sauce](assets/rework/items/cheese-sauce.png)
+- Cooked noodles
+  - icon: ![Cooked noodles](assets/cooks-pen/items/cooked-noodles.png)
+- Butter
+- Steamed cauliflower
+  - icon: ![Steamed cauliflower](assets/cooks-pen/items/cooked-cauliflower.png)
+- Cauliflower in cheese sauce
+  - icon: ![Cauliflower in cheese sauce](assets/cooks-pen/items/cauliflower-in-cheese-sauce.png)
+- Cauliflower gratin
+  - icon: ![Cauliflower gratin](assets/cooks-pen/items/cauliflower-gratin.png)
+- Noodles in cheese sauce
+  - icon: ![Noodles in cheese sauce](assets/cooks-pen/items/noodles-in-cheese-sauce.png)
+- Baked cheese noodles
+  - icon: ![Baked cheese noodles](assets/cooks-pen/items/baked-cheese-noodles.png)
+- Buttered cauliflower
+  - icon: ![Buttered cauliflower](assets/cooks-pen/items/buttered-cauliflower.png)
+
+**Combinations**
+- Cauliflower [consume] @ Steamer -> Steamed cauliflower
+- Steamed cauliflower + Cheese sauce -> Cauliflower in cheese sauce
+- Cauliflower in cheese sauce [transform] @ `supper-oven-gratin` -> Cauliflower gratin
+- Cooked noodles [transform] + Cheese sauce -> Noodles in cheese sauce
+- Noodles in cheese sauce [transform] @ `supper-oven-gratin` -> Baked cheese noodles
+- Steamed cauliflower + Butter -> Buttered cauliflower
+
+## Bottling and canning
+![What keeping really means](assets/cooks-pen/backgrounds/fruit-kept-for-another-day.webp)
+
+*Bottling and canning*
+
+Fruit and beans for another day.
+
+**Goals**
+- Bottle apples in syrup. -- Processed fruit jar
+- Can spare bean stew. -- Processed bean-stew tin
+
+**Hotspots**
+- Controlled fruit line (at 26.923077%, 18.127962%)
+  - icon: ![Controlled fruit line receiving area](assets/cooks-pen/hotspots/controlled-fruit-line.png)
+- Controlled stew line (at 73.076923%, 18.483412%)
+  - icon: ![Controlled stew line receiving area](assets/cooks-pen/hotspots/controlled-stew-line.png)
+
+**Items**
+- Processed bean-stew tin
+  - icon: ![Processed bean-stew tin](assets/cooks-pen/items/processed-bean-stew-tin.png)
+- Preserving jar
+  - icon: ![Preserving jar](assets/cooks-pen/items/preserving-jar.png)
+- Empty food tin
+  - icon: ![Empty food tin](assets/cooks-pen/items/empty-food-tin.png)
+- Apples
+- Fruit syrup
+- Bean stew
+- Apples in syrup
+  - icon: ![Apples in syrup](assets/cooks-pen/items/apples-in-syrup.png)
+- Fruit-filled jar
+  - icon: ![Fruit-filled jar](assets/cooks-pen/items/fruit-filled-jar.png)
+- Processed fruit jar
+  - icon: ![Processed fruit jar](assets/cooks-pen/items/processed-fruit-jar.png)
+- Stew-filled tin
+  - icon: ![Stew-filled tin](assets/cooks-pen/items/stew-filled-tin.png)
+
+**Combinations**
+- Apples + Fruit syrup -> Apples in syrup
+- Apples in syrup [transform] + Preserving jar [consume] -> Fruit-filled jar
+- Fruit-filled jar [transform] @ Controlled fruit line -> Processed fruit jar
+- Bean stew + Empty food tin [consume] -> Stew-filled tin
+- Stew-filled tin [transform] @ Controlled stew line -> Processed bean-stew tin
+
+> NOTE: [USDA NAL: How Did We Can?](https://www.nal.usda.gov/exhibits/ipd/canning/). History of heat processing and sealed containers, not a safe procedure.
+
+> NOTE: [NCHFP: Ensuring Safe Canned Foods](https://nchfp.uga.edu/how/can/general-information/ensuring-safe-canned-foods/). Specific validated processes matter; game does not teach canning or certify safety.
+
+## Jam tart and breadcrumb crumble
 ![Tarts from earlier pages](assets/cooks-pen/backgrounds/jam-tart-and-apple-crumble.webp)
 
-Leave the savoury dishes on their worktops and clear a little space for dessert. Jam wants a pastry case; soft apple compote wants a crumbly covering. This is what I hope the book will do: let a reader turn back a few pages and find half the next dish already understood.
+*Fruit desserts*
+
+Jam tart and breadcrumb crumble.
 
 **Goals**
 - Bake a jam tart. -- Jam tart
@@ -667,6 +879,8 @@ Leave the savoury dishes on their worktops and clear a little space for dessert.
 **Hotspots**
 - `supper-oven-fruit-baking` Oven (at 50.000000%, 17.417062%)
   - icon: ![Oven receiving area](assets/cooks-pen/hotspots/supper-oven-fruit-baking.png)
+  - place: Jam tart (at 50.000000%, 19.417062%)
+  - place: Fruit crumble (at 50.000000%, 19.417062%)
 
 **Items**
 - Breadcrumbs
@@ -680,8 +894,6 @@ Leave the savoury dishes on their worktops and clear a little space for dessert.
   - icon: ![Fruit tart](assets/cooks-pen/items/fruit-tart.png)
 - Fruit syrup
   - icon: ![Fruit syrup](assets/cooks-pen/items/fruit-syrup.png)
-- Glazed fruit tart
-  - icon: ![Glazed fruit tart](assets/cooks-pen/items/glazed-fruit-tart.png)
 - Buttery crumble topping
   - icon: ![Buttery crumble topping](assets/cooks-pen/items/buttery-crumble-topping.png)
 - Unbaked jam tart
@@ -699,13 +911,13 @@ Leave the savoury dishes on their worktops and clear a little space for dessert.
 - Unbaked jam tart [transform] @ `supper-oven-fruit-baking` -> Jam tart
 - Apple compote + Buttery crumble topping [consume] -> Unbaked fruit crumble
 - Unbaked fruit crumble [transform] @ `supper-oven-fruit-baking` -> Fruit crumble
-- Fruit tart [transform] + Fruit syrup -> Glazed fruit tart
 
-## Almonds ground fine
-
+## Marzipan
 ![Almonds ground fine](assets/cooks-pen/backgrounds/almonds-dates-and-marzipan.webp)
 
-At the mortar, an almond becomes an ingredient for quite different sweets. Grind it finely, then bring it together with fine sugar and water for marzipan. Our plain puff pastry has been waiting for this page. There are dates as well, for a smaller sweet if the mood takes us.
+*Marzipan*
+
+Almond pastries and stuffed dates.
 
 **Goals**
 - Fill puff pastry with almond paste. -- Almond-filled puff pastry
@@ -731,7 +943,6 @@ At the mortar, an almond becomes an ingredient for quite different sweets. Grind
   - icon: ![Almond-filled puff pastry](assets/cooks-pen/items/almond-filled-puff-pastry.png)
 
 **Combinations**
-- Sugar + Sugar mill [preserve] -> Confectioner’s sugar
 - Almonds + Mortar -> Ground almonds
 - Ground almonds [transform] + Confectioner’s sugar -> Almond and sugar mixture
 - Almond and sugar mixture + Water -> Marzipan
@@ -740,11 +951,12 @@ At the mortar, an almond becomes an ingredient for quite different sweets. Grind
 
 > NOTE: [Goethe-Institut: Marzipan](https://www.goethe.de/resources/files/pdf341/marzipan_englisch.pdf). First-party cultural recipe explicitly blends icing sugar with finely ground almonds before adding water; proportions and kneading are compressed in the game.
 
-## Sugar taken further
-
+## Caramel
 ![Sugar taken further](assets/cooks-pen/backgrounds/amber-sugar-and-brittle.webp)
 
-There is more to sugar than sweetness. Watch what caramel contributes to an almond brittle and to a sauce made with cream. We can begin with sugar alone or with a little water; both preparations belong in the margin of this page.
+*Caramel*
+
+Almond brittle and caramel sauce.
 
 **Goals**
 - Make almond brittle. -- Almond brittle
@@ -773,13 +985,12 @@ There is more to sugar than sweetness. Watch what caramel contributes to an almo
 - Caramel + Cream -> Caramel sauce
 - Sugar @ `sugar-pan-caramel` -> Caramel
 
-## A sauce and a filling
-
+## Custard and pastry cream
 ![A sauce and a filling](assets/cooks-pen/backgrounds/vanilla-yolks-and-custard.webp)
 
-The custard page needs a useful distinction. One preparation should pour; the other should stay in a pastry case. Yolks, milk and sugar give us the beginning, while starch thickens the pastry cream into a filling.
+*Custard*
 
-Keep some uncooked custard mixture under the cooks’ care for bread pudding. The vanilla custard will also have a later appointment with the freezing churn.
+A pouring sauce and a pastry filling.
 
 **Goals**
 - Prepare custard mixture. -- Custard mixture
@@ -803,8 +1014,8 @@ Keep some uncooked custard mixture under the cooks’ care for bread pudding. Th
   - icon: ![Sweetened yolks](assets/cooks-pen/items/sweetened-yolks.png)
 - Pouring custard
   - icon: ![Pouring custard](assets/cooks-pen/items/pouring-custard.png)
-- Starch-thickened yolk base
-  - icon: ![Starch-thickened yolk base](assets/cooks-pen/items/starch-thickened-yolk-base.png)
+- Yolk-and-starch mixture
+  - icon: ![Yolk-and-starch mixture](assets/cooks-pen/items/starch-thickened-yolk-base.png)
 - Pastry cream mixture
   - icon: ![Pastry cream mixture](assets/cooks-pen/items/pastry-cream-mixture.png)
 
@@ -813,27 +1024,40 @@ Keep some uncooked custard mixture under the cooks’ care for bread pudding. Th
 - Sweetened yolks [transform] + Milk -> Custard mixture
 - Custard mixture [transform] @ `sugar-pan-custard` -> Pouring custard
 - Pouring custard [transform] + Vanilla -> Vanilla custard
-- Sweetened yolks [transform] + Corn starch [preserve] -> Starch-thickened yolk base
-- Starch-thickened yolk base [transform] + Milk -> Pastry cream mixture
+- Sweetened yolks [transform] + Corn starch [preserve] -> Yolk-and-starch mixture
+- Yolk-and-starch mixture [transform] + Milk -> Pastry cream mixture
 - Pastry cream mixture [transform] @ `sugar-pan-custard` -> Pastry cream
 
 > NOTE: [King Arthur: Pastry Cream](https://www.kingarthurbaking.com/recipes/pastry-cream-creme-patissiere-recipe). Egg yolks, milk, sugar and starch cooked into pastry filling; game separates pouring custard from starch-thickened cream.
 
-## Bread soaked, pastry filled
-
+## Bread pudding and fruit tarts
 ![Bread soaked, pastry filled](assets/cooks-pen/backgrounds/bread-pudding-and-fruit-tart.webp)
 
-Set two puddings beside each other. In one, custard settles into bread before baking; in the other, a baked pastry case holds a cream filling and fruit. The caramel sauce belongs with the bread pudding. These are the connections a useful cookbook should make easy to see.
+*Bread pudding and fruit tarts*
+
+Caramel, custard and preserved fruit.
 
 **Goals**
 - Fill a fruit cream tart. -- Fruit cream tart
+- next: Serve the bottled fruit with custard. -- Bottled fruit with custard
 - Finish caramel bread pudding. -- Caramel bread pudding
 
 **Hotspots**
 - `custard-oven-custard-baking` Oven (at 50.000000%, 17.417062%)
   - icon: ![Oven receiving area](assets/cooks-pen/hotspots/custard-oven-custard-baking.png)
+  - place: Baked tart case (at 50.000000%, 19.417062%)
+  - place: Bread pudding (at 50.000000%, 19.417062%)
 
 **Items**
+- Processed fruit jar
+- Vanilla custard
+- Jar opener
+  - icon: ![Jar opener](assets/rework/items/jar-opener.png)
+- Opened bottled fruit
+  - icon: ![Opened bottled fruit](assets/cooks-pen/items/opened-bottled-fruit.png)
+- Bottled fruit with custard
+  - icon: ![Bottled fruit with custard](assets/cooks-pen/items/bottled-fruit-with-custard.png)
+
 - Shortcrust
 - Pastry cream
   - icon: ![Pastry cream](assets/cooks-pen/items/pastry-cream.png)
@@ -864,13 +1088,15 @@ Set two puddings beside each other. In one, custard settles into bread before ba
 - Custard-soaked bread [transform] @ `custard-oven-custard-baking` -> Bread pudding
 - Bread pudding [transform] + Caramel sauce -> Caramel bread pudding
 
-## Steam does the lifting
+- Processed fruit jar [transform] + Jar opener [preserve] -> Opened bottled fruit
+- Opened bottled fruit [transform] + Vanilla custard -> Bottled fruit with custard
 
+## Choux pastry
 ![Steam does the lifting](assets/cooks-pen/backgrounds/the-hollow-choux-shell.webp)
 
-Choux deserves a page of its own: first a cooked flour paste, then eggs worked in after appropriate cooling. Steam expands the shaped paste into hollow buns as the cook manages the baking.
+*Choux pastry*
 
-Try a plain batch for filling and a cheese batch to eat as it is. The space inside is part of what we are making.
+Hollow buns and cheese puffs.
 
 **Goals**
 - Bake hollow choux buns. -- Hollow choux buns
@@ -881,6 +1107,8 @@ Try a plain batch for filling and a cheese batch to eat as it is. The space insi
   - icon: ![Saucepan receiving area](assets/cooks-pen/hotspots/choux-pan-choux.png)
 - `choux-oven-choux` Oven (at 73.076923%, 17.417062%)
   - icon: ![Oven receiving area](assets/cooks-pen/hotspots/choux-oven-choux.png)
+  - place: Hollow choux buns (at 73.076923%, 19.417062%)
+  - place: Cheese puffs (at 73.076923%, 19.417062%)
 
 **Items**
 - Butter
@@ -909,11 +1137,12 @@ Try a plain batch for filling and a cheese batch to eat as it is. The space insi
 
 > NOTE: [King Arthur: Pâte à Choux](https://www.kingarthurbaking.com/recipes/pate-a-choux-recipe). Cooked flour paste and egg enrichment; shaping and baking compressed.
 
-## Inside a choux bun
-
+## Cream puffs
 ![Inside a choux bun](assets/cooks-pen/backgrounds/cream-in-the-hollow.webp)
 
-The buns have cooled, and now we can put that hollow centre to use. Pastry cream makes one filling; whipped cream makes another. Finish the custard-filled buns with caramel. Leave room in the notes for the difference between a firm filling and a soft cloud of cream.
+*Filled choux*
+
+Cream puffs and caramel choux.
 
 **Goals**
 - Finish caramel choux. -- Caramel choux
@@ -939,49 +1168,12 @@ The buns have cooled, and now we can put that hollow centre to use. Pastry cream
 - Hollow choux buns [transform] + Whipped cream -> Cream puffs
 - Custard-filled choux [transform] + Caramel sauce -> Caramel choux
 
-## Cake lightened with air
-
-![Cake lightened with air](assets/cooks-pen/backgrounds/air-in-the-sponge.webp)
-
-A fresh page for cake. Here the lift begins in beaten eggs, before the batter ever sees the oven. Make a plain sponge and a cocoa variation so we can see what the same beginning allows. Leave the cooled pastries on their own counter; this page needs a clear bench.
-
-**Goals**
-- Bake a plain sponge cake. -- Sponge cake
-- Bake a chocolate sponge. -- Chocolate sponge
-
-**Hotspots**
-- `choux-oven-sponge` Oven (at 50.000000%, 17.417062%)
-  - icon: ![Oven receiving area](assets/cooks-pen/hotspots/choux-oven-sponge.png)
-
-**Items**
-- Cocoa powder
-  - icon: ![Cocoa powder](assets/cooks-pen/items/cocoa-powder.png)
-- Eggs
-- Whisk
-- Sugar
-- Flour
-- Egg foam
-  - icon: ![Egg foam](assets/cooks-pen/items/egg-foam.png)
-- Sweet egg foam
-  - icon: ![Sweet egg foam](assets/cooks-pen/items/sweet-egg-foam.png)
-- Sponge batter
-  - icon: ![Sponge batter](assets/cooks-pen/items/sponge-batter.png)
-- Chocolate sponge batter
-  - icon: ![Chocolate sponge batter](assets/cooks-pen/items/chocolate-sponge-batter.png)
-
-**Combinations**
-- Eggs + Whisk -> Egg foam
-- Egg foam [transform] + Sugar -> Sweet egg foam
-- Sweet egg foam [transform] + Flour -> Sponge batter
-- Sponge batter [transform] @ `choux-oven-sponge` -> Sponge cake
-- Sponge batter [transform] + Cocoa powder -> Chocolate sponge batter
-- Chocolate sponge batter [transform] @ `choux-oven-sponge` -> Chocolate sponge
-
-## A roll and a spoonful
-
+## Swiss roll and trifle
 ![A roll and a spoonful](assets/cooks-pen/backgrounds/jam-spirals-and-trifle.webp)
 
-A sponge can be a cake to slice or the beginning of a dessert to eat with a spoon. Give one a ribbon of jam and cream. Let some cake pieces take up custard and apple compote in a trifle. The earlier pages are starting to talk to one another.
+*Swiss roll and trifle*
+
+Jam, custard and cream.
 
 **Goals**
 - Finish a jam-and-cream roll. -- Jam-and-cream roll
@@ -1014,13 +1206,12 @@ A sponge can be a cake to slice or the beginning of a dessert to eat with a spoo
 - Trifle base [transform] + Apple compote -> Fruit trifle
 - Fruit trifle [transform] + Whipped cream -> Cream-topped trifle
 
-## Begin with chocolate
-
+## Chocolate, ganache and glaze
 ![Begin with chocolate](assets/cooks-pen/backgrounds/cacao-to-chocolate.webp)
 
-For the chocolate pages, a chocolate maker joins us at the workbench. The roasted cacao nibs have already been fermented and processed; refining, conching, tempering and setting remain skilled work under the maker’s care.
+*Chocolate*
 
-From the finished chocolate, try cream for ganache and butter for a glaze. We want to understand what each finish contributes before putting it on a cake.
+Dark chocolate, ganache and glaze.
 
 **Goals**
 - Prepare dark chocolate. -- Dark chocolate
@@ -1051,14 +1242,15 @@ From the finished chocolate, try cream for ganache and butter for a glaze. We wa
 
 > NOTE: [European Cocoa Association: Processing](https://www.eurococoa.com/cocoa-story/cocoa-story-the-production-process-from-cocoa-beans-to-semi-finished-products/). Industry association process account for nibs, paste, cocoa butter, refining and conching; not a homemade chocolate recipe.
 
-## Chocolate, three finishes
-
+## Chocolate cakes and profiteroles
 ![Chocolate, three finishes](assets/cooks-pen/backgrounds/three-chocolate-centres.webp)
 
-There are three good places to try our chocolate: between layers of sponge, around a piece of marzipan, and over a cream puff. Each brings a different centre to the same page. The profiteroles can take either glaze or ganache; choose the finish you feel like eating.
+*Chocolate desserts*
+
+Filled cake, marzipan chocolates and profiteroles.
 
 **Goals**
-- (three goals are a lot but okay here because cake, coated marzipan, and profiteroles are distinct finishing tasks at one counter; hiding a task did not remove it or establish a benefit in the review)
+- (three goals are a lot but okay here because cake, coated marzipan, and profiteroles are distinct finishing tasks at one counter)
 - Fill a chocolate cake with ganache. -- Ganache-filled chocolate cake
 - Coat marzipan in chocolate. -- Chocolate-coated marzipan
 - Finish chocolate profiteroles. -- Chocolate profiteroles
@@ -1087,59 +1279,12 @@ There are three good places to try our chocolate: between layers of sponge, arou
 - Cream puffs [transform] + Chocolate glaze -> Chocolate profiteroles
 - Cream puffs [transform] + Chocolate ganache -> Chocolate profiteroles
 
-## Scones for tea
-
-![Scones for tea](assets/cooks-pen/backgrounds/scones-jam-and-cream.webp)
-
-There should be a page we turn to when someone stays for tea. Scones will do nicely, with jam and cream already understood. The rubbed-in mixture here is still unbaked flour and butter; milk brings it together into dough. A saucepan of hot chocolate would be welcome too.
-
-**Goals**
-- Serve a cream tea plate. -- Cream tea plate
-
-**Hotspots**
-- `tea-oven-tea` Oven (at 26.923077%, 17.417062%)
-  - icon: ![Oven receiving area](assets/cooks-pen/hotspots/tea-oven-tea.png)
-- `chocolate-pan-tea` Saucepan (at 73.076923%, 19.431280%)
-  - icon: ![Saucepan receiving area](assets/cooks-pen/hotspots/chocolate-pan-tea.png)
-
-**Items**
-- Baking powder
-  - icon: ![Baking powder](assets/cooks-pen/items/baking-powder.png)
-- Flour
-- Butter
-- Milk
-- Soft-set fruit jam
-- Whipped cream
-- Cocoa powder
-- Hot chocolate
-  - icon: ![Hot chocolate](assets/cooks-pen/items/hot-chocolate.png)
-- Rubbed-in scone mix
-  - icon: ![Rubbed-in scone mix](assets/cooks-pen/items/rubbed-in-scone-mix.png)
-- Scone dough
-  - icon: ![Scone dough](assets/cooks-pen/items/scone-dough.png)
-- Scones
-  - icon: ![Scones](assets/cooks-pen/items/scones.png)
-- Jam-filled scones
-  - icon: ![Jam-filled scones](assets/cooks-pen/items/jam-filled-scones.png)
-- Cream tea plate
-  - icon: ![Cream tea plate](assets/cooks-pen/items/cream-tea-plate.png)
-
-**Combinations**
-- Flour + Baking powder [preserve] -> Self-raising flour
-- Self-raising flour [transform] + Butter -> Rubbed-in scone mix
-- Rubbed-in scone mix [transform] + Milk -> Scone dough
-- Scone dough [transform] @ `tea-oven-tea` -> Scones
-- Scones [transform] + Soft-set fruit jam -> Jam-filled scones
-- Jam-filled scones [transform] + Whipped cream -> Cream tea plate
-- Cocoa powder + Milk @ `chocolate-pan-tea` -> Hot chocolate
-
-> NOTE: Rubbed-in scone mix: This is the unbaked flour-and-fat mixture, not crumbs from baked scones. [British Dietetic Association: Basic Scones](https://www.bda.uk.com/resource/basic-scones.html) distinguishes rubbing fat into flour from adding milk to form dough and then baking. Proportions and shaping remain compressed.
-
-## Bread without waiting
-
+## Muffins and soda bread
 ![Bread without waiting](assets/cooks-pen/backgrounds/soda-bread-and-fruit-muffins.webp)
 
-Clear the baking bench for two more quick preparations. Fruit muffins begin with a batter; soda bread brings yogurt and baking soda together in a dough. We can keep the muffin page near tea and the loaf near supper. A good index will eventually have to admit that recipes belong in more than one place.
+*Quick baking*
+
+Fruit muffins and soda bread.
 
 **Goals**
 - Bake fruit muffins. -- Fruit muffins
@@ -1148,8 +1293,12 @@ Clear the baking bench for two more quick preparations. Fruit muffins begin with
 **Hotspots**
 - `tea-oven-crew-baking` Oven (at 50.000000%, 17.417062%)
   - icon: ![Oven receiving area](assets/cooks-pen/hotspots/tea-oven-crew-baking.png)
+  - place: Fruit muffins (at 50.000000%, 19.417062%)
+  - place: Soda bread (at 50.000000%, 19.417062%)
 
 **Items**
+- Soda bread
+  - icon: ![Soda bread](assets/cooks-pen/items/soda-bread.png)
 - Baking soda
   - icon: ![Baking soda](assets/cooks-pen/items/baking-soda.png)
 - Eggs
@@ -1185,21 +1334,24 @@ Clear the baking bench for two more quick preparations. Fruit muffins begin with
 - Yogurt and soda mixture [transform] + Flour -> Soda bread dough
 - Soda bread dough [transform] @ `tea-oven-crew-baking` -> Soda bread
 
-## Cold changes things
-
+## Ice cream and sorbet
 ![Cold changes things](assets/cooks-pen/backgrounds/three-kinds-of-frozen.webp)
 
-The freezing churn asks us to think about our earlier preparations differently. Try vanilla custard, a fruit base, and sweetened milk and cream. We want three distinct frozen desserts, with enough room on the page to notice their different richness and texture.
+*Frozen desserts*
+
+Ice cream, frozen custard and fruit sorbet.
 
 **Goals**
-- (three goals are a lot but okay here because three prepared bases teach the same churn operation through different frozen results; all three outcomes remained intelligible in both reviewed displays)
+- (three goals are a lot but okay here because three prepared bases teach the same churn operation through different frozen results)
 - Churn frozen custard. -- Frozen custard
 - Churn fruit sorbet. -- Fruit sorbet
 - Churn milk ice cream. -- Milk ice cream
 
+**Hotspots**
+- Freezing churn (at 50%, 17.5%)
+  - icon: ![Freezing churn](assets/rework/stations/freezing-churn.png)
+
 **Items**
-- Freezing churn
-  - icon: ![Freezing churn](assets/cooks-pen/items/freezing-churn.png)
 - Vanilla custard
 - Apple compote
 - Fruit syrup
@@ -1216,18 +1368,19 @@ The freezing churn asks us to think about our earlier preparations differently. 
   - icon: ![Sweetened cream base](assets/cooks-pen/items/sweetened-cream-base.png)
 
 **Combinations**
-- Vanilla custard [transform] + Freezing churn -> Frozen custard
+- Vanilla custard [transform] @ Freezing churn -> Frozen custard
 - Apple compote + Fruit syrup -> Fruit sorbet base
-- Fruit sorbet base [transform] + Freezing churn -> Fruit sorbet
+- Fruit sorbet base [transform] @ Freezing churn -> Fruit sorbet
 - Cream + Milk -> Milk-and-cream base
 - Milk-and-cream base [transform] + Sugar -> Sweetened cream base
-- Sweetened cream base [transform] + Freezing churn -> Milk ice cream
+- Sweetened cream base [transform] @ Freezing churn -> Milk ice cream
 
-## The egg-white pages
-
+## Meringues and macarons
 ![The egg-white pages](assets/cooks-pen/backgrounds/egg-whites-almonds-and-air.webp)
 
-The custards left another useful beginning: egg whites, kept under the cooks’ care. A whisk and sugar can make meringue for fruit nests. Fold in the almond and sugar mixture for macaron shells, then bring back the ganache. It is satisfying when the next page gives an earlier preparation a new purpose.
+*Meringues and macarons*
+
+Fruit, cream and chocolate.
 
 **Goals**
 - Fill fruit meringue nests. -- Fruit meringue nests
@@ -1236,6 +1389,8 @@ The custards left another useful beginning: egg whites, kept under the cooks’ 
 **Hotspots**
 - `meringue-oven-meringue` Oven (at 50.000000%, 17.417062%)
   - icon: ![Oven receiving area](assets/cooks-pen/hotspots/meringue-oven-meringue.png)
+  - place: Meringue nests (at 50.000000%, 19.417062%)
+  - place: Macaron shells (at 50.000000%, 19.417062%)
 
 **Items**
 - Egg whites
@@ -1274,11 +1429,12 @@ The custards left another useful beginning: egg whites, kept under the cooks’ 
 
 > NOTE: [King Arthur Baking School: French Macaron](https://shop.kingarthurbaking.com/content/class-pdfs/FrenchMacaron_August2025.pdf). First-party teaching recipe for almond-sugar mixture folded into meringue; exact formula is not reproduced.
 
-## Ice cream dressed for dinner
-
+## Sundaes and Baked Alaska
 ![Ice cream dressed for dinner](assets/cooks-pen/backgrounds/baked-alaska-and-a-sundae.webp)
 
-We ought to have a simple ice-cream dessert and one with a little ceremony. A sundae can take caramel or chocolate. For Baked Alaska, cake supports the ice cream beneath its meringue coat while the cook manages the brief oven finish. Both belong in a book that makes room for appetite and occasion.
+*Ice cream for dessert*
+
+Sundaes and Baked Alaska.
 
 **Goals**
 - Finish a sundae.
@@ -1289,6 +1445,7 @@ We ought to have a simple ice-cream dessert and one with a little ceremony. A su
 **Hotspots**
 - `meringue-oven-dessert-service` Oven (at 50.000000%, 17.417062%)
   - icon: ![Oven receiving area](assets/cooks-pen/hotspots/meringue-oven-dessert-service.png)
+  - place: Baked Alaska (at 50.000000%, 19.417062%)
 
 **Items**
 - Frozen custard
@@ -1311,82 +1468,67 @@ We ought to have a simple ice-cream dessert and one with a little ceremony. A su
 
 **Combinations**
 - Frozen custard [transform] + Caramel sauce -> Caramel sundae
-- Sponge cake [transform] + Milk ice cream -> Ice-cream cake
+- Sponge cake + Milk ice cream -> Ice-cream cake
 - Ice-cream cake [transform] + Meringue @ `meringue-oven-dessert-service` -> Baked Alaska
 - Milk ice cream [transform] + Chocolate glaze -> Chocolate sundae
 - Milk ice cream [transform] + Caramel sauce -> Caramel sundae
 
-## What keeping really means
+## Beef Wellington
+![Beef Wellington](assets/rework/backgrounds/beef-wellington.webp)
 
-![What keeping really means](assets/cooks-pen/backgrounds/fruit-kept-for-another-day.webp)
+*Beef Wellington*
 
-The page about keeping food needs a specialist’s help. At the controlled preserving lines, we can follow fruit and bean stew through established commercial processes. Open the prepared fruit sample to try with custard; keep the processed stew tin sealed as an example for the tasting table.
-
-Closing a jar or tin is not enough. The specialist manages sealing and heat treatment; these sketches are not instructions for home preservation.
+Beef and mushrooms in puff pastry.
 
 **Goals**
-- Serve bottled fruit with custard. -- Bottled fruit with custard
-- Prepare a processed bean-stew tin. -- Processed bean-stew tin
+- Wrap the beef in pastry. -- Unbaked Wellington
+- next: Bake Beef Wellington. -- Beef Wellington
 
 **Hotspots**
-- Controlled fruit line (at 26.923077%, 18.127962%)
-  - icon: ![Controlled fruit line receiving area](assets/cooks-pen/hotspots/controlled-fruit-line.png)
-- Controlled stew line (at 73.076923%, 18.483412%)
-  - icon: ![Controlled stew line receiving area](assets/cooks-pen/hotspots/controlled-stew-line.png)
+- `wellington-hob` Hob (at 27%, 17.5%)
+  - icon: ![Hob](assets/rework/stations/receiving-area.png)
+  - place: Seared beef fillet (at 27%, 14.500000%)
+- `wellington-oven` Oven (at 73%, 17.5%)
+  - icon: ![Oven](assets/rework/stations/receiving-area.png)
+  - place: Beef Wellington (at 73%, 19.500000%)
 
 **Items**
-- Preserving jar
-  - icon: ![Preserving jar](assets/cooks-pen/items/preserving-jar.png)
-- Opener
-  - icon: ![Opener](assets/cooks-pen/items/opener.png)
-- Empty food tin
-  - icon: ![Empty food tin](assets/cooks-pen/items/empty-food-tin.png)
-- Apples
-- Fruit syrup
-- Vanilla custard
-- Bean stew
-- Apples in syrup
-  - icon: ![Apples in syrup](assets/cooks-pen/items/apples-in-syrup.png)
-- Fruit-filled jar
-  - icon: ![Fruit-filled jar](assets/cooks-pen/items/fruit-filled-jar.png)
-- Processed fruit jar
-  - icon: ![Processed fruit jar](assets/cooks-pen/items/processed-fruit-jar.png)
-- Opened bottled fruit
-  - icon: ![Opened bottled fruit](assets/cooks-pen/items/opened-bottled-fruit.png)
-- Bottled fruit with custard
-  - icon: ![Bottled fruit with custard](assets/cooks-pen/items/bottled-fruit-with-custard.png)
-- Stew-filled tin
-  - icon: ![Stew-filled tin](assets/cooks-pen/items/stew-filled-tin.png)
+- Olive oil
+- Mushroom filling
+- Laminated dough
+
+- Beef fillet
+  - icon: ![Beef fillet](assets/rework/items/beef-fillet.png)
+- Seared beef fillet
+  - icon: ![Seared beef fillet](assets/rework/items/seared-beef-fillet.png)
+- Mushroom-coated beef
+  - icon: ![Mushroom-coated beef](assets/rework/items/mushroom-coated-beef.png)
+- Unbaked Wellington
+  - icon: ![Unbaked Wellington](assets/rework/items/unbaked-wellington.png)
+- Beef Wellington
+  - icon: ![Beef Wellington](assets/rework/items/beef-wellington.png)
 
 **Combinations**
-- Apples + Fruit syrup -> Apples in syrup
-- Apples in syrup [transform] + Preserving jar [consume] -> Fruit-filled jar
-- Fruit-filled jar [transform] @ Controlled fruit line -> Processed fruit jar
-- Processed fruit jar [transform] + Opener [preserve] -> Opened bottled fruit
-- Opened bottled fruit [transform] + Vanilla custard -> Bottled fruit with custard
-- Bean stew + Empty food tin [consume] -> Stew-filled tin
-- Stew-filled tin [transform] @ Controlled stew line -> Processed bean-stew tin
+- Beef fillet [transform] + Olive oil @ `wellington-hob` -> Seared beef fillet
+- Seared beef fillet [transform] + Mushroom filling -> Mushroom-coated beef
+- Mushroom-coated beef [transform] + Laminated dough [transform] -> Unbaked Wellington
+- Unbaked Wellington [transform] @ `wellington-oven` -> Beef Wellington
 
-> NOTE: [USDA NAL: How Did We Can?](https://www.nal.usda.gov/exhibits/ipd/canning/). History of heat processing and sealed containers, not a safe procedure.
+> NOTE: [Gordon Ramsay: Beef Wellington](https://www.gordonramsay.com/gr/recipes/beef-wellington/). Supports searing, dry mushroom filling, cooling and wrapping in unbaked pastry. This is a simplified version, not that exact recipe; trimming, seasoning, chilling, egg wash, doneness and resting are compressed. Le Cordon Bleu, Kitchen Essentials (2001), p. 199, describes duxelles as finely chopped mushrooms and shallots or onions cooked in butter until dry.
 
-> NOTE: [NCHFP: Ensuring Safe Canned Foods](https://nchfp.uga.edu/how/can/general-information/ensuring-safe-canned-foods/). Specific validated processes matter; game does not teach canning or certify safety.
+## Celebration cakes
+![Celebration cakes](assets/cooks-pen/backgrounds/a-supper-built-from-pages.webp)
 
-## Supper from the notebook
+*Celebration cakes*
 
-![Supper from the notebook](assets/cooks-pen/backgrounds/a-supper-built-from-pages.webp)
-
-Before we put the book in order, let us cook a supper from it. Bean stew and soda bread make a substantial beginning. Finish with either the vanilla sandwich cake or the iced chocolate cake. Choose the one you would like to share; the other can remain a reason to open the book again.
+Vanilla buttercream or chocolate ganache.
 
 **Goals**
-- Serve bean stew with soda bread. -- Bean stew and soda bread
-- Finish a cake for the tasting supper.
+- Finish a cake for the feast.
   - either: Vanilla sandwich cake
   - or: Iced chocolate cake
 
 **Items**
-- Bean stew
-- Soda bread
-  - icon: ![Soda bread](assets/cooks-pen/items/soda-bread.png)
 - Butter
 - Confectioner’s sugar
   - icon: ![Confectioner’s sugar](assets/cooks-pen/items/confectioners-sugar.png)
@@ -1407,44 +1549,48 @@ Before we put the book in order, let us cook a supper from it. Bean stew and sod
   - icon: ![Iced chocolate cake](assets/cooks-pen/items/iced-chocolate-cake.png)
 
 **Combinations**
-- Bean stew + Soda bread [consume] -> Bean stew and soda bread
 - Butter + Confectioner’s sugar -> Buttercream
 - Buttercream [transform] + Vanilla -> Vanilla buttercream
 - Sponge cake + Vanilla buttercream [consume] -> Vanilla sandwich cake
 - Confectioner’s sugar + Water -> Water icing
 - Ganache-filled chocolate cake [transform] + Water icing [consume] -> Iced chocolate cake
 
-## The tasting table
+## A feast for the dining room
+![A feast for the dining room](assets/rework/backgrounds/dining-room.webp)
 
-![The tasting table](assets/cooks-pen/backgrounds/the-table-and-the-notebook.webp)
+*A feast*
 
-The table is set through the kitchen’s service hatch. Load the trolley with stew and soda bread, your finished cake, apple juice, and the sealed stew tin for the discussion of preserving. Bring them through together. It is time to see a meal where we have been seeing separate pages.
+Wellington, bean pie, salad and plenty of dessert.
+
+Balance rich with plain.
 
 **Goals**
-- Bring the tasting supper to the service hatch.
-  - either: Supper trolley[Bean stew and soda bread, Apple juice, Processed bean-stew tin, Vanilla sandwich cake] @ Service hatch
-  - or: Supper trolley[Bean stew and soda bread, Apple juice, Processed bean-stew tin, Iced chocolate cake] @ Service hatch
-
-**Hotspots**
-- Service hatch (at 50.000000%, 18.898104%)
-  - icon: ![Service hatch receiving area](assets/cooks-pen/hotspots/service-hatch.png)
+- Lay out the feast.
+  - either: Feast table[Beef Wellington, Bean pie, Green salad with croutons, Apple juice, Fruit cream tart, Chocolate profiteroles, Vanilla sandwich cake]
+  - or: Feast table[Beef Wellington, Bean pie, Green salad with croutons, Apple juice, Fruit cream tart, Chocolate profiteroles, Iced chocolate cake]
 
 **Items**
-- Supper trolley (compound)
-  - icon: ![Supper trolley](assets/cooks-pen/items/supper-trolley.png) (at 28.2051%, 49.7630%)
-  - unnamed slot: accepts Bean stew and soda bread, icon: ![Fitted Bean stew and soda bread](assets/cooks-pen/slots/supper-trolley-bean-stew-and-soda-bread.png)
-  - unnamed slot: accepts Apple juice, icon: ![Fitted Apple juice](assets/cooks-pen/slots/supper-trolley-apple-juice.png)
-  - unnamed slot: accepts Processed bean-stew tin, icon: ![Fitted Processed bean-stew tin](assets/cooks-pen/slots/supper-trolley-processed-bean-stew-tin.png)
-  - unnamed slot: accepts Vanilla sandwich cake, icon: ![Fitted Vanilla sandwich cake](assets/cooks-pen/slots/supper-trolley-vanilla-sandwich-cake.png)
-  - unnamed slot: accepts Iced chocolate cake, icon: ![Fitted Iced chocolate cake](assets/cooks-pen/slots/supper-trolley-iced-chocolate-cake.png)
-- Bean stew and soda bread
-  - icon: ![Bean stew and soda bread](assets/cooks-pen/items/bean-stew-and-soda-bread.png)
+- Feast table (compound)
+  - icon: ![Feast table](assets/rework/compounds/feast-table.png) (at 50%, 56%)
+  - unnamed slot: accepts Beef Wellington, icon: ![Fitted Beef Wellington](assets/rework/compounds/table-beef-wellington.png)
+  - unnamed slot: accepts Bean pie, icon: ![Fitted Bean pie](assets/rework/compounds/table-bean-pie.png)
+  - unnamed slot: accepts Green salad with croutons, icon: ![Fitted Green salad with croutons](assets/rework/compounds/table-green-salad-with-croutons.png)
+  - unnamed slot: accepts Apple juice, icon: ![Fitted Apple juice](assets/rework/compounds/table-apple-juice.png)
+  - unnamed slot: accepts Fruit cream tart, icon: ![Fitted Fruit cream tart](assets/rework/compounds/table-fruit-cream-tart.png)
+  - unnamed slot: accepts Chocolate profiteroles, icon: ![Fitted Chocolate profiteroles](assets/rework/compounds/table-chocolate-profiteroles.png)
+  - unnamed slot: accepts Vanilla sandwich cake, icon: ![Fitted Vanilla sandwich cake](assets/rework/compounds/table-vanilla-sandwich-cake.png)
+  - unnamed slot: accepts Iced chocolate cake, icon: ![Fitted Iced chocolate cake](assets/rework/compounds/table-iced-chocolate-cake.png)
+- Beef Wellington
+- Bean pie
+- Green salad with croutons
 - Apple juice
-- Processed bean-stew tin
-  - icon: ![Processed bean-stew tin](assets/cooks-pen/items/processed-bean-stew-tin.png)
+- Fruit cream tart
+- Chocolate profiteroles
 
-## Ready for another kitchen
+## The feast
+*Dinner is served*
 
-The dishes reach the table, and the notebook lies open beside them. Bread, broth, fruit, cream: things we met near the beginning have found their way into a supper worth sharing. The sealed tin stays with the preserving notes, an example of work that needed a specialist.
+The cookbook is ready.
 
-There are splashes in the margins and several good reasons to turn back a page. We have a collection of tested dishes, useful variations, and techniques we can explain. Now we know what we want to put into the book—and what we would like to cook again.
+**Items**
+- Feast table

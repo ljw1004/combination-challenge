@@ -1,0 +1,60 @@
+{
+  "tool": "built-in image_gen",
+  "entries": [
+    {
+      "source": "sources/afternoon-parlour.png",
+      "prompt": "prompts/afternoon-parlour.txt",
+      "transparent_background": false,
+      "inputs": [],
+      "decision": "Edit input; selected room adds and positions the tea table."
+    },
+    {
+      "source": "sources/afternoon-parlour-table.png",
+      "prompt": "prompts/afternoon-parlour-table.txt",
+      "transparent_background": false,
+      "inputs": [
+        "sources/afternoon-parlour.png"
+      ],
+      "decision": "Edit input; table position revised after phone layout check."
+    },
+    {
+      "source": "sources/afternoon-parlour-final.png",
+      "prompt": "prompts/afternoon-parlour-lower-table.txt",
+      "transparent_background": false,
+      "inputs": [
+        "sources/afternoon-parlour-table.png"
+      ],
+      "decision": "Selected parlour."
+    },
+    {
+      "source": "sources/dining-room.png",
+      "prompt": "prompts/dining-room.txt",
+      "transparent_background": false,
+      "inputs": [],
+      "decision": "Selected dining room."
+    },
+    {
+      "source": "sources/tea-stand.png",
+      "prompt": "prompts/tea-stand.txt",
+      "transparent_background": true,
+      "inputs": [],
+      "decision": "Selected compound base."
+    },
+    {
+      "source": "sources/feast-table.png",
+      "prompt": "prompts/feast-table.txt",
+      "transparent_background": true,
+      "inputs": [],
+      "decision": "Rejected shallow tabletop; retained as edit input."
+    },
+    {
+      "source": "sources/feast-table-elevated.png",
+      "prompt": "prompts/feast-table-elevated.txt",
+      "transparent_background": true,
+      "inputs": [
+        "sources/feast-table.png"
+      ],
+      "decision": "Selected compound base with deeper tabletop."
+    }
+  ]
+}

@@ -1,8 +1,8 @@
 # Cookbook study
 
-**Ongoing.** We are developing a cookbook at the kitchen table: trying preparations, noticing what changes, and finding dishes worth committing to paper. Cook’s Pen gives the ingredients personality; faint culinary spreads and pencil apparatus make the page a place to work.
+**Ongoing.** We are developing a practical cookbook: clear techniques, useful flavour and texture relationships, and three serving beats—breakfast, afternoon tea and dinner. Cook’s Pen gives the ingredients personality; faint culinary spreads and pencil apparatus make the page a place to work. The current rework adds finished dishes and equipment, a tiered tea stand and feast table, and domestic rooms for the two serving occasions.
 
-This is a curated collection of about **308 MB (294 MiB)**. It keeps the artistic statement, verdict and useful recreation material for each direction, plus completed work worth keeping. Intermediate exports, duplicate views, per-item sample assets, run records and superseded chapter sets have been removed. The installed story and its art live separately in [stories/cookbook](../../stories/cookbook/).
+This is a curated art collection. It keeps the artistic statement, verdict and useful recreation material for each direction, plus completed work worth keeping. Intermediate exports, duplicate views, per-item sample assets, run records and superseded chapter sets have been removed. The installed story and its art live separately in [stories/cookbook](../../stories/cookbook/).
 
 | Collection | What remains |
 |---|---|
@@ -12,7 +12,8 @@ This is a curated collection of about **308 MB (294 MiB)**. It keeps the artisti
 | [Page development](backgrounds/README.md) | A few illustrations of the major compositional ideas and why they changed. |
 | [Approved page paintings](page-composition/README.md) | All 35 final source paintings, their chapter briefs and framing instructions. |
 | [Fixed stations](pencil-stations/README.md) | Five candidate drawings, the selected equipment sources, registration and all 35 completed page PNGs. |
-| [Narrative](cookbook/production/narrative/editorial-notes.md) | Editorial approach and original travelling-cook manuscript; the current draft lives in the story directory. |
+| [Narrative](cookbook/production/narrative/editorial-notes.md) | Practical cookbook rework, research provenance and the earlier travelling-cook manuscript; the current draft lives in the story directory. |
+| [Rework artwork](rework-art/README.md) | Finished replacement food, equipment, serving furniture and home interiors; source paintings, exact prompts, registration and acceptance decisions. |
 
 [UX](../../docs/ux.md#item-artwork) owns adopted interaction decisions, the [icon guide](../../docs/icon-guide.md) owns the reusable process, and the [backlog](../backlog.md#icon-recognition-awaiting-human-trials) owns unresolved work. Keep [verification instructions](verification.md) and concise [outcomes](outcomes.md), then discard run inputs and outputs.
 

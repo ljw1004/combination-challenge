@@ -1,6 +1,6 @@
 # Cook’s Pen production
 
-The finished set is installed in [stories/cookbook](../../../../stories/cookbook/): 230 item identities, five fitted trolley layers, fixed stations and 35 backgrounds. This directory keeps the source material needed to continue the illustration work, not the details of each production run.
+The original production set is installed in [stories/cookbook](../../../../stories/cookbook/): 230 item identities, five fitted trolley layers, fixed stations and 35 backgrounds. This directory keeps its source material. The later [rework artwork](../../rework-art/README.md) replaces the changed dishes and equipment and adds tea and dinner assemblies and domestic rooms.
 
 - [artwork](artwork/): fifteen ordinary item atlases, five targeted repair sheets and the trolley source. The early botanical ground and coloured equipment atlas are retained as past artistic directions.
 - [catalogue](catalogue/catalogue.json): subjects, depictions, intended sizes and batch order.
