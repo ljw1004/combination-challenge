@@ -47,6 +47,7 @@ The completed [pencil-station rollout](<kitchen-study/pencil-stations/production
 
 | Idea | Useful question or operation | Source and caution |
 |---|---|---|
+| Cosmic creation — a star’s material becoming a sea | Stay with raw creation: particles and gas, stars and scattered material, rocky worlds and icy bodies, Earth and the Moon, then rain collecting into a sea. | [Cosmic study](cosmic-study/README.md) and [supplied brainstorming](cosmic-study/brainstorming.txt). Storyboarding only. The writeup reports 11 combinations, or 8 without the optional water thread; develop worthwhile combinations between the major transformations without padding. Life is a possible separate continuation. |
 | Fork Kinship / Many-Bodied Citizen | What persists when related minds diverge, and what requires new consent? | [Future sketch](<../archive/2026.10.30 initial experiments/docs/future-ideas-independent-sketch.md>). Fictional minds; avoid permission-ledger chores. |
 | Witness Forests / Landscape Testimony | Combine independent environmental traces and contest what they establish. | Same sketch. A trace is not an intention; missing evidence is not proof of absence. |
 | Constitutional Seasons / Asynchronous Republic | Institutions change with circumstances; promises cross delays and unlike successors. | Same sketch. Ecological analogy is not moral inevitability. |
