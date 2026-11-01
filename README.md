@@ -196,7 +196,7 @@ Each document owns one aspect of working here. Update the owning document and li
 | This README | Setup, directory layout, tool catalog and playtesting commands/protocol. |
 | [Story format](docs/story-format-spec.md) | Markdown syntax, game semantics and required diagnostics. |
 | [Story authoring](docs/story-authoring.md) | How to design, write and revise a compelling story. |
-| [Icon guide](docs/icon-guide.md) | Settlement's original icon brief, iterative review process, production workflow and evidence limits. |
+| [Icon guide](docs/icon-guide.md) | How to research, develop, review and produce a story's icon set. |
 | [UX](docs/ux.md) | All current player and authoring UX decisions, their known motivations, and maintenance rules; no historical log. |
 | [Engineering](docs/engineering.md) | Implementation boundaries, technical constraints and testing policy. |
 | [Fun and evaluation](docs/fun-and-evaluation.md) | Research, experience criteria and the experimental method. |
