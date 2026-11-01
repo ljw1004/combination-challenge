@@ -1,0 +1,26 @@
+.tutorial-overlay{position:absolute;inset:0;overflow:hidden;z-index:34;pointer-events:none!important;user-select:none}
+.tutorial-overlay *{pointer-events:none!important}
+.tutorial-overlay>svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.tutorial-path-edge{stroke:#fffaf0;stroke-width:5;opacity:.8}
+.tutorial-path{stroke:#305b59;stroke-width:2;stroke-dasharray:5 6}
+.tutorial-arrow{stroke:#305b59;stroke-width:2.5;filter:drop-shadow(0 0 2px #fffaf0)}
+.tutorial-target{stroke:#305b59;stroke-width:2;fill:none;filter:drop-shadow(0 0 2px #fffaf0)}
+[data-tutorial="goals"] .tutorial-path-edge,[data-tutorial="goals"] .tutorial-path,[data-tutorial="goals"] .tutorial-arrow{display:none}
+.tutorial-goals-target .objective-line{animation:tutorial-goals-pulse 3.4s ease-in-out infinite}
+.tutorial-goals-target.tutorial-goals-paused .objective-line{animation:none}
+@keyframes tutorial-goals-pulse{0%,65%,100%{background-color:#fffaf0e8;box-shadow:0 0 10px #fffaf000}20%,38%{background-color:#fff;box-shadow:0 0 10px #fffaf066}}
+.tutorial-ghost{position:absolute;left:0;top:0;filter:drop-shadow(0 3px 5px #17312a55)}
+/* Match the source button's vertically centered contents without cloning an interactive control. */
+.tutorial-overlay .tutorial-copy{display:flex;flex-direction:column;justify-content:center;position:static!important;margin:0!important;transform-origin:0 0;animation:none!important;transition:none!important;outline:none!important}
+.tutorial-gesture{position:absolute;left:0;top:0;width:0;height:0}
+.tutorial-gesture>svg{position:absolute;width:64px;height:64px;left:-20px;top:-20px;overflow:visible;filter:drop-shadow(0 1px 2px #17282066)}
+.tutorial-contact{fill:#fffaf055;stroke:#fffaf0;stroke-width:2.5;transform-origin:0 0;transition:transform .18s,fill .18s}
+.tutorial-cursor{display:none;fill:#fffaf0;stroke:#284b49;stroke-width:1.5;transform-origin:0 0;transition:transform .18s}
+[data-modality="mouse"] .tutorial-cursor{display:block}
+[data-modality="mouse"] .tutorial-contact{stroke:#305b59;fill:none;opacity:.7}
+.tutorial-press .tutorial-contact{transform:scale(.65);fill:#fffaf099}
+.tutorial-press .tutorial-cursor{transform:scale(.88)}
+[data-tutorial="goals"] .tutorial-contact{stroke:#305b59;fill:none}
+[data-tutorial="goals"] .tutorial-press .tutorial-contact{fill:#305b5918}
+.tutorial-interacting>svg,.tutorial-interacting .tutorial-ghost,.tutorial-interacting .tutorial-gesture,.tutorial-still .tutorial-ghost,.tutorial-still .tutorial-gesture{display:none}
+@media(prefers-reduced-motion:reduce){.tutorial-gesture *{transition:none!important}.tutorial-goals-target .objective-line{animation:none;background-color:#fff}}

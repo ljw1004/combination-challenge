@@ -43,8 +43,8 @@ export function isNoopMove(state: State, action: Action): boolean {
 export function noteChapterAction(session: ChapterSession, before: State, action: Action): void {
   if(action.type==='combine'||(action.type==='move'&&!isNoopMove(before,action)))session.changed=true;
 }
-export function chapterRecovery(session: ChapterSession, state: State): 'chapter'|'story'|undefined {
-  return session.changed?'chapter':state.chapter>0?'story':undefined;
+export function chapterRecovery(session: ChapterSession): 'chapter'|'story' {
+  return session.changed?'chapter':'story';
 }
 /** Show one stage per goal chain, retaining finished chains as checked rows. */
 export function displayedGoals(story: Story, state: State): {goal:Goal;done:boolean}[] {

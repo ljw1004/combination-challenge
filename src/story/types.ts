@@ -42,4 +42,6 @@ export interface Story {
   id: string; title: string; description: string; cover?: string; chapters: Chapter[];
   items: Record<string, Item>; hotspots: Record<string, Hotspot>; recipes: Recipe[];
   diagnostics: Diagnostic[]; source: Source; fateSites?: FateSite[];
+  /** Authored markers, including repeated declarations of a deduplicated recipe. */
+  tutorials?: {recipe: string; chapter: number; source: Source}[];
 }

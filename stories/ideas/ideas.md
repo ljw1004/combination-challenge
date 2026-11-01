@@ -64,7 +64,7 @@ Observers record eclipses and use a shared calendar to compare dates. Find patte
   Agreed dates let a community organize work and festivals together. People can share a calendar without agreeing about the nature of the universe.
 
 **Combinations**
-- "Dated reports of seen eclipses" [preserve] + "Clouded nights and unattended watches" -> "A sky archive with its gaps"
+- "Dated reports of seen eclipses" [preserve] + "Clouded nights and unattended watches" -> "A sky archive with its gaps" (tutorial)
 - "A sky archive with its gaps" + "A calendar of lunar months" -> "Recurring eclipse seasons"
 - "Recurring eclipse seasons" + "Clouded nights and unattended watches" -> "A watch, not a promised eclipse"
 - "A calendar of lunar months" + "Floods and harvests return seasonally" [preserve] -> "A calendar for fields and stores"

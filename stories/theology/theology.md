@@ -62,7 +62,7 @@ Augustine explains evil as damage to, or loss of, something good. Compare a woun
   Augustine thinks evil is damage to, or loss of, something good rather than a separate evil material. A wound illustrates the idea: the body remains, but health is missing. His belief in a good creation is a starting point, not something the example proves.
 
 **Combinations**
-- Case: a cut body has lost its health [transform] + `healed-body` [preserve] -> `health-lost`
+- Case: a cut body has lost its health [transform] + `healed-body` [preserve] -> `health-lost` (tutorial)
 - Case: I take the meal my neighbour needs [transform] + `fair-share` [preserve] -> The wrong is taking what another is owed
 - `health-lost` + The wrong is taking what another is owed [preserve] -> Being hurt is not the same as doing wrong
 - `health-lost` + Genesis: creation was “very good” [preserve] -> `augustine-loss`

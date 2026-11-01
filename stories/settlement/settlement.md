@@ -39,7 +39,7 @@ Begin beside the river with earth, water, air and fire. Combine them to make use
   - icon: ![Fire](assets/icons/fire.png) (at 75%, 36%)
 
 **Combinations**
-- Earth + Water -> Clay
+- Water + Earth -> Clay (tutorial)
 - Earth + Fire -> Stone
 - Clay [transform] + Fire -> Brick
 

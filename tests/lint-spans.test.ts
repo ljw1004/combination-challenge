@@ -22,7 +22,7 @@ test('diagnostic spans address original UTF-16 text across CRLF and source comme
 });
 
 test('fast lint omits global reachability and deep analysis adds separately attributed diagnostics', () => {
-  const story = parseStory('# Cycle\n## Workshop\n![room](room.webp)\n**Goals**\n- Make A -- A\n**Combinations**\n- A [preserve] + Tool [preserve] -> B\n- B [preserve] + Tool [preserve] -> A');
+  const story = parseStory('# Cycle\n## Workshop\n![room](room.webp)\n**Goals**\n- Make A -- A\n**Items**\n- Seed\n- Brush\n**Combinations**\n- Seed [preserve] + Brush [preserve] -> Paint (tutorial)\n- A [preserve] + Tool [preserve] -> B\n- B [preserve] + Tool [preserve] -> A');
   const fast = lintStory(story, {analysis: false});
   assert(!fast.some(diagnostic => diagnostic.code === 'no-continuation'));
   const deep = lintStoryAnalysis(story, fast);

@@ -134,6 +134,18 @@ export function parseStory(markdown: string, options: { id?: string; file?: stri
     return `${name}${slots.length ? `[${slots.join(',')}]` : ''}`;
   }
   function rule(raw: string, line: number, parent?: Ref, at?: string): Recipe | undefined {
+    const authored = raw, markers: Source[] = [];
+    raw = raw.trimEnd();
+    // Only an unquoted trailing marker is metadata; quoted names may contain it.
+    for (;;) {
+      const suffix = /\s+\(tutorial\)$/.exec(raw);
+      if (!suffix || splitOutside(raw, suffix[0]).at(-1) !== '') break;
+      const location = source(line);
+      const lineStart = location.span!.from - (location.column! - 1);
+      const start = lineStart + originalLines[line - 1].lastIndexOf(authored), from = start + raw.length - 10;
+      markers.push({...location, column: from - lineStart + 1, span: {from, to: start + raw.length}});
+      raw = raw.slice(0, suffix.index);
+    }
     const arrow = splitLocated(raw, '->'); if (arrow.length !== 2) { error('recipe-syntax', `Expected a single -> in ${raw}.`, line); return; }
     const context = splitLocated(arrow[0].text, '@');
     if (context.length > 2) error('recipe-context', 'A combination can have only one hotspot.', line);
@@ -144,7 +156,7 @@ export function parseStory(markdown: string, options: { id?: string; file?: stri
     const recipe: Recipe = { id: '', a: reagent, ...(plus[1]?.text ? { b: ingredient(plus[1].text, line) } : {}), ...(context[1]?.text ? { hotspot: ref(context[1].text, line, 'hotspot').id } : at ? { hotspot: at } : {}), result: ref(arrow[1].text, line), source: source(line) };
     if (!recipe.b && !recipe.hotspot) error('missing-operand', 'Combine two items, one item at a hotspot, or two items at a hotspot.', line);
     if (parent && ![recipe.a.ref.id, recipe.b?.ref.id].includes(parent.id)) error('nested-reagent', 'A nested rule must use its parent item or result.', line);
-    const original = originalLines[line - 1], offset = original?.lastIndexOf(raw) ?? -1;
+    const original = originalLines[line - 1], offset = original?.lastIndexOf(authored) ?? -1;
     const rawStart = source(line).span!.from - (source(line).column! - 1) + offset;
     for (const [position, input] of [recipe.a, recipe.b].entries()) {
       if (!input) continue;
@@ -164,8 +176,11 @@ export function parseStory(markdown: string, options: { id?: string; file?: stri
       story.fateSites!.push(site);
     }
     const key = JSON.stringify([recipe.a, recipe.b, recipe.hotspot, recipe.result]);
-    if (recipes.has(key)) return recipes.get(key)!;
-    recipe.id = `recipe:${story.recipes.length + 1}`; recipes.set(key, recipe); story.recipes.push(recipe); return recipe;
+    const existing = recipes.get(key);
+    if (!existing) { recipe.id = `recipe:${story.recipes.length + 1}`; recipes.set(key, recipe); story.recipes.push(recipe); }
+    const result = existing ?? recipe;
+    for (const source of markers.reverse()) (story.tutorials ??= []).push({recipe: result.id, chapter: story.chapters.length, source});
+    return result;
   }
   function wonder(item: Item, prose: string[], line: number) {
     let markdown = prose.join('\n').trim(); if (!markdown) return;
@@ -346,5 +361,6 @@ export function parseStory(markdown: string, options: { id?: string; file?: stri
     for (const slot of item.slots) story.recipes.push({ id: `install:${item.id}:${slot.accepts}`, a: { ref: { id: item.id, slots: [] }, fate: 'preserve', explicit: true }, b: { ref: { id: slot.accepts, slots: [] }, fate: 'consume', explicit: true }, result: { id: item.id, slots: [slot.accepts] }, installation: slot.accepts, source: slot.source });
   }
   if (!story.chapters.length) error('missing-chapters', 'A story needs at least one ## chapter.', 1);
+  story.tutorials?.sort((a, b) => a.source.span!.from - b.source.span!.from);
   return story;
 }

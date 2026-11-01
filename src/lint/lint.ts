@@ -3,6 +3,7 @@ import { continuationPossible, indexStory, activeHotspots, chapterSupplies } fro
 import { newGame } from '../engine/game.ts';
 import { analyzeOpportunities, type OpportunityOptions, type OpportunityReport } from './opportunities.ts';
 import { goalCountDiagnostics } from './goal-count.ts';
+import { tutorialAction } from '../engine/tutorial.ts';
 
 export interface LintOptions {
   analysis?: boolean;
@@ -16,6 +17,10 @@ export function lintStory(story: Story, options: LintOptions = {}): Diagnostic[]
   const error = (code:string,message:string,source:Source) => add('error',code,message,source);
   const warning = (code:string,message:string,source:Source,related?:RelatedLocation[],fixes?:DiagnosticFix[],fixTitle?:string) => add('warning',code,message,source,related,fixes,fixTitle);
   const related = (source: Source, message: string): RelatedLocation => ({...source, span: source.span ?? {from: 0, to: 0}, message});
+  const tutorials = story.tutorials ?? [];
+  if (!tutorials.length) error('tutorial-count', 'Mark exactly one combination with a trailing (tutorial).', story.source);
+  for (const marker of tutorials.slice(1)) add('error', 'tutorial-count', 'Only one combination may be marked (tutorial), including repeated declarations.', marker.source, [related(tutorials[0].source, 'First tutorial marker.')]);
+  for (const marker of tutorials) if (marker.chapter !== 0) error('tutorial-chapter', 'The tutorial combination must be declared in the first chapter.', marker.source);
   const index = indexStory(story), uses = new Map<string,{fate:Fate; explicit:boolean; implicit:boolean; source:Source; location:RelatedLocation}[]>();
   const name = (id: string) => story.items[id]?.name ?? story.hotspots[id]?.name ?? id;
   const reference = (ref: Ref) => `${name(ref.id)}${ref.slots.length ? `[${ref.slots.map(name).join(', ')}]` : ''}`;
@@ -131,6 +136,10 @@ export function lintStoryAnalysis(story: Story, fastDiagnostics: readonly Diagno
     span: story.source.span ?? {from: 0, to: 0}, stage: 'deep',
   }];
   try {
+    if (!tutorialAction(story, newGame(story))) {
+      const source = story.tutorials![0].source;
+      return [{severity: 'error', code: 'tutorial-unavailable', message: 'The tutorial drag must make its result immediately on entering chapter one, with its inputs available and no preparatory placement or combinations.', source, span: source.span!, stage: 'deep'}];
+    }
     if (!continuationPossible(story, newGame(story), new Set(), true)) {
       return error('no-continuation', 'There is no consistent exclusive branch that can satisfy the story requirements. Check cycles, goals and top-level needs.');
     }

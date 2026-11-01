@@ -33,7 +33,7 @@ I have landed on Mars, but the radio is damaged. I need to contact the orbiter f
 - Toolkit
 
 **Combinations**
-- Broken radio [transform] + Cable [consume] -> Radio
+- Broken radio [transform] + Cable [consume] -> Radio (tutorial)
 - Solar panel [transform] + Battery [consume] -> Solar charger
 - Radio [transform] + Solar charger -> Solar radio
 - Lamp [transform] + Solar charger -> Solar lamp

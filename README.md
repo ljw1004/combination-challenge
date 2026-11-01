@@ -190,7 +190,7 @@ Each document owns one aspect of working here. Update the owning document and li
 | This README | Setup, directory layout, tool catalog and playtesting commands/protocol. |
 | [Story format](docs/story-format-spec.md) | Markdown syntax, game semantics and required diagnostics. |
 | [Story authoring](docs/story-authoring.md) | How to design, write and revise a compelling story. |
-| [UX](docs/ux.md) | Player interaction, presentation and visual design. |
+| [UX](docs/ux.md) | All current player and authoring UX decisions, their known motivations, and maintenance rules; no historical log. |
 | [Engineering](docs/engineering.md) | Implementation boundaries, technical constraints and testing policy. |
 | [Fun and evaluation](docs/fun-and-evaluation.md) | Research, experience criteria and the experimental method. |
 | [Backlog](docs/backlog.md) | Current story directions, unresolved work and future ideas. |

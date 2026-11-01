@@ -29,7 +29,7 @@ We have stopped beside the road. The children want porridge, flatbread and apple
 - Fruit press
 
 **Combinations**
-- Grain + Millstone [preserve] -> Flour
+- Grain + Millstone [preserve] -> Flour (tutorial)
 - Flour + Water -> Dough
 - Dough @ Hearth fire -> Flatbread
 - Apples + Fruit press [preserve] -> Apple juice

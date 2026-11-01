@@ -10,6 +10,8 @@ Learning, comfortable construction, curiosity, beauty, conceptual resonance and 
 
 ## Make the action understandable
 
+Mark one immediately usable opening recipe as the tutorial, following the [format and lint rules](story-format-spec.md). Choose a clear example of combining, with the item to drag written first and its receiving target second. The demonstration reveals the gesture and ingredients, while the result remains a discovery. See [contextual tutorials](ux.md#contextual-tutorials) for when the cues appear and disappear.
+
 Assume chapter prose and primitive explanations may be skipped. Necessary premises belong in the visible task, item name, component or observed result. Review a combination forwards: why would these two things suggest trying this operation, and what does each contribute? Reject an input that already states the complete output unless the operation adds a meaningful change. A longer explanation cannot repair a missing ingredient, premise or purpose.
 
 Use simple names and direct English. A quotation can be the item itself; do not compress an important 5–12 word claim into an obscure icon or slogan. A stronger tool should retain its applicable uses through explicitly authored alternative recipes. Do not grant capabilities just because an unrelated component is somewhere inside a construction.

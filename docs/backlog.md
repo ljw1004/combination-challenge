@@ -53,6 +53,10 @@ Settlement uses the selected coloured woodcut artwork; the seven former playable
 | Restoration, shoreline, literature and Chinese thought | Reuse the act of combining in different physical or conceptual contexts. | [Seven-theme checkpoint](../archive/legacy-2026-10-30/docs/shared-campaign-ui-20261027.md) and archived tangible-campaign sketches. No automatic promotion to active stories. |
 | Why This Boat / alternative causality | Make a different causal structure perceptible through actions and outcomes. | [Legacy design direction](../archive/legacy-2026-10-30/DESIGN_PRINCIPLES.md). Requires a playable distinction, not philosophical labels alone. |
 
+## Contextual onboarding evaluation
+
+Evaluate the [contextual tutorials](ux.md#contextual-tutorials) with fresh players: do they drag onto the demonstrated target rather than tap or wait for autoplay, and does the contact-ring goals cue invite a deliberate tap? The [tutorial research notes](../notes.md#31-october-2026--contextual-tutorial-research) retain sources and evidence limits. Browser interaction checks cannot establish comprehension or enjoyment; native-device and human validation remain pending.
+
 ## Mechanic hypotheses beyond the current format
 
 Keep cheap, bounded alternatives: geometry-sensitive joining; process/order transformations; evidence that distinguishes explanations; remembered places; a creation that becomes an acting capability; a counterpart with a readable policy. These come from [transformation experiments](../archive/legacy-2026-10-30/docs/transformations-and-ideas.md), [emergent primitives](../archive/legacy-2026-10-30/docs/emergent-primitives-proposals.md), [faculty proposal](../archive/legacy-2026-10-30/docs/faculty-proposal.md), and [challenge revisit](../archive/legacy-2026-10-30/docs/challenge-research-revisit.md).

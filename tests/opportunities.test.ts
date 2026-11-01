@@ -35,7 +35,7 @@ test('warns about disconnected primitive chains at their first reference, with p
   const story = parse(`**Goals**
 - Finish -- Done
 **Combinations**
-- Flag [consume] + Pole [preserve] -> Done
+- Flag [consume] + Pole [preserve] -> Done (tutorial)
 - Missing [consume] + Tool [preserve] -> Decoration`);
   const diagnostics = lintStory(story).filter(d => ['unsupplied-primitive', 'no-item-opportunity'].includes(d.code));
   assert.deepEqual(diagnostics.map(d => d.code).sort(), ['no-item-opportunity', 'unsupplied-primitive', 'unsupplied-primitive']);
@@ -296,7 +296,7 @@ test('exceeding the frontier limit reports analysis failure without absent-item 
   - either: Left
   - or: Right
 **Combinations**
-- A [preserve] + Tool [preserve] -> Left
+- A [preserve] + Tool [preserve] -> Left (tutorial)
 - B [preserve] + Tool [preserve] -> Right
 - Missing [preserve] + Tool [preserve] -> Unreachable`);
   const diagnostics = lintStory(story, {opportunities: {maxFrontier: 1}});
@@ -442,7 +442,7 @@ test('opportunity warnings locate an ingredient left on an earlier board', () =>
 **Items**
 - Decoration
 **Combinations**
-- Seed [consume] + Tool [preserve] -> Done
+- Seed [consume] + Tool [preserve] -> Done (tutorial)
 ${later('Display')}
 **Goals**
 - Finish -- Finished

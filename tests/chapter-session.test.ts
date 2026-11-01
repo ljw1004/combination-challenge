@@ -30,15 +30,15 @@ Keep going.
 
 test('chapter reset eligibility ignores reading and no-op movement but remembers changes through reload',()=>{
   let state=newGame(story);state.tokens['name:A'].x=40;state.tokens['name:A'].y=270;
-  const session=captureChapter(state);assert.equal(chapterRecovery(session,state),undefined);
+  const session=captureChapter(state);assert.equal(chapterRecovery(session),'story');
   noteChapterAction(session,state,{type:'dismiss'});assert.equal(session.changed,false);
   const noop={type:'move' as const,item:'name:A',chapter:0,x:40,y:270};
   assert(isNoopMove(state,noop));noteChapterAction(session,state,noop);assert.equal(session.changed,false);
   const move={...noop,x:90};noteChapterAction(session,state,move);state=act(story,state,move);
-  assert.equal(chapterRecovery(session,state),'chapter');
+  assert.equal(chapterRecovery(session),'chapter');
   const loaded=restoreChapterSession(story,state,JSON.parse(JSON.stringify(session)))!;
   assert.equal(loaded.changed,true);assert.equal(loaded.entry.tokens['name:A'].x,40);assert.equal(loaded.entry.tokens['name:A'].y,270);
-  const reset=captureChapter(loaded.entry);assert.equal(chapterRecovery(reset,reset.entry),undefined);
+  const reset=captureChapter(loaded.entry);assert.equal(chapterRecovery(reset),'story');
   assert.deepEqual(reset.entry,session.entry);
 });
 test('snapshot reconstruction uses actual visited boundaries including skipped chapters and preserves scrollback geometry',()=>{
@@ -48,7 +48,7 @@ test('snapshot reconstruction uses actual visited boundaries including skipped c
   state=act(story,state,{type:'advance'});assert.equal(state.chapter,2);
   const boundary=chapterEntry(story,state);assert.equal(boundary.chapter,2);assert.deepEqual(boundary.actions,state.actions);
   state.tokens['name:B'].x=71;state.tokens['name:B'].y=333;
-  const session=captureChapter(state);assert.equal(chapterRecovery(session,state),'story');
+  const session=captureChapter(state);assert.equal(chapterRecovery(session),'story');
   const loaded=restoreChapterSession(story,state,JSON.parse(JSON.stringify(session)))!;
   assert.equal(loaded.entry.tokens['name:B'].x,71);assert.equal(loaded.entry.tokens['name:B'].y,333);
   assert.deepEqual(restorePresentation(story,loaded.entry),loaded.entry);

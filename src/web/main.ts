@@ -28,12 +28,19 @@ import { fitOnBoard, placeCreation, placeAtCentre } from './board-geometry.ts';
 import { partnerHints } from './partner-hints.ts';
 import {hotspotDrop} from '../engine/hotspot-drop.ts';
 import {containsPoint, hotspotCentre, hotspotRect, hotspotHTML, hotspotProbeHTML, measureHotspots} from './hotspot-view.ts';
+import {tutorialAction} from '../engine/tutorial.ts';
+import {TutorialProgress} from './tutorial-progress.ts';
+import {TutorialOverlay} from './tutorial-overlay.ts';
 
 const app = document.querySelector<HTMLDivElement>('#app')!;
 const workspace = document.querySelector<HTMLElement>('#workspace')!;
 const surface = document.createElement('div'); surface.className = 'game-surface';
 const dialogLayer = document.createElement('div'); dialogLayer.className = 'game-dialog-layer'; dialogLayer.hidden = true;
 app.append(surface, dialogLayer);
+const tutorialOverlay = new TutorialOverlay(app);
+let tutorialProgress: TutorialProgress | undefined;
+let tutorialCheckpoint = false;
+let tutorialSaveError = '', progressSaveError = '';
 let story: Story, state: State, chapterSession: ChapterSession, authoring: AuthoringSession;
 let documentURL = '', storyID = '', legacySaveKey = '', previewText = '', hash = '', saveError = '', editedSnapshot = false;
 interface Anchor { text: string; story: Story; state: State; chapterSession: ChapterSession; scrollTop: number; dialog?: DialogContext }
@@ -95,12 +102,34 @@ function rememberInteraction() {
 function save() {
   if (!storyStarted) return;
   saveProgress(() => localStorage.setItem(key(), JSON.stringify({
-    hash, state, chapterSession, editedSnapshot,
+    hash, state, chapterSession, editedSnapshot, tutorialCheckpoint,
     anchor: anchor && { text: anchor.text, state: anchor.state, chapterSession: anchor.chapterSession, scrollTop: anchor.scrollTop, dialog: anchor.dialog },
   })), showSaveError);
 }
+function updateTutorial() {
+  tutorialOverlay.dragging(!!drag || !!hotspotPress);
+  if (!storyStarted || !tutorialProgress || dialogContext || state.pending.length || mobileDebug.isOpen || tutorialCheckpoint || story.tutorials?.length !== 1) {
+    tutorialOverlay.show(); return;
+  }
+  const {dragDone, goalsDone} = tutorialProgress.completion;
+  if (!dragDone && state.chapter === 0) {
+    try {
+      const action = tutorialAction(story, state);
+      const source = action && tile(action.a);
+      const target = action?.b ? tile(action.b) : action?.hotspot ? [...(panel(0)?.querySelectorAll<HTMLElement>('[data-hotspot]') ?? [])].find(element => element.dataset.hotspot === action.hotspot) : undefined;
+      if (source && target) { tutorialOverlay.show({kind: 'drag', source, target}); return; }
+    } catch { /* An incomplete live draft must not interrupt play. */ }
+  } else if (dragDone && !goalsDone && goalView?.phase === 'goals' && !state.completed && story.chapters[state.chapter]?.goals.length) {
+    const target = surface.querySelector<HTMLElement>('.objective-overlay:not(:disabled)');
+    if (target) { tutorialOverlay.show({kind: 'goals', target}); return; }
+  }
+  tutorialOverlay.show();
+}
 function showSaveError(error: string) {
-  saveError = error;
+  progressSaveError = error; renderSaveError();
+}
+function renderSaveError() {
+  const error = progressSaveError || tutorialSaveError; saveError = error;
   const toggle = app.querySelector<HTMLElement>('.debug-toggle'); if (toggle) toggle.dataset.saveError = String(!!saveError);
   let alert = app.querySelector<HTMLParagraphElement>('.save-alert');
   if (error) { if (!alert) { alert = document.createElement('p'); alert.className = 'save-alert'; app.append(alert); } alert.setAttribute('role', 'alert'); alert.textContent = error; }
@@ -134,6 +163,7 @@ function updateEditingIndicators() {
       : 'Your edit is only in memory. Return to the desktop editor and copy the text before leaving.';
   } else warning?.remove();
   clearGoalsAroundCards();
+  updateTutorial();
 }
 function layoutChanged() {
   updateEditingIndicators();
@@ -209,6 +239,7 @@ async function start() {
   surface.innerHTML = '<div class="load-error"><p>Loading story…</p></div>';
   try {
     documentURL = resolveStoryURL(location.href);
+    tutorialProgress = new TutorialProgress(documentURL, error => {tutorialSaveError = error; renderSaveError();});
     const path = new URL(documentURL).pathname;
     // Only the former story.md route may inherit a folder-keyed legacy save.
     storyID = path.endsWith('/story.md') ? path.split('/').at(-2) || 'story' : documentURL;
@@ -229,6 +260,7 @@ async function start() {
     let loaded = false;
     try {
       const saved = JSON.parse(localStorage.getItem(key()) ?? (legacySaveKey ? localStorage.getItem(legacySaveKey) : null) ?? 'null');
+      tutorialCheckpoint = saved?.tutorialCheckpoint === true;
       if (saved?.anchor && typeof saved.anchor.text === 'string') {
         const source = recoverPreviewStory(parse(saved.anchor.text));
         const prior = restoreLiveState(source, saved.anchor.state);
@@ -252,6 +284,8 @@ async function start() {
       chapterSession = captureChapter(state); editedSnapshot = true; loaded = true;
     }
     storyStarted = loaded;
+    // Older saves record combinations but not deliberate goals clicks. Infer only the former.
+    if (loaded && !tutorialCheckpoint && state.actions.some(action => action.type === 'combine')) tutorialProgress.finish('dragDone');
     await itemArtwork.prepare(story, asset);
     render(!loaded);
     setScroll(anchor?.scrollTop ?? Math.max(0, (state.visited.length - 1) * 844 * scale()));
@@ -268,6 +302,7 @@ function closeDialog() {
   dialogLayer.replaceChildren(); dialogLayer.hidden = true; surface.inert = false; dialogContext = undefined;
   if (dialogOpener?.isConnected) dialogOpener.focus({ preventScroll: true });
   dialogOpener = undefined;
+  updateTutorial();
 }
 function modal(content: string, kind = 'ordinary', context: DialogContext = { kind: 'error' }) {
   feedback.clear(); settleGoalEntrance();
@@ -281,6 +316,7 @@ function modal(content: string, kind = 'ordinary', context: DialogContext = { ki
   reconcile(dialog, content);
   dialog.scrollTop = changing ? 0 : scroll;
   dialogContext = context; dialogLayer.hidden = false; surface.inert = true;
+  updateTutorial();
   if (!dialog.open) dialog.show();
   dialog.setAttribute('aria-label', context.kind === 'encyclopedia' ? 'Encyclopedia' : 'Story reading');
   if (context.kind === 'encyclopedia') {
@@ -300,12 +336,12 @@ function showPending() {
   modal(pendingContent(), state.pending[0].kind === 'wonder' ? 'wonder' : 'intertitle', { kind: 'pending' });
 }
 function chapterContent() {
-  const recovery = chapterRecovery(chapterSession, state);
+  const recovery = chapterRecovery(chapterSession);
   const text = chapterSession.entry.pending.find(n => n.kind === 'chapter')?.markdown ?? story.chapters[state.chapter].intro;
   return `${readingBody(text, asset)}<div class="dialog-actions"><button data-command="close">Close</button>${encyclopediaEntries(story, state).length >= 3 ? '<button data-command="encyclopedia">' + openBook + ' Encyclopedia</button>' : ''}${recovery === 'chapter' ? '<button class="recovery-action" data-command="reset-chapter"><span aria-hidden="true">↻</span> Restart this chapter</button>' : recovery === 'story' ? '<button class="recovery-action" data-command="confirm-reset-story">Restart story</button>' : ''}</div>`;
 }
 function reopenChapter() { flushPreview(); modal(chapterContent(), 'intertitle', { kind: 'chapter' }); rememberInteraction(); }
-function confirmRestart() { modal('<h1>Restart this story?</h1><p>This removes all progress in this story on this device, including completed chapters, discoveries and item positions. Your Markdown draft is kept. You will return to the cover page. This cannot be undone. Your other stories are unchanged.</p><div class="dialog-actions"><button data-command="cancel-reset-story">Cancel</button><button class="danger" data-command="reset-story">Restart story</button></div>', 'ordinary', { kind: 'confirm' }); }
+function confirmRestart() { modal('<h1>Restart this story?</h1><p>This removes all progress in this story on this device, including completed chapters, discoveries, item positions and tutorial progress. Your Markdown draft is kept. You will return to the cover page and Start button. This cannot be undone. Your other stories are unchanged.</p><div class="dialog-actions"><button data-command="cancel-reset-story">Cancel</button><button class="danger" data-command="reset-story">Restart story</button></div>', 'ordinary', { kind: 'confirm' }); }
 const bookResize = new ResizeObserver(() => syncBookLayout());
 function syncBookLayout() {
   if (dialogContext?.kind !== 'encyclopedia') return;
@@ -367,7 +403,7 @@ function jumpToCheckpoint(index: number) {
     flushPreview();
     const next = checkpoint(story, index);
     resetGoalView(); cancelGesture(); clearCreationLabels();
-    state = next; editedSnapshot = false; storyStarted = true;
+    state = next; editedSnapshot = false; storyStarted = true; tutorialCheckpoint = true;
     state.seen.push(...state.pending.filter(notice => notice.kind === 'wonder').map(notice => notice.key));
     state.pending = state.pending.filter(notice => notice.kind === 'chapter');
     closeDialog(); render(true); rememberInteraction(); save();
@@ -408,6 +444,7 @@ function commit(action: Action) { try {
   const receiver=action.type==='combine'&&action.b?state.tokens[action.b]:undefined,receivingTile=receiver?tile(receiver.id):undefined;
   const receivingRect=receiver&&receivingTile?{x:receiver.x,y:receiver.y,width:receivingTile.offsetWidth,height:receivingTile.offsetHeight}:undefined;
   const before = state, previous = state.chapter; state = act(story, state, action); noteChapterAction(chapterSession, before, action);
+  if (action.type === 'combine') tutorialProgress?.finish('dragDone');
   if (previous !== state.chapter) clearCreationLabels();
   const born = action.type === 'combine' ? Object.keys(state.tokens).find(id => !before.tokens[id]) : undefined;
   if (born) announceCreation(born);
@@ -484,12 +521,13 @@ function renderLanding() {
 }
 function beginStory() {
   if (storyStarted) return;
-  flushPreview(); storyStarted = true; resetGoalView();
+  flushPreview(); storyStarted = true; tutorialCheckpoint = false; resetGoalView();
   render(true); rememberInteraction(); save();
 }
 function restartStory() {
   resetGoalView(); closeDialog(); cancelGesture(); feedback.clear(); clearCreationLabels();
   storyStarted = false; state = newGame(story); chapterSession = captureChapter(state);
+  tutorialCheckpoint = false; tutorialProgress?.reset();
   // A landing is not a saved game. Removing the old save also makes reload stay here.
   saveProgress(() => {
     localStorage.removeItem(key());
@@ -559,11 +597,13 @@ function dropAt(x: number, y: number, item: string) {
   return {target: top, action: undefined, ambiguous: []};
 }
 app.addEventListener('pointerdown',e=>{
+  tutorialOverlay.modality(e.pointerType);
   const el=(e.target as Element).closest<HTMLElement>('[data-item],[data-hotspot]');if(!el||drag||hotspotPress||document.querySelector('dialog')||e.button!==0)return;
-  if(el.dataset.hotspot){hotspotPress={key:feedbackKey(el),pointer:e.pointerId};feedback.begin(hotspotPress.key);el.setPointerCapture(e.pointerId);return;}
+  if(el.dataset.hotspot){hotspotPress={key:feedbackKey(el),pointer:e.pointerId};feedback.begin(hotspotPress.key);el.setPointerCapture(e.pointerId);updateTutorial();return;}
   e.preventDefault();const id=el.dataset.item!,t=state.tokens[id];feedback.begin(id);el.setPointerCapture(e.pointerId);
   const bounds=el.getBoundingClientRect(),boardScale=scale();
   drag={id,pointer:e.pointerId,el,startX:e.clientX,startY:e.clientY,grabX:(e.clientX-bounds.left)/boardScale,grabY:(e.clientY-bounds.top)/boardScale,x:t.x,y:t.y,moved:false};
+  updateTutorial();
 });
 document.addEventListener('pointermove',e=>{
   if(!drag||e.pointerId!==drag.pointer)return;const scale=Math.min(1,app.clientWidth/390),dx=(e.clientX-drag.startX)/scale,dy=(e.clientY-drag.startY)/scale;
@@ -598,8 +638,8 @@ function endDrag(e:PointerEvent,cancel=false){
   }
   if(!document.querySelector('dialog')&&state.tokens[d.id]?.status==='available')feedback.release(d.id,false);else feedback.clear();
 }
-document.addEventListener('pointerup',e=>endDrag(e));document.addEventListener('pointercancel',e=>endDrag(e,true));
-function cancelGesture(){if(hotspotPress){hotspotPress=undefined;feedback.clear();}if(!drag)return;const d=drag;drag=undefined;restoreGestureTile(d);feedback.clear();}
+document.addEventListener('pointerup',e=>{endDrag(e);updateTutorial();});document.addEventListener('pointercancel',e=>{endDrag(e,true);updateTutorial();});
+function cancelGesture(){if(hotspotPress){hotspotPress=undefined;feedback.clear();}if(drag){const d=drag;drag=undefined;restoreGestureTile(d);feedback.clear();}updateTutorial();}
 window.addEventListener('blur',()=>{cancelGesture();feedback.clear();});
 app.addEventListener('lostpointercapture',e=>{const pointer=(e as PointerEvent).pointerId;if(drag?.pointer===pointer||hotspotPress?.pointer===pointer)cancelGesture();});
 app.addEventListener('dragstart',e=>e.preventDefault());
@@ -624,7 +664,7 @@ app.addEventListener('click',e=>{
   else if(command==='cancel-reset-story')reopenChapter();
   else if(command==='reset-story')restartStory();
   else if(command==='reset-chapter'){clearCreationLabels();resetGoalView();closeDialog();state=structuredClone(chapterSession.entry);if(editedSnapshot){state.actions=[];}chapterSession=captureChapter(state);render();scrollToCurrentChapter();rememberInteraction();save();}
-  else if(command==='story')reopenChapter();
+  else if(command==='story'){tutorialProgress?.finish('goalsDone');reopenChapter();}
   else if(command==='encyclopedia')openEncyclopedia();
   else if(command==='encyclopedia-read')openEncyclopedia(target.dataset.reading!,true);
   else if(command==='encyclopedia-back')backToEncyclopediaIndex();

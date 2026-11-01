@@ -79,7 +79,8 @@ test('generated checkpoint has readable cards and assets at phone width',async({
 test('manual recovery controls are conditional and story restart requires confirmation',async({page})=>{
   await openMars(page);
   await page.getByRole('button',{name:'Read this chapter'}).click();
-  await expect(page.locator('dialog button')).toHaveCount(1);
+  await expect(page.getByRole('button',{name:'Restart story',exact:true})).toBeVisible();
+  await expect(page.getByRole('button',{name:'Restart this chapter'})).toHaveCount(0);
   await page.getByRole('button',{name:'Close',exact:true}).click();
   await jumpToChapter(page,chapter('mars',1),true);
   await expect(page.locator('dialog button')).toHaveCount(1);await page.getByRole('button',{name:'Begin',exact:true}).click();

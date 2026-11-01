@@ -20,7 +20,7 @@ const source = `# Placement
 - A
 - B
 **Combinations**
-- A [transform] + B [consume] @ H -> C`;
+- A [transform] + B [consume] @ H -> C (tutorial)`;
 const errors = (text: string) => lintStory(parseStory(text), {analysis:false}).filter(d => d.severity === 'error');
 
 test('place references resolve forwards without supplying items or defining misspelled identities', () => {
