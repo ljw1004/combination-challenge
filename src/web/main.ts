@@ -16,6 +16,7 @@ import { goalClipPath } from './goal-clearance.ts';
 import { encyclopediaBook } from './encyclopedia-book.ts';
 import { encyclopediaEntries, openBook } from './encyclopedia.ts';
 import { ItemFeedback } from './item-feedback.ts';
+import { restoreItemOrder } from './item-order.ts';
 import { readingBody, goalPresentation, type GoalPresentation } from './presentation.ts';
 import { captureChapter, restorePresentation, restoreChapterSession, isNoopMove, noteChapterAction, chapterRecovery, displayedGoals, type ChapterSession } from './chapter-session.ts';
 import { DraftStore, loadStoryDocument, resolveStoryURL, resolveStoryAsset } from './story-document.ts';
@@ -43,8 +44,9 @@ let tutorialCheckpoint = false;
 let tutorialSaveError = '', progressSaveError = '';
 let story: Story, state: State, chapterSession: ChapterSession, authoring: AuthoringSession;
 let documentURL = '', storyID = '', legacySaveKey = '', previewText = '', hash = '', saveError = '', editedSnapshot = false;
-interface Anchor { text: string; story: Story; state: State; chapterSession: ChapterSession; scrollTop: number; dialog?: DialogContext }
+interface Anchor { text: string; story: Story; state: State; chapterSession: ChapterSession; itemOrder: string[]; scrollTop: number; dialog?: DialogContext }
 let anchor: Anchor;
+let itemOrder: string[] = [];
 let expectedScroll = 0;
 let previewTimer: ReturnType<typeof setTimeout> | undefined;
 let goalView: GoalPresentation | undefined, goalTimers: ReturnType<typeof setTimeout>[] = [];
@@ -97,13 +99,13 @@ reducedMotion.addEventListener('change', () => { if (reducedMotion.matches) sett
 
 function rememberInteraction() {
   if (!state) return;
-  anchor = { text: previewText, story, state: structuredClone(state), chapterSession: structuredClone(chapterSession), scrollTop: app.querySelector('.viewport')?.scrollTop ?? 0, dialog: dialogContext && {...dialogContext} };
+  anchor = { text: previewText, story, state: structuredClone(state), chapterSession: structuredClone(chapterSession), itemOrder: [...itemOrder], scrollTop: app.querySelector('.viewport')?.scrollTop ?? 0, dialog: dialogContext && {...dialogContext} };
 }
 function save() {
   if (!storyStarted) return;
   saveProgress(() => localStorage.setItem(key(), JSON.stringify({
-    hash, state, chapterSession, editedSnapshot, tutorialCheckpoint,
-    anchor: anchor && { text: anchor.text, state: anchor.state, chapterSession: anchor.chapterSession, scrollTop: anchor.scrollTop, dialog: anchor.dialog },
+    hash, state, chapterSession, itemOrder, editedSnapshot, tutorialCheckpoint,
+    anchor: anchor && { text: anchor.text, state: anchor.state, chapterSession: anchor.chapterSession, itemOrder: anchor.itemOrder, scrollTop: anchor.scrollTop, dialog: anchor.dialog },
   })), showSaveError);
 }
 function updateTutorial() {
@@ -207,7 +209,7 @@ function applyText(text: string) {
   if (!storyStarted) {
     // There is no played inventory to preserve on a cover. Begin the edited
     // manuscript afresh rather than carrying supplies from an unstarted draft.
-    story = next; state = newGame(story); chapterSession = captureChapter(state);
+    story = next; state = newGame(story); chapterSession = captureChapter(state); itemOrder = [];
     previewText = text; hash = fingerprint(text); editedSnapshot = false;
     authoring.setPreviewStatus(''); render(false, false); rememberInteraction();
     const prepared = itemArtwork.prepare(story, asset);
@@ -217,8 +219,13 @@ function applyText(text: string) {
   const context = dialogContext && ['confirm','error'].includes(dialogContext.kind) ? dialogContext : anchor.dialog;
   const update = reconcileLiveStory(anchor.story, next, anchor.state);
   story = update.story; state = update.state; previewText = text; hash = fingerprint(text); editedSnapshot = true;
+  itemOrder = restoreItemOrder(Object.keys(state.tokens), anchor.itemOrder, update.items);
   const entry = reconcileLiveStory(anchor.story, next, anchor.chapterSession.entry).state;
-  chapterSession = { entry: entry.chapter === state.chapter ? entry : structuredClone(state), changed: anchor.chapterSession.changed };
+  chapterSession = {
+    entry: entry.chapter === state.chapter ? entry : structuredClone(state),
+    changed: anchor.chapterSession.changed,
+    itemOrder: entry.chapter === state.chapter ? restoreItemOrder(Object.keys(entry.tokens), anchor.chapterSession.itemOrder, update.items) : [...itemOrder],
+  };
   dialogContext = context?.kind === 'encyclopedia' ? { ...context, item: context.item ? update.items.get(context.item) ?? context.item : undefined } : context;
   authoring.setPreviewStatus(update.chapterRemoved ? 'The current chapter is temporarily missing. Restoring it brings you back until you interact with the game.' : '');
   render(false, false);
@@ -266,22 +273,24 @@ async function start() {
         const prior = restoreLiveState(source, saved.anchor.state);
         if (prior) {
           const entry = restoreLiveState(source, saved.anchor.chapterSession?.entry) ?? prior;
-          anchor = { text: saved.anchor.text, story: source, state: prior, chapterSession: { entry, changed: !!saved.anchor.chapterSession?.changed }, scrollTop: Number.isFinite(saved.anchor.scrollTop) ? saved.anchor.scrollTop : 0, dialog: restoreDialogContext(saved.anchor.dialog) };
+          anchor = { text: saved.anchor.text, story: source, state: prior, chapterSession: { entry, changed: !!saved.anchor.chapterSession?.changed, itemOrder: restoreItemOrder(Object.keys(entry.tokens), saved.anchor.chapterSession?.itemOrder) }, itemOrder: restoreItemOrder(Object.keys(prior.tokens), saved.anchor.itemOrder), scrollTop: Number.isFinite(saved.anchor.scrollTop) ? saved.anchor.scrollTop : 0, dialog: restoreDialogContext(saved.anchor.dialog) };
         }
       }
       if (saved?.hash === hash) {
         const restored = saved.editedSnapshot ? restoreLiveState(story, saved.state) : restorePresentation(story, saved.state);
         if (restored) {
           state = restored; editedSnapshot = !!saved.editedSnapshot;
+          itemOrder = restoreItemOrder(Object.keys(state.tokens), saved.itemOrder);
           const entry = editedSnapshot ? restoreLiveState(story, saved.chapterSession?.entry) : undefined;
-          chapterSession = editedSnapshot ? { entry: entry ?? structuredClone(state), changed: !!saved.chapterSession?.changed } : restoreChapterSession(story, state, saved.chapterSession) ?? captureChapter(state);
+          chapterSession = editedSnapshot ? { entry: entry ?? structuredClone(state), changed: !!saved.chapterSession?.changed, itemOrder: restoreItemOrder(Object.keys((entry ?? state).tokens), saved.chapterSession?.itemOrder) } : restoreChapterSession(story, state, saved.chapterSession) ?? captureChapter(state);
           loaded = true;
         }
       }
     } catch { saveError = 'The saved game could not be restored. Your Markdown draft is intact.'; }
     if (!loaded && anchor) {
       const update = reconcileLiveStory(anchor.story, story, anchor.state); story = update.story; state = update.state;
-      chapterSession = captureChapter(state); editedSnapshot = true; loaded = true;
+      itemOrder = restoreItemOrder(Object.keys(state.tokens), anchor.itemOrder, update.items);
+      chapterSession = captureChapter(state, itemOrder); editedSnapshot = true; loaded = true;
     }
     storyStarted = loaded;
     // Older saves record combinations but not deliberate goals clicks. Infer only the former.
@@ -403,7 +412,7 @@ function jumpToCheckpoint(index: number) {
     flushPreview();
     const next = checkpoint(story, index);
     resetGoalView(); cancelGesture(); clearCreationLabels();
-    state = next; editedSnapshot = false; storyStarted = true; tutorialCheckpoint = true;
+    state = next; itemOrder = []; editedSnapshot = false; storyStarted = true; tutorialCheckpoint = true;
     state.seen.push(...state.pending.filter(notice => notice.kind === 'wonder').map(notice => notice.key));
     state.pending = state.pending.filter(notice => notice.kind === 'chapter');
     closeDialog(); render(true); rememberInteraction(); save();
@@ -526,7 +535,7 @@ function beginStory() {
 }
 function restartStory() {
   resetGoalView(); closeDialog(); cancelGesture(); feedback.clear(); clearCreationLabels();
-  storyStarted = false; state = newGame(story); chapterSession = captureChapter(state);
+  storyStarted = false; state = newGame(story); chapterSession = captureChapter(state); itemOrder = [];
   tutorialCheckpoint = false; tutorialProgress?.reset();
   // A landing is not a saved game. Removing the old save also makes reload stay here.
   saveProgress(() => {
@@ -538,6 +547,7 @@ function restartStory() {
 }
 function render(arrival=false,finish=true){
   if (!storyStarted) { renderLanding(); return; }
+  itemOrder = restoreItemOrder(Object.keys(state.tokens), itemOrder);
   const scroll=app.querySelector('.viewport')?.scrollTop??0;
   const goals=displayedGoals(story,state),finished=chapterComplete(story,state),scale=Math.min(1,app.clientWidth/390);
   const nextView=goalPresentation(goalView,`${story.id}:${state.chapter}`,finished&&!state.completed,state.pending.length>0,reducedMotion.matches);
@@ -549,11 +559,11 @@ function render(arrival=false,finish=true){
     const bg=background(story,chapter),c=story.chapters[chapter];
     return `<section class="chapter-panel" data-chapter="${chapter}" style="top:${position*844}px" aria-label="${escape(story.title)} scene ${position+1}">${bg?`<img class="scene-art" src="${escape(asset(bg))}" alt="">`:''}<div class="location-scrim"></div>${activeHotspots(story,chapter).map((id,i)=>hotspotHTML(story.hotspots[id],i,itemArtwork.hotspot(story.hotspots[id],asset))).join('')}${availableTokens(state).filter(t=>t.chapter===chapter).map(t=>{
       const item=story.items[t.id],applicable=readings(story,state,t.id).some(reading=>reading.markdown.trim()),selected=tile(t.id)?.classList.contains('reading-selected'),visual=itemArtwork.visual(item,t.slots,name,asset);
-      return `<button class="thing ${visual.className} ${creationLabels.has(t.id)?'newly-created':''} ${selected?'reading-selected pressed':''} ${chapter===state.chapter&&gold.has(t.id)?'goal-met':''}" data-item="${escape(t.id)}" style="left:${t.x}px;top:${t.y}px;${visual.style}" aria-label="${escape(name(t.id))}" title="${escape(applicable?'Double-click or double-tap to read':'Drag to combine or move')}">${visual.html}${applicable?'<span class="reading-indicator" aria-hidden="true">' + openBook + '</span>':''}</button>`;
+      return `<button class="thing ${visual.className} ${creationLabels.has(t.id)?'newly-created':''} ${selected?'reading-selected pressed':''} ${chapter===state.chapter&&gold.has(t.id)?'goal-met':''}" data-item="${escape(t.id)}" style="left:${t.x}px;top:${t.y}px;z-index:${3+itemOrder.indexOf(t.id)};${visual.style}" aria-label="${escape(name(t.id))}" title="${escape(applicable?'Double-click or double-tap to read':'Drag to combine or move')}">${visual.html}${applicable?'<span class="reading-indicator" aria-hidden="true">' + openBook + '</span>':''}</button>`;
     }).join('')}${chapter===state.chapter&&state.arrivalDivider&&state.newItems.length?`<div class="arrival-divider" style="top:${Math.max(65,Math.min(...state.newItems.map(id=>state.tokens[id]?.y??844))-18)}px"><span>new items</span></div>`:''}</section>`;
   }).join('')}</div></div></div>${showGoals?`<div class="hud-stack location-hud ${transitioning?'goals-leaving':''}" ${transitioning?'aria-hidden="true"':''}><button class="objective-overlay" ${leaving?'disabled':''} data-command="story" aria-label="Read this chapter"><span class="objectives">${goals.map(({goal,done})=>`<span class="objective-line ${done?'done':''}"><span class="goal-checkbox" aria-hidden="true">${done?'✓':''}</span><span>${escape(goal.text)}</span><span class="sr-only">${done?'Completed':'Not completed'}</span></span>`).join('')}${state.completed?'<span class="objective-line ending">The End</span>':''}</span></button></div>`:''}${goalView?.phase!=='goals'&&!state.completed?`<button class="chapter-next ${story.chapters[state.chapter+1]?.image?'':'right'} ${transitioning?'entering':''}" ${leaving?'disabled':''} data-command="advance" aria-label="Continue story"><span>${story.chapters[state.chapter+1]?.image?'↓':'→'}</span></button>`:''}`);
   const viewport=app.querySelector<HTMLElement>('.viewport')!;viewport.onscroll=()=>{scheduleGoalClearance();if(viewport.scrollTop!==expectedScroll){expectedScroll=viewport.scrollTop;rememberInteraction();save();}};setScroll(arrival?Math.max(0,(state.visited.length-1)*844*scale):scroll);
-  if(arrival){packArrival();if(finish)chapterSession=captureChapter(state);}clearGoalsAroundCards();if(changedView&&transitioning)animateGoalEntrance();if(finish)showPending();
+  if(arrival){packArrival();if(finish)chapterSession=captureChapter(state,itemOrder);}clearGoalsAroundCards();if(changedView&&transitioning)animateGoalEntrance();if(finish)showPending();
   updateEditingIndicators();
 }
 function partnerActions(): ReturnType<typeof legalActions> {
@@ -601,6 +611,9 @@ app.addEventListener('pointerdown',e=>{
   const el=(e.target as Element).closest<HTMLElement>('[data-item],[data-hotspot]');if(!el||drag||hotspotPress||document.querySelector('dialog')||e.button!==0)return;
   if(el.dataset.hotspot){hotspotPress={key:feedbackKey(el),pointer:e.pointerId};feedback.begin(hotspotPress.key);el.setPointerCapture(e.pointerId);updateTutorial();return;}
   e.preventDefault();const id=el.dataset.item!,t=state.tokens[id];feedback.begin(id);el.setPointerCapture(e.pointerId);
+  itemOrder = [...itemOrder.filter(item => item !== id), id];
+  app.querySelectorAll<HTMLElement>('[data-item]').forEach(item => { item.style.zIndex = String(3 + itemOrder.indexOf(item.dataset.item!)); });
+  rememberInteraction(); save();
   const bounds=el.getBoundingClientRect(),boardScale=scale();
   drag={id,pointer:e.pointerId,el,startX:e.clientX,startY:e.clientY,grabX:(e.clientX-bounds.left)/boardScale,grabY:(e.clientY-bounds.top)/boardScale,x:t.x,y:t.y,moved:false};
   updateTutorial();
@@ -630,7 +643,7 @@ function endDrag(e:PointerEvent,cancel=false){
   if(!d.moved&&!movedEnough(d,e)){if(feedback.release(d.id,true)){suppressReleaseClick=true;read(d.id);}return;}
   const {target,action,ambiguous}=dropAt(e.clientX,e.clientY,d.id);
   if(action)commit(action);
-  else if(!ambiguous.length&&!target?.dataset.item){
+  else if(!ambiguous.length){
     const scale=Math.min(1,app.clientWidth/390),world=app.querySelector('.world')!.getBoundingClientRect(),position=Math.floor((e.clientY-world.top)/(844*scale)),chapter=state.visited[Math.max(0,Math.min(state.visited.length-1,position))];
     const rect=panel(chapter)!.getBoundingClientRect();
     const placement=fitOnBoard((e.clientX-rect.left)/scale-d.grabX,(e.clientY-rect.top)/scale-d.grabY,d.el.offsetWidth,d.el.offsetHeight);
@@ -663,7 +676,7 @@ app.addEventListener('click',e=>{
   else if(command==='confirm-reset-story')confirmRestart();
   else if(command==='cancel-reset-story')reopenChapter();
   else if(command==='reset-story')restartStory();
-  else if(command==='reset-chapter'){clearCreationLabels();resetGoalView();closeDialog();state=structuredClone(chapterSession.entry);if(editedSnapshot){state.actions=[];}chapterSession=captureChapter(state);render();scrollToCurrentChapter();rememberInteraction();save();}
+  else if(command==='reset-chapter'){clearCreationLabels();resetGoalView();closeDialog();state=structuredClone(chapterSession.entry);itemOrder=restoreItemOrder(Object.keys(state.tokens),chapterSession.itemOrder);if(editedSnapshot){state.actions=[];}chapterSession=captureChapter(state,itemOrder);render();scrollToCurrentChapter();rememberInteraction();save();}
   else if(command==='story'){tutorialProgress?.finish('goalsDone');reopenChapter();}
   else if(command==='encyclopedia')openEncyclopedia();
   else if(command==='encyclopedia-read')openEncyclopedia(target.dataset.reading!,true);

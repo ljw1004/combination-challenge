@@ -2,11 +2,12 @@ import type { Story, Goal } from '../story/types.ts';
 import type { State, Action } from '../engine/types.ts';
 import { goalChains } from '../engine/analysis.ts';
 import { act, newGame, restore } from '../engine/game.ts';
+import { restoreItemOrder } from './item-order.ts';
 
 /** Browser-only arrival snapshot: geometry is not part of the logical replay. */
-export interface ChapterSession { entry: State; changed: boolean }
-export function captureChapter(state: State): ChapterSession {
-  return {entry:structuredClone(state),changed:false};
+export interface ChapterSession { entry: State; changed: boolean; itemOrder?: string[] }
+export function captureChapter(state: State, itemOrder?: string[]): ChapterSession {
+  return {entry:structuredClone(state),changed:false,itemOrder:restoreItemOrder(Object.keys(state.tokens),itemOrder)};
 }
 export function chapterEntry(story: Story, current: State): State {
   let entry=newGame(story);
@@ -32,7 +33,7 @@ export function restoreChapterSession(story: Story, state: State, raw: unknown):
     if(!saved?.entry||typeof saved.changed!=='boolean')return;
     const entry=restorePresentation(story,saved.entry),boundary=chapterEntry(story,state);
     if(entry.chapter!==state.chapter||JSON.stringify(entry.actions)!==JSON.stringify(boundary.actions))return;
-    return {entry,changed:saved.changed};
+    return {entry,changed:saved.changed,itemOrder:restoreItemOrder(Object.keys(entry.tokens),saved.itemOrder)};
   } catch { return; }
 }
 export function isNoopMove(state: State, action: Action): boolean {

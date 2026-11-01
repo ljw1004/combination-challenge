@@ -351,7 +351,10 @@ for(const icons of [true,false])test(`${icons?'icon':'text'} hotspot hints conne
   if(icons){await expect(dough.locator('.icon-name')).toBeVisible();await expect(starter.locator('.icon-name')).toBeVisible();}
   await page.mouse.move(5,700);await expect(dough).not.toHaveClass(/possible/);
   await cellar.focus();await expect(dough).toHaveClass(/possible/);await expect(starter).toHaveClass(/possible/);
+  const starterPosition=(await starter.boundingBox())!;
   await starter.dragTo(dough);await expect(risen).toHaveCount(0);
+  // The incompatible drop now covers Dough; move Starter aside to reach it.
+  await dragToPoint(page,starter,starterPosition.x+starterPosition.width/2,starterPosition.y+starterPosition.height/2);
   await dough.dragTo(cellar);await expect(risen).toHaveCount(0);
   await expect(cellar).not.toHaveClass(/possible/);
   await expect(dough).not.toHaveClass(/pressed/);
