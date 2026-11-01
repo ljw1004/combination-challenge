@@ -1,10 +1,10 @@
-# Authenticity improvements backlog
+# Authenticity improvements completed record
 
-**Status:** Active backlog. The supporting evidence from the completed pass is historical and archived by project.
+**Status:** Completed. This historical record is archived with its supporting evidence; new editorial work belongs in the [backlog](../../docs/backlog.md).
 
 **Completed pass:** 30 October 2026 at 15:32:24 UTC. This records completion of the content and verification pass, not a hosted-deployment receipt.
 
-**Purpose:** consolidate all known authenticity discoveries, make justified improvements to the five Markdown stories, and preserve the decisions and evidence without leaving several competing active review files. Work began on 30 October 2026 at 14:43 UTC. The final browser and player comparisons are reconciled below; the completed pass below remains the historical record supporting this active backlog.
+**Purpose:** consolidate all known authenticity discoveries, make justified improvements to the five Markdown stories, and preserve the decisions and evidence without leaving several competing active review files. Work began on 30 October 2026 at 14:43 UTC. The final browser and player comparisons are reconciled below; this completed record preserves the implemented changes and retained decisions.
 
 **Source:** the pass began at [restructured main f512587](https://github.com/ljw1004/combination-challenge/commit/f5125875dc25080e68be63061861426c9129de74), consolidated the findings in [8c34a62](https://github.com/ljw1004/combination-challenge/commit/8c34a62a466e7acaaa2f63d1c39c3c829cfca122), applied five-story revisions in [792cc99](https://github.com/ljw1004/combination-challenge/commit/792cc992a3a9a4481eecc74c9bf8b0152a87e402), and includes the final Ideas earned explanation in [e307218](https://github.com/ljw1004/combination-challenge/commit/e307218ab2fdc48bc94952417f45adb30147d3af). The last source refinement, [e7c8cce](https://github.com/ljw1004/combination-challenge/commit/e7c8cce7526ba618ee2f3bfb628edbaf60d8bdd8), gives the finished jar an earned firing/cooling explanation and uses it with Planks as the lid pattern. Original passage links are pinned to the starting manuscript; final story links point to the final source rather than drifting line numbers.
 
@@ -16,7 +16,7 @@ The main edits remove repeated conclusions, make each operand's contribution vis
 
 Four independent repairs arose from new baseline or candidate observations: a redundant definition/counterexample step, the unexplained selection of a hammerstone, a stronger camera rejected at an already useful distant-view task, and the finished vessel’s lid-pattern relationship. Additional Mars observations prompted elapsed-time and onward-purpose cues; its retained patch label concern was handled within an original finding. These do not inflate the original audit denominator.
 
-The requested scene caption **St Augustine, Hippo, 421 AD** was restored. Stale author notes claiming the Markdown parser/runtime did not exist were removed. The original pre-Markdown review remains [byte-for-byte in the immutable legacy archive](<../archive/2026.10.30 initial experiments/docs/story-authenticity-review-2026-10-30.md>); only its duplicate active copy was removed.
+The requested scene caption **St Augustine, Hippo, 421 AD** was restored. Stale author notes claiming the Markdown parser/runtime did not exist were removed. The original pre-Markdown review remains [byte-for-byte in the immutable legacy archive](<../2026.10.30 initial experiments/docs/story-authenticity-review-2026-10-30.md>); only its duplicate active copy was removed.
 
 ## Verification and scope
 
@@ -41,14 +41,14 @@ These are browser observations of particular views and actions. Automated Playwr
 
 The revision used **15 independent, no-history player/reader agents across 23 recorded sessions**. Five exploratory baseline sessions began at the start of a story; each player voluntarily stopped early, so none establishes whole-story enjoyment. Eighteen bounded passage/role sessions used legal developer checkpoints or explicitly assigned input pairs. Their setup actions are recorded but excluded from participant counts. A participant sometimes assessed several vignettes within one condition; no participant saw both baseline and candidate. Agents were assigned only the normal player CLI and reported no source access. This is an assignment contract, not an operating-system sandbox.
 
-**All 23 frozen replays verified.** That verifies the recorded mechanics, not historical truth, human enjoyment, browser presentation or native touch. The checks sampled discriminating passages; they did not freshly validate all 70 historical finding cards. Counts from separate sessions must not be added into a single campaign or human-duration estimate. Complete source hashes, session hashes, reports, scope boundaries and participant-only counts are in the [comparison summary](<../archive/2026.10.30 authenticity improvements/authenticity-comparison-summary.json>).
+**All 23 frozen replays verified.** That verifies the recorded mechanics, not historical truth, human enjoyment, browser presentation or native touch. The checks sampled discriminating passages; they did not freshly validate all 70 historical finding cards. Counts from separate sessions must not be added into a single campaign or human-duration estimate. Complete source hashes, session hashes, reports, scope boundaries and participant-only counts are in the [comparison summary](<authenticity-comparison-summary.json>).
 
 ### Findings that changed or supported a revision
 
-- **Definition redundancy and its remaining premise link.** The exploratory Ideas player tried conditions + harmful repayment (event33) and was rejected, while the extra abstract-definition step worked (34). A separate matched baseline reader regarded that intermediate as meaningful, so the evidence was not unanimous. The targeted initial revision reduced four combinations to three while preserving the counterexample distinction, but both baseline and initial-revision readers still found the conditions input weakly represented in the final card. This negative result prompted the final explicit applicability/counterexample bridge. A third participant could then explain both roles, after three optional reads. This supports final-scene legibility, not a clean causal claim that the new wonder alone produced comprehension. All three versions, including the initial revision's negative finding, are [retained for replay](<../archive/2026.10.30 authenticity improvements/authenticity-evidence-index.json>).
+- **Definition redundancy and its remaining premise link.** The exploratory Ideas player tried conditions + harmful repayment (event33) and was rejected, while the extra abstract-definition step worked (34). A separate matched baseline reader regarded that intermediate as meaningful, so the evidence was not unanimous. The targeted initial revision reduced four combinations to three while preserving the counterexample distinction, but both baseline and initial-revision readers still found the conditions input weakly represented in the final card. This negative result prompted the final explicit applicability/counterexample bridge. A third participant could then explain both roles, after three optional reads. This supports final-scene legibility, not a clean causal claim that the new wonder alone produced comprehension. All three versions, including the initial revision's negative finding, are [retained for replay](<authenticity-evidence-index.json>).
 - **Indulgence referents.** At the matched baseline's events 99–102, the reader could not tell whose changed life was meant: the living payer or dead beneficiary. Rereading did not resolve it. The candidate reader distinguished living buyer repentance from the dead person's promised release at 94–97 without optional reading. Both could explain the water/bread distinctions; both still reported some repetitive explanation-versus-proof cards. This supports the narrow referent repair, not a general fun improvement.
 - **Time, dreams and train reasoning.** In the time-records scene, baseline shared-year→clock contribution was unclear; the candidate reader could distinguish calibration, voyage evidence and the lunar archive's comparison role. Both performed four combinations, in different orders. Across the experience/dream/train scenes, the candidate used nine combinations versus eleven in baseline, while both understood and valued the arrival-time versus emission-time inference. Both still found some thematic connections and summary cards weak or repetitive. Different reader choices prevent treating the count difference as a calibrated benefit.
-- **Mars viewing equipment and elapsed time.** The original exploratory player built Telescope camera, expected a survey, and was rejected at Route overlook (event28), while Field camera worked there (30). That actual negative trial is [retained](<../archive/2026.10.30 authenticity improvements/baseline-mars-20261030/session.json>); the explicit candidate alternative was checked separately by developer replay. In the matched seed/route passage, both players chose Field camera, so they did **not** freshly validate the telescope alternative. The baseline reader could not tell whether germination had occurred; the candidate understood the earned wait-in-the-warm-cabin cue. It still wondered how long the wait fit the missing-crew urgency, a partial-context limitation rather than a proven contradiction.
+- **Mars viewing equipment and elapsed time.** The original exploratory player built Telescope camera, expected a survey, and was rejected at Route overlook (event28), while Field camera worked there (30). That actual negative trial is [retained](<baseline-mars-20261030/session.json>); the explicit candidate alternative was checked separately by developer replay. In the matched seed/route passage, both players chose Field camera, so they did **not** freshly validate the telescope alternative. The baseline reader could not tell whether germination had occurred; the candidate understood the earned wait-in-the-warm-cabin cue. It still wondered how long the wait fit the missing-crew urgency, a partial-context limitation rather than a proven contradiction.
 - **Grain and hammerstone roles.** Both guided readers initially expected plausible alternatives. Without earned explanations, the baseline left Air's role ambiguous and Water→hammer unexplained. The candidate understood winnowing and long-term cobble rounding/selection after the cards. This supports post-result comprehension; it does not establish forward predictability, autonomous discovery or literal crafting/safety instructions.
 - **Jars and scones.** The baseline summer reader flagged implicit firing, glass temperature and fermentation. The initial candidate identified the fired vessel but still found firing/fermentation compressed and took a Float detour while seeking a lid. That negative result prompted one bounded final refinement: planks and the finished jar make its lid, and an earned jar card names coating, firing and cooling. A new guided reader then understood those operations after the card and explained the planks as lid material and the jar as its fitting pattern (events 64–70). The reader had predicted coating alone before the result, so this supports post-result comprehension and fit, not forward prediction or universal process clarity. Fermentation compression was outside that final task. Both scone readers already understood dry mix→dough→oven→serving; the more explicit mix label worked but did not demonstrate a necessary repair for every reader.
 
@@ -60,7 +60,7 @@ The final Ideas follow-up is manuscript hash `3376e313c3f19eefc7d52f8f0920c58f24
 
 ### Selected replayable evidence
 
-The repository deliberately retains only the short Definition baseline, initial candidate and final candidate runs, plus the original Mars exploratory counterexample, with their exact raw sessions, manuscripts, frozen runtimes, evaluations and setup boundaries. Use the read-only verification command in the [archive guide](../archive/README.md#authenticity-improvements-evidence) for a retained session listed in the [evidence index](<../archive/2026.10.30 authenticity improvements/authenticity-evidence-index.json>). The wider traces and late-checkpoint repetitions are not duplicated into the repository; the machine-readable comparison summary retains their reports, hashes, scope and negative findings. No report claims these logical checks replace browser, native-device, factual-source or human testing.
+The repository deliberately retains only the short Definition baseline, initial candidate and final candidate runs, plus the original Mars exploratory counterexample, with their exact raw sessions, manuscripts, frozen runtimes, evaluations and setup boundaries. Use the read-only verification command in the [archive guide](../README.md#authenticity-improvements-evidence) for a retained session listed in the [evidence index](<authenticity-evidence-index.json>). The wider traces and late-checkpoint repetitions are not duplicated into the repository; the machine-readable comparison summary retains their reports, hashes, scope and negative findings. No report claims these logical checks replace browser, native-device, factual-source or human testing.
 
 
 ## Original findings and final dispositions
@@ -113,7 +113,7 @@ Original passage: [divinity:1–9](https://github.com/ljw1004/combination-challe
 
 **Outcome:** No four-panel exhibit in current manuscript; withdrawn mounted-count contradiction remains withdrawn.
 
-Original passage: [divinity:1–9](https://github.com/ljw1004/combination-challenge/blob/f5125875dc25080e68be63061861426c9129de74/stories/divinity/story.md#L1-L9), [current specification](../docs/story-format-spec.md).
+Original passage: [divinity:1–9](https://github.com/ljw1004/combination-challenge/blob/f5125875dc25080e68be63061861426c9129de74/stories/divinity/story.md#L1-L9), [current specification](../../docs/story-format-spec.md).
 
 ### AF-lyon-opposition-source Separate authority claims from demonstrated opposition
 
@@ -173,7 +173,7 @@ Research: [fao.org](https://www.fao.org/4/x0039e/x0039e06.htm).
 
 **Limits:** No canning seal, shelf-life, food-contact or preservation-safety certification. Craft preparation and suitable materials remain compressed.
 
-Original passage: [elements:199–214](https://github.com/ljw1004/combination-challenge/blob/f5125875dc25080e68be63061861426c9129de74/stories/elements/story.md#L199-L214), [elements:723–739](https://github.com/ljw1004/combination-challenge/blob/f5125875dc25080e68be63061861426c9129de74/stories/elements/story.md#L723-L739), [current specification](../docs/story-format-spec.md).
+Original passage: [elements:199–214](https://github.com/ljw1004/combination-challenge/blob/f5125875dc25080e68be63061861426c9129de74/stories/elements/story.md#L199-L214), [elements:723–739](https://github.com/ljw1004/combination-challenge/blob/f5125875dc25080e68be63061861426c9129de74/stories/elements/story.md#L723-L739), [current specification](../../docs/story-format-spec.md).
 
 Research: [vam.ac.uk](https://www.vam.ac.uk/articles/lucy-rie-british-studio-potter/).
 
@@ -235,7 +235,7 @@ Research: [extension.colostate.edu](https://extension.colostate.edu/resource/sou
 
 **Limits:** Fictional handle choice, not proof that arbitrary ceramic/glaze tolerates heat or food contact; no all-iron redesign or new fabrication stage.
 
-Original passage: [elements:691–721](https://github.com/ljw1004/combination-challenge/blob/f5125875dc25080e68be63061861426c9129de74/stories/elements/story.md#L691-L721), [current specification](../docs/story-format-spec.md).
+Original passage: [elements:691–721](https://github.com/ljw1004/combination-challenge/blob/f5125875dc25080e68be63061861426c9129de74/stories/elements/story.md#L691-L721), [current specification](../../docs/story-format-spec.md).
 
 ### AF-supported-garden Support without assuming a climbing species
 
@@ -277,7 +277,7 @@ Original passage: [elements:30–58](https://github.com/ljw1004/combination-chal
 
 **Limits:** The literal assembly is not physically demonstrated; current consume is a visibility hint, not proof the wooden wheel disappears in all histories. No universal manufacture claim.
 
-Original passage: [elements:100–162](https://github.com/ljw1004/combination-challenge/blob/f5125875dc25080e68be63061861426c9129de74/stories/elements/story.md#L100-L162), [current specification](../docs/story-format-spec.md).
+Original passage: [elements:100–162](https://github.com/ljw1004/combination-challenge/blob/f5125875dc25080e68be63061861426c9129de74/stories/elements/story.md#L100-L162), [current specification](../../docs/story-format-spec.md).
 
 ### AF-glass-slide-role Keep the backing board; cue only if needed
 
@@ -291,7 +291,7 @@ Original passage: [elements:100–162](https://github.com/ljw1004/combination-ch
 
 **Limits:** Not a researched glass-cutting procedure, proof of intuition or evidence that every player understands the support. Retained editorial judgment, not physical certification.
 
-Original passage: [elements:491–530](https://github.com/ljw1004/combination-challenge/blob/f5125875dc25080e68be63061861426c9129de74/stories/elements/story.md#L491-L530), [current specification](../docs/story-format-spec.md).
+Original passage: [elements:491–530](https://github.com/ljw1004/combination-challenge/blob/f5125875dc25080e68be63061861426c9129de74/stories/elements/story.md#L491-L530), [current specification](../../docs/story-format-spec.md).
 
 ### AF-saw-tool-capability Keep the metalworking question on hold
 
@@ -321,7 +321,7 @@ Research: [londonmuseum.org.uk](https://www.londonmuseum.org.uk/collections/v/ob
 
 **Limits:** This does not make soil plus fire literal geological manufacture or establish player genre comprehension.
 
-Original passage: [elements:1–28](https://github.com/ljw1004/combination-challenge/blob/f5125875dc25080e68be63061861426c9129de74/stories/elements/story.md#L1-L28), [current specification](../docs/story-format-spec.md).
+Original passage: [elements:1–28](https://github.com/ljw1004/combination-challenge/blob/f5125875dc25080e68be63061861426c9129de74/stories/elements/story.md#L1-L28), [current specification](../../docs/story-format-spec.md).
 
 ### AF-glaze-formulation Clarify the mixture without inventing a formula
 
@@ -351,7 +351,7 @@ Research: [cameo.mfa.org](https://cameo.mfa.org/wiki/Albany_slip_clay); [vam.ac.
 
 **Limits:** No literal two-component clock reproducibility or human-comprehension claim.
 
-Original passage: [elements:758–786](https://github.com/ljw1004/combination-challenge/blob/f5125875dc25080e68be63061861426c9129de74/stories/elements/story.md#L758-L786), [elements:125–162](https://github.com/ljw1004/combination-challenge/blob/f5125875dc25080e68be63061861426c9129de74/stories/elements/story.md#L125-L162), [current specification](../docs/story-format-spec.md).
+Original passage: [elements:758–786](https://github.com/ljw1004/combination-challenge/blob/f5125875dc25080e68be63061861426c9129de74/stories/elements/story.md#L758-L786), [elements:125–162](https://github.com/ljw1004/combination-challenge/blob/f5125875dc25080e68be63061861426c9129de74/stories/elements/story.md#L125-L162), [current specification](../../docs/story-format-spec.md).
 
 Research: [collection.sciencemuseumgroup.org.uk](https://collection.sciencemuseumgroup.org.uk/objects/co8593065/model-of-a-pendulum-clock-based-on-galileos-design).
 
@@ -521,7 +521,7 @@ Research: [theanarchistlibrary.org](https://theanarchistlibrary.org/library/andr
 
 **Limits:** Distinct mechanisms are not mutually exclusive complete theories. Darwin Origin V primary text checked for qualification.
 
-Original passage: [ideas:2431–2568](https://github.com/ljw1004/combination-challenge/blob/f5125875dc25080e68be63061861426c9129de74/stories/ideas/story.md#L2431-L2568), [current specification](../docs/story-format-spec.md).
+Original passage: [ideas:2431–2568](https://github.com/ljw1004/combination-challenge/blob/f5125875dc25080e68be63061861426c9129de74/stories/ideas/story.md#L2431-L2568), [current specification](../../docs/story-format-spec.md).
 
 Research: [web.viu.ca](https://web.viu.ca/johnstoi/lamarck/lamarck7.htm); [darwin-online.org.uk](https://darwin-online.org.uk/converted/published/1859_Origin_F373/1859_Origin_F373.html).
 
@@ -577,7 +577,7 @@ Research: [plato.stanford.edu](https://plato.stanford.edu/entries/ficino/#AnciTh
 
 **Limits:** Authored scenario, not real experiment or proved cause. Local checks cannot rule out common pointing errors/disturbances; earlier heat comparison still contributes.
 
-Original passage: [ideas:3733–3782](https://github.com/ljw1004/combination-challenge/blob/f5125875dc25080e68be63061861426c9129de74/stories/ideas/story.md#L3733-L3782), [current specification](../docs/story-format-spec.md).
+Original passage: [ideas:3733–3782](https://github.com/ljw1004/combination-challenge/blob/f5125875dc25080e68be63061861426c9129de74/stories/ideas/story.md#L3733-L3782), [current specification](../../docs/story-format-spec.md).
 
 ### AF-protection-purpose Keep the now explicit Hobbes purpose framing
 
@@ -683,7 +683,7 @@ Original passage: [ideas:1172–1213](https://github.com/ljw1004/combination-cha
 
 **Limits:** No exact-date/local-visibility promise added. Planetary and lunar records are separate provenance work, not retroactive enlargement of eclipse archive.
 
-Original passage: [ideas:19–71](https://github.com/ljw1004/combination-challenge/blob/f5125875dc25080e68be63061861426c9129de74/stories/ideas/story.md#L19-L71), [current specification](../docs/story-format-spec.md).
+Original passage: [ideas:19–71](https://github.com/ljw1004/combination-challenge/blob/f5125875dc25080e68be63061861426c9129de74/stories/ideas/story.md#L19-L71), [current specification](../../docs/story-format-spec.md).
 
 Research: [eclipse.gsfc.nasa.gov](https://eclipse.gsfc.nasa.gov/SEsaros/SEperiodicity.html); [science.nasa.gov](https://science.nasa.gov/moon/eclipses/).
 
@@ -761,7 +761,7 @@ Research: [bda.uk.com](https://www.bda.uk.com/resource/basic-scones.html).
 
 **Limits:** This is a bounded fictional equipment/fieldwork abstraction, not a tested real spacecraft procedure or proof of player comprehension. Retention is governed by infinite resources and visibility, not material stock counts.
 
-Original passage: [mars:747–774](https://github.com/ljw1004/combination-challenge/blob/f5125875dc25080e68be63061861426c9129de74/stories/mars/story.md#L747-L774), [current specification](../docs/story-format-spec.md).
+Original passage: [mars:747–774](https://github.com/ljw1004/combination-challenge/blob/f5125875dc25080e68be63061861426c9129de74/stories/mars/story.md#L747-L774), [current specification](../../docs/story-format-spec.md).
 
 ### AF-relay-reader Keep the migrated relay because the stale reader is gone
 
@@ -785,7 +785,7 @@ Original passage: [mars:247–275](https://github.com/ljw1004/combination-challe
 
 **Limits:** This is a bounded fictional equipment/fieldwork abstraction, not a tested real spacecraft procedure or proof of player comprehension. Retention is governed by infinite resources and visibility, not material stock counts.
 
-Original passage: [mars:776–842](https://github.com/ljw1004/combination-challenge/blob/f5125875dc25080e68be63061861426c9129de74/stories/mars/story.md#L776-L842), [current specification](../docs/story-format-spec.md).
+Original passage: [mars:776–842](https://github.com/ljw1004/combination-challenge/blob/f5125875dc25080e68be63061861426c9129de74/stories/mars/story.md#L776-L842), [current specification](../../docs/story-format-spec.md).
 
 ### AF-archive-device-role Make the recorder visible in its name
 
@@ -797,7 +797,7 @@ Original passage: [mars:776–842](https://github.com/ljw1004/combination-challe
 
 **Limits:** This is a bounded fictional equipment/fieldwork abstraction, not a tested real spacecraft procedure or proof of player comprehension. Retention is governed by infinite resources and visibility, not material stock counts.
 
-Original passage: [mars:844–879](https://github.com/ljw1004/combination-challenge/blob/f5125875dc25080e68be63061861426c9129de74/stories/mars/story.md#L844-L879), [current specification](../docs/story-format-spec.md).
+Original passage: [mars:844–879](https://github.com/ljw1004/combination-challenge/blob/f5125875dc25080e68be63061861426c9129de74/stories/mars/story.md#L844-L879), [current specification](../../docs/story-format-spec.md).
 
 ### AF-mapped-sites-label Name the mapped sites, not a depositional conclusion
 
@@ -847,7 +847,7 @@ Research: [ssd.jpl.nasa.gov](https://ssd.jpl.nasa.gov/orbits.html); [ssd.jpl.nas
 
 **Limits:** This is a bounded fictional equipment/fieldwork abstraction, not a tested real spacecraft procedure or proof of player comprehension. Retention is governed by infinite resources and visibility, not material stock counts.
 
-Original passage: [mars:468–506](https://github.com/ljw1004/combination-challenge/blob/f5125875dc25080e68be63061861426c9129de74/stories/mars/story.md#L468-L506), [mars:433–466](https://github.com/ljw1004/combination-challenge/blob/f5125875dc25080e68be63061861426c9129de74/stories/mars/story.md#L433-L466), [current specification](../docs/story-format-spec.md), [mars:508–538](https://github.com/ljw1004/combination-challenge/blob/f5125875dc25080e68be63061861426c9129de74/stories/mars/story.md#L508-L538).
+Original passage: [mars:468–506](https://github.com/ljw1004/combination-challenge/blob/f5125875dc25080e68be63061861426c9129de74/stories/mars/story.md#L468-L506), [mars:433–466](https://github.com/ljw1004/combination-challenge/blob/f5125875dc25080e68be63061861426c9129de74/stories/mars/story.md#L433-L466), [current specification](../../docs/story-format-spec.md), [mars:508–538](https://github.com/ljw1004/combination-challenge/blob/f5125875dc25080e68be63061861426c9129de74/stories/mars/story.md#L508-L538).
 
 ### AF-depot-card-overlap Keep the route task; defer layout judgment
 
@@ -857,7 +857,7 @@ Original passage: [mars:468–506](https://github.com/ljw1004/combination-challe
 
 **Outcome:** Current browser QA at 390px and 320px found no pairwise overlap or label overflow among the eight depot cards. An actual Sign foot drag left the other seven cards stationary; reload preserved its position. No speculative layout or story fix was made. This closes the current investigation, not the historical observation or every possible screen/state.
 
-Original passage: [mars:711–745](https://github.com/ljw1004/combination-challenge/blob/f5125875dc25080e68be63061861426c9129de74/stories/mars/story.md#L711-L745), [current specification](../docs/story-format-spec.md).
+Original passage: [mars:711–745](https://github.com/ljw1004/combination-challenge/blob/f5125875dc25080e68be63061861426c9129de74/stories/mars/story.md#L711-L745), [current specification](../../docs/story-format-spec.md).
 
 ### AF-star-observation-orientation Make the navigation gains legible
 
@@ -883,7 +883,7 @@ Research: [nasa.gov](https://www.nasa.gov/missions/lasers-stars-and-sensors-will
 
 **Limits:** This is a bounded fictional equipment/fieldwork abstraction, not a tested real spacecraft procedure or proof of player comprehension. Retention is governed by infinite resources and visibility, not material stock counts.
 
-Original passage: [mars:120–189](https://github.com/ljw1004/combination-challenge/blob/f5125875dc25080e68be63061861426c9129de74/stories/mars/story.md#L120-L189), [mars:247–275](https://github.com/ljw1004/combination-challenge/blob/f5125875dc25080e68be63061861426c9129de74/stories/mars/story.md#L247-L275), [mars:578–606](https://github.com/ljw1004/combination-challenge/blob/f5125875dc25080e68be63061861426c9129de74/stories/mars/story.md#L578-L606), [current specification](../docs/story-format-spec.md), [historical source](https://github.com/ljw1004/combination-challenge/blob/1e8567d343a36d8280f54cf5e6bc41a98b7fcd47/notes.md?plain=1#L470).
+Original passage: [mars:120–189](https://github.com/ljw1004/combination-challenge/blob/f5125875dc25080e68be63061861426c9129de74/stories/mars/story.md#L120-L189), [mars:247–275](https://github.com/ljw1004/combination-challenge/blob/f5125875dc25080e68be63061861426c9129de74/stories/mars/story.md#L247-L275), [mars:578–606](https://github.com/ljw1004/combination-challenge/blob/f5125875dc25080e68be63061861426c9129de74/stories/mars/story.md#L578-L606), [current specification](../../docs/story-format-spec.md), [historical source](https://github.com/ljw1004/combination-challenge/blob/1e8567d343a36d8280f54cf5e6bc41a98b7fcd47/notes.md?plain=1#L470).
 
 ### AF-shelter-seam Put the damage on the damaged shelter label
 
@@ -919,7 +919,7 @@ Original passage: [mars:711–745](https://github.com/ljw1004/combination-challe
 
 **Limits:** This is a bounded fictional equipment/fieldwork abstraction, not a tested real spacecraft procedure or proof of player comprehension. Retention is governed by infinite resources and visibility, not material stock counts.
 
-Original passage: [mars:844–879](https://github.com/ljw1004/combination-challenge/blob/f5125875dc25080e68be63061861426c9129de74/stories/mars/story.md#L844-L879), [mars:881–906](https://github.com/ljw1004/combination-challenge/blob/f5125875dc25080e68be63061861426c9129de74/stories/mars/story.md#L881-L906), [current specification](../docs/story-format-spec.md).
+Original passage: [mars:844–879](https://github.com/ljw1004/combination-challenge/blob/f5125875dc25080e68be63061861426c9129de74/stories/mars/story.md#L844-L879), [mars:881–906](https://github.com/ljw1004/combination-challenge/blob/f5125875dc25080e68be63061861426c9129de74/stories/mars/story.md#L881-L906), [current specification](../../docs/story-format-spec.md).
 
 ### AF-telescope-payoff Keep the shared photograph for now
 
@@ -943,7 +943,7 @@ Original passage: [mars:120–168](https://github.com/ljw1004/combination-challe
 
 **Limits:** This is a bounded fictional equipment/fieldwork abstraction, not a tested real spacecraft procedure or proof of player comprehension. Retention is governed by infinite resources and visibility, not material stock counts.
 
-Original passage: [mars:468–506](https://github.com/ljw1004/combination-challenge/blob/f5125875dc25080e68be63061861426c9129de74/stories/mars/story.md#L468-L506), [current specification](../docs/story-format-spec.md).
+Original passage: [mars:468–506](https://github.com/ljw1004/combination-challenge/blob/f5125875dc25080e68be63061861426c9129de74/stories/mars/story.md#L468-L506), [current specification](../../docs/story-format-spec.md).
 
 ### AF-radio-power-wording Reusable charger, transformed radio
 
@@ -967,7 +967,7 @@ Original passage: [mars:35–43](https://github.com/ljw1004/combination-challeng
 
 **Limits:** This is a bounded fictional equipment/fieldwork abstraction, not a tested real spacecraft procedure or proof of player comprehension. Retention is governed by infinite resources and visibility, not material stock counts.
 
-Original passage: [mars:578–606](https://github.com/ljw1004/combination-challenge/blob/f5125875dc25080e68be63061861426c9129de74/stories/mars/story.md#L578-L606), [current specification](../docs/story-format-spec.md).
+Original passage: [mars:578–606](https://github.com/ljw1004/combination-challenge/blob/f5125875dc25080e68be63061861426c9129de74/stories/mars/story.md#L578-L606), [current specification](../../docs/story-format-spec.md).
 
 ### AF-sandy-impression-method Keep the material-specific hold
 
@@ -1003,7 +1003,7 @@ Original passage: [mars:433–506](https://github.com/ljw1004/combination-challe
 
 **Limits:** This is a bounded fictional equipment/fieldwork abstraction, not a tested real spacecraft procedure or proof of player comprehension. Retention is governed by infinite resources and visibility, not material stock counts.
 
-Original passage: [mars:120–168](https://github.com/ljw1004/combination-challenge/blob/f5125875dc25080e68be63061861426c9129de74/stories/mars/story.md#L120-L168), [current specification](../docs/story-format-spec.md).
+Original passage: [mars:120–168](https://github.com/ljw1004/combination-challenge/blob/f5125875dc25080e68be63061861426c9129de74/stories/mars/story.md#L120-L168), [current specification](../../docs/story-format-spec.md).
 
 ### AF-challenge-feeding-copy A retained flask is not duplicate soup
 
@@ -1015,7 +1015,7 @@ Original passage: [mars:120–168](https://github.com/ljw1004/combination-challe
 
 **Limits:** This is a bounded fictional equipment/fieldwork abstraction, not a tested real spacecraft procedure or proof of player comprehension. Retention is governed by infinite resources and visibility, not material stock counts.
 
-Original passage: [mars:308–338](https://github.com/ljw1004/combination-challenge/blob/f5125875dc25080e68be63061861426c9129de74/stories/mars/story.md#L308-L338), [current specification](../docs/story-format-spec.md), [mars:371–395](https://github.com/ljw1004/combination-challenge/blob/f5125875dc25080e68be63061861426c9129de74/stories/mars/story.md#L371-L395), [mars:340–366](https://github.com/ljw1004/combination-challenge/blob/f5125875dc25080e68be63061861426c9129de74/stories/mars/story.md#L340-L366), [mars:397–441](https://github.com/ljw1004/combination-challenge/blob/f5125875dc25080e68be63061861426c9129de74/stories/mars/story.md#L397-L441).
+Original passage: [mars:308–338](https://github.com/ljw1004/combination-challenge/blob/f5125875dc25080e68be63061861426c9129de74/stories/mars/story.md#L308-L338), [current specification](../../docs/story-format-spec.md), [mars:371–395](https://github.com/ljw1004/combination-challenge/blob/f5125875dc25080e68be63061861426c9129de74/stories/mars/story.md#L371-L395), [mars:340–366](https://github.com/ljw1004/combination-challenge/blob/f5125875dc25080e68be63061861426c9129de74/stories/mars/story.md#L340-L366), [mars:397–441](https://github.com/ljw1004/combination-challenge/blob/f5125875dc25080e68be63061861426c9129de74/stories/mars/story.md#L397-L441).
 
 ## New observations and additional changes
 

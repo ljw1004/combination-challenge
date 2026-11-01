@@ -16,7 +16,7 @@ The [directory hygiene rules](../AGENTS.md#directory-hygiene) govern moving comp
 
 ### Authenticity improvements evidence
 
-[`2026.10.30 authenticity improvements/`](<2026.10.30 authenticity improvements/>) contains the comparison summary, evidence index and four retained playtest sessions from the completed pass. The [authenticity backlog](<../docs/backlog - authenticity improvements.md>) remains active in `docs/`.
+[`2026.10.30 authenticity improvements/`](<2026.10.30 authenticity improvements/>) contains the [completed authenticity record](<2026.10.30 authenticity improvements/authenticity-improvements-2026-10-30.md>), comparison summary, evidence index and four retained playtest sessions. The pass was completed on 30 October 2026; genuinely new work belongs in the [editorial backlog](../docs/backlog.md).
 
 To verify a retained session without rewriting its original evaluation, run this from the repository root:
 

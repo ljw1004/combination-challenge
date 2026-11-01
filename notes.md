@@ -64,7 +64,7 @@ The original pre-Markdown review remains byte-for-byte in `archive/legacy-2026-1
 
 ## 30 October 2026 authenticity pass completed
 
-Content and verification work closed at 15:32:24 UTC. The single [completed record](<docs/backlog - authenticity improvements.md>) replaces the active authenticity backlog: all 70 original IDs and 82 case bindings are preserved, with 42 changed findings, 24 retained decisions and four absent-edition outcomes, plus five calibration examples. Four separate new repairs and additional clarity observations retain their own evidence; they do not inflate the original audit. The original legacy review remains unchanged.
+Content and verification work closed at 15:32:24 UTC. The single [completed record](<archive/2026.10.30 authenticity improvements/authenticity-improvements-2026-10-30.md>) replaces the active authenticity backlog: all 70 original IDs and 82 case bindings are preserved, with 42 changed findings, 24 retained decisions and four absent-edition outcomes, plus five calibration examples. Four separate new repairs and additional clarity observations retain their own evidence; they do not inflate the original audit. The original legacy review remains unchanged.
 
 Final story source is commit `e7c8cce7526ba618ee2f3bfb628edbaf60d8bdd8`. Build, type checking, lint and 13 Node tests pass; 64 warnings remain under reviewable authorial interpretations. Focused and independent legal witnesses, actual browser checks across five stories, and 23 replay-verified logical sessions from 15 fresh participants support the bounded conclusions in the completed record. The trials are short or guided, not whole-story human enjoyment evidence. Automated Playwright and native-device tests were not run in this pass.
 
@@ -454,6 +454,15 @@ Moved all 124 retained files out of `runs/` into `archive/2026.10.30 authenticit
 The [directory hygiene rules](AGENTS.md#directory-hygiene) now require temporary output in scratch locations, artifacts retained for ongoing work in named project directories, and completed work in dated project archives. `runs/` remains the playtest tools' default ignored temporary output location, created when needed; it is not a permanent evidence library. Added `evaluate --verify-only` to verify frozen sessions without rewriting original evaluations.
 
 Validation: all 122 evidence payload files match their pre-move SHA-256 hashes; the two navigation metadata files reflect the new paths. All four retained sessions pass frozen replay verification, and all 19 lint-manifest entries pass size/hash checks. The playtest protocol integration test, including preservation of an existing evaluation during verification, and TypeScript checking passed. This is preservation evidence, not a new gameplay or player-experience finding.
+
+## 31 October 2026 — archive the completed authenticity record
+
+Reviewed the authenticity document's outcomes and implementation history after questioning its active-backlog label. All 70 original findings have final dispositions: 42 changed, 24 deliberately retained and four concern absent editions. The additional repairs are recorded as implemented. Remaining source/experience limits and optional future investigations do not leave this pass unfinished; the optional material-specificity idea already lives in the editorial backlog.
+
+Moved the completed record into `archive/2026.10.30 authenticity improvements/authenticity-improvements-2026-10-30.md`, alongside its supporting evidence and dated for completion on 30 October 2026. This supersedes the earlier filing decision to keep it active. Corrected its title/status, repaired relative links and updated the documentation map and authoring guidance. Historical findings and evidence are unchanged.
+
+Validation: the implementation and two final refinement commits are ancestors of the current branch. The report below its opening status/purpose is unchanged apart from rebased links; all 18 affected local link targets and heading anchors resolve. Whitespace checks passed. No gameplay code changed.
+
 
 ## 31 October 2026 — three-goal acknowledgments and quick actions
 
