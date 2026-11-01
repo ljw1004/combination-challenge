@@ -92,12 +92,12 @@ test('rectangular icon dragging preserves the pickup point and narrow resizing p
   const moved = (await house.boundingBox())!;
   expect(moved.x).toBeCloseTo(223, 1); expect(moved.y).toBeCloseTo(509, 1);
   await page.setViewportSize({width: 320, height: 740});
-  await expect.poll(async () => (await house.boundingBox())!.width).toBeCloseTo(104 * 320 / 390, 1);
+  await expect.poll(async () => (await house.boundingBox())!.width).toBeCloseTo(104 * 740 / 844, 1);
   const narrow = (await house.boundingBox())!;
-  expect(narrow.width).toBeCloseTo(104 * 320 / 390, 1);
-  expect(narrow.height).toBeCloseTo(72 * 320 / 390, 1);
-  expect(narrow.x).toBeCloseTo(moved.x * 320 / 390, 1);
-  expect(narrow.y).toBeCloseTo(moved.y * 320 / 390, 1);
+  expect(narrow.width).toBeCloseTo(104 * 740 / 844, 1);
+  expect(narrow.height).toBeCloseTo(72 * 740 / 844, 1);
+  expect(narrow.x).toBeCloseTo(moved.x * 740 / 844 - (390 * 740 / 844 - 320) / 2, 1);
+  expect(narrow.y).toBeCloseTo(moved.y * 740 / 844, 1);
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
 });
 
@@ -305,7 +305,7 @@ for(const transparent of [false,true])test(`${transparent?'fully transparent':'p
   await marker.dragTo(hotspot);
   expect(await hotspot.boundingBox()).toEqual(before);
   await page.setViewportSize({width:320,height:740});
-  await expect.poll(async()=>(await hotspot.boundingBox())!.width).toBeCloseTo(96*320/390,1);
+  await expect.poll(async()=>(await hotspot.boundingBox())!.width).toBeCloseTo(96*740/844,1);
   expect(await image!.evaluate(node=>node.isConnected)).toBe(true);
 });
 
@@ -446,7 +446,7 @@ test('authored centres apply on first arrival and survive movement, reload and n
   expect(initial.y+initial.height/2).toBeCloseTo(844*.2,1);
   await page.reload(); expect(await water.boundingBox()).toEqual(initial);
   await page.setViewportSize({width:320,height:740});
-  await expect.poll(async()=>(await water.boundingBox())!.x).toBeCloseTo(initial.x*320/390,1);
+  await expect.poll(async()=>(await water.boundingBox())!.x).toBeCloseTo(Math.min(initial.x*740/844-(390*740/844-320)/2,320-initial.width*740/844),1);
   await page.setViewportSize({width:390,height:844});
   await water.hover();
   const name=(await water.locator('.icon-name').boundingBox())!,icon=(await water.boundingBox())!;
@@ -532,7 +532,7 @@ async function dragToPoint(page: Page, item: ReturnType<Page['locator']>, x: num
 async function itemCentre(page: Page, id: string) {
   return page.locator(`[data-item="name:${id}"]`).evaluate(el => {
     const item = el as HTMLElement;
-    return {x: item.offsetLeft + item.offsetWidth/2, y: item.offsetTop + item.offsetHeight/2};
+    return {x: Math.round((parseFloat(item.style.left) - parseFloat(getComputedStyle(item).getPropertyValue('--scene-left')) + item.offsetWidth/2)*1000)/1000, y: parseFloat(item.style.top) + item.offsetHeight/2};
   });
 }
 
@@ -555,7 +555,7 @@ for (const onto of ['hotspot','occupant']) test(`authored placement snaps a cont
   expect(result.x).toBeCloseTo(390*.78,0); expect(result.y).toBeCloseTo(844*.65,0);
   await page.reload(); await expect(risen).toBeVisible(); expect(await itemCentre(page,'Risen dough')).toEqual(result);
   await page.setViewportSize({width:320,height:740});
-  await expect.poll(async () => (await risen.boundingBox())!.width).toBeCloseTo(56*320/390,1);
+  await expect.poll(async () => (await risen.boundingBox())!.width).toBeCloseTo(56*740/844,1);
   expect(await itemCentre(page,'Risen dough')).toEqual(result);
 });
 

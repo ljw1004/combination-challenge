@@ -15,9 +15,10 @@ export class ItemArtwork {
     return pending.length ? Promise.all(pending).then(() => {}) : undefined;
   }
 
-  private size(icon: Icon, asset: (path: string) => string) {
+  private size(icon: Icon, asset: (path: string) => string, bounds?: {width: number; height: number}) {
     const base = this.images.get(asset(icon.url)), size = iconDimensions(base?.width ?? 224, base?.height ?? 224);
-    return `--icon-width:${size.width}px;--icon-height:${size.height}px;`;
+    const fit = bounds ? Math.min(1, bounds.width / size.width, bounds.height / size.height) : 1;
+    return `--icon-width:${size.width*fit}px;--icon-height:${size.height*fit}px;`;
   }
 
   hotspot(hotspot: Hotspot, asset: (path: string) => string) {
@@ -47,7 +48,7 @@ export class ItemArtwork {
     return entry.ready;
   }
 
-  visual(item: Item, filled: readonly string[], name: (id: string) => string, asset: (path: string) => string) {
+  visual(item: Item, filled: readonly string[], name: (id: string) => string, asset: (path: string) => string, bounds?: {width: number; height: number}) {
     const icon = item.icon, base = icon && this.images.get(asset(icon.url));
     const fitted = item.slots.filter(slot => filled.includes(slot.accepts));
     const usable = icon && !base?.failed && fitted.every(slot => slot.icon && !this.images.get(asset(slot.icon.url))?.failed);
@@ -57,7 +58,7 @@ export class ItemArtwork {
     };
     return {
       icon: true, className: `icon-thing${icon.circular ? ' icon-circular' : ''}`,
-      style: this.size(icon, asset),
+      style: this.size(icon, asset, bounds),
       html: `<span class="icon-stack" aria-hidden="true"><img class="item-icon" src="${escape(asset(icon.url))}" alt="" draggable="false">${fitted.map(slot => `<img class="slot-icon" data-icon-slot="${escape(slot.accepts)}" src="${escape(asset(slot.icon!.url))}" alt="" draggable="false">`).join('')}</span><span class="item-label icon-name" aria-hidden="true">${escape(name(item.id))}</span>`,
     };
   }

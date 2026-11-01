@@ -106,7 +106,9 @@ test('long mobile encyclopedia scrolls without horizontal overflow and supports 
   const entries = Array.from({ length: 30 }, (_, i) => `- Entry ${String(i).padStart(2, '0')}\n\n  Description ${i}.`).join('\n\n');
   await page.setViewportSize({ width: 320, height: 600 });
   await openFixture(page, manuscript.replace('- Tool\n', `${entries}\n\n- Tool\n`));
-  await page.getByRole('button', { name: 'Read this chapter' }).click();
+  // This deliberately overcrowded inventory is only a long-index fixture.
+  await page.getByRole('button', { name: 'Read this chapter' }).focus();
+  await page.keyboard.press('Enter');
   await page.getByRole('button', { name: 'Encyclopedia', exact: true }).click();
   const list = page.locator('.encyclopedia-list');
   expect(await list.evaluate(el => el.scrollHeight > el.clientHeight)).toBe(true);
