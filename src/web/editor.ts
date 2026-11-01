@@ -10,6 +10,7 @@ import type { Diagnostic, DiagnosticFix, Source, TextSpan } from '../story/types
 import { chapterCheckpoints } from './editor-checkpoints.ts';
 import { ChapterNavigation } from './editor-chapters.ts';
 import { editorSearch } from './editor-search.ts';
+import { editorLanguage } from './editor-language.ts';
 import { sourceFixWidgets } from './editor-fix-widgets.ts';
 import {actionAnchor, actionAnchorLayout} from './editor-action-anchor.ts';
 import './editor.css';
@@ -18,6 +19,7 @@ export interface EditorRecovery { id: string; label: string; text: string }
 export interface StoryEditorOptions {
   parent: HTMLElement;
   text: string;
+  resolveAsset(reference: string): string;
   /** Called synchronously for each document change. Save before scheduling validation. */
   onChange(text: string): void;
   onCursorChange?(position: number, line: number): void;
@@ -136,7 +138,7 @@ export function createStoryEditor(options: StoryEditorOptions): StoryEditor {
         lineNumbers(), highlightActiveLineGutter(), history(), drawSelection(),
         markdown(), syntaxHighlighting(defaultHighlightStyle), highlightActiveLine(),
         highlightSelectionMatches(), editorSearch, lintGutter(), EditorView.lineWrapping,
-        sourceFixes.extension, actionAnchorLayout,
+        sourceFixes.extension, actionAnchorLayout, editorLanguage(options.resolveAsset),
         ...(options.onCheckpoint ? [chapterCheckpoints((line, heading, anchor) => openActionMenu(heading,
           [{label: 'Jump to checkpoint', run: () => options.onCheckpoint?.(line)}], anchor))] : []),
         keymap.of([{key: 'Mod-.', run: openActionsAtCaret}, ...defaultKeymap, ...historyKeymap, ...searchKeymap, indentWithTab]),

@@ -1,6 +1,6 @@
 import type { Diagnostic } from '../story/types.ts';
 import { createStoryEditor, type StoryEditor } from './editor.ts';
-import { DraftStore, loadStoryDocument, type StoryDocument } from './story-document.ts';
+import { DraftStore, loadStoryDocument, resolveStoryAsset, type StoryDocument } from './story-document.ts';
 
 interface Callbacks {
   onText(text: string): void;
@@ -89,6 +89,7 @@ export class AuthoringSession {
     if (!this.editor) {
       this.editor = createStoryEditor({
         parent: this.parent, text: this.text,
+        resolveAsset: reference => resolveStoryAsset(reference, this.assetBaseURL),
         onChange: text => this.change(text),
         onClose: () => this.close(),
         onCheckpoint: line => this.callbacks.onCheckpoint(line),

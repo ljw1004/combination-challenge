@@ -41,7 +41,7 @@
 .editor-recovery-controls { display: flex; flex-wrap: wrap; gap: 6px; padding-top: 8px; }
 .editor-recovery-select { flex: 1 1 100%; width: 100%; min-width: 0; padding: 5px; border: 1px solid #c8bba2; border-radius: 4px; background: #fffdf7; font-size: 11px; }
 .editor-text { flex: 1 1 0; min-height: 120px; overflow: hidden; border-top: 1px solid #d9ceb8; }
-.story-editor .cm-editor { height: 100%; background: #fffdf7; color: #393b31; font: 13px/1.65 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
+.story-editor .cm-editor { height: 100%; background: #fffdf7; color: #393b31; font: 14px/1.65 system-ui, sans-serif; }
 .story-editor .cm-editor.cm-focused { outline: none; }
 .story-editor .cm-scroller { overflow: auto; overscroll-behavior: contain; font-family: inherit; }
 .story-editor .cm-content { padding: 12px 0 48px; caret-color: #267c79; }
@@ -49,7 +49,7 @@
 .editor-action-anchor { display: inline-block; position: relative; width: 0; height: 0; vertical-align: baseline; }
 .editor-chapter-checkpoint { position: absolute; left: var(--action-shift, 0px); bottom: -4px; opacity: 0; pointer-events: none; }
 .cm-chapter-heading:hover .editor-chapter-checkpoint, .cm-chapter-heading.cm-activeLine .editor-chapter-checkpoint, .editor-chapter-checkpoint:focus-visible, .editor-chapter-checkpoint[aria-expanded="true"] { opacity: 1; pointer-events: auto; }
-.story-editor .cm-gutters { border-right: 1px solid #e8dfcf; background: #f7f2e7; color: #9b8d75; font-size: 10px; }
+.story-editor .cm-gutters { border-right: 1px solid #e8dfcf; background: #f7f2e7; color: #9b8d75; font-size: 10px; font-variant-numeric: tabular-nums; }
 .story-editor .cm-lineNumbers .cm-gutterElement { padding-right: 6px; }
 .story-editor .cm-activeLine, .story-editor .cm-activeLineGutter { background: #eadfc72e; }
 .story-editor .cm-selectionBackground, .story-editor .cm-focused .cm-selectionBackground { background: #b8d9d4!important; }
@@ -68,6 +68,31 @@
 .editor-search-row label { display: inline-flex; align-items: center; gap: 4px; }
 .editor-search-row .editor-button { padding: 4px 7px; }
 .story-editor .editor-search button[name="close"] { top: 4px; right: 5px; font-size: 22px; line-height: 1; }
+.story-editor .cm-story-reference, .story-editor .cm-story-reference * { color: #0451a5; }
+.story-editor .cm-story-note, .story-editor .cm-story-note * { color: #74746d; font-style: italic; }
+.cm-symbol-link { color: #0451a5; text-decoration: underline; text-decoration-thickness: 2px; background: #def8ff; cursor: pointer; }
+.editor-image-hover { padding: 8px; max-width: min(440px, 65vw); }
+.editor-image-hover img { display: block; max-width: min(420px, 60vw); max-height: min(300px, 40dvh); object-fit: contain; }
+.editor-image-caption, .editor-image-status { margin: 5px 0 0; font-size: 11px; overflow-wrap: anywhere; }
+.editor-image-status { color: #74746d; }
+.editor-symbol-hover { width: max-content; max-width: min(540px, 70vw); max-height: 50dvh; overflow: auto; padding: 10px 12px; }
+.editor-symbol-hover h3 { margin: 0; font-size: 14px; overflow-wrap: anywhere; }
+.editor-symbol-kind { color: #7e705c; font-size: 11px; }
+.editor-symbol-hover h4 { margin: 10px 0 4px; font-size: 11px; }
+.editor-symbol-description { margin: 8px 0; white-space: pre-wrap; overflow-wrap: anywhere; }
+.editor-symbol-properties { margin: 8px 0; padding-left: 18px; }
+.editor-symbol-location { display: block; width: 100%; border: 0; background: transparent; text-align: left; padding: 4px 3px; font-size: 11px; overflow-wrap: anywhere; }
+.editor-symbol-actions { display: flex; gap: 6px; margin-top: 10px; }
+.editor-references { background: #f3eddf; color: #393b31; font: 12px/1.4 system-ui, sans-serif; }
+.editor-references-header { display: flex; align-items: center; gap: 8px; padding: 5px 9px; }
+.editor-references-header h3 { flex: 1; margin: 0; font-size: 12px; overflow-wrap: anywhere; }
+.editor-references-close { border: 0; background: transparent; font-size: 22px; line-height: 1; padding: 0 3px; }
+.editor-reference-list { margin: 0; padding: 0 7px 7px; list-style: none; max-height: 23dvh; overflow-y: auto; overscroll-behavior: contain; }
+.editor-reference-list li { margin: 0; padding: 0; }
+.editor-reference { display: block; width: 100%; border: 0; border-radius: 2px; margin: 0; padding: 4px 6px; text-align: left; background: transparent; }
+.editor-reference-location { display: block; color: #7e705c; font-size: 10px; }
+.editor-reference-excerpt { display: block; font: 12px/1.5 system-ui, sans-serif; overflow-wrap: anywhere; }
+.editor-reference-empty { color: #7e705c; padding: 8px!important; }
 .story-editor .cm-textfield { max-width: 100%; border: 1px solid #c8bba2; border-radius: 3px; background: #fffdf7; font: inherit; }
 .editor-diagnostics { flex: 0 1 auto; min-height: 0; max-height: 31dvh; display: flex; flex-direction: column; border-top: 1px solid #c6b99e; background: #f7f1e6; }
 .editor-diagnostics-heading { flex: 0 0 auto; padding: 9px 14px; margin: 0; font-size: 11px; font-weight: 600; color: #72624b; }

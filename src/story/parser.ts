@@ -1,8 +1,9 @@
 import type { Story, Source, Ref, Item, Icon, Recipe, Ingredient, Fate, Chapter, Goal, Condition, FateSite } from './types.ts';
 import {sourceMap} from './source-map.ts';
+import type {ReferenceRole, SourceReference} from './source-reference.ts';
 
 interface Line { text: string; line: number }
-interface Bullet { text: string; line: number; indent: number; children: Bullet[]; prose: string[] }
+interface Bullet { text: string; line: number; indent: number; children: Bullet[]; prose: Line[] }
 
 /** Split grammar punctuation only outside quoted names, code identifiers and brackets. */
 function splitLocated(text: string, delimiter: string): {text: string; from: number; to: number}[] {
@@ -42,8 +43,8 @@ function bullets(lines: Line[]): Bullet[] {
     } else if (text.trim()) {
       const indent = text.length - text.trimStart().length;
       while (stack.length && stack.at(-1)!.indent >= indent) stack.pop();
-      if (stack.length) stack.at(-1)!.prose.push(text.trim());
-    } else if (stack.length) stack.at(-1)!.prose.push('');
+      if (stack.length) stack.at(-1)!.prose.push({text: text.trim(), line});
+    } else if (stack.length) stack.at(-1)!.prose.push({text: '', line});
   }
   return roots;
 }
@@ -53,8 +54,8 @@ function paragraphImage(paragraph: string): string | undefined {
   return /^!\[[^\]]*\]\(([^)]+)\)$/.exec(paragraph.trim())?.[1];
 }
 
-export function parseStory(markdown: string, options: { id?: string; file?: string } = {}): Story {
-  const file = options.file ?? 'story.md', source = sourceMap(markdown, file).line;
+export function parseStory(markdown: string, options: { id?: string; file?: string; onReference?: (reference: SourceReference) => void; onComment?: (source: Source) => void } = {}): Story {
+  const file = options.file ?? 'story.md', locations = sourceMap(markdown, file), source = locations.line;
   const story: Story = { id: options.id ?? 'story', title: '', description: '', chapters: [], items: {}, hotspots: {}, recipes: [], diagnostics: [], source: source(1), fateSites: [] };
   const originalLines = markdown.split(/\r\n?|\n/), spellings = new WeakMap<Ref, string>();
   const error = (code: string, message: string, line: number, fragment?: string) => {
@@ -65,13 +66,22 @@ export function parseStory(markdown: string, options: { id?: string; file?: stri
   const lines: Line[] = []; let note = false;
   markdown.replace(/\r\n?/g, '\n').split('\n').forEach((text, index) => {
     if (/^\s*>\s*NOTE:/.test(text)) note = true;
-    if (note && /^\s*>/.test(text)) return;
+    if (note && /^\s*>/.test(text)) { options.onComment?.(source(index + 1)); return; }
     note = false; lines.push({ text, line: index + 1 });
   });
-  function ref(raw: string, line: number, kind: 'item' | 'hotspot' = 'item', mode: 'reference' | 'hotspot-declaration' | 'placement' = 'reference'): Ref {
+  function startOf(raw: string, line: number) {
+    const location = source(line);
+    return location.span!.from - (location.column! - 1) + Math.max(0, originalLines[line - 1].lastIndexOf(raw));
+  }
+  function record(id: string, kind: SourceReference['kind'], role: ReferenceRole, from: number, to: number, declaration = false, implicit = false) {
+    if (to > from) options.onReference?.({id, kind, role, declaration, ...(implicit ? {implicit: true} : {}), source: locations.range(from, to) as Source & {span: {from: number; to: number}}});
+  }
+  function ref(raw: string, line: number, kind: 'item' | 'hotspot' = 'item', mode: 'reference' | 'hotspot-declaration' | 'placement' = 'reference', role: ReferenceRole = 'reference', from = startOf(raw, line)): Ref {
     let text = unquote(raw.trim()), exclusive: string | undefined, rename: { chapter: string; name: string } | undefined, compound = false;
+    from += Math.max(0, raw.indexOf(text));
+    let exclusiveFrom = from;
     let match: RegExpExecArray | null;
-    if ((match = /\s+\(exclusive with (.+)\)$/.exec(text))) { exclusive = match[1]; text = text.slice(0, match.index); }
+    if ((match = /\s+\(exclusive with (.+)\)$/.exec(text))) { exclusive = match[1]; exclusiveFrom = from + text.length - exclusive.length - 1; text = text.slice(0, match.index); }
     if ((match = /\s+\(or from chapter (.+)\)$/.exec(text))) { const parts = splitOutside(match[1], ','); rename = { chapter: unquote(parts.shift() ?? ''), name: unquote(parts.join(', ')) }; text = text.slice(0, match.index); }
     if (/\s+\(compound\)$/.test(text)) { compound = true; text = text.replace(/\s+\(compound\)$/, ''); }
     const coordinate = /\s+\(at (-?\d+(?:\.\d+)?)%,\s*(-?\d+(?:\.\d+)?)%\)$/.exec(text);
@@ -80,10 +90,16 @@ export function parseStory(markdown: string, options: { id?: string; file?: stri
       if (mode !== 'hotspot-declaration') error('coordinate-context', 'Hotspot coordinates belong on its Hotspots declaration; item destinations belong in a place: child.', line, raw);
     }
     let slots: string[] = [];
-    if ((match = /\[([^\[\]]*)\]$/.exec(text))) { slots = match[1].trim() ? splitOutside(match[1], ',').map(x => ref(x, line, 'item', mode === 'placement' ? mode : 'reference').id) : []; text = text.slice(0, match.index); }
-    text = unquote(text);
+    if ((match = /\[([^\[\]]*)\]$/.exec(text))) {
+      const slotsFrom = from + match.index + 1;
+      slots = match[1].trim() ? splitLocated(match[1], ',').map(part => ref(part.text, line, 'item', mode === 'placement' ? mode : 'reference', 'fitted', slotsFrom + part.from).id) : [];
+      text = text.slice(0, match.index);
+    }
+    const unquoted = unquote(text); from += Math.max(0, text.indexOf(unquoted)); text = unquoted;
     const named = /^`([^`]+)`(?:\s+(.+))?$/.exec(text), id = named ? `id:${named[1]}` : `name:${text}`;
     const name = named ? unquote(named[2] ?? named[1]) : text;
+    const declaration = mode !== 'placement' && (!!named?.[2] || (!named && role === 'declaration'));
+    record(id, kind, role === 'declaration' && !declaration ? 'reference' : role, from, from + text.length, declaration);
     if (!text) error('empty-reference', 'Expected a named item or hotspot.', line);
     if (mode === 'placement') {
       if (named?.[2] || exclusive || rename || compound) error('place-syntax', 'place: accepts an item reference, not an item declaration or qualifier.', line, raw);
@@ -99,7 +115,7 @@ export function parseStory(markdown: string, options: { id?: string; file?: stri
       if (named?.[2] && declared.get(id) === name) item.name = name;
       item.compound ||= compound;
       if (exclusive) {
-        const partner = ref(exclusive, line).id;
+        const partner = ref(exclusive, line, 'item', 'reference', 'exclusion', exclusiveFrom).id;
         if (item.exclusiveWith && item.exclusiveWith !== partner) error('multiple-exclusions', `${item.name} is exclusive with more than one item.`, line);
         else item.exclusiveWith = partner;
       }
@@ -111,9 +127,9 @@ export function parseStory(markdown: string, options: { id?: string; file?: stri
     }
     const result = {id, slots}; spellings.set(result, raw.trim()); return result;
   }
-  function ingredient(raw: string, line: number): Ingredient {
+  function ingredient(raw: string, line: number, from: number): Ingredient {
     const match = /\s+\[(consume|transform|preserve)\]$/.exec(raw.trim());
-    return { ref: ref(match ? raw.trim().slice(0, match.index) : raw, line), fate: (match?.[1] ?? 'preserve') as Fate, explicit: !!match };
+    return { ref: ref(match ? raw.trim().slice(0, match.index) : raw, line, 'item', 'reference', 'reagent', from), fate: (match?.[1] ?? 'preserve') as Fate, explicit: !!match };
   }
   function operandSpelling(value: Ref): string | undefined {
     const atom = (id: string): string | undefined => {
@@ -135,6 +151,7 @@ export function parseStory(markdown: string, options: { id?: string; file?: stri
   }
   function rule(raw: string, line: number, parent?: Ref, at?: string): Recipe | undefined {
     const authored = raw, markers: Source[] = [];
+    const rawStart = startOf(raw, line);
     raw = raw.trimEnd();
     // Only an unquoted trailing marker is metadata; quoted names may contain it.
     for (;;) {
@@ -150,14 +167,19 @@ export function parseStory(markdown: string, options: { id?: string; file?: stri
     const context = splitLocated(arrow[0].text, '@');
     if (context.length > 2) error('recipe-context', 'A combination can have only one hotspot.', line);
     const plus = splitLocated(context[0].text, '+');
-    const reagent = plus[0].text ? ingredient(plus[0].text, line) : parent ? { ref: parent, fate: 'preserve' as Fate, explicit: false } : undefined;
+    const inputStart = rawStart + arrow[0].from + context[0].from;
+    const reagent = plus[0].text ? ingredient(plus[0].text, line, inputStart + plus[0].from) : parent ? { ref: parent, fate: 'preserve' as Fate, explicit: false } : undefined;
     if (!reagent) { error('missing-parent', 'A shorthand combination needs a parent item or result.', line); return; }
     if (plus.length > 2) error('binary-combination', 'A combination accepts at most two items.', line);
-    const recipe: Recipe = { id: '', a: reagent, ...(plus[1]?.text ? { b: ingredient(plus[1].text, line) } : {}), ...(context[1]?.text ? { hotspot: ref(context[1].text, line, 'hotspot').id } : at ? { hotspot: at } : {}), result: ref(arrow[1].text, line), source: source(line) };
+    const recipe: Recipe = { id: '', a: reagent, ...(plus[1]?.text ? { b: ingredient(plus[1].text, line, inputStart + plus[1].from) } : {}), ...(context[1]?.text ? { hotspot: ref(context[1].text, line, 'hotspot', 'reference', 'context', rawStart + arrow[0].from + context[1].from).id } : at ? { hotspot: at } : {}), result: ref(arrow[1].text, line, 'item', 'reference', 'result', rawStart + arrow[1].from), source: source(line) };
+    if (!plus[0].text) {
+      record(reagent.ref.id, 'item', 'reagent', rawStart, rawStart + raw.length, false, true);
+      for (const slot of reagent.ref.slots) record(slot, 'item', 'fitted', rawStart, rawStart + raw.length, false, true);
+    }
+    if (!context[1]?.text && at) record(at, 'hotspot', 'context', rawStart, rawStart + raw.length, false, true);
     if (!recipe.b && !recipe.hotspot) error('missing-operand', 'Combine two items, one item at a hotspot, or two items at a hotspot.', line);
     if (parent && ![recipe.a.ref.id, recipe.b?.ref.id].includes(parent.id)) error('nested-reagent', 'A nested rule must use its parent item or result.', line);
     const original = originalLines[line - 1], offset = original?.lastIndexOf(authored) ?? -1;
-    const rawStart = source(line).span!.from - (source(line).column! - 1) + offset;
     for (const [position, input] of [recipe.a, recipe.b].entries()) {
       if (!input) continue;
       const part = plus[position], annotation = /\[(consume|transform|preserve)\]$/.exec(part.text);
@@ -182,9 +204,10 @@ export function parseStory(markdown: string, options: { id?: string; file?: stri
     for (const source of markers.reverse()) (story.tutorials ??= []).push({recipe: result.id, chapter: story.chapters.length, source});
     return result;
   }
-  function wonder(item: Item, prose: string[], line: number) {
-    let markdown = prose.join('\n').trim(); if (!markdown) return;
-    const qualified = /^\[([^\]]+)\]\s*/.exec(markdown), requires = qualified ? splitOutside(qualified[1], ',').map(x => ref(x, line).id) : [];
+  function wonder(item: Item, prose: Line[], line: number) {
+    let markdown = prose.map(part => part.text).join('\n').trim(); if (!markdown) return;
+    const first = prose.find(part => part.text.trim())!;
+    const qualified = /^\[([^\]]+)\]\s*/.exec(markdown), requires = qualified ? splitLocated(qualified[1], ',').map(part => ref(part.text, first.line, 'item', 'reference', 'reading', startOf(first.text, first.line) + 1 + part.from).id) : [];
     if (qualified) markdown = markdown.slice(qualified[0].length);
     if (!item.wonders.some(w => w.markdown === markdown && JSON.stringify(w.requires) === JSON.stringify(requires))) item.wonders.push({ markdown, requires, source: source(line) });
   }
@@ -208,7 +231,7 @@ export function parseStory(markdown: string, options: { id?: string; file?: stri
   }
   function assignIcon(target: {name: string; icon?: Icon}, node: Bullet, itemPosition = false) {
     const value = icon(node.text, node.line, itemPosition);
-    if (node.children.length || node.prose.some(text => text.trim())) error('icon-syntax', 'An icon declaration contains only its image and optional markers.', node.line, node.text);
+    if (node.children.length || node.prose.some(part => part.text.trim())) error('icon-syntax', 'An icon declaration contains only its image and optional markers.', node.line, node.text);
     if (!value) return;
     if (target.icon && (target.icon.url !== value.url || target.icon.circular !== value.circular || target.icon.position?.x !== value.position?.x || target.icon.position?.y !== value.position?.y)) error('conflicting-icon', `${target.name} already has a different icon; the first declaration is used.`, node.line, node.text);
     else target.icon ??= value;
@@ -223,7 +246,7 @@ export function parseStory(markdown: string, options: { id?: string; file?: stri
       return;
     }
     const isRule = splitOutside(node.text, '->').length > 1;
-    const result = isRule ? rule(node.text, node.line, parent, at)?.result : ref(node.text, node.line);
+    const result = isRule ? rule(node.text, node.line, parent, at)?.result : ref(node.text, node.line, 'item', 'reference', 'declaration');
     if (!result) return;
     const item = story.items[result.id]; wonder(item, node.prose, node.line);
     for (const child of node.children) {
@@ -240,7 +263,8 @@ export function parseStory(markdown: string, options: { id?: string; file?: stri
         const parts = splitLocated(slot[2], ','), iconIndex = parts.findIndex(part => /^icon\s*:/.test(part.text));
         const accepts = iconIndex < 0 ? slot[2] : slot[2].slice(0, iconIndex ? parts[iconIndex - 1].to : 0);
         const value = iconIndex < 0 ? undefined : icon(slot[2].slice(parts[iconIndex].from), child.line);
-        item.slots.push({ ...(slot[1] ? { name: unquote(slot[1]) } : {}), accepts: ref(accepts, child.line).id, ...(value ? {icon: value} : {}), source: source(child.line) });
+        item.slots.push({ ...(slot[1] ? { name: unquote(slot[1]) } : {}), accepts: ref(accepts, child.line, 'item', 'reference', 'slot', startOf(child.text, child.line) + slot.index + slot[0].lastIndexOf(slot[2])).id, ...(value ? {icon: value} : {}), source: source(child.line) });
+        record(result.id, 'item', 'slot', startOf(child.text, child.line), startOf(child.text, child.line) + child.text.length, false, true);
       }
       else itemNode(child, result, at);
     }
@@ -251,7 +275,7 @@ export function parseStory(markdown: string, options: { id?: string; file?: stri
     while ((match = /^(next|either|or|both|and):\s*/.exec(text))) { if (match[1] === 'next') next = true; else op = ['both','and'].includes(match[1]) ? 'and' : 'or'; text = text.slice(match[0].length); }
     return { text, operator: op, next };
   }
-  function condition(raw: string, line: number): Condition | undefined {
+  function condition(raw: string, line: number, from: number): Condition | undefined {
     if (/^\(three (?:goals|rules)\b/i.test(raw)) {
       error('goal-syntax', 'A three-goal acknowledgment belongs at the top level of Goals, not among a goal\'s conditions.', line, raw);
       return;
@@ -261,9 +285,9 @@ export function parseStory(markdown: string, options: { id?: string; file?: stri
       return;
     }
     if (splitOutside(raw, '->').length > 1) { const result = rule(raw, line)?.result ?? ref('', line); return { item: result, source: source(line) }; }
-    const parts = splitOutside(raw, '@');
-    if (parts.length > 2 || (parts.length === 2 && !parts[1])) error('goal-syntax', 'A placement condition needs one item and one hotspot separated by @.', line, raw);
-    return { item: ref(parts[0], line), ...(parts[1] ? { hotspot: ref(parts[1], line, 'hotspot').id } : {}), source: source(line) };
+    const parts = splitLocated(raw, '@');
+    if (parts.length > 2 || (parts.length === 2 && !parts[1].text)) error('goal-syntax', 'A placement condition needs one item and one hotspot separated by @.', line, raw);
+    return { item: ref(parts[0].text, line, 'item', 'reference', 'goal', from + parts[0].from), ...(parts[1]?.text ? { hotspot: ref(parts[1].text, line, 'hotspot', 'reference', 'goal', from + parts[1].from).id } : {}), source: source(line) };
   }
   const chapterLines: { heading: Line; lines: Line[] }[] = []; let preamble: Line[] = [];
   for (const line of lines) {
@@ -307,7 +331,7 @@ export function parseStory(markdown: string, options: { id?: string; file?: stri
     for (const node of goalNodes) {
       const acknowledgment = /^[\t ]*-[\t ]+\(three goals are a lot but okay here because (.*)\)$/.exec(originalLines[node.line - 1]);
       if (acknowledgment) {
-        if (node.children.length || node.prose.some(text => text.trim())) {
+        if (node.children.length || node.prose.some(part => part.text.trim())) {
           error('goal-syntax', 'A three-goal acknowledgment must be a single top-level bullet without nested content.', node.line);
           continue;
         }
@@ -322,12 +346,12 @@ export function parseStory(markdown: string, options: { id?: string; file?: stri
       }
       const prefix = operator(node.text), parts = splitOutside(prefix.text, '--'); if (prefix.operator) goalOps.add(prefix.operator);
       const goal: Goal = { id: `${chapter.id}/goal:${chapter.goals.length}`, text: unquote(parts[0]), next: prefix.next, operator: 'or', conditions: [], source: source(node.line) };
-      if (!goal.text || parts.length > 2 || (parts.length === 2 && !parts[1]) || node.prose.some(text => text.trim())) error('goal-syntax', 'Use nonempty goal text with one inline -- condition or condition sub-bullets.', node.line);
+      if (!goal.text || parts.length > 2 || (parts.length === 2 && !parts[1]) || node.prose.some(part => part.text.trim())) error('goal-syntax', 'Use nonempty goal text with one inline -- condition or condition sub-bullets.', node.line);
       if (goal.next && !chapter.goals.length) error('first-next', 'The first goal cannot use next:.', node.line, 'next:');
       if (parts[1] && node.children.length) error('mixed-goal-form', 'An inline goal condition cannot also have condition sub-bullets.', node.line);
       const conditions = parts[1] ? [{ text: parts.slice(1).join('--'), line: node.line, children: [] as Bullet[] }] : node.children;
       const ops = new Set<string>();
-      for (const child of conditions) { const p = operator(child.text); if (p.operator) ops.add(p.operator); const parsed = condition(p.text, child.line); if (parsed) goal.conditions.push(parsed); if (child.children.length) error('nested-condition', 'Goal conditions cannot have nested compositions.', child.line); }
+      for (const child of conditions) { const p = operator(child.text); if (p.operator) ops.add(p.operator); const parsed = condition(p.text, child.line, startOf(child.text, child.line) + child.text.length - p.text.length); if (parsed) goal.conditions.push(parsed); if (child.children.length) error('nested-condition', 'Goal conditions cannot have nested compositions.', child.line); }
       if (ops.size > 1) error('mixed-conditions', 'Do not mix conjunction and disjunction in a goal.', node.line);
       if (ops.has('and')) goal.operator = 'and';
       if (!goal.conditions.length) error('empty-goal', 'A goal needs one or more conditions.', node.line);
@@ -337,16 +361,16 @@ export function parseStory(markdown: string, options: { id?: string; file?: stri
     if (goalOps.has('or')) chapter.goalOperator = 'or';
     for (const node of bullets(sections.get('Hotspots') ?? [])) {
       if (/^place\s*:/.test(node.text)) { error('place-context', 'place: belongs directly beneath a Hotspots declaration.', node.line, node.text); continue; }
-      const h = ref(node.text, node.line, 'hotspot', 'hotspot-declaration'); chapter.hotspots.push(h.id);
+      const h = ref(node.text, node.line, 'hotspot', 'hotspot-declaration', 'declaration'); chapter.hotspots.push(h.id);
       for (const child of node.children) {
         if (/^icon\s*:/.test(child.text)) assignIcon(story.hotspots[h.id], child);
         else if (/^place\s*:/.test(child.text)) {
           const match = /^place:\s*(.+?)\s+\(at (-?\d+(?:\.\d+)?)%,\s*(-?\d+(?:\.\d+)?)%\)$/.exec(child.text);
-          if (!match || child.children.length || child.prose.some(text => text.trim())) {
+          if (!match || child.children.length || child.prose.some(part => part.text.trim())) {
             error('place-syntax', 'Use place: Item (at X%, Y%) without nested content.', child.line, child.text);
             continue;
           }
-          const item = ref(match[1], child.line, 'item', 'placement');
+          const item = ref(match[1], child.line, 'item', 'placement', 'placement', startOf(child.text, child.line) + child.text.indexOf(match[1], 'place:'.length));
           (story.hotspots[h.id].placements ??= []).push({item, x: +match[2] / 100, y: +match[3] / 100, source: source(child.line, child.text)});
         }
         else itemNode(child, undefined, h.id);
