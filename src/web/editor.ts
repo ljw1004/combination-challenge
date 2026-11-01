@@ -8,7 +8,7 @@ import { lintGutter, setDiagnostics as setEditorDiagnostics } from '@codemirror/
 import type { Diagnostic as EditorDiagnostic } from '@codemirror/lint';
 import type { Diagnostic, DiagnosticFix, Source, TextSpan } from '../story/types.ts';
 import { chapterCheckpoints } from './editor-checkpoints.ts';
-import { ChapterNavigation } from './editor-chapters.ts';
+import { chapterHeadings, ChapterNavigation } from './editor-chapters.ts';
 import { editorSearch } from './editor-search.ts';
 import { editorLanguage } from './editor-language.ts';
 import { sourceFixWidgets } from './editor-fix-widgets.ts';
@@ -33,7 +33,7 @@ export interface StoryEditor {
   getText(): string;
   /** An explicit replacement retains editor undo history and does not call onChange. */
   setText(text: string): void;
-  setOpen(open: boolean): void;
+  setOpen(open: boolean, chapterLine?: number): void;
   setDiagnostics(diagnostics: readonly Diagnostic[], phase?: 'fast' | 'complete'): void;
   setStatus(message: string, kind?: 'saved' | 'error' | 'info'): void;
   setPreviewStatus(message: string): void;
@@ -439,10 +439,16 @@ export function createStoryEditor(options: StoryEditorOptions): StoryEditor {
       try { view.dispatch({ changes: { from: 0, to: view.state.doc.length, insert: text } }); }
       finally { replacing = false; }
     },
-    setOpen(open) {
+    setOpen(open, chapterLine) {
       if (!open) { closeFixMenu(); chapters.close(false); }
       element.hidden = !open;
-      if (open) view.requestMeasure();
+      if (open) {
+        const heading = chapterHeadings(view.state.doc).find(chapter => chapter.line === chapterLine);
+        if (heading) {
+          view.dispatch({selection: {anchor: heading.to}, effects: EditorView.scrollIntoView(heading.from, {y: 'start'})});
+        }
+        view.requestMeasure();
+      }
     },
     setDiagnostics(diagnostics, phase = 'complete') {
       const fresh = diagnostics.map(locateDiagnostic);

@@ -48,7 +48,7 @@ The build produces `dist/` with separate bundled JavaScript/CSS, ordinary story 
 
 ## Edit a story live
 
-Click the **bug icon** to toggle the debug pane. On desktop, the game uses its natural 390px width and the Markdown editor fills all remaining window space.
+Click the **bug icon** to toggle the debug pane. On desktop, the game uses its natural 390px width and the Markdown editor fills all remaining window space. Opening it aligns the caret, editor scroll and chapter dropdown with the current gameplay chapter; see the [debug-pane contract](docs/ux.md#debug-pane).
 
 Edits save immediately and update the current game view, including open readings, goals, rules and backgrounds. When there are local edits, a red pen replaces the bug icon; both toggle the same pane. The panel opens automatically on desktop if the story URL has a saved draft **or** its editor was last left open; closing it is remembered but does not override a saved draft.
 

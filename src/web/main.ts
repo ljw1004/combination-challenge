@@ -262,6 +262,10 @@ async function start() {
     const document = await loadStoryDocument(documentURL, drafts);
     authoring = new AuthoringSession(document, drafts, workspace, {
       onText: schedulePreview, onLayout: layoutChanged, onDraft: updateEditingIndicators,
+      currentChapterLine: () => {
+        flushPreview();
+        return story.chapters[state.chapter]?.source.line;
+      },
       onCheckpoint: line => {
         flushPreview();
         const index = story.chapters.findIndex(chapter => chapter.source.line === line);

@@ -77,6 +77,7 @@ async function savedText(page: Page, text: string): Promise<boolean> {
 }
 
 async function expectTextOverlay(bulb: ReturnType<Page['locator']>) {
+  await bulb.scrollIntoViewIfNeeded();
   const geometry = await bulb.evaluate(control => {
     const row = control.closest('.cm-line,.editor-diagnostic-row')!;
     const range = document.createRange();
@@ -222,6 +223,9 @@ test('drafts save before preview, reopen on desktop, and only explicit deletion 
   await page.setViewportSize({width: 1280, height: 800});
   await expect(page.locator('.story-editor')).toBeVisible();
   expect(await editorNode!.evaluate(element => element.isConnected)).toBe(true);
+  await expect(page.getByRole('button', {name: 'Chapter', exact: true})).toHaveText('2. Field');
+  await expect(page.locator('.cm-activeLine')).toHaveText('## Field');
+  await expect(page.locator('.cm-activeLine')).toBeInViewport();
   await expect(page.getByRole('textbox', {name: 'Story Markdown'})).toContainText('A durable draft introduction.');
   await page.getByRole('textbox', {name: 'Story Markdown'}).focus();
   await page.keyboard.press('ControlOrMeta+z');
@@ -435,6 +439,7 @@ test('diagnostics keep source order and scroll while their related locations nav
   await tool.click();
   const sourceFix = page.locator('.cm-activeLine .editor-source-fix[aria-label*="Tool has mixed fates"]');
   await expect(sourceFix).toBeVisible();
+  await sourceFix.scrollIntoViewIfNeeded();
   const geometry = await page.locator('.cm-activeLine').evaluate(line => {
     const bulbs = [...line.querySelectorAll<HTMLElement>('.editor-source-fix')];
     const withIcons = line.getBoundingClientRect().height;
@@ -507,11 +512,57 @@ test('chapter heading checkpoint buttons use live text and preserve the draft an
   await expect(page.getByText('Generated checkpoint', {exact: true})).toHaveCount(0);
 });
 
+test('opening the editor reveals the current gameplay chapter without resetting progress', async ({page}) => {
+  const text = manuscript.replace('## Field', '\n'.repeat(80) + '## Field').replaceAll('\n', '\r\n');
+  await serveFixture(page, text);
+  await page.goto('/combinations.html?story=fixture/story.md');
+  await page.getByRole('button', {name: 'Start', exact: true}).click();
+  await page.getByRole('button', {name: 'Begin', exact: true}).click();
+  await page.locator('[data-item="id:frame"]').dragTo(page.locator('[data-item="id:tool"]'));
+  await page.getByRole('button', {name: 'Continue story'}).click();
+  await page.getByRole('button', {name: 'Begin', exact: true}).click();
+  await page.locator('[data-item="id:probe"]').dragTo(page.locator('[data-item="id:kit"]'));
+  await expect(page.locator('[data-item="id:tested"]')).toHaveCount(1);
+
+  const editor = page.getByRole('textbox', {name: 'Story Markdown'});
+  const dropdown = page.getByRole('button', {name: 'Chapter', exact: true});
+  const scroller = page.locator('.cm-scroller');
+  async function expectCurrentChapter() {
+    await expect(dropdown).toHaveText('2. Field');
+    const heading = page.locator('.cm-activeLine');
+    await expect(heading).toHaveText('## Field');
+    await expect(heading).toBeInViewport();
+    expect(await scroller.evaluate(element => element.scrollTop)).toBeGreaterThan(0);
+    await editor.focus();
+    await expect.poll(() => heading.evaluate(element => {
+      const selection = window.getSelection()!;
+      const range = document.createRange(); range.selectNodeContents(element);
+      range.setEnd(selection.focusNode!, selection.focusOffset);
+      return {collapsed: selection.isCollapsed, beforeCaret: range.toString()};
+    })).toEqual({collapsed: true, beforeCaret: '## Field'});
+    await expect(page.locator('[data-item="id:tested"]')).toHaveCount(1);
+    await expect(page.locator('dialog')).toHaveCount(0);
+    expect(await savedText(page, text)).toBe(false);
+  }
+
+  await openEditor(page);
+  await expectCurrentChapter();
+  // An existing editor can be left at a different chapter with unrelated scroll.
+  await page.keyboard.press('ControlOrMeta+Home');
+  await expect(dropdown).toHaveText('Chapter');
+  await page.getByRole('button', {name: 'Close debug panel'}).click();
+  await openEditor(page);
+  await expectCurrentChapter();
+  // A remembered open pane must use restored game progress during construction.
+  await page.reload();
+  await expectCurrentChapter();
+});
+
 test('chapter dropdown follows the caret and jumps with only the necessary editor movement', async ({page}) => {
   await openFixture(page, manuscript.replaceAll('\n', '\r\n'));
   const dropdown = page.getByRole('button', {name: 'Chapter', exact: true});
   const editor = page.getByRole('textbox', {name: 'Story Markdown'});
-  await expect(dropdown).toHaveText('Chapter');
+  await expect(dropdown).toHaveText('1. Workshop');
   await editor.focus();
   await page.keyboard.press('ControlOrMeta+End');
   await expect(dropdown).toHaveText('2. Field');

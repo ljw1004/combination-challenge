@@ -7,6 +7,7 @@ interface Callbacks {
   onLayout(): void;
   onDraft(edited: boolean): void;
   onCheckpoint(line: number): void;
+  currentChapterLine(): number | undefined;
 }
 
 /** Draft durability is independent of parser, linter, preview and game progress. */
@@ -86,6 +87,7 @@ export class AuthoringSession {
       this.callbacks.onLayout();
       return;
     }
+    const chapterLine = this.callbacks.currentChapterLine();
     if (!this.editor) {
       this.editor = createStoryEditor({
         parent: this.parent, text: this.text,
@@ -102,7 +104,7 @@ export class AuthoringSession {
     }
     this.isOpen = true;
     this.parent.classList.add('editor-open');
-    this.editor.setOpen(true);
+    this.editor.setOpen(true, chapterLine);
     this.callbacks.onLayout();
     // Best effort: browsers may refuse persistence; saves still report their actual result.
     void navigator.storage?.persist?.().catch(() => false);
