@@ -96,7 +96,7 @@ Decide acceptable matches before scoring. Allow semantic equivalents such as “
 
 ### Interpretation with context
 
-For wrong or uncertain answers, provide the ordinary chapter context and ask again. Preserve the original response, record the exact additional context, and distinguish unaided matches, matches recovered with context, and remaining failures. Supplying the answer is not a context test.
+For wrong or uncertain answers, provide the ordinary chapter context and ask again. During the temporary review, keep the original response and exact additional context separate. In the final outcome, distinguish unaided matches, matches recovered with context, and remaining failures; discard the raw answers afterward. Supplying the answer is not a context test.
 
 For example, a picture of fruit beside a jug may communicate a fruit drink while leaving fermentation unclear. Context can help establish cider; that does not show the picture alone distinguishes cider from juice. The [blind](../archive/icon-generation/icon-study/reviews/round-1-blind.md) and [guided](../archive/icon-generation/icon-study/reviews/round-1-guided.md) reports demonstrate how to retain both readings.
 
@@ -121,7 +121,7 @@ Translate feedback into a specific change. Different failures need different rep
 | Clear standalone part, confusing assembly | Adjust fitted scale, placement or occlusion and inspect the composite. |
 | Clear isolated icon, poor visibility in play | Inspect its relationship to the background, nearby items and interaction feedback. |
 
-Freeze the version that received the feedback. Make a targeted revision, then review the corrected object, nearby confusable objects and any affected compositions at display size. Retain the earlier failure so the comparison remains inspectable.
+Identify the artwork version that received the feedback. Make a targeted revision, then review the corrected object, nearby confusable objects and any affected compositions at display size. Retain the earlier artwork when useful to the design study and summarize its failure in the final outcome; detailed review packets are temporary.
 
 Check for regressions across review dimensions. In the [coloured woodcut comparison](../archive/icon-generation/icon-study/reviews/round-5-colour-review.md), removing staging marks improved the print treatment but also removed the motion cue that distinguished a pendulum from a hanging weight. A style improvement can therefore justify another recognition check.
 
@@ -153,7 +153,7 @@ Inspect relevant chapter entries, busy working states and completed assemblies i
 
 Keep the conclusions proportional to the check. Browser emulation does not establish native touch behavior; a legal checkpoint is not a fresh playthrough; accurate guesses do not establish enjoyment. Measure recognition speed with representative users if speed is a success criterion. Follow the [evaluation method](fun-and-evaluation.md) for broader experience claims.
 
-Retain a compact record in the named [active project directory](../projects/README.md) containing the brief and selected style guide, visual catalogue and references, source artwork and revision requests, extraction/registration information, exact review inputs and answers, and relevant playable checks. Identify selected and superseded versions, reasons for changes, and unresolved questions. Apply the [directory hygiene and archive policy](../archive/README.md#project-evidence); put current UX decisions in UX and outstanding proposals in the [backlog](../projects/backlog.md).
+Retain a compact record in the named [active project directory](../projects/README.md) containing the brief and selected style guide, visual catalogue and references, source artwork and revision requests, extraction/registration information, reviewer instructions and final review/check outcomes. Identify selected and superseded artwork versions, reasons for changes, and unresolved questions. Verification inputs, individual answers, captures and detailed run records are temporary; follow [verification retention](engineering.md#verification-records). Apply the [directory hygiene and archive policy](../archive/README.md#project-evidence); put current UX decisions in UX and outstanding proposals in the [backlog](../projects/backlog.md).
 
 ## Examples and supporting material
 

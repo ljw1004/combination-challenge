@@ -34,14 +34,14 @@ Source ledgers: [designer research](../archive/legacy-2026-10-30/docs/research.m
 1. State one experience hypothesis and a concrete falsifier. Identify the intended audience, scenario scope and available information.
 2. Verify mechanical viability cheaply. A generated route is a developer witness; keep it away from fresh players.
 3. Freeze the story, runtime, interface and exact assignment. Give a fresh player only normal information, with partner hints and optional reading. Sparse accounts are sufficient; do not make reporting every action into a chore.
-4. Record actual observations, attempts, optional expectations and reports. Keep negative and interrupted sessions. Distinguish required completion, elective continuation and satisfied closure.
+4. Record actual observations, attempts, optional expectations and reports. Include negative and interrupted results in the final conclusions. Distinguish required completion, elective continuation and satisfied closure.
 5. Replay the record. Identify supported, concerning and unknown claims, attributing each to mechanics, the player, or reviewer inference. Examine concrete early, middle and late passages when making a sustained-experience claim.
 6. Test counterexplanations: a short goal-insensitive routine, compulsory padding, an already-known result, source exposure, assigned compliance or flattering prose. A clever shortcut is not itself a design defect.
 7. Choose keep/change/reject and a discriminating next experiment. Freeze a new version for a changed story; compare the relevant passage with its baseline. Do not endlessly repeat the same prompt while leaving the hypothesis unchanged.
 
 ## Report a profile
 
-For each experience criterion, retain the claim, cited event(s), player wording, contrary evidence and remaining uncertainty. Useful dimensions are intelligibility, discovery/learning, construction/progress, pacing, meaningful reuse, choices where present, and emotional/story value. Keep factual authenticity separate from player-facing intuition.
+For each experience criterion, retain a concise conclusion, significant observations, contrary findings and remaining uncertainty. Raw verification inputs and outputs are temporary under the [engineering retention policy](engineering.md#verification-records); use them during investigation, then discard them. Useful dimensions are intelligibility, discovery/learning, construction/progress, pacing, meaningful reuse, choices where present, and emotional/story value. Keep factual authenticity separate from player-facing intuition.
 
 Count accepted combinations, placements, reading, administrative actions and rejections separately. Do not add unrelated sessions, alternate routes or automatic effects into one claimed campaign. Technical interruption is not chosen stopping. Source-exposed replay is not fresh play. Agent action counts do not establish human duration.
 

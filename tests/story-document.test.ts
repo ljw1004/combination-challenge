@@ -25,7 +25,7 @@ test('portable story paths and artwork resolve from their own documents, rejecti
   assert.equal(resolveStoryURL('https://example.test/work/combinations.html?story=shared/another%20story.md'), 'https://example.test/work/shared/another%20story.md');
   assert.equal(resolveStoryAsset('assets/scene.webp', url), 'https://example.test/work/mars/assets/scene.webp');
   assert.equal(resolveStoryAsset('https://art.test/scene.webp', url), 'https://art.test/scene.webp');
-  for (const selector of ['', 'mars', '../private', 'https://other.test/story.md', '//other.test/story.md', 'javascript:story.md', 'mars%5Cmars.md', 'mars/mars.md%23fragment', 'mars/mars.md%3Fquery', '%2e%2e', 'mars/mars.md&story=kitchen/kitchen.md']) {
+  for (const selector of ['', 'mars', '../private', 'https://other.test/story.md', '//other.test/story.md', 'javascript:story.md', 'mars%5Cmars.md', 'mars/mars.md%23fragment', 'mars/mars.md%3Fquery', '%2e%2e', 'mars/mars.md&story=cookbook/cookbook.md']) {
     assert.throws(() => resolveStoryURL(`https://example.test/work/combinations.html?story=${selector}`));
   }
   for (const asset of ['javascript:alert(1)', 'data:text/html,hello', 'https://user:secret@example.test/a.webp']) {

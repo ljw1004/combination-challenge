@@ -12,7 +12,7 @@ Nested AGENTS.md files, skills-like instructions, old “current” status state
 
 ## Project evidence
 
-The [directory hygiene rules](../AGENTS.md#directory-hygiene) govern moving completed work here. Preserve frozen manuscripts, source snapshots, sessions and original evaluations unchanged. Navigation links, indexes and manifests may be updated to reflect relocation; keep any affected manifest hashes accurate.
+The [directory hygiene rules](../AGENTS.md#directory-hygiene) govern moving completed work here. Retain instructions and final outcomes under the [verification policy](../docs/engineering.md#verification-records); detailed verification inputs and outputs are temporary and must not be moved here. Older collections below include historical run bundles retained under an earlier policy. Preserve their historical context when consulting them; do not use them as the pattern for new work. Navigation links and indexes may be updated to reflect relocation.
 
 ### Authenticity improvements evidence
 

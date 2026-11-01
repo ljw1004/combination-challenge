@@ -1,4 +1,4 @@
-# The Kitchen Notebook
+# Cookbook
 
 Open a notebook on the kitchen table and develop a cookbook, one useful preparation at a time. Follow ingredients into doughs, sauces, fillings and dishes worth sharing. Try the variations that interest you, notice what changes, and find the connections between the pages. The final test is a supper made from the work of the book.
 

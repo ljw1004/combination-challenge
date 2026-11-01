@@ -67,8 +67,12 @@ Lint fixes contain source edits, not engine actions. The parser retains authored
 
 Draft persistence, diagnostics and preview state have separate failure paths. Keep saving the raw text even when interpretation fails. Browser partner hints report analysis limits without throwing out of pointer handlers. The CLI additionally checks local artwork files on disk and verifies authored hotspot destinations in Chromium; the browser supplies placement geometry from its prepared artwork. Avoid accumulating editor-specific exceptions in the deterministic engine. The [README](../README.md#edit-a-story-live) owns user-facing editing and recovery instructions.
 
-## Evidence integrity
+## Verification records
 
-Hash the actual played source, not a nearby commit or manuscript-only approximation. Replaying an evaluation must use its frozen runtime. Preserve generated evidence before changing an evaluator. The [README](../README.md#frozen-evidence-and-evaluation) defines run artifacts and retention; [fun and evaluation](fun-and-evaluation.md) defines what claims they support.
+Keep executable checks, reviewer instructions and concise final outcomes. Record scope, pass/fail, adopted fixes, failures that matter and remaining limits. Inputs and outputs of verification runs are temporary: copied source/runtime bundles, checkpoints, action histories, screenshots, geometry dumps, individual reviewer answers, logs and detailed reports belong in ignored `runs/` space while investigating. Discard them after recording the conclusion; do not commit or archive them, including in compressed form.
+
+Source artwork, generation prompts, authoring geometry and explicitly requested contact-sheet PNGs are design deliverables. Keep them with their ongoing project. Their existence does not require retaining the surrounding verification run.
+
+During a run, bind observations to the actual tested version and use matching inputs for replay. A retained summary without the run details is an outcome record, not replayable evidence. The [README](../README.md#frozen-evidence-and-evaluation) describes temporary run artifacts; [fun and evaluation](fun-and-evaluation.md) governs what claims they support.
 
 Sources: [legacy evaluator audit](../archive/legacy-2026-10-30/docs/fun-evaluator-audit-1.md), [rendering fixes](../archive/legacy-2026-10-30/docs/rendering-and-intertitles-20261029.md), [source/test boundaries](../archive/legacy-2026-10-30/docs/location-hotspot-root-sync-20261028/test-context-map.json), [event-local policy](../archive/legacy-2026-10-30/experiments/tangible-campaign/reviews/lifecycle/EVENT_LOCAL_POLICY.md). These links preserve provenance; current rules are above and in the linked active documents.

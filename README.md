@@ -6,7 +6,7 @@
 
 ## Project
 
-Five combination stories authored in Markdown, with complete artwork for Settlement and Kitchen. The browser game, story linter, checkpoint generator and logical AI playtester share one parser and game engine. The project has three commitments: combination, enjoyable interactive play and an empirical loop that can reject weak ideas.
+Five combination stories authored in Markdown, with complete artwork for Settlement and Cookbook. The browser game, story linter, checkpoint generator and logical AI playtester share one parser and game engine. The project has three commitments: combination, enjoyable interactive play and an empirical loop that can reject weak ideas.
 
 ## Run the game
 
@@ -24,13 +24,14 @@ Seven icon styles are retained as [reference collections](references/icon-sets/)
 
 **Settlement: A River Worth Returning To** uses rustic coloured woodcuts: `/combinations.html?story=settlement/settlement.md`.
 
-**The Kitchen Notebook** develops a cookbook through pen-and-wash illustrations: `/combinations.html?story=kitchen/kitchen.md`. The ongoing [Kitchen study](projects/kitchen-study/README.md) brings together the cookbook adaptation, icon research and comparisons, thematic backgrounds, page composition and pencil stations. It retains all candidate sheets, source paintings, standalone PNGs and review evidence for continued refinement of the story and artwork.
+**Cookbook** develops a cookbook through pen-and-wash illustrations: `/combinations.html?story=cookbook/cookbook.md`. The ongoing [Cookbook study](projects/cookbook-study/README.md) brings together the cookbook adaptation, icon research and comparisons, thematic backgrounds, page composition and pencil stations. It retains all candidate sheets, source paintings, standalone PNGs, review instructions and final outcomes for continued refinement of the story and artwork.
 
 The player fetches Markdown as an ordinary file. These routes work in development and the production build:
 
 | Player URL | Markdown fetched |
 |---|---|
 | `/combinations.html?story=settlement/settlement.md` | `/settlement/settlement.md` |
+| `/combinations.html?story=cookbook/cookbook.md` | `/cookbook/cookbook.md` |
 | `/combinations.html?story=theology/theology.md` | `/theology/theology.md` |
 | `/combinations.html?story=mars/mars.md` | `/mars/mars.md` |
 | `/mars/combinations.html?story=mars.md` | `/mars/mars.md` |
@@ -187,13 +188,15 @@ For an evaluable experience profile, `report.criteria` maps the supplied criteri
 
 ### Frozen evidence and evaluation
 
+Run artifacts described below are temporary working files. Keep only instructions and concise final outcomes; discard raw inputs and outputs after evaluation under the [verification retention policy](docs/engineering.md#verification-records).
+
 Each session folder contains `story.md`, a snapshot of active runtime source and package metadata, and `session.json`. The session retains story/runtime hashes, assignment, participant/model label, exact observations, accepted and rejected actions, optional accounts and outcome. Changing the runtime prevents continuing an old session; it does not rewrite the old record. The evaluator uses that session's frozen runtime to verify replay.
 
 `npm run evaluate -- SESSION` writes `evaluation.json`; add `--verify-only` to check the frozen hashes and replay without rewriting the evaluation. Mechanical evidence and player reports remain separate. Counts exclude reading and card dismissal from combinations. An absent report remains absent. The evaluation carries concrete accounts and a next-experiment hypothesis rather than claiming a computed human-fun score.
 
 Use different session IDs for different versions and conditions. Preserve a baseline before editing a story. If a player or author has seen developer recipes, choose a diagnostic condition through the session API and do not relabel it fresh. Checkpoint generation is a separate developer tool.
 
-`runs/` is ignored temporary output, created as needed by the playtesting tools. Follow the [directory hygiene rules](AGENTS.md#directory-hygiene) when retaining evidence for a project or archiving completed work. Move complete session folders, keeping their frozen manuscripts, source, sessions and original evaluations together. Preserve negative evidence from retained comparisons. `COMBINATION_RUNS_DIR` selects another output or verification directory, including temporary protocol-test folders. Use `--verify-only` when checking retained historical evidence; see the [archive guide](archive/README.md#project-evidence) for the existing bundles.
+`runs/` is ignored temporary output, created as needed by the playtesting tools. Record final conclusions, significant failures and limitations in the project's outcome document, then discard the run folder. Do not move complete session folders or compressed run bundles into projects or the archive. `COMBINATION_RUNS_DIR` selects another temporary output or verification directory. Older archived runs remain historical material; see the [archive guide](archive/README.md#project-evidence).
 
 ## Documentation map
 
@@ -228,5 +231,5 @@ Maintain the [strict directory hygiene defined in AGENTS.md](AGENTS.md#directory
 - `docs/`: standing specifications, adopted guidance and reusable workflows.
 - `projects/`: active project briefs, research, plans and supporting material; see the [project index](projects/README.md).
 - `stories/`: active stories and their assets.
-- `runs/`: ignored temporary playtest output; retained evidence moves to its named project directory.
+- `runs/`: ignored temporary playtest output; retain only instructions and final conclusions in the named project.
 - `archive/`: historical source and research; follow its [usage policy](archive/README.md).
