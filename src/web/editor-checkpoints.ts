@@ -2,6 +2,7 @@ import type { Extension } from '@codemirror/state';
 import { Decoration, ViewPlugin, WidgetType } from '@codemirror/view';
 import type { DecorationSet, EditorView, ViewUpdate } from '@codemirror/view';
 import {actionAnchor} from './editor-action-anchor.ts';
+import {chapterHeadings} from './editor-chapters.ts';
 
 /** The editor supplies a source line; the browser controller resolves the chapter. */
 export function chapterCheckpoints(onOpen: (line: number, heading: string, anchor: HTMLButtonElement) => void): Extension {
@@ -21,11 +22,10 @@ export function chapterCheckpoints(onOpen: (line: number, heading: string, ancho
   }
   function headings(view: EditorView): DecorationSet {
     const decorations = [];
-    for (let number = 1; number <= view.state.doc.lines; number++) {
-      const line = view.state.doc.line(number);
-      if (!/^## /.test(line.text)) continue;
+    for (const chapter of chapterHeadings(view.state.doc)) {
+      const line = view.state.doc.line(chapter.line);
       decorations.push(Decoration.line({class: 'cm-chapter-heading'}).range(line.from));
-      decorations.push(Decoration.widget({widget: new CheckpointButton(number, line.text.slice(3).trim()), side: 1}).range(line.from + line.text.trimEnd().length));
+      decorations.push(Decoration.widget({widget: new CheckpointButton(chapter.line, chapter.heading), side: 1}).range(line.from + line.text.trimEnd().length));
     }
     return Decoration.set(decorations, true);
   }

@@ -8,6 +8,8 @@ import { lintGutter, setDiagnostics as setEditorDiagnostics } from '@codemirror/
 import type { Diagnostic as EditorDiagnostic } from '@codemirror/lint';
 import type { Diagnostic, DiagnosticFix, Source, TextSpan } from '../story/types.ts';
 import { chapterCheckpoints } from './editor-checkpoints.ts';
+import { ChapterNavigation } from './editor-chapters.ts';
+import { editorSearch } from './editor-search.ts';
 import { sourceFixWidgets } from './editor-fix-widgets.ts';
 import {actionAnchor, actionAnchorLayout} from './editor-action-anchor.ts';
 import './editor.css';
@@ -57,6 +59,15 @@ export function createStoryEditor(options: StoryEditorOptions): StoryEditor {
   element.id = 'debug-panel';
   element.setAttribute('aria-label', 'Debug panel');
   const header = node('header', 'editor-header');
+  const chapters = new ChapterNavigation((chapter, containsCaret) => {
+    closeFixMenu();
+    options.onCheckpoint?.(chapter.line);
+    if (!containsCaret) {
+      view.dispatch({selection: {anchor: chapter.to}, effects: EditorView.scrollIntoView(chapter.from, {y: 'start'})});
+      view.focus();
+    }
+  });
+  if (options.onCheckpoint) header.append(chapters.element);
   const close = button('×', 'editor-close');
   close.setAttribute('aria-label', 'Close debug panel');
   close.title = 'Close debug panel';
@@ -124,7 +135,7 @@ export function createStoryEditor(options: StoryEditorOptions): StoryEditor {
       extensions: [
         lineNumbers(), highlightActiveLineGutter(), history(), drawSelection(),
         markdown(), syntaxHighlighting(defaultHighlightStyle), highlightActiveLine(),
-        highlightSelectionMatches(), lintGutter(), EditorView.lineWrapping,
+        highlightSelectionMatches(), editorSearch, lintGutter(), EditorView.lineWrapping,
         sourceFixes.extension, actionAnchorLayout,
         ...(options.onCheckpoint ? [chapterCheckpoints((line, heading, anchor) => openActionMenu(heading,
           [{label: 'Jump to checkpoint', run: () => options.onCheckpoint?.(line)}], anchor))] : []),
@@ -155,6 +166,7 @@ export function createStoryEditor(options: StoryEditorOptions): StoryEditor {
           }
           if (update.docChanged || update.selectionSet) {
             const position = update.state.selection.main.head;
+            chapters.update(update.state.doc, position);
             const line = update.state.doc.lineAt(position).number;
             currentLine = line;
             highlightCurrentLine();
@@ -164,6 +176,7 @@ export function createStoryEditor(options: StoryEditorOptions): StoryEditor {
       ],
     }),
   });
+  chapters.update(view.state.doc, view.state.selection.main.head);
 
   recoveryLoad.addEventListener('click', () => {
     const saved = recoveries.find(entry => entry.id === recoverySelect.value);
@@ -276,11 +289,16 @@ export function createStoryEditor(options: StoryEditorOptions): StoryEditor {
   function openFixMenu(diagnostic: Diagnostic, anchor: HTMLElement) {
     const current = currentDiagnostics.find(candidate => diagnosticKey(candidate) === diagnosticKey(diagnostic));
     if (!current?.fixes?.length || fixesStale) return;
-    selectDiagnostic(current, false);
     openActionMenu(current.fixTitle || current.code, fixChoices(current), anchor);
   }
   function openActionMenu(title: string, actions: {label: string; disabledReason?: string; run(): void}[], anchor: HTMLElement) {
+    if (fixMenu?.anchor === anchor) {
+      closeFixMenu();
+      anchor.focus({preventScroll: true});
+      return;
+    }
     closeFixMenu();
+    chapters.close(false);
     const returnToEditor = view.hasFocus;
     const menu = node('div', 'editor-fix-menu'); menu.setAttribute('role', 'menu'); menu.setAttribute('aria-label', title);
     menu.tabIndex = -1;
@@ -328,7 +346,9 @@ export function createStoryEditor(options: StoryEditorOptions): StoryEditor {
     const bulb = button('', 'editor-diagnostic-fix');
     bulb.setAttribute('aria-label', `Fix ${diagnostic.code}: ${diagnostic.message}`);
     bulb.setAttribute('aria-haspopup', 'menu'); bulb.setAttribute('aria-expanded', 'false');
-    bulb.addEventListener('click', () => openFixMenu(diagnostic, bulb));
+    bulb.addEventListener('click', event => {
+      event.preventDefault(); event.stopPropagation(); openFixMenu(diagnostic, bulb);
+    });
     return bulb;
   }
   function updateSelection() {
@@ -418,7 +438,7 @@ export function createStoryEditor(options: StoryEditorOptions): StoryEditor {
       finally { replacing = false; }
     },
     setOpen(open) {
-      if (!open) closeFixMenu();
+      if (!open) { closeFixMenu(); chapters.close(false); }
       element.hidden = !open;
       if (open) view.requestMeasure();
     },
@@ -477,6 +497,7 @@ export function createStoryEditor(options: StoryEditorOptions): StoryEditor {
     },
     focusLine,
     destroy() {
+      chapters.destroy();
       closeFixMenu(); document.removeEventListener('pointerdown', dismissFixMenu, true);
       window.removeEventListener('resize', closeFixMenu); diagnosticResize.disconnect();
       view.destroy();

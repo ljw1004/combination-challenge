@@ -17,7 +17,7 @@ export class MobileDebug {
     close.setAttribute('aria-label', 'Close debug panel');
     close.addEventListener('click', () => this.close());
     header.append(title, close);
-    const list = document.createElement('div'); list.className = 'mobile-debug-chapters';
+    const list = document.createElement('ol'); list.className = 'mobile-debug-chapters';
     const buttons = chapters.map((name, index) => {
       const button = document.createElement('button'); button.type = 'button';
       button.textContent = `${index + 1}. ${name}`;
@@ -25,7 +25,10 @@ export class MobileDebug {
       button.addEventListener('click', () => { this.close(); this.onJump(index); });
       return button;
     });
-    list.append(...buttons); dialog.append(header, list);
+    list.append(...buttons.map(button => {
+      const row = document.createElement('li'); row.append(button); return row;
+    }));
+    dialog.append(header, list);
     dialog.addEventListener('cancel', event => { event.preventDefault(); this.close(); });
     dialog.addEventListener('click', event => {
       const rect = dialog.getBoundingClientRect();

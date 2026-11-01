@@ -19,11 +19,13 @@
   #workspace.editor-open > #app { flex: 1 1 auto; min-width: 0; }
   #workspace > .story-editor { display: none; }
 }
-.mobile-debug { width: min(390px, calc(100vw - 24px)); max-height: calc(100dvh - 24px); padding: 12px; }
-.mobile-debug[open] { display: flex; flex-direction: column; gap: 12px; }
-.mobile-debug header { display: flex; align-items: center; gap: 12px; }
+.mobile-debug { width: min(390px, calc(100vw - 24px)); max-height: calc(100dvh - 24px); padding: 0; background: #fff; }
+.mobile-debug[open] { display: flex; flex-direction: column; }
+.mobile-debug header { display: flex; flex: 0 0 auto; align-items: center; gap: 12px; padding: 8px 12px; border-bottom: 1px solid #e7e7e7; }
 .mobile-debug h2 { flex: 1; margin: 0; font: 22px/1.2 Georgia, serif; }
 .mobile-debug header button { width: 44px; padding: 0; border: 0; background: transparent; font-size: 26px; }
-.mobile-debug-chapters { display: flex; flex-direction: column; gap: 6px; min-height: 0; overflow-y: auto; overscroll-behavior: contain; }
-.mobile-debug-chapters button { flex: 0 0 auto; width: 100%; text-align: left; overflow-wrap: anywhere; background: #fffdf7; border-color: #c8bba2; }
-.mobile-debug-chapters button[aria-current] { border-color: #267c79; background: #e6edde; }
+.mobile-debug-chapters { margin: 0; padding: 0; list-style: none; min-height: 0; overflow-y: auto; overscroll-behavior: contain; }
+.mobile-debug-chapters li { margin: 0; padding: 0; }
+.mobile-debug-chapters button { display: block; width: 100%; min-height: 44px; padding: 10px 16px; margin: 0; text-align: left; overflow-wrap: anywhere; background: transparent; border: 0; border-radius: 0; box-shadow: none; }
+.mobile-debug-chapters button:hover, .mobile-debug-chapters button:focus-visible { background: #f0f4f2; }
+.mobile-debug-chapters button[aria-current] { background: #e6edde; }

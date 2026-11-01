@@ -54,8 +54,8 @@ async function serveFixture(page: Page, text = manuscript) {
   }));
 }
 
-async function openFixture(page: Page) {
-  await serveFixture(page);
+async function openFixture(page: Page, text = manuscript) {
+  await serveFixture(page, text);
   await page.goto('/combinations.html?story=fixture/story.md');
   await page.getByRole('button', { name: 'Start', exact: true }).click();
   await page.getByRole('button', { name: 'Begin', exact: true }).click();
@@ -376,7 +376,20 @@ test('diagnostics keep source order and scroll while their related locations nav
   await mixed.click();
   await expect(mixed).toHaveAttribute('aria-pressed', 'true');
   await expect(group.locator('.editor-related-locations')).toBeHidden();
+  const mixedBulb = group.locator('.editor-diagnostic-fix');
+  await mixedBulb.click();
+  await expect(page.getByRole('menu', {name: 'Frame', exact: true})).toBeVisible();
+  await expect(group.locator('.editor-related-locations')).toBeHidden();
+  await mixedBulb.click();
+  await expect(page.getByRole('menu')).toHaveCount(0);
+  await expect(mixedBulb).toHaveAttribute('aria-expanded', 'false');
+  await expect(group.locator('.editor-related-locations')).toBeHidden();
   await mixed.click();
+  await mixedBulb.click();
+  await expect(group.locator('.editor-related-locations')).toBeVisible();
+  await mixedBulb.click();
+  await expect(page.getByRole('menu')).toHaveCount(0);
+  await expect(group.locator('.editor-related-locations')).toBeVisible();
   const tool = entries.filter({hasText: 'Tool has mixed fates'});
   await tool.click();
   await expect(group.locator('.editor-related-locations')).toBeHidden();
@@ -410,6 +423,8 @@ test('diagnostics keep source order and scroll while their related locations nav
   await toolGroup.locator('.editor-diagnostic-fix').click();
   const menu = page.getByRole('menu', {name: 'Tool', exact: true});
   await expect(menu.getByRole('heading', {name: 'Tool', exact: true})).toBeVisible();
+  await expect(group.locator('.editor-related-locations')).toBeVisible();
+  await expect(toolGroup.locator('.editor-related-locations')).toBeHidden();
   expect(await menu.getByRole('menuitem').allTextContents()).toEqual(['always preserve', 'always consume']);
   await menu.getByRole('menuitem', {name: 'always consume', exact: true}).click();
   await expect(tool).toHaveCount(0);
@@ -439,6 +454,11 @@ test('diagnostics keep source order and scroll while their related locations nav
   await page.keyboard.press('Home');
   await expect(rowMenu.getByRole('menuitem').first()).toBeFocused();
   await page.keyboard.press('Escape');
+  await sourceFix.click();
+  await expect(menu).toBeVisible();
+  await sourceFix.click();
+  await expect(menu).toHaveCount(0);
+  await expect(sourceFix).toHaveAttribute('aria-expanded', 'false');
   await sourceFix.click();
   await expect(menu.getByRole('heading', {name: 'Tool', exact: true})).toBeVisible();
   expect(await menu.getByRole('menuitem').allTextContents()).toEqual(['always preserve', 'always consume']);
@@ -474,12 +494,205 @@ test('chapter heading checkpoint buttons use live text and preserve the draft an
   const scroll = await page.locator('.cm-scroller').evaluate(element => element.scrollTop);
   await jump.click();
   await expect(page.locator('dialog')).toHaveCount(0);
+  await expect(jump).toHaveAttribute('aria-expanded', 'true');
+  await jump.click();
+  await expect(page.getByRole('menu')).toHaveCount(0);
+  await expect(jump).toHaveAttribute('aria-expanded', 'false');
+  await jump.click();
   await page.getByRole('menuitem', {name: 'Jump to checkpoint', exact: true}).click();
   await expect(page.locator('dialog')).toContainText('Field introduction.');
   await expect(page.locator('.chapter-panel[data-chapter="1"]')).toHaveCount(1);
   expect(await savedText(page, edited)).toBe(true);
   expect(await page.locator('.cm-scroller').evaluate(element => element.scrollTop)).toBe(scroll);
   await expect(page.getByText('Generated checkpoint', {exact: true})).toHaveCount(0);
+});
+
+test('chapter dropdown follows the caret and jumps with only the necessary editor movement', async ({page}) => {
+  await openFixture(page, manuscript.replaceAll('\n', '\r\n'));
+  const dropdown = page.getByRole('button', {name: 'Chapter', exact: true});
+  const editor = page.getByRole('textbox', {name: 'Story Markdown'});
+  await expect(dropdown).toHaveText('Chapter');
+  await editor.focus();
+  await page.keyboard.press('ControlOrMeta+End');
+  await expect(dropdown).toHaveText('2. Field');
+  await expect(page.locator('.chapter-panel[data-chapter="1"]')).toHaveCount(0);
+  const scroller = page.locator('.cm-scroller');
+  const scroll = await scroller.evaluate(element => element.scrollTop);
+  const selection = () => editor.evaluate(element => {
+    const selection = window.getSelection()!;
+    const range = document.createRange(); range.selectNodeContents(element); range.setEnd(selection.focusNode!, selection.focusOffset);
+    return range.toString();
+  });
+  const before = await selection();
+  await dropdown.click();
+  await expect(page.getByRole('option', {name: '2. Field', exact: true})).toBeFocused();
+  await page.keyboard.press('Enter');
+  await expect(page.locator('dialog')).toContainText('Field introduction.');
+  expect(await scroller.evaluate(element => element.scrollTop)).toBe(scroll);
+  await editor.focus();
+  expect(await selection()).toBe(before);
+  await page.getByRole('button', {name: 'Begin', exact: true}).click();
+  await page.locator('[data-item="id:probe"]').dragTo(page.locator('[data-item="id:kit"]'));
+  await expect(page.locator('[data-item="id:tested"]')).toHaveCount(1);
+  await dropdown.click();
+  await page.getByRole('option', {name: '2. Field', exact: true}).click();
+  await expect(page.locator('[data-item="id:tested"]')).toHaveCount(0);
+  expect(await scroller.evaluate(element => element.scrollTop)).toBe(scroll);
+
+  await dropdown.click();
+  await page.keyboard.press('Home');
+  await page.keyboard.press('Enter');
+  await expect(page.locator('dialog')).toContainText('Workshop introduction.');
+  await expect(dropdown).toHaveText('1. Workshop');
+  await expect(page.locator('.cm-activeLine')).toHaveText('## Workshop');
+  await expect(editor).toBeFocused();
+  await page.keyboard.insertText(' revised');
+  await expect(dropdown).toHaveText('1. Workshop revised');
+  await expect.poll(() => savedText(page, manuscript.replace('## Workshop', '## Workshop revised'))).toBe(true);
+  await dropdown.click();
+  await expect(page.getByRole('option', {name: '1. Workshop revised', exact: true})).toHaveAttribute('aria-selected', 'true');
+  await page.keyboard.press('Escape');
+  await expect(dropdown).toBeFocused();
+
+  // Rebuild source locations synchronously, including CRLF loading and structural edits.
+  await edit(page, manuscript.replace('## Field', '## Field revised'));
+  await dropdown.click();
+  await page.getByRole('option', {name: '1. Workshop', exact: true}).click();
+  await expect(page.locator('.cm-activeLine')).toHaveText('## Workshop');
+  await edit(page, '# No chapters yet\n');
+  await expect(dropdown).toBeDisabled();
+  await edit(page, manuscript);
+  await expect(dropdown).toBeEnabled();
+  await dropdown.click();
+  await page.getByRole('option', {name: '1. Workshop', exact: true}).click();
+  await expect(page.locator('dialog')).toContainText('Workshop introduction.');
+});
+
+test('mobile chapter navigation is a compact scrolling list and creates checkpoints', async ({page}) => {
+  await page.setViewportSize({width: 390, height: 640});
+  const extra = Array.from({length: 18}, (_, index) => `\n## Chapter ${index + 3}\n\n**Goals**\n- Keep the kit -- \`kit\`\n`).join('');
+  await serveFixture(page, manuscript + extra);
+  await page.goto('/combinations.html?story=fixture/story.md');
+  await openEditor(page);
+  const dialog = page.getByRole('dialog', {name: 'Jump to chapter'});
+  const list = dialog.getByRole('list');
+  await expect(dialog).toHaveCSS('background-color', 'rgb(255, 255, 255)');
+  await expect(dialog.getByRole('button', {name: '1. Workshop', exact: true})).toBeFocused();
+  expect(await list.evaluate(element => element.scrollHeight > element.clientHeight)).toBe(true);
+  const geometry = await list.getByRole('button').evaluateAll(buttons => buttons.slice(0, 2).map(button => {
+    const rect = button.getBoundingClientRect(), css = getComputedStyle(button);
+    return {top: rect.top, bottom: rect.bottom, height: rect.height, border: css.borderWidth, radius: css.borderRadius};
+  }));
+  expect(geometry[1].top).toBe(geometry[0].bottom);
+  expect(geometry[0].height).toBe(44);
+  expect(geometry[0].border).toBe('0px');
+  expect(geometry[0].radius).toBe('0px');
+  await list.getByRole('button').last().scrollIntoViewIfNeeded();
+  expect(await list.evaluate(element => element.scrollTop)).toBeGreaterThan(0);
+  await dialog.getByRole('button', {name: '2. Field', exact: true}).click();
+  await expect(dialog).toHaveCount(0);
+  await expect(page.locator('dialog')).toContainText('Field introduction.');
+  await expect(page.locator('[data-item="id:kit"]')).toHaveCount(1);
+  await page.getByRole('button', {name: 'Begin', exact: true}).click();
+  await openEditor(page);
+  await expect(dialog.getByRole('button', {name: '2. Field', exact: true})).toHaveAttribute('aria-current', 'step');
+  await expect(dialog.getByRole('button', {name: '2. Field', exact: true})).toBeFocused();
+  await dialog.getByRole('button', {name: '1. Workshop', exact: true}).click();
+  await expect(page.locator('dialog')).toContainText('Workshop introduction.');
+  await expect(page.locator('[data-item="id:kit"]')).toHaveCount(0);
+});
+
+test('find counts selected matches and navigates from the current caret', async ({page}) => {
+  const text = manuscript.replace('Workshop introduction.', 'needle first.\n\nNeedle second.\n\nneedlework third.\n\nLiteral [x].* and \\n markers.')
+    .replace('Field introduction.', 'needle fourth.');
+  await openFixture(page, text);
+  const editor = page.getByRole('textbox', {name: 'Story Markdown'});
+  await editor.focus();
+  await page.keyboard.press('ControlOrMeta+Home');
+  await page.keyboard.press('ControlOrMeta+f');
+  const panel = page.locator('.cm-search');
+  const find = panel.getByRole('textbox', {name: 'Find', exact: true});
+  const count = panel.getByRole('status', {name: 'Search matches'});
+  const next = panel.getByRole('button', {name: 'Next match'});
+  const previous = panel.getByRole('button', {name: 'Previous match'});
+  await expect(find).toBeFocused();
+  await expect(panel.getByRole('checkbox')).toHaveCount(1);
+  await expect(panel.getByRole('button', {name: /^(all|select all matches)$/i})).toHaveCount(0);
+  await expect(panel.getByText(/^(regexp|by word)$/i)).toHaveCount(0);
+  await find.fill('needle');
+  await expect(count).toHaveText('? of 4');
+  await find.press('Enter');
+  await expect(count).toHaveText('1 of 4');
+  await next.click();
+  await expect(count).toHaveText('2 of 4');
+  await previous.click();
+  await expect(count).toHaveText('1 of 4');
+  await find.press('Shift+Enter');
+  await expect(count).toHaveText('4 of 4');
+  await next.click();
+  await expect(count).toHaveText('1 of 4');
+
+  await page.locator('.cm-line').filter({hasText: /^Needle second\.$/}).click();
+  await page.keyboard.press('End');
+  await expect(count).toHaveText('? of 4');
+  await next.click();
+  await expect(count).toHaveText('3 of 4');
+  await previous.click();
+  await expect(count).toHaveText('2 of 4');
+  await panel.getByRole('checkbox', {name: 'Match case'}).check();
+  await expect(count).toHaveText('? of 3');
+  await next.click();
+  await expect(count).toHaveText('2 of 3');
+
+  await find.fill('[x].*');
+  await expect(count).toHaveText('? of 1');
+  await find.press('Enter');
+  await expect(count).toHaveText('1 of 1');
+  await find.fill('\\n');
+  await expect(count).toHaveText('? of 1');
+  await find.fill('no such text');
+  await expect(count).toHaveText('0 of 0');
+  await expect(next).toBeDisabled();
+  await expect(previous).toBeDisabled();
+  await find.fill('');
+  await expect(count).toHaveText('');
+  await find.press('Escape');
+  await expect(panel).toHaveCount(0);
+  await expect(editor).toBeFocused();
+});
+
+test('find totals stay current after replacements, edits and reopening from a selection', async ({page}) => {
+  const text = manuscript.replace('Workshop introduction.', 'signal signal signal.');
+  await openFixture(page, text);
+  const editor = page.getByRole('textbox', {name: 'Story Markdown'});
+  await editor.focus(); await page.keyboard.press('ControlOrMeta+Home');
+  await page.keyboard.press('ControlOrMeta+f');
+  const panel = page.locator('.cm-search');
+  const find = panel.getByRole('textbox', {name: 'Find', exact: true});
+  const count = panel.getByRole('status', {name: 'Search matches'});
+  await find.fill('signal'); await find.press('Enter');
+  await expect(count).toHaveText('1 of 3');
+  await panel.getByRole('textbox', {name: 'Replace', exact: true}).fill('echo');
+  await panel.getByRole('button', {name: 'Replace', exact: true}).click();
+  await expect(count).toHaveText('1 of 2');
+  await expect.poll(() => savedText(page, text.replace('signal signal signal.', 'echo signal signal.'))).toBe(true);
+  await panel.getByRole('button', {name: 'Replace all', exact: true}).click();
+  await expect(count).toHaveText('0 of 0');
+  await expect.poll(() => savedText(page, text.replaceAll('signal', 'echo'))).toBe(true);
+  await editor.focus(); await page.keyboard.press('ControlOrMeta+z');
+  await expect(count).toHaveText('1 of 2');
+  await page.keyboard.press('ControlOrMeta+End');
+  await page.keyboard.insertText('\nsignal');
+  await expect(count).toHaveText('? of 3');
+
+  // Cmd+F seeds Find from the current selection even while the panel is open.
+  await page.keyboard.press('Shift+Home');
+  await page.keyboard.press('ControlOrMeta+f');
+  await expect(find).toHaveValue('signal');
+  await expect(count).toHaveText('3 of 3');
+  await panel.getByRole('button', {name: 'Close search'}).click();
+  await page.keyboard.press('ControlOrMeta+f');
+  await expect(count).toHaveText('3 of 3');
 });
 
 test('three-goal quick actions select the reason, save and undo, and remove a stale wrapped acknowledgment', async ({page}) => {

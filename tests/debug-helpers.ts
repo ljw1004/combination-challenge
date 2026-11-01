@@ -17,17 +17,11 @@ export async function jumpToChapter(page: Page, heading: string, closePanel = fa
     await chapters.nth(index).click();
     return;
   }
-  await page.getByRole('textbox', {name: 'Story Markdown'}).focus();
-  await page.keyboard.press('ControlOrMeta+Home');
-  await page.keyboard.press('ControlOrMeta+f');
-  const search = page.locator('.cm-search input[name="search"]');
-  await search.fill('');
-  await search.pressSequentially(`## ${heading}`);
-  await page.keyboard.press('Enter');
-  await page.keyboard.press('Escape');
-  const jump = page.getByRole('button', {name: `Jump to checkpoint: ${heading}`, exact: true});
-  await jump.focus();
-  await jump.click();
-  await page.getByRole('menuitem', {name: 'Jump to checkpoint', exact: true}).click();
+  await page.getByRole('button', {name: 'Chapter', exact: true}).click();
+  const chapters = page.getByRole('listbox', {name: 'Chapters'}).getByRole('option');
+  const labels = await chapters.allTextContents();
+  const index = labels.findIndex(label => label.replace(/^\d+\. /, '') === heading);
+  expect(index).toBeGreaterThanOrEqual(0);
+  await chapters.nth(index).click();
   if (closePanel) await page.getByRole('button', {name: 'Close debug panel'}).click();
 }

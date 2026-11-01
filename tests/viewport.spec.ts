@@ -45,8 +45,10 @@ async function expectCurrentFits(page: Page, count: number) {
   const height = page.viewportSize()!.height;
   await expect.poll(() => page.locator('.viewport').evaluate(el => ({height: el.clientHeight, total: el.scrollHeight, top: el.scrollTop})))
     .toEqual({height, total: count * height, top: (count - 1) * height});
-  const rect = (await page.locator('.chapter-panel').last().boundingBox())!;
-  expect(rect.y).toBeCloseTo(0, 1); expect(rect.height).toBeCloseTo(height, 1);
+  // CSS resizes the viewport before the resize handler updates the chapter scene.
+  const panel = page.locator('.chapter-panel').last();
+  await expect.poll(async () => (await panel.boundingBox())?.height).toBeCloseTo(height, 1);
+  expect((await panel.boundingBox())!.y).toBeCloseTo(0, 1);
   expect(await page.evaluate(() => document.documentElement.scrollHeight <= innerHeight && document.documentElement.scrollWidth <= innerWidth)).toBe(true);
   // Even deliberate attempts cannot reveal extra background below the active scene.
   expect(await page.locator('.viewport').evaluate(el => { el.scrollTop += 1000; return el.scrollTop; })).toBe((count - 1) * height);
