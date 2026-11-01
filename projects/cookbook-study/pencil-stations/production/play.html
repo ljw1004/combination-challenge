@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Cookbook · chapter preview</title>
+<style>
+html,body{margin:0;width:100%;height:100%;background:#e9e7df}iframe{display:block;border:0;width:100%;height:100%}#loading{position:fixed;inset:0;display:grid;place-content:center;background:#f2eee5;color:#394136;font:18px Georgia,serif;z-index:2}#loading[hidden]{display:none}#loading a{color:inherit}
+</style>
+<div id="loading"><p>Opening the chapter…</p><a href="./">Back to the comparison</a></div>
+<iframe title="Cookbook game"></iframe>
+<script type="module">
+const chapter=Number(new URL(location).searchParams.get('chapter')??0);const chapters=["Begin with breakfast","Milk, two ways","A loaf worth buttering","Yogurt, thick and fresh","A little sharpness","Toast and warm apples","A pot of broth","Roots, beans and crisp edges","A salad wants contrast","One sheet, two pastas","Pasta at the table","Two ways with butter","What pastry can hold","The sauce page","A vegetable supper","Fruit, sugar and time","Tarts from earlier pages","Almonds ground fine","Sugar taken further","A sauce and a filling","Bread soaked, pastry filled","Steam does the lifting","Inside a choux bun","Cake lightened with air","A roll and a spoonful","Begin with chocolate","Chocolate, three finishes","Scones for tea","Bread without waiting","Cold changes things","The egg-white pages","Ice cream dressed for dinner","What keeping really means","Supper from the notebook","The tasting table"];const heading=chapters[chapter];if(!heading)throw Error('Unknown chapter');
+const frame=document.querySelector('iframe');
+const story='/cookbook/cookbook.md';
+frame.src='/combinations.html?story='+encodeURIComponent(story);
+// Drive the player's existing debug chapter picker. No game implementation or
+// recipe changes, and no fabricated save state, are needed to open this sample.
+const sleep=ms=>new Promise(resolve=>setTimeout(resolve,ms));
+const visible=e=>!!e&&e.getClientRects().length>0;
+const button=name=>[...frame.contentDocument.querySelectorAll('button')].find(e=>e.textContent.trim()===name||e.getAttribute('aria-label')===name);
+async function until(fn){for(let i=0;i<300;i++){const value=fn();if(value)return value;await sleep(100);}throw new Error('The chapter did not finish loading.');}
+try{
+  await until(()=>frame.contentDocument?.querySelector('.debug-toggle'));
+  // Reopening a candidate deliberately starts its bread chapter again. Ordinary
+  // reloads inside the iframe still use the player's normal progress storage.
+  button('Toggle debug panel').click();
+  await until(()=>visible(frame.contentDocument.querySelector('.story-editor'))||visible(frame.contentDocument.querySelector('.mobile-debug')));
+  const doc=frame.contentDocument;
+  if(visible(doc.querySelector('.mobile-debug'))){
+    const target=await until(()=>[...doc.querySelectorAll('.mobile-debug-chapters button')].find(e=>e.textContent.replace(/^\d+\. /,'').trim()===heading));
+    target.click();
+  }else{
+    button('Chapter').click();
+    const target=await until(()=>[...doc.querySelectorAll('[role="option"]')].find(e=>e.textContent.replace(/^\d+\. /,'').trim()===heading));
+    target.click();
+    button('Close debug panel').click();
+  }
+  const begin=await until(()=>{const e=button('Begin');return visible(e)&&e;});begin.click();
+  const panel=await until(()=>doc.querySelector('.chapter-panel[data-chapter="'+chapter+'"]'));
+  panel.scrollIntoView({block:'start',behavior:'instant'});
+  await Promise.all([...panel.querySelectorAll('img')].map(im=>im.decode()));
+  document.querySelector('#loading').hidden=true;
+}catch(error){document.querySelector('#loading p').textContent=error.message;}
+</script>
+</html>

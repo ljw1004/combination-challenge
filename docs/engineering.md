@@ -71,7 +71,7 @@ Draft persistence, diagnostics and preview state have separate failure paths. Ke
 
 Keep executable checks, reviewer instructions and concise final outcomes. Record scope, pass/fail, adopted fixes, failures that matter and remaining limits. Inputs and outputs of verification runs are temporary: copied source/runtime bundles, checkpoints, action histories, screenshots, geometry dumps, individual reviewer answers, logs and detailed reports belong in ignored `runs/` space while investigating. Discard them after recording the conclusion; do not commit or archive them, including in compressed form.
 
-Source artwork, generation prompts, authoring geometry and explicitly requested contact-sheet PNGs are design deliverables. Keep them with their ongoing project. Their existence does not require retaining the surrounding verification run.
+Source artwork, generation prompts, authoring geometry and explicitly requested contact-sheet PNGs are design deliverables. Curate them with their ongoing project: keep each distinct artistic statement, its verdict, enough reference material to recreate that direction, and worthwhile completed work. Discard intermediate exports, duplicate views and the minutiae of superseded attempts. Their existence does not require retaining the surrounding verification run.
 
 During a run, bind observations to the actual tested version and use matching inputs for replay. A retained summary without the run details is an outcome record, not replayable evidence. The [README](../README.md#frozen-evidence-and-evaluation) describes temporary run artifacts; [fun and evaluation](fun-and-evaluation.md) governs what claims they support.
 

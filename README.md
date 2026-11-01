@@ -24,7 +24,7 @@ Seven icon styles are retained as [reference collections](references/icon-sets/)
 
 **Settlement: A River Worth Returning To** uses rustic coloured woodcuts: `/combinations.html?story=settlement/settlement.md`.
 
-**Cookbook** develops a cookbook through pen-and-wash illustrations: `/combinations.html?story=cookbook/cookbook.md`. The ongoing [Cookbook study](projects/cookbook-study/README.md) brings together the cookbook adaptation, icon research and comparisons, thematic backgrounds, page composition and pencil stations. It retains all candidate sheets, source paintings, standalone PNGs, review instructions and final outcomes for continued refinement of the story and artwork.
+**Cookbook** develops a cookbook through pen-and-wash illustrations: `/combinations.html?story=cookbook/cookbook.md`. The ongoing [Cookbook study](projects/cookbook-study/README.md) brings together the cookbook adaptation, icon research and comparisons, thematic backgrounds, page composition and pencil stations. Its curated collection retains artistic directions and verdicts, inspiration references, selected finished comparisons, production source art and all 35 completed page PNGs.
 
 The player fetches Markdown as an ordinary file. These routes work in development and the production build:
 

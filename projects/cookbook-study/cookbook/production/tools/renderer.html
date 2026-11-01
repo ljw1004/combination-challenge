@@ -1,0 +1,39 @@
+<!doctype html><meta charset="utf-8"><title>Cookbook asset export</title>
+<style>html,body{margin:0;background:transparent}svg{display:block}*{box-sizing:border-box}</style>
+<script type="module">
+import {measureAtlas} from './framing.mjs';
+import {createArtwork} from '../../artwork.mjs';
+const ns='http://www.w3.org/2000/svg';
+function svg(tag,attrs){const el=document.createElementNS(ns,tag);for(const[k,v]of Object.entries(attrs))el.setAttribute(k,v);return el;}
+window.measure=async(source,options)=>{const image=new Image();image.src=source;await image.decode();return measureAtlas(image,options);};
+window.render=async({source,geometry,frame,extent,canvas})=>{
+ const art=createArtwork({source,geometry,frame,extent,id:'drawing'});
+ let root=art;
+ if(canvas){root=svg('svg',{xmlns:ns,width:canvas.width,height:canvas.height,viewBox:`0 0 ${canvas.width} ${canvas.height}`});art.setAttribute('x',canvas.x??(canvas.width-Number(art.getAttribute('width')))/2);art.setAttribute('y',canvas.y??canvas.height-Number(art.getAttribute('height')));root.append(art);}
+ root.id='asset';document.body.replaceChildren(root);
+ const image=new Image();image.src=source;await image.decode();await new Promise(requestAnimationFrame);
+ return{width:Number(root.getAttribute('width')),height:Number(root.getAttribute('height'))};
+};
+window.layer=async({width,height,layers})=>{
+ const root=svg('svg',{xmlns:ns,id:'asset',width,height,viewBox:`0 0 ${width} ${height}`});
+ for(const layer of layers)root.append(svg('image',{href:layer.source,x:layer.x??0,y:layer.y??0,width:layer.width??width,height:layer.height??height,preserveAspectRatio:'xMidYMax meet'}));
+ document.body.replaceChildren(root);await Promise.all(layers.map(async l=>{const image=new Image();image.src=l.source;await image.decode();}));await new Promise(requestAnimationFrame);
+};
+window.proof=async({title,subtitle,items,columns=4,numberedOnly=false})=>{
+ document.body.style.background='#f5efdf';document.body.style.width=`${columns*218+56}px`;document.body.style.padding='22px 28px';
+ document.body.style.font='14px Arial,sans-serif';document.body.style.color='#2e2a22';
+ const header=document.createElement('header');const h=document.createElement('h1');h.style.cssText='font:600 21px Georgia,serif;margin:0 0 8px';h.textContent=title;
+ const sub=document.createElement('p');sub.style.cssText='margin:0 0 18px;color:#645a49;font-size:12px';sub.textContent=subtitle;header.append(h,sub);
+ const grid=document.createElement('main');grid.style.cssText=`display:grid;grid-template-columns:repeat(${columns},218px);gap:12px 0`;
+ for(const item of items){
+  const tile=document.createElement('figure');tile.style.cssText='margin:0;min-height:230px;padding:8px;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;border-bottom:1px solid #ded3bd';
+  const stage=document.createElement('div');stage.style.cssText='height:190px;display:flex;align-items:center;justify-content:center;width:100%';
+  const img=new Image();img.src=item.source;img.width=item.width;img.height=item.height;img.style.objectFit='contain';stage.append(img);
+  const cap=document.createElement('figcaption');cap.style.cssText='height:40px;width:100%;padding-top:6px;text-align:center;line-height:16px';
+  cap.textContent=numberedOnly?item.code:`${item.code} · ${item.name}`;tile.append(stage,cap);grid.append(tile);
+ }
+ document.body.replaceChildren(header,grid);await Promise.all([...document.images].map(i=>i.decode()));await document.fonts.ready;await new Promise(requestAnimationFrame);
+ return {width:document.body.scrollWidth,height:document.body.scrollHeight};
+};
+window.ready=true;
+</script>
