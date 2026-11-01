@@ -11,7 +11,7 @@ function harness(){
 }
 test('released highlights survive pointerout and second press throughout the double-tap window',()=>{
   const h=harness();h.feedback.begin('Plant');assert.equal(h.feedback.release('Plant',true),false);
-  h.feedback.hover();h.feedback.hover('Water');assert.deepEqual(h.events,['Plant','Plant']);
+  h.feedback.hover();h.feedback.hover('Plant');assert.deepEqual(h.events,['Plant','Plant']);
   h.advance(DOUBLE_TAP_MS-1);h.feedback.begin('Plant');assert.equal(h.feedback.release('Plant',true),true);
   assert.deepEqual(h.events,['Plant','Plant','Plant','clear']);assert.equal(h.timers.size,0);
   h.advance(1000);assert.equal(h.events.at(-1),'clear');
@@ -35,8 +35,22 @@ test('hover is distinguished from pressed feedback and release keeps the pressed
   const schedule=((run:()=>void)=>{expiry=run;return 1;}) as unknown as typeof setTimeout;
   const unschedule=(()=>{expiry=undefined;}) as unknown as typeof clearTimeout;
   const feedback=new ItemFeedback((id,pressed)=>events.push([id,pressed]),()=>events.push('clear'),()=>now,schedule,unschedule);
-  feedback.hover('Plant');feedback.begin('Plant');feedback.release('Plant',false);feedback.hover('Water');
+  feedback.hover('Plant');feedback.begin('Plant');feedback.release('Plant',false);feedback.hover('Plant');
   assert.deepEqual(events,[['Plant',false],['Plant',true],['Plant',true]]);
-  now+=DOUBLE_TAP_MS;expiry?.();assert.equal(events.at(-1),'clear');
+  now+=DOUBLE_TAP_MS;expiry?.();assert.deepEqual(events.at(-1),['Plant',false]);
   feedback.hover('Water');assert.deepEqual(events.at(-1),['Water',false]);
+});
+test('a new hover immediately replaces lingering feedback and its old timer cannot clear the new target',()=>{
+  const h=harness();h.feedback.begin('Plant');h.feedback.release('Plant',true);
+  h.advance(50);h.feedback.hover();h.feedback.hover('Water');
+  assert.equal(h.events.at(-1),'Water');assert.equal(h.timers.size,0);
+  h.advance(DOUBLE_TAP_MS);assert.equal(h.events.at(-1),'Water');
+  h.feedback.hover('Earth');assert.equal(h.events.at(-1),'Earth');
+  h.feedback.hover();assert.equal(h.events.at(-1),'clear');
+});
+test('hover replacement does not shorten or extend double-click recognition',()=>{
+  const h=harness();h.feedback.begin('Plant');h.feedback.release('Plant',true);h.feedback.hover('Water');
+  h.advance(DOUBLE_TAP_MS-1);h.feedback.begin('Plant');assert.equal(h.feedback.release('Plant',true),true);
+  h.feedback.begin('Plant');h.feedback.release('Plant',true);h.feedback.hover('Water');
+  h.advance(DOUBLE_TAP_MS);h.feedback.begin('Plant');assert.equal(h.feedback.release('Plant',true),false);
 });

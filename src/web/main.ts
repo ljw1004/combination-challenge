@@ -4,7 +4,7 @@ import './workspace.css';
 import './item-artwork.css';
 import { parseStory } from '../story/parser.ts';
 import type { Story } from '../story/types.ts';
-import { newGame, act, availableTokens, label, legalActions, chapterComplete, readings, matches } from '../engine/game.ts';
+import { newGame, act, availableTokens, label, chapterComplete, readings, matches } from '../engine/game.ts';
 import { activeHotspots, background, indexStory } from '../engine/analysis.ts';
 import type { State, Action } from '../engine/types.ts';
 import { checkpoint } from '../debug/checkpoint.ts';
@@ -24,16 +24,18 @@ import { AuthoringSession } from './authoring.ts';
 import { MobileDebug } from './mobile-debug.ts';
 import { recoverPreviewStory, reconcileLiveStory, restoreLiveState } from './live-story.ts';
 import { ItemArtwork } from './item-artwork.ts';
-import { iconArrival, clearArrivalHotspots } from './icon-layout.ts';
+import { arrivalLayout } from './arrival-layout.ts';
 import { fitOnBoard, placeCreation, placeAtCentre, viewportBoard } from './board-geometry.ts';
 import { partnerHints } from './partner-hints.ts';
-import {hotspotDrop} from '../engine/hotspot-drop.ts';
+import {createDropResolver, type DropResolution, type DropTarget} from './drop-target.ts';
+import {DragTrace} from './drag-trace.ts';
 import {containsPoint, hotspotCentre, hotspotRect, hotspotHTML, hotspotProbeHTML, measureHotspots} from './hotspot-view.ts';
 import {tutorialAction} from '../engine/tutorial.ts';
 import {TutorialProgress} from './tutorial-progress.ts';
 import {TutorialOverlay} from './tutorial-overlay.ts';
 
 const app = document.querySelector<HTMLDivElement>('#app')!;
+let inputTrace:DragTrace|undefined;
 const workspace = document.querySelector<HTMLElement>('#workspace')!;
 const surface = document.createElement('div'); surface.className = 'game-surface';
 const dialogLayer = document.createElement('div'); dialogLayer.className = 'game-dialog-layer'; dialogLayer.hidden = true;
@@ -206,7 +208,7 @@ function flushPreview() {
 function applyText(text: string) {
   const parsed = parse(text), next = recoverPreviewStory(parsed);
   checkText(parsed, text);
-  cancelGesture(); feedback.clear(); clearCreationLabels();
+  cancelGesture('story-preview'); feedback.clear(); clearCreationLabels();
   if (!storyStarted) {
     // There is no played inventory to preserve on a cover. Begin the edited
     // manuscript afresh rather than carrying supplies from an unstarted draft.
@@ -402,7 +404,7 @@ function read(id: string) {
 function toggleDebugPanel() {
   if (desktopDebug.matches) { authoring.toggle(); return; }
   if (mobileDebug.isOpen) { mobileDebug.close(); return; }
-  flushPreview(); cancelGesture(); feedback.clear();
+  flushPreview(); cancelGesture('debug-panel'); feedback.clear();
   mobileDebug.open(story.chapters.map(chapter => chapter.name), state.chapter);
   updateEditingIndicators();
 }
@@ -416,7 +418,7 @@ function jumpToCheckpoint(index: number) {
   try {
     flushPreview();
     const next = checkpoint(story, index);
-    resetGoalView(); cancelGesture(); clearCreationLabels();
+    resetGoalView(); cancelGesture('checkpoint'); clearCreationLabels();
     state = next; itemOrder = []; editedSnapshot = false; storyStarted = true; tutorialCheckpoint = true;
     state.seen.push(...state.pending.filter(notice => notice.kind === 'wonder').map(notice => notice.key));
     state.pending = state.pending.filter(notice => notice.kind === 'chapter');
@@ -439,7 +441,7 @@ function preferredPosition(id: string, hotspot: string | undefined, chapter: num
   if (!place || !el || !location) return;
   const centre = {x: place.x * 390, y: place.y * 844};
   const bounds = location.getBoundingClientRect(), boardScale = scale();
-  const rect = hotspotRect(h, activeHotspots(story, chapter).indexOf(hotspot), {width: bounds.width / boardScale, height: bounds.height / boardScale}, boardScale, boardGeometry().bounds);
+  const rect = hotspotRect(h, activeHotspots(story, chapter).indexOf(hotspot), {width: bounds.width / boardScale, height: bounds.height / boardScale, circular: location.classList.contains('hotspot-circular')}, boardScale, boardGeometry().bounds);
   // Invalid live drafts use ordinary placement; never attach an outside authored point.
   if (!containsPoint(rect, centre)) return;
   const occupied = availableTokens(state).filter(t => t.id !== id && t.chapter === chapter).flatMap(t => {
@@ -449,20 +451,22 @@ function preferredPosition(id: string, hotspot: string | undefined, chapter: num
   return placeAtCentre(centre, {width: el.offsetWidth, height: el.offsetHeight}, occupied, boardGeometry().bounds);
 }
 function commit(action: Action) { try {
+  inputTrace?.record('commit:start',{action});
   flushPreview();
   if (action.type === 'move') {
     const position = preferredPosition(action.item, action.hotspot, action.chapter);
     if (position) action = {...action, ...position};
   }
-  if (isNoopMove(state, action)) { render(); return; }
+  if (isNoopMove(state, action)) { inputTrace?.record('commit:noop',{action}); render(); return; }
   const receiver=action.type==='combine'&&action.b?state.tokens[action.b]:undefined,receivingTile=receiver?tile(receiver.id):undefined;
   const receivingRect=receiver&&receivingTile?tileRect(receivingTile):undefined;
   const before = state, previous = state.chapter; state = act(story, state, action); noteChapterAction(chapterSession, before, action);
+  inputTrace?.record('commit:applied',{action});
   if (action.type === 'combine') tutorialProgress?.finish('dragDone');
   if (previous !== state.chapter) clearCreationLabels();
   const born = action.type === 'combine' ? Object.keys(state.tokens).find(id => !before.tokens[id]) : undefined;
   if (born) announceCreation(born);
-  closeDialog(); render(previous !== state.chapter);
+  closeDialog(); render(previous !== state.chapter, true, false, before);
   if (born) {
     let token=state.tokens[born],element=tile(born);
     if(element){
@@ -485,7 +489,8 @@ function commit(action: Action) { try {
     }
   }
   rememberInteraction(); save();
-} catch (error) { modal(`<p>${escape((error as Error).message)}</p><button data-command="close">Close</button>`); } }
+  inputTrace?.record('commit:finished',{action});
+} catch (error) { inputTrace?.record('commit:error',{message:(error as Error).message,stack:(error as Error).stack}); modal(`<p>${escape((error as Error).message)}</p><button data-command="close">Close</button>`); } }
 function tile(id: string) { return [...app.querySelectorAll<HTMLElement>('[data-item]')].find(el => el.dataset.item === id); }
 function panel(chapter: number) { return app.querySelector<HTMLElement>(`.chapter-panel[data-chapter="${chapter}"]`); }
 function tileRect(element: HTMLElement) {
@@ -502,52 +507,31 @@ function worldHTML(chapters: string, count: number) {
   const {scale, width, height, bounds} = boardGeometry();
   return `<div class="world" data-panel-height="${height}" style="width:${width}px;height:${count*height}px"><div class="board fixed-locations" style="width:${bounds.width}px;height:${count*bounds.height}px;transform:scale(${scale});--board-scale:${scale};--card-scale:${width/390/scale};--panel-width:${bounds.width}px;--panel-height:${bounds.height}px;--scene-left:${-bounds.x}px">${chapters}</div></div>`;
 }
-function packArrival(checkpointLayout=false){
-  const tokens=availableTokens(state).filter(t=>t.chapter===state.chapter&&!t.hotspot),fresh=new Set(state.newItems);
-  const hasIcons=tokens.some(t=>tile(t.id)?.classList.contains('icon-thing'));
-  if(!checkpointLayout&&!tokens.some(t=>fresh.has(t.id))&&(!hasIcons||!activeHotspots(story,state.chapter).length))return;
-  if(hasIcons){
-    const primitives=indexStory(story).primitives;
-    const descriptions=tokens.map(t=>{
-      const position=story.items[t.id].icon?.position;
-      const start=primitives.has(t.id)&&position&&Object.values(position).every(value=>Number.isFinite(value)&&value>=0&&value<=1)?position:undefined;
-      return {id:t.id,x:t.x,y:t.y,width:tile(t.id)!.offsetWidth,height:tile(t.id)!.offsetHeight,fresh:fresh.has(t.id),start};
-    });
-    // A logical developer replay has never measured browser artwork. Give
-    // its carried items a readable initial arrangement; ordinary play keeps
-    // the user's carried placements and existing arrival grouping.
-    if(checkpointLayout){
-      const initial=iconArrival(descriptions.filter(t=>!t.fresh).map(t=>({...t,fresh:true,start:undefined})));
-      for(const t of descriptions)if(!t.fresh)Object.assign(t,initial.positions.get(t.id));
-    }
-    const geometry=boardGeometry();
-    const stations=activeHotspots(story,state.chapter).map((id,i)=>{
-      const el=panel(state.chapter)!.querySelector<HTMLElement>(`[data-hotspot="${CSS.escape(id)}"]`)!;
-      return hotspotRect(story.hotspots[id],i,{width:el.offsetWidth,height:el.offsetHeight},geometry.scale,geometry.bounds);
-    });
-    const layout=clearArrivalHotspots(descriptions,iconArrival(descriptions),stations,geometry.bounds);
-    for(const t of tokens){const p=layout.positions.get(t.id)!;t.x=p.x;t.y=p.y;const el=tile(t.id)!;el.style.left=`${t.x}px`;el.style.top=`${t.y}px`;}
-    const divider=panel(state.chapter)?.querySelector<HTMLElement>('.arrival-divider');if(divider){divider.hidden=layout.divider===undefined;if(layout.divider!==undefined)divider.style.top=`${layout.divider}px`;}
-    panel(state.chapter)?.classList.toggle('crowded',layout.crowded);return;
-  }
-  let y=82;const x=[14,139,264];
-  const carried=tokens.filter(t=>!fresh.has(t.id)).sort((a,b)=>a.y-b.y),arrivals=tokens.filter(t=>fresh.has(t.id));
-  if(carried.length){
-    const top=carried[0].y;let compression=0,previousBottom=top;const placed:{x:number;y:number;height:number}[]=[];
-    for(const t of carried){
-      const el=tile(t.id)!,height=el.offsetHeight,gap=t.y-previousBottom;if(gap>24)compression+=gap-24;previousBottom=Math.max(previousBottom,t.y+height);t.y=Math.max(65,t.y-top+82-compression);t.x=Math.max(10,Math.min(268,t.x));
-      const clear=(p:{x:number;y:number})=>placed.every(r=>p.x+120<=r.x||r.x+120<=p.x||p.y+height+8<=r.y||r.y+r.height+8<=p.y);
-      if(!clear(t)){const candidates=Array.from({length:12},(_,row)=>x.map(column=>({x:column,y:82+row*64}))).flat().sort((a,b)=>Math.abs(a.x-t.x)+Math.abs(a.y-t.y)-Math.abs(b.x-t.x)-Math.abs(b.y-t.y));const space=candidates.find(clear);if(space){t.x=space.x;t.y=space.y;}}
-      placed.push({x:t.x,y:t.y,height});el.style.left=`${t.x}px`;el.style.top=`${t.y}px`;y=Math.max(y,t.y+height+34);
-    }
-  }
-  for(let i=0;i<arrivals.length;i+=3){
-    const row=arrivals.slice(i,i+3);let height=44;row.forEach((t,j)=>{const el=tile(t.id)!;t.x=x[j];t.y=y;el.style.left=`${t.x}px`;el.style.top=`${t.y}px`;height=Math.max(height,el.offsetHeight);});y+=height+16;
-  }
-  if(tokens.length){const centre=tokens.reduce((sum,t)=>sum+t.y+tile(t.id)!.offsetHeight/2,0)/tokens.length,min=Math.min(...tokens.map(t=>t.y)),max=Math.max(...tokens.map(t=>t.y+tile(t.id)!.offsetHeight));const shift=Math.max(65-min,Math.min(281-centre,745-max));for(const t of tokens){t.y+=shift;tile(t.id)!.style.top=`${t.y}px`;}}
-  const divider=panel(state.chapter)?.querySelector<HTMLElement>('.arrival-divider');if(divider){const first=tokens.find(t=>fresh.has(t.id));divider.style.top=`${Math.max(65,(first?.y??y)-18)}px`;}
-  // Report actual overflow for author review; never silently shrink text or hide cards.
-  if(y>760)panel(state.chapter)?.classList.add('crowded');
+function packArrival(checkpointLayout=false, source?: State){
+  const tokens=availableTokens(state).filter(t=>t.chapter===state.chapter),fresh=new Set(state.newItems);
+  const geometry=boardGeometry(),primitives=indexStory(story).primitives;
+  const previousChapter=source?.chapter??state.visited.at(-2);
+  const descriptions=tokens.map(t=>{
+    const position=story.items[t.id].icon?.position;
+    const start=primitives.has(t.id)&&position&&Object.values(position).every(value=>Number.isFinite(value)&&value>=0&&value<=1)?position:undefined;
+    const element=tile(t.id)!,measured=element.getBoundingClientRect();
+    return {id:t.id,x:t.x,y:t.y,width:measured.width/geometry.scale,height:measured.height/geometry.scale,
+      fresh:fresh.has(t.id),start,fromChapter:source?.tokens[t.id]?.chapter??previousChapter,
+      fixed:!!t.hotspot&&!story.chapters[state.chapter].image};
+  });
+  const stations=activeHotspots(story,state.chapter).map((id,i)=>{
+    const el=panel(state.chapter)!.querySelector<HTMLElement>(`[data-hotspot="${CSS.escape(id)}"]`)!;
+    const measured=el.getBoundingClientRect();
+    return hotspotRect(story.hotspots[id],i,{width:measured.width/geometry.scale,height:measured.height/geometry.scale,circular:el.classList.contains('hotspot-circular')},geometry.scale,geometry.bounds);
+  });
+  const goals=app.querySelector<HTMLElement>('.hud-stack,.chapter-next');
+  const goalsTop=goals?(goals.getBoundingClientRect().top-panel(state.chapter)!.getBoundingClientRect().top)/geometry.scale:geometry.bounds.height;
+  const layout=arrivalLayout(descriptions,{bounds:geometry.bounds,goalsTop,previousChapter,hotspots:stations,checkpoint:checkpointLayout});
+  state.arrivalDivider=layout.divider!==undefined;
+  for(const t of tokens){const p=layout.positions.get(t.id)!;t.x=p.x;t.y=p.y;positionTile(tile(t.id)!,t);}
+  const divider=panel(state.chapter)?.querySelector<HTMLElement>('.arrival-divider');
+  if(divider){divider.hidden=layout.divider===undefined;if(layout.divider!==undefined)divider.style.top=`${layout.divider}px`;}
+  panel(state.chapter)?.classList.toggle('crowded',layout.crowded);
 }
 function clearGoalsAroundCards(){
   for(const overlay of app.querySelectorAll<HTMLElement>('.objective-overlay,.debug-toggle')){
@@ -568,7 +552,7 @@ function beginStory() {
   render(true); rememberInteraction(); save();
 }
 function restartStory() {
-  resetGoalView(); closeDialog(); cancelGesture(); feedback.clear(); clearCreationLabels();
+  resetGoalView(); closeDialog(); cancelGesture('restart-story'); feedback.clear(); clearCreationLabels();
   storyStarted = false; state = newGame(story); chapterSession = captureChapter(state); itemOrder = [];
   tutorialCheckpoint = false; tutorialProgress?.reset();
   // A landing is not a saved game. Removing the old save also makes reload stay here.
@@ -579,7 +563,8 @@ function restartStory() {
   render(); rememberInteraction();
   surface.querySelector<HTMLElement>('.story-start')?.focus({ preventScroll: true });
 }
-function render(arrival=false,finish=true,checkpointLayout=false){
+function render(arrival=false,finish=true,checkpointLayout=false,arrivalSource?:State){
+  inputTrace?.record('render:start',{arrival,finish,checkpointLayout});
   if (!storyStarted) { renderLanding(); return; }
   itemOrder = restoreItemOrder(Object.keys(state.tokens), itemOrder);
   const oldHeight=Number(app.querySelector<HTMLElement>('.world')?.dataset.panelHeight)||app.clientHeight;
@@ -598,17 +583,11 @@ function render(arrival=false,finish=true,checkpointLayout=false){
     }).join('')}${chapter===state.chapter&&state.arrivalDivider&&state.newItems.length?`<div class="arrival-divider" style="top:${Math.max(65,Math.min(...state.newItems.map(id=>state.tokens[id]?.y??844))-18)}px"><span>new items</span></div>`:''}</section>`;
   }).join(''),state.visited.length)}</div>${showGoals?`<div class="hud-stack location-hud ${transitioning?'goals-leaving':''}" ${transitioning?'aria-hidden="true"':''}><button class="objective-overlay" ${leaving?'disabled':''} data-command="story" aria-label="Read this chapter"><span class="objectives">${goals.map(({goal,done})=>`<span class="objective-line ${done?'done':''}"><span class="goal-checkbox" aria-hidden="true">${done?'✓':''}</span><span>${escape(goal.text)}</span><span class="sr-only">${done?'Completed':'Not completed'}</span></span>`).join('')}${state.completed?'<span class="objective-line ending">The End</span>':''}</span></button></div>`:''}${goalView?.phase!=='goals'&&!state.completed?`<button class="chapter-next ${story.chapters[state.chapter+1]?.image?'':'right'} ${transitioning?'entering':''}" ${leaving?'disabled':''} data-command="advance" aria-label="Continue story"><span>${story.chapters[state.chapter+1]?.image?'↓':'→'}</span></button>`:''}`);
   const viewport=app.querySelector<HTMLElement>('.viewport')!;viewport.onscroll=()=>{if(Number(app.querySelector<HTMLElement>('.world')?.dataset.panelHeight)!==app.clientHeight)return;scheduleGoalClearance();if(viewport.scrollTop!==expectedScroll){expectedScroll=viewport.scrollTop;rememberInteraction();save();}};setScroll(arrival?Math.max(0,(state.visited.length-1)*app.clientHeight):scroll);
-  if(arrival){packArrival(checkpointLayout);if(finish)chapterSession=captureChapter(state,itemOrder);}
+  if(arrival){packArrival(checkpointLayout,arrivalSource);if(finish)chapterSession=captureChapter(state,itemOrder);}
   for(const token of availableTokens(state)){const element=tile(token.id);if(element)positionTile(element,token);}
   clearGoalsAroundCards();if(changedView&&transitioning)animateGoalEntrance();if(finish)showPending();
   updateEditingIndicators();
-}
-function partnerActions(): ReturnType<typeof legalActions> {
-  try { return legalActions(story, state); }
-  catch (error) {
-    authoring.setPreviewStatus(`Partner analysis is unavailable: ${(error as Error).message}`);
-    return [];
-  }
+  inputTrace?.record('render:finished');
 }
 // Item IDs are name:/id: identities; the separate prefix keeps hotspot feedback unambiguous.
 function feedbackKey(element:HTMLElement){return element.dataset.item??`hotspot:${element.dataset.hotspot}`;}
@@ -624,79 +603,126 @@ function highlight(key:string,pressed=false){
   }catch(error){authoring.setPreviewStatus(`Partner analysis is unavailable: ${(error as Error).message}`);}
 }
 function clearHighlights(keep?:HTMLElement){app.querySelectorAll<HTMLElement>('.reading-selected').forEach(el=>{if(el!==keep)el.classList.remove('reading-selected');});app.querySelectorAll('.pressed,.possible,.will-create,.will-place').forEach(el=>el.classList.remove('pressed','possible','will-create','will-place'));}
-let drag:{id:string;pointer:number;el:HTMLElement;startX:number;startY:number;grabX:number;grabY:number;x:number;y:number;moved:boolean}|undefined;
+interface Drag {
+  id:string; pointer:number; el:HTMLElement; startX:number; startY:number;
+  grabX:number; grabY:number; moved:boolean;
+  resolve?:ReturnType<typeof createDropResolver>;
+}
+let drag:Drag|undefined;
+let traceTile:HTMLElement|undefined,tracePointer:number|undefined;
 function movedEnough(d:NonNullable<typeof drag>,e:PointerEvent){return Math.hypot(e.clientX-d.startX,e.clientY-d.startY)>5*scale();}
 let hotspotPress:{key:string;pointer:number}|undefined;
 const feedback=new ItemFeedback(highlight,()=>clearHighlights());
 let suppressReleaseClick=false;
 // Suppress the native click belonging to the double-tap that opened a reader.
 document.addEventListener('pointerdown',()=>{suppressReleaseClick=false;},true);
-function dropAt(x: number, y: number, item: string) {
-  const targets = [...new Set(document.elementsFromPoint(x,y).map(e => e.closest<HTMLElement>('[data-item],[data-hotspot]')).filter((el): el is HTMLElement => !!el && app.contains(el) && el.dataset.item !== item))];
-  const actions = partnerActions(), top = targets[0];
-  if (top?.dataset.item) {
-    const action = actions.find(a => a.a === item && a.b === top.dataset.item);
-    if (action) return {target: top, action, ambiguous: []};
+function dragDestination(d:Drag,e:PointerEvent) {
+  const size=scale(),bounds=boardGeometry().bounds,world=app.querySelector('.world')!.getBoundingClientRect();
+  const index=Math.max(0,Math.min(state.visited.length-1,Math.floor((e.clientY-world.top)/app.clientHeight)));
+  const chapter=state.visited[index],scene=panel(chapter)!,rect=scene.getBoundingClientRect();
+  const position=fitOnBoard((e.clientX-rect.left)/size+bounds.x-d.grabX,(e.clientY-rect.top)/size-d.grabY,d.el.offsetWidth,d.el.offsetHeight,bounds);
+  return {chapter,scene,position,rectangle:{x:rect.left+(position.x-bounds.x)*size,y:rect.top+position.y*size,width:d.el.offsetWidth*size,height:d.el.offsetHeight*size}};
+}
+function dropAt(d:Drag,e:PointerEvent,destination:ReturnType<typeof dragDestination>):DropResolution<HTMLElement> {
+  try {
+    d.resolve??=createDropResolver(story,state,d.id);
+    const targets:DropTarget<HTMLElement>[]=[...destination.scene.querySelectorAll<HTMLElement>('[data-item],[data-hotspot]')].map(el=>{
+      const rect=el.getBoundingClientRect();
+      // Stations share the circle/rectangle and minimum-touch-area geometry used by lint/layout.
+      const region=el.dataset.hotspot
+        ? hotspotRect(story.hotspots[el.dataset.hotspot],0,{width:rect.width,height:rect.height,circular:el.classList.contains('hotspot-circular')})
+        : {x:rect.x,y:rect.y,width:rect.width,height:rect.height};
+      if(el.dataset.hotspot){region.x=rect.x+(rect.width-region.width)/2;region.y=rect.y+(rect.height-region.height)/2;}
+      return {value:el,item:el.dataset.item,hotspot:el.dataset.hotspot,chapter:destination.chapter,region,zIndex:Number(getComputedStyle(el).zIndex)||0};
+    });
+    return d.resolve({x:e.clientX,y:e.clientY},destination.rectangle,targets);
+  } catch(error) {
+    inputTrace?.record('drop:error',{message:(error as Error).message,stack:(error as Error).stack});
+    authoring.setPreviewStatus(`Partner analysis is unavailable: ${(error as Error).message}`);
+    return {ambiguous:[]};
   }
-  // An unrelated card must not mask the usable location underneath it.
-  const target = targets.find(el => el.dataset.hotspot);
-  if (target) return {target, ...hotspotDrop(story, state, item, target.dataset.hotspot!, Number(target.closest<HTMLElement>('[data-chapter]')!.dataset.chapter), actions)};
-  return {target: top, action: undefined, ambiguous: []};
 }
 app.addEventListener('pointerdown',e=>{
   tutorialOverlay.modality(e.pointerType);
-  const el=(e.target as Element).closest<HTMLElement>('[data-item],[data-hotspot]');if(!el||drag||hotspotPress||document.querySelector('dialog')||e.button!==0)return;
-  if(el.dataset.hotspot){hotspotPress={key:feedbackKey(el),pointer:e.pointerId};feedback.begin(hotspotPress.key);el.setPointerCapture(e.pointerId);updateTutorial();return;}
-  e.preventDefault();const id=el.dataset.item!;feedback.begin(id);el.setPointerCapture(e.pointerId);
+  const el=(e.target as Element).closest<HTMLElement>('[data-item],[data-hotspot]');
+  if(!el||drag||hotspotPress||document.querySelector('dialog')||e.button!==0){
+    inputTrace?.record('press:ignored',{reason:!el?'no-item':drag||hotspotPress?'gesture-active':e.button!==0?'other-button':'dialog-open'});return;
+  }
+  if(inputTrace?.enabled){traceTile=el;tracePointer=e.pointerId;}
+  // Pointer feedback owns this press; a compatibility click must not leave touch focus hovering.
+  e.preventDefault();
+  if(el.dataset.hotspot){hotspotPress={key:feedbackKey(el),pointer:e.pointerId};feedback.begin(hotspotPress.key);app.setPointerCapture(e.pointerId);inputTrace?.record('hotspot:begin');updateTutorial();return;}
+  const id=el.dataset.item!;feedback.begin(id);
   itemOrder = [...itemOrder.filter(item => item !== id), id];
   app.querySelectorAll<HTMLElement>('[data-item]').forEach(item => { item.style.zIndex = String(3 + itemOrder.indexOf(item.dataset.item!)); });
   rememberInteraction(); save();
   const bounds=el.getBoundingClientRect(),boardScale=scale();
-  drag={id,pointer:e.pointerId,el,startX:e.clientX,startY:e.clientY,grabX:(e.clientX-bounds.left)/boardScale,grabY:(e.clientY-bounds.top)/boardScale,x:tileRect(el).x,y:tileRect(el).y,moved:false};
+  drag={id,pointer:e.pointerId,el,startX:e.clientX,startY:e.clientY,grabX:(e.clientX-bounds.left)/boardScale,grabY:(e.clientY-bounds.top)/boardScale,moved:false};
+  // The stable app owns capture even if an artwork load or redraw updates the tile.
+  app.setPointerCapture(e.pointerId);
+  inputTrace?.record('drag:begin',{rectangle:{x:bounds.x,y:bounds.y,width:bounds.width,height:bounds.height},boardScale});
   updateTutorial();
 });
 document.addEventListener('pointermove',e=>{
-  if(!drag||e.pointerId!==drag.pointer)return;const size=scale(),dx=(e.clientX-drag.startX)/size,dy=(e.clientY-drag.startY)/size;
-  if(!drag.moved&&movedEnough(drag,e)){drag.moved=true;highlight(drag.id,true);}if(!drag.moved)return;
-  const position=fitOnBoard(drag.x+dx,drag.y+dy,drag.el.offsetWidth,drag.el.offsetHeight,boardGeometry().bounds);
-  drag.el.classList.add('dragging');app.classList.add('is-dragging');drag.el.style.left=`${position.x-boardGeometry().bounds.x}px`;drag.el.style.top=`${drag.y+dy}px`;
+  if(!drag||e.pointerId!==drag.pointer)return;
+  if(!drag.moved&&movedEnough(drag,e)){drag.moved=true;inputTrace?.record('drag:recognized');highlight(drag.id,true);}if(!drag.moved)return;
+  const viewport=app.querySelector('.viewport');if(viewport){if(e.clientY<55)viewport.scrollTop-=12;else if(e.clientY>app.getBoundingClientRect().bottom-55)viewport.scrollTop+=12;}
+  const destination=dragDestination(drag,e),source=drag.el.closest<HTMLElement>('[data-chapter]')!.getBoundingClientRect(),size=scale();
+  drag.el.classList.add('dragging');app.classList.add('is-dragging');
+  drag.el.style.left=`${(destination.rectangle.x-source.left)/size}px`;drag.el.style.top=`${(destination.rectangle.y-source.top)/size}px`;
   app.querySelectorAll('.will-create,.will-place').forEach(e=>e.classList.remove('will-create','will-place'));
-  const {target, action, ambiguous}=dropAt(e.clientX,e.clientY,drag.id);
-  if(target&&!ambiguous.length&&(action||(target.dataset.hotspot&&target.classList.contains('possible'))))target.classList.add(action?'will-create':'will-place');
+  const {target, action, usefulPlacement, ambiguous}=dropAt(drag,e,destination);
+  inputTrace?.record('drag:preview',{chapter:destination.chapter,position:destination.position,rectangle:destination.rectangle,target:target?feedbackKey(target):null,action,usefulPlacement,ambiguous});
+  if(target&&!ambiguous.length&&(action||usefulPlacement))target.classList.add(action?'will-create':'will-place');
   if (action?.b) tile(action.b)?.classList.add('will-create');
   ambiguous.forEach(id => tile(id)?.classList.add('possible'));
-  const viewport=app.querySelector('.viewport');if(viewport){if(e.clientY<55)viewport.scrollTop-=12;else if(e.clientY>innerHeight-55)viewport.scrollTop+=12;}
 });
+function releaseCapture(pointer:number){if(app.hasPointerCapture(pointer))app.releasePointerCapture(pointer);}
 function restoreGestureTile(d:NonNullable<typeof drag>){
   d.el.classList.remove('dragging');app.classList.remove('is-dragging');
   const token=state.tokens[d.id];if(token){positionTile(d.el,token);}
   clearGoalsAroundCards();
+  inputTrace?.record('drag:restored',{item:d.id});
 }
 function endDrag(e:PointerEvent,cancel=false){
-  if(hotspotPress?.pointer===e.pointerId){const press=hotspotPress;hotspotPress=undefined;if(cancel)feedback.clear();else feedback.release(press.key,false);return;}
-  if(!drag||drag.pointer!==e.pointerId)return;const d=drag;drag=undefined;restoreGestureTile(d);
-  if(cancel){feedback.clear();return;}
+  inputTrace?.record('gesture:end-request',{pointer:e.pointerId,cancel});
+  if(hotspotPress?.pointer===e.pointerId){const press=hotspotPress;hotspotPress=undefined;releaseCapture(e.pointerId);if(cancel)feedback.clear();else feedback.release(press.key,false);return;}
+  if(!drag||drag.pointer!==e.pointerId){inputTrace?.record('drag:end-ignored',{reason:drag?'different-pointer':'no-active-drag'});return;}const d=drag;drag=undefined;
+  releaseCapture(d.pointer);
+  if(cancel){inputTrace?.record('drag:cancel',{reason:'pointercancel',item:d.id});restoreGestureTile(d);feedback.clear();return;}
   // A quick release can be the first event reporting travel beyond click tolerance.
-  if(!d.moved&&!movedEnough(d,e)){if(feedback.release(d.id,true)){suppressReleaseClick=true;read(d.id);}return;}
-  const {target,action,ambiguous}=dropAt(e.clientX,e.clientY,d.id);
+  if(!d.moved&&!movedEnough(d,e)){inputTrace?.record('drag:click',{item:d.id,travel:Math.hypot(e.clientX-d.startX,e.clientY-d.startY),threshold:5*scale()});restoreGestureTile(d);if(feedback.release(d.id,true)){suppressReleaseClick=true;read(d.id);}return;}
+  // Resolve the final rectangle from release coordinates before resetting any drag visuals.
+  const destination=dragDestination(d,e),{target,action,ambiguous}=dropAt(d,e,destination);
+  inputTrace?.record('drop:resolved',{item:d.id,pointer:{x:e.clientX,y:e.clientY},chapter:destination.chapter,position:destination.position,rectangle:destination.rectangle,target:target?feedbackKey(target):null,action,ambiguous});
+  d.el.classList.remove('dragging');app.classList.remove('is-dragging');
   if(action)commit(action);
   else if(!ambiguous.length){
-    const size=scale(),world=app.querySelector('.world')!.getBoundingClientRect(),position=Math.floor((e.clientY-world.top)/app.clientHeight),chapter=state.visited[Math.max(0,Math.min(state.visited.length-1,position))];
-    const rect=panel(chapter)!.getBoundingClientRect();
-    const placement=fitOnBoard((e.clientX-rect.left)/size+boardGeometry().bounds.x-d.grabX,(e.clientY-rect.top)/size-d.grabY,d.el.offsetWidth,d.el.offsetHeight,boardGeometry().bounds);
-    commit({type:'move',item:d.id,chapter,...placement,...(target?.dataset.hotspot?{hotspot:target.dataset.hotspot}:{})});
+    commit({type:'move',item:d.id,chapter:destination.chapter,...destination.position,...(target?.dataset.hotspot?{hotspot:target.dataset.hotspot}:{})});
   }
+  restoreGestureTile(d);
+  if(inputTrace?.enabled)requestAnimationFrame(()=>{
+    if(!inputTrace?.enabled)return;
+    const element=tile(d.id),rect=element?.getBoundingClientRect(),style=element&&getComputedStyle(element);
+    inputTrace.record('drop:after-frame',{item:d.id,rectangle:rect?{x:rect.x,y:rect.y,width:rect.width,height:rect.height}:null,transform:style?.transform,scale:style?.scale});
+  });
   if(!document.querySelector('dialog')&&state.tokens[d.id]?.status==='available')feedback.release(d.id,false);else feedback.clear();
 }
 document.addEventListener('pointerup',e=>{endDrag(e);updateTutorial();});document.addEventListener('pointercancel',e=>{endDrag(e,true);updateTutorial();});
-function cancelGesture(){if(hotspotPress){hotspotPress=undefined;feedback.clear();}if(drag){const d=drag;drag=undefined;restoreGestureTile(d);feedback.clear();}updateTutorial();}
-window.addEventListener('blur',()=>{cancelGesture();feedback.clear();});
-app.addEventListener('lostpointercapture',e=>{const pointer=(e as PointerEvent).pointerId;if(drag?.pointer===pointer||hotspotPress?.pointer===pointer)cancelGesture();});
+function cancelGesture(reason:string){inputTrace?.record('gesture:cancel',{reason});if(hotspotPress){const pointer=hotspotPress.pointer;hotspotPress=undefined;releaseCapture(pointer);feedback.clear();}if(drag){const d=drag;drag=undefined;releaseCapture(d.pointer);restoreGestureTile(d);feedback.clear();}updateTutorial();}
+window.addEventListener('blur',()=>{cancelGesture('window-blur');feedback.clear();});
+app.addEventListener('lostpointercapture',e=>{
+  const {pointerId,buttons}=e as PointerEvent;
+  // Chrome can end capture on a buttons=0 move before delivering pointerup.
+  // Keep that gesture for the document's release handler, using its final coordinates.
+  // Losing capture while a button is still held remains an interrupted gesture.
+  if(buttons!==0&&(drag?.pointer===pointerId||hotspotPress?.pointer===pointerId))cancelGesture('lost-pointer-capture');
+});
 app.addEventListener('dragstart',e=>e.preventDefault());
 app.addEventListener('pointerover',e=>{if(e.pointerType==='mouse'&&!drag&&!hotspotPress){const el=(e.target as Element).closest<HTMLElement>('[data-item],[data-hotspot]');if(el&&!document.querySelector('dialog'))feedback.hover(feedbackKey(el));}});
-app.addEventListener('pointerout',()=>{if(!drag&&!hotspotPress)feedback.hover();});
+app.addEventListener('pointerout',e=>{if(e.pointerType==='mouse'&&!drag&&!hotspotPress){const next=e.relatedTarget instanceof Element?e.relatedTarget.closest<HTMLElement>('[data-item],[data-hotspot]'):null;feedback.hover(next&&app.contains(next)?feedbackKey(next):undefined);}});
 app.addEventListener('focusin',e=>{const el=(e.target as Element).closest<HTMLElement>('[data-item],[data-hotspot]');if(el&&!drag&&!hotspotPress&&!document.querySelector('dialog'))feedback.hover(feedbackKey(el));});
-app.addEventListener('focusout',()=>{if(!drag&&!hotspotPress)feedback.hover();});
+app.addEventListener('focusout',e=>{if(!drag&&!hotspotPress){const next=e.relatedTarget instanceof Element?e.relatedTarget.closest<HTMLElement>('[data-item],[data-hotspot]'):null;feedback.hover(next&&app.contains(next)?feedbackKey(next):undefined);}});
 app.addEventListener('click',e=>{
   if(suppressReleaseClick&&e.detail>0){suppressReleaseClick=false;e.preventDefault();return;}
   const element=e.target as Element;
@@ -719,12 +745,26 @@ app.addEventListener('click',e=>{
   else if(command==='encyclopedia-read')openEncyclopedia(target.dataset.reading!,true);
   else if(command==='encyclopedia-back')backToEncyclopediaIndex();
 });
-window.addEventListener('resize',()=>{cancelGesture();if(state&&!document.querySelector('.chooser')&&!document.querySelector('dialog'))render();});
-new ResizeObserver(()=>{cancelGesture();if(state)render(false,false);}).observe(app);
+window.addEventListener('resize',()=>{cancelGesture('window-resize');if(state&&!document.querySelector('.chooser')&&!document.querySelector('dialog'))render();});
+new ResizeObserver(entries=>{inputTrace?.record('layout:resize-observer',{sizes:entries.map(entry=>({width:entry.contentRect.width,height:entry.contentRect.height}))});cancelGesture('game-resize');if(state)render(false,false);}).observe(app);
 function escapeDialog() {
   if (dialogContext?.kind === 'pending') commit({ type: 'dismiss' });
   else if (dialogContext?.kind === 'encyclopedia' && dialogContext.detail) backToEncyclopediaIndex();
   else dismissReading();
 }
 dialogLayer.addEventListener('keydown', event => { if (event.key === 'Escape') { event.preventDefault(); escapeDialog(); } });
+if(import.meta.env.DEV){
+  inputTrace=new DragTrace(app,()=>{
+    const element=drag?.el??traceTile,id=element?.dataset.item,token=id?state?.tokens[id]:undefined;
+    return {
+      chapter:state?.chapter,actions:state?.actions.length,dialog:dialogContext?.kind??null,
+      focused:document.hasFocus(),visibility:document.visibilityState,
+      drag:drag?{id:drag.id,pointer:drag.pointer,moved:drag.moved,startX:drag.startX,startY:drag.startY,grabX:drag.grabX,grabY:drag.grabY}:null,
+      hotspotPress:hotspotPress??null,captured:tracePointer!==undefined&&app.hasPointerCapture(tracePointer),
+      item:token?{id:token.id,x:token.x,y:token.y,chapter:token.chapter,status:token.status,hotspot:token.hotspot??null}:null,
+      tile:element?{connected:element.isConnected,left:element.style.left,top:element.style.top,dragging:element.classList.contains('dragging')}:null,
+    };
+  });
+  import.meta.hot?.on('vite:beforeFullReload',()=>inputTrace?.record('vite:before-full-reload'));
+}
 void start();

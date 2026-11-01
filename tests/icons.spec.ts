@@ -106,9 +106,10 @@ test('rectangular icon dragging preserves the pickup point and narrow resizing p
   await openFixture(page);
   const house = page.locator('[data-item="name:House"]'), before = (await house.boundingBox())!;
   await page.mouse.move(before.x + 7, before.y + 11); await page.mouse.down();
-  await page.mouse.move(230, 520, {steps: 6}); await page.mouse.up();
+  // Keep the whole dragged rectangle clear of compatible parts, not just its cursor.
+  await page.mouse.move(230, 680, {steps: 6}); await page.mouse.up();
   const moved = (await house.boundingBox())!;
-  expect(moved.x).toBeCloseTo(223, 1); expect(moved.y).toBeCloseTo(509, 1);
+  expect(moved.x).toBeCloseTo(223, 1); expect(moved.y).toBeCloseTo(669, 1);
   await page.setViewportSize({width: 320, height: 740});
   await expect.poll(async () => (await house.boundingBox())!.width).toBeCloseTo(104 * 740 / 844, 1);
   const narrow = (await house.boundingBox())!;
@@ -130,7 +131,7 @@ for(const icons of [true,false])test(`quick mouse releases place ${icons?'icons'
     if(smallMove)await cdp.send('Input.dispatchMouseEvent',{type:'mouseMoved',x:start.x+2,y:start.y+1,button:'left',buttons:1});
     await cdp.send('Input.dispatchMouseEvent',{type:'mouseReleased',x,y,button:'left',buttons:0,clickCount:1});
   }
-  for(const [x,y,smallMove] of [[180,500,false],[220,600,true]] as const){
+  for(const [x,y,smallMove] of [[180,680,false],[220,740,true]] as const){
     // A preceding click must not turn the quick drag into a double-click reading.
     await window.click();await quickRelease(x,y,smallMove);
     await expect(page.locator('dialog')).toHaveCount(0);
@@ -375,7 +376,7 @@ for(const icons of [true,false])test(`${icons?'icon':'text'} hotspot hints conne
   await dragToPoint(page,starter,starterPosition.x+starterPosition.width/2,starterPosition.y+starterPosition.height/2);
   await dough.dragTo(cellar);await expect(risen).toHaveCount(0);
   await expect(cellar).not.toHaveClass(/possible/);
-  await expect(dough).not.toHaveClass(/pressed/);
+  await expect(dough).not.toHaveClass(/reading-selected/); // The stationary mouse still supplies ordinary hover.
   await page.mouse.move(5,700);
   await dough.hover();await expect(starter).toHaveClass(/possible/);
   const placed=(await dough.boundingBox())!;
@@ -622,8 +623,10 @@ Choose an ingredient.
   await openFixture(page,text);
   const bench = page.locator('[data-hotspot="name:Bench"]'), a = page.locator('[data-item="name:A"]'), b = page.locator('[data-item="name:B"]'), x = page.locator('[data-item="name:X"]');
   await a.dragTo(bench); await b.dragTo(bench);
-  const before = await x.boundingBox(), box = (await bench.boundingBox())!;
-  await dragToPoint(page,x,box.x+box.width/2,box.y+box.height-5);
+  const before = (await x.boundingBox())!, box = (await bench.boundingBox())!;
+  // A top-edge pickup leaves the incoming rectangle below both occupants, even though the cursor hits the bench.
+  await page.mouse.move(before.x+before.width/2,before.y+5);await page.mouse.down();
+  await page.mouse.move(box.x+box.width/2,box.y+box.height-5,{steps:6});await page.mouse.up();
   expect(await x.boundingBox()).toEqual(before);
   await expect(page.locator('[data-item="name:C"],[data-item="name:D"]')).toHaveCount(0);
   await x.dragTo(a); await expect(page.locator('[data-item="name:C"]')).toBeVisible();

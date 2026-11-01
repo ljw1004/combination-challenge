@@ -17,7 +17,7 @@ export class PlacementBrowser {
     if (!placements.length) return [];
     const failure = (message: string): Diagnostic[] => placements.map(p => ({severity: 'error', code: 'place-geometry', message, source: p.source, span: p.source.span!, stage: 'fast'}));
     try { this.browser ??= await chromium.launch(); }
-    catch { return failure('Cannot verify hotspot hit rectangles. Install the lint/test browser with npx playwright install chromium, then rerun lint.'); }
+    catch { return failure('Cannot verify hotspot hit areas. Install the lint/test browser with npx playwright install chromium, then rerun lint.'); }
     const page = await this.browser.newPage({viewport: {width: 390, height: 844}});
     try {
       const markup = hotspotProbeHTML(story, h => {

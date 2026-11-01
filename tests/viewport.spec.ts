@@ -146,13 +146,15 @@ test('a tall narrow viewport keeps automatic text rows separate and unpositioned
   await page.goto('/combinations.html?story=mars/mars.md');
   await page.getByRole('button',{name:'Start',exact:true}).click();
   await page.getByRole('button',{name:'Begin',exact:true}).click();
-  const row = await page.locator('[data-item]').evaluateAll(elements => elements.slice(0,3).map(el => {
-    const box = el.getBoundingClientRect(); return {left:box.left,right:box.right};
+  const cards = await page.locator('[data-item]').evaluateAll(elements => elements.map(el => {
+    const box = el.getBoundingClientRect(); return {left:box.left,right:box.right,top:box.top,bottom:box.bottom};
   }));
-  expect(row[0].left).toBeGreaterThanOrEqual(0);
-  expect(row[0].right).toBeLessThan(row[1].left);
-  expect(row[1].right).toBeLessThan(row[2].left);
-  expect(row[2].right).toBeLessThanOrEqual(320);
+  const goals=(await page.locator('.hud-stack').boundingBox())!;
+  for(const [i,card] of cards.entries()){
+    expect(card.left).toBeGreaterThanOrEqual(0);expect(card.right).toBeLessThanOrEqual(320);
+    expect(card.bottom).toBeLessThan(goals.y);
+    for(const other of cards.slice(i+1))expect(card.right<=other.left||other.right<=card.left||card.bottom<=other.top||other.bottom<=card.top).toBe(true);
+  }
   const hotspot = (await page.locator('[data-hotspot]').boundingBox())!;
   expect(hotspot.x).toBeGreaterThanOrEqual(0);
   expect(hotspot.x+hotspot.width).toBeLessThanOrEqual(320);

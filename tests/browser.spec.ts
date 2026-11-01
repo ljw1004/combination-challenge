@@ -16,7 +16,9 @@ test('touch dragging moves a card while empty-space touch scrolls the story',asy
   const cdp=await context.newCDPSession(page),card=page.locator('.chapter-panel').last().locator('.thing').first(),box=(await card.boundingBox())!;
   const start={x:box.x+20,y:box.y+20};await cdp.send('Input.dispatchTouchEvent',{type:'touchStart',touchPoints:[start]});await cdp.send('Input.dispatchTouchEvent',{type:'touchMove',touchPoints:[{x:250,y:710}]});await cdp.send('Input.dispatchTouchEvent',{type:'touchEnd',touchPoints:[]});
   const after=(await card.boundingBox())!;expect(Math.abs(after.y-box.y)).toBeGreaterThan(50);
-  const before=await page.locator('.viewport').evaluate(el=>el.scrollTop);await cdp.send('Input.dispatchTouchEvent',{type:'touchStart',touchPoints:[{x:8,y:300}]});for(let y=320;y<=650;y+=20){await cdp.send('Input.dispatchTouchEvent',{type:'touchMove',touchPoints:[{x:8,y}]});await page.waitForTimeout(16);}await cdp.send('Input.dispatchTouchEvent',{type:'touchEnd',touchPoints:[]});await expect.poll(()=>page.locator('.viewport').evaluate(el=>el.scrollTop)).toBeLessThan(before);
+  const empty={x:2,y:300};
+  expect(await page.evaluate(p=>!!document.elementFromPoint(p.x,p.y)?.closest('[data-item],[data-hotspot]'),empty)).toBe(false);
+  const before=await page.locator('.viewport').evaluate(el=>el.scrollTop);await cdp.send('Input.dispatchTouchEvent',{type:'touchStart',touchPoints:[empty]});for(let y=320;y<=650;y+=20){await cdp.send('Input.dispatchTouchEvent',{type:'touchMove',touchPoints:[{x:empty.x,y}]});await page.waitForTimeout(16);}await cdp.send('Input.dispatchTouchEvent',{type:'touchEnd',touchPoints:[]});await expect.poll(()=>page.locator('.viewport').evaluate(el=>el.scrollTop)).toBeLessThan(before);
   await context.close();
 });
 test('text cards use their full measured rectangle at every board edge, including narrow screens',async({page})=>{
@@ -104,7 +106,7 @@ test('a card covering centered goals keeps native pointer precedence',async({pag
   const initial=(await card.boundingBox())!,dock=(await goals.boundingBox())!;
   await page.mouse.move(initial.x+initial.width/2,initial.y+initial.height/2);await page.mouse.down();await page.mouse.move(dock.x+dock.width/2,dock.y+dock.height/2,{steps:6});await page.mouse.up();
   const overlap=(await card.boundingBox())!;
-  await page.mouse.move(overlap.x+overlap.width/2,overlap.y+overlap.height/2);await page.mouse.down();await page.mouse.move(290,400,{steps:6});await page.mouse.up();
+  await page.mouse.move(overlap.x+overlap.width/2,overlap.y+overlap.height/2);await page.mouse.down();await page.mouse.move(60,650,{steps:6});await page.mouse.up();
   expect((await card.boundingBox())!.y).toBeLessThan(overlap.y-100);await expect(page.locator('dialog')).toHaveCount(0);
   await goals.click();await expect(page.getByRole('button',{name:'Restart this chapter'})).toBeVisible();
 });

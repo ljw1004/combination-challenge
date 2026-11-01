@@ -48,6 +48,13 @@
   content: ''; position: absolute; left: 50%; top: 50%; translate: -50% -50%;
   width: max(100%, calc(44px / var(--board-scale, 1))); height: max(100%, calc(44px / var(--board-scale, 1)));
 }
+/* Only the circular target receives pointer hits, including the minimum touch area. */
+.chapter-panel .hotspot.hotspot-circular { pointer-events: none; }
+.hotspot-circular::before {
+  width: max(min(var(--icon-width), var(--icon-height)), calc(44px / var(--board-scale, 1)));
+  height: max(min(var(--icon-width), var(--icon-height)), calc(44px / var(--board-scale, 1)));
+  border-radius: 50%; pointer-events: auto;
+}
 .hotspot-icon::after { content: ''; position: absolute; inset: 0; pointer-events: none; }
 .hotspot-icon:is(:hover, :active, :focus-visible, .pressed, .possible, .will-create, .will-place)::after {
   border: 2px dotted #000; box-shadow: none;

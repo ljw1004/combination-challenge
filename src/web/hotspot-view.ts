@@ -2,7 +2,8 @@ import type {Hotspot, Story} from '../story/types.ts';
 import {escape} from './markdown.ts';
 
 export interface Rect {x: number; y: number; width: number; height: number}
-export interface HotspotMeasurement {id: string; chapter: number; width: number; height: number}
+export interface HotspotRegion extends Rect {circular?: boolean}
+export interface HotspotMeasurement {id: string; chapter: number; width: number; height: number; circular?: boolean}
 export interface HotspotVisual {className: string; style: string; html: string}
 
 export function iconDimensions(width: number, height: number) {
@@ -16,14 +17,27 @@ export function hotspotCentre(hotspot: Hotspot, index: number, bounds = referenc
     y: hotspot.y === undefined ? (.70 + Math.floor(index / 3) * .13) * bounds.height : hotspot.y * 844,
   };
 }
-export function hotspotRect(hotspot: Hotspot, index: number, size: {width: number; height: number}, scale = 1, bounds = referenceBounds): Rect {
+export function hotspotRect(hotspot: Hotspot, index: number, size: {width: number; height: number; circular?: boolean}, scale = 1, bounds = referenceBounds): HotspotRegion {
   const centre = hotspotCentre(hotspot, index, bounds);
+  if (size.circular ?? hotspot.icon?.circular) {
+    const diameter = Math.max(Math.min(size.width, size.height), 44 / scale);
+    return {x: centre.x - diameter / 2, y: centre.y - diameter / 2, width: diameter, height: diameter, circular: true};
+  }
   const width = Math.max(size.width, 44 / scale), height = Math.max(size.height, 44 / scale);
   return {x: centre.x - width / 2, y: centre.y - height / 2, width, height};
 }
-export function containsPoint(rect: Rect, point: {x: number; y: number}) {
+export function containsPoint(rect: HotspotRegion, point: {x: number; y: number}) {
   // Keep authored boundary points inclusive despite floating-point percentage conversion.
+  if (rect.circular) return Math.hypot(point.x - rect.x - rect.width / 2, point.y - rect.y - rect.height / 2) <= rect.width / 2 + 1e-7;
   return point.x >= rect.x - 1e-7 && point.x <= rect.x + rect.width + 1e-7 && point.y >= rect.y - 1e-7 && point.y <= rect.y + rect.height + 1e-7;
+}
+
+/** Positive-area intersection; touching a station's boundary is permitted. */
+export function overlapsHotspot(item: Rect, hotspot: HotspotRegion): boolean {
+  if (!hotspot.circular) return item.x < hotspot.x + hotspot.width && item.x + item.width > hotspot.x && item.y < hotspot.y + hotspot.height && item.y + item.height > hotspot.y;
+  const cx = hotspot.x + hotspot.width / 2, cy = hotspot.y + hotspot.height / 2;
+  const x = Math.max(item.x, Math.min(item.x + item.width, cx)), y = Math.max(item.y, Math.min(item.y + item.height, cy));
+  return Math.hypot(x - cx, y - cy) < hotspot.width / 2 - 1e-7;
 }
 export function hotspotHTML(h: Hotspot, index: number, visual: HotspotVisual, bounds = referenceBounds) {
   const {x, y} = hotspotCentre(h, index, bounds);
@@ -39,6 +53,6 @@ export function hotspotProbeHTML(story: Story, visual: (h: Hotspot) => HotspotVi
 export function measureHotspots(root: ParentNode): HotspotMeasurement[] {
   return [...root.querySelectorAll<HTMLElement>('[data-hotspot]')].map(el => {
     const {width, height} = el.getBoundingClientRect();
-    return {id: el.dataset.hotspot!, chapter: Number(el.closest<HTMLElement>('[data-chapter]')!.dataset.chapter), width, height};
+    return {id: el.dataset.hotspot!, chapter: Number(el.closest<HTMLElement>('[data-chapter]')!.dataset.chapter), width, height, circular: el.classList.contains('hotspot-circular')};
   });
 }
