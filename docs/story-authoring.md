@@ -78,7 +78,7 @@ Distinguish physical transformation, historical transmission, analogy, interpret
 
 Do not make intellectual history an inevitable ladder toward the latest speaker. Religious and natural explanations can coexist. Attribute doctrinal claims to particular texts and traditions; completing their combination reconstructs a position, not a proof of religious truth. Keep genuine quotations accurate. Put source references and factual qualifications in `> NOTE:` author comments when they do not belong in gameplay.
 
-Review factual authenticity separately from forward player intuition. A defensible retrospective explanation does not make a contrived combination understandable. Use the [completed authenticity record](<../archive/2026.10.30 authenticity improvements/authenticity-improvements-2026-10-30.md>) for historical findings, decisions and evidence, and the [editorial backlog](backlog.md) for new work, current story directions and future ideas.
+Review factual authenticity separately from forward player intuition. A defensible retrospective explanation does not make a contrived combination understandable. Use the [completed authenticity record](<../archive/2026.10.30 authenticity improvements/authenticity-improvements-2026-10-30.md>) for historical findings, decisions and evidence, and the [editorial backlog](../projects/backlog.md) for new work, current story directions and future ideas.
 
 ## Revise with evidence
 

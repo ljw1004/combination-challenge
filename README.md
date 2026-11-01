@@ -1,6 +1,12 @@
-# Combination Workshop
+# Make Something Worthwhile
 
-Five combination stories, including the illustrated Settlement campaign, authored in Markdown. The browser game, story linter, checkpoint generator and logical AI playtester share one parser and game engine. The project has three commitments: combination, enjoyable interactive play and an empirical loop that can reject weak ideas.
+## Philosophy
+
+**Make Something Worthwhile** is part game but part educational toy: playing can leave you with real understanding of how things are made and how ideas work. Treat players as capable of serious learning, from proper culinary technique and practical construction to master's-level theology and intellectual history made approachable to high-schoolers. In the spirit of *Why Don't You?*, invite curiosity, making and discovery through enjoyable play, with knowledge and skills worth carrying into life beyond the game.
+
+## Project
+
+Five combination stories authored in Markdown, with complete artwork for Settlement and Kitchen. The browser game, story linter, checkpoint generator and logical AI playtester share one parser and game engine. The project has three commitments: combination, enjoyable interactive play and an empirical loop that can reject weak ideas.
 
 ## Run the game
 
@@ -17,6 +23,8 @@ Open the local address printed by Vite. Drag things together; compatible partner
 Seven icon styles are retained as [reference collections](references/icon-sets/), each with its own description and preview.
 
 **Settlement: A River Worth Returning To** uses rustic coloured woodcuts: `/combinations.html?story=settlement/settlement.md`.
+
+**The Kitchen Notebook** develops a cookbook through pen-and-wash illustrations: `/combinations.html?story=kitchen/kitchen.md`. The ongoing [Kitchen study](projects/kitchen-study/README.md) brings together the cookbook adaptation, icon research and comparisons, thematic backgrounds, page composition and pencil stations. It retains all candidate sheets, source paintings, standalone PNGs and review evidence for continued refinement of the story and artwork.
 
 The player fetches Markdown as an ordinary file. These routes work in development and the production build:
 
@@ -193,14 +201,15 @@ Each document owns one aspect of working here. Update the owning document and li
 
 | Document | Purpose |
 |---|---|
-| This README | Setup, directory layout, tool catalog and playtesting commands/protocol. |
+| This README | Project orientation, setup, directory layout, tool catalog and playtesting commands/protocol. |
 | [Story format](docs/story-format-spec.md) | Markdown syntax, game semantics and required diagnostics. |
 | [Story authoring](docs/story-authoring.md) | How to design, write and revise a compelling story. |
 | [Icon guide](docs/icon-guide.md) | How to research, develop, review and produce a story's icon set. |
+| [Active projects](projects/README.md) | Work in progress and the editorial/research backlog. |
 | [UX](docs/ux.md) | All current player and authoring UX decisions, their known motivations, and maintenance rules; no historical log. |
 | [Engineering](docs/engineering.md) | Implementation boundaries, technical constraints and testing policy. |
 | [Fun and evaluation](docs/fun-and-evaluation.md) | Research, experience criteria and the experimental method. |
-| [Backlog](docs/backlog.md) | Current story directions, unresolved work and future ideas. |
+| [Backlog](projects/backlog.md) | Current story directions, unresolved work and future ideas. |
 | [Completed authenticity pass](<archive/2026.10.30 authenticity improvements/authenticity-improvements-2026-10-30.md>) | Historical findings, implemented changes, retained decisions and supporting evidence. |
 | [Archive](archive/README.md) and [salvage index](archive/salvage-index.md) | Archival policy, preservation and provenance of recovered guidance. |
 | [Working notes](notes.md) | Dated hypotheses, decisions, work performed and evidence limits. |
@@ -216,7 +225,8 @@ Maintain the [strict directory hygiene defined in AGENTS.md](AGENTS.md#directory
 - `src/web/`: browser presentation, touch/pointer handling, reading and persistence.
 - `src/debug/`: legal replay checkpoint planning.
 - `src/playtest/`: player observations, frozen sessions, AI transport and evaluation.
-- `docs/`: the documents listed above.
+- `docs/`: standing specifications, adopted guidance and reusable workflows.
+- `projects/`: active project briefs, research, plans and supporting material; see the [project index](projects/README.md).
 - `stories/`: active stories and their assets.
 - `runs/`: ignored temporary playtest output; retained evidence moves to its named project directory.
 - `archive/`: historical source and research; follow its [usage policy](archive/README.md).

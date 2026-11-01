@@ -61,6 +61,24 @@ test('icons use intrinsic quarter sizes, partner name badges and circular select
   await expect(window.locator('.icon-name')).toBeVisible();
 });
 
+test('automatic arrivals avoid an upper station, while a deliberate placement there survives reload', async ({page}) => {
+  await openFixture(page, manuscript.replace('**Items**', '**Hotspots**\n- Workbench (at 50%, 33%)\n  - icon: ![fixed workbench](assets/location-empty.svg)\n\n**Items**'));
+  const station=page.locator('[data-hotspot="name:Workbench"]');
+  const target=(await station.boundingBox())!;
+  for(const item of await page.locator('.thing').all()){
+    const box=(await item.boundingBox())!;
+    expect(box.x+box.width<=target.x||target.x+target.width<=box.x||box.y+box.height<=target.y||target.y+target.height<=box.y).toBe(true);
+  }
+  const window=page.locator('[data-item="name:Window"]');
+  await window.dragTo(station);
+  const placed=await window.boundingBox();
+  await page.reload();
+  await expect(window).toBeVisible();
+  expect(await window.boundingBox()).toEqual(placed);
+  const state=await page.evaluate(()=>JSON.parse(Object.entries(localStorage).find(([key])=>key.startsWith('combination-progress-v2:'))![1]).state);
+  expect(state.tokens['name:Window'].hotspot).toBe('name:Workbench');
+});
+
 test('installing compound icons retains base and fitted nodes, alignment and only the base name', async ({page}) => {
   await openFixture(page);
   const house = page.locator('[data-item="name:House"]'), base = await house.locator('.item-icon').elementHandle();

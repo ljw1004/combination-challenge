@@ -141,6 +141,10 @@ For compound objects, plan the empty base and fitted appearances together. Follo
 
 For stories with illustrated scenes, maintain a scene plan covering recurring locations, construction state and working space. Review each appearance of a fixed target in its background and follow the [scene integration guidance](ux.md#item-artwork). A target should be reviewed where the player encounters it, not only as an isolated asset. Settlement's [hotspot contact sheet](../archive/icon-generation/settlement-icons/contact-sheets/hotspots-in-context.jpg) illustrates this contextual inspection.
 
+Check whether decorative objects accidentally invite the same interaction as the movable icons. Fading a row of isolated objects may still leave it looking like inventory. Contextual setting, overlapping forms, shared supports and deliberate cropping can help a decorative illustration read as a scene. Review that distinction with the actual movable objects present; use the story's visual language rather than prescribing one universal composition.
+
+Separate the generated painting from its page framing when layout limits need precision. A painting can extend beyond the visible page; place and crop it during scene composition instead of relying only on a prompt to establish the working area. Keep food and objects naturally proportioned, inspect the visible crop for lost subjects or awkward edges, and preserve the full painting alongside the composed export. Check the result in the actual player at its supported viewport sizes.
+
 ## 9. Verify the playable result and retain the work
 
 Check the delivered story as well as its art files. Apply the current [engineering checks](engineering.md#tests-that-earn-their-cost) and [build/lint commands](../README.md#tools). For an artwork conversion, verify that recipes, goals, item identities and chapter supplies retain their intended behavior; adding metadata must not silently redesign the story.
@@ -149,7 +153,7 @@ Inspect relevant chapter entries, busy working states and completed assemblies i
 
 Keep the conclusions proportional to the check. Browser emulation does not establish native touch behavior; a legal checkpoint is not a fresh playthrough; accurate guesses do not establish enjoyment. Measure recognition speed with representative users if speed is a success criterion. Follow the [evaluation method](fun-and-evaluation.md) for broader experience claims.
 
-Retain a compact project record containing the brief and selected style guide, visual catalogue and references, source artwork and revision requests, extraction/registration information, exact review inputs and answers, and relevant playable checks. Identify selected and superseded versions, reasons for changes, and unresolved questions. Apply the [directory hygiene and archive policy](../archive/README.md#project-evidence); put current UX decisions in UX and outstanding proposals in the backlog.
+Retain a compact record in the named [active project directory](../projects/README.md) containing the brief and selected style guide, visual catalogue and references, source artwork and revision requests, extraction/registration information, exact review inputs and answers, and relevant playable checks. Identify selected and superseded versions, reasons for changes, and unresolved questions. Apply the [directory hygiene and archive policy](../archive/README.md#project-evidence); put current UX decisions in UX and outstanding proposals in the [backlog](../projects/backlog.md).
 
 ## Examples and supporting material
 

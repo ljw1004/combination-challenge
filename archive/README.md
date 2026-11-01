@@ -16,7 +16,7 @@ The [directory hygiene rules](../AGENTS.md#directory-hygiene) govern moving comp
 
 ### Authenticity improvements evidence
 
-[`2026.10.30 authenticity improvements/`](<2026.10.30 authenticity improvements/>) contains the [completed authenticity record](<2026.10.30 authenticity improvements/authenticity-improvements-2026-10-30.md>), comparison summary, evidence index and four retained playtest sessions. The pass was completed on 30 October 2026; genuinely new work belongs in the [editorial backlog](../docs/backlog.md).
+[`2026.10.30 authenticity improvements/`](<2026.10.30 authenticity improvements/>) contains the [completed authenticity record](<2026.10.30 authenticity improvements/authenticity-improvements-2026-10-30.md>), comparison summary, evidence index and four retained playtest sessions. The pass was completed on 30 October 2026; genuinely new work belongs in the [editorial backlog](../projects/backlog.md).
 
 To verify a retained session without rewriting its original evaluation, run this from the repository root:
 
@@ -29,7 +29,7 @@ The [evidence index](<2026.10.30 authenticity improvements/authenticity-evidence
 
 ### Lint review evidence
 
-[`2026.10.30 lint review/`](<2026.10.30 lint review/>) holds the compact supporting evidence for the [lint review and current implementation record](<../docs/backlog - lint review.md>). Its [bundle manifest](<2026.10.30 lint review/bundle-manifest.json>) records retained files and hashes. These summaries and attributed reports are not full replayable sessions.
+[`2026.10.30 lint review/`](<2026.10.30 lint review/>) holds the [completed lint review and dated implementation addendum](<2026.10.30 lint review/review.md>) alongside its compact supporting evidence. Its [bundle manifest](<2026.10.30 lint review/bundle-manifest.json>) records retained files and hashes. These summaries and attributed reports are not full replayable sessions.
 
 ### Icon development evidence
 

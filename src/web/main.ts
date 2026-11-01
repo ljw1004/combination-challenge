@@ -24,7 +24,7 @@ import { AuthoringSession } from './authoring.ts';
 import { MobileDebug } from './mobile-debug.ts';
 import { recoverPreviewStory, reconcileLiveStory, restoreLiveState } from './live-story.ts';
 import { ItemArtwork } from './item-artwork.ts';
-import { iconArrival } from './icon-layout.ts';
+import { iconArrival, clearArrivalHotspots } from './icon-layout.ts';
 import { fitOnBoard, placeCreation, placeAtCentre, viewportBoard } from './board-geometry.ts';
 import { partnerHints } from './partner-hints.ts';
 import {hotspotDrop} from '../engine/hotspot-drop.ts';
@@ -420,7 +420,7 @@ function jumpToCheckpoint(index: number) {
     state = next; itemOrder = []; editedSnapshot = false; storyStarted = true; tutorialCheckpoint = true;
     state.seen.push(...state.pending.filter(notice => notice.kind === 'wonder').map(notice => notice.key));
     state.pending = state.pending.filter(notice => notice.kind === 'chapter');
-    closeDialog(); render(true); rememberInteraction(); save();
+    closeDialog(); render(true, true, true); rememberInteraction(); save();
   } catch (error) { modal(`<p>${escape((error as Error).message)}</p><button data-command="close">Close</button>`); }
 }
 function refreshDialog() {
@@ -476,8 +476,9 @@ function commit(action: Action) { try {
         token = state.tokens[born]; element = tile(born)!;
       }
       const centre = hotspot && !receiver ? hotspotCentre(story.hotspots[hotspot], activeHotspots(story, token.chapter).indexOf(hotspot), boardGeometry().bounds) : undefined;
+      const occupied=availableTokens(state).filter(t=>t.id!==born&&t.chapter===token.chapter).flatMap(t=>{const el=tile(t.id);return el?[tileRect(el)]:[];});
       const position=preferred ?? (receivingRect&&receiver
-        ?placeCreation(receivingRect,{width:element.offsetWidth,height:element.offsetHeight},state.tokens[receiver.id].status!=='available',boardGeometry().bounds)
+        ?placeCreation(receivingRect,{width:element.offsetWidth,height:element.offsetHeight},state.tokens[receiver.id].status!=='available',boardGeometry().bounds,occupied)
         :fitOnBoard(centre ? centre.x-element.offsetWidth/2 : token.x,centre ? centre.y-element.offsetHeight/2 : token.y,element.offsetWidth,element.offsetHeight,boardGeometry().bounds));
       token.x=position.x;token.y=position.y;positionTile(element,token);element.classList.add('born');
       clearGoalsAroundCards();
@@ -501,18 +502,32 @@ function worldHTML(chapters: string, count: number) {
   const {scale, width, height, bounds} = boardGeometry();
   return `<div class="world" data-panel-height="${height}" style="width:${width}px;height:${count*height}px"><div class="board fixed-locations" style="width:${bounds.width}px;height:${count*bounds.height}px;transform:scale(${scale});--board-scale:${scale};--card-scale:${width/390/scale};--panel-width:${bounds.width}px;--panel-height:${bounds.height}px;--scene-left:${-bounds.x}px">${chapters}</div></div>`;
 }
-function packArrival(){
+function packArrival(checkpointLayout=false){
   const tokens=availableTokens(state).filter(t=>t.chapter===state.chapter&&!t.hotspot),fresh=new Set(state.newItems);
-  if(!tokens.some(t=>fresh.has(t.id)))return;
-  if(tokens.some(t=>tile(t.id)?.classList.contains('icon-thing'))){
+  const hasIcons=tokens.some(t=>tile(t.id)?.classList.contains('icon-thing'));
+  if(!checkpointLayout&&!tokens.some(t=>fresh.has(t.id))&&(!hasIcons||!activeHotspots(story,state.chapter).length))return;
+  if(hasIcons){
     const primitives=indexStory(story).primitives;
-    const layout=iconArrival(tokens.map(t=>{
+    const descriptions=tokens.map(t=>{
       const position=story.items[t.id].icon?.position;
       const start=primitives.has(t.id)&&position&&Object.values(position).every(value=>Number.isFinite(value)&&value>=0&&value<=1)?position:undefined;
       return {id:t.id,x:t.x,y:t.y,width:tile(t.id)!.offsetWidth,height:tile(t.id)!.offsetHeight,fresh:fresh.has(t.id),start};
-    }));
+    });
+    // A logical developer replay has never measured browser artwork. Give
+    // its carried items a readable initial arrangement; ordinary play keeps
+    // the user's carried placements and existing arrival grouping.
+    if(checkpointLayout){
+      const initial=iconArrival(descriptions.filter(t=>!t.fresh).map(t=>({...t,fresh:true,start:undefined})));
+      for(const t of descriptions)if(!t.fresh)Object.assign(t,initial.positions.get(t.id));
+    }
+    const geometry=boardGeometry();
+    const stations=activeHotspots(story,state.chapter).map((id,i)=>{
+      const el=panel(state.chapter)!.querySelector<HTMLElement>(`[data-hotspot="${CSS.escape(id)}"]`)!;
+      return hotspotRect(story.hotspots[id],i,{width:el.offsetWidth,height:el.offsetHeight},geometry.scale,geometry.bounds);
+    });
+    const layout=clearArrivalHotspots(descriptions,iconArrival(descriptions),stations,geometry.bounds);
     for(const t of tokens){const p=layout.positions.get(t.id)!;t.x=p.x;t.y=p.y;const el=tile(t.id)!;el.style.left=`${t.x}px`;el.style.top=`${t.y}px`;}
-    const divider=panel(state.chapter)?.querySelector<HTMLElement>('.arrival-divider');if(divider&&layout.divider!==undefined)divider.style.top=`${layout.divider}px`;
+    const divider=panel(state.chapter)?.querySelector<HTMLElement>('.arrival-divider');if(divider){divider.hidden=layout.divider===undefined;if(layout.divider!==undefined)divider.style.top=`${layout.divider}px`;}
     panel(state.chapter)?.classList.toggle('crowded',layout.crowded);return;
   }
   let y=82;const x=[14,139,264];
@@ -564,7 +579,7 @@ function restartStory() {
   render(); rememberInteraction();
   surface.querySelector<HTMLElement>('.story-start')?.focus({ preventScroll: true });
 }
-function render(arrival=false,finish=true){
+function render(arrival=false,finish=true,checkpointLayout=false){
   if (!storyStarted) { renderLanding(); return; }
   itemOrder = restoreItemOrder(Object.keys(state.tokens), itemOrder);
   const oldHeight=Number(app.querySelector<HTMLElement>('.world')?.dataset.panelHeight)||app.clientHeight;
@@ -583,7 +598,7 @@ function render(arrival=false,finish=true){
     }).join('')}${chapter===state.chapter&&state.arrivalDivider&&state.newItems.length?`<div class="arrival-divider" style="top:${Math.max(65,Math.min(...state.newItems.map(id=>state.tokens[id]?.y??844))-18)}px"><span>new items</span></div>`:''}</section>`;
   }).join(''),state.visited.length)}</div>${showGoals?`<div class="hud-stack location-hud ${transitioning?'goals-leaving':''}" ${transitioning?'aria-hidden="true"':''}><button class="objective-overlay" ${leaving?'disabled':''} data-command="story" aria-label="Read this chapter"><span class="objectives">${goals.map(({goal,done})=>`<span class="objective-line ${done?'done':''}"><span class="goal-checkbox" aria-hidden="true">${done?'✓':''}</span><span>${escape(goal.text)}</span><span class="sr-only">${done?'Completed':'Not completed'}</span></span>`).join('')}${state.completed?'<span class="objective-line ending">The End</span>':''}</span></button></div>`:''}${goalView?.phase!=='goals'&&!state.completed?`<button class="chapter-next ${story.chapters[state.chapter+1]?.image?'':'right'} ${transitioning?'entering':''}" ${leaving?'disabled':''} data-command="advance" aria-label="Continue story"><span>${story.chapters[state.chapter+1]?.image?'↓':'→'}</span></button>`:''}`);
   const viewport=app.querySelector<HTMLElement>('.viewport')!;viewport.onscroll=()=>{if(Number(app.querySelector<HTMLElement>('.world')?.dataset.panelHeight)!==app.clientHeight)return;scheduleGoalClearance();if(viewport.scrollTop!==expectedScroll){expectedScroll=viewport.scrollTop;rememberInteraction();save();}};setScroll(arrival?Math.max(0,(state.visited.length-1)*app.clientHeight):scroll);
-  if(arrival){packArrival();if(finish)chapterSession=captureChapter(state,itemOrder);}
+  if(arrival){packArrival(checkpointLayout);if(finish)chapterSession=captureChapter(state,itemOrder);}
   for(const token of availableTokens(state)){const element=tile(token.id);if(element)positionTile(element,token);}
   clearGoalsAroundCards();if(changedView&&transitioning)animateGoalEntrance();if(finish)showPending();
   updateEditingIndicators();

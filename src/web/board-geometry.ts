@@ -26,7 +26,7 @@ export function placeAtCentre(centre: {x:number;y:number}, size: {width:number;h
 }
 
 /** Fill a retired receiver's space, or put a new result beside a surviving receiver. */
-export function placeCreation(receiver:BoardRect,result:{width:number;height:number},replace:boolean,bounds=referenceBoard){
+export function placeCreation(receiver:BoardRect,result:{width:number;height:number},replace:boolean,bounds=referenceBoard,occupied:BoardRect[]=[]){
   const x=receiver.x+(receiver.width-result.width)/2,y=receiver.y+(receiver.height-result.height)/2;
   const fit=(position:{x:number;y:number})=>fitOnBoard(position.x,position.y,result.width,result.height,bounds);
   if(replace)return fit({x,y});
@@ -37,6 +37,15 @@ export function placeCreation(receiver:BoardRect,result:{width:number;height:num
     {x:receiver.x-result.width-12,y},
     {x,y:receiver.y-result.height-28},
   ].map(fit);
-  const clear=(p:{x:number;y:number})=>p.x+result.width<=receiver.x || receiver.x+receiver.width<=p.x || p.y+result.height<=receiver.y || receiver.y+receiver.height<=p.y;
-  return candidates.find(clear)??candidates[0];
+  const apart=(p:{x:number;y:number},r:BoardRect)=>p.x+result.width<=r.x || r.x+r.width<=p.x || p.y+result.height<=r.y || r.y+r.height<=p.y;
+  const clear=(p:{x:number;y:number})=>apart(p,receiver)&&occupied.every(r=>apart(p,r));
+  const neighbour=candidates.find(clear);
+  if(neighbour)return neighbour;
+  // Search near the drop before falling back to an overlap. Only the new
+  // result moves; every surviving ingredient retains its settled position.
+  const edges=[receiver,...occupied];
+  const xs=[bounds.x,bounds.x+bounds.width-result.width,x,...edges.flatMap(r=>[r.x-result.width-12,r.x+r.width+12])];
+  const ys=[Math.max(bounds.y,65),bounds.y+bounds.height-result.height,y,...edges.flatMap(r=>[r.y-result.height-28,r.y+r.height+28])];
+  const spaces=xs.flatMap(x=>ys.map(y=>fit({x,y}))).sort((a,b)=>Math.abs(a.x-x)+Math.abs(a.y-y)-Math.abs(b.x-x)-Math.abs(b.y-y));
+  return spaces.find(clear)??candidates.find(p=>apart(p,receiver))??candidates[0];
 }

@@ -20,7 +20,7 @@ The current synthesis was reconciled against the specification, accumulated huma
 | Frozen runs, exact replay, source exposure, optional reporting | [README playtesting instructions](../README.md#logical-playtesting) | logical-play, binary player protocols, evaluator audits, source integrity records |
 | Pure shared state, explicit lifecycle, lightweight regression tests, provenance | [Engineering](../docs/engineering.md) | event-local policy, engine/controller boundaries, rendering fixes, test-context maps |
 | Specific old recipe issues and uncertainty | [Authenticity backlog](../docs/authenticity-backlog.md) | Original 70-card review, unchanged |
-| Speculative societies, environmental witnesses, interpretation and alternative mechanics | [Backlog](../docs/backlog.md) | future-ideas documents, SMAC research, transformation/primitive/faculty proposals |
+| Speculative societies, environmental witnesses, interpretation and alternative mechanics | [Backlog](../projects/backlog.md) | future-ideas documents, SMAC research, transformation/primitive/faculty proposals |
 | Negative results, discarded experiments, source and publication history | [Archive](README.md) | Complete original docs, experiments, research and results trees |
 
 ## Explicit supersession
@@ -38,6 +38,6 @@ The current synthesis was reconciled against the specification, accumulated huma
 | No consumption anywhere / retain all optional recipes | [Specification](../docs/story-format-spec.md) and [authoring guidance](../docs/story-authoring.md#choose-fates-and-constructions-that-fit-the-action) |
 | Long-game length inferred from recipe totals or added setup | [Fun and evaluation](../docs/fun-and-evaluation.md) |
 | Prior live checkpoint, release test counts or “current” headers describe the active product | [Archive policy](README.md) |
-| Copy Workroom / all old sketches should remain selectable | [Backlog: rejected directions](../docs/backlog.md#rejected-directions-and-negative-evidence) |
+| Copy Workroom / all old sketches should remain selectable | [Backlog: rejected directions](../projects/backlog.md#rejected-directions-and-negative-evidence) |
 
 Retained principles are design intentions, not automatic assertions about every current story. An unresolved warning or old authenticity finding stays review work until it is checked against the active manuscript and resulting behavior.

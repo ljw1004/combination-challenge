@@ -1,7 +1,41 @@
 interface Tile { id: string; x: number; y: number; width: number; height: number; fresh: boolean; start?: {x: number; y: number} }
+interface Rect {x: number; y: number; width: number; height: number}
+interface ArrivalLayout {positions: Map<string, {x: number; y: number}>; divider?: number; crowded: boolean}
+
+/** On chapter entry, keep automatic supplies clear of the fixed working places. */
+export function clearArrivalHotspots(tiles: Tile[], layout: ArrivalLayout, hotspots: Rect[], bounds: Rect = {x:0,y:0,width:390,height:844}): ArrivalLayout {
+  if (!hotspots.length) return layout;
+  const apart = (a: Rect, b: Rect) => a.x+a.width+12<=b.x || b.x+b.width+12<=a.x || a.y+a.height+28<=b.y || b.y+b.height+28<=a.y;
+  const placed = tiles.map(tile => ({...tile, ...layout.positions.get(tile.id)!}));
+  // Explicit primitive starts are an authoring decision. Only automatic
+  // arrivals/carry positions are adjusted, never an item placed at a hotspot.
+  const displaced = placed.filter(tile => !(tile.fresh&&tile.start) && hotspots.some(h=>!apart(tile,h)));
+  if (!displaced.length) return layout;
+  const occupied: Rect[] = [...hotspots, ...placed.filter(tile=>!displaced.includes(tile))];
+  const positions = new Map(layout.positions);
+  let crowded = layout.crowded;
+  for (const tile of displaced) {
+    const left=bounds.x+14, right=bounds.x+bounds.width-14-tile.width;
+    const top=Math.max(bounds.y+65,65), bottom=Math.min(bounds.y+bounds.height-60,760)-tile.height;
+    const xs=[tile.x,left,right,...occupied.flatMap(r=>[r.x-tile.width-12,r.x+r.width+12])];
+    const ys=[tile.y,top,bottom,...occupied.flatMap(r=>[r.y-tile.height-28,r.y+r.height+28])];
+    const candidates=xs.flatMap(x=>ys.map(y=>({...tile,x:Math.max(left,Math.min(right,x)),y:Math.max(top,Math.min(bottom,y))})))
+      .filter(p=>p.x>=bounds.x&&p.y>=bounds.y&&p.x+p.width<=bounds.x+bounds.width&&p.y+p.height<=bounds.y+bounds.height)
+      .sort((a,b)=>Math.abs(a.x-tile.x)+Math.abs(a.y-tile.y)-Math.abs(b.x-tile.x)-Math.abs(b.y-tile.y));
+    const next=candidates.find(p=>occupied.every(r=>apart(p,r)));
+    if(next){positions.set(tile.id,{x:next.x,y:next.y});occupied.push(next);}
+    else {occupied.push(tile);crowded=true;}
+  }
+  const fresh=tiles.filter(t=>t.fresh),carried=tiles.filter(t=>!t.fresh);
+  const firstFresh=Math.min(...fresh.map(t=>positions.get(t.id)!.y));
+  const lastCarried=Math.max(...carried.map(t=>positions.get(t.id)!.y+t.height));
+  // A divider only describes the layout while the two groups remain separate.
+  const divider=fresh.length&&carried.length&&firstFresh>=lastCarried+28?firstFresh-18:undefined;
+  return {positions,divider,crowded};
+}
 
 /** Keep carried relationships and reserve room between icon rows for names above them. */
-export function iconArrival(tiles: Tile[]): {positions: Map<string, {x: number; y: number}>; divider?: number; crowded: boolean} {
+export function iconArrival(tiles: Tile[]): ArrivalLayout {
   if (!tiles.some(tile => tile.fresh)) return {positions: new Map(tiles.map(tile => [tile.id, {x: tile.x, y: tile.y}])), crowded: false};
   const anchored = tiles.filter(tile => tile.fresh && tile.start);
   if (anchored.length) {

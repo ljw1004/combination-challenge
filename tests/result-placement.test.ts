@@ -83,3 +83,14 @@ test('new results stay clear of surviving receivers even beside each board edge'
     assert(Math.hypot(position.x+result.width/2-x-receiver.width/2,position.y+result.height/2-y-receiver.height/2)<200);
   }
 });
+
+test('a new ingredient avoids unrelated ingredients when its receiver survives',()=>{
+  const receiver={x:134,y:120,width:128,height:120};
+  const apples={x:175,y:268,width:60,height:60};
+  const other={x:274,y:130,width:104,height:108};
+  const occupied=[receiver,apples,other],before=structuredClone(occupied),result={width:68,height:52};
+  const position=placeCreation(receiver,result,false,undefined,occupied);
+  for(const r of occupied)assert(position.x+result.width<=r.x||r.x+r.width<=position.x||position.y+result.height<=r.y||r.y+r.height<=position.y);
+  assert.deepEqual(occupied,before,'existing placements stay untouched');
+  assert(position.x>=0&&position.x+result.width<=390&&position.y>=0&&position.y+result.height<=844);
+});

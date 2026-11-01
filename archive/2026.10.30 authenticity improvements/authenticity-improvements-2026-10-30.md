@@ -1,6 +1,6 @@
 # Authenticity improvements completed record
 
-**Status:** Completed. This historical record is archived with its supporting evidence; new editorial work belongs in the [backlog](../../docs/backlog.md).
+**Status:** Completed. This historical record is archived with its supporting evidence; new editorial work belongs in the [backlog](../../projects/backlog.md).
 
 **Completed pass:** 30 October 2026 at 15:32:24 UTC. This records completion of the content and verification pass, not a hosted-deployment receipt.
 
