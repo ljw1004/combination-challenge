@@ -89,6 +89,12 @@ test('bug and red pencil stay fully visible during dragging and sit beneath over
       await editor.focus(); await page.keyboard.press('ControlOrMeta+A');
       await page.keyboard.insertText(manuscript.replace('Arrange the pieces.', 'Arrange these pieces.'));
       await expect(debug).toHaveClass(/edit-indicator/);
+      // The pencil confirms the raw draft save; wait for its debounced game
+      // preview too, since applying that preview cancels any active gesture.
+      await expect.poll(() => page.evaluate(() => {
+        const key = Object.keys(localStorage).find(key => key.startsWith('combination-progress-v2:'))!;
+        return JSON.parse(localStorage.getItem(key)!).editedSnapshot;
+      })).toBe(true);
       await page.getByRole('button', {name: 'Close debug panel'}).click();
     } else await expect(debug).not.toHaveClass(/edit-indicator/);
     const source = (await tile.boundingBox())!, control = (await debug.boundingBox())!;

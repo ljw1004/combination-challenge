@@ -28,6 +28,7 @@ import { fitOnBoard, placeCreation, placeAtCentre, viewportBoard } from './board
 import { partnerHints } from './partner-hints.ts';
 import {createDropResolver, type DropResolution, type DropTarget} from './drop-target.ts';
 import {DragTrace} from './drag-trace.ts';
+import {DragEdgeScroll} from './drag-scroll.ts';
 import {containsPoint, hotspotCentre, hotspotRect, hotspotHTML, hotspotProbeHTML, measureHotspots} from './hotspot-view.ts';
 import {tutorialAction, hotspotTutorials, completesHotspotTutorial} from '../engine/tutorial.ts';
 import {TutorialProgress} from './tutorial-progress.ts';
@@ -635,6 +636,7 @@ function clearHighlights(keep?:HTMLElement){app.querySelectorAll<HTMLElement>('.
 interface Drag {
   id:string; pointer:number; el:HTMLElement; startX:number; startY:number;
   grabX:number; grabY:number; moved:boolean;
+  point:Pick<PointerEvent,'clientX'|'clientY'>; lockedChapter?:number; edgeScroll?:DragEdgeScroll;
   resolve?:ReturnType<typeof createDropResolver>;
 }
 let drag:Drag|undefined;
@@ -645,10 +647,10 @@ const feedback=new ItemFeedback(highlight,()=>clearHighlights());
 let suppressReleaseClick=false;
 // Suppress the native click belonging to the double-tap that opened a reader.
 document.addEventListener('pointerdown',()=>{suppressReleaseClick=false;},true);
-function dragDestination(d:Drag,e:PointerEvent) {
+function dragDestination(d:Drag,e:Pick<PointerEvent,'clientX'|'clientY'>) {
   const size=scale(),bounds=boardGeometry().bounds,world=app.querySelector('.world')!.getBoundingClientRect();
   const index=Math.max(0,Math.min(state.visited.length-1,Math.floor((e.clientY-world.top)/app.clientHeight)));
-  const chapter=state.visited[index],scene=panel(chapter)!,rect=scene.getBoundingClientRect();
+  const chapter=d.lockedChapter??state.visited[index],scene=panel(chapter)!,rect=scene.getBoundingClientRect();
   const position=fitOnBoard((e.clientX-rect.left)/size+bounds.x-d.grabX,(e.clientY-rect.top)/size-d.grabY,d.el.offsetWidth,d.el.offsetHeight,bounds);
   return {chapter,scene,position,rectangle:{x:rect.left+(position.x-bounds.x)*size,y:rect.top+position.y*size,width:d.el.offsetWidth*size,height:d.el.offsetHeight*size}};
 }
@@ -663,7 +665,7 @@ function dropTargets(scene:HTMLElement,chapter:number):DropTarget<HTMLElement>[]
       return {value:el,item:el.dataset.item,hotspot:el.dataset.hotspot,chapter,region,zIndex:Number(getComputedStyle(el).zIndex)||0};
     });
 }
-function dropAt(d:Drag,e:PointerEvent,destination:ReturnType<typeof dragDestination>):DropResolution<HTMLElement> {
+function dropAt(d:Drag,e:Pick<PointerEvent,'clientX'|'clientY'>,destination:ReturnType<typeof dragDestination>):DropResolution<HTMLElement> {
   try {
     d.resolve??=createDropResolver(story,state,d.id);
     return d.resolve({x:e.clientX,y:e.clientY},destination.rectangle,dropTargets(destination.scene,destination.chapter));
@@ -688,7 +690,12 @@ app.addEventListener('pointerdown',e=>{
   app.querySelectorAll<HTMLElement>('[data-item]').forEach(item => { item.style.zIndex = String(3 + itemOrder.indexOf(item.dataset.item!)); });
   rememberInteraction(); save();
   const bounds=el.getBoundingClientRect(),boardScale=scale();
-  drag={id,pointer:e.pointerId,el,startX:e.clientX,startY:e.clientY,grabX:(e.clientX-bounds.left)/boardScale,grabY:(e.clientY-bounds.top)/boardScale,moved:false};
+  // Pickup location, not encounter history or the panel crossed mid-drag, owns the restriction.
+  drag={id,pointer:e.pointerId,el,startX:e.clientX,startY:e.clientY,grabX:(e.clientX-bounds.left)/boardScale,grabY:(e.clientY-bounds.top)/boardScale,moved:false,point:{clientX:e.clientX,clientY:e.clientY},lockedChapter:state.tokens[id].chapter===state.chapter?state.chapter:undefined};
+  if(drag.lockedChapter===undefined){
+    const gesture=drag;
+    gesture.edgeScroll=new DragEdgeScroll(app.querySelector<HTMLElement>('.viewport')!,()=>previewDrag(gesture));
+  }
   // The stable app owns capture even if an artwork load or redraw updates the tile.
   app.setPointerCapture(e.pointerId);
   inputTrace?.record('drag:begin',{rectangle:{x:bounds.x,y:bounds.y,width:bounds.width,height:bounds.height},boardScale});
@@ -697,17 +704,21 @@ app.addEventListener('pointerdown',e=>{
 document.addEventListener('pointermove',e=>{
   if(!drag||e.pointerId!==drag.pointer)return;
   if(!drag.moved&&movedEnough(drag,e)){drag.moved=true;inputTrace?.record('drag:recognized');highlight(drag.id,true);}if(!drag.moved)return;
-  const viewport=app.querySelector('.viewport');if(viewport){if(e.clientY<55)viewport.scrollTop-=12;else if(e.clientY>app.getBoundingClientRect().bottom-55)viewport.scrollTop+=12;}
-  const destination=dragDestination(drag,e),source=drag.el.closest<HTMLElement>('[data-chapter]')!.getBoundingClientRect(),size=scale();
-  drag.el.classList.add('dragging');app.classList.add('is-dragging');
-  drag.el.style.left=`${(destination.rectangle.x-source.left)/size}px`;drag.el.style.top=`${(destination.rectangle.y-source.top)/size}px`;
+  drag.point={clientX:e.clientX,clientY:e.clientY};
+  drag.edgeScroll?.update(e.clientY);
+  previewDrag(drag);
+});
+function previewDrag(d:Drag){
+  const destination=dragDestination(d,d.point),source=d.el.closest<HTMLElement>('[data-chapter]')!.getBoundingClientRect(),size=scale();
+  d.el.classList.add('dragging');app.classList.add('is-dragging');
+  d.el.style.left=`${(destination.rectangle.x-source.left)/size}px`;d.el.style.top=`${(destination.rectangle.y-source.top)/size}px`;
   app.querySelectorAll('.will-create,.will-place').forEach(e=>e.classList.remove('will-create','will-place'));
-  const {target, action, usefulPlacement, ambiguous}=dropAt(drag,e,destination);
+  const {target, action, usefulPlacement, ambiguous}=dropAt(d,d.point,destination);
   inputTrace?.record('drag:preview',{chapter:destination.chapter,position:destination.position,rectangle:destination.rectangle,target:target?feedbackKey(target):null,action,usefulPlacement,ambiguous});
   if(target&&!ambiguous.length&&(action||usefulPlacement))target.classList.add(action?'will-create':'will-place');
   if (action?.b) tile(action.b)?.classList.add('will-create');
   ambiguous.forEach(id => tile(id)?.classList.add('possible'));
-});
+}
 function releaseCapture(pointer:number){if(app.hasPointerCapture(pointer))app.releasePointerCapture(pointer);}
 function restoreGestureTile(d:NonNullable<typeof drag>){
   d.el.classList.remove('dragging');app.classList.remove('is-dragging');
@@ -718,7 +729,7 @@ function endDrag(e:PointerEvent,cancel=false){
   inputTrace?.record('gesture:end-request',{pointer:e.pointerId,cancel});
   if(hotspotPress?.pointer===e.pointerId){const press=hotspotPress;hotspotPress=undefined;releaseCapture(e.pointerId);if(cancel)feedback.clear();else feedback.release(press.key,false);return;}
   if(!drag||drag.pointer!==e.pointerId){inputTrace?.record('drag:end-ignored',{reason:drag?'different-pointer':'no-active-drag'});return;}const d=drag;drag=undefined;
-  releaseCapture(d.pointer);
+  d.edgeScroll?.stop();releaseCapture(d.pointer);
   if(cancel){inputTrace?.record('drag:cancel',{reason:'pointercancel',item:d.id});restoreGestureTile(d);feedback.clear();return;}
   // A quick release can be the first event reporting travel beyond click tolerance.
   if(!d.moved&&!movedEnough(d,e)){inputTrace?.record('drag:click',{item:d.id,travel:Math.hypot(e.clientX-d.startX,e.clientY-d.startY),threshold:5*scale()});restoreGestureTile(d);if(feedback.release(d.id,true)){suppressReleaseClick=true;read(d.id);}return;}
@@ -739,7 +750,7 @@ function endDrag(e:PointerEvent,cancel=false){
   if(!document.querySelector('dialog')&&state.tokens[d.id]?.status==='available')feedback.release(d.id,false);else feedback.clear();
 }
 document.addEventListener('pointerup',e=>{endDrag(e);updateTutorial();});document.addEventListener('pointercancel',e=>{endDrag(e,true);updateTutorial();});
-function cancelGesture(reason:string){inputTrace?.record('gesture:cancel',{reason});if(hotspotPress){const pointer=hotspotPress.pointer;hotspotPress=undefined;releaseCapture(pointer);feedback.clear();}if(drag){const d=drag;drag=undefined;releaseCapture(d.pointer);restoreGestureTile(d);feedback.clear();}updateTutorial();}
+function cancelGesture(reason:string){inputTrace?.record('gesture:cancel',{reason});if(hotspotPress){const pointer=hotspotPress.pointer;hotspotPress=undefined;releaseCapture(pointer);feedback.clear();}if(drag){const d=drag;drag=undefined;d.edgeScroll?.stop();releaseCapture(d.pointer);restoreGestureTile(d);feedback.clear();}updateTutorial();}
 window.addEventListener('blur',()=>{cancelGesture('window-blur');feedback.clear();});
 app.addEventListener('lostpointercapture',e=>{
   const {pointerId,buttons}=e as PointerEvent;
