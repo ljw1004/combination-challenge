@@ -49,4 +49,11 @@ This is a version of 1960s star trek which uses less cheap prop-like materials, 
 **Verdict**
 - We have a good direction here (although the sealant still had reflections from studio lights)
 - The shapes are simple and iconic. The materials are believable but restrained. Slight dust, wear, and outdoor lighting help a lot. The set has a coherent industrial language.
-- Cream housing, orange-red accents, exposed fittings, practical hardware — all of that ties the world together.
+
+However, the insistence on orange is weird. We use orange on earth for rescue visibility. But on Mars it would be camouflage!
+
+## Phase 3 studies
+- 01-petrol-teal.png
+- 02-multiple-accents.png
+
+These are studies on different accent colors. I prefer the multiple-accent one. We can use color to give equipment families their own character, e.g. all science is blue.
