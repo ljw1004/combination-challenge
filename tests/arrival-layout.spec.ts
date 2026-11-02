@@ -1,4 +1,5 @@
 import {test,expect,type Page} from '@playwright/test';
+import {jumpToChapter} from './debug-helpers.ts';
 
 const manuscript=`# Arrival workshop
 ## First
@@ -87,4 +88,56 @@ test('short viewport arrivals keep measured text cards above multi-line goals an
   for(const p of positions){expect(p.bottom).toBeLessThan(goals.y-10);expect(p.right).toBeLessThanOrEqual(320);expect(p.x).toBeGreaterThanOrEqual(0);}
   await page.reload();
   await expect.poll(()=>page.locator('.thing').evaluateAll(els=>els.map(el=>{const r=el.getBoundingClientRect();return {x:r.x,y:r.y,bottom:r.bottom,right:r.right};}))).toEqual(positions);
+});
+
+test('debug checkpoint jumps centre measured cards and icons and save their arrangement',async({page})=>{
+  const story=`# Centred workshop
+## First
+![room](room.svg)
+**Goals**
+- Prepare -- Mixture
+**Items**
+- Bowl
+  - icon: ![bowl](bowl.svg)
+- Spoon
+**Combinations**
+- Mixture
+- Bowl [preserve] + Spoon [preserve] -> Mixture
+## Second
+![room](room.svg)
+
+Finish the preparation.
+**Hotspots**
+- Station (at 50%, 15%)
+  - icon: ![station](station.svg)
+**Items**
+- Flour
+**Goals**
+- Finish -- Finished
+**Combinations**
+- Finished
+- Bowl [preserve] + Flour -> Finished
+- Mixture [preserve] + Spoon [preserve] -> Finished`;
+  await page.route('**/centred-fixture/story.md',r=>r.fulfill({contentType:'text/markdown',body:story}));
+  await page.route('**/centred-fixture/*.svg',r=>r.fulfill({contentType:'image/svg+xml',body:'<svg xmlns="http://www.w3.org/2000/svg" width="320" height="320"><circle cx="160" cy="160" r="150" fill="tan"/></svg>'}));
+  for(const viewport of [{width:390,height:844},{width:320,height:550},{width:1024,height:844}]){
+    await page.setViewportSize(viewport);
+    await page.goto('/combinations.html?story=centred-fixture/story.md');
+    await jumpToChapter(page,'Second',true);
+    await page.getByRole('button',{name:'Begin',exact:true}).click();
+    const panel=page.locator('.chapter-panel').last();
+    const positions=()=>panel.locator('.thing').evaluateAll(els=>els.map(el=>{const r=el.getBoundingClientRect();return {x:r.x,y:r.y,right:r.right,bottom:r.bottom};}));
+    const placed=await positions(),board=(await panel.boundingBox())!,station=(await panel.locator('[data-hotspot]').boundingBox())!;
+    expect(placed.length).toBeGreaterThan(1);
+    const centreY=(Math.min(...placed.map(t=>t.y))+Math.max(...placed.map(t=>t.bottom)))/2;
+    const centreX=(Math.min(...placed.map(t=>t.x))+Math.max(...placed.map(t=>t.right)))/2;
+    expect(Math.abs(centreY-(board.y+board.height/2))).toBeLessThan(2);
+    expect(Math.abs(centreX-(board.x+board.width/2))).toBeLessThan(2);
+    for(const t of placed){
+      expect(t.bottom<=station.y||t.y>=station.y+station.height||t.right<=station.x||t.x>=station.x+station.width).toBe(true);
+      for(const other of placed.filter(p=>p!==t))expect(t.bottom<=other.y||t.y>=other.bottom||t.right<=other.x||t.x>=other.right).toBe(true);
+    }
+    await page.reload();
+    await expect.poll(positions).toEqual(placed);
+  }
 });

@@ -100,12 +100,38 @@ function hotspotSpace(tile: Rect, bounds: Rect, hotspots: HotspotRegion[]): Rect
   }
 }
 
-function shelves(tiles: ArrivalTile[], width: number): ArrivalTile[] {
+function shelves(tiles: ArrivalTile[], width: number, gap=EDGE): ArrivalTile[] {
   let x=0,y=0,height=0;
   return tiles.map(tile=>{
     if(x&&x+tile.width>width){x=0;y+=height+GAP;height=0;}
-    const placed={...tile,x,y};x+=tile.width+EDGE;height=Math.max(height,tile.height);return placed;
+    const placed={...tile,x,y};x+=tile.width+gap;height=Math.max(height,tile.height);return placed;
   });
+}
+
+/** Checkpoint replays have no player arrangement to preserve. Centre each row,
+ * then centre the retained/new-supply groups together in the visible scene. */
+function checkpointPreferences(tiles: ArrivalTile[], bounds: Rect, screen: Rect): ArrivalTile[] {
+  const groups=[tiles.filter(t=>!t.fresh),tiles.filter(t=>t.fresh)];
+  const preferred:ArrivalTile[]=[];
+  let height=0;
+  for(const group of groups){
+    const rows=shelves(group,bounds.width,GAP);
+    for(const y of new Set(rows.map(t=>t.y))){
+      const row=rows.filter(t=>t.y===y),width=Math.max(...row.map(right)),rowHeight=Math.max(...row.map(t=>t.height));
+      preferred.push(...row.map(t=>({...t,x:t.x+bounds.x+(bounds.width-width)/2,y:height+y+(rowHeight-t.height)/2})));
+    }
+    if(rows.length)height+=Math.max(...rows.map(bottom))+GAP;
+  }
+  height=Math.max(0,height-GAP);
+  const top=Math.max(bounds.y,Math.min(bottom(bounds)-height,screen.y+(screen.height-height)/2));
+  return preferred.map(t=>({...t,y:t.y+top}));
+}
+
+function arrivalResult(placed: ArrivalTile[], crowded: boolean): ArrivalLayout {
+  const positions=new Map(placed.map(t=>[t.id,{x:t.x,y:t.y}]));
+  const newTiles=placed.filter(t=>t.fresh),oldTiles=placed.filter(t=>!t.fresh);
+  const first=Math.min(...newTiles.map(t=>t.y)),last=Math.max(...oldTiles.map(bottom));
+  return {positions,crowded,divider:newTiles.length&&oldTiles.length&&first>=last+GAP-EPS?first-18:undefined};
 }
 
 function reserveSupplies(fresh: ArrivalTile[], fixed: ArrivalTile[], carried: ArrivalTile[], bounds: Rect, hotspots: HotspotRegion[]) {
@@ -138,7 +164,7 @@ function reserveSupplies(fresh: ArrivalTile[], fixed: ArrivalTile[], carried: Ar
 }
 
 /** Small deterministic beam search protects each chapter's arrangement before relaxing overlap. */
-function placeGroup(group: ArrivalTile[], fixed: ArrivalTile[], bounds: Rect, hotspots: HotspotRegion[], threshold: number, screen: Rect) {
+function placeGroup(group: ArrivalTile[], fixed: ArrivalTile[], bounds: Rect, hotspots: HotspotRegion[], threshold: number, screen: Rect, gap=0) {
   const orders=[group,[...group].sort((a,b)=>area(b)-area(a)||a.id.localeCompare(b.id))];
   let best:{placed:ArrivalTile[];cost:number}|undefined;
   for(const order of orders){
@@ -150,6 +176,7 @@ function placeGroup(group: ArrivalTile[], fixed: ArrivalTile[], bounds: Rect, ho
         const choices=candidates(tile,bounds,hotspots,[...occupied,...group],12,screen);
         let count=0;
         for(const p of choices){
+          if(gap&&occupied.some(r=>touches({x:p.x-gap,y:p.y-gap,width:p.width+2*gap,height:p.height+2*gap},r)))continue;
           if(!acceptable(p,occupied,threshold))continue;
           next.push({placed:[...state.placed,{...tile,...p}],cost:state.cost+distance(p,tile)});
           if(++count===3)break;
@@ -166,12 +193,21 @@ function placeGroup(group: ArrivalTile[], fixed: ArrivalTile[], bounds: Rect, ho
 
 export function arrivalLayout(tiles: ArrivalTile[], options: ArrivalOptions): ArrivalLayout {
   const {bounds,hotspots,previousChapter}=options;
-  if(options.checkpoint){
-    const seed=new Map(shelves(tiles.filter(t=>!t.fresh&&!t.fixed),bounds.width-16).map(t=>[t.id,{x:t.x+bounds.x+8,y:t.y+bounds.y+65}]));
-    tiles=tiles.map(t=>({...t,...seed.get(t.id)}));
-  }
   const working={x:bounds.x+8,y:bounds.y+EDGE,width:Math.max(0,bounds.width-16),height:Math.max(0,Math.min(bottom(bounds)-2*EDGE,options.goalsTop-GAP)-bounds.y-EDGE)};
   const fixed=tiles.filter(t=>t.fixed||t.fresh&&t.start).map(t=>t.fresh&&t.start?{...t,x:t.start.x*390-t.width/2,y:t.start.y*844-t.height/2}:{...t});
+  if(options.checkpoint){
+    const preferred=checkpointPreferences(tiles.filter(t=>!t.fixed&&!(t.fresh&&t.start)),working,bounds);
+    // Spend spare room on separation before accepting the ordinary overlap
+    // allowance. Fixed authored starts and inherited occupants never move.
+    for(const gap of [GAP,EDGE,0]){
+      const placed=placeGroup(preferred,fixed,working,hotspots,0,bounds,gap);
+      if(placed)return arrivalResult([...fixed,...placed],false);
+    }
+    // Dense scenes retain the normal reservation, overlap and impossible-space
+    // fallbacks, but use these central preferences instead of top-left rows.
+    const seed=new Map(preferred.map(t=>[t.id,t]));
+    tiles=tiles.map(t=>seed.get(t.id)??t);
+  }
   const fresh=tiles.filter(t=>t.fresh&&!t.start&&!t.fixed),carried=tiles.filter(t=>!t.fresh&&!t.fixed);
   let crowded=false;
   let reservation=reserveSupplies(fresh,fixed,carried,working,hotspots);
@@ -220,8 +256,5 @@ export function arrivalLayout(tiles: ArrivalTile[], options: ArrivalOptions): Ar
     }
   }
   placed.push(...supplies);
-  const positions=new Map(placed.map(t=>[t.id,{x:t.x,y:t.y}]));
-  const newTiles=placed.filter(t=>t.fresh),oldTiles=placed.filter(t=>!t.fresh);
-  const first=Math.min(...newTiles.map(t=>t.y)),last=Math.max(...oldTiles.map(bottom));
-  return {positions,crowded,divider:newTiles.length&&oldTiles.length&&first>=last+GAP-EPS?first-18:undefined};
+  return arrivalResult(placed,crowded);
 }

@@ -67,8 +67,10 @@ test('overlap budgets use the union and protect smaller neighbours',()=>{
 });
 
 test('crowding can relax item overlap without ever relaxing hotspot clearance',()=>{
-  const {result}=layout([tile('one',100,100,{width:180,height:100}),tile('two',100,100,{width:180,height:100})],{bounds:{x:0,y:0,width:240,height:240},goalsTop:230,hotspots:[{x:0,y:0,width:240,height:70}]});
-  assert(result.crowded);
+  for(const checkpoint of [false,true]){
+    const {result}=layout([tile('one',100,100,{width:180,height:100}),tile('two',100,100,{width:180,height:100})],{bounds:{x:0,y:0,width:240,height:240},goalsTop:230,hotspots:[{x:0,y:0,width:240,height:70}],checkpoint});
+    assert(result.crowded);
+  }
 });
 
 test('only an impossible station layout permits a hotspot overlap',()=>{
@@ -82,6 +84,38 @@ test('checkpoint preferences spread unmeasured carried objects while preserving 
   const {result}=layout(tiles,{checkpoint:true});
   assert.notEqual(result.positions.get('a')!.x,result.positions.get('b')!.x);
   assert.deepEqual(result.positions.get('occupant'),{x:180,y:200});
+});
+
+test('checkpoint rows centre the whole inventory with breathing room, including first-chapter supplies',()=>{
+  for(const bounds of [options.bounds,{x:45,y:0,width:300,height:590}]){
+    for(const freshOnly of [false,true]){
+      const tiles=Array.from({length:6},(_,i)=>tile(`${i}`,0,0,{width:70,height:i%2?60:90,fresh:freshOnly||i>=4}));
+      const settings={bounds,goalsTop:bounds.height-54,checkpoint:true};
+      const {result,placed}=layout(tiles,settings);
+      const left=Math.min(...placed.map(t=>t.x)),right=Math.max(...placed.map(t=>t.x+t.width));
+      const top=Math.min(...placed.map(t=>t.y)),bottom=Math.max(...placed.map(t=>t.y+t.height));
+      assert.equal((left+right)/2,bounds.x+bounds.width/2);
+      assert.equal((top+bottom)/2,bounds.y+bounds.height/2);
+      for(const a of placed)for(const b of placed.filter(t=>t.id!==a.id)){
+        assert(a.x+a.width+28<=b.x||b.x+b.width+28<=a.x||a.y+a.height+28<=b.y||b.y+b.height+28<=a.y,'roomy checkpoints keep a gap between items');
+      }
+      if(!freshOnly){
+        assert(result.divider!==undefined);
+        assert(Math.min(...placed.filter(t=>t.fresh).map(t=>t.y))>=Math.max(...placed.filter(t=>!t.fresh).map(t=>t.y+t.height))+28);
+      }
+      assert.deepEqual(result,arrivalLayout(tiles,{...options,...settings}));
+    }
+  }
+});
+
+test('checkpoint centring yields to hotspots and authored anchors before overlapping items',()=>{
+  const tiles=[tile('a',0,0,{width:80,height:90}),tile('b',0,0,{width:100,height:70}),tile('c',0,0,{fresh:true}),
+    tile('anchor',0,0,{fresh:true,start:{x:.5,y:.5}}),tile('occupant',210,170,{fixed:true})];
+  const {result,placed}=layout(tiles,{checkpoint:true,hotspots:[{x:140,y:140,width:120,height:120,circular:true},{x:20,y:380,width:100,height:130}]});
+  assert.deepEqual(result.positions.get('anchor'),{x:167,y:394});
+  assert.deepEqual(result.positions.get('occupant'),{x:210,y:170});
+  assert.equal(result.crowded,false);
+  for(const t of placed)assert.equal(coveredFraction(t,placed.filter(p=>p!==t)),0);
 });
 
 test('an item wider than the comfort inset still respects reserved supplies',()=>{
