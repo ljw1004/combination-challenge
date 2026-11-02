@@ -2,6 +2,12 @@
 
 These summaries record the development decisions of 1 November 2026. Run inputs and outputs have been discarded. They are not replayable evidence or automatic validation of later changes; use the [instructions](verification.md) for new work.
 
+## Dining room without the rug
+
+The user found the carpet’s perspective lines still wrong after the wider-rug revision and requested trying its removal. The selected background now continues the wooden floor through that area. The table, fitted dishes, authored positions and manuscript remain unchanged. The design brief and production selection now describe the bare floor; previous rug sources remain as superseded generation inputs.
+
+Four dinner/closing arrival checks passed across desktop and phone, and one phone interaction case passed seven fittings, reload and advancement. Empty and completed table views received visual inspection. Only the dining-room runtime image changed; this artwork edit did not require a new full implementation suite. The preceding guided edits and automated geometry checks did not establish satisfactory carpet perspective; the user’s contrary visual finding supersedes that assessment.
+
 ## Recipe, scale and serving revisions
 
 The subsequent revision keeps 38 chapters and replaces the remaining dish-list captions with concise subjects and three sparse culinary principles. Cream and cucumber sandwiches are prepared in Dairy and Home-made bread, and the jam roll precedes Afternoon tea. Tea uses a sideboard kettle and tea bags. A chef’s knife replaces the bread knife; ravioli is finished with herb brown butter in the pan. Unbaked Alaska is assembled before baking. Icing and the completed chocolate cake belong to their preparation chapter. Dinner receives finished dishes and supports either cake or both.

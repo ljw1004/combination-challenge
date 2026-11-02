@@ -38,7 +38,7 @@ try {
     await page.evaluate(()=>Promise.all([...document.querySelectorAll('image')].map(async e=>{const im=new Image();im.src=e.getAttribute('href');await im.decode();})));
     await page.locator('body > svg').screenshot({path:file,omitBackground:true});
   };
-  for(const [slug,source] of [['afternoon-parlour','afternoon-parlour-final'],['dining-room','dining-room-generous-rug']]){
+  for(const [slug,source] of [['afternoon-parlour','afternoon-parlour-final'],['dining-room','dining-room-bare-floor']]){
     const png=path.join(scratch,slug+'.png');
     await render(png,390,844,`<image href="${await data(path.join(project,'sources',source+'.png'))}" width="390" height="844" preserveAspectRatio="xMidYMid slice"/>`,2);
     execFileSync('cwebp',['-q','94','-m','6','-quiet',png,'-o',path.join(live,'backgrounds',slug+'.webp')]);

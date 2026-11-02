@@ -31,7 +31,7 @@
       "prompt": "prompts/dining-room.txt",
       "transparent_background": false,
       "inputs": [],
-      "decision": "Room reference; selected background later centres the rug beneath the default table footprint."
+      "decision": "Original room reference; subsequent selected background removes the rug."
     },
     {
       "source": "sources/tea-stand.png",
@@ -329,7 +329,16 @@
         "sources/dining-rug-wide-guide.png"
       ],
       "transparent_background": false,
-      "decision": "Selected room. Generous rug extends beyond both front feet and farther toward the viewer, with receding edges following the room. Guide construction and intended footprint are recorded in dining-rug-geometry.json."
+      "decision": "Rejected after user review: the carpet perspective lines still disagreed with the scene. Retained as the input to rug removal. Guide construction is in dining-rug-geometry.json."
+    },
+    {
+      "source": "sources/dining-room-bare-floor.png",
+      "prompt": "prompts/dining-room-bare-floor.txt",
+      "inputs": [
+        "sources/dining-room-generous-rug.png"
+      ],
+      "transparent_background": false,
+      "decision": "Selected room: removes the rug and continues the wooden floor beneath the separate movable table, as requested by the user."
     }
   ]
 }
