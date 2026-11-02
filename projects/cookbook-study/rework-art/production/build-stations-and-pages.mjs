@@ -29,6 +29,7 @@ const stationSpecs=[
  {name:'oven',original:'oven'},
  {name:'mushroom-pan',original:'frying-pan'},
  ...['fruit-press','butter-churn','freezing-churn','hob'].map(name=>({name,opacity:.68})),
+ {name:'kettle',opacity:.68,display:{width:64,height:56},fit:{width:48,height:38},baseline:49},
 ];
 try{
  for(const spec of stationSpecs){
@@ -44,13 +45,14 @@ try{
    return {size:{width:canvas.width,height:canvas.height},crop:{x:left,y:top,width:right-left+1,height:bottom-top+1}};
   },sourceData);
   crop??=measured.crop;
-  const fit=Math.min(118/crop.width,82/crop.height),width=crop.width*fit,height=crop.height*fit;
-  const x=(132-width)/2,y=89-height;
-  const standalone=['mushroom-pan','freezing-churn','hob'].includes(spec.name);
+  const display=spec.display??records.stationDisplay,limit=spec.fit??{width:118,height:82};
+  const fit=Math.min(limit.width/crop.width,limit.height/crop.height),width=crop.width*fit,height=crop.height*fit;
+  const x=(display.width-width)/2,y=(spec.baseline??89)-height;
+  const standalone=['mushroom-pan','freezing-churn','kettle'].includes(spec.name);
   const file=path.join(standalone?path.join(runtime,'stations'):scratch,spec.name+'.png');
   stationFiles.set(spec.name,file);
-  await render(`<svg xmlns="http://www.w3.org/2000/svg" width="528" height="384" viewBox="0 0 132 96"><svg x="${x}" y="${y}" width="${width}" height="${height}" viewBox="${crop.x} ${crop.y} ${crop.width} ${crop.height}" overflow="hidden" opacity="${opacity}"><image href="${sourceData}" width="${measured.size.width}" height="${measured.size.height}"/></svg></svg>`,file);
-  records.stations.push({name:spec.name,source:path.relative(root,source),reused:!!spec.original,sourceSize:measured.size,crop,opacity,paintedBounds:{x,y,width,height},...(standalone?{file:path.relative(root,file)}:{embeddedOnly:true})});
+  await render(`<svg xmlns="http://www.w3.org/2000/svg" width="${display.width*4}" height="${display.height*4}" viewBox="0 0 ${display.width} ${display.height}"><svg x="${x}" y="${y}" width="${width}" height="${height}" viewBox="${crop.x} ${crop.y} ${crop.width} ${crop.height}" overflow="hidden" opacity="${opacity}"><image href="${sourceData}" width="${measured.size.width}" height="${measured.size.height}"/></svg></svg>`,file);
+  records.stations.push({name:spec.name,source:path.relative(root,source),reused:!!spec.original,sourceSize:measured.size,crop,opacity,...(spec.display?{display:spec.display}:{}),paintedBounds:{x,y,width,height},...(standalone?{file:path.relative(root,file)}:{embeddedOnly:true})});
  }
  await render('<svg xmlns="http://www.w3.org/2000/svg" width="528" height="384" viewBox="0 0 132 96"></svg>',path.join(runtime,'stations/receiving-area.png'));
  const scenes=[
@@ -70,4 +72,4 @@ try{
  }
  await fs.writeFile(path.join(project,'production/stations-and-pages.json'),JSON.stringify(records,null,2)+'\n');
 }finally{await browser.close();}
-console.log('Exported eight station drawings, one transparent receiving rectangle, and three composed pages.');
+console.log('Exported nine station drawings, one transparent receiving rectangle, and three composed pages.');

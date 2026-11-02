@@ -24,7 +24,7 @@ Seven icon styles are retained as [reference collections](references/icon-sets/)
 
 **Settlement: A River Worth Returning To** uses rustic coloured woodcuts: `/combinations.html?story=settlement/settlement.md`.
 
-**Cookbook** teaches practical cooking through pen-and-wash illustrations, from breakfast through afternoon tea to a dinner feast: `/combinations.html?story=cookbook/cookbook.md`. The ongoing [Cookbook study](projects/cookbook-study/README.md) brings together the cookbook adaptation, icon research and comparisons, thematic backgrounds, page composition and pencil stations. Its curated collection retains artistic directions and verdicts, inspiration references, selected finished comparisons, production source art and all 35 completed page PNGs.
+**Cookbook** teaches practical cooking through pen-and-wash illustrations, from breakfast through afternoon tea to dinner: `/combinations.html?story=cookbook/cookbook.md`. The ongoing [Cookbook study](projects/cookbook-study/README.md) brings together the cookbook adaptation, icon research and comparisons, thematic backgrounds, page composition and pencil stations. Its curated collection retains artistic directions and verdicts, inspiration references, selected finished comparisons, production source art and all 35 completed page PNGs.
 
 The player fetches Markdown as an ordinary file. These routes work in development and the production build:
 
@@ -83,7 +83,7 @@ stories/<slug>/<slug>.md
 stories/<slug>/assets/...
 ```
 
-Multiple manuscripts can share a directory and its artwork: for example, `stories/theology/theology.md` and `stories/theology/alternate.md` can both reference `assets/scene.webp` in `stories/theology/assets/`. The catalogue and CLI tools discover all `.md` files under `stories/`. Keep non-story documentation outside that directory.
+Multiple manuscripts can share a directory and its artwork: for example, `stories/theology/theology.md` and `stories/theology/alternate.md` can both reference `assets/scene.webp` in `stories/theology/assets/`. The catalogue and CLI tools discover `.md` manuscripts under `stories/`, excluding the reserved filename `design-brief.md` (case-insensitive). A story may keep its durable editorial and visual intent in that companion brief. Keep research, iteration notes and other non-story documentation in its project directory.
 
 CLI tools accept the path relative to `stories/`, such as `theology/theology.md`, or a filename without `.md`, such as `theology`, when that short name is unique. `npm run play -- list` lists the full paths. The browser uses each Markdown URL for independent drafts and saves, including when manuscripts share a directory. Neither the path nor filename is the player-facing title. Vite serves the contents of `stories/` at the site root. Start with the [authoring guide](docs/story-authoring.md) when writing a story and consult the [specification](docs/story-format-spec.md) for syntax and semantics.
 

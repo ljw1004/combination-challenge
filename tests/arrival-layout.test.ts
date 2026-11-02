@@ -40,6 +40,55 @@ test('new supplies have reserved room above goals; recent items move minimally a
   assert.equal(result.crowded,false);
 });
 
+test('older groups use clear space below two-thirds before overlapping an authored table',()=>{
+  // Measured short-phone Dinner geometry: the table leaves free floor below,
+  // but the older dishes cannot all fit above it within the 10% allowance.
+  const dishes:[string,number,number,number,number,number][]=[
+    ['juice',16,343.90625,104,100.75,0],
+    ['salad',8,227,112,79.25,8],
+    ['pie',8,49,112,76,16],
+    ['tart',116,64.75,112,79.25,24],
+    ['chocolate cake',8,137.5,112,89.5,29],
+    ['profiteroles',120,144,84,59.5,29],
+    ['Wellington',219.5,27.75,162.5,109.75,34],
+    ['vanilla cake',264.25,137.5,112,69.5,35],
+  ];
+  const tiles=dishes.map(([id,x,y,width,height,fromChapter])=>tile(id,x,y,{width,height,fromChapter}));
+  tiles.push(tile('table',0,0,{fresh:true,width:260,height:270,start:{x:.54,y:.4}}));
+  const {result,placed}=layout(tiles,{bounds:{x:0,y:0,width:390,height:667},goalsTop:618,previousChapter:35});
+  assert.equal(result.crowded,false);
+  assert.deepEqual(result.positions.get('table'),{x:390*.54-130,y:844*.4-135});
+  assert(placed.some(t=>!t.fresh&&(t.fromChapter??35)<35&&t.y+t.height>667*2/3));
+  for(const t of placed)assert(coveredFraction(t,placed.filter(p=>p!==t))<=.100001,`${t.id} exceeds its overlap allowance`);
+});
+
+test('joint repacking resolves blocked chapter groups and compact space around a large table',()=>{
+  // These measured short-phone arrivals have room, but preserving a recent
+  // sugar position or the checkpoint's loose rows exceeded the 10% budget.
+  const scones=[
+    tile('flour',8,31.5,{width:76,height:56.5,fromChapter:10}),
+    tile('milk',289,16,{width:93,height:104,fromChapter:1}),
+    tile('butter',90,259.15625,{width:60.25,height:32.25,fromChapter:1}),
+    tile('sugar',228,31.5,{width:70,height:56.5,fromChapter:10}),
+    tile('mill',88,319.40625,{width:132,height:125,fresh:true}),
+    tile('powder',232,319.40625,{width:70,height:54.5,fresh:true}),
+  ];
+  const sizes:[string,number,number][]=[['juice',104,100.75],['salad',112,79.25],['pie',112,76],['tart',112,79.25],['chocolate cake',112,89.5],['profiteroles',84,59.5],['Wellington',162.5,109.75],['vanilla cake',112,69.5]];
+  const dinner=sizes.map(([id,width,height])=>tile(id,0,0,{width,height,fromChapter:35}));
+  dinner.push(tile('table',0,0,{fresh:true,width:300,height:290,start:{x:.55,y:.44}}));
+  const cases:[ArrivalTile[],Partial<ArrivalOptions>][]=[
+    [scones,{previousChapter:10,hotspots:[{x:29,y:88,width:152,height:118},{x:200,y:120,width:170,height:88}]}],
+    [dinner,{previousChapter:35,checkpoint:true}],
+  ];
+  for(const [tiles,config] of cases){
+    const {result,placed}=layout(tiles,{bounds:{x:0,y:0,width:390,height:667},goalsTop:603,...config});
+    assert.equal(result.crowded,false);
+    for(const t of placed)assert(coveredFraction(t,placed.filter(p=>p!==t))<=.100001,`${t.id} exceeds its overlap allowance`);
+    for(const t of tiles.filter(t=>t.start))assert.deepEqual(result.positions.get(t.id),{x:390*t.start!.x-t.width/2,y:844*t.start!.y-t.height/2});
+    for(const supply of placed.filter(t=>t.fresh&&!t.start))assert.equal(coveredFraction(supply,placed.filter(t=>!t.fresh)),0,'supplies remain reserved');
+  }
+});
+
 test('the final supply lift stops at a hotspot instead of crossing into it',()=>{
   const {placed}=layout([tile('recent',30,40),tile('fresh',0,0,{fresh:true,width:180,height:110})],{hotspots:[{x:0,y:130,width:390,height:180}]});
   assert(placed[1].y>=310);

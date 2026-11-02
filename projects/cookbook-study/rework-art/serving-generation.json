@@ -31,7 +31,7 @@
       "prompt": "prompts/dining-room.txt",
       "transparent_background": false,
       "inputs": [],
-      "decision": "Selected dining room."
+      "decision": "Room reference; selected background later centres the rug beneath the default table footprint."
     },
     {
       "source": "sources/tea-stand.png",
@@ -54,7 +54,282 @@
       "inputs": [
         "sources/feast-table.png"
       ],
-      "decision": "Selected compound base with deeper tabletop."
+      "decision": "Superseded: elevated view made the table look like a squat platform in the room."
+    },
+    {
+      "source": "sources/dining-room-with-table.png",
+      "prompt": "prompts/dining-room-with-table.txt",
+      "transparent_background": false,
+      "inputs": [
+        "sources/dining-room.png"
+      ],
+      "decision": "Room composition establishes table perspective, proportions, lighting and style; retained as extraction input."
+    },
+    {
+      "source": "sources/dining-table.png",
+      "prompt": "prompts/dining-table.txt",
+      "transparent_background": true,
+      "inputs": [
+        "sources/dining-room-with-table.png"
+      ],
+      "decision": "Superseded when the user requested the table and its eight servings be composed together."
+    },
+    {
+      "source": "sources/dining-room-laden.png",
+      "prompt": "prompts/dining-room-laden.txt",
+      "transparent_background": false,
+      "inputs": [
+        "sources/dining-room-with-table.png",
+        "sources/dinner-dish-references.png"
+      ],
+      "decision": "Composition reference for table and exactly eight dinner servings. Contact sheet provenance is in dinner-dish-references.json."
+    },
+    {
+      "source": "sources/dining-table-from-laden.png",
+      "prompt": "prompts/dining-table-from-laden.txt",
+      "transparent_background": true,
+      "inputs": [
+        "sources/dining-room-laden.png"
+      ],
+      "decision": "Superseded: extraction symmetrized the table and changed its depth perspective relative to the room."
+    },
+    {
+      "source": "sources/fitted-dinner/beef-wellington-before-repair.png",
+      "prompt": "prompts/fitted-dinner/beef-wellington.txt",
+      "transparent_background": true,
+      "inputs": [
+        "sources/dining-room-laden.png"
+      ],
+      "decision": "Retained extraction input for recipe-correcting repair."
+    },
+    {
+      "source": "sources/fitted-dinner/beef-wellington.png",
+      "prompt": "prompts/fitted-dinner/beef-wellington-repair.txt",
+      "transparent_background": true,
+      "inputs": [
+        "sources/fitted-dinner/beef-wellington-before-repair.png"
+      ],
+      "decision": "Removed unrequested herb flecks."
+    },
+    {
+      "source": "sources/fitted-dinner/bean-pie.png",
+      "prompt": "prompts/fitted-dinner/bean-pie.txt",
+      "transparent_background": true,
+      "inputs": [
+        "sources/dining-room-laden.png"
+      ],
+      "decision": "Selected scene-specific fitted serving."
+    },
+    {
+      "source": "sources/fitted-dinner/green-salad-with-croutons.png",
+      "prompt": "prompts/fitted-dinner/green-salad-with-croutons.txt",
+      "transparent_background": true,
+      "inputs": [
+        "sources/dining-room-laden.png"
+      ],
+      "decision": "Selected scene-specific fitted serving."
+    },
+    {
+      "source": "sources/fitted-dinner/apple-juice.png",
+      "prompt": "prompts/fitted-dinner/apple-juice.txt",
+      "transparent_background": true,
+      "inputs": [
+        "sources/dining-room-laden.png"
+      ],
+      "decision": "Selected scene-specific fitted serving."
+    },
+    {
+      "source": "sources/fitted-dinner/fruit-cream-tart.png",
+      "prompt": "prompts/fitted-dinner/fruit-cream-tart.txt",
+      "transparent_background": true,
+      "inputs": [
+        "sources/dining-room-laden.png"
+      ],
+      "decision": "Selected scene-specific fitted serving."
+    },
+    {
+      "source": "sources/fitted-dinner/chocolate-profiteroles.png",
+      "prompt": "prompts/fitted-dinner/chocolate-profiteroles.txt",
+      "transparent_background": true,
+      "inputs": [
+        "sources/dining-room-laden.png"
+      ],
+      "decision": "Selected scene-specific fitted serving."
+    },
+    {
+      "source": "sources/fitted-dinner/vanilla-sandwich-cake.png",
+      "prompt": "prompts/fitted-dinner/vanilla-sandwich-cake.txt",
+      "transparent_background": true,
+      "inputs": [
+        "sources/dining-room-laden.png"
+      ],
+      "decision": "Selected scene-specific fitted serving."
+    },
+    {
+      "source": "sources/fitted-dinner/iced-chocolate-cake-before-repair.png",
+      "prompt": "prompts/fitted-dinner/iced-chocolate-cake.txt",
+      "transparent_background": true,
+      "inputs": [
+        "sources/dining-room-laden.png"
+      ],
+      "decision": "Retained extraction input for recipe-correcting repair."
+    },
+    {
+      "source": "sources/fitted-dinner/iced-chocolate-cake.png",
+      "prompt": "prompts/fitted-dinner/iced-chocolate-cake-repair.txt",
+      "transparent_background": true,
+      "inputs": [
+        "sources/fitted-dinner/iced-chocolate-cake-before-repair.png"
+      ],
+      "decision": "Restored dark chocolate ganache between layers."
+    },
+    {
+      "source": "sources/tea-stand-jam.png",
+      "prompt": "prompts/tea-stand-jam.txt",
+      "transparent_background": true,
+      "inputs": [
+        "stories/cookbook/assets/cooks-pen/items/soft-set-fruit-jam.png"
+      ],
+      "inputBase": "repository root",
+      "decision": "Superseded fitting, retained as input to the tea identity reference sheet."
+    },
+    {
+      "source": "sources/tea-stand-whipped-cream.png",
+      "prompt": "prompts/tea-stand-whipped-cream.txt",
+      "transparent_background": true,
+      "inputs": [],
+      "decision": "Superseded fitting, retained as input to the tea identity reference sheet."
+    },
+    {
+      "source": "sources/dining-table-before-leg-repair.png",
+      "prompt": "prompts/dining-table-constructed.txt",
+      "transparent_background": true,
+      "inputs": [
+        "sources/dining-table-construction.png",
+        "sources/dining-room-laden.png"
+      ],
+      "decision": "Perspective correction from a measured construction drawing; retained as input to rear-leg occlusion repair.",
+      "construction": {
+        "source": "sources/dining-table-construction.svg",
+        "roomSize": [
+          853,
+          1845
+        ],
+        "depthVanishingPoint": [
+          570,
+          250
+        ],
+        "reason": "Room and rug depth edges converge right of centre; the far tabletop edge must also be shifted right."
+      }
+    },
+    {
+      "source": "sources/dining-table-constructed.png",
+      "prompt": "prompts/dining-table-rear-legs.txt",
+      "transparent_background": true,
+      "inputs": [
+        "sources/dining-table-before-leg-repair.png"
+      ],
+      "decision": "Selected compound base. Removes exposed rear feet that should be occluded by the tabletop/apron, preserving its corrected perspective."
+    },
+    {
+      "source": "sources/tea-stand-laden.png",
+      "prompt": "prompts/tea-stand-laden.txt",
+      "inputs": [
+        "sources/tea-stand.png",
+        "sources/tea-dish-references.png"
+      ],
+      "transparent_background": true,
+      "decision": "Whole-stand composition establishes perspective and scale; later tier arrangement superseded it. Reference sheet provenance is in tea-dish-references.json."
+    },
+    {
+      "source": "sources/tea-stand-arranged.png",
+      "prompt": "prompts/tea-stand-arrangement.txt",
+      "inputs": [
+        "sources/tea-stand-laden.png"
+      ],
+      "transparent_background": true,
+      "decision": "Intermediate tier arrangement, retained as input to the selected service grouping."
+    },
+    {
+      "source": "sources/tea-stand-service.png",
+      "prompt": "prompts/tea-stand-service.txt",
+      "inputs": [
+        "sources/tea-stand-arranged.png"
+      ],
+      "transparent_background": true,
+      "decision": "Selected by the user. Biscuits above; one scone, cream and spoon-free jam together in the middle; generous roll and three plate-free sandwiches below. A later sandwich orientation was rejected; keep this arrangement."
+    },
+    {
+      "source": "sources/dining-room-centred-rug.png",
+      "prompt": "prompts/dining-rug-outline.txt",
+      "inputs": [
+        "sources/dining-rug-guide.png"
+      ],
+      "transparent_background": false,
+      "decision": "Superseded: too little rug outside the table feet. Retained as the input for the wider rug guide."
+    },
+    {
+      "source": "sources/fitted-tea/cucumber-finger-sandwiches.png",
+      "prompt": "prompts/fitted-tea/cucumber-finger-sandwiches.txt",
+      "inputs": [
+        "sources/tea-stand-service.png"
+      ],
+      "transparent_background": true,
+      "decision": "Selected separate fitted serving extracted from the accepted whole-stand composition; registration preserves its tier, scale and support."
+    },
+    {
+      "source": "sources/fitted-tea/scones.png",
+      "prompt": "prompts/fitted-tea/scones.txt",
+      "inputs": [
+        "sources/tea-stand-service.png"
+      ],
+      "transparent_background": true,
+      "decision": "Selected separate fitted serving extracted from the accepted whole-stand composition; registration preserves its tier, scale and support."
+    },
+    {
+      "source": "sources/fitted-tea/brown-butter-biscuits.png",
+      "prompt": "prompts/fitted-tea/brown-butter-biscuits.txt",
+      "inputs": [
+        "sources/tea-stand-service.png"
+      ],
+      "transparent_background": true,
+      "decision": "Selected separate fitted serving extracted from the accepted whole-stand composition; registration preserves its tier, scale and support."
+    },
+    {
+      "source": "sources/fitted-tea/jam-roll.png",
+      "prompt": "prompts/fitted-tea/jam-roll-clean.txt",
+      "inputs": [
+        "sources/tea-stand-service.png"
+      ],
+      "transparent_background": true,
+      "decision": "Selected separate fitted serving extracted from the accepted whole-stand composition; registration preserves its tier, scale and support."
+    },
+    {
+      "source": "sources/fitted-tea/whipped-cream.png",
+      "prompt": "prompts/fitted-tea/whipped-cream.txt",
+      "inputs": [
+        "sources/tea-stand-service.png"
+      ],
+      "transparent_background": true,
+      "decision": "Selected separate fitted serving extracted from the accepted whole-stand composition; registration preserves its tier, scale and support."
+    },
+    {
+      "source": "sources/fitted-tea/soft-set-fruit-jam.png",
+      "prompt": "prompts/fitted-tea/soft-set-fruit-jam.txt",
+      "inputs": [
+        "sources/tea-stand-service.png"
+      ],
+      "transparent_background": true,
+      "decision": "Selected separate fitted serving extracted from the accepted whole-stand composition; registration preserves its tier, scale and support."
+    },
+    {
+      "source": "sources/dining-room-generous-rug.png",
+      "prompt": "prompts/dining-room-generous-rug.txt",
+      "inputs": [
+        "sources/dining-rug-wide-guide.png"
+      ],
+      "transparent_background": false,
+      "decision": "Selected room. Generous rug extends beyond both front feet and farther toward the viewer, with receding edges following the room. Guide construction and intended footprint are recorded in dining-rug-geometry.json."
     }
   ]
 }

@@ -79,17 +79,20 @@ test('automatic arrivals avoid an upper station, while a deliberate placement th
   expect(state.tokens['name:Window'].hotspot).toBe('name:Workbench');
 });
 
-test('installing compound icons retains base and fitted nodes, alignment and only the base name', async ({page}) => {
+test('installing compound icons retains nodes, alignment and declaration stacking order', async ({page}) => {
   await openFixture(page);
   const house = page.locator('[data-item="name:House"]'), base = await house.locator('.item-icon').elementHandle();
   const before = (await house.boundingBox())!;
-  await house.dragTo(page.locator('[data-item="name:Window"]'));
+  // Fill the foreground slot first; the later addition must be inserted behind it.
+  await house.dragTo(page.locator('[data-item="name:Mat"]'));
   await expect(house.locator('.slot-icon')).toHaveCount(1);
-  const windowOverlay = await house.locator('[data-icon-slot="name:Window"]').elementHandle();
-  await page.locator('[data-item="name:Mat"]').dragTo(house);
+  const matOverlay = await house.locator('[data-icon-slot="name:Mat"]').elementHandle();
+  await page.locator('[data-item="name:Window"]').dragTo(house);
   await expect(house.locator('.slot-icon')).toHaveCount(2);
   expect(await base!.evaluate(image => image.isConnected)).toBe(true);
-  expect(await windowOverlay!.evaluate(image => image.isConnected)).toBe(true);
+  expect(await matOverlay!.evaluate(image => image.isConnected)).toBe(true);
+  const slotOrder = () => house.locator('.slot-icon').evaluateAll(images => images.map(image => image.getAttribute('data-icon-slot')));
+  expect(await slotOrder()).toEqual(['name:Window', 'name:Mat']);
   await house.hover();
   await expect(house.locator('.icon-name')).toHaveText('House');
   await expect(house.locator('.slot')).toHaveCount(0);
@@ -99,6 +102,7 @@ test('installing compound icons retains base and fitted nodes, alignment and onl
   expect(layers).toEqual(Array(3).fill({x: before.x, y: before.y, width: 104, height: 72}));
   await page.reload();
   await expect(house.locator('.slot-icon')).toHaveCount(2);
+  expect(await slotOrder()).toEqual(['name:Window', 'name:Mat']);
   expect(await house.boundingBox()).toEqual(before);
 });
 

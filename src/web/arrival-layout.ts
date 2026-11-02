@@ -191,6 +191,24 @@ function placeGroup(group: ArrivalTile[], fixed: ArrivalTile[], bounds: Rect, ho
   return best?.placed;
 }
 
+/** Retry a blocked arrival as a whole before accepting avoidable overlap.
+ * Corner preferences offer compact alternatives to the local displacement beam;
+ * choose among them by displacement from the actual previous positions. */
+function repackGroup(group: ArrivalTile[], fixed: ArrivalTile[], bounds: Rect, hotspots: HotspotRegion[], screen: Rect) {
+  const nearby=placeGroup(group,fixed,bounds,hotspots,.1,screen);
+  if(nearby)return nearby;
+  const original=new Map(group.map(t=>[t.id,t]));
+  let best:{placed:ArrivalTile[];cost:number}|undefined;
+  for(const farX of [false,true])for(const farY of [false,true]){
+    const seed=group.map(t=>({...t,x:farX?right(bounds)-t.width:bounds.x,y:farY?bottom(bounds)-t.height:bounds.y}));
+    const placed=placeGroup(seed,fixed,bounds,hotspots,.1,screen);
+    if(!placed)continue;
+    const cost=placed.reduce((sum,t)=>sum+distance(t,original.get(t.id)!),0);
+    if(!best||cost<best.cost)best={placed,cost};
+  }
+  return best?.placed;
+}
+
 export function arrivalLayout(tiles: ArrivalTile[], options: ArrivalOptions): ArrivalLayout {
   const {bounds,hotspots,previousChapter}=options;
   const working={x:bounds.x+8,y:bounds.y+EDGE,width:Math.max(0,bounds.width-16),height:Math.max(0,Math.min(bottom(bounds)-2*EDGE,options.goalsTop-GAP)-bounds.y-EDGE)};
@@ -227,6 +245,7 @@ export function arrivalLayout(tiles: ArrivalTile[], options: ArrivalOptions): Ar
   const reserved=reservation.barrier?[reservation.barrier]:reservation.supplies;
   const obstacles=[...hotspots,...reserved];
   const upper=reservation.barrier?{...working,height:Math.max(0,reservation.barrier.y-working.y)}:working;
+  const suppliesCrowded=crowded;
   const placed=[...fixed];
   const chapters=[...new Set(carried.map(t=>t.fromChapter??previousChapter??-1))].sort((a,b)=>b-a);
   for(const chapter of chapters){
@@ -237,6 +256,9 @@ export function arrivalLayout(tiles: ArrivalTile[], options: ArrivalOptions): Ar
     let result:ArrivalTile[]|undefined;
     for(const threshold of [.1,.15,.25,.4,.6,1]){
       result=placeGroup(group,placed,region,obstacles,threshold,bounds);
+      // The upper two-thirds are a preference, not a reason to conceal an
+      // object when the unreserved board still has room at this allowance.
+      if(!result&&region.height<upper.height)result=placeGroup(group,placed,upper,obstacles,threshold,bounds);
       if(result){if(threshold>.1)crowded=true;break;}
     }
     if(!result){
@@ -244,6 +266,15 @@ export function arrivalLayout(tiles: ArrivalTile[], options: ArrivalOptions): Ar
       result=group.map(t=>({...t,...(hotspotSpace(t,upper,obstacles)??hotspotSpace(t,bounds,obstacles)??hotspotSpace(t,bounds,hotspots))}));
     }
     placed.push(...result);
+  }
+  if(crowded&&carried.length>1){
+    // A newer group's valid position can block an older group. Preserve the
+    // normal chapter priority when it works, but reconsider all movable
+    // arrivals together before settling for larger overlaps. Anchors and the
+    // concrete supply reservation remain fixed throughout this retry.
+    const ordered=[...carried].sort((a,b)=>(b.fromChapter??previousChapter??-1)-(a.fromChapter??previousChapter??-1));
+    const joint=repackGroup(ordered,fixed,upper,obstacles,bounds);
+    if(joint){placed.splice(fixed.length,placed.length-fixed.length,...joint);crowded=suppliesCrowded;}
   }
   // Lift the reserved arrangement only to a newly validated position below the
   // carried objects. A station between the two positions can prevent the lift.

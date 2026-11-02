@@ -21,8 +21,9 @@ const reworkStations = rework.pages.flatMap(page => page.hotspots.map(h => ({
   id: h.id, url: h.receivingIcon, x: h.x * 390, y: h.y * 844,
   width: rework.stationDisplay.width, height: rework.stationDisplay.height,
 })));
-for(const [id,slug,x,y] of [['id:afternoon-tea-hob','hob',.5,.19],['id:mushroom-pan','mushroom-pan',.5,.175],['name:Freezing churn','freezing-churn',.5,.175]]) {
-  reworkStations.push({id,url:`assets/rework/stations/${slug}.png`,x:x*390,y:y*844,width:132,height:96});
+for(const [id,slug,x,y] of [['id:afternoon-tea-kettle','kettle',.5,.22],['id:mushroom-pan','mushroom-pan',.5,.175],['name:Freezing churn','freezing-churn',.5,.175]]) {
+  const display=rework.stations.find(station=>station.name===slug)?.display??rework.stationDisplay;
+  reworkStations.push({id,url:`assets/rework/stations/${slug}.png`,x:x*390,y:y*844,...display});
 }
 const requested = process.argv.find(a => a.startsWith('--chapters='))?.slice(11).split(',').map(Number);
 const deviceSelection = process.argv.find(a => a.startsWith('--devices='))?.slice(10).split(',');
@@ -96,7 +97,8 @@ try {
           const r = element.getBoundingClientRect();
           return {x: r.x, y: r.y, width: r.width, height: r.height, right: r.right, bottom: r.bottom};
         };
-        const box = rect(el), scene = el.querySelector('.scene-art');
+        const box = rect(el), scene = el.querySelector('.scene-art')
+          ?? document.querySelector(`.scene-panel[data-chapter="${el.dataset.chapter}"] .scene-art`);
         const items = [...el.querySelectorAll('.thing')].map(element => ({id: element.dataset.item, name: element.getAttribute('aria-label'), ...rect(element)}));
         const hotspots = [...el.querySelectorAll('.hotspot')].map(element => ({id: element.dataset.hotspot, name: element.getAttribute('aria-label'), circular: element.classList.contains('hotspot-circular'), ...rect(element)}));
         const overlap = (a, b) => Math.min(a.right, b.right) - Math.max(a.x, b.x) > 1 && Math.min(a.bottom, b.bottom) - Math.max(a.y, b.y) > 1;

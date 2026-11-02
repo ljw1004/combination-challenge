@@ -2,11 +2,11 @@
 
 Write a cookbook. Make doughs, sauces, fillings, pastries and cakes.
 
-> NOTE: Adapted from `kitchen-caravan-small-sessions-v8` at source commit `1c95988a4e3771abcf2be28183ce009d38645d2c`. The original conversion retained its sessions and mechanics; the practical-cookbook revision changes introductions, selected preparations, fixed equipment and the final feast. Decision history and evidence limits are in notes.md and the Cookbook study outcomes.
+> NOTE: Adapted from `kitchen-caravan-small-sessions-v8` at source commit `1c95988a4e3771abcf2be28183ce009d38645d2c`. The original conversion retained its sessions and mechanics; the practical-cookbook revision changes introductions, selected preparations, fixed equipment and dinner. Decision history and evidence limits are in notes.md and the Cookbook study outcomes.
 
 > NOTE: These are cooking sessions with usable portions and appropriate storage between them. Recipes compress proportions, seasoning, preparation, waiting, heating and cooling; they are not complete formulas, preservation procedures or shelf-life guarantees. Heat is explicit where it explains a transformation or keeps a sequence intelligible, not as a requirement for every warm dish.
 
-> NOTE: Cook’s Pen illustrations remain the art direction. The revised dishes, equipment and serving furniture use finished pen-and-wash art; source paintings are retained in the Cookbook study. Afternoon tea takes place in a home parlour and the feast in a home dining room. Standalone icons have a 60px minimum longest edge at the 390 × 844 reference surface. The feast table is a 320 × 260px compound with seven required servings and space for both cake choices; the tiered tea stand is 220 × 240px. Each chapter has at most two fixed stations; names and receiving outlines come from the player. See docs/ux.md for current interaction and artwork decisions.
+> NOTE: Cook’s Pen illustrations remain the art direction. The revised dishes, equipment and serving furniture use finished pen-and-wash art; source paintings are retained in the Cookbook study. Afternoon tea takes place in a home parlour and dinner in a home dining room. Standalone icons follow the physical size hierarchy in docs/icon-guide.md. The dining table has seven required servings and space for both cakes; the tiered tea stand is 220 × 240px. Each chapter has at most two fixed stations; names and receiving outlines come from the player. See design-brief.md for lasting Cookbook intent and docs/ux.md for interaction rules.
 
 
 ## Breakfast
@@ -56,10 +56,9 @@ Juice, porridge, bread.
 
 *Dairy*
 
-Yoghurt and butter.
-
 **Goals**
 - Churn butter. -- Butter
+- next: Whip cream. -- Whipped cream
 - Prepare fruit yogurt. -- Fruit yogurt
 
 **Hotspots**
@@ -80,9 +79,15 @@ Yoghurt and butter.
 - Fruit yogurt
   - icon: ![Fruit yogurt](assets/cooks-pen/items/fruit-yogurt.png)
 
+- Whisk
+  - icon: ![Whisk](assets/cooks-pen/items/whisk.png)
+- Whipped cream
+  - icon: ![Whipped cream](assets/cooks-pen/items/whipped-cream.png)
+
 **Combinations**
 - Milk + Yogurt starter [preserve] @ Warm shelf -> Yogurt
 - Cream @ Butter churn -> Butter
+- Cream + Whisk -> Whipped cream
 - Yogurt + Apples -> Fruit yogurt
 
 > NOTE: [OpenStax: What Our Ancestors Knew](https://openstax.org/books/microbiology/pages/1-1-what-our-ancestors-knew). Fermentation history; not exact recipe ratios or a universal chronology.
@@ -96,6 +101,7 @@ What could be nicer than freshly baked bread with butter?
 
 **Goals**
 - Serve bread and butter. -- Bread and butter
+- next: Make cucumber finger sandwiches. -- Cucumber finger sandwiches
 
 **Hotspots**
 - Proofing shelf (at 28.205128%, 18.246445%)
@@ -116,17 +122,26 @@ What could be nicer than freshly baked bread with butter?
 - Bread and butter
   - icon: ![Bread and butter](assets/rework/items/bread-and-butter.png)
 
+- Cucumber
+  - icon: ![Cucumber](assets/cooks-pen/items/cucumber.png)
+- Chef’s knife
+  - icon: ![Chef’s knife](assets/rework/items/chefs-knife.png)
+- Sliced cucumber
+  - icon: ![Sliced cucumber](assets/rework/items/sliced-cucumber.png)
+- Cucumber finger sandwiches
+  - icon: ![Cucumber finger sandwiches](assets/rework/items/cucumber-finger-sandwiches.png)
+
 **Combinations**
 - Dough + Baker’s yeast [preserve] @ Proofing shelf -> Leavened dough
 - Leavened dough [transform] @ `bakehouse-oven-bread` -> Bread
 - Bread + Butter -> Bread and butter
+- Cucumber [preserve] + Chef’s knife [preserve] -> Sliced cucumber
+- Bread and butter [transform] + Sliced cucumber [consume] -> Cucumber finger sandwiches
 
 ## Strained yogurt
 ![Yogurt, thick and fresh](assets/cooks-pen/backgrounds/cucumber-dill-and-yogurt.webp)
 
 *Strained yoghurt*
-
-Herbs, cucumber and flatbread.
 
 **Goals**
 - Serve flatbread with herbed yogurt. -- Flatbread with herbed yogurt
@@ -140,7 +155,6 @@ Herbs, cucumber and flatbread.
 - Herbs
   - icon: ![Herbs](assets/cooks-pen/items/herbs.png)
 - Cucumber
-  - icon: ![Cucumber](assets/cooks-pen/items/cucumber.png)
 - Yogurt
   - icon: ![Yogurt](assets/cooks-pen/items/yogurt.png)
 - Flatbread
@@ -163,8 +177,6 @@ Herbs, cucumber and flatbread.
 
 *Vinegar and dressing*
 
-Cider vinegar and a green salad.
-
 Acidity balances richness.
 
 **Goals**
@@ -184,7 +196,7 @@ Acidity balances richness.
 - Salad leaves
   - icon: ![Salad leaves](assets/cooks-pen/items/salad-leaves.png)
 - Apple juice
-  - icon: ![Apple juice](assets/cooks-pen/items/apple-juice.png)
+  - icon: ![Apple juice](assets/rework/items/apple-juice.png)
 - Hard cider
   - icon: ![Hard cider](assets/cooks-pen/items/hard-cider.png)
 
@@ -192,7 +204,7 @@ Acidity balances richness.
 - Apple juice + Cider yeast [preserve] -> Hard cider
 - Hard cider [transform] + Vinegar culture [preserve] @ Air fed vat -> Cider vinegar
 - Cider vinegar [transform] + Olive oil [preserve] -> Vinaigrette
-- Salad leaves [preserve] + Vinaigrette -> Dressed salad
+- Salad leaves [consume] + Vinaigrette -> Dressed salad
 
 > NOTE: [Aspall: Vinegar Production](https://www.aspall.co.uk/blogs/our-story/vinegar-production). Producer account of alcohol-to-acid conversion and oxygen supply; no home-preservation guarantee.
 
@@ -200,8 +212,6 @@ Acidity balances richness.
 ![Toast and warm apples](assets/cooks-pen/backgrounds/warm-apples-cool-yogurt.webp)
 
 *Toast and compote*
-
-Herb butter, warm apples and yoghurt.
 
 **Goals**
 - Grill herb toast. -- Herb toast
@@ -239,9 +249,7 @@ Herb butter, warm apples and yoghurt.
 ## Vegetable broth and onion soup
 ![A pot of broth](assets/cooks-pen/backgrounds/onions-and-a-bowl-of-broth.webp)
 
-*Soup*
-
-Onion soup.
+*Onion soup*
 
 **Goals**
 - Cook bread soup. -- Bread soup
@@ -287,8 +295,6 @@ Onion soup.
 
 *Roast vegetables and beans*
 
-A hearty filling for flatbread.
-
 **Goals**
 - Roast the roots. -- Roasted roots
 - next: Fill flatbread with roots and beans. -- Root-and-bean flatbread
@@ -325,8 +331,6 @@ A hearty filling for flatbread.
 ![A salad wants contrast](assets/cooks-pen/backgrounds/leaves-mustard-and-crunch.webp)
 
 *Salads*
-
-Leaves, croutons, roasted roots.
 
 Add variety through texture
 
@@ -368,8 +372,6 @@ Add variety through texture
 ![Fruit, sugar and time](assets/cooks-pen/backgrounds/citrus-peel-and-marmalade.webp)
 
 *Preserves*
-
-Jam, syrup and marmalade.
 
 **Goals**
 - (three goals are a lot but okay here because jam, syrup, and marmalade show distinct uses of the preserving stove)
@@ -415,12 +417,10 @@ Jam, syrup and marmalade.
 ## Sponge cake
 ![Cake lightened with air](assets/cooks-pen/backgrounds/air-in-the-sponge.webp)
 
-*Sponge cake*
-
-Plain and chocolate.
+*Sponge cakes*
 
 **Goals**
-- Bake a plain sponge cake. -- Sponge cake
+- Make a jam roll. -- Jam roll
 - Bake a chocolate sponge. -- Chocolate sponge
 
 **Hotspots**
@@ -445,6 +445,9 @@ Plain and chocolate.
 - Chocolate sponge batter
   - icon: ![Chocolate sponge batter](assets/cooks-pen/items/chocolate-sponge-batter.png)
 
+- Jam roll
+  - icon: ![Jam roll](assets/cooks-pen/items/jam-roll.png)
+
 **Combinations**
 - Eggs + Whisk -> Egg foam
 - Egg foam [transform] + Sugar -> Sweet egg foam
@@ -452,13 +455,12 @@ Plain and chocolate.
 - Sponge batter [transform] @ `choux-oven-sponge` -> Sponge cake
 - Sponge batter [transform] + Cocoa powder [consume] -> Chocolate sponge batter
 - Chocolate sponge batter [transform] @ `choux-oven-sponge` -> Chocolate sponge
+- Sponge cake + Soft-set fruit jam -> Jam roll
 
 ## Scones and brown-butter biscuits
 ![Scones for tea](assets/cooks-pen/backgrounds/scones-jam-and-cream.webp)
 
 *Baking for tea*
-
-Scones and brown-butter biscuits.
 
 **Goals**
 - Bake scones. -- Scones
@@ -515,40 +517,40 @@ Scones and brown-butter biscuits.
 
 *Afternoon tea*
 
-Scones, biscuits, cake, bread and butter.
-
 **Goals**
-- Fill the tea stand. -- Tea stand[Bread and butter, Scones, Brown-butter biscuits, Sponge cake, Soft-set fruit jam]
-- Brew a pot of tea. -- Pot of tea
+- Fill the tea stand. -- Tea stand[Cucumber finger sandwiches, Scones, Brown-butter biscuits, Jam roll, Whipped cream, Soft-set fruit jam]
+- Brew a cup of tea. -- Cup of tea
 
 **Hotspots**
-- `afternoon-tea-hob` Hob (at 50%, 19%)
-  - icon: ![Hob](assets/rework/stations/hob.png)
+- `afternoon-tea-kettle` Kettle (at 50%, 22%)
+  - icon: ![Kettle](assets/rework/stations/kettle.png)
 
 **Items**
 - Tea stand (compound)
-  - icon: ![Tea stand](assets/rework/compounds/tea-stand.png) (at 50%, 47.3%)
-  - unnamed slot: accepts Bread and butter, icon: ![Fitted bread and butter](assets/rework/compounds/tea-stand-bread-and-butter.png)
+  - icon: ![Tea stand](assets/rework/compounds/tea-stand.png) (at 50%, 44%)
+  - unnamed slot: accepts Cucumber finger sandwiches, icon: ![Fitted cucumber finger sandwiches](assets/rework/compounds/tea-stand-cucumber-finger-sandwiches.png)
   - unnamed slot: accepts Scones, icon: ![Fitted scones](assets/rework/compounds/tea-stand-scones.png)
   - unnamed slot: accepts Brown-butter biscuits, icon: ![Fitted biscuits](assets/rework/compounds/tea-stand-brown-butter-biscuits.png)
-  - unnamed slot: accepts Sponge cake, icon: ![Fitted sponge cake](assets/rework/compounds/tea-stand-sponge-cake.png)
+  - unnamed slot: accepts Jam roll, icon: ![Fitted jam roll](assets/rework/compounds/tea-stand-jam-roll.png)
+  - unnamed slot: accepts Whipped cream, icon: ![Fitted whipped cream](assets/rework/compounds/tea-stand-whipped-cream.png)
   - unnamed slot: accepts Soft-set fruit jam, icon: ![Fitted jam](assets/rework/compounds/tea-stand-soft-set-fruit-jam.png)
-- Bread and butter
+- Cucumber finger sandwiches
 - Scones
 - Brown-butter biscuits
-- Sponge cake
+- Jam roll
+- Whipped cream
 - Soft-set fruit jam
 - Water
-- Tea leaves
-  - icon: ![Tea leaves](assets/rework/items/tea-leaves.png)
-- Boiling water
-  - icon: ![Boiling water](assets/rework/items/boiling-water.png)
-- Pot of tea
-  - icon: ![Pot of tea](assets/rework/items/pot-of-tea.png)
+- Tea bags
+  - icon: ![Tea bags](assets/rework/items/tea-bags.png)
+- Cup of boiling water
+  - icon: ![Cup of boiling water](assets/rework/items/cup-of-boiling-water.png)
+- Cup of tea
+  - icon: ![Cup of tea](assets/rework/items/cup-of-tea.png)
 
 **Combinations**
-- Water @ `afternoon-tea-hob` -> Boiling water
-- Boiling water [transform] + Tea leaves [preserve] -> Pot of tea
+- Water @ `afternoon-tea-kettle` -> Cup of boiling water
+- Cup of boiling water [transform] + Tea bags [preserve] -> Cup of tea
 
 > NOTE: The [Ritz afternoon tea](https://www.theritzlondon.com/dine-with-us/afternoon-tea/) and [Orangery](https://www.hrp.org.uk/kensington-palace/visit/the-orangery-restaurant/) provide the serving reference. The game uses its existing breads and cakes rather than reproducing either menu. Tea is a separate preparation, not a fitted part of the stand; no delivery location is required.
 
@@ -556,8 +558,6 @@ Scones, biscuits, cake, bread and butter.
 ![One sheet, two pastas](assets/cooks-pen/backgrounds/ribbons-and-ravioli.webp)
 
 *Fresh pasta*
-
-Noodles and mushroom ravioli.
 
 **Goals**
 - (three goals are a lot but okay here because noodles and filled ravioli share reusable pasta sheets while breadcrumbs are a separate preparation)
@@ -571,8 +571,7 @@ Noodles and mushroom ravioli.
 
 **Items**
 - Softened onions
-- Kitchen knife
-  - icon: ![Kitchen knife](assets/cooks-pen/items/bread-knife.png)
+- Chef’s knife
 - Eggs
   - icon: ![Eggs](assets/cooks-pen/items/eggs.png)
 - Rolling pin
@@ -599,7 +598,7 @@ Noodles and mushroom ravioli.
 - Flour + Eggs -> Egg pasta dough
 - Egg pasta dough [transform] + Rolling pin [preserve] -> Pasta sheets
 - Pasta sheets + Cutting wheel [preserve] -> Fresh noodles
-- Mushrooms [transform] + Kitchen knife [preserve] -> Chopped mushrooms
+- Mushrooms [transform] + Chef’s knife [preserve] -> Chopped mushrooms
 - Chopped mushrooms [transform] + Softened onions [transform] @ `mushroom-pan` -> Mushroom filling
 - Pasta sheets + Mushroom filling -> Filled ravioli
 
@@ -608,9 +607,7 @@ Noodles and mushroom ravioli.
 ## Pasta with butter and toasted crumbs
 ![Pasta at the table](assets/cooks-pen/backgrounds/herb-butter-and-pasta.webp)
 
-*Pasta for supper*
-
-Noodles with toasted crumbs; ravioli with brown butter.
+*Two pastas*
 
 **Goals**
 - Finish noodles with toasted crumbs. -- Noodles with toasted crumbs
@@ -644,13 +641,18 @@ Noodles with toasted crumbs; ravioli with brown butter.
 - Brown butter
   - icon: ![Brown butter](assets/rework/items/brown-butter.png)
 
+- Herbs
+- Brown butter with herbs
+  - icon: ![Brown butter with herbs](assets/rework/items/brown-butter-with-herbs.png)
+
 **Combinations**
 - Fresh noodles [transform] @ Cooking pot -> Cooked noodles
 - Cooked noodles + Butter -> Buttered noodles
 - Breadcrumbs @ Frying pan -> Toasted crumbs
 - Buttered noodles [transform] + Toasted crumbs [preserve] -> Noodles with toasted crumbs
 - Filled ravioli [transform] @ Cooking pot -> Cooked ravioli
-- Cooked ravioli [transform] + Brown butter -> Ravioli with brown butter
+- Brown butter + Herbs @ Frying pan -> Brown butter with herbs
+- Cooked ravioli [transform] + Brown butter with herbs [consume] @ Frying pan -> Ravioli with brown butter
 
 > NOTE: [King Arthur: Brown butter](https://www.kingarthurbaking.com/blog/2020/01/08/brown-butter). Browning the milk solids changes flavour; heating and cooling are compressed.
 
@@ -658,8 +660,6 @@ Noodles with toasted crumbs; ravioli with brown butter.
 ![Two ways with butter](assets/cooks-pen/backgrounds/butter-between-the-layers.webp)
 
 *Pastry*
-
-Shortcrust and puff pastry.
 
 **Goals**
 - Prepare shortcrust. -- Shortcrust
@@ -690,8 +690,6 @@ Shortcrust and puff pastry.
 ![What pastry can hold](assets/cooks-pen/backgrounds/pastry-shells-and-twists.webp)
 
 *Pies and tarts*
-
-Fruit tart, bean pie and cheese straws.
 
 **Goals**
 - Bake a bean pie. -- Bean pie
@@ -742,8 +740,6 @@ Fruit tart, bean pie and cheese straws.
 
 *Sauces*
 
-Béchamel and cheese sauce.
-
 **Goals**
 - Prepare cheese sauce. -- Cheese sauce
 
@@ -771,9 +767,7 @@ Béchamel and cheese sauce.
 ## Cauliflower cheese and baked noodles
 ![A vegetable supper](assets/cooks-pen/backgrounds/cauliflower-to-gratin.webp)
 
-*A vegetable supper*
-
-Cauliflower cheese and baked noodles.
+*Baked dishes*
 
 **Goals**
 - Cook a cauliflower dish.
@@ -823,8 +817,6 @@ Cauliflower cheese and baked noodles.
 
 *Bottling and canning*
 
-Fruit and beans for another day.
-
 **Goals**
 - Bottle apples in syrup. -- Processed fruit jar
 - Can spare bean stew. -- Processed bean-stew tin
@@ -868,9 +860,7 @@ Fruit and beans for another day.
 ## Jam tart and breadcrumb crumble
 ![Tarts from earlier pages](assets/cooks-pen/backgrounds/jam-tart-and-apple-crumble.webp)
 
-*Fruit desserts*
-
-Jam tart and breadcrumb crumble.
+*Jam tart and crumble*
 
 **Goals**
 - Bake a jam tart. -- Jam tart
@@ -917,8 +907,6 @@ Jam tart and breadcrumb crumble.
 
 *Marzipan*
 
-Almond pastries and stuffed dates.
-
 **Goals**
 - Fill puff pastry with almond paste. -- Almond-filled puff pastry
 
@@ -955,8 +943,6 @@ Almond pastries and stuffed dates.
 ![Sugar taken further](assets/cooks-pen/backgrounds/amber-sugar-and-brittle.webp)
 
 *Caramel*
-
-Almond brittle and caramel sauce.
 
 **Goals**
 - Make almond brittle. -- Almond brittle
@@ -1035,8 +1021,6 @@ A pouring sauce and a pastry filling.
 
 *Bread pudding and fruit tarts*
 
-Caramel, custard and preserved fruit.
-
 **Goals**
 - Fill a fruit cream tart. -- Fruit cream tart
 - next: Serve the bottled fruit with custard. -- Bottled fruit with custard
@@ -1096,8 +1080,6 @@ Caramel, custard and preserved fruit.
 
 *Choux pastry*
 
-Hollow buns and cheese puffs.
-
 **Goals**
 - Bake hollow choux buns. -- Hollow choux buns
 - Bake cheese puffs. -- Cheese puffs
@@ -1140,19 +1122,14 @@ Hollow buns and cheese puffs.
 ## Cream puffs
 ![Inside a choux bun](assets/cooks-pen/backgrounds/cream-in-the-hollow.webp)
 
-*Filled choux*
-
-Cream puffs and caramel choux.
+*Cream puffs*
 
 **Goals**
 - Finish caramel choux. -- Caramel choux
-- Whip cream. -- Whipped cream
-- next: Fill cream puffs. -- Cream puffs
+- Fill cream puffs. -- Cream puffs
 
 **Items**
-- Whisk
-  - icon: ![Whisk](assets/cooks-pen/items/whisk.png)
-- Cream
+- Whipped cream
 - Hollow choux buns
   - icon: ![Hollow choux buns](assets/cooks-pen/items/hollow-choux-buns.png)
 - Pastry cream
@@ -1163,7 +1140,6 @@ Cream puffs and caramel choux.
   - icon: ![Caramel choux](assets/cooks-pen/items/caramel-choux.png)
 
 **Combinations**
-- Cream + Whisk -> Whipped cream
 - Hollow choux buns [transform] + Pastry cream -> Custard-filled choux
 - Hollow choux buns [transform] + Whipped cream -> Cream puffs
 - Custard-filled choux [transform] + Caramel sauce -> Caramel choux
@@ -1172,8 +1148,6 @@ Cream puffs and caramel choux.
 ![A roll and a spoonful](assets/cooks-pen/backgrounds/jam-spirals-and-trifle.webp)
 
 *Swiss roll and trifle*
-
-Jam, custard and cream.
 
 **Goals**
 - Finish a jam-and-cream roll. -- Jam-and-cream roll
@@ -1184,12 +1158,10 @@ Jam, custard and cream.
   - icon: ![Sponge cake](assets/cooks-pen/items/sponge-cake.png)
 - Soft-set fruit jam
 - Whipped cream
-  - icon: ![Whipped cream](assets/cooks-pen/items/whipped-cream.png)
 - Vanilla custard
   - icon: ![Vanilla custard](assets/cooks-pen/items/vanilla-custard.png)
 - Apple compote
 - Jam roll
-  - icon: ![Jam roll](assets/cooks-pen/items/jam-roll.png)
 - Jam-and-cream roll
   - icon: ![Jam-and-cream roll](assets/cooks-pen/items/jam-and-cream-roll.png)
 - Trifle base
@@ -1200,7 +1172,6 @@ Jam, custard and cream.
   - icon: ![Cream-topped trifle](assets/cooks-pen/items/cream-topped-trifle.png)
 
 **Combinations**
-- Sponge cake + Soft-set fruit jam -> Jam roll
 - Jam roll [transform] + Whipped cream -> Jam-and-cream roll
 - Sponge cake + Vanilla custard -> Trifle base
 - Trifle base [transform] + Apple compote -> Fruit trifle
@@ -1210,8 +1181,6 @@ Jam, custard and cream.
 ![Begin with chocolate](assets/cooks-pen/backgrounds/cacao-to-chocolate.webp)
 
 *Chocolate*
-
-Dark chocolate, ganache and glaze.
 
 **Goals**
 - Prepare dark chocolate. -- Dark chocolate
@@ -1247,11 +1216,9 @@ Dark chocolate, ganache and glaze.
 
 *Chocolate desserts*
 
-Filled cake, marzipan chocolates and profiteroles.
-
 **Goals**
 - (three goals are a lot but okay here because cake, coated marzipan, and profiteroles are distinct finishing tasks at one counter)
-- Fill a chocolate cake with ganache. -- Ganache-filled chocolate cake
+- Fill and ice a chocolate cake. -- Iced chocolate cake
 - Coat marzipan in chocolate. -- Chocolate-coated marzipan
 - Finish chocolate profiteroles. -- Chocolate profiteroles
 
@@ -1273,8 +1240,19 @@ Filled cake, marzipan chocolates and profiteroles.
 - Chocolate profiteroles
   - icon: ![Chocolate profiteroles](assets/cooks-pen/items/chocolate-profiteroles.png)
 
+- Confectioner’s sugar
+- Water
+- Ganache-filled chocolate cake
+  - icon: ![Ganache-filled chocolate cake](assets/cooks-pen/items/ganache-filled-chocolate-cake.png)
+- Icing
+  - icon: ![Icing](assets/cooks-pen/items/water-icing.png)
+- Iced chocolate cake
+  - icon: ![Iced chocolate cake](assets/cooks-pen/items/iced-chocolate-cake.png)
+
 **Combinations**
 - Chocolate sponge [transform] + Chocolate ganache -> Ganache-filled chocolate cake
+- Confectioner’s sugar + Water -> Icing
+- Ganache-filled chocolate cake [transform] + Icing [consume] -> Iced chocolate cake
 - Marzipan [transform] + Dark chocolate -> Chocolate-coated marzipan
 - Cream puffs [transform] + Chocolate glaze -> Chocolate profiteroles
 - Cream puffs [transform] + Chocolate ganache -> Chocolate profiteroles
@@ -1282,9 +1260,7 @@ Filled cake, marzipan chocolates and profiteroles.
 ## Muffins and soda bread
 ![Bread without waiting](assets/cooks-pen/backgrounds/soda-bread-and-fruit-muffins.webp)
 
-*Quick baking*
-
-Fruit muffins and soda bread.
+*Muffins and soda bread*
 
 **Goals**
 - Bake fruit muffins. -- Fruit muffins
@@ -1337,9 +1313,7 @@ Fruit muffins and soda bread.
 ## Ice cream and sorbet
 ![Cold changes things](assets/cooks-pen/backgrounds/three-kinds-of-frozen.webp)
 
-*Frozen desserts*
-
-Ice cream, frozen custard and fruit sorbet.
+*Ice cream and sorbet*
 
 **Goals**
 - (three goals are a lot but okay here because three prepared bases teach the same churn operation through different frozen results)
@@ -1379,8 +1353,6 @@ Ice cream, frozen custard and fruit sorbet.
 ![The egg-white pages](assets/cooks-pen/backgrounds/egg-whites-almonds-and-air.webp)
 
 *Meringues and macarons*
-
-Fruit, cream and chocolate.
 
 **Goals**
 - Fill fruit meringue nests. -- Fruit meringue nests
@@ -1432,9 +1404,7 @@ Fruit, cream and chocolate.
 ## Sundaes and Baked Alaska
 ![Ice cream dressed for dinner](assets/cooks-pen/backgrounds/baked-alaska-and-a-sundae.webp)
 
-*Ice cream for dessert*
-
-Sundaes and Baked Alaska.
+*Sundaes and Baked Alaska*
 
 **Goals**
 - Finish a sundae.
@@ -1461,6 +1431,8 @@ Sundaes and Baked Alaska.
   - icon: ![Caramel sundae](assets/cooks-pen/items/caramel-sundae.png)
 - Ice-cream cake
   - icon: ![Ice-cream cake](assets/cooks-pen/items/ice-cream-cake.png)
+- Unbaked Alaska
+  - icon: ![Unbaked Alaska](assets/rework/items/unbaked-alaska.png)
 - Baked Alaska
   - icon: ![Baked Alaska](assets/cooks-pen/items/baked-alaska.png)
 - Chocolate sundae
@@ -1469,7 +1441,8 @@ Sundaes and Baked Alaska.
 **Combinations**
 - Frozen custard [transform] + Caramel sauce -> Caramel sundae
 - Sponge cake + Milk ice cream -> Ice-cream cake
-- Ice-cream cake [transform] + Meringue @ `meringue-oven-dessert-service` -> Baked Alaska
+- Ice-cream cake [transform] + Meringue -> Unbaked Alaska
+- Unbaked Alaska [transform] @ `meringue-oven-dessert-service` -> Baked Alaska
 - Milk ice cream [transform] + Chocolate glaze -> Chocolate sundae
 - Milk ice cream [transform] + Caramel sauce -> Caramel sundae
 
@@ -1519,14 +1492,10 @@ Beef and mushrooms in puff pastry.
 ## Celebration cakes
 ![Celebration cakes](assets/cooks-pen/backgrounds/a-supper-built-from-pages.webp)
 
-*Celebration cakes*
-
-Vanilla buttercream or chocolate ganache.
+*Buttercream cake*
 
 **Goals**
-- Finish a cake for the feast.
-  - either: Vanilla sandwich cake
-  - or: Iced chocolate cake
+- Make a vanilla sandwich cake. -- Vanilla sandwich cake
 
 **Items**
 - Butter
@@ -1534,52 +1503,41 @@ Vanilla buttercream or chocolate ganache.
   - icon: ![Confectioner’s sugar](assets/cooks-pen/items/confectioners-sugar.png)
 - Vanilla
 - Sponge cake
-- Water
-- Ganache-filled chocolate cake
-  - icon: ![Ganache-filled chocolate cake](assets/cooks-pen/items/ganache-filled-chocolate-cake.png)
 - Buttercream
   - icon: ![Buttercream](assets/cooks-pen/items/buttercream.png)
 - Vanilla buttercream
   - icon: ![Vanilla buttercream](assets/cooks-pen/items/vanilla-buttercream.png)
 - Vanilla sandwich cake
   - icon: ![Vanilla sandwich cake](assets/cooks-pen/items/vanilla-sandwich-cake.png)
-- Water icing
-  - icon: ![Water icing](assets/cooks-pen/items/water-icing.png)
-- Iced chocolate cake
-  - icon: ![Iced chocolate cake](assets/cooks-pen/items/iced-chocolate-cake.png)
 
 **Combinations**
 - Butter + Confectioner’s sugar -> Buttercream
 - Buttercream [transform] + Vanilla -> Vanilla buttercream
 - Sponge cake + Vanilla buttercream [consume] -> Vanilla sandwich cake
-- Confectioner’s sugar + Water -> Water icing
-- Ganache-filled chocolate cake [transform] + Water icing [consume] -> Iced chocolate cake
 
-## A feast for the dining room
-![A feast for the dining room](assets/rework/backgrounds/dining-room.webp)
+## Dinner
+![Dinner](assets/rework/backgrounds/dining-room.webp)
 
-*A feast*
-
-Wellington, bean pie, salad and plenty of dessert.
+*Dinner*
 
 Balance rich with plain.
 
 **Goals**
-- Lay out the feast.
-  - either: Feast table[Beef Wellington, Bean pie, Green salad with croutons, Apple juice, Fruit cream tart, Chocolate profiteroles, Vanilla sandwich cake]
-  - or: Feast table[Beef Wellington, Bean pie, Green salad with croutons, Apple juice, Fruit cream tart, Chocolate profiteroles, Iced chocolate cake]
+- Set the table for dinner.
+  - either: Dining table[Beef Wellington, Bean pie, Green salad with croutons, Apple juice, Fruit cream tart, Chocolate profiteroles, Vanilla sandwich cake]
+  - or: Dining table[Beef Wellington, Bean pie, Green salad with croutons, Apple juice, Fruit cream tart, Chocolate profiteroles, Iced chocolate cake]
 
 **Items**
-- Feast table (compound)
-  - icon: ![Feast table](assets/rework/compounds/feast-table.png) (at 50%, 56%)
-  - unnamed slot: accepts Beef Wellington, icon: ![Fitted Beef Wellington](assets/rework/compounds/table-beef-wellington.png)
-  - unnamed slot: accepts Bean pie, icon: ![Fitted Bean pie](assets/rework/compounds/table-bean-pie.png)
-  - unnamed slot: accepts Green salad with croutons, icon: ![Fitted Green salad with croutons](assets/rework/compounds/table-green-salad-with-croutons.png)
-  - unnamed slot: accepts Apple juice, icon: ![Fitted Apple juice](assets/rework/compounds/table-apple-juice.png)
-  - unnamed slot: accepts Fruit cream tart, icon: ![Fitted Fruit cream tart](assets/rework/compounds/table-fruit-cream-tart.png)
-  - unnamed slot: accepts Chocolate profiteroles, icon: ![Fitted Chocolate profiteroles](assets/rework/compounds/table-chocolate-profiteroles.png)
-  - unnamed slot: accepts Vanilla sandwich cake, icon: ![Fitted Vanilla sandwich cake](assets/rework/compounds/table-vanilla-sandwich-cake.png)
-  - unnamed slot: accepts Iced chocolate cake, icon: ![Fitted Iced chocolate cake](assets/rework/compounds/table-iced-chocolate-cake.png)
+- Dining table (compound)
+  - icon: ![Dining table](assets/rework/compounds/dining-table.png) (at 57.6%, 41.7%)
+  - unnamed slot: accepts Bean pie, icon: ![Fitted Bean pie](assets/rework/compounds/dining-table/bean-pie.png)
+  - unnamed slot: accepts Green salad with croutons, icon: ![Fitted Green salad with croutons](assets/rework/compounds/dining-table/green-salad-with-croutons.png)
+  - unnamed slot: accepts Apple juice, icon: ![Fitted Apple juice](assets/rework/compounds/dining-table/apple-juice.png)
+  - unnamed slot: accepts Fruit cream tart, icon: ![Fitted Fruit cream tart](assets/rework/compounds/dining-table/fruit-cream-tart.png)
+  - unnamed slot: accepts Vanilla sandwich cake, icon: ![Fitted Vanilla sandwich cake](assets/rework/compounds/dining-table/vanilla-sandwich-cake.png)
+  - unnamed slot: accepts Beef Wellington, icon: ![Fitted Beef Wellington](assets/rework/compounds/dining-table/beef-wellington.png)
+  - unnamed slot: accepts Chocolate profiteroles, icon: ![Fitted Chocolate profiteroles](assets/rework/compounds/dining-table/chocolate-profiteroles.png)
+  - unnamed slot: accepts Iced chocolate cake, icon: ![Fitted Iced chocolate cake](assets/rework/compounds/dining-table/iced-chocolate-cake.png)
 - Beef Wellington
 - Bean pie
 - Green salad with croutons
@@ -1587,10 +1545,10 @@ Balance rich with plain.
 - Fruit cream tart
 - Chocolate profiteroles
 
-## The feast
+## Dinner is served
 *Dinner is served*
 
 The cookbook is ready.
 
 **Items**
-- Feast table
+- Dining table

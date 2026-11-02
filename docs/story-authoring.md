@@ -2,6 +2,8 @@
 
 This is the guide to designing, writing and revising stories. The [format specification](story-format-spec.md) defines syntax and game semantics; the [README](../README.md) covers file layout, tools and playtesting. These are authoring aims, not claims that every current manuscript already meets them.
 
+Before revising a story, read its companion `design-brief.md` when present. It owns the story’s lasting purpose, voice, pacing and visual direction; update it when that intent changes. Keep experiments and dated construction history in the project, and shared interface rules in UX. The [repository layout](../README.md#story-layout) reserves the brief filename outside manuscript discovery.
+
 ## Make combining worthwhile
 
 The player chooses and combines the things themselves. Give each operation a recognizable purpose, contribution and result. Keep the interaction predictable within the format's small grammar; if a passage appears to need several outputs at once, rethink its combinations.
@@ -20,7 +22,7 @@ Names, artwork, physical access, supplies and task must agree. A whole greenhous
 
 Primitive icons can begin at an authored point in the landscape: a water supply in a river, for example, or fire beside a shelter. Leave room above each icon for its name. Use the starting-position syntax and restrictions in the [specification](story-format-spec.md); ordinary created items appear where the player combines their ingredients.
 
-Compose hotspots together with their backgrounds, following the [scene integration rule](ux.md#item-artwork). Use existing landscape features where suitable; architecture should meet the ground and surrounding walls naturally. A fully transparent hotspot icon can define a hit area over a feature painted into the background. In author comments, record its centre, display dimensions and the physical feature it covers. Check every appearance, including repeated locations, at phone size; retain enough blank space for arranging items and avoid painting future constructions before the player makes them.
+Compose hotspots together with their backgrounds, following the [scene composition guidance](icon-guide.md#8-expand-through-related-families). Use existing landscape features where suitable; architecture should meet the ground and surrounding walls naturally. A fully transparent hotspot icon can define a hit area over a feature painted into the background. In author comments, record its centre, display dimensions and the physical feature it covers. Check every appearance, including repeated locations, at phone size; retain enough blank space for arranging items and avoid painting future constructions before the player makes them.
 
 Use a hotspot's `place:` entries when an item should settle at a particular point in the scenery: a tower on a cape, a beacon on a mast, or a cooked result inside an oven. List the receiving ingredient as well as the result when both should share a destination. The [specification](story-format-spec.md) defines centre coordinates, containment lint and occupied-space fallback. Choose a centre inside the hotspot's circular or rectangular hit area and leave room for the whole item and its name; placement does not introduce a supply or require a goal.
 

@@ -1,70 +1,59 @@
 import fs from 'node:fs/promises';
 import crypto from 'node:crypto';
-import { chromium } from 'playwright';
+import {resolve,relative} from 'node:path';
+import {chromium} from '@playwright/test';
+import {exportItem,displayProof,sizes} from './item-framing.mjs';
 
 // Mechanical framing only: native SVG scales the intact generated raster.
-// Run from the repository root after generating the retained source PNGs.
-const project = 'projects/cookbook-study/rework-art';
-const runtime = 'stories/cookbook/assets/rework/items';
+// Run after generating the retained source PNGs.
+const root=resolve(import.meta.dirname,'../../../..');
+const project=resolve(root,'projects/cookbook-study/rework-art');
+const runtime=resolve(root,'stories/cookbook/assets/rework/items');
 const entries = [
-  ['brown-butter',320,240], ['sweetened-brown-butter',320,240],
-  ['biscuit-dough',320,240], ['brown-butter-biscuits',320,240],
-  ['tea-leaves',320,240], ['boiling-water',320,240],
-  ['pot-of-tea',320,240], ['jar-opener',320,240],
-  ['white-roux',380,260], ['bechamel',380,260], ['cheese-sauce',380,260],
-  ['bread-and-butter',416,276],
+  'brown-butter','brown-butter-with-herbs','sweetened-brown-butter',
+  'biscuit-dough','brown-butter-biscuits','tea-bags',
+  'cup-of-boiling-water','cup-of-tea','apple-juice','jar-opener',
+  'white-roux','bechamel','cheese-sauce','bread-and-butter',
+  'sliced-cucumber','cucumber-finger-sandwiches',
+  'chefs-knife','unbaked-alaska',
 ];
+// Fail before overwriting exports if any requested source has not arrived yet.
+for(const slug of entries)await fs.access(`${project}/sources/${slug}.png`);
+await fs.mkdir(runtime,{recursive:true});
 const browser = await chromium.launch();
 const page = await browser.newPage({deviceScaleFactor:1});
 const manifest = [];
 try {
-  for (const [slug,width,height] of entries) {
+  for (const slug of entries) {
     const source = `${project}/sources/${slug}.png`;
     const bytes = await fs.readFile(source);
     const data = `data:image/png;base64,${bytes.toString('base64')}`;
-    const measured = await page.evaluate(async data => {
-      const image = new Image(); image.src=data; await image.decode();
-      const c=document.createElement('canvas');c.width=image.width;c.height=image.height;
-      const context=c.getContext('2d');context.drawImage(image,0,0);
-      const pixels=context.getImageData(0,0,c.width,c.height).data;
-      let left=c.width,top=c.height,right=-1,bottom=-1,transparent=0;
-      for(let y=0;y<c.height;y++)for(let x=0;x<c.width;x++){
-        const a=pixels[(y*c.width+x)*4+3];
-        if(a===0)transparent++;
-        if(a>3){left=Math.min(left,x);right=Math.max(right,x);top=Math.min(top,y);bottom=Math.max(bottom,y);}
-      }
-      if(right<left||transparent<100)throw new Error('Invalid or nontransparent source');
-      return {sourceWidth:c.width,sourceHeight:c.height,transparentPixels:transparent,bounds:{x:left,y:top,width:right-left+1,height:bottom-top+1}};
-    },data);
-    const padding=8;
-    const b=measured.bounds;
-    const scale=Math.min((width-padding*2)/b.width,(height-padding*2)/b.height);
-    const x=(width-b.width*scale)/2-b.x*scale;
-    const y=(height-b.height*scale)/2-b.y*scale;
-    const svg=`<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}" viewBox="0 0 ${width} ${height}"><image href="${data}" x="${x}" y="${y}" width="${measured.sourceWidth*scale}" height="${measured.sourceHeight*scale}"/></svg>`;
-    await page.setViewportSize({width,height});
-    await page.setContent(`<html><body style="margin:0;background:transparent">${svg}</body></html>`);
-    await page.locator('svg image').evaluate(async e=>{const i=new Image();i.src=e.getAttribute('href');await i.decode();});
     const output=`${runtime}/${slug}.png`;
-    await page.screenshot({path:output,omitBackground:true});
+    const framed=await exportItem(page,{data,slug,output});
     const editInputs={
       'white-roux':[`${project}/sources/saucepan-structural-source.png`],
       'bechamel':[`${project}/sources/saucepan-structural-source.png`],
       'cheese-sauce':[`${project}/sources/bechamel.png`],
       'bread-and-butter':['stories/cookbook/assets/cooks-pen/items/bread-and-butter.png'],
+      'sliced-cucumber':[resolve(root,'stories/cookbook/assets/cooks-pen/items/cucumber.png')],
       'biscuit-dough':[`${project}/sources/biscuit-dough-before-repair.png`],
       'jar-opener':[`${project}/sources/jar-opener-before-repair.png`],
+      'chefs-knife':[resolve(root,'stories/cookbook/assets/cooks-pen/items/bread-knife.png')],
+      'cup-of-tea':[`${project}/sources/cup-of-boiling-water.png`],
+      'apple-juice':[`${project}/sources/apple-juice-before-jug-sizing.png`,resolve(root,'stories/cookbook/assets/cooks-pen/items/water.png')],
+      'brown-butter-with-herbs':[`${project}/sources/brown-butter.png`],
+      'unbaked-alaska':[resolve(root,'stories/cookbook/assets/cooks-pen/items/baked-alaska.png')],
     };
-    const revised=['white-roux','biscuit-dough','jar-opener'].includes(slug);
-    manifest.push({slug,source,prompt:`${project}/prompts/${slug}${revised?'-revision':''}.txt`,editInputs:editInputs[slug]??[],output,width,height,displayWidth:width/4,displayHeight:height/4,padding,scale,...measured,sourceSha256:crypto.createHash('sha256').update(bytes).digest('hex')});
+    const revised=['white-roux','biscuit-dough','jar-opener','apple-juice'].includes(slug);
+    const initialApple=slug==='apple-juice'?{source:relative(root,`${project}/sources/apple-juice-before-repair.png`),prompt:relative(root,`${project}/prompts/apple-juice.txt`),editInputs:['stories/cookbook/assets/cooks-pen/items/apple-juice.png'],reason:'The initial fruit reduction remained larger than the ingredient apples; a second edit reduced only the cut fruit further.'}:null;
+    const superseded=slug==='apple-juice'?{source:relative(root,`${project}/sources/apple-juice-before-jug-sizing.png`),prompt:relative(root,`${project}/prompts/apple-juice-revision.txt`),editInputs:[relative(root,`${project}/sources/apple-juice-before-repair.png`)],reason:'Fruit scale corrected first; later reduced jug to match Water while keeping fruit scale.',superseded:initialApple}:null;
+    const promptSuffix=slug==='apple-juice'?'-jug-size':revised?'-revision':'';
+    manifest.push({slug,source:relative(root,source),prompt:relative(root,`${project}/prompts/${slug}${promptSuffix}.txt`),editInputs:(editInputs[slug]??[]).map(input=>relative(root,resolve(root,input))),output:relative(root,output),...framed,sourceSha256:crypto.createHash('sha256').update(bytes).digest('hex'),...(superseded?{superseded}:{})});
   }
-  await fs.writeFile(`${project}/tea-sauce-manifest.json`,JSON.stringify({generator:'Built-in image_gen',framing:'Native SVG scaling and padding; no painted changes',items:manifest},null,2)+'\n');
-  await fs.mkdir('runs/cookbook-art',{recursive:true});
-  const cells=[];
-  for(const m of manifest){const d=await fs.readFile(m.output);cells.push(`<figure><div style="height:76px;display:flex;align-items:center;justify-content:center"><img src="data:image/png;base64,${d.toString('base64')}" width="${m.displayWidth}" height="${m.displayHeight}"></div><figcaption>${m.slug}</figcaption></figure>`);}
-  await page.setViewportSize({width:720,height:510});
-  await page.setContent(`<html><body style="margin:0;padding:18px;background:#f6f0df;color:#493f31;font:12px Georgia"><div style="display:grid;grid-template-columns:repeat(4,1fr);gap:12px">${cells.join('')}</div><style>figure{margin:0;padding:12px 4px;border:1px solid #d9ceba;text-align:center}figcaption{margin-top:10px}</style></body></html>`);
-  await page.locator('img').evaluateAll(async imgs=>Promise.all(imgs.map(i=>i.decode())));
-  await page.screenshot({path:'runs/cookbook-art/tea-sauce-at-size.png'});
+  await fs.writeFile(`${project}/tea-sauce-manifest.json`,JSON.stringify({schemaVersion:2,generator:'Built-in image_gen',sizeCatalogue:'projects/cookbook-study/rework-art/item-sizes.json',framing:'Visible alpha bounds above 16 set each intended extent; natural proportions, faint-mark crop above alpha 3 and 1px display padding. Native SVG rendering at 4× display size; no painted changes.',items:manifest},null,2)+'\n');
+  for(const slug of sizes.retiredRuntimeItems)await fs.rm(`${runtime}/${slug}.png`,{force:true});
+  const scratch=resolve(root,'runs/cookbook-art');
+  await fs.mkdir(scratch,{recursive:true});
+  await displayProof(page,{items:manifest.map(item=>({...item,output:resolve(root,item.output)})),output:resolve(scratch,'tea-sauce-at-size.png'),columns:4});
   console.log(`Exported ${manifest.length} tea/sauce icons and manifest.`);
 } finally {await browser.close();}

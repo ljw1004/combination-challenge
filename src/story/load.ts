@@ -3,10 +3,10 @@ import { resolve, join, basename, relative } from 'node:path';
 import { createHash } from 'node:crypto';
 import { parseStory } from './parser.ts';
 export const storyRoot = resolve(import.meta.dirname, '../../stories');
-/** Manuscripts, including those sharing a directory, are identified by their file paths. */
+/** Manuscripts are identified by file path; companion design briefs are author guidance. */
 export function storyIds(root = storyRoot): string[] {
   return readdirSync(root, { withFileTypes: true, recursive: true })
-    .filter(entry => entry.isFile() && /\.md$/i.test(entry.name))
+    .filter(entry => entry.isFile() && /\.md$/i.test(entry.name) && entry.name.toLowerCase() !== 'design-brief.md')
     .map(entry => relative(root, join(entry.parentPath, entry.name)).replaceAll('\\', '/')).sort();
 }
 export function loadStory(id: string, root = storyRoot) {

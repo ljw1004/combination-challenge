@@ -14,7 +14,9 @@ test('discovery and CLI loading support shared artwork and ambiguous short names
     writeFileSync(join(root, 'shared/assets/bg.svg'), '<svg xmlns="http://www.w3.org/2000/svg"/>');
     writeFileSync(join(root, 'shared/first.md'), '# First\n\n## Opening\n![scene](assets/bg.svg)');
     writeFileSync(join(root, 'shared/second.md'), '# Second\n\n## Opening\n![scene](assets/bg.svg)');
+    writeFileSync(join(root, 'shared/design-brief.md'), '# Design brief\n\nAuthor guidance, not a playable story.');
     assert.deepEqual(storyIds(root), ['shared/first.md', 'shared/second.md']);
+    assert.throws(() => loadStory('shared/design-brief.md', root), /Unknown story/);
     for (const name of ['first', 'second']) {
       const {story, markdown, path} = loadStory(name, root);
       assert.equal(path, `shared/${name}.md`);

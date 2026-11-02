@@ -6,25 +6,25 @@ import {overlapsHotspot} from '../../../../../src/web/hotspot-view.ts';
 import {coveredFraction} from '../../../../../src/web/arrival-layout.ts';
 const project=path.resolve(import.meta.dirname,'..'),root=path.resolve(project,'../../../..'),markdown=await fs.readFile(path.join(root,'stories/cookbook/cookbook.md'),'utf8'),story=parseStory(markdown,{id:'cookbook'});
 const storySha256=createHash('sha256').update(markdown).digest('hex');
-const feastCakes=process.argv.find(a=>a.startsWith('--feast-cakes='))?.slice(14);
-assert(!feastCakes||['chocolate','both'].includes(feastCakes),'Use --feast-cakes=chocolate or both');
+const dinnerCakes=process.argv.find(a=>a.startsWith('--dinner-cakes='))?.slice(15);
+assert(!dinnerCakes||['chocolate','both'].includes(dinnerCakes),'Use --dinner-cakes=chocolate or both');
 // Change only the diagnostic planner's target, never the live manuscript or game rules.
 const planningStory=structuredClone(story);
-if(feastCakes){
- const feast=planningStory.chapters.find(c=>c.name==='A feast for the dining room');assert(feast);
- const goal=feast.goals[0],condition=structuredClone(goal.conditions[feastCakes==='chocolate'?1:0]);
- if(feastCakes==='both')condition.item.slots.push('name:Iced chocolate cake');
+if(dinnerCakes){
+ const dinner=planningStory.chapters.find(c=>c.name==='Dinner');assert(dinner);
+ const goal=dinner.goals[0],condition=structuredClone(goal.conditions[dinnerCakes==='chocolate'?1:0]);
+ if(dinnerCakes==='both')condition.item.slots.push('name:Iced chocolate cake');
  goal.conditions=[condition];
 }
 const requested=process.argv.find(a=>a.startsWith('--chapters='))?.slice(11).split(',').map(Number),deviceSelection=process.argv.find(a=>a.startsWith('--devices='))?.slice(10).split(',');
-const defaultNames=['Breakfast','Dairy','Home-made bread','Vinegar and salad dressing','Herb toast and apple compote','Fresh pasta and mushroom filling','Pasta with butter and toasted crumbs','Shortcrust and puff pastry','Béchamel and cheese sauce','Cauliflower cheese and baked noodles','Bottling and canning','Bread pudding and fruit tarts','Jam, syrup and marmalade','Sponge cake','Scones and brown-butter biscuits','Afternoon tea','Muffins and soda bread','Ice cream and sorbet','Meringues and macarons','Sundaes and Baked Alaska','Beef Wellington','A feast for the dining room'];
-const shortPhoneNames=['Breakfast','Home-made bread','Bottling and canning','Bread pudding and fruit tarts','Jam, syrup and marmalade','Sponge cake','Scones and brown-butter biscuits','Afternoon tea','Muffins and soda bread','Ice cream and sorbet','Beef Wellington','A feast for the dining room'];
+const defaultNames=['Breakfast','Dairy','Home-made bread','Vinegar and salad dressing','Herb toast and apple compote','Fresh pasta and mushroom filling','Pasta with butter and toasted crumbs','Shortcrust and puff pastry','Béchamel and cheese sauce','Cauliflower cheese and baked noodles','Bottling and canning','Bread pudding and fruit tarts','Jam, syrup and marmalade','Sponge cake','Scones and brown-butter biscuits','Afternoon tea','Muffins and soda bread','Ice cream and sorbet','Meringues and macarons','Sundaes and Baked Alaska','Beef Wellington','Dinner'];
+const shortPhoneNames=['Breakfast','Home-made bread','Bottling and canning','Bread pudding and fruit tarts','Jam, syrup and marmalade','Sponge cake','Scones and brown-butter biscuits','Afternoon tea','Muffins and soda bread','Ice cream and sorbet','Beef Wellington','Dinner'];
 const selectChapters=names=>story.chapters.flatMap((chapter,index)=>names.includes(chapter.name)?[index]:[]);
 const all=selectChapters(defaultNames),shortPhone=selectChapters(shortPhoneNames);
 assert(all.length&&shortPhone.length,'Default chapter names must match the current story');
 assert(!requested||requested.length&&requested.every(i=>Number.isInteger(i)&&story.chapters[i]?.goals.length),'Select current chapters with playable goals');
 assert(!deviceSelection||deviceSelection.length&&deviceSelection.every(name=>['desktop','phone','short-phone'].includes(name)),'Unknown or empty device selection');
-const filename=index=>`${String(index).padStart(2,'0')}-${story.chapters[index].name.normalize('NFKD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'')}${feastCakes?'-'+feastCakes:''}`;
+const filename=index=>`${String(index).padStart(2,'0')}-${story.chapters[index].name.normalize('NFKD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'')}${dinnerCakes?'-'+dinnerCakes:''}`;
 const output=path.join(run,'actions');await fs.mkdir(output,{recursive:true});const browser=await chromium.launch(),results=[];
 for(const [device,width,height,touch] of [['desktop',1280,844,false],['phone',375,812,true],['short-phone',390,667,true]]){
  if(deviceSelection&&!deviceSelection.includes(device))continue;
@@ -108,7 +108,12 @@ for(const [device,width,height,touch] of [['desktop',1280,844,false],['phone',37
    });
    const overlaps=arrival.items.flatMap(i=>arrival.hotspots.filter(h=>overlapsHotspot({x:i.x+.5,y:i.y+.5,width:Math.max(0,i.width-1),height:Math.max(0,i.height-1)},h)).map(h=>({item:i.id,hotspot:h.id,names:[i.name,h.name]})));
    const ending=next.state.completed&&next.state.chapter===story.chapters.length-1&&!story.chapters[next.state.chapter].image;
-   if(ending)assert(arrival.items.some(item=>item.id==='name:Feast table'),'The completed feast must remain visible in the dining room');
+   if(ending){
+    assert(arrival.items.some(item=>item.id==='name:Dining table'),'The completed dinner must remain visible in the dining room');
+    const before=beforeReload.state.tokens['name:Dining table'],after=next.state.tokens['name:Dining table'];
+    assert.deepEqual({x:after.x,y:after.y},{x:before.x,y:before.y},'The completed table keeps its room position when advancing');
+   }
+   if(ending||next.state.chapter===story.chapters.findIndex(c=>c.name==='Dinner'))await nextPanel.screenshot({path:path.join(output,`${filename(chapter)}-${device}-next.png`),animations:'disabled'});
    const endingPlacements=ending?story.chapters[next.state.chapter-1].goals.flatMap(goal=>goal.conditions.filter(condition=>condition.hotspot)):[];
    // Only the final inherited goal placement may deliberately occupy a station.
    const allowedEndingOverlaps=overlaps.filter(pair=>endingPlacements.some(condition=>condition.item.id===pair.item&&condition.hotspot===pair.hotspot));
@@ -122,4 +127,4 @@ for(const [device,width,height,touch] of [['desktop',1280,844,false],['phone',37
  }
  await context.close();
 }
-await browser.close();let previous=[];if(requested||deviceSelection)previous=await fs.readFile(path.join(run,`interaction-review${feastCakes?'-'+feastCakes:''}.json`),'utf8').then(JSON.parse).then(r=>r.storySha256===storySha256?r.results:[]).catch(()=>[]);const merged=[...previous.filter(r=>!results.some(n=>n.device===r.device&&n.chapter===r.chapter)),...results];await fs.writeFile(path.join(run,`interaction-review${feastCakes?'-'+feastCakes:''}.json`),JSON.stringify({type:'Ordinary mouse/Chromium-emulated touch actions. Breakfast starts normally; other cases use legal UI chapter checkpoints. No inventory or post-checkpoint positions injected.',storySha256,defaultChapters:defaultNames.filter(name=>story.chapters.some(chapter=>chapter.name===name)),results:merged},null,2)+'\n');assert(results.every(r=>r.passed&&!r.errors.length),'Interaction failures need review');
+await browser.close();let previous=[];if(requested||deviceSelection)previous=await fs.readFile(path.join(run,`interaction-review${dinnerCakes?'-'+dinnerCakes:''}.json`),'utf8').then(JSON.parse).then(r=>r.storySha256===storySha256?r.results:[]).catch(()=>[]);const merged=[...previous.filter(r=>!results.some(n=>n.device===r.device&&n.chapter===r.chapter)),...results];await fs.writeFile(path.join(run,`interaction-review${dinnerCakes?'-'+dinnerCakes:''}.json`),JSON.stringify({type:'Ordinary mouse/Chromium-emulated touch actions. Breakfast starts normally; other cases use legal UI chapter checkpoints. No inventory or post-checkpoint positions injected.',storySha256,defaultChapters:defaultNames.filter(name=>story.chapters.some(chapter=>chapter.name===name)),results:merged},null,2)+'\n');assert(results.every(r=>r.passed&&!r.errors.length),'Interaction failures need review');

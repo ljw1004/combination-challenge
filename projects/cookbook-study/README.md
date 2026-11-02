@@ -1,8 +1,10 @@
 # Cookbook study
 
-**Ongoing.** We are developing a practical cookbook: clear techniques, useful flavour and texture relationships, and three serving beats—breakfast, afternoon tea and dinner. Cook’s Pen gives the ingredients personality; faint culinary spreads and pencil apparatus make the page a place to work. The current rework adds finished dishes and equipment, a tiered tea stand and feast table, and domestic rooms for the two serving occasions.
+**Ongoing.** We are developing a practical cookbook: clear techniques, useful flavour and texture relationships, and three serving beats—breakfast, afternoon tea and dinner. Cook’s Pen gives the ingredients personality; faint culinary spreads and pencil apparatus make the page a place to work. The current rework adds finished dishes and equipment, a tiered tea stand and dining table, and domestic rooms for the two serving occasions.
 
 This is a curated art collection. It keeps the artistic statement, verdict and useful recreation material for each direction, plus completed work worth keeping. Intermediate exports, duplicate views, per-item sample assets, run records and superseded chapter sets have been removed. The installed story and its art live separately in [stories/cookbook](../../stories/cookbook/).
+
+The [Cookbook design brief](../../stories/cookbook/design-brief.md) owns the story’s lasting intent. This project retains the research, construction process and evidence.
 
 | Collection | What remains |
 |---|---|
