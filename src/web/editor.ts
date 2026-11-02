@@ -33,6 +33,7 @@ export interface StoryEditor {
   getText(): string;
   /** An explicit replacement retains editor undo history and does not call onChange. */
   setText(text: string): void;
+  setEdited(edited: boolean): void;
   setOpen(open: boolean, chapterLine?: number): void;
   setDiagnostics(diagnostics: readonly Diagnostic[], phase?: 'fast' | 'complete'): void;
   setStatus(message: string, kind?: 'saved' | 'error' | 'info'): void;
@@ -75,6 +76,7 @@ export function createStoryEditor(options: StoryEditorOptions): StoryEditor {
   close.title = 'Close debug panel';
   close.addEventListener('click', options.onClose);
   const remove = button('Delete draft…', 'editor-delete');
+  remove.hidden = true;
   header.append(remove, close);
   const status = node('p', 'editor-save-status');
   status.hidden = true;
@@ -438,6 +440,10 @@ export function createStoryEditor(options: StoryEditorOptions): StoryEditor {
       replacing = true;
       try { view.dispatch({ changes: { from: 0, to: view.state.doc.length, insert: text } }); }
       finally { replacing = false; }
+    },
+    setEdited(edited) {
+      remove.hidden = !edited;
+      if (!edited) confirmation.hidden = true;
     },
     setOpen(open, chapterLine) {
       if (!open) { closeFixMenu(); chapters.close(false); }

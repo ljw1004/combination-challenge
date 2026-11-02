@@ -181,6 +181,8 @@ test('live edits update the current view and survive temporary deletion of its c
 test('drafts save before preview, reopen on desktop, and only explicit deletion removes them', async ({ page }) => {
   await openFixture(page);
   const toggle = page.getByRole('button', {name: 'Toggle debug panel'});
+  const deleteDraft = page.getByRole('button', {name: 'Delete draft…', exact: true});
+  await expect(deleteDraft).toBeHidden();
   await expect(toggle).toHaveCount(1);
   await expect(toggle).not.toHaveClass(/edit-indicator/);
   await expect(toggle).toHaveAttribute('aria-expanded', 'true');
@@ -205,6 +207,7 @@ test('drafts save before preview, reopen on desktop, and only explicit deletion 
   await openEditor(page);
   const changed = manuscript.replace('Workshop introduction.', 'A durable draft introduction.');
   await edit(page, changed);
+  await expect(deleteDraft).toBeVisible();
   await expect(toggle).toHaveClass(/edit-indicator/);
   await expect(toggle).toHaveCount(1);
   await toggle.click();
@@ -238,6 +241,7 @@ test('drafts save before preview, reopen on desktop, and only explicit deletion 
   await page.reload();
   await expect(page.getByRole('textbox', { name: 'Story Markdown' })).toBeVisible();
   await expect(page.getByRole('textbox', { name: 'Story Markdown' })).toContainText('A durable draft introduction.');
+  await expect(deleteDraft).toBeVisible();
 
   await page.getByRole('button', { name: 'Close debug panel' }).click();
   await expect(page.locator('.story-editor')).toBeHidden();
@@ -303,6 +307,7 @@ test('drafts save before preview, reopen on desktop, and only explicit deletion 
   await expect(page.getByRole('textbox', { name: 'Story Markdown' })).toContainText('Workshop introduction.');
   await expect(toggle).not.toHaveClass(/edit-indicator/);
   expect(await page.evaluate(() => Object.keys(localStorage).filter(key => key.startsWith('combination-draft-v1:')))).toEqual([]);
+  await expect(deleteDraft).toBeHidden();
 });
 
 test('same-directory loading, missing-story errors and failed storage keep the editing boundary clear', async ({ page }) => {

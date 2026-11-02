@@ -97,6 +97,7 @@ export class AuthoringSession {
         onCheckpoint: line => this.callbacks.onCheckpoint(line),
         onDelete: () => { void this.deleteDraft(); },
       });
+      this.editor.setEdited(this.edited);
       this.editor.setDiagnostics(this.diagnostics);
       this.editor.setStatus(this.saveMessage, this.saveKind);
       this.editor.setPreviewStatus(this.previewMessage);
@@ -118,6 +119,7 @@ export class AuthoringSession {
     this.changeRevision++;
     const saved = this.store.save(text);
     this.edited = true;
+    this.editor?.setEdited(this.edited);
     this.saveMessage = saved.error ?? saved.warning ?? '';
     this.saveKind = saved.persisted ? 'saved' : 'error';
     this.editor?.setStatus(this.saveMessage, this.saveKind);
@@ -152,6 +154,7 @@ export class AuthoringSession {
       this.text = text;
       this.changeRevision++;
       this.edited = true;
+      this.editor?.setEdited(this.edited);
       this.editor?.setText(text);
       this.saveMessage = replacement.error ?? '';
       this.saveKind = replacement.persisted ? 'saved' : 'error';
@@ -179,6 +182,7 @@ export class AuthoringSession {
       this.assetBaseURL = original.assetBaseURL;
       this.store.setAssetBaseURL(original.assetBaseURL);
       this.edited = false;
+      this.editor?.setEdited(this.edited);
       this.editor?.setText(this.text);
       this.saveMessage = '';
       this.saveKind = 'info';
