@@ -385,7 +385,7 @@ Add variety through texture
 
 **Items**
 - Sugar
-  - icon: ![Sugar](assets/cooks-pen/items/sugar.png)
+  - icon: ![Sugar](assets/rework/items/sugar.png)
 
   A sweet ingredient used in preserves, cakes and confectionery. In a 1657 account of Barbados, Richard Ligon describes plantation sugar production that treated enslaved people as property. His account records the colonists' pursuit of profit, not the voices of the people they enslaved; it does not describe every place or period that made sugar.
 
@@ -580,7 +580,7 @@ Add variety through texture
   - icon: ![Cutting wheel](assets/cooks-pen/items/cutting-wheel.png)
 - Bread
 - Flour
-  - icon: ![Flour](assets/cooks-pen/items/flour.png)
+  - icon: ![Flour](assets/rework/items/flour.png)
 - Egg pasta dough
   - icon: ![Egg pasta dough](assets/cooks-pen/items/egg-pasta-dough.png)
 - Pasta sheets
@@ -1281,7 +1281,7 @@ A pouring sauce and a pastry filling.
 - Milk
 - Butter
 - Self-raising flour
-  - icon: ![Self-raising flour](assets/cooks-pen/items/self-raising-flour.png)
+  - icon: ![Self-raising flour](assets/rework/items/self-raising-flour.png)
 - Apples
 - Yogurt
 - Flour
@@ -1500,7 +1500,7 @@ Beef and mushrooms in puff pastry.
 **Items**
 - Butter
 - Confectioner’s sugar
-  - icon: ![Confectioner’s sugar](assets/cooks-pen/items/confectioners-sugar.png)
+  - icon: ![Confectioner’s sugar](assets/rework/items/confectioners-sugar.png)
 - Vanilla
 - Sponge cake
 - Buttercream

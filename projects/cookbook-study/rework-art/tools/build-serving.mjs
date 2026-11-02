@@ -45,7 +45,7 @@ try {
   }
   const defs=[
     {name:'tea-stand',source:'tea-stand',w:220,h:240,rect:[4,3,212,234],slots:[
-      ['cucumber-finger-sandwiches',[31,173,70,41]],['scones',[52,96,56,44]],['brown-butter-biscuits',[64,45,92,30]],['jam-roll',[116,154,76,60]],
+      ['cucumber-finger-sandwiches',[31,173,70,41],'../cucumber-finger-sandwiches-no-plate'],['scones',[52,96,56,44]],['brown-butter-biscuits',[64,45,92,30]],['jam-roll',[116,154,76,60]],
       ['whipped-cream',[115,87,46,43]],['soft-set-fruit-jam',[129,106,41,37]],
     ]},
     {name:'dining-table',source:'dining-table-constructed',w:300,h:290,rect:[5,20,290,267],slots:[
@@ -60,8 +60,8 @@ try {
     await render(baseFile,def.w,def.h,base);
     const layers=[];
     registration.compounds[def.name]={width:def.w*4,height:def.h*4,baseRect:def.rect,slots:[]};
-    if(!onlyBases)for(const [slug,rect] of def.slots){
-      const file=path.join(project,def.name==='dining-table'?'sources/fitted-dinner':'sources/fitted-tea',slug+'.png');
+    if(!onlyBases)for(const [slug,rect,sourceSlug=slug] of def.slots){
+      const file=path.join(project,def.name==='dining-table'?'sources/fitted-dinner':'sources/fitted-tea',sourceSlug+'.png');
       const layer=await frame(file,rect,"xMidYMax meet");layers.push(layer);
       const filename=def.name==='dining-table'?`dining-table/${slug}.png`:`${def.name}-${slug}.png`;
       await fs.mkdir(path.dirname(path.join(live,'compounds',filename)),{recursive:true});

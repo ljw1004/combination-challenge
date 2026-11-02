@@ -2,6 +2,14 @@
 
 These summaries record the development decisions of 1 November 2026. Run inputs and outputs have been discarded. They are not replayable evidence or automatic validation of later changes; use the [instructions](verification.md) for new work.
 
+## Rounded bread and distinct powders
+
+Bread and butter now has a thick spread across both slices. The cucumber sandwiches use the existing rustic loaf’s rounded, crust-on slices, without a plate. The standalone icon and bottom-left tea fitting reuse the same selected painting at independent scales. A separately generated fitted variant squared the bread and was rejected; reusing the rounded source preserves its shape. The [powder study](powder-icons/README.md) retains the requested eight variants and selected comparisons: plain flour sack, self-raising-flour sack with scoop and blue stripe, glass sugar bowl, and confectioner’s-sugar bowl with sieve. None of the selected icons carries lettering.
+
+All 33 standalone exports passed source-hash, visible-size and transparent-border checks. The 58 rework runtime files are used, and all 322 manuscript artwork references exist. The manuscript changes only four icon paths; recipes, goals and prose are unchanged. The powder comparison was inspected at reference display size, and the bread family and filled tea stand received informed visual inspection. A stray fragment of the neighbouring atlas image was removed by narrowing the sugar crop.
+
+All 114 chapter arrivals passed across desktop, phone and short phone. The final nine mouse/emulated-touch cases passed bread preparation, scones/biscuits, tea assembly, reload and advancement on those layouts. One initial desktop progression into tea put the jam-roll rectangle about 4px inside the kettle target. It did not recur in three focused rechecks or the final run; the latter checks also recorded layout inputs through read-only browser instrumentation. No cause or runtime repair was established, so this remains an intermittent finding rather than a claimed fix. The build passed with existing lint and bundle-size warnings. This art-only change did not rerun the full implementation suite, and these checks do not establish human recognition or native-device comfort.
+
 ## Dining room without the rug
 
 The user found the carpet’s perspective lines still wrong after the wider-rug revision and requested trying its removal. The selected background now continues the wooden floor through that area. The table, fitted dishes, authored positions and manuscript remain unchanged. The design brief and production selection now describe the bare floor; previous rug sources remain as superseded generation inputs.

@@ -16,6 +16,7 @@ The [Cookbook design brief](../../stories/cookbook/design-brief.md) owns the sto
 | [Fixed stations](pencil-stations/README.md) | Five candidate drawings, the selected equipment sources, registration and all 35 completed page PNGs. |
 | [Narrative](cookbook/production/narrative/editorial-notes.md) | Practical cookbook rework, research provenance and the earlier travelling-cook manuscript; the current draft lives in the story directory. |
 | [Rework artwork](rework-art/README.md) | Finished replacement food, equipment, serving furniture and home interiors; source paintings, exact prompts, registration and acceptance decisions. |
+| [Flour and sugar](powder-icons/README.md) | Requested variant sheet and selected comparisons, using containers and utensils to distinguish four similar ingredients without lettering. |
 
 [UX](../../docs/ux.md#item-artwork) owns adopted interaction decisions, the [icon guide](../../docs/icon-guide.md) owns the reusable process, and the [backlog](../backlog.md#icon-recognition-awaiting-human-trials) owns unresolved work. Keep [verification instructions](verification.md) and concise [outcomes](outcomes.md), then discard run inputs and outputs.
 
