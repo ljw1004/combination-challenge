@@ -1,12 +1,12 @@
-| Measure                                    | Cookbook | History of ideas | Mars: A Light That Answers | Settlement: A River Worth Returning To | Theology: Disputed Questions | Mars: What the Ice Kept |
-| ------------------------------------------ | -------: | ---------------: | -------------------------: | -------------------------------------: | ---------------------------: | ----------------------: |
-| Number of items                            |      237 |              525 |                        317 |                                    201 |                          158 |                      20 |
-|   of which primitive                       |       49 |              251 |                        146 |                                      4 |                           82 |                       8 |
-| Number of combinations                     |      206 |              279 |                        221 |                                    216 |                           86 |                      12 |
-|   to complete story                        |      196 |              272 |                        188 |                                    183 |                           67 |                      12 |
-| Number of chapters                         |       38 |               86 |                         28 |                                     32 |                           15 |                       7 |
-| Chain length: avg                          |      3.1 |              3.4 |                        2.4 |                                    7.5 |                          1.1 |                     1.7 |
-|   max                                      |       14 |               18 |                         20 |                                     17 |                            5 |                       6 |
-| Number of >1 chapter chains                |      138 |              232 |                         81 |                                    171 |                           23 |                       8 |
-| Number of items at each chapter start: avg |      5.6 |              4.6 |                        7.7 |                                    6.1 |                          7.0 |                     2.3 |
-|   max                                      |        9 |                9 |                         15 |                                     10 |                           11 |                       6 |
+| Measure                                    | cook | ideas | mars | settle | theology | mars2 |
+| ------------------------------------------ | ---: | ----: | ---: | -----: | -------: | ----: |
+| Number of items                            |  237 |   525 |  317 |    201 |      158 |    20 |
+|   of which primitive                       |   49 |   251 |  146 |      4 |       82 |     8 |
+| Number of combinations                     |  206 |   279 |  221 |    216 |       86 |    12 |
+|   to complete story                        |  196 |   272 |  188 |    183 |       67 |    12 |
+| Number of chapters                         |   38 |    86 |   28 |     32 |       15 |     7 |
+| Chain length: avg                          |  3.1 |   3.4 |  2.4 |    7.5 |      1.1 |   1.7 |
+|   max                                      |   14 |    18 |   20 |     17 |        5 |     6 |
+| Number of >1 chapter chains                |  138 |   232 |   81 |    171 |       23 |     8 |
+| Number of items at each chapter start: avg |  5.6 |   4.6 |  7.7 |    6.1 |      7.0 |   2.3 |
+|   max                                      |    9 |     9 |   15 |     10 |       11 |     6 |

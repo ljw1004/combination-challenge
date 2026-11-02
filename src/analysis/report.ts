@@ -3,6 +3,10 @@ import type {StoryAnalysis} from './analyze.ts';
 export type SourcedAnalysis = StoryAnalysis & {sha256: string};
 const average = (value: number | null) => value === null ? 'n/a' : value.toFixed(1);
 const count = (value: number | null) => value === null ? 'n/a' : String(value);
+const columnHeadings: Record<string, string> = {
+  'cookbook/cookbook.md': 'cook', 'ideas/ideas.md': 'ideas', 'mars/mars.md': 'mars',
+  'settlement/settlement.md': 'settle', 'theology/theology.md': 'theology', 'mars-v2/mars.md': 'mars2',
+};
 
 export function textReport(story: StoryAnalysis): string {
   const {totals, completion, chains, chapterItems} = story;
@@ -19,7 +23,7 @@ export function textReport(story: StoryAnalysis): string {
 export function markdownTable(stories: readonly StoryAnalysis[]): string {
   const secondary = '\u00a0\u00a0'; // Visible indentation in both Markdown source and rendered HTML.
   const rows = [
-    ['Measure', ...stories.map(s => s.title)],
+    ['Measure', ...stories.map(s => columnHeadings[s.source.replaceAll('\\', '/').split('/').slice(-2).join('/')] ?? s.title)],
     ['Number of items', ...stories.map(s => count(s.totals.primitives + s.totals.derived))],
     [`${secondary}of which primitive`, ...stories.map(s => count(s.totals.primitives))],
     ['Number of combinations', ...stories.map(s => count(s.totals.combinations))],
