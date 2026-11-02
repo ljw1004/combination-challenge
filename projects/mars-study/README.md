@@ -1,0 +1,16 @@
+# Mars study
+
+This is an active development project. Finishing a story draft or artwork pass is one milestone in a longer chain; the whole study stays here until that development is finished. [Story-design guidance](story-design.md) records the user's universal principles, Mars-specific wishes and unresolved choices.
+
+The user rejected the v2 rewrite on 2 November 2026 and asked to preserve both versions for rethinking. The illustrated story is restored as the main game. Restoration does not resolve its previously reported narrative and composition problems.
+
+| Material | Location and status |
+|---|---|
+| Illustrated version — **Mars: A Light That Answers** | [Published manuscript](../../stories/mars/mars.md) and its [visual brief](../../stories/mars/design-brief.md), restored from `a12ee144`. |
+| V2 — **Mars: What the Ice Kept** | [Preserved manuscript](mars-v2/mars.md), [draft-specific brief](mars-v2/design-brief.md), [review outcomes](mars-v2/outcomes.md) and [separate local preview](mars-v2/README.md). An unaccepted experiment. |
+| Artwork studies | [Inspiration and verdicts](inspiration/README.txt), including the preferred industrial/multiple-accent reference. |
+| Artwork production | [Sources and tooling](production/README.md), [phase outcomes](outcomes.md) and [review instructions](review-instructions.md): 317 item identities, 35 fitted appearances, 27 backgrounds and 24 landscape targets. |
+
+Run `npm run dev` for the illustrated version at `/combinations.html?story=mars/mars.md`. V2 has its own local preview on port 5174; it is not added to the published catalogue. Both versions and their artwork references are preserved without generating or recompressing images.
+
+The artwork phase was completed on 1 November 2026. Its source paintings, exact generation requests, extraction and registration records remain available for further development. The narrative rewrite is another phase of this same project, not grounds to close it. Keep detailed reviewer output and verification captures in ignored `runs/` space; retain only concise outcomes and useful project deliverables here.

@@ -9,7 +9,7 @@ Artwork was generated with the built-in image-generation tool. Exact requests ar
 Run after the ordinary directional-antenna icon has been exported:
 
 ```sh
-runs/mars-artwork/.venv/bin/python 'archive/2026.11.01 mars artwork study/production/assemblies/export.py'
+runs/mars-artwork/.venv/bin/python 'projects/mars-study/production/assemblies/export.py'
 ```
 
 The Relay overlay uses the selected loose Yagi antenna rather than the superseded dish from the component source sheet. The return capsule's mount is occluded by the capsule body, and its comparison-case fitting includes the two specimen appearances. Greenhouse fittings leave the planted trough visible inside the enclosure. The vehicle-state repair retains one recognizable specimen-case design across ground transport, the flight cradle and the ascent vehicle. A separate ascent-vehicle repair restores the complete tapered exhaust.

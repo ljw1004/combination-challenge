@@ -17,7 +17,7 @@ Revised scenes provide a reachable contact ledge, germination shelf, empty weath
 With Pillow available, run from the repository root:
 
 ```sh
-runs/mars-artwork/.venv/bin/python 'archive/2026.11.01 mars artwork study/production/scenes/export-scenes.py'
+runs/mars-artwork/.venv/bin/python 'projects/mars-study/production/scenes/export-scenes.py'
 ```
 
 The script uses the manifest's sources, crops them with centered horizontal and top vertical alignment, and exports 780 × 1688 WebP backgrounds to `stories/mars/assets/expedition/backgrounds/`. It also writes the transparent hit regions to `stories/mars/assets/expedition/hotspots/`. It does not draw or alter the paintings. Retained source paths refer to the archived original backgrounds; preserve those files for repeatable export.

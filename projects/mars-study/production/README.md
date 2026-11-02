@@ -14,7 +14,7 @@ All new paintings used the built-in image-generation tool. Cropping, resizing an
 ```sh
 uv venv runs/mars-artwork/.venv
 uv pip install --python runs/mars-artwork/.venv/bin/python pillow numpy scipy
-MARS_ART_SOURCE='archive/2026.11.01 mars artwork study/production'
+MARS_ART_SOURCE='projects/mars-study/production'
 node "$MARS_ART_SOURCE/tools/build-catalogue.mjs"
 runs/mars-artwork/.venv/bin/python "$MARS_ART_SOURCE/tools/export-atlases.py"
 ```

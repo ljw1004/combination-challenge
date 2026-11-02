@@ -1,8 +1,8 @@
 # Mars design brief
 
-This records the story’s lasting visual intent. The manuscript owns equipment, observations and combinations; [UX](../../docs/ux.md) owns interaction, and the [icon guide](../../docs/icon-guide.md) owns the production and review workflow. Sources, generation requests and registration records belong to the completed [Mars artwork study](<../../archive/2026.11.01 mars artwork study/README.md>).
+This records the story’s lasting visual intent. The manuscript owns equipment, observations and combinations; [UX](../../docs/ux.md) owns interaction, and the [icon guide](../../docs/icon-guide.md) owns the production and review workflow. Sources, generation requests and registration records belong to the completed [Mars artwork study](<../../projects/mars-study/README.md>).
 
-Use the [inspiration verdicts](<../../archive/2026.11.01 mars artwork study/inspiration/README.txt>) and the preferred [multiple-accent equipment reference](<../../archive/2026.11.01 mars artwork study/inspiration/02-multiple-accents.png>).
+Use the [inspiration verdicts](<../../projects/mars-study/inspiration/README.txt>) and the preferred [multiple-accent equipment reference](<../../projects/mars-study/inspiration/02-multiple-accents.png>).
 
 ## Purpose and physical character
 
