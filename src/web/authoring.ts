@@ -113,6 +113,12 @@ export class AuthoringSession {
 
   toggle() { if (this.isOpen) this.close(); else this.open(); }
 
+  revealCurrentChapter() {
+    if (!this.isOpen) return;
+    const line = this.callbacks.currentChapterLine();
+    if (line !== undefined) this.editor?.revealChapter(line);
+  }
+
   private change(text: string) {
     // The durable write happens synchronously in CodeMirror's input transaction.
     this.text = text;

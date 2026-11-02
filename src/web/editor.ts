@@ -35,6 +35,8 @@ export interface StoryEditor {
   setText(text: string): void;
   setEdited(edited: boolean): void;
   setOpen(open: boolean, chapterLine?: number): void;
+  /** Follow gameplay in the viewport and dropdown, preserving selection and focus. */
+  revealChapter(line: number): void;
   setDiagnostics(diagnostics: readonly Diagnostic[], phase?: 'fast' | 'complete'): void;
   setStatus(message: string, kind?: 'saved' | 'error' | 'info'): void;
   setPreviewStatus(message: string): void;
@@ -68,7 +70,7 @@ export function createStoryEditor(options: StoryEditorOptions): StoryEditor {
     if (!containsCaret) {
       view.dispatch({selection: {anchor: chapter.to}, effects: EditorView.scrollIntoView(chapter.from, {y: 'start'})});
       view.focus();
-    }
+    } else chapters.update(view.state.doc, view.state.selection.main.head);
   });
   if (options.onCheckpoint) header.append(chapters.element);
   const close = button('×', 'editor-close');
@@ -455,6 +457,13 @@ export function createStoryEditor(options: StoryEditorOptions): StoryEditor {
         }
         view.requestMeasure();
       }
+    },
+    revealChapter(line) {
+      const heading = chapterHeadings(view.state.doc).find(chapter => chapter.line === line);
+      if (!heading) return;
+      closeFixMenu(); chapters.close(false);
+      view.dispatch({effects: EditorView.scrollIntoView(heading.from, {y: 'start'})});
+      chapters.update(view.state.doc, view.state.selection.main.head, heading.from);
     },
     setDiagnostics(diagnostics, phase = 'complete') {
       const fresh = diagnostics.map(locateDiagnostic);

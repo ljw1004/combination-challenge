@@ -12,7 +12,7 @@ export function chapterHeadings(doc: Text): EditorChapter[] {
   return chapters;
 }
 
-/** A dropdown permits reselecting the caret's chapter to regenerate its checkpoint. */
+/** The dropdown follows the caret or a gameplay arrival without moving the caret. */
 export class ChapterNavigation {
   readonly element = document.createElement('div');
   private button = document.createElement('button');
@@ -20,6 +20,7 @@ export class ChapterNavigation {
   private doc?: Text;
   private chapters: EditorChapter[] = [];
   private selected = -1;
+  private caretChapter = -1;
 
   constructor(onSelect: (chapter: EditorChapter, containsCaret: boolean) => void) {
     this.element.className = 'editor-chapter-navigation';
@@ -43,7 +44,7 @@ export class ChapterNavigation {
       if (!option) return;
       const index = Number(option.dataset.chapter);
       this.close();
-      onSelect(this.chapters[index], index === this.selected);
+      onSelect(this.chapters[index], index === this.caretChapter);
     });
     this.list.addEventListener('keydown', event => {
       const options = [...this.list.querySelectorAll<HTMLButtonElement>('button')];
@@ -63,7 +64,7 @@ export class ChapterNavigation {
     document.addEventListener('pointerdown', this.dismiss, true);
   }
 
-  update(doc: Text, position: number) {
+  update(doc: Text, position: number, displayedPosition = position) {
     if (doc !== this.doc) {
       this.close(false); this.doc = doc; this.chapters = chapterHeadings(doc);
       this.list.replaceChildren(...this.chapters.map((chapter, index) => {
@@ -73,7 +74,8 @@ export class ChapterNavigation {
         return option;
       }));
     }
-    this.selected = this.chapters.findLastIndex(chapter => chapter.from <= position);
+    this.caretChapter = this.chapters.findLastIndex(chapter => chapter.from <= position);
+    this.selected = this.chapters.findLastIndex(chapter => chapter.from <= displayedPosition);
     this.button.textContent = this.selected < 0 ? 'Chapter' : `${this.selected + 1}. ${this.chapters[this.selected].heading}`;
     this.button.disabled = this.chapters.length === 0;
     [...this.list.children].forEach((option, index) => option.setAttribute('aria-selected', String(index === this.selected)));

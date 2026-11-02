@@ -563,6 +563,58 @@ test('opening the editor reveals the current gameplay chapter without resetting 
   await expectCurrentChapter();
 });
 
+test('gameplay chapter arrivals reveal the source and title while preserving the editing selection', async ({page}) => {
+  const text = manuscript.replace('## Field', '\n'.repeat(80) + '## Field');
+  await openFixture(page, text.replaceAll('\n', '\r\n'));
+  const editor = page.getByRole('textbox', {name: 'Story Markdown'});
+  const dropdown = page.getByRole('button', {name: 'Chapter', exact: true});
+  const scroller = page.locator('.cm-scroller');
+  await editor.focus();
+  await page.keyboard.press('ControlOrMeta+f');
+  await page.locator('.cm-search input[name="search"]').fill('Workshop introduction.');
+  await page.keyboard.press('Escape');
+  expect(await page.evaluate(() => window.getSelection()?.toString())).toBe('Workshop introduction.');
+  const originalScroll = await scroller.evaluate(element => element.scrollTop);
+
+  async function advance() {
+    await page.locator('[data-item="id:frame"]').dragTo(page.locator('[data-item="id:tool"]'));
+    await page.getByRole('button', {name: 'Continue story'}).click();
+    await expect(dropdown).toHaveText('2. Field');
+    await expect(page.locator('.cm-chapter-heading').filter({hasText: '## Field'})).toBeInViewport();
+    await expect(page.getByRole('button', {name: 'Begin', exact: true})).toBeFocused();
+  }
+  await advance();
+  const arrivalScroll = await scroller.evaluate(element => element.scrollTop);
+  expect(arrivalScroll).toBeGreaterThan(originalScroll);
+  await page.getByRole('button', {name: 'Begin', exact: true}).click();
+  await expect(dropdown).toHaveText('2. Field');
+  expect(await scroller.evaluate(element => element.scrollTop)).toBe(arrivalScroll);
+  expect(await savedText(page, text)).toBe(false);
+
+  // Choosing the caret's chapter preserves the selection and arrival scroll,
+  // even though the dropdown currently displays the gameplay chapter.
+  await dropdown.click();
+  await expect(page.getByRole('option', {name: '2. Field', exact: true})).toBeFocused();
+  await page.getByRole('option', {name: '1. Workshop', exact: true}).click();
+  await expect(dropdown).toHaveText('1. Workshop');
+  expect(await scroller.evaluate(element => element.scrollTop)).toBe(arrivalScroll);
+  await editor.focus();
+  await page.keyboard.insertText('Still editing the workshop.');
+  await expect.poll(() => savedText(page, text.replace('Workshop introduction.', 'Still editing the workshop.'))).toBe(true);
+  await page.keyboard.press('ControlOrMeta+z');
+  await expect.poll(() => savedText(page, text)).toBe(true);
+
+  await page.getByRole('button', {name: 'Begin', exact: true}).click();
+  await advance();
+  // Reselecting the displayed gameplay chapter must move a caret left elsewhere.
+  await dropdown.click();
+  await page.getByRole('option', {name: '2. Field', exact: true}).click();
+  await expect(page.locator('.cm-activeLine')).toHaveText('## Field');
+  await expect(editor).toBeFocused();
+  await page.keyboard.insertText(' revised');
+  await expect.poll(() => savedText(page, text.replace('## Field', '## Field revised'))).toBe(true);
+});
+
 test('chapter dropdown follows the caret and jumps with only the necessary editor movement', async ({page}) => {
   await openFixture(page, manuscript.replaceAll('\n', '\r\n'));
   const dropdown = page.getByRole('button', {name: 'Chapter', exact: true});

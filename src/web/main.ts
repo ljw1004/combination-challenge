@@ -522,6 +522,7 @@ function commit(action: Action) { try {
       token.x=position.x;token.y=position.y;positionTile(element,token);element.classList.add('born');
     }
   }
+  if (previous !== state.chapter) authoring.revealCurrentChapter();
   rememberInteraction(); save();
   inputTrace?.record('commit:finished',{action});
 } catch (error) { inputTrace?.record('commit:error',{message:(error as Error).message,stack:(error as Error).stack}); modal(`<p>${escape((error as Error).message)}</p><button data-command="close">Close</button>`); } }

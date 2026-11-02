@@ -52,7 +52,7 @@ Click the **bug icon** to toggle the debug pane. On desktop, the game uses its n
 
 Edits save immediately and update the current game view, including open readings, goals, rules and backgrounds. When there are local edits, a red pen replaces the bug icon; both toggle the same pane. The panel opens automatically on desktop if the story URL has a saved draft **or** its editor was last left open; closing it is remembered but does not override a saved draft.
 
-The chapter dropdown above the editor follows your caret. Choose a chapter to generate its starting checkpoint from the current draft; if your caret is elsewhere, the editor scrolls to that chapter and places it at the end of the heading. Choosing the chapter you are already editing preserves your position. Chapter-heading lightbulbs also offer **Jump to checkpoint**. Use the first chapter to start again.
+The chapter dropdown above the editor normally follows your caret; [gameplay chapter arrivals](docs/ux.md#debug-pane) also update its title and scroll the editor while preserving the caret. Choose a chapter to generate its starting checkpoint from the current draft; if your caret is elsewhere, the editor scrolls to that chapter and places it at the end of the heading. Choosing the chapter you are already editing preserves your position. Chapter-heading lightbulbs also offer **Jump to checkpoint**. Use the first chapter to start again.
 
 On screens narrower than 900px, the icon opens a compact **Jump to chapter** picker instead. Tap a chapter to generate its checkpoint; the current chapter is highlighted. The Markdown editor is unavailable at that width. Local drafts still power the game and retain their red-pencil indicator. Resizing back to desktop restores the editor session.
 
