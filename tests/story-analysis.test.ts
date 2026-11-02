@@ -7,8 +7,10 @@ import {tmpdir} from 'node:os';
 import {parseStory} from '../src/story/parser.ts';
 import {constructionMetrics} from '../src/analysis/construction.ts';
 import {measureRoute} from '../src/analysis/route.ts';
-import {analyzeStory, corpusSummary} from '../src/analysis/analyze.ts';
+import {analyzeStory} from '../src/analysis/analyze.ts';
+import {checkpoint} from '../src/debug/checkpoint.ts';
 import {summarize} from '../src/analysis/statistics.ts';
+import {markdownTable} from '../src/analysis/report.ts';
 import type {Action} from '../src/engine/types.ts';
 
 const fixture = (body: string) => parseStory(`# Test\n\n## Start\n\n![room](room.webp)\n\n${body}`, {id: 'test'});
@@ -22,7 +24,7 @@ test('distributions distinguish empty samples from zero and average even medians
   assert.throws(() => summarize([NaN]), /finite/);
 });
 
-test('construction maxima include alternative recipes and unfold a shared dependency twice', () => {
+test('chain lengths follow the longest alternative without adding parallel branches together', () => {
   const s = fixture(`**Items**
 - A
 - B
@@ -36,9 +38,8 @@ test('construction maxima include alternative recipes and unfold a shared depend
 - C [preserve] + B [preserve] -> E
 - D [consume] + E [consume] -> F
 - A [preserve] + B [preserve] -> F`);
-  assert.deepEqual(item(s, 'F'), {id: 'name:F', name: 'F', primitive: false, depth: 3, nodes: 11, leaves: 6, depthPath: ['A', 'C', 'D', 'F']});
+  assert.deepEqual(item(s, 'F'), {id: 'name:F', name: 'F', primitive: false, depth: 3, depthPath: ['A', 'C', 'D', 'F']});
   assert.equal(item(s, 'A').depth, 0);
-  assert.equal(item(s, 'A').nodes, 1);
 });
 
 test('compound fitting counts sequential owner versions without inventing new identities or cycles', () => {
@@ -58,13 +59,12 @@ test('compound fitting counts sequential owner versions without inventing new id
 - A [consume] + B [consume] -> Motor
 - Box[Motor,Battery] [transform] + Cover [consume] -> Final`);
   const result = analyzeStory(s);
-  assert.deepEqual(result.totals, {items: 7, primitives: 5, derived: 2, rules: 4, explicitRules: 2, installations: 2, chapters: 1, playableChapters: 1});
+  assert.deepEqual(result.totals, {primitives: 5, derived: 2, combinations: 4, chapters: 1});
   assert.equal(item(s, 'Box').primitive, true);
   assert.equal(item(s, 'Box').depth, 3);
   assert.equal(item(s, 'Final').depth, 4);
-  assert.equal(item(s, 'Final').nodes, 9);
-  assert.equal(item(s, 'Final').leaves, 5);
   assert.equal(result.details.route.combinations, 4);
+  assert.equal(result.completion.combinations, 4);
 });
 
 test('a producer returning an already fitted state does not install that component twice', () => {
@@ -82,8 +82,6 @@ test('a producer returning an already fitted state does not install that compone
 - Frame [transform] + Tool [preserve] -> Box[Motor]
 - Box[Motor,Battery] [transform] + Cover [consume] -> Final`);
   assert.equal(item(s, 'Final').depth, 3);
-  assert.equal(item(s, 'Final').nodes, 7);
-  assert.equal(item(s, 'Final').leaves, 4);
 });
 
 test('cyclic construction graphs are rejected explicitly, including cycles with an escape recipe', () => {
@@ -99,7 +97,7 @@ test('cyclic construction graphs are rejected explicitly, including cycles with 
   assert.throws(() => constructionMetrics(s), /does not support dependency cycles/);
 });
 
-test('chain chapters count causal events, excluding gaps, skipped chapters and the ending', () => {
+test('chains exclude gaps, while checkpoint item counts match debugger jumps including skips and the ending', () => {
   const s = fixture(`**Goals**
 - Prepare -- C
 **Items**
@@ -124,13 +122,19 @@ An intervening quiet chapter.
 Done.`);
   const result = analyzeStory(s), route = result.details.route;
   assert.deepEqual(route.visitedChapters, [0, 2, 3, 4]);
-  assert.deepEqual(route.chapters.map(c => [c.index, c.combinations]), [[0, 1], [2, 0], [3, 1]]);
   assert.deepEqual(route.items.find(i => i.id === 'name:D')?.chapterPath, [0, 3]);
   assert.equal(result.totals.chapters, 5);
-  assert.equal(result.totals.playableChapters, 4);
-  assert.equal(result.metrics.combinations.n, 3);
-  assert.equal(result.metrics.combinations.min, 0);
-  assert.equal(route.chapters[0].newPrimitives, 2);
+  assert.equal(result.chains.acrossChapters, 1);
+  assert.equal(result.completion.combinations, 2);
+  const counts = s.chapters.map((_, index) => {
+    const state = checkpoint(s, index);
+    return {requestedChapter: index, chapter: state.chapter, name: s.chapters[state.chapter].name,
+      items: Object.values(state.tokens).filter(t => t.status === 'available' && t.chapter === state.chapter).length};
+  });
+  assert.deepEqual(route.checkpoints, counts);
+  assert.equal(counts[1].chapter, 2);
+  assert.equal(counts.at(-1)?.items, 0);
+  assert.equal(result.chapterItems.average, counts.reduce((sum, c) => sum + c.items / counts.length, 0));
 });
 
 test('fitting later does not rewrite earlier ancestry; moving an item does not create a chain chapter', () => {
@@ -164,7 +168,7 @@ Done.`);
   assert.deepEqual(route.items.find(i => i.id === 'name:C')?.chapterPath, [0]);
   assert.deepEqual(route.items.find(i => i.id === 'name:Box')?.chapterPath, [1]);
   assert.equal(route.items.find(i => i.id === 'name:D')?.chapters, 2);
-  assert.equal(route.chapters[1].peakBoard, 2); // owner + loose part; C stayed on the earlier surface
+  assert.equal(route.checkpoints[1].items, 2); // owner + loose part; C stayed on the earlier surface
   assert.throws(() => measureRoute(s, []), /did not complete/);
 });
 
@@ -179,31 +183,61 @@ test('a hotspot operation adds one construction step, without treating the lands
 **Combinations**
 - Drill [preserve] @ Ice -> Core`);
   const result = analyzeStory(s);
-  assert.equal(result.totals.items, 2);
-  assert.equal(item(s, 'Core').nodes, 2);
-  assert.equal(item(s, 'Core').leaves, 1);
+  assert.equal(result.totals.primitives, 1);
+  assert.equal(result.totals.derived, 1);
+  assert.equal(item(s, 'Core').depth, 1);
   assert.equal(result.details.route.combinations, 1);
-  assert.equal(result.metrics.peakBoard.max, 2);
-  assert.deepEqual(corpusSummary([result]).rules, {n: 1, min: 1, max: 1, avg: 1, median: 1});
+  assert.equal(result.chapterItems.max, 1); // Drill on entry, not Drill + Core after combining
 });
 
-test('CLI includes drafts, deduplicates input paths and preserves output on analysis failure', () => {
+test('CLI accepts one file on stdout, includes drafts, deduplicates paths and preserves output on failure', () => {
   const directory = mkdtempSync(join(tmpdir(), 'story-analysis-'));
   const manuscript = join(directory, 'draft.md'), output = join(directory, 'report.json');
   try {
     writeFileSync(manuscript, '# Draft\n\n## Start\n\n**Items**\n- A\n');
     const raw = execFileSync(process.execPath, ['src/analysis/cli.ts', 'theology', '--include', manuscript, '--include', manuscript, '--json'], {encoding: 'utf8'});
     const report = JSON.parse(raw);
+    assert.equal(report.schemaVersion, 2);
     assert.equal(report.stories.length, 2);
-    assert.equal(report.stories[1].totals.items, 1);
-    assert.equal(report.stories[1].metrics.peakBoard.n, 0);
-    assert.equal(report.stories[1].metrics.peakBoard.max, null);
+    assert.equal(report.stories[1].totals.primitives, 1);
+    assert.equal(report.stories[1].chapterItems.average, 1); // final goal-free chapter is still a checkpoint
+    assert.equal(report.stories[1].completion.combinations, 0);
     assert.equal(report.stories[1].details, undefined);
+    const single = JSON.parse(execFileSync(process.execPath, ['src/analysis/cli.ts', manuscript, '--json'], {encoding: 'utf8'}));
+    assert.equal(single.stories.length, 1);
+    assert.equal(single.stories[0].title, 'Draft');
+    const printed = execFileSync(process.execPath, ['src/analysis/cli.ts', manuscript], {encoding: 'utf8'});
+    assert.equal(printed, [
+      '1. Number of items: total 1, of which primitive 1',
+      '2. Number of combinations: total 0, to complete story 0',
+      '3. Number of chapters: 1',
+      '4. Chain length: avg 0.0, max 0',
+      '5. Number of >1 chapter chains: 0',
+      '6. Number of items at each chapter start: avg 1.0, max 1',
+      '',
+    ].join('\n'));
+    const table = execFileSync(process.execPath, ['src/analysis/cli.ts', manuscript, '--table'], {encoding: 'utf8'});
+    assert.equal(table.trimEnd().split('\n').length, 12);
+    assert(table.trimEnd().split('\n').every(line => line.startsWith('| ') && line.endsWith(' |')));
+    const overwrite = spawnSync(process.execPath, ['src/analysis/cli.ts', manuscript, '--output', manuscript], {encoding: 'utf8'});
+    assert.equal(overwrite.status, 1);
+    assert.match(overwrite.stderr, /must not overwrite/);
     writeFileSync(output, 'previous report');
     writeFileSync(manuscript, '# Broken\n\n## Start\n\n**Goals**\n- Missing -- Undeclared\n');
-    const failed = spawnSync(process.execPath, ['src/analysis/cli.ts', 'theology', '--include', manuscript, '--output', output], {encoding: 'utf8'});
+    const failed = spawnSync(process.execPath, ['src/analysis/cli.ts', 'theology', '--include', manuscript, '--table', '--output', output], {encoding: 'utf8'});
     assert.equal(failed.status, 1);
     assert.match(failed.stderr, /Undeclared/);
     assert.equal(readFileSync(output, 'utf8'), 'previous report');
   } finally { rmSync(directory, {recursive: true, force: true}); }
+});
+
+test('comparison table aligns column boundaries and indents the secondary measures', () => {
+  const a = analyzeStory(fixture('**Items**\n- A')), b = {...a, title: 'A longer story name'};
+  const lines = markdownTable([a, b]).trimEnd().split('\n');
+  assert.equal(lines.length, 12); // one header, one separator, ten separate numbers
+  const boundaries = (line: string) => [...line.matchAll(/\|/g)].map(match => match.index);
+  for (const line of lines) assert.deepEqual(boundaries(line), boundaries(lines[0]));
+  assert.match(lines[3], /\| \u00a0\u00a0of which primitive/);
+  assert.match(lines[5], /\| \u00a0\u00a0to complete story/);
+  assert.match(lines[8], /\| \u00a0\u00a0max/);
 });

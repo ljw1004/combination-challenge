@@ -3,12 +3,12 @@ import type {Action, State} from '../engine/types.ts';
 import {act, newGame, recipeFor} from '../engine/game.ts';
 import {checkpoint} from '../debug/checkpoint.ts';
 
-export interface ChapterMeasurement {index: number; name: string; newPrimitives: number; combinations: number; peakBoard: number}
+export interface CheckpointMeasurement {requestedChapter: number; chapter: number; name: string; items: number}
 export interface ItemPersistence {id: string; chapters: number; chapterPath: number[]}
 export interface RouteMeasurement {
   completed: boolean;
   visitedChapters: number[];
-  chapters: ChapterMeasurement[];
+  checkpoints: CheckpointMeasurement[];
   items: ItemPersistence[];
   combinations: number;
 }
@@ -18,17 +18,12 @@ export interface RouteMeasurement {
  */
 export function measureRoute(story: Story, actions: readonly Action[] = checkpoint(story, story.chapters.length).actions): RouteMeasurement {
   let state = newGame(story), combinations = 0;
-  const chapters = new Map<number, ChapterMeasurement>(), ancestry = new Map<string, number[]>();
+  const entries = new Map<number, number>(), ancestry = new Map<string, number[]>();
   function observe(current: State) {
     for (const token of Object.values(current.tokens)) if (!ancestry.has(token.id)) ancestry.set(token.id, []);
-    const terminal = current.chapter === story.chapters.length - 1 && !story.chapters[current.chapter]?.goals.length;
-    if (terminal || !story.chapters[current.chapter]) return;
-    let chapter = chapters.get(current.chapter);
-    if (!chapter) {
-      chapter = {index: current.chapter, name: story.chapters[current.chapter].name, newPrimitives: current.newItems.length, combinations: 0, peakBoard: 0};
-      chapters.set(current.chapter, chapter);
+    if (story.chapters[current.chapter] && !entries.has(current.chapter)) {
+      entries.set(current.chapter, Object.values(current.tokens).filter(t => t.status === 'available' && t.chapter === current.chapter).length);
     }
-    chapter.peakBoard = Math.max(chapter.peakBoard, Object.values(current.tokens).filter(t => t.status === 'available' && t.chapter === current.chapter).length);
   }
   observe(state);
   for (const action of actions) {
@@ -43,15 +38,20 @@ export function measureRoute(story: Story, actions: readonly Action[] = checkpoi
       // of an earlier result made using that owner.
       ancestry.set(recipe.result.id, paths.reduce((a, b) => a.length >= b.length ? a : b));
       combinations++;
-      const chapter = chapters.get(state.chapter);
-      if (chapter) chapter.combinations++;
     }
     state = act(story, state, action);
     observe(state);
   }
   if (!state.completed) throw new Error('Reference replay did not complete the story.');
+  // checkpoint(story, target) stops on the first entry at or after target.
+  // A full checkpoint replay has exactly those same prefixes: count them once
+  // instead of replaying every earlier chapter separately for each target.
+  const checkpoints = story.chapters.map((_, requestedChapter) => {
+    const chapter = [...entries.keys()].find(index => index >= requestedChapter) ?? state.chapter;
+    return {requestedChapter, chapter, name: story.chapters[chapter].name, items: entries.get(chapter) ?? 0};
+  });
   return {
-    completed: state.completed, visitedChapters: state.visited, chapters: [...chapters.values()], combinations,
+    completed: state.completed, visitedChapters: state.visited, checkpoints, combinations,
     items: [...ancestry].map(([id, chapterPath]) => ({id, chapters: chapterPath.length, chapterPath})),
   };
 }

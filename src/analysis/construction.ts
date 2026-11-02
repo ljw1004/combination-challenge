@@ -3,14 +3,11 @@ import {indexStory} from '../engine/analysis.ts';
 
 interface Construction {
   depth: number;
-  nodes: number;
-  leaves: number;
   depthPath: string[];
 }
 export interface ItemConstruction extends Construction {id: string; name: string; primitive: boolean}
 
-/** Structural maxima, not an executable plan. Each field independently takes
- * the largest alternative; shared dependencies are unfolded on every occurrence.
+/** Structural chain lengths, not an executable plan. Take the longest alternative.
  * Slot installations add versions of the owner, never owner -> owner cycles.
  */
 export function constructionMetrics(story: Story): ItemConstruction[] {
@@ -18,8 +15,7 @@ export function constructionMetrics(story: Story): ItemConstruction[] {
   const name = (id: string) => story.items[id]?.name ?? id;
   const label = (ref: Ref) => `${name(ref.id)}${ref.slots.length ? `[${ref.slots.map(name).join(', ')}]` : ''}`;
   const maximum = (choices: Construction[]): Construction => {
-    const deepest = choices.reduce((a, b) => a.depth >= b.depth ? a : b);
-    return {...deepest, nodes: Math.max(...choices.map(c => c.nodes)), leaves: Math.max(...choices.map(c => c.leaves))};
+    return choices.reduce((a, b) => a.depth >= b.depth ? a : b);
   };
   function reference(ref: Ref): Construction {
     const key = JSON.stringify([ref.id, [...new Set(ref.slots)].sort()]);
@@ -43,26 +39,20 @@ export function constructionMetrics(story: Story): ItemConstruction[] {
       for (const part of parts) { filled.push(part.id); path.push(label({id: ref.id, slots: [...filled]})); }
       choices.push({
         depth: deepest.depth + parts.length,
-        nodes: base.nodes + parts.reduce((sum, p) => sum + p.nodes, 0) + parts.length,
-        leaves: base.leaves + parts.reduce((sum, p) => sum + p.leaves, 0),
         depthPath: path,
       });
     }
-    if (index.primitives.has(ref.id)) fit({depth: 0, nodes: 1, leaves: 1, depthPath: [item.name]}, []);
+    if (index.primitives.has(ref.id)) fit({depth: 0, depthPath: [item.name]}, []);
     for (const recipe of index.producers.get(ref.id) ?? []) {
       const inputs = [recipe.a.ref, ...(recipe.b ? [recipe.b.ref] : [])].map(reference);
       const deepest = inputs.reduce((a, b) => a.depth >= b.depth ? a : b);
       fit({
         depth: deepest.depth + 1,
-        nodes: 1 + inputs.reduce((sum, c) => sum + c.nodes, 0),
-        leaves: inputs.reduce((sum, c) => sum + c.leaves, 0),
         depthPath: [...deepest.depthPath, label(recipe.result)],
       }, recipe.result.slots);
     }
     const result = maximum(choices);
-    for (const value of [result.depth, result.nodes, result.leaves]) {
-      if (!Number.isSafeInteger(value)) throw new Error(`Construction counts exceed exact integer precision for ${label(ref)}.`);
-    }
+    if (!Number.isSafeInteger(result.depth)) throw new Error(`Chain length exceeds exact integer precision for ${label(ref)}.`);
     visiting.delete(key); memo.set(key, result); return result;
   }
 

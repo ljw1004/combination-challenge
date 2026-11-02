@@ -108,7 +108,7 @@ The manuscripts were subsequently renamed from `story.md` to `<slug>.md`, and fo
 | Logical player | `npm run play -- list` | List stories and session commands. |
 | AI playtester | `npm run playtest -- ...` | Run a JSON agent process or service through the player interface. |
 | Evaluator | `npm run evaluate -- SESSION` | Verify frozen replay and write an evidence profile. |
-| Story analyzer | `npm run analyze -- [STORY ...]` | Compare ten measures of scale, construction and chapter pacing; [definitions and draft inputs](docs/story-analysis.md). |
+| Story analyzer | `npm run analyze -- FILE_OR_STORY` | Print six plain-text answers, or use `--table` for a comparison; [counting guide](docs/story-analysis.md). |
 
 Useful authoring commands:
 
@@ -130,6 +130,27 @@ npm run lint -- --json --analysis-stats
 Analysis stops at the 101st distinct alternative in a construction-set family or merged chapter frontier. Each set has one working state; independent goals do not generate a search over partially completed subsets. Statistics distinguish cumulative construction-set evaluations, engine operations and the largest family of alternatives. JSON adds chapter counts, OPTIONAL item counts and phase/timing details. The [specification](docs/story-format-spec.md#opportunities-for-authored-content) defines the algorithm and its deliberate approximation; [working notes](notes.md#31-october-2026-retained-opportunity-linter) record its acceptance and verification.
 
 Lint details include source lines; JSON includes a UTF-16 text span (`from`, `to`, end-exclusive) for every diagnostic and related locations for contrasting rules. Checkpoints work through preceding goals and their dependencies, preferring preparations whose inputs already exist and avoiding unrelated combinations. Chapter indices are zero-based. These are legal developer witnesses, not fresh player experiences or a claim of globally shortest solutions.
+
+### Story analysis
+
+Pass one Markdown file to print exactly six plain-text lines for that story to standard output:
+
+```sh
+npm run analyze -- path/to/story.md
+npm run analyze -- projects/mars-study/mars-v2/mars.md
+```
+
+Absolute paths, paths relative to the current directory, and published story names such as `mars` work.
+
+Use `--table` for a single whitespace-aligned Markdown table with stories as columns. With no filenames it includes all published stories; supplying filenames selects just those stories. Add `--include PATH` to include a draft. To regenerate the six-story comparison:
+
+```sh
+npm run analyze -- --table --include projects/mars-study/mars-v2/mars.md --output projects/mars-study/story-analysis.md
+```
+
+Without `--output`, the result is printed; with it, the result is saved after every input succeeds. The destination folder must exist, and the command refuses to overwrite an input manuscript. `--help` lists the options. `--json` provides machine-readable output; add `--details` for individual items and checkpoints. JSON schema version 2 retains the manuscript hashes. Keep temporary detailed exports in ignored `runs/` space and discard them after recording useful conclusions.
+
+The [counting guide](docs/story-analysis.md) defines the figures. Completion counts follow the debugger, without claiming the shortest possible solution. Chapter item counts measure the starting checkpoint, including the ending, rather than the busiest point during play.
 
 ## Logical playtesting
 
@@ -210,7 +231,7 @@ Each document owns one aspect of working here. Update the owning document and li
 | This README | Project orientation, setup, directory layout, tool catalog and playtesting commands/protocol. |
 | [Story format](docs/story-format-spec.md) | Markdown syntax, game semantics and required diagnostics. |
 | [Story authoring](docs/story-authoring.md) | How to design, write and revise a compelling story. |
-| [Story analysis](docs/story-analysis.md) | Ten quantitative measures, reusable analysis commands and interpretation limits. |
+| [Story analysis](docs/story-analysis.md) | Counting conventions for the six-line story summary and comparison table. |
 | [Icon guide](docs/icon-guide.md) | How to research, develop, review and produce a story's icon set. |
 | [Active projects](projects/README.md) | Work in progress and the editorial/research backlog. |
 | [UX](docs/ux.md) | All current player and authoring UX decisions, their known motivations, and maintenance rules; no historical log. |
