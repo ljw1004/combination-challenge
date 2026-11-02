@@ -2,6 +2,14 @@
 
 These summaries record the development decisions of 1 November 2026. Run inputs and outputs have been discarded. They are not replayable evidence or automatic validation of later changes; use the [instructions](verification.md) for new work.
 
+## Design examples and study retirement
+
+The user accepted the completed Cookbook and requested a single visual reference with two cooking pages and afternoon tea, followed by archival of this study. [design-examples.png](../../stories/cookbook/design-examples.png) contains actual browser captures of Home-made bread, Scones and brown-butter biscuits, and the completed Afternoon tea stand. The captures use the 390×844 game panel at 2× resolution, with ordinary mouse actions after legal checkpoint arrivals on source `fef6dccc`. The three chapter exercises passed completion, reload and advancement checks. Visual inspection confirmed the selected cooking states and the six-slot tea assembly; this is a design reference, not human-experience evidence.
+
+The complete source collection moved into this archive. The story’s lasting guidance and requested PNG remain in `stories/cookbook/`; shared UX and illustration rules remain in their owning documents. Unresolved human trials and the intermittent tea-arrival finding remain in the [backlog](../../projects/backlog.md). Historical generation paths and commands are preserved as provenance. Disposable capture scripts, individual screenshots and logs were removed after composing the requested deliverable.
+
+Relocation checks accounted for all 496 files: 492 remained byte-identical and four navigation/outcome documents were updated. All 42 current links to the archive and design examples resolved, with no newly broken links within the collection. The production build passed with existing lint and bundle-size warnings. The manuscript, gameplay code and installed art were unchanged.
+
 ## Dairy ends with unstrained yoghurt
 
 The user removed the early Fruit yoghurt dish. Its item, recipe and goal are gone, and Dairy no longer supplies apples. The replacement goal is Unstrained yoghurt; butter and whipped cream remain. The later apple-compote yoghurt is unchanged. The design brief now reflects this simpler opening.

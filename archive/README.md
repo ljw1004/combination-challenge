@@ -34,3 +34,7 @@ The [evidence index](<2026.10.30 authenticity improvements/authenticity-evidence
 ### Icon development evidence
 
 [`icon-generation/`](icon-generation/) retains the original [icon brief](icon-generation/instructions.md), formerly `docs/icons.md`, the seven-style comparison and its iterative review records, and the full Settlement production evidence and scripts. The [icon guide](../docs/icon-guide.md) uses examples from this work to explain a general development workflow. Some archived links and script output paths predate relocation; treat them as historical references, not active regeneration commands. Source paintings and reference collections remain in [`references/icon-sets/`](../references/icon-sets/).
+
+### Cookbook study
+
+[`2026.11.01 cookbook study/`](<2026.11.01 cookbook study/README.md>) preserves the completed cookbook adaptation, Cook’s Pen comparisons, production source art and prompts, page and station development, serving-room compositions, and concise verification outcomes. The user accepted the story and requested retirement on 1 November 2026. Scripts and embedded source paths record the former project layout; they are historical production material, not current regeneration instructions. The live [story](../stories/cookbook/cookbook.md), [design brief](../stories/cookbook/design-brief.md) and [three-page visual reference](../stories/cookbook/design-examples.png) remain outside the archive. Unresolved human-validation questions remain in the [backlog](../projects/backlog.md#icon-recognition-awaiting-human-trials).

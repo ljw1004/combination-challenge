@@ -12,4 +12,4 @@ Coloured equipment looked like draggable food. The bread chapter compared five w
 
 The [old coloured atlas](../cookbook/production/artwork/equipment-hotspots.png) preserves the preceding equipment style. It is no longer an input to production. Names now come exclusively from game feedback. Single stations are centred at the top; pairs are separated. The proofing shelf’s rectangle has roughly 7px padding, the oven 5px, and most other apparatus 7px. No chapter needs three stations.
 
-The [production collection](production/README.md) retains the completed rollout. Selection and user feedback establish this direction; native-device comfort and fresh human recognition remain open in the [backlog](../../backlog.md#icon-recognition-awaiting-human-trials).
+The [production collection](production/README.md) retains the completed rollout. Selection and user feedback establish this direction; native-device comfort and fresh human recognition remain open in the [backlog](../../../projects/backlog.md#icon-recognition-awaiting-human-trials).

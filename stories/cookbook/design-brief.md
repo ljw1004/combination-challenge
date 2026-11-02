@@ -1,6 +1,6 @@
 # Cookbook design brief
 
-This is the lasting editorial and visual intent for Cookbook. Read it before revising the story, its recipes or its artwork. Keep it current when that intent changes. The manuscript owns the actual ingredients, recipes and goals; [UX](../../docs/ux.md) owns interface behaviour, and the [icon guide](../../docs/icon-guide.md) owns reusable illustration methods. Research, construction history, production sources and verification belong in the [Cookbook study](../../projects/cookbook-study/README.md), which can be archived without retiring this brief.
+This is the lasting editorial and visual intent for Cookbook. Read it before revising the story, its recipes or its artwork. Keep it current when that intent changes. The manuscript owns the actual ingredients, recipes and goals; [UX](../../docs/ux.md) owns interface behaviour, and the [icon guide](../../docs/icon-guide.md) owns reusable illustration methods. Research, construction history, production sources and verification are preserved in the [archived Cookbook study](<../../archive/2026.11.01 cookbook study/README.md>).
 
 ## Purpose and voice
 
@@ -30,13 +30,15 @@ Call the final occasion Dinner. Its domestic dining table receives finished Well
 
 ## Visual identity
 
+The [design examples](design-examples.png) show two cooking pages and the assembled afternoon tea in the game.
+
 Preserve Cook’s Pen: observed food structure, fine irregular pen contours and restrained colour washes, recalling older cookbooks of roughly 1900–1950. Ordinary names and recipe context can supply distinctions appearance alone cannot establish, such as exact powders, fermentation or preparation history.
 
 Keep the bread family coherent. Bread and butter has generous, visibly thick butter spread across both slices. Cucumber sandwiches use that same rustic loaf, retaining its rounded oval slices, golden crust and irregular open crumb. Keep these features in both the standalone illustration and the fitted tea serving; neither sandwich illustration has a plate.
 
 Distinguish the baking powders through containers and utensils, without printed lettering: flour in a plain open paper sack, self-raising flour in a similar sack with a metal scoop and a blue stripe, sugar in a glass bowl with a spoon, and confectioner’s sugar in a shallow bowl with a sieve. These are visual cues, not claims that the powders can be distinguished reliably by texture alone.
 
-Keep a physically informed size hierarchy. At the 390×844 reference viewport, small standalone drawings have a 60px minimum longest visible edge; transparent padding does not count. Bowls, jugs, plates and long tools should be larger than small ingredients. Compare components within drawings too: an apple beside a jug should match the ingredient apples, and the juice jug should be comparable to the water carafe. Deliberately compress furniture and equipment; fitted servings use the scale of their compound, independently of standalone icons. Production dimensions and sources are recorded in the [art collection](../../projects/cookbook-study/rework-art/README.md).
+Keep a physically informed size hierarchy. At the 390×844 reference viewport, small standalone drawings have a 60px minimum longest visible edge; transparent padding does not count. Bowls, jugs, plates and long tools should be larger than small ingredients. Compare components within drawings too: an apple beside a jug should match the ingredient apples, and the juice jug should be comparable to the water carafe. Deliberately compress furniture and equipment; fitted servings use the scale of their compound, independently of standalone icons. Production dimensions and sources are recorded in the [art collection](<../../archive/2026.11.01 cookbook study/rework-art/README.md>).
 
 ## Cookbook pages and rooms
 
