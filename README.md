@@ -108,6 +108,7 @@ The manuscripts were subsequently renamed from `story.md` to `<slug>.md`, and fo
 | Logical player | `npm run play -- list` | List stories and session commands. |
 | AI playtester | `npm run playtest -- ...` | Run a JSON agent process or service through the player interface. |
 | Evaluator | `npm run evaluate -- SESSION` | Verify frozen replay and write an evidence profile. |
+| Story analyzer | `npm run analyze -- [STORY ...]` | Compare ten measures of scale, construction and chapter pacing; [definitions and draft inputs](docs/story-analysis.md). |
 
 Useful authoring commands:
 
@@ -209,6 +210,7 @@ Each document owns one aspect of working here. Update the owning document and li
 | This README | Project orientation, setup, directory layout, tool catalog and playtesting commands/protocol. |
 | [Story format](docs/story-format-spec.md) | Markdown syntax, game semantics and required diagnostics. |
 | [Story authoring](docs/story-authoring.md) | How to design, write and revise a compelling story. |
+| [Story analysis](docs/story-analysis.md) | Ten quantitative measures, reusable analysis commands and interpretation limits. |
 | [Icon guide](docs/icon-guide.md) | How to research, develop, review and produce a story's icon set. |
 | [Active projects](projects/README.md) | Work in progress and the editorial/research backlog. |
 | [UX](docs/ux.md) | All current player and authoring UX decisions, their known motivations, and maintenance rules; no historical log. |
@@ -229,6 +231,7 @@ Maintain the [strict directory hygiene defined in AGENTS.md](AGENTS.md#directory
 - `src/lint/`: specification diagnostics and CLI.
 - `src/web/`: browser presentation, touch/pointer handling, reading and persistence.
 - `src/debug/`: legal replay checkpoint planning.
+- `src/analysis/`: structural story statistics and measurements of a legal reference replay.
 - `src/playtest/`: player observations, frozen sessions, AI transport and evaluation.
 - `docs/`: standing specifications, adopted guidance and reusable workflows.
 - `projects/`: active project briefs, research, plans and supporting material; see the [project index](projects/README.md).
