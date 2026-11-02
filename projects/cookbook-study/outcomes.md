@@ -2,6 +2,12 @@
 
 These summaries record the development decisions of 1 November 2026. Run inputs and outputs have been discarded. They are not replayable evidence or automatic validation of later changes; use the [instructions](verification.md) for new work.
 
+## Dairy ends with unstrained yoghurt
+
+The user removed the early Fruit yoghurt dish. Its item, recipe and goal are gone, and Dairy no longer supplies apples. The replacement goal is Unstrained yoghurt; butter and whipped cream remain. The later apple-compote yoghurt is unchanged. The design brief now reflects this simpler opening.
+
+The recipe comparison found only that one removal, leaving 206 combinations. Twelve story tests and the build passed with existing warnings. Three Dairy arrivals and nine mouse/emulated-touch cases passed across desktop, phone and short phone, covering Dairy, the later yoghurt preparations and apple compote, including reload and advancement. Artwork was unchanged. Temporary verification output was discarded.
+
 ## Upright kettle and yoghurt names
 
 The kettle now follows the user’s upright electric-jug reference in the existing pencil treatment. Its solid body is 50px tall, about 1.6× the previous body excluding steam. The expanded receiving target moves upward while the painted base stays at y=206.68px on the sideboard; the lid clears the botanical picture. Direct inspection covered desktop and short-phone scenes. The exact generation request, selected source and measured export remain in the [art collection](rework-art/README.md).

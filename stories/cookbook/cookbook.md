@@ -59,7 +59,7 @@ Juice, porridge, bread.
 **Goals**
 - Churn butter. -- Butter
 - next: Whip cream. -- Whipped cream
-- Prepare fruit yoghurt. -- Fruit yoghurt
+- Make unstrained yoghurt. -- Unstrained yoghurt
 
 **Hotspots**
 - Warm shelf (at 27%, 17.654028%)
@@ -75,9 +75,6 @@ Juice, porridge, bread.
   - icon: ![Yoghurt starter](assets/cooks-pen/items/yogurt-starter.png)
 - Cream
   - icon: ![Cream](assets/cooks-pen/items/cream.png)
-- Apples
-- Fruit yoghurt
-  - icon: ![Fruit yoghurt](assets/cooks-pen/items/fruit-yogurt.png)
 
 - Whisk
   - icon: ![Whisk](assets/cooks-pen/items/whisk.png)
@@ -88,7 +85,6 @@ Juice, porridge, bread.
 - Milk + Yoghurt starter [preserve] @ Warm shelf -> Unstrained yoghurt
 - Cream @ Butter churn -> Butter
 - Cream + Whisk -> Whipped cream
-- Unstrained yoghurt + Apples -> Fruit yoghurt
 
 > NOTE: [OpenStax: What Our Ancestors Knew](https://openstax.org/books/microbiology/pages/1-1-what-our-ancestors-knew). Fermentation history; not exact recipe ratios or a universal chronology.
 

@@ -14,7 +14,7 @@ Occasionally add a separate paragraph offering culinary judgment beyond the imme
 
 Breakfast, afternoon tea and dinner are distinct serving beats. Tea comes about a third of the way through, giving an early accomplishment before the longer sequence toward dinner. The two later serving chapters assemble previously prepared foods; their preparation belongs in earlier chapter goals. Avoid a preassembled tea plate that merely duplicates the following stand assembly.
 
-Keep plain porridge and fruit yoghurt in the opening. Reuse ingredients and preparations meaningfully. Brown butter is welcome; repeated herbed-butter embellishments are not a substitute for good fundamentals. Mushroom filling connects ravioli with Beef Wellington. Preserve excess beans earlier without immediately reopening the can; reopen the earlier fruit preserve later with a tool suited to its jar.
+Keep plain porridge in Breakfast. Dairy ends with butter, whipped cream and unstrained yoghurt; reserve the fruit-and-yoghurt dish for the later apple compote. Reuse ingredients and preparations meaningfully. Brown butter is welcome; repeated herbed-butter embellishments are not a substitute for good fundamentals. Mushroom filling connects ravioli with Beef Wellington. Preserve excess beans earlier without immediately reopening the can; reopen the earlier fruit preserve later with a tool suited to its jar.
 
 Name the fermented milk “Unstrained yoghurt” and the result of using the straining cloth “Yoghurt.” Cucumber yoghurt uses that finished yoghurt and the sliced cucumber prepared earlier for sandwiches. Keep the existing illustrations for these preparations.
 
