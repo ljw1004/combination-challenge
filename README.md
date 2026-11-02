@@ -6,7 +6,7 @@
 
 ## Project
 
-Five combination stories authored in Markdown, with complete artwork for Settlement and a finished Cook’s Pen collection for Cookbook, including its revised dishes and domestic tea and dinner scenes. The browser game, story linter, checkpoint generator and logical AI playtester share one parser and game engine. The project has three commitments: combination, enjoyable interactive play and an empirical loop that can reject weak ideas.
+Five combination stories authored in Markdown, with complete artwork for Settlement, Cookbook and Mars. Cookbook uses Cook’s Pen illustrations, including domestic tea and dinner scenes; Mars uses physical expedition equipment and integrated landscapes. The browser game, story linter, checkpoint generator and logical AI playtester share one parser and game engine. The project has three commitments: combination, enjoyable interactive play and an empirical loop that can reject weak ideas.
 
 ## Run the game
 
@@ -25,6 +25,8 @@ Seven icon styles are retained as [reference collections](references/icon-sets/)
 **Settlement: A River Worth Returning To** uses rustic coloured woodcuts: `/combinations.html?story=settlement/settlement.md`.
 
 **Cookbook** teaches practical cooking through pen-and-wash illustrations, from breakfast through afternoon tea to dinner: `/combinations.html?story=cookbook/cookbook.md`. See its [design examples](stories/cookbook/design-examples.png) and lasting [design brief](stories/cookbook/design-brief.md). The completed [Cookbook study](<archive/2026.11.01 cookbook study/README.md>) retains the adaptation research, artistic directions and verdicts, comparisons, production source art and all 35 completed cookbook page PNGs.
+
+**Mars: A Light That Answers** follows an expedition from contact and shelter through rescue, field evidence and return: `/combinations.html?story=mars/mars.md`. Its [design brief](stories/mars/design-brief.md) sets the physical size hierarchy, industrial materials and landscape targets. The completed [Mars artwork study](<archive/2026.11.01 mars artwork study/README.md>) retains references, source paintings, generation requests, registration and concise verification outcomes.
 
 The player fetches Markdown as an ordinary file. These routes work in development and the production build:
 

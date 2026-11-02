@@ -6,7 +6,7 @@ A damaged landing strands a small expedition. Recovery becomes a rescue, then a 
 
 ## Contact Ridge
 
-![A rocky contact ridge above the Martian landing site](assets/M01.webp)
+![A rocky contact ridge above the Martian landing site](assets/expedition/backgrounds/contact-ridge.webp)
 
 I have landed on Mars, but the radio is damaged. I need to contact the orbiter from the ridge, where a powered radio or a steady light signal can reach it. Wreckage lies below, with the surviving habitat and cargo sled visible in the distance.
 
@@ -19,28 +19,46 @@ I have landed on Mars, but the radio is damaged. I need to contact the orbiter f
   - or: Signal beacon @ Contact ridge
 
 **Hotspots**
-- Contact ridge
+- Contact ridge (at 50%, 17.5%)
+  - icon: ![Contact ridge](assets/expedition/hotspots/contact-ridge.png)
+  > NOTE: Mars artwork target: Flat top and connected face of the raised contact ridge. Centre 50%, 17.5%; transparent hit area 240 × 80px at the 390 × 844 reference viewport.
 
 **Items**
 - Broken radio
+  - icon: ![Broken radio](assets/expedition/items/broken-radio.png)
 - Cable
+  - icon: ![Cable](assets/expedition/items/cable.png)
 - Solar panel
+  - icon: ![Solar panel](assets/expedition/items/solar-panel.png)
 - Battery
+  - icon: ![Battery](assets/expedition/items/battery.png)
 - Lamp
+  - icon: ![Lamp](assets/expedition/items/lamp.png)
 - Reflective foil
+  - icon: ![Reflective foil](assets/expedition/items/reflective-foil.png)
 - Support frame
+  - icon: ![Support frame](assets/expedition/items/support-frame.png)
 - Tripod
+  - icon: ![Tripod](assets/expedition/items/tripod.png)
 - Toolkit
+  - icon: ![Toolkit](assets/expedition/items/toolkit.png)
 - Radio
+  - icon: ![Radio](assets/expedition/items/radio.png)
 - Solar radio
+  - icon: ![Solar radio](assets/expedition/items/solar-radio.png)
 - Solar lamp
+  - icon: ![Solar lamp](assets/expedition/items/solar-lamp.png)
 - Reflector
+  - icon: ![Reflector](assets/expedition/items/reflector.png)
 - Lantern
+  - icon: ![Lantern](assets/expedition/items/lantern.png)
 - Signal lamp
+  - icon: ![Signal lamp](assets/expedition/items/signal-lamp.png)
 - Signal beacon
+  - icon: ![Signal beacon](assets/expedition/items/signal-beacon.png)
 
 **Combinations**
-- Broken radio [transform] + Cable [consume] -> Radio (tutorial)
+- Cable [consume] + Broken radio [transform] -> Radio (tutorial)
 - Solar panel [transform] + Battery [consume] -> Solar charger
 - Radio [transform] + Solar charger -> Solar radio
 - Lamp [transform] + Solar charger -> Solar lamp
@@ -51,7 +69,7 @@ I have landed on Mars, but the radio is damaged. I need to contact the orbiter f
 
 ## Habitat entrance
 
-![The damaged outer entrance of the surviving habitat, beside its melt station and signal mast](assets/M02-entrance.webp)
+![The damaged outer entrance of the surviving habitat, beside its melt station and signal mast](assets/expedition/backgrounds/habitat-entrance.webp)
 
 The orbiter has answered. The inner cabin survived, but its outer entrance is torn. Outside, I need to collect water from the ice, secure and insulate the entrance, and leave a signal the missing crew can find. The exterior repair locker holds the heater, patching materials, hatch frame, tie downs and insulating blanket.
 
@@ -66,24 +84,42 @@ The intact signal mast has a clear orbiter sightline. Our signal here will mark 
   - or: Signal beacon @ Refuge signal mast
 
 **Hotspots**
-- Refuge signal mast
-- Ice melt station
+- Refuge signal mast (at 63%, 35.5%)
+  - icon: ![Refuge signal mast](assets/expedition/hotspots/refuge-signal-mast.png)
+  > NOTE: Mars artwork target: The empty signal platform and its directly attached antenna mast foundation in front of the habitat. Centre 63%, 35.5%; transparent hit area 110 × 74px at the 390 × 844 reference viewport.
+- Ice melt station (at 29%, 32.5%)
+  - icon: ![Ice melt station](assets/expedition/hotspots/ice-melt-station.png)
+  > NOTE: Mars artwork target: The sealed melt vessel and fixed melt-head connection into the ice. Centre 29%, 32.5%; transparent hit area 100 × 90px at the 390 × 844 reference viewport.
 
 **Items**
 - Solar charger
+  - icon: ![Solar charger](assets/expedition/items/solar-charger.png)
 - Heater
+  - icon: ![Heater](assets/expedition/items/heater.png)
 - Habitat fabric
+  - icon: ![Habitat fabric](assets/expedition/items/habitat-fabric.png)
 - Sealant
+  - icon: ![Sealant](assets/expedition/items/sealant.png)
 - Seam roller
+  - icon: ![Seam roller](assets/expedition/items/seam-roller.png)
 - Tie downs
+  - icon: ![Tie downs](assets/expedition/items/tie-downs.png)
 - Hatch frame
+  - icon: ![Hatch frame](assets/expedition/items/hatch-frame.png)
 - Insulating blanket
+  - icon: ![Insulating blanket](assets/expedition/items/insulating-blanket.png)
 - Patch supplies
+  - icon: ![Patch supplies](assets/expedition/items/patch-supplies.png)
 - Sealed panel
+  - icon: ![Sealed panel](assets/expedition/items/sealed-panel.png)
 - Vestibule
+  - icon: ![Vestibule](assets/expedition/items/vestibule.png)
 - Secured vestibule
+  - icon: ![Secured vestibule](assets/expedition/items/secured-vestibule.png)
 - Insulated vestibule
+  - icon: ![Insulated vestibule](assets/expedition/items/insulated-vestibule.png)
 - Wrapped vestibule
+  - icon: ![Wrapped vestibule](assets/expedition/items/wrapped-vestibule.png)
 
 **Combinations**
 - Solar charger @ Ice melt station -> Dirty water
@@ -98,7 +134,7 @@ The intact signal mast has a clear orbiter sightline. Our signal here will mark 
 
 ## Habitat cabin
 
-![The enclosed, surviving habitat cabin](assets/M02.webp)
+![The enclosed, surviving habitat cabin](assets/expedition/backgrounds/habitat-cabin.webp)
 
 The entrance is secure and insulated, and our signal marks the refuge. Inside, the cabin is still warm and pressurized. I can filter the water collected outside and plant the seeds in their prepared tray. The cabin stores hold the filter, seeds, planting tray and clear cover.
 
@@ -109,22 +145,37 @@ The mission filter is made for this enclosed water source. Once the growing mate
 - next: Protect the seedlings -- Propagator
 
 **Hotspots**
-- Warm habitat
+- Warm habitat (at 50%, 20.5%)
+  - icon: ![Warm habitat](assets/expedition/hotspots/warm-habitat.png)
+  > NOTE: Mars artwork target: The illuminated fixed germination shelf beneath the cabin window. Centre 50%, 20.5%; transparent hit area 230 × 70px at the 390 × 844 reference viewport.
 
 **Items**
 - Dirty water
+  - icon: ![Dirty water](assets/expedition/items/dirty-water.png)
 - Water filter
+  - icon: ![Water filter](assets/expedition/items/water-filter.png)
 - Seeds
+  - icon: ![Seeds](assets/expedition/items/seeds.png)
 - Planting tray
+  - icon: ![Planting tray](assets/expedition/items/planting-tray.png)
 - Clear cover
+  - icon: ![Clear cover](assets/expedition/items/clear-cover.png)
 - Water
+  - icon: ![Water](assets/expedition/items/water.png)
 - Seed tray
+  - icon: ![Seed tray](assets/expedition/items/seed-tray.png)
 - Wet seeds
+  - icon: ![Wet seeds](assets/expedition/items/wet-seeds.png)
 - Watered seed tray
+  - icon: ![Watered seed tray](assets/expedition/items/watered-seed-tray.png)
 - Covered seed tray
+  - icon: ![Covered seed tray](assets/expedition/items/covered-seed-tray.png)
 - Watered covered tray
+  - icon: ![Watered covered tray](assets/expedition/items/watered-covered-tray.png)
 - Sprouted tray
+  - icon: ![Sprouted tray](assets/expedition/items/sprouted-tray.png)
 - Propagator
+  - icon: ![Propagator](assets/expedition/items/propagator.png)
 
 **Combinations**
 - Dirty water [transform] + Water filter [preserve] -> Water
@@ -146,7 +197,7 @@ The mission filter is made for this enclosed water source. Once the growing mate
 
 ## Cargo-sled assembly area
 
-![The landed cargo sled and its rover assembly area](assets/M03-sled-build.webp)
+![The landed cargo sled and its rover assembly area](assets/expedition/backgrounds/cargo-sled-assembly-area.webp)
 
 The water is filtered and the seedlings have a warm, sheltered home. To reach the missing crew, we need the relay beyond the ice outcrop. The regional map shows these stations, and the landed sled holds the rover parts, camera and viewing equipment. I can match the visible landmarks to the map and prepare the rover to follow the approach.
 
@@ -159,36 +210,55 @@ From the route overlook beside the sled, the outcrop and nearby landmarks are vi
 - Find route to the outcrop -- Outcrop navchip
 
 **Hotspots**
-- Route overlook
+- Route overlook (at 70%, 13.5%)
+  - icon: ![Route overlook](assets/expedition/hotspots/route-overlook.png)
+  > NOTE: Mars artwork target: The exposed rocky viewing shoulder beside the cargo lander, looking across the route. Centre 70%, 13.5%; transparent hit area 140 × 90px at the 390 × 844 reference viewport.
 
 **Items**
 - Support frame
 - Wheels
+  - icon: ![Wheels](assets/expedition/items/wheels.png)
 - Drive motor
+  - icon: ![Drive motor](assets/expedition/items/drive-motor.png)
 - Motor controller
+  - icon: ![Motor controller](assets/expedition/items/motor-controller.png)
 - Solar charger
 - Seat harness
+  - icon: ![Seat harness](assets/expedition/items/seat-harness.png)
 - Dish antenna
+  - icon: ![Dish antenna](assets/expedition/items/dish-antenna.png)
 - Long range radio
+  - icon: ![Long range radio](assets/expedition/items/long-range-radio.png)
 - Camera
+  - icon: ![Camera](assets/expedition/items/camera.png)
 - Regional map navchip
+  - icon: ![Regional map navchip](assets/expedition/items/regional-map-navchip.png)
 - Lens
+  - icon: ![Lens](assets/expedition/items/lens.png)
 - Optical tube
+  - icon: ![Optical tube](assets/expedition/items/optical-tube.png)
 - Rover (compound)
-  - slot: drive, accepts Drive unit
-  - slot: traction power, accepts Solar charger
-  - unnamed slot: accepts Long range radio
-  - unnamed slot: accepts Seat harness
-  - unnamed slot: accepts Tow line
-  - unnamed slot: accepts Crew navchip
+  - icon: ![Rover](assets/expedition/items/rover.png)
+  - slot: drive, accepts Drive unit, icon: ![fitted Drive unit](assets/expedition/slots/rover--drive-unit.png)
+  - slot: traction power, accepts Solar charger, icon: ![fitted Solar charger](assets/expedition/slots/rover--solar-charger.png)
+  - unnamed slot: accepts Long range radio, icon: ![fitted Long range radio](assets/expedition/slots/rover--long-range-radio.png)
+  - unnamed slot: accepts Seat harness, icon: ![fitted Seat harness](assets/expedition/slots/rover--seat-harness.png)
+  - unnamed slot: accepts Tow line, icon: ![fitted Tow line](assets/expedition/slots/rover--tow-line.png)
+  - unnamed slot: accepts Crew navchip, icon: ![fitted Crew navchip](assets/expedition/slots/rover--crew-navchip.png)
 
   [Drive unit, Solar charger] The rover now has the drive and solar-power equipment it needs to travel. It can carry the expedition beyond the landing area.
 - Drive unit
+  - icon: ![Drive unit](assets/expedition/items/drive-unit.png)
 - Field camera
+  - icon: ![Field camera](assets/expedition/items/field-camera.png)
 - Outcrop approach view
+  - icon: ![Outcrop approach view](assets/expedition/items/outcrop-approach-view.png)
 - Telescope
+  - icon: ![Telescope](assets/expedition/items/telescope.png)
 - Field telescope
+  - icon: ![Field telescope](assets/expedition/items/field-telescope.png)
 - Telescope camera
+  - icon: ![Telescope camera](assets/expedition/items/telescope-camera.png)
 
 **Combinations**
 - Support frame [transform] + Wheels [consume] -> Rover
@@ -204,7 +274,7 @@ From the route overlook beside the sled, the outcrop and nearby landmarks are vi
 
 ## Ice-outcrop field station
 
-![An expedition sampling station beside exposed Martian ice and a layered cliff](assets/M04.webp)
+![An expedition sampling station beside exposed Martian ice and a layered cliff](assets/expedition/backgrounds/ice-outcrop-field-station.webp)
 
 The rover is ready, and our navchip holds the approach to the outcrop. The route passes exposed ice and a layered cliff. I will label and photograph the samples so that each observation stays connected with the place it came from.
 
@@ -216,27 +286,47 @@ The expedition sampling case holds a scoop, a transparent jar, a core tube and l
 - Photograph core layers -- Core layer photograph
 
 **Hotspots**
-- Lookout ice
-- Cliff viewpoint
+- Lookout ice (at 30%, 12%)
+  - icon: ![Lookout ice](assets/expedition/hotspots/lookout-ice.png)
+  > NOTE: Mars artwork target: The accessible blue-white ice exposure. Centre 30%, 12%; transparent hit area 160 × 95px at the 390 × 844 reference viewport.
+- Cliff viewpoint (at 73%, 7.5%)
+  - icon: ![Cliff viewpoint](assets/expedition/hotspots/cliff-viewpoint.png)
+  > NOTE: Mars artwork target: The layered rock face above and beyond the ice. Centre 73%, 7.5%; transparent hit area 100 × 80px at the 390 × 844 reference viewport.
 
 **Items**
 - Rover[Drive unit, Solar charger, Seat harness]
 - Outcrop navchip
+  - icon: ![Outcrop navchip](assets/expedition/items/outcrop-navchip.png)
 - Cliff photograph
+  - icon: ![Cliff photograph](assets/expedition/items/cliff-photograph.png)
 - Illuminated glovebox
+  - icon: ![Illuminated glovebox](assets/expedition/items/illuminated-glovebox.png)
 - Sample scoop
+  - icon: ![Sample scoop](assets/expedition/items/sample-scoop.png)
 - Transparent jar
+  - icon: ![Transparent jar](assets/expedition/items/transparent-jar.png)
 - Core tube
+  - icon: ![Core tube](assets/expedition/items/core-tube.png)
 - Sample labels
+  - icon: ![Sample labels](assets/expedition/items/sample-labels.png)
 - Windowed box
+  - icon: ![Windowed box](assets/expedition/items/windowed-box.png)
 - Glove ports
+  - icon: ![Glove ports](assets/expedition/items/glove-ports.png)
 - Ice sample
+  - icon: ![Ice sample](assets/expedition/items/ice-sample.png)
 - Sealed ice sample
+  - icon: ![Sealed ice sample](assets/expedition/items/sealed-ice-sample.png)
 - Catalogued ice sample
+  - icon: ![Catalogued ice sample](assets/expedition/items/catalogued-ice-sample.png)
 - Ice photograph
+  - icon: ![Ice photograph](assets/expedition/items/ice-photograph.png)
 - Ice core
+  - icon: ![Ice core](assets/expedition/items/ice-core.png)
 - Core layer photograph
+  - icon: ![Core layer photograph](assets/expedition/items/core-layer-photograph.png)
 - Glovebox
+  - icon: ![Glovebox](assets/expedition/items/glovebox.png)
 
 **Combinations**
 - Sample scoop @ Lookout ice -> Ice sample
@@ -255,7 +345,7 @@ The expedition sampling case holds a scoop, a transparent jar, a core tube and l
 
 ## Weather-station apron
 
-![A disused Martian weather station with an open instrument site and service equipment](assets/M05.webp)
+![A disused Martian weather station with an open instrument site and service equipment](assets/expedition/backgrounds/weather-station-apron.webp)
 
 The ice sample is labelled, and the photographs record the specimen and the core's layers. These observations do not yet establish how old the layers are or how they formed. Dust is moving across the route. I can repair this old weather station and use its observations to decide when to travel.
 
@@ -266,23 +356,34 @@ The mothballed station was stored sensibly: its calibrated sensor mast, detached
 - Make protected controller -- Protected controller
 
 **Hotspots**
-- Open weather site
+- Open weather site (at 39%, 19%)
+  - icon: ![Open weather site](assets/expedition/hotspots/open-weather-site.png)
+  > NOTE: Mars artwork target: The empty instrument plinth and mounting socket, with conduit back to the shelter. Centre 39%, 19%; transparent hit area 130 × 76px at the 390 × 844 reference viewport.
 
 **Items**
 - Rover[Drive unit, Solar charger, Seat harness]
 - Solar charger
 - Motor controller
 - Sensor mast
+  - icon: ![Sensor mast](assets/expedition/items/sensor-mast.png)
 - Wind vane
+  - icon: ![Wind vane](assets/expedition/items/wind-vane.png)
 - Sensor logger
+  - icon: ![Sensor logger](assets/expedition/items/sensor-logger.png)
 - Filter mesh
+  - icon: ![Filter mesh](assets/expedition/items/filter-mesh.png)
 - Vented enclosure
+  - icon: ![Vented enclosure](assets/expedition/items/vented-enclosure.png)
 - Weather station (compound)
-  - slot: recorder, accepts Sensor logger
-  - slot: power, accepts Solar charger
+  - icon: ![Weather station](assets/expedition/items/weather-station.png)
+  - slot: recorder, accepts Sensor logger, icon: ![fitted Sensor logger](assets/expedition/slots/weather-station--sensor-logger.png)
+  - slot: power, accepts Solar charger, icon: ![fitted Solar charger](assets/expedition/slots/weather-station--solar-charger.png)
 - Weather record
+  - icon: ![Weather record](assets/expedition/items/weather-record.png)
 - Dust screen
+  - icon: ![Dust screen](assets/expedition/items/dust-screen.png)
 - Protected controller
+  - icon: ![Protected controller](assets/expedition/items/protected-controller.png)
 
 **Combinations**
 - Sensor mast [transform] + Wind vane [consume] -> Weather station
@@ -291,7 +392,7 @@ The mothballed station was stored sensibly: its calibrated sensor mast, detached
 - Dust screen [consume] + Motor controller [transform] -> Protected controller
 ## Relay knoll
 
-![Relay knoll](assets/M06.webp)
+![Relay knoll](assets/expedition/backgrounds/relay-knoll.webp)
 
 The relay mast reaches beyond the ridge. I need to contact the missing crew, locate their reported landmark and program a navchip to guide the rover to them.
 
@@ -303,18 +404,27 @@ The relay itself is still here, with its complete antenna and charged powerpack 
 - Set rover course to the crew -- Rover[Drive unit, Solar charger, Crew navchip]
 
 **Hotspots**
-- Relay knoll
+- Relay knoll (at 66%, 20%)
+  - icon: ![Relay knoll](assets/expedition/hotspots/relay-knoll.png)
+  > NOTE: Mars artwork target: The raised rocky approach immediately below the fixed relay infrastructure. Centre 66%, 20%; transparent hit area 170 × 90px at the 390 × 844 reference viewport.
 
 **Items**
 - Relay transceiver
+  - icon: ![Relay transceiver](assets/expedition/items/relay-transceiver.png)
 - Spare fuse
+  - icon: ![Spare fuse](assets/expedition/items/spare-fuse.png)
 - Directional antenna
+  - icon: ![Directional antenna](assets/expedition/items/directional-antenna.png)
 - Relay powerpack
+  - icon: ![Relay powerpack](assets/expedition/items/relay-powerpack.png)
 - Relay (compound)
-  - slot: antenna, accepts Directional antenna
-  - slot: power, accepts Relay powerpack
+  - icon: ![Relay](assets/expedition/items/relay.png)
+  - slot: antenna, accepts Directional antenna, icon: ![fitted Directional antenna](assets/expedition/slots/relay--directional-antenna.png)
+  - slot: power, accepts Relay powerpack, icon: ![fitted Relay powerpack](assets/expedition/slots/relay--relay-powerpack.png)
 - Distress recording
+  - icon: ![Distress recording](assets/expedition/items/distress-recording.png)
 - Crew navchip
+  - icon: ![Crew navchip](assets/expedition/items/crew-navchip.png)
 
 **Combinations**
 - Relay transceiver [transform] + Spare fuse [consume] -> Relay
@@ -323,7 +433,7 @@ The relay itself is still here, with its complete antenna and charged powerpack 
 
 ## Stranded crawler
 
-![Stranded crawler](assets/M07.webp)
+![Stranded crawler](assets/expedition/backgrounds/stranded-crawler.webp)
 
 The crew answers: their cabin is intact, but the crawler's drive has failed. I can repair the drive or tow the crawler with our rover to help them reach the nearby refuge.
 
@@ -338,16 +448,25 @@ The crew wait in the intact crawler cabin. Its service compartment holds the spa
 
 **Items**
 - Recovery rope
+  - icon: ![Recovery rope](assets/expedition/items/recovery-rope.png)
 - Tow eye
+  - icon: ![Tow eye](assets/expedition/items/tow-eye.png)
 - Spare drive
+  - icon: ![Spare drive](assets/expedition/items/spare-drive.png)
 - Drive coupling
+  - icon: ![Drive coupling](assets/expedition/items/drive-coupling.png)
 - Disabled crawler
+  - icon: ![Disabled crawler](assets/expedition/items/disabled-crawler.png)
 - Toolkit
 - Rover
 - Serviced drive
+  - icon: ![Serviced drive](assets/expedition/items/serviced-drive.png)
 - Replacement drive
+  - icon: ![Replacement drive](assets/expedition/items/replacement-drive.png)
 - Tow line
+  - icon: ![Tow line](assets/expedition/items/tow-line.png)
 - Recovered crawler
+  - icon: ![Recovered crawler](assets/expedition/items/recovered-crawler.png)
 
 **Combinations**
 - Spare drive [transform] + Toolkit -> Serviced drive
@@ -358,7 +477,7 @@ The crew wait in the intact crawler cabin. Its service compartment holds the spa
 
 ## Service refuge
 
-![Service refuge](assets/M08.webp)
+![Service refuge](assets/expedition/backgrounds/service-refuge.webp)
 
 The crew have reached the nearby service refuge. Its shelter and bedding stores are here; first I need to make it warm and welcoming.
 
@@ -372,18 +491,31 @@ The service refuge has bedding, a folding bed, soup and an insulated flask. The 
 
 **Items**
 - Service shelter · torn seam
+  - icon: ![Service shelter · torn seam](assets/expedition/items/service-shelter-torn-seam.png)
 - Bedding
+  - icon: ![Bedding](assets/expedition/items/bedding.png)
 - Soup pouch
+  - icon: ![Soup pouch](assets/expedition/items/soup-pouch.png)
 - Insulated flask
+  - icon: ![Insulated flask](assets/expedition/items/insulated-flask.png)
 - Folding bed
+  - icon: ![Folding bed](assets/expedition/items/folding-bed.png)
 - Sealed refuge
+  - icon: ![Sealed refuge](assets/expedition/items/sealed-refuge.png)
 - Warm refuge
+  - icon: ![Warm refuge](assets/expedition/items/warm-refuge.png)
 - Prepared bed
+  - icon: ![Prepared bed](assets/expedition/items/prepared-bed.png)
 - Prepared refuge
+  - icon: ![Prepared refuge](assets/expedition/items/prepared-refuge.png)
 - Warm soup
+  - icon: ![Warm soup](assets/expedition/items/warm-soup.png)
 - Hot meal flask
+  - icon: ![Hot meal flask](assets/expedition/items/hot-meal-flask.png)
 - Occupied refuge
+  - icon: ![Occupied refuge](assets/expedition/items/occupied-refuge.png)
 - Provisioned refuge
+  - icon: ![Provisioned refuge](assets/expedition/items/provisioned-refuge.png)
 
 **Combinations**
 - Service shelter · torn seam [transform] + Patch supplies -> Sealed refuge
@@ -398,7 +530,7 @@ The service refuge has bedding, a folding bed, soup and an insulated flask. The 
 
 ## Sheltered workcourt
 
-![Sheltered workcourt](assets/M08-workcourt.webp)
+![Sheltered workcourt](assets/expedition/backgrounds/sheltered-workcourt.webp)
 
 The crew is sheltered and fed. In the refuge's workcourt, I can prepare a lit workbench and contact our families.
 
@@ -410,16 +542,25 @@ The camp stores hold a worktop with its folded legs beneath it, a movable lamp b
 
 **Items**
 - Bench legs
+  - icon: ![Bench legs](assets/expedition/items/bench-legs.png)
 - Worktop
+  - icon: ![Worktop](assets/expedition/items/worktop.png)
 - Lamp bracket
+  - icon: ![Lamp bracket](assets/expedition/items/lamp-bracket.png)
 - Message camera
+  - icon: ![Message camera](assets/expedition/items/message-camera.png)
 - Antenna stand
+  - icon: ![Antenna stand](assets/expedition/items/antenna-stand.png)
 - Long range radio (compound)
-  - unnamed slot: accepts Antenna stand
+  - unnamed slot: accepts Antenna stand, icon: ![fitted Antenna stand](assets/expedition/slots/long-range-radio--antenna-stand.png)
 - Workbench
+  - icon: ![Workbench](assets/expedition/items/workbench.png)
 - Bench lamp
+  - icon: ![Bench lamp](assets/expedition/items/bench-lamp.png)
 - Crew message
+  - icon: ![Crew message](assets/expedition/items/crew-message.png)
 - Message home
+  - icon: ![Message home](assets/expedition/items/message-home.png)
 
 **Combinations**
 - Worktop [transform] + Bench legs [consume] -> Workbench
@@ -433,7 +574,7 @@ The camp stores hold a worktop with its folded legs beneath it, a movable lamp b
 
 ## Furniture-sled path
 
-![Furniture-sled path](assets/M08-sled-path.webp)
+![Furniture-sled path](assets/expedition/backgrounds/furniture-sled-path.webp)
 
 The crew's furniture sled is a short walk from camp. I will bring back their table and take a photograph of everyone together.
 
@@ -443,17 +584,27 @@ The furniture sled’s belongings locker contains protective padding and the cre
 - Take crew supper portrait -- Crew portrait
 
 **Hotspots**
-- Cargo shoulder
+- Cargo shoulder (at 74%, 15.5%)
+  - icon: ![Cargo shoulder](assets/expedition/hotspots/cargo-shoulder.png)
+  > NOTE: Mars artwork target: The grounded freight sled and cloth-wrapped mess crate on the path shoulder. Centre 74%, 15.5%; transparent hit area 110 × 80px at the 390 × 844 reference viewport.
 
 **Items**
 - Sled padding
+  - icon: ![Sled padding](assets/expedition/items/sled-padding.png)
 - Picture roll
+  - icon: ![Picture roll](assets/expedition/items/picture-roll.png)
 - Padded sling
+  - icon: ![Padded sling](assets/expedition/items/padded-sling.png)
 - Recovered mess crate
+  - icon: ![Recovered mess crate](assets/expedition/items/recovered-mess-crate.png)
 - Mess table
+  - icon: ![Mess table](assets/expedition/items/mess-table.png)
 - Personal table
+  - icon: ![Personal table](assets/expedition/items/personal-table.png)
 - Shared supper
+  - icon: ![Shared supper](assets/expedition/items/shared-supper.png)
 - Crew portrait
+  - icon: ![Crew portrait](assets/expedition/items/crew-portrait.png)
 
 **Combinations**
 - Recovery rope + Sled padding [transform] -> Padded sling
@@ -465,7 +616,7 @@ The furniture sled’s belongings locker contains protective padding and the cre
 
 ## Thermal test bay
 
-![Thermal test bay](assets/M08-thermal-bay.webp)
+![Thermal test bay](assets/expedition/backgrounds/thermal-test-bay.webp)
 
 The refuge loses heat at night. In the thermal test bay, I can compare coverings before fitting a screen to its exposed service wall.
 
@@ -480,22 +631,37 @@ The chamber runs matched 20-minute tests. Both samples start at 20°C, with the 
 - next: Insulate our refuge -- Insulated refuge
 
 **Hotspots**
-- Thermal chamber
+- Thermal chamber (at 63%, 13%)
+  - icon: ![Thermal chamber](assets/expedition/hotspots/thermal-chamber.png)
+  > NOTE: Mars artwork target: The open insulated test recess and empty specimen shelf. Centre 63%, 13%; transparent hit area 120 × 110px at the 390 × 844 reference viewport.
 
 **Items**
 - Wall sample
+  - icon: ![Wall sample](assets/expedition/items/wall-sample.png)
 - Temperature logger
+  - icon: ![Temperature logger](assets/expedition/items/temperature-logger.png)
 - Thermal blanket
+  - icon: ![Thermal blanket](assets/expedition/items/thermal-blanket.png)
 - Clip frame
+  - icon: ![Clip frame](assets/expedition/items/clip-frame.png)
 - Measured wall template
+  - icon: ![Measured wall template](assets/expedition/items/measured-wall-template.png)
 - Insulation swatch
+  - icon: ![Insulation swatch](assets/expedition/items/insulation-swatch.png)
 - Bare: 20 → 8°C
+  - icon: ![Bare: 20 → 8°C](assets/expedition/items/bare-20-8c.png)
 - Insulated wall sample
+  - icon: ![Insulated wall sample](assets/expedition/items/insulated-wall-sample.png)
 - Wrapped: 20 → 16°C
+  - icon: ![Wrapped: 20 → 16°C](assets/expedition/items/wrapped-20-16c.png)
 - Wrapping slows cooling
+  - icon: ![Wrapping slows cooling](assets/expedition/items/wrapping-slows-cooling.png)
 - Fitted blanket
+  - icon: ![Fitted blanket](assets/expedition/items/fitted-blanket.png)
 - Thermal screen
+  - icon: ![Thermal screen](assets/expedition/items/thermal-screen.png)
 - Insulated refuge
+  - icon: ![Insulated refuge](assets/expedition/items/insulated-refuge.png)
 
 **Combinations**
 - Temperature logger + Wall sample @ Thermal chamber -> Bare: 20 → 8°C
@@ -508,7 +674,7 @@ The chamber runs matched 20-minute tests. Both samples start at 20°C, with the 
 
 ## Enclosed ice works
 
-![Enclosed ice works](assets/M09.webp)
+![Enclosed ice works](assets/expedition/backgrounds/enclosed-ice-works.webp)
 
 Beyond camp is an enclosed ice-processing system with a drained pump loop. The water I saved may let me restart it and supply the camp's growing system.
 
@@ -520,23 +686,37 @@ The exposed service wall is now covered. The test showed that the wrapped sample
 - Make camp water system -- Camp water system
 
 **Hotspots**
-- Ice works
+- Ice works (at 55%, 14.5%)
+  - icon: ![Ice works](assets/expedition/hotspots/ice-works.png)
+  > NOTE: Mars artwork target: The central service panels beneath the enclosed pipe run. Centre 55%, 14.5%; transparent hit area 180 × 100px at the 390 × 844 reference viewport.
 
 **Items**
 - Return hose
+  - icon: ![Return hose](assets/expedition/items/return-hose.png)
 - Ice melter
+  - icon: ![Ice melter](assets/expedition/items/ice-melter.png)
 - Treatment skid
+  - icon: ![Treatment skid](assets/expedition/items/treatment-skid.png)
 - Monitored tank
+  - icon: ![Monitored tank](assets/expedition/items/monitored-tank.png)
 - Circulation pump
+  - icon: ![Circulation pump](assets/expedition/items/circulation-pump.png)
 - Camp water system
+  - icon: ![Camp water system](assets/expedition/items/camp-water-system.png)
 
   The protected tank and working pump loop now supply the camp’s enclosed growing system. This process water is for the equipment and growing beds, not drinking.
 - Heated melter
+  - icon: ![Heated melter](assets/expedition/items/heated-melter.png)
 - Collected water
+  - icon: ![Collected water](assets/expedition/items/collected-water.png)
 - Water reserve
+  - icon: ![Water reserve](assets/expedition/items/water-reserve.png)
 - Process water
+  - icon: ![Process water](assets/expedition/items/process-water.png)
 - Dry water loop
+  - icon: ![Dry water loop](assets/expedition/items/dry-water-loop.png)
 - Primed water loop
+  - icon: ![Primed water loop](assets/expedition/items/primed-water-loop.png)
 
 **Combinations**
 - Ice melter [transform] + Heater -> Heated melter
@@ -549,7 +729,7 @@ The exposed service wall is now covered. The test showed that the wrapped sample
 
 ## Greenhouse growing bed
 
-![Greenhouse growing bed](assets/M10.webp)
+![Greenhouse growing bed](assets/expedition/backgrounds/greenhouse-growing-bed.webp)
 
 Our mission stores cover the months until the return flight. In the greenhouse, there is time to grow food and prepare the beds for the crews who follow.
 
@@ -564,25 +744,41 @@ The growing beds use the camp’s process-water system. Growing the crop takes s
 
 **Items**
 - Greenhouse with torn seam
+  - icon: ![Greenhouse with torn seam](assets/expedition/items/greenhouse-with-torn-seam.png)
 - Prepared substrate
+  - icon: ![Prepared substrate](assets/expedition/items/prepared-substrate.png)
 - Drip line
+  - icon: ![Drip line](assets/expedition/items/drip-line.png)
 - Circulation fan
+  - icon: ![Circulation fan](assets/expedition/items/circulation-fan.png)
 - Grow light
+  - icon: ![Grow light](assets/expedition/items/grow-light.png)
 - Seed potato
+  - icon: ![Seed potato](assets/expedition/items/seed-potato.png)
 - Harvest basket
+  - icon: ![Harvest basket](assets/expedition/items/harvest-basket.png)
 - Growing bed
+  - icon: ![Growing bed](assets/expedition/items/growing-bed.png)
 - Greenhouse (compound)
-  - slot: bed, accepts Watered potatoes
-  - slot: light, accepts Powered grow light
-  - slot: air, accepts Circulation fan
-  - unnamed slot: accepts Positioned diffuser
+  - icon: ![Greenhouse](assets/expedition/items/greenhouse.png)
+  - slot: bed, accepts Watered potatoes, icon: ![fitted Watered potatoes](assets/expedition/slots/greenhouse--watered-potatoes.png)
+  - slot: light, accepts Powered grow light, icon: ![fitted Powered grow light](assets/expedition/slots/greenhouse--powered-grow-light.png)
+  - slot: air, accepts Circulation fan, icon: ![fitted Circulation fan](assets/expedition/slots/greenhouse--circulation-fan.png)
+  - unnamed slot: accepts Positioned diffuser, icon: ![fitted Positioned diffuser](assets/expedition/slots/greenhouse--positioned-diffuser.png)
 - Connected drip line
+  - icon: ![Connected drip line](assets/expedition/items/connected-drip-line.png)
 - Watered potatoes
+  - icon: ![Watered potatoes](assets/expedition/items/watered-potatoes.png)
 - Powered grow light
+  - icon: ![Powered grow light](assets/expedition/items/powered-grow-light.png)
 - Warm potatoes
+  - icon: ![Warm potatoes](assets/expedition/items/warm-potatoes.png)
 - Planting bed
+  - icon: ![Planting bed](assets/expedition/items/planting-bed.png)
 - Planted potatoes
+  - icon: ![Planted potatoes](assets/expedition/items/planted-potatoes.png)
 - Potato harvest
+  - icon: ![Potato harvest](assets/expedition/items/potato-harvest.png)
 
 **Combinations**
 - Drip line [transform] + Camp water system [preserve] -> Connected drip line
@@ -596,7 +792,7 @@ The growing beds use the camp’s process-water system. Growing the crop takes s
 
 ## Propagation bench
 
-![Propagation bench](assets/M10-propagation-bench.webp)
+![Propagation bench](assets/expedition/backgrounds/propagation-bench.webp)
 
 The greenhouse has produced potatoes, and the small tray from landing is still growing. At the nursery bench, I can prepare a lasting place for its seedlings.
 
@@ -608,21 +804,35 @@ The growing bed and its fitted equipment remain in the greenhouse. The propagati
 - Camp nursery -- Camp nursery
 
 **Hotspots**
-- Nursery test shelf
+- Nursery test shelf (at 50%, 23.5%)
+  - icon: ![Nursery test shelf](assets/expedition/hotspots/nursery-test-shelf.png)
+  > NOTE: Mars artwork target: The fixed raised nursery shelf crossed by daylight and structural shadows. Centre 50%, 23.5%; transparent hit area 270 × 66px at the 390 × 844 reference viewport.
 
 **Items**
 - Nursery grid
+  - icon: ![Nursery grid](assets/expedition/items/nursery-grid.png)
 - Diffuser sheet
+  - icon: ![Diffuser sheet](assets/expedition/items/diffuser-sheet.png)
 - Diffuser frame
+  - icon: ![Diffuser frame](assets/expedition/items/diffuser-frame.png)
 - Seedling support
+  - icon: ![Seedling support](assets/expedition/items/seedling-support.png)
 - Nursery labels
+  - icon: ![Nursery labels](assets/expedition/items/nursery-labels.png)
 - Shelf shadow view
+  - icon: ![Shelf shadow view](assets/expedition/items/shelf-shadow-view.png)
 - Shadow layout
+  - icon: ![Shadow layout](assets/expedition/items/shadow-layout.png)
 - Framed diffuser
+  - icon: ![Framed diffuser](assets/expedition/items/framed-diffuser.png)
 - Positioned diffuser
+  - icon: ![Positioned diffuser](assets/expedition/items/positioned-diffuser.png)
 - Identified seedlings
+  - icon: ![Identified seedlings](assets/expedition/items/identified-seedlings.png)
 - Supported seedlings
+  - icon: ![Supported seedlings](assets/expedition/items/supported-seedlings.png)
 - Camp nursery
+  - icon: ![Camp nursery](assets/expedition/items/camp-nursery.png)
 
 **Combinations**
 - Field camera @ Nursery test shelf -> Shelf shadow view
@@ -635,7 +845,7 @@ The growing bed and its fitted equipment remain in the greenhouse. The propagati
 
 ## Camp machine shop
 
-![Camp machine shop](assets/M11.webp)
+![Camp machine shop](assets/expedition/backgrounds/camp-machine-shop.webp)
 
 The crawler needs a replacement wheel and a carrier for the samples. The enclosed machine shop has equipment for making and fitting them.
 
@@ -649,24 +859,39 @@ The camp machine-shop cabinet holds the guarded bench-top machine, stock, carrie
 
 **Items**
 - Machining stock
+  - icon: ![Machining stock](assets/expedition/items/machining-stock.png)
 - Carrier shell
+  - icon: ![Carrier shell](assets/expedition/items/carrier-shell.png)
 - Shock foam
+  - icon: ![Shock foam](assets/expedition/items/shock-foam.png)
 - Latch
+  - icon: ![Latch](assets/expedition/items/latch.png)
 - Blank bracket
+  - icon: ![Blank bracket](assets/expedition/items/blank-bracket.png)
 - Guarded bench-top machine
+  - icon: ![Guarded bench-top machine](assets/expedition/items/guarded-bench-top-machine.png)
 - Replacement wheel
+  - icon: ![Replacement wheel](assets/expedition/items/replacement-wheel.png)
 - Crawler (compound)
-  - unnamed slot: accepts Wheel module
-  - unnamed slot: accepts Bracketed sample carrier
-  - unnamed slot: accepts Marked traverse
+  - icon: ![Crawler](assets/expedition/items/crawler.png)
+  - unnamed slot: accepts Wheel module, icon: ![fitted Wheel module](assets/expedition/slots/crawler--wheel-module.png)
+  - unnamed slot: accepts Bracketed sample carrier, icon: ![fitted Bracketed sample carrier](assets/expedition/slots/crawler--bracketed-sample-carrier.png)
+  - unnamed slot: accepts Marked traverse, icon: ![fitted Marked traverse](assets/expedition/slots/crawler--marked-traverse.png)
 - Lit workbench (compound)
-  - unnamed slot: accepts Guarded bench-top machine
+  - icon: ![Lit workbench](assets/expedition/items/lit-workbench.png)
+  - unnamed slot: accepts Guarded bench-top machine, icon: ![fitted Guarded bench-top machine](assets/expedition/slots/lit-workbench--guarded-bench-top-machine.png)
 - Machined axle
+  - icon: ![Machined axle](assets/expedition/items/machined-axle.png)
 - Wheel module
+  - icon: ![Wheel module](assets/expedition/items/wheel-module.png)
 - Padded carrier
+  - icon: ![Padded carrier](assets/expedition/items/padded-carrier.png)
 - Sample carrier
+  - icon: ![Sample carrier](assets/expedition/items/sample-carrier.png)
 - Mounting bracket
+  - icon: ![Mounting bracket](assets/expedition/items/mounting-bracket.png)
 - Bracketed sample carrier
+  - icon: ![Bracketed sample carrier](assets/expedition/items/bracketed-sample-carrier.png)
 
 **Combinations**
 - Lit workbench[Guarded bench-top machine] + Machining stock [transform] -> Machined axle
@@ -679,7 +904,7 @@ The camp machine-shop cabinet holds the guarded bench-top machine, stock, carrie
 
 ## Lava-rim scout station
 
-![Lava-rim scout station](assets/M12.webp)
+![Lava-rim scout station](assets/expedition/backgrounds/lava-rim-scout-station.webp)
 
 The ascent depot lies beyond rough lava. At this scout station, I can use aerial observations to plan the crawler's route.
 
@@ -689,20 +914,32 @@ The geology depot holds a stored Mars scout. Its delicate rotor assembly and bat
 - Fit crawler traverse -- Crawler[Marked traverse]
 
 **Hotspots**
-- Lava overlook
+- Lava overlook (at 64%, 16%)
+  - icon: ![Lava overlook](assets/expedition/hotspots/lava-overlook.png)
+  > NOTE: Mars artwork target: The black volcanic rim and open viewing edge beyond the scout clearing. Centre 64%, 16%; transparent hit area 180 × 95px at the 390 × 844 reference viewport.
 
 **Items**
 - Scout airframe
+  - icon: ![Scout airframe](assets/expedition/items/scout-airframe.png)
 - Counter rotating rotors
+  - icon: ![Counter rotating rotors](assets/expedition/items/counter-rotating-rotors.png)
 - Scout battery
+  - icon: ![Scout battery](assets/expedition/items/scout-battery.png)
 - Route tablet
+  - icon: ![Route tablet](assets/expedition/items/route-tablet.png)
 - Hazard marker
+  - icon: ![Hazard marker](assets/expedition/items/hazard-marker.png)
 - Scout (compound)
-  - slot: battery, accepts Scout battery
+  - icon: ![Scout](assets/expedition/items/scout.png)
+  - slot: battery, accepts Scout battery, icon: ![fitted Scout battery](assets/expedition/slots/scout--scout-battery.png)
 - Scout panorama
+  - icon: ![Scout panorama](assets/expedition/items/scout-panorama.png)
 - Terrain model
+  - icon: ![Terrain model](assets/expedition/items/terrain-model.png)
 - Traverse map
+  - icon: ![Traverse map](assets/expedition/items/traverse-map.png)
 - Marked traverse
+  - icon: ![Marked traverse](assets/expedition/items/marked-traverse.png)
 
 **Combinations**
 - Scout airframe [transform] + Counter rotating rotors [consume] -> Scout
@@ -713,7 +950,7 @@ The geology depot holds a stored Mars scout. Its delicate rotor assembly and bat
 
 ## Channel survey station
 
-![Channel survey station](assets/M13.webp)
+![Channel survey station](assets/expedition/backgrounds/channel-survey-station.webp)
 
 The aerial view suggested a possible crossing. Here at the channel, I need ground measurements before bringing the crawler onto the approach.
 
@@ -724,16 +961,25 @@ At the channel survey station, the opened field case holds the ground probe, map
 - Place crawler at channel -- Crawler[Wheel module] @ Channel approach
 
 **Hotspots**
-- Channel approach
+- Channel approach (at 50%, 22%)
+  - icon: ![Channel approach](assets/expedition/hotspots/channel-approach.png)
+  > NOTE: Mars artwork target: The clear broad approach between the channel banks. Centre 50%, 22%; transparent hit area 220 × 110px at the 390 × 844 reference viewport.
 
 **Items**
 - Ground probe
+  - icon: ![Ground probe](assets/expedition/items/ground-probe.png)
 - Route overlay
+  - icon: ![Route overlay](assets/expedition/items/route-overlay.png)
 - Crossing marker
+  - icon: ![Crossing marker](assets/expedition/items/crossing-marker.png)
 - Ground profile
+  - icon: ![Ground profile](assets/expedition/items/ground-profile.png)
 - Firm-ground route
+  - icon: ![Firm-ground route](assets/expedition/items/firm-ground-route.png)
 - Crossing map
+  - icon: ![Crossing map](assets/expedition/items/crossing-map.png)
 - Marked crossing
+  - icon: ![Marked crossing](assets/expedition/items/marked-crossing.png)
 
 **Combinations**
 - Ground probe [preserve] @ Channel approach -> Ground profile
@@ -743,7 +989,7 @@ At the channel survey station, the opened field case holds the ground probe, map
 
 ## Basin coring station
 
-![Basin coring station](assets/M14.webp)
+![Basin coring station](assets/expedition/backgrounds/basin-coring-station.webp)
 
 Time to collect a core from this basin, and record its findings against the terrain.
 
@@ -754,25 +1000,46 @@ The field laboratory unpacked at the basin core site contains the coring, handli
 - next: Record the basin findings -- Basin field record
 
 **Hotspots**
-- Layered basin
+- Layered basin (at 50%, 23.5%)
+  - icon: ![Layered basin](assets/expedition/hotspots/layered-basin.png)
+  > NOTE: Mars artwork target: The accessible low stratified bank in front of the basin walls. Centre 50%, 23.5%; transparent hit area 220 × 90px at the 390 × 844 reference viewport.
 
 **Items**
 - Sterile liner
+  - icon: ![Sterile liner](assets/expedition/items/sterile-liner.png)
 - Core cradle
+  - icon: ![Core cradle](assets/expedition/items/core-cradle.png)
 - Spectrometer
+  - icon: ![Spectrometer](assets/expedition/items/spectrometer.png)
 - Calibration target
+  - icon: ![Calibration target](assets/expedition/items/calibration-target.png)
 - Sample vial
+  - icon: ![Sample vial](assets/expedition/items/sample-vial.png)
 - Specimen log
+  - icon: ![Specimen log](assets/expedition/items/specimen-log.png)
 - Core drill
+  - icon: ![Core drill](assets/expedition/items/core-drill.png)
 - Illuminated microscope
+  - icon: ![Illuminated microscope](assets/expedition/items/illuminated-microscope.png)
 - Lined core drill
+  - icon: ![Lined core drill](assets/expedition/items/lined-core-drill.png)
 - Sediment core
+  - icon: ![Sediment core](assets/expedition/items/sediment-core.png)
 - Supported core
+  - icon: ![Supported core](assets/expedition/items/supported-core.png)
 - Grain images
+  - icon: ![Grain images](assets/expedition/items/grain-images.png)
 - Calibrated spectrometer
+  - icon: ![Calibrated spectrometer](assets/expedition/items/calibrated-spectrometer.png)
 - Retained sediment
+  - icon: ![Retained sediment](assets/expedition/items/retained-sediment.png)
 - Mineral spectrum
+  - icon: ![Mineral spectrum](assets/expedition/items/mineral-spectrum.png)
 - Basin field record
+  - icon: ![Basin field record](assets/expedition/items/basin-field-record.png)
+
+- `sediment-comparison` "Fine–coarse–fine; spectrum inconclusive"
+  - icon: ![Fine–coarse–fine; spectrum inconclusive](assets/expedition/items/finecoarsefine-spectrum-inconclusive.png)
 
 **Combinations**
 - Core drill [transform] + Sterile liner [consume] -> Lined core drill
@@ -787,7 +1054,7 @@ The field laboratory unpacked at the basin core site contains the coring, handli
 
 ## Ripple and gravel edge
 
-![Ripple and gravel edge](assets/M14-gravel-edge.webp)
+![Ripple and gravel edge](assets/expedition/backgrounds/ripple-and-gravel-edge.webp)
 
 The rippled surface and nearby gravel are different sources of evidence. I will mark both photographed sites on the terrain model, compare them with the basin record, and keep the specimens and records separate.
 
@@ -803,26 +1070,44 @@ The earlier core has a band of larger grains between two finer layers. Its miner
 - Keep specimens separate -- Two-cell comparison case[Ripple impression, Logged gravel chip]
 
 **Hotspots**
-- Ripple window
-- Gravel window
+- Ripple window (at 23%, 24.5%)
+  - icon: ![Ripple window](assets/expedition/hotspots/ripple-window.png)
+  > NOTE: Mars artwork target: The left low outcrop with visible parallel ripple ridges. Centre 23%, 24.5%; transparent hit area 105 × 80px at the 390 × 844 reference viewport.
+- Gravel window (at 77%, 24.5%)
+  - icon: ![Gravel window](assets/expedition/hotspots/gravel-window.png)
+  > NOTE: Mars artwork target: The right conglomerate ledge with rounded embedded pebbles and loose fragments. Centre 77%, 24.5%; transparent hit area 105 × 80px at the 390 × 844 reference viewport.
 
 **Items**
 - Context board
+  - icon: ![Context board](assets/expedition/items/context-board.png)
 - Two-cell comparison case (compound)
-  - slot: ripple, accepts Ripple impression
-  - slot: gravel, accepts Logged gravel chip
+  - icon: ![Two-cell comparison case](assets/expedition/items/two-cell-comparison-case.png)
+  - slot: ripple, accepts Ripple impression, icon: ![fitted Ripple impression](assets/expedition/slots/two-cell-comparison-case--ripple-impression.png)
+  - slot: gravel, accepts Logged gravel chip, icon: ![fitted Logged gravel chip](assets/expedition/slots/two-cell-comparison-case--logged-gravel-chip.png)
 - Ripple impression sheet
+  - icon: ![Ripple impression sheet](assets/expedition/items/ripple-impression-sheet.png)
 - Comparison sleeve
+  - icon: ![Comparison sleeve](assets/expedition/items/comparison-sleeve.png)
 - Ripple photograph
+  - icon: ![Ripple photograph](assets/expedition/items/ripple-photograph.png)
 - Gravel photograph
+  - icon: ![Gravel photograph](assets/expedition/items/gravel-photograph.png)
 - Paired terrain photographs
+  - icon: ![Paired terrain photographs](assets/expedition/items/paired-terrain-photographs.png)
 - Mapped ripple and gravel sites
+  - icon: ![Mapped ripple and gravel sites](assets/expedition/items/mapped-ripple-and-gravel-sites.png)
 - Qualified basin story
+  - icon: ![Qualified basin story](assets/expedition/items/qualified-basin-story.png)
 - Ripple impression
+  - icon: ![Ripple impression](assets/expedition/items/ripple-impression.png)
 - Logged gravel chip
+  - icon: ![Logged gravel chip](assets/expedition/items/logged-gravel-chip.png)
 - Comparison board
+  - icon: ![Comparison board](assets/expedition/items/comparison-board.png)
 - Sleeved comparison
+  - icon: ![Sleeved comparison](assets/expedition/items/sleeved-comparison.png)
 - Loose gravel chip
+  - icon: ![Loose gravel chip](assets/expedition/items/loose-gravel-chip.png)
 
 **Combinations**
 - Field camera @ Ripple window -> Ripple photograph
@@ -838,7 +1123,7 @@ The earlier core has a band of larger grains between two finer layers. Its miner
 
 ## Depot marker line
 
-![Depot marker line](assets/M15.webp)
+![Depot marker line](assets/expedition/backgrounds/depot-marker-line.webp)
 
 The old depot markers lead toward a stored cargo hauler. The dark surface tracks have changed, so I will follow the fixed markers and use our spare controller to repair the hauler.
 
@@ -850,24 +1135,39 @@ Our basin comparison keeps the ripple and gravel sites separate. Rounded gravel 
 - Depot cargo shuttle -- Depot cargo shuttle
 
 **Hotspots**
-- Depot marker line
+- Depot marker line (at 31%, 22%)
+  - icon: ![Depot marker line](assets/expedition/hotspots/depot-marker-line.png)
+  > NOTE: Mars artwork target: The near fixed identification marker and its rock footing; smaller markers continue toward the depot. Centre 31%, 22%; transparent hit area 85 × 112px at the 390 × 844 reference viewport.
 
 **Items**
 - Depot survey print
+  - icon: ![Depot survey print](assets/expedition/items/depot-survey-print.png)
 - Marker cleaning pad
+  - icon: ![Marker cleaning pad](assets/expedition/items/marker-cleaning-pad.png)
 - Folded route sign
+  - icon: ![Folded route sign](assets/expedition/items/folded-route-sign.png)
 - Sign foot
+  - icon: ![Sign foot](assets/expedition/items/sign-foot.png)
 - Depot hauler (compound)
-  - slot: controller, accepts Protected controller
-  - slot: platform, accepts Hauler platform
+  - icon: ![Depot hauler](assets/expedition/items/depot-hauler.png)
+  - slot: controller, accepts Protected controller, icon: ![fitted Protected controller](assets/expedition/slots/depot-hauler--protected-controller.png)
+  - slot: platform, accepts Hauler platform, icon: ![fitted Hauler platform](assets/expedition/slots/depot-hauler--hauler-platform.png)
 - Hauler platform
+  - icon: ![Hauler platform](assets/expedition/items/hauler-platform.png)
 - Current marker view
+  - icon: ![Current marker view](assets/expedition/items/current-marker-view.png)
 - Track disagreement
+  - icon: ![Track disagreement](assets/expedition/items/track-disagreement.png)
 - Readable route identifier
+  - icon: ![Readable route identifier](assets/expedition/items/readable-route-identifier.png)
 - Identified service route
+  - icon: ![Identified service route](assets/expedition/items/identified-service-route.png)
 - Standing route sign
+  - icon: ![Standing route sign](assets/expedition/items/standing-route-sign.png)
 - Depot route sign
+  - icon: ![Depot route sign](assets/expedition/items/depot-route-sign.png)
 - Depot cargo shuttle
+  - icon: ![Depot cargo shuttle](assets/expedition/items/depot-cargo-shuttle.png)
 
 **Combinations**
 - Field camera @ Depot marker line -> Current marker view
@@ -883,7 +1183,7 @@ Our basin comparison keeps the ripple and gravel sites separate. Rounded gravel 
 
 ## Oxygen-plant service bay
 
-![Oxygen-plant service bay](assets/M16-oxygen-bay.webp)
+![Oxygen-plant service bay](assets/expedition/backgrounds/oxygen-plant-service-bay.webp)
 
 The ascent depot's oxygen plant is still here. In its service bay, I can restore the equipment needed to prepare the vehicle's oxygen module.
 
@@ -893,19 +1193,28 @@ The oxygen plant holds its stored processing stack, controller and filtered inta
 - Restore plant; service oxygen -- Serviced oxygen module
 
 **Hotspots**
-- Ascent plant
+- Ascent plant (at 30%, 11.7%)
+  - icon: ![Ascent plant](assets/expedition/hotspots/ascent-plant.png)
+  > NOTE: Mars artwork target: The fixed servicing interface and empty receiving cradle inside the open depot bay. Centre 30%, 11.7%; transparent hit area 110 × 85px at the 390 × 844 reference viewport.
 
 **Items**
 - Electrolyzer stack
+  - icon: ![Electrolyzer stack](assets/expedition/items/electrolyzer-stack.png)
 - Process controller
+  - icon: ![Process controller](assets/expedition/items/process-controller.png)
 - Filtered intake
+  - icon: ![Filtered intake](assets/expedition/items/filtered-intake.png)
 - Flight oxygen module
+  - icon: ![Flight oxygen module](assets/expedition/items/flight-oxygen-module.png)
 - Oxygen plant (compound)
-  - slot: intake, accepts Filtered intake
+  - icon: ![Oxygen plant](assets/expedition/items/oxygen-plant.png)
+  - slot: intake, accepts Filtered intake, icon: ![fitted Filtered intake](assets/expedition/slots/oxygen-plant--filtered-intake.png)
 
   [Filtered intake] The restored plant is ready to process the Martian atmosphere into oxygen using its fitted mission equipment. This gives the return expedition a local oxygen source.
 - Serviced oxygen module
+  - icon: ![Serviced oxygen module](assets/expedition/items/serviced-oxygen-module.png)
 - Docked oxygen module
+  - icon: ![Docked oxygen module](assets/expedition/items/docked-oxygen-module.png)
 
 **Combinations**
 - Electrolyzer stack [transform] + Process controller [consume] -> Oxygen plant
@@ -914,7 +1223,7 @@ The oxygen plant holds its stored processing stack, controller and filtered inta
 
 ## Cabin preparation bay
 
-![Cabin preparation bay](assets/M16-cabin-bay.webp)
+![Cabin preparation bay](assets/expedition/backgrounds/cabin-preparation-bay.webp)
 
 The oxygen plant is working. Across the depot, I can repair and fit the waiting cabin, then check its hatch closure and console responses at the ascent pad and record what happens.
 
@@ -924,20 +1233,29 @@ The cabin shell survived, but its hatch seal is damaged. The depot stores hold t
 - Make cabin test record -- Cabin test record
 
 **Hotspots**
-- Ascent pad
+- Ascent pad (at 50%, 23.8%)
+  - icon: ![Ascent pad](assets/expedition/hotspots/ascent-pad.png)
+  > NOTE: Mars artwork target: The empty low circular cabin test cradle on the hangar floor. Centre 50%, 23.8%; transparent hit area 300 × 95px at the 390 × 844 reference viewport.
 
 **Items**
 - Ascent cabin shell
+  - icon: ![Ascent cabin shell](assets/expedition/items/ascent-cabin-shell.png)
 - Docking ring
+  - icon: ![Docking ring](assets/expedition/items/docking-ring.png)
 - Hatch seal
+  - icon: ![Hatch seal](assets/expedition/items/hatch-seal.png)
 - Flight console
+  - icon: ![Flight console](assets/expedition/items/flight-console.png)
 - Flight seat
+  - icon: ![Flight seat](assets/expedition/items/flight-seat.png)
 - Ascent cabin (compound)
-  - slot: dock, accepts Docking ring
-  - slot: oxygen, accepts Serviced oxygen module
-  - slot: console, accepts Flight console
-  - slot: seat, accepts Flight seat
+  - icon: ![Ascent cabin](assets/expedition/items/ascent-cabin.png)
+  - slot: dock, accepts Docking ring, icon: ![fitted Docking ring](assets/expedition/slots/ascent-cabin--docking-ring.png)
+  - slot: oxygen, accepts Serviced oxygen module, icon: ![fitted Serviced oxygen module](assets/expedition/slots/ascent-cabin--serviced-oxygen-module.png)
+  - slot: console, accepts Flight console, icon: ![fitted Flight console](assets/expedition/slots/ascent-cabin--flight-console.png)
+  - slot: seat, accepts Flight seat, icon: ![fitted Flight seat](assets/expedition/slots/ascent-cabin--flight-seat.png)
 - Cabin test record
+  - icon: ![Cabin test record](assets/expedition/items/cabin-test-record.png)
 
 **Combinations**
 - Ascent cabin shell [transform] + Hatch seal [consume] -> Ascent cabin
@@ -947,7 +1265,7 @@ The cabin shell survived, but its hatch seal is damaged. The depot stores hold t
 
 ## Clear-sky station
 
-![Clear-sky station](assets/M17.webp)
+![Clear-sky station](assets/expedition/backgrounds/clear-sky-station.webp)
 
 At the clear-sky station, I can compare clocks, observations and beacon measurements with the orbiter. We need to agree where and when the ships will meet.
 
@@ -961,28 +1279,46 @@ The cabin check is recorded. We still need the orbiter’s pass prediction and a
 - Make agreed rendezvous -- Agreed rendezvous
 
 **Hotspots**
-- Clear sky station
+- Clear sky station (at 31%, 9%)
+  - icon: ![Clear sky station](assets/expedition/hotspots/clear-sky-station.png)
+  > NOTE: Mars artwork target: The observatory dome and its entrance terrace, with clear sky above. Centre 31%, 9%; transparent hit area 160 × 110px at the 390 × 844 reference viewport.
 
 **Items**
 - Orbiter position table
+  - icon: ![Orbiter position table](assets/expedition/items/orbiter-position-table.png)
 
   The table gives predicted orbiter positions at reference-clock times. Comparing it with the received beacon times helps predict a pass; it is one input to the rendezvous, not a complete flight plan.
 
 - Navigation terminal
+  - icon: ![Navigation terminal](assets/expedition/items/navigation-terminal.png)
 - Alignment target
+  - icon: ![Alignment target](assets/expedition/items/alignment-target.png)
 - Range transponder
+  - icon: ![Range transponder](assets/expedition/items/range-transponder.png)
 - Reference clock
+  - icon: ![Reference clock](assets/expedition/items/reference-clock.png)
 - Timing receiver
+  - icon: ![Timing receiver](assets/expedition/items/timing-receiver.png)
 - Star tracker
+  - icon: ![Star tracker](assets/expedition/items/star-tracker.png)
 - Timing station
+  - icon: ![Timing station](assets/expedition/items/timing-station.png)
 - Aligned star tracker
+  - icon: ![Aligned star tracker](assets/expedition/items/aligned-star-tracker.png)
 - Star observation
+  - icon: ![Star observation](assets/expedition/items/star-observation.png)
 - Beacon times
+  - icon: ![Beacon times](assets/expedition/items/beacon-times.png)
 - Orbiter pass prediction
+  - icon: ![Orbiter pass prediction](assets/expedition/items/orbiter-pass-prediction.png)
 - Station orientation
+  - icon: ![Station orientation](assets/expedition/items/station-orientation.png)
 - Rendezvous solution
+  - icon: ![Rendezvous solution](assets/expedition/items/rendezvous-solution.png)
 - Ranging link
+  - icon: ![Ranging link](assets/expedition/items/ranging-link.png)
 - Agreed rendezvous
+  - icon: ![Agreed rendezvous](assets/expedition/items/agreed-rendezvous.png)
 
 **Combinations**
 - Timing receiver [transform] + Reference clock [consume] -> Timing station
@@ -997,7 +1333,7 @@ The cabin check is recorded. We still need the orbiter’s pass prediction and a
 
 ## Camp return-packing alcove
 
-![Camp return-packing alcove](assets/M08-packing-bay.webp)
+![Camp return-packing alcove](assets/expedition/backgrounds/camp-return-packing-alcove.webp)
 
 Back at camp, I will pack the specimens, save the crew portrait and prepare a handover signal for the next crew.
 
@@ -1011,25 +1347,39 @@ The complete card recorder and its matching archival card can save a copy of the
 
 **Items**
 - Shock mount
+  - icon: ![Shock mount](assets/expedition/items/shock-mount.png)
 - Card recorder
+  - icon: ![Card recorder](assets/expedition/items/card-recorder.png)
 - Archival card
+  - icon: ![Archival card](assets/expedition/items/archival-card.png)
 - Cargo strap
+  - icon: ![Cargo strap](assets/expedition/items/cargo-strap.png)
 - Camp beacon
+  - icon: ![Camp beacon](assets/expedition/items/camp-beacon.png)
 - Maintenance card
+  - icon: ![Maintenance card](assets/expedition/items/maintenance-card.png)
 - Return capsule (compound)
-  - unnamed slot: accepts Shock mount
-  - slot: ice, accepts Catalogued ice sample
-  - slot: sediment, accepts Retained sediment
-  - slot: archive, accepts Complete field archive
-  - slot: comparison, accepts Two-cell comparison case
-  - slot: comparison record, accepts Sleeved comparison
+  - icon: ![Return capsule](assets/expedition/items/return-capsule.png)
+  - unnamed slot: accepts Shock mount, icon: ![fitted Shock mount](assets/expedition/slots/return-capsule--shock-mount.png)
+  - slot: ice, accepts Catalogued ice sample, icon: ![fitted Catalogued ice sample](assets/expedition/slots/return-capsule--catalogued-ice-sample.png)
+  - slot: sediment, accepts Retained sediment, icon: ![fitted Retained sediment](assets/expedition/slots/return-capsule--retained-sediment.png)
+  - slot: archive, accepts Complete field archive, icon: ![fitted Complete field archive](assets/expedition/slots/return-capsule--complete-field-archive.png)
+  - slot: comparison, accepts Two-cell comparison case, icon: ![fitted Two-cell comparison case](assets/expedition/slots/return-capsule--two-cell-comparison-case.png)
+  - slot: comparison record, accepts Sleeved comparison, icon: ![fitted Sleeved comparison](assets/expedition/slots/return-capsule--sleeved-comparison.png)
 - Archival recorder
+  - icon: ![Archival recorder](assets/expedition/items/archival-recorder.png)
 - Expedition archive
+  - icon: ![Expedition archive](assets/expedition/items/expedition-archive.png)
 - Complete field archive
+  - icon: ![Complete field archive](assets/expedition/items/complete-field-archive.png)
 - Camp handover beacon
+  - icon: ![Camp handover beacon](assets/expedition/items/camp-handover-beacon.png)
 - Secured cart
+  - icon: ![Secured cart](assets/expedition/items/secured-cart.png)
 - Specimen transport cart
+  - icon: ![Specimen transport cart](assets/expedition/items/specimen-transport-cart.png)
 - Family record
+  - icon: ![Family record](assets/expedition/items/family-record.png)
 
 **Combinations**
 - Card recorder [transform] + Archival card [consume] -> Archival recorder
@@ -1045,7 +1395,7 @@ The complete card recorder and its matching archival card can save a copy of the
 
 ## Final assembly pad
 
-![Final assembly pad](assets/M16-launchpad.webp)
+![Final assembly pad](assets/expedition/backgrounds/final-assembly-pad.webp)
 
 At the final assembly pad, the ascent stage and launch equipment are ready for preparation. I will bring the crew, specimens and records to the orbiter at the agreed meeting.
 
@@ -1056,17 +1406,29 @@ The qualified ascent stage, receiver latch, cargo adapter, telemetry recorder an
 
 **Items**
 - Certified ascent stage
+  - icon: ![Certified ascent stage](assets/expedition/items/certified-ascent-stage.png)
 - Receiver latch
+  - icon: ![Receiver latch](assets/expedition/items/receiver-latch.png)
 - Cargo adapter
+  - icon: ![Cargo adapter](assets/expedition/items/cargo-adapter.png)
 - Telemetry recorder
+  - icon: ![Telemetry recorder](assets/expedition/items/telemetry-recorder.png)
 - Launch key
+  - icon: ![Launch key](assets/expedition/items/launch-key.png)
 - Ascent vehicle
+  - icon: ![Ascent vehicle](assets/expedition/items/ascent-vehicle.png)
 - Capsule dock
+  - icon: ![Capsule dock](assets/expedition/items/capsule-dock.png)
 - Loaded capsule dock
+  - icon: ![Loaded capsule dock](assets/expedition/items/loaded-capsule-dock.png)
 - Loaded ascent vehicle
+  - icon: ![Loaded ascent vehicle](assets/expedition/items/loaded-ascent-vehicle.png)
 - Rendezvous program
+  - icon: ![Rendezvous program](assets/expedition/items/rendezvous-program.png)
 - Flight ready vehicle
+  - icon: ![Flight ready vehicle](assets/expedition/items/flight-ready-vehicle.png)
 - Ascending vehicle
+  - icon: ![Ascending vehicle](assets/expedition/items/ascending-vehicle.png)
 
 **Combinations**
 - Certified ascent stage [transform] + Ascent cabin[Docking ring, Serviced oxygen module, Flight console, Flight seat] [consume] -> Ascent vehicle
@@ -1079,7 +1441,7 @@ The qualified ascent stage, receiver latch, cargo adapter, telemetry recorder an
 
 ## Orbital rendezvous
 
-![Orbital rendezvous](assets/M18-orbital-approach-v1.webp)
+![Orbital rendezvous](assets/expedition/backgrounds/orbital-rendezvous.webp)
 
 The surface falls away. At the agreed rendezvous, the waiting orbiter is finally in front of us.
 
@@ -1091,11 +1453,16 @@ We have you in sight. Bring your ship alongside; the hatch is waiting.
 - Bring specimens to orbital hatch -- Docked vehicle @ Orbital hatch
 
 **Hotspots**
-- Waiting orbital cabin
-- Orbital hatch
+- Waiting orbital cabin (at 70%, 39%)
+  - icon: ![Waiting orbital cabin](assets/expedition/hotspots/waiting-orbital-cabin.png)
+  > NOTE: Mars artwork target: The illuminated upper barrel of the waiting orbital cabin, separate from the front hatch. Centre 70%, 39%; transparent hit area 110 × 90px at the 390 × 844 reference viewport.
+- Orbital hatch (at 64%, 60.8%)
+  - icon: ![Orbital hatch](assets/expedition/hotspots/orbital-hatch.png)
+  > NOTE: Mars artwork target: The large circular forward hatch and illuminated docking rim. Centre 64%, 60.8%; transparent hit area 160 × 160px at the 390 × 844 reference viewport.
 
 **Items**
 - Docked vehicle
+  - icon: ![Docked vehicle](assets/expedition/items/docked-vehicle.png)
 
 **Combinations**
 - Ascending vehicle [transform] @ Waiting orbital cabin -> Docked vehicle
