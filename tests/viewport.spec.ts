@@ -173,7 +173,7 @@ test('short-screen drops and resized saved items stay reachable without adding d
   await page.getByRole('button', {name:'Start',exact:true}).click();
   await page.getByRole('button', {name:'Begin',exact:true}).click();
   const frame = page.locator('[data-item="name:Frame"]');
-  await frame.dragTo(page.locator('.chapter-panel'), {targetPosition:{x:389,y:843}});
+  await frame.dragTo(page.locator('.viewport'), {targetPosition:{x:389,y:843}});
   const original = (await frame.boundingBox())!;
   await page.setViewportSize({width:390,height:600});
   await expectCurrentFits(page, 1);
@@ -184,7 +184,7 @@ test('short-screen drops and resized saved items stay reachable without adding d
   expect(await frame.boundingBox()).toEqual(original);
   await page.setViewportSize({width:320,height:600});
   await expectCurrentFits(page, 1);
-  await frame.dragTo(page.locator('.chapter-panel'), {targetPosition:{x:1,y:599}});
+  await frame.dragTo(page.locator('.viewport'), {targetPosition:{x:1,y:599}});
   const moved = (await frame.boundingBox())!;
   expect(moved.x).toBeCloseTo(0, 1); expect(Math.abs(moved.y + moved.height - 600)).toBeLessThan(1);
   await page.reload(); await expectCurrentFits(page, 1);

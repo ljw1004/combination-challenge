@@ -91,7 +91,7 @@ test('manual recovery controls are conditional and story restart requires confir
   await page.getByRole('button',{name:'Cancel',exact:true}).click();await expect(page.getByRole('button',{name:'Restart story',exact:true})).toBeVisible();
   await page.getByRole('button',{name:'Close',exact:true}).click();
   const card=page.locator('.chapter-panel').last().locator('.thing').first(),before=(await card.boundingBox())!;
-  await card.dragTo(page.locator('.chapter-panel').last(),{targetPosition:{x:220,y:500}});
+  await card.dragTo(page.locator('.viewport'),{targetPosition:{x:220,y:500}});
   await page.reload();await page.getByRole('button',{name:'Read this chapter'}).click();
   await expect(page.getByRole('button',{name:'Restart story',exact:true})).toHaveCount(0);
   await page.getByRole('button',{name:'Restart this chapter'}).click();await page.getByRole('button',{name:'Begin',exact:true}).click();

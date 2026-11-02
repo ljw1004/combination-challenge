@@ -173,7 +173,7 @@ test('live edits update the current view and survive temporary deletion of its c
   // jump back past it when the deleted chapter is subsequently restored.
   await edit(page, withoutField);
   await expect(page.locator('.chapter-panel[data-chapter="1"]')).toHaveCount(0);
-  await card.dragTo(page.locator('.chapter-panel').first(), { targetPosition: { x: 260, y: 520 } });
+  await card.dragTo(page.locator('.viewport'), { targetPosition: { x: 260, y: 520 } });
   await edit(page, explained);
   await expect(page.locator('.chapter-panel[data-chapter="1"]')).toHaveCount(0);
 });

@@ -12,7 +12,6 @@ import { LiveDiagnostics } from './live-diagnostics.ts';
 import { markdown, escape } from './markdown.ts';
 import { reconcile } from './reconcile.ts';
 import { saveProgress } from './persistence.ts';
-import { goalClipPath } from './goal-clearance.ts';
 import { encyclopediaBook } from './encyclopedia-book.ts';
 import { encyclopediaEntries, openBook } from './encyclopedia.ts';
 import { ItemFeedback } from './item-feedback.ts';
@@ -196,7 +195,6 @@ function updateEditingIndicators() {
       ? 'Your edit is only in memory. Open the debug panel and copy the text before leaving.'
       : 'Your edit is only in memory. Return to the desktop editor and copy the text before leaving.';
   } else warning?.remove();
-  clearGoalsAroundCards();
   updateTutorial();
 }
 function layoutChanged() {
@@ -270,7 +268,6 @@ function applyText(text: string) {
 function setScroll(top: number) {
   const viewport = app.querySelector<HTMLElement>('.viewport');
   if (viewport) { viewport.scrollTop = top; expectedScroll = viewport.scrollTop; }
-  clearGoalsAroundCards();
 }
 function anchorScroll() {
   // Legacy anchors do not identify their viewport, so resume their active chapter.
@@ -522,7 +519,6 @@ function commit(action: Action) { try {
         ?placeCreation(receivingRect,{width:element.offsetWidth,height:element.offsetHeight},state.tokens[receiver.id].status!=='available',boardGeometry().bounds,occupied)
         :fitOnBoard(centre ? centre.x-element.offsetWidth/2 : token.x,centre ? centre.y-element.offsetHeight/2 : token.y,element.offsetWidth,element.offsetHeight,boardGeometry().bounds));
       token.x=position.x;token.y=position.y;positionTile(element,token);element.classList.add('born');
-      clearGoalsAroundCards();
     }
   }
   rememberInteraction(); save();
@@ -540,9 +536,12 @@ function positionTile(element: HTMLElement, position: {x: number; y: number}) {
 }
 
 /** Shared framing keeps cover/Start identical and clips transformed overflow at the world's end. */
-function worldHTML(chapters: string, count: number) {
+function worldHTML(chapters: string, scenes: {chapter: number; image?: string}[]) {
   const {scale, width, height, bounds} = boardGeometry();
-  return `<div class="world" data-panel-height="${height}" style="width:${width}px;height:${count*height}px"><div class="board fixed-locations" style="width:${bounds.width}px;height:${count*bounds.height}px;transform:scale(${scale});--board-scale:${scale};--card-scale:${width/390/scale};--panel-width:${bounds.width}px;--panel-height:${bounds.height}px;--scene-left:${-bounds.x}px">${chapters}</div></div>`;
+  // Scenery and the interactive board share geometry, but have separate stacking
+  // contexts so the fixed goals can sit between them without masking any pixels.
+  const scenery = scenes.map(({chapter, image}, position) => `<div class="scene-panel" data-chapter="${chapter}" style="top:${position*bounds.height}px">${image ? `<img class="scene-art" src="${escape(asset(image))}" alt="">` : ''}<div class="location-scrim"></div></div>`).join('');
+  return `<div class="world" data-panel-height="${height}" style="width:${width}px;height:${scenes.length*height}px;--board-scale:${scale};--card-scale:${width/390/scale};--panel-width:${bounds.width}px;--panel-height:${bounds.height}px;--world-height:${scenes.length*bounds.height}px;--scene-left:${-bounds.x}px"><div class="scene-layer" aria-hidden="true">${scenery}</div><div class="board fixed-locations">${chapters}</div></div>`;
 }
 function packArrival(checkpointLayout=false, source?: State){
   const tokens=availableTokens(state).filter(t=>t.chapter===state.chapter),fresh=new Set(state.newItems);
@@ -570,17 +569,11 @@ function packArrival(checkpointLayout=false, source?: State){
   if(divider){divider.hidden=layout.divider===undefined;if(layout.divider!==undefined)divider.style.top=`${layout.divider}px`;}
   panel(state.chapter)?.classList.toggle('crowded',layout.crowded);
 }
-function clearGoalsAroundCards(){
-  for(const overlay of app.querySelectorAll<HTMLElement>('.objective-overlay,.debug-toggle')){
-    const r=overlay.getBoundingClientRect();
-    overlay.style.clipPath=goalClipPath(r.width,r.height,[...app.querySelectorAll<HTMLElement>('[data-item]')].map(el=>{const c=el.getBoundingClientRect(),icon=el.classList.contains('icon-thing'),x=icon?Math.max(0,(44-c.width)/2):0,y=icon?Math.max(0,(44-c.height)/2):0;return {left:c.left-r.left-x,top:c.top-r.top-y,right:c.right-r.left+x,bottom:c.bottom-r.top+y};}));
-  }
-}
-let clearanceFrame=0;
-function scheduleGoalClearance(){cancelAnimationFrame(clearanceFrame);clearanceFrame=requestAnimationFrame(()=>{clearGoalsAroundCards();updateTutorial();});}
+let tutorialFrame=0;
+function scheduleTutorialUpdate(){cancelAnimationFrame(tutorialFrame);tutorialFrame=requestAnimationFrame(updateTutorial);}
 function renderLanding() {
   const bg = story.cover ?? background(story, 0);
-  reconcile(surface, `<div class="viewport story-landing">${worldHTML(`<section class="chapter-panel" data-chapter="0" style="top:0" aria-label="${escape(story.title)} opening scene">${bg ? `<img class="scene-art" src="${escape(asset(bg))}" alt="">` : ''}<div class="location-scrim"></div></section>`, 1)}</div><button class="story-start" data-command="start-story">Start</button>`);
+  reconcile(surface, `<div class="viewport story-landing">${worldHTML(`<section class="chapter-panel" data-chapter="0" style="top:0" aria-label="${escape(story.title)} opening scene"></section>`, [{chapter: 0, image: bg}])}</div><button class="story-start" data-command="start-story">Start</button>`);
   setScroll(0); updateEditingIndicators();
 }
 function beginStory() {
@@ -613,16 +606,15 @@ function render(arrival=false,finish=true,checkpointLayout=false,arrivalSource?:
   const transitioning=goalView?.phase==='leaving'||goalView?.phase==='entering',leaving=goalView?.phase==='leaving',showGoals=goalView?.phase==='goals'||leaving||state.completed;
   const gold=new Set<string>();for(const {goal:g,done} of goals)if(done)for(const c of g.conditions)if(matches(state.tokens[c.item.id],c.item)&&(!c.hotspot||state.tokens[c.item.id].hotspot===c.hotspot)){gold.add(c.item.id);if(c.hotspot)gold.add(c.hotspot);}
   reconcile(surface,`<div class="viewport">${worldHTML(state.visited.map((chapter,position)=>{
-    const bg=background(story,chapter);
-    return `<section class="chapter-panel" data-chapter="${chapter}" style="top:${position*geometry.bounds.height}px" aria-label="${escape(story.title)} scene ${position+1}">${bg?`<img class="scene-art" src="${escape(asset(bg))}" alt="">`:''}<div class="location-scrim"></div>${activeHotspots(story,chapter).map((id,i)=>hotspotHTML(story.hotspots[id],i,itemArtwork.hotspot(story.hotspots[id],asset),geometry.bounds)).join('')}${availableTokens(state).filter(t=>t.chapter===chapter).map(t=>{
+    return `<section class="chapter-panel" data-chapter="${chapter}" style="top:${position*geometry.bounds.height}px" aria-label="${escape(story.title)} scene ${position+1}">${activeHotspots(story,chapter).map((id,i)=>hotspotHTML(story.hotspots[id],i,itemArtwork.hotspot(story.hotspots[id],asset),geometry.bounds)).join('')}${availableTokens(state).filter(t=>t.chapter===chapter).map(t=>{
       const item=story.items[t.id],applicable=readings(story,state,t.id).some(reading=>reading.markdown.trim()),selected=tile(t.id)?.classList.contains('reading-selected'),visual=itemArtwork.visual(item,t.slots,name,asset,geometry.bounds);
       return `<button class="thing ${visual.className} ${creationLabels.has(t.id)?'newly-created':''} ${selected?'reading-selected pressed':''} ${chapter===state.chapter&&gold.has(t.id)?'goal-met':''}" data-item="${escape(t.id)}" style="left:${t.x}px;top:${t.y}px;z-index:${3+itemOrder.indexOf(t.id)};${visual.style}" aria-label="${escape(name(t.id))}" title="${escape(applicable?'Double-click or double-tap to read':'Drag to combine or move')}">${visual.html}${applicable?'<span class="reading-indicator" aria-hidden="true">' + openBook + '</span>':''}</button>`;
     }).join('')}${chapter===state.chapter&&state.arrivalDivider&&state.newItems.length?`<div class="arrival-divider" style="top:${Math.max(65,Math.min(...state.newItems.map(id=>state.tokens[id]?.y??844))-18)}px"><span>new items</span></div>`:''}</section>`;
-  }).join(''),state.visited.length)}</div>${showGoals?`<div class="hud-stack location-hud ${transitioning?'goals-leaving':''}" ${transitioning?'aria-hidden="true"':''}><button class="objective-overlay" ${leaving?'disabled':''} data-command="story" aria-label="Read this chapter"><span class="objectives">${goals.map(({goal,done})=>`<span class="objective-line ${done?'done':''}"><span class="goal-checkbox" aria-hidden="true">${done?'✓':''}</span><span>${escape(goal.text)}</span><span class="sr-only">${done?'Completed':'Not completed'}</span></span>`).join('')}${state.completed?'<span class="objective-line ending">The End</span>':''}</span></button></div>`:''}${goalView?.phase!=='goals'&&!state.completed?`<button class="chapter-next ${story.chapters[state.chapter+1]?.image?'':'right'} ${transitioning?'entering':''}" ${leaving?'disabled':''} data-command="advance" aria-label="Continue story"><span>${story.chapters[state.chapter+1]?.image?'↓':'→'}</span></button>`:''}`);
-  const viewport=app.querySelector<HTMLElement>('.viewport')!;viewport.onscroll=()=>{if(Number(app.querySelector<HTMLElement>('.world')?.dataset.panelHeight)!==app.clientHeight)return;scheduleGoalClearance();if(viewport.scrollTop!==expectedScroll){expectedScroll=viewport.scrollTop;rememberInteraction();save();}};setScroll(arrival?Math.max(0,(state.visited.length-1)*app.clientHeight):scroll);
+  }).join(''),state.visited.map(chapter=>({chapter,image:background(story,chapter)})))}</div>${showGoals?`<div class="hud-stack location-hud ${transitioning?'goals-leaving':''}" ${transitioning?'aria-hidden="true"':''}><button class="objective-overlay" ${leaving?'disabled':''} data-command="story" aria-label="Read this chapter"><span class="objectives">${goals.map(({goal,done})=>`<span class="objective-line ${done?'done':''}"><span class="goal-checkbox" aria-hidden="true">${done?'✓':''}</span><span>${escape(goal.text)}</span><span class="sr-only">${done?'Completed':'Not completed'}</span></span>`).join('')}${state.completed?'<span class="objective-line ending">The End</span>':''}</span></button></div>`:''}${goalView?.phase!=='goals'&&!state.completed?`<button class="chapter-next ${story.chapters[state.chapter+1]?.image?'':'right'} ${transitioning?'entering':''}" ${leaving?'disabled':''} data-command="advance" aria-label="Continue story"><span>${story.chapters[state.chapter+1]?.image?'↓':'→'}</span></button>`:''}`);
+  const viewport=app.querySelector<HTMLElement>('.viewport')!;viewport.onscroll=()=>{if(Number(app.querySelector<HTMLElement>('.world')?.dataset.panelHeight)!==app.clientHeight)return;scheduleTutorialUpdate();if(viewport.scrollTop!==expectedScroll){expectedScroll=viewport.scrollTop;rememberInteraction();save();}};setScroll(arrival?Math.max(0,(state.visited.length-1)*app.clientHeight):scroll);
   if(arrival){packArrival(checkpointLayout,arrivalSource);if(finish)chapterSession=captureChapter(state,itemOrder);}
   for(const token of availableTokens(state)){const element=tile(token.id);if(element)positionTile(element,token);}
-  clearGoalsAroundCards();if(changedView&&transitioning)animateGoalEntrance();if(finish)showPending();
+  if(changedView&&transitioning)animateGoalEntrance();if(finish)showPending();
   updateEditingIndicators();
   inputTrace?.record('render:finished');
 }
@@ -720,7 +712,6 @@ function releaseCapture(pointer:number){if(app.hasPointerCapture(pointer))app.re
 function restoreGestureTile(d:NonNullable<typeof drag>){
   d.el.classList.remove('dragging');app.classList.remove('is-dragging');
   const token=state.tokens[d.id];if(token){positionTile(d.el,token);}
-  clearGoalsAroundCards();
   inputTrace?.record('drag:restored',{item:d.id});
 }
 function endDrag(e:PointerEvent,cancel=false){

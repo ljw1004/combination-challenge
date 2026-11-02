@@ -1,6 +1,5 @@
 import {test} from 'node:test';
 import assert from 'node:assert/strict';
-import {goalClipPath} from '../src/web/goal-clearance.ts';
 import {saveProgress} from '../src/web/persistence.ts';
 import {parseStory} from '../src/story/parser.ts';
 import {newGame,act} from '../src/engine/game.ts';
@@ -77,10 +76,4 @@ test('failed storage reports immediately and a subsequent successful write clear
   assert.match(failure,/Progress could not be saved/);assert.deepEqual(alerts,[failure]);
   const success=saveProgress(()=>{written=true;},message=>alerts.push(message));
   assert.equal(written,true);assert.equal(success,'');assert.deepEqual(alerts,[failure,'']);
-});
-
-test('goal clearance subtracts overlapping cards as a union, leaving uncovered goals interactive',()=>{
-  assert.equal(goalClipPath(100,50,[]),'none');
-  assert.equal(goalClipPath(100,50,[{left:110,top:0,right:140,bottom:30}]),'none');
-  assert.equal(goalClipPath(100,50,[{left:-10,top:10,right:40,bottom:30},{left:20,top:20,right:60,bottom:70}]),'path(evenodd, "M0 0H100V50H0ZM0 10H20V30H0ZM20 10H40V50H20ZM40 20H60V50H40Z")');
 });

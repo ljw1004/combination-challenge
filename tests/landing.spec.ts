@@ -96,7 +96,7 @@ test('chapter reset starts its ordinary intro; confirmed story restart clears pr
   await page.getByRole('button', { name: 'Start', exact: true }).click();
   await page.getByRole('button', { name: 'Begin', exact: true }).click();
   const frame = page.locator('[data-item="name:Frame"]');
-  await frame.dragTo(page.locator('.chapter-panel').first(), { targetPosition: { x: 200, y: 500 } });
+  await frame.dragTo(page.locator('.viewport'), { targetPosition: { x: 200, y: 500 } });
   await page.getByRole('button', { name: 'Read this chapter' }).click();
   await page.getByRole('button', { name: 'Restart this chapter' }).click();
   await expect(page.getByRole('button', { name: 'Start', exact: true })).toHaveCount(0);
