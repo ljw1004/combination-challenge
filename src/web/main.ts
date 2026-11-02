@@ -23,6 +23,7 @@ import { AuthoringSession } from './authoring.ts';
 import { MobileDebug } from './mobile-debug.ts';
 import { recoverPreviewStory, reconcileLiveStory, restoreLiveState } from './live-story.ts';
 import { ItemArtwork } from './item-artwork.ts';
+import {coverArtwork, currentArtwork, lookaheadArtwork, placementArtwork, scrollbackArtwork, resultArtwork} from './artwork-plan.ts';
 import { arrivalLayout } from './arrival-layout.ts';
 import { fitOnBoard, placeCreation, placeAtCentre, viewportBoard } from './board-geometry.ts';
 import { partnerHints } from './partner-hints.ts';
@@ -62,6 +63,58 @@ let encyclopediaScroll = 0;
 const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
 const desktopDebug = matchMedia('(min-width: 900px)');
 const itemArtwork = new ItemArtwork();
+let starting = true;
+let pendingArtwork: object | undefined;
+let artworkStatusTimer: ReturnType<typeof setTimeout> | undefined;
+let artworkFrame = 0;
+let preloadedState: State | undefined, preloadedStory: Story | undefined, preloadedStarted = false;
+
+function cancelArtworkWait() {
+  pendingArtwork = undefined;
+  clearTimeout(artworkStatusTimer); app.querySelector('.artwork-loading')?.remove();
+  surface.removeAttribute('aria-busy'); surface.inert = !!dialogContext; dialogLayer.inert = false;
+}
+function actionError(error: unknown) {
+  modal(`<p>${escape((error as Error).message)}</p><button data-command="close">Close</button>`);
+}
+/** Preserve the current view until the next layout has its own dimensions. */
+function withArtwork(paths: string[], apply: () => void) {
+  if (pendingArtwork) return;
+  const run = () => { try { apply(); } catch (error) { actionError(error); } };
+  const prepared = itemArtwork.prepare(paths, asset);
+  if (!prepared) { run(); return; }
+  const pending = pendingArtwork = {}, before = state, source = story;
+  surface.setAttribute('aria-busy', 'true'); surface.inert = true; dialogLayer.inert = true;
+  artworkStatusTimer = setTimeout(() => {
+    const status = document.createElement('p'); status.className = 'artwork-loading';
+    status.setAttribute('role', 'status'); status.textContent = 'Loading artwork…'; app.append(status);
+  }, 150);
+  void prepared.then(() => {
+    if (pendingArtwork !== pending) return;
+    cancelArtworkWait();
+    if (state === before && story === source) run();
+  });
+}
+window.addEventListener('online', () => {
+  itemArtwork.retryFailures();
+  if (starting || !state) return;
+  const source = story, before = state;
+  const prepared = itemArtwork.prepare(storyStarted ? currentArtwork(story, state) : coverArtwork(story), asset);
+  if (prepared) void prepared.then(() => { if (story === source && state === before) render(false, false); });
+  preloadedState = undefined; scheduleArtwork();
+});
+function scheduleArtwork() {
+  if (preloadedState === state && preloadedStory === story && preloadedStarted === storyStarted) return;
+  preloadedState = state; preloadedStory = story; preloadedStarted = storyStarted;
+  cancelAnimationFrame(artworkFrame);
+  // Let the prepared cover/chapter paint before starting speculative work.
+  artworkFrame = requestAnimationFrame(() => {
+    artworkFrame = requestAnimationFrame(() => {
+      try { itemArtwork.preload(lookaheadArtwork(story, state, storyStarted), asset); }
+      catch { /* Incomplete drafts still display their current chapter. */ }
+    });
+  });
+}
 const creationLabels = new Map<string, ReturnType<typeof setTimeout>>();
 function clearCreationLabels() {
   creationLabels.forEach(timer => clearTimeout(timer)); creationLabels.clear();
@@ -200,19 +253,21 @@ function updateEditingIndicators() {
 }
 function layoutChanged() {
   updateEditingIndicators();
-  if (state) render(false, false);
+  if (state) { render(false, false); checkText(story, previewText); }
 }
 
-const diagnostics = new LiveDiagnostics(
-  (results, phase) => authoring?.setDiagnostics(results, phase),
-  message => authoring?.setPreviewStatus(message),
-);
+let diagnostics: LiveDiagnostics | undefined;
 function checkText(parsed: Story, text: string) {
-  const prepared = itemArtwork.prepare(parsed, asset);
+  if (!authoring?.isOpen) return;
+  diagnostics ??= new LiveDiagnostics(
+    (results, phase) => authoring?.setDiagnostics(results, phase),
+    message => authoring?.setPreviewStatus(message),
+  );
+  const prepared = itemArtwork.prepare(placementArtwork(parsed), asset);
   if (prepared) {
     diagnostics.check(parsed, text);
     void prepared.then(() => {
-      if (previewText === text && authoring.text === text) { diagnostics.invalidate(); checkText(parsed, text); }
+      if (previewText === text && authoring.text === text) { diagnostics?.invalidate(); checkText(parsed, text); }
     });
     return;
   }
@@ -225,7 +280,8 @@ function checkText(parsed: Story, text: string) {
   finally { probe.remove(); }
 }
 function schedulePreview() {
-  diagnostics.invalidate();
+  cancelArtworkWait();
+  diagnostics?.invalidate();
   clearTimeout(previewTimer);
   previewTimer = setTimeout(() => { previewTimer = undefined; applyText(authoring.text); }, 90);
 }
@@ -243,7 +299,7 @@ function applyText(text: string) {
     story = next; state = newGame(story); chapterSession = captureChapter(state); itemOrder = [];
     previewText = text; hash = fingerprint(text); editedSnapshot = false;
     authoring.setPreviewStatus(''); render(false, false); rememberInteraction();
-    const prepared = itemArtwork.prepare(story, asset);
+    const prepared = itemArtwork.prepare(coverArtwork(story), asset);
     if (prepared) void prepared.then(() => { if (previewText === text) render(false, false); });
     return;
   }
@@ -260,7 +316,7 @@ function applyText(text: string) {
   dialogContext = context?.kind === 'encyclopedia' ? { ...context, item: context.item ? update.items.get(context.item) ?? context.item : undefined } : context;
   authoring.setPreviewStatus(update.chapterRemoved ? 'The current chapter is temporarily missing. Restoring it brings you back until you interact with the game.' : '');
   render(false, false);
-  const prepared = itemArtwork.prepare(story, asset);
+  const prepared = itemArtwork.prepare(currentArtwork(story, state), asset);
   if (prepared) void prepared.then(() => { if (previewText === text) { render(false, false); refreshDialog(); } });
   setScroll(anchorScroll());
   refreshDialog();
@@ -277,6 +333,7 @@ function anchorScroll() {
 function scrollToCurrentChapter() { setScroll(Math.max(0, (state.visited.length - 1) * app.clientHeight)); }
 
 async function start() {
+  starting = true;
   surface.innerHTML = '<div class="load-error"><p>Loading story…</p></div>';
   try {
     documentURL = resolveStoryURL(location.href);
@@ -336,14 +393,21 @@ async function start() {
       if (state.actions.some(action => action.type === 'combine')) tutorialProgress.finish('dragDone');
       if (state.actions.some(completesHotspotTutorial)) tutorialProgress.finish('hotspotDone');
     }
-    await itemArtwork.prepare(story, asset);
+    await itemArtwork.prepare(loaded ? currentArtwork(story, state) : coverArtwork(story), asset);
+    starting = false;
     render(!loaded);
     setScroll(anchor ? anchorScroll() : Math.max(0, (state.visited.length - 1) * app.clientHeight));
     if (!anchor) rememberInteraction();
     checkText(parsed, previewText);
     authoring.setAvailable(desktopDebug.matches);
     updateEditingIndicators(); save();
+    if (loaded) {
+      const source = story;
+      const scrollback = itemArtwork.prepare(scrollbackArtwork(story, state), asset);
+      if (scrollback) void scrollback.then(() => { if (story === source) render(false, false); });
+    }
   } catch (error) {
+    starting = false;
     surface.innerHTML = `<div class="load-error"><h1>Story could not be loaded</h1><p>${escape((error as Error).message)}</p><button data-command="retry">Try again</button></div>`;
   }
 }
@@ -450,13 +514,16 @@ desktopDebug.addEventListener('change', () => {
 });
 function jumpToCheckpoint(index: number) {
   try {
+    cancelArtworkWait();
     flushPreview();
     const next = checkpoint(story, index);
-    resetGoalView(); cancelGesture('checkpoint'); clearCreationLabels();
-    state = next; itemOrder = []; editedSnapshot = false; storyStarted = true; tutorialCheckpoint = true;
-    state.seen.push(...state.pending.filter(notice => notice.kind === 'wonder').map(notice => notice.key));
-    state.pending = state.pending.filter(notice => notice.kind === 'chapter');
-    closeDialog(); render(true, true, true); rememberInteraction(); save();
+    next.seen.push(...next.pending.filter(notice => notice.kind === 'wonder').map(notice => notice.key));
+    next.pending = next.pending.filter(notice => notice.kind === 'chapter');
+    withArtwork(currentArtwork(story, next), () => {
+      resetGoalView(); cancelGesture('checkpoint'); clearCreationLabels();
+      state = next; itemOrder = []; editedSnapshot = false; storyStarted = true; tutorialCheckpoint = true;
+      closeDialog(); render(true, true, true); rememberInteraction(); save();
+    });
   } catch (error) { modal(`<p>${escape((error as Error).message)}</p><button data-command="close">Close</button>`); }
 }
 function refreshDialog() {
@@ -485,6 +552,7 @@ function preferredPosition(id: string, hotspot: string | undefined, chapter: num
   return placeAtCentre(centre, {width: el.offsetWidth, height: el.offsetHeight}, occupied, boardGeometry().bounds);
 }
 function commit(action: Action) { try {
+  if (pendingArtwork) return;
   inputTrace?.record('commit:start',{action});
   flushPreview();
   if (action.type === 'move') {
@@ -492,39 +560,42 @@ function commit(action: Action) { try {
     if (position) action = {...action, ...position};
   }
   if (isNoopMove(state, action)) { inputTrace?.record('commit:noop',{action}); render(); return; }
-  const receiver=action.type==='combine'&&action.b?state.tokens[action.b]:undefined,receivingTile=receiver?tile(receiver.id):undefined;
-  const receivingRect=receiver&&receivingTile?tileRect(receivingTile):undefined;
-  const before = state, previous = state.chapter; state = act(story, state, action); noteChapterAction(chapterSession, before, action);
-  inputTrace?.record('commit:applied',{action});
-  if (action.type === 'combine') tutorialProgress?.finish('dragDone');
-  if (completesHotspotTutorial(action)) tutorialProgress?.finish('hotspotDone');
-  if (previous !== state.chapter) clearCreationLabels();
-  const born = action.type === 'combine' ? Object.keys(state.tokens).find(id => !before.tokens[id]) : undefined;
-  if (born) announceCreation(born);
-  closeDialog(); render(previous !== state.chapter, true, false, before);
-  if (born) {
-    let token=state.tokens[born],element=tile(born);
-    if(element){
-      const hotspot = action.type === 'combine' ? action.hotspot ?? receiver?.hotspot : undefined;
-      const preferred = preferredPosition(born, hotspot, token.chapter);
-      if (preferred && action.type === 'combine') {
-        // Record the successful authored placement in the same action so @H goals
-        // and saves replay exactly, including when the receiving ingredient survives.
-        action = {...action, resultPlacement: preferred};
-        state = act(story, before, action); render(false, false);
-        token = state.tokens[born]; element = tile(born)!;
+  const before = state, previous = state.chapter, next = act(story, state, action);
+  withArtwork([...currentArtwork(story, next), ...resultArtwork(story, before, action)], () => {
+    const receiver=action.type==='combine'&&action.b?state.tokens[action.b]:undefined,receivingTile=receiver?tile(receiver.id):undefined;
+    const receivingRect=receiver&&receivingTile?tileRect(receivingTile):undefined;
+    state = next; noteChapterAction(chapterSession, before, action);
+    inputTrace?.record('commit:applied',{action});
+    if (action.type === 'combine') tutorialProgress?.finish('dragDone');
+    if (completesHotspotTutorial(action)) tutorialProgress?.finish('hotspotDone');
+    if (previous !== state.chapter) clearCreationLabels();
+    const born = action.type === 'combine' ? Object.keys(state.tokens).find(id => !before.tokens[id]) : undefined;
+    if (born) announceCreation(born);
+    closeDialog(); render(previous !== state.chapter, true, false, before);
+    if (born) {
+      let token=state.tokens[born],element=tile(born);
+      if(element){
+        const hotspot = action.type === 'combine' ? action.hotspot ?? receiver?.hotspot : undefined;
+        const preferred = preferredPosition(born, hotspot, token.chapter);
+        if (preferred && action.type === 'combine') {
+          // Record the successful authored placement in the same action so @H goals
+          // and saves replay exactly, including when the receiving ingredient survives.
+          action = {...action, resultPlacement: preferred};
+          state = act(story, before, action); render(false, false);
+          token = state.tokens[born]; element = tile(born)!;
+        }
+        const centre = hotspot && !receiver ? hotspotCentre(story.hotspots[hotspot], activeHotspots(story, token.chapter).indexOf(hotspot), boardGeometry().bounds) : undefined;
+        const occupied=availableTokens(state).filter(t=>t.id!==born&&t.chapter===token.chapter).flatMap(t=>{const el=tile(t.id);return el?[tileRect(el)]:[];});
+        const position=preferred ?? (receivingRect&&receiver
+          ?placeCreation(receivingRect,{width:element.offsetWidth,height:element.offsetHeight},state.tokens[receiver.id].status!=='available',boardGeometry().bounds,occupied)
+          :fitOnBoard(centre ? centre.x-element.offsetWidth/2 : token.x,centre ? centre.y-element.offsetHeight/2 : token.y,element.offsetWidth,element.offsetHeight,boardGeometry().bounds));
+        token.x=position.x;token.y=position.y;positionTile(element,token);element.classList.add('born');
       }
-      const centre = hotspot && !receiver ? hotspotCentre(story.hotspots[hotspot], activeHotspots(story, token.chapter).indexOf(hotspot), boardGeometry().bounds) : undefined;
-      const occupied=availableTokens(state).filter(t=>t.id!==born&&t.chapter===token.chapter).flatMap(t=>{const el=tile(t.id);return el?[tileRect(el)]:[];});
-      const position=preferred ?? (receivingRect&&receiver
-        ?placeCreation(receivingRect,{width:element.offsetWidth,height:element.offsetHeight},state.tokens[receiver.id].status!=='available',boardGeometry().bounds,occupied)
-        :fitOnBoard(centre ? centre.x-element.offsetWidth/2 : token.x,centre ? centre.y-element.offsetHeight/2 : token.y,element.offsetWidth,element.offsetHeight,boardGeometry().bounds));
-      token.x=position.x;token.y=position.y;positionTile(element,token);element.classList.add('born');
     }
-  }
-  if (previous !== state.chapter) authoring.revealCurrentChapter();
-  rememberInteraction(); save();
-  inputTrace?.record('commit:finished',{action});
+    if (previous !== state.chapter) authoring.revealCurrentChapter();
+    rememberInteraction(); save();
+    inputTrace?.record('commit:finished',{action});
+  });
 } catch (error) { inputTrace?.record('commit:error',{message:(error as Error).message,stack:(error as Error).stack}); modal(`<p>${escape((error as Error).message)}</p><button data-command="close">Close</button>`); } }
 function tile(id: string) { return [...app.querySelectorAll<HTMLElement>('[data-item]')].find(el => el.dataset.item === id); }
 function panel(chapter: number) { return app.querySelector<HTMLElement>(`.chapter-panel[data-chapter="${chapter}"]`); }
@@ -580,22 +651,40 @@ function renderLanding() {
 }
 function beginStory() {
   if (storyStarted) return;
-  flushPreview(); storyStarted = true; tutorialCheckpoint = false; resetGoalView();
-  render(true); rememberInteraction(); save();
+  flushPreview();
+  withArtwork(currentArtwork(story, state), () => {
+    storyStarted = true; tutorialCheckpoint = false; resetGoalView();
+    render(true); rememberInteraction(); save();
+  });
 }
 function restartStory() {
-  resetGoalView(); closeDialog(); cancelGesture('restart-story'); feedback.clear(); clearCreationLabels();
-  storyStarted = false; state = newGame(story); chapterSession = captureChapter(state); itemOrder = [];
-  tutorialCheckpoint = false; tutorialProgress?.reset();
-  // A landing is not a saved game. Removing the old save also makes reload stay here.
-  saveProgress(() => {
-    localStorage.removeItem(key());
-    if (legacySaveKey) localStorage.removeItem(legacySaveKey);
-  }, showSaveError);
-  render(); rememberInteraction();
-  surface.querySelector<HTMLElement>('.story-start')?.focus({ preventScroll: true });
+  cancelArtworkWait();
+  withArtwork(coverArtwork(story), () => {
+    resetGoalView(); closeDialog(); cancelGesture('restart-story'); feedback.clear(); clearCreationLabels();
+    storyStarted = false; state = newGame(story); chapterSession = captureChapter(state); itemOrder = [];
+    tutorialCheckpoint = false; tutorialProgress?.reset();
+    // A landing is not a saved game. Removing the old save also makes reload stay here.
+    saveProgress(() => {
+      localStorage.removeItem(key());
+      if (legacySaveKey) localStorage.removeItem(legacySaveKey);
+    }, showSaveError);
+    render(); rememberInteraction();
+    surface.querySelector<HTMLElement>('.story-start')?.focus({ preventScroll: true });
+  });
+}
+function restartChapter() {
+  const next = structuredClone(chapterSession.entry);
+  withArtwork(currentArtwork(story, next), () => {
+    clearCreationLabels(); resetGoalView(); closeDialog(); state = next;
+    itemOrder = restoreItemOrder(Object.keys(state.tokens), chapterSession.itemOrder);
+    if (editedSnapshot) state.actions = [];
+    chapterSession = captureChapter(state, itemOrder);
+    render(); scrollToCurrentChapter(); rememberInteraction(); save();
+  });
 }
 function render(arrival=false,finish=true,checkpointLayout=false,arrivalSource?:State){
+  if (starting) return;
+  scheduleArtwork();
   inputTrace?.record('render:start',{arrival,finish,checkpointLayout});
   if (!storyStarted) { renderLanding(); return; }
   itemOrder = restoreItemOrder(Object.keys(state.tokens), itemOrder);
@@ -781,7 +870,7 @@ app.addEventListener('click',e=>{
   else if(command==='confirm-reset-story')confirmRestart();
   else if(command==='cancel-reset-story')reopenChapter();
   else if(command==='reset-story')restartStory();
-  else if(command==='reset-chapter'){clearCreationLabels();resetGoalView();closeDialog();state=structuredClone(chapterSession.entry);itemOrder=restoreItemOrder(Object.keys(state.tokens),chapterSession.itemOrder);if(editedSnapshot){state.actions=[];}chapterSession=captureChapter(state,itemOrder);render();scrollToCurrentChapter();rememberInteraction();save();}
+  else if(command==='reset-chapter')restartChapter();
   else if(command==='story'){tutorialProgress?.finish('goalsDone');reopenChapter();}
   else if(command==='encyclopedia')openEncyclopedia();
   else if(command==='encyclopedia-read')openEncyclopedia(target.dataset.reading!,true);

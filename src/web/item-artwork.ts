@@ -1,22 +1,24 @@
-import type {Hotspot, Icon, Item, Story} from '../story/types.ts';
+import type {Hotspot, Icon, Item} from '../story/types.ts';
 import {escape} from './markdown.ts';
 import {iconDimensions} from './hotspot-view.ts';
-
-interface Artwork { width: number; height: number; failed: boolean; complete: boolean; ready: Promise<void> }
+import {ArtworkLoader} from './artwork-loader.ts';
 
 /** Read intrinsic sizes once, before chapter layout, without replacing connected images. */
 export class ItemArtwork {
-  private images = new Map<string, Artwork>();
+  private images = new ArtworkLoader();
 
-  prepare(story: Story, asset: (path: string) => string): Promise<void> | undefined {
-    const icons = [...Object.values(story.items).flatMap(item => [item.icon, ...item.slots.map(slot => slot.icon)]), ...Object.values(story.hotspots).map(hotspot => hotspot.icon)];
-    const urls = new Set(icons.flatMap(icon => icon ? [asset(icon.url)] : []));
-    const pending = [...urls].flatMap(url => { const entry = this.images.get(url); return entry?.complete ? [] : [entry?.ready ?? this.load(url)]; });
-    return pending.length ? Promise.all(pending).then(() => {}) : undefined;
+  prepare(paths: Iterable<string>, asset: (path: string) => string): Promise<void> | undefined {
+    return this.images.prepare([...paths].map(asset));
   }
 
+  preload(paths: Iterable<string>, asset: (path: string) => string) {
+    this.images.preload([...paths].map(asset));
+  }
+
+  retryFailures() { this.images.retryFailures(); }
+
   private size(icon: Icon, asset: (path: string) => string, bounds?: {width: number; height: number}) {
-    const base = this.images.get(asset(icon.url)), size = iconDimensions(base?.width ?? 224, base?.height ?? 224);
+    const base = this.images.get(asset(icon.url))?.size, size = iconDimensions(base?.width ?? 224, base?.height ?? 224);
     const fit = bounds ? Math.min(1, bounds.width / size.width, bounds.height / size.height) : 1;
     return `--icon-width:${size.width*fit}px;--icon-height:${size.height*fit}px;`;
   }
@@ -28,24 +30,6 @@ export class ItemArtwork {
       className: `hotspot-icon${icon.circular ? ' hotspot-circular' : ''}`, style: this.size(icon, asset),
       html: `<span class="icon-stack" aria-hidden="true"><img class="hotspot-art" src="${escape(asset(icon.url))}" alt="" draggable="false"></span><span class="icon-name" aria-hidden="true">${escape(hotspot.name)}</span>`,
     };
-  }
-
-  private load(url: string): Promise<void> {
-    const image = new Image(), entry: Artwork = {width: 224, height: 224, failed: false, complete: false, ready: Promise.resolve()};
-    this.images.set(url, entry);
-    entry.ready = new Promise(resolve => {
-      const finish = (failed: boolean) => {
-        clearTimeout(timeout); image.onload = null; image.onerror = null;
-        entry.failed = failed; entry.complete = true;
-        if (!failed) { entry.width = image.naturalWidth; entry.height = image.naturalHeight; }
-        resolve();
-      };
-      const timeout = setTimeout(() => finish(true), 8000);
-      image.onload = () => finish(!image.naturalWidth || !image.naturalHeight);
-      image.onerror = () => finish(true);
-      image.src = url;
-    });
-    return entry.ready;
   }
 
   visual(item: Item, filled: readonly string[], name: (id: string) => string, asset: (path: string) => string, bounds?: {width: number; height: number}) {
