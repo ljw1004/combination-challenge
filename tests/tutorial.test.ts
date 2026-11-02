@@ -2,8 +2,8 @@ import {test} from 'node:test';
 import assert from 'node:assert/strict';
 import {parseStory} from '../src/story/parser.ts';
 import {lintStory} from '../src/lint/lint.ts';
-import {newGame} from '../src/engine/game.ts';
-import {tutorialAction} from '../src/engine/tutorial.ts';
+import {act, newGame} from '../src/engine/game.ts';
+import {tutorialAction, hotspotTutorials, completesHotspotTutorial} from '../src/engine/tutorial.ts';
 import {TutorialProgress} from '../src/web/tutorial-progress.ts';
 
 const recipe = 'A [preserve] + B [preserve] -> C';
@@ -56,12 +56,14 @@ test('tutorial accomplishments persist independently per manuscript and reset wi
   const storage = () => ({getItem: (key: string) => records.get(key) ?? null, setItem: (key: string, value: string) => {records.set(key, value);}, removeItem: (key: string) => {records.delete(key);}});
   const first = new TutorialProgress('https://example.test/one.md', assert.fail, storage);
   first.finish('goalsDone');
-  assert.deepEqual(new TutorialProgress('https://example.test/one.md', assert.fail, storage).completion, {dragDone: false, goalsDone: true});
+  assert.deepEqual(new TutorialProgress('https://example.test/one.md', assert.fail, storage).completion, {dragDone: false, hotspotDone: false, goalsDone: true});
   first.finish('dragDone');
   const second = new TutorialProgress('https://example.test/two.md', assert.fail, storage);
-  assert.deepEqual(second.completion, {dragDone: false, goalsDone: false});
+  assert.deepEqual(second.completion, {dragDone: false, hotspotDone: false, goalsDone: false});
+  first.finish('hotspotDone');
+  assert.equal(new TutorialProgress('https://example.test/one.md', assert.fail, storage).completion.hotspotDone, true);
   second.finish('dragDone'); first.reset();
-  assert.deepEqual(new TutorialProgress('https://example.test/one.md', assert.fail, storage).completion, {dragDone: false, goalsDone: false});
+  assert.deepEqual(new TutorialProgress('https://example.test/one.md', assert.fail, storage).completion, {dragDone: false, hotspotDone: false, goalsDone: false});
   assert.equal(new TutorialProgress('https://example.test/two.md', assert.fail, storage).completion.dragDone, true);
   assert.equal(records.get('game'), 'keep'); assert.equal(records.get('draft'), 'keep');
   const warnings: string[] = [];
@@ -69,4 +71,77 @@ test('tutorial accomplishments persist independently per manuscript and reset wi
   unavailable.finish('dragDone'); assert.equal(unavailable.completion.dragDone, true);
   unavailable.reset(); assert.equal(unavailable.completion.dragDone, false);
   assert.equal(warnings.length, 3);
+  records.set(first.key, JSON.stringify({dragDone: true, goalsDone: true}));
+  assert.deepEqual(new TutorialProgress('https://example.test/one.md', assert.fail, storage).completion, {dragDone: true, hotspotDone: false, goalsDone: true}, 'old accomplishments survive the new lesson');
+});
+
+const hotspotFixture = (extra = '') => parseStory(`# Hotspot lesson
+## First
+![room](room.webp)
+**Goals**
+- Make C -- C
+- Make F -- F
+**Hotspots**
+- Bench
+**Items**
+- A
+- B
+- C
+- D
+- E
+- F
+- Other
+**Combinations**
+- A + B @ Bench -> C
+- D + E @ Bench -> F
+${extra}`);
+
+test('hotspot lesson starts before preparation, adapts to either order and only finishes on the right kind of success', () => {
+  const story = hotspotFixture(), initial = newGame(story);
+  assert.deepEqual(hotspotTutorials(story, initial)[0].sources, ['name:A', 'name:B']);
+  for (const [first, second] of [['A', 'B'], ['B', 'A']]) {
+    const move = {type: 'move' as const, item: `name:${first}`, hotspot: 'name:Bench', chapter: 0, x: 20, y: 20};
+    const placed = act(story, initial, move);
+    assert.equal(completesHotspotTutorial(move), false);
+    const lesson = hotspotTutorials(story, placed)[0];
+    assert.deepEqual(lesson.sources, [`name:${second}`]);
+    assert.equal(lesson.receiver, `name:${first}`);
+    const action = {type: 'combine' as const, a: `name:${second}`, b: `name:${first}`, hotspot: 'name:Bench'};
+    const finished = act(story, placed, action);
+    assert.equal(completesHotspotTutorial(action), true);
+    assert.equal(hotspotTutorials(story, finished).some(candidate => candidate.recipe === lesson.recipe), false);
+  }
+  assert.equal(initial.tokens['name:A'].hotspot, undefined, 'planning never moves the real items');
+  assert.equal(completesHotspotTutorial({type: 'combine', a: 'name:A', b: 'name:B'}), false);
+  assert.equal(completesHotspotTutorial({type: 'combine', a: 'name:A', hotspot: 'name:Bench'}), false);
+});
+
+test('hotspot opportunities stay selected while valid, then switch, excluding missing fittings and unavailable results', () => {
+  const story = hotspotFixture(), state = newGame(story);
+  const candidates = hotspotTutorials(story, state), preferred = candidates[1].recipe;
+  assert.equal(hotspotTutorials(story, state, preferred)[0].recipe, preferred);
+  state.tokens['name:D'].chapter = 1;
+  assert.equal(hotspotTutorials(story, state, preferred)[0].recipe, candidates[0].recipe);
+  state.excluded.push('name:C');
+  assert.deepEqual(hotspotTutorials(story, state), []);
+  state.excluded = [];
+  state.tokens['name:C'] = {...state.tokens['name:A'], id: 'name:C', status: 'consume'};
+  assert.deepEqual(hotspotTutorials(story, state), [], 'retired results cannot be recreated');
+  delete state.tokens['name:C'];
+  story.recipes[0].a.ref.slots = ['name:Other'];
+  assert.deepEqual(hotspotTutorials(story, state), [], 'a present but unfinished compound is not ready');
+  state.tokens['name:A'].slots.push('name:Other');
+  assert.equal(hotspotTutorials(story, state).length, 1);
+});
+
+test('hotspot demonstration avoids intercepted preparations and ambiguous station drops', () => {
+  const intercepted = hotspotFixture('- A @ Bench -> Other');
+  assert.deepEqual(hotspotTutorials(intercepted, newGame(intercepted))[0].sources, ['name:B', 'name:A'], 'park the other ingredient when the authored first one would perform an operation');
+  const blocked = hotspotFixture('- A @ Bench -> Other\n- B @ Bench -> Other');
+  assert.equal(hotspotTutorials(blocked, newGame(blocked)).some(candidate => candidate.recipe === blocked.recipes[0].id), false);
+  const ambiguous = hotspotFixture('- A + D @ Bench -> Other\n- B + D @ Bench -> Other');
+  const state = act(ambiguous, newGame(ambiguous), {type: 'move', item: 'name:D', hotspot: 'name:Bench', chapter: 0, x: 20, y: 20});
+  assert.equal(hotspotTutorials(ambiguous, state).some(candidate => candidate.recipe === ambiguous.recipes[0].id), false);
+  const parked = act(ambiguous, state, {type: 'move', item: 'name:A', hotspot: 'name:Bench', chapter: 0, x: 70, y: 20});
+  assert.equal(hotspotTutorials(ambiguous, parked)[0].receiver, 'name:A', 'an existing receiver can be targeted directly despite other occupants');
 });

@@ -113,6 +113,12 @@ test('advancing and resizing keep the latest chapter at the bottom while scrollb
   await expect.poll(() => page.locator('.viewport').evaluate(el => el.scrollTop)).toBeLessThan(1480);
   await page.locator('.viewport').evaluate(el => { el.scrollTop = 740; });
   await expect.poll(() => page.locator('.viewport').evaluate(el => el.scrollTop)).toBe(740);
+  // Setting scrollTop is synchronous; recording the deliberate position waits for
+  // the scroll event. Do not race that event with the following viewport resize.
+  await expect.poll(() => page.evaluate(() => {
+    const key = Object.keys(localStorage).find(key => key.startsWith('combination-progress-v2:'))!;
+    return JSON.parse(localStorage.getItem(key)!).anchor.scrollTop;
+  })).toBe(740);
   await page.setViewportSize({width:390,height:664});
   await expect.poll(() => page.locator('.viewport').evaluate(el => el.scrollTop)).toBe(664);
   await page.reload();

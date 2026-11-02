@@ -4,7 +4,7 @@ import './workspace.css';
 import './item-artwork.css';
 import { parseStory } from '../story/parser.ts';
 import type { Story } from '../story/types.ts';
-import { newGame, act, availableTokens, label, chapterComplete, readings, matches } from '../engine/game.ts';
+import { newGame, act, availableTokens, label, chapterComplete, readings, matches, recipeFor } from '../engine/game.ts';
 import { activeHotspots, background, indexStory } from '../engine/analysis.ts';
 import type { State, Action } from '../engine/types.ts';
 import { checkpoint } from '../debug/checkpoint.ts';
@@ -30,7 +30,7 @@ import { partnerHints } from './partner-hints.ts';
 import {createDropResolver, type DropResolution, type DropTarget} from './drop-target.ts';
 import {DragTrace} from './drag-trace.ts';
 import {containsPoint, hotspotCentre, hotspotRect, hotspotHTML, hotspotProbeHTML, measureHotspots} from './hotspot-view.ts';
-import {tutorialAction} from '../engine/tutorial.ts';
+import {tutorialAction, hotspotTutorials, completesHotspotTutorial} from '../engine/tutorial.ts';
 import {TutorialProgress} from './tutorial-progress.ts';
 import {TutorialOverlay} from './tutorial-overlay.ts';
 
@@ -42,7 +42,10 @@ const dialogLayer = document.createElement('div'); dialogLayer.className = 'game
 app.append(surface, dialogLayer);
 const tutorialOverlay = new TutorialOverlay(app);
 let tutorialProgress: TutorialProgress | undefined;
+// Generated checkpoint history cannot establish tutorial accomplishments on reload.
+// It does not prevent the player from seeing or completing a tutorial there.
 let tutorialCheckpoint = false;
+let hotspotTutorialRecipe: string | undefined;
 let tutorialSaveError = '', progressSaveError = '';
 let story: Story, state: State, chapterSession: ChapterSession, authoring: AuthoringSession;
 let documentURL = '', storyID = '', legacySaveKey = '', previewText = '', hash = '', saveError = '', editedSnapshot = false;
@@ -113,20 +116,46 @@ function save() {
 }
 function updateTutorial() {
   tutorialOverlay.dragging(!!drag || !!hotspotPress);
-  if (!storyStarted || !tutorialProgress || dialogContext || state.pending.length || mobileDebug.isOpen || tutorialCheckpoint || story.tutorials?.length !== 1) {
+  if (!storyStarted || !tutorialProgress || dialogContext || state.pending.length || mobileDebug.isOpen) {
     tutorialOverlay.show(); return;
   }
-  const {dragDone, goalsDone} = tutorialProgress.completion;
+  // Keep the chosen demonstration stable until the player finishes their gesture.
+  if (drag || hotspotPress) return;
+  const {dragDone, hotspotDone, goalsDone} = tutorialProgress.completion;
   if (!dragDone && state.chapter === 0) {
     try {
       const action = tutorialAction(story, state);
       const source = action && tile(action.a);
       const target = action?.b ? tile(action.b) : action?.hotspot ? [...(panel(0)?.querySelectorAll<HTMLElement>('[data-hotspot]') ?? [])].find(element => element.dataset.hotspot === action.hotspot) : undefined;
-      if (source && target) { tutorialOverlay.show({kind: 'drag', source, target}); return; }
+      if (source && target && tutorialOverlay.show({kind: 'drag', source, target})) return;
     } catch { /* An incomplete live draft must not interrupt play. */ }
-  } else if (dragDone && !goalsDone && goalView?.phase === 'goals' && !state.completed && story.chapters[state.chapter]?.goals.length) {
+  }
+  if (!hotspotDone) {
+    try {
+      const scene = panel(state.chapter);
+      if (scene) for (const opportunity of hotspotTutorials(story, state, hotspotTutorialRecipe)) {
+        const sources = opportunity.sources.map(id => tile(id));
+        const target = [...scene.querySelectorAll<HTMLElement>('[data-hotspot]')].find(el => el.dataset.hotspot === opportunity.hotspot);
+        const receiver = opportunity.receiver ? tile(opportunity.receiver) : undefined;
+        if (!target || sources.some(source => !source) || (opportunity.receiver && !receiver)) continue;
+        const elements = sources as HTMLElement[], destination = (receiver ?? target).getBoundingClientRect();
+        const point = {x: destination.x + destination.width / 2, y: destination.y + destination.height / 2};
+        const source = elements[0].getBoundingClientRect();
+        const resolution = createDropResolver(story, state, opportunity.sources[0])(point,
+          {x: point.x - source.width / 2, y: point.y - source.height / 2, width: source.width, height: source.height}, dropTargets(scene, state.chapter));
+        // Do not demonstrate a drop stolen by an overlapping item or a different operation.
+        const valid = opportunity.receiver
+          ? resolution.action && recipeFor(story, state, resolution.action)?.id === opportunity.recipe
+          : !resolution.action && !resolution.ambiguous.length && resolution.target?.dataset.hotspot === opportunity.hotspot;
+        if (valid && tutorialOverlay.show({kind: 'hotspot', sources: elements, target, receiver})) {
+          hotspotTutorialRecipe = opportunity.recipe; return;
+        }
+      }
+    } catch { /* An incomplete live draft must not interrupt play. */ }
+  }
+  if (!goalsDone && goalView?.phase === 'goals' && !state.completed && story.chapters[state.chapter]?.goals.length) {
     const target = surface.querySelector<HTMLElement>('.objective-overlay:not(:disabled)');
-    if (target) { tutorialOverlay.show({kind: 'goals', target}); return; }
+    if (target && tutorialOverlay.show({kind: 'goals', target})) return;
   }
   tutorialOverlay.show();
 }
@@ -305,7 +334,10 @@ async function start() {
     }
     storyStarted = loaded;
     // Older saves record combinations but not deliberate goals clicks. Infer only the former.
-    if (loaded && !tutorialCheckpoint && state.actions.some(action => action.type === 'combine')) tutorialProgress.finish('dragDone');
+    if (loaded && !tutorialCheckpoint) {
+      if (state.actions.some(action => action.type === 'combine')) tutorialProgress.finish('dragDone');
+      if (state.actions.some(completesHotspotTutorial)) tutorialProgress.finish('hotspotDone');
+    }
     await itemArtwork.prepare(story, asset);
     render(!loaded);
     setScroll(anchor ? anchorScroll() : Math.max(0, (state.visited.length - 1) * app.clientHeight));
@@ -467,6 +499,7 @@ function commit(action: Action) { try {
   const before = state, previous = state.chapter; state = act(story, state, action); noteChapterAction(chapterSession, before, action);
   inputTrace?.record('commit:applied',{action});
   if (action.type === 'combine') tutorialProgress?.finish('dragDone');
+  if (completesHotspotTutorial(action)) tutorialProgress?.finish('hotspotDone');
   if (previous !== state.chapter) clearCreationLabels();
   const born = action.type === 'combine' ? Object.keys(state.tokens).find(id => !before.tokens[id]) : undefined;
   if (born) announceCreation(born);
@@ -544,7 +577,7 @@ function clearGoalsAroundCards(){
   }
 }
 let clearanceFrame=0;
-function scheduleGoalClearance(){cancelAnimationFrame(clearanceFrame);clearanceFrame=requestAnimationFrame(clearGoalsAroundCards);}
+function scheduleGoalClearance(){cancelAnimationFrame(clearanceFrame);clearanceFrame=requestAnimationFrame(()=>{clearGoalsAroundCards();updateTutorial();});}
 function renderLanding() {
   const bg = story.cover ?? background(story, 0);
   reconcile(surface, `<div class="viewport story-landing">${worldHTML(`<section class="chapter-panel" data-chapter="0" style="top:0" aria-label="${escape(story.title)} opening scene">${bg ? `<img class="scene-art" src="${escape(asset(bg))}" alt="">` : ''}<div class="location-scrim"></div></section>`, 1)}</div><button class="story-start" data-command="start-story">Start</button>`);
@@ -627,19 +660,21 @@ function dragDestination(d:Drag,e:PointerEvent) {
   const position=fitOnBoard((e.clientX-rect.left)/size+bounds.x-d.grabX,(e.clientY-rect.top)/size-d.grabY,d.el.offsetWidth,d.el.offsetHeight,bounds);
   return {chapter,scene,position,rectangle:{x:rect.left+(position.x-bounds.x)*size,y:rect.top+position.y*size,width:d.el.offsetWidth*size,height:d.el.offsetHeight*size}};
 }
-function dropAt(d:Drag,e:PointerEvent,destination:ReturnType<typeof dragDestination>):DropResolution<HTMLElement> {
-  try {
-    d.resolve??=createDropResolver(story,state,d.id);
-    const targets:DropTarget<HTMLElement>[]=[...destination.scene.querySelectorAll<HTMLElement>('[data-item],[data-hotspot]')].map(el=>{
+function dropTargets(scene:HTMLElement,chapter:number):DropTarget<HTMLElement>[] {
+    return [...scene.querySelectorAll<HTMLElement>('[data-item],[data-hotspot]')].map(el=>{
       const rect=el.getBoundingClientRect();
       // Stations share the circle/rectangle and minimum-touch-area geometry used by lint/layout.
       const region=el.dataset.hotspot
         ? hotspotRect(story.hotspots[el.dataset.hotspot],0,{width:rect.width,height:rect.height,circular:el.classList.contains('hotspot-circular')})
         : {x:rect.x,y:rect.y,width:rect.width,height:rect.height};
       if(el.dataset.hotspot){region.x=rect.x+(rect.width-region.width)/2;region.y=rect.y+(rect.height-region.height)/2;}
-      return {value:el,item:el.dataset.item,hotspot:el.dataset.hotspot,chapter:destination.chapter,region,zIndex:Number(getComputedStyle(el).zIndex)||0};
+      return {value:el,item:el.dataset.item,hotspot:el.dataset.hotspot,chapter,region,zIndex:Number(getComputedStyle(el).zIndex)||0};
     });
-    return d.resolve({x:e.clientX,y:e.clientY},destination.rectangle,targets);
+}
+function dropAt(d:Drag,e:PointerEvent,destination:ReturnType<typeof dragDestination>):DropResolution<HTMLElement> {
+  try {
+    d.resolve??=createDropResolver(story,state,d.id);
+    return d.resolve({x:e.clientX,y:e.clientY},destination.rectangle,dropTargets(destination.scene,destination.chapter));
   } catch(error) {
     inputTrace?.record('drop:error',{message:(error as Error).message,stack:(error as Error).stack});
     authoring.setPreviewStatus(`Partner analysis is unavailable: ${(error as Error).message}`);

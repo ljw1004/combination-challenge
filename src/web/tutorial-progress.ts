@@ -1,10 +1,10 @@
-export interface TutorialCompletion { dragDone: boolean; goalsDone: boolean }
+export interface TutorialCompletion { dragDone: boolean; hotspotDone: boolean; goalsDone: boolean }
 type StorageAccess = () => Pick<Storage, 'getItem' | 'setItem' | 'removeItem'>;
 
 /** Independent of manuscript fingerprints and restorable chapter snapshots. */
 export class TutorialProgress {
   readonly key: string;
-  completion: TutorialCompletion = {dragDone: false, goalsDone: false};
+  completion: TutorialCompletion = {dragDone: false, hotspotDone: false, goalsDone: false};
   private report: (message: string) => void;
   private storage: StorageAccess;
   private warning = '';
@@ -13,7 +13,7 @@ export class TutorialProgress {
     this.key = `combination-tutorial-v1:${encodeURIComponent(url)}`;
     try {
       const saved = JSON.parse(storage().getItem(this.key) ?? 'null');
-      this.completion = {dragDone: saved?.dragDone === true, goalsDone: saved?.goalsDone === true};
+      this.completion = {dragDone: saved?.dragDone === true, hotspotDone: saved?.hotspotDone === true, goalsDone: saved?.goalsDone === true};
     } catch { this.notify('Tutorial progress could not be restored. Tutorials will be remembered for this session.'); }
   }
   private notify(message: string) {
@@ -27,7 +27,7 @@ export class TutorialProgress {
     catch { this.notify('Tutorial progress could not be saved. Completed tutorials may reappear after reloading.'); }
   }
   reset() {
-    this.completion = {dragDone: false, goalsDone: false};
+    this.completion = {dragDone: false, hotspotDone: false, goalsDone: false};
     try { this.storage().removeItem(this.key); this.notify(''); }
     catch { this.notify('Tutorial progress could not be reset in browser storage. It has been reset for this session.'); }
   }
