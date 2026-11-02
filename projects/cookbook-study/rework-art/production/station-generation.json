@@ -59,7 +59,28 @@
     {
       "source": "sources/stations/kettle.png",
       "prompt": "prompts/kettle.txt",
-      "transparent_background": true
+      "transparent_background": true,
+      "role": "Superseded rounded kettle; retained as the pencil-style input for the upright replacement."
+    },
+    {
+      "source": "sources/stations/kettle-upright.png",
+      "prompt": "prompts/kettle-upright.txt",
+      "transparent_background": true,
+      "inputs": [
+        {
+          "role": "subject reference",
+          "description": "User-supplied photograph of a tall stainless-steel Cuisinart electric jug kettle, supplied in the conversation on 1 November 2026; no local attachment path was exposed."
+        },
+        {
+          "path": "sources/stations/kettle.png",
+          "role": "spare pencil style reference"
+        },
+        {
+          "path": "sources/afternoon-parlour-final.png",
+          "role": "supporting sideboard and picture placement context"
+        }
+      ],
+      "role": "Selected upright kettle. Solid body is 50px high, about 1.6 times the previous body excluding steam; mechanical registration preserves the sideboard baseline."
     }
   ],
   "pathBase": "projects/cookbook-study/rework-art unless relativeTo is specified",

@@ -56,7 +56,7 @@ The table extraction was superseded after an informed geometry review found that
 
 These commands deliberately replace the corresponding runtime exports. The two standalone exporters share [framing code](tools/item-framing.mjs) and the [size catalogue](item-sizes.json). Proofs go to ignored `runs/cookbook-art/`. Run `node projects/cookbook-study/rework-art/tools/review-art.mjs` for an unnamed sheet at current display sizes and its separate answer key; it reads the current catalogue and manifests. All fitted layers share their owner’s canvas dimensions.
 
-Current serving geometry belongs in [registration](serving-registration.json). At the reference viewport, the tea stand is 220×240px and starts at 50%, 44%. Its kettle drawing is 38px high within a 64×56px receiving target at 50%, 22%, with its base resting on the sideboard. The dining table is 300×290px and starts at 57.6%, 41.7%, aligning its constructed perspective with the room. Intrinsic compound canvases are four times these display dimensions.
+Current serving geometry belongs in [registration](serving-registration.json), and the kettle has its own [station registration](production/stations-and-pages.json). At the reference viewport, the tea stand is 220×240px and starts at 50%, 44%. The upright kettle drawing is 50px high within a 64×64px receiving target at 50%, 21.52606635%. Its body is about 1.6× the former solid body height, excluding the old steam. The painted base remains at scene y=206.68px on the sideboard, and the lid at y=156.68px sits just below the picture. The dining table is 300×290px and starts at 57.6%, 41.7%, aligning its constructed perspective with the room. Intrinsic compound and station canvases are four times these display dimensions.
 
 ## Recognition decisions
 

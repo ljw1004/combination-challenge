@@ -2,6 +2,14 @@
 
 These summaries record the development decisions of 1 November 2026. Run inputs and outputs have been discarded. They are not replayable evidence or automatic validation of later changes; use the [instructions](verification.md) for new work.
 
+## Upright kettle and yoghurt names
+
+The kettle now follows the user’s upright electric-jug reference in the existing pencil treatment. Its solid body is 50px tall, about 1.6× the previous body excluding steam. The expanded receiving target moves upward while the painted base stays at y=206.68px on the sideboard; the lid clears the botanical picture. Direct inspection covered desktop and short-phone scenes. The exact generation request, selected source and measured export remain in the [art collection](rework-art/README.md).
+
+Milk and starter now produce Unstrained yoghurt; the cloth produces Yoghurt. Related labels use the same spelling, and the chapter is simply Yoghurt. The existing illustrations are unchanged. At the user’s subsequent request, Cucumber yoghurt combines finished Yoghurt with Sliced cucumber from the earlier sandwich preparation. The yoghurt page lists the slices rather than supplying a redundant whole cucumber. A semantic comparison confirmed that this is the only recipe-input change apart from renaming; all 207 recipes, goal structures and existing item-art paths remain accounted for.
+
+Twelve story tests, including legal completion routes, and the production build passed; the build retains author-review and bundle-size warnings. Browser checks covered Dairy, bread, yoghurt and tea arrivals across three layouts, plus fifteen ordinary mouse/emulated-touch cases for those preparations, scones/biscuits and tea brewing/assembly, with reload and advancement. After removing the redundant whole-cucumber supply, bread/yoghurt interactions were rechecked in six cases and yoghurt arrivals in three. The taller kettle remained supported by the sideboard, and the sliced ingredient carried forward correctly. These are informed visual and mechanical checks, not human recognition or native-device evidence. Concurrent viewport implementation work was not part of this story/art change.
+
 ## Rounded bread and distinct powders
 
 Bread and butter now has a thick spread across both slices. The cucumber sandwiches use the existing rustic loaf’s rounded, crust-on slices, without a plate. The standalone icon and bottom-left tea fitting reuse the same selected painting at independent scales. A separately generated fitted variant squared the bread and was rejected; reusing the rounded source preserves its shape. The [powder study](powder-icons/README.md) retains the requested eight variants and selected comparisons: plain flour sack, self-raising-flour sack with scoop and blue stripe, glass sugar bowl, and confectioner’s-sugar bowl with sieve. None of the selected icons carries lettering.

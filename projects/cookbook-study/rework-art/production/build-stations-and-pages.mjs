@@ -29,13 +29,13 @@ const stationSpecs=[
  {name:'oven',original:'oven'},
  {name:'mushroom-pan',original:'frying-pan'},
  ...['fruit-press','butter-churn','freezing-churn','hob'].map(name=>({name,opacity:.68})),
- {name:'kettle',opacity:.68,display:{width:64,height:56},fit:{width:48,height:38},baseline:49},
+ {name:'kettle',source:'kettle-upright',opacity:.68,display:{width:64,height:64},fit:{width:48,height:50},baseline:57},
 ];
 try{
  for(const spec of stationSpecs){
   let source,crop,opacity=spec.opacity;
   if(spec.original){const old=registration.stations[spec.original];source=path.resolve(original,old.source);crop=old.body;opacity=old.opacity;}
-  else source=path.join(project,'sources/stations',spec.name+'.png');
+  else source=path.join(project,'sources/stations',(spec.source??spec.name)+'.png');
   const sourceData=await data(source);
   const measured=await page.evaluate(async src=>{
    const image=new Image();image.src=src;await image.decode();

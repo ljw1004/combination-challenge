@@ -21,7 +21,7 @@ const reworkStations = rework.pages.flatMap(page => page.hotspots.map(h => ({
   id: h.id, url: h.receivingIcon, x: h.x * 390, y: h.y * 844,
   width: rework.stationDisplay.width, height: rework.stationDisplay.height,
 })));
-for(const [id,slug,x,y] of [['id:afternoon-tea-kettle','kettle',.5,.22],['id:mushroom-pan','mushroom-pan',.5,.175],['name:Freezing churn','freezing-churn',.5,.175]]) {
+for(const [id,slug,x,y] of [['id:afternoon-tea-kettle','kettle',.5,.2152606635],['id:mushroom-pan','mushroom-pan',.5,.175],['name:Freezing churn','freezing-churn',.5,.175]]) {
   const display=rework.stations.find(station=>station.name===slug)?.display??rework.stationDisplay;
   reworkStations.push({id,url:`assets/rework/stations/${slug}.png`,x:x*390,y:y*844,...display});
 }

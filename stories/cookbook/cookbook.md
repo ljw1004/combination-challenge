@@ -59,7 +59,7 @@ Juice, porridge, bread.
 **Goals**
 - Churn butter. -- Butter
 - next: Whip cream. -- Whipped cream
-- Prepare fruit yogurt. -- Fruit yogurt
+- Prepare fruit yoghurt. -- Fruit yoghurt
 
 **Hotspots**
 - Warm shelf (at 27%, 17.654028%)
@@ -71,13 +71,13 @@ Juice, porridge, bread.
 **Items**
 - Milk
   - icon: ![Milk](assets/cooks-pen/items/milk.png)
-- Yogurt starter
-  - icon: ![Yogurt starter](assets/cooks-pen/items/yogurt-starter.png)
+- Yoghurt starter
+  - icon: ![Yoghurt starter](assets/cooks-pen/items/yogurt-starter.png)
 - Cream
   - icon: ![Cream](assets/cooks-pen/items/cream.png)
 - Apples
-- Fruit yogurt
-  - icon: ![Fruit yogurt](assets/cooks-pen/items/fruit-yogurt.png)
+- Fruit yoghurt
+  - icon: ![Fruit yoghurt](assets/cooks-pen/items/fruit-yogurt.png)
 
 - Whisk
   - icon: ![Whisk](assets/cooks-pen/items/whisk.png)
@@ -85,10 +85,10 @@ Juice, porridge, bread.
   - icon: ![Whipped cream](assets/cooks-pen/items/whipped-cream.png)
 
 **Combinations**
-- Milk + Yogurt starter [preserve] @ Warm shelf -> Yogurt
+- Milk + Yoghurt starter [preserve] @ Warm shelf -> Unstrained yoghurt
 - Cream @ Butter churn -> Butter
 - Cream + Whisk -> Whipped cream
-- Yogurt + Apples -> Fruit yogurt
+- Unstrained yoghurt + Apples -> Fruit yoghurt
 
 > NOTE: [OpenStax: What Our Ancestors Knew](https://openstax.org/books/microbiology/pages/1-1-what-our-ancestors-knew). Fermentation history; not exact recipe ratios or a universal chronology.
 
@@ -138,39 +138,39 @@ What could be nicer than freshly baked bread with butter?
 - Cucumber [preserve] + Chef’s knife [preserve] -> Sliced cucumber
 - Bread and butter [transform] + Sliced cucumber [consume] -> Cucumber finger sandwiches
 
-## Strained yogurt
-![Yogurt, thick and fresh](assets/cooks-pen/backgrounds/cucumber-dill-and-yogurt.webp)
+## Yoghurt
+![Yoghurt, thick and fresh](assets/cooks-pen/backgrounds/cucumber-dill-and-yogurt.webp)
 
-*Strained yoghurt*
+*Yoghurt*
 
 **Goals**
-- Serve flatbread with herbed yogurt. -- Flatbread with herbed yogurt
-- Prepare cucumber yogurt. -- Cucumber yogurt
+- Serve flatbread with herbed yoghurt. -- Flatbread with herbed yoghurt
+- Prepare cucumber yoghurt. -- Cucumber yoghurt
 
 **Items**
-- Strained yogurt
-  - icon: ![Strained yogurt](assets/cooks-pen/items/strained-yogurt.png)
+- Yoghurt
+  - icon: ![Yoghurt](assets/cooks-pen/items/strained-yogurt.png)
 - Straining cloth
   - icon: ![Straining cloth](assets/cooks-pen/items/straining-cloth.png)
 - Herbs
   - icon: ![Herbs](assets/cooks-pen/items/herbs.png)
-- Cucumber
-- Yogurt
-  - icon: ![Yogurt](assets/cooks-pen/items/yogurt.png)
+- Sliced cucumber
+- Unstrained yoghurt
+  - icon: ![Unstrained yoghurt](assets/cooks-pen/items/yogurt.png)
 - Flatbread
   - icon: ![Flatbread](assets/cooks-pen/items/flatbread.png)
-- Herbed strained yogurt
-  - icon: ![Herbed strained yogurt](assets/cooks-pen/items/herbed-strained-yogurt.png)
-- Flatbread with herbed yogurt
-  - icon: ![Flatbread with herbed yogurt](assets/cooks-pen/items/flatbread-with-herbed-yogurt.png)
-- Cucumber yogurt
-  - icon: ![Cucumber yogurt](assets/cooks-pen/items/cucumber-yogurt.png)
+- Herbed yoghurt
+  - icon: ![Herbed yoghurt](assets/cooks-pen/items/herbed-strained-yogurt.png)
+- Flatbread with herbed yoghurt
+  - icon: ![Flatbread with herbed yoghurt](assets/cooks-pen/items/flatbread-with-herbed-yogurt.png)
+- Cucumber yoghurt
+  - icon: ![Cucumber yoghurt](assets/cooks-pen/items/cucumber-yogurt.png)
 
 **Combinations**
-- Yogurt + Straining cloth [preserve] -> Strained yogurt
-- Strained yogurt [transform] + Herbs -> Herbed strained yogurt
-- Flatbread + Herbed strained yogurt [transform] -> Flatbread with herbed yogurt
-- Yogurt + Cucumber [preserve] -> Cucumber yogurt
+- Unstrained yoghurt + Straining cloth [preserve] -> Yoghurt
+- Yoghurt [transform] + Herbs -> Herbed yoghurt
+- Flatbread + Herbed yoghurt [transform] -> Flatbread with herbed yoghurt
+- Yoghurt + Sliced cucumber [preserve] -> Cucumber yoghurt
 
 ## Vinegar and salad dressing
 ![A little sharpness](assets/cooks-pen/backgrounds/apples-into-sharpness.webp)
@@ -215,7 +215,7 @@ Acidity balances richness.
 
 **Goals**
 - Grill herb toast. -- Herb toast
-- Serve compote yogurt. -- Compote yogurt
+- Serve compote yoghurt. -- Compote yoghurt
 
 **Hotspots**
 - Grill (at 26.923077%, 20.912322%)
@@ -233,18 +233,18 @@ Acidity balances richness.
   - icon: ![Bread](assets/cooks-pen/items/bread.png)
 - Apples
 - Apple juice
-- Yogurt
+- Unstrained yoghurt
 - Herb-buttered bread
   - icon: ![Herb-buttered bread](assets/cooks-pen/items/herb-buttered-bread.png)
-- Compote yogurt
-  - icon: ![Compote yogurt](assets/cooks-pen/items/compote-yogurt.png)
+- Compote yoghurt
+  - icon: ![Compote yoghurt](assets/cooks-pen/items/compote-yogurt.png)
 
 **Combinations**
 - Butter + Herbs -> Herb butter
 - Bread + Herb butter [consume] -> Herb-buttered bread
 - Herb-buttered bread [transform] @ Grill -> Herb toast
 - Apples + Apple juice @ `orchard-stove-orchard-lunch` -> Apple compote
-- Yogurt + Apple compote -> Compote yogurt
+- Unstrained yoghurt + Apple compote -> Compote yoghurt
 
 ## Vegetable broth and onion soup
 ![A pot of broth](assets/cooks-pen/backgrounds/onions-and-a-bowl-of-broth.webp)
@@ -522,7 +522,7 @@ Add variety through texture
 - Brew a cup of tea. -- Cup of tea
 
 **Hotspots**
-- `afternoon-tea-kettle` Kettle (at 50%, 22%)
+- `afternoon-tea-kettle` Kettle (at 50%, 21.52606635%)
   - icon: ![Kettle](assets/rework/stations/kettle.png)
 
 **Items**
@@ -1283,7 +1283,7 @@ A pouring sauce and a pastry filling.
 - Self-raising flour
   - icon: ![Self-raising flour](assets/rework/items/self-raising-flour.png)
 - Apples
-- Yogurt
+- Unstrained yoghurt
 - Flour
 - Beaten egg-and-milk mixture
   - icon: ![Beaten egg-and-milk mixture](assets/cooks-pen/items/beaten-egg-and-milk-mixture.png)
@@ -1295,8 +1295,8 @@ A pouring sauce and a pastry filling.
   - icon: ![Fruit muffin batter](assets/cooks-pen/items/fruit-muffin-batter.png)
 - Fruit muffins
   - icon: ![Fruit muffins](assets/cooks-pen/items/fruit-muffins.png)
-- Yogurt and soda mixture
-  - icon: ![Yogurt and soda mixture](assets/cooks-pen/items/yogurt-and-soda-mixture.png)
+- Yoghurt and soda mixture
+  - icon: ![Yoghurt and soda mixture](assets/cooks-pen/items/yogurt-and-soda-mixture.png)
 - Soda bread dough
   - icon: ![Soda bread dough](assets/cooks-pen/items/soda-bread-dough.png)
 
@@ -1306,8 +1306,8 @@ A pouring sauce and a pastry filling.
 - Buttery muffin mixture [transform] + Self-raising flour -> Muffin batter
 - Muffin batter [transform] + Apples -> Fruit muffin batter
 - Fruit muffin batter [transform] @ `tea-oven-crew-baking` -> Fruit muffins
-- Yogurt + Baking soda [preserve] -> Yogurt and soda mixture
-- Yogurt and soda mixture [transform] + Flour -> Soda bread dough
+- Unstrained yoghurt + Baking soda [preserve] -> Yoghurt and soda mixture
+- Yoghurt and soda mixture [transform] + Flour -> Soda bread dough
 - Soda bread dough [transform] @ `tea-oven-crew-baking` -> Soda bread
 
 ## Ice cream and sorbet
