@@ -73,7 +73,7 @@ test('installed resources remain readable; repeated identities, empty and unmet 
 
 test('encounter order is stable when an item acquires an alphabetically earlier readable name', () => {
   const renamed = structuredClone(story), state = newGame(renamed);
-  renamed.items['name:Stone'].renames.push({ chapter: 'Workshop', name: 'A whetstone' });
+  renamed.items['name:Stone'].presentations.push({ chapter: {kind: 'name', value: 'Workshop', source: renamed.source}, name: 'A whetstone', source: renamed.source });
   assert.deepEqual(encyclopediaEntries(renamed, state), [
     { id: 'name:Grain', name: 'Grain', chapter: 0 },
     { id: 'name:Stone', name: 'A whetstone', chapter: 0 },

@@ -5,7 +5,7 @@ export type ReferenceRole = 'declaration' | 'reference' | 'reagent' | 'result' |
 /** Authored occurrences, independent of recipe deduplication and editor state. */
 export interface SourceReference {
   id: string;
-  kind: 'item' | 'hotspot';
+  kind: 'item' | 'hotspot' | 'chapter';
   role: ReferenceRole;
   declaration: boolean;
   implicit?: boolean;

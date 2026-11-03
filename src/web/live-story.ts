@@ -55,6 +55,7 @@ function matchChapters(before: Story, after: Story): Map<number, number> {
   const remainingOld = () => before.chapters.map((_, index) => index).filter(i => !result.has(i));
   const remainingNew = () => after.chapters.map((_, index) => index).filter(i => !used.has(i));
   const pair = (old: number, next: number) => { result.set(old, next); used.add(next); };
+  pairUnique(remainingOld(), remainingNew(), i => before.chapters[i].id.startsWith('id:') ? before.chapters[i].id : '', i => after.chapters[i].id.startsWith('id:') ? after.chapters[i].id : '', pair);
   pairUnique(remainingOld(), remainingNew(), i => before.chapters[i].name, i => after.chapters[i].name, pair);
   pairUnique(remainingOld(), remainingNew(), i => chapterKey(before.chapters[i]), i => chapterKey(after.chapters[i]), pair);
   // Equal-size gaps between surviving neighbours are heading edits. Unequal gaps

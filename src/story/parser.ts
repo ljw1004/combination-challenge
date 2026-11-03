@@ -1,6 +1,7 @@
-import type { Story, Source, Ref, Item, Icon, Recipe, Ingredient, Fate, Chapter, Goal, Condition, FateSite } from './types.ts';
+import type { Story, Source, Ref, Item, Icon, Recipe, Ingredient, Fate, Chapter, Goal, Condition, FateSite, ChapterReference } from './types.ts';
 import {sourceMap} from './source-map.ts';
 import type {ReferenceRole, SourceReference} from './source-reference.ts';
+import {chapterHeading, chapterSymbolID, matchingChapters} from './chapters.ts';
 
 interface Line { text: string; line: number }
 interface Bullet { text: string; line: number; indent: number; children: Bullet[]; prose: Line[] }
@@ -63,6 +64,7 @@ export function parseStory(markdown: string, options: { id?: string; file?: stri
     story.diagnostics.push({ severity: 'error', code, message, source: location, span: location.span!, stage: 'fast' });
   };
   const declared = new Map<string, string>(), recipes = new Map<string, Recipe>();
+  const chapterReferences: ChapterReference[] = [];
   const lines: Line[] = []; let note = false;
   markdown.replace(/\r\n?/g, '\n').split('\n').forEach((text, index) => {
     if (/^\s*>\s*NOTE:/.test(text)) note = true;
@@ -80,12 +82,15 @@ export function parseStory(markdown: string, options: { id?: string; file?: stri
     options.onReference?.(reference);
   }
   function ref(raw: string, line: number, kind: 'item' | 'hotspot' = 'item', mode: 'reference' | 'hotspot-declaration' | 'placement' = 'reference', role: ReferenceRole = 'reference', from = startOf(raw, line)): Ref {
-    let text = unquote(raw.trim()), exclusive: string | undefined, rename: { chapter: string; name: string } | undefined, compound = false;
+    let text = unquote(raw.trim()), exclusive: string | undefined, compound = false;
     from += Math.max(0, raw.indexOf(text));
     let exclusiveFrom = from;
     let match: RegExpExecArray | null;
     if ((match = /\s+\(exclusive with (.+)\)$/.exec(text))) { exclusive = match[1]; exclusiveFrom = from + text.length - exclusive.length - 1; text = text.slice(0, match.index); }
-    if ((match = /\s+\(or from chapter (.+)\)$/.exec(text))) { const parts = splitOutside(match[1], ','); rename = { chapter: unquote(parts.shift() ?? ''), name: unquote(parts.join(', ')) }; text = text.slice(0, match.index); }
+    if ((match = /\s+\(or from chapter (.+)\)$/.exec(text))) {
+      error('obsolete-rename', 'Parenthetical renames are no longer supported. Give the item an identifier and use a from chapter child bullet.', line, match[0].trim());
+      text = text.slice(0, match.index);
+    }
     if (/\s+\(compound\)$/.test(text)) { compound = true; text = text.replace(/\s+\(compound\)$/, ''); }
     const coordinate = /\s+\(at (-?\d+(?:\.\d+)?)%,\s*(-?\d+(?:\.\d+)?)%\)$/.exec(text);
     if (coordinate) {
@@ -105,7 +110,7 @@ export function parseStory(markdown: string, options: { id?: string; file?: stri
     record(id, kind, role === 'declaration' && !declaration ? 'reference' : role, from, from + text.length, declaration);
     if (!text) error('empty-reference', 'Expected a named item or hotspot.', line);
     if (mode === 'placement') {
-      if (named?.[2] || exclusive || rename || compound) error('place-syntax', 'place: accepts an item reference, not an item declaration or qualifier.', line, raw);
+      if (named?.[2] || exclusive || compound) error('place-syntax', 'place: accepts an item reference, not an item declaration or qualifier.', line, raw);
       return {id, slots};
     }
     if (named?.[2]) {
@@ -114,7 +119,7 @@ export function parseStory(markdown: string, options: { id?: string; file?: stri
     }
     if (kind === 'item') {
       let item = story.items[id];
-      if (!item) item = story.items[id] = { id, name, compound, slots: [], wonders: [], renames: [], source: source(line, raw.trim()) };
+      if (!item) item = story.items[id] = { id, name, compound, slots: [], wonders: [], presentations: [], source: source(line, raw.trim()) };
       if (named?.[2] && declared.get(id) === name) item.name = name;
       item.compound ||= compound;
       if (exclusive) {
@@ -122,7 +127,6 @@ export function parseStory(markdown: string, options: { id?: string; file?: stri
         if (item.exclusiveWith && item.exclusiveWith !== partner) error('multiple-exclusions', `${item.name} is exclusive with more than one item.`, line);
         else item.exclusiveWith = partner;
       }
-      if (rename && !item.renames.some(r => r.chapter === rename.chapter && r.name === rename.name)) item.renames.push(rename);
     } else {
       if (!story.hotspots[id]) story.hotspots[id] = { id, name, source: source(line) };
       if (named?.[2]) story.hotspots[id].name = declared.get(id) ?? name;
@@ -229,7 +233,7 @@ export function parseStory(markdown: string, options: { id?: string; file?: stri
       else position = {x: +marker[2] / 100, y: +marker[3] / 100};
       tail = tail.slice(marker[0].length).trim();
     }
-    if (position && !itemPosition) error('icon-position', 'Starting coordinates belong only to primitive item icons; hotspot centres belong on the hotspot declaration and slot overlays align with their owner.', line, raw);
+    if (position && !itemPosition) error('icon-position', 'Starting coordinates belong only to default primitive item icons; chapter-dependent icons cannot reposition an item, hotspot centres belong on their declaration and slot overlays align with their owner.', line, raw);
     return {url: match[1].trim(), circular, ...(position ? {position} : {}), source: source(line, raw)};
   }
   function assignIcon(target: {name: string; icon?: Icon}, node: Bullet, itemPosition = false) {
@@ -239,7 +243,35 @@ export function parseStory(markdown: string, options: { id?: string; file?: stri
     if (target.icon && (target.icon.url !== value.url || target.icon.circular !== value.circular || target.icon.position?.x !== value.position?.x || target.icon.position?.y !== value.position?.y)) error('conflicting-icon', `${target.name} already has a different icon; the first declaration is used.`, node.line, node.text);
     else target.icon ??= value;
   }
+  function presentation(item: Item, node: Bullet) {
+    const invalid = () => error('from-chapter-syntax', 'Use from chapter `id`: Name or from chapter "Title" icon: ![icon](path). Titles may also use quotes, italics or bold; bare numbers and names are invalid.', node.line, node.text);
+    if (!node.text.startsWith('from chapter ') || node.children.length || node.prose.some(part => part.text.trim())) { invalid(); return; }
+    const rest = node.text.slice('from chapter '.length), parts = splitLocated(rest, ':');
+    if (parts.length < 2) { invalid(); return; }
+    const hasIcon = /\s+icon$/.test(parts[0].text);
+    const raw = hasIcon ? parts[0].text.replace(/\s+icon$/, '') : parts[0].text;
+    const value = unquote(raw), identifier = /^`([^`]+)`$/.exec(value);
+    if (!value.trim() || (identifier ? !identifier[1].trim() : value === raw || value.startsWith('`'))) { invalid(); return; }
+    const from = startOf(node.text, node.line) + 'from chapter '.length + parts[0].from;
+    const chapter: ChapterReference = {kind: identifier ? 'id' : 'name', value: identifier?.[1] ?? value, source: locations.range(from, from + raw.length)};
+    chapterReferences.push(chapter);
+    const body = rest.slice(rest.indexOf(':', parts[0].to) + 1).trim();
+    if (!body) { invalid(); return; }
+    if (!item.id.startsWith('id:')) error('from-chapter-item-id', 'An item with from chapter metadata must have a backtick identifier, used by every authored reference.', node.line, node.text);
+    if (hasIcon) {
+      const value = icon(`icon: ${body}`, node.line);
+      if (value) { value.source = source(node.line, node.text); item.presentations.push({chapter, icon: value, source: source(node.line, node.text)}); }
+    } else {
+      const name = unquote(body);
+      if (!name.trim()) { invalid(); return; }
+      item.presentations.push({chapter, name, source: source(node.line, node.text)});
+    }
+  }
   function itemNode(node: Bullet, parent?: Ref, at?: string, topLevelItem = false): Ref | undefined {
+    if (/^(?:from|after)\s+chapter\b/.test(node.text)) {
+      error('from-chapter-context', 'from chapter belongs directly beneath a standalone item declaration.', node.line, node.text);
+      return;
+    }
     if (/^\(three hotspots\b/i.test(node.text)) {
       error('hotspot-acknowledgment-syntax', 'A three-hotspot acknowledgment belongs at the top level of a Hotspots section.', node.line);return;
     }
@@ -256,6 +288,11 @@ export function parseStory(markdown: string, options: { id?: string; file?: stri
     if (!result) return;
     const item = story.items[result.id]; wonder(item, node.prose, node.line);
     for (const child of node.children) {
+      if (/^(?:from|after)\s+chapter\b/.test(child.text)) {
+        if (isRule || result.slots.length) error('from-chapter-context', 'from chapter belongs directly beneath a standalone item declaration without fitted-slot qualifiers.', child.line, child.text);
+        else presentation(item, child);
+        continue;
+      }
       if (/^icon\s*:/.test(child.text)) {
         if (!topLevelItem || isRule) {
           error('icon-placement', 'An item icon belongs directly beneath a top-level Items declaration.', child.line, child.text);
@@ -307,7 +344,11 @@ export function parseStory(markdown: string, options: { id?: string; file?: stri
   const cover = paragraphImage(story.description.split(/\n\s*\n/)[0] ?? '');
   if (cover) story.cover = cover;
   for (const block of chapterLines) {
-    const chapter: Chapter = { id: `chapter:${story.chapters.length}`, name: block.heading.text.slice(3).trim(), intro: '', skipped: '', hotspots: [], items: [], goals: [], goalOperator: 'and', source: source(block.heading.line) };
+    const heading = chapterHeading(block.heading.text.slice(3));
+    if (!heading.valid) error('chapter-heading', 'Use ## Title or ## `unique-id` Title, with a nonempty identifier and title.', block.heading.line);
+    const chapter: Chapter = { id: heading.id ?? `chapter:${story.chapters.length}`, name: heading.name, intro: '', skipped: '', hotspots: [], items: [], goals: [], goalOperator: 'and', source: source(block.heading.line) };
+    const headingText = block.heading.text.slice(3).trim(), headingStart = startOf(headingText, block.heading.line);
+    record(chapterSymbolID(chapter), 'chapter', 'declaration', headingStart, headingStart + headingText.length, true);
     const sections = new Map<string, Line[]>(); let current = 'intro'; sections.set(current, []);
     for (const line of block.lines) {
       const section = /^\*\*(Goals|Hotspots|Items|Combinations)\*\*\s*$/.exec(line.text);
@@ -396,6 +437,7 @@ export function parseStory(markdown: string, options: { id?: string; file?: stri
         error('hotspot-acknowledgment-syntax', 'Use the exact three-hotspot acknowledgment wording and a top-level hyphen bullet.', node.line);continue;
       }
       if (/^place\s*:/.test(node.text)) { error('place-context', 'place: belongs directly beneath a Hotspots declaration.', node.line, node.text); continue; }
+      if (/^(?:from|after)\s+chapter\b/.test(node.text)) { error('from-chapter-context', 'from chapter belongs directly beneath a standalone item declaration.', node.line, node.text); continue; }
       const h = ref(node.text, node.line, 'hotspot', 'hotspot-declaration', 'declaration'); chapter.hotspots.push(h.id);
       for (const child of node.children) {
         if (/^icon\s*:/.test(child.text)) assignIcon(story.hotspots[h.id], child);
@@ -414,6 +456,18 @@ export function parseStory(markdown: string, options: { id?: string; file?: stri
     for (const node of bullets(sections.get('Items') ?? [])) { const result = itemNode(node, undefined, undefined, true); if (result) chapter.items.push(result); }
     for (const node of bullets(sections.get('Combinations') ?? [])) itemNode(node);
     story.chapters.push(chapter);
+  }
+  for (const reference of chapterReferences) {
+    const matches = matchingChapters(story, reference);
+    const id = matches.length === 1 ? chapterSymbolID(matches[0]) : `${reference.kind === 'id' ? 'id' : 'chapter-name'}:${reference.value}`;
+    record(id, 'chapter', 'reference', reference.source.span!.from, reference.source.span!.to);
+    if (matches.length !== 1) story.diagnostics.push({
+      severity: 'error', stage: 'fast', code: matches.length ? 'ambiguous-chapter' : 'unknown-chapter',
+      message: matches.length
+        ? `Chapter ${reference.kind === 'id' ? 'identifier' : 'title'} ${reference.value} is ambiguous; use a unique backtick chapter identifier.`
+        : `Unknown chapter ${reference.value}.`,
+      source: reference.source, span: reference.source.span!,
+    });
   }
   for (const item of Object.values(story.items)) {
     for (const slot of item.slots) story.recipes.push({ id: `install:${item.id}:${slot.accepts}`, a: { ref: { id: item.id, slots: [] }, fate: 'preserve', explicit: true }, b: { ref: { id: slot.accepts, slots: [] }, fate: 'consume', explicit: true }, result: { id: item.id, slots: [slot.accepts] }, installation: slot.accepts, source: slot.source });

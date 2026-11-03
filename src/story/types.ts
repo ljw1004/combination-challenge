@@ -19,9 +19,11 @@ export interface FateSite { item: string; fate: Fate; edit?: {span: TextSpan; pr
 export interface Icon { url: string; circular: boolean; position?: {x: number; y: number}; source: Source }
 export interface Slot { name?: string; accepts: string; icon?: Icon; source: Source }
 export interface Wonder { markdown: string; requires: string[]; source: Source }
+export interface ChapterReference { kind: 'id' | 'name'; value: string; source: Source }
+export interface ItemPresentation { chapter: ChapterReference; name?: string; icon?: Icon; source: Source }
 export interface Item {
   id: string; name: string; compound: boolean; slots: Slot[]; wonders: Wonder[];
-  icon?: Icon; exclusiveWith?: string; renames: { chapter: string; name: string }[]; source: Source;
+  icon?: Icon; exclusiveWith?: string; presentations: ItemPresentation[]; source: Source;
 }
 export interface Placement { item: Ref; x: number; y: number; source: Source }
 export interface Hotspot { id: string; name: string; x?: number; y?: number; icon?: Icon; placements?: Placement[]; source: Source }

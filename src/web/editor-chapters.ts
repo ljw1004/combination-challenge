@@ -1,4 +1,5 @@
 import type { Text } from '@codemirror/state';
+import {chapterHeading} from '../story/chapters.ts';
 
 export interface EditorChapter { line: number; heading: string; from: number; to: number }
 
@@ -7,7 +8,7 @@ export function chapterHeadings(doc: Text): EditorChapter[] {
   const chapters: EditorChapter[] = [];
   for (let number = 1; number <= doc.lines; number++) {
     const line = doc.line(number);
-    if (/^## /.test(line.text)) chapters.push({line: number, heading: line.text.slice(3).trim(), from: line.from, to: line.to});
+    if (/^## /.test(line.text)) chapters.push({line: number, heading: chapterHeading(line.text.slice(3)).name, from: line.from, to: line.to});
   }
   return chapters;
 }

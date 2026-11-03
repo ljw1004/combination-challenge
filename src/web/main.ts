@@ -6,6 +6,7 @@ import { parseStory } from '../story/parser.ts';
 import type { Story } from '../story/types.ts';
 import { newGame, act, availableTokens, label, chapterComplete, readings, matches, recipeFor } from '../engine/game.ts';
 import { activeHotspots, background, indexStory } from '../engine/analysis.ts';
+import { itemPresentation } from '../engine/presentation.ts';
 import type { State, Action } from '../engine/types.ts';
 import { checkpoint } from '../debug/checkpoint.ts';
 import { LiveDiagnostics } from './live-diagnostics.ts';
@@ -110,7 +111,13 @@ function scheduleArtwork() {
   // Let the prepared cover/chapter paint before starting speculative work.
   artworkFrame = requestAnimationFrame(() => {
     artworkFrame = requestAnimationFrame(() => {
-      try { itemArtwork.preload(lookaheadArtwork(story, state, storyStarted), asset); }
+      try {
+        itemArtwork.preload(lookaheadArtwork(story, state, storyStarted), asset);
+        if (storyStarted) {
+          const source = story, before = state, prepared = itemArtwork.prepare(scrollbackArtwork(story, state), asset);
+          if (prepared) void prepared.then(() => { if (story === source && state === before) render(false, false); });
+        }
+      }
       catch { /* Incomplete drafts still display their current chapter. */ }
     });
   });
@@ -698,7 +705,7 @@ function render(arrival=false,finish=true,checkpointLayout=false,arrivalSource?:
   const gold=new Set<string>();for(const {goal:g,done} of goals)if(done)for(const c of g.conditions)if(matches(state.tokens[c.item.id],c.item)&&(!c.hotspot||state.tokens[c.item.id].hotspot===c.hotspot)){gold.add(c.item.id);if(c.hotspot)gold.add(c.hotspot);}
   reconcile(surface,`<div class="viewport">${worldHTML(state.visited.map((chapter,position)=>{
     return `<section class="chapter-panel" data-chapter="${chapter}" style="top:${position*geometry.bounds.height}px" aria-label="${escape(story.title)} scene ${position+1}">${activeHotspots(story,chapter).map((id,i)=>hotspotHTML(story.hotspots[id],i,itemArtwork.hotspot(story.hotspots[id],asset),geometry.bounds)).join('')}${availableTokens(state).filter(t=>t.chapter===chapter).map(t=>{
-      const item=story.items[t.id],applicable=readings(story,state,t.id).some(reading=>reading.markdown.trim()),selected=tile(t.id)?.classList.contains('reading-selected'),visual=itemArtwork.visual(item,t.slots,name,asset,geometry.bounds);
+      const item=story.items[t.id],applicable=readings(story,state,t.id).some(reading=>reading.markdown.trim()),selected=tile(t.id)?.classList.contains('reading-selected'),visual=itemArtwork.visual(item,t.slots,name,asset,geometry.bounds,itemPresentation(story,state.chapter,t.id).icon);
       return `<button class="thing ${visual.className} ${creationLabels.has(t.id)?'newly-created':''} ${selected?'reading-selected pressed':''} ${chapter===state.chapter&&gold.has(t.id)?'goal-met':''}" data-item="${escape(t.id)}" style="left:${t.x}px;top:${t.y}px;z-index:${3+itemOrder.indexOf(t.id)};${visual.style}" aria-label="${escape(name(t.id))}" title="${escape(applicable?'Double-click or double-tap to read':'Drag to combine or move')}">${visual.html}${applicable?'<span class="reading-indicator" aria-hidden="true">' + openBook + '</span>':''}</button>`;
     }).join('')}${chapter===state.chapter&&state.arrivalDivider&&state.newItems.length?`<div class="arrival-divider" style="top:${Math.max(65,Math.min(...state.newItems.map(id=>state.tokens[id]?.y??844))-18)}px"><span>new items</span></div>`:''}</section>`;
   }).join(''),state.visited.map(chapter=>({chapter,image:background(story,chapter)})))}</div>${showGoals?`<div class="hud-stack location-hud ${transitioning?'goals-leaving':''}" ${transitioning?'aria-hidden="true"':''}><button class="objective-overlay" ${leaving?'disabled':''} data-command="story" aria-label="Read this chapter"><span class="objectives">${goals.map(({goal,done})=>`<span class="objective-line ${done?'done':''}"><span class="goal-checkbox" aria-hidden="true">${done?'✓':''}</span><span>${escape(goal.text)}</span><span class="sr-only">${done?'Completed':'Not completed'}</span></span>`).join('')}${state.completed?'<span class="objective-line ending">The End</span>':''}</span></button></div>`:''}${goalView?.phase!=='goals'&&!state.completed?`<button class="chapter-next ${story.chapters[state.chapter+1]?.image?'':'right'} ${transitioning?'entering':''}" ${leaving?'disabled':''} data-command="advance" aria-label="Continue story"><span>${story.chapters[state.chapter+1]?.image?'↓':'→'}</span></button>`:''}`);

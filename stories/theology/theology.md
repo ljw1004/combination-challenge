@@ -57,7 +57,8 @@ Augustine explains evil as damage to, or loss of, something good. Compare a woun
 
   A wound is harm suffered; stealing the meal is a wrong deliberately chosen. Comparing them as losses must not turn suffering into evidence of guilt.
 
-- `augustine-loss` evil is good damaged or missing, not separate stuff (or from chapter "Who made a world that harms?", Augustine: evil is good damaged or missing, not separate stuff)
+- `augustine-loss` evil is good damaged or missing, not separate stuff
+  - from chapter `world-that-harms`: Augustine: evil is good damaged or missing, not separate stuff
 
   Augustine thinks evil is damage to, or loss of, something good rather than a separate evil material. A wound illustrates the idea: the body remains, but health is missing. His belief in a good creation is a starting point, not something the example proves.
 
@@ -98,7 +99,8 @@ It is evening. The desk has been cleared for a new study session about God's gra
 
   Here “would” means “want to”. Augustine reads the passage as a challenge to accounts of help that stop at ability or teaching.
 
-- `love-help` God can stir love, not merely teach (or from chapter "Who made a world that harms?", Augustine: God can stir love, not merely teach)
+- `love-help` God can stir love, not merely teach
+  - from chapter `world-that-harms`: Augustine: God can stir love, not merely teach
 
   Augustine distinguishes knowing what is right from wanting and choosing it. He calls God's inward help with that choice grace.
 
@@ -110,7 +112,8 @@ It is evening. The desk has been cleared for a new study session about God's gra
 
   Augustine's church baptizes infants for forgiveness. Because an infant has chosen no wrongful act, Augustine asks what this forgiveness addresses.
 
-- `adam-condition` we inherit a sinful condition from the first human, Adam (or from chapter "Who made a world that harms?", Augustine: we inherit a sinful condition from the first human, Adam)
+- `adam-condition` we inherit a sinful condition from the first human, Adam
+  - from chapter `world-that-harms`: Augustine: we inherit a sinful condition from the first human, Adam
 
   Adam is the first human in the biblical story. Augustine says Adam's disobedience leaves later humans needing forgiveness even before choosing a wrong act. For him, an infant's illness does not show that the child has behaved badly.
 
@@ -118,7 +121,8 @@ It is evening. The desk has been cleared for a new study session about God's gra
 
   Knowing what is right has not been enough to make the person do it. Augustine argues that God's help must address willing and acting as well as ignorance.
 
-- `aided-choice` God helps the person want and act (or from chapter "Who made a world that harms?", Augustine: God helps the person want and act)
+- `aided-choice` God helps the person want and act
+  - from chapter `world-that-harms`: Augustine: God helps the person want and act
 
   Augustine says God can help a person want and do what is right. The person still chooses and acts; help does not make the human actor disappear.
 
@@ -126,11 +130,13 @@ It is evening. The desk has been cleared for a new study session about God's gra
 
   The infant has chosen no wrong act, yet Augustine's church baptizes infants for forgiveness. This creates a question about what needs forgiving; the practice alone does not prove his answer.
 
-- `inherited-sin` inherited sin, not an infant’s chosen act (or from chapter "Who made a world that harms?", Augustine: inherited sin, not an infant’s chosen act)
+- `inherited-sin` inherited sin, not an infant’s chosen act
+  - from chapter `world-that-harms`: Augustine: inherited sin, not an infant’s chosen act
 
   Augustine says infants inherit a condition needing forgiveness through Adam, before choosing any wrong act themselves. Christians have disputed this teaching and its implications.
 
-- `condition-not-act` both infants inherit sin; illness does not decide it (or from chapter "Who made a world that harms?", Augustine: both infants inherit sin; illness does not decide it)
+- `condition-not-act` both infants inherit sin; illness does not decide it
+  - from chapter `world-that-harms`: Augustine: both infants inherit sin; illness does not decide it
 
   In Augustine's account, both the ill infant and the healthy infant inherit Adam's sinful condition. Neither has chosen a wrong act. Their health is not what determines their need for forgiveness.
 
@@ -157,7 +163,7 @@ It is evening. The desk has been cleared for a new study session about God's gra
 
 > NOTE: Source `romans`: [Romans 7:19, King James Version](https://www.biblegateway.com/passage/?search=Romans%207%3A19&version=KJV). Short excerpt about willing and doing. Augustine’s reading is an interpretation, not the only reading of Romans.
 
-## Who made a world that harms?
+## `world-that-harms` Who made a world that harms?
 
 ![Medieval manuscript study](assets/theology-medieval-disputation-desk.webp)
 

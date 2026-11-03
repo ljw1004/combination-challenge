@@ -117,7 +117,7 @@ function hoverCard(view: EditorView, info: SymbolHover): HTMLElement {
   section('Goals', info.goals.map(goal => ({text: `${goal.chapter}: ${goal.text}`, source: goal.source})));
   const controls = element('div', 'editor-symbol-actions');
   if (!info.declaration && info.definitions.length) controls.append(action('Go to declaration', () => navigate(view, info.definitions[0].source.span)));
-  controls.append(action(`Find references (${info.referenceCount})`, () => openReferences(view, info.symbol)));
+  if (info.symbol.kind !== 'chapter' || info.referenceCount > info.definitions.length) controls.append(action(`Find references (${info.referenceCount})`, () => openReferences(view, info.symbol)));
   dom.append(controls);
   return dom;
 }

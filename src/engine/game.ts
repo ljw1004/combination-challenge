@@ -2,13 +2,11 @@ import type { Story, Recipe, Ref, Goal, Condition } from '../story/types.ts';
 import type { State, Token, Action } from './types.ts';
 import { activeHotspots, goalChains, chapterGoalsSatisfied, chapterNeeds, continuationPossible, indexStory, recipeCandidates } from './analysis.ts';
 import { nextEncounter } from './encounters.ts';
+import { itemPresentation } from './presentation.ts';
 export type { State, Token, Action } from './types.ts';
 
 export function label(story: Story, state: State, id: string): string {
-  const item = story.items[id]; if (!item) return story.hotspots[id]?.name ?? id;
-  let name = item.name;
-  for (const rename of item.renames) { const index = story.chapters.findIndex(c => c.name === rename.chapter || c.id === rename.chapter); if (index >= 0 && state.chapter >= index) name = rename.name; }
-  return name;
+  return itemPresentation(story, state.chapter, id).name;
 }
 export function matches(token: Token | undefined, ref: Ref): boolean { return !!token && token.status === 'available' && ref.slots.every(s => token.slots.includes(s)); }
 function conditionMet(state: State, c: Condition): boolean { return matches(state.tokens[c.item.id], c.item) && (!c.hotspot || state.tokens[c.item.id].hotspot === c.hotspot); }

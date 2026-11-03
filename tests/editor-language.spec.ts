@@ -188,3 +188,32 @@ test('image hover resolves story-relative artwork and handles unavailable previe
   await expect(preview.locator('img')).toHaveCount(0);
   expect(errors).toEqual([]);
 });
+
+test('chapter references are blue, navigate to headings and expose chapter hover and live references', async ({page}) => {
+  const source = '# Chapters\n## First\n**Items**\n- `array` Array\n  - from chapter `storm`: Dusty array\n  - from chapter **Amber Dawn**: Dusty array\n## `storm` Amber Dawn\nDust settles outside.\n**Goals**\n- Inspect the array -- `array`\n';
+  await open(page, source);
+  const reference = page.locator('.cm-line').filter({hasText: /^  - from chapter `storm`:/});
+  await expect(reference.locator('.cm-story-reference')).toHaveText('`storm`');
+  await expect(reference.locator('.cm-story-reference')).toHaveCSS('color', 'rgb(4, 81, 165)');
+  const position = await point(reference, '`storm`');
+  await page.mouse.move(position.x, position.y);
+  const hover = page.getByRole('region', {name: 'Amber Dawn information'});
+  await expect(hover).toContainText('Chapter 2 of 2');
+  await expect(hover).toContainText('Dust settles outside.');
+  await expect(hover).toContainText('Inspect the array');
+  await hover.getByRole('button', {name: 'Go to declaration'}).click();
+  await expect(page.locator('.cm-activeLine')).toHaveText('## `storm` Amber Dawn');
+  const heading = page.locator('.cm-activeLine');
+  await cmdClick(page, heading, 'Amber Dawn');
+  const references = page.getByRole('region', {name: 'References', exact: true});
+  await expect(references.getByRole('heading')).toHaveText('Amber Dawn · 3 references');
+  await references.getByRole('button').filter({hasText: '**Amber Dawn**'}).click();
+  await page.keyboard.press('F12');
+  await expect(page.locator('.cm-activeLine')).toHaveText('## `storm` Amber Dawn');
+  await page.keyboard.insertText('`storm` Red Noon');
+  await expect(references.getByRole('heading')).toHaveText('Red Noon · 2 references');
+  await expect(page.getByRole('button', {name: 'Chapter', exact: true})).toHaveText('2. Red Noon');
+  await references.getByRole('button').filter({hasText: 'from chapter `storm`'}).click();
+  await page.keyboard.press('F12');
+  await expect(page.locator('.cm-activeLine')).toHaveText('## `storm` Red Noon');
+});

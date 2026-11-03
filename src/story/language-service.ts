@@ -1,4 +1,5 @@
 import {parseStory} from './parser.ts';
+import {chapterSymbolID} from './chapters.ts';
 import type {SourceReference} from './source-reference.ts';
 import type {Ingredient, Ref, Source, Story, TextSpan} from './types.ts';
 
@@ -20,7 +21,7 @@ export interface SymbolHover {
 }
 export interface ImageHover { kind: 'image'; range: TextSpan; url: string; alt: string }
 export type HoverInformation = SymbolHover | ImageHover;
-export interface SemanticToken { range: TextSpan; kind: 'item' | 'hotspot' | 'comment' }
+export interface SemanticToken { range: TextSpan; kind: SourceReference['kind'] | 'comment' }
 
 /** LSP operations over one immutable document; UTF-16 offsets and typed values, no transport encoding. */
 export interface StoryLanguageService {
@@ -71,8 +72,9 @@ export class StoryLanguageDocument implements StoryLanguageService {
   symbolAt(position: number): SymbolIdentity | undefined {
     const reference = this.referenceAt(position);
     if (!reference) return;
-    const declaration = reference.kind === 'item' ? this.story.items[reference.id] : this.story.hotspots[reference.id];
-    return {id: reference.id, kind: reference.kind, name: declaration?.name ?? reference.id.replace(/^(?:id|name):/, '')};
+    const declaration = reference.kind === 'chapter' ? this.story.chapters.find(chapter => chapterSymbolID(chapter) === reference.id)
+      : reference.kind === 'item' ? this.story.items[reference.id] : this.story.hotspots[reference.id];
+    return {id: reference.id, kind: reference.kind, name: declaration?.name ?? reference.id.replace(/^(?:id|name|chapter-name):/, '')};
   }
 
   locations(symbol: Pick<SymbolIdentity, 'id' | 'kind'>): readonly ReferenceLocation[] {
@@ -97,6 +99,17 @@ export class StoryLanguageDocument implements StoryLanguageService {
     const reference = this.referenceAt(position), symbol = this.symbolAt(position);
     if (!reference || !symbol) return;
     const {story} = this;
+    if (symbol.kind === 'chapter') {
+      const chapter = story.chapters.find(chapter => chapterSymbolID(chapter) === symbol.id);
+      return {
+        kind: 'symbol', range: reference.source.span, symbol, declaration: reference.declaration, definitions: this.definition(position),
+        descriptions: chapter?.intro ? [{text: chapter.intro, requires: []}] : [],
+        properties: chapter ? [`Chapter ${story.chapters.indexOf(chapter) + 1} of ${story.chapters.length}`] : [],
+        createdBy: [], usedBy: [],
+        goals: chapter?.goals.map(goal => ({text: goal.text, chapter: chapter.name, source: goal.source})) ?? [],
+        referenceCount: this.references(position, {includeDeclaration: true}).length,
+      };
+    }
     const item = symbol.kind === 'item' ? story.items[symbol.id] : undefined;
     const hotspot = symbol.kind === 'hotspot' ? story.hotspots[symbol.id] : undefined;
     const name = (id: string) => story.items[id]?.name ?? story.hotspots[id]?.name ?? id.replace(/^(?:id|name):/, '');
@@ -112,7 +125,7 @@ export class StoryLanguageDocument implements StoryLanguageService {
       if (item.compound) properties.push('Compound item');
       for (const slot of item.slots) properties.push(`${slot.name ? `Slot ${slot.name}` : 'Unnamed slot'}: accepts ${name(slot.accepts)}`);
       if (item.exclusiveWith) properties.push(`Exclusive with ${name(item.exclusiveWith)}`);
-      for (const rename of item.renames) properties.push(`Named ${rename.name} from chapter ${rename.chapter}`);
+      for (const change of item.presentations) properties.push(`${change.icon ? `Icon: ${change.icon.url}` : `Named ${change.name}`} from chapter ${change.chapter.kind === 'id' ? `\`${change.chapter.value}\`` : change.chapter.value}`);
       if (item.icon) properties.push(`Icon: ${item.icon.url}`);
     }
     if (hotspot) {

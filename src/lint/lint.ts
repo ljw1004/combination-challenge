@@ -6,6 +6,7 @@ import { goalCountDiagnostics } from './goal-count.ts';
 import { hotspotCountDiagnostics } from './hotspot-count.ts';
 import { tutorialAction } from '../engine/tutorial.ts';
 import { declarationDiagnostics } from './declarations.ts';
+import { presentationDiagnostics } from './presentations.ts';
 
 export interface LintOptions {
   analysis?: boolean;
@@ -14,7 +15,7 @@ export interface LintOptions {
   onOpportunityAnalysis?: (report: OpportunityReport) => void;
 }
 export function lintStory(story: Story, options: LintOptions = {}): Diagnostic[] {
-  const diagnostics = [...story.diagnostics, ...declarationDiagnostics(story)];
+  const diagnostics = [...story.diagnostics, ...declarationDiagnostics(story), ...presentationDiagnostics(story)];
   const add = (severity: Diagnostic['severity'],code:string,message:string,source:Source,related?:RelatedLocation[],fixes?:DiagnosticFix[],fixTitle?:string) => diagnostics.push({severity,code,message,source,span:source.span??{from:0,to:0},stage:'fast',...(related?.length?{related}:{}),...(fixes?.length?{fixes,fixTitle}:{})});
   const error = (code:string,message:string,source:Source) => add('error',code,message,source);
   const warning = (code:string,message:string,source:Source,related?:RelatedLocation[],fixes?:DiagnosticFix[],fixTitle?:string) => add('warning',code,message,source,related,fixes,fixTitle);
@@ -26,7 +27,7 @@ export function lintStory(story: Story, options: LintOptions = {}): Diagnostic[]
   const index = indexStory(story), uses = new Map<string,{fate:Fate; explicit:boolean; implicit:boolean; source:Source; location:RelatedLocation}[]>();
   const name = (id: string) => story.items[id]?.name ?? story.hotspots[id]?.name ?? id;
   const reference = (ref: Ref) => `${name(ref.id)}${ref.slots.length ? `[${ref.slots.map(name).join(', ')}]` : ''}`;
-  const usesIcons = Object.values(story.items).some(item => item.icon || item.slots.some(slot => slot.icon));
+  const usesIcons = Object.values(story.items).some(item => item.icon || item.presentations.some(change => change.icon) || item.slots.some(slot => slot.icon));
   function checkRef(ref: Ref,source:Source) {
     const item = story.items[ref.id];
     for (const slot of ref.slots) if (!item?.slots.some(s=>s.accepts===slot)) error('unknown-slot',`${item?.name ?? ref.id} has no slot accepting ${story.items[slot]?.name ?? slot}.`,source);
@@ -48,7 +49,6 @@ export function lintStory(story: Story, options: LintOptions = {}): Diagnostic[]
       if (accepted.has(slot.accepts)) error('duplicate-slot',`${item.name} has two slots accepting ${story.items[slot.accepts]?.name}.`,slot.source);
       accepted.add(slot.accepts);
     }
-    for (const rename of item.renames) if (!story.chapters.some(c=>c.name===rename.chapter || c.id===rename.chapter)) error('rename-chapter',`Unknown rename chapter ${rename.chapter}.`,item.source);
     for (const wonder of item.wonders) checkRef({id:item.id,slots:wonder.requires},wonder.source);
   }
   for (const recipe of story.recipes) {

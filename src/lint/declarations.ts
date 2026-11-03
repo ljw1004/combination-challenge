@@ -5,19 +5,25 @@ import type {SourceReference} from '../story/source-reference.ts';
 export function declarationDiagnostics(story: Story): Diagnostic[] {
   const groups = new Map<string, SourceReference[]>();
   for (const reference of story.sourceReferences) {
+    if (reference.kind === 'chapter') continue;
     const key = `${reference.kind}:${reference.id}`;
     const group = groups.get(key) ?? [];
     group.push(reference); groups.set(key, group);
   }
   const hotspots = new Set(story.chapters.flatMap(chapter => chapter.hotspots));
   const diagnostics: Diagnostic[] = [];
+  const changingNames = new Map(Object.values(story.items).filter(item => item.id.startsWith('id:') && item.presentations.length)
+    .flatMap(item => [item.name, ...item.presentations.flatMap(change => change.name === undefined ? [] : [change.name])].map(name => [name, item.id] as const)));
   for (const references of groups.values()) {
     references.sort((a, b) => a.source.span.from - b.source.span.from);
     const {id, kind} = references[0];
     const declarations = references.filter(reference => reference.declaration);
     const name = (kind === 'item' ? story.items[id] : story.hotspots[id])?.name ?? id.replace(/^(?:id|name):/, '');
     let code: string | undefined, message = '';
-    if (kind === 'hotspot' && !hotspots.has(id)) {
+    const changingItem = kind === 'item' && id.startsWith('name:') ? changingNames.get(id.slice(5)) : undefined;
+    if (changingItem) {
+      code = 'presentation-item-reference'; message = `${name} has chapter-dependent presentation. Refer to it by its backtick identifier \`${changingItem.slice(3)}\`.`;
+    } else if (kind === 'hotspot' && !hotspots.has(id)) {
       code = 'undeclared-hotspot'; message = `${name} has no Hotspots declaration. Check its spelling or declare it on the intended chapter surface.`;
     } else if (!declarations.length) {
       code = id.startsWith('id:') ? 'undeclared-id' : 'undeclared-item';

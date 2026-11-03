@@ -2426,7 +2426,7 @@ These records cover c. 1735–1859. Shared species names and geographical observ
 
 **Goals**
 - Why do different places have different life? -- "Life patterned by place and conditions"
-- Can species change? -- "Species can have changing histories"
+- Can species change? -- `species-history`
 
 **Items**
 - "Linnaeus gives each species a two-part name"
@@ -2449,14 +2449,15 @@ These records cover c. 1735–1859. Shared species names and geographical observ
 
   Living things vary with place, climate and altitude. Comparing these patterns connects classification with the conditions of life.
 
-- "Species can have changing histories" (or from chapter "Descent and inheritance", "Lamarck: acquired changes can pass to descendants")
+- `species-history` Species can have changing histories
+  - from chapter `descent-inheritance`: Lamarck: acquired changes can pass to descendants
 
   Lamarck argues that use and disuse change an organism's body, and those changes can pass to its offspring. This differs from natural selection, which acts on inherited differences already present.
 
 **Combinations**
 - "Animals compared by structures and activities" + "Linnaeus gives each species a two-part name" [preserve] -> "Comparable names for living kinds"
 - "Comparable names for living kinds" + "Plant communities change with height and climate" [preserve] -> "Life patterned by place and conditions"
-- "Comparable names for living kinds" + "Lamarck: changed habits can change descendants" [preserve] -> "Species can have changing histories"
+- "Comparable names for living kinds" + "Lamarck: changed habits can change descendants" [preserve] -> `species-history`
 
 > NOTE: Sources for this session: aristotle-biology, linnaeus, humboldt, darwin-selection, darwin-malthus, darwin-origin-wolves-primary, wallace-varieties-primary, lyell-darwin. Source IDs identify bibliography entries recorded at their first relevant session; precise item and recipe attribution is retained in the conversion report.
 
@@ -2514,7 +2515,7 @@ It is evening. The worktable is cleared for a new session. Compare inherited dif
 
 > NOTE: Sources for this session: aristotle-biology, linnaeus, humboldt, darwin-selection, darwin-malthus, darwin-origin-wolves-primary, wallace-varieties-primary, lyell-darwin. Source IDs identify bibliography entries recorded at their first relevant session; precise item and recipe attribution is retained in the conversion report.
 
-## Descent and inheritance
+## `descent-inheritance` Descent and inheritance
 
 ![Same worktable · the next morning](assets/atlas-naturalists-comparison-bench.webp)
 
@@ -2552,7 +2553,7 @@ The next morning, we return to a cleared worktable. Connect selection with deep 
 **Combinations**
 - "Unequal reproduction changes a population" + "A landscape needs a deep past" -> "Selection can reshape life across deep time"
 - "Selection can reshape life across deep time" + "Island species resemble nearby mainland species" [preserve] -> "Resemblance can record shared descent"
-- "Resemblance can record shared descent" + "Species can have changing histories" [preserve] -> "Changing species, different accounts of how"
+- "Resemblance can record shared descent" + `species-history` [preserve] -> "Changing species, different accounts of how"
 - "Selection can reshape life across deep time" + "How are differences transmitted without blending away?" [preserve] -> "Cumulative evolution with heredity still unresolved"
 
 > NOTE: Sources for this session: aristotle-biology, linnaeus, humboldt, darwin-selection, darwin-malthus, darwin-origin-wolves-primary, wallace-varieties-primary, lyell-darwin. Source IDs identify bibliography entries recorded at their first relevant session; precise item and recipe attribution is retained in the conversion report.

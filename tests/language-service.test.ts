@@ -115,3 +115,36 @@ test('semantic tokens cover authored references and note blocks, and image hover
   assert.equal(input.slice(preview.range.from, preview.range.to), '![Map](assets/map.svg)');
   assert.equal(document.hover(input.indexOf('An image')), undefined);
 });
+
+test('chapter ID and wrapped-title references share hover, definitions and references with precise spans', () => {
+  const manuscript = '# Chapters\n## First\n**Items**\n- `array` Array\n  - from chapter `storm`: Dusty array\n  - from chapter **Amber: Dawn** icon: ![dust](dust.svg)\n## `storm` Amber: Dawn\nDust is falling.\n**Goals**\n- Protect the array -- `array`\n## Unused\n';
+  for (const input of [manuscript, manuscript.replaceAll('\n', '\r\n')]) {
+    const document = new StoryLanguageDocument(input);
+    const id = input.indexOf('`storm`'), title = input.indexOf('**Amber: Dawn**'), declaration = input.indexOf('## `storm`') + 3;
+    const definition = document.definition(id);
+    assert.equal(definition.length, 1);
+    assert.equal(definition[0].source.span.from, declaration);
+    assert.equal(input.slice(definition[0].source.span.from, definition[0].source.span.to), '`storm` Amber: Dawn');
+    assert.deepEqual(document.definition(title), definition);
+    assert.equal(document.references(declaration, {includeDeclaration: false}).length, 2);
+    const hover = document.hover(declaration)!;
+    assert(hover.kind === 'symbol' && hover.symbol.kind === 'chapter');
+    assert.equal(hover.symbol.name, 'Amber: Dawn');
+    assert.deepEqual(hover.properties, ['Chapter 2 of 3']);
+    assert.deepEqual(hover.descriptions.map(d => d.text), ['Dust is falling.']);
+    assert.equal(hover.goals[0].text, 'Protect the array');
+    assert.equal(hover.referenceCount, 3);
+    assert.deepEqual(document.semanticTokens().filter(token => token.kind === 'chapter').map(token => input.slice(token.range.from, token.range.to)), ['First', '`storm`', '**Amber: Dawn**', '`storm` Amber: Dawn', 'Unused']);
+    assert.equal(document.hover(input.indexOf('dust.svg'))?.kind, 'image');
+  }
+});
+
+test('title-only chapter symbols remain stable when chapters move and unknown references stay navigable', () => {
+  const manuscript = '# Chapters\n## First\n**Items**\n- `a` A\n  - from chapter "Later": Later A\n  - from chapter `missing`: Missing A\n## Later\n';
+  const original = new StoryLanguageDocument(manuscript), position = manuscript.indexOf('"Later"');
+  const symbol = original.symbolAt(position)!;
+  const moved = new StoryLanguageDocument(manuscript.replace('## First', '## Inserted\n## First'));
+  assert.equal(moved.references(symbol, {includeDeclaration: true}).length, 2);
+  assert.deepEqual(original.definition(manuscript.indexOf('`missing`')), []);
+  assert.equal(original.references(manuscript.indexOf('`missing`'), {includeDeclaration: false}).length, 1);
+});

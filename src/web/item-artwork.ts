@@ -32,8 +32,8 @@ export class ItemArtwork {
     };
   }
 
-  visual(item: Item, filled: readonly string[], name: (id: string) => string, asset: (path: string) => string, bounds?: {width: number; height: number}) {
-    const icon = item.icon, base = icon && this.images.get(asset(icon.url));
+  visual(item: Item, filled: readonly string[], name: (id: string) => string, asset: (path: string) => string, bounds?: {width: number; height: number}, icon = item.icon) {
+    const base = icon && this.images.get(asset(icon.url));
     const fitted = item.slots.filter(slot => filled.includes(slot.accepts));
     const usable = icon && !base?.failed && fitted.every(slot => slot.icon && !this.images.get(asset(slot.icon.url))?.failed);
     if (!usable) return {
