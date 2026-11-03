@@ -44,7 +44,9 @@ function chapterSection(directory:string,chapter:number) {
   const afterHeading = source.slice(heading.index+heading[0].length).trimStart();
   const storyLines = [...source.matchAll(/^Story: (\S[^\r\n]*)$/gm)];
   if (storyLines.length !== 1 || !afterHeading.startsWith(storyLines[0][0])) throw new Error(`${file}: put exactly one Story: path/to/story.md line immediately below the title.`);
-  return {story:storyLines[0][0].trimEnd(),text:`#${heading[0]}\n\n${synthesis.text}`};
+  const modes = [...source.matchAll(/^Play style: --(fast|detailed)$/gm)];
+  if (modes.length > 1) throw new Error(`${file}: use exactly one Play style line.`);
+  return {playStyle:modes[0]?.[1],story:storyLines[0][0].trimEnd(),text:`#${heading[0]}\n\n${synthesis.text}`};
 }
 
 /** Assemble existing judgments verbatim; every represented chapter must have a finished synthesis. */
@@ -61,7 +63,9 @@ export function assemblePlaytestReport(path:string,definitionsFile:string = cano
   const definitions = markedBlock(readFileSync(definitionsFile,'utf8'),definitionsFile,'report-definitions').text;
   const sections = [...chapters].sort((left,right) => left-right).map(chapter => chapterSection(directory,chapter));
   if (sections.some(section => section.story !== sections[0].story)) throw new Error('Chapter reports must identify the same story filename.');
-  const output = `# Report\n\n${sections[0].story}\n\n${definitions}\n\n${sections.map(section=>section.text).join('\n\n')}\n`;
+  if (sections.some(section => section.playStyle !== sections[0].playStyle)) throw new Error('Chapter reports must use the same play style; do not mix fast, detailed or unlabeled historical runs.');
+  const modeLine = sections[0].playStyle ? `Play style: --${sections[0].playStyle}\n\n` : '';
+  const output = `# Report\n\n${sections[0].story}\n\n${modeLine}${definitions}\n\n${sections.map(section=>section.text).join('\n\n')}\n`;
   const file = join(directory,'report.md'),temporary = `${file}.${randomUUID()}.tmp`;
   try {
     writeFileSync(temporary,output,{flag:'wx'});

@@ -132,3 +132,16 @@ test('report CLI uses canonical definitions independently of the working directo
   assert(readFileSync(output,'utf8').startsWith(`# Report\n\nStory: stories/fixture.md\n\n${explanation}\n\n## Chapter 2`));
   assert.throws(() => execFileSync(process.execPath,[cli,'report'],{cwd:project,stdio:'pipe'}),/Usage: npm run playtest -- report DIRECTORY/);
 });
+
+test('reports retain the selected playstyle and reject mixed modes before replacing output',t=>{
+  const {directory,definitions,output}=fixture(t);
+  const labeled=(number:number,mode:string)=>chapter(number).replace('Story: stories/fixture.md','Story: stories/fixture.md\n\nPlay style: --'+mode);
+  writeFileSync(join(directory,'chapter1_report.md'),labeled(1,'detailed'));
+  assemblePlaytestReport(directory,definitions);
+  const previous=readFileSync(output,'utf8');assert.match(previous,/Story: stories\/fixture.md\n\nPlay style: --detailed/);
+  for (const source of [labeled(2,'fast'),chapter(2)]) {
+    writeFileSync(join(directory,'chapter2_report.md'),source);
+    assert.throws(()=>assemblePlaytestReport(directory,definitions),/same play style/);
+    assert.equal(readFileSync(output,'utf8'),previous);
+  }
+});

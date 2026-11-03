@@ -13,7 +13,7 @@ import {workshop} from './fixtures/adventure.ts';
 const story = parseStory(workshop,{id:'workshop'});
 function session():ChapterSession {
   const adventure = startAdventure(story,{mode:'chapter'});
-  return {version:5,guidance:'',guidanceHash:digest(''),id:'fixture',story:'workshop',storyHash:'',runtimeHash:'',createdAt:'',chapter:1,playerRubric:rubric('player'),graderRubric:rubric('grader'),initial:adventure.frame,adventure,turns:[],pendingLook:false,requests:[]};
+  return {version:6,playStyle:'fast',guidance:'',guidanceHash:digest(''),id:'fixture',story:'workshop',storyHash:'',runtimeHash:'',createdAt:'',chapter:1,playerRubric:rubric('player'),graderRubric:rubric('grader'),initial:adventure.frame,adventure,turns:[],pendingLook:false,requests:[]};
 }
 function decision(s:ChapterSession) {
   return {...(reflectionDue(s) ? {effect:'No change.',reaction:'Nothing notable.'} : {}),step:s.adventure.frame.step,reason:'Synthetic protocol fixture.',choice:1,expectation:'A construction.',alternatives:[]};

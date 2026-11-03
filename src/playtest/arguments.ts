@@ -1,4 +1,5 @@
 import {resolve} from 'node:path';
+import type {PlayStyle} from './commands.ts';
 import type {PlaytestTarget} from './project-files.ts';
 
 /** Small strict parser shared by the three Node-only front ends. */
@@ -31,4 +32,9 @@ export function requiredGuidance(value:unknown):string {
 export function playtestTarget(options:Record<string,string>):PlaytestTarget|undefined {
   if (!!options['--playtest'] !== !!options['--player']) throw new Error('Use --playtest DIRECTORY and --player N together.');
   return options['--playtest'] ? {directory:resolve(options['--playtest']),player:positiveInteger(options['--player'],1,'--player')} : undefined;
+}
+
+export function requiredPlayStyle(options:Record<string,string>):PlayStyle {
+  if (Object.hasOwn(options,'--fast') === Object.hasOwn(options,'--detailed')) throw new Error('Specify exactly one of --fast or --detailed.');
+  return Object.hasOwn(options,'--fast') ? 'fast' : 'detailed';
 }

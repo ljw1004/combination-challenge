@@ -2,12 +2,13 @@ import {createHash,randomUUID} from 'node:crypto';
 import {mkdirSync,readFileSync,renameSync,rmSync,rmdirSync,statSync,writeFileSync,realpathSync} from 'node:fs';
 import {tmpdir} from 'node:os';
 import {basename,dirname,join,resolve} from 'node:path';
+import type {PlayStyle} from './commands.ts';
 import type {Grade} from './grading.ts';
 
 export interface PlaytestTarget {directory:string;player:number}
 export interface ChapterReview {
   session:string;story:string;chapterTitle:string;graderId:string;model:string;grade:Grade;
-  guidance?:string;
+  playStyle?:PlayStyle;guidance?:string;
   playerElapsedMs?:number;graderElapsedMs?:number;lookedAgainSteps:number[];outcome?:string;
 }
 
@@ -97,16 +98,16 @@ export function appendChapterReview(target:PlaytestTarget,chapter:number,entry:C
   const title = `# Chapter ${chapter}: ${entry.chapterTitle.trim()}`;
   const marker = `<!-- playtest-review:${Buffer.from(JSON.stringify([entry.session,entry.graderId])).toString('base64url')} -->`;
   const section = [marker,`## Player ${target.player} — Grader ${label(entry.graderId)}`,'',
-    `- Session: ${label(entry.session)}`,`- Grader model: ${label(entry.model)}`,
+    ...(entry.playStyle ? [`- Play style: --${entry.playStyle}`] : []),`- Session: ${label(entry.session)}`,`- Grader model: ${label(entry.model)}`,
     ...(entry.outcome === undefined ? [] : [`- Outcome: ${label(entry.outcome)}`]),
     ...(entry.playerElapsedMs === undefined ? [] : [`- Player elapsed: ${entry.playerElapsedMs} ms`]),
     ...(entry.graderElapsedMs === undefined ? [] : [`- Grader elapsed: ${entry.graderElapsedMs} ms`]),
-    `- Fun: ${grade.fun.meaningful} / ${grade.fun.total} meaningful decisions; ratio: ${grade.fun.ratio ?? 'unknown (no gameplay decisions)'}`,
+    `- ${entry.playStyle === 'fast' ? 'Decision density (fast diagnostic)' : 'Fun'}: ${grade.fun.meaningful} / ${grade.fun.total} meaningful decisions; ratio: ${grade.fun.ratio ?? 'unknown (no gameplay decisions)'}`,
     `- Hook: ${grade.hook.score ?? 'unknown'}; steps: ${steps(grade.hook.steps)}`,
     `- Look-again requests: ${entry.lookedAgainSteps.length}; steps: ${steps(entry.lookedAgainSteps)}`,'',
     ...(entry.guidance === undefined ? [] : ['### Additional guidance','',...(entry.guidance === '' ? ['None (explicit empty string).'] : entry.guidance.split(/\r?\n/).map(line => `> ${prose(line)}`)), '']),
     '### Qualitative verdict','',prose(grade.verdict),'',
-    '### Fun assessment','',prose(grade.fun.explanation),'',
+    entry.playStyle === 'fast' ? '### Decision-density diagnostic' : '### Fun assessment','',prose(grade.fun.explanation),'',
     '### Hook assessment','',prose(grade.hook.reason),'',
     '### Strongest moment','',`${prose(grade.strongest.text)} (Steps: ${steps(grade.strongest.steps)}.)`,'',
     '### Weakest moment','',`${prose(grade.weakest.text)} (Steps: ${steps(grade.weakest.steps)}.)`,'',
@@ -121,7 +122,10 @@ export function appendChapterReview(target:PlaytestTarget,chapter:number,entry:C
     const storyLine = `Story: ${entry.story.trim()}`;
     if (previous && !previous.split('\n').includes(storyLine)) throw new Error('Chapter report story filename does not match this session.');
     if (previous && previous.split(/\r?\n/)[0] !== title) throw new Error('Chapter report title does not match this session.');
-    const heading = `${title}\n\n${storyLine}\n\nEach section is one independent grader's assessment of one player.\n`;
+    const modeLine = entry.playStyle ? `Play style: --${entry.playStyle}\n\n` : '';
+    const recordedMode = /^Play style: --(fast|detailed)$/m.exec(previous)?.[1];
+    if (previous && recordedMode !== entry.playStyle) throw new Error('Chapter report play style does not match this session.');
+    const heading = `${title}\n\n${storyLine}\n\n${modeLine}Each section is one independent grader's assessment of one player.\n`;
     atomicWrite(file,`${previous || heading}\n${section}`);
   });
 }

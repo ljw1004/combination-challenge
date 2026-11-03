@@ -33,7 +33,7 @@ Source ledgers: [designer research](<../archive/2026.10.30 initial experiments/d
 
 1. State an experience hypothesis and a concrete falsifier. Identify the audience, chapter and available information.
 2. Verify mechanical viability. Keep generated routes away from fresh players.
-3. Freeze story, runtime, checkpoint history, the explicitly supplied additional guidance and the [player and grader rubrics](#player-and-grader-rubrics). Use the numbered adventure interface described in [UX](ux.md#text-adventure-and-logical-playtesting).
+3. Freeze story, runtime, checkpoint history, the explicitly supplied additional guidance and the [player and grader rubrics](#player-and-grader-rubrics). Freeze the explicitly selected `--fast` or `--detailed` adventure interface described in [UX](ux.md#text-adventure-and-logical-playtesting).
 4. Collect decisions, predictions, actual results, subsequent reflections and the final report. Preserve failed and interrupted attempts in the conclusions.
 5. Verify replay, then give each record to a fresh independent grader. Have a separate fresh chapter reviewer synthesize the three records and grades after the per-player details. Separate mechanical completion, player testimony and grader inference.
 6. Examine counterexplanations: prescribed execution, unclear purpose, repetition, already-known results, source exposure, compliance and flattering prose.
@@ -58,6 +58,24 @@ A sensible alternative in the first answer is useful evidence, not a wrong answe
 
 For a story-beat reading, supply a neutral account only through the relevant point and ask what should happen next and why. For a combination case, minimal setting and board context may suffice. Choose the amount of information for the question rather than making prompts terse or using unexplained jargon. These are local reading probes; the chapter playtest below instead uses the actual game-authored checkpoint history and interaction loop.
 
+## Choose the playstyle for the question
+
+Every new human game and AI player session must specify exactly one of `--fast` or `--detailed`. Both preserve authored prose, goals, visible items and hotspots, result wonders and completed-checkpoint history. [UX](ux.md#text-adventure-and-logical-playtesting) owns the exact interaction rules.
+
+- **`--fast`** retains the numbered compatible-action menu. It is a fast way to assess hook strength, strong moments, weak moments and the authenticity or plausibility of combinations. It is useful while choosing the story arc and general combinations. Menu-assisted decision density can remain a diagnostic, but is not the detailed-mode Fun measurement. Player impressions of authenticity still need independent factual review.
+- **`--detailed`** replaces the menu with inspect/combine commands and explicit information seeking. It is a slower playtest aimed at measuring **Fun**, the operational meaningful-decisions / total-decisions score. Inspections, direct attempts and unsuccessful well-formed combinations all count. Automatic third ingredients and hotspot preparation are grouped into one decision, so the player never needs a triple command or persistent placement. This approximates the thought involved in obvious follow-up drags, rather than measuring browser gesture count or human enjoyment.
+
+Ultimately both are needed, but both cost time and model work. Select the smallest scope that answers the current question:
+
+| Work just completed or current stage | Appropriate next playtest and review |
+|---|---|
+| Improve a chapter's hook | Re-run that chapter with `--fast`. |
+| Improve a chapter's fun | Re-run that chapter with `--detailed`. |
+| Develop the overall outline and general combination choices | Run the whole story with `--fast`, then the usual successive fresh story/script-director and authenticity-director reviews and revisions. |
+| A sound story arc and hooks are established; improve fun throughout | Run the whole story with `--detailed`, then iterate on the combinations with fresh authenticity-director review. |
+
+Use new participants for each revised assignment. Whole-story runs can cover all chapters through the chapter pipeline below; they do not establish cumulative attachment from one player remembering the whole story. State the actual scope. Do not routinely repeat both modes across an entire story after a local change. Label every new session, grading packet and report with its mode; do not mix modes or compare their decision-density fractions as the same experimental condition.
+
 ## Chapter fun playtests
 
 Normally use three independent players, one fresh grader per playthrough, and a separate fresh reviewer for the chapter synthesis, following [reviewer independence](#reviewer-independence). Explicit experiment designs can change the count or compare models. Individual graders assess only their assigned playthrough; the chapter reviewer deliberately receives all three records and their completed grades. Comparing two grader models requires two fresh graders for each record; keep model-specific aggregates distinct. A player remembers its own actions within its single chapter, then retires.
@@ -81,19 +99,21 @@ Use separate copies of the same legal debugger checkpoint. The interface replays
 
 Every new AI session requires `--guidance TEXT`; use `--guidance ""` explicitly when there is none. This makes the organizer consider context such as the intended audience and educational purpose before beginning. For example: `--guidance "This story is designed as a high-school study assistant."` Supply the same text to independent players in the same condition. It is frozen with the session, included unchanged as `guidance` in every player request and independent grading packet, and must also accompany the chapter synthesis assignment. It is additional playtest context, not generated story history. Retain it in the detailed chapter report metadata; do not change it midway through an assignment.
 
-Players choose one numbered action per step and record reason, expectation and alternatives before execution. Their next response begins with the effect of the previous result and their reaction. The final response includes the last result's reflection and answers the five closing questions with step references. There is no player decision to dismiss a message. The lettered `L` look option is absent on a chapter’s first move and otherwise available once per step and does not increment that step; do not record it as an action entry. The subsequent actual structured response carries a harness-owned `lookedAgain` boolean and any still-required reflection on the preceding result. Treat the flag as a possible sign of a weighty decision and re-evaluation, interpreted alongside the player’s explanation rather than as automatic evidence of fun. Missing notes remain missing evidence; never reconstruct predictions afterward. Routine actions may have routine explanations and no considered alternatives.
+Players choose one action per step in the selected mode and record reason, expectation and alternatives before execution. Their next full response begins with the preceding result's effect and reaction. Detailed-mode inspections and unsuccessful well-formed combinations have results and require the same subsequent reflection; an inspection that automatically combines is one decision. The final response reflects on the last result and answers the five closing questions with local step references. Reading or dismissing a result is not another decision.
 
-The [rubrics](#player-and-grader-rubrics) own the exact prompts, JSON forms, candid-reporting instructions and scoring anchors. The interface accepts only the current menu's numbers and validates response structure before changing state. Invalid replies do not become gameplay steps. Looking again, reading messages, replayed checkpoint history and automatic transitions do not inflate the fun-score denominator.
+AI look is absent on the chapter's first decision and available once per subsequent decision without advancing its number. The next actual response carries a harness-owned `lookedAgain` boolean and any still-required reflection. Interpret that flag alongside the player's explanation; it is not automatic evidence of fun. Missing notes remain missing evidence; never reconstruct predictions afterward. Routine actions may have routine explanations and no alternatives.
+
+The [rubrics](#player-and-grader-rubrics) own exact prompts, JSON forms and scoring. Fast mode accepts a current menu number; detailed mode accepts a structured inspect/combine command naming current objects. Malformed commands, unresolved/ambiguous names, stale steps and missing required fields are rejected before mutation and do not count. A well-formed but incompatible pair is a counted detailed decision. Looks, checkpoint history, automatic hotspot setup/cleanup, messages and chapter transitions stay outside the denominator.
 
 ### Independent grading
 
-Each grader provides a direct qualitative verdict, a classification and explanation for every gameplay step, a numerical **fun / decision-density** ratio, and a **high / medium / low hook** judgment grounded in the final report. There is no Discovery score and no combined weighted score. Meaningful decisions divided by total gameplay decisions is an operational adaptation of the interesting-decisions lens, not a validated human-fun scale or a calculation using model elapsed time.
+Each grader receives the selected playstyle and provides a direct qualitative verdict, a classification and explanation for every gameplay step, a numerical **fun / decision-density** ratio, and a **high / medium / low hook** judgment grounded in the final report. There is no Discovery score and no combined weighted score. Meaningful decisions divided by total gameplay decisions is an operational adaptation of the interesting-decisions lens, not a validated human-fun scale or a calculation using model elapsed time.
 
-Require the actual numerator and denominator, not just a percentage. The harness checks step coverage, references and arithmetic; it cannot establish whether a grader's judgment of meaningfulness is correct. Compare the particular step classifications when graders disagree. Unknown evidence must not silently become a zero score.
+Reserve the headline Fun score for `--detailed`. In `--fast`, retain per-step classifications and counts as menu-assisted diagnostics for the reviewer, and write `Fun: not measured (--fast)` in the synthesis. Do not present the fast diagnostic ratio as evidence about detailed-mode decisions. Require the actual numerator and denominator for any retained ratio, not just a percentage. The harness checks step coverage, references and arithmetic; it cannot establish whether a grader's judgment of meaningfulness is correct. Compare the particular step classifications when graders disagree. Unknown evidence must not silently become a zero score.
 
 ### Chapter synthesis
 
-After individual grading, give a new Astra High reviewer the three public playthrough records, their independent grades, the exact additional guidance from their packets and the [chapter synthesis rubric](#chapter-synthesis-grader). The chapter report identifies the story filename below its title, gives the per-player details, then ends with the synthesis: **Worthwhile**, **Fun**, aggregate **Hook**, and one or two **Strongest moments** and **Weakest moments**. The synthesis contains only those five categories, with a blank line before Strongest moments and Weakest moments. Keep completion statistics, methodology and caveats in the detailed sections. The rubric owns the counting and averaging rules. Worthwhile counts an action supported by meaningful decision-making **or** story/hook value, once when both apply. This lets a predictable construction with a valued story payoff earn credit without inflating the narrower meaningful-decision count.
+After individual grading, give a new Astra High reviewer the three public playthrough records, their independent grades, the exact additional guidance from their packets and the [chapter synthesis rubric](#chapter-synthesis-grader). The chapter report identifies the story filename below its title and `Play style: --fast` or `Play style: --detailed` immediately after the filename, gives the per-player details, then ends with the synthesis: **Worthwhile**, **Fun**, aggregate **Hook**, and one or two **Strongest moments** and **Weakest moments**. The synthesis contains only those five categories, with a blank line before Strongest moments and Weakest moments. Keep completion statistics, methodology and caveats in the detailed sections. The rubric owns the counting and averaging rules. Worthwhile counts an action supported by meaningful decision-making **or** story/hook value, once when both apply. This lets a predictable construction with a valued story payoff earn credit without inflating the narrower meaningful-decision count.
 
 Describe shared moments using combinations, results and goals; step numbers are comparable only within a single player's record. Preserve individual assessments and disagreements. Complete and verify the synthesis before discarding its supporting public records. A review containing only the independently appended sections is an intermediate output, not the finished chapter review.
 
@@ -123,9 +143,11 @@ The timestamp is the start time in the user's timezone (the CLI defaults to Amer
 
 Each `chapterN_playtestM.json` is an array of the player's actual accepted structured responses, in order, including the final report. The harness adds `lookedAgain` to each response; a refresh alone adds no entry. Rejected replies and interrupted steps with no structured response remain in temporary diagnostic records. Do not rewrite the player's words, synthesize missing reasoning or include raw board/runtime snapshots in these arrays.
 
+Every new chapter report retains the mode in a `Play style: --fast` or `Play style: --detailed` line immediately after its Story line. Use one mode per run directory; the assembler rejects mixing modes or labeled and unlabeled historical reports. Existing historical reports remain unchanged.
+
 Each `chapterN_report.md` uses the heading `# Chapter N: <Chapter title from markdown>`, taking the exact chapter title from the tested manuscript. Put `Story: path/to/story.md` immediately below it, then retain the detailed per-player assessments: worthwhile and meaningful counts, total actions, hook, qualitative verdict, action-level evidence, timing and limits. Put the required [chapter synthesis](#chapter-synthesis) at the bottom after the individual assessments and run metadata. Keep each independent grade and the chapter reviewer's additions clearly attributed. Record the exact additional guidance (or its explicit absence), experiment-specific model choices, timing scope, version identifiers and evidence limits in these chapter reports. Do not create separate run-level `instructions.md` or `outcomes.md` files; the standing instructions and rubrics live in this guide.
 
-The run's `report.md` is assembled mechanically: `# Report`, the same `Story: path/to/story.md` line immediately beneath it, the brief [canonical definitions](#report-definitions), then chapter headings and their marked syntheses in numerical order. Preserve each chapter title as `## Chapter N: <Chapter title from markdown>`, changing only the heading level from its chapter report; do not reload a potentially revised manuscript to rename it. Copy the definitions and syntheses verbatim, without another AI pass, recomputing scores or including per-player detail. The [chapter rubric](#required-chapter-review) owns the synthesis markers. Build it only after every chapter represented in the run has its finished report; an incomplete or malformed input is an error rather than a silently omitted chapter.
+The run's `report.md` is assembled mechanically: `# Report`, the same `Story: path/to/story.md` line immediately beneath it, the run's `Play style:` line, the brief [canonical definitions](#report-definitions), then chapter headings and their marked syntheses in numerical order. Preserve each chapter title as `## Chapter N: <Chapter title from markdown>`, changing only the heading level from its chapter report; do not reload a potentially revised manuscript to rename it. Copy the definitions and syntheses verbatim, without another AI pass, recomputing scores or including per-player detail. The [chapter rubric](#required-chapter-review) owns the synthesis markers. Build it only after every chapter represented in the run has its finished report; an incomplete or malformed input is an error rather than a silently omitted chapter.
 
 ```sh
 npm run playtest -- report projects/mars-study/playtests/YYYY.MM.DD_HH.MM.SS
@@ -149,26 +171,27 @@ Further provenance: [fun theory revision 9](<../archive/2026.10.30 initial exper
 
 ## Logical playtesting
 
-The command-line game and AI harness use the same numbered adventure runner over the browser's game engine. Choices expose compatible reagents, compound fittings and useful hotspot preparations. Results remain unknown until tried. A preparation can also clear an occupied hotspot to restore another compatible action. `@ Hotspot` appears only for recipes that require it, regardless of where an input happens to be sitting. Each recipe appears in only one direction, preferring its manuscript order when legal and otherwise using one legal direction.
+The command-line game and AI harness use the same adventure runner over the browser's game engine. Require `--fast` or `--detailed` when starting a game or session. Fast mode retains numbered compatible combinations, fittings, useful hotspot preparations and clearing. Detailed mode exposes inspect/combine commands, with hotspot setup and cleanup internal to one command and no future outputs revealed by inspection.
 
-The text interface tests combinations and prose, not dragging, scrolling, artwork or native touch. [UX](ux.md#text-adventure-and-logical-playtesting) owns its behavior. The [chapter playtest guidance](#chapter-fun-playtests) owns the experiment; [player and grader rubrics](#player-and-grader-rubrics) contain the exact instructions and response schemas loaded by the harness.
+The text interface tests combinations and prose, not dragging, scrolling, artwork or native touch. [UX](ux.md#text-adventure-and-logical-playtesting) owns behavior; [mode selection](#choose-the-playstyle-for-the-question) owns experiment choice, and the [rubrics](#player-and-grader-rubrics) own recording and scoring.
 
 ### Play at the command line
 
 ```sh
-npm run play -- projects/mars-study/mars-v3/mars.md
-npm run play -- projects/mars-study/mars-v3/mars.md --chapter 5
-npm run play -- mars
+npm run play -- --fast projects/mars-study/mars-v3/mars.md
+npm run play -- --fast projects/mars-study/mars-v3/mars.md --chapter 5
+npm run play -- --fast mars
+npm run play -- --detailed mars --chapter 5
 npm run play -- list
 ```
 
-Choose a numbered combination. The human terminal does not print a look option or treat `L` as a command. Any nonnumeric input, including an empty line, refreshes Goals, Hotspots and Items and shows the choices again without advancing the step. You can refresh at any point, including the first move. A numeric input that is not an offered choice is rejected. Standard terminal interruption and end-of-input end the process; there is no quit command. The AI interface retains its explicit `L` option under the structured protocol below.
+With `--fast`, choose a numbered combination; nonnumeric input, including Enter, refreshes the board. An unoffered number is an error. With `--detailed`, enter `inspect A` or `combine A with B`, optionally quoting names. `i`/`c` expand in an interactive terminal, uniquely matching name prefixes autocomplete in quotes, and combining inserts ` with ` between operands. Press Enter to submit; a blank line refreshes the board. Piped commands also support `i`/`c` aliases. See [UX](ux.md#detailed-play) for name matching, automatic reactions and results. Neither mode has a quit command; terminal interruption or end-of-input ends play.
 
-The opening shows the title, subtitle, a `## Chapter N. Title` heading and chapter text, followed by the Goals → Hotspots → Items board, omitting Hotspots when empty. Boards and choices contain only the active chapter’s items and hotspots. Listings contain names and fittings, without descriptions or chapter annotations. Step numbers restart at 1 in every chapter. Later turns show `Created: Item.` without repeating its hotspot, fitting or placement changes, then indented wonder text directly underneath and the next options. Wonder text has no internal line breaks or repeated heading; retirement notices are omitted. Primitive wonder text is never listed. **What combination will you make for step number N?** precedes consecutive numbered options. On completion, **All goals completed** is followed by the next chapter's text and board. Play continues through the ending.
+The opening shows the title and subtitle, a `## Chapter N. Title` heading and chapter text, then Goals → Hotspots → Items (omitting empty Hotspots). Only the current chapter's objects are selectable. Later decisions show results, compact indented wonders and goal changes. On completion, **All goals completed** precedes the next chapter. Step numbers restart on each chapter entry. The two modes differ in choices and detailed result wording, not in authored story text.
 
 `--chapter` is **one-based** and uses the existing debug checkpoint planner. Both human and AI starts recount the completed chapters before presenting the active chapter: title, intro, normal Goals / Hotspots / Items arrival board, performed combinations as `Step N combination: A + B @ H -> C`, each result’s wonder text, goal changes in order, and **All goals completed**. Useful placements use `Step N preparation: ...`; history step numbers restart at 1 per chapter. Skipped chapters mark their unplayed board as skipped. This is a replay of actual game actions; no model-generated recap is used. Absolute paths, local Markdown paths and published story names work.
 
-The requested shorthand `npm run play path/to/story.md --chapter 5` also works with the installed npm. npm warns about consuming the unknown `--chapter` option; the `--` separator shown above is portable across npm versions.
+Use the `--` separator in npm commands so npm forwards mode and chapter flags to the game.
 
 ### Structured chapter sessions
 
@@ -179,30 +202,30 @@ Start a project playtest once, then use the printed directory for every particip
 ```sh
 npm run playtest -- start projects/mars-study
 # Use the actual directory printed above:
-npm run play -- init trial-01 projects/mars-study/mars-v3/mars.md \
+npm run play -- init --fast trial-01 projects/mars-study/mars-v3/mars.md \
   --chapter 1 --guidance "" --playtest projects/mars-study/playtests/YYYY.MM.DD_HH.MM.SS --player 1
 ```
 
 `--playtest DIRECTORY --player M` reserves the response file and updates it after accepted responses. Both flags are required together. A duplicate chapter/player reservation fails instead of overwriting another participant. The flags are optional for temporary technical checks, but required for retained fun playtests.
 
 ```sh
-npm run play -- init trial-01 projects/mars-study/mars-v3/mars.md --guidance ""
+npm run play -- init --fast trial-01 projects/mars-study/mars-v3/mars.md --guidance ""
 npm run play -- view trial-01
 npm run play -- respond trial-01 '{"step":1,"reason":"I want to uncover the power supply.","choice":1,"expectation":"The winch should pull the pallet out of the dust.","alternatives":[]}'
 # Read a structured response from stdin instead:
 npm run play -- respond trial-01 -
 ```
 
-`init` requires `--guidance TEXT` (including an explicit empty string) and accepts `--chapter N`. The directory-only `playtest start` and mechanical `playtest report` commands do not create players and need no guidance argument; human terminal play needs none either. `view` is read-only; `respond` validates the complete reply before changing state. Replies begin with the preceding result’s `effect` and `reaction` when `reflectionRequired` is true. Looking again uses only `{"step": N, "choice": "L"}`. The subsequent full response uses the same step and still supplies any required reflection. The action log contains that actual response with `lookedAgain: true`; no separate look action is added. The harness supplies this flag, not the player. Completion requests the final reflection and five closing answers with step references. See the [canonical JSON examples](#ai-player). A chapter trial stops at its boundary.
+`init` requires exactly one of `--fast` or `--detailed`, plus `--guidance TEXT` (including an explicit empty string) and accepts `--chapter N`. The directory-only `playtest start` and mechanical `playtest report` commands do not create players and need no guidance argument; human terminal play needs none either. `view` is read-only; `respond` validates the complete reply before changing state. Replies begin with the preceding result’s `effect` and `reaction` when `reflectionRequired` is true. Looking again uses only `{"step": N, "choice": "L"}` in fast mode or `{"step": N, "choice": {"look": true}}` in detailed mode. The subsequent full response uses the same step and still supplies any required reflection. The action log contains that actual response with `lookedAgain: true`; no separate look action is added. The harness supplies this flag, not the player. Completion requests the final reflection and five closing answers with step references. See the [canonical JSON examples](#ai-player). A chapter trial stops at its boundary.
 
-Choices name a current menu number or `"L"` when offered. There are no player `dismiss`, `advance`, raw engine-action or arbitrary movement commands. Stale numbers, missing notes and invalid references are rejected without changing the game. Useful preparatory and clearing moves count as gameplay decisions. Looks, completed-checkpoint history, automatic messages and rejected protocol replies do not.
+Fast choices name a current menu number or `"L"` when offered. Detailed choices use `{"inspect":"A"}` or `{"combine":"A","with":"B"}`, or `{"look":true}` when `adventure.lookAvailable` is true. All gameplay responses retain the recording fields. There are no player `dismiss`, `advance`, raw engine-action or arbitrary movement commands. Useful preparations count in fast mode; detailed mode counts inspections and attempts, grouping automatic hotspot moves into their command. Existing sessions retain their mode; `view`, `respond` and evaluation do not require or accept mode overrides. Directory-only `playtest start` and mechanical `playtest report` likewise need no mode flag.
 
 ### Agent transport
 
 For an unattended chapter trial, connect a JSON agent process or service:
 
 ```sh
-npm run playtest -- --story projects/mars-study/mars-v3/mars.md \
+npm run playtest -- --fast --story projects/mars-study/mars-v3/mars.md \
   --session ai-trial-01 --model my-player --guidance "" \
   --agent '["/absolute/path/to/agent"]' --max-turns 300
 ```
@@ -234,13 +257,13 @@ npm run evaluate -- ai-trial-01 --agent '["/absolute/path/to/grader"]' \
 
 The grader uses the [independent rubric](#independent-grader): a qualitative verdict, every step's meaningful/not-meaningful classification, **fun = meaningful decisions / total decisions**, and **hook = high / medium / low**, with supporting evidence. There is no Discovery score or weighted total. The validator checks coverage, citations and arithmetic; it does not decide whether the grader's judgment is sound. Missing final reports leave hook unknown; zero gameplay decisions leave the ratio null.
 
-`--agent` and `--endpoint` use the same transport for grading, one assignment per invocation. Grade timing excludes replay and packet preparation. Supply different `--output` filenames for independent graders; existing evaluations are never overwritten. A run without a grader writes an explicitly unassessed profile, not a fabricated fun score. `--verify-only` never changes an evaluation. New trials use session version 5 with required additional guidance. Older sessions retain evaluation and replay through their frozen runtime; their original observations are not rewritten.
+`--agent` and `--endpoint` use the same transport for grading, one assignment per invocation. Grade timing excludes replay and packet preparation. Supply different `--output` filenames for independent graders; existing evaluations are never overwritten. A run without a grader writes an explicitly unassessed profile, not a fabricated fun score. `--verify-only` never changes an evaluation. New trials use session version 6 with required playstyle and additional guidance. Older sessions retain evaluation and replay through their frozen runtime; their original observations are not rewritten.
 
 For sessions attached with `--playtest`, each successful independent grading also appends to `chapterN_report.md` in the project run. Use distinct `--output` names for distinct graders. These commands collect the individual assessments; the organizer separately supplies the [chapter synthesis rubric](#chapter-synthesis-grader), the exact additional guidance and all three records to a fresh reviewer, then saves the synthesis and detailed breakdowns as the finished chapter report. Run `npm run playtest -- report DIRECTORY` to assemble the whole-playtest report without another model request. The [run-file policy](#run-files) retains player response arrays and reports. Other run artifacts are disposable under the [verification retention policy](engineering.md#verification-records). `runs/` is ignored; `COMBINATION_RUNS_DIR` selects another temporary output location. Do not move whole sessions or compressed bundles into projects or the archive.
 
 ## Player and grader rubrics
 
-This section owns the exact instructions sent to players and graders. The marked player and independent-grader sections are loaded by the logical harness and frozen with each session. The request also carries the organizer's explicitly supplied `guidance` string, which may be empty. The organizer supplies the [chapter synthesis rubric](#chapter-synthesis-grader) and that same guidance to a separate fresh reviewer after individual grading. The [reviewer independence](#reviewer-independence) and [evidence guidance](#report-a-profile) above govern these assignments; [UX](ux.md#text-adventure-and-logical-playtesting) owns the interface. Humans and AI receive the same story history and adventure; the AI additionally receives the recording rubric and playtest guidance. No model-generated recap is supplied.
+This section owns the exact instructions sent to players and graders. The marked player and independent-grader sections are loaded by the logical harness and frozen with each session. The harness prefixes the selected playstyle and includes only its marked mode-specific player sections. The request also carries `playStyle` and the organizer's explicitly supplied `guidance` string, which may be empty. The organizer supplies the [chapter synthesis rubric](#chapter-synthesis-grader) and that same guidance to a separate fresh reviewer after individual grading. The [reviewer independence](#reviewer-independence) and [evidence guidance](#report-a-profile) above govern these assignments; [UX](ux.md#text-adventure-and-logical-playtesting) owns the interface. Humans and AI receive the same story history and adventure; the AI additionally receives the recording rubric and playtest guidance. No model-generated recap is supplied.
 
 ### Report definitions
 
@@ -249,97 +272,112 @@ The report assembler copies this explanation verbatim after the story filename b
 <!-- report-definitions:start -->
 Definitions...
 Worthwhile: counts actions supported by meaningful decision-making or a valued story payoff or reason to keep playing, counting each action once. Show the average credited actions / average total gameplay actions per player, not an average percentage.
-Fun: a narrower count of meaningful decisions: worthwhile deliberation or intentional experimentation.
+Fun: a narrower count of meaningful decisions: worthwhile deliberation or intentional experimentation. Measured by --detailed, including inspections and unsuccessful well-formed attempts; --fast reports it as not measured. Fast menu-assisted diagnostic ratios are not comparable.
 Hooks: the players' reported desire to continue: "high" means specific eagerness, "medium" means mild or conditional interest, and "low" means indifference or reluctance
 <!-- report-definitions:end -->
 
 ### AI player
 
 <!-- player-rubric:start -->
-You are playing one chapter of a combination game. Complete its goals while giving brief, honest explanations of your choices. You are not being asked to praise the game or give it a score.
+You are playing one chapter of a combination game. Complete its goals efficiently while giving brief, honest explanations of your choices. You are not being asked to praise the game or give it a score. Use the playstyle identified at the start of these instructions and in the request's `playStyle` field.
 
-Read the request's `guidance` alongside these instructions. It provides additional context for this playtest, such as the intended audience or educational purpose. Apply it to how you approach the chapter while continuing to report candidly. An empty string means there is no additional guidance.
+Read the request's `guidance` alongside these instructions. It supplies additional context, such as the intended audience or educational purpose. Apply it while continuing to report candidly. An empty string means there is no additional guidance.
 
 What mindset do you have when playing this game?
-- You are motivated by what's called "oddly satisfying", the satisfaction of putting pieces together
-- You like to be faced with meaningful gameplay decisions
-- You're eager to learn more of how the story unfolds
-- You like to exercise your brain, maybe by learning something about things work that apply outside this game, or maybe by figuring out how the game works
-- Obvious or predictable or only-possible steps are not always bad. Sometimes they're like dessert, a little reassuring satisfaction and a mental break.
+- You are motivated by what's called "oddly satisfying", the satisfaction of putting pieces together.
+- You like meaningful gameplay decisions and want to see how the story unfolds.
+- You like exercising your brain: learning how things work outside the game or figuring out how this game works.
+- Obvious, predictable or only-possible steps can be satisfying progress and a mental break.
 
 #### How the game works
 
-- Combine available objects with each other, fit parts into constructions, or use objects at fixed locations or equipment called hotspots.
-- A compound is written `Foo[Bar1,Bar2]` when those parts are installed, or `Foo[]` when none are installed. Named empty slots, when shown, are ordinary player information.
-- Each step offers a numbered list of compatible combinations and useful preparations. This is the information a browser player can obtain by hovering. The list does not reveal the results.
-- Each recipe is offered in one direction only; you do not need to choose between a pair and its reversal.
-- An `@ Hotspot` suffix means the combination itself requires that hotspot. An ordinary two-item combination stays `A + B` even when an input happens to be sitting at a hotspot.
-- A preparation can place an item at a hotspot without creating anything yet. A clearing option moves an occupant off a hotspot when that restores another compatible action.
-- Results describe creations (`Created: Item.`, without repeating its hotspot), fittings or placements, followed by any wonder text, goal changes and the next options. Retirement notices are omitted. Each wonder is indented directly beneath the result, without a repeated item heading, extra blank lines or internal line breaks. Read these messages before deciding. They need no separate dismissal action.
-- A start shows the story title and subtitle, then each completed chapter's title, intro, normal Goals / Hotspots / Items arrival board, performed combinations and resulting wonder text, goal changes and “All goals completed.” This history is replayed from the actual checkpoint actions, not written by a model. History labels actions `Step N combination: A + B -> C` (with `@ Hotspot` where required) or `Step N preparation: ...`, restarting at 1 per chapter. Skipped chapters mark their unplayed board as skipped. It is background to your assignment, not choices you made.
-- Past and active chapter headings use `## Chapter N. Title`. The active chapter shows its intro, then Goals, Hotspots and Items, in that order. Omit the Hotspots section when it is empty, including on refreshes and in completed-chapter history. The board and options contain only the active chapter’s items and hotspots. No chapter annotations or item descriptions appear in the board. Step numbering starts at 1 for each chapter. Wonder text appears only when a combination produces it; ordinary primitive descriptions are never shown.
-- Later turns give changes and the next options rather than repeating the board. The question “What combination will you make for step number N?” precedes consecutive numbered options.
-- The option `L. [Look again at what's available]` shows the same Goals / Hotspots / Items board. It is absent before the first gameplay action of each chapter. After that, you may choose it once per step; it disappears after use and returns after your next gameplay action. It does not advance the step number and is not a gameplay decision for scoring. Select it with `"choice": "L"`, not a numeric option or a separate look command. There is no quit option.
-- Goals may reveal further goals as you progress. The game declares completion only after the chapter's required goals are met.
-- There is no resource-counting task. Do not invent quantities, shortages, timers, penalties, actions or results.
+- Combine available objects, fit parts into constructions, or use objects at fixed locations/equipment called hotspots. A compound is written `Foo[Bar1,Bar2]`, or `Foo[]` when empty. Named empty slots are ordinary player information; other requirements remain hidden.
+- The opening includes actual completed-chapter history from the checkpoint: authored prose, arrival boards, performed combinations and their wonders, goal changes and “All goals completed.” History labels combinations `Step N combination: A + B -> C` (with `@ Hotspot` where required), and preparations `Step N preparation: ...`. Its steps restart per chapter. It is background, not decisions made by you. Skipped chapters are marked instead of inventing a played board or recap.
+- Past and active headings use `## Chapter N. Title`. The active chapter shows its intro, then Goals, Hotspots and Items; empty Hotspots sections are omitted. Only the active chapter's items and hotspots are selectable. Board listings show current names and fittings, without descriptions or chapter annotations. Step numbering starts at 1 in every chapter.
+- Results include any wonder text, indented immediately below the result, and goal changes. Primitive descriptions are not shown. Read the results before deciding; they need no dismissal action. Later turns show changes rather than repeating the board.
+- Looking again refreshes Goals / Hotspots / Items. It is available only when `adventure.lookAvailable` is true: once per decision after the chapter's first gameplay decision. It does not advance the step or count as a decision. After the refresh, submit your full response at the same step, including any reflection still due. There is no quit command.
+- Goals can reveal further goals. The engine determines completion. There is no resource-counting task: do not invent quantities, shortages, timers, penalties, actions or results.
 
-Use only the supplied game history and adventure messages. Do not inspect manuscripts, source code, developer routes, earlier versions, reviews or other players' records. Do not ask another agent for help. Your assignment ends after this chapter; you will not receive another chapter or revision.
+<!-- mode:fast:start -->
+#### Fast play
+
+Each step offers numbered compatible combinations, fittings and useful hotspot preparations, without future outputs. Each recipe appears in one direction only. An `@ Hotspot` suffix identifies a recipe that requires that hotspot; ordinary item pairs stay `A + B` even when an item is placed somewhere. Preparations place items at hotspots; clearing moves can restore another available action. Results describe creations (`Created: Item.`), fittings or placements without input-retirement notices.
+
+Choose one numbered option per decision. This mode quickly assesses hook strength, strongest and weakest moments, and whether combinations make sense. Do not treat choosing from known-compatible options as evidence of discovering compatibility.
+<!-- mode:fast:end -->
+
+<!-- mode:detailed:start -->
+#### Detailed play
+
+There is no numbered combination menu. Choose either:
+
+- `{"inspect":"A"}`: show **Can combine with:** and a bullet list of partners. Items list other items for non-hotspot recipes/fittings and hotspots for available station reactions. Hotspots list their available ingredient items. Results remain hidden until an action occurs. If exactly one executable operation involves the object, show that inspection report first, then `Combined: with B.`, naming the automatically selected partner, then perform and report the operation. For an item used at a station, the selected partner is the hotspot. It is still one decision, including any automatic third ingredient and its message.
+- `{"combine":"A","with":"B"}`: try the named pair directly. A successful result says `Created: C.` or `Transformed into: C.`, possibly preceded by `Consumed: B.`; fitting says `Slotted in: B[X,A].` Failure says **Cannot be combined**, followed by the first operand's partner list. A failed combination never automatically performs a suggested alternative.
+
+An item and hotspot work in either order. A single-item station reaction takes priority. Otherwise the game performs the first available contextual reaction in manuscript order, automatically including its available third ingredient and printing `Combined this together with: B.` No ingredient placement or triple command is required. Nothing remains placed at a hotspot between decisions. A placement-only goal can also be completed through the item–hotspot command; required simultaneous placements happen together, are reported, and are then cleared. Other recipes still require their existing ingredients and installed fittings.
+
+Use current full names, compound base names, or unique full-word prefixes, case-insensitively. `Warm` may identify `Warm hammock`; `War` does not. Prefixes must identify one object among **all** current items and hotspots, irrespective of compatibility. Exact names take precedence over longer names sharing the prefix. Do not put extra quotation marks inside JSON name strings. Unknown/ambiguous names and malformed commands are errors, not decisions.
+
+Complete the goals efficiently. **Go straight to combining when the visible situation or what you have learned gives you enough confidence. Inspect when its information is useful to your plan; do not inspect every object routinely or inspect merely to make your account sound thoughtful.** Every inspection and every well-formed unsuccessful combination counts as one decision. An inspection with an automatic combination counts once.
+<!-- mode:detailed:end -->
+
+Use only the supplied history and adventure messages. Do not consult manuscripts, source code, developer routes, earlier versions, reviews or other players' records. Do not ask another agent for help. Your assignment ends after this chapter; you will receive no other chapter or revision.
 
 #### Your decision response
 
-Return one JSON object for the current step. Choose exactly one numbered combination or the offered `L` option; do not submit a sequence of actions. Give a short practical reason, not exhaustive internal reasoning.
+Return one JSON object for the current step, choosing exactly one action. Give a short practical reason, not exhaustive internal reasoning. Keep your expectation unchanged after seeing the result. List only alternatives you actually considered; an empty array is acceptable.
 
-For the first decision:
+<!-- mode:fast:start -->
+For the first decision, use an offered number:
 
 ```json
 {
   "step": 1,
   "reason": "What I want to achieve and why this action seems useful.",
   "choice": 2,
-  "expectation": "What I expect to happen, including uncertainty.",
+  "expectation": "What I expect, including uncertainty.",
   "alternatives": [{"choice": 1, "reason": "Why I considered this and preferred my choice."}]
 }
 ```
 
-Use the step number and an option actually shown: a number, or `"L"` when available. `alternatives` lists only other options you genuinely considered; an empty array is acceptable. Choice keys belong to that step's menu. Do not rewrite an expectation after seeing its result.
+Alternatives name other current menu choices. When look is offered, request it with only `{"step":2,"choice":"L"}`. An alternative can cite `"L"` only while it is available.
+<!-- mode:fast:end -->
 
-When the request has `reflectionRequired: true`, put these two fields first, referring to the preceding gameplay result, followed by your next decision:
+<!-- mode:detailed:start -->
+For the first decision:
 
 ```json
 {
-  "effect": "How the previous result changed my understanding or plan. No change is acceptable.",
-  "reaction": "A brief, specific reaction: satisfaction, curiosity, surprise, confusion, repetition, frustration, or something else. Nothing notable is acceptable.",
-  "step": 2,
-  "reason": "My practical reason for the next action.",
-  "choice": 1,
-  "expectation": "What I expect this time.",
-  "alternatives": []
+  "step": 1,
+  "reason": "The visible pieces suggest this will help with the goal.",
+  "choice": {"combine":"Warm hammock","with":"Rope"},
+  "expectation": "The rope should secure the hammock.",
+  "alternatives": [{"choice":{"inspect":"Warm hammock"},"reason":"I could check compatibility, but I am confident enough to try."}]
 }
 ```
 
-To look again, return only `{"step": 2, "choice": "L"}` using the current step. This is a board-refresh request, not your turn response; do not include reasons, predictions or reflection fields in it. After the refresh, choose a numbered gameplay action and give the complete structured response for that same step. Any required reflection on the previous gameplay result is still due. Keep considered alternatives tied to the menu actually shown. An alternative may cite `"choice": "L"` only while that option is offered.
+The names are illustrative; use objects actually available to you. To inspect, use `"choice":{"inspect":"A"}` with the same required fields. Alternatives are other well-formed commands identifying current objects; they need not be known-compatible combinations. When look is available, request it with only `{"step":2,"choice":{"look":true}}`. An alternative can cite `{"look":true}` only while it is available.
+<!-- mode:detailed:end -->
 
-The harness records one actual structured response per gameplay action and attaches its own `lookedAgain` boolean. Do not supply that field yourself. The board refresh does not create another action entry or consume the previous result's reflection. After a refresh, `previousResult` preserves that preceding gameplay result for your reflection; `adventure` supplies the refreshed board and current options.
+When `reflectionRequired` is true, put `effect` and `reaction` first in the next full response, before `step`, `reason`, `choice`, `expectation` and `alternatives`. They refer to the preceding gameplay result, including an inspection or unsuccessful attempt in detailed mode:
 
-Be candid about what guided you:
+- `effect`: how the preceding result changed your understanding or plan; “No change” is acceptable.
+- `reaction`: a brief specific reaction such as satisfaction, curiosity, surprise, confusion, repetition or frustration; “Nothing notable” is acceptable.
 
-- If an action seems physically natural, explain why.
-- If you are following the only available combination, say so.
-- If compatibility hints suggest an action but you do not understand its purpose, say so.
-- If you already know what will happen, say so.
-- If you are guessing, say so.
-- Do not manufacture interesting reasoning or positive reactions to make the playthrough sound better.
+A look reply contains only `step` and `choice`, never reasons, predictions or reflection. After looking, the full response for that same step still supplies the preceding result's reflection. `previousResult` preserves that result; `adventure` supplies the refreshed board. The harness attaches `lookedAgain` to the actual gameplay response; do not supply it yourself. A refresh adds no separate action entry.
+
+Be candid about what guided you. Say when you are following the only available action, using hints without understanding their purpose, expecting an already-known result, or guessing. Explain a physical inference when it matters, but do not manufacture interesting reasoning or positive reactions.
 
 #### Final report
 
-When asked for a final report, respond to the last result with `effect` and `reaction` when `reflectionRequired` is true, then give `step` and `report`, without a choice. Omit the reflection fields when `reflectionRequired` is false. The final request's step number identifies that request; reporting is not another gameplay decision.
+When asked for a final report, respond to the last result with `effect` and `reaction` when `reflectionRequired` is true, then give `step` and `report`, without a choice. Omit reflection fields otherwise. Reporting is not another decision.
 
-Each report answer has `text` and a list of actual gameplay `steps`. Cite the steps supporting specific observations. An empty list is acceptable when there is no corresponding event; do not invent evidence.
+Each answer has `text` and a list of actual gameplay `steps`. Cite supporting steps; use an empty list when no corresponding event exists. Do not invent evidence.
 
 ```json
 {
   "effect": "What the last result did to my understanding or plan.",
-  "reaction": "My reaction to that result, or Nothing notable.",
+  "reaction": "My reaction, or Nothing notable.",
   "step": 6,
   "report": {
     "mostWorthwhile": {"text": "Which action or passage was most worthwhile, and why?", "steps": [5]},
@@ -351,7 +389,7 @@ Each report answer has `text` and a list of actual gameplay `steps`. Cite the st
 }
 ```
 
-It is acceptable to report that nothing particularly interested you. Completing the assigned chapter is not evidence that you enjoyed it. If play ends because of a blockage or an operational limit, describe that honestly in the report instead of claiming completion.
+It is acceptable to report that nothing particularly interested you. Assigned completion is not evidence of enjoyment. If play ends through a blockage or operational limit, describe that honestly instead of claiming completion.
 <!-- player-rubric:end -->
 
 ### Independent grader
@@ -359,11 +397,11 @@ It is acceptable to report that nothing particularly interested you. Completing 
 This stage assesses one playthrough independently. Its findings become the detailed breakdown preceding the synthesis in the completed chapter review; it is not the chapter-level summary.
 
 <!-- grader-rubric:start -->
-Evaluate this one recorded chapter playthrough. You did not play or help write it. Use only the supplied player instructions, additional guidance, replayed game history, offered menus, decisions, results, reflections, final report and verification summary. Do not consult other graders, other playthroughs, manuscripts, author notes, earlier drafts or intended verdicts. This is your only assignment.
+Evaluate this one recorded chapter playthrough. You did not play or help write it. Use only the supplied playstyle, player instructions, additional guidance, replayed game history, offered menus or inspect/combine interface, decisions, results, reflections, final report and verification summary. Do not consult other graders, other playthroughs, manuscripts, author notes, earlier drafts or intended verdicts. This is your only assignment.
 
 Read the request's `guidance`: it is the exact additional context given to this player, such as the intended audience or educational purpose. Take it into account when judging the experience and what the player values. Retain the evidence requirements and numerical definitions below; a stated educational purpose alone does not establish enjoyment or value. An empty string means there is no additional guidance.
 
-Focus on (1) fun and (2) the hook that makes the player want to continue. Begin with a direct qualitative verdict explaining the strength and limits of the experience. Do not substitute successful completion, clear instructions or a usable record for evidence of enjoyment.
+Read `playStyle`: `detailed` measures fun and hook; `fast` focuses on hook, strong/weak moments and whether combinations feel authentic or arbitrary. Retain the required fast per-step classifications and numerical fields as menu-assisted diagnostics, not the detailed Fun measurement. Player-visible plausibility is not independent factual authentication. Focus on the experience supported by the selected mode. Begin with a direct qualitative verdict explaining the strength and limits of the experience. Do not substitute successful completion, clear instructions or a usable record for evidence of enjoyment.
 
 What is our target audience for this game?
 - They are motivated by what's called "oddly satisfying", the satisfaction of putting pieces together
@@ -374,7 +412,9 @@ What is our target audience for this game?
 
 #### Fun: meaningful decisions / total decisions
 
-Classify every recorded gameplay step as meaningful or not, with a concise reason grounded in the player's before/after notes and the menu actually offered. Count each recorded turn once, including hotspot preparations and clearing. Every turn contains an actual structured gameplay response plus a harness-recorded `lookedAgain` boolean. A look is not a separate action entry. Exclude automatic messages, chapter transitions, invalid protocol replies and final reporting. The preceding result’s reflection stays in the actual turn response, including after a board refresh. Earlier completed chapters shown in the opening history were performed by the checkpoint planner: they are background, not decisions made by this player or evidence of their enjoyment. Do not count each offered option as a decision.
+Classify every recorded gameplay step as meaningful or not, with a concise reason grounded in the player's before/after notes and information actually available at that point. In fast mode count preparations and clearing. In detailed mode count every inspection and every well-formed combination attempt, including unsuccessful attempts, no-partner inspections and repeats. An inspection that automatically combines is one decision; internal hotspot preparation, third-ingredient inclusion and cleanup add no decisions. Malformed commands and unresolved or ambiguous names are protocol errors and do not count. Every turn contains an actual structured gameplay response plus a harness-recorded `lookedAgain` boolean. A look is not a separate action entry. Exclude automatic messages, chapter transitions, invalid protocol replies and final reporting. The preceding result’s reflection stays in the actual turn response, including after a board refresh. Earlier completed chapters shown in the opening history were performed by the checkpoint planner: they are background, not decisions made by this player or evidence of their enjoyment. Do not count each offered option as a decision.
+
+In detailed mode, judge whether inspecting was a purposeful information-seeking choice and whether combining directly used a substantive inference. Count an unsuccessful motivated test when its evidence supports meaningfulness; success is not required. Do not award credit merely for inspecting, failing, receiving hints, or choosing a command that automatically completes the only reaction. Avoid crediting both the discovery and its routine execution as two independent insights.
 
 A meaningful step demonstrates worthwhile deliberation or an intentional experiment: the player uses available information to distinguish plausible courses of action, makes a substantive inference that guides the choice, or tests a motivated hypothesis whose result matters to their understanding or subsequent plan. State exactly what thinking mattered. A plausible physical explanation or an unknown output alone is insufficient. Following the sole compatible pair toward an obvious result, arbitrary guessing and routine execution of an already-settled plan do not automatically qualify. Do not give separate credit to every execution step of one earlier decision.
 
@@ -417,9 +457,9 @@ Preserve negative findings and disagreements. Avoid rewarding eloquence, sheer a
 
 You are a fresh reviewer assigned to synthesize this chapter's three independent playthroughs and their independent grades. You did not author, play or grade any of them. Use only the supplied player-visible records, additional guidance, final reports, verified individual grades and these rubrics. Do not consult manuscripts, other author notes, other chapters' reviews or earlier iterations. This is one chapter-level assignment; seeing these three records together is intentional. Preserve the individual graders' judgments and disagreements rather than silently replacing them.
 
-Read the same `guidance` supplied to the players and individual graders, including audience and purpose context. Carry it into your interpretation without substituting intended value for evidence of experienced value. Preserve its wording in the detailed report metadata, or state that an explicit empty string was supplied. If records have different guidance, identify the difference rather than treating them as the same test condition.
+Read the selected `playStyle` and the same `guidance` supplied to the players and individual graders, including audience and purpose context. Carry it into your interpretation without substituting intended value for evidence of experienced value. Preserve its wording in the detailed report metadata, or state that an explicit empty string was supplied. If records have different guidance, identify the difference rather than treating them as the same test condition.
 
-Put the story filename immediately below the chapter report title, then the per-player assessments. Put the chapter synthesis at the bottom, after all individual assessments and run metadata. Identify shared moments by the actual combination, resulting construction or goal, in plain English. **Step numbers are local to a playthrough:** the same combination can occur at different steps, and the same step number can refer to different combinations. Do not use bare step numbers in the synthesis or match actions across players by step number. Local step references are useful in the attributed per-player details.
+Put the story filename immediately below the chapter report title, then its `Play style:` line and the per-player assessments. Put the chapter synthesis at the bottom, after all individual assessments and run metadata. Identify shared moments by the actual combination, resulting construction or goal, in plain English. **Step numbers are local to a playthrough:** the same combination can occur at different steps, and the same step number can refer to different combinations. Do not use bare step numbers in the synthesis or match actions across players by step number. Local step references are useful in the attributed per-player details.
 
 #### Worthwhile: meaningful decisions or story/hook value
 
@@ -437,18 +477,18 @@ For each player record, retain the number worthwhile, number meaningful and tota
 #### Synthesize the three records
 
 - **Worthwhile:** average the per-player worthwhile counts and average their total action counts separately. Display `mean worthwhile / mean total worthwhile decisions`.
-- **Fun:** likewise average the per-player meaningful counts and totals. Display `mean meaningful / mean total meaningful decisions`. Keep this narrower measure separate from Worthwhile; Worthwhile is an either/or count, not a weighted score or a sum of the two kinds of value.
+- **Fun:** in `--fast`, write `Fun: not measured (--fast)` and keep menu-assisted counts in the individual diagnostic assessments. In `--detailed`, average the per-player meaningful counts and totals. Display `mean meaningful / mean total meaningful decisions`. Keep this narrower measure separate from Worthwhile; Worthwhile is an either/or count, not a weighted score or a sum of the two kinds of value.
 - **Hook:** aggregate the individual categorical judgments without converting them to numbers. Show the shared label when unanimous; otherwise show the observed labels and their counts, such as `medium/high (2 medium, 1 high)`. Preserve polarization, such as `low/high`, rather than calling it medium. Report unknown judgments and their number explicitly.
 - **Strongest moments:** choose one or two combinations or goals that most contributed decision value, story payoff or the desire to continue. Name the action and explain its value briefly, identifying whether it was shared across players or mattered to only one.
 - **Weakest moments:** choose one or two combinations or goals that most lacked value or introduced confusion, repetition or frustration. Name the action and explain the problem, preserving disagreement and distinguishing interface friction from story weakness. If no clear weak moment is supported, say so.
 
 Compute averages from unrounded counts and round only the displayed means to one decimal place, omitting a trailing `.0`. Each player contributes once; do not weight a player more heavily because it has multiple graders. When comparing grader models, present separate aggregates for each model rather than counting those assessments as extra players. If routes have different lengths, average the actual totals and state their range. These fractions are averages of counts, not averages of individual percentages. Keep the per-player counts visible so the arithmetic can be checked.
 
-In the detailed report, outside the synthesis, state how many records are included and how many completed. Do not present fewer than three as a complete three-player synthesis. Keep interrupted or incomplete records visible, mark affected figures partial or unknown, and explain missing evidence rather than silently dropping poor outcomes or inventing zero scores. Never combine different chapter versions into one score.
+In the detailed report, outside the synthesis, state how many records are included and how many completed. Do not present fewer than three as a complete three-player synthesis. Keep interrupted or incomplete records visible, mark affected figures partial or unknown, and explain missing evidence rather than silently dropping poor outcomes or inventing zero scores. Never combine different chapter versions or fast/detailed modes into one score.
 
 #### Required chapter review
 
-Return the complete Markdown chapter report, saved as `chapterN_report.md`, in this order: `# Chapter N: <Chapter title from markdown>`, `Story: path/to/story.md`, all per-player detailed breakdowns and run metadata, then the chapter synthesis at the bottom. Use the exact chapter title from the tested manuscript, supplied with the assignment and shown in its chapter opening; do not substitute a generic “playtest report” title or invent a new one. The organizer supplies the title from the frozen manuscript. Use the actual story filename supplied with the assignment, preferably relative to the repository root. The synthesis contains only the five categories Worthwhile, Fun, Hook, Strongest moments and Weakest moments. Put a blank line before Strongest moments and before Weakest moments. Do not add a concluding paragraph, completion statistics or caveats; put evidence limits and methodological details elsewhere in the report. Wrap only the five categories in one `<!-- chapter-synthesis:start -->` / `<!-- chapter-synthesis:end -->` pair. Keep per-player detail and run metadata outside those markers. The assembler copies the marked text without rewriting it into the run's `report.md`, preceded by the same chapter heading at level two (`## Chapter N: <Chapter title from markdown>`). The combined report puts the same story filename immediately under `# Report`, before the canonical definitions. Do not repeat the report definitions in each synthesis.
+Return the complete Markdown chapter report, saved as `chapterN_report.md`, in this order: `# Chapter N: <Chapter title from markdown>`, `Story: path/to/story.md`, `Play style: --fast` or `Play style: --detailed`, all per-player detailed breakdowns and run metadata, then the chapter synthesis at the bottom. Use the exact chapter title from the tested manuscript, supplied with the assignment and shown in its chapter opening; do not substitute a generic “playtest report” title or invent a new one. The organizer supplies the title from the frozen manuscript. Use the actual story filename supplied with the assignment, preferably relative to the repository root. The synthesis contains only the five categories Worthwhile, Fun, Hook, Strongest moments and Weakest moments. Put a blank line before Strongest moments and before Weakest moments. Do not add a concluding paragraph, completion statistics or caveats; put evidence limits and methodological details elsewhere in the report. Wrap only the five categories in one `<!-- chapter-synthesis:start -->` / `<!-- chapter-synthesis:end -->` pair. Keep per-player detail and run metadata outside those markers. The assembler copies the marked text without rewriting it into the run's `report.md`, preceded by the same chapter heading at level two (`## Chapter N: <Chapter title from markdown>`). The combined report puts the same story filename immediately under `# Report`, followed by the playstyle and canonical definitions. Do not repeat the report definitions in each synthesis.
 
 Preserve each supplied independent assessment as an attributed assessment; label your added worthwhile classification as the chapter reviewer's judgment. Include the per-player worthwhile/meaningful/total counts, supporting action classifications, original fun and hook assessments, strongest/weakest evidence, and timing and limits. Do not silently revise an independent grader's classifications to make the synthesis agree. Record relevant model choices, timings, version identifiers and evidence limits in the chapter report; do not create separate run-level `instructions.md` or `outcomes.md` files.
 
@@ -458,6 +498,8 @@ Illustrative layout only, not a reassessment of an existing chapter:
 # Chapter 2: A voice in the cabin
 
 Story: path/to/story.md
+
+Play style: --detailed
 
 ## Player 1
 

@@ -1,5 +1,5 @@
 import {createChapterSession,needsReport,playerRequest,saveChapterSession,submitReply} from './chapter-session.ts';
-import {argumentsFor,playtestTarget,positiveInteger,requiredGuidance} from './arguments.ts';
+import {argumentsFor,playtestTarget,positiveInteger,requiredGuidance,requiredPlayStyle} from './arguments.ts';
 import {ask,transport} from './transport.ts';
 import {createPlaytest} from './project-files.ts';
 import {assemblePlaytestReport} from './report.ts';
@@ -15,11 +15,11 @@ try {
     if (positional.length !== 1) throw new Error('Usage: npm run playtest -- report DIRECTORY');
     console.log(assemblePlaytestReport(positional[0]));
   } else {
-    const {options,positional} = argumentsFor(args,['--story','--session','--model','--chapter','--agent','--endpoint','--max-turns','--timeout-seconds','--playtest','--player','--guidance']);
-    if (positional.length || !options['--story'] || !options['--session']) throw new Error('Usage: npm run playtest -- --story PATH --session ID --guidance TEXT [--chapter N] --model LABEL --agent JSON_COMMAND_ARRAY [--max-turns 300]. Alternatively use --endpoint URL.');
+    const {options,positional} = argumentsFor(args,['--story','--session','--model','--chapter','--agent','--endpoint','--max-turns','--timeout-seconds','--playtest','--player','--guidance'],['--fast','--detailed']);
+    if (positional.length || !options['--story'] || !options['--session']) throw new Error('Usage: npm run playtest -- --story PATH --session ID (--fast | --detailed) --guidance TEXT [--chapter N] --model LABEL --agent JSON_COMMAND_ARRAY [--max-turns 300]. Alternatively use --endpoint URL.');
     const guidance = requiredGuidance(options['--guidance']);
     const connection = transport(options), max = positiveInteger(options['--max-turns'],300,'--max-turns');
-    const {session,story} = createChapterSession(options['--session'],options['--story'],{guidance,chapter:positiveInteger(options['--chapter'],1,'--chapter'),model:options['--model'] ?? 'unspecified agent',playtest:playtestTarget(options)});
+    const {session,story} = createChapterSession(options['--session'],options['--story'],{playStyle:requiredPlayStyle(options),guidance,chapter:positiveInteger(options['--chapter'],1,'--chapter'),model:options['--model'] ?? 'unspecified agent',playtest:playtestTarget(options)});
     const started = performance.now();
     try {
       let invalid = 0, correction:string|undefined;

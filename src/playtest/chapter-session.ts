@@ -13,10 +13,13 @@ import {rubric} from './rubrics.ts';
 import {reservePlayer,writePlayerOutputs} from './project-files.ts';
 import type {PlaytestTarget} from './project-files.ts';
 import {requiredGuidance} from './arguments.ts';
+import {isLook} from './commands.ts';
+import type {PlayStyle} from './commands.ts';
+import {detailedChoiceKey} from './detailed.ts';
 
 export interface Turn {reply:DecisionReply;lookedAgain:boolean;lookView?:Frame;result:Frame}
 export interface ChapterSession {
-  version:5; id:string; story:string; storyHash:string; runtimeHash:string; createdAt:string;
+  version:6; playStyle:PlayStyle; id:string; story:string; storyHash:string; runtimeHash:string; createdAt:string;
   guidance:string; guidanceHash:string;
   chapter:number; playerRubric:string; graderRubric:string; model?:string;
   playtest?:PlaytestTarget;
@@ -24,11 +27,13 @@ export interface ChapterSession {
   outcome?:'completed'|'blocked'|'budget'|'technical-interruption';
   requests:{step:number;elapsedMs:number;error?:string;reply?:unknown}[]; elapsedMs?:number;
 }
-export function createChapterSession(id:string,storyId:string,options:{guidance:string;chapter?:number;model?:string;playtest?:PlaytestTarget}) {
+export function createChapterSession(id:string,storyId:string,options:{playStyle:PlayStyle;guidance:string;chapter?:number;model?:string;playtest?:PlaytestTarget}) {
+  const playStyle = options?.playStyle;
+  if (playStyle !== 'fast' && playStyle !== 'detailed') throw new Error('Specify exactly one of --fast or --detailed.');
   const guidance = requiredGuidance(options?.guidance), chapter = options.chapter ?? 1;
   const folder = runPath(id); if (existsSync(folder)) throw new Error('Session already exists; use a new ID and a fresh player.');
-  const {story,hash,markdown} = loadStory(storyId), adventure = startAdventure(story,{chapter,mode:'chapter'});
-  const session:ChapterSession = {version:5,id,story:storyId,storyHash:hash,runtimeHash:runtimeHash(),createdAt:new Date().toISOString(),guidance,guidanceHash:digest(guidance),chapter:adventure.state.chapter+1,playerRubric:rubric('player'),graderRubric:rubric('grader'),...(options.model ? {model:options.model} : {}),...(options.playtest ? {playtest:{directory:resolve(options.playtest.directory),player:options.playtest.player}} : {}),initial:adventure.frame,adventure,turns:[],pendingLook:false,requests:[]};
+  const {story,hash,markdown} = loadStory(storyId), adventure = startAdventure(story,{chapter,mode:'chapter',playStyle});
+  const session:ChapterSession = {version:6,playStyle,id,story:storyId,storyHash:hash,runtimeHash:runtimeHash(),createdAt:new Date().toISOString(),guidance,guidanceHash:digest(guidance),chapter:adventure.state.chapter+1,playerRubric:rubric('player',playStyle),graderRubric:rubric('grader',playStyle),...(options.model ? {model:options.model} : {}),...(options.playtest ? {playtest:{directory:resolve(options.playtest.directory),player:options.playtest.player}} : {}),initial:adventure.frame,adventure,turns:[],pendingLook:false,requests:[]};
   if (session.playtest) reservePlayer(session.playtest,session.chapter);
   freezeRuntime(folder,markdown); saveChapterSession(session); return {session,story};
 }
@@ -41,7 +46,7 @@ export function saveChapterSession(session:ChapterSession) {
 }
 export function openChapterSession(id:string) {
   const folder = runPath(id), session = JSON.parse(readFileSync(join(folder,'session.json'),'utf8')) as ChapterSession;
-  if (session.version !== 5) throw new Error('This is a legacy session. Use its frozen runtime for diagnostic access.');
+  if (session.version !== 6) throw new Error('This is a legacy session. Use its frozen runtime for diagnostic access.');
   verifyGuidance(session);
   const markdown = readFileSync(join(folder,'story.md'),'utf8');
   if (digest(markdown) !== session.storyHash || runtimeHash() !== session.runtimeHash) throw new Error('The frozen story or active runtime changed. Start a new trial; verify this one with its frozen runtime.');
@@ -50,7 +55,7 @@ export function openChapterSession(id:string) {
 export function needsReport(session:ChapterSession) {return !!session.outcome || session.adventure.frame.phase !== 'choose';}
 export function reflectionDue(session:ChapterSession) {return session.turns.length > 0;}
 export function playerRequest(session:ChapterSession) {
-  return {instructions:session.playerRubric,guidance:session.guidance,
+  return {playStyle:session.playStyle,instructions:session.playerRubric,guidance:session.guidance,
     history:session.turns.map((turn,index) => ({adventure:index ? session.turns[index-1].result : session.initial,...(turn.lookView ? {lookView:turn.lookView} : {}),response:turn.reply})),
     ...(session.pendingLook && session.turns.length ? {previousResult:session.turns.at(-1)!.result} : {}),
     adventure:session.adventure.frame,
@@ -60,40 +65,41 @@ export function playerRequest(session:ChapterSession) {
 }
 export function submitReply(session:ChapterSession,story:Story,value:unknown):Reply {
   if (session.final) throw new Error('This trial is closed. Use a fresh participant for another trial.');
-  const reply = validateReply(value,session.adventure.frame,session.turns.map(t => t.reply.step),needsReport(session),reflectionDue(session));
+  const reply = validateReply(value,session.adventure.frame,session.turns.map(t => t.reply.step),needsReport(session),reflectionDue(session),choice => detailedChoiceKey(story,session.adventure.state,choice));
   if ('report' in reply) {
     session.final = reply;
     session.outcome ??= session.adventure.frame.phase === 'complete' ? 'completed' : 'blocked';
-  } else if (reply.choice === 'L') {
-    session.adventure = choose(story,session.adventure,reply.step,'L');
+  } else if (isLook(reply.choice)) {
+    session.adventure = choose(story,session.adventure,reply.step,reply.choice);
     session.pendingLook = true;
   } else {
     const adventure = choose(story,session.adventure,reply.step,reply.choice);
-    session.turns.push({reply,lookedAgain:session.pendingLook,...(session.pendingLook ? {lookView:session.adventure.frame} : {}),result:adventure.frame});
+    session.turns.push({reply:reply as DecisionReply,lookedAgain:session.pendingLook,...(session.pendingLook ? {lookView:session.adventure.frame} : {}),result:adventure.frame});
     session.adventure = adventure;session.pendingLook = false;
   }
   return reply;
 }
 export function verifyChapterSession(session:ChapterSession,story:Story) {
   verifyGuidance(session);
-  if (session.playerRubric !== rubric('player') || session.graderRubric !== rubric('grader')) throw new Error('Frozen rubric mismatch.');
-  let adventure = startAdventure(story,{chapter:session.chapter,mode:'chapter'});
+  if (session.playStyle !== 'fast' && session.playStyle !== 'detailed') throw new Error('Invalid play style.');
+  if (session.playerRubric !== rubric('player',session.playStyle) || session.graderRubric !== rubric('grader',session.playStyle)) throw new Error('Frozen rubric mismatch.');
+  let adventure = startAdventure(story,{chapter:session.chapter,mode:'chapter',playStyle:session.playStyle});
   if (JSON.stringify(adventure.frame) !== JSON.stringify(session.initial)) throw new Error('Initial player frame does not match checkpoint replay.');
   const steps:number[] = [];
   for (const turn of session.turns) {
     if (typeof turn.lookedAgain !== 'boolean' || turn.lookedAgain !== (turn.lookView !== undefined)) throw new Error('Look metadata must include a boolean and its matching board view.');
     if (turn.lookedAgain) {
-      adventure = choose(story,adventure,adventure.frame.step,'L');
+      adventure = choose(story,adventure,adventure.frame.step,session.playStyle === 'fast' ? 'L' : {look:true});
       if (JSON.stringify(adventure.frame) !== JSON.stringify(turn.lookView)) throw new Error(`Look view at step ${turn.reply.step} does not match replay.`);
     }
-    const reply = validateReply(turn.reply,adventure.frame,steps,false,steps.length > 0);
-    if ('report' in reply || reply.choice === 'L') throw new Error('A turn must contain an actual gameplay response, not a look request.');
+    const reply = validateReply(turn.reply,adventure.frame,steps,false,steps.length > 0,choice => detailedChoiceKey(story,adventure.state,choice));
+    if ('report' in reply || isLook(reply.choice)) throw new Error('A turn must contain an actual gameplay response, not a look request.');
     adventure = choose(story,adventure,reply.step,reply.choice);
     steps.push(reply.step);
     if (JSON.stringify(adventure.frame) !== JSON.stringify(turn.result)) throw new Error(`Player result at step ${reply.step} does not match replay.`);
   }
   if (typeof session.pendingLook !== 'boolean') throw new Error('Pending look must be a boolean.');
-  if (session.pendingLook) adventure = choose(story,adventure,adventure.frame.step,'L');
+  if (session.pendingLook) adventure = choose(story,adventure,adventure.frame.step,session.playStyle === 'fast' ? 'L' : {look:true});
   if (JSON.stringify(adventure) !== JSON.stringify(session.adventure)) throw new Error('Recorded adventure does not match exact replay.');
   if (JSON.stringify(replay(story,adventure.state.actions)) !== JSON.stringify(adventure.state)) throw new Error('Checkpoint and automatic actions do not match engine replay.');
   if (session.final) validateReply(session.final,adventure.frame,steps,true,steps.length > 0);

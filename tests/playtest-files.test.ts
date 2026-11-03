@@ -111,3 +111,12 @@ test('separate grader processes safely append to the same chapter review',async 
   assert.equal((readFileSync(file,'utf8').match(/^## Player 1 — Grader same$/gm) ?? []).length,1);
   assert.deepEqual(readdirSync(directory),['chapter1_report.md']);
 });
+
+test('independent chapter assessments label modes and cannot mix fast and detailed players',t=>{
+  const project=fixture(t),directory=createPlaytest(project,{startedAt:start}),target={directory,player:1};
+  appendChapterReview(target,1,{...review('first',true),playStyle:'detailed'});
+  const file=join(directory,'chapter1_report.md'),previous=readFileSync(file,'utf8');
+  assert.match(previous,/Story: stories\/fixture.md\n\nPlay style: --detailed/);
+  assert.throws(()=>appendChapterReview({...target,player:2},1,{...review('second',false),playStyle:'fast'}),/play style/);
+  assert.equal(readFileSync(file,'utf8'),previous);
+});

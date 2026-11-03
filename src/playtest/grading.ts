@@ -11,7 +11,7 @@ export interface Grade {
 }
 /** Call only after frozen replay verification. No model, timing or route metadata. */
 export function graderPacket(session:ChapterSession) {
-  return {instructions:session.graderRubric,guidance:session.guidance,playerInstructions:session.playerRubric,
+  return {playStyle:session.playStyle,instructions:session.graderRubric,guidance:session.guidance,playerInstructions:session.playerRubric,
     initial:session.initial,turns:session.turns,final:session.final ?? null,
     ...(session.pendingLook ? {unfinishedStep:{step:session.adventure.frame.step,lookedAgain:true,lookView:session.adventure.frame}} : {}),
     protocolIssues:session.requests.filter(r => r.error).map(({step,error,reply}) => ({step,correction:error,...(reply !== undefined ? {reply} : {})})),

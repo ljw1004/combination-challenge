@@ -37,16 +37,16 @@ test('numbered AI, two isolated graders, timings and frozen replay work end to e
     writeFileSync(manuscript,workshop);writeFileSync(agent,withGuidanceCheck(player));writeFileSync(gradeAgent,withGuidanceCheck(grader));
     const batch=run('src/playtest/run-ai.ts',['start',folder]).trim();
     assert.match(batch,/playtests\/\d{4}\.\d{2}\.\d{2}_\d{2}\.\d{2}\.\d{2}$/);
-    run('src/playtest/run-ai.ts',['--guidance',guidance,'--story',manuscript,'--session','protocol','--model','protocol-fixture','--playtest',batch,'--player','1','--agent',JSON.stringify([process.execPath,agent])]);
+    run('src/playtest/run-ai.ts',['--fast','--guidance',guidance,'--story',manuscript,'--session','protocol','--model','protocol-fixture','--playtest',batch,'--player','1','--agent',JSON.stringify([process.execPath,agent])]);
     const session=JSON.parse(readFileSync(join(folder,'runs/protocol/session.json'),'utf8'));
-    assert.equal(session.guidance,guidance);assert.equal(session.version,5);
+    assert.equal(session.guidance,guidance);assert.equal(session.version,6);
     assert.equal(session.outcome,'completed');assert.equal(session.turns.length,3);assert.equal(session.requests.length,7);assert.equal(session.requests.filter((r:{error?:string})=>r.error).length,1);
     assert(session.elapsedMs>0);assert(session.requests.every((r:{elapsedMs:number})=>r.elapsedMs>=0));assert.equal(session.final.reaction,'Nothing notable.');
     assert.deepEqual(session.turns.map((t:{lookedAgain:boolean})=>t.lookedAgain),[false,true,true]);assert(session.turns.every((t:{reply:{choice:unknown}})=>typeof t.reply.choice==='number'));
     const outputs=JSON.parse(readFileSync(join(batch,'chapter1_playtest1.json'),'utf8'));
     assert.deepEqual(outputs,[...session.turns.map((t:{reply:object;lookedAgain:boolean})=>({...t.reply,lookedAgain:t.lookedAgain})),{...session.final,lookedAgain:false}]);
-    assert.throws(()=>run('src/playtest/cli.ts',['init','collision',manuscript,'--guidance','','--playtest',batch,'--player','1']),/EEXIST/);
-    assert.throws(()=>run('src/playtest/cli.ts',['init','incomplete',manuscript,'--guidance','','--player','2']),/together/);
+    assert.throws(()=>run('src/playtest/cli.ts',['init','--fast','collision',manuscript,'--guidance','','--playtest',batch,'--player','1']),/EEXIST/);
+    assert.throws(()=>run('src/playtest/cli.ts',['init','--fast','incomplete',manuscript,'--guidance','','--player','2']),/together/);
     assert.equal(session.adventure.state.chapter,0);assert.equal(session.adventure.state.pending.length,0);
     const packet=JSON.parse(run('src/playtest/evaluate-cli.ts',['protocol','--packet']));assert.equal(packet.guidance,guidance);assert.equal(packet.verification.protocolRejections,1);assert.equal(packet.protocolIssues[0].reply.choice,999);assert(!JSON.stringify(packet).includes('protocol-fixture'));
     // Reports name the tested chapter even when the live manuscript has been edited.
@@ -59,7 +59,7 @@ test('numbered AI, two isolated graders, timings and frozen replay work end to e
     assert(combined.startsWith(`# Chapter 1: Make a case\n\nStory: ${manuscript}\n`));
     for(const name of ['grader-one','grader-two']) assert(combined.includes(name));
     assert(combined.includes('> Designed as a high-school study assistant.\n> Connect ideas to concrete cases.'));
-    assert.equal((combined.match(/Fun: 0 \/ 3/g)||[]).length,2);
+    assert.equal((combined.match(/Decision density \(fast diagnostic\): 0 \/ 3/g)||[]).length,2);
     assert.match(combined,/Look-again requests: 2; steps: 2, 3/);
     const raceAgent=join(folder,'race-grader.mjs');
     writeFileSync(raceAgent,"await new Promise(r=>setTimeout(r,300));"+grader.replace("verdict:'Synthetic grader fixture.'","verdict:process.argv[2]"));
@@ -83,12 +83,12 @@ test('AI session creation requires explicit guidance, preserves empty guidance a
   try {
     const manuscript=join(folder,'story.md');writeFileSync(manuscript,workshop);
     const batch=run('src/playtest/run-ai.ts',['start',folder]).trim();
-    assert.throws(()=>run('src/playtest/run-ai.ts',['--story',manuscript,'--session','missing']),/--guidance is required/);
-    assert.throws(()=>run('src/playtest/cli.ts',['init','missing',manuscript,'--playtest',batch,'--player','1']),/--guidance is required/);
+    assert.throws(()=>run('src/playtest/run-ai.ts',['--fast','--story',manuscript,'--session','missing']),/--guidance is required/);
+    assert.throws(()=>run('src/playtest/cli.ts',['init','--fast','missing',manuscript,'--playtest',batch,'--player','1']),/--guidance is required/);
     assert(!existsSync(join(folder,'runs/missing')));assert(!existsSync(join(batch,'chapter1_playtest1.json')));
-    assert.throws(()=>run('src/playtest/cli.ts',['init','missing',manuscript,'--guidance']),/--guidance needs a value/);
-    assert.throws(()=>run('--input-type=module',['--eval',`import {createChapterSession} from './src/playtest/chapter-session.ts';createChapterSession('missing',${JSON.stringify(manuscript)});`]),/--guidance is required/);
-    const opened=JSON.parse(run('src/playtest/cli.ts',['init','empty',manuscript,'--guidance','']));
+    assert.throws(()=>run('src/playtest/cli.ts',['init','--fast','missing',manuscript,'--guidance']),/--guidance needs a value/);
+    assert.throws(()=>run('--input-type=module',['--eval',`import {createChapterSession} from './src/playtest/chapter-session.ts';createChapterSession('missing',${JSON.stringify(manuscript)},{playStyle:'fast'});`]),/--guidance is required/);
+    const opened=JSON.parse(run('src/playtest/cli.ts',['init','--fast','empty',manuscript,'--guidance','']));
     assert.equal(opened.guidance,'');
     assert.equal(JSON.parse(run('src/playtest/cli.ts',['view','empty'])).guidance,'');
     assert.equal(JSON.parse(run('src/playtest/evaluate-cli.ts',['empty','--packet'])).guidance,'');
@@ -105,11 +105,11 @@ test('AI checkpoints use performed history without a recap, and budgets exclude 
   try {
     const manuscript=join(folder,'story.md'),agent=join(folder,'agent.mjs');
     writeFileSync(manuscript,workshop);writeFileSync(agent,player);
-    const opened=JSON.parse(run('src/playtest/cli.ts',['init','no-context',manuscript,'--guidance','','--chapter','2']));assert(!('storySoFar' in opened));assert.match(JSON.stringify(opened.adventure),/Sheet \+ Tool -> Case/);
-    run('src/playtest/run-ai.ts',['--guidance','','--story',manuscript,'--session','later','--chapter','2','--agent',JSON.stringify([process.execPath,agent])]);
+    const opened=JSON.parse(run('src/playtest/cli.ts',['init','--fast','no-context',manuscript,'--guidance','','--chapter','2']));assert(!('storySoFar' in opened));assert.match(JSON.stringify(opened.adventure),/Sheet \+ Tool -> Case/);
+    run('src/playtest/run-ai.ts',['--fast','--guidance','','--story',manuscript,'--session','later','--chapter','2','--agent',JSON.stringify([process.execPath,agent])]);
     const later=JSON.parse(readFileSync(join(folder,'runs/later/session.json'),'utf8'));assert.equal(later.turns.length,1);assert.equal(later.chapter,2);assert.equal(later.outcome,'completed');
     assert.equal(JSON.parse(run('src/playtest/evaluate-cli.ts',['later','--verify-only'])).replayVerified,true);
-    run('src/playtest/run-ai.ts',['--guidance','','--story',manuscript,'--session','limited','--max-turns','1','--agent',JSON.stringify([process.execPath,agent])]);
+    run('src/playtest/run-ai.ts',['--fast','--guidance','','--story',manuscript,'--session','limited','--max-turns','1','--agent',JSON.stringify([process.execPath,agent])]);
     const limited=JSON.parse(readFileSync(join(folder,'runs/limited/session.json'),'utf8'));assert.equal(limited.outcome,'budget');assert.equal(limited.turns.length,1);assert(limited.final);assert.equal(limited.final.step,2);
     assert.equal(JSON.parse(run('src/playtest/evaluate-cli.ts',['limited','--verify-only'])).replayVerified,true);
   } finally {rmSync(folder,{recursive:true,force:true});}
@@ -119,7 +119,7 @@ test('human CLI refreshes on nonnumeric input without an L option, and progresse
   const {folder,env,run}=workspace();
   try {
     const manuscript=join(folder,'story.md');writeFileSync(manuscript,workshop);
-    const output=run('src/playtest/cli.ts',[manuscript],'999\n1\n?\nL\n1\n1\n\n1\n');
+    const output=run('src/playtest/cli.ts',['--fast',manuscript],'999\n1\n?\nL\n1\n1\n\n1\n');
     assert.match(output,/Choose an option from the current menu/);assert.match(output,/Story completed/);
     assert(output.indexOf('All goals completed')<output.indexOf('Now address'));
     assert.equal((output.match(/What combination will you make for step number 1\?/g)||[]).length,3);
@@ -127,8 +127,8 @@ test('human CLI refreshes on nonnumeric input without an L option, and progresse
     assert(!output.includes('Look again'));assert(!output.includes('L.'));
     assert.equal((output.match(/folded metal/g)||[]).length,1,'a refresh shows the board, not the previous wonder');
     assert(!output.includes('reason'));assert(!output.includes('storySoFar'));
-    const checkpoint=run('src/playtest/cli.ts',[manuscript,'--chapter','2']);assert.match(checkpoint,/delivery van is due/);assert.match(checkpoint,/Now address/);assert.match(checkpoint,/Case\[Lid\]/);
-    const npm=execFileSync('npm',['run','play',manuscript,'--chapter','2'],{cwd,env,input:'',encoding:'utf8',stdio:['pipe','pipe','pipe']});assert.match(npm,/Dispatch/);
+    const checkpoint=run('src/playtest/cli.ts',['--fast',manuscript,'--chapter','2']);assert.match(checkpoint,/delivery van is due/);assert.match(checkpoint,/Now address/);assert.match(checkpoint,/Case\[Lid\]/);
+    const npm=execFileSync('npm',['run','play','--','--fast',manuscript,'--chapter','2'],{cwd,env,input:'',encoding:'utf8',stdio:['pipe','pipe','pipe']});assert.match(npm,/Dispatch/);
   } finally {rmSync(folder,{recursive:true,force:true});}
 });
 
@@ -137,7 +137,7 @@ test('manual structured responses persist only after validation',()=>{
   try {
     const manuscript=join(folder,'story.md');writeFileSync(manuscript,workshop);
     const batch=run('src/playtest/run-ai.ts',['start',folder]).trim(),outputs=join(batch,'chapter1_playtest1.json');
-    const request=JSON.parse(run('src/playtest/cli.ts',['init','manual',manuscript,'--guidance','','--playtest',batch,'--player','1']));assert.equal(request.request,'decision');
+    const request=JSON.parse(run('src/playtest/cli.ts',['init','--fast','manual',manuscript,'--guidance','','--playtest',batch,'--player','1']));assert.equal(request.request,'decision');
     const file=join(folder,'runs/manual/session.json'), before=readFileSync(file,'utf8');
     assert.throws(()=>run('src/playtest/cli.ts',['respond','manual','-'],'{"step":1,"choice":99}'),/Reply must contain exactly/);assert.equal(readFileSync(file,'utf8'),before);
     const next=JSON.parse(run('src/playtest/cli.ts',['respond','manual','-'],JSON.stringify({step:1,reason:'Fixture.',choice:1,expectation:'A case.',alternatives:[]})));
@@ -161,5 +161,40 @@ test('legacy frozen sessions still verify without rewriting historical evaluatio
     run('--input-type=module',['--eval',`import {createSession,saveSession} from './src/playtest/session.ts';const s=createSession('legacy','mars');s.outcome='stopped';s.report={criteria:{construction:{assessment:'supported',explanation:'Fixture',events:[999]}}};saveSession(s);`]);
     const report=JSON.parse(run('src/playtest/evaluate-cli.ts',['legacy']));assert.equal(report.replayVerified,true);assert.equal(report.experienceProfile.find((p:{id:string})=>p.id==='construction').assessment,'unknown');
     const file=join(folder,'runs/legacy/evaluation.json'),before=readFileSync(file,'utf8');run('src/playtest/evaluate-cli.ts',['legacy','--verify-only']);assert.equal(readFileSync(file,'utf8'),before);
+  } finally {rmSync(folder,{recursive:true,force:true});}
+});
+
+test('new games require exactly one mode and detailed terminal commands work through the ending',()=>{
+  const {folder,run}=workspace();
+  try {
+    const manuscript=join(folder,'story.md');writeFileSync(manuscript,workshop);
+    for (const flags of [[],['--fast','--detailed']]) {
+      assert.throws(()=>run('src/playtest/cli.ts',[manuscript,...flags]),/exactly one of --fast or --detailed/);
+      assert.throws(()=>run('src/playtest/cli.ts',['init','missing-mode',manuscript,'--guidance','',...flags]),/exactly one of --fast or --detailed/);
+      assert.throws(()=>run('src/playtest/run-ai.ts',['--story',manuscript,'--session','missing-mode','--guidance','','--agent','["node"]',...flags]),/exactly one of --fast or --detailed/);
+    }
+    assert(!existsSync(join(folder,'runs/missing-mode')));
+    const output=run('src/playtest/cli.ts',[manuscript,'--detailed'],'\ncombine Sheet with Lid\ni Sheet\ni Lid\nc "Case" with Shelf\ni Label\n');
+    assert.match(output,/Cannot be combined/);assert.match(output,/Transformed into: Case\[\]/);
+    assert.match(output,/Slotted in: Case\[Lid\]/);assert.match(output,/Story completed/);
+    assert.doesNotMatch(output,/^\d+\. /m);assert.doesNotMatch(output,/L\. \[Look/);
+    assert.equal((output.match(/folded metal/g)||[]).length,1);
+  } finally {rmSync(folder,{recursive:true,force:true});}
+});
+
+test('detailed AI transport persists counted attempts, selected instructions and frozen replay',()=>{
+  const {folder,run}=workspace();
+  try {
+    const manuscript=join(folder,'story.md'),agent=join(folder,'detailed.mjs');writeFileSync(manuscript,workshop);
+    writeFileSync(agent,player.replace("if(q.criteria", "if(q.playStyle!=='detailed'||q.instructions.includes('Choose one numbered option'))throw Error('Wrong mode');if(q.criteria")
+      .replace("else if(q.adventure.options.some(o=>o.choice==='L'))reply={step,choice:'L'};", "else if(q.adventure.lookAvailable)reply={step,choice:{look:true}};")
+      .replace("choice:q.history.length===0&&!q.correction?999:1", "choice:[{combine:'Sheet',with:'Lid'},{inspect:'Sheet'},{inspect:'Lid'},{combine:'Case',with:'Shelf'}][step-1]"));
+    run('src/playtest/run-ai.ts',['--detailed','--guidance','','--story',manuscript,'--session','detailed','--agent',JSON.stringify([process.execPath,agent])]);
+    const session=JSON.parse(readFileSync(join(folder,'runs/detailed/session.json'),'utf8'));
+    assert.equal(session.playStyle,'detailed');assert.equal(session.turns.length,4);assert.equal(session.outcome,'completed');
+    assert.deepEqual(session.turns.map((t:{lookedAgain:boolean})=>t.lookedAgain),[false,true,true,true]);
+    const packet=JSON.parse(run('src/playtest/evaluate-cli.ts',['detailed','--packet']));
+    assert.equal(packet.playStyle,'detailed');assert.equal(packet.verification.decisions,4);assert(packet.verification.replayVerified);
+    assert.throws(()=>run('src/playtest/cli.ts',['view','detailed','--fast']),/existing sessions retain their mode/);
   } finally {rmSync(folder,{recursive:true,force:true});}
 });

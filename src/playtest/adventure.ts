@@ -3,14 +3,20 @@ import type { Action, State } from '../engine/types.ts';
 import { act, availableTokens, chapterComplete, label, newGame, recipeFor, visibleGoals } from '../engine/game.ts';
 import { checkpoint } from '../debug/checkpoint.ts';
 import { observe } from './observe.ts';
+import {clearLogicalHotspots} from '../engine/logical-actions.ts';
+import {detailedTurn,hasDetailedActions} from './detailed.ts';
+import {detailedCommand,isLook} from './commands.ts';
+import type {PlayStyle,PlayerChoice} from './commands.ts';
+import {itemName} from './names.ts';
+export {itemName} from './names.ts';
 
 export interface Message { kind: 'story'|'chapter'|'goals'|'board'|'result'|'wonder'|'goal-changes'|'chapter-completed'|'ending'; text: string }
 export type MenuChoice = number | 'L';
 export interface Frame {
-  step: number; phase: 'choose'|'complete'|'blocked'; prompt: string | null;
+  playStyle: PlayStyle; lookAvailable:boolean; step: number; phase: 'choose'|'complete'|'blocked'; prompt: string | null;
   messages: Message[]; options: { choice: MenuChoice; text: string; kind: 'action'|'look' }[];
 }
-export interface Adventure { mode: 'story'|'chapter'; state: State; frame: Frame }
+export interface Adventure { playStyle:PlayStyle; mode: 'story'|'chapter'; state: State; frame: Frame }
 type Choice = Extract<Action, {type:'combine'|'move'}>;
 function chapterTitle(story:Story,index:number):string {return `## Chapter ${index+1}. ${story.chapters[index].name}`;}
 function chapterSurface(story:Story,state:State) {
@@ -23,11 +29,6 @@ function chapterSurface(story:Story,state:State) {
     : present.has(action.a) && (!action.b || present.has(action.b)) &&
       (!action.hotspot || surfaces.has(action.hotspot)) && (action.chapter === undefined || action.chapter === state.chapter));
   return {items,hotspots,partners};
-}
-
-export function itemName(story: Story, state: State, id: string): string {
-  const name = label(story, state, id);
-  return story.items[id]?.compound ? `${name}[${(state.tokens[id]?.slots ?? []).map(part => label(story, state, part)).join(',')}]` : name;
 }
 
 /** One menu choice per recipe, preferring its authored direction when legal.
@@ -130,37 +131,38 @@ function drain(story: Story, initial: State, messages: Message[]): State {
   }
   return state;
 }
-function arrival(story: Story, initial: State, messages: Message[]) {
+function arrival(story: Story, initial: State, messages: Message[], playStyle:PlayStyle) {
   if (!initial.pending.some(n => n.kind === 'chapter')) messages.push({kind:'chapter', text:chapterTitle(story,initial.chapter)});
-  const state = drain(story, initial, messages);
+  const state = drain(story, playStyle === 'detailed' ? clearLogicalHotspots(story,initial) : initial, messages);
   messages.push({kind:'board', text:board(story, state)});
   return state;
 }
-function finishFrame(story: Story, initial: State, mode: Adventure['mode'], step: number, messages: Message[], offerLook=false): Adventure {
+function finishFrame(story: Story, initial: State, mode: Adventure['mode'], step: number, messages: Message[], offerLook=false, playStyle:PlayStyle='fast'): Adventure {
   let state = initial;
   while (chapterComplete(story, state)) {
     messages.push({kind:'chapter-completed', text:'All goals completed'});
     if (mode === 'chapter' || state.completed) break;
     const previous = state.chapter;offerLook=false;
     state = act(story, state, {type:'advance'});
-    if (state.chapter !== previous) {step=1;state = arrival(story, state, messages);}
+    if (state.chapter !== previous) {step=1;state = arrival(story, state, messages,playStyle);}
     else break;
   }
   const complete = state.completed || (mode === 'chapter' && chapterComplete(story, state));
   if (state.completed) messages.push({kind:'ending', text:'Story completed'});
-  const options = complete ? [] : choices(story, state).map((action, index) => ({choice:index + 1, text:optionText(story, state, action),kind:'action' as const}));
-  if (!complete && !options.length) messages.push({kind:'ending', text:'No available combinations. The chapter has unfinished goals.'});
-  const phase = complete ? 'complete' : options.length ? 'choose' : 'blocked';
-  const menu:Frame['options'] = [...options,...(phase === 'choose' && offerLook ? [{choice:'L' as const,text: "[Look again at what's available]",kind:'look' as const}] : [])];
-  return {mode,state,frame:{step,phase,prompt:phase === 'choose' ? `What combination will you make for step number ${step}?` : null,messages,options:menu}};
+  const options = complete || playStyle === 'detailed' ? [] : choices(story, state).map((action, index) => ({choice:index + 1, text:optionText(story, state, action),kind:'action' as const}));
+  const playable = playStyle === 'detailed' ? hasDetailedActions(story,state) : options.length > 0;
+  if (!complete && !playable) messages.push({kind:'ending', text:'No available combinations. The chapter has unfinished goals.'});
+  const phase = complete ? 'complete' : playable ? 'choose' : 'blocked';
+  const menu:Frame['options'] = [...options,...(phase === 'choose' && offerLook && playStyle === 'fast' ? [{choice:'L' as const,text: "[Look again at what's available]",kind:'look' as const}] : [])];
+  return {playStyle,mode,state,frame:{playStyle,lookAvailable:phase === 'choose' && offerLook,step,phase,prompt:phase === 'choose' ? (playStyle === 'fast' ? `What combination will you make for step number ${step}?` : `What will you inspect or combine for step number ${step}?`) : null,messages,options:menu}};
 }
-export function startAdventure(story: Story, options: {chapter?:number; mode?:Adventure['mode']} = {}): Adventure {
-  const chapter = options.chapter ?? 1, mode = options.mode ?? 'story';
+export function startAdventure(story: Story, options: {chapter?:number; mode?:Adventure['mode'];playStyle?:PlayStyle} = {}): Adventure {
+  const chapter = options.chapter ?? 1, mode = options.mode ?? 'story', playStyle = options.playStyle ?? 'fast';
   if (!Number.isInteger(chapter) || chapter < 1 || chapter > story.chapters.length) throw new Error(`Chapter must be between 1 and ${story.chapters.length}.`);
   const initial = checkpoint(story, chapter - 1);
   const messages: Message[] = [{kind:'story', text:`${story.title}${story.description ? `\n${story.description}` : ''}`}];
   messages.push(...completedHistory(story,initial));
-  return finishFrame(story, arrival(story, initial, messages), mode, 1, messages);
+  return finishFrame(story, arrival(story, initial, messages,playStyle), mode, 1, messages,false,playStyle);
 }
 function changes(story: Story, before: State, after: State): string[] {
   const result: string[] = [];
@@ -178,21 +180,32 @@ function changes(story: Story, before: State, after: State): string[] {
   }
   return result;
 }
-export function choose(story: Story, adventure: Adventure, step: number, selection: MenuChoice): Adventure {
+export function choose(story: Story, adventure: Adventure, step: number, selection: PlayerChoice): Adventure {
   if (adventure.frame.phase !== 'choose') throw new Error('There is no next choice; submit the final report.');
   if (step !== adventure.frame.step) throw new Error(`Stale step. Respond to step ${adventure.frame.step}.`);
-  const selected = adventure.frame.options.find(option => option.choice === selection);
-  if (!selected) throw new Error('Choose an option from the current menu.');
-  if (selected.kind === 'look') return {...adventure,frame:{...adventure.frame,messages:[{kind:'board',text:board(story,adventure.state)}],options:adventure.frame.options.filter(option => option.kind !== 'look')}};
-  if (typeof selection !== 'number') throw new Error('Choose an option from the current menu.');
+  if (adventure.playStyle === 'detailed') {
+    const command = detailedCommand(selection);
+    if (!isLook(command)) {
+      const before = adventure.state, result = detailedTurn(story,before,command);
+      const messages:Message[] = [{kind:'result',text:result.text}];
+      const state = drain(story,result.state,messages);
+      messages.push(...goalChanges(story,before,state));
+      return finishFrame(story,state,adventure.mode,step+1,messages,true,adventure.playStyle);
+    }
+  } else if (typeof selection === 'object') throw new Error('Choose an option from the current menu.');
+  if (isLook(selection)) {
+    if (!adventure.frame.lookAvailable) throw new Error('Choose an option from the current menu; look is not available at this step.');
+    return {...adventure,frame:{...adventure.frame,lookAvailable:false,messages:[{kind:'board',text:board(story,adventure.state)}],options:adventure.frame.options.filter(option => option.kind !== 'look')}};
+  }
+  if (typeof selection !== 'number' || !adventure.frame.options.some(option => option.choice === selection)) throw new Error('Choose an option from the current menu.');
   const menu = choices(story, adventure.state);
   const before = adventure.state, combined = act(story, before, menu[selection - 1]);
   const messages: Message[] = [{kind:'result', text:changes(story, before, combined).join('\n') || 'The preparation is complete.'}];
   const state = drain(story, combined, messages);
   messages.push(...goalChanges(story,before,state));
-  return finishFrame(story, state, adventure.mode, step + 1, messages, true);
+  return finishFrame(story, state, adventure.mode, step + 1, messages, true,adventure.playStyle);
 }
 export function renderFrame(frame: Frame): string {
   const text = frame.messages.map((message,index) => `${index ? message.kind === 'wonder' ? '\n' : '\n\n' : ''}${message.text}`).join('');
-  return text + (frame.prompt ? `\n\n${frame.prompt}\n${frame.options.map(o => `${o.choice}. ${o.text}`).join('\n')}` : '');
+  return text + (frame.prompt ? `\n\n${frame.prompt}\n${frame.playStyle === 'fast' ? frame.options.map(o => `${o.choice}. ${o.text}`).join('\n') : ''}` : '');
 }

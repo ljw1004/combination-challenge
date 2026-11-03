@@ -107,8 +107,8 @@ The manuscripts were subsequently renamed from `story.md` to `<slug>.md`, and fo
 | Browser tests | `npm run browser-test` | Run just the Chromium checks. |
 | Production build | `npm run build` | Run lint and type checking, then bundle the browser game. |
 | Checkpoint generator | `npm run checkpoint -- STORY CHAPTER_INDEX [OUTPUT.json]` | Prepare a chapter through a legal replay. |
-| Logical player | `npm run play -- list` | List stories and session commands. |
-| AI playtester | `npm run playtest -- ...` | Run a JSON agent process or service through the player interface. |
+| Logical player | `npm run play -- list` | List stories; start human play with `npm run play -- --fast STORY` or `--detailed STORY`. |
+| AI playtester | `npm run playtest -- --fast ...` or `--detailed ...` | Run a JSON agent process or service through the selected player interface. |
 | Evaluator | `npm run evaluate -- SESSION` | Verify frozen replay and write an evidence profile. |
 | Story analyzer | `npm run analyze -- FILE_OR_STORY` | Print six plain-text answers, or use `--table` for a comparison; [counting guide](docs/story-authoring.md#analyze-combination-structure). |
 
