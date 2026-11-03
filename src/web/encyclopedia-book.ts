@@ -5,7 +5,7 @@ import { encyclopediaEntries } from './encyclopedia.ts';
 import { escape } from './markdown.ts';
 import { readingBody } from './presentation.ts';
 
-/** The viewport reveals one whole page plus the facing-page edge at every width. */
+/** Stable facing pages support both a sliding mobile view and a full spread. */
 export function encyclopediaBook(story: Story, state: State, selected: string | undefined, detail: boolean, asset: (path: string) => string): string {
   const entries = encyclopediaEntries(story, state), chapters = [...new Set(entries.map(entry => entry.chapter))];
   const text = selected ? readings(story, state, selected).map(reading => reading.markdown).join('\n\n') : '';

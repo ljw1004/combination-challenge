@@ -2,6 +2,24 @@ import type { Story } from '../story/types.ts';
 import type { State } from '../engine/types.ts';
 import { label, readings } from '../engine/game.ts';
 
+export interface EncyclopediaHistory { wonder?: string; selected?: string }
+
+/** Browser reading history is separate from engine discovery acknowledgments. */
+export function restoreEncyclopediaHistory(value: unknown): EncyclopediaHistory {
+  if (!value || typeof value !== 'object') return {};
+  return {
+    wonder: 'wonder' in value && typeof value.wonder === 'string' ? value.wonder : undefined,
+    selected: 'selected' in value && typeof value.selected === 'string' ? value.selected : undefined,
+  };
+}
+
+export function remapEncyclopediaHistory(history: EncyclopediaHistory, items: Map<string, string>): EncyclopediaHistory {
+  return {
+    wonder: history.wonder ? items.get(history.wonder) ?? history.wonder : undefined,
+    selected: history.selected ? items.get(history.selected) ?? history.selected : undefined,
+  };
+}
+
 /** Readings follow encounter chronology, not current placement or label spelling.
  * Unknown legacy edited history stays explicit rather than inventing a chapter. */
 export function encyclopediaEntries(story: Story, state: State): { id: string; name: string; chapter: number | null }[] {

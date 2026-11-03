@@ -1,5 +1,6 @@
 import { test, expect } from '@playwright/test';
 import type { Page } from '@playwright/test';
+import { openDebugPanel } from './debug-helpers.ts';
 
 const manuscript = `# Library fixture
 ## Workshop
@@ -166,8 +167,8 @@ test('two touch taps open an encyclopedia entry below the unlock threshold and C
   await context.close();
 });
 
-test('one whole page and facing sliver at desktop and phone widths; page-local controls slide with it', async ({ page }) => {
-  await page.setViewportSize({ width: 1100, height: 800 });
+test('mobile inner edges stay square; resizing reveals two accessible pages with only the right Close', async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 800 });
   await page.emulateMedia({ reducedMotion: 'reduce' });
   await openFixture(page, manuscript.replace('- Tool\n', '- Extra\n\n  Extra description.\n\n- Tool\n'));
   await page.getByRole('button', { name: 'Read this chapter' }).click();
@@ -178,7 +179,7 @@ test('one whole page and facing sliver at desktop and phone widths; page-local c
   const index = page.locator('.encyclopedia-index'), detail = page.locator('.encyclopedia-detail');
   const pages = page.locator('.encyclopedia-pages'), spine = page.locator('.encyclopedia-spine');
   const node = (await dialog.elementHandle())!;
-  for (const width of [1100, 390]) {
+  for (const width of [320, 639]) {
     await page.setViewportSize({ width, height: 800 });
     await expect(index).toHaveAttribute('aria-hidden', 'false');
     await expect(detail).toHaveAttribute('aria-hidden', 'true');
@@ -191,6 +192,7 @@ test('one whole page and facing sliver at desktop and phone widths; page-local c
     expect(left.width).toBeCloseTo(viewport.width - 24, 0);
     expect(fold.width).toBeCloseTo(12, 0);
     expect(right.x - viewport.x).toBeCloseTo(viewport.width - 12, 0);
+    expect(await dialog.evaluate(el => [getComputedStyle(el).borderTopRightRadius, getComputedStyle(el).borderBottomRightRadius])).toEqual(['0px', '0px']);
     await page.getByRole('link', { name: 'Stone', exact: true }).click();
     await expect(index).toHaveAttribute('aria-hidden', 'true');
     await expect(detail).toHaveAttribute('aria-hidden', 'false');
@@ -206,6 +208,7 @@ test('one whole page and facing sliver at desktop and phone widths; page-local c
     const turned = (await detail.boundingBox())!;
     expect(turned.x - viewport.x).toBeCloseTo(24, 0);
     expect(turned.width).toBeCloseTo(viewport.width - 24, 0);
+    expect(await dialog.evaluate(el => [getComputedStyle(el).borderTopLeftRadius, getComputedStyle(el).borderBottomLeftRadius])).toEqual(['0px', '0px']);
     expect(await page.locator('.encyclopedia-track').evaluate(el => getComputedStyle(el).transitionDuration)).toBe('0s');
     await expect(detail.locator('.reading-text')).toHaveText('A stone explanation.');
     expect(await node.evaluate(el => el.isConnected)).toBe(true);
@@ -214,9 +217,135 @@ test('one whole page and facing sliver at desktop and phone widths; page-local c
     await expect(page.getByRole('link', { name: 'Stone', exact: true })).toHaveAttribute('aria-current', 'true');
   }
   await page.getByRole('link', { name: 'Grain', exact: true }).click();
-  await page.getByRole('button', { name: 'Close', exact: true }).click();
+  for (const width of [640, 1100]) {
+    await page.setViewportSize({ width, height: 800 });
+    await expect(index).toHaveAttribute('aria-hidden', 'false');
+    await expect(detail).toHaveAttribute('aria-hidden', 'false');
+    expect(await index.evaluate(el => (el as HTMLElement).inert)).toBe(false);
+    expect(await detail.evaluate(el => (el as HTMLElement).inert)).toBe(false);
+    await expect(page.getByRole('button', { name: 'Index', exact: true })).toHaveCount(0);
+    await expect(page.getByRole('button', { name: 'Close', exact: true })).toHaveCount(1);
+    await expect(detail.getByRole('button', { name: 'Close', exact: true })).toBeVisible();
+    const viewport = (await pages.boundingBox())!, left = (await index.boundingBox())!, right = (await detail.boundingBox())!;
+    expect(left.x).toBeCloseTo(viewport.x, 0);
+    expect(left.width).toBeCloseTo((viewport.width - 12) / 2, 0);
+    expect(right.x).toBeCloseTo(left.x + left.width + 12, 0);
+    expect(right.x + right.width).toBeCloseTo(viewport.x + viewport.width, 0);
+    await page.getByRole('link', { name: 'Stone', exact: true }).click();
+    await expect(detail.locator('.reading-text')).toHaveText('A stone explanation.');
+    await expect(page.getByRole('link', { name: 'Stone', exact: true })).toBeFocused();
+    expect(await node.evaluate(el => el.isConnected)).toBe(true);
+  }
+  await page.setViewportSize({ width: 390, height: 800 });
+  await expect(index).toHaveAttribute('inert', '');
+  await expect(page.getByRole('button', { name: 'Index', exact: true })).toBeFocused();
+  await page.setViewportSize({ width: 1100, height: 800 });
+  await expect(page.getByRole('link', { name: 'Stone', exact: true })).toBeFocused();
+  await page.keyboard.press('Escape');
   await expect(page.locator('dialog')).toHaveCount(0);
   await expect(page.getByRole('button', { name: 'Read this chapter' })).toBeEnabled();
+  // A wide browser still has a narrow game area alongside the authoring pane.
+  await openDebugPanel(page);
+  await page.getByRole('button', { name: 'Read this chapter' }).click();
+  await page.getByRole('button', { name: 'Encyclopedia', exact: true }).click();
+  await expect(index).toHaveAttribute('aria-hidden', 'false');
+  await expect(detail).toHaveAttribute('inert', '');
+  await expect(index.getByRole('button', { name: 'Close', exact: true })).toBeVisible();
+});
+
+test('chapter opening chooses first, previous selection, then latest shown wonder; mobile always opens the index', async ({ page }) => {
+  await page.setViewportSize({ width: 1000, height: 800 });
+  await openFixture(page, manuscript.replace('Finish -- Final', 'Finish -- Unfinished')
+    .replace('- Tool\n', '- Extra\n\n  Extra description.\n\n- Tool\n')
+    .replace('- Final\n', '- Final\n\n  Final explanation.\n\n- Unfinished\n')
+    + '- Final [preserve] + Tool [preserve] -> Unfinished\n');
+  const openBook = async () => {
+    await page.getByRole('button', { name: 'Read this chapter' }).click();
+    await page.getByRole('button', { name: 'Encyclopedia', exact: true }).click();
+  };
+  const close = () => page.getByRole('button', { name: 'Close', exact: true }).click();
+  const selected = page.locator('.encyclopedia-list [aria-current]');
+  await openBook();
+  await expect(selected).toHaveText('Grain');
+  await expect(page.locator('.encyclopedia-reading')).toHaveText('A grain explanation.');
+  await page.getByRole('link', { name: 'Stone', exact: true }).click();
+  await close(); await openBook();
+  await expect(selected).toHaveText('Stone');
+  await close(); await page.reload(); await openBook();
+  await expect(selected).toHaveText('Stone');
+  await close();
+  await page.locator('[data-item="name:Grain"]').dragTo(page.locator('[data-item="name:Stone"]'));
+  await page.getByRole('button', { name: 'Continue', exact: true }).click();
+  await page.locator('[data-item="name:Extra"]').dblclick();
+  await expect(selected).toHaveText('Extra');
+  await expect(page.locator('.encyclopedia-reading')).toHaveText('Extra description.');
+  await close(); await page.reload(); await openBook();
+  await expect(selected).toHaveText('Flour');
+  await expect(page.locator('.encyclopedia-reading')).toHaveText('A flour explanation.');
+  await close();
+  await page.setViewportSize({ width: 390, height: 844 });
+  await openBook();
+  await expect(page.locator('.encyclopedia-pages')).not.toHaveClass(/show-detail/);
+  await expect(page.locator('.encyclopedia-detail')).toHaveAttribute('inert', '');
+  await close();
+  await page.locator('[data-item="name:Flour"]').dragTo(page.locator('[data-item="name:Tool"]'));
+  await page.getByRole('button', { name: 'Continue', exact: true }).click();
+  await page.setViewportSize({ width: 1000, height: 800 });
+  await page.locator('[data-item="name:Extra"]').dblclick();
+  await expect(selected).toHaveText('Extra');
+  await close(); await page.reload(); await openBook();
+  await expect(selected).toHaveText('Final');
+  await expect(page.locator('.encyclopedia-reading')).toHaveText('Final explanation.');
+});
+
+test('story restart clears wonder history and the previous selection', async ({ page }) => {
+  await page.setViewportSize({ width: 1000, height: 800 });
+  const text = manuscript.replace('- Grain [transform] + Stone [consume] -> Flour', '- Grain [preserve] + Stone [preserve] -> Flour')
+    .replace('- Tool\n', '- Extra\n\n  Extra description.\n\n- Tool\n');
+  await openFixture(page, text);
+  await page.locator('[data-item="name:Grain"]').dragTo(page.locator('[data-item="name:Stone"]'));
+  await page.getByRole('button', { name: 'Continue', exact: true }).click();
+  await page.locator('[data-item="name:Stone"]').dblclick();
+  await page.getByRole('button', { name: 'Close', exact: true }).click();
+  await page.getByRole('button', { name: 'Read this chapter' }).click();
+  await page.getByRole('button', { name: 'Restart this chapter' }).click();
+  await page.getByRole('button', { name: 'Begin', exact: true }).click();
+  await page.getByRole('button', { name: 'Read this chapter' }).click();
+  await page.getByRole('button', { name: 'Encyclopedia', exact: true }).click();
+  // Flour's reading is no longer encountered, so the previous Stone visit wins.
+  await expect(page.locator('.encyclopedia-list [aria-current]')).toHaveText('Stone');
+  await page.getByRole('button', { name: 'Close', exact: true }).click();
+  await page.getByRole('button', { name: 'Read this chapter' }).click();
+  await page.getByRole('button', { name: 'Restart story', exact: true }).click();
+  await page.getByRole('button', { name: 'Restart story', exact: true }).click();
+  await page.getByRole('button', { name: 'Start', exact: true }).click();
+  await page.getByRole('button', { name: 'Begin', exact: true }).click();
+  await page.getByRole('button', { name: 'Read this chapter' }).click();
+  await page.getByRole('button', { name: 'Encyclopedia', exact: true }).click();
+  await expect(page.locator('.encyclopedia-list [aria-current]')).toHaveText('Grain');
+  await expect(page.locator('.encyclopedia-reading')).toHaveText('A grain explanation.');
+  const history = await page.evaluate(() => {
+    const key = Object.keys(localStorage).find(key => key.startsWith('combination') && JSON.parse(localStorage.getItem(key)!).state);
+    return key && JSON.parse(localStorage.getItem(key)!).encyclopedia;
+  });
+  expect(history).toEqual({ selected: 'name:Grain' });
+});
+
+test('opening a late entry selects it and scrolls the index into view in the spread', async ({ page }) => {
+  await page.setViewportSize({ width: 1000, height: 700 });
+  const entries = Array.from({ length: 30 }, (_, i) => `- Entry ${String(i).padStart(2, '0')}\n\n  Description ${i}.`).join('\n\n');
+  await openFixture(page, manuscript.replace('- Tool\n', `${entries}\n\n- Tool\n`));
+  // Keyboard activation avoids the intentionally crowded fixture's overlapping tiles.
+  await page.locator('[data-item="name:Entry 29"]').focus();
+  await page.keyboard.press('Enter');
+  await expect(page.locator('.encyclopedia-reading')).toHaveText('Description 29.');
+  const selected = page.getByRole('link', { name: 'Entry 29', exact: true });
+  await expect(selected).toHaveAttribute('aria-current', 'true');
+  const row = (await selected.boundingBox())!, list = (await page.locator('.encyclopedia-list').boundingBox())!;
+  expect(row.y).toBeGreaterThanOrEqual(list.y);
+  expect(row.y + row.height).toBeLessThanOrEqual(list.y + list.height + 1);
+  expect(await page.locator('.encyclopedia-list').evaluate(el => el.scrollTop)).toBeGreaterThan(0);
+  expect(await page.locator('.encyclopedia-pages').evaluate(el => el.scrollLeft)).toBe(0);
 });
 
 test('keyboard activation opens the same entry below threshold; Index and Escape reveal only encountered descriptions', async ({ page }) => {

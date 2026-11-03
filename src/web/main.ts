@@ -14,7 +14,7 @@ import { markdown, escape } from './markdown.ts';
 import { reconcile } from './reconcile.ts';
 import { saveProgress } from './persistence.ts';
 import { encyclopediaBook } from './encyclopedia-book.ts';
-import { encyclopediaEntries, openBook } from './encyclopedia.ts';
+import { encyclopediaEntries, openBook, restoreEncyclopediaHistory, remapEncyclopediaHistory, type EncyclopediaHistory } from './encyclopedia.ts';
 import { ItemFeedback } from './item-feedback.ts';
 import { restoreItemOrder } from './item-order.ts';
 import { readingBody, goalPresentation, type GoalPresentation } from './presentation.ts';
@@ -51,7 +51,7 @@ let hotspotTutorialRecipe: string | undefined;
 let tutorialSaveError = '', progressSaveError = '';
 let story: Story, state: State, chapterSession: ChapterSession, authoring: AuthoringSession;
 let documentURL = '', storyID = '', legacySaveKey = '', previewText = '', hash = '', saveError = '', editedSnapshot = false;
-interface Anchor { text: string; story: Story; state: State; chapterSession: ChapterSession; itemOrder: string[]; scrollTop: number; viewportHeight?: number; dialog?: DialogContext }
+interface Anchor { text: string; story: Story; state: State; chapterSession: ChapterSession; itemOrder: string[]; scrollTop: number; viewportHeight?: number; dialog?: DialogContext; encyclopedia: EncyclopediaHistory }
 let anchor: Anchor;
 let itemOrder: string[] = [];
 let expectedScroll = 0;
@@ -61,6 +61,7 @@ let storyStarted = false;
 let dialogContext: DialogContext | undefined;
 let dialogOpener: HTMLElement | undefined;
 let encyclopediaScroll = 0;
+let encyclopediaHistory: EncyclopediaHistory = {};
 const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
 const desktopDebug = matchMedia('(min-width: 900px)');
 const itemArtwork = new ItemArtwork();
@@ -165,13 +166,13 @@ reducedMotion.addEventListener('change', () => { if (reducedMotion.matches) sett
 
 function rememberInteraction() {
   if (!state) return;
-  anchor = { text: previewText, story, state: structuredClone(state), chapterSession: structuredClone(chapterSession), itemOrder: [...itemOrder], scrollTop: app.querySelector('.viewport')?.scrollTop ?? 0, viewportHeight: app.clientHeight, dialog: dialogContext && {...dialogContext} };
+  anchor = { text: previewText, story, state: structuredClone(state), chapterSession: structuredClone(chapterSession), itemOrder: [...itemOrder], scrollTop: app.querySelector('.viewport')?.scrollTop ?? 0, viewportHeight: app.clientHeight, dialog: dialogContext && {...dialogContext}, encyclopedia: {...encyclopediaHistory} };
 }
 function save() {
   if (!storyStarted) return;
   saveProgress(() => localStorage.setItem(key(), JSON.stringify({
-    hash, state, chapterSession, itemOrder, editedSnapshot, tutorialCheckpoint,
-    anchor: anchor && { text: anchor.text, state: anchor.state, chapterSession: anchor.chapterSession, itemOrder: anchor.itemOrder, scrollTop: anchor.scrollTop, viewportHeight: anchor.viewportHeight, dialog: anchor.dialog },
+    hash, state, chapterSession, itemOrder, editedSnapshot, tutorialCheckpoint, encyclopedia: encyclopediaHistory,
+    anchor: anchor && { text: anchor.text, state: anchor.state, chapterSession: anchor.chapterSession, itemOrder: anchor.itemOrder, scrollTop: anchor.scrollTop, viewportHeight: anchor.viewportHeight, dialog: anchor.dialog, encyclopedia: anchor.encyclopedia },
   })), showSaveError);
 }
 function updateTutorial() {
@@ -321,6 +322,7 @@ function applyText(text: string) {
     itemOrder: entry.chapter === state.chapter ? restoreItemOrder(Object.keys(entry.tokens), anchor.chapterSession.itemOrder, update.items) : [...itemOrder],
   };
   dialogContext = context?.kind === 'encyclopedia' ? { ...context, item: context.item ? update.items.get(context.item) ?? context.item : undefined } : context;
+  encyclopediaHistory = remapEncyclopediaHistory(anchor.encyclopedia, update.items);
   authoring.setPreviewStatus(update.chapterRemoved ? 'The current chapter is temporarily missing. Restoring it brings you back until you interact with the game.' : '');
   render(false, false);
   const prepared = itemArtwork.prepare(currentArtwork(story, state), asset);
@@ -369,13 +371,14 @@ async function start() {
     let loaded = false;
     try {
       const saved = JSON.parse(localStorage.getItem(key()) ?? (legacySaveKey ? localStorage.getItem(legacySaveKey) : null) ?? 'null');
+      encyclopediaHistory = restoreEncyclopediaHistory(saved?.encyclopedia);
       tutorialCheckpoint = saved?.tutorialCheckpoint === true;
       if (saved?.anchor && typeof saved.anchor.text === 'string') {
         const source = recoverPreviewStory(parse(saved.anchor.text));
         const prior = restoreLiveState(source, saved.anchor.state);
         if (prior) {
           const entry = restoreLiveState(source, saved.anchor.chapterSession?.entry) ?? prior;
-          anchor = { text: saved.anchor.text, story: source, state: prior, chapterSession: { entry, changed: !!saved.anchor.chapterSession?.changed, itemOrder: restoreItemOrder(Object.keys(entry.tokens), saved.anchor.chapterSession?.itemOrder) }, itemOrder: restoreItemOrder(Object.keys(prior.tokens), saved.anchor.itemOrder), scrollTop: Number.isFinite(saved.anchor.scrollTop) ? saved.anchor.scrollTop : 0, viewportHeight: Number.isFinite(saved.anchor.viewportHeight) && saved.anchor.viewportHeight > 0 ? saved.anchor.viewportHeight : undefined, dialog: restoreDialogContext(saved.anchor.dialog) };
+          anchor = { text: saved.anchor.text, story: source, state: prior, chapterSession: { entry, changed: !!saved.anchor.chapterSession?.changed, itemOrder: restoreItemOrder(Object.keys(entry.tokens), saved.anchor.chapterSession?.itemOrder) }, itemOrder: restoreItemOrder(Object.keys(prior.tokens), saved.anchor.itemOrder), scrollTop: Number.isFinite(saved.anchor.scrollTop) ? saved.anchor.scrollTop : 0, viewportHeight: Number.isFinite(saved.anchor.viewportHeight) && saved.anchor.viewportHeight > 0 ? saved.anchor.viewportHeight : undefined, dialog: restoreDialogContext(saved.anchor.dialog), encyclopedia: restoreEncyclopediaHistory(saved.anchor.encyclopedia) };
         }
       }
       if (saved?.hash === hash) {
@@ -392,9 +395,11 @@ async function start() {
     if (!loaded && anchor) {
       const update = reconcileLiveStory(anchor.story, story, anchor.state); story = update.story; state = update.state;
       itemOrder = restoreItemOrder(Object.keys(state.tokens), anchor.itemOrder, update.items);
+      encyclopediaHistory = remapEncyclopediaHistory(anchor.encyclopedia, update.items);
       chapterSession = captureChapter(state, itemOrder); editedSnapshot = true; loaded = true;
     }
     storyStarted = loaded;
+    if (!loaded) encyclopediaHistory = {};
     // Older saves record combinations but not deliberate goals clicks. Infer only the former.
     if (loaded && !tutorialCheckpoint) {
       if (state.actions.some(action => action.type === 'combine')) tutorialProgress.finish('dragDone');
@@ -419,6 +424,7 @@ async function start() {
   }
 }
 function closeDialog() {
+  if (dialogContext?.kind === 'encyclopedia') encyclopediaScroll = dialogLayer.querySelector('.encyclopedia-list')?.scrollTop ?? 0;
   bookResize.disconnect();
   dialogLayer.replaceChildren(); dialogLayer.hidden = true; surface.inert = false; dialogContext = undefined;
   if (dialogOpener?.isConnected) dialogOpener.focus({ preventScroll: true });
@@ -454,7 +460,12 @@ function pendingContent() {
 }
 function showPending() {
   if (!storyStarted || dialogContext || !state?.pending.length) return;
-  modal(pendingContent(), state.pending[0].kind === 'wonder' ? 'wonder' : 'intertitle', { kind: 'pending' });
+  openPendingReading();
+}
+function openPendingReading() {
+  const notice = state.pending[0];
+  modal(pendingContent(), notice.kind === 'wonder' ? 'wonder' : 'intertitle', { kind: 'pending' });
+  if (notice.kind === 'wonder') encyclopediaHistory.wonder = notice.item;
 }
 function chapterContent() {
   const recovery = chapterRecovery(chapterSession);
@@ -464,35 +475,60 @@ function chapterContent() {
 function reopenChapter() { flushPreview(); modal(chapterContent(), 'intertitle', { kind: 'chapter' }); rememberInteraction(); }
 function confirmRestart() { modal('<h1>Restart this story?</h1><p>This removes all progress in this story on this device, including completed chapters, discoveries, item positions and tutorial progress. Your Markdown draft is kept. You will return to the cover page and Start button. This cannot be undone. Your other stories are unchanged.</p><div class="dialog-actions"><button data-command="cancel-reset-story">Cancel</button><button class="danger" data-command="reset-story">Restart story</button></div>', 'ordinary', { kind: 'confirm' }); }
 const bookResize = new ResizeObserver(() => syncBookLayout());
+function bookIsSpread() {
+  const dialog = dialogLayer.querySelector('dialog');
+  return !!dialog && getComputedStyle(dialog).getPropertyValue('--book-spread').trim() === '1';
+}
 function syncBookLayout() {
   if (dialogContext?.kind !== 'encyclopedia') return;
   const dialog = dialogLayer.querySelector<HTMLElement>('dialog')!;
-  const detail = !!dialogContext.detail;
+  const detail = !!dialogContext.detail, spread = bookIsSpread();
   let moveFocus = false;
-  for (const [selector, inactive] of [['.encyclopedia-index', detail], ['.encyclopedia-detail', !detail]] as const) {
+  for (const [selector, hidden] of [['.encyclopedia-index [data-command="close"]', spread], ['[data-command="encyclopedia-back"]', spread || !dialogContext.item]] as const) {
+    const control = dialog.querySelector<HTMLElement>(selector)!;
+    moveFocus ||= hidden && control.contains(document.activeElement);
+    control.hidden = hidden;
+  }
+  for (const [selector, inactive] of [['.encyclopedia-index', !spread && detail], ['.encyclopedia-detail', !spread && !detail]] as const) {
     const pane = dialog.querySelector<HTMLElement>(selector)!;
     moveFocus ||= inactive && pane.contains(document.activeElement);
     pane.inert = inactive;
     pane.setAttribute('aria-hidden', String(inactive));
   }
   if (moveFocus) {
-    const destination = detail ? dialog.querySelector<HTMLElement>('[data-command="encyclopedia-back"]') : selectedEncyclopediaLink();
-    destination?.focus({ preventScroll: true });
+    focusBookPage();
   }
 }
 function selectedEncyclopediaLink() {
   return dialogLayer.querySelector<HTMLElement>('.encyclopedia-list [aria-current]') ?? dialogLayer.querySelector<HTMLElement>('.encyclopedia-list a');
 }
+function focusBookPage() {
+  const detail = dialogContext?.kind === 'encyclopedia' && dialogContext.detail;
+  (detail && !bookIsSpread() ? dialogLayer.querySelector<HTMLElement>('[data-command="encyclopedia-back"]') : selectedEncyclopediaLink())?.focus({ preventScroll: true });
+}
+function revealEncyclopediaSelection() {
+  const link = selectedEncyclopediaLink(), list = dialogLayer.querySelector('.encyclopedia-list');
+  if (!link || !list) return;
+  // Scroll only the list: scrollIntoView can also shift the clipped page track.
+  const row = link.getBoundingClientRect(), bounds = list.getBoundingClientRect();
+  if (row.top < bounds.top) list.scrollTop += row.top - bounds.top;
+  else if (row.bottom > bounds.bottom) list.scrollTop += row.bottom - bounds.bottom;
+}
 function openEncyclopedia(item?: string, detail = false, focus = true) {
   const editing = !!document.activeElement?.closest('.story-editor');
   const previous = dialogContext?.kind === 'encyclopedia' ? dialogContext : undefined;
-  if (item && !encyclopediaEntries(story, state).some(entry => entry.id === item)) { item = undefined; detail = false; }
+  const entries = encyclopediaEntries(story, state);
+  item = [item, encyclopediaHistory.wonder, encyclopediaHistory.selected].find(id => entries.some(entry => entry.id === id)) ?? entries[0]?.id;
   const reading = dialogLayer.querySelector('.encyclopedia-reading'), scroll = previous?.item === item ? reading?.scrollTop ?? 0 : 0;
   const context: DialogContext = { kind: 'encyclopedia', item, detail };
   modal(encyclopediaBook(story, state, item, detail, asset), 'encyclopedia', context);
   const nextReading = dialogLayer.querySelector('.encyclopedia-reading'); if (nextReading) nextReading.scrollTop = scroll;
-  if (focus && !editing) (detail ? dialogLayer.querySelector<HTMLElement>('[data-command="encyclopedia-back"]') : selectedEncyclopediaLink())?.focus({ preventScroll: true });
-  if (focus) rememberInteraction();
+  if (!previous) revealEncyclopediaSelection();
+  if (focus && !editing) focusBookPage();
+  if (focus) {
+    if (detail || bookIsSpread()) encyclopediaHistory.selected = item;
+    rememberInteraction(); save();
+  }
 }
 function backToEncyclopediaIndex() {
   if (dialogContext?.kind === 'encyclopedia') openEncyclopedia(dialogContext.item, false);
@@ -535,7 +571,7 @@ function jumpToCheckpoint(index: number) {
 }
 function refreshDialog() {
   if (dialogContext?.kind === 'pending') {
-    if (state.pending.length) modal(pendingContent(), state.pending[0].kind === 'wonder' ? 'wonder' : 'intertitle', { kind: 'pending' });
+    if (state.pending.length) openPendingReading();
     else closeDialog();
   } else if (dialogContext?.kind === 'chapter') modal(chapterContent(), 'intertitle', dialogContext);
   else if (dialogContext?.kind === 'encyclopedia') openEncyclopedia(dialogContext.item, !!dialogContext.detail, false);
@@ -669,6 +705,7 @@ function restartStory() {
   withArtwork(coverArtwork(story), () => {
     resetGoalView(); closeDialog(); cancelGesture('restart-story'); feedback.clear(); clearCreationLabels();
     storyStarted = false; state = newGame(story); chapterSession = captureChapter(state); itemOrder = [];
+    encyclopediaHistory = {}; encyclopediaScroll = 0;
     tutorialCheckpoint = false; tutorialProgress?.reset();
     // A landing is not a saved game. Removing the old save also makes reload stay here.
     saveProgress(() => {
@@ -887,7 +924,7 @@ window.addEventListener('resize',()=>{cancelGesture('window-resize');if(state&&!
 new ResizeObserver(entries=>{inputTrace?.record('layout:resize-observer',{sizes:entries.map(entry=>({width:entry.contentRect.width,height:entry.contentRect.height}))});cancelGesture('game-resize');if(state)render(false,false);}).observe(app);
 function escapeDialog() {
   if (dialogContext?.kind === 'pending') commit({ type: 'dismiss' });
-  else if (dialogContext?.kind === 'encyclopedia' && dialogContext.detail) backToEncyclopediaIndex();
+  else if (dialogContext?.kind === 'encyclopedia' && dialogContext.detail && !bookIsSpread()) backToEncyclopediaIndex();
   else dismissReading();
 }
 dialogLayer.addEventListener('keydown', event => { if (event.key === 'Escape') { event.preventDefault(); escapeDialog(); } });

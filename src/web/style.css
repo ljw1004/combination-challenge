@@ -3,7 +3,7 @@
 body{margin:0;min-width:0;overflow:hidden}
 button,select{font:inherit;color:inherit}button{cursor:pointer}
 button:focus-visible,select:focus-visible,a:focus-visible{outline:3px solid #267c79;outline-offset:3px}
-#app{height:100dvh;position:relative;overflow:hidden}
+#app{height:100dvh;position:relative;overflow:hidden;container:game / inline-size}
 /* The world is the whole viewport; the HUD never takes layout height. */
 .viewport{overflow-anchor:none;position:absolute;inset:0;overflow-y:auto;overflow-x:hidden;touch-action:pan-y;overscroll-behavior:none}
 .board{position:relative;width:100%;max-width:600px;margin-inline:auto;min-height:100%;touch-action:pan-y;isolation:isolate}.location-label{position:absolute;left:5px;right:5px;pointer-events:none;border-top:1px solid #cfbfa5;color:#8b715b;font-size:10px;padding-top:3px}.thing,.hotspot{position:absolute;transform:translate(-50%,-50%);user-select:none;-webkit-user-select:none}.thing{width:96px;min-height:44px;border:1px solid #8d8068;border-radius:8px;padding:4px;background:#fffaf0;box-shadow:0 2px 4px #53422e15;font-size:12px;line-height:1.15;z-index:3;touch-action:none;-webkit-touch-callout:none;overflow-wrap:anywhere}.hotspot{width:104px;height:82px;border:1.5px solid #9a8b70;border-radius:0;background:transparent;font-size:11px;padding:5px;display:flex;align-items:flex-start;justify-content:center;z-index:1;touch-action:pan-y}.thing .slot{display:block;height:18px;line-height:16px;border:1px dashed #b5a58a;border-radius:3px;margin-top:3px;font-size:9px;overflow:hidden;white-space:nowrap}.thing .slot.filled{border-style:solid;background:#ebe9dc}.pressed{outline:3px solid #163d46;outline-offset:3px;box-shadow:0 0 0 3px #fffaf0!important}.possible{border-color:#063e53!important;outline:2px dashed #fffaf0!important;outline-offset:4px;box-shadow:0 0 0 2px #fffaf0,0 0 0 5px #063e53,0 4px 12px #14252c88!important}.will-create,.will-place{outline:3px solid #6b2e04!important;outline-offset:3px;background:#ffe2a0!important;box-shadow:0 0 0 3px #fffaf0,0 0 0 6px #b25108,0 5px 16px #29190088!important}.goal-met{border-color:#b58b23;box-shadow:0 0 10px #d4aa5366;outline:2px solid #d6ad48;outline-offset:1px}.thing.goal-met{background:#fff1c6}.dragging{pointer-events:none;animation:none!important;transition:none!important}.born{animation:arrival .65s ease-out}@keyframes arrival{0%{transform:translate(calc(-50% + var(--birth-x,0px)),calc(-50% + var(--birth-y,0px))) scale(.75);background:#ffe3a3;box-shadow:0 0 18px #d58b36}55%{background:#ffecc1;box-shadow:0 0 12px #d58b36}100%{transform:translate(-50%,-50%) scale(1)}}
@@ -168,9 +168,10 @@ dialog button,dialog select{min-height:44px}
 @keyframes book-entrance{from{opacity:0;scale:.75;translate:0 3px}to{opacity:1;scale:1;translate:0 0}}
 @media(prefers-reduced-motion:reduce){.thing.reading-selected .reading-indicator{animation:none}}
 
-/* One page fills the book viewport at every width. The central fold and a
-   narrow facing-page sliver travel with the whole page, including its controls. */
-.game-dialog-layer dialog.encyclopedia{width:min(100%,560px);height:min(84dvh,680px);max-height:calc(100dvh - 28px);padding:0;overflow:hidden;display:flex;flex-direction:column;border-radius:8px;background:#fff}
+/* On narrow screens the facing-page sliver ends at a straight inner edge.
+   Only the active page's outside corners curve; the fold travels with it. */
+.game-dialog-layer dialog.encyclopedia{--book-spread:0;width:min(100%,560px);height:min(84dvh,680px);max-height:calc(100dvh - 28px);padding:0;overflow:hidden;display:flex;flex-direction:column;border-radius:8px 0 0 8px;background:#fff}
+.game-dialog-layer dialog.encyclopedia:has(.show-detail){border-radius:0 8px 8px 0}
 .encyclopedia-header{display:flex;align-items:center;justify-content:space-between;gap:12px;flex:none;padding:14px 16px 10px;min-height:68px}
 .encyclopedia-header .encyclopedia-close{display:grid;place-items:center;flex:none;margin-left:auto;width:44px;height:44px;min-height:44px;padding:0;border:0;background:transparent;font:normal 28px/1 sans-serif}
 /* Book focus stays real and keyboard-visible, without rectangular chrome. */
@@ -201,6 +202,14 @@ dialog button,dialog select{min-height:44px}
 .encyclopedia-reading .reading-text>:first-child{margin-top:8px}
 .encyclopedia-placeholder{color:#857b69;font:italic 17px/1.5 Georgia,serif;margin-top:16px}
 .encyclopedia-pages.show-detail .encyclopedia-track{transform:translateX(calc(-100% + 36px))}
+/* Two narrow (320px) mobile views fit in the available game area. The editor
+   can reduce that area independently of the browser window. */
+@container game (min-width:640px){
+  .game-dialog-layer dialog.encyclopedia{--book-spread:1;width:min(100%,960px)}
+  .game-dialog-layer dialog.encyclopedia,.game-dialog-layer dialog.encyclopedia:has(.show-detail){border-radius:8px}
+  .encyclopedia-index,.encyclopedia-detail{flex-basis:calc((100% - 12px)/2)}
+  .encyclopedia-pages .encyclopedia-track,.encyclopedia-pages.show-detail .encyclopedia-track{transform:none;transition:none}
+}
 @media(prefers-reduced-motion:reduce){.encyclopedia-track{transition:none}}
 /* The facing-page edge is paper, not an inactive scrollbar. Keep its gutter
    allocated so hiding the thumb never changes wrapping or scroll position. */
