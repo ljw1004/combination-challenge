@@ -172,20 +172,20 @@ The analyzer's six-line summary and comparison table use these conventions:
 5. **Chains across chapters:** count items whose history of successive combinations includes work in more than one chapter during the debugger’s playthrough. Count each item once, using its final assembled form.
 6. **Items at chapter starts:** count the items on the board when the debugger opens each chapter, including the ending. An assembled object counts as one item. Items left on earlier boards and the landscape itself are excluded. If the debugger skips a requested chapter, count the board it opens instead.
 
-Averages are rounded to one decimal place. The table has one row per number, with secondary numbers indented. The command reports an error if it cannot finish the story or a chain loops back on itself.
+Averages are rounded to one decimal place. The table has one row per number, with secondary numbers indented. Analysis fails for a story if it cannot finish the story or a chain loops back on itself; table mode warns and skips that input under the [comparison rules](ux.md#story-analysis-comparisons).
 
 `--json --details` adds individual items and checkpoints, including `checkpoints[].peakItems`: the largest current-board item count observed for that checkpoint's chapter along the debugger route. This helps identify intermediate clutter, but another legal route may reach a different peak. It does not change the starting-item measure or the six-line summary. Inspect geometry and readability in the browser as well as counts.
 
-The analyzer accepts an absolute Markdown path, a path relative to the current directory, or a published story name such as `mars`. One input prints exactly six plain-text lines. Generate comparisons from current manuscripts; do not treat a copied table from an earlier draft as current evidence:
+The analyzer requires explicit file paths, absolute or relative to the current directory. It recognizes stories by parsed content under the [input rules](ux.md#story-analysis-comparisons), regardless of filename or extension. One input prints exactly six plain-text lines. Generate comparisons from current manuscripts; do not treat a copied table from an earlier draft as current evidence:
 
 ```sh
-npm run analyze -- --table
-npm run analyze -- --table cookbook settlement
-npm run analyze -- --table --include projects/mars-study/mars-v3/mars.md
-npm run analyze -- --table --include projects/mars-study/mars-v3/mars.md --output runs/story-comparison.md
+npm run analyze -- --table stories/cookbook/cookbook.md stories/settlement/settlement.md
+npm run analyze -- --table stories/*/*.md
+npm run analyze -- --table stories/*/*.md projects/mars-study/mars-v3/mars.md
+npm run analyze -- --table stories/*/*.md --output runs/story-comparison.md
 ```
 
-`--table` prints a whitespace-aligned Markdown table with stories as columns. With no filenames it includes all published stories; supplying filenames selects those stories instead. Repeat `--include PATH` to add drafts. Without `--output` the result is printed; with it, the result is saved only after every input succeeds. The destination's parent directory must already exist, and the command refuses to overwrite an input manuscript. `--help` lists the options.
+`--table` prints a whitespace-aligned Markdown table with stories as columns, using the [column naming and input-skipping rules](ux.md#story-analysis-comparisons). Supply each input as a positional filename, including project drafts. Shell globs can include unrelated documents or invalid inputs: warnings identify files skipped based on their content or loading/analysis failures. Without `--output` the result is printed; with it, the result is saved after processing the inputs, provided at least one story succeeds. The destination's parent directory must already exist, and the command refuses to overwrite any input file, including skipped ones. `--help` lists the options.
 
 `--json` provides machine-readable output; add `--details` for the individual items and checkpoints described above. JSON schema version 2 includes manuscript hashes. Keep detailed exports in ignored `runs/` space and discard them after recording useful conclusions, except for explicitly requested retained deliverables under the [verification policy](engineering.md#verification-records).
 

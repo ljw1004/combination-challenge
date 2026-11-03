@@ -87,9 +87,9 @@ stories/<slug>/<slug>.md
 stories/<slug>/assets/...
 ```
 
-Multiple manuscripts can share a directory and its artwork: for example, `stories/theology/theology.md` and `stories/theology/alternate.md` can both reference `assets/scene.webp` in `stories/theology/assets/`. The catalogue and CLI tools discover `.md` manuscripts under `stories/`, excluding the reserved filename `design-brief.md` (case-insensitive). A story may keep its durable editorial and visual intent in that companion brief. Keep research, iteration notes and other non-story documentation in its project directory.
+Multiple manuscripts can share a directory and its artwork: for example, `stories/theology/theology.md` and `stories/theology/alternate.md` can both reference `assets/scene.webp` in `stories/theology/assets/`. Catalogue discovery finds `.md` manuscripts under `stories/`, excluding the reserved filename `design-brief.md` (case-insensitive). A story may keep its durable editorial and visual intent in that companion brief. Keep research, iteration notes and other non-story documentation in its project directory.
 
-CLI tools accept the path relative to `stories/`, such as `theology/theology.md`, or a filename without `.md`, such as `theology`, when that short name is unique. `npm run play -- list` lists the full paths. The browser uses each Markdown URL for independent drafts and saves, including when manuscripts share a directory. Neither the path nor filename is the player-facing title. Vite serves the contents of `stories/` at the site root. Start with the [authoring guide](docs/story-authoring.md) when writing a story and consult the [specification](docs/story-format-spec.md) for syntax and semantics.
+The linter, checkpoint and playtesting tools accept the path relative to `stories/`, such as `theology/theology.md`, or a filename without `.md`, such as `theology`, when that short name is unique. `npm run play -- list` lists the full paths. The [analyzer](#story-analysis) takes explicit file paths relative to the current directory or absolute paths, and recognizes stories by content. The browser uses each Markdown URL for independent drafts and saves, including when manuscripts share a directory. Neither the path nor filename is the player-facing title. Vite serves the contents of `stories/` at the site root. Start with the [authoring guide](docs/story-authoring.md) when writing a story and consult the [specification](docs/story-format-spec.md) for syntax and semantics.
 
 Settlement (`settlement`) and Theology (`theology`) were renamed from Elements (`elements`) and Divinity (`divinity`) on 31 October 2026. The old story routes, including the earlier `elements-icons` route, are no longer served. Existing browser saves and drafts remain under their original URLs; the renames do not migrate or delete them.
 
@@ -110,7 +110,7 @@ The manuscripts were subsequently renamed from `story.md` to `<slug>.md`, and fo
 | Logical player | `npm run play -- list` | List stories; start human play with `npm run play -- --fast STORY` or `--detailed STORY`. |
 | AI playtester | `npm run playtest -- --fast ...` or `--detailed ...` | Run a JSON agent process or service through the selected player interface. |
 | Evaluator | `npm run evaluate -- SESSION` | Verify frozen replay and write an evidence profile. |
-| Story analyzer | `npm run analyze -- FILE_OR_STORY` | Print six plain-text answers, or use `--table` for a comparison; [counting guide](docs/story-authoring.md#analyze-combination-structure). |
+| Story analyzer | `npm run analyze -- FILE` | Print six plain-text answers, or use `--table FILE ...` for a comparison; [counting guide](docs/story-authoring.md#analyze-combination-structure). |
 
 Useful authoring commands:
 

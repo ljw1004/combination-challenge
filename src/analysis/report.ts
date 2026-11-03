@@ -3,10 +3,36 @@ import type {StoryAnalysis} from './analyze.ts';
 export type SourcedAnalysis = StoryAnalysis & {sha256: string};
 const average = (value: number | null) => value === null ? 'n/a' : value.toFixed(1);
 const count = (value: number | null) => value === null ? 'n/a' : String(value);
-const columnHeadings: Record<string, string> = {
-  'cookbook/cookbook.md': 'cook', 'ideas/ideas.md': 'ideas', 'mars/mars.md': 'mars',
-  'settlement/settlement.md': 'settle', 'theology/theology.md': 'theology', 'mars-v2/mars.md': 'mars2',
-};
+
+function columnHeadings(sources: readonly string[]): string[] {
+  const paths = sources.map(source => source.replaceAll('\\', '/').replace(/\.md$/i, '').split('/'));
+  const labels = paths.map((parts, index) => {
+    let depth = 1;
+    while (depth < parts.length && paths.some((other, otherIndex) =>
+      otherIndex !== index && other.slice(-depth).join('/') === parts.slice(-depth).join('/'))) depth++;
+    return parts.slice(-depth).join('/');
+  });
+  const groups = new Map<string, number[]>();
+  paths.forEach((parts, index) => {
+    const basename = parts.at(-1)!;
+    if (!groups.has(basename)) groups.set(basename, []);
+    groups.get(basename)!.push(index);
+  });
+  for (const indices of groups.values()) {
+    if (indices.length < 2 || indices.some(index => !labels[index].includes('/'))) continue;
+    const directories = indices.map(index => labels[index].split('/')[0]);
+    let prefix = directories[0];
+    for (const directory of directories) {
+      while (!directory.startsWith(prefix)) prefix = prefix.slice(0, -1);
+    }
+    // Trim whole prefix words, keeping meaningful suffixes such as v8 and v9 intact.
+    prefix = prefix.replace(/[^-_.\s]*$/, '');
+    if (prefix && directories.every(directory => directory.length > prefix.length)) {
+      for (const index of indices) labels[index] = labels[index].slice(prefix.length);
+    }
+  }
+  return labels;
+}
 
 export function textReport(story: StoryAnalysis): string {
   const {totals, completion, chains, chapterItems} = story;
@@ -23,7 +49,7 @@ export function textReport(story: StoryAnalysis): string {
 export function markdownTable(stories: readonly StoryAnalysis[]): string {
   const secondary = '\u00a0\u00a0'; // Visible indentation in both Markdown source and rendered HTML.
   const rows = [
-    ['Measure', ...stories.map(s => columnHeadings[s.source.replaceAll('\\', '/').split('/').slice(-2).join('/')] ?? s.title)],
+    ['Measure', ...columnHeadings(stories.map(s => s.source))],
     ['Number of items', ...stories.map(s => count(s.totals.primitives + s.totals.derived))],
     [`${secondary}of which primitive`, ...stories.map(s => count(s.totals.primitives))],
     ['Number of combinations', ...stories.map(s => count(s.totals.combinations))],
