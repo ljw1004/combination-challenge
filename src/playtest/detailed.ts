@@ -37,7 +37,11 @@ function hints(story:Story,state:State,id:string,available:Operation[]):string {
 export function detailedChoiceKey(story:Story,state:State,choice:DetailedChoice):string {
   const objects = detailedObjects(story,state);
   if ('inspect' in choice) return JSON.stringify(['inspect',resolveName(choice.inspect,objects).id]);
-  return JSON.stringify(['combine',...[resolveName(choice.combine,objects).id,resolveName(choice.with,objects).id].sort()]);
+  const first = resolveName(choice.combine,objects).id, second = resolveName(choice.with,objects).id, ids = [first,second];
+  // Only compatible pairs are interchangeable: an incompatible attempt inspects
+  // its first operand, so reversing it can reveal or perform a different action.
+  if (operations(story,state).some(o => involves(o,first) && partner(o,first).includes(second))) ids.sort();
+  return JSON.stringify(['combine',...ids]);
 }
 
 export function detailedTurn(story:Story,state:State,choice:DetailedChoice):{state:State;text:string} {
@@ -45,18 +49,23 @@ export function detailedTurn(story:Story,state:State,choice:DetailedChoice):{sta
   const second = 'combine' in choice ? resolveName(choice.with,objects) : undefined;
   const available = operations(story,state), matching = available.filter(o => involves(o,first.id));
   let selected:Operation|undefined;
-  if (!second) selected = matching.length === 1 ? matching[0] : undefined;
-  else {
+  if (second) {
     const candidates = matching.filter(o => partner(o,first.id).includes(second.id));
     // Direct station operations precede contextual reactions; each group keeps
     // manuscript order. A placement-only goal follows executable reactions.
     selected = candidates.find(o => 'reaction' in o && !o.reaction.action.b) ?? candidates[0];
   }
-  if (!selected) return {state,text:`${second ? 'Cannot be combined\n' : ''}${hints(story,state,first.id,available)}`};
-  const messages:string[] = second ? [] : [
-    hints(story,state,first.id,available),
-    `Combined: with ${itemName(story,state,partner(selected,first.id)[0])}.`,
-  ];
+  const inspecting = !selected, messages:string[] = [];
+  if (!selected) {
+    if (second) {
+      if (!matching.length) return {state,text:'That cannot be combined with anything'};
+      messages.push("That can't be combined like that, but here's how it can:");
+    }
+    messages.push(hints(story,state,first.id,available));
+    if (matching.length !== 1) return {state,text:messages.join('\n')};
+    selected = matching[0];
+    messages.push(`Combined: with ${itemName(story,state,partner(selected,first.id)[0])}.`);
+  }
   if ('placement' in selected) {
     const after = performLogicalPlacement(story,state,selected.placement);
     messages.push(...selected.placement.moves.map(m => `Placed: ${itemName(story,state,m.item)} at ${label(story,state,m.hotspot!)}.`));
@@ -65,7 +74,7 @@ export function detailedTurn(story:Story,state:State,choice:DetailedChoice):{sta
   const reaction = selected.reaction, after = performLogicalReaction(story,state,reaction);
   const a = reaction.action, result = itemName(story,after,reaction.recipe.result.id);
   if (a.hotspot && a.b) {
-    const other = first.id === a.b || second?.id === a.b ? a.a : a.b;
+    const other = first.id === a.b || (!inspecting && second?.id === a.b) ? a.a : a.b;
     messages.push(`Combined this together with: ${itemName(story,state,other)}.`);
   }
   const inputs = [a.a,...(a.b ? [a.b] : [])];

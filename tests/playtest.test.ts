@@ -174,8 +174,10 @@ test('new games require exactly one mode and detailed terminal commands work thr
       assert.throws(()=>run('src/playtest/run-ai.ts',['--story',manuscript,'--session','missing-mode','--guidance','','--agent','["node"]',...flags]),/exactly one of --fast or --detailed/);
     }
     assert(!existsSync(join(folder,'runs/missing-mode')));
-    const output=run('src/playtest/cli.ts',[manuscript,'--detailed'],'\ncombine Sheet with Lid\ni Sheet\ni Lid\nc "Case" with Shelf\ni Label\n');
-    assert.match(output,/Cannot be combined/);assert.match(output,/Transformed into: Case\[\]/);
+    const output=run('src/playtest/cli.ts',[manuscript,'--detailed'],'\ncombine Lid with Sheet\ncombine Sheet with Lid\ni Lid\nc "Case" with Shelf\ni Label\n');
+    assert.match(output,/That cannot be combined with anything/);
+    assert.match(output,/That can't be combined like that, but here's how it can:\nCan combine with:\n- Tool\nCombined: with Tool\./);
+    assert.match(output,/Transformed into: Case\[\]/);
     assert.match(output,/Slotted in: Case\[Lid\]/);assert.match(output,/Story completed/);
     assert.doesNotMatch(output,/^\d+\. /m);assert.doesNotMatch(output,/L\. \[Look/);
     assert.equal((output.match(/folded metal/g)||[]).length,1);
@@ -188,11 +190,13 @@ test('detailed AI transport persists counted attempts, selected instructions and
     const manuscript=join(folder,'story.md'),agent=join(folder,'detailed.mjs');writeFileSync(manuscript,workshop);
     writeFileSync(agent,player.replace("if(q.criteria", "if(q.playStyle!=='detailed'||q.instructions.includes('Choose one numbered option'))throw Error('Wrong mode');if(q.criteria")
       .replace("else if(q.adventure.options.some(o=>o.choice==='L'))reply={step,choice:'L'};", "else if(q.adventure.lookAvailable)reply={step,choice:{look:true}};")
-      .replace("choice:q.history.length===0&&!q.correction?999:1", "choice:[{combine:'Sheet',with:'Lid'},{inspect:'Sheet'},{inspect:'Lid'},{combine:'Case',with:'Shelf'}][step-1]"));
+      .replace("choice:q.history.length===0&&!q.correction?999:1", "choice:[{combine:'Lid',with:'Sheet'},{combine:'Sheet',with:'Lid'},{inspect:'Lid'},{combine:'Case',with:'Shelf'}][step-1]"));
     run('src/playtest/run-ai.ts',['--detailed','--guidance','','--story',manuscript,'--session','detailed','--agent',JSON.stringify([process.execPath,agent])]);
     const session=JSON.parse(readFileSync(join(folder,'runs/detailed/session.json'),'utf8'));
     assert.equal(session.playStyle,'detailed');assert.equal(session.turns.length,4);assert.equal(session.outcome,'completed');
     assert.deepEqual(session.turns.map((t:{lookedAgain:boolean})=>t.lookedAgain),[false,true,true,true]);
+    assert.deepEqual(session.turns[1].reply.choice,{combine:'Sheet',with:'Lid'});
+    assert.match(session.turns[1].result.messages[0].text,/Combined: with Tool\.\nTransformed into: Case\[\]/);
     const packet=JSON.parse(run('src/playtest/evaluate-cli.ts',['detailed','--packet']));
     assert.equal(packet.playStyle,'detailed');assert.equal(packet.verification.decisions,4);assert(packet.verification.replayVerified);
     assert.throws(()=>run('src/playtest/cli.ts',['view','detailed','--fast']),/existing sessions retain their mode/);

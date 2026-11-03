@@ -39,6 +39,7 @@ const station = parseStory(`# Station
 `);
 const start = (story=station) => startAdventure(story,{mode:'chapter',playStyle:'detailed'});
 const result = (a:ReturnType<typeof start>) => a.frame.messages.map(m=>m.text).join('\n');
+const redirected = "That can't be combined like that, but here's how it can:";
 
 test('detailed hints reveal current partners without outputs or contextual third ingredients',()=>{
   const initial=start();assert.equal(initial.frame.options.length,0);
@@ -52,7 +53,77 @@ test('detailed hints reveal current partners without outputs or contextual third
   assert.doesNotMatch(result(hotspot),/Cold water|Bread/);
   const failed=choose(station,initial,1,{combine:'Warm dough',with:'Salt'});
   assert.equal(failed.frame.step,2);assert.deepEqual(failed.state,initial.state);
-  assert.match(result(failed),/^Cannot be combined\nCan combine with:/);
+  assert.equal(result(failed),`${redirected}\n${result(inspected)}`);
+});
+
+test('incompatible attempts stay with the first operand and automatically perform only one operation',()=>{
+  const s=parseStory(workshop),initial=start(s);
+  const unavailable=choose(s,initial,1,{combine:'Lid',with:'Sheet'});
+  assert.equal(result(unavailable),'That cannot be combined with anything');
+  assert.deepEqual(unavailable.state,initial.state);assert.equal(unavailable.frame.step,2);
+
+  let a=initial;
+  for (const [first,second,partner] of [['Sheet','Lid','Tool'],['Lid','Tool','Case[]'],['Case','Tool','Shelf']]) {
+    const inspected=choose(s,a,a.frame.step,{inspect:first});
+    const combined=choose(s,a,a.frame.step,{combine:first,with:second});
+    assert.deepEqual(combined.state,inspected.state);
+    assert.equal(result(combined),`${redirected}\n${result(inspected)}`);
+    assert(result(combined).includes(`Combined: with ${partner}.`));
+    assert.equal(combined.frame.step,a.frame.step+1);
+    a=combined;
+    if (first==='Sheet') {
+      assert.deepEqual(a.state.tokens['name:Case'].slots,[]);
+      assert.equal(a.frame.phase,'choose','creation must not automatically fit the lid');
+    }
+    if (first==='Lid') assert.equal(a.frame.phase,'choose','fitting must not automatically complete the placement goal');
+  }
+  assert.equal(a.frame.phase,'complete');assert.deepEqual(replay(s,a.state.actions),a.state);
+});
+
+test('one highlighted hotspot with multiple operations does not trigger an automatic alternative',()=>{
+  const s=parseStory(`# Choices
+## Work
+**Goals**
+- Finish -- C
+**Hotspots**
+- H
+**Items**
+- A
+- B
+- D
+- C
+- E
+**Combinations**
+- A + B @ H -> C
+- A + D @ H -> E
+`);
+  const initial=start(s),attempt=choose(s,initial,1,{combine:'A',with:'B'});
+  assert.equal(result(attempt),`${redirected}\nCan combine with:\n- H`);
+  assert.deepEqual(attempt.state,initial.state);assert.equal(attempt.frame.step,2);
+});
+
+test('a redirected contextual reaction reports its selected hotspot and actual third ingredient',()=>{
+  const s=parseStory(`# Context
+## Work
+**Goals**
+- Bake -- Bread
+**Hotspots**
+- Hearth
+**Items**
+- Dough
+- Starter
+- Bread
+**Combinations**
+- Dough [transform] + Starter [preserve] @ Hearth -> Bread
+`);
+  for (const [first,second] of [['Dough','Starter'],['Starter','Dough']]) {
+    const initial=start(s),attempt=choose(s,initial,1,{combine:first,with:second});
+    assert.equal(result(attempt),`${redirected}\n${result(choose(s,initial,1,{inspect:first}))}`);
+    assert(result(attempt).includes(`Combined: with Hearth.\nCombined this together with: ${second}.`));
+    assert.equal(attempt.frame.phase,'complete');assert.equal(attempt.frame.step,2);
+    assert(availableTokens(attempt.state).every(t=>!t.hotspot));
+    assert.deepEqual(replay(s,attempt.state.actions),attempt.state);
+  }
 });
 
 test('either item–hotspot direction executes a complete reaction in manuscript order and clears occupancy',()=>{
@@ -60,6 +131,7 @@ test('either item–hotspot direction executes a complete reaction in manuscript
     const initial=start(),made=choose(station,initial,1,command);
     assert.match(result(made),/Combined this together with: Starter/);
     assert.match(result(made),/Transformed into: Bread/);
+    assert.doesNotMatch(result(made),/Can combine with|That can't|Combined: with/);
     assert(!made.state.tokens['name:Salty bread']);
     assert(availableTokens(made.state).every(t=>!t.hotspot));
     assert.deepEqual(replay(station,made.state.actions),made.state);
@@ -120,7 +192,8 @@ test('direct hotspot reactions take priority, report actual fates, and missing i
 - A + B @ H -> C
 `);
   const attempt=choose(missing,start(missing),1,{combine:'A',with:'H'});
-  assert.match(result(attempt),/Cannot be combined/);assert(!attempt.state.tokens['name:C']);
+  assert(result(attempt).startsWith(redirected));assert(!attempt.state.tokens['name:C']);
+  assert.match(result(attempt),/Combined: with Tool/);assert(attempt.state.tokens['name:B']);
   assert(availableTokens(attempt.state).every(t=>!t.hotspot));
 });
 
@@ -185,4 +258,23 @@ test('detailed sessions count inspections and failed attempts, exclude errors an
   assert.equal(validateGrade(grade,s).fun.total,4);
   const damaged=structuredClone(s);damaged.turns[0].result.messages[0].text='Invented hint';
   assert.throws(()=>verifyChapterSession(damaged,station),/does not match replay/);
+});
+
+test('detailed sessions preserve redirected intentions, distinguish operand order and reject name errors before acting',()=>{
+  const s=session(),before=JSON.stringify(s);
+  for (const withName of ['Warm','Missing']) {
+    assert.throws(()=>submitReply(s,station,reply(s,{combine:'Salt',with:withName})),/Ambiguous|No available/);
+    assert.equal(JSON.stringify(s),before);
+  }
+  const compatible=reply(s,{combine:'Warm dough',with:'Cold water'});
+  assert.throws(()=>submitReply(s,station,{...compatible,alternatives:[{choice:{combine:'Cold',with:'Warm dough'},reason:'Same valid pair.'}]}),/distinct other choices/);
+  const choice={combine:'Salt',with:'Warm dough'},decision={...reply(s,choice),alternatives:[{choice:{combine:'Warm dough',with:'Salt'},reason:'Pick up the dough instead.'}]};
+  submitReply(s,station,decision);
+  assert.equal(s.turns.length,1);assert.equal(s.adventure.frame.step,2);
+  assert.deepEqual(s.turns[0].reply,decision);
+  assert.match(result(s.adventure),/Combined: with Warm hearth/);
+  assert.match(result(s.adventure),/Transformed into: Salty bread/);
+  assert(!s.adventure.state.tokens['name:Finished'],'the new result must wait for another decision');
+  submitReply(s,station,reply(s,{combine:'Salty bread',with:'Cold'}));
+  assert(verifyChapterSession(s,station));assert.equal(graderPacket(s).verification.decisions,2);
 });
