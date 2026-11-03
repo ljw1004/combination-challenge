@@ -474,6 +474,14 @@ Attach a valued result or wonder to the action that produced it, not to an addit
 
 For each player record, retain the number worthwhile, number meaningful and total gameplay actions. In the detailed breakdown, identify each action by its combination or goal and local step, mark its story/hook value and worthwhile status, and give a short evidence-based reason. Preserve the original independent meaningfulness judgment. An unsupported positive judgment receives no credit; genuinely missing evidence is unknown, not automatically a negative finding. Flag any gap that prevents a complete count.
 
+#### Compare choices across players
+
+In both playstyles, compare what the three players chose at comparable decision situations. Use your judgment to relate moments by the situation, goal, available objects and information each player had, rather than matching step numbers or command text. Players may reach the same situation at different steps, know different things, or achieve the same construction through different commands. In detailed mode, include choices to inspect or combine directly and motivated unsuccessful attempts. State when the records do not support a fair comparison.
+
+Treat reasoned divergence as supporting evidence of meaningful decision-making: did players pursue different plausible hypotheses, priorities or approaches? Relate their choices to their stated reasons, expectations, actual results and subsequent reflections. Distinguish substantive differences from arbitrary guessing, confusion, routine execution order or interface effects. Different choices do not establish meaningfulness by themselves; identical choices can follow independent, substantive inference, including in a single-solution puzzle.
+
+Include concrete, attributed comparisons in the detailed report outside the synthesis markers, naming the actions and citing each player's local steps. Explain whether the comparison supports or challenges the individual assessments, or remains inconclusive. Preserve the independent classifications and counts; do not add a diversity score or automatically reward divergence or penalize agreement. Carry relevant findings into Strongest moments or Weakest moments within the existing five-category synthesis. Three agent playthroughs provide qualitative evidence, not a population estimate or proof of human enjoyment.
+
 #### Synthesize the three records
 
 - **Worthwhile:** average the per-player worthwhile counts and average their total action counts separately. Display `mean worthwhile / mean total worthwhile decisions`.
