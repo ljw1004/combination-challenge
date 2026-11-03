@@ -1,0 +1,108 @@
+[
+  {
+    "step": 1,
+    "reason": "This is the only offered action, and the tanks need support for separate propellant storage.",
+    "choice": 1,
+    "expectation": "I expect to make a supported tank assembly, though its exact form is unclear.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The tanks now have a casing; insulation is the next offered step.",
+    "reaction": "The result is straightforward, though it gives no detail about the casing.",
+    "step": 2,
+    "reason": "Insulation should help keep the cryogenic tanks cold, and this is the only offered combination.",
+    "choice": 1,
+    "expectation": "I expect insulated cryogenic tanks, though cooling units will likely still be needed.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The tanks are insulated, leaving active cooling as the next offered step.",
+    "reaction": "The result is predictable and offers no further detail.",
+    "step": 3,
+    "reason": "The cooling units should bring the insulated tanks to cryogenic temperatures; this is the only offered combination.",
+    "choice": 1,
+    "expectation": "I expect cooled tanks ready to receive the propellants separately, although connections may still be needed.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The tanks now have separate refrigeration and heat rejection, ready for either propellant connection.",
+    "reaction": "The detail about qualified vessels makes the setup feel more physically credible.",
+    "step": 4,
+    "reason": "Connect the purified methane supply to begin collecting one of the two propellants.",
+    "choice": 1,
+    "expectation": "I expect methane to be cooled and collected in its designated vessel, with oxygen still needing a separate connection.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Connecting oxygen first also seems useful, but methane is already available as a purified supply."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Methane is now collected as a liquid; the separate oxygen connection remains.",
+    "reaction": "The liquefier and insulated receiver make the result feel physically grounded.",
+    "step": 5,
+    "reason": "Connect the remaining refrigerated tank to the oxygen outlet; it is the only offered combination.",
+    "choice": 1,
+    "expectation": "I expect oxygen to be liquefied and collected in its separate vessel.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Oxygen is now liquefied in its own vessel, and the remaining goal is to run the installation for the return.",
+    "reaction": "The separate oxygen-clean vessel and connections make the process feel carefully grounded.",
+    "step": 6,
+    "reason": "Combining the two completed stores is the only offered action and appears to advance the return installation.",
+    "choice": 1,
+    "expectation": "I expect an operational paired propellant storage setup, with methane and oxygen still kept separate.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The separate stores are now coordinated as a running plant able to supply the ascent tanks; the chapter is complete.",
+    "reaction": "I appreciated that the final connection clarified that the propellant circuits remain separate.",
+    "step": 7,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Refrigerating the tanks was the most worthwhile step: the separate refrigerators and heat-rejection connections made the storage setup feel physically credible.",
+        "steps": [
+          3
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Casing and insulating the tanks were predictable, and their results gave little detail.",
+        "steps": [
+          1,
+          2
+        ]
+      },
+      "surprise": {
+        "text": "The final combination clarified that joining the stores meant coordinating their controls, not mixing their contents.",
+        "steps": [
+          6
+        ]
+      },
+      "arbitrary": {
+        "text": "Combining the two tanks felt somewhat abstract before the result explained the coordinated controls, though its purpose became clear afterward.",
+        "steps": [
+          6
+        ]
+      },
+      "continue": {
+        "text": "Yes. I would be curious to see how the completed plant supports the return, although the mostly single-option sequence was not very demanding.",
+        "steps": [
+          1,
+          2,
+          3,
+          5,
+          6
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

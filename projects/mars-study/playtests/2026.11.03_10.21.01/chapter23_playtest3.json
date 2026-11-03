@@ -1,0 +1,89 @@
+[
+  {
+    "step": 1,
+    "reason": "The only available action fits the catalyst into the retort to begin building the reactor.",
+    "choice": 1,
+    "expectation": "I expect a catalyst-equipped retort, though it may still need mounting and gas connections.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The catalyst is installed in a clean gas path; the retort can now be mounted.",
+    "reaction": "The separate insert makes the change from ore processing feel sensible.",
+    "step": 2,
+    "reason": "The only combination mounts the retort on the process frame, advancing reactor assembly.",
+    "choice": 1,
+    "expectation": "I expect a mounted reactor that still needs gas connections.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The retort is mounted and ready for its gas controls.",
+    "reaction": "Straightforward progress, with no further detail about the mounting.",
+    "step": 3,
+    "reason": "The only offered combination adds gas controls to the mounted retort.",
+    "choice": 1,
+    "expectation": "I expect a controlled reactor with connections for its gas supply, though it may need further setup.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The reactor is assembled with heating, hydrogen metering and cooling; the next goal is to produce methane.",
+    "reaction": "The need to remove reaction heat as well as initiate it is a useful detail.",
+    "step": 4,
+    "reason": "The only offered combination supplies carbon dioxide to the reactor for methane production.",
+    "choice": 1,
+    "expectation": "I expect the reactor to combine carbon dioxide with hydrogen over the catalyst, though collecting the methane may require another step.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The carbon dioxide is coupled to the reactor; collection appears to be the next step.",
+    "reaction": "The result is straightforward but gives no detail about the connection.",
+    "step": 5,
+    "reason": "The only offered combination adds cylinders, presumably to contain the methane.",
+    "choice": 1,
+    "expectation": "I expect methane to be produced and collected in a cylinder, though further processing may be needed.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The commissioning run produced methane, but the mixed gas still needs processing before it can serve as rocket fuel.",
+    "reaction": "The distinction between detecting methane and having tank-ready fuel was satisfying and physically sensible.",
+    "step": 6,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Adding the reactor controls was most worthwhile: the explanation that the reaction needs both startup heat and cooling made the assembly informative.",
+        "steps": [
+          3
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Mounting the retort was the least engaging moment; the result gave no detail beyond the new item name.",
+        "steps": [
+          2
+        ]
+      },
+      "surprise": {
+        "text": "The test cylinder contained water vapour and unreacted gases alongside methane, so producing the molecule is not the same as preparing rocket fuel.",
+        "steps": [
+          5
+        ]
+      },
+      "arbitrary": {
+        "text": "Nothing felt purposeless, although the carbon dioxide coupling gave no detail about the connection.",
+        "steps": [
+          4
+        ]
+      },
+      "continue": {
+        "text": "Yes. I would be curious to see how the mixed gas becomes usable fuel and how the frozen discovery reaches Earth, though the chapter's only-option sequence offered little decision-making.",
+        "steps": [
+          3,
+          5
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

@@ -1,0 +1,81 @@
+[
+  {
+    "step": 1,
+    "reason": "The only offered action should help assemble the electrolysis installation, probably by supporting the stack.",
+    "choice": 1,
+    "expectation": "I expect a mounted or supported electrolyzer stack, though the exact result is uncertain.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The stack is mounted, so the manifold is the next offered assembly step.",
+    "reaction": "The result was as expected, though it gave no further detail.",
+    "step": 2,
+    "reason": "The manifold is the only offered combination and should control the gases produced by the electrolyzer.",
+    "choice": 1,
+    "expectation": "I expect the manifold to be fitted to the electrolyzer, preparing it to manage separate gas streams.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The manifold is fitted, leaving the electrolyzer ready for its water connection.",
+    "reaction": "The result was expected, with no further detail.",
+    "step": 3,
+    "reason": "The only offered combination connects the electrolyzer to the processor's polishing outlet.",
+    "choice": 1,
+    "expectation": "I expect the installation to receive purified water, though I don't know whether it will start producing gases yet.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The electrolyzer has polished water, power and cooling, and its separate outlets now need collection cylinders.",
+    "reaction": "The separate outlets and feed polishing make the installation clearer.",
+    "step": 4,
+    "reason": "The only offered combination should collect the gases in separate circuits.",
+    "choice": 1,
+    "expectation": "I expect the cylinders to connect to the separate outlets and collect the produced gases.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The cylinders complete the installation, showing how hydrogen and oxygen are dried, regulated and collected separately, with an automatic stop when either buffer fills.",
+    "reaction": "The separate conditioning paths and buffer interlock made the final assembly feel more concrete and physically sensible.",
+    "step": 5,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Connecting the cylinders was the most worthwhile action: it showed what the installation produces and how the two gases are handled safely.",
+        "steps": [
+          4
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Mounting the stack and adding the manifold felt least engaging: both were expected assembly steps with little detail in their results.",
+        "steps": [
+          1,
+          2
+        ]
+      },
+      "surprise": {
+        "text": "I hadn't expected the run to stop automatically when either buffer filled; that clarified how the separate collection circuits are managed.",
+        "steps": [
+          4
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt purposeless, although the first two provided too little detail to assess their physical execution. Each was the only offered combination.",
+        "steps": [
+          1,
+          2
+        ]
+      },
+      "continue": {
+        "text": "I would continue to see how the separate gases are used in the return plan, though I hope for more meaningful choices than this chapter's single-option sequence.",
+        "steps": [
+          3,
+          4
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

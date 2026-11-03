@@ -1,0 +1,79 @@
+[
+  {
+    "step": 1,
+    "reason": "The immediate goal is to put the station on reserve, so I’ll use the charged reserve at the service panel.",
+    "choice": 1,
+    "expectation": "I expect the panel to switch essential systems to reserve power, though I may still need to stop industrial loads separately.",
+    "alternatives": [
+      {
+        "choice": 3,
+        "reason": "Stopping the return plant also fits the storm warning, but switching to reserve addresses the current goal directly."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Essential systems are on reserve and production has stopped; the exterior circuits still need to be made safe.",
+    "reaction": "The distinction between stopping production and keeping shutdown controls powered makes sense.",
+    "step": 2,
+    "reason": "I’ll address the running return plant at the panel to secure an exterior industrial circuit.",
+    "choice": 2,
+    "expectation": "I expect a controlled shutdown or isolation of the return plant, though the panel may require further steps.",
+    "alternatives": [
+      {
+        "choice": 1,
+        "reason": "The water line also needs attention, but I’ll secure the industrial plant first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The return plant is isolated, with some propellant lost to boil-off; the water line remains to be secured.",
+    "reaction": "The controlled cooldown and separate vents make the storm preparation feel physically grounded.",
+    "step": 3,
+    "reason": "The water line is the only remaining gameplay action and should address the exterior circuits goal.",
+    "choice": 1,
+    "expectation": "I expect the panel to put the water line into a safe state for the storm, though I don't know exactly how.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The well is isolated and the exterior hose is drained before its heating switches off, completing the storm preparations.",
+    "reaction": "The order of draining before switching off heat is a clear, sensible detail.",
+    "step": 4,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Securing the return plant was most worthwhile: the controlled cooldown, separate vents and recoverable boil-off made the consequences of the storm tangible.",
+        "steps": [
+          2
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Switching to reserve was straightforward and mostly confirmed the immediate goal, though the powered shutdown sequence was useful context.",
+        "steps": [
+          1
+        ]
+      },
+      "surprise": {
+        "text": "The cold tanks retain some liquid but lose some to boil-off during the shutdown; the plant can replace it afterward.",
+        "steps": [
+          2
+        ]
+      },
+      "arbitrary": {
+        "text": "None felt arbitrary. The water-line action was the only remaining gameplay option, but draining it before disabling heat gave it a clear purpose.",
+        "steps": [
+          3
+        ]
+      },
+      "continue": {
+        "text": "Yes. The storm preparations were brief but physically grounded, and I would be curious to see what happens after the interruption.",
+        "steps": [
+          2,
+          3
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

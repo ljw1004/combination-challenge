@@ -1,0 +1,96 @@
+[
+  {
+    "step": 1,
+    "reason": "This is the only offered action, and it may prepare a structure for storing heat.",
+    "choice": 1,
+    "expectation": "I expect the tool to shape the steel into a useful component, though its exact form is unclear.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The steel is now a vented, watertight tank for storing water at room pressure.",
+    "reaction": "The distinction between a water tank and a pressure vessel is useful.",
+    "step": 2,
+    "reason": "The only offered combination should connect the tank to the heat-transfer loop.",
+    "choice": 1,
+    "expectation": "I expect the tubing to provide a way to transfer process heat into the tank, though the exact arrangement is unclear.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The coil keeps process coolant separate from the water that will store heat.",
+    "reaction": "The separated loops make the heat-transfer arrangement clearer.",
+    "step": 3,
+    "reason": "The only offered combination should reduce heat loss from the tank.",
+    "choice": 1,
+    "expectation": "I expect the insulation to wrap the tank and help retain its stored warmth.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The tank is insulated but can release heat through a fold-back section; it is ready to fill.",
+    "reaction": "Leaving the vent and fittings clear makes practical sense.",
+    "step": 4,
+    "reason": "The only offered combination fills the tank with the water needed to store heat.",
+    "choice": 1,
+    "expectation": "I expect the tank to be filled with water around the heating coil, ready to receive heat.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The tank is filled, with the water separate from the coolant coil and vented to the room.",
+    "reaction": "The separate fluid paths make the arrangement easy to understand.",
+    "step": 5,
+    "reason": "The only offered combination should connect the filled tank to the heat-recovery loop.",
+    "choice": 1,
+    "expectation": "I expect warm process coolant to circulate through the coil and heat the stored water.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The connected coil transfers process heat into the water, completing the heat store with a thermostat and controllable release to the room.",
+    "reaction": "Seeing the separate components become a working heat-recovery system was satisfying.",
+    "step": 6,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Connecting the tank to the process loop brought the arrangement together and showed how waste heat could be stored for later use.",
+        "steps": [
+          5
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Filling the tank was straightforward and less interesting than the heat-transfer details.",
+        "steps": [
+          4
+        ]
+      },
+      "surprise": {
+        "text": "The insulation can fold back to expose the warm steel and release heat into the room.",
+        "steps": [
+          3
+        ]
+      },
+      "arbitrary": {
+        "text": "None felt purposeless; each action had a clear role, although every decision offered only one combination.",
+        "steps": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      },
+      "continue": {
+        "text": "I would continue for the practical making and the unresolved discovery, though I would hope for more meaningful choices than this chapter offered.",
+        "steps": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

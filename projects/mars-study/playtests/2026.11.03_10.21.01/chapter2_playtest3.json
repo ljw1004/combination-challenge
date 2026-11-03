@@ -1,0 +1,118 @@
+[
+  {
+    "step": 1,
+    "reason": "The solar array needs to provide power, so combining it with steel may help mount or support it.",
+    "choice": 1,
+    "expectation": "I expect a supported solar array, though I'm unsure whether that also reconnects its loose lead.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Repairing the antenna could help restore communications, but power is the current goal."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The steel made a standing solar array; its loose lead still appears to need connecting.",
+    "reaction": "The support makes sense, though the result gives little detail.",
+    "step": 2,
+    "reason": "The power cable looks like the direct way to reconnect the array.",
+    "choice": 1,
+    "expectation": "I expect a connected solar array that can supply power, though the reserve may need a separate connection.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The antenna needs attention too, but restoring power comes first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The cable and array made a station solar supply; the reserve connection is now available.",
+    "reaction": "That follows naturally from reconnecting the array.",
+    "step": 3,
+    "reason": "Connecting the supply to the reserve directly addresses the current goal.",
+    "choice": 1,
+    "expectation": "I expect the reserve to begin charging, though I don't know whether another step will be needed.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The atmospheric processor may need power too, but the reserve is explicitly part of the goal."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The reserve is charging, with essential systems covered during an interruption; the next goal is oxygen replenishment.",
+    "reaction": "The distinction between essential loads and industrial work makes the reserve feel practical.",
+    "step": 4,
+    "reason": "Powering the atmospheric processor seems like the most direct route toward replenishing oxygen.",
+    "choice": 1,
+    "expectation": "I expect a powered processor that can help produce oxygen, though it may need further inputs or steps.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The antenna still needs repair, but oxygen is the current goal."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The powered processor replenishes oxygen by splitting atmospheric carbon dioxide; the next goal is contact with Earth.",
+    "reaction": "The explanation of where the oxygen comes from is useful and satisfying.",
+    "step": 5,
+    "reason": "Repairing the bent antenna seems the most direct way to restore communications.",
+    "choice": 1,
+    "expectation": "I expect a repaired antenna that can be mounted or connected to the radio, though further steps may be needed.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The tool straightened the antenna, and the radio mount is now an available next step.",
+    "reaction": "Straightening it is straightforward, though the result offers little detail.",
+    "step": 6,
+    "reason": "Mounting the antenna seems the direct next step toward hearing from Earth.",
+    "choice": 1,
+    "expectation": "I expect the antenna to be mounted on the radio, possibly restoring reception; a further connection may be needed.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Mounting the antenna restored the surface radio and completed the contact goal; the message was recorded rather than a live conversation.",
+    "reaction": "The brief exchange gives the repairs a human payoff, though I had expected reception rather than specifically a recording.",
+    "step": 7,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Powering the atmospheric processor was most worthwhile: it connected the immediate oxygen need to a clear explanation of using Martian carbon dioxide.",
+        "steps": [
+          4
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Straightening the antenna was sensible but comparatively bare; the result offered little beyond its new name.",
+        "steps": [
+          5
+        ]
+      },
+      "surprise": {
+        "text": "The radio brought a recorded message rather than a live exchange, giving the first contact a different feel than I expected.",
+        "steps": [
+          6
+        ]
+      },
+      "arbitrary": {
+        "text": "Nothing I chose felt arbitrary; the available actions followed the goals and their physical purposes.",
+        "steps": []
+      },
+      "continue": {
+        "text": "Yes. The practical life-support details and the first message from Earth make me curious about what the expedition encounters next.",
+        "steps": [
+          3,
+          4,
+          6
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

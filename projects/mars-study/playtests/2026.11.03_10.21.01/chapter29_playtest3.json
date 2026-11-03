@@ -1,0 +1,116 @@
+[
+  {
+    "step": 1,
+    "reason": "The fabric and steel may make a tool for clearing dust from the arrays.",
+    "choice": 1,
+    "expectation": "I expect a cleaning implement, though its exact form is unclear.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "I considered placing the supply at the arrays first, but a cleaning tool seems useful before restoring power."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The fabric and steel made the expected cleaning pad, so I can bring it to the dusty arrays.",
+    "reaction": "The soft cloth and light strokes make the tool feel physically sensible.",
+    "step": 2,
+    "reason": "Place the pad at the arrays to prepare for cleaning them.",
+    "choice": 1,
+    "expectation": "I expect the pad to be positioned for removing dust, though another action may be needed.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The solar supply also needs to be at the arrays, but I want the cleaning pad there first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The pad is in place, enabling the cleaning combination.",
+    "reaction": "The placement was straightforward.",
+    "step": 3,
+    "reason": "Use the pad on the solar supply at the arrays to restore power.",
+    "choice": 1,
+    "expectation": "I expect to clear the dust and restore solar output.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Solar power is back, so I can restore the water line and return plant.",
+    "reaction": "The lamps and oxygen processor restarting make the cleaning feel consequential.",
+    "step": 4,
+    "reason": "Restore the exterior water line to reestablish water service.",
+    "choice": 1,
+    "expectation": "I expect the powered well and water line to resume operation, though the exact restart sequence is uncertain.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The return plant also needs restarting, but water service seems more immediate."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The well and water line are running again, leaving the return plant to restart.",
+    "reaction": "Warming and checking the empty line before opening it feels like a sensible restart sequence.",
+    "step": 5,
+    "reason": "Restart the return plant to resume propellant production; this is the only offered gameplay action.",
+    "choice": 1,
+    "expectation": "I expect the plant to resume its production run and replace the propellant lost during the storm.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Power and cooling are restored, but the plant still needs its water circuit connected before production resumes.",
+    "reaction": "The staged restart makes sense, though I expected production to resume immediately.",
+    "step": 6,
+    "reason": "Connect the primed water line to the powered plant; this is the only offered gameplay action.",
+    "choice": 1,
+    "expectation": "I expect the plant to resume making propellant once its water circuit is ready.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The plant has completed its controlled restart and is replacing the propellant lost during the storm.",
+    "reaction": "The connection to the restored water circuit made the restart feel grounded and consequential.",
+    "step": 7,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Restoring solar power was most worthwhile: the lamps and oxygen processor returning made the cleaning visibly consequential.",
+        "steps": [
+          3
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Placing the cleaning pad was a straightforward preparation with little happening on its own.",
+        "steps": [
+          2
+        ]
+      },
+      "surprise": {
+        "text": "I expected the plant to resume production as soon as power returned, but it also needed the restored water circuit before completing its restart.",
+        "steps": [
+          5,
+          6
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt especially arbitrary; even the staged restart had a clear physical purpose.",
+        "steps": [
+          5,
+          6
+        ]
+      },
+      "continue": {
+        "text": "Yes. The practical recovery sequence was satisfying, and I would be curious to see the expedition's return and what the core reveals.",
+        "steps": [
+          3,
+          6
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

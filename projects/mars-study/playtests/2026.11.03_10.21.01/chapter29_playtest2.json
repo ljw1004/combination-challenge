@@ -1,0 +1,115 @@
+[
+  {
+    "step": 1,
+    "reason": "The arrays are covered in grit, so the fabric and steel may make a cleaning tool.",
+    "choice": 1,
+    "expectation": "I expect a tool for clearing dust from the arrays, though its exact form is uncertain.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Placing the supply at the arrays may help restore power, but cleaning them seems like a useful first step."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The fabric and steel made a cleaning pad, so I can use it at the arrays.",
+    "reaction": "The soft cloth and light strokes make the cleaning method feel sensible.",
+    "step": 2,
+    "reason": "Place the pad at the dusty arrays to clean them and help restore solar power.",
+    "choice": 1,
+    "expectation": "I expect the pad to be positioned for cleaning the arrays, perhaps requiring another action to use it.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The solar supply also belongs at the arrays, but the pad seems needed to remove the dust first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The pad is positioned at the arrays, enabling the cleaning combination.",
+    "reaction": "The placement was a straightforward preparation.",
+    "step": 3,
+    "reason": "Use the pad on the solar supply at the arrays to clear the dust and restore power.",
+    "choice": 1,
+    "expectation": "I expect the panels to be cleaned and the solar supply restored, though water may still need a separate action.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Solar power is back, so I can restore the water line and return plant.",
+    "reaction": "Seeing the lamps and oxygen replenishment resume makes the cleaning feel consequential.",
+    "step": 4,
+    "reason": "Restore the water line first to meet the current goal.",
+    "choice": 1,
+    "expectation": "I expect the exterior water line to resume service, though it may need priming or heating.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The return plant also needs restarting, but restoring water seems more immediate."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The well and water line are running again, and the goal now shifts to restarting production.",
+    "reaction": "Warming and checking the line before opening it feels like a sensible restart.",
+    "step": 5,
+    "reason": "Restart the return plant for the new goal; it is the only offered gameplay action.",
+    "choice": 1,
+    "expectation": "I expect the plant to resume making propellant using restored solar power.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The plant has power and cooling, but its process feed remains closed until the water circuit is connected.",
+    "reaction": "The staged restart makes physical sense, though I expected production to resume immediately.",
+    "step": 6,
+    "reason": "Connect the primed line to the powered plant; it is the only offered gameplay action and should complete the restart.",
+    "choice": 1,
+    "expectation": "I expect the water supply to enable the plant to resume propellant production.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Connecting the restored water circuit completed the plant's restart and the chapter goals.",
+    "reaction": "The replacement of vented propellant gives the restart a clear purpose.",
+    "step": 7,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Restoring solar power felt most worthwhile because the lamps and oxygen replenishment resumed, making the cleaning consequential.",
+        "steps": [
+          3
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Placing the pad was a straightforward preparation with little happening on its own.",
+        "steps": [
+          2
+        ]
+      },
+      "surprise": {
+        "text": "I expected the plant to resume production as soon as power returned, but its feed stayed closed until the water circuit was ready.",
+        "steps": [
+          5,
+          6
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt clearly purposeless, though placing the cleaning pad was a mechanical intermediate step.",
+        "steps": [
+          2
+        ]
+      },
+      "continue": {
+        "text": "I would continue: the staged restart was physically sensible, and the discovery in the ice leaves me curious about what happens next.",
+        "steps": [
+          5,
+          6
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

@@ -1,0 +1,77 @@
+[
+  {
+    "step": 1,
+    "reason": "The immediate goal is to put the station on reserve, so I’ll use the charged reserve at the service panel.",
+    "choice": 1,
+    "expectation": "I expect essential systems to switch to reserve power; I’m unsure whether industrial loads stop automatically.",
+    "alternatives": [
+      {
+        "choice": 3,
+        "reason": "Stopping the return plant also addresses the storm warning, but the current goal specifies reserve power."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Essential systems are on reserve and production has stopped; the exterior circuits still need attention.",
+    "reaction": "The controlled shutdown is reassuring, though I had wondered whether it would happen automatically.",
+    "step": 2,
+    "reason": "The exposed water line is an exterior circuit that may need protection during the power interruption.",
+    "choice": 1,
+    "expectation": "I expect the panel to put the well or water line into a safe state; I’m unsure exactly how.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The return plant also needs to be left safe, but its production has already stopped."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The well is isolated and the exterior hose drained before its heating switches off; the return plant still needs attention.",
+    "reaction": "The sequence makes practical sense and clarifies how the line is protected.",
+    "step": 3,
+    "reason": "The return plant is the only remaining offered action and the exterior circuits still need to be made safe.",
+    "choice": 1,
+    "expectation": "I expect the panel to secure the stopped return plant for the power interruption, though I don’t know the shutdown details.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The return plant is isolated and its tanks can vent boil-off safely; both storm-preparation goals are complete.",
+    "reaction": "The unavoidable propellant loss makes the shutdown feel consequential and physically grounded.",
+    "step": 4,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Draining the exterior water line was the most worthwhile: the sequence explained how to protect it before switching off its heat.",
+        "steps": [
+          2
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Switching to reserve was straightforward and resolved the immediate goal, though the controlled shutdown added useful detail.",
+        "steps": [
+          1
+        ]
+      },
+      "surprise": {
+        "text": "I was surprised that the cold tanks would lose some liquid through separate boil-off vents during the storm.",
+        "steps": [
+          3
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt arbitrary; each addressed a system exposed to the power interruption.",
+        "steps": []
+      },
+      "continue": {
+        "text": "Yes. The practical storm preparations and the unresolved discovery make me curious about what happens next.",
+        "steps": [
+          2,
+          3
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

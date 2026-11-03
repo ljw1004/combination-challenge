@@ -68,6 +68,10 @@ A completed construction can become a hotspot in a later chapter. Establish its 
 
 Use simple names and direct English. A quotation can be the item itself; do not compress an important 5–12 word claim into an obscure icon or slogan. A stronger tool should retain its applicable uses through explicitly authored alternative recipes. Do not grant capabilities just because an unrelated component is somewhere inside a construction.
 
+Name what the player handles. In concrete stories, prefer physical nouns such as **Steel sheets and bars** or **Gas cylinders** to purpose-based abstractions such as **Structural stock** or **Gas receiver stock**. A useful condition can qualify that concrete object.
+
+When an item is visibly unfinished, name the condition that suggests its next useful operation: `Unfiltered yoghurt + Filter -> Yoghurt`, or `Drinking water supply + Unwatered growing beds -> Irrigated growing beds`. Prefer a concrete need such as raw, dusty, empty or uninsulated over a label that merely records the previous step. Remove the qualifying adjective when the need is resolved, unless the resulting state matters later. Use this where it clarifies the object; do not invent deficiencies, add steps or reveal a discovery just to make every name instructional.
+
 Names, artwork, physical access, supplies and task must agree. A whole greenhouse is not a portable tool. A photo, map or observation must answer a real story question. Avoid calibration, labelling and paperwork steps that merely lengthen a route. Keep crafting meaningful: an optional earlier construction should not arrive ready-made later if the player skipped making it.
 
 Visual form tests a physical combination. Check whether the objects' shape, scale, perspective and relationship support the action; revise an ambition that cannot be represented convincingly. Preserve natural silhouettes and aspect ratios, and use proportional sizes with readable lower and usable upper bounds when physical size matters. Follow the [icon guide](icon-guide.md) for production. Text items or simple placeholders suffice during story exploration, and finished artwork must not prevent removing weak compositions.
@@ -162,6 +166,10 @@ Use chapter checkpoints to inspect arrivals, combinations, intermediate clutter 
 Analyze after the first playable draft and after changes to dependencies, supplies, chapters or pacing. Use the results to locate questions: does the story have enough substantial work, do earlier creations matter across chapters, does every scene introduce fresh supplies, or does an otherwise modest starting board become crowded? Inspect the responsible combinations and browser passage before deciding what to change. Comparing stories can suggest a different structure; matching another story's numbers cannot establish quality.
 
 Roughly 200 meaningful combinations is a useful full-length planning hypothesis. At an assumed ten seconds per combination, that suggests about half an hour of combining. Neither the pace nor the resulting duration is established by recipe counts or agent action timings: reading, thought and interaction also take time. Test the intended length with players. Keep a strong short passage, and expand only through worthwhile making or story movement.
+
+Compare your draft to some existing ones (cookbook, settlement, theology) to see if anything stands out. It's fine for some stories to have different structure, e.g. settlement deliberately cuts down to the absolute minimum primitives as the four elements, theology deliberately has lots of primitives for each new set of findings that have been discovered through the centuries. But figure out what kind of story you're telling: if you're telling a story about building things out of limited primitives, then cookbook and settlement are good models.
+
+Number of items at start: a max of 10 is pretty high, and shouldn't go higher. 4-8 is a sweet spot.
 
 The analyzer's six-line summary and comparison table use these conventions:
 

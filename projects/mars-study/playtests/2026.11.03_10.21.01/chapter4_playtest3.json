@@ -1,0 +1,86 @@
+[
+  {
+    "step": 1,
+    "reason": "The excavator needs to be unpacked or assembled before it can clear the cavern floor; the steel may provide a frame.",
+    "choice": 1,
+    "expectation": "I expect the steel to help make the excavator ready for work, though it may still need power.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The cable and steel may make a useful component, but preparing the excavator seems more directly tied to the goal."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The steel made a spoil hopper, so the excavator now needs power to work.",
+    "reaction": "The hopper makes practical sense for collecting excavated material.",
+    "step": 2,
+    "reason": "Connecting the power cable seems the direct next step toward operating the excavator.",
+    "choice": 1,
+    "expectation": "I expect a powered excavator, though it may still need to be positioned at the cavern floor.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The cable and steel could make another component, but powering the excavator seems more relevant now."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The excavator is working, and the next goal is to clear the growing bay.",
+    "reaction": "The repeated trips and spoil collection make its operation easy to picture.",
+    "step": 3,
+    "reason": "Using the working excavator at the surveyed floor directly addresses the new goal.",
+    "choice": 1,
+    "expectation": "I expect it to clear the surveyed growing bay, though the space may need further preparation.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The cable and steel might make another useful component, but clearing the floor is the immediate goal."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The excavator cleared the surveyed bay and completed the chapter; the cave provides shelter but still has no breathable air.",
+    "reaction": "The growing rubble pile made the result tangible, and the lack of air is a useful reminder that clearing the space is only a beginning.",
+    "step": 4,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Using the excavator on the surveyed floor was most worthwhile: it turned the assembled machine into a visibly cleared space.",
+        "steps": [
+          3
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Making the spoil hopper was the least engaging moment because the result was brief, although its purpose was practical.",
+        "steps": [
+          1
+        ]
+      },
+      "surprise": {
+        "text": "I expected the steel to help assemble a frame, so learning it made a spoil hopper changed my understanding of the excavator's preparation.",
+        "steps": [
+          1
+        ]
+      },
+      "arbitrary": {
+        "text": "Nothing felt clearly arbitrary; the hopper, power connection and excavation each had an understandable purpose.",
+        "steps": [
+          1,
+          2,
+          3
+        ]
+      },
+      "continue": {
+        "text": "Yes. I would continue to see how the cleared, airless bay becomes a growing space; the practical progression has held my interest.",
+        "steps": [
+          2,
+          3
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

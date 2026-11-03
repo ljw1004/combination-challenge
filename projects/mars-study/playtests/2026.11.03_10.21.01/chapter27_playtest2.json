@@ -1,0 +1,81 @@
+[
+  {
+    "step": 1,
+    "reason": "The immediate goal is to put the station on reserve, so I’ll use the charged reserve at the service panel.",
+    "choice": 1,
+    "expectation": "I expect essential systems to switch to reserve power, though the industrial plant may need a separate shutdown.",
+    "alternatives": [
+      {
+        "choice": 3,
+        "reason": "Stopping the industrial load also fits the storm warning, but the reserve is the current goal."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Essential systems are on reserve and production has stopped, but the exterior circuits still need securing.",
+    "reaction": "The distinction between stopping production and keeping shutdown controls powered makes sense.",
+    "step": 2,
+    "reason": "I’ll secure the exterior water line at the panel to protect it during the power interruption.",
+    "choice": 1,
+    "expectation": "I expect the panel to put the well line into a safer state, perhaps by isolating or draining it; I’m unsure exactly how.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The return plant also needs to be made safe, but I’ll address the exposed water line first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The exterior hose is drained before its heating is switched off; the return plant remains to be secured.",
+    "reaction": "The order of draining before cutting heat is reassuring and physically sensible.",
+    "step": 3,
+    "reason": "The return plant is the only remaining gameplay action and needs to be made safe during the storm.",
+    "choice": 1,
+    "expectation": "I expect the panel to finish shutting down and secure the plant's exterior equipment, though the details are unclear.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The plant is safely isolated, though some stored propellant will boil off and need replacing after the storm.",
+    "reaction": "The separate vents and acknowledged losses make the shutdown feel grounded rather than cost-free.",
+    "step": 4,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Draining the exterior water line before switching off its trace heating was the most worthwhile moment: the sequence made its protective purpose clear.",
+        "steps": [
+          2
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Selecting the reserve was straightforward, though the explanation of the shutdown controls added useful detail.",
+        "steps": [
+          1
+        ]
+      },
+      "surprise": {
+        "text": "I was surprised that the cold tanks would retain some liquid while venting boil-off, with the plant replacing the losses later.",
+        "steps": [
+          3
+        ]
+      },
+      "arbitrary": {
+        "text": "None of the actions felt arbitrary; each addressed a specific part of the storm response.",
+        "steps": [
+          1,
+          2,
+          3
+        ]
+      },
+      "continue": {
+        "text": "Yes. I would continue to see how the station recovers and whether the discovery reaches Earth; the practical shutdown details made the situation engaging.",
+        "steps": [
+          2,
+          3
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

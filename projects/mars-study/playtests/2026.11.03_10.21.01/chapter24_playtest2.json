@@ -1,0 +1,121 @@
+[
+  {
+    "step": 1,
+    "reason": "The coolant tubing and steel look useful for building a cooling stage to condense water from the reactor output.",
+    "choice": 1,
+    "expectation": "I expect a supported cooling assembly, though I don't yet know how it connects to the separator.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The hose should eventually return recovered water, but separation seems useful to set up first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The tubing and steel made a radiator panel, ready to connect to the separator.",
+    "reaction": "The explanation of thermal contact and exposed radiating faces made the assembly feel physically sensible.",
+    "step": 2,
+    "reason": "Joining the cooling panel to the separator should advance the separation stage.",
+    "choice": 1,
+    "expectation": "I expect a cooled separator that can help remove water from the reactor output.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The hose will likely be needed for water return, but I want to assemble separation first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The cooling panel and separator formed a cooled separator module, ready to connect to the reactor.",
+    "reaction": "The result was straightforward, though it gave no further detail about the separation.",
+    "step": 3,
+    "reason": "Connecting the separator to the reactor should complete the gas-processing path.",
+    "choice": 1,
+    "expectation": "I expect a reactor assembly that cools and separates its output, with the water return still to be connected.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The hose will likely provide the water return, but connecting the separator first seems natural."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The separator now handles water, methane purification and unreacted gas at the reactor outlet; the water return still needs connecting.",
+    "reaction": "The description clarified what the separator actually does.",
+    "step": 4,
+    "reason": "Place the hose at the treatment return so it can connect recovered water to treatment.",
+    "choice": 1,
+    "expectation": "I expect the hose to be positioned for connecting the reactor's water output, though another step may be needed.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The reactor also needs to connect to the return, but placing the hose first seems practical."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The hose is positioned at the treatment return, and the reactor can now be connected to it.",
+    "reaction": "The placement was straightforward.",
+    "step": 5,
+    "reason": "Connect the reactor to the hose to complete the recovered-water return.",
+    "choice": 1,
+    "expectation": "I expect recovered water to flow back to treatment, completing the separation and return setup.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The reactor now routes recovered water through treatment, and the remaining goal is to feed clean methane from it.",
+    "reaction": "Connecting the actual outlet made the water-recovery loop feel concrete.",
+    "step": 6,
+    "reason": "The test cylinder and reactor are the only offered combination, and connecting them should address the new methane goal.",
+    "choice": 1,
+    "expectation": "I expect the cylinder to receive cleaned methane from the reactor, though its exact role is uncertain.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The test batch passed through the completed purification equipment, and the connected reactor now supplies clean methane while water and reactants follow separate paths.",
+    "reaction": "It was satisfying to see the test cylinder tied into an ongoing process rather than treated as the finished fuel supply.",
+    "step": 7,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Connecting the separator to the reactor was most worthwhile: it explained how water is condensed, methane polished and unreacted gas returned.",
+        "steps": [
+          3
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Placing the hose was a straightforward preparation with little happening on its own.",
+        "steps": [
+          4
+        ]
+      },
+      "surprise": {
+        "text": "The separator also returns unreacted gas through its own line; I had mainly expected it to remove water.",
+        "steps": [
+          3
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt clearly purposeless, though the separate hose placement was a mechanical prerequisite rather than an interesting decision.",
+        "steps": [
+          4,
+          5
+        ]
+      },
+      "continue": {
+        "text": "Yes. I would continue to see how the purified methane is used; the connected water recovery and gas processing made this stage physically understandable.",
+        "steps": [
+          3,
+          5,
+          6
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

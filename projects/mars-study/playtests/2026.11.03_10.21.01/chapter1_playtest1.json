@@ -1,0 +1,97 @@
+[
+  {
+    "step": 1,
+    "reason": "The habitat is leaking, so patching the puncture seems like the most direct first step.",
+    "choice": 1,
+    "expectation": "I expect to seal the damaged wall, though refilling it may require a separate action.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The braces might help with the folded landing leg, but the habitat leak seems more urgent."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The leak has stopped, so refilling the habitat is the next direct step.",
+    "reaction": "The backing plate makes the repair feel physically sensible.",
+    "step": 2,
+    "reason": "The sealed wall can now be paired with the breathing-gas supply to refill the habitat.",
+    "choice": 1,
+    "expectation": "I expect the habitat to be repressurized, though the game may require another step.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The braces may address the landing support, but refilling the habitat advances the current goal."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The habitat is breathable, and stabilizing the landing support is now the goal.",
+    "reaction": "The regulator and gauge make the refill easy to picture.",
+    "step": 3,
+    "reason": "This is the only offered combination, and the braces seem useful for supporting the damaged leg.",
+    "choice": 1,
+    "expectation": "I expect to prepare the shipping braces for use as a landing support, possibly in a separate step.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The shipping braces are now usable steel stock, with a ground-support brace explicitly identified as one possible use.",
+    "reaction": "The multiple potential uses are intriguing, though the immediate support task is clear.",
+    "step": 4,
+    "reason": "Using the steel at the low landing support directly addresses the current goal.",
+    "choice": 1,
+    "expectation": "I expect to make or install a brace that stabilizes the damaged landing leg.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The service tool could shape the steel, but the hotspot action seems more directly tied to the goal."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The cribbing stabilizes the landing platform, and the inspection establishes that a permanent repair can wait; both chapter goals are complete.",
+    "reaction": "The load-bearing explanation and inspection made the improvised support feel credible.",
+    "step": 5,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Installing the cribbing was most worthwhile: it resolved the damaged support with a concrete explanation of how the load is carried.",
+        "steps": [
+          4
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Turning the shipping braces into generic steel stock felt the most like an intermediate preparation rather than a meaningful decision.",
+        "steps": [
+          3
+        ]
+      },
+      "surprise": {
+        "text": "The shipping braces became general-purpose steel stock with several possible future uses, rather than simply being fitted as braces.",
+        "steps": [
+          3
+        ]
+      },
+      "arbitrary": {
+        "text": "Nothing felt particularly arbitrary; the repairs had clear purposes, though the menu supplied compatible actions rather than letting me discover them.",
+        "steps": [
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      "continue": {
+        "text": "Yes. The practical repair details and hints at other uses for the steel make me curious about what the expedition builds next.",
+        "steps": [
+          3,
+          4
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

@@ -1,0 +1,85 @@
+[
+  {
+    "step": 1,
+    "reason": "The excavator needs to be unpacked or assembled before it can work, and the steel may provide structural support.",
+    "choice": 1,
+    "expectation": "I expect the steel to help make the excavator ready for use, though its exact role is unclear.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The cable and steel might make an electrical component, but preparing the excavator seems more directly connected to the goal."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The steel made a spoil hopper, so the excavator now needs power before it can work.",
+    "reaction": "The hopper is a sensible use for the steel, though I hadn't anticipated it.",
+    "step": 2,
+    "reason": "Connecting the power cable seems like the direct next step toward operating the excavator.",
+    "choice": 1,
+    "expectation": "I expect the cable to provide an electrical connection for the excavator, though it may still need to be placed at the cavern.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The cable and steel might make another useful component, but powering the excavator is more directly relevant."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The powered excavator is working, and the next goal is to clear the growing bay.",
+    "reaction": "The repeated trips and spoil hopper make the excavation feel practical.",
+    "step": 3,
+    "reason": "Using the excavator on the surveyed floor directly addresses the new goal.",
+    "choice": 1,
+    "expectation": "I expect it to clear the surveyed growing bay, though the spoil may need further handling.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The cable and steel may be useful later, but clearing the floor is the immediate goal."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The excavator cleared the bay and completed the chapter; the cave provides shelter but still has no breathable air.",
+    "reaction": "The sound rock and lack of air make the cleared space feel promising without implying it is ready to inhabit.",
+    "step": 4,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Clearing the cavern bay was the most worthwhile moment: the repeated excavation produced a tangible space while acknowledging its limits.",
+        "steps": [
+          2,
+          3
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Making the hopper was the least engaging moment because its exact purpose was not apparent until the result, which had no further explanation.",
+        "steps": [
+          1
+        ]
+      },
+      "surprise": {
+        "text": "I expected steel to help assemble the excavator, but it became a spoil hopper specifically.",
+        "steps": [
+          1
+        ]
+      },
+      "arbitrary": {
+        "text": "The steel-to-hopper combination was initially a guess, although the resulting hopper makes practical sense for excavation.",
+        "steps": [
+          1
+        ]
+      },
+      "continue": {
+        "text": "Yes. I would be curious to see how the sheltered but airless bay becomes useful, though this chapter's short sequence offered few meaningful decisions.",
+        "steps": [
+          2,
+          3
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]
