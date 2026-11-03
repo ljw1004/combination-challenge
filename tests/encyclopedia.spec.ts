@@ -38,6 +38,95 @@ async function openFixture(page: Page, text = manuscript) {
   await page.getByRole('button', { name: 'Begin', exact: true }).click();
 }
 
+test('only the reopened chapter dismisses on backdrop clicks, with a top-right Close and right-aligned recovery', async ({ page }) => {
+  await page.setViewportSize({ width: 320, height: 600 });
+  await page.route('**/library-fixture/story.md', route => route.fulfill({ contentType: 'text/markdown', body: manuscript }));
+  await page.goto('/combinations.html?story=library-fixture/story.md');
+  await page.getByRole('button', { name: 'Start', exact: true }).click();
+  const backdrop = page.locator('.game-dialog-layer');
+  const outside = () => backdrop.click({ position: { x: 4, y: 4 } });
+  await outside();
+  await expect(page.getByRole('button', { name: 'Begin', exact: true })).toBeVisible();
+  await expect(page.locator('dialog button')).toHaveCount(1);
+  await page.getByRole('button', { name: 'Begin', exact: true }).click();
+  const goals = page.getByRole('button', { name: 'Read this chapter' });
+  await goals.click();
+  const dialog = page.locator('dialog'), close = page.getByRole('button', { name: 'Close', exact: true });
+  await expect(close).toHaveText('×');
+  await expect(page.getByRole('button', { name: 'Encyclopedia', exact: true })).toHaveCount(0);
+  const popup = (await dialog.boundingBox())!, x = (await close.boundingBox())!;
+  expect(x.x).toBeGreaterThan(popup.x + popup.width / 2);
+  expect(x.y - popup.y).toBeLessThan(12);
+  const recovery = (await page.getByRole('button', { name: 'Restart story', exact: true }).boundingBox())!;
+  const footer = (await page.locator('.chapter-actions').boundingBox())!;
+  expect(recovery.x + recovery.width).toBeCloseTo(footer.x + footer.width, 0);
+  await page.locator('.chapter-popup .reading-text').click();
+  await expect(dialog).toBeVisible();
+  // A text-selection gesture ending outside must not become a backdrop dismissal.
+  const prose = (await page.locator('.chapter-popup .reading-text').boundingBox())!;
+  await page.mouse.move(prose.x + 10, prose.y + 10); await page.mouse.down();
+  await page.mouse.move(4, 4); await page.mouse.up();
+  await expect(dialog).toBeVisible();
+  await page.mouse.down(); await page.mouse.move(prose.x + 10, prose.y + 10); await page.mouse.up();
+  await expect(dialog).toBeVisible();
+  await outside();
+  await expect(dialog).toHaveCount(0);
+  await expect(goals).toBeFocused();
+  await goals.click(); await close.click();
+  await expect(dialog).toHaveCount(0);
+  await page.locator('[data-item="name:Grain"]').dragTo(page.locator('[data-item="name:Stone"]'));
+  await outside();
+  await expect(page.getByRole('button', { name: 'Continue', exact: true })).toBeVisible();
+  await page.getByRole('button', { name: 'Continue', exact: true }).click();
+  await goals.click();
+  await expect(page.getByRole('button', { name: 'Restart this chapter' })).toBeVisible();
+  const restart = (await page.getByRole('button', { name: 'Restart this chapter' }).boundingBox())!;
+  const row = (await page.locator('.chapter-actions').boundingBox())!;
+  expect(restart.x + restart.width).toBeCloseTo(row.x + row.width, 0);
+});
+
+test('the compact chapter row opens the book through either icon or plain label and keeps long prose scrollable', async ({ page }) => {
+  await page.setViewportSize({ width: 320, height: 600 });
+  const text = manuscript.replace('- Tool\n', '- Extra\n\n  Extra description.\n\n- Tool\n')
+    .replace('Workshop introduction.', Array.from({ length: 20 }, () => 'Workshop introduction.').join('\n\n'));
+  await openFixture(page, text);
+  const goals = page.getByRole('button', { name: 'Read this chapter' });
+  await goals.click();
+  const book = page.getByRole('button', { name: 'Encyclopedia', exact: true });
+  const label = book.locator('.chapter-book-label');
+  const body = page.locator('.chapter-popup .reading-text');
+  expect(await body.evaluate(el => el.scrollHeight > el.clientHeight)).toBe(true);
+  await body.evaluate(el => { el.scrollTop = el.scrollHeight; });
+  await expect(page.getByRole('button', { name: 'Close', exact: true })).toBeInViewport();
+  await expect(book).toBeInViewport();
+  const left = (await book.boundingBox())!, row = (await page.locator('.chapter-actions').boundingBox())!;
+  const right = (await page.getByRole('button', { name: 'Restart story', exact: true }).boundingBox())!;
+  expect(left.x).toBeCloseTo(row.x, 0);
+  expect(right.x + right.width).toBeCloseTo(row.x + row.width, 0);
+  expect(right.x).toBeGreaterThan(left.x + left.width);
+  expect(left.y + left.height / 2).toBeCloseTo(right.y + right.height / 2, 0);
+  expect(await label.evaluate(el => getComputedStyle(el).textDecorationLine)).toBe('none');
+  await label.hover();
+  expect(await label.evaluate(el => getComputedStyle(el).textDecorationLine)).toBe('none');
+  expect(await book.evaluate(el => getComputedStyle(el).borderWidth)).toBe('0px');
+  await book.locator('.chapter-book-button').click();
+  await expect(page.getByRole('dialog', { name: 'Encyclopedia', exact: true })).toBeVisible();
+  await page.getByRole('button', { name: 'Close', exact: true }).click();
+  await goals.click(); await label.click();
+  await expect(page.getByRole('dialog', { name: 'Encyclopedia', exact: true })).toBeVisible();
+  await page.getByRole('button', { name: 'Close', exact: true }).click();
+  await goals.click();
+  await page.getByRole('button', { name: 'Close', exact: true }).focus();
+  await page.keyboard.press('Tab');
+  // Chromium exposes the scrollable prose as a keyboard scroll target.
+  await expect(body).toBeFocused();
+  await page.keyboard.press('Tab');
+  await expect(book).toBeFocused();
+  expect(await book.evaluate(el => getComputedStyle(el).outlineStyle)).toBe('solid');
+  await page.keyboard.press('Enter');
+  await expect(page.getByRole('dialog', { name: 'Encyclopedia', exact: true })).toBeVisible();
+});
+
 test('retired discoveries unlock the manual encyclopedia; reading, Index, page-local Close, reload and reset preserve their boundaries', async ({ page }) => {
   await openFixture(page);
   await page.getByRole('button', { name: 'Read this chapter' }).click();
@@ -149,7 +238,7 @@ test('long mobile encyclopedia scrolls without horizontal overflow and supports 
   await expect(page.locator('dialog')).toHaveCount(0);
 });
 
-test('two touch taps open an encyclopedia entry below the unlock threshold and Close returns to the board', async ({ browser }) => {
+test('touch opens an encyclopedia entry below threshold and dismisses reopened goals through their backdrop', async ({ browser }) => {
   const context = await browser.newContext({ viewport: { width: 390, height: 844 }, isMobile: true, hasTouch: true });
   const page = await context.newPage();
   await openFixture(page);
@@ -163,6 +252,10 @@ test('two touch taps open an encyclopedia entry below the unlock threshold and C
   await expect(page.getByRole('button', { name: 'Index', exact: true })).toBeVisible();
   await expect(page.getByRole('button', { name: 'Close', exact: true })).toHaveCount(1);
   await page.getByRole('button', { name: 'Close', exact: true }).tap();
+  await expect(page.locator('dialog')).toHaveCount(0);
+  await page.getByRole('button', { name: 'Read this chapter' }).tap();
+  await expect(page.locator('dialog.chapter-popup')).toBeVisible();
+  await page.touchscreen.tap(4, 4);
   await expect(page.locator('dialog')).toHaveCount(0);
   await context.close();
 });

@@ -470,9 +470,9 @@ function openPendingReading() {
 function chapterContent() {
   const recovery = chapterRecovery(chapterSession);
   const text = chapterSession.entry.pending.find(n => n.kind === 'chapter')?.markdown ?? story.chapters[state.chapter].intro;
-  return `${readingBody(text, asset)}<div class="dialog-actions"><button data-command="close">Close</button>${encyclopediaEntries(story, state).length >= 3 ? '<button data-command="encyclopedia">' + openBook + ' Encyclopedia</button>' : ''}${recovery === 'chapter' ? '<button class="recovery-action" data-command="reset-chapter"><span aria-hidden="true">↻</span> Restart this chapter</button>' : recovery === 'story' ? '<button class="recovery-action" data-command="confirm-reset-story">Restart story</button>' : ''}</div>`;
+  return `<header class="chapter-popup-header"><button class="chapter-close" data-command="close" aria-label="Close" title="Close"><span aria-hidden="true">×</span></button></header>${readingBody(text, asset)}<div class="chapter-actions">${encyclopediaEntries(story, state).length >= 3 ? '<button class="chapter-encyclopedia" data-command="encyclopedia"><span class="chapter-book-button" aria-hidden="true">' + openBook + '</span><span class="chapter-book-label">Encyclopedia</span></button>' : ''}${recovery === 'chapter' ? '<button class="recovery-action" data-command="reset-chapter"><span aria-hidden="true">↻</span> Restart this chapter</button>' : recovery === 'story' ? '<button class="recovery-action" data-command="confirm-reset-story">Restart story</button>' : ''}</div>`;
 }
-function reopenChapter() { flushPreview(); modal(chapterContent(), 'intertitle', { kind: 'chapter' }); rememberInteraction(); }
+function reopenChapter() { flushPreview(); modal(chapterContent(), 'intertitle chapter-popup', { kind: 'chapter' }); rememberInteraction(); }
 function confirmRestart() { modal('<h1>Restart this story?</h1><p>This removes all progress in this story on this device, including completed chapters, discoveries, item positions and tutorial progress. Your Markdown draft is kept. You will return to the cover page and Start button. This cannot be undone. Your other stories are unchanged.</p><div class="dialog-actions"><button data-command="cancel-reset-story">Cancel</button><button class="danger" data-command="reset-story">Restart story</button></div>', 'ordinary', { kind: 'confirm' }); }
 const bookResize = new ResizeObserver(() => syncBookLayout());
 function bookIsSpread() {
@@ -573,7 +573,7 @@ function refreshDialog() {
   if (dialogContext?.kind === 'pending') {
     if (state.pending.length) openPendingReading();
     else closeDialog();
-  } else if (dialogContext?.kind === 'chapter') modal(chapterContent(), 'intertitle', dialogContext);
+  } else if (dialogContext?.kind === 'chapter') modal(chapterContent(), 'intertitle chapter-popup', dialogContext);
   else if (dialogContext?.kind === 'encyclopedia') openEncyclopedia(dialogContext.item, !!dialogContext.detail, false);
   if (!dialogContext) showPending();
 }
@@ -928,6 +928,18 @@ function escapeDialog() {
   else dismissReading();
 }
 dialogLayer.addEventListener('keydown', event => { if (event.key === 'Escape') { event.preventDefault(); escapeDialog(); } });
+let pressedDialogBackdrop = false;
+dialogLayer.addEventListener('pointerdown', event => { pressedDialogBackdrop = event.target === dialogLayer; });
+dialogLayer.addEventListener('pointerup', event => { pressedDialogBackdrop &&= event.target === dialogLayer; });
+dialogLayer.addEventListener('pointercancel', () => { pressedDialogBackdrop = false; });
+dialogLayer.addEventListener('click', event => {
+  const dismiss = pressedDialogBackdrop && event.target === dialogLayer && dialogContext?.kind === 'chapter';
+  pressedDialogBackdrop = false;
+  if (dismiss) {
+    flushPreview();
+    if (dialogContext?.kind === 'chapter') dismissReading();
+  }
+});
 if(import.meta.env.DEV){
   inputTrace=new DragTrace(app,()=>{
     const element=drag?.el??traceTile,id=element?.dataset.item,token=id?state?.tokens[id]:undefined;
