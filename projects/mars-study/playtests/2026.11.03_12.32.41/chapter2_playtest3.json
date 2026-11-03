@@ -1,0 +1,129 @@
+[
+  {
+    "step": 1,
+    "reason": "The solar array's buckled feet need repair before it can reliably supply power; checking the array should identify the available repair.",
+    "choice": {
+      "inspect": "Delivered solar array"
+    },
+    "expectation": "The inspection should reveal what can repair or connect the array.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Steel",
+          "with": "Delivered solar array"
+        },
+        "reason": "Steel could brace the damaged feet, but the required repair is not yet clear."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The array is standing on replacement steel feet, so it can now be connected to the power system.",
+    "reaction": "The automatic repair was a satisfying, physically clear result.",
+    "step": 2,
+    "reason": "The loose power cable should reconnect the repaired array.",
+    "choice": {
+      "combine": "Standing solar array",
+      "with": "Power cable"
+    },
+    "expectation": "The cable will connect the array for power delivery.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The array is online and supplying the station; the reserve still needs attention.",
+    "reaction": "The isolated controller makes reconnecting the lead feel sensible.",
+    "step": 3,
+    "reason": "The reserve charging connection is the obvious place to use the new solar supply.",
+    "choice": {
+      "combine": "Station solar supply",
+      "with": "Reserve charging connection"
+    },
+    "expectation": "The solar supply should connect to or charge the reserve.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The reserve is charging, and replenishing breathing oxygen is now the goal.",
+    "reaction": "The distinction between essential loads and industrial work makes the reserve's limits clear.",
+    "step": 4,
+    "reason": "The atmospheric processor is the most plausible equipment for replenishing oxygen; inspecting it will clarify what it needs.",
+    "choice": {
+      "inspect": "Atmospheric processor"
+    },
+    "expectation": "The inspection should reveal an available partner for oxygen production.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The powered processor replenishes oxygen from atmospheric carbon dioxide; the remaining goal is to hear from Earth.",
+    "reaction": "The explanation of oxygen production and carbon monoxide venting was useful.",
+    "step": 5,
+    "reason": "The bent antenna likely needs repair before it can serve the radio; inspecting it should reveal the available repair.",
+    "choice": {
+      "inspect": "Bent antenna"
+    },
+    "expectation": "The inspection should identify what can repair or install the antenna.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Bent antenna",
+          "with": "Service tool"
+        },
+        "reason": "The tool might straighten the antenna, but its repair requirements are not yet clear."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The antenna is straightened and can be aimed; it still needs to be connected to the radio.",
+    "reaction": "The repair was straightforward and physically clear.",
+    "step": 6,
+    "reason": "The radio mount is the natural place to install the straightened antenna.",
+    "choice": {
+      "combine": "Straightened antenna",
+      "with": "Radio mount"
+    },
+    "expectation": "The antenna will be mounted for radio communication.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Mounting the antenna established a surface radio and completed the goal of hearing from Earth.",
+    "reaction": "The recorded message and reply gave the repairs a human payoff.",
+    "step": 7,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Powering the atmospheric processor was most worthwhile: it explained how electricity and heat extract oxygen from carbon dioxide, including what happens to the carbon monoxide.",
+        "steps": [
+          4
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Inspecting the antenna was somewhat redundant: the service tool was already a plausible repair, and the inspection automatically used it.",
+        "steps": [
+          5
+        ]
+      },
+      "surprise": {
+        "text": "I had not expected the processor's explanation to include venting carbon monoxide outside.",
+        "steps": [
+          4
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt notably arbitrary; the repairs and connections had clear purposes.",
+        "steps": []
+      },
+      "continue": {
+        "text": "Yes. The physically explained repairs and the message from Earth make me curious about what happens next.",
+        "steps": [
+          3,
+          4,
+          6
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

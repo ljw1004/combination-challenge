@@ -1,0 +1,102 @@
+[
+  {
+    "step": 1,
+    "reason": "The soft wash needs a load-spreading surface; steel and cargo mesh look like plausible crossing materials.",
+    "choice": {
+      "combine": "Steel",
+      "with": "Cargo mesh"
+    },
+    "expectation": "They will form a reinforced surface for the rover to cross.",
+    "alternatives": [
+      {
+        "choice": {
+          "inspect": "Shallow wash crossing"
+        },
+        "reason": "I could check which materials the crossing accepts first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The steel and mesh made stiffened traction panels, ready to place at the wash.",
+    "reaction": "The load-spreading explanation makes the construction feel physically sensible.",
+    "step": 2,
+    "reason": "The framed panels are intended to support the rover across the soft crossing.",
+    "choice": {
+      "combine": "Framed traction panels",
+      "with": "Shallow wash crossing"
+    },
+    "expectation": "The panels will be laid across the soft ground to support the wheels.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The panels now support the crossing, and the next goal is to get the rover across.",
+    "reaction": "The distinction between supported panels and loose mesh makes the crossing more convincing.",
+    "step": 3,
+    "reason": "The winch can be secured to the sound rock to help the rover cross.",
+    "choice": {
+      "combine": "Rover winch",
+      "with": "Sound rock anchor"
+    },
+    "expectation": "The winch will be anchored to the rock for the crossing.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The winch is anchored and aligned for the crossing; the supported panels remain the route across.",
+    "reaction": "The recovery setup gives the crossing a practical purpose.",
+    "step": 4,
+    "reason": "The anchored winch and supported panels are the prepared components for taking the rover across.",
+    "choice": {
+      "combine": "Anchored rover winch",
+      "with": "Supported traction panels"
+    },
+    "expectation": "The rover will cross the supported panels using the anchored winch for assistance.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The rover crossed successfully, and the supported route remains available for the return trip. Both chapter goals are complete.",
+    "reaction": "The controlled crossing was a satisfying payoff for preparing both the panels and the winch.",
+    "step": 5,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Placing the traction panels was most worthwhile: the explanation distinguished supported, stiffened panels from loose mesh that would sink, making the engineering decision understandable.",
+        "steps": [
+          1,
+          2
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Anchoring the winch was a straightforward preparation rather than an especially interesting decision, though it had a clear purpose.",
+        "steps": [
+          3
+        ]
+      },
+      "surprise": {
+        "text": "The panels needed supported ground through the soft section, not just a stiff frame; that qualified my initial expectation of a simple load-spreading surface.",
+        "steps": [
+          1,
+          2
+        ]
+      },
+      "arbitrary": {
+        "text": "Nothing felt particularly arbitrary: the panels, anchor and winch each had an explained role in the crossing.",
+        "steps": [
+          2,
+          3,
+          4
+        ]
+      },
+      "continue": {
+        "text": "Yes. I would continue to see what the farther ice core reveals; the crossing was brief but its practical explanations made the expedition feel grounded.",
+        "steps": [
+          2,
+          4
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

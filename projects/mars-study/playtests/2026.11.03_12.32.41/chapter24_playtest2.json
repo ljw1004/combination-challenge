@@ -1,0 +1,167 @@
+[
+  {
+    "step": 1,
+    "reason": "The separation goal involves several plausible parts, so checking the separator's partners should clarify how it fits into the plant.",
+    "choice": {
+      "inspect": "Gas separator module"
+    },
+    "expectation": "The inspection should show which available component connects to the separator.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Gas separator module",
+          "with": "Controlled methane reactor"
+        },
+        "reason": "The module may attach directly to the reactor, but its required preparation is not yet clear."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The separator has no available partner yet, so another component likely needs preparation first.",
+    "reaction": "The empty list is mildly surprising and narrows the next step.",
+    "step": 2,
+    "reason": "The coolant tubing may need to be built into a cooling component before separation is possible.",
+    "choice": {
+      "inspect": "Coolant tubing"
+    },
+    "expectation": "Its partner list should indicate how to prepare the cooling stage.",
+    "alternatives": [
+      {
+        "choice": {
+          "inspect": "Unpurified methane test cylinder"
+        },
+        "reason": "The test cylinder might also reveal the next available processing step."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The tubing and steel formed a cooling panel, suggesting cooling must be installed before separation.",
+    "reaction": "The automatic construction was a useful step forward.",
+    "step": 3,
+    "reason": "The reactor needs process cooling, so the new panel is a plausible fit.",
+    "choice": {
+      "combine": "Process cooling panel",
+      "with": "Controlled methane reactor"
+    },
+    "expectation": "The panel should add cooling to the reactor installation.",
+    "alternatives": [
+      {
+        "choice": {
+          "inspect": "Process cooling panel"
+        },
+        "reason": "Its partner list could confirm where it connects."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The cooling panel connects to the separator module rather than directly to the reactor.",
+    "reaction": "That clarifies the assembly order after my incorrect guess.",
+    "step": 4,
+    "reason": "The compatibility feedback identifies the separator as the panel's available partner.",
+    "choice": {
+      "combine": "Process cooling panel",
+      "with": "Gas separator module"
+    },
+    "expectation": "The cooling panel should fit onto the separator to prepare a cooled separation stage.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The cooled separator is assembled but still needs a gas supply at its process inlet.",
+    "reaction": "The exposed radiator and separate inlet make the assembly's purpose clearer.",
+    "step": 5,
+    "reason": "The controlled reactor is the plant's source of unpurified gas, so it is the natural connection for the separator.",
+    "choice": {
+      "combine": "Cooled separator module",
+      "with": "Controlled methane reactor"
+    },
+    "expectation": "The separator should connect to the reactor's gas outlet.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Cooled separator module",
+          "with": "Unpurified methane test cylinder"
+        },
+        "reason": "The test cylinder also contains gas to separate, though the goal concerns the working plant."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The reactor now separates water and purifies methane; the water return still needs a connection.",
+    "reaction": "The separate return path makes the process clearer.",
+    "step": 6,
+    "reason": "The clean service hose is a plausible way to return recovered water from the reactor.",
+    "choice": {
+      "combine": "Clean service hose",
+      "with": "Purifying methane reactor"
+    },
+    "expectation": "The hose should connect the recovered-water outlet to its return line.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The reactor now returns recovered water to treatment, and the next goal is to feed clean methane from it.",
+    "reaction": "The separate water return makes the plant's loop satisfying to see completed.",
+    "step": 7,
+    "reason": "The remaining test cylinder may have an available role, but the new goal specifically calls for methane from the actual reactor, so I should check the reactor's options.",
+    "choice": {
+      "inspect": "Water-recovering methane reactor"
+    },
+    "expectation": "The inspection should show what connects to the reactor to carry its clean methane.",
+    "alternatives": [
+      {
+        "choice": {
+          "inspect": "Unpurified methane test cylinder"
+        },
+        "reason": "I could check whether the test cylinder has a use, though it contains unpurified gas."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The inspection automatically processed the test batch and established a purified methane supply from the connected reactor, completing the chapter.",
+    "reaction": "I was surprised that the test cylinder also helped establish the continuing reactor output, despite its unpurified contents.",
+    "step": 8,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Connecting the water return was most worthwhile: it made the separation loop concrete and showed how reaction water goes back through treatment and electrolysis.",
+        "steps": [
+          6
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Inspecting the separator first produced no partners, so it offered little guidance beyond showing that preparation was needed.",
+        "steps": [
+          1
+        ]
+      },
+      "surprise": {
+        "text": "The reactor inspection automatically used the unpurified test cylinder, then established a continuing clean methane outlet.",
+        "steps": [
+          7
+        ]
+      },
+      "arbitrary": {
+        "text": "Nothing felt wholly purposeless, though the separator's initial empty compatibility list did not explain what preparation it needed.",
+        "steps": [
+          1,
+          2
+        ]
+      },
+      "continue": {
+        "text": "Yes. I would continue to see how the purified fuel supports the return and the core's journey, particularly because the separate cooling, gas and water paths made the plant physically intelligible.",
+        "steps": [
+          4,
+          5,
+          6,
+          7
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

@@ -1,0 +1,166 @@
+[
+  {
+    "step": 1,
+    "reason": "The pressed regolith blanks need firing before they can make a strong floor, and the solar heating bay suggests where to do it.",
+    "choice": {
+      "combine": "Unfired regolith blanks",
+      "with": "Solar heating bay"
+    },
+    "expectation": "The solar heat will fire the blanks into solid floor material.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The blanks are now ceramic blocks suitable for non-pressure paving, so they can form the growing bay floor.",
+    "reaction": "The distinction between paving and pressure containment makes physical sense.",
+    "step": 2,
+    "reason": "The blocks are intended as paving for the cleared growing bay.",
+    "choice": {
+      "combine": "Ceramic blocks",
+      "with": "Cleared growing bay"
+    },
+    "expectation": "The blocks will make a floor for the pressure liner.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The ceramic blocks have made a level floor, ready for the liner.",
+    "reaction": "The explanation of bedding the blocks makes the floor preparation feel practical.",
+    "step": 3,
+    "reason": "The level floor is ready for the folded pressure envelope, so I will try installing it there.",
+    "choice": {
+      "combine": "Folded pressure envelope",
+      "with": "Level cavern floor"
+    },
+    "expectation": "The envelope will unfold onto the prepared floor.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The envelope cannot yet be combined directly with the level floor, so another preparation may be needed.",
+    "reaction": "The failed attempt is mildly surprising because the floor appeared ready for the liner.",
+    "step": 4,
+    "reason": "The felt and clean fabric may form a protective layer between the paving and the pressure envelope; this is a guess.",
+    "choice": {
+      "combine": "Insulation felt",
+      "with": "Clean cover fabric"
+    },
+    "expectation": "The fabric and felt will make a protective underlay for the liner.",
+    "alternatives": [
+      {
+        "choice": {
+          "inspect": "Level cavern floor"
+        },
+        "reason": "Checking the floor's available partners could clarify the next fitting."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The felt and fabric made a padded underlay to protect the pressure skin from ceramic edges.",
+    "reaction": "The extra protective layer explains why the level floor alone was not enough.",
+    "step": 5,
+    "reason": "The underlay should go on the level floor before the pressure envelope.",
+    "choice": {
+      "combine": "Padded underlay",
+      "with": "Level cavern floor"
+    },
+    "expectation": "The pad will cover the paving and prepare the floor for the liner.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The padded underlay completed the safe floor, and the new goal is an inhabited, illuminated room.",
+    "reaction": "The layered floor construction now has a clear purpose.",
+    "step": 6,
+    "reason": "The protected floor is ready for the folded pressure envelope.",
+    "choice": {
+      "combine": "Folded pressure envelope",
+      "with": "Protected cavern floor"
+    },
+    "expectation": "The envelope will unfold onto the protected floor to form the room.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The pressure envelope is installed and sealed, but the room still needs breathable gas and lighting.",
+    "reaction": "The separate roles of imported seals and local blocks are clear.",
+    "step": 7,
+    "reason": "The sealed room needs breathing gas to become inhabitable.",
+    "choice": {
+      "combine": "Breathing-gas supply",
+      "with": "Sealed growing room"
+    },
+    "expectation": "The gas supply will pressurize the growing room with breathable air.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Grow-light rails",
+          "with": "Sealed growing room"
+        },
+        "reason": "The lights also need installing, but I will establish the atmosphere first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The growing room is pressurized and leak-checked; it still needs illumination.",
+    "reaction": "Seeing the envelope lift and the airlock become usable makes the room feel real.",
+    "step": 8,
+    "reason": "The grow-light rails are the remaining visible equipment for illuminating the room.",
+    "choice": {
+      "combine": "Grow-light rails",
+      "with": "Pressurized growing room"
+    },
+    "expectation": "The rails will provide lighting for the growing room.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The light rails completed the illuminated growing room and the chapter's remaining goal.",
+    "reaction": "The explanation that the array was sized for the lights makes their power supply feel credible.",
+    "step": 9,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Building the protected floor was most worthwhile: the ceramic blocks provide support while the padded underlay protects the pressure skin, making the construction understandable.",
+        "steps": [
+          1,
+          2,
+          4,
+          5
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The failed attempt to install the envelope was mildly confusing because the level floor initially sounded ready for it.",
+        "steps": [
+          2,
+          3
+        ]
+      },
+      "surprise": {
+        "text": "I was surprised that the envelope could not go directly on the level floor; the later underlay explained the need to protect it from ceramic edges.",
+        "steps": [
+          3,
+          4
+        ]
+      },
+      "arbitrary": {
+        "text": "The initial inability to fit the envelope felt arbitrary until the underlay's protective purpose became clear.",
+        "steps": [
+          3,
+          4
+        ]
+      },
+      "continue": {
+        "text": "I would continue: the practical construction details and the growing room taking shape made me curious about what happens next.",
+        "steps": [
+          5,
+          6,
+          7,
+          8
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

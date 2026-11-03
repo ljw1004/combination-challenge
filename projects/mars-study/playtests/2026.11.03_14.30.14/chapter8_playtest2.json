@@ -1,0 +1,100 @@
+[
+  {
+    "step": 1,
+    "reason": "The beds need a supporting structure before they can be lined, so steel seems a plausible starting material.",
+    "choice": {
+      "inspect": "Steel"
+    },
+    "expectation": "The compatibility list should show how to begin constructing the bed structure.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Steel",
+          "with": "Growing-room floor"
+        },
+        "reason": "The floor is a plausible place to build the beds, but I am not sure the steel is ready to use there."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The steel is now raised bed frames with outlets above the future reservoir, ready for lining.",
+    "reaction": "The automatic construction was a useful confirmation of the floor's role.",
+    "step": 2,
+    "reason": "The goal is to line the bed structure, and the food-safe sheet is suited to that purpose.",
+    "choice": {
+      "combine": "Food-safe liner sheet",
+      "with": "Raised bed frames"
+    },
+    "expectation": "The sheet should line the raised beds.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The beds are lined, but their drains still need a hose connection to the reservoir.",
+    "reaction": "The open drain stubs make the next task clear.",
+    "step": 3,
+    "reason": "The service hose should connect the bed drains to the reservoir.",
+    "choice": {
+      "combine": "Clean service hose",
+      "with": "Beds with unconnected drains"
+    },
+    "expectation": "The hose should connect to the drain fittings, allowing a return line to the reservoir.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The drain hoses are joined, but their common outlet still needs the reservoir beneath it.",
+    "reaction": "The remaining connection is clear.",
+    "step": 4,
+    "reason": "The reservoir and pump should complete the return path beneath the beds.",
+    "choice": {
+      "combine": "Reservoir and irrigation pump",
+      "with": "Beds with loose drain hoses"
+    },
+    "expectation": "The reservoir should mount below the common drain outlet and connect to it.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The reservoir completes the shared return system, with falling water aerating it before recirculation; all chapter goals are complete.",
+    "reaction": "The explanation of the air gap was a satisfying, practical payoff.",
+    "step": 5,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Connecting the reservoir was most worthwhile: it showed how the shared system returns and aerates water while allowing different root-zone settings.",
+        "steps": [
+          4
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The separate hose-fitting step felt a little incremental, though it made the remaining connection clear.",
+        "steps": [
+          3
+        ]
+      },
+      "surprise": {
+        "text": "The drain outlet above the waterline aerates returning water without another machine; I had expected a connection but not that function.",
+        "steps": [
+          4
+        ]
+      },
+      "arbitrary": {
+        "text": "Nothing felt particularly arbitrary: the frames, liner, hoses and reservoir each had a clear role.",
+        "steps": [
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      "continue": {
+        "text": "Yes. I would be curious to see the beds put to use, especially after learning how their shared irrigation system works.",
+        "steps": [
+          4
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

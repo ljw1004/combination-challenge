@@ -1,0 +1,93 @@
+[
+  {
+    "step": 1,
+    "reason": "The excavator is still packed, so checking it should reveal how to prepare it for work.",
+    "choice": {
+      "inspect": "Packed survey excavator"
+    },
+    "expectation": "The inspection will show what can be used to set up or power the excavator.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Power cable",
+          "with": "Packed survey excavator"
+        },
+        "reason": "The cable might power it, but the machine may need unpacking first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The inspection automatically fitted steel to make a spoil hopper; the excavator may now need power before it can work.",
+    "reaction": "The automatic preparation was useful, though I had expected only a compatibility report.",
+    "step": 2,
+    "reason": "The power cable is the most plausible way to supply the prepared excavator.",
+    "choice": {
+      "combine": "Power cable",
+      "with": "Excavator with spoil hopper"
+    },
+    "expectation": "The cable will power or connect the excavator for use.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Excavator with spoil hopper",
+          "with": "Surveyed cavern floor"
+        },
+        "reason": "The excavator might already be ready to work at the floor."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The cable powered the excavator and completed the first goal; clearing the growing bay is next.",
+    "reaction": "The spoil-catching hopper now has a clear purpose.",
+    "step": 3,
+    "reason": "The working excavator is suited to clearing the surveyed cavern floor.",
+    "choice": {
+      "combine": "Working survey excavator",
+      "with": "Surveyed cavern floor"
+    },
+    "expectation": "The excavator will clear the growing bay.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The excavator cleared the surveyed bay and completed the chapter; the cave still needs breathable air before it can serve as a growing space.",
+    "reaction": "It was satisfying to see the prepared machine open the bay, with the remaining limitation stated plainly.",
+    "step": 4,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Clearing the bay was the most worthwhile passage: the marked route and accumulated rubble made the excavator's work tangible, while the lack of breathable air kept the outcome physically grounded.",
+        "steps": [
+          3
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Connecting the power cable was fairly predictable, though it gave the spoil hopper a practical role.",
+        "steps": [
+          2
+        ]
+      },
+      "surprise": {
+        "text": "Inspecting the packed excavator automatically fitted steel as a spoil hopper; I expected only a compatibility report.",
+        "steps": [
+          1
+        ]
+      },
+      "arbitrary": {
+        "text": "The steel fitting initially felt a little opaque because its purpose was not explained until the powered excavator caught spoil.",
+        "steps": [
+          1,
+          2
+        ]
+      },
+      "continue": {
+        "text": "Yes. I would be curious to see how the sheltered but airless bay becomes a growing space, especially if the practical details remain as clear.",
+        "steps": [
+          3
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

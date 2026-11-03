@@ -1,0 +1,163 @@
+[
+  {
+    "step": 1,
+    "reason": "The iron-bearing fraction must be separated from the screened regolith first, but the board does not identify a separator.",
+    "choice": {
+      "inspect": "Screened regolith"
+    },
+    "expectation": "The inspection should reveal what can help separate or process the feedstock.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Screened regolith has no available partner yet, so a separation tool or preparation must come first.",
+    "reaction": "I am curious what the available workshop parts can make.",
+    "step": 2,
+    "reason": "Steel may be useful for making a separator, but its available partners are not yet clear.",
+    "choice": {
+      "inspect": "Steel"
+    },
+    "expectation": "The inspection should identify a compatible first construction.",
+    "alternatives": [
+      {
+        "choice": {
+          "inspect": "Materials retort"
+        },
+        "reason": "The retort might reveal what preparation it needs."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The steel and power cable made a separator electromagnet, providing the missing tool for the iron-bearing fraction.",
+    "reaction": "The switchable magnet makes the separation method clear.",
+    "step": 3,
+    "reason": "The electromagnet should separate the magnetic fraction from the screened regolith.",
+    "choice": {
+      "combine": "Separator electromagnet",
+      "with": "Screened regolith"
+    },
+    "expectation": "The magnet will collect the iron-bearing grains for the retort.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The magnet produced iron-rich concentrate suitable for processing in the retort.",
+    "reaction": "The distinction between magnetic separation and identifying minerals by color is useful.",
+    "step": 4,
+    "reason": "The concentrate is the prepared feedstock for the materials retort.",
+    "choice": {
+      "combine": "Iron-rich concentrate",
+      "with": "Materials retort"
+    },
+    "expectation": "The concentrate will be loaded into or processed by the retort.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The concentrate cannot be used yet, so the retort likely needs preparation first.",
+    "reaction": "The failed attempt makes the required setup less clear.",
+    "step": 5,
+    "reason": "Inspecting the retort should reveal how to prepare it for the concentrate.",
+    "choice": {
+      "inspect": "Materials retort"
+    },
+    "expectation": "The retort will show its available setup partner or automatically combine if there is only one.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The retort is now connected to hydrogen and solar heat, ready for the concentrate.",
+    "reaction": "The missing preparation now makes sense.",
+    "step": 6,
+    "reason": "The prepared concentrate belongs in the hydrogen-fed retort.",
+    "choice": {
+      "combine": "Iron-rich concentrate",
+      "with": "Hydrogen-fed retort"
+    },
+    "expectation": "The retort will process the concentrate using heat and hydrogen to produce iron.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Hydrogen reduction produced porous iron sponge, which needs further processing at the press.",
+    "reaction": "The explanation makes hydrogen's role in removing oxygen clear.",
+    "step": 7,
+    "reason": "The result says the iron sponge is carried to the press, so pressing is the next step toward usable iron.",
+    "choice": {
+      "combine": "Reduced iron sponge",
+      "with": "Workshop press"
+    },
+    "expectation": "The press will compact the weak iron sponge into a more usable form.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The heated press consolidated the sponge into a dense iron billet; the next goal is to make a process frame.",
+    "reaction": "The distinction between consolidating the iron and shaping parts is useful.",
+    "step": 8,
+    "reason": "The process frame likely needs the consolidated iron and the prepared fuel-fab footing.",
+    "choice": {
+      "combine": "Consolidated iron",
+      "with": "Fuel-fab footing"
+    },
+    "expectation": "The iron will be shaped and installed as a frame at the fuel-fab site.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The press shaped the billet into iron bars and brackets, so the frame can now be assembled from those parts.",
+    "reaction": "The automatic press operation clarified the missing shaping step.",
+    "step": 9,
+    "reason": "The bars and brackets are suitable non-pressure supports for a frame at the prepared fuel-fab site.",
+    "choice": {
+      "combine": "Iron bars and brackets",
+      "with": "Fuel-fab footing"
+    },
+    "expectation": "The supports will be assembled into a process frame on the footing.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The bars and brackets became a process frame on the footing, completing the chapter's goals.",
+    "reaction": "It is satisfying to see the local iron become a support for the planned gas installation.",
+    "step": 10,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Reducing the concentrate and consolidating the sponge made the progression from mineral to usable metal understandable, including hydrogen's role and the need for a controlled heated press.",
+        "steps": [
+          6,
+          7
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Trying the concentrate directly with the unprepared retort was unproductive; the missing hydrogen connection was not clear until the retort was inspected.",
+        "steps": [
+          4,
+          5
+        ]
+      },
+      "surprise": {
+        "text": "Inspecting steel automatically made a switchable electromagnet; the explanation showed how the collected grains could be released.",
+        "steps": [
+          2
+        ]
+      },
+      "arbitrary": {
+        "text": "The billet needed a separate shaping operation before it could become a frame. That requirement was not obvious from the goal, although the press result explained it.",
+        "steps": [
+          8
+        ]
+      },
+      "continue": {
+        "text": "Yes. I would be curious to see the gas installation and return plan develop, especially after this chapter connected local materials processing to the mission.",
+        "steps": [
+          6,
+          7,
+          9
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

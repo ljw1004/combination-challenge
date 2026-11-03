@@ -1,0 +1,142 @@
+[
+  {
+    "step": 1,
+    "reason": "The iron-bearing fraction must be separated from the screened regolith before processing, but the available equipment does not make the method obvious.",
+    "choice": {
+      "inspect": "Screened regolith"
+    },
+    "expectation": "The inspection should identify an available way to separate or prepare the feedstock.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The screened regolith has no currently available partners, so another piece of equipment must be prepared first.",
+    "reaction": "I am curious how the magnetic separation will be set up.",
+    "step": 2,
+    "reason": "The materials retort is central to making iron, so inspecting it may reveal the required preparation.",
+    "choice": {
+      "inspect": "Materials retort"
+    },
+    "expectation": "The inspection should show what can be fitted to or used with the retort.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The retort is now fed with hydrogen and ready for concentrate, but the magnetic fraction still needs separating.",
+    "reaction": "The automatic connection clarified how the furnace and hydrogen supply work together.",
+    "step": 3,
+    "reason": "The power cable and steel may make an electromagnet for separating the iron-bearing fraction; this is a guess based on the stated need.",
+    "choice": {
+      "combine": "Power cable",
+      "with": "Steel"
+    },
+    "expectation": "They may form a magnetic separator for the screened regolith.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The cable and steel made a powered separator, providing the missing way to prepare the iron-bearing feedstock.",
+    "reaction": "The switchable electromagnet makes the separation method clear.",
+    "step": 4,
+    "reason": "The separator should extract the magnetic fraction from the screened regolith.",
+    "choice": {
+      "combine": "Separator electromagnet",
+      "with": "Screened regolith"
+    },
+    "expectation": "The magnet will collect an iron-bearing concentrate for the retort.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The separator produced the iron-rich concentrate needed by the hydrogen-fed retort.",
+    "reaction": "The distinction between a magnetic assay and merely red soil is useful.",
+    "step": 5,
+    "reason": "The prepared concentrate belongs in the hydrogen-fed retort for processing.",
+    "choice": {
+      "combine": "Iron-rich concentrate",
+      "with": "Hydrogen-fed retort"
+    },
+    "expectation": "The retort will heat and reduce the concentrate to produce iron.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The retort produced porous reduced iron, which still needs forming into usable metal.",
+    "reaction": "The explanation makes the hydrogen reduction and the sponge's weakness clear.",
+    "step": 6,
+    "reason": "The protected carrier brings the iron sponge to the press, making that the clear next step.",
+    "choice": {
+      "combine": "Reduced iron sponge",
+      "with": "Workshop press"
+    },
+    "expectation": "The press will consolidate the porous iron into a usable form.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The heated press consolidated the iron into a dense billet, and the next goal is to make a process frame.",
+    "reaction": "The distinction between consolidating and shaping the iron is useful.",
+    "step": 7,
+    "reason": "The billet needs shaping into a frame; the workshop press is the most plausible available equipment for that.",
+    "choice": {
+      "combine": "Consolidated iron",
+      "with": "Workshop press"
+    },
+    "expectation": "The press may shape the billet into components for the process frame.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The press shaped the billet into bars and brackets suitable for a non-pressure frame.",
+    "reaction": "The distinction between supports and flight hardware makes their intended use clearer.",
+    "step": 8,
+    "reason": "The bars and brackets should form the process frame on the prepared fuel-fab footing.",
+    "choice": {
+      "combine": "Iron bars and brackets",
+      "with": "Fuel-fab footing"
+    },
+    "expectation": "The iron supports will be assembled into a process frame at the industrial site.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The bars and brackets became a process frame on the footing, completing the chapter's goals.",
+    "reaction": "It is satisfying to see the local iron become a practical support for the gas installation.",
+    "step": 9,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Making and using the electromagnet was most worthwhile: it connected a plausible construction to magnetic separation, and the assay explanation clarified why red colour alone was not enough to identify suitable feedstock.",
+        "steps": [
+          3,
+          4
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Inspecting the screened regolith yielded no partners, so it did little to clarify the missing preparation.",
+        "steps": [
+          1
+        ]
+      },
+      "surprise": {
+        "text": "Inspecting the retort automatically connected it to the hydrogen outlet; I had expected only compatibility information.",
+        "steps": [
+          2
+        ]
+      },
+      "arbitrary": {
+        "text": "The choice to combine a power cable with steel was a guess: the need for magnetic separation suggested an electromagnet, but the available pieces did not make that recipe certain.",
+        "steps": [
+          3
+        ]
+      },
+      "continue": {
+        "text": "Yes. I would be curious to see how the locally made frame supports the return-fuel installation, especially after the chapter explained the limits of the iron parts.",
+        "steps": [
+          7,
+          8
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

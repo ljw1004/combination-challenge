@@ -1,0 +1,80 @@
+[
+  {
+    "step": 1,
+    "reason": "The excavator lacks a spoil hopper, and the available steel may provide material to make one.",
+    "choice": {
+      "combine": "Steel",
+      "with": "Survey excavator without a hopper"
+    },
+    "expectation": "The steel will be fashioned into a hopper and fitted to the excavator.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The hopper is fitted; the excavator still needs its power lead connected.",
+    "reaction": "The bolted hopper is a satisfying, concrete use of the salvaged steel.",
+    "step": 2,
+    "reason": "The result explicitly says the excavator's power lead is unplugged, and a power cable is available.",
+    "choice": {
+      "combine": "Power cable",
+      "with": "Excavator with spoil hopper"
+    },
+    "expectation": "The cable will connect power to the excavator so it can work.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The excavator is powered and tested; the next goal is to clear the surveyed growing bay.",
+    "reaction": "The clear-ground test makes the transition to excavation feel sensible.",
+    "step": 3,
+    "reason": "The result says the machine can now be sent onto the surveyed floor.",
+    "choice": {
+      "combine": "Working survey excavator",
+      "with": "Surveyed cavern floor"
+    },
+    "expectation": "The excavator will clear loose infill from the surveyed growing bay.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The excavator cleared the growing bay, completing the chapter; the cavern still has no breathable air.",
+    "reaction": "The marked route and spoil handling made the excavation feel concrete, while the unbreathable cavern leaves an interesting next problem.",
+    "step": 4,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Making and fitting the hopper was the most worthwhile action: it gave the salvaged steel a clear mechanical purpose and made the excavator usable.",
+        "steps": [
+          1
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Connecting the power cable was straightforward and predictable, though the subsequent clear-ground test gave it a sensible purpose.",
+        "steps": [
+          2
+        ]
+      },
+      "surprise": {
+        "text": "The powered-machine test completed the initial goal before excavation itself; clearing the bay emerged as a separate goal.",
+        "steps": [
+          2,
+          3
+        ]
+      },
+      "arbitrary": {
+        "text": "Nothing felt particularly arbitrary: the hopper, power connection and surveyed excavation followed a clear physical sequence.",
+        "steps": [
+          1,
+          2,
+          3
+        ]
+      },
+      "continue": {
+        "text": "Yes. I would be curious to see how the sheltered but unbreathable bay becomes a growing space, especially if the practical details remain as clear.",
+        "steps": [
+          3
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

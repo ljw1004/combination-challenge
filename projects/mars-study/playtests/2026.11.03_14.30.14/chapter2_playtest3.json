@@ -1,0 +1,128 @@
+[
+  {
+    "step": 1,
+    "reason": "The array’s buckled feet need support, and the available steel could provide a sturdier frame.",
+    "choice": {
+      "combine": "Steel",
+      "with": "Delivered solar array"
+    },
+    "expectation": "The steel will reinforce or replace the array’s damaged feet.",
+    "alternatives": [
+      {
+        "choice": {
+          "inspect": "Delivered solar array"
+        },
+        "reason": "I could check its compatible parts first, but the damaged feet suggest a direct use for the steel."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The array now has stable feet, so reconnecting its loose lead is the next step toward restoring power.",
+    "reaction": "The broad feet and cable slack make the repair feel physically sensible.",
+    "step": 2,
+    "reason": "The loose external lead suggests connecting the power cable to the standing array.",
+    "choice": {
+      "combine": "Standing solar array",
+      "with": "Power cable"
+    },
+    "expectation": "The cable will reconnect the array to the power system.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The array is online, leaving the reserve charging connection as the apparent next step.",
+    "reaction": "The isolated controller makes the reconnection feel considered.",
+    "step": 3,
+    "reason": "The goal includes restoring the reserve, and the solar supply can plausibly charge it at the designated connection.",
+    "choice": {
+      "combine": "Station solar supply",
+      "with": "Reserve charging connection"
+    },
+    "expectation": "The solar supply will be connected to charge the reserve.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The reserve is charging, and the new goal is to replenish breathing oxygen.",
+    "reaction": "The distinction between essential loads and industrial work makes the reserve's limits clear.",
+    "step": 4,
+    "reason": "The atmospheric processor is the available equipment most directly related to producing breathing oxygen; checking its partners should clarify how to use it.",
+    "choice": {
+      "inspect": "Atmospheric processor"
+    },
+    "expectation": "The inspection will show what the processor can combine with to help replenish oxygen.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The powered processor replenishes oxygen, and the remaining goal is to hear from Earth.",
+    "reaction": "The explanation of splitting atmospheric carbon dioxide makes the oxygen supply more understandable.",
+    "step": 5,
+    "reason": "The bent antenna likely needs repair before it can be mounted for radio reception; the tool kit is a plausible way to straighten it.",
+    "choice": {
+      "combine": "Tool kit",
+      "with": "Bent antenna"
+    },
+    "expectation": "The tools will repair or straighten the antenna for mounting.",
+    "alternatives": [
+      {
+        "choice": {
+          "inspect": "Bent antenna"
+        },
+        "reason": "I could check its compatible partners first, but the tool kit suggests a direct repair."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The antenna is straightened and can be aimed, so it appears ready for the radio mount.",
+    "reaction": "The hinge and locking mast make the repair clear.",
+    "step": 6,
+    "reason": "Mounting the repaired antenna is the obvious next step toward hearing from Earth.",
+    "choice": {
+      "combine": "Straightened antenna",
+      "with": "Radio mount"
+    },
+    "expectation": "The antenna will be mounted for radio reception.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Mounting the antenna restored contact with Earth and completed the chapter's goals.",
+    "reaction": "The recorded message and reply gave the practical repairs a welcome human payoff.",
+    "step": 7,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Powering the atmospheric processor was most worthwhile: it connected the repair to an understandable explanation of how oxygen can be replenished from Martian carbon dioxide.",
+        "steps": [
+          4
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Connecting the cable was straightforward and less interesting than the later explanations, although it was sensible progress.",
+        "steps": [
+          2
+        ]
+      },
+      "surprise": {
+        "text": "The reserve supports essential services but not industrial work during an interruption; that distinction made its limitations clearer.",
+        "steps": [
+          3
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt particularly arbitrary; the repairs and connections followed from the visible damage and goals.",
+        "steps": []
+      },
+      "continue": {
+        "text": "Yes. The physically grounded explanations and the first contact with Earth make me curious about what the expedition will encounter next.",
+        "steps": [
+          4,
+          6
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

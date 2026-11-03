@@ -1,0 +1,165 @@
+[
+  {
+    "step": 1,
+    "reason": "The iron-bearing fraction needs separating, but no separator is explicitly named on the board. Inspecting the feedstock should identify the available route.",
+    "choice": {
+      "inspect": "Screened regolith"
+    },
+    "expectation": "The inspection should show what equipment can process the screened regolith.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Screened regolith has no available partner yet, so the separation equipment likely needs assembling first.",
+    "reaction": "The empty partner list is a little surprising, but it narrows the plan.",
+    "step": 2,
+    "reason": "The retort is intended for mineral processing, so inspecting it may reveal what must be prepared before it can accept the feedstock.",
+    "choice": {
+      "inspect": "Materials retort"
+    },
+    "expectation": "Its partner list should indicate how to prepare or connect the retort.",
+    "alternatives": [
+      {
+        "choice": {
+          "inspect": "Power cable"
+        },
+        "reason": "The cable might help build powered separation equipment."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The retort is now connected to heat and hydrogen, but it still needs concentrated feedstock.",
+    "reaction": "The automatic connection usefully prepares the reduction vessel.",
+    "step": 3,
+    "reason": "Steel and a power cable suggest a possible electromagnet for separating the magnetic fraction; this is a guess.",
+    "choice": {
+      "combine": "Steel",
+      "with": "Power cable"
+    },
+    "expectation": "They may make a powered magnetic separator.",
+    "alternatives": [
+      {
+        "choice": {
+          "inspect": "Power cable"
+        },
+        "reason": "Its partner list could confirm how to build the separator."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The cable and steel made a separator electromagnet, providing a way to isolate the magnetic feedstock.",
+    "reaction": "The successful electromagnet guess is satisfying, especially with the explanation of how it releases the grains.",
+    "step": 4,
+    "reason": "The electromagnet should separate the iron-bearing fraction from the screened regolith.",
+    "choice": {
+      "combine": "Separator electromagnet",
+      "with": "Screened regolith"
+    },
+    "expectation": "The separator should collect an iron-bearing concentrate for the retort.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The separator produced iron-rich concentrate, ready for the hydrogen-fed retort.",
+    "reaction": "The distinction between a surveyed magnetic fraction and merely red soil is useful.",
+    "step": 5,
+    "reason": "The prepared retort needs the concentrated iron-bearing feedstock.",
+    "choice": {
+      "combine": "Iron-rich concentrate",
+      "with": "Hydrogen-fed retort"
+    },
+    "expectation": "The retort should heat and reduce the concentrate to produce iron.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The concentrate has become porous reduced iron, which needs pressing to make usable metal.",
+    "reaction": "The explanation distinguishes chemical reduction from making a strong finished material.",
+    "step": 6,
+    "reason": "The process carrier brings the weak iron sponge to the press, making that the clear next step.",
+    "choice": {
+      "combine": "Reduced iron sponge",
+      "with": "Workshop press"
+    },
+    "expectation": "The press should consolidate the porous iron into a more usable form.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The heated press consolidated the iron into a dense billet, and the next goal is to make a process frame.",
+    "reaction": "The distinction between consolidating the metal and shaping it into parts is useful.",
+    "step": 7,
+    "reason": "The iron billet and prepared fuel-fab footing suggest shaping and installing the frame at the industrial site.",
+    "choice": {
+      "combine": "Consolidated iron",
+      "with": "Fuel-fab footing"
+    },
+    "expectation": "The iron will be shaped into a process frame on the prepared footing.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Consolidated iron",
+          "with": "Workshop press"
+        },
+        "reason": "The press might be needed for a separate shaping operation first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The footing was not the direct partner; the press automatically shaped the billet into bars and brackets for the frame.",
+    "reaction": "The compatibility feedback resolved the missed shaping step efficiently.",
+    "step": 8,
+    "reason": "The newly shaped supports and prepared footing are the visible components for the process frame.",
+    "choice": {
+      "combine": "Iron bars and brackets",
+      "with": "Fuel-fab footing"
+    },
+    "expectation": "The bars and brackets should form a process frame on the footing.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The bars and brackets formed the process frame on the footing, completing the chapter’s final goal.",
+    "reaction": "It is satisfying to see the local iron become a tangible support for the planned installation.",
+    "step": 9,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Making the electromagnet and separating the concentrate connected a practical construction to a useful scientific distinction: the surveyed magnetic fraction, not the soil’s red colour alone, identified the feedstock.",
+        "steps": [
+          3,
+          4
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Inspecting the screened regolith returned no partners, so it did little beyond indicating that preparation was needed first.",
+        "steps": [
+          1
+        ]
+      },
+      "surprise": {
+        "text": "Inspecting the retort automatically connected it to the hydrogen outlet; I had expected only compatibility information.",
+        "steps": [
+          2
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt purposeless, though the need to use the press a second time for shaping was not clear to me until compatibility feedback supplied it.",
+        "steps": [
+          7
+        ]
+      },
+      "continue": {
+        "text": "Yes. I would be curious to see the locally supported gas installation built and the return plan progress; the explanation of reduction and consolidation made this chapter’s construction worthwhile.",
+        "steps": [
+          5,
+          6,
+          8
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

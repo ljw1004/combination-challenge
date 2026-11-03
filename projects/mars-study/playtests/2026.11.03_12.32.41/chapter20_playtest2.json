@@ -1,0 +1,80 @@
+[
+  {
+    "step": 1,
+    "reason": "The gas-control manifold appears to be a necessary part of the electrolyzer installation.",
+    "choice": {
+      "combine": "Electrolyzer stack",
+      "with": "Gas-control manifold"
+    },
+    "expectation": "The manifold will connect to the stack to control its gas outputs.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The stack and manifold form a rack, but its feed still needs polished water.",
+    "reaction": "The separate gas paths make the setup clearer.",
+    "step": 2,
+    "reason": "The rack explicitly needs water from the processor's polishing outlet.",
+    "choice": {
+      "combine": "Unfed electrolysis rack",
+      "with": "Processor polishing outlet"
+    },
+    "expectation": "The rack will be connected to the polished-water feed.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The electrolyzer now has polished water, power and cooling; the next goal is collecting its separated gases.",
+    "reaction": "The separate outlets make the next connection clear.",
+    "step": 3,
+    "reason": "The gas cylinders are the available containers for collecting the two outputs.",
+    "choice": {
+      "combine": "Gas cylinders",
+      "with": "Fed electrolyzer"
+    },
+    "expectation": "The cylinders will connect to the separate gas circuits.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The cylinders completed the separate hydrogen and oxygen circuits, finishing the chapter.",
+    "reaction": "The keyed outlets and separate conditioning paths made the result physically understandable.",
+    "step": 4,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Connecting the cylinders was most worthwhile: the result explained gas separation, drying and the automatic buffer shutoff while completing the installation.",
+        "steps": [
+          3
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Assembling the stack and manifold was straightforward, but less revealing than the later explanation of the finished system.",
+        "steps": [
+          1
+        ]
+      },
+      "surprise": {
+        "text": "The run stops when either buffer is full; that operational detail clarified how the two outputs are managed together.",
+        "steps": [
+          3
+        ]
+      },
+      "arbitrary": {
+        "text": "Nothing felt especially arbitrary: each connection had a clear role in feeding the electrolyzer or collecting its outputs.",
+        "steps": [
+          1,
+          2,
+          3
+        ]
+      },
+      "continue": {
+        "text": "Yes. The practical explanation of the gas circuits made me curious how the propellant-making contingency continues.",
+        "steps": [
+          2,
+          3
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

@@ -1,0 +1,80 @@
+[
+  {
+    "step": 1,
+    "reason": "The excavator needs a spoil hopper, and the available steel is a plausible material for one.",
+    "choice": {
+      "combine": "Steel",
+      "with": "Survey excavator without a hopper"
+    },
+    "expectation": "The steel will be formed into a hopper for the excavator.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The hopper is fitted, and the excavator still needs its power lead connected.",
+    "reaction": "The bolted hopper is a satisfying practical use of the salvaged sheet.",
+    "step": 2,
+    "reason": "The result explicitly says the power lead is unplugged, and a power cable is available.",
+    "choice": {
+      "combine": "Power cable",
+      "with": "Excavator with spoil hopper"
+    },
+    "expectation": "The cable will connect power to the excavator.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The excavator is operational, and the next goal is to clear the surveyed growing bay.",
+    "reaction": "The startup check confirms the machine is ready, though it repeats the hopper fitting.",
+    "step": 3,
+    "reason": "The result says the excavator can now be sent onto the surveyed floor.",
+    "choice": {
+      "combine": "Working survey excavator",
+      "with": "Surveyed cavern floor"
+    },
+    "expectation": "The excavator will clear the loose infill from the growing bay.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The excavator cleared the surveyed bay, completing the chapter; the cavern still has no breathable air.",
+    "reaction": "The load-by-load excavation and the reminder about air made the outcome feel physically grounded.",
+    "step": 4,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Clearing the bay was the most worthwhile passage: the drum, hopper and spoil pile made the excavation easy to picture, while the unbreathable air kept its limits clear.",
+        "steps": [
+          3
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The startup passage repeated the hopper fitting just described in the previous result, making that portion feel slightly repetitive.",
+        "steps": [
+          1,
+          2
+        ]
+      },
+      "surprise": {
+        "text": "The cleared cavern provided shelter but no breathable air, a useful distinction that changed my understanding of what had been achieved.",
+        "steps": [
+          3
+        ]
+      },
+      "arbitrary": {
+        "text": "None of the actions felt arbitrary: fitting a hopper, connecting power and using the excavator on the surveyed floor all had clear purposes.",
+        "steps": [
+          1,
+          2,
+          3
+        ]
+      },
+      "continue": {
+        "text": "Yes. I would be curious to see how the sheltered but airless bay becomes a growing space, especially if the practical explanations continue.",
+        "steps": [
+          3
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

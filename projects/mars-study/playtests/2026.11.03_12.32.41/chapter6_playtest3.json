@@ -1,0 +1,141 @@
+[
+  {
+    "step": 1,
+    "reason": "The unfired blanks need heat to become a durable floor material; the solar heating bay is the likely place to fire them.",
+    "choice": {
+      "combine": "Unfired regolith blanks",
+      "with": "Solar heating bay"
+    },
+    "expectation": "The blanks will be fired into material suitable for the growing bay floor.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The blanks are now ceramic blocks suitable for non-pressure paving.",
+    "reaction": "The distinction between paving and pressure containment is useful.",
+    "step": 2,
+    "reason": "The ceramic blocks can pave the cleared growing bay to provide a safer floor for the liner.",
+    "choice": {
+      "combine": "Ceramic blocks",
+      "with": "Cleared growing bay"
+    },
+    "expectation": "The blocks will be installed as paving in the growing bay.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The blocks made a level floor, but the liner may still need a protective layer.",
+    "reaction": "The explanation of avoiding hollows makes the paving feel purposeful.",
+    "step": 3,
+    "reason": "Insulation felt and clean cover fabric look like plausible layers to cushion and protect the pressure liner, though their exact roles are not yet clear.",
+    "choice": {
+      "combine": "Insulation felt",
+      "with": "Clean cover fabric"
+    },
+    "expectation": "They will form a protective underlay for the liner.",
+    "alternatives": [
+      {
+        "choice": {
+          "inspect": "Clean cover fabric"
+        },
+        "reason": "Inspection could clarify its compatible partners before committing."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The felt and fabric formed an underlay to protect the pressure skin from ceramic edges.",
+    "reaction": "The pad’s protective role makes physical sense.",
+    "step": 4,
+    "reason": "The padded underlay should go on the level floor before the pressure envelope is installed.",
+    "choice": {
+      "combine": "Padded underlay",
+      "with": "Level cavern floor"
+    },
+    "expectation": "The underlay will cover the floor and provide a protected surface for the liner.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The floor is protected, and the next goal is to make an inhabited, illuminated room.",
+    "reaction": "The separate load-bearing and protective layers fit together sensibly.",
+    "step": 5,
+    "reason": "The folded pressure envelope should be installed on the prepared floor before the room is filled with breathing gas.",
+    "choice": {
+      "combine": "Folded pressure envelope",
+      "with": "Protected cavern floor"
+    },
+    "expectation": "The envelope will be positioned on the protected floor as the room's pressure enclosure.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The envelope is installed and sealed, with its airlock and service spine attached; the room still needs breathable air and lighting.",
+    "reaction": "The distinction between the imported pressure seals and local floor supports is clear.",
+    "step": 6,
+    "reason": "The sealed room needs breathing gas to become inhabitable.",
+    "choice": {
+      "combine": "Breathing-gas supply",
+      "with": "Sealed growing room"
+    },
+    "expectation": "The room will be filled with breathable air.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The growing room is pressurized and has passed its leak check; it still needs lighting.",
+    "reaction": "The envelope lifting and holding pressure is a satisfying milestone.",
+    "step": 7,
+    "reason": "The grow-light rails are the remaining visible equipment for illuminating the room.",
+    "choice": {
+      "combine": "Grow-light rails",
+      "with": "Pressurized growing room"
+    },
+    "expectation": "The rails will be installed to illuminate the growing room.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The lights are installed, circulation and heating are connected, and the growing room goal is complete.",
+    "reaction": "The explanation that the original array was sized for the lights makes the finished room feel more credible.",
+    "step": 8,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Building the protected floor was most worthwhile: the level blocks bear the load while the padded underlay protects the pressure liner, making each layer's role clear.",
+        "steps": [
+          2,
+          3,
+          4
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Installing the underlay was a straightforward follow-through after making it, with little uncertainty or discovery of its own.",
+        "steps": [
+          4
+        ]
+      },
+      "surprise": {
+        "text": "The fired blocks were explicitly limited to non-pressure paving and supports; the imported envelope, not the ceramic, holds the atmosphere.",
+        "steps": [
+          1,
+          5
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt particularly arbitrary. Combining the felt and fabric was initially a guess, but the resulting explanation gave the pad a clear protective purpose.",
+        "steps": [
+          3
+        ]
+      },
+      "continue": {
+        "text": "Yes. I would be interested to see how the illuminated room becomes a working growing space; the construction so far has connected practical choices to useful physical explanations.",
+        "steps": [
+          4,
+          5,
+          7
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

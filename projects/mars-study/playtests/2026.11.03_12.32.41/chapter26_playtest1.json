@@ -1,0 +1,153 @@
+[
+  {
+    "step": 1,
+    "reason": "The goal suggests building a water-based heat store, but the fittings and compatible parts are not yet clear.",
+    "choice": {
+      "inspect": "Steel"
+    },
+    "expectation": "The partner list should show how the steel can be used in the heat-storage assembly.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Steel",
+          "with": "Drinking water supply"
+        },
+        "reason": "A steel tank might hold the water, but its construction is uncertain."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The inspection automatically produced a vented steel tank for the heating water, with a separate coil still needed.",
+    "reaction": "The automatic construction was a useful surprise.",
+    "step": 2,
+    "reason": "The tank is ready to hold water for storing heat.",
+    "choice": {
+      "combine": "Drinking water supply",
+      "with": "Open steel tank"
+    },
+    "expectation": "The tank will be filled with water for the heat store.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The water supply cannot yet be combined with the open tank, so the tank likely needs further assembly first.",
+    "reaction": "That was an unexpected setback.",
+    "step": 3,
+    "reason": "The tank description calls for a separate coolant coil, and the tubing is a plausible material for it.",
+    "choice": {
+      "combine": "Coolant tubing",
+      "with": "Open steel tank"
+    },
+    "expectation": "The tubing will form a heat-exchange coil inside the tank.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The tank now has a sealed heating coil, so it may be ready to fill.",
+    "reaction": "The separate coolant and water paths make the assembly clear.",
+    "step": 4,
+    "reason": "The coil is installed, so I can try adding the water that will store the heat.",
+    "choice": {
+      "combine": "Drinking water supply",
+      "with": "Tank with heating coil"
+    },
+    "expectation": "The tank will fill with heating water around the coil.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The water supply still has no available operation, so another tank preparation is needed before filling.",
+    "reaction": "The repeated rejection is mildly frustrating.",
+    "step": 5,
+    "reason": "Insulating the tank should reduce heat loss and may be the remaining preparation.",
+    "choice": {
+      "combine": "Reflective insulation",
+      "with": "Tank with heating coil"
+    },
+    "expectation": "The insulation will wrap the tank while leaving its connections accessible.",
+    "alternatives": [
+      {
+        "choice": {
+          "inspect": "Tank with heating coil"
+        },
+        "reason": "Checking its partners could clarify the required next step."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The tank is insulated, and the result explicitly says it is ready for water.",
+    "reaction": "That clarifies why the earlier filling attempts failed.",
+    "step": 6,
+    "reason": "The prepared tank can now receive the water needed to store heat.",
+    "choice": {
+      "combine": "Drinking water supply",
+      "with": "Unfilled insulated tank"
+    },
+    "expectation": "Water will fill the tank around the separate heating coil.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The tank now contains water around the separate coolant coil and is ready for a heat source.",
+    "reaction": "The separate fluid paths make the setup understandable.",
+    "step": 7,
+    "reason": "The indoor heat-recovery connection should supply process warmth to the tank's coil.",
+    "choice": {
+      "combine": "Unheated water tank",
+      "with": "Indoor heat-recovery connection"
+    },
+    "expectation": "The coil will connect to the recovery loop and warm the tank water.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The coil is connected to the process cooling loop, and the warm water tank completes the heat-storage goal.",
+    "reaction": "The thermostat and separate fluid paths made the finished system feel physically understandable.",
+    "step": 8,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Connecting the tank to heat recovery was the most worthwhile step: it brought the assembly together and explained how process warmth can be stored and released into the room.",
+        "steps": [
+          3,
+          6,
+          7
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Trying to fill the tank twice before insulation was installed felt repetitive; neither rejection explained what preparation was missing.",
+        "steps": [
+          2,
+          4
+        ]
+      },
+      "surprise": {
+        "text": "Inspecting the steel automatically built the tank, and filling it was unavailable until the coil and insulation were installed.",
+        "steps": [
+          1,
+          2,
+          4,
+          5
+        ]
+      },
+      "arbitrary": {
+        "text": "Requiring insulation before adding water felt like a game-imposed ordering constraint rather than an obvious physical necessity, although insulation itself has a clear purpose.",
+        "steps": [
+          2,
+          4,
+          5
+        ]
+      },
+      "continue": {
+        "text": "I would continue: the heat-recovery assembly offered a satisfying, practical explanation of how the station reuses energy, despite the frustrating ordering constraint.",
+        "steps": [
+          3,
+          5,
+          7
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

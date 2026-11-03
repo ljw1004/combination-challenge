@@ -1,0 +1,121 @@
+[
+  {
+    "step": 1,
+    "reason": "A water tank is needed, but the available materials do not make its construction sequence certain.",
+    "choice": {
+      "inspect": "Steel"
+    },
+    "expectation": "The compatibility list should show whether the steel can be made into a tank or another heat-storage component.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Tool kit",
+          "with": "Steel"
+        },
+        "reason": "The tools might shape the steel into a tank, but that is not yet clear."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The steel and tools made a vented water tank; it still needs a separate coolant coil.",
+    "reaction": "The separate coil makes the heat-transfer arrangement clearer.",
+    "step": 2,
+    "reason": "The coolant tubing is the evident material for the missing coil.",
+    "choice": {
+      "combine": "Coolant tubing",
+      "with": "Steel tank without a coil"
+    },
+    "expectation": "The tubing should form a coil inside the tank, keeping process coolant separate from the heating water.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The tank now contains a separate coolant coil but still needs water and insulation.",
+    "reaction": "The coolant and heating water remain clearly separated.",
+    "step": 3,
+    "reason": "The drinking water supply can fill the tank around the coil.",
+    "choice": {
+      "combine": "Drinking water supply",
+      "with": "Unfilled uninsulated tank"
+    },
+    "expectation": "The tank should fill with heating water while the coolant remains confined to the coil.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Reflective insulation",
+          "with": "Unfilled uninsulated tank"
+        },
+        "reason": "Insulating the tank first might also be possible."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The tank is filled around the sealed coil, leaving its outer wall to be insulated.",
+    "reaction": "The remaining step is clear.",
+    "step": 4,
+    "reason": "The reflective insulation should reduce heat loss from the filled tank.",
+    "choice": {
+      "combine": "Reflective insulation",
+      "with": "Uninsulated filled tank"
+    },
+    "expectation": "The insulation should wrap the tank and help it retain stored warmth.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The filled tank is insulated, but its coil still needs a heat source.",
+    "reaction": "The open vent and separate fluid paths make the setup understandable.",
+    "step": 5,
+    "reason": "The indoor heat-recovery connection should supply the tank's coil with process heat.",
+    "choice": {
+      "combine": "Unheated water tank",
+      "with": "Indoor heat-recovery connection"
+    },
+    "expectation": "The coil should connect to the recovery loop and warm the stored water.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The heat-recovery connection warmed the stored water and completed the goal; the insulation flap also provides a way to release warmth into the room.",
+    "reaction": "The flap was a pleasantly concrete detail, though its heat-control role is simple.",
+    "step": 6,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Connecting the tank to the recovery loop brought the construction together and showed how process heat could be stored and released for the room.",
+        "steps": [
+          5
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Filling and insulating the tank were clear but predictable; the repeated reminders that the fluids stay separate made those steps feel a little repetitive.",
+        "steps": [
+          2,
+          3,
+          4
+        ]
+      },
+      "surprise": {
+        "text": "The room-facing insulation opens as a flap to expose the warm tank, a simple heat-release detail I had not anticipated.",
+        "steps": [
+          5
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt purposeless. I initially needed compatibility guidance to learn that the tools and steel made the tank, but the result explained its construction.",
+        "steps": [
+          1
+        ]
+      },
+      "continue": {
+        "text": "I would choose to continue: the physically explained heat-recovery build was satisfying, and I would be curious to see how the expedition's discovery and return develop.",
+        "steps": [
+          2,
+          5
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

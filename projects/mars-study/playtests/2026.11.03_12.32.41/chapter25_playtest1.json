@@ -1,0 +1,107 @@
+[
+  {
+    "step": 1,
+    "reason": "The tanks need refrigeration to store the propellants as liquids, so fitting the cooling units is a plausible first step.",
+    "choice": {
+      "combine": "Cryogenic tanks",
+      "with": "Cryogenic cooling units"
+    },
+    "expectation": "The cooling units will equip the tanks for separate cryogenic storage.",
+    "alternatives": [
+      {
+        "choice": {
+          "inspect": "Cryogenic tanks"
+        },
+        "reason": "I could check their compatible partners first, but the intended pairing seems clear."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The two tanks now have separate refrigeration and keyed fittings; they still need their respective propellant supplies.",
+    "reaction": "The separate fittings make the safety arrangement clear.",
+    "step": 2,
+    "reason": "The purified methane supply can feed the refrigerated methane vessel.",
+    "choice": {
+      "combine": "Purified methane supply",
+      "with": "Refrigerated cryogenic tanks"
+    },
+    "expectation": "Methane will be cooled and collected in its designated tank.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Refrigerated cryogenic tanks",
+          "with": "Oxygen service outlet"
+        },
+        "reason": "The oxygen vessel also needs filling, so it could be connected first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Methane has been liquefied and collected; the separate oxygen store remains to be filled.",
+    "reaction": "The first liquid makes the progress concrete.",
+    "step": 3,
+    "reason": "The remaining refrigerated vessel needs oxygen from its dedicated service outlet.",
+    "choice": {
+      "combine": "Refrigerated cryogenic tanks",
+      "with": "Oxygen service outlet"
+    },
+    "expectation": "Oxygen will be liquefied and collected in its separate tank.",
+    "alternatives": [],
+    "lookedAgain": true
+  },
+  {
+    "effect": "Both propellants are now stored separately; the remaining goal is to link their operating controls.",
+    "reaction": "The dedicated oxygen-clean path makes the separation clear.",
+    "step": 4,
+    "reason": "The two filled tanks are the available stores whose controls need coordinating.",
+    "choice": {
+      "combine": "Tank of liquid methane",
+      "with": "Tank of liquid oxygen"
+    },
+    "expectation": "Their controllers will be linked without connecting the propellant flow paths.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The stores now have coordinated controls while their propellant circuits remain separate, completing the fuel-fab goals.",
+    "reaction": "It is satisfying to see the two separate stores become a working installation without mixing their contents.",
+    "step": 5,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Linking the stores’ controls was the most worthwhile action: it brought the separate liquefaction paths together into an operating fuel fab while explaining that the propellants remain isolated.",
+        "steps": [
+          4
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Filling the two tanks was straightforward and somewhat repetitive, although their distinct gas paths made physical sense.",
+        "steps": [
+          2,
+          3
+        ]
+      },
+      "surprise": {
+        "text": "I initially expected fitting the cooling units to equip both tanks, but the result also explained the protective housings, individual heat rejection and keyed fittings. That made the safety design more concrete.",
+        "steps": [
+          1
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt particularly arbitrary; linking the two tank objects represented coordinating their controls, not physically connecting their contents.",
+        "steps": [
+          4
+        ]
+      },
+      "continue": {
+        "text": "Yes. I would be curious to see how the return and delivery of the preserved samples unfold; the fuel-fab sequence made useful engineering distinctions, even if its individual choices were fairly obvious.",
+        "steps": [
+          1,
+          4
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

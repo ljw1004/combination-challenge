@@ -1,0 +1,78 @@
+[
+  {
+    "step": 1,
+    "reason": "The goal calls for a cooker around the existing solar heat source, so the cooking connection is the clearest starting point.",
+    "choice": {
+      "inspect": "Solar cooking connection"
+    },
+    "expectation": "The inspection should identify what can be used at the cooking connection, and may perform the operation if there is only one.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The cooking connection has no available partner yet, so I need to prepare the cooker first.",
+    "reaction": "The empty inspection was unexpected, but it narrows the next step.",
+    "step": 2,
+    "reason": "The steel and pressure cooking pot are the only available ingredients, and combining them may make the cooker structure.",
+    "choice": {
+      "combine": "Steel",
+      "with": "Pressure cooking pot"
+    },
+    "expectation": "The steel should form a support or housing for the pot that can connect to the heat source.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The pot now has a jacket and clamp for the furnace connection.",
+    "reaction": "The removable cradle makes the intended connection clear.",
+    "step": 3,
+    "reason": "The jacket is ready to attach to the existing heat source.",
+    "choice": {
+      "combine": "Jacketed cooking pot",
+      "with": "Solar cooking connection"
+    },
+    "expectation": "The jacketed pot should connect to the furnace heating block and complete the cooker.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The jacket connects the pot to the furnace through a controlled heating block, completing the chapter's only active goal.",
+    "reaction": "The conductive connection and separation of food from industrial materials were satisfying details, though I expected the meal itself to follow.",
+    "step": 4,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Connecting the jacketed pot to the heating block was worthwhile: it explained how solar heat reaches the food while keeping industrial materials separate.",
+        "steps": [
+          2,
+          3
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Inspecting the cooking connection yielded no partners, so it provided little beyond establishing that preparation was needed first.",
+        "steps": [
+          1
+        ]
+      },
+      "surprise": {
+        "text": "The chapter ended once the cooker was connected, despite the introduction anticipating a stew and lettuce meal.",
+        "steps": [
+          3
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt purposeless; the steel jacket provided a physical reason for combining the pot with the heat source.",
+        "steps": [
+          2,
+          3
+        ]
+      },
+      "continue": {
+        "text": "I would be interested in continuing to see the harvest meal and eventual return, though this chapter ended before delivering the meal it introduced.",
+        "steps": [
+          3
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

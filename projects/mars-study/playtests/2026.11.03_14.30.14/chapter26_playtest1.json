@@ -1,0 +1,140 @@
+[
+  {
+    "step": 1,
+    "reason": "The heat-recovery connection is central to the goal, but the required installation is not yet clear.",
+    "choice": {
+      "inspect": "Indoor heat-recovery connection"
+    },
+    "expectation": "The inspection should reveal what can be connected to the recovery point.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Coolant tubing",
+          "with": "Steel"
+        },
+        "reason": "Tubing and steel made a cooling panel before, but a heat-storage installation may need something different."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The recovery connection has no available partner yet, so I need to build the storage equipment first.",
+    "reaction": "That clarifies the order, though not the tank's construction.",
+    "step": 2,
+    "reason": "A tool kit and steel are plausible materials for making the water tank described in the goal.",
+    "choice": {
+      "combine": "Tool kit",
+      "with": "Steel"
+    },
+    "expectation": "The tools should shape the steel into a tank or a component for one.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Coolant tubing",
+          "with": "Steel"
+        },
+        "reason": "The tubing and steel previously formed a heat-transfer panel, which might also be useful here."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The steel tank is built, but it still needs a separate coolant coil.",
+    "reaction": "The vented, non-potable tank makes the heat-storage setup clearer.",
+    "step": 3,
+    "reason": "The coolant tubing can form the separate coil the tank needs.",
+    "choice": {
+      "combine": "Coolant tubing",
+      "with": "Steel tank without a coil"
+    },
+    "expectation": "The tubing should fit inside the tank as a heat-transfer coil.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The tank now has a separate coolant coil, but still needs water and insulation.",
+    "reaction": "The separation between coolant and heating water is clear.",
+    "step": 4,
+    "reason": "The unfilled tank needs water to store heat.",
+    "choice": {
+      "combine": "Drinking water supply",
+      "with": "Unfilled uninsulated tank"
+    },
+    "expectation": "The water should fill the tank around the coil.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Reflective insulation",
+          "with": "Unfilled uninsulated tank"
+        },
+        "reason": "Insulating the tank is also necessary, but filling it first seems straightforward."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The tank is filled around the sealed coil; its outer wall still needs insulation.",
+    "reaction": "The separate coolant and storage-water paths make sense.",
+    "step": 5,
+    "reason": "The result explicitly identifies insulation as the next requirement.",
+    "choice": {
+      "combine": "Reflective insulation",
+      "with": "Uninsulated filled tank"
+    },
+    "expectation": "The insulation should reduce heat loss from the filled tank.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The insulated tank is ready, but its coil still needs a heat source.",
+    "reaction": "The open vent and separate fluid paths make the setup physically clear.",
+    "step": 6,
+    "reason": "The indoor heat-recovery connection should supply the tank's coil with process heat.",
+    "choice": {
+      "combine": "Unheated water tank",
+      "with": "Indoor heat-recovery connection"
+    },
+    "expectation": "The coil should connect to the recovery loop and transfer warmth to the stored water.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The tank is connected to the process cooling loop and stores warmth; the chapter goal is complete.",
+    "reaction": "The adjustable insulation flap is a satisfying, practical way to release the stored heat.",
+    "step": 7,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Installing the coolant coil was the most worthwhile step: it showed how process heat reaches the storage water without mixing the two fluids.",
+        "steps": [
+          3
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Inspecting the heat-recovery connection initially returned no partners, so it clarified the order but gave little guidance on what to build.",
+        "steps": [
+          1
+        ]
+      },
+      "surprise": {
+        "text": "The finished tank uses a fold-back insulation flap to expose warm steel to the room, making heat release adjustable.",
+        "steps": [
+          6
+        ]
+      },
+      "arbitrary": {
+        "text": "Nothing felt particularly arbitrary. The initial choice to make a tank from steel and tools was a plausible guess rather than an explicitly indicated recipe.",
+        "steps": [
+          2
+        ]
+      },
+      "continue": {
+        "text": "I would choose to continue: the separate fluid paths and practical heat-recovery details made this short construction sequence both understandable and satisfying.",
+        "steps": [
+          3,
+          6
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

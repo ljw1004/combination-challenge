@@ -1,0 +1,95 @@
+[
+  {
+    "step": 1,
+    "reason": "The clogged raw-water strainer is the immediate cause of the stopped supply; the service hose may help clear it.",
+    "choice": {
+      "combine": "Clean service hose",
+      "with": "Clogged raw-water strainer"
+    },
+    "expectation": "The hose should help flush the accumulated material from the strainer.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Backflushing restored the water and yielded a residue sample to investigate.",
+    "reaction": "The curled flecks are intriguing; they may be more than ordinary sediment.",
+    "step": 2,
+    "reason": "The microscope is the obvious way to examine the collected residue and identify the blockage.",
+    "choice": {
+      "combine": "Collected intake residue",
+      "with": "Laboratory microscope"
+    },
+    "expectation": "The microscope should reveal what the residue and curled flecks look like.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The residue cannot be examined directly at the microscope; it can be combined with the laboratory membrane first.",
+    "reaction": "The required preparation was not obvious from the initial board.",
+    "step": 3,
+    "reason": "The residue's compatibility list identifies the membrane as the available next step toward examining it.",
+    "choice": {
+      "combine": "Collected intake residue",
+      "with": "Laboratory membrane"
+    },
+    "expectation": "The membrane should help prepare or separate the residue for examination.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The membrane separated the flecks and revealed a regular row of projections, making the sample ready for closer examination.",
+    "reaction": "The regular projections are intriguing, though their cause is still unknown.",
+    "step": 4,
+    "reason": "The prepared membrane should now be suitable for examination under the microscope.",
+    "choice": {
+      "combine": "Particle-bearing membrane",
+      "with": "Laboratory microscope"
+    },
+    "expectation": "The microscope should show the flecks and their projections in greater detail.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The microscope revealed a segmented body with limbs in the well residue; the sample was sealed and its record sent to Earth, completing the investigation.",
+    "reaction": "The apparent body was a striking discovery, though its origin and nature remain uncertain.",
+    "step": 5,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Examining the prepared membrane was most worthwhile: the mundane water-system repair led to an unexpected discovery and a carefully recorded observation.",
+        "steps": [
+          1,
+          3,
+          4
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Trying the residue directly at the microscope was the least worthwhile decision; the need for membrane preparation was not apparent beforehand.",
+        "steps": [
+          2,
+          3
+        ]
+      },
+      "surprise": {
+        "text": "The curled flecks turned out to include a millimetre-scale segmented body with limbs, rather than merely looking like ordinary grit.",
+        "steps": [
+          1,
+          4
+        ]
+      },
+      "arbitrary": {
+        "text": "The membrane preparation initially felt like a hidden prerequisite, though the result explained its practical purpose of separating the flecks.",
+        "steps": [
+          2,
+          3
+        ]
+      },
+      "continue": {
+        "text": "Yes. I would be curious to see how Earth investigates the body and what the discovery means, although this short chapter leaves the answer open.",
+        "steps": [
+          4
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

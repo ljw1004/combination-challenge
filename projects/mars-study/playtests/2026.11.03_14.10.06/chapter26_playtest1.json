@@ -1,0 +1,122 @@
+[
+  {
+    "step": 1,
+    "reason": "A water tank is needed to store the recovered heat; the tool and steel may provide its structure.",
+    "choice": {
+      "combine": "Service tool",
+      "with": "Steel"
+    },
+    "expectation": "I expect to shape the steel into a tank or tank components.",
+    "alternatives": [
+      {
+        "choice": {
+          "inspect": "Steel"
+        },
+        "reason": "I could check which construction uses are available before choosing."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The steel now forms a vented heating-water tank; it still needs a separate coolant coil.",
+    "reaction": "The distinction between heating water and coolant makes the design clearer.",
+    "step": 2,
+    "reason": "The coolant tubing should form the separate coil inside the tank to transfer heat into the water.",
+    "choice": {
+      "combine": "Coolant tubing",
+      "with": "Steel tank without a coil"
+    },
+    "expectation": "The tank will gain a coolant coil while keeping coolant separate from the stored water.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The tank now has a sealed coolant coil but still needs water and insulation.",
+    "reaction": "The separate coil makes the heat-transfer arrangement clear.",
+    "step": 3,
+    "reason": "The tank needs water around the coil to store heat.",
+    "choice": {
+      "combine": "Drinking water supply",
+      "with": "Unfilled uninsulated tank"
+    },
+    "expectation": "The tank will fill with heating water around the separate coolant coil.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Reflective insulation",
+          "with": "Unfilled uninsulated tank"
+        },
+        "reason": "Insulating the tank is also necessary, but filling it first seems straightforward."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The tank now contains water around the sealed coil, but its outer wall still needs insulation.",
+    "reaction": "The remaining step is clear.",
+    "step": 4,
+    "reason": "Insulating the filled tank should reduce heat loss from the stored water.",
+    "choice": {
+      "combine": "Reflective insulation",
+      "with": "Uninsulated filled tank"
+    },
+    "expectation": "The insulation will wrap the tank so it can retain recovered heat.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The filled tank is insulated, but its coil still needs a heat source.",
+    "reaction": "The remaining connection is clear.",
+    "step": 5,
+    "reason": "The indoor heat-recovery connection should supply warmth to the tank's separate coil.",
+    "choice": {
+      "combine": "Unheated water tank",
+      "with": "Indoor heat-recovery connection"
+    },
+    "expectation": "The coil will connect to the process heat loop and transfer warmth to the stored water.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The coil is connected to the process cooling loop, and the insulated tank now stores warmth; the chapter goal is complete.",
+    "reaction": "The separate fluid paths and thermostat made the finished system feel understandable.",
+    "step": 6,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Adding the coil was most worthwhile: it showed how process coolant can transfer heat to stored water without mixing the fluids.",
+        "steps": [
+          2
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Filling and insulating the tank were clear but predictable construction steps, with little decision-making once the design was established.",
+        "steps": [
+          3,
+          4
+        ]
+      },
+      "surprise": {
+        "text": "The final result says warmth reaches the room when the warm steel is exposed, rather than describing a separate heat-distribution circuit.",
+        "steps": [
+          5
+        ]
+      },
+      "arbitrary": {
+        "text": "The initial tool-and-steel combination was a guess: the goal suggested a tank, but the board did not specify how to make one. The resulting fabrication was physically explained.",
+        "steps": [
+          1
+        ]
+      },
+      "continue": {
+        "text": "Yes. I would be interested to see how the recovered heat is used, although this chapter's largely linear assembly offered few meaningful choices.",
+        "steps": [
+          2,
+          3,
+          4,
+          5
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

@@ -270,10 +270,10 @@ This section owns the exact instructions sent to players and graders. The marked
 The report assembler copies this explanation verbatim after the story filename beneath `# Report`, before the chapter headings. Keep it brief and understandable without the rest of this document.
 
 <!-- report-definitions:start -->
-Definitions...
-Worthwhile: counts actions supported by meaningful decision-making or a valued story payoff or reason to keep playing, counting each action once. Show the average credited actions / average total gameplay actions per player, not an average percentage.
-Fun: a narrower count of meaningful decisions: worthwhile deliberation or intentional experimentation. Measured by --detailed, including inspections and unsuccessful well-formed attempts; --fast reports it as not measured. Fast menu-assisted diagnostic ratios are not comparable.
-Hooks: the players' reported desire to continue: "high" means specific eagerness, "medium" means mild or conditional interest, and "low" means indifference or reluctance
+**Definitions**
+- Worthwhile: counts actions supported by meaningful decision-making or a valued story payoff or reason to keep playing, counting each action once. Show the average credited actions / average total gameplay actions per player, not an average percentage.
+- Fun: a narrower count of meaningful decisions: worthwhile deliberation or intentional experimentation. Measured by --detailed, including inspections and unsuccessful well-formed attempts; --fast reports it as not measured. Fast menu-assisted diagnostic ratios are not comparable.
+- Hooks: the players' reported desire to continue: "high" means specific eagerness, "medium" means mild or conditional interest, and "low" means indifference or reluctance
 <!-- report-definitions:end -->
 
 ### AI player
@@ -282,6 +282,8 @@ Hooks: the players' reported desire to continue: "high" means specific eagerness
 You are playing one chapter of a combination game. Complete its goals efficiently while giving brief, honest explanations of your choices. You are not being asked to praise the game or give it a score. Use the playstyle identified at the start of these instructions and in the request's `playStyle` field.
 
 Read the request's `guidance` alongside these instructions. It supplies additional context, such as the intended audience or educational purpose. Apply it while continuing to report candidly. An empty string means there is no additional guidance.
+
+Your available actions are to "inspect" or "combine". If the result of inspection makes it obvious what to do next, then it'll be done automatically for you; if combination didn't work but the attempt revealed something else obvious, then it'll be done automatically too. This is to leave the meaningful choices to you.
 
 What mindset do you have when playing this game?
 - You are motivated by what's called "oddly satisfying", the satisfaction of putting pieces together.

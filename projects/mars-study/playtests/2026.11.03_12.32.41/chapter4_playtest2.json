@@ -1,0 +1,97 @@
+[
+  {
+    "step": 1,
+    "reason": "The excavator is packed for transport, so the power cable may be needed before it can work.",
+    "choice": {
+      "inspect": "Packed survey excavator"
+    },
+    "expectation": "The available partners should show how to prepare or power the excavator.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Power cable",
+          "with": "Packed survey excavator"
+        },
+        "reason": "The cable might connect it directly, but its transport configuration makes that uncertain."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The excavator needed steel to add a spoil hopper; it is now ready to try at the cavern floor.",
+    "reaction": "The automatic preparation was useful, though the hopper was not obvious from the initial board.",
+    "step": 2,
+    "reason": "The prepared excavator belongs at the surveyed floor where the infill needs clearing.",
+    "choice": {
+      "combine": "Excavator with spoil hopper",
+      "with": "Surveyed cavern floor"
+    },
+    "expectation": "The excavator should begin clearing the cavern floor.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The excavator needs the power cable before it can be used at the floor.",
+    "reaction": "The failed attempt clarified the missing preparation.",
+    "step": 3,
+    "reason": "The excavator's reported partner is the power cable.",
+    "choice": {
+      "combine": "Excavator with spoil hopper",
+      "with": "Power cable"
+    },
+    "expectation": "The cable should power or prepare the excavator for work.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The cable powered the excavator and completed the first goal; the growing bay still needs clearing.",
+    "reaction": "The machine starting work was satisfying, though I had expected to place it at the floor first.",
+    "step": 4,
+    "reason": "The working excavator and surveyed cavern floor are the obvious pair for clearing the bay.",
+    "choice": {
+      "combine": "Working survey excavator",
+      "with": "Surveyed cavern floor"
+    },
+    "expectation": "The excavator should clear the surveyed growing bay.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The excavator cleared the surveyed bay and completed the chapter; the cave provides shelter but is not breathable.",
+    "reaction": "Seeing the marked route become a usable bay was satisfying, and the air limitation made the outcome feel grounded.",
+    "step": 5,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Using the working excavator at the cavern floor was the most worthwhile action: it turned repeated digging into a visible, sheltered growing bay while acknowledging that the cave still lacks breathable air.",
+        "steps": [
+          4
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Trying the prepared excavator at the floor before connecting power was unproductive, though the compatibility feedback clarified what was missing.",
+        "steps": [
+          2
+        ]
+      },
+      "surprise": {
+        "text": "Connecting the power cable immediately started the excavator working and completed the first goal; I had expected to place it at the floor afterward.",
+        "steps": [
+          3
+        ]
+      },
+      "arbitrary": {
+        "text": "Adding a steel spoil hopper was plausible once revealed, but the initial board did not make that preparation obvious.",
+        "steps": [
+          1
+        ]
+      },
+      "continue": {
+        "text": "Yes. I would be curious to see how the sheltered but airless bay becomes a growing space; the excavation offered a physically understandable step toward it.",
+        "steps": [
+          4
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

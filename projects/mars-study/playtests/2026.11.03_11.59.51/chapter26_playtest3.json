@@ -1,0 +1,96 @@
+[
+  {
+    "step": 1,
+    "reason": "This is the only available action; shaping the steel may help build the heat-storage tank.",
+    "choice": 1,
+    "expectation": "I expect the tool to form some steel components, though their exact use is uncertain.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The steel became a vented, watertight tank; it now needs the separate coolant coil.",
+    "reaction": "The distinction between heating water and the separate coolant circuit is useful.",
+    "step": 2,
+    "reason": "The only offered combination should add the coil needed to transfer heat into the tank.",
+    "choice": 1,
+    "expectation": "I expect the tubing to form a coil inside the tank, though it may still need water and insulation.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The tank now has a separate coil to transfer heat from the process coolant to the water.",
+    "reaction": "The separate circuits make the setup easy to understand.",
+    "step": 3,
+    "reason": "The only offered combination should insulate the tank and reduce heat loss.",
+    "choice": 1,
+    "expectation": "I expect an insulated tank that will still need water and a connection to the heat-recovery loop.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The tank is insulated, with a section that can open to release heat; it is ready to be filled.",
+    "reaction": "The fold-back section is a practical detail.",
+    "step": 4,
+    "reason": "The only offered combination fills the tank so it can store heat.",
+    "choice": 1,
+    "expectation": "I expect a water-filled heat store that still needs connecting to the recovery loop.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The tank is filled around the coil and ready for a heat source.",
+    "reaction": "The separate fluid paths and vent are clear, though the sequence has been predictable.",
+    "step": 5,
+    "reason": "The only offered combination connects the filled tank to heat recovery.",
+    "choice": 1,
+    "expectation": "I expect process heat to warm the tank water for later use in the growing room.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The connected coil warms the water, completing the heat store; a thermostat limits its temperature and the insulation controls heat release.",
+    "reaction": "The completed heat-recovery system is physically understandable, though assembling it was predictable.",
+    "step": 6,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Connecting the tank to the process loop made the purpose of the separate coil and stored water concrete: waste warmth can heat the room later.",
+        "steps": [
+          2,
+          5
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Filling the tank was straightforward but less engaging, following a sequence with only one combination offered at each step.",
+        "steps": [
+          4
+        ]
+      },
+      "surprise": {
+        "text": "The insulation has a fold-back section that exposes the warm steel to release heat into the room.",
+        "steps": [
+          3
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt purposeless; each had a clear role in the heat store, although the single-option sequence left little room for decisions.",
+        "steps": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      },
+      "continue": {
+        "text": "I might continue for the expedition's story and practical explanations, but would hope for more meaningful choices than this linear build offered.",
+        "steps": [
+          2,
+          3,
+          4,
+          5
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

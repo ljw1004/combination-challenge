@@ -1,0 +1,126 @@
+[
+  {
+    "step": 1,
+    "reason": "The separator's condenser has open coolant connections, so the tubing is the clearest first fit.",
+    "choice": {
+      "combine": "Coolant tubing",
+      "with": "Uncooled gas separator"
+    },
+    "expectation": "The tubing will connect the condenser to a cooling path, or prepare it for one.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The tubing needed steel to make a radiating cooling panel before it could cool the separator.",
+    "reaction": "The compatibility feedback clarified the missing heat-rejection step.",
+    "step": 2,
+    "reason": "The new cooling panel should provide the heat path the separator needs.",
+    "choice": {
+      "combine": "Process cooling panel",
+      "with": "Uncooled gas separator"
+    },
+    "expectation": "The panel will connect to the condenser and allow it to reject heat.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The separator now has a cooling circuit, but its gas inlet still needs a connection.",
+    "reaction": "The exposed radiator makes the heat path clear.",
+    "step": 3,
+    "reason": "The test cylinder contains the gas mixture the cooled separator needs to process.",
+    "choice": {
+      "combine": "Unpurified methane test cylinder",
+      "with": "Cooled separator module"
+    },
+    "expectation": "The mixture will enter the separator, allowing water to condense and impurities to be removed.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The test cylinder cannot currently be combined, so the separator likely needs installation before processing.",
+    "reaction": "The failed attempt makes the installation order less clear.",
+    "step": 4,
+    "reason": "The cooled separator's process inlet should connect to the methane reactor.",
+    "choice": {
+      "combine": "Cooled separator module",
+      "with": "Controlled methane reactor"
+    },
+    "expectation": "The separator will connect to the reactor's gas outlet.",
+    "alternatives": [
+      {
+        "choice": {
+          "inspect": "Cooled separator module"
+        },
+        "reason": "I could check its available connections first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The separator is installed on the reactor outlet, enabling gas purification and water condensation.",
+    "reaction": "The connection clarifies why the test cylinder could not be processed directly.",
+    "step": 5,
+    "reason": "The remaining clean hose may provide the water-return connection.",
+    "choice": {
+      "combine": "Clean service hose",
+      "with": "Purifying methane reactor"
+    },
+    "expectation": "The hose will connect the recovered water to its return path.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The hose completed the treated-water return; the remaining goal is to feed clean methane from the reactor.",
+    "reaction": "The separate water and gas paths make the installation clearer.",
+    "step": 6,
+    "reason": "The available destination for the clean methane is not yet clear, so I will check the reactor's connections.",
+    "choice": {
+      "inspect": "Water-recovering methane reactor"
+    },
+    "expectation": "The inspection should reveal what can receive or use the reactor's clean methane.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The inspection automatically processed the test batch through the completed installation, establishing a purified methane supply and completing the chapter.",
+    "reaction": "I was surprised that the cylinder could now be used after its earlier failed combination; the completed flow path made the difference clear.",
+    "step": 7,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Building and connecting the cooling panel was worthwhile: it made the need to reject condenser heat physically concrete rather than treating separation as a black box.",
+        "steps": [
+          1,
+          2
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Trying the test cylinder directly against the separator was frustrating because it could not yet be used, although installing the separator on the reactor subsequently clarified the intended order.",
+        "steps": [
+          3,
+          4
+        ]
+      },
+      "surprise": {
+        "text": "Inspecting the completed reactor automatically processed the test batch, despite the cylinder having had no available combination earlier.",
+        "steps": [
+          3,
+          6
+        ]
+      },
+      "arbitrary": {
+        "text": "The initial tubing-to-separator attempt felt somewhat arbitrary until compatibility feedback revealed that a steel radiator panel had to be made first.",
+        "steps": [
+          1
+        ]
+      },
+      "continue": {
+        "text": "Yes. I would be interested to see how the purified methane and recovered water contribute to the return journey; the connected equipment made this chapter's engineering understandable.",
+        "steps": [
+          5,
+          6
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

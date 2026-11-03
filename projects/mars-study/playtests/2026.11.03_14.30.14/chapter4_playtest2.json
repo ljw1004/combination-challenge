@@ -1,0 +1,80 @@
+[
+  {
+    "step": 1,
+    "reason": "The excavator needs a spoil hopper, and the available steel is a plausible material for making one.",
+    "choice": {
+      "combine": "Steel",
+      "with": "Survey excavator without a hopper"
+    },
+    "expectation": "The steel will be fashioned into a hopper and fitted to the excavator.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The hopper is fitted, but the excavator still needs its power lead connected.",
+    "reaction": "The bolted hopper makes practical sense.",
+    "step": 2,
+    "reason": "The result explicitly says the power lead is unplugged, and a power cable is available.",
+    "choice": {
+      "combine": "Power cable",
+      "with": "Excavator with spoil hopper"
+    },
+    "expectation": "The cable will connect power to the excavator so it can operate.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The excavator has passed its startup check, and the new goal is to clear the surveyed growing bay.",
+    "reaction": "The startup check makes the machine feel ready for the job.",
+    "step": 3,
+    "reason": "The result explicitly says the excavator can be sent onto the surveyed floor.",
+    "choice": {
+      "combine": "Working survey excavator",
+      "with": "Surveyed cavern floor"
+    },
+    "expectation": "The excavator will clear loose infill from the surveyed growing bay.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The excavator cleared the surveyed bay, completing the chapter; the cave still has no breathable air.",
+    "reaction": "It was satisfying to see the hopper carry the spoil to a pile, though the unbreathable cave leaves the work feeling unfinished.",
+    "step": 4,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Sending the working excavator onto the surveyed floor was most worthwhile: the description showed how the drum and hopper cleared material under sound rock.",
+        "steps": [
+          3
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Connecting the power cable felt rather routine, and its result repeated the hopper fabrication already described.",
+        "steps": [
+          1,
+          2
+        ]
+      },
+      "surprise": {
+        "text": "Completing the excavation revealed shelter beneath sound rock, but not a breathable space.",
+        "steps": [
+          3
+        ]
+      },
+      "arbitrary": {
+        "text": "Nothing felt particularly arbitrary; the hopper, power connection and excavation followed a clear physical sequence.",
+        "steps": [
+          1,
+          2,
+          3
+        ]
+      },
+      "continue": {
+        "text": "Yes. I would be curious to see how the cleared but unbreathable bay becomes a growing space, especially if the practical construction detail continues.",
+        "steps": [
+          3
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

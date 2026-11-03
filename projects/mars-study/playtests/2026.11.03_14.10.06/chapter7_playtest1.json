@@ -1,0 +1,73 @@
+[
+  {
+    "step": 1,
+    "reason": "The mattress is central to the berth, but it is not clear whether it needs a steel frame or insulation first.",
+    "choice": {
+      "inspect": "Cabin mattress"
+    },
+    "expectation": "Inspection should reveal which available piece can be used with the mattress.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Cabin mattress",
+          "with": "Steel"
+        },
+        "reason": "Steel could make a supporting frame, but the required construction is not yet clear."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The mattress and steel made a raised berth; its open frame still needs insulation.",
+    "reaction": "The automatic frame construction made the next step clear.",
+    "step": 2,
+    "reason": "The berth explicitly needs an insulating layer, and reflective insulation is available.",
+    "choice": {
+      "combine": "Reflective insulation",
+      "with": "Uninsulated berth"
+    },
+    "expectation": "The insulation should finish the sheltered berth.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The insulation completed the raised berth and the chapter’s goal; the growing room remains empty beyond the partition.",
+    "reaction": "The finished sleeping space was a quiet, satisfying conclusion.",
+    "step": 3,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Fitting the insulation completed a practical sleeping space, with the heater and raised mattress making the result feel physically grounded.",
+        "steps": [
+          2
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Inspecting the mattress yielded only one option and performed it automatically, so there was little meaningful choice in that passage.",
+        "steps": [
+          1
+        ]
+      },
+      "surprise": {
+        "text": "I was surprised that inspecting the mattress automatically built the steel frame, rather than merely revealing its partner.",
+        "steps": [
+          1
+        ]
+      },
+      "arbitrary": {
+        "text": "Nothing felt purposeless: the frame raised the mattress and the insulation addressed its exposed underside.",
+        "steps": [
+          1,
+          2
+        ]
+      },
+      "continue": {
+        "text": "I would continue out of curiosity about how the empty growing room becomes productive, though this short chapter offered little opportunity for decisions.",
+        "steps": [
+          1,
+          2
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

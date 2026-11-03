@@ -1,0 +1,108 @@
+[
+  {
+    "step": 1,
+    "reason": "The patch kit is the most direct way to seal the punctured wall before refilling the habitat.",
+    "choice": {
+      "combine": "Pressure patch kit",
+      "with": "Punctured habitat wall"
+    },
+    "expectation": "The kit should seal the tear in the habitat wall.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The tear is sealed, so refilling the habitat is the next visible part of the goal.",
+    "reaction": "The backing plate makes the repair feel physically grounded.",
+    "step": 2,
+    "reason": "The breathing-gas supply is the obvious means of refilling the sealed habitat.",
+    "choice": {
+      "combine": "Breathing-gas supply",
+      "with": "Sealed habitat wall"
+    },
+    "expectation": "The gas supply should refill the habitat now that the leak is sealed.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The habitat is breathable, and the new goal is to stabilize the landing support.",
+    "reaction": "The regulator and gauge make the refill feel plausible.",
+    "step": 3,
+    "reason": "Shipping braces seem suited to reinforcing the damaged support.",
+    "choice": {
+      "combine": "Shipping braces",
+      "with": "Low landing support"
+    },
+    "expectation": "The braces should stabilize the support, possibly with the service tool.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The braces cannot be applied directly to the support; their listed partner is the service tool.",
+    "reaction": "The failed attempt clarifies the required preparation.",
+    "step": 4,
+    "reason": "The inspection feedback identifies the service tool as the braces' available partner.",
+    "choice": {
+      "combine": "Shipping braces",
+      "with": "Service tool"
+    },
+    "expectation": "The tool should prepare the braces for stabilizing the landing support.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The braces have become usable steel lengths and sheet, which may reinforce the support.",
+    "reaction": "Cutting the shipping joints explains the transformation, though it wasn't quite the preparation I expected.",
+    "step": 5,
+    "reason": "The steel looks like the available material for stabilizing the damaged landing support.",
+    "choice": {
+      "combine": "Steel",
+      "with": "Low landing support"
+    },
+    "expectation": "The steel should reinforce the damaged support, possibly using the service tool.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The steel formed a load-bearing crib, stabilizing the support and completing the chapter’s goals.",
+    "reaction": "The wide base and inspection of the intact upper structure made the repair feel grounded.",
+    "step": 6,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Building the crib was most worthwhile: the result explained how the steel supported the load and why a permanent replacement could wait.",
+        "steps": [
+          4,
+          5
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Trying the braces directly on the support was the least worthwhile action, though the feedback identified the needed preparation.",
+        "steps": [
+          3,
+          4
+        ]
+      },
+      "surprise": {
+        "text": "The service tool turned the shipping braces into steel lengths and sheet rather than simply preparing an intact brace.",
+        "steps": [
+          4
+        ]
+      },
+      "arbitrary": {
+        "text": "The initial need to process the braces was not obvious, but cutting them free of their shipping joints gave it a clear purpose afterward.",
+        "steps": [
+          3,
+          4
+        ]
+      },
+      "continue": {
+        "text": "Yes. The physically explained repairs and the prospect of discovering what comes next make another chapter appealing.",
+        "steps": [
+          1,
+          2,
+          5
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

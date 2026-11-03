@@ -1,0 +1,118 @@
+[
+  {
+    "step": 1,
+    "reason": "Connect the retort to hydrogen to prepare it for processing the iron-rich feedstock.",
+    "choice": 2,
+    "expectation": "I expect a hydrogen-fed retort; it may still need feedstock and further processing before producing iron.",
+    "alternatives": [
+      {
+        "choice": 1,
+        "reason": "The cable and steel may be useful for equipment, but the retort seems more directly tied to the current goal."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The retort now has heat and hydrogen but still needs concentrate; the remaining combination may help prepare it.",
+    "reaction": "The contained exhaust and condensate make the setup feel practical, though the next connection is not yet clear.",
+    "step": 2,
+    "reason": "This is the only offered gameplay action, so I’ll use the cable and steel to make whatever equipment they support.",
+    "choice": 1,
+    "expectation": "I expect some powered workshop component, but I’m unsure how it will help prepare the concentrate.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The cable and steel made a switchable magnetic separator, giving me a way to concentrate grains from the screened regolith.",
+    "reaction": "The explanation of switching off the magnet to release the grains is useful and clear.",
+    "step": 3,
+    "reason": "Use the separator on the regolith to prepare feedstock for the retort; it is the only offered gameplay action.",
+    "choice": 1,
+    "expectation": "I expect it to collect a magnetic, iron-rich fraction, though it may need further processing before it becomes usable iron.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The separator produced an assayed iron-rich concentrate ready for the hydrogen-fed retort.",
+    "reaction": "The distinction between the red colour and the mineral assay is a useful detail.",
+    "step": 4,
+    "reason": "Feed the concentrate into the retort to work toward usable iron; this is the only offered gameplay action.",
+    "choice": 1,
+    "expectation": "I expect heat and hydrogen to reduce the iron-bearing minerals, though the resulting material may need further processing.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The retort produced porous, weak reduced iron that needs further processing at the press.",
+    "reaction": "The explanation of hydrogen removing oxygen makes the reduction clear.",
+    "step": 5,
+    "reason": "Press the iron sponge toward a usable form; this is the only offered gameplay action.",
+    "choice": 1,
+    "expectation": "I expect a denser iron form, though I’m unsure whether pressing alone will make it usable.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The heated press consolidated the sponge into a dense billet, and the next goal is to shape a process frame.",
+    "reaction": "The distinction between consolidating iron and shaping a part is clear and useful.",
+    "step": 6,
+    "reason": "Use the press again to shape the billet into the needed frame; this is the only offered gameplay action.",
+    "choice": 1,
+    "expectation": "I expect the press to form a frame or a frame component from the consolidated iron.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The press shaped the billet into non-pressure supports suitable for the process frame.",
+    "reaction": "The distinction between supports and flight hardware is reassuringly clear.",
+    "step": 7,
+    "reason": "Fit the bars and brackets to the return-plant footing to make the frame; this is the only offered gameplay action.",
+    "choice": 1,
+    "expectation": "I expect a supported process frame on the prepared footing, though it may still need equipment installed.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The local iron supports now form a process frame on the prepared footing, completing the chapter’s goals; the gas installation remains for later.",
+    "reaction": "It is satisfying to see the processed material become a tangible structure, while the precision vessel remains imported.",
+    "step": 8,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Reducing the concentrate with hydrogen was most worthwhile: it explained how oxygen is removed and produced a visibly different, porous material that still needed consolidation.",
+        "steps": [
+          4,
+          5
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Shaping and mounting the supports felt like straightforward finishing steps rather than meaningful decisions, although they gave the process a concrete result.",
+        "steps": [
+          6,
+          7
+        ]
+      },
+      "surprise": {
+        "text": "The cable and steel made a switchable electromagnet for separating the feedstock; its purpose was not clear to me when I chose the combination.",
+        "steps": [
+          2,
+          3
+        ]
+      },
+      "arbitrary": {
+        "text": "The cable-and-steel combination initially lacked a clear purpose, especially as the only offered action. The separator result explained it afterward.",
+        "steps": [
+          2
+        ]
+      },
+      "continue": {
+        "text": "Yes. I would continue to see the gas installation fitted and how the local-propellant return plan develops; the material-processing explanations made this chapter worthwhile despite its mostly forced choices.",
+        "steps": [
+          4,
+          5,
+          7
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

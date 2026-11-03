@@ -790,3 +790,332 @@ The strongest constructions show a physical consequence or useful distinction: a
 Other relative weak points—reference-core freezing, loading the remote core and preparing its optical face—still earned value from every player. Retain their real containment role unless a later human review says otherwise. The ending's automatic docking and unanswered science are explicitly reported limits, but the requested climax is the astronaut's ascent command, not a new orbital puzzle.
 
 **Stopped as requested:** no story changes were made after the frozen full test began. The current v9 and its brief remain bound to that tested source. Proposed actions above await the user's review; if adopted, test each changed chapter with three new players and independent grading rather than automatically repeating the whole campaign. V8 and the published illustrated story remain unchanged. No visual, browser or artwork work was performed.
+
+## Iteration #10
+
+### Accepted scope and revision hypotheses
+
+The user accepted the v9 findings and proposed actions, requested a preserved new **mars-v10**, chapter-specific **`--fast`** tests with revision, and then a whole-story **`--detailed`** campaign. After reading that consolidated report, record findings and proposed next actions and stop for review. The user subsequently emphasized that many straightforward sequences remain reasonable, specifically endorsing **Bent antenna** as a clear early introduction. Keep it; low decision density alone is not a reason to remove useful making.
+
+[V10](mars-v10/README.md) begins from the exact preserved v9. The scope remains text, story dependencies and logical playtesting. No browser, artwork or visual checks are included. Full-campaign coverage uses the documented three independent chapter trials with completed-history checkpoints; it does not establish one continuous player's attachment or human playing time.
+
+| Accepted proposal | Initial v10 implementation and question for testing |
+|---|---|
+| Anchor narration claims panels too soon | Anchoring now establishes only the sound anchor and aligned pull. Installed panels establish wheel support. Either action order remains sensible. |
+| Science interrupted by industrial setup | Reference core → field case → wash crossing → remote core → intact-body examination now run together. Earth’s return directive and industrial power/electrolysis follow that examination. Does the expedition now have a clearer forward purpose? |
+| Thin supports and constructions | Retain reflector support, fine sieve, level floor, bent-antenna repair, berth frame, opaque cloth, potato collar, traction frame and thermal screen, giving each its own physical result. Explain buckled solar feet as the cause of the loose lead. These are legitimate making steps, not presumed cuts. |
+| Repeated mounting/casing | Fold reservoir support into the aerated return; combine site grading/founding and solar installation; combine field-case housing/insulation; combine electrolyzer mounting/control plumbing; fit the retort’s controls with its real iron frame; connect CO₂ as part of the contained methane test; prepare the two distinct cryogenic assemblies together. Ordinary known materials remain explicit in result prose. |
+| Ground support and fueling | Make the footing and braced support together on prepared firm ground, then perform real load transfer. Fill both genuinely separate flight propellant circuits through one coordinated service operation. |
+| Repeated meal loading | Each loading gesture now includes its cooking operation. Keep one pot, complete bean cooking before potatoes, indoor opening, fresh lettuce and the two-chapter meal. |
+| Membrane locker anticlimax | Securing the original holder produces **Flight-stowed membrane**, with a latch and separate padded restraint. It can happen before or after the cores; no premature “everything aboard” claim. |
+| Fast contextual-placement overhead | Hydrogen connection seats the retort in the already built solar receiver; reduction then takes its concentrate directly. Attach the return hose directly to the real separator assembly and established treatment port. Array restoration includes the ordinary improvised cloth pad and still transforms the actual station supply at the post-storm hotspot. No engine change. |
+
+The initial rendition has **44 primitives, 128 recipes / 127 completion-route combinations, 36 chapters**. This is thirteen fewer recipes than v9, with no new primitives. Removing routine gestures is intended to improve pace, not establish quality by reducing a count. The initial lint has zero errors and six reviewed mixed-fate warnings: the original main supply, wrapped/unwrapped line, site footing, hydrogen retort and controlled reactor legitimately persist for an earlier use and transform into later assemblies.
+
+### Review and chapter-test record
+
+Reviewers receive only the current manuscript, current brief and standing guidance, without v9 criticism or working notes. Each review assignment and each player, grader and chapter synthesis is fresh. A separate technical organizer prepares the frozen canonical runner; it is never used as a reviewer or player.
+
+**First director pass.** The fresh script director found no essential sequence defect or chapter requiring removal. It specifically supported the antenna, continuous farm passage, increasingly informative science, storm protecting established work and post-meal departure. Adopted its two motivation suggestions: Mara now explains that stored meals bridge commissioning/interruptions while the farm supplies a substantial dietary share; local iron is explicitly the workshop’s material demonstration put to work supporting the return reactor, without inventing a steel shortage. The fresh authenticity director found an early-crafting prose edge case: the globally craftable open tank claimed to stand inside an enclosure not necessarily built yet. Its result now describes intended indoor use; the actual heat-recovery connection establishes installation later. These are manuscript judgments, not playtest outcomes.
+
+**Continuity pass.** A separate fresh continuity director found no essential defect in global recipe timing, specimen/crop identities, the single retort, storm prerequisites or departure. Its source closure reached every result, explicitly not an exhaustive engine witness. Adopted two small prose clarifications: the opening pressure gauge and drinking-water buffer belong to the habitat, and supper now ends with recording a message about the meal rather than implying the fixed habitat radio has moved beside the cave berth. The actual early tank correction was also present in this fresh read.
+
+**Fast freeze and protocol.** Source SHA-256 `c6801451435e1f42f02cd9cdc59661e5260fd2e0bfa91547ea314de1d7d32257`; runtime SHA-256 `14921a610e204d0e456ae01e3aa7334e9c61d96e92080290f628612b3a71fded`. Selected chapters: **1–3, 5–8, 10, 12, 15–21, 23–26, 28–31, 33–34** (26 chapters, three fresh players each). This covers every changed chapter plus the moved science sequence. Players use `gpt-6.1-terra` at medium effort; independent grades and chapter syntheses use `gpt-6-astra` at high effort. Twelve request slots feed completed players straight to grading and completed chapter grades straight to synthesis; the last synthesis immediately triggers mechanical report assembly.
+
+Before real participants, intercepted local CLI payloads verified both exact model slugs, their effort settings, zero tools and no inherited global/project/skill instructions. The CLI required an isolated child auth/config directory and pinned tool-free model metadata; neither model was substituted. Forty-seven canonical tests and small fake-provider campaigns verified both interfaces, replay, inspections and unsuccessful attempts, protocol-rejection exclusions, refresh metadata, the zero-action ending, independent-grade preservation and assembly. All 26 fast and 36 detailed checkpoints were reachable. These are harness checks, not playtest results. Scratch inputs and logs remain disposable.
+
+**Infrastructure interruption, not a story finding.** The first live fast attempt, [11:55:50 response arrays](playtests/2026.11.03_11.55.50/), was stopped after websocket requests repeatedly received HTTP 403 and the CLI emitted an HTTPS-fallback diagnostic that the event auditor rejected. It produced 130 accepted structured responses across 78 reserved arrays, including two final reports, but no chapter synthesis or combined report. The partial arrays remain separate; none contributes to later scores. The manuscript is unchanged. The runner connection/auditor must be corrected, smoke-tested against the live service for both models, and the campaign restarted with entirely fresh participants. This is not a player stopping decision or evidence against any chapter.
+
+The repaired HTTPS transport passed live neutral checks for both exact models. A replacement fast batch began at [11:59:51](playtests/2026.11.03_11.59.51/). The user correctly asked to preserve progress rather than restart tests. When this batch subsequently encountered service rate limits, it was suspended with **219 accepted response entries, including 21 final player reports**, saved in its original directory. Resume must use those same assignments, frozen story and actual public histories, keeping finished player work and completing only missing stages. Connection failures remain infrastructure diagnostics. No additional full restart is warranted. The newly supplied AGENTS instruction also authorized removing extraneous CLI marketplaces; the extra `claude-templates` entry was removed while retaining `openai-primary-runtime` and all other settings.
+
+### Completed chapter-specific fast review
+
+The resumed [26-chapter fast report](playtests/2026.11.03_11.59.51/report.md) is complete: **78 completed players, 78 independent grades, 26 syntheses, 318 gameplay actions**. Reviewers credited **189/318 worthwhile actions (59.4%)**; hooks were **20 high, 58 medium, zero low**. The six meaningful credits are menu-assisted diagnostics; **Fun was not measured**. This selected set is not comparable as a whole to v9's all-chapter percentage. The independent players often gave similar language and judgments; fresh isolation does not establish diversity of human taste.
+
+Frozen replay, exact response arrays, independent-grade preservation, complete per-action classifications and verbatim assembly all verified. The batch contains 105 retained files. It used 500 accepted model requests and 61 additional rate-limited attempts before suspension; the paced continuation had no new transport failures. All 219 previously accepted responses survived the resume unchanged. The report tests source `c6801451435e1f42f02cd9cdc59661e5260fd2e0bfa91547ea314de1d7d32257`, **before the following fixes and incoming user feedback**. It must not be presented as a test of the later detailed-run freeze.
+
+**What landed.** The uninterrupted science sequence gives the field case, remote core and intact-body chapters full worthwhile credit (18/18 across those chapters). The corrected winch narration no longer claims wheel support prematurely; the traction construction and controlled crossing receive 9/12. Aerated reservoir integration, the distinction between local floor and imported pressure boundary, reaction-water return, porous iron becoming usable metal, the whole-body loading moment and the warm harvest meal retain value. The combined fueling operation earns 3/3 while remaining straightforward. The antenna repair stays: all three value its eventual human contact, and the user explicitly endorsed the introduction.
+
+**How to read the weaknesses.** Many players name an action as their least interesting while still finding it sensible or valuing its payoff. That is not a demand to remove it. The bed frame, clean catalyst exchange, core containment, sieve, bean preparation and separate propellant paths remain. Several complaints that a chapter ends before its machine is used are partly artifacts of assigning only one chapter. Neither adding artificial choices nor merging every quiet scene follows from this evidence.
+
+| Concrete finding | Applied response before the detailed freeze |
+|---|---|
+| All three field-case players question steel appearing outside the selected inputs. | Restore an explicit steel-shell operation before insulating the refrigerator. Keep separate physical effects: impact protection, insulation and exposed heat rejection. This is a justified retained intermediate, not recipe-count padding. |
+| All three opening players find the steel result a preview of future recipes; cribbing construction jumps too far. | Show cutting usable steel free and trimming its ends. Describe cutting, fastening and stacking the actual crib before its load-bearing result. |
+| Soybean planting can occur while neither visible goal mentions it. | Show three independently latched planting goals, with the specification's three-goal acknowledgment. Do not restore the problematic conjunctive goal that could retain an obsolete planted bed. |
+| Foil-backed cloth's initial purpose is unclear; reflective insulation has no creation feedback. | State the potato bay's need for a lightproof skirt before construction. Show the flexible foil/felt jacket and its overlapping seam when it is made. |
+| Electromagnet purpose appears only after the sole offered combination. | The iron chapter now introduces the surveyed magnetic mineral fraction and the need to separate it before reduction. It does not give a step-by-step recipe. |
+| Applying the methane test cylinder to the completed purifier has an unclear purpose. | Rename it **Unpurified methane test cylinder**, making the remaining need visible. |
+| Combining two propellant tanks looks abstract until its control-coordination explanation. | Explain that shared operating controls coordinate production while the fluid paths remain separate, and name that purpose in the goal. |
+| Routine support/filling/planting steps receive low decision credit. | Keep reasonable steps unless there is a distinct legibility or physical problem. In particular, do not make the straightforward antenna, berth, crop support, fueling or final launch into artificial puzzles. |
+
+The user clarified the intended sequence during the run and then confirmed proceeding: finish this chapter-specific fast batch, apply its concrete feedback, then go directly to the whole-story detailed campaign. No additional fast campaign was added.
+
+### Incoming user feedback and final v10 rendition
+
+The user supplied five further observations before the detailed run. These are **human feedback**, separate from the automated report:
+
+- **Fuel-fab naming:** “Return-plant ground” sounded like growing soil. It is now **Fuel-fab area**, with **Fuel-fab footing** and a **Running fuel fab**. The agents had not identified this particular ambiguity.
+- **Steel:** the common item is now simply **Steel**; its description still establishes actual sheet and straight lengths.
+- **Service-panel compound:** the panel now has control positions for essential power, well isolation/drainage and fuel-fab shutdown. Dragging the corresponding system icon records operating its switch; no machinery is physically stored in the panel. A fourth position accepts restored solar power and runs the existing controllers' normal restart sequence. The well warms, checks and primes before fuel feeds reopen. Future switch graphics are postponed.
+- **Array identity and cleaning:** the original identifier is labeled **Dust-coated solar supply** from “Sun on the floor.” It goes to the **Array cleaning bench**, where removable panel sections are isolated, cleaned and refitted. The original identity transforms into a distinct identifier displayed as **Station solar supply**. This removes the confusing rack-on-rack operation and does not change the engine or artwork.
+- **Physical ascent item:** a carried **Ascent arming plug** replaces the fixed switch as the draggable item. The goal, item description and result describe one deliberate launch procedure: fit plug, confirm ARMED, then press the existing guarded START control. Plug insertion alone does not ignite the engine. [ESA documents flown arming plugs](https://www.esa.int/Applications/Observing_the_Earth/Last_Contact); [NASA's safety-analysis example](https://ntrs.nasa.gov/api/citations/20150000903/downloads/20150000903.pdf) separates actuator-power arming from later commands. The crew-accessible Mars socket is an explicit fictional adaptation, not an actual NASA ignition key.
+
+A fresh authenticity/continuity reviewer received only the final manuscript, brief and current specification, with the user's deliberate control-diagram premise. It found no essential correction in the panel state requirements, array identities, explicit shell, planting goals or arming/START distinction. Mechanical checks separately passed all six shutdown orders, three distinct control results, no premature restart, all three visible crop goals, retirement of the original dusty array, restored power before the sequenced water/plant restart, and the explicit arm-then-START ascent. All 36 detailed checkpoints are reachable. These are source/mechanical checks, not fresh player findings.
+
+### Whole-story detailed campaign
+
+**Completed after the authorized continuation:** [consolidated report](playtests/2026.11.03_12.32.41/report.md), all 36 chapters and 108 player assignments. Original frozen source SHA-256: **`e021a8bd2c72f343c512926bd85bda852c74cf5fd6294c64a192e330fed0fa1a`**. Original runtime: **`14921a610e204d0e456ae01e3aa7334e9c61d96e92080290f628612b3a71fded`**. The authorized syntax and runtime transitions are recorded below. Final source: **45 primitives** (44 Earth-origin, one local regolith), **167 identities, 127 recipes / 126 completion-route combinations, 36 chapters**. Chapter starts average 3.2 items, maximum six; chain length averages 3.0, maximum 19. Lint: zero errors, six intentional mixed-fate warnings, including the well line's transition into its panel control state.
+
+The new cohort uses the same neutral guidance and model/effort choices, with no earlier players, criticism or results supplied. Four paced request slots, two-second minimum dispatch spacing and adaptive rate-limit backoff reflect the observed service capacity. Player responses, grading and synthesis persist as they complete; an interruption resumes unfinished stages in the same directory. The final report is assembled immediately after the last chapter synthesis. Keep v10 frozen; findings and proposed next actions will be recorded below for user review rather than applied automatically.
+
+**User-requested pause.** The detailed campaign was stopped with **332 accepted response entries, including 34 completed player reports, and one completed chapter report**. All 108 assignment checkpoints, frozen source/runtime, partial arrays, grades, audits and resume state are retained. Do not discard scratch or resume until the user supplies their next instruction. The same campaign can continue from its saved steps; no new cohort is needed.
+
+The user corrected the interpretation of inspection: choosing to inspect is evidence of uncertainty and deliberation even when the interface automatically executes the sole compatible action. Automatic execution merely bundles an obvious follow-up; it does not erase that deliberation. Plausible unsupported combinations likewise have two possible readings: a clarity/combination-design issue, or a useful meaningful choice analogous to a human considering a pair before noticing absent compatibility highlighting. Do not treat either pattern as automatically defective. The user will supply a further idea before continuation; no rubric or manuscript changes were made in response to this clarification yet.
+
+### Authorized rename-syntax migration during the pause
+
+The user explicitly permitted a syntax-only exception to the v10 freeze for commit `b0715509994bcdb1da5937e72d5a105732655707`. The `station-power` declaration now has the direct child bullet `from chapter "Sun on the floor": Dust-coated solar supply`, replacing the obsolete parenthetical. This is the only manuscript change. Current source SHA-256: **`2d113f8ec285cd36b0af18a8026a2117179be4ed367fc39af895a245473ac4e3`**. The detailed campaign retains its original source hash, frozen runtime, assignments and response arrays.
+
+Verification against an isolated copy of that commit confirmed identical recipes, chapter content, **6,012 item labels across all 36 chapters**, all 36 initial detailed frames, and **108 saved session replays covering 298 gameplay actions and 34 final reports**. Every saved player frame and outcome matched. The extra manuscript line shifts internal wonder source-line keys; only those suffixes were adjusted in an in-memory verification copy, leaving recorded evidence untouched. Lint passed with zero errors and the same six intentional warnings. Separate playtest changes in the working checkout were excluded from this equivalence check. No new player requests, visual checks or campaign restart occurred; the detailed playtest remains paused pending the user's next instruction.
+
+### Authorized detailed continuation after compatibility-feedback change
+
+The user requested resuming the same detailed campaign after commit `66c42916491472c9dc6759fc0f1c508265b968bc`, explicitly accepting feedback collected under both interaction versions. An incompatible pair now inspects its first operand: it reports available partners and performs the sole executable alternative when one exists, modeling a player responding to compatibility highlighting. Preserve the original attempted pair, expectation and actual automatic result as one decision. Purposeful inspection remains evidence of deliberation; automatic execution does not erase it. A plausible unsupported attempt may reveal useful thinking or a clarity issue, and requires interpretation rather than automatic condemnation.
+
+The continuation preserves completed trials and earlier accepted responses. Unfinished assignments will continue from their actual saved state with the updated runtime and instructions; earlier failed attempts will not be retroactively turned into successful actions. The report must identify the version boundary and retained older grades. This is an explicitly mixed interaction test, not a controlled before/after comparison. The user authorized restarting unfinished chapters only if continuation proves impossible; no restart is currently planned. The story itself remains unchanged after its authorized rename-syntax migration.
+
+The saved-state preflight passed for all **108 original assignments, 298 accepted gameplay steps and 34 completed reports**. Every boundary state is legal under the new engine and displays the same board. The separate continuation runtime is **`1724a983fa0e233e4388c17f3a350082a02f1af177f1dae3b73966978a22ca7c`**, paired with the syntax-migrated manuscript hash above. Original snapshots remain immutable; mixed verification checks each old prefix with its original runtime and only subsequent commands with the new runtime. **No chapter or player restart is needed.** The updated canonical detailed-play and playtest suites passed all 19 tests; these were logical checks, with no model players or visual tests.
+
+During the continuation, the user clarified that future player instructions explain automatic obvious follow-ups directly: inspection or an incompatible attempt may carry out the obvious resulting action, leaving meaningful choices to the player. **For this campaign's analysis, disregard surprise at that automation itself.** Preserve the original testimony and independent assessments, but do not turn mechanism surprise into a story defect or count it as a substantive discovery. Distinguish it from actual questions about why the physical operation makes sense. The existing cohort continues with its recorded instruction versions; this clarification does not trigger new trials or another runtime transition.
+
+### Completed whole-story detailed review — findings and proposed next actions
+
+The [consolidated report](playtests/2026.11.03_12.32.41/report.md) is complete and has been read in full. **All 108 players completed**, with **108 independent grades, 36 chapter syntheses and 436 gameplay decisions**. The same assignments resumed; no player or chapter restarted. Verification preserved every original response/result prefix, the 34 completed player reports, 12 completed grades and existing ending report. It replayed the two runtime segments separately, checked all response arrays and independent-grade attribution, and verified the assembled report. The 145 retained deliverables are 108 player arrays, 36 chapter reports and the combined report. No visual or browser work occurred.
+
+| Assessment | Pooled result across the three trials per chapter |
+|---|---|
+| Worthwhile | **356/436 (81.7%)** |
+| Fun / meaningful decisions | **121/436 (27.8%)** |
+| Hook | **33 high, 75 medium, zero low** |
+
+The 436 decisions comprise **332 direct successful combinations, 43 inspections that combined automatically, 14 information-only inspections, 33 original-rule incompatible attempts, 11 new-rule attempts with no available partner, and three automatic corrections of incompatible attempts**. Six additional board refreshes were excluded from the denominator; no player protocol commands were rejected. There were 298 decisions before the behavior change and 138 afterward. The run used 694 completed model requests, approximately 9.2 million input tokens and 258,000 output tokens. Future local questions warrant targeted chapter trials rather than another full campaign by default.
+
+These are chapter trials with actual completed-history context, not one player experiencing the entire story continuously. The user explicitly accepted mixed interaction versions; their relative scores cannot establish an effect of the new rule. Independent assessments and original testimony remain intact. The analysis below disregards surprise at automatic execution itself, as requested. It retains questions about physical logic, consistency and arbitrary ordering.
+
+#### Chapter scores — v10 detailed baseline
+
+The [whole-story detailed report](playtests/2026.11.03_12.32.41/report.md) tested every chapter of v10. Each cell is **mean credited decisions / mean total decisions** across its three players, rounded to one decimal place with integer values left whole. These are counts, not percentages. Chapter 36 has no actions; `0/0` means no decision-density ratio, not zero enjoyment. The mixed runtime and rubric history described above still limits comparisons with later cohorts.
+
+```text
+Chapter                              Fun      Worthwhile
+-----------------------------------  -------  ----------
+1 The wrong side of the pad          1/5      3.7/5
+2 A voice in the room                2/6      4/6
+3 Water under the plain              0.7/5.3  5.3/5.3
+4 The work of a hundred shovels      1/3.3    3/3.3
+5 A furnace in the sunlight          2/7      4/7
+6 Air inside the hill                1/7.7    6.3/7.7
+7 A bed under the hill               1/3      3/3
+8 One room for roots                 3.7/7    6/7
+9 What roots need                    0/3      2/3
+10 Potatoes, soybeans, lettuce       2/7      3/7
+11 The first green                   2.7/5    5/5
+12 Under the leaves                  1.3/3.3  2.7/3.3
+13 What the water carries            1.3/4    3.7/4
+14 The ground we know                0/2      1.7/2
+15 A box for the road                1/3      3/3
+16 Across the wash                   1/4.3    3.3/4.3
+17 A clean face                      0/2      2/2
+18 Something folded                  0/2      2/2
+19 A different use for the sunlight  0/2      1/2
+20 Two gases from water              0/3      1.3/3
+21 Metal from the red ground         3.7/8.3  8/8.3
+22 From the thin air                 0/1      1/1
+23 The first methane                 0/3      2/3
+24 The water comes back              4.3/7    7/7
+25 Two cold stores                   0/4      2.7/4
+26 Heat worth keeping                2.7/6.3  5/6.3
+27 Amber noon                        0/3      2.3/3
+28 Keep the roots alive              3.3/4.3  4.3/4.3
+29 Sun on the floor                  0/2      2/2
+30 The leg that stays                0/3      2/3
+31 Two tanks, two liquids            0/1      1/1
+32 A hearth for the harvest          0.3/2.3  2.3/2.3
+33 Potato and soybean stew           3.3/9    7.3/9
+34 The things we take                1/5      4.7/5
+35 My hand on the switch             0/1      1/1
+36 The End                           0/0      0/0
+```
+
+#### What the detailed mode added
+
+The records expose intentions hidden by a compatible-action menu: players expected a mattress to fit its steel support before insulation, water to enter a tank before its exterior jacket, and the familiar basket to harvest lettuce again. These are concrete revision leads. They are more useful than a general instruction to make every chapter harder.
+
+Inspection was credited as thinking: **54/57 inspections were graded meaningful, including 40/43 inspections that automatically combined**. Automatic execution therefore did not erase the prior deliberation. Motivated incompatible attempts also received credit. This does not mean the associated friction was enjoyable: the berth's rejected attempts earned meaningful credit while all three players called them their weakest passage. Read the narrow Fun measure alongside actual reactions and the broader Worthwhile measure.
+
+A separate mechanical check applied the new rule once at each of the **33 saved old rejection states**. **28 would automatically perform a compatible alternative**; five would still have no available action for the first operand: one potato-medium attempt, three tank-filling attempts and one pressure-envelope attempt. This is a counterfactual engine check, not new player evidence or proof of increased enjoyment. It prevents treating every old rejection as an outstanding authoring defect. During actual resumed play, the three automatic corrections shaped two players' iron billets and insulated one player's tank; all original intentions and results remain recorded.
+
+#### Distribution of meaningful decisions — no intervention requested
+
+The user suggested that one meaningful decision can be enough in a chapter with four or more combinations, and that quiet chapters need not all contain a puzzle. Their proposed diagnostic was a run of at least five chapters with zero meaningful decisions, then examining its middle half for natural opportunities.
+
+With all grades available, the longest playable run with zero meaningful credit across all three players is **chapters 17–20: four chapters**. The later run is **29–31: three chapters**. Chapter 36 has no gameplay denominator and is not evidence of zero enjoyment. Several complex chapters finished reporting later than the short, straightforward ones, making the incomplete report look less varied than the final one.
+
+| Later chapter | Meaningful / total decisions, pooled across three players |
+|---|---:|
+| 21 — Metal from the red ground | **11/25** |
+| 24 — The water comes back | **13/21** |
+| 26 — Heat worth keeping | **8/19** |
+| 28 — Keep the roots alive | **10/13** |
+
+The user welcomed this distribution and explicitly said **no action is needed on this front**. Preserve these chapters' substantial reasoning and construction payoffs. No proposal to insert puzzles into the quiet span follows from this review.
+
+#### Strengths to preserve
+
+The blocked-water discovery and intact-body examination retain strong scientific purpose: chapters 13 and 18 receive **17/18 worthwhile actions and six high hooks**. The field refrigerator's restored steel-shell step earns meaningful credit from all three players, who considered insulation-first alternatives; the complete chapter receives **9/9 worthwhile actions**. This supports that specific v10 revision.
+
+The shared atmospheric processor, aerated return, separate process fluids, local iron, storm protection and sequenced restart make understandable constructions matter. Array cleaning and restoration receive **6/6 worthwhile actions**. The service-panel control representation was understood; its abstraction alone is not a reason to replace the requested compound. Keep the bent antenna: its ordinary repair leads to the valued radio contact, and the user explicitly endorsed it.
+
+The early greens and final supper deliver sensory and practical rewards. Supper receives **22/27 worthwhile actions**, specimen loading **14/15**, and ascent **3/3**. Preserve the two-chapter meal, the loading beat and the simple deliberate ascent. Comments that the cooker chapter ends before dinner are partly a consequence of isolated chapter assignments; they do not justify undoing the requested two-chapter structure. The quiet epilogue's zero action denominator likewise does not call for another docking puzzle.
+
+#### Proposed revisions — not applied
+
+The user's latest direction is to prioritize players' complaints about arbitrary order. The two clearest cases are the berth and heat-storage tank. Automatic correction helps a rejected intention progress, but allowing the intended sensible order is a separate improvement.
+
+| Priority / passage | Evidence and concrete proposed next action |
+|---|---|
+| **1. Berth, chapter 7: accept mattress-first assembly** | All three independently tried **Steel + Cabin mattress** and described the enforced insulation-first sequence as arbitrary or restrictive. Keep the existing insulation-first route. Add a mattress-first route through **Uninsulated berth**, then add reflective insulation to reach the same **Cave berth**. Both routes use the same three existing ingredients and two actions; the later result can describe fitting insulation beneath the raised deck. This needs no new primitive and preserves the cozy payoff. Verify both routes and ingredient retirement. |
+| **2. Heat storage, chapter 26: allow filling and exterior insulation in either order** | All three explicitly criticized having to insulate before adding water. Keep installing the separate coolant coil before filling. From that stage, let water-first create an **Uninsulated filled tank**, while insulation-first retains **Unfilled insulated tank**; adding the other ingredient converges on **Unheated water tank**. Heat connection follows the completed assembly. Preserve the valued fluid-separation explanation and fold-back insulation. This changes ordering freedom without adding work to either route. |
+| **3. Supper, chapter 33: honor the learned lettuce-harvesting action** | All three used **Lined harvest basket + Sown lettuce tray**, following the earlier lettuce chapter and the meal's other harvests. Under the new runtime the attempt still had no available partner; this complaint is independent of surprise at automation. Restore a consistent basket-based route for obtaining the final greens, then serve them with the stew inside the existing meal chapter. The rendition must distinguish a fresh final harvest from the earlier leaves: check global recipes and identity retirement so it does not carry an old serving forward or introduce conflicting recipes. Keep the existing crops and tools. |
+| **4. Growing assemblies, chapters 8 and 10: make the unfinished state accurate** | All three tried joining the aerating reservoir before the beds had drain runs; all three tried planting lettuce in the supposedly prepared beds before its wick existed. These attempts still failed after the rule change. Show the unconnected drains, and identify the unfinished lettuce watering arrangement in player-visible text or names. Reconcile chapter 9's claim that water already reaches all three zones with chapter 10's required wick. Preserve real construction dependencies and the valued aeration/wicking explanations. |
+| **5. Excavator, chapter 4: explain the actual fabrication** | The spoil-hopper result has no construction prose; all three found its appearance opaque, beyond merely being surprised by inspect automation. Add the concrete cutting/forming/fitting result. Keep startup feedback about powering and testing the machine, with excavation progress described when it is applied to the surveyed floor. No additional equipment or combination is needed. |
+
+A smaller clarity pass can mark the cavern floor as **unpadded**, show why extra potato medium would spill past the existing low rim, and avoid calling the materials retort ready before its required gas connection. The initial harvest basket and uncooled separator also produce empty partner lists before their prerequisites are made. Those inspections can involve useful deliberation; assess the player's reported frustration and the physical problem rather than treating every empty list as defective. These are secondary to the repeated ordering and consistency complaints above.
+
+If these proposals are accepted, use fresh chapter-specific trials under the user's clarified automation instructions, with continuity/authenticity review of alternative orders and retained sample/crop identities. Test whether the intended route is accepted and understood, not whether a higher score can be forced. **Stopped here for user review: no post-report story revisions have been applied.**
+
+## Iteration #11
+
+The user accepted the detailed-review findings and authorized a new **mars-v11**, followed by focused **`--detailed`** chapter trials and further revision where needed. Their additional instruction makes the final lettuce tray a hotspot alongside potatoes and soybeans, usable with the same gathering basket. Preserve v10 and its reports. No new puzzles are requested to change the later meaningful-decision distribution; the work concerns plausible alternate orders and accurate unfinished-state descriptions.
+
+### Initial rendition and hypotheses
+
+- **Chapter 7:** both mattress-first and insulation-first routes reach the same sheltered berth, using the same three ingredients and two actions. Exclusive intermediate states prevent two versions of the unique bed.
+- **Chapter 26:** fit the coil in the empty tank, then fill and insulate in either order before connecting the heat source. Both routes converge on the same unheated water tank; the completed-state prose fits either order.
+- **Chapter 33:** the same basket now works at three harvest-ready crop hotspots. The final lettuce is washed during its harvesting operation and has a distinct result identity before joining the stew. The earlier snack cannot fulfill the supper goal.
+- **Chapters 6, 8–12, 21 and 24:** make the unpadded floor, unconnected bed drains, unfinished lettuce irrigation, low-sided potato bed, unconnected retort and uncooled separator apparent in names, goals or observed results. The common watering result no longer claims the unwicked lettuce shelf is watered. The first harvest explicitly establishes the need for the lined basket.
+- **Chapter 4:** show making and fitting the spoil hopper; startup checks precede excavation at the surveyed floor.
+
+Initial lint: **zero errors, six existing mixed-fate warnings**. Structural analysis: **45 primitives, 170 item identities, 132 combinations, 127 completion-route combinations, 36 chapters**; chapter starts average 3.2 items, maximum six. The draft introduces no primitive supply. Every completed berth/tank route retains its previous action count; the final lettuce picking adds one action. The targeted set is **4, 6–12, 21, 24, 26 and 33**. Fresh directors will review the current draft; fresh players will receive only the current rubric, neutral audience guidance and their canonical chapter histories. These are hypotheses until the focused trials finish.
+
+### Fresh director review before playtesting
+
+Three independent directors received only the current v11 manuscript and applicable brief/specification, without prior drafts, criticism or playtest findings. All found **no essential correction**. The authenticity director accepted both berth orders, both post-coil tank orders, the wick continuity and the distinct final lettuce harvest. The story director accepted the route-neutral results and the separate first-greens/final-supper payoffs. Optional watchpoints concern the aggregate irrigated-bed label, harvest readiness in the early lettuce name, collar attachment, and introductions approaching instructional density; the focused trials will supply player evidence rather than making every possible wording change in advance.
+
+Continuity verified both berth and tank routes, all four combined route choices, early crop retirement and separate planting-goal latching, the potato rename, all six final crop-harvesting orders, fresh supper lettuce and both specimen-loading starts. **Twenty-one technical continuations reached the ending**; the baseline needed no scrollback. These are source/mechanical findings, not player testimony. V10 and its prior evidence remain unchanged.
+
+### Focused detailed campaign
+
+The [12-chapter detailed report](playtests/2026.11.03_14.10.06/report.md) is complete: 36 fresh Terra Medium players, 36 independent Astra High grades and 12 fresh chapter syntheses. All players completed; frozen replay, public response arrays, preserved grading, synthesis arithmetic and report assembly verified. There were 178 gameplay decisions across 263 model requests, with no failed request attempts. It uses the user's revised automation explanation from the current rubric, the unchanged neutral audience guidance, four concurrent request slots and durable per-response checkpoints. Source SHA-256: **`fdb5267d72bffc5de7537d512cc9884ce006d232e0916d87e5c30987e6a56d6a`**. The retained reports identify this first v11 snapshot; subsequent fixes have a separately identified focused retest.
+
+
+#### First v11 cohort — chapter scores
+
+These are `--detailed` scores for the initial v11 rendition, with the same mean-count notation as the v10 table. The full [report](playtests/2026.11.03_14.10.06/report.md) supplies the individual evidence. Pooled counts are **124/178 Worthwhile** and **47/178 Fun**, with **12 high, 24 medium and zero low hooks**. This targeted set is not a whole-story sample, and its revised automation instructions differ from the older v10 campaign.
+
+```text
+Chapter                          Fun      Worthwhile
+-------------------------------  -------  ----------
+4 The work of a hundred shovels  1/3.7    2/3.7
+6 Air inside the hill            1/7      5/7
+7 A bed under the hill           1/2      2/2
+8 One room for roots             1.3/5    2.7/5
+9 What roots need                0.7/3    2/3
+10 Potatoes, soybeans, lettuce   2/6      3.3/6
+11 The first green               0/3      2/3
+12 Under the leaves              1/3      2/3
+21 Metal from the red ground     2.7/8    7/8
+24 The water comes back          3.3/5.7  5.3/5.7
+26 Heat worth keeping            1/5      3/5
+33 Potato and soybean stew       0.7/8    5/8
+```
+
+#### Findings and the focused follow-up
+
+All three berth players used the mattress-first route and reported no arbitrary step. All three heat-tank players filled before insulating, without the old rejected-order complaint. All three supper players used the basket at the lettuce hotspot; the final meal retained its shared sensory and story payoff. The irrigation/wick distinction and low potato rim were understood. These are successful local tests of the intended changes, not proof of increased human enjoyment. Lower counts in the berth, tank and meal partly reflect removal of failed attempts; the quieter first harvest also loses prior inspection-driven decisions after the basket goal becomes explicit.
+
+Two construction passages still needed revision. In chapter 4, two players tried powering the folded excavator first and instead made an unrelated electromagnet through compatibility correction. In chapter 8, all three found the second hose preparation hard to distinguish from fitting the bed drains. The next rendition accepts both excavator preparation orders, makes the missing hopper visible, and accepts reservoir mounting before or after fitting drain hoses. The separate reservoir-hose puzzle is removed; the final connection still explains falling-stream aeration. Two tank players also lacked a clear explanation of heat release on the new water-first path, so the common completed result now identifies the fold-back insulation flap.
+
+The user's further opening question adds chapter 1 to the follow-up: **keep the temporary brace here**, because it stops further settling before repeated boarding and unloading, preserving access to the main supplies and the cabin needed for return. The repair kit, tool and braces are reachable from the external emergency rack; sealing the habitat remains first. Names, goal and observed result make that immediate purpose visible. The later permanent leg and footing still provide a level launch platform.
+
+The user also requested aligned score tables and Before/After comparisons. The v10 baseline and this first v11 table are recorded above; final comparison follows the focused follow-up. The reusable reporting guidance is adopted in [story-authoring.md](../../docs/story-authoring.md#revise-with-evidence).
+
+
+The follow-up's fresh story and authenticity directors found no essential defects. Fresh continuity review exercised all **16 combinations of excavator, berth, reservoir and tank orders** through the ending, plus both water-treatment, shutdown and specimen-loading orders. Chosen unique intermediates retired and opposite routes stayed excluded. Those checks used pre-naming source **`cf6bc97d0dc75d3c37f230787fbf4a402282bd27f3aa8116512114405f075326`**. The user then requested plainer equipment names: **Tool kit** is an actual collection of ordinary workshop tools; **Arming plug** and **Flight console** retain the explicit arm-then-START launch procedure. Chapter 2 joins the focused follow-up because the kit also repairs the antenna; chapter 35 joins for its new flight labels. These revisions introduce no primitive or additional launch action.
+
+
+The fresh equipment/launch reviewer accepted the tool-kit interpretation and explicit arm-then-START sequence. It found one small physical wording mismatch: the antenna description named a bent mast while the repair straightened a stay. Both now name the same **bent support**, keeping the familiar antenna repair. The [six-chapter follow-up](playtests/2026.11.03_14.30.14/report.md) completed **1, 2, 4, 8, 26 and 35** with 18 new detailed players, 18 independent grades and six chapter syntheses. All 70 gameplay decisions and the retained report files passed replay/assembly verification; 112 requests completed without failed attempts. Frozen source SHA-256: **`4d39d6cd92139b82eb5b67daed24f6fd697d903eab19db5a79510a662345390d`**. The earlier 12-chapter report remains unchanged. Current structure: **45 primitives, 171 identities, 135 recipes / 126 completion-route combinations, 36 chapters**; lint has zero errors and six retained mixed-fate warnings. The simplified irrigation removes one route action; alternative orders add no primitive supply. **30 primitives** now have only one authored combination/slot use.
+
+
+#### Focused follow-up — chapter scores
+
+The [second v11 report](playtests/2026.11.03_14.30.14/report.md) uses `--detailed` and the source hash above. Counts are **48/70 Worthwhile** and **13/70 Fun**, with **three high, fourteen medium and one low hooks**. These six chapters are a different subset from the first batch; do not compare their pooled totals as an improvement score.
+
+```text
+Chapter                          Fun      Worthwhile
+-------------------------------  -------  ----------
+1 The wrong side of the pad      0.7/4    3.7/4
+2 A voice in the room            1.7/6    4/6
+4 The work of a hundred shovels  0/3      1.3/3
+8 One room for roots             0.7/4    2.7/4
+26 Heat worth keeping            1.3/5.3  3.3/5.3
+35 My hand on the switch         0/1      1/1
+```
+
+The opening motive landed: **all three players chose the temporary landing brace as their strongest action**, specifically connecting its wide base to load support and safer boarding. The tool kit and familiar antenna repair caused no reported physical confusion. The three tank players again filled before insulating, and all three now understood and appreciated the fold-back insulation flap.
+
+All three irrigation players finished in four actions and valued the final aeration explanation. Players 2 and 3 found no ordering confusion. Player 1 tried **hose + loose reservoir**, which redirected to fitting the bed drains, and then inferred that drains had to come first. That inference is narrower than the actual rules: **reservoir + lined beds** is also valid, followed by the hose. The synthesis calls this a “reservoir-first attempt”; the exact record shows the distinction. The alternative mounting order is technically verified but was not spontaneously selected by these three players. Do not claim universal understanding of the flexibility.
+
+All three launch players valued the departure, giving **1/1 Worthwhile**, while the intentional single action still earned **0/1 Fun**. Their hooks diverged low/medium/high. Two expected the first gesture only to arm the console, but neither reported frustration at the full arm-confirm-START procedure. Preserve the user's deliberate simple ending; this is no reason to insert another launch puzzle.
+
+The excavator's clearer missing-hopper cue led all three players down the hopper-first route, with no unrelated separator detour or reported arbitrary operation. The power-first route remains mechanically verified, rather than observed in this cohort. However, all three noticed the common startup result repeated the previous hopper fabrication. A final **prose-only** edit makes that result describe the controls, free-turning drum and secure hopper during testing; recipes and orders are unchanged. The fresh [chapter 4 retest](playtests/2026.11.03_14.37.55/report.md) completed and verified against **`0383179a45407578f2f62b20a8ca444ef6a8daa6376cc177d28bbc4b52ecee67`**.
+
+
+All three final excavator players completed without the repeated-fabrication complaint. They valued the hopper and excavation; the power connection remained predictable, with its clear-ground equipment test understood. The fresh result is **0.3/3 Fun, 2/3 Worthwhile, medium Hook**. This supports keeping the concise startup text, not making the power connection into another puzzle. The final three records, three grades and chapter synthesis passed the same verification; the prose edit changed no declaration, goal, slot or recipe.
+
+#### Before and after — the fifteen revised chapters
+
+**Before:** the [v10 whole-story detailed report](playtests/2026.11.03_12.32.41/report.md). **After:** the latest focused assessment of each revised chapter: [first v11 cohort](playtests/2026.11.03_14.10.06/report.md) for chapters 6, 7, 9–12, 21, 24 and 33; [follow-up](playtests/2026.11.03_14.30.14/report.md) for 1, 2, 8, 26 and 35; [final prose retest](playtests/2026.11.03_14.37.55/report.md) for 4. All are `--detailed`. Each cell shows mean credited/mean total decisions, with integers left whole.
+
+```text
+Chapter                          Fun before  Fun after  Worthwhile before  Worthwhile after
+-------------------------------  ----------  ---------  -----------------  ----------------
+1 The wrong side of the pad      1/5         0.7/4      3.7/5              3.7/4
+2 A voice in the room            2/6         1.7/6      4/6                4/6
+4 The work of a hundred shovels  1/3.3       0.3/3      3/3.3              2/3
+6 Air inside the hill            1/7.7       1/7        6.3/7.7            5/7
+7 A bed under the hill           1/3         1/2        3/3                2/2
+8 One room for roots             3.7/7       0.7/4      6/7                2.7/4
+9 What roots need                0/3         0.7/3      2/3                2/3
+10 Potatoes, soybeans, lettuce   2/7         2/6        3/7                3.3/6
+11 The first green               2.7/5       0/3        5/5                2/3
+12 Under the leaves              1.3/3.3     1/3        2.7/3.3            2/3
+21 Metal from the red ground     3.7/8.3     2.7/8      8/8.3              7/8
+24 The water comes back          4.3/7       3.3/5.7    7/7                5.3/5.7
+26 Heat worth keeping            2.7/6.3     1.3/5.3    5/6.3              3.3/5.3
+33 Potato and soybean stew       3.3/9       0.7/8      7.3/9              5/8
+35 My hand on the switch         0/1         0/1        1/1                1/1
+```
+
+This is a chapter-level comparison, **not a pooled score for one final-snapshot campaign**. All fifteen changed chapter bodies have a focused assessment; nine are unchanged from the first v11 cohort, five from the six-chapter follow-up, and chapter 4 has the final prose test. Later preceding checkpoint histories can differ. V10 used its documented mixed interaction/rubric history; the v11 cohorts used the current automation explanation. V11 runtime snapshot hashes changed only because unrelated `src/web/main.ts` and `src/web/style.css` edits entered the broader frozen source tree; the text-play implementation and rubric were unchanged between the first two cohorts. Three independent model players per chapter and ordinary variation in grader judgments cannot establish a controlled improvement in human enjoyment.
+
+The numbers are deliberately not a claim that every score rose. Removing rejected sensible actions lowers some denominators and removes decisions previously credited as experiments. Clearer needs also make some passages more prescribed. The direct evidence for the intended changes is the accepted mattress-first and water-first actions, consistent basket use, accurate crop state, understood opening safety motive, and the vanished repeated hopper narration. Routine making still sometimes earns a valued result, and sometimes receives no separate worthwhile credit.
+
+#### Retained strengths, limits and next review candidates
+
+Keep the simple first harvest, the substantial two-chapter meal, the strong iron-processing sequence, and the intentionally direct launch. The revised opening and antenna retain their practical repair character. The final inventory remains **45 primitives**; the text permits more legitimate preparation orders without adding supplies or length to their completed routes.
+
+The reports still identify narrower rough edges. Two first-cohort chapter 24 players tried the test cylinder on the cooled separator before its installation into the actual reactor circuit; the rejection's reason was not obvious. The chapter's construction establishes continuous separation and water return, so a standalone cylinder test would be different optional work. Retain the current construction for this iteration and carry that visible connection boundary as a specific clarity question for user review. Chapter 21's initial no-partner regolith inspection likewise remains a sparse clue. These reports are evidence of local uncertainty, not proof that every plausible attempt needs another recipe. The early basket instructions trade decision depth for a clear protective purpose; the snack and final meal still provided distinct valued payoffs.
+
+**Iteration complete:** 57 fresh chapter playthroughs across three cohorts, 57 independent grades, 19 chapter syntheses and three consolidated reports; 79 requested retained files verified. No whole-story repeat, fast-mode batch, artwork or browser/visual evaluation was performed for v11. Final manuscript SHA-256: **`0383179a45407578f2f62b20a8ca444ef6a8daa6376cc177d28bbc4b52ecee67`**. Structural result: **45 primitives, 171 identities, 135 recipes / 126 completion-route combinations, 36 chapters**, average starting board 3.2 items, maximum six. Lint: zero errors and six existing intentional mixed-fate warnings. V10's source hash remains **`2d113f8ec285cd36b0af18a8026a2117179be4ed367fc39af895a245473ac4e3`**. The user's unrelated engine/UI and rubric edits remain untouched.

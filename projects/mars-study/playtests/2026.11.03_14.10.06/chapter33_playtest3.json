@@ -1,0 +1,142 @@
+[
+  {
+    "step": 1,
+    "reason": "The dry soybeans must be gathered before they can be cooked, and the lined basket is intended for harvests.",
+    "choice": {
+      "combine": "Lined harvest basket",
+      "with": "Soybean row ready to gather"
+    },
+    "expectation": "The basket will hold the harvested soybeans for preparation.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The soybeans are gathered but remain in their pods, so they need preparation before cooking.",
+    "reaction": "The harvest connects the storm-surviving row to the meal.",
+    "step": 2,
+    "reason": "I need to find how the gathered pods can be prepared for cooking.",
+    "choice": {
+      "inspect": "Gathered soybean pods"
+    },
+    "expectation": "The inspection should reveal how to shell or otherwise prepare the beans.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The inspection automatically shelled the pods, leaving dry soybeans ready for cooking.",
+    "reaction": "The cloth’s use as a clean catch surface makes sense.",
+    "step": 3,
+    "reason": "The beans need thorough cooking, so I’ll put them in the prepared solar cooking pot.",
+    "choice": {
+      "combine": "Dry soybeans",
+      "with": "Solar cooking pot"
+    },
+    "expectation": "The beans will enter the pot, possibly with water included in the cooking step.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The beans needed soaking first; the compatibility feedback completed that preparation automatically.",
+    "reaction": "The soaking step makes sense, though I had tried cooking them too soon.",
+    "step": 4,
+    "reason": "The soaked beans are now ready for the cooking vessel.",
+    "choice": {
+      "combine": "Soaked soybeans",
+      "with": "Solar cooking pot"
+    },
+    "expectation": "The beans will cook thoroughly in the pot.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The soybeans are thoroughly cooked; the stew still needs potatoes and fresh lettuce.",
+    "reaction": "The separate bean-cooking step makes the food preparation clearer.",
+    "step": 5,
+    "reason": "The potatoes need harvesting before they can join the cooked beans.",
+    "choice": {
+      "combine": "Lined harvest basket",
+      "with": "Potato bed ready to lift"
+    },
+    "expectation": "The basket will hold the harvested potatoes for preparation.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The potatoes are harvested, washed and cut, ready to join the cooked beans.",
+    "reaction": "The substantial harvest makes the earlier bed preparation feel consequential.",
+    "step": 6,
+    "reason": "The prepared potatoes can now go into the pot of cooked soybeans.",
+    "choice": {
+      "combine": "Prepared potatoes",
+      "with": "Pot of cooked soybeans"
+    },
+    "expectation": "The potatoes will cook with the beans to make stew.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The potatoes and beans are cooked into stew; fresh lettuce remains to be gathered and served.",
+    "reaction": "The second heating gives the potatoes their own sensible cooking step.",
+    "step": 7,
+    "reason": "The lettuce tray has fresh outer leaves, and the lined basket is used to harvest them.",
+    "choice": {
+      "combine": "Lined harvest basket",
+      "with": "Lettuce tray ready to pick"
+    },
+    "expectation": "The basket will hold fresh lettuce leaves for the meal.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The lettuce is harvested and washed, ready to serve with the stew.",
+    "reaction": "Leaving the centre growing is a practical touch.",
+    "step": 8,
+    "reason": "The washed lettuce and finished stew are the two components of the meal.",
+    "choice": {
+      "combine": "Washed supper lettuce",
+      "with": "Potato and soybean stew"
+    },
+    "expectation": "This will serve the stew with fresh lettuce.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Serving the washed lettuce alongside the stew completed the meal and the chapter.",
+    "reaction": "The contrast between crisp leaves and warm stew gives the harvest a satisfying payoff.",
+    "step": 9,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Harvesting the potatoes was the most worthwhile moment: the substantial yield made the earlier work on the bed feel consequential.",
+        "steps": [
+          5
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Shelling the pods felt fairly routine, although the cloth's role as a clean catch surface was clear.",
+        "steps": [
+          2
+        ]
+      },
+      "surprise": {
+        "text": "I tried to cook the dry beans immediately, but the feedback revealed that they needed soaking first and completed it automatically.",
+        "steps": [
+          3
+        ]
+      },
+      "arbitrary": {
+        "text": "Nothing felt particularly arbitrary; even the less obvious cloth was used to catch the shelled beans.",
+        "steps": [
+          2
+        ]
+      },
+      "continue": {
+        "text": "I would continue: the meal gave the survival and growing work a tangible payoff, and I would be curious to see what happens to the specimens.",
+        "steps": [
+          5,
+          8
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

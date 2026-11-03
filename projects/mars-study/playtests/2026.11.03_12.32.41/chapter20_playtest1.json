@@ -1,0 +1,81 @@
+[
+  {
+    "step": 1,
+    "reason": "The electrolyzer stack and gas-control manifold are natural components of the installation.",
+    "choice": {
+      "combine": "Electrolyzer stack",
+      "with": "Gas-control manifold"
+    },
+    "expectation": "The manifold should connect to the stack to control its gas outputs.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The stack and manifold made a rack with separate gas outlets; it still needs polished water.",
+    "reaction": "The separate outlet paths make the installation's purpose clearer.",
+    "step": 2,
+    "reason": "The result identifies the processor's polishing outlet as the rack's water source.",
+    "choice": {
+      "combine": "Unfed electrolysis rack",
+      "with": "Processor polishing outlet"
+    },
+    "expectation": "The rack should connect to the polished-water feed.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The electrolyzer has polished water, power and cooling; the remaining goal is to collect its separate gas outputs.",
+    "reaction": "The separate circuits make the next connection clear.",
+    "step": 3,
+    "reason": "The gas cylinders are the available containers for collecting the outputs.",
+    "choice": {
+      "combine": "Gas cylinders",
+      "with": "Fed electrolyzer"
+    },
+    "expectation": "The cylinders should connect to the separate gas circuits.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The cylinders completed the installation, collecting conditioned hydrogen and oxygen in separate circuits; both goals are complete.",
+    "reaction": "The keyed outlets and automatic stop made the collection step feel physically considered.",
+    "step": 4,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Connecting the cylinders was most worthwhile: it showed how water becomes separately conditioned hydrogen and oxygen, with a practical buffer limit.",
+        "steps": [
+          3
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Connecting the water feed was the least engaging step because the preceding result had already made the choice explicit, although it clarified the supporting connections.",
+        "steps": [
+          2
+        ]
+      },
+      "surprise": {
+        "text": "The automatic run stops when either buffer is full, a useful operational detail I had not anticipated.",
+        "steps": [
+          3
+        ]
+      },
+      "arbitrary": {
+        "text": "Nothing felt particularly arbitrary; each connection had a clear purpose in the installation.",
+        "steps": [
+          1,
+          2,
+          3
+        ]
+      },
+      "continue": {
+        "text": "I would continue to see how the separated gases support the return plan; this chapter made the equipment understandable, though its choices were straightforward.",
+        "steps": [
+          1,
+          2,
+          3
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

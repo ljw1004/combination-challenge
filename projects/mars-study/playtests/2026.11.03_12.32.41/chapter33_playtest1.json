@@ -1,0 +1,166 @@
+[
+  {
+    "step": 1,
+    "reason": "The beans must be gathered before they can be cooked, and the lined basket is suited to harvesting.",
+    "choice": {
+      "combine": "Lined harvest basket",
+      "with": "Soybean row ready to gather"
+    },
+    "expectation": "The basket will collect the mature soybean pods.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The soybean pods are gathered and ready for preparation.",
+    "reaction": "It is satisfying to harvest from the row that survived the storm.",
+    "step": 2,
+    "reason": "The pods may need shelling before cooking, so I will check how they can be prepared.",
+    "choice": {
+      "inspect": "Gathered soybean pods"
+    },
+    "expectation": "The inspection should reveal the next available preparation step.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Gathered soybean pods",
+          "with": "Solar cooking pot"
+        },
+        "reason": "I could try cooking them directly, but the pods may need preparation first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The pods are shelled, leaving dry soybeans ready for cooking.",
+    "reaction": "The automatic shelling was a useful clarification.",
+    "step": 3,
+    "reason": "The beans need thorough cooking, and the solar cooking pot is available.",
+    "choice": {
+      "combine": "Dry soybeans",
+      "with": "Solar cooking pot"
+    },
+    "expectation": "The beans will go into the pot for cooking, possibly with water.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The beans need water before they can go into the pot.",
+    "reaction": "The compatibility feedback clarifies the preparation order.",
+    "step": 4,
+    "reason": "Drinking water is the listed partner for the dry soybeans.",
+    "choice": {
+      "combine": "Dry soybeans",
+      "with": "Drinking water supply"
+    },
+    "expectation": "The water will prepare the beans for cooking.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The beans are soaked, drained and ready for the cooking vessel.",
+    "reaction": "The preparation order is clear now.",
+    "step": 5,
+    "reason": "The soaked beans are ready for the solar cooking pot.",
+    "choice": {
+      "combine": "Soaked soybeans",
+      "with": "Solar cooking pot"
+    },
+    "expectation": "The beans will cook thoroughly in the pot.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The soybeans are fully cooked, and the next goal is to add potatoes and serve the stew with lettuce.",
+    "reaction": "The separate bean-cooking programme makes the order of preparation clear.",
+    "step": 6,
+    "reason": "The potatoes must be harvested before they can join the cooked beans; the basket has already worked for harvesting.",
+    "choice": {
+      "combine": "Lined harvest basket",
+      "with": "Potato bed ready to lift"
+    },
+    "expectation": "The basket will collect the mature potatoes.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The potatoes are harvested, washed and cut, ready to join the cooked beans.",
+    "reaction": "The substantial harvest makes the earlier planting feel worthwhile.",
+    "step": 7,
+    "reason": "The prepared potatoes can now be added to the cooked soybeans for the stew.",
+    "choice": {
+      "combine": "Prepared potatoes",
+      "with": "Pot of cooked soybeans"
+    },
+    "expectation": "The potatoes will cook with the beans to make stew.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The potatoes and beans are cooked together; fresh lettuce is still needed to serve the meal.",
+    "reaction": "The second heating makes the cooking sequence feel practical.",
+    "step": 8,
+    "reason": "The basket previously harvested lettuce from this tray, and the meal still needs fresh leaves.",
+    "choice": {
+      "combine": "Lined harvest basket",
+      "with": "Sown lettuce tray"
+    },
+    "expectation": "I will harvest fresh lettuce leaves to serve with the stew.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The basket cannot currently harvest the lettuce, so I need another way to prepare it.",
+    "reaction": "That was surprising given the earlier harvest.",
+    "step": 9,
+    "reason": "Inspecting the lettuce tray should reveal its available preparation step.",
+    "choice": {
+      "inspect": "Sown lettuce tray"
+    },
+    "expectation": "The inspection will identify how to obtain lettuce for the meal.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Inspecting the lettuce tray automatically combined it with the stew and completed the meal and chapter.",
+    "reaction": "The supper was a satisfying payoff for the crops kept alive through the storm, though the direct tray-to-stew combination surprised me.",
+    "step": 10,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Cooking the soaked beans separately before adding potatoes made the meal’s preparation understandable and physically sensible; the finished supper tied it to the earlier farm story.",
+        "steps": [
+          5,
+          7,
+          9
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Trying the harvest basket on the lettuce was unproductive, especially because it had worked for harvesting before.",
+        "steps": [
+          8
+        ]
+      },
+      "surprise": {
+        "text": "Inspecting the lettuce tray immediately combined it with the stew, including picking and washing the leaves.",
+        "steps": [
+          9
+        ]
+      },
+      "arbitrary": {
+        "text": "The basket could gather soybeans and potatoes but could not be used on the lettuce tray, despite the earlier lettuce harvest; the distinction was not clear.",
+        "steps": [
+          1,
+          6,
+          8
+        ]
+      },
+      "continue": {
+        "text": "I would continue to see how the expedition and specimens reach Earth; this chapter’s harvest was a satisfying story payoff, despite the confusing lettuce interaction.",
+        "steps": [
+          6,
+          9
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

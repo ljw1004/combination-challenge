@@ -1,0 +1,104 @@
+[
+  {
+    "step": 1,
+    "reason": "The carrier must accommodate the specimens, but the board does not show how they are fitted or transferred. Checking it should clarify the first step.",
+    "choice": {
+      "inspect": "Flight sample carrier"
+    },
+    "expectation": "The inspection should identify compatible specimens or transfer equipment.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The carrier is chilled and has two cradles for complete core liners; the cores can now be prepared for transfer.",
+    "reaction": "The automatic chilling clarified why the bench was needed.",
+    "step": 2,
+    "reason": "The conditioned carrier has room for the complete core liners, so I will try fitting the stored source core first.",
+    "choice": {
+      "combine": "Stored source core",
+      "with": "Conditioned flight carrier"
+    },
+    "expectation": "The source core should be secured in one chilled cradle.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The source core is in the first compartment, leaving the second available for the band core.",
+    "reaction": "The separate compartments make the transfer easy to follow.",
+    "step": 3,
+    "reason": "The remaining core should fit in the carrier's empty second compartment.",
+    "choice": {
+      "combine": "Case with an articulated body",
+      "with": "Carrier with source core"
+    },
+    "expectation": "The complete band-core liner will be secured in the second chilled compartment.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Both complete cores are packed separately in the chilled carrier, ready for flight cooling.",
+    "reaction": "Seeing the folded outline remain visible makes the packing feel consequential.",
+    "step": 4,
+    "reason": "The packed cores need to be brought onto flight cooling, so the refrigerated flight bay is the natural destination.",
+    "choice": {
+      "combine": "Flight-packed cores",
+      "with": "Refrigerated flight bay"
+    },
+    "expectation": "The carrier will be secured in the flight bay and connected to its cooling.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Both cores are secured on active flight cooling; the first membrane specimen still needs to be brought aboard.",
+    "reaction": "The transfer buffer makes the uninterrupted cooling reassuringly clear.",
+    "step": 5,
+    "reason": "The remaining specimen has its own holder, and the flight specimen locker is its natural destination.",
+    "choice": {
+      "combine": "First body on membrane",
+      "with": "Flight specimen locker"
+    },
+    "expectation": "The sealed membrane holder will be secured in the flight locker.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The membrane is secured separately, completing both specimen-transfer goals.",
+    "reaction": "The separate padded restraint gives the original discovery a fitting place aboard.",
+    "step": 6,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Connecting the packed cores to flight cooling was most worthwhile: the buffer and active refrigeration made the preservation plan physically clear and consequential.",
+        "steps": [
+          1,
+          4
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Loading the two cores was straightforward and somewhat repetitive, although their separate compartments made sense.",
+        "steps": [
+          2,
+          3
+        ]
+      },
+      "surprise": {
+        "text": "Inspecting the carrier automatically chilled it at the bench; that revealed the transfer buffer and two cradles without a separate action.",
+        "steps": [
+          1
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt particularly arbitrary; each had a clear role in preserving or securing the specimens.",
+        "steps": []
+      },
+      "continue": {
+        "text": "Yes. I would be curious to see what the receiving laboratories learn about the bodies, especially after taking care to preserve the cores intact.",
+        "steps": [
+          3,
+          4,
+          5
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

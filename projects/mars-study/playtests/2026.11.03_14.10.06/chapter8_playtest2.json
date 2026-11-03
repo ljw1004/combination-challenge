@@ -1,0 +1,131 @@
+[
+  {
+    "step": 1,
+    "reason": "Steel is a plausible structural material for the shared beds, but their required assembly is not yet clear.",
+    "choice": {
+      "inspect": "Steel"
+    },
+    "expectation": "The compatibility list should show what can be built with the steel, possibly including the bed structure.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Steel",
+          "with": "Food-safe liner sheet"
+        },
+        "reason": "The liner and steel could form lined beds, but inspecting first may clarify the assembly."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The steel has become raised bed frames with outlets above the planned reservoir; the beds still need lining and irrigation.",
+    "reaction": "The distinct bed designs make the shared structure feel purposeful.",
+    "step": 2,
+    "reason": "The food-safe liner should make the new frames suitable for holding the growing beds.",
+    "choice": {
+      "combine": "Food-safe liner sheet",
+      "with": "Raised bed frames"
+    },
+    "expectation": "The sheet will line the bed frames while leaving their drainage outlets usable.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Reservoir and irrigation pump",
+          "with": "Raised bed frames"
+        },
+        "reason": "The reservoir also belongs below the beds, but lining them first seems practical."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The beds are lined, but their drain stubs still need a hose connection to the reservoir.",
+    "reaction": "The sealed drain fittings make the remaining plumbing step clear.",
+    "step": 3,
+    "reason": "The hose is the evident way to connect the open bed drains to the reservoir.",
+    "choice": {
+      "combine": "Clean service hose",
+      "with": "Beds with unconnected drains"
+    },
+    "expectation": "The hose will connect the bed drains to the reservoir, possibly using the pump assembly as well.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Reservoir and irrigation pump",
+          "with": "Beds with unconnected drains"
+        },
+        "reason": "The reservoir also needs to be installed beneath the drains."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The bed drains are connected, and the next goal is to establish an aerated reservoir return.",
+    "reaction": "The gravity-fed drains make the water path clearer.",
+    "step": 4,
+    "reason": "The reservoir and pump belong beneath the drained beds to collect and recirculate their water.",
+    "choice": {
+      "combine": "Reservoir and irrigation pump",
+      "with": "Drained growing beds"
+    },
+    "expectation": "The reservoir and pump will connect to the beds and establish an aerated return.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The reservoir needed its own hose assembly first; its return inlet is now ready to connect to the bed drains.",
+    "reaction": "The separate reservoir connection was not obvious from the previous result.",
+    "step": 5,
+    "reason": "The drained beds and aerating reservoir now have the complementary connections needed for the return circuit.",
+    "choice": {
+      "combine": "Aerating return reservoir",
+      "with": "Drained growing beds"
+    },
+    "expectation": "The bed drains will connect to the reservoir, completing the aerated water return.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The reservoir and bed drains are connected, completing the shared water-return system and the chapter goals.",
+    "reaction": "The separate root-zone adjustments make the shared system feel thoughtfully designed.",
+    "step": 6,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Completing the reservoir connection was most worthwhile: it brought the separate drain runs, pump and distribution line together while explaining how the root zones retain individual adjustments.",
+        "steps": [
+          3,
+          4,
+          5
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The reservoir assembly was the least clear passage: the earlier drain description sounded as though the connection to the reservoir was already underway, yet a separate hose assembly was still needed.",
+        "steps": [
+          3,
+          4
+        ]
+      },
+      "surprise": {
+        "text": "The reservoir and pump had to be combined with the hose before they could connect to the drained beds; the failed attempt automatically revealed and performed that assembly.",
+        "steps": [
+          4
+        ]
+      },
+      "arbitrary": {
+        "text": "That intermediate hose assembly felt somewhat arbitrary because the preceding result did not clearly distinguish the bed drain runs from the reservoir's own return hose.",
+        "steps": [
+          3,
+          4
+        ]
+      },
+      "continue": {
+        "text": "I would choose to continue: the distinct bed designs and explanation of the water circuit made the construction engaging, though clearer plumbing descriptions would help.",
+        "steps": [
+          1,
+          5
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

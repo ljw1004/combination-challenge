@@ -1,0 +1,130 @@
+[
+  {
+    "step": 1,
+    "reason": "The floor is the likely installation site for the shared beds, but the required construction order is not yet clear.",
+    "choice": {
+      "inspect": "Growing-room floor"
+    },
+    "expectation": "The inspection should identify what can be installed on the floor, possibly starting the bed structure.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Steel",
+          "with": "Food-safe liner sheet"
+        },
+        "reason": "The steel and liner suggest a lined bed, though I do not yet know whether the frame must be built first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The steel is now installed as raised bed frames, leaving outlets above the reserved reservoir space.",
+    "reaction": "The different bed depths make the crop requirements feel concrete.",
+    "step": 2,
+    "reason": "The frames need a food-safe lining to contain the growing beds.",
+    "choice": {
+      "combine": "Food-safe liner sheet",
+      "with": "Raised bed frames"
+    },
+    "expectation": "The liner should fit into the raised frames to form the bed surfaces.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Reservoir and irrigation pump",
+          "with": "Raised bed frames"
+        },
+        "reason": "The reservoir also belongs beneath the bed outlets, but lining the frames seems like a natural first step."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The beds are lined, but their drains still need hose connections to the reservoir.",
+    "reaction": "The open drain stubs make the next plumbing task clear.",
+    "step": 3,
+    "reason": "The clean hose should connect the bed drains to the reservoir.",
+    "choice": {
+      "combine": "Clean service hose",
+      "with": "Beds with unconnected drains"
+    },
+    "expectation": "The hose will connect the drains, possibly using the available reservoir and pump.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Reservoir and irrigation pump",
+          "with": "Beds with unconnected drains"
+        },
+        "reason": "The reservoir may need to be installed before the hose is connected."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The drain hoses are installed, and the next goal is to return water through an aerated reservoir.",
+    "reaction": "The downward drain runs give the plumbing a clear purpose.",
+    "step": 4,
+    "reason": "The reservoir and pump belong beneath the bed drains and should complete the shared water circuit.",
+    "choice": {
+      "combine": "Reservoir and irrigation pump",
+      "with": "Drained growing beds"
+    },
+    "expectation": "The reservoir and pump will connect to the beds to collect and recirculate water.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The hose prepared an aerating return reservoir; the bed drains still need to connect to it.",
+    "reaction": "I was wrong about connecting the pump directly, but the falling return stream explains the aeration.",
+    "step": 5,
+    "reason": "The prepared reservoir and drained beds now appear ready to join into the shared circuit.",
+    "choice": {
+      "combine": "Aerating return reservoir",
+      "with": "Drained growing beds"
+    },
+    "expectation": "The bed drains will connect to the reservoir, completing the recirculating system.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The reservoir and bed drains are now connected into a shared circuit with adjustable flow for each root zone, completing the chapter goals.",
+    "reaction": "It was satisfying to see the separate plumbing pieces form a coherent system, though the beds are still empty.",
+    "step": 6,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Joining the reservoir to the beds brought the separate drainage and aeration work together; the shared pump and individual flow adjustments made the design feel purposeful.",
+        "steps": [
+          3,
+          4,
+          5
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The direct reservoir-to-beds attempt was slightly confusing: it failed, then automatically prepared the reservoir with a hose instead. The feedback recovered the action, but the required order had not been clear.",
+        "steps": [
+          4
+        ]
+      },
+      "surprise": {
+        "text": "I expected the reservoir to connect directly to the beds; instead, the hose first created an aerating return, with the falling stream mixing air into the solution.",
+        "steps": [
+          4
+        ]
+      },
+      "arbitrary": {
+        "text": "The reservoir preparation order felt somewhat arbitrary before the compatibility feedback, although the resulting explanation gave the hose a physical purpose.",
+        "steps": [
+          4
+        ]
+      },
+      "continue": {
+        "text": "Yes, I would choose to continue: the physically explained plumbing was interesting, and I would like to see how the empty beds become productive.",
+        "steps": [
+          3,
+          4,
+          5
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

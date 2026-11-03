@@ -1,0 +1,116 @@
+[
+  {
+    "step": 1,
+    "reason": "Steel can provide a rigid foundation for a crossing over the soft wash.",
+    "choice": {
+      "combine": "Steel",
+      "with": "Shallow wash crossing"
+    },
+    "expectation": "The steel will form or support a crossing over the soft ground.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Steel",
+          "with": "Cargo mesh"
+        },
+        "reason": "The mesh and steel might first need to be assembled into a crossing surface."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Steel cannot be used directly at the crossing; its listed partner is cargo mesh.",
+    "reaction": "The failed attempt clarified that the crossing needs an intermediate assembly.",
+    "step": 2,
+    "reason": "Steel and cargo mesh are confirmed partners and may form the supported crossing surface.",
+    "choice": {
+      "combine": "Steel",
+      "with": "Cargo mesh"
+    },
+    "expectation": "They will make a rigid, reinforced crossing surface.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The steel and mesh made stiffened traction panels suitable for distributing wheel loads.",
+    "reaction": "The physical explanation makes the intermediate assembly clear.",
+    "step": 3,
+    "reason": "The framed panels appear suited to supporting the rover across the soft wash.",
+    "choice": {
+      "combine": "Framed traction panels",
+      "with": "Shallow wash crossing"
+    },
+    "expectation": "The panels will be laid across the soft section to support the rover's wheels.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The panels now support the crossing, and the next goal is to get the rover across.",
+    "reaction": "The explanation of how the rails spread the load is satisfying.",
+    "step": 4,
+    "reason": "The winch and sound rock anchor suggest a secure way to assist the rover across.",
+    "choice": {
+      "combine": "Rover winch",
+      "with": "Sound rock anchor"
+    },
+    "expectation": "The winch will be secured to the rock to help the rover cross the supported panels.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The winch is anchored to sound rock, ready to assist the crossing.",
+    "reaction": "The aligned pull gives the recovery setup a clear purpose.",
+    "step": 5,
+    "reason": "The anchored winch and supported panels are the two preparations for taking the rover across.",
+    "choice": {
+      "combine": "Anchored rover winch",
+      "with": "Supported traction panels"
+    },
+    "expectation": "The rover will cross the panels with assistance from the anchored winch.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The anchored winch and supported panels got the rover across, completing the chapter; the same route remains available for the return.",
+    "reaction": "The controlled crossing was a satisfying payoff for the two preparations.",
+    "step": 6,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Building and laying the framed traction panels was most worthwhile: the explanation made clear why stiff rails spread wheel loads better than loose mesh.",
+        "steps": [
+          2,
+          3
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Trying steel directly at the crossing was a small unproductive detour, though the feedback identified its partner.",
+        "steps": [
+          1
+        ]
+      },
+      "surprise": {
+        "text": "I initially expected steel to support the crossing directly; the game instead required it to be assembled with mesh into framed panels.",
+        "steps": [
+          1,
+          2
+        ]
+      },
+      "arbitrary": {
+        "text": "The final combination of winch and panels is an abstraction of driving the rover, but the resulting description makes its purpose clear. Nothing felt strongly arbitrary.",
+        "steps": [
+          5
+        ]
+      },
+      "continue": {
+        "text": "Yes. The physically explained preparations were satisfying, and I would like to see what the expedition finds at the exposed ice.",
+        "steps": [
+          2,
+          3,
+          4,
+          5
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

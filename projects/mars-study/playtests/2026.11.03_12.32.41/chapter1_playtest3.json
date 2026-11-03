@@ -1,0 +1,107 @@
+[
+  {
+    "step": 1,
+    "reason": "The pressure patch kit appears suited to sealing the punctured habitat wall.",
+    "choice": {
+      "combine": "Pressure patch kit",
+      "with": "Punctured habitat wall"
+    },
+    "expectation": "The kit should seal the damaged wall, allowing the habitat to be refilled.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The wall is sealed; the habitat still needs refilling.",
+    "reaction": "The backing plate makes the repair feel physically plausible.",
+    "step": 2,
+    "reason": "The breathing-gas supply is the obvious next resource for refilling the sealed habitat.",
+    "choice": {
+      "combine": "Breathing-gas supply",
+      "with": "Sealed habitat wall"
+    },
+    "expectation": "The gas supply should refill the sealed habitat.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The habitat is breathable, and the new goal is to stabilize the damaged landing support.",
+    "reaction": "The regulator and steady gauge make the refill feel plausible.",
+    "step": 3,
+    "reason": "The shipping braces look like a suitable way to reinforce the low landing support.",
+    "choice": {
+      "combine": "Shipping braces",
+      "with": "Low landing support"
+    },
+    "expectation": "The braces should stabilize the damaged support, possibly with the service tool.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The braces need the service tool before they can be used on the support.",
+    "reaction": "The failed attempt clarified the preparation needed.",
+    "step": 4,
+    "reason": "The braces' compatibility list identifies the service tool as their available partner.",
+    "choice": {
+      "combine": "Shipping braces",
+      "with": "Service tool"
+    },
+    "expectation": "The tool should prepare the braces for stabilizing the landing support.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The tool turned the shipping braces into usable steel lengths and sheet, rather than directly preparing a support brace.",
+    "reaction": "The material recovery is plausible, though it was not the result I expected.",
+    "step": 5,
+    "reason": "The recovered steel may provide reinforcement for the damaged landing support.",
+    "choice": {
+      "combine": "Steel",
+      "with": "Low landing support"
+    },
+    "expectation": "The steel should reinforce the landing support, possibly with another available ingredient.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The steel became a load-spreading crib, stabilizing the support and completing the chapter's goals.",
+    "reaction": "The wide base and inspection details made the repair satisfying and physically grounded.",
+    "step": 6,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Building the cribbed landing platform was most worthwhile: the explanation connected the recovered steel to a practical, temporary load-bearing repair.",
+        "steps": [
+          4,
+          5
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Trying the shipping braces directly on the support was the least productive passage, though the compatibility feedback clarified the next step.",
+        "steps": [
+          3,
+          4
+        ]
+      },
+      "surprise": {
+        "text": "The service tool turned the braces into steel stock rather than directly preparing a support brace.",
+        "steps": [
+          4
+        ]
+      },
+      "arbitrary": {
+        "text": "Refilling the habitat by combining the gas supply with the sealed wall was a slightly abstract interaction, although the regulator and gauge explanation gave it a clear purpose.",
+        "steps": [
+          2
+        ]
+      },
+      "continue": {
+        "text": "Yes. The plausible repair details and the promise of further discovery make another chapter appealing, although this short chapter offered few difficult decisions.",
+        "steps": [
+          1,
+          4,
+          5
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

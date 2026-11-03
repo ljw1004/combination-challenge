@@ -1,0 +1,91 @@
+[
+  {
+    "step": 1,
+    "reason": "This is the only available action, and it may prepare cooling equipment for separating water from the reactor output.",
+    "choice": 1,
+    "expectation": "I expect a supported cooling assembly, though its exact role is uncertain.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The panel provides a designed way to radiate process heat; the separator is the next available component.",
+    "reaction": "The thermal-contact detail makes the assembly's purpose clear.",
+    "step": 2,
+    "reason": "The only offered combination joins cooling to the gas separator, advancing the separation goal.",
+    "choice": 1,
+    "expectation": "I expect a cooled separator that can help remove water from the reactor output, though further connections may be needed.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The separator now has cooling but still needs a gas connection to the reactor.",
+    "reaction": "The separate coolant and gas circuits make physical sense.",
+    "step": 3,
+    "reason": "This is the only offered combination and should connect the reactor output to the separator.",
+    "choice": 1,
+    "expectation": "I expect the reactor gas to reach the cooled separator, though water return may still need another connection.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The reactor now has a separator that handles water, methane purification and unreacted gas; water return still needs a connection.",
+    "reaction": "Returning unreacted gas through a separate line is a useful detail.",
+    "step": 4,
+    "reason": "The only offered combination may connect the recovered water to its return path.",
+    "choice": 1,
+    "expectation": "I expect the hose to complete a water-return connection, though its destination is not yet clear.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The hose returns separated reaction water to treatment, completing that goal and revealing the clean-methane goal.",
+    "reaction": "The explicit return route makes the water cycle clearer.",
+    "step": 5,
+    "reason": "The only offered combination uses the test cylinder with the completed reactor to advance the methane goal.",
+    "choice": 1,
+    "expectation": "I expect the cylinder to be connected to the reactor's purified methane output, though its exact use is uncertain.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The test batch passed through the completed purification equipment, and the connected reactor now supplies clean methane; both chapter goals are complete.",
+    "reaction": "It was satisfying to see the separate water and gas paths work as one installation.",
+    "step": 6,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Connecting the water return made the reaction cycle concrete: recovered water goes back through treatment rather than ending at an unused outlet.",
+        "steps": [
+          4
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Building the cooling and separator assembly felt somewhat sequential, since each decision offered only one combination.",
+        "steps": [
+          1,
+          2
+        ]
+      },
+      "surprise": {
+        "text": "The separator also returns unreacted gas through its own line, beyond condensing water and polishing methane.",
+        "steps": [
+          3
+        ]
+      },
+      "arbitrary": {
+        "text": "The test cylinder's role was unclear when selected, although the result explained that its batch passed through the completed equipment.",
+        "steps": [
+          5
+        ]
+      },
+      "continue": {
+        "text": "I would continue: the physically explained water and gas circuits made the return-plant story interesting, despite the limited choices.",
+        "steps": [
+          3,
+          4,
+          5
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

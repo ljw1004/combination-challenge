@@ -1,0 +1,85 @@
+[
+  {
+    "step": 1,
+    "reason": "The excavator is packed for transport, but the board does not show whether it needs power or another preparation first. Checking it should clarify the next step.",
+    "choice": {
+      "inspect": "Packed survey excavator"
+    },
+    "expectation": "The inspection should reveal what can prepare or power the excavator.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Power cable",
+          "with": "Packed survey excavator"
+        },
+        "reason": "The excavator may need a power connection, but it could need unpacking first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The inspection automatically added a spoil hopper; the excavator still needs its power lead connected.",
+    "reaction": "The hopper's use of salvaged sheet makes sense, and the unplugged lead gives a clear next step.",
+    "step": 2,
+    "reason": "The result explicitly says the excavator's power lead is unplugged, so I should connect the available cable.",
+    "choice": {
+      "combine": "Power cable",
+      "with": "Excavator with spoil hopper"
+    },
+    "expectation": "The cable should power the excavator for work on the cavern floor.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The excavator passed its startup check, and the new goal is to clear the surveyed growing bay.",
+    "reaction": "The test before excavation is a sensible detail.",
+    "step": 3,
+    "reason": "The startup result explicitly says the machine can go onto the surveyed floor.",
+    "choice": {
+      "combine": "Working survey excavator",
+      "with": "Surveyed cavern floor"
+    },
+    "expectation": "The excavator should clear loose infill from the growing bay.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The excavator cleared the growing bay, completing the chapter; the cave still needs breathable air before it can be occupied without a suit.",
+    "reaction": "The excavation sequence was satisfying, and the reminder about the cave's air made the outcome feel grounded.",
+    "step": 4,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Clearing the bay was the most worthwhile action: the drum, hopper and spoil pile made the machine's work understandable, while the sound-rock survey and lack of air established sensible limits.",
+        "steps": [
+          3
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Connecting the power cable was straightforward and predictable after the inspection explicitly identified the unplugged lead, though the startup check was a useful detail.",
+        "steps": [
+          2
+        ]
+      },
+      "surprise": {
+        "text": "Inspecting the packed excavator automatically used the steel to build a spoil hopper; I had expected information about preparation rather than an immediate modification.",
+        "steps": [
+          1
+        ]
+      },
+      "arbitrary": {
+        "text": "The hopper initially felt somewhat arbitrary because the board did not explain why steel was needed, but the result showed how it fitted existing mounts and carried excavated material.",
+        "steps": [
+          1,
+          3
+        ]
+      },
+      "continue": {
+        "text": "Yes. I would be interested in seeing how the cleared, airless bay becomes a growing space, especially if the practical details remain as clear as the excavation.",
+        "steps": [
+          3
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

@@ -1,0 +1,107 @@
+[
+  {
+    "step": 1,
+    "reason": "The pressure patch kit is the apparent way to seal the punctured habitat wall before refilling it.",
+    "choice": {
+      "combine": "Pressure patch kit",
+      "with": "Punctured habitat wall"
+    },
+    "expectation": "The kit should seal the damaged wall.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Shipping braces",
+          "with": "Unstable landing support"
+        },
+        "reason": "Stabilizing the lander also matters before retrieving supplies."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The habitat wall is sealed; it still needs breathing gas.",
+    "reaction": "The backing plate makes the repair feel practical.",
+    "step": 2,
+    "reason": "The gas supply is the obvious next step toward refilling the sealed habitat.",
+    "choice": {
+      "combine": "Breathing-gas supply",
+      "with": "Sealed habitat wall"
+    },
+    "expectation": "The supply should refill the sealed habitat.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Shipping braces",
+          "with": "Unstable landing support"
+        },
+        "reason": "The lander also needs stabilizing before retrieving supplies."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The habitat is breathable, and the next goal is to make the lander safe to board.",
+    "reaction": "The regulator and gauge make the refill understandable.",
+    "step": 3,
+    "reason": "The shipping braces are the most obvious means of stabilizing the damaged landing support.",
+    "choice": {
+      "combine": "Shipping braces",
+      "with": "Unstable landing support"
+    },
+    "expectation": "The braces should help stabilize the lander.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The braces needed cutting into usable steel before they could support the lander.",
+    "reaction": "The preparation makes sense, though I had expected the braces to fit directly.",
+    "step": 4,
+    "reason": "The steel lengths and sheet look suitable for reinforcing the unstable landing support.",
+    "choice": {
+      "combine": "Steel",
+      "with": "Unstable landing support"
+    },
+    "expectation": "The steel should help stabilize the lander, perhaps using the tool kit.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The steel became a load-spreading crib, stabilizing the lander and completing the chapter's goals.",
+    "reaction": "The wide base and inspection details made the repair satisfying and physically plausible.",
+    "step": 5,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Building the crib was most worthwhile: it resolved the immediate danger and explained how the support carries the load.",
+        "steps": [
+          4
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Refilling the habitat was straightforward and predictable, though the regulator and gauge gave it useful physical context.",
+        "steps": [
+          2
+        ]
+      },
+      "surprise": {
+        "text": "The shipping braces first had to be cut into usable steel rather than applied directly to the support.",
+        "steps": [
+          3
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt purposeless; the initially hidden preparation step was sensible once the result explained it.",
+        "steps": [
+          3
+        ]
+      },
+      "continue": {
+        "text": "Yes. The practical repair details and the prospect of exploring the expedition make me curious about what comes next.",
+        "steps": [
+          1,
+          4
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

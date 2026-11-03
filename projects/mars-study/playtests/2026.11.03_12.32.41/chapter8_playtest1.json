@@ -1,0 +1,141 @@
+[
+  {
+    "step": 1,
+    "reason": "Steel is a plausible frame for the shared beds, and the floor is where they need to be built.",
+    "choice": {
+      "combine": "Steel",
+      "with": "Growing-room floor"
+    },
+    "expectation": "The steel will form or support the bed structure on the floor.",
+    "alternatives": [
+      {
+        "choice": {
+          "inspect": "Steel"
+        },
+        "reason": "Checking its partners could clarify the construction order."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The steel formed raised frames with outlets above the planned reservoir; the beds still need lining and irrigation.",
+    "reaction": "The different bed depths and drainage arrangement make the structure feel purposeful.",
+    "step": 2,
+    "reason": "The food-safe liner should fit inside the newly built bed frames.",
+    "choice": {
+      "combine": "Food-safe liner sheet",
+      "with": "Raised bed frames"
+    },
+    "expectation": "The liner will make the bed frames suitable for holding growing material.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The beds are lined and sealed around their drains; the reservoir and irrigation connections remain to be addressed.",
+    "reaction": "The distinction between the load-bearing frames and solution-holding liner is clear.",
+    "step": 3,
+    "reason": "The reservoir and pump belong beneath the lined beds' outlets to complete the shared bed structure.",
+    "choice": {
+      "combine": "Reservoir and irrigation pump",
+      "with": "Lined growing beds"
+    },
+    "expectation": "The reservoir and pump will connect to the beds' drainage and irrigation system.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The reservoir cannot yet be combined with the beds; its listed partner is the clean service hose.",
+    "reaction": "The required connection order was not obvious, but the partner list clarifies it.",
+    "step": 4,
+    "reason": "The hose is the reservoir and pump's available partner and should provide the irrigation connection.",
+    "choice": {
+      "combine": "Reservoir and irrigation pump",
+      "with": "Clean service hose"
+    },
+    "expectation": "The hose will connect to the reservoir and pump to prepare an irrigation system.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The hose and pump made an aerating return reservoir that fits beneath the raised beds.",
+    "reaction": "The falling return stream gives the hose placement a clear purpose.",
+    "step": 5,
+    "reason": "The prepared reservoir fits beneath the lined beds and should connect to their drains.",
+    "choice": {
+      "combine": "Aerating return reservoir",
+      "with": "Lined growing beds"
+    },
+    "expectation": "The reservoir will attach to the beds to complete their shared circulation structure.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The prepared reservoir currently has no available combination, so attaching it directly was not possible.",
+    "reaction": "That is surprising given its described fit beneath the beds.",
+    "step": 6,
+    "reason": "Inspecting the lined beds may reveal the next construction step.",
+    "choice": {
+      "inspect": "Lined growing beds"
+    },
+    "expectation": "The inspection will show available partners for the beds, possibly including the growing-room floor.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Inspecting the beds automatically added drain runs and completed the bed structure; returning water through the aerated reservoir is now the goal.",
+    "reaction": "The automatic hose connection explains the missing drainage step.",
+    "step": 7,
+    "reason": "The drained beds now have a return path toward the prepared reservoir.",
+    "choice": {
+      "combine": "Drained growing beds",
+      "with": "Aerating return reservoir"
+    },
+    "expectation": "The drain runs will connect to the reservoir to return and aerate the water.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Connecting the drained beds to the aerating reservoir completed the shared circulation system and the chapter goals.",
+    "reaction": "The shared pump with separate root-zone adjustments makes the final arrangement feel practical.",
+    "step": 8,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Preparing the aerating return reservoir was most worthwhile: the falling return stream explains how the solution mixes with air before recirculation.",
+        "steps": [
+          4
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Trying to attach the prepared reservoir directly was frustrating because its description said it fit beneath the beds, but the missing drain runs were not yet apparent.",
+        "steps": [
+          5,
+          6
+        ]
+      },
+      "surprise": {
+        "text": "Inspecting the lined beds automatically installed the drain runs and completed the first goal; the hose was needed there as well as for the reservoir.",
+        "steps": [
+          4,
+          6
+        ]
+      },
+      "arbitrary": {
+        "text": "The required order felt unclear when the reservoir could not connect directly despite being described as fitting beneath the frames. The later drainage explanation gave it a physical purpose.",
+        "steps": [
+          4,
+          5,
+          6
+        ]
+      },
+      "continue": {
+        "text": "Yes. I would like to see how the different root zones are prepared and supplied, since the drainage and aeration details made the construction informative.",
+        "steps": [
+          1,
+          4,
+          7
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

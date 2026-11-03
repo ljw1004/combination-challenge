@@ -1,0 +1,94 @@
+[
+  {
+    "step": 1,
+    "reason": "This is the only offered action and may help build cooling for the separation system.",
+    "choice": 1,
+    "expectation": "I expect a supported coolant assembly, though its exact role is uncertain.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The panel provides a designed heat-rejection surface for the process cooling system.",
+    "reaction": "The explanation of thermal contact and exposed radiating faces makes the assembly clear.",
+    "step": 2,
+    "reason": "The only offered combination connects the cooling panel to the separator, advancing the separation goal.",
+    "choice": 1,
+    "expectation": "I expect a cooled separator assembly that can help remove water from the reactor output.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The separator now has cooling but still needs a process-gas connection.",
+    "reaction": "The distinction between the coolant circuit and gas inlet is clear.",
+    "step": 3,
+    "reason": "The only offered combination should connect the reactor output to the separator.",
+    "choice": 1,
+    "expectation": "I expect a connected separation system that can condense water from the reactor output, though further plumbing may be needed.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The reactor now has separation and gas recycling; the water return still needs a connection.",
+    "reaction": "The separate paths for water, methane and unreacted gas make the process easier to follow.",
+    "step": 4,
+    "reason": "The only offered combination may connect the recovered water to its return line.",
+    "choice": 1,
+    "expectation": "I expect the hose to complete the water return, though its destination is not yet clear.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The hose returns recovered reaction water to treatment, completing the water-return goal; clean methane output remains.",
+    "reaction": "The explicit return route makes the water loop clear.",
+    "step": 5,
+    "reason": "The only offered combination uses the test cylinder with the actual reactor to address the new methane goal.",
+    "choice": 1,
+    "expectation": "I expect the cylinder to receive or verify purified methane from the reactor, though its exact role is uncertain.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The test batch passes through the completed purification equipment, and the connected reactor supplies clean methane; both chapter goals are complete.",
+    "reaction": "The distinction between processing the test batch and maintaining a connected reactor outlet was satisfying.",
+    "step": 6,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Connecting the water return made the process loop tangible: recovered water goes back through treatment and electrolysis rather than ending at an outlet.",
+        "steps": [
+          4
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The successive cooling and separator connections were clear but somewhat repetitive, especially with only one combination offered each time.",
+        "steps": [
+          1,
+          2,
+          3
+        ]
+      },
+      "surprise": {
+        "text": "The test cylinder emptied through the completed equipment before the reactor outlet continued through the same purification route; I had expected it might instead receive or verify methane.",
+        "steps": [
+          5
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt purposeless: each connection had an explained role, although the single-option menu left little room for meaningful choices.",
+        "steps": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      },
+      "continue": {
+        "text": "I would continue to see how the methane supply supports the return and what becomes of the samples, though I would hope for more decisions than this linear chapter offered.",
+        "steps": [
+          5
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

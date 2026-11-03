@@ -1,0 +1,129 @@
+[
+  {
+    "step": 1,
+    "reason": "The array's buckled feet and loose lead need attention before it can restore power; inspecting it should identify the available repair.",
+    "choice": {
+      "inspect": "Delivered solar array"
+    },
+    "expectation": "The inspection should reveal whether the array can be repaired or connected with the available parts.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Steel",
+          "with": "Delivered solar array"
+        },
+        "reason": "Steel might reinforce the damaged feet, but the required fitting is not yet clear."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The steel feet repaired the array's supports, so connecting its cable is the next plausible step toward restoring power.",
+    "reaction": "The repair was satisfying and addressed the loose lead's physical cause.",
+    "step": 2,
+    "reason": "The standing array needs its loose power lead connected.",
+    "choice": {
+      "combine": "Power cable",
+      "with": "Standing solar array"
+    },
+    "expectation": "The cable should connect the array to the power system or prepare it for charging.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The array is online; the reserve charging connection is the next apparent target.",
+    "reaction": "The isolated-controller detail makes the reconnection feel sensible.",
+    "step": 3,
+    "reason": "The station solar supply should power the reserve through its charging connection.",
+    "choice": {
+      "combine": "Station solar supply",
+      "with": "Reserve charging connection"
+    },
+    "expectation": "This should connect the solar supply to the reserve for charging.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The reserve is charging and the goal has shifted to replenishing oxygen; the atmospheric processor is the most relevant available equipment.",
+    "reaction": "The distinction between essential and industrial loads makes the reserve's role clear.",
+    "step": 4,
+    "reason": "Inspecting the atmospheric processor should reveal how to use it for the new oxygen goal.",
+    "choice": {
+      "inspect": "Atmospheric processor"
+    },
+    "expectation": "Its available partners should indicate the next step toward producing breathing oxygen.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The powered processor replenishes oxygen, and the remaining goal is to restore contact with Earth.",
+    "reaction": "The explanation of splitting atmospheric carbon dioxide makes the processor's purpose clear.",
+    "step": 5,
+    "reason": "The bent antenna is the obvious damaged part of the radio system; the tool kit may repair it.",
+    "choice": {
+      "combine": "Bent antenna",
+      "with": "Tool kit"
+    },
+    "expectation": "The tools should straighten or repair the antenna for mounting.",
+    "alternatives": [
+      {
+        "choice": {
+          "inspect": "Bent antenna"
+        },
+        "reason": "I could check its available partners first, but the tool kit is a plausible repair choice."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The antenna is straightened and can be aimed; it appears ready for the radio mount.",
+    "reaction": "The hinge repair makes the result physically clear.",
+    "step": 6,
+    "reason": "The repaired antenna belongs at the radio mount for the Earth-contact goal.",
+    "choice": {
+      "combine": "Straightened antenna",
+      "with": "Radio mount"
+    },
+    "expectation": "Mounting the antenna should restore or help restore radio contact with Earth.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Mounting the antenna restored radio contact and completed the chapter's goals.",
+    "reaction": "The recorded message was a welcome human consequence of the repairs.",
+    "step": 7,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Powering the atmospheric processor was most worthwhile: it connected the oxygen goal to a clear explanation of extracting oxygen from Martian carbon dioxide.",
+        "steps": [
+          4
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Connecting the array to the reserve was straightforward but less engaging than repairing the damaged equipment.",
+        "steps": [
+          3
+        ]
+      },
+      "surprise": {
+        "text": "The reserve supports essential systems but not industrial work, a useful distinction that made the power system feel more grounded.",
+        "steps": [
+          3
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt notably arbitrary; the repairs and connections had clear purposes.",
+        "steps": []
+      },
+      "continue": {
+        "text": "Yes. The practical repair details and the first message from Earth make me curious about what the expedition will encounter next.",
+        "steps": [
+          1,
+          4,
+          6
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

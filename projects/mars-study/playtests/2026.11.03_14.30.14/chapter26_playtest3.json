@@ -1,0 +1,123 @@
+[
+  {
+    "step": 1,
+    "reason": "The goal needs a water tank, but the available parts do not make its construction explicit. Checking the steel should reveal what it can form.",
+    "choice": {
+      "inspect": "Steel"
+    },
+    "expectation": "The inspection should identify compatible parts for a tank or heat-recovery equipment.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Tool kit",
+          "with": "Steel"
+        },
+        "reason": "The tools might shape the steel into a tank, but its fittings are not clear yet."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The steel and tool kit made a vented tank; it still needs a separate coolant coil.",
+    "reaction": "The automatic construction clarified how the tank will keep heating water separate from coolant.",
+    "step": 2,
+    "reason": "The coolant tubing is the natural material for the missing coil.",
+    "choice": {
+      "combine": "Coolant tubing",
+      "with": "Steel tank without a coil"
+    },
+    "expectation": "The tubing will form a coolant coil inside the tank.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The tank now contains a separate coolant coil but still needs water and insulation.",
+    "reaction": "The separate coil makes the heat-transfer arrangement clear.",
+    "step": 3,
+    "reason": "The tank is unfilled, and the drinking water supply can provide its heating water.",
+    "choice": {
+      "combine": "Drinking water supply",
+      "with": "Unfilled uninsulated tank"
+    },
+    "expectation": "The tank will fill with water around the coolant coil.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Reflective insulation",
+          "with": "Unfilled uninsulated tank"
+        },
+        "reason": "Insulating the tank is also needed, but filling it is a direct next step."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The tank is filled around the sealed coil and now needs insulation.",
+    "reaction": "The separation between coolant and storage water is clear.",
+    "step": 4,
+    "reason": "The bare tank needs insulation to retain its stored heat.",
+    "choice": {
+      "combine": "Reflective insulation",
+      "with": "Uninsulated filled tank"
+    },
+    "expectation": "The insulation will wrap the filled tank and reduce heat loss.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The filled tank is insulated, but its coil still needs a heat source.",
+    "reaction": "The open vent and separate fluid paths make the setup clearer.",
+    "step": 5,
+    "reason": "The indoor heat-recovery connection is the apparent source for the tank's coil.",
+    "choice": {
+      "combine": "Unheated water tank",
+      "with": "Indoor heat-recovery connection"
+    },
+    "expectation": "The coil will connect to the process heat loop, warming the stored water.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The coil is connected to the process loop, and the warm tank can store heat or release it to the room; the goal is complete.",
+    "reaction": "The insulation flap was a satisfying, practical detail.",
+    "step": 6,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Connecting the tank to heat recovery brought the separate coil, stored water and insulation together in a physically understandable system.",
+        "steps": [
+          2,
+          3,
+          4,
+          5
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Filling and insulating the tank were clear but predictable steps, with little decision-making once the tank existed.",
+        "steps": [
+          3,
+          4
+        ]
+      },
+      "surprise": {
+        "text": "The insulation flap can be opened to expose warm steel to the room, making the stored heat usable as well as retained.",
+        "steps": [
+          5
+        ]
+      },
+      "arbitrary": {
+        "text": "Nothing felt purposeless; inspecting steel was a guess, but it revealed and automatically performed the tank construction.",
+        "steps": [
+          1
+        ]
+      },
+      "continue": {
+        "text": "I would continue: the heat-recovery assembly was straightforward but its separate fluid paths and adjustable insulation made the result interesting.",
+        "steps": [
+          2,
+          5
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

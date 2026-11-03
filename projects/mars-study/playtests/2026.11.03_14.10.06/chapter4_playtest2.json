@@ -1,0 +1,106 @@
+[
+  {
+    "step": 1,
+    "reason": "The excavator needs power to work, and the cable is the clearest available connection.",
+    "choice": {
+      "combine": "Power cable",
+      "with": "Packed survey excavator"
+    },
+    "expectation": "The cable will connect the excavator to power or prepare it for operation.",
+    "alternatives": [
+      {
+        "choice": {
+          "inspect": "Packed survey excavator"
+        },
+        "reason": "I could check how to prepare the folded machine first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The cable and steel made a separator electromagnet rather than powering the excavator, so I need to find how to deploy the machine.",
+    "reaction": "I was surprised by the automatic separator construction.",
+    "step": 2,
+    "reason": "The surveyed floor is where the excavator is meant to work, so trying the machine there is a direct next step.",
+    "choice": {
+      "combine": "Packed survey excavator",
+      "with": "Surveyed cavern floor"
+    },
+    "expectation": "The excavator will be deployed or begin clearing the cavern floor.",
+    "alternatives": [
+      {
+        "choice": {
+          "inspect": "Packed survey excavator"
+        },
+        "reason": "Inspection could reveal whether it needs preparation before deployment."
+      }
+    ],
+    "lookedAgain": true
+  },
+  {
+    "effect": "The excavator now has a spoil hopper, but its power lead is still unplugged.",
+    "reaction": "The hopper construction makes sense, though I had expected deployment at the floor.",
+    "step": 3,
+    "reason": "The explicit unplugged power lead suggests connecting the cable before excavation.",
+    "choice": {
+      "combine": "Power cable",
+      "with": "Excavator with spoil hopper"
+    },
+    "expectation": "The cable will connect power to the excavator.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The excavator is powered and checked; the new goal is to clear the growing bay.",
+    "reaction": "The startup check makes the next operation clear.",
+    "step": 4,
+    "reason": "The machine is ready to work on the surveyed floor.",
+    "choice": {
+      "combine": "Working survey excavator",
+      "with": "Surveyed cavern floor"
+    },
+    "expectation": "The excavator will clear loose material from the growing bay.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The excavator cleared the surveyed bay, completing the chapter; the cavern still has no breathable air.",
+    "reaction": "The distinction between shelter and breathable space was a satisfying, sensible closing detail.",
+    "step": 5,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Clearing the bay was the most worthwhile passage: the drum, hopper and spoil pile made the work understandable, and the result established a plausible space for the growing room.",
+        "steps": [
+          2,
+          3,
+          4
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The first attempted cable connection was least worthwhile: it produced a separator instead of helping prepare the excavator, with no immediate explanation of its purpose.",
+        "steps": [
+          1
+        ]
+      },
+      "surprise": {
+        "text": "I was surprised that the unsuccessful cable-and-excavator attempt automatically made an electromagnet from the cable and steel.",
+        "steps": [
+          1
+        ]
+      },
+      "arbitrary": {
+        "text": "Making the separator felt disconnected from the current excavation goal, even though the described electromagnet itself made physical sense.",
+        "steps": [
+          1
+        ]
+      },
+      "continue": {
+        "text": "Yes. I would be curious to see how the cleared but airless bay becomes a growing room, especially if the next chapter continues explaining the practical work.",
+        "steps": [
+          4
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

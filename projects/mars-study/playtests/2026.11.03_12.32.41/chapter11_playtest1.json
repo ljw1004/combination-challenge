@@ -1,0 +1,120 @@
+[
+  {
+    "step": 1,
+    "reason": "The lettuce is ready to taste, so I’ll check how to harvest or prepare it.",
+    "choice": {
+      "inspect": "Sown lettuce tray"
+    },
+    "expectation": "The tray should reveal a way to harvest or prepare the leaves.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Sown lettuce tray",
+          "with": "Clean preparation sink"
+        },
+        "reason": "The sink may be used to wash the leaves, but harvesting might come first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The lettuce tray has no available partner, so harvesting or preparation must start elsewhere.",
+    "reaction": "That is a little surprising given that the leaves are ready.",
+    "step": 2,
+    "reason": "The preparation sink is the obvious place to check for the next usable ingredient.",
+    "choice": {
+      "inspect": "Clean preparation sink"
+    },
+    "expectation": "The sink will show what can be used there to prepare the lettuce.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The sink also has no available partner, so preparation cannot start there yet.",
+    "reaction": "I'm puzzled that neither the ready lettuce nor the sink is usable yet.",
+    "step": 3,
+    "reason": "I'll check the cargo mesh for a way to begin; its purpose here isn't clear.",
+    "choice": {
+      "inspect": "Cargo mesh"
+    },
+    "expectation": "The mesh may reveal a compatible item or automatically combine with its only partner.",
+    "alternatives": [
+      {
+        "choice": {
+          "inspect": "Clean cover fabric"
+        },
+        "reason": "The fabric is the other remaining item whose use is unclear."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The mesh and fabric made a lined harvest basket, which may now let me collect the lettuce.",
+    "reaction": "The basket explains why the tray was not usable earlier.",
+    "step": 4,
+    "reason": "The basket should hold the ready leaves for preparation.",
+    "choice": {
+      "combine": "Lined harvest basket",
+      "with": "Sown lettuce tray"
+    },
+    "expectation": "I should be able to harvest lettuce into the basket.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The basket enabled harvesting; the fresh leaves can now be prepared.",
+    "reaction": "Leaving the centre growing is a satisfying detail.",
+    "step": 5,
+    "reason": "The preparation sink is the natural place to wash the harvested leaves.",
+    "choice": {
+      "combine": "Fresh lettuce leaves",
+      "with": "Clean preparation sink"
+    },
+    "expectation": "The leaves will be washed and made ready to eat.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Washing the harvested leaves produced a fresh meal and completed the goal.",
+    "reaction": "The contrast between the green meal and the barren landscape is memorable.",
+    "step": 6,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Harvesting the outer leaves while leaving the centre growing was a satisfying, practical detail.",
+        "steps": [
+          4
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Inspecting the ready lettuce and preparation sink yielded no available partners, making the opening briefly puzzling.",
+        "steps": [
+          1,
+          2
+        ]
+      },
+      "surprise": {
+        "text": "The lettuce could not be harvested until a lined basket had been made; inspecting the mesh revealed and automatically made it.",
+        "steps": [
+          1,
+          3
+        ]
+      },
+      "arbitrary": {
+        "text": "Requiring a basket before harvesting was not apparent from the initial board, although its purpose became clear once made.",
+        "steps": [
+          1,
+          3
+        ]
+      },
+      "continue": {
+        "text": "Yes. The practical construction details and the fresh meal's payoff make me curious about what the expedition does next.",
+        "steps": [
+          3,
+          4,
+          5
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

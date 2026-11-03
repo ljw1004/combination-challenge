@@ -1,0 +1,81 @@
+[
+  {
+    "step": 1,
+    "reason": "The excavator needs a spoil hopper, and the available steel could supply its structure.",
+    "choice": {
+      "combine": "Steel",
+      "with": "Survey excavator without a hopper"
+    },
+    "expectation": "The steel will be fashioned into a hopper for the excavator.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The hopper is installed; the excavator still needs its power lead connected.",
+    "reaction": "The bolted hopper makes practical sense.",
+    "step": 2,
+    "reason": "The result explicitly says the power lead is unplugged, and a power cable is available.",
+    "choice": {
+      "combine": "Power cable",
+      "with": "Excavator with spoil hopper"
+    },
+    "expectation": "The cable will connect power to the excavator.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The excavator is powered and tested, and the next goal is to clear the growing bay.",
+    "reaction": "The test before excavation is a sensible detail.",
+    "step": 3,
+    "reason": "The result says the working excavator can be sent onto the surveyed floor.",
+    "choice": {
+      "combine": "Working survey excavator",
+      "with": "Surveyed cavern floor"
+    },
+    "expectation": "The excavator will clear the surveyed growing bay.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The excavator cleared the surveyed bay and completed the chapter; the cave still has no breathable air.",
+    "reaction": "The spoil-handling description made the result satisfying, and the lack of air keeps its limits clear.",
+    "step": 4,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Clearing the bay was most worthwhile: the drum, hopper and spoil pile showed how the assembled machine actually did its work.",
+        "steps": [
+          1,
+          3
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Connecting the power cable was the least interesting step because the unplugged lead made the choice explicit, though it was sensible preparation.",
+        "steps": [
+          2
+        ]
+      },
+      "surprise": {
+        "text": "The cleared cave provides shelter but no breathable air, a useful reminder that excavation alone does not make it habitable.",
+        "steps": [
+          3
+        ]
+      },
+      "arbitrary": {
+        "text": "None felt particularly arbitrary; the hopper, power connection and excavation each had a clear purpose.",
+        "steps": [
+          1,
+          2,
+          3
+        ]
+      },
+      "continue": {
+        "text": "Yes. The practical assembly was satisfying, and I would be curious how the growing bay becomes usable despite its lack of breathable air.",
+        "steps": [
+          1,
+          3
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

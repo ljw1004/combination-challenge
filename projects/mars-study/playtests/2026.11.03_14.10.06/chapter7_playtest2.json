@@ -1,0 +1,74 @@
+[
+  {
+    "step": 1,
+    "reason": "Steel can provide a supporting frame for the cabin mattress in the sheltered alcove.",
+    "choice": {
+      "combine": "Steel",
+      "with": "Cabin mattress"
+    },
+    "expectation": "The steel and mattress will make a basic berth.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Reflective insulation",
+          "with": "Cabin mattress"
+        },
+        "reason": "The insulation might instead be needed to make the mattress comfortable."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The steel frame supports the mattress, but the berth still needs insulation underneath.",
+    "reaction": "The raised frame makes practical sense.",
+    "step": 2,
+    "reason": "The open frame explicitly needs an insulating layer, and reflective insulation is available.",
+    "choice": {
+      "combine": "Reflective insulation",
+      "with": "Uninsulated berth"
+    },
+    "expectation": "The insulation will fit beneath the mattress and complete the sheltered berth.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The insulation completed the berth, and warm air from the enclosure heats the alcove; the chapter goal is complete.",
+    "reaction": "The finished sleeping space is a satisfying, practical outcome.",
+    "step": 3,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Adding insulation to the raised berth was worthwhile: it completed a sheltered sleeping place and showed how it stays warm.",
+        "steps": [
+          2
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The second combination was straightforward once the first result explicitly identified the missing insulation; it offered little further discovery.",
+        "steps": [
+          1,
+          2
+        ]
+      },
+      "surprise": {
+        "text": "Nothing was particularly surprising; the steel became a mattress frame as expected.",
+        "steps": [
+          1
+        ]
+      },
+      "arbitrary": {
+        "text": "Neither action felt arbitrary: the frame raised the mattress, and the insulation fitted beneath it.",
+        "steps": [
+          1,
+          2
+        ]
+      },
+      "continue": {
+        "text": "I would choose to continue: the practical construction was satisfying, and the empty growing-room floor suggests more work ahead.",
+        "steps": [
+          2
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

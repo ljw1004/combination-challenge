@@ -1,0 +1,114 @@
+[
+  {
+    "step": 1,
+    "reason": "The excavator needs power to work; the cable is the most direct available connection.",
+    "choice": {
+      "combine": "Power cable",
+      "with": "Packed survey excavator"
+    },
+    "expectation": "The cable will power or help prepare the excavator for digging.",
+    "alternatives": [
+      {
+        "choice": {
+          "inspect": "Packed survey excavator"
+        },
+        "reason": "Inspection could reveal whether it needs assembly before connecting power."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The cable combined with steel into a magnetic separator rather than powering the excavator, so I still need to find how to prepare the machine.",
+    "reaction": "I was surprised by the electromagnet, though its construction makes physical sense.",
+    "step": 2,
+    "reason": "The excavator is folded for transport, so checking its available operations should reveal how to put it to work.",
+    "choice": {
+      "inspect": "Packed survey excavator"
+    },
+    "expectation": "Inspection will identify what the excavator needs for deployment or use.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Packed survey excavator",
+          "with": "Surveyed cavern floor"
+        },
+        "reason": "The excavator might be deployable directly at the excavation site."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The excavator now has a spoil hopper, but its power lead remains unplugged.",
+    "reaction": "The hopper is a sensible addition, though I had expected deployment rather than fabrication.",
+    "step": 3,
+    "reason": "The surveyed floor is the intended work site, so I’ll try putting the prepared excavator there.",
+    "choice": {
+      "combine": "Excavator with spoil hopper",
+      "with": "Surveyed cavern floor"
+    },
+    "expectation": "The excavator will be connected and put to work clearing the floor.",
+    "alternatives": [
+      {
+        "choice": {
+          "inspect": "Excavator with spoil hopper"
+        },
+        "reason": "Inspection could clarify how to connect its power lead first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The excavator is powered and checked; the new goal is to clear the surveyed floor.",
+    "reaction": "The compatibility feedback clarified the missing power connection.",
+    "step": 4,
+    "reason": "The working excavator is ready to clear the surveyed floor.",
+    "choice": {
+      "combine": "Working survey excavator",
+      "with": "Surveyed cavern floor"
+    },
+    "expectation": "The excavator will remove loose infill from the growing bay.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The excavator cleared the surveyed bay, completing the chapter; the cave provides shelter but still has no breathable air.",
+    "reaction": "It was satisfying to see the hopper and powered machine used for a concrete result, with the cave’s limitations made clear.",
+    "step": 5,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Clearing the bay paid off the excavator preparation with a physically understandable sequence: digging, collecting and transporting the spoil.",
+        "steps": [
+          2,
+          3,
+          4
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Trying the excavator at the floor before connecting its lead was a redundant detour, although the compatibility feedback immediately corrected it.",
+        "steps": [
+          3
+        ]
+      },
+      "surprise": {
+        "text": "The power cable and steel made a magnetic separator instead of powering the excavator. The coil’s operation was explained sensibly, but its immediate purpose was not clear.",
+        "steps": [
+          1
+        ]
+      },
+      "arbitrary": {
+        "text": "Making the separator felt somewhat disconnected from the visible excavation goal; I did not learn what it was needed for during this chapter.",
+        "steps": [
+          1
+        ]
+      },
+      "continue": {
+        "text": "I would continue to see how the cleared cave becomes usable. The practical details were engaging, though the unexpected separator made the route less clear.",
+        "steps": [
+          1,
+          4
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

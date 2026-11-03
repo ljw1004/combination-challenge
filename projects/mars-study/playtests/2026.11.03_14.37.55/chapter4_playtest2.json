@@ -1,0 +1,81 @@
+[
+  {
+    "step": 1,
+    "reason": "The excavator needs a hopper, and the available steel could provide its structure.",
+    "choice": {
+      "combine": "Steel",
+      "with": "Survey excavator without a hopper"
+    },
+    "expectation": "The steel will be fitted or fashioned into a spoil hopper for the excavator.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The hopper is installed; the excavator still needs its power lead connected.",
+    "reaction": "The bolted hopper fits the described mounts neatly.",
+    "step": 2,
+    "reason": "The result explicitly says the power lead is unplugged, and a power cable is available.",
+    "choice": {
+      "combine": "Power cable",
+      "with": "Excavator with spoil hopper"
+    },
+    "expectation": "The cable will connect power to the excavator.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The excavator is powered and tested, and the next goal is to clear the surveyed growing bay.",
+    "reaction": "The test makes deploying it feel well grounded.",
+    "step": 3,
+    "reason": "The working excavator can now clear the surveyed cavern floor.",
+    "choice": {
+      "combine": "Working survey excavator",
+      "with": "Surveyed cavern floor"
+    },
+    "expectation": "The excavator will remove loose infill from the growing bay.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The excavator cleared the surveyed bay, completing the chapter; the cave still has no breathable air.",
+    "reaction": "Seeing the hopper carry spoil away made the earlier construction feel purposeful.",
+    "step": 4,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Deploying the excavator was most worthwhile: it paid off the hopper and power preparations with a physically understandable excavation.",
+        "steps": [
+          1,
+          2,
+          3
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Connecting the power cable was the least engaging step because the unplugged lead made the choice explicit, though it was sensible preparation.",
+        "steps": [
+          2
+        ]
+      },
+      "surprise": {
+        "text": "The powered test checked the drum, tracks and hopper before excavation, making the transition to actual work feel more credible.",
+        "steps": [
+          2
+        ]
+      },
+      "arbitrary": {
+        "text": "Nothing felt particularly arbitrary; each action had a clear purpose in preparing or using the excavator.",
+        "steps": [
+          1,
+          2,
+          3
+        ]
+      },
+      "continue": {
+        "text": "Yes. I would be curious to see how the cleared but airless bay becomes a growing space, especially if the practical details remain as clear.",
+        "steps": [
+          3
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

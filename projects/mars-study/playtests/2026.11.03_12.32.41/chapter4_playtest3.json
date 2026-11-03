@@ -1,0 +1,94 @@
+[
+  {
+    "step": 1,
+    "reason": "The excavator is packed for transport, so checking how to prepare it is useful before putting it to work.",
+    "choice": {
+      "inspect": "Packed survey excavator"
+    },
+    "expectation": "The inspection should reveal what can prepare or power the excavator.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Power cable",
+          "with": "Packed survey excavator"
+        },
+        "reason": "The excavator will likely need power, but it may need unpacking first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Steel prepared the excavator with a spoil hopper; it may now need power before use.",
+    "reaction": "The automatic preparation was useful, though the hopper was not obvious from the packed machine.",
+    "step": 2,
+    "reason": "The prepared excavator likely needs the available power cable to operate.",
+    "choice": {
+      "combine": "Power cable",
+      "with": "Excavator with spoil hopper"
+    },
+    "expectation": "The cable should connect power to the excavator.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Excavator with spoil hopper",
+          "with": "Surveyed cavern floor"
+        },
+        "reason": "The excavator might be ready to work at the floor already."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The cable made the excavator operational and revealed the goal of clearing the growing bay.",
+    "reaction": "The turning drum and spoil hopper make the preparation feel practical.",
+    "step": 3,
+    "reason": "The working excavator and surveyed cavern floor are the clearest available match for clearing the bay.",
+    "choice": {
+      "combine": "Working survey excavator",
+      "with": "Surveyed cavern floor"
+    },
+    "expectation": "The excavator should clear the surveyed growing bay.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The excavator cleared the surveyed bay and completed the chapter; the cave still needs breathable air.",
+    "reaction": "The cleared space feels like tangible progress, and the reminder that shelter is not breathable is useful.",
+    "step": 4,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Clearing the bay was the most worthwhile passage: the marked excavation produced a concrete space for the growing room while distinguishing rock shelter from breathable habitat.",
+        "steps": [
+          3
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Preparing the excavator was less clear than the later actions: steel became a spoil hopper without explaining how it was fitted.",
+        "steps": [
+          1
+        ]
+      },
+      "surprise": {
+        "text": "Inspecting the packed excavator automatically combined it with steel and produced a hopper; I had expected compatibility information rather than that specific preparation.",
+        "steps": [
+          1
+        ]
+      },
+      "arbitrary": {
+        "text": "The steel-to-hopper preparation felt somewhat arbitrary because the result did not describe the fabrication, although a hopper's purpose became clear when the drum collected spoil.",
+        "steps": [
+          1,
+          2
+        ]
+      },
+      "continue": {
+        "text": "I would continue to see how the cleared cave becomes a growing room; the excavation gave the construction a practical starting point.",
+        "steps": [
+          2,
+          3
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

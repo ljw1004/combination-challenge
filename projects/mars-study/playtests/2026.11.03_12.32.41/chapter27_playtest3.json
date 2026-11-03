@@ -1,0 +1,80 @@
+[
+  {
+    "step": 1,
+    "reason": "The panel has an empty essential-power slot, and the immediate goal is to switch to reserve.",
+    "choice": {
+      "combine": "Charged essential reserve",
+      "with": "Station service panel"
+    },
+    "expectation": "The panel will select the charged reserve for essential power.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Essential power is selected, and the exterior circuits now need to be made safe.",
+    "reaction": "The separate indicators make the shutdown sequence clearer.",
+    "step": 2,
+    "reason": "The panel has a well isolation and drainage slot, and the insulated water line identifies the exterior well circuit.",
+    "choice": {
+      "combine": "Insulated water line",
+      "with": "Station service panel"
+    },
+    "expectation": "The panel will isolate and drain the exterior well line.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The well line is confirmed drained and its trace heating is off; the fuel fab still needs shutdown.",
+    "reaction": "The sequence of draining before switching off heat makes practical sense.",
+    "step": 3,
+    "reason": "The panel has a fuel-fab shutdown slot, and the running fuel fab is the remaining exterior system to secure.",
+    "choice": {
+      "combine": "Running fuel fab",
+      "with": "Station service panel"
+    },
+    "expectation": "The panel will shut down the fuel fab safely.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The fuel fab is safely cooled and isolated, completing the storm preparations; some stored propellant remains, while boil-off vents separately.",
+    "reaction": "The controlled shutdown and acknowledgement of boil-off made the outcome feel physically grounded.",
+    "step": 4,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Draining the well line before switching off its trace heating was worthwhile: the sequence explained how the exterior circuit was protected.",
+        "steps": [
+          2
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Selecting reserve power was a straightforward panel-slot match, with less to figure out than the subsequent shutdown sequences.",
+        "steps": [
+          1
+        ]
+      },
+      "surprise": {
+        "text": "The cold tanks retain some liquid but vent boil-off during shutdown, a useful reminder that stopping production does not eliminate refrigeration concerns.",
+        "steps": [
+          3
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt arbitrary; each matched a named panel control and had a clear safety purpose.",
+        "steps": [
+          1,
+          2,
+          3
+        ]
+      },
+      "continue": {
+        "text": "I would choose to continue to see how the station recovers after the storm; the practical shutdown details made that outcome interesting.",
+        "steps": [
+          2,
+          3
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

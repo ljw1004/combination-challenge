@@ -1,0 +1,115 @@
+[
+  {
+    "step": 1,
+    "reason": "The cores need a cold transfer into the flight carrier, but the required sequence is not yet clear.",
+    "choice": {
+      "inspect": "Cold transfer bench"
+    },
+    "expectation": "The bench should show which specimens or carrier can be used there.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Flight sample carrier",
+          "with": "Cold transfer bench"
+        },
+        "reason": "The carrier may need preparation at the bench, but its role is not yet clear."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The bench automatically chilled the carrier, preparing both cradles for the complete core liners.",
+    "reaction": "The automatic preparation clarified the next step.",
+    "step": 2,
+    "reason": "The conditioned carrier has cradles for the actual cores, so I can load the stored source core.",
+    "choice": {
+      "combine": "Stored source core",
+      "with": "Conditioned flight carrier"
+    },
+    "expectation": "The source core should be secured in one chilled cradle.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The source core is in the first compartment, leaving the second available for the band core.",
+    "reaction": "The separate cradles make the transfer sequence clear.",
+    "step": 3,
+    "reason": "The articulated body is preserved inside the other core, which belongs in the empty chilled compartment.",
+    "choice": {
+      "combine": "Case with an articulated body",
+      "with": "Carrier with source core"
+    },
+    "expectation": "The complete band core should be secured in the second compartment.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Both complete cores are packed separately in the chilled carrier and ready for flight cooling.",
+    "reaction": "Seeing the two samples kept distinct makes the packing feel purposeful.",
+    "step": 4,
+    "reason": "The packed cores need to reach the refrigerated flight bay.",
+    "choice": {
+      "combine": "Flight-packed cores",
+      "with": "Refrigerated flight bay"
+    },
+    "expectation": "The carrier should connect to flight cooling with both cores aboard.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Both cores are aboard and connected to active flight cooling; the first specimen still needs to be brought aboard.",
+    "reaction": "The transfer buffer bridging the cooling handoff is reassuring.",
+    "step": 5,
+    "reason": "The first body is already secured in its slide holder, so the flight specimen locker is the natural destination.",
+    "choice": {
+      "combine": "First body on membrane",
+      "with": "Flight specimen locker"
+    },
+    "expectation": "The first specimen should be secured in the flight locker.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The original membrane is secured separately in the flight locker, completing both specimen-transfer goals.",
+    "reaction": "The dedicated restraint makes the first specimen feel as carefully treated as the cores.",
+    "step": 6,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Loading the two complete cores separately and connecting their carrier to flight cooling made the preservation sequence feel purposeful and physically sensible.",
+        "steps": [
+          2,
+          3,
+          4
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The initial bench inspection was less engaging because it had only one available operation and performed it automatically, though it clarified the carrier's preparation.",
+        "steps": [
+          1
+        ]
+      },
+      "surprise": {
+        "text": "The cold bench automatically chilled both the carrier and its transfer buffer; the buffer later bridged the handoff to flight cooling.",
+        "steps": [
+          1,
+          4
+        ]
+      },
+      "arbitrary": {
+        "text": "Nothing felt particularly arbitrary; each transfer had a clear preservation or stowage purpose.",
+        "steps": []
+      },
+      "continue": {
+        "text": "I would continue to see what happens to the specimens and their discovery, although this chapter's mostly straightforward packing sequence offered few meaningful choices.",
+        "steps": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

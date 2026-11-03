@@ -1,0 +1,80 @@
+[
+  {
+    "step": 1,
+    "reason": "The reserve needs to be selected at the service panel to protect essential loads during the storm.",
+    "choice": {
+      "combine": "Charged essential reserve",
+      "with": "Station service panel"
+    },
+    "expectation": "The panel’s essential power slot will be filled, putting the station on reserve.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The station is on reserve, and the next goal is to make the exterior circuits safe.",
+    "reaction": "The separate shutdown and cooling sequences make the power change feel practical.",
+    "step": 2,
+    "reason": "The insulated water line corresponds to the panel’s well isolation and drain control, which should protect the exterior water circuit.",
+    "choice": {
+      "combine": "Insulated water line",
+      "with": "Station service panel"
+    },
+    "expectation": "The panel will isolate and drain the well line.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The well is isolated and its exterior line drained before trace heating stops; the fuel fab still needs shutting down.",
+    "reaction": "The drain-before-heater sequence is a sensible detail.",
+    "step": 3,
+    "reason": "The running fuel fab matches the panel's shutdown control and is the remaining exterior industrial circuit to secure.",
+    "choice": {
+      "combine": "Running fuel fab",
+      "with": "Station service panel"
+    },
+    "expectation": "The panel will shut down the fuel fab safely.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The fuel fab is safely isolated after cooldown, with boil-off vented separately; the exterior-safety goal and chapter are complete.",
+    "reaction": "The controlled shutdown and unavoidable propellant loss make the storm response feel physically grounded.",
+    "step": 4,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Draining the well line before switching off its trace heating was the most worthwhile action: it connected a simple panel choice to a clear physical risk and a sensible sequence.",
+        "steps": [
+          2
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Selecting reserve power was straightforward rather than especially engaging, though it established which systems would remain protected.",
+        "steps": [
+          1
+        ]
+      },
+      "surprise": {
+        "text": "The fuel tanks retain only part of their liquid while separate vents release boil-off; shutting the plant down does not preserve everything.",
+        "steps": [
+          3
+        ]
+      },
+      "arbitrary": {
+        "text": "None of the three actions felt arbitrary: each corresponded to a named panel control and a storm-preparation goal.",
+        "steps": [
+          1,
+          2,
+          3
+        ]
+      },
+      "continue": {
+        "text": "I would choose to continue to see how the station and its samples fare after the storm; the shutdown details gave that outcome practical stakes.",
+        "steps": [
+          1,
+          3
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

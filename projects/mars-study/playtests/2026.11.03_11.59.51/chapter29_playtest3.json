@@ -1,0 +1,90 @@
+[
+  {
+    "step": 1,
+    "reason": "The arrays are coated in dust, and this is the only available action to restore solar power.",
+    "choice": 1,
+    "expectation": "I expect to clear or restore the arrays so they can produce power again, though the precise method is unclear.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Both solar racks are producing again, so I can restore the drained water line.",
+    "reaction": "The gentle cleaning method makes practical sense.",
+    "step": 2,
+    "reason": "Restoring water addresses the current goal and supports the growing room.",
+    "choice": 1,
+    "expectation": "I expect the exterior line to be refilled and its heating restored, though the exact restart procedure is unclear.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Restarting the return plant also matters, but water comes first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Water and farm circulation are restored; the remaining goal is to resume propellant production.",
+    "reaction": "Warming and checking the line before opening it is a sensible detail.",
+    "step": 3,
+    "reason": "Restarting the return plant addresses the new goal and is the only offered action.",
+    "choice": 1,
+    "expectation": "I expect the plant to restart propellant production using restored solar power, though it may need checks first.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The plant has power and cooling, but its process feed remains closed until water is ready.",
+    "reaction": "The staged restart makes sense.",
+    "step": 4,
+    "reason": "Connecting the primed water line is the only offered action and should let production resume.",
+    "choice": 1,
+    "expectation": "I expect the plant to reopen its feed and resume propellant production, possibly after checks.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The return plant has passed its restart checks and is replacing the propellant lost during the storm; all chapter goals are complete.",
+    "reaction": "The separate, checked restart of water and power felt physically sensible.",
+    "step": 5,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Restoring the water line was most worthwhile: warming and checking it before opening the inlet made the recovery procedure understandable.",
+        "steps": [
+          2
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Powering the plant and then connecting the water line felt somewhat repetitive, although the staged restart had a clear purpose.",
+        "steps": [
+          3,
+          4
+        ]
+      },
+      "surprise": {
+        "text": "The plant kept its process feed closed even after power returned, until the water circuit was ready.",
+        "steps": [
+          3
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt particularly arbitrary; the restart sequence connected each step to a practical need.",
+        "steps": [
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      "continue": {
+        "text": "Yes. The practical recovery was satisfying, and I would be curious to see how the return and preserved discovery unfold, though this chapter offered few meaningful choices.",
+        "steps": [
+          1,
+          2,
+          3,
+          4
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

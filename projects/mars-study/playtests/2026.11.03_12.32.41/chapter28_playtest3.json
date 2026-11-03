@@ -1,0 +1,105 @@
+[
+  {
+    "step": 1,
+    "reason": "The service rail may show how to reduce losses in the growing room; the available materials do not make the fitting clear yet.",
+    "choice": {
+      "inspect": "Growing-room service rail"
+    },
+    "expectation": "The inspection should identify what can be fitted to the rail, possibly installing it if there is only one operation.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The service rail has no available partners yet, so I should prepare something from the loose materials first.",
+    "reaction": "The empty partner list makes the next fitting less obvious.",
+    "step": 2,
+    "reason": "Reflective insulation and clean fabric could form a protective cover for the beds.",
+    "choice": {
+      "combine": "Reflective insulation",
+      "with": "Clean cover fabric"
+    },
+    "expectation": "They will make a flexible insulating cover that can help reduce heat loss.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The materials made a ventilated thermal screen designed to fit the service rail.",
+    "reaction": "The open edge and reflective face make its purpose clearer.",
+    "step": 3,
+    "reason": "The screen has an overlap for the growing-room service rail, so it should fit there.",
+    "choice": {
+      "combine": "Farm thermal screen",
+      "with": "Growing-room service rail"
+    },
+    "expectation": "The screen will hang from the rail and reduce heat and light losses around the crops.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The screen now separates the crop area from the aisle, completing the first goal; the reservoir needs protection next.",
+    "reaction": "The screen's open ventilation route makes the installation feel practical.",
+    "step": 4,
+    "reason": "The reservoir's required protection is not yet clear, so checking its available partners should guide the next action.",
+    "choice": {
+      "inspect": "Shared nutrient reservoir"
+    },
+    "expectation": "The inspection should reveal what can be used at the reservoir, possibly performing the operation if only one is available.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The reservoir now has a cover that preserves its return and aeration openings, but the protection goal remains active.",
+    "reaction": "The automatic cover was useful, and its open fittings make physical sense.",
+    "step": 5,
+    "reason": "The covered reservoir may still need insulation to retain warmth during the storm.",
+    "choice": {
+      "combine": "Reflective insulation",
+      "with": "Covered nutrient reservoir"
+    },
+    "expectation": "The insulation will reduce heat loss from the circulating reservoir.",
+    "alternatives": [],
+    "lookedAgain": true
+  },
+  {
+    "effect": "Insulating the covered reservoir completed the storm-protection goal; low-power circulation and the stored heat also help keep the room functioning.",
+    "reaction": "The connected heat-storage detail was satisfying, and Mara’s mention of rain provided a quiet contrast with Mars.",
+    "step": 6,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Making and installing the thermal screen was worthwhile: it saved heat and redirected light while preserving ventilation, making the tradeoffs understandable.",
+        "steps": [
+          2,
+          3
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Inspecting the service rail before preparing the screen yielded no partners, so that decision offered little beyond ruling out an immediate fitting.",
+        "steps": [
+          1
+        ]
+      },
+      "surprise": {
+        "text": "Inspecting the reservoir automatically made its steel cover; the result explained why the return and aeration openings had to stay clear.",
+        "steps": [
+          4
+        ]
+      },
+      "arbitrary": {
+        "text": "Nothing felt especially arbitrary. The need to make the screen before the rail would accept it was initially unclear, but its construction explained the fit.",
+        "steps": [
+          1,
+          2,
+          3
+        ]
+      },
+      "continue": {
+        "text": "Yes. I would continue to see the storm's aftermath and what happens to the preserved samples; the practical explanations and small personal detail made this chapter engaging.",
+        "steps": [
+          3,
+          5
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

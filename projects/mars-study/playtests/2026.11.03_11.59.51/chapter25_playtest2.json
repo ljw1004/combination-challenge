@@ -1,0 +1,84 @@
+[
+  {
+    "step": 1,
+    "reason": "This is the only available action and should prepare the tanks for storing liquid propellants.",
+    "choice": 1,
+    "expectation": "I expect the cooling units to be fitted to separate cryogenic tanks; gas connections may still be needed.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The tanks now have separate refrigeration and keyed fittings; they still need propellant connections.",
+    "reaction": "The separate fittings and heat rejection make the setup feel suitably careful.",
+    "step": 2,
+    "reason": "Connect the purified methane to its designated cold tank toward the collection goal.",
+    "choice": 1,
+    "expectation": "I expect methane to enter its separate refrigerated vessel and be liquefied, though further connections may be needed.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Connecting oxygen also advances the goal, but I chose to handle methane first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Methane is now collected as a liquid; the oxygen connection remains.",
+    "reaction": "Seeing the first liquid collect is satisfying.",
+    "step": 3,
+    "reason": "Connect the remaining refrigerated tank to the oxygen outlet; it is the only offered gameplay action.",
+    "choice": 1,
+    "expectation": "I expect oxygen to be liquefied and collected separately from the methane.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Both propellants are now stored separately, and the remaining goal is to set the installation running for return.",
+    "reaction": "The dedicated oxygen-clean vessel and separate connections make the process feel careful.",
+    "step": 4,
+    "reason": "This is the only offered gameplay action and should bring the two propellant stores together for the return installation.",
+    "choice": 1,
+    "expectation": "I expect the separate tanks to be incorporated into a running propellant installation, without mixing their contents.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The separate stores are now coordinated with the complete plant, which can supply the ascent tanks; the chapter is complete.",
+    "reaction": "The clarification that the propellant circuits stay separate makes the final combination more sensible.",
+    "step": 5,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Collecting liquid methane was the clearest payoff: an actual product emerged from the earlier fuel-making process.",
+        "steps": [
+          2
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Connecting the oxygen felt somewhat repetitive after the methane, though separate handling had a clear purpose.",
+        "steps": [
+          2,
+          3
+        ]
+      },
+      "surprise": {
+        "text": "Combining the two tanks coordinated their controls rather than mixing their contents; the result made that distinction explicit.",
+        "steps": [
+          4
+        ]
+      },
+      "arbitrary": {
+        "text": "The final tank-to-tank combination initially felt abstract because coordinating controls was not apparent from the pair alone, though the result explained it.",
+        "steps": [
+          4
+        ]
+      },
+      "continue": {
+        "text": "Yes. The return plant provides a useful milestone, and I would be curious to see how the preserved discovery reaches Earth.",
+        "steps": [
+          4
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

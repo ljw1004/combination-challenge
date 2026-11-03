@@ -209,6 +209,10 @@ Here's a process for evaluating the report.md that came from playtesting:
 
 You should write down in a study-specific working-notes.md file, e.g. projects/mars-study/working-notes.md, the actions you propose to take -- presumably things like how you'd restructure combinations/items within existing chapters, or even how you'd re-organize story arcs or chapter texts.
 
+After a substantial multi-chapter playtest, include a chapter-by-chapter score table in those working notes. Use a fenced text block with space-padded columns so the table lines up in plain ASCII. List every tested chapter by number and title, with its Fun and Worthwhile scores. Follow the evaluation guide's [score definitions](fun-and-evaluation.md#chapter-synthesis): display the mean credited/mean total counts, rounding each to one decimal place and omitting a trailing `.0` (for example, `1.3/5`). Identify the story version, playstyle and linked report. For `--fast`, write `not measured` for Fun; keep missing or incomplete evidence explicit.
+
+After revising and completing focused retests, add a second table restricted to those chapters, with Before and After columns for both Fun and Worthwhile. Identify the report and manuscript version supplying each side, including separate retest rounds where needed. Use verified counts without pooling different revisions or modes, and explain what the players' choices and reactions say about the intended fix. A score increase alone does not establish improvement; accepting a sensible route can remove frustrating decisions and lower the Fun count while improving the passage.
+
 
 Review the concrete manuscript rather than treating an outline or target recipe count as evidence of quality. Check motivation and pacing separately from factual plausibility. Propose replacements for weak passages; neither cutting everything nor adding more steps necessarily improves the story. Use the [independent-review and blind-reading procedures](fun-and-evaluation.md#reviewer-independence) for narrative, continuity and authenticity reviews, and for predictions of combinations or story beats.
 

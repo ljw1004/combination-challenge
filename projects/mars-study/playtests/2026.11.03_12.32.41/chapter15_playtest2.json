@@ -1,0 +1,87 @@
+[
+  {
+    "step": 1,
+    "reason": "The refrigerator needs a protective shell, and steel is a plausible material for its frame.",
+    "choice": {
+      "combine": "Steel",
+      "with": "Field refrigeration insert"
+    },
+    "expectation": "The steel will form a supporting case around the refrigeration insert.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Steel",
+          "with": "Reflective insulation"
+        },
+        "reason": "A steel shell could instead be insulated before fitting the insert."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The steel shell holds the refrigeration insert, leaving a gap for insulation and openings for heat rejection.",
+    "reaction": "The separate compressor and radiator openings make the construction feel practical.",
+    "step": 2,
+    "reason": "The remaining insulation should fill the gap around the cold cradle.",
+    "choice": {
+      "combine": "Reflective insulation",
+      "with": "Uninsulated field refrigerator"
+    },
+    "expectation": "The insulation will reduce heat flow into the refrigerated case.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The refrigerator is insulated while its shock mounts and heat-rejection components remain functional; it is ready to mount.",
+    "reaction": "Keeping the radiator exposed makes the insulation step feel physically sensible.",
+    "step": 3,
+    "reason": "The goal calls for mounting the completed field case on the rover.",
+    "choice": {
+      "combine": "Insulated field refrigerator",
+      "with": "Rover cargo mount"
+    },
+    "expectation": "The refrigerated case will be secured to the rover for the trip.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The case is secured to the powered rover mount, completing the goal and leaving a cradle ready for the farther core.",
+    "reaction": "The exposed radiator and empty cradle make the finished case feel practical and purposeful.",
+    "step": 4,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Fitting the insulation while leaving the shock mounts and heat-rejection components clear was the most worthwhile step: it connected a simple combination to the physical needs of refrigeration and transport.",
+        "steps": [
+          2
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Mounting the finished case was a predictable final step, though it provided a clear conclusion.",
+        "steps": [
+          3
+        ]
+      },
+      "surprise": {
+        "text": "The shell had a gap around the cold cradle and separate openings for the compressor and radiator, making the design more considered than a simple protective box.",
+        "steps": [
+          1
+        ]
+      },
+      "arbitrary": {
+        "text": "Nothing felt particularly arbitrary; each combination served the stated purpose of protecting and transporting the refrigerated core.",
+        "steps": [
+          1,
+          2,
+          3
+        ]
+      },
+      "continue": {
+        "text": "Yes. I would be curious to see the farther core collected and learn what it reveals; the practical case-building also made that next expedition feel grounded.",
+        "steps": [
+          3
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

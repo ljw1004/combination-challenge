@@ -1,0 +1,161 @@
+[
+  {
+    "step": 1,
+    "reason": "The beans must be gathered before they can be cooked, and the lined basket is suited to harvesting.",
+    "choice": {
+      "combine": "Lined harvest basket",
+      "with": "Soybean row ready to gather"
+    },
+    "expectation": "I expect to gather the dry soybean pods into the basket.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The soybean pods are gathered on a clean work surface; they still need preparation and cooking.",
+    "reaction": "The harvest connects the meal to the row that survived the storm.",
+    "step": 2,
+    "reason": "I’ll check how the gathered pods can be prepared for cooking.",
+    "choice": {
+      "inspect": "Gathered soybean pods"
+    },
+    "expectation": "The inspection should reveal the next available preparation or cooking step.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The pods have been shelled into dry soybeans, ready for further cooking preparation.",
+    "reaction": "The cloth catching the beans makes the shelling step clear.",
+    "step": 3,
+    "reason": "The beans need thorough cooking, so I’ll try them in the cooker with water available.",
+    "choice": {
+      "combine": "Dry soybeans",
+      "with": "Solar cooking pot"
+    },
+    "expectation": "The beans should begin cooking, possibly using the available drinking water.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The beans cannot go straight into the pot; they must first be combined with drinking water.",
+    "reaction": "That clarifies the preparation order.",
+    "step": 4,
+    "reason": "The compatibility feedback identifies water as the next step for the dry beans.",
+    "choice": {
+      "combine": "Dry soybeans",
+      "with": "Drinking water supply"
+    },
+    "expectation": "The water should prepare the beans for cooking.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The beans have been soaked, drained and rinsed; they are ready for the cooking vessel.",
+    "reaction": "The preparation order is now clear.",
+    "step": 5,
+    "reason": "The soaked beans are ready to go into the solar cooking pot.",
+    "choice": {
+      "combine": "Soaked soybeans",
+      "with": "Solar cooking pot"
+    },
+    "expectation": "The pot should cook the soybeans thoroughly.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The beans are fully cooked, and the new goal is to add potatoes and serve the stew with lettuce.",
+    "reaction": "Cooking the beans separately makes the stated preparation order clear.",
+    "step": 6,
+    "reason": "The potatoes need harvesting before they can join the cooked beans; the basket worked for the soybeans.",
+    "choice": {
+      "combine": "Lined harvest basket",
+      "with": "Potato bed ready to lift"
+    },
+    "expectation": "The basket should collect the potatoes from the bed.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The potatoes are harvested, washed and cut, ready to join the cooked beans.",
+    "reaction": "It is satisfying to see the planted seed potatoes become a substantial harvest.",
+    "step": 7,
+    "reason": "The prepared potatoes can now join the cooked soybeans in the pot.",
+    "choice": {
+      "combine": "Prepared potatoes",
+      "with": "Pot of cooked soybeans"
+    },
+    "expectation": "The potatoes should cook with the beans to make the stew.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The potatoes and beans are now cooked into stew; fresh lettuce remains to be served.",
+    "reaction": "The potato thickening the broth makes the meal feel tangible.",
+    "step": 8,
+    "reason": "The lettuce tray has fresh outer leaves, and the lined basket has already worked for harvesting.",
+    "choice": {
+      "combine": "Lined harvest basket",
+      "with": "Sown lettuce tray"
+    },
+    "expectation": "I expect to gather fresh lettuce leaves to accompany the stew.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The basket cannot currently be combined with anything, so the earlier lettuce-harvesting method is not available here.",
+    "reaction": "That is surprising given the earlier harvest.",
+    "step": 9,
+    "reason": "I’ll check how the lettuce tray can be used in this meal.",
+    "choice": {
+      "inspect": "Sown lettuce tray"
+    },
+    "expectation": "The inspection should reveal an available way to prepare or serve the lettuce.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Inspecting the lettuce tray automatically combined it with the stew, completing the supper and the chapter.",
+    "reaction": "The crisp leaves beside the warm stew made the harvest feel like a satisfying payoff.",
+    "step": 10,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Harvesting the potatoes and cooking them into stew paid off the earlier planting and made the meal tangible.",
+        "steps": [
+          6,
+          7
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Trying the basket on the lettuce was frustrating because it had just worked for the other harvests, yet gave no useful compatibility feedback.",
+        "steps": [
+          1,
+          6,
+          8
+        ]
+      },
+      "surprise": {
+        "text": "The lettuce tray combined directly with the finished stew, automatically picking and washing the leaves, despite the earlier basket method.",
+        "steps": [
+          8,
+          9
+        ]
+      },
+      "arbitrary": {
+        "text": "The basket's inability to harvest lettuce here felt arbitrary given its earlier use, though inspecting the tray revealed a way forward.",
+        "steps": [
+          8,
+          9
+        ]
+      },
+      "continue": {
+        "text": "I would continue: the practical food preparation and payoff from crops kept alive through the storm made me curious about the expedition's return and specimens.",
+        "steps": [
+          5,
+          6,
+          7,
+          9
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

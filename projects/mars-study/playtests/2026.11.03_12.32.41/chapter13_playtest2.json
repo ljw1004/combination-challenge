@@ -1,0 +1,94 @@
+[
+  {
+    "step": 1,
+    "reason": "The raw-water strainer is clogged, and the service hose may help clear it.",
+    "choice": {
+      "combine": "Clean service hose",
+      "with": "Clogged raw-water strainer"
+    },
+    "expectation": "The hose will help clear the blockage and restore flow.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Backflushing restored water and collected residue for the new investigation goal.",
+    "reaction": "The curled flecks make the residue intriguing.",
+    "step": 2,
+    "reason": "The microscope is the obvious way to examine the collected residue.",
+    "choice": {
+      "combine": "Collected intake residue",
+      "with": "Laboratory microscope"
+    },
+    "expectation": "The microscope will reveal more about the material blocking the strainer.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The residue cannot be examined at the microscope directly; it can be combined with the laboratory membrane.",
+    "reaction": "The extra preparation step was unexpected.",
+    "step": 3,
+    "reason": "The reported compatible partner suggests preparing the residue on the membrane before examination.",
+    "choice": {
+      "combine": "Collected intake residue",
+      "with": "Laboratory membrane"
+    },
+    "expectation": "The membrane will prepare or separate the residue for investigation.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The membrane separated the flecks and revealed a regular row of projections, making it ready for closer examination.",
+    "reaction": "The projections are intriguing, though their origin is still unclear.",
+    "step": 4,
+    "reason": "The prepared membrane should now be suitable for examination under the microscope.",
+    "choice": {
+      "combine": "Particle-bearing membrane",
+      "with": "Laboratory microscope"
+    },
+    "expectation": "The microscope will show the flecks in more detail and help identify the blockage.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The microscope revealed a segmented body with limbs in the well residue; the record was sent to Earth, completing the investigation.",
+    "reaction": "The apparent organism was a striking discovery, though its origin remains unknown.",
+    "step": 5,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Examining the prepared membrane was most worthwhile: the visible joints turned an ordinary water-system failure into a consequential discovery.",
+        "steps": [
+          4
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Trying the residue directly at the microscope was less worthwhile because it failed without explaining why membrane preparation was needed.",
+        "steps": [
+          2
+        ]
+      },
+      "surprise": {
+        "text": "The curled flecks proved to include a segmented body with limbs, rather than simply sediment.",
+        "steps": [
+          1,
+          4
+        ]
+      },
+      "arbitrary": {
+        "text": "Requiring a membrane before microscopy initially felt arbitrary, although the subsequent rinse showed how it separated the flecks.",
+        "steps": [
+          2,
+          3
+        ]
+      },
+      "continue": {
+        "text": "Yes. I would want to see how Earth responds and whether the body’s origin can be established; the backflush and filtering also gave the discovery a plausible investigative sequence.",
+        "steps": [
+          1,
+          3,
+          4
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

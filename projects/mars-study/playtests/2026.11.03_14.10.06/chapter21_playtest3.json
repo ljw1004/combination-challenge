@@ -1,0 +1,157 @@
+[
+  {
+    "step": 1,
+    "reason": "The iron-bearing fraction needs separating first, but no separator is visible. Inspecting the screened regolith should reveal how to proceed.",
+    "choice": {
+      "inspect": "Screened regolith"
+    },
+    "expectation": "Its available partners should indicate how to separate the magnetic fraction.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Screened regolith has no available operation yet, so a separator or other preparation appears necessary.",
+    "reaction": "I’m curious what will enable the separation.",
+    "step": 2,
+    "reason": "The unconnected retort is central to making iron, and inspecting it may reveal how to prepare the installation.",
+    "choice": {
+      "inspect": "Unconnected materials retort"
+    },
+    "expectation": "Its available partners should show how to connect or prepare it.",
+    "alternatives": [
+      {
+        "choice": {
+          "inspect": "Steel"
+        },
+        "reason": "Steel might help make the missing separator."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The retort is now connected to hydrogen and ready for mineral concentrate; the magnetic fraction still needs separating.",
+    "reaction": "The inspection usefully completed the retort connection, though the separator remains unclear.",
+    "step": 3,
+    "reason": "Steel may be used to construct the missing separator, so checking its available partners should guide the next step.",
+    "choice": {
+      "inspect": "Steel"
+    },
+    "expectation": "Its partners may reveal a way to make equipment for separating the iron-bearing fraction.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The steel and power cable made a switchable electromagnet, providing the missing separator.",
+    "reaction": "The coil’s switchable release makes the separation mechanism clear.",
+    "step": 4,
+    "reason": "The electromagnet should separate the magnetic iron-bearing fraction from the screened regolith.",
+    "choice": {
+      "combine": "Separator electromagnet",
+      "with": "Screened regolith"
+    },
+    "expectation": "The magnet will collect an iron-bearing concentrate for the retort.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The magnet produced the iron-rich concentrate needed by the hydrogen-fed retort.",
+    "reaction": "The assay distinction clarifies why red color alone is not enough to identify suitable feedstock.",
+    "step": 5,
+    "reason": "The connected retort is ready for the concentrate.",
+    "choice": {
+      "combine": "Iron-rich concentrate",
+      "with": "Hydrogen-fed retort"
+    },
+    "expectation": "The heated hydrogen process will reduce the iron-bearing minerals into usable iron or an intermediate.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The retort reduced the concentrate to porous iron sponge, which now needs pressing.",
+    "reaction": "The weak intermediate makes clear that reduction alone does not produce a finished structural part.",
+    "step": 6,
+    "reason": "The result says the protected carrier brings the iron sponge to the press.",
+    "choice": {
+      "combine": "Reduced iron sponge",
+      "with": "Workshop press"
+    },
+    "expectation": "The press will consolidate the sponge into usable iron.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The press consolidated the sponge into a dense iron billet, completing the iron goal; the billet still needs shaping into a frame.",
+    "reaction": "The distinction between consolidation and shaping is useful.",
+    "step": 7,
+    "reason": "The billet needs a separate shaping operation, so inspecting it should reveal how to make the process frame.",
+    "choice": {
+      "inspect": "Consolidated iron"
+    },
+    "expectation": "Its available partners should show where or how to shape the frame.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Consolidated iron",
+          "with": "Workshop press"
+        },
+        "reason": "The press might also shape the billet, but that operation has not been established."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The press shaped the billet into bars and brackets suitable for non-pressure supports; the process frame still needs assembly.",
+    "reaction": "The distinction between support parts and flight hardware is useful.",
+    "step": 8,
+    "reason": "The fuel-fab footing is the prepared industrial site, so the bars and brackets likely form the process frame there.",
+    "choice": {
+      "combine": "Iron bars and brackets",
+      "with": "Fuel-fab footing"
+    },
+    "expectation": "The supports will be assembled into a process frame on the prepared site.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The bars and brackets became an iron process frame on the prepared footing, completing the chapter’s goals.",
+    "reaction": "It is satisfying to see the local material become a support for the gas installation.",
+    "step": 9,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Reducing the concentrate and then consolidating the porous iron made the distinction between extracting metal and producing a usable billet clear.",
+        "steps": [
+          5,
+          6
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Inspecting the screened regolith yielded no available operation, so it did little to reveal how to make the missing separator.",
+        "steps": [
+          1
+        ]
+      },
+      "surprise": {
+        "text": "The separator was an electromagnet made from steel and the power cable; the explanation of switching it off to release grains made the mechanism clear.",
+        "steps": [
+          3,
+          4
+        ]
+      },
+      "arbitrary": {
+        "text": "The steel-and-cable pairing was not obvious to me before inspecting steel, although the resulting coil had a clear physical purpose.",
+        "steps": [
+          3
+        ]
+      },
+      "continue": {
+        "text": "I would continue: the material-processing steps were physically explained, and I would like to see the locally supported gas installation help bring the discovery home.",
+        "steps": [
+          5,
+          6,
+          8
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

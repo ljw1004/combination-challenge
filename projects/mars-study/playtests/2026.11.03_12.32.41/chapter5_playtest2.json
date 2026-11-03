@@ -1,0 +1,160 @@
+[
+  {
+    "step": 1,
+    "reason": "The reflector petals and receiver look like the core parts of the solar furnace, so I’ll try joining them.",
+    "choice": {
+      "combine": "Reflector petals",
+      "with": "Furnace receiver"
+    },
+    "expectation": "The petals should concentrate sunlight onto the receiver, forming a furnace assembly.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Fine screening mesh",
+          "with": "Excavated regolith"
+        },
+        "reason": "Screening the spoil also looks like a useful first step toward feedstock."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The petals cannot join the receiver yet; the result points to steel as their available partner.",
+    "reaction": "The required intermediate assembly was not obvious.",
+    "step": 2,
+    "reason": "The failed attempt identifies steel as a compatible partner for the reflector petals.",
+    "choice": {
+      "combine": "Reflector petals",
+      "with": "Steel"
+    },
+    "expectation": "The steel should support the reflector petals as part of the furnace assembly.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Fine screening mesh",
+          "with": "Excavated regolith"
+        },
+        "reason": "Screening the spoil could advance the feedstock goal instead."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The steel ring supports the reflector petals, leaving the receiver as the apparent next furnace component.",
+    "reaction": "The braced ring makes the intermediate step physically clear.",
+    "step": 3,
+    "reason": "The supported reflector should now be able to hold and focus sunlight on the furnace receiver.",
+    "choice": {
+      "combine": "Supported reflector",
+      "with": "Furnace receiver"
+    },
+    "expectation": "The receiver will join the reflector to form the solar furnace.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Fine screening mesh",
+          "with": "Excavated regolith"
+        },
+        "reason": "Screening the regolith could advance the feedstock goal instead."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The receiver completed the solar furnace, leaving the formed feedstock goal.",
+    "reaction": "The demonstration of concentrated sunlight heating the receiver was satisfying.",
+    "step": 4,
+    "reason": "The screening mesh looks suited to separating fine material from the excavated regolith for feedstock.",
+    "choice": {
+      "combine": "Fine screening mesh",
+      "with": "Excavated regolith"
+    },
+    "expectation": "The mesh will produce screened regolith suitable for further processing.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The mesh needs a steel intermediate rather than combining directly with the regolith.",
+    "reaction": "Another support step was not obvious from the board.",
+    "step": 5,
+    "reason": "The compatibility feedback identifies steel as the mesh's available partner.",
+    "choice": {
+      "combine": "Fine screening mesh",
+      "with": "Steel"
+    },
+    "expectation": "The steel will support the mesh as a usable screen.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The steel and mesh made a rigid sieve, which should now separate the excavated regolith.",
+    "reaction": "The rim and collection tray explain why the mesh needed support.",
+    "step": 6,
+    "reason": "The completed sieve is suited to screening the excavated regolith for feedstock.",
+    "choice": {
+      "combine": "Regolith sieve",
+      "with": "Excavated regolith"
+    },
+    "expectation": "The sieve will separate fine regolith from larger stones.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The sieve produced screened regolith; it now needs forming to complete the remaining goal.",
+    "reaction": "Separating the coarse stones makes the feedstock preparation clear.",
+    "step": 7,
+    "reason": "The workshop press is the obvious place to form the screened material.",
+    "choice": {
+      "combine": "Screened regolith",
+      "with": "Workshop press"
+    },
+    "expectation": "The press will compact the screened regolith into formed feedstock.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The press produced unfired blanks and completed the chapter; pressing shapes the powder but does not give it finished strength.",
+    "reaction": "The distinction between shaping and firing was a useful detail.",
+    "step": 8,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Building the solar furnace was worthwhile: the supported reflector and receiver made the concentrated-sunlight heating process tangible.",
+        "steps": [
+          2,
+          3
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The two failed direct combinations were repetitive; both required a steel support that was not apparent from the initial board.",
+        "steps": [
+          1,
+          4
+        ]
+      },
+      "surprise": {
+        "text": "The pressed blanks remain weak until firing bonds their grains; forming them was not the same as finishing them.",
+        "steps": [
+          7
+        ]
+      },
+      "arbitrary": {
+        "text": "The initial need to pair both the petals and the mesh with steel was not obvious, though the resulting ring and sieve rim made physical sense.",
+        "steps": [
+          1,
+          2,
+          4,
+          5
+        ]
+      },
+      "continue": {
+        "text": "Yes. I would like to see how the blanks are fired and used; the chapter offered concrete explanations of the making process.",
+        "steps": [
+          3,
+          6,
+          7
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

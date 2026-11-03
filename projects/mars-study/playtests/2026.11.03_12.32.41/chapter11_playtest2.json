@@ -1,0 +1,120 @@
+[
+  {
+    "step": 1,
+    "reason": "The lettuce tray is the clearest starting point for harvesting the leaves; inspecting it will show how it can be used.",
+    "choice": {
+      "inspect": "Sown lettuce tray"
+    },
+    "expectation": "The tray's available partners should indicate how to harvest or prepare the lettuce.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Sown lettuce tray",
+          "with": "Clean preparation sink"
+        },
+        "reason": "The sink may be used to prepare the leaves, but harvesting may come first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The lettuce tray has no available partners, so I need another way to begin preparation.",
+    "reaction": "I’m surprised the ripe-looking tray cannot be used directly.",
+    "step": 2,
+    "reason": "The preparation sink is the remaining obvious place to investigate for the tasting goal.",
+    "choice": {
+      "inspect": "Clean preparation sink"
+    },
+    "expectation": "The sink should reveal which available item can start preparing the lettuce.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The sink also has no available partners, so preparation is not yet possible.",
+    "reaction": "The lack of a direct harvesting or washing action is puzzling.",
+    "step": 3,
+    "reason": "The cargo mesh might be useful for harvesting or holding the leaves, so checking its partners may reveal the missing step.",
+    "choice": {
+      "inspect": "Cargo mesh"
+    },
+    "expectation": "The mesh may have a compatible item that helps prepare the lettuce.",
+    "alternatives": [
+      {
+        "choice": {
+          "inspect": "Clean cover fabric"
+        },
+        "reason": "The fabric might instead be needed to make a harvesting or preparation aid."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The mesh and fabric made a lined harvest basket, giving me a way to collect the lettuce.",
+    "reaction": "The basket is a sensible use for the two materials.",
+    "step": 4,
+    "reason": "The basket should let me harvest the leaves from the tray.",
+    "choice": {
+      "combine": "Lined harvest basket",
+      "with": "Sown lettuce tray"
+    },
+    "expectation": "I expect to collect lettuce in the clean basket.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The basket enabled harvesting, leaving fresh lettuce ready for preparation.",
+    "reaction": "Leaving the centre growing is a satisfying detail.",
+    "step": 5,
+    "reason": "The preparation sink is the natural place to wash the harvested leaves before tasting them.",
+    "choice": {
+      "combine": "Fresh lettuce leaves",
+      "with": "Clean preparation sink"
+    },
+    "expectation": "The leaves should be washed and prepared for eating.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Washing the harvested leaves and adding them to a stored meal completed the chapter’s goal.",
+    "reaction": "The contrast between the fresh green meal and the barren landscape is a memorable payoff.",
+    "step": 6,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Harvesting the outer leaves while leaving the centre growing was a satisfying, practical detail that connected the action to ongoing food production.",
+        "steps": [
+          4
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Inspecting the tray and sink without finding any available partners was puzzling and did not reveal how to begin.",
+        "steps": [
+          1,
+          2
+        ]
+      },
+      "surprise": {
+        "text": "The ripe-looking lettuce tray had no available operation until a basket was made; inspecting the mesh then automatically combined it with the fabric.",
+        "steps": [
+          1,
+          3
+        ]
+      },
+      "arbitrary": {
+        "text": "Requiring a basket before the tray could be used felt somewhat arbitrary, although the lined basket itself made physical sense.",
+        "steps": [
+          1,
+          3,
+          4
+        ]
+      },
+      "continue": {
+        "text": "I would choose to continue: the practical harvesting detail and the fresh meal offered a worthwhile payoff, despite the initially opaque starting step.",
+        "steps": [
+          4,
+          5
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

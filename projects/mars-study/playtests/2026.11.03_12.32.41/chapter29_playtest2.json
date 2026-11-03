@@ -1,0 +1,66 @@
+[
+  {
+    "step": 1,
+    "reason": "The cleaning bench is the obvious place to treat the dust-coated solar supply.",
+    "choice": {
+      "combine": "Dust-coated solar supply",
+      "with": "Array cleaning bench"
+    },
+    "expectation": "The panel sections will be cleaned at the bench.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The arrays are clean and producing power again; the well and fuel fab still need restoring.",
+    "reaction": "The careful cleaning and reconnection make the restored output feel earned.",
+    "step": 2,
+    "reason": "The service panel controlled the storm shutdown, so the restored solar supply is the natural way to select solar operation again.",
+    "choice": {
+      "combine": "Station solar supply",
+      "with": "Station service panel"
+    },
+    "expectation": "The panel will restore solar operation and bring the well and fuel fab back online safely.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Solar operation is restored, with the well checked and primed before the fuel fab restarts; the chapter is complete.",
+    "reaction": "The staged restart was reassuring and more physically specific than a simple power switch.",
+    "step": 3,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Restoring solar operation was most worthwhile: the checks, priming and separate tank refill made recovery from the storm feel consequential.",
+        "steps": [
+          2
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Cleaning the panels was straightforward and left little to decide, though it was a sensible first step.",
+        "steps": [
+          1
+        ]
+      },
+      "surprise": {
+        "text": "The restart explicitly primed and checked the well before reopening the fuel-fab feeds, and acknowledged propellant lost to boil-off.",
+        "steps": [
+          2
+        ]
+      },
+      "arbitrary": {
+        "text": "Neither action felt arbitrary; both followed clearly from the dust storm and the earlier shutdown.",
+        "steps": [
+          1,
+          2
+        ]
+      },
+      "continue": {
+        "text": "I would continue to see how the recovered station and the frozen discovery affect the return journey, although this chapter offered few difficult decisions.",
+        "steps": [
+          1,
+          2
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

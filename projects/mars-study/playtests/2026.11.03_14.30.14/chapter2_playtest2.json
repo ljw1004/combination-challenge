@@ -1,0 +1,139 @@
+[
+  {
+    "step": 1,
+    "reason": "The solar array's buckled feet need repair before it can supply power, but the needed fitting is not certain.",
+    "choice": {
+      "inspect": "Delivered solar array"
+    },
+    "expectation": "Inspection should reveal what can repair or connect the array.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Steel",
+          "with": "Delivered solar array"
+        },
+        "reason": "Steel might reinforce the damaged feet, but I am not certain how the repair is made."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The array now stands on steel feet, so its cable can be connected without strain.",
+    "reaction": "The automatic repair makes practical sense.",
+    "step": 2,
+    "reason": "The loose power cable is the obvious next piece for restoring power.",
+    "choice": {
+      "combine": "Standing solar array",
+      "with": "Power cable"
+    },
+    "expectation": "The cable should connect the array for power delivery.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The array is online and supplying the station; the reserve still needs charging.",
+    "reaction": "The isolated-controller reconnection is a sensible detail.",
+    "step": 3,
+    "reason": "The solar supply is the likely power source for the reserve charging connection.",
+    "choice": {
+      "combine": "Station solar supply",
+      "with": "Reserve charging connection"
+    },
+    "expectation": "The solar supply should charge the reserve.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The essential reserve is charging, and replenishing breathing oxygen is now the goal.",
+    "reaction": "The distinction between essential and industrial loads is useful.",
+    "step": 4,
+    "reason": "The atmospheric processor appears relevant to oxygen production, but its required partner is unclear.",
+    "choice": {
+      "inspect": "Atmospheric processor"
+    },
+    "expectation": "Inspection should show how to put the processor to work.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Atmospheric processor",
+          "with": "Station solar supply"
+        },
+        "reason": "The processor may need power from the restored array."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The powered processor replenishes oxygen, leaving the radio as the next priority.",
+    "reaction": "Splitting atmospheric carbon dioxide makes the oxygen supply more understandable.",
+    "step": 5,
+    "reason": "The bent antenna likely needs repair before it can be mounted for the Earth call.",
+    "choice": {
+      "combine": "Tool kit",
+      "with": "Bent antenna"
+    },
+    "expectation": "The tools should straighten or repair the antenna.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Bent antenna",
+          "with": "Radio mount"
+        },
+        "reason": "The antenna might instead be repaired as part of mounting it."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The antenna is straightened and can now be aimed; it still needs to be connected to the radio.",
+    "reaction": "Repairing the hinge and support is a clear, practical step.",
+    "step": 6,
+    "reason": "The straightened antenna belongs at the radio mount to restore contact with Earth.",
+    "choice": {
+      "combine": "Straightened antenna",
+      "with": "Radio mount"
+    },
+    "expectation": "The antenna should be mounted for the Earth call.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The antenna restored the surface radio and completed the final goal, allowing a recorded message and a reply to Earth.",
+    "reaction": "The delayed exchange is a modest but human payoff after the repairs.",
+    "step": 7,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Powering the atmospheric processor was most worthwhile: it connected the oxygen goal to a useful explanation of splitting carbon dioxide from the Martian atmosphere.",
+        "steps": [
+          4
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Connecting the array cable was straightforward and predictable, though it was sensible progress.",
+        "steps": [
+          2
+        ]
+      },
+      "surprise": {
+        "text": "The reserve's distinction between essential services and industrial loads clarified what backup power could realistically support.",
+        "steps": [
+          3
+        ]
+      },
+      "arbitrary": {
+        "text": "Nothing felt especially arbitrary; the repairs and connections had clear purposes. I inspected the processor because its required partner was not yet certain.",
+        "steps": [
+          4
+        ]
+      },
+      "continue": {
+        "text": "Yes. I would be curious to see how the expedition develops, especially if later chapters continue combining practical engineering details with the personal story.",
+        "steps": [
+          4,
+          6
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

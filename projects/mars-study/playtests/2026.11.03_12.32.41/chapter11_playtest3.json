@@ -1,0 +1,118 @@
+[
+  {
+    "step": 1,
+    "reason": "The lettuce is ready to eat, but it is not yet clear how the tray is harvested or prepared.",
+    "choice": {
+      "inspect": "Sown lettuce tray"
+    },
+    "expectation": "The inspection should reveal how to harvest or prepare the lettuce, possibly performing the action if there is only one option.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Sown lettuce tray",
+          "with": "Clean preparation sink"
+        },
+        "reason": "The sink looks relevant to preparing the leaves, but the tray may need harvesting first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The lettuce tray has no available combination partners, so I need to find another way to prepare the harvest.",
+    "reaction": "I’m puzzled that the ready lettuce cannot be used directly.",
+    "step": 2,
+    "reason": "The preparation sink is the clearest remaining lead, and inspecting it should reveal what it accepts.",
+    "choice": {
+      "inspect": "Clean preparation sink"
+    },
+    "expectation": "The sink will list an available ingredient or automatically perform its only operation.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The sink also has no available operation, so preparation may require making something first.",
+    "reaction": "I’m still unsure how to access the lettuce.",
+    "step": 3,
+    "reason": "The clean fabric may be useful for handling or preparing the leaves; inspecting it should reveal any available first step.",
+    "choice": {
+      "inspect": "Clean cover fabric"
+    },
+    "expectation": "The fabric will list compatible partners or automatically combine if it has only one available operation.",
+    "alternatives": [
+      {
+        "choice": {
+          "inspect": "Cargo mesh"
+        },
+        "reason": "The mesh might also be used to make a harvesting or preparation tool."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The fabric and mesh made a lined harvest basket, giving me a way to collect the lettuce.",
+    "reaction": "The basket explains why the tray was not usable earlier.",
+    "step": 4,
+    "reason": "The new basket is suited to collecting leaves from the lettuce tray.",
+    "choice": {
+      "combine": "Lined harvest basket",
+      "with": "Sown lettuce tray"
+    },
+    "expectation": "The basket and tray should yield harvested lettuce for preparation.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The basket collected fresh lettuce leaves, which can now be prepared.",
+    "reaction": "Leaving the centre growing is a satisfying detail.",
+    "step": 5,
+    "reason": "The clean preparation sink is the natural place to wash and prepare the harvested leaves.",
+    "choice": {
+      "combine": "Fresh lettuce leaves",
+      "with": "Clean preparation sink"
+    },
+    "expectation": "The leaves will be cleaned and prepared for tasting.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Washing the harvested leaves and adding them to a stored meal completed the chapter’s goal.",
+    "reaction": "The fresh green smell against the barren landscape makes a satisfying conclusion.",
+    "step": 6,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Harvesting the outer leaves while leaving the centre growing was a satisfying, practical detail that connected the crop to ongoing food production.",
+        "steps": [
+          4
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Inspecting the tray and sink yielded no available operations, which was puzzling when the lettuce was described as ready.",
+        "steps": [
+          1,
+          2
+        ]
+      },
+      "surprise": {
+        "text": "The fabric and cargo mesh automatically became a lined harvest basket, revealing the missing step before the lettuce could be collected.",
+        "steps": [
+          3
+        ]
+      },
+      "arbitrary": {
+        "text": "Requiring a basket before picking leaves felt somewhat restrictive, though the clean lining gave it a sensible purpose.",
+        "steps": [
+          3,
+          4
+        ]
+      },
+      "continue": {
+        "text": "I would continue: the practical harvesting detail and the contrast of fresh food with the Martian landscape make me curious about what comes next, despite the opaque initial interactions.",
+        "steps": [
+          4,
+          5
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

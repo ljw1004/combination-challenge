@@ -1,0 +1,163 @@
+[
+  {
+    "step": 1,
+    "reason": "The separator and coolant tubing both seem relevant, but their installation order is unclear. Checking the separator should identify its available partners.",
+    "choice": {
+      "inspect": "Gas separator module"
+    },
+    "expectation": "The inspection should show what the separator can connect to, and may perform the connection if there is only one option.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Coolant tubing",
+          "with": "Gas separator module"
+        },
+        "reason": "The tubing might provide cooling for condensation, but its intended connection is not yet clear."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The separator has no available partner yet, so another part of the system must be prepared first.",
+    "reaction": "That was unexpected; the installation sequence is still unclear.",
+    "step": 2,
+    "reason": "The reactor produces water vapour, so connecting coolant tubing to it is a plausible first step toward condensation.",
+    "choice": {
+      "combine": "Coolant tubing",
+      "with": "Controlled methane reactor"
+    },
+    "expectation": "The tubing will add a cooling connection for recovering water from the reactor output.",
+    "alternatives": [
+      {
+        "choice": {
+          "inspect": "Coolant tubing"
+        },
+        "reason": "Checking its partners would reduce the risk of guessing, but the reactor seems a plausible connection."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The coolant tubing cannot connect directly to the reactor; its listed partner is steel.",
+    "reaction": "The failed guess clarifies the next step.",
+    "step": 3,
+    "reason": "The tubing's compatibility list identifies steel as its available partner.",
+    "choice": {
+      "combine": "Coolant tubing",
+      "with": "Steel"
+    },
+    "expectation": "The steel and tubing will form a cooling component for the separation system.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Steel and tubing made a radiating cooling panel, which may enable the separation equipment.",
+    "reaction": "The panel's heat-rejection role makes the earlier steel connection clearer.",
+    "step": 4,
+    "reason": "The cooling panel plausibly provides the heat rejection needed by the gas separator.",
+    "choice": {
+      "combine": "Process cooling panel",
+      "with": "Gas separator module"
+    },
+    "expectation": "The panel will connect to the separator to support cooling and water removal.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The separator now has cooling but still needs a gas feed.",
+    "reaction": "The exposed radiator and separate process inlet make the arrangement clearer.",
+    "step": 5,
+    "reason": "The controlled reactor is the ongoing source of gas for the separator.",
+    "choice": {
+      "combine": "Cooled separator module",
+      "with": "Controlled methane reactor"
+    },
+    "expectation": "The separator will connect to the reactor output so it can condense and remove water.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Cooled separator module",
+          "with": "Unpurified methane test cylinder"
+        },
+        "reason": "The test cylinder contains the mixed gas, but the working plant needs a connection to the reactor."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The reactor now has a cooled separator that recovers water and polishes methane; the water return still needs a connection.",
+    "reaction": "The separate return for unreacted gas makes the system clearer.",
+    "step": 6,
+    "reason": "The clean service hose is a plausible way to connect the recovered water back into the system.",
+    "choice": {
+      "combine": "Clean service hose",
+      "with": "Purifying methane reactor"
+    },
+    "expectation": "The hose will complete the recovered-water return connection.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The hose completed the water-treatment return, leaving the goal of feeding clean methane from the reactor.",
+    "reaction": "It is satisfying to see the recovered water routed back into the process.",
+    "step": 7,
+    "reason": "The test cylinder may be needed to establish the methane feed, though its role in the completed system is unclear.",
+    "choice": {
+      "combine": "Unpurified methane test cylinder",
+      "with": "Water-recovering methane reactor"
+    },
+    "expectation": "The test cylinder may connect to the reactor for processing or verification; otherwise its compatibility feedback should clarify its role.",
+    "alternatives": [
+      {
+        "choice": {
+          "inspect": "Water-recovering methane reactor"
+        },
+        "reason": "Inspecting the reactor could identify the next connection without guessing."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The test batch passed through the completed system, and the reactor now supplies purified methane continuously; both chapter goals are complete.",
+    "reaction": "It is satisfying to see the test cylinder and working reactor use the same purification route.",
+    "step": 8,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Connecting the water return made the process feel like a functional loop: recovered water goes back through treatment and electrolysis rather than ending at a loose outlet.",
+        "steps": [
+          6
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Inspecting the separator initially revealed no partners, leaving the installation sequence unclear; the next guess also failed.",
+        "steps": [
+          1,
+          2
+        ]
+      },
+      "surprise": {
+        "text": "The coolant tubing needed steel to make a radiating panel rather than connecting directly to the reactor. The result explained how the panel sheds heat.",
+        "steps": [
+          2,
+          3
+        ]
+      },
+      "arbitrary": {
+        "text": "The test cylinder's final role was not clear beforehand, so connecting it was a guess. The result made its purpose as a batch passed through the completed equipment understandable.",
+        "steps": [
+          7
+        ]
+      },
+      "continue": {
+        "text": "Yes. I would continue to see how the purified methane contributes to the return and what happens to the preserved discovery; the separate cooling, gas and water paths made this chapter's engineering interesting.",
+        "steps": [
+          4,
+          5,
+          6,
+          7
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]
