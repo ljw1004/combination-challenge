@@ -156,11 +156,14 @@ dialog button,dialog select{min-height:44px}
 .chapter-popup .reading-text>:first-child{margin-top:0}
 .chapter-popup .reading-text>:last-child{margin-bottom:0}
 .chapter-actions{display:flex;align-items:center;flex:none;gap:8px;margin-top:12px}
-.chapter-encyclopedia{display:inline-flex;align-items:center;flex:none;gap:6px;border:0;background:transparent;padding:0;font-size:12px;text-decoration:none}
-.chapter-encyclopedia:hover,.chapter-book-label{text-decoration:none}
-.chapter-book-button{display:grid;place-items:center;flex:none;width:44px;height:44px;border:1px solid #718571;border-radius:7px;background:#e6edde}
-.chapter-actions .recovery-action{margin-left:auto;min-width:0;border:0;background:transparent;box-shadow:none;color:#746b5c;font-size:12px;padding:4px 0;text-align:right;text-decoration:underline;text-decoration-color:#746b5c66;text-underline-offset:3px}
-.chapter-actions .recovery-action:hover,.chapter-actions .recovery-action:focus-visible{color:#35382f;text-decoration-color:currentColor}
+.chapter-actions .chapter-encyclopedia,.chapter-actions .recovery-action{border:0;background:transparent;box-shadow:none;color:#746b5c;font-size:12px;padding:4px 0}
+.chapter-encyclopedia{display:inline-flex;align-items:center;flex:none;gap:6px;text-decoration:none}
+.chapter-book-icon{display:grid;place-items:center;flex:none}
+.chapter-book-icon .open-book{width:20px;height:18px;filter:saturate(.45)}
+.chapter-actions .recovery-action{margin-left:auto;min-width:0;text-align:right}
+.chapter-book-label,.chapter-actions .recovery-action{text-decoration:underline;text-decoration-color:#746b5c66;text-underline-offset:3px}
+.chapter-encyclopedia:is(:hover,:focus-visible),.chapter-actions .recovery-action:is(:hover,:focus-visible){color:#35382f}
+.chapter-encyclopedia:is(:hover,:focus-visible) .chapter-book-label,.chapter-actions .recovery-action:is(:hover,:focus-visible){text-decoration-color:currentColor}
 @container game (max-width:359px){.game-dialog-layer dialog.chapter-popup{padding-inline:12px}}
 /* Earned readiness arrives after the final reading, not behind its dialog. */
 .goals-leaving{animation:goals-depart .22s ease-in both;pointer-events:none}

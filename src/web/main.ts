@@ -470,7 +470,11 @@ function openPendingReading() {
 function chapterContent() {
   const recovery = chapterRecovery(chapterSession);
   const text = chapterSession.entry.pending.find(n => n.kind === 'chapter')?.markdown ?? story.chapters[state.chapter].intro;
-  return `<header class="chapter-popup-header"><button class="chapter-close" data-command="close" aria-label="Close" title="Close"><span aria-hidden="true">×</span></button></header>${readingBody(text, asset)}<div class="chapter-actions">${encyclopediaEntries(story, state).length >= 3 ? '<button class="chapter-encyclopedia" data-command="encyclopedia"><span class="chapter-book-button" aria-hidden="true">' + openBook + '</span><span class="chapter-book-label">Encyclopedia</span></button>' : ''}${recovery === 'chapter' ? '<button class="recovery-action" data-command="reset-chapter"><span aria-hidden="true">↻</span> Restart this chapter</button>' : recovery === 'story' ? '<button class="recovery-action" data-command="confirm-reset-story">Restart story</button>' : ''}</div>`;
+  const encyclopedia = encyclopediaEntries(story, state).length >= 3
+    ? `<button class="chapter-encyclopedia" data-command="encyclopedia"><span class="chapter-book-icon" aria-hidden="true">${openBook}</span><span class="chapter-book-label">Encyclopedia</span></button>` : '';
+  const restart = recovery === 'chapter' ? 'Restart this chapter' : 'Restart story';
+  const command = recovery === 'chapter' ? 'reset-chapter' : 'confirm-reset-story';
+  return `<header class="chapter-popup-header"><button class="chapter-close" data-command="close" aria-label="Close" title="Close"><span aria-hidden="true">×</span></button></header>${readingBody(text, asset)}<div class="chapter-actions">${encyclopedia}<button class="recovery-action" data-command="${command}">${restart} <span aria-hidden="true">↻</span></button></div>`;
 }
 function reopenChapter() { flushPreview(); modal(chapterContent(), 'intertitle chapter-popup', { kind: 'chapter' }); rememberInteraction(); }
 function confirmRestart() { modal('<h1>Restart this story?</h1><p>This removes all progress in this story on this device, including completed chapters, discoveries, item positions and tutorial progress. Your Markdown draft is kept. You will return to the cover page and Start button. This cannot be undone. Your other stories are unchanged.</p><div class="dialog-actions"><button data-command="cancel-reset-story">Cancel</button><button class="danger" data-command="reset-story">Restart story</button></div>', 'ordinary', { kind: 'confirm' }); }

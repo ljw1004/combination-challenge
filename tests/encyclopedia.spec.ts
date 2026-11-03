@@ -85,7 +85,7 @@ test('only the reopened chapter dismisses on backdrop clicks, with a top-right C
   expect(restart.x + restart.width).toBeCloseTo(row.x + row.width, 0);
 });
 
-test('the compact chapter row opens the book through either icon or plain label and keeps long prose scrollable', async ({ page }) => {
+test('the compact chapter row opens the book through either its icon or label and keeps long prose scrollable', async ({ page }) => {
   await page.setViewportSize({ width: 320, height: 600 });
   const text = manuscript.replace('- Tool\n', '- Extra\n\n  Extra description.\n\n- Tool\n')
     .replace('Workshop introduction.', Array.from({ length: 20 }, () => 'Workshop introduction.').join('\n\n'));
@@ -105,11 +105,13 @@ test('the compact chapter row opens the book through either icon or plain label 
   expect(right.x + right.width).toBeCloseTo(row.x + row.width, 0);
   expect(right.x).toBeGreaterThan(left.x + left.width);
   expect(left.y + left.height / 2).toBeCloseTo(right.y + right.height / 2, 0);
-  expect(await label.evaluate(el => getComputedStyle(el).textDecorationLine)).toBe('none');
+  const prose = (await body.boundingBox())!;
+  expect(row.y).toBeGreaterThanOrEqual(prose.y + prose.height);
+  expect(await label.evaluate(el => getComputedStyle(el).textDecorationLine)).toBe('underline');
   await label.hover();
-  expect(await label.evaluate(el => getComputedStyle(el).textDecorationLine)).toBe('none');
+  expect(await label.evaluate(el => getComputedStyle(el).textDecorationLine)).toBe('underline');
   expect(await book.evaluate(el => getComputedStyle(el).borderWidth)).toBe('0px');
-  await book.locator('.chapter-book-button').click();
+  await book.locator('.chapter-book-icon').click();
   await expect(page.getByRole('dialog', { name: 'Encyclopedia', exact: true })).toBeVisible();
   await page.getByRole('button', { name: 'Close', exact: true }).click();
   await goals.click(); await label.click();
@@ -266,7 +268,7 @@ test('mobile inner edges stay square; resizing reveals two accessible pages with
   await openFixture(page, manuscript.replace('- Tool\n', '- Extra\n\n  Extra description.\n\n- Tool\n'));
   await page.getByRole('button', { name: 'Read this chapter' }).click();
   const glyph = page.getByRole('button', { name: 'Encyclopedia', exact: true }).locator('.open-book');
-  expect(await glyph.evaluate(el => [getComputedStyle(el).width, getComputedStyle(el).height])).toEqual(['25px', '23px']);
+  expect(await glyph.evaluate(el => [getComputedStyle(el).width, getComputedStyle(el).height])).toEqual(['20px', '18px']);
   await page.getByRole('button', { name: 'Encyclopedia', exact: true }).click();
   const dialog = page.getByRole('dialog', { name: 'Encyclopedia', exact: true });
   const index = page.locator('.encyclopedia-index'), detail = page.locator('.encyclopedia-detail');
